@@ -3,7 +3,9 @@
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {},
+  "scripts": {
+    "reset": "scripts/reset"
+  },
   "devDependencies": {
     "lerna": "^3.15.0"
   }

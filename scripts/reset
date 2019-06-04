@@ -1,0 +1,17 @@
+#!/bin/bash
+set -eo pipefail
+
+root_dir=$(pwd)
+
+source "${root_dir}/scripts/assert-yarn"
+
+clean() {
+  xargs -I % bash -c "echo 'Removing %' && rm -rf %"
+}
+
+# Clean root first so that we don't clean each of our dependencies
+find "${root_dir}" -maxdepth 1 -name "node_modules" | clean
+find "${root_dir}" -maxdepth 3 -name "node_modules" | clean
+
+echo "Reinstalling dependencies..."
+yarn
