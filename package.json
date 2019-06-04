@@ -4,9 +4,8 @@
     "packages/*"
   ],
   "scripts": {
-    "prettier": "prettier '**/*.{ts,tsx,js,json,yaml,yml}'",
-    "format": "yarn -s prettier --write",
-    "lint": "yarn -s prettier --check",
+    "format": "prettier --write '**/*'",
+    "lint": "tslint -p . && prettier --check '**/*'",
     "reset": "scripts/reset"
   },
   "devDependencies": {
