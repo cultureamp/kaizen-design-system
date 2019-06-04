@@ -1,0 +1,9 @@
+{
+  "extends": ["tslint-config-prettier"],
+  "rules": {
+    "no-implicit-dependencies": [true, "dev"],
+    "ordered-imports": true,
+    "prefer-const": true,
+    "only-arrow-functions": true
+  }
+}

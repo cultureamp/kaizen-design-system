@@ -5,13 +5,16 @@
   ],
   "scripts": {
     "compile": "tsc --noEmit",
-    "format": "prettier --write '**/*'",
+    "format": "tslint -p . --fix && prettier --write '**/*'",
     "lint": "tslint -p . && prettier --check '**/*'",
     "reset": "scripts/reset"
   },
   "devDependencies": {
     "lerna": "^3.15.0",
     "prettier": "^1.18.2",
-    "typescript": "^3.5.1"
+    "tslint": "^5.17.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.5.1",
+    "typescript-tslint-plugin": "^0.5.0"
   }
 }
