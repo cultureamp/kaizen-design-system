@@ -4,9 +4,13 @@
     "packages/*"
   ],
   "scripts": {
+    "prettier": "prettier '**/*.{ts,tsx,js,json,yaml,yml}'",
+    "format": "yarn -s prettier --write",
+    "lint": "yarn -s prettier --check",
     "reset": "scripts/reset"
   },
   "devDependencies": {
-    "lerna": "^3.15.0"
+    "lerna": "^3.15.0",
+    "prettier": "^1.18.2"
   }
 }
