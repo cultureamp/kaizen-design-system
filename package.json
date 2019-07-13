@@ -5,11 +5,11 @@
     "tools/*"
   ],
   "scripts": {
-    "compile": "tsc --noEmit",
-    "format": "tslint -p . --fix && prettier --write '**/*'",
-    "lint": "tslint -p . && prettier --check '**/*'",
-    "test": "jest",
     "kaizen": "scripts/cli",
+    "compile": "scripts/compile",
+    "format": "scripts/format",
+    "lint": "scripts/lint",
+    "test": "scripts/test",
     "reset": "scripts/reset"
   },
   "devDependencies": {

@@ -1,0 +1,9 @@
+#!/bin/bash
+set -eo pipefail
+
+helpers="$(dirname $0)/helpers"
+source "${helpers}/newline"
+source "${helpers}/bin"
+
+newline "Running tests..."
+$bin/jest $@
