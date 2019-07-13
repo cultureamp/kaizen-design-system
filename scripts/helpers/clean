@@ -1,12 +1,7 @@
 #!/bin/bash
 set -eo pipefail
 
-root_dir="$(realpath $(dirname $0)/..)"
-
-newline() {
-  echo -e "\n🌱 $@"
-}
-
+# Pipe in paths to remove them in a subshell
 clean() {
   xargs -I % bash -c "echo 'Removing %' && rm -rf %"
 }

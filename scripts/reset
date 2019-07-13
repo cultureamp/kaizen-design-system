@@ -1,12 +1,15 @@
 #!/bin/bash
 set -eo pipefail
 
-source "$(dirname $0)/common"
+helpers="$(dirname $0)/helpers"
+source "${helpers}/clean"
+source "${helpers}/newline"
+source "${helpers}/root"
 
 newline "Cleaning node_modules directories..."
 # Clean root first so that we don't clean each of our dependencies
-find "${root_dir}" -maxdepth 1 -name "node_modules" | clean
-find "${root_dir}" -maxdepth 3 -name "node_modules" | clean
+find "${root}" -maxdepth 1 -name "node_modules" | clean
+find "${root}" -maxdepth 3 -name "node_modules" | clean
 
 newline "Reinstalling package dependencies..."
 yarn

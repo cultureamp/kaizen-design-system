@@ -1,15 +1,15 @@
 #!/bin/bash
 set -eo pipefail
 
-source "$(dirname $0)/common"
+helpers="$(dirname $0)/helpers"
+source "${helpers}/root"
 
-cli_dir="${root_dir}/tools/cli"
-tsnode="${cli_dir}/node_modules/.bin/ts-node"
-project="${root_dir}/tsconfig.json"
+cli="${root}/tools/cli"
+tsnode="${cli}/node_modules/.bin/ts-node"
 
 if [ ! -f "${tsnode}" ]; then
-  cd "${root_dir}"
+  cd "${root}"
   yarn install --frozen-lockfile
 fi
 
-$tsnode --transpile-only --project "${project}" "${cli_dir}/run" "$@"
+$tsnode --transpile-only --project "${root}/tsconfig.json" "${cli}/run" "$@"

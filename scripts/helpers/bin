@@ -1,0 +1,5 @@
+#!/bin/bash
+set -eo pipefail
+
+# Path to the root node binaries directory
+bin="$(realpath $(dirname $0)/../node_modules/.bin)"
