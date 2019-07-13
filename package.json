@@ -5,12 +5,13 @@
     "tools/*"
   ],
   "scripts": {
-    "kaizen": "scripts/cli",
-    "compile": "scripts/compile",
-    "format": "scripts/format",
-    "lint": "scripts/lint",
-    "test": "scripts/test",
-    "reset": "scripts/reset"
+    "kaizen": "bin/cli",
+    "compile": "bin/compile",
+    "format": "bin/format",
+    "lint": "bin/lint",
+    "reset": "bin/reset",
+    "setup": "bin/setup",
+    "test": "bin/test"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",

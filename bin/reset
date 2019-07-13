@@ -11,5 +11,4 @@ newline "Cleaning node_modules directories..."
 find "${root}" -maxdepth 1 -name "node_modules" | clean
 find "${root}" -maxdepth 3 -name "node_modules" | clean
 
-newline "Reinstalling package dependencies..."
-yarn
+$root/bin/setup

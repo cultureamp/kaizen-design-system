@@ -7,7 +7,7 @@ source "${helpers}/root"
 cli="${root}/tools/cli"
 tsnode="${cli}/node_modules/.bin/ts-node"
 
-if [ ! -f "${tsnode}" ]; then
+if [[ ! -f "${tsnode}" ]]; then
   cd "${root}"
   yarn install --frozen-lockfile
 fi

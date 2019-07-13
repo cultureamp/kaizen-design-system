@@ -1,0 +1,14 @@
+#!/bin/bash
+set -eo pipefail
+
+helpers="$(dirname $0)/helpers"
+source "${helpers}/newline"
+source "${helpers}/root"
+
+if [[ "$1" == *reset ]]; then
+  $root/bin/reset
+else
+  newline "Installing package dependencies..."
+  yarn --frozen-lockfile
+fi
+
