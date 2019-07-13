@@ -1,0 +1,15 @@
+#!/bin/bash
+set -eo pipefail
+
+source "$(dirname $0)/common"
+
+cli_dir="${root_dir}/tools/cli"
+tsnode="${cli_dir}/node_modules/.bin/ts-node"
+project="${root_dir}/tsconfig.json"
+
+if [ ! -f "${tsnode}" ]; then
+  cd "${root_dir}"
+  yarn install --frozen-lockfile
+fi
+
+$tsnode --transpile-only --project "${project}" "${cli_dir}/run" "$@"
