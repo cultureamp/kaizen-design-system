@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "plugins": [{ "name": "typescript-tslint-plugin" }],
-    "lib": ["es2018"],
+    "lib": ["es2018", "dom"],
+    "jsx": "react",
     "module": "commonjs",
     "allowJs": false,
     "esModuleInterop": true,
