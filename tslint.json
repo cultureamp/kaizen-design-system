@@ -1,7 +1,11 @@
 {
   "extends": ["tslint-config-prettier"],
   "rules": {
-    "no-implicit-dependencies": [true, "dev"],
+    "no-implicit-dependencies": [
+      true,
+      "dev",
+      ["webpack", "postcss-flexbugs-fixes", "postcss-preset-env"]
+    ],
     "ordered-imports": true,
     "prefer-const": true,
     "only-arrow-functions": true

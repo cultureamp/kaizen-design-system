@@ -2,13 +2,6 @@
   "name": "@kaizen/webpack",
   "version": "0.0.0",
   "private": true,
-  "peerDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/preset-typescript": "^7.3.3",
-    "babel-loader": "^8.0.6",
-    "webpack": "^4.33.0"
-  },
   "dependencies": {
     "@types/webpack": "^4.4.35"
   }
