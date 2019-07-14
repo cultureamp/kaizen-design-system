@@ -1,7 +1,10 @@
 import execa from "execa"
 import { readdirSync } from "fs"
 import { resolve } from "path"
-import { Arguments } from "yargs"
+import { CommandModule } from "yargs"
+
+/** List of package script names to skip when generating aliases. */
+const ignore = ["cli"]
 
 const rootDir = resolve(__dirname, "../../..")
 const binDir = resolve(rootDir, "bin")
@@ -10,18 +13,20 @@ const getScriptNames = () =>
   readdirSync(binDir, { withFileTypes: true })
     .filter(dirent => !dirent.isDirectory())
     .map(dirent => dirent.name)
-    .filter(name => name !== "cli")
+    .filter(name => !ignore.includes(name))
 
-export const command = "<script>"
-export const description = "Aliases for package scripts."
-export const aliases = getScriptNames()
-
-export const handler = async ({ _ }: Arguments) => {
-  const [scriptName, ...args] = _
-  await execa(resolve(binDir, scriptName), args, {
-    cwd: resolve(rootDir),
-    stdio: "inherit",
-  }).catch(error => {
-    process.exit(1)
-  })
+const commandModule: CommandModule = {
+  command: "<script>",
+  describe: "Aliases for package scripts.",
+  aliases: getScriptNames(),
+  handler: async ({ _ }) => {
+    const [scriptName, ...args] = _
+    await execa(resolve(binDir, scriptName), args, {
+      cwd: rootDir,
+      stdio: "inherit",
+    }).catch(() => process.exit(1))
+  },
 }
+
+const { command, describe, aliases, handler } = commandModule
+export { command, describe, aliases, handler }
