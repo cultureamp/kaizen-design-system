@@ -1,6 +1,15 @@
 {
   "compilerOptions": {
-    "plugins": [{ "name": "typescript-tslint-plugin" }],
+    "plugins": [
+      { "name": "typescript-tslint-plugin" },
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "customMatcher": "\\.(sass|scss|css)$",
+          "camelCase": "dashes"
+        }
+      }
+    ],
     "lib": ["es2018", "dom"],
     "jsx": "react",
     "module": "commonjs",
