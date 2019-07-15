@@ -6,6 +6,8 @@
   ],
   "scripts": {
     "kaizen": "bin/cli",
+    "site": "bin/cli site",
+    "storybook": "bin/cli storybook",
     "compile": "bin/compile",
     "format": "bin/format",
     "lint": "bin/lint",
