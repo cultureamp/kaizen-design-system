@@ -1,7 +1,7 @@
-const { rules } = require("@kaizen/webpack")
+const { extensions, rules } = require("@kaizen/webpack")
 
 module.exports = ({ config }) => {
-  rules.forEach(rule => config.module.rules.push(rule))
-  config.resolve.extensions.push(".ts", ".tsx")
+  config.module.rules.push(...rules)
+  config.resolve.extensions.push(...extensions)
   return config
 }

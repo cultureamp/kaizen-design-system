@@ -1,23 +1,28 @@
+// tslint:disable:no-implicit-dependencies
 import { Loader, RuleSetRule } from "webpack"
+
+export const extensions = [".ts", ".tsx"]
 
 const excludeExternalModules = (rule: RuleSetRule): RuleSetRule => ({
   exclude: /node_modules\/(?!\@kaizen).*/,
   ...rule,
 })
 
+export const babelLoaderOptions = {
+  presets: ["@babel/preset-typescript", "@babel/preset-react"],
+  plugins: [
+    "@babel/plugin-proposal-numeric-separator",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread",
+  ],
+}
+
 const babelRule: RuleSetRule = {
   test: /\.(j|t)sx?$/,
   use: [
     {
       loader: require.resolve("babel-loader"),
-      options: {
-        plugins: [
-          "@babel/plugin-proposal-numeric-separator",
-          "@babel/plugin-proposal-class-properties",
-          "@babel/plugin-proposal-object-rest-spread",
-        ],
-        presets: ["@babel/preset-typescript", "@babel/preset-react"],
-      },
+      options: babelLoaderOptions,
     },
   ],
 }
