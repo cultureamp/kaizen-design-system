@@ -11,7 +11,7 @@
     "@babel/preset-typescript": "^7.3.3",
     "@kaizen/storybook": "*",
     "@kaizen/webpack": "*",
-    "@types/node": "^12.6.2",
+    "@types/node": "^12.6.3",
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.4",
     "gatsby": "^2.13.20",
