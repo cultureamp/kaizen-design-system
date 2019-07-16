@@ -8,7 +8,7 @@ addParameters({
 })
 
 const loadStories = () => {
-  const req = require.context("../../packages", true, /(.+\.)?stories.tsx?$/)
+  const req = require.context("../../site", true, /(.+\.)?stories.tsx?$/)
   req.keys().forEach(filename => req(filename))
 }
 

@@ -2,7 +2,6 @@
   "private": true,
   "workspaces": [
     "site",
-    "packages/*",
     "tools/*"
   ],
   "scripts": {

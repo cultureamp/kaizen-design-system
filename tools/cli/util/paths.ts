@@ -1,6 +1,6 @@
 import { resolve } from "path"
 
-type Directory = "root" | "packages" | "tools" | "site" | "node-bin" | "scripts"
+type Directory = "root" | "tools" | "site" | "node-bin" | "scripts"
 
 export const getPath = (directory: Directory): string => {
   const basePath = resolve(__dirname, "../../..")
