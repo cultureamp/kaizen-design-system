@@ -4,7 +4,7 @@ import { Loader, RuleSetRule } from "webpack"
 export const extensions = [".ts", ".tsx"]
 
 const excludeExternalModules = (rule: RuleSetRule): RuleSetRule => ({
-  exclude: /node_modules\/(?!\@kaizen).*/,
+  exclude: /node_modules\/(?!(\@cultureamp|\@kaizen)).*/,
   ...rule,
 })
 
