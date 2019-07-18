@@ -2,7 +2,5 @@
   "name": "@kaizen/webpack",
   "version": "0.0.0",
   "private": true,
-  "dependencies": {
-    "@types/webpack": "^4.4.35"
-  }
+  "dependencies": {}
 }
