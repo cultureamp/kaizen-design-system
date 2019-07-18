@@ -22,6 +22,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
+    "@kaizen/types": "*",
     "@types/jest": "^24.0.15",
     "@types/node": "^12.6.3",
     "@types/react": "^16.8.23",
