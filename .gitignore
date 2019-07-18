@@ -1,2 +1,4 @@
 node_modules
 yarn-*.log
+/site/.cache/
+/site/public/
