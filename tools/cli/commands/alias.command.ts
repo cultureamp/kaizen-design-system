@@ -15,7 +15,7 @@ const scriptNames = () =>
 
 const commandModule: CommandModule = {
   command: "<script>",
-  describe: "Aliases for package scripts.",
+  describe: "Aliases for package scripts...",
   aliases: scriptNames(),
   handler: async ({ _ }) => {
     const [scriptName, ...args] = _

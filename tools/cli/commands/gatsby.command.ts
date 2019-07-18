@@ -7,9 +7,8 @@ export const runGatsby = (args?: string[]) =>
 
 const commandModule: yargs.CommandModule = {
   command: "gatsby",
-  describe: "Run gatsby in the site package.",
   handler: argv => runGatsby(argv._.slice(1)),
 }
 
-const { command, describe, handler } = commandModule
-export { command, describe, handler }
+const { command, handler } = commandModule
+export { command, handler }

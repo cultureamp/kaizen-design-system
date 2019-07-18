@@ -2,8 +2,8 @@ import { standalone } from "@kaizen/storybook/standalone"
 import { CommandModule } from "yargs"
 
 const commandModule: CommandModule = {
-  command: "storybook [--build]",
-  describe: "Render all component stories in Storybook.",
+  command: "storybook",
+  describe: "Develop components in storybook.",
   handler: ({ port = 9009, build = false }) => {
     try {
       standalone({
