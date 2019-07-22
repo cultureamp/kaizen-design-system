@@ -8,5 +8,6 @@ module.exports = {
         },
       },
     },
+    "gatsby-plugin-svg-sprite",
   ],
 }

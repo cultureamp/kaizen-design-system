@@ -75,6 +75,21 @@ const stylesRule: RuleSetRule = {
   ],
 }
 
-export const rules: RuleSetRule[] = [babelRule, stylesRule, imagesRule].map(
-  excludeExternalModules
-)
+const svgsRule: RuleSetRule = {
+  test: /\.svg$/,
+  use: [
+    {
+      loader: "svg-sprite-loader",
+      options: {
+        symbolId: "ca-icon-[name]",
+      },
+    },
+  ],
+}
+
+export const rules: RuleSetRule[] = [
+  babelRule,
+  stylesRule,
+  imagesRule,
+  svgsRule,
+].map(excludeExternalModules)
