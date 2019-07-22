@@ -4,7 +4,7 @@ import MainNav from "../components/MainNav"
 
 export default props => (
   <>
-    <Head />
+    <Head pageTitle="Components" />
     <MainNav currentPath={props.location.pathname} />
     Components page
   </>

@@ -6,9 +6,7 @@ type HeadProps = {
   pageTitle?: string
 }
 
-const DEFAULT_PAGE_TITLE = "Kaizen Design System"
-
-const Head: React.SFC<HeadProps> = ({ pageTitle = DEFAULT_PAGE_TITLE }) => (
+const Head: React.SFC<HeadProps> = ({ pageTitle = "" }) => (
   <Helmet>
     {/* Load Culture Amp brand fonts: https://cultureamp.atlassian.net/wiki/spaces/Prod/pages/700482798/CA+Font+Service */}
     <link
@@ -16,7 +14,7 @@ const Head: React.SFC<HeadProps> = ({ pageTitle = DEFAULT_PAGE_TITLE }) => (
       type="text/css"
       href="https://d1vmr11cgrgrrj.cloudfront.net/7834392/css/fonts.css"
     ></link>
-    <title>{pageTitle}</title>
+    <title>{pageTitle && `${pageTitle} - `}Kaizen Design System</title>
   </Helmet>
 )
 
