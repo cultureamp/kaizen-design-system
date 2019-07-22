@@ -1,7 +1,7 @@
 import * as React from "react"
 import Head from "../components/Head"
-import styles from "./styles.scss"
 import MainNav from "../components/MainNav"
+import styles from "./styles.scss"
 
 export default props => (
   <>
