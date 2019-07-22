@@ -2,7 +2,13 @@ import * as React from "react"
 import { Helmet } from "react-helmet"
 import "normalize.css"
 
-export default ({ pageTitle = "Kaizen Design System" }) => (
+type HeadProps = {
+  pageTitle?: string
+}
+
+const DEFAULT_PAGE_TITLE = "Kaizen Design System"
+
+const Head: React.SFC<HeadProps> = ({ pageTitle = DEFAULT_PAGE_TITLE }) => (
   <Helmet>
     {/* Load Culture Amp brand fonts: https://cultureamp.atlassian.net/wiki/spaces/Prod/pages/700482798/CA+Font+Service */}
     <link
@@ -13,3 +19,5 @@ export default ({ pageTitle = "Kaizen Design System" }) => (
     <title>{pageTitle}</title>
   </Helmet>
 )
+
+export default Head

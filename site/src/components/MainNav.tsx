@@ -4,19 +4,29 @@ import {
   NavigationBar,
 } from "@cultureamp/kaizen-component-library"
 
-export default ({ currentPath }) => (
+type MainNavProps = {
+  currentPath?: string
+}
+
+const MainNav: React.SFC<MainNavProps> = props => (
   <NavigationBar>
-    <NavLink text="Home" href="/" active={currentPath == "/"} />
+    <NavLink text="Home" href="/" active={props.currentPath == "/"} />
     <NavLink
       text="Components"
       href="/components"
-      active={currentPath == "/components"}
+      active={props.currentPath == "/components"}
     />
     <NavLink
       text="Guidelines"
       href="/guidelines"
-      active={currentPath == "/guidelines"}
+      active={props.currentPath == "/guidelines"}
     />
-    <NavLink text="Status" href="/status" active={currentPath == "/status"} />
+    <NavLink
+      text="Status"
+      href="/status"
+      active={props.currentPath == "/status"}
+    />
   </NavigationBar>
 )
+
+export default MainNav
