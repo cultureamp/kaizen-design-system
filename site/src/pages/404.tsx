@@ -1,11 +1,8 @@
 import * as React from "react"
-import Head from "../components/Head"
-import MainNav from "../components/MainNav"
+import Layout from "../components/Layout"
 
 export default props => (
-  <>
-    <Head pageTitle="404" />
-    <MainNav />
-    404 page
-  </>
+  <Layout pageTitle="404">
+    <h1>404 page</h1>
+  </Layout>
 )

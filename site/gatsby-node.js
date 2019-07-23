@@ -52,9 +52,6 @@ exports.createPages = ({ graphql, actions }) => {
             fields {
               slug
             }
-            frontmatter {
-              navPage
-            }
           }
         }
       }

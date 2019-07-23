@@ -8,23 +8,23 @@ type MainNavProps = {
   currentPath?: string
 }
 
-const MainNav: React.SFC<MainNavProps> = props => (
+const MainNav: React.SFC<MainNavProps> = ({ currentPath = "" }) => (
   <NavigationBar>
-    <NavLink text="Home" href="/" active={props.currentPath == "/"} />
+    <NavLink text="Home" href="/" active={currentPath == "/"} />
     <NavLink
       text="Components"
       href="/components"
-      active={props.currentPath == "/components"}
+      active={/^\/components/.test(currentPath)}
     />
     <NavLink
       text="Guidelines"
       href="/guidelines"
-      active={props.currentPath == "/guidelines"}
+      active={/^\/guidelines/.test(currentPath)}
     />
     <NavLink
       text="Status"
       href="/status"
-      active={props.currentPath == "/status"}
+      active={/^\/status/.test(currentPath)}
     />
   </NavigationBar>
 )

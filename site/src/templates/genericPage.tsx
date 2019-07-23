@@ -1,17 +1,18 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Head from "../components/Head"
-import MainNav from "../components/MainNav"
+import Layout from "../components/Layout"
 
-export default ({ data }) => {
-  const markdownContent = data.markdownRemark
+export default ({ data, pageContext, location }) => {
+  const md = data.markdownRemark
+
   return (
-    <>
-      {/* <Head pageTitle="" />
-      <MainNav currentPath={props.location.pathname} /> */}
-      <h1>{markdownContent.frontmatter.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: markdownContent.html }} />
-    </>
+    <Layout pageTitle={md.frontmatter.title} currentPath={location.pathname}>
+      <h1>{md.frontmatter.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: md.html }} />
+      <pre>data: {JSON.stringify(data)}</pre>
+      <pre>pageContext: {JSON.stringify(pageContext)}</pre>
+      <pre>location.pathname: {JSON.stringify(location.pathname)}</pre>
+    </Layout>
   )
 }
 

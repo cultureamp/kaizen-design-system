@@ -1,32 +1,40 @@
 import * as React from "react"
-import { graphql } from "gatsby"
-import Head from "../components/Head"
-import MainNav from "../components/MainNav"
+import { graphql, Link } from "gatsby"
+import Layout from "../components/Layout"
 
 export default ({ data, location }) => {
   const { edges } = data.allMarkdownRemark
 
   return (
-    <>
-      <Head pageTitle="Guidelines" />
-      <MainNav currentPath={location.pathname} />
+    <Layout pageTitle="Guidelines" currentPath={location.pathname}>
       <h1>Guidelines page</h1>
 
-      {edges.map(node => (
-        <p>{JSON.stringify(node)}</p>
-      ))}
-    </>
+      <ul>
+        {edges.map(
+          node =>
+            node!.node!.fields!.slug! && (
+              <li>
+                <Link to={node.node.fields.slug}>
+                  {node.node.frontmatter.title}
+                </Link>
+              </li>
+            )
+        )}
+      </ul>
+    </Layout>
   )
 }
 
 export const query = graphql`
   query {
     allMarkdownRemark(
-      filter: { frontmatter: { navPage: { eq: "guidelines" } } }
+      filter: { fields: { slug: { regex: "^/guidelines/" } } }
     ) {
       edges {
         node {
-          html
+          fields {
+            slug
+          }
           frontmatter {
             title
           }
