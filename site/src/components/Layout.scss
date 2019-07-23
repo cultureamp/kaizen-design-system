@@ -1,0 +1,10 @@
+@import "~@cultureamp/kaizen-component-library/components/NavigationBar/styles";
+
+.root {
+  display: "flex";
+  flex-direction: "column";
+}
+
+.navigationBarContainer {
+  height: $ca-navigation-bar__height;
+}
