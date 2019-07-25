@@ -1,27 +1,49 @@
 @import "~@cultureamp/kaizen-component-library/components/NavigationBar/styles";
 @import "~@cultureamp/kaizen-component-library/styles/type";
 @import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/responsive";
 
-.root {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  min-height: 100vh;
+body {
   background-color: $ca-palette-stone;
 }
 
+pre {
+  white-space: normal;
+  word-break: break-word;
+}
+
+.root {
+  display: grid;
+  min-height: 100vh;
+  grid-template-areas:
+    "navbar"
+    "page";
+  grid-template-columns: 1fr;
+  grid-template-rows: [navigationBarContainer] $ca-navigation-bar__height [page] 1fr;
+}
+
 .navigationBarContainer {
+  grid-area: navbar;
   height: $ca-navigation-bar__height;
 }
 
 .page {
-  display: flex;
-  justify-content: center;
-  flex-grow: 1;
-  margin: 0 $ca-grid;
+  display: grid;
+  grid-area: page;
+  grid-template-rows: [titleBlockContainer] auto [contentContainer] 1fr;
 }
 
 .contentContainer {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: $ca-grid [content] 1fr $ca-grid;
+}
+
+.content {
+  display: grid;
+  grid-column: content;
   max-width: $ca-grid * 59;
   width: 100%;
+  padding: 0 0 $ca-grid;
+  box-sizing: border-box;
 }

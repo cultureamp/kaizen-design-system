@@ -7,20 +7,22 @@ export default ({ data, location }) => {
 
   return (
     <Layout pageTitle="Status" currentPath={location.pathname}>
-      <h1>Status page</h1>
+      <div>
+        <h1>Status page</h1>
 
-      <ul>
-        {edges.map(
-          node =>
-            node!.node!.fields!.slug! && (
-              <li>
-                <Link to={node.node.fields.slug}>
-                  {node.node.frontmatter.title}
-                </Link>
-              </li>
-            )
-        )}
-      </ul>
+        <ul>
+          {edges.map(
+            node =>
+              node!.node!.fields!.slug! && (
+                <li>
+                  <Link to={node.node.fields.slug}>
+                    {node.node.frontmatter.title}
+                  </Link>
+                </li>
+              )
+          )}
+        </ul>
+      </div>
     </Layout>
   )
 }

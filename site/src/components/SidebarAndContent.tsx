@@ -45,4 +45,4 @@ export const Content: React.SFC = ({ children }) => (
 
 export const SidebarAndContent: React.SFC<SidebarAndContentProps> = ({
   children,
-}) => <div className={styles.container}>{children}</div>
+}) => <div className={styles.sidebarAndContent}>{children}</div>

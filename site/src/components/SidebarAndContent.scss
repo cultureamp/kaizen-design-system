@@ -4,27 +4,37 @@
 @import "~@cultureamp/kaizen-component-library/styles/responsive";
 
 $sidebar-width: 268px;
-$sidebar-content-gap: 83px;
+$sidebar-content-gap: $ca-grid * 2;
 
-.container {
-  display: flex;
-  flex-grow: 1;
+.sidebarAndContent {
+  display: grid;
+  grid-template-areas: "sidebar content";
+  grid-template-columns: $sidebar-width 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: $sidebar-content-gap;
+
+  @include ca-media-mobile() {
+    grid-template-areas:
+      "content"
+      "sidebar";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+  }
 }
 
 .content {
-  flex-grow: 1;
+  grid-area: content;
 }
 
 // Sidebar styles
 
 .sidebar {
-  flex-basis: 268px;
-  flex-shrink: 0;
-  margin-right: $sidebar-content-gap;
+  grid-area: sidebar;
 }
 
 .tabList {
   padding: 0;
+  margin: 0;
 }
 
 .tab {

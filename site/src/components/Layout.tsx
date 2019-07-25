@@ -27,10 +27,14 @@ const Layout: React.SFC<LayoutProps> = ({
         <MainNav currentPath={currentPath} />
       </div>
       <div className={styles.page}>
-        {/* {titleBlock && (
+        <div className={styles.titleBlockContainer}>
+          {/* {titleBlock && (
           <TitleBlock title={titleBlock.title} subtitle={titleBlock.subtitle} />
         )} */}
-        <div className={styles.contentContainer}>{children}</div>
+        </div>
+        <div className={styles.contentContainer}>
+          <div className={styles.content}>{children}</div>
+        </div>
       </div>
     </div>
   </>
