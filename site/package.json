@@ -12,6 +12,7 @@
     "@cultureamp/kaizen-component-library": "^9.0.1",
     "@kaizen/storybook": "*",
     "@kaizen/webpack": "*",
+    "classnames": "^2.2.6",
     "gatsby": "^2.13.20",
     "gatsby-plugin-react-helmet": "^3.1.2",
     "gatsby-plugin-sass": "^2.1.3",

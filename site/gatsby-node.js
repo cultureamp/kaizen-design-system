@@ -42,6 +42,14 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
+const mapSlugToPage = slug => {
+  if (/^\/guidelines/.test(slug))
+    return path.resolve(`./src/templates/guidelinePage.tsx`)
+  if (/^\/components/.test(slug))
+    return path.resolve(`./src/templates/componentPage.tsx`)
+  return path.resolve(`./src/templates/genericPage.tsx`)
+}
+
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return graphql(`
@@ -60,7 +68,7 @@ exports.createPages = ({ graphql, actions }) => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
         path: node.fields.slug,
-        component: path.resolve(`./src/templates/genericPage.tsx`),
+        component: mapSlugToPage(node.fields.slug),
         context: {
           // Data passed to context is available
           // in page queries as GraphQL variables.

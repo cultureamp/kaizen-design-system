@@ -1,0 +1,56 @@
+@import "~@cultureamp/kaizen-component-library/styles/layout";
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@cultureamp/kaizen-component-library/styles/responsive";
+
+$sidebar-width: 268px;
+$sidebar-content-gap: 83px;
+
+.container {
+  display: flex;
+  flex-grow: 1;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+// Sidebar styles
+
+.sidebar {
+  flex-basis: 268px;
+  flex-shrink: 0;
+  margin-right: $sidebar-content-gap;
+}
+
+.tabList {
+  padding: 0;
+}
+
+.tab {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  height: $ca-grid * 2;
+  box-sizing: border-box;
+  @include ca-type-ideal-lede;
+
+  a {
+    padding: $ca-grid / 2;
+    width: 100%;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $ca-palette-ash;
+    }
+
+    &:visited {
+      color: inherit;
+    }
+  }
+
+  &.active {
+    background-color: $ca-palette-ash;
+    color: $ca-palette-ocean;
+  }
+}
