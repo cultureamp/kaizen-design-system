@@ -11,32 +11,26 @@ type SidebarProps = {
   children: React.ReactNode
 }
 
+type SidebarTabProps = {
+  href?: string
+  active?: boolean
+  children: React.ReactNode
+}
+
 export const Sidebar: React.SFC<SidebarProps> = ({ children }) => (
   <div className={styles.sidebar}>
-    <ul className={styles.tabList}>
-      <li className={styles.tab}>
-        <Link to="">Overview</Link>
-      </li>
-      <li className={classnames(styles.tab, { [styles.active]: true })}>
-        <Link to="">Color</Link>
-      </li>
-      <li className={styles.tab}>
-        <Link to="">Typography</Link>
-      </li>
-      <li className={styles.tab}>
-        <Link to="">Icons</Link>
-      </li>
-      <li className={styles.tab}>
-        <Link to="">Localisation</Link>
-      </li>
-      <li className={styles.tab}>
-        <Link to="">Animation</Link>
-      </li>
-      <li className={styles.tab}>
-        <Link to="">Product language style guide</Link>
-      </li>
-    </ul>
+    <ul className={styles.tabList}>{children}</ul>
   </div>
+)
+
+export const SidebarTab: React.SFC<SidebarTabProps> = ({
+  href = "#",
+  children,
+  active = false,
+}) => (
+  <li className={classnames(styles.tab, { [styles.active]: active })}>
+    <Link to={href}>{children}</Link>
+  </li>
 )
 
 export const Content: React.SFC = ({ children }) => (

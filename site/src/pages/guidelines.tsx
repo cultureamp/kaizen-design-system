@@ -1,11 +1,8 @@
 import * as React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/Layout"
-import {
-  SidebarAndContent,
-  Sidebar,
-  Content,
-} from "../components/SidebarAndContent"
+import GuidelinesSidebar from "../components/GuidelinesSidebar"
+import { SidebarAndContent, Content } from "../components/SidebarAndContent"
 
 export default ({ data, location }) => {
   const { edges } = data.allMarkdownRemark
@@ -13,7 +10,7 @@ export default ({ data, location }) => {
   return (
     <Layout pageTitle="Guidelines" currentPath={location.pathname}>
       <SidebarAndContent>
-        <Sidebar>asdf</Sidebar>
+        <GuidelinesSidebar />
         <Content>
           <h1>Guidelines page</h1>
 

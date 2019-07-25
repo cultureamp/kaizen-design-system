@@ -49,13 +49,10 @@ $sidebar-content-gap: $ca-grid * 2;
     padding: $ca-grid / 2;
     width: 100%;
     text-decoration: none;
+    color: inherit;
 
     &:hover {
       background-color: $ca-palette-ash;
-    }
-
-    &:visited {
-      color: inherit;
     }
   }
 
