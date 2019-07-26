@@ -9,7 +9,7 @@ type MainNavProps = {
 }
 
 const MainNav: React.SFC<MainNavProps> = ({ currentPath = "" }) => (
-  <NavigationBar>
+  <NavigationBar colorScheme="kaizen">
     <NavLink text="Home" href="/" active={currentPath == "/"} />
     <NavLink
       text="Guidelines"
