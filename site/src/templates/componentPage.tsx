@@ -1,16 +1,31 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/Layout"
-import { SidebarAndContent, Content } from "../components/SidebarAndContent"
-import ComponentsSidebar from "../components/ComponentsSidebar"
+import {
+  SidebarAndContent,
+  Content,
+  Sidebar,
+  SidebarTab,
+} from "../components/SidebarAndContent"
 
 export default ({ data, pageContext, location }) => {
   const md = data.markdownRemark
+  const allPages = data.allMarkdownRemark.edges
+  const currentPath = location.pathname
 
   return (
-    <Layout pageTitle={md.frontmatter.title} currentPath={location.pathname}>
+    <Layout pageTitle={md.frontmatter.title} currentPath={currentPath}>
       <SidebarAndContent>
-        <ComponentsSidebar />
+        <Sidebar>
+          {allPages.map(node => (
+            <SidebarTab
+              href={node!.node!.fields!.slug}
+              active={node!.node!.fields!.slug === currentPath}
+            >
+              {node!.node!.frontmatter!.title}
+            </SidebarTab>
+          ))}
+        </Sidebar>
         <Content>
           <h1>{md.frontmatter.title}</h1>
 
@@ -26,6 +41,20 @@ export default ({ data, pageContext, location }) => {
 
 export const query = graphql`
   query($slug: String!) {
+    allMarkdownRemark(
+      filter: { fields: { slug: { regex: "^/components/" } } }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+          }
+        }
+      }
+    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {

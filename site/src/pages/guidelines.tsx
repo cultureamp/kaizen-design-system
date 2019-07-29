@@ -1,33 +1,15 @@
 import * as React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/Layout"
-import GuidelinesSidebar from "../components/GuidelinesSidebar"
-import { SidebarAndContent, Content } from "../components/SidebarAndContent"
 
 export default ({ data, location }) => {
   const { edges } = data.allMarkdownRemark
 
   return (
     <Layout pageTitle="Guidelines" currentPath={location.pathname}>
-      <SidebarAndContent>
-        <GuidelinesSidebar />
-        <Content>
-          <h1>Guidelines page</h1>
-
-          <ul>
-            {edges.map(
-              node =>
-                node!.node!.fields!.slug! && (
-                  <li>
-                    <Link to={node.node.fields.slug}>
-                      {node.node.frontmatter.title}
-                    </Link>
-                  </li>
-                )
-            )}
-          </ul>
-        </Content>
-      </SidebarAndContent>
+      <div>
+        <h1>Guidelines page</h1>
+      </div>
     </Layout>
   )
 }

@@ -13,7 +13,7 @@ const MainNav: React.SFC<MainNavProps> = ({ currentPath = "" }) => (
     <NavLink text="Home" href="/" active={currentPath == "/"} />
     <NavLink
       text="Guidelines"
-      href="/guidelines"
+      href="/guidelines/overview"
       active={/^\/guidelines/.test(currentPath)}
     />
     <NavLink
