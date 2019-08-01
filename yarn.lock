@@ -1005,10 +1005,10 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
-"@cultureamp/kaizen-component-library@^9.0.1":
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/@cultureamp/kaizen-component-library/-/kaizen-component-library-9.1.0.tgz#4d6e7510dfda4b66d47fda1f5162afdc1910fe72"
-  integrity sha512-ckB5BEIz07Z6kZ5rZ2/db4SSGRhWAPEEiwXy3y7R3ma3JvyPCe0hHb/RjnERzuJmD8hw3vCiS7S+QJ4JeBzEjw==
+"@cultureamp/kaizen-component-library@^11.0.0":
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/@cultureamp/kaizen-component-library/-/kaizen-component-library-11.0.0.tgz#f9b4af66c50899f0380819d58c07a7e4c259c5a9"
+  integrity sha512-n0OxmyjIDAyMkO3kgDIwcC8FK9wGUrbde2GCeF/zltRuG7q7pLLLy6Txxh28mA0L30LJPeox2Y0dLk8u3PlzDA==
   dependencies:
     classnames "^2.2.6"
     lodash "^4.17.11"
