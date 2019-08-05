@@ -1,8 +1,8 @@
-import * as React from "react"
 import {
   Link as NavLink,
   NavigationBar,
 } from "@cultureamp/kaizen-component-library"
+import * as React from "react"
 
 type MainNavProps = {
   currentPath?: string

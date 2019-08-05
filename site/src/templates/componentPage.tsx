@@ -1,10 +1,10 @@
-import React from "react"
 import { graphql } from "gatsby"
+import React from "react"
 import Layout from "../components/Layout"
 import {
-  SidebarAndContent,
   Content,
   Sidebar,
+  SidebarAndContent,
   SidebarTab,
 } from "../components/SidebarAndContent"
 

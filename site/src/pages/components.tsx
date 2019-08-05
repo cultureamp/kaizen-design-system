@@ -1,8 +1,8 @@
-import * as React from "react"
 import { graphql, Link } from "gatsby"
-import Layout from "../components/Layout"
-import { SidebarAndContent, Content } from "../components/SidebarAndContent"
+import * as React from "react"
 import ComponentsSidebar from "../components/ComponentsSidebar"
+import Layout from "../components/Layout"
+import { Content, SidebarAndContent } from "../components/SidebarAndContent"
 
 export default ({ data, location }) => {
   const { edges } = data.allMarkdownRemark

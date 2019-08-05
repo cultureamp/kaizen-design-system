@@ -1,6 +1,6 @@
-import * as React from "react"
 import classnames from "classnames"
 import { Link } from "gatsby"
+import * as React from "react"
 import styles from "./SidebarAndContent.scss"
 
 type SidebarAndContentProps = {

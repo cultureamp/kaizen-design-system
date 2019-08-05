@@ -1,5 +1,5 @@
-import * as React from "react"
 import { graphql, Link } from "gatsby"
+import * as React from "react"
 import Layout from "../components/Layout"
 
 export default ({ data, location }) => {

@@ -1,10 +1,10 @@
-import * as React from "react"
-import MainNav from "./MainNav"
-import Head from "./Head"
 import classnames from "classnames"
+import * as React from "react"
+import contentStyles from "./Content.scss"
+import Head from "./Head"
 // import { TitleBlock } from "@cultureamp/kaizen-component-library/draft"
 import styles from "./Layout.scss"
-import contentStyles from "./Content.scss"
+import MainNav from "./MainNav"
 
 type LayoutProps = {
   currentPath?: string

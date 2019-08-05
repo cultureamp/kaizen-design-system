@@ -1,7 +1,7 @@
-import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import { Helmet } from "react-helmet"
+import { graphql, useStaticQuery } from "gatsby"
 import "normalize.css"
+import * as React from "react"
+import { Helmet } from "react-helmet"
 
 type HeadProps = {
   pageTitle?: string
