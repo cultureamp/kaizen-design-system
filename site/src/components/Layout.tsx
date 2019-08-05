@@ -1,6 +1,5 @@
 import classnames from "classnames"
 import * as React from "react"
-import contentStyles from "./Content.scss"
 import Head from "./Head"
 // import { TitleBlock } from "@cultureamp/kaizen-component-library/draft"
 import styles from "./Layout.scss"
@@ -35,9 +34,7 @@ const Layout: React.SFC<LayoutProps> = ({
         )} */}
         </div>
         <div className={styles.contentContainer}>
-          <div className={classnames(styles.content, contentStyles)}>
-            {children}
-          </div>
+          <div className={styles.content}>{children}</div>
         </div>
       </div>
     </div>
