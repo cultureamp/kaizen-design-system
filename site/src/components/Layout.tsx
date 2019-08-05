@@ -1,8 +1,10 @@
 import * as React from "react"
 import MainNav from "./MainNav"
 import Head from "./Head"
+import classnames from "classnames"
 // import { TitleBlock } from "@cultureamp/kaizen-component-library/draft"
 import styles from "./Layout.scss"
+import contentStyles from "./Content.scss"
 
 type LayoutProps = {
   currentPath?: string
@@ -33,7 +35,9 @@ const Layout: React.SFC<LayoutProps> = ({
         )} */}
         </div>
         <div className={styles.contentContainer}>
-          <div className={styles.content}>{children}</div>
+          <div className={classnames(styles.content, contentStyles)}>
+            {children}
+          </div>
         </div>
       </div>
     </div>
