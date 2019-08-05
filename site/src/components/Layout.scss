@@ -3,9 +3,12 @@
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/responsive";
 
+$content-max-width: $ca-grid * 57;
+
 body {
   background-color: $ca-palette-stone;
   color: $ca-base-text-color;
+  font-family: $ca-ideal-sans-font-family;
 }
 
 pre {
@@ -43,7 +46,7 @@ pre {
 .content {
   display: grid;
   grid-column: content;
-  max-width: $ca-grid * 59;
+  max-width: $content-max-width;
   width: 100%;
   padding: 0 0 $ca-grid;
   box-sizing: border-box;
