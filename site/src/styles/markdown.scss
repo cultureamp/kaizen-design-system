@@ -36,6 +36,15 @@
     line-height: 24px;
   }
 
+  a {
+    text-decoration: none;
+    color: $ca-palette-ocean;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   // lede {
   //   font-size: 20px;
   //   line-height: 24px;
