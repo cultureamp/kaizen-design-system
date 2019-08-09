@@ -1,0 +1,161 @@
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/type";
+
+// TODO: update references to style sheets
+
+.colorCard {
+  composes: card from "components/card/Card.module.scss";
+}
+
+.colorCard h3 {
+  @include ca-type-ideal-heading;
+  font-weight: $ca-weight-light;
+  height: $ca-grid;
+  margin: 0;
+}
+
+.cardToggleButton {
+  composes: buttonReset from "components/HtmlContent.module.scss";
+  composes: interactiveIconWrapper from "@cultureamp/kaizen-component-library/components/Icon/Icon.module.scss";
+  color: $ca-palette-ink;
+  display: flex;
+  width: 100%;
+  color: $ca-palette-ink;
+  cursor: pointer;
+}
+
+.toggleButtonLabel {
+  flex: 1;
+  text-align: left;
+}
+
+.toggleIconWrapper {
+  position: relative;
+  top: 4px;
+  left: 2px;
+  width: 24px;
+}
+
+.colorCard h4 {
+  @include ca-type-ideal-labels-and-legends;
+  color: add-tint($ca-palette-ink, 50%);
+  margin: $ca-grid/2 0;
+}
+
+$accessibilityTileWidth: 46px;
+
+.subheader {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+
+  h4 {
+    flex: 1;
+  }
+  div {
+    flex: 0 0 $accessibilityTileWidth;
+  }
+  .tile {
+    display: block;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    margin: 0 auto 7px;
+    display: block;
+    font-family: sans-serif;
+    text-align: center;
+    &.dark {
+      background: $ca-palette-ink;
+      color: white;
+    }
+    &.small {
+      font-size: 10px;
+      line-height: 18px;
+    }
+    &.large {
+      font-size: 14px;
+      line-height: 19px;
+    }
+  }
+}
+
+.colorBlock {
+  @include ca-type-ideal-body;
+
+  box-sizing: border-box;
+  $bottomMargin: 2px;
+  height: calc(#{$ca-grid * 4} - #{$bottomMargin});
+  margin: 0 0 $bottomMargin 0;
+  padding-top: calc(#{$ca-grid / 2} + #{$bottomMargin / 2});
+  padding-bottom: calc(#{$ca-grid / 2} - #{$bottomMargin / 2});
+
+  composes: kebabHoverArea from "@cultureamp/kaizen-component-library/components/Dropdown/Dropdown.module.scss";
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  background: black;
+  color: $ca-palette-ink;
+}
+
+.colorBlockHalf {
+  $bottomMargin: 2px;
+  height: calc(#{$ca-grid * 2} - #{$bottomMargin});
+}
+
+.whiteText {
+  color: white;
+}
+
+.accessibilityIcon {
+  flex: 0 0 $accessibilityTileWidth;
+  text-align: center;
+  transform: translateY(3px);
+}
+
+.kebabContainer {
+  line-height: 80px;
+  margin-right: 10px;
+}
+
+.colorBlockLabel {
+  flex: 1;
+  font-weight: $ca-weight-light;
+  margin-left: $ca-grid / 2;
+}
+
+.colorBlockHalf .kebabContainer {
+  line-height: 27px;
+}
+
+.dropdownItem {
+  display: flex;
+  flex-direction: row;
+  line-height: 20px;
+}
+
+.dropdownItem strong {
+  @include ca-type-ideal-labels-and-legends;
+  @include ca-inherit-baseline;
+  width: 25%;
+}
+
+.dropdownItem input {
+  @include ca-type-ideal-small;
+  @include ca-inherit-baseline;
+  opacity: 0.4;
+  outline: none;
+  width: 75%;
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: inherit;
+  line-height: inherit;
+  cursor: pointer;
+  text-overflow: ellipsis;
+
+  a:hover & {
+    opacity: 1;
+  }
+}
