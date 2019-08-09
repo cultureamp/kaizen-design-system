@@ -1,0 +1,69 @@
+@import "~@cultureamp/kaizen-component-library/styles/animation";
+
+///////////////////////////////////////////////
+// ANIMATION PRESET CLASSES                  //
+///////////////////////////////////////////////
+.ca-animation-fade-in {
+  @include ca-animation-fade(in);
+}
+
+.ca-animation-fade-out {
+  @include ca-animation-fade(out);
+}
+
+.ca-animation-pop {
+  @include ca-animation-pop();
+}
+
+.ca-animation-pulsate {
+  @include ca-animation-pulsate();
+}
+
+.ca-animation-slide-fade-in {
+  @include ca-animation-slide-fade(in);
+}
+
+.ca-animation-slide-fade-out {
+  @include ca-animation-slide-fade(out);
+}
+
+.ca-animation-scale-fade-in {
+  @include ca-animation-scale-fade(in);
+}
+
+.ca-animation-scale-fade-out {
+  @include ca-animation-scale-fade(out);
+}
+
+///////////////////////////////////////////////
+// TIMING PRESET CLASSES                     //
+///////////////////////////////////////////////
+.ca-duration-instant {
+  animation-duration: $ca-duration-instant !important;
+  transition-duration: $ca-duration-instant !important;
+}
+
+.ca-duration-immediate {
+  animation-duration: $ca-duration-immediate !important;
+  transition-duration: $ca-duration-immediate !important;
+}
+
+.ca-duration-rapid {
+  animation-duration: $ca-duration-rapid !important;
+  transition-duration: $ca-duration-rapid !important;
+}
+
+.ca-duration-fast {
+  animation-duration: $ca-duration-fast !important;
+  transition-duration: $ca-duration-fast !important;
+}
+
+.ca-duration-slow {
+  animation-duration: $ca-duration-slow !important;
+  transition-duration: $ca-duration-slow !important;
+}
+
+.ca-duration-deliberate {
+  animation-duration: $ca-duration-deliberate !important;
+  transition-duration: $ca-duration-deliberate !important;
+}
