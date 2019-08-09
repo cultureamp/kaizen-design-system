@@ -27,7 +27,7 @@ export default ({ data, pageContext, location }) => {
                 stripTrailingSlash(currentPath)
               }
             >
-              {node!.node!.frontmatter!.title}
+              {node!.node!.frontmatter!.navTitle}
             </SidebarTab>
           ))}
         </Sidebar>
@@ -53,6 +53,7 @@ export const query = graphql`
           }
           frontmatter {
             title
+            navTitle
           }
         }
       }
