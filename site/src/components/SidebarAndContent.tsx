@@ -1,6 +1,7 @@
 import classnames from "classnames"
 import { Link } from "gatsby"
 import * as React from "react"
+import markdownStyles from "../styles/markdown.scss"
 import styles from "./SidebarAndContent.scss"
 
 type SidebarAndContentProps = {
@@ -34,7 +35,9 @@ export const SidebarTab: React.SFC<SidebarTabProps> = ({
 )
 
 export const Content: React.SFC = ({ children }) => (
-  <div className={styles.content}>{children}</div>
+  <div className={classnames(styles.content, markdownStyles.markdownContainer)}>
+    {children}
+  </div>
 )
 
 export const SidebarAndContent: React.SFC<SidebarAndContentProps> = ({
