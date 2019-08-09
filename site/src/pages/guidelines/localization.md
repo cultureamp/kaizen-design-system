@@ -17,11 +17,11 @@ imports:
 
 # Localisation Guide
 
-<!--- <IntroParagraph> --->
+<div class="introParagraph">
 
 Welcome to the Culture Amp Localisation 'Getting Started' guide. We hope that the following information will provide you with adequate technical knowledge on how we do localisation at Culture Amp. If you believe something is missing or could be improved, please feel free to [contribute](https://github.com/cultureamp/cultureamp-style-guide).
 
-<!--- </IntroParagraph> --->
+</div>
 
 ## Overview
 
