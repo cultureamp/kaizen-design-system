@@ -1,0 +1,21 @@
+@import '~cultureamp-style-guide/styles/animation';
+
+//////////////////////////////////////////////
+// Slide Fade In Animation
+//////////////////////////////////////////////
+.ca-animation-slide-fade-in {
+  animation-duration: 500ms;
+  animation-delay: 250ms;
+  animation-fill-mode: forwards;
+  animation-name: slide-fade-in;
+}
+
+//////////////////////////////////////////////
+// Slide Fade Out Animation
+//////////////////////////////////////////////
+.ca-animation-slide-fade-out {
+  animation-duration: 500ms;
+  animation-delay: 250ms;
+  animation-fill-mode: forwards;
+  animation-name: slide-fade-out;
+}

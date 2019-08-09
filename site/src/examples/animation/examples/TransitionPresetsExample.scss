@@ -1,0 +1,62 @@
+@import '~cultureamp-style-guide/styles/animation';
+
+///////////////////////////////////////////////
+// TRANSITION PRESET CLASSES                  //
+///////////////////////////////////////////////
+
+.ca-transition-fade-in {
+  @include ca-transition-fade(in);
+}
+
+.ca-transition-fade-out {
+  @include ca-transition-fade(out);
+}
+
+.ca-transition-slide-fade-in {
+  @include ca-transition-slide-fade(in);
+}
+
+.ca-transition-slide-fade-out {
+  @include ca-transition-slide-fade(out);
+}
+
+.ca-transition-scale-fade-in {
+  @include ca-transition-scale-fade(in);
+}
+
+.ca-transition-scale-fade-out {
+  @include ca-transition-scale-fade(out);
+}
+
+///////////////////////////////////////////////
+// TIMING PRESET CLASSES                     //
+///////////////////////////////////////////////
+.ca-duration-instant {
+  animation-duration: $ca-duration-instant !important;
+  transition-duration: $ca-duration-instant !important;
+}
+
+.ca-duration-immediate {
+  animation-duration: $ca-duration-immediate !important;
+  transition-duration: $ca-duration-immediate !important;
+}
+
+.ca-duration-rapid {
+  animation-duration: $ca-duration-rapid !important;
+  transition-duration: $ca-duration-rapid !important;
+}
+
+.ca-duration-fast {
+  animation-duration: $ca-duration-fast !important;
+  transition-duration: $ca-duration-fast !important;
+}
+
+.ca-duration-slow {
+  animation-duration: $ca-duration-slow !important;
+  transition-duration: $ca-duration-slow !important;
+}
+
+.ca-duration-deliberate {
+  animation-duration: $ca-duration-deliberate !important;
+  transition-duration: $ca-duration-deliberate !important;
+}

@@ -1,0 +1,19 @@
+@import '~cultureamp-style-guide/styles/animation';
+
+//////////////////////////////////////////////
+// Slide Fade In Animation
+//////////////////////////////////////////////
+.ca-animation-slide-fade-in {
+  @include ca-animation-slide-fade($state: in, $duration: 500ms, $delay: 250ms);
+}
+
+//////////////////////////////////////////////
+// Slide Fade Out Animation
+//////////////////////////////////////////////
+.ca-animation-slide-fade-out {
+  @include ca-animation-slide-fade(
+    $state: out,
+    $duration: 500ms,
+    $delay: 250ms
+  );
+}

@@ -1,0 +1,33 @@
+//////////////////////////////////////////////
+// Fade In Transition
+//////////////////////////////////////////////
+
+// Transition `primed`
+.ca-animation-fade-in.ca-enter {
+  opacity: 0;
+  transition-property: opacity;
+  transition-duration: 500ms;
+  transition-delay: 250ms;
+}
+
+// Transition `triggered`
+.ca-animation-fade-in.ca-enter.ca-enter-active {
+  opacity: 1;
+}
+
+//////////////////////////////////////////////
+// Fade Out Transition
+//////////////////////////////////////////////
+
+// Transition `primed`
+.ca-animation-fade-in.ca-exit {
+  opacity: 1;
+  transition-property: opacity;
+  transition-duration: 500ms;
+  transition-delay: 250ms;
+}
+
+// Transition `triggered`
+.ca-animation-fade-in.ca-exit.ca-exit-active {
+  opacity: 0;
+}

@@ -1,0 +1,16 @@
+@import '~cultureamp-style-guide/styles/animation';
+
+$duration: $ca-duration-deliberate; // 700ms
+$delay: -$ca-duration-slow; // -400ms (stagger effect)
+
+@include ca-series {
+  .spin-1 {
+    @include ca-queue($duration, $delay, pulsate);
+  }
+  .spin-2 {
+    @include ca-queue($duration, $delay, pulsate);
+  }
+  .spin-3 {
+    @include ca-queue($duration, 0, pulsate);
+  }
+}
