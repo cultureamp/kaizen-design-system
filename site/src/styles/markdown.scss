@@ -1,10 +1,6 @@
 @import "~@cultureamp/kaizen-component-library/styles/type";
 
 .markdownContainer {
-  :global(.introParagraph) {
-    color: red;
-  }
-
   p {
     font-weight: $ca-weight-light;
     font-size: 16px;
@@ -62,6 +58,11 @@
 
   button {
     font-size: 18px;
+    line-height: 24px;
+  }
+
+  :global(.introParagraph) p {
+    font-size: 20px;
     line-height: 24px;
   }
 }
