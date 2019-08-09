@@ -1,0 +1,39 @@
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/type";
+
+$cardPadding: $ca-grid / 2;
+
+/* BASE */
+.droplet {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  align-items: center;
+  background: white;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  padding: $cardPadding;
+  display: flex;
+  height: 200px;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 200px;
+  min-width: 200px;
+  margin-bottom: 0;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.example {
+  background: #333;
+  border-radius: 3px;
+  height: 60px;
+  width: 60px;
+}
