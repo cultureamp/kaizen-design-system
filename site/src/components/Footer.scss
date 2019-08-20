@@ -1,0 +1,40 @@
+@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@cultureamp/kaizen-component-library/styles/color";
+
+.footer {
+  background-color: add-shade($ca-palette-wisteria, 30%);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $ca-grid * 3;
+  margin-top: $ca-grid * 3;
+}
+
+.footerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  max-width: $ca-grid * 16;
+  width: 100%;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+}
+
+%link {
+  a {
+    color: inherit;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.privacy,
+.github {
+  @extend %link;
+}
