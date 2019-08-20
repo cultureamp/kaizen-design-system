@@ -1,10 +1,7 @@
-import { graphql, Link } from "gatsby"
 import * as React from "react"
 import Layout from "../components/Layout"
 
-export default ({ data, location }) => {
-  const { edges } = data.allMarkdownRemark
-
+export default ({ location }) => {
   return (
     <Layout pageTitle="Guidelines" currentPath={location.pathname}>
       <div>
@@ -13,22 +10,3 @@ export default ({ data, location }) => {
     </Layout>
   )
 }
-
-export const query = graphql`
-  query {
-    allMarkdownRemark(
-      filter: { fields: { slug: { regex: "^/guidelines/" } } }
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-          }
-        }
-      }
-    }
-  }
-`
