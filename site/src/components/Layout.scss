@@ -2,6 +2,7 @@
 @import "~@cultureamp/kaizen-component-library/styles/type";
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/responsive";
+@import "~@cultureamp/kaizen-component-library/styles/layers";
 
 $content-max-width: $ca-grid * 57;
 
@@ -29,6 +30,7 @@ pre {
 .navigationBarContainer {
   grid-area: navbar;
   height: $ca-navigation-bar__height;
+  z-index: $ca-z-index-fixed;
 }
 
 .page {
