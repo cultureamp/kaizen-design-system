@@ -3,7 +3,11 @@ import Layout from "../components/Layout"
 import styles from "./styles.scss"
 
 export default ({ location }) => (
-  <Layout pageTitle="Components" currentPath={location.pathname}>
+  <Layout
+    pageTitle="Kaizen Design System"
+    currentPath={location.pathname}
+    wisteriaFooter
+  >
     <div className={styles.prominent}>🌱</div>
   </Layout>
 )

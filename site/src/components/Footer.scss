@@ -2,13 +2,16 @@
 @import "~@cultureamp/kaizen-component-library/styles/color";
 
 .footer {
-  background-color: add-shade($ca-palette-wisteria, 30%);
-  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   height: $ca-grid * 3;
   margin-top: $ca-grid * 3;
+
+  &.wisteriaVariant {
+    background-color: add-shade($ca-palette-wisteria, 30%);
+    color: #fff;
+  }
 }
 
 .footerInner {
@@ -26,7 +29,9 @@
 
 %link {
   a {
-    color: inherit;
+    .wisteriaVariant & {
+      color: inherit;
+    }
 
     &:hover {
       text-decoration: none;

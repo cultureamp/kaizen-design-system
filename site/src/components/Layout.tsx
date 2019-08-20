@@ -1,4 +1,3 @@
-import classnames from "classnames"
 import * as React from "react"
 import Footer from "./Footer"
 import Head from "./Head"
@@ -10,6 +9,7 @@ type LayoutProps = {
   currentPath?: string
   pageTitle?: string
   children?: React.ReactNode
+  wisteriaFooter?: boolean
   titleBlock?: {
     title: string
     subtitle: string
@@ -21,6 +21,7 @@ const Layout: React.SFC<LayoutProps> = ({
   currentPath,
   children,
   titleBlock,
+  wisteriaFooter = false,
 }) => (
   <>
     <Head pageTitle={pageTitle} />
@@ -37,7 +38,7 @@ const Layout: React.SFC<LayoutProps> = ({
         <div className={styles.contentContainer}>
           <div className={styles.content}>{children}</div>
         </div>
-        <Footer />
+        <Footer wisteriaVariant={wisteriaFooter} />
       </div>
     </div>
   </>

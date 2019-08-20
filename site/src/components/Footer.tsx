@@ -1,11 +1,19 @@
-// import classnames from "classnames"
 import { Icon } from "@cultureamp/kaizen-component-library"
 import companyLogo from "@cultureamp/kaizen-component-library/icons/ca-monogram.icon.svg"
+import classnames from "classnames"
 import * as React from "react"
 import styles from "./Footer.scss"
 
-const Footer: React.SFC = () => (
-  <div className={styles.footer}>
+type FooterProps = {
+  wisteriaVariant?: boolean
+}
+
+const Footer: React.SFC<FooterProps> = ({ wisteriaVariant = false }) => (
+  <div
+    className={classnames(styles.footer, {
+      [styles.wisteriaVariant]: wisteriaVariant,
+    })}
+  >
     <div className={styles.footerInner}>
       <span>&copy; Culture Amp Pty Ltd</span>
       <a href="https://cultureamp.com" className={styles.logoLink}>

@@ -12,6 +12,10 @@ body {
   font-family: $ca-ideal-sans-font-family;
 }
 
+a {
+  color: $ca-link-text-color;
+}
+
 pre {
   white-space: normal;
   word-break: break-word;
