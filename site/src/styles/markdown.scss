@@ -5,6 +5,7 @@
     font-weight: $ca-weight-light;
     font-size: 16px;
     line-height: 24px;
+    margin: $ca-grid 0;
   }
 
   h1,
@@ -14,6 +15,7 @@
   h5,
   h6 {
     font-weight: $ca-weight-book;
+    margin: ($ca-grid * 2) 0 ($ca-grid / 2);
   }
 
   h1 {
@@ -36,6 +38,12 @@
     line-height: 24px;
   }
 
+  h5 {
+    font-size: 16px;
+    line-height: 24px;
+    // margin-top: $ca-grid / 2;
+  }
+
   a {
     text-decoration: none;
     color: $ca-palette-ocean;
@@ -43,6 +51,51 @@
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  table {
+    margin-bottom: $ca-grid * 2;
+    border-collapse: collapse;
+  }
+
+  tbody > tr:first-of-type > td {
+    padding-top: $ca-grid / 2;
+  }
+
+  th,
+  td {
+    $cell-padding: $ca-grid / 4;
+    padding: $cell-padding $ca-grid $cell-padding 0;
+  }
+
+  th {
+    text-align: left;
+    border-bottom: 1px solid $ca-border-color;
+  }
+
+  td {
+    font-weight: $ca-weight-light;
+  }
+
+  code {
+    line-height: inherit;
+    background-color: add-tint($ca-palette-ink, 80%);
+    // color: #fff;
+    padding: 0.25em;
+    border-radius: 0.25em;
+  }
+
+  li {
+    margin: ($ca-grid / 2) 0;
+    font-weight: $ca-weight-light;
+
+    p {
+      margin: $ca-grid / 2 0;
+    }
+  }
+
+  ol > li {
+    margin-top: $ca-grid;
   }
 
   // lede {
