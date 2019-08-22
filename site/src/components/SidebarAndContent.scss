@@ -41,12 +41,12 @@ $sidebar-content-gap: $ca-grid * 2;
   list-style: none;
   display: flex;
   align-items: center;
-  height: $ca-grid * 2;
   box-sizing: border-box;
-  @include ca-type-ideal-lede;
+  font-size: 20px;
+  line-height: 24px;
 
   a {
-    padding: $ca-grid / 2;
+    padding: $ca-grid / 2.5 $ca-grid / 2;
     width: 100%;
     text-decoration: none;
     color: inherit;
