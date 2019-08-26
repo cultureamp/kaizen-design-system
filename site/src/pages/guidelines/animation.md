@@ -285,16 +285,16 @@ Choreographed entrances are reserved for “red carpet” or “grand unveiling�
 
 _In contrast to a placeholder loading skeleton_, choreographed or stylized entrances don’t care how long content takes to load. For example, the whole page might be loaded already, but we only reveal each section with a fade as the person scrolls down the page. A single stylized entrance may mask and replace a short loading spinner.
 
-<TipContainer>
-<TipCard title="Try to…" type="tip">
+<!-- <TipContainer>
+<TipCard title="Try to…" type="tip"> -->
 
 * Aim for **fast time to first interaction** and consider if the stylized entrance _feels_ slower than instantly loading content.
 * Use **consistent direction and movement** in relation to local environment to reinforce context and UI metaphors.
 * For entrances, exits, and decorations, animation style is **so subtle that you can’t put your finger on it**.
 * **Avoid bounces or overshoots**. We make exceptions when the bounce or overshoot is related to the animation effect or behavior itself, such as our emphasized growing "Take action" pill.
 
-</TipCard>
-<TipCard title="Avoid…" type="warning">
+<!-- </TipCard>
+<TipCard title="Avoid…" type="warning"> -->
 
 * **Content rules**. Draw attention to important content and data, not to interface controls.
 * **Avoid keeping people from their content with time-consuming or showy entrances**.
@@ -302,5 +302,5 @@ _In contrast to a placeholder loading skeleton_, choreographed or stylized entra
 * **Avoid sharp, noticeable entrances** that draw attention away from the content to the animation itself.
 * **Avoid excessively bouncy animations** that tarnish our trustworthy brand.
 
-</TipCard>
-</TipContainer>
+<!-- </TipCard>
+</TipContainer> -->
