@@ -6,7 +6,6 @@
   justify-content: center;
   align-items: center;
   height: $ca-grid * 3;
-  margin-top: $ca-grid * 3;
 
   &.reverseVariant {
     background-color: add-shade($ca-palette-wisteria, 30%);

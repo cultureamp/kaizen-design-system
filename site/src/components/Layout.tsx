@@ -38,6 +38,8 @@ const Layout: React.SFC<LayoutProps> = ({
         <div className={styles.contentContainer}>
           <div className={styles.content}>{children}</div>
         </div>
+      </div>
+      <div className={styles.footerContainer}>
         <Footer reverseVariant={reverseFooter} />
       </div>
     </div>

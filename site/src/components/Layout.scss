@@ -26,9 +26,10 @@ pre {
   min-height: 100vh;
   grid-template-areas:
     "navbar"
-    "page";
+    "page"
+    "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: [navigationBarContainer] $ca-navigation-bar__height [page] 1fr;
+  grid-template-rows: [navigationBarContainer] $ca-navigation-bar__height [page] 1fr [footer];
 }
 
 .navigationBarContainer {
@@ -41,6 +42,7 @@ pre {
   display: grid;
   grid-area: page;
   grid-template-rows: [titleBlockContainer] auto [contentContainer] 1fr;
+  padding-bottom: $ca-grid * 3;
 }
 
 .contentContainer {
@@ -56,4 +58,8 @@ pre {
   width: 100%;
   padding: 0 0 $ca-grid;
   box-sizing: border-box;
+}
+
+.footerContainer {
+  grid-area: footer;
 }
