@@ -24,6 +24,8 @@ $sidebar-content-gap: $ca-grid * 2;
 
 .content {
   grid-area: content;
+  background-color: #fff;
+  border: 1px solid $ca-border-color;
 }
 
 // Sidebar styles
