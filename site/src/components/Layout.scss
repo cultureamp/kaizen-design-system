@@ -6,21 +6,6 @@
 
 $content-max-width: $ca-grid * 57;
 
-body {
-  background-color: $ca-palette-stone;
-  color: $ca-base-text-color;
-  font-family: $ca-ideal-sans-font-family;
-}
-
-a {
-  color: $ca-link-text-color;
-}
-
-pre {
-  white-space: normal;
-  word-break: break-word;
-}
-
 .root {
   display: grid;
   min-height: 100vh;

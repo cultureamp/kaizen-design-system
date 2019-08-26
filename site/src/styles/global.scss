@@ -1,0 +1,18 @@
+@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/responsive";
+
+body {
+  background-color: $ca-palette-stone;
+  color: $ca-base-text-color;
+  font-family: $ca-ideal-sans-font-family;
+}
+
+a {
+  color: $ca-link-text-color;
+}
+
+pre {
+  white-space: normal;
+  word-break: break-word;
+}

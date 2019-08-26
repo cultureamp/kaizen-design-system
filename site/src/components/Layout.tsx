@@ -1,4 +1,5 @@
 import * as React from "react"
+import "../styles/global.scss"
 import Footer from "./Footer"
 import Head from "./Head"
 // import { TitleBlock } from "@cultureamp/kaizen-component-library/draft"
