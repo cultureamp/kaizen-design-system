@@ -5,13 +5,13 @@ import * as React from "react"
 import styles from "./Footer.scss"
 
 type FooterProps = {
-  wisteriaVariant?: boolean
+  reverseVariant?: boolean
 }
 
-const Footer: React.SFC<FooterProps> = ({ wisteriaVariant = false }) => (
+const Footer: React.SFC<FooterProps> = ({ reverseVariant = false }) => (
   <div
     className={classnames(styles.footer, {
-      [styles.wisteriaVariant]: wisteriaVariant,
+      [styles.reverseVariant]: reverseVariant,
     })}
   >
     <div className={styles.footerInner}>

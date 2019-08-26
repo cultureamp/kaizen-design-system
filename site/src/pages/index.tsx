@@ -6,7 +6,7 @@ export default ({ location }) => (
   <Layout
     pageTitle="Kaizen Design System"
     currentPath={location.pathname}
-    wisteriaFooter
+    reverseFooter
   >
     <div className={styles.prominent}>🌱</div>
   </Layout>

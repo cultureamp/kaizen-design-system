@@ -8,7 +8,7 @@
   height: $ca-grid * 3;
   margin-top: $ca-grid * 3;
 
-  &.wisteriaVariant {
+  &.reverseVariant {
     background-color: add-shade($ca-palette-wisteria, 30%);
     color: #fff;
   }
@@ -29,7 +29,7 @@
 
 %link {
   a {
-    .wisteriaVariant & {
+    .reverseVariant & {
       color: inherit;
     }
 

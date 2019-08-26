@@ -9,7 +9,7 @@ type LayoutProps = {
   currentPath?: string
   pageTitle?: string
   children?: React.ReactNode
-  wisteriaFooter?: boolean
+  reverseFooter?: boolean
   titleBlock?: {
     title: string
     subtitle: string
@@ -21,7 +21,7 @@ const Layout: React.SFC<LayoutProps> = ({
   currentPath,
   children,
   titleBlock,
-  wisteriaFooter = false,
+  reverseFooter = false,
 }) => (
   <>
     <Head pageTitle={pageTitle} />
@@ -38,7 +38,7 @@ const Layout: React.SFC<LayoutProps> = ({
         <div className={styles.contentContainer}>
           <div className={styles.content}>{children}</div>
         </div>
-        <Footer wisteriaVariant={wisteriaFooter} />
+        <Footer reverseVariant={reverseFooter} />
       </div>
     </div>
   </>
