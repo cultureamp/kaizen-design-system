@@ -6,6 +6,10 @@ body {
   background-color: $ca-palette-stone;
   color: $ca-base-text-color;
   font-family: $ca-ideal-sans-font-family;
+
+  @include ca-media-mobile() {
+    background-color: #fff;
+  }
 }
 
 a {

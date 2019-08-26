@@ -26,6 +26,10 @@ $sidebar-content-gap: $ca-grid * 2;
   grid-area: content;
   background-color: #fff;
   border: 1px solid $ca-border-color;
+
+  @include ca-media-mobile() {
+    border: 0;
+  }
 }
 
 // Sidebar styles
