@@ -2,7 +2,6 @@ import * as React from "react"
 import "../styles/global.scss"
 import Footer from "./Footer"
 import Head from "./Head"
-// import { TitleBlock } from "@cultureamp/kaizen-component-library/draft"
 import styles from "./Layout.scss"
 import MainNav from "./MainNav"
 
@@ -11,17 +10,14 @@ type LayoutProps = {
   pageTitle?: string
   children?: React.ReactNode
   reverseFooter?: boolean
-  titleBlock?: {
-    title: string
-    subtitle: string
-  }
+  pageHeader?: React.ReactNode
 }
 
 const Layout: React.SFC<LayoutProps> = ({
   pageTitle,
   currentPath,
   children,
-  titleBlock,
+  pageHeader,
   reverseFooter = false,
 }) => (
   <>
@@ -31,11 +27,7 @@ const Layout: React.SFC<LayoutProps> = ({
         <MainNav currentPath={currentPath} />
       </div>
       <div className={styles.page}>
-        <div className={styles.titleBlockContainer}>
-          {/* {titleBlock && (
-          <TitleBlock title={titleBlock.title} subtitle={titleBlock.subtitle} />
-        )} */}
-        </div>
+        {pageHeader}
         <div className={styles.contentContainer}>
           <div className={styles.content}>{children}</div>
         </div>

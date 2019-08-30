@@ -6,6 +6,10 @@
 $sidebar-width: $ca-grid * 10;
 $sidebar-content-gap: $ca-grid * 2;
 
+:root {
+  --content-card-top-offset: calc(var(--ca-grid) * 2);
+}
+
 .sidebarAndContent {
   display: grid;
   grid-template-areas: "sidebar content";
@@ -26,9 +30,13 @@ $sidebar-content-gap: $ca-grid * 2;
   grid-area: content;
   background-color: #fff;
   border: 1px solid $ca-border-color;
+  padding: 0 6 * $ca-grid;
+  margin-top: calc(-1 * var(--content-card-top-offset));
 
   @include ca-media-mobile() {
     border: 0;
+    padding: 0;
+    margin-top: 0;
   }
 }
 
@@ -36,6 +44,7 @@ $sidebar-content-gap: $ca-grid * 2;
 
 .sidebar {
   grid-area: sidebar;
+  margin-top: $ca-grid;
 }
 
 .tabList {

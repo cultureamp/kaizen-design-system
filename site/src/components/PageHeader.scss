@@ -1,0 +1,93 @@
+@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/responsive";
+
+.pageHeader {
+  display: grid;
+  justify-items: center;
+  background: add-shade($ca-palette-wisteria, 20%);
+  padding-top: calc(var(--ca-grid) * 3.5);
+  padding-right: var(--ca-grid);
+  padding-bottom: calc(var(--ca-grid) * 3.5 + var(--content-card-top-offset));
+  padding-left: var(--ca-grid);
+  color: #fff;
+
+  @include ca-media-mobile() {
+    padding-bottom: calc(var(--ca-grid) * 3.5);
+  }
+}
+
+.pageHeaderInner {
+  display: grid;
+  grid-template-columns: [side] (12 * $ca-grid) [main] 1fr;
+  max-width: var(--content-max-width);
+
+  @include ca-media-mobile() {
+    grid-template-columns: 1fr;
+    grid-template-rows: [main] auto [side] auto;
+    row-gap: $ca-grid;
+  }
+}
+
+.sideSection {
+  grid-area: side;
+  display: grid;
+  grid-template-rows: ($ca-grid * 9.5) auto;
+  row-gap: $ca-grid;
+
+  @include ca-media-mobile() {
+    grid-template-rows: auto;
+  }
+}
+
+.image {
+  background: add-alpha(#fff, 5%); // delete me
+
+  @include ca-media-mobile() {
+    display: none;
+  }
+}
+
+.tagsContainer {
+  background: add-alpha(#fff, 5%); // delete me
+  color: add-tint($ca-palette-ink, 90%);
+}
+
+.tagsLabel {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: $ca-grid / 2;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mainSection {
+  grid-area: main;
+  padding: 0 $ca-grid * 6;
+
+  @include ca-media-mobile() {
+    padding: 0;
+  }
+}
+
+.headingText {
+  font-size: 3.75rem;
+  line-height: 1.4;
+  font-weight: 400;
+  background: add-alpha(#fff, 5%); // delete me
+  margin-bottom: $ca-grid * 2;
+  margin-top: calc(-0.5 * 0.5em); // hack to make text flush with adjacent image
+}
+
+.summaryParagraph {
+  font-size: 1.625rem;
+  line-height: 1.4;
+  font-weight: 300;
+  background: add-alpha(#fff, 5%); // delete me
+  margin-bottom: 0;
+}

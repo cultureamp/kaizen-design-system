@@ -1,6 +1,7 @@
 import { graphql } from "gatsby"
 import React from "react"
 import Layout from "../components/Layout"
+import PageHeader from "../components/PageHeader"
 import {
   Content,
   Sidebar,
@@ -13,8 +14,19 @@ export default ({ data, pageContext, location }) => {
   const allPages = data.allMarkdownRemark.edges
   const currentPath = location.pathname
 
+  const ComponentPageHeader = (
+    <PageHeader
+      headingText="Modal"
+      summaryParagraph="Modals show additional content in a layer above the page with an overlay covering the page behind. Use sparingly."
+    />
+  )
+
   return (
-    <Layout pageTitle={md.frontmatter.title} currentPath={currentPath}>
+    <Layout
+      pageTitle={md.frontmatter.title}
+      currentPath={currentPath}
+      pageHeader={ComponentPageHeader}
+    >
       <SidebarAndContent>
         <Sidebar>
           {allPages.map(node => (

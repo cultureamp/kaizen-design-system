@@ -4,7 +4,9 @@
 @import "~@cultureamp/kaizen-component-library/styles/responsive";
 @import "~@cultureamp/kaizen-component-library/styles/layers";
 
-$content-max-width: $ca-grid * 57;
+:root {
+  --content-max-width: calc(var(--ca-grid) * 57);
+}
 
 .root {
   display: grid;
@@ -26,7 +28,7 @@ $content-max-width: $ca-grid * 57;
 .page {
   display: grid;
   grid-area: page;
-  grid-template-rows: [titleBlockContainer] auto [contentContainer] 1fr;
+  grid-template-rows: [pageHeaderContainer] auto [contentContainer] 1fr;
   padding-bottom: $ca-grid * 3;
 }
 
@@ -39,7 +41,7 @@ $content-max-width: $ca-grid * 57;
 .content {
   display: grid;
   grid-column: content;
-  max-width: $content-max-width;
+  max-width: var(--content-max-width);
   width: 100%;
   padding: 0 0 $ca-grid;
   box-sizing: border-box;

@@ -2,6 +2,10 @@
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/responsive";
 
+:root {
+  --ca-grid: #{$ca-grid};
+}
+
 html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
