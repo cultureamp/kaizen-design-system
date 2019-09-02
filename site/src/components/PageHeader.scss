@@ -6,10 +6,7 @@
   display: grid;
   justify-items: center;
   background: add-shade($ca-palette-wisteria, 20%);
-  padding-top: calc(var(--ca-grid) * 3.5);
-  padding-right: var(--ca-grid);
-  padding-bottom: calc(var(--ca-grid) * 3.5 + var(--content-card-top-offset));
-  padding-left: var(--ca-grid);
+  padding: calc(var(--ca-grid) * 3.5) var(--ca-grid);
   color: #fff;
 
   @include ca-media-mobile() {
@@ -89,5 +86,5 @@
   line-height: 1.4;
   font-weight: 300;
   background: add-alpha(#fff, 5%); // delete me
-  margin-bottom: 0;
+  margin-bottom: var(--content-card-top-offset);
 }
