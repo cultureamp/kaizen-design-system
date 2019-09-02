@@ -22,6 +22,28 @@ export default ({ data, pageContext, location }) => {
       summaryParagraph={
         "Our color palette is built with our core principles and guidelines as its foundation. We are committed to complying with WCAG AA standard contrast ratios. This is our full color palette and variables you can use."
       }
+      tags={[
+        {
+          text: "tag name",
+          link: "",
+        },
+        {
+          text: "tag 2",
+          link: "",
+        },
+        {
+          text: "other thing",
+          link: "",
+        },
+        {
+          text: "tag 67",
+          link: "",
+        },
+        {
+          text: "I love tags",
+          link: "",
+        },
+      ]}
     />
   )
 

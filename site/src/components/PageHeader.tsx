@@ -5,9 +5,32 @@ type PageHeaderProps = {
   children?: React.ReactNode
   headingText: string
   summaryParagraph?: string
-  tags?: React.ReactNode
+  tags?: Tag[]
   image?: React.ReactNode
 }
+
+type Tag = {
+  text: string
+  link: string
+}
+
+// The <span> in here should be replaced with a Kaizen "Tag" component
+const LinkTag = ({ text, link }) => (
+  <a
+    href={link}
+    style={{
+      color: "inherit",
+      background: "rgba(255,255,255,0.1)",
+      display: "inline-block",
+      padding: "0.2em 0.75em",
+      margin: "0 0.25em 0.75rem",
+      borderRadius: "50px",
+      textDecoration: "none",
+    }}
+  >
+    <span>{text}</span>
+  </a>
+)
 
 const PageHeader: React.SFC<PageHeaderProps> = ({
   children,
@@ -24,7 +47,11 @@ const PageHeader: React.SFC<PageHeaderProps> = ({
           {tags && (
             <>
               <div className={styles.tagsLabel}>Also known as:</div>
-              <div className={styles.tags}>{tags}</div>
+              <div className={styles.tags}>
+                {tags.map(tag => (
+                  <LinkTag text={tag.text} link={tag.link} />
+                ))}
+              </div>
             </>
           )}
         </div>
