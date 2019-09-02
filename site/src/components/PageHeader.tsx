@@ -22,10 +22,12 @@ const LinkTag = ({ text, link }) => (
       color: "inherit",
       background: "rgba(255,255,255,0.1)",
       display: "inline-block",
-      padding: "0.2em 0.75em",
-      margin: "0 0.25em 0.75rem",
+      padding: "0.08em 0.75em",
+      margin: "0 0.25em 0.5rem",
       borderRadius: "50px",
       textDecoration: "none",
+      fontSize: "0.875rem",
+      lineHeight: "1.7142857143",
     }}
   >
     <span>{text}</span>
