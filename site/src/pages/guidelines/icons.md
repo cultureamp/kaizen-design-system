@@ -1,6 +1,10 @@
 ---
 title: Icons
 navTitle: Icons
+summaryParagraph: |
+  Icons are a helpful and familiar visual aid to guide and inform users. Not just for aesthetics, they provide humanity by defining hierarchy for information and shaping a page’s composition, helping to make our product more approachable and usable.
+
+  See our <Link to="/components/Icon">Icon Component</Link> for information about how to use these components.
 ---
 
 <!-- ---
@@ -12,14 +16,6 @@ imports:
   "{TipContainer,TipCard}": components/tip-card
   Link: components/Link.js
 --- -->
-
-<div class="introParagraph">
-
-Icons are a helpful and familiar visual aid to guide and inform users. Not just for aesthetics, they provide humanity by defining hierarchy for information and shaping a page’s composition, helping to make our product more approachable and usable.
-
-See our <Link to="/components/Icon">Icon Component</Link> for information about how to use these components.
-
-</div>
 
 ## Interaction states
 

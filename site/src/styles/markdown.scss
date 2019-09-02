@@ -36,9 +36,15 @@
     margin: ($ca-grid * 2) 0 ($ca-grid / 2);
   }
 
+  // This is the actual h1 in the Header component.
+  // We want to force h1s in markdown to look like h2s (see below).
+  // h1 {
+  //   font-size: 3.75rem;
+  //   line-height: 1.4;
+  // }
+
   h1 {
-    font-size: 3.75rem;
-    line-height: 1.4;
+    @extend h2;
   }
 
   h2 {

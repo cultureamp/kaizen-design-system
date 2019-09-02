@@ -1,6 +1,7 @@
 ---
 title: Typography
 navTitle: Typography
+summaryParagraph: Typography is important when establishing a strong design system. When established, it can help to create balance and hierarchy of textual information. By creating structure within a page, text becomes enjoyable and appealing to read. We aim to ensure type within our product complies with WCAG 2.0 AA standards.
 ---
 
 <!-- ---
@@ -10,12 +11,6 @@ imports:
   TypographyShowcase: ./_TypographyShowcase.js
   "{TipContainer,TipCard}": components/tip-card
 --- -->
-
-<div class="introParagraph">
-
-Typography is important when establishing a strong design system. When established, it can help to create balance and hierarchy of textual information. By creating structure within a page, text becomes enjoyable and appealing to read. We aim to ensure type within our product complies with WCAG 2.0 AA standards.
-
-</div>
 
 <TypographyShowcase />
 

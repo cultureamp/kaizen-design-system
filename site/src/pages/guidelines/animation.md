@@ -1,6 +1,7 @@
 ---
 title: Animation
 navTitle: Animation
+summaryParagraph: Welcome to the Culture Amp Animation “Getting Started” guide. We hope that the following information will provide you with adequate technical guidelines on how we do animation at Culture Amp. If you believe something is missing or could be improved, please feel free to [contribute](https://github.com/cultureamp/cultureamp-style-guide).
 ---
 
 <!-- ---
@@ -19,15 +20,7 @@ imports:
   TransitionUsageOutputExample: ./examples/TransitionUsageOutputExample.js
 --- -->
 
-# Animation Guide
-
-<div class="introParagraph">
-
-Welcome to the Culture Amp Animation “Getting Started” guide. We hope that the following information will provide you with adequate technical guidelines on how we do animation at Culture Amp. If you believe something is missing or could be improved, please feel free to [contribute](https://github.com/cultureamp/cultureamp-style-guide).
-
-</div>
-
-## Overview
+# Overview
 
 Animation is an integral part of the User Experience we are trying to create within our application. As the Culture Amp product/s mature and grow, we want animation to be an upfront consideration in everything we design and build. This goal brings with it some challenges that we will need to address collaboratively as designers and developers. This animation guide and companion library attempts to reduce the friction of the following challenges.
 

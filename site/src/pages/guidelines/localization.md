@@ -1,6 +1,7 @@
 ---
 title: Localization
 navTitle: Localization
+summaryParagraph: Welcome to the Culture Amp Localisation 'Getting Started' guide. We hope that the following information will provide you with adequate technical knowledge on how we do localisation at Culture Amp. If you believe something is missing or could be improved, please feel free to [contribute](https://github.com/cultureamp/cultureamp-style-guide).
 ---
 
 <!-- ---
@@ -14,14 +15,6 @@ imports:
   CAPositionExample: ./examples/CAPositionExample.js
   RTLLayoutExample: ./examples/RTLLayoutExample.js
 --- -->
-
-# Localisation Guide
-
-<div class="introParagraph">
-
-Welcome to the Culture Amp Localisation 'Getting Started' guide. We hope that the following information will provide you with adequate technical knowledge on how we do localisation at Culture Amp. If you believe something is missing or could be improved, please feel free to [contribute](https://github.com/cultureamp/cultureamp-style-guide).
-
-</div>
 
 ## Overview
 

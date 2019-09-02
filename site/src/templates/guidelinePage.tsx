@@ -16,12 +16,12 @@ export default ({ data, pageContext, location }) => {
   const allPages = data.allMarkdownRemark.edges
   const currentPath = location.pathname
 
+  console.log(md.frontmatter.summaryParagraph)
+
   const GuidelinesPageHeader = (
     <PageHeader
-      headingText="Color"
-      summaryParagraph={
-        "Our color palette is built with our core principles and guidelines as its foundation. We are committed to complying with WCAG AA standard contrast ratios. This is our full color palette and variables you can use."
-      }
+      headingText={md.frontmatter.title}
+      summaryParagraph={md.frontmatter.summaryParagraph}
       tags={[
         {
           text: "tag name",
@@ -68,8 +68,6 @@ export default ({ data, pageContext, location }) => {
           ))}
         </Sidebar>
         <Content>
-          <h1>{md.frontmatter.title}</h1>
-
           <div dangerouslySetInnerHTML={{ __html: md.html }} />
         </Content>
       </SidebarAndContent>
@@ -98,6 +96,7 @@ export const query = graphql`
       html
       frontmatter {
         title
+        summaryParagraph
       }
     }
   }
