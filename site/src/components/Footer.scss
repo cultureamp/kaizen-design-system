@@ -21,11 +21,6 @@
   width: 100%;
 }
 
-.logoLink {
-  display: flex;
-  align-items: center;
-}
-
 %link {
   a {
     .reverseVariant & {
@@ -39,6 +34,13 @@
 }
 
 .privacy,
-.github {
+.github,
+.logo {
   @extend %link;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  color: inherit;
 }

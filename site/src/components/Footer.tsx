@@ -16,14 +16,16 @@ const Footer: React.SFC<FooterProps> = ({ reverseVariant = false }) => (
   >
     <div className={styles.footerInner}>
       <span>&copy; Culture Amp Pty Ltd</span>
-      <a href="https://cultureamp.com" className={styles.logoLink}>
-        <Icon
-          icon={companyLogo}
-          title="Culture Amp"
-          desc="Link to Culture Amp site"
-          role="img"
-        />
-      </a>
+      <span className={styles.logo}>
+        <a href="https://cultureamp.com" className={styles.logoLink}>
+          <Icon
+            icon={companyLogo}
+            title="Culture Amp"
+            desc="Link to Culture Amp site"
+            role="img"
+          />
+        </a>
+      </span>
       <span className={styles.privacy}>
         <a href="https://www.cultureamp.com/privacy-policy/">Privacy</a>
       </span>
