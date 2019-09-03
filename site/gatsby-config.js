@@ -1,3 +1,5 @@
+const { resolve } = require("path")
+
 module.exports = {
   siteMetadata: {
     title: `Kaizen Design System`,
@@ -11,8 +13,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src`,
-        name: `src`,
+        path: resolve(__dirname, `docs`),
+        name: `docs`,
       },
     },
     {

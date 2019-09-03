@@ -1,6 +1,6 @@
 import React from "react"
-import AnimationExample from "../components/AnimationExample"
-import Grid from "../components/Grid"
+import AnimationExample from "../docs-components/animation/AnimationExample"
+import Grid from "../docs-components/animation/Grid"
 import "./AnimationPresetsExample.scss"
 
 class AnimationPresetsExample extends React.PureComponent {
