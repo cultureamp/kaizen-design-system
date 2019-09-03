@@ -9,7 +9,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
-    "@cultureamp/kaizen-component-library": "^11.0.0",
+    "@cultureamp/kaizen-component-library": "^11.16.0",
     "@kaizen/storybook": "*",
     "@kaizen/webpack": "*",
     "classnames": "^2.2.6",
