@@ -10,6 +10,22 @@ exports.onCreateWebpackConfig = ({ actions, loaders }) => {
           test: /\.tsx?$/,
           use: babelLoader,
         },
+        {
+          test: /\.svg$/,
+          use: {
+            loader: "svgo-loader",
+            options: {
+              plugins: [
+                { removeTitle: true },
+                {
+                  convertColors: {
+                    currentColor: /black|#000|#000000/,
+                  },
+                },
+              ],
+            },
+          },
+        },
       ],
     },
   })
