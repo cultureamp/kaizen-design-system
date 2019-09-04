@@ -16,8 +16,6 @@ export default ({ data, pageContext, location }) => {
   const allPages = data.allMarkdownRemark.edges
   const currentPath = location.pathname
 
-  console.log(md.frontmatter.summaryParagraph)
-
   const GuidelinesPageHeader = (
     <PageHeader
       headingText={md.frontmatter.title}
