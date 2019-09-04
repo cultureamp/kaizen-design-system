@@ -17654,6 +17654,11 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   dependencies:
     minimalistic-assert "^1.0.0"
 
+wcag-contrast-verifier@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/wcag-contrast-verifier/-/wcag-contrast-verifier-1.1.0.tgz#e19ae0b708b24f62518b524e073c4a1f1c3ec062"
+  integrity sha1-4ZrgtwiyT2JRi1JOBzxKHxw+wGI=
+
 wcwidth@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/wcwidth/-/wcwidth-1.0.1.tgz#f0b0dcf915bc5ff1528afadb2c0e17b532da2fe8"

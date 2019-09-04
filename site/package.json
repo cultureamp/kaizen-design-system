@@ -27,6 +27,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
-    "svgo-loader": "^2.2.1"
+    "svgo-loader": "^2.2.1",
+    "wcag-contrast-verifier": "^1.1.0"
   }
 }
