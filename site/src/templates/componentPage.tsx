@@ -1,4 +1,5 @@
 import { graphql } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import React from "react"
 import Layout from "../components/Layout"
 import PageHeader from "../components/PageHeader"
@@ -10,8 +11,8 @@ import {
 } from "../components/SidebarAndContent"
 
 export default ({ data, pageContext, location }) => {
-  const md = data.markdownRemark
-  const allPages = data.allMarkdownRemark.edges
+  const md = data.mdx
+  const allPages = data.allMdx.edges
   const currentPath = location.pathname
 
   const ComponentPageHeader = (
@@ -40,8 +41,7 @@ export default ({ data, pageContext, location }) => {
         </Sidebar>
         <Content>
           <h1>{md.frontmatter.title}</h1>
-
-          <div dangerouslySetInnerHTML={{ __html: md.html }} />
+          <MDXRenderer>{data.mdx.body}</MDXRenderer>
           <pre>data: {JSON.stringify(data)}</pre>
           <pre>pageContext: {JSON.stringify(pageContext)}</pre>
           <pre>location.pathname: {JSON.stringify(location.pathname)}</pre>
@@ -53,9 +53,7 @@ export default ({ data, pageContext, location }) => {
 
 export const query = graphql`
   query($slug: String!) {
-    allMarkdownRemark(
-      filter: { fields: { slug: { regex: "^/components/" } } }
-    ) {
+    allMdx(filter: { fields: { slug: { regex: "^/components/" } } }) {
       edges {
         node {
           fields {
@@ -67,8 +65,8 @@ export const query = graphql`
         }
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
       frontmatter {
         title
       }

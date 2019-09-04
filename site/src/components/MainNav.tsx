@@ -12,9 +12,7 @@ type MainNavProps = {
 const MainNav: React.SFC<MainNavProps> = ({ currentPath = "" }) => {
   const data = useStaticQuery(graphql`
     query ComponentsQuery {
-      allMarkdownRemark(
-        filter: { fields: { slug: { regex: "^/components/" } } }
-      ) {
+      allMdx(filter: { fields: { slug: { regex: "^/components/" } } }) {
         edges {
           node {
             fields {
@@ -26,8 +24,7 @@ const MainNav: React.SFC<MainNavProps> = ({ currentPath = "" }) => {
     }
   `)
 
-  const firstComponentPath = data.allMarkdownRemark!.edges[0]!.node!.fields!
-    .slug
+  const firstComponentPath = data.allMdx!.edges[0]!.node!.fields!.slug
 
   return (
     <NavigationBar colorScheme="kaizen">

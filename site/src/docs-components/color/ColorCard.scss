@@ -4,7 +4,7 @@
 // TODO: update references to style sheets
 
 .colorCard {
-  composes: card from "components/card/Card.module.scss";
+  composes: card from "./Card/Card.scss";
 }
 
 .colorCard h3 {
@@ -15,12 +15,17 @@
 }
 
 .cardToggleButton {
-  composes: buttonReset from "components/HtmlContent.module.scss";
+  appearance: none;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: none;
   composes: interactiveIconWrapper from "@cultureamp/kaizen-component-library/components/Icon/Icon.module.scss";
   color: $ca-palette-ink;
   display: flex;
   width: 100%;
-  color: $ca-palette-ink;
   cursor: pointer;
 }
 

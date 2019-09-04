@@ -4,21 +4,13 @@ navTitle: Color
 summaryParagraph: Our color palette is built with our core principles and guidelines as its foundation. We are committed to complying with WCAG AA standard contrast ratios.
 ---
 
-<!-- ---
-imports:
-  ColorShowcase: ./_ColorShowcase.js
-  IntroParagraph: components/IntroParagraph.js
-  "{TipContainer,TipCard}": components/tip-card
-  styles: ./index.module.scss
---- -->
-
+import ColorShowcase from "docs-components/color/ColorShowcase"
 
 <ColorShowcase />
 
 ## Best practices
 
-<TipContainer>
-<TipCard title="Colors should…" type="tip">
+Colors should...
 
 - Add value to the page
 
@@ -26,8 +18,7 @@ imports:
 
 - Be mindful of color psychology values (e.g. Red is danger/bad/stop) vs cultural values
 
-</TipCard>
-<TipCard title="Colors should not…" type="warning">
+Colors shouldn't...
 
 - Be overused.
 
@@ -35,5 +26,3 @@ imports:
 
 - Overload the user and create confusion
 
-</TipCard>
-</TipContainer>

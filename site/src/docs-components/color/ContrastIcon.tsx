@@ -1,11 +1,9 @@
-// TODO: fix wcag import
-
 import { Icon } from "@cultureamp/kaizen-component-library"
 import successWhite from "@cultureamp/kaizen-component-library/icons/success.icon.svg"
 import classnames from "classnames"
 import wcag from "wcag-contrast-verifier/lib/wcag"
-import Palette from "./_Palette"
-import styles from "./ColorCard.module.scss"
+import styles from "./ColorCard.scss"
+import Palette from "./Palette"
 
 function contrastIsLevelAA(background, foreground, fontSize) {
   return wcag.verifyContrastRatio(background.hex(), foreground.hex(), fontSize)

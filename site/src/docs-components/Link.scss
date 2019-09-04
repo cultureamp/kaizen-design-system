@@ -1,0 +1,43 @@
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/type";
+
+.link,
+.htmlContent a[href] {
+  color: $ca-link-text-color;
+  text-decoration: none;
+  &:hover,
+  &:active,
+  &:focus,
+  &:visited {
+    color: $ca-link-hover-text-color;
+  }
+  &:active,
+  &:focus {
+    outline-color: add-tint($ca-palette-wisteria, 30%);
+    outline-offset: 2px;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.buttonReset {
+  appearance: none;
+  display: inline;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.buttonLink {
+  // Note: the definition of `.buttonReset` must come before the definition of `.link` in the source order,
+  // as we want the styles in `.link` to take override those in `.buttonReset`.
+  composes: buttonReset;
+  composes: link;
+  @include ca-type-ideal-body;
+  padding: 0 2px;
+}

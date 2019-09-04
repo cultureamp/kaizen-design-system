@@ -1,4 +1,5 @@
 import { graphql } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 import React from "react"
 import Layout from "../components/Layout"
 import PageHeader from "../components/PageHeader"
@@ -12,8 +13,8 @@ import {
 const stripTrailingSlash = (str: string) => str.replace(/\/$/, "")
 
 export default ({ data, pageContext, location }) => {
-  const md = data.markdownRemark
-  const allPages = data.allMarkdownRemark.edges
+  const md = data.mdx
+  const allPages = data.allMdx.edges
   const currentPath = location.pathname
 
   const GuidelinesPageHeader = (
@@ -66,7 +67,7 @@ export default ({ data, pageContext, location }) => {
           ))}
         </Sidebar>
         <Content>
-          <div dangerouslySetInnerHTML={{ __html: md.html }} />
+          <MDXRenderer>{data.mdx.body}</MDXRenderer>
         </Content>
       </SidebarAndContent>
     </Layout>
@@ -75,9 +76,7 @@ export default ({ data, pageContext, location }) => {
 
 export const query = graphql`
   query($slug: String!) {
-    allMarkdownRemark(
-      filter: { fields: { slug: { regex: "^/guidelines/" } } }
-    ) {
+    allMdx(filter: { fields: { slug: { regex: "^/guidelines/" } } }) {
       edges {
         node {
           fields {
@@ -90,8 +89,8 @@ export const query = graphql`
         }
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
       frontmatter {
         title
         summaryParagraph

@@ -1,6 +1,6 @@
 import classNames from "classnames"
 import React from "react"
-import styles from "./Card.module.scss"
+import styles from "./Card.scss"
 
 const Card = ({ children, dark }) => {
   const className = classNames({

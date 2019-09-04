@@ -2,10 +2,10 @@ import Icon from "@cultureamp/kaizen-component-library/components/Icon/Icon.js"
 import chevronDown from "@cultureamp/kaizen-component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@cultureamp/kaizen-component-library/icons/chevron-up.icon.svg"
 import React from "react"
-import ColorBlock from "./_ColorBlock.js"
-import { renderContrastHeaderIcons } from "./_ContrastIcon.js"
-import Palette from "./_Palette.js"
-import styles from "./ColorCard.module.scss"
+import ColorBlock from "./ColorBlock"
+import styles from "./ColorCard.scss"
+import { renderContrastHeaderIcons } from "./ContrastIcon"
+import Palette from "./Palette"
 
 class ColorCard extends React.Component {
   state = {

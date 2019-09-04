@@ -1,12 +1,12 @@
-import Dropdown from "@cultureamp/kaizen-component-library/components/Dropdown"
 import {
+  Dropdown,
   MenuHeader,
   MenuItem,
   MenuList,
-} from "@cultureamp/kaizen-component-library/components/MenuList"
+} from "@cultureamp/kaizen-component-library"
 import duplicate from "@cultureamp/kaizen-component-library/icons/duplicate.icon.svg"
 import React from "react"
-import styles from "./ColorCard.module.scss"
+import styles from "./ColorCard.scss"
 
 const ColorBlockKebab = ({ bgColor, sassVar }) => {
   const hex = bgColor.hex(),

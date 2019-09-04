@@ -1,7 +1,7 @@
 import React from "react"
-import { ActionLink } from "../../components/Link"
-import ColorCard from "./_ColorCard.js"
-import styles from "./index.module.scss"
+import { ActionLink } from "../Link"
+import ColorCard from "./ColorCard"
+import styles from "./ColorShowcase.scss"
 
 class ColorShowcase extends React.Component {
   state = {
@@ -11,7 +11,7 @@ class ColorShowcase extends React.Component {
   render() {
     return (
       <div className={styles.cardContainer}>
-        {this.renderColorSection("Primary Colors", ["Coral", "Paper", "Ink"])}
+        {this.renderColorSection("Primary Colors", ["Coral", "Ink"])}
         {this.renderColorSection("Secondary Colors", [
           "Seedling",
           "Ocean",

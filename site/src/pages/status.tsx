@@ -3,7 +3,7 @@ import * as React from "react"
 import Layout from "../components/Layout"
 
 export default ({ data, location }) => {
-  const { edges } = data.allMarkdownRemark
+  const { edges } = data.allMdx
 
   return (
     <Layout pageTitle="Status" currentPath={location.pathname}>
@@ -29,7 +29,7 @@ export default ({ data, location }) => {
 
 export const query = graphql`
   query {
-    allMarkdownRemark(filter: { fields: { slug: { regex: "^/status/" } } }) {
+    allMdx(filter: { fields: { slug: { regex: "^/status/" } } }) {
       edges {
         node {
           fields {

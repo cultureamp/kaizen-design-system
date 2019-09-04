@@ -2,18 +2,18 @@
 
 import iconStyles from "@cultureamp/kaizen-component-library/components/Icon/Icon.module.scss"
 import classnames from "classnames"
-// import GatsbyLink from "gatsby-link"
+import GatsbyLink from "gatsby-link"
 import React from "react"
-import styles from "./HtmlContent.module.scss"
+import styles from "./Link.scss"
 
-// export const Link = ({ to, children }) => (
-//   <GatsbyLink
-//     to={to}
-//     className={classnames(styles.link, iconStyles.interactiveIconWrapper)}
-//   >
-//     {children}
-//   </GatsbyLink>
-// )
+export const Link = ({ to, children }) => (
+  <GatsbyLink
+    to={to}
+    className={classnames(styles.link, iconStyles.interactiveIconWrapper)}
+  >
+    {children}
+  </GatsbyLink>
+)
 
 export const ExternalLink = ({ to, children }) => (
   <a
