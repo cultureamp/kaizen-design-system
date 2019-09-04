@@ -35,8 +35,15 @@ export const SidebarTab: React.SFC<SidebarTabProps> = ({
 )
 
 export const Content: React.SFC = ({ children }) => (
-  <div className={classnames(styles.content, markdownStyles.markdownContainer)}>
-    {children}
+  <div className={styles.content}>
+    <div
+      className={classnames(
+        styles.contentInner,
+        markdownStyles.markdownContainer
+      )}
+    >
+      {children}
+    </div>
   </div>
 )
 

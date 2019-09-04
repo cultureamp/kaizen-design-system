@@ -40,6 +40,10 @@ $sidebar-content-gap: $ca-grid * 2;
   }
 }
 
+.contentInner {
+  margin: ($ca-grid * 4) 0;
+}
+
 // Sidebar styles
 
 .sidebar {
