@@ -11,8 +11,8 @@ class ColorShowcase extends React.Component {
   render() {
     return (
       <div className={styles.cardContainer}>
-        {this.renderColorSection("Primary Colors", ["Coral", "Ink"])}
-        {this.renderColorSection("Secondary Colors", [
+        {this.renderColorSection("Primary palette", ["Coral", "Ink"])}
+        {this.renderColorSection("Secondary palette", [
           "Seedling",
           "Ocean",
           "Lapis",
@@ -20,7 +20,7 @@ class ColorShowcase extends React.Component {
           "Peach",
           "Yuzu",
         ])}
-        {this.renderColorSection("Tertiary Colors", [
+        {this.renderColorSection("Tertiary palette", [
           "Positive-Delta",
           "Negative-Delta",
           "Stone",
@@ -35,13 +35,13 @@ class ColorShowcase extends React.Component {
     return [
       <div className={styles.gridHeader} key={title}>
         <h2 className={styles.sectionHeader}>{title}</h2>
-        <div className={styles.toggleAccessibilityButton}>
+        {/* <div className={styles.toggleAccessibilityButton}>
           <ActionLink action={() => this.toggleAccessibility(title)}>
             {showAccessibility
               ? "Hide Contrast Checker"
               : "Show Contrast Checker"}
           </ActionLink>
-        </div>
+        </div> */}
       </div>,
       colors.map(color => (
         <ColorCard

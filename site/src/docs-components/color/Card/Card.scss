@@ -10,6 +10,7 @@ $cardPadding: $ca-grid / 2;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
   margin-bottom: $ca-grid;
   padding: $cardPadding;
+  box-sizing: border-box;
 }
 
 .dark {

@@ -7,11 +7,11 @@
   composes: card from "./Card/Card.scss";
 }
 
-.colorCard h3 {
-  @include ca-type-ideal-heading;
-  font-weight: $ca-weight-light;
-  height: $ca-grid;
-  margin: 0;
+.colorCard .colorHeading {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .cardToggleButton {
@@ -41,10 +41,8 @@
   width: 24px;
 }
 
-.colorCard h4 {
-  @include ca-type-ideal-labels-and-legends;
+.colorCard label {
   color: add-tint($ca-palette-ink, 50%);
-  margin: $ca-grid/2 0;
 }
 
 $accessibilityTileWidth: 46px;

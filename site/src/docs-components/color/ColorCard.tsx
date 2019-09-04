@@ -18,7 +18,9 @@ class ColorCard extends React.Component {
     return (
       <div>
         <div className={styles.colorCard}>
-          <h3>{this.renderColorTitleAndToggle()}</h3>
+          <h3 className={styles.colorHeading}>
+            {this.renderColorTitleAndToggle()}
+          </h3>
           {this.renderSubtitle()}
           {this.renderColorBlocks(this.state.expanded)}
         </div>
@@ -60,7 +62,7 @@ class ColorCard extends React.Component {
       color = Palette[this.props.name.toLowerCase()]
     return (
       <div className={styles.subheader}>
-        <h4>{title}</h4>
+        <label>{title}</label>
         {showContrast && renderContrastHeaderIcons(color)}
       </div>
     )
