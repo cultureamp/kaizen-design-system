@@ -1,16 +1,12 @@
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/type";
 
-$cardPadding: $ca-grid / 2;
-
 .card {
   box-sizing: border-box;
   min-width: 280px;
   margin-bottom: $ca-grid;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
   border-radius: 3px;
   background-color: white;
-  padding: $cardPadding;
 }
 
 .dark {
