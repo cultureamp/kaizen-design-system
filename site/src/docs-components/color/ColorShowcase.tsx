@@ -11,18 +11,15 @@ class ColorShowcase extends React.Component {
   render() {
     return (
       <div className={styles.cardContainer}>
-        {this.renderColorSection("Primary palette", ["Coral", "Ink"])}
-        {this.renderColorSection("Secondary palette", [
+        {this.renderColorSection("Palette", [
+          "Coral",
+          "Ink",
           "Seedling",
           "Ocean",
           "Lapis",
           "Wisteria",
           "Peach",
           "Yuzu",
-        ])}
-        {this.renderColorSection("Tertiary palette", [
-          "Positive-Delta",
-          "Negative-Delta",
           "Stone",
           "Ash",
         ])}

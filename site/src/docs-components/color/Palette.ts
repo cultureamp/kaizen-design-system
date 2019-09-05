@@ -12,8 +12,6 @@ const Palette = {
   yuzu: Color("#ffce1e"),
   stone: Color("#f9f9f9"),
   ash: Color("#f3f4f4"),
-  "positive-delta": Color("#43e699"),
-  "negative-delta": Color("#ff4757"),
 }
 
 export default Palette

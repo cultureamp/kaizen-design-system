@@ -49,7 +49,7 @@ class ColorCard extends React.Component {
   }
 
   isExpandable() {
-    return this.props.name !== "Stone"
+    return !["Stone", "Ash"].includes(this.props.name)
   }
 
   toggleOpen() {
