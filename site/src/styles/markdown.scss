@@ -2,105 +2,105 @@
 @import "~@cultureamp/kaizen-component-library/styles/border";
 
 .markdownContainer {
-  p {
+  :global(.md-p) {
     font-weight: $ca-weight-light;
     margin: $ca-grid 0;
   }
 
-  p,
-  li {
+  :global(.md-p),
+  :global(.md-li) {
     font-size: 1.25rem;
     line-height: 1.8;
   }
 
-  li {
+  :global(.md-li) {
     margin: 0;
     font-weight: $ca-weight-light;
 
-    p {
+    :global(.md-p) {
       margin: $ca-grid / 2 0;
     }
   }
 
-  ol > li {
+  :global(.md-ol) > :global(.md-li) {
     margin-top: $ca-grid;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  :global(.md-h1),
+  :global(.md-h2),
+  :global(.md-h3),
+  :global(.md-h4),
+  :global(.md-h5),
+  :global(.md-h6) {
     font-weight: $ca-weight-book;
     margin: ($ca-grid * 2) 0 ($ca-grid / 2);
   }
 
   // This is the actual h1 in the Header component.
   // We want to force h1s in markdown to look like h2s (see below).
-  // h1 {
+  // :global(.md-h1) {
   //   font-size: 3.75rem;
   //   line-height: 1.4;
   // }
 
-  h1 {
-    @extend h2;
+  :global(.md-h1) {
+    @extend :global(.md-h2);
   }
 
-  h2 {
+  :global(.md-h2) {
     font-size: 2rem;
     line-height: 1.125;
     margin-top: $ca-grid * 3.5;
     margin-bottom: 0;
   }
 
-  h2 + p,
-  h2 + ul,
-  h2 + ol {
+  :global(.md-h2) + :global(.md-p),
+  :global(.md-h2) + :global(.md-ul),
+  :global(.md-h2) + :global(.md-ol) {
     margin-top: $ca-grid * 2.5;
   }
 
-  h3 {
+  :global(.md-h3) {
     font-size: 1.625rem;
     line-height: 1.3846153846;
     margin-top: $ca-grid * 2;
     margin-bottom: $ca-grid;
   }
 
-  h2 + h3 {
+  :global(.md-h2) + :global(.md-h3) {
     margin-top: $ca-grid;
   }
 
-  h4 {
+  :global(.md-h4) {
     font-size: 1.375rem;
     line-height: 1.0909090909;
     margin-top: $ca-grid * 2;
     margin-bottom: $ca-grid;
   }
 
-  h3 + h4 {
+  :global(.md-h3) + :global(.md-h4) {
     margin-top: 0;
   }
 
-  h5 {
+  :global(.md-h5) {
     font-size: 1rem;
     line-height: 1.5;
     font-weight: $ca-weight-medium;
   }
 
-  em,
-  i {
+  :global(.md-em),
+  :global(.md-i) {
     font-style: normal;
     font-weight: $ca-weight-book;
   }
 
-  hr {
+  :global(.md-hr) {
     height: 1px;
     border: 0;
     background-color: $ca-border-color;
   }
 
-  a {
+  :global(.md-a) {
     text-decoration: none;
     color: $ca-palette-ocean;
 
@@ -109,32 +109,32 @@
     }
   }
 
-  table {
+  :global(.md-table) {
     margin-bottom: $ca-grid * 2;
     border-collapse: collapse;
   }
 
-  tbody > tr:first-of-type > td {
+  tbody > :global(.md-tr):first-of-type > :global(.md-td) {
     padding-top: $ca-grid / 2;
   }
 
-  th,
-  td {
+  :global(.md-th),
+  :global(.md-td) {
     $cell-padding: $ca-grid / 4;
     padding: $cell-padding $ca-grid $cell-padding 0;
   }
 
-  th {
+  :global(.md-th) {
     text-align: left;
     border-bottom: 1px solid $ca-border-color;
     font-weight: $ca-weight-book;
   }
 
-  td {
+  :global(.md-td) {
     font-weight: $ca-weight-light;
   }
 
-  code {
+  :global(.md-code) {
     line-height: inherit;
     background-color: add-tint($ca-palette-ink, 80%);
     // color: #fff;
@@ -142,22 +142,22 @@
     border-radius: 0.25em;
   }
 
-  // lede {
+  // :global(.md-lede) {
   //   font-size: 20px;
   //   line-height: 24px;
   // }
 
-  // small {
+  // :global(.md-small) {
   //   font-size: 14px;
   //   line-height: 24px;
   // }
 
-  // notifications {
+  // :global(.md-notifications) {
   //   font-size: 15px;
   //   line-height: 18px;
   // }
 
-  label {
+  :global(.md-label) {
     font-size: 0.75rem;
     line-height: 1.5;
     text-transform: uppercase;
@@ -166,12 +166,12 @@
     margin-bottom: $ca-grid / 2;
   }
 
-  button {
+  :global(.md-button) {
     font-size: 18px;
     line-height: 24px;
   }
 
-  :global(.introParagraph) p {
+  :global(.introParagraph) :global(.md-p) {
     font-size: 1.5rem;
   }
 }
