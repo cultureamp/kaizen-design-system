@@ -1,7 +1,9 @@
+import { MDXProvider } from "@mdx-js/react"
 import classnames from "classnames"
 import { Link } from "gatsby"
 import * as React from "react"
 import markdownStyles from "../styles/markdown.scss"
+import markdownComponents from "./markdownComponents"
 import styles from "./SidebarAndContent.scss"
 
 type SidebarAndContentProps = {
@@ -42,7 +44,7 @@ export const Content: React.SFC = ({ children }) => (
         markdownStyles.markdownContainer
       )}
     >
-      {children}
+      <MDXProvider components={markdownComponents}>{children}</MDXProvider>
     </div>
   </div>
 )
