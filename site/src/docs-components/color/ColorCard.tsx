@@ -30,7 +30,7 @@ class ColorCard extends React.Component {
 
   renderColorTitleAndToggle() {
     if (!this.isExpandable()) {
-      return <span>{this.props.name}</span>
+      return this.props.name
     }
     const toggleIcon = this.state.expanded ? chevronUp : chevronDown,
       toggleTitle = this.state.expanded ? "Collapse Color" : "Expand Color"

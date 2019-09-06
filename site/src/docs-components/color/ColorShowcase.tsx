@@ -13,13 +13,13 @@ class ColorShowcase extends React.Component {
       <div className={styles.cardContainer}>
         {this.renderColorSection("Palette", [
           "Coral",
-          "Ink",
           "Seedling",
           "Ocean",
           "Lapis",
           "Wisteria",
           "Peach",
           "Yuzu",
+          "Ink",
           "Stone",
           "Ash",
         ])}
@@ -31,7 +31,6 @@ class ColorShowcase extends React.Component {
     const showAccessibility = this.state.showAccessibility[title]
     return [
       <div className={styles.gridHeader} key={title}>
-        <h2 className={styles.sectionHeader}>{title}</h2>
         {/* <div className={styles.toggleAccessibilityButton}>
           <ActionLink action={() => this.toggleAccessibility(title)}>
             {showAccessibility
