@@ -1,11 +1,11 @@
-import scssCode from '!raw-loader!cultureamp-style-guide/styles/animations/_durations.scss';
-import React from 'react';
-import Code from '../../../../components/Code';
+import scssCode from "!raw-loader!@cultureamp/kaizen-component-library/styles/animations/_durations.scss"
+import React from "react"
+import Code from "../Code"
 
 class DurationPresets extends React.PureComponent {
   render() {
-    return <Code>{scssCode}</Code>;
+    return <Code>{scssCode}</Code>
   }
 }
 
-export default DurationPresets;
+export default DurationPresets

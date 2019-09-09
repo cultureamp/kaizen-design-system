@@ -1,11 +1,11 @@
-import scssCode from '!raw-loader!./TransitionUsageInputExample.scss';
-import React from 'react';
-import Code from '../../../../components/Code';
+import scssCode from "!raw-loader!./TransitionUsageInputExample.scss"
+import React from "react"
+import Code from "../Code"
 
 class TransitionUsageInputExample extends React.PureComponent {
   render() {
-    return <Code>{scssCode}</Code>;
+    return <Code>{scssCode}</Code>
   }
 }
 
-export default TransitionUsageInputExample;
+export default TransitionUsageInputExample

@@ -4,21 +4,16 @@ navTitle: Animation
 summaryParagraph: Welcome to the Culture Amp Animation “Getting Started” guide. We hope that the following information will provide you with adequate technical guidelines on how we do animation at Culture Amp. If you believe something is missing or could be improved, please feel free to [contribute](https://github.com/cultureamp/cultureamp-style-guide).
 ---
 
-<!-- ---
-imports:
-  InlineNotification: cultureamp-style-guide/components/Notification/InlineNotification.js
-  IntroParagraph: components/IntroParagraph.js
-  AnimationSequencesExample: ./examples/AnimationSequencesExample.js
-  AnimationUsageInputExample: ./examples/AnimationUsageInputExample.js
-  AnimationUsageOutputExample: ./examples/AnimationUsageOutputExample.js
-  AnimationPresetsExample: ./examples/AnimationPresetsExample.js
-  AnimationImportExample: ./examples/AnimationImportExample.js
-  DurationPresetsExample: ./examples/DurationPresetsExample.js
-  EasingPresetsExample: ./examples/EasingPresetsExample.js
-  TransitionPresetsExample: ./examples/TransitionPresetsExample.js
-  TransitionUsageInputExample: ./examples/TransitionUsageInputExample.js
-  TransitionUsageOutputExample: ./examples/TransitionUsageOutputExample.js
---- -->
+import AnimationPresetsExample from "docs-components/animation/AnimationPresetsExample"
+import AnimationSequencesExample from "docs-components/animation/AnimationSequencesExample"
+import AnimationUsageInputExample from "docs-components/animation/AnimationUsageInputExample"
+import AnimationUsageOutputExample from "docs-components/animation/AnimationUsageOutputExample"
+import AnimationImportExample from "docs-components/animation/AnimationImportExample"
+import DurationPresetsExample from "docs-components/animation/DurationPresetsExample"
+import EasingPresetsExample from "docs-components/animation/EasingPresetsExample"
+import TransitionPresetsExample from "docs-components/animation/TransitionPresetsExample"
+import TransitionUsageInputExample from "docs-components/animation/TransitionUsageInputExample"
+import TransitionUsageOutputExample from "docs-components/animation/TransitionUsageOutputExample"
 
 # Overview
 
@@ -47,13 +42,17 @@ Here are examples of pre-defined CSS transitions and animations that are ready t
 
 **Animations**
 
-<iframe src="/AnimationPresetsExample" frameborder="0" width="100%" id="foo"></iframe>
+<AnimationPresetsExample />
 
-<!--- <InlineNotification persistent={true} type="affirmative">**Tip:** If you are doing any kind of prototyping the animation presets are very useful. As they are keyframe-driven, they do not need to be “triggered” like transitions, and will play simply by adding the animation class to the element.</InlineNotification> --->
+<!-- {/* <InlineNotification> */} -->
+
+**Tip:** If you are doing any kind of prototyping the animation presets are very useful. As they are keyframe-driven, they do not need to be “triggered” like transitions, and will play simply by adding the animation class to the element.
+
+<!-- {/* </InlineNotification> */} -->
 
 **Transitions**
 
-<!--- <TransitionPresetsExample /> --->
+<TransitionPresetsExample />
 
 ## Getting Started
 
@@ -61,7 +60,7 @@ Culture Amp have a number of [Sass](https://sass-lang.com/) mixins and animation
 
 <!--- <InlineNotification persistent={true} type="informative">Culture Amp’s animation helpers have been heavily built up [Zurb’s Motion UI](https://github.com/zurb/motion-ui). In fact, most of the mixins are just aliased versions the motion-ui library. This will allow Culture Amp to expand upon and potentially remove this dependency without breaking our animation API.</InlineNotification> --->
 
-<!--- <AnimationImportExample /> --->
+<AnimationImportExample />
 
 ### Variables
 
@@ -71,13 +70,13 @@ The Sass animation variables are designed to provide consistency across all Cult
 
 Prefix: `$ca-timing`
 
-<!--- <EasingPresetsExample /> --->
+<EasingPresetsExample />
 
 **Durations**
 
 Prefix: `$ca-duration`
 
-<!--- <DurationPresetsExample /> --->
+<DurationPresetsExample />
 
 ### Mixins
 
@@ -91,10 +90,11 @@ To use any of the animation presets, simply define a class and include the mixin
 
 ##### SASS Input
 
-<!--- <AnimationUsageInputExample /> --->
+<AnimationUsageInputExample />
 
 ##### CSS Output
-<!--- <AnimationUsageOutputExample /> --->
+
+<AnimationUsageOutputExample />
 
 
 | Type       | Mixin                              |
@@ -121,11 +121,11 @@ To use any of the transition presets, simply define a class and include the mixi
 
 ##### SASS Input
 
-<!--- <TransitionUsageInputExample /> --->
+<TransitionUsageInputExample />
 
 ##### CSS Output
 
-<!--- <TransitionUsageOutputExample /> --->
+<TransitionUsageOutputExample />
 
 | Type       | Mixin                               |
 | ---------- | ----------------------------------- |
@@ -143,7 +143,7 @@ To use any of the transition presets, simply define a class and include the mixi
 
 Sequencing animations with CSS/Sass can be cumbersome. To reduce verbosity and complexity, we have a couple of mixins that will help orchestrate more complex animation sequences.
 
-<!--- <AnimationSequencesExample /> --->
+<AnimationSequencesExample />
 
 <!--- <InlineNotification persistent={true} type="informative">**Note:** This mixin will only work with animation keyframe functions e.g. `pop` and `pulsate`.</InlineNotification> --->
 
@@ -194,7 +194,11 @@ Meaningful motion helps make our product easy for everyone and tells our brand's
 
 </div>
 
-<InlineNotification persistent={true} type="affirmative">**Tip:** Looking for the technical animation guide? _Check out the [Animation Getting Started Guide](/guides/animation)_</InlineNotification>
+<!-- {/* <InlineNotification> */} -->
+  
+**Tip:** Looking for the technical animation guide? _Check out the [Animation Getting Started Guide](/guides/animation)_
+  
+<!-- {/* </InlineNotification> */} -->
 
 [[toc]]
 

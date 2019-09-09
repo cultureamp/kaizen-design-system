@@ -1,11 +1,11 @@
-import scssCode from '!raw-loader!./AnimationUsageOutputExample.scss';
-import React from 'react';
-import Code from '../../../../components/Code';
+import scssCode from "!raw-loader!./AnimationUsageOutputExample.scss"
+import React from "react"
+import Code from "../Code"
 
 class AnimationUsageOutputExample extends React.PureComponent {
   render() {
-    return <Code>{scssCode}</Code>;
+    return <Code>{scssCode}</Code>
   }
 }
 
-export default AnimationUsageOutputExample;
+export default AnimationUsageOutputExample

@@ -1,16 +1,16 @@
-import React from 'react';
-import Code from '../../../../components/Code';
+import React from "react"
+import Code from "../../../../components/Code"
 
 class CAPaddingExample extends React.PureComponent {
   render() {
     return (
-      <Code>{`@import '~cultureamp-style-guide/styles/layout';
+      <Code>{`@import '~@cultureamp/kaizen-component-library/styles/layout';
 
 .my-element {
   @include ca-padding($start: 10px, $end: 20px, $top: 30px, $bottom: 40px);
 }`}</Code>
-    );
+    )
   }
 }
 
-export default CAPaddingExample;
+export default CAPaddingExample

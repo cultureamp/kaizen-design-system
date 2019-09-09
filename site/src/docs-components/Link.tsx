@@ -1,5 +1,3 @@
-// TODO: update references
-
 import iconStyles from "@cultureamp/kaizen-component-library/components/Icon/Icon.module.scss"
 import classnames from "classnames"
 import GatsbyLink from "gatsby-link"
