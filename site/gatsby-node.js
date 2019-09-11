@@ -14,7 +14,7 @@ exports.onCreateWebpackConfig = ({ actions, loaders }) => {
           use: babelLoader,
         },
         {
-          test: /\.svg$/,
+          test: /\.icon\.svg$/,
           use: {
             loader: "svgo-loader",
             options: {

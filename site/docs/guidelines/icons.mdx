@@ -7,25 +7,23 @@ summaryParagraph: |
   See our <Link to="/components/Icon">Icon Component</Link> for information about how to use these components.
 ---
 
-<!-- ---
-imports:
-  IntroParagraph: components/IntroParagraph.js
-  IconGrid: ./_IconGrid.js
-  InteractionStates: ./_InteractionStates.js
-  IconSizeSpaceTouch: ./_IconSizeSpaceTouch.js
-  "{TipContainer,TipCard}": components/tip-card
-  Link: components/Link.js
---- -->
+import InteractionStatesDemo from "docs-components/icons/InteractionStatesDemo"
+import IconSizeSpaceTouch from "docs-components/icons/IconSizeSpaceTouch"
+import IconGrid from "docs-components/icons/IconGrid"
 
 ## Interaction states
 
-<InteractionStates dark={false} />
-
-<InteractionStates dark={true} />
+<InteractionStatesDemo />
 
 ## Size, spacing and touch targets
 
 <IconSizeSpaceTouch />
+
+## Icons
+
+<IconGrid />
+
+<!-- 
 
 <IconGrid category="Actions" />
 
@@ -45,12 +43,14 @@ imports:
 
 <IconGrid category="Navigational/Engagement" />
 
-<IconGrid category="Navigational/Global" />
+<IconGrid category="Navigational/Global" /> 
 
-## Best practices
+ -->
 
-<TipContainer>
-<TipCard title="Icons should…" type="tip">
+## Icons should...
+
+<!-- <TipContainer>
+<TipCard title="Icons should…" type="tip"> -->
 
 * by default, by 20px in size (minimum) and can be scaled to larger sizes if it contextually makes sense.
 
@@ -58,12 +58,14 @@ imports:
 
 * be accompanied by a label to support the visual. Try avoid using icons in isolation of labels, unless they are being used for a clear visual convention (e.g. Search, Home, Close, etc.)
 
-</TipCard>
-<TipCard title="Icons should not…" type="warning">
+<!-- </TipCard>
+<TipCard title="Icons should not…" type="warning"> -->
+
+## Icons should not...
 
 * be overused. Avoid using icons for the sake of it.
 
 * need to align to the baseline grid.
 
-</TipCard>
-</TipContainer>
+<!-- </TipCard>
+</TipContainer> -->

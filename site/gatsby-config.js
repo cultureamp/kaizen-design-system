@@ -16,13 +16,16 @@ module.exports = {
         name: `docs`,
       },
     },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     path: resolve(__dirname, `src/docs-components`),
-    //     name: `docsComponents`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: resolve(
+          __dirname,
+          `../node_modules/@cultureamp/kaizen-component-library/icons`
+        ),
+        name: `icons`,
+      },
+    },
     `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-transformer-remark`,

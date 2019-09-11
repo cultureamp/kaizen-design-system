@@ -1,0 +1,119 @@
+@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@cultureamp/kaizen-component-library/styles/border";
+@import "~@cultureamp/kaizen-component-library/styles/color";
+
+.header {
+  font-size: 2rem;
+  line-height: 1.125;
+  font-weight: $ca-weight-book;
+  margin-top: $ca-grid * 3.5;
+  margin-bottom: 0;
+}
+
+$tileWidth: $ca-grid * 6;
+$tileHeight: $ca-grid * 6;
+
+.iconGrid {
+  padding-top: $ca-grid * 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, $tileWidth);
+  grid-row-gap: $ca-grid;
+  justify-content: space-between;
+}
+
+.iconTile {
+  appearance: none;
+  display: inline;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  border: none;
+  composes: interactiveIconWrapper from "@cultureamp/kaizen-component-library/components/Icon/Icon.module.scss";
+  cursor: pointer;
+  border-radius: $ca-border-radius;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background: add-tint($ca-palette-ink, 94%);
+  }
+}
+
+.tileWrapper {
+  // Due to a firefox bug, we must use the display:flex rule on a wrapper div rather than the button element directly.
+  box-sizing: border-box;
+  width: $tileWidth;
+  height: $tileHeight;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: $ca-grid / 2;
+  position: relative;
+}
+
+.iconLabel {
+  display: block;
+  .iconLabelText {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+}
+
+.iconWrapper {
+  display: block;
+  margin: 0 auto;
+  width: 20px;
+  height: 20px;
+
+  img {
+    max-width: 100%;
+    opacity: 0.7;
+  }
+}
+
+.copyLabel {
+  display: block;
+  opacity: 0;
+
+  .copyLabelText {
+    @include ca-type-ideal-small;
+    display: block;
+    text-align: center;
+    color: $ca-palette-ocean;
+    font-weight: 400;
+
+    .clicked & {
+      color: $ca-palette-seedling;
+    }
+  }
+
+  .iconTile:hover &,
+  .iconTile:focus &,
+  .iconTile:active & {
+    opacity: 1;
+  }
+  .clicked & {
+    opacity: 1;
+    color: $ca-palette-seedling;
+    transition-duration: 0s;
+  }
+}
+
+.tickIcon {
+  height: $ca-grid * 2/3;
+  position: absolute;
+  right: $ca-grid / 2;
+  bottom: $ca-grid / 2;
+  color: $ca-palette-seedling;
+}
+
+.pathInput {
+  position: absolute;
+  left: -100000px;
+}
