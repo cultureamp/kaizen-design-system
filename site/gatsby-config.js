@@ -34,6 +34,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sass`,
       options: {
+        precision: 9,
         cssLoaderOptions: {
           modules: true,
         },
