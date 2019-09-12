@@ -5,6 +5,7 @@
 
 .colorCard {
   composes: card from "../Card.scss";
+  margin-bottom: $ca-grid;
 }
 
 .colorCard .colorHeading {
