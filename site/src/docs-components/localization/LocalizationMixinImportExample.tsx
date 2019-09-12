@@ -1,7 +1,7 @@
 import React from "react"
-import Code from "../../../../components/Code"
+import Code from "../Code"
 
-class LocalisationMixinImportExample extends React.PureComponent {
+class LocalizationMixinImportExample extends React.PureComponent {
   render() {
     return (
       <Code>{`@import '~@cultureamp/kaizen-component-library/styles/type';
@@ -10,4 +10,4 @@ class LocalisationMixinImportExample extends React.PureComponent {
   }
 }
 
-export default LocalisationMixinImportExample
+export default LocalizationMixinImportExample

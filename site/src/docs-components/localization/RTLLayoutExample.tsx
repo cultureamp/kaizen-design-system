@@ -1,5 +1,5 @@
-import React from 'react';
-import Code from '../../../../components/Code';
+import React from "react"
+import Code from "../Code"
 
 class RTLLayoutExample extends React.PureComponent {
   render() {
@@ -7,8 +7,8 @@ class RTLLayoutExample extends React.PureComponent {
       <Code>{`<div dir="rtl">
   <div><p>I should now be right aligned text</p><div>
 </div>`}</Code>
-    );
+    )
   }
 }
 
-export default RTLLayoutExample;
+export default RTLLayoutExample

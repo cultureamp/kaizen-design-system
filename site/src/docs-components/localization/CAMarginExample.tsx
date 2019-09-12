@@ -1,5 +1,5 @@
 import React from "react"
-import Code from "../../../../components/Code"
+import Code from "../Code"
 
 class CAMarginExample extends React.PureComponent {
   render() {
@@ -7,7 +7,7 @@ class CAMarginExample extends React.PureComponent {
       <Code>{`@import '~@cultureamp/kaizen-component-library/styles/layout';
 
 .my-element {
-  @include ca-margin($start: 10px, $end: 20px, $top: 30px, $bottom: 40px);
+  @include ca-margin($start: $ca-grid, $end: 0, $top: $ca-grid * 2, $bottom: $ca-grid);
 }`}</Code>
     )
   }

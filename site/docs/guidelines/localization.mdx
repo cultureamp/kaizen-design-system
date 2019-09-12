@@ -1,20 +1,16 @@
 ---
 title: Localization
 navTitle: Localization
-summaryParagraph: Welcome to the Culture Amp Localisation 'Getting Started' guide. We hope that the following information will provide you with adequate technical knowledge on how we do localisation at Culture Amp. If you believe something is missing or could be improved, please feel free to [contribute](https://github.com/cultureamp/cultureamp-style-guide).
+summaryParagraph: Welcome to the Culture Amp Localization 'Getting Started' guide. We hope that the following information will provide you with adequate technical knowledge on how we do localization at Culture Amp. If you believe something is missing or could be improved, please feel free to [contribute](https://github.com/cultureamp/cultureamp-style-guide).
 ---
 
-<!-- ---
-imports:
-  InlineNotification: cultureamp-style-guide/components/Notification/InlineNotification.js
-  IntroParagraph: components/IntroParagraph.js
-  LocalisationMixinImportExample: ./examples/LocalisationMixinImportExample.js
-  CATypeAlignExample: ./examples/CATypeAlignExample.js
-  CAMarginExample: ./examples/CAMarginExample.js
-  CAPaddingExample: ./examples/CAPaddingExample.js
-  CAPositionExample: ./examples/CAPositionExample.js
-  RTLLayoutExample: ./examples/RTLLayoutExample.js
---- -->
+import LocalizationMixinImportExample from "docs-components/localization/LocalizationMixinImportExample"
+import CATypeAlignExample from "docs-components/localization/CATypeAlignExample"
+import CAMarginExample from "docs-components/localization/CAMarginExample"
+import CAPaddingExample from "docs-components/localization/CAPaddingExample"
+import CAPositionExample from "docs-components/localization/CAPositionExample"
+import RTLLayoutExample from "docs-components/localization/RTLLayoutExample"
+
 
 ## Overview
 
@@ -26,13 +22,13 @@ As the Culture Amp product/s mature and grow, we want to be able to support as m
 
 Culture Amp have a number of [Sass](https://sass-lang.com/) mixins which are available from [Kaizen](https://github.com/cultureamp/cultureamp-style-guide) for you to use. To use them, you will need to ensure the correct mixin file is imported.
 
-<!--- <LocalisationMixinImportExample /> --->
+<LocalizationMixinImportExample />
 
 ## Text Alignment
 
 If you explicity need to set the `text-align` property for your document or component, you should use the `ca-type-align-start` or `ca-type-align-end` mixin as follows. As an example, using `ca-type-align-start` in a left-to-right layout will result in left-aligned text, whereas in a right-to-left layout, the resulting text will be right-aligned.
 
-<!--- <CATypeAlignExample /> --->
+<CATypeAlignExample />
 
 ##### Available Mixins
 
@@ -49,7 +45,7 @@ When using any `left` or `right`-specific CSS properties e.g. `margin-left`, `pa
 
 ### Margins
 
-<!--- <CAMarginExample /> --->
+<CAMarginExample />
 
 ##### Params
 
@@ -64,7 +60,7 @@ Note that all params are optional.
 
 ### Padding
 
-<!--- <CAPaddingExample /> --->
+<CAPaddingExample />
 
 ##### Params
 
@@ -81,7 +77,7 @@ Note that all params are optional.
 
 This mixin is relevant to `absolute` or `relative`-positioned elements.
 
-<!--- <CAPositionExample /> --->
+<CAPositionExample />
 
 ##### Params
 
@@ -99,4 +95,4 @@ Note that all params are optional.
 **Q:** How can I test RTL layout support?
 **A:** Set the `dir` attribute on any parent element to `"rtl"`.
 
-<!--- <RTLLayoutExample /> --->
+<RTLLayoutExample />

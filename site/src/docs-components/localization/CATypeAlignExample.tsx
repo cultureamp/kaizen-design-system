@@ -1,5 +1,5 @@
 import React from "react"
-import Code from "../../../../components/Code"
+import Code from "../Code"
 
 class CATypeAlignExample extends React.PureComponent {
   render() {
