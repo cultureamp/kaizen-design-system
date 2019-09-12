@@ -19,6 +19,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: resolve(__dirname, `src/components/images`),
+        name: `images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: resolve(
           __dirname,
           `../node_modules/@cultureamp/kaizen-component-library/icons`

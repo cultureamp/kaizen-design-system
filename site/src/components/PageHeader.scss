@@ -40,8 +40,6 @@
 }
 
 .image {
-  background: add-alpha(#fff, 5%); // delete me
-
   @include ca-media-mobile() {
     display: none;
   }
