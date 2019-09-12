@@ -27,8 +27,7 @@ class TypographyItem extends React.Component {
 }
 
 const TypographyShowcase = () => (
-  <div>
-    <h2 className={styles.display}>Type hierarchy</h2>
+  <div className={styles.showcase}>
     <TypographyItem
       name="Page Title (H1)"
       sampleText="Have the courage to be vulnerable"

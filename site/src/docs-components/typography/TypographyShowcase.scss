@@ -1,6 +1,10 @@
 @import "~@cultureamp/kaizen-component-library/styles/type";
 @import "~@cultureamp/kaizen-component-library/styles/border";
 
+.showcase {
+  margin-top: $ca-grid * 2.5;
+}
+
 .pageTitle {
   @include ca-type-ideal-page-title;
   margin: $ca-grid * 1.5 0;
