@@ -5,6 +5,8 @@
 
 $sidebar-width: $ca-grid * 10;
 $sidebar-content-gap: $ca-grid * 2;
+$content-side-margin: $ca-grid * 6;
+$content-top-and-bottom-margin: $ca-grid * 4;
 
 :root {
   --content-card-top-offset: calc(var(--ca-grid) * 2);
@@ -31,7 +33,7 @@ $sidebar-content-gap: $ca-grid * 2;
   background-color: #fff;
   border-radius: 7px;
   box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.19);
-  padding: 0 6 * $ca-grid;
+  padding: 0;
   margin-top: calc(-1 * var(--content-card-top-offset));
   max-width: $ca-grid * 45;
 
@@ -44,7 +46,13 @@ $sidebar-content-gap: $ca-grid * 2;
 }
 
 .contentInner {
-  margin: ($ca-grid * 4) 0;
+  margin: $content-top-and-bottom-margin $content-side-margin;
+}
+
+.contentNeedToKnow {
+  margin-top: $content-top-and-bottom-margin;
+  padding: 0 $content-side-margin $content-top-and-bottom-margin;
+  border-bottom: 1px solid $ca-border-color;
 }
 
 // Sidebar styles

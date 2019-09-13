@@ -5,6 +5,8 @@ import Layout from "../components/Layout"
 import PageHeader from "../components/PageHeader"
 import {
   Content,
+  ContentMarkdownSection,
+  ContentNeedToKnowSection,
   Sidebar,
   SidebarAndContent,
   SidebarTab,
@@ -41,11 +43,14 @@ export default ({ data, pageContext, location }) => {
           ))}
         </Sidebar>
         <Content>
-          <h1>{md.frontmatter.title}</h1>
-          <MDXRenderer>{data.mdx.body}</MDXRenderer>
-          <pre>data: {JSON.stringify(data)}</pre>
-          <pre>pageContext: {JSON.stringify(pageContext)}</pre>
-          <pre>location.pathname: {JSON.stringify(location.pathname)}</pre>
+          <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
+          <ContentMarkdownSection>
+            <h1>{md.frontmatter.title}</h1>
+            <MDXRenderer>{data.mdx.body}</MDXRenderer>
+            <pre>data: {JSON.stringify(data)}</pre>
+            <pre>pageContext: {JSON.stringify(pageContext)}</pre>
+            <pre>location.pathname: {JSON.stringify(location.pathname)}</pre>
+          </ContentMarkdownSection>
         </Content>
       </SidebarAndContent>
     </Layout>
@@ -71,6 +76,7 @@ export const query = graphql`
       frontmatter {
         title
         tags
+        needToKnow
       }
     }
   }

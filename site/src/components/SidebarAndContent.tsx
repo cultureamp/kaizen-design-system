@@ -20,6 +20,10 @@ type SidebarTabProps = {
   children: React.ReactNode
 }
 
+type ContentNeedToKnowProps = {
+  listOfTips: Array<string>
+}
+
 export const Sidebar: React.SFC<SidebarProps> = ({ children }) => (
   <div className={styles.sidebar}>
     <ul className={styles.tabList}>{children}</ul>
@@ -37,15 +41,39 @@ export const SidebarTab: React.SFC<SidebarTabProps> = ({
 )
 
 export const Content: React.SFC = ({ children }) => (
-  <div className={styles.content}>
-    <div
-      className={classnames(
-        styles.contentInner,
-        markdownStyles.markdownContainer
-      )}
-    >
-      <MDXProvider components={markdownComponents}>{children}</MDXProvider>
-    </div>
+  <div className={styles.content}>{children}</div>
+)
+
+export const ContentNeedToKnowSection: React.SFC<ContentNeedToKnowProps> = ({
+  listOfTips,
+}) => (
+  <>
+    {listOfTips && listOfTips.length > 0 && (
+      <div
+        className={classnames(
+          styles.contentNeedToKnow,
+          markdownStyles.markdownContainer
+        )}
+      >
+        <markdownComponents.h2>Need to know</markdownComponents.h2>
+        <markdownComponents.ul>
+          {listOfTips.map((tip: string) => (
+            <markdownComponents.li>{tip}</markdownComponents.li>
+          ))}
+        </markdownComponents.ul>
+      </div>
+    )}
+  </>
+)
+
+export const ContentMarkdownSection: React.SFC = ({ children }) => (
+  <div
+    className={classnames(
+      styles.contentInner,
+      markdownStyles.markdownContainer
+    )}
+  >
+    <MDXProvider components={markdownComponents}>{children}</MDXProvider>
   </div>
 )
 
