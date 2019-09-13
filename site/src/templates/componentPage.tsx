@@ -19,6 +19,7 @@ export default ({ data, pageContext, location }) => {
     <PageHeader
       headingText="Modal"
       summaryParagraph="Modals show additional content in a layer above the page with an overlay covering the page behind. Use sparingly."
+      tags={md.frontmatter.tags}
     />
   )
 
@@ -69,6 +70,7 @@ export const query = graphql`
       body
       frontmatter {
         title
+        tags
       }
     }
   }

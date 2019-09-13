@@ -33,6 +33,7 @@ $sidebar-content-gap: $ca-grid * 2;
   box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.19);
   padding: 0 6 * $ca-grid;
   margin-top: calc(-1 * var(--content-card-top-offset));
+  max-width: $ca-grid * 45;
 
   @include ca-media-mobile() {
     border: 0;

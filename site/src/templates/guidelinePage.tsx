@@ -21,28 +21,7 @@ export default ({ data, pageContext, location }) => {
     <PageHeader
       headingText={md.frontmatter.title}
       summaryParagraph={md.frontmatter.summaryParagraph}
-      tags={[
-        {
-          text: "tag name",
-          link: "",
-        },
-        {
-          text: "tag 2",
-          link: "",
-        },
-        {
-          text: "other thing",
-          link: "",
-        },
-        {
-          text: "tag 67",
-          link: "",
-        },
-        {
-          text: "I love tags",
-          link: "",
-        },
-      ]}
+      tags={md.frontmatter.tags}
     />
   )
 
@@ -94,6 +73,7 @@ export const query = graphql`
       frontmatter {
         title
         summaryParagraph
+        tags
       }
     }
   }
