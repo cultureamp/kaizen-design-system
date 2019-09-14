@@ -4,6 +4,9 @@
     "site",
     "tools/*"
   ],
+  "engines": {
+    "node": "10.16.3"
+  },
   "scripts": {
     "kaizen": "bin/cli",
     "site": "bin/cli site",
