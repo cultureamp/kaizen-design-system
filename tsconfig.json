@@ -6,6 +6,7 @@
     "module": "commonjs",
     "allowJs": false,
     "resolveJsonModule": true,
+    "noImplicitAny": false,
     "strict": true
   }
 }
