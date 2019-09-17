@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "react"
 const styles = require("./IconsPage.scss")
 const minimumSize = require("./images/minimum-size.svg")
 const neighbouringIcons = require("./images/neighbouring-icons.svg")

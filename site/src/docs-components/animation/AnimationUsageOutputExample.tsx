@@ -1,5 +1,5 @@
 import scssCode from "!raw-loader!./AnimationUsageOutputExample.scss"
-import React from "react"
+import * as React from "react"
 import Code from "../Code"
 
 class AnimationUsageOutputExample extends React.PureComponent {

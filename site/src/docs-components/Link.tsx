@@ -1,7 +1,7 @@
 const iconStyles = require("@cultureamp/kaizen-component-library/components/Icon/Icon.module.scss")
 import classnames from "classnames"
 import GatsbyLink from "gatsby-link"
-import React from "react"
+import * as React from "react"
 const styles = require("./Link.scss")
 
 export const Link = ({ to, children }) => (

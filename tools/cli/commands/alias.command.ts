@@ -1,4 +1,4 @@
-import execa from "execa"
+import * as execa from "execa"
 import { readdirSync } from "fs"
 import { resolve } from "path"
 import { CommandModule } from "yargs"

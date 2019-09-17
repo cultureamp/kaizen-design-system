@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "react"
 const styles = require("./TypographyShowcase.scss")
 
 class TypographyItem extends React.Component {

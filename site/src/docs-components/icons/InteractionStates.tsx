@@ -2,7 +2,7 @@ import { Icon } from "@cultureamp/kaizen-component-library"
 const iconStyles = require("@cultureamp/kaizen-component-library/components/Icon/Icon.module.scss")
 const enso = require("@cultureamp/kaizen-component-library/icons/ca-monogram.icon.svg")
 import classnames from "classnames"
-import React from "react"
+import * as React from "react"
 import Card from "../Card"
 const styles = require("./IconsPage.scss")
 

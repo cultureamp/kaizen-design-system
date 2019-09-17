@@ -1,4 +1,5 @@
 import { Icon } from "@cultureamp/kaizen-component-library"
+import * as React from "react"
 const successWhite = require("@cultureamp/kaizen-component-library/icons/success.icon.svg")
 import classnames from "classnames"
 import wcag from "wcag-contrast-verifier/lib/wcag"

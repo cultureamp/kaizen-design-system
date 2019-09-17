@@ -2,7 +2,7 @@ import { Icon } from "@cultureamp/kaizen-component-library"
 const iconStyles = require("@cultureamp/kaizen-component-library/components/Icon/Icon.module.scss")
 const tick = require("@cultureamp/kaizen-component-library/icons/check.icon.svg")
 import classnames from "classnames"
-import React from "react"
+import * as React from "react"
 const styles = require("./IconGrid.scss")
 
 const ICONS_IMPORT_DIR = "@cultureamp/kaizen-component-library/icons/"

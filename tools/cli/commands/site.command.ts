@@ -1,4 +1,4 @@
-import yargs from "yargs"
+import * as yargs from "yargs"
 import { runGatsby } from "./gatsby.command"
 
 const commandModule: yargs.CommandModule = {

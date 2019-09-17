@@ -1,4 +1,4 @@
-import yargs from "yargs"
+import * as yargs from "yargs"
 import { execNodeBin } from "../util/exec"
 import { getPath } from "../util/paths"
 

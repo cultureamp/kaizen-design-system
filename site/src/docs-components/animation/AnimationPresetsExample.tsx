@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "react"
 import AnimationExample from "./AnimationExample"
 import "./AnimationPresetsExample.scss"
 import Grid from "./Grid"

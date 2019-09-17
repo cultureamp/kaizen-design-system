@@ -2,7 +2,7 @@
 
 import classNames from "classnames"
 import Color from "color"
-import React from "react"
+import * as React from "react"
 import wcag from "wcag-contrast-verifier/lib/wcag"
 import ColorBlockKebab from "./ColorBlockKebab"
 const styles = require("./ColorCard.scss")

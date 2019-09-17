@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "react"
 import Code from "../Code"
 
 class CATypeAlignExample extends React.PureComponent {

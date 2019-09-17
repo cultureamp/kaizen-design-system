@@ -1,4 +1,4 @@
-import execa from "execa"
+import * as execa from "execa"
 import { resolve } from "path"
 import { getPath } from "./paths"
 

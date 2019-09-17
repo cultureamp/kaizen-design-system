@@ -7,7 +7,7 @@ import {
   Text,
 } from "@cultureamp/kaizen-component-library"
 import classnames from "classnames"
-import React from "react"
+import * as React from "react"
 import Drop from "./Drop"
 
 type AnimationExampleProps = {

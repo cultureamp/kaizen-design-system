@@ -1,6 +1,6 @@
 import scssCode from "!raw-loader!./AnimationSequencesExample.scss"
 import classnames from "classnames"
-import React from "react"
+import * as React from "react"
 import Code from "../Code"
 import "./AnimationSequencesExample.scss"
 import Drop from "./Drop"
