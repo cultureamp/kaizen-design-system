@@ -6,4 +6,4 @@ source "${helpers}/newline"
 source "${helpers}/bin"
 
 newline "Running type-checks..."
-$bin/tsc --noEmit
+$bin/tsc --build

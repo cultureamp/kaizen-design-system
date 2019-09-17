@@ -8,6 +8,7 @@
     "node": "10.16.3"
   },
   "scripts": {
+    "tsc": "tsc --build",
     "kaizen": "bin/cli",
     "site": "bin/cli site",
     "storybook": "bin/cli storybook",
