@@ -7,7 +7,7 @@ export const runGatsby = (args?: string[]) =>
 
 const commandModule: yargs.CommandModule = {
   command: "gatsby",
-  handler: argv => runGatsby(argv._.slice(1)),
+  handler: () => runGatsby(process.argv.slice(3)),
 }
 
 const { command, handler } = commandModule
