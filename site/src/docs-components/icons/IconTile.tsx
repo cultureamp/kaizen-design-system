@@ -58,6 +58,7 @@ class IconTile extends React.Component<IconTileProps> {
             {copied ? "Copied" : "Copy import path"}
           </span>
           <input
+            // @ts-ignore
             ref={i => (this.input = i)}
             value={path}
             readOnly={true}
@@ -71,7 +72,9 @@ class IconTile extends React.Component<IconTileProps> {
   }
 
   copyPath() {
+    // @ts-ignore
     if (this.input) {
+      // @ts-ignore
       this.input.select()
       document.execCommand("copy")
       this.setState({ recentlyCopied: true })

@@ -9,6 +9,8 @@ export default ({ data, pageContext, location }) => {
   return (
     <Layout pageTitle={md.frontmatter.title} currentPath={location.pathname}>
       <h1>{md.frontmatter.title}</h1>
+      {/*
+      // @ts-ignore */}
       <MDXRenderer>{data.mdx.body}</MDXRenderer>
       <pre>data: {JSON.stringify(data)}</pre>
       <pre>pageContext: {JSON.stringify(pageContext)}</pre>

@@ -50,6 +50,8 @@ export default ({ data, pageContext, location }) => {
         <Content>
           <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
           <ContentMarkdownSection>
+            {/*
+            // @ts-ignore */}
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
           </ContentMarkdownSection>
         </Content>

@@ -46,6 +46,8 @@ export default ({ data, pageContext, location }) => {
           <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
           <ContentMarkdownSection>
             <h1>{md.frontmatter.title}</h1>
+            {/*
+            // @ts-ignore */}
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
             <pre>data: {JSON.stringify(data)}</pre>
             <pre>pageContext: {JSON.stringify(pageContext)}</pre>

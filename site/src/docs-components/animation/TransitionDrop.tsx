@@ -75,6 +75,7 @@ class TransitionDrop extends React.PureComponent<TransitionDropProps> {
   }
 
   render() {
+    // @ts-ignore
     const { color = "#333", render, name } = this.props
     const { isAnimating, direction, preset } = this.state
     const state = direction === "in" ? "enter" : "exit"

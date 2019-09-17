@@ -6,7 +6,7 @@ const styles = require("./Code.styles")
 
 // registerLanguage("jsx", jsx)
 
-class Code extends React.Component<{ children: React.Node }> {
+class Code extends React.Component<{ children: React.ReactNode }> {
   render() {
     return (
       <SyntaxHighlighter language="jsx" style={styles}>
