@@ -5,6 +5,7 @@ import wcag from "wcag-contrast-verifier/lib/wcag"
 import Palette from "./Palette"
 
 const successWhite = require("@cultureamp/kaizen-component-library/icons/success.icon.svg")
+  .default
 const styles = require("./ColorCard.scss")
 
 function contrastIsLevelAA(background, foreground, fontSize) {

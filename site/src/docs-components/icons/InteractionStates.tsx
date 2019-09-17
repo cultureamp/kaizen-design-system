@@ -5,6 +5,7 @@ import Card from "../Card"
 
 const iconStyles = require("@cultureamp/kaizen-component-library/components/Icon/Icon.module.scss")
 const enso = require("@cultureamp/kaizen-component-library/icons/ca-monogram.icon.svg")
+  .default
 const styles = require("./IconsPage.scss")
 
 type InteractionStatesProps = {

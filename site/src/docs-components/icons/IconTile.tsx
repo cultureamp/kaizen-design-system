@@ -4,6 +4,7 @@ import * as React from "react"
 
 const iconStyles = require("@cultureamp/kaizen-component-library/components/Icon/Icon.module.scss")
 const tick = require("@cultureamp/kaizen-component-library/icons/check.icon.svg")
+  .default
 const styles = require("./IconGrid.scss")
 
 const ICONS_IMPORT_DIR = "@cultureamp/kaizen-component-library/icons/"
