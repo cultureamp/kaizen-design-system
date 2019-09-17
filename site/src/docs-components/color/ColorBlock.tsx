@@ -5,7 +5,7 @@ import Color from "color"
 import React from "react"
 import wcag from "wcag-contrast-verifier/lib/wcag"
 import ColorBlockKebab from "./ColorBlockKebab"
-import styles from "./ColorCard.scss"
+const styles = require("./ColorCard.scss")
 import ContrastIcon from "./ContrastIcon"
 import Palette from "./Palette"
 

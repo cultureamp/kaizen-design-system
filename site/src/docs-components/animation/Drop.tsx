@@ -1,6 +1,6 @@
 import classnames from "classnames"
 import React from "react"
-import styles from "./Drop.scss"
+const styles = require("./Drop.scss")
 
 type DropProps = {
   color: string

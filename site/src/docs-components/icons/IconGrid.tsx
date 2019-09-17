@@ -1,7 +1,7 @@
 import { graphql, StaticQuery } from "gatsby"
 import React from "react"
 // import allIcons from "./AllIcons"
-import styles from "./IconGrid.scss"
+const styles = require("./IconGrid.scss")
 import IconTile from "./IconTile"
 
 type IconGridProps = {}

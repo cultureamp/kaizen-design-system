@@ -1,5 +1,5 @@
 import React from "react"
-import styles from "./TypographyShowcase.scss"
+const styles = require("./TypographyShowcase.scss")
 
 class TypographyItem extends React.Component {
   state = {}

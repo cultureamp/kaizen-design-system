@@ -4,9 +4,9 @@ import {
   MenuItem,
   MenuList,
 } from "@cultureamp/kaizen-component-library"
-import duplicate from "@cultureamp/kaizen-component-library/icons/duplicate.icon.svg"
+const duplicate = require("@cultureamp/kaizen-component-library/icons/duplicate.icon.svg")
 import React from "react"
-import styles from "./ColorCard.scss"
+const styles = require("./ColorCard.scss")
 
 const ColorBlockKebab = ({ bgColor, sassVar }) => {
   const hex = bgColor.hex(),

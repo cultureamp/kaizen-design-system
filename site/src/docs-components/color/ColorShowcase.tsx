@@ -1,7 +1,7 @@
 import React from "react"
 import { ActionLink } from "../Link"
 import ColorCard from "./ColorCard"
-import styles from "./ColorShowcase.scss"
+const styles = require("./ColorShowcase.scss")
 
 class ColorShowcase extends React.Component {
   state = {

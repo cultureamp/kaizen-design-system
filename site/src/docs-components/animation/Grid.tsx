@@ -1,6 +1,6 @@
 import classnames from "classnames"
 import React from "react"
-import styles from "./Grid.scss"
+const styles = require("./Grid.scss")
 
 class Grid extends React.PureComponent {
   render() {

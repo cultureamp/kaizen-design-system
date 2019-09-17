@@ -1,8 +1,8 @@
 import { Icon } from "@cultureamp/kaizen-component-library"
-import companyLogo from "@cultureamp/kaizen-component-library/icons/ca-monogram.icon.svg"
+const companyLogo = require("@cultureamp/kaizen-component-library/icons/ca-monogram.icon.svg")
 import classnames from "classnames"
 import * as React from "react"
-import styles from "./Footer.scss"
+const styles = require("./Footer.scss")
 
 type FooterProps = {
   reverseVariant?: boolean

@@ -1,9 +1,9 @@
 import Icon from "@cultureamp/kaizen-component-library/components/Icon/Icon.js"
-import chevronDown from "@cultureamp/kaizen-component-library/icons/chevron-down.icon.svg"
-import chevronUp from "@cultureamp/kaizen-component-library/icons/chevron-up.icon.svg"
+const chevronDown = require("@cultureamp/kaizen-component-library/icons/chevron-down.icon.svg")
+const chevronUp = require("@cultureamp/kaizen-component-library/icons/chevron-up.icon.svg")
 import React from "react"
 import ColorBlock from "./ColorBlock"
-import styles from "./ColorCard.scss"
+const styles = require("./ColorCard.scss")
 import { renderContrastHeaderIcons } from "./ContrastIcon"
 import Palette from "./Palette"
 

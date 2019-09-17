@@ -1,6 +1,6 @@
 import { graphql, StaticQuery } from "gatsby"
 import * as React from "react"
-import styles from "./PageHeader.scss"
+const styles = require("./PageHeader.scss")
 
 type PageHeaderProps = {
   children?: React.ReactNode

@@ -2,7 +2,7 @@ import * as React from "react"
 import "../styles/global.scss"
 import Footer from "./Footer"
 import Head from "./Head"
-import styles from "./Layout.scss"
+const styles = require("./Layout.scss")
 import MainNav from "./MainNav"
 
 type LayoutProps = {

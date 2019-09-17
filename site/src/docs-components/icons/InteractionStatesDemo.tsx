@@ -1,6 +1,6 @@
 import React from "react"
 import InteractionStates from "./InteractionStates"
-import styles from "./InteractionStatesDemo.scss"
+const styles = require("./InteractionStatesDemo.scss")
 
 export default () => (
   <div className={styles.wrapper}>
