@@ -42,6 +42,7 @@ module.exports = {
       resolve: `gatsby-plugin-sass`,
       options: {
         precision: 9,
+        sassRuleModulesTest: /^(?!(.*normalize\.css$)).+\.s?css$/,
         cssLoaderOptions: {
           modules: true,
         },
