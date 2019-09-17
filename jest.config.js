@@ -4,6 +4,6 @@ module.exports = {
   testMatch: ["**/*.spec.ts?(x)"],
   moduleNameMapper: {
     "\\.(jpe?g|png)$": "jest-static-stubs/$1",
-    "\\.(sass|scss|css)$": "identity-obj-proxy",
+    "\\.s?css$": "identity-obj-proxy",
   },
 }

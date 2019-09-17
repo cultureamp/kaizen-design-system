@@ -58,7 +58,7 @@ const preprocessorLoaders: Loader[] = [
 ]
 
 const stylesRule: RuleSetRule = {
-  test: /\.(sass|scss|css)$/,
+  test: /\.s?css$/,
   use: [
     "style-loader",
     {
