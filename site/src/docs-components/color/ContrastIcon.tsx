@@ -1,10 +1,11 @@
 import { Icon } from "@cultureamp/kaizen-component-library"
-import * as React from "react"
-const successWhite = require("@cultureamp/kaizen-component-library/icons/success.icon.svg")
 import classnames from "classnames"
+import * as React from "react"
 import wcag from "wcag-contrast-verifier/lib/wcag"
-const styles = require("./ColorCard.scss")
 import Palette from "./Palette"
+
+const successWhite = require("@cultureamp/kaizen-component-library/icons/success.icon.svg")
+const styles = require("./ColorCard.scss")
 
 function contrastIsLevelAA(background, foreground, fontSize) {
   return wcag.verifyContrastRatio(background.hex(), foreground.hex(), fontSize)

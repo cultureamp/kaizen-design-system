@@ -1,7 +1,8 @@
 import { Icon } from "@cultureamp/kaizen-component-library"
-const companyLogo = require("@cultureamp/kaizen-component-library/icons/ca-monogram.icon.svg")
 import classnames from "classnames"
 import * as React from "react"
+
+const companyLogo = require("@cultureamp/kaizen-component-library/icons/ca-monogram.icon.svg")
 const styles = require("./Footer.scss")
 
 type FooterProps = {

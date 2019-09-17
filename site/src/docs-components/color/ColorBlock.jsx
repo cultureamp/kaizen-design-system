@@ -5,9 +5,10 @@ import Color from "color"
 import * as React from "react"
 import wcag from "wcag-contrast-verifier/lib/wcag"
 import ColorBlockKebab from "./ColorBlockKebab"
-const styles = require("./ColorCard.scss")
 import ContrastIcon from "./ContrastIcon"
 import Palette from "./Palette"
+
+const styles = require("./ColorCard.scss")
 
 function addTint(color, percentage) {
   return color.mix(Color("#ffffff"), percentage / 100)

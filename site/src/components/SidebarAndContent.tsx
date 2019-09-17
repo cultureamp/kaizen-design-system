@@ -2,8 +2,9 @@ import { MDXProvider } from "@mdx-js/react"
 import classnames from "classnames"
 import { Link } from "gatsby"
 import * as React from "react"
-const markdownStyles = require("../styles/markdown.scss")
 import markdownComponents from "./markdownComponents"
+
+const markdownStyles = require("../styles/markdown.scss")
 const styles = require("./SidebarAndContent.scss")
 
 type SidebarAndContentProps = {

@@ -2,8 +2,9 @@ import * as React from "react"
 import "../styles/global.scss"
 import Footer from "./Footer"
 import Head from "./Head"
-const styles = require("./Layout.scss")
 import MainNav from "./MainNav"
+
+const styles = require("./Layout.scss")
 
 type LayoutProps = {
   currentPath?: string
