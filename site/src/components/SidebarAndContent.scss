@@ -47,12 +47,20 @@ $content-top-and-bottom-margin: $ca-grid * 4;
 
 .contentInner {
   margin: $content-top-and-bottom-margin $content-side-margin;
+
+  @include ca-media-mobile() {
+    margin: 0;
+  }
 }
 
 .contentNeedToKnow {
   margin-top: $content-top-and-bottom-margin;
   padding: 0 $content-side-margin $content-top-and-bottom-margin;
   border-bottom: 1px solid $ca-border-color;
+
+  @include ca-media-mobile() {
+    padding: 0 0 $content-top-and-bottom-margin;
+  }
 }
 
 // Sidebar styles
