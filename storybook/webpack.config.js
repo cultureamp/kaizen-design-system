@@ -1,14 +1,11 @@
-// tslint:disable:no-implicit-dependencies
-import { Loader, RuleSetRule } from "webpack"
+const extensions = [".ts", ".tsx"]
 
-export const extensions = [".ts", ".tsx"]
-
-const excludeExternalModules = (rule: RuleSetRule): RuleSetRule => ({
+const excludeExternalModules = rule => ({
   exclude: /node_modules\/(?!(\@cultureamp|\@kaizen)).*/,
   ...rule,
 })
 
-export const babelLoaderOptions = {
+const babelLoaderOptions = {
   presets: ["@babel/preset-typescript", "@babel/preset-react"],
   plugins: [
     "@babel/plugin-proposal-numeric-separator",
@@ -17,7 +14,7 @@ export const babelLoaderOptions = {
   ],
 }
 
-const babelRule: RuleSetRule = {
+const babelRule = {
   test: /\.(j|t)sx?$/,
   use: [
     {
@@ -27,7 +24,7 @@ const babelRule: RuleSetRule = {
   ],
 }
 
-const imagesRule: RuleSetRule = {
+const imagesRule = {
   test: [/\.jpe?g$/, /\.png$/],
   loader: "file-loader",
   options: {
@@ -35,7 +32,7 @@ const imagesRule: RuleSetRule = {
   },
 }
 
-const preprocessorLoaders: Loader[] = [
+const preprocessorLoaders = [
   {
     loader: "postcss-loader",
     options: {
@@ -57,7 +54,7 @@ const preprocessorLoaders: Loader[] = [
   },
 ]
 
-const stylesRule: RuleSetRule = {
+const stylesRule = {
   test: /\.s?css$/,
   use: [
     "style-loader",
@@ -75,7 +72,7 @@ const stylesRule: RuleSetRule = {
   ],
 }
 
-const svgsRule: RuleSetRule = {
+const svgsRule = {
   test: /\.svg$/,
   use: [
     {
@@ -87,9 +84,26 @@ const svgsRule: RuleSetRule = {
   ],
 }
 
-export const rules: RuleSetRule[] = [
-  babelRule,
-  stylesRule,
-  imagesRule,
-  svgsRule,
-].map(excludeExternalModules)
+const rules = [babelRule, stylesRule, imagesRule, svgsRule].map(
+  excludeExternalModules
+)
+
+const removeSvgFromTest = rule => {
+  if (rule.test.toString().includes("svg")) {
+    const test = rule.test
+      .toString()
+      .replace("svg|", "")
+      .replace(/\//g, "")
+    return { ...rule, test: new RegExp(test) }
+  } else {
+    return rule
+  }
+}
+
+module.exports = ({ config }) => {
+  // Storybook's base config applies file-loader to svgs
+  config.module.rules = config.module.rules.map(removeSvgFromTest)
+  config.module.rules.push(...rules)
+  config.resolve.extensions.push(...extensions)
+  return config
+}

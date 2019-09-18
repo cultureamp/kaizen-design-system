@@ -1,13 +1,14 @@
 {
   "compilerOptions": {
     "plugins": [{ "name": "typescript-tslint-plugin" }],
-    "lib": ["es2018"],
+    "lib": ["es2018", "dom"],
     "module": "commonjs",
+    "jsx": "react",
     "resolveJsonModule": true,
     "skipLibCheck": true,
+    "noImplicitAny": false,
     "strict": true,
+    "allowJs": true,
     "noEmit": true
-  },
-  "include": ["tools/**/*"],
-  "references": [{ "path": "site" }]
+  }
 }

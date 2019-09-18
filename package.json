@@ -2,7 +2,7 @@
   "private": true,
   "workspaces": [
     "site",
-    "tools/*"
+    "storybook"
   ],
   "engines": {
     "node": "10.16.3"

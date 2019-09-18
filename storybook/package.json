@@ -9,7 +9,6 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
-    "@kaizen/webpack": "*",
     "@storybook/react": "^5.1.9",
     "@storybook/theming": "^5.1.9",
     "@types/storybook__react": "^4.0.2",
