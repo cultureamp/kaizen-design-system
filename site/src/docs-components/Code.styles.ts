@@ -1,58 +1,58 @@
 // This file is based closely on react-syntax-highlighter/dist/styles/prism/prism.js
 // The only major changes have been using Culture Amp branded colors and fonts.
-const ink = '#3E4543';
-const white = '#FFFFFF';
-const oceanTint70 = '#BBD6DB';
-const yuzuTint70 = '#FFF0BB';
-const coralTint70 = '#FAC8CE';
+const ink = "#3E4543"
+const white = "#FFFFFF"
+const oceanTint70 = "#BBD6DB"
+const yuzuTint70 = "#FFF0BB"
+const coralTint70 = "#FAC8CE"
 const selection = {
-  textShadow: 'none',
-  background: '#b3d4fc',
-};
+  textShadow: "none",
+  background: "#b3d4fc",
+}
 const fonts =
-  "'Operator Mono A', 'Operator Mono B', 'Consolas', 'monaco', 'Andale Mono', 'Ubuntu Mono', monospace";
+  "'Operator Mono A', 'Operator Mono B', 'Consolas', 'monaco', 'Andale Mono', 'Ubuntu Mono', monospace"
 
 export default {
   'code[class*="language-"]': {
     color: white,
-    background: 'none',
+    background: "none",
     fontFamily: fonts,
     fontWeight: 300,
-    textAlign: 'left',
-    whiteSpace: 'pre',
-    wordSpacing: 'normal',
-    wordBreak: 'normal',
-    wordWrap: 'normal',
-    lineHeight: '1.5',
-    MozTabSize: '4',
-    OTabSize: '4',
-    tabSize: '4',
-    WebkitHyphens: 'none',
-    MozHyphens: 'none',
-    msHyphens: 'none',
-    hyphens: 'none',
+    textAlign: "left",
+    whiteSpace: "pre",
+    wordSpacing: "normal",
+    wordBreak: "normal",
+    wordWrap: "normal",
+    lineHeight: "1.5",
+    MozTabSize: "4",
+    OTabSize: "4",
+    tabSize: "4",
+    WebkitHyphens: "none",
+    MozHyphens: "none",
+    msHyphens: "none",
+    hyphens: "none",
   },
   'pre[class*="language-"]': {
     color: white,
     background: ink,
     fontFamily: fonts,
     fontWeight: 300,
-    textAlign: 'left',
-    whiteSpace: 'pre',
-    wordSpacing: 'normal',
-    wordBreak: 'normal',
-    wordWrap: 'normal',
-    lineHeight: '1.5',
-    MozTabSize: '4',
-    OTabSize: '4',
-    tabSize: '4',
-    WebkitHyphens: 'none',
-    MozHyphens: 'none',
-    msHyphens: 'none',
-    hyphens: 'none',
-    padding: '1.5rem',
-    margin: '.75rem 0',
-    overflow: 'auto',
+    textAlign: "left",
+    whiteSpace: "pre",
+    wordSpacing: "normal",
+    wordBreak: "normal",
+    wordWrap: "normal",
+    lineHeight: "1.5",
+    MozTabSize: "4",
+    OTabSize: "4",
+    tabSize: "4",
+    WebkitHyphens: "none",
+    MozHyphens: "none",
+    msHyphens: "none",
+    hyphens: "none",
+    padding: "1.5rem",
+    margin: ".75rem 0",
+    overflow: "auto",
   },
   'pre[class*="language-"]::-moz-selection': selection,
   'pre[class*="language-"] ::-moz-selection': selection,
@@ -64,27 +64,27 @@ export default {
   'code[class*="language-"] ::selection': selection,
   ':not(pre) > code[class*="language-"]': {
     background: ink,
-    padding: '.1em',
-    borderRadius: '.3em',
-    whiteSpace: 'normal',
+    padding: ".1em",
+    borderRadius: ".3em",
+    whiteSpace: "normal",
   },
   comment: {
-    color: 'slategray',
+    color: "slategray",
   },
   prolog: {
-    color: 'slategray',
+    color: "slategray",
   },
   doctype: {
-    color: 'slategray',
+    color: "slategray",
   },
   cdata: {
-    color: 'slategray',
+    color: "slategray",
   },
   punctuation: {
-    color: '#999',
+    color: "#999",
   },
-  '.namespace': {
-    Opacity: '.7',
+  ".namespace": {
+    Opacity: ".7",
   },
   property: {
     color: oceanTint70,
@@ -110,7 +110,7 @@ export default {
   selector: {
     color: coralTint70,
   },
-  'attr-name': {
+  "attr-name": {
     color: coralTint70,
   },
   string: {
@@ -130,21 +130,21 @@ export default {
   },
   entity: {
     color: coralTint70,
-    cursor: 'help',
+    cursor: "help",
   },
   url: {
     color: coralTint70,
   },
-  '.language-css .token.string': {
+  ".language-css .token.string": {
     color: coralTint70,
   },
-  '.style .token.string': {
+  ".style .token.string": {
     color: coralTint70,
   },
   atrule: {
     color: yuzuTint70,
   },
-  'attr-value': {
+  "attr-value": {
     color: yuzuTint70,
   },
   keyword: {
@@ -153,7 +153,7 @@ export default {
   function: {
     color: coralTint70,
   },
-  'class-name': {
+  "class-name": {
     color: coralTint70,
   },
   regex: {
@@ -170,6 +170,6 @@ export default {
     fontWeight: 500,
   },
   italic: {
-    fontStyle: 'italic',
+    fontStyle: "italic",
   },
-};
+}

@@ -1,13 +1,10 @@
 {
   "extends": ["tslint-config-prettier"],
+  "linterOptions": {
+    "exclude": ["**/*.js?(x)"]
+  },
   "rules": {
-    "no-implicit-dependencies": [
-      true,
-      "dev",
-      ["webpack", "postcss-flexbugs-fixes", "postcss-preset-env"]
-    ],
-    "ordered-imports": true,
-    "prefer-const": true,
-    "only-arrow-functions": true
+    "no-implicit-dependencies": [true, "dev"],
+    "ordered-imports": true
   }
 }
