@@ -9,12 +9,12 @@ const successWhite = require("@cultureamp/kaizen-component-library/icons/success
 
 const styles = require("./ColorCard.scss")
 
-function contrastIsLevelAA(background, foreground, fontSize) {
+const contrastIsLevelAA = (background, foreground, fontSize) => {
   return wcag.verifyContrastRatio(background.hex(), foreground.hex(), fontSize)
     .WCAG_AA
 }
 
-function prepareAccessibilityHeaderIcon(style, size, colorHex) {
+const prepareAccessibilityHeaderIcon = (style, size, colorHex) => {
   return {
     bgColor: style == "light" && colorHex,
     className: classnames({
@@ -29,7 +29,7 @@ function prepareAccessibilityHeaderIcon(style, size, colorHex) {
   }
 }
 
-export function renderContrastHeaderIcons(colorHex) {
+export const renderContrastHeaderIcons = colorHex => {
   const iconCombinations = [
     prepareAccessibilityHeaderIcon("light", "small", colorHex),
     prepareAccessibilityHeaderIcon("light", "large", colorHex),
