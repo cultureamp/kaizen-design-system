@@ -11,7 +11,6 @@
 !*.yml
 !*.scss
 !*.css
-!*.mdx
 
 # Explicitly ignore...
 **/node_modules/
