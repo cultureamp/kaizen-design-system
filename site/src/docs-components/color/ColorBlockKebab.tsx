@@ -7,7 +7,7 @@ import {
 import * as React from "react"
 
 const duplicate = require("@cultureamp/kaizen-component-library/icons/duplicate.icon.svg")
-  .default
+
 const styles = require("./ColorCard.scss")
 
 const ColorBlockKebab = ({ bgColor, sassVar }) => {
