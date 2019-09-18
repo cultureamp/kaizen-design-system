@@ -1,9 +1,9 @@
 import * as React from "react"
 const styles = require("./IconsPage.scss")
-const minimumSize = require("./images/minimum-size.svg")
-const neighbouringIcons = require("./images/neighbouring-icons.svg")
-const spacing = require("./images/spacing.svg")
-const touchArea = require("./images/touch-area.svg")
+const minimumSize = require("./images/minimum-size.svg").default
+const neighbouringIcons = require("./images/neighbouring-icons.svg").default
+const spacing = require("./images/spacing.svg").default
+const touchArea = require("./images/touch-area.svg").default
 
 class IconSizeSpaceTouch extends React.Component {
   render() {
