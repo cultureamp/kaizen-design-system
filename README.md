@@ -5,7 +5,8 @@ Command | Summary
 :- | :-
 `yarn setup` | Install dependencies
 `yarn reset` | Clean and reinstall dependencies
-`yarn lint` | Run typechecks and linters
+`yarn compile` | Run typechecks
+`yarn lint` | Run linters
 `yarn lint:fix` | Run linters, auto-fixing violations
 `yarn test` | Run unit tests
 

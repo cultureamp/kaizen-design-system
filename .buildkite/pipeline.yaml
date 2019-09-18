@@ -1,0 +1,14 @@
+x-defaults: &defaults
+  agent_query_rules: ["queue=build-unrestricted-small"]
+  plugins:
+    - docker#v3.3.0:
+        image: "node:10.16.3-alpine"
+
+steps:
+  - name: ":nut_and_bolt: Compile"
+    command: ".buildkite/scripts/compile.sh"
+    <<: *defaults
+
+  - name: ":mag: Lint"
+    command: ".buildkite/scripts/lint.sh"
+    <<: *defaults
