@@ -1,7 +1,0 @@
-#!/bin/bash
-set -eo pipefail
-
-# Pipe in paths to remove them in a subshell
-clean() {
-  xargs -I % bash -c "echo 'Removing %' && rm -rf %"
-}

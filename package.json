@@ -8,16 +8,6 @@
     "node": "10.16.3"
   },
   "scripts": {
-    "tsc": "tsc --build",
-    "kaizen": "bin/cli",
-    "site": "bin/cli site",
-    "storybook": "bin/cli storybook",
-    "compile": "bin/compile",
-    "format": "bin/format",
-    "lint": "bin/lint",
-    "reset": "bin/reset",
-    "setup": "bin/setup",
-    "test": "bin/test"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",

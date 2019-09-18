@@ -1,4 +1,4 @@
-const { babelLoaderOptions, extensions } = require("@kaizen/webpack")
+exports.resolvableExtensions = () => [".js", ".jsx", ".ts", ".tsx", ".json"]
 
 exports.onCreateWebpackConfig = ({ actions, loaders }) => {
   const babelLoader = loaders.js()
@@ -34,6 +34,15 @@ exports.onCreateWebpackConfig = ({ actions, loaders }) => {
   })
 }
 
+const babelLoaderOptions = {
+  presets: ["@babel/preset-typescript", "@babel/preset-react"],
+  plugins: [
+    "@babel/plugin-proposal-numeric-separator",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread",
+  ],
+}
+
 exports.onCreateBabelConfig = ({ actions }, options) => {
   const { presets, plugins } = babelLoaderOptions
   presets.forEach(preset => {
@@ -43,8 +52,6 @@ exports.onCreateBabelConfig = ({ actions }, options) => {
     actions.setBabelPlugin({ name: require.resolve(plugin), options })
   })
 }
-
-exports.resolvableExtensions = () => extensions
 
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)

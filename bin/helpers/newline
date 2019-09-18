@@ -1,8 +1,0 @@
-#!/bin/bash
-set -eo pipefail
-
-# Add decoration to a section of related output
-newline() {
-  local prefix="🌱 "
-  echo -e "${prefix}$@"
-}
