@@ -14,9 +14,24 @@ import {
 
 const stripTrailingSlash = (str: string) => str.replace(/\/$/, "")
 
+const sortSidebarTabs = tabs => {
+  // sort tabs in alphabetical order
+  const newTabs = [...tabs].sort((a, b) =>
+    a.node.frontmatter.navTitle > b.node.frontmatter.navTitle ? 1 : -1
+  )
+  // move "Overview" to the top of the list
+  const overviewIndex = newTabs.findIndex(
+    el => el.node.frontmatter.navTitle === "Overview"
+  )
+  const overview = newTabs.splice(overviewIndex, 1)[0]
+  newTabs.splice(0, 0, overview)
+  return newTabs
+}
+
 export default ({ data, pageContext, location }) => {
   const md = data.mdx
   const allPages = data.allMdx.edges
+  const sortedPages = sortSidebarTabs(allPages)
   const currentPath = location.pathname
 
   const GuidelinesPageHeader = (
@@ -35,7 +50,7 @@ export default ({ data, pageContext, location }) => {
     >
       <SidebarAndContent>
         <Sidebar>
-          {allPages.map(node => (
+          {sortedPages.map(node => (
             <SidebarTab
               href={node!.node!.fields!.slug}
               active={
