@@ -1,63 +1,66 @@
 ---
 title: Typography
 navTitle: Typography
-summaryParagraph: Typography is important when establishing a strong design system. When established, it can help to create balance and hierarchy of textual information. By creating structure within a page, text becomes enjoyable and appealing to read. We aim to ensure type within our product complies with WCAG 2.0 AA standards.
-tags: ["Tag 1", "Tag 2", "Tag 3"]
+summaryParagraph: Typography in a strong design system helps create balance and hierarchy for textual information. By creating structure within a page, text becomes enjoyable and appealing to read. We aim to ensure type within our product complies with WCAG 2.0 AA standards.
+tags: ["Font", "Text"]
 needToKnow:
-  - Tip 1
-  - Tip 2
-  - Tip 3
+  - Align text with the baseline grid.
+  - Avoid long lines by keeping line length under 90 characters.
 ---
-
-# Examples
 
 import TypographyShowcase from "docs-components/typography/TypographyShowcase"
 
+# Typography scale
+
+This shows our previous typography scale and brand type face:
+
 <TypographyShowcase />
 
-## What is its purpose?
+## To keep in mind
 
-* Create visual hierarchy of textual information
-
-## Why is it useful?
-
-* Makes reading text enjoyable / appealing / legible
-* Creates structure within a page
-
-## How should we use it?
-
-* Comply with WCAG 2.0 AA standards (12px minimum, 16px / 1em standard)
-* Utilise brand typefaces (Open Sans → Ideal Sans (Sans Serif) and Monaco → Operator (Monospace))
-* Text colour / contrast is crucial. Ensure colour ratios comply with WCAG 2.0 AA
-* Adhere to our baseline grid (line-height) of 24px / Vertical rhythm
-* Ensure paragraph widths are not too long (650px wide max or 90 characters)
+* For font size, use 16px (pixel size) / 1em (in code) to ensure text is readable and legible. To comply with WCAG 2.0 AA standards, use a minimum font size of 12px only for supplementary text.
+* Aim for [vertical rhythm](../vertical-rhythm-and-baseline-grid) and align text to the [baseline grid](../vertical-rhythm-and-baseline-grid).
+* To keep line length under 90 characters, constrain paragraphs to a maximum width of 870px wide for Inter when there's more than 1 line of text.
+* Text color / contrast is crucial. Ensure color ratios comply with WCAG 2.0 AA.
 * White space is equally important. Let your text breathe.
-* Use type styles to define content structure (Page titles, Intro Lede, Body, Small etc)
-* Render correctly (i.e. not janky) across all devices and operating systems.
 
-## How shouldn’t we use it?
 
-* You can also view the <Link to='/language/checklist'>Product Writing Checklist</Link> to quickly check any text you are adding to the Culture Amp product or related communications.
 
-## General guidelines
+### Links
 
-* Basic structure of hierarchy (examples)
-* Paragraph spacing / Vertical rhythm
-* Paragraph width
-* Links (when to underline, when not to)
-* How to style Abbreviations (E.g. HRIS) / Underline / Tooltips
+Use underlines for links in body copy with no underline on hover/focus. For standalone links, such as a privacy link at the bottom of a page, use no underline and show underline on hover/focus.
 
-## Best practices
+### Abbreviations
 
-### Typography should...
+For abbreviations, such as <abbr title="human resource information system">HRIS</abbr>, show the expanded text after the first use, such as "HRIS (human resource information system)" and abbreviations thereafter. If there's not enough space or only one use, you might instead show an abbreviation using a dotted underline and use a tooltip to expand the abbreviation on hover/focus.
 
-* Be a pleasure to read
 
-* Make sense, visually and informationally
 
-### Typography should not...
+## When to use
 
-* Be overwhelming
+* Use brand typefaces, including [Greycliff](https://connary.com/greycliff.html) (Sans Serif) for headings, [Inter](https://rsms.me/inter/) for body copy and [IBM Plex Mono](https://boldmonday.com/custom/ibm/) (Monospace) for code or machine-generated tabular data.
+* Use type styles to define content structure (Page titles, Intro Lede, Body, Small, etc.).
+* Use typography when it's a pleasure to read and makes sense in terms of visuals and information.
 
-* Be difficult to read
+
+
+## When not to use
+
+* Avoid overwhelming people with text. Consider using imagery or data visualizations instead.
+* Avoid using typography styles that will fail to render correctly across all devices and operating systems (i.e. avoid jank).
+
+
+
+## See also
+
+* [Language](../language).
+* Use the [Product Writing Checklist](../language/checklist) to quickly check any text you are adding to the Culture Amp product or related communications.
+
+## External links
+
+Here are some examples of typography in existing design systems and typography references:
+
+- [Shopify: typography](https://polaris.shopify.com/design/typography#navigation).
+- [Material: type system](https://material.io/design/typography/the-type-system.html).
+- [Visualize working with line-height](https://aresluna.org/line-height-playground/).
 

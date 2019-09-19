@@ -4,9 +4,9 @@ navTitle: Color
 summaryParagraph: Our color palette is built with our core principles and guidelines as its foundation. We are committed to complying with WCAG AA standard contrast ratios.
 tags: ["Palette"]
 needToKnow:
-  - Tip 1
-  - Tip 2
-  - Tip 3
+  - Use official color palette variables and helpers (such as our "add tint" helper) for all color CSS declarations. Never hard-code a color without a variable.
+  - Use tints and shades in 10% steps to create variance.
+  - Use alpha (to add transparency) when the color needs to blend with different backgrounds.
 ---
 
 import ColorShowcase from "docs-components/color/ColorShowcase"
@@ -15,21 +15,61 @@ import ColorShowcase from "docs-components/color/ColorShowcase"
 
 <ColorShowcase />
 
-## Best practices
 
-### Colors should...
 
-- Add value to the page
+## To keep in mind
 
-- Use more than colour alone to convey information (Be mindful of color blind / greyscale users)
+- Contrast and accessibility is crucial. To [consider everyone](../language#culture-amp-brand-tone-and-design-principles), we use color contrast ratios that adhered to [WCAG 2.0 AA](https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast) guidelines.
+- Use our official color palette variables and helpers (`add-tint`, `add-shade`, `add-alpha`) for all color CSS declarations.
+- Use tints (to add white) and shades (to add black) to a base color in increments of 10% to define the appropriate perceived lightness or darkness of a color. You might need 5% steps at the lighter end of the range.
+- Be mindful of color psychology associations and cultural values (such as Red symbolizing danger versus good luck).
 
-- Be mindful of color psychology values (e.g. Red is danger/bad/stop) vs cultural values
+### Links
 
-### Colors shouldn't...
+To indicate links and on-page actions, use Ocean.
 
-- Be overused.
+### Primary action
 
-- Create a ‘candy shop’ effect
+For the most important action on a page, use Seedling.
 
-- Overload the user and create confusion
+### Data visualization
+
+To indicate Sentiment, use:
+
+- Seedling + 50% tint for Positive sentiment.
+- Ink + 93% tint for Neutral sentiment.
+- Coral + 70% tint for Negative sentiment.
+
+
+
+## When to use
+
+- Colors can help to create visual patterns that the user can recall (for example, links are always Ocean colored or negative favorability scores, errors, and destructive actions are always Coral).
+- Use colors to create visual hierarchy.
+- Colors can help to determine the level of severity.
+- Add tone and contrast to define areas and guide or call out certain information.
+- Use color for aesthetics or visual stimulation when it adds value to the page.
+
+
+
+## When not to use
+
+- Use more than color alone to convey information. Test with with a gray scale filter and color blindness simulators.
+- Avoid using color when you can use contrast (such as tints and shades of ink), spacing, or typography to create hierarchy or groupings.
+- Avoid color when there’s a risk of overuse or a ‘candy shop’ effect.
+- Avoid color when it might overload the user and create confusion.
+
+
+
+## External links
+
+Here are some examples of existing design system colors:
+
+- [Ant design: colors](https://ant.design/docs/spec/colors).
+- [Atlassian: color](https://www.atlassian.design/guidelines/product/foundations/color).
+- [Polaris: colors](https://polaris.shopify.com/design/colors).
+- [Carbon: color](https://www.carbondesignsystem.com/guidelines/color/overview).
+- [Bootstrap: colors](https://getbootstrap.com/docs/4.3/utilities/colors/).
+- [Element: color](https://element.eleme.io/#/en-US/component/color).
+- [Spectre: color](https://picturepan2.github.io/spectre/utilities/colors.html).
 
