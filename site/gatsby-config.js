@@ -9,6 +9,7 @@ module.exports = {
     siteUrl: `http://cultureamp.design/`,
   },
   plugins: [
+    `gatsby-plugin-force-trailing-slashes`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
