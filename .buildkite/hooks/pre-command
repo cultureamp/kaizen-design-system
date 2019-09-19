@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -eo pipefail
+
+main() {
+  if [[ $BUILDKITE_LABEL == *Publish* ]]; then
+    local site_assets="site.tar.gz"
+    buildkite-agent artifact download $site_assets .
+    tar -xf $site_assets
+  fi
+}
+
+main

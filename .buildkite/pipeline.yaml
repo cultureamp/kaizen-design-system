@@ -1,8 +1,28 @@
+env:
+  PRODUCTION_DOMAIN: cultureamp.design
+  PRODUCTION_DISTRIBUTION: E31PDMSO4A4AH
+  PRODUCTION_PATH: "/"
+
+  DEVELOPMENT_DOMAIN: dev.cultureamp.design
+  DEVELOPMENT_DISTRIBUTION: ENCP2A6TRCGJ6
+  DEVELOPMENT_PATH: "/${BUILDKITE_BRANCH}/"
+
 x-defaults: &defaults
-  agent_query_rules: ["queue=build-unrestricted-small"]
+  agent_query_rules: ["queue=build-unrestricted"]
   plugins:
     - docker#v3.3.0:
         image: "node:10.16.3-alpine"
+        environment:
+          - BASE_PATH
+
+x-publish-env: &publish-env
+  environment:
+    - AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY
+    - AWS_SESSION_TOKEN
+    - DOMAIN
+    - DISTRIBUTION
+    - BASE_PATH
 
 steps:
   - name: ":nut_and_bolt: Compile"
@@ -12,3 +32,53 @@ steps:
   - name: ":mag: Lint"
     command: ".buildkite/scripts/lint.sh"
     <<: *defaults
+
+  - name: ":package: Build"
+    command: ".buildkite/scripts/build.sh"
+    artifact_paths: "./site.tar.gz"
+    branches: "!master"
+    env:
+      BASE_PATH: "${DEVELOPMENT_PATH}"
+    <<: *defaults
+
+  - name: ":package: Build"
+    command: ".buildkite/scripts/build.sh"
+    artifact_paths: "./site.tar.gz"
+    branches: "master"
+    env:
+      BASE_PATH: "${PRODUCTION_PATH}"
+    <<: *defaults
+
+  - wait
+
+  - name: ":tanabata_tree: Publish: ${DEVELOPMENT_DOMAIN}/${BUILDKITE_BRANCH}"
+    command: ".buildkite/scripts/publish.sh"
+    branches: "!master"
+    env:
+      DOMAIN: "${DEVELOPMENT_DOMAIN}"
+      DISTRIBUTION: "${DEVELOPMENT_DISTRIBUTION}"
+      BASE_PATH: "${DEVELOPMENT_PATH}"
+    <<: *defaults
+    plugins:
+      - cultureamp/aws-assume-role#v0.1.0:
+          role: "${DEVELOPMENT_PUBLISH_ROLE}"
+      - docker#v3.3.0:
+          image: "mesosphere/aws-cli"
+          entrypoint: "/bin/sh"
+          <<: *publish-env
+
+  - name: ":tanabata_tree: Publish: ${PRODUCTION_DOMAIN}"
+    command: ".buildkite/scripts/publish.sh"
+    branches: "master"
+    env:
+      DOMAIN: "${PRODUCTION_DOMAIN}"
+      DISTRIBUTION: "${PRODUCTION_DISTRIBUTION}"
+      BASE_PATH: "${PRODUCTION_PATH}"
+    <<: *defaults
+    plugins:
+      - cultureamp/aws-assume-role#v0.1.0:
+          role: "${PRODUCTION_PUBLISH_ROLE}"
+      - docker#v3.3.0:
+          image: "mesosphere/aws-cli"
+          entrypoint: "/bin/sh"
+          <<: *publish-env
