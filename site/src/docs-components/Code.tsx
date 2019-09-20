@@ -1,17 +1,29 @@
-// @flow
+import Highlight, { defaultProps } from "prism-react-renderer"
 import * as React from "react"
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-// import jsx from "react-syntax-highlighter/languages/prism/jsx"
-const styles = require("./Code.styles")
 
-// registerLanguage("jsx", jsx)
-
-class Code extends React.Component<{ children: React.ReactNode }> {
+class Code extends React.Component<{
+  children: any
+  language: any
+}> {
   render() {
     return (
-      <SyntaxHighlighter language="jsx" style={styles}>
-        {this.props.children}
-      </SyntaxHighlighter>
+      <Highlight
+        {...defaultProps}
+        code={this.props.children}
+        language={this.props.language}
+      >
+        {({ className, style, tokens, getLineProps, getTokenProps }) => (
+          <pre className={className} style={style}>
+            {tokens.map((line, i) => (
+              <div {...getLineProps({ line, key: i })}>
+                {line.map((token, key) => (
+                  <span {...getTokenProps({ token, key })} />
+                ))}
+              </div>
+            ))}
+          </pre>
+        )}
+      </Highlight>
     )
   }
 }
