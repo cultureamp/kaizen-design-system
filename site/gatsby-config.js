@@ -35,7 +35,32 @@ module.exports = {
         name: `icons`,
       },
     },
-    `gatsby-plugin-mdx`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: resolve(
+          __dirname,
+          `../node_modules/@cultureamp/kaizen-component-library/components`
+        ),
+        name: `components`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: resolve(
+          __dirname,
+          `../node_modules/@cultureamp/kaizen-component-library/draft`
+        ),
+        name: `draftComponents`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {},

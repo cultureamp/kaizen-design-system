@@ -55,11 +55,28 @@ exports.onCreateBabelConfig = ({ actions }, options) => {
 
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const componentReadmeRegex = /\/(?:components|draft\/Kaizen).*\W(\w+)\/README.mdx?$/i
+
+const camelToKebab = string => {
+  return string
+    .replace(/[\w]([A-Z])/g, char => {
+      return char[0] + `-` + char[1]
+    })
+    .toLowerCase()
+}
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === `Mdx`) {
-    const slug = createFilePath({ node, getNode, basePath: `.` })
+    let slug = ``
+    if (componentReadmeRegex.test(node.fileAbsolutePath) === true) {
+      const componentName = camelToKebab(
+        node.fileAbsolutePath.match(componentReadmeRegex)[1]
+      )
+      slug = `/components/${componentName}/`
+    } else {
+      slug = createFilePath({ node, getNode, basePath: `.` })
+    }
     createNodeField({
       node,
       name: `slug`,

@@ -19,8 +19,8 @@ export default ({ data, pageContext, location }) => {
 
   const ComponentPageHeader = (
     <PageHeader
-      headingText="Modal"
-      summaryParagraph="Modals show additional content in a layer above the page with an overlay covering the page behind. Use sparingly."
+      headingText={md.frontmatter.title}
+      summaryParagraph={md.frontmatter.summaryParagraph}
       tags={md.frontmatter.tags}
     />
   )
@@ -33,25 +33,25 @@ export default ({ data, pageContext, location }) => {
     >
       <SidebarAndContent>
         <Sidebar>
-          {allPages.map(node => (
-            <SidebarTab
-              href={node!.node!.fields!.slug}
-              active={node!.node!.fields!.slug === currentPath}
-            >
-              {node!.node!.frontmatter!.title}
-            </SidebarTab>
-          ))}
+          {allPages.map(node => {
+            if (!node!.node!.frontmatter!.navTitle) return undefined
+            return (
+              <SidebarTab
+                href={node!.node!.fields!.slug}
+                active={node!.node!.fields!.slug === currentPath}
+              >
+                {node!.node!.frontmatter!.title}
+              </SidebarTab>
+            )
+          })}
         </Sidebar>
         <Content>
           <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
           <ContentMarkdownSection>
-            <h1>{md.frontmatter.title}</h1>
+            <h1>{md.frontmatter.navTitle}</h1>
             {/*
             // @ts-ignore */}
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
-            <pre>data: {JSON.stringify(data)}</pre>
-            <pre>pageContext: {JSON.stringify(pageContext)}</pre>
-            <pre>location.pathname: {JSON.stringify(location.pathname)}</pre>
           </ContentMarkdownSection>
         </Content>
       </SidebarAndContent>
@@ -61,13 +61,14 @@ export default ({ data, pageContext, location }) => {
 
 export const query = graphql`
   query($slug: String!) {
-    allMdx(filter: { fields: { slug: { regex: "^/components/" } } }) {
+    allMdx(filter: { fields: { slug: { regex: "/^/components/" } } }) {
       edges {
         node {
           fields {
             slug
           }
           frontmatter {
+            navTitle
             title
           }
         }
@@ -79,6 +80,7 @@ export const query = graphql`
         title
         tags
         needToKnow
+        summaryParagraph
       }
     }
   }
