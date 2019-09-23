@@ -1,3 +1,5 @@
+const { resolve } = require("path")
+
 const extensions = [".ts", ".tsx"]
 
 const excludeExternalModules = rule => ({
@@ -75,7 +77,45 @@ const svgsRule = {
   ],
 }
 
-const rules = [babelRule, stylesRule, imagesRule, svgsRule].map(
+const elmRule = {
+  test: /\.elm$/,
+  exclude: [/elm-stuff/, /node_modules/],
+  use: [
+    {
+      loader: "babel-loader",
+      options: {
+        plugins: [
+          "module:elm-css-modules-plugin",
+          ["module:babel-elm-assets-plugin", {}, "assets-plugin-generic"],
+          [
+            "module:babel-elm-assets-plugin",
+            {
+              // "author/project" is the default value if no "name" field is specified in elm.json.
+              // If we want to allow setting the name field in our workspaces, we'll need to update
+              // the plugin to support multiple possible package names.
+              package: "author/project",
+              module: "Icon.SvgAsset",
+              function: "svgAsset",
+            },
+            "assets-plugin-svg",
+          ],
+        ],
+      },
+    },
+    {
+      loader: "elm-hot-webpack-loader",
+    },
+    {
+      loader: "elm-webpack-loader",
+      options: {
+        cwd: resolve(__dirname, ".."),
+        pathToElm: resolve(__dirname, "../node_modules/.bin/elm"),
+      },
+    },
+  ],
+}
+
+const rules = [babelRule, stylesRule, imagesRule, svgsRule, elmRule].map(
   excludeExternalModules
 )
 
