@@ -5,21 +5,12 @@ const excludeExternalModules = rule => ({
   ...rule,
 })
 
-const babelLoaderOptions = {
-  presets: ["@babel/preset-typescript", "@babel/preset-react"],
-  plugins: [
-    "@babel/plugin-proposal-numeric-separator",
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-object-rest-spread",
-  ],
-}
-
 const babelRule = {
   test: /\.(j|t)sx?$/,
   use: [
     {
       loader: require.resolve("babel-loader"),
-      options: babelLoaderOptions,
+      options: require("../package.json").babel,
     },
   ],
 }

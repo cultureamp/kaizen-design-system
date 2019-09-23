@@ -174,4 +174,17 @@
   :global(.introParagraph) :global(.md-p) {
     font-size: 1.5rem;
   }
+
+  :global(iframe) {
+    background-color: $ca-palette-ash;
+    border-radius: 3px;
+    margin-top: 1.5rem;
+  }
+
+  :global(blockquote) {
+    background-color: $ca-palette-stone;
+    border-left: 4px solid $ca-palette-wisteria;
+    margin: 0;
+    padding: 0.5rem 1.5rem;
+  }
 }

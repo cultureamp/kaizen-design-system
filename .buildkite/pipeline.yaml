@@ -1,11 +1,10 @@
 env:
   PRODUCTION_DOMAIN: cultureamp.design
   PRODUCTION_DISTRIBUTION: E31PDMSO4A4AH
-  PRODUCTION_PATH: "/"
 
   DEVELOPMENT_DOMAIN: dev.cultureamp.design
   DEVELOPMENT_DISTRIBUTION: ENCP2A6TRCGJ6
-  DEVELOPMENT_PATH: "/${BUILDKITE_BRANCH}/"
+  DEVELOPMENT_BASE_PATH: "/${BUILDKITE_BRANCH}"
 
 x-defaults: &defaults
   agent_query_rules: ["queue=build-unrestricted"]
@@ -33,20 +32,32 @@ steps:
     command: ".buildkite/scripts/lint.sh"
     <<: *defaults
 
-  - name: ":package: Build"
-    command: ".buildkite/scripts/build.sh"
+  - name: ":package: Build (site)"
+    command: ".buildkite/scripts/build-site.sh"
     artifact_paths: "./site.tar.gz"
     branches: "!master"
     env:
-      BASE_PATH: "${DEVELOPMENT_PATH}"
+      BASE_PATH: "${DEVELOPMENT_BASE_PATH}"
     <<: *defaults
 
-  - name: ":package: Build"
-    command: ".buildkite/scripts/build.sh"
+  - name: ":package: Build (site)"
+    command: ".buildkite/scripts/build-site.sh"
     artifact_paths: "./site.tar.gz"
     branches: "master"
+    <<: *defaults
+
+  - name: ":package: Build (storybook)"
+    command: ".buildkite/scripts/build-storybook.sh"
+    artifact_paths: "./storybook.tar.gz"
+    branches: "!master"
     env:
-      BASE_PATH: "${PRODUCTION_PATH}"
+      BASE_PATH: "${DEVELOPMENT_BASE_PATH}"
+    <<: *defaults
+
+  - name: ":package: Build (storybook)"
+    command: ".buildkite/scripts/build-storybook.sh"
+    artifact_paths: "./storybook.tar.gz"
+    branches: "master"
     <<: *defaults
 
   - wait
@@ -57,7 +68,7 @@ steps:
     env:
       DOMAIN: "${DEVELOPMENT_DOMAIN}"
       DISTRIBUTION: "${DEVELOPMENT_DISTRIBUTION}"
-      BASE_PATH: "${DEVELOPMENT_PATH}"
+      BASE_PATH: "${DEVELOPMENT_BASE_PATH}"
     <<: *defaults
     plugins:
       - cultureamp/aws-assume-role#v0.1.0:
@@ -73,7 +84,6 @@ steps:
     env:
       DOMAIN: "${PRODUCTION_DOMAIN}"
       DISTRIBUTION: "${PRODUCTION_DISTRIBUTION}"
-      BASE_PATH: "${PRODUCTION_PATH}"
     <<: *defaults
     plugins:
       - cultureamp/aws-assume-role#v0.1.0:
