@@ -3,12 +3,12 @@ import { create } from "@storybook/theming"
 
 addParameters({
   options: {
-    theme: create({ brandTitle: "🌱 Kaizen", base: "light" }),
+    theme: create({ brandTitle: "🎋 Storybook", base: "light" }),
   },
 })
 
 const loadStories = () => {
-  const req = require.context("../../site", true, /(.+\.)?stories.tsx?$/)
+  const req = require.context("../packages", true, /(.+\.)?stories.tsx?$/)
   req.keys().forEach(filename => req(filename))
 }
 

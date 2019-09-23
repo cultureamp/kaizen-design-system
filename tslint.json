@@ -4,7 +4,7 @@
     "exclude": ["**/*.js?(x)"]
   },
   "rules": {
-    "no-implicit-dependencies": [true, "dev"],
+    "no-implicit-dependencies": [true, "dev", ["@storybook"]],
     "ordered-imports": true
   }
 }

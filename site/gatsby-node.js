@@ -34,17 +34,8 @@ exports.onCreateWebpackConfig = ({ actions, loaders }) => {
   })
 }
 
-const babelLoaderOptions = {
-  presets: ["@babel/preset-typescript", "@babel/preset-react"],
-  plugins: [
-    "@babel/plugin-proposal-numeric-separator",
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-object-rest-spread",
-  ],
-}
-
 exports.onCreateBabelConfig = ({ actions }, options) => {
-  const { presets, plugins } = babelLoaderOptions
+  const { presets, plugins } = require("../package.json").babel
   presets.forEach(preset => {
     actions.setBabelPreset({ name: require.resolve(preset), options })
   })
