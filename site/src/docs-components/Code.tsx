@@ -1,6 +1,6 @@
 // @flow
 import * as React from "react"
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import SyntaxHighlighter from "react-syntax-highlighter"
 // import jsx from "react-syntax-highlighter/languages/prism/jsx"
 const styles = require("./Code.styles")
 
