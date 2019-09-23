@@ -4,7 +4,7 @@ import Code from "../Code"
 class RTLLayoutExample extends React.PureComponent {
   render() {
     return (
-      <Code>{`<div dir="rtl">
+      <Code language="html">{`<div dir="rtl">
   <div><p>I should now be right aligned text</p><div>
 </div>`}</Code>
     )
