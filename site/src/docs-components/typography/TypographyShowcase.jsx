@@ -1,4 +1,6 @@
 import * as React from "react"
+import Code from '../Code'
+
 const styles = require("./TypographyShowcase.scss")
 
 class TypographyItem extends React.Component {
@@ -20,7 +22,7 @@ class TypographyItem extends React.Component {
         <p ref={p => (this.paragraph = p)} className={styles[className]}>
           {title}
         </p>
-        <pre>{sassCode}</pre>
+        <Code language="scss">{sassCode}</Code>
       </div>
     )
   }

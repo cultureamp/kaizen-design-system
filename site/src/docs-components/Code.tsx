@@ -17,13 +17,11 @@ class Code extends React.Component<{
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre className={className} style={style}>
             {tokens.map((line, i) => {
-              // Ensure blank lines/spaces drop onto a new line, except the last line
+              // Ensure blank lines/spaces drop onto a new line
               if (line.length === 1 && line[0].content === "") {
-                if (i !== tokens.length - 1) {
-                  line[0].content = " "
-                } else {
-                  return
-                }
+                // If last line is empty, remove it
+                if (i === tokens.length - 1) return
+                line[0].content = " "
               }
               return (
                 <div {...getLineProps({ line, key: i })}>

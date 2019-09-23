@@ -4,7 +4,7 @@ import Code from "../Code"
 class CAPaddingExample extends React.PureComponent {
   render() {
     return (
-      <Code>{`@import '~@cultureamp/kaizen-component-library/styles/layout';
+      <Code language="scss">{`@import '~@cultureamp/kaizen-component-library/styles/layout';
 
 .my-element {
   @include ca-padding($start: $ca-grid, $end: 0, $top: $ca-grid * 2, $bottom: $ca-grid);

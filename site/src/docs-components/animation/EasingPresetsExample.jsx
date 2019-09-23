@@ -4,7 +4,7 @@ import Code from "../Code"
 
 class EasingPresets extends React.PureComponent {
   render() {
-    return <Code>{scssCode}</Code>
+    return <Code language="scss">{scssCode}</Code>
   }
 }
 

@@ -30,7 +30,7 @@ class AnimationSequencesExample extends React.PureComponent {
           <Drop classes="spin-3" color="#43E699" onClick={this.replay} />
         </Grid>
         <div>
-          <Code>{scssCode}</Code>
+          <Code language="scss">{scssCode}</Code>
         </div>
       </React.Fragment>
     )
