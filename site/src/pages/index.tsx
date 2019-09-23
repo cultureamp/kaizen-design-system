@@ -8,6 +8,6 @@ export default ({ location }) => (
     currentPath={location.pathname}
     reverseFooter
   >
-    <div className={styles.prominent}>🌱</div>
+    <div className={styles.prominent}>🎋</div>
   </Layout>
 )
