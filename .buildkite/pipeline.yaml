@@ -32,17 +32,31 @@ steps:
     command: ".buildkite/scripts/lint.sh"
     <<: *defaults
 
-  - name: ":package: Build"
-    command: ".buildkite/scripts/build.sh"
+  - name: ":package: Build (site)"
+    command: ".buildkite/scripts/build-site.sh"
     artifact_paths: "./site.tar.gz"
     branches: "!master"
     env:
       BASE_PATH: "${DEVELOPMENT_BASE_PATH}"
     <<: *defaults
 
-  - name: ":package: Build"
-    command: ".buildkite/scripts/build.sh"
+  - name: ":package: Build (site)"
+    command: ".buildkite/scripts/build-site.sh"
     artifact_paths: "./site.tar.gz"
+    branches: "master"
+    <<: *defaults
+
+  - name: ":package: Build (storybook)"
+    command: ".buildkite/scripts/build-storybook.sh"
+    artifact_paths: "./storybook.tar.gz"
+    branches: "!master"
+    env:
+      BASE_PATH: "${DEVELOPMENT_BASE_PATH}"
+    <<: *defaults
+
+  - name: ":package: Build (storybook)"
+    command: ".buildkite/scripts/build-storybook.sh"
+    artifact_paths: "./storybook.tar.gz"
     branches: "master"
     <<: *defaults
 
