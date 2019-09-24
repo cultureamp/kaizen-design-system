@@ -1,5 +1,6 @@
 import { graphql, StaticQuery } from "gatsby"
 import * as React from "react"
+import Tag from "./Tag"
 const styles = require("./PageHeader.scss")
 
 type PageHeaderProps = {
@@ -9,31 +10,6 @@ type PageHeaderProps = {
   tags?: Array<string>
   image?: React.ReactNode
 }
-
-type TagProps = {
-  text: string
-}
-
-type Tag = React.FunctionComponent<TagProps>
-
-// The <span> in here should be replaced with a Kaizen "Tag" component
-const Tag: Tag = ({ text }) => (
-  <span
-    style={{
-      color: "inherit",
-      background: "rgba(255,255,255,0.1)",
-      display: "inline-block",
-      padding: "0.08em 0.75em",
-      margin: "0 0.25em 0.5rem",
-      borderRadius: "50px",
-      textDecoration: "none",
-      fontSize: "0.875rem",
-      lineHeight: "1.7142857143",
-    }}
-  >
-    {text}
-  </span>
-)
 
 const PageHeader: React.SFC<PageHeaderProps> = ({
   children,
