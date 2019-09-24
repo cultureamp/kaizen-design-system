@@ -33,12 +33,13 @@ export default ({ data, pageContext, location }) => {
     >
       <SidebarAndContent>
         <Sidebar>
-          {allPages.map(node => {
+          {allPages.map((node, i) => {
             if (!node!.node!.frontmatter!.navTitle) return undefined
             return (
               <SidebarTab
                 href={node!.node!.fields!.slug}
                 active={node!.node!.fields!.slug === currentPath}
+                key={`sidebarTab-${i}`}
               >
                 {node!.node!.frontmatter!.title}
               </SidebarTab>
