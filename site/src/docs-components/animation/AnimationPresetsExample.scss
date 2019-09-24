@@ -3,67 +3,67 @@
 ///////////////////////////////////////////////
 // ANIMATION PRESET CLASSES                  //
 ///////////////////////////////////////////////
-.ca-animation-fade-in {
+:global(.ca-animation-fade-in) {
   @include ca-animation-fade(in);
 }
 
-.ca-animation-fade-out {
+:global(.ca-animation-fade-out) {
   @include ca-animation-fade(out);
 }
 
-.ca-animation-pop {
+:global(.ca-animation-pop) {
   @include ca-animation-pop();
 }
 
-.ca-animation-pulsate {
+:global(.ca-animation-pulsate) {
   @include ca-animation-pulsate();
 }
 
-.ca-animation-slide-fade-in {
+:global(.ca-animation-slide-fade-in) {
   @include ca-animation-slide-fade(in);
 }
 
-.ca-animation-slide-fade-out {
+:global(.ca-animation-slide-fade-out) {
   @include ca-animation-slide-fade(out);
 }
 
-.ca-animation-scale-fade-in {
+:global(.ca-animation-scale-fade-in) {
   @include ca-animation-scale-fade(in);
 }
 
-.ca-animation-scale-fade-out {
+:global(.ca-animation-scale-fade-out) {
   @include ca-animation-scale-fade(out);
 }
 
 ///////////////////////////////////////////////
 // TIMING PRESET CLASSES                     //
 ///////////////////////////////////////////////
-.ca-duration-instant {
+:global(.ca-duration-instant) {
   animation-duration: $ca-duration-instant !important;
   transition-duration: $ca-duration-instant !important;
 }
 
-.ca-duration-immediate {
+:global(.ca-duration-immediate) {
   animation-duration: $ca-duration-immediate !important;
   transition-duration: $ca-duration-immediate !important;
 }
 
-.ca-duration-rapid {
+:global(.ca-duration-rapid) {
   animation-duration: $ca-duration-rapid !important;
   transition-duration: $ca-duration-rapid !important;
 }
 
-.ca-duration-fast {
+:global(.ca-duration-fast) {
   animation-duration: $ca-duration-fast !important;
   transition-duration: $ca-duration-fast !important;
 }
 
-.ca-duration-slow {
+:global(.ca-duration-slow) {
   animation-duration: $ca-duration-slow !important;
   transition-duration: $ca-duration-slow !important;
 }
 
-.ca-duration-deliberate {
+:global(.ca-duration-deliberate) {
   animation-duration: $ca-duration-deliberate !important;
   transition-duration: $ca-duration-deliberate !important;
 }
