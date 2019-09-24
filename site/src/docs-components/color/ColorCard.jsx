@@ -14,8 +14,6 @@ class ColorCard extends React.Component {
   }
 
   render() {
-    const name = this.props.name,
-      colorClassName = styles[name.toLowerCase()]
     return (
       <div>
         <div className={styles.colorCard}>

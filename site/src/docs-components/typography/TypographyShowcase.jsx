@@ -15,7 +15,7 @@ class TypographyItem extends React.Component {
   }
 
   render() {
-    const { name, sampleText, className, sassCode } = this.props
+    const { name, className, sassCode } = this.props
     const title = this.state.size ? `${name} – ${this.state.size}` : name
     return (
       <div className={styles.typographyShowcaseItem}>
