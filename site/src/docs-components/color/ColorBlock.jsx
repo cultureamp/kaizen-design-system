@@ -30,7 +30,7 @@ const ColorBlock = ({ colorName, amount, showContrast }) => {
     sassVar = `$ca-palette-${colorName.toLowerCase()}`,
     bgColor = Palette[colorName.toLowerCase()]
 
-  if (amount != 0) {
+  if (amount !== 0) {
     const absAmount = Math.abs(amount)
     if (amount > 0) {
       bgColor = addTint(bgColor, absAmount)
