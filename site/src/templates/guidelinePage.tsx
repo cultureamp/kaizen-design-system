@@ -50,13 +50,14 @@ export default ({ data, pageContext, location }) => {
     >
       <SidebarAndContent>
         <Sidebar>
-          {sortedPages.map(node => (
+          {sortedPages.map((node, i) => (
             <SidebarTab
               href={node!.node!.fields!.slug}
               active={
                 stripTrailingSlash(node!.node!.fields!.slug) ===
                 stripTrailingSlash(currentPath)
               }
+              key={`sidebarTab-${i}`}
             >
               {node!.node!.frontmatter!.navTitle}
             </SidebarTab>
