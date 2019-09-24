@@ -58,8 +58,10 @@ export const ContentNeedToKnowSection: React.SFC<ContentNeedToKnowProps> = ({
       >
         <markdownComponents.h2>Need to know</markdownComponents.h2>
         <markdownComponents.ul>
-          {listOfTips.map((tip: string) => (
-            <markdownComponents.li>{tip}</markdownComponents.li>
+          {listOfTips.map((tip: string, i) => (
+            <markdownComponents.li key={`tip-${i}`}>
+              {tip}
+            </markdownComponents.li>
           ))}
         </markdownComponents.ul>
       </div>

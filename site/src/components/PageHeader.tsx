@@ -38,8 +38,8 @@ const PageHeader: React.SFC<PageHeaderProps> = ({
                 <>
                   <div className={styles.tagsLabel}>Also known as:</div>
                   <div className={styles.tags}>
-                    {tags.map(tagText => (
-                      <Tag text={tagText} />
+                    {tags.map((tagText, i) => (
+                      <Tag text={tagText} key={`tag-${i}`} />
                     ))}
                   </div>
                 </>
