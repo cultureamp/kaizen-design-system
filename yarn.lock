@@ -1223,6 +1223,12 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
+"@cultureamp/elm-storybook@cultureamp/elm-storybook#0.1.0":
+  version "0.1.0"
+  resolved "https://codeload.github.com/cultureamp/elm-storybook/tar.gz/129774657a02f66a1eec2186a12f40efb389c731"
+  dependencies:
+    react-elm-components "^1.1.0"
+
 "@cultureamp/kaizen-component-library@^12.1.0":
   version "12.1.0"
   resolved "https://registry.yarnpkg.com/@cultureamp/kaizen-component-library/-/kaizen-component-library-12.1.0.tgz#25395f767d7cfc2b95199f168027028531b1ad38"
@@ -4054,6 +4060,14 @@ babel-core@7.0.0-bridge.0:
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-7.0.0-bridge.0.tgz#95a492ddd90f9b4e9a4a1da14eb335b87b634ece"
   integrity sha512-poPX9mZH/5CSanm50Q+1toVci6pv5KSRv/5TWCwtzQS5XEwn40BcCrgIeMFWP9CKKIniKXNxoIOnOq4VVlGXhg==
 
+babel-elm-assets-plugin@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/babel-elm-assets-plugin/-/babel-elm-assets-plugin-1.2.2.tgz#ba7a2d632a58cab830c18cfd794a61e617fe8a10"
+  integrity sha512-iO4OPy2u3yFsPT0/IGS1p9YEPjxRAAkuTnJISIIHGhekdwUyRSZ41pZFu899m05iOi3To1p9QwgRyvj0GM/SQQ==
+  dependencies:
+    "@babel/core" "^7.0.0"
+    "@babel/traverse" "^7.0.0"
+
 babel-eslint@^10.0.3:
   version "10.0.3"
   resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-10.0.3.tgz#81a2c669be0f205e19462fed2482d33e4687a88a"
@@ -6058,6 +6072,15 @@ create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+create-react-class@^15.5.3:
+  version "15.6.3"
+  resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.6.3.tgz#2d73237fb3f970ae6ebe011a9e66f46dbca80036"
+  integrity sha512-M+/3Q6E6DLO6Yx3OwrWjwHBnvfXXYA7W+dFjt/ZDBemHO1DDZhsalX/NUtnTYclN6GfnBDRh4qRHjcDHmlJBJg==
+  dependencies:
+    fbjs "^0.8.9"
+    loose-envify "^1.3.1"
+    object-assign "^4.1.1"
+
 create-react-context@<=0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/create-react-context/-/create-react-context-0.2.2.tgz#9836542f9aaa22868cd7d4a6f82667df38019dca"
@@ -7026,6 +7049,46 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
+elm-css-modules-plugin@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/elm-css-modules-plugin/-/elm-css-modules-plugin-1.0.1.tgz#da07f126c0d6296f672eddd0a89cd7805653c3f9"
+  integrity sha512-LF1gsTQw8cfEhvoVEkJ32YNZeURj/Oeu3+PurrM8TP4sLr8DDNxQBe8P5fBSLra3XxGDhaWuai4punMYfkUGiw==
+  dependencies:
+    "@babel/core" "^7.0.0"
+
+elm-hot-webpack-loader@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/elm-hot-webpack-loader/-/elm-hot-webpack-loader-1.1.2.tgz#ca8669c7f5b9503d639fe06faf238744101b1acd"
+  integrity sha512-KUoDR5dbkvV/sy1QUbNEu3eZUS9hOVIcV57DvlOVvGZWgCYDihjJWUBXFa+cFlRm/2uToJ4b3Yd4ATgPpxRIXw==
+  dependencies:
+    elm-hot "^1.1.2"
+
+elm-hot@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/elm-hot/-/elm-hot-1.1.2.tgz#306da61ba97c12518957bacb87473f364b0e2509"
+  integrity sha512-rz0xMz71NTkDMPMepelg67kvs/5CnrE2dDzJJC0TpSgyEU/mjdUL8x1qewJGzTGXwHyg3Trt1CHPiTR9nImmJA==
+
+elm-upgrade-shims@cultureamp/elm-upgrade-shims#0.2.1:
+  version "0.2.1"
+  resolved "https://codeload.github.com/cultureamp/elm-upgrade-shims/tar.gz/f669985fa82a13b419b2ae1d1fe6d8e0b5969d41"
+  dependencies:
+    glob "^7.1.3"
+
+elm-webpack-loader@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/elm-webpack-loader/-/elm-webpack-loader-6.0.0.tgz#a281a3b391003b409509259cca8a3accdb88754e"
+  integrity sha512-g5eKUo/F8ixHtXU4hf9mTtA4IzJ9yOHfwH1/C9Mo3mfkiz23UFaXtbGvEILa+8jLGFRTp8wuVtKcC5fuhCnSMA==
+  dependencies:
+    glob "^7.1.1"
+    loader-utils "^1.0.2"
+    node-elm-compiler "^5.0.0"
+    yargs "^6.5.0"
+
+elm@^0.19.0-no-deps:
+  version "0.19.0-no-deps"
+  resolved "https://registry.yarnpkg.com/elm/-/elm-0.19.0-no-deps.tgz#4754b658c424771823ee91bd5bf6387647954add"
+  integrity sha512-tOlSeo5Bt0Rkrt/aBjL+/a+TmAFdfeqjrOlThrhgKOoGeHt1hU7/hJ+HFMlHiODf09AQh7Anl64o7V6thzmRHw==
+
 "emoji-regex@>=6.0.0 <=6.1.1":
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-6.1.1.tgz#c6cd0ec1b0642e2a3c67a1137efc5e796da4f88e"
@@ -7774,7 +7837,7 @@ fbjs-css-vars@^1.0.0:
   resolved "https://registry.yarnpkg.com/fbjs-css-vars/-/fbjs-css-vars-1.0.2.tgz#216551136ae02fe255932c3ec8775f18e2c078b8"
   integrity sha512-b2XGFAFdWZWg0phtAWLHCk836A1Xann+I+Dgd3Gk64MHKZO44FfoD1KxyvbSh0qZsIoXQGGlVztIY+oitJPpRQ==
 
-fbjs@^0.8.0:
+fbjs@^0.8.0, fbjs@^0.8.9:
   version "0.8.17"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.17.tgz#c4d598ead6949112653d6588b01a5cdcd9f90fdd"
   integrity sha1-xNWY6taUkRJlPWWIsBpc3Nn5D90=
@@ -7925,6 +7988,14 @@ find-cache-dir@^3.0.0:
     make-dir "^3.0.0"
     pkg-dir "^4.1.0"
 
+find-elm-dependencies@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/find-elm-dependencies/-/find-elm-dependencies-2.0.2.tgz#589a759a021e6e2f8f0df805f973313fc4b55693"
+  integrity sha512-nM5UCbccD1G8CGK2GsM7ykG3ksOAl9E+34jiDfl07CAl2OPnLpBVWY2hlxEmIkSBfdJjSopEowWHrO0cI8RhxQ==
+  dependencies:
+    firstline "1.2.0"
+    lodash "4.17.15"
+
 find-root@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/find-root/-/find-root-1.1.0.tgz#abcfc8ba76f708c42a97b3d685b7e9450bfb9ce4"
@@ -7959,6 +8030,11 @@ find-up@^4.0.0:
   dependencies:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
+
+firstline@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/firstline/-/firstline-1.2.0.tgz#c9f4886e7f7fbf0afc12d71941dce06b192aea05"
+  integrity sha1-yfSIbn9/vwr8EtcZQdzgaxkq6gU=
 
 flat-cache@^2.0.1:
   version "2.0.1"
@@ -11575,15 +11651,15 @@ lodash.uniq@4.5.0, lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
+lodash@4.17.15, lodash@^4.0.1, lodash@^4.17.15, lodash@^4.17.3:
+  version "4.17.15"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
+  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+
 lodash@^4.0.0, lodash@^4.11.1, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.1, lodash@^4.3.0, lodash@~4.17.10:
   version "4.17.14"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.14.tgz#9ce487ae66c96254fe20b599f21b6816028078ba"
   integrity sha512-mmKYbW3GLuJeX+iGP+Y7Gp1AiGHGbXHCOh/jZmrawMmsE7MS4znI3RL2FsjbqOyMayHInjOeykW7PEajUk1/xw==
-
-lodash@^4.0.1, lodash@^4.17.15, lodash@^4.17.3:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
 
 log-update@^3.0.0:
   version "3.2.0"
@@ -11609,7 +11685,7 @@ longest-streak@^2.0.1:
   resolved "https://registry.yarnpkg.com/longest-streak/-/longest-streak-2.0.3.tgz#3de7a3f47ee18e9074ded8575b5c091f5d0a4105"
   integrity sha512-9lz5IVdpwsKLMzQi0MQ+oD9EA0mIGcWYP7jXMTZVXP8D42PwuAk+M/HBFYQoxt1G5OR8m7aSIgb1UymfWGBWEw==
 
-loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1, loose-envify@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
@@ -12456,6 +12532,16 @@ node-dir@^0.1.10:
   integrity sha1-X1Zl2TNRM1yqvvjxxVRRbPXx5OU=
   dependencies:
     minimatch "^3.0.2"
+
+node-elm-compiler@^5.0.0:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/node-elm-compiler/-/node-elm-compiler-5.0.4.tgz#e139c517c4b91f914cccb0a06e3329e3c49d02ac"
+  integrity sha512-VQsT8QSierYGkHzRed+b4MnccQVF1+qPHunE8jBoU7jD6YpuRqCDPzEoC2zfyEJS80qVnlMZrqobLnyjzX9lJg==
+  dependencies:
+    cross-spawn "6.0.5"
+    find-elm-dependencies "2.0.2"
+    lodash "4.17.15"
+    temp "^0.9.0"
 
 node-emoji@^1.6.1:
   version "1.10.0"
@@ -14888,6 +14974,13 @@ react-draggable@^3.3.2:
     classnames "^2.2.5"
     prop-types "^15.6.0"
 
+react-elm-components@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-elm-components/-/react-elm-components-1.1.0.tgz#e36dbd4d80feee9b32c009482542d43b35be0b36"
+  integrity sha512-L1JUZTfobgHGhNtrWI5MtSHEs2eUux4pupZj47rF6r+BIQ7ec8Gu2mGenl1SgOGvUChyF3kIQn/ti1+d/4X24w==
+  dependencies:
+    create-react-class "^15.5.3"
+
 react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
@@ -15829,7 +15922,7 @@ rgba-regex@^1.0.0:
   resolved "https://registry.yarnpkg.com/rgba-regex/-/rgba-regex-1.0.0.tgz#43374e2e2ca0968b0ef1523460b7d730ff22eeb3"
   integrity sha1-QzdOLiyglosO8VI0YLfXMP8i7rM=
 
-rimraf@2, rimraf@2.6.3, rimraf@^2.2.8, rimraf@^2.5.0, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2, rimraf@^2.6.3:
+rimraf@2, rimraf@2.6.3, rimraf@^2.2.8, rimraf@^2.5.0, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2, rimraf@^2.6.3, rimraf@~2.6.2:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.3.tgz#b2d104fe0d8fb27cf9e0a1cda8262dd3833c6cab"
   integrity sha512-mwqeW5XsA2qAejG46gYdENaxXjx9onRNCfn7L0duuP4hCuTIi/QO7PDK07KJfp1d+izWPrzEJDcSqBa0OZQriA==
@@ -17219,6 +17312,13 @@ temp-write@^3.4.0:
     pify "^3.0.0"
     temp-dir "^1.0.0"
     uuid "^3.0.1"
+
+temp@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/temp/-/temp-0.9.0.tgz#61391795a11bd9738d4c4d7f55f012cb8f55edaa"
+  integrity sha512-YfUhPQCJoNQE5N+FJQcdPz63O3x3sdT4Xju69Gj4iZe0lBKOtnAMi0SLj9xKhGkcGhsxThvTJ/usxtFPo438zQ==
+  dependencies:
+    rimraf "~2.6.2"
 
 term-size@^1.2.0:
   version "1.2.0"
@@ -18888,6 +18988,13 @@ yargs-parser@^13.1.1:
     camelcase "^5.0.0"
     decamelize "^1.2.0"
 
+yargs-parser@^4.2.0:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-4.2.1.tgz#29cceac0dc4f03c6c87b4a9f217dd18c9f74871c"
+  integrity sha1-KczqwNxPA8bIe0qfIX3RjJ90hxw=
+  dependencies:
+    camelcase "^3.0.0"
+
 yargs-parser@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-5.0.0.tgz#275ecf0d7ffe05c77e64e7c86e4cd94bf0e1228a"
@@ -18935,6 +19042,25 @@ yargs@^13.3.0:
     which-module "^2.0.0"
     y18n "^4.0.0"
     yargs-parser "^13.1.1"
+
+yargs@^6.5.0:
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-6.6.0.tgz#782ec21ef403345f830a808ca3d513af56065208"
+  integrity sha1-eC7CHvQDNF+DCoCMo9UTr1YGUgg=
+  dependencies:
+    camelcase "^3.0.0"
+    cliui "^3.2.0"
+    decamelize "^1.1.1"
+    get-caller-file "^1.0.1"
+    os-locale "^1.4.0"
+    read-pkg-up "^1.0.1"
+    require-directory "^2.1.1"
+    require-main-filename "^1.0.1"
+    set-blocking "^2.0.0"
+    string-width "^1.0.2"
+    which-module "^1.0.0"
+    y18n "^3.2.1"
+    yargs-parser "^4.2.0"
 
 yargs@^7.0.0:
   version "7.1.0"
