@@ -66,6 +66,7 @@ steps:
     command: ".buildkite/scripts/publish.sh"
     branches: "!master"
     env:
+      EXTRACT_ARTIFACTS: true
       DOMAIN: "${DEVELOPMENT_DOMAIN}"
       DISTRIBUTION: "${DEVELOPMENT_DISTRIBUTION}"
       BASE_PATH: "${DEVELOPMENT_BASE_PATH}"
@@ -82,6 +83,7 @@ steps:
     command: ".buildkite/scripts/publish.sh"
     branches: "master"
     env:
+      EXTRACT_ARTIFACTS: true
       DOMAIN: "${PRODUCTION_DOMAIN}"
       DISTRIBUTION: "${PRODUCTION_DISTRIBUTION}"
     <<: *defaults

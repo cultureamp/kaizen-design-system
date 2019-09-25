@@ -7,7 +7,7 @@ extract-artifact() {
 }
 
 main() {
-  if [[ $BUILDKITE_LABEL == *Publish* ]]; then
+  if [[ -n $EXTRACT_ARTIFACTS ]]; then
     extract-artifact "site.tar.gz"
     extract-artifact "storybook.tar.gz"
   fi
