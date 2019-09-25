@@ -1,3 +1,4 @@
+import classnames from "classnames"
 import { graphql, StaticQuery } from "gatsby"
 import * as React from "react"
 import Tag from "./Tag"
@@ -9,6 +10,7 @@ type PageHeaderProps = {
   summaryParagraph?: string
   tags?: Array<string>
   image?: React.ReactNode
+  headingOnly?: boolean
 }
 
 const PageHeader: React.SFC<PageHeaderProps> = ({
@@ -17,6 +19,7 @@ const PageHeader: React.SFC<PageHeaderProps> = ({
   summaryParagraph,
   tags,
   image,
+  headingOnly,
 }) => (
   <StaticQuery
     query={graphql`
@@ -27,25 +30,32 @@ const PageHeader: React.SFC<PageHeaderProps> = ({
       }
     `}
     render={data => (
-      <div className={styles.pageHeader}>
+      <div
+        className={classnames({
+          [styles.pageHeader]: true,
+          [styles.headingOnly]: headingOnly,
+        })}
+      >
         <div className={styles.pageHeaderInner}>
-          <div className={styles.sideSection}>
-            <div className={styles.image}>
-              {image ? image : <img src={data.amoeba.publicURL} />}
+          {!headingOnly && (
+            <div className={styles.sideSection}>
+              <div className={styles.image}>
+                {image ? image : <img src={data.amoeba.publicURL} />}
+              </div>
+              <div className={styles.tagsContainer}>
+                {tags && (
+                  <>
+                    <div className={styles.tagsLabel}>Also known as:</div>
+                    <div className={styles.tags}>
+                      {tags.map((tagText, i) => (
+                        <Tag text={tagText} key={`tag-${i}`} />
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
             </div>
-            <div className={styles.tagsContainer}>
-              {tags && (
-                <>
-                  <div className={styles.tagsLabel}>Also known as:</div>
-                  <div className={styles.tags}>
-                    {tags.map((tagText, i) => (
-                      <Tag text={tagText} key={`tag-${i}`} />
-                    ))}
-                  </div>
-                </>
-              )}
-            </div>
-          </div>
+          )}
           <div className={styles.mainSection}>
             <h1 className={styles.headingText}>{headingText}</h1>
             {summaryParagraph && (

@@ -4,20 +4,15 @@
 @import "~@cultureamp/kaizen-component-library/styles/responsive";
 
 $sidebar-width: $ca-grid * 10;
-$sidebar-content-gap: $ca-grid * 2;
 $content-side-margin: $ca-grid * 6;
 $content-top-and-bottom-margin: $ca-grid * 4;
-
-:root {
-  --content-card-top-offset: calc(var(--ca-grid) * 2);
-}
 
 .sidebarAndContent {
   display: grid;
   grid-template-areas: "sidebar content";
   grid-template-columns: $sidebar-width 1fr;
   grid-template-rows: 1fr;
-  grid-gap: $sidebar-content-gap;
+  grid-gap: var(--sidebar-content-gap);
 
   @include ca-media-mobile() {
     grid-template-areas:
@@ -42,6 +37,7 @@ $content-top-and-bottom-margin: $ca-grid * 4;
     padding: 0;
     margin-top: 0;
     box-shadow: none;
+    border-radius: 0;
   }
 }
 

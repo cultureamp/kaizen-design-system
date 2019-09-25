@@ -1,0 +1,34 @@
+@import "~@cultureamp/kaizen-component-library/styles/responsive";
+
+.contentOnly {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: var(--sidebar-content-gap);
+  justify-items: center;
+
+  @include ca-media-mobile() {
+    grid-template-areas: "content";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+  }
+}
+
+.content {
+  background: blue;
+  background-color: #fff;
+  border-radius: 7px;
+  box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.19);
+  padding: 0;
+  margin-top: calc(-1 * var(--content-card-top-offset));
+  max-width: calc(var(--ca-grid) * 45);
+  width: 100%;
+
+  @include ca-media-mobile() {
+    border: 0;
+    padding: 0;
+    margin-top: 0;
+    box-shadow: none;
+    border-radius: 0;
+  }
+}

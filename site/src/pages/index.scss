@@ -1,0 +1,66 @@
+@import "~@cultureamp/kaizen-component-library/styles/responsive";
+
+.content {
+  display: grid;
+  grid-template-areas:
+    "guidelines-image components-image"
+    "guidelines-text components-text";
+  justify-content: space-evenly;
+  align-content: center;
+  height: 100%;
+  padding: 6rem 0;
+
+  @include ca-media-mobile() {
+    grid-template-areas:
+      "guidelines-image"
+      "guidelines-text"
+      "."
+      "components-image"
+      "components-text";
+    padding: calc(var(--ca-grid) * 4) 0 0 0;
+    grid-template-rows: auto auto 3rem auto auto;
+  }
+}
+
+%imageContainer {
+  background: hsla(0, 0%, 0%, 0.1);
+  width: 300px;
+  height: 300px;
+}
+
+.guidelinesImageContainer {
+  @extend %imageContainer;
+  grid-area: guidelines-image;
+}
+
+.componentsImageContainer {
+  @extend %imageContainer;
+  grid-area: components-image;
+}
+
+%textContainer {
+  width: 300px;
+}
+
+.guidelinesTextContainer {
+  @extend %textContainer;
+  grid-area: guidelines-text;
+}
+
+.componentsTextContainer {
+  @extend %textContainer;
+  grid-area: components-text;
+}
+
+.heading {
+  margin-top: calc(var(--ca-grid) * 1.5);
+  font-size: 2rem;
+  line-height: 1.125;
+}
+
+.body {
+  margin-top: calc(var(--ca-grid) * 0.75);
+  font-size: 1.25rem;
+  line-height: 1.8;
+  font-weight: 300;
+}
