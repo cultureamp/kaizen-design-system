@@ -1,14 +1,23 @@
 @import "~@cultureamp/kaizen-component-library/styles/type";
 @import "~@cultureamp/kaizen-component-library/styles/color";
 
+$reverse-variant-color: add-shade($ca-palette-wisteria, 30%);
+
+.footerExtraContent {
+  .reverseVariant & {
+    background-color: $reverse-variant-color;
+    color: #fff;
+  }
+}
+
 .footer {
   display: flex;
   justify-content: center;
   align-items: center;
   height: $ca-grid * 3;
 
-  &.reverseVariant {
-    background-color: add-shade($ca-palette-wisteria, 30%);
+  .reverseVariant & {
+    background-color: $reverse-variant-color;
     color: #fff;
   }
 }

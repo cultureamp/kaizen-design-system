@@ -8,7 +8,7 @@
   justify-content: space-evenly;
   align-content: center;
   height: 100%;
-  padding: 6rem 0;
+  padding: calc(var(--ca-grid) * 6) 0;
 
   @include ca-media-mobile() {
     grid-template-areas:
@@ -63,4 +63,50 @@
   font-size: 1.25rem;
   line-height: 1.8;
   font-weight: 300;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: calc(var(--ca-grid) * 5) calc(var(--ca-grid) * 2)
+    calc(var(--ca-grid) * 4);
+}
+
+.footerInner {
+  max-width: var(--page-content-width);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  @include ca-media-mobile() {
+    flex-direction: column;
+  }
+}
+
+.footerIntroduction {
+  max-width: 650px;
+  width: 100%;
+}
+
+.footerRecruitment {
+  max-width: calc(var(--ca-grid) * 13);
+  width: 100%;
+  margin-left: calc(var(--ca-grid) * 2);
+
+  @include ca-media-mobile() {
+    margin: calc(var(--ca-grid) * 2) 0 0 0;
+  }
+}
+
+.footerHeading {
+  font-size: 1.375rem;
+  line-height: 1.0909;
+}
+
+.footerText {
+  @extend .body;
+}
+
+.footerLinkButton {
+  margin-top: var(--ca-grid);
 }

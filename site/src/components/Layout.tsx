@@ -11,7 +11,7 @@ type LayoutProps = {
   currentPath?: string
   pageTitle?: string
   children?: React.ReactNode
-  reverseFooter?: boolean
+  footer?: React.ReactNode
   pageHeader?: React.ReactNode
   fullWidthContent?: boolean
 }
@@ -21,8 +21,8 @@ const Layout: React.SFC<LayoutProps> = ({
   currentPath,
   children,
   pageHeader,
-  reverseFooter = false,
   fullWidthContent = false,
+  footer,
 }) => (
   <>
     <Head pageTitle={pageTitle} />
@@ -46,9 +46,7 @@ const Layout: React.SFC<LayoutProps> = ({
           </div>
         )}
       </div>
-      <div className={styles.footerContainer}>
-        <Footer reverseVariant={reverseFooter} />
-      </div>
+      <div className={styles.footerContainer}>{footer}</div>
     </div>
   </>
 )

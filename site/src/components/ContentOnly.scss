@@ -21,7 +21,7 @@
   box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.19);
   padding: 0;
   margin-top: calc(-1 * var(--content-card-top-offset));
-  max-width: calc(var(--ca-grid) * 45);
+  max-width: var(--page-content-width);
   width: 100%;
 
   @include ca-media-mobile() {

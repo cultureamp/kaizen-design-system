@@ -6,6 +6,7 @@
   --ca-grid: #{$ca-grid};
   --content-card-top-offset: calc(var(--ca-grid) * 2);
   --sidebar-content-gap: $ca-grid * 2;
+  --page-content-width: calc(var(--ca-grid) * 45);
 }
 
 html {
