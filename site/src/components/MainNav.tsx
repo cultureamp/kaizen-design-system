@@ -27,7 +27,7 @@ const MainNav: React.SFC<MainNavProps> = ({ currentPath = "" }) => {
   const firstComponentPath = data.allMdx!.edges[0]!.node!.fields!.slug
 
   const currentPathStartsWith = (path: string) =>
-    withPrefix(currentPath).startsWith(withPrefix(path))
+    currentPath.startsWith(withPrefix(path))
 
   return (
     <NavigationBar colorScheme="kaizen">
