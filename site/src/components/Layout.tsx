@@ -1,3 +1,4 @@
+import classnames from "classnames"
 import * as React from "react"
 import "../styles/global.scss"
 import Footer from "./Footer"
@@ -12,6 +13,7 @@ type LayoutProps = {
   children?: React.ReactNode
   reverseFooter?: boolean
   pageHeader?: React.ReactNode
+  fullWidthContent?: boolean
 }
 
 const Layout: React.SFC<LayoutProps> = ({
@@ -20,6 +22,7 @@ const Layout: React.SFC<LayoutProps> = ({
   children,
   pageHeader,
   reverseFooter = false,
+  fullWidthContent = false,
 }) => (
   <>
     <Head pageTitle={pageTitle} />
@@ -27,11 +30,21 @@ const Layout: React.SFC<LayoutProps> = ({
       <div className={styles.navigationBarContainer}>
         <MainNav currentPath={currentPath} />
       </div>
-      <div className={styles.page}>
+      <div
+        className={classnames({
+          [styles.page]: true,
+          [styles.noBottomPadding]: fullWidthContent,
+          [styles.noPageHeader]: !pageHeader,
+        })}
+      >
         {pageHeader}
-        <div className={styles.contentContainer}>
-          <div className={styles.content}>{children}</div>
-        </div>
+        {fullWidthContent ? (
+          children
+        ) : (
+          <div className={styles.contentContainer}>
+            <div className={styles.content}>{children}</div>
+          </div>
+        )}
       </div>
       <div className={styles.footerContainer}>
         <Footer reverseVariant={reverseFooter} />

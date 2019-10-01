@@ -27,7 +27,7 @@ const MainNav: React.SFC<MainNavProps> = ({ currentPath = "" }) => {
   const firstComponentPath = data.allMdx!.edges[0]!.node!.fields!.slug
 
   const currentPathStartsWith = (path: string) =>
-    withPrefix(currentPath).startsWith(withPrefix(path))
+    currentPath.startsWith(withPrefix(path))
 
   return (
     <NavigationBar colorScheme="kaizen">
@@ -47,9 +47,9 @@ const MainNav: React.SFC<MainNavProps> = ({ currentPath = "" }) => {
         active={currentPathStartsWith("/components")}
       />
       <NavLink
-        text="Status"
-        href={withPrefix("/status")}
-        active={currentPathStartsWith("/status")}
+        text="Storybook"
+        href={withPrefix("/storybook")}
+        active={currentPathStartsWith("/storybook")}
       />
     </NavigationBar>
   )
