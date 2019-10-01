@@ -11,7 +11,7 @@ type MainNavProps = {
 
 const MainNav: React.SFC<MainNavProps> = ({ currentPath = "" }) => {
   const data = useStaticQuery(graphql`
-    query ComponentsQuery {
+    query MainNavComponentsQuery {
       allMdx(filter: { fields: { slug: { regex: "^/components/" } } }) {
         edges {
           node {
@@ -23,7 +23,6 @@ const MainNav: React.SFC<MainNavProps> = ({ currentPath = "" }) => {
       }
     }
   `)
-
   const firstComponentPath = data.allMdx!.edges[0]!.node!.fields!.slug
 
   const currentPathStartsWith = (path: string) =>

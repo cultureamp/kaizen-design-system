@@ -1,4 +1,5 @@
 import { Button } from "@cultureamp/kaizen-component-library"
+import { graphql, useStaticQuery, withPrefix } from "gatsby"
 import * as React from "react"
 import { Content, ContentOnly } from "../components/ContentOnly"
 import Footer from "../components/Footer"
@@ -48,38 +49,63 @@ const FooterExtraContent = () => (
   </div>
 )
 
-export default ({ location }) => (
-  <Layout
-    pageTitle="Kaizen Design System"
-    currentPath={location.pathname}
-    pageHeader={HomePageHeader}
-    footer={<Footer reverseVariant extraContent={<FooterExtraContent />} />}
-  >
-    <ContentOnly>
-      <Content>
-        <div className={styles.content}>
-          <div className={styles.guidelinesImageContainer}>
-            <img src="https://kaizen-assets.s3-us-west-2.amazonaws.com/site/guidelines.png" />
-          </div>
-          <div className={styles.componentsImageContainer}>
-            <img src="https://kaizen-assets.s3-us-west-2.amazonaws.com/site/components.png" />
-          </div>
-          <div className={styles.guidelinesTextContainer}>
-            <div className={styles.heading}>Guidelines</div>
-            <div className={styles.body}>
-              Learn how to design and build cohesive and predictable products
-              for Culture Amp.
+export default ({ location }) => {
+  const data = useStaticQuery(graphql`
+    query HomePageComponentsQuery {
+      allMdx(filter: { fields: { slug: { regex: "^/components/" } } }) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `)
+  const firstComponentPath = data.allMdx!.edges[0]!.node!.fields!.slug
+
+  return (
+    <Layout
+      pageTitle="Kaizen Design System"
+      currentPath={location.pathname}
+      pageHeader={HomePageHeader}
+      footer={<Footer reverseVariant extraContent={<FooterExtraContent />} />}
+    >
+      <ContentOnly>
+        <Content>
+          <div className={styles.content}>
+            <div className={styles.guidelinesImageContainer}>
+              <a href={withPrefix("/guidelines/overview")}>
+                <img src="https://kaizen-assets.s3-us-west-2.amazonaws.com/site/guidelines.png" />
+              </a>
+            </div>
+            <div className={styles.componentsImageContainer}>
+              <a href={withPrefix(firstComponentPath)}>
+                <img src="https://kaizen-assets.s3-us-west-2.amazonaws.com/site/components.png" />
+              </a>
+            </div>
+            <div className={styles.guidelinesTextContainer}>
+              <div className={styles.heading}>
+                <a href={withPrefix("/guidelines/overview")}>Guidelines</a>
+              </div>
+              <div className={styles.body}>
+                Learn how to design and build cohesive and predictable products
+                for Culture Amp.
+              </div>
+            </div>
+            <div className={styles.componentsTextContainer}>
+              <div className={styles.heading}>
+                <a href={withPrefix(firstComponentPath)}>Components</a>
+              </div>
+              <div className={styles.body}>
+                Kaizen’s Component Library includes reusable code used to
+                rapidly build pages.
+              </div>
             </div>
           </div>
-          <div className={styles.componentsTextContainer}>
-            <div className={styles.heading}>Components</div>
-            <div className={styles.body}>
-              Kaizen’s Component Library includes reusable code used to rapidly
-              build pages.
-            </div>
-          </div>
-        </div>
-      </Content>
-    </ContentOnly>
-  </Layout>
-)
+        </Content>
+      </ContentOnly>
+    </Layout>
+  )
+}

@@ -67,6 +67,15 @@
   margin-top: calc(var(--ca-grid) * 1.5);
   font-size: 2rem;
   line-height: 1.125;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .body {
