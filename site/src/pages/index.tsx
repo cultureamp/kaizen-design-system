@@ -37,7 +37,11 @@ const FooterExtraContent = () => (
           Join us to improve the future of work.
         </div>
         <div className={styles.footerLinkButton}>
-          <Button reversed label="Browse open roles"></Button>
+          <Button
+            reversed
+            label="Browse open roles"
+            href="https://www.cultureamp.com/about/careers/"
+          ></Button>
         </div>
       </div>
     </div>
