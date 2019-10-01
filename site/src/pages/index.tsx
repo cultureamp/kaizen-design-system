@@ -26,7 +26,7 @@ const FooterExtraContent = () => (
           Kaizen (“improvement”) is a Japanese business philosophy that focuses
           on continuous improvement. This is how we see our design system: an
           ever-evolving language that can be shaped, grown and nurtured to
-          support how we work, and enhance our customer’s experience.
+          support how we work, and enhance our customers’ experience.
         </div>
       </div>
       <div className={styles.footerRecruitment}>
