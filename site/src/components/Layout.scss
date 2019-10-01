@@ -32,6 +32,10 @@
   padding-bottom: $ca-grid * 3;
 }
 
+.noPageHeader {
+  grid-template-rows: [contentContainer] 1fr;
+}
+
 .noBottomPadding {
   padding-bottom: 0;
 }

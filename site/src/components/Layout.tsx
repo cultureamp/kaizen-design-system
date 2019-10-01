@@ -34,6 +34,7 @@ const Layout: React.SFC<LayoutProps> = ({
         className={classnames({
           [styles.page]: true,
           [styles.noBottomPadding]: fullWidthContent,
+          [styles.noPageHeader]: !pageHeader,
         })}
       >
         {pageHeader}
