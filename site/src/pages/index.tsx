@@ -54,8 +54,12 @@ export default ({ location }) => (
     <ContentOnly>
       <Content>
         <div className={styles.content}>
-          <div className={styles.guidelinesImageContainer}></div>
-          <div className={styles.componentsImageContainer}></div>
+          <div className={styles.guidelinesImageContainer}>
+            <img src="https://kaizen-assets.s3-us-west-2.amazonaws.com/site/guidelines.png" />
+          </div>
+          <div className={styles.componentsImageContainer}>
+            <img src="https://kaizen-assets.s3-us-west-2.amazonaws.com/site/components.png" />
+          </div>
           <div className={styles.guidelinesTextContainer}>
             <div className={styles.heading}>Guidelines</div>
             <div className={styles.body}>

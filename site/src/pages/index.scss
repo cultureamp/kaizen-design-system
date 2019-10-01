@@ -24,7 +24,7 @@
 }
 
 %imageContainer {
-  background: hsla(0, 0%, 0%, 0.1);
+  background: #fff;
   width: 300px;
   height: 300px;
   transition: transform $ca-duration-fast, box-shadow $ca-duration-fast;
@@ -33,6 +33,10 @@
     transform: scale(1.025);
     box-shadow: var(--card-box-shadow);
     cursor: pointer;
+  }
+
+  img {
+    max-width: 100%;
   }
 }
 
