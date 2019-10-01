@@ -47,9 +47,9 @@ const MainNav: React.SFC<MainNavProps> = ({ currentPath = "" }) => {
         active={currentPathStartsWith("/components")}
       />
       <NavLink
-        text="Status"
-        href={withPrefix("/status")}
-        active={currentPathStartsWith("/status")}
+        text="Storybook"
+        href={withPrefix("/storybook")}
+        active={currentPathStartsWith("/storybook")}
       />
     </NavigationBar>
   )

@@ -12,6 +12,7 @@ type LayoutProps = {
   children?: React.ReactNode
   reverseFooter?: boolean
   pageHeader?: React.ReactNode
+  fullWidthContent?: boolean
 }
 
 const Layout: React.SFC<LayoutProps> = ({
@@ -20,6 +21,7 @@ const Layout: React.SFC<LayoutProps> = ({
   children,
   pageHeader,
   reverseFooter = false,
+  fullWidthContent = false,
 }) => (
   <>
     <Head pageTitle={pageTitle} />
@@ -29,9 +31,13 @@ const Layout: React.SFC<LayoutProps> = ({
       </div>
       <div className={styles.page}>
         {pageHeader}
-        <div className={styles.contentContainer}>
-          <div className={styles.content}>{children}</div>
-        </div>
+        {fullWidthContent ? (
+          children
+        ) : (
+          <div className={styles.contentContainer}>
+            <div className={styles.content}>{children}</div>
+          </div>
+        )}
       </div>
       <div className={styles.footerContainer}>
         <Footer reverseVariant={reverseFooter} />
