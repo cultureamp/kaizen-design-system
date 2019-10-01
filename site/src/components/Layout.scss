@@ -32,6 +32,10 @@
   padding-bottom: $ca-grid * 3;
 }
 
+.noBottomPadding {
+  padding-bottom: 0;
+}
+
 .contentContainer {
   display: grid;
   justify-items: center;

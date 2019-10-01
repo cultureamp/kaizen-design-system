@@ -1,3 +1,4 @@
+import classnames from "classnames"
 import * as React from "react"
 import "../styles/global.scss"
 import Footer from "./Footer"
@@ -29,7 +30,12 @@ const Layout: React.SFC<LayoutProps> = ({
       <div className={styles.navigationBarContainer}>
         <MainNav currentPath={currentPath} />
       </div>
-      <div className={styles.page}>
+      <div
+        className={classnames({
+          [styles.page]: true,
+          [styles.noBottomPadding]: fullWidthContent,
+        })}
+      >
         {pageHeader}
         {fullWidthContent ? (
           children
