@@ -8,7 +8,6 @@
     "guidelines-text components-text";
   justify-content: space-evenly;
   align-content: center;
-  height: 100%;
   padding: calc(var(--ca-grid) * 6) 0;
 
   @include ca-media-mobile() {
