@@ -4,6 +4,10 @@
 
 :root {
   --ca-grid: #{$ca-grid};
+  --content-card-top-offset: calc(var(--ca-grid) * 2);
+  --sidebar-content-gap: $ca-grid * 2;
+  --page-content-width: calc(var(--ca-grid) * 45);
+  --card-box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.19);
 }
 
 html {

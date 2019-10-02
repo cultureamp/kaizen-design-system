@@ -1,6 +1,7 @@
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import * as React from "react"
+import Footer from "../components/Footer"
 import Layout from "../components/Layout"
 import PageHeader from "../components/PageHeader"
 import {
@@ -30,6 +31,7 @@ export default ({ data, pageContext, location }) => {
       pageTitle={md.frontmatter.title}
       currentPath={currentPath}
       pageHeader={ComponentPageHeader}
+      footer={<Footer />}
     >
       <SidebarAndContent>
         <Sidebar>

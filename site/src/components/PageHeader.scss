@@ -26,6 +26,11 @@
     row-gap: $ca-grid;
     width: auto;
   }
+
+  .headingOnly & {
+    display: block;
+    width: auto;
+  }
 }
 
 .sideSection {
@@ -77,6 +82,10 @@
   font-weight: 400;
   margin-bottom: $ca-grid * 2;
   margin-top: calc(-0.5 * 0.5em); // hack to make text flush with adjacent image
+
+  .headingOnly & {
+    text-align: center;
+  }
 }
 
 .summaryParagraph {
@@ -84,4 +93,13 @@
   line-height: 1.4;
   font-weight: 300;
   margin-bottom: var(--content-card-top-offset);
+
+  .headingOnly & {
+    text-align: center;
+    white-space: pre-wrap;
+
+    @media (max-width: 1080px) {
+      white-space: normal;
+    }
+  }
 }

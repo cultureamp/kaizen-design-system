@@ -1,5 +1,6 @@
 import { withPrefix } from "gatsby"
 import * as React from "react"
+import Footer from "../components/Footer"
 import Layout from "../components/Layout"
 
 export default ({ location }) => (
@@ -7,6 +8,7 @@ export default ({ location }) => (
     pageTitle="Kaizen Design System"
     currentPath={location.pathname}
     fullWidthContent
+    footer={<Footer />}
   >
     <iframe
       src={withPrefix("/storybook-static")}

@@ -1,0 +1,132 @@
+@import "~@cultureamp/kaizen-component-library/styles/responsive";
+@import "~@cultureamp/kaizen-component-library/styles/animation";
+
+.content {
+  display: grid;
+  grid-template-areas:
+    "guidelines-image components-image"
+    "guidelines-text components-text";
+  justify-content: space-evenly;
+  align-content: center;
+  padding: calc(var(--ca-grid) * 6) 0;
+
+  @include ca-media-mobile() {
+    grid-template-areas:
+      "guidelines-image"
+      "guidelines-text"
+      "."
+      "components-image"
+      "components-text";
+    padding: calc(var(--ca-grid) * 4) 0 0 0;
+    grid-template-rows: auto auto 3rem auto auto;
+  }
+}
+
+%imageContainer {
+  background: #fff;
+  width: 300px;
+  height: 300px;
+  transition: transform $ca-duration-fast, box-shadow $ca-duration-fast;
+
+  &:hover {
+    transform: scale(1.025);
+    box-shadow: var(--card-box-shadow);
+    cursor: pointer;
+  }
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.guidelinesImageContainer {
+  @extend %imageContainer;
+  grid-area: guidelines-image;
+}
+
+.componentsImageContainer {
+  @extend %imageContainer;
+  grid-area: components-image;
+}
+
+%textContainer {
+  width: 300px;
+}
+
+.guidelinesTextContainer {
+  @extend %textContainer;
+  grid-area: guidelines-text;
+}
+
+.componentsTextContainer {
+  @extend %textContainer;
+  grid-area: components-text;
+}
+
+.heading {
+  margin-top: calc(var(--ca-grid) * 1.5);
+  font-size: 2rem;
+  line-height: 1.125;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.body {
+  margin-top: calc(var(--ca-grid) * 0.75);
+  font-size: 1.25rem;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: calc(var(--ca-grid) * 5) calc(var(--ca-grid) * 2)
+    calc(var(--ca-grid) * 4);
+}
+
+.footerInner {
+  max-width: var(--page-content-width);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  @include ca-media-mobile() {
+    flex-direction: column;
+  }
+}
+
+.footerIntroduction {
+  max-width: 650px;
+  width: 100%;
+}
+
+.footerRecruitment {
+  max-width: calc(var(--ca-grid) * 13);
+  width: 100%;
+  margin-left: calc(var(--ca-grid) * 2);
+
+  @include ca-media-mobile() {
+    margin: calc(var(--ca-grid) * 2) 0 0 0;
+  }
+}
+
+.footerHeading {
+  font-size: 1.375rem;
+  line-height: 1.0909;
+}
+
+.footerText {
+  @extend .body;
+}
+
+.footerLinkButton {
+  margin-top: var(--ca-grid);
+}
