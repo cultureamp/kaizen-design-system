@@ -1,10 +1,7 @@
 env:
-  PRODUCTION_DOMAIN: cultureamp.design
-  PRODUCTION_DISTRIBUTION: E31PDMSO4A4AH
-
-  DEVELOPMENT_DOMAIN: dev.cultureamp.design
-  DEVELOPMENT_DISTRIBUTION: ENCP2A6TRCGJ6
-  DEVELOPMENT_BASE_PATH: "/${BUILDKITE_BRANCH}"
+  KAIZEN_ROLE_ARN: ${BRANCH_ROLE_ARN}
+  KAIZEN_DOMAIN_NAME: ${BRANCH_DOMAIN_NAME}
+  KAIZEN_DISTRIBUTION_ID: ${BRANCH_DISTRIBUTION_ID}
 
 x-defaults: &defaults
   agent_query_rules: ["queue=build-unrestricted"]
@@ -12,16 +9,16 @@ x-defaults: &defaults
     - docker#v3.3.0:
         image: "node:10.16.3-alpine"
         environment:
-          - BASE_PATH
+          - KAIZEN_BASE_PATH
 
 x-publish-env: &publish-env
   environment:
     - AWS_ACCESS_KEY_ID
     - AWS_SECRET_ACCESS_KEY
     - AWS_SESSION_TOKEN
-    - DOMAIN
-    - DISTRIBUTION
-    - BASE_PATH
+    - KAIZEN_DOMAIN_NAME
+    - KAIZEN_DISTRIBUTION_ID
+    - KAIZEN_BASE_PATH
 
 steps:
   - name: ":nut_and_bolt: Compile"
@@ -35,61 +32,23 @@ steps:
   - name: ":package: Build (site)"
     command: ".buildkite/scripts/build-site.sh"
     artifact_paths: "./site.tar.gz"
-    branches: "!master"
-    env:
-      BASE_PATH: "${DEVELOPMENT_BASE_PATH}"
-    <<: *defaults
-
-  - name: ":package: Build (site)"
-    command: ".buildkite/scripts/build-site.sh"
-    artifact_paths: "./site.tar.gz"
-    branches: "master"
     <<: *defaults
 
   - name: ":package: Build (storybook)"
     command: ".buildkite/scripts/build-storybook.sh"
     artifact_paths: "./storybook.tar.gz"
-    branches: "!master"
-    env:
-      BASE_PATH: "${DEVELOPMENT_BASE_PATH}"
-    <<: *defaults
-
-  - name: ":package: Build (storybook)"
-    command: ".buildkite/scripts/build-storybook.sh"
-    artifact_paths: "./storybook.tar.gz"
-    branches: "master"
     <<: *defaults
 
   - wait
 
-  - name: ":tanabata_tree: Publish: ${DEVELOPMENT_DOMAIN}/${BUILDKITE_BRANCH}"
+  - name: ":tanabata_tree: Publish: ${KAIZEN_DOMAIN_NAME}${KAIZEN_BASE_PATH}"
     command: ".buildkite/scripts/publish.sh"
-    branches: "!master"
     env:
-      EXTRACT_ARTIFACTS: true
-      DOMAIN: "${DEVELOPMENT_DOMAIN}"
-      DISTRIBUTION: "${DEVELOPMENT_DISTRIBUTION}"
-      BASE_PATH: "${DEVELOPMENT_BASE_PATH}"
+      KAIZEN_EXTRACT_ARTIFACTS: true
     <<: *defaults
     plugins:
       - cultureamp/aws-assume-role#v0.1.0:
-          role: "${DEVELOPMENT_PUBLISH_ROLE}"
-      - docker#v3.3.0:
-          image: "mesosphere/aws-cli"
-          entrypoint: "/bin/sh"
-          <<: *publish-env
-
-  - name: ":tanabata_tree: Publish: ${PRODUCTION_DOMAIN}"
-    command: ".buildkite/scripts/publish.sh"
-    branches: "master"
-    env:
-      EXTRACT_ARTIFACTS: true
-      DOMAIN: "${PRODUCTION_DOMAIN}"
-      DISTRIBUTION: "${PRODUCTION_DISTRIBUTION}"
-    <<: *defaults
-    plugins:
-      - cultureamp/aws-assume-role#v0.1.0:
-          role: "${PRODUCTION_PUBLISH_ROLE}"
+          role: "${KAIZEN_ROLE_ARN}"
       - docker#v3.3.0:
           image: "mesosphere/aws-cli"
           entrypoint: "/bin/sh"
