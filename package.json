@@ -17,10 +17,9 @@
     "compile": "tsc",
     "lint": "yarn tslint && yarn prettier",
     "lint:fix": "yarn tslint --fix && yarn prettier --write",
-    "to-rm": "printf '\"%s\"\n' $(echo ./elm-stuff $(find . -name node_modules -type d -prune))",
-    "rm-rf": "xargs -I % bash -c 'echo % && rm -rf %'",
-    "reset": "yarn -s to-rm | yarn rm-rf && yarn setup",
-    "setup": "yarn --frozen-lockfile"
+    "clean": "yarn gatsby clean && rm -rf elm-stuff storybook/public",
+    "reset": "yarn clean && yarn setup --force",
+    "setup": "yarn install --frozen-lockfile"
   },
   "babel": {
     "presets": [
