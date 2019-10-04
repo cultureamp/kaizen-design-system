@@ -2,6 +2,7 @@ env:
   KAIZEN_ROLE_ARN: ${BRANCH_ROLE_ARN}
   KAIZEN_DOMAIN_NAME: ${BRANCH_DOMAIN_NAME}
   KAIZEN_DISTRIBUTION_ID: ${BRANCH_DISTRIBUTION_ID}
+  KAIZEN_SSM_PARAMETER_PATH: kaizen-design-system
 
 x-defaults: &defaults
   agent_query_rules: ["queue=build-unrestricted"]
@@ -11,13 +12,15 @@ x-defaults: &defaults
         environment:
           - KAIZEN_BASE_PATH
 
-x-publish-env: &publish-env
+x-common-env: &common-env
   environment:
     - AWS_ACCESS_KEY_ID
     - AWS_SECRET_ACCESS_KEY
     - AWS_SESSION_TOKEN
+    - AWS_DEFAULT_REGION
     - KAIZEN_DOMAIN_NAME
     - KAIZEN_DISTRIBUTION_ID
+    - KAIZEN_SSM_PARAMETER_PATH
     - KAIZEN_BASE_PATH
 
 steps:
@@ -52,4 +55,15 @@ steps:
       - docker#v3.3.0:
           image: "mesosphere/aws-cli"
           entrypoint: "/bin/sh"
-          <<: *publish-env
+          <<: *common-env
+
+  - name: ":balloon: Release package"
+    command: ".buildkite/scripts/release.sh"
+    branches: master
+    <<: *defaults
+    plugins:
+      - cultureamp/aws-assume-role#v0.1.0:
+          role: "${KAIZEN_ROLE_ARN}"
+      - docker#v3.3.0:
+          image: "node:10.16.3-alpine"
+          <<: *common-env
