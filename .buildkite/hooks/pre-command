@@ -1,18 +1,34 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
+ssm-get() {
+  aws ssm get-parameter \
+    --name "${SSM_PARAMETER_BASE_PATH}/$1" \
+    --with-decryption \
+    --query Parameter.Value \
+    --output text
+}
+
 extract-artifact() {
   buildkite-agent artifact download "$1" .
   tar -xf "$1"
 }
 
 main() {
+  if [[ $BUILDKITE_BRANCH == "master" ]]; then
+    echo "Fetching secrets from SSM..."
+    export KAIZEN_GITHUB_DEPLOY_KEY KAIZEN_NPM_TOKEN
+    KAIZEN_GITHUB_DEPLOY_KEY=$(ssm-get github-deploy-key) || exit $?
+    KAIZEN_NPM_TOKEN=$(ssm-get npm-token) || exit $?
+  fi
+
   export KAIZEN_BASE_PATH=""
   if [[ $BUILDKITE_BRANCH != "master" ]]; then
     KAIZEN_BASE_PATH="/${BUILDKITE_BRANCH}"
   fi
 
   if [[ -n $KAIZEN_EXTRACT_ARTIFACTS ]]; then
+    echo "Extracting build artifacts..."
     extract-artifact "site.tar.gz"
     extract-artifact "storybook.tar.gz"
   fi
@@ -20,4 +36,4 @@ main() {
 
 main
 
-unset -f main extract-artifact
+unset -f main extract-artifact ssm-get
