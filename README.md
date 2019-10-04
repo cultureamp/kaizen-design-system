@@ -2,9 +2,9 @@
 
 [![Build status](https://badge.buildkite.com/880e8b196b369c19ffcbef08a81d364059e0d6fb77e9d35563.svg?branch=master)](https://buildkite.com/culture-amp/kaizen-design-system)
 
-## Temporary domains
-- [cultureamp.design](http://d6yjwpyak7tus.cloudfront.net)
-- [dev.cultureamp.design](http://d2fgiorosclmpb.cloudfront.net)/branch-name
+## Domains
+- [cultureamp.design](https://cultureamp.design)
+- [dev.cultureamp.design](https://dev.cultureamp.design)/branch-name
 
 ## Scripts
 Command | Summary
