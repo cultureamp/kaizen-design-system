@@ -67,3 +67,8 @@ steps:
       - docker#v3.3.0:
           image: "node:10.16.3-alpine"
           <<: *common-env
+
+  - name: ":vertical_traffic_light: Validate release"
+    command: ".buildkite/scripts/validate.sh"
+    branches: "!master"
+    <<: *defaults
