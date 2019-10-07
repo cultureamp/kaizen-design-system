@@ -15,6 +15,11 @@ type SidebarProps = {
   children: React.ReactNode
 }
 
+type SidebarSectionProps = {
+  title?: string
+  children: React.ReactNode
+}
+
 type SidebarTabProps = {
   href?: string
   active?: boolean
@@ -26,7 +31,15 @@ type ContentNeedToKnowProps = {
 }
 
 export const Sidebar: React.SFC<SidebarProps> = ({ children }) => (
-  <div className={styles.sidebar}>
+  <div className={styles.sidebar}>{children}</div>
+)
+
+export const SidebarSection: React.SFC<SidebarSectionProps> = ({
+  title,
+  children,
+}) => (
+  <div>
+    {title && <div className={styles.sidebarSectionTitle}>{title}</div>}
     <ul className={styles.tabList}>{children}</ul>
   </div>
 )

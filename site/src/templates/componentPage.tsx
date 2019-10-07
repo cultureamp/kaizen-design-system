@@ -10,6 +10,7 @@ import {
   ContentNeedToKnowSection,
   Sidebar,
   SidebarAndContent,
+  SidebarSection,
   SidebarTab,
 } from "../components/SidebarAndContent"
 
@@ -35,18 +36,20 @@ export default ({ data, pageContext, location }) => {
     >
       <SidebarAndContent>
         <Sidebar>
-          {allPages.map((node, i) => {
-            if (!node!.node!.frontmatter!.navTitle) return undefined
-            return (
-              <SidebarTab
-                href={node!.node!.fields!.slug}
-                active={node!.node!.fields!.slug === currentPath}
-                key={`sidebarTab-${i}`}
-              >
-                {node!.node!.frontmatter!.title}
-              </SidebarTab>
-            )
-          })}
+          <SidebarSection>
+            {allPages.map((node, i) => {
+              if (!node!.node!.frontmatter!.navTitle) return undefined
+              return (
+                <SidebarTab
+                  href={node!.node!.fields!.slug}
+                  active={node!.node!.fields!.slug === currentPath}
+                  key={`sidebarTab-${i}`}
+                >
+                  {node!.node!.frontmatter!.title}
+                </SidebarTab>
+              )
+            })}
+          </SidebarSection>
         </Sidebar>
         <Content>
           <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
