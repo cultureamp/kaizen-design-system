@@ -10,29 +10,49 @@ import {
   ContentNeedToKnowSection,
   Sidebar,
   SidebarAndContent,
+  SidebarSection,
   SidebarTab,
 } from "../components/SidebarAndContent"
 
 const stripTrailingSlash = (str: string) => str.replace(/\/$/, "")
 
 const sortSidebarTabs = tabs => {
-  // sort tabs in alphabetical order
   const newTabs = [...tabs].sort((a, b) =>
     a.node.frontmatter.navTitle > b.node.frontmatter.navTitle ? 1 : -1
   )
-  // move "Overview" to the top of the list
-  const overviewIndex = newTabs.findIndex(
-    el => el.node.frontmatter.navTitle === "Overview"
-  )
-  const overview = newTabs.splice(overviewIndex, 1)[0]
-  newTabs.splice(0, 0, overview)
   return newTabs
+}
+
+const renderSidebarTabs = (pages, currentPath, sectionName) => {
+  return pages.map((node, i) => (
+    <SidebarTab
+      href={node!.node!.fields!.slug}
+      active={
+        stripTrailingSlash(node!.node!.fields!.slug) ===
+        stripTrailingSlash(currentPath)
+      }
+      key={`sidebarTab-${sectionName}-${i}`}
+    >
+      {node!.node!.frontmatter!.navTitle}
+    </SidebarTab>
+  ))
 }
 
 export default ({ data, pageContext, location }) => {
   const md = data.mdx
   const allPages = data.allMdx.edges
-  const sortedPages = sortSidebarTabs(allPages)
+  const overviewPage = allPages.filter(
+    el => el.node.frontmatter.navTitle === "Overview"
+  )
+  const pagesWithoutOverview = allPages.filter(
+    el => el.node.frontmatter.navTitle !== "Overview"
+  )
+  const guidelinePages = sortSidebarTabs(
+    pagesWithoutOverview.filter(el => !el.node.frontmatter.inComparingSection)
+  )
+  const comparingPages = sortSidebarTabs(
+    pagesWithoutOverview.filter(el => el.node.frontmatter.inComparingSection)
+  )
   const currentPath = location.pathname
 
   const GuidelinesPageHeader = (
@@ -52,18 +72,19 @@ export default ({ data, pageContext, location }) => {
     >
       <SidebarAndContent>
         <Sidebar>
-          {sortedPages.map((node, i) => (
-            <SidebarTab
-              href={node!.node!.fields!.slug}
-              active={
-                stripTrailingSlash(node!.node!.fields!.slug) ===
-                stripTrailingSlash(currentPath)
-              }
-              key={`sidebarTab-${i}`}
-            >
-              {node!.node!.frontmatter!.navTitle}
-            </SidebarTab>
-          ))}
+          <SidebarSection>
+            {renderSidebarTabs(overviewPage, currentPath, "Overview")}
+          </SidebarSection>
+          <SidebarSection title="Comparing components">
+            {renderSidebarTabs(
+              comparingPages,
+              currentPath,
+              "Comparing components"
+            )}
+          </SidebarSection>
+          <SidebarSection title="Guidelines">
+            {renderSidebarTabs(guidelinePages, currentPath, "Guidelines")}
+          </SidebarSection>
         </Sidebar>
         <Content>
           <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
@@ -89,6 +110,7 @@ export const query = graphql`
           frontmatter {
             title
             navTitle
+            inComparingSection
           }
         }
       }
@@ -104,7 +126,3 @@ export const query = graphql`
     }
   }
 `
-
-// <pre>data: {JSON.stringify(data)}</pre>
-// <pre>pageContext: {JSON.stringify(pageContext)}</pre>
-// <pre>location.pathname: {JSON.stringify(location)}</pre>

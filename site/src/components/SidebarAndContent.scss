@@ -66,6 +66,15 @@ $content-top-and-bottom-margin: $ca-grid * 4;
   margin-top: $ca-grid;
 }
 
+.sidebarSectionTitle {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin: 1.5rem 0.75rem 0.75rem;
+  letter-spacing: 0.03125em;
+  color: add-tint($ca-palette-ink, 20%);
+}
+
 .tabList {
   padding: 0;
   margin: 0;
