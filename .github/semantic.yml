@@ -1,7 +1,7 @@
 # Config for the Semantic Pull Requests GitHub app.
 # https://github.com/probot/semantic-pull-requests
 
-titleOny: true
+titleOnly: true
 types:
   - feat
   - fix
