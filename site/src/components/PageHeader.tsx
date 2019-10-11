@@ -27,6 +27,9 @@ const PageHeader: React.SFC<PageHeaderProps> = ({
         amoeba: file(name: { eq: "amoeba" }) {
           publicURL
         }
+        emptyState: file(name: { eq: "empty-state" }) {
+          publicURL
+        }
       }
     `}
     render={data => (
@@ -40,7 +43,11 @@ const PageHeader: React.SFC<PageHeaderProps> = ({
           {!headingOnly && (
             <div className={styles.sideSection}>
               <div className={styles.image}>
-                {image ? image : <img src={data.amoeba.publicURL} />}
+                {image ? image : <img src={data.emptyState.publicURL} />}
+                <img
+                  src={data.amoeba.publicURL}
+                  className={styles.imageBackdrop}
+                />
               </div>
               <div className={styles.tagsContainer}>
                 {tags && (
