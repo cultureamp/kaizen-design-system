@@ -10,19 +10,6 @@ ssm_get() {
 }
 
 main() {
-  printf "Installing apk packages... "
-  apk add --no-cache --quiet --no-progress \
-    git \
-    openssh \
-    python \
-    py-pip
-  echo "(done)"
-
-  printf "Installing aws cli... "
-  pip install --quiet --progress-bar=off \
-    awscli
-  echo "(done)"
-
   printf "Fetching ssm parameters... "
   github_deploy_key=$(ssm_get "github-deploy-key") || exit $?
   npm_token=$(ssm_get "npm-token") || exit $?

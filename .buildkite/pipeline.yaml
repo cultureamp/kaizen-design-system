@@ -4,24 +4,16 @@ env:
   KAIZEN_DISTRIBUTION_ID: ${BRANCH_DISTRIBUTION_ID}
   KAIZEN_SSM_PARAMETER_PATH: kaizen-design-system
 
+x-compose-config: &compose-config
+  config:
+    - .buildkite/docker-compose.yml
+
 x-defaults: &defaults
   agent_query_rules: ["queue=build-unrestricted"]
   plugins:
-    - docker#v3.3.0:
-        image: "node:10.16.3-alpine"
-        environment:
-          - KAIZEN_BASE_PATH
-
-x-common-env: &common-env
-  environment:
-    - AWS_ACCESS_KEY_ID
-    - AWS_SECRET_ACCESS_KEY
-    - AWS_SESSION_TOKEN
-    - AWS_DEFAULT_REGION
-    - KAIZEN_DOMAIN_NAME
-    - KAIZEN_DISTRIBUTION_ID
-    - KAIZEN_SSM_PARAMETER_PATH
-    - KAIZEN_BASE_PATH
+    - docker-compose#v3.0.3:
+        <<: *compose-config
+        run: build
 
 steps:
   - name: ":nut_and_bolt: Compile"
@@ -52,10 +44,9 @@ steps:
     plugins:
       - cultureamp/aws-assume-role#v0.1.0:
           role: "${KAIZEN_ROLE_ARN}"
-      - docker#v3.3.0:
-          image: "mesosphere/aws-cli"
-          entrypoint: "/bin/sh"
-          <<: *common-env
+      - docker-compose#v3.0.3:
+          <<: *compose-config
+          run: publish
 
   - name: ":balloon: Release package"
     command: ".buildkite/scripts/release.sh"
@@ -64,11 +55,15 @@ steps:
     plugins:
       - cultureamp/aws-assume-role#v0.1.0:
           role: "${KAIZEN_ROLE_ARN}"
-      - docker#v3.3.0:
-          image: "node:10.16.3-alpine"
-          <<: *common-env
+      - docker-compose#v3.0.3:
+          <<: *compose-config
+          run: release
 
   - name: ":vertical_traffic_light: Validate release"
     command: ".buildkite/scripts/validate.sh"
     branches: "!master"
     <<: *defaults
+    plugins:
+      - docker-compose#v3.0.3:
+          <<: *compose-config
+          run: validate
