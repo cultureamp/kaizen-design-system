@@ -45,9 +45,22 @@
 }
 
 .image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  img {
+    position: absolute;
+  }
+
   @include ca-media-mobile() {
     display: none;
   }
+}
+
+.imageBackdrop {
+  position: absolute;
 }
 
 .tagsContainer {
