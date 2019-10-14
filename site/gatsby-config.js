@@ -35,26 +35,27 @@ module.exports = {
         name: `icons`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: resolve(
-          __dirname,
-          `../node_modules/@cultureamp/kaizen-component-library/components`
-        ),
-        name: `components`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: resolve(
-          __dirname,
-          `../node_modules/@cultureamp/kaizen-component-library/draft`
-        ),
-        name: `draftComponents`,
-      },
-    },
+    // Uncomment these when we move the component docs to the library components' own READMEs
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: resolve(
+    //       __dirname,
+    //       `../node_modules/@cultureamp/kaizen-component-library/components`
+    //     ),
+    //     name: `components`,
+    //   },
+    // },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     path: resolve(
+    //       __dirname,
+    //       `../node_modules/@cultureamp/kaizen-component-library/draft`
+    //     ),
+    //     name: `draftComponents`,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {

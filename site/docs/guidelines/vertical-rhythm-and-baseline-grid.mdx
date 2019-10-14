@@ -1,0 +1,68 @@
+---
+title: Vertical Rhythm and Baseline Grid
+navTitle: Vertical Rhythm and Baseline Grid
+summaryParagraph: |
+  Vertical rhythm keeps vertical spaces between elements on a page consistent. The baseline is the invisible line upon which a line of text rests. The baseline grid is used to achieve vertical rhythm.
+tags: ['Grid']
+needToKnow:
+  - "Use Grid Units. Culture Amp’s Grid Unit is 24px. E.g. “margin: $ca-grid;”"
+  - "As a general rule, we use 12px (½ Grid Unit) or 24px (1 Grid Unit) for vertical rhythm."
+---
+
+## To keep in mind
+
+Vertical rhythm relates elements together through proximity and create an aesthetically pleasing appearance. In [typography](./typography/), vertical rhythm impacts the readability of the text and establishes visual hierarchy.
+
+In order for visual rhythm to work, not only do elements have to take up the same amount of space on the grid, but the text within those elements needs to have the baseline sit at the same place on the grid line. Our UI Kit is designed with this in mind. (See “Bad Rhythm” below for an example of why consistently sized elements that do not have a baseline shift is insufficient)
+
+* 1 Grid Unit is 24px. This is intended primarily to achieve vertical rhythm but is also used for [horizontal rhythm](./alignment).
+    * Note: 1 Grid Unit is implemented in code as 1.5rem so that type adjusts to people’s browser font size settings.
+* As a general rule, use 12px (½ Grid Unit) or 24px (1 Grid Unit) to separate elements within a container.
+* Ensure the baseline of text falls on the baseline grid, and adjust containers around that.
+* We use css `position: relative` to shift text to sit on the baseline, and have SASS mixins to achieve this for a given font style.
+* Our Kaizen components are built to sit on a baseline grid - no extra work required from you.
+
+An image belongs here…
+
+## Code implementation & usage details
+
+* When using the Text component, text will be shifted to sit on the baseline grid. If you’re using the component within an area that already has a baseline shift, or for some other reason this shift is undesirable, you can set `inheritBaseline` to true, and it will inherit the baseline of the parent - no longer shifting any text.
+* When adding text to your component or interface, we have SASS mixins that set the correct font family, font size, and position so that the text will sit on the baseline grid. See [typography](./typography/) for details on these mixins.
+* If you need to use these mixins, but do not want the baseline grid adjustment, you can also use the `ca-inherit-baseline` mixin.
+* Because our mixins shift the element down on the page, we need to create space in the layout for the element to shift into. For this we have a `ca-type-block` mixin that creates the whitespace necessary for the contained text to shift “into”. That is, it creates the 1/2-grid `padding-bottom` on a container for the text to have room to be shifted “into”.
+    * Watch [“Teaching CSS to talk like a designer”](https://www.youtube.com/watch?v=TGHbkTGVqoU)
+    * Watch from 50:24 in the video recording of this meeting: [internal link](https://cultureamp.slack.com/files/U04S9RRAC/F8XPHLQ13/Front_End_Practice_Meeting_____2018-01-24)
+    * Watch video recording of this Brown Bag (which covered scrollbar issues and the work that we were doing on our baseline grid and vertical rhythm): [internal video link](https://cultureamp.zoom.us/recording/share/bqOJujzbx7saKe2366y4XBYVKUXSiDMJ1bgLchDFH0awIumekTziMw)
+    * We use `position: relative` and `top`. It doesn’t create a new _stacking_ context, but does create a new _positioning_ context.
+    * Previously, `translateY` caused issues with stacking context, and breaking `z-index` rules, so dropdown menus and others started becoming unruly to manage.
+    * With the normal baseline that comes from the `ca-type-ideal-x` styles, padding on a box surrounding some text results in, visually, the box having reduced padding on the bottom even though the `padding-top` and `padding-bottom` values are exactly the same
+
+An image belongs here…
+
+* That padding is there because the button and its label is shifted down onto the baseline grid, so it needs guaranteed whitespace to shift into.
+* All buttons are shifted, so that if you have icon buttons and text buttons (and even plain old text) they are well aligned
+
+## When to use
+
+To control positioning of elements close together inside a container.
+
+## When not to use
+
+There's no need to use the baseline grid for icons that are aligned optically.
+
+## See also
+
+* [Overview: Layout, Spacing, Sizing, and Vertical Rhythm](./layout-spacing-sizing-vertical-rhythm)
+* [Typography](./typography/)
+
+## External links
+
+Here are some references:
+
+* [Rhythm](https://betterwebtype.com/rhythm-in-web-typography).
+* [8-point grid vertical rhythm](https://builttoadapt.io/8-point-grid-vertical-rhythm-90d05ad95032).
+* [CSS Grid and viewport-relative metrics](https://twitter.com/rsms/status/1054433291393163264).
+* [Grid](https://www.atlassian.design/guidelines/product/foundations/grid).
+* [App layout](https://clarity.design/documentation/app-layout).
+* [Visualizing working with line-height](https://aresluna.org/line-height-playground/).
+

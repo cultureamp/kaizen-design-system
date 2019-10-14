@@ -1,0 +1,86 @@
+---
+title: Select
+navTitle: Select
+summaryParagraph: A select lets you choose options from an option menu. A single-select lets you choose one option while a multi-select lets you choose multiple options.
+tags: ["Select", "Select menu", "Select dropdown", "Dropdown", "Select input"]
+needToKnow:
+- Use for 4+ options when you need to conserve space and provide a pre-selected good default. There are single- and multi-select variants.
+---
+
+### Options
+
+*   Variant:
+    *   Single-select
+    *   Multi-select
+*   Search:
+    *   With search
+    *   Without search
+
+## To keep in mind
+
+A single-select lets the user choose one option from 4 or more items. A multi-select lets the user choose multiple options from 4 or more items.
+
+*   Label:
+    *   Show a label for the select that describes what the options control.
+        *   Where appropriate you might instead use a label for a group of controls that includes the select.
+        *   Where appropriate you might use a good default value that is self-evident, explaining what the options control.
+*   Anatomy:
+    *   Select input: shows the currently selected option
+    *   Select dropdown menu: shows the available options
+*   5+ or 10+ options:
+    *   If there's more than 10 options, provide another method of accessing the options such as an autocomplete search or using smart defaults by surfacing recommended options.
+    *   If there's more than 5 options, consider showing options in alphabetical order or other predictable ordering for easy scanning.
+*   Style option:
+    *   We have alternative style for the input part of the single-select that is less prominent, currently called “Select (Text)” in the UI Kit
+*   Search:
+    *   There’s an option to turn on or off search in the input part.
+*   Good defaults:
+    *   Use a pre-selected good default where possible. In some cases, it cuts down on user decisions and validations if there is “always” a value selected. Sometimes that means including an “All” option as the first available option.
+*   Interaction:
+    *   Selected options:
+        *   Single-select options appear highlighted and are always shown in the dropdown part (that is, they are not removed as they are selected).
+        *   The multi-select shows selected items as tags and removes selected items from the dropdown part so that you cannot accidentally select an item twice.
+    *   De-selecting:
+        *   Single-select: where necessary, the user can de-select the selected item by clicking or tapping on a clear icon. Once removed, show placeholder text, such as “Select or search…”. Alternatively, you might require that a value is always selected so de-selecting is achieved by choosing a different option.
+        *   Multi-select: the multi-select shows selected items as tags and removes selected items from the dropdown part so that you cannot accidentally select an item twice. The user can de-select selected items using by clicking or tapping the clear icon shown in the dismissible [Tags](https://drive.google.com/a/cultureamp.com/open?id=1k0l1XoRvI00ofdAcYYyugYKyFdeJz-9fUdWlVcOwR4o).
+*   Loading state:
+    *   We can lazy load items to be shown in the single-select on search
+    *   Shows loading spinner
+*   Keyboard accessibility is tricky in Selects and need regular testing.
+
+### When to use?
+
+*   Use a single-select when the user needs to choose one option from 4 or more items.
+*   Use a multi-select when the user needs to choose multiple options from 4 or more items.
+*   Consider a select for infrequently used settings.
+*   Consider a select when there is a good default option and show that as pre-selected.
+*   Consider a select when you need to conserve space.
+
+### When not to use?
+
+*   When there's only 2-3 options and enough space, use a [checkbox group](https://drive.google.com/a/cultureamp.com/open?id=1cFJCkMegiTbY-ToMicfwZIltVAIetRl4JVpH3JXCh3E), [radio group](https://drive.google.com/a/cultureamp.com/open?id=1Kp6SzXex7h7vB6Rx2C3mgEpA6m8043aTSGoQsRYGyaM), or [toggle switch](https://drive.google.com/a/cultureamp.com/open?id=1UZ59BbBuIk2JQl9cflUK8lCctqITfWummOEe26E3yyI) instead.
+
+### See also…
+
+Provide related but different items that may solve similar problems e.g. loading spinner vs progress bar vs loading skeletons
+
+*   [Checkbox Group](https://docs.google.com/document/d/1cFJCkMegiTbY-ToMicfwZIltVAIetRl4JVpH3JXCh3E/edit#)
+*   [Toggle Switch](https://docs.google.com/document/d/1UZ59BbBuIk2JQl9cflUK8lCctqITfWummOEe26E3yyI/edit)
+*   [Radio Group](https://docs.google.com/document/d/1Kp6SzXex7h7vB6Rx2C3mgEpA6m8043aTSGoQsRYGyaM/edit#)
+*   [Menulist](http://www.cultureamp.design/components/menulist)
+
+---
+
+### External Links
+
+Here are some examples of other existing design systems:
+
+- Select:
+    - [https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select)
+    - [https://polaris.shopify.com/components/forms/select#navigation](https://polaris.shopify.com/components/forms/select#navigation)
+    - [https://www.lightningdesignsystem.com/components/select/](https://www.lightningdesignsystem.com/components/select/)
+    - [https://feelix.myob.com/#/Components/Forms/Select](https://feelix.myob.com/#/Components/Forms/Select)
+- Multi-select:
+    - [https://atlassian.design/guidelines/product/components/select](https://atlassian.design/guidelines/product/components/select)
+- [https://react-select.com/home](https://react-select.com/home)
+- [https://www.lightningdesignsystem.com/components/dueling-picklist](https://www.lightningdesignsystem.com/components/dueling-picklist)
