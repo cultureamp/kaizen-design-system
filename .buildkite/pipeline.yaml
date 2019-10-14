@@ -4,15 +4,10 @@ env:
   KAIZEN_DISTRIBUTION_ID: ${BRANCH_DISTRIBUTION_ID}
   KAIZEN_SSM_PARAMETER_PATH: kaizen-design-system
 
-x-compose-config: &compose-config
-  config:
-    - .buildkite/docker-compose.yml
-
 x-defaults: &defaults
   agent_query_rules: ["queue=build-unrestricted"]
   plugins:
     - docker-compose#v3.0.3:
-        <<: *compose-config
         run: build
 
 steps:
@@ -45,7 +40,6 @@ steps:
       - cultureamp/aws-assume-role#v0.1.0:
           role: "${KAIZEN_ROLE_ARN}"
       - docker-compose#v3.0.3:
-          <<: *compose-config
           run: publish
 
   - name: ":balloon: Release package"
@@ -56,7 +50,6 @@ steps:
       - cultureamp/aws-assume-role#v0.1.0:
           role: "${KAIZEN_ROLE_ARN}"
       - docker-compose#v3.0.3:
-          <<: *compose-config
           run: release
 
   - name: ":vertical_traffic_light: Validate release"
@@ -65,5 +58,4 @@ steps:
     <<: *defaults
     plugins:
       - docker-compose#v3.0.3:
-          <<: *compose-config
           run: validate
