@@ -5,6 +5,15 @@ x-defaults: &defaults
     - ..:/workspace
   working_dir: /workspace
   command: /bin/ash -c "while sleep 1000; do :; done"
+  environment:
+    - AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY
+    - AWS_SESSION_TOKEN
+    - AWS_DEFAULT_REGION
+    - KAIZEN_DOMAIN_NAME
+    - KAIZEN_DISTRIBUTION_ID
+    - KAIZEN_SSM_PARAMETER_PATH
+    - KAIZEN_BASE_PATH
 
 services:
   build:
