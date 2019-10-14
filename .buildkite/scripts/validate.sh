@@ -2,15 +2,6 @@
 set -e
 
 echo
-echo "Installing git..."
-apk add --no-cache --no-progress git
-
-echo
-echo "Installing lerna..."
-npm config set unsafe-perm true
-npm install --global --no-audit --no-progress lerna
-
-echo
 echo "Validating release..."
 # Check that lerna isn't reporting errors
 lerna list
