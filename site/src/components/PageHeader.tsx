@@ -27,7 +27,7 @@ const PageHeader: React.SFC<PageHeaderProps> = ({
         amoeba: file(name: { eq: "amoeba" }) {
           publicURL
         }
-        emptyState: file(name: { eq: "empty-state" }) {
+        emptyState: file(name: { eq: "empty-state-placeholder" }) {
           publicURL
         }
       }
@@ -43,11 +43,11 @@ const PageHeader: React.SFC<PageHeaderProps> = ({
           {!headingOnly && (
             <div className={styles.sideSection}>
               <div className={styles.image}>
-                {image ? image : <img src={data.emptyState.publicURL} />}
                 <img
                   src={data.amoeba.publicURL}
                   className={styles.imageBackdrop}
                 />
+                {image ? image : <img src={data.emptyState.publicURL} />}
               </div>
               <div className={styles.tagsContainer}>
                 {tags && (
