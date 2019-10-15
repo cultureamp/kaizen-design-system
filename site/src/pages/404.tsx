@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import * as React from "react"
 import ContentMarkdownSection from "../components/ContentMarkdownSection"
 import { Content, ContentOnly } from "../components/ContentOnly"
+import Footer from "../components/Footer"
 import Layout from "../components/Layout"
 import md from "../components/markdownComponents"
 import PageHeader from "../components/PageHeader"
@@ -35,6 +36,7 @@ export default props => (
   <Layout
     pageTitle="404"
     pageHeader={FourOhFourPageHeader}
+    footer={<Footer />}
     trimBottomOfCardToContent
   >
     <ContentOnly>
