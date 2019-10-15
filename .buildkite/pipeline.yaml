@@ -48,7 +48,7 @@ steps:
       - docker-compose#v3.0.3:
           run: publish
 
-  - name: ":balloon: Release package"
+  - name: ":balloon: Release"
     command: ".buildkite/scripts/release.sh"
     branches: "master"
     <<: *defaults
