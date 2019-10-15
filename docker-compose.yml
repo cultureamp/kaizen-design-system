@@ -2,7 +2,7 @@ version: "3.4"
 
 x-defaults: &defaults
   volumes:
-    - ..:/workspace
+    - .:/workspace
   working_dir: /workspace
   command: /bin/ash -c "while sleep 1000; do :; done"
   environment:
@@ -20,22 +20,22 @@ services:
     <<: *defaults
     build:
       context: .
-      dockerfile: dockerfiles/build.Dockerfile
+      dockerfile: .buildkite/dockerfiles/build.Dockerfile
 
   publish:
     <<: *defaults
     build:
       context: .
-      dockerfile: dockerfiles/publish.Dockerfile
+      dockerfile: .buildkite/dockerfiles/publish.Dockerfile
 
   release:
     <<: *defaults
     build:
       context: .
-      dockerfile: dockerfiles/release.Dockerfile
+      dockerfile: .buildkite/dockerfiles/release.Dockerfile
 
   validate:
     <<: *defaults
     build:
       context: .
-      dockerfile: dockerfiles/validate.Dockerfile
+      dockerfile: .buildkite/dockerfiles/validate.Dockerfile
