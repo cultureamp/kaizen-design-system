@@ -1,24 +1,25 @@
 #!/bin/sh
 set -e
 
-ssm_get() {
-  aws ssm get-parameter \
-    --name "/${KAIZEN_SSM_PARAMETER_PATH}/$1" \
-    --with-decryption \
-    --query Parameter.Value \
-    --output text
+get_secret() {
+  aws secretsmanager get-secret-value \
+    --secret-id "kaizen-design-system/$1" \
+    --query SecretString \
+    | tr -d '"'
 }
 
 main() {
-  printf "Fetching ssm parameters... "
-  github_deploy_key=$(ssm_get "github-deploy-key") || exit $?
-  npm_token=$(ssm_get "npm-token") || exit $?
+  printf "Fetching secrets... "
+  GH_SSH_KEY=$(get_secret "github-ssh-key") || exit $?
+  GH_TOKEN=$(get_secret "github-api-token") || exit $?
+  NPM_TOKEN=$(get_secret "npm-token") || exit $?
   echo "(done)"
 
-  unset github_deploy_key
-  unset npm_token
+  unset GH_SSH_KEY
+  unset GH_TOKEN
+  unset NPM_TOKEN
 }
 
 main
 
-unset -f main ssm_get
+unset -f main get_secret
