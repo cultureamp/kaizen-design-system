@@ -43,6 +43,15 @@ setup_npm() {
   echo "Logged in as: $(npm whoami)"
 }
 
+release() {
+  # Bump packages, push and tag a release commit, and update release notes
+  lerna version --conventional-commits --github-release --yes \
+    --message "chore: release [skip ci]" 
+  
+  # Publish any package versions which are not already present on npm
+  lerna publish from-package --yes
+}
+
 main() {
   export GH_SSH_KEY GH_TOKEN NPM_TOKEN
 
@@ -54,6 +63,7 @@ main() {
 
   setup_github
   setup_npm
+  release
 
   unset GH_SSH_KEY GH_TOKEN NPM_TOKEN
 }
