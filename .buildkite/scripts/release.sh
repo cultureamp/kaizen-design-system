@@ -27,8 +27,7 @@ setup_github() {
   echo "$GH_SSH_KEY" | ssh-add -
 
   echo "Adding GitHub host key to known hosts..."
-  mkdir ~/.ssh
-  echo "$GITHUB_SSH_HOST_KEY" | tr -d "\\n" >> ~/.ssh/known_hosts
+  echo "$GITHUB_SSH_HOST_KEY" | tr -d "\\n" >> /etc/ssh/ssh_known_hosts
 
   echo "Checking GitHub authentication..."
   ssh -T git@github.com || true # exits non-zero
@@ -44,8 +43,10 @@ setup_npm() {
 }
 
 release() {
+  git checkout master && git pull
+
   # Bump packages, push and tag a release commit, and update release notes
-  lerna version --conventional-commits --github-release --yes \
+  lerna version --conventional-commits --create-release=github --yes \
     --message "chore: release [skip ci]" 
   
   # Publish any package versions which are not already present on npm
