@@ -103,6 +103,7 @@
   :global(.md-a) {
     text-decoration: none;
     color: $ca-palette-ocean;
+    word-break: break-word;
 
     &:hover {
       text-decoration: underline;
