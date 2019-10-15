@@ -1,6 +1,13 @@
 #!/bin/sh
 set -e
 
+GITHUB_SSH_HOST_KEY="
+github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXY
+PCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mU
+jvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwo
+G6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq
+3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ=="
+
 get_secret() {
   aws secretsmanager get-secret-value \
     --secret-id "kaizen-design-system/$1" \
@@ -18,6 +25,10 @@ setup_github() {
 
   eval "$(ssh-agent -s)"
   echo "$GH_SSH_KEY" | ssh-add -
+
+  echo "Adding GitHub host key to known hosts..."
+  mkdir ~/.ssh
+  echo "$GITHUB_SSH_HOST_KEY" | tr -d "\\n" >> ~/.ssh/known_hosts
 
   echo "Checking GitHub authentication..."
   ssh -T git@github.com || true # exits non-zero
