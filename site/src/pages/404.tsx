@@ -32,7 +32,11 @@ const FourOhFourPageHeader = (
 )
 
 export default props => (
-  <Layout pageTitle="404" pageHeader={FourOhFourPageHeader}>
+  <Layout
+    pageTitle="404"
+    pageHeader={FourOhFourPageHeader}
+    trimBottomOfCardToContent
+  >
     <ContentOnly>
       <Content>
         <ContentMarkdownSection>
