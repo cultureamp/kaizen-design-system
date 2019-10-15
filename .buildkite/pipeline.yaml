@@ -51,11 +51,3 @@ steps:
           role: "${KAIZEN_ROLE_ARN}"
       - docker-compose#v3.0.3:
           run: release
-
-  - name: ":vertical_traffic_light: Validate release"
-    command: ".buildkite/scripts/validate.sh"
-    branches: "!master"
-    <<: *defaults
-    plugins:
-      - docker-compose#v3.0.3:
-          run: validate
