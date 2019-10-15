@@ -4,8 +4,6 @@
 @import "~@cultureamp/kaizen-component-library/styles/responsive";
 
 $sidebar-width: $ca-grid * 10;
-$content-side-margin: $ca-grid * 6;
-$content-top-and-bottom-margin: $ca-grid * 4;
 
 .sidebarAndContent {
   display: grid;
@@ -41,21 +39,13 @@ $content-top-and-bottom-margin: $ca-grid * 4;
   }
 }
 
-.contentInner {
-  margin: $content-top-and-bottom-margin $content-side-margin;
-
-  @include ca-media-mobile() {
-    margin: 0;
-  }
-}
-
 .contentNeedToKnow {
-  margin-top: $content-top-and-bottom-margin;
-  padding: 0 $content-side-margin $content-top-and-bottom-margin;
+  margin-top: var(--content-top-and-bottom-margin);
+  padding: 0 var(--content-side-margin) var(--content-top-and-bottom-margin);
   border-bottom: 1px solid $ca-border-color;
 
   @include ca-media-mobile() {
-    padding: 0 0 $content-top-and-bottom-margin;
+    padding: 0 0 var(--content-top-and-bottom-margin);
   }
 }
 
