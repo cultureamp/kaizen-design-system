@@ -33,9 +33,3 @@ services:
     build:
       context: .
       dockerfile: .buildkite/dockerfiles/release.Dockerfile
-
-  validate:
-    <<: *defaults
-    build:
-      context: .
-      dockerfile: .buildkite/dockerfiles/validate.Dockerfile
