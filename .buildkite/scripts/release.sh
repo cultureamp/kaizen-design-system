@@ -38,6 +38,7 @@ setup_npm() {
   npm config set email service-npm@cultureamp.com
   npm config set username cultureamp-user
   npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
+  npm config set access public
 
   echo "Checking npm authentication..."
   echo "Logged in as: $(npm whoami)"
