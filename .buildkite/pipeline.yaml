@@ -13,10 +13,12 @@ x-defaults: &defaults
 steps:
   - name: ":nut_and_bolt: Compile"
     command: ".buildkite/scripts/compile.sh"
+    branches: "!master"
     <<: *defaults
 
   - name: ":mag: Lint"
     command: ".buildkite/scripts/lint.sh"
+    branches: "!master"
     <<: *defaults
 
   - name: ":package: Build (site)"
@@ -44,7 +46,7 @@ steps:
 
   - name: ":balloon: Release package"
     command: ".buildkite/scripts/release.sh"
-    branches: master
+    branches: "master"
     <<: *defaults
     plugins:
       - cultureamp/aws-assume-role#v0.1.0:
