@@ -32,7 +32,7 @@ steps:
 
   - wait
 
-  - name: ":tanabata_tree: Publish: ${KAIZEN_DOMAIN_NAME}${KAIZEN_BASE_PATH}"
+  - name: ":seedling: Publish: ${KAIZEN_DOMAIN_NAME}${KAIZEN_BASE_PATH}"
     command: ".buildkite/scripts/publish.sh"
     env:
       KAIZEN_EXTRACT_ARTIFACTS: true

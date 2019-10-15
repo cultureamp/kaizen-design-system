@@ -1,0 +1,10 @@
+{
+  "name": "@cultureamp/kaizen-example-package",
+  "description": "A safe place to experiment and break things!",
+  "version": "0.0.0",
+  "main": "src",
+  "peerDependencies": {
+    "react": "^16.6.3"
+  },
+  "devDependencies": {}
+}
