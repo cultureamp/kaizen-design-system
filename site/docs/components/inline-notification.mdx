@@ -6,7 +6,7 @@ tags: ["Banner", "Confirmation", "Acknowledgement", "Message", "Alert"]
 needToKnow:
 ---
 
-### Options
+## Options
 
 *   Modes:
     *   Persistent
@@ -25,34 +25,29 @@ needToKnow:
     *   Use **Persistent** notifications when the information continues to be relevant after the message is shown, e.g. Defining the reporting size on an Insight report
     *   Use **Dismissible** notifications when the information has been acknowledged and the message is no longer relevant, e.g. helpfully updating formatting for user input data.
 *   Anatomy:
-    *   **Heading**: summarises the message. This relates directly to the message. Do not use generic language such as “Success”, “Error”, etc.
+    *   **Heading**: summarizes the message. This relates directly to the message. Do not use generic language such as “Success”, “Error”, etc.
     *   **Description**: succinct description that is a standalone sentence (that is, it does not run on from the heading).
     *   **Call to action** (optional): hyperlinks can be included to provide the user with a clear call to action.
 *   What’s an **autohide**?
     *   TODO: add details
 
-### When to use?
+## When not to use
 
-TODO
+*   When a message applies at a system level or does not apply to a specific piece of content and it needs to alert all users, use [Global Notifications](/components/global-notification)
+*   When you are notifying a user of an action they have taken, provide visual feedback with a [Toast Notification](/components/toast-notification).
+*   When an action is user triggered and you need to inform the user, use a [Confirmation Modal](/components/modal) with relevant [Mood](/guidelines/mood), e.g. Informative Confirmation Modal
 
-### When not to use?
+## See also
 
-*   When a message applies at a system level or does not apply to a specific piece of content and it needs to alert all users, use [Global Notifications](https://drive.google.com/a/cultureamp.com/open?id=1-31stGiBx58FygpLFsA4IBiFfB48YxeVY8S9Q1WCxe0)
-*   When you are notifying a user of an action they have taken, provide visual feedback with a [Toast Notification](https://drive.google.com/a/cultureamp.com/open?id=1YaUzsUDgOKISxfMuApp3gEWfPWQ0B2z29le7MkEvl6w).
-*   When an action is user triggered and you need to inform the user, use a [Confirmation Modal](https://drive.google.com/a/cultureamp.com/open?id=1xjuMUCQLogH6l61hq1KbSCcp9BPifr7xG1av6QOsZKI) with relevant [Mood](https://drive.google.com/a/cultureamp.com/open?id=1o3NevxWj3xU2wvrJQJyZ5ZggNDobuRquqVS5jldDu9g), e.g. Informative Confirmation Modal
+*   **Global Notification: **A [Global Notification](/components/global-notification) is a message object used for system-level notifications that inform the user about system status such as logging in and background processes like data imports.
+*   **Toast Notification**: [Toasts](/components/toast-notification) appear in the top–right (or top–left in right-to-left languages). It is used immediately after a specific event such as a user action that does not relate to an object on the page. For example, confirmation of deleted items.
 
-### See also…
+## External Links
 
-*   **Global Notification: **A [Global Notification](https://drive.google.com/a/cultureamp.com/open?id=1-31stGiBx58FygpLFsA4IBiFfB48YxeVY8S9Q1WCxe0) is a message object used for system-level notifications that inform the user about system status such as logging in and background processes like data imports.
-*   **Toast Notification**: [Toasts](https://docs.google.com/document/d/1YaUzsUDgOKISxfMuApp3gEWfPWQ0B2z29le7MkEvl6w/edit#heading=h.2ocvpvil9swi) appear in the top–right (or top–left in right-to-left languages). It is used immediately after a specific event such as a user action that does not relate to an object on the page. For example, confirmation of deleted items.
+- [Lightning: messaging guidelines](https://www.lightningdesignsystem.com/guidelines/messaging/components/notifications/#site-main-content)
+- [Lightning: notifications](https://www.lightningdesignsystem.com/components/notifications/#site-main-content)
+- [Polaris: error messages](https://polaris.shopify.com/patterns-and-guides/error-messages#section-home-notifications)
+- [Material: confirmation and acknowledgement](https://material.io/design/communication/confirmation-acknowledgement.html#usage)
+- [Predix UI: notifications](https://www.predix-ui.com/#/design/communication/notifications)
+- [Predix UI: notifications](https://www.predix-ui.com/#/elements/px-notification)
 
----
-
-### External Links
-
-- [https://www.lightningdesignsystem.com/guidelines/messaging/components/notifications/#site-main-content](https://www.lightningdesignsystem.com/guidelines/messaging/components/notifications/#site-main-content)
-- [https://polaris.shopify.com/patterns-and-guides/error-messages#section-home-notifications](https://polaris.shopify.com/patterns-and-guides/error-messages#section-home-notifications)
-- [https://www.lightningdesignsystem.com/components/notifications/#site-main-content](https://www.lightningdesignsystem.com/components/notifications/#site-main-content)
-- [https://material.io/design/communication/confirmation-acknowledgement.html#usage](https://material.io/design/communication/confirmation-acknowledgement.html#usage)
-- [https://www.predix-ui.com/#/design/communication/notifications](https://www.predix-ui.com/#/design/communication/notifications)
-- [https://www.predix-ui.com/#/elements/px-notification](https://www.predix-ui.com/#/elements/px-notification)

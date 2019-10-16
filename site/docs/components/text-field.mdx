@@ -6,8 +6,25 @@ tags: ["Input", "Form field", "Text input", "Email input", "Password"]
 needToKnow:
 ---
 
+## To keep in mind
+
+* Most of the time, we validate text fields on “blur” (when leaving the text fields) or on form submission as needed. We don’t validate on key strokes.
+* As a rule of thumb, generally use “ (optional)” to indicate optional fields instead of “`*`” to indicate required fields.
+* Consider if a more specific `type` of is needed as an `email` type for email addresses.
+* When displaying a validation messages, such as an error, use a `aria-describedby` attribute to associate the text field with the element containing the validation message.
+* Pre-fill the field with good defaults wherever possible.
+
+## When to use
+
+* Use Text Fields to gather text input.
+
+## When not to use
+
+* Avoid gathering input from users that isn't absolutely necessary.
+
 ## General guidelines
 
-- https://polaris.shopify.com/components/forms/text-field
-- https://www.lightningdesignsystem.com/components/input/
-- https://material.io/design/components/text-fields.html
+- [Polaris: text field](https://polaris.shopify.com/components/forms/text-field).
+- [Lightning: input](https://www.lightningdesignsystem.com/components/input/).
+- [Material: text field](https://material.io/design/components/text-fields.html).
+
