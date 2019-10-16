@@ -65,7 +65,7 @@ const stylesRule = {
   ],
 }
 
-const svgsRule = {
+const svgRule = {
   test: /\.svg$/,
   use: [
     {
@@ -75,6 +75,23 @@ const svgsRule = {
       },
     },
   ],
+}
+
+const svgIconRule = {
+  test: /\.icon\.svg$/,
+  use: {
+    loader: "svgo-loader",
+    options: {
+      plugins: [
+        { removeTitle: true },
+        {
+          convertColors: {
+            currentColor: /black|#000|#000000/,
+          },
+        },
+      ],
+    },
+  },
 }
 
 const elmRule = {
@@ -115,9 +132,14 @@ const elmRule = {
   ],
 }
 
-const rules = [babelRule, stylesRule, imagesRule, svgsRule, elmRule].map(
-  excludeExternalModules
-)
+const rules = [
+  babelRule,
+  stylesRule,
+  imagesRule,
+  svgRule,
+  svgIconRule,
+  elmRule,
+].map(excludeExternalModules)
 
 const removeSvgFromTest = rule => {
   if (rule.test.toString().includes("svg")) {
