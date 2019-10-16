@@ -7,7 +7,7 @@ needToKnow:
 - Use toast notifications immediately after a specific event such as a user action that does not relate to an object on the page.
 ---
 
-### Options
+## Options
 
 *   Modes:
     *   Persistent
@@ -23,12 +23,12 @@ needToKnow:
 When you are notifying a user of the outcome of an action they have taken, provide visual feedback with a Toast Notification.
 
 *   It is used immediately after a specific event, such as a user action that does not relate to a specific object on the page. E.g. Confirmation of deleted items.
-*   They appear a grid unit below the [Title Block](https://drive.google.com/a/cultureamp.com/open?id=1Qh5x9jgngpiXxlFqSOC3EpUppONEs7hcPeLzGtrX_EU).
+*   They appear a grid unit below the [Title Block](/components/title-block).
     *   That is, the top edge of the toast notification is a grid unit lower than the bottom edge of the title block.
     *   If you are scrolled down the page, the toast will still show.
 *   **Animation**:
     *   Enters from the top–right of the viewport (or top–left in right-to-left languages) and exits back to where it came from.
-*   **Multiple** toasts can be shown at the same time, vertically stacked with a [grid unit](https://drive.google.com/a/cultureamp.com/open?id=1bByHnj4OhJY9E7mT7I-rm0uuZnbxZq-uIansCQ-9OIs) in between. The latest messages appears at the top.
+*   **Multiple** toasts can be shown at the same time, vertically stacked with a [grid unit](/components/spacing) in between. The latest messages appears at the top.
 *   **System or user triggered**:
     *   System: e.g. an unexpected error occurs such as event commands failing in event sourced surveys
     *   User-triggered: all other notifications.
@@ -36,13 +36,13 @@ When you are notifying a user of the outcome of an action they have taken, provi
     *   Use **Persistent** notifications when the information continues to be relevant after the task is complete, e.g. TODO needs an example
     *   Use **Dismissible** notifications when the information has been acknowledged and the message is no longer relevant.
 *   Anatomy:
-    *   **Heading**: summarises the message (optimized for quick scanning). This relates directly to the message. Do not use generic language such as “Success”, “Error”, etc.
+    *   **Heading**: summarizes the message (optimized for quick scanning). This relates directly to the message. Do not use generic language such as “Success”, “Error”, etc.
     *   **Description**: succinct description that is a standalone sentence (that is, it does not run on from the heading).
     *   **Call to action** (optional): hyperlinks can be included to provide the user with a clear call to action.
 *   Why’s it called a toast?
     *   Traditionally “toast” notifications in products have “popped up” from the bottom of the screen on mobile devices, like a slice of toast in a toaster. There are also “snackbars”!
 
-### When to use?
+## When to use
 
 *   When you are notifying a user of an action they have taken and need to provide visual feedback.
 *   It is used immediately after a specific event such as a user action that does not relate to an object on the page. For example, confirmation of deleted items.
@@ -56,30 +56,29 @@ When you are notifying a user of the outcome of an action they have taken, provi
 *   **Cautionary**
     *   TODO: Add images and examples here
 
-### When not to use?
+## When not to use
 
-*   When you are speaking directly to a piece of content, use [Inline Notifications](https://drive.google.com/a/cultureamp.com/open?id=1harIX82v35t4Qu9RwFOAjk5f6zFQ509hYQvQhV3857A) which can be positioned closer to it.
-*   When a message applies at a system level or does not apply to a specific piece of content and it needs to alert all users, use [Global Notifications](https://drive.google.com/a/cultureamp.com/open?id=1-31stGiBx58FygpLFsA4IBiFfB48YxeVY8S9Q1WCxe0).
-*   When an action is user triggered and you need to inform the user, use a [Confirmation Modal](/components/modal) with relevant [Mood](https://drive.google.com/a/cultureamp.com/open?id=1o3NevxWj3xU2wvrJQJyZ5ZggNDobuRquqVS5jldDu9g), e.g. Informative Confirmation Modal
+*   When you are speaking directly to a piece of content, use [Inline Notifications](/components/inline-notification) which can be positioned closer to it.
+*   When a message applies at a system level or does not apply to a specific piece of content and it needs to alert all users, use [Global Notifications](/components/global-notification).
+*   When an action is user triggered and you need to inform the user, use a [Confirmation Modal](/components/modal) with relevant [Mood](/guidelines/mood), e.g. Informative Confirmation Modal
 
-### See also…
+## See also
 
-*   **Inline notification**: [Inline notifications](https://docs.google.com/document/d/1harIX82v35t4Qu9RwFOAjk5f6zFQ509hYQvQhV3857A/edit#heading=h.2ocvpvil9swi) appear within content areas as close as possible to the thing that it’s about. It is used for contextual information. \
+*   **Inline notification**: [Inline notifications](/components/inline-notification) appear within content areas as close as possible to the thing that it’s about. It is used for contextual information. \
 
-*   **Global Notification: **A [Global Notification](https://drive.google.com/a/cultureamp.com/open?id=1-31stGiBx58FygpLFsA4IBiFfB48YxeVY8S9Q1WCxe0) is a message object used for system-level notifications that inform the user about system status such as logging in and background processes like data imports. \
+*   **Global Notification: **A [Global Notification](/components/global-notification) is a message object used for system-level notifications that inform the user about system status such as logging in and background processes like data imports. \
 
 *   **Confirmation Modal:** The [confirmation modal](/components/modal) confirms the end result of an action such as Destructive / Irreversible actions / Affirmative actions.
 
----
-
-### External Links
+## External Links
 
 Here are some examples of other existing design systems:
 
-- [https://polaris.shopify.com/components/feedback-indicators/toast](https://polaris.shopify.com/components/feedback-indicators/toast)
-- [https://material.io/design/components/snackbars.html](https://material.io/design/components/snackbars.html)
-- [https://www.lightningdesignsystem.com/components/notifications/#site-main-content](https://www.lightningdesignsystem.com/components/notifications/#site-main-content)
-- [https://material.io/design/communication/confirmation-acknowledgement.html#usage](https://material.io/design/communication/confirmation-acknowledgement.html#usage)
-- [https://ant.design/docs/spec/feedback](https://ant.design/docs/spec/feedback)
-- [https://ionicframework.com/docs/api/toast](https://ionicframework.com/docs/api/toast)
-- [https://picturepan-github.io/spectre/components/toasts.html](https://picturepan-github.io/spectre/components/toasts.html)
+- [Polaris: toast](https://polaris.shopify.com/components/feedback-indicators/toast)
+- [Material: snackbars](https://material.io/design/components/snackbars.html)
+- [Material: confirmation and acknowledgment](https://material.io/design/communication/confirmation-acknowledgement.html#usage)
+- [Lightning: notifications](https://www.lightningdesignsystem.com/components/notifications/#site-main-content)
+- [Ant Design: feedback](https://ant.design/docs/spec/feedback)
+- [Ionic: toast](https://ionicframework.com/docs/api/toast)
+- [Spectre: toast](https://picturepan-github.io/spectre/components/toasts.html)
+
