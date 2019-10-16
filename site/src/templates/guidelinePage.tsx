@@ -1,12 +1,12 @@
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import * as React from "react"
+import ContentMarkdownSection from "../components/ContentMarkdownSection"
 import Footer from "../components/Footer"
 import Layout from "../components/Layout"
 import PageHeader from "../components/PageHeader"
 import {
   Content,
-  ContentMarkdownSection,
   ContentNeedToKnowSection,
   Sidebar,
   SidebarAndContent,
