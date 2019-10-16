@@ -17,14 +17,6 @@ const babelRule = {
   ],
 }
 
-const imagesRule = {
-  test: [/\.jpe?g$/, /\.png$/],
-  loader: "file-loader",
-  options: {
-    name: "[name].[hash:8].[ext]",
-  },
-}
-
 const preprocessorLoaders = [
   {
     loader: "postcss-loader",
@@ -132,14 +124,9 @@ const elmRule = {
   ],
 }
 
-const rules = [
-  babelRule,
-  stylesRule,
-  imagesRule,
-  svgRule,
-  svgIconRule,
-  elmRule,
-].map(excludeExternalModules)
+const rules = [babelRule, stylesRule, svgRule, svgIconRule, elmRule].map(
+  excludeExternalModules
+)
 
 const removeSvgFromTest = rule => {
   if (rule.test.toString().includes("svg")) {
