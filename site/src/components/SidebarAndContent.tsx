@@ -1,4 +1,3 @@
-import { MDXProvider } from "@mdx-js/react"
 import classnames from "classnames"
 import { Link } from "gatsby"
 import * as React from "react"
@@ -80,17 +79,6 @@ export const ContentNeedToKnowSection: React.SFC<ContentNeedToKnowProps> = ({
       </div>
     )}
   </>
-)
-
-export const ContentMarkdownSection: React.SFC = ({ children }) => (
-  <div
-    className={classnames(
-      styles.contentInner,
-      markdownStyles.markdownContainer
-    )}
-  >
-    <MDXProvider components={markdownComponents}>{children}</MDXProvider>
-  </div>
 )
 
 export const SidebarAndContent: React.SFC<SidebarAndContentProps> = ({

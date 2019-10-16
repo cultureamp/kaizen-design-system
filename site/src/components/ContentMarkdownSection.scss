@@ -1,0 +1,9 @@
+@import "~@cultureamp/kaizen-component-library/styles/responsive";
+
+.contentInner {
+  margin: var(--content-top-and-bottom-margin) var(--content-side-margin);
+
+  @include ca-media-mobile() {
+    margin: 0;
+  }
+}
