@@ -14,6 +14,7 @@ type LayoutProps = {
   footer?: React.ReactNode
   pageHeader?: React.ReactNode
   fullWidthContent?: boolean
+  trimBottomOfCardToContent?: boolean
 }
 
 const Layout: React.SFC<LayoutProps> = ({
@@ -22,6 +23,7 @@ const Layout: React.SFC<LayoutProps> = ({
   children,
   pageHeader,
   fullWidthContent = false,
+  trimBottomOfCardToContent = false,
   footer,
 }) => (
   <>
@@ -41,7 +43,12 @@ const Layout: React.SFC<LayoutProps> = ({
         {fullWidthContent ? (
           children
         ) : (
-          <div className={styles.contentContainer}>
+          <div
+            className={classnames({
+              [styles.contentContainer]: true,
+              [styles.trimBottomOfCardToContent]: trimBottomOfCardToContent,
+            })}
+          >
             <div className={styles.content}>{children}</div>
           </div>
         )}

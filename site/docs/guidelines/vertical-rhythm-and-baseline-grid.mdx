@@ -11,11 +11,11 @@ needToKnow:
 
 ## To keep in mind
 
-Vertical rhythm relates elements together through proximity and create an aesthetically pleasing appearance. In [typography](./typography/), vertical rhythm impacts the readability of the text and establishes visual hierarchy.
+Vertical rhythm relates elements together through proximity and create an aesthetically pleasing appearance. In [typography](/guidelines/typography/), vertical rhythm impacts the readability of the text and establishes visual hierarchy.
 
 In order for visual rhythm to work, not only do elements have to take up the same amount of space on the grid, but the text within those elements needs to have the baseline sit at the same place on the grid line. Our UI Kit is designed with this in mind. (See “Bad Rhythm” below for an example of why consistently sized elements that do not have a baseline shift is insufficient)
 
-* 1 Grid Unit is 24px. This is intended primarily to achieve vertical rhythm but is also used for [horizontal rhythm](./alignment).
+* 1 Grid Unit is 24px. This is intended primarily to achieve vertical rhythm but is also used for [horizontal rhythm](/guidelines/alignment).
     * Note: 1 Grid Unit is implemented in code as 1.5rem so that type adjusts to people’s browser font size settings.
 * As a general rule, use 12px (½ Grid Unit) or 24px (1 Grid Unit) to separate elements within a container.
 * Ensure the baseline of text falls on the baseline grid, and adjust containers around that.
@@ -27,7 +27,7 @@ An image belongs here…
 ## Code implementation & usage details
 
 * When using the Text component, text will be shifted to sit on the baseline grid. If you’re using the component within an area that already has a baseline shift, or for some other reason this shift is undesirable, you can set `inheritBaseline` to true, and it will inherit the baseline of the parent - no longer shifting any text.
-* When adding text to your component or interface, we have SASS mixins that set the correct font family, font size, and position so that the text will sit on the baseline grid. See [typography](./typography/) for details on these mixins.
+* When adding text to your component or interface, we have SASS mixins that set the correct font family, font size, and position so that the text will sit on the baseline grid. See [typography](/guidelines/typography/) for details on these mixins.
 * If you need to use these mixins, but do not want the baseline grid adjustment, you can also use the `ca-inherit-baseline` mixin.
 * Because our mixins shift the element down on the page, we need to create space in the layout for the element to shift into. For this we have a `ca-type-block` mixin that creates the whitespace necessary for the contained text to shift “into”. That is, it creates the 1/2-grid `padding-bottom` on a container for the text to have room to be shifted “into”.
     * Watch [“Teaching CSS to talk like a designer”](https://www.youtube.com/watch?v=TGHbkTGVqoU)
@@ -52,8 +52,8 @@ There's no need to use the baseline grid for icons that are aligned optically.
 
 ## See also
 
-* [Overview: Layout, Spacing, Sizing, and Vertical Rhythm](./layout-spacing-sizing-vertical-rhythm)
-* [Typography](./typography/)
+* [Overview: Layout, Spacing, Sizing, and Vertical Rhythm](/guidelines/layout-spacing-sizing-vertical-rhythm)
+* [Typography](/guidelines/typography/)
 
 ## External links
 

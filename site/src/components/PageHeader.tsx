@@ -6,7 +6,7 @@ const styles = require("./PageHeader.scss")
 
 type PageHeaderProps = {
   children?: React.ReactNode
-  headingText: string
+  headingText: string | React.ReactNode
   summaryParagraph?: string
   tags?: Array<string>
   image?: React.ReactNode

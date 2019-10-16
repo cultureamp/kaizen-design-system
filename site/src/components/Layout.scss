@@ -44,6 +44,10 @@
   display: grid;
   justify-items: center;
   grid-template-columns: $ca-grid [content] 1fr $ca-grid;
+
+  &.trimBottomOfCardToContent {
+    grid-template-rows: min-content;
+  }
 }
 
 .content {
