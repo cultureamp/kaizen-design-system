@@ -1,6 +1,6 @@
 {
   "name": "site",
-  "version": "1.0.2",
+  "version": "0.0.0-private",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.6.0",
