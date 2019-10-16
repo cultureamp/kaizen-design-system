@@ -1,0 +1,29 @@
+---
+title: Responsive design
+navTitle: Responsive design
+summaryParagraph: Responsive design matters.
+tags: ["Adaptive design"]
+needToKnow:
+  - "Prefer CSS media queries to implement responsive components."
+---
+
+## To keep in mind
+
+We prioritize responsive designs for high-traffic pages.
+
+### Responsive component design
+
+There are a number of options for how to implement responsive layouts included in design specs for some components.
+
+You might be tempted to use JavaScript to respond to viewport size changes and alter the DOM to switch between layouts in response to viewport changes. An NPM package like react-media (already in use in places) makes it very easy to write a React render function that renders different HTML elements, or applies different classes to HTML elements so that they match different CSS styles.
+
+Where practical, we wish to avoid this.
+
+For a generally more performant, reliable result, leverage the native support for CSS media queries in browsers to apply different styles based on viewport size (or other factors).
+
+The goal, therefore, should be to have your React (or Elm) render function produce a single DOM structure, regardless of viewport size. Then, in your CSS, use @media rules to vary the styles depending on the viewport size. With creative use of CSS flexbox features (e.g. switching between flex-direction: row and flex-direction: column), and as a last resort including two versions of the view in the DOM and switching between them with display: none, you can achieve almost any responsive layout without needing to use JavaScript.
+
+This will often become trickiest when nested components are involved: how can you use the “large” version of a button at one viewport size, and switch to a “small” version of the same button at another viewport size? If the version of the button is controlled with a JavaScript prop, how can you change it without using JavaScript? One option is to control the size of the nested component (the button in this example) in your parent component, by rendering a container element whose size you control in your CSS, and then using a button variant that will fill the width of that container. This of course makes your parent component responsible for the button dimensions, however, which may be difficult to implement without duplicating one or more standard button widths in our codebase. Another option is the aforementioned “last resort”: render both buttons and control which one is visible on the page with display: none.
+
+All that said, where avoiding the use of JavaScript makes the implementation significantly more difficult to maintain, test or reason about, we may still choose to implement a responsive layout with JavaScript.
+

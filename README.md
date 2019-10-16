@@ -1,71 +1,43 @@
 # Kaizen Design System
 
+[![Build status](https://badge.buildkite.com/880e8b196b369c19ffcbef08a81d364059e0d6fb77e9d35563.svg?branch=master)](https://buildkite.com/culture-amp/kaizen-design-system)
+
 Kaizen is Culture Amp's design system to accelerate designers and engineers creating Culture Amp's products. Visit the [Kaizen Site](https://cultureamp.design) to learn more.
 
 This repository includes the Kaizen Site and the Kaizen Component Library that we use internally.
 
-[![Build status](https://badge.buildkite.com/880e8b196b369c19ffcbef08a81d364059e0d6fb77e9d35563.svg?branch=master)](https://buildkite.com/culture-amp/kaizen-design-system)
+## Setup
+
+To develop Kaizen Component Library or Kaizen Site locally, run the following command to get started:
+
+```
+yarn install
+```
+
+## Development
+
+We use [Storybook](https://github.com/storybooks/storybook) to develop React and Elm components locally. All Kaizen Design System components have accompanying stories in Storybook.
+
+To develop Kaizen components, use storybook:
+
+`yarn storybook`
 
 ## Domains
 
 - [cultureamp.design](https://cultureamp.design)
 - [dev.cultureamp.design](https://dev.cultureamp.design)/branch-name
 
-## Installation
+## What's in this repo
 
-Kaizen Component Library is already included in our main product repositories. If it's needed in a new repo, add `@cultureamp/kaizen-component-library` to your `package.json` file:
+### Kaizen Site
 
-```
-yarn add @cultureamp/kaizen-component-library
-```
+See the [Kaizen Site README](./site/README.md).
 
-## Usage
+### Kaizen Component Library
 
-You can import a Kaizen Component Library component from the `kaizen-component-library` package inside your application using React or Elm.
+See the [Kaizen Component Library README](./packages/component-library/README.md).
 
-React import example:
-
-```
-import { Button } from "@cultureamp/kaizen-component-library"
-```
-
-React usage example:
-
-```
-ReactDOM.render(
-  <Card>
-    <Button label="Example button" onClick={() => alert('Button clicked!')} />
-  </Card>
-  , document.querySelector('#app'),
-);
-```
-
-Elm import example:
-
-```
-import Kaizen.Button.Button as Button
-```
-
-Elm usage example:
-
-```
-[ Button.view
-    (Button.primary
-        |> Button.href configuration.callToActionPath
-    )
-    Example button
-]
-```
-
-For Elm components, we have used Kaizen to namespace them because the source directories that are specified in `elm.json` are all pulled into the same namespace, creating potential conflicts.
-
-You can also import Kaizen styles into SCSS files:
-
-```
-@import '~@cultureamp/kaizen-component-library/styles/type';
-```
-
-## Contributing
+### Contributing
 
 See the [contributing guidelines](CONTRIBUTING.md).
 
@@ -100,8 +72,4 @@ The Culture Amp Design Systems Team maintains this repo.
 ## Learn more
 
 Culture Amp employees can reach out to the Design Systems Team on Slack to learn more: #team_design_systems.
-
-## License
-
-See the [LICENSE](LICENSE).
 
