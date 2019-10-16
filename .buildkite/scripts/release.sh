@@ -45,7 +45,7 @@ setup_npm() {
 }
 
 release() {
-  git fetch origin && git checkout master && reset --hard origin/master
+  git checkout master && git pull
 
   # Bump packages, push and tag a release commit, and update release notes
   lerna version --conventional-commits --create-release=github --yes \
