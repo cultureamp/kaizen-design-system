@@ -1,0 +1,75 @@
+@import "./styles";
+@import "../../styles/color";
+@import "../../styles/type";
+@import "../../styles/layout";
+@import "../../styles/responsive";
+
+.navigationBar {
+  @extend %ca-navigation-bar;
+
+  &.kaizen {
+    background: add-shade($ca-palette-wisteria, 30%);
+
+    a {
+      color: #fff;
+    }
+  }
+}
+
+.links {
+  flex: 1 0 0;
+  @include ca-margin($start: 2 * $ca-grid);
+
+  > ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+
+    li {
+      margin: 0 ($ca-grid / 4);
+
+      &:first-child {
+        @include ca-margin($start: 0);
+      }
+
+      &.secondary {
+        @include ca-margin($start: 0, $end: 0);
+      }
+
+      @include ca-media-tablet {
+        margin: 0;
+      }
+    }
+  }
+
+  @include ca-media-tablet {
+    @include ca-margin($start: $ca-grid / 2);
+  }
+}
+
+.child {
+  display: flex;
+  flex: 0 0 auto;
+  text-decoration: none;
+
+  &.secondary.first {
+    @include ca-margin($start: auto);
+  }
+}
+
+.otherChildren {
+  display: flex;
+  @include ca-margin($start: $ca-grid / 2);
+  @include ca-media-tablet {
+    margin: 0;
+  }
+}
+
+.active {
+  background-color: add-alpha($ca-palette-ink, 80%);
+
+  .kaizen & {
+    background-color: add-shade($ca-palette-wisteria, 25%);
+  }
+}

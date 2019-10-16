@@ -1,0 +1,34 @@
+@import "~@cultureamp/kaizen-component-library/styles/border";
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/responsive";
+@import "~@cultureamp/kaizen-component-library/styles/type";
+
+.modal {
+  composes: genericModal from "../primitives/GenericModal.scss";
+  min-width: 300px;
+  max-width: 840px;
+
+  @include ca-media-tablet-and-up {
+    width: 90%;
+  }
+}
+
+.header {
+  color: $ca-palette-ink;
+  padding: $ca-grid * 1.5 $ca-grid * 1.5 0;
+}
+
+.body {
+  padding: $ca-grid $ca-grid * 1.5;
+}
+
+.bodyWithoutFooter {
+  composes: body;
+  padding-bottom: $ca-grid * 2.5;
+}
+
+.content {
+  @include ca-media-tablet-and-up {
+    max-width: $ca-grid * 16;
+  }
+}

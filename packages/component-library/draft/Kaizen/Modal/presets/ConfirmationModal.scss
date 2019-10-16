@@ -1,0 +1,75 @@
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/layout";
+@import "~@cultureamp/kaizen-component-library/styles/responsive";
+
+// override Murmur global styles :(
+.header h1 {
+  color: $white;
+}
+
+.modal {
+  composes: genericModal from "../primitives/GenericModal.scss";
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.header {
+  color: $white;
+  padding: $ca-grid $ca-grid $ca-grid * 1.5;
+  text-align: center;
+  background-repeat: no-repeat;
+}
+
+.positiveHeader {
+  background-color: add-tint($ca-palette-seedling, 30%);
+
+  @include ca-media-tablet-and-up {
+    background-image: url("../backgrounds/brush-positive.png");
+    background-position: -60% 70%;
+  }
+}
+
+.informativeHeader {
+  background-color: add-tint($ca-palette-ocean, 30%);
+
+  @include ca-media-tablet-and-up {
+    background-image: url("../backgrounds/brush-informative.png");
+    background-size: 65%;
+    background-position: bottom right;
+  }
+}
+
+.negativeHeader {
+  background-color: add-tint($ca-palette-coral, 30%);
+
+  @include ca-media-tablet-and-up {
+    background-image: url("../backgrounds/brush-negative.png");
+    background-size: 64%;
+    background-position: top right;
+  }
+}
+
+.iconContainer {
+  height: 150px;
+  width: 150px;
+  position: relative;
+  margin: 0 auto $ca-grid * 0.5;
+}
+
+.iconBackground {
+  width: 150px;
+
+  > circle {
+    fill: rgba($white, 0.1);
+  }
+}
+
+.icon {
+  @include ca-position($top: 30px, $start: 30px);
+  position: absolute;
+
+  > svg {
+    width: 90px;
+    height: 90px;
+  }
+}

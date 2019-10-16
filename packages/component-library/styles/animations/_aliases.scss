@@ -1,0 +1,29 @@
+// Here we are aliasing all of the Motion UI @mixins
+// This allows us to easily expand upon or remove this dependency in the future
+// https://github.com/zurb/motion-ui/tree/master
+
+@mixin ca-animation($args...) {
+  @include mui-animation($args...);
+}
+
+@mixin ca-series($args...) {
+  @include mui-series($args...) {
+    @content;
+  }
+}
+
+@mixin ca-queue($args...) {
+  @include mui-queue($args...);
+}
+
+@mixin ca-fade($args...) {
+  @include mui-fade($args...);
+}
+
+@mixin ca-slide($args...) {
+  @include mui-slide($args...);
+}
+
+@mixin ca-zoom($args...) {
+  @include mui-zoom($args...);
+}

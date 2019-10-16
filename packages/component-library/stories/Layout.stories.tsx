@@ -1,0 +1,130 @@
+import { storiesOf } from "@storybook/react"
+import * as React from "react"
+
+import {
+  GlobalNotification,
+  Icon,
+  Layout,
+  Link,
+  Menu,
+  NavigationBar,
+  Text,
+  ToastNotification,
+} from "@cultureamp/kaizen-component-library"
+const academyIcon = require("@cultureamp/kaizen-component-library/icons/academy.icon.svg")
+  .default
+const caMonogramIcon = require("@cultureamp/kaizen-component-library/icons/ca-monogram.icon.svg")
+  .default
+const supportIcon = require("@cultureamp/kaizen-component-library/icons/support.icon.svg")
+  .default
+
+storiesOf("Layout", module).add("Default", () => (
+  <div
+    style={{
+      flexGrow: 1,
+    }}
+  >
+    <Layout>
+      <Layout.NavigationBar>
+        <NavigationBar>
+          <Link text="Home" href="/" active />
+          <Link text="Surveys" href="/" />
+          <Link
+            icon={supportIcon}
+            text="Support"
+            href="http://academy.cultureamp.com/"
+            secondary
+          />
+          <Link
+            icon={academyIcon}
+            text="Academy"
+            href="http://academy.cultureamp.com/"
+            secondary
+          />
+          <Menu
+            heading="Custom menu..."
+            items={[
+              {
+                label: "About Culture Amp",
+                url: "https://www.cultureamp.com/",
+              },
+              {
+                label: "Contribute to this guide",
+                url:
+                  "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
+              },
+            ]}
+          >
+            <div
+              style={{
+                backgroundColor: "#ffffff",
+                borderRadius: "3px",
+                color: "#F8A6AE",
+              }}
+            >
+              <Icon
+                icon={caMonogramIcon}
+                title="Culture Amp Logo"
+                inheritSize
+              />
+            </div>
+          </Menu>
+        </NavigationBar>
+      </Layout.NavigationBar>
+
+      <Layout.Sidebar>
+        <Text tag="h2">Actions</Text>
+        <Text tag="p">Go here...</Text>
+
+        <Text tag="h2">Filters</Text>
+        <Text tag="p">Go here...</Text>
+        <Text tag="p">
+          Note: Usually the navigation bar and sidebar will not scroll as the
+          main page content scrolls, but we have disabled the fixed positioning
+          for this demo.
+        </Text>
+      </Layout.Sidebar>
+
+      <Layout.Header>
+        <GlobalNotification type="affirmative" automationId="notification1">
+          Welcome back!
+        </GlobalNotification>
+      </Layout.Header>
+      <Layout.Footer>
+        <div style={{ textAlign: "center", padding: "1.5rem 0" }}>
+          <Text tag="p" style="small">
+            © Culture Amp 2019
+          </Text>
+        </div>
+      </Layout.Footer>
+      <Layout.Toasts>
+        <ToastNotification
+          automationId="notification1"
+          type="affirmative"
+          title="Success!"
+        >
+          New user data, imported by mackenzie@hooli.com has successfully
+          uploaded.
+          <a href="/">Manage users is now available</a>
+        </ToastNotification>
+      </Layout.Toasts>
+      <Layout.Announcers>Announcers</Layout.Announcers>
+
+      <div>
+        <Text tag="h1">This is a Page Title (H1)</Text>
+        <Text tag="p" style="lede">
+          Dr. Brené Brown, author of Daring Greatly, is a research professor
+          from the University of Houston who studies human emotions, including
+          shame and vulnerability.
+        </Text>
+
+        <Text tag="p">
+          In a March 2012 TED talk, she said, “Vulnerability is not weakness,
+          and that myth is profoundly dangerous.” She went on to say that after
+          12 years of research, she has actually determined that vulnerability
+          is “our most accurate measurement of courage.”
+        </Text>
+      </div>
+    </Layout>
+  </div>
+))

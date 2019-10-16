@@ -1,0 +1,16 @@
+{
+  "extends": "@bfr/core/tsconfig.dom.json",
+  "include": [
+    "components/**/*",
+    "draft/**/*",
+    "util/**/*",
+    "index.ts",
+    "typings"
+  ],
+  "compilerOptions": {
+    "sourceMap": true,
+    "declaration": true,
+    "esModuleInterop": true
+  },
+  "exclude": ["node_modules"]
+}

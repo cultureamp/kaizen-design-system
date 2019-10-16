@@ -1,0 +1,132 @@
+@import "~@cultureamp/kaizen-component-library/styles/border";
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@cultureamp/kaizen-component-library/styles/layout";
+@import "~@cultureamp/kaizen-component-library/components/Button/styles";
+
+$row-height: 60px;
+
+.container {
+  width: 100%;
+  margin-bottom: $ca-grid * 0.5;
+}
+
+.header {
+  background-color: $ca-palette-ash;
+  border: solid 1px $ca-border-color;
+}
+
+.headerRow {
+  display: flex;
+}
+
+.headerRowCell {
+  @include button-reset;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  white-space: nowrap;
+  padding: 0 $ca-grid * 0.8;
+  height: $ca-grid * 1.5;
+  display: flex;
+  align-items: center;
+}
+
+.headerRowCellCheckbox {
+  margin-right: 10px;
+}
+
+.headerRowCellCheckboxContainer {
+  display: flex;
+  align-items: center;
+}
+
+.headerRowCellIcon {
+  color: add-tint($ca-palette-ink, 50);
+  height: 20px;
+
+  .active & {
+    color: $ca-palette-ink;
+  }
+}
+
+.active {
+  .header & {
+    background-color: add-tint($ca-palette-ink, 90);
+  }
+}
+
+.card {
+  @include button-reset;
+  background: $white;
+  border: solid 1px $ca-border-color;
+  box-shadow: $ca-box-shadow;
+  transition: box-shadow 0.2s, border-color 0.2s, margin 0.2s, padding 0.2s;
+  overflow: hidden;
+
+  &:first-child {
+    border-top-left-radius: $ca-border-radius;
+    border-top-right-radius: $ca-border-radius;
+  }
+
+  &:not(:first-child) {
+    margin-top: -1px;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: $ca-border-radius;
+    border-bottom-right-radius: $ca-border-radius;
+  }
+
+  &:hover {
+    will-change: box-shadow, border-color, margin, padding;
+  }
+
+  &.well {
+    margin-top: ($ca-grid * 0.5);
+  }
+}
+
+.row {
+  display: flex;
+}
+
+.well {
+  border-color: transparent;
+  box-shadow: none;
+  border-radius: $ca-border-radius;
+  background-color: add-shade($ca-palette-ash, 5%);
+  margin-bottom: $ca-grid * 0.5;
+}
+
+.popout {
+  box-shadow: 0 3px 10px add-alpha($ca-palette-ink, 9%);
+}
+
+.expanded {
+  position: relative;
+  z-index: 1;
+  margin-left: -$ca-grid * 0.5;
+  margin-right: -$ca-grid * 0.5;
+  padding-left: $ca-grid * 0.5;
+  padding-right: $ca-grid * 0.5;
+}
+
+.clickable {
+  width: 100%;
+  text-align: left;
+
+  &.expanded {
+    width: calc(100% + #{$ca-grid});
+  }
+
+  &:hover {
+    background-color: $ca-palette-stone;
+  }
+}
+
+.rowCell {
+  min-height: $row-height;
+  padding: 0 $ca-grid * 0.8;
+  display: flex;
+  align-items: center;
+}
