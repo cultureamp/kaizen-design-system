@@ -17,14 +17,6 @@ const babelRule = {
   ],
 }
 
-const imagesRule = {
-  test: [/\.jpe?g$/, /\.png$/],
-  loader: "file-loader",
-  options: {
-    name: "[name].[hash:8].[ext]",
-  },
-}
-
 const preprocessorLoaders = [
   {
     loader: "postcss-loader",
@@ -65,7 +57,7 @@ const stylesRule = {
   ],
 }
 
-const svgsRule = {
+const svgRule = {
   test: /\.svg$/,
   use: [
     {
@@ -75,6 +67,23 @@ const svgsRule = {
       },
     },
   ],
+}
+
+const svgIconRule = {
+  test: /\.icon\.svg$/,
+  use: {
+    loader: "svgo-loader",
+    options: {
+      plugins: [
+        { removeTitle: true },
+        {
+          convertColors: {
+            currentColor: /black|#000|#000000/,
+          },
+        },
+      ],
+    },
+  },
 }
 
 const elmRule = {
@@ -115,7 +124,7 @@ const elmRule = {
   ],
 }
 
-const rules = [babelRule, stylesRule, imagesRule, svgsRule, elmRule].map(
+const rules = [babelRule, stylesRule, svgRule, svgIconRule, elmRule].map(
   excludeExternalModules
 )
 
