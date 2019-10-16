@@ -10,7 +10,7 @@
   "scripts": {
     "storybook": "start-storybook -c storybook",
     "storybook:build": "build-storybook -c storybook -o storybook/public",
-    "gatsby": "yarn workspace @kaizen/site gatsby",
+    "gatsby": "yarn workspace site gatsby",
     "tslint": "tslint --project .",
     "prettier": "prettier --check '**/*'",
     "test": "jest",

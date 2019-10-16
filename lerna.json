@@ -1,5 +1,9 @@
 {
   "version": "independent",
+  "ignoreChanges": [
+    "**/*.{stories,spec,test}.{js,jsx,ts,tsx}",
+    "**/*.{md,mdx}"
+  ],
   "npmClient": "yarn",
   "useWorkspaces": true
 }

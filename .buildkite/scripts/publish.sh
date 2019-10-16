@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo "🎋 Publishing to ${KAIZEN_DOMAIN_NAME}${KAIZEN_BASE_PATH}" \
+echo "Publishing to ${KAIZEN_DOMAIN_NAME}${KAIZEN_BASE_PATH}" \
   && aws s3 sync --delete \
       site/public "s3://${KAIZEN_DOMAIN_NAME}${KAIZEN_BASE_PATH}" \
   && aws s3 sync --delete \

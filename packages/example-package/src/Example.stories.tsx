@@ -3,4 +3,4 @@ import * as React from "react"
 
 import { Example } from "."
 
-storiesOf("Example", module).add("Demo", () => <Example />)
+storiesOf("Example Package", module).add("Demo", () => <Example />)

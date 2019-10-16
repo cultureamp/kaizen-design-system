@@ -2,7 +2,6 @@ env:
   KAIZEN_ROLE_ARN: ${BRANCH_ROLE_ARN}
   KAIZEN_DOMAIN_NAME: ${BRANCH_DOMAIN_NAME}
   KAIZEN_DISTRIBUTION_ID: ${BRANCH_DISTRIBUTION_ID}
-  KAIZEN_SSM_PARAMETER_PATH: kaizen-design-system
 
 x-defaults: &defaults
   agent_query_rules: ["queue=build-unrestricted"]
@@ -21,6 +20,11 @@ steps:
     branches: "!master"
     <<: *defaults
 
+  - name: ":pencil2: Test"
+    command: ".buildkite/scripts/test.sh"
+    branches: "!master"
+    <<: *defaults
+
   - name: ":package: Build (site)"
     command: ".buildkite/scripts/build-site.sh"
     artifact_paths: "./site.tar.gz"
@@ -33,7 +37,7 @@ steps:
 
   - wait
 
-  - name: ":tanabata_tree: Publish: ${KAIZEN_DOMAIN_NAME}${KAIZEN_BASE_PATH}"
+  - name: ":seedling: Publish: ${KAIZEN_DOMAIN_NAME}${KAIZEN_BASE_PATH}"
     command: ".buildkite/scripts/publish.sh"
     env:
       KAIZEN_EXTRACT_ARTIFACTS: true
@@ -44,7 +48,7 @@ steps:
       - docker-compose#v3.0.3:
           run: publish
 
-  - name: ":balloon: Release package"
+  - name: ":balloon: Release"
     command: ".buildkite/scripts/release.sh"
     branches: "master"
     <<: *defaults

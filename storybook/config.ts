@@ -3,7 +3,7 @@ import { create } from "@storybook/theming"
 
 addParameters({
   options: {
-    theme: create({ brandTitle: "🎋 Storybook", base: "light" }),
+    theme: create({ brandTitle: "🌱 Storybook", base: "light" }),
   },
 })
 
