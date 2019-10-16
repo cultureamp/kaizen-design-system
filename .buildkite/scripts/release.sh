@@ -1,24 +1,76 @@
 #!/bin/sh
 set -e
 
-ssm_get() {
-  aws ssm get-parameter \
-    --name "/${KAIZEN_SSM_PARAMETER_PATH}/$1" \
-    --with-decryption \
-    --query Parameter.Value \
-    --output text
+GITHUB_SSH_HOST_KEY="
+github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXY
+PCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mU
+jvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwo
+G6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq
+3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ=="
+
+get_secret() {
+  aws secretsmanager get-secret-value \
+    --secret-id "kaizen-design-system/$1" \
+    --query SecretString \
+    | tr -d '"' \
+    | sed 's/\\n/\n/g'
+}
+
+setup_github() {
+  git config --global credential.helper cache
+  git config --global user.email "cultureamp-ci@cultureamp.com"
+  git config --global user.name "cultureamp-ci"
+  git config --global user.password "$GH_TOKEN"
+  git config --global commit.gpgsign false
+
+  eval "$(ssh-agent -s)"
+  echo "$GH_SSH_KEY" | ssh-add -
+
+  echo "Adding GitHub host key to known hosts..."
+  echo "$GITHUB_SSH_HOST_KEY" | tr -d "\\n" >> /etc/ssh/ssh_known_hosts
+
+  echo "Checking GitHub authentication..."
+  ssh -T git@github.com || true # exits non-zero
+}
+
+setup_npm() {
+  npm config set update-notifier false
+  npm config set email service-npm@cultureamp.com
+  npm config set username cultureamp-user
+  npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
+  npm config set access public
+
+  echo "Checking npm authentication..."
+  echo "Logged in as: $(npm whoami)"
+}
+
+release() {
+  git fetch origin && git checkout master && reset --hard origin/master
+
+  # Bump packages, push and tag a release commit, and update release notes
+  lerna version --conventional-commits --create-release=github --yes \
+    --message "chore: release [skip ci]" 
+  
+  # Publish any package versions which are not already present on npm
+  lerna publish from-package --yes
 }
 
 main() {
-  printf "Fetching ssm parameters... "
-  github_deploy_key=$(ssm_get "github-deploy-key") || exit $?
-  npm_token=$(ssm_get "npm-token") || exit $?
+  export GH_SSH_KEY GH_TOKEN NPM_TOKEN
+
+  printf "Fetching secrets... "
+  GH_SSH_KEY=$(get_secret "github-ssh-key") || exit $?
+  GH_TOKEN=$(get_secret "github-api-token") || exit $?
+  NPM_TOKEN=$(get_secret "npm-token") || exit $?
   echo "(done)"
 
-  unset github_deploy_key
-  unset npm_token
+  setup_github
+  setup_npm
+  release
+
+  unset GH_SSH_KEY GH_TOKEN NPM_TOKEN
 }
 
 main
 
-unset -f main ssm_get
+unset -f main get_secret setup_github setup_npm

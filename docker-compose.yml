@@ -12,7 +12,6 @@ x-defaults: &defaults
     - AWS_DEFAULT_REGION
     - KAIZEN_DOMAIN_NAME
     - KAIZEN_DISTRIBUTION_ID
-    - KAIZEN_SSM_PARAMETER_PATH
     - KAIZEN_BASE_PATH
 
 services:
