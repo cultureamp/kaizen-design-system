@@ -57,7 +57,9 @@ Announcers.displayName = "Announcers"
 
 class Layout extends React.Component {
   render() {
-    const content = React.Children.toArray(this.props.children)
+    const content = React.Children.toArray(
+      this.props.children
+    ) as React.ReactChild[]
     const navbar = extractChildOfType(content, NavigationBar)
     const header = extractChildOfType(content, Header)
     const sidebar = extractChildOfType(content, Sidebar)
@@ -99,7 +101,7 @@ const extractChildOfType = (
 ) => {
   const match = children.find(child => {
     if (React.isValidElement(child) && typeof child.type === "function") {
-      return child.type.displayName === type.displayName
+      return child.type["displayName"] === type.displayName
     }
 
     return false
