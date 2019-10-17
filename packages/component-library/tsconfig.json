@@ -1,4 +1,0 @@
-{
-  "extends": "@bfr/core/tsconfig.dom.json",
-  "include": ["**/*"]
-}

@@ -1,5 +1,5 @@
 {
-  "extends": "@bfr/core/tsconfig.dom.json",
+  "extends": "../../tsconfig.json",
   "include": [
     "components/**/*",
     "draft/**/*",
@@ -8,9 +8,8 @@
     "typings"
   ],
   "compilerOptions": {
+    "noEmit": false,
     "sourceMap": true,
-    "declaration": true,
-    "esModuleInterop": true
-  },
-  "exclude": ["node_modules"]
+    "declaration": true
+  }
 }

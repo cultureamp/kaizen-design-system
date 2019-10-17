@@ -46,8 +46,9 @@
     "rimraf": "^2.6.3"
   },
   "scripts": {
-    "build": "yarn clean && tsc --project 'tsconfig.lib.json'",
-    "build:watch": "yarn clean && tsc --watch --project 'tsconfig.lib.json'",
+    "prepublish": "tsc -p tsconfig.dist.json",
+    "build": "yarn clean && yarn prepublish",
+    "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf 'components/**/*.js' 'draft/**/*.js' 'util/**/*.js' 'index.js' 'components/**/*.js.map' 'draft/**/*.js.map' 'util/**/*.js.map' 'index.js.map' 'components/**/*.d.ts' 'draft/**/*.d.ts' 'util/**/*.d.ts' 'index.d.ts'",
     "changelog": "conventional-changelog -p angular -i \"$(pwd)/CHANGELOG.md\" -s --commit-path \"$(pwd)\" -r 0"
   }
