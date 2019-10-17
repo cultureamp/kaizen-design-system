@@ -1,3 +1,8 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [13.0.0](https://github.com/cultureamp/big-frontend-repo/compare/v12.6.2...v13.0.0) (2019-10-15)
 
 
@@ -12,12 +17,14 @@
 
 
 
+
 ## [12.6.2](https://github.com/cultureamp/big-frontend-repo/compare/v12.6.1...v12.6.2) (2019-10-07)
 
 
 ### Bug Fixes
 
 * **kaizen:** reduce margin between separated collapsibles ([#571](https://github.com/cultureamp/big-frontend-repo/issues/571)) ([4eefad2](https://github.com/cultureamp/big-frontend-repo/commit/4eefad2))
+
 
 
 
@@ -30,12 +37,14 @@
 
 
 
+
 # [12.6.0](https://github.com/cultureamp/big-frontend-repo/compare/v12.5.0...v12.6.0) (2019-10-03)
 
 
 ### Features
 
 * **kaizen:** Create controlled mode on Collapsible ([#569](https://github.com/cultureamp/big-frontend-repo/issues/569)) ([ac82ef4](https://github.com/cultureamp/big-frontend-repo/commit/ac82ef4))
+
 
 
 
@@ -48,12 +57,14 @@
 
 
 
+
 # [12.4.0](https://github.com/cultureamp/big-frontend-repo/compare/v12.3.0...v12.4.0) (2019-10-01)
 
 
 ### Features
 
 * **kaizen:** add lazyLoad prop to Collapsible components ([#561](https://github.com/cultureamp/big-frontend-repo/issues/561)) ([f3f4691](https://github.com/cultureamp/big-frontend-repo/commit/f3f4691))
+
 
 
 
@@ -66,12 +77,14 @@
 
 
 
+
 ## [12.2.1](https://github.com/cultureamp/big-frontend-repo/compare/v12.2.0...v12.2.1) (2019-09-30)
 
 
 ### Bug Fixes
 
 * **kaizen:** fix input placeholder alignment ([#563](https://github.com/cultureamp/big-frontend-repo/issues/563)) ([84d80d2](https://github.com/cultureamp/big-frontend-repo/commit/84d80d2))
+
 
 
 
@@ -84,6 +97,7 @@
 
 
 
+
 # [12.1.0](https://github.com/cultureamp/big-frontend-repo/compare/v12.0.1...v12.1.0) (2019-09-20)
 
 
@@ -93,12 +107,14 @@
 
 
 
+
 ## [12.0.1](https://github.com/cultureamp/big-frontend-repo/compare/v12.0.0...v12.0.1) (2019-09-18)
 
 
 ### Bug Fixes
 
 * **kaizen:** Update EmptyState to handle IE11 better ([#553](https://github.com/cultureamp/big-frontend-repo/issues/553)) ([088610a](https://github.com/cultureamp/big-frontend-repo/commit/088610a))
+
 
 
 
@@ -116,12 +132,14 @@
 
 
 
+
 # [11.17.0](https://github.com/cultureamp/big-frontend-repo/compare/v11.16.1...v11.17.0) (2019-09-12)
 
 
 ### Features
 
 * **kaizen:** Enable straightCorners prop for EmptyState ([#546](https://github.com/cultureamp/big-frontend-repo/issues/546)) ([d619ae6](https://github.com/cultureamp/big-frontend-repo/commit/d619ae6))
+
 
 
 
@@ -134,12 +152,14 @@
 
 
 
+
 # [11.16.0](https://github.com/cultureamp/big-frontend-repo/compare/v11.15.0...v11.16.0) (2019-08-27)
 
 
 ### Bug Fixes
 
 * **kaizen:** Fix hover styles of navbar menu items ([#528](https://github.com/cultureamp/big-frontend-repo/issues/528)) ([86bdca4](https://github.com/cultureamp/big-frontend-repo/commit/86bdca4))
+
 
 
 
@@ -152,12 +172,14 @@
 
 
 
+
 # [11.14.0](https://github.com/cultureamp/big-frontend-repo/compare/v11.13.1...v11.14.0) (2019-08-23)
 
 
 ### Features
 
 * **kaizen:** Add ca-type-reverse mixin, and use in NavigationBar to fix font-display ([#518](https://github.com/cultureamp/big-frontend-repo/issues/518)) ([06deacf](https://github.com/cultureamp/big-frontend-repo/commit/06deacf))
+
 
 
 
@@ -170,12 +192,14 @@
 
 
 
+
 # [11.13.0](https://github.com/cultureamp/big-frontend-repo/compare/v11.12.1...v11.13.0) (2019-08-19)
 
 
 ### Features
 
 * **kaizen:** Add span to the Kaizen text component ([#502](https://github.com/cultureamp/big-frontend-repo/issues/502)) ([f2c8243](https://github.com/cultureamp/big-frontend-repo/commit/f2c8243))
+
 
 
 
@@ -188,12 +212,14 @@
 
 
 
+
 # [11.12.0](https://github.com/cultureamp/big-frontend-repo/compare/v11.11.0...v11.12.0) (2019-08-16)
 
 
 ### Features
 
 * **kaizen:** Elm Select Searchable select accessibility improvements ([#495](https://github.com/cultureamp/big-frontend-repo/issues/495)) ([ea98a42](https://github.com/cultureamp/big-frontend-repo/commit/ea98a42))
+
 
 
 
@@ -204,6 +230,7 @@
 
 * **kaizen:** add react tooltip ([#493](https://github.com/cultureamp/big-frontend-repo/issues/493)) ([714f17b](https://github.com/cultureamp/big-frontend-repo/commit/714f17b))
 * **kaizen:** Multiline table support ([#486](https://github.com/cultureamp/big-frontend-repo/issues/486)) ([6cb6ac5](https://github.com/cultureamp/big-frontend-repo/commit/6cb6ac5))
+
 
 
 
@@ -222,12 +249,14 @@
 
 
 
+
 ## [11.8.1](https://github.com/cultureamp/big-frontend-repo/compare/v11.8.0...v11.8.1) (2019-08-12)
 
 
 ### Bug Fixes
 
 * **kaizen:** Make background image urls relative ([#479](https://github.com/cultureamp/big-frontend-repo/issues/479)) ([c5d0371](https://github.com/cultureamp/big-frontend-repo/commit/c5d0371))
+
 
 
 
@@ -240,6 +269,7 @@
 
 
 
+
 # [11.7.0](https://github.com/cultureamp/big-frontend-repo/compare/v11.6.0...v11.7.0) (2019-08-12)
 
 
@@ -249,7 +279,9 @@
 
 
 
+
 # [11.6.0](https://github.com/cultureamp/big-frontend-repo/compare/v11.5.0...v11.6.0) (2019-08-09)
+
 
 
 
@@ -262,12 +294,14 @@
 
 
 
+
 # [11.4.0](https://github.com/cultureamp/big-frontend-repo/compare/v11.3.0...v11.4.0) (2019-08-07)
 
 
 ### Features
 
 * **kaizen:** Texfield improvements and additional features ([#468](https://github.com/cultureamp/big-frontend-repo/issues/468)) ([5e6c5f8](https://github.com/cultureamp/big-frontend-repo/commit/5e6c5f8))
+
 
 
 
@@ -280,6 +314,7 @@
 
 
 
+
 ## [11.2.1](https://github.com/cultureamp/big-frontend-repo/compare/v11.2.0...v11.2.1) (2019-08-02)
 
 
@@ -289,12 +324,14 @@
 
 
 
+
 # [11.2.0](https://github.com/cultureamp/big-frontend-repo/compare/v11.1.0...v11.2.0) (2019-08-02)
 
 
 ### Features
 
 * **kaizen:** add custom freemium theme for toggle switch field ([#462](https://github.com/cultureamp/big-frontend-repo/issues/462)) ([88a0446](https://github.com/cultureamp/big-frontend-repo/commit/88a0446))
+
 
 
 
@@ -309,6 +346,7 @@
 ### Features
 
 * **kaizen:** add branching and questions icons ([#459](https://github.com/cultureamp/big-frontend-repo/issues/459)) ([7b06276](https://github.com/cultureamp/big-frontend-repo/commit/7b06276))
+
 
 
 
@@ -332,6 +370,7 @@
 * fix(kaizen): Update all SVG imports to use `.icon.svg` extension
 
 * chore(kaizen): Release 11.0.0
+
 
 
 
@@ -374,12 +413,14 @@ The big one zero zero zero
 
 
 
+
 # [9.3.0](https://github.com/cultureamp/big-frontend-repo/compare/v9.2.0...v9.3.0) (2019-07-25)
 
 
 ### Features
 
 * **kaizen:** Add Tabs component ([#431](https://github.com/cultureamp/big-frontend-repo/issues/431)) ([e279a94](https://github.com/cultureamp/big-frontend-repo/commit/e279a94))
+
 
 
 
@@ -392,12 +433,14 @@ The big one zero zero zero
 
 
 
+
 # [9.1.0](https://github.com/cultureamp/big-frontend-repo/compare/v9.0.2...v9.1.0) (2019-07-22)
 
 
 ### Features
 
 * **kaizen:** add a popover size variant to handle long url ([#442](https://github.com/cultureamp/big-frontend-repo/issues/442)) ([ecc1b11](https://github.com/cultureamp/big-frontend-repo/commit/ecc1b11))
+
 
 
 
@@ -410,12 +453,14 @@ The big one zero zero zero
 
 
 
+
 ## [9.0.1](https://github.com/cultureamp/big-frontend-repo/compare/v9.0.0...v9.0.1) (2019-07-18)
 
 
 ### Bug Fixes
 
 * **kaizen:** width styling ([#439](https://github.com/cultureamp/big-frontend-repo/issues/439)) ([5b90b89](https://github.com/cultureamp/big-frontend-repo/commit/5b90b89))
+
 
 
 
@@ -435,12 +480,14 @@ The big one zero zero zero
 
 
 
+
 ## [8.3.2](https://github.com/cultureamp/big-frontend-repo/compare/v8.3.1...v8.3.2) (2019-07-18)
 
 
 ### Bug Fixes
 
 * **kaizen:** update Popover line height & padding ([#434](https://github.com/cultureamp/big-frontend-repo/issues/434)) ([e77d065](https://github.com/cultureamp/big-frontend-repo/commit/e77d065))
+
 
 
 
@@ -453,12 +500,14 @@ The big one zero zero zero
 
 
 
+
 # [8.3.0](https://github.com/cultureamp/big-frontend-repo/compare/v8.2.0...v8.3.0) (2019-07-16)
 
 
 ### Features
 
 * **kaizen:** Elm tooltip ([#432](https://github.com/cultureamp/big-frontend-repo/issues/432)) ([38e1d02](https://github.com/cultureamp/big-frontend-repo/commit/38e1d02))
+
 
 
 
@@ -471,6 +520,7 @@ The big one zero zero zero
 
 
 
+
 # [8.1.0](https://github.com/cultureamp/big-frontend-repo/compare/v8.0.1...v8.1.0) (2019-07-14)
 
 
@@ -480,12 +530,14 @@ The big one zero zero zero
 
 
 
+
 ## [8.0.1](https://github.com/cultureamp/big-frontend-repo/compare/v8.0.0...v8.0.1) (2019-07-12)
 
 
 ### Bug Fixes
 
 * **kaizen:** Adds missing EmptyState types for Flow ([#427](https://github.com/cultureamp/big-frontend-repo/issues/427)) ([2731174](https://github.com/cultureamp/big-frontend-repo/commit/2731174))
+
 
 
 
@@ -507,6 +559,7 @@ The big one zero zero zero
 
 
 
+
 # [7.1.0](https://github.com/cultureamp/big-frontend-repo/compare/v7.0.1...v7.1.0) (2019-07-09)
 
 
@@ -516,12 +569,14 @@ The big one zero zero zero
 
 
 
+
 ## [7.0.1](https://github.com/cultureamp/big-frontend-repo/compare/v7.0.0...v7.0.1) (2019-07-08)
 
 
 ### Bug Fixes
 
 * **kaizen:** make embedded p tag inherit font-weight for Notification ([#419](https://github.com/cultureamp/big-frontend-repo/issues/419)) ([5ca2cc9](https://github.com/cultureamp/big-frontend-repo/commit/5ca2cc9))
+
 
 
 
@@ -549,12 +604,14 @@ The big one zero zero zero
 
 
 
+
 # [6.1.0](https://github.com/cultureamp/big-frontend-repo/compare/v6.0.0...v6.1.0) (2019-07-04)
 
 
 ### Features
 
 * **kaizen:** add React stories for Tag ([#415](https://github.com/cultureamp/big-frontend-repo/issues/415)) ([4ea257e](https://github.com/cultureamp/big-frontend-repo/commit/4ea257e))
+
 
 
 
@@ -580,12 +637,14 @@ The big one zero zero zero
 
 
 
+
 ## [5.20.6](https://github.com/cultureamp/big-frontend-repo/compare/v5.20.5...v5.20.6) (2019-06-28)
 
 
 ### Bug Fixes
 
 * **kaizen:** double click in input and menu opening ([#413](https://github.com/cultureamp/big-frontend-repo/issues/413)) ([913d473](https://github.com/cultureamp/big-frontend-repo/commit/913d473))
+
 
 
 
@@ -598,12 +657,14 @@ The big one zero zero zero
 
 
 
+
 ## [5.20.4](https://github.com/cultureamp/big-frontend-repo/compare/v5.20.3...v5.20.4) (2019-06-25)
 
 
 ### Bug Fixes
 
 * **kaizen:** fix Tag hover/active styles ([#408](https://github.com/cultureamp/big-frontend-repo/issues/408)) ([d5bce86](https://github.com/cultureamp/big-frontend-repo/commit/d5bce86))
+
 
 
 
@@ -616,12 +677,14 @@ The big one zero zero zero
 
 
 
+
 ## [5.20.2](https://github.com/cultureamp/big-frontend-repo/compare/v5.20.1...v5.20.2) (2019-06-24)
 
 
 ### Bug Fixes
 
 * **kaizen:** internal fixes fo select component ([#407](https://github.com/cultureamp/big-frontend-repo/issues/407)) ([840577d](https://github.com/cultureamp/big-frontend-repo/commit/840577d))
+
 
 
 
@@ -634,12 +697,14 @@ The big one zero zero zero
 
 
 
+
 # [5.20.0](https://github.com/cultureamp/big-frontend-repo/compare/v5.19.0...v5.20.0) (2019-06-21)
 
 
 ### Features
 
 * **kaizen:** elm select improvements and api cleanup ([#403](https://github.com/cultureamp/big-frontend-repo/issues/403)) ([a92e50a](https://github.com/cultureamp/big-frontend-repo/commit/a92e50a))
+
 
 
 
@@ -652,12 +717,14 @@ The big one zero zero zero
 
 
 
+
 # [5.18.0](https://github.com/cultureamp/big-frontend-repo/compare/v5.17.1...v5.18.0) (2019-06-20)
 
 
 ### Features
 
 * **kaizen:** a dropdown select for elm ([#400](https://github.com/cultureamp/big-frontend-repo/issues/400)) ([2cc8e50](https://github.com/cultureamp/big-frontend-repo/commit/2cc8e50))
+
 
 
 
@@ -670,12 +737,14 @@ The big one zero zero zero
 
 
 
+
 # [5.17.0](https://github.com/cultureamp/big-frontend-repo/compare/v5.16.1...v5.17.0) (2019-06-19)
 
 
 ### Features
 
 * **kaizen:** add elm version of LoadingPlaceholder component ([#397](https://github.com/cultureamp/big-frontend-repo/issues/397)) ([0e7794a](https://github.com/cultureamp/big-frontend-repo/commit/0e7794a))
+
 
 
 
@@ -688,12 +757,14 @@ The big one zero zero zero
 
 
 
+
 # [5.16.0](https://github.com/cultureamp/big-frontend-repo/compare/v5.15.3...v5.16.0) (2019-06-14)
 
 
 ### Features
 
 * **kaizen:** Medium and small size tags for elm ([#379](https://github.com/cultureamp/big-frontend-repo/issues/379)) ([d2dd088](https://github.com/cultureamp/big-frontend-repo/commit/d2dd088))
+
 
 
 
@@ -707,12 +778,14 @@ The big one zero zero zero
 
 
 
+
 ## [5.15.2](https://github.com/cultureamp/big-frontend-repo/compare/v5.15.1...v5.15.2) (2019-06-13)
 
 
 ### Bug Fixes
 
 * **kaizen:** fix Empty State Storybook import ([#392](https://github.com/cultureamp/big-frontend-repo/issues/392)) ([29ad4c3](https://github.com/cultureamp/big-frontend-repo/commit/29ad4c3))
+
 
 
 
@@ -725,12 +798,14 @@ The big one zero zero zero
 
 
 
+
 # [5.15.0](https://github.com/cultureamp/big-frontend-repo/compare/v5.13.0...v5.15.0) (2019-06-11)
 
 
 ### Features
 
 * **kaizen:** create Elm EmptyState component ([#383](https://github.com/cultureamp/big-frontend-repo/issues/383)) ([498b424](https://github.com/cultureamp/big-frontend-repo/commit/498b424))
+
 
 
 
@@ -743,12 +818,14 @@ The big one zero zero zero
 
 
 
+
 # [5.12.0](https://github.com/cultureamp/big-frontend-repo/compare/v5.11.0...v5.12.0) (2019-06-07)
 
 
 ### Features
 
 * **kaizen:** add Radio (radio button) component ([#364](https://github.com/cultureamp/big-frontend-repo/issues/364)) ([cc3f3cf](https://github.com/cultureamp/big-frontend-repo/commit/cc3f3cf))
+
 
 
 
@@ -766,12 +843,14 @@ The big one zero zero zero
 
 
 
+
 # [5.9.0](https://github.com/cultureamp/big-frontend-repo/compare/v5.8.2...v5.9.0) (2019-06-05)
 
 
 ### Features
 
 * **kaizen:** create EmptyState component ([#373](https://github.com/cultureamp/big-frontend-repo/issues/373)) ([6ef6eb3](https://github.com/cultureamp/big-frontend-repo/commit/6ef6eb3))
+
 
 
 
@@ -790,12 +869,14 @@ The big one zero zero zero
 
 
 
+
 # [5.8.0](https://github.com/cultureamp/big-frontend-repo/compare/v5.7.0...v5.8.0) (2019-05-30)
 
 
 ### Features
 
 * **kaizen:** Add sticky variant of TitleBlock ([#367](https://github.com/cultureamp/big-frontend-repo/issues/367)) ([2b5df97](https://github.com/cultureamp/big-frontend-repo/commit/2b5df97))
+
 
 
 
@@ -808,7 +889,9 @@ The big one zero zero zero
 
 
 
+
 # [5.6.0](https://github.com/cultureamp/big-frontend-repo/compare/v5.5.0...v5.6.0) (2019-05-21)
+
 
 
 
@@ -821,12 +904,14 @@ The big one zero zero zero
 
 
 
+
 # [5.4.0](https://github.com/cultureamp/big-frontend-repo/compare/v5.3.1...v5.4.0) (2019-05-20)
 
 
 ### Features
 
 * **kaizen:** VerticalProgressStep & VerticalProgressIndicator draft components ([#311](https://github.com/cultureamp/big-frontend-repo/issues/311)) ([07988e0](https://github.com/cultureamp/big-frontend-repo/commit/07988e0))
+
 
 
 
@@ -839,12 +924,14 @@ The big one zero zero zero
 
 
 
+
 # [5.3.0](https://github.com/cultureamp/big-frontend-repo/compare/v5.2.0...v5.3.0) (2019-05-17)
 
 
 ### Features
 
 * **kaizen:** adding translation icon svg ([#348](https://github.com/cultureamp/big-frontend-repo/issues/348)) ([296cc4f](https://github.com/cultureamp/big-frontend-repo/commit/296cc4f))
+
 
 
 
@@ -857,12 +944,14 @@ The big one zero zero zero
 
 
 
+
 # [5.1.0](https://github.com/cultureamp/big-frontend-repo/compare/v5.0.3...v5.1.0) (2019-05-16)
 
 
 ### Features
 
 * **kaizen:** Add animation for LoadingPlaceholder ([#340](https://github.com/cultureamp/big-frontend-repo/issues/340)) ([c6e5249](https://github.com/cultureamp/big-frontend-repo/commit/c6e5249))
+
 
 
 
@@ -876,12 +965,14 @@ The big one zero zero zero
 
 
 
+
 ## [5.0.2](https://github.com/cultureamp/big-frontend-repo/compare/v5.0.0...v5.0.2) (2019-05-13)
 
 
 ### Bug Fixes
 
 * **kaizen:** ensure TitleBlock title and subtitle are white when reversed ([#325](https://github.com/cultureamp/big-frontend-repo/issues/325)) ([319bc3f](https://github.com/cultureamp/big-frontend-repo/commit/319bc3f))
+
 
 
 
@@ -900,12 +991,14 @@ The big one zero zero zero
 
 
 
+
 # [4.4.0](https://github.com/cultureamp/big-frontend-repo/compare/v4.3.1...v4.4.0) (2019-05-10)
 
 
 ### Features
 
 * **kaizen:** Add reversed secondary button style ([#321](https://github.com/cultureamp/big-frontend-repo/issues/321)) ([1cc15b4](https://github.com/cultureamp/big-frontend-repo/commit/1cc15b4))
+
 
 
 
@@ -918,12 +1011,14 @@ The big one zero zero zero
 
 
 
+
 # [4.3.0](https://github.com/cultureamp/big-frontend-repo/compare/v4.2.0...v4.3.0) (2019-05-10)
 
 
 ### Features
 
 * **kaizen:** Support disabling tab focus on Buttons ([#314](https://github.com/cultureamp/big-frontend-repo/issues/314)) ([55d593d](https://github.com/cultureamp/big-frontend-repo/commit/55d593d))
+
 
 
 
@@ -936,6 +1031,7 @@ The big one zero zero zero
 
 
 
+
 # [4.1.0](https://github.com/cultureamp/big-frontend-repo/compare/v4.0.1...v4.1.0) (2019-05-06)
 
 
@@ -945,12 +1041,14 @@ The big one zero zero zero
 
 
 
+
 ## [4.0.1](https://github.com/cultureamp/big-frontend-repo/compare/v4.0.0...v4.0.1) (2019-04-30)
 
 
 ### Bug Fixes
 
 * **kaizen:** fix margin and center title on mobile ([#293](https://github.com/cultureamp/big-frontend-repo/issues/293)) ([aae6ec6](https://github.com/cultureamp/big-frontend-repo/commit/aae6ec6))
+
 
 
 
@@ -976,12 +1074,14 @@ The big one zero zero zero
 
 
 
+
 ## [3.2.1](https://github.com/cultureamp/big-frontend-repo/compare/v3.1.1...v3.2.1) (2019-04-24)
 
 
 ### Features
 
 * **kaizen:** Add missing icons ([#286](https://github.com/cultureamp/big-frontend-repo/issues/286)) ([a7320be](https://github.com/cultureamp/big-frontend-repo/commit/a7320be))
+
 
 
 
@@ -994,12 +1094,14 @@ The big one zero zero zero
 
 
 
+
 # [3.1.0](https://github.com/cultureamp/big-frontend-repo/compare/v3.0.0...v3.1.0) (2019-04-15)
 
 
 ### Features
 
 * **kaizen:** Validates Kaizen versions ([#272](https://github.com/cultureamp/big-frontend-repo/issues/272)) ([c9438b1](https://github.com/cultureamp/big-frontend-repo/commit/c9438b1))
+
 
 
 
@@ -1014,6 +1116,7 @@ The big one zero zero zero
 ### Features
 
 * **kaizen:** add elm TitleBlock and update react version ([#250](https://github.com/cultureamp/big-frontend-repo/issues/250)) ([0905cfe](https://github.com/cultureamp/big-frontend-repo/commit/0905cfe)), closes [#260](https://github.com/cultureamp/big-frontend-repo/issues/260)
+
 
 
 
@@ -1039,12 +1142,14 @@ The big one zero zero zero
 
 
 
+
 # [1.1.0](https://github.com/cultureamp/big-frontend-repo/compare/v1.0.0...v1.1.0) (2019-04-03)
 
 
 ### Features
 
 * **kaizen:** Add isNew prop to NavigationBar Links to support new Performance module ([#240](https://github.com/cultureamp/big-frontend-repo/issues/240)) ([cf10223](https://github.com/cultureamp/big-frontend-repo/commit/cf10223))
+
 
 
 
@@ -1057,12 +1162,14 @@ The big one zero zero zero
 
 
 
+
 ## [0.5.1](https://github.com/cultureamp/big-frontend-repo/compare/v0.5.0...v0.5.1) (2019-03-22)
 
 
 ### Bug Fixes
 
 * **kaizen:** add synthetic event to Flow type definitions for MenuItem ([#224](https://github.com/cultureamp/big-frontend-repo/issues/224)) ([ba79c97](https://github.com/cultureamp/big-frontend-repo/commit/ba79c97))
+
 
 
 
@@ -1076,6 +1183,7 @@ The big one zero zero zero
 
 
 
+
 # [0.4.0](https://github.com/cultureamp/big-frontend-repo/compare/v0.3.0...v0.4.0) (2019-03-17)
 
 
@@ -1083,6 +1191,7 @@ The big one zero zero zero
 
 * **button:** add type="button" attribute for buttons ([#209](https://github.com/cultureamp/big-frontend-repo/issues/209)) ([5082ccf](https://github.com/cultureamp/big-frontend-repo/commit/5082ccf))
 * **kaizen:** add guidance.svg to icon library ([#208](https://github.com/cultureamp/big-frontend-repo/issues/208)) ([1a31f5b](https://github.com/cultureamp/big-frontend-repo/commit/1a31f5b))
+
 
 
 
@@ -1099,6 +1208,7 @@ The big one zero zero zero
 
 * **kaizen:** add inline prop option to Text component ([#177](https://github.com/cultureamp/big-frontend-repo/issues/177)) ([9075b72](https://github.com/cultureamp/big-frontend-repo/commit/9075b72))
 * **kaizen:** add target prop to Button component ([#203](https://github.com/cultureamp/big-frontend-repo/issues/203)) ([e9827f1](https://github.com/cultureamp/big-frontend-repo/commit/e9827f1))
+
 
 
 
@@ -1119,6 +1229,7 @@ The big one zero zero zero
 
 
 
+
 ## [0.1.1](https://github.com/cultureamp/big-frontend-repo/compare/v0.1.0...v0.1.1) (2019-02-05)
 
 
@@ -1128,12 +1239,10 @@ The big one zero zero zero
 
 
 
+
 # [0.1.0](https://github.com/cultureamp/big-frontend-repo/compare/a09b528...v0.1.0) (2019-02-04)
 
 
 ### Bug Fixes
 
 * **release:** change lerna versioning to independent ([#118](https://github.com/cultureamp/big-frontend-repo/issues/118)) ([a09b528](https://github.com/cultureamp/big-frontend-repo/commit/a09b528))
-
-
-
