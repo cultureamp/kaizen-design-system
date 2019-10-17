@@ -5,12 +5,10 @@ import { ToggledStatus, ToggleSwitchField, ToggleTheme } from "../draft"
 class ToggleStateContainer extends React.Component<
   {
     initialToggledStatus: ToggledStatus
-    children: (
-      renderProps: {
-        toggledStatus: ToggledStatus
-        toggle: () => void
-      }
-    ) => React.ReactNode
+    children: (renderProps: {
+      toggledStatus: ToggledStatus
+      toggle: () => void
+    }) => React.ReactNode
   },
   { toggledStatus: ToggledStatus }
 > {

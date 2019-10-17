@@ -13,14 +13,12 @@ interface Tab {
 
 interface Props {
   readonly tabs: Tab[]
-  readonly renderTab?: (
-    renderProps: {
-      readonly tab: Tab
-      readonly tabClassName: string
-      readonly activeTabClassName: string
-      readonly disabledTabClassName: string
-    }
-  ) => React.ReactNode
+  readonly renderTab?: (renderProps: {
+    readonly tab: Tab
+    readonly tabClassName: string
+    readonly activeTabClassName: string
+    readonly disabledTabClassName: string
+  }) => React.ReactNode
 }
 
 const Tabs = (props: Props) => {

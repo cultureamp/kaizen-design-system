@@ -23,13 +23,11 @@ const styles = require("./Modal.stories.scss")
 class ModalStateContainer extends React.Component<
   {
     isInitiallyOpen: boolean
-    children: (
-      renderProps: {
-        open: () => void
-        close: () => void
-        isOpen: boolean
-      }
-    ) => React.ReactNode
+    children: (renderProps: {
+      open: () => void
+      close: () => void
+      isOpen: boolean
+    }) => React.ReactNode
   },
   { isOpen: boolean }
 > {

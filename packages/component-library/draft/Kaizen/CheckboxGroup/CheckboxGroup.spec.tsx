@@ -20,9 +20,7 @@ describe("<CheckboxGroup /> ", () => {
     const { container } = renderCheckboxGroupProps()
     expect(
       container.querySelector(
-        `[data-automation-id="${
-          defaultCheckboxGroupProps.automationId
-        }-field-checkbox-group"]`
+        `[data-automation-id="${defaultCheckboxGroupProps.automationId}-field-checkbox-group"]`
       )
     ).toBeTruthy()
   })
