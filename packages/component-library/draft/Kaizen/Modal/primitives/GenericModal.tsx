@@ -102,7 +102,7 @@ class GenericModal extends React.Component<Props> {
     })
   }
 
-  render() {
+  render(): React.ReactPortal {
     const { isOpen, children } = this.props
 
     return createPortal(
