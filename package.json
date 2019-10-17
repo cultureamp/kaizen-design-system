@@ -17,7 +17,7 @@
     "compile": "tsc",
     "lint": "yarn tslint && yarn prettier",
     "lint:fix": "yarn tslint --fix && yarn prettier --write",
-    "clean": "yarn gatsby clean && rm -rf elm-stuff storybook/public",
+    "clean": "lerna run clean && yarn gatsby clean && rm -rf elm-stuff storybook/public",
     "reset": "yarn clean && yarn setup --force",
     "setup": "yarn install --frozen-lockfile"
   },
