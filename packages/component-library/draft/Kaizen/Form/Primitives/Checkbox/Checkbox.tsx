@@ -1,5 +1,3 @@
-import { hot } from "react-hot-loader"
-
 import { Icon } from "@cultureamp/kaizen-component-library"
 const checkIcon = require("@cultureamp/kaizen-component-library/icons/check.icon.svg")
   .default
@@ -72,4 +70,4 @@ const Input: Input = ({
   </div>
 )
 
-export default hot(module)(Input)
+export default Input

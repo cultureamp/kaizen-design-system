@@ -1,5 +1,3 @@
-import { hot } from "react-hot-loader"
-
 import { Label } from "@cultureamp/kaizen-component-library/draft"
 import classnames from "classnames"
 import * as React from "react"
@@ -60,4 +58,4 @@ const Radio: Radio = ({
   </div>
 )
 
-export default hot(module)(Radio)
+export default Radio

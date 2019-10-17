@@ -2,7 +2,7 @@ import { Icon, Text } from "@cultureamp/kaizen-component-library"
 import classnames from "classnames"
 import * as React from "react"
 import AnimateHeight from "react-animate-height"
-import { hot } from "react-hot-loader"
+
 import { Sticky } from "./CollapsibleGroup"
 
 const styles = require("./styles.scss")
@@ -132,4 +132,4 @@ class Collapsible extends React.Component<Props, State> {
   }
 }
 
-export default hot(module)(Collapsible)
+export default Collapsible

@@ -1,6 +1,5 @@
 import classnames from "classnames"
 import * as React from "react"
-import { hot } from "react-hot-loader"
 
 const styles = require("./styles.scss")
 
@@ -45,4 +44,4 @@ const Well: Well = ({
   </div>
 )
 
-export default hot(module)(Well)
+export default Well

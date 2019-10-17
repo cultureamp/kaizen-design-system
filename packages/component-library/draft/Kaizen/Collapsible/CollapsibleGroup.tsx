@@ -1,6 +1,5 @@
 import classnames from "classnames"
 import * as React from "react"
-import { hot } from "react-hot-loader"
 
 const styles = require("./styles.scss")
 
@@ -46,4 +45,4 @@ export const CollapsibleGroup: React.FunctionComponent<Props> = ({
   )
 }
 
-export default hot(module)(CollapsibleGroup)
+export default CollapsibleGroup

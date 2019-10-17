@@ -1,5 +1,3 @@
-import { hot } from "react-hot-loader"
-
 import classnames from "classnames"
 import * as React from "react"
 
@@ -44,4 +42,4 @@ const Label: Label = ({
   </label>
 )
 
-export default hot(module)(Label)
+export default Label

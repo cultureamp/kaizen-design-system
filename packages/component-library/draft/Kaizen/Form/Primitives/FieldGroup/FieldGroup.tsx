@@ -1,5 +1,3 @@
-import { hot } from "react-hot-loader"
-
 import classnames from "classnames"
 import * as React from "react"
 
@@ -30,4 +28,4 @@ const FormGroup: FormGroup = ({
   </div>
 )
 
-export default hot(module)(FormGroup)
+export default FormGroup

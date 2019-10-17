@@ -1,5 +1,3 @@
-import { hot } from "react-hot-loader"
-
 import {
   Checkbox,
   CheckedStatus,
@@ -62,4 +60,4 @@ const CheckboxField: CheckboxField = ({
   </div>
 )
 
-export default hot(module)(CheckboxField)
+export default CheckboxField

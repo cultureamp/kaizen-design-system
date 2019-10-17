@@ -1,5 +1,3 @@
-import { hot } from "react-hot-loader"
-
 import classnames from "classnames"
 import * as React from "react"
 
@@ -84,4 +82,4 @@ const Input: Input = ({
   </div>
 )
 
-export default hot(module)(Input)
+export default Input

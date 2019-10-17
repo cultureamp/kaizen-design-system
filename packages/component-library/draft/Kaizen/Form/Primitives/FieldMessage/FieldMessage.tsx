@@ -1,5 +1,3 @@
-import { hot } from "react-hot-loader"
-
 import classnames from "classnames"
 import * as React from "react"
 
@@ -36,4 +34,4 @@ const FieldMessage: FieldMessage = ({
   </div>
 )
 
-export default hot(module)(FieldMessage)
+export default FieldMessage

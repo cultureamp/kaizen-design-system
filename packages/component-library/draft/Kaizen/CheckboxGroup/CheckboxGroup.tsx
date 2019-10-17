@@ -2,7 +2,6 @@ import classnames from "classnames"
 import * as React from "react"
 
 import { Label } from "@cultureamp/kaizen-component-library/draft"
-import { hot } from "react-hot-loader"
 
 const styles = require("./styles.scss")
 
@@ -37,4 +36,4 @@ const CheckboxGroup: CheckboxGroup = ({
   </div>
 )
 
-export default hot(module)(CheckboxGroup)
+export default CheckboxGroup

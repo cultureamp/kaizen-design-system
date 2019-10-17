@@ -1,6 +1,5 @@
 import classnames from "classnames"
 import * as React from "react"
-import { hot } from "react-hot-loader"
 
 const actionIllustration = require("./illustrations/action.png")
 const informativeIllustration = require("./illustrations/informative.png")
@@ -75,4 +74,4 @@ const EmptyState: EmptyState = ({
   </div>
 )
 
-export default hot(module)(EmptyState)
+export default EmptyState

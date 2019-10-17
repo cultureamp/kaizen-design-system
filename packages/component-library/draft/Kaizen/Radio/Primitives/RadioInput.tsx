@@ -1,5 +1,5 @@
 import * as React from "react"
-import { hot } from "react-hot-loader"
+
 const styles = require("./styles.scss")
 
 export type RadioInputProps = {
@@ -46,4 +46,4 @@ const RadioInput: RadioInput = ({
   </div>
 )
 
-export default hot(module)(RadioInput)
+export default RadioInput

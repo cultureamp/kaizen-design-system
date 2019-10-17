@@ -9,7 +9,6 @@ const positiveIcon = require("@cultureamp/kaizen-component-library/icons/success
   .default
 import classNames from "classnames"
 import * as React from "react"
-import { hot } from "react-hot-loader"
 
 const styles = require("./styles.scss")
 
@@ -152,4 +151,4 @@ const mapLineVariant = (singleLine: boolean): string => {
   }
 }
 
-export default hot(module)(Popover)
+export default Popover

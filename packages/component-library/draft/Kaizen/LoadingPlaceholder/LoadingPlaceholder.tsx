@@ -1,5 +1,3 @@
-import { hot } from "react-hot-loader"
-
 import classnames from "classnames"
 import * as React from "react"
 
@@ -46,4 +44,4 @@ const LoadingPlaceholder: LoadingPlaceholder = ({
   />
 )
 
-export default hot(module)(LoadingPlaceholder)
+export default LoadingPlaceholder

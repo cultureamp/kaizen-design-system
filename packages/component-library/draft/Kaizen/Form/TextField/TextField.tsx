@@ -1,5 +1,3 @@
-import { hot } from "react-hot-loader"
-
 import { Icon } from "@cultureamp/kaizen-component-library/components/Icon"
 import { FieldGroup } from "@cultureamp/kaizen-component-library/draft"
 import { FieldMessage } from "@cultureamp/kaizen-component-library/draft"
@@ -140,4 +138,4 @@ const TextField: TextField = ({
   )
 }
 
-export default hot(module)(TextField)
+export default TextField

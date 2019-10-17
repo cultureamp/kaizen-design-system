@@ -1,5 +1,3 @@
-import { hot } from "react-hot-loader"
-
 import classnames from "classnames"
 import * as React from "react"
 
@@ -69,4 +67,4 @@ const ToggleSwitchField: ToggleSwitchField = ({
   </FieldGroup>
 )
 
-export default hot(module)(ToggleSwitchField)
+export default ToggleSwitchField

@@ -1,5 +1,3 @@
-import { hot } from "react-hot-loader"
-
 import * as React from "react"
 import { createPortal } from "react-dom"
 import FocusLock from "react-focus-lock"
@@ -144,4 +142,4 @@ class GenericModal extends React.Component<Props> {
   }
 }
 
-export default hot(module)(GenericModal)
+export default GenericModal

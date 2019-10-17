@@ -1,5 +1,3 @@
-import { hot } from "react-hot-loader"
-
 import classnames from "classnames"
 import * as React from "react"
 
@@ -67,4 +65,4 @@ const ToggleSwitch: ToggleSwitch = ({
   )
 }
 
-export default hot(module)(ToggleSwitch)
+export default ToggleSwitch
