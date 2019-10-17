@@ -1,12 +1,6 @@
 {
   "extends": "../../tsconfig.json",
-  "include": [
-    "components/**/*",
-    "draft/**/*",
-    "util/**/*",
-    "index.ts",
-    "typings"
-  ],
+  "include": ["components/**/*", "draft/**/*", "util/**/*", "index.ts"],
   "compilerOptions": {
     "noEmit": false,
     "sourceMap": true,
