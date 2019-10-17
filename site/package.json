@@ -9,7 +9,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.6.0",
-    "@cultureamp/kaizen-component-library": "^12.1.0",
+    "@cultureamp/kaizen-component-library": "*",
     "@mdx-js/mdx": "^1.4.5",
     "@mdx-js/react": "^1.4.5",
     "classnames": "^2.2.6",
