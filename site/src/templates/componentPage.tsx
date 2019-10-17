@@ -13,11 +13,34 @@ import {
   SidebarSection,
   SidebarTab,
 } from "../components/SidebarAndContent"
+import { sortSidebarTabs, stripTrailingSlash } from "./util"
+
+const renderSidebarTabs = (pages, currentPath) => {
+  return pages.map((node, i) => (
+    <SidebarTab
+      href={node!.node!.fields!.slug}
+      active={
+        stripTrailingSlash(node!.node!.fields!.slug) ===
+        stripTrailingSlash(currentPath)
+      }
+      key={`sidebarTab-${i}`}
+    >
+      {node!.node!.frontmatter!.navTitle}
+    </SidebarTab>
+  ))
+}
 
 export default ({ data, pageContext, location }) => {
   const md = data.mdx
   const allPages = data.allMdx.edges
   const currentPath = location.pathname
+
+  const overviewPage = allPages.filter(
+    el => el.node.frontmatter.navTitle === "Overview"
+  )
+  const pagesWithoutOverview = sortSidebarTabs(
+    allPages.filter(el => el.node.frontmatter.navTitle !== "Overview")
+  )
 
   const ComponentPageHeader = (
     <PageHeader
@@ -37,18 +60,8 @@ export default ({ data, pageContext, location }) => {
       <SidebarAndContent>
         <Sidebar>
           <SidebarSection>
-            {allPages.map((node, i) => {
-              if (!node!.node!.frontmatter!.navTitle) return undefined
-              return (
-                <SidebarTab
-                  href={node!.node!.fields!.slug}
-                  active={node!.node!.fields!.slug === currentPath}
-                  key={`sidebarTab-${i}`}
-                >
-                  {node!.node!.frontmatter!.title}
-                </SidebarTab>
-              )
-            })}
+            {renderSidebarTabs(overviewPage, currentPath)}
+            {renderSidebarTabs(pagesWithoutOverview, currentPath)}
           </SidebarSection>
         </Sidebar>
         <Content>
