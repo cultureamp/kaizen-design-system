@@ -2,7 +2,7 @@ import {
   Link as NavLink,
   NavigationBar,
 } from "@cultureamp/kaizen-component-library"
-import { graphql, useStaticQuery, withPrefix } from "gatsby"
+import { withPrefix } from "gatsby"
 import * as React from "react"
 
 type MainNavProps = {
@@ -10,21 +10,6 @@ type MainNavProps = {
 }
 
 const MainNav: React.SFC<MainNavProps> = ({ currentPath = "" }) => {
-  const data = useStaticQuery(graphql`
-    query MainNavComponentsQuery {
-      allMdx(filter: { fields: { slug: { regex: "^/components/" } } }) {
-        edges {
-          node {
-            fields {
-              slug
-            }
-          }
-        }
-      }
-    }
-  `)
-  const firstComponentPath = data.allMdx!.edges[0]!.node!.fields!.slug
-
   const currentPathStartsWith = (path: string) =>
     currentPath.startsWith(withPrefix(path))
 
@@ -42,7 +27,7 @@ const MainNav: React.SFC<MainNavProps> = ({ currentPath = "" }) => {
       />
       <NavLink
         text="Components"
-        href={withPrefix(firstComponentPath)}
+        href={withPrefix("/components/overview")}
         active={currentPathStartsWith("/components")}
       />
       <NavLink
