@@ -1,7 +1,9 @@
-import { addParameters, configure } from "@storybook/react"
+import { addDecorator, addParameters, configure } from "@storybook/react"
 import { create } from "@storybook/theming"
+import { backgrounds } from "./backgrounds"
 
 addParameters({
+  backgrounds,
   options: {
     theme: create({ brandTitle: "🌱 Storybook", base: "light" }),
   },

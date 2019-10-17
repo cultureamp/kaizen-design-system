@@ -3,16 +3,13 @@ import { Button } from "@cultureamp/kaizen-component-library"
 const configureIcon = require("@cultureamp/kaizen-component-library/icons/configure.icon.svg")
   .default
 import { action } from "@storybook/addon-actions"
-import { withBackgrounds } from "@storybook/addon-backgrounds"
 import { storiesOf } from "@storybook/react"
 import focusVisible from "focus-visible"
 import * as React from "react"
-import { backgrounds } from "./backgrounds"
 
 focusVisible // This causes the :focus-visible polyfill to load
 
 storiesOf("Button", module)
-  .addDecorator(withBackgrounds(backgrounds))
   .add("Default", () => <Button label="Label" />, {
     backgrounds: { disable: true },
   })

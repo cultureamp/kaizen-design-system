@@ -1,8 +1,6 @@
 import { VerticalProgressStep } from "@cultureamp/kaizen-component-library/draft"
-import { withBackgrounds } from "@storybook/addon-backgrounds"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
-import { backgrounds } from "./backgrounds"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => (
   <div
@@ -18,7 +16,6 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => (
 )
 
 storiesOf("VerticalProgressStep", module)
-  .addDecorator(withBackgrounds(backgrounds))
   .add("current step actionable", () => (
     <StoryContainer>
       <VerticalProgressStep.CurrentStep

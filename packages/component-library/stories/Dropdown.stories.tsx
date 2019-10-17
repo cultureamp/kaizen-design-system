@@ -5,7 +5,6 @@ const kebabIcon = require("@cultureamp/kaizen-component-library/icons/kebab.icon
 const printIcon = require("@cultureamp/kaizen-component-library/icons/print.icon.svg")
   .default
 import { action } from "@storybook/addon-actions"
-import { withBackgrounds } from "@storybook/addon-backgrounds"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
@@ -16,8 +15,6 @@ import {
   MenuList,
   MenuSeparator,
 } from "@cultureamp/kaizen-component-library"
-
-import { backgrounds } from "./backgrounds"
 
 const Menu: React.FunctionComponent = () => (
   <MenuList>
@@ -64,7 +61,6 @@ const Menu: React.FunctionComponent = () => (
   </MenuList>
 )
 storiesOf("Dropdown", module)
-  .addDecorator(withBackgrounds(backgrounds))
   .add(
     "Default (Meatball)",
     () => (

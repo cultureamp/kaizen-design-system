@@ -2,14 +2,10 @@ import { IconButton } from "@cultureamp/kaizen-component-library"
 const configureIcon = require("@cultureamp/kaizen-component-library/icons/configure.icon.svg")
   .default
 import { action } from "@storybook/addon-actions"
-import { withBackgrounds } from "@storybook/addon-backgrounds"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-import { backgrounds } from "./backgrounds"
-
 storiesOf("IconButton", module)
-  .addDecorator(withBackgrounds(backgrounds))
   .add(
     "Default",
     () => (

@@ -1,6 +1,5 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 import { action } from "@storybook/addon-actions"
-import { withBackgrounds } from "@storybook/addon-backgrounds"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
@@ -9,14 +8,12 @@ const lockIcon = require("@cultureamp/kaizen-component-library/icons/lock.icon.s
   .default
 const userIcon = require("@cultureamp/kaizen-component-library/icons/user.icon.svg")
   .default
-import { backgrounds } from "./backgrounds"
 
 const ExampleContainer: React.FunctionComponent = ({ children }) => (
   <div style={{ width: "100%", margin: 10 }}>{children}</div>
 )
 
 storiesOf("TextField", module)
-  .addDecorator(withBackgrounds(backgrounds))
   .add(
     "Default",
     () => (

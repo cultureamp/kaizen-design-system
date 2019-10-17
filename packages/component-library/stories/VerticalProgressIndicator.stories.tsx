@@ -1,8 +1,6 @@
 import { VerticalProgressIndicator } from "@cultureamp/kaizen-component-library/draft/Kaizen/VerticalProgressStep/VerticalProgressIndicator"
-import { withBackgrounds } from "@storybook/addon-backgrounds"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
-import { backgrounds } from "./backgrounds"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => (
   <div
@@ -19,7 +17,6 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => (
 )
 
 storiesOf("VerticalProgressIndicator", module)
-  .addDecorator(withBackgrounds(backgrounds))
   .add("Start-Upcoming", () => (
     <StoryContainer>
       <VerticalProgressIndicator position="start" completion="upcoming" />
