@@ -61,61 +61,31 @@ const Menu: React.FunctionComponent = () => (
   </MenuList>
 )
 storiesOf("Dropdown", module)
-  .add(
-    "Default (Meatball)",
-    () => (
-      <Dropdown>
-        <Menu />
-      </Dropdown>
-    ),
-    {
-      backgrounds: { disable: true },
-    }
-  )
-  .add(
-    "Default (Kebab)",
-    () => (
-      <Dropdown icon={kebabIcon}>
-        <Menu />
-      </Dropdown>
-    ),
-    {
-      backgrounds: { disable: true },
-    }
-  )
-  .add(
-    "Label and Icon",
-    () => (
-      <Dropdown label="Print" icon={kebabIcon}>
-        <Menu />
-      </Dropdown>
-    ),
-    {
-      backgrounds: { disable: true },
-    }
-  )
-  .add(
-    "Text Only",
-    () => (
-      <Dropdown label="Print">
-        <Menu />
-      </Dropdown>
-    ),
-    {
-      backgrounds: { disable: true },
-    }
-  )
-  .add(
-    "Control action",
-    () => (
-      <Dropdown label="Print" icon={printIcon} controlAction>
-        <Menu />
-      </Dropdown>
-    ),
-    {
-      backgrounds: { disable: true },
-    }
-  )
+  .add("Default (Meatball)", () => (
+    <Dropdown>
+      <Menu />
+    </Dropdown>
+  ))
+  .add("Default (Kebab)", () => (
+    <Dropdown icon={kebabIcon}>
+      <Menu />
+    </Dropdown>
+  ))
+  .add("Label and Icon", () => (
+    <Dropdown label="Print" icon={kebabIcon}>
+      <Menu />
+    </Dropdown>
+  ))
+  .add("Text Only", () => (
+    <Dropdown label="Print">
+      <Menu />
+    </Dropdown>
+  ))
+  .add("Control action", () => (
+    <Dropdown label="Print" icon={printIcon} controlAction>
+      <Menu />
+    </Dropdown>
+  ))
   .add("Reversed Control action", () => (
     <Dropdown label="Print" icon={printIcon} controlAction reversedColor>
       <Menu />
