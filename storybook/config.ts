@@ -1,6 +1,9 @@
 import { addDecorator, addParameters, configure } from "@storybook/react"
 import { create } from "@storybook/theming"
+import focusVisible from "focus-visible"
 import { backgrounds } from "./backgrounds"
+
+focusVisible // This causes the :focus-visible polyfill to load
 
 addParameters({
   backgrounds,

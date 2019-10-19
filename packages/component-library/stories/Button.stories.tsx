@@ -4,10 +4,7 @@ const configureIcon = require("@cultureamp/kaizen-component-library/icons/config
   .default
 import { action } from "@storybook/addon-actions"
 import { storiesOf } from "@storybook/react"
-import focusVisible from "focus-visible"
 import * as React from "react"
-
-focusVisible // This causes the :focus-visible polyfill to load
 
 storiesOf("Button", module)
   .add("Default", () => <Button label="Label" />)
