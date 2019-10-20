@@ -40,9 +40,8 @@ main =
                         |> EmptyState.children []
                     )
                 ]
-
         , statelessStoryOf "Default (minimal props)" <|
-           sidebarAndContentLayout
+            sidebarAndContentLayout
                 [ EmptyState.view
                     (EmptyState.default
                         |> EmptyState.headingText "Empty state title"
@@ -50,7 +49,7 @@ main =
                     )
                 ]
         , statelessStoryOf "Positive" <|
-           sidebarAndContentLayout
+            sidebarAndContentLayout
                 [ EmptyState.view
                     (EmptyState.default
                         |> EmptyState.headingText "Empty state title"
@@ -59,7 +58,7 @@ main =
                     )
                 ]
         , statelessStoryOf "Neutral" <|
-           sidebarAndContentLayout
+            sidebarAndContentLayout
                 [ EmptyState.view
                     (EmptyState.default
                         |> EmptyState.headingText "Empty state title"
@@ -68,7 +67,7 @@ main =
                     )
                 ]
         , statelessStoryOf "Negative" <|
-           sidebarAndContentLayout
+            sidebarAndContentLayout
                 [ EmptyState.view
                     (EmptyState.default
                         |> EmptyState.headingText "Empty state title"
@@ -77,7 +76,7 @@ main =
                     )
                 ]
         , statelessStoryOf "Informative" <|
-           sidebarAndContentLayout
+            sidebarAndContentLayout
                 [ EmptyState.view
                     (EmptyState.default
                         |> EmptyState.headingText "Empty state title"
@@ -86,7 +85,7 @@ main =
                     )
                 ]
         , statelessStoryOf "Action" <|
-           sidebarAndContentLayout
+            sidebarAndContentLayout
                 [ EmptyState.view
                     (EmptyState.default
                         |> EmptyState.headingText "Empty state title"
@@ -95,7 +94,7 @@ main =
                     )
                 ]
         , statelessStoryOf "Action with button" <|
-           sidebarAndContentLayout
+            sidebarAndContentLayout
                 [ EmptyState.view
                     (EmptyState.default
                         |> EmptyState.headingText "Empty state title"
@@ -114,7 +113,7 @@ main =
                     )
                 ]
         , statelessStoryOf "Content-only layout" <|
-           contentOnlyLayout
+            contentOnlyLayout
                 [ EmptyState.view
                     (EmptyState.default
                         |> EmptyState.headingText "Empty state title"

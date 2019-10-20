@@ -139,25 +139,22 @@ main =
                     (LoadingPlaceholder.default
                         |> LoadingPlaceholder.noBottomMargin
                     )
-                , Text.view (Text.p |> Text.inline True) [ text "These loading placeholders have no bottom margin." ] 
+                , Text.view (Text.p |> Text.inline True) [ text "These loading placeholders have no bottom margin." ]
                 , LoadingPlaceholder.view
                     (LoadingPlaceholder.default
                         |> LoadingPlaceholder.noBottomMargin
                     )
                 ]
-
         , statelessStoryOf "Inherit baseline" <|
             storyContainer
-                [ 
-                    div [ class .flexbox ]
-                        [ Text.view (Text.h2 |> Text.inheritBaseline True) [ text "Inheriting baseline" ] 
-                        , LoadingPlaceholder.view
-                            (LoadingPlaceholder.default
-                                |> LoadingPlaceholder.inheritBaseline
-                            )
-                        ]
+                [ div [ class .flexbox ]
+                    [ Text.view (Text.h2 |> Text.inheritBaseline True) [ text "Inheriting baseline" ]
+                    , LoadingPlaceholder.view
+                        (LoadingPlaceholder.default
+                            |> LoadingPlaceholder.inheritBaseline
+                        )
+                    ]
                 ]
-
         , statelessStoryOf "Combined block and inline" <|
             storyContainer
                 [ paragraph

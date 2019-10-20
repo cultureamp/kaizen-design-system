@@ -91,9 +91,11 @@ size : Size -> Config -> Config
 size value (Config config) =
     Config { config | size = value }
 
+
 inheritBaseline : Config -> Config
 inheritBaseline (Config config) =
     Config { config | inheritBaseline = True }
+
 
 inline : Config -> Config
 inline (Config config) =

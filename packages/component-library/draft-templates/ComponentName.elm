@@ -7,18 +7,16 @@ module ComponentName.ComponentName exposing
     )
 
 import CssModules exposing (css)
-
-
-
 import Html exposing (Html, div)
+
+
+
 -- Uncomment/delete these as needed:
 -- import Html.Attributes exposing (attribute, for, id, property, type_)
 -- import Html.Events as Events
 -- import Icon.Icon as Icon
 -- import Icon.SvgAsset exposing (svgAsset)
 -- import Json.Encode as Encode
-
-
 -- CONFIG
 
 
@@ -54,29 +52,32 @@ default =
 
 -- MODIFIERS
 
+
 id : String -> Config msg -> Config msg
 id value (Config config) =
     Config { config | id = Just value }
+
 
 automationId : String -> Config msg -> Config msg
 automationId value (Config config) =
     Config { config | automationId = Just value }
 
+
+
 -- onChange : (Bool -> msg) -> Config msg -> Config msg
 -- onChange value (Config config) =
 --     Config { config | onChange = Just value }
-
 -- disabled : Bool -> Config msg -> Config msg
 -- disabled value (Config config) =
 --     Config { config | disabled = value }
-
-
 -- VIEW
+
 
 view : Config msg -> Html msg
 view (Config config) =
-  div [ styles.class .container ]
+    div [ styles.class .container ]
         []
+
 
 styles =
     css "@cultureamp/kaizen-component-library/draft/ComponentName/styles.scss"
