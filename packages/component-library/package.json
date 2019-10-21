@@ -1,6 +1,14 @@
 {
   "name": "@cultureamp/kaizen-component-library",
-  "description": "Culture Amp's Design System components",
+  "description": "Culture Amp's Kaizen Component Library",
+  "homepage": "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/component-library",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cultureamp/kaizen-design-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cultureamp/kaizen-design-system/issues"
+  },
   "sideEffects": false,
   "version": "13.0.0",
   "private": false,
