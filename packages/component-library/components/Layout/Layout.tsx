@@ -57,9 +57,7 @@ Announcers.displayName = "Announcers"
 
 class Layout extends React.Component {
   render() {
-    const content = React.Children.toArray(
-      this.props.children
-    ) as React.ReactChild[]
+    const content = React.Children.toArray(this.props.children)
     const navbar = extractChildOfType(content, NavigationBar)
     const header = extractChildOfType(content, Header)
     const sidebar = extractChildOfType(content, Sidebar)
@@ -96,7 +94,7 @@ class Layout extends React.Component {
 }
 
 const extractChildOfType = (
-  children: React.ReactChild[],
+  children: React.ReactNode[],
   type: React.FunctionComponent<{}>
 ) => {
   const match = children.find(child => {

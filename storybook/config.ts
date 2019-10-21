@@ -1,9 +1,10 @@
-import { addDecorator, addParameters, configure } from "@storybook/react"
+import { addParameters, configure } from "@storybook/react"
 import { create } from "@storybook/theming"
-import focusVisible from "focus-visible"
 import { backgrounds } from "./backgrounds"
 
-focusVisible // This causes the :focus-visible polyfill to load
+// Polyfill for :focus-visible pseudo-selector
+// See: https://github.com/WICG/focus-visible
+require("focus-visible")
 
 addParameters({
   backgrounds,
