@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.0.0...@cultureamp/kaizen-component-library@14.0.1) (2019-10-21)
+
+
+### Bug Fixes
+
+* Replace npmignore with files array ([2f4237b](https://github.com/cultureamp/kaizen-design-system/commit/2f4237b))
+
+
+
+
+
 # 14.0.0 (2019-10-21)
 
 
