@@ -5,3 +5,6 @@ lerna-*.log
 /site/public/
 /storybook/public/
 /elm-stuff/
+/packages/**/*.js
+/packages/**/*.js.map
+/packages/**/*.d.ts
