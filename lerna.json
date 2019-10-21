@@ -4,6 +4,6 @@
     "**/*.{stories,spec,test}.{js,jsx,ts,tsx}",
     "**/*.{md,mdx}"
   ],
-  "npmClient": "npm",
+  "npmClient": "yarn",
   "packages": ["packages/*"]
 }
