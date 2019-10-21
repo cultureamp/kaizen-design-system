@@ -3,6 +3,66 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 14.0.0 (2019-10-21)
+
+
+### chore
+
+* Migrate component library package ([#61](https://github.com/cultureamp/kaizen-design-system/issues/61)) ([eebe17a](https://github.com/cultureamp/kaizen-design-system/commit/eebe17a16d9c7de8d745cd5a4cdc0a9656949342))
+
+
+### BREAKING CHANGES
+
+* Upgrade to react 16.9
+
+* Add svg mocking to jest
+
+* Use the local component library in the site
+
+* Add missing storybook addons
+
+* Move storybook backgrounds out of component library
+
+* Update gatsby filesystem paths to use local component library
+
+* Upgrade react in the site package
+
+* Remove (unused) module type declarations
+
+* Fix component library build script compiler errors
+
+* Remove storybook backgrounds config from stories
+
+* Hoist focus-visible polyfill and apply to storybook
+
+* Add elm-format to linters
+
+* Run elm-format on the component library package
+
+* Use debian jessie for build images
+
+elm-format fails in alpine :cry:
+
+* Let elm format the elm.json file
+
+* Add the repository root as an elm source directory
+
+Reportedly appeases rubymine
+
+* Add .npmignore and remove files key from package
+
+Defaults to "*", ignoring stories, tests, typescript source and config.
+
+* Add focus-visible as a peer dependency
+
+* Address comments from review
+
+* Update package metadata
+
+
+
+
+
 # [13.0.0](https://github.com/cultureamp/big-frontend-repo/compare/v12.6.2...v13.0.0) (2019-10-15)
 
 
