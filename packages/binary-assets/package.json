@@ -1,0 +1,24 @@
+{
+  "name": "@cultureamp/kaizen-binary-assets",
+  "version": "0.0.0",
+  "description": "Binary asset management for Culture Amp's Kaizen Design System.",
+  "homepage": "https://github.com/cultureamp/kaizen-design-system/packages/binary-asset#readme",
+  "license": "MIT",
+  "main": "lib",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cultureamp/kaizen-design-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cultureamp/kaizen-design-system/issues"
+  }
+}
