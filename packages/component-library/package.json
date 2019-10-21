@@ -25,7 +25,7 @@
     "!*.snap"
   ],
   "sideEffects": false,
-  "version": "14.0.1",
+  "version": "14.0.2",
   "private": false,
   "license": "MIT",
   "peerDependencies": {

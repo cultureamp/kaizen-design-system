@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.0.1...@cultureamp/kaizen-component-library@14.0.2) (2019-10-21)
+
+
+### Bug Fixes
+
+* Explicitly include module indexes in published files ([7e9ab80](https://github.com/cultureamp/kaizen-design-system/commit/7e9ab80))
+
+
+
+
+
 ## [14.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.0.0...@cultureamp/kaizen-component-library@14.0.1) (2019-10-21)
 
 
