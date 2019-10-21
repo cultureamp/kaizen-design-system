@@ -1,0 +1,39 @@
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/animation";
+@import "~@cultureamp/kaizen-component-library/styles/layout";
+@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@cultureamp/kaizen-component-library/styles/utils";
+@import "~@cultureamp/kaizen-component-library/styles/mixins/forms";
+
+// -----------------------------------------------
+// Text Field
+// -----------------------------------------------
+
+///////////////////////////////////////////////////
+// MIXINS
+///////////////////////////////////////////////////
+
+@mixin input-icon($color, $reversed) {
+  color: $color;
+
+  .withReversed & {
+    color: $reversed;
+  }
+}
+
+///////////////////////////////////////////////////
+// VALIDATION STYLES
+///////////////////////////////////////////////////
+
+.success {
+  @include input-icon($ca-palette-positive, $white);
+  @include ca-animation-fade(in);
+}
+
+.error {
+  @include input-icon(
+    $ca-palette-negative,
+    $ca-palette-input-validation-negative
+  );
+  @include ca-animation-fade(in);
+}

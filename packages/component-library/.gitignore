@@ -1,0 +1,12 @@
+components/**/*.js
+components/**/*.js.map
+components/**/*.d.ts
+draft/**/*.js
+draft/**/*.js.map
+draft/**/*.d.ts
+util/**/*.js
+util/**/*.js.map
+util/**/*.d.ts
+index.js
+index.js.map
+index.d.ts

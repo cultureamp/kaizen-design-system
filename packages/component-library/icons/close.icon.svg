@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.1 (43504) - http://www.bohemiancoding.com/sketch -->
+    <title>Icons/Actions/close</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="14.6541667 4.16666667 10 8.82083333 5.34583333 4.16666667 4.16666667 5.34666667 8.82166667 10 4.16666667 14.655 5.34583333 15.8333333 10 11.1791667 14.6541667 15.8333333 15.8341667 14.655 11.1791667 10 15.8341667 5.34666667"></polygon>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icons/Actions/close">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use fill="#000000" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

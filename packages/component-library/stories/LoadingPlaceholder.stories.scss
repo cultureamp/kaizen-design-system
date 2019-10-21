@@ -1,0 +1,42 @@
+.storyContainer {
+  margin: 1rem;
+  max-width: 40rem;
+}
+
+.reversedDefault {
+  padding: 1rem;
+  color: white;
+  background: rgb(84, 152, 166);
+}
+
+.reversedOcean {
+  padding: 1rem;
+  background: rgb(249, 249, 249);
+}
+
+.tooltip {
+  border: 1px solid lightgrey;
+  width: 24rem;
+}
+
+.tooltipHeader {
+  background: whitesmoke;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 1rem;
+}
+
+.tooltipBody {
+  padding: 0.25rem 1rem;
+}
+
+.tooltipRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flexbox {
+  display: flex;
+  align-items: baseline;
+  width: 40rem;
+}

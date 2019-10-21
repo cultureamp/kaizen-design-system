@@ -1,0 +1,116 @@
+@import "../styles";
+@import "../../../styles/border";
+@import "../../../styles/color";
+@import "../../../styles/type";
+@import "../../../styles/layers";
+@import "../../../styles/layout";
+
+$menu__square-size: $ca-grid * 2;
+
+.root {
+  position: relative;
+  margin: $ca-grid / 4;
+  width: $menu__square-size;
+  height: $menu__square-size;
+}
+
+.buttonReset {
+  // reset button styles
+  appearance: none;
+  background: transparent;
+  border: none;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  // override Murmur global styles :(
+  transition: none;
+}
+
+.button {
+  @extend %ca-navigation-bar__menu-item-focus;
+  composes: buttonReset;
+
+  // fill parent
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.menu {
+  $menu__arrow-size: $ca-grid / 4;
+
+  @include ca-position($top: calc(100% + #{$ca-grid * 0.75}), $end: 0);
+
+  align-items: center;
+  position: absolute;
+  height: 100%;
+  z-index: $ca-z-index-dropdown;
+
+  // menu arrow
+  &::before {
+    content: "";
+    position: absolute;
+    top: -0.3rem;
+    right: calc(#{$menu__square-size / 2} - #{$menu__arrow-size});
+    border: $menu__arrow-size solid transparent;
+    border-top-width: 0;
+    border-bottom-color: add-shade($ca-palette-ink, 20%);
+  }
+
+  [dir="rtl"] &::before {
+    left: calc(#{$menu__square-size / 2} - #{$menu__arrow-size});
+    right: auto;
+  }
+
+  > * {
+    color: #fff;
+    background-color: add-shade($ca-palette-ink, 20%);
+    border-radius: $ca-border-radius;
+    padding: $ca-border-radius 0;
+    white-space: nowrap;
+  }
+
+  // HACK: duplicate class selector to bump specificity to work around https://trello.com/c/VGvOyHk4
+  &.menu {
+    &:focus {
+      // focus is non-interactive
+      outline: 0;
+    }
+
+    > * {
+      align-self: flex-start;
+      padding-bottom: $ca-grid * 0.75;
+      padding-top: $ca-grid * 0.25;
+    }
+  }
+}
+
+.menuTitle {
+  // screen readers only
+  position: absolute;
+  left: -9999em;
+}
+
+.menuItem {
+  @include ca-type-ideal-body;
+  @include ca-inherit-baseline;
+  @include ca-type-align-start;
+
+  composes: buttonReset;
+
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: ($ca-grid / 8) 2em;
+
+  &,
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &:hover {
+    background-color: add-tint($ca-palette-ink, 10%);
+  }
+}

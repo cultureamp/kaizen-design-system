@@ -1,0 +1,56 @@
+@import "../../../styles/color";
+@import "../../../styles/type";
+@import "../styles";
+
+.badge {
+  background-color: $ca-palette-coral;
+  color: #fff;
+  font-weight: $ca-weight-medium;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: $ca-navigation-bar__height;
+  flex: 0 0 $ca-navigation-bar__height;
+
+  // auto 1:1 (square) aspect ratio
+  position: relative;
+  &::after {
+    display: block;
+    content: "";
+    padding-bottom: 100%; // % of parent width
+  }
+  > * {
+    @extend %ca-navigation-bar__menu-item-focus;
+
+    // fill the square
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    // center child
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:link,
+    &:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  &.staging {
+    background-color: add-tint($ca-palette-peach, 10%);
+  }
+
+  &.named {
+    background-color: add-tint($ca-palette-seedling, 30%);
+  }
+
+  &.test {
+    background-color: add-tint($ca-palette-wisteria, 30%);
+  }
+
+  &.local {
+    background-color: add-tint($ca-palette-ocean, 50%);
+  }
+}

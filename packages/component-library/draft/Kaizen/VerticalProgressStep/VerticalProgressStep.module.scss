@@ -1,0 +1,46 @@
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@cultureamp/kaizen-component-library/components/Button/styles";
+
+.step {
+  padding: $ca-grid * 0.5;
+  min-height: $ca-grid * 5;
+  min-width: 400px;
+  position: relative;
+}
+
+.button {
+  @include button-reset;
+  text-align: inherit; // Oops! This is missing from the reset. :)
+  cursor: pointer;
+  display: block;
+  width: 100%;
+
+  &:hover {
+    background: add-tint($ca-palette-ink, 90%);
+  }
+
+  :global(.js-focus-visible) & {
+    // hide native focus ring when :focus but not :focus-visible
+    &:focus {
+      outline: none;
+    }
+
+    // show custom focus ring when :focus-visible
+    &:global(.focus-visible) {
+      outline: $caButton-focus-border-width solid $ca-palette-ocean;
+    }
+  }
+}
+
+.actionable {
+  color: $ca-palette-ocean;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.content {
+  margin-left: $ca-grid * 2;
+}

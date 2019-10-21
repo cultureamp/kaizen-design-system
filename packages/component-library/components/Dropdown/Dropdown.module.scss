@@ -1,0 +1,92 @@
+@import "../../styles/color";
+@import "../../styles/border";
+@import "../../styles/layers";
+@import "../../styles/type";
+
+$width: 248px;
+
+.dropdown {
+  position: relative;
+}
+
+.buttonReset {
+  appearance: none;
+  display: inline;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.dropdownButton {
+  @include ca-type-ideal-button;
+  @include ca-inherit-baseline;
+  composes: buttonReset;
+  cursor: pointer;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdownControlAction {
+  @include ca-type-ideal-control-action;
+  @include ca-inherit-baseline;
+}
+
+.dropdownIcon {
+  box-sizing: border-box;
+  width: $ca-grid;
+  height: $ca-grid;
+  padding: 2px;
+}
+
+.dropdownIcon + .dropdownLabel {
+  margin-left: calc(#{$ca-grid} / 2 - 2px);
+
+  [dir="rtl"] & {
+    margin-left: 0;
+    margin-right: calc(#{$ca-grid} / 2 - 2px);
+  }
+}
+
+// If you would like the dropdown icon to only be visible when a certain area is hovered,
+// have you hover area use (or compose) the `dropdownHoverArea` class. The label will
+// always be visible.
+.dropdownHoverArea {
+  .dropdownIcon {
+    opacity: 0;
+    &.isOpen,
+    &:focus {
+      opacity: 1;
+    }
+  }
+  &:hover .dropdownIcon {
+    opacity: 1;
+  }
+}
+
+.chevronIcon {
+  position: relative;
+  top: 4px;
+}
+
+.menuContainer {
+  position: absolute;
+  width: $width;
+  z-index: $ca-z-index-dropdown;
+  right: 0;
+
+  [dir="rtl"] & {
+    right: auto;
+    left: 0;
+  }
+}
+
+.reversedColor {
+  color: $white;
+}

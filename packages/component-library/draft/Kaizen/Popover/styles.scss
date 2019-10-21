@@ -1,0 +1,219 @@
+@import "~@cultureamp/kaizen-component-library/styles/border";
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/layers";
+@import "~@cultureamp/kaizen-component-library/styles/layout";
+@import "~@cultureamp/kaizen-component-library/styles/responsive";
+@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@cultureamp/kaizen-component-library/components/Button/styles";
+
+/* The bordered part of the triangle */
+$default-size: 8px;
+$large: 450px;
+
+@mixin arrow(
+  $background-color,
+  $border-color,
+  $size: $default-size,
+  $side: bottom,
+  $position: center
+) {
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+    top: 100%;
+    left: 50%;
+    margin-left: -$size;
+  }
+
+  &::before {
+    border-top: $size solid $border-color;
+  }
+
+  /* The white fill of the triangle */
+  &::after {
+    border-top: $size solid $background-color;
+    margin-top: -1px;
+    z-index: 1;
+  }
+
+  /* Side modifiers */
+  @if $side == top {
+    &::before,
+    &::after {
+      top: 0;
+      transform: rotate(180deg) translateY(100%);
+    }
+
+    &::after {
+      margin-top: 1px;
+    }
+  }
+
+  /* Position modifiers */
+  @if $position == start {
+    &::before,
+    &::after {
+      left: $ca-grid;
+      right: auto;
+    }
+  } @else if $position == end {
+    &::before,
+    &::after {
+      right: $ca-grid;
+      left: auto;
+    }
+  }
+}
+
+.root,
+%root {
+  width: 220px;
+  background: #fff;
+  border: 1px solid add-tint($ca-palette-ink, 80%);
+  filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.1));
+  border-radius: $ca-border-radius;
+  color: $ca-palette-lapis;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: left;
+}
+
+.default {
+  @extend %root;
+
+  @include arrow(#fff, add-tint($ca-palette-ink, 80%));
+}
+
+.informative {
+  @extend %root;
+  background: add-tint($ca-palette-ocean, 90%);
+  border-color: add-tint($ca-palette-ocean, 60%);
+
+  @include arrow(
+    add-tint($ca-palette-ocean, 90%),
+    add-tint($ca-palette-ocean, 60%)
+  );
+}
+
+.positive {
+  @extend %root;
+  background: add-tint($ca-palette-seedling, 90%);
+  border-color: add-tint($ca-palette-seedling, 60%);
+
+  @include arrow(
+    add-tint($ca-palette-seedling, 90%),
+    add-tint($ca-palette-seedling, 60%)
+  );
+}
+
+.negative {
+  @extend %root;
+  background: add-tint($ca-palette-coral, 95%);
+  border-color: add-tint($ca-palette-coral, 60%);
+
+  @include arrow(
+    add-tint($ca-palette-coral, 95%),
+    add-tint($ca-palette-coral, 60%)
+  );
+}
+
+.cautionary {
+  @extend %root;
+  background: add-tint($ca-palette-yuzu, 90%);
+  border-color: add-tint($ca-palette-yuzu, 40%);
+
+  @include arrow(
+    add-tint($ca-palette-yuzu, 90%),
+    add-tint($ca-palette-yuzu, 40%)
+  );
+}
+
+.header {
+  @include ca-type-ideal-label;
+  @include ca-inherit-baseline;
+  padding: ($ca-grid / 4) ($ca-grid / 2);
+  border-bottom: 1px solid $ca-border-color;
+  margin-bottom: $ca-grid / 4;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.container {
+  @include ca-inherit-baseline;
+  @include ca-type-ideal-notification;
+  padding: ($ca-grid / 6) ($ca-grid / 2) ($ca-grid);
+  white-space: pre-line;
+}
+
+.icon {
+  display: inherit;
+  margin-right: $ca-grid / 4;
+
+  .informative & {
+    color: add-tint($ca-palette-ocean, 30%);
+  }
+
+  .positive & {
+    color: add-tint($ca-palette-seedling, 30%);
+  }
+
+  .negative & {
+    color: $ca-palette-coral;
+  }
+
+  .cautionary & {
+    color: $ca-palette-yuzu;
+  }
+}
+
+.close {
+  @include button-reset;
+  margin-left: auto;
+  display: inherit;
+  color: add-alpha(#000, 50%);
+}
+
+.sideTop {
+  &::before,
+  &::after {
+    top: 0;
+    transform: rotate(180deg) translateY(100%);
+  }
+
+  &::after {
+    margin-top: 1px;
+  }
+}
+
+.positionStart {
+  &::before,
+  &::after {
+    left: $ca-grid;
+    right: auto;
+  }
+}
+
+.positionEnd {
+  &::before,
+  &::after {
+    right: $ca-grid;
+    left: auto;
+  }
+}
+
+.large {
+  width: auto;
+  max-width: $large;
+}
+
+.singleLine {
+  text-overflow: ellipsis;
+  /* white-space and overflow are required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
+}
