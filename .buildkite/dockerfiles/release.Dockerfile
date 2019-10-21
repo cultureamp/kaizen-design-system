@@ -10,4 +10,4 @@ RUN pip install \
   awscli
 
 RUN npm config set unsafe-perm true \
-  && npm install --global --no-audit lerna typescript
+  && npm install --global --no-audit lerna typescript@3.6.3
