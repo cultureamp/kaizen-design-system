@@ -47,12 +47,14 @@ setup_npm() {
 release() {
   git checkout master && git pull
 
+  yarn install --frozen-lockfile
+
   # Bump packages, push and tag a release commit, and update release notes
-  lerna version --conventional-commits --create-release=github --yes \
+  yarn lerna version --conventional-commits --create-release=github --yes \
     --message "chore: release [skip ci]" 
   
   # Publish any package versions which are not already present on npm
-  lerna publish from-package --yes
+  yarn lerna publish from-package --yes
 }
 
 main() {
