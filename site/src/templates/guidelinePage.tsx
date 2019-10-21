@@ -13,15 +13,7 @@ import {
   SidebarSection,
   SidebarTab,
 } from "../components/SidebarAndContent"
-
-const stripTrailingSlash = (str: string) => str.replace(/\/$/, "")
-
-const sortSidebarTabs = tabs => {
-  const newTabs = [...tabs].sort((a, b) =>
-    a.node.frontmatter.navTitle > b.node.frontmatter.navTitle ? 1 : -1
-  )
-  return newTabs
-}
+import { sortSidebarTabs, stripTrailingSlash } from "./util"
 
 const renderSidebarTabs = (pages, currentPath, sectionName) => {
   return pages.map((node, i) => (
