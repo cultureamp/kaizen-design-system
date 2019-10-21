@@ -1,6 +1,7 @@
 {
     "type": "application",
     "source-directories": [
+        ".",
         "./node_modules/@cultureamp/kaizen-component-library/components",
         "./node_modules/@cultureamp/kaizen-component-library/draft",
         "./node_modules/@cultureamp/kaizen-component-library/stories",
