@@ -1,0 +1,48 @@
+@import "~@cultureamp/kaizen-component-library/styles/color";
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  margin-top: var(--ca-grid);
+  width: 48%;
+  padding: var(--ca-grid);
+  box-sizing: border-box;
+  border: 1px solid $ca-border-color;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.19);
+  border-radius: 3px;
+  border-top-width: 7px;
+  border-top-style: solid;
+
+  :global(.md-ul.md-ul) {
+    padding-left: 1.25rem;
+  }
+
+  :global(.md-li.md-li) {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin-top: 0.75rem;
+  }
+
+  :global(.md-strong.md-strong) {
+    font-weight: 500;
+  }
+
+  :global(.md-a.md-a) {
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.do {
+  border-top-color: $ca-palette-seedling;
+}
+
+.dont {
+  border-top-color: $ca-palette-coral;
+}
