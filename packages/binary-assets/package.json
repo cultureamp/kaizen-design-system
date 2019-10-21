@@ -1,6 +1,6 @@
 {
   "name": "@cultureamp/kaizen-binary-assets",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Binary asset management for Culture Amp's Kaizen Design System.",
   "homepage": "https://github.com/cultureamp/kaizen-design-system/packages/binary-asset#readme",
   "license": "MIT",
