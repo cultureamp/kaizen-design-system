@@ -1,0 +1,10 @@
+*.ts
+!*.d.ts
+/draft-templates/
+/mocks/
+/stories/
+.gitignore
+.npmignore
+tsconfig.dist.json
+__snapshots__/
+*.spec.*
