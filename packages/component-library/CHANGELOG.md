@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.0.3...@cultureamp/kaizen-component-library@14.0.4) (2019-10-21)
+
+
+### Bug Fixes
+
+* Republish after fixing release pipeline script ([222a395](https://github.com/cultureamp/kaizen-design-system/commit/222a395))
+
+
+
+
+
 ## [14.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.0.2...@cultureamp/kaizen-component-library@14.0.3) (2019-10-21)
 
 
