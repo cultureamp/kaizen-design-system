@@ -1,0 +1,32 @@
+@import "../../styles/color";
+@import "../../styles/type";
+
+$ca-navigation-bar__height: 2.5 * $ca-grid;
+
+%ca-navigation-bar {
+  display: flex;
+  flex-direction: row;
+  background-color: add-shade($ca-palette-ink, 20%);
+  height: $ca-navigation-bar__height;
+  width: 100%;
+  position: fixed;
+
+  @media print {
+    display: none;
+  }
+}
+
+%ca-navigation-bar__menu-item-focus {
+  :global(.js-focus-visible) & {
+    // hide native focus ring when :focus but not :focus-visible
+    &:focus {
+      outline: none;
+    }
+
+    // show custom focus ring when :focus-visible
+    &:global(.focus-visible) {
+      color: #fff;
+      outline: 2px solid $ca-palette-ocean;
+    }
+  }
+}

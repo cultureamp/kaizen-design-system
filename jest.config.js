@@ -5,5 +5,8 @@ module.exports = {
   moduleNameMapper: {
     "\\.(jpe?g|png)$": "jest-static-stubs/$1",
     "\\.s?css$": "identity-obj-proxy",
+    "\\.svg$": require.resolve(
+      "@cultureamp/kaizen-component-library/mocks/svgMock"
+    ),
   },
 }

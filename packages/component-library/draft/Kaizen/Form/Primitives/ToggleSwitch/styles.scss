@@ -1,0 +1,78 @@
+@import "~@cultureamp/kaizen-component-library/styles/animation";
+@import "~@cultureamp/kaizen-component-library/styles/border";
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/layout";
+@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@cultureamp/kaizen-component-library/styles/mixins/forms";
+
+$animation-timing: $ca-duration-immediate $ca-linear;
+
+.checkbox {
+  @include form-input-visually-hidden();
+}
+
+.track {
+  border: 1px solid add-tint($ca-palette-ink, 70%);
+  background-color: $ca-palette-ash;
+  border-radius: $ca-grid;
+  width: ($ca-grid * 1.05) * 2;
+  height: ($ca-grid * 1.25);
+  padding: 0 $ca-grid * 0.15;
+  display: flex;
+  align-items: center;
+  transition: border-color $animation-timing, background-color $animation-timing;
+
+  .checkbox:disabled + & {
+    background-color: add-tint($ca-palette-ink, 90%);
+  }
+
+  .checkbox:focus:not([disabled]) + &,
+  .checkbox:hover:focus:not([disabled]) + & {
+    @include form-input-focus-border($ca-border-color-focus);
+  }
+
+  .checkbox:not([disabled]) + &:hover {
+    border-color: $ca-border-color-hover;
+  }
+}
+
+.thumb {
+  background-color: $white;
+  border: 1px solid transparent;
+  width: $ca-grid * 0.9;
+  height: $ca-grid * 0.9;
+  border-radius: $ca-grid;
+  box-shadow: $ca-box-shadow;
+  transition: left $animation-timing, right $animation-timing;
+}
+
+.on {
+  .checkbox:not([disabled]) + .track {
+    border-color: add-tint($ca-palette-ink, 30%);
+    background-color: $ca-palette-seedling;
+
+    &.freemium {
+      background-color: add-shade($ca-freemium-green, 10%);
+      border-color: add-shade($ca-freemium-green, 10%);
+    }
+  }
+
+  .thumb {
+    position: relative;
+    @include ca-position($start: $ca-grid * 0.8);
+  }
+}
+
+.off {
+  .thumb {
+    position: relative;
+    @include ca-position($start: 0);
+  }
+}
+
+.disabled {
+  .thumb {
+    background-color: $ca-palette-ash;
+    border-color: add-tint($ca-palette-ink, 70%);
+  }
+}

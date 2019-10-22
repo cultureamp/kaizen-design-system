@@ -1,0 +1,12 @@
+@import "~@cultureamp/kaizen-component-library/styles/layout";
+@import "~@cultureamp/kaizen-component-library/styles/type";
+
+.actions {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+.actionButton + .actionButton {
+  @include ca-margin($end: $ca-grid * 0.5);
+}

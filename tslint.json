@@ -4,7 +4,11 @@
     "exclude": ["**/*.js?(x)"]
   },
   "rules": {
-    "no-implicit-dependencies": [true, "dev", ["@storybook"]],
+    "no-implicit-dependencies": [
+      true,
+      "dev",
+      ["@cultureamp", "@storybook", "@testing-library", "react", "react-dom"]
+    ],
     "ordered-imports": true
   }
 }

@@ -1,0 +1,179 @@
+@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@cultureamp/kaizen-component-library/styles/border";
+@import "~@cultureamp/kaizen-component-library/styles/animation";
+
+@mixin select-border($color: $color) {
+  border-color: $color;
+  box-shadow: 0 0 0 1px $color;
+}
+
+.basePlaceholder {
+  @include ca-type-ideal-body;
+  margin-left: 2px;
+  margin-right: 2px;
+  top: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+  box-sizing: border-box;
+}
+.container {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.control {
+  align-items: center;
+  background-color: white;
+  cursor: default;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  min-height: 48px;
+  position: relative;
+  box-sizing: border-box;
+  border: solid 1px add-tint($ca-palette-ink, 90%);
+  border-radius: $ca-border-radius;
+  outline: 0 !important;
+
+  &:hover {
+    border-color: add-tint($ca-palette-ink, 80%);
+  }
+
+  &.isFocused {
+    @include select-border($color: $ca-palette-ocean);
+  }
+}
+
+.valueContainer {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  box-sizing: border-box;
+  flex: 1;
+  padding: 2px 8px;
+  overflow: hidden;
+}
+
+.singleValue {
+  @extend .basePlaceholder;
+  max-width: calc(100% - 8px);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.placeholder {
+  @extend .basePlaceholder;
+}
+
+.faded {
+  color: add-tint($ca-palette-ink, 70%);
+}
+
+.bold {
+  color: $ca-palette-ink;
+  font-weight: $ca-weight-book;
+}
+
+.fadedBold {
+  color: add-tint($ca-palette-ink, 70%);
+  font-weight: $ca-weight-book;
+}
+
+.indicators {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.indicatorContainer {
+  display: flex;
+  box-sizing: border-box;
+  padding: 8px;
+}
+
+.iconButton {
+  height: 20px;
+  composes: interactiveIconWrapper from "~@cultureamp/kaizen-component-library/components/Icon/Icon.module.scss";
+}
+
+.menu {
+  top: 100%;
+  background-color: white;
+  margin-bottom: 8px;
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: $ca-border-radius;
+  box-shadow: add-tint($ca-palette-ink, 90%) 0 0 0 1px,
+    add-tint($ca-palette-ink, 90%) 0 4px 11px;
+  z-index: 1;
+}
+
+.menuList {
+  max-height: 215px;
+  overflow-y: auto;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  position: relative;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.option {
+  @include ca-type-ideal-body-bold;
+  background-color: transparent;
+  color: inherit;
+  cursor: default;
+  display: block;
+  font-size: inherit;
+  width: 100%;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 8px $ca-grid / 2;
+  outline: none;
+
+  &.isTarget:not(.isSelected) {
+    background-color: $ca-palette-stone;
+  }
+
+  &:focus:not(.isSelected) {
+    background-color: add-tint($ca-palette-ink, 95%);
+  }
+
+  &.isFocused:not(.isSelected) {
+    background-color: add-tint($ca-palette-ink, 95%);
+  }
+}
+
+.isSelected {
+  background-color: add-tint($ca-palette-ocean, 90%);
+}
+
+.multiValue {
+  margin: 2px;
+  display: inline-block;
+}
+
+.cautionary {
+  @include select-border($color: add-tint($ca-palette-yuzu, 60%));
+
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.error {
+  @include select-border($color: add-tint($ca-palette-coral, 60%));
+
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.preventPointer {
+  pointer-events: none;
+}

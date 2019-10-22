@@ -1,0 +1,61 @@
+@import "~@cultureamp/kaizen-component-library/styles/border";
+@import "~@cultureamp/kaizen-component-library/styles/layout";
+
+.container {
+  border-radius: $ca-border-radius;
+  margin-bottom: $ca-grid;
+}
+
+.noMargin {
+  margin: 0;
+}
+
+// Border Style Variations
+
+.solid {
+  border-width: 1px;
+  border-style: solid;
+  padding: 1px;
+}
+
+.dashed {
+  border-style: dashed;
+  border-width: 2px;
+  padding: 0;
+}
+
+.none {
+  border: none;
+  padding: 2px;
+}
+
+// Background Style Variations
+
+.positive {
+  background: add-tint($ca-palette-seedling, 90%);
+  border-color: add-tint($ca-palette-seedling, 60%);
+  color: $ca-palette-lapis;
+}
+
+.negative {
+  background: add-tint($ca-palette-coral, 95%);
+  border-color: add-tint($ca-palette-coral, 60%);
+  color: $ca-palette-lapis;
+}
+
+.informative {
+  background: add-tint($ca-palette-ocean, 90%);
+  border-color: add-tint($ca-palette-ocean, 60%);
+  color: $ca-palette-lapis;
+}
+
+.cautionary {
+  background: add-tint($ca-palette-yuzu, 95%);
+  border-color: add-tint($ca-palette-yuzu, 60%);
+  color: $ca-palette-lapis;
+}
+
+.default {
+  background-color: $ca-palette-ash;
+  border-color: $ca-border-color;
+}

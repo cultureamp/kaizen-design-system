@@ -1,0 +1,54 @@
+{
+  "name": "@cultureamp/kaizen-component-library",
+  "description": "Component Library for Culture Amp's Kaizen Design System",
+  "homepage": "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/component-library",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cultureamp/kaizen-design-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cultureamp/kaizen-design-system/issues"
+  },
+  "files": [
+    "**/*",
+    "!**/*.ts",
+    "**/*.d.ts",
+    "!**/*.spec.*",
+    "!**/*.snap",
+    "!draft-templates",
+    "!mocks",
+    "!stories",
+    "!tsconfig.dist.json"
+  ],
+  "sideEffects": false,
+  "version": "14.0.5",
+  "private": false,
+  "license": "MIT",
+  "peerDependencies": {
+    "focus-visible": "^4.1.5",
+    "react": "^16.9.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.11",
+    "motion-ui": "^2.0.3",
+    "react-animate-height": "^2.0.15",
+    "react-focus-lock": "^1.19.1",
+    "react-media": "^1.9.2",
+    "react-transition-group": "^2.9.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.1.0",
+    "@types/classnames": "^2.2.6",
+    "@types/lodash": "^4.14.132",
+    "@types/uuid": "^3.4.4",
+    "rimraf": "^2.6.3"
+  },
+  "scripts": {
+    "prepublish": "yarn tsc --project tsconfig.dist.json",
+    "build": "yarn clean && yarn prepublish",
+    "build:watch": "yarn clean && yarn prepublish --watch",
+    "clean": "rimraf 'components/**/*.js' 'draft/**/*.js' 'util/**/*.js' 'index.js' 'components/**/*.js.map' 'draft/**/*.js.map' 'util/**/*.js.map' 'index.js.map' 'components/**/*.d.ts' 'draft/**/*.d.ts' 'util/**/*.d.ts' 'index.d.ts'"
+  }
+}

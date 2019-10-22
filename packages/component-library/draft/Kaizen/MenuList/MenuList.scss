@@ -1,0 +1,110 @@
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@cultureamp/kaizen-component-library/styles/layout";
+@import "~@cultureamp/kaizen-component-library/styles/border";
+@import "~@cultureamp/kaizen-component-library/styles/layers";
+@import "~@cultureamp/kaizen-component-library/styles/animation";
+@import "~@cultureamp/kaizen-component-library/components/Icon/Icon.module";
+
+$side-padding: 3/4 * $ca-grid;
+
+.menuList {
+  background: #fff;
+  border: 1px solid add-tint($ca-palette-ink, 90%);
+  box-shadow: $ca-box-shadow;
+  line-height: 40px;
+  max-height: $ca-grid * 10;
+  overflow: scroll;
+}
+
+.header {
+  padding: 10px $side-padding;
+  text-align: left;
+  color: add-alpha($ca-palette-ink, 40%);
+  border-bottom: $ca-border-color 1px solid;
+}
+
+.header__title {
+  @include ca-type-ideal-labels-and-legends;
+  @include ca-inherit-baseline;
+  display: block;
+}
+
+.menuItem {
+  @include ca-type-ideal-body;
+  @include ca-inherit-baseline;
+  @extend .interactiveIconWrapper;
+  background: transparent;
+  color: $ca-palette-ink;
+  cursor: pointer;
+  text-align: left;
+
+  transition: $ca-duration-immediate background-color ease,
+    $ca-duration-immediate color ease;
+
+  padding: 10px $side-padding;
+  text-decoration: none;
+  display: flex;
+  flex: 0 0 100%;
+
+  [dir="rtl"] & {
+    text-align: right;
+  }
+
+  &:hover,
+  &:focus {
+    background: $ca-palette-stone;
+    color: $ca-palette-ocean;
+    text-decoration: none;
+
+    .menuItem__Icon {
+      color: $ca-palette-ocean;
+    }
+  }
+}
+
+.menuItem--active {
+  @extend .active;
+}
+
+.menuItem--destructive {
+  color: add-shade($ca-palette-coral, 20%);
+  .menuItem__Icon {
+    color: add-shade($ca-palette-coral, 20%);
+  }
+}
+
+.menuItem__Label {
+  flex: 1;
+  margin-right: $ca-grid / 2;
+
+  [dir="rtl"] & {
+    margin-right: 0;
+    margin-left: $ca-grid / 2;
+  }
+}
+
+.menuItem__Icon {
+  text-align: right;
+  color: $ca-palette-ink;
+  position: relative;
+  top: 3px;
+
+  .hoverIcon & {
+    opacity: 0;
+  }
+  .menuItem--active &,
+  .hoverIcon:hover &,
+  .hoverIcon:focus & {
+    opacity: 1;
+  }
+}
+
+.separator {
+  height: 1px;
+  width: 100%;
+  border: 0;
+  background: add-tint($ca-palette-ink, 80%);
+  visibility: visible;
+  margin: 5px 0;
+}

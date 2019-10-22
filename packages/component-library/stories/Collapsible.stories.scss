@@ -1,0 +1,15 @@
+@import "~@cultureamp/kaizen-component-library/styles/layout";
+@import "~@cultureamp/kaizen-component-library/styles/border";
+
+.listItem {
+  @include ca-padding(
+    $top: $ca-grid,
+    $end: $ca-grid,
+    $bottom: $ca-grid,
+    $start: $ca-grid
+  );
+
+  & + .listItem {
+    border-top: 1px solid $ca-border-color;
+  }
+}

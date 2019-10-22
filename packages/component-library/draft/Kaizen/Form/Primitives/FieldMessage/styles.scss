@@ -1,0 +1,28 @@
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/type";
+
+$message-error-color: $ca-palette-lapis;
+$message-border-radius: 3px;
+
+.message {
+  @include ca-type-ideal-small-bold;
+  @include ca-inherit-baseline;
+  margin-top: 4px;
+}
+
+.default {
+  color: add-alpha($ca-palette-ink, 70%);
+
+  &.reversed {
+    color: $white;
+  }
+}
+
+.error {
+  padding: 0 $ca-grid / 2;
+  color: $message-error-color;
+  border-radius: $message-border-radius;
+  background: $ca-palette-input-validation-negative;
+  // Aligns error message with input focus ring
+  box-shadow: 0 0 0 1px $ca-palette-input-validation-negative;
+}
