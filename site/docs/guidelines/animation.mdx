@@ -264,6 +264,22 @@ There are different approaches to achieve expand and collapse animations with di
 * `height: 0` – the box shrinks height, so content inside is reflowed (can look awkward, or generate scrollbars, etc.).
 * `margin-top:` – the box stays the same size, but shifts up and consumes less space, so items below shift up. (This can result in overlapping content above if you are not careful!) Useful if you want to “slide behind” another element or if you time it so the shift up happens in conjunction with a fade out such that it has mostly faded out by the time it would overlap with other content.
 
+### Reduce motion
+
+Animation can cause accessibility issues, such as motion sickness in people with vestibular disorders. In components and bespoke animations or data visualizations, we can use the [`prefers-reduced-motion` CSS media feature](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion) or [`matchMedia` in JavaScript](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) where appropriate to reduce motion as users choose. This is particularly important for long or large animations, such as parallax effects, or anything that may be startling. For example:
+
+```
+.animation {
+  animation: pulsate 0.3s $ca-ease-in-out infinite both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animation {
+    animation: none;
+  }
+}
+```
+
 ## External links
 
 Here are some examples of existing design systems that use motion:
