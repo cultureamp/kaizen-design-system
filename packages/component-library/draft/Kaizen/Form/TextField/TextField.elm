@@ -17,6 +17,7 @@ module Kaizen.Form.TextField.TextField exposing
     , onBlurWithValue
     , onChange
     , onEnter
+    , onFocus
     , placeholder
     , reversed
     , status
@@ -84,6 +85,7 @@ type alias ConfigValue msg =
     , onChange : Maybe (String -> msg)
     , onBlur : Maybe (String -> msg)
     , onEnter : Maybe msg
+    , onFocus : Maybe msg
     , status : TextFieldStatus
     , icon : List (Html msg)
     , inline : Bool
@@ -106,6 +108,7 @@ defaults =
     , onChange = Nothing
     , onBlur = Nothing
     , onEnter = Nothing
+    , onFocus = Nothing
     , status = Default
     , icon = []
     , inline = False
@@ -198,6 +201,11 @@ onBlurWithValue msg (Config config) =
 onEnter : msg -> Config msg -> Config msg
 onEnter msg (Config config) =
     Config { config | onEnter = Just msg }
+
+
+onFocus : msg -> Config msg -> Config msg
+onFocus msg (Config config) =
+    Config { config | onFocus = Just msg }
 
 
 status : TextFieldStatus -> Config msg -> Config msg
@@ -303,6 +311,14 @@ view (Config config) =
             case config.onEnter of
                 Just msg ->
                     Input.onEnter msg inputConfig
+
+                Nothing ->
+                    inputConfig
+
+        maybeWithOnFocusProp inputConfig =
+            case config.onFocus of
+                Just msg ->
+                    Input.onFocusMsg msg inputConfig
 
                 Nothing ->
                     inputConfig
@@ -416,6 +432,7 @@ view (Config config) =
                 |> maybeWithOnChangeProp
                 |> maybeWithOnBlurWithValueProp
                 |> maybeWithOnEnterProp
+                |> maybeWithOnFocusProp
             )
         , fieldValidationMessageHtml
         , fieldDescriptionHtml

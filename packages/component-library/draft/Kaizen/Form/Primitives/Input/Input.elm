@@ -15,6 +15,7 @@ module Kaizen.Form.Primitives.Input.Input exposing
     , onBlurWithValue
     , onChange
     , onEnter
+    , onFocusMsg
     , placeholder
     , reversed
     , startIconAdornment
@@ -25,7 +26,7 @@ module Kaizen.Form.Primitives.Input.Input exposing
 import CssModules exposing (css)
 import Html exposing (..)
 import Html.Attributes
-import Html.Events exposing (onInput)
+import Html.Events exposing (onFocus, onInput)
 import Html.Extra exposing (nothing)
 import Kaizen.Events.Events as Events
 
@@ -82,6 +83,7 @@ type alias ConfigValue msg =
     , onChange : Maybe (String -> msg)
     , onBlur : Maybe (String -> msg)
     , onEnter : Maybe msg
+    , onFocus : Maybe msg
     , status : InputStatus
     , startIconAdornment : List (Html msg)
     , endIconAdornment : List (Html msg)
@@ -103,6 +105,7 @@ defaults =
     , onChange = Nothing
     , onBlur = Nothing
     , onEnter = Nothing
+    , onFocus = Nothing
     , status = Default
     , startIconAdornment = []
     , endIconAdornment = []
@@ -185,6 +188,11 @@ onBlurWithValue msg (Config config) =
 onEnter : msg -> Config msg -> Config msg
 onEnter msg (Config config) =
     Config { config | onEnter = Just msg }
+
+
+onFocusMsg : msg -> Config msg -> Config msg
+onFocusMsg msg (Config config) =
+    Config { config | onFocus = Just msg }
 
 
 status : InputStatus -> Config msg -> Config msg
@@ -281,6 +289,14 @@ view (Config config) =
                 Nothing ->
                     []
 
+        onFocusAttr =
+            case config.onFocus of
+                Just msg ->
+                    [ onFocus msg ]
+
+                Nothing ->
+                    []
+
         autoCompleteAttr =
             if config.autoComplete then
                 []
@@ -300,6 +316,7 @@ view (Config config) =
                 ++ onBlurWithValueAttr
                 ++ onEnterAttr
                 ++ autoCompleteAttr
+                ++ onFocusAttr
 
         -- HTML OUTPUT
         inputWrapperHtml =
