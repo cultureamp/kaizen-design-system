@@ -1,9 +1,6 @@
 {
   "version": "independent",
-  "ignoreChanges": [
-    "**/*.{stories,spec,test}.{js,jsx,ts,tsx}",
-    "**/*.{md,mdx}"
-  ],
+  "ignoreChanges": ["**/*.{stories,spec,test}.{js,jsx,ts,tsx}"],
   "npmClient": "yarn",
   "packages": ["packages/*"]
 }
