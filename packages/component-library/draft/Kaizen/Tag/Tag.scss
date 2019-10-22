@@ -1,0 +1,192 @@
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@cultureamp/kaizen-component-library/styles/layout";
+
+$pulse-size-initial: 2px;
+$pulse-scale-factor: 9;
+$pulse-size-after: $pulse-size-initial * $pulse-scale-factor;
+$medium: 30px;
+$small: 24px;
+$clearable-size-small: 14px;
+$validation-icon-size: 20px;
+
+@mixin baseColor(
+  $color: null,
+  $background-mix-percent: null,
+  $border-mix-percent: null
+) {
+  background-color: add-tint($color, $background-mix-percent);
+  border: 1px solid add-tint($color, $border-mix-percent);
+}
+
+.dismissIconColor {
+  color: add-tint($ca-palette-lapis, 50%);
+
+  &:hover {
+    color: add-tint($ca-palette-lapis, 40%);
+  }
+
+  &:active {
+    color: add-tint($ca-palette-lapis, 20%);
+  }
+}
+
+.root {
+  @include ca-type-ideal-small-bold;
+  @include ca-margin($end: 1rem);
+  display: inline-block;
+  border-radius: 15px;
+  padding: 0 ($ca-grid / 2);
+  max-height: 1.5rem;
+  position: inherit;
+  cursor: default;
+}
+
+.dismissIcon {
+  @extend .dismissIconColor;
+  margin-left: 4px;
+  margin-right: -4px;
+  height: $clearable-size-small;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.textContent {
+  @include ca-type-ideal-small-bold;
+  top: 0;
+  color: $ca-palette-lapis;
+}
+
+.truncate {
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+.inline {
+  margin: 0;
+}
+
+.medium {
+  height: $medium;
+  display: flex;
+  align-items: center;
+  position: inherit;
+  max-height: none;
+}
+
+.small {
+  display: flex;
+  align-items: center;
+  position: inherit;
+  height: $small;
+}
+
+.default {
+  background-color: add-tint($ca-palette-ink, 90%);
+  border: 1px solid transparent;
+
+  &.dismissible:hover {
+    border: 1px solid add-tint($ca-palette-ink, 70%);
+  }
+}
+
+.medium.validation {
+  padding-left: 30px;
+}
+
+.validationIcon {
+  height: $validation-icon-size;
+  position: absolute;
+  margin-left: -23px;
+}
+
+.cautionary {
+  @include baseColor(
+    $color: $ca-palette-yuzu,
+    $background-mix-percent: 95%,
+    $border-mix-percent: 40%
+  );
+
+  &:hover {
+    border: 1px solid add-tint($ca-palette-yuzu, 20%);
+  }
+
+  .validationIcon {
+    color: $ca-palette-yuzu;
+  }
+}
+
+.negative {
+  @include baseColor(
+    $color: $ca-palette-coral,
+    $background-mix-percent: 95%,
+    $border-mix-percent: 60%
+  );
+
+  &:hover {
+    border: 1px solid add-tint($ca-palette-coral, 40%);
+  }
+
+  .validationIcon {
+    color: $ca-palette-coral;
+  }
+}
+
+.peach {
+  background-color: add-tint($ca-palette-peach, 90%);
+  color: $ca-palette-peach;
+}
+
+.seedling {
+  background-color: add-tint($ca-palette-seedling, 90%);
+  color: add-shade($ca-palette-seedling, 30%);
+}
+
+.wisteria {
+  background-color: add-tint($ca-palette-wisteria, 90%);
+  color: $ca-palette-wisteria;
+}
+
+.pulse {
+  // bottom 3px is to nudge slightly so that it sits better inside the tag
+  @include ca-margin($bottom: 3px, $start: 0.5rem);
+  width: $pulse-size-initial;
+  height: $pulse-size-initial;
+  border-radius: 50%;
+  background-color: $ca-palette-ocean;
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+  opacity: 0.5;
+}
+
+.pulseRing {
+  position: absolute;
+  width: $pulse-size-after;
+  height: $pulse-size-after;
+  // this positioning has to be calculated as an exact value as scaling will mess with percentage values
+  left: -($pulse-size-after / 2) + ($pulse-size-initial / 2);
+  top: -($pulse-size-after / 2) + ($pulse-size-initial / 2);
+  border-radius: 50%;
+  background-color: $ca-palette-ocean;
+  animation: pulsate infinite 2.5s ease-out;
+}
+
+.noAnimation {
+  animation: none;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50%,
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}

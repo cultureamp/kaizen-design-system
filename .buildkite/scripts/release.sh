@@ -39,6 +39,7 @@ setup_npm() {
   npm config set username cultureamp-user
   npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
   npm config set access public
+  npm config set unsafe-perm true
 
   echo "Checking npm authentication..."
   echo "Logged in as: $(npm whoami)"
@@ -47,12 +48,14 @@ setup_npm() {
 release() {
   git checkout master && git pull
 
+  yarn install --frozen-lockfile
+
   # Bump packages, push and tag a release commit, and update release notes
-  lerna version --conventional-commits --create-release=github --yes \
+  yarn lerna version --conventional-commits --create-release=github --yes \
     --message "chore: release [skip ci]" 
   
   # Publish any package versions which are not already present on npm
-  lerna publish from-package --yes
+  yarn lerna publish from-package --yes
 }
 
 main() {

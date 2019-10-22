@@ -1,0 +1,60 @@
+@import "~@cultureamp/kaizen-component-library/styles/border";
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/layout";
+@import "~@cultureamp/kaizen-component-library/styles/responsive";
+@import "~@cultureamp/kaizen-component-library/styles/type";
+
+.button {
+  @include ca-type-ideal-button;
+  @include ca-inherit-baseline;
+  top: 0;
+  padding-top: $ca-grid * 0.25;
+  color: $ca-palette-ink;
+  border: 0;
+  border-bottom: 4px solid transparent;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  transition: border-height 0.6s linear;
+
+  &:hover {
+    text-decoration: none;
+    color: $ca-palette-ocean;
+    border-bottom-color: $ca-palette-ocean;
+  }
+
+  @include ca-media-tablet-and-up {
+    color: $ca-palette-ink;
+  }
+
+  @include ca-media-mobile {
+    margin: 0;
+    padding-bottom: 5px;
+  }
+}
+
+.button + .button {
+  @include ca-margin($start: $ca-grid);
+}
+
+.activeButton {
+  composes: button;
+  color: $ca-palette-ocean;
+  border-bottom-color: $ca-palette-ocean;
+
+  &.reversed {
+    border-bottom-color: #fff;
+  }
+}
+
+.reversed {
+  color: #fff;
+
+  &.button {
+    &:hover {
+      color: #fff;
+      border-bottom-color: #fff;
+    }
+  }
+}

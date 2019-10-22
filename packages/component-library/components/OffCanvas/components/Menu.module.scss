@@ -1,0 +1,38 @@
+@import "../../../styles/color";
+@import "../../../styles/type";
+
+$menu-header-height: 60px;
+$menu-footer-height: 100px;
+
+.links {
+  max-height: calc(100vh - #{$menu-header-height + $menu-footer-height});
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  > ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+}
+
+.child {
+  display: flex;
+  flex: 0 0 auto;
+  text-decoration: none;
+
+  &.secondary.first {
+    border-top: 1px solid add-tint($ca-palette-ink, 10%);
+    padding-top: $ca-grid / 2;
+    margin-top: $ca-grid / 2;
+  }
+}
+
+.otherChildren {
+  display: flex;
+  margin-left: -1px;
+}
+
+.active {
+  background-color: add-tint($ca-palette-ink, 10%);
+}

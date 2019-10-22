@@ -1,0 +1,444 @@
+@import "~@cultureamp/kaizen-component-library/styles/border";
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@cultureamp/kaizen-component-library/styles/layers";
+@import "~@cultureamp/kaizen-component-library/styles/layout";
+@import "~@cultureamp/kaizen-component-library/styles/responsive";
+@import "~@cultureamp/kaizen-component-library/styles/animation";
+
+.titleBlockContainer {
+  width: 100%;
+}
+
+.titleBlock {
+  background-color: #fff;
+  border-bottom: 1px solid $ca-border-color;
+  color: $ca-palette-ink;
+  width: inherit;
+
+  @media print {
+    display: none;
+  }
+}
+
+.titleBlockInner {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  max-width: $ca-layout-max-width;
+  padding: 0 $ca-layout-side-padding;
+  height: $ca-layout-title-block-height;
+  margin: 0 auto;
+
+  @include ca-media-tablet {
+    height: $ca-layout-title-block-tablet-height;
+  }
+
+  @include ca-media-mobile {
+    height: $ca-layout-title-block-mobile-height;
+    padding-left: $ca-grid;
+    padding-right: $ca-grid;
+  }
+}
+
+.breadcrumb {
+  @include ca-type-ideal-small;
+  display: flex;
+  position: absolute;
+  z-index: $ca-z-index-popover;
+  align-items: center;
+  top: $ca-layout-title-block-height / 2;
+  transform: translateY(-50%);
+  left: -38px;
+  color: $ca-link-text-color;
+  height: 45px;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  [dir="rtl"] & {
+    left: auto;
+    right: -38px;
+  }
+
+  @media only screen and (max-width: $ca-layout-max-width + ($ca-layout-side-padding * 2)) {
+    position: relative;
+    @include ca-margin($end: $ca-grid * 1.5);
+    left: 0;
+
+    [dir="rtl"] & {
+      right: 0;
+    }
+  }
+
+  @include ca-media-tablet {
+    top: $ca-layout-title-block-tablet-height / 2;
+  }
+
+  @include ca-media-mobile {
+    display: none;
+  }
+}
+
+.breadcrumbText {
+  flex: 0 0 $ca-grid * 8;
+  @include ca-type-ideal-heading;
+  top: 0;
+  display: none;
+  @include ca-margin($start: $ca-grid);
+  white-space: nowrap;
+
+  .breadcrumb:hover &,
+  .breadcrumb:focus & {
+    display: inline-block;
+    animation: slide-fade 0.4s;
+
+    [dir="rtl"] & {
+      animation: reverse-slide-fade 0.4s;
+    }
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  [dir="rtl"] & {
+    margin-left: 0;
+    margin-right: $ca-grid;
+  }
+}
+
+.circle {
+  flex: 0 0 40px;
+  height: 40px;
+  border-radius: 40px;
+  background-color: add-alpha($ca-palette-ocean, 10%);
+  color: $ca-palette-ocean;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  .breadcrumb:hover &,
+  .breadcrumb:focus & {
+    background-color: $ca-palette-ocean;
+    color: #fff;
+    transform: scale(1.1);
+  }
+}
+
+.leftContent {
+  display: flex;
+  transition: opacity 0.3s ease;
+  flex: 1 0 auto;
+
+  .breadcrumb:hover + &,
+  .breadcrumb:focus + & {
+    opacity: 0;
+  }
+
+  @include ca-media-mobile {
+    justify-content: center;
+  }
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  @include ca-media-mobile {
+    justify-content: center;
+  }
+}
+
+.title {
+  @include ca-type-ideal-page-title;
+  display: inline-block;
+  top: auto;
+
+  @include ca-media-tablet {
+    @include ca-type-ideal-title;
+    @include ca-inherit-baseline;
+  }
+
+  @include ca-media-mobile {
+    @include ca-type-ideal-display;
+    @include ca-inherit-baseline;
+  }
+}
+
+.textContainer {
+  display: flex;
+  align-items: baseline;
+}
+
+.subtitle {
+  @include ca-type-ideal-heading;
+  display: inline-block;
+  top: auto;
+  @include ca-margin($start: $ca-grid);
+
+  @include ca-media-mobile {
+    display: none;
+  }
+}
+
+.tag {
+  margin-left: $ca-grid / 1.5;
+}
+
+.actionsContainer {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+
+  @include ca-media-mobile {
+    display: none;
+  }
+}
+
+.buttonWrapper {
+  margin: 0 ($ca-grid / 2);
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+// scss-lint:disable ImportantRule
+.copyButton {
+  margin-right: 12px !important;
+  margin-left: 0 !important;
+  margin-top: 0 !important;
+}
+// scss-lint:enable ImportantRule
+
+@keyframes slide-fade {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes reverse-slide-fade {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.navContainer {
+  @include ca-inherit-baseline;
+  display: flex;
+  flex: 1;
+  align-items: stretch;
+  height: 100%;
+  color: $ca-palette-ink;
+  @include ca-margin($start: $ca-grid * 1.5);
+
+  @include ca-media-mobile {
+    display: flex;
+    margin: 0;
+    border-bottom: 1px solid $ca-border-color;
+    width: 100%;
+    background: #fff;
+  }
+
+  .navButtonsContainer {
+    display: flex;
+
+    @include ca-media-mobile {
+      @include ca-padding($start: $ca-grid, $top: $ca-grid * 0.5);
+    }
+  }
+}
+
+// Some hackiness to make mobile nav work in Elm 0.18:
+.nonMobileNav {
+  @include ca-media-mobile {
+    display: none;
+  }
+}
+
+.mobileNav {
+  @include ca-media-tablet-and-up {
+    display: none;
+  }
+}
+
+//--------------------- REVERSE COLORS ---------------------//
+
+.reversed {
+  color: #fff;
+
+  @include ca-media-tablet-and-up {
+    .title {
+      color: #fff;
+    }
+  }
+
+  .subtitle {
+    color: #fff;
+  }
+
+  .breadcrumb {
+    &:hover {
+      .circle {
+        background-color: add-alpha(#fff, 40%);
+      }
+    }
+  }
+
+  .circle {
+    background-color: add-alpha(#fff, 20%);
+  }
+
+  .titleBlock {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .navContainer {
+    background: transparent;
+
+    @include ca-media-mobile {
+      border-bottom: 1px solid #fff;
+    }
+  }
+}
+
+.reverseColorLapis {
+  @include ca-media-tablet-and-up {
+    background-color: $ca-palette-lapis;
+  }
+}
+
+.reverseColorOcean {
+  @include ca-media-tablet-and-up {
+    background-color: $ca-palette-ocean;
+  }
+}
+
+.reverseColorPeach {
+  @include ca-media-tablet-and-up {
+    background-color: $ca-palette-peach;
+  }
+}
+
+.reverseColorSeedling {
+  @include ca-media-tablet-and-up {
+    background-color: $ca-palette-seedling;
+  }
+}
+
+.reverseColorWisteria {
+  @include ca-media-tablet-and-up {
+    background-color: $ca-palette-wisteria;
+  }
+}
+
+.reverseColorYuzu {
+  @include ca-media-tablet-and-up {
+    background-color: $ca-palette-yuzu;
+  }
+}
+
+.reverseColorTransparent {
+  @include ca-media-tablet-and-up {
+    background-color: transparent;
+  }
+}
+
+%backgroundAnimated {
+  will-change: background-color;
+  transition: background-color $ca-duration-rapid $ca-linear;
+}
+
+%heightAnimated {
+  will-change: height;
+  transition: height $ca-duration-rapid $ca-ease-in;
+}
+
+.compact {
+  @include ca-media-tablet-and-up {
+    box-shadow: $ca-box-shadow;
+
+    .titleBlockInner {
+      height: $ca-layout-title-block-tablet-height;
+    }
+  }
+}
+
+.sticky {
+  position: fixed;
+  z-index: $ca-z-index-sticky;
+
+  .titleBlock {
+    @extend %backgroundAnimated;
+  }
+
+  .titleBlockInner {
+    @extend %heightAnimated;
+  }
+}
+
+.stickyColorLapis {
+  @include ca-media-tablet-and-up {
+    background-color: add-tint($ca-palette-lapis, 20%);
+  }
+}
+
+.stickyColorOcean {
+  @include ca-media-tablet-and-up {
+    background-color: add-tint($ca-palette-ocean, 20%);
+  }
+}
+
+.stickyColorPeach {
+  @include ca-media-tablet-and-up {
+    background-color: add-tint($ca-palette-peach, 20%);
+  }
+}
+
+.stickyColorSeedling {
+  @include ca-media-tablet-and-up {
+    background-color: add-tint($ca-palette-seedling, 20%);
+  }
+}
+
+.stickyColorWisteria {
+  @include ca-media-tablet-and-up {
+    background-color: add-tint($ca-palette-wisteria, 20%);
+  }
+}
+
+.stickyColorYuzu {
+  @include ca-media-tablet-and-up {
+    background-color: add-tint($ca-palette-yuzu, 20%);
+  }
+}
+
+.stickyColorTransparent {
+  @include ca-media-tablet-and-up {
+    background-color: transparent;
+  }
+}

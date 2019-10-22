@@ -1,0 +1,63 @@
+@import "../../styles/color";
+@import "../../styles/type";
+@import "../../styles/animation";
+@import "../Button/styles";
+
+$hamburger-width: 18px;
+$hamburger-layer-height: 2px;
+$hamburger-layer-spacing: 3px;
+
+.root {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transform: translate3d(-120%, 0, 0);
+  background-color: $ca-palette-ink;
+  transition: transform $ca-duration-fast $ca-ease-out;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.active {
+  // Here we need to do a 3d transform and z-index bump
+  // in order to promote this to its own layer
+  transform: translate3d(0, 0, 0);
+  z-index: 1;
+}
+
+.trigger {
+  @include button-reset;
+  position: absolute;
+  top: $ca-grid;
+  left: $ca-grid / 2;
+  color: $ca-palette-ocean;
+}
+
+.hamburger {
+  width: $hamburger-width;
+  height: $hamburger-layer-height;
+  background-color: add-tint($ca-palette-ocean, 30%);
+  position: relative;
+  display: block;
+
+  &::before {
+    content: "";
+    width: $hamburger-width;
+    height: $hamburger-layer-height;
+    position: absolute;
+    top: $hamburger-layer-height + $hamburger-layer-spacing;
+    left: 0;
+    background-color: add-tint($ca-palette-ocean, 30%);
+  }
+
+  &::after {
+    content: "";
+    width: $hamburger-width;
+    height: $hamburger-layer-height;
+    position: absolute;
+    top: ($hamburger-layer-height + $hamburger-layer-spacing) * 2;
+    left: 0;
+    background-color: add-tint($ca-palette-ocean, 30%);
+  }
+}

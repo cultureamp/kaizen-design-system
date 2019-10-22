@@ -8,6 +8,3 @@ RUN apk add --no-cache \
 
 RUN pip install \
   awscli
-
-RUN npm config set unsafe-perm true \
-  && npm install --global --no-audit lerna

@@ -1,0 +1,434 @@
+@import "../../styles/border";
+@import "../../styles/color";
+@import "../../styles/type";
+@import "../../styles/layout";
+
+$caButton-border-width: 1px;
+$caButton-focus-border-width: 2px;
+$caButton-height: $ca-grid * 2;
+$caButtonIcon-height: 20px;
+$caButton-formHeight: $ca-grid * 5/3;
+$caButton-verticalPadding: calc(#{$ca-grid / 2} - #{$caButton-border-width});
+$caButton-verticalPaddingForm: calc(
+  #{$ca-grid / 3} - #{$caButton-border-width}
+);
+
+// reset user agent syles for button elment type
+@mixin button-reset {
+  appearance: none;
+  background: transparent;
+  border: none;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  transition: none; // override Murmur global styles :(
+}
+
+%caButtonContainer {
+  @include ca-type-block(inline-block);
+}
+
+%caButton {
+  @include button-reset;
+  @include ca-type-ideal-button;
+
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: $caButton-height;
+  border: $caButton-border-width solid;
+  border-radius: $ca-border-radius;
+  // looking for padding? See %caButtonContent
+
+  &[href] {
+    text-decoration: none;
+  }
+
+  // Enabled (to restrict application of hover/focus/active styles)
+  //
+  // We can't just used :enabled here, because we want to be able to apply these
+  // styles to non-form elements, such as hyperlinks. :not(:disabled) is
+  // equivalent to :enabled on form elements, but also allows these styles to be
+  // applied to elements that have no enabled/disabled states.
+  &:not(:disabled) {
+    background: $white;
+    border-color: add-tint($ca-palette-ink, 80%);
+    color: $ca-palette-ink;
+
+    &:hover,
+    &:active {
+      background: $ca-palette-stone;
+      border-color: add-tint($ca-palette-ink, 60%);
+    }
+
+    &:active {
+      background: $ca-palette-ash;
+      border-color: add-tint($ca-palette-ink, 40%);
+      transform: translateY(1px);
+    }
+
+    // Use JS polyfill to simulate :focus-visible, not yet supported by browsers
+    // https://github.com/WICG/focus-visible#backwards-compatibility
+    :global(.js-focus-visible) & {
+      // hide native focus ring when :focus but not :focus-visible
+      &:focus {
+        outline: none;
+      }
+
+      // show custom focus ring when :focus-visible
+      &:global(.focus-visible) {
+        border: $caButton-focus-border-width solid $ca-palette-ocean;
+      }
+    }
+  }
+
+  // Disabled
+  &:disabled {
+    background: $white;
+    border-color: add-tint($ca-palette-ink, 80%);
+    color: add-tint($ca-palette-ink, 70%);
+  }
+}
+
+%caButtonForm {
+  min-height: $caButton-formHeight;
+}
+
+%caButtonPrimary,
+%caButtonDestructive {
+  &:not(:disabled) {
+    background: add-tint($ca-palette-seedling, 10%);
+    border-color: add-tint($ca-palette-seedling, 10%);
+    color: $white;
+
+    &:hover {
+      background: $ca-palette-seedling;
+      border-color: $ca-palette-seedling;
+    }
+
+    &:active {
+      background: add-shade($ca-palette-seedling, 10%);
+      border-color: add-shade($ca-palette-seedling, 10%);
+    }
+  }
+
+  &:disabled {
+    background: add-tint($ca-palette-ink, 90%);
+    border-color: add-tint($ca-palette-ink, 90%);
+  }
+}
+
+%caButtonDestructive:not(:disabled) {
+  background: $ca-palette-coral;
+  border-color: $ca-palette-coral;
+
+  &:hover {
+    background: add-shade($ca-palette-coral, 10%);
+    border-color: add-shade($ca-palette-coral, 10%);
+  }
+
+  &:active {
+    background: add-shade($ca-palette-coral, 15%);
+    border-color: add-shade($ca-palette-coral, 15%);
+  }
+
+  :global(.js-focus-visible) &:global(.focus-visible) {
+    border-color: add-shade($ca-palette-coral, 40%);
+  }
+}
+
+%caButtonSecondary {
+  @include ca-type-ideal-body-bold;
+
+  &:not(:disabled) {
+    background: transparent;
+    border-color: transparent;
+    color: add-tint($ca-palette-ocean, 30%);
+
+    %caButtonLabel {
+      color: $ca-palette-ocean;
+    }
+
+    &:hover,
+    &:active {
+      color: $ca-palette-ocean;
+      background: $ca-palette-ash;
+      border-color: transparent;
+    }
+
+    &:active {
+      background: add-tint($ca-palette-ink, 90%);
+    }
+  }
+
+  &:disabled {
+    background: transparent;
+    border-color: transparent;
+    color: add-tint($ca-palette-ink, 70%);
+  }
+}
+
+%caButtonReversed {
+  &:not(:disabled) {
+    background: transparent;
+    border-color: $white;
+    color: $white;
+
+    &:hover {
+      background: add-alpha($white, 10%);
+      border-color: $white;
+    }
+
+    :global(.js-focus-visible) &:global(.focus-visible) {
+      border-color: $ca-palette-yuzu;
+
+      &:not(:active) {
+        background: add-alpha($white, 10%);
+      }
+    }
+
+    &:active {
+      background: add-alpha($white, 20%);
+      border-color: $white;
+    }
+  }
+
+  &:disabled {
+    background: transparent;
+    border-color: add-alpha($white, 30%);
+    color: add-alpha($white, 30%);
+  }
+
+  &%caButtonPrimary {
+    &:not(:disabled) {
+      background: $white;
+      border-color: transparent;
+      color: $ca-palette-ink;
+
+      &%caButtonReverseColorLapis {
+        color: $ca-palette-lapis;
+      }
+
+      &%caButtonReverseColorOcean {
+        color: $ca-palette-ocean;
+      }
+
+      &%caButtonReverseColorPeach {
+        color: $ca-palette-peach;
+      }
+
+      &%caButtonReverseColorSeedling {
+        color: $ca-palette-seedling;
+      }
+
+      &%caButtonReverseColorWisteria {
+        color: $ca-palette-wisteria;
+      }
+
+      &%caButtonReverseColorYuzu {
+        color: $ca-palette-yuzu;
+      }
+
+      &:hover {
+        background: add-alpha($white, 95%);
+      }
+
+      :global(.js-focus-visible) &:global(.focus-visible) {
+        border-color: $ca-palette-yuzu;
+
+        &:not(:active) {
+          background: add-alpha($white, 95%);
+        }
+      }
+
+      &:active {
+        background: add-alpha($white, 90%);
+        border-color: transparent;
+      }
+    }
+
+    &:disabled {
+      background: add-alpha($white, 10%);
+      border-color: transparent;
+    }
+  }
+
+  &%caButtonSecondary {
+    &:not(:disabled) {
+      background: transparent;
+      border-color: transparent;
+      color: $white;
+
+      %caButtonLabel {
+        color: $white;
+      }
+
+      &:hover {
+        background: add-alpha($white, 10%);
+      }
+
+      &:active {
+        background: add-alpha($white, 20%);
+      }
+
+      :global(.js-focus-visible) &:global(.focus-visible) {
+        border-color: $ca-palette-yuzu;
+
+        &:not(:active):not(:hover) {
+          background: transparent;
+        }
+      }
+    }
+
+    &:disabled {
+      background: transparent;
+      border-color: transparent;
+      color: add-alpha($white, 30%);
+    }
+  }
+}
+
+%caButtonContent {
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  padding: $caButton-verticalPadding
+    calc(#{$ca-grid * 1} - #{$caButton-border-width});
+
+  %caButtonSecondary & {
+    padding-left: calc(#{$ca-grid * 0.5} - #{$caButton-border-width});
+    padding-right: calc(#{$ca-grid * 0.5} - #{$caButton-border-width});
+  }
+
+  %caButtonForm & {
+    padding-top: $caButton-verticalPaddingForm;
+    padding-bottom: $caButton-verticalPaddingForm;
+  }
+
+  :global(.js-focus-visible) %caButton:global(.focus-visible) & {
+    padding: calc(#{$ca-grid / 2} - #{$caButton-focus-border-width})
+      calc(#{$ca-grid * 1} - #{$caButton-focus-border-width});
+  }
+
+  :global(.js-focus-visible) %caButtonSecondary:global(.focus-visible) & {
+    padding: calc(#{$ca-grid / 2} - #{$caButton-focus-border-width})
+      calc(#{$ca-grid * 0.5} - #{$caButton-focus-border-width});
+  }
+
+  :global(.js-focus-visible) %caButton%caButtonForm:global(.focus-visible) & {
+    padding: calc(#{$ca-grid / 3} - #{$caButton-focus-border-width})
+      calc(#{$ca-grid * 1} - #{$caButton-focus-border-width});
+  }
+
+  :global(.js-focus-visible)
+    %caButtonSecondary%caButtonForm:global(.focus-visible)
+    & {
+    padding: calc(#{$ca-grid / 3} - #{$caButton-focus-border-width})
+      calc(#{$ca-grid * 0.5} - #{$caButton-focus-border-width});
+  }
+}
+
+%caButtonLabel {
+  // This line height equates to 3/4 of a grid unit - so 18px. We set this
+  // here rather than in ca-type-ideal-button because changing the type style
+  // changes the baseline grid alignment for all buttons. Changing it here keeps
+  // the baseline alignment correct for single line buttons.
+  line-height: 1;
+
+  &:only-child {
+    margin: 0 $ca-grid / 2;
+
+    %caButtonSecondary & {
+      margin: 0;
+    }
+  }
+
+  &:not(:first-child) {
+    @include ca-margin($start: 0.5em);
+  }
+
+  &:not(:last-child) {
+    @include ca-margin($end: 0.5em);
+  }
+}
+
+%caButtonIconWrapper {
+  height: $caButtonIcon-height;
+  align-self: flex-start;
+}
+
+%caButtonIconButton {
+  width: $caButton-height;
+
+  // Reset for various states and variants
+  &:not(:disabled),
+  &:disabled {
+    &,
+    &:hover,
+    &:active,
+    &%caButtonPrimary,
+    &%caButtonSecondary {
+      color: $ca-palette-ink;
+      background: none;
+      border-color: transparent;
+
+      &%caButtonReversed {
+        color: white;
+        &%caButtonPrimary {
+          %caButtonContent {
+            color: white;
+            background: none;
+          }
+        }
+      }
+    }
+  }
+  &%caButtonReversed,
+  :global(.js-focus-visible) &:global(.focus-visible) {
+    %caButtonContent {
+      padding: 0;
+    }
+  }
+
+  %caButtonContent {
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    // IE 10/11 workaround to fix vertical centering of icon
+    margin: calc(
+        (((#{$caButton-height}) - #{$caButtonIcon-height}) / 2) - #{$caButton-border-width}
+      )
+      0;
+  }
+
+  &%caButtonForm {
+    width: $caButton-formHeight;
+  }
+
+  &%caButtonDestructive:not(:disabled) {
+    &:hover,
+    &:active {
+      color: $ca-palette-coral;
+    }
+
+    :global(.js-focus-visible) &:global(.focus-visible) {
+      border-color: $ca-palette-ocean;
+    }
+  }
+}
+
+%caButtonDestructiveModifier {
+  &:not(:disabled) {
+    color: $ca-palette-coral;
+
+    %caButtonLabel {
+      color: add-shade($ca-palette-coral, 20%);
+    }
+  }
+
+  &:hover span,
+  &:active span {
+    color: $ca-palette-coral;
+  }
+}
