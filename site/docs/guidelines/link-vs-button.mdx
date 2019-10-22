@@ -1,0 +1,117 @@
+---
+title: Link vs Button
+navTitle: Link vs Button
+summaryParagraph: Links navigate to another page and can be opened in a new tab. Buttons perform actions.
+tags: ["Opens in new tab tooltip", "target=blank", "Trigger", "onClick", "Primary action", "Secondary action", "Default action", "Destructive action"]
+inComparingSection: true
+needToKnow:
+  - "Links navigate somewhere, can be opened in a new tab, and have a destination that can be bookmarked."
+  - "Links that “open in a new tab” must use the “opens in new tab” tooltip."
+  - "Buttons perform actions. If it cannot be opened in a new tab, use a Button."
+  - "Link content opens in a new tab only when absolutely necessary. A new tab can be disorienting. If we need to open something in a new tab, we must use an "Opens in a new tab" tooltip to set expectations and minimise disorientation."
+---
+
+## To keep in mind
+
+*   Is it a link or a button?
+    *   **Links navigate** somewhere and **can be opened in a new tab.** They have a **destination that can be bookmarked.**
+    *   **Buttons perform actions**. If a “link” cannot be opened in a new tab, use a **button** instead.
+*   **Secondary Action Buttons** kind of **look like links** but have lots of padding, a large clickable area, and sit next to other buttons, such as a Primary button. These are button elements and behave as buttons. That is, they perform actions and do not navigate.
+*   If it behaves like a button it needs to look like a button:
+    *   UI design that includes a link that has an action should consider if it’s absolutely necessary to be styled as a link. Ideally, it is a button.
+    *   In exceptional circumstances, such as certain links that open modals, we may use a **link element** and give it **button behavior**:
+        *   Give it a role of button i.e. role=”button”
+        *   Give it an onclick function that prevents default link behavior
+        *   For the href, give it a fragment identifier such as #modal
+        *   Another approach we probably won’t use:
+            *   Use a link element that actually navigates to the modal content hidden on the page and trigger a modal to open. This approach probably requires routing, and making it possible to navigate directly to the modal via a URL. This would only be possible for information modals, NOT confirmation modals that have actions such as confirmation of deleting an object on the page.
+        *   Another approach we probably won’t use:
+            *   Use a button element styled as a link. This is likely to be more pain than it’s worth, due to baseline grid adjustments, button padding, and more.
+*   **Links that “open in a new tab” must use the “opens in new tab tooltip”**
+*   **Cursors:**
+    *   We settled on following the Operating System (OS) defaults:
+        *   Links use pointer cursors that look like a hand pointing (“cursor: pointer”)
+        *   Buttons have default cursors that look like an arrow (“cursor: default”)
+    *   When Secondary Action Buttons are used as links, this can lead to a slightly confusing experience because the cursor changes. This can prompt a conversation about why we’re using a Secondary Action Buttons as link.
+    *   One case for this approach:
+        *   [Cursor pointer](http://kizu.ru/en/issues/cursor-pointer/)
+    *   One case against this approach:
+        *   [Buttons shouldn't have a hand cursor](https://adamsilver.io/articles/buttons-shouldnt-have-a-hand-cursor/)
+        *   [Buttons shouldn't have a hand cursor: part 2](https://adamsilver.io/articles/buttons-shouldnt-have-a-hand-cursor-part-2/)
+    *   Until we have strong user research evidence that this is a problem, we will stick with this.
+
+## Opens in new tab tooltip
+
+"Opens in a new tab" tooltip warns people that a link or button will open something in a new tab to avoid disrupting their workflow.
+
+We rarely open links in new tabs. We **use a new tab only when necessary** when we want to avoid disorienting people. We use an "Opens in a new tab" tooltip every time we open something in a new tab to set expectations and minimize disorientation.
+
+See this [InVision project](https://cultureamp.invisionapp.com/share/FXNQYLFUHSJ#/316728973_Index) that shows some alternative design treatments we considered. Our considerations include how to:
+
+- accessibly let people know something will open in a new tab before interacting with it,
+- be consistent across the platform,
+- be flexible to different scenarios.
+
+### When to use
+
+- You’re in the middle of a Workflow or Form where opening something in the current tab would result in data loss or lost progress.
+
+- You’re currently playing media that would be interrupted.
+
+- It’s a mailto: link that will open the user’s preferred mail client.
+
+### When not to use
+
+- Avoid "Opens in new tab" tooltip on a link to a PDF.
+
+- Avoid "Opens in new tab" tooltip on an infinite-scrolling page.
+
+- Avoid "Opens in new tab" tooltip on a link to an ‘external’ website.
+
+### Keep in mind
+
+* Tooltip text:
+    * When a link or button will open something in a new tab, show a tooltip that says “Opens in a new tab”. If other info needs to appear in the tooltip, say “Verb noun (opens in a new tab)”, e.g. “Duplicate survey (opens in a new tab)”. Mostly, that action will be visible on the page already.
+
+* In a **multi-step or long-running process** such as our employee data import wizard, it might be better to maintain state and let people navigate to a new link in the same tab and come back to the same place without losing their progress. 
+
+* On an **infinite-scrolling page**, we can avoid using a link that opens in a new tab by making sure the “back” button remembers the state and keeps the user’s place in the scrolling stream of content.
+
+* From a **modal**, we can avoid using a link that opens in a new tab by making sure the “back” button remembers the state and keeps the user’s place so returning to the page shows the open modal.
+
+**If you’re not sure** how disruptive the link is, consider a call to action like “Open the survey preview page in a new tab to see what participants will see.”
+
+In some cases, such as the survey designer’s “Preview” opening in a new tab, we might still want to show user’s a way to navigate forward through the app to return to the previous place, for example, the survey designer.
+
+For [tooltips](/components/tooltip) in general, they must appropriately respond to changes in viewport and not get cut off at the edge of the screen or the edges of a modal. They must also be triggered on hover and (keyboard/touch) focus.
+
+
+### See also
+
+*   [Button](/components/button).
+*   [Typography](/guidelines/typography).
+*   [Icon Button](/components/icon-button).
+*   [Tooltips](/components/tooltip).
+
+
+### Research Insights
+
+We’ve seen customers frustrated about Academy articles NOT opening in a new tab and then being unable to navigate back to the app. 
+
+
+
+## External links
+
+Here are some examples of other existing design systems:
+
+- [Lightning: button](https://www.lightningdesignsystem.com/components/buttons/#site-main-content).
+- [Polaris: link](https://polaris.shopify.com/components/navigation/link).
+- [Polaris: button](https://polaris.shopify.com/components/actions/button).
+- [Material: buttons](https://material.io/design/components/buttons.html#).
+- [Material: button component](https://material.io/develop/web/components/buttons/).
+- [WCAG 2.0 technique G200: Opening new windows and tabs from a link only when necessary](https://www.w3.org/TR/WCAG20-TECHS/G200.html).
+- [WCAG 2.0 techique G201: Giving users advanced warning when opening a new window](https://www.w3.org/TR/WCAG20-TECHS/G201.html).
+- [CSS Tricks: Use target="blank"](https://css-tricks.com/use-target_blank/).
+- [Why let someone know when a link opens a new window? by Scott Vinkle](https://medium.com/@svinkle/why-let-someone-know-when-a-link-opens-a-new-window-8699d20ed3b1).
+
+
