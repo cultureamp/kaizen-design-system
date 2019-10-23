@@ -9,21 +9,31 @@ const exclamation = require("@cultureamp/kaizen-component-library/icons/exclamat
   .default
 const styles = require("./WhenUse.scss")
 
+type Variant = "do" | "dont"
+
 type WhenUseProps = {
-  variant: "do" | "dont"
+  variant: Variant
 }
 
-const getIcon = variant => {
-  if (variant === "do") return success
-  if (variant === "dont") return exclamation
+const getIcon = (variant: Variant) => {
+  switch (variant) {
+    case "do":
+      return success
+    case "dont":
+      return exclamation
+  }
 }
 
-const getText = variant => {
-  if (variant === "do") return "When to use"
-  if (variant === "dont") return "When not to use"
+const getText = (variant: Variant) => {
+  switch (variant) {
+    case "do":
+      return "When to use"
+    case "dont":
+      return "When not to use"
+  }
 }
 
-export default ({ variant }) => (
+export default ({ variant }: WhenUseProps) => (
   <div className={classnames(styles.container, styles[variant])}>
     <span className={styles.icon}>
       <Icon icon={getIcon(variant)} role="presentation" />
