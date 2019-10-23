@@ -1,0 +1,171 @@
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@cultureamp/kaizen-component-library/styles/border";
+@import "~@cultureamp/kaizen-component-library/styles/layers";
+
+$base-border: 1px solid $ca-border-color;
+$focus-border-width: 2px;
+$button-width: 124px;
+
+.root {
+  display: inline-flex;
+}
+
+.buttonReset {
+  appearance: none;
+  display: inline;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.buttonStates {
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &:not(.disabled):not(:disabled) {
+    background: $white;
+    border-color: add-tint($ca-palette-ink, 80%);
+    color: $ca-palette-ink;
+
+    &:hover,
+    &:active {
+      background: $ca-palette-stone;
+      border-color: add-tint($ca-palette-ink, 60%);
+    }
+
+    &:active {
+      background: $ca-palette-ash;
+      border-color: add-tint($ca-palette-ink, 40%);
+      transform: translateY(1px);
+    }
+
+    // Use JS polyfill to simulate :focus-visible, not yet supported by browsers
+    // https://github.com/WICG/focus-visible#backwards-compatibility
+    :global(.js-focus-visible) & {
+      // hide native focus ring when :focus but not :focus-visible
+      &:focus {
+        outline: none;
+      }
+
+      // show custom focus ring when :focus-visible
+      &:global(.focus-visible) {
+        border: $focus-border-width solid $ca-palette-ocean;
+      }
+    }
+  }
+
+  // Disabled
+  &:disabled,
+  &.disabled {
+    background: $white;
+    border-color: add-tint($ca-palette-ink, 80%);
+    color: add-tint($ca-palette-ink, 70%);
+  }
+}
+
+.button {
+  @include ca-type-ideal-body-bold;
+  composes: buttonStates;
+  text-align: left;
+  position: inherit;
+  text-decoration: none;
+  color: inherit;
+  padding: 0.5rem 1rem;
+  border: $base-border;
+  border-right: 0;
+  border-radius: $ca-border-radius 0 0 $ca-border-radius;
+  white-space: nowrap;
+  min-width: $button-width;
+  display: block;
+  box-sizing: border-box;
+
+  [dir="rtl"] & {
+    border-right: $base-border;
+    border-left: 0;
+    border-radius: 0 $ca-border-radius $ca-border-radius 0;
+  }
+
+  // This seemingly hacky selector specifically has to target the adjacent dropdown
+  // button element of the main button currently being hovered/activated over
+  &:not(:disabled):not(.disabled) {
+    &:hover,
+    &:active {
+      & + .dropdown > .dropdownButton {
+        border-left: 1px solid add-tint($ca-palette-ink, 60%);
+      }
+    }
+
+    &:active {
+      & + .dropdown > .dropdownButton {
+        border-left: 1px solid add-tint($ca-palette-ink, 40%);
+      }
+    }
+
+    [dir="rtl"] &:hover,
+    [dir="rtl"] &:active {
+      & + .dropdown > .dropdownButton {
+        border-left: $base-border;
+        border-right: 1px solid add-tint($ca-palette-ink, 60%);
+      }
+    }
+
+    [dir="rtl"] &:active {
+      & + .dropdown > .dropdownButton {
+        border-left: $base-border;
+        border-right: 1px solid add-tint($ca-palette-ink, 40%);
+      }
+    }
+  }
+}
+
+.buttonFullBorder {
+  border-right: $base-border;
+  border-radius: $ca-border-radius;
+  min-width: 0;
+
+  [dir="rtl"] & {
+    border-left: $base-border;
+    border-right: inherit;
+  }
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdownButton {
+  composes: buttonReset buttonStates;
+  cursor: pointer;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.75rem;
+  border: $base-border;
+  border-radius: 0 $ca-border-radius $ca-border-radius 0;
+
+  [dir="rtl"] & {
+    border-radius: $ca-border-radius 0 0 $ca-border-radius;
+  }
+}
+
+.dropdownIcon {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuContainer {
+  position: absolute;
+  width: calc(#{$button-width} + 100%);
+  z-index: $ca-z-index-dropdown;
+}
