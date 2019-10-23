@@ -92,6 +92,10 @@ type TableCard = React.FunctionComponent<{
   expanded?: boolean
   expandedStyle?: "well" | "popout"
   href?: string
+  // Despite there being no onClick or href, still show a hover state on the
+  // rows. An example use case is when you might want to handle click events
+  // at a cell level, instead of the full row level.
+  forceHoverState?: boolean
 }>
 export const TableCard: TableCard = ({
   children,
@@ -99,11 +103,12 @@ export const TableCard: TableCard = ({
   expandedStyle = "well",
   onClick,
   href,
+  forceHoverState = false,
 }) => {
   const className = classNames(styles.card, {
     [styles.expanded]: expanded,
     [styles[expandedStyle]]: expanded,
-    [styles.clickable]: onClick != null || href != null,
+    [styles.hasHoverState]: forceHoverState || onClick != null || href != null,
   })
   return href != null ? (
     <a href={href} className={className} onClick={onClick as AnchorClickEvent}>

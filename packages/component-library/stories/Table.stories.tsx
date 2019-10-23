@@ -63,6 +63,7 @@ const ExampleTableRow = ({
   expanded = false,
   expandable = true,
   multiline = false,
+  description = "Table row label",
 }) => (
   <TableRow>
     <TableRowCell width={4 / 12}>
@@ -76,7 +77,7 @@ const ExampleTableRow = ({
           </Text>
         </div>
       ) : (
-        <CheckboxField labelText="Table row label" noBottomMargin />
+        <CheckboxField labelText={description} noBottomMargin />
       )}
     </TableRowCell>
     <TableRowCell width={4 / 12}>
@@ -149,13 +150,22 @@ storiesOf("Table", module)
           <ExampleTableHeaderRow checkable />
         </TableHeader>
         <TableCard onClick={() => alert("clicked!")}>
-          <ExampleTableRow expandable={false} />
+          <ExampleTableRow
+            expandable={false}
+            description="Button row with onClick callback"
+          />
         </TableCard>
         <TableCard href="//example.com">
-          <ExampleTableRow expandable={false} />
+          <ExampleTableRow
+            expandable={false}
+            description="Anchor row with route"
+          />
         </TableCard>
-        <TableCard onClick={() => alert("clicked!")}>
-          <ExampleTableRow expandable={false} />
+        <TableCard forceHoverState>
+          <ExampleTableRow
+            expandable={false}
+            description="Row with hover state only"
+          />
         </TableCard>
       </TableContainer>
     </Container>
