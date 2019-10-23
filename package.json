@@ -8,18 +8,18 @@
     "node": "10.16.3"
   },
   "scripts": {
-    "storybook": "start-storybook -c storybook",
-    "storybook:build": "build-storybook -c storybook -o storybook/public",
-    "gatsby": "yarn workspace site gatsby",
-    "tslint": "tslint --project .",
-    "prettier": "prettier --check '**/*'",
-    "test": "jest",
+    "clean": "lerna run clean && yarn gatsby clean && rm -rf elm-stuff storybook/public",
     "compile": "tsc",
+    "gatsby": "yarn workspace site gatsby",
     "lint": "elm-format --validate packages && yarn tslint && yarn prettier",
     "lint:fix": "elm-format --yes packages && yarn tslint --fix && yarn prettier --write",
-    "clean": "lerna run clean && yarn gatsby clean && rm -rf elm-stuff storybook/public",
+    "prettier": "prettier --check '**/*'",
     "reset": "yarn clean && yarn setup --force",
-    "setup": "yarn install --frozen-lockfile"
+    "setup": "yarn install --frozen-lockfile",
+    "storybook": "start-storybook -c storybook",
+    "storybook:build": "build-storybook -c storybook -o storybook/public",
+    "test": "jest",
+    "tslint": "tslint --project ."
   },
   "babel": {
     "presets": [
