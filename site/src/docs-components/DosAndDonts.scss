@@ -1,8 +1,13 @@
 @import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/responsive";
 
 .container {
   display: flex;
   justify-content: space-between;
+
+  @include ca-media-mobile() {
+    flex-direction: column;
+  }
 }
 
 .card {
@@ -15,6 +20,10 @@
   border-radius: 3px;
   border-top-width: 7px;
   border-top-style: solid;
+
+  @include ca-media-mobile() {
+    width: 100%;
+  }
 
   :global(.md-ul.md-ul) {
     padding-left: 1.25rem;
