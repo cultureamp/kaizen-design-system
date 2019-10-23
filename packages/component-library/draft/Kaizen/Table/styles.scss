@@ -61,6 +61,15 @@ $row-height: 60px;
   border: solid 1px $ca-border-color;
   box-shadow: $ca-box-shadow;
   transition: box-shadow 0.2s, border-color 0.2s, margin 0.2s, padding 0.2s;
+  // These css properties are required for when the rows are anchor elements
+  text-decoration: none;
+  color: $ca-palette-ink;
+  display: block;
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
 
   &:first-child {
     border-top-left-radius: $ca-border-radius;
@@ -113,6 +122,7 @@ $row-height: 60px;
 .clickable {
   width: 100%;
   text-align: left;
+  cursor: pointer;
 
   &.expanded {
     width: calc(100% + #{$ca-grid});

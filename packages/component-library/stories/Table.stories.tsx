@@ -151,7 +151,7 @@ storiesOf("Table", module)
         <TableCard onClick={() => alert("clicked!")}>
           <ExampleTableRow expandable={false} />
         </TableCard>
-        <TableCard onClick={() => alert("clicked!")}>
+        <TableCard href="//example.com">
           <ExampleTableRow expandable={false} />
         </TableCard>
         <TableCard onClick={() => alert("clicked!")}>
