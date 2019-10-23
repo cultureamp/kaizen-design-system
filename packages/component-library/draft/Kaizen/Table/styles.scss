@@ -61,7 +61,6 @@ $row-height: 60px;
   border: solid 1px $ca-border-color;
   box-shadow: $ca-box-shadow;
   transition: box-shadow 0.2s, border-color 0.2s, margin 0.2s, padding 0.2s;
-  overflow: hidden;
 
   &:first-child {
     border-top-left-radius: $ca-border-radius;
