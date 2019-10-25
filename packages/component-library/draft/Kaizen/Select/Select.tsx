@@ -4,6 +4,8 @@ import ReactSelect, { components } from "react-select"
 import { Props as ReactSelectProps } from "react-select/src/Select"
 
 import { Icon } from "@cultureamp/kaizen-component-library"
+import { Tag } from "@cultureamp/kaizen-component-library/draft"
+
 const chevronDownIcon = require("@cultureamp/kaizen-component-library/icons/chevron-down.icon.svg")
   .default
 
@@ -23,6 +25,7 @@ const Select = (props: Props) => {
         Option,
         NoOptionsMessage,
         SingleValue,
+        MultiValue,
         ClearIndicator: null,
         IndicatorSeparator: null,
       }}
@@ -76,6 +79,10 @@ const SingleValue: typeof components.SingleValue = props => (
   <components.SingleValue {...props}>
     <span className={styles.singleValue}>{props.children}</span>
   </components.SingleValue>
+)
+
+const MultiValue: typeof components.MultiValue = props => (
+  <components.MultiValue {...props} className={styles.multiValue} />
 )
 
 export default Select

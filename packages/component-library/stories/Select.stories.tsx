@@ -7,6 +7,10 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => {
   return <div style={{ width: "300px", margin: "12px auto" }}>{children}</div>
 }
 
+const WideStoryContainer = ({ children }: { children: React.ReactNode }) => {
+  return <div style={{ width: "500px", margin: "12px auto" }}>{children}</div>
+}
+
 const options = [
   { value: "Mindy", label: "Mindy" },
   { value: "Jaime", label: "Jaime" },
@@ -36,6 +40,11 @@ storiesOf("Select", module)
     </StoryContainer>
   ))
 
+  .add("Multi-Select Searchable", () => (
+    <WideStoryContainer>
+      <Select options={options} placeholder="Placeholder" isMulti={true} />
+    </WideStoryContainer>
+  ))
 
 loadElmStories("Select (Elm)", module, require("./SelectStories.elm"), [
   "Single",
