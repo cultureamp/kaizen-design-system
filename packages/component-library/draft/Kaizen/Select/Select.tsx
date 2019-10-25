@@ -50,6 +50,8 @@ const Placeholder: typeof components.Placeholder = props => (
 )
 
 const DropdownIndicator: typeof components.DropdownIndicator = props => (
+  // Suppress typing issue - looks like the type defs are incorrect
+  // @ts-ignore
   <components.DropdownIndicator {...props}>
     <Icon icon={chevronDownIcon} role="presentation" />
   </components.DropdownIndicator>
