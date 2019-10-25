@@ -32,27 +32,36 @@ module.exports = {
         name: `icons`,
       },
     },
-    // Uncomment these when we move the component docs to the library components' own READMEs
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     path: resolve(
-    //       __dirname,
-    //       `../node_modules/@cultureamp/kaizen-component-library/components`
-    //     ),
-    //     name: `components`,
-    //   },
-    // },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     path: resolve(
-    //       __dirname,
-    //       `../node_modules/@cultureamp/kaizen-component-library/draft`
-    //     ),
-    //     name: `draftComponents`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: resolve(`../packages/component-library/components`),
+        name: `components`,
+        ignore: [
+          `**/*.ts`,
+          `**/*.tsx`,
+          `**/*.elm`,
+          `**/*.scss`,
+          `**/*.snap`,
+          `**/*.png`,
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: resolve(`../packages/component-library/draft`),
+        name: `draftComponents`,
+        ignore: [
+          `**/*.ts`,
+          `**/*.tsx`,
+          `**/*.elm`,
+          `**/*.scss`,
+          `**/*.snap`,
+          `**/*.png`,
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
