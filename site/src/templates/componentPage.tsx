@@ -13,6 +13,7 @@ import {
   SidebarSection,
   SidebarTab,
 } from "../components/SidebarAndContent"
+import StorybookDemo from "../components/StorybookDemo"
 import { sortSidebarTabs, stripTrailingSlash } from "./util"
 
 const renderSidebarTabs = (pages, currentPath) => {
@@ -42,6 +43,18 @@ export default ({ data, pageContext, location }) => {
     allPages.filter(el => el.node.frontmatter.navTitle !== "Overview")
   )
 
+  const renderStorybookIFrame = () => {
+    return md.frontmatter.demoStoryId ? (
+      <StorybookDemo>
+        <iframe
+          src={`https://cultureamp.design/storybook-static/iframe.html?id=${md.frontmatter.demoStoryId}`}
+        ></iframe>
+      </StorybookDemo>
+    ) : (
+      undefined
+    )
+  }
+
   const ComponentPageHeader = (
     <PageHeader
       headingText={md.frontmatter.title}
@@ -66,6 +79,7 @@ export default ({ data, pageContext, location }) => {
         </Sidebar>
         <Content>
           <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
+          {renderStorybookIFrame()}
           <ContentMarkdownSection>
             <h1>{md.frontmatter.navTitle}</h1>
             {/*
@@ -100,6 +114,7 @@ export const query = graphql`
         tags
         needToKnow
         summaryParagraph
+        demoStoryId
       }
     }
   }
