@@ -1,0 +1,35 @@
+@import "~@cultureamp/kaizen-component-library/styles/color";
+
+.container {
+  color: $ca-palette-lapis;
+  display: inline-flex;
+  height: 1.75rem;
+  align-items: center;
+  border-radius: 2rem;
+  padding: 0 0.75rem 0 0.25rem;
+  font-size: 0.8333rem;
+  font-weight: 400;
+}
+
+.icon {
+  display: flex;
+  margin-right: 0.25rem;
+}
+
+.do {
+  background: add-tint($ca-palette-seedling, 90%);
+  border: 1px solid add-tint($ca-palette-seedling, 40%);
+
+  .icon {
+    color: $ca-palette-seedling;
+  }
+}
+
+.dont {
+  background: add-tint($ca-palette-coral, 90%);
+  border: 1px solid add-tint($ca-palette-coral, 40%);
+
+  .icon {
+    color: $ca-palette-coral;
+  }
+}
