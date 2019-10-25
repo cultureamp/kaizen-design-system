@@ -1,0 +1,66 @@
+@import "~@cultureamp/kaizen-component-library/draft/Kaizen/Form/Primitives/Input/styles.scss";
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/type";
+
+.container {
+  :global(.KaizenSelect__control) {
+    @include ca-type-ideal-body-bold;
+    @include ca-inherit-baseline;
+
+    color: $ca-palette-ink;
+    min-height: $input-height;
+    border-color: $ca-border-color;
+    border-radius: $ca-border-radius;
+
+    &:hover {
+      border-color: $ca-border-color-hover;
+    }
+  }
+
+  :global(.KaizenSelect__placeholder) {
+    color: $ca-palette-ink;
+    opacity: $input-placeholder-opacity;
+  }
+
+  :global(.KaizenSelect__control--is-focused) {
+    @include form-input-focus-border($ca-border-color-focus);
+
+    &:hover {
+      @include form-input-focus-border($ca-border-color-focus);
+    }
+  }
+
+  :global(.KaizenSelect__indicator-separator) {
+    background-color: transparent;
+  }
+
+  :global(.KaizenSelect__dropdown-indicator) {
+    color: add-tint($ca-palette-ink, 30%);
+  }
+
+  :global(.KaizenSelect__menu) {
+    border: 1px solid $ca-border-color;
+    border-radius: $ca-border-radius;
+    box-shadow: $ca-box-shadow;
+  }
+
+  :global(.KaizenSelect__option) {
+    @include ca-type-ideal-body-bold;
+    @include ca-inherit-baseline;
+    color: $ca-palette-ink;
+  }
+
+  :global(.KaizenSelect__option--is-focused) {
+    background-color: add-tint($ca-palette-ink, 95%);
+  }
+
+  :global(.KaizenSelect__option--is-selected) {
+    background-color: add-tint($ca-palette-ocean, 90%);
+  }
+
+  :global(.KaizenSelect__menu-notice) {
+    @include ca-type-ideal-body-bold;
+    @include ca-inherit-baseline;
+    color: $ca-palette-ink;
+  }
+}
