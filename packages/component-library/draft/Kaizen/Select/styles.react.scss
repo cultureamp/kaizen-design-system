@@ -2,12 +2,14 @@
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/type";
 
-.container {
-  :global(.KaizenSelect__control) {
-    @include ca-type-ideal-body-bold;
-    @include ca-inherit-baseline;
+@mixin base-font-style() {
+  @include ca-type-ideal-body-bold;
+  @include ca-inherit-baseline;
+  color: $ca-palette-ink;
+}
 
-    color: $ca-palette-ink;
+.container {
+  .control {
     min-height: $input-height;
     border-color: $ca-border-color;
     border-radius: $ca-border-radius;
@@ -17,12 +19,7 @@
     }
   }
 
-  :global(.KaizenSelect__placeholder) {
-    color: $ca-palette-ink;
-    opacity: $input-placeholder-opacity;
-  }
-
-  :global(.KaizenSelect__control--is-focused) {
+  .focusedControl {
     @include form-input-focus-border($ca-border-color-focus);
 
     &:hover {
@@ -30,37 +27,38 @@
     }
   }
 
-  :global(.KaizenSelect__indicator-separator) {
-    background-color: transparent;
+  .placeholder {
+    @include base-font-style();
+    opacity: $input-placeholder-opacity;
   }
 
-  :global(.KaizenSelect__dropdown-indicator) {
-    color: add-tint($ca-palette-ink, 30%);
-  }
-
-  :global(.KaizenSelect__menu) {
+  .menu {
     border: 1px solid $ca-border-color;
     border-radius: $ca-border-radius;
     box-shadow: $ca-box-shadow;
   }
 
-  :global(.KaizenSelect__option) {
-    @include ca-type-ideal-body-bold;
-    @include ca-inherit-baseline;
-    color: $ca-palette-ink;
+  .option {
+    @include base-font-style();
   }
 
-  :global(.KaizenSelect__option--is-focused) {
+  .focusedOption {
     background-color: add-tint($ca-palette-ink, 95%);
+
+    &:active {
+      background-color: add-tint($ca-palette-ink, 95%);
+    }
   }
 
-  :global(.KaizenSelect__option--is-selected) {
+  .selectedOption {
     background-color: add-tint($ca-palette-ocean, 90%);
   }
 
-  :global(.KaizenSelect__menu-notice) {
-    @include ca-type-ideal-body-bold;
-    @include ca-inherit-baseline;
-    color: $ca-palette-ink;
+  .noOptionsMessage {
+    @include base-font-style();
+  }
+
+  .singleValue {
+    @include base-font-style();
   }
 }
