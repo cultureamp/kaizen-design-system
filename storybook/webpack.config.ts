@@ -1,23 +1,13 @@
-const { resolve } = require("path")
+import { resolve } from "path"
+import { Loader, RuleSetRule as Rule } from "webpack"
 
-const extensions = [".ts", ".tsx"]
-
-const excludeExternalModules = rule => ({
-  exclude: /node_modules\/(?!(\@cultureamp|\@kaizen)).*/,
-  ...rule,
-})
-
-const babelRule = {
+const babel: Rule = {
   test: /\.(j|t)sx?$/,
-  use: [
-    {
-      loader: require.resolve("babel-loader"),
-      options: require("../package.json").babel,
-    },
-  ],
+  loader: require.resolve("babel-loader"),
+  options: require("../package.json").babel,
 }
 
-const preprocessorLoaders = [
+const stylePreprocessors: Loader[] = [
   {
     loader: "postcss-loader",
     options: {
@@ -39,25 +29,27 @@ const preprocessorLoaders = [
   },
 ]
 
-const stylesRule = {
+const styles: Rule = {
   test: /\.s?css$/,
   use: [
-    "style-loader",
+    {
+      loader: "style-loader",
+    },
     {
       loader: "css-loader",
       options: {
-        importLoaders: preprocessorLoaders.length,
+        importLoaders: stylePreprocessors.length,
         sourceMap: true,
         modules: {
           localIdentName: "[folder]-[name]__[local]--[hash:base64:5]",
         },
       },
     },
-    ...preprocessorLoaders,
+    ...stylePreprocessors,
   ],
 }
 
-const svgRule = {
+const svgs: Rule = {
   test: /\.svg$/,
   use: [
     {
@@ -69,7 +61,7 @@ const svgRule = {
   ],
 }
 
-const svgIconRule = {
+const svgIcons: Rule = {
   test: /\.icon\.svg$/,
   use: {
     loader: "svgo-loader",
@@ -86,7 +78,7 @@ const svgIconRule = {
   },
 }
 
-const elmRule = {
+const elm: Rule = {
   test: /\.elm$/,
   exclude: [/elm-stuff/, /node_modules/],
   use: [
@@ -99,9 +91,10 @@ const elmRule = {
           [
             "module:babel-elm-assets-plugin",
             {
-              // "author/project" is the default value if no "name" field is specified in elm.json.
-              // If we want to allow setting the name field in our workspaces, we'll need to update
-              // the plugin to support multiple possible package names.
+              // "author/project" is the default value if no "name" field is
+              // specified in elm.json. If we want to allow setting the name
+              // field in our workspaces, we'll need to update the plugin to
+              // support multiple possible package names.
               package: "author/project",
               module: "Icon.SvgAsset",
               function: "svgAsset",
@@ -124,12 +117,8 @@ const elmRule = {
   ],
 }
 
-const rules = [babelRule, stylesRule, svgRule, svgIconRule, elmRule].map(
-  excludeExternalModules
-)
-
-const removeSvgFromTest = rule => {
-  if (rule.test.toString().includes("svg")) {
+const removeSvgFromTest = (rule: Rule): Rule => {
+  if (rule.test && rule.test.toString().includes("svg")) {
     const test = rule.test
       .toString()
       .replace("svg|", "")
@@ -140,10 +129,17 @@ const removeSvgFromTest = rule => {
   }
 }
 
-module.exports = ({ config }) => {
+const excludeExternalModules = (rule: Rule): Rule => ({
+  exclude: /node_modules\/(?!(\@cultureamp)).*/,
+  ...rule,
+})
+
+export default ({ config }) => {
   // Storybook's base config applies file-loader to svgs
   config.module.rules = config.module.rules.map(removeSvgFromTest)
-  config.module.rules.push(...rules)
-  config.resolve.extensions.push(...extensions)
+  config.module.rules.push(
+    ...[babel, styles, svgs, svgIcons, elm].map(excludeExternalModules)
+  )
+  config.resolve.extensions.push(".ts", ".tsx")
   return config
 }

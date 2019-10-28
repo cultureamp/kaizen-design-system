@@ -21,7 +21,7 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "14.0.6",
+  "version": "14.0.7",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
@@ -29,6 +29,9 @@
     "react": "^16.9.0"
   },
   "dependencies": {
+    "@types/classnames": "^2.2.6",
+    "@types/lodash": "^4.14.132",
+    "@types/uuid": "^3.4.4",
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
     "motion-ui": "^2.0.3",
@@ -40,9 +43,6 @@
   },
   "devDependencies": {
     "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.1.0",
-    "@types/classnames": "^2.2.6",
-    "@types/lodash": "^4.14.132",
-    "@types/uuid": "^3.4.4",
     "rimraf": "^2.6.3"
   },
   "scripts": {

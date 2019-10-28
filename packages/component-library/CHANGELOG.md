@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.0.7](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.0.6...@cultureamp/kaizen-component-library@14.0.7) (2019-10-28)
+
+
+### Bug Fixes
+
+* Include types referenced in declarations ([#87](https://github.com/cultureamp/kaizen-design-system/issues/87)) ([8394a01](https://github.com/cultureamp/kaizen-design-system/commit/8394a01))
+
+
+
+
+
 ## [14.0.6](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.0.5...@cultureamp/kaizen-component-library@14.0.6) (2019-10-25)
 
 **Note:** Version bump only for package @cultureamp/kaizen-component-library
