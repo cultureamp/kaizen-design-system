@@ -1,6 +1,7 @@
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import * as React from "react"
+import ReactDOM from "react-dom"
 import ContentMarkdownSection from "../components/ContentMarkdownSection"
 import Footer from "../components/Footer"
 import Layout from "../components/Layout"
@@ -45,11 +46,7 @@ export default ({ data, pageContext, location }) => {
 
   const renderStorybookIFrame = () => {
     return md.frontmatter.demoStoryId ? (
-      <StorybookDemo>
-        <iframe
-          src={`https://cultureamp.design/storybook-static/iframe.html?id=${md.frontmatter.demoStoryId}`}
-        ></iframe>
-      </StorybookDemo>
+      <StorybookDemo demoId={md.frontmatter.demoStoryId} />
     ) : (
       undefined
     )
