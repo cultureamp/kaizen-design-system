@@ -1288,7 +1288,7 @@ menuMarginTop =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Select/Style.scss"
+    css "@cultureamp/kaizen-component-library/draft/Kaizen/Select/styles.elm.scss"
         { container = "container"
         , control = "control"
         , valueContainer = "valueContainer"
