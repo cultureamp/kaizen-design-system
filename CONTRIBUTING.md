@@ -12,9 +12,11 @@ Every component needs:
 
 To update a component:
 
-- Ask for a review from design systems advocates, Design Systems Team, or someone in your team
-- Notify the front-end engineering practice of any possible breaking changes
+- Ask for a review from a design systems advocate (an "advocado"), Design Systems Team, or someone in your team who is experienced with Kaizen*
+- Notify the front-end engineering practice (#pract_front_end_eng) of any possible breaking changes
 - Notify the QA practice of any possible breaking changes
+
+\* **If you're new to Kaizen, please ask the Design Systems Team (#team_design_systems) to set up an onboarding session to get you up to speed.** If you have an urgent PR to merge before that happens, it is safest to ask Design Systems Team to review it to catch any issues.
 
 ### Browser and device support
 
