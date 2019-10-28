@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [14.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.0.7...@cultureamp/kaizen-component-library@14.1.0) (2019-10-28)
+
+
+### Features
+
+* Add a React version of the Select component ([#85](https://github.com/cultureamp/kaizen-design-system/issues/85)) ([3df916c](https://github.com/cultureamp/kaizen-design-system/commit/3df916c))
+
+
+
+
+
 ## [14.0.7](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.0.6...@cultureamp/kaizen-component-library@14.0.7) (2019-10-28)
 
 
