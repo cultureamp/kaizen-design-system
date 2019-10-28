@@ -1,5 +1,10 @@
 # CODEOWNERS
 # https://help.github.com/articles/about-code-owners/
 
-# NOTE: The user @ghost is an internal placeholder for deleted users in GitHub,
-#       and assigning it as an owner is the only known way to clear ownership!
+# Require Design Systems Team approval to modify this file:
+/CODEOWNERS @cultureamp/design-systems
+
+# Pipelines are maintained by Delivery Engineering:
+/.buildkite/ @cultureamp/delivery-engineering
+/docker-compose.yml @cultureamp/delivery-engineering
+/lerna.json @cultureamp/delivery-engineering
