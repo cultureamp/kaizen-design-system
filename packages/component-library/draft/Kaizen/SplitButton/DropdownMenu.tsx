@@ -1,4 +1,3 @@
-// @flow
 import * as React from "react"
 import { Dir } from "./types"
 const styles = require("./styles.scss")
