@@ -26,7 +26,7 @@ type Variant =
 
 interface Props {
   readonly children: React.ReactNode
-  readonly variant: Variant
+  readonly variant?: Variant
   readonly size?: "medium" | "small"
   readonly inline?: boolean
   readonly dismissible?: boolean
