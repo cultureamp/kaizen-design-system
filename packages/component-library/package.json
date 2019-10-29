@@ -21,7 +21,7 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "14.0.6",
+  "version": "14.1.0",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
@@ -29,20 +29,22 @@
     "react": "^16.9.0"
   },
   "dependencies": {
+    "@types/classnames": "^2.2.6",
+    "@types/lodash": "^4.14.132",
+    "@types/react-select": "^3.0.5",
+    "@types/uuid": "^3.4.4",
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
     "motion-ui": "^2.0.3",
     "react-animate-height": "^2.0.15",
     "react-focus-lock": "^1.19.1",
     "react-media": "^1.9.2",
+    "react-select": "^3.0.8",
     "react-transition-group": "^2.9.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.1.0",
-    "@types/classnames": "^2.2.6",
-    "@types/lodash": "^4.14.132",
-    "@types/uuid": "^3.4.4",
     "rimraf": "^2.6.3"
   },
   "scripts": {
