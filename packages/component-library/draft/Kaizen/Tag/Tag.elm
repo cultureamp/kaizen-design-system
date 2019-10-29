@@ -1,15 +1,21 @@
 module Kaizen.Tag.Tag exposing
     ( Size(..)
-    , Validation(..)
     , default
     , dismissible
     , inline
     , onDismiss
     , onMousedown
     , onMouseleave
+    , sentimentNegative
+    , sentimentNeutral
+    , sentimentNone
+    , sentimentPositive
     , size
     , truncateWidth
-    , validation
+    , validationCautionary
+    , validationInformative
+    , validationNegative
+    , validationPositive
     , view
     )
 
@@ -43,18 +49,20 @@ type Size
     | Small
 
 
-type Validation
-    = Cautionary
-    | Negative
-
-
 
 -- VARIANTS
 
 
 type Variant
     = Default
-    | Validation Validation
+    | SentimentPositive
+    | SentimentNeutral
+    | SentimentNegative
+    | SentimentNone
+    | ValidationPositive
+    | ValidationInformative
+    | ValidationNegative
+    | ValidationCautionary
 
 
 default : Config msg
@@ -62,9 +70,44 @@ default =
     Config { defaults | variant = Default }
 
 
-validation : Validation -> Config msg
-validation validationType =
-    Config { defaults | variant = Validation validationType }
+sentimentPositive : Config msg
+sentimentPositive =
+    Config { defaults | variant = SentimentPositive }
+
+
+sentimentNeutral : Config msg
+sentimentNeutral =
+    Config { defaults | variant = SentimentNeutral }
+
+
+sentimentNegative : Config msg
+sentimentNegative =
+    Config { defaults | variant = SentimentNegative }
+
+
+sentimentNone : Config msg
+sentimentNone =
+    Config { defaults | variant = SentimentNone }
+
+
+validationPositive : Config msg
+validationPositive =
+    Config { defaults | variant = ValidationPositive }
+
+
+validationInformative : Config msg
+validationInformative =
+    Config { defaults | variant = ValidationInformative }
+
+
+validationNegative : Config msg
+validationNegative =
+    Config { defaults | variant = ValidationNegative }
+
+
+validationCautionary : Config msg
+validationCautionary =
+    Config { defaults | variant = ValidationCautionary }
 
 
 
@@ -135,14 +178,28 @@ view (Config config) value =
 
         resolveValidationIcon =
             case config.variant of
-                Validation Cautionary ->
+                ValidationPositive ->
+                    if config.size == Medium then
+                        viewPositiveValidationIcon config
+
+                    else
+                        text ""
+
+                ValidationInformative ->
                     if config.size == Medium then
                         viewValidationIcon config
 
                     else
                         text ""
 
-                Validation Negative ->
+                ValidationNegative ->
+                    if config.size == Medium then
+                        viewValidationIcon config
+
+                    else
+                        text ""
+
+                ValidationCautionary ->
                     if config.size == Medium then
                         viewValidationIcon config
 
@@ -157,16 +214,33 @@ view (Config config) value =
                 Default ->
                     [ ( .default, True ) ]
 
-                Validation Cautionary ->
-                    [ ( .validation, True ), ( .cautionary, True ) ]
+                SentimentPositive ->
+                    [ ( .sentimentPositive, True ) ]
 
-                Validation Negative ->
-                    [ ( .validation, True ), ( .negative, True ) ]
+                SentimentNeutral ->
+                    [ ( .sentimentNeutral, True ) ]
+
+                SentimentNegative ->
+                    [ ( .sentimentNegative, True ) ]
+
+                SentimentNone ->
+                    [ ( .sentimentNone, True ) ]
+
+                ValidationPositive ->
+                    [ ( .validationPositive, True ) ]
+
+                ValidationInformative ->
+                    [ ( .validationInformative, True ) ]
+
+                ValidationNegative ->
+                    [ ( .validationNegative, True ) ]
+
+                ValidationCautionary ->
+                    [ ( .validationCautionary, True ) ]
     in
     div
         [ styles.classList
             ([ ( .root, True )
-             , ( .default, config.variant == Default )
              , ( .medium, config.size == Medium )
              , ( .small, config.size == Small )
              , ( .inline, config.inline )
@@ -175,7 +249,10 @@ view (Config config) value =
                 ++ resolveVariantStyle
             )
         ]
-        [ viewTextContent config value, resolveClear, resolveValidationIcon ]
+        [ resolveValidationIcon
+        , viewTextContent config value
+        , resolveClear
+        ]
 
 
 viewTextContent : Configuration msg -> String -> Html msg
@@ -192,10 +269,19 @@ viewTextContent config value =
     span ([ styles.class .textContent ] ++ resolveTruncation) [ text value ]
 
 
+viewPositiveValidationIcon : Configuration msg -> Html msg
+viewPositiveValidationIcon config =
+    span [ styles.class .validationIcon ]
+        [ Icon.view Icon.presentation
+            (svgAsset "@cultureamp/kaizen-component-library/icons/success.icon.svg")
+            |> Html.map never
+        ]
+
+
 viewValidationIcon : Configuration msg -> Html msg
 viewValidationIcon config =
     span [ styles.class .validationIcon ]
-        [ Icon.view (Icon.presentation |> Icon.inheritSize True)
+        [ Icon.view Icon.presentation
             (svgAsset "@cultureamp/kaizen-component-library/icons/exclamation.icon.svg")
             |> Html.map never
         ]
@@ -230,16 +316,20 @@ viewClear config =
 styles =
     css "@cultureamp/kaizen-component-library/draft/Kaizen/Tag/Tag.scss"
         { root = "root"
+        , default = "default"
+        , sentimentPositive = "sentimentPositive"
+        , sentimentNeutral = "sentimentNeutral"
+        , sentimentNegative = "sentimentNegative"
+        , sentimentNone = "sentimentNone"
+        , validationPositive = "validationPositive"
+        , validationInformative = "validationInformative"
+        , validationNegative = "validationNegative"
+        , validationCautionary = "validationCautionary"
         , medium = "medium"
         , small = "small"
-        , default = "default"
-        , validation = "validation"
         , inline = "inline"
-        , dismissIcon = "dismissIcon"
-        , interactive = "interactive"
         , dismissible = "dismissible"
-        , cautionary = "cautionary"
-        , negative = "negative"
+        , dismissIcon = "dismissIcon"
         , validationIcon = "validationIcon"
         , truncate = "truncate"
         , textContent = "textContent"
