@@ -5,11 +5,22 @@ const clearIcon = require("@cultureamp/kaizen-component-library/icons/clear.icon
   .default
 const exclamationIcon = require("@cultureamp/kaizen-component-library/icons/exclamation.icon.svg")
   .default
+const successIcon = require("@cultureamp/kaizen-component-library/icons/success.icon.svg")
+  .default
 const styles = require("./Tag.scss")
 
 interface Props {
   readonly children: React.ReactNode
-  readonly variant: "default" | "cautionary" | "negative"
+  readonly variant:
+    | "default"
+    | "sentimentPositive"
+    | "sentimentNeutral"
+    | "sentimentNegative"
+    | "sentimentNone"
+    | "validationPositive"
+    | "validationInformative"
+    | "validationNegative"
+    | "validationCautionary"
   readonly size?: "medium" | "small"
   readonly inline?: boolean
   readonly dismissible?: boolean
@@ -32,22 +43,49 @@ const Tag = (props: Props) => {
     truncationWidth,
   } = props
 
-  const isValidation = variant === "cautionary" || variant === "negative"
   const isTruncated = truncationWidth && truncationWidth > 0
 
   return (
     <div
       className={classNames(styles.root, {
         [styles.default]: variant === "default",
-        [styles.validation]: isValidation,
-        [styles.cautionary]: variant === "cautionary",
-        [styles.negative]: variant === "negative",
+        [styles.sentimentPositive]: variant === "sentimentPositive",
+        [styles.sentimentNeutral]: variant === "sentimentNeutral",
+        [styles.sentimentNegative]: variant === "sentimentNegative",
+        [styles.sentimentNone]: variant === "sentimentNone",
+        [styles.validationPositive]: variant === "validationPositive",
+        [styles.validationInformative]: variant === "validationInformative",
+        [styles.validationNegative]: variant === "validationNegative",
+        [styles.validationCautionary]: variant === "validationCautionary",
         [styles.medium]: size === "medium",
         [styles.small]: size === "small",
         [styles.inline]: inline,
         [styles.dismissible]: dismissible,
       })}
     >
+      <>
+        {size === "medium" &&
+          (() => {
+            if (variant === "validationPositive") {
+              return (
+                <span className={styles.validationIcon}>
+                  <Icon icon={successIcon} role="presentation" />
+                </span>
+              )
+            }
+            if (
+              variant === "validationInformative" ||
+              variant === "validationNegative" ||
+              variant === "validationCautionary"
+            ) {
+              return (
+                <span className={styles.validationIcon}>
+                  <Icon icon={exclamationIcon} role="presentation" />
+                </span>
+              )
+            }
+          })()}
+      </>
       <span
         className={classNames(styles.textContent, {
           [styles.truncate]: isTruncated,
@@ -58,21 +96,18 @@ const Tag = (props: Props) => {
       >
         {children}
       </span>
-      {dismissible && (
-        <span
-          className={styles.dismissIcon}
-          onClick={onDismiss}
-          onMouseDown={onMouseDown}
-          onMouseLeave={onMouseLeave}
-        >
-          <Icon icon={clearIcon} inheritSize role="img" title="Dismiss" />
-        </span>
-      )}
-      {size === "medium" && isValidation && (
-        <span className={styles.validationIcon}>
-          <Icon icon={exclamationIcon} inheritSize role="presentation" />
-        </span>
-      )}
+      <>
+        {dismissible && (
+          <span
+            className={styles.dismissIcon}
+            onClick={onDismiss}
+            onMouseDown={onMouseDown}
+            onMouseLeave={onMouseLeave}
+          >
+            <Icon icon={clearIcon} inheritSize role="img" title="Dismiss" />
+          </span>
+        )}
+      </>
     </div>
   )
 }
