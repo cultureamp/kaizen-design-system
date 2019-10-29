@@ -104,13 +104,13 @@ storiesOf("Tag", module)
 
   .add("Truncated", () => (
     <StoryContainer>
-      <Tag variant="default" truncationWidth={50}>
+      <Tag variant="default" truncateWidth={50}>
         Truncated
       </Tag>
-      <Tag variant="sentimentPositive" truncationWidth={50}>
+      <Tag variant="sentimentPositive" truncateWidth={50}>
         Truncated
       </Tag>
-      <Tag variant="validationPositive" truncationWidth={50}>
+      <Tag variant="validationPositive" truncateWidth={50}>
         Truncated
       </Tag>
     </StoryContainer>
@@ -118,13 +118,13 @@ storiesOf("Tag", module)
 
   .add("Truncated - Dismissible", () => (
     <StoryContainer>
-      <Tag variant="default" truncationWidth={50} dismissible>
+      <Tag variant="default" truncateWidth={50} dismissible>
         Truncated
       </Tag>
-      <Tag variant="sentimentPositive" truncationWidth={50} dismissible>
+      <Tag variant="sentimentPositive" truncateWidth={50} dismissible>
         Truncated
       </Tag>
-      <Tag variant="validationPositive" truncationWidth={50} dismissible>
+      <Tag variant="validationPositive" truncateWidth={50} dismissible>
         Truncated
       </Tag>
     </StoryContainer>

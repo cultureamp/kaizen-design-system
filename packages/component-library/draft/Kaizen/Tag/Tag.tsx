@@ -27,7 +27,7 @@ interface Props {
   readonly onDismiss?: React.MouseEventHandler<HTMLSpanElement>
   readonly onMouseDown?: React.MouseEventHandler<HTMLSpanElement>
   readonly onMouseLeave?: React.MouseEventHandler<HTMLSpanElement>
-  readonly truncationWidth?: number
+  readonly truncateWidth?: number
 }
 
 const Tag = (props: Props) => {
@@ -40,10 +40,10 @@ const Tag = (props: Props) => {
     onDismiss,
     onMouseDown,
     onMouseLeave,
-    truncationWidth,
+    truncateWidth,
   } = props
 
-  const isTruncated = truncationWidth && truncationWidth > 0
+  const isTruncated = truncateWidth && truncateWidth > 0
 
   return (
     <div
@@ -91,7 +91,7 @@ const Tag = (props: Props) => {
           [styles.truncate]: isTruncated,
         })}
         style={{
-          maxWidth: isTruncated ? truncationWidth : undefined,
+          maxWidth: isTruncated ? truncateWidth : undefined,
         }}
       >
         {children}
