@@ -30,66 +30,66 @@ main =
                 ]
         , statelessStoryOf "Sentiment - Positive" <|
             storyContainer
-                [ Tag.view Tag.sentimentPositive "Sentiment"
-                , Tag.view (Tag.sentimentPositive |> Tag.dismissible True) "Sentiment"
+                [ Tag.view (Tag.sentiment Tag.SentimentPositive) "Sentiment"
+                , Tag.view (Tag.sentiment Tag.SentimentPositive |> Tag.dismissible True) "Sentiment"
                 ]
         , statelessStoryOf "Sentiment - Neutral" <|
             storyContainer
-                [ Tag.view Tag.sentimentNeutral "Sentiment"
-                , Tag.view (Tag.sentimentNeutral |> Tag.dismissible True) "Sentiment"
+                [ Tag.view (Tag.sentiment Tag.SentimentNeutral) "Sentiment"
+                , Tag.view (Tag.sentiment Tag.SentimentNeutral |> Tag.dismissible True) "Sentiment"
                 ]
         , statelessStoryOf "Sentiment - Negative" <|
             storyContainer
-                [ Tag.view Tag.sentimentNegative "Sentiment"
-                , Tag.view (Tag.sentimentNegative |> Tag.dismissible True) "Sentiment"
+                [ Tag.view (Tag.sentiment Tag.SentimentNegative) "Sentiment"
+                , Tag.view (Tag.sentiment Tag.SentimentNegative |> Tag.dismissible True) "Sentiment"
                 ]
         , statelessStoryOf "Sentiment - None" <|
             storyContainer
-                [ Tag.view Tag.sentimentNone "Sentiment"
-                , Tag.view (Tag.sentimentNone |> Tag.dismissible True) "Sentiment"
+                [ Tag.view (Tag.sentiment Tag.SentimentNone) "Sentiment"
+                , Tag.view (Tag.sentiment Tag.SentimentNone |> Tag.dismissible True) "Sentiment"
                 ]
         , statelessStoryOf "Validation - Positive" <|
             storyContainer
-                [ Tag.view Tag.validationPositive "Validation"
-                , Tag.view (Tag.validationPositive |> Tag.dismissible True) "Validation"
+                [ Tag.view (Tag.validation Tag.ValidationPositive) "Validation"
+                , Tag.view (Tag.validation Tag.ValidationPositive |> Tag.dismissible True) "Validation"
                 ]
         , statelessStoryOf "Validation - Informative" <|
             storyContainer
-                [ Tag.view Tag.validationInformative "Validation"
-                , Tag.view (Tag.validationInformative |> Tag.dismissible True) "Validation"
+                [ Tag.view (Tag.validation Tag.ValidationInformative) "Validation"
+                , Tag.view (Tag.validation Tag.ValidationInformative |> Tag.dismissible True) "Validation"
                 ]
         , statelessStoryOf "Validation - Negative" <|
             storyContainer
-                [ Tag.view Tag.validationNegative "Validation"
-                , Tag.view (Tag.validationNegative |> Tag.dismissible True) "Validation"
+                [ Tag.view (Tag.validation Tag.ValidationNegative) "Validation"
+                , Tag.view (Tag.validation Tag.ValidationNegative |> Tag.dismissible True) "Validation"
                 ]
         , statelessStoryOf "Validation - Cautionary" <|
             storyContainer
-                [ Tag.view Tag.validationCautionary "Validation"
-                , Tag.view (Tag.validationCautionary |> Tag.dismissible True) "Validation"
+                [ Tag.view (Tag.validation Tag.ValidationCautionary) "Validation"
+                , Tag.view (Tag.validation Tag.ValidationCautionary |> Tag.dismissible True) "Validation"
                 ]
         , statelessStoryOf "Truncated" <|
             storyContainer
                 [ Tag.view (Tag.default |> Tag.truncateWidth 50) "Truncated"
-                , Tag.view (Tag.sentimentPositive |> Tag.truncateWidth 50) "Truncated"
-                , Tag.view (Tag.validationPositive |> Tag.truncateWidth 50) "Truncated"
+                , Tag.view (Tag.sentiment Tag.SentimentPositive |> Tag.truncateWidth 50) "Truncated"
+                , Tag.view (Tag.validation Tag.ValidationPositive |> Tag.truncateWidth 50) "Truncated"
                 ]
         , statelessStoryOf "Truncated - Dismissible" <|
             storyContainer
                 [ Tag.view (Tag.default |> Tag.truncateWidth 50) "Truncated"
-                , Tag.view (Tag.sentimentPositive |> Tag.truncateWidth 50 |> Tag.dismissible True) "Truncated"
-                , Tag.view (Tag.validationPositive |> Tag.truncateWidth 50 |> Tag.dismissible True) "Truncated"
+                , Tag.view (Tag.sentiment Tag.SentimentPositive |> Tag.truncateWidth 50 |> Tag.dismissible True) "Truncated"
+                , Tag.view (Tag.validation Tag.ValidationPositive |> Tag.truncateWidth 50 |> Tag.dismissible True) "Truncated"
                 ]
         , statelessStoryOf "Inline" <|
             storyContainer
                 [ Tag.view (Tag.default |> Tag.inline True) "Inline"
-                , Tag.view (Tag.sentimentPositive |> Tag.inline True) "Inline"
-                , Tag.view (Tag.validationPositive |> Tag.inline True) "Inline"
+                , Tag.view (Tag.sentiment Tag.SentimentPositive |> Tag.inline True) "Inline"
+                , Tag.view (Tag.validation Tag.ValidationPositive |> Tag.inline True) "Inline"
                 ]
         , statelessStoryOf "Inline - Dismissible" <|
             storyContainer
                 [ Tag.view (Tag.default |> Tag.inline True |> Tag.dismissible True) "Inline"
-                , Tag.view (Tag.sentimentPositive |> Tag.inline True |> Tag.dismissible True) "Inline"
-                , Tag.view (Tag.validationPositive |> Tag.inline True |> Tag.dismissible True) "Inline"
+                , Tag.view (Tag.sentiment Tag.SentimentPositive |> Tag.inline True |> Tag.dismissible True) "Inline"
+                , Tag.view (Tag.validation Tag.ValidationPositive |> Tag.inline True |> Tag.dismissible True) "Inline"
                 ]
         ]

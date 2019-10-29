@@ -1,21 +1,17 @@
 module Kaizen.Tag.Tag exposing
-    ( Size(..)
+    ( Sentiment(..)
+    , Size(..)
+    , Validation(..)
     , default
     , dismissible
     , inline
     , onDismiss
     , onMousedown
     , onMouseleave
-    , sentimentNegative
-    , sentimentNeutral
-    , sentimentNone
-    , sentimentPositive
+    , sentiment
     , size
     , truncateWidth
-    , validationCautionary
-    , validationInformative
-    , validationNegative
-    , validationPositive
+    , validation
     , view
     )
 
@@ -49,20 +45,28 @@ type Size
     | Small
 
 
+type Validation
+    = ValidationPositive
+    | ValidationInformative
+    | ValidationNegative
+    | ValidationCautionary
+
+
+type Sentiment
+    = SentimentPositive
+    | SentimentNeutral
+    | SentimentNegative
+    | SentimentNone
+
+
 
 -- VARIANTS
 
 
 type Variant
     = Default
-    | SentimentPositive
-    | SentimentNeutral
-    | SentimentNegative
-    | SentimentNone
-    | ValidationPositive
-    | ValidationInformative
-    | ValidationNegative
-    | ValidationCautionary
+    | Validation Validation
+    | Sentiment Sentiment
 
 
 default : Config msg
@@ -70,44 +74,14 @@ default =
     Config { defaults | variant = Default }
 
 
-sentimentPositive : Config msg
-sentimentPositive =
-    Config { defaults | variant = SentimentPositive }
+validation : Validation -> Config msg
+validation validationType =
+    Config { defaults | variant = Validation validationType }
 
 
-sentimentNeutral : Config msg
-sentimentNeutral =
-    Config { defaults | variant = SentimentNeutral }
-
-
-sentimentNegative : Config msg
-sentimentNegative =
-    Config { defaults | variant = SentimentNegative }
-
-
-sentimentNone : Config msg
-sentimentNone =
-    Config { defaults | variant = SentimentNone }
-
-
-validationPositive : Config msg
-validationPositive =
-    Config { defaults | variant = ValidationPositive }
-
-
-validationInformative : Config msg
-validationInformative =
-    Config { defaults | variant = ValidationInformative }
-
-
-validationNegative : Config msg
-validationNegative =
-    Config { defaults | variant = ValidationNegative }
-
-
-validationCautionary : Config msg
-validationCautionary =
-    Config { defaults | variant = ValidationCautionary }
+sentiment : Sentiment -> Config msg
+sentiment sentimentType =
+    Config { defaults | variant = Sentiment sentimentType }
 
 
 
@@ -178,28 +152,28 @@ view (Config config) value =
 
         resolveValidationIcon =
             case config.variant of
-                ValidationPositive ->
+                Validation ValidationPositive ->
                     if config.size == Medium then
                         viewPositiveValidationIcon config
 
                     else
                         text ""
 
-                ValidationInformative ->
+                Validation ValidationInformative ->
                     if config.size == Medium then
                         viewValidationIcon config
 
                     else
                         text ""
 
-                ValidationNegative ->
+                Validation ValidationNegative ->
                     if config.size == Medium then
                         viewValidationIcon config
 
                     else
                         text ""
 
-                ValidationCautionary ->
+                Validation ValidationCautionary ->
                     if config.size == Medium then
                         viewValidationIcon config
 
@@ -214,28 +188,28 @@ view (Config config) value =
                 Default ->
                     [ ( .default, True ) ]
 
-                SentimentPositive ->
+                Sentiment SentimentPositive ->
                     [ ( .sentimentPositive, True ) ]
 
-                SentimentNeutral ->
+                Sentiment SentimentNeutral ->
                     [ ( .sentimentNeutral, True ) ]
 
-                SentimentNegative ->
+                Sentiment SentimentNegative ->
                     [ ( .sentimentNegative, True ) ]
 
-                SentimentNone ->
+                Sentiment SentimentNone ->
                     [ ( .sentimentNone, True ) ]
 
-                ValidationPositive ->
+                Validation ValidationPositive ->
                     [ ( .validationPositive, True ) ]
 
-                ValidationInformative ->
+                Validation ValidationInformative ->
                     [ ( .validationInformative, True ) ]
 
-                ValidationNegative ->
+                Validation ValidationNegative ->
                     [ ( .validationNegative, True ) ]
 
-                ValidationCautionary ->
+                Validation ValidationCautionary ->
                     [ ( .validationCautionary, True ) ]
     in
     div
