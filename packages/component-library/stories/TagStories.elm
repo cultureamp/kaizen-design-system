@@ -68,6 +68,22 @@ main =
                 [ Tag.view (Tag.validation Tag.ValidationCautionary) "Validation"
                 , Tag.view (Tag.validation Tag.ValidationCautionary |> Tag.dismissible True) "Validation"
                 ]
+        , statelessStoryOf "Status - Live" <|
+            storyContainer
+                [ Tag.view (Tag.status Tag.StatusLive) "Live"
+                ]
+        , statelessStoryOf "Status - Draft" <|
+            storyContainer
+                [ Tag.view (Tag.status Tag.StatusDraft) "Draft"
+                ]
+        , statelessStoryOf "Status - Closed" <|
+            storyContainer
+                [ Tag.view (Tag.status Tag.StatusClosed) "Closed"
+                ]
+        , statelessStoryOf "Status - Action" <|
+            storyContainer
+                [ Tag.view (Tag.status Tag.StatusAction) "Action"
+                ]
         , statelessStoryOf "Truncated" <|
             storyContainer
                 [ Tag.view (Tag.default |> Tag.truncateWidth 50) "Truncated"
@@ -91,21 +107,5 @@ main =
                 [ Tag.view (Tag.default |> Tag.inline True |> Tag.dismissible True) "Inline"
                 , Tag.view (Tag.sentiment Tag.SentimentPositive |> Tag.inline True |> Tag.dismissible True) "Inline"
                 , Tag.view (Tag.validation Tag.ValidationPositive |> Tag.inline True |> Tag.dismissible True) "Inline"
-                ]
-        , statelessStoryOf "Status - Live" <|
-            storyContainer
-                [ Tag.view (Tag.status Tag.StatusLive) "Live"
-                ]
-        , statelessStoryOf "Status - Draft" <|
-            storyContainer
-                [ Tag.view (Tag.status Tag.StatusDraft) "Draft"
-                ]
-        , statelessStoryOf "Status - Closed" <|
-            storyContainer
-                [ Tag.view (Tag.status Tag.StatusClosed) "Closed"
-                ]
-        , statelessStoryOf "Status - Action" <|
-            storyContainer
-                [ Tag.view (Tag.status Tag.StatusAction) "Action"
                 ]
         ]
