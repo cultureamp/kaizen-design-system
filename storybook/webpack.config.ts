@@ -1,3 +1,6 @@
+// Call the pre-build script -- used for validation, setup, etc.
+import "./pre-build"
+
 import { resolve } from "path"
 import { Loader, RuleSetRule as Rule } from "webpack"
 
