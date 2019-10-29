@@ -49,6 +49,13 @@ storiesOf("TitleBlock", module)
   .add("with navigation buttons", () => (
     <TitleBlock title="Home" navigationButtons={navigationButtons} />
   ))
+  .add("with tag", () => (
+    <TitleBlock
+      title="Home"
+      subtitle="Subtitle goes here"
+      surveyStatus={{ status: "live", text: "Live" }}
+    />
+  ))
   .add("reversed", () => (
     <div style={reversedContainerStyle}>
       <TitleBlock

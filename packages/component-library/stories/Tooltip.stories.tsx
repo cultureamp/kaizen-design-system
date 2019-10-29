@@ -10,7 +10,7 @@ storiesOf("Tooltip", module)
     <div>
       <Tooltip position="below" text="This is a position below tooltip">
         <div>
-          <Tag text="Below" />
+          <Tag>Below</Tag>
         </div>
       </Tooltip>
     </div>
@@ -19,7 +19,7 @@ storiesOf("Tooltip", module)
     <div style={{ marginTop: "100px", position: "relative" }}>
       <Tooltip position="above" text="This is a position above tooltip">
         <div>
-          <Tag text="Above" />
+          <Tag>Above</Tag>
         </div>
       </Tooltip>
     </div>
