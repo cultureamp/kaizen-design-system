@@ -2,9 +2,6 @@
 @import "~@cultureamp/kaizen-component-library/styles/type";
 @import "~@cultureamp/kaizen-component-library/styles/layout";
 
-$pulse-size-initial: 2px;
-$pulse-scale-factor: 9;
-$pulse-size-after: $pulse-size-initial * $pulse-scale-factor;
 $medium: 30px;
 $small: 24px;
 $clearable-size-small: 14px;
@@ -132,61 +129,5 @@ $validation-icon-size: 20px;
 
   .validationIcon {
     color: $ca-palette-coral;
-  }
-}
-
-.peach {
-  background-color: add-tint($ca-palette-peach, 90%);
-  color: $ca-palette-peach;
-}
-
-.seedling {
-  background-color: add-tint($ca-palette-seedling, 90%);
-  color: add-shade($ca-palette-seedling, 30%);
-}
-
-.wisteria {
-  background-color: add-tint($ca-palette-wisteria, 90%);
-  color: $ca-palette-wisteria;
-}
-
-.pulse {
-  // bottom 3px is to nudge slightly so that it sits better inside the tag
-  @include ca-margin($bottom: 3px, $start: 0.5rem);
-  width: $pulse-size-initial;
-  height: $pulse-size-initial;
-  border-radius: 50%;
-  background-color: $ca-palette-ocean;
-  vertical-align: middle;
-  display: inline-block;
-  position: relative;
-  opacity: 0.5;
-}
-
-.pulseRing {
-  position: absolute;
-  width: $pulse-size-after;
-  height: $pulse-size-after;
-  // this positioning has to be calculated as an exact value as scaling will mess with percentage values
-  left: -($pulse-size-after / 2) + ($pulse-size-initial / 2);
-  top: -($pulse-size-after / 2) + ($pulse-size-initial / 2);
-  border-radius: 50%;
-  background-color: $ca-palette-ocean;
-  animation: pulsate infinite 2.5s ease-out;
-}
-
-.noAnimation {
-  animation: none;
-}
-
-@keyframes pulsate {
-  0% {
-    transform: scale(0);
-    opacity: 1;
-  }
-  50%,
-  100% {
-    transform: scale(1);
-    opacity: 0;
   }
 }
