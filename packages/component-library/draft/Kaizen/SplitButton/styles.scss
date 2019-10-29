@@ -90,6 +90,7 @@ $button-width: 124px;
     border-right: $base-border;
     border-left: 0;
     border-radius: 0 $ca-border-radius $ca-border-radius 0;
+    text-align: right;
   }
 
   // This seemingly hacky selector specifically has to target the adjacent dropdown
