@@ -166,6 +166,6 @@ $button-width: 124px;
 
 .menuContainer {
   position: absolute;
-  min-width: calc(#{$button-width} + 100%);
+  width: calc(#{$button-width} + 100%);
   z-index: $ca-z-index-dropdown;
 }
