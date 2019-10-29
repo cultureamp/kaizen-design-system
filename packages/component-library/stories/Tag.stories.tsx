@@ -102,6 +102,30 @@ storiesOf("Tag", module)
     </StoryContainer>
   ))
 
+  .add("Status - Live", () => (
+    <StoryContainer>
+      <Tag variant="statusLive">Live</Tag>
+    </StoryContainer>
+  ))
+
+  .add("Status - Draft", () => (
+    <StoryContainer>
+      <Tag variant="statusDraft">Draft</Tag>
+    </StoryContainer>
+  ))
+
+  .add("Status - Closed", () => (
+    <StoryContainer>
+      <Tag variant="statusClosed">Closed</Tag>
+    </StoryContainer>
+  ))
+
+  .add("Status - Action", () => (
+    <StoryContainer>
+      <Tag variant="statusAction">Action</Tag>
+    </StoryContainer>
+  ))
+
   .add("Truncated", () => (
     <StoryContainer>
       <Tag variant="default" truncateWidth={50}>
@@ -173,4 +197,8 @@ loadElmStories("Tag (Elm)", module, require("./TagStories.elm"), [
   "Truncated - Dismissible",
   "Inline",
   "Inline - Dismissible",
+  "Status - Live",
+  "Status - Draft",
+  "Status - Closed",
+  "Status - Action",
 ])

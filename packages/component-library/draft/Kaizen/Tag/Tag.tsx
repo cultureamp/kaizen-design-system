@@ -9,18 +9,24 @@ const successIcon = require("@cultureamp/kaizen-component-library/icons/success.
   .default
 const styles = require("./Tag.scss")
 
+type Variant =
+  | "default"
+  | "sentimentPositive"
+  | "sentimentNeutral"
+  | "sentimentNegative"
+  | "sentimentNone"
+  | "validationPositive"
+  | "validationInformative"
+  | "validationNegative"
+  | "validationCautionary"
+  | "statusLive"
+  | "statusDraft"
+  | "statusClosed"
+  | "statusAction"
+
 interface Props {
   readonly children: React.ReactNode
-  readonly variant:
-    | "default"
-    | "sentimentPositive"
-    | "sentimentNeutral"
-    | "sentimentNegative"
-    | "sentimentNone"
-    | "validationPositive"
-    | "validationInformative"
-    | "validationNegative"
-    | "validationCautionary"
+  readonly variant: Variant
   readonly size?: "medium" | "small"
   readonly inline?: boolean
   readonly dismissible?: boolean
@@ -29,6 +35,14 @@ interface Props {
   readonly onMouseLeave?: React.MouseEventHandler<HTMLSpanElement>
   readonly truncateWidth?: number
 }
+
+const successIconVariants: Variant[] = ["validationPositive"]
+
+const exclamationIconVariants: Variant[] = [
+  "validationInformative",
+  "validationNegative",
+  "validationCautionary",
+]
 
 const Tag = (props: Props) => {
   const {
@@ -44,6 +58,7 @@ const Tag = (props: Props) => {
   } = props
 
   const isTruncated = truncateWidth && truncateWidth > 0
+  const canShowIcon = size === "medium"
 
   return (
     <div
@@ -57,6 +72,10 @@ const Tag = (props: Props) => {
         [styles.validationInformative]: variant === "validationInformative",
         [styles.validationNegative]: variant === "validationNegative",
         [styles.validationCautionary]: variant === "validationCautionary",
+        [styles.statusLive]: variant === "statusLive",
+        [styles.statusDraft]: variant === "statusDraft",
+        [styles.statusClosed]: variant === "statusClosed",
+        [styles.statusAction]: variant === "statusAction",
         [styles.medium]: size === "medium",
         [styles.small]: size === "small",
         [styles.inline]: inline,
@@ -64,20 +83,16 @@ const Tag = (props: Props) => {
       })}
     >
       <>
-        {size === "medium" &&
+        {canShowIcon &&
           (() => {
-            if (variant === "validationPositive") {
+            if (successIconVariants.includes(variant)) {
               return (
                 <span className={styles.validationIcon}>
                   <Icon icon={successIcon} role="presentation" />
                 </span>
               )
             }
-            if (
-              variant === "validationInformative" ||
-              variant === "validationNegative" ||
-              variant === "validationCautionary"
-            ) {
+            if (exclamationIconVariants.includes(variant)) {
               return (
                 <span className={styles.validationIcon}>
                   <Icon icon={exclamationIcon} role="presentation" />
@@ -108,6 +123,11 @@ const Tag = (props: Props) => {
           </span>
         )}
       </>
+      {variant === "statusLive" && (
+        <span className={styles.pulse}>
+          <span className={styles.pulseRing} />
+        </span>
+      )}
     </div>
   )
 }

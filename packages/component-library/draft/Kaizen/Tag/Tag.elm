@@ -1,6 +1,7 @@
 module Kaizen.Tag.Tag exposing
     ( Sentiment(..)
     , Size(..)
+    , Status(..)
     , Validation(..)
     , default
     , dismissible
@@ -10,6 +11,7 @@ module Kaizen.Tag.Tag exposing
     , onMouseleave
     , sentiment
     , size
+    , status
     , truncateWidth
     , validation
     , view
@@ -59,6 +61,13 @@ type Sentiment
     | SentimentNone
 
 
+type Status
+    = StatusLive
+    | StatusDraft
+    | StatusClosed
+    | StatusAction
+
+
 
 -- VARIANTS
 
@@ -67,6 +76,7 @@ type Variant
     = Default
     | Validation Validation
     | Sentiment Sentiment
+    | Status Status
 
 
 default : Config msg
@@ -75,13 +85,18 @@ default =
 
 
 validation : Validation -> Config msg
-validation validationType =
-    Config { defaults | variant = Validation validationType }
+validation variant =
+    Config { defaults | variant = Validation variant }
 
 
 sentiment : Sentiment -> Config msg
-sentiment sentimentType =
-    Config { defaults | variant = Sentiment sentimentType }
+sentiment variant =
+    Config { defaults | variant = Sentiment variant }
+
+
+status : Status -> Config msg
+status variant =
+    Config { defaults | variant = Status variant }
 
 
 
@@ -211,6 +226,26 @@ view (Config config) value =
 
                 Validation ValidationCautionary ->
                     [ ( .validationCautionary, True ) ]
+
+                Status StatusLive ->
+                    [ ( .statusLive, True ) ]
+
+                Status StatusDraft ->
+                    [ ( .statusDraft, True ) ]
+
+                Status StatusClosed ->
+                    [ ( .statusClosed, True ) ]
+
+                Status StatusAction ->
+                    [ ( .statusAction, True ) ]
+
+        resolveIndicatorIcon =
+            case config.variant of
+                Status StatusLive ->
+                    viewIndicatorIcon config
+
+                _ ->
+                    text ""
     in
     div
         [ styles.classList
@@ -226,6 +261,7 @@ view (Config config) value =
         [ resolveValidationIcon
         , viewTextContent config value
         , resolveClear
+        , resolveIndicatorIcon
         ]
 
 
@@ -258,6 +294,13 @@ viewValidationIcon config =
         [ Icon.view Icon.presentation
             (svgAsset "@cultureamp/kaizen-component-library/icons/exclamation.icon.svg")
             |> Html.map never
+        ]
+
+
+viewIndicatorIcon : Configuration msg -> Html msg
+viewIndicatorIcon config =
+    span [ styles.class .pulse ]
+        [ span [ styles.class .pulseRing ] []
         ]
 
 
@@ -299,6 +342,10 @@ styles =
         , validationInformative = "validationInformative"
         , validationNegative = "validationNegative"
         , validationCautionary = "validationCautionary"
+        , statusLive = "statusLive"
+        , statusDraft = "statusDraft"
+        , statusClosed = "statusClosed"
+        , statusAction = "statusAction"
         , medium = "medium"
         , small = "small"
         , inline = "inline"
@@ -307,4 +354,6 @@ styles =
         , validationIcon = "validationIcon"
         , truncate = "truncate"
         , textContent = "textContent"
+        , pulse = "pulse"
+        , pulseRing = "pulseRing"
         }
