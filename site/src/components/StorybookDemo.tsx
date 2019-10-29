@@ -7,7 +7,15 @@ type StorybookDemoProps = {
   demoId: string
 }
 
+declare global {
+  interface Window {
+    body: any
+  }
+}
+
 export default class StorybookDemo extends React.Component<StorybookDemoProps> {
+  private iFrameRef: React.RefObject<HTMLIFrameElement>
+
   constructor(props) {
     super(props)
     this.iFrameRef = React.createRef()
