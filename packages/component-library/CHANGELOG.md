@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.1.2...@cultureamp/kaizen-component-library@14.1.3) (2019-10-30)
+
+
+### Bug Fixes
+
+* fix visibility of Elm Select's selected item text ([#95](https://github.com/cultureamp/kaizen-design-system/issues/95)) ([754c321](https://github.com/cultureamp/kaizen-design-system/commit/754c321))
+
+
+
+
+
 ## [14.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.1.1...@cultureamp/kaizen-component-library@14.1.2) (2019-10-30)
 
 
