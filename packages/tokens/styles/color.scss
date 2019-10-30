@@ -19,21 +19,10 @@ $ca-palette-stone: add-tint($ca-palette-ink, 97%);
 $ca-palette-ash: add-tint($ca-palette-ink, 94%);
 $ca-palette-positive: add-tint($ca-palette-seedling, 30%);
 $ca-palette-negative: $ca-palette-coral;
+
 // Delta colours are to be phased out. Please do not use.
 $ca-palette-positive-delta: #43e699;
 $ca-palette-negative-delta: #ff4757;
-$ca-palette-input-validation-negative: add-tint($ca-palette-coral, 70%);
-
-// Text colours
-$ca-base-text-color: $ca-palette-ink;
-$ca-link-text-color: $ca-palette-ocean;
-$ca-link-hover-text-color: $ca-palette-ocean;
-$ca-palette-positive-text: add-shade($ca-palette-seedling, 20%);
-$ca-palette-negative-text: add-shade($ca-palette-coral, 20%);
-
-// Border colours
-$ca-border-color: add-tint($ca-palette-ink, 80%);
-$ca-border-between-rows-color: add-tint($ca-palette-ink, 90%);
 
 // Freemium colors
 $ca-freemium-blue: #9cd1e2;
