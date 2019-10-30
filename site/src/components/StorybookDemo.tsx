@@ -1,5 +1,5 @@
+import { withPrefix } from "gatsby"
 import * as React from "react"
-import ReactDOM from "react-dom"
 
 const styles = require("./StorybookDemo.scss")
 
@@ -28,12 +28,15 @@ export default class StorybookDemo extends React.Component<StorybookDemoProps> {
     return (
       <div className={styles.container}>
         <iframe
-          src={`https://cultureamp.design/storybook-static/iframe.html?id=${this.props.demoId}`}
+          src={withPrefix(
+            `/storybook-static/iframe.html?id=${this.props.demoId}`
+          )}
           onLoad={() => {
             const obj = this.iFrameRef.current
             if (obj && obj.contentWindow) {
               this.setState({
-                iFrameHeight: obj!.contentWindow.body.scrollHeight + "px",
+                iFrameHeight:
+                  obj.contentWindow.document.body.scrollHeight + "px",
               })
             }
           }}
