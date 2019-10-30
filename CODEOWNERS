@@ -6,7 +6,7 @@
 /packages/ @cultureamp/design-systems
 
 # Exclude modifications to existing packages by assigning it to no one
-/packages/component-library/ @ghost
+/packages/component-library @ghost
 /packages/binary-assets @ghost
 
 # Pipelines are maintained by Delivery Engineering:
