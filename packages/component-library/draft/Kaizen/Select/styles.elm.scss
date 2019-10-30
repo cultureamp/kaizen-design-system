@@ -16,7 +16,6 @@
   position: absolute;
   transform: translateY(-50%);
   box-sizing: border-box;
-  opacity: $input-placeholder-opacity;
 }
 .container {
   position: relative;
@@ -68,6 +67,7 @@
 
 .placeholder {
   @extend .basePlaceholder;
+  opacity: $input-placeholder-opacity;
 }
 
 .faded {
