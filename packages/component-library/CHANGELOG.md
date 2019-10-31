@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.4.0...@cultureamp/kaizen-component-library@14.4.1) (2019-10-31)
+
+
+### Bug Fixes
+
+* revert select content alignment in ie11 off ([#86](https://github.com/cultureamp/kaizen-design-system/issues/86)) ([#99](https://github.com/cultureamp/kaizen-design-system/issues/99)) ([c20d03d](https://github.com/cultureamp/kaizen-design-system/commit/c20d03d))
+
+
+
+
+
 # [14.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.3.0...@cultureamp/kaizen-component-library@14.4.0) (2019-10-31)
 
 
