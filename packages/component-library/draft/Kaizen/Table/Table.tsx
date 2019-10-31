@@ -25,6 +25,12 @@ export const TableHeaderRow: TableHeaderRow = ({ children }) => (
 const ratioToPercent = (width?: number) =>
   width != null ? `${width * 100}%` : width
 
+/**
+ * @param width value between 1 and 0, to be calculated as a percentage
+ * @param flex CSS flex shorthand as a string. Be sure to specify the flex grow,
+ *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
+ *        instead of just "1".
+ */
 type TableHeaderRowCell = React.FunctionComponent<{
   labelText: string
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => any
@@ -128,6 +134,12 @@ export const TableRow: TableRow = ({ children }) => (
   <div className={styles.row}>{children}</div>
 )
 
+/**
+ * @param width value between 1 and 0, to be calculated as a percentage
+ * @param flex CSS flex shorthand as a string. Be sure to specify the flex grow,
+ *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
+ *        instead of just "1".
+ */
 type TableRowCell = React.FunctionComponent<{
   width?: number
   flex?: string
