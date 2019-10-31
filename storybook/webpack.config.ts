@@ -1,3 +1,6 @@
+// Call the pre-build script -- used for validation, setup, etc.
+import "./pre-build"
+
 import { resolve } from "path"
 import { Loader, RuleSetRule as Rule } from "webpack"
 
@@ -110,6 +113,7 @@ const elm: Rule = {
     {
       loader: "elm-webpack-loader",
       options: {
+        debug: true,
         cwd: resolve(__dirname, ".."),
         pathToElm: resolve(__dirname, "../node_modules/.bin/elm"),
       },

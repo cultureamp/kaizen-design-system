@@ -1,6 +1,7 @@
-@import "~@cultureamp/kaizen-component-library/styles/type";
-@import "~@cultureamp/kaizen-component-library/styles/border";
+@import "~@cultureamp/kaizen-component-library/draft/Kaizen/Form/Primitives/Input/styles.scss";
 @import "~@cultureamp/kaizen-component-library/styles/animation";
+@import "~@cultureamp/kaizen-component-library/styles/border";
+@import "~@cultureamp/kaizen-component-library/styles/type";
 
 @mixin select-border($color: $color) {
   border-color: $color;
@@ -31,12 +32,12 @@
   min-height: 48px;
   position: relative;
   box-sizing: border-box;
-  border: solid 1px add-tint($ca-palette-ink, 90%);
+  border: solid 1px $ca-border-color;
   border-radius: $ca-border-radius;
   outline: 0 !important;
 
   &:hover {
-    border-color: add-tint($ca-palette-ink, 80%);
+    border-color: $ca-border-color-hover;
   }
 
   &.isFocused {
@@ -65,6 +66,7 @@
 
 .placeholder {
   @extend .basePlaceholder;
+  opacity: $input-placeholder-opacity;
 }
 
 .faded {
@@ -107,9 +109,9 @@
   position: absolute;
   width: 100%;
   box-sizing: border-box;
+  border: 1px solid $ca-border-color;
   border-radius: $ca-border-radius;
-  box-shadow: add-tint($ca-palette-ink, 90%) 0 0 0 1px,
-    add-tint($ca-palette-ink, 90%) 0 4px 11px;
+  box-shadow: $ca-box-shadow;
   z-index: 1;
 }
 

@@ -9,8 +9,14 @@ Binary asset management for Culture Amp's Kaizen Design System.
 Returns the full URL of the asset at `path` managed by the
 `kaizen-design-system-assets` service.
 
+**TypeScript/JavaScript**
 ```ts
 assetUrl("some/blob.png") // -> "https://<origin>/some/blob.png"
+```
+
+**SCSS**
+```scss
+asset-url("some/blob.png") // -> "https://<origin>/some/blob.png"
 ```
 
 ## See also

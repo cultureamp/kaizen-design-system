@@ -152,7 +152,7 @@ $caButton-verticalPaddingForm: calc(
     &:hover,
     &:active {
       color: $ca-palette-ocean;
-      background: $ca-palette-ash;
+      background: add-alpha($ca-palette-ink, 10%);
       border-color: transparent;
     }
 
