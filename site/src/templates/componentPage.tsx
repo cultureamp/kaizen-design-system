@@ -44,11 +44,13 @@ export default ({ data, pageContext, location }) => {
   )
 
   const renderStorybookIFrame = () => {
-    return md.frontmatter.demoStoryId ? (
-      <StorybookDemo demoId={md.frontmatter.demoStoryId} />
-    ) : (
-      undefined
-    )
+    if (!md.frontmatter.demoStoryId) {
+      console.error(
+        "Could not find a demo story ID. Please make sure there is a frontmatter field called demoStoryId in the component docs. The ID comes from the Storybook URL for a given story."
+      )
+      return undefined
+    }
+    return <StorybookDemo demoId={md.frontmatter.demoStoryId} />
   }
 
   const ComponentPageHeader = (
