@@ -1,5 +1,11 @@
+@import "~@cultureamp/kaizen-component-library/styles/layout";
 @import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/border";
+@import "~@cultureamp/kaizen-component-library/components/NavigationBar/styles";
+@import "~@cultureamp/kaizen-component-library/components/Icon/styles";
+
+$link-icon-margin: 12px;
 
 .markdownContainer {
   :global(.md-p) {
@@ -26,6 +32,26 @@
     margin-top: $ca-grid;
   }
 
+  /* Adds a negative top margin to counter for the fixed header + add a bit of padding */
+  :global(.md-anchor-offset) {
+    display: block;
+    position: relative;
+    top: -$ca-navigation-bar__height - $ca-grid;
+    visibility: hidden;
+  }
+
+  :global(.md-heading-link) {
+    float: left;
+    margin-left: -$ca-icon-width - ($link-icon-margin * 2);
+    padding: 0 $link-icon-margin;
+    color: add-tint($ca-palette-ink, 70%);
+    &:not(:focus) {
+      svg {
+        visibility: hidden;
+      }
+    }
+  }
+
   :global(.md-h1),
   :global(.md-h2),
   :global(.md-h3),
@@ -34,6 +60,10 @@
   :global(.md-h6) {
     font-weight: $ca-weight-book;
     margin: ($ca-grid * 2) 0 ($ca-grid / 2);
+
+    &:hover :global(.md-heading-link) svg {
+      visibility: visible;
+    }
   }
 
   // This is the actual h1 in the Header component.
