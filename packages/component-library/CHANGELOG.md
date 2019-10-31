@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [14.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.1.3...@cultureamp/kaizen-component-library@14.2.0) (2019-10-31)
+
+
+### Features
+
+* Create SplitButton component ([#73](https://github.com/cultureamp/kaizen-design-system/issues/73)) ([51c15b7](https://github.com/cultureamp/kaizen-design-system/commit/51c15b7))
+
+
+
+
+
 ## [14.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.1.2...@cultureamp/kaizen-component-library@14.1.3) (2019-10-30)
 
 
