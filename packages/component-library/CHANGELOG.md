@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.1.2...@cultureamp/kaizen-component-library@14.1.3) (2019-10-30)
+
+
+### Bug Fixes
+
+* fix visibility of Elm Select's selected item text ([#95](https://github.com/cultureamp/kaizen-design-system/issues/95)) ([754c321](https://github.com/cultureamp/kaizen-design-system/commit/754c321))
+
+
+
+
+
+## [14.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.1.1...@cultureamp/kaizen-component-library@14.1.2) (2019-10-30)
+
+
+### Bug Fixes
+
+* Secondary button hover state on ash background not obvious ([#76](https://github.com/cultureamp/kaizen-design-system/issues/76)) ([98e5d4d](https://github.com/cultureamp/kaizen-design-system/commit/98e5d4d))
+
+
+
+
+
+## [14.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.1.0...@cultureamp/kaizen-component-library@14.1.1) (2019-10-30)
+
+
+### Bug Fixes
+
+* select content alignment in ie11 off ([#86](https://github.com/cultureamp/kaizen-design-system/issues/86)) ([4ca0463](https://github.com/cultureamp/kaizen-design-system/commit/4ca0463))
+
+
+
+
+
 # [14.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.0.7...@cultureamp/kaizen-component-library@14.1.0) (2019-10-28)
 
 
