@@ -32,13 +32,15 @@ export default class StorybookDemo extends React.Component<StorybookDemoProps> {
             `/storybook-static/iframe.html?id=${this.props.demoId}`
           )}
           onLoad={() => {
-            const obj = this.iFrameRef.current
-            if (obj && obj.contentWindow) {
-              this.setState({
-                iFrameHeight:
-                  obj.contentWindow.document.body.scrollHeight + "px",
-              })
-            }
+            setTimeout(() => {
+              const obj = this.iFrameRef.current
+              if (obj && obj.contentWindow) {
+                this.setState({
+                  iFrameHeight:
+                    obj.contentWindow.document.body.scrollHeight + "px",
+                })
+              }
+            }, 1000)
           }}
           height={this.state.iFrameHeight}
           ref={this.iFrameRef}
