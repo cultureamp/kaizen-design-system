@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.4.2...@cultureamp/kaizen-component-library@14.4.3) (2019-11-01)
+
+
+### Bug Fixes
+
+* Remove tsx files from published package ([#105](https://github.com/cultureamp/kaizen-design-system/issues/105)) ([f47c0c3](https://github.com/cultureamp/kaizen-design-system/commit/f47c0c3))
+
+
+
+
+
+## [14.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.4.1...@cultureamp/kaizen-component-library@14.4.2) (2019-10-31)
+
+**Note:** Version bump only for package @cultureamp/kaizen-component-library
+
+
+
+
+
 ## [14.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.4.0...@cultureamp/kaizen-component-library@14.4.1) (2019-10-31)
 
 
