@@ -49,6 +49,9 @@
     }
   },
   "DEPRECATED": {
-    "color": {}
+    "color": {
+      "lapis": {},
+      "ocean": {}
+    }
   }
 }

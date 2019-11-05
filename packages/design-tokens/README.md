@@ -22,7 +22,7 @@ yarn add @cultureamp/kaizen-tokens
 
 ### Javascript 
 ```
-@import @cultureamp/kaizen-tokens/tokens/[color/depth/layout/spacing/typography]
+@import * as tokens from @cultureamp/kaizen-tokens/tokens/[color/depth/layout/spacing/typography]
 ```
 
 ### Less + others
