@@ -1,0 +1,10 @@
+{
+  "animation": {
+    "instant": 0,
+    "immediate": 100,
+    "rapid": 200,
+    "fast": 300,
+    "slow": 400,
+    "deliberate": 700
+  }
+}

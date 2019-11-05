@@ -1,0 +1,41 @@
+{
+  "font": {
+    "heading": {
+      "family": "Greycliff CF",
+      "size": {
+        "-xxl": 4.5,
+        "-xl": 2.25,
+        "-lg": 1.875,
+        "-md": 1.375,
+        "-sm": 1.125,
+        "-xs": 1,
+        "-xxs": 0.875
+      }
+    },
+    "paragraph": {
+      "family": "Inter",
+      "size": {
+        "-lg": 1.25,
+        "-md": 1,
+        "-sm": 0.875,
+        "-xs": 0.75
+      }
+    },
+    "preformatted": {
+      "family": "IBM Plex Mono",
+      "size": {
+        "-md": 1
+      }
+    }
+  },
+  "DEPRECATED": {
+    "font": {
+      "default": {
+        "family": "Open Sans"
+      },
+      "sans-serif": {
+        "family": "Ideal Sans A"
+      }
+    }
+  }
+}
