@@ -1,9 +1,10 @@
 # General improvements
 * Interim methods that map between old world and new world
+* Improve json-to-flat-sass so that non-string values aren't wrapped
 
 ## Sass-specific
-* Better helpers methods
+* Better helper methods
 
 ## Less-specific 
 * Build to generate lib/less for less support
-* Better helpers methods
+* Better helper methods
