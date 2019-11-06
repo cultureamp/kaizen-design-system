@@ -1,7 +1,7 @@
 {
   "layout": {
-    "max-width": 88.5,
-    "side-padding": 1.5,
-    "content-width": 67.5
+    "max-width": "88.5em",
+    "side-padding": "1.5em",
+    "content-width": "67.5em"
   }
 }

@@ -31,6 +31,6 @@ Coming soon (or eventually) :D
 ## Misc
 
 ### This is a pixel-free zone
-All values in tokens are intentionally unitless. For Web folk, if you're not sure what unit a value is:
+All values in tokens are represented as rem or em.
     * Use REMs for sizes and spacing (grid)
     * Use EMs for media queries.

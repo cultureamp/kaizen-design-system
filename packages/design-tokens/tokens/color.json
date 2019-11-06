@@ -46,7 +46,10 @@
       "300": "#FDBAAB",
       "400": "#FC9E8A",
       "500": "#FA7558"
-    }
+    },
+    "ash": "#ECECEF",
+    "white": "#FFFFFF",
+    "stone": "#F6F6F6"
   },
   "DEPRECATED": {
     "color": {

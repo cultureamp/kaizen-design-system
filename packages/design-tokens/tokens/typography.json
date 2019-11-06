@@ -1,28 +1,28 @@
 {
   "font": {
     "heading": {
-      "family": "Greycliff CF",
+      "family": "'Greycliff CF'",
       "size": {
-        "-xxl": 4.5,
-        "-xl": 2.25,
-        "-lg": 1.875,
-        "-md": 1.375,
-        "-sm": 1.125,
-        "-xs": 1,
-        "-xxs": 0.875
+        "-xxl": "4.5rem",
+        "-xl": "2.25rem",
+        "-lg": "1.875rem",
+        "-md": "1.375rem",
+        "-sm": "1.125rem",
+        "-xs": "1rem",
+        "-xxs": "0.875rem"
       }
     },
     "paragraph": {
-      "family": "Inter",
+      "family": "'Inter'",
       "size": {
-        "-lg": 1.25,
-        "-md": 1,
-        "-sm": 0.875,
-        "-xs": 0.75
+        "-lg": "1.25rem",
+        "-md": "1rem",
+        "-sm": "0.875rem",
+        "-xs": "0.75rem"
       }
     },
     "preformatted": {
-      "family": "IBM Plex Mono",
+      "family": "'IBM Plex Mono'",
       "size": {
         "-md": 1
       }
@@ -31,10 +31,10 @@
   "DEPRECATED": {
     "font": {
       "default": {
-        "family": "Open Sans"
+        "family": "'Open Sans'"
       },
       "sans-serif": {
-        "family": "Ideal Sans A"
+        "family": "'Ideal Sans A'"
       }
     }
   }

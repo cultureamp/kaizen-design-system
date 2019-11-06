@@ -1,5 +1,5 @@
 {
   "spacing": {
-    "grid": 1.5
+    "grid-unit": "1.5rem"
   }
 }

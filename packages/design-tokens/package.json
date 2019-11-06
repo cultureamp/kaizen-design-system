@@ -26,6 +26,6 @@
     "prepublish": "yarn build:generate-variables"
   },
   "devDependencies": {
-    "json-to-flat-sass": "^0.0.12"
+    "json-to-flat-sass": "^0.0.13"
   }
 }
