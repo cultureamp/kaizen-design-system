@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.4.4...@cultureamp/kaizen-component-library@14.4.5) (2019-11-06)
+
+
+### Bug Fixes
+
+* Fix shifting text when expanding and collapsing table rows ([#110](https://github.com/cultureamp/kaizen-design-system/issues/110)) ([0164056](https://github.com/cultureamp/kaizen-design-system/commit/0164056))
+
+
+
+
+
 ## [14.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.4.3...@cultureamp/kaizen-component-library@14.4.4) (2019-11-03)
 
 
