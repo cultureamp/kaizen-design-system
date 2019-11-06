@@ -1,3 +1,4 @@
+@import "~@cultureamp/kaizen-component-library/styles/animation";
 @import "~@cultureamp/kaizen-component-library/styles/border";
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/type";
@@ -60,7 +61,9 @@ $row-height: 60px;
   background: $white;
   border: solid 1px $ca-border-color;
   box-shadow: $ca-box-shadow;
-  transition: box-shadow 0.2s, border-color 0.2s, margin 0.2s, padding 0.2s;
+  transition: box-shadow $ca-duration-rapid, border-color $ca-duration-rapid,
+    margin $ca-duration-rapid, padding $ca-duration-rapid,
+    width $ca-duration-rapid;
   // These css properties are required for when the rows are anchor elements
   text-decoration: none;
   color: $ca-palette-ink;
@@ -86,7 +89,7 @@ $row-height: 60px;
   }
 
   &:hover {
-    will-change: box-shadow, border-color, margin, padding;
+    will-change: box-shadow, border-color, margin, padding, width;
   }
 
   &.well {
