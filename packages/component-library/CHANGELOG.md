@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.4.3...@cultureamp/kaizen-component-library@14.4.4) (2019-11-03)
+
+
+### Bug Fixes
+
+* Remove mouseup selection ([#108](https://github.com/cultureamp/kaizen-design-system/issues/108)) ([c6835c0](https://github.com/cultureamp/kaizen-design-system/commit/c6835c0))
+
+
+
+
+
 ## [14.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.4.2...@cultureamp/kaizen-component-library@14.4.3) (2019-11-01)
 
 
