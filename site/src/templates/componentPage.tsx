@@ -13,6 +13,7 @@ import {
   SidebarSection,
   SidebarTab,
 } from "../components/SidebarAndContent"
+import StorybookDemo from "../components/StorybookDemo"
 import { sortSidebarTabs, stripTrailingSlash } from "./util"
 
 const renderSidebarTabs = (pages, currentPath) => {
@@ -42,6 +43,16 @@ export default ({ data, pageContext, location }) => {
     allPages.filter(el => el.node.frontmatter.navTitle !== "Overview")
   )
 
+  const renderStorybookIFrame = () => {
+    if (!md.frontmatter.demoStoryId) {
+      console.error(
+        "Could not find a demo story ID. Please make sure there is a frontmatter field called demoStoryId in the component docs. The ID comes from the Storybook URL for a given story."
+      )
+      return undefined
+    }
+    return <StorybookDemo demoId={md.frontmatter.demoStoryId} />
+  }
+
   const ComponentPageHeader = (
     <PageHeader
       headingText={md.frontmatter.title}
@@ -66,6 +77,7 @@ export default ({ data, pageContext, location }) => {
         </Sidebar>
         <Content>
           <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
+          {renderStorybookIFrame()}
           <ContentMarkdownSection>
             <h1>{md.frontmatter.navTitle}</h1>
             {/*
@@ -100,6 +112,7 @@ export const query = graphql`
         tags
         needToKnow
         summaryParagraph
+        demoStoryId
       }
     }
   }
