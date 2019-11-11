@@ -22,10 +22,20 @@ export const TableHeaderRow: TableHeaderRow = ({ children }) => (
   <div className={styles.headerRow}>{children}</div>
 )
 
+const ratioToPercent = (width?: number) =>
+  width != null ? `${width * 100}%` : width
+
+/**
+ * @param width value between 1 and 0, to be calculated as a percentage
+ * @param flex CSS flex shorthand as a string. Be sure to specify the flex grow,
+ *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
+ *        instead of just "1".
+ */
 type TableHeaderRowCell = React.FunctionComponent<{
   labelText: string
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => any
-  width: number
+  width?: number
+  flex?: string
   icon?: React.SVGAttributes<SVGSymbolElement>
   checkable?: boolean
   checkedStatus?: CheckedStatus
@@ -35,6 +45,7 @@ type TableHeaderRowCell = React.FunctionComponent<{
 export const TableHeaderRowCell: TableHeaderRowCell = ({
   onClick,
   width,
+  flex,
   labelText,
   icon,
   checkable,
@@ -60,7 +71,8 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   )
 
   const style = {
-    width: `${width * 100}%`,
+    width: ratioToPercent(width),
+    flex: flex,
   }
   return onClick ? (
     <button
@@ -78,24 +90,38 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   )
 }
 
+type ButtonClickEvent = (e: React.MouseEvent<HTMLButtonElement>) => void
+type AnchorClickEvent = (e: React.MouseEvent<HTMLAnchorElement>) => void
+
 type TableCard = React.FunctionComponent<{
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => any
+  onClick?: ButtonClickEvent | AnchorClickEvent
   expanded?: boolean
   expandedStyle?: "well" | "popout"
+  href?: string
+  // Despite there being no onClick or href, still show a hover state on the
+  // rows. An example use case is when you might want to handle click events
+  // at a cell level, instead of the full row level.
+  forceHoverState?: boolean
 }>
 export const TableCard: TableCard = ({
   children,
   expanded,
   expandedStyle = "well",
   onClick,
+  href,
+  forceHoverState = false,
 }) => {
   const className = classNames(styles.card, {
     [styles.expanded]: expanded,
     [styles[expandedStyle]]: expanded,
-    [styles.clickable]: onClick != null,
+    [styles.hasHoverState]: forceHoverState || onClick != null || href != null,
   })
-  return onClick ? (
-    <button className={className} onClick={onClick}>
+  return href != null ? (
+    <a href={href} className={className} onClick={onClick as AnchorClickEvent}>
+      {children}
+    </a>
+  ) : onClick ? (
+    <button className={className} onClick={onClick as ButtonClickEvent}>
       {children}
     </button>
   ) : (
@@ -108,11 +134,24 @@ export const TableRow: TableRow = ({ children }) => (
   <div className={styles.row}>{children}</div>
 )
 
+/**
+ * @param width value between 1 and 0, to be calculated as a percentage
+ * @param flex CSS flex shorthand as a string. Be sure to specify the flex grow,
+ *        shrink, and basis, due to IE11 compatibility. eg. use "1 1 auto"
+ *        instead of just "1".
+ */
 type TableRowCell = React.FunctionComponent<{
-  width: number
+  width?: number
+  flex?: string
 }>
-export const TableRowCell: TableRowCell = ({ children, width }) => (
-  <div style={{ width: `${width * 100}%` }} className={styles.rowCell}>
+export const TableRowCell: TableRowCell = ({ children, width, flex }) => (
+  <div
+    style={{
+      width: ratioToPercent(width),
+      flex,
+    }}
+    className={styles.rowCell}
+  >
     {children}
   </div>
 )

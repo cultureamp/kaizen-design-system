@@ -1,3 +1,4 @@
+@import "~@cultureamp/kaizen-component-library/styles/animation";
 @import "~@cultureamp/kaizen-component-library/styles/border";
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/type";
@@ -60,8 +61,18 @@ $row-height: 60px;
   background: $white;
   border: solid 1px $ca-border-color;
   box-shadow: $ca-box-shadow;
-  transition: box-shadow 0.2s, border-color 0.2s, margin 0.2s, padding 0.2s;
-  overflow: hidden;
+  transition: box-shadow $ca-duration-rapid, border-color $ca-duration-rapid,
+    margin $ca-duration-rapid, padding $ca-duration-rapid,
+    width $ca-duration-rapid;
+  // These css properties are required for when the rows are anchor elements
+  text-decoration: none;
+  color: $ca-palette-ink;
+  display: block;
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
 
   &:first-child {
     border-top-left-radius: $ca-border-radius;
@@ -78,7 +89,7 @@ $row-height: 60px;
   }
 
   &:hover {
-    will-change: box-shadow, border-color, margin, padding;
+    will-change: box-shadow, border-color, margin, padding, width;
   }
 
   &.well {
@@ -111,9 +122,10 @@ $row-height: 60px;
   padding-right: $ca-grid * 0.5;
 }
 
-.clickable {
+.hasHoverState {
   width: 100%;
   text-align: left;
+  cursor: pointer;
 
   &.expanded {
     width: calc(100% + #{$ca-grid});

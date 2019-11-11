@@ -49,14 +49,14 @@ type SelectId
 type Msg item
     = InputChanged SelectId String
     | InputReceivedFocused
-    | SelectedItem item Int
+    | SelectedItem item
     | DeselectedMultiItem item
     | SearchableSelectContainerClicked SelectId
     | UnsearchableSelectContainerClicked SelectId
     | ToggleMenuAtKey SelectId
     | OnInputFocused (Result Dom.Error ())
     | OnInputBlurred
-    | MenuItemClickFocus (Maybe item) Int
+    | MenuItemClickFocus Int
     | MultiItemFocus Int
     | InputMousedowned
     | ClearFocusedItem
@@ -130,6 +130,7 @@ type alias ViewMenuItemData item =
     , selectId : SelectId
     , menuItem : MenuItem item
     , menuNavigation : MenuNavigation
+    , initialMousedown : InitialMousedown
     }
 
 
@@ -353,25 +354,19 @@ update msg (State state_) =
         InputReceivedFocused ->
             ( Internal, State { state_ | controlFocused = True }, Cmd.none )
 
-        SelectedItem item idx ->
+        SelectedItem item ->
             let
                 ( _, State stateWithClosedMenu, cmdWithClosedMenu ) =
                     update CloseMenu (State state_)
             in
-            if state_.activeTargetIndex == idx then
-                ( Select item
-                , State
-                    { stateWithClosedMenu
-                        | initialMousedown = NothingMousedown
-                        , inputValue = Nothing
-                    }
-                , cmdWithClosedMenu
-                )
-
-            else
-                -- If anything other than a menuitem is an active target when we select a menuitem
-                -- we want to click focus the menuitem and register the selection
-                update (MenuItemClickFocus (Just item) idx) (State state_)
+            ( Select item
+            , State
+                { stateWithClosedMenu
+                    | initialMousedown = NothingMousedown
+                    , inputValue = Nothing
+                }
+            , cmdWithClosedMenu
+            )
 
         DeselectedMultiItem deselectedItem ->
             ( Deselect deselectedItem, State { state_ | initialMousedown = NothingMousedown }, Cmd.none )
@@ -431,16 +426,8 @@ update msg (State state_) =
             , updatedCmds
             )
 
-        MenuItemClickFocus maybeItem i ->
-            case maybeItem of
-                -- a Just item will passed when the menu item only receives a mouseup event,
-                -- This happens when a menu item receives a mousedown but then a user drags cursor to another item and does a mouseup.
-                -- To mimic native behaviour we first focus the menuitem and then register the selection.
-                Just item ->
-                    ( Internal, State { state_ | initialMousedown = MenuItemMousedown i }, Task.perform (\_ -> SelectedItem item i) (Process.sleep 200) )
-
-                Nothing ->
-                    ( Internal, State { state_ | initialMousedown = MenuItemMousedown i }, Cmd.none )
+        MenuItemClickFocus i ->
+            ( Internal, State { state_ | initialMousedown = MenuItemMousedown i }, Cmd.none )
 
         MultiItemFocus index ->
             ( Internal, State { state_ | initialMousedown = MultiItemMousedown index }, Cmd.none )
@@ -479,7 +466,7 @@ update msg (State state_) =
                             ( { stateWithOpenMenu | initialMousedown = NothingMousedown }, cmdWithOpenMenu )
 
                         -- When no container children i.e. tag, input, have initiated a click, then this means a click on the container itself
-                        -- has been initialed.
+                        -- has been initiated.
                         NothingMousedown ->
                             if state_.menuOpen then
                                 ( { stateWithClosedMenu | initialMousedown = ContainerMousedown }, cmdWithClosedMenu )
@@ -797,18 +784,25 @@ viewMenuItem viewMenuItemData =
     , lazy
         (\data ->
             let
-                conditionalMsgs =
+                resolveMouseLeave =
                     if data.isClickFocused then
                         [ on "mouseleave" <| Decode.succeed ClearFocusedItem ]
 
                     else
                         []
+
+                resolveMouseUp =
+                    case data.initialMousedown of
+                        MenuItemMousedown _ ->
+                            [ on "mouseup" <| Decode.succeed (SelectedItem data.menuItem.item) ]
+
+                        _ ->
+                            []
             in
             div
                 ([ role "listitem"
                  , tabindex -1
-                 , preventDefaultOn "mousedown" <| Decode.map (\msg -> ( msg, True )) <| Decode.succeed (MenuItemClickFocus Nothing data.index)
-                 , on "mouseup" <| Decode.succeed (SelectedItem data.menuItem.item data.index)
+                 , preventDefaultOn "mousedown" <| Decode.map (\msg -> ( msg, True )) <| Decode.succeed (MenuItemClickFocus data.index)
                  , on "mouseover" <| Decode.succeed (HoverFocused data.index)
                  , id (menuItemId data.selectId data.index)
                  , styles.classList
@@ -819,7 +813,8 @@ viewMenuItem viewMenuItemData =
                     , ( .preventPointer, data.menuNavigation == Keyboard )
                     ]
                  ]
-                    ++ conditionalMsgs
+                    ++ resolveMouseLeave
+                    ++ resolveMouseUp
                 )
                 [ text data.menuItem.label ]
         )
@@ -1115,11 +1110,11 @@ buildMenuItem selectId variant initialMousedown activeTargetIndex menuNavigation
     case variant of
         Single maybeSelectedItem ->
             viewMenuItem <|
-                ViewMenuItemData idx (isSelected item maybeSelectedItem) (isMenuItemClickFocused initialMousedown idx) (isTarget activeTargetIndex idx) selectId item menuNavigation
+                ViewMenuItemData idx (isSelected item maybeSelectedItem) (isMenuItemClickFocused initialMousedown idx) (isTarget activeTargetIndex idx) selectId item menuNavigation initialMousedown
 
         Multi _ _ ->
             viewMenuItem <|
-                ViewMenuItemData idx False (isMenuItemClickFocused initialMousedown idx) (isTarget activeTargetIndex idx) selectId item menuNavigation
+                ViewMenuItemData idx False (isMenuItemClickFocused initialMousedown idx) (isTarget activeTargetIndex idx) selectId item menuNavigation initialMousedown
 
 
 
