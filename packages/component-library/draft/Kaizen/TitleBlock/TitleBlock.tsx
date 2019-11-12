@@ -26,9 +26,8 @@ type Color =
   | "Transparent"
 
 type SurveyStatus = {
-  text: "Draft" | "Live"
-  color: "seedling" | "peach"
-  showIcon: boolean
+  text: string
+  status: "draft" | "live"
 }
 
 type Breadcrumb = {
@@ -98,13 +97,17 @@ class TitleBlock extends React.Component<Props, State> {
     const { surveyStatus } = this.props
     if (surveyStatus == undefined) return
 
+    let variant
+    if (surveyStatus.status === "draft") {
+      variant = "statusDraft"
+    }
+    if (surveyStatus.status === "live") {
+      variant = "statusLive"
+    }
+
     return (
       <div className={styles.tag}>
-        <Tag
-          text={surveyStatus.text}
-          color={surveyStatus.color}
-          withIcon={surveyStatus.showIcon}
-        />
+        <Tag variant={variant}>{surveyStatus.text}</Tag>
       </div>
     )
   }
