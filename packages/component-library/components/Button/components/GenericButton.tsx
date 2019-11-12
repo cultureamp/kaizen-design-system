@@ -18,8 +18,8 @@ type GenericProps = {
   type?: "submit" | "reset" | "button"
   automationId?: string
   fullWidth?: boolean
-  disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean,
-  analytics?: Analytics,
+  disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean
+  analytics?: Analytics
 }
 
 type LabelProps = {
@@ -30,8 +30,8 @@ type LabelProps = {
 }
 
 type Analytics = {
-  eventName: string,
-  properties: Object,
+  eventName: string
+  properties: Object
 }
 
 export type IconButtonProps = GenericProps
@@ -94,7 +94,9 @@ const renderButton: React.FunctionComponent<Props> = props => {
           : undefined
       }
       data-analytics-click={props.analytics && props.analytics.eventName}
-      data-analytics-properties={props.analytics && JSON.stringify(props.analytics.properties)}
+      data-analytics-properties={
+        props.analytics && JSON.stringify(props.analytics.properties)
+      }
     >
       {renderContent(props)}
     </button>
@@ -125,7 +127,9 @@ const renderLink: React.FunctionComponent<Props> = props => {
       }}
       data-automation-id={props.automationId}
       data-analytics-click={props.analytics && props.analytics.eventName}
-      data-analytics-properties={props.analytics && JSON.stringify(props.analytics.properties)}
+      data-analytics-properties={
+        props.analytics && JSON.stringify(props.analytics.properties)
+      }
     >
       {renderContent(props)}
     </a>
