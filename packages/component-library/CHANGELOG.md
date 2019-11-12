@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.0.0...@cultureamp/kaizen-component-library@15.1.0) (2019-11-12)
+
+
+### Features
+
+* Add analytics props to component Button ([#118](https://github.com/cultureamp/kaizen-design-system/issues/118)) ([5502b26](https://github.com/cultureamp/kaizen-design-system/commit/5502b26))
+
+
+
+
+
 # [15.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.4.5...@cultureamp/kaizen-component-library@15.0.0) (2019-11-12)
 
 
