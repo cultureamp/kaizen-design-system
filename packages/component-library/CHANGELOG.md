@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.4.5...@cultureamp/kaizen-component-library@15.0.0) (2019-11-12)
+
+
+### Features
+
+* Support all current variants in React and Elm Tag components ([#91](https://github.com/cultureamp/kaizen-design-system/issues/91)) ([4ced1ea](https://github.com/cultureamp/kaizen-design-system/commit/4ced1ea))
+
+
+### BREAKING CHANGES
+
+* React Tag:
+
+- `color`, `withIcon` and `disableAnimation` props are removed. Use
+the new variant prop to control which preset variant of Tag should be
+rendered. Each preset variant controls whether it should have an
+icon and/or animation.
+
+- `text` prop is removed. Pass the text to be rendered as a child
+`<Tag>Example</Tag>`
+
+Elm Tag:
+
+- `Tag.Cautionary` has been renamed to `Tag.ValidationCautionary`
+- `Tag.Negative` has been renamed to `Tag.ValidationNegative`
+
+TitleBlock
+
+- `surveyStatus.color` and `surveyStatus.showIcon` props are removed.
+Use `surveyStatus.status` which provides the same functionality in
+one prop.
+
+
+
+
+
 ## [14.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.4.4...@cultureamp/kaizen-component-library@14.4.5) (2019-11-06)
 
 
