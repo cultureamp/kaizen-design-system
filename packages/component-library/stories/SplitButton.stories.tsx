@@ -110,3 +110,95 @@ storiesOf("SplitButton", module)
       dropdownAltText="Open menu"
     />
   ))
+  .add("Primary", () => (
+    <SplitButton
+      label="Edit"
+      primary={true}
+      onClick={() => action("Button clicked")}
+      dropdownContent={
+        <MenuList>
+          <MenuItem
+            action={(e: any) => {
+              e.preventDefault()
+              action("Menu item 1 pressed")()
+            }}
+            icon={editIcon}
+          >
+            Menu Item 1
+          </MenuItem>
+          <MenuItem
+            action={(e: any) => {
+              e.preventDefault()
+              action("Menu item 2 pressed")()
+            }}
+            icon={duplicateIcon}
+          >
+            Menu Item 2
+          </MenuItem>
+        </MenuList>
+      }
+      dropdownAltText="Open menu"
+    />
+  ))
+  .add("Primary disable", () => (
+    <SplitButton
+      label="Edit"
+      primary={true}
+      onClick={() => action("Button clicked")}
+      disabled
+      dropdownContent={
+        <MenuList>
+          <MenuItem
+            action={(e: any) => {
+              e.preventDefault()
+              action("Menu item 1 pressed")()
+            }}
+            icon={editIcon}
+          >
+            Menu Item 1
+          </MenuItem>
+          <MenuItem
+            action={(e: any) => {
+              e.preventDefault()
+              action("Menu item 2 pressed")()
+            }}
+            icon={duplicateIcon}
+          >
+            Menu Item 2
+          </MenuItem>
+        </MenuList>
+      }
+      dropdownAltText="Open menu"
+    />
+  ))
+  .add("Primary RTL", () => (
+    <SplitButton
+      label="Edit"
+      primary={true}
+      onClick={() => action("Button clicked")}
+      dropdownContent={
+        <MenuList>
+          <MenuItem
+            action={(e: any) => {
+              e.preventDefault()
+              action("Menu item 1 pressed")()
+            }}
+            icon={editIcon}
+          >
+            Menu Item 1
+          </MenuItem>
+          <MenuItem
+            action={(e: any) => {
+              e.preventDefault()
+              action("Menu item 2 pressed")()
+            }}
+            icon={duplicateIcon}
+          >
+            Menu Item 2
+          </MenuItem>
+        </MenuList>
+      }
+      dir="rtl"
+      dropdownAltText="Open menu"
+    />
+  ))

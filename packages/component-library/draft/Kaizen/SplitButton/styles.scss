@@ -23,7 +23,7 @@ $button-width: 124px;
   border: 0;
 }
 
-.buttonStates {
+.buttonDefault {
   &:hover {
     text-decoration: none;
     color: inherit;
@@ -49,6 +49,7 @@ $button-width: 124px;
     // Use JS polyfill to simulate :focus-visible, not yet supported by browsers
     // https://github.com/WICG/focus-visible#backwards-compatibility
     :global(.js-focus-visible) & {
+
       // hide native focus ring when :focus but not :focus-visible
       &:focus {
         outline: none;
@@ -70,9 +71,57 @@ $button-width: 124px;
   }
 }
 
-.button {
+.buttonPrimary {
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &:not(.disabled):not(:disabled) {
+    background: add-tint($ca-palette-seedling, 10%);
+    border-color: add-tint($ca-palette-seedling, 80%);
+    color: $white;
+
+    &:hover,
+    &:active {
+      background: $ca-palette-seedling;
+      border-color: add-tint($ca-palette-seedling, 60%);
+    }
+
+    &:active {
+      background: $ca-palette-seedling;
+      border-color: add-tint($ca-palette-seedling, 40%);
+      transform: translateY(1px);
+    }
+
+    // Use JS polyfill to simulate :focus-visible, not yet supported by browsers
+    // https://github.com/WICG/focus-visible#backwards-compatibility
+    :global(.js-focus-visible) & {
+
+      // hide native focus ring when :focus but not :focus-visible
+      &:focus {
+        outline: none;
+      }
+
+      // show custom focus ring when :focus-visible
+      &:global(.focus-visible) {
+        border: $focus-border-width solid $ca-palette-ocean;
+      }
+    }
+  }
+
+  // Disabled
+  &:disabled,
+  &.disabled {
+    background: add-tint($ca-palette-ink, 90%);
+    border-color: add-tint($ca-palette-ink, 90%);
+    color: add-tint($ca-palette-ink, 70%);
+  }
+}
+
+.button,
+.primary {
   @include ca-type-ideal-body-bold;
-  composes: buttonStates;
   text-align: left;
   position: inherit;
   text-decoration: none;
@@ -96,34 +145,43 @@ $button-width: 124px;
   // This seemingly hacky selector specifically has to target the adjacent dropdown
   // button element of the main button currently being hovered/activated over
   &:not(:disabled):not(.disabled) {
+
     &:hover,
     &:active {
-      & + .dropdown > .dropdownButton {
+      &+.dropdown>.dropdownButton {
         border-left: 1px solid add-tint($ca-palette-ink, 60%);
       }
     }
 
     &:active {
-      & + .dropdown > .dropdownButton {
+      &+.dropdown>.dropdownButton {
         border-left: 1px solid add-tint($ca-palette-ink, 40%);
       }
     }
 
     [dir="rtl"] &:hover,
     [dir="rtl"] &:active {
-      & + .dropdown > .dropdownButton {
+      &+.dropdown>.dropdownButton {
         border-left: $base-border;
         border-right: 1px solid add-tint($ca-palette-ink, 60%);
       }
     }
 
     [dir="rtl"] &:active {
-      & + .dropdown > .dropdownButton {
+      &+.dropdown>.dropdownButton {
         border-left: $base-border;
         border-right: 1px solid add-tint($ca-palette-ink, 40%);
       }
     }
   }
+}
+
+.button {
+  composes: buttonDefault;
+}
+
+.primary {
+  composes: buttonPrimary;
 }
 
 .buttonFullBorder {
@@ -141,8 +199,8 @@ $button-width: 124px;
   position: relative;
 }
 
-.dropdownButton {
-  composes: buttonReset buttonStates;
+.dropdownButtonDefault,
+.dropdownButtonPrimary {
   cursor: pointer;
   display: flex;
   height: 100%;
@@ -156,6 +214,14 @@ $button-width: 124px;
   [dir="rtl"] & {
     border-radius: $ca-border-radius 0 0 $ca-border-radius;
   }
+}
+
+.dropdownButtonDefault {
+  composes: buttonReset buttonDefault;
+}
+
+.dropdownButtonPrimary {
+  composes: buttonReset buttonPrimary;
 }
 
 .dropdownIcon {

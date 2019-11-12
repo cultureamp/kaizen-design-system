@@ -14,6 +14,7 @@ export type SplitButtonProps = {
   onClick?: AnchorCallback | ButtonCallback
   // Suggested components - MenuList > MenuItem
   dropdownContent?: React.ReactNode
+  primary?: boolean
   dir?: Dir
   disabled?: boolean
   dropdownAltText: string // recommended text: "Open menu"
@@ -30,12 +31,14 @@ const SplitButton: SplitButton = ({
   label,
   dir = "ltr" as Dir,
   dropdownAltText,
+  primary = false,
 }) => {
   // If the button has a route, it should be an `a` tag, since it is better
   // accessibility and routing. Otherwise, it should be a `button`.
   const btnProps = {
     className: classnames({
       [styles.button]: true,
+      [styles.primary]: primary,
       [styles.disabled]: disabled,
     }),
     tabIndex: disabled ? -1 : 0,
@@ -66,6 +69,7 @@ const SplitButton: SplitButton = ({
       <Dropdown
         automationId="split-button-dropdown"
         dir={dir}
+        primary={primary}
         dropdownAltText={dropdownAltText}
       >
         {dropdownContent || null}
