@@ -82,7 +82,7 @@ const Tag = (props: Props) => {
         [styles.dismissible]: dismissible,
       })}
     >
-      <>
+      <div className={styles.layoutContainer}>
         {canShowIcon &&
           (() => {
             if (successIconVariants.includes(variant)) {
@@ -100,18 +100,16 @@ const Tag = (props: Props) => {
               )
             }
           })()}
-      </>
-      <span
-        className={classNames(styles.textContent, {
-          [styles.truncate]: isTruncated,
-        })}
-        style={{
-          maxWidth: isTruncated ? truncateWidth : undefined,
-        }}
-      >
-        {children}
-      </span>
-      <>
+        <span
+          className={classNames(styles.textContent, {
+            [styles.truncate]: isTruncated,
+          })}
+          style={{
+            maxWidth: isTruncated ? truncateWidth : undefined,
+          }}
+        >
+          {children}
+        </span>
         {dismissible && (
           <span
             className={styles.dismissIcon}
@@ -122,12 +120,12 @@ const Tag = (props: Props) => {
             <Icon icon={clearIcon} inheritSize role="img" title="Dismiss" />
           </span>
         )}
-      </>
-      {variant === "statusLive" && (
-        <span className={styles.pulse}>
-          <span className={styles.pulseRing} />
-        </span>
-      )}
+        {variant === "statusLive" && (
+          <span className={styles.pulse}>
+            <span className={styles.pulseRing} />
+          </span>
+        )}
+      </div>
     </div>
   )
 }

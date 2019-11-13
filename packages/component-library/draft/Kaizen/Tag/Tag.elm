@@ -258,10 +258,12 @@ view (Config config) value =
                 ++ resolveVariantStyle
             )
         ]
-        [ resolveValidationIcon
-        , viewTextContent config value
-        , resolveClear
-        , resolveIndicatorIcon
+        [ div [ styles.class .layoutContainer ]
+            [ resolveValidationIcon
+            , viewTextContent config value
+            , resolveClear
+            , resolveIndicatorIcon
+            ]
         ]
 
 
@@ -333,6 +335,7 @@ viewClear config =
 styles =
     css "@cultureamp/kaizen-component-library/draft/Kaizen/Tag/Tag.scss"
         { root = "root"
+        , layoutContainer = "layoutContainer"
         , default = "default"
         , sentimentPositive = "sentimentPositive"
         , sentimentNeutral = "sentimentNeutral"
