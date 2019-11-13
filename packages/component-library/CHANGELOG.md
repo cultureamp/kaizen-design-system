@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.1.0...@cultureamp/kaizen-component-library@15.1.1) (2019-11-13)
+
+
+### Bug Fixes
+
+* Fix Tag not constraining its width to its content ([#121](https://github.com/cultureamp/kaizen-design-system/issues/121)) ([bf53280](https://github.com/cultureamp/kaizen-design-system/commit/bf53280))
+
+
+
+
+
 # [15.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.0.0...@cultureamp/kaizen-component-library@15.1.0) (2019-11-12)
 
 
