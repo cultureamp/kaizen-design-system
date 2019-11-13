@@ -208,6 +208,14 @@ $button-width: 124px;
 
 .dropdownButtonPrimary {
   composes: buttonReset buttonPrimary;
+
+  // Making the left | right border white to separate the button with dropdown button
+  border-left-color: $white !important;
+
+  [dir="rtl"] & {
+    border-left-color: $ca-palette-seedling !important;
+    border-right-color: $white !important;
+  }
 }
 
 .dropdownIcon {
