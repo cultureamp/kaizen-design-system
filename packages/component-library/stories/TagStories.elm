@@ -38,6 +38,11 @@ main =
                 [ Tag.view (Tag.sentiment Tag.SentimentNeutral) "Sentiment"
                 , Tag.view (Tag.sentiment Tag.SentimentNeutral |> Tag.dismissible True) "Sentiment"
                 ]
+        , statelessStoryOf "Sentiment - Cautionary" <|
+            storyContainer
+                [ Tag.view (Tag.sentiment Tag.SentimentCautionary) "Sentiment"
+                , Tag.view (Tag.sentiment Tag.SentimentCautionary |> Tag.dismissible True) "Sentiment"
+                ]
         , statelessStoryOf "Sentiment - Negative" <|
             storyContainer
                 [ Tag.view (Tag.sentiment Tag.SentimentNegative) "Sentiment"

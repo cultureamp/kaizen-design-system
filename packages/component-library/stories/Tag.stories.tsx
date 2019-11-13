@@ -48,6 +48,15 @@ storiesOf("Tag", module)
     </StoryContainer>
   ))
 
+  .add("Sentiment - Cautionary", () => (
+    <StoryContainer>
+      <Tag variant="sentimentCautionary">Sentiment</Tag>
+      <Tag variant="sentimentCautionary" dismissible>
+        Sentiment
+      </Tag>
+    </StoryContainer>
+  ))
+
   .add("Sentiment - Negative", () => (
     <StoryContainer>
       <Tag variant="sentimentNegative">Sentiment</Tag>
@@ -187,6 +196,7 @@ loadElmStories("Tag (Elm)", module, require("./TagStories.elm"), [
   "Default - Small",
   "Sentiment - Positive",
   "Sentiment - Neutral",
+  "Sentiment - Cautionary",
   "Sentiment - Negative",
   "Sentiment - None",
   "Validation - Positive",
