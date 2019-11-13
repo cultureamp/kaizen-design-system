@@ -79,18 +79,18 @@ $button-width: 124px;
 
   &:not(.disabled):not(:disabled) {
     background: add-tint($ca-palette-seedling, 10%);
-    border-color: add-tint($ca-palette-seedling, 80%);
+    border-color: $ca-palette-seedling;
     color: $white;
 
     &:hover,
     &:active {
       background: $ca-palette-seedling;
-      border-color: add-tint($ca-palette-seedling, 60%);
+      border-color: $ca-palette-seedling;
     }
 
     &:active {
       background: $ca-palette-seedling;
-      border-color: add-tint($ca-palette-seedling, 40%);
+      border-color: $ca-palette-seedling;
       transform: translateY(1px);
     }
 
@@ -233,6 +233,8 @@ $button-width: 124px;
 
 .menuContainer {
   position: absolute;
-  width: calc(#{$button-width} + 100%);
+  background-color: orange;
+  right: 0px;
   z-index: $ca-z-index-dropdown;
+  width: calc(#{$button-width} + 100%);
 }
