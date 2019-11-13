@@ -57,6 +57,7 @@ type Validation
 type Sentiment
     = SentimentPositive
     | SentimentNeutral
+    | SentimentCautionary
     | SentimentNegative
     | SentimentNone
 
@@ -206,6 +207,9 @@ view (Config config) value =
                 Sentiment SentimentPositive ->
                     [ ( .sentimentPositive, True ) ]
 
+                Sentiment SentimentCautionary ->
+                    [ ( .sentimentCautionary, True ) ]
+
                 Sentiment SentimentNeutral ->
                     [ ( .sentimentNeutral, True ) ]
 
@@ -339,6 +343,7 @@ styles =
         , default = "default"
         , sentimentPositive = "sentimentPositive"
         , sentimentNeutral = "sentimentNeutral"
+        , sentimentCautionary = "sentimentCautionary"
         , sentimentNegative = "sentimentNegative"
         , sentimentNone = "sentimentNone"
         , validationPositive = "validationPositive"

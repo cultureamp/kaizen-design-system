@@ -91,6 +91,15 @@ $small: $ca-grid;
   }
 }
 
+.sentimentCautionary {
+  background-color: add-tint($ca-palette-yuzu, 95%);
+  border-color: add-tint($ca-palette-yuzu, 40%);
+
+  &:hover {
+    border-color: add-tint($ca-palette-yuzu, 20%);
+  }
+}
+
 .sentimentNegative {
   background-color: add-tint($ca-palette-coral, 80%);
 

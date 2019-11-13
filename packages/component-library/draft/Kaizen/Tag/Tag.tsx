@@ -13,6 +13,7 @@ type Variant =
   | "default"
   | "sentimentPositive"
   | "sentimentNeutral"
+  | "sentimentCautionary"
   | "sentimentNegative"
   | "sentimentNone"
   | "validationPositive"
@@ -66,6 +67,7 @@ const Tag = (props: Props) => {
         [styles.default]: variant === "default",
         [styles.sentimentPositive]: variant === "sentimentPositive",
         [styles.sentimentNeutral]: variant === "sentimentNeutral",
+        [styles.sentimentCautionary]: variant === "sentimentCautionary",
         [styles.sentimentNegative]: variant === "sentimentNegative",
         [styles.sentimentNone]: variant === "sentimentNone",
         [styles.validationPositive]: variant === "validationPositive",
