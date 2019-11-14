@@ -112,7 +112,7 @@ storiesOf("SplitButton", module)
   ))
   .add("Primary", () => (
     <SplitButton
-      label="Create personal goal"
+      label="Edit"
       variant="primary"
       onClick={() => action("Button clicked")}
       dropdownContent={
