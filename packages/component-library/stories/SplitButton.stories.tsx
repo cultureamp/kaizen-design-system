@@ -113,7 +113,7 @@ storiesOf("SplitButton", module)
   .add("Primary", () => (
     <SplitButton
       label="Create personal goal"
-      primary={true}
+      variant="primary"
       onClick={() => action("Button clicked")}
       dropdownContent={
         <MenuList>
@@ -143,7 +143,7 @@ storiesOf("SplitButton", module)
   .add("Primary disable", () => (
     <SplitButton
       label="Edit"
-      primary={true}
+      variant="primary"
       onClick={() => action("Button clicked")}
       disabled
       dropdownContent={
@@ -174,7 +174,7 @@ storiesOf("SplitButton", module)
   .add("Primary RTL", () => (
     <SplitButton
       label="Edit"
-      primary={true}
+      variant="primary"
       onClick={() => action("Button clicked")}
       dropdownContent={
         <MenuList>

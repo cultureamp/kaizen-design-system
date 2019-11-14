@@ -9,13 +9,15 @@ const chevronDown = require("@cultureamp/kaizen-component-library/icons/chevron-
   .default
 const styles = require("./styles.scss")
 
+type Variant = "default" | "primary"
+
 type Props = {
   children: React.ReactNode
   menuVisible?: boolean
   automationId?: string
   dir?: Dir
   dropdownAltText: string
-  primary?: boolean
+  variant?: Variant
 }
 
 type State = {
@@ -26,7 +28,7 @@ export default class Dropdown extends React.Component<Props, State> {
   static displayName = "Dropdown"
   static defaultProps = {
     dir: "ltr",
-    primary: false,
+    variant: "default",
   }
   dropdownButton: HTMLButtonElement | null = null
 
@@ -72,13 +74,13 @@ export default class Dropdown extends React.Component<Props, State> {
   }
 
   render() {
-    const { automationId, dropdownAltText, primary } = this.props
+    const { automationId, dropdownAltText, variant } = this.props
     return (
       <div className={styles.dropdown}>
         <button
           className={classnames({
-            [styles.dropdownButtonDefault]: true,
-            [styles.dropdownButtonPrimary]: primary,
+            [styles.dropdownButtonDefault]: variant === "default",
+            [styles.dropdownButtonPrimary]: variant === "primary",
           })}
           onClick={this.toggleDropdownMenu}
           onMouseDown={e => e.preventDefault()}

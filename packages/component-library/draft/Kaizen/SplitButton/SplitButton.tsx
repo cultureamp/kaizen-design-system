@@ -7,6 +7,8 @@ const styles = require("./styles.scss")
 type AnchorCallback = (event: React.MouseEvent<HTMLAnchorElement>) => void
 type ButtonCallback = (event: React.MouseEvent<HTMLButtonElement>) => void
 
+type Variant = "default" | "primary"
+
 export type SplitButtonProps = {
   automationId?: string
   label: string
@@ -14,7 +16,7 @@ export type SplitButtonProps = {
   onClick?: AnchorCallback | ButtonCallback
   // Suggested components - MenuList > MenuItem
   dropdownContent?: React.ReactNode
-  primary?: boolean
+  variant?: Variant
   dir?: Dir
   disabled?: boolean
   dropdownAltText: string // recommended text: "Open menu"
@@ -31,14 +33,14 @@ const SplitButton: SplitButton = ({
   label,
   dir = "ltr" as Dir,
   dropdownAltText,
-  primary = false,
+  variant = "default",
 }) => {
   // If the button has a route, it should be an `a` tag, since it is better
   // accessibility and routing. Otherwise, it should be a `button`.
   const btnProps = {
     className: classnames({
-      [styles.button]: true,
-      [styles.primary]: primary,
+      [styles.default]: variant === "default",
+      [styles.primary]: variant === "primary",
       [styles.disabled]: disabled,
     }),
     tabIndex: disabled ? -1 : 0,
@@ -69,7 +71,7 @@ const SplitButton: SplitButton = ({
       <Dropdown
         automationId="split-button-dropdown"
         dir={dir}
-        primary={primary}
+        variant={variant}
         dropdownAltText={dropdownAltText}
       >
         {dropdownContent || null}
