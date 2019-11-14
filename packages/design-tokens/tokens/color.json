@@ -48,13 +48,15 @@
       "500": "#FA7558"
     },
     "ash": "#ECECEF",
-    "white": "#FFFFFF",
-    "stone": "#F6F6F6"
+    "stone": "#F6F6F6",
+    "white": "#FFFFFF"
   },
   "DEPRECATED": {
     "color": {
-      "lapis": {},
-      "ocean": {}
+      "lapis": "#253C64",
+      "ocean": "#1B7688",
+      "ink": "#3E4543",
+      "paper": "#F2EDDE"
     }
   }
 }
