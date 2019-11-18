@@ -1,5 +1,7 @@
 module Kaizen.Tag.Tag exposing
-    ( Size(..)
+    ( Sentiment(..)
+    , Size(..)
+    , Status(..)
     , Validation(..)
     , default
     , dismissible
@@ -7,7 +9,9 @@ module Kaizen.Tag.Tag exposing
     , onDismiss
     , onMousedown
     , onMouseleave
+    , sentiment
     , size
+    , status
     , truncateWidth
     , validation
     , view
@@ -44,8 +48,24 @@ type Size
 
 
 type Validation
-    = Cautionary
-    | Negative
+    = ValidationPositive
+    | ValidationInformative
+    | ValidationNegative
+    | ValidationCautionary
+
+
+type Sentiment
+    = SentimentPositive
+    | SentimentNeutral
+    | SentimentNegative
+    | SentimentNone
+
+
+type Status
+    = StatusLive
+    | StatusDraft
+    | StatusClosed
+    | StatusAction
 
 
 
@@ -55,6 +75,8 @@ type Validation
 type Variant
     = Default
     | Validation Validation
+    | Sentiment Sentiment
+    | Status Status
 
 
 default : Config msg
@@ -63,8 +85,18 @@ default =
 
 
 validation : Validation -> Config msg
-validation validationType =
-    Config { defaults | variant = Validation validationType }
+validation variant =
+    Config { defaults | variant = Validation variant }
+
+
+sentiment : Sentiment -> Config msg
+sentiment variant =
+    Config { defaults | variant = Sentiment variant }
+
+
+status : Status -> Config msg
+status variant =
+    Config { defaults | variant = Status variant }
 
 
 
@@ -135,14 +167,28 @@ view (Config config) value =
 
         resolveValidationIcon =
             case config.variant of
-                Validation Cautionary ->
+                Validation ValidationPositive ->
+                    if config.size == Medium then
+                        viewPositiveValidationIcon config
+
+                    else
+                        text ""
+
+                Validation ValidationInformative ->
                     if config.size == Medium then
                         viewValidationIcon config
 
                     else
                         text ""
 
-                Validation Negative ->
+                Validation ValidationNegative ->
+                    if config.size == Medium then
+                        viewValidationIcon config
+
+                    else
+                        text ""
+
+                Validation ValidationCautionary ->
                     if config.size == Medium then
                         viewValidationIcon config
 
@@ -157,16 +203,53 @@ view (Config config) value =
                 Default ->
                     [ ( .default, True ) ]
 
-                Validation Cautionary ->
-                    [ ( .validation, True ), ( .cautionary, True ) ]
+                Sentiment SentimentPositive ->
+                    [ ( .sentimentPositive, True ) ]
 
-                Validation Negative ->
-                    [ ( .validation, True ), ( .negative, True ) ]
+                Sentiment SentimentNeutral ->
+                    [ ( .sentimentNeutral, True ) ]
+
+                Sentiment SentimentNegative ->
+                    [ ( .sentimentNegative, True ) ]
+
+                Sentiment SentimentNone ->
+                    [ ( .sentimentNone, True ) ]
+
+                Validation ValidationPositive ->
+                    [ ( .validationPositive, True ) ]
+
+                Validation ValidationInformative ->
+                    [ ( .validationInformative, True ) ]
+
+                Validation ValidationNegative ->
+                    [ ( .validationNegative, True ) ]
+
+                Validation ValidationCautionary ->
+                    [ ( .validationCautionary, True ) ]
+
+                Status StatusLive ->
+                    [ ( .statusLive, True ) ]
+
+                Status StatusDraft ->
+                    [ ( .statusDraft, True ) ]
+
+                Status StatusClosed ->
+                    [ ( .statusClosed, True ) ]
+
+                Status StatusAction ->
+                    [ ( .statusAction, True ) ]
+
+        resolveIndicatorIcon =
+            case config.variant of
+                Status StatusLive ->
+                    viewIndicatorIcon config
+
+                _ ->
+                    text ""
     in
     div
         [ styles.classList
             ([ ( .root, True )
-             , ( .default, config.variant == Default )
              , ( .medium, config.size == Medium )
              , ( .small, config.size == Small )
              , ( .inline, config.inline )
@@ -175,7 +258,13 @@ view (Config config) value =
                 ++ resolveVariantStyle
             )
         ]
-        [ viewTextContent config value, resolveClear, resolveValidationIcon ]
+        [ div [ styles.class .layoutContainer ]
+            [ resolveValidationIcon
+            , viewTextContent config value
+            , resolveClear
+            , resolveIndicatorIcon
+            ]
+        ]
 
 
 viewTextContent : Configuration msg -> String -> Html msg
@@ -192,12 +281,28 @@ viewTextContent config value =
     span ([ styles.class .textContent ] ++ resolveTruncation) [ text value ]
 
 
+viewPositiveValidationIcon : Configuration msg -> Html msg
+viewPositiveValidationIcon config =
+    span [ styles.class .validationIcon ]
+        [ Icon.view Icon.presentation
+            (svgAsset "@cultureamp/kaizen-component-library/icons/success.icon.svg")
+            |> Html.map never
+        ]
+
+
 viewValidationIcon : Configuration msg -> Html msg
 viewValidationIcon config =
     span [ styles.class .validationIcon ]
-        [ Icon.view (Icon.presentation |> Icon.inheritSize True)
+        [ Icon.view Icon.presentation
             (svgAsset "@cultureamp/kaizen-component-library/icons/exclamation.icon.svg")
             |> Html.map never
+        ]
+
+
+viewIndicatorIcon : Configuration msg -> Html msg
+viewIndicatorIcon config =
+    span [ styles.class .pulse ]
+        [ span [ styles.class .pulseRing ] []
         ]
 
 
@@ -230,17 +335,28 @@ viewClear config =
 styles =
     css "@cultureamp/kaizen-component-library/draft/Kaizen/Tag/Tag.scss"
         { root = "root"
+        , layoutContainer = "layoutContainer"
+        , default = "default"
+        , sentimentPositive = "sentimentPositive"
+        , sentimentNeutral = "sentimentNeutral"
+        , sentimentNegative = "sentimentNegative"
+        , sentimentNone = "sentimentNone"
+        , validationPositive = "validationPositive"
+        , validationInformative = "validationInformative"
+        , validationNegative = "validationNegative"
+        , validationCautionary = "validationCautionary"
+        , statusLive = "statusLive"
+        , statusDraft = "statusDraft"
+        , statusClosed = "statusClosed"
+        , statusAction = "statusAction"
         , medium = "medium"
         , small = "small"
-        , default = "default"
-        , validation = "validation"
         , inline = "inline"
-        , dismissIcon = "dismissIcon"
-        , interactive = "interactive"
         , dismissible = "dismissible"
-        , cautionary = "cautionary"
-        , negative = "negative"
+        , dismissIcon = "dismissIcon"
         , validationIcon = "validationIcon"
         , truncate = "truncate"
         , textContent = "textContent"
+        , pulse = "pulse"
+        , pulseRing = "pulseRing"
         }

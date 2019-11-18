@@ -44,6 +44,7 @@ steps:
     command: ".buildkite/scripts/build-storybook.sh"
     artifact_paths: "./storybook.tar.gz"
     <<: *defaults
+    agent_query_rules: ["queue=build-unrestricted-large"]
 
   - wait: ~
     continue_on_failure: true

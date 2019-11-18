@@ -3,6 +3,101 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.1.2...@cultureamp/kaizen-component-library@15.1.3) (2019-11-17)
+
+**Note:** Version bump only for package @cultureamp/kaizen-component-library
+
+
+
+
+
+## [15.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.1.1...@cultureamp/kaizen-component-library@15.1.2) (2019-11-13)
+
+**Note:** Version bump only for package @cultureamp/kaizen-component-library
+
+
+
+
+
+## [15.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.1.0...@cultureamp/kaizen-component-library@15.1.1) (2019-11-13)
+
+
+### Bug Fixes
+
+* Fix Tag not constraining its width to its content ([#121](https://github.com/cultureamp/kaizen-design-system/issues/121)) ([bf53280](https://github.com/cultureamp/kaizen-design-system/commit/bf53280))
+
+
+
+
+
+# [15.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.0.0...@cultureamp/kaizen-component-library@15.1.0) (2019-11-12)
+
+
+### Features
+
+* Add analytics props to component Button ([#118](https://github.com/cultureamp/kaizen-design-system/issues/118)) ([5502b26](https://github.com/cultureamp/kaizen-design-system/commit/5502b26))
+
+
+
+
+
+# [15.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.4.5...@cultureamp/kaizen-component-library@15.0.0) (2019-11-12)
+
+
+### Features
+
+* Support all current variants in React and Elm Tag components ([#91](https://github.com/cultureamp/kaizen-design-system/issues/91)) ([4ced1ea](https://github.com/cultureamp/kaizen-design-system/commit/4ced1ea))
+
+
+### BREAKING CHANGES
+
+* React Tag:
+
+- `color`, `withIcon` and `disableAnimation` props are removed. Use
+the new variant prop to control which preset variant of Tag should be
+rendered. Each preset variant controls whether it should have an
+icon and/or animation.
+
+- `text` prop is removed. Pass the text to be rendered as a child
+`<Tag>Example</Tag>`
+
+Elm Tag:
+
+- `Tag.Cautionary` has been renamed to `Tag.ValidationCautionary`
+- `Tag.Negative` has been renamed to `Tag.ValidationNegative`
+
+TitleBlock
+
+- `surveyStatus.color` and `surveyStatus.showIcon` props are removed.
+Use `surveyStatus.status` which provides the same functionality in
+one prop.
+
+
+
+
+
+## [14.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.4.4...@cultureamp/kaizen-component-library@14.4.5) (2019-11-06)
+
+
+### Bug Fixes
+
+* Fix shifting text when expanding and collapsing table rows ([#110](https://github.com/cultureamp/kaizen-design-system/issues/110)) ([0164056](https://github.com/cultureamp/kaizen-design-system/commit/0164056))
+
+
+
+
+
+## [14.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.4.3...@cultureamp/kaizen-component-library@14.4.4) (2019-11-03)
+
+
+### Bug Fixes
+
+* Remove mouseup selection ([#108](https://github.com/cultureamp/kaizen-design-system/issues/108)) ([c6835c0](https://github.com/cultureamp/kaizen-design-system/commit/c6835c0))
+
+
+
+
+
 ## [14.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@14.4.2...@cultureamp/kaizen-component-library@14.4.3) (2019-11-01)
 
 

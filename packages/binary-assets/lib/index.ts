@@ -1,4 +1,4 @@
-const ORIGIN_BASE_URL = "https://kaizen-assets.s3-us-west-2.amazonaws.com"
+const ORIGIN_BASE_URL = "https://d1e7r7b0lb8p4d.cloudfront.net"
 
 /**
  * Returns the full URL of the asset at `path` managed by the

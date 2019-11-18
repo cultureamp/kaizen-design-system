@@ -121,6 +121,12 @@ const elm: Rule = {
   ],
 }
 
+const storybookSource: Rule = {
+  test: /\.stories\.tsx?$/,
+  loaders: [require.resolve("@storybook/source-loader")],
+  enforce: "pre",
+}
+
 const removeSvgFromTest = (rule: Rule): Rule => {
   if (rule.test && rule.test.toString().includes("svg")) {
     const test = rule.test
@@ -141,9 +147,14 @@ const excludeExternalModules = (rule: Rule): Rule => ({
 export default ({ config }) => {
   // Storybook's base config applies file-loader to svgs
   config.module.rules = config.module.rules.map(removeSvgFromTest)
+
+  // Required for the storysource storybook addon
+  config.module.rules.push(storybookSource)
+
   config.module.rules.push(
     ...[babel, styles, svgs, svgIcons, elm].map(excludeExternalModules)
   )
+
   config.resolve.extensions.push(".ts", ".tsx")
   return config
 }
