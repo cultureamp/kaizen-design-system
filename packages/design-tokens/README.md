@@ -2,9 +2,9 @@
 Design tokens for all platforms.
 
 ## About
-Design Tokens are the heart of every Design System. The tokens represented here are platform-agnostic (JSON), as this will help us contribute to & facilitate the maintenance of living style guides. 
+Design Tokens are the heart of every Design System. The tokens represented here are platform-agnostic (JSON), as this will help us contribute to & facilitate the maintenance of living style guides. This package defines all the option tokens in Kaizen. 
 
-In its current state, this package supports Sass and generates three different outputs: color, typography, helpers.
+In its current state this package supports Sass variables, generated from a JSON tokens file. In the near future we will be supporting more tokens. 
 
 **Please note** that the helpers in this package are specifically for accessing and using these design tokens. Component-specific helpers are best suited for kaizen-component-library. 
 
