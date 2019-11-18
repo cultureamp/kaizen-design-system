@@ -16,7 +16,7 @@ To update a component:
 - Notify the front-end engineering practice (#pract_front_end_eng) of any possible breaking changes
 - Notify the QA practice of any possible breaking changes
 
-\* **If you're new to Kaizen, please ask the Design Systems Team (#team_design_systems) to set up an onboarding session to get you up to speed.** If you have an urgent PR to merge before that happens, it is safest to ask Design Systems Team to review it to catch any issues.
+**If you're new to Kaizen, please ask the Design Systems Team (#team_design_systems) to set up an onboarding session to get you up to speed.** If you have an urgent PR to merge before that happens, it is safest to ask Design Systems Team to review it to catch any issues.
 
 ### Browser and device support
 
@@ -61,31 +61,91 @@ You can also clean up generated files:
 
 `yarn clean`
 
+## Releasing packages
 
-## Pull Requests, versioning and releasing
+Automated releases to the npm public registry are triggered for all pull requests containing modifications to one or more npm packages (found in the `/packages/` directory). The information required to determine the version update for each release is taken from the title and content of the pull request.
 
-To deploy Kaizen Component Library changes, your **Pull Request (PR) title must follow the [Conventional Commits format](https://www.conventionalcommits.org/en/v1.0.0-beta.2/)** and “Semantic Versioning” (SemVer):
+### Release workflow
 
-> Given a version number MAJOR.MINOR.PATCH, increment the:
-    MAJOR version when you make incompatible API changes,
-    MINOR version when you add functionality in a backwards compatible manner, and
-    PATCH version when you make backwards compatible bug fixes.
+To release a new package version, create a pull request which **modifies ONLY the package you wish to release**, and satisfies **ONE** of the following:
+
+- If the branch contains multiple commits, the pull request must have a [conventional title](#conventional-commit)
+- If the branch contains only a single commit...
+  - ... the commit itself must have a [conventional commit message](#conventional-commit), and...
+  - ... (for consistency) the PR title must match that commit message
+
+Once that pull request is merged into master, an automated release will be triggered, and the newly published package version will be available on the npm public registry.
+
+### Semantic Versioning
+
+All npm packages follow strict semantic versioning (or _semver_). Semantic versioning gives specific meaning to changes in version numbers, as follows:
+
+> Given a version number `MAJOR.MINOR.PATCH`, increment the:
+>
+> - `MAJOR` version when you make incompatible API changes,
+> - `MINOR` version when you add functionality in a backwards compatible manner, and
+> - `PATCH` version when you make backwards compatible bug fixes.
 
 — <https://semver.org/>
 
-If you make any breaking changes, include "BREAKING CHANGE" in the commit message. For example: **BREAKING CHANGE: removed feature from component X**.
+**Note that we do not update package version numbers directly**, but instead depend on a [Conventional Commit](#conventional-commit) workflow which will version and release packages according to the content of our pull requests.
 
-For example, a PR title of `feat: change API for X component` with a squashed commit that contains BREAKING CHANGE will create a **major** release, bumping the version from 16.2.1 to 17.0.0.
+### Conventional Commit
 
-For another example, a PR title of `feat: add a new Toggle component` will create a **minor** release, bumping the version from 16.0.0 to 16.1.0.
+In order to provide versioning information to our automated release workflow, we ensure that our pull requests are structured in a way that the CI pipeline is able to infer the required version update (as well as which packages are to be released with that update) from the content of our pull requests.
 
-Finally, a PR title of `fix: fix the focus styling on our button component` will create a **patch** release, bumping the version from 16.0.0 to 16.0.1.
+We enforce constraints ensuring that all pull requests will result in a merge commit to the master branch which satisfies Conventional Commit (according to the [Conventional Commit 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) spec), by ensuring that either the pull request's title and/or commit messages satisfy the conditions of the [release workflow outlined above](#release-workflow).
 
-## Using your newly released component changes
+These constraints require that each pull request have a title formatted as follows:
 
-To see your deployed Kaizen Component Library changes in your front-end codebase, you'll need to bump the version of the Kaizen package used. You might edit the `package.json` file to change the package version or run `yarn upgrade --latest @cultureamp/kaizen-component-library`.
+```
+<type>: <description>
+```
+
+#### Description
+
+The `description` should be a short (less than ~60 characters) summary of changes introduced in the release. This summary will be included in the CHANGELOG (see the [releases page](https://github.com/cultureamp/kaizen-design-system/releases)), along with the commit type, a link to the pull request which triggered the release, and a detailed summary of any breaking changes.
+
+Note that since the `description` will be included in the CHANGELOG — and may be the only summary of the changes that your colleagues will encounter — it is helpful for you to include a concise summary of _how the package is different_ following the release, written in the [imperative mood](https://chris.beams.io/posts/git-commit/#imperative). For example `fix: Address accessibility bug in the Gizmo component`.
+
+#### Type
+
+The commit `type` is used to indicate the type (i.e. patch, minor, major in [Semantic Versioning](#semantic-versioning)) of change that was included in the release, as well as the context in which that change was made.
+
+There are a number of possible commit types (e.g. `chore`, `docs`, `refactor` etc. — for a complete list, refer to the [Angular convention](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type) docs), but two have special meaning for the purpose of versioning package releases:
+
+- `fix` — indicates that a change addressed a bug or security concern in the published code, but otherwise had no consequence for the released package's features or API (corresponding to a PATCH version)
+
+- `feat` — indicates that a change added something new to the released package's API or features without affecting existing functionality (corresponding to a MINOR version)
+
+#### Breaking changes
+
+If a pull request includes changes which modify existing behaviour or APIs in a way that is not backwards compatible, that change needs to be marked with a `BREAKING CHANGE: <description>` line (including a description [as above](#description)) somewhere in the commit body of the merged commit to master, in order trigger a MAJOR version update on this release.
+
+Since we are using a squash-and-merge strategy for our pull requests, it is therefore recommended that breaking changes be introduced in their own commits, each with a commit summary in the format `BREAKING CHANGE: <description>`, and any further information written into the commit body.
+
+> **Note:** Pull requests for branches containing a single commit are a special case, and should contain a commit with a conventional commit message (and a matching pull request title), with any `BREAKING CHANGE` annotations included in the commit body. To avoid this edge case, you can push an additional commit to your branch!
+
+For example, a pull request might have the title `feat: Add color option to Gizmo component`, and include the following commit in the branch for the pull request (including additional detail in the commit body):
+
+```
+BREAKING CHANGE: Add a compulsory color option to the Gizmo API
+
+There is no default color for Gizmos, so one needs to be provided.
+```
+
+As well as triggering a major version update, this will make breaking changes clearly visible from the pull request summary in GitHub, and provide detailed information in the CHANGELOG (including any additional notes from the body of the BREAKING CHANGE commit), clearly documenting all breaking changes to our published APIs.
+
+#### Updating multiple packages
+
+Note that in the case that a pull request touches files from more than one package, the version update will be applied to all packages, and all packages released. Sometimes this might be desirable, but in general, **be on the lookout for pull requests which touch more than one package**, and break those changes up into separate pull requests!
+
+## Using new package releases
+
+To use a newly released version of the Kaizen Component Library (or any other package) in a front-end codebase, run `yarn upgrade --latest <scoped package name>` (e.g. `yarn upgrade --latest @cultureamp/kaizen-component-library`).
+
+Remember to always check the CHANGELOG (e.g. [`/packages/component-library/CHANGELOG.md`](./packages/component-library/CHANGELOG.md) or the [releases page](https://github.com/cultureamp/kaizen-design-system/releases)) for any package you wish to upgrade, paying extra attention to any breaking changes which have been introduced since the last version used in your project.
 
 ## Contributing components
 
 To learn more about contributing components, see the [Kaizen Site: components overview](https://cultureamp.design/components/overview).
-
