@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.1.3...@cultureamp/kaizen-component-library@15.2.0) (2019-11-18)
+
+
+### Features
+
+* passing optional prop to disable submit button on edit modal ([#127](https://github.com/cultureamp/kaizen-design-system/issues/127)) ([81b8e20](https://github.com/cultureamp/kaizen-design-system/commit/81b8e20))
+
+
+
+
+
+## [15.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.1.2...@cultureamp/kaizen-component-library@15.1.3) (2019-11-17)
+
+**Note:** Version bump only for package @cultureamp/kaizen-component-library
+
+
+
+
+
 ## [15.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.1.1...@cultureamp/kaizen-component-library@15.1.2) (2019-11-13)
 
 **Note:** Version bump only for package @cultureamp/kaizen-component-library

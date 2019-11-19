@@ -22,7 +22,7 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "15.1.2",
+  "version": "15.2.0",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
@@ -49,7 +49,7 @@
     "rimraf": "^2.6.3"
   },
   "scripts": {
-    "prepublish": "yarn tsc --project tsconfig.dist.json",
+    "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf 'components/**/*.js' 'draft/**/*.js' 'util/**/*.js' 'index.js' 'components/**/*.js.map' 'draft/**/*.js.map' 'util/**/*.js.map' 'index.js.map' 'components/**/*.d.ts' 'draft/**/*.d.ts' 'util/**/*.d.ts' 'index.d.ts'"
