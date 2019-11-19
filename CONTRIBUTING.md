@@ -67,10 +67,11 @@ Automated releases to the npm public registry are triggered for all pull request
 
 ### Release workflow
 
-To release a new package version, create a pull request which **modifies ONLY the package you wish to release**.
+To release a new version of a package, create a pull request which...
 
-- Make sure your PR has a [conventional title](#conventional-commit)
-- If there is only **one commit** in your PR, make sure that commit message matches the PR title
+- Modifies only the package(s) you wish to release ([see below](#updating-multiple-packages))
+- Has a conventional pull request title ([see below](#conventional-commit))
+- If there is only one commit, it has a commit message which matches the pull request title
 
 Once that pull request is merged into master, an automated release will be triggered, and the newly published package version will be available on the npm public registry.
 
@@ -90,11 +91,9 @@ All npm packages follow strict semantic versioning (or _semver_). Semantic versi
 
 ### Conventional Commit
 
-Our pull requests need to be structured in a certain way so that the CI pipeline can infer the correct version update, as well as which packages are to be released with that update.
+Our pull requests need to be structured in a certain way for the CI pipeline to correctly update version numbers when releasing packages. By following the [release workflow outlined above](#release-workflow), our pull requests will result in a Conventional Commit to the master branch when merged (see the [Conventional Commit 1.0.0 spec](https://www.conventionalcommits.org/en/v1.0.0/)).
 
-All pull requests will result in a merge commit to the master branch which satisfies Conventional Commit (according to the [Conventional Commit 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) spec), by ensuring that either the pull request's title and/or commit messages satisfy the conditions of the [release workflow outlined above](#release-workflow).
-
-For this to work, each pull request must have a title formatted as follows:
+This workflow requires that all pull requests have a title formatted as follows:
 
 ```
 <type>: <description>
@@ -108,21 +107,25 @@ Note that since the `description` will be included in the CHANGELOG — and may 
 
 #### Type
 
-The commit `type` is used to indicate the type (i.e. patch, minor, major in [Semantic Versioning](#semantic-versioning)) of change that was included in the release, as well as the context in which that change was made.
+The commit `type` is used to indicate the type of update (i.e. PATCH or MINOR in [Semantic Versioning](#semantic-versioning)) that was included in the release, as well as the context in which that update was made. There are a number of valid commit types (e.g. `style`, `build`, `refactor`, `test` etc.) — for a detailed list of commit types used in this repository, refer to the [Angular convention](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type) docs.
 
-There are a number of possible commit types (e.g. `chore`, `docs`, `refactor` etc. — for a complete list, refer to the [Angular convention](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type) docs), but two have special meaning for the purpose of versioning package releases:
+Most commit types describe changes which do not modify the behaviour of the published package, and will result in a PATCH version update, along with an entry in the CHANGELOG noting that the package implementation has not changed. For example:
+  
+- `docs` — indicates that documentation has been updated, e.g. editing a README that corresponds to a component's documentation on the Kaizen Site
+  
+- `chore` — indicates that some otherwise-unspecified work has been performed on the package with no consequence on the published code, e.g. updating package metadata in `package.json`
+
+However, **two commit types have special meaning** for the purpose of versioning package releases, and signify changes in the behaviour or implementation of published code which may affect consumers of the package. These are:
 
 - `fix` — indicates that a change addressed a bug or security concern in the published code, but otherwise had no consequence for the released package's features or API (corresponding to a PATCH version)
 
 - `feat` — indicates that a change added something new to the released package's API or features without affecting existing functionality (corresponding to a MINOR version)
-  
-- `docs` — indicates that a documentation change was made e.g. editing a Markdown file that corresponds to a component's documentation on the Kaizen Site.
 
 #### Breaking changes
 
-If a pull request includes changes which modify existing behaviour or APIs in a way that is not backwards compatible, that change needs to be marked with a `BREAKING CHANGE: <description>` line (including a description [as above](#description)) somewhere in the commit body of the merged commit to master, in order trigger a MAJOR version update on this release.
+In addition to `feat` and `fix` releases, if a pull request includes changes which modify existing behaviour or APIs in a way that is **not backwards compatible**, that change needs to be marked with a `BREAKING CHANGE: <description>` line (including a description [as above](#description)) somewhere in the commit body of the merged commit to master. Doing so will trigger a MAJOR version update in the corresponding release, irrespective of the commit type.
 
-Since we are using a squash-and-merge strategy for our pull requests, we recommend that you introduce breaking changes in their own commits, each with a commit summary in the format `BREAKING CHANGE: <description>`, and add any further information in the commit body.
+Since we are using a squash-and-merge strategy for our pull requests, we recommend that you introduce breaking changes in their own commits, each with a commit summary in the format `BREAKING CHANGE: <description>`, with any additional notes in the commit body.
 
 > **Note:** Pull requests for branches containing a single commit are a special case, and should contain a commit with a conventional commit message (and a matching pull request title), with any `BREAKING CHANGE` annotations included in the commit body. To avoid this edge case, you can push an additional commit to your branch!
 
@@ -138,7 +141,7 @@ As well as triggering a major version update, this will make breaking changes cl
 
 #### Updating multiple packages
 
-Note that in the case that a pull request touches files from more than one package, the version update will be applied to all packages, and all packages released. Sometimes this might be desirable, but in general, **be on the lookout for pull requests which touch more than one package**, and break those changes up into separate pull requests!
+Note that in the case that a pull request touches files from more than one package, all of those packages will be released to the npm registry with the specified update. Sometimes this might be desirable (e.g. when performing a bulk update to package docs), but in general, **be on the lookout for pull requests which touch more than one package**, and break those changes up into separate pull requests!
 
 ## Using new package releases
 
