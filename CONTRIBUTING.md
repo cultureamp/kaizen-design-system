@@ -16,7 +16,7 @@ To update a component:
 - Notify the front-end engineering practice (#pract_front_end_eng) of any possible breaking changes
 - Notify the QA practice of any possible breaking changes
 
-**If you're new to Kaizen, please ask the Design Systems Team (#team_design_systems) to set up an onboarding session to get you up to speed.** If you have an urgent PR to merge before that happens, it is safest to ask Design Systems Team to review it to catch any issues.
+\* **If you're new to Kaizen, please ask the Design Systems Team (#team_design_systems) to set up an onboarding session to get you up to speed.** If you have an urgent PR to merge before that happens, it is safest to ask Design Systems Team to review it to catch any issues.
 
 ### Browser and device support
 
@@ -67,12 +67,10 @@ Automated releases to the npm public registry are triggered for all pull request
 
 ### Release workflow
 
-To release a new package version, create a pull request which **modifies ONLY the package you wish to release**, and satisfies **ONE** of the following:
+To release a new package version, create a pull request which **modifies ONLY the package you wish to release**.
 
-- If the branch contains multiple commits, the pull request must have a [conventional title](#conventional-commit)
-- If the branch contains only a single commit...
-  - ... the commit itself must have a [conventional commit message](#conventional-commit), and...
-  - ... (for consistency) the PR title must match that commit message
+- Make sure your PR has a [conventional title](#conventional-commit)
+- If there is only **one commit** in your PR, make sure that commit message matches the PR title
 
 Once that pull request is merged into master, an automated release will be triggered, and the newly published package version will be available on the npm public registry.
 
@@ -92,11 +90,11 @@ All npm packages follow strict semantic versioning (or _semver_). Semantic versi
 
 ### Conventional Commit
 
-In order to provide versioning information to our automated release workflow, we ensure that our pull requests are structured in a way that the CI pipeline is able to infer the required version update (as well as which packages are to be released with that update) from the content of our pull requests.
+Our pull requests need to be structured in a certain way so that the CI pipeline can infer the correct version update, as well as which packages are to be released with that update.
 
-We enforce constraints ensuring that all pull requests will result in a merge commit to the master branch which satisfies Conventional Commit (according to the [Conventional Commit 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) spec), by ensuring that either the pull request's title and/or commit messages satisfy the conditions of the [release workflow outlined above](#release-workflow).
+All pull requests will result in a merge commit to the master branch which satisfies Conventional Commit (according to the [Conventional Commit 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) spec), by ensuring that either the pull request's title and/or commit messages satisfy the conditions of the [release workflow outlined above](#release-workflow).
 
-These constraints require that each pull request have a title formatted as follows:
+For this to work, each pull request must have a title formatted as follows:
 
 ```
 <type>: <description>
@@ -117,12 +115,14 @@ There are a number of possible commit types (e.g. `chore`, `docs`, `refactor` et
 - `fix` — indicates that a change addressed a bug or security concern in the published code, but otherwise had no consequence for the released package's features or API (corresponding to a PATCH version)
 
 - `feat` — indicates that a change added something new to the released package's API or features without affecting existing functionality (corresponding to a MINOR version)
+  
+- `docs` — indicates that a documentation change was made e.g. editing a Markdown file that corresponds to a component's documentation on the Kaizen Site.
 
 #### Breaking changes
 
 If a pull request includes changes which modify existing behaviour or APIs in a way that is not backwards compatible, that change needs to be marked with a `BREAKING CHANGE: <description>` line (including a description [as above](#description)) somewhere in the commit body of the merged commit to master, in order trigger a MAJOR version update on this release.
 
-Since we are using a squash-and-merge strategy for our pull requests, it is therefore recommended that breaking changes be introduced in their own commits, each with a commit summary in the format `BREAKING CHANGE: <description>`, and any further information written into the commit body.
+Since we are using a squash-and-merge strategy for our pull requests, we recommend that you introduce breaking changes in their own commits, each with a commit summary in the format `BREAKING CHANGE: <description>`, and add any further information in the commit body.
 
 > **Note:** Pull requests for branches containing a single commit are a special case, and should contain a commit with a conventional commit message (and a matching pull request title), with any `BREAKING CHANGE` annotations included in the commit body. To avoid this edge case, you can push an additional commit to your branch!
 
