@@ -1,0 +1,44 @@
+---
+title: Loading patterns
+navTitle: "Loading patterns"
+summaryParagraph: Loading patterns help guide people and understand what to expect.
+tags:
+needToKnow:
+inComparingSection: true
+---
+
+- [Loading skeleton](/components/loading-skeleton): A collection of loading placeholders that display a non-interactive preview of the app’s actual UI to visually communicate that content is in the process of loading.
+    - [Loading skeleton](/components/loading-skeleton): A single loading placeholder element used in a loading skeleton to visually communicate that piece of content.
+- [Loading spinner](/components/loading-spinner): An animated element that indicates loading is in process and where it will appear when loading data is slow.
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D1387%253A76" allowfullscreen></iframe>
+
+## When to use
+
+*   For more than 1 element loading at the same time that requires an indicator, use a [loading skeleton](/components/loading-skeleton).
+*   For high-traffic pages like our account dashboard, use a [loading skeleton](/components/loading-skeleton).
+*   When a [loading spinner](/components/loading-spinner) is not prominent enough, use a [loading skeleton](/components/loading-skeleton).
+*   When data takes more than 300ms to load on an average connection for our user base, use a [loading skeleton](/components/loading-skeleton).
+*   For a long-running process or background process, e.g. importing data or exporting reports, use a progress bar (link to come).
+*   For fast processes that take less than 300ms, consider a [loading spinner](/components/loading-spinner) or no loading state at all.
+*   For a tiny, inline action or feedback, e.g. clicked a button and the action will take time, use a [loading spinner](/components/loading-spinner).
+*   For low-traffic pages such as super-user only admin pages, use a [loading spinner](/components/loading-spinner).
+*   If a page refresh is required, use an empty state with a Call To Action to refresh.
+*   For introducing content with flair, use a choreographed or stylized entrance. In contrast to a [loading skeleton](/components/loading-skeleton), choreographed or stylized entrances don’t care how long content takes to load. For example, the whole page might be loaded already, but we only reveal each section with a fade as the person scrolls down the page. A single stylized entrance may mask and replace a [loading spinner](/components/loading-spinner).
+
+## External Links
+
+- [Lightning: Loading](https://www.lightningdesignsystem.com/guidelines/loading/#site-main-content).
+- [Polaris: Loading](https://polaris.shopify.com/components/feedback-indicators/loading).
+- [Polaris: Skeleton page](https://polaris.shopify.com/components/feedback-indicators/skeleton-page#navigation).
+- [Polaris: Skeleton display text](https://polaris.shopify.com/components/feedback-indicators/skeleton-display-text#navigation).
+- [Polaris: Skeleton body text](https://polaris.shopify.com/components/feedback-indicators/skeleton-body-text#navigation).
+- [Polaris: Spinner](https://polaris.shopify.com/components/feedback-indicators/spinner#navigation).
+- [Atlassian: Spinners](https://atlassian.design/guidelines/product/components/spinners).
+- [Semantic UI: Placeholder](https://semantic-ui.com/elements/placeholder.html).
+- [Placeholder UI: placeholder](https://material.io/design/communication/launch-screen.html#placeholder-ui).
+- [Quickbooks: Loading spinner](https://designsystem.quickbooks.com/component/loading-spinners/).
+- [Quickbooks: Progress bar](https://designsystem.quickbooks.com/component/progress-bar/).
+- [Predix UI: Progress bar](https://www.predix-ui.com/#/elements/px-progress-bar).
+- [Predix UI: Spinner](https://www.predix-ui.com/#/elements/px-spinner).
+
