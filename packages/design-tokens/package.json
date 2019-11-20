@@ -21,7 +21,7 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn clean && yarn prepublish",
-    "build:generate-variables": "json-to-flat-sass './tokens/*.json' 'lib/sass'",
+    "build:generate-variables": "json-to-flat-sass './tokens/*.json' 'sass' && prettier sass/* --write",
     "clean": "rimraf dist/**",
     "prepublish": "yarn build:generate-variables"
   },
