@@ -12,11 +12,8 @@
   },
   "files": [
     "tokens",
-    "lib"
+    "sass"
   ],
-  "directories": {
-    "lib": "./lib"
-  },
   "private": false,
   "license": "MIT",
   "scripts": {
