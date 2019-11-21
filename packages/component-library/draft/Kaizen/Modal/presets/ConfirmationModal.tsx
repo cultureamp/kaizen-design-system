@@ -79,9 +79,11 @@ const ConfirmationModal = ({
             </div>
           </div>
           <ModalAccessibleLabel>
-            <Text tag="h1" inline>
-              {title}
-            </Text>
+            <div className={type === "cautionary" && styles.cautionaryTitle}>
+              <Text tag="h1" inline>
+                {title}
+              </Text>
+            </div>
           </ModalAccessibleLabel>
         </div>
       </ModalHeader>
