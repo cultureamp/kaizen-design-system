@@ -74,7 +74,7 @@ const ConfirmationModal = ({
               <circle cx="75" cy="75" r="75" />
             </svg>
             <div className={styles.icon}>
-              <Icon icon={getIcon(type)} />
+              <Icon icon={getIcon(type)} role="presentation" />
             </div>
           </div>
           <ModalAccessibleLabel>
