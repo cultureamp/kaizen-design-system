@@ -10,7 +10,7 @@ In its current state this package supports Sass variables, generated from a JSON
 
 ## Installation
 ```
-yarn add @cultureamp/kaizen-tokens
+yarn add @cultureamp/kaizen-design-tokens
 ```
 
 ## Usage
