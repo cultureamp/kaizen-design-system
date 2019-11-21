@@ -35,7 +35,7 @@ type ConfirmationModal = React.FunctionComponent<Props>
 
 const getIcon = type => {
   switch (type) {
-    case "affirmative":
+    case "positive":
       return success
     case "cautionary":
       return exclamation
