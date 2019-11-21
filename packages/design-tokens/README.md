@@ -17,7 +17,7 @@ yarn add @cultureamp/kaizen-tokens
 ### Sass
 ```
 ## Note helper functions are provided
-@import "~@cultureamp/kaizen-design-tokens/lib/sass/[color/depth/layout/spacing/typography/helpers]";
+@import "~@cultureamp/kaizen-design-tokens/sass/[color/depth/layout/spacing/typography/helpers]";
 ```
 
 ### Javascript 
