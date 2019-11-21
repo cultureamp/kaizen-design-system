@@ -22,7 +22,7 @@ const styles = require("./ConfirmationModal.scss")
 
 interface Props {
   readonly isOpen: boolean
-  readonly type: "positive" | "informative" | "negative" | "cautionary"
+  readonly type: ModalType
   readonly title: string
   readonly onConfirm: () => void
   readonly onDismiss: () => void
@@ -32,8 +32,9 @@ interface Props {
 }
 
 type ConfirmationModal = React.FunctionComponent<Props>
+type ModalType = "positive" | "informative" | "negative" | "cautionary"
 
-const getIcon = type => {
+const getIcon = (type: ModalType) => {
   switch (type) {
     case "positive":
       return success
