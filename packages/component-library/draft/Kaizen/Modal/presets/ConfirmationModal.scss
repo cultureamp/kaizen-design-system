@@ -49,6 +49,10 @@
   }
 }
 
+.cautionaryHeader {
+  background-color: add-tint($ca-palette-yuzu, 30%);
+}
+
 .iconContainer {
   height: 150px;
   width: 150px;

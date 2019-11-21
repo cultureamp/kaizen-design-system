@@ -6,6 +6,8 @@ const information = require("@cultureamp/kaizen-component-library/icons/informat
   .default
 const success = require("@cultureamp/kaizen-component-library/icons/success.icon.svg")
   .default
+const exclamation = require("@cultureamp/kaizen-component-library/icons/exclamation.icon.svg")
+  .default
 
 import {
   GenericModal,
@@ -20,7 +22,7 @@ const styles = require("./ConfirmationModal.scss")
 
 interface Props {
   readonly isOpen: boolean
-  readonly type: "positive" | "informative" | "negative"
+  readonly type: "positive" | "informative" | "negative" | "cautionary"
   readonly title: string
   readonly onConfirm: () => void
   readonly onDismiss: () => void
@@ -30,6 +32,17 @@ interface Props {
 }
 
 type ConfirmationModal = React.FunctionComponent<Props>
+
+const getIcon = type => {
+  switch (type) {
+    case "affirmative":
+      return success
+    case "cautionary":
+      return exclamation
+    default:
+      return information
+  }
+}
 
 const ConfirmationModal = ({
   isOpen,
@@ -53,6 +66,7 @@ const ConfirmationModal = ({
             [styles.positiveHeader]: type === "positive",
             [styles.informativeHeader]: type === "informative",
             [styles.negativeHeader]: type === "negative",
+            [styles.cautionaryHeader]: type === "cautionary",
           })}
         >
           <div className={styles.iconContainer}>
@@ -60,10 +74,7 @@ const ConfirmationModal = ({
               <circle cx="75" cy="75" r="75" />
             </svg>
             <div className={styles.icon}>
-              <Icon
-                icon={type === "positive" ? success : information}
-                role="presentation"
-              />
+              <Icon icon={getIcon(type)} />
             </div>
           </div>
           <ModalAccessibleLabel>
