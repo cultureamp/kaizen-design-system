@@ -10,14 +10,14 @@ In its current state this package supports Sass variables, generated from a JSON
 
 ## Installation
 ```
-yarn add @cultureamp/kaizen-tokens
+yarn add @cultureamp/kaizen-design-tokens
 ```
 
 ## Usage
 ### Sass
 ```
 ## Note helper functions are provided
-@import "~@cultureamp/kaizen-design-tokens/lib/sass/[color/depth/layout/spacing/typography/helpers]";
+@import "~@cultureamp/kaizen-design-tokens/sass/[color/depth/layout/spacing/typography/helpers]";
 ```
 
 ### Javascript 
