@@ -2,6 +2,11 @@
 @import "~@cultureamp/kaizen-component-library/styles/layout";
 @import "~@cultureamp/kaizen-component-library/styles/responsive";
 
+// override Murmur global styles :(
+.header h1 {
+  color: $white;
+}
+
 .modal {
   composes: genericModal from "../primitives/GenericModal.scss";
   min-width: 300px;
@@ -46,10 +51,10 @@
 
 .cautionaryHeader {
   background-color: add-tint($ca-palette-yuzu, 30%);
-}
 
-.cautionaryTitle {
-  color: $ca-palette-lapis;
+  &.header h1 {
+    color: $ca-palette-lapis;
+  }
 }
 
 .iconContainer {
