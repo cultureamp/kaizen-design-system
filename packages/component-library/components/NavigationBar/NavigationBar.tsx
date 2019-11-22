@@ -25,6 +25,7 @@ type Props = {
   colorScheme?: "cultureamp" | "kaizen"
   badgeHref?: string
   footerComponent?: React.ReactNode
+  mobileEnabled?: boolean
 }
 
 export default class NavigationBar extends React.Component<Props> {
@@ -36,10 +37,15 @@ export default class NavigationBar extends React.Component<Props> {
     loading: false,
     colorScheme: "cultureamp",
     badgeHref: "/",
+    mobileEnabled: true,
   }
 
   render() {
-    const { children, colorScheme = "cultureamp" } = this.props
+    const {
+      children,
+      colorScheme = "cultureamp",
+      mobileEnabled = true,
+    } = this.props
     const links: React.ReactElement<LinkProps>[] = []
     const otherChildren: React.ReactElement<MenuProps>[] = []
 
@@ -72,7 +78,7 @@ export default class NavigationBar extends React.Component<Props> {
     return (
       <Media query={MOBILE_QUERY}>
         {(matches: boolean) =>
-          matches ? (
+          mobileEnabled && matches ? (
             <ControlledOffCanvas
               headerComponent={this.renderBadge()}
               footerComponent={this.props.footerComponent}
