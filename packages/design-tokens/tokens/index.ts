@@ -52,4 +52,4 @@ export interface Color {
   }
 }
 
-export const ColorTokens: Color = tokens;
+export const color: Color = tokens;
