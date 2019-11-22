@@ -3,6 +3,8 @@ import { TitleBlock } from "@cultureamp/kaizen-component-library/draft"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
+require("./TitleBlock.stories.scss")
+
 const navigationButtons = [
   {
     buttonText: "Dashboard",

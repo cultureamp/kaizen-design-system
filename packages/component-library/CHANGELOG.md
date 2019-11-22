@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.3.1...@cultureamp/kaizen-component-library@15.3.2) (2019-11-21)
+
+**Note:** Version bump only for package @cultureamp/kaizen-component-library
+
+
+
+
+
+## [15.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.3.0...@cultureamp/kaizen-component-library@15.3.1) (2019-11-21)
+
+
+### Bug Fixes
+
+* Ensure that sticky TitleBlock's navigation bar gets a background when scrolling ([#134](https://github.com/cultureamp/kaizen-design-system/issues/134)) ([268b22a](https://github.com/cultureamp/kaizen-design-system/commit/268b22a))
+
+
+
+
+
+# [15.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.2.1...@cultureamp/kaizen-component-library@15.3.0) (2019-11-20)
+
+
+### Features
+
+* Add organization icon ([#131](https://github.com/cultureamp/kaizen-design-system/issues/131)) ([8c8c77f](https://github.com/cultureamp/kaizen-design-system/commit/8c8c77f))
+
+
+
+
+
 ## [15.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.2.0...@cultureamp/kaizen-component-library@15.2.1) (2019-11-20)
 
 **Note:** Version bump only for package @cultureamp/kaizen-component-library

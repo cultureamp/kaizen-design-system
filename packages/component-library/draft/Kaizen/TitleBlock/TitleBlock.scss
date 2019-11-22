@@ -318,7 +318,7 @@
   }
 
   .navContainer {
-    background: transparent;
+    background-color: transparent;
 
     @include ca-media-mobile {
       border-bottom: 1px solid #fff;
@@ -328,43 +328,92 @@
 
 .reverseColorLapis {
   @include ca-media-tablet-and-up {
-    background-color: $ca-palette-lapis;
+    .titleBlock {
+      background-color: $ca-palette-lapis;
+    }
+  }
+  @include ca-media-mobile {
+    .navContainer {
+      background-color: $ca-palette-lapis;
+    }
   }
 }
 
 .reverseColorOcean {
   @include ca-media-tablet-and-up {
-    background-color: $ca-palette-ocean;
+    .titleBlock {
+      background-color: $ca-palette-ocean;
+    }
+  }
+  @include ca-media-mobile {
+    .navContainer {
+      background-color: $ca-palette-ocean;
+    }
   }
 }
 
 .reverseColorPeach {
   @include ca-media-tablet-and-up {
-    background-color: $ca-palette-peach;
+    .titleBlock {
+      background-color: $ca-palette-peach;
+    }
+  }
+  @include ca-media-mobile {
+    .navContainer {
+      background-color: $ca-palette-peach;
+    }
   }
 }
 
 .reverseColorSeedling {
   @include ca-media-tablet-and-up {
-    background-color: $ca-palette-seedling;
+    .titleBlock {
+      background-color: $ca-palette-seedling;
+    }
+  }
+  @include ca-media-mobile {
+    .navContainer {
+      background-color: $ca-palette-seedling;
+    }
   }
 }
 
 .reverseColorWisteria {
   @include ca-media-tablet-and-up {
-    background-color: $ca-palette-wisteria;
+    .titleBlock {
+      background-color: $ca-palette-wisteria;
+    }
+  }
+  @include ca-media-mobile {
+    .navContainer {
+      background-color: $ca-palette-wisteria;
+    }
   }
 }
 
 .reverseColorYuzu {
   @include ca-media-tablet-and-up {
-    background-color: $ca-palette-yuzu;
+    .titleBlock {
+      background-color: $ca-palette-yuzu;
+    }
+  }
+  @include ca-media-mobile {
+    .navContainer {
+      background-color: $ca-palette-yuzu;
+    }
   }
 }
 
 .reverseColorTransparent {
   @include ca-media-tablet-and-up {
-    background-color: transparent;
+    .titleBlock {
+      background-color: transparent;
+    }
+  }
+  @include ca-media-mobile {
+    .navContainer {
+      background-color: transparent;
+    }
   }
 }
 
@@ -403,42 +452,91 @@
 
 .stickyColorLapis {
   @include ca-media-tablet-and-up {
-    background-color: add-tint($ca-palette-lapis, 20%);
+    .titleBlock {
+      background-color: add-tint($ca-palette-lapis, 20%);
+    }
+  }
+  @include ca-media-mobile {
+    .navContainer {
+      background-color: add-tint($ca-palette-lapis, 20%);
+    }
   }
 }
 
 .stickyColorOcean {
   @include ca-media-tablet-and-up {
-    background-color: add-tint($ca-palette-ocean, 20%);
+    .titleBlock {
+      background-color: add-tint($ca-palette-ocean, 20%);
+    }
+  }
+  @include ca-media-mobile {
+    .navContainer {
+      background-color: add-tint($ca-palette-ocean, 20%);
+    }
   }
 }
 
 .stickyColorPeach {
   @include ca-media-tablet-and-up {
-    background-color: add-tint($ca-palette-peach, 20%);
+    .titleBlock {
+      background-color: add-tint($ca-palette-peach, 20%);
+    }
+  }
+  @include ca-media-mobile {
+    .navContainer {
+      background-color: add-tint($ca-palette-peach, 20%);
+    }
   }
 }
 
 .stickyColorSeedling {
   @include ca-media-tablet-and-up {
-    background-color: add-tint($ca-palette-seedling, 20%);
+    .titleBlock {
+      background-color: add-tint($ca-palette-seedling, 20%);
+    }
+  }
+  @include ca-media-mobile {
+    .navContainer {
+      background-color: add-tint($ca-palette-seedling, 20%);
+    }
   }
 }
 
 .stickyColorWisteria {
   @include ca-media-tablet-and-up {
-    background-color: add-tint($ca-palette-wisteria, 20%);
+    .titleBlock {
+      background-color: add-tint($ca-palette-wisteria, 20%);
+    }
+  }
+  @include ca-media-mobile {
+    .navContainer {
+      background-color: add-tint($ca-palette-wisteria, 20%);
+    }
   }
 }
 
 .stickyColorYuzu {
   @include ca-media-tablet-and-up {
-    background-color: add-tint($ca-palette-yuzu, 20%);
+    .titleBlock {
+      background-color: add-tint($ca-palette-yuzu, 20%);
+    }
+  }
+  @include ca-media-mobile {
+    .navContainer {
+      background-color: add-tint($ca-palette-yuzu, 20%);
+    }
   }
 }
 
 .stickyColorTransparent {
   @include ca-media-tablet-and-up {
-    background-color: transparent;
+    .titleBlock {
+      background-color: transparent;
+    }
+  }
+  @include ca-media-mobile {
+    .navContainer {
+      background-color: transparent;
+    }
   }
 }
