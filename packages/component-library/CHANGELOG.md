@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.3.2...@cultureamp/kaizen-component-library@15.4.0) (2019-11-22)
+
+
+### Features
+
+* Add 'cautionary' confirmation modal ([#135](https://github.com/cultureamp/kaizen-design-system/issues/135)) ([4c68290](https://github.com/cultureamp/kaizen-design-system/commit/4c68290))
+
+
+
+
+
 ## [15.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.3.1...@cultureamp/kaizen-component-library@15.3.2) (2019-11-21)
 
 **Note:** Version bump only for package @cultureamp/kaizen-component-library
