@@ -23,6 +23,7 @@ export type MenuProps = {
   items: MenuItem[]
   automationId?: string
   heading: string
+  mobileEnabled?: boolean
 }
 
 type State = {
@@ -35,17 +36,18 @@ export default class Menu extends React.Component<MenuProps, State> {
   static displayName = "Menu"
   static defaultProps = {
     items: [],
+    mobileEnabled: true,
   }
 
   state = { open: false }
 
   render() {
-    const { children, automationId, heading } = this.props
+    const { children, automationId, heading, mobileEnabled } = this.props
 
     return (
       <Media query={MOBILE_QUERY}>
         {(matches: boolean) =>
-          matches ? (
+          mobileEnabled && matches ? (
             <React.Fragment>
               <OffCanvasContext.Consumer>
                 {({ toggleVisibleMenu }) => (
