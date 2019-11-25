@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [15.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.4.0...@cultureamp/kaizen-component-library@15.5.0) (2019-11-25)
+
+
+### Features
+
+* make mobile version of navigation bar menu optional ([#138](https://github.com/cultureamp/kaizen-design-system/issues/138)) ([45fa8b5](https://github.com/cultureamp/kaizen-design-system/commit/45fa8b5))
+
+
+
+
+
 # [15.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.3.2...@cultureamp/kaizen-component-library@15.4.0) (2019-11-22)
 
 
