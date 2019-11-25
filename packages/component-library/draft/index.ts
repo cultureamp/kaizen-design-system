@@ -1,6 +1,7 @@
 // Export `draft` components from this barrel file
 export * from "./Kaizen/CheckboxGroup"
 export * from "./Kaizen/Collapsible"
+export * from "./Kaizen/DatePicker"
 export * from "./Kaizen/EmptyState"
 export * from "./Kaizen/Form"
 export * from "./Kaizen/LoadingPlaceholder"
