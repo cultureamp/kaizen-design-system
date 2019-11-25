@@ -7,6 +7,7 @@ $ca-navigation-bar__height: 2.5 * $ca-grid;
   display: flex;
   flex-direction: row;
   background-color: #4b4d68; // DST-TODO: Replace this with $kz-color-wisteria-700 once kaizen-design-tokens is installed
+  color: #fff;
   height: $ca-navigation-bar__height;
   width: 100%;
   position: fixed;
