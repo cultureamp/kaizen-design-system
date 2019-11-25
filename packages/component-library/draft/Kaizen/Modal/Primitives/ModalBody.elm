@@ -1,4 +1,4 @@
-module Kaizen.Modal.Body exposing (fillVerticalSpace, layout, scrollable, view)
+module Kaizen.Modal.Primitives.ModalBody exposing (fillVerticalSpace, layout, scrollable, view)
 
 import CssModules exposing (css)
 import Html exposing (Html, section, text)
@@ -78,7 +78,7 @@ fillVerticalSpace predicate (Config config) =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Modal/primitives/ModalBody.elm.scss"
+    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/ModalBody.elm.scss"
         { modalBody = "modalBody"
         , scrollable = "scrollable"
         , fillSpace = "fillSpace"

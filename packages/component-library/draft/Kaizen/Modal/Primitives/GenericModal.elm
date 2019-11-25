@@ -1,9 +1,9 @@
-module Kaizen.Modal.GenericModal exposing (Variant(..), events, variant, view)
+module Kaizen.Modal.Primitives.GenericModal exposing (default, events, view)
 
 import CssModules exposing (css)
 import Html exposing (Html, div, span)
 import Html.Attributes.Aria exposing (ariaDescribedby, ariaLabelledby, role)
-import Kaizen.Modal.Constants as Constants
+import Kaizen.Modal.Primitives.Constants as Constants
 
 
 type Config msg
@@ -11,23 +11,13 @@ type Config msg
 
 
 type alias Configuration msg =
-    { variant : Variant
-    , events : Maybe (List (Html.Attribute msg))
+    { events : Maybe (List (Html.Attribute msg))
     }
-
-
-type Variant
-    = Small
-    | Medium
-    | Large
-    | XLarge
-    | Default
 
 
 defaults : Configuration msg
 defaults =
-    { variant = Default
-    , events = Nothing
+    { events = Nothing
     }
 
 
@@ -35,9 +25,9 @@ defaults =
 -- VARIANTS
 
 
-variant : Variant -> Config msg
-variant sizeVariant =
-    Config { defaults | variant = sizeVariant }
+default : Config msg
+default =
+    Config defaults
 
 
 view : List (Html msg) -> Config msg -> Html msg
@@ -62,9 +52,8 @@ events msg (Config config) =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Modal/primitives/GenericModal.elm.scss"
+    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/GenericModal.elm.scss"
         { modalLayer = "modalLayer"
-        , modalBox = "modalBox"
         , small = "small"
         , medium = "medium"
         , large = "large"

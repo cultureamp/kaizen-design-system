@@ -1,4 +1,4 @@
-module Kaizen.Modal.Constants exposing (ariaDescribedBy, ariaLabelledBy)
+module Kaizen.Modal.Primitives.Constants exposing (ariaDescribedBy, ariaLabelledBy)
 
 
 ariaDescribedBy : String

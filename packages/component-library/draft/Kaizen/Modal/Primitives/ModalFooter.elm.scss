@@ -1,10 +1,11 @@
-@import '~@cultureamp/kaizen-component-library/styles/type';
+@import "~@cultureamp/kaizen-component-library/styles/type";
 
 .footerWrap {
   padding: $ca-grid / 2;
   align-items: baseline;
   width: 100%;
   border-top: 1px solid $ca-border-color;
+  box-sizing: border-box;
 }
 
 .footerWrap.center {

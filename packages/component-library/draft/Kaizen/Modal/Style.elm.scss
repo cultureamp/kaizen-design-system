@@ -1,12 +1,9 @@
-@import '~@cultureamp/kaizen-component-library/styles/animation';
-@import '~@cultureamp/kaizen-component-library/styles/border';
-@import '~@cultureamp/kaizen-component-library/styles/color';
-@import '~@cultureamp/kaizen-component-library/styles/layers';
-@import '~@cultureamp/kaizen-component-library/styles/layout';
-@import '~@cultureamp/kaizen-component-library/styles/responsive';
-
-$dialog-height: 640px;
-$dialog-width: 800px;
+@import "~@cultureamp/kaizen-component-library/styles/animation";
+@import "~@cultureamp/kaizen-component-library/styles/border";
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/layers";
+@import "~@cultureamp/kaizen-component-library/styles/layout";
+@import "~@cultureamp/kaizen-component-library/styles/responsive";
 
 .backdropLayer {
   @include ca-position($start: 0, $end: 0, $top: 0, $bottom: 0);
@@ -47,9 +44,9 @@ $dialog-width: 800px;
 .animatingEnter {
   .backdropLayer {
     @include ca-animation-fade(
-            $duration: $ca-duration-rapid,
-            $from: 0,
-            $to: 0.5
+      $duration: $ca-duration-rapid,
+      $from: 0,
+      $to: 0.5
     );
   }
 
@@ -64,9 +61,9 @@ $dialog-width: 800px;
 .animatingExit {
   .backdropLayer {
     @include ca-animation-fade(
-            $duration: $ca-duration-rapid,
-            $from: 0.5,
-            $to: 0
+      $duration: $ca-duration-rapid,
+      $from: 0.5,
+      $to: 0
     );
   }
 
@@ -87,8 +84,6 @@ $dialog-width: 800px;
   border-radius: $ca-border-radius;
   box-shadow: $ca-box-shadow;
   position: absolute;
-  width: $dialog-width;
-  height: $dialog-height;
   background-color: white;
   z-index: 4000;
   margin-top: 150px;

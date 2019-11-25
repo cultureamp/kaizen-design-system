@@ -1,4 +1,4 @@
-module Kaizen.Modal.Footer exposing (PositionContent(..), Variant(..), fixed, layout, positionContent, view)
+module Kaizen.Modal.Primitives.ModalFooter exposing (PositionContent(..), Variant(..), fixed, layout, positionContent, view)
 
 import CssModules exposing (css)
 import Html exposing (Html, div, text)
@@ -100,7 +100,7 @@ positionContent position (Config config) =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Modal/primitives/ModalFooter.elm.scss"
+    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/ModalFooter.elm.scss"
         { footerWrap = "footerWrap"
         , center = "center"
         , end = "end"

@@ -1,11 +1,12 @@
 module Kaizen.Modal.Modal exposing
     ( Config
     , Dispatch(..)
-    , Msg
+    , ModalState
+    , Size(..)
     , generic
     , initialState
-    , modalUpdate
-    , onClose
+    , modalState
+    , onUpdate
     , update
     , view
     , withDispatch
@@ -15,7 +16,7 @@ import CssModules exposing (css)
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
-import Kaizen.Modal.GenericModal as GenericModal
+import Kaizen.Modal.Primitives.GenericModal as GenericModal
 import Process
 import Task
 import Time as Time
@@ -25,7 +26,7 @@ type Config msg
     = Config (Configuration msg)
 
 
-type Msg msg
+type ModalState msg
     = Msg (State msg) Progress
 
 
@@ -41,8 +42,8 @@ type Dispatch msg
 
 type alias Configuration msg =
     { variant : Variant msg
-    , onClose : Maybe msg
-    , state : Msg msg
+    , onUpdate : Maybe msg
+    , state : ModalState msg
     }
 
 
@@ -60,6 +61,10 @@ type Duration
     | Fast
 
 
+type Size
+    = Custom ( Float, Float )
+
+
 type alias ModalData msg =
     { duration : Duration
     , dispatch : Maybe (List (Dispatch msg))
@@ -75,25 +80,25 @@ type alias Timing =
 view : Config msg -> Html msg
 view (Config config) =
     let
-        close onCloseMsg =
+        updateModal onCloseMsg =
             onClick onCloseMsg
 
         genericModal =
-            GenericModal.variant GenericModal.Default
+            GenericModal.default
 
-        modalState =
+        mState =
             getState config.state
 
         modalData =
-            getData modalState
+            getData mState
 
         genericModalEvents =
             List.filterMap identity
-                [ Maybe.map close config.onClose
+                [ Maybe.map updateModal config.onUpdate
                 ]
 
         resolveAnimationStyles =
-            case modalState of
+            case mState of
                 Opening _ ->
                     [ ( .animatingEnter, True ) ]
 
@@ -125,22 +130,35 @@ view (Config config) =
             )
             []
         , case config.variant of
-            Generic content ->
+            Generic content size ->
                 GenericModal.view
-                    [ modalBox content ]
+                    [ modalBox content size ]
                     (genericModal |> GenericModal.events genericModalEvents)
         ]
 
 
-modalBox : List (Html msg) -> Html msg
-modalBox content =
-    div [ styles.class .modalBox ] content
+modalBox : List (Html msg) -> Size -> Html msg
+modalBox content size =
+    let
+        resolveCustomSize =
+            case size of
+                Custom ( width, height ) ->
+                    [ style "width" <| (String.fromFloat width ++ "px"), style "height" <| (String.fromFloat height ++ "px") ]
+    in
+    div
+        ([ styles.classList
+            [ ( .modalBox, True )
+            ]
+         ]
+            ++ resolveCustomSize
+        )
+        content
 
 
 defaults : Configuration msg
 defaults =
-    { variant = Generic [ text "" ]
-    , onClose = Nothing
+    { variant = Generic [ text "" ] (Custom ( 600, 456 ))
+    , onUpdate = Nothing
     , state = initialState
     }
 
@@ -155,7 +173,7 @@ defaults =
     and initialState used again later when next rendering the modal.
 
 -}
-initialState : Msg msg
+initialState : ModalState msg
 initialState =
     Msg
         (Closed_
@@ -175,10 +193,10 @@ initialState =
 
     This is handy for when you want to remove the modal element from the view after the the closing animation.
 
-    Use withDispatch on the modal msg handler to always fire the Cmd msg's you want to hear back from.
+    Use withDispatch on the modal modalState handler to always fire the Cmd msg's you want to hear back from.
 
 -}
-withDispatch : List (Dispatch msg) -> Msg msg -> Msg msg
+withDispatch : List (Dispatch msg) -> ModalState msg -> ModalState msg
 withDispatch dispatchList msg =
     injectData msg (\md -> { md | dispatch = Just dispatchList })
 
@@ -191,7 +209,7 @@ defaultModalData =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Modal/Style.elm.scss"
+    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Style.elm.scss"
         { backdropLayer = "backdropLayer"
         , modalBox = "modalBox"
         , animatingEnter = "animatingEnter"
@@ -225,12 +243,12 @@ mapDuration duration =
 
 
 type Variant msg
-    = Generic (List (Html msg))
+    = Generic (List (Html msg)) Size
 
 
-generic : List (Html msg) -> Config msg
-generic v =
-    Config { defaults | variant = Generic v }
+generic : List (Html msg) -> Size -> Config msg
+generic v size =
+    Config { defaults | variant = Generic v size }
 
 
 
@@ -239,13 +257,13 @@ generic v =
 
 {-| Handler should call Modal.update to handle all animating states.
 -}
-onClose : msg -> Config msg -> Config msg
-onClose msg (Config config) =
-    Config { config | onClose = Just msg }
+onUpdate : msg -> Config msg -> Config msg
+onUpdate msg (Config config) =
+    Config { config | onUpdate = Just msg }
 
 
-modalUpdate : Msg msg -> Config msg -> Config msg
-modalUpdate msg (Config config) =
+modalState : ModalState msg -> Config msg -> Config msg
+modalState msg (Config config) =
     Config { config | state = msg }
 
 
@@ -253,7 +271,7 @@ modalUpdate msg (Config config) =
 --UPDATE
 
 
-update : Msg msg -> msg -> ( Msg msg, Cmd msg )
+update : ModalState msg -> msg -> ( ModalState msg, Cmd msg )
 update (Msg state progress) modalUpdateHandlerMsg =
     case progress of
         Running ->
@@ -283,7 +301,7 @@ update (Msg state progress) modalUpdateHandlerMsg =
                     )
 
 
-updateRunning : State msg -> msg -> ( Msg msg, Cmd msg )
+updateRunning : State msg -> msg -> ( ModalState msg, Cmd msg )
 updateRunning state modalUpdateHandlerMsg =
     case state of
         Opening d ->
@@ -336,7 +354,7 @@ updateRunning state modalUpdateHandlerMsg =
             ( Msg (Closed_ d) Stopped, Cmd.none )
 
 
-getDispatchOpen : ( Msg msg, Cmd msg ) -> Dispatch msg -> ModalData msg -> ( Msg msg, Cmd msg )
+getDispatchOpen : ( ModalState msg, Cmd msg ) -> Dispatch msg -> ModalData msg -> ( ModalState msg, Cmd msg )
 getDispatchOpen fallBack dispatch modalData =
     case dispatch of
         Open msg ->
@@ -346,7 +364,7 @@ getDispatchOpen fallBack dispatch modalData =
             fallBack
 
 
-getDispatchClosed : ( Msg msg, Cmd msg ) -> Dispatch msg -> ModalData msg -> ( Msg msg, Cmd msg )
+getDispatchClosed : ( ModalState msg, Cmd msg ) -> Dispatch msg -> ModalData msg -> ( ModalState msg, Cmd msg )
 getDispatchClosed fallBack dispatch modalData =
     case dispatch of
         Closed msg ->
@@ -356,7 +374,7 @@ getDispatchClosed fallBack dispatch modalData =
             fallBack
 
 
-getState : Msg msg -> State msg
+getState : ModalState msg -> State msg
 getState (Msg state _) =
     state
 
@@ -377,7 +395,7 @@ getData state =
             s
 
 
-injectData : Msg msg -> (ModalData msg -> ModalData msg) -> Msg msg
+injectData : ModalState msg -> (ModalData msg -> ModalData msg) -> ModalState msg
 injectData (Msg state progress) f =
     case state of
         Opening data ->

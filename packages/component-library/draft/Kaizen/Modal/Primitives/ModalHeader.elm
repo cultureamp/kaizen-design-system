@@ -1,4 +1,4 @@
-module Kaizen.Modal.Header exposing (fixed, layout, view)
+module Kaizen.Modal.Primitives.ModalHeader exposing (fixed, layout, view)
 
 import CssModules exposing (css)
 import Html exposing (Html, div, span, text)
@@ -81,7 +81,7 @@ fixed predicate (Config config) =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Modal/primitives/ModalHeader.elm.scss"
+    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/ModalHeader.elm.scss"
         { headerWrap = "headerWrap"
         , layout = "layout"
         , filler = "filler"
