@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [15.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.5.0...@cultureamp/kaizen-component-library@15.5.1) (2019-11-26)
+
+
+### Bug Fixes
+
+* Limit sticky TitleBlock to tablet and up to work better with NavigationBar hamburger menu ([#137](https://github.com/cultureamp/kaizen-design-system/issues/137)) ([e39063b](https://github.com/cultureamp/kaizen-design-system/commit/e39063b))
+
+
+
+
+
 # [15.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.4.0...@cultureamp/kaizen-component-library@15.5.0) (2019-11-25)
 
 
