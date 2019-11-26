@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.5.1...@cultureamp/kaizen-component-library@16.0.0) (2019-11-26)
+
+
+### Features
+
+* Add generic elm modal ([#139](https://github.com/cultureamp/kaizen-design-system/issues/139)) ([4926760](https://github.com/cultureamp/kaizen-design-system/commit/4926760))
+
+
+### BREAKING CHANGES
+
+* Add generic elm modal
+
+Elm requires directories to be capitalised when resolving elm modules.
+
+In order to satisfy this the 'Modal/primitives' directory has been
+renamed to 'Modal/Primitives'.
+
+This breaks all current calls to 'Modal/primitives'.
+
+Internally this has been updated for kaizen but will need to be updated
+for other services using 'Modal/primitives'.
+
+* Change primitives namespace to be captitalized
+
+Point elm imports to correct namespace
+
+Setup sotries boiler plate for elm modal
+
+change funcion names to be more specific
+
+The modal handles its own state and the consumer does not need to tell
+it to close. If you update the modal it will perform the next logical
+update. e.g. If the modal is open and it gets updated, the modal will
+begin the close sequence. No one needs to tell the modal to close.
+
+Given the above onClose is misleading and is now just onUpdate.
+
+Modal updatate is also renamed to modalState which is what it takes.
+
+Contain footer within modal width.
+
+Build view for Modal
+
+Change modal Msg to ModalState
+
+Update onClose to onUpdate
+
+Set custom width on generic modal
+
+Remove optional sizes and leave only custom
+
+Remove redundant check
+
+
+
+
+
 ## [15.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.5.0...@cultureamp/kaizen-component-library@15.5.1) (2019-11-26)
 
 
