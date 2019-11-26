@@ -4,11 +4,15 @@ Kaizen Design System follows a federated, open-source model. All teams contribut
 
 ### Quality and reviews
 
-Every component needs:
+Every contribution **must** have:
 
 - A design review from a designer
+- A PR summary that describes the changes and anything others should be aware of
+- Communications: share your new component or changes on Slack or at the Front End Practice meeting
+
+Every contribution **should strive to** have:
 - Basic level of unit tests
-- Communications: share your new component or changes at practice meetings and on Slack
+- New or updated Storybook stories
 
 To update a component:
 
