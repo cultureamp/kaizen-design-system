@@ -10,6 +10,10 @@ Every contribution **must** have:
 - A PR summary that describes the changes and anything others should be aware of
 - Communications: share your new component or changes on Slack or at the Front End Practice meeting
 
+Every contribution **should strive to** have:
+- Basic level of unit tests
+- New or updated Storybook stories
+
 To update a component:
 
 - Ask for a review from a design systems advocate (an "advocado"), Design Systems Team, or someone in your team who is experienced with Kaizen*
