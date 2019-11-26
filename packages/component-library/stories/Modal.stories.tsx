@@ -1,3 +1,4 @@
+import { loadElmStories } from "@cultureamp/elm-storybook"
 import { action } from "@storybook/addon-actions"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
@@ -512,3 +513,7 @@ storiesOf("Modal", module)
       </ModalStateContainer>
     </>
   ))
+
+loadElmStories("Modal (Elm)", module, require("./ModalStories.elm"), [
+  "Generic",
+])
