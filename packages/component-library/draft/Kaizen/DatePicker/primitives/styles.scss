@@ -1,5 +1,6 @@
 @import "~@cultureamp/kaizen-component-library/styles/layout";
 @import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/type";
 
 .calendar {
   display: flex;
@@ -25,7 +26,7 @@
 
   display: flex;
   flex-direction: row;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid $ca-border-color;
 }
 
 .dayName {
@@ -34,9 +35,11 @@
 }
 
 .day {
+  @include ca-type-ideal-small;
+  @include ca-inherit-baseline;
   padding: 0;
   border-width: 0 1px;
-  border-color: #e5e5e5;
+  border-color: $ca-border-color;
   border-style: solid;
 
   flex: 1;
@@ -44,6 +47,8 @@
   align-items: center;
   justify-content: center;
   height: 40px;
+
+  outline: 0;
 
   &:not(:first-child) {
     border-left-width: 0;
@@ -60,6 +65,16 @@
   .row:last-child > & {
     border-bottom-width: 1px;
   }
+}
+
+.selected {
+  background-color: $ca-palette-seedling;
+  color: white;
+  border-color: $ca-palette-seedling;
+}
+
+.between {
+  background-color: $ca-border-color;
 }
 
 .empty {

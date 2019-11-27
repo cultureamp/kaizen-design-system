@@ -1,7 +1,7 @@
 import { Button, Text } from "@cultureamp/kaizen-component-library"
 import classnames from "classnames"
 import moment, { Moment } from "moment"
-import React, { useState } from "react"
+import React, { useCallback, useState } from "react"
 import { IconButton } from "../../../../components"
 
 const styles = require("./styles.scss")
@@ -16,12 +16,24 @@ const Calendar: Calendar = ({}) => {
   const [currentMonth, setCurrentMonth] = useState<Moment>(
     moment().startOf("month")
   )
-  const [selectedDates, setSelectedDates] = useState<Date[]>([])
+  const [selectedDates, setSelectedDates] = useState<Moment[]>([])
+  const [hoverDate, setHoverDate] = useState<Moment>()
 
   const months = moment.months()
   const weekdays = moment.weekdaysShort()
   const firstDayOfMonth = currentMonth.startOf("month").weekday()
   const rowsNumber = Math.ceil(currentMonth.daysInMonth() / 7)
+
+  const handleSelect = useCallback(
+    (date: Moment) => {
+      if (selectedDates.length < 2) {
+        setSelectedDates(dates => [...dates, date])
+      } else {
+        setSelectedDates([date])
+      }
+    },
+    [selectedDates, setSelectedDates]
+  )
 
   let rows: JSX.Element[] = []
   for (let row = 0; row < rowsNumber; row++) {
@@ -29,12 +41,32 @@ const Calendar: Calendar = ({}) => {
       <div className={styles.row}>
         {weekdays.map((_, i) => {
           const day = row * weekdays.length + i - firstDayOfMonth + 1
+          const date = moment(currentMonth).add(day - 1, "days")
+          const disabled = day <= 0 || day > currentMonth.daysInMonth()
+
           return (
             <button
               className={classnames({
                 [styles.day]: true,
-                [styles.empty]: day <= 0 || day > currentMonth.daysInMonth(),
+                [styles.empty]: disabled,
+                [styles.between]:
+                  selectedDates.length === 1 &&
+                  hoverDate &&
+                  date.isBetween(selectedDates[0], hoverDate, undefined, "(]"),
+                [styles.selected]:
+                  (selectedDates.length === 1 &&
+                    selectedDates.find(d => d.isSame(date))) ||
+                  (selectedDates.length === 2 &&
+                    date.isBetween(
+                      selectedDates[0],
+                      selectedDates[1],
+                      undefined,
+                      "[]"
+                    )),
               })}
+              disabled={disabled}
+              onMouseEnter={() => !disabled && setHoverDate(date)}
+              onClick={() => handleSelect(date)}
             >
               {day > 0 && day <= currentMonth.daysInMonth() && day}
             </button>
