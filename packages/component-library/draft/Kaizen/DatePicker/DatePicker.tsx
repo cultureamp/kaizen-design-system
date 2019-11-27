@@ -1,5 +1,6 @@
 import { Popover, TextField } from "@cultureamp/kaizen-component-library/draft"
-import * as React from "react"
+import { Moment } from "moment"
+import React, { useMemo, useState } from "react"
 import Calendar from "./primitives/Calendar"
 
 const dateIcon = require("@cultureamp/kaizen-component-library/icons/date-start.icon.svg")
@@ -16,20 +17,35 @@ export type DatePickerProps = {
 
 type DatePicker = React.FunctionComponent<DatePickerProps>
 
-const DatePicker: DatePicker = ({ id, automationId, children }) => (
-  <div className={styles.container}>
-    <TextField
-      id={id}
-      inputType="text"
-      labelText=" "
-      inputValue="1/1/2019"
-      onChange={() => {}}
-      icon={dateIcon}
-    />
-    <Popover position="center" side="top" size="large">
-      <Calendar />
-    </Popover>
-  </div>
-)
+const DatePicker: DatePicker = ({ id, automationId, children }) => {
+  const [selectedDates, setSelectedDates] = useState<Moment[]>([])
+
+  const datesString = () =>
+    useMemo(() => {
+      const format = "D MMM YYYY"
+      const startDateString =
+        selectedDates[0] && selectedDates[0].format(format)
+      const endDateString = selectedDates[1] && selectedDates[1].format(format)
+      return endDateString
+        ? `${startDateString} - ${endDateString}`
+        : startDateString
+    }, [selectedDates])
+
+  return (
+    <div className={styles.container}>
+      <TextField
+        id={id}
+        inputType="text"
+        labelText=" "
+        inputValue={datesString()}
+        onChange={() => {}}
+        icon={dateIcon}
+      />
+      <Popover position="center" side="top" size="large">
+        <Calendar onChange={setSelectedDates} />
+      </Popover>
+    </div>
+  )
+}
 
 export default DatePicker

@@ -10,9 +10,11 @@ const arrowLeftIcon = require("@cultureamp/kaizen-component-library/icons/arrow-
 const arrowRightIcon = require("@cultureamp/kaizen-component-library/icons/arrow-right.icon.svg")
   .default
 
-type Calendar = React.FC<{}>
+type Calendar = React.FC<{
+  onChange: (dates: Moment[]) => void
+}>
 
-const Calendar: Calendar = ({}) => {
+const Calendar: Calendar = ({ onChange }) => {
   const [currentMonth, setCurrentMonth] = useState<Moment>(
     moment().startOf("month")
   )
@@ -26,11 +28,10 @@ const Calendar: Calendar = ({}) => {
 
   const handleSelect = useCallback(
     (date: Moment) => {
-      if (selectedDates.length < 2) {
-        setSelectedDates(dates => [...dates, date])
-      } else {
-        setSelectedDates([date])
-      }
+      const newDates =
+        selectedDates.length < 2 ? [...selectedDates, date] : [date]
+      setSelectedDates(newDates)
+      onChange(newDates)
     },
     [selectedDates, setSelectedDates]
   )

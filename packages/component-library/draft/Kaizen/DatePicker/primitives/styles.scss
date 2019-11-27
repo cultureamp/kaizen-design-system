@@ -5,6 +5,7 @@
 .calendar {
   display: flex;
   flex-direction: column;
+  color: $ca-palette-ink;
 }
 
 .controls {
@@ -17,6 +18,7 @@
 .weekdays {
   display: flex;
   flex-direction: row;
+  margin-bottom: $ca-grid / 2;
 }
 
 .row {
