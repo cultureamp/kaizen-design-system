@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@16.1.0...@cultureamp/kaizen-component-library@16.1.1) (2019-11-28)
+
+
+### Bug Fixes
+
+* ensure that the Elm TitleBlock component reflects recent changes to the JS version ([#143](https://github.com/cultureamp/kaizen-design-system/issues/143)) ([a4ac956](https://github.com/cultureamp/kaizen-design-system/commit/a4ac956))
+
+
+
+
+
 # [16.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@16.0.0...@cultureamp/kaizen-component-library@16.1.0) (2019-11-28)
 
 
