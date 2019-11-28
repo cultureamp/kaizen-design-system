@@ -23,6 +23,6 @@
 }
 
 .genericModal {
-  composes: genericModal from "~@cultureamp/kaizen-component-library/draft/Kaizen/Modal/primitives/GenericModal.scss";
+  composes: genericModal from "~@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/GenericModal.scss";
   max-width: 90%;
 }

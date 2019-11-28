@@ -438,8 +438,10 @@
 }
 
 .sticky {
-  position: fixed;
-  z-index: $ca-z-index-sticky;
+  @include ca-media-tablet-and-up {
+    position: fixed;
+    z-index: $ca-z-index-sticky;
+  }
 
   .titleBlock {
     @extend %backgroundAnimated;

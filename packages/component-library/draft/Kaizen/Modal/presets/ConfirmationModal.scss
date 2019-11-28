@@ -8,7 +8,7 @@
 }
 
 .modal {
-  composes: genericModal from "../primitives/GenericModal.scss";
+  composes: genericModal from "../Primitives/GenericModal.scss";
   min-width: 300px;
   max-width: 600px;
 }
