@@ -66,6 +66,10 @@
   }
 }
 
-.kaizen .active {
-  background-color: add-shade($ca-palette-wisteria, 25%);
+.active {
+  background-color: add-alpha($ca-palette-ink, 80%);
+
+  .kaizen & {
+    background-color: add-shade($ca-palette-wisteria, 25%);
+  }
 }
