@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@16.0.0...@cultureamp/kaizen-component-library@16.1.0) (2019-11-28)
+
+
+### Features
+
+* Use Zen colours for NavigationBar ([#140](https://github.com/cultureamp/kaizen-design-system/issues/140)) ([699e423](https://github.com/cultureamp/kaizen-design-system/commit/699e423))
+
+
+
+
+
 # [16.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@15.5.1...@cultureamp/kaizen-component-library@16.0.0) (2019-11-26)
 
 
