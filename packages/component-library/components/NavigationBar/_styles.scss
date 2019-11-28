@@ -6,7 +6,8 @@ $ca-navigation-bar__height: 2.5 * $ca-grid;
 %ca-navigation-bar {
   display: flex;
   flex-direction: row;
-  background-color: add-shade($ca-palette-ink, 20%);
+  background-color: #4b4d68; // DST-TODO: Replace this with $kz-color-wisteria-700 once kaizen-design-tokens is installed
+  color: #fff;
   height: $ca-navigation-bar__height;
   width: 100%;
   position: fixed;
@@ -26,7 +27,7 @@ $ca-navigation-bar__height: 2.5 * $ca-grid;
     // show custom focus ring when :focus-visible
     &:global(.focus-visible) {
       color: #fff;
-      outline: 2px solid $ca-palette-ocean;
+      outline: 2px solid #0168b3; // DST-TODO: Replace this with $kz-color-cluny-500 once kaizen-design-tokens is installed
     }
   }
 }
