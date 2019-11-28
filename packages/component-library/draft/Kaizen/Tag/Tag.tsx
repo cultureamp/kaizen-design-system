@@ -34,6 +34,17 @@ interface Props {
   readonly onMouseDown?: React.MouseEventHandler<HTMLSpanElement>
   readonly onMouseLeave?: React.MouseEventHandler<HTMLSpanElement>
   readonly truncateWidth?: number
+
+  /** Use this props to override the styles of root or inner components */
+  readonly classes?: Partial<{
+    root: string
+    layoutContainer: string
+    textContent: string
+    validationIcon: string
+    dismissIcon: string
+    pulse: string
+    pulseRing: string
+  }>
 }
 
 const successIconVariants: Variant[] = ["validationPositive"]
@@ -55,6 +66,7 @@ const Tag = (props: Props) => {
     onMouseDown,
     onMouseLeave,
     truncateWidth,
+    classes: classesFromProps = {},
   } = props
 
   const isTruncated = truncateWidth && truncateWidth > 0
@@ -62,48 +74,71 @@ const Tag = (props: Props) => {
 
   return (
     <div
-      className={classNames(styles.root, {
-        [styles.default]: variant === "default",
-        [styles.sentimentPositive]: variant === "sentimentPositive",
-        [styles.sentimentNeutral]: variant === "sentimentNeutral",
-        [styles.sentimentNegative]: variant === "sentimentNegative",
-        [styles.sentimentNone]: variant === "sentimentNone",
-        [styles.validationPositive]: variant === "validationPositive",
-        [styles.validationInformative]: variant === "validationInformative",
-        [styles.validationNegative]: variant === "validationNegative",
-        [styles.validationCautionary]: variant === "validationCautionary",
-        [styles.statusLive]: variant === "statusLive",
-        [styles.statusDraft]: variant === "statusDraft",
-        [styles.statusClosed]: variant === "statusClosed",
-        [styles.statusAction]: variant === "statusAction",
-        [styles.medium]: size === "medium",
-        [styles.small]: size === "small",
-        [styles.inline]: inline,
-        [styles.dismissible]: dismissible,
-      })}
+      className={classNames(
+        styles.root,
+        {
+          [styles.default]: variant === "default",
+          [styles.sentimentPositive]: variant === "sentimentPositive",
+          [styles.sentimentNeutral]: variant === "sentimentNeutral",
+          [styles.sentimentNegative]: variant === "sentimentNegative",
+          [styles.sentimentNone]: variant === "sentimentNone",
+          [styles.validationPositive]: variant === "validationPositive",
+          [styles.validationInformative]: variant === "validationInformative",
+          [styles.validationNegative]: variant === "validationNegative",
+          [styles.validationCautionary]: variant === "validationCautionary",
+          [styles.statusLive]: variant === "statusLive",
+          [styles.statusDraft]: variant === "statusDraft",
+          [styles.statusClosed]: variant === "statusClosed",
+          [styles.statusAction]: variant === "statusAction",
+          [styles.medium]: size === "medium",
+          [styles.small]: size === "small",
+          [styles.inline]: inline,
+          [styles.dismissible]: dismissible,
+        },
+        classesFromProps.root
+      )}
     >
-      <div className={styles.layoutContainer}>
+      <div
+        className={classNames(
+          styles.layoutContainer,
+          classesFromProps.layoutContainer
+        )}
+      >
         {canShowIcon &&
           (() => {
             if (successIconVariants.includes(variant)) {
               return (
-                <span className={styles.validationIcon}>
+                <span
+                  className={classNames(
+                    styles.validationIcon,
+                    classesFromProps.validationIcon
+                  )}
+                >
                   <Icon icon={successIcon} role="presentation" />
                 </span>
               )
             }
             if (exclamationIconVariants.includes(variant)) {
               return (
-                <span className={styles.validationIcon}>
+                <span
+                  className={classNames(
+                    styles.validationIcon,
+                    classesFromProps.validationIcon
+                  )}
+                >
                   <Icon icon={exclamationIcon} role="presentation" />
                 </span>
               )
             }
           })()}
         <span
-          className={classNames(styles.textContent, {
-            [styles.truncate]: isTruncated,
-          })}
+          className={classNames(
+            styles.textContent,
+            {
+              [styles.truncate]: isTruncated,
+            },
+            classesFromProps.textContent
+          )}
           style={{
             maxWidth: isTruncated ? truncateWidth : undefined,
           }}
@@ -112,7 +147,10 @@ const Tag = (props: Props) => {
         </span>
         {dismissible && (
           <span
-            className={styles.dismissIcon}
+            className={classNames(
+              styles.dismissIcon,
+              classesFromProps.dismissIcon
+            )}
             onClick={onDismiss}
             onMouseDown={onMouseDown}
             onMouseLeave={onMouseLeave}
@@ -121,8 +159,13 @@ const Tag = (props: Props) => {
           </span>
         )}
         {variant === "statusLive" && (
-          <span className={styles.pulse}>
-            <span className={styles.pulseRing} />
+          <span className={classNames(styles.pulse, classesFromProps.pulse)}>
+            <span
+              className={classNames(
+                styles.pulseRing,
+                classesFromProps.pulseRing
+              )}
+            />
           </span>
         )}
       </div>
