@@ -6,6 +6,8 @@
 @import "~@cultureamp/kaizen-component-library/styles/responsive";
 @import "~@cultureamp/kaizen-component-library/styles/animation";
 
+$kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen colour theme and get this from tokens package
+
 .titleBlockContainer {
   width: 100%;
 }
@@ -507,12 +509,12 @@
 .stickyColorWisteria {
   @include ca-media-tablet-and-up {
     .titleBlock {
-      background-color: add-tint($ca-palette-wisteria, 20%);
+      background-color: $kz-color-wisteria-700-copy;
     }
   }
   @include ca-media-mobile {
     .navContainer {
-      background-color: add-tint($ca-palette-wisteria, 20%);
+      background-color: $kz-color-wisteria-700-copy;
     }
   }
 }
