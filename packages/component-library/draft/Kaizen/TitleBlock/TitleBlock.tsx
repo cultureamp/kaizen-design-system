@@ -172,16 +172,14 @@ class TitleBlock extends React.Component<Props, State> {
       <div
         className={classNames(styles.titleBlockContainer, {
           [styles.reversed]: reversed,
+          [styles[`reverseColor${reverseColor}`]]: reverseColor,
           [styles.sticky]: sticky,
           [styles.compact]: useCompactSize,
+          [styles[`stickyColor${stickyColor}`]]: useCompactSize && stickyColor,
         })}
       >
         <div
-          className={classNames(styles.titleBlock, {
-            [styles[`reverseColor${reverseColor}`]]: reverseColor,
-            [styles[`stickyColor${stickyColor}`]]:
-              useCompactSize && stickyColor,
-          })}
+          className={classNames(styles.titleBlock)}
           data-automation-id="TitleBlock__TitleBlock"
         >
           <div className={styles.titleBlockInner}>
