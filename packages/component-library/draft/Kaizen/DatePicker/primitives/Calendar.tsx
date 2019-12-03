@@ -11,15 +11,20 @@ const arrowRightIcon = require("@cultureamp/kaizen-component-library/icons/arrow
   .default
 
 type Calendar = React.FC<{
+  selectedDates?: Moment[]
   onChange: (dates: Moment[]) => void
   allowDateRange?: boolean
 }>
 
-const Calendar: Calendar = ({ onChange, allowDateRange = false }) => {
+const Calendar: Calendar = ({
+  selectedDates = [],
+  onChange,
+  allowDateRange = false,
+}) => {
   const [currentMonth, setCurrentMonth] = useState<Moment>(
     moment().startOf("month")
   )
-  const [selectedDates, setSelectedDates] = useState<Moment[]>([])
+  //const [selectedDates, setSelectedDates] = useState<Moment[]>([])
   const [hoverDate, setHoverDate] = useState<Moment>()
 
   const months = moment.months()
@@ -33,16 +38,15 @@ const Calendar: Calendar = ({ onChange, allowDateRange = false }) => {
         allowDateRange && selectedDates.length < 2
           ? [...selectedDates, date]
           : [date]
-      setSelectedDates(newDates)
       onChange(newDates)
     },
-    [selectedDates, setSelectedDates]
+    [selectedDates, onChange]
   )
 
   let rows: JSX.Element[] = []
   for (let row = 0; row < rowsNumber; row++) {
     rows.push(
-      <div className={styles.row}>
+      <div className={styles.row} key={`row-${row}`}>
         {weekdays.map((_, i) => {
           const day = row * weekdays.length + i - firstDayOfMonth + 1
           const date = moment(currentMonth).add(day - 1, "days")
@@ -50,6 +54,7 @@ const Calendar: Calendar = ({ onChange, allowDateRange = false }) => {
 
           return (
             <button
+              key={`day-${day}`}
               className={classnames({
                 [styles.day]: true,
                 [styles.empty]: disabled,
