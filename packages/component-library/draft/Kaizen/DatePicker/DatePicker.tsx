@@ -5,19 +5,19 @@ import Calendar from "./primitives/Calendar"
 
 const dateIcon = require("@cultureamp/kaizen-component-library/icons/date-start.icon.svg")
   .default
+const dateRangeIcon = require("@cultureamp/kaizen-component-library/icons/date-range.icon.svg")
+  .default
 
 const styles = require("./styles.scss")
 
 export type DatePickerProps = {
   id: string
-  automationId?: string
-  //   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any
-  //   disabled?: boolean
+  allowDateRange?: boolean
 }
 
 type DatePicker = React.FunctionComponent<DatePickerProps>
 
-const DatePicker: DatePicker = ({ id, automationId, children }) => {
+const DatePicker: DatePicker = ({ id, allowDateRange = false }) => {
   const [selectedDates, setSelectedDates] = useState<Moment[]>([])
 
   const datesString = () =>
@@ -39,10 +39,10 @@ const DatePicker: DatePicker = ({ id, automationId, children }) => {
         labelText=" "
         inputValue={datesString()}
         onChange={() => {}}
-        icon={dateIcon}
+        icon={allowDateRange ? dateRangeIcon : dateIcon}
       />
       <Popover position="center" side="top" size="large">
-        <Calendar onChange={setSelectedDates} />
+        <Calendar onChange={setSelectedDates} allowDateRange={allowDateRange} />
       </Popover>
     </div>
   )

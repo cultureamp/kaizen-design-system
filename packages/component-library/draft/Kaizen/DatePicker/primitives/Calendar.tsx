@@ -12,9 +12,10 @@ const arrowRightIcon = require("@cultureamp/kaizen-component-library/icons/arrow
 
 type Calendar = React.FC<{
   onChange: (dates: Moment[]) => void
+  allowDateRange?: boolean
 }>
 
-const Calendar: Calendar = ({ onChange }) => {
+const Calendar: Calendar = ({ onChange, allowDateRange = false }) => {
   const [currentMonth, setCurrentMonth] = useState<Moment>(
     moment().startOf("month")
   )
@@ -29,7 +30,9 @@ const Calendar: Calendar = ({ onChange }) => {
   const handleSelect = useCallback(
     (date: Moment) => {
       const newDates =
-        selectedDates.length < 2 ? [...selectedDates, date] : [date]
+        allowDateRange && selectedDates.length < 2
+          ? [...selectedDates, date]
+          : [date]
       setSelectedDates(newDates)
       onChange(newDates)
     },
@@ -51,6 +54,7 @@ const Calendar: Calendar = ({ onChange }) => {
                 [styles.day]: true,
                 [styles.empty]: disabled,
                 [styles.between]:
+                  allowDateRange &&
                   selectedDates.length === 1 &&
                   hoverDate &&
                   date.isBetween(selectedDates[0], hoverDate, undefined, "(]"),
