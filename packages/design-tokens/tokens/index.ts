@@ -52,4 +52,12 @@ export interface Color {
   }
 }
 
-export const color: Color = tokens;
+export const colorTokens: Color = tokens;
+
+type ColorNames = keyof Color['kz']['color'] | keyof Color['kz']['DEPRECATED']['color'];
+type FullColorScale = keyof ColorScale | keyof ExtendedColorScale;
+
+export function getColor(name: ColorNames, scale?: FullColorScale) { 
+  let foundColor = tokens.kz.color[name] || tokens.kz.DEPRECATED.color[name];
+  return !scale ? foundColor[500] || foundColor : foundColor[scale];
+}
