@@ -1,3 +1,4 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/responsive";
 
@@ -49,9 +50,9 @@
 }
 
 .do {
-  border-top-color: $ca-palette-seedling;
+  border-top-color: $kz-color-seedling-500;
 }
 
 .dont {
-  border-top-color: $ca-palette-coral;
+  border-top-color: $kz-color-coral-500;
 }

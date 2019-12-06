@@ -1,3 +1,4 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "~@cultureamp/kaizen-component-library/styles/layout";
 @import "~@cultureamp/kaizen-component-library/styles/type";
 @import "~@cultureamp/kaizen-component-library/styles/color";
@@ -44,7 +45,7 @@ $link-icon-margin: 12px;
     float: left;
     margin-left: -$ca-icon-width - ($link-icon-margin * 2);
     padding: 0 $link-icon-margin;
-    color: add-tint($ca-palette-ink, 70%);
+    color: add-alpha($kz-color-wisteria-700, 80%);
     &:not(:focus) {
       svg {
         visibility: hidden;
@@ -132,7 +133,7 @@ $link-icon-margin: 12px;
 
   :global(.md-a) {
     text-decoration: none;
-    color: $ca-palette-ocean;
+    color: $kz-color-cluny-500;
     word-break: break-word;
 
     &:hover {
@@ -167,7 +168,7 @@ $link-icon-margin: 12px;
 
   :global(.md-code) {
     line-height: inherit;
-    background-color: add-tint($ca-palette-ink, 80%);
+    background-color: $kz-color-wisteria-800;
     // color: #fff;
     padding: 0.25em;
     border-radius: 0.25em;
@@ -207,15 +208,15 @@ $link-icon-margin: 12px;
   }
 
   :global(iframe) {
-    background-color: $ca-palette-ash;
+    background-color: $kz-color-ash;
     border-radius: 3px;
     margin-top: 1.5rem;
     width: 100%;
   }
 
   :global(blockquote) {
-    background-color: $ca-palette-stone;
-    border-left: 4px solid $ca-palette-wisteria;
+    background-color: $kz-color-stone;
+    border-left: 4px solid $kz-color-wisteria-600;
     margin: 0;
     padding: 0.5rem 1.5rem;
   }

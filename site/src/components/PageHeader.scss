@@ -1,3 +1,4 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "~@cultureamp/kaizen-component-library/styles/type";
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/responsive";
@@ -5,7 +6,7 @@
 .pageHeader {
   display: grid;
   justify-items: center;
-  background: add-shade($ca-palette-wisteria, 20%);
+  background: $kz-color-wisteria-700;
   padding: calc(var(--ca-grid) * 3.5) var(--ca-grid);
   color: #fff;
 
@@ -64,7 +65,7 @@
 }
 
 .tagsContainer {
-  color: add-tint($ca-palette-ink, 80%);
+  color: $kz-color-white;
 }
 
 .tagsLabel {
