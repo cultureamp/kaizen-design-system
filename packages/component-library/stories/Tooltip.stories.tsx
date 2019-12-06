@@ -7,21 +7,21 @@ import { Tooltip } from "@cultureamp/kaizen-component-library/draft"
 
 storiesOf("Tooltip", module)
   .add("Default - Below", () => (
-    <div>
+    <div style={{ display: "flex", justifyContent: "center" }}>
       <Tooltip position="below" text="This is a position below tooltip">
-        <div>
-          <Tag>Below</Tag>
-        </div>
+        <Tag>Below</Tag>
       </Tooltip>
     </div>
   ))
   .add("Default - Above", () => (
-    <div style={{ marginTop: "100px", position: "relative" }}>
-      <Tooltip position="above" text="This is a position above tooltip">
-        <div>
+    <div
+      style={{ marginTop: "100px", display: "flex", justifyContent: "center" }}
+    >
+      <div style={{ display: "inline-block", position: "relative" }}>
+        <Tooltip position="above" text="This is a position above tooltip">
           <Tag>Above</Tag>
-        </div>
-      </Tooltip>
+        </Tooltip>
+      </div>
     </div>
   ))
 
