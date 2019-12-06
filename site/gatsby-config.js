@@ -65,6 +65,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: require.resolve(`./src/plugins/autolink-headers`),
+          },
+        ],
         extensions: [`.mdx`, `.md`],
       },
     },
