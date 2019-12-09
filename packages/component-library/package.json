@@ -17,7 +17,6 @@
     "!**/*.spec.*",
     "!**/*.snap",
     "!draft-templates",
-    "!mocks",
     "!stories",
     "!tsconfig.dist.json"
   ],
