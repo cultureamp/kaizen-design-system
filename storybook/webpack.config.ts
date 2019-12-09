@@ -4,6 +4,17 @@ import "./pre-build"
 import { resolve } from "path"
 import { Loader, RuleSetRule as Rule } from "webpack"
 
+/** Exclude rules from applying to non-CA modules. */
+const excludeExternalModules = (rule: Rule): Rule => {
+  const scopes = ["@cultureamp", "@kaizen"]
+  return {
+    exclude: RegExp(
+      `node_modules\/(?!${scopes.map(scope => `\\${scope}`).join("|")}).*`
+    ),
+    ...rule,
+  }
+}
+
 const babel: Rule = {
   test: /\.(j|t)sx?$/,
   loader: require.resolve("babel-loader"),
@@ -138,11 +149,6 @@ const removeSvgFromTest = (rule: Rule): Rule => {
     return rule
   }
 }
-
-const excludeExternalModules = (rule: Rule): Rule => ({
-  exclude: /node_modules\/(?!(\@cultureamp)).*/,
-  ...rule,
-})
 
 export default ({ config }) => {
   // Storybook's base config applies file-loader to svgs
