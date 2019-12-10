@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-design-tokens@0.0.3...@cultureamp/kaizen-design-tokens@0.0.4) (2019-12-10)
+
+
+### Bug Fixes
+
+* Fix typo in README for tokens import in JS ([#152](https://github.com/cultureamp/kaizen-design-system/issues/152)) ([970f3ac](https://github.com/cultureamp/kaizen-design-system/commit/970f3ac))
+
+
+
+
+
 ## [0.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-design-tokens@0.0.2...@cultureamp/kaizen-design-tokens@0.0.3) (2019-11-21)
 
 **Note:** Version bump only for package @cultureamp/kaizen-design-tokens
