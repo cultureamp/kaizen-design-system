@@ -47,7 +47,7 @@ const ZenColor = ({ name, value }) => {
     <div
       style={{ ...containerStyles, ...borderStyles, backgroundColor: value }}
     >
-      <span style={{ ...textStyles }}>{name}</span>
+      <span style={textStyles}>{name}</span>
       <span style={textStyles}>{value}</span>
     </div>
   )
