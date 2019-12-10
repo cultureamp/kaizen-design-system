@@ -1,5 +1,5 @@
 import * as React from "react"
-import { ActionLink } from "../Link"
+import { ActionLink } from "../../Link"
 import ColorCard from "./ColorCard"
 const styles = require("./ColorShowcase.scss")
 
