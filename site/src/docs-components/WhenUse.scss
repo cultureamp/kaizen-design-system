@@ -1,7 +1,8 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "~@cultureamp/kaizen-component-library/styles/color";
 
 .container {
-  color: $ca-palette-lapis;
+  color: $kz-color-wisteria-800;
   display: inline-flex;
   height: 1.75rem;
   align-items: center;
@@ -17,19 +18,19 @@
 }
 
 .do {
-  background: add-tint($ca-palette-seedling, 90%);
-  border: 1px solid add-tint($ca-palette-seedling, 40%);
+  background: $kz-color-seedling-100;
+  border: 1px solid $kz-color-seedling-500;
 
   .icon {
-    color: $ca-palette-seedling;
+    color: $kz-color-seedling-500;
   }
 }
 
 .dont {
-  background: add-tint($ca-palette-coral, 90%);
-  border: 1px solid add-tint($ca-palette-coral, 40%);
+  background: $kz-color-coral-100;
+  border: 1px solid $kz-color-coral-500;
 
   .icon {
-    color: $ca-palette-coral;
+    color: $kz-color-coral-500;
   }
 }

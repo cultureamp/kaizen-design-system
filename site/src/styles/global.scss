@@ -1,3 +1,4 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "~@cultureamp/kaizen-component-library/styles/type";
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/responsive";
@@ -18,8 +19,8 @@ html {
 }
 
 body {
-  background-color: $ca-palette-stone;
-  color: $ca-base-text-color;
+  background-color: $kz-color-stone;
+  color: $kz-color-wisteria-800;
   font-family: $ca-ideal-sans-font-family;
 
   @include ca-media-mobile() {
@@ -28,7 +29,7 @@ body {
 }
 
 a {
-  color: $ca-link-text-color;
+  color: $kz-color-cluny-500;
   word-break: break-word;
 }
 
