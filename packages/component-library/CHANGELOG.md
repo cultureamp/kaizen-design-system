@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@16.3.0...@cultureamp/kaizen-component-library@16.4.0) (2019-12-09)
+
+
+### Features
+
+* Include svg mock in published package ([#153](https://github.com/cultureamp/kaizen-design-system/issues/153)) ([3740d5b](https://github.com/cultureamp/kaizen-design-system/commit/3740d5b))
+
+
+
+
+
 # [16.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@16.2.1...@cultureamp/kaizen-component-library@16.3.0) (2019-12-06)
 
 

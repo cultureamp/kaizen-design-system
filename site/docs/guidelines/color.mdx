@@ -4,18 +4,42 @@ navTitle: Color
 summaryParagraph: Our color palette is built with our core principles and guidelines as its foundation. We are committed to complying with WCAG AA standard contrast ratios.
 tags: ["Palette"]
 needToKnow:
-  - "Use official color palette variables and helpers (such as our 'add tint' helper) for all color CSS declarations. Never hard-code a color without a variable."
-  - "Use tints and shades in 10% steps to create variance."
-  - "Use alpha (to add transparency) when the color needs to blend with different backgrounds."
+  - Use official color palette colors, variables and helpers (add-alpha) for all color CSS declarations. Never hard-code a color without a variable.
+  - Use add-alpha (to add transparency) when the color needs to blend with different backgrounds.
 ---
 
-import ColorShowcase from "docs-components/color/ColorShowcase"
+import ColorShowcase from "docs-components/color/legacy/ColorShowcase"
+import ZenWisteria from "docs-components/color/ZenWisteria"
+import ZenNeutrals from "docs-components/color/ZenNeutrals"
+import ZenCluny from "docs-components/color/ZenCluny"
 
-## Palette
+## Zen palette
+
+These color design tokens can be used in Sass or JavaScript. See the [design tokens package for details](https://github.com/cultureamp/kaizen-design-system/tree/master/packages/design-tokens).
+
+### Neutrals
+
+White is used for text and icons on dark backgrounds. Stone is used for the product's canvas. Ash is primarily used for Wells (Empty States).
+
+<ZenNeutrals />
+
+### Wisteria
+
+Used for dark text (Wisteria 800), content header background and status tags.
+
+<ZenWisteria />
+
+### Cluny
+
+Used for links (Cluny 500), control actions, guidance and onboarding.
+
+<ZenCluny />
+
+**The rest of the palette is coming soon.** To learn more, Culture Amp employees can visit the [Color page in Figma](https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/Zen-UI-Kit?node-id=1929%3A81).
+
+## Legacy palette
 
 <ColorShowcase />
-
-
 
 ## To keep in mind
 
