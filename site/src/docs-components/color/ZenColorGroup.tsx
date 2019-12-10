@@ -13,7 +13,7 @@ const ZenColorGroup = ({ colors }) => (
     {Object.keys(colors)
       .reverse()
       .map(c => (
-        <ZenColor name={c} value={colors[c]} />
+        <ZenColor key={colors[c]} name={c} value={colors[c]} />
       ))}
   </div>
 )
