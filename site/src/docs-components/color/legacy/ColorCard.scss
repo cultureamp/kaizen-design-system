@@ -4,7 +4,7 @@
 // TODO: update references to style sheets
 
 .colorCard {
-  composes: card from "../Card.scss";
+  composes: card from "../../Card.scss";
   margin-bottom: $ca-grid;
 }
 

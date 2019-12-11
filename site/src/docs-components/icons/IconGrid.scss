@@ -1,3 +1,4 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "~@cultureamp/kaizen-component-library/styles/type";
 @import "~@cultureamp/kaizen-component-library/styles/border";
 @import "~@cultureamp/kaizen-component-library/styles/color";
@@ -37,7 +38,7 @@ $tileHeight: $ca-grid * 6;
   &:hover,
   &:active,
   &:focus {
-    background: add-tint($ca-palette-ink, 94%);
+    background: $kz-color-stone;
   }
 }
 
@@ -85,11 +86,11 @@ $tileHeight: $ca-grid * 6;
     @include ca-type-ideal-small;
     display: block;
     text-align: center;
-    color: $ca-palette-ocean;
+    color: $kz-color-cluny-500;
     font-weight: 400;
 
     .clicked & {
-      color: $ca-palette-seedling;
+      color: $kz-color-seedling-500;
     }
   }
 
@@ -100,7 +101,7 @@ $tileHeight: $ca-grid * 6;
   }
   .clicked & {
     opacity: 1;
-    color: $ca-palette-seedling;
+    color: $kz-color-seedling-500;
     transition-duration: 0s;
   }
 }
@@ -110,7 +111,7 @@ $tileHeight: $ca-grid * 6;
   position: absolute;
   right: $ca-grid / 2;
   bottom: $ca-grid / 2;
-  color: $ca-palette-seedling;
+  color: $kz-color-seedling-500;
 }
 
 .pathInput {

@@ -14,7 +14,7 @@ const MainNav: React.SFC<MainNavProps> = ({ currentPath = "" }) => {
     currentPath.startsWith(withPrefix(path))
 
   return (
-    <NavigationBar colorScheme="kaizen">
+    <NavigationBar>
       <NavLink
         text="Home"
         href={withPrefix("/")}
