@@ -1,0 +1,86 @@
+---
+title: Pagination
+navTitle: Pagination (not built)
+summaryParagraph: Pagination separates large bodies of content into separate pages. You can access each page via a shared index of links.
+tags: ["Pages"]
+needToKnow:
+  - Perform usability testing to decide where to split content into pages.
+  - This has been designed but not built.
+---
+
+import DosAndDonts from "docs-components/DosAndDonts"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
+## To keep in mind
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D4332%253A26712" allowfullscreen></iframe>
+
+- Place Pagination at the bottom of the long list of content that has been split up into pages.
+- Let people navigate to the Previous and Next set of items in the paged list.
+- Show when people are on the first or the last page by disabling the its pagination link.
+- Where possible, load each set of items without reloading the whole page.
+- Highlight the Current page as well as available pages in Pagination, such as the total number of results.
+- To decide where to split content into pages, consider:
+    - Page and data load time
+    - Amount of content in each entry
+    - Screen real estate available
+    - How many items a person may need to compare at once
+- Compare [Pagination and Infinite Scroll](/guidelines/pagination-infinite-scroll) with a "View more" button.
+
+<DosAndDonts>
+<Do>
+
+- Use Pagination when people are unlikely to need to see **all** the content.
+- Use Pagination when the first page is enough to make a decision.
+- Use Pagination when loading all the content at once would not be possible technically or not be performant. If it takes more than 10 seconds to load all the content, paginate.
+- Use Pagination when keeping your place is important or you want to bookmark a specific page.
+- Use Pagination when there's lot of screen real estate.
+- Consider using pagination when a list contains more than 50 items of a single line of text each.
+
+</Do>
+<Dont>
+
+- Avoid pagination when seeing every item and comparing them at the same time is important to the task.
+- Manual pagination may be less efficient than [Infinite Scroll](/components/infinite-scroll) because it requires additional user interaction to click or tap a link to navigate to the next page as well as cognitive load to choose a page number or pagination button.
+- When we want and expect people to read more than 1 page worth of content, pagination may be disruptive to the reading experience. You might consider a "View more" button instead.
+- On small and touch devices, consider using [Infinite Scroll](/components/infinite-scroll) instead to avoid interrupting the flow with the need to tap a button as people scroll.
+
+</Dont>
+</DosAndDonts>
+
+
+## When to use
+
+- Use pagination when people are unlikely to need to see **all** the content.
+- Use pagination when the first page is enough to make a decision.
+- Use pagination when loading all the content at once would not be possible technically or not be performant. If it takes more than 10 seconds to load all the content, paginate.
+- Use pagination when keeping your place is important or you want to bookmark a specific page.
+- Use pagination when there's lot of screen real estate.
+- Consider using pagination when a list contains more than 50 items of a single line of text each.
+
+## When not to use
+
+- Avoid pagination when seeing every item and comparing them at the same time is important to the task.
+- Manual pagination may be less efficient than infinite scroll because it requires additional user interaction to click or tap a link to navigate to the next page as well as cognitive load to choose a page number or pagination button.
+- When we want and expect people to read more than 1 page worth of content, pagination may be disruptive to the reading experience. You might consider a "View more" button instead.
+- On small and touch devices, consider using infinite scroll instead to avoid interrupting the flow with the need to tap a button as people scroll.
+
+## Research insights
+
+In the Comments report, we saw a sharp drop off from page 1 to page 2 when we used pagination. When we introduced question grouping and a "View more" button, we saw more viewers viewing page 2.
+
+## See also
+
+- [Pagination and Infinite Scroll](/guidelines/pagination-infinite-scroll).
+
+## External links
+
+Here are some examples of existing design systems:
+
+- [Polaris: pagination](https://polaris.shopify.com/components/navigation/pagination).
+- [Ant Design: pagination](https://ant.design/components/pagination/#header).
+- [Atlassian: pagination](https://www.atlassian.design/guidelines/product/components/pagination).
+- [Material Design: data table pagination](https://material.io/components/data-tables/#behavior).
+- [Lonely Plant: pagination](https://rizzo.lonelyplanet.com/styleguide/ui-components/pagination).
+
