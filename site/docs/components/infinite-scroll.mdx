@@ -4,7 +4,7 @@ navTitle: Infinite Scroll (not built)
 summaryParagraph: Infinite Scroll separates large bodies of content into separate sections. You can access each extra section via a "View more" button.
 tags: ["Infinite scrolling", "Continuous scroll", "Load more", "Async loading"]
 needToKnow:
-  - Perform usability testing to decide where to split content into pages.
+  - Perform usability testing to decide where to split content into pages (that is, how much content to show per page).
   - This has been designed but not built.
 ---
 
@@ -28,6 +28,10 @@ Traditionally, Infinite Scroll loads and presents more results as you scroll wit
     - Amount of content in each entry
     - Screen real estate
     - How many items a person may need to compare at once
+- After someone has tapped "view more" several times, it might end up becoming a long page:
+    - You might consider helping users keep context by using, for example, a sticky header, such as when you have long [Collapsible](/components/collapsible) sections.
+    - You might consider giving users a method to efficiently exit the stream, such as letting them collapse a sticky [Collapsible](/components/collapsible) section or provide a persistent link to access the next action they must perform.
+    - Be mindful of performance for extremely long pages on browsers and devices with fewer resources.
 
 ## When to use and when not to use
 

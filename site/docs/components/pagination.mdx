@@ -4,7 +4,7 @@ navTitle: Pagination (not built)
 summaryParagraph: Pagination separates large bodies of content into separate pages. You can access each page via a shared index of links.
 tags: ["Pages"]
 needToKnow:
-  - Perform usability testing to decide where to split content into pages.
+  - Perform usability testing to decide where to split content into pages (that is, how much content to show per page).
   - This has been designed but not built.
 ---
 
@@ -18,7 +18,7 @@ import Dont from "docs-components/Dont"
 
 - Place Pagination at the bottom of the long list of content that has been split up into pages.
 - Let people navigate to the Previous and Next set of items in the paged list.
-- Show when people are on the first or the last page by disabling the its pagination link.
+- Indicate to users when they are on the first or last page by disabling the Previous or Next link.
 - Where possible, load each set of items without reloading the whole page.
 - Highlight the Current page as well as available pages in Pagination, such as the total number of results.
 - To decide where to split content into pages, consider:
@@ -44,7 +44,7 @@ import Dont from "docs-components/Dont"
 <Dont>
 
 - Avoid pagination when seeing every item and comparing them at the same time is important to the task.
-- Manual pagination may be less efficient than [Infinite Scroll](/components/infinite-scroll) because it requires additional user interaction to click or tap a link to navigate to the next page as well as cognitive load to choose a page number or pagination button.
+- Manual pagination may be less efficient than [Infinite Scroll](/components/infinite-scroll) because it may require additional cognitive load to choose a page number or pagination button.
 - When we want and expect people to read more than 1 page worth of content, pagination may be disruptive to the reading experience. You might consider a "View more" button instead.
 - On small and touch devices, consider using [Infinite Scroll](/components/infinite-scroll) instead to avoid interrupting the flow with the need to tap a button as people scroll.
 
