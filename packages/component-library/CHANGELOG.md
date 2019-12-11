@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@16.4.0...@cultureamp/kaizen-component-library@16.4.1) (2019-12-11)
+
+
+### Bug Fixes
+
+* Add scaffolding to the React Tooltip Story to make it work ([#148](https://github.com/cultureamp/kaizen-design-system/issues/148)) ([76df67e](https://github.com/cultureamp/kaizen-design-system/commit/76df67e))
+
+
+
+
+
 # [16.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@16.3.0...@cultureamp/kaizen-component-library@16.4.0) (2019-12-09)
 
 
