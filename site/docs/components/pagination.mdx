@@ -28,6 +28,8 @@ import Dont from "docs-components/Dont"
     - How many items a person may need to compare at once
 - Compare [Pagination and Infinite Scroll](/guidelines/pagination-infinite-scroll) with a "View more" button.
 
+## When to use and when not to use
+
 <DosAndDonts>
 <Do>
 
@@ -48,23 +50,6 @@ import Dont from "docs-components/Dont"
 
 </Dont>
 </DosAndDonts>
-
-
-## When to use
-
-- Use pagination when people are unlikely to need to see **all** the content.
-- Use pagination when the first page is enough to make a decision.
-- Use pagination when loading all the content at once would not be possible technically or not be performant. If it takes more than 10 seconds to load all the content, paginate.
-- Use pagination when keeping your place is important or you want to bookmark a specific page.
-- Use pagination when there's lot of screen real estate.
-- Consider using pagination when a list contains more than 50 items of a single line of text each.
-
-## When not to use
-
-- Avoid pagination when seeing every item and comparing them at the same time is important to the task.
-- Manual pagination may be less efficient than infinite scroll because it requires additional user interaction to click or tap a link to navigate to the next page as well as cognitive load to choose a page number or pagination button.
-- When we want and expect people to read more than 1 page worth of content, pagination may be disruptive to the reading experience. You might consider a "View more" button instead.
-- On small and touch devices, consider using infinite scroll instead to avoid interrupting the flow with the need to tap a button as people scroll.
 
 ## Research insights
 
