@@ -1,0 +1,74 @@
+---
+title: Infinite Scroll with a “View more” button
+navTitle: Infinite Scroll (not built)
+summaryParagraph: Infinite Scroll separates large bodies of content into separate sections. You can access each extra section via a "View more" button.
+tags: ["Infinite scrolling", "Continuous scroll", "Load more", "Async loading"]
+needToKnow:
+  - Perform usability testing to decide where to split content into pages (that is, how much content to show per page).
+  - This has been designed but not built.
+---
+
+import DosAndDonts from "docs-components/DosAndDonts"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
+## To keep in mind
+
+Traditionally, Infinite Scroll loads and presents more results as you scroll without interruption, in a single stream. To minimize some drawbacks of this, however, we use a "View more" [Button](/components/button) that a user must click to progressively disclose only as much content as they want.
+
+- Compare [Pagination and Infinite Scroll](/guidelines/pagination-infinite-scroll).
+- Show a [Loading Spinner](/components/loading-spinner) below the list to indicate that items have been requested, either in the "View more" button or in the space they'll load.
+- Button text:
+    - Instead of "load more", which describes what the system is doing, use "View more" to describe what the person is doing.
+    - Where appropriate, specify the object to further clarify what the action will do. For example, use "View more comments" when loading more comments.
+    - Where appropriate, indicate how many additional items will be loaded, such as "View 50 more comments". Where possible, pluralize it correctly so that it says "View 1 more comment" when there's only 1 comment remaining.
+- Consider if you need to keep the person's place in the loaded content when they refresh their browser page or navigate backwards and forwards through browser history.
+- To decide where to split content into sections, consider:
+    - Page and data load time
+    - Amount of content in each entry
+    - Screen real estate
+    - How many items a person may need to compare at once
+- After someone has tapped "view more" several times, it might end up becoming a long page:
+    - You might consider helping users keep context by using, for example, a sticky header, such as when you have long [Collapsible](/components/collapsible) sections.
+    - You might consider giving users a method to efficiently exit the stream, such as letting them collapse a sticky [Collapsible](/components/collapsible) section or provide a persistent link to access the next action they must perform.
+    - Be mindful of performance for extremely long pages on browsers and devices with fewer resources.
+
+## When to use and when not to use
+
+<DosAndDonts>
+<Do>
+
+- Use "View more" when someone may want to see every item and compare them at the same time.
+- Use "View more" when we want and expect people to read more than 1 page worth of content without disrupting the experience with a page load.
+- On small and touch devices, "View more" can feel more efficient than pagination.
+
+</Do>
+<Dont>
+
+- Use [Pagination](/components/pagination) when people are unlikely to need to see ALL the content.
+- Use [Pagination](/components/pagination) when the first page is enough.
+- Use [Pagination](/components/pagination) when bookmarking a specific page is important.
+- Consider using [Pagination](/components/pagination) when there's lot of screen real estate.
+- Consider using [Pagination](/components/pagination) when a list contains more than 50 items of a single line of text each.
+
+</Dont>
+</DosAndDonts>
+
+## Research insights
+
+In the Comments report, we saw a sharp drop off from page 1 to page 2 when we used pagination. When we introduced question grouping and a "View more" button, we saw more viewers viewing page 2.
+
+## See also
+
+- [Pagination](/components/pagination).
+- [Pagination and Infinite Scroll](/guidelines/pagination-infinite-scroll).
+- [Button](/components/button).
+
+## External links
+
+Here are some examples of "View more" in existing design systems:
+
+- [Ant Design: list load more](https://ant.design/components/list/#components-list-demo-loadmore).
+- [Carbon: load more](https://www.carbondesignsystem.com/patterns/loading/#load-more).
+- [UIPatterns.io: continuous scrolling, load more](http://uipatterns.io/continuous-scrolling).
+
