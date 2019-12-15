@@ -1,8 +1,9 @@
 module Kaizen.Modal.Modal exposing
     ( Config
+    , ConfirmationType(..)
     , Dispatch(..)
     , ModalState
-    , Size(..)
+    , confirmation
     , generic
     , initialState
     , modalState
@@ -16,6 +17,7 @@ import CssModules exposing (css)
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
+import Kaizen.Modal.Presets.ConfirmationModal as ConfirmationModal
 import Kaizen.Modal.Primitives.GenericModal as GenericModal
 import Process
 import Task
@@ -61,8 +63,8 @@ type Duration
     | Fast
 
 
-type Size
-    = Custom ( Float, Float )
+type ConfirmationType
+    = Informative
 
 
 type alias ModalData msg =
@@ -83,7 +85,7 @@ view (Config config) =
         updateModal onCloseMsg =
             onClick onCloseMsg
 
-        genericModal =
+        genericModalConfig =
             GenericModal.default
 
         mState =
@@ -100,16 +102,16 @@ view (Config config) =
         resolveAnimationStyles =
             case mState of
                 Opening _ ->
-                    [ ( .animatingEnter, True ) ]
+                    [ ( .animatingElmEnter, True ) ]
 
                 Open_ _ ->
-                    [ ( .animatingEnter, True ) ]
+                    [ ( .animatingElmEnter, True ) ]
 
                 Closing _ ->
-                    [ ( .animatingExit, True ) ]
+                    [ ( .animatingElmExit, True ) ]
 
                 Closed_ _ ->
-                    [ ( .animatingExit, True ) ]
+                    [ ( .animatingElmExit, True ) ]
 
         resolveVisibilityStyles =
             case config.state of
@@ -120,9 +122,9 @@ view (Config config) =
                     []
     in
     div
-        ([ styles.classList resolveAnimationStyles ] ++ [ styles.classList resolveVisibilityStyles ])
+        ([ modalStyles.classList resolveAnimationStyles ] ++ [ modalStyles.classList resolveVisibilityStyles ])
         [ div
-            ([ styles.classList
+            ([ modalStyles.classList
                 [ ( .backdropLayer, True )
                 ]
              ]
@@ -131,33 +133,31 @@ view (Config config) =
             []
         , case config.variant of
             Generic content size ->
-                GenericModal.view
-                    [ modalBox content size ]
-                    (genericModal |> GenericModal.events genericModalEvents)
+                GenericModal.view (GenericModal.Custom size)
+                    content
+                    (genericModalConfig |> GenericModal.events genericModalEvents)
+
+            Confirmation confirmationType ->
+                let
+                    resolveOnDismiss confirmationConfig =
+                        case config.onUpdate of
+                            Just dismissMsg ->
+                                ConfirmationModal.onDismiss dismissMsg confirmationConfig
+
+                            Nothing ->
+                                confirmationConfig
+                in
+                case confirmationType of
+                    Informative ->
+                        GenericModal.view GenericModal.Default
+                            [ ConfirmationModal.view (ConfirmationModal.informative |> resolveOnDismiss) ]
+                            (genericModalConfig |> GenericModal.events genericModalEvents)
         ]
-
-
-modalBox : List (Html msg) -> Size -> Html msg
-modalBox content size =
-    let
-        resolveCustomSize =
-            case size of
-                Custom ( width, height ) ->
-                    [ style "width" <| (String.fromFloat width ++ "px"), style "height" <| (String.fromFloat height ++ "px") ]
-    in
-    div
-        ([ styles.classList
-            [ ( .modalBox, True )
-            ]
-         ]
-            ++ resolveCustomSize
-        )
-        content
 
 
 defaults : Configuration msg
 defaults =
-    { variant = Generic [ text "" ] (Custom ( 600, 456 ))
+    { variant = Generic [ text "" ] ( 600, 456 )
     , onUpdate = Nothing
     , state = initialState
     }
@@ -208,12 +208,12 @@ defaultModalData =
     }
 
 
-styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Style.elm.scss"
+modalStyles =
+    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/GenericModal.scss"
         { backdropLayer = "backdropLayer"
-        , modalBox = "modalBox"
-        , animatingEnter = "animatingEnter"
-        , animatingExit = "animatingExit"
+        , animatingElmEnter = "animatingElmEnter"
+        , animatingElmExit = "animatingElmExit"
+        , elmGenericModal = "elmGenericModal"
         , hide = "hide"
         }
 
@@ -243,12 +243,18 @@ mapDuration duration =
 
 
 type Variant msg
-    = Generic (List (Html msg)) Size
+    = Generic (List (Html msg)) ( Float, Float )
+    | Confirmation ConfirmationType
 
 
-generic : List (Html msg) -> Size -> Config msg
+generic : List (Html msg) -> ( Float, Float ) -> Config msg
 generic v size =
     Config { defaults | variant = Generic v size }
+
+
+confirmation : ConfirmationType -> Config msg
+confirmation confirmationType =
+    Config { defaults | variant = Confirmation confirmationType }
 
 
 

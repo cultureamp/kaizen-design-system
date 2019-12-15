@@ -1,7 +1,10 @@
 module Kaizen.Modal.Primitives.ModalHeader exposing (fixed, layout, view)
 
 import CssModules exposing (css)
-import Html exposing (Html, div, span, text)
+import Html exposing (Html, div, text)
+import Html.Events exposing (onClick)
+import Icon.Icon as Icon
+import Icon.SvgAsset exposing (svgAsset)
 
 
 type Config msg
@@ -11,6 +14,7 @@ type Config msg
 type alias Configuration msg =
     { variant : Variant msg
     , fixed : Bool
+    , onDismiss : Maybe msg
     }
 
 
@@ -18,6 +22,7 @@ defaults : Configuration msg
 defaults =
     { variant = Layout [ text "" ]
     , fixed = False
+    , onDismiss = Nothing
     }
 
 
@@ -42,14 +47,29 @@ view (Config config) =
 
 layoutBox : List (Html msg) -> Configuration msg -> List (Html msg)
 layoutBox content config =
+    let
+        resolveDismissButton =
+            case config.onDismiss of
+                Just onDismissMsg ->
+                    div [ styles.class .dismissButton, onClick onDismissMsg ]
+                        [ Icon.view Icon.presentation
+                            (svgAsset "@cultureamp/kaizen-component-library/icons/success.icon.svg")
+                            |> Html.map never
+                        ]
+
+                Nothing ->
+                    text ""
+    in
     [ div
         [ styles.classList
             [ ( .headerWrap, True )
             , ( .layout, True )
-            , ( .absolute, config.fixed )
+            , ( .fixed, config.fixed )
             ]
         ]
-        content
+        (resolveDismissButton
+            :: content
+        )
     ]
 
 
@@ -80,10 +100,20 @@ fixed predicate (Config config) =
     Config { config | fixed = predicate }
 
 
+{-| If present this will render a close button which triggers the msg.
+If you are providing your own layout and handling the close yourself, dont use this modifier
+as it may clash with the provided close button
+-}
+onDismiss : msg -> Config msg -> Config msg
+onDismiss msg (Config config) =
+    Config { config | onDismiss = Just msg }
+
+
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/ModalHeader.elm.scss"
+    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/ModalHeader.scss"
         { headerWrap = "headerWrap"
         , layout = "layout"
         , filler = "filler"
-        , absolute = "absolute"
+        , fixed = "fixed"
+        , dismissButton = "dismissButton"
         }
