@@ -3,6 +3,8 @@ import { TitleBlock } from "@cultureamp/kaizen-component-library/draft"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
+require("./TitleBlock.stories.scss")
+
 const navigationButtons = [
   {
     buttonText: "Dashboard",
@@ -48,6 +50,13 @@ storiesOf("TitleBlock", module)
   ))
   .add("with navigation buttons", () => (
     <TitleBlock title="Home" navigationButtons={navigationButtons} />
+  ))
+  .add("with tag", () => (
+    <TitleBlock
+      title="Home"
+      subtitle="Subtitle goes here"
+      surveyStatus={{ status: "live", text: "Live" }}
+    />
   ))
   .add("reversed", () => (
     <div style={reversedContainerStyle}>

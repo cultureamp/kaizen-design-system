@@ -1,0 +1,33 @@
+@import "~@cultureamp/kaizen-component-library/styles/type";
+
+.footerWrap {
+  padding: $ca-grid / 2;
+  align-items: baseline;
+  width: 100%;
+  border-top: 1px solid $ca-border-color;
+  box-sizing: border-box;
+}
+
+.footerWrap.center {
+  display: flex;
+  justify-content: center;
+}
+
+.footerWrap.start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.footerWrap.end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footerWrap.fixed {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.filler {
+  visibility: hidden;
+}

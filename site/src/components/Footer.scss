@@ -1,7 +1,8 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "~@cultureamp/kaizen-component-library/styles/type";
 @import "~@cultureamp/kaizen-component-library/styles/color";
 
-$reverse-variant-color: add-shade($ca-palette-wisteria, 30%);
+$reverse-variant-color: $kz-color-wisteria-700;
 
 .footerExtraContent {
   .reverseVariant & {

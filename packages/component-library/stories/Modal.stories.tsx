@@ -1,3 +1,4 @@
+import { loadElmStories } from "@cultureamp/elm-storybook"
 import { action } from "@storybook/addon-actions"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
@@ -76,6 +77,29 @@ storiesOf("Modal", module)
             isOpen={isOpen}
             type="informative"
             title="Informative title"
+            onConfirm={close}
+            onDismiss={close}
+          >
+            <div style={{ textAlign: "center" }}>
+              <Text tag="p" style="lede" inline>
+                Additional subtext to aid the user can be added here.
+              </Text>
+            </div>
+          </ConfirmationModal>
+        </div>
+      )}
+    </ModalStateContainer>
+  ))
+
+  .add("Confirmation (cautionary)", () => (
+    <ModalStateContainer isInitiallyOpen={true}>
+      {({ open, close, isOpen }) => (
+        <div>
+          <Button label="Open modal" onClick={open} />
+          <ConfirmationModal
+            isOpen={isOpen}
+            type="cautionary"
+            title="Cautionary title"
             onConfirm={close}
             onDismiss={close}
           >
@@ -489,3 +513,7 @@ storiesOf("Modal", module)
       </ModalStateContainer>
     </>
   ))
+
+loadElmStories("Modal (Elm)", module, require("./ModalStories.elm"), [
+  "Generic",
+])

@@ -22,7 +22,7 @@ In order for visual rhythm to work, not only do elements have to take up the sam
 * We use css `position: relative` to shift text to sit on the baseline, and have SASS mixins to achieve this for a given font style.
 * Our Kaizen components are built to sit on a baseline grid - no extra work required from you.
 
-An image belongs here…
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D258%253A2388" allowfullscreen></iframe>
 
 ## Code implementation & usage details
 
@@ -37,7 +37,7 @@ An image belongs here…
     * Previously, `translateY` caused issues with stacking context, and breaking `z-index` rules, so dropdown menus and others started becoming unruly to manage.
     * With the normal baseline that comes from the `ca-type-ideal-x` styles, padding on a box surrounding some text results in, visually, the box having reduced padding on the bottom even though the `padding-top` and `padding-bottom` values are exactly the same
 
-An image belongs here…
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D1273%253A23079" allowfullscreen></iframe>
 
 * That padding is there because the button and its label is shifted down onto the baseline grid, so it needs guaranteed whitespace to shift into.
 * All buttons are shifted, so that if you have icon buttons and text buttons (and even plain old text) they are well aligned

@@ -22,6 +22,7 @@ interface Props {
   readonly submitLabel?: string
   readonly dismissLabel?: string
   readonly children: React.ReactNode
+  readonly submitDisabled?: boolean
 }
 
 type InputEditModal = React.FunctionComponent<Props>
@@ -35,6 +36,7 @@ const InputEditModal = ({
   submitLabel = "Submit",
   dismissLabel = "Cancel",
   children,
+  submitDisabled = false,
 }: Props) => (
   <GenericModal
     isOpen={isOpen}
@@ -56,7 +58,7 @@ const InputEditModal = ({
       </ModalBody>
       <ModalFooter
         actions={[
-          { label: submitLabel, action: onSubmit },
+          { label: submitLabel, action: onSubmit, disabled: submitDisabled },
           { label: dismissLabel, action: onDismiss },
         ]}
         appearance={type === "negative" ? "destructive" : "primary"}

@@ -1,0 +1,17 @@
+@import "~@cultureamp/kaizen-component-library/styles/type";
+
+.modalBody {
+  background-color: $ca-palette-stone;
+  padding: $ca-grid $ca-grid $ca-grid $ca-grid;
+  overflow-x: hidden;
+}
+
+.modalBody.scrollable {
+  overflow-y: scroll;
+}
+
+.modalBody.fillSpace {
+  flex-grow: 1;
+  min-height: 0;
+  overflow-y: auto;
+}

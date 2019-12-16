@@ -1,0 +1,38 @@
+@import "~@cultureamp/kaizen-component-library/styles/animation";
+@import "~@cultureamp/kaizen-component-library/styles/border";
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/layers";
+@import "~@cultureamp/kaizen-component-library/styles/layout";
+@import "~@cultureamp/kaizen-component-library/styles/responsive";
+
+$width-small: 400px;
+$width-medium: 600px;
+$width-large: 800px;
+$width-xLarge: 960px;
+
+.modalLayer {
+  @include ca-position($start: 0, $end: 0, $top: 0, $bottom: 0);
+  position: fixed;
+  z-index: $ca-z-index-modal;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.modalLayer.small {
+  width: $width-small;
+}
+
+.modalLayer.medium {
+  width: $width-medium;
+}
+
+.modalLayer.large {
+  width: $width-large;
+}
+
+.modalLayer.xLarge {
+  width: $width-xLarge;
+}

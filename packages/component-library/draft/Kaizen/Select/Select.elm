@@ -993,10 +993,10 @@ viewMultiValue { truncationWidth } mousedownedItem index menuItem =
                     Tag.default
 
                 Cautionary ->
-                    Tag.validation Tag.Cautionary
+                    Tag.validation Tag.ValidationCautionary
 
                 Error ->
-                    Tag.validation Tag.Negative
+                    Tag.validation Tag.ValidationNegative
     in
     Keyed.node "div" [ styles.class .multiValue ] <|
         [ ( "multi-value-" ++ String.fromInt index
