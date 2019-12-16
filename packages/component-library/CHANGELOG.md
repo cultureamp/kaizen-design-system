@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [16.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@16.4.2...@cultureamp/kaizen-component-library@16.5.0) (2019-12-16)
+
+
+### Features
+
+* add noBottomMargin prop to inlineNotification ([#161](https://github.com/cultureamp/kaizen-design-system/issues/161)) ([f6bc0fd](https://github.com/cultureamp/kaizen-design-system/commit/f6bc0fd))
+
+
+
+
+
 ## [16.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@16.4.1...@cultureamp/kaizen-component-library@16.4.2) (2019-12-13)
 
 **Note:** Version bump only for package @cultureamp/kaizen-component-library
