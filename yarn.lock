@@ -7288,7 +7288,7 @@ elm-webpack-loader@^6.0.0:
     node-elm-compiler "^5.0.0"
     yargs "^6.5.0"
 
-elm@^0.19.0-no-deps:
+elm@0.19.0-no-deps:
   version "0.19.0-no-deps"
   resolved "https://registry.yarnpkg.com/elm/-/elm-0.19.0-no-deps.tgz#4754b658c424771823ee91bd5bf6387647954add"
   integrity sha512-tOlSeo5Bt0Rkrt/aBjL+/a+TmAFdfeqjrOlThrhgKOoGeHt1hU7/hJ+HFMlHiODf09AQh7Anl64o7V6thzmRHw==
