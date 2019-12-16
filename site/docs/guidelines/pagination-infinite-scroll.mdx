@@ -1,0 +1,50 @@
+---
+title: Pagination and Infinite Scroll
+navTitle: Pagination and Infinite Scroll
+summaryParagraph: Pagination separates large bodies of content into separate pages accessed via a shared index of links while Infinite Scroll separates large bodies of content into separate sections accessed via "View more" button.
+tags:
+needToKnow:
+  - 'Perform usability testing to decide where to split content into pages (that is, how much content to show per page).'
+  - 'We never use infinite scroll without a "View more" button.'
+inComparingSection: true
+---
+
+## To keep in mind
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D4332%253A26712" allowfullscreen></iframe>
+
+[Pagination](/components/pagination) can reduce results in large data sets down to easy-to-digest chunks. Each page has a link that can be bookmarked. The First, Current, and Last pages are always accessible, while other page links may be truncated when there’s too many to show at once. Pagination also has Previous and Next links.
+
+Traditionally, Infinite Scroll loads and presents more results as you scroll without interruption, in a single stream. To minimize some drawbacks of this, however, we use a "View more" [Button](/components/button) that a user must click to progressively disclose only as much content as they want.
+
+## When to use
+
+- Use [Pagination](/components/pagination) when people are unlikely to need to see **all** the content.
+- Use [Pagination](/components/pagination) when the first page is enough to make a decision.
+- Use [Pagination](/components/pagination) when loading all the content at once would not be possible technically or not be performant. If it takes more than 10 seconds to load all the content, paginate.
+- Use [Pagination](/components/pagination) when keeping your place is important or you want to bookmark a specific page.
+- Use [Pagination](/components/pagination) when there's lot of screen real estate.
+- Consider using [Pagination](/components/pagination) when a list contains more than 50 items of a single line of text each.
+- Use [Infinite Scroll](/components/infinite-scroll) with a "View more" button when someone may want to see every item and compare them at the same time.
+- Use [Infinite Scroll](/components/infinite-scroll) with a "View more" button when we want and expect people to read more than 1 page worth of content without disrupting the experience with a page load.
+- Use [Infinite Scroll](/components/infinite-scroll) with a "View more" button on small, touch devices if it feels more efficient to the user than pagination.
+
+## See also
+
+* [Pagination](/components/pagination).
+* [Infinite Scroll](/components/infinite-scroll).
+* [Button](/components/button).
+
+## External links
+
+Here are some examples of other existing design systems:
+
+- [Polaris: pagination](https://polaris.shopify.com/components/navigation/pagination).
+- [Ant Design: pagination](https://ant.design/components/pagination/#header).
+- [Atlassian: pagination](https://www.atlassian.design/guidelines/product/components/pagination).
+- [Material Design: data table pagination](https://material.io/components/data-tables/#behavior).
+- [Lonely Plant: pagination](https://rizzo.lonelyplanet.com/styleguide/ui-components/pagination).
+- [Ant Design: list load more](https://ant.design/components/list/#components-list-demo-loadmore).
+- [Carbon: load more](https://www.carbondesignsystem.com/patterns/loading/#load-more).
+- [UIPatterns.io: continuous scrolling, load more](http://uipatterns.io/continuous-scrolling).
+

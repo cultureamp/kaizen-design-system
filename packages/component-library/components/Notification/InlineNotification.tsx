@@ -13,6 +13,7 @@ type Props = {
   hideCloseIcon: boolean
   onHide?: () => void
   automationId?: string
+  noBottomMargin?: boolean
 }
 
 const InlineNotification = ({
