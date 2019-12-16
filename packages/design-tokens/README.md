@@ -23,7 +23,7 @@ yarn add @cultureamp/kaizen-design-tokens
 ### Less
 ```
 ## Note helper functions are provided
-@import "@cultureamp/kaizen-design-tokens/less/[color/depth/layout/spacing/typography/helpers]";
+@import "~@cultureamp/kaizen-design-tokens/less/[color/depth/layout/spacing/typography/helpers]";
 ```
 
 ### Javascript 
