@@ -64,7 +64,7 @@ defaults =
 view : Config msg -> Html msg
 view (Config config) =
     let
-        withOnDismiss headerConfig =
+        withHeaderOnDismiss headerConfig =
             case config.onDismiss of
                 Just dismissMsg ->
                     ModalHeader.onDismiss dismissMsg headerConfig
@@ -81,9 +81,9 @@ view (Config config) =
                     text ""
     in
     div [ styles.class .elmModal ]
-        [ ModalHeader.view (ModalHeader.layout [ header config ] |> withOnDismiss)
+        [ ModalHeader.view (ModalHeader.layout [ header config ] |> withHeaderOnDismiss)
         , withBody
-        , ModalFooter.view <| (ModalFooter.layout footer |> ModalFooter.positionContent ModalFooter.Center |> ModalFooter.border False)
+        , ModalFooter.view <| (ModalFooter.layout (footer config) |> ModalFooter.positionContent ModalFooter.Center |> ModalFooter.border False)
         ]
 
 
@@ -107,9 +107,18 @@ body content =
     ModalBody.view <| ModalBody.layout content
 
 
-footer : List (Html msg)
-footer =
-    [ actionButton <| Button.view Button.secondary "Cancel", actionButton <| Button.view Button.primary "Confirm" ]
+footer : Configuration msg -> List (Html msg)
+footer config =
+    let
+        withOnDismiss buttonConfig =
+            case config.onDismiss of
+                Just dismissMsg ->
+                    Button.onClick dismissMsg buttonConfig
+
+                Nothing ->
+                    buttonConfig
+    in
+    [ actionButton <| Button.view (Button.secondary |> withOnDismiss) "Cancel", actionButton <| Button.view Button.primary "Confirm" ]
 
 
 actionButton : Html msg -> Html msg
