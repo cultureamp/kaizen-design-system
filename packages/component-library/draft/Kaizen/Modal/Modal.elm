@@ -67,6 +67,11 @@ type ConfirmationType
     = Informative
 
 
+type alias ConfirmationConfig =
+    { title : String
+    }
+
+
 type alias ModalData msg =
     { duration : Duration
     , dispatch : Maybe (List (Dispatch msg))
@@ -137,7 +142,7 @@ view (Config config) =
                     content
                     (genericModalConfig |> GenericModal.events genericModalEvents)
 
-            Confirmation confirmationType ->
+            Confirmation confirmationType configs ->
                 let
                     resolveOnDismiss confirmationConfig =
                         case config.onUpdate of
@@ -150,7 +155,7 @@ view (Config config) =
                 case confirmationType of
                     Informative ->
                         GenericModal.view GenericModal.Default
-                            [ ConfirmationModal.view (ConfirmationModal.informative |> resolveOnDismiss) ]
+                            [ ConfirmationModal.view (ConfirmationModal.informative |> resolveOnDismiss |> ConfirmationModal.title configs.title) ]
                             (genericModalConfig |> GenericModal.events genericModalEvents)
         ]
 
@@ -244,7 +249,7 @@ mapDuration duration =
 
 type Variant msg
     = Generic (List (Html msg)) ( Float, Float )
-    | Confirmation ConfirmationType
+    | Confirmation ConfirmationType ConfirmationConfig
 
 
 generic : List (Html msg) -> ( Float, Float ) -> Config msg
@@ -252,9 +257,9 @@ generic v size =
     Config { defaults | variant = Generic v size }
 
 
-confirmation : ConfirmationType -> Config msg
-confirmation confirmationType =
-    Config { defaults | variant = Confirmation confirmationType }
+confirmation : ConfirmationType -> ConfirmationConfig -> Config msg
+confirmation confirmationType confirmationConfig =
+    Config { defaults | variant = Confirmation confirmationType confirmationConfig }
 
 
 

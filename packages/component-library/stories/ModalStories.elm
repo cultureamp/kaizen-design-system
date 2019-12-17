@@ -88,7 +88,7 @@ main =
                     , case m.modalContext of
                         Just modalState ->
                             Modal.view <|
-                                (Modal.confirmation Modal.Informative
+                                (Modal.confirmation Modal.Informative { title = "Informative title" }
                                     |> Modal.modalState modalState
                                     |> Modal.onUpdate ModalUpdate
                                 )

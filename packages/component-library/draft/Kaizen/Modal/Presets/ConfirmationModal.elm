@@ -1,6 +1,7 @@
 module Kaizen.Modal.Presets.ConfirmationModal exposing
     ( informative
     , onDismiss
+    , title
     , view
     )
 
@@ -11,6 +12,7 @@ import Icon.SvgAsset exposing (svgAsset)
 import Kaizen.Modal.Primitives.ModalHeader as ModalHeader
 import Svg exposing (circle, svg)
 import Svg.Attributes exposing (class, cx, cy, r)
+import Text.Text as Text
 
 
 
@@ -22,7 +24,10 @@ type Config msg
 
 
 type alias Configuration msg =
-    { variant : Variant, onDismiss : Maybe msg }
+    { variant : Variant
+    , onDismiss : Maybe msg
+    , title : String
+    }
 
 
 
@@ -46,6 +51,7 @@ defaults : Configuration msg
 defaults =
     { variant = Informative
     , onDismiss = Nothing
+    , title = "Provide title"
     }
 
 
@@ -61,11 +67,11 @@ view (Config config) =
                     headerConfig
     in
     div [ styles.class .elmModal ]
-        [ ModalHeader.view (ModalHeader.layout [ modalBox config ] |> resolveOnDismiss) ]
+        [ ModalHeader.view (ModalHeader.layout [ header config ] |> resolveOnDismiss) ]
 
 
-modalBox : Configuration msg -> Html msg
-modalBox config =
+header : Configuration msg -> Html msg
+header config =
     div [ styles.classList [ ( .header, True ), ( .informativeHeader, config.variant == Informative ) ] ]
         [ div [ styles.class .iconContainer ]
             [ svg [ class <| styles.toString .iconBackground ] [ circle [ cx "75", cy "75", r "75" ] [] ]
@@ -75,6 +81,7 @@ modalBox config =
                     |> Html.map never
                 ]
             ]
+        , Text.view (Text.h1 |> Text.inline True) [ text config.title ]
         ]
 
 
@@ -85,6 +92,11 @@ modalBox config =
 onDismiss : msg -> Config msg -> Config msg
 onDismiss msg (Config config) =
     Config { config | onDismiss = Just msg }
+
+
+title : String -> Config msg -> Config msg
+title titleString (Config config) =
+    Config { config | title = titleString }
 
 
 styles =
