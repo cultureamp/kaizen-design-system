@@ -24,6 +24,9 @@
   text-align: center;
   background-repeat: no-repeat;
 }
+.actionButton {
+  @include ca-margin($end: $ca-grid * 0.5);
+}
 
 .positiveHeader {
   background-color: add-tint($ca-palette-seedling, 30%);

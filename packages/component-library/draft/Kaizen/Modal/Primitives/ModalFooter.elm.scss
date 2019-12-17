@@ -4,13 +4,16 @@
   padding: $ca-grid / 2;
   align-items: baseline;
   width: 100%;
-  border-top: 1px solid $ca-border-color;
   box-sizing: border-box;
 }
 
 .footerWrap.center {
   display: flex;
   justify-content: center;
+}
+
+.border {
+  border-top: 1px solid $ca-border-color;
 }
 
 .footerWrap.start {

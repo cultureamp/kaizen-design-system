@@ -6,11 +6,13 @@ module Kaizen.Modal.Presets.ConfirmationModal exposing
     , view
     )
 
+import Button.Button as Button
 import CssModules exposing (css)
 import Html exposing (Html, div, text)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
 import Kaizen.Modal.Primitives.ModalBody as ModalBody
+import Kaizen.Modal.Primitives.ModalFooter as ModalFooter
 import Kaizen.Modal.Primitives.ModalHeader as ModalHeader
 import Svg exposing (circle, svg)
 import Svg.Attributes exposing (class, cx, cy, r)
@@ -62,7 +64,7 @@ defaults =
 view : Config msg -> Html msg
 view (Config config) =
     let
-        resolveOnDismiss headerConfig =
+        withOnDismiss headerConfig =
             case config.onDismiss of
                 Just dismissMsg ->
                     ModalHeader.onDismiss dismissMsg headerConfig
@@ -70,7 +72,7 @@ view (Config config) =
                 Nothing ->
                     headerConfig
 
-        resolveBody =
+        withBody =
             case config.bodySubtext of
                 Just bodyContent ->
                     body bodyContent
@@ -79,8 +81,9 @@ view (Config config) =
                     text ""
     in
     div [ styles.class .elmModal ]
-        [ ModalHeader.view (ModalHeader.layout [ header config ] |> resolveOnDismiss)
-        , resolveBody
+        [ ModalHeader.view (ModalHeader.layout [ header config ] |> withOnDismiss)
+        , withBody
+        , ModalFooter.view <| (ModalFooter.layout footer |> ModalFooter.positionContent ModalFooter.Center |> ModalFooter.border False)
         ]
 
 
@@ -102,6 +105,16 @@ header config =
 body : List (Html msg) -> Html msg
 body content =
     ModalBody.view <| ModalBody.layout content
+
+
+footer : List (Html msg)
+footer =
+    [ actionButton <| Button.view Button.secondary "Cancel", actionButton <| Button.view Button.primary "Confirm" ]
+
+
+actionButton : Html msg -> Html msg
+actionButton button =
+    div [ styles.class .actionButton ] [ button ]
 
 
 
@@ -131,4 +144,5 @@ styles =
         , iconContainer = "iconContainer"
         , iconBackground = "iconBackground"
         , icon = "icon"
+        , actionButton = "actionButton"
         }

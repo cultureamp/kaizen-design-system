@@ -1,4 +1,12 @@
-module Kaizen.Modal.Primitives.ModalFooter exposing (PositionContent(..), Variant(..), fixed, layout, positionContent, view)
+module Kaizen.Modal.Primitives.ModalFooter exposing
+    ( PositionContent(..)
+    , Variant(..)
+    , border
+    , fixed
+    , layout
+    , positionContent
+    , view
+    )
 
 import CssModules exposing (css)
 import Html exposing (Html, div, text)
@@ -12,6 +20,7 @@ type alias Configuration msg =
     { variant : Variant msg
     , contentPosition : PositionContent
     , fixed : Bool
+    , border : Bool
     }
 
 
@@ -49,6 +58,7 @@ layoutBox content config =
             , ( .end, config.contentPosition == End )
             , ( .start, config.contentPosition == Start )
             , ( .fixed, config.fixed )
+            , ( .border, config.border )
             ]
         ]
         content
@@ -82,6 +92,7 @@ defaults =
     { variant = Layout [ text "" ]
     , contentPosition = End
     , fixed = False
+    , border = True
     }
 
 
@@ -99,10 +110,16 @@ positionContent position (Config config) =
     Config { config | contentPosition = position }
 
 
+border : Bool -> Config msg -> Config msg
+border predicate (Config config) =
+    Config { config | border = predicate }
+
+
 styles =
     css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/ModalFooter.elm.scss"
         { footerWrap = "footerWrap"
         , center = "center"
+        , border = "border"
         , end = "end"
         , start = "start"
         , filler = "filler"
