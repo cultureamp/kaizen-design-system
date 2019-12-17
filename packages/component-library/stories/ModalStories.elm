@@ -14,6 +14,7 @@ import Text.Text as Text
 type ModalMsg
     = ModalUpdate
     | ModalClosed
+    | ModalConfirmed
     | SetModalContext
 
 
@@ -51,6 +52,11 @@ update msg state =
 
         ModalClosed ->
             ( { state | modalContext = Nothing }, Cmd.none )
+
+        ModalConfirmed ->
+            -- we can do some stuff here when the user clicks confirm, then update the modal so it closes.
+            -- For now we are just going to close the modal by calling ModalUpdate
+            update ModalUpdate state
 
 
 main =
@@ -97,7 +103,7 @@ main =
                                                 [ Text.view (Text.p |> Text.style Text.Lede |> Text.inline True) [ text "Additional subtext to aid the user can be added here." ] ]
                                             ]
                                     , onDismiss = Just ModalUpdate
-                                    , onConfirm = Just ModalUpdate
+                                    , onConfirm = Just ModalConfirmed
                                     }
                                     |> Modal.modalState modalState
                                     -- the modal backdrop uses this to close

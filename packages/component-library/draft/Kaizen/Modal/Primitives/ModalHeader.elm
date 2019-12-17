@@ -70,8 +70,7 @@ layoutBox content config =
     in
     [ div
         [ styles.classList
-            [ ( .headerWrap, True )
-            , ( .layout, True )
+            [ ( .layout, True )
             , ( .fixed, config.fixed )
             ]
         ]
@@ -119,8 +118,7 @@ onDismiss msg (Config config) =
 
 styles =
     css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/ModalHeader.scss"
-        { headerWrap = "headerWrap"
-        , layout = "layout"
+        { layout = "layout"
         , filler = "filler"
         , fixed = "fixed"
         , dismissButton = "dismissButton"

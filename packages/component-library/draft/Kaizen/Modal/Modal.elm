@@ -130,9 +130,9 @@ view (Config config) =
                     []
     in
     div
-        ([ modalStyles.classList resolveAnimationStyles ] ++ [ modalStyles.classList resolveVisibilityStyles ])
+        ([ styles.classList resolveAnimationStyles ] ++ [ styles.classList resolveVisibilityStyles ])
         [ div
-            ([ modalStyles.classList
+            ([ styles.classList
                 [ ( .backdropLayer, True )
                 ]
              ]
@@ -239,7 +239,7 @@ defaultModalData =
     }
 
 
-modalStyles =
+styles =
     css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/GenericModal.scss"
         { backdropLayer = "backdropLayer"
         , animatingElmEnter = "animatingElmEnter"
