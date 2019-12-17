@@ -8,10 +8,16 @@ type Config msg
     = Config (Configuration msg)
 
 
+type BackgroundColor
+    = White
+    | Stone
+
+
 type alias Configuration msg =
     { variant : Variant msg
     , scrollable : Bool
     , fillSpace : Bool
+    , background : BackgroundColor
     }
 
 
@@ -27,6 +33,8 @@ modalBody content config =
     section
         [ styles.classList
             [ ( .modalBody, True )
+            , ( .white, config.background == White )
+            , ( .stone, config.background == Stone )
             , ( .scrollable, config.scrollable )
             , ( .fillSpace, config.fillSpace )
             ]
@@ -56,6 +64,7 @@ defaults =
     { variant = Layout [ text "" ]
     , scrollable = False
     , fillSpace = False
+    , background = White
     }
 
 
@@ -82,4 +91,6 @@ styles =
         { modalBody = "modalBody"
         , scrollable = "scrollable"
         , fillSpace = "fillSpace"
+        , white = "white"
+        , stone = "stone"
         }
