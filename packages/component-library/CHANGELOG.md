@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [16.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@16.5.0...@cultureamp/kaizen-component-library@16.5.1) (2019-12-17)
+
+
+### Bug Fixes
+
+* Ensure that className prop also taken into account for Select ([#170](https://github.com/cultureamp/kaizen-design-system/issues/170)) ([a666c74](https://github.com/cultureamp/kaizen-design-system/commit/a666c74))
+
+
+
+
+
 # [16.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@16.4.2...@cultureamp/kaizen-component-library@16.5.0) (2019-12-16)
 
 
