@@ -72,6 +72,8 @@ type alias ConfirmationConfig msg =
     , bodySubtext : Maybe (List (Html msg))
     , onDismiss : Maybe msg
     , onConfirm : Maybe msg
+    , confirmLabel : String
+    , dismissLabel : String
     }
 
 
@@ -179,6 +181,8 @@ view (Config config) =
                                     |> withOnDismiss
                                     |> withOnConfirm
                                     |> withBodySubtext
+                                    |> ConfirmationModal.confirmLabel configs.confirmLabel
+                                    |> ConfirmationModal.dismissLabel configs.dismissLabel
                                     |> ConfirmationModal.title configs.title
                                 )
                             ]

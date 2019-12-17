@@ -104,6 +104,8 @@ main =
                                             ]
                                     , onDismiss = Just ModalUpdate
                                     , onConfirm = Just ModalConfirmed
+                                    , confirmLabel = "Yea do it!"
+                                    , dismissLabel = "Nah dont do it"
                                     }
                                     |> Modal.modalState modalState
                                     -- the modal backdrop uses this to close

@@ -1,5 +1,7 @@
 module Kaizen.Modal.Presets.ConfirmationModal exposing
     ( bodySubtext
+    , confirmLabel
+    , dismissLabel
     , informative
     , onConfirm
     , onDismiss
@@ -34,6 +36,8 @@ type alias Configuration msg =
     , onConfirm : Maybe msg
     , title : String
     , bodySubtext : Maybe (List (Html msg))
+    , dismissLabel : String
+    , confirmLabel : String
     }
 
 
@@ -61,6 +65,8 @@ defaults =
     , onConfirm = Nothing
     , title = "Provide title"
     , bodySubtext = Nothing
+    , dismissLabel = "Cancel"
+    , confirmLabel = "Confirm"
     }
 
 
@@ -129,7 +135,7 @@ footer config =
                 Nothing ->
                     buttonConfig
     in
-    [ Button.view (Button.secondary |> withOnDismiss) "Cancel", Button.view (Button.primary |> withOnConfirm) "Confirm" ]
+    [ Button.view (Button.secondary |> withOnDismiss) config.dismissLabel, Button.view (Button.primary |> withOnConfirm) config.confirmLabel ]
 
 
 
@@ -154,6 +160,16 @@ title titleString (Config config) =
 bodySubtext : List (Html msg) -> Config msg -> Config msg
 bodySubtext content (Config config) =
     Config { config | bodySubtext = Just content }
+
+
+confirmLabel : String -> Config msg -> Config msg
+confirmLabel confirmString (Config config) =
+    Config { config | confirmLabel = confirmString }
+
+
+dismissLabel : String -> Config msg -> Config msg
+dismissLabel dismissString (Config config) =
+    Config { config | dismissLabel = dismissString }
 
 
 styles =
