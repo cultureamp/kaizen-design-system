@@ -64,7 +64,8 @@
     );
   }
 
-  .genericModal, .elmGenericModal {
+  .genericModal,
+  .elmGenericModal {
     @include ca-animation(fade($from: 0, $to: 1), zoom($from: 0.5, $to: 1));
     animation-duration: $ca-duration-fast;
     animation-fill-mode: forwards;
@@ -82,7 +83,8 @@
     );
   }
 
-  .genericModal, .elmGenericModal {
+  .genericModal,
+  .elmGenericModal {
     @include ca-animation(fade($from: 1, $to: 0), zoom($from: 1, $to: 0.5));
     animation-duration: $ca-duration-rapid;
     animation-fill-mode: forwards;

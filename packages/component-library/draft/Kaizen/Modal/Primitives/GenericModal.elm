@@ -57,10 +57,10 @@ view size content (Config config) =
 
 
 modalBox : List (Html msg) -> Size -> Html msg
-modalBox content maybeWidthHeight =
+modalBox content size =
     let
         resolveSize =
-            case maybeWidthHeight of
+            case size of
                 Custom ( width, height ) ->
                     [ style "width" <| (String.fromFloat width ++ "px"), style "height" <| (String.fromFloat height ++ "px") ]
 

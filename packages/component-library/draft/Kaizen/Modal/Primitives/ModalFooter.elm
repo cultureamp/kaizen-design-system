@@ -4,6 +4,7 @@ module Kaizen.Modal.Primitives.ModalFooter exposing
     , border
     , fixed
     , layout
+    , padded
     , positionContent
     , view
     )
@@ -21,6 +22,7 @@ type alias Configuration msg =
     , contentPosition : PositionContent
     , fixed : Bool
     , border : Bool
+    , padded : Bool
     }
 
 
@@ -59,6 +61,7 @@ layoutBox content config =
             , ( .start, config.contentPosition == Start )
             , ( .fixed, config.fixed )
             , ( .border, config.border )
+            , ( .padded, config.padded )
             ]
         ]
         (List.map
@@ -101,6 +104,7 @@ defaults =
     , contentPosition = End
     , fixed = False
     , border = True
+    , padded = False
     }
 
 
@@ -123,6 +127,11 @@ border predicate (Config config) =
     Config { config | border = predicate }
 
 
+padded : Bool -> Config msg -> Config msg
+padded predicate (Config config) =
+    Config { config | padded = predicate }
+
+
 styles =
     css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/ModalFooter.scss"
         { footerWrap = "footerWrap"
@@ -133,4 +142,5 @@ styles =
         , filler = "filler"
         , fixed = "fixed"
         , elmActionButton = "elmActionButton"
+        , padded = "padded"
         }

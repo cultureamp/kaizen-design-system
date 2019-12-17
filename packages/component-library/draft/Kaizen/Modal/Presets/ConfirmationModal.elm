@@ -92,7 +92,12 @@ view (Config config) =
     div [ styles.class .elmModal ]
         [ ModalHeader.view (ModalHeader.layout [ header config ] |> withHeaderOnDismiss)
         , withBody
-        , ModalFooter.view <| (ModalFooter.layout (footer config) |> ModalFooter.positionContent ModalFooter.Center |> ModalFooter.border False)
+        , ModalFooter.view <|
+            (ModalFooter.layout (footer config)
+                |> ModalFooter.positionContent ModalFooter.Center
+                |> ModalFooter.border False
+                |> ModalFooter.padded True
+            )
         ]
 
 

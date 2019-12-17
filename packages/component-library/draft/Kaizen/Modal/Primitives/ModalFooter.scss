@@ -17,7 +17,6 @@
 }
 
 .footerWrap {
-  padding: $ca-grid / 2;
   align-items: baseline;
   width: 100%;
   box-sizing: border-box;
@@ -49,4 +48,8 @@
 }
 .filler {
   visibility: hidden;
+}
+
+.padded {
+  padding: $ca-grid;
 }
