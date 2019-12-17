@@ -516,4 +516,5 @@ storiesOf("Modal", module)
 
 loadElmStories("Modal (Elm)", module, require("./ModalStories.elm"), [
   "Generic",
+  "Confirmation (Informative)",
 ])

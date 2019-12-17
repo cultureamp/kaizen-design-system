@@ -3,6 +3,7 @@ module Main exposing (main)
 import Button.Button as Button
 import ElmStorybook exposing (storyOf, storybook)
 import Html exposing (div, text)
+import Html.Attributes exposing (style)
 import Kaizen.Modal.Modal as Modal
 import Kaizen.Modal.Primitives.ModalBody as ModalBody
 import Kaizen.Modal.Primitives.ModalFooter as ModalFooter
@@ -62,7 +63,7 @@ main =
     storybook
         [ storyOf "Generic" config <|
             \m ->
-                div []
+                div [ style "width" "100%" ]
                     [ Button.view (Button.primary |> Button.onClick SetModalContext) "Open Modal"
                     , case m.modalContext of
                         Just modalState ->
@@ -72,7 +73,22 @@ main =
                                     , ModalBody.view <| (ModalBody.layout [ div [] [ text "Generic body" ] ] |> ModalBody.fillVerticalSpace True)
                                     , ModalFooter.view <| (ModalFooter.layout [ div [] [ text "Generic footer" ] ] |> ModalFooter.fixed True)
                                     ]
-                                    (Modal.Custom ( 800, 640 ))
+                                    ( 800, 640 )
+                                    |> Modal.modalState modalState
+                                    |> Modal.onUpdate ModalUpdate
+                                )
+
+                        Nothing ->
+                            text ""
+                    ]
+        , storyOf "Confirmation (Informative)" config <|
+            \m ->
+                div [ style "width" "100%" ]
+                    [ Button.view (Button.primary |> Button.onClick SetModalContext) "Open Modal"
+                    , case m.modalContext of
+                        Just modalState ->
+                            Modal.view <|
+                                (Modal.confirmation Modal.Informative
                                     |> Modal.modalState modalState
                                     |> Modal.onUpdate ModalUpdate
                                 )
