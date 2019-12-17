@@ -67,8 +67,9 @@ type ConfirmationType
     = Informative
 
 
-type alias ConfirmationConfig =
+type alias ConfirmationConfig msg =
     { title : String
+    , bodySubtext : Maybe (List (Html msg))
     }
 
 
@@ -144,10 +145,18 @@ view (Config config) =
 
             Confirmation confirmationType configs ->
                 let
-                    resolveOnDismiss confirmationConfig =
+                    withOnDismiss confirmationConfig =
                         case config.onUpdate of
                             Just dismissMsg ->
                                 ConfirmationModal.onDismiss dismissMsg confirmationConfig
+
+                            Nothing ->
+                                confirmationConfig
+
+                    withbodySubtext confirmationConfig =
+                        case configs.bodySubtext of
+                            Just subtext ->
+                                ConfirmationModal.bodySubtext subtext confirmationConfig
 
                             Nothing ->
                                 confirmationConfig
@@ -155,7 +164,13 @@ view (Config config) =
                 case confirmationType of
                     Informative ->
                         GenericModal.view GenericModal.Default
-                            [ ConfirmationModal.view (ConfirmationModal.informative |> resolveOnDismiss |> ConfirmationModal.title configs.title) ]
+                            [ ConfirmationModal.view
+                                (ConfirmationModal.informative
+                                    |> withOnDismiss
+                                    |> withbodySubtext
+                                    |> ConfirmationModal.title configs.title
+                                )
+                            ]
                             (genericModalConfig |> GenericModal.events genericModalEvents)
         ]
 
@@ -249,7 +264,7 @@ mapDuration duration =
 
 type Variant msg
     = Generic (List (Html msg)) ( Float, Float )
-    | Confirmation ConfirmationType ConfirmationConfig
+    | Confirmation ConfirmationType (ConfirmationConfig msg)
 
 
 generic : List (Html msg) -> ( Float, Float ) -> Config msg
@@ -257,7 +272,7 @@ generic v size =
     Config { defaults | variant = Generic v size }
 
 
-confirmation : ConfirmationType -> ConfirmationConfig -> Config msg
+confirmation : ConfirmationType -> ConfirmationConfig msg -> Config msg
 confirmation confirmationType confirmationConfig =
     Config { defaults | variant = Confirmation confirmationType confirmationConfig }
 

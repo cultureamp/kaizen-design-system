@@ -1,5 +1,6 @@
 module Kaizen.Modal.Presets.ConfirmationModal exposing
-    ( informative
+    ( bodySubtext
+    , informative
     , onDismiss
     , title
     , view
@@ -9,6 +10,7 @@ import CssModules exposing (css)
 import Html exposing (Html, div, text)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
+import Kaizen.Modal.Primitives.ModalBody as ModalBody
 import Kaizen.Modal.Primitives.ModalHeader as ModalHeader
 import Svg exposing (circle, svg)
 import Svg.Attributes exposing (class, cx, cy, r)
@@ -27,6 +29,7 @@ type alias Configuration msg =
     { variant : Variant
     , onDismiss : Maybe msg
     , title : String
+    , bodySubtext : Maybe (List (Html msg))
     }
 
 
@@ -52,6 +55,7 @@ defaults =
     { variant = Informative
     , onDismiss = Nothing
     , title = "Provide title"
+    , bodySubtext = Nothing
     }
 
 
@@ -65,9 +69,19 @@ view (Config config) =
 
                 Nothing ->
                     headerConfig
+
+        resolveBody =
+            case config.bodySubtext of
+                Just bodyContent ->
+                    body bodyContent
+
+                Nothing ->
+                    text ""
     in
     div [ styles.class .elmModal ]
-        [ ModalHeader.view (ModalHeader.layout [ header config ] |> resolveOnDismiss) ]
+        [ ModalHeader.view (ModalHeader.layout [ header config ] |> resolveOnDismiss)
+        , resolveBody
+        ]
 
 
 header : Configuration msg -> Html msg
@@ -85,6 +99,11 @@ header config =
         ]
 
 
+body : List (Html msg) -> Html msg
+body content =
+    ModalBody.view <| ModalBody.layout content
+
+
 
 -- MODIFIERS
 
@@ -97,6 +116,11 @@ onDismiss msg (Config config) =
 title : String -> Config msg -> Config msg
 title titleString (Config config) =
     Config { config | title = titleString }
+
+
+bodySubtext : List (Html msg) -> Config msg -> Config msg
+bodySubtext content (Config config) =
+    Config { config | bodySubtext = Just content }
 
 
 styles =
