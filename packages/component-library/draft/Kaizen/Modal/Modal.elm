@@ -70,6 +70,8 @@ type ConfirmationType
 type alias ConfirmationConfig msg =
     { title : String
     , bodySubtext : Maybe (List (Html msg))
+    , onDismiss : Maybe msg
+    , onConfirm : Maybe msg
     }
 
 
@@ -146,14 +148,22 @@ view (Config config) =
             Confirmation confirmationType configs ->
                 let
                     withOnDismiss confirmationConfig =
-                        case config.onUpdate of
+                        case configs.onDismiss of
                             Just dismissMsg ->
                                 ConfirmationModal.onDismiss dismissMsg confirmationConfig
 
                             Nothing ->
                                 confirmationConfig
 
-                    withbodySubtext confirmationConfig =
+                    withOnConfirm confirmationConfig =
+                        case configs.onConfirm of
+                            Just confirmMsg ->
+                                ConfirmationModal.onConfirm confirmMsg confirmationConfig
+
+                            Nothing ->
+                                confirmationConfig
+
+                    withBodySubtext confirmationConfig =
                         case configs.bodySubtext of
                             Just subtext ->
                                 ConfirmationModal.bodySubtext subtext confirmationConfig
@@ -167,7 +177,8 @@ view (Config config) =
                             [ ConfirmationModal.view
                                 (ConfirmationModal.informative
                                     |> withOnDismiss
-                                    |> withbodySubtext
+                                    |> withOnConfirm
+                                    |> withBodySubtext
                                     |> ConfirmationModal.title configs.title
                                 )
                             ]

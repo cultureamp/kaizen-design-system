@@ -1,6 +1,7 @@
 module Kaizen.Modal.Presets.ConfirmationModal exposing
     ( bodySubtext
     , informative
+    , onConfirm
     , onDismiss
     , title
     , view
@@ -30,6 +31,7 @@ type Config msg
 type alias Configuration msg =
     { variant : Variant
     , onDismiss : Maybe msg
+    , onConfirm : Maybe msg
     , title : String
     , bodySubtext : Maybe (List (Html msg))
     }
@@ -56,6 +58,7 @@ defaults : Configuration msg
 defaults =
     { variant = Informative
     , onDismiss = Nothing
+    , onConfirm = Nothing
     , title = "Provide title"
     , bodySubtext = Nothing
     }
@@ -117,13 +120,16 @@ footer config =
 
                 Nothing ->
                     buttonConfig
+
+        withOnConfirm buttonConfig =
+            case config.onConfirm of
+                Just confirmMsg ->
+                    Button.onClick confirmMsg buttonConfig
+
+                Nothing ->
+                    buttonConfig
     in
-    [ actionButton <| Button.view (Button.secondary |> withOnDismiss) "Cancel", actionButton <| Button.view Button.primary "Confirm" ]
-
-
-actionButton : Html msg -> Html msg
-actionButton button =
-    div [ styles.class .actionButton ] [ button ]
+    [ Button.view (Button.secondary |> withOnDismiss) "Cancel", Button.view (Button.primary |> withOnConfirm) "Confirm" ]
 
 
 
@@ -133,6 +139,11 @@ actionButton button =
 onDismiss : msg -> Config msg -> Config msg
 onDismiss msg (Config config) =
     Config { config | onDismiss = Just msg }
+
+
+onConfirm : msg -> Config msg -> Config msg
+onConfirm msg (Config config) =
+    Config { config | onConfirm = Just msg }
 
 
 title : String -> Config msg -> Config msg
@@ -153,5 +164,4 @@ styles =
         , iconContainer = "iconContainer"
         , iconBackground = "iconBackground"
         , icon = "icon"
-        , actionButton = "actionButton"
         }

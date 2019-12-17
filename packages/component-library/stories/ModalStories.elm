@@ -96,8 +96,11 @@ main =
                                             [ div [ style "text-align" "center" ]
                                                 [ Text.view (Text.p |> Text.style Text.Lede |> Text.inline True) [ text "Additional subtext to aid the user can be added here." ] ]
                                             ]
+                                    , onDismiss = Just ModalUpdate
+                                    , onConfirm = Just ModalUpdate
                                     }
                                     |> Modal.modalState modalState
+                                    -- the modal backdrop uses this to close
                                     |> Modal.onUpdate ModalUpdate
                                 )
 

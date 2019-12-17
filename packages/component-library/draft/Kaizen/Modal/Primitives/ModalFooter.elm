@@ -61,13 +61,21 @@ layoutBox content config =
             , ( .border, config.border )
             ]
         ]
-        content
+        (List.map
+            actionButton
+            content
+        )
     ]
 
 
 fillerBox : List (Html msg) -> List (Html msg)
 fillerBox content =
     [ div [ styles.classList [ ( .filler, True ), ( .footerWrap, True ) ] ] content ]
+
+
+actionButton : Html msg -> Html msg
+actionButton button =
+    div [ styles.class .elmActionButton ] [ button ]
 
 
 
@@ -116,7 +124,7 @@ border predicate (Config config) =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/ModalFooter.elm.scss"
+    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/ModalFooter.scss"
         { footerWrap = "footerWrap"
         , center = "center"
         , border = "border"
@@ -124,4 +132,5 @@ styles =
         , start = "start"
         , filler = "filler"
         , fixed = "fixed"
+        , elmActionButton = "elmActionButton"
         }
