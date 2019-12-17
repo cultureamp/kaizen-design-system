@@ -1,9 +1,14 @@
-module Kaizen.Modal.Primitives.ModalHeader exposing (fixed, layout, view)
+module Kaizen.Modal.Primitives.ModalHeader exposing
+    ( fixed
+    , layout
+    , onDismiss
+    , view
+    )
 
+import Button.Button as Button
 import CssModules exposing (css)
 import Html exposing (Html, div, text)
 import Html.Events exposing (onClick)
-import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
 
 
@@ -52,9 +57,12 @@ layoutBox content config =
             case config.onDismiss of
                 Just onDismissMsg ->
                     div [ styles.class .dismissButton, onClick onDismissMsg ]
-                        [ Icon.view Icon.presentation
-                            (svgAsset "@cultureamp/kaizen-component-library/icons/success.icon.svg")
-                            |> Html.map never
+                        [ Button.view
+                            (Button.iconButton
+                                (svgAsset "@cultureamp/kaizen-component-library/icons/close.icon.svg")
+                                |> Button.reversed True
+                            )
+                            "Dismiss"
                         ]
 
                 Nothing ->
