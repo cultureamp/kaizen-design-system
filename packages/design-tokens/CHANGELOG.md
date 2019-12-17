@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-design-tokens@0.0.4...@cultureamp/kaizen-design-tokens@0.1.0) (2019-12-17)
+
+
+### Features
+
+* Add support for Less in Design Tokens ([#167](https://github.com/cultureamp/kaizen-design-system/issues/167)) ([6e03159](https://github.com/cultureamp/kaizen-design-system/commit/6e03159))
+
+
+
+
+
 ## [0.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-design-tokens@0.0.3...@cultureamp/kaizen-design-tokens@0.0.4) (2019-12-10)
 
 
