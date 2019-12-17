@@ -29,7 +29,7 @@ const Select = (props: Props) => {
         ClearIndicator: null,
         IndicatorSeparator: null,
       }}
-      className={styles.container}
+      className={classNames(styles.container, props.className)}
     />
   )
 }
