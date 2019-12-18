@@ -64,7 +64,7 @@ const Menu: typeof components.Menu = props => (
 const Option: typeof components.Option = props => (
   <components.Option
     {...props}
-    className={classNames(styles.option, {
+    className={classNames("needsclick", styles.option, {
       [styles.focusedOption]: props.isFocused,
       [styles.selectedOption]: props.isSelected,
     })}
