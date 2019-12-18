@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [17.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.0.0...@cultureamp/kaizen-component-library@17.0.1) (2019-12-18)
+
+
+### Bug Fixes
+
+* apply fastclick "opt-out" classname to enable React Select to work on mobile ([#174](https://github.com/cultureamp/kaizen-design-system/issues/174)) ([ed2afea](https://github.com/cultureamp/kaizen-design-system/commit/ed2afea))
+
+
+
+
+
 # [17.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@16.5.1...@cultureamp/kaizen-component-library@17.0.0) (2019-12-18)
 
 
