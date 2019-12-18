@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-design-tokens@0.1.1...@cultureamp/kaizen-design-tokens@0.1.2) (2019-12-18)
+
+
+### Bug Fixes
+
+* Update the json-to-flat-sass dependency ([#176](https://github.com/cultureamp/kaizen-design-system/issues/176)) ([f8b0ce5](https://github.com/cultureamp/kaizen-design-system/commit/f8b0ce5))
+
+
+
+
+
 ## [0.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-design-tokens@0.1.0...@cultureamp/kaizen-design-tokens@0.1.1) (2019-12-18)
 
 
