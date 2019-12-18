@@ -1,4 +1,11 @@
-module Kaizen.Modal.Primitives.ModalBody exposing (fillVerticalSpace, layout, scrollable, view)
+module Kaizen.Modal.Primitives.ModalBody exposing
+    ( BackgroundColor(..)
+    , background
+    , fillVerticalSpace
+    , layout
+    , scrollable
+    , view
+    )
 
 import CssModules exposing (css)
 import Html exposing (Html, section, text)
@@ -75,6 +82,11 @@ defaults =
 scrollable : Bool -> Config msg -> Config msg
 scrollable predicate (Config config) =
     Config { config | scrollable = predicate }
+
+
+background : BackgroundColor -> Config msg -> Config msg
+background color (Config config) =
+    Config { config | background = color }
 
 
 
