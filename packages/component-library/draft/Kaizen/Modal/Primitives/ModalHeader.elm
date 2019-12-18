@@ -1,7 +1,15 @@
-module Kaizen.Modal.Primitives.ModalHeader exposing (fixed, layout, view)
+module Kaizen.Modal.Primitives.ModalHeader exposing
+    ( fixed
+    , layout
+    , onDismiss
+    , view
+    )
 
+import Button.Button as Button
 import CssModules exposing (css)
-import Html exposing (Html, div, span, text)
+import Html exposing (Html, div, text)
+import Html.Events exposing (onClick)
+import Icon.SvgAsset exposing (svgAsset)
 
 
 type Config msg
@@ -11,6 +19,7 @@ type Config msg
 type alias Configuration msg =
     { variant : Variant msg
     , fixed : Bool
+    , onDismiss : Maybe msg
     }
 
 
@@ -18,6 +27,7 @@ defaults : Configuration msg
 defaults =
     { variant = Layout [ text "" ]
     , fixed = False
+    , onDismiss = Nothing
     }
 
 
@@ -42,14 +52,31 @@ view (Config config) =
 
 layoutBox : List (Html msg) -> Configuration msg -> List (Html msg)
 layoutBox content config =
+    let
+        resolveDismissButton =
+            case config.onDismiss of
+                Just onDismissMsg ->
+                    div [ styles.class .dismissButton, onClick onDismissMsg ]
+                        [ Button.view
+                            (Button.iconButton
+                                (svgAsset "@cultureamp/kaizen-component-library/icons/close.icon.svg")
+                                |> Button.reversed True
+                            )
+                            "Dismiss"
+                        ]
+
+                Nothing ->
+                    text ""
+    in
     [ div
         [ styles.classList
-            [ ( .headerWrap, True )
-            , ( .layout, True )
-            , ( .absolute, config.fixed )
+            [ ( .layout, True )
+            , ( .fixed, config.fixed )
             ]
         ]
-        content
+        (resolveDismissButton
+            :: content
+        )
     ]
 
 
@@ -80,10 +107,19 @@ fixed predicate (Config config) =
     Config { config | fixed = predicate }
 
 
+{-| If present this will render a close button which triggers the msg.
+If you are providing your own layout and handling the close yourself, dont use this modifier
+as it may clash with the provided close button
+-}
+onDismiss : msg -> Config msg -> Config msg
+onDismiss msg (Config config) =
+    Config { config | onDismiss = Just msg }
+
+
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/ModalHeader.elm.scss"
-        { headerWrap = "headerWrap"
-        , layout = "layout"
+    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/ModalHeader.scss"
+        { layout = "layout"
         , filler = "filler"
-        , absolute = "absolute"
+        , fixed = "fixed"
+        , dismissButton = "dismissButton"
         }
