@@ -1,7 +1,8 @@
-module Kaizen.Modal.Primitives.GenericModal exposing (default, events, view)
+module Kaizen.Modal.Primitives.GenericModal exposing (Size(..), default, events, view)
 
 import CssModules exposing (css)
 import Html exposing (Html, div, span)
+import Html.Attributes exposing (style)
 import Html.Attributes.Aria exposing (ariaDescribedby, ariaLabelledby, role)
 import Kaizen.Modal.Primitives.Constants as Constants
 
@@ -22,6 +23,15 @@ defaults =
 
 
 
+-- TYPES
+
+
+type Size
+    = Custom ( Float, Float )
+    | Default
+
+
+
 -- VARIANTS
 
 
@@ -30,11 +40,11 @@ default =
     Config defaults
 
 
-view : List (Html msg) -> Config msg -> Html msg
-view content (Config config) =
-    span [ styles.class .modalLayer ] <|
+view : Size -> List (Html msg) -> Config msg -> Html msg
+view size content (Config config) =
+    span [ styles.class .scrollLayer ]
         [ div
-            ([ styles.classList [ ( .modalLayer, True ) ]
+            ([ styles.classList [ ( .scrollLayer, True ) ]
              , role "dialog"
              , ariaDescribedby Constants.ariaDescribedBy
              , ariaLabelledby Constants.ariaLabelledBy
@@ -42,8 +52,29 @@ view content (Config config) =
                 ++ Maybe.withDefault [] config.events
             )
             []
+        , modalBox content size
         ]
-            ++ content
+
+
+modalBox : List (Html msg) -> Size -> Html msg
+modalBox content size =
+    let
+        resolveSize =
+            case size of
+                Custom ( width, height ) ->
+                    [ style "width" <| (String.fromFloat width ++ "px"), style "height" <| (String.fromFloat height ++ "px") ]
+
+                Default ->
+                    [ style "max-width" "600px", style "min-width" "300px" ]
+    in
+    div
+        ([ styles.classList
+            [ ( .elmGenericModal, True )
+            ]
+         ]
+            ++ resolveSize
+        )
+        content
 
 
 events : List (Html.Attribute msg) -> Config msg -> Config msg
@@ -52,10 +83,7 @@ events msg (Config config) =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/GenericModal.elm.scss"
-        { modalLayer = "modalLayer"
-        , small = "small"
-        , medium = "medium"
-        , large = "large"
-        , xLarge = "xLarge"
+    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/GenericModal.scss"
+        { scrollLayer = "scrollLayer"
+        , elmGenericModal = "elmGenericModal"
         }
