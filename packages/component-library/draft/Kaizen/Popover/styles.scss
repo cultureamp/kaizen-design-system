@@ -68,7 +68,6 @@ $large: 450px;
   }
 }
 
-.root,
 %root {
   width: 220px;
   background: #fff;
@@ -84,7 +83,9 @@ $large: 450px;
 
 .default {
   @extend %root;
+}
 
+.defaultArrow {
   @include arrow(#fff, add-tint($ca-palette-ink, 80%));
 }
 
@@ -92,7 +93,9 @@ $large: 450px;
   @extend %root;
   background: add-tint($ca-palette-ocean, 90%);
   border-color: add-tint($ca-palette-ocean, 60%);
+}
 
+.informativeArrow {
   @include arrow(
     add-tint($ca-palette-ocean, 90%),
     add-tint($ca-palette-ocean, 60%)
@@ -103,7 +106,9 @@ $large: 450px;
   @extend %root;
   background: add-tint($ca-palette-seedling, 90%);
   border-color: add-tint($ca-palette-seedling, 60%);
+}
 
+.positiveArrow {
   @include arrow(
     add-tint($ca-palette-seedling, 90%),
     add-tint($ca-palette-seedling, 60%)
@@ -114,7 +119,9 @@ $large: 450px;
   @extend %root;
   background: add-tint($ca-palette-coral, 95%);
   border-color: add-tint($ca-palette-coral, 60%);
+}
 
+.negativeArrow {
   @include arrow(
     add-tint($ca-palette-coral, 95%),
     add-tint($ca-palette-coral, 60%)
@@ -125,7 +132,9 @@ $large: 450px;
   @extend %root;
   background: add-tint($ca-palette-yuzu, 90%);
   border-color: add-tint($ca-palette-yuzu, 40%);
+}
 
+.cautionaryArrow {
   @include arrow(
     add-tint($ca-palette-yuzu, 90%),
     add-tint($ca-palette-yuzu, 40%)
@@ -178,7 +187,7 @@ $large: 450px;
   color: add-alpha(#000, 50%);
 }
 
-.sideTop {
+.arrowSideTop {
   &::before,
   &::after {
     top: 0;
@@ -190,7 +199,7 @@ $large: 450px;
   }
 }
 
-.positionStart {
+.arrowPositionStart {
   &::before,
   &::after {
     left: $ca-grid;
@@ -198,7 +207,7 @@ $large: 450px;
   }
 }
 
-.positionEnd {
+.arrowPositionEnd {
   &::before,
   &::after {
     right: $ca-grid;

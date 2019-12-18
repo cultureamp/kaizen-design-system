@@ -58,11 +58,16 @@ const Popover: Popover = ({
   <div
     className={classNames(
       mapVariantToRootClass(variant),
-      mapSideToClass(side),
-      mapPositionToClass(position),
       mapSizeToClass(size)
     )}
   >
+    <div
+      className={classNames(
+        mapArrowVariantToClass(variant),
+        mapArrowSideToClass(side),
+        mapArrowPositionToClass(position),
+      )}
+    />
     <div className={styles.header}>
       {variant !== "default" && (
         <span className={styles.icon}>
@@ -114,23 +119,38 @@ const mapVariantToIcon = (
   }
 }
 
-const mapPositionToClass = (position: Position): string => {
+const mapArrowVariantToClass = (variant: Variant): string => {
+  switch (variant) {
+    case "informative":
+      return styles.informativeArrow
+    case "positive":
+      return styles.positiveArrow
+    case "negative":
+      return styles.negativeArrow
+    case "cautionary":
+      return styles.cautionaryArrow
+    default:
+      return styles.defaultArrow
+  }
+}
+
+const mapArrowPositionToClass = (position: Position): string => {
   switch (position) {
     case "start":
       return styles.positionStart
     case "end":
       return styles.positionEnd
     default:
-      return "center"
+      return ""
   }
 }
 
-const mapSideToClass = (side: Side): string => {
+const mapArrowSideToClass = (side: Side): string => {
   switch (side) {
     case "top":
       return styles.sideTop
     default:
-      return "bottom"
+      return ""
   }
 }
 
