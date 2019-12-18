@@ -3,8 +3,8 @@ const checkIcon = require("@cultureamp/kaizen-component-library/icons/check.icon
   .default
 const minusIcon = require("@cultureamp/kaizen-component-library/icons/minus.icon.svg")
   .default
-import * as React from "react"
 import classnames from "classnames"
+import * as React from "react"
 
 const styles = require("./styles.scss")
 
