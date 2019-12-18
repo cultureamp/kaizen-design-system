@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [17.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.0.1...@cultureamp/kaizen-component-library@17.0.2) (2019-12-18)
+
+
+### Bug Fixes
+
+* Add scroll layer style to parent span ([#175](https://github.com/cultureamp/kaizen-design-system/issues/175)) ([9045bd3](https://github.com/cultureamp/kaizen-design-system/commit/9045bd3))
+
+
+
+
+
 ## [17.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.0.0...@cultureamp/kaizen-component-library@17.0.1) (2019-12-18)
 
 
