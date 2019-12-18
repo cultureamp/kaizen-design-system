@@ -3,6 +3,87 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [17.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.0.1...@cultureamp/kaizen-component-library@17.0.2) (2019-12-18)
+
+
+### Bug Fixes
+
+* Add scroll layer style to parent span ([#175](https://github.com/cultureamp/kaizen-design-system/issues/175)) ([9045bd3](https://github.com/cultureamp/kaizen-design-system/commit/9045bd3))
+
+
+
+
+
+## [17.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.0.0...@cultureamp/kaizen-component-library@17.0.1) (2019-12-18)
+
+
+### Bug Fixes
+
+* apply fastclick "opt-out" classname to enable React Select to work on mobile ([#174](https://github.com/cultureamp/kaizen-design-system/issues/174)) ([ed2afea](https://github.com/cultureamp/kaizen-design-system/commit/ed2afea))
+
+
+
+
+
+# [17.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@16.5.1...@cultureamp/kaizen-component-library@17.0.0) (2019-12-18)
+
+
+### Features
+
+* Add confirmation variant to elm modal ([#168](https://github.com/cultureamp/kaizen-design-system/issues/168)) ([0488bcc](https://github.com/cultureamp/kaizen-design-system/commit/0488bcc))
+
+
+### BREAKING CHANGES
+
+* Elm requires modules to be resolved with capitalized folder names.
+
+* chore: Build elm story for Confirmation Informative modal
+
+* Add title to confirmation config
+
+* Render body on confirmation modal
+
+* feat: Make background color flexible on ModalBody
+
+Some modal bodies may want to have a stone background instead of the
+default white. This prop allows the consumer both options.
+
+Previously ModalBody background color was set to stone, now by default
+it is white.
+
+* Add ModalFooter to confirmation modal
+
+* Add onDismiss msg to cancel button
+
+* Add onConfirm and onDismiss msgs to confrimation modal
+
+Remove styling
+
+This styling makes more sense being done in the ModalFooter component
+
+Add style to each action button in list
+
+This styling differes slightly from the react version as it does not
+row-reverse the action buttons.
+
+* rename ModalBody scss file
+
+There is no need to namespace this scss file with .elm
+
+Clean up some css class definitions
+
+* Add confirm and dismiss label configuration
+
+* Add padding to Confirmation config
+
+Change argument name
+
+The size being passed in is not a maybe its a Size type
+
+
+
+
+
 ## [16.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@16.5.0...@cultureamp/kaizen-component-library@16.5.1) (2019-12-17)
 
 

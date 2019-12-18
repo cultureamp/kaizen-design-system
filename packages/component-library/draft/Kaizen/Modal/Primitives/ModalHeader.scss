@@ -1,6 +1,21 @@
 @import "~@cultureamp/kaizen-component-library/styles/layout";
+@import "~@cultureamp/kaizen-component-library/styles/type";
 
 .dismissButton {
   @include ca-position($end: 0, $top: -$ca-grid * 0.25);
   position: absolute;
+}
+
+.layout {
+  width: 100%;
+}
+
+.fixed {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.filler {
+  visibility: hidden;
 }
