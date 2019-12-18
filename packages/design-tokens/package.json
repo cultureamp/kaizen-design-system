@@ -12,7 +12,8 @@
   },
   "files": [
     "tokens",
-    "sass"
+    "sass",
+    "less"
   ],
   "private": false,
   "license": "MIT",
