@@ -55,12 +55,7 @@ const Popover: Popover = ({
   onClose,
   singleLine = false,
 }: Props) => (
-  <div
-    className={classNames(
-      mapVariantToRootClass(variant),
-      mapSizeToClass(size)
-    )}
-  >
+  <div className={classNames(styles.root, mapSizeToClass(size))}>
     <div
       className={classNames(
         mapArrowVariantToClass(variant),
@@ -68,37 +63,41 @@ const Popover: Popover = ({
         mapArrowPositionToClass(position),
       )}
     />
-    <div className={styles.header}>
-      {variant !== "default" && (
-        <span className={styles.icon}>
-          <Icon role="presentation" icon={mapVariantToIcon(variant)} />
-        </span>
-      )}
-      <div className={styles.singleLine}>{heading}</div>
-      {dismissible && (
-        <button className={styles.close} onClick={onClose}>
-          <Icon role="presentation" icon={closeIcon} />
-        </button>
-      )}
-    </div>
-    <div className={classNames(styles.container, mapLineVariant(singleLine))}>
-      {children}
+    <div
+      className={mapVariantToBoxClass(variant)}
+    >
+      <div className={styles.header}>
+        {variant !== "default" && (
+          <span className={styles.icon}>
+            <Icon role="presentation" icon={mapVariantToIcon(variant)} />
+          </span>
+        )}
+        <div className={styles.singleLine}>{heading}</div>
+        {dismissible && (
+          <button className={styles.close} onClick={onClose}>
+            <Icon role="presentation" icon={closeIcon} />
+          </button>
+        )}
+      </div>
+      <div className={classNames(styles.container, mapLineVariant(singleLine))}>
+        {children}
+      </div>
     </div>
   </div>
 )
 
-const mapVariantToRootClass = (variant: Variant): string => {
+const mapVariantToBoxClass = (variant: Variant): string => {
   switch (variant) {
     case "informative":
-      return styles.informative
+      return styles.informativeBox
     case "positive":
-      return styles.positive
+      return styles.positiveBox
     case "negative":
-      return styles.negative
+      return styles.negativeBox
     case "cautionary":
-      return styles.cautionary
+      return styles.cautionaryBox
     default:
-      return styles.default
+      return styles.defaultBox
   }
 }
 
@@ -137,9 +136,9 @@ const mapArrowVariantToClass = (variant: Variant): string => {
 const mapArrowPositionToClass = (position: Position): string => {
   switch (position) {
     case "start":
-      return styles.positionStart
+      return styles.arrowPositionStart
     case "end":
-      return styles.positionEnd
+      return styles.arrowPositionEnd
     default:
       return ""
   }
@@ -148,7 +147,7 @@ const mapArrowPositionToClass = (position: Position): string => {
 const mapArrowSideToClass = (side: Side): string => {
   switch (side) {
     case "top":
-      return styles.sideTop
+      return styles.arrowSideTop
     default:
       return ""
   }

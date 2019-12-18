@@ -68,29 +68,32 @@ $large: 450px;
   }
 }
 
-%root {
+.root {
   width: 220px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+%box {
   background: #fff;
   border: 1px solid add-tint($ca-palette-ink, 80%);
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.1));
   border-radius: $ca-border-radius;
   color: $ca-palette-lapis;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   text-align: left;
 }
 
-.default {
-  @extend %root;
+.defaultBox {
+  @extend %box;
 }
 
 .defaultArrow {
   @include arrow(#fff, add-tint($ca-palette-ink, 80%));
 }
 
-.informative {
-  @extend %root;
+.informativeBox {
+  @extend %box;
   background: add-tint($ca-palette-ocean, 90%);
   border-color: add-tint($ca-palette-ocean, 60%);
 }
@@ -102,8 +105,8 @@ $large: 450px;
   );
 }
 
-.positive {
-  @extend %root;
+.positiveBox {
+  @extend %box;
   background: add-tint($ca-palette-seedling, 90%);
   border-color: add-tint($ca-palette-seedling, 60%);
 }
@@ -115,8 +118,8 @@ $large: 450px;
   );
 }
 
-.negative {
-  @extend %root;
+.negativeBox {
+  @extend %box;
   background: add-tint($ca-palette-coral, 95%);
   border-color: add-tint($ca-palette-coral, 60%);
 }
@@ -128,8 +131,8 @@ $large: 450px;
   );
 }
 
-.cautionary {
-  @extend %root;
+.cautionaryBox {
+  @extend %box;
   background: add-tint($ca-palette-yuzu, 90%);
   border-color: add-tint($ca-palette-yuzu, 40%);
 }
