@@ -4,6 +4,7 @@ const checkIcon = require("@cultureamp/kaizen-component-library/icons/check.icon
 const minusIcon = require("@cultureamp/kaizen-component-library/icons/minus.icon.svg")
   .default
 import * as React from "react"
+import classnames from "classnames"
 
 const styles = require("./styles.scss")
 
@@ -56,7 +57,8 @@ const Input: Input = ({
       data-automation-id={automationId}
       // This si only used as a handle for unit testing
       data-indeterminate={checkedStatus === "mixed"}
-      className={styles.checkbox}
+      // TODO - needsclick class disables fastclick on this element to prevent double tap on mobile. Remove when fastclick is removed from consuming repos
+      className={classnames(styles.checkbox, "needsclick")}
       checked={getCheckedFromStatus(checkedStatus)}
       onChange={onCheck}
       disabled={disabled}
