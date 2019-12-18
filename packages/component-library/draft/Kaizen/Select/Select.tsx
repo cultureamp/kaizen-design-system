@@ -61,6 +61,7 @@ const Menu: typeof components.Menu = props => (
   <components.Menu {...props} className={styles.menu} />
 )
 
+// TODO - needsclick class disables fastclick on this element. Remove when fastclick is removed from consuming repos
 const Option: typeof components.Option = props => (
   <components.Option
     {...props}
