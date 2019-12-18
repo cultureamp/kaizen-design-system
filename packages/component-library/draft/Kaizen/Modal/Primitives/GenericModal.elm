@@ -42,7 +42,7 @@ default =
 
 view : Size -> List (Html msg) -> Config msg -> Html msg
 view size content (Config config) =
-    span []
+    span [ styles.class .scrollLayer ]
         [ div
             ([ styles.classList [ ( .scrollLayer, True ) ]
              , role "dialog"
