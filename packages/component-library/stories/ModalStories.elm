@@ -70,7 +70,7 @@ main =
     storybook
         [ storyOf "Generic" config <|
             \m ->
-                div [ style "width" "100%" ]
+                div []
                     [ Button.view (Button.primary |> Button.onClick SetModalContext) "Open Modal"
                     , case m.modalContext of
                         Just modalState ->
@@ -90,7 +90,7 @@ main =
                     ]
         , storyOf "Confirmation (Informative)" config <|
             \m ->
-                div [ style "width" "100%" ]
+                div []
                     [ Button.view (Button.primary |> Button.onClick SetModalContext) "Open Modal"
                     , case m.modalContext of
                         Just modalState ->
