@@ -8,6 +8,6 @@ export {
 export {
   default as ModalAccessibleLabel,
 } from "./Primitives/ModalAccessibleLabel"
-export { default as ConfirmationModal } from "./presets/ConfirmationModal"
-export { default as InputEditModal } from "./presets/InputEditModal"
-export { default as InformationModal } from "./presets/InformationModal"
+export { default as ConfirmationModal } from "./Presets/ConfirmationModal"
+export { default as InputEditModal } from "./Presets/InputEditModal"
+export { default as InformationModal } from "./Presets/InformationModal"
