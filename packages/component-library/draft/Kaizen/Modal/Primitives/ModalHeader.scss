@@ -1,9 +1,11 @@
 @import "~@cultureamp/kaizen-component-library/styles/layout";
+@import "~@cultureamp/kaizen-component-library/styles/layers";
 @import "~@cultureamp/kaizen-component-library/styles/type";
 
 .dismissButton {
   @include ca-position($end: 0, $top: -$ca-grid * 0.25);
   position: absolute;
+  z-index: $ca-z-index-popover;
 }
 
 .layout {
