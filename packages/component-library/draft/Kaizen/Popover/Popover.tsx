@@ -44,53 +44,65 @@ type Size = "small" | "large"
 
 type Popover = React.FunctionComponent<Props>
 
-const Popover: Popover = forwardRef<HTMLDivElement, Props>(({
-  id,
-  automationId,
-  children,
-  variant = "default",
-  side = "bottom",
-  size = "small",
-  position = "center",
-  heading,
-  dismissible = false,
-  onClose,
-  singleLine = false,
-  boxOffset,
-}, ref) => (
-  <div
-    className={classNames(styles.root, mapSizeToClass(size))}
-    style={getRootStyle(boxOffset)}
-    ref={ref}
-  >
-    <div className={mapVariantToBoxClass(variant)}>
-      <div className={styles.header}>
-        {variant !== "default" && (
-          <span className={classNames(styles.icon, mapVariantToIconClass(variant))}>
-            <Icon role="presentation" icon={mapVariantToIcon(variant)} />
-          </span>
-        )}
-        <div className={styles.singleLine}>{heading}</div>
-        {dismissible && (
-          <button className={styles.close} onClick={onClose}>
-            <Icon role="presentation" icon={closeIcon} />
-          </button>
-        )}
-      </div>
-      <div className={classNames(styles.container, mapLineVariant(singleLine))}>
-        {children}
-      </div>
-    </div>
+const Popover: Popover = forwardRef<HTMLDivElement, Props>(
+  (
+    {
+      id,
+      automationId,
+      children,
+      variant = "default",
+      side = "bottom",
+      size = "small",
+      position = "center",
+      heading,
+      dismissible = false,
+      onClose,
+      singleLine = false,
+      boxOffset,
+    },
+    ref
+  ) => (
     <div
-      className={classNames(
-        mapArrowVariantToClass(variant),
-        mapArrowSideToClass(side),
-        mapArrowPositionToClass(position)
-      )}
-      style={getArrowStyle(boxOffset, side)}
-    />
-  </div>
-))
+      className={classNames(styles.root, mapSizeToClass(size))}
+      style={getRootStyle(boxOffset)}
+      ref={ref}
+    >
+      <div className={mapVariantToBoxClass(variant)}>
+        <div className={styles.header}>
+          {variant !== "default" && (
+            <span
+              className={classNames(
+                styles.icon,
+                mapVariantToIconClass(variant)
+              )}
+            >
+              <Icon role="presentation" icon={mapVariantToIcon(variant)} />
+            </span>
+          )}
+          <div className={styles.singleLine}>{heading}</div>
+          {dismissible && (
+            <button className={styles.close} onClick={onClose}>
+              <Icon role="presentation" icon={closeIcon} />
+            </button>
+          )}
+        </div>
+        <div
+          className={classNames(styles.container, mapLineVariant(singleLine))}
+        >
+          {children}
+        </div>
+      </div>
+      <div
+        className={classNames(
+          mapArrowVariantToClass(variant),
+          mapArrowSideToClass(side),
+          mapArrowPositionToClass(position)
+        )}
+        style={getArrowStyle(boxOffset, side)}
+      />
+    </div>
+  )
+)
 
 const getRootStyle = (boxOffset: number | undefined) => ({
   transform:
