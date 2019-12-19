@@ -10,21 +10,24 @@
 $default-size: 8px;
 $large: 450px;
 
-@mixin arrow(
-  $background-color,
-  $border-color,
-  $size: $default-size,
-  $side: bottom,
-  $position: center
-) {
+// Suggestion: with this implementation, the anchor point of the popover is at the base of the triangle. But,
+// we would ideally want it at the tip of the triangle. Otherwise, when using the popover, the consumer needs to manually
+// add something like a `margin-top: 8px` to get the popover properly positioned.
+// I didn't update this, as I didn't want to introduce a breaking change.
+@mixin arrow($background-color, $border-color, $size: $default-size) {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -$size;
+
   &::before,
   &::after {
     content: "";
     position: absolute;
     border-left: $size solid transparent;
     border-right: $size solid transparent;
-    top: 100%;
-    left: 50%;
+    top: 0;
+    left: 0;
     margin-left: -$size;
   }
 
@@ -38,48 +41,13 @@ $large: 450px;
     margin-top: -1px;
     z-index: 1;
   }
-
-  /* Side modifiers */
-  @if $side == top {
-    &::before,
-    &::after {
-      top: 0;
-      transform: rotate(180deg) translateY(100%);
-    }
-
-    &::after {
-      margin-top: 1px;
-    }
-  }
-
-  /* Position modifiers */
-  @if $position == start {
-    &::before,
-    &::after {
-      left: $ca-grid;
-      right: auto;
-    }
-  } @else if $position == end {
-    &::before,
-    &::after {
-      right: $ca-grid;
-      left: auto;
-    }
-  }
 }
 
 .root {
   width: 220px;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
-
-  // If we set the box offset property, there will be an invisible div that block the content behind it.
-  // So we set the pointer events to none, and turn them back on immediately afterwards.
-  pointer-events: none;
-  & > * {
-    pointer-events: initial;
-  }
+  // also see the component file under getRootStyle, which will transform the element
 }
 
 %box {
@@ -198,31 +166,20 @@ $large: 450px;
 }
 
 .arrowSideTop {
-  &::before,
-  &::after {
-    top: 0;
-    transform: rotate(180deg) translateY(100%);
-  }
-
-  &::after {
-    margin-top: 1px;
-  }
+  top: initial;
+  bottom: 100%;
+  margin-top: 1px;
+  // Also see getArrowStyle in the component file, which will rotate the arrow 180 degrees
 }
 
 .arrowPositionStart {
-  &::before,
-  &::after {
-    left: $ca-grid;
-    right: auto;
-  }
+  left: $ca-grid;
+  right: auto;
 }
 
 .arrowPositionEnd {
-  &::before,
-  &::after {
-    right: $ca-grid;
-    left: auto;
-  }
+  right: $ca-grid;
+  left: auto;
 }
 
 .large {

@@ -35,7 +35,7 @@ type Variant =
   | "negative"
   | "cautionary"
 
-type Side = "top" | "bottom" | "left" | "right"
+type Side = "top" | "bottom" // | "left" | "right" - not yet implemented
 
 type Position = "start" | "center" | "end"
 
@@ -57,18 +57,11 @@ const Popover: Popover = ({
   singleLine = false,
   boxOffset,
 }: Props) => (
-  <div className={classNames(styles.root, mapSizeToClass(size))}>
-    <div
-      className={classNames(
-        mapArrowVariantToClass(variant),
-        mapArrowSideToClass(side),
-        mapArrowPositionToClass(position),
-      )}
-    />
-    <div
-      className={mapVariantToBoxClass(variant)}
-      style={getBoxOffsetStyles(boxOffset)}
-    >
+  <div
+    className={classNames(styles.root, mapSizeToClass(size))}
+    style={getRootStyle(boxOffset)}
+  >
+    <div className={mapVariantToBoxClass(variant)}>
       <div className={styles.header}>
         {variant !== "default" && (
           <span className={styles.icon}>
@@ -86,8 +79,23 @@ const Popover: Popover = ({
         {children}
       </div>
     </div>
+    <div
+      className={classNames(
+        mapArrowVariantToClass(variant),
+        mapArrowSideToClass(side),
+        mapArrowPositionToClass(position)
+      )}
+      style={getArrowStyle(boxOffset, side)}
+    />
   </div>
 )
+
+const getRootStyle = (boxOffset: number | undefined) => ({
+  transform:
+    boxOffset == null
+      ? `translateX(-50%)`
+      : `translateX(calc(-50% + ${boxOffset}px)`,
+})
 
 const mapVariantToBoxClass = (variant: Variant): string => {
   switch (variant) {
@@ -104,10 +112,21 @@ const mapVariantToBoxClass = (variant: Variant): string => {
   }
 }
 
-const getBoxOffsetStyles = (boxOffset: number | undefined) =>
-  boxOffset == null
-    ? undefined
-    : { transform: `translateX(${boxOffset}px)` }
+const getArrowStyle = (boxOffset: number | undefined, side: Side) => {
+  const rotate = side === "top" ? "rotate(180deg)" : ""
+  const translate =
+    boxOffset == null
+      ? ""
+      : // Because we shifted the popover in the parent, we need to readjust the
+        // arrow back to where it was.
+        `translateX(${boxOffset * -1}px)`
+
+  return rotate || translate
+    ? {
+        transform: `${translate}${rotate}`,
+      }
+    : undefined
+}
 
 const mapVariantToIcon = (
   variant: Variant
