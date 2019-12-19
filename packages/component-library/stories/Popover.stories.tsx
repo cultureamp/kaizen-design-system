@@ -93,6 +93,22 @@ storiesOf("Popover", module)
       </Popover>
     </div>
   ))
+  .add("Box offset", () => (
+    <>
+      <div style={{ marginTop: "1.5rem", height: 200 }}>
+        <Popover heading="Box offset" position="center" side="top" boxOffset={-50}>
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </Popover>
+      </div>
+      <div style={{ marginTop: "1.5rem", height: 200 }}>
+        <Popover heading="Box offset" position="end" side="bottom" boxOffset={20}>
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </Popover>
+      </div>
+    </>
+  ))
 
 loadElmStories("Popover (Elm)", module, require("./PopoverStories.elm"), [
   "Default",

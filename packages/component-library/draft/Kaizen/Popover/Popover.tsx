@@ -25,6 +25,7 @@ export interface Props {
   readonly dismissible?: boolean
   readonly singleLine?: boolean
   readonly children: React.ReactNode
+  readonly boxOffset?: number
 }
 
 type Variant =
@@ -54,6 +55,7 @@ const Popover: Popover = ({
   dismissible = false,
   onClose,
   singleLine = false,
+  boxOffset,
 }: Props) => (
   <div className={classNames(styles.root, mapSizeToClass(size))}>
     <div
@@ -65,6 +67,7 @@ const Popover: Popover = ({
     />
     <div
       className={mapVariantToBoxClass(variant)}
+      style={getBoxOffsetStyles(boxOffset)}
     >
       <div className={styles.header}>
         {variant !== "default" && (
@@ -100,6 +103,11 @@ const mapVariantToBoxClass = (variant: Variant): string => {
       return styles.defaultBox
   }
 }
+
+const getBoxOffsetStyles = (boxOffset: number | undefined) =>
+  boxOffset == null
+    ? undefined
+    : { transform: `translateX(${boxOffset}px)` }
 
 const mapVariantToIcon = (
   variant: Variant

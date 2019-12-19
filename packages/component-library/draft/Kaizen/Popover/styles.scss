@@ -73,6 +73,13 @@ $large: 450px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+
+  // If we set the box offset property, there will be an invisible div that block the content behind it.
+  // So we set the pointer events to none, and turn them back on immediately afterwards.
+  pointer-events: none;
+  & > * {
+    pointer-events: initial;
+  }
 }
 
 %box {
