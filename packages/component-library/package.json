@@ -21,7 +21,7 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "17.0.4",
+  "version": "17.1.0",
   "private": false,
   "license": "MIT",
   "peerDependencies": {

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [17.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.0.4...@cultureamp/kaizen-component-library@17.1.0) (2019-12-19)
+
+
+### Features
+
+* Add basic rtl support to input modal ([#179](https://github.com/cultureamp/kaizen-design-system/issues/179)) ([332474b](https://github.com/cultureamp/kaizen-design-system/commit/332474b))
+
+
+
+
+
 ## [17.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.0.3...@cultureamp/kaizen-component-library@17.0.4) (2019-12-19)
 
 
