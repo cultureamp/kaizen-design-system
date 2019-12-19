@@ -47,6 +47,8 @@
 // TODO: unify margin top styling
 .elmGenericModal {
   @extend .genericModal;
+  display: flex;
+  flex-direction: column;
   margin-top: 150px;
   margin-left: auto;
   margin-right: auto;

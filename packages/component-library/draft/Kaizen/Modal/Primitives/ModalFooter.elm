@@ -41,7 +41,7 @@ view (Config config) =
 
         filler content =
             if useFiller then
-                fillerBox content
+                fillerBox config content
 
             else
                 []
@@ -71,9 +71,18 @@ layoutBox content config =
     ]
 
 
-fillerBox : List (Html msg) -> List (Html msg)
-fillerBox content =
-    [ div [ styles.classList [ ( .filler, True ), ( .footerWrap, True ) ] ] content ]
+fillerBox : Configuration msg -> List (Html msg) -> List (Html msg)
+fillerBox config content =
+    [ div
+        [ styles.classList
+            [ ( .filler, True )
+            , ( .footerWrap, True )
+            , ( .border, config.border )
+            , ( .padded, config.padded )
+            ]
+        ]
+        content
+    ]
 
 
 actionButton : Html msg -> Html msg
