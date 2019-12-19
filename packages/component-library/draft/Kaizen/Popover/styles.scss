@@ -140,21 +140,22 @@ $large: 450px;
   display: inherit;
   margin-right: $ca-grid / 4;
 
-  .informative & {
-    color: add-tint($ca-palette-ocean, 30%);
-  }
+}
 
-  .positive & {
-    color: add-tint($ca-palette-seedling, 30%);
-  }
+.informativeIcon {
+  color: add-tint($ca-palette-ocean, 30%);
+}
 
-  .negative & {
-    color: $ca-palette-coral;
-  }
+.positiveIcon {
+  color: add-tint($ca-palette-seedling, 30%);
+}
 
-  .cautionary & {
-    color: $ca-palette-yuzu;
-  }
+.negativeIcon {
+  color: $ca-palette-coral;
+}
+
+.cautionaryIcon {
+  color: $ca-palette-yuzu;
 }
 
 .close {

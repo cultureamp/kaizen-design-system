@@ -66,7 +66,7 @@ const Popover: Popover = forwardRef<HTMLDivElement, Props>(({
     <div className={mapVariantToBoxClass(variant)}>
       <div className={styles.header}>
         {variant !== "default" && (
-          <span className={styles.icon}>
+          <span className={classNames(styles.icon, mapVariantToIconClass(variant))}>
             <Icon role="presentation" icon={mapVariantToIcon(variant)} />
           </span>
         )}
@@ -128,6 +128,21 @@ const getArrowStyle = (boxOffset: number | undefined, side: Side) => {
         transform: `${translate}${rotate}`,
       }
     : undefined
+}
+
+const mapVariantToIconClass = (variant: Variant) => {
+  switch (variant) {
+    case "informative":
+      return styles.informativeIcon
+    case "positive":
+      return styles.positiveIcon
+    case "negative":
+      return styles.negativeIcon
+    case "cautionary":
+      return styles.cautionaryIcon
+    default:
+      return undefined
+  }
 }
 
 const mapVariantToIcon = (
