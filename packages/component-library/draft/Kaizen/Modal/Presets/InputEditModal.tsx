@@ -19,6 +19,7 @@ interface Props {
   readonly title: string
   readonly onSubmit: () => void
   readonly onDismiss: () => void
+  readonly localeDirection?: "rtl" | "ltr"
   readonly submitLabel?: string
   readonly dismissLabel?: string
   readonly children: React.ReactNode
@@ -33,6 +34,7 @@ const InputEditModal = ({
   title,
   onSubmit,
   onDismiss,
+  localeDirection = "ltr",
   submitLabel = "Submit",
   dismissLabel = "Cancel",
   children,
@@ -43,7 +45,7 @@ const InputEditModal = ({
     onEscapeKeyup={onDismiss}
     onOutsideModalClick={onDismiss}
   >
-    <div className={styles.modal}>
+    <div className={styles.modal} dir={localeDirection}>
       <ModalHeader unpadded onDismiss={onDismiss}>
         <div className={styles.header}>
           <ModalAccessibleLabel>
@@ -54,7 +56,9 @@ const InputEditModal = ({
         </div>
       </ModalHeader>
       <ModalBody unpadded>
-        <div className={styles.body}>{children}</div>
+        <div className={styles.body} dir={localeDirection}>
+          {children}
+        </div>
       </ModalBody>
       <ModalFooter
         actions={[
