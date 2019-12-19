@@ -77,8 +77,16 @@ main =
                             Modal.view <|
                                 (Modal.generic
                                     [ ModalHeader.view <| ModalHeader.layout [ div [] [ text "Generic header" ] ]
-                                    , ModalBody.view <| (ModalBody.layout [ div [] [ text "Generic body" ] ] |> ModalBody.fillVerticalSpace True)
-                                    , ModalFooter.view <| (ModalFooter.layout [ div [] [ text "Generic footer" ] ] |> ModalFooter.fixed True)
+                                    , ModalBody.view <|
+                                        (ModalBody.layout [ div [] [ text "Generic body" ] ]
+                                            |> ModalBody.fillVerticalSpace True
+                                            |> ModalBody.background ModalBody.Stone
+                                        )
+                                    , ModalFooter.view <|
+                                        (ModalFooter.layout [ div [] [ text "Generic footer" ] ]
+                                            |> ModalFooter.fixed True
+                                            |> ModalFooter.padded True
+                                        )
                                     ]
                                     ( 800, 640 )
                                     |> Modal.modalState modalState

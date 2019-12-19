@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [17.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.0.3...@cultureamp/kaizen-component-library@17.0.4) (2019-12-19)
+
+
+### Bug Fixes
+
+* Disable fastclick so mobile devices don't require double click ([#178](https://github.com/cultureamp/kaizen-design-system/issues/178)) ([f02530a](https://github.com/cultureamp/kaizen-design-system/commit/f02530a))
+
+
+
+
+
+## [17.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.0.2...@cultureamp/kaizen-component-library@17.0.3) (2019-12-18)
+
+
+### Bug Fixes
+
+* Add missing flex styles for GenericModal ([#177](https://github.com/cultureamp/kaizen-design-system/issues/177)) ([efd3558](https://github.com/cultureamp/kaizen-design-system/commit/efd3558))
+
+
+
+
+
 ## [17.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.0.1...@cultureamp/kaizen-component-library@17.0.2) (2019-12-18)
 
 
