@@ -9,6 +9,7 @@ const positiveIcon = require("@cultureamp/kaizen-component-library/icons/success
   .default
 import classNames from "classnames"
 import * as React from "react"
+import { forwardRef } from "react"
 
 const styles = require("./styles.scss")
 
@@ -43,7 +44,7 @@ type Size = "small" | "large"
 
 type Popover = React.FunctionComponent<Props>
 
-const Popover: Popover = ({
+const Popover: Popover = forwardRef<HTMLDivElement, Props>(({
   id,
   automationId,
   children,
@@ -56,10 +57,11 @@ const Popover: Popover = ({
   onClose,
   singleLine = false,
   boxOffset,
-}: Props) => (
+}, ref) => (
   <div
     className={classNames(styles.root, mapSizeToClass(size))}
     style={getRootStyle(boxOffset)}
+    ref={ref}
   >
     <div className={mapVariantToBoxClass(variant)}>
       <div className={styles.header}>
@@ -88,7 +90,7 @@ const Popover: Popover = ({
       style={getArrowStyle(boxOffset, side)}
     />
   </div>
-)
+))
 
 const getRootStyle = (boxOffset: number | undefined) => ({
   transform:
