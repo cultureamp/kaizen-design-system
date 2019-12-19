@@ -1,7 +1,9 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "~@cultureamp/kaizen-component-library/styles/layout";
 @import "~@cultureamp/kaizen-component-library/styles/border";
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/animation";
+@import "~@cultureamp/kaizen-component-library/components/Button/styles";
 
 $heading-active-color: $ca-palette-ash;
 
@@ -24,23 +26,33 @@ $heading-active-color: $ca-palette-ash;
 }
 
 .button {
+  @include button-reset;
   display: flex;
   width: 100%;
   align-items: center;
   text-align: left;
   background-color: white;
-  border: none;
   transition: background-color $ca-duration-rapid;
-
-  @include ca-padding(
-    $top: $ca-grid,
-    $end: $ca-grid,
-    $bottom: $ca-grid,
-    $start: $ca-grid
-  );
+  padding: $ca-grid;
 
   &:hover {
     background-color: $heading-active-color;
+  }
+}
+
+.buttonLoading {
+  composes: button;
+  width: auto;
+  @include ca-padding(
+    $top: $ca-grid * 1.2,
+    $bottom: $ca-grid * 1.2,
+    // ^ hack to roughly match the height of the collapsible buttons with an actual title
+      $start: $ca-grid,
+    $end: $ca-grid
+  );
+
+  &:hover {
+    background-color: white;
   }
 }
 
@@ -60,12 +72,7 @@ $heading-active-color: $ca-palette-ash;
 
 .section {
   background-color: white;
-  @include ca-padding(
-    $top: $ca-grid,
-    $end: $ca-grid,
-    $bottom: $ca-grid,
-    $start: $ca-grid
-  );
+  padding: $ca-grid;
 }
 
 .noPadding {
@@ -74,4 +81,9 @@ $heading-active-color: $ca-palette-ash;
 
 .hide {
   display: none;
+}
+
+.chevronLoading {
+  flex: 0 0 20px;
+  color: $kz-color-wisteria-500;
 }
