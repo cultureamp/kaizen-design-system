@@ -70,3 +70,15 @@ storiesOf("HeroCard", module)
       </HeroCard>
     </Container>
   ))
+
+  .add("Full width", () => (
+    <Container>
+      <HeroCard
+        title="Preview the survey questions"
+        leftContent={<p>Ta-dah</p>}
+        fullWidth
+      >
+        {renderContent()}
+      </HeroCard>
+    </Container>
+  ))

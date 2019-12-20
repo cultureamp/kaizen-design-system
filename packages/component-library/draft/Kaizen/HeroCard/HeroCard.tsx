@@ -1,4 +1,5 @@
 import * as React from "react"
+import classnames from "classnames"
 
 const styles = require("./HeroCard.scss")
 
@@ -8,6 +9,7 @@ interface Props {
   readonly title?: String
   readonly image?: React.ReactNode
   readonly badgeText?: String
+  readonly fullWidth?: Boolean
 }
 
 type HeroCard = React.FunctionComponent<Props>
@@ -18,9 +20,14 @@ const HeroCard: HeroCard = ({
   title,
   image,
   badgeText,
+  fullWidth = false,
 }: Props) => {
   return (
-    <div className={styles.root}>
+    <div
+      className={classnames(styles.root, {
+        [styles.fullWidth]: fullWidth,
+      })}
+    >
       <div className={styles.left}>
         {badgeText && <div className={styles.badge}>{badgeText}</div>}
         {leftContent && <div className={styles.leftContent}>{leftContent}</div>}
