@@ -31,11 +31,7 @@ const HeroCard: HeroCard = ({
       <div className={styles.left}>
         {badgeText && <div className={styles.badge}>{badgeText}</div>}
         {leftContent && <div className={styles.leftContent}>{leftContent}</div>}
-        {image && (
-          <div className={styles.image}>
-            <img src={image} alt="hero-card-image" />
-          </div>
-        )}
+        {image && <div className={styles.image}>{image}</div>}
       </div>
       <div className={styles.right}>
         {title && <h1 className={styles.title}>{title}</h1>}

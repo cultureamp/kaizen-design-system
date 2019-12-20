@@ -53,7 +53,7 @@ storiesOf("HeroCard", module)
       <HeroCard
         title="Preview the survey questions"
         badgeText="1"
-        image={surveyIllustration}
+        image={<img src={surveyIllustration} alt="survey-preview-image" />}
       >
         {renderContent()}
       </HeroCard>
