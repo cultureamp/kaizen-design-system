@@ -21,7 +21,10 @@ const HeroCard: HeroCard = ({
 }: Props) => {
   return (
     <div className={styles.root}>
-      <div className={styles.leftContent}>{leftContent}</div>
+      <div className={styles.leftContent}>
+        {badgeText && <div className={styles.badge}>{badgeText}</div>}
+        {leftContent}
+      </div>
       <div className={styles.rightContent}>
         {title && <h1 className={styles.title}>{title}</h1>}
         {children}

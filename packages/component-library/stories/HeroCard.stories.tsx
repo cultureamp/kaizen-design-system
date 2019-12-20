@@ -40,3 +40,11 @@ storiesOf("HeroCard", module)
       </HeroCard>
     </Container>
   ))
+
+  .add("With badge text", () => (
+    <Container>
+      <HeroCard title="Preview the survey questions" badgeText="1">
+        {renderContent()}
+      </HeroCard>
+    </Container>
+  ))

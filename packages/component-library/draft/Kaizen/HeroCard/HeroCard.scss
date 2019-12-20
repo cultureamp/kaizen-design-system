@@ -15,12 +15,16 @@
 }
 
 .leftContent {
+  display: flex;
   border-radius: 5px 0 0 5px;
   background-color: $kz-color-wisteria-700;
   color: $kz-color-white;
   width: 317px;
   padding: ($ca-grid / 2) ($ca-grid * 2);
   flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
 }
 
 .rightContent {
@@ -34,4 +38,21 @@
 .title {
   @include ca-type-ideal-page-title;
   @include ca-inherit-baseline;
+}
+
+.badge {
+  @include ca-type-ideal-page-title;
+  @include ca-inherit-baseline;
+  display: flex;
+  font-size: 42px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  align-self:flex-start;
+  min-width: 80px;
+  min-height: 80px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: $ca-grid;
+  left: $ca-grid * 1.2;
 }
