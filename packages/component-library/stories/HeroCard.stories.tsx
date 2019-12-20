@@ -6,15 +6,14 @@ import * as React from "react"
 const surveyIllustration = require("./illustrations/survey.png")
 
 const Container = ({ children }: { children: React.ReactNode }) => (
-  <div style={{ padding: "20px" }}>{children}</div>
+  <div style={{ padding: "20px", display: "flex" }}>{children}</div>
 )
 
 const renderContent = () => (
   <div
     style={{
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
+      width: "560px",
+      height: "315px",
     }}
   >
     <p>

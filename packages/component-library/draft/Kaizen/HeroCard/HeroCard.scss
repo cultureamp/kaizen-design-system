@@ -9,8 +9,6 @@ $left-content__width: 15rem;
   @include ca-type-ideal-body;
   @include ca-inherit-baseline;
   display: flex;
-  width: 960px;
-  height: 415px;
   box-shadow: 0 0 18px rgba(0, 0, 0, 0.10);
   background-color: transparent;
   border-radius: 5px;
@@ -61,7 +59,7 @@ $left-content__width: 15rem;
 .image {
   width: $left-content__width + 12rem;
   position: absolute;
-  top: 8rem;
+  bottom: -8rem;
   left: -0.63rem;
 
   img {
