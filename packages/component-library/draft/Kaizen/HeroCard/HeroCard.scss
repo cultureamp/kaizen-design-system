@@ -3,7 +3,7 @@
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/layout";
 
-$left-content__width: 15rem;
+$left-content__width: 13.8rem;
 
 .root {
   @include ca-type-ideal-body;
@@ -32,7 +32,7 @@ $left-content__width: 15rem;
 
 .right {
   border-radius: 0 5px 5px 0;
-  padding: ($ca-grid / 2) ($ca-grid * 2);
+  padding: 51px;
   background-color: $kz-color-white;
   flex: 2;
   color: $kz-color-wisteria-800;
@@ -41,6 +41,7 @@ $left-content__width: 15rem;
 .title {
   @include ca-type-ideal-page-title;
   @include ca-inherit-baseline;
+  @include ca-margin($top: 0, $bottom: $ca-grid);
 }
 
 .badge {
@@ -61,10 +62,11 @@ $left-content__width: 15rem;
 }
 
 .image {
-  width: $left-content__width + 12rem;
+  width: $left-content__width + 8rem;
   position: absolute;
   bottom: -8rem;
-  left: -0.63rem;
+  left: 50%;
+  transform: translateX(-50%);
 
   img {
     max-width: 100%;

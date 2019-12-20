@@ -13,7 +13,7 @@ const renderContent = () => (
   <div
     style={{
       width: "560px",
-      height: "315px",
+      height: "300px",
     }}
   >
     <p>
