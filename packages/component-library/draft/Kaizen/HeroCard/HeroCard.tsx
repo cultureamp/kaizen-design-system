@@ -23,7 +23,11 @@ const HeroCard: HeroCard = ({
     <div className={styles.root}>
       <div className={styles.leftContent}>
         {badgeText && <div className={styles.badge}>{badgeText}</div>}
-        {leftContent}
+        {image && (
+          <div className={styles.image}>
+            <img src={image} alt="hero-card-image" />
+          </div>
+        )}
       </div>
       <div className={styles.rightContent}>
         {title && <h1 className={styles.title}>{title}</h1>}

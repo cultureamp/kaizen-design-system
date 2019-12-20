@@ -3,7 +3,7 @@ import { HeroCard } from "@cultureamp/kaizen-component-library/draft"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-const reportingIllustration = require("./illustrations/reporting.png")
+const surveyIllustration = require("./illustrations/survey.png")
 
 const Container = ({ children }: { children: React.ReactNode }) => (
   <div style={{ padding: "20px" }}>{children}</div>
@@ -44,6 +44,18 @@ storiesOf("HeroCard", module)
   .add("With badge text", () => (
     <Container>
       <HeroCard title="Preview the survey questions" badgeText="1">
+        {renderContent()}
+      </HeroCard>
+    </Container>
+  ))
+
+  .add("With image", () => (
+    <Container>
+      <HeroCard
+        title="Preview the survey questions"
+        badgeText="1"
+        image={surveyIllustration}
+      >
         {renderContent()}
       </HeroCard>
     </Container>
