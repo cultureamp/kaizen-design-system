@@ -16,7 +16,7 @@ $left-content__width: 15rem;
   border-radius: 5px;
 }
 
-.leftContent {
+.left {
   display: flex;
   border-radius: 5px 0 0 5px;
   background-color: $kz-color-wisteria-700;
@@ -28,7 +28,7 @@ $left-content__width: 15rem;
   position: relative;
 }
 
-.rightContent {
+.right {
   border-radius: 0 5px 5px 0;
   padding: ($ca-grid / 2) ($ca-grid * 2);
   background-color: $kz-color-white;

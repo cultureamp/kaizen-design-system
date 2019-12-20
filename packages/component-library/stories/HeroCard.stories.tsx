@@ -60,3 +60,14 @@ storiesOf("HeroCard", module)
       </HeroCard>
     </Container>
   ))
+
+  .add("With custom left content", () => (
+    <Container>
+      <HeroCard
+        title="Preview the survey questions"
+        leftContent={<p>Ta-dah</p>}
+      >
+        {renderContent()}
+      </HeroCard>
+    </Container>
+  ))

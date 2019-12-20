@@ -21,15 +21,16 @@ const HeroCard: HeroCard = ({
 }: Props) => {
   return (
     <div className={styles.root}>
-      <div className={styles.leftContent}>
+      <div className={styles.left}>
         {badgeText && <div className={styles.badge}>{badgeText}</div>}
+        {leftContent && <div className={styles.leftContent}>{leftContent}</div>}
         {image && (
           <div className={styles.image}>
             <img src={image} alt="hero-card-image" />
           </div>
         )}
       </div>
-      <div className={styles.rightContent}>
+      <div className={styles.right}>
         {title && <h1 className={styles.title}>{title}</h1>}
         {children}
       </div>
