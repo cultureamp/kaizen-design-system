@@ -32,7 +32,7 @@ storiesOf("HeroCard", module)
     </Container>
   ))
 
-  .add("With title", () => (
+  .add("Title", () => (
     <Container>
       <HeroCard title="Preview the survey questions">
         {renderContent()}
@@ -40,7 +40,7 @@ storiesOf("HeroCard", module)
     </Container>
   ))
 
-  .add("With badge text", () => (
+  .add("Badge", () => (
     <Container>
       <HeroCard title="Preview the survey questions" badgeText="1">
         {renderContent()}
@@ -48,7 +48,7 @@ storiesOf("HeroCard", module)
     </Container>
   ))
 
-  .add("With image", () => (
+  .add("Image", () => (
     <Container>
       <HeroCard
         title="Preview the survey questions"
@@ -60,7 +60,7 @@ storiesOf("HeroCard", module)
     </Container>
   ))
 
-  .add("With custom left content", () => (
+  .add("Custom left content", () => (
     <Container>
       <HeroCard
         title="Preview the survey questions"
