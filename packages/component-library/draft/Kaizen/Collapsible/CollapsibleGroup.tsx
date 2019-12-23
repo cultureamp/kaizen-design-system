@@ -25,7 +25,7 @@ export type Sticky = {
   top: string
 }
 
-export const CollapsibleGroup: React.FunctionComponent<Props> = props => {
+const CollapsibleGroup: React.FunctionComponent<Props> = props => {
   if (props.loading) {
     const { collapsibles, separated } = props
     return (
