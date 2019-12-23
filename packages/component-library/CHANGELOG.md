@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [17.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.2.0...@cultureamp/kaizen-component-library@17.2.1) (2019-12-20)
+
+
+### Bug Fixes
+
+* Increase z-index of close icon to prevent it being hidden ([#182](https://github.com/cultureamp/kaizen-design-system/issues/182)) ([d087dd5](https://github.com/cultureamp/kaizen-design-system/commit/d087dd5))
+
+
+
+
+
 # [17.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.1.0...@cultureamp/kaizen-component-library@17.2.0) (2019-12-19)
 
 
