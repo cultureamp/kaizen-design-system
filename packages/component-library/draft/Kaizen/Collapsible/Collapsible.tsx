@@ -122,6 +122,7 @@ const Collapsible: React.FunctionComponent<Props> = props => {
             className={classnames(styles.section, {
               [styles.noPadding]: noSectionPadding,
             })}
+            id={sectionId}
             role="region"
             aria-labelledby={buttonId}
           >
