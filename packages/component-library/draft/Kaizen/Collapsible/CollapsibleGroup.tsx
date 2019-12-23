@@ -33,7 +33,6 @@ const CollapsibleGroup: React.FunctionComponent<Props> = props => {
         {Array.from(Array(collapsibles), (notUsed, index) => (
           <Collapsible
             key={index}
-            id={index.toString()}
             loading={true}
             group={true}
             separated={separated}

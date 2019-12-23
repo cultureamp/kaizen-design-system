@@ -12,31 +12,45 @@ const chevronUp = require("@cultureamp/kaizen-component-library/icons/chevron-up
 const chevronDown = require("@cultureamp/kaizen-component-library/icons/chevron-down.icon.svg")
   .default
 
-export type Props = {
-  id: string
-  children?: JSX.Element | JSX.Element[] | string
-  title?: string
-  renderHeader?: (title?: string) => JSX.Element | JSX.Element[]
-  open?: boolean
-  group?: boolean
-  separated?: boolean
-  sticky?: Sticky
-  noSectionPadding?: boolean
-  automationId?: string
-  onToggle?: (open: boolean, id: string) => void
+export type Props =
+  | {
+      loading: true
+      separated?: boolean
+      group?: boolean
 
-  /* Will avoid rendering the content until required (especially important when you have queries inside sections). Removes animation. */
-  lazyLoad?: boolean
+      /* This won't actually do anything in this context, but it's required to keep
+         the internalOpen state hook at the top of the function below */
+      open?: boolean
+    }
+  | {
+      loading?: false
+      id: string
+      children?: JSX.Element | JSX.Element[] | string
+      title?: string
+      renderHeader?: (title?: string) => JSX.Element | JSX.Element[]
+      open?: boolean
+      group?: boolean
+      separated?: boolean
+      sticky?: Sticky
+      noSectionPadding?: boolean
+      automationId?: string
+      onToggle?: (open: boolean, id: string) => void
 
-  /* Disables internal `open` state, allowing it to be controlled in the usage */
-  controlled?: boolean
+      /* Will avoid rendering the content until required (especially important when you have queries inside sections). Removes animation. */
+      lazyLoad?: boolean
 
-  /* Will show the loading placeholder version of the collapsible */
-  loading?: boolean
-}
+      /* Disables internal `open` state, allowing it to be controlled in the usage */
+      controlled?: boolean
+    }
 
 const Collapsible: React.FunctionComponent<Props> = props => {
   const [internalOpen, setInternalOpen] = useState<boolean>(!!props.open)
+
+  if (props.loading) {
+    return (
+      <LoadingCollapsible separated={props.separated} group={props.group} />
+    )
+  }
 
   const {
     id,
@@ -49,7 +63,6 @@ const Collapsible: React.FunctionComponent<Props> = props => {
     automationId,
     children,
     lazyLoad,
-    loading,
     controlled,
   } = props
 
@@ -66,10 +79,6 @@ const Collapsible: React.FunctionComponent<Props> = props => {
     if (!controlled) {
       setInternalOpen(!open)
     }
-  }
-
-  if (loading) {
-    return <LoadingCollapsible separated={separated} group={group} />
   }
 
   const buttonId = `${id}-button`
