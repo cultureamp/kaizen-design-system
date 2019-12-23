@@ -1,4 +1,5 @@
 import { Icon, Text } from "@cultureamp/kaizen-component-library"
+import { LoadingPlaceholder } from "@cultureamp/kaizen-component-library/draft"
 import classnames from "classnames"
 import * as React from "react"
 import AnimateHeight from "react-animate-height"
@@ -12,10 +13,11 @@ const chevronDown = require("@cultureamp/kaizen-component-library/icons/chevron-
   .default
 
 export type Props = {
+  loading?: boolean
   id: string
-  children: JSX.Element | JSX.Element[] | string
-  title: string
-  renderHeader?: (title: string) => JSX.Element | JSX.Element[]
+  children?: JSX.Element | JSX.Element[] | string
+  title?: string
+  renderHeader?: (title?: string) => JSX.Element | JSX.Element[]
   open?: boolean
   group?: boolean
   separated?: boolean
@@ -69,10 +71,15 @@ class Collapsible extends React.Component<Props, State> {
       automationId,
       children,
       lazyLoad,
+      loading,
     } = this.props
     const buttonId = `${this.props.id}-button`
     const sectionId = `${this.props.id}-section`
     const open = this.getOpen()
+
+    if (loading) {
+      return <LoadingCollapsible separated={separated} group={group} />
+    }
 
     return (
       <div
@@ -130,6 +137,34 @@ class Collapsible extends React.Component<Props, State> {
       </div>
     )
   }
+}
+
+type LoadingProps = {
+  group?: boolean
+  separated?: boolean
+}
+
+const LoadingCollapsible = (props: LoadingProps) => {
+  const { group, separated } = props
+
+  return (
+    <div
+      className={classnames({
+        [styles.container]: !group || separated,
+        [styles.groupItem]: group && !separated,
+        [styles.separated]: separated,
+      })}
+    >
+      <div className={styles.buttonLoading}>
+        <div className={styles.title}>
+          <LoadingPlaceholder width={50} noBottomMargin inheritBaseline />
+        </div>
+        <div className={styles.chevronLoading}>
+          <LoadingPlaceholder noBottomMargin inheritBaseline />
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default Collapsible
