@@ -48,6 +48,7 @@ exports[`matches snapshot with everything enabled 1`] = `
           <div
             aria-labelledby="1-button"
             class="section noPadding"
+            id="1-section"
             role="region"
           >
             First panel content
@@ -102,6 +103,7 @@ exports[`matches snapshot with everything enabled 1`] = `
           <div
             aria-labelledby="2-button"
             class="section noPadding"
+            id="2-section"
             role="region"
           >
             Second panel content

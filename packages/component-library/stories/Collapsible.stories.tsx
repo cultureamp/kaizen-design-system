@@ -175,7 +175,7 @@ storiesOf("Collapsible", module)
   })
   .add("Loading collapsible", () => (
     <div style={{ margin: "1rem", width: "40rem" }}>
-      <Collapsible loading={true} />
+      <Collapsible id="abc" loading={true} />
     </div>
   ))
   .add("Loading collapsible group", () => (
