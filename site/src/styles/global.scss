@@ -39,3 +39,10 @@ pre {
   padding: $ca-grid;
   line-height: 1.5;
 }
+
+code {
+  line-height: inherit;
+  background-color: $kz-color-stone;
+  padding: 0.25em;
+  border-radius: 0.25em;
+}
