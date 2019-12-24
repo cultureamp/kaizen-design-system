@@ -17,6 +17,7 @@ export type Props =
       loading: true
       separated?: boolean
       group?: boolean
+      automationId?: string
 
       /* This won't actually do anything in this context, but it's required to keep
          the internalOpen state hook at the top of the function below */
@@ -48,7 +49,11 @@ const Collapsible: React.FunctionComponent<Props> = props => {
 
   if (props.loading) {
     return (
-      <LoadingCollapsible separated={props.separated} group={props.group} />
+      <LoadingCollapsible
+        separated={props.separated}
+        group={props.group}
+        automationId={props.automationId}
+      />
     )
   }
 
@@ -92,7 +97,7 @@ const Collapsible: React.FunctionComponent<Props> = props => {
         [styles.groupItem]: group && !separated,
         [styles.separated]: separated,
       })}
-      data-automation-id={automationId || `collapsible-container-${id}`}
+      data-automation-id={automationId}
     >
       <button
         id={buttonId}
@@ -104,14 +109,14 @@ const Collapsible: React.FunctionComponent<Props> = props => {
         onClick={handleClick}
         aria-expanded={open}
         aria-controls={sectionId}
-        data-automation-id={`collapsible-button-${id}`}
+        data-automation-id={`${automationId}-button`}
       >
         {renderHeader && renderHeader(title) // If a renderHeader prop has been provided: use that to render the header
         }
         {!renderHeader && ( // Otherwise, use a prescribed structure for the title
           <div
             className={styles.title}
-            data-automation-id={`collapsible-button-title-${id}`}
+            data-automation-id={`${automationId}-button-title`}
           >
             <Text tag="span" style="heading" inheritBaseline>
               {title}
@@ -125,7 +130,7 @@ const Collapsible: React.FunctionComponent<Props> = props => {
       {(!lazyLoad || open) && (
         <AnimateHeight
           height={open ? "auto" : 0}
-          data-automation-id={`collapsible-section-${id}`}
+          data-automation-id={`${automationId}-section`}
         >
           <div
             className={classnames(styles.section, {
@@ -146,10 +151,11 @@ const Collapsible: React.FunctionComponent<Props> = props => {
 type LoadingProps = {
   group?: boolean
   separated?: boolean
+  automationId?: string
 }
 
 const LoadingCollapsible = (props: LoadingProps) => {
-  const { group, separated } = props
+  const { group, separated, automationId } = props
 
   return (
     <div
@@ -158,9 +164,16 @@ const LoadingCollapsible = (props: LoadingProps) => {
         [styles.groupItem]: group && !separated,
         [styles.separated]: separated,
       })}
+      data-automation-id={`${automationId}-loading`}
     >
-      <div className={styles.buttonLoading}>
-        <div className={styles.title}>
+      <div
+        className={styles.buttonLoading}
+        data-automation-id={`${automationId}-loading-button`}
+      >
+        <div
+          className={styles.title}
+          data-automation-id={`${automationId}-loading-button-title`}
+        >
           <LoadingPlaceholder width={50} noBottomMargin inheritBaseline />
         </div>
         <div className={styles.chevronLoading}>

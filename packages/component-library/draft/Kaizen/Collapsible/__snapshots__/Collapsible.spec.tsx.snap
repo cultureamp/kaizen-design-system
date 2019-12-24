@@ -8,13 +8,12 @@ exports[`matches snapshot with everything enabled 1`] = `
   >
     <div
       class="container separated"
-      data-automation-id="collapsible-container-1"
     >
       <button
         aria-controls="1-section"
         aria-expanded="false"
         class="button sticky"
-        data-automation-id="collapsible-button-1"
+        data-automation-id="undefined-button"
         id="1-button"
         style="top: 20px;"
       >
@@ -39,7 +38,7 @@ exports[`matches snapshot with everything enabled 1`] = `
       <div
         aria-hidden="true"
         class="rah-static rah-static--height-zero"
-        data-automation-id="collapsible-section-1"
+        data-automation-id="undefined-section"
         style="height: 0px; overflow: hidden;"
       >
         <div
@@ -64,13 +63,13 @@ exports[`matches snapshot with everything enabled 1`] = `
         aria-controls="2-section"
         aria-expanded="true"
         class="button open sticky"
-        data-automation-id="collapsible-button-2"
+        data-automation-id="another-bogus-test-id-button"
         id="2-button"
         style="top: 20px;"
       >
         <div
           class="title"
-          data-automation-id="collapsible-button-title-2"
+          data-automation-id="another-bogus-test-id-button-title"
         >
           <span
             class="heading inheritBaseline"
@@ -96,7 +95,7 @@ exports[`matches snapshot with everything enabled 1`] = `
       <div
         aria-hidden="false"
         class="rah-static rah-static--height-auto"
-        data-automation-id="collapsible-section-2"
+        data-automation-id="another-bogus-test-id-section"
         style="height: auto; overflow: visible;"
       >
         <div>
