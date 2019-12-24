@@ -13,7 +13,6 @@ exports[`matches snapshot with everything enabled 1`] = `
         aria-controls="1-section"
         aria-expanded="false"
         class="button sticky"
-        data-automation-id="undefined-button"
         id="1-button"
         style="top: 20px;"
       >
@@ -38,7 +37,6 @@ exports[`matches snapshot with everything enabled 1`] = `
       <div
         aria-hidden="true"
         class="rah-static rah-static--height-zero"
-        data-automation-id="undefined-section"
         style="height: 0px; overflow: hidden;"
       >
         <div

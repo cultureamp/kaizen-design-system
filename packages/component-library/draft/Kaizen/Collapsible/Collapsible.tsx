@@ -109,14 +109,14 @@ const Collapsible: React.FunctionComponent<Props> = props => {
         onClick={handleClick}
         aria-expanded={open}
         aria-controls={sectionId}
-        data-automation-id={`${automationId}-button`}
+        data-automation-id={automationId && `${automationId}-button`}
       >
         {renderHeader && renderHeader(title) // If a renderHeader prop has been provided: use that to render the header
         }
         {!renderHeader && ( // Otherwise, use a prescribed structure for the title
           <div
             className={styles.title}
-            data-automation-id={`${automationId}-button-title`}
+            data-automation-id={automationId && `${automationId}-button-title`}
           >
             <Text tag="span" style="heading" inheritBaseline>
               {title}
@@ -130,7 +130,7 @@ const Collapsible: React.FunctionComponent<Props> = props => {
       {(!lazyLoad || open) && (
         <AnimateHeight
           height={open ? "auto" : 0}
-          data-automation-id={`${automationId}-section`}
+          data-automation-id={automationId && `${automationId}-section`}
         >
           <div
             className={classnames(styles.section, {
@@ -164,15 +164,17 @@ const LoadingCollapsible = (props: LoadingProps) => {
         [styles.groupItem]: group && !separated,
         [styles.separated]: separated,
       })}
-      data-automation-id={`${automationId}-loading`}
+      data-automation-id={automationId && `${automationId}-loading`}
     >
       <div
         className={styles.buttonLoading}
-        data-automation-id={`${automationId}-loading-button`}
+        data-automation-id={automationId && `${automationId}-loading-button`}
       >
         <div
           className={styles.title}
-          data-automation-id={`${automationId}-loading-button-title`}
+          data-automation-id={
+            automationId && `${automationId}-loading-button-title`
+          }
         >
           <LoadingPlaceholder width={50} noBottomMargin inheritBaseline />
         </div>
