@@ -2,6 +2,8 @@ import { Icon, Text } from "@cultureamp/kaizen-component-library"
 import {
   Collapsible,
   CollapsibleGroup,
+  LoadingCollapsible,
+  LoadingCollapsibleGroup,
 } from "@cultureamp/kaizen-component-library/draft"
 import { action } from "@storybook/addon-actions"
 import { storiesOf } from "@storybook/react"
@@ -175,11 +177,11 @@ storiesOf("Collapsible", module)
   })
   .add("Loading collapsible", () => (
     <div style={{ margin: "1rem", width: "40rem" }}>
-      <Collapsible loading={true} />
+      <LoadingCollapsible />
     </div>
   ))
   .add("Loading collapsible group", () => (
     <div style={{ margin: "1rem", width: "40rem" }}>
-      <CollapsibleGroup loading={true} collapsibles={3} />
+      <LoadingCollapsibleGroup collapsibles={3} />
     </div>
   ))

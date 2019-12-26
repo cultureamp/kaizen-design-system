@@ -1,5 +1,4 @@
 import { Icon, Text } from "@cultureamp/kaizen-component-library"
-import { LoadingPlaceholder } from "@cultureamp/kaizen-component-library/draft"
 import classnames from "classnames"
 import React, { useState } from "react"
 import AnimateHeight from "react-animate-height"
@@ -12,50 +11,28 @@ const chevronUp = require("@cultureamp/kaizen-component-library/icons/chevron-up
 const chevronDown = require("@cultureamp/kaizen-component-library/icons/chevron-down.icon.svg")
   .default
 
-export type Props =
-  | {
-      loading: true
-      separated?: boolean
-      group?: boolean
-      automationId?: string
+export type Props = {
+  id: string
+  children?: JSX.Element | JSX.Element[] | string
+  title?: string
+  renderHeader?: (title?: string) => JSX.Element | JSX.Element[]
+  open?: boolean
+  group?: boolean
+  separated?: boolean
+  sticky?: Sticky
+  noSectionPadding?: boolean
+  automationId?: string
+  onToggle?: (open: boolean, id: string) => void
 
-      /* This won't actually do anything in this context, but it's required to keep
-         the internalOpen state hook at the top of the function below */
-      open?: boolean
-    }
-  | {
-      loading?: false
-      id: string
-      children?: JSX.Element | JSX.Element[] | string
-      title?: string
-      renderHeader?: (title?: string) => JSX.Element | JSX.Element[]
-      open?: boolean
-      group?: boolean
-      separated?: boolean
-      sticky?: Sticky
-      noSectionPadding?: boolean
-      automationId?: string
-      onToggle?: (open: boolean, id: string) => void
+  /* Will avoid rendering the content until required (especially important when you have queries inside sections). Removes animation. */
+  lazyLoad?: boolean
 
-      /* Will avoid rendering the content until required (especially important when you have queries inside sections). Removes animation. */
-      lazyLoad?: boolean
-
-      /* Disables internal `open` state, allowing it to be controlled in the usage */
-      controlled?: boolean
-    }
+  /* Disables internal `open` state, allowing it to be controlled in the usage */
+  controlled?: boolean
+}
 
 const Collapsible: React.FunctionComponent<Props> = props => {
   const [internalOpen, setInternalOpen] = useState<boolean>(!!props.open)
-
-  if (props.loading) {
-    return (
-      <LoadingCollapsible
-        separated={props.separated}
-        group={props.group}
-        automationId={props.automationId}
-      />
-    )
-  }
 
   const {
     id,
@@ -144,44 +121,6 @@ const Collapsible: React.FunctionComponent<Props> = props => {
           </div>
         </AnimateHeight>
       )}
-    </div>
-  )
-}
-
-type LoadingProps = {
-  group?: boolean
-  separated?: boolean
-  automationId?: string
-}
-
-const LoadingCollapsible = (props: LoadingProps) => {
-  const { group, separated, automationId } = props
-
-  return (
-    <div
-      className={classnames({
-        [styles.container]: !group || separated,
-        [styles.groupItem]: group && !separated,
-        [styles.separated]: separated,
-      })}
-      data-automation-id={automationId && `${automationId}-loading`}
-    >
-      <div
-        className={styles.buttonLoading}
-        data-automation-id={automationId && `${automationId}-loading-button`}
-      >
-        <div
-          className={styles.title}
-          data-automation-id={
-            automationId && `${automationId}-loading-button-title`
-          }
-        >
-          <LoadingPlaceholder width={50} noBottomMargin inheritBaseline />
-        </div>
-        <div className={styles.chevronLoading}>
-          <LoadingPlaceholder noBottomMargin inheritBaseline />
-        </div>
-      </div>
     </div>
   )
 }

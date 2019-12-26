@@ -218,12 +218,3 @@ it("respects controlled mode (stays open after click)", () => {
   fireEvent.click(button)
   expect(section.style.height).toEqual("auto")
 })
-
-it("shows a loading placeholder when loading is true", () => {
-  const { container } = render(
-    <Collapsible loading={true} automationId="collapsible-1" />
-  )
-
-  expect(queryByTestId(container, "collapsible-1")).toBeNull()
-  expect(queryByTestId(container, "collapsible-1-loading")).not.toBeNull()
-})
