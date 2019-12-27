@@ -1,16 +1,50 @@
 # Contributing
 
-Kaizen Design System follows a federated, open-source model. All teams contribute Issues and Pull Requests to grow Kaizen together.
+Kaizen Design System follows a federated, open-source model. All teams contribute Issues and Pull Requests (PRs) to grow Kaizen together.
+
+## Designers
+
+### Issues
+
+Before creating an issue, search existing [Issues](https://github.com/cultureamp/kaizen-design-system/issues/) to see if any relevant issues already exist.
+
+To create a new issue for changes to design documentation or missing documentation:
+
+1. Visit [Issues](https://github.com/cultureamp/kaizen-design-system/issues/) and click the "**New issue**" button.
+3. Give the issue a **title** framed as a problem, e.g. "There's no date picker guidance".
+4. Give the issue a **description** that provides enough information that people can act on it without including any sensitive information, e.g. "As a designer, I want to know how to position coach marks because I'm designing an onboarding workflow."
+5. Click **Submit**. Add a "Label" of "content" for design system content and "discussion" if you want feedback.
+
+### Editing design documentation
+
+You can edit Kaizen Site documentation using GitHub's interface.
+
+1. **Find**: Find the page's file in GitHub by clicking "Find file", typing the name of the guideline, component or page and `.mdx` to filter the results down to only Markdown files, which we use for documentation files. This page should have the same content as you see live on the [Kaizen Site](https://cultureamp.design).
+2. **Edit**: Click the pencil icon to "Edit this file".
+3. **Preview**: Makes your changes to the content and click "Preview changes" to see how they look.
+4. **Commit**:
+    - Under "Commit changes", write a commit message starting with `docs: `, such as `docs: update typography documentation`.
+    - Create a new branch for this commit and start a pull request, e.g. `di/update-typography-guidelines`.
+    - Click the "Commit changes" button. This will start a pull request.
+7. **PR with branch preview**: You can give your pull request a description. It's convenient for reviewers if you add a link to your "branch preview", which shows how your changes will look on the Kaizen Site. The branch preview link will use your branch name like this: <https://dev.cultureamp.design/>(branch-name)
+9. **Create PR**: Click the "Create pull request" button. Add someone as a reviewer or let #team_design_systems know.
+
+Once it's approved, click "Squash and merge" to publish your changes. Share the link to the updated documentation on #team_design_systems for awareness.
+
+
+
+## Contributing code
 
 ### Quality and reviews
 
-Every contribution **must** have:
+Every code contribution **must** have:
 
 - A design review from a designer
 - A PR summary that describes the changes and anything others should be aware of
 - Communications: share your new component or changes on Slack or at the Front End Practice meeting
 
-Every contribution **should strive to** have:
+Every code contribution **should strive to** have:
+
 - Basic level of unit tests
 - New or updated Storybook stories
 
