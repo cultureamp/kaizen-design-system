@@ -9,6 +9,10 @@ needToKnow:
   - Breadcrumb icon buttons use link elements to navigate and must show a destination as text on hover/focus
 ---
 
+import DosAndDonts from "docs-components/DosAndDonts"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
 ## Visuals
 
 ### UI Kit
@@ -26,8 +30,10 @@ A default icon button indicates to a user that they can perform an inline action
 - Apply an action to an object, e.g. save, delete, add an item, undo, create a new item.
 - Trigger a new element to appear on the page e.g. toggle additional information, open a modal.
 
+Other considerations:
+
 - Icon buttons use a button element (not a link element and no `role="button"`):
-  - All buttons have an `aria-label` to describe the action to people using assistive technologies, such as screen readers:
+- All buttons have an `aria-label` to describe the action to people using assistive technologies, such as screen readers:
     - No more than 2 to 3 words long.
     - Use verbs first; use only verbs where possible e.g. “Save”.
     - Avoid unnecessary words and articles, such as “the” or “a”.
@@ -52,25 +58,35 @@ A breadcrumb icon button uses a link element instead of a button and navigates t
 
 In CSS, “Default/Inactive” maps to `initial` style, “Hover/Focus” to `:hover` and `:focus`, and “Active/Pressed” to `:active`.
 
-## When to use
+## When to use and when not to use
 
-- Default icon button:
-  - Use an icon button when a user can perform an inline action on this page and there's no room for a default button. Icon buttons are often used when there are 2 or 3 adjacent icons buttons that perform actions on a single item presented in a row.
+<DosAndDonts>
+<Do>
 
-## When not to use
+- Use an icon button when a user can perform an inline action on this page and there's no room for a default button. Icon buttons are often used when there are 2 or 3 adjacent icons buttons that perform actions on a single item presented in a row.
 
-- When there's enough space, use a [button](../button) instead.
+</Do>
+<Dont>
+
+- To display icons that do not have actions associated with them, use the [Icon](/components/icon) component.
+- Avoid using more than 1 icon button in a [table](/components/table) row.
+- When there's enough space, use a [button](/components/button) instead.
+
+</Dont>
+</DosAndDonts>
 
 ## See also
 
-- [Icons](../icons).
-- [Button](../button).
-- [Link vs button](../link-vs-button).
-- [Tooltips](../tooltips).
-- [Typography](../typography).
+- [Icon component](/components/icon).
+- [Icons guidelines](/guidelines/icons).
+- [Button](/components/button).
+- [Link vs button](/guidelines/link-vs-button).
+- [Tooltip](/components/tooltip).
+- [Typography](/guidelines/typography).
 
 ## External links
 
 Here are some examples of existing design systems or references:
 
 - [WCAG 2.1 Target Size](https://www.w3.org/TR/WCAG21/#target-size).
+
