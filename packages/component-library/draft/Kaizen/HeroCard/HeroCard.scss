@@ -4,6 +4,7 @@
 @import "~@cultureamp/kaizen-component-library/styles/layout";
 
 $left-content__width: 221px;
+$badge__height: 80px;
 
 .root {
   @include ca-type-ideal-body;
@@ -28,6 +29,10 @@ $left-content__width: 221px;
   flex-direction: column;
   align-items: flex-start;
   position: relative;
+}
+
+.withBadge {
+  margin-top: $badge__height + 24px;
 }
 
 .right {

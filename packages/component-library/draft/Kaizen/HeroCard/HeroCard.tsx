@@ -30,7 +30,15 @@ const HeroCard: HeroCard = ({
     >
       <div className={styles.left}>
         {badgeText && <div className={styles.badge}>{badgeText}</div>}
-        {leftContent && <div className={styles.leftContent}>{leftContent}</div>}
+        {leftContent && (
+          <div
+            className={classnames(styles.leftContent, {
+              [styles.withBadge]: !!badgeText,
+            })}
+          >
+            {leftContent}
+          </div>
+        )}
         {image && <div className={styles.image}>{image}</div>}
       </div>
       <div className={styles.right}>
