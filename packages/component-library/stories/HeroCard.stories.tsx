@@ -16,7 +16,7 @@ const renderContent = () => (
       height: "300px",
     }}
   >
-    <p>
+    <p style={{ margin: "0" }}>
       Understand diversity and inclusion in your organization with this set of
       people science backed survey questions. Preview the questions to get a
       feel for what the participants will see.
@@ -65,6 +65,18 @@ storiesOf("HeroCard", module)
       <HeroCard
         title="Preview the survey questions"
         leftContent={<p>Ta-dah</p>}
+      >
+        {renderContent()}
+      </HeroCard>
+    </Container>
+  ))
+
+  .add("Custom left content and badge", () => (
+    <Container>
+      <HeroCard
+        title="Preview the survey questions"
+        leftContent={<p>Ta-dah</p>}
+        badgeText="2"
       >
         {renderContent()}
       </HeroCard>
