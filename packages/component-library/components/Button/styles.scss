@@ -56,8 +56,7 @@ $caButton-verticalPaddingForm: calc(
     border-color: $kz-color-wisteria-200;
     color: $kz-color-wisteria-800;
 
-    &:hover,
-    &:active {
+    &:hover {
       background: $kz-color-stone;
       border-color: $kz-color-wisteria-400;
     }
