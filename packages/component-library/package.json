@@ -29,6 +29,7 @@
     "react": "^16.9.0"
   },
   "dependencies": {
+    "@cultureamp/kaizen-design-tokens": "^0.1.2",
     "@types/classnames": "^2.2.6",
     "@types/lodash": "^4.14.132",
     "@types/react-select": "^3.0.5",
