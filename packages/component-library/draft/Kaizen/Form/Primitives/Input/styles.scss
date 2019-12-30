@@ -1,3 +1,4 @@
+@import '~@cultureamp/kaizen-design-tokens/sass/color';
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/animation";
 @import "~@cultureamp/kaizen-component-library/styles/layout";
@@ -10,11 +11,11 @@
 
 // Vars
 $input-height: 48px;
-$input-focus-border-color-reversed: $ca-palette-yuzu;
+$input-focus-border-color-reversed: $kz-color-yuzu-500;
 $input-base-padding-horizontal: $ca-grid / 2;
 $input-icon-size: 1.25rem; // 20px
 $input-placeholder-opacity: 0.5;
-$input-disabled-background: $ca-palette-ash;
+$input-disabled-background: $kz-color-ash;
 $input-disabled-alpha: 30%;
 $input-disabled-opacity: 0.3;
 $input-disabled-border-alpha: 50%;
@@ -127,7 +128,7 @@ $input-disabled-border-alpha: 50%;
 // Default theme
 .withStartIconAdornment {
   .startIconAdornment {
-    color: $ca-palette-ink;
+    color: $kz-color-wisteria-800;
     opacity: 0.5;
   }
 

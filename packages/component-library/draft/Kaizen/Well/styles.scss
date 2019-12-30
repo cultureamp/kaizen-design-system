@@ -1,3 +1,4 @@
+@import '~@cultureamp/kaizen-design-tokens/sass/color';
 @import "~@cultureamp/kaizen-component-library/styles/border";
 @import "~@cultureamp/kaizen-component-library/styles/layout";
 
@@ -32,30 +33,30 @@
 // Background Style Variations
 
 .positive {
-  background: add-tint($ca-palette-seedling, 90%);
-  border-color: add-tint($ca-palette-seedling, 60%);
-  color: $ca-palette-lapis;
+  background: $kz-color-seedling-100;
+  border-color: $kz-color-seedling-200;
+  color: $kz-color-wisteria-800;
 }
 
 .negative {
-  background: add-tint($ca-palette-coral, 95%);
-  border-color: add-tint($ca-palette-coral, 60%);
-  color: $ca-palette-lapis;
+  background: $kz-color-coral-100;
+  border-color: $kz-color-coral-200;
+  color: $kz-color-wisteria-800;
 }
 
 .informative {
-  background: add-tint($ca-palette-ocean, 90%);
-  border-color: add-tint($ca-palette-ocean, 60%);
-  color: $ca-palette-lapis;
+  background: $kz-color-cluny-100;
+  border-color: $kz-color-cluny-200;
+  color: $kz-color-wisteria-800;
 }
 
 .cautionary {
-  background: add-tint($ca-palette-yuzu, 95%);
-  border-color: add-tint($ca-palette-yuzu, 60%);
-  color: $ca-palette-lapis;
+  background: $kz-color-yuzu-100;
+  border-color: $kz-color-yuzu-300;
+  color: $kz-color-wisteria-800;
 }
 
 .default {
-  background-color: $ca-palette-ash;
+  background-color: $kz-color-ash;
   border-color: $ca-border-color;
 }

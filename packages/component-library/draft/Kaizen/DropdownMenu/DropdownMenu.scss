@@ -1,3 +1,4 @@
+@import '~@cultureamp/kaizen-design-tokens/sass/color';
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/type";
 @import "~@cultureamp/kaizen-component-library/styles/layout";
@@ -10,7 +11,7 @@
   border: solid 1px $ca-border-color;
   border-radius: $ca-border-radius;
   padding: $ca-grid / 2;
-  color: $ca-palette-ink;
+  color: $kz-color-wisteria-800;
   width: 100%;
 }
 
@@ -51,13 +52,13 @@
   width: $ca-grid;
   height: $ca-grid;
   padding: 2px;
-  color: $ca-palette-ink;
+  color: $kz-color-wisteria-800;
 }
 
 .dropdownLabel {
   // @include ca-type-ideal-button;
   top: 0;
-  color: $ca-palette-ink;
+  color: $kz-color-wisteria-800;
 
   &:hover {
     text-decoration: none;
@@ -88,7 +89,7 @@
 .chevronIcon {
   position: relative;
   top: 4px;
-  color: $ca-palette-ink;
+  color: $kz-color-wisteria-800;
 }
 
 .menuContainer {

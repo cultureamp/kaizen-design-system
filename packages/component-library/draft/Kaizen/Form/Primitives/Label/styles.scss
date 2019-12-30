@@ -1,3 +1,4 @@
+@import '~@cultureamp/kaizen-design-tokens/sass/color';
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/type";
 @import "~@cultureamp/kaizen-component-library/styles/layout";
@@ -12,7 +13,7 @@ $label-start-padding: 10px;
 :global(.ideal-sans) .label {
   // override Murmur global styles :(
   opacity: inherit;
-  color: $ca-palette-ink;
+  color: $kz-color-wisteria-800;
   visibility: visible;
   @include ca-type-align-start;
   width: 100%;

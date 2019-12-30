@@ -2,6 +2,7 @@
 @import "../../styles/color";
 @import "../../styles/type";
 @import "../../styles/layout";
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 
 $caButton-border-width: 1px;
 $caButton-focus-border-width: 2px;
@@ -52,18 +53,18 @@ $caButton-verticalPaddingForm: calc(
   // applied to elements that have no enabled/disabled states.
   &:not(:disabled) {
     background: $white;
-    border-color: add-tint($ca-palette-ink, 80%);
-    color: $ca-palette-ink;
+    border-color: $kz-color-wisteria-200;
+    color: $kz-color-wisteria-800;
 
     &:hover,
     &:active {
-      background: $ca-palette-stone;
-      border-color: add-tint($ca-palette-ink, 60%);
+      background: $kz-color-stone;
+      border-color: $kz-color-wisteria-400;
     }
 
     &:active {
-      background: $ca-palette-ash;
-      border-color: add-tint($ca-palette-ink, 40%);
+      background: $kz-color-ash;
+      border-color: $kz-color-wisteria-500;
       transform: translateY(1px);
     }
 
@@ -77,7 +78,7 @@ $caButton-verticalPaddingForm: calc(
 
       // show custom focus ring when :focus-visible
       &:global(.focus-visible) {
-        border: $caButton-focus-border-width solid $ca-palette-ocean;
+        border: $caButton-focus-border-width solid $kz-color-cluny-500;
       }
     }
   }
@@ -85,8 +86,8 @@ $caButton-verticalPaddingForm: calc(
   // Disabled
   &:disabled {
     background: $white;
-    border-color: add-tint($ca-palette-ink, 80%);
-    color: add-tint($ca-palette-ink, 70%);
+    border-color: $kz-color-wisteria-200;
+    color: $kz-color-wisteria-300;
   }
 }
 
@@ -97,43 +98,43 @@ $caButton-verticalPaddingForm: calc(
 %caButtonPrimary,
 %caButtonDestructive {
   &:not(:disabled) {
-    background: add-tint($ca-palette-seedling, 10%);
-    border-color: add-tint($ca-palette-seedling, 10%);
+    background: $kz-color-seedling-500;
+    border-color: $kz-color-seedling-500;
     color: $white;
 
     &:hover {
-      background: $ca-palette-seedling;
-      border-color: $ca-palette-seedling;
+      background: $kz-color-seedling-500;
+      border-color: $kz-color-seedling-500;
     }
 
     &:active {
-      background: add-shade($ca-palette-seedling, 10%);
-      border-color: add-shade($ca-palette-seedling, 10%);
+      background: $kz-color-seedling-500;
+      border-color: $kz-color-seedling-500;
     }
   }
 
   &:disabled {
-    background: add-tint($ca-palette-ink, 90%);
-    border-color: add-tint($ca-palette-ink, 90%);
+    background: $kz-color-wisteria-100;
+    border-color: $kz-color-wisteria-100;
   }
 }
 
 %caButtonDestructive:not(:disabled) {
-  background: $ca-palette-coral;
-  border-color: $ca-palette-coral;
+  background: $kz-color-coral-500;
+  border-color: $kz-color-coral-500;
 
   &:hover {
-    background: add-shade($ca-palette-coral, 10%);
-    border-color: add-shade($ca-palette-coral, 10%);
+    background: $kz-color-coral-500;
+    border-color: $kz-color-coral-500;
   }
 
   &:active {
-    background: add-shade($ca-palette-coral, 15%);
-    border-color: add-shade($ca-palette-coral, 15%);
+    background: $kz-color-coral-500;
+    border-color: $kz-color-coral-500;
   }
 
   :global(.js-focus-visible) &:global(.focus-visible) {
-    border-color: add-shade($ca-palette-coral, 40%);
+    border-color: $kz-color-coral-600;
   }
 }
 
@@ -143,28 +144,28 @@ $caButton-verticalPaddingForm: calc(
   &:not(:disabled) {
     background: transparent;
     border-color: transparent;
-    color: add-tint($ca-palette-ocean, 30%);
+    color: $kz-color-cluny-400;
 
     %caButtonLabel {
-      color: $ca-palette-ocean;
+      color: $kz-color-cluny-500;
     }
 
     &:hover,
     &:active {
-      color: $ca-palette-ocean;
-      background: add-alpha($ca-palette-ink, 10%);
+      color: $kz-color-cluny-500;
+      background: add-alpha($kz-color-wisteria-800, 10%);
       border-color: transparent;
     }
 
     &:active {
-      background: add-tint($ca-palette-ink, 90%);
+      background: $kz-color-wisteria-100;
     }
   }
 
   &:disabled {
     background: transparent;
     border-color: transparent;
-    color: add-tint($ca-palette-ink, 70%);
+    color: $kz-color-wisteria-300;
   }
 }
 
@@ -180,7 +181,7 @@ $caButton-verticalPaddingForm: calc(
     }
 
     :global(.js-focus-visible) &:global(.focus-visible) {
-      border-color: $ca-palette-yuzu;
+      border-color: $kz-color-yuzu-500;
 
       &:not(:active) {
         background: add-alpha($white, 10%);
@@ -203,30 +204,30 @@ $caButton-verticalPaddingForm: calc(
     &:not(:disabled) {
       background: $white;
       border-color: transparent;
-      color: $ca-palette-ink;
+      color: $kz-color-wisteria-800;
 
       &%caButtonReverseColorLapis {
-        color: $ca-palette-lapis;
+        color: $kz-color-wisteria-800;
       }
 
       &%caButtonReverseColorOcean {
-        color: $ca-palette-ocean;
+        color: $kz-color-cluny-500;
       }
 
       &%caButtonReverseColorPeach {
-        color: $ca-palette-peach;
+        color: $kz-color-peach-500;
       }
 
       &%caButtonReverseColorSeedling {
-        color: $ca-palette-seedling;
+        color: $kz-color-seedling-500;
       }
 
       &%caButtonReverseColorWisteria {
-        color: $ca-palette-wisteria;
+        color: $kz-color-wisteria-500;
       }
 
       &%caButtonReverseColorYuzu {
-        color: $ca-palette-yuzu;
+        color: $kz-color-yuzu-500;
       }
 
       &:hover {
@@ -234,7 +235,7 @@ $caButton-verticalPaddingForm: calc(
       }
 
       :global(.js-focus-visible) &:global(.focus-visible) {
-        border-color: $ca-palette-yuzu;
+        border-color: $kz-color-yuzu-500;
 
         &:not(:active) {
           background: add-alpha($white, 95%);
@@ -272,7 +273,7 @@ $caButton-verticalPaddingForm: calc(
       }
 
       :global(.js-focus-visible) &:global(.focus-visible) {
-        border-color: $ca-palette-yuzu;
+        border-color: $kz-color-yuzu-500;
 
         &:not(:active):not(:hover) {
           background: transparent;
@@ -369,7 +370,7 @@ $caButton-verticalPaddingForm: calc(
     &:active,
     &%caButtonPrimary,
     &%caButtonSecondary {
-      color: $ca-palette-ink;
+      color: $kz-color-wisteria-800;
       background: none;
       border-color: transparent;
 
@@ -409,26 +410,26 @@ $caButton-verticalPaddingForm: calc(
   &%caButtonDestructive:not(:disabled) {
     &:hover,
     &:active {
-      color: $ca-palette-coral;
+      color: $kz-color-coral-500;
     }
 
     :global(.js-focus-visible) &:global(.focus-visible) {
-      border-color: $ca-palette-ocean;
+      border-color: $kz-color-cluny-500;
     }
   }
 }
 
 %caButtonDestructiveModifier {
   &:not(:disabled) {
-    color: $ca-palette-coral;
+    color: $kz-color-coral-500;
 
     %caButtonLabel {
-      color: add-shade($ca-palette-coral, 20%);
+      color: $kz-color-coral-600;
     }
   }
 
   &:hover span,
   &:active span {
-    color: $ca-palette-coral;
+    color: $kz-color-coral-500;
   }
 }

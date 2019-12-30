@@ -1,3 +1,4 @@
+@import '~@cultureamp/kaizen-design-tokens/sass/color';
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/layout";
 @import "~@cultureamp/kaizen-component-library/styles/type";
@@ -9,7 +10,7 @@ $small: $ca-grid;
   @include ca-type-ideal-small-bold;
   @include ca-inherit-baseline;
   @include ca-margin($end: $ca-grid * 0.5);
-  color: $ca-palette-lapis;
+  color: $kz-color-wisteria-800;
   display: inline-block;
   border: 1px solid transparent;
   border-radius: $ca-grid * 0.75;
@@ -36,16 +37,16 @@ $small: $ca-grid;
 
 .dismissIcon {
   @include ca-margin($end: -$ca-grid * 0.15, $start: $ca-grid * 0.125);
-  color: add-tint($ca-palette-lapis, 50%);
+  color: $kz-color-wisteria-500;
   height: $ca-grid * 0.6;
   cursor: pointer;
 
   &:hover {
-    color: add-tint($ca-palette-lapis, 40%);
+    color: $kz-color-wisteria-500;
   }
 
   &:active {
-    color: add-tint($ca-palette-lapis, 20%);
+    color: $kz-color-wisteria-600;
   }
 }
 
@@ -68,120 +69,120 @@ $small: $ca-grid;
 }
 
 .default {
-  background-color: add-tint($ca-palette-ink, 90%);
+  background-color: $kz-color-wisteria-100;
 
   &:hover {
-    border-color: add-tint($ca-palette-ink, 70%);
+    border-color: $kz-color-wisteria-300;
   }
 }
 
 .sentimentPositive {
-  background-color: add-tint($ca-palette-seedling, 80%);
+  background-color: $kz-color-seedling-100;
 
   &:hover {
-    border-color: add-tint($ca-palette-seedling, 60%);
+    border-color: $kz-color-seedling-200;
   }
 }
 
 .sentimentNeutral {
-  background-color: add-tint($ca-palette-ink, 93%);
+  background-color: $kz-color-ash;
 
   &:hover {
-    border-color: add-tint($ca-palette-ink, 70%);
+    border-color: $kz-color-wisteria-300;
   }
 }
 
 .sentimentNegative {
-  background-color: add-tint($ca-palette-coral, 80%);
+  background-color: $kz-color-coral-100;
 
   &:hover {
-    border-color: add-tint($ca-palette-coral, 40%);
+    border-color: $kz-color-coral-300;
   }
 }
 
 .sentimentNone {
   background-color: $white;
-  border-color: add-tint($ca-palette-ink, 70%);
+  border-color: $kz-color-wisteria-300;
 
   &:hover {
-    border-color: add-tint($ca-palette-ink, 50%);
+    border-color: $kz-color-wisteria-500;
   }
 }
 
 .validationPositive {
-  background-color: add-tint($ca-palette-seedling, 90%);
-  border-color: add-tint($ca-palette-seedling, 60%);
+  background-color: $kz-color-seedling-100;
+  border-color: $kz-color-seedling-200;
 
   &:hover {
-    border-color: add-tint($ca-palette-seedling, 40%);
+    border-color: $kz-color-seedling-300;
   }
 
   .validationIcon {
-    color: add-tint($ca-palette-seedling, 40%);
+    color: $kz-color-seedling-300;
   }
 }
 
 .validationInformative {
-  background-color: add-tint($ca-palette-ocean, 95%);
-  border-color: add-tint($ca-palette-ocean, 60%);
+  background-color: $kz-color-cluny-100;
+  border-color: $kz-color-cluny-200;
 
   &:hover {
-    border-color: add-tint($ca-palette-ocean, 40%);
+    border-color: $kz-color-cluny-300;
   }
 
   .validationIcon {
-    color: add-tint($ca-palette-ocean, 40%);
+    color: $kz-color-cluny-300;
   }
 }
 
 .validationNegative {
-  background-color: add-tint($ca-palette-coral, 95%);
-  border-color: add-tint($ca-palette-coral, 60%);
+  background-color: $kz-color-coral-100;
+  border-color: $kz-color-coral-200;
 
   &:hover {
-    border-color: add-tint($ca-palette-coral, 40%);
+    border-color: $kz-color-coral-300;
   }
 
   .validationIcon {
-    color: $ca-palette-coral;
+    color: $kz-color-coral-500;
   }
 }
 
 .validationCautionary {
-  background-color: add-tint($ca-palette-yuzu, 95%);
-  border-color: add-tint($ca-palette-yuzu, 40%);
+  background-color: $kz-color-yuzu-100;
+  border-color: $kz-color-yuzu-400;
 
   &:hover {
-    border-color: add-tint($ca-palette-yuzu, 20%);
+    border-color: $kz-color-yuzu-500;
   }
 
   .validationIcon {
-    color: $ca-palette-yuzu;
+    color: $kz-color-yuzu-500;
   }
 }
 
 .statusLive {
-  background-color: add-tint($ca-palette-seedling, 90%);
-  border-color: add-tint($ca-palette-seedling, 80%);
-  color: $ca-palette-seedling;
+  background-color: $kz-color-seedling-100;
+  border-color: $kz-color-seedling-100;
+  color: $kz-color-seedling-500;
 }
 
 .statusDraft {
-  background-color: add-tint($ca-palette-peach, 90%);
-  border-color: add-tint($ca-palette-peach, 80%);
-  color: $ca-palette-peach;
+  background-color: $kz-color-peach-100;
+  border-color: $kz-color-peach-100;
+  color: $kz-color-peach-500;
 }
 
 .statusClosed {
-  background-color: add-tint($ca-palette-wisteria, 90%);
-  border-color: add-tint($ca-palette-wisteria, 80%);
-  color: $ca-palette-wisteria;
+  background-color: $kz-color-wisteria-100;
+  border-color: $kz-color-wisteria-200;
+  color: $kz-color-wisteria-500;
 }
 
 .statusAction {
-  background-color: add-tint($ca-palette-ocean, 90%);
-  border-color: add-tint($ca-palette-ocean, 80%);
-  color: $ca-palette-ocean;
+  background-color: $kz-color-cluny-100;
+  border-color: $kz-color-cluny-100;
+  color: $kz-color-cluny-500;
 }
 
 $pulse-size-initial: 2px;
@@ -193,7 +194,7 @@ $pulse-size-after: $pulse-size-initial * $pulse-scale-factor;
   width: $pulse-size-initial;
   height: $pulse-size-initial;
   border-radius: 50%;
-  background-color: $ca-palette-ocean;
+  background-color: $kz-color-cluny-500;
   display: inline-block;
   position: relative;
   opacity: 0.5;
@@ -207,7 +208,7 @@ $pulse-size-after: $pulse-size-initial * $pulse-scale-factor;
   left: -($pulse-size-after / 2) + ($pulse-size-initial / 2);
   top: -($pulse-size-after / 2) + ($pulse-size-initial / 2);
   border-radius: 50%;
-  background-color: $ca-palette-ocean;
+  background-color: $kz-color-cluny-500;
   animation: pulsate infinite 2.5s ease-out;
 }
 

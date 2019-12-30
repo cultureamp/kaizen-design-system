@@ -1,7 +1,8 @@
+@import '~@cultureamp/kaizen-design-tokens/sass/color';
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/type";
 
-$message-error-color: $ca-palette-lapis;
+$message-error-color: $kz-color-wisteria-800;
 $message-border-radius: 3px;
 
 .message {
@@ -11,7 +12,7 @@ $message-border-radius: 3px;
 }
 
 .default {
-  color: add-alpha($ca-palette-ink, 70%);
+  color: add-alpha($kz-color-wisteria-800, 70%);
 
   &.reversed {
     color: $white;

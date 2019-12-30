@@ -1,3 +1,4 @@
+@import '~@cultureamp/kaizen-design-tokens/sass/color';
 @import "~@cultureamp/kaizen-component-library/styles/border";
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/layout";
@@ -14,12 +15,12 @@
   @include ca-type-ideal-button;
   @include ca-inherit-baseline;
   text-decoration: none;
-  color: $ca-palette-ink;
+  color: $kz-color-wisteria-800;
   border-bottom: 4px solid transparent;
   cursor: pointer;
 
   &:hover {
-    color: $ca-palette-ocean;
+    color: $kz-color-cluny-500;
     text-decoration: none;
   }
 }
@@ -30,16 +31,16 @@
 
 .activeTab {
   composes: tab;
-  color: $ca-palette-ocean;
+  color: $kz-color-cluny-500;
   border-bottom-color: currentColor;
 }
 
 .disabledTab {
   composes: tab;
-  color: add-tint($ca-palette-ink, 70%);
+  color: $kz-color-wisteria-300;
   cursor: inherit;
 
   &:hover {
-    color: add-tint($ca-palette-ink, 70%);
+    color: $kz-color-wisteria-300;
   }
 }
