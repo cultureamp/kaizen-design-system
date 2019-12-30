@@ -51,7 +51,7 @@ class AutoImporter:
 
     @staticmethod
     def _add_import_to_top_of_file(file_contents, path):
-        import_statement = f"@import '{path}';"
+        import_statement = f'@import "{path}";'
         return f"{import_statement}\n{file_contents}"
 
 
