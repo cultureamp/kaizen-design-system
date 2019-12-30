@@ -1,3 +1,4 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 $white: #fff;
 $black: #000;
 
@@ -40,8 +41,8 @@ $ca-palette-input-validation-negative: add-tint($ca-palette-coral, 70%);
 
 // Text colours
 $ca-base-text-color: $ca-palette-ink;
-$ca-link-text-color: $ca-palette-ocean;
-$ca-link-hover-text-color: $ca-palette-ocean;
+$ca-link-text-color: $kz-color-cluny-500;
+$ca-link-hover-text-color: $kz-color-cluny-500;
 $ca-palette-positive-text: add-shade($ca-palette-seedling, 20%);
 $ca-palette-negative-text: add-shade($ca-palette-coral, 20%);
 
