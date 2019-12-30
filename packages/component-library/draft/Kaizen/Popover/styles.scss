@@ -1,4 +1,4 @@
-@import '~@cultureamp/kaizen-design-tokens/sass/color';
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "~@cultureamp/kaizen-component-library/styles/border";
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/layers";
@@ -74,10 +74,7 @@ $large: 450px;
 }
 
 .informativeArrow {
-  @include arrow(
-    $kz-color-cluny-100,
-    $kz-color-cluny-200
-  );
+  @include arrow($kz-color-cluny-100, $kz-color-cluny-200);
 }
 
 .positiveBox {
@@ -87,10 +84,7 @@ $large: 450px;
 }
 
 .positiveArrow {
-  @include arrow(
-    $kz-color-seedling-100,
-    $kz-color-seedling-200
-  );
+  @include arrow($kz-color-seedling-100, $kz-color-seedling-200);
 }
 
 .negativeBox {
@@ -100,10 +94,7 @@ $large: 450px;
 }
 
 .negativeArrow {
-  @include arrow(
-    $kz-color-coral-100,
-    $kz-color-coral-200
-  );
+  @include arrow($kz-color-coral-100, $kz-color-coral-200);
 }
 
 .cautionaryBox {
@@ -113,10 +104,7 @@ $large: 450px;
 }
 
 .cautionaryArrow {
-  @include arrow(
-    $kz-color-yuzu-100,
-    $kz-color-yuzu-400
-  );
+  @include arrow($kz-color-yuzu-100, $kz-color-yuzu-400);
 }
 
 .header {
