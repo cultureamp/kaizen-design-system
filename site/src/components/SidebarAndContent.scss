@@ -54,7 +54,7 @@ $sidebar-width: $ca-grid * 10;
 
 .sidebar {
   grid-area: sidebar;
-  margin-top: $ca-grid;
+  margin-top: $ca-grid * 1.5;
 }
 
 .sidebarSectionTitle {
