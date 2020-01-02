@@ -31,7 +31,7 @@ $button-width: 124px;
   }
 
   &:not(.disabled):not(:disabled) {
-    background: $white;
+    background: $kz-color-white;
     border-color: $kz-color-wisteria-200;
     color: $kz-color-wisteria-800;
 
@@ -65,7 +65,7 @@ $button-width: 124px;
   // Disabled
   &:disabled,
   &.disabled {
-    background: $white;
+    background: $kz-color-white;
     border-color: $kz-color-wisteria-200;
     color: $kz-color-wisteria-300;
   }

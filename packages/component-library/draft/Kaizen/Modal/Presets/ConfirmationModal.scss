@@ -5,7 +5,7 @@
 
 // override Murmur global styles :(
 .header h1 {
-  color: $white;
+  color: $kz-color-white;
 }
 
 .modal {
@@ -20,7 +20,7 @@
 }
 
 .header {
-  color: $white;
+  color: $kz-color-white;
   padding: $ca-grid $ca-grid $ca-grid * 1.5;
   text-align: center;
   background-repeat: no-repeat;
@@ -74,7 +74,7 @@
   width: 150px;
 
   > circle {
-    fill: rgba($white, 0.1);
+    fill: rgba($kz-color-white, 0.1);
   }
 }
 

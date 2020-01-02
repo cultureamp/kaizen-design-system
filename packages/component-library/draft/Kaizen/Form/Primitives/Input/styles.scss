@@ -149,7 +149,7 @@ $input-disabled-border-alpha: 50%;
 // Reversed
 .withStartIconAdornment.withReversed {
   .startIconAdornment {
-    color: $white;
+    color: $kz-color-white;
     opacity: 1;
   }
 
@@ -172,7 +172,7 @@ $input-disabled-border-alpha: 50%;
 
 // Default
 .input.default {
-  background-color: $white;
+  background-color: $kz-color-white;
   color: $ca-base-text-color;
   border-color: $ca-border-color;
   display: flex;
@@ -207,27 +207,27 @@ $input-disabled-border-alpha: 50%;
 
 // Reversed (Dark Backgrounds)
 .input.reversed {
-  color: $white;
-  border-color: $white;
+  color: $kz-color-white;
+  border-color: $kz-color-white;
 
   @include form-input-placeholder {
-    color: $white;
+    color: $kz-color-white;
     opacity: $input-placeholder-opacity;
   }
 
   &:focus:not([disabled]),
   &:hover:focus:not([disabled]) {
-    background: rgba($white, 0.1);
+    background: rgba($kz-color-white, 0.1);
     @include form-input-focus-border($input-focus-border-color-reversed);
   }
 
   &:hover:not([disabled]) {
-    background: rgba($white, 0.1);
+    background: rgba($kz-color-white, 0.1);
   }
 
   &.disabled {
-    color: add-alpha($white, $input-disabled-alpha);
-    border-color: add-alpha($white, $input-disabled-border-alpha);
+    color: add-alpha($kz-color-white, $input-disabled-alpha);
+    border-color: add-alpha($kz-color-white, $input-disabled-border-alpha);
 
     @include form-input-placeholder {
       opacity: $input-disabled-opacity;

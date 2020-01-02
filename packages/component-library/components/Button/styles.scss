@@ -52,7 +52,7 @@ $caButton-verticalPaddingForm: calc(
   // equivalent to :enabled on form elements, but also allows these styles to be
   // applied to elements that have no enabled/disabled states.
   &:not(:disabled) {
-    background: $white;
+    background: $kz-color-white;
     border-color: $kz-color-wisteria-500;
     color: $kz-color-wisteria-800;
 
@@ -84,7 +84,7 @@ $caButton-verticalPaddingForm: calc(
 
   // Disabled
   &:disabled {
-    background: $white;
+    background: $kz-color-white;
     border-color: add-alpha($kz-color-wisteria-500, 30%);
     color: add-alpha($kz-color-wisteria-800, 30%);
   }
@@ -178,37 +178,37 @@ $caButton-verticalPaddingForm: calc(
 %caButtonReversed {
   &:not(:disabled) {
     background: transparent;
-    border-color: $white;
-    color: $white;
+    border-color: $kz-color-white;
+    color: $kz-color-white;
 
     &:hover {
-      background: add-alpha($white, 10%);
-      border-color: $white;
+      background: add-alpha($kz-color-white, 10%);
+      border-color: $kz-color-white;
     }
 
     :global(.js-focus-visible) &:global(.focus-visible) {
       border-color: $kz-color-yuzu-500;
 
       &:not(:active) {
-        background: add-alpha($white, 10%);
+        background: add-alpha($kz-color-white, 10%);
       }
     }
 
     &:active {
-      background: add-alpha($white, 20%);
-      border-color: $white;
+      background: add-alpha($kz-color-white, 20%);
+      border-color: $kz-color-white;
     }
   }
 
   &:disabled {
     background: transparent;
-    border-color: add-alpha($white, 30%);
-    color: add-alpha($white, 30%);
+    border-color: add-alpha($kz-color-white, 30%);
+    color: add-alpha($kz-color-white, 30%);
   }
 
   &%caButtonPrimary {
     &:not(:disabled) {
-      background: $white;
+      background: $kz-color-white;
       border-color: transparent;
       color: $kz-color-wisteria-800;
 
@@ -238,25 +238,25 @@ $caButton-verticalPaddingForm: calc(
       }
 
       &:hover {
-        background: add-alpha($white, 95%);
+        background: add-alpha($kz-color-white, 95%);
       }
 
       :global(.js-focus-visible) &:global(.focus-visible) {
         border-color: $kz-color-cluny-500;
 
         &:not(:active) {
-          background: add-alpha($white, 95%);
+          background: add-alpha($kz-color-white, 95%);
         }
       }
 
       &:active {
-        background: add-alpha($white, 90%);
+        background: add-alpha($kz-color-white, 90%);
         border-color: transparent;
       }
     }
 
     &:disabled {
-      background: add-alpha($white, 10%);
+      background: add-alpha($kz-color-white, 10%);
       border-color: transparent;
     }
   }
@@ -265,18 +265,18 @@ $caButton-verticalPaddingForm: calc(
     &:not(:disabled) {
       background: transparent;
       border-color: transparent;
-      color: $white;
+      color: $kz-color-white;
 
       %caButtonLabel {
-        color: $white;
+        color: $kz-color-white;
       }
 
       &:hover {
-        background: add-alpha($white, 10%);
+        background: add-alpha($kz-color-white, 10%);
       }
 
       &:active {
-        background: add-alpha($white, 20%);
+        background: add-alpha($kz-color-white, 20%);
       }
 
       :global(.js-focus-visible) &:global(.focus-visible) {
