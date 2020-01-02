@@ -106,7 +106,7 @@ $row-height: 60px;
   border-color: transparent;
   box-shadow: none;
   border-radius: $ca-border-radius;
-  background-color: add-shade($kz-color-ash, 5%);
+  background-color: $kz-color-ash;
   margin-bottom: $ca-grid * 0.5;
 }
 
