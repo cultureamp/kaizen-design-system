@@ -68,6 +68,7 @@ $row-height: 60px;
   text-decoration: none;
   color: $ca-palette-ink;
   display: block;
+
   &:hover,
   &:active,
   &:focus {
@@ -141,4 +142,9 @@ $row-height: 60px;
   padding: 0 $ca-grid * 0.8;
   display: flex;
   align-items: center;
+
+  // IE11 don't like aling items when a min-height. 
+  &:after {
+    min-height: inherit;
+  }
 }
