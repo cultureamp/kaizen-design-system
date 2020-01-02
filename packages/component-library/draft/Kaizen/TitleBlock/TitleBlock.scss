@@ -305,6 +305,8 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
   }
 
   .breadcrumb {
+    color: $kz-color-white;
+
     &:hover {
       .circle {
         background-color: add-alpha(#fff, 40%);
@@ -314,6 +316,7 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 
   .circle {
     background-color: add-alpha(#fff, 20%);
+    color: $kz-color-white;
   }
 
   .titleBlock {
@@ -384,7 +387,7 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 .reverseColorWisteria {
   @include ca-media-tablet-and-up {
     .titleBlock {
-      background-color: $kz-color-wisteria-500;
+      background-color: $kz-color-wisteria-700;
     }
   }
   @include ca-media-mobile {
