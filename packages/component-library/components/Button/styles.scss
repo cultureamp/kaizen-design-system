@@ -53,12 +53,12 @@ $caButton-verticalPaddingForm: calc(
   // applied to elements that have no enabled/disabled states.
   &:not(:disabled) {
     background: $white;
-    border-color: $kz-color-wisteria-200;
+    border-color: $kz-color-wisteria-500;
     color: $kz-color-wisteria-800;
 
     &:hover {
-      background: $kz-color-stone;
-      border-color: $kz-color-wisteria-400;
+      background: $kz-color-wisteria-100;
+      border-color: $kz-color-wisteria-700;
     }
 
     &:active {
@@ -85,8 +85,8 @@ $caButton-verticalPaddingForm: calc(
   // Disabled
   &:disabled {
     background: $white;
-    border-color: $kz-color-wisteria-200;
-    color: $kz-color-wisteria-300;
+    border-color: add-alpha($kz-color-wisteria-500, 30%);
+    color: add-alpha($kz-color-wisteria-800, 30%);
   }
 }
 
@@ -99,7 +99,7 @@ $caButton-verticalPaddingForm: calc(
   &:not(:disabled) {
     background: $kz-color-seedling-500;
     border-color: $kz-color-seedling-500;
-    color: $white;
+    color: $kz-color-white;
 
     &:hover {
       background: $kz-color-seedling-500;
@@ -113,8 +113,15 @@ $caButton-verticalPaddingForm: calc(
   }
 
   &:disabled {
-    background: $kz-color-wisteria-100;
-    border-color: $kz-color-wisteria-100;
+    color: $kz-color-white;
+    background: add-alpha($kz-color-seedling-500, 30%);
+    border-color: transparent;
+  }
+}
+
+%caButtonDestructive {
+  &:disabled {
+    background: add-alpha($kz-color-coral-500, 30%);
   }
 }
 
@@ -152,19 +159,19 @@ $caButton-verticalPaddingForm: calc(
     &:hover,
     &:active {
       color: $kz-color-cluny-500;
-      background: add-alpha($kz-color-wisteria-800, 10%);
+      background: $kz-color-cluny-100;
       border-color: transparent;
     }
 
     &:active {
-      background: $kz-color-wisteria-100;
+      background: add-alpha($kz-color-wisteria-800, 30%);
     }
   }
 
   &:disabled {
     background: transparent;
     border-color: transparent;
-    color: $kz-color-wisteria-300;
+    color: add-alpha($kz-color-cluny-500, 30%);
   }
 }
 
@@ -209,6 +216,7 @@ $caButton-verticalPaddingForm: calc(
         color: $kz-color-wisteria-800;
       }
 
+      // to be deprecated or renamed to caButtonReverseColorCluny
       &%caButtonReverseColorOcean {
         color: $kz-color-cluny-500;
       }
@@ -234,7 +242,7 @@ $caButton-verticalPaddingForm: calc(
       }
 
       :global(.js-focus-visible) &:global(.focus-visible) {
-        border-color: $kz-color-yuzu-500;
+        border-color: $kz-color-cluny-500;
 
         &:not(:active) {
           background: add-alpha($white, 95%);
@@ -283,7 +291,7 @@ $caButton-verticalPaddingForm: calc(
     &:disabled {
       background: transparent;
       border-color: transparent;
-      color: add-alpha($white, 30%);
+      color: add-alpha($kz-color-white, 30%);
     }
   }
 }
