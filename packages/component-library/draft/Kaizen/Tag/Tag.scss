@@ -37,16 +37,16 @@ $small: $ca-grid;
 
 .dismissIcon {
   @include ca-margin($end: -$ca-grid * 0.15, $start: $ca-grid * 0.125);
-  color: $kz-color-wisteria-500;
+  color: $kz-color-wisteria-600;
   height: $ca-grid * 0.6;
   cursor: pointer;
 
   &:hover {
-    color: $kz-color-wisteria-500;
+    color: $kz-color-wisteria-700;
   }
 
   &:active {
-    color: $kz-color-wisteria-600;
+    color: $kz-color-wisteria-800;
   }
 }
 
@@ -69,7 +69,7 @@ $small: $ca-grid;
 }
 
 .default {
-  background-color: $kz-color-wisteria-100;
+  background-color: $kz-color-wisteria-200;
 
   &:hover {
     border-color: $kz-color-wisteria-300;
@@ -101,7 +101,7 @@ $small: $ca-grid;
 }
 
 .sentimentNone {
-  background-color: $white;
+  background-color: $kz-color-white;
   border-color: $kz-color-wisteria-300;
 
   &:hover {
@@ -118,7 +118,7 @@ $small: $ca-grid;
   }
 
   .validationIcon {
-    color: $kz-color-seedling-300;
+    color: $kz-color-seedling-500;
   }
 }
 
@@ -131,7 +131,7 @@ $small: $ca-grid;
   }
 
   .validationIcon {
-    color: $kz-color-cluny-300;
+    color: $kz-color-cluny-500;
   }
 }
 
@@ -208,7 +208,7 @@ $pulse-size-after: $pulse-size-initial * $pulse-scale-factor;
   left: -($pulse-size-after / 2) + ($pulse-size-initial / 2);
   top: -($pulse-size-after / 2) + ($pulse-size-initial / 2);
   border-radius: 50%;
-  background-color: $kz-color-cluny-500;
+  background-color: $kz-color-seedling-500;
   animation: pulsate infinite 2.5s ease-out;
 }
 
