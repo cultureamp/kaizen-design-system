@@ -59,7 +59,7 @@ $row-height: 60px;
 
 .card {
   @include button-reset;
-  background: $white;
+  background: $kz-color-white;
   border: solid 1px $ca-border-color;
   box-shadow: $ca-box-shadow;
   transition: box-shadow $ca-duration-rapid, border-color $ca-duration-rapid,
