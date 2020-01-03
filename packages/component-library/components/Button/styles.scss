@@ -97,18 +97,18 @@ $caButton-verticalPaddingForm: calc(
 %caButtonPrimary,
 %caButtonDestructive {
   &:not(:disabled) {
-    background: $kz-color-seedling-500;
-    border-color: $kz-color-seedling-500;
+    background: #58b59a; // equal to add-tint($ca-palette-seedling, 10%). Temporary until we upgrade to Zen (Wisteria)
+    border-color: #58b59a;
     color: $kz-color-white;
 
     &:hover {
-      background: $kz-color-seedling-600;
-      border-color: $kz-color-seedling-600;
+      background: #45ad8f; // equal to $ca-palette-seedling. Temporary until we upgrade to Zen (Wisteria)
+      border-color: #45ad8f;
     }
 
     &:active {
-      background: $kz-color-seedling-600;
-      border-color: $kz-color-seedling-600;
+      background: #58b59a; // equal to add-tint($ca-palette-seedling, 10%). Temporary until we upgrade to Zen (Wisteria)
+      border-color: #58b59a;
     }
   }
 
