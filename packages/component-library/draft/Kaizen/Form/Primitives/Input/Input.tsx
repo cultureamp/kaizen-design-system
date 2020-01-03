@@ -21,6 +21,8 @@ export type InputProps = {
   startIconAdornment?: React.ReactNode
   endIconAdornment?: React.ReactNode
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any
 }
 
 type Input = React.FunctionComponent<InputProps>
@@ -40,6 +42,8 @@ const Input: Input = ({
   startIconAdornment,
   endIconAdornment,
   onChange,
+  onBlur,
+  onFocus,
 }) => (
   <div
     className={classnames(styles.wrapper, {
@@ -62,6 +66,8 @@ const Input: Input = ({
       aria-describedby={ariaDescribedBy}
       placeholder={placeholder}
       onChange={onChange}
+      onBlur={onBlur}
+      onFocus={onFocus}
       disabled={disabled}
       className={classnames(
         styles.input,
