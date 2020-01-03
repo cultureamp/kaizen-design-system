@@ -130,13 +130,13 @@ $caButton-verticalPaddingForm: calc(
   border-color: $kz-color-coral-500;
 
   &:hover {
-    background: $kz-color-coral-500;
-    border-color: $kz-color-coral-500;
+    background: $kz-color-coral-600;
+    border-color: $kz-color-coral-600;
   }
 
   &:active {
-    background: $kz-color-coral-500;
-    border-color: $kz-color-coral-500;
+    background: $kz-color-coral-600;
+    border-color: $kz-color-coral-600;
   }
 
   :global(.js-focus-visible) &:global(.focus-visible) {
