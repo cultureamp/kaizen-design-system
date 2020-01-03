@@ -64,6 +64,23 @@ storiesOf("Button", module)
       disabled={true}
     />
   ))
+  .add("Secondary Destructive (not yet implemented)", () => (
+    <Button
+      label="Delete"
+      secondary={true}
+      disabled={false}
+      destructive={true}
+    />
+  ))
+  .add("Secondary Destructive w/ Icon (not yet implemented)", () => (
+    <Button
+      label="Delete"
+      icon={configureIcon}
+      secondary={true}
+      disabled={false}
+      destructive={true}
+    />
+  ))
   .add("Destructive", () => <Button label="Label" destructive={true} />)
   .add("Destructive Disabled", () => (
     <Button label="Label" destructive={true} disabled={true} />
@@ -224,5 +241,6 @@ loadElmStories("Button (Elm)", module, require("./Button.stories.elm"), [
   "Secondary",
   "Destructive",
   "Destructive w/ Icon",
+  "Secondary Destructive",
   "Secondary Destructive w/ Icon",
 ])

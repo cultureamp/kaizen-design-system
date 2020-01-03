@@ -22,6 +22,12 @@ main =
                     |> Button.iconPosition Button.Start
                 )
                 "Label"
+        , statelessStoryOf "Secondary Destructive" <|
+            Button.view
+                (Button.secondary
+                    |> Button.destructiveModifier True
+                )
+                "Label"
         , statelessStoryOf "Secondary Destructive w/ Icon" <|
             Button.view
                 (Button.secondary
