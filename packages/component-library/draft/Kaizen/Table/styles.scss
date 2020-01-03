@@ -143,7 +143,7 @@ $row-height: 60px;
   display: flex;
   align-items: center;
 
-  // IE11 don't like aling items when a min-height. 
+  // IE11 don't like aling items when a min-height.
   &:after {
     min-height: inherit;
   }
