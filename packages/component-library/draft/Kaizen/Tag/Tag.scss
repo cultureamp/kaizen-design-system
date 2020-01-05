@@ -164,25 +164,24 @@ $small: $ca-grid;
 .statusLive {
   background-color: $kz-color-seedling-100;
   border-color: $kz-color-seedling-100;
-  color: $kz-color-seedling-500;
+  color: $kz-color-wisteria-800;
 }
 
 .statusDraft {
-  background-color: $kz-color-peach-100;
+  background-color: add-alpha($kz-color-peach-500, 20%);
   border-color: $kz-color-peach-100;
-  color: $kz-color-peach-500;
+  color: $kz-color-wisteria-800;
 }
 
 .statusClosed {
-  background-color: $kz-color-wisteria-100;
+  background-color: $kz-color-wisteria-200;
   border-color: $kz-color-wisteria-200;
-  color: $kz-color-wisteria-500;
 }
 
 .statusAction {
   background-color: $kz-color-cluny-100;
   border-color: $kz-color-cluny-100;
-  color: $kz-color-cluny-500;
+  color: $kz-color-wisteria-800;
 }
 
 $pulse-size-initial: 2px;
