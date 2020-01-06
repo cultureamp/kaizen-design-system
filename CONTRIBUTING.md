@@ -6,6 +6,8 @@ Kaizen Design System follows a federated, open-source model. All teams contribut
 
 ### Issues
 
+An issue is a way to track ideas, enhancements and bugs. 
+
 Before creating an issue, search existing [Issues](https://github.com/cultureamp/kaizen-design-system/issues/) to see if any relevant issues already exist.
 
 To create a new issue for changes to design documentation or missing documentation:
