@@ -22,15 +22,12 @@ import Dont from "docs-components/Dont"
 
 To add a new icon to the Kaizen UI Kit, to export an icon from the UI Kit, or to add an icon to the Kaizen Component Library, Culture Amp employees can see an [internal link for the icons process on our wiki](https://cultureamp.atlassian.net/wiki/spaces/Prod/pages/154211094/Icon+Process).
 
-## Interaction states
+## Using icons in components
 
-<InteractionStatesDemo />
+- To display icons that do not have actions associated with them, use the [Icon](/components/icon) component.
+- For clickable icons that perform actions, use an [Icon Button](/components/icon-button).
 
-## Size, spacing and touch targets
-
-<IconSizeSpaceTouch />
-
-## Icons
+## Visuals
 
 <IconGrid />
 
@@ -66,17 +63,20 @@ Icons are a visual aid or cue. They guide user where to go or what to do. They c
 - Maintain a minimum touch target of 48px where appropriate.
 - For spacing between an icon and its label, use 10px.
 
-Using icons in components:
-
-- To display icons that do not have actions associated with them, use the [Icon](/components/icon) component.
-- For clickable icons that perform actions, use an [Icon Button](/components/icon-button).
-
 Positioning and location:
 
 - Use icons next to control actions (e.g. Export, Print etc.).
 - Conceptually, icons always need a label (screen reader, title tag, alt tag, tooltips).
 - Icons can be used as illustrations (e.g. Drag & Drop or Guidance block).
 - Use icons to trigger tooltips for information.
+
+### Size, spacing and touch targets
+
+<IconSizeSpaceTouch />
+
+### Interaction states
+
+<InteractionStatesDemo />
 
 ## When to use and when not to use
 
