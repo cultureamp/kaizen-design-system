@@ -35,7 +35,7 @@ steps:
     branches: "!master"
     <<: *defaults
 
-  - name: ":painting: Build (Chromatic)"
+  - name: ":package: Build (Chromatic)"
     command: ".buildkite/scripts/run-chromatic-build.sh"
     artifact_paths: "./chromatic.tar.gz"
     <<: *defaults
