@@ -68,24 +68,26 @@ const Popover: Popover = forwardRef<HTMLDivElement, Props>(
       ref={ref}
     >
       <div className={mapVariantToBoxClass(variant)}>
-        <div className={styles.header}>
-          {variant !== "default" && (
-            <span
-              className={classNames(
-                styles.icon,
-                mapVariantToIconClass(variant)
-              )}
-            >
-              <Icon role="presentation" icon={mapVariantToIcon(variant)} />
-            </span>
-          )}
-          <div className={styles.singleLine}>{heading}</div>
-          {dismissible && (
-            <button className={styles.close} onClick={onClose}>
-              <Icon role="presentation" icon={closeIcon} />
-            </button>
-          )}
-        </div>
+        {heading && (
+          <div className={styles.header}>
+            {variant !== "default" && (
+              <span
+                className={classNames(
+                  styles.icon,
+                  mapVariantToIconClass(variant)
+                )}
+              >
+                <Icon role="presentation" icon={mapVariantToIcon(variant)} />
+              </span>
+            )}
+            <div className={styles.singleLine}>{heading}</div>
+            {dismissible && (
+              <button className={styles.close} onClick={onClose}>
+                <Icon role="presentation" icon={closeIcon} />
+              </button>
+            )}
+          </div>
+        )}
         <div
           className={classNames(styles.container, mapLineVariant(singleLine))}
         >
