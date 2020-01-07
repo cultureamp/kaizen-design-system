@@ -132,12 +132,12 @@ $link-icon-margin: 12px;
   }
 
   :global(.md-a) {
-    text-decoration: none;
+    text-decoration: underline;
     color: $kz-color-cluny-500;
     word-break: break-word;
 
     &:hover {
-      text-decoration: underline;
+      text-decoration: none;
     }
   }
 
