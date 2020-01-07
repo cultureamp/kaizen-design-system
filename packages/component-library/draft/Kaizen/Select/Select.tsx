@@ -29,7 +29,7 @@ const Select = (props: Props) => {
         ClearIndicator: null,
         IndicatorSeparator: null,
       }}
-      className={styles.container}
+      className={classNames(styles.container, props.className)}
     />
   )
 }
@@ -61,10 +61,11 @@ const Menu: typeof components.Menu = props => (
   <components.Menu {...props} className={styles.menu} />
 )
 
+// TODO - needsclick class disables fastclick on this element. Remove when fastclick is removed from consuming repos
 const Option: typeof components.Option = props => (
   <components.Option
     {...props}
-    className={classNames(styles.option, {
+    className={classNames("needsclick", styles.option, {
       [styles.focusedOption]: props.isFocused,
       [styles.selectedOption]: props.isSelected,
     })}

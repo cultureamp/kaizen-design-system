@@ -1,4 +1,13 @@
-module Kaizen.Modal.Primitives.ModalFooter exposing (PositionContent(..), Variant(..), fixed, layout, positionContent, view)
+module Kaizen.Modal.Primitives.ModalFooter exposing
+    ( PositionContent(..)
+    , Variant(..)
+    , border
+    , fixed
+    , layout
+    , padded
+    , positionContent
+    , view
+    )
 
 import CssModules exposing (css)
 import Html exposing (Html, div, text)
@@ -12,6 +21,8 @@ type alias Configuration msg =
     { variant : Variant msg
     , contentPosition : PositionContent
     , fixed : Bool
+    , border : Bool
+    , padded : Bool
     }
 
 
@@ -30,7 +41,7 @@ view (Config config) =
 
         filler content =
             if useFiller then
-                fillerBox content
+                fillerBox config content
 
             else
                 []
@@ -49,15 +60,34 @@ layoutBox content config =
             , ( .end, config.contentPosition == End )
             , ( .start, config.contentPosition == Start )
             , ( .fixed, config.fixed )
+            , ( .border, config.border )
+            , ( .padded, config.padded )
+            ]
+        ]
+        (List.map
+            actionButton
+            content
+        )
+    ]
+
+
+fillerBox : Configuration msg -> List (Html msg) -> List (Html msg)
+fillerBox config content =
+    [ div
+        [ styles.classList
+            [ ( .filler, True )
+            , ( .footerWrap, True )
+            , ( .border, config.border )
+            , ( .padded, config.padded )
             ]
         ]
         content
     ]
 
 
-fillerBox : List (Html msg) -> List (Html msg)
-fillerBox content =
-    [ div [ styles.classList [ ( .filler, True ), ( .footerWrap, True ) ] ] content ]
+actionButton : Html msg -> Html msg
+actionButton button =
+    div [ styles.class .elmActionButton ] [ button ]
 
 
 
@@ -82,6 +112,8 @@ defaults =
     { variant = Layout [ text "" ]
     , contentPosition = End
     , fixed = False
+    , border = True
+    , padded = False
     }
 
 
@@ -99,12 +131,25 @@ positionContent position (Config config) =
     Config { config | contentPosition = position }
 
 
+border : Bool -> Config msg -> Config msg
+border predicate (Config config) =
+    Config { config | border = predicate }
+
+
+padded : Bool -> Config msg -> Config msg
+padded predicate (Config config) =
+    Config { config | padded = predicate }
+
+
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/ModalFooter.elm.scss"
+    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/ModalFooter.scss"
         { footerWrap = "footerWrap"
         , center = "center"
+        , border = "border"
         , end = "end"
         , start = "start"
         , filler = "filler"
         , fixed = "fixed"
+        , elmActionButton = "elmActionButton"
+        , padded = "padded"
         }

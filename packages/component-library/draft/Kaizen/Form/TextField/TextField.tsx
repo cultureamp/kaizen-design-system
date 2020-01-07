@@ -31,6 +31,8 @@ type TextField = React.FunctionComponent<{
   validationMessage?: string
   description?: string
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => any
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any
   name?: string
 }>
 
@@ -48,6 +50,8 @@ const TextField: TextField = ({
   status,
   icon,
   onChange,
+  onBlur,
+  onFocus,
   name,
 }) => {
   const validationMessageAria = validationMessage
@@ -88,6 +92,8 @@ const TextField: TextField = ({
         inputValue={inputValue}
         placeholder={placeholder}
         onChange={onChange}
+        onBlur={onBlur}
+        onFocus={onFocus}
         disabled={disabled}
         reversed={reversed}
         status={status}
