@@ -170,105 +170,146 @@ storiesOf("Table", module)
       </TableContainer>
     </Container>
   ))
-  .add("Expanded", () => (
-    <Container>
-      <TableContainer>
-        <TableHeader>
-          <ExampleTableHeaderRow checkable />
-        </TableHeader>
-        <TableCard onClick={() => alert("expand!")}>
-          <ExampleTableRow />
-        </TableCard>
-        <TableCard expanded onClick={() => alert("unexpand!")}>
-          <ExampleTableRow expanded />
-          <TableContainer>
-            <TableCard>
-              <ExampleTableRow expandable={false} />
-            </TableCard>
-            <TableCard>
-              <ExampleTableRow expandable={false} />
-            </TableCard>
-          </TableContainer>
-        </TableCard>
-        <TableCard onClick={() => alert("expand!")}>
-          <ExampleTableRow />
-        </TableCard>
-      </TableContainer>
-    </Container>
-  ))
-  .add("Expanded popout", () => (
-    <Container>
-      <TableContainer>
-        <TableHeader>
-          <ExampleTableHeaderRow checkable />
-        </TableHeader>
-        <TableCard onClick={() => alert("expand!")}>
-          <ExampleTableRow />
-        </TableCard>
-        <TableCard
-          expanded
-          expandedStyle="popout"
-          onClick={() => alert("unexpand!")}
-        >
-          <ExampleTableRow expanded />
-          <div>
-            <div className={styles.popoutExpandedBody}>
-              <div className={styles.customExpandedHeader}>
-                <Text tag="div" style="label">
-                  Overall progress
-                </Text>
-              </div>
-              <Text tag="p">We are making good progress towards our goal!</Text>
-            </div>
-            <div className={styles.popoutExpandedFooter}>
-              <Text tag="div" style="body-bold">
-                Created on: July 12, 2017
-              </Text>
-            </div>
-          </div>
-        </TableCard>
-        <TableCard onClick={() => alert("expand!")}>
-          <ExampleTableRow />
-        </TableCard>
-      </TableContainer>
-    </Container>
-  ))
-  .add("Expanded with custom content", () => (
-    <Container>
-      <TableContainer>
-        <TableHeader>
-          <ExampleTableHeaderRow checkable />
-        </TableHeader>
-        <TableCard onClick={() => alert("expand!")}>
-          <ExampleTableRow />
-        </TableCard>
-        <TableCard expanded>
-          <div className={styles.customExpandedHeader}>
-            <Text tag="div" style="label">
-              Overall progress
-            </Text>
-          </div>
-          <TableContainer>
-            <TableCard onClick={() => alert("unexpand!")}>
-              <ExampleTableRow expanded />
-            </TableCard>
-          </TableContainer>
-          <TableContainer>
-            <ExampleTableHeaderRow />
-            <TableCard>
-              <ExampleTableRow expandable={false} />
-            </TableCard>
-            <TableCard>
-              <ExampleTableRow expandable={false} />
-            </TableCard>
-          </TableContainer>
-        </TableCard>
-        <TableCard onClick={() => alert("expand!")}>
-          <ExampleTableRow />
-        </TableCard>
-      </TableContainer>
-    </Container>
-  ))
+  .add("Expanded", () => {
+    const [expandedId, setExpandedId] = React.useState<string | null>("second")
+    const toggleExpanded = id => {
+      if (expandedId === id) {
+        setExpandedId(null)
+        return
+      }
+      setExpandedId(id)
+    }
+    return (
+      <Container>
+        <TableContainer>
+          <TableHeader>
+            <ExampleTableHeaderRow checkable />
+          </TableHeader>
+          {["first", "second", "third"].map(id => {
+            const expanded = expandedId === id
+            return (
+              <TableCard expanded={expanded} onClick={() => toggleExpanded(id)}>
+                <ExampleTableRow expanded={expanded} />
+                {expanded && (
+                  <TableContainer>
+                    <TableCard>
+                      <ExampleTableRow expandable={false} />
+                    </TableCard>
+                    <TableCard>
+                      <ExampleTableRow expandable={false} />
+                    </TableCard>
+                  </TableContainer>
+                )}
+              </TableCard>
+            )
+          })}
+        </TableContainer>
+      </Container>
+    )
+  })
+  .add("Expanded popout", () => {
+    const [expandedId, setExpandedId] = React.useState<string | null>("second")
+    const toggleExpanded = id => {
+      if (expandedId === id) {
+        setExpandedId(null)
+        return
+      }
+      setExpandedId(id)
+    }
+    return (
+      <Container>
+        <TableContainer>
+          <TableHeader>
+            <ExampleTableHeaderRow checkable />
+          </TableHeader>
+          {["first", "second", "third"].map(id => {
+            const expanded = expandedId === id
+            return (
+              <TableCard
+                key={id}
+                expandedStyle="popout"
+                expanded={expanded}
+                onClick={() => toggleExpanded(id)}
+              >
+                <ExampleTableRow expanded={expanded} />
+                {expanded && (
+                  <div>
+                    <div className={styles.popoutExpandedBody}>
+                      <div className={styles.customExpandedHeader}>
+                        <Text tag="div" style="label">
+                          Overall progress
+                        </Text>
+                      </div>
+                      <Text tag="p">
+                        We are making good progress towards our goal!
+                      </Text>
+                    </div>
+                    <div className={styles.popoutExpandedFooter}>
+                      <Text tag="div" style="body-bold">
+                        Created on: July 12, 2017
+                      </Text>
+                    </div>
+                  </div>
+                )}
+              </TableCard>
+            )
+          })}
+        </TableContainer>
+      </Container>
+    )
+  })
+  .add("Expanded with custom content", () => {
+    const [expandedId, setExpandedId] = React.useState<string | null>("second")
+    const toggleExpanded = id => {
+      if (expandedId === id) {
+        setExpandedId(null)
+        return
+      }
+      setExpandedId(id)
+    }
+    return (
+      <Container>
+        <TableContainer>
+          <TableHeader>
+            <ExampleTableHeaderRow checkable />
+          </TableHeader>
+          {["first", "second", "third"].map(id => {
+            const expanded = expandedId === id
+            return (
+              <>
+                <TableCard onClick={() => toggleExpanded(id)}>
+                  <ExampleTableRow />
+                </TableCard>
+                {expanded && (
+                  <TableCard expanded={expanded}>
+                    <div className={styles.customExpandedHeader}>
+                      <Text tag="div" style="label">
+                        Overall progress
+                      </Text>
+                    </div>
+                    <TableContainer>
+                      <TableCard onClick={() => toggleExpanded(id)}>
+                        <ExampleTableRow expanded={expanded} />
+                      </TableCard>
+                    </TableContainer>
+                    <TableContainer>
+                      <ExampleTableHeaderRow />
+                      <TableCard>
+                        <ExampleTableRow expandable={false} />
+                      </TableCard>
+                      <TableCard>
+                        <ExampleTableRow expandable={false} />
+                      </TableCard>
+                    </TableContainer>
+                  </TableCard>
+                )}
+              </>
+            )
+          })}
+        </TableContainer>
+      </Container>
+    )
+  })
   .add("No header", () => (
     <Container>
       <TableContainer>

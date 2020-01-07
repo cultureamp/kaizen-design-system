@@ -1,5 +1,12 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
+@import "~@cultureamp/kaizen-component-library/styles/layout";
 @import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/border";
+@import "~@cultureamp/kaizen-component-library/components/NavigationBar/styles";
+@import "~@cultureamp/kaizen-component-library/components/Icon/styles";
+
+$link-icon-margin: 12px;
 
 .markdownContainer {
   :global(.md-p) {
@@ -26,6 +33,26 @@
     margin-top: $ca-grid;
   }
 
+  /* Adds a negative top margin to counter for the fixed header + add a bit of padding */
+  :global(.md-anchor-offset) {
+    display: block;
+    position: relative;
+    top: -$ca-navigation-bar__height - $ca-grid;
+    visibility: hidden;
+  }
+
+  :global(.md-heading-link) {
+    float: left;
+    margin-left: -$ca-icon-width - ($link-icon-margin * 2);
+    padding: 0 $link-icon-margin;
+    color: add-alpha($kz-color-wisteria-700, 80%);
+    &:not(:focus) {
+      svg {
+        visibility: hidden;
+      }
+    }
+  }
+
   :global(.md-h1),
   :global(.md-h2),
   :global(.md-h3),
@@ -34,6 +61,10 @@
   :global(.md-h6) {
     font-weight: $ca-weight-book;
     margin: ($ca-grid * 2) 0 ($ca-grid / 2);
+
+    &:hover :global(.md-heading-link) svg {
+      visibility: visible;
+    }
   }
 
   // This is the actual h1 in the Header component.
@@ -102,7 +133,7 @@
 
   :global(.md-a) {
     text-decoration: none;
-    color: $ca-palette-ocean;
+    color: $kz-color-cluny-500;
     word-break: break-word;
 
     &:hover {
@@ -135,12 +166,12 @@
     font-weight: $ca-weight-light;
   }
 
-  :global(.md-code) {
-    line-height: inherit;
-    background-color: add-tint($ca-palette-ink, 80%);
-    // color: #fff;
-    padding: 0.25em;
-    border-radius: 0.25em;
+  :global(.md-pre) {
+    background-color: $kz-color-stone;
+
+    & :global(.md-code) {
+      padding: 0;
+    }
   }
 
   // :global(.md-lede) {
@@ -177,15 +208,15 @@
   }
 
   :global(iframe) {
-    background-color: $ca-palette-ash;
+    background-color: $kz-color-ash;
     border-radius: 3px;
     margin-top: 1.5rem;
     width: 100%;
   }
 
   :global(blockquote) {
-    background-color: $ca-palette-stone;
-    border-left: 4px solid $ca-palette-wisteria;
+    background-color: $kz-color-stone;
+    border-left: 4px solid $kz-color-wisteria-600;
     margin: 0;
     padding: 0.5rem 1.5rem;
   }

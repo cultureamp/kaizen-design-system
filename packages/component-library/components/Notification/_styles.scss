@@ -122,6 +122,12 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
       opacity: 1;
     }
   }
+
+  // Modifiers
+
+  &%ca-notification---noBottomMargin {
+    margin-bottom: 0;
+  }
 }
 
 %ca-notification__icon {

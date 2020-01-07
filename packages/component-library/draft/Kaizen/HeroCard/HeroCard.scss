@@ -1,0 +1,76 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
+@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@cultureamp/kaizen-component-library/styles/layout";
+
+$left-content__width: 221px;
+$badge__height: 80px;
+
+.root {
+  @include ca-type-ideal-body;
+  @include ca-inherit-baseline;
+  display: flex;
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.left {
+  display: flex;
+  border-radius: 5px 0 0 5px;
+  background-color: $kz-color-wisteria-700;
+  color: $kz-color-white;
+  min-width: $left-content__width;
+  padding: ($ca-grid / 2) ($ca-grid * 2);
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.withBadge {
+  margin-top: $badge__height + 24px;
+}
+
+.right {
+  border-radius: 0 5px 5px 0;
+  padding: 51px;
+  background-color: $kz-color-white;
+  flex: 2 2 auto;
+  color: $kz-color-wisteria-800;
+}
+
+.title {
+  @include ca-type-ideal-page-title;
+  @include ca-inherit-baseline;
+  @include ca-margin($top: 0, $bottom: $ca-grid);
+}
+
+.badge {
+  @include ca-type-ideal-page-title;
+  @include ca-inherit-baseline;
+  display: flex;
+  font-size: 42px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  align-self: flex-start;
+  min-width: 80px;
+  min-height: 80px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: $ca-grid;
+  left: $ca-grid * 1.2;
+}
+
+.image {
+  width: $left-content__width + 128px;
+  height: auto;
+  position: absolute;
+  bottom: -128px;
+  left: 50%;
+  transform: translateX(-50%);
+}

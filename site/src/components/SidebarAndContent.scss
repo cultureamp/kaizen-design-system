@@ -1,3 +1,4 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "~@cultureamp/kaizen-component-library/styles/layout";
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/type";
@@ -53,7 +54,7 @@ $sidebar-width: $ca-grid * 10;
 
 .sidebar {
   grid-area: sidebar;
-  margin-top: $ca-grid;
+  margin-top: $ca-grid * 1.5;
 }
 
 .sidebarSectionTitle {
@@ -62,7 +63,7 @@ $sidebar-width: $ca-grid * 10;
   font-weight: 500;
   margin: 1.5rem 0.75rem 0.75rem;
   letter-spacing: 0.03125em;
-  color: add-tint($ca-palette-ink, 20%);
+  color: add-alpha($kz-color-wisteria-700, 80%);
 }
 
 .tabList {
@@ -75,22 +76,22 @@ $sidebar-width: $ca-grid * 10;
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 24px;
 
   a {
-    padding: $ca-grid / 2.5 $ca-grid / 2;
+    padding: $ca-grid * 0.25 $ca-grid / 2;
     width: 100%;
     text-decoration: none;
     color: inherit;
 
     &:hover {
-      background-color: $ca-palette-ash;
+      background-color: $kz-color-ash;
     }
   }
 
   &.active {
-    background-color: $ca-palette-ash;
-    color: $ca-palette-ocean;
+    background-color: $kz-color-ash;
+    color: $kz-color-cluny-500;
   }
 }

@@ -387,6 +387,28 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
+  .add("Default with Focus/Blur events", () => (
+    <ExampleContainer>
+      <TextField
+        id="email"
+        inputType="email"
+        inputValue=""
+        labelText={
+          <div>
+            This is a label with a{" "}
+            <a href="http://google.com" target="_blank">
+              link
+            </a>
+          </div>
+        }
+        placeholder="Please enter your email"
+        onFocus={action("onFocus fired")}
+        onBlur={action("onBlur fired")}
+        onChange={action("user input")}
+        description="Valid email addresses must have an @ and a suffix."
+      />
+    </ExampleContainer>
+  ))
 
 loadElmStories("TextField (Elm)", module, require("./TextFieldStories.elm"), [
   "Default",

@@ -14,16 +14,20 @@ needToKnow:
 import InteractionStatesDemo from 'docs-components/icons/InteractionStatesDemo'
 import IconSizeSpaceTouch from 'docs-components/icons/IconSizeSpaceTouch'
 import IconGrid from 'docs-components/icons/IconGrid'
+import DosAndDonts from "docs-components/DosAndDonts"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
 
-## Interaction states
+## Adding new icons
 
-<InteractionStatesDemo />
+To add a new icon to the Kaizen UI Kit, to export an icon from the UI Kit, or to add an icon to the Kaizen Component Library, Culture Amp employees can see an [internal link for the icons process on our wiki](https://cultureamp.atlassian.net/wiki/spaces/Prod/pages/154211094/Icon+Process).
 
-## Size, spacing and touch targets
+## Using icons in components
 
-<IconSizeSpaceTouch />
+- To display icons that do not have actions associated with them, use the [Icon](/components/icon) component.
+- For clickable icons that perform actions, use an [Icon Button](/components/icon-button).
 
-## Icons
+## Visuals
 
 <IconGrid />
 
@@ -59,34 +63,48 @@ Icons are a visual aid or cue. They guide user where to go or what to do. They c
 - Maintain a minimum touch target of 48px where appropriate.
 - For spacing between an icon and its label, use 10px.
 
-See [icon button](../icon-button) for interaction guidelines, such as hover states.
+Positioning and location:
 
-## When to use
+- Use icons next to control actions (e.g. Export, Print etc.).
+- Conceptually, icons always need a label (screen reader, title tag, alt tag, tooltips).
+- Icons can be used as illustrations (e.g. Drag & Drop or Guidance block).
+- Use icons to trigger tooltips for information.
+
+### Size, spacing and touch targets
+
+<IconSizeSpaceTouch />
+
+### Interaction states
+
+<InteractionStatesDemo />
+
+## When to use and when not to use
+
+<DosAndDonts>
+<Do>
 
 - Use icons as a visual shortcut to accelerate people.
 - Use icons to enhance aesthetic, hierarchy and composition of layout design.
 - Icons can assist comprehension across languages.
 - Use icons to reduce labeling/wording to convey meaning.
-
-Positioning and location:
-
-- Use icons next to control actions (e.g. Export, Print etc.).
 - Use icons when space is at a premium.
-- Conceptually, icons always need a label (screen reader, title tag, alt tag, tooltips).
-- Icons can be used as illustrations (e.g. Drag & Drop or Guidance block).
-- Use icons trigger tooltips.
 
-## When not to use
+</Do>
+<Dont>
 
 - Avoid aligning icons to the [baseline grid](../vertical-rhythm-and-baseline-grid).
 - Avoid using icons in isolation or without labels, unless universally recognized (Search, Home, Close, Print).
 - Avoid using icons when there's already a lot.
 - Avoid using icons for the sake of it.
 
+</Dont>
+</DosAndDonts>
+
 ## See also
 
-- [Icon button](../icon-button).
-- [Tooltips](../tooltips).
+- [Icon component](/components/icon).
+- [Icon Button](/components/icon-button).
+- [Tooltip](/components/tooltip).
 
 ## External links
 
@@ -94,3 +112,4 @@ Here are some examples of existing design systems or references:
 
 - [Polaris: icon](https://polaris.shopify.com/components/images-and-icons/icon#navigation).
 - [Material: iconography](https://material.io/design/iconography/product-icons.html).
+

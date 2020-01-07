@@ -19,6 +19,7 @@ type GenericProps = {
   automationId?: string
   fullWidth?: boolean
   disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean
+  analytics?: Analytics
 }
 
 type LabelProps = {
@@ -26,6 +27,11 @@ type LabelProps = {
   primary?: boolean
   secondary?: boolean
   reverseColor?: "lapis" | "ocean" | "peach" | "seedling" | "wisteria" | "yuzu"
+}
+
+type Analytics = {
+  eventName: string
+  properties: Object
 }
 
 export type IconButtonProps = GenericProps
@@ -87,6 +93,10 @@ const renderButton: React.FunctionComponent<Props> = props => {
           ? -1
           : undefined
       }
+      data-analytics-click={props.analytics && props.analytics.eventName}
+      data-analytics-properties={
+        props.analytics && JSON.stringify(props.analytics.properties)
+      }
     >
       {renderContent(props)}
     </button>
@@ -116,6 +126,10 @@ const renderLink: React.FunctionComponent<Props> = props => {
         }
       }}
       data-automation-id={props.automationId}
+      data-analytics-click={props.analytics && props.analytics.eventName}
+      data-analytics-properties={
+        props.analytics && JSON.stringify(props.analytics.properties)
+      }
     >
       {renderContent(props)}
     </a>

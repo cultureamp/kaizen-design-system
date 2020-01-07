@@ -19,9 +19,11 @@ interface Props {
   readonly title: string
   readonly onSubmit: () => void
   readonly onDismiss: () => void
+  readonly localeDirection?: "rtl" | "ltr"
   readonly submitLabel?: string
   readonly dismissLabel?: string
   readonly children: React.ReactNode
+  readonly submitDisabled?: boolean
 }
 
 type InputEditModal = React.FunctionComponent<Props>
@@ -32,16 +34,18 @@ const InputEditModal = ({
   title,
   onSubmit,
   onDismiss,
+  localeDirection = "ltr",
   submitLabel = "Submit",
   dismissLabel = "Cancel",
   children,
+  submitDisabled = false,
 }: Props) => (
   <GenericModal
     isOpen={isOpen}
     onEscapeKeyup={onDismiss}
     onOutsideModalClick={onDismiss}
   >
-    <div className={styles.modal}>
+    <div className={styles.modal} dir={localeDirection}>
       <ModalHeader unpadded onDismiss={onDismiss}>
         <div className={styles.header}>
           <ModalAccessibleLabel>
@@ -52,11 +56,13 @@ const InputEditModal = ({
         </div>
       </ModalHeader>
       <ModalBody unpadded>
-        <div className={styles.body}>{children}</div>
+        <div className={styles.body} dir={localeDirection}>
+          {children}
+        </div>
       </ModalBody>
       <ModalFooter
         actions={[
-          { label: submitLabel, action: onSubmit },
+          { label: submitLabel, action: onSubmit, disabled: submitDisabled },
           { label: dismissLabel, action: onDismiss },
         ]}
         appearance={type === "negative" ? "destructive" : "primary"}

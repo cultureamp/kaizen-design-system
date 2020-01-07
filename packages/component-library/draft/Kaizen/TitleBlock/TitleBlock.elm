@@ -201,18 +201,19 @@ view title (Config config) =
 
         titleblockClassList =
             styles.classList
-                [ ( .titleBlock, True )
-                , ( .reverseColorLapis, config.reverseColor == Just Lapis )
+                [ ( .reverseColorLapis, config.reverseColor == Just Lapis )
                 , ( .reverseColorOcean, config.reverseColor == Just Ocean )
                 , ( .reverseColorPeach, config.reverseColor == Just Peach )
                 , ( .reverseColorSeedling, config.reverseColor == Just Seedling )
                 , ( .reverseColorWisteria, config.reverseColor == Just Wisteria )
                 , ( .reverseColorYuzu, config.reverseColor == Just Yuzu )
                 , ( .reverseColorTransparent, config.reverseColor == Just Transparent )
+                , ( .titleBlockContainer, True )
+                , ( .reversed, config.reversed )
                 ]
     in
-    div [ styles.classList [ ( .titleBlockContainer, True ), ( .reversed, config.reversed ) ] ]
-        [ div [ titleblockClassList, attribute "data-automation-id" "TitleBlock__TitleBlock" ]
+    div [ titleblockClassList ]
+        [ div [ class .titleBlock, attribute "data-automation-id" "TitleBlock__TitleBlock" ]
             [ div [ class .titleBlockInner ]
                 [ breadcrumbView
                 , div [ class .leftContent ]

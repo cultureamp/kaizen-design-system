@@ -1,3 +1,4 @@
+import classnames from "classnames"
 import * as React from "react"
 
 const styles = require("./styles.scss")
@@ -38,7 +39,8 @@ const RadioInput: RadioInput = ({
       value={value}
       checked={selectedStatus}
       data-automation-id={automationId}
-      className={styles.radioInput}
+      // TODO - needsclick class disables fastclick on this element to prevent double tap on mobile. Remove when fastclick is removed from consuming repos
+      className={classnames(styles.radioInput, "needsclick")}
       onChange={onChange}
       disabled={disabled}
     />

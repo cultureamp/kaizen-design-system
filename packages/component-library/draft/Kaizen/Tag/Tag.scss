@@ -1,26 +1,44 @@
 @import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/type";
 @import "~@cultureamp/kaizen-component-library/styles/layout";
+@import "~@cultureamp/kaizen-component-library/styles/type";
 
-$pulse-size-initial: 2px;
-$pulse-scale-factor: 9;
-$pulse-size-after: $pulse-size-initial * $pulse-scale-factor;
-$medium: 30px;
-$small: 24px;
-$clearable-size-small: 14px;
-$validation-icon-size: 20px;
+$medium: $ca-grid * 1.25;
+$small: $ca-grid;
 
-@mixin baseColor(
-  $color: null,
-  $background-mix-percent: null,
-  $border-mix-percent: null
-) {
-  background-color: add-tint($color, $background-mix-percent);
-  border: 1px solid add-tint($color, $border-mix-percent);
+.root {
+  @include ca-type-ideal-small-bold;
+  @include ca-inherit-baseline;
+  @include ca-margin($end: $ca-grid * 0.5);
+  color: $ca-palette-lapis;
+  display: inline-block;
+  border: 1px solid transparent;
+  border-radius: $ca-grid * 0.75;
+  padding: 0 $ca-grid * 0.4;
+  cursor: default;
 }
 
-.dismissIconColor {
+.layoutContainer {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.validationIcon {
+  @include ca-margin($start: -$ca-grid * 0.15, $end: $ca-grid * 0.125);
+  display: flex;
+  align-items: center;
+}
+
+.textContent {
+  @include ca-type-ideal-small-bold;
+  @include ca-inherit-baseline;
+}
+
+.dismissIcon {
+  @include ca-margin($end: -$ca-grid * 0.15, $start: $ca-grid * 0.125);
   color: add-tint($ca-palette-lapis, 50%);
+  height: $ca-grid * 0.6;
+  cursor: pointer;
 
   &:hover {
     color: add-tint($ca-palette-lapis, 40%);
@@ -29,34 +47,6 @@ $validation-icon-size: 20px;
   &:active {
     color: add-tint($ca-palette-lapis, 20%);
   }
-}
-
-.root {
-  @include ca-type-ideal-small-bold;
-  @include ca-margin($end: 1rem);
-  display: inline-block;
-  border-radius: 15px;
-  padding: 0 ($ca-grid / 2);
-  max-height: 1.5rem;
-  position: inherit;
-  cursor: default;
-}
-
-.dismissIcon {
-  @extend .dismissIconColor;
-  margin-left: 4px;
-  margin-right: -4px;
-  height: $clearable-size-small;
-
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.textContent {
-  @include ca-type-ideal-small-bold;
-  top: 0;
-  color: $ca-palette-lapis;
 }
 
 .truncate {
@@ -71,63 +61,85 @@ $validation-icon-size: 20px;
 
 .medium {
   height: $medium;
-  display: flex;
-  align-items: center;
-  position: inherit;
-  max-height: none;
 }
 
 .small {
-  display: flex;
-  align-items: center;
-  position: inherit;
   height: $small;
 }
 
 .default {
   background-color: add-tint($ca-palette-ink, 90%);
-  border: 1px solid transparent;
 
-  &.dismissible:hover {
-    border: 1px solid add-tint($ca-palette-ink, 70%);
+  &:hover {
+    border-color: add-tint($ca-palette-ink, 70%);
   }
 }
 
-.medium.validation {
-  padding-left: 30px;
-}
-
-.validationIcon {
-  height: $validation-icon-size;
-  position: absolute;
-  margin-left: -23px;
-}
-
-.cautionary {
-  @include baseColor(
-    $color: $ca-palette-yuzu,
-    $background-mix-percent: 95%,
-    $border-mix-percent: 40%
-  );
+.sentimentPositive {
+  background-color: add-tint($ca-palette-seedling, 80%);
 
   &:hover {
-    border: 1px solid add-tint($ca-palette-yuzu, 20%);
+    border-color: add-tint($ca-palette-seedling, 60%);
+  }
+}
+
+.sentimentNeutral {
+  background-color: add-tint($ca-palette-ink, 93%);
+
+  &:hover {
+    border-color: add-tint($ca-palette-ink, 70%);
+  }
+}
+
+.sentimentNegative {
+  background-color: add-tint($ca-palette-coral, 80%);
+
+  &:hover {
+    border-color: add-tint($ca-palette-coral, 40%);
+  }
+}
+
+.sentimentNone {
+  background-color: $white;
+  border-color: add-tint($ca-palette-ink, 70%);
+
+  &:hover {
+    border-color: add-tint($ca-palette-ink, 50%);
+  }
+}
+
+.validationPositive {
+  background-color: add-tint($ca-palette-seedling, 90%);
+  border-color: add-tint($ca-palette-seedling, 60%);
+
+  &:hover {
+    border-color: add-tint($ca-palette-seedling, 40%);
   }
 
   .validationIcon {
-    color: $ca-palette-yuzu;
+    color: add-tint($ca-palette-seedling, 40%);
   }
 }
 
-.negative {
-  @include baseColor(
-    $color: $ca-palette-coral,
-    $background-mix-percent: 95%,
-    $border-mix-percent: 60%
-  );
+.validationInformative {
+  background-color: add-tint($ca-palette-ocean, 95%);
+  border-color: add-tint($ca-palette-ocean, 60%);
 
   &:hover {
-    border: 1px solid add-tint($ca-palette-coral, 40%);
+    border-color: add-tint($ca-palette-ocean, 40%);
+  }
+
+  .validationIcon {
+    color: add-tint($ca-palette-ocean, 40%);
+  }
+}
+
+.validationNegative {
+  background-color: add-tint($ca-palette-coral, 95%);
+  border-color: add-tint($ca-palette-coral, 60%);
+
+  &:hover {
+    border-color: add-tint($ca-palette-coral, 40%);
   }
 
   .validationIcon {
@@ -135,29 +147,53 @@ $validation-icon-size: 20px;
   }
 }
 
-.peach {
+.validationCautionary {
+  background-color: add-tint($ca-palette-yuzu, 95%);
+  border-color: add-tint($ca-palette-yuzu, 40%);
+
+  &:hover {
+    border-color: add-tint($ca-palette-yuzu, 20%);
+  }
+
+  .validationIcon {
+    color: $ca-palette-yuzu;
+  }
+}
+
+.statusLive {
+  background-color: add-tint($ca-palette-seedling, 90%);
+  border-color: add-tint($ca-palette-seedling, 80%);
+  color: $ca-palette-seedling;
+}
+
+.statusDraft {
   background-color: add-tint($ca-palette-peach, 90%);
+  border-color: add-tint($ca-palette-peach, 80%);
   color: $ca-palette-peach;
 }
 
-.seedling {
-  background-color: add-tint($ca-palette-seedling, 90%);
-  color: add-shade($ca-palette-seedling, 30%);
-}
-
-.wisteria {
+.statusClosed {
   background-color: add-tint($ca-palette-wisteria, 90%);
+  border-color: add-tint($ca-palette-wisteria, 80%);
   color: $ca-palette-wisteria;
 }
 
+.statusAction {
+  background-color: add-tint($ca-palette-ocean, 90%);
+  border-color: add-tint($ca-palette-ocean, 80%);
+  color: $ca-palette-ocean;
+}
+
+$pulse-size-initial: 2px;
+$pulse-scale-factor: 9;
+$pulse-size-after: $pulse-size-initial * $pulse-scale-factor;
+
 .pulse {
-  // bottom 3px is to nudge slightly so that it sits better inside the tag
-  @include ca-margin($bottom: 3px, $start: 0.5rem);
+  @include ca-margin($start: $ca-grid * 0.35, $end: $ca-grid * 0.15);
   width: $pulse-size-initial;
   height: $pulse-size-initial;
   border-radius: 50%;
   background-color: $ca-palette-ocean;
-  vertical-align: middle;
   display: inline-block;
   position: relative;
   opacity: 0.5;
@@ -173,10 +209,6 @@ $validation-icon-size: 20px;
   border-radius: 50%;
   background-color: $ca-palette-ocean;
   animation: pulsate infinite 2.5s ease-out;
-}
-
-.noAnimation {
-  animation: none;
 }
 
 @keyframes pulsate {
