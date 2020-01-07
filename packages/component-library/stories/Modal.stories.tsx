@@ -188,6 +188,58 @@ storiesOf("Modal", module)
     </ModalStateContainer>
   ))
 
+  .add("Input-edit (positive, rtl locale)", () => (
+    <ModalStateContainer isInitiallyOpen={true}>
+      {({ open, close, isOpen }) => (
+        <div>
+          <Button label="Open modal" onClick={open} />
+          <InputEditModal
+            isOpen={isOpen}
+            type="positive"
+            title="Input-edit modal title"
+            localeDirection="rtl"
+            onSubmit={close}
+            onDismiss={close}
+          >
+            <form>
+              <div style={{ textAlign: "center" }}>
+                <ModalAccessibleDescription>
+                  <Text tag="p" inline>
+                    Instructive text to drive user selection goes here.
+                  </Text>
+                </ModalAccessibleDescription>
+                <Text tag="p">
+                  Instructive text to drive user selection goes here.
+                </Text>
+              </div>
+              <div>
+                <TextField
+                  id="email"
+                  inputType="email"
+                  inputValue="rod.leviton@cultureamp.com"
+                  labelText="Email"
+                  placeholder="Please enter your email"
+                  onChange={action("user input")}
+                  icon={userIcon}
+                />
+                <TextField
+                  id="password"
+                  inputType="password"
+                  inputValue="123445555"
+                  labelText="Password"
+                  placeholder="Please enter your password"
+                  onChange={action("user input")}
+                  icon={lockIcon}
+                  inline
+                />
+              </div>
+            </form>
+          </InputEditModal>
+        </div>
+      )}
+    </ModalStateContainer>
+  ))
+
   .add("Input-edit (negative)", () => (
     <ModalStateContainer isInitiallyOpen={true}>
       {({ open, close, isOpen }) => (
@@ -516,4 +568,5 @@ storiesOf("Modal", module)
 
 loadElmStories("Modal (Elm)", module, require("./ModalStories.elm"), [
   "Generic",
+  "Confirmation (Informative)",
 ])

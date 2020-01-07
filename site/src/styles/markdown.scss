@@ -166,12 +166,12 @@ $link-icon-margin: 12px;
     font-weight: $ca-weight-light;
   }
 
-  :global(.md-code) {
-    line-height: inherit;
-    background-color: $kz-color-wisteria-800;
-    // color: #fff;
-    padding: 0.25em;
-    border-radius: 0.25em;
+  :global(.md-pre) {
+    background-color: $kz-color-stone;
+
+    & :global(.md-code) {
+      padding: 0;
+    }
   }
 
   // :global(.md-lede) {
