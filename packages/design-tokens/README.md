@@ -4,7 +4,7 @@ Design tokens for all platforms.
 ## About
 Design Tokens are the heart of every Design System. The tokens represented here are platform-agnostic (JSON), as this will help us contribute to & facilitate the maintenance of living style guides. This package defines all the option tokens in Kaizen. 
 
-In its current state this package supports Sass variables, generated from a JSON tokens file. In the near future we will be supporting more tokens. 
+In its current state this package supports Sass and Less variables, generated from a JSON tokens file. 
 
 **Please note** that the helpers in this package are specifically for accessing and using these design tokens. Component-specific helpers are best suited for kaizen-component-library. 
 
@@ -20,17 +20,23 @@ yarn add @cultureamp/kaizen-design-tokens
 @import "~@cultureamp/kaizen-design-tokens/sass/[color/depth/layout/spacing/typography/helpers]";
 ```
 
+### Less
+```
+## Note helper functions are provided
+@import "~@cultureamp/kaizen-design-tokens/less/[color/depth/layout/spacing/typography/helpers]";
+```
+
 ### Javascript 
 ```
-@import * as tokens from @cultureamp/kaizen-design-tokens/tokens/[color/depth/layout/spacing/typography]
+import * as tokens from @cultureamp/kaizen-design-tokens/tokens/[color/depth/layout/spacing/typography]
 ```
 
-### Less + others
-Coming soon (or eventually) :D 
+## Where possible, we keep things unitless.
+When adding support for another target the transformation should add the appropriate unit to the artefact. For example, converting typography sizes to Sass/Less should add REM. 
 
-## Misc
+### Web 
+All values in tokens are represented as rem, em or px. 
 
-### This is a pixel-free zone
-All values in tokens are represented as rem or em.
-    * Use REMs for sizes and spacing (grid)
+    * Use REMs for sizes and spacing (grid).
     * Use EMs for media queries.
+    * Use px for borders.

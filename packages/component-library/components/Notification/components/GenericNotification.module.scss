@@ -71,3 +71,9 @@
 .negative {
   @extend %ca-notification---negative;
 }
+
+// Modifiers
+
+.noBottomMargin {
+  @extend %ca-notification---noBottomMargin;
+}

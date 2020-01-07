@@ -3,7 +3,7 @@
 @import "../styles";
 
 .badge {
-  background-color: $ca-palette-coral;
+  background-color: $ca-palette-coral; // DST-TODO: change this to $kz-color-coral-500 once kaizen-design-tokens is installed
   color: #fff;
   font-weight: $ca-weight-medium;
   text-decoration: none;
@@ -51,6 +51,6 @@
   }
 
   &.local {
-    background-color: add-tint($ca-palette-ocean, 50%);
+    background-color: #99c3e1; // DST-TODO: change this to $kz-color-cluny-300 once kaizen-design-tokens is installed
   }
 }

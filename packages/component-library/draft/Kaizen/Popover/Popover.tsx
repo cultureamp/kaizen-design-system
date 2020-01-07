@@ -9,6 +9,7 @@ const positiveIcon = require("@cultureamp/kaizen-component-library/icons/success
   .default
 import classNames from "classnames"
 import * as React from "react"
+import { forwardRef } from "react"
 
 const styles = require("./styles.scss")
 
@@ -25,6 +26,7 @@ export interface Props {
   readonly dismissible?: boolean
   readonly singleLine?: boolean
   readonly children: React.ReactNode
+  readonly boxOffset?: number
 }
 
 type Variant =
@@ -34,7 +36,7 @@ type Variant =
   | "negative"
   | "cautionary"
 
-type Side = "top" | "bottom" | "left" | "right"
+type Side = "top" | "bottom" // | "left" | "right" - not yet implemented
 
 type Position = "start" | "center" | "end"
 
@@ -42,58 +44,116 @@ type Size = "small" | "large"
 
 type Popover = React.FunctionComponent<Props>
 
-const Popover: Popover = ({
-  id,
-  automationId,
-  children,
-  variant = "default",
-  side = "bottom",
-  size = "small",
-  position = "center",
-  heading,
-  dismissible = false,
-  onClose,
-  singleLine = false,
-}: Props) => (
-  <div
-    className={classNames(
-      mapVariantToRootClass(variant),
-      mapSideToClass(side),
-      mapPositionToClass(position),
-      mapSizeToClass(size)
-    )}
-  >
-    <div className={styles.header}>
-      {variant !== "default" && (
-        <span className={styles.icon}>
-          <Icon role="presentation" icon={mapVariantToIcon(variant)} />
-        </span>
-      )}
-      <div className={styles.singleLine}>{heading}</div>
-      {dismissible && (
-        <button className={styles.close} onClick={onClose}>
-          <Icon role="presentation" icon={closeIcon} />
-        </button>
-      )}
+const Popover: Popover = forwardRef<HTMLDivElement, Props>(
+  (
+    {
+      id,
+      automationId,
+      children,
+      variant = "default",
+      side = "bottom",
+      size = "small",
+      position = "center",
+      heading,
+      dismissible = false,
+      onClose,
+      singleLine = false,
+      boxOffset,
+    },
+    ref
+  ) => (
+    <div
+      className={classNames(styles.root, mapSizeToClass(size))}
+      style={getRootStyle(boxOffset)}
+      ref={ref}
+    >
+      <div className={mapVariantToBoxClass(variant)}>
+        <div className={styles.header}>
+          {variant !== "default" && (
+            <span
+              className={classNames(
+                styles.icon,
+                mapVariantToIconClass(variant)
+              )}
+            >
+              <Icon role="presentation" icon={mapVariantToIcon(variant)} />
+            </span>
+          )}
+          <div className={styles.singleLine}>{heading}</div>
+          {dismissible && (
+            <button className={styles.close} onClick={onClose}>
+              <Icon role="presentation" icon={closeIcon} />
+            </button>
+          )}
+        </div>
+        <div
+          className={classNames(styles.container, mapLineVariant(singleLine))}
+        >
+          {children}
+        </div>
+      </div>
+      <div
+        className={classNames(
+          mapArrowVariantToClass(variant),
+          mapArrowSideToClass(side),
+          mapArrowPositionToClass(position)
+        )}
+        style={getArrowStyle(boxOffset, side)}
+      />
     </div>
-    <div className={classNames(styles.container, mapLineVariant(singleLine))}>
-      {children}
-    </div>
-  </div>
+  )
 )
 
-const mapVariantToRootClass = (variant: Variant): string => {
+const getRootStyle = (boxOffset: number | undefined) => ({
+  transform:
+    boxOffset == null
+      ? `translateX(-50%)`
+      : `translateX(calc(-50% + ${boxOffset}px)`,
+})
+
+const mapVariantToBoxClass = (variant: Variant): string => {
   switch (variant) {
     case "informative":
-      return styles.informative
+      return styles.informativeBox
     case "positive":
-      return styles.positive
+      return styles.positiveBox
     case "negative":
-      return styles.negative
+      return styles.negativeBox
     case "cautionary":
-      return styles.cautionary
+      return styles.cautionaryBox
     default:
-      return styles.default
+      return styles.defaultBox
+  }
+}
+
+const getArrowStyle = (boxOffset: number | undefined, side: Side) => {
+  const rotate = side === "top" ? "rotate(180deg)" : ""
+  const translate =
+    boxOffset == null
+      ? ""
+      : // Because we shifted the popover in the parent, we need to readjust the
+        // arrow back to where it was.
+        `translateX(${boxOffset * -1}px)`
+
+  return rotate || translate
+    ? {
+        transform: `${translate}${rotate}`,
+      }
+    : undefined
+}
+
+const mapVariantToIconClass = (variant: Variant) => {
+  switch (variant) {
+    case "informative":
+      return styles.informativeIcon
+    case "positive":
+      return styles.positiveIcon
+    case "negative":
+      return styles.negativeIcon
+    case "cautionary":
+      return styles.cautionaryIcon
+    default:
+      return undefined
   }
 }
 
@@ -114,23 +174,38 @@ const mapVariantToIcon = (
   }
 }
 
-const mapPositionToClass = (position: Position): string => {
-  switch (position) {
-    case "start":
-      return styles.positionStart
-    case "end":
-      return styles.positionEnd
+const mapArrowVariantToClass = (variant: Variant): string => {
+  switch (variant) {
+    case "informative":
+      return styles.informativeArrow
+    case "positive":
+      return styles.positiveArrow
+    case "negative":
+      return styles.negativeArrow
+    case "cautionary":
+      return styles.cautionaryArrow
     default:
-      return "center"
+      return styles.defaultArrow
   }
 }
 
-const mapSideToClass = (side: Side): string => {
+const mapArrowPositionToClass = (position: Position): string => {
+  switch (position) {
+    case "start":
+      return styles.arrowPositionStart
+    case "end":
+      return styles.arrowPositionEnd
+    default:
+      return ""
+  }
+}
+
+const mapArrowSideToClass = (side: Side): string => {
   switch (side) {
     case "top":
-      return styles.sideTop
+      return styles.arrowSideTop
     default:
-      return "bottom"
+      return ""
   }
 }
 

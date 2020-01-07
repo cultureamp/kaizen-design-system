@@ -1,3 +1,4 @@
+import { loadElmStories } from "@cultureamp/elm-storybook"
 import { action } from "@storybook/addon-actions"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
@@ -90,6 +91,29 @@ storiesOf("Modal", module)
     </ModalStateContainer>
   ))
 
+  .add("Confirmation (cautionary)", () => (
+    <ModalStateContainer isInitiallyOpen={true}>
+      {({ open, close, isOpen }) => (
+        <div>
+          <Button label="Open modal" onClick={open} />
+          <ConfirmationModal
+            isOpen={isOpen}
+            type="cautionary"
+            title="Cautionary title"
+            onConfirm={close}
+            onDismiss={close}
+          >
+            <div style={{ textAlign: "center" }}>
+              <Text tag="p" style="lede" inline>
+                Additional subtext to aid the user can be added here.
+              </Text>
+            </div>
+          </ConfirmationModal>
+        </div>
+      )}
+    </ModalStateContainer>
+  ))
+
   .add("Confirmation (negative)", () => (
     <ModalStateContainer isInitiallyOpen={true}>
       {({ open, close, isOpen }) => (
@@ -122,6 +146,58 @@ storiesOf("Modal", module)
             isOpen={isOpen}
             type="positive"
             title="Input-edit modal title"
+            onSubmit={close}
+            onDismiss={close}
+          >
+            <form>
+              <div style={{ textAlign: "center" }}>
+                <ModalAccessibleDescription>
+                  <Text tag="p" inline>
+                    Instructive text to drive user selection goes here.
+                  </Text>
+                </ModalAccessibleDescription>
+                <Text tag="p">
+                  Instructive text to drive user selection goes here.
+                </Text>
+              </div>
+              <div>
+                <TextField
+                  id="email"
+                  inputType="email"
+                  inputValue="rod.leviton@cultureamp.com"
+                  labelText="Email"
+                  placeholder="Please enter your email"
+                  onChange={action("user input")}
+                  icon={userIcon}
+                />
+                <TextField
+                  id="password"
+                  inputType="password"
+                  inputValue="123445555"
+                  labelText="Password"
+                  placeholder="Please enter your password"
+                  onChange={action("user input")}
+                  icon={lockIcon}
+                  inline
+                />
+              </div>
+            </form>
+          </InputEditModal>
+        </div>
+      )}
+    </ModalStateContainer>
+  ))
+
+  .add("Input-edit (positive, rtl locale)", () => (
+    <ModalStateContainer isInitiallyOpen={true}>
+      {({ open, close, isOpen }) => (
+        <div>
+          <Button label="Open modal" onClick={open} />
+          <InputEditModal
+            isOpen={isOpen}
+            type="positive"
+            title="Input-edit modal title"
+            localeDirection="rtl"
             onSubmit={close}
             onDismiss={close}
           >
@@ -489,3 +565,8 @@ storiesOf("Modal", module)
       </ModalStateContainer>
     </>
   ))
+
+loadElmStories("Modal (Elm)", module, require("./ModalStories.elm"), [
+  "Generic",
+  "Confirmation (Informative)",
+])
