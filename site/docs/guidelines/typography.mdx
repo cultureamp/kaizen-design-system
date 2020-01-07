@@ -34,7 +34,21 @@ Use underlines for links in body copy with no underline on hover/focus. For stan
 
 For abbreviations, such as <abbr title="human resource information system">HRIS</abbr>, show the expanded text after the first use, such as "HRIS (human resource information system)" and abbreviations thereafter. If there's not enough space or only one use, you might instead show an abbreviation using a dotted underline and use a tooltip to expand the abbreviation on hover/focus.
 
+### Numbers
 
+Some font families, such as Ideal Sans, include numeric font variants for alternate figures. That might include "proportional old style", "proportional lining", "tabular old style", or "tabular lining" numbers:
+
+- Use tabular lining numbers for fixed width numbers in tables and anywhere that columns of numbers need to line up, e.g. to make it easy to add up numbers in a column.
+- Use proportional lining numbers for numbers used within an uppercase string or a sentence.
+- Use proportional old-style numbers for body copy or standalone figures, such as hero data, where it doesn't need to line up with any other figures.
+
+Note: Ideal Sans does not include tabular old style numbers.
+
+In Figma, you can set these in the Design panel > under Text > 3 dots icon > under Numbers > Style.
+
+In Sketch, you can set these in Fonts > cog icon > Typography > Number spacing (monospace), Number case (Lining Figures).
+
+In code, you can set the `font-variant-numeric` and different type face.
 
 ## When to use
 
@@ -62,4 +76,4 @@ Here are some examples of typography in existing design systems and typography r
 - [Polaris: typography](https://polaris.shopify.com/design/typography#navigation).
 - [Material: type system](https://material.io/design/typography/the-type-system.html).
 - [Visualize working with line-height](https://aresluna.org/line-height-playground/).
-
+- [Butterick’s Practical Typography: Alternate figures](https://practicaltypography.com/alternate-figures.html)

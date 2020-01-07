@@ -10,9 +10,28 @@ This document serves to orient you within the repository — to get you set up a
 
 ## Quick links
 
-- [Kaizen Component Library](./packages/component-library/README.md)
-- [Kaizen Site](./site/README.md) (and [cultureamp.design](https://cultureamp.design))
+- [Kaizen Component Library README](./packages/component-library/README.md)
+- [Kaizen Site README](./site/README.md) (and <https://cultureamp.design>)
 - [Contributing guidelines](./CONTRIBUTING.md)
+
+## Designers
+
+### Issues
+
+You can explore or create [Issues](https://github.com/cultureamp/kaizen-design-system/issues/) to track ideas, enhancements, or bugs. Use issues to track:
+
+- Changes to design documentation
+- Missing documentation
+
+To learn more, see the designer section of the [Contributing guidelines](./CONTRIBUTING.md).
+
+### Editing design documentation
+
+You can edit Kaizen Site documentation using GitHub's interface.
+
+To learn more, see the designer section of the [Contributing guidelines](./CONTRIBUTING.md).
+
+
 
 ## Getting started
 
@@ -34,7 +53,7 @@ To develop the site locally, please refer to the documentation in [the site pack
 
 ## Branch previews
 
-While the main site is located at [cultureamp.design](https://cultureamp.design), all branches in this repository are automatically deployed to a public URL at [dev.cultureamp.design](https://dev.cultureamp.design)/(branch name). This deployment includes the Storybook build for that branch, along with any changes to documentation or the site.
+While the main site is located at <https://cultureamp.design>, all branches in this repository are automatically deployed to a public URL at <https://dev.cultureamp.design/>(branch-name). This deployment includes the Storybook build for that branch, along with any changes to documentation or the site.
 
 For example, pushing the branch `louis/more-glitter` would make its documentation and Storybook build available at `dev.cultureamp.design/louis/more-glitter`.
 

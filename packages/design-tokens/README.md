@@ -20,6 +20,12 @@ yarn add @cultureamp/kaizen-design-tokens
 @import "~@cultureamp/kaizen-design-tokens/sass/[color/depth/layout/spacing/typography/helpers]";
 ```
 
+### Less
+```
+## Note helper functions are provided
+@import "~@cultureamp/kaizen-design-tokens/less/[color/depth/layout/spacing/typography/helpers]";
+```
+
 ### Javascript 
 ```
 import * as tokens from @cultureamp/kaizen-design-tokens/tokens/[color/depth/layout/spacing/typography]
