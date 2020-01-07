@@ -35,6 +35,12 @@ steps:
     branches: "!master"
     <<: *defaults
 
+  - name: ":painting: Build (Chromatic)"
+    command: ".buildkite/scripts/run-chromatic-build.sh"
+    artifact_paths: "./chromatic.tar.gz"
+    <<: *defaults
+    agent_query_rules: ["queue=build-unrestricted-large"]
+
   - name: ":package: Build (site)"
     command: ".buildkite/scripts/build-site.sh"
     artifact_paths: "./site.tar.gz"
@@ -45,6 +51,13 @@ steps:
     artifact_paths: "./storybook.tar.gz"
     <<: *defaults
     agent_query_rules: ["queue=build-unrestricted-large"]
+
+  - name: ":package: Build (storybook)"
+    command: ".buildkite/scripts/build-storybook.sh"
+    artifact_paths: "./storybook.tar.gz"
+    <<: *defaults
+    agent_query_rules: ["queue=build-unrestricted-large"]
+
 
   - wait: ~
     continue_on_failure: true
