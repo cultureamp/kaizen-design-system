@@ -10,6 +10,10 @@ import "@storybook/addon-console"
 // See: https://github.com/WICG/focus-visible
 require("focus-visible")
 
+// Standard base stylesheet used across Culture Amp products
+// See: https://github.com/necolas/normalize.css/
+require("normalize.css")
+
 addDecorator(withA11y)
 
 addParameters({
