@@ -1,0 +1,19 @@
+name: "Chromatic"
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.16.3'
+    - name: Install dependencies
+      run: yarn setup
+    - uses: chromaui/action@v1
+      with:
+        appCode: azwytw4amgi
+        token: ${{ secrets.GITHUB_TOKEN }}
+        buildScriptName: storybook:build
