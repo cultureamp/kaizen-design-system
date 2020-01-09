@@ -1,6 +1,9 @@
-import { storiesOf } from "@storybook/react"
-import * as React from "react"
+import * as React from 'react';
 
-import { Example } from "."
+import { Example } from '.';
 
-storiesOf("Example Package", module).add("Demo", () => <Example />)
+export default {
+  title: 'Example Package',
+};
+
+export const demo = () => <Example />;
