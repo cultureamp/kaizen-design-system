@@ -10,6 +10,12 @@ storiesOf("Popover", module)
       to completing a task.
     </Popover>
   ))
+  .add("Default without heading", () => (
+    <Popover>
+      Popover body that explains something useful, is optional, and not critical
+      to completing a task.
+    </Popover>
+  ))
   .add("Informative", () => (
     <Popover heading="Informative" variant="informative">
       Popover body that explains something useful, is optional, and not critical
