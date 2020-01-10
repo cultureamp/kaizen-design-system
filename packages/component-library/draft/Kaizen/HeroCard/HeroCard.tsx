@@ -10,6 +10,7 @@ interface Props {
   readonly image?: React.ReactNode
   readonly badgeText?: String
   readonly fullWidth?: Boolean
+  readonly minHeight?: string
 }
 
 type HeroCard = React.FunctionComponent<Props>
@@ -20,6 +21,7 @@ const HeroCard: HeroCard = ({
   title,
   image,
   badgeText,
+  minHeight = "none",
   fullWidth = false,
 }: Props) => {
   return (
@@ -28,7 +30,7 @@ const HeroCard: HeroCard = ({
         [styles.fullWidth]: fullWidth,
       })}
     >
-      <div className={styles.left}>
+      <div style={{ minHeight }} className={styles.left}>
         {badgeText && <div className={styles.badge}>{badgeText}</div>}
         {leftContent && (
           <div
@@ -43,7 +45,7 @@ const HeroCard: HeroCard = ({
       </div>
       <div className={styles.right}>
         {title && <h1 className={styles.title}>{title}</h1>}
-        {children}
+        <div className={styles.rightContent}>{children}</div>
       </div>
     </div>
   )

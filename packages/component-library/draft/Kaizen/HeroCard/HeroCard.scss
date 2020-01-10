@@ -3,7 +3,7 @@
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/layout";
 
-$left-content__width: 221px;
+$left-content__width: 33%;
 $badge__height: 80px;
 
 .root {
@@ -24,7 +24,7 @@ $badge__height: 80px;
   border-radius: 5px 0 0 5px;
   background-color: $kz-color-wisteria-700;
   color: $kz-color-white;
-  min-width: $left-content__width;
+  width: $left-content__width;
   padding: ($ca-grid / 2) ($ca-grid * 2);
   flex-direction: column;
   align-items: flex-start;
@@ -37,10 +37,16 @@ $badge__height: 80px;
 
 .right {
   border-radius: 0 5px 5px 0;
+  display: flex;
+  flex-direction: column;
   padding: 51px;
   background-color: $kz-color-white;
-  flex: 2 2 auto;
+  flex: 1;
   color: $kz-color-wisteria-800;
+}
+
+.rightContent {
+  height: 100%;
 }
 
 .title {
