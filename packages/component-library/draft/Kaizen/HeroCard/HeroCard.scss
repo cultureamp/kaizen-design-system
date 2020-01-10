@@ -65,12 +65,3 @@ $badge__height: 80px;
   top: $ca-grid;
   left: $ca-grid * 1.2;
 }
-
-.image {
-  width: $left-content__width + 128px;
-  height: auto;
-  position: absolute;
-  bottom: -128px;
-  left: 50%;
-  transform: translateX(-50%);
-}

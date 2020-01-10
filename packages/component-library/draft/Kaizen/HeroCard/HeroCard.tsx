@@ -39,7 +39,7 @@ const HeroCard: HeroCard = ({
             {leftContent}
           </div>
         )}
-        {image && <div className={styles.image}>{image}</div>}
+        {image}
       </div>
       <div className={styles.right}>
         {title && <h1 className={styles.title}>{title}</h1>}
