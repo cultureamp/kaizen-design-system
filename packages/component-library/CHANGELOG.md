@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [17.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.5.0...@cultureamp/kaizen-component-library@17.5.1) (2020-01-10)
+
+
+### Bug Fixes
+
+* IE11 fixes for HeroCard ([#211](https://github.com/cultureamp/kaizen-design-system/issues/211)) ([6bc0fc4](https://github.com/cultureamp/kaizen-design-system/commit/6bc0fc4))
+
+
+
+
+
 # [17.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.4.2...@cultureamp/kaizen-component-library@17.5.0) (2020-01-09)
 
 
