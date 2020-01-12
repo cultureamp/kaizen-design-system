@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [17.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.5.1...@cultureamp/kaizen-component-library@17.6.0) (2020-01-12)
+
+
+### Features
+
+* HeroCard enhancements ([#212](https://github.com/cultureamp/kaizen-design-system/issues/212)) ([d090fe3](https://github.com/cultureamp/kaizen-design-system/commit/d090fe3))
+
+
+
+
+
 ## [17.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.5.0...@cultureamp/kaizen-component-library@17.5.1) (2020-01-10)
 
 
