@@ -26,6 +26,7 @@ $left-content__width: 221px;
   color: $kz-color-white;
   padding: ($ca-grid / 2) ($ca-grid * 2);
   flex-direction: column;
+  flex-shrink: 0;
   align-items: flex-start;
   position: relative;
   width: $left-content__width;
@@ -47,6 +48,10 @@ $left-content__width: 221px;
   padding: 51px;
   background-color: $kz-color-white;
   color: $kz-color-wisteria-800;
+
+  .fullWidth & {
+    width: 66%;
+  }
 }
 
 .rightContent {
