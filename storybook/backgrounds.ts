@@ -1,4 +1,4 @@
-import * as tokens from "../packages/design-tokens/tokens/color"
+import * as tokens from "@cultureamp/kaizen-design-tokens/tokens/color.json"
 
 export const backgrounds = [
   { name: "stone", value: tokens.kz.color.stone },
