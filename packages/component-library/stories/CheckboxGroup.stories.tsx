@@ -16,7 +16,7 @@ type Props = {
   render: (props: RenderProps) => JSX.Element
 }
 
-export default class CheckboxGroupExample extends React.Component<Props> {
+class CheckboxGroupExample extends React.Component<Props> {
   state = {
     checkedStatus: "mixed",
   }
@@ -44,64 +44,74 @@ export default class CheckboxGroupExample extends React.Component<Props> {
     )
   }
 }
+
+export default {
+  title: "CheckboxGroup",
+}
+
+export const interactive = () => (
+  <div>
+    <CheckboxGroup labelText="Checkbox Group Label">
+      <CheckboxGroupExample
+        render={({ checkedStatus, onCheckHandler }) => (
+          <CheckboxField
+            onCheck={onCheckHandler}
+            id="checkbox-1"
+            checkedStatus={checkedStatus as any}
+            labelText={
+              <div>
+                This is a label with a{" "}
+                <a href="http://google.com" target="_blank">
+                  link
+                </a>
+              </div>
+            }
+          />
+        )}
+      />
+      <CheckboxGroupExample
+        render={({ checkedStatus, onCheckHandler }) => (
+          <CheckboxField
+            onCheck={onCheckHandler}
+            id="checkbox-2"
+            checkedStatus={checkedStatus as any}
+            labelText={
+              <div>
+                This is a label with a{" "}
+                <a href="http://google.com" target="_blank">
+                  link
+                </a>
+              </div>
+            }
+          />
+        )}
+      />
+      <CheckboxGroupExample
+        render={({ checkedStatus, onCheckHandler }) => (
+          <CheckboxField
+            onCheck={onCheckHandler}
+            id="checkbox-3"
+            checkedStatus={checkedStatus as any}
+            labelText={
+              <div>
+                This is a label with a{" "}
+                <a href="http://google.com" target="_blank">
+                  link
+                </a>
+              </div>
+            }
+          />
+        )}
+      />
+    </CheckboxGroup>
+  </div>
+)
+
+interactive.story = {
+  name: "Interactive",
+}
+
 storiesOf("CheckboxGroup", module)
-  .add("Interactive", () => (
-    <div>
-      <CheckboxGroup labelText="Checkbox Group Label">
-        <CheckboxGroupExample
-          render={({ checkedStatus, onCheckHandler }) => (
-            <CheckboxField
-              onCheck={onCheckHandler}
-              id="checkbox-1"
-              checkedStatus={checkedStatus as any}
-              labelText={
-                <div>
-                  This is a label with a{" "}
-                  <a href="http://google.com" target="_blank">
-                    link
-                  </a>
-                </div>
-              }
-            />
-          )}
-        />
-        <CheckboxGroupExample
-          render={({ checkedStatus, onCheckHandler }) => (
-            <CheckboxField
-              onCheck={onCheckHandler}
-              id="checkbox-2"
-              checkedStatus={checkedStatus as any}
-              labelText={
-                <div>
-                  This is a label with a{" "}
-                  <a href="http://google.com" target="_blank">
-                    link
-                  </a>
-                </div>
-              }
-            />
-          )}
-        />
-        <CheckboxGroupExample
-          render={({ checkedStatus, onCheckHandler }) => (
-            <CheckboxField
-              onCheck={onCheckHandler}
-              id="checkbox-3"
-              checkedStatus={checkedStatus as any}
-              labelText={
-                <div>
-                  This is a label with a{" "}
-                  <a href="http://google.com" target="_blank">
-                    link
-                  </a>
-                </div>
-              }
-            />
-          )}
-        />
-      </CheckboxGroup>
-    </div>
-  ))
   .add("with disabled checkboxes", () => (
     <div>
       <CheckboxGroup labelText="Checkbox Group Label">
