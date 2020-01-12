@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [17.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.5.1...@cultureamp/kaizen-component-library@17.6.0) (2020-01-12)
+
+
+### Features
+
+* HeroCard enhancements ([#212](https://github.com/cultureamp/kaizen-design-system/issues/212)) ([d090fe3](https://github.com/cultureamp/kaizen-design-system/commit/d090fe3))
+
+
+
+
+
+## [17.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.5.0...@cultureamp/kaizen-component-library@17.5.1) (2020-01-10)
+
+
+### Bug Fixes
+
+* IE11 fixes for HeroCard ([#211](https://github.com/cultureamp/kaizen-design-system/issues/211)) ([6bc0fc4](https://github.com/cultureamp/kaizen-design-system/commit/6bc0fc4))
+
+
+
+
+
+# [17.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.4.2...@cultureamp/kaizen-component-library@17.5.0) (2020-01-09)
+
+
+### Features
+
+* Remove header divider if no heading prop is provided ([#208](https://github.com/cultureamp/kaizen-design-system/issues/208)) ([524a06a](https://github.com/cultureamp/kaizen-design-system/commit/524a06a))
+
+
+
+
+
+## [17.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.4.1...@cultureamp/kaizen-component-library@17.4.2) (2020-01-08)
+
+**Note:** Version bump only for package @cultureamp/kaizen-component-library
+
+
+
+
+
+## [17.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.4.0...@cultureamp/kaizen-component-library@17.4.1) (2020-01-07)
+
+**Note:** Version bump only for package @cultureamp/kaizen-component-library
+
+
+
+
+
 # [17.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.3.0...@cultureamp/kaizen-component-library@17.4.0) (2020-01-03)
 
 
