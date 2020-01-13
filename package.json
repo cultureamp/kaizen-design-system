@@ -103,5 +103,8 @@
     "typescript": "^3.6.3",
     "typescript-tslint-plugin": "^0.5.4",
     "webpack": "^4.40.2"
+  },
+  "devDependencies": {
+    "@storybook/addon-knobs": "^5.3.1"
   }
 }
