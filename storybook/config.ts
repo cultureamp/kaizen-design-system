@@ -23,9 +23,21 @@ addParameters({
   },
 })
 
-const loadStories = () => {
-  const req = require.context("../packages", true, /\.stories.tsx?$/)
-  req.keys().forEach(filename => req(filename))
-}
+// const loadStories = () => {
+//   const req = require.context("../packages", true, /\.stories.tsx?$/)
+//   req.keys().forEach(filename => req(filename))
+// }
 
-configure(loadStories, module)
+// configure(loadStories, module)
+
+configure(
+  [
+    require.context(
+      "../packages/component-library/new-stories",
+      true,
+      /\.stories\.tsx$/
+    ),
+    // require.context('../lib', true, /\.stories\.js$/),
+  ],
+  module
+)

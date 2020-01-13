@@ -2,8 +2,9 @@
 import { Text } from "@cultureamp/kaizen-component-library"
 import { TextField } from "@cultureamp/kaizen-component-library/draft"
 import { Well } from "@cultureamp/kaizen-component-library/draft"
-// import { storiesOf } from "@storybook/react"
 import * as React from "react"
+
+import { withKnobs, radios } from "@storybook/addon-knobs"
 
 const ExampleContent = () => (
   <div style={{ padding: "1em 2em", maxWidth: "400px" }}>
@@ -23,14 +24,39 @@ const ExampleContent = () => (
 
 export default {
   title: "Well",
+  decorators: [withKnobs],
   component: Well,
 }
 
-export const defaultWithSolidBorder = () => (
-  <Well>
+const variantValue = radios(
+  "variant",
+  {
+    default: "default",
+    positive: "positive",
+    negative: "negative",
+    informative: "informative",
+    cautionary: "cautionary",
+  },
+
+  "default",
+  "GROUP-ID-VARIANT"
+)
+
+export const knobsStory = () => (
+  <Well variant={variantValue}>
     <ExampleContent />
   </Well>
 )
+
+// export const defaultWithSolidBorder = () => (
+//   <Well>
+//     <ExampleContent />
+//   </Well>
+// )
+
+knobsStory.story = {
+  name: "knobs",
+}
 
 // storiesOf("Well", module)
 //   .add("Default with solid border", () => (
@@ -79,14 +105,14 @@ export const defaultWithSolidBorder = () => (
 //     </Well>
 //   ))
 
-// loadElmStories("Well(Elm)", module, require("./Well.stories.elm"), [
-//   "Default with solid border",
-//   "Default with dashed border",
-//   "Default without border",
-//   "Default with no margin",
-//   "Positive",
-//   "Negative",
-//   "Informative",
-//   "Cautionary",
-//   "Informative with dashed border",
+// loadElmStories("Well(Elm)", module, require("../stories/Well.stories.elm"), [
+// "Default with solid border",
+// "Default with dashed border",
+// "Default without border",
+// "Default with no margin",
+// "Positive",
+// "Negative",
+// "Informative",
+// "Cautionary",
+// "Informative with dashed border",
 // ])
