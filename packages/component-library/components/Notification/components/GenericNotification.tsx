@@ -28,6 +28,7 @@ type Props = {
   autohideDelay?: "short" | "long"
   onHide?: () => void
   automationId?: string
+  noBottomMargin?: boolean
 }
 
 type State = {
@@ -99,6 +100,7 @@ class GenericNotification extends React.Component<Props, State> {
       styles[this.props.style],
       {
         [styles.hidden]: this.state.hidden,
+        [styles.noBottomMargin]: this.props.noBottomMargin,
       }
     )
   }

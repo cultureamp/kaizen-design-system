@@ -1,3 +1,4 @@
+import { Icon } from "@cultureamp/kaizen-component-library"
 import classnames from "classnames"
 import { Link } from "gatsby"
 import * as React from "react"
@@ -5,6 +6,7 @@ import markdownComponents from "./markdownComponents"
 
 const markdownStyles = require("../styles/markdown.scss")
 const styles = require("./SidebarAndContent.scss")
+const linkIcon = require("./images/link.svg").default
 
 type SidebarAndContentProps = {
   children: React.ReactNode
@@ -68,7 +70,13 @@ export const ContentNeedToKnowSection: React.SFC<ContentNeedToKnowProps> = ({
           markdownStyles.markdownContainer
         )}
       >
-        <markdownComponents.h2>Need to know</markdownComponents.h2>
+        <markdownComponents.h2>
+          <span className="md-anchor-offset" id="need-to-know" />
+          <a className="md-heading-link" href="#need-to-know">
+            <Icon icon={linkIcon} title="Anchor" />
+          </a>
+          Need to know
+        </markdownComponents.h2>
         <markdownComponents.ul>
           {listOfTips.map((tip: string, i) => (
             <markdownComponents.li key={`tip-${i}`}>

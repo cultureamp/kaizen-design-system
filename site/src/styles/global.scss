@@ -1,10 +1,11 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "~@cultureamp/kaizen-component-library/styles/type";
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/responsive";
 
 :root {
   --ca-grid: #{$ca-grid};
-  --content-card-top-offset: calc(var(--ca-grid) * 2);
+  --content-card-top-offset: calc(var(--ca-grid) * 2.5);
   --sidebar-content-gap: calc(var(--ca-grid) * 2);
   --content-top-and-bottom-margin: calc(var(--ca-grid) * 4);
   --content-side-margin: calc(var(--ca-grid) * 6);
@@ -18,8 +19,8 @@ html {
 }
 
 body {
-  background-color: $ca-palette-stone;
-  color: $ca-base-text-color;
+  background-color: $kz-color-stone;
+  color: $kz-color-wisteria-800;
   font-family: $ca-ideal-sans-font-family;
 
   @include ca-media-mobile() {
@@ -28,7 +29,7 @@ body {
 }
 
 a {
-  color: $ca-link-text-color;
+  color: $kz-color-cluny-500;
   word-break: break-word;
 }
 
@@ -37,4 +38,11 @@ pre {
   word-break: break-word;
   padding: $ca-grid;
   line-height: 1.5;
+}
+
+code {
+  line-height: inherit;
+  background-color: $kz-color-stone;
+  padding: 0.25em;
+  border-radius: 0.25em;
 }

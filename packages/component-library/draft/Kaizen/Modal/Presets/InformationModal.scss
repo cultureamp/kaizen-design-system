@@ -4,7 +4,7 @@
 @import "~@cultureamp/kaizen-component-library/styles/type";
 
 .modal {
-  composes: genericModal from "../primitives/GenericModal.scss";
+  composes: genericModal from "../Primitives/GenericModal.scss";
   min-width: 300px;
   max-width: 840px;
 

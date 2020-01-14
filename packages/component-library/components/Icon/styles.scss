@@ -1,6 +1,9 @@
+$ca-icon-width: 20px;
+$ca-icon-height: 20px;
+
 %caIcon {
-  width: 20px;
-  height: 20px;
+  width: $ca-icon-width;
+  height: $ca-icon-height;
   display: inline-block;
   // jQuery has an IE11 bug where delegated events aren't registered if the click was on an icon.
   // A workaround is to disable `point-events` on the use element. See https://github.com/jquery/jquery/issues/3877

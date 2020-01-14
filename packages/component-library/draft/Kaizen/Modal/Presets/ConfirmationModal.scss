@@ -8,7 +8,12 @@
 }
 
 .modal {
-  composes: genericModal from "../primitives/GenericModal.scss";
+  composes: genericModal from "../Primitives/GenericModal.scss";
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.elmModal {
   min-width: 300px;
   max-width: 600px;
 }
@@ -46,6 +51,14 @@
     background-image: url("../backgrounds/brush-negative.png");
     background-size: 64%;
     background-position: top right;
+  }
+}
+
+.cautionaryHeader {
+  background-color: add-tint($ca-palette-yuzu, 30%);
+
+  &.header h1 {
+    color: $ca-palette-lapis;
   }
 }
 

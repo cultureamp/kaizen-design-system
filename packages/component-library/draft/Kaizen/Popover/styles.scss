@@ -10,21 +10,23 @@
 $default-size: 8px;
 $large: 450px;
 
-@mixin arrow(
-  $background-color,
-  $border-color,
-  $size: $default-size,
-  $side: bottom,
-  $position: center
-) {
+// Suggestion: with this implementation, the anchor point of the popover is at the base of the triangle. But,
+// we would ideally want it at the tip of the triangle. Otherwise, when using the popover, the consumer needs to manually
+// add something like a `margin-top: 8px` to get the popover properly positioned.
+// I didn't update this, as I didn't want to introduce a breaking change.
+@mixin arrow($background-color, $border-color, $size: $default-size) {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+
   &::before,
   &::after {
     content: "";
     position: absolute;
     border-left: $size solid transparent;
     border-right: $size solid transparent;
-    top: 100%;
-    left: 50%;
+    top: 0;
+    left: 0;
     margin-left: -$size;
   }
 
@@ -38,94 +40,78 @@ $large: 450px;
     margin-top: -1px;
     z-index: 1;
   }
-
-  /* Side modifiers */
-  @if $side == top {
-    &::before,
-    &::after {
-      top: 0;
-      transform: rotate(180deg) translateY(100%);
-    }
-
-    &::after {
-      margin-top: 1px;
-    }
-  }
-
-  /* Position modifiers */
-  @if $position == start {
-    &::before,
-    &::after {
-      left: $ca-grid;
-      right: auto;
-    }
-  } @else if $position == end {
-    &::before,
-    &::after {
-      right: $ca-grid;
-      left: auto;
-    }
-  }
 }
 
-.root,
-%root {
+.root {
   width: 220px;
+  position: absolute;
+  left: 50%;
+  // also see the component file under getRootStyle, which will transform the element
+}
+
+%box {
   background: #fff;
   border: 1px solid add-tint($ca-palette-ink, 80%);
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.1));
   border-radius: $ca-border-radius;
   color: $ca-palette-lapis;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   text-align: left;
 }
 
-.default {
-  @extend %root;
+.defaultBox {
+  @extend %box;
+}
 
+.defaultArrow {
   @include arrow(#fff, add-tint($ca-palette-ink, 80%));
 }
 
-.informative {
-  @extend %root;
+.informativeBox {
+  @extend %box;
   background: add-tint($ca-palette-ocean, 90%);
   border-color: add-tint($ca-palette-ocean, 60%);
+}
 
+.informativeArrow {
   @include arrow(
     add-tint($ca-palette-ocean, 90%),
     add-tint($ca-palette-ocean, 60%)
   );
 }
 
-.positive {
-  @extend %root;
+.positiveBox {
+  @extend %box;
   background: add-tint($ca-palette-seedling, 90%);
   border-color: add-tint($ca-palette-seedling, 60%);
+}
 
+.positiveArrow {
   @include arrow(
     add-tint($ca-palette-seedling, 90%),
     add-tint($ca-palette-seedling, 60%)
   );
 }
 
-.negative {
-  @extend %root;
+.negativeBox {
+  @extend %box;
   background: add-tint($ca-palette-coral, 95%);
   border-color: add-tint($ca-palette-coral, 60%);
+}
 
+.negativeArrow {
   @include arrow(
     add-tint($ca-palette-coral, 95%),
     add-tint($ca-palette-coral, 60%)
   );
 }
 
-.cautionary {
-  @extend %root;
+.cautionaryBox {
+  @extend %box;
   background: add-tint($ca-palette-yuzu, 90%);
   border-color: add-tint($ca-palette-yuzu, 40%);
+}
 
+.cautionaryArrow {
   @include arrow(
     add-tint($ca-palette-yuzu, 90%),
     add-tint($ca-palette-yuzu, 40%)
@@ -153,22 +139,22 @@ $large: 450px;
 .icon {
   display: inherit;
   margin-right: $ca-grid / 4;
+}
 
-  .informative & {
-    color: add-tint($ca-palette-ocean, 30%);
-  }
+.informativeIcon {
+  color: add-tint($ca-palette-ocean, 30%);
+}
 
-  .positive & {
-    color: add-tint($ca-palette-seedling, 30%);
-  }
+.positiveIcon {
+  color: add-tint($ca-palette-seedling, 30%);
+}
 
-  .negative & {
-    color: $ca-palette-coral;
-  }
+.negativeIcon {
+  color: $ca-palette-coral;
+}
 
-  .cautionary & {
-    color: $ca-palette-yuzu;
-  }
+.cautionaryIcon {
+  color: $ca-palette-yuzu;
 }
 
 .close {
@@ -178,32 +164,21 @@ $large: 450px;
   color: add-alpha(#000, 50%);
 }
 
-.sideTop {
-  &::before,
-  &::after {
-    top: 0;
-    transform: rotate(180deg) translateY(100%);
-  }
-
-  &::after {
-    margin-top: 1px;
-  }
+.arrowSideTop {
+  top: initial;
+  bottom: 100%;
+  margin-top: 1px;
+  // Also see getArrowStyle in the component file, which will rotate the arrow 180 degrees
 }
 
-.positionStart {
-  &::before,
-  &::after {
-    left: $ca-grid;
-    right: auto;
-  }
+.arrowPositionStart {
+  left: $ca-grid;
+  right: auto;
 }
 
-.positionEnd {
-  &::before,
-  &::after {
-    right: $ca-grid;
-    left: auto;
-  }
+.arrowPositionEnd {
+  right: $ca-grid;
+  left: auto;
 }
 
 .large {

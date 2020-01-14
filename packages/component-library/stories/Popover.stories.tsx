@@ -10,6 +10,12 @@ storiesOf("Popover", module)
       to completing a task.
     </Popover>
   ))
+  .add("Default without heading", () => (
+    <Popover>
+      Popover body that explains something useful, is optional, and not critical
+      to completing a task.
+    </Popover>
+  ))
   .add("Informative", () => (
     <Popover heading="Informative" variant="informative">
       Popover body that explains something useful, is optional, and not critical
@@ -92,6 +98,32 @@ storiesOf("Popover", module)
         critical to completing a task.
       </Popover>
     </div>
+  ))
+  .add("Box offset", () => (
+    <>
+      <div style={{ marginTop: "1.5rem", height: 200 }}>
+        <Popover
+          heading="Box offset"
+          position="center"
+          side="top"
+          boxOffset={-50}
+        >
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </Popover>
+      </div>
+      <div style={{ marginTop: "1.5rem", height: 200 }}>
+        <Popover
+          heading="Box offset"
+          position="center"
+          side="bottom"
+          boxOffset={50}
+        >
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </Popover>
+      </div>
+    </>
   ))
 
 loadElmStories("Popover (Elm)", module, require("./PopoverStories.elm"), [

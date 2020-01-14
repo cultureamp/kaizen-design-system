@@ -1,0 +1,30 @@
+{
+  "name": "@cultureamp/kaizen-design-tokens",
+  "description": "Tokens used in the Kaizen Design System",
+  "version": "0.1.3",
+  "homepage": "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/component-library",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cultureamp/kaizen-design-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cultureamp/kaizen-design-system/issues"
+  },
+  "files": [
+    "tokens",
+    "sass",
+    "less"
+  ],
+  "private": false,
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn clean && yarn prepublish",
+    "build:less": "json-to-flat-sass './tokens/*.json' 'less' --extension 'less' && prettier less/* --write",
+    "build:sass": "json-to-flat-sass './tokens/*.json' 'sass' --extension 'scss' && prettier sass/* --write",
+    "clean": "rimraf dist/**",
+    "prepublish": "yarn build:less && yarn build:sass"
+  },
+  "devDependencies": {
+    "json-to-flat-sass": "^0.0.14"
+  }
+}

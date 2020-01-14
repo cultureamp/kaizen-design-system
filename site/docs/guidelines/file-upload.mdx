@@ -1,0 +1,106 @@
+---
+title: File upload
+navTitle: File upload
+summaryParagraph: File upload lets people provide one or more files from their device's storage.
+tags: ["Upload", "Import", "File input", "Files", "File selector", "Media picker", "Drag and Drop", "Drop target", "Drop zone"]
+needToKnow:
+  - "You may upload files using a file picker (with a Button) or a drag and drop interface (with a Well)."
+---
+
+import DosAndDonts from "docs-components/DosAndDonts"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
+## To keep in mind
+
+### File picker
+
+A file picker lets people browse files from device storage to choose a file or files to upload them to our products.
+
+- Provide a form `label` and an `input type="file"`, which looks like a button, to browse files from device storage.
+
+### Drag and drop
+
+A drag-and-drop file upload lets people drag a file or files from their device to an area of the interface (a "drop zone") to upload them to our products.
+
+- Drop zone style:
+    - Provide a visual cue, such as a [Well](/components/well) with a dashed border style, to show what part of the page is the drop zone.
+    - Before dragging, highlight the drop zone with a clear, obvious border or outline.
+    - While dragging, emphasize the drop zone even further for a strong affordance that dropping is possible in that area.
+- Where possible, make the whole window the drop target on hover so there's a large drop target that demands minimal coordination.
+- Offer a file picker as well as drag and drop.
+- Consider the risks of multiple drop zones on one page.
+
+### Progress
+
+- Show progress for the upload itself while the file is uploading:
+    - Where possible, show remaining time to upload the file or files using a progress bar. If it is a short, unknown time, consider using a [Loading Spinner](/components-loading-spinner).
+- Show progress for processing and other handling of files, such as validating content in a CSV:
+    - Process an uploaded file sometimes takes longer than uploading. You might consider showing a single progress bar for both the upload and processing step. You might also consider using a Workflow to show progress across multiple steps.
+
+### Errors
+
+- Consider how to handle these common file upload errors both technically and in terms of experience:
+    - Large files (e.g. prevent uploading files over 10MB).
+    - Retry or resume the upload if it fails part way through (e.g. if there's a flakey network connection, automatically retry and let the user know).
+    - Format limitations (e.g. limit image uploads to only JPG and PNG, and prohibit SVGs to avoid risks of JavaScript in SVGs).
+    - Dimension limitations (e.g. reject images over 10000px wide or high).
+
+### File types
+
+- Consider what kinds of files to handle:
+    - Images (e.g. company logos and personal avatars that need crop and preview).
+    - Spreadsheets in various formats, such as CSVs, XLSs, and `.numbers`.
+    - You might need to provide an error state to reject files provided in other formats.
+    - You might need to provide microcopy upfront to indicate what file formats are accepted.
+
+### Image uploads
+
+- Image `alt` text:
+    - Consider if the user needs to provide `alt` text with the uploaded image or if it's appropriate to provide an auto-generated `alt` text, such as the company name for a company logo.
+- Consider letting people crop their images or provide default cropping, such as circle clipping/cropping for avatars.
+- Consider showing people a preview of their image before saving it.
+    - People might be able to start manipulating (e.g. cropping) the image without waiting for full upload in modern browsers.
+- Consider letting people position the image within a frame (e.g. positioning a rectangular image within a circle for an avatar).
+
+### Handle paste events
+
+- In a textarea, you might let people paste images from their clipboard as well as drag and drop files to that textarea.
+
+### Other considerations
+
+- Consider if you need to support and handle multi-file uploads.
+- Consider if file export needs to be supported.
+- Consider providing a template file.
+
+## When to use and when not to use
+
+<DosAndDonts>
+<Do>
+
+- We can sometimes avoid building features for manipulating files in our products when people can export and import files to manipulate them outside of the platform, especially tabular data.
+
+</Do>
+<Dont>
+
+- Drag and drop is often more complex than a file picker, so you might offer only a file picker for infrequently used features.
+
+</Dont>
+</DosAndDonts>
+
+
+## External links
+
+Here are some examples of file upload and drag and drop elsewhere:
+
+* [Ant Design: Upload](https://ant.design/components/upload/).
+* [Lightning: File Selector](https://www.lightningdesignsystem.com/components/file-selector/#site-main-content).
+* [Atlassian: Media Picker](https://www.atlassian.design/guidelines/product/patterns/media-picker).
+* [Polaris: Drop Zone](https://polaris.shopify.com/components/actions/drop-zone).
+* [Polaris: Image alternative text](https://polaris.shopify.com/content/alternative-text#section-alt-text-for-images).
+* [Patternfly: File Upload](https://www.patternfly.org/v3/pattern-library/forms-and-controls/file-upload/).
+* [MDN: Input file type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file).
+* [MDN: Drag and Drop](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/File_drag_and_drop).
+* [MDN: Using files from web applications](https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications).
+* [Draggable JS](https://shopify.github.io/draggable/).
+
