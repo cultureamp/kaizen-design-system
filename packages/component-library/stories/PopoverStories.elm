@@ -82,4 +82,11 @@ main =
                         |> Popover.withTipPosition ( Popover.Top, Popover.End )
                     )
                 ]
+        , statelessStoryOf "With Variable Height" <|
+            Popover.view
+                (Popover.default
+                    |> Popover.withHeading "With-Variable-Height"
+                    |> Popover.withContent placeholderContent
+                    |> Popover.withVariableHeight True
+                )
         ]

@@ -14,10 +14,12 @@ module Kaizen.Popover.Popover exposing
     , withContent
     , withHeading
     , withTipPosition
+    , withVariableHeight
     )
 
 import CssModules exposing (css)
 import Html exposing (Html, button, div, span, text)
+import Html.Attributes
 import Html.Events exposing (onClick)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
@@ -40,6 +42,7 @@ type alias ConfigValue msg =
     , heading : Maybe String
     , variant : Variant
     , tipPosition : ( Side, Position )
+    , forVariableHeight : Bool
     }
 
 
@@ -53,6 +56,7 @@ defaults =
     , heading = Nothing
     , variant = Default
     , tipPosition = ( Bottom, Center )
+    , forVariableHeight = False
     }
 
 
@@ -150,6 +154,11 @@ withPosition value (Config config) =
     Config { config | tipPosition = ( value, Center ) }
 
 
+withVariableHeight : Bool -> Config msg -> Config msg
+withVariableHeight value (Config config) =
+    Config { config | forVariableHeight = value }
+
+
 
 -- VIEW
 
@@ -174,12 +183,14 @@ view (Config config) =
             mapPositionToClass config.tipPosition
     in
     div
-        [ styles.classList
+        ([ styles.classList
             [ ( mapVariantToRootClass config.variant, True )
             , ( sideClass, True )
             , ( positionClass, True )
             ]
-        ]
+         ]
+            ++ mapVariableHeightToAttribute config.forVariableHeight config.tipPosition
+        )
         [ case config.heading of
             Just heading ->
                 div [ styles.class .header ]
@@ -211,6 +222,8 @@ styles =
         , positionStart = "positionStart"
         , positionCenter = "positionCenter"
         , positionEnd = "positionEnd"
+        , bottomAttribute = "bottomAttribute"
+        , topAttribute = "topAttribute"
         }
 
 
@@ -293,3 +306,21 @@ mapPositionToClass tipPosition =
 
         ( _, _ ) ->
             ( .sideBottom, .positionCenter )
+
+
+mapVariableHeightToAttribute : Bool -> ( Side, Position ) -> List (Html.Attribute msg)
+mapVariableHeightToAttribute value ( side, position ) =
+    case value of
+        True ->
+            case side of
+                Bottom ->
+                    [ styles.class .bottomAttribute ]
+
+                Top ->
+                    [ styles.class .topAttribute ]
+
+                _ ->
+                    []
+
+        False ->
+            []

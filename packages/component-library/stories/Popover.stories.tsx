@@ -136,4 +136,5 @@ loadElmStories("Popover (Elm)", module, require("./PopoverStories.elm"), [
   "Arrow above",
   "Arrow start",
   "Arrow end",
+  "With Variable Height",
 ])
