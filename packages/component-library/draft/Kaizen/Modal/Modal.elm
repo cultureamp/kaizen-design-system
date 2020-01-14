@@ -244,7 +244,7 @@ defaultModalData =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/GenericModal.scss"
+    css "@kaizen/component-library/draft/Kaizen/Modal/Primitives/GenericModal.scss"
         { backdropLayer = "backdropLayer"
         , animatingElmEnter = "animatingElmEnter"
         , animatingElmExit = "animatingElmExit"

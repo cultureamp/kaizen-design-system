@@ -104,7 +104,7 @@ main =
                             [ div [ styles.class .buttonContainer ]
                                 [ Button.view
                                     (Button.primary
-                                        |> Button.icon (svgAsset "@cultureamp/kaizen-component-library/icons/chevron-right.icon.svg")
+                                        |> Button.icon (svgAsset "@kaizen/component-library/icons/chevron-right.icon.svg")
                                         |> Button.iconPosition Button.End
                                     )
                                     "Label"
@@ -125,7 +125,7 @@ main =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/stories/EmptyState.stories.scss"
+    css "@kaizen/component-library/stories/EmptyState.stories.scss"
         { container = "container"
         , sidebar = "sidebar"
         , content = "content"

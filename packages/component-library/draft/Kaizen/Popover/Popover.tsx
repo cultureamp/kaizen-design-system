@@ -1,11 +1,11 @@
-import { Icon } from "@cultureamp/kaizen-component-library"
-const closeIcon = require("@cultureamp/kaizen-component-library/icons/close.icon.svg")
+import { Icon } from "@kaizen/component-library"
+const closeIcon = require("@kaizen/component-library/icons/close.icon.svg")
   .default
-const negativeIcon = require("@cultureamp/kaizen-component-library/icons/exclamation.icon.svg")
+const negativeIcon = require("@kaizen/component-library/icons/exclamation.icon.svg")
   .default
-const informativeIcon = require("@cultureamp/kaizen-component-library/icons/information.icon.svg")
+const informativeIcon = require("@kaizen/component-library/icons/information.icon.svg")
   .default
-const positiveIcon = require("@cultureamp/kaizen-component-library/icons/success.icon.svg")
+const positiveIcon = require("@kaizen/component-library/icons/success.icon.svg")
   .default
 import classNames from "classnames"
 import * as React from "react"

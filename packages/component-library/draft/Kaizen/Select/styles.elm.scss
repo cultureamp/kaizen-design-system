@@ -1,7 +1,7 @@
-@import "~@cultureamp/kaizen-component-library/draft/Kaizen/Form/Primitives/Input/styles.scss";
-@import "~@cultureamp/kaizen-component-library/styles/animation";
-@import "~@cultureamp/kaizen-component-library/styles/border";
-@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@kaizen/component-library/draft/Kaizen/Form/Primitives/Input/styles.scss";
+@import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/type";
 
 @mixin select-border($color: $color) {
   border-color: $color;
@@ -99,7 +99,7 @@
 
 .iconButton {
   height: 20px;
-  composes: interactiveIconWrapper from "~@cultureamp/kaizen-component-library/components/Icon/Icon.module.scss";
+  composes: interactiveIconWrapper from "~@kaizen/component-library/components/Icon/Icon.module.scss";
 }
 
 .menu {

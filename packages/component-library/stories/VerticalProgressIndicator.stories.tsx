@@ -1,4 +1,4 @@
-import { VerticalProgressIndicator } from "@cultureamp/kaizen-component-library/draft/Kaizen/VerticalProgressStep/VerticalProgressIndicator"
+import { VerticalProgressIndicator } from "@kaizen/component-library/draft/Kaizen/VerticalProgressStep/VerticalProgressIndicator"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 

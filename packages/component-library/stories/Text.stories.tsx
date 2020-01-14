@@ -1,5 +1,5 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
-import { Text } from "@cultureamp/kaizen-component-library"
+import { Text } from "@kaizen/component-library"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 

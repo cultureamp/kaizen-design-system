@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { Text } from "@cultureamp/kaizen-component-library"
+import { Text } from "@kaizen/component-library"
 
 import {
   GenericModal,

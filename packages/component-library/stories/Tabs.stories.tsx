@@ -1,8 +1,8 @@
 import classnames from "classnames"
 import * as React from "react"
 
-import { Text } from "@cultureamp/kaizen-component-library"
-import { Tabs } from "@cultureamp/kaizen-component-library/draft"
+import { Text } from "@kaizen/component-library"
+import { Tabs } from "@kaizen/component-library/draft"
 
 import { storiesOf } from "@storybook/react"
 

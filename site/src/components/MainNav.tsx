@@ -1,7 +1,7 @@
 import {
   Link as NavLink,
   NavigationBar,
-} from "@cultureamp/kaizen-component-library"
+} from "@kaizen/component-library"
 import { withPrefix } from "gatsby"
 import * as React from "react"
 

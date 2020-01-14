@@ -718,7 +718,7 @@ view (Config config) selectId =
                     [ resolveLoadingSpinner
                     , span [ styles.class .iconButton ]
                         [ Icon.view Icon.presentation
-                            (svgAsset "@cultureamp/kaizen-component-library/icons/chevron-down.icon.svg")
+                            (svgAsset "@kaizen/component-library/icons/chevron-down.icon.svg")
                             |> Html.map never
                         ]
                     ]
@@ -746,7 +746,7 @@ viewLoading : Html msg
 viewLoading =
     span [ styles.class .iconButton ]
         [ Icon.view Icon.presentation
-            (svgAsset "@cultureamp/kaizen-component-library/icons/spinner.icon.svg")
+            (svgAsset "@kaizen/component-library/icons/spinner.icon.svg")
             |> Html.map never
         ]
 
@@ -1283,7 +1283,7 @@ menuMarginTop =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Select/styles.elm.scss"
+    css "@kaizen/component-library/draft/Kaizen/Select/styles.elm.scss"
         { container = "container"
         , control = "control"
         , valueContainer = "valueContainer"

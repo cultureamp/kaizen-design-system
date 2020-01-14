@@ -1,8 +1,8 @@
 import {
   CheckboxField,
   CheckboxGroup,
-} from "@cultureamp/kaizen-component-library/draft"
-import { Label } from "@cultureamp/kaizen-component-library/draft"
+} from "@kaizen/component-library/draft"
+import { Label } from "@kaizen/component-library/draft"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 const styles = require("./CheckboxGroup.stories.scss")

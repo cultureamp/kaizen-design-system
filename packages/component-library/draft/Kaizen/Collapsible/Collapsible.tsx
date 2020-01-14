@@ -1,4 +1,4 @@
-import { Icon, Text } from "@cultureamp/kaizen-component-library"
+import { Icon, Text } from "@kaizen/component-library"
 import classnames from "classnames"
 import * as React from "react"
 import AnimateHeight from "react-animate-height"
@@ -6,9 +6,9 @@ import AnimateHeight from "react-animate-height"
 import { Sticky } from "./CollapsibleGroup"
 
 const styles = require("./styles.scss")
-const chevronUp = require("@cultureamp/kaizen-component-library/icons/chevron-up.icon.svg")
+const chevronUp = require("@kaizen/component-library/icons/chevron-up.icon.svg")
   .default
-const chevronDown = require("@cultureamp/kaizen-component-library/icons/chevron-down.icon.svg")
+const chevronDown = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
 
 export type Props = {

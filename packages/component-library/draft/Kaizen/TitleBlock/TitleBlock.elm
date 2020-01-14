@@ -111,7 +111,7 @@ breadCrumbView { label, link } (Config config) =
         [ div [ class .circle ]
             [ Icon.view
                 Icon.presentation
-                (svgAsset "@cultureamp/kaizen-component-library/icons/arrow-backward.icon.svg")
+                (svgAsset "@kaizen/component-library/icons/arrow-backward.icon.svg")
                 |> static
             ]
         , span
@@ -237,7 +237,7 @@ class =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/TitleBlock/TitleBlock.scss"
+    css "@kaizen/component-library/draft/Kaizen/TitleBlock/TitleBlock.scss"
         { breadcrumb = "breadcrumb"
         , circle = "circle"
         , breadcrumbText = "breadcrumbText"

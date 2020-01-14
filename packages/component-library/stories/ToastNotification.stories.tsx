@@ -2,7 +2,7 @@ import { loadElmStories } from "@cultureamp/elm-storybook"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-import { ToastNotification } from "@cultureamp/kaizen-component-library"
+import { ToastNotification } from "@kaizen/component-library"
 
 storiesOf("ToastNotification", module)
   .add("Affirmative", () => (

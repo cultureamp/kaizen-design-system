@@ -1,12 +1,12 @@
-import { MenuItem, MenuList } from "@cultureamp/kaizen-component-library"
-import { SplitButton } from "@cultureamp/kaizen-component-library/draft"
+import { MenuItem, MenuList } from "@kaizen/component-library"
+import { SplitButton } from "@kaizen/component-library/draft"
 import { action } from "@storybook/addon-actions"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-const duplicateIcon = require("@cultureamp/kaizen-component-library/icons/duplicate.icon.svg")
+const duplicateIcon = require("@kaizen/component-library/icons/duplicate.icon.svg")
   .default
-const editIcon = require("@cultureamp/kaizen-component-library/icons/edit.icon.svg")
+const editIcon = require("@kaizen/component-library/icons/edit.icon.svg")
   .default
 
 storiesOf("SplitButton", module)

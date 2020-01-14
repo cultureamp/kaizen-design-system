@@ -2,7 +2,7 @@ import { loadElmStories } from "@cultureamp/elm-storybook"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-import { GlobalNotification } from "@cultureamp/kaizen-component-library"
+import { GlobalNotification } from "@kaizen/component-library"
 
 storiesOf("GlobalNotification", module)
   .add("Affirmative", () => (

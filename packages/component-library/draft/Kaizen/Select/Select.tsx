@@ -3,10 +3,10 @@ import * as React from "react"
 import ReactSelect, { components } from "react-select"
 import { Props as ReactSelectProps } from "react-select/src/Select"
 
-import { Icon } from "@cultureamp/kaizen-component-library"
-import { Tag } from "@cultureamp/kaizen-component-library/draft"
+import { Icon } from "@kaizen/component-library"
+import { Tag } from "@kaizen/component-library/draft"
 
-const chevronDownIcon = require("@cultureamp/kaizen-component-library/icons/chevron-down.icon.svg")
+const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
 
 const styles = require("./styles.react.scss")
