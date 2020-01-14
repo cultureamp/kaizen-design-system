@@ -1,6 +1,8 @@
 import classNames from "classnames"
 import * as React from "react"
 import ReactSelect, { components } from "react-select"
+import Async from "react-select/async"
+import { AsyncProps as ReactAsyncSelectProps } from "react-select/src/Async"
 import { Props as ReactSelectProps } from "react-select/src/Select"
 
 import { Icon } from "@cultureamp/kaizen-component-library"
@@ -13,9 +15,32 @@ const styles = require("./styles.react.scss")
 
 interface Props extends ReactSelectProps {}
 
-const Select = (props: Props) => {
+export const Select = (props: Props) => {
   return (
     <ReactSelect
+      {...props}
+      components={{
+        Control,
+        Placeholder,
+        DropdownIndicator,
+        Menu,
+        Option,
+        NoOptionsMessage,
+        SingleValue,
+        MultiValue,
+        ClearIndicator: null,
+        IndicatorSeparator: null,
+      }}
+      className={classNames(styles.container, props.className)}
+    />
+  )
+}
+
+interface AsyncProps extends ReactAsyncSelectProps<any>, ReactSelectProps {}
+
+export const AsyncSelect = (props: AsyncProps) => {
+  return (
+    <Async
       {...props}
       components={{
         Control,
@@ -87,5 +112,3 @@ const SingleValue: typeof components.SingleValue = props => (
 const MultiValue: typeof components.MultiValue = props => (
   <components.MultiValue {...props} className={styles.multiValue} />
 )
-
-export default Select
