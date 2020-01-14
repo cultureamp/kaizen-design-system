@@ -83,7 +83,6 @@ const svgIcons: Rule = {
 
 const elm: Rule = {
   test: /\.elm$/,
-  exclude: [/elm-stuff/, /node_modules/],
   use: [
     {
       loader: "babel-loader",
@@ -139,8 +138,9 @@ const removeSvgFromTest = (rule: Rule): Rule => {
   }
 }
 
+/** Exclude non-CA modules from being processed by webpack. */
 const excludeExternalModules = (rule: Rule): Rule => ({
-  exclude: /node_modules\/(?!(\@cultureamp)).*/,
+  exclude: /node_modules\/(?!(\@cultureamp|\@kaizen)).*/,
   ...rule,
 })
 
