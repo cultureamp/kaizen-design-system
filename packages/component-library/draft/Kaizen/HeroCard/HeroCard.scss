@@ -3,8 +3,8 @@
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/layout";
 
-$left-content__width: 221px;
 $badge__height: 80px;
+$left-content__width: 221px;
 
 .root {
   @include ca-type-ideal-body;
@@ -24,11 +24,17 @@ $badge__height: 80px;
   border-radius: 5px 0 0 5px;
   background-color: $kz-color-wisteria-700;
   color: $kz-color-white;
-  min-width: $left-content__width;
   padding: ($ca-grid / 2) ($ca-grid * 2);
   flex-direction: column;
+  flex-shrink: 0;
   align-items: flex-start;
   position: relative;
+  width: $left-content__width;
+
+  .fullWidth & {
+    width: 33%;
+    max-width: 450px;
+  }
 }
 
 .withBadge {
@@ -37,10 +43,16 @@ $badge__height: 80px;
 
 .right {
   border-radius: 0 5px 5px 0;
+  display: flex;
+  flex-direction: column;
   padding: 51px;
   background-color: $kz-color-white;
-  flex: 2 2 auto;
   color: $kz-color-wisteria-800;
+  width: 100%;
+}
+
+.rightContent {
+  height: 100%;
 }
 
 .title {
@@ -57,6 +69,7 @@ $badge__height: 80px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
   align-self: flex-start;
+  line-height: 80px;
   min-width: 80px;
   min-height: 80px;
   align-items: center;
@@ -64,13 +77,4 @@ $badge__height: 80px;
   position: absolute;
   top: $ca-grid;
   left: $ca-grid * 1.2;
-}
-
-.image {
-  width: $left-content__width + 128px;
-  height: auto;
-  position: absolute;
-  bottom: -128px;
-  left: 50%;
-  transform: translateX(-50%);
 }
