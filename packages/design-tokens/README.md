@@ -6,7 +6,7 @@ Design Tokens are the heart of every Design System. The tokens represented here 
 
 In its current state this package supports Sass and Less variables, generated from a JSON tokens file. 
 
-**Please note** that the helpers in this package are specifically for accessing and using these design tokens. Component-specific helpers are best suited for kaizen-component-library. 
+**Please note** that the helpers in this package are specifically for accessing and using these design tokens. Component-specific helpers are best suited for `@kaizen/component-library`. 
 
 ## Installation
 ```
