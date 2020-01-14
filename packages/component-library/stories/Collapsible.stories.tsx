@@ -1,8 +1,5 @@
 import { Icon, Text } from "@kaizen/component-library"
-import {
-  Collapsible,
-  CollapsibleGroup,
-} from "@kaizen/component-library/draft"
+import { Collapsible, CollapsibleGroup } from "@kaizen/component-library/draft"
 import { action } from "@storybook/addon-actions"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"

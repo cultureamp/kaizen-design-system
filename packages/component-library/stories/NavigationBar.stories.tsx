@@ -1,12 +1,7 @@
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-import {
-  Icon,
-  Link,
-  Menu,
-  NavigationBar,
-} from "@kaizen/component-library"
+import { Icon, Link, Menu, NavigationBar } from "@kaizen/component-library"
 const academyIcon = require("@kaizen/component-library/icons/academy.icon.svg")
   .default
 const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")

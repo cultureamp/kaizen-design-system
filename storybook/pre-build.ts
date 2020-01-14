@@ -14,9 +14,9 @@ const exitWithError = (...message: string[]) => {
 // package. This state is required for linking with murmur, but it causes
 // storybook to fail in ways that are difficult to diagnose.
 if (
-  readdirSync(
-    dirname(require.resolve("@kaizen/component-library"))
-  ).includes("index.js")
+  readdirSync(dirname(require.resolve("@kaizen/component-library"))).includes(
+    "index.js"
+  )
 ) {
   exitWithError(
     "The component-library package contains compiled javascript!",

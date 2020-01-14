@@ -1,7 +1,4 @@
-import {
-  Link as NavLink,
-  NavigationBar,
-} from "@kaizen/component-library"
+import { Link as NavLink, NavigationBar } from "@kaizen/component-library"
 import { withPrefix } from "gatsby"
 import * as React from "react"
 
