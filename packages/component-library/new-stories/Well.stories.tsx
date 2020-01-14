@@ -4,7 +4,14 @@ import { TextField } from "@cultureamp/kaizen-component-library/draft"
 import { Well } from "@cultureamp/kaizen-component-library/draft"
 import * as React from "react"
 
-import { withKnobs, radios } from "@storybook/addon-knobs"
+import {
+  radios,
+  withKnobs,
+  text,
+  boolean,
+  optionsKnob,
+  select,
+} from "@storybook/addon-knobs"
 
 const ExampleContent = () => (
   <div style={{ padding: "1em 2em", maxWidth: "400px" }}>
@@ -25,28 +32,73 @@ const ExampleContent = () => (
 export default {
   title: "Well",
   decorators: [withKnobs],
-  component: Well,
+  // component: Well,
 }
 
-const variantValue = radios(
-  "variant",
-  {
-    default: "default",
-    positive: "positive",
-    negative: "negative",
-    informative: "informative",
-    cautionary: "cautionary",
-  },
+// const variantValue = radios(
+//   "variant",
+//   {
+//     default: "default",
+//     positive: "positive",
+//     negative: "negative",
+//     informative: "informative",
+//     cautionary: "cautionary",
+//   },
+//
+//   "default"
+//   // "GROUP-ID-VARIANT"
+// )
+//
+//
 
-  "default",
-  "GROUP-ID-VARIANT"
-)
+// const label = "Fruits"
+// const valuesObj = {
+//   default: "default",
+//   positive: "positive",
+//   negative: "negative",
+//   informative: "informative",
+//   cautionary: "cautionary",
+// }
+// const defaultValue = "kiwi"
+// const optionsObj = {
+//   display: "inline-radio",
+// }
+// const groupId = "GROUP-ID1"
+//
+// const variantValue = optionsKnob(
+//   label,
+//   valuesObj,
+//   defaultValue,
+//   optionsObj
+//   // groupId
+// )
+//
+
+const label = "Variant"
+const options = {
+  cautionary: "cautionary",
+  informative: "informative",
+}
+const defaultValue = "default"
+const groupId = "GROUP-ID1"
+
+const value = select(label, options, defaultValue)
 
 export const knobsStory = () => (
-  <Well variant={variantValue}>
-    <ExampleContent />
-  </Well>
+  <div>
+    <p>{value}</p>
+    <button disabled={boolean("Disabled", false)}>
+      {text("Label", "Hello Storybook")}
+    </button>
+    <Well>
+      <ExampleContent />
+    </Well>
+  </div>
 )
+// <Well variant={variantValue}>
+//   <ExampleContent />
+// </Well>
+// <Well variant={text("Variant", "informative"}>
 
 // export const defaultWithSolidBorder = () => (
 //   <Well>
