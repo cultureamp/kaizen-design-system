@@ -6,7 +6,6 @@ import { AsyncProps as ReactAsyncSelectProps } from "react-select/src/Async"
 import { Props as ReactSelectProps } from "react-select/src/Select"
 
 import { Icon } from "@cultureamp/kaizen-component-library"
-import { Tag } from "@cultureamp/kaizen-component-library/draft"
 
 const chevronDownIcon = require("@cultureamp/kaizen-component-library/icons/chevron-down.icon.svg")
   .default
