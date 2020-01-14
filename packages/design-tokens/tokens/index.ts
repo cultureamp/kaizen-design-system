@@ -1,25 +1,25 @@
 import * as tokens from "./color.json"
 
-interface ExtendedColorScale {
-  "600": string
-  "700": string
-  "800": string
-}
-
 interface ColorScale {
   "100": string
   "200": string
   "300": string
   "400": string
   "500": string
+  "600": string
+  "700": string
+  "800": string
 }
 
-type Wisteria = ColorScale | ExtendedColorScale
-type Cluny = ColorScale
-type Seedling = ColorScale | Pick<ExtendedColorScale, "600">
-type Yuzu = ColorScale
-type Coral = ColorScale | Pick<ExtendedColorScale, "600">
-type Peach = ColorScale
+type Wisteria = Pick<
+  ColorScale,
+  "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800"
+>
+type Cluny = Pick<ColorScale, "100" | "200" | "300" | "400" | "500">
+type Seedling = Pick<ColorScale, "100" | "200" | "300" | "400" | "500" | "600">
+type Yuzu = Pick<ColorScale, "100" | "200" | "300" | "400" | "500">
+type Coral = Pick<ColorScale, "100" | "200" | "300" | "400" | "500" | "600">
+type Peach = Pick<ColorScale, "100" | "200" | "300" | "400" | "500">
 type Ash = string
 type Stone = string
 type White = string
