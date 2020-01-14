@@ -15,8 +15,7 @@ $button-width: 124px;
   }
 }
 
-@mixin button-mixing(
-  $background,
+@mixin button-mixing($background,
   $border-color,
   $color,
   $hover-background,
@@ -25,8 +24,7 @@ $button-width: 124px;
   $active-border-color,
   $disabled-background,
   $disabled-border-color,
-  $disabled-color
-) {
+  $disabled-color) {
   &:hover {
     text-decoration: none;
     color: inherit;
@@ -52,6 +50,7 @@ $button-width: 124px;
     // Use JS polyfill to simulate :focus-visible, not yet supported by browsers
     // https://github.com/WICG/focus-visible#backwards-compatibility
     :global(.js-focus-visible) & {
+
       // hide native focus ring when :focus but not :focus-visible
       &:focus {
         outline: none;
@@ -74,7 +73,7 @@ $button-width: 124px;
 }
 
 .root {
-  display: inline-flex;
+  @include ca-type-block(inline-block);
 }
 
 .buttonReset {
@@ -90,8 +89,7 @@ $button-width: 124px;
 }
 
 .buttonDefault {
-  @include button-mixing(
-    $background: $white,
+  @include button-mixing($background: $white,
     $border-color: add-tint($ca-palette-ink, 80%),
     $color: $ca-palette-ink,
     $hover-background: $ca-palette-stone,
@@ -100,13 +98,11 @@ $button-width: 124px;
     $active-border-color: add-tint($ca-palette-ink, 40%),
     $disabled-background: $white,
     $disabled-border-color: add-tint($ca-palette-ink, 80%),
-    $disabled-color: add-tint($ca-palette-ink, 70%)
-  );
+    $disabled-color: add-tint($ca-palette-ink, 70%));
 }
 
 .buttonPrimary {
-  @include button-mixing(
-    $background: add-tint($ca-palette-seedling, 10%),
+  @include button-mixing($background: add-tint($ca-palette-seedling, 10%),
     $border-color: $ca-palette-seedling,
     $color: $white,
     $hover-background: $ca-palette-seedling,
@@ -115,8 +111,7 @@ $button-width: 124px;
     $active-border-color: $ca-palette-seedling,
     $disabled-background: add-tint($ca-palette-ink, 90%),
     $disabled-border-color: add-tint($ca-palette-ink, 90%),
-    $disabled-color: add-tint($ca-palette-ink, 70%)
-  );
+    $disabled-color: add-tint($ca-palette-ink, 70%));
 }
 
 .default,
@@ -145,29 +140,30 @@ $button-width: 124px;
   // This seemingly hacky selector specifically has to target the adjacent dropdown
   // button element of the main button currently being hovered/activated over
   &:not(:disabled):not(.disabled) {
+
     &:hover,
     &:active {
-      & + .dropdown > .dropdownButton {
+      &+.dropdown>.dropdownButton {
         border-left: 1px solid add-tint($ca-palette-ink, 60%);
       }
     }
 
     &:active {
-      & + .dropdown > .dropdownButton {
+      &+.dropdown>.dropdownButton {
         border-left: 1px solid add-tint($ca-palette-ink, 40%);
       }
     }
 
     [dir="rtl"] &:hover,
     [dir="rtl"] &:active {
-      & + .dropdown > .dropdownButton {
+      &+.dropdown>.dropdownButton {
         border-left: $base-border;
         border-right: 1px solid add-tint($ca-palette-ink, 60%);
       }
     }
 
     [dir="rtl"] &:active {
-      & + .dropdown > .dropdownButton {
+      &+.dropdown>.dropdownButton {
         border-left: $base-border;
         border-right: 1px solid add-tint($ca-palette-ink, 40%);
       }
@@ -192,6 +188,11 @@ $button-width: 124px;
     border-left: $base-border;
     border-right: inherit;
   }
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
 }
 
 .dropdown {
@@ -239,7 +240,6 @@ $button-width: 124px;
 }
 
 .menuContainer {
-  position: absolute;
   z-index: $ca-z-index-dropdown;
-  width: calc(#{$button-width} + 100%);
+  width: 100%;
 }

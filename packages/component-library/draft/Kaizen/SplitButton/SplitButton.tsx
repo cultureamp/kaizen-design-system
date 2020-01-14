@@ -1,6 +1,8 @@
 import classnames from "classnames"
 import * as React from "react"
+import { useState } from "react"
 import Dropdown from "./Dropdown"
+import DropdownMenu from "./DropdownMenu"
 import { Dir } from "./types"
 const styles = require("./styles.scss")
 
@@ -48,34 +50,48 @@ const SplitButton: SplitButton = ({
     disabled: disabled,
   }
 
+  const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false)
+
+  const hideDropdownMenu = () => {
+    setIsMenuVisible(!isMenuVisible)
+  }
+
   return (
     <div className={styles.root} dir={dir} data-automation-id={automationId}>
-      {href ? (
-        <a
-          href={disabled ? undefined : href}
-          onClick={disabled ? undefined : (onClick as AnchorCallback)}
-          {...btnProps}
-        >
-          {label}
-        </a>
-      ) : (
-        // @ts-ignore
-        <button
-          type="button"
-          onClick={disabled ? undefined : (onClick as ButtonCallback)}
-          {...btnProps}
-        >
-          {label}
-        </button>
+      <div className={styles.buttonsContainer}>
+        {href ? (
+          <a
+            href={disabled ? undefined : href}
+            onClick={disabled ? undefined : (onClick as AnchorCallback)}
+            {...btnProps}
+          >
+            {label}
+          </a>
+        ) : (
+          // @ts-ignore
+          <button
+            type="button"
+            onClick={disabled ? undefined : (onClick as ButtonCallback)}
+            {...btnProps}
+          >
+            {label}
+          </button>
+        )}
+        <Dropdown
+          automationId="split-button-dropdown"
+          dir={dir}
+          variant={variant}
+          dropdownAltText={dropdownAltText}
+          onOpenDropdown={() => {
+            hideDropdownMenu()
+          }}
+        />
+      </div>
+      {isMenuVisible && (
+        <DropdownMenu hideDropdownMenu={hideDropdownMenu} dir={dir}>
+          {dropdownContent}
+        </DropdownMenu>
       )}
-      <Dropdown
-        automationId="split-button-dropdown"
-        dir={dir}
-        variant={variant}
-        dropdownAltText={dropdownAltText}
-      >
-        {dropdownContent || null}
-      </Dropdown>
     </div>
   )
 }
