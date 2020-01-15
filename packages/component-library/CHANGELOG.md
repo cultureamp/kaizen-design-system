@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [17.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.6.2...@cultureamp/kaizen-component-library@17.7.0) (2020-01-15)
+
+
+### Features
+
+* Add AsyncSelect component ([#221](https://github.com/cultureamp/kaizen-design-system/issues/221)) ([eb39896](https://github.com/cultureamp/kaizen-design-system/commit/eb39896))
+
+
+
+
+
 ## [17.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.6.1...@cultureamp/kaizen-component-library@17.6.2) (2020-01-14)
 
 **Note:** Version bump only for package @cultureamp/kaizen-component-library
