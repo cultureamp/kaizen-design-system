@@ -33,11 +33,17 @@ import { storiesOf } from "@storybook/react"
 
 storiesOf("Accordion", module)
   .addDecorator(withKnobs)
-  .add("Knobs", () => (
+  .add("Knobs", () => {
+    const alignmentValue = select(
+      "Accordion heading alignment (align)",
+      ["start", "end"],
+      "end"
+    )
+    return (
     <div>
       <p>{alignmentValue}</p>
-    </div>
-  ))
+    </div>)
+  })
 // .add("Knobs", () => (
 //   <div>
 //     <p>{value}</p>
@@ -106,11 +112,6 @@ storiesOf("Accordion", module)
 //
 // const value = select(label, options, defaultValue, groupId)
 
-const alignmentValue = select(
-  "Accordion heading alignment (align)",
-  ["start", "end"],
-  "end"
-)
 
 // export const knobsStory = () => (
 //   <div>
