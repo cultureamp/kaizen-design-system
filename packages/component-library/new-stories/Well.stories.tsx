@@ -5,35 +5,56 @@ import { Well } from "@cultureamp/kaizen-component-library/draft"
 import * as React from "react"
 
 import {
-  radios,
+  // radios,
   withKnobs,
   text,
   boolean,
-  optionsKnob,
+  // optionsKnob,
   select,
 } from "@storybook/addon-knobs"
 
-const ExampleContent = () => (
-  <div style={{ padding: "1em 2em", maxWidth: "400px" }}>
-    <Text tag="h3">Heading</Text>
-    <Text tag="p">
-      This is just a sentence to fill the content area so that you have
-      something to look at.
-    </Text>
-    <TextField
-      id="blerg"
-      labelText="Example text field"
-      inputValue=""
-      onChange={() => {}}
-    />
-  </div>
-)
+import { storiesOf } from "@storybook/react"
 
-export default {
-  title: "Well",
-  decorators: [withKnobs],
-  // component: Well,
-}
+// const ExampleContent = () => (
+//   <div style={{ padding: "1em 2em", maxWidth: "400px" }}>
+//     <Text tag="h3">Heading</Text>
+//     <Text tag="p">
+//       This is just a sentence to fill the content area so that you have
+//       something to look at.
+//     </Text>
+//     <TextField
+//       id="blerg"
+//       labelText="Example text field"
+//       inputValue=""
+//       onChange={() => {}}
+//     />
+//   </div>
+// )
+
+storiesOf("Accordion", module)
+  .addDecorator(withKnobs)
+  .add("Knobs", () => (
+    <div>
+      <p>{alignmentValue}</p>
+    </div>
+  ))
+// .add("Knobs", () => (
+//   <div>
+//     <p>{value}</p>
+//     <button disabled={boolean("Disabled", false)}>
+//       {text("Label", "Hello Storybook")}
+//     </button>
+//     <Well>
+//       <ExampleContent />
+//     </Well>
+//   </div>
+// ))
+
+// export default {
+//   title: "Well",
+//   decorators: [withKnobs],
+//   // component: Well,
+// }
 
 // const variantValue = radios(
 //   "variant",
@@ -74,27 +95,34 @@ export default {
 // )
 //
 
-const label = "Variant"
-const options = {
-  cautionary: "cautionary",
-  informative: "informative",
-}
-const defaultValue = "default"
-const groupId = "GROUP-ID1"
+// const label = "Variant"
+// const options = {
+//   default: "default",
+//   informative: "informative",
+//   cautionary: "cautionary",
+// }
+// const defaultValue = ""
+// const groupId = "GROUP-ID1"
+//
+// const value = select(label, options, defaultValue, groupId)
 
-const value = select(label, options, defaultValue)
-
-export const knobsStory = () => (
-  <div>
-    <p>{value}</p>
-    <button disabled={boolean("Disabled", false)}>
-      {text("Label", "Hello Storybook")}
-    </button>
-    <Well>
-      <ExampleContent />
-    </Well>
-  </div>
+const alignmentValue = select(
+  "Accordion heading alignment (align)",
+  ["start", "end"],
+  "end"
 )
+
+// export const knobsStory = () => (
+//   <div>
+//     <p>{value}</p>
+//     <button disabled={boolean("Disabled", false)}>
+//       {text("Label", "Hello Storybook")}
+//     </button>
+//     <Well>
+//       <ExampleContent />
+//     </Well>
+//   </div>
+// )
 // <Well variant={variantValue}>
 //   <ExampleContent />
 // </Well>
@@ -106,9 +134,9 @@ export const knobsStory = () => (
 //   </Well>
 // )
 
-knobsStory.story = {
-  name: "knobs",
-}
+// knobsStory.story = {
+//   name: "knobs",
+// }
 
 // storiesOf("Well", module)
 //   .add("Default with solid border", () => (
