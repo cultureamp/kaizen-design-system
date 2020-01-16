@@ -7,7 +7,7 @@ const configureIcon = require("@cultureamp/kaizen-component-library/icons/config
   .default
 
 storiesOf("Icon (React)", module)
-  .add("Meaningful", () => (
+  .add("Meaningful (Kaizen Site Demo)", () => (
     <Icon
       icon={configureIcon}
       title="Warning"
