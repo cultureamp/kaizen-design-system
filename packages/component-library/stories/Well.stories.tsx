@@ -68,7 +68,7 @@ storiesOf("Well (React)", module)
     </Well>
   ))
 
-loadElmStories("Well(Elm)", module, require("./Well.stories.elm"), [
+loadElmStories("Well (Elm)", module, require("./Well.stories.elm"), [
   "Default with solid border",
   "Default with dashed border",
   "Default without border",
