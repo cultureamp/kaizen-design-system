@@ -23,9 +23,6 @@ storiesOf("IconButton (React)", module)
   .add("Disabled", () => (
     <IconButton icon={configureIcon} label="Label" disabled={true} />
   ))
-  .add("Form", () => (
-    <IconButton icon={configureIcon} label="Label" form={true} />
-  ))
   .add("Destructive", () => (
     <IconButton icon={configureIcon} label="Label" destructive={true} />
   ))
@@ -47,4 +44,7 @@ storiesOf("IconButton (React)", module)
       reversed={true}
       disabled={true}
     />
+  ))
+  .add("Form (discouraged)", () => (
+    <IconButton icon={configureIcon} label="Label" form={true} />
   ))
