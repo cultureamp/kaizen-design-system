@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
 # shellcheck source=helpers/get-secret.sh
 . ".buildkite/scripts/helpers/get-secret.sh"
