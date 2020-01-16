@@ -164,12 +164,16 @@ $large: 450px;
   color: add-alpha(#000, 50%);
 }
 
+.arrowSideBottom {}
+
 .arrowSideTop {
   top: initial;
   bottom: 100%;
   margin-top: 1px;
   // Also see getArrowStyle in the component file, which will rotate the arrow 180 degrees
 }
+
+.arrowPositionCenter {}
 
 .arrowPositionStart {
   left: $ca-grid;

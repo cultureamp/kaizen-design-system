@@ -17,7 +17,8 @@ module Kaizen.Popover.Popover exposing
     )
 
 import CssModules exposing (css)
-import Html exposing (Html, button, div, span, text)
+import Html exposing (Attribute, Html, button, div, span, text)
+import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
@@ -77,8 +78,12 @@ type Position
 type Side
     = Top
     | Bottom
-    | Left
-    | Right
+
+
+
+-- Not yet implemented
+--| Left
+--| Right
 
 
 default : Config msg
@@ -170,27 +175,37 @@ view (Config config) =
                 Nothing ->
                     text ""
 
-        ( sideClass, positionClass ) =
-            mapPositionToClass config.tipPosition
+        ( side, position ) =
+            config.tipPosition
     in
     div
-        [ styles.classList
-            [ ( mapVariantToRootClass config.variant, True )
-            , ( sideClass, True )
-            , ( positionClass, True )
-            ]
+        [ styles.class .root
+        , getRootStyle
         ]
-        [ case config.heading of
-            Just heading ->
-                div [ styles.class .header ]
-                    [ span [ styles.class .icon ] [ mapVariantToIcon config.variant ]
-                    , text heading
-                    , viewClose
-                    ]
+        [ div
+            [ styles.classList
+                [ ( mapVariantToBoxClass config.variant, True ) ]
+            ]
+            [ case config.heading of
+                Just heading ->
+                    div [ styles.class .header ]
+                        [ span [ styles.class .icon ] [ mapVariantToIcon config.variant ]
+                        , text heading
+                        , viewClose
+                        ]
 
-            Nothing ->
-                text ""
-        , div [ styles.class .container ] [ config.content ]
+                Nothing ->
+                    text ""
+            , div [ styles.class .container ] [ config.content ]
+            ]
+        , div
+            [ styles.classList
+                [ ( mapArrowVariantToClass config.variant, True )
+                , ( mapArrowSideToClass side, True )
+                , ( mapArrowPositionToClass position, True )
+                ]
+            ]
+            []
         ]
 
 
@@ -198,24 +213,63 @@ styles =
     css "@cultureamp/kaizen-component-library/draft/Kaizen/Popover/styles.scss"
         { container = "container"
         , root = "root"
-        , default = "default"
-        , informative = "informative"
-        , positive = "positive"
-        , negative = "negative"
-        , cautionary = "cautionary"
+        , defaultBox = "defaultBox"
+        , informativeBox = "informativeBox"
+        , positiveBox = "positiveBox"
+        , negativeBox = "negativeBox"
+        , cautionaryBox = "cautionaryBox"
         , header = "header"
         , icon = "icon"
         , close = "close"
-        , sideTop = "sideTop"
-        , sideBottom = "sideBottom"
-        , positionStart = "positionStart"
-        , positionCenter = "positionCenter"
-        , positionEnd = "positionEnd"
+        , informativeArrow = "informativeArrow"
+        , positiveArrow = "positiveArrow"
+        , negativeArrow = "negativeArrow"
+        , cautionaryArrow = "cautionaryArrow"
+        , defaultArrow = "defaultArrow"
+        , arrowSideTop = "arrowSideTop"
+        , arrowSideBottom = "arrowSideBottom"
+        , arrowPositionStart = "arrowPositionStart"
+        , arrowPositionEnd = "arrowPositionEnd"
+        , arrowPositionCenter = "arrowPositionCenter"
         }
 
 
 
 -- HELPERS
+
+
+getRootStyle : Attribute msg
+getRootStyle =
+    style "transform" "translateX(-50%)"
+
+
+mapVariantToBoxClass : Variant -> { b | defaultBox : a, informativeBox : a, positiveBox : a, negativeBox : a, cautionaryBox : a } -> a
+mapVariantToBoxClass variant =
+    case variant of
+        Default ->
+            .defaultBox
+
+        Informative ->
+            .informativeBox
+
+        Positive ->
+            .positiveBox
+
+        Negative ->
+            .negativeBox
+
+        Cautionary ->
+            .cautionaryBox
+
+
+getArrowStyle : Side -> Attribute msg
+getArrowStyle side =
+    case side of
+        Top ->
+            style "transform" "rotate(180deg)"
+
+        Bottom ->
+            style "" ""
 
 
 mapVariantToIcon : Variant -> Html msg
@@ -249,47 +303,43 @@ mapVariantToIcon variant =
                 |> Html.map never
 
 
-mapVariantToRootClass : Variant -> { b | default : a, informative : a, positive : a, negative : a, cautionary : a } -> a
-mapVariantToRootClass variant =
+mapArrowVariantToClass : Variant -> { b | defaultArrow : a, informativeArrow : a, positiveArrow : a, negativeArrow : a, cautionaryArrow : a } -> a
+mapArrowVariantToClass variant =
     case variant of
         Default ->
-            .default
+            .defaultArrow
 
         Informative ->
-            .informative
+            .informativeArrow
 
         Positive ->
-            .positive
+            .positiveArrow
 
         Negative ->
-            .negative
+            .negativeArrow
 
         Cautionary ->
-            .cautionary
+            .cautionaryArrow
 
 
-mapPositionToClass :
-    ( Side, Position )
-    -> ( { b | sideTop : a, sideBottom : a } -> a, { b | positionStart : a, positionCenter : a, positionEnd : a } -> a )
-mapPositionToClass tipPosition =
-    case tipPosition of
-        ( Bottom, Start ) ->
-            ( .sideBottom, .positionStart )
+mapArrowPositionToClass : Position -> { b | arrowPositionStart : a, arrowPositionEnd : a, arrowPositionCenter : a } -> a
+mapArrowPositionToClass position =
+    case position of
+        Start ->
+            .arrowPositionStart
 
-        ( Bottom, Center ) ->
-            ( .sideBottom, .positionCenter )
+        End ->
+            .arrowPositionEnd
 
-        ( Bottom, End ) ->
-            ( .sideBottom, .positionEnd )
+        Center ->
+            .arrowPositionCenter
 
-        ( Top, Start ) ->
-            ( .sideTop, .positionStart )
 
-        ( Top, Center ) ->
-            ( .sideTop, .positionCenter )
+mapArrowSideToClass : Side -> { b | arrowSideTop : a, arrowSideBottom : a } -> a
+mapArrowSideToClass side =
+    case side of
+        Bottom ->
+            .arrowSideBottom
 
-        ( Top, End ) ->
-            ( .sideTop, .positionEnd )
-
-        ( _, _ ) ->
-            ( .sideBottom, .positionCenter )
+        Top ->
+            .arrowSideTop
