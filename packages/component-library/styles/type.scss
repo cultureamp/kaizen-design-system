@@ -1,3 +1,4 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "color";
 @import "layers";
 
@@ -227,7 +228,7 @@ $ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
   @include ca-type-ideal($size: $size, $weight: $ca-weight-book, $args...);
   text-decoration: none;
   text-decoration-skip-ink: auto;
-  color: $ca-palette-ocean;
+  color: $kz-color-cluny-500;
   cursor: pointer;
   &:hover {
     text-decoration: underline;

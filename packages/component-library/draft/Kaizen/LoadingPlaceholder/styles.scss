@@ -1,3 +1,4 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "~@cultureamp/kaizen-component-library/styles/animation";
 @import "~@cultureamp/kaizen-component-library/styles/border";
 @import "~@cultureamp/kaizen-component-library/styles/color";
@@ -5,7 +6,7 @@
 @import "~@cultureamp/kaizen-component-library/styles/type";
 
 .base {
-  background-color: add-tint($ca-palette-ink, 90%);
+  background-color: $kz-color-wisteria-100;
   border-radius: $ca-border-radius * 3;
   position: relative;
   top: $ca-grid * 0.175;
@@ -36,11 +37,11 @@
 }
 
 .reversedDefault {
-  background-color: rgba($white, 0.5);
+  background-color: rgba($kz-color-white, 0.5);
 }
 
 .reversedOcean {
-  background-color: add-tint($ca-palette-ocean, 50%);
+  background-color: $kz-color-cluny-300;
 }
 
 .normal {

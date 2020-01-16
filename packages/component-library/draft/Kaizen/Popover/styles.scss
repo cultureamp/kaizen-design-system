@@ -1,3 +1,4 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "~@cultureamp/kaizen-component-library/styles/border";
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/layers";
@@ -51,10 +52,10 @@ $large: 450px;
 
 %box {
   background: #fff;
-  border: 1px solid add-tint($ca-palette-ink, 80%);
+  border: 1px solid $kz-color-wisteria-200;
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.1));
   border-radius: $ca-border-radius;
-  color: $ca-palette-lapis;
+  color: $kz-color-wisteria-800;
   text-align: left;
 }
 
@@ -63,59 +64,47 @@ $large: 450px;
 }
 
 .defaultArrow {
-  @include arrow(#fff, add-tint($ca-palette-ink, 80%));
+  @include arrow(#fff, $kz-color-wisteria-200);
 }
 
 .informativeBox {
   @extend %box;
-  background: add-tint($ca-palette-ocean, 90%);
-  border-color: add-tint($ca-palette-ocean, 60%);
+  background: $kz-color-cluny-100;
+  border-color: $kz-color-cluny-200;
 }
 
 .informativeArrow {
-  @include arrow(
-    add-tint($ca-palette-ocean, 90%),
-    add-tint($ca-palette-ocean, 60%)
-  );
+  @include arrow($kz-color-cluny-100, $kz-color-cluny-200);
 }
 
 .positiveBox {
   @extend %box;
-  background: add-tint($ca-palette-seedling, 90%);
-  border-color: add-tint($ca-palette-seedling, 60%);
+  background: $kz-color-seedling-100;
+  border-color: $kz-color-seedling-200;
 }
 
 .positiveArrow {
-  @include arrow(
-    add-tint($ca-palette-seedling, 90%),
-    add-tint($ca-palette-seedling, 60%)
-  );
+  @include arrow($kz-color-seedling-100, $kz-color-seedling-200);
 }
 
 .negativeBox {
   @extend %box;
-  background: add-tint($ca-palette-coral, 95%);
-  border-color: add-tint($ca-palette-coral, 60%);
+  background: $kz-color-coral-100;
+  border-color: $kz-color-coral-200;
 }
 
 .negativeArrow {
-  @include arrow(
-    add-tint($ca-palette-coral, 95%),
-    add-tint($ca-palette-coral, 60%)
-  );
+  @include arrow($kz-color-coral-100, $kz-color-coral-200);
 }
 
 .cautionaryBox {
   @extend %box;
-  background: add-tint($ca-palette-yuzu, 90%);
-  border-color: add-tint($ca-palette-yuzu, 40%);
+  background: $kz-color-yuzu-100;
+  border-color: $kz-color-yuzu-400;
 }
 
 .cautionaryArrow {
-  @include arrow(
-    add-tint($ca-palette-yuzu, 90%),
-    add-tint($ca-palette-yuzu, 40%)
-  );
+  @include arrow($kz-color-yuzu-100, $kz-color-yuzu-400);
 }
 
 .header {
@@ -142,19 +131,19 @@ $large: 450px;
 }
 
 .informativeIcon {
-  color: add-tint($ca-palette-ocean, 30%);
+  color: $kz-color-cluny-500;
 }
 
 .positiveIcon {
-  color: add-tint($ca-palette-seedling, 30%);
+  color: $kz-color-seedling-400;
 }
 
 .negativeIcon {
-  color: $ca-palette-coral;
+  color: $kz-color-coral-500;
 }
 
 .cautionaryIcon {
-  color: $ca-palette-yuzu;
+  color: $kz-color-yuzu-500;
 }
 
 .close {
@@ -164,11 +153,25 @@ $large: 450px;
   color: add-alpha(#000, 50%);
 }
 
+.arrowSideBottom {
+  // This is just an empty class to satisfy Elm's case statement
+  // (we were in a rush and the linter wouldn't let an empty class through.)
+  // Can be refactored out!
+  visibility: visible;
+}
+
 .arrowSideTop {
   top: initial;
   bottom: 100%;
   margin-top: 1px;
   // Also see getArrowStyle in the component file, which will rotate the arrow 180 degrees
+}
+
+.arrowPositionCenter {
+  // This is just an empty class to satisfy Elm's case statement
+  // (we were in a rush and the linter wouldn't let an empty class through.)
+  // Can be refactored out!
+  visibility: visible;
 }
 
 .arrowPositionStart {

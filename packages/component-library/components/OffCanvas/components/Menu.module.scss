@@ -1,3 +1,4 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "../../../styles/color";
 @import "../../../styles/type";
 
@@ -22,7 +23,7 @@ $menu-footer-height: 100px;
   text-decoration: none;
 
   &.secondary.first {
-    border-top: 1px solid add-tint($ca-palette-ink, 10%);
+    border-top: 1px solid $kz-color-wisteria-700;
     padding-top: $ca-grid / 2;
     margin-top: $ca-grid / 2;
   }
@@ -34,5 +35,5 @@ $menu-footer-height: 100px;
 }
 
 .active {
-  background-color: add-tint($ca-palette-ink, 10%);
+  background-color: $kz-color-wisteria-700;
 }

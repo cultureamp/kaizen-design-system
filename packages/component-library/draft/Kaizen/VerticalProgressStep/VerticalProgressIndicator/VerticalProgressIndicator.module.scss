@@ -1,3 +1,4 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/type";
 @import "~@cultureamp/kaizen-component-library/styles/border";
@@ -22,34 +23,34 @@ $line-width: 2px;
   position: absolute;
   top: 50%;
   left: 50%;
-  background: $ca-palette-seedling;
+  background: $kz-color-seedling-500;
   transform: translate(-50%, -50%);
   border-radius: 50%;
 }
 
 .upcomingIcon {
   composes: iconWrapper;
-  color: add-tint($ca-palette-ink, 60%);
+  color: $kz-color-wisteria-400;
 }
 
 .currentInactionableIcon {
   composes: iconWrapper;
-  color: add-tint($ca-palette-ink, 60%);
+  color: $kz-color-wisteria-400;
 }
 
 .currentActionableIcon {
   composes: iconWrapper;
-  color: $ca-palette-ocean;
+  color: $kz-color-cluny-500;
 }
 
 .currentStartedIcon {
   composes: iconWrapper;
-  color: $ca-palette-seedling;
+  color: $kz-color-seedling-500;
 }
 
 .completedIcon {
   composes: iconWrapper;
-  color: $ca-palette-seedling;
+  color: $kz-color-seedling-500;
 }
 
 .topLine {
@@ -63,7 +64,7 @@ $line-width: 2px;
 
 .greenTopLine {
   composes: topLine;
-  background: $ca-palette-seedling;
+  background: $kz-color-seedling-500;
 }
 
 .greyTopLine {
@@ -82,10 +83,10 @@ $line-width: 2px;
 
 .greenBottomLine {
   composes: bottomLine;
-  background: $ca-palette-seedling;
+  background: $kz-color-seedling-500;
 }
 
 .greyBottomLine {
   composes: bottomLine;
-  background: add-tint($ca-palette-ink, 80%);
+  background: $kz-color-wisteria-200;
 }

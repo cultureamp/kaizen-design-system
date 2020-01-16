@@ -1,3 +1,4 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/type";
 @import "~@cultureamp/kaizen-component-library/styles/border";
@@ -15,8 +16,7 @@ $button-width: 124px;
   }
 }
 
-@mixin button-mixing(
-  $background,
+@mixin button-mixing($background,
   $border-color,
   $color,
   $hover-background,
@@ -25,8 +25,7 @@ $button-width: 124px;
   $active-border-color,
   $disabled-background,
   $disabled-border-color,
-  $disabled-color
-) {
+  $disabled-color) {
   &:hover {
     text-decoration: none;
     color: inherit;
@@ -52,6 +51,7 @@ $button-width: 124px;
     // Use JS polyfill to simulate :focus-visible, not yet supported by browsers
     // https://github.com/WICG/focus-visible#backwards-compatibility
     :global(.js-focus-visible) & {
+
       // hide native focus ring when :focus but not :focus-visible
       &:focus {
         outline: none;
@@ -59,7 +59,7 @@ $button-width: 124px;
 
       // show custom focus ring when :focus-visible
       &:global(.focus-visible) {
-        border: $focus-border-width solid $ca-palette-ocean;
+        border: $focus-border-width solid $kz-color-cluny-500;
       }
     }
   }
@@ -90,33 +90,30 @@ $button-width: 124px;
 }
 
 .buttonDefault {
-  @include button-mixing(
-    $background: $white,
-    $border-color: add-tint($ca-palette-ink, 80%),
-    $color: $ca-palette-ink,
-    $hover-background: $ca-palette-stone,
-    $hover-border-color: add-tint($ca-palette-ink, 80%),
-    $active-background: $ca-palette-ash,
-    $active-border-color: add-tint($ca-palette-ink, 40%),
-    $disabled-background: $white,
-    $disabled-border-color: add-tint($ca-palette-ink, 80%),
-    $disabled-color: add-tint($ca-palette-ink, 70%)
-  );
+  @include button-mixing($background: $kz-color-white,
+    $border-color: $kz-color-wisteria-200,
+    $color: $kz-color-wisteria-800,
+    $hover-background: $kz-color-stone,
+    $hover-border-color: $kz-color-wisteria-400,
+    $active-background: $kz-color-ash,
+    $active-border-color: $kz-color-wisteria-500,
+    $disabled-background: $kz-color-white,
+    $disabled-border-color: $kz-color-wisteria-200,
+    $disabled-color: $kz-color-wisteria-300);
 }
 
 .buttonPrimary {
-  @include button-mixing(
-    $background: add-tint($ca-palette-seedling, 10%),
-    $border-color: $ca-palette-seedling,
-    $color: $white,
-    $hover-background: $ca-palette-seedling,
-    $hover-border-color: $ca-palette-seedling,
-    $active-background: $ca-palette-seedling,
-    $active-border-color: $ca-palette-seedling,
-    $disabled-background: add-tint($ca-palette-ink, 90%),
-    $disabled-border-color: add-tint($ca-palette-ink, 90%),
-    $disabled-color: add-tint($ca-palette-ink, 70%)
-  );
+  // equal to add-tint($ca-palette-seedling, 10%). Temporary until we upgrade to Zen (Wisteria)
+  @include button-mixing($background: #58b59a,
+    $border-color: #58b59a,
+    $color: $kz-color-white,
+    $hover-background: $kz-color-seedling-500,
+    $hover-border-color: $kz-color-seedling-500,
+    $active-background: $kz-color-seedling-500,
+    $active-border-color: $kz-color-seedling-500,
+    $disabled-background: $kz-color-white,
+    $disabled-border-color: $kz-color-wisteria-100,
+    $disabled-color: $kz-color-wisteria-300);
 }
 
 .default,
@@ -145,31 +142,32 @@ $button-width: 124px;
   // This seemingly hacky selector specifically has to target the adjacent dropdown
   // button element of the main button currently being hovered/activated over
   &:not(:disabled):not(.disabled) {
+
     &:hover,
     &:active {
-      & + .dropdown > .dropdownButton {
-        border-left: 1px solid add-tint($ca-palette-ink, 60%);
+      &+.dropdown>.dropdownButton {
+        border-left: 1px solid $kz-color-wisteria-400;
       }
     }
 
     &:active {
-      & + .dropdown > .dropdownButton {
-        border-left: 1px solid add-tint($ca-palette-ink, 40%);
+      &+.dropdown>.dropdownButton {
+        border-left: 1px solid $kz-color-wisteria-500;
       }
     }
 
     [dir="rtl"] &:hover,
     [dir="rtl"] &:active {
-      & + .dropdown > .dropdownButton {
+      &+.dropdown>.dropdownButton {
         border-left: $base-border;
-        border-right: 1px solid add-tint($ca-palette-ink, 60%);
+        border-right: 1px solid $kz-color-wisteria-400;
       }
     }
 
     [dir="rtl"] &:active {
-      & + .dropdown > .dropdownButton {
+      &+.dropdown>.dropdownButton {
         border-left: $base-border;
-        border-right: 1px solid add-tint($ca-palette-ink, 40%);
+        border-right: 1px solid $kz-color-wisteria-500;
       }
     }
   }
@@ -228,11 +226,12 @@ $button-width: 124px;
   composes: buttonReset buttonPrimary;
 
   // Making the left | right border white to separate the button with dropdown button
-  border-left-color: $white !important;
+  border-left-color: $kz-color-white !important;
 
   [dir="rtl"] & {
-    border-left-color: $ca-palette-seedling !important;
-    border-right-color: $white !important;
+    // equal to add-tint($ca-palette-seedling, 10%). Temporary until we upgrade to Zen (Wisteria)
+    border-left-color: #58b59a !important;
+    border-right-color: $kz-color-white !important;
   }
 }
 
