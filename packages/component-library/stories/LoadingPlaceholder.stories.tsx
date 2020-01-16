@@ -177,7 +177,6 @@ storiesOf("LoadingPlaceholder (React)", module)
     </StoryContainer>
   ))
 
-
   .add("Heading", () => (
     <StoryContainer>
       <div>
