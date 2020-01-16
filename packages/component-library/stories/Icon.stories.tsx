@@ -24,7 +24,7 @@ storiesOf("Icon (React)", module)
     </div>
   ))
 
-loadElmStories("Icon(Elm)", module, require("./Icon.stories.elm"), [
+loadElmStories("Icon (Elm)", module, require("./Icon.stories.elm"), [
   "Meaningful",
   "Presentational",
   "Inherit Size",
