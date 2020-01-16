@@ -14,7 +14,7 @@ const ExampleContainer: React.FunctionComponent = ({ children }) => (
 )
 
 storiesOf("TextField (React)", module)
-  .add("Default", () => (
+  .add("Default (Kaizen Site Demo)", () => (
     <ExampleContainer>
       <TextField
         id="email"
