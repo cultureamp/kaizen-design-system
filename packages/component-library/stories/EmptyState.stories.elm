@@ -17,13 +17,15 @@ sidebarAndContentLayout children =
             children
         ]
 
+
 sidebarAndContentLayoutRTL : List (Html msg) -> Html msg
 sidebarAndContentLayoutRTL children =
-    div [ styles.class .container, dir "rtl"  ]
+    div [ styles.class .container, dir "rtl" ]
         [ div [ styles.class .sidebar ] []
         , div [ styles.class .content ]
             children
         ]
+
 
 contentOnlyLayout : List (Html msg) -> Html msg
 contentOnlyLayout children =
