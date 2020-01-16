@@ -39,7 +39,7 @@ storiesOf("EmptyState (React)", module)
       />
     </SidebarAndContentLayout>
   ))
-  .add("Sidebar + Content layout", () => (
+  .add("Layout, Sidebar + Content", () => (
     <SidebarAndContentLayout>
       <EmptyState
         headingText="Empty state title"
@@ -49,7 +49,7 @@ storiesOf("EmptyState (React)", module)
       />
     </SidebarAndContentLayout>
   ))
-  .add("Content-only layout", () => (
+  .add("Layout, Content-only", () => (
     <ContentOnlyLayout>
       <EmptyState
         headingText="Empty state title"
@@ -66,35 +66,6 @@ storiesOf("EmptyState (React)", module)
         bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
         illustrationType="positive"
-      >
-        <div className={styles.buttonContainer}>
-          <Button
-            label="Label"
-            icon={chevronRight}
-            iconPosition="end"
-            fullWidth
-          />
-        </div>
-      </EmptyState>
-    </SidebarAndContentLayout>
-  ))
-  .add("Neutral", () => (
-    <SidebarAndContentLayout>
-      <EmptyState
-        headingText="Neutral empty state"
-        bodyText="If providing further actions, include a link to an action or use a
-          Default or Primary action."
-        illustrationType="neutral"
-      />
-    </SidebarAndContentLayout>
-  ))
-  .add("Negative", () => (
-    <SidebarAndContentLayout>
-      <EmptyState
-        headingText="Negative empty state"
-        bodyText="If providing further actions, include a link to an action or use a
-          Default or Primary action."
-        illustrationType="negative"
       >
         <div className={styles.buttonContainer}>
           <Button
@@ -136,7 +107,7 @@ storiesOf("EmptyState (React)", module)
       </EmptyState>
     </SidebarAndContentLayout>
   ))
-  .add("Action + primary button", () => (
+  .add("Action, Button", () => (
     <SidebarAndContentLayout>
       <EmptyState
         headingText="Action empty state"
@@ -160,7 +131,36 @@ storiesOf("EmptyState (React)", module)
       </EmptyState>
     </SidebarAndContentLayout>
   ))
-  .add("RTL", () => (
+  .add("Neutral", () => (
+    <SidebarAndContentLayout>
+      <EmptyState
+        headingText="Neutral empty state"
+        bodyText="If providing further actions, include a link to an action or use a
+          Default or Primary action."
+        illustrationType="neutral"
+      />
+    </SidebarAndContentLayout>
+  ))
+  .add("Negative", () => (
+    <SidebarAndContentLayout>
+      <EmptyState
+        headingText="Negative empty state"
+        bodyText="If providing further actions, include a link to an action or use a
+          Default or Primary action."
+        illustrationType="negative"
+      >
+        <div className={styles.buttonContainer}>
+          <Button
+            label="Label"
+            icon={chevronRight}
+            iconPosition="end"
+            fullWidth
+          />
+        </div>
+      </EmptyState>
+    </SidebarAndContentLayout>
+  ))
+  .add("RTL, Action", () => (
     <div dir="rtl">
       <SidebarAndContentLayout>
         <EmptyState
@@ -209,12 +209,13 @@ loadElmStories(
   [
     "Default",
     "Default (minimal props)",
-    "Content-only layout",
+    "Layout, Content-only",
     "Positive",
-    "Neutral",
-    "Negative",
     "Informative",
     "Action",
-    "Action with button",
+    "Action, button",
+    "Neutral",
+    "Negative",
+    "RTL, Action",
   ]
 )

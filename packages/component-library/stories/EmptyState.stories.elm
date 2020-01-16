@@ -4,6 +4,7 @@ import Button.Button as Button
 import CssModules exposing (css)
 import ElmStorybook exposing (statelessStoryOf, storybook)
 import Html exposing (Html, div, text)
+import Html.Attributes exposing (dir)
 import Icon.SvgAsset exposing (svgAsset)
 import Kaizen.EmptyState.EmptyState as EmptyState
 
@@ -16,6 +17,13 @@ sidebarAndContentLayout children =
             children
         ]
 
+sidebarAndContentLayoutRTL : List (Html msg) -> Html msg
+sidebarAndContentLayoutRTL children =
+    div [ styles.class .container, dir "rtl"  ]
+        [ div [ styles.class .sidebar ] []
+        , div [ styles.class .content ]
+            children
+        ]
 
 contentOnlyLayout : List (Html msg) -> Html msg
 contentOnlyLayout children =
@@ -57,24 +65,6 @@ main =
                         |> EmptyState.illustrationType EmptyState.Positive
                     )
                 ]
-        , statelessStoryOf "Neutral" <|
-            sidebarAndContentLayout
-                [ EmptyState.view
-                    (EmptyState.default
-                        |> EmptyState.headingText "Empty state title"
-                        |> EmptyState.bodyText (EmptyState.BodyText "This preset only passes in the headingText and bodyText props, and leaves the rest to fallbacks.")
-                        |> EmptyState.illustrationType EmptyState.Neutral
-                    )
-                ]
-        , statelessStoryOf "Negative" <|
-            sidebarAndContentLayout
-                [ EmptyState.view
-                    (EmptyState.default
-                        |> EmptyState.headingText "Empty state title"
-                        |> EmptyState.bodyText (EmptyState.BodyText "This preset only passes in the headingText and bodyText props, and leaves the rest to fallbacks.")
-                        |> EmptyState.illustrationType EmptyState.Negative
-                    )
-                ]
         , statelessStoryOf "Informative" <|
             sidebarAndContentLayout
                 [ EmptyState.view
@@ -93,7 +83,7 @@ main =
                         |> EmptyState.illustrationType EmptyState.Action
                     )
                 ]
-        , statelessStoryOf "Action with button" <|
+        , statelessStoryOf "Action, button" <|
             sidebarAndContentLayout
                 [ EmptyState.view
                     (EmptyState.default
@@ -112,13 +102,40 @@ main =
                             ]
                     )
                 ]
-        , statelessStoryOf "Content-only layout" <|
+        , statelessStoryOf "Neutral" <|
+            sidebarAndContentLayout
+                [ EmptyState.view
+                    (EmptyState.default
+                        |> EmptyState.headingText "Empty state title"
+                        |> EmptyState.bodyText (EmptyState.BodyText "This preset only passes in the headingText and bodyText props, and leaves the rest to fallbacks.")
+                        |> EmptyState.illustrationType EmptyState.Neutral
+                    )
+                ]
+        , statelessStoryOf "Negative" <|
+            sidebarAndContentLayout
+                [ EmptyState.view
+                    (EmptyState.default
+                        |> EmptyState.headingText "Empty state title"
+                        |> EmptyState.bodyText (EmptyState.BodyText "This preset only passes in the headingText and bodyText props, and leaves the rest to fallbacks.")
+                        |> EmptyState.illustrationType EmptyState.Negative
+                    )
+                ]
+        , statelessStoryOf "Layout, Content-only" <|
             contentOnlyLayout
                 [ EmptyState.view
                     (EmptyState.default
                         |> EmptyState.headingText "Empty state title"
                         |> EmptyState.bodyText (EmptyState.BodyText "This is an example of the content-only layout (no sidebar).")
                         |> EmptyState.layoutContext EmptyState.ContentOnly
+                    )
+                ]
+        , statelessStoryOf "RTL, Action" <|
+            sidebarAndContentLayoutRTL
+                [ EmptyState.view
+                    (EmptyState.default
+                        |> EmptyState.headingText "Empty state title"
+                        |> EmptyState.bodyText (EmptyState.BodyText "This preset only passes in the headingText and bodyText props, and leaves the rest to fallbacks.")
+                        |> EmptyState.illustrationType EmptyState.Action
                     )
                 ]
         ]
