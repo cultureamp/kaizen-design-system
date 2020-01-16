@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [17.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.7.0...@cultureamp/kaizen-component-library@17.8.0) (2020-01-16)
+
+
+### Features
+
+* component library zen colors uplift ([#194](https://github.com/cultureamp/kaizen-design-system/issues/194)) ([1bc3631](https://github.com/cultureamp/kaizen-design-system/commit/1bc3631))
+
+
+
+
+
 # [17.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.6.2...@cultureamp/kaizen-component-library@17.7.0) (2020-01-15)
 
 

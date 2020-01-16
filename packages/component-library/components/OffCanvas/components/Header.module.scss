@@ -1,3 +1,4 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "../../../styles/type";
 @import "../../../styles/color";
 
@@ -7,7 +8,7 @@
   align-items: center;
   justify-content: space-between;
   height: 60px;
-  background-color: add-shade($ca-palette-ink, 10%);
+  background-color: $kz-color-wisteria-800;
 }
 
 .close {

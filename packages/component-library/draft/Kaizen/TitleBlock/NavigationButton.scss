@@ -1,3 +1,4 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "~@cultureamp/kaizen-component-library/styles/border";
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/layout";
@@ -9,7 +10,7 @@
   @include ca-inherit-baseline;
   top: 0;
   padding-top: $ca-grid * 0.25;
-  color: $ca-palette-ink;
+  color: $kz-color-wisteria-800;
   border: 0;
   border-bottom: 4px solid transparent;
   text-decoration: none;
@@ -20,12 +21,12 @@
 
   &:hover {
     text-decoration: none;
-    color: $ca-palette-ocean;
-    border-bottom-color: $ca-palette-ocean;
+    color: $kz-color-cluny-500;
+    border-bottom-color: $kz-color-cluny-500;
   }
 
   @include ca-media-tablet-and-up {
-    color: $ca-palette-ink;
+    color: $kz-color-wisteria-800;
   }
 
   @include ca-media-mobile {
@@ -40,8 +41,8 @@
 
 .activeButton {
   composes: button;
-  color: $ca-palette-ocean;
-  border-bottom-color: $ca-palette-ocean;
+  color: $kz-color-cluny-500;
+  border-bottom-color: $kz-color-cluny-500;
 
   &.reversed {
     border-bottom-color: #fff;

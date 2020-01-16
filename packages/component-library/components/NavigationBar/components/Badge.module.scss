@@ -1,9 +1,10 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "../../../styles/color";
 @import "../../../styles/type";
 @import "../styles";
 
 .badge {
-  background-color: $ca-palette-coral; // DST-TODO: change this to $kz-color-coral-500 once kaizen-design-tokens is installed
+  background-color: $kz-color-coral-500; // DST-TODO: change this to $kz-color-coral-500 once kaizen-design-tokens is installed
   color: #fff;
   font-weight: $ca-weight-medium;
   text-decoration: none;
@@ -39,15 +40,15 @@
   }
 
   &.staging {
-    background-color: add-tint($ca-palette-peach, 10%);
+    background-color: $kz-color-peach-500;
   }
 
   &.named {
-    background-color: add-tint($ca-palette-seedling, 30%);
+    background-color: $kz-color-seedling-400;
   }
 
   &.test {
-    background-color: add-tint($ca-palette-wisteria, 30%);
+    background-color: $kz-color-wisteria-400;
   }
 
   &.local {

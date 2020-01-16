@@ -177,14 +177,6 @@ main =
                         ++ List.repeat 5 reversedDefaultPlaceholder
                     )
                 ]
-        , statelessStoryOf "Reversed Ocean" <|
-            storyContainer
-                [ div
-                    [ class .reversedOcean ]
-                    ([ paragraph ]
-                        ++ List.repeat 5 reversedOceanPlaceholder
-                    )
-                ]
         , statelessStoryOf "In the wild" <|
             storyContainer
                 [ div []
