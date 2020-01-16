@@ -170,7 +170,7 @@ storiesOf("Table", module)
       </TableContainer>
     </Container>
   ))
-  .add("Expanded", () => {
+  .add("Expanded (deprecated)", () => {
     const [expandedId, setExpandedId] = React.useState<string | null>("second")
     const toggleExpanded = id => {
       if (expandedId === id) {
@@ -258,7 +258,7 @@ storiesOf("Table", module)
       </Container>
     )
   })
-  .add("Expanded with custom content", () => {
+  .add("Expanded with custom content (deprecated)", () => {
     const [expandedId, setExpandedId] = React.useState<string | null>("second")
     const toggleExpanded = id => {
       if (expandedId === id) {

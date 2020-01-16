@@ -59,7 +59,7 @@ main =
             div [ style "margin-top" "1.5rem" ]
                 [ Popover.view
                     (Popover.default
-                        |> Popover.withHeading "Default"
+                        |> Popover.withHeading "Arrow above"
                         |> Popover.withContent placeholderContent
                         |> Popover.withTipPosition ( Popover.Top, Popover.Center )
                     )
@@ -68,16 +68,16 @@ main =
             div [ style "margin-top" "1.5rem" ]
                 [ Popover.view
                     (Popover.default
-                        |> Popover.withHeading "Default"
+                        |> Popover.withHeading "Arrow start"
                         |> Popover.withContent placeholderContent
-                        |> Popover.withTipPosition ( Popover.Top, Popover.Start )
+                        |> Popover.withTipPosition ( Popover.Bottom, Popover.Start )
                     )
                 ]
         , statelessStoryOf "Arrow end" <|
             div [ style "margin-top" "1.5rem" ]
                 [ Popover.view
                     (Popover.default
-                        |> Popover.withHeading "Default"
+                        |> Popover.withHeading "Arrow end"
                         |> Popover.withContent placeholderContent
                         |> Popover.withTipPosition ( Popover.Top, Popover.End )
                     )

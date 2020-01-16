@@ -1,3 +1,4 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/type";
 @import "~@cultureamp/kaizen-component-library/styles/border";
@@ -30,19 +31,19 @@ $button-width: 124px;
   }
 
   &:not(.disabled):not(:disabled) {
-    background: $white;
-    border-color: add-tint($ca-palette-ink, 80%);
-    color: $ca-palette-ink;
+    background: $kz-color-white;
+    border-color: $kz-color-wisteria-200;
+    color: $kz-color-wisteria-800;
 
     &:hover,
     &:active {
-      background: $ca-palette-stone;
-      border-color: add-tint($ca-palette-ink, 60%);
+      background: $kz-color-stone;
+      border-color: $kz-color-wisteria-400;
     }
 
     &:active {
-      background: $ca-palette-ash;
-      border-color: add-tint($ca-palette-ink, 40%);
+      background: $kz-color-ash;
+      border-color: $kz-color-wisteria-500;
       transform: translateY(1px);
     }
 
@@ -56,7 +57,7 @@ $button-width: 124px;
 
       // show custom focus ring when :focus-visible
       &:global(.focus-visible) {
-        border: $focus-border-width solid $ca-palette-ocean;
+        border: $focus-border-width solid $kz-color-cluny-500;
       }
     }
   }
@@ -64,9 +65,9 @@ $button-width: 124px;
   // Disabled
   &:disabled,
   &.disabled {
-    background: $white;
-    border-color: add-tint($ca-palette-ink, 80%);
-    color: add-tint($ca-palette-ink, 70%);
+    background: $kz-color-white;
+    border-color: $kz-color-wisteria-200;
+    color: $kz-color-wisteria-300;
   }
 }
 
@@ -99,13 +100,13 @@ $button-width: 124px;
     &:hover,
     &:active {
       & + .dropdown > .dropdownButton {
-        border-left: 1px solid add-tint($ca-palette-ink, 60%);
+        border-left: 1px solid $kz-color-wisteria-400;
       }
     }
 
     &:active {
       & + .dropdown > .dropdownButton {
-        border-left: 1px solid add-tint($ca-palette-ink, 40%);
+        border-left: 1px solid $kz-color-wisteria-500;
       }
     }
 
@@ -113,14 +114,14 @@ $button-width: 124px;
     [dir="rtl"] &:active {
       & + .dropdown > .dropdownButton {
         border-left: $base-border;
-        border-right: 1px solid add-tint($ca-palette-ink, 60%);
+        border-right: 1px solid $kz-color-wisteria-400;
       }
     }
 
     [dir="rtl"] &:active {
       & + .dropdown > .dropdownButton {
         border-left: $base-border;
-        border-right: 1px solid add-tint($ca-palette-ink, 40%);
+        border-right: 1px solid $kz-color-wisteria-500;
       }
     }
   }

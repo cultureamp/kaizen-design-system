@@ -225,31 +225,6 @@ storiesOf("LoadingPlaceholder", module)
     )
   })
 
-  .add("Reversed Ocean", () => {
-    return (
-      <StoryContainer>
-        <div className={styles.reversedOcean}>
-          <Text tag="p">
-            Dr. Brené Brown, author of Daring Greatly, is a research professor
-            from the University of Houston who studies human emotions, including
-            shame and vulnerability. In a March 2012 TED talk, she said,
-            “Vulnerability is not weakness, and that myth is profoundly
-            dangerous.” She went on to say that after 12 years of research, she
-            has actually determined that vulnerability is “our most accurate
-            measurement of courage.”
-          </Text>
-        </div>
-        <div className={styles.reversedOcean}>
-          <LoadingPlaceholder reversedOcean />
-          <LoadingPlaceholder reversedOcean />
-          <LoadingPlaceholder reversedOcean />
-          <LoadingPlaceholder reversedOcean />
-          <LoadingPlaceholder reversedOcean />
-        </div>
-      </StoryContainer>
-    )
-  })
-
   .add("In the wild", () => {
     return (
       <StoryContainer>
@@ -339,7 +314,6 @@ loadElmStories(
     "Inherit baseline",
     "Combined block and inline",
     "Reversed Default",
-    "Reversed Ocean",
     "In the wild",
   ]
 )

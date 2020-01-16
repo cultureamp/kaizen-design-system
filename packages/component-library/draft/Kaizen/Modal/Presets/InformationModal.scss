@@ -1,3 +1,4 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "~@cultureamp/kaizen-component-library/styles/border";
 @import "~@cultureamp/kaizen-component-library/styles/color";
 @import "~@cultureamp/kaizen-component-library/styles/responsive";
@@ -14,7 +15,7 @@
 }
 
 .header {
-  color: $ca-palette-ink;
+  color: $kz-color-wisteria-800;
   padding: $ca-grid * 1.5 $ca-grid * 1.5 0;
 }
 
