@@ -35,6 +35,12 @@ steps:
     branches: "!master"
     <<: *defaults
 
+  - name: ":package: Build (Chromatic)"
+    command: ".buildkite/scripts/run-chromatic-build.sh"
+    artifact_paths: "./chromatic.tar.gz"
+    <<: *defaults
+    agent_query_rules: ["queue=build-unrestricted-large"]
+
   - name: ":package: Build (site)"
     command: ".buildkite/scripts/build-site.sh"
     artifact_paths: "./site.tar.gz"

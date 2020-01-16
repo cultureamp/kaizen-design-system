@@ -20,7 +20,8 @@
     "lint:fix": "elm-format --yes packages && yarn tslint --fix && yarn prettier --write",
     "clean": "lerna run clean && yarn gatsby clean && rm -rf elm-stuff storybook/public",
     "reset": "yarn clean && yarn setup --force",
-    "setup": "yarn install --frozen-lockfile"
+    "setup": "yarn install --frozen-lockfile",
+    "chromatic": "chromatic"
   },
   "babel": {
     "presets": [
@@ -103,5 +104,8 @@
     "typescript": "^3.6.3",
     "typescript-tslint-plugin": "^0.5.4",
     "webpack": "^4.40.2"
+  },
+  "devDependencies": {
+    "storybook-chromatic": "^3.4.1"
   }
 }
