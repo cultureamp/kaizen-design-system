@@ -35,12 +35,6 @@ steps:
     branches: "!master"
     <<: *defaults
 
-  - name: ":package: Build (Chromatic)"
-    command: ".buildkite/scripts/run-chromatic-build.sh"
-    artifact_paths: "./chromatic.tar.gz"
-    <<: *defaults
-    agent_query_rules: ["queue=build-unrestricted-large"]
-
   - name: ":package: Build (site)"
     command: ".buildkite/scripts/build-site.sh"
     artifact_paths: "./site.tar.gz"
@@ -54,6 +48,17 @@ steps:
 
   - wait: ~
     continue_on_failure: true
+
+  - name: ":rainbow: Chromatic"
+    command: ".buildkite/scripts/run-chromatic-build.sh"
+    env:
+      KAIZEN_EXTRACT_ARTIFACTS: true
+    <<: *defaults
+    plugins:
+      - cultureamp/aws-assume-role#v0.1.0:
+          role: "${KAIZEN_ROLE_ARN}"
+      - docker-compose#v3.0.3:
+          run: publish
 
   - name: ":seedling: Publish: ${KAIZEN_DOMAIN_NAME}${KAIZEN_BASE_PATH}"
     command: ".buildkite/scripts/publish.sh"
