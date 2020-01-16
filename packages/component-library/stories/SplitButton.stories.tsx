@@ -10,7 +10,7 @@ const editIcon = require("@cultureamp/kaizen-component-library/icons/edit.icon.s
   .default
 
 storiesOf("SplitButton (React)", module)
-  .add("Default", () => (
+  .add("Default (Kaizen Site Demo)", () => (
     <SplitButton
       label="Edit"
       onClick={() => action("Button clicked")}
