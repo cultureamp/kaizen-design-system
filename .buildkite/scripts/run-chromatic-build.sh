@@ -7,5 +7,5 @@ set -e
 export CHROMATIC_APP_CODE
 CHROMATIC_APP_CODE=$(get_secret "chromatic-app-code") || exit $?
 
-npm install -g storybook-chromatic
+yarn global add storybook-chromatic
 chromatic --storybook-build-dir storybook/public
