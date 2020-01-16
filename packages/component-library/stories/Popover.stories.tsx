@@ -3,7 +3,7 @@ import { Popover } from "@cultureamp/kaizen-component-library/draft"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-storiesOf("Popover", module)
+storiesOf("Popover (React)", module)
   .add("Default", () => (
     <Popover heading="Default">
       Popover body that explains something useful, is optional, and not critical

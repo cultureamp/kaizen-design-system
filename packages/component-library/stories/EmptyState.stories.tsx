@@ -29,7 +29,7 @@ const ContentOnlyLayout = ({ children }: { children: React.ReactNode }) => (
   </div>
 )
 
-storiesOf("EmptyState", module)
+storiesOf("EmptyState (React)", module)
   .add("Default", () => (
     <SidebarAndContentLayout>
       <EmptyState

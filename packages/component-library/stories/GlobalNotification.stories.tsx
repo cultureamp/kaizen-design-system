@@ -4,7 +4,7 @@ import * as React from "react"
 
 import { GlobalNotification } from "@cultureamp/kaizen-component-library"
 
-storiesOf("GlobalNotification", module)
+storiesOf("GlobalNotification (React)", module)
   .add("Affirmative", () => (
     <GlobalNotification type="affirmative" automationId="notification1">
       New user data, imported by mackenzie@hooli.com has successfully uploaded.

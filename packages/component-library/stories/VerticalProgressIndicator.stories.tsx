@@ -16,7 +16,7 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => (
   </div>
 )
 
-storiesOf("VerticalProgressIndicator", module)
+storiesOf("VerticalProgressIndicator (React)", module)
   .add("Start-Upcoming", () => (
     <StoryContainer>
       <VerticalProgressIndicator position="start" completion="upcoming" />

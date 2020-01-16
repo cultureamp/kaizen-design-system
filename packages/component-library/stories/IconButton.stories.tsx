@@ -5,7 +5,7 @@ import { action } from "@storybook/addon-actions"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-storiesOf("IconButton", module)
+storiesOf("IconButton (React)", module)
   .add("Default", () => (
     <IconButton icon={configureIcon} label="Label" automationId="demo-button" />
   ))

@@ -37,7 +37,7 @@ const RtlContainer = ({ children }: { children: React.ReactNode }) => (
   <div dir="rtl">{children}</div>
 )
 
-storiesOf("ToggleSwitchField", module)
+storiesOf("ToggleSwitchField (React)", module)
   .add("On", () => (
     <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
       {({ toggledStatus, toggle }) => (

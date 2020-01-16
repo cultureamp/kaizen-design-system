@@ -18,7 +18,7 @@ const caMonogramIcon = require("@cultureamp/kaizen-component-library/icons/ca-mo
 const supportIcon = require("@cultureamp/kaizen-component-library/icons/support.icon.svg")
   .default
 
-storiesOf("Layout", module).add("Default", () => (
+storiesOf("Layout (React)", module).add("Default", () => (
   <div
     style={{
       flexGrow: 1,

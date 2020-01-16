@@ -10,7 +10,7 @@ const StoryContainer: React.FunctionComponent<{}> = ({ children }) => {
   return <div className={styles.storyContainer}>{children}</div>
 }
 
-storiesOf("LoadingPlaceholder", module)
+storiesOf("LoadingPlaceholder (React)", module)
   .add("Basic block", () => (
     <StoryContainer>
       <Text tag="p">

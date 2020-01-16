@@ -9,7 +9,7 @@ const duplicateIcon = require("@cultureamp/kaizen-component-library/icons/duplic
 const editIcon = require("@cultureamp/kaizen-component-library/icons/edit.icon.svg")
   .default
 
-storiesOf("SplitButton", module)
+storiesOf("SplitButton (React)", module)
   .add("Default", () => (
     <SplitButton
       label="Edit"

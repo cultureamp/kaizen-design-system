@@ -37,7 +37,7 @@ export default class RadioGroupExample extends React.Component<Props> {
   }
 }
 
-storiesOf("RadioGroup", module)
+storiesOf("RadioGroup (React)", module)
   .add("Standard", () => (
     <RadioGroupExample
       render={({ selectedOption, onChangeHandler }) => (

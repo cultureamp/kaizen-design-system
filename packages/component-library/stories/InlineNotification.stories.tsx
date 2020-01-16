@@ -4,7 +4,7 @@ import * as React from "react"
 
 import { InlineNotification } from "@cultureamp/kaizen-component-library"
 
-storiesOf("InlineNotification", module)
+storiesOf("InlineNotification (React)", module)
   .add("Affirmative", () => (
     <InlineNotification
       type="affirmative"

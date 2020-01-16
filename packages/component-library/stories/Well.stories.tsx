@@ -21,7 +21,7 @@ const ExampleContent = () => (
   </div>
 )
 
-storiesOf("Well", module)
+storiesOf("Well (React)", module)
   .add("Default with solid border", () => (
     <Well>
       <ExampleContent />

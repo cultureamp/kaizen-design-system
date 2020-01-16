@@ -6,7 +6,7 @@ import { Tabs } from "@cultureamp/kaizen-component-library/draft"
 
 import { storiesOf } from "@storybook/react"
 
-storiesOf("Tabs", module)
+storiesOf("Tabs (React)", module)
   .add("Default", () => {
     const tabs = [
       { label: "One" },

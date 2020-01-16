@@ -60,7 +60,7 @@ const Menu: React.FunctionComponent = () => (
     <MenuItem action="https://www.cultureamp.com/">Link label</MenuItem>
   </MenuList>
 )
-storiesOf("Dropdown", module)
+storiesOf("Dropdown (React)", module)
   .add("Default (Meatball)", () => (
     <Dropdown>
       <Menu />

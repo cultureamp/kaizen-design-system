@@ -44,7 +44,7 @@ class ModalStateContainer extends React.Component<
   }
 }
 
-storiesOf("Modal", module)
+storiesOf("Modal (React)", module)
   .add("Confirmation (positive)", () => (
     <ModalStateContainer isInitiallyOpen={true}>
       {({ open, close, isOpen }) => (

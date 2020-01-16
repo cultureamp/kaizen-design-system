@@ -106,7 +106,7 @@ const ExampleTableRow = ({
   </TableRow>
 )
 
-storiesOf("Table", module)
+storiesOf("Table (React)", module)
   .add("Default", () => (
     <Container>
       <TableContainer>

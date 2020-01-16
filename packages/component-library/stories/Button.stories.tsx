@@ -6,7 +6,7 @@ import { action } from "@storybook/addon-actions"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-storiesOf("Button", module)
+storiesOf("Button (React)", module)
   .add("Default", () => <Button label="Label" />)
   .add("Full Width", () => <Button label="Label" fullWidth={true} />)
   .add("Full Width + Icon", () => (

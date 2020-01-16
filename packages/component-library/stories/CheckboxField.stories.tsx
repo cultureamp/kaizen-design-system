@@ -47,7 +47,7 @@ class CheckboxFieldExample extends React.Component<Props> {
   }
 }
 
-storiesOf("CheckboxField", module)
+storiesOf("CheckboxField (React)", module)
   .add("Interactive", () => (
     <CheckboxFieldExample
       render={({ checkedStatus, onCheckHandler }) => (

@@ -24,7 +24,7 @@ magna nisl, in cursus urna hendrerit et. Aenean semper, est non
 feugiat sodales, nisl ligula aliquet lorem, sit amet scelerisque
 arcu quam a sapien. Donec in viverra urna.`
 
-storiesOf("Collapsible", module)
+storiesOf("Collapsible (React)", module)
   .add("Single collapsible", () => (
     <div style={{ margin: "1rem", width: "40rem" }}>
       <Collapsible id="collapsible-single" open title="Single collapsible">

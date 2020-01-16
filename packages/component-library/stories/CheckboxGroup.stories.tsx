@@ -44,7 +44,7 @@ export default class CheckboxGroupExample extends React.Component<Props> {
     )
   }
 }
-storiesOf("CheckboxGroup", module)
+storiesOf("CheckboxGroup (React)", module)
   .add("Interactive", () => (
     <div>
       <CheckboxGroup labelText="Checkbox Group Label">

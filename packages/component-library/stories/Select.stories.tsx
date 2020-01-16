@@ -57,7 +57,7 @@ const promiseOptions = inputValue =>
     }, 1000)
   })
 
-storiesOf("Select", module)
+storiesOf("Select (React)", module)
   .add("Single", () => (
     <StoryContainer>
       <Select

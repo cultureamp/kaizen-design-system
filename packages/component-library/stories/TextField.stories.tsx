@@ -13,7 +13,7 @@ const ExampleContainer: React.FunctionComponent = ({ children }) => (
   <div style={{ width: "100%", margin: 10 }}>{children}</div>
 )
 
-storiesOf("TextField", module)
+storiesOf("TextField (React)", module)
   .add("Default", () => (
     <ExampleContainer>
       <TextField
