@@ -4,6 +4,12 @@ const styles = require("./styles.scss")
 
 type Props = {
   children: React.ReactNode
+  position: {
+    top: number
+    bottom: number
+    left: number
+    right: number
+  } | null
   hideDropdownMenu: () => void
   dir?: Dir
 }
@@ -18,11 +24,34 @@ export default class DropdownMenu extends React.Component<Props> {
   componentDidMount() {
     document.addEventListener("click", this.handleDocumentClick, false)
     window.addEventListener("resize", this.handleDocumentResize, false)
+    this.positionMenu()
   }
 
   componentWillUnmount() {
     document.removeEventListener("click", this.handleDocumentClick, false)
     window.removeEventListener("resize", this.handleDocumentResize, false)
+  }
+
+  positionMenu() {
+    const menu = this.menu
+    if (!this.props.position || !menu) {
+      return
+    }
+    const pos = this.props.position
+    const { innerHeight } = window
+    const rect = menu.getBoundingClientRect()
+    if (pos.bottom > innerHeight - rect.height) {
+      menu.style.bottom = "40px"
+      menu.style.top = "auto"
+    } else {
+      menu.style.top = "40px"
+      menu.style.bottom = "auto"
+    }
+    if (this.props.dir === "rtl") {
+      menu.style.left = "0px"
+    } else {
+      menu.style.right = "0px"
+    }
   }
 
   handleDocumentClick = (e: MouseEvent) => {

@@ -12,6 +12,7 @@ type Variant = "default" | "primary"
 
 type Props = {
   automationId?: string
+  dropDownButtonRef: React.Ref<HTMLButtonElement>
   dir?: Dir
   dropdownAltText: string
   variant?: Variant
@@ -36,7 +37,12 @@ export default class Dropdown extends React.Component<Props> {
   }
 
   render() {
-    const { automationId, dropdownAltText, variant } = this.props
+    const {
+      automationId,
+      dropdownAltText,
+      variant,
+      dropDownButtonRef,
+    } = this.props
     return (
       <div className={styles.dropdown}>
         <button
@@ -46,6 +52,7 @@ export default class Dropdown extends React.Component<Props> {
           })}
           onClick={this.toggleDropdownMenu}
           onMouseDown={e => e.preventDefault()}
+          ref={dropDownButtonRef}
           data-automation-id={automationId}
         >
           <span className={styles.dropdownIcon}>

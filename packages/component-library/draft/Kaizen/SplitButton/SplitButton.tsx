@@ -50,10 +50,18 @@ const SplitButton: SplitButton = ({
     disabled: disabled,
   }
 
+  const dropdownButtonRef = React.createRef<HTMLButtonElement>()
+
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false)
 
   const hideDropdownMenu = () => {
     setIsMenuVisible(!isMenuVisible)
+  }
+
+  const getPosition = () => {
+    return dropdownButtonRef.current
+      ? dropdownButtonRef.current.getBoundingClientRect()
+      : null
   }
 
   return (
@@ -78,6 +86,7 @@ const SplitButton: SplitButton = ({
           </button>
         )}
         <Dropdown
+          dropDownButtonRef={dropdownButtonRef}
           automationId="split-button-dropdown"
           dir={dir}
           variant={variant}
@@ -88,7 +97,11 @@ const SplitButton: SplitButton = ({
         />
       </div>
       {isMenuVisible && (
-        <DropdownMenu hideDropdownMenu={hideDropdownMenu} dir={dir}>
+        <DropdownMenu
+          hideDropdownMenu={hideDropdownMenu}
+          dir={dir}
+          position={getPosition()}
+        >
           {dropdownContent}
         </DropdownMenu>
       )}
