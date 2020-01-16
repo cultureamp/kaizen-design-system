@@ -75,7 +75,7 @@ storiesOf("Button (React)", module)
   .add("Reversed, Primary, Disabled", () => (
     <Button label="Label" primary={true} reversed={true} disabled={true} />
   ))
-  .add("Reversed, Color, Lapis", () => (
+  .add("Reversed, Color, Lapis (discouraged)", () => (
     <Button
       label="Label"
       primary={true}
@@ -84,7 +84,7 @@ storiesOf("Button (React)", module)
       reverseColor="lapis"
     />
   ))
-  .add("Reversed, Primary, Disabled, Color, Lapis", () => (
+  .add("Reversed, Primary, Disabled, Color, Lapis (discouraged)", () => (
     <Button
       label="Label"
       primary={true}
@@ -93,7 +93,7 @@ storiesOf("Button (React)", module)
       reverseColor="lapis"
     />
   ))
-  .add("Reversed, Primary, Color, Ocean", () => (
+  .add("Reversed, Primary, Color, Ocean (discouraged)", () => (
     <Button
       label="Label"
       primary={true}
@@ -102,7 +102,7 @@ storiesOf("Button (React)", module)
       reverseColor="ocean"
     />
   ))
-  .add("Reversed, Primary, Disabled, Color, Ocean", () => (
+  .add("Reversed, Primary, Disabled, Color, Ocean (discouraged)", () => (
     <Button
       label="Label"
       primary={true}
@@ -111,7 +111,7 @@ storiesOf("Button (React)", module)
       reverseColor="ocean"
     />
   ))
-  .add("Reversed, Primary, Color, Peach", () => (
+  .add("Reversed, Primary, Color, Peach (discouraged)", () => (
     <Button
       label="Label"
       primary={true}
@@ -120,7 +120,7 @@ storiesOf("Button (React)", module)
       reverseColor="peach"
     />
   ))
-  .add("Reversed, Primary, Disabled, Color, Peach", () => (
+  .add("Reversed, Primary, Disabled, Color, Peach (discouraged)", () => (
     <Button
       label="Label"
       primary={true}
@@ -129,7 +129,7 @@ storiesOf("Button (React)", module)
       reverseColor="peach"
     />
   ))
-  .add("Reversed, Primary, Color, Seedling", () => (
+  .add("Reversed, Primary, Color, Seedling (discouraged)", () => (
     <Button
       label="Label"
       primary={true}
@@ -138,7 +138,7 @@ storiesOf("Button (React)", module)
       reverseColor="seedling"
     />
   ))
-  .add("Reversed, Primary, Disabled, Color, Seedling", () => (
+  .add("Reversed, Primary, Disabled, Color, Seedling (discouraged)", () => (
     <Button
       label="Label"
       primary={true}
@@ -147,7 +147,7 @@ storiesOf("Button (React)", module)
       reverseColor="seedling"
     />
   ))
-  .add("Reversed, Primary, Color, Wisteria", () => (
+  .add("Reversed, Primary, Color, Wisteria (discouraged)", () => (
     <Button
       label="Label"
       primary={true}
@@ -156,7 +156,7 @@ storiesOf("Button (React)", module)
       reverseColor="wisteria"
     />
   ))
-  .add("Reversed, Primary, Disabled, Color, Wisteria", () => (
+  .add("Reversed, Primary, Disabled, Color, Wisteria (discouraged)", () => (
     <Button
       label="Label"
       primary={true}
@@ -165,7 +165,7 @@ storiesOf("Button (React)", module)
       reverseColor="wisteria"
     />
   ))
-  .add("Reversed, Primary, Color, Yuzu", () => (
+  .add("Reversed, Primary, Color, Yuzu (discouraged)", () => (
     <Button
       label="Label"
       primary={true}
@@ -174,7 +174,7 @@ storiesOf("Button (React)", module)
       reverseColor="yuzu"
     />
   ))
-  .add("Reversed, Primary, Disabled, Color, Yuzu", () => (
+  .add("Reversed, Primary, Disabled, Color, Yuzu (discouraged)", () => (
     <Button
       label="Label"
       primary={true}
