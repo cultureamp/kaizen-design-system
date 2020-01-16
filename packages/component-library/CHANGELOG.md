@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [17.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.8.0...@cultureamp/kaizen-component-library@17.8.1) (2020-01-16)
+
+
+### Bug Fixes
+
+* Fix elm styling regression for the Popover component ([#226](https://github.com/cultureamp/kaizen-design-system/issues/226)) ([162ccda](https://github.com/cultureamp/kaizen-design-system/commit/162ccda))
+
+
+
+
+
 # [17.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.7.0...@cultureamp/kaizen-component-library@17.8.0) (2020-01-16)
 
 
