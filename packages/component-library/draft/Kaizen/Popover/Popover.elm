@@ -189,7 +189,16 @@ view (Config config) =
             [ case config.heading of
                 Just heading ->
                     div [ styles.class .header ]
-                        [ span [ styles.class .icon ] [ mapVariantToIcon config.variant ]
+                        [ if config.variant == Default then
+                            span [] []
+
+                          else
+                            span
+                                [ styles.classList
+                                    [ ( mapVariantToIconClass config.variant, True ) ]
+                                , styles.class .icon
+                                ]
+                                [ mapVariantToIcon config.variant ]
                         , text heading
                         , viewClose
                         ]
@@ -204,6 +213,7 @@ view (Config config) =
                 , ( mapArrowSideToClass side, True )
                 , ( mapArrowPositionToClass position, True )
                 ]
+            , getArrowStyle side
             ]
             []
         ]
@@ -231,6 +241,10 @@ styles =
         , arrowPositionStart = "arrowPositionStart"
         , arrowPositionEnd = "arrowPositionEnd"
         , arrowPositionCenter = "arrowPositionCenter"
+        , informativeIcon = "informativeIcon"
+        , positiveIcon = "positiveIcon"
+        , negativeIcon = "negativeIcon"
+        , cautionaryIcon = "cautionaryIcon"
         }
 
 
@@ -270,6 +284,25 @@ getArrowStyle side =
 
         Bottom ->
             style "" ""
+
+
+mapVariantToIconClass : Variant -> { b | informativeIcon : a, positiveIcon : a, negativeIcon : a, cautionaryIcon : a } -> a
+mapVariantToIconClass variant =
+    case variant of
+        Default ->
+            .informativeIcon
+
+        Informative ->
+            .informativeIcon
+
+        Positive ->
+            .positiveIcon
+
+        Negative ->
+            .negativeIcon
+
+        Cautionary ->
+            .cautionaryIcon
 
 
 mapVariantToIcon : Variant -> Html msg
