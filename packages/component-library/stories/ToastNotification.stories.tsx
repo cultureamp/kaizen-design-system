@@ -5,7 +5,7 @@ import * as React from "react"
 import { ToastNotification } from "@cultureamp/kaizen-component-library"
 
 storiesOf("ToastNotification (React)", module)
-  .add("Affirmative", () => (
+  .add("Affirmative (Kaizen Site Demo)", () => (
     <ToastNotification
       type="affirmative"
       title="Success!"

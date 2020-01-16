@@ -25,7 +25,7 @@ feugiat sodales, nisl ligula aliquet lorem, sit amet scelerisque
 arcu quam a sapien. Donec in viverra urna.`
 
 storiesOf("Collapsible (React)", module)
-  .add("Single collapsible", () => (
+  .add("Single collapsible (Kaizen Site Demo)", () => (
     <div style={{ margin: "1rem", width: "40rem" }}>
       <Collapsible id="collapsible-single" open title="Single collapsible">
         <Text tag="p">{lipsum}</Text>

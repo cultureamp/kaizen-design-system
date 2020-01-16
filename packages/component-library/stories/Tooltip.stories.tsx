@@ -6,7 +6,7 @@ import { Tag } from "@cultureamp/kaizen-component-library/draft"
 import { Tooltip } from "@cultureamp/kaizen-component-library/draft"
 
 storiesOf("Tooltip (React)", module)
-  .add("Default - Below", () => (
+  .add("Default - Below (Kaizen Site Demo)", () => (
     <div style={{ display: "flex", justifyContent: "center" }}>
       <Tooltip position="below" text="This is below the tooltip">
         <Tag>Below</Tag>

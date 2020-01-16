@@ -30,7 +30,7 @@ const ContentOnlyLayout = ({ children }: { children: React.ReactNode }) => (
 )
 
 storiesOf("EmptyState (React)", module)
-  .add("Default", () => (
+  .add("Default (Kaizen Site Demo)", () => (
     <SidebarAndContentLayout>
       <EmptyState
         headingText="Empty state title"

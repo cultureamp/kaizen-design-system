@@ -107,7 +107,7 @@ const ExampleTableRow = ({
 )
 
 storiesOf("Table (React)", module)
-  .add("Default", () => (
+  .add("Default (Kaizen Site Demo)", () => (
     <Container>
       <TableContainer>
         <TableHeader>

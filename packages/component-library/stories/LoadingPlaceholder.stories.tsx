@@ -11,7 +11,7 @@ const StoryContainer: React.FunctionComponent<{}> = ({ children }) => {
 }
 
 storiesOf("LoadingPlaceholder (React)", module)
-  .add("Basic block", () => (
+  .add("Basic block (Kaizen Site Demo)", () => (
     <StoryContainer>
       <Text tag="p">
         Dr. Brené Brown, author of Daring Greatly, is a research professor from

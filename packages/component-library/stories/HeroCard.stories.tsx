@@ -26,7 +26,7 @@ const renderContent = () => (
 )
 
 storiesOf("HeroCard (React)", module)
-  .add("Default", () => (
+  .add("Default (Kaizen Site Demo)", () => (
     <Container>
       <HeroCard>{renderContent()}</HeroCard>
     </Container>

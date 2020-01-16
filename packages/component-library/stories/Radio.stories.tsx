@@ -49,7 +49,7 @@ class RadioFieldExample extends React.Component<Props> {
   }
 }
 storiesOf("Radio (React)", module)
-  .add("Interactive", () => (
+  .add("Interactive (Kaizen Site Demo)", () => (
     <RadioFieldExample
       render={({ selectedStatus, onChangeHandler }) => (
         <Radio

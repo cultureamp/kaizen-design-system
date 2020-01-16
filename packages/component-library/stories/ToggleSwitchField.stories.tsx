@@ -38,7 +38,7 @@ const RtlContainer = ({ children }: { children: React.ReactNode }) => (
 )
 
 storiesOf("ToggleSwitchField (React)", module)
-  .add("On", () => (
+  .add("On (Kaizen Site Demo)", () => (
     <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
       {({ toggledStatus, toggle }) => (
         <ToggleSwitchField

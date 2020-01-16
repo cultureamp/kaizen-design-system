@@ -4,7 +4,7 @@ import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 storiesOf("Popover (React)", module)
-  .add("Default", () => (
+  .add("Default (Kaizen Site Demo)", () => (
     <Popover heading="Default">
       Popover body that explains something useful, is optional, and not critical
       to completing a task.

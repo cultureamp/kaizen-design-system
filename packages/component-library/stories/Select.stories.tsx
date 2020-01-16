@@ -102,7 +102,7 @@ storiesOf("Select (React)", module)
   ))
 
 loadElmStories("Select (Elm)", module, require("./SelectStories.elm"), [
-  "Single",
+  "Single (Kaizen Site Demo)",
   "Single Searchable",
   "Multi-Select Searchable",
 ])

@@ -7,7 +7,7 @@ import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 storiesOf("Button (React)", module)
-  .add("Default", () => <Button label="Label" />)
+  .add("Default (Kaizen Site Demo)", () => <Button label="Label" />)
   .add("Full Width", () => <Button label="Label" fullWidth={true} />)
   .add("Full Width + Icon", () => (
     <Button label="Label" fullWidth={true} icon={configureIcon} />

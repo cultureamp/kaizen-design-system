@@ -22,7 +22,7 @@ const ExampleContent = () => (
 )
 
 storiesOf("Well (React)", module)
-  .add("Default with solid border", () => (
+  .add("Default with solid border (Kaizen Site Demo)", () => (
     <Well>
       <ExampleContent />
     </Well>
