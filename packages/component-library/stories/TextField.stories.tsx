@@ -161,7 +161,7 @@ storiesOf("TextField (React)", module)
       <TextField
         id="email"
         inputType="email"
-        inputValue="rod.leviton@cultureamp.com"
+        inputValue="mackenzie@example.com"
         labelText="Email"
         placeholder="Please enter your email"
         onChange={action("user input")}
@@ -184,7 +184,7 @@ storiesOf("TextField (React)", module)
         id="email"
         status="error"
         inputType="email"
-        inputValue="rod.leviton@cultureamp.com"
+        inputValue="mackenzie@example.com"
         labelText="Email"
         placeholder="Please enter your email"
         onChange={action("user input")}
@@ -340,7 +340,7 @@ storiesOf("TextField (React)", module)
       <TextField
         id="email"
         inputType="email"
-        inputValue="rod.leviton@cultureamp.com"
+        inputValue="mackenzie@example.com"
         labelText="Email"
         placeholder="Please enter your email"
         onChange={action("user input")}
@@ -365,7 +365,7 @@ storiesOf("TextField (React)", module)
         id="email"
         status="error"
         inputType="email"
-        inputValue="rod.leviton@cultureamp.com"
+        inputValue="mackenzie@example.com"
         labelText="Email"
         placeholder="Please enter your email"
         onChange={action("user input")}
