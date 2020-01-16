@@ -1,3 +1,4 @@
+@import "~@cultureamp/kaizen-design-tokens/sass/color";
 @import "./styles";
 @import "../../styles/color";
 @import "../../styles/type";
@@ -8,7 +9,7 @@
   @extend %ca-navigation-bar;
 
   &.kaizen {
-    background: add-shade($ca-palette-wisteria, 30%);
+    background: $kz-color-wisteria-700;
 
     a {
       color: #fff;
@@ -67,5 +68,5 @@
 }
 
 .kaizen .active {
-  background-color: add-shade($ca-palette-wisteria, 25%);
+  background-color: $kz-color-wisteria-700;
 }

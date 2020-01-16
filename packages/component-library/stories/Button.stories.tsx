@@ -64,6 +64,23 @@ storiesOf("Button", module)
       disabled={true}
     />
   ))
+  .add("Secondary Destructive (not yet implemented)", () => (
+    <Button
+      label="Delete"
+      secondary={true}
+      disabled={false}
+      destructive={true}
+    />
+  ))
+  .add("Secondary Destructive w/ Icon (not yet implemented)", () => (
+    <Button
+      label="Delete"
+      icon={configureIcon}
+      secondary={true}
+      disabled={false}
+      destructive={true}
+    />
+  ))
   .add("Destructive", () => <Button label="Label" destructive={true} />)
   .add("Destructive Disabled", () => (
     <Button label="Label" destructive={true} disabled={true} />
@@ -73,10 +90,118 @@ storiesOf("Button", module)
     <Button label="Label" reversed={true} disabled={true} />
   ))
   .add("Primary Reversed", () => (
-    <Button label="Label" primary={true} disabled={true} reverseColor="ocean" />
+    <Button label="Label" primary={true} disabled={false} reversed={true} />
   ))
   .add("Primary Reversed Disabled", () => (
     <Button label="Label" primary={true} reversed={true} disabled={true} />
+  ))
+  .add("Primary Reversed Color Lapis", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={false}
+      reversed={true}
+      reverseColor="lapis"
+    />
+  ))
+  .add("Primary Reversed Disabled Color Lapis", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={true}
+      reversed={true}
+      reverseColor="lapis"
+    />
+  ))
+  .add("Primary Reversed Color Ocean", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={false}
+      reversed={true}
+      reverseColor="ocean"
+    />
+  ))
+  .add("Primary Reversed Disabled Color Ocean", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={true}
+      reversed={true}
+      reverseColor="ocean"
+    />
+  ))
+  .add("Primary Reversed Color Peach", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={false}
+      reversed={true}
+      reverseColor="peach"
+    />
+  ))
+  .add("Primary Reversed Disabled Color Peach", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={true}
+      reversed={true}
+      reverseColor="peach"
+    />
+  ))
+  .add("Primary Reversed Color Seedling", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={false}
+      reversed={true}
+      reverseColor="seedling"
+    />
+  ))
+  .add("Primary Reversed Disabled Color Seedling", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={true}
+      reversed={true}
+      reverseColor="seedling"
+    />
+  ))
+  .add("Primary Reversed Color Wisteria", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={false}
+      reversed={true}
+      reverseColor="wisteria"
+    />
+  ))
+  .add("Primary Reversed Disabled Color Wisteria", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={true}
+      reversed={true}
+      reverseColor="wisteria"
+    />
+  ))
+  .add("Primary Reversed Color Yuzu", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={false}
+      reversed={true}
+      reverseColor="yuzu"
+    />
+  ))
+  .add("Primary Reversed Disabled Color Yuzu", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={true}
+      reversed={true}
+      reverseColor="yuzu"
+    />
   ))
   .add("Secondary Reversed", () => (
     <Button label="Label" secondary={true} reversed={true} />
@@ -116,5 +241,6 @@ loadElmStories("Button (Elm)", module, require("./Button.stories.elm"), [
   "Secondary",
   "Destructive",
   "Destructive w/ Icon",
+  "Secondary Destructive",
   "Secondary Destructive w/ Icon",
 ])

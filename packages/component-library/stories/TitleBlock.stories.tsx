@@ -65,7 +65,7 @@ storiesOf("TitleBlock", module)
         breadcrumb={{ path: "#", text: "Back to reports" }}
         navigationButtons={navigationButtons}
         reversed
-        reverseColor="Peach"
+        reverseColor="Wisteria"
       />
     </div>
   ))
@@ -83,7 +83,7 @@ storiesOf("TitleBlock", module)
         title="Home"
         navigationButtons={navigationButtons}
         reversed
-        reverseColor="Ocean"
+        reverseColor="Wisteria"
         sticky
       >
         <Button label="Action" secondary reversed />
