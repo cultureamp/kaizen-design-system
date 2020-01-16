@@ -48,10 +48,7 @@ $left-content__width: 221px;
   padding: 51px;
   background-color: $kz-color-white;
   color: $kz-color-wisteria-800;
-
-  .fullWidth & {
-    width: 66%;
-  }
+  width: 100%;
 }
 
 .rightContent {

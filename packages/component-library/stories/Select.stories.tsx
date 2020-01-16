@@ -1,5 +1,5 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
-import { Select } from "@cultureamp/kaizen-component-library/draft"
+import { AsyncSelect, Select } from "@cultureamp/kaizen-component-library/draft"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
@@ -23,6 +23,40 @@ const options = [
   { value: "Nick", label: "Nick" },
 ]
 
+const asyncOptions = [
+  { value: "Mindy", label: "Mindy" },
+  { value: "Jaime", label: "Jaime" },
+  { value: "Rafa", label: "Rafa" },
+  { value: "Elaine", label: "Elaine" },
+  { value: "Julio", label: "Julio" },
+  { value: "Priyanka", label: "Priyanka" },
+  { value: "Prince", label: "Prince" },
+  { value: "Charith", label: "Charith" },
+  { value: "Nick", label: "Nick" },
+  { value: "Marc", label: "Marc" },
+  { value: "Victor", label: "Victor" },
+  { value: "Nicholas", label: "Nicholas" },
+  { value: "Juan", label: "Juan" },
+  { value: "Pedro", label: "Pedro" },
+  { value: "Jack", label: "Jack" },
+  { value: "Michael", label: "Michael" },
+  { value: "Melisa", label: "Melisa" },
+  { value: "Roberto", label: "Roberto" },
+]
+
+const filterNames = (inputValue: string) => {
+  return asyncOptions.filter(i =>
+    i.label.toLowerCase().includes(inputValue.toLowerCase())
+  )
+}
+
+const promiseOptions = inputValue =>
+  new Promise(resolve => {
+    setTimeout(() => {
+      resolve(filterNames(inputValue))
+    }, 1000)
+  })
+
 storiesOf("Select", module)
   .add("Single", () => (
     <StoryContainer>
@@ -43,6 +77,27 @@ storiesOf("Select", module)
   .add("Multi-Select Searchable", () => (
     <WideStoryContainer>
       <Select options={options} placeholder="Placeholder" isMulti={true} />
+    </WideStoryContainer>
+  ))
+
+  .add("Async Searchable", () => (
+    <WideStoryContainer>
+      <AsyncSelect
+        loadOptions={promiseOptions}
+        defaultOptions={options}
+        placeholder="Placeholder"
+      />
+    </WideStoryContainer>
+  ))
+
+  .add("Multi-Async Searchable", () => (
+    <WideStoryContainer>
+      <AsyncSelect
+        loadOptions={promiseOptions}
+        defaultOptions={options}
+        placeholder="Placeholder"
+        isMulti={true}
+      />
     </WideStoryContainer>
   ))
 
