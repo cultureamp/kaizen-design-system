@@ -26,7 +26,7 @@ storiesOf("IconButton (React)", module)
   .add("Destructive", () => (
     <IconButton icon={configureIcon} label="Label" destructive={true} />
   ))
-  .add("Destructive Disabled", () => (
+  .add("Destructive, Disabled", () => (
     <IconButton
       icon={configureIcon}
       label="Label"
@@ -37,7 +37,7 @@ storiesOf("IconButton (React)", module)
   .add("Reversed", () => (
     <IconButton icon={configureIcon} label="Label" reversed />
   ))
-  .add("Reversed Disabled", () => (
+  .add("Reversed, Disabled", () => (
     <IconButton
       icon={configureIcon}
       label="Label"
