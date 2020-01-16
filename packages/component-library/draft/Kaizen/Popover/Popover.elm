@@ -190,7 +190,7 @@ view (Config config) =
                 Just heading ->
                     div [ styles.class .header ]
                         [ if config.variant == Default then
-                            span [] []
+                            text ""
 
                           else
                             span
