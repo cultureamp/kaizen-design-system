@@ -197,6 +197,8 @@ const mapArrowPositionToClass = (position: Position): string => {
       return styles.arrowPositionStart
     case "end":
       return styles.arrowPositionEnd
+    case "center":
+      return styles.arrowPositionCenter
     default:
       return ""
   }
@@ -207,7 +209,7 @@ const mapArrowSideToClass = (side: Side): string => {
     case "top":
       return styles.arrowSideTop
     default:
-      return ""
+      return styles.arrowSideBottom
   }
 }
 
