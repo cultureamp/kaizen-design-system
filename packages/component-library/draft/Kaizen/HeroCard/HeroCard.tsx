@@ -6,9 +6,9 @@ const styles = require("./HeroCard.scss")
 interface Props {
   readonly leftContent?: React.ReactNode
   readonly children: React.ReactNode
-  readonly title?: String
+  readonly title?: React.ReactNode
   readonly image?: React.ReactNode
-  readonly badgeText?: String
+  readonly badge?: React.ReactNode
   readonly fullWidth?: Boolean
   readonly minHeight?: string
 }
@@ -20,7 +20,7 @@ const HeroCard: HeroCard = ({
   children,
   title,
   image,
-  badgeText,
+  badge,
   minHeight = "none",
   fullWidth = false,
 }: Props) => {
@@ -31,11 +31,11 @@ const HeroCard: HeroCard = ({
       })}
     >
       <div style={{ minHeight }} className={styles.left}>
-        {badgeText && <div className={styles.badge}>{badgeText}</div>}
+        {badge && <div className={styles.badge}>{badge}</div>}
         {leftContent && (
           <div
             className={classnames(styles.leftContent, {
-              [styles.withBadge]: !!badgeText,
+              [styles.withBadge]: !!badge,
             })}
           >
             {leftContent}
@@ -44,7 +44,7 @@ const HeroCard: HeroCard = ({
         {image}
       </div>
       <div className={styles.right}>
-        {title && <h1 className={styles.title}>{title}</h1>}
+        {title}
         <div className={styles.rightContent}>{children}</div>
       </div>
     </div>
