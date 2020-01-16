@@ -306,15 +306,15 @@ loadElmStories(
   module,
   require("./LoadingPlaceholder.stories.elm"),
   [
-    "Basic block",
-    "Variable width block",
-    "Variable width block (centred)",
+    "Default, Multiple",
+    "Default, Multiple, Inline",
+    "Default, Multiple, Variable width",
+    "Default, Multiple, Variable width, Centered",
+    "Default, Multiple, Combined block and inline",
+    "Default, Without bottom margin",
+    "Default, Inherit baseline",
     "Heading",
-    "Inline",
-    "Without bottom margin",
-    "Inherit baseline",
-    "Combined block and inline",
-    "Reversed Default",
+    "Reversed, Default",
     "In the wild",
   ]
 )
