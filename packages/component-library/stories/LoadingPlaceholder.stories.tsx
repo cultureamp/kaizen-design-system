@@ -74,7 +74,7 @@ storiesOf("LoadingPlaceholder (React)", module)
     </StoryContainer>
   ))
 
-  .add("Tall", () => (
+  .add("Heading", () => (
     <StoryContainer>
       <div>
         <Text tag="p">
@@ -308,7 +308,7 @@ loadElmStories(
     "Basic block",
     "Variable width block",
     "Variable width block (centred)",
-    "Tall",
+    "Heading",
     "Inline",
     "Without bottom margin",
     "Inherit baseline",

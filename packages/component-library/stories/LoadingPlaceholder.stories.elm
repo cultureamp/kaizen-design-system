@@ -117,7 +117,7 @@ main =
                         |> LoadingPlaceholder.width 60
                     )
                 ]
-        , statelessStoryOf "Tall" <|
+        , statelessStoryOf "Heading" <|
             storyContainer
                 ([ paragraph ]
                     ++ List.repeat 5 tallPlaceholder
