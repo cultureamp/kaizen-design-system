@@ -7,4 +7,4 @@ CHROMATIC_APP_CODE=$(get_secret "chromatic-app-code") || exit $?
 
 yarn setup
 
-yarn run chromatic --build-script-name=storybook:build --app-code="$CHROMATIC_APP_CODE"
+yarn -s chromatic --build-script-name=storybook:build --app-code="$CHROMATIC_APP_CODE"
