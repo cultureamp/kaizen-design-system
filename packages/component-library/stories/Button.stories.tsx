@@ -8,6 +8,51 @@ import * as React from "react"
 
 storiesOf("Button (React)", module)
   .add("Default (Kaizen Site Demo)", () => <Button label="Label" />)
+  .add("Default, Disabled", () => <Button label="Label" disabled={true} />)
+  .add("Primary", () => <Button label="Label" primary={true} />)
+  .add("Primary, Disabled", () => (
+    <Button label="Label" primary={true} disabled={true} />
+  ))
+  .add("Destructive", () => <Button label="Label" destructive={true} />)
+  .add("Destructive, Disabled", () => (
+    <Button label="Label" destructive={true} disabled={true} />
+  ))
+  .add("Secondary", () => <Button label="Label" secondary={true} />)
+  .add("Secondary, Disabled", () => (
+    <Button label="Label" secondary={true} disabled={true} />
+  ))
+  .add("Secondary w/ Icon", () => (
+    <Button label="Configure" icon={configureIcon} secondary={true} />
+  ))
+  .add("Secondary w/ Icon, Disabled", () => (
+    <Button
+      label="Configure"
+      icon={configureIcon}
+      secondary={true}
+      disabled={true}
+    />
+  ))
+  .add("Secondary, Destructive (not yet implemented)", () => (
+    <Button
+      label="Delete"
+      secondary={true}
+      disabled={false}
+      destructive={true}
+    />
+  ))
+  .add("Secondary w/ Icon, Destructive (not yet implemented)", () => (
+    <Button
+      label="Delete"
+      icon={configureIcon}
+      secondary={true}
+      disabled={false}
+      destructive={true}
+    />
+  ))
+  .add("Icon + Label", () => <Button label="Configure" icon={configureIcon} />)
+  .add("Label + Icon", () => (
+    <Button label="Configure" icon={configureIcon} iconPosition="end" />
+  ))
   .add("Full Width", () => <Button label="Label" fullWidth={true} />)
   .add("Full Width + Icon", () => (
     <Button label="Label" fullWidth={true} icon={configureIcon} />
@@ -20,11 +65,151 @@ storiesOf("Button (React)", module)
       onClick={action("I am an onClick handler")}
     />
   ))
-  .add("Icon + Label", () => <Button label="Configure" icon={configureIcon} />)
-  .add("Label + Icon", () => (
-    <Button label="Configure" icon={configureIcon} iconPosition="end" />
+  .add("Reversed, Default", () => <Button label="Label" reversed={true} />)
+  .add("Reversed, Default, Disabled", () => (
+    <Button label="Label" reversed={true} disabled={true} />
   ))
-  .add("Overflowing text", () => (
+  .add("Reversed, Primary", () => (
+    <Button label="Label" primary={true} disabled={false} reversed={true} />
+  ))
+  .add("Reversed, Primary, Disabled", () => (
+    <Button label="Label" primary={true} reversed={true} disabled={true} />
+  ))
+  .add("Reversed, Color, Lapis", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={false}
+      reversed={true}
+      reverseColor="lapis"
+    />
+  ))
+  .add("Reversed, Primary, Disabled, Color, Lapis", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={true}
+      reversed={true}
+      reverseColor="lapis"
+    />
+  ))
+  .add("Reversed, Primary, Color, Ocean", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={false}
+      reversed={true}
+      reverseColor="ocean"
+    />
+  ))
+  .add("Reversed, Primary, Disabled, Color, Ocean", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={true}
+      reversed={true}
+      reverseColor="ocean"
+    />
+  ))
+  .add("Reversed, Primary, Color, Peach", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={false}
+      reversed={true}
+      reverseColor="peach"
+    />
+  ))
+  .add("Reversed, Primary, Disabled, Color, Peach", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={true}
+      reversed={true}
+      reverseColor="peach"
+    />
+  ))
+  .add("Reversed, Primary, Color, Seedling", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={false}
+      reversed={true}
+      reverseColor="seedling"
+    />
+  ))
+  .add("Reversed, Primary, Disabled, Color, Seedling", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={true}
+      reversed={true}
+      reverseColor="seedling"
+    />
+  ))
+  .add("Reversed, Primary, Color, Wisteria", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={false}
+      reversed={true}
+      reverseColor="wisteria"
+    />
+  ))
+  .add("Reversed, Primary, Disabled, Color, Wisteria", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={true}
+      reversed={true}
+      reverseColor="wisteria"
+    />
+  ))
+  .add("Reversed, Primary, Color, Yuzu", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={false}
+      reversed={true}
+      reverseColor="yuzu"
+    />
+  ))
+  .add("Reversed, Primary, Disabled, Color, Yuzu", () => (
+    <Button
+      label="Label"
+      primary={true}
+      disabled={true}
+      reversed={true}
+      reverseColor="yuzu"
+    />
+  ))
+  .add("Reversed, Secondary", () => (
+    <Button label="Label" secondary={true} reversed={true} />
+  ))
+  .add("Reversed, Secondary, Disabled", () => (
+    <Button label="Label" secondary={true} reversed={true} disabled={true} />
+  ))
+  .add("Reversed, Secondary w/ Icon", () => (
+    <Button
+      label="Configure"
+      secondary={true}
+      reversed={true}
+      icon={configureIcon}
+    />
+  ))
+  .add("Reversed, Secondary w/ Icon, Disabled", () => (
+    <Button
+      label="Configure"
+      secondary={true}
+      reversed={true}
+      disabled={true}
+      icon={configureIcon}
+    />
+  ))
+  .add("Type, Submit", () => <Button label="Label" type="submit" />)
+  .add("Type, Reset", () => <Button label="Label" type="reset" />)
+  .add("Form", () => <Button label="Label" form={true} />)
+  .add("Overflowing text, Icon + Label (test case)", () => (
     <div style={{ width: 120 }}>
       <Button
         icon={configureIcon}
@@ -33,7 +218,7 @@ storiesOf("Button (React)", module)
       />
     </div>
   ))
-  .add("Form (Overflowing text)", () => (
+  .add("Overflowing text, Form (test case)", () => (
     <div style={{ width: 120 }}>
       <Button
         form
@@ -43,191 +228,6 @@ storiesOf("Button (React)", module)
       />
     </div>
   ))
-  .add("Disabled", () => <Button label="Label" disabled={true} />)
-  .add("Form", () => <Button label="Label" form={true} />)
-  .add("Primary", () => <Button label="Label" primary={true} />)
-  .add("Primary Disabled", () => (
-    <Button label="Label" primary={true} disabled={true} />
-  ))
-  .add("Secondary", () => <Button label="Label" secondary={true} />)
-  .add("Secondary Disabled", () => (
-    <Button label="Label" secondary={true} disabled={true} />
-  ))
-  .add("Secondary w/ Icon", () => (
-    <Button label="Configure" icon={configureIcon} secondary={true} />
-  ))
-  .add("Secondary Disabled w/ Icon", () => (
-    <Button
-      label="Configure"
-      icon={configureIcon}
-      secondary={true}
-      disabled={true}
-    />
-  ))
-  .add("Secondary Destructive (not yet implemented)", () => (
-    <Button
-      label="Delete"
-      secondary={true}
-      disabled={false}
-      destructive={true}
-    />
-  ))
-  .add("Secondary Destructive w/ Icon (not yet implemented)", () => (
-    <Button
-      label="Delete"
-      icon={configureIcon}
-      secondary={true}
-      disabled={false}
-      destructive={true}
-    />
-  ))
-  .add("Destructive", () => <Button label="Label" destructive={true} />)
-  .add("Destructive Disabled", () => (
-    <Button label="Label" destructive={true} disabled={true} />
-  ))
-  .add("Reversed", () => <Button label="Label" reversed={true} />)
-  .add("Reversed Disabled", () => (
-    <Button label="Label" reversed={true} disabled={true} />
-  ))
-  .add("Primary Reversed", () => (
-    <Button label="Label" primary={true} disabled={false} reversed={true} />
-  ))
-  .add("Primary Reversed Disabled", () => (
-    <Button label="Label" primary={true} reversed={true} disabled={true} />
-  ))
-  .add("Primary Reversed Color Lapis", () => (
-    <Button
-      label="Label"
-      primary={true}
-      disabled={false}
-      reversed={true}
-      reverseColor="lapis"
-    />
-  ))
-  .add("Primary Reversed Disabled Color Lapis", () => (
-    <Button
-      label="Label"
-      primary={true}
-      disabled={true}
-      reversed={true}
-      reverseColor="lapis"
-    />
-  ))
-  .add("Primary Reversed Color Ocean", () => (
-    <Button
-      label="Label"
-      primary={true}
-      disabled={false}
-      reversed={true}
-      reverseColor="ocean"
-    />
-  ))
-  .add("Primary Reversed Disabled Color Ocean", () => (
-    <Button
-      label="Label"
-      primary={true}
-      disabled={true}
-      reversed={true}
-      reverseColor="ocean"
-    />
-  ))
-  .add("Primary Reversed Color Peach", () => (
-    <Button
-      label="Label"
-      primary={true}
-      disabled={false}
-      reversed={true}
-      reverseColor="peach"
-    />
-  ))
-  .add("Primary Reversed Disabled Color Peach", () => (
-    <Button
-      label="Label"
-      primary={true}
-      disabled={true}
-      reversed={true}
-      reverseColor="peach"
-    />
-  ))
-  .add("Primary Reversed Color Seedling", () => (
-    <Button
-      label="Label"
-      primary={true}
-      disabled={false}
-      reversed={true}
-      reverseColor="seedling"
-    />
-  ))
-  .add("Primary Reversed Disabled Color Seedling", () => (
-    <Button
-      label="Label"
-      primary={true}
-      disabled={true}
-      reversed={true}
-      reverseColor="seedling"
-    />
-  ))
-  .add("Primary Reversed Color Wisteria", () => (
-    <Button
-      label="Label"
-      primary={true}
-      disabled={false}
-      reversed={true}
-      reverseColor="wisteria"
-    />
-  ))
-  .add("Primary Reversed Disabled Color Wisteria", () => (
-    <Button
-      label="Label"
-      primary={true}
-      disabled={true}
-      reversed={true}
-      reverseColor="wisteria"
-    />
-  ))
-  .add("Primary Reversed Color Yuzu", () => (
-    <Button
-      label="Label"
-      primary={true}
-      disabled={false}
-      reversed={true}
-      reverseColor="yuzu"
-    />
-  ))
-  .add("Primary Reversed Disabled Color Yuzu", () => (
-    <Button
-      label="Label"
-      primary={true}
-      disabled={true}
-      reversed={true}
-      reverseColor="yuzu"
-    />
-  ))
-  .add("Secondary Reversed", () => (
-    <Button label="Label" secondary={true} reversed={true} />
-  ))
-  .add("Secondary Reversed Disabled", () => (
-    <Button label="Label" secondary={true} reversed={true} disabled={true} />
-  ))
-  .add("Secondary Reversed w/ Icon", () => (
-    <Button
-      label="Configure"
-      secondary={true}
-      reversed={true}
-      icon={configureIcon}
-    />
-  ))
-  .add("Secondary Reversed Disabled w/ Icon", () => (
-    <Button
-      label="Configure"
-      secondary={true}
-      reversed={true}
-      disabled={true}
-      icon={configureIcon}
-    />
-  ))
-  .add("Type Submit", () => <Button label="Label" type="submit" />)
-  .add("Type Reset", () => <Button label="Label" type="reset" />)
   .add("Multiple Buttons", () => (
     <div>
       <Button label="Save" primary automationId="demo-button-1" />
