@@ -208,7 +208,7 @@ storiesOf("Button (React)", module)
   ))
   .add("Type, Submit", () => <Button label="Label" type="submit" />)
   .add("Type, Reset", () => <Button label="Label" type="reset" />)
-  .add("Form", () => <Button label="Label" form={true} />)
+  .add("Form (discouraged)", () => <Button label="Label" form={true} />)
   .add("Overflowing text, Icon + Label (test case)", () => (
     <div style={{ width: 120 }}>
       <Button
