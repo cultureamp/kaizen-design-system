@@ -34,7 +34,7 @@ storiesOf("HeroCard (React)", module)
 
   .add("Title", () => (
     <Container>
-      <HeroCard title="Preview the survey questions">
+      <HeroCard title={<h1>Preview the survey questions</h1>}>
         {renderContent()}
       </HeroCard>
     </Container>
@@ -42,7 +42,10 @@ storiesOf("HeroCard (React)", module)
 
   .add("Badge", () => (
     <Container>
-      <HeroCard title="Preview the survey questions" badgeText="1">
+      <HeroCard
+        title={<h1>Preview the survey questions</h1>}
+        badge={<span>1</span>}
+      >
         {renderContent()}
       </HeroCard>
     </Container>
@@ -51,8 +54,8 @@ storiesOf("HeroCard (React)", module)
   .add("Image", () => (
     <Container>
       <HeroCard
-        title="Preview the survey questions"
-        badgeText="1"
+        title={<h1>Preview the survey questions</h1>}
+        badge={<span>1</span>}
         image={
           <img
             src={surveyIllustration}
@@ -74,7 +77,7 @@ storiesOf("HeroCard (React)", module)
   .add("Custom left content", () => (
     <Container>
       <HeroCard
-        title="Preview the survey questions"
+        title={<h1>Preview the survey questions</h1>}
         leftContent={<p>Ta-dah</p>}
       >
         {renderContent()}
@@ -85,9 +88,9 @@ storiesOf("HeroCard (React)", module)
   .add("Custom left content and badge", () => (
     <Container>
       <HeroCard
-        title="Preview the survey questions"
+        title={<h1>Preview the survey questions</h1>}
         leftContent={<p>Ta-dah</p>}
-        badgeText="2"
+        badge="2"
       >
         {renderContent()}
       </HeroCard>
@@ -97,7 +100,7 @@ storiesOf("HeroCard (React)", module)
   .add("Full width", () => (
     <Container>
       <HeroCard
-        title="Preview the survey questions"
+        title={<h1>Preview the survey questions</h1>}
         leftContent={<p>Ta-dah</p>}
         fullWidth
       >
