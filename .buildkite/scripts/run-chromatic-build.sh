@@ -8,4 +8,5 @@ export CHROMATIC_APP_CODE
 CHROMATIC_APP_CODE=$(get_secret "chromatic-app-code") || exit $?
 
 yarn install --frozen-lockfile
+yarn storybook:build
 yarn chromatic --storybook-build-dir storybook/public
