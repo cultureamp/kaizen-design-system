@@ -50,7 +50,12 @@ export default ({ data, pageContext, location }) => {
       )
       return undefined
     }
-    return <StorybookDemo demoId={md.frontmatter.demoStoryId} />
+    return (
+      <StorybookDemo
+        demoId={md.frontmatter.demoStoryId}
+        demoHeight={md.frontmatter.demoStoryHeight}
+      />
+    )
   }
 
   const ComponentPageHeader = (
@@ -113,6 +118,7 @@ export const query = graphql`
         needToKnow
         summaryParagraph
         demoStoryId
+        demoStoryHeight
       }
     }
   }
