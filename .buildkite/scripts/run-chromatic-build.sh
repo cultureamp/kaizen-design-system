@@ -7,5 +7,5 @@ set -e
 export CHROMATIC_APP_CODE
 CHROMATIC_APP_CODE=$(get_secret "chromatic-app-code") || exit $?
 
-yarn global add storybook-chromatic
+yarn install --frozen-lockfile
 chromatic --storybook-build-dir storybook/public
