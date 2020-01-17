@@ -10,7 +10,7 @@ const userIcon = require("@cultureamp/kaizen-component-library/icons/user.icon.s
   .default
 
 const ExampleContainer: React.FunctionComponent = ({ children }) => (
-  <div style={{ width: "100%", margin: 10 }}>{children}</div>
+  <div style={{ width: "98%", margin: "1%" }}>{children}</div>
 )
 
 storiesOf("TextField (React)", module)

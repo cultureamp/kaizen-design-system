@@ -5,6 +5,7 @@ const styles = require("./StorybookDemo.scss")
 
 type StorybookDemoProps = {
   demoId: string
+  demoHeight: string
 }
 
 declare global {
@@ -37,7 +38,9 @@ export default class StorybookDemo extends React.Component<StorybookDemoProps> {
               if (obj && obj.contentWindow) {
                 this.setState({
                   iFrameHeight:
-                    obj.contentWindow.document.body.scrollHeight + "px",
+                    // 48px is 2 grid units; just adds extra padding to avoid borders etc being cropped
+                    this.props.demoHeight ||
+                    obj.contentWindow.document.body.scrollHeight + 48 + "px",
                 })
               }
             }, 1000)

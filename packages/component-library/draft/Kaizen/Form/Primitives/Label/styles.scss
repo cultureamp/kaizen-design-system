@@ -56,10 +56,10 @@ $label-start-padding: 10px;
   @include ca-inherit-baseline;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   .labelText {
     @include ca-padding($end: $label-start-padding);
-    transform: translateY(0.11em); // optically centre label
     order: -1; // place label before the control
   }
 }

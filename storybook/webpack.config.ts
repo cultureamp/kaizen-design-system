@@ -113,7 +113,7 @@ const elm: Rule = {
     {
       loader: "elm-webpack-loader",
       options: {
-        debug: true,
+        debug: false,
         cwd: resolve(__dirname, ".."),
         pathToElm: resolve(__dirname, "../node_modules/.bin/elm"),
       },
