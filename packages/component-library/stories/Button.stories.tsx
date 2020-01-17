@@ -3,10 +3,44 @@ import { Button } from "@kaizen/component-library"
 const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
   .default
 import { action } from "@storybook/addon-actions"
+import { boolean, radios, text, withKnobs } from "@storybook/addon-knobs"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 storiesOf("Button (React)", module)
+  .addDecorator(withKnobs)
+  .add("with Knobs", () => {
+    // TODO: missing knobs: icon, onClick, href, analytics, iconPosition
+
+    return (
+      // @ts-nocheck
+      <Button
+        label={text("label", "Label")}
+        id={text("id (optional)", "button-1")}
+        destructive={boolean("destructive (optional)", false)}
+        disabled={boolean("disabled (optional)", false)}
+        form={boolean("form (optional)", false)}
+        reversed={boolean("reversed (optional)", false)}
+        newTabAndIUnderstandTheAccessibilityImplications={boolean(
+          "newTabAndIUnderstandTheAccessibilityImplications (optional)",
+          false
+        )}
+        automationId={text("automationId (optional)", "button-1")}
+        fullWidth={boolean("fullWidth (optional)", false)}
+        disableTabFocusAndIUnderstandTheAccessibilityImplications={boolean(
+          "disableTabFocusAndIUnderstandTheAccessibilityImplications (optional)",
+          false
+        )}
+        primary={boolean("primary (optional)", false)}
+        secondary={boolean("secondary (optional)", false)}
+        reverseColor={radios(
+          "reverseColor",
+          ["lapis", "ocean", "peach", "seedling", "wisteria", "yuzu"],
+          "wisteria"
+        )}
+      />
+    )
+  })
   .add("Default (Kaizen Site Demo)", () => <Button label="Label" />)
   .add("Default, Disabled", () => <Button label="Label" disabled={true} />)
   .add("Primary", () => <Button label="Label" primary={true} />)
