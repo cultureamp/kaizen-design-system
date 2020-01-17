@@ -22,7 +22,7 @@ const chevronUpIcon = require("@cultureamp/kaizen-component-library/icons/chevro
   .default
 
 const Container: React.FunctionComponent = ({ children }) => (
-  <div style={{ margin: "5rem auto", width: "100%", maxWidth: "60rem" }}>
+  <div style={{ margin: "1rem auto", width: "100%", maxWidth: "60rem" }}>
     {children}
   </div>
 )
