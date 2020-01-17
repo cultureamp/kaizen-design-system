@@ -13,7 +13,7 @@ storiesOf("Button (React)", module)
     // TODO: missing knobs: icon, onClick, href, analytics, iconPosition
 
     return (
-      // @ts-nocheck
+      // @ts-ignore
       <Button
         label={text("label", "Label")}
         id={text("id (optional)", "button-1")}
