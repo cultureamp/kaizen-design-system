@@ -49,6 +49,7 @@ steps:
   - name: ":rainbow: Build (chromatic)"
     command: ".buildkite/scripts/run-chromatic-build.sh"
     <<: *defaults
+    agent_query_rules: ["queue=build-unrestricted-large"]
     plugins:
       - cultureamp/aws-assume-role#v0.1.0:
           role: "${KAIZEN_ROLE_ARN}"
