@@ -1,6 +1,7 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 import { CheckboxField } from "@kaizen/component-library/draft"
 import { storiesOf } from "@storybook/react"
+import { boolean, radios, text, withKnobs } from "@storybook/addon-knobs"
 import * as React from "react"
 
 type RenderProps = {
@@ -48,6 +49,27 @@ class CheckboxFieldExample extends React.Component<Props> {
 }
 
 storiesOf("CheckboxField (React)", module)
+  .addDecorator(withKnobs)
+  .add("with Knobs", () => {
+    // TODO: missing knobs: onCheck
+
+    return (
+      // @ts-ignore
+      <CheckboxField
+        id={text("id (optional)", "checkbox-1")}
+        automationId={text("automationId (optional)", "checkbox-1")}
+        name={text("name (optional)", "checkbox-name")}
+        labelText={text("labelText", "Label")}
+        checkedStatus={radios(
+          "checkedStatus (optional)",
+          ["on", "off", "mixed"],
+          "off"
+        )}
+        disabled={boolean("disabled (optional)", false)}
+        noBottomMargin={boolean("noBottomMargin (optional)", false)}
+      />
+    )
+  })
   .add("Interactive (Kaizen Site Demo)", () => (
     <CheckboxFieldExample
       render={({ checkedStatus, onCheckHandler }) => (
