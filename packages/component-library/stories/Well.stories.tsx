@@ -2,6 +2,10 @@ import { loadElmStories } from "@cultureamp/elm-storybook"
 import { Text } from "@kaizen/component-library"
 import { TextField } from "@kaizen/component-library/draft"
 import { Well } from "@kaizen/component-library/draft"
+import {
+  BorderStyleType,
+  VariantType,
+} from "@kaizen/component-library/draft/Kaizen/Well/Well"
 import { boolean, radios, withKnobs } from "@storybook/addon-knobs"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
@@ -25,15 +29,19 @@ const ExampleContent = () => (
 storiesOf("Well (React)", module)
   .addDecorator(withKnobs)
   .add("with Knobs", () => {
-    const variantKnob = radios(
-      "variant",
-      ["positive", "negative", "informative", "cautionary", "default"],
-      "default"
-    )
+    const variants: VariantType[] = [
+      "positive",
+      "negative",
+      "informative",
+      "cautionary",
+      "default",
+    ]
+    const variantKnob = radios<VariantType>("variant", variants, "default")
 
-    const borderStyleKnob = radios(
+    const borders: BorderStyleType[] = ["solid", "dashed", "none"]
+    const borderStyleKnob = radios<BorderStyleType>(
       "borderStyle",
-      ["solid", "dashed", "none"],
+      borders,
       "solid"
     )
 
