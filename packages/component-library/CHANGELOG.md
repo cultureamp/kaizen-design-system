@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [17.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.8.1...@cultureamp/kaizen-component-library@17.9.0) (2020-01-17)
+
+
+### Features
+
+* allow any react node as title and badge props in `HeroCard` ([#230](https://github.com/cultureamp/kaizen-design-system/issues/230)) ([7f8fa3d](https://github.com/cultureamp/kaizen-design-system/commit/7f8fa3d))
+
+
+
+
+
 ## [17.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.8.0...@cultureamp/kaizen-component-library@17.8.1) (2020-01-16)
 
 
