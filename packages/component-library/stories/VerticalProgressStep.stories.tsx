@@ -15,7 +15,7 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => (
   </div>
 )
 
-storiesOf("VerticalProgressStep", module)
+storiesOf("VerticalProgressStep (React)", module)
   .add("current step actionable", () => (
     <StoryContainer>
       <VerticalProgressStep.CurrentStep

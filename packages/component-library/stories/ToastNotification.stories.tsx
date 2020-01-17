@@ -4,8 +4,8 @@ import * as React from "react"
 
 import { ToastNotification } from "@cultureamp/kaizen-component-library"
 
-storiesOf("ToastNotification", module)
-  .add("Affirmative", () => (
+storiesOf("ToastNotification (React)", module)
+  .add("Positive (Kaizen Site Demo)", () => (
     <ToastNotification
       type="affirmative"
       title="Success!"
@@ -15,7 +15,7 @@ storiesOf("ToastNotification", module)
       <a href="/">Manage users is now available</a>
     </ToastNotification>
   ))
-  .add("Affirmative, Autohide", () => (
+  .add("Positive, Autohide", () => (
     <ToastNotification
       type="affirmative"
       title="Success!"
@@ -26,7 +26,7 @@ storiesOf("ToastNotification", module)
       <a href="/">Manage users is now available</a>
     </ToastNotification>
   ))
-  .add("Affirmative, Autohide, Hide Close Icon", () => (
+  .add("Positive, Autohide, Hide Close Icon", () => (
     <ToastNotification
       automationId="notification1"
       type="affirmative"
@@ -117,7 +117,7 @@ loadElmStories(
   module,
   require("./ToastNotification.stories.elm"),
   [
-    "Affirmative",
+    "Positive",
     "Informative",
     "Cautionary",
     "Negative",

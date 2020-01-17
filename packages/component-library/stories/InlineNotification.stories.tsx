@@ -4,8 +4,8 @@ import * as React from "react"
 
 import { InlineNotification } from "@cultureamp/kaizen-component-library"
 
-storiesOf("InlineNotification", module)
-  .add("Affirmative", () => (
+storiesOf("InlineNotification (React)", module)
+  .add("Dismissible, Positive (Kaizen Site Demo)", () => (
     <InlineNotification
       type="affirmative"
       title="Success!"
@@ -15,7 +15,7 @@ storiesOf("InlineNotification", module)
       <a href="/">Manage users is now available</a>
     </InlineNotification>
   ))
-  .add("Affirmative, Autohide", () => (
+  .add("Dismissible, Positive, Autohide", () => (
     <InlineNotification
       type="affirmative"
       title="Success!"
@@ -26,7 +26,7 @@ storiesOf("InlineNotification", module)
       <a href="/">Manage users is now available</a>
     </InlineNotification>
   ))
-  .add("Affirmative, Autohide, Hide Close Icon", () => (
+  .add("Dismissible, Positive, Autohide, Hide Close Icon", () => (
     <InlineNotification
       type="affirmative"
       title="Success!"
@@ -38,7 +38,7 @@ storiesOf("InlineNotification", module)
       <a href="/">Manage users is now available</a>
     </InlineNotification>
   ))
-  .add("Informative", () => (
+  .add("Dismissible, Informative", () => (
     <InlineNotification
       type="informative"
       title="Informative"
@@ -48,7 +48,7 @@ storiesOf("InlineNotification", module)
       process is completed. <a href="/">Manage users</a>
     </InlineNotification>
   ))
-  .add("Cautionary", () => (
+  .add("Dismissible, Cautionary", () => (
     <InlineNotification
       type="cautionary"
       title="Warning"
@@ -58,7 +58,7 @@ storiesOf("InlineNotification", module)
       minor issues. <a href="/">View issues</a>
     </InlineNotification>
   ))
-  .add("Negative", () => (
+  .add("Dismissible, Negative", () => (
     <InlineNotification
       type="negative"
       title="No network connection"
@@ -67,7 +67,28 @@ storiesOf("InlineNotification", module)
       Check your connection and try again. <a href="/">Refresh</a>.
     </InlineNotification>
   ))
-  .add("Persistent, Affirmative", () => (
+  .add("Dismissible, Multiline", () => (
+    <InlineNotification
+      type="negative"
+      title="Error"
+      automationId="notification1"
+    >
+      There’s a problem connecting to your HRIS. Check your HRIS is working and
+      check your <a href="/">integration settings</a>, or if you require more
+      assistance please <a href="/">contact support</a>.
+    </InlineNotification>
+  ))
+  .add("Dismissible, Slim", () => (
+    <InlineNotification
+      type="affirmative"
+      title="Success!"
+      automationId="notification1"
+    >
+      <a href="/">Manage users is now available</a>
+    </InlineNotification>
+  ))
+
+  .add("Persistent, Positive", () => (
     <InlineNotification
       type="affirmative"
       title="Success!"
@@ -109,17 +130,6 @@ storiesOf("InlineNotification", module)
       Check your connection and try again. <a href="/">Refresh</a>.
     </InlineNotification>
   ))
-  .add("Multiline", () => (
-    <InlineNotification
-      type="negative"
-      title="Error"
-      automationId="notification1"
-    >
-      There’s a problem connecting to your HRIS. Check your HRIS is working and
-      check your <a href="/">integration settings</a>, or if you require more
-      assistance please <a href="/">contact support</a>.
-    </InlineNotification>
-  ))
 
   .add("Persistent, Multiline", () => (
     <InlineNotification
@@ -131,16 +141,6 @@ storiesOf("InlineNotification", module)
       There’s a problem connecting to your HRIS. Check your HRIS is working and
       check your <a href="/">integration settings</a>, or if you require more
       assistance please <a href="/">contact support</a>.
-    </InlineNotification>
-  ))
-
-  .add("Slim", () => (
-    <InlineNotification
-      type="affirmative"
-      title="Success!"
-      automationId="notification1"
-    >
-      <a href="/">Manage users is now available</a>
     </InlineNotification>
   ))
 
@@ -199,17 +199,17 @@ loadElmStories(
   module,
   require("./InlineNotification.stories.elm"),
   [
-    "Affirmative",
-    "Informative",
-    "Cautionary",
-    "Negative",
-    "Persistent, Affirmative",
+    "Dismissible, Positive",
+    "Dismissible, Informative",
+    "Dismissible, Cautionary",
+    "Dismissible, Negative",
+    "Dismissible, Multiline",
+    "Dismissible, Slim",
+    "Persistent, Positive",
     "Persistent, Informative",
     "Persistent, Cautionary",
     "Persistent, Negative",
-    "Multiline",
     "Persistent, Multiline",
-    "Slim",
     "Persistent, Slim",
     "Multiple Notification",
   ]

@@ -3,7 +3,7 @@ import { Text } from "@cultureamp/kaizen-component-library"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-storiesOf("Text", module)
+storiesOf("Text (React)", module)
   .add("H1", () => <Text tag="h1">This is a Page Title (H1)</Text>)
 
   .add("H1 (inherit baseline)", () => (

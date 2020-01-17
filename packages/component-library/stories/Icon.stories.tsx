@@ -6,8 +6,8 @@ import { Icon } from "@cultureamp/kaizen-component-library"
 const configureIcon = require("@cultureamp/kaizen-component-library/icons/configure.icon.svg")
   .default
 
-storiesOf("Icon", module)
-  .add("Meaningful", () => (
+storiesOf("Icon (React)", module)
+  .add("Meaningful (Kaizen Site Demo)", () => (
     <Icon
       icon={configureIcon}
       title="Warning"
@@ -24,7 +24,7 @@ storiesOf("Icon", module)
     </div>
   ))
 
-loadElmStories("Icon(Elm)", module, require("./Icon.stories.elm"), [
+loadElmStories("Icon (Elm)", module, require("./Icon.stories.elm"), [
   "Meaningful",
   "Presentational",
   "Inherit Size",

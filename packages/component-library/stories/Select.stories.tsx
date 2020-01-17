@@ -57,7 +57,7 @@ const promiseOptions = inputValue =>
     }, 1000)
   })
 
-storiesOf("Select", module)
+storiesOf("Select (React)", module)
   .add("Single", () => (
     <StoryContainer>
       <Select
@@ -102,7 +102,7 @@ storiesOf("Select", module)
   ))
 
 loadElmStories("Select (Elm)", module, require("./SelectStories.elm"), [
-  "Single",
+  "Single (Kaizen Site Demo)",
   "Single Searchable",
   "Multi-Select Searchable",
 ])

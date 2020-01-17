@@ -37,8 +37,8 @@ export default class RadioGroupExample extends React.Component<Props> {
   }
 }
 
-storiesOf("RadioGroup", module)
-  .add("Standard", () => (
+storiesOf("RadioGroup (React)", module)
+  .add("Default (Kaizen Site Demo)", () => (
     <RadioGroupExample
       render={({ selectedOption, onChangeHandler }) => (
         <RadioGroup labelText="Radio group label">

@@ -9,8 +9,8 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => (
   </div>
 )
 
-storiesOf("Tag", module)
-  .add("Default - Medium", () => (
+storiesOf("Tag (React)", module)
+  .add("Default - Medium (Kaizen Site Demo)", () => (
     <StoryContainer>
       <Tag variant="default">Default</Tag>
       <Tag variant="default" dismissible>

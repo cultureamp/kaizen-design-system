@@ -14,7 +14,7 @@ const caMonogramIcon = require("@cultureamp/kaizen-component-library/icons/ca-mo
 const supportIcon = require("@cultureamp/kaizen-component-library/icons/support.icon.svg")
   .default
 
-storiesOf("NavigationBar", module)
+storiesOf("NavigationBar (React)", module)
   .add("Default", () => (
     <NavigationBar>
       <Link text="Home" href="/" active />

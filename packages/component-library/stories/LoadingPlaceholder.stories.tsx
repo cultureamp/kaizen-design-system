@@ -10,8 +10,8 @@ const StoryContainer: React.FunctionComponent<{}> = ({ children }) => {
   return <div className={styles.storyContainer}>{children}</div>
 }
 
-storiesOf("LoadingPlaceholder", module)
-  .add("Basic block", () => (
+storiesOf("LoadingPlaceholder (React)", module)
+  .add("Default, Multiple (Kaizen Site Demo)", () => (
     <StoryContainer>
       <Text tag="p">
         Dr. Brené Brown, author of Daring Greatly, is a research professor from
@@ -31,7 +31,50 @@ storiesOf("LoadingPlaceholder", module)
     </StoryContainer>
   ))
 
-  .add("Variable width block", () => (
+  .add("Default, Multiple, Inline", () => (
+    <StoryContainer>
+      <div>
+        <Text tag="p">
+          Dr. Brené Brown, author of Daring Greatly, is a research professor
+          from the University of Houston who studies human emotions, including
+          shame and vulnerability. In a March 2012 TED talk, she said,
+          “Vulnerability is not weakness, and that myth is profoundly
+          dangerous.” She went on to say that after 12 years of research, she
+          has actually determined that vulnerability is “our most accurate
+          measurement of courage.”
+        </Text>
+      </div>
+      <>
+        <div>
+          <LoadingPlaceholder inline width={30} />
+          <LoadingPlaceholder inline width={30} />
+          <LoadingPlaceholder inline width={30} />
+        </div>
+        <div>
+          <LoadingPlaceholder inline width={30} />
+          <LoadingPlaceholder inline width={30} />
+          <LoadingPlaceholder inline width={30} />
+        </div>
+        <div>
+          <LoadingPlaceholder inline width={30} />
+          <LoadingPlaceholder inline width={30} />
+          <LoadingPlaceholder inline width={30} />
+        </div>
+        <div>
+          <LoadingPlaceholder inline width={30} />
+          <LoadingPlaceholder inline width={30} />
+          <LoadingPlaceholder inline width={30} />
+        </div>
+        <div>
+          <LoadingPlaceholder inline width={30} />
+          <LoadingPlaceholder inline width={30} />
+          <LoadingPlaceholder inline width={30} />
+        </div>
+      </>
+    </StoryContainer>
+  ))
+
+  .add("Default, Multiple, Variable width", () => (
     <StoryContainer>
       <Text tag="p">
         Dr. Brené Brown, author of Daring Greatly, is a research professor from
@@ -51,7 +94,7 @@ storiesOf("LoadingPlaceholder", module)
     </StoryContainer>
   ))
 
-  .add("Variable width block (centred)", () => (
+  .add("Default, Multiple, Variable width, Centered", () => (
     <StoryContainer>
       <div style={{ textAlign: "center" }}>
         <Text tag="p">
@@ -74,95 +117,7 @@ storiesOf("LoadingPlaceholder", module)
     </StoryContainer>
   ))
 
-  .add("Tall", () => (
-    <StoryContainer>
-      <div>
-        <Text tag="p">
-          Dr. Brené Brown, author of Daring Greatly, is a research professor
-          from the University of Houston who studies human emotions, including
-          shame and vulnerability. In a March 2012 TED talk, she said,
-          “Vulnerability is not weakness, and that myth is profoundly
-          dangerous.” She went on to say that after 12 years of research, she
-          has actually determined that vulnerability is “our most accurate
-          measurement of courage.”
-        </Text>
-      </div>
-      <>
-        <LoadingPlaceholder tall />
-        <LoadingPlaceholder tall />
-        <LoadingPlaceholder tall />
-        <LoadingPlaceholder tall />
-        <LoadingPlaceholder tall />
-      </>
-    </StoryContainer>
-  ))
-
-  .add("Inline", () => (
-    <StoryContainer>
-      <div>
-        <Text tag="p">
-          Dr. Brené Brown, author of Daring Greatly, is a research professor
-          from the University of Houston who studies human emotions, including
-          shame and vulnerability. In a March 2012 TED talk, she said,
-          “Vulnerability is not weakness, and that myth is profoundly
-          dangerous.” She went on to say that after 12 years of research, she
-          has actually determined that vulnerability is “our most accurate
-          measurement of courage.”
-        </Text>
-      </div>
-      <>
-        <div>
-          <LoadingPlaceholder inline width={30} />
-          <LoadingPlaceholder inline width={30} />
-          <LoadingPlaceholder inline width={30} />
-        </div>
-        <div>
-          <LoadingPlaceholder inline width={30} />
-          <LoadingPlaceholder inline width={30} />
-          <LoadingPlaceholder inline width={30} />
-        </div>
-        <div>
-          <LoadingPlaceholder inline width={30} />
-          <LoadingPlaceholder inline width={30} />
-          <LoadingPlaceholder inline width={30} />
-        </div>
-        <div>
-          <LoadingPlaceholder inline width={30} />
-          <LoadingPlaceholder inline width={30} />
-          <LoadingPlaceholder inline width={30} />
-        </div>
-        <div>
-          <LoadingPlaceholder inline width={30} />
-          <LoadingPlaceholder inline width={30} />
-          <LoadingPlaceholder inline width={30} />
-        </div>
-      </>
-    </StoryContainer>
-  ))
-
-  .add("Without bottom margin", () => (
-    <StoryContainer>
-      <LoadingPlaceholder noBottomMargin />
-      <Text tag="p" inline>
-        These loading placeholders have no bottom margin.
-      </Text>
-
-      <LoadingPlaceholder noBottomMargin />
-    </StoryContainer>
-  ))
-
-  .add("Inherit baseline", () => (
-    <StoryContainer>
-      <div className={styles.flexbox}>
-        <Text tag="h2" inheritBaseline>
-          Inheriting baseline
-        </Text>
-        <LoadingPlaceholder inheritBaseline />
-      </div>
-    </StoryContainer>
-  ))
-
-  .add("Combined block and inline", () => (
+  .add("Default, Multiple, Combined block and inline", () => (
     <StoryContainer>
       <div>
         <Text tag="p">
@@ -200,7 +155,52 @@ storiesOf("LoadingPlaceholder", module)
     </StoryContainer>
   ))
 
-  .add("Reversed Default", () => {
+  .add("Default, Without bottom margin", () => (
+    <StoryContainer>
+      <LoadingPlaceholder noBottomMargin />
+      <Text tag="p" inline>
+        These loading placeholders have no bottom margin.
+      </Text>
+
+      <LoadingPlaceholder noBottomMargin />
+    </StoryContainer>
+  ))
+
+  .add("Default, Inherit baseline", () => (
+    <StoryContainer>
+      <div className={styles.flexbox}>
+        <Text tag="h2" inheritBaseline>
+          Inheriting baseline
+        </Text>
+        <LoadingPlaceholder inheritBaseline />
+      </div>
+    </StoryContainer>
+  ))
+
+  .add("Heading", () => (
+    <StoryContainer>
+      <div>
+        <Text tag="p">
+          Dr. Brené Brown, author of Daring Greatly, is a research professor
+          from the University of Houston who studies human emotions, including
+          shame and vulnerability. In a March 2012 TED talk, she said,
+          “Vulnerability is not weakness, and that myth is profoundly
+          dangerous.” She went on to say that after 12 years of research, she
+          has actually determined that vulnerability is “our most accurate
+          measurement of courage.”
+        </Text>
+      </div>
+      <>
+        <LoadingPlaceholder tall />
+        <LoadingPlaceholder tall />
+        <LoadingPlaceholder tall />
+        <LoadingPlaceholder tall />
+        <LoadingPlaceholder tall />
+      </>
+    </StoryContainer>
+  ))
+
+  .add("Reversed, Default", () => {
     return (
       <StoryContainer>
         <div className={styles.reversedDefault}>
@@ -305,15 +305,15 @@ loadElmStories(
   module,
   require("./LoadingPlaceholder.stories.elm"),
   [
-    "Basic block",
-    "Variable width block",
-    "Variable width block (centred)",
-    "Tall",
-    "Inline",
-    "Without bottom margin",
-    "Inherit baseline",
-    "Combined block and inline",
-    "Reversed Default",
+    "Default, Multiple",
+    "Default, Multiple, Inline",
+    "Default, Multiple, Variable width",
+    "Default, Multiple, Variable width, Centered",
+    "Default, Multiple, Combined block and inline",
+    "Default, Without bottom margin",
+    "Default, Inherit baseline",
+    "Heading",
+    "Reversed, Default",
     "In the wild",
   ]
 )

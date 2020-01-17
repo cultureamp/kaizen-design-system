@@ -30,7 +30,7 @@ const stickyContainerStyle = {
   background: "lightgrey",
 }
 
-storiesOf("TitleBlock", module)
+storiesOf("TitleBlock (React)", module)
   .add("with Title", () => <TitleBlock title="Reports" />)
   .add("with subtitle", () => (
     <TitleBlock title="Home" subtitle="Subtitle goes here" />
