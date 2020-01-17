@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [17.9.3](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.9.2...@cultureamp/kaizen-component-library@17.9.3) (2020-01-17)
+
+
+### Bug Fixes
+
+* Fix small Storybook and component bugs ([#228](https://github.com/cultureamp/kaizen-design-system/issues/228)) ([ca81849](https://github.com/cultureamp/kaizen-design-system/commit/ca81849))
+
+
+
+
+
 ## [17.9.2](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.9.1...@cultureamp/kaizen-component-library@17.9.2) (2020-01-17)
 
 **Note:** Version bump only for package @cultureamp/kaizen-component-library
