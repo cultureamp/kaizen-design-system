@@ -1,8 +1,8 @@
 {
-  "name": "@cultureamp/kaizen-binary-assets",
+  "name": "@kaizen/hosted-assets",
   "version": "1.2.1",
-  "description": "Binary asset management for Culture Amp's Kaizen Design System.",
-  "homepage": "https://github.com/cultureamp/kaizen-design-system/packages/binary-asset#readme",
+  "description": "Hosted assets for Culture Amp's Kaizen Design System.",
+  "homepage": "https://github.com/cultureamp/kaizen-design-system/packages/hosted-assets#readme",
   "license": "MIT",
   "main": "lib",
   "directories": {
