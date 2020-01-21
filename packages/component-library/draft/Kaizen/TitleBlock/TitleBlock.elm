@@ -107,7 +107,7 @@ breadCrumbView { label, link } (Config config) =
                 , ( .reversed, config.reversed )
                 ]
     in
-    a [ href link, breadCrumbClassList ]
+    a [ href link, breadCrumbClassList, attribute "data-automation-id" "TitleBlock__Breadcrumb" ]
         [ div [ class .circle ]
             [ Icon.view
                 Icon.presentation
