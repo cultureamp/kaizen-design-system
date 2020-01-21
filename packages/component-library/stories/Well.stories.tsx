@@ -29,21 +29,19 @@ const ExampleContent = () => (
 storiesOf("Well (React)", module)
   .addDecorator(withKnobs)
   .add("with Knobs", () => {
-    const variants: VariantType[] = [
+    const variants = [
       "positive",
       "negative",
       "informative",
       "cautionary",
       "default",
     ]
-    const variantKnob = radios<VariantType>("variant", variants, "default")
+    // @ts-ignore
+    const variantKnob = radios("variant", variants, "default")
 
-    const borders: BorderStyleType[] = ["solid", "dashed", "none"]
-    const borderStyleKnob = radios<BorderStyleType>(
-      "borderStyle",
-      borders,
-      "solid"
-    )
+    const borders = ["solid", "dashed", "none"]
+    // @ts-ignore
+    const borderStyleKnob = radios("borderStyle", borders, "solid")
 
     const noMarginKnob = boolean("noMargin", false)
 

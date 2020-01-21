@@ -1,7 +1,7 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 import { CheckboxField } from "@kaizen/component-library/draft"
-import { storiesOf } from "@storybook/react"
 import { boolean, radios, text, withKnobs } from "@storybook/addon-knobs"
+import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 type RenderProps = {
@@ -54,7 +54,6 @@ storiesOf("CheckboxField (React)", module)
     // TODO: missing knobs: onCheck
 
     return (
-      // @ts-ignore
       <CheckboxField
         id={text("id (optional)", "checkbox-1")}
         automationId={text("automationId (optional)", "checkbox-1")}
@@ -62,6 +61,7 @@ storiesOf("CheckboxField (React)", module)
         labelText={text("labelText", "Label")}
         checkedStatus={radios(
           "checkedStatus (optional)",
+          // @ts-ignore
           ["on", "off", "mixed"],
           "off"
         )}

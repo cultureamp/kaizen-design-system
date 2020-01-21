@@ -13,7 +13,6 @@ storiesOf("Button (React)", module)
     // TODO: missing knobs: icon, onClick, href, analytics, iconPosition
 
     return (
-      // @ts-ignore
       <Button
         label={text("label", "Label")}
         id={text("id (optional)", "button-1")}
@@ -35,6 +34,7 @@ storiesOf("Button (React)", module)
         secondary={boolean("secondary (optional)", false)}
         reverseColor={radios(
           "reverseColor",
+          // @ts-ignore
           ["lapis", "ocean", "peach", "seedling", "wisteria", "yuzu"],
           "wisteria"
         )}
