@@ -1,6 +1,6 @@
 import classnames from "classnames"
 import * as React from "react"
-import { useState } from "react"
+import { useRef, useState } from "react"
 import Dropdown from "./Dropdown"
 import DropdownMenu from "./DropdownMenu"
 import { Dir } from "./types"
@@ -50,7 +50,7 @@ const SplitButton: SplitButton = ({
     disabled: disabled,
   }
 
-  const dropdownButtonRef = React.createRef<HTMLButtonElement>()
+  const dropdownButtonRef = useRef<HTMLDivElement>(null)
 
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false)
 
@@ -66,7 +66,7 @@ const SplitButton: SplitButton = ({
 
   return (
     <div className={styles.root} dir={dir} data-automation-id={automationId}>
-      <div className={styles.buttonsContainer}>
+      <div className={styles.buttonsContainer} ref={dropdownButtonRef}>
         {href ? (
           <a
             href={disabled ? undefined : href}
@@ -86,7 +86,6 @@ const SplitButton: SplitButton = ({
           </button>
         )}
         <Dropdown
-          dropDownButtonRef={dropdownButtonRef}
           automationId="split-button-dropdown"
           dir={dir}
           variant={variant}
