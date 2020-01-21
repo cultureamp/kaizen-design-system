@@ -4,29 +4,29 @@ import * as React from "react"
 
 import { ToastNotification } from "@cultureamp/kaizen-component-library"
 
-storiesOf("ToastNotification", module)
-  .add("Affirmative", () => (
+storiesOf("ToastNotification (React)", module)
+  .add("Positive (Kaizen Site Demo)", () => (
     <ToastNotification
       type="affirmative"
       title="Success!"
       automationId="notification1"
     >
-      New user data, imported by mackenzie@hooli.com has successfully uploaded.
+      New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
       <a href="/">Manage users is now available</a>
     </ToastNotification>
   ))
-  .add("Affirmative, Autohide", () => (
+  .add("Positive, Autohide", () => (
     <ToastNotification
       type="affirmative"
       title="Success!"
       autohide
       automationId="notification1"
     >
-      New user data, imported by mackenzie@hooli.com has successfully uploaded.
+      New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
       <a href="/">Manage users is now available</a>
     </ToastNotification>
   ))
-  .add("Affirmative, Autohide, Hide Close Icon", () => (
+  .add("Positive, Autohide, Hide Close Icon", () => (
     <ToastNotification
       automationId="notification1"
       type="affirmative"
@@ -34,7 +34,7 @@ storiesOf("ToastNotification", module)
       autohide
       hideCloseIcon
     >
-      New user data, imported by mackenzie@hooli.com has successfully uploaded.
+      New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
       <a href="/">Manage users is now available</a>
     </ToastNotification>
   ))
@@ -45,8 +45,7 @@ storiesOf("ToastNotification", module)
       automationId="notification1"
     >
       New user data is currently being processed. We'll let you know when the
-      process is completed.
-      <a href="/">Manage users</a>
+      process is completed. <a href="/">Manage users</a>
     </ToastNotification>
   ))
   .add("Cautionary", () => (
@@ -56,8 +55,7 @@ storiesOf("ToastNotification", module)
       automationId="notification1"
     >
       New user data, imported by mackenzie@hooli.com has uploaded with some
-      minor issues.
-      <a href="/">View issues</a>
+      minor issues. <a href="/">View issues</a>
     </ToastNotification>
   ))
   .add("Negative", () => (
@@ -66,8 +64,7 @@ storiesOf("ToastNotification", module)
       title="No network connection"
       automationId="notification1"
     >
-      Check your connection and try again.
-      <a href="/">Refresh</a>.
+      Check your connection and try again. <a href="/">Refresh</a>.
     </ToastNotification>
   ))
   .add("Multiple notifications", () => (
@@ -78,8 +75,7 @@ storiesOf("ToastNotification", module)
         automationId="notification1"
       >
         New user data, imported by mackenzie@hooli.com has successfully
-        uploaded.
-        <a href="/">Manage users is now available</a>
+        uploaded. <a href="/">Manage users is now available</a>
       </ToastNotification>
       <ToastNotification
         type="informative"
@@ -89,8 +85,7 @@ storiesOf("ToastNotification", module)
         hideCloseIcon
       >
         New user data is currently being processed. We'll let you know when the
-        process is completed.
-        <a href="/">Manage users</a>
+        process is completed. <a href="/">Manage users</a>
       </ToastNotification>
       <ToastNotification
         type="cautionary"
@@ -99,16 +94,14 @@ storiesOf("ToastNotification", module)
         autohide
       >
         New user data, imported by mackenzie@hooli.com has uploaded with some
-        minor issues.
-        <a href="/">View issues</a>
+        minor issues. <a href="/">View issues</a>
       </ToastNotification>
       <ToastNotification
         type="negative"
         title="No network connection"
         automationId="notification4"
       >
-        Check your connection and try again.
-        <a href="/">Refresh</a>.
+        Check your connection and try again. <a href="/">Refresh</a>.
       </ToastNotification>
     </div>
   ))
@@ -117,7 +110,7 @@ loadElmStories(
   module,
   require("./ToastNotification.stories.elm"),
   [
-    "Affirmative",
+    "Positive",
     "Informative",
     "Cautionary",
     "Negative",

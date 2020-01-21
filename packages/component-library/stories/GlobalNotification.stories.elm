@@ -9,7 +9,7 @@ import Text.Text as Text
 
 main =
     storybook
-        [ statelessStoryOf "Affirmative" <|
+        [ statelessStoryOf "Positive" <|
             Notification.view
                 (Notification.global [ text "New user data, imported by mackenzie@hooli.com has successfully uploaded. ", a [ href "/" ] [ text "Manage users is now available" ] ]
                     |> Notification.notificationType Notification.Affirmative

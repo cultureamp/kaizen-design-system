@@ -3,6 +3,58 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [17.9.4](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.9.3...@cultureamp/kaizen-component-library@17.9.4) (2020-01-21)
+
+
+### Bug Fixes
+
+* Add automation ID to TitleBlock breadcrumb ([#233](https://github.com/cultureamp/kaizen-design-system/issues/233)) ([d54aa88](https://github.com/cultureamp/kaizen-design-system/commit/d54aa88))
+
+
+
+
+
+## [17.9.3](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.9.2...@cultureamp/kaizen-component-library@17.9.3) (2020-01-17)
+
+
+### Bug Fixes
+
+* Fix small Storybook and component bugs ([#228](https://github.com/cultureamp/kaizen-design-system/issues/228)) ([ca81849](https://github.com/cultureamp/kaizen-design-system/commit/ca81849))
+
+
+
+
+
+## [17.9.2](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.9.1...@cultureamp/kaizen-component-library@17.9.2) (2020-01-17)
+
+**Note:** Version bump only for package @cultureamp/kaizen-component-library
+
+
+
+
+
+## [17.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.9.0...@cultureamp/kaizen-component-library@17.9.1) (2020-01-17)
+
+
+### Bug Fixes
+
+* vertically center modal in IE11 ([#229](https://github.com/cultureamp/kaizen-design-system/issues/229)) ([ffaa1b1](https://github.com/cultureamp/kaizen-design-system/commit/ffaa1b1))
+
+
+
+
+
+# [17.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.8.1...@cultureamp/kaizen-component-library@17.9.0) (2020-01-17)
+
+
+### Features
+
+* allow any react node as title and badge props in `HeroCard` ([#230](https://github.com/cultureamp/kaizen-design-system/issues/230)) ([7f8fa3d](https://github.com/cultureamp/kaizen-design-system/commit/7f8fa3d))
+
+
+
+
+
 ## [17.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.8.0...@cultureamp/kaizen-component-library@17.8.1) (2020-01-16)
 
 

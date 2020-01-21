@@ -4,8 +4,8 @@ import * as React from "react"
 
 import { GlobalNotification } from "@cultureamp/kaizen-component-library"
 
-storiesOf("GlobalNotification", module)
-  .add("Affirmative", () => (
+storiesOf("GlobalNotification (React)", module)
+  .add("Positive (Kaizen Site Demo)", () => (
     <GlobalNotification type="affirmative" automationId="notification1">
       New user data, imported by mackenzie@hooli.com has successfully uploaded.
       <a href="/">Manage users is now available</a>
@@ -64,7 +64,7 @@ loadElmStories(
   module,
   require("./GlobalNotification.stories.elm"),
   [
-    "Affirmative",
+    "Positive",
     "Informative",
     "Cautionary",
     "Negative",

@@ -1,12 +1,12 @@
 import * as tokens from "@cultureamp/kaizen-design-tokens/tokens/color.json"
 
 export const backgrounds = [
-  { name: "stone", value: tokens.kz.color.stone },
-  { name: "ash", value: tokens.kz.color.ash },
-  { name: "wisteria", value: tokens.kz.color.wisteria["700"] },
-  { name: "cluny", value: tokens.kz.color.cluny["500"] },
-  { name: "seedling", value: tokens.kz.color.seedling["500"] },
-  { name: "yuzu", value: tokens.kz.color.yuzu["500"] },
-  { name: "peach", value: tokens.kz.color.peach["500"] },
-  { name: "coral", value: tokens.kz.color.coral["500"] },
+  { name: "Stone", value: tokens.kz.color.stone },
+  { name: "Ash", value: tokens.kz.color.ash },
+  { name: "Wisteria 700", value: tokens.kz.color.wisteria["700"] },
+  { name: "Cluny 500", value: tokens.kz.color.cluny["500"] },
+  { name: "Seedling 500", value: tokens.kz.color.seedling["500"] },
+  { name: "Yuzu 500", value: tokens.kz.color.yuzu["500"] },
+  { name: "Peach 500", value: tokens.kz.color.peach["500"] },
+  { name: "Coral 500", value: tokens.kz.color.coral["500"] },
 ]

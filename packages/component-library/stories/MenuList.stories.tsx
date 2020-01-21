@@ -11,7 +11,7 @@ import {
 const caMonogramIcon = require("@cultureamp/kaizen-component-library/icons/ca-monogram.icon.svg")
   .default
 
-storiesOf("MenuList", module)
+storiesOf("MenuList (React)", module)
   .add("Default", () => (
     <MenuList>
       <MenuHeader title="Contextual Select Menu" />

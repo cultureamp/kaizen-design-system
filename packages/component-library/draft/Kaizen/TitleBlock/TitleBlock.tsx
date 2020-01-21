@@ -136,7 +136,11 @@ class TitleBlock extends React.Component<Props, State> {
     const icon = textDirection === "rtl" ? forwardIcon : backIcon
 
     return (
-      <a href={breadcrumb.path} className={styles.breadcrumb}>
+      <a
+        href={breadcrumb.path}
+        className={styles.breadcrumb}
+        data-automation-id="TitleBlock__Breadcrumb"
+      >
         <div className={styles.circle}>
           <Icon icon={icon} role="presentation" />
         </div>

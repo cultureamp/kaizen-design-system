@@ -60,7 +60,7 @@ $animation-timing: $ca-duration-immediate $ca-linear;
 
   .thumb {
     position: relative;
-    @include ca-position($start: $ca-grid * 0.8);
+    @include ca-position($start: $ca-grid * 1.1);
   }
 }
 
