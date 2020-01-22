@@ -1,5 +1,6 @@
 import { CheckboxField, CheckboxGroup } from "@kaizen/component-library/draft"
 import { Label } from "@kaizen/component-library/draft"
+import { text, withKnobs } from "@storybook/addon-knobs"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 const styles = require("./CheckboxGroup.stories.scss")
@@ -42,6 +43,47 @@ export default class CheckboxGroupExample extends React.Component<Props> {
   }
 }
 storiesOf("CheckboxGroup (React)", module)
+  .addDecorator(withKnobs)
+  .add("with Knobs", () => {
+    return (
+      <CheckboxGroup labelText={text("labelText", "Checkbox Group Label")}>
+        <CheckboxGroupExample
+          render={({ checkedStatus, onCheckHandler }) => (
+            <CheckboxField
+              onCheck={onCheckHandler}
+              id="checkbox-1"
+              checkedStatus={checkedStatus as any}
+              labelText={
+                <div>
+                  This is a label with a{" "}
+                  <a href="http://google.com" target="_blank">
+                    link
+                  </a>
+                </div>
+              }
+            />
+          )}
+        />
+        <CheckboxGroupExample
+          render={({ checkedStatus, onCheckHandler }) => (
+            <CheckboxField
+              onCheck={onCheckHandler}
+              id="checkbox-2"
+              checkedStatus={checkedStatus as any}
+              labelText={
+                <div>
+                  This is a label with a{" "}
+                  <a href="http://google.com" target="_blank">
+                    link
+                  </a>
+                </div>
+              }
+            />
+          )}
+        />
+      </CheckboxGroup>
+    )
+  })
   .add("Interactive (Kaizen Site Demo)", () => (
     <div>
       <CheckboxGroup labelText="Checkbox Group Label">
