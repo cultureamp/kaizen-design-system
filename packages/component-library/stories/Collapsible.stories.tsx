@@ -1,6 +1,7 @@
 import { Icon, Text } from "@kaizen/component-library"
 import { Collapsible, CollapsibleGroup } from "@kaizen/component-library/draft"
 import { action } from "@storybook/addon-actions"
+import { boolean, text, withKnobs } from "@storybook/addon-knobs"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
@@ -22,6 +23,32 @@ feugiat sodales, nisl ligula aliquet lorem, sit amet scelerisque
 arcu quam a sapien. Donec in viverra urna.`
 
 storiesOf("Collapsible (React)", module)
+  .addDecorator(withKnobs)
+  .add("Single collapsible (with Knobs)", () => {
+    // TODO: missing knobs: renderHeader, onToggle, sticky
+
+    return (
+      <div style={{ margin: "1rem", width: "40rem" }}>
+        <Collapsible
+          id={text("id (optional)", "collapsible-1")}
+          title={text("title", "Single collapsible")}
+          open={boolean("open (optional)", true)}
+          group={boolean(
+            "group (optional, relevant inside CollapsibleGroup)",
+            false
+          )}
+          separated={boolean(
+            "separated (optional, relevant inside CollapsibleGroup)",
+            false
+          )}
+          noSectionPadding={boolean("noSectionPadding (optional)", false)}
+          automationId={text("automationId (optional)", "collapsible-1")}
+        >
+          <Text tag="p">{lipsum}</Text>
+        </Collapsible>
+      </div>
+    )
+  })
   .add("Single collapsible (Kaizen Site Demo)", () => (
     <div style={{ margin: "1rem", width: "40rem" }}>
       <Collapsible id="collapsible-single" open title="Single collapsible">
@@ -93,6 +120,27 @@ storiesOf("Collapsible (React)", module)
       </Collapsible>
     </div>
   ))
+  .add("Collapsible group (with Knobs)", () => {
+    // TODO: missing knobs: sticky, lazyLoad(?), onToggle(?), children (?)
+
+    return (
+      <CollapsibleGroup
+        separated={boolean("separated (optional)", false)}
+        noSectionPadding={boolean("noSectionPadding (optional", false)}
+        automationId={text("automationId (optional)", "collapsible-group-1")}
+      >
+        <Collapsible id="collapsible-separate-1" open title="First panel">
+          <Text tag="p">{lipsum}</Text>
+        </Collapsible>
+        <Collapsible id="collapsible-separate-2" title="Second panel">
+          <Text tag="p">{lipsum}</Text>
+        </Collapsible>
+        <Collapsible id="collapsible-separate-3" title="Third panel">
+          <Text tag="p">{lipsum}</Text>
+        </Collapsible>
+      </CollapsibleGroup>
+    )
+  })
   .add("Collapsible group", () => (
     <div style={{ margin: "1rem", width: "40rem" }}>
       <CollapsibleGroup>
