@@ -23,21 +23,25 @@ asset-url("some/blob.png") // -> "https://<origin>/some/blob.png"
 
 1. Make sure the image exists in the [`kaizen-design-system-assets` repo](https://github.com/cultureamp/kaizen-design-system-assets). If it doesn't, make a PR to add it (ask the Design Systems team for review). Images in this repo will be automatically uploaded and made available via a CloudFront distribution.
 2. Make sure that the `@kaizen/hosted-assets` package is in your repo's `package.json`. This package provides you the `assetUrl` function that translates the path to the file in the `kaizen-design-system-assets` repo into its equivalent CloudFront URL.
-3. Import the `index.ts` or `index.scss` file and you can access the image through the `assetUrl`/`asset-url` function:
+3. Import the `@kaizen/hosted-assets` module and you can access the image through the `assetUrl`/`asset-url` function:
 
 ```js
-// JS
-import assetUrl from "@kaizen/hosted-assets/lib/index.ts";
+// TS/JS
+import { assetUrl } from "@kaizen/hosted-assets";
 
-<SomeComponent image={assetUrl("illustrations/ham.png")} />
+<SomeComponent
+  image={assetUrl("illustrations/plant-based-ham-substitute.png")}
+/>
 ```
 
 ```scss
 // SCSS
-@import "~@kaizen/hosted-assets/lib/index.scss";
+@import "~@kaizen/hosted-assets";
 
 .coolpic {
-  background-image: url(asset-url("illustrations/ham.png"));
+  background-image: url(asset-url(
+    "illustrations/plant-based-ham-substitute.png"
+  ));
 }
 ```
 
