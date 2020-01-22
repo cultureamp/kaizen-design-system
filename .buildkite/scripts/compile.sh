@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
-yarn setup \
-  && yarn tsc
+yarn install --frozen-lockfile
+yarn tsc
