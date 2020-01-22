@@ -1,5 +1,6 @@
 #!/bin/sh
+set -e
 
-yarn setup \
-  && yarn storybook:build \
-  && tar -czf ./storybook.tar.gz ./storybook/public
+yarn install --frozen-lockfile
+yarn storybook:build
+tar -czf ./storybook.tar.gz ./storybook/public

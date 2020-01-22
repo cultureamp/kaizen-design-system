@@ -1,7 +1,8 @@
 #!/bin/sh
+set -e
 
 export GATSBY_TELEMETRY_DISABLED=true
 
-yarn setup \
-  && yarn gatsby build --prefix-paths \
-  && tar -czf ./site.tar.gz ./site/public
+yarn install --frozen-lockfile
+yarn gatsby build --prefix-paths
+tar -czf ./site.tar.gz ./site/public
