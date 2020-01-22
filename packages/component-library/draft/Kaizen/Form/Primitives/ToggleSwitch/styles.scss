@@ -55,8 +55,8 @@ $animation-timing: $ca-duration-immediate $ca-linear;
     background-color: $kz-color-seedling-500;
 
     &.freemium {
-      background-color: add-shade($ca-freemium-green, 10%);
-      border-color: add-shade($ca-freemium-green, 10%);
+      background-color: $kz-color-seedling-400;
+      border-color: $kz-color-seedling-400;
     }
   }
 
