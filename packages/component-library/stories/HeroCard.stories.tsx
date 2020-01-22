@@ -1,5 +1,6 @@
 import { Button } from "@kaizen/component-library"
 import { HeroCard } from "@kaizen/component-library/draft"
+import { boolean, radios, text, withKnobs } from "@storybook/addon-knobs"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
@@ -26,6 +27,34 @@ const renderContent = () => (
 )
 
 storiesOf("HeroCard (React)", module)
+  .addDecorator(withKnobs)
+  .add("with Knobs", () => {
+    // TODO missing knobs: children, title, image, badge. I'm not sure if it's possible to create knobs for React nodes.
+    return (
+      <Container>
+        <HeroCard
+          title={<h1>Preview the survey questions</h1>}
+          badge={<span>1</span>}
+          image={
+            <img
+              src={surveyIllustration}
+              alt="survey-preview-image"
+              style={{
+                position: "absolute",
+                bottom: "15px",
+                left: "0",
+                width: "100%",
+              }}
+            />
+          }
+          fullWidth={boolean("fullWidth (optional)", false)}
+          minHeight={text("minHeight (optional, CSS)", "none")}
+        >
+          {renderContent()}
+        </HeroCard>
+      </Container>
+    )
+  })
   .add("Default (Kaizen Site Demo)", () => (
     <Container>
       <HeroCard>{renderContent()}</HeroCard>
