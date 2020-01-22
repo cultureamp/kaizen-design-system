@@ -8,6 +8,7 @@ import { loadElmStories } from "@cultureamp/elm-storybook"
 import { Button } from "@kaizen/component-library"
 import { EmptyState } from "@kaizen/component-library/draft"
 
+import { boolean, radios, text, withKnobs } from "@storybook/addon-knobs"
 import { storiesOf } from "@storybook/react"
 
 const styles = require("./EmptyState.stories.scss")
@@ -30,6 +31,35 @@ const ContentOnlyLayout = ({ children }: { children: React.ReactNode }) => (
 )
 
 storiesOf("EmptyState (React)", module)
+  .addDecorator(withKnobs)
+  .add("with Knobs", () => {
+    return (
+      <ContentOnlyLayout>
+        <EmptyState
+          id={text("id (optional)", "button-1")}
+          automationId={text("automationId (optional)", "button-1")}
+          headingText={text("headingText", "Empty state title")}
+          bodyText={text(
+            "bodyText",
+            "If providing further actions, include a link to an action or use a Default or Primary action."
+          )}
+          straightCorners={boolean("straightCorners", false)}
+          illustrationType={radios(
+            "illustrationType",
+            // @ts-ignore
+            ["positive", "neutral", "negative", "informative", "action"],
+            "positive"
+          )}
+          layoutContext={radios(
+            "layoutContext",
+            // @ts-ignore
+            ["sidebarAndContent", "contentOnly"],
+            "contentOnly"
+          )}
+        />
+      </ContentOnlyLayout>
+    )
+  })
   .add("Default (Kaizen Site Demo)", () => (
     <SidebarAndContentLayout>
       <EmptyState
