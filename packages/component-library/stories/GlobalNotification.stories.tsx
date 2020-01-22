@@ -1,10 +1,29 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
+import { boolean, radios, text, withKnobs } from "@storybook/addon-knobs"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 import { GlobalNotification } from "@kaizen/component-library"
 
 storiesOf("GlobalNotification (React)", module)
+  .addDecorator(withKnobs)
+  .add("with Knobs", () => {
+    return (
+      <GlobalNotification
+        type={radios(
+          "type",
+          // @ts-ignore
+          ["affirmative", "informative", "cautionary", "negative"],
+          "affirmative"
+        )}
+        automationId={text("automationId (optional)", "notification-1")}
+      >
+        New user data, imported by mackenzie@hooli.com has successfully
+        uploaded.
+        <a href="/">Manage users is now available</a>
+      </GlobalNotification>
+    )
+  })
   .add("Positive (Kaizen Site Demo)", () => (
     <GlobalNotification type="affirmative" automationId="notification1">
       New user data, imported by mackenzie@hooli.com has successfully uploaded.
