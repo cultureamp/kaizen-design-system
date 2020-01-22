@@ -19,8 +19,7 @@
     "lint": "elm-format --validate packages && yarn tslint && yarn prettier",
     "lint:fix": "elm-format --yes packages && yarn tslint --fix && yarn prettier --write",
     "clean": "lerna run clean && yarn gatsby clean && rm -rf elm-stuff storybook/public",
-    "reset": "yarn clean && yarn setup --force",
-    "setup": "yarn install --frozen-lockfile"
+    "reset": "yarn clean && yarn install --force"
   },
   "babel": {
     "presets": [

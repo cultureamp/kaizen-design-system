@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [17.9.5](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.9.4...@cultureamp/kaizen-component-library@17.9.5) (2020-01-22)
+
+
+### Bug Fixes
+
+* Add missing automation Ids to elm Titleblock ([#239](https://github.com/cultureamp/kaizen-design-system/issues/239)) ([453ba95](https://github.com/cultureamp/kaizen-design-system/commit/453ba95))
+
+
+
+
+
 ## [17.9.4](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.9.3...@cultureamp/kaizen-component-library@17.9.4) (2020-01-21)
 
 

@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
-yarn setup \
-  && yarn lint
+yarn install --frozen-lockfile
+yarn lint

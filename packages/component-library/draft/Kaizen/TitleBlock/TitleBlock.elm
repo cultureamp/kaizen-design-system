@@ -170,7 +170,7 @@ view title (Config config) =
         subtitleView =
             case config.subtitle of
                 Just subtileString ->
-                    div [ class .subtitle ] [ text subtileString ]
+                    div [ class .subtitle, attribute "data-automation-id" "TitleBlock__Subtitle" ] [ text subtileString ]
 
                 Nothing ->
                     text ""
@@ -219,13 +219,13 @@ view title (Config config) =
                 , div [ class .leftContent ]
                     [ div [ class .titleContainer ]
                         [ div [ class .textContainer ]
-                            [ div [ class .title ] [ text title ]
+                            [ div [ class .title, attribute "data-automation-id" "TitleBlock__Heading" ] [ text title ]
                             , subtitleView
                             ]
                         ]
                     , div [ styles.classList [ ( .navContainer, True ), ( .nonMobileNav, True ) ] ] [ navigationButtonsView ]
                     ]
-                , div [ class .actionsContainer ] actionsListProp
+                , div [ class .actionsContainer, attribute "data-automation-id" "title-block--actions" ] actionsListProp
                 ]
             ]
         , div [ styles.classList [ ( .navContainer, True ), ( .mobileNav, True ) ] ] [ navigationButtonsView ]
