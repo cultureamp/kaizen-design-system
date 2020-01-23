@@ -69,7 +69,7 @@ class GenericModal extends React.Component<Props> {
   restoreBodyScroll() {
     document.documentElement.classList.remove(
       styles.unscrollable,
-      styles.fakeScrollbar
+      styles.pseudoScrollbar
     )
   }
 
