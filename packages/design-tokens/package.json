@@ -1,5 +1,5 @@
 {
-  "name": "@cultureamp/kaizen-design-tokens",
+  "name": "@kaizen/design-tokens",
   "description": "Tokens used in the Kaizen Design System",
   "version": "0.1.3",
   "homepage": "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/component-library",

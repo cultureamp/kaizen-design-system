@@ -10,25 +10,25 @@ In its current state this package supports Sass and Less variables, generated fr
 
 ## Installation
 ```
-yarn add @cultureamp/kaizen-design-tokens
+yarn add @kaizen/design-tokens
 ```
 
 ## Usage
 ### Sass
 ```
 ## Note helper functions are provided
-@import "~@cultureamp/kaizen-design-tokens/sass/[color/depth/layout/spacing/typography/helpers]";
+@import "~@kaizen/design-tokens/sass/[color/depth/layout/spacing/typography/helpers]";
 ```
 
 ### Less
 ```
 ## Note helper functions are provided
-@import "~@cultureamp/kaizen-design-tokens/less/[color/depth/layout/spacing/typography/helpers]";
+@import "~@kaizen/design-tokens/less/[color/depth/layout/spacing/typography/helpers]";
 ```
 
 ### Javascript 
 ```
-import * as tokens from @cultureamp/kaizen-design-tokens/tokens/[color/depth/layout/spacing/typography]
+import * as tokens from @kaizen/design-tokens/tokens/[color/depth/layout/spacing/typography]
 ```
 
 ## Where possible, we keep things unitless.
