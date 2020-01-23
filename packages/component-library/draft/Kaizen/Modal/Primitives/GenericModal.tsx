@@ -59,11 +59,18 @@ class GenericModal extends React.Component<Props> {
   }
 
   preventBodyScroll() {
-    document.documentElement.classList.add(styles.unscrollable)
+    const hasScrollbar =
+      window.innerWidth > document.documentElement.clientWidth
+    document.documentElement.classList.add(
+      ...[styles.unscrollable, hasScrollbar && styles.pseudoScrollbar]
+    )
   }
 
   restoreBodyScroll() {
-    document.documentElement.classList.remove(styles.unscrollable)
+    document.documentElement.classList.remove(
+      styles.unscrollable,
+      styles.fakeScrollbar
+    )
   }
 
   escapeKeyHandler = (event: KeyboardEvent) => {
