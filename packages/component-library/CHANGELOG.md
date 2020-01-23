@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.1.0...@kaizen/component-library@1.1.1) (2020-01-23)
+
+
+### Bug Fixes
+
+* fixed modal body padding issue ([#244](https://github.com/cultureamp/kaizen-design-system/issues/244)) ([8cb3868](https://github.com/cultureamp/kaizen-design-system/commit/8cb3868))
+
+
+
+
+
 # [1.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.0.0...@kaizen/component-library@1.1.0) (2020-01-23)
 
 
