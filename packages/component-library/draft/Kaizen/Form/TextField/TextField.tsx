@@ -1,11 +1,7 @@
 import { Icon } from "@kaizen/component-library/components/Icon"
 import { FieldGroup } from "@kaizen/component-library/draft"
 import { FieldMessage } from "@kaizen/component-library/draft"
-import {
-  Input,
-  InputStatus,
-  InputType,
-} from "@kaizen/component-library/draft"
+import { Input, InputStatus, InputType } from "@kaizen/component-library/draft"
 import { Label } from "@kaizen/component-library/draft"
 const exclamationIcon = require("@kaizen/component-library/icons/exclamation.icon.svg")
   .default
