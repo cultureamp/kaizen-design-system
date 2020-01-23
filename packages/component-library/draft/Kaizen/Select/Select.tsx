@@ -5,9 +5,9 @@ import Async from "react-select/async"
 import { AsyncProps as ReactAsyncSelectProps } from "react-select/src/Async"
 import { Props as ReactSelectProps } from "react-select/src/Select"
 
-import { Icon } from "@cultureamp/kaizen-component-library"
+import { Icon } from "@kaizen/component-library"
 
-const chevronDownIcon = require("@cultureamp/kaizen-component-library/icons/chevron-down.icon.svg")
+const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
 
 const styles = require("./styles.react.scss")

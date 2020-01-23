@@ -1,14 +1,13 @@
-import { Icon } from "@cultureamp/kaizen-component-library"
+import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import * as React from "react"
 
-const iconStyles = require("@cultureamp/kaizen-component-library/components/Icon/Icon.module.scss")
-const tick = require("@cultureamp/kaizen-component-library/icons/check.icon.svg")
-  .default
+const iconStyles = require("@kaizen/component-library/components/Icon/Icon.module.scss")
+const tick = require("@kaizen/component-library/icons/check.icon.svg").default
 
 const styles = require("./IconGrid.scss")
 
-const ICONS_IMPORT_DIR = "@cultureamp/kaizen-component-library/icons/"
+const ICONS_IMPORT_DIR = "@kaizen/component-library/icons/"
 
 type IconTileProps = {
   title?: string

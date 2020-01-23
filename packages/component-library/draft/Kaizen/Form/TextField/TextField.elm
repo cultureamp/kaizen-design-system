@@ -37,7 +37,7 @@ import Kaizen.Form.Primitives.Label.Label as Label
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Form/TextField/styles.scss"
+    css "@kaizen/component-library/draft/Kaizen/Form/TextField/styles.scss"
         { withLabel = "withLabel"
         , withDisabled = "withDisabled"
         , withReversed = "withReversed"
@@ -254,7 +254,7 @@ view (Config config) =
                             [ ( .success, True )
                             ]
                         ]
-                        [ Icon.view Icon.presentation (svgAsset "@cultureamp/kaizen-component-library/icons/success.icon.svg") |> static ]
+                        [ Icon.view Icon.presentation (svgAsset "@kaizen/component-library/icons/success.icon.svg") |> static ]
                     ]
 
                 Error ->
@@ -263,7 +263,7 @@ view (Config config) =
                             [ ( .error, True )
                             ]
                         ]
-                        [ Icon.view Icon.presentation (svgAsset "@cultureamp/kaizen-component-library/icons/exclamation.icon.svg") |> static ]
+                        [ Icon.view Icon.presentation (svgAsset "@kaizen/component-library/icons/exclamation.icon.svg") |> static ]
                     ]
 
                 Default ->

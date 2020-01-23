@@ -285,7 +285,7 @@ viewPositiveValidationIcon : Configuration msg -> Html msg
 viewPositiveValidationIcon config =
     span [ styles.class .validationIcon ]
         [ Icon.view Icon.presentation
-            (svgAsset "@cultureamp/kaizen-component-library/icons/success.icon.svg")
+            (svgAsset "@kaizen/component-library/icons/success.icon.svg")
             |> Html.map never
         ]
 
@@ -294,7 +294,7 @@ viewValidationIcon : Configuration msg -> Html msg
 viewValidationIcon config =
     span [ styles.class .validationIcon ]
         [ Icon.view Icon.presentation
-            (svgAsset "@cultureamp/kaizen-component-library/icons/exclamation.icon.svg")
+            (svgAsset "@kaizen/component-library/icons/exclamation.icon.svg")
             |> Html.map never
         ]
 
@@ -327,13 +327,13 @@ viewClear config =
     in
     span ([ styles.class .dismissIcon ] ++ events)
         [ Icon.view (Icon.presentation |> Icon.inheritSize True)
-            (svgAsset "@cultureamp/kaizen-component-library/icons/clear.icon.svg")
+            (svgAsset "@kaizen/component-library/icons/clear.icon.svg")
             |> Html.map never
         ]
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Tag/Tag.scss"
+    css "@kaizen/component-library/draft/Kaizen/Tag/Tag.scss"
         { root = "root"
         , layoutContainer = "layoutContainer"
         , default = "default"

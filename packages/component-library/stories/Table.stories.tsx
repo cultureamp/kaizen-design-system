@@ -1,4 +1,4 @@
-import { Text } from "@cultureamp/kaizen-component-library"
+import { Text } from "@kaizen/component-library"
 import {
   CheckboxField,
   TableCard,
@@ -8,17 +8,17 @@ import {
   TableHeaderRowCell,
   TableRow,
   TableRowCell,
-} from "@cultureamp/kaizen-component-library/draft"
+} from "@kaizen/component-library/draft"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 import { IconButton } from "../components"
 const styles = require("./Table.stories.scss")
 
-const commentIcon = require("@cultureamp/kaizen-component-library/icons/comment.icon.svg")
+const commentIcon = require("@kaizen/component-library/icons/comment.icon.svg")
   .default
-const chevronDownIcon = require("@cultureamp/kaizen-component-library/icons/chevron-down.icon.svg")
+const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
-const chevronUpIcon = require("@cultureamp/kaizen-component-library/icons/chevron-up.icon.svg")
+const chevronUpIcon = require("@kaizen/component-library/icons/chevron-up.icon.svg")
   .default
 
 const Container: React.FunctionComponent = ({ children }) => (

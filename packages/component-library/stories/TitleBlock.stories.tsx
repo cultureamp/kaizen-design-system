@@ -1,5 +1,5 @@
-import { Button } from "@cultureamp/kaizen-component-library/components/Button"
-import { TitleBlock } from "@cultureamp/kaizen-component-library/draft"
+import { Button } from "@kaizen/component-library/components/Button"
+import { TitleBlock } from "@kaizen/component-library/draft"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 

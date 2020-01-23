@@ -1,10 +1,11 @@
 {
-  "name": "@cultureamp/kaizen-component-library",
+  "name": "@kaizen/component-library",
   "description": "Component Library for Culture Amp's Kaizen Design System",
   "homepage": "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/component-library",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cultureamp/kaizen-design-system.git"
+    "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
+    "directory": "packages/component-library"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
@@ -21,16 +22,16 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "17.9.6",
+  "version": "0.0.0",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
-    "@cultureamp/kaizen-design-tokens": "0.x",
+    "@kaizen/design-tokens": "0.x",
     "focus-visible": "^4.1.5",
     "react": "^16.9.0"
   },
   "dependencies": {
-    "@cultureamp/kaizen-design-tokens": "^0.1.2",
+    "@kaizen/design-tokens": "^0.2.0",
     "@types/classnames": "^2.2.6",
     "@types/lodash": "^4.14.132",
     "@types/react-select": "^3.0.5",

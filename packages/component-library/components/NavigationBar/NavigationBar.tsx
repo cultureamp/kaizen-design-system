@@ -1,4 +1,4 @@
-import { ControlledOffCanvas } from "@cultureamp/kaizen-component-library"
+import { ControlledOffCanvas } from "@kaizen/component-library"
 import classNames from "classnames"
 import * as React from "react"
 import Media from "react-media"

@@ -1,8 +1,8 @@
-import { Icon } from "@cultureamp/kaizen-component-library"
+import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import * as React from "react"
 
-const companyLogo = require("@cultureamp/kaizen-component-library/icons/ca-monogram.icon.svg")
+const companyLogo = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
   .default
 
 const styles = require("./Footer.scss")

@@ -2,8 +2,8 @@ import {
   IconButton,
   OffCanvas,
   OffCanvasContext,
-} from "@cultureamp/kaizen-component-library"
-const arrowLeftIcon = require("@cultureamp/kaizen-component-library/icons/arrow-left.icon.svg")
+} from "@kaizen/component-library"
+const arrowLeftIcon = require("@kaizen/component-library/icons/arrow-left.icon.svg")
   .default
 import * as React from "react"
 import Media from "react-media"

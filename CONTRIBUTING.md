@@ -64,9 +64,9 @@ To learn more about what browsers and devices we support in Kaizen Component Lib
 
 ### Local development with other front-end codebases
 
-To strengthen the Kaizen Design System, we encourage engineers to take a component-first development approach. By concentrating on developing Kaizen components in Storybook, we are likely to improve the API design and achieve good separation of concerns, avoiding components tightly coupled to specific applications. If, however, you want to test a component in the context of another front-end codebase, you can [yarn link](https://yarnpkg.com/lang/en/docs/cli/link/) your local version of `@cultureamp/kaizen-component-library` with your other front-end codebase.
+To strengthen the Kaizen Design System, we encourage engineers to take a component-first development approach. By concentrating on developing Kaizen components in Storybook, we are likely to improve the API design and achieve good separation of concerns, avoiding components tightly coupled to specific applications. If, however, you want to test a component in the context of another front-end codebase, you can [yarn link](https://yarnpkg.com/lang/en/docs/cli/link/) your local version of `@kaizen/component-library` with your other front-end codebase.
 
-**Step 1**: Make your local copy of `@cultureamp/kaizen-component-library` available.
+**Step 1**: Make your local copy of `@kaizen/component-library` available.
 
 ```sh
 # Navigate to code source
@@ -79,14 +79,14 @@ $ yarn link
 $ yarn build:watch
 ```
 
-**Step 2**: Link `@cultureamp/kaizen-component-library` to your other front-end codebase.
+**Step 2**: Link `@kaizen/component-library` to your other front-end codebase.
 
 ```sh
 # Navigate to code source
 $ cd <your_code>/cultureamp/YOUR_FRONT_END_CODEBASE
 
 # Link repo to locally registered package
-$ yarn link @cultureamp/kaizen-component-library
+$ yarn link @kaizen/component-library
 ```
 
 Your local Kaizen changes will now show in your other front-end codebase.
@@ -95,7 +95,7 @@ Your local Kaizen changes will now show in your other front-end codebase.
 
 When you are done, unlink the package:
 
-`yarn unlink @cultureamp/kaizen-component-library`
+`yarn unlink @kaizen/component-library`
 
 You can also clean up generated files:
 
@@ -185,7 +185,7 @@ Note that in the case that a pull request touches files from more than one packa
 
 ## Using new package releases
 
-To use a newly released version of the Kaizen Component Library (or any other package) in a front-end codebase, run `yarn upgrade --latest <scoped package name>` (e.g. `yarn upgrade --latest @cultureamp/kaizen-component-library`).
+To use a newly released version of the Kaizen Component Library (or any other package) in a front-end codebase, run `yarn upgrade --latest <scoped package name>` (e.g. `yarn upgrade --latest @kaizen/component-library`).
 
 Remember to always check the CHANGELOG (e.g. [`/packages/component-library/CHANGELOG.md`](./packages/component-library/CHANGELOG.md) or the [releases page](https://github.com/cultureamp/kaizen-design-system/releases)) for any package you wish to upgrade, paying extra attention to any breaking changes which have been introduced since the last version used in your project.
 

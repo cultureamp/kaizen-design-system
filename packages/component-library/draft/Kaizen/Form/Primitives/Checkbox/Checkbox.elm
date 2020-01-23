@@ -154,7 +154,7 @@ view (Config config) =
                 On ->
                     div [ styles.class .icon ]
                         [ Icon.view (Icon.presentation |> Icon.inheritSize True)
-                            (svgAsset "@cultureamp/kaizen-component-library/icons/check.icon.svg")
+                            (svgAsset "@kaizen/component-library/icons/check.icon.svg")
                             |> Html.map never
                         ]
 
@@ -164,7 +164,7 @@ view (Config config) =
                 Mixed ->
                     div [ styles.class .icon ]
                         [ Icon.view (Icon.presentation |> Icon.inheritSize True)
-                            (svgAsset "@cultureamp/kaizen-component-library/icons/minus.icon.svg")
+                            (svgAsset "@kaizen/component-library/icons/minus.icon.svg")
                             |> Html.map never
                         ]
 
@@ -189,7 +189,7 @@ view (Config config) =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Form/Primitives/Checkbox/styles.scss"
+    css "@kaizen/component-library/draft/Kaizen/Form/Primitives/Checkbox/styles.scss"
         { checkbox = "checkbox"
         , disabled = "disabled"
         , container = "container"

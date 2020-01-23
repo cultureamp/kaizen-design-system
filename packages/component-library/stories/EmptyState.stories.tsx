@@ -1,12 +1,12 @@
-const chevronLeft = require("@cultureamp/kaizen-component-library/icons/chevron-left.icon.svg")
+const chevronLeft = require("@kaizen/component-library/icons/chevron-left.icon.svg")
   .default
-const chevronRight = require("@cultureamp/kaizen-component-library/icons/chevron-right.icon.svg")
+const chevronRight = require("@kaizen/component-library/icons/chevron-right.icon.svg")
   .default
 import * as React from "react"
 
 import { loadElmStories } from "@cultureamp/elm-storybook"
-import { Button } from "@cultureamp/kaizen-component-library"
-import { EmptyState } from "@cultureamp/kaizen-component-library/draft"
+import { Button } from "@kaizen/component-library"
+import { EmptyState } from "@kaizen/component-library/draft"
 
 import { storiesOf } from "@storybook/react"
 

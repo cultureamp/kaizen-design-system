@@ -59,7 +59,7 @@ layoutBox content config =
                     div [ styles.class .dismissButton, onClick onDismissMsg ]
                         [ Button.view
                             (Button.iconButton
-                                (svgAsset "@cultureamp/kaizen-component-library/icons/close.icon.svg")
+                                (svgAsset "@kaizen/component-library/icons/close.icon.svg")
                                 |> Button.reversed True
                             )
                             "Dismiss"
@@ -117,7 +117,7 @@ onDismiss msg (Config config) =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/ModalHeader.scss"
+    css "@kaizen/component-library/draft/Kaizen/Modal/Primitives/ModalHeader.scss"
         { layout = "layout"
         , filler = "filler"
         , fixed = "fixed"

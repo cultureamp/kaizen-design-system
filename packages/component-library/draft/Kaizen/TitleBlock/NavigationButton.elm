@@ -101,7 +101,7 @@ class =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/TitleBlock/NavigationButton.scss"
+    css "@kaizen/component-library/draft/Kaizen/TitleBlock/NavigationButton.scss"
         { button = "button"
         , activeButton = "activeButton"
         , reversed = "reversed"

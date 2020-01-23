@@ -1,5 +1,5 @@
-import { Radio, RadioGroup } from "@cultureamp/kaizen-component-library/draft"
-import { Label } from "@cultureamp/kaizen-component-library/draft"
+import { Radio, RadioGroup } from "@kaizen/component-library/draft"
+import { Label } from "@kaizen/component-library/draft"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 const styles = require("./RadioGroup.stories.scss")

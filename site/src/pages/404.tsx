@@ -1,4 +1,4 @@
-import { Icon } from "@cultureamp/kaizen-component-library"
+import { Icon } from "@kaizen/component-library"
 import { Link } from "gatsby"
 import * as React from "react"
 import ContentMarkdownSection from "../components/ContentMarkdownSection"
@@ -8,7 +8,7 @@ import Layout from "../components/Layout"
 import md from "../components/markdownComponents"
 import PageHeader from "../components/PageHeader"
 
-const exclamationIcon = require("@cultureamp/kaizen-component-library/icons/exclamation.icon.svg")
+const exclamationIcon = require("@kaizen/component-library/icons/exclamation.icon.svg")
   .default
 
 const FourOhFourPageHeader = (

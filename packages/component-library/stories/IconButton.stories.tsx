@@ -1,5 +1,5 @@
-import { IconButton } from "@cultureamp/kaizen-component-library"
-const configureIcon = require("@cultureamp/kaizen-component-library/icons/configure.icon.svg")
+import { IconButton } from "@kaizen/component-library"
+const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
   .default
 import { action } from "@storybook/addon-actions"
 import { storiesOf } from "@storybook/react"

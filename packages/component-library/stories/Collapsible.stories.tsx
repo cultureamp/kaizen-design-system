@@ -1,14 +1,11 @@
-import { Icon, Text } from "@cultureamp/kaizen-component-library"
-import {
-  Collapsible,
-  CollapsibleGroup,
-} from "@cultureamp/kaizen-component-library/draft"
+import { Icon, Text } from "@kaizen/component-library"
+import { Collapsible, CollapsibleGroup } from "@kaizen/component-library/draft"
 import { action } from "@storybook/addon-actions"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 const styles = require("./Collapsible.stories.scss")
-const translationIcon = require("@cultureamp/kaizen-component-library/icons/translation.icon.svg")
+const translationIcon = require("@kaizen/component-library/icons/translation.icon.svg")
   .default
 
 const ListItem = ({ children }: { children: JSX.Element }) => (

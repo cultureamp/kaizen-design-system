@@ -108,7 +108,7 @@ header config =
             [ svg [ class <| styles.toString .iconBackground ] [ circle [ cx "75", cy "75", r "75" ] [] ]
             , div [ styles.class .icon ]
                 [ Icon.view Icon.presentation
-                    (svgAsset "@cultureamp/kaizen-component-library/icons/exclamation.icon.svg")
+                    (svgAsset "@kaizen/component-library/icons/exclamation.icon.svg")
                     |> Html.map never
                 ]
             ]
@@ -178,7 +178,7 @@ dismissLabel dismissString (Config config) =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Presets/ConfirmationModal.scss"
+    css "@kaizen/component-library/draft/Kaizen/Modal/Presets/ConfirmationModal.scss"
         { elmModal = "elmModal"
         , header = "header"
         , informativeHeader = "informativeHeader"

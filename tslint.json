@@ -7,7 +7,7 @@
     "no-implicit-dependencies": [
       true,
       "dev",
-      ["@cultureamp", "@storybook", "@testing-library", "react", "react-dom"]
+      ["@kaizen", "@storybook", "@testing-library", "react", "react-dom"]
     ],
     "ordered-imports": true
   }
