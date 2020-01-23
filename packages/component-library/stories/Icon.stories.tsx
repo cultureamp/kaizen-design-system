@@ -1,4 +1,5 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
+import { boolean, radios, text, withKnobs } from "@storybook/addon-knobs"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
@@ -7,6 +8,18 @@ const configureIcon = require("@kaizen/component-library/icons/configure.icon.sv
   .default
 
 storiesOf("Icon (React)", module)
+  .add("with Knobs", () => {
+    return (
+      <Icon
+        icon={configureIcon}
+        inheritSize={boolean("inheritSize (optional)", false)}
+        //@ts-ignore
+        role={radios("role (optional)", ["img", "presentation"], "img")}
+        title={text("title (optional)", "Warning")}
+        desc={text("desc (optional)", "Aliens approaching!")}
+      />
+    )
+  })
   .add("Meaningful (Kaizen Site Demo)", () => (
     <Icon
       icon={configureIcon}
