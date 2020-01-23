@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.0.0...@kaizen/component-library@1.1.0) (2020-01-23)
+
+
+### Features
+
+* Removed dependency to kaizen tokens in favour of a peer dependency ([#243](https://github.com/cultureamp/kaizen-design-system/issues/243)) ([c87cd15](https://github.com/cultureamp/kaizen-design-system/commit/c87cd15))
+
+
+
+
+
 # 1.0.0 (2020-01-23)
 
 
