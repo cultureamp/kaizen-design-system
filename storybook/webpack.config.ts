@@ -140,7 +140,7 @@ const removeSvgFromTest = (rule: Rule): Rule => {
 }
 
 const excludeExternalModules = (rule: Rule): Rule => ({
-  exclude: /node_modules\/(?!(\@cultureamp)).*/,
+  exclude: /node_modules\/(?!(\@kaizen|\@cultureamp)).*/,
   ...rule,
 })
 
