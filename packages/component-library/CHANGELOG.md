@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [17.9.6](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.9.5...@cultureamp/kaizen-component-library@17.9.6) (2020-01-23)
+
+
+### Bug Fixes
+
+* toggle switch field positioning bug ([#241](https://github.com/cultureamp/kaizen-design-system/issues/241)) ([1e2d793](https://github.com/cultureamp/kaizen-design-system/commit/1e2d793))
+
+
+
+
+
 ## [17.9.5](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.9.4...@cultureamp/kaizen-component-library@17.9.5) (2020-01-22)
 
 
