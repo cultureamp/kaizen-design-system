@@ -1,4 +1,4 @@
-import { Radio } from "@cultureamp/kaizen-component-library/draft"
+import { Radio } from "@kaizen/component-library/draft"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 

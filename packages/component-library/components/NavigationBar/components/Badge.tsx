@@ -1,7 +1,7 @@
-import { Icon } from "@cultureamp/kaizen-component-library"
-const caMonogramIcon = require("@cultureamp/kaizen-component-library/icons/ca-monogram.icon.svg")
+import { Icon } from "@kaizen/component-library"
+const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
   .default
-const spinnerIcon = require("@cultureamp/kaizen-component-library/icons/spinner.icon.svg")
+const spinnerIcon = require("@kaizen/component-library/icons/spinner.icon.svg")
   .default
 import classNames from "classnames"
 import * as React from "react"

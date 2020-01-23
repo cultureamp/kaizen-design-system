@@ -1,5 +1,5 @@
 {
-  "name": "@cultureamp/kaizen-component-library",
+  "name": "@kaizen/component-library",
   "description": "Component Library for Culture Amp's Kaizen Design System",
   "homepage": "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/component-library",
   "repository": {
@@ -25,7 +25,7 @@
   "private": false,
   "license": "MIT",
   "peerDependencies": {
-    "@cultureamp/kaizen-design-tokens": "0.x",
+    "@kaizen/design-tokens": "0.x",
     "focus-visible": "^4.1.5",
     "react": "^16.9.0"
   },

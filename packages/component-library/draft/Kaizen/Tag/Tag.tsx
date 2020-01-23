@@ -1,11 +1,11 @@
-import { Icon } from "@cultureamp/kaizen-component-library"
+import { Icon } from "@kaizen/component-library"
 import classNames from "classnames"
 import * as React from "react"
-const clearIcon = require("@cultureamp/kaizen-component-library/icons/clear.icon.svg")
+const clearIcon = require("@kaizen/component-library/icons/clear.icon.svg")
   .default
-const exclamationIcon = require("@cultureamp/kaizen-component-library/icons/exclamation.icon.svg")
+const exclamationIcon = require("@kaizen/component-library/icons/exclamation.icon.svg")
   .default
-const successIcon = require("@cultureamp/kaizen-component-library/icons/success.icon.svg")
+const successIcon = require("@kaizen/component-library/icons/success.icon.svg")
   .default
 const styles = require("./Tag.scss")
 

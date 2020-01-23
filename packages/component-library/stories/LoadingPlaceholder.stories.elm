@@ -261,7 +261,7 @@ class =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/stories/LoadingPlaceholder.stories.scss"
+    css "@kaizen/component-library/stories/LoadingPlaceholder.stories.scss"
         { storyContainer = "storyContainer"
         , reversedDefault = "reversedDefault"
         , reversedOcean = "reversedOcean"

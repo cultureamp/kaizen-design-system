@@ -1,7 +1,7 @@
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
-@import "~@cultureamp/kaizen-component-library/draft/Kaizen/Form/Primitives/Input/styles.scss";
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/draft/Kaizen/Form/Primitives/Input/styles.scss";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/type";
 
 @mixin base-font-style() {
   @include ca-type-ideal-body-bold;

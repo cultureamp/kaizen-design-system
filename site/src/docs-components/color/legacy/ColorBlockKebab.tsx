@@ -3,10 +3,10 @@ import {
   MenuHeader,
   MenuItem,
   MenuList,
-} from "@cultureamp/kaizen-component-library"
+} from "@kaizen/component-library"
 import * as React from "react"
 
-const duplicate = require("@cultureamp/kaizen-component-library/icons/duplicate.icon.svg")
+const duplicate = require("@kaizen/component-library/icons/duplicate.icon.svg")
 
 const styles = require("./ColorCard.scss")
 

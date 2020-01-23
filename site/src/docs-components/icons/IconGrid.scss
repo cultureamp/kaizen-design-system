@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@cultureamp/kaizen-component-library/styles/type";
-@import "~@cultureamp/kaizen-component-library/styles/border";
-@import "~@cultureamp/kaizen-component-library/styles/color";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/color";
 
 .header {
   font-size: 2rem;
@@ -31,7 +31,7 @@ $tileHeight: $ca-grid * 6;
   margin: 0;
   padding: 0;
   border: none;
-  composes: interactiveIconWrapper from "@cultureamp/kaizen-component-library/components/Icon/Icon.module.scss";
+  composes: interactiveIconWrapper from "@kaizen/component-library/components/Icon/Icon.module.scss";
   cursor: pointer;
   border-radius: $ca-border-radius;
 

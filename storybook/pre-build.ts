@@ -10,12 +10,12 @@ const exitWithError = (...message: string[]) => {
   process.exit(1)
 }
 
-// Check for compiler output in the @cultureamp/kaizen-component-library
+// Check for compiler output in the @kaizen/component-library
 // package. This state is required for linking with murmur, but it causes
 // storybook to fail in ways that are difficult to diagnose.
 if (
   readdirSync(
-    dirname(require.resolve("@cultureamp/kaizen-component-library"))
+    dirname(require.resolve("@kaizen/component-library"))
   ).includes("index.js")
 ) {
   exitWithError(

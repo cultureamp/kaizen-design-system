@@ -2,7 +2,7 @@ import { loadElmStories } from "@cultureamp/elm-storybook"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-import { InlineNotification } from "@cultureamp/kaizen-component-library"
+import { InlineNotification } from "@kaizen/component-library"
 
 storiesOf("InlineNotification (React)", module)
   .add("Dismissible, Positive (Kaizen Site Demo)", () => (

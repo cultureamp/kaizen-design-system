@@ -1,11 +1,11 @@
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/type";
-@import "~@cultureamp/kaizen-component-library/styles/layout";
-@import "~@cultureamp/kaizen-component-library/styles/border";
-@import "~@cultureamp/kaizen-component-library/styles/layers";
-@import "~@cultureamp/kaizen-component-library/styles/animation";
-@import "~@cultureamp/kaizen-component-library/components/Icon/Icon.module";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/layers";
+@import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/component-library/components/Icon/Icon.module";
 
 $side-padding: 3/4 * $ca-grid;
 

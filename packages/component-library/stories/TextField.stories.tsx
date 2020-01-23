@@ -3,10 +3,10 @@ import { action } from "@storybook/addon-actions"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-import { TextField } from "@cultureamp/kaizen-component-library/draft"
-const lockIcon = require("@cultureamp/kaizen-component-library/icons/lock.icon.svg")
+import { TextField } from "@kaizen/component-library/draft"
+const lockIcon = require("@kaizen/component-library/icons/lock.icon.svg")
   .default
-const userIcon = require("@cultureamp/kaizen-component-library/icons/user.icon.svg")
+const userIcon = require("@kaizen/component-library/icons/user.icon.svg")
   .default
 
 const ExampleContainer: React.FunctionComponent = ({ children }) => (
