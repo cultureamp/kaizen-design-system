@@ -1,10 +1,18 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
+import { boolean, radios, text, withKnobs } from "@storybook/addon-knobs"
+import { withSmartKnobs } from "storybook-addon-smart-knobs"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 import { GlobalNotification } from "@kaizen/component-library"
 
 storiesOf("GlobalNotification (React)", module)
+  .addDecorator(withKnobs)
+  .addDecorator(withSmartKnobs({}))
+  .add("with smart knobs", () => {
+    console.log(GlobalNotification.__docgenInfo)
+    return <GlobalNotification>hello</GlobalNotification>
+  })
   .add("Positive (Kaizen Site Demo)", () => (
     <GlobalNotification type="affirmative" automationId="notification1">
       New user data, imported by mackenzie@hooli.com has successfully uploaded.

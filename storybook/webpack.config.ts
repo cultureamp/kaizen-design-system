@@ -151,9 +151,24 @@ export default ({ config }) => {
   // Required for the storysource storybook addon
   config.module.rules.push(storybookSource)
 
+  config.module.rules.push({
+    test: /^((?!\.stories).)*\.tsx?$/, // match all .tsx files other than .stories.tsx files
+    include: resolve(__dirname, "../packages/component-library"),
+    use: [
+      require.resolve("ts-loader"),
+      require.resolve("react-docgen-typescript-loader"),
+    ],
+  })
+
   config.module.rules.push(
     ...[babel, styles, svgs, svgIcons, elm].map(excludeExternalModules)
   )
+
+  config.module.rules[0].use[0].options.plugins = [
+    require.resolve("babel-plugin-react-docgen"),
+  ]
+
+  console.log(config.module.rules[0])
 
   config.resolve.extensions.push(".ts", ".tsx")
   return config
