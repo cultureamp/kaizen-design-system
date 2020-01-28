@@ -102,5 +102,11 @@
     "typescript": "^3.6.3",
     "typescript-tslint-plugin": "^0.5.4",
     "webpack": "^4.40.2"
+  },
+  "devDependencies": {
+    "@storybook/codemod": "^5.3.9",
+    "@storybook/csf": "^0.0.1",
+    "@storybook/node-logger": "^5.3.9",
+    "jscodeshift": "^0.7.0"
   }
 }
