@@ -5,6 +5,7 @@ module Kaizen.Modal.Presets.ConfirmationModal exposing
     , informative
     , onConfirm
     , onDismiss
+    , positive
     , title
     , view
     )
@@ -47,11 +48,17 @@ type alias Configuration msg =
 
 type Variant
     = Informative
+    | Positive
 
 
 informative : Config msg
 informative =
     Config { defaults | variant = Informative }
+
+
+positive : Config msg
+positive =
+    Config { defaults | variant = Positive }
 
 
 
@@ -103,7 +110,13 @@ view (Config config) =
 
 header : Configuration msg -> Html msg
 header config =
-    div [ styles.classList [ ( .header, True ), ( .informativeHeader, config.variant == Informative ) ] ]
+    div
+        [ styles.classList
+            [ ( .header, True )
+            , ( .informativeHeader, config.variant == Informative )
+            , ( .positiveHeader, config.variant == Positive )
+            ]
+        ]
         [ div [ styles.class .iconContainer ]
             [ svg [ class <| styles.toString .iconBackground ] [ circle [ cx "75", cy "75", r "75" ] [] ]
             , div [ styles.class .icon ]
@@ -182,6 +195,7 @@ styles =
         { elmModal = "elmModal"
         , header = "header"
         , informativeHeader = "informativeHeader"
+        , positiveHeader = "positiveHeader"
         , iconContainer = "iconContainer"
         , iconBackground = "iconBackground"
         , icon = "icon"

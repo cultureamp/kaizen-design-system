@@ -113,7 +113,34 @@ main =
                                     , onDismiss = Just ModalUpdate
                                     , onConfirm = Just ModalConfirmed
                                     , confirmLabel = "Yea do it!"
-                                    , dismissLabel = "Nah dont do it"
+                                    , dismissLabel = "Nah don't do it"
+                                    }
+                                    |> Modal.modalState modalState
+                                    -- the modal backdrop uses this to close
+                                    |> Modal.onUpdate ModalUpdate
+                                )
+
+                        Nothing ->
+                            text ""
+                    ]
+        , storyOf "Confirmation (Positive)" config <|
+            \m ->
+                div []
+                    [ Button.view (Button.primary |> Button.onClick SetModalContext) "Open Modal"
+                    , case m.modalContext of
+                        Just modalState ->
+                            Modal.view <|
+                                (Modal.confirmation Modal.Positive
+                                    { title = "Positive title"
+                                    , bodySubtext =
+                                        Just
+                                            [ div [ style "text-align" "center" ]
+                                                [ Text.view (Text.p |> Text.style Text.Lede |> Text.inline True) [ text "Additional subtext to aid the user can be added here." ] ]
+                                            ]
+                                    , onDismiss = Just ModalUpdate
+                                    , onConfirm = Just ModalConfirmed
+                                    , confirmLabel = "Yea do it!"
+                                    , dismissLabel = "Nah don't do it"
                                     }
                                     |> Modal.modalState modalState
                                     -- the modal backdrop uses this to close
