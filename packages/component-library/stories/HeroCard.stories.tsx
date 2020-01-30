@@ -1,6 +1,5 @@
 import { Button } from "@kaizen/component-library"
 import { HeroCard } from "@kaizen/component-library/draft"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 const surveyIllustration = require("./illustrations/survey.png")
@@ -25,22 +24,29 @@ const renderContent = () => (
   </div>
 )
 
-storiesOf("HeroCard (React)", module)
-  .add("Default (Kaizen Site Demo)", () => (
+export default {
+  title: 'HeroCard (React)',
+};
+
+export const DefaultKaizenSiteDemo = () => (
     <Container>
       <HeroCard>{renderContent()}</HeroCard>
     </Container>
-  ))
+  );
 
-  .add("Title", () => (
+DefaultKaizenSiteDemo.story = {
+  name: 'Default (Kaizen Site Demo)',
+};
+
+export const Title = () => (
     <Container>
       <HeroCard title={<h1>Preview the survey questions</h1>}>
         {renderContent()}
       </HeroCard>
     </Container>
-  ))
+  );
 
-  .add("Badge", () => (
+export const Badge = () => (
     <Container>
       <HeroCard
         title={<h1>Preview the survey questions</h1>}
@@ -49,9 +55,9 @@ storiesOf("HeroCard (React)", module)
         {renderContent()}
       </HeroCard>
     </Container>
-  ))
+  );
 
-  .add("Image", () => (
+export const Image = () => (
     <Container>
       <HeroCard
         title={<h1>Preview the survey questions</h1>}
@@ -72,9 +78,9 @@ storiesOf("HeroCard (React)", module)
         {renderContent()}
       </HeroCard>
     </Container>
-  ))
+  );
 
-  .add("Custom left content", () => (
+export const CustomLeftContent = () => (
     <Container>
       <HeroCard
         title={<h1>Preview the survey questions</h1>}
@@ -83,9 +89,13 @@ storiesOf("HeroCard (React)", module)
         {renderContent()}
       </HeroCard>
     </Container>
-  ))
+  );
 
-  .add("Custom left content and badge", () => (
+CustomLeftContent.story = {
+  name: 'Custom left content',
+};
+
+export const CustomLeftContentAndBadge = () => (
     <Container>
       <HeroCard
         title={<h1>Preview the survey questions</h1>}
@@ -95,9 +105,13 @@ storiesOf("HeroCard (React)", module)
         {renderContent()}
       </HeroCard>
     </Container>
-  ))
+  );
 
-  .add("Full width", () => (
+CustomLeftContentAndBadge.story = {
+  name: 'Custom left content and badge',
+};
+
+export const FullWidth = () => (
     <Container>
       <HeroCard
         title={<h1>Preview the survey questions</h1>}
@@ -107,4 +121,8 @@ storiesOf("HeroCard (React)", module)
         {renderContent()}
       </HeroCard>
     </Container>
-  ))
+  );
+
+FullWidth.story = {
+  name: 'Full width',
+};

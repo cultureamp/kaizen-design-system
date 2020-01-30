@@ -8,8 +8,6 @@ import { loadElmStories } from "@cultureamp/elm-storybook"
 import { Button } from "@kaizen/component-library"
 import { EmptyState } from "@kaizen/component-library/draft"
 
-import { storiesOf } from "@storybook/react"
-
 const styles = require("./EmptyState.stories.scss")
 
 const SidebarAndContentLayout = ({
@@ -29,8 +27,11 @@ const ContentOnlyLayout = ({ children }: { children: React.ReactNode }) => (
   </div>
 )
 
-storiesOf("EmptyState (React)", module)
-  .add("Default (Kaizen Site Demo)", () => (
+export default {
+  title: 'EmptyState (React)',
+};
+
+export const DefaultKaizenSiteDemo = () => (
     <SidebarAndContentLayout>
       <EmptyState
         headingText="Empty state title"
@@ -38,8 +39,13 @@ storiesOf("EmptyState (React)", module)
           Default or Primary action."
       />
     </SidebarAndContentLayout>
-  ))
-  .add("Layout, Sidebar + Content", () => (
+  );
+
+DefaultKaizenSiteDemo.story = {
+  name: 'Default (Kaizen Site Demo)',
+};
+
+export const LayoutSidebarContent = () => (
     <SidebarAndContentLayout>
       <EmptyState
         headingText="Empty state title"
@@ -48,8 +54,13 @@ storiesOf("EmptyState (React)", module)
         layoutContext="sidebarAndContent"
       />
     </SidebarAndContentLayout>
-  ))
-  .add("Layout, Content-only", () => (
+  );
+
+LayoutSidebarContent.story = {
+  name: 'Layout, Sidebar + Content',
+};
+
+export const LayoutContentOnly = () => (
     <ContentOnlyLayout>
       <EmptyState
         headingText="Empty state title"
@@ -58,8 +69,13 @@ storiesOf("EmptyState (React)", module)
         layoutContext="contentOnly"
       />
     </ContentOnlyLayout>
-  ))
-  .add("Positive", () => (
+  );
+
+LayoutContentOnly.story = {
+  name: 'Layout, Content-only',
+};
+
+export const Positive = () => (
     <SidebarAndContentLayout>
       <EmptyState
         headingText="Positive empty state"
@@ -77,8 +93,9 @@ storiesOf("EmptyState (React)", module)
         </div>
       </EmptyState>
     </SidebarAndContentLayout>
-  ))
-  .add("Informative", () => (
+  );
+
+export const Informative = () => (
     <SidebarAndContentLayout>
       <EmptyState
         headingText="Informative empty state"
@@ -87,8 +104,9 @@ storiesOf("EmptyState (React)", module)
         illustrationType="informative"
       />
     </SidebarAndContentLayout>
-  ))
-  .add("Action", () => (
+  );
+
+export const Action = () => (
     <SidebarAndContentLayout>
       <EmptyState
         headingText="Action empty state"
@@ -106,8 +124,9 @@ storiesOf("EmptyState (React)", module)
         </div>
       </EmptyState>
     </SidebarAndContentLayout>
-  ))
-  .add("Action, Button", () => (
+  );
+
+export const ActionButton = () => (
     <SidebarAndContentLayout>
       <EmptyState
         headingText="Action empty state"
@@ -130,8 +149,13 @@ storiesOf("EmptyState (React)", module)
         </div>
       </EmptyState>
     </SidebarAndContentLayout>
-  ))
-  .add("Neutral", () => (
+  );
+
+ActionButton.story = {
+  name: 'Action, Button',
+};
+
+export const Neutral = () => (
     <SidebarAndContentLayout>
       <EmptyState
         headingText="Neutral empty state"
@@ -140,8 +164,9 @@ storiesOf("EmptyState (React)", module)
         illustrationType="neutral"
       />
     </SidebarAndContentLayout>
-  ))
-  .add("Negative", () => (
+  );
+
+export const Negative = () => (
     <SidebarAndContentLayout>
       <EmptyState
         headingText="Negative empty state"
@@ -159,8 +184,9 @@ storiesOf("EmptyState (React)", module)
         </div>
       </EmptyState>
     </SidebarAndContentLayout>
-  ))
-  .add("RTL, Action", () => (
+  );
+
+export const RtlAction = () => (
     <div dir="rtl">
       <SidebarAndContentLayout>
         <EmptyState
@@ -180,8 +206,13 @@ storiesOf("EmptyState (React)", module)
         </EmptyState>
       </SidebarAndContentLayout>
     </div>
-  ))
-  .add("Straight corners", () => (
+  );
+
+RtlAction.story = {
+  name: 'RTL, Action',
+};
+
+export const StraightCorners = () => (
     <SidebarAndContentLayout>
       <EmptyState
         headingText="Empty state title"
@@ -200,7 +231,11 @@ storiesOf("EmptyState (React)", module)
         </div>
       </EmptyState>
     </SidebarAndContentLayout>
-  ))
+  );
+
+StraightCorners.story = {
+  name: 'Straight corners',
+};
 
 loadElmStories(
   "EmptyState (Elm)",

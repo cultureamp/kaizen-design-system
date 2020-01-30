@@ -4,10 +4,11 @@ import * as React from "react"
 import { Text } from "@kaizen/component-library"
 import { Tabs } from "@kaizen/component-library/draft"
 
-import { storiesOf } from "@storybook/react"
+export default {
+  title: 'Tabs (React)',
+};
 
-storiesOf("Tabs (React)", module)
-  .add("Default", () => {
+export const Default = () => {
     const tabs = [
       { label: "One" },
       { label: "Two" },
@@ -15,8 +16,9 @@ storiesOf("Tabs (React)", module)
       { label: "Four" },
     ]
     return <Tabs tabs={tabs} />
-  })
-  .add("Active tab", () => {
+  };
+
+export const ActiveTab = () => {
     const tabs = [
       { label: "One", active: true },
       { label: "Two" },
@@ -24,8 +26,13 @@ storiesOf("Tabs (React)", module)
       { label: "Four" },
     ]
     return <Tabs tabs={tabs} />
-  })
-  .add("Disabled tab", () => {
+  };
+
+ActiveTab.story = {
+  name: 'Active tab',
+};
+
+export const DisabledTab = () => {
     const tabs = [
       { label: "One", disabled: true },
       { label: "Two" },
@@ -33,8 +40,13 @@ storiesOf("Tabs (React)", module)
       { label: "Four" },
     ]
     return <Tabs tabs={tabs} />
-  })
-  .add("With onClick", () => {
+  };
+
+DisabledTab.story = {
+  name: 'Disabled tab',
+};
+
+export const WithOnClick = () => {
     const tabs = [
       { label: "One (click this)", onClick: () => alert("clicked!") },
       { label: "Two" },
@@ -42,8 +54,13 @@ storiesOf("Tabs (React)", module)
       { label: "Four" },
     ]
     return <Tabs tabs={tabs} />
-  })
-  .add("With href", () => {
+  };
+
+WithOnClick.story = {
+  name: 'With onClick',
+};
+
+export const WithHref = () => {
     const tabs = [
       { label: "One (href here)", href: "//www.example.com" },
       { label: "Two" },
@@ -51,8 +68,13 @@ storiesOf("Tabs (React)", module)
       { label: "Four" },
     ]
     return <Tabs tabs={tabs} />
-  })
-  .add("With custom tab renderer", () => {
+  };
+
+WithHref.story = {
+  name: 'With href',
+};
+
+export const WithCustomTabRenderer = () => {
     const tabs = [
       { label: "One", active: true },
       { label: "Two", disabled: true },
@@ -97,4 +119,8 @@ storiesOf("Tabs (React)", module)
         </div>
       </div>
     )
-  })
+  };
+
+WithCustomTabRenderer.story = {
+  name: 'With custom tab renderer',
+};

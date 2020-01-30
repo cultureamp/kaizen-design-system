@@ -1,28 +1,41 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 import { Popover } from "@kaizen/component-library/draft"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-storiesOf("Popover (React)", module)
-  .add("Default (Kaizen Site Demo)", () => (
+export default {
+  title: 'Popover (React)',
+};
+
+export const DefaultKaizenSiteDemo = () => (
     <Popover heading="Default">
       Popover body that explains something useful, is optional, and not critical
       to completing a task.
     </Popover>
-  ))
-  .add("Default without heading", () => (
+  );
+
+DefaultKaizenSiteDemo.story = {
+  name: 'Default (Kaizen Site Demo)',
+};
+
+export const DefaultWithoutHeading = () => (
     <Popover>
       Popover body that explains something useful, is optional, and not critical
       to completing a task.
     </Popover>
-  ))
-  .add("Informative", () => (
+  );
+
+DefaultWithoutHeading.story = {
+  name: 'Default without heading',
+};
+
+export const Informative = () => (
     <Popover heading="Informative" variant="informative">
       Popover body that explains something useful, is optional, and not critical
       to completing a task.
     </Popover>
-  ))
-  .add("Informative with singleLine", () => (
+  );
+
+export const InformativeWithSingleLine = () => (
     <Popover
       heading="Informative-default-with-single-line"
       variant="informative"
@@ -30,8 +43,13 @@ storiesOf("Popover (React)", module)
     >
       http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/iamaverylongurl/iamaverylongurl/iamaverylongurl
     </Popover>
-  ))
-  .add("Informative Large", () => (
+  );
+
+InformativeWithSingleLine.story = {
+  name: 'Informative with singleLine',
+};
+
+export const InformativeLarge = () => (
     <Popover
       heading="Informative-large-with-multi-line"
       variant="informative"
@@ -40,8 +58,9 @@ storiesOf("Popover (React)", module)
       Popover body that explains something useful, is optional, and not critical
       to completing a task.
     </Popover>
-  ))
-  .add("Informative Large with singleLine", () => (
+  );
+
+export const InformativeLargeWithSingleLine = () => (
     <Popover
       heading="Informative-large-with-single-line"
       variant="informative"
@@ -50,56 +69,80 @@ storiesOf("Popover (React)", module)
     >
       http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/iamaverylongurl/iamaverylongurl/iamaverylongurl
     </Popover>
-  ))
-  .add("Positive", () => (
+  );
+
+InformativeLargeWithSingleLine.story = {
+  name: 'Informative Large with singleLine',
+};
+
+export const Positive = () => (
     <Popover heading="Positive" variant="positive">
       Popover body that explains something useful, is optional, and not critical
       to completing a task.
     </Popover>
-  ))
-  .add("Negative", () => (
+  );
+
+export const Negative = () => (
     <Popover heading="Negative" variant="negative">
       Popover body that explains something useful, is optional, and not critical
       to completing a task.
     </Popover>
-  ))
-  .add("Cautionary", () => (
+  );
+
+export const Cautionary = () => (
     <Popover heading="Cautionary" variant="cautionary">
       Popover body that explains something useful, is optional, and not critical
       to completing a task.
     </Popover>
-  ))
-  .add("Dismissible", () => (
+  );
+
+export const Dismissible = () => (
     <Popover heading="Dismissible" dismissible>
       Popover body that explains something useful, is optional, and not critical
       to completing a task.
     </Popover>
-  ))
-  .add("Arrow above", () => (
+  );
+
+export const ArrowAbove = () => (
     <div style={{ marginTop: "1.5rem" }}>
       <Popover heading="Arrow above" side="top">
         Popover body that explains something useful, is optional, and not
         critical to completing a task.
       </Popover>
     </div>
-  ))
-  .add("Arrow start", () => (
+  );
+
+ArrowAbove.story = {
+  name: 'Arrow above',
+};
+
+export const ArrowStart = () => (
     <div style={{ marginTop: "1.5rem" }}>
       <Popover heading="Arrow start" position="start">
         Popover body that explains something useful, is optional, and not
         critical to completing a task.
       </Popover>
     </div>
-  ))
-  .add("Arrow end", () => (
+  );
+
+ArrowStart.story = {
+  name: 'Arrow start',
+};
+
+export const ArrowEnd = () => (
     <div style={{ marginTop: "1.5rem" }}>
       <Popover heading="Arrow end" position="end" side="top">
         Popover body that explains something useful, is optional, and not
         critical to completing a task.
       </Popover>
     </div>
-  ))
-  .add("Box offset", () => (
+  );
+
+ArrowEnd.story = {
+  name: 'Arrow end',
+};
+
+export const BoxOffset = () => (
     <>
       <div style={{ marginTop: "1.5rem", height: 200 }}>
         <Popover
@@ -124,7 +167,11 @@ storiesOf("Popover (React)", module)
         </Popover>
       </div>
     </>
-  ))
+  );
+
+BoxOffset.story = {
+  name: 'Box offset',
+};
 
 loadElmStories("Popover (Elm)", module, require("./PopoverStories.elm"), [
   "Default",

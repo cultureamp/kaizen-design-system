@@ -1,11 +1,13 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 import { ToastNotification } from "@kaizen/component-library"
 
-storiesOf("ToastNotification (React)", module)
-  .add("Positive (Kaizen Site Demo)", () => (
+export default {
+  title: 'ToastNotification (React)',
+};
+
+export const PositiveKaizenSiteDemo = () => (
     <ToastNotification
       type="affirmative"
       title="Success!"
@@ -14,8 +16,13 @@ storiesOf("ToastNotification (React)", module)
       New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
       <a href="/">Manage users is now available</a>
     </ToastNotification>
-  ))
-  .add("Positive, Autohide", () => (
+  );
+
+PositiveKaizenSiteDemo.story = {
+  name: 'Positive (Kaizen Site Demo)',
+};
+
+export const PositiveAutohide = () => (
     <ToastNotification
       type="affirmative"
       title="Success!"
@@ -25,8 +32,13 @@ storiesOf("ToastNotification (React)", module)
       New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
       <a href="/">Manage users is now available</a>
     </ToastNotification>
-  ))
-  .add("Positive, Autohide, Hide Close Icon", () => (
+  );
+
+PositiveAutohide.story = {
+  name: 'Positive, Autohide',
+};
+
+export const PositiveAutohideHideCloseIcon = () => (
     <ToastNotification
       automationId="notification1"
       type="affirmative"
@@ -37,8 +49,13 @@ storiesOf("ToastNotification (React)", module)
       New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
       <a href="/">Manage users is now available</a>
     </ToastNotification>
-  ))
-  .add("Informative", () => (
+  );
+
+PositiveAutohideHideCloseIcon.story = {
+  name: 'Positive, Autohide, Hide Close Icon',
+};
+
+export const Informative = () => (
     <ToastNotification
       type="informative"
       title="Informative"
@@ -47,8 +64,9 @@ storiesOf("ToastNotification (React)", module)
       New user data is currently being processed. We'll let you know when the
       process is completed. <a href="/">Manage users</a>
     </ToastNotification>
-  ))
-  .add("Cautionary", () => (
+  );
+
+export const Cautionary = () => (
     <ToastNotification
       type="cautionary"
       title="Warning"
@@ -57,8 +75,9 @@ storiesOf("ToastNotification (React)", module)
       New user data, imported by mackenzie@hooli.com has uploaded with some
       minor issues. <a href="/">View issues</a>
     </ToastNotification>
-  ))
-  .add("Negative", () => (
+  );
+
+export const Negative = () => (
     <ToastNotification
       type="negative"
       title="No network connection"
@@ -66,8 +85,9 @@ storiesOf("ToastNotification (React)", module)
     >
       Check your connection and try again. <a href="/">Refresh</a>.
     </ToastNotification>
-  ))
-  .add("Multiple notifications", () => (
+  );
+
+export const MultipleNotifications = () => (
     <div>
       <ToastNotification
         type="affirmative"
@@ -104,7 +124,12 @@ storiesOf("ToastNotification (React)", module)
         Check your connection and try again. <a href="/">Refresh</a>.
       </ToastNotification>
     </div>
-  ))
+  );
+
+MultipleNotifications.story = {
+  name: 'Multiple notifications',
+};
+
 loadElmStories(
   "ToastNotification (Elm)",
   module,

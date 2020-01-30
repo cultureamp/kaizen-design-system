@@ -1,6 +1,5 @@
 import { Button } from "@kaizen/component-library/components/Button"
 import { TitleBlock } from "@kaizen/component-library/draft"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 require("./TitleBlock.stories.scss")
@@ -30,35 +29,68 @@ const stickyContainerStyle = {
   background: "lightgrey",
 }
 
-storiesOf("TitleBlock (React)", module)
-  .add("with Title", () => <TitleBlock title="Reports" />)
-  .add("with subtitle", () => (
+export default {
+  title: 'TitleBlock (React)',
+};
+
+export const WithTitle = () => <TitleBlock title="Reports" />;
+
+WithTitle.story = {
+  name: 'with Title',
+};
+
+export const WithSubtitle = () => (
     <TitleBlock title="Home" subtitle="Subtitle goes here" />
-  ))
-  .add("with breadcrumb", () => (
+  );
+
+WithSubtitle.story = {
+  name: 'with subtitle',
+};
+
+export const WithBreadcrumb = () => (
     <TitleBlock
       title="Home"
       subtitle="Subtitle goes here"
       breadcrumb={{ path: "#", text: "Back to reports" }}
     />
-  ))
-  .add("with action buttons", () => (
+  );
+
+WithBreadcrumb.story = {
+  name: 'with breadcrumb',
+};
+
+export const WithActionButtons = () => (
     <TitleBlock title="Home">
       <Button label="Action" secondary />
       <Button label="Action 2" secondary />
     </TitleBlock>
-  ))
-  .add("with navigation buttons", () => (
+  );
+
+WithActionButtons.story = {
+  name: 'with action buttons',
+};
+
+export const WithNavigationButtons = () => (
     <TitleBlock title="Home" navigationButtons={navigationButtons} />
-  ))
-  .add("with tag", () => (
+  );
+
+WithNavigationButtons.story = {
+  name: 'with navigation buttons',
+};
+
+export const WithTag = () => (
     <TitleBlock
       title="Home"
       subtitle="Subtitle goes here"
       surveyStatus={{ status: "live", text: "Live" }}
     />
-  ))
-  .add("reversed", () => (
+  );
+
+WithTag.story = {
+  name: 'with tag',
+};
+
+export const Reversed = () => (
     <div style={reversedContainerStyle}>
       <TitleBlock
         title="Home"
@@ -68,16 +100,26 @@ storiesOf("TitleBlock (React)", module)
         reverseColor="Wisteria"
       />
     </div>
-  ))
-  .add("sticky", () => (
+  );
+
+Reversed.story = {
+  name: 'reversed',
+};
+
+export const Sticky = () => (
     <div style={stickyContainerStyle}>
       <TitleBlock title="Home" navigationButtons={navigationButtons} sticky>
         <Button label="Action" secondary reversed />
         <Button label="Action 2" secondary reversed />
       </TitleBlock>
     </div>
-  ))
-  .add("sticky reversed", () => (
+  );
+
+Sticky.story = {
+  name: 'sticky',
+};
+
+export const StickyReversed = () => (
     <div style={stickyContainerStyle}>
       <TitleBlock
         title="Home"
@@ -90,8 +132,13 @@ storiesOf("TitleBlock (React)", module)
         <Button label="Action 2" secondary reversed />
       </TitleBlock>
     </div>
-  ))
-  .add("sticky transparent", () => (
+  );
+
+StickyReversed.story = {
+  name: 'sticky reversed',
+};
+
+export const StickyTransparent = () => (
     <div style={stickyContainerStyle}>
       <TitleBlock
         title="Home"
@@ -104,8 +151,13 @@ storiesOf("TitleBlock (React)", module)
         <Button label="Action 2" secondary reversed />
       </TitleBlock>
     </div>
-  ))
-  .add("sticky transparent initially", () => (
+  );
+
+StickyTransparent.story = {
+  name: 'sticky transparent',
+};
+
+export const StickyTransparentInitially = () => (
     <div style={stickyContainerStyle}>
       <TitleBlock
         title="Home"
@@ -119,4 +171,8 @@ storiesOf("TitleBlock (React)", module)
         <Button label="Action 2" secondary reversed />
       </TitleBlock>
     </div>
-  ))
+  );
+
+StickyTransparentInitially.story = {
+  name: 'sticky transparent initially',
+};

@@ -1,6 +1,5 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 import { action } from "@storybook/addon-actions"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 import { TextField } from "@kaizen/component-library/draft"
@@ -13,8 +12,11 @@ const ExampleContainer: React.FunctionComponent = ({ children }) => (
   <div style={{ width: "98%", margin: "1%" }}>{children}</div>
 )
 
-storiesOf("TextField (React)", module)
-  .add("Default (Kaizen Site Demo)", () => (
+export default {
+  title: 'TextField (React)',
+};
+
+export const DefaultKaizenSiteDemo = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -33,8 +35,13 @@ storiesOf("TextField (React)", module)
         description="Valid email addresses must have an @ and a suffix."
       />
     </ExampleContainer>
-  ))
-  .add("Default, Inline", () => (
+  );
+
+DefaultKaizenSiteDemo.story = {
+  name: 'Default (Kaizen Site Demo)',
+};
+
+export const DefaultInline = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -47,8 +54,13 @@ storiesOf("TextField (React)", module)
         description="Valid email addresses must have an @ and a suffix."
       />
     </ExampleContainer>
-  ))
-  .add("Default, Icon", () => (
+  );
+
+DefaultInline.story = {
+  name: 'Default, Inline',
+};
+
+export const DefaultIcon = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -60,8 +72,13 @@ storiesOf("TextField (React)", module)
         icon={userIcon}
       />
     </ExampleContainer>
-  ))
-  .add("Default, Disabled", () => (
+  );
+
+DefaultIcon.story = {
+  name: 'Default, Icon',
+};
+
+export const DefaultDisabled = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -73,8 +90,13 @@ storiesOf("TextField (React)", module)
         disabled={true}
       />
     </ExampleContainer>
-  ))
-  .add("Default, Disabled w/ value", () => (
+  );
+
+DefaultDisabled.story = {
+  name: 'Default, Disabled',
+};
+
+export const DefaultDisabledWValue = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -86,8 +108,13 @@ storiesOf("TextField (React)", module)
         disabled={true}
       />
     </ExampleContainer>
-  ))
-  .add("Default, Disabled + Icon", () => (
+  );
+
+DefaultDisabledWValue.story = {
+  name: 'Default, Disabled w/ value',
+};
+
+export const DefaultDisabledIcon = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -100,8 +127,13 @@ storiesOf("TextField (React)", module)
         disabled={true}
       />
     </ExampleContainer>
-  ))
-  .add("Default, Success", () => (
+  );
+
+DefaultDisabledIcon.story = {
+  name: 'Default, Disabled + Icon',
+};
+
+export const DefaultSuccess = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -113,8 +145,13 @@ storiesOf("TextField (React)", module)
         status="success"
       />
     </ExampleContainer>
-  ))
-  .add("Default, Success + Icon", () => (
+  );
+
+DefaultSuccess.story = {
+  name: 'Default, Success',
+};
+
+export const DefaultSuccessIcon = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -127,8 +164,13 @@ storiesOf("TextField (React)", module)
         status="success"
       />
     </ExampleContainer>
-  ))
-  .add("Default, Error", () => (
+  );
+
+DefaultSuccessIcon.story = {
+  name: 'Default, Success + Icon',
+};
+
+export const DefaultError = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -141,8 +183,13 @@ storiesOf("TextField (React)", module)
         validationMessage="Your email address looks like it’s from 1996."
       />
     </ExampleContainer>
-  ))
-  .add("Default, Error + Icon", () => (
+  );
+
+DefaultError.story = {
+  name: 'Default, Error',
+};
+
+export const DefaultErrorIcon = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -155,8 +202,13 @@ storiesOf("TextField (React)", module)
         status="error"
       />
     </ExampleContainer>
-  ))
-  .add("Default, Multiple Fields", () => (
+  );
+
+DefaultErrorIcon.story = {
+  name: 'Default, Error + Icon',
+};
+
+export const DefaultMultipleFields = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -177,8 +229,13 @@ storiesOf("TextField (React)", module)
         icon={lockIcon}
       />
     </ExampleContainer>
-  ))
-  .add("Default, Multiple Fields, Error", () => (
+  );
+
+DefaultMultipleFields.story = {
+  name: 'Default, Multiple Fields',
+};
+
+export const DefaultMultipleFieldsError = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -203,8 +260,13 @@ storiesOf("TextField (React)", module)
         validationMessage="The password entered does not correctly match the provided email address."
       />
     </ExampleContainer>
-  ))
-  .add("Reversed", () => (
+  );
+
+DefaultMultipleFieldsError.story = {
+  name: 'Default, Multiple Fields, Error',
+};
+
+export const Reversed = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -216,8 +278,9 @@ storiesOf("TextField (React)", module)
         reversed={true}
       />
     </ExampleContainer>
-  ))
-  .add("Reversed, Icon", () => (
+  );
+
+export const ReversedIcon = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -230,8 +293,13 @@ storiesOf("TextField (React)", module)
         icon={userIcon}
       />
     </ExampleContainer>
-  ))
-  .add("Reversed, Disabled", () => (
+  );
+
+ReversedIcon.story = {
+  name: 'Reversed, Icon',
+};
+
+export const ReversedDisabled = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -244,8 +312,13 @@ storiesOf("TextField (React)", module)
         disabled={true}
       />
     </ExampleContainer>
-  ))
-  .add("Reversed, Disabled w/ value", () => (
+  );
+
+ReversedDisabled.story = {
+  name: 'Reversed, Disabled',
+};
+
+export const ReversedDisabledWValue = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -258,8 +331,13 @@ storiesOf("TextField (React)", module)
         disabled={true}
       />
     </ExampleContainer>
-  ))
-  .add("Reversed, Disabled + Icon", () => (
+  );
+
+ReversedDisabledWValue.story = {
+  name: 'Reversed, Disabled w/ value',
+};
+
+export const ReversedDisabledIcon = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -273,8 +351,13 @@ storiesOf("TextField (React)", module)
         disabled={true}
       />
     </ExampleContainer>
-  ))
-  .add("Reversed,  Success", () => (
+  );
+
+ReversedDisabledIcon.story = {
+  name: 'Reversed, Disabled + Icon',
+};
+
+export const ReversedSuccess = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -287,8 +370,13 @@ storiesOf("TextField (React)", module)
         status="success"
       />
     </ExampleContainer>
-  ))
-  .add("Reversed, Success + Icon", () => (
+  );
+
+ReversedSuccess.story = {
+  name: 'Reversed,  Success',
+};
+
+export const ReversedSuccessIcon = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -302,9 +390,13 @@ storiesOf("TextField (React)", module)
         status="success"
       />
     </ExampleContainer>
-  ))
+  );
 
-  .add("Reversed, Error", () => (
+ReversedSuccessIcon.story = {
+  name: 'Reversed, Success + Icon',
+};
+
+export const ReversedError = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -318,8 +410,13 @@ storiesOf("TextField (React)", module)
         validationMessage="Your email address looks like it’s from 1996."
       />
     </ExampleContainer>
-  ))
-  .add("Reversed, Error + Icon", () => (
+  );
+
+ReversedError.story = {
+  name: 'Reversed, Error',
+};
+
+export const ReversedErrorIcon = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -334,8 +431,13 @@ storiesOf("TextField (React)", module)
         validationMessage="Your email address looks like it’s from 1996."
       />
     </ExampleContainer>
-  ))
-  .add("Reversed, Multiple Fields", () => (
+  );
+
+ReversedErrorIcon.story = {
+  name: 'Reversed, Error + Icon',
+};
+
+export const ReversedMultipleFields = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -358,8 +460,13 @@ storiesOf("TextField (React)", module)
         reversed={true}
       />
     </ExampleContainer>
-  ))
-  .add("Reversed, Multiple Fields w/ Error", () => (
+  );
+
+ReversedMultipleFields.story = {
+  name: 'Reversed, Multiple Fields',
+};
+
+export const ReversedMultipleFieldsWError = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -386,8 +493,13 @@ storiesOf("TextField (React)", module)
         reversed={true}
       />
     </ExampleContainer>
-  ))
-  .add("Default, Focus/Blur events", () => (
+  );
+
+ReversedMultipleFieldsWError.story = {
+  name: 'Reversed, Multiple Fields w/ Error',
+};
+
+export const DefaultFocusBlurEvents = () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -408,7 +520,11 @@ storiesOf("TextField (React)", module)
         description="Valid email addresses must have an @ and a suffix."
       />
     </ExampleContainer>
-  ))
+  );
+
+DefaultFocusBlurEvents.story = {
+  name: 'Default, Focus/Blur events',
+};
 
 loadElmStories("TextField (Elm)", module, require("./TextFieldStories.elm"), [
   "Default",

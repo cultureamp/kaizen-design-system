@@ -1,7 +1,6 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 import { Text } from "@kaizen/component-library"
 import { LoadingPlaceholder } from "@kaizen/component-library/draft"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 const styles = require("./LoadingPlaceholder.stories.scss")
@@ -10,8 +9,11 @@ const StoryContainer: React.FunctionComponent<{}> = ({ children }) => {
   return <div className={styles.storyContainer}>{children}</div>
 }
 
-storiesOf("LoadingPlaceholder (React)", module)
-  .add("Default, Multiple (Kaizen Site Demo)", () => (
+export default {
+  title: 'LoadingPlaceholder (React)',
+};
+
+export const DefaultMultipleKaizenSiteDemo = () => (
     <StoryContainer>
       <Text tag="p">
         Dr. Brené Brown, author of Daring Greatly, is a research professor from
@@ -29,9 +31,13 @@ storiesOf("LoadingPlaceholder (React)", module)
         <LoadingPlaceholder />
       </>
     </StoryContainer>
-  ))
+  );
 
-  .add("Default, Multiple, Inline", () => (
+DefaultMultipleKaizenSiteDemo.story = {
+  name: 'Default, Multiple (Kaizen Site Demo)',
+};
+
+export const DefaultMultipleInline = () => (
     <StoryContainer>
       <div>
         <Text tag="p">
@@ -72,9 +78,13 @@ storiesOf("LoadingPlaceholder (React)", module)
         </div>
       </>
     </StoryContainer>
-  ))
+  );
 
-  .add("Default, Multiple, Variable width", () => (
+DefaultMultipleInline.story = {
+  name: 'Default, Multiple, Inline',
+};
+
+export const DefaultMultipleVariableWidth = () => (
     <StoryContainer>
       <Text tag="p">
         Dr. Brené Brown, author of Daring Greatly, is a research professor from
@@ -92,9 +102,13 @@ storiesOf("LoadingPlaceholder (React)", module)
         <LoadingPlaceholder width={60} />
       </>
     </StoryContainer>
-  ))
+  );
 
-  .add("Default, Multiple, Variable width, Centered", () => (
+DefaultMultipleVariableWidth.story = {
+  name: 'Default, Multiple, Variable width',
+};
+
+export const DefaultMultipleVariableWidthCentered = () => (
     <StoryContainer>
       <div style={{ textAlign: "center" }}>
         <Text tag="p">
@@ -115,9 +129,13 @@ storiesOf("LoadingPlaceholder (React)", module)
         <LoadingPlaceholder centred width={60} />
       </>
     </StoryContainer>
-  ))
+  );
 
-  .add("Default, Multiple, Combined block and inline", () => (
+DefaultMultipleVariableWidthCentered.story = {
+  name: 'Default, Multiple, Variable width, Centered',
+};
+
+export const DefaultMultipleCombinedBlockAndInline = () => (
     <StoryContainer>
       <div>
         <Text tag="p">
@@ -153,9 +171,13 @@ storiesOf("LoadingPlaceholder (React)", module)
         </div>
       </>
     </StoryContainer>
-  ))
+  );
 
-  .add("Default, Without bottom margin", () => (
+DefaultMultipleCombinedBlockAndInline.story = {
+  name: 'Default, Multiple, Combined block and inline',
+};
+
+export const DefaultWithoutBottomMargin = () => (
     <StoryContainer>
       <LoadingPlaceholder noBottomMargin />
       <Text tag="p" inline>
@@ -164,9 +186,13 @@ storiesOf("LoadingPlaceholder (React)", module)
 
       <LoadingPlaceholder noBottomMargin />
     </StoryContainer>
-  ))
+  );
 
-  .add("Default, Inherit baseline", () => (
+DefaultWithoutBottomMargin.story = {
+  name: 'Default, Without bottom margin',
+};
+
+export const DefaultInheritBaseline = () => (
     <StoryContainer>
       <div className={styles.flexbox}>
         <Text tag="h2" inheritBaseline>
@@ -175,9 +201,13 @@ storiesOf("LoadingPlaceholder (React)", module)
         <LoadingPlaceholder inheritBaseline />
       </div>
     </StoryContainer>
-  ))
+  );
 
-  .add("Heading", () => (
+DefaultInheritBaseline.story = {
+  name: 'Default, Inherit baseline',
+};
+
+export const Heading = () => (
     <StoryContainer>
       <div>
         <Text tag="p">
@@ -198,9 +228,9 @@ storiesOf("LoadingPlaceholder (React)", module)
         <LoadingPlaceholder tall />
       </>
     </StoryContainer>
-  ))
+  );
 
-  .add("Reversed, Default", () => {
+export const ReversedDefault = () => {
     return (
       <StoryContainer>
         <div className={styles.reversedDefault}>
@@ -223,9 +253,13 @@ storiesOf("LoadingPlaceholder (React)", module)
         </div>
       </StoryContainer>
     )
-  })
+  };
 
-  .add("In the wild", () => {
+ReversedDefault.story = {
+  name: 'Reversed, Default',
+};
+
+export const InTheWild = () => {
     return (
       <StoryContainer>
         <div>
@@ -298,7 +332,11 @@ storiesOf("LoadingPlaceholder (React)", module)
         </div>
       </StoryContainer>
     )
-  })
+  };
+
+InTheWild.story = {
+  name: 'In the wild',
+};
 
 loadElmStories(
   "LoadingPlaceholder (Elm)",

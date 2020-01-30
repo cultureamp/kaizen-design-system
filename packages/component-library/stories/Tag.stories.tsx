@@ -1,6 +1,5 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 import { Tag } from "@kaizen/component-library/draft"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => (
@@ -9,17 +8,24 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => (
   </div>
 )
 
-storiesOf("Tag (React)", module)
-  .add("Default - Medium (Kaizen Site Demo)", () => (
+export default {
+  title: 'Tag (React)',
+};
+
+export const DefaultMediumKaizenSiteDemo = () => (
     <StoryContainer>
       <Tag variant="default">Default</Tag>
       <Tag variant="default" dismissible>
         Default
       </Tag>
     </StoryContainer>
-  ))
+  );
 
-  .add("Default - Small", () => (
+DefaultMediumKaizenSiteDemo.story = {
+  name: 'Default - Medium (Kaizen Site Demo)',
+};
+
+export const DefaultSmall = () => (
     <StoryContainer>
       <Tag variant="default" size="small">
         Default
@@ -28,105 +34,157 @@ storiesOf("Tag (React)", module)
         Default
       </Tag>
     </StoryContainer>
-  ))
+  );
 
-  .add("Sentiment - Positive", () => (
+DefaultSmall.story = {
+  name: 'Default - Small',
+};
+
+export const SentimentPositive = () => (
     <StoryContainer>
       <Tag variant="sentimentPositive">Sentiment</Tag>
       <Tag variant="sentimentPositive" dismissible>
         Sentiment
       </Tag>
     </StoryContainer>
-  ))
+  );
 
-  .add("Sentiment - Neutral", () => (
+SentimentPositive.story = {
+  name: 'Sentiment - Positive',
+};
+
+export const SentimentNeutral = () => (
     <StoryContainer>
       <Tag variant="sentimentNeutral">Sentiment</Tag>
       <Tag variant="sentimentNeutral" dismissible>
         Sentiment
       </Tag>
     </StoryContainer>
-  ))
+  );
 
-  .add("Sentiment - Negative", () => (
+SentimentNeutral.story = {
+  name: 'Sentiment - Neutral',
+};
+
+export const SentimentNegative = () => (
     <StoryContainer>
       <Tag variant="sentimentNegative">Sentiment</Tag>
       <Tag variant="sentimentNegative" dismissible>
         Sentiment
       </Tag>
     </StoryContainer>
-  ))
+  );
 
-  .add("Sentiment - None", () => (
+SentimentNegative.story = {
+  name: 'Sentiment - Negative',
+};
+
+export const SentimentNone = () => (
     <StoryContainer>
       <Tag variant="sentimentNone">Sentiment</Tag>
       <Tag variant="sentimentNone" dismissible>
         Sentiment
       </Tag>
     </StoryContainer>
-  ))
+  );
 
-  .add("Validation - Positive", () => (
+SentimentNone.story = {
+  name: 'Sentiment - None',
+};
+
+export const ValidationPositive = () => (
     <StoryContainer>
       <Tag variant="validationPositive">Validation</Tag>
       <Tag variant="validationPositive" dismissible>
         Validation
       </Tag>
     </StoryContainer>
-  ))
+  );
 
-  .add("Validation - Informative", () => (
+ValidationPositive.story = {
+  name: 'Validation - Positive',
+};
+
+export const ValidationInformative = () => (
     <StoryContainer>
       <Tag variant="validationInformative">Validation</Tag>
       <Tag variant="validationInformative" dismissible>
         Validation
       </Tag>
     </StoryContainer>
-  ))
+  );
 
-  .add("Validation - Negative", () => (
+ValidationInformative.story = {
+  name: 'Validation - Informative',
+};
+
+export const ValidationNegative = () => (
     <StoryContainer>
       <Tag variant="validationNegative">Validation</Tag>
       <Tag variant="validationNegative" dismissible>
         Validation
       </Tag>
     </StoryContainer>
-  ))
+  );
 
-  .add("Validation - Cautionary", () => (
+ValidationNegative.story = {
+  name: 'Validation - Negative',
+};
+
+export const ValidationCautionary = () => (
     <StoryContainer>
       <Tag variant="validationCautionary">Validation</Tag>
       <Tag variant="validationCautionary" dismissible>
         Validation
       </Tag>
     </StoryContainer>
-  ))
+  );
 
-  .add("Status - Live", () => (
+ValidationCautionary.story = {
+  name: 'Validation - Cautionary',
+};
+
+export const StatusLive = () => (
     <StoryContainer>
       <Tag variant="statusLive">Live</Tag>
     </StoryContainer>
-  ))
+  );
 
-  .add("Status - Draft", () => (
+StatusLive.story = {
+  name: 'Status - Live',
+};
+
+export const StatusDraft = () => (
     <StoryContainer>
       <Tag variant="statusDraft">Draft</Tag>
     </StoryContainer>
-  ))
+  );
 
-  .add("Status - Closed", () => (
+StatusDraft.story = {
+  name: 'Status - Draft',
+};
+
+export const StatusClosed = () => (
     <StoryContainer>
       <Tag variant="statusClosed">Closed</Tag>
     </StoryContainer>
-  ))
+  );
 
-  .add("Status - Action", () => (
+StatusClosed.story = {
+  name: 'Status - Closed',
+};
+
+export const StatusAction = () => (
     <StoryContainer>
       <Tag variant="statusAction">Action</Tag>
     </StoryContainer>
-  ))
+  );
 
-  .add("Truncated", () => (
+StatusAction.story = {
+  name: 'Status - Action',
+};
+
+export const Truncated = () => (
     <StoryContainer>
       <Tag variant="default" truncateWidth={50}>
         Truncated
@@ -138,9 +196,9 @@ storiesOf("Tag (React)", module)
         Truncated
       </Tag>
     </StoryContainer>
-  ))
+  );
 
-  .add("Truncated - Dismissible", () => (
+export const TruncatedDismissible = () => (
     <StoryContainer>
       <Tag variant="default" truncateWidth={50} dismissible>
         Truncated
@@ -152,9 +210,13 @@ storiesOf("Tag (React)", module)
         Truncated
       </Tag>
     </StoryContainer>
-  ))
+  );
 
-  .add("Inline", () => (
+TruncatedDismissible.story = {
+  name: 'Truncated - Dismissible',
+};
+
+export const Inline = () => (
     <StoryContainer>
       <Tag variant="default" inline>
         Inline
@@ -166,9 +228,9 @@ storiesOf("Tag (React)", module)
         Inline
       </Tag>
     </StoryContainer>
-  ))
+  );
 
-  .add("Inline - Dismissible", () => (
+export const InlineDismissible = () => (
     <StoryContainer>
       <Tag variant="default" inline dismissible>
         Inline
@@ -180,7 +242,11 @@ storiesOf("Tag (React)", module)
         Inline
       </Tag>
     </StoryContainer>
-  ))
+  );
+
+InlineDismissible.story = {
+  name: 'Inline - Dismissible',
+};
 
 loadElmStories("Tag (Elm)", module, require("./TagStories.elm"), [
   "Default - Medium",

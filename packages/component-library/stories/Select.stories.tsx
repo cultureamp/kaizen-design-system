@@ -1,6 +1,5 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 import { AsyncSelect, Select } from "@kaizen/component-library/draft"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => {
@@ -57,8 +56,11 @@ const promiseOptions = inputValue =>
     }, 1000)
   })
 
-storiesOf("Select (React)", module)
-  .add("Single", () => (
+export default {
+  title: 'Select (React)',
+};
+
+export const Single = () => (
     <StoryContainer>
       <Select
         options={options}
@@ -66,21 +68,25 @@ storiesOf("Select (React)", module)
         isSearchable={false}
       />
     </StoryContainer>
-  ))
+  );
 
-  .add("Single Searchable", () => (
+export const SingleSearchable = () => (
     <StoryContainer>
       <Select options={options} placeholder="Placeholder" />
     </StoryContainer>
-  ))
+  );
 
-  .add("Multi-Select Searchable", () => (
+export const MultiSelectSearchable = () => (
     <WideStoryContainer>
       <Select options={options} placeholder="Placeholder" isMulti={true} />
     </WideStoryContainer>
-  ))
+  );
 
-  .add("Async Searchable", () => (
+MultiSelectSearchable.story = {
+  name: 'Multi-Select Searchable',
+};
+
+export const AsyncSearchable = () => (
     <WideStoryContainer>
       <AsyncSelect
         loadOptions={promiseOptions}
@@ -88,9 +94,9 @@ storiesOf("Select (React)", module)
         placeholder="Placeholder"
       />
     </WideStoryContainer>
-  ))
+  );
 
-  .add("Multi-Async Searchable", () => (
+export const MultiAsyncSearchable = () => (
     <WideStoryContainer>
       <AsyncSelect
         loadOptions={promiseOptions}
@@ -99,7 +105,11 @@ storiesOf("Select (React)", module)
         isMulti={true}
       />
     </WideStoryContainer>
-  ))
+  );
+
+MultiAsyncSearchable.story = {
+  name: 'Multi-Async Searchable',
+};
 
 loadElmStories("Select (Elm)", module, require("./SelectStories.elm"), [
   "Single (Kaizen Site Demo)",

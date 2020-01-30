@@ -9,7 +9,6 @@ import {
   TableRow,
   TableRowCell,
 } from "@kaizen/component-library/draft"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 import { IconButton } from "../components"
 const styles = require("./Table.stories.scss")
@@ -106,8 +105,11 @@ const ExampleTableRow = ({
   </TableRow>
 )
 
-storiesOf("Table (React)", module)
-  .add("Default (Kaizen Site Demo)", () => (
+export default {
+  title: 'Table (React)',
+};
+
+export const DefaultKaizenSiteDemo = () => (
     <Container>
       <TableContainer>
         <TableHeader>
@@ -124,8 +126,13 @@ storiesOf("Table (React)", module)
         </TableCard>
       </TableContainer>
     </Container>
-  ))
-  .add("Multiline", () => (
+  );
+
+DefaultKaizenSiteDemo.story = {
+  name: 'Default (Kaizen Site Demo)',
+};
+
+export const Multiline = () => (
     <Container>
       <TableContainer>
         <TableHeader>
@@ -142,8 +149,9 @@ storiesOf("Table (React)", module)
         </TableCard>
       </TableContainer>
     </Container>
-  ))
-  .add("Clickable", () => (
+  );
+
+export const Clickable = () => (
     <Container>
       <TableContainer>
         <TableHeader>
@@ -169,8 +177,9 @@ storiesOf("Table (React)", module)
         </TableCard>
       </TableContainer>
     </Container>
-  ))
-  .add("Expanded (deprecated)", () => {
+  );
+
+export const ExpandedDeprecated = () => {
     const [expandedId, setExpandedId] = React.useState<string | null>("second")
     const toggleExpanded = id => {
       if (expandedId === id) {
@@ -206,8 +215,13 @@ storiesOf("Table (React)", module)
         </TableContainer>
       </Container>
     )
-  })
-  .add("Expanded popout", () => {
+  };
+
+ExpandedDeprecated.story = {
+  name: 'Expanded (deprecated)',
+};
+
+export const ExpandedPopout = () => {
     const [expandedId, setExpandedId] = React.useState<string | null>("second")
     const toggleExpanded = id => {
       if (expandedId === id) {
@@ -257,8 +271,13 @@ storiesOf("Table (React)", module)
         </TableContainer>
       </Container>
     )
-  })
-  .add("Expanded with custom content (deprecated)", () => {
+  };
+
+ExpandedPopout.story = {
+  name: 'Expanded popout',
+};
+
+export const ExpandedWithCustomContentDeprecated = () => {
     const [expandedId, setExpandedId] = React.useState<string | null>("second")
     const toggleExpanded = id => {
       if (expandedId === id) {
@@ -309,8 +328,13 @@ storiesOf("Table (React)", module)
         </TableContainer>
       </Container>
     )
-  })
-  .add("No header", () => (
+  };
+
+ExpandedWithCustomContentDeprecated.story = {
+  name: 'Expanded with custom content (deprecated)',
+};
+
+export const NoHeader = () => (
     <Container>
       <TableContainer>
         <TableCard>
@@ -324,4 +348,8 @@ storiesOf("Table (React)", module)
         </TableCard>
       </TableContainer>
     </Container>
-  ))
+  );
+
+NoHeader.story = {
+  name: 'No header',
+};

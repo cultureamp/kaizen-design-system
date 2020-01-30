@@ -1,7 +1,6 @@
 import { Icon, Text } from "@kaizen/component-library"
 import { Collapsible, CollapsibleGroup } from "@kaizen/component-library/draft"
 import { action } from "@storybook/addon-actions"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 const styles = require("./Collapsible.stories.scss")
@@ -21,15 +20,23 @@ magna nisl, in cursus urna hendrerit et. Aenean semper, est non
 feugiat sodales, nisl ligula aliquet lorem, sit amet scelerisque
 arcu quam a sapien. Donec in viverra urna.`
 
-storiesOf("Collapsible (React)", module)
-  .add("Single collapsible (Kaizen Site Demo)", () => (
+export default {
+  title: 'Collapsible (React)',
+};
+
+export const SingleCollapsibleKaizenSiteDemo = () => (
     <div style={{ margin: "1rem", width: "40rem" }}>
       <Collapsible id="collapsible-single" open title="Single collapsible">
         <Text tag="p">{lipsum}</Text>
       </Collapsible>
     </div>
-  ))
-  .add("Single collapsible (no padding)", () => (
+  );
+
+SingleCollapsibleKaizenSiteDemo.story = {
+  name: 'Single collapsible (Kaizen Site Demo)',
+};
+
+export const SingleCollapsibleNoPadding = () => (
     <div style={{ margin: "1rem", width: "40rem" }}>
       <Collapsible
         id="collapsible-single"
@@ -54,8 +61,13 @@ storiesOf("Collapsible (React)", module)
         </ListItem>
       </Collapsible>
     </div>
-  ))
-  .add("Single collapsible (custom header)", () => (
+  );
+
+SingleCollapsibleNoPadding.story = {
+  name: 'Single collapsible (no padding)',
+};
+
+export const SingleCollapsibleCustomHeader = () => (
     <div style={{ margin: "1rem", width: "40rem" }}>
       <Collapsible
         id="collapsible-single"
@@ -77,8 +89,13 @@ storiesOf("Collapsible (React)", module)
         </Text>
       </Collapsible>
     </div>
-  ))
-  .add("Single collapsible (lazy load)", () => (
+  );
+
+SingleCollapsibleCustomHeader.story = {
+  name: 'Single collapsible (custom header)',
+};
+
+export const SingleCollapsibleLazyLoad = () => (
     <div style={{ margin: "1rem", width: "40rem" }}>
       <Collapsible id="collapsible-single" title="Single collapsible" lazyLoad>
         <Text tag="p">
@@ -92,8 +109,13 @@ storiesOf("Collapsible (React)", module)
         </Text>
       </Collapsible>
     </div>
-  ))
-  .add("Collapsible group", () => (
+  );
+
+SingleCollapsibleLazyLoad.story = {
+  name: 'Single collapsible (lazy load)',
+};
+
+export const _CollapsibleGroup = () => (
     <div style={{ margin: "1rem", width: "40rem" }}>
       <CollapsibleGroup>
         <Collapsible id="collapsible-separate-1" open title="First panel">
@@ -107,8 +129,13 @@ storiesOf("Collapsible (React)", module)
         </Collapsible>
       </CollapsibleGroup>
     </div>
-  ))
-  .add("Collapsible group (separated)", () => (
+  );
+
+_CollapsibleGroup.story = {
+  name: 'Collapsible group',
+};
+
+export const CollapsibleGroupSeparated = () => (
     <div style={{ margin: "1rem", width: "40rem" }}>
       <CollapsibleGroup separated>
         <Collapsible id="collapsible-separate-1" open title="First panel">
@@ -122,8 +149,13 @@ storiesOf("Collapsible (React)", module)
         </Collapsible>
       </CollapsibleGroup>
     </div>
-  ))
-  .add("Collapsible group (sticky headers)", () => (
+  );
+
+CollapsibleGroupSeparated.story = {
+  name: 'Collapsible group (separated)',
+};
+
+export const CollapsibleGroupStickyHeaders = () => (
     <div style={{ margin: "4rem", width: "40rem" }}>
       <CollapsibleGroup separated sticky={{ top: "0" }}>
         <Collapsible id="collapsible-separate-1" title="First panel" open>
@@ -152,8 +184,13 @@ storiesOf("Collapsible (React)", module)
         </Collapsible>
       </CollapsibleGroup>
     </div>
-  ))
-  .add("Collapsible group (callback on open/close)", () => {
+  );
+
+CollapsibleGroupStickyHeaders.story = {
+  name: 'Collapsible group (sticky headers)',
+};
+
+export const CollapsibleGroupCallbackOnOpenClose = () => {
     return (
       <div style={{ margin: "1rem", width: "40rem" }}>
         <CollapsibleGroup onToggle={action("Collapsible toggled")}>
@@ -169,4 +206,8 @@ storiesOf("Collapsible (React)", module)
         </CollapsibleGroup>
       </div>
     )
-  })
+  };
+
+CollapsibleGroupCallbackOnOpenClose.story = {
+  name: 'Collapsible group (callback on open/close)',
+};

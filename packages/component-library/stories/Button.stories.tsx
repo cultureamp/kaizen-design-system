@@ -3,44 +3,89 @@ import { Button } from "@kaizen/component-library"
 const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
   .default
 import { action } from "@storybook/addon-actions"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-storiesOf("Button (React)", module)
-  .add("Default (Kaizen Site Demo)", () => <Button label="Label" />)
-  .add("Default, Disabled", () => <Button label="Label" disabled={true} />)
-  .add("Primary", () => <Button label="Label" primary={true} />)
-  .add("Primary, Disabled", () => (
+export default {
+  title: 'Button (React)',
+};
+
+export const DefaultKaizenSiteDemo = () => <Button label="Label" />;
+
+DefaultKaizenSiteDemo.story = {
+  name: 'Default (Kaizen Site Demo)',
+};
+
+export const DefaultDisabled = () => <Button label="Label" disabled={true} />;
+
+DefaultDisabled.story = {
+  name: 'Default, Disabled',
+};
+
+export const Primary = () => <Button label="Label" primary={true} />;
+
+export const PrimaryDisabled = () => (
     <Button label="Label" primary={true} disabled={true} />
-  ))
-  .add("Destructive", () => <Button label="Label" destructive={true} />)
-  .add("Destructive, Disabled", () => (
+  );
+
+PrimaryDisabled.story = {
+  name: 'Primary, Disabled',
+};
+
+export const Destructive = () => <Button label="Label" destructive={true} />;
+
+export const DestructiveDisabled = () => (
     <Button label="Label" destructive={true} disabled={true} />
-  ))
-  .add("Secondary", () => <Button label="Label" secondary={true} />)
-  .add("Secondary, Disabled", () => (
+  );
+
+DestructiveDisabled.story = {
+  name: 'Destructive, Disabled',
+};
+
+export const Secondary = () => <Button label="Label" secondary={true} />;
+
+export const SecondaryDisabled = () => (
     <Button label="Label" secondary={true} disabled={true} />
-  ))
-  .add("Secondary w/ Icon", () => (
+  );
+
+SecondaryDisabled.story = {
+  name: 'Secondary, Disabled',
+};
+
+export const SecondaryWIcon = () => (
     <Button label="Configure" icon={configureIcon} secondary={true} />
-  ))
-  .add("Secondary w/ Icon, Disabled", () => (
+  );
+
+SecondaryWIcon.story = {
+  name: 'Secondary w/ Icon',
+};
+
+export const SecondaryWIconDisabled = () => (
     <Button
       label="Configure"
       icon={configureIcon}
       secondary={true}
       disabled={true}
     />
-  ))
-  .add("Secondary, Destructive (not yet implemented)", () => (
+  );
+
+SecondaryWIconDisabled.story = {
+  name: 'Secondary w/ Icon, Disabled',
+};
+
+export const SecondaryDestructiveNotYetImplemented = () => (
     <Button
       label="Delete"
       secondary={true}
       disabled={false}
       destructive={true}
     />
-  ))
-  .add("Secondary w/ Icon, Destructive (not yet implemented)", () => (
+  );
+
+SecondaryDestructiveNotYetImplemented.story = {
+  name: 'Secondary, Destructive (not yet implemented)',
+};
+
+export const SecondaryWIconDestructiveNotYetImplemented = () => (
     <Button
       label="Delete"
       icon={configureIcon}
@@ -48,34 +93,81 @@ storiesOf("Button (React)", module)
       disabled={false}
       destructive={true}
     />
-  ))
-  .add("Icon + Label", () => <Button label="Configure" icon={configureIcon} />)
-  .add("Label + Icon", () => (
+  );
+
+SecondaryWIconDestructiveNotYetImplemented.story = {
+  name: 'Secondary w/ Icon, Destructive (not yet implemented)',
+};
+
+export const IconLabel = () => <Button label="Configure" icon={configureIcon} />;
+
+IconLabel.story = {
+  name: 'Icon + Label',
+};
+
+export const LabelIcon = () => (
     <Button label="Configure" icon={configureIcon} iconPosition="end" />
-  ))
-  .add("Full Width", () => <Button label="Label" fullWidth={true} />)
-  .add("Full Width + Icon", () => (
+  );
+
+LabelIcon.story = {
+  name: 'Label + Icon',
+};
+
+export const FullWidth = () => <Button label="Label" fullWidth={true} />;
+
+export const FullWidthIcon = () => (
     <Button label="Label" fullWidth={true} icon={configureIcon} />
-  ))
-  .add("Hyperlink", () => <Button label="Label" href="//example.com" />)
-  .add("Hyperlink w/ onClick", () => (
+  );
+
+FullWidthIcon.story = {
+  name: 'Full Width + Icon',
+};
+
+export const Hyperlink = () => <Button label="Label" href="//example.com" />;
+
+export const HyperlinkWOnClick = () => (
     <Button
       label="Label"
       href="//example.com"
       onClick={action("I am an onClick handler")}
     />
-  ))
-  .add("Reversed, Default", () => <Button label="Label" reversed={true} />)
-  .add("Reversed, Default, Disabled", () => (
+  );
+
+HyperlinkWOnClick.story = {
+  name: 'Hyperlink w/ onClick',
+};
+
+export const ReversedDefault = () => <Button label="Label" reversed={true} />;
+
+ReversedDefault.story = {
+  name: 'Reversed, Default',
+};
+
+export const ReversedDefaultDisabled = () => (
     <Button label="Label" reversed={true} disabled={true} />
-  ))
-  .add("Reversed, Primary", () => (
+  );
+
+ReversedDefaultDisabled.story = {
+  name: 'Reversed, Default, Disabled',
+};
+
+export const ReversedPrimary = () => (
     <Button label="Label" primary={true} disabled={false} reversed={true} />
-  ))
-  .add("Reversed, Primary, Disabled", () => (
+  );
+
+ReversedPrimary.story = {
+  name: 'Reversed, Primary',
+};
+
+export const ReversedPrimaryDisabled = () => (
     <Button label="Label" primary={true} reversed={true} disabled={true} />
-  ))
-  .add("Reversed, Color, Lapis (discouraged)", () => (
+  );
+
+ReversedPrimaryDisabled.story = {
+  name: 'Reversed, Primary, Disabled',
+};
+
+export const ReversedColorLapisDiscouraged = () => (
     <Button
       label="Label"
       primary={true}
@@ -83,8 +175,13 @@ storiesOf("Button (React)", module)
       reversed={true}
       reverseColor="lapis"
     />
-  ))
-  .add("Reversed, Primary, Disabled, Color, Lapis (discouraged)", () => (
+  );
+
+ReversedColorLapisDiscouraged.story = {
+  name: 'Reversed, Color, Lapis (discouraged)',
+};
+
+export const ReversedPrimaryDisabledColorLapisDiscouraged = () => (
     <Button
       label="Label"
       primary={true}
@@ -92,8 +189,13 @@ storiesOf("Button (React)", module)
       reversed={true}
       reverseColor="lapis"
     />
-  ))
-  .add("Reversed, Primary, Color, Ocean (discouraged)", () => (
+  );
+
+ReversedPrimaryDisabledColorLapisDiscouraged.story = {
+  name: 'Reversed, Primary, Disabled, Color, Lapis (discouraged)',
+};
+
+export const ReversedPrimaryColorOceanDiscouraged = () => (
     <Button
       label="Label"
       primary={true}
@@ -101,8 +203,13 @@ storiesOf("Button (React)", module)
       reversed={true}
       reverseColor="ocean"
     />
-  ))
-  .add("Reversed, Primary, Disabled, Color, Ocean (discouraged)", () => (
+  );
+
+ReversedPrimaryColorOceanDiscouraged.story = {
+  name: 'Reversed, Primary, Color, Ocean (discouraged)',
+};
+
+export const ReversedPrimaryDisabledColorOceanDiscouraged = () => (
     <Button
       label="Label"
       primary={true}
@@ -110,8 +217,13 @@ storiesOf("Button (React)", module)
       reversed={true}
       reverseColor="ocean"
     />
-  ))
-  .add("Reversed, Primary, Color, Peach (discouraged)", () => (
+  );
+
+ReversedPrimaryDisabledColorOceanDiscouraged.story = {
+  name: 'Reversed, Primary, Disabled, Color, Ocean (discouraged)',
+};
+
+export const ReversedPrimaryColorPeachDiscouraged = () => (
     <Button
       label="Label"
       primary={true}
@@ -119,8 +231,13 @@ storiesOf("Button (React)", module)
       reversed={true}
       reverseColor="peach"
     />
-  ))
-  .add("Reversed, Primary, Disabled, Color, Peach (discouraged)", () => (
+  );
+
+ReversedPrimaryColorPeachDiscouraged.story = {
+  name: 'Reversed, Primary, Color, Peach (discouraged)',
+};
+
+export const ReversedPrimaryDisabledColorPeachDiscouraged = () => (
     <Button
       label="Label"
       primary={true}
@@ -128,8 +245,13 @@ storiesOf("Button (React)", module)
       reversed={true}
       reverseColor="peach"
     />
-  ))
-  .add("Reversed, Primary, Color, Seedling (discouraged)", () => (
+  );
+
+ReversedPrimaryDisabledColorPeachDiscouraged.story = {
+  name: 'Reversed, Primary, Disabled, Color, Peach (discouraged)',
+};
+
+export const ReversedPrimaryColorSeedlingDiscouraged = () => (
     <Button
       label="Label"
       primary={true}
@@ -137,8 +259,13 @@ storiesOf("Button (React)", module)
       reversed={true}
       reverseColor="seedling"
     />
-  ))
-  .add("Reversed, Primary, Disabled, Color, Seedling (discouraged)", () => (
+  );
+
+ReversedPrimaryColorSeedlingDiscouraged.story = {
+  name: 'Reversed, Primary, Color, Seedling (discouraged)',
+};
+
+export const ReversedPrimaryDisabledColorSeedlingDiscouraged = () => (
     <Button
       label="Label"
       primary={true}
@@ -146,8 +273,13 @@ storiesOf("Button (React)", module)
       reversed={true}
       reverseColor="seedling"
     />
-  ))
-  .add("Reversed, Primary, Color, Wisteria (discouraged)", () => (
+  );
+
+ReversedPrimaryDisabledColorSeedlingDiscouraged.story = {
+  name: 'Reversed, Primary, Disabled, Color, Seedling (discouraged)',
+};
+
+export const ReversedPrimaryColorWisteriaDiscouraged = () => (
     <Button
       label="Label"
       primary={true}
@@ -155,8 +287,13 @@ storiesOf("Button (React)", module)
       reversed={true}
       reverseColor="wisteria"
     />
-  ))
-  .add("Reversed, Primary, Disabled, Color, Wisteria (discouraged)", () => (
+  );
+
+ReversedPrimaryColorWisteriaDiscouraged.story = {
+  name: 'Reversed, Primary, Color, Wisteria (discouraged)',
+};
+
+export const ReversedPrimaryDisabledColorWisteriaDiscouraged = () => (
     <Button
       label="Label"
       primary={true}
@@ -164,8 +301,13 @@ storiesOf("Button (React)", module)
       reversed={true}
       reverseColor="wisteria"
     />
-  ))
-  .add("Reversed, Primary, Color, Yuzu (discouraged)", () => (
+  );
+
+ReversedPrimaryDisabledColorWisteriaDiscouraged.story = {
+  name: 'Reversed, Primary, Disabled, Color, Wisteria (discouraged)',
+};
+
+export const ReversedPrimaryColorYuzuDiscouraged = () => (
     <Button
       label="Label"
       primary={true}
@@ -173,8 +315,13 @@ storiesOf("Button (React)", module)
       reversed={true}
       reverseColor="yuzu"
     />
-  ))
-  .add("Reversed, Primary, Disabled, Color, Yuzu (discouraged)", () => (
+  );
+
+ReversedPrimaryColorYuzuDiscouraged.story = {
+  name: 'Reversed, Primary, Color, Yuzu (discouraged)',
+};
+
+export const ReversedPrimaryDisabledColorYuzuDiscouraged = () => (
     <Button
       label="Label"
       primary={true}
@@ -182,22 +329,42 @@ storiesOf("Button (React)", module)
       reversed={true}
       reverseColor="yuzu"
     />
-  ))
-  .add("Reversed, Secondary", () => (
+  );
+
+ReversedPrimaryDisabledColorYuzuDiscouraged.story = {
+  name: 'Reversed, Primary, Disabled, Color, Yuzu (discouraged)',
+};
+
+export const ReversedSecondary = () => (
     <Button label="Label" secondary={true} reversed={true} />
-  ))
-  .add("Reversed, Secondary, Disabled", () => (
+  );
+
+ReversedSecondary.story = {
+  name: 'Reversed, Secondary',
+};
+
+export const ReversedSecondaryDisabled = () => (
     <Button label="Label" secondary={true} reversed={true} disabled={true} />
-  ))
-  .add("Reversed, Secondary w/ Icon", () => (
+  );
+
+ReversedSecondaryDisabled.story = {
+  name: 'Reversed, Secondary, Disabled',
+};
+
+export const ReversedSecondaryWIcon = () => (
     <Button
       label="Configure"
       secondary={true}
       reversed={true}
       icon={configureIcon}
     />
-  ))
-  .add("Reversed, Secondary w/ Icon, Disabled", () => (
+  );
+
+ReversedSecondaryWIcon.story = {
+  name: 'Reversed, Secondary w/ Icon',
+};
+
+export const ReversedSecondaryWIconDisabled = () => (
     <Button
       label="Configure"
       secondary={true}
@@ -205,11 +372,31 @@ storiesOf("Button (React)", module)
       disabled={true}
       icon={configureIcon}
     />
-  ))
-  .add("Type, Submit", () => <Button label="Label" type="submit" />)
-  .add("Type, Reset", () => <Button label="Label" type="reset" />)
-  .add("Form (discouraged)", () => <Button label="Label" form={true} />)
-  .add("Overflowing text, Icon + Label (test case)", () => (
+  );
+
+ReversedSecondaryWIconDisabled.story = {
+  name: 'Reversed, Secondary w/ Icon, Disabled',
+};
+
+export const TypeSubmit = () => <Button label="Label" type="submit" />;
+
+TypeSubmit.story = {
+  name: 'Type, Submit',
+};
+
+export const TypeReset = () => <Button label="Label" type="reset" />;
+
+TypeReset.story = {
+  name: 'Type, Reset',
+};
+
+export const FormDiscouraged = () => <Button label="Label" form={true} />;
+
+FormDiscouraged.story = {
+  name: 'Form (discouraged)',
+};
+
+export const OverflowingTextIconLabelTestCase = () => (
     <div style={{ width: 120 }}>
       <Button
         icon={configureIcon}
@@ -217,8 +404,13 @@ storiesOf("Button (React)", module)
         automationId="demo-button"
       />
     </div>
-  ))
-  .add("Overflowing text, Form (test case)", () => (
+  );
+
+OverflowingTextIconLabelTestCase.story = {
+  name: 'Overflowing text, Icon + Label (test case)',
+};
+
+export const OverflowingTextFormTestCase = () => (
     <div style={{ width: 120 }}>
       <Button
         form
@@ -227,13 +419,18 @@ storiesOf("Button (React)", module)
         automationId="demo-button"
       />
     </div>
-  ))
-  .add("Multiple Buttons", () => (
+  );
+
+OverflowingTextFormTestCase.story = {
+  name: 'Overflowing text, Form (test case)',
+};
+
+export const MultipleButtons = () => (
     <div>
       <Button label="Save" primary automationId="demo-button-1" />
       <Button label="Exit" automationId="demo-button-2" />
     </div>
-  ))
+  );
 
 loadElmStories("Button (Elm)", module, require("./Button.stories.elm"), [
   "Default",

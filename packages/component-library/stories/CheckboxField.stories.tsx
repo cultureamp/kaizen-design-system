@@ -1,6 +1,5 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 import { CheckboxField } from "@kaizen/component-library/draft"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 type RenderProps = {
@@ -47,8 +46,11 @@ class CheckboxFieldExample extends React.Component<Props> {
   }
 }
 
-storiesOf("CheckboxField (React)", module)
-  .add("Interactive (Kaizen Site Demo)", () => (
+export default {
+  title: 'CheckboxField (React)',
+};
+
+export const InteractiveKaizenSiteDemo = () => (
     <CheckboxFieldExample
       render={({ checkedStatus, onCheckHandler }) => (
         <CheckboxField
@@ -66,57 +68,79 @@ storiesOf("CheckboxField (React)", module)
         />
       )}
     />
-  ))
+  );
 
-  .add("On", () => (
+InteractiveKaizenSiteDemo.story = {
+  name: 'Interactive (Kaizen Site Demo)',
+};
+
+export const On = () => (
     <CheckboxField
       id="checkbox-2"
       checkedStatus="on"
       disabled={false}
       labelText="Label"
     />
-  ))
-  .add("Mixed", () => (
+  );
+
+export const Mixed = () => (
     <CheckboxField
       id="checkbox-3"
       checkedStatus="mixed"
       disabled={false}
       labelText="Label"
     />
-  ))
-  .add("Off", () => (
+  );
+
+export const Off = () => (
     <CheckboxField
       id="checkbox-4"
       checkedStatus="off"
       disabled={false}
       labelText="Label"
     />
-  ))
-  .add("Disabled + on", () => (
+  );
+
+export const DisabledOn = () => (
     <CheckboxField
       id="checkbox-5"
       checkedStatus="on"
       disabled={true}
       labelText="Label"
     />
-  ))
-  .add("Disabled + mixed", () => (
+  );
+
+DisabledOn.story = {
+  name: 'Disabled + on',
+};
+
+export const DisabledMixed = () => (
     <CheckboxField
       id="checkbox-6"
       checkedStatus="mixed"
       disabled={true}
       labelText="Label"
     />
-  ))
-  .add("Disabled + off", () => (
+  );
+
+DisabledMixed.story = {
+  name: 'Disabled + mixed',
+};
+
+export const DisabledOff = () => (
     <CheckboxField
       id="checkbox-7"
       checkedStatus="off"
       disabled={true}
       labelText="Label"
     />
-  ))
-  .add("with bottom margin", () => (
+  );
+
+DisabledOff.story = {
+  name: 'Disabled + off',
+};
+
+export const WithBottomMargin = () => (
     <div>
       <CheckboxField
         id="checkbox-1"
@@ -131,8 +155,13 @@ storiesOf("CheckboxField (React)", module)
         labelText="Label"
       />
     </div>
-  ))
-  .add("without bottom margin", () => (
+  );
+
+WithBottomMargin.story = {
+  name: 'with bottom margin',
+};
+
+export const WithoutBottomMargin = () => (
     <div>
       <CheckboxField
         noBottomMargin
@@ -149,7 +178,11 @@ storiesOf("CheckboxField (React)", module)
         labelText="Label"
       />
     </div>
-  ))
+  );
+
+WithoutBottomMargin.story = {
+  name: 'without bottom margin',
+};
 
 loadElmStories(
   "CheckboxField (Elm)",

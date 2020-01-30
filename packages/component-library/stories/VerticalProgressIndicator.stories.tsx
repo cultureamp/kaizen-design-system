@@ -1,5 +1,4 @@
 import { VerticalProgressIndicator } from "@kaizen/component-library/draft/Kaizen/VerticalProgressStep/VerticalProgressIndicator"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => (
@@ -16,103 +15,180 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => (
   </div>
 )
 
-storiesOf("VerticalProgressIndicator (React)", module)
-  .add("Start-Upcoming", () => (
+export default {
+  title: 'VerticalProgressIndicator (React)',
+};
+
+export const StartUpcoming = () => (
     <StoryContainer>
       <VerticalProgressIndicator position="start" completion="upcoming" />
     </StoryContainer>
-  ))
-  .add("Start-CurrentInactionable", () => (
+  );
+
+StartUpcoming.story = {
+  name: 'Start-Upcoming',
+};
+
+export const StartCurrentInactionable = () => (
     <StoryContainer>
       <VerticalProgressIndicator
         position="start"
         completion="current-inactionable"
       />
     </StoryContainer>
-  ))
-  .add("Start-CurrentActionable", () => (
+  );
+
+StartCurrentInactionable.story = {
+  name: 'Start-CurrentInactionable',
+};
+
+export const StartCurrentActionable = () => (
     <StoryContainer>
       <VerticalProgressIndicator
         position="start"
         completion="current-actionable"
       />
     </StoryContainer>
-  ))
-  .add("Start-CurrentStarted", () => (
+  );
+
+StartCurrentActionable.story = {
+  name: 'Start-CurrentActionable',
+};
+
+export const StartCurrentStarted = () => (
     <StoryContainer>
       <VerticalProgressIndicator
         position="start"
         completion="current-started"
       />
     </StoryContainer>
-  ))
-  .add("Start-Completed", () => (
+  );
+
+StartCurrentStarted.story = {
+  name: 'Start-CurrentStarted',
+};
+
+export const StartCompleted = () => (
     <StoryContainer>
       <VerticalProgressIndicator position="start" completion="completed" />
     </StoryContainer>
-  ))
-  .add("Middle-Upcoming", () => (
+  );
+
+StartCompleted.story = {
+  name: 'Start-Completed',
+};
+
+export const MiddleUpcoming = () => (
     <StoryContainer>
       <VerticalProgressIndicator position="middle" completion="upcoming" />
     </StoryContainer>
-  ))
-  .add("Middle-CurrentInactionable", () => (
+  );
+
+MiddleUpcoming.story = {
+  name: 'Middle-Upcoming',
+};
+
+export const MiddleCurrentInactionable = () => (
     <StoryContainer>
       <VerticalProgressIndicator
         position="middle"
         completion="current-inactionable"
       />
     </StoryContainer>
-  ))
-  .add("Middle-CurrentActionable", () => (
+  );
+
+MiddleCurrentInactionable.story = {
+  name: 'Middle-CurrentInactionable',
+};
+
+export const MiddleCurrentActionable = () => (
     <StoryContainer>
       <VerticalProgressIndicator
         position="middle"
         completion="current-actionable"
       />
     </StoryContainer>
-  ))
-  .add("Middle-CurrentStarted", () => (
+  );
+
+MiddleCurrentActionable.story = {
+  name: 'Middle-CurrentActionable',
+};
+
+export const MiddleCurrentStarted = () => (
     <StoryContainer>
       <VerticalProgressIndicator
         position="middle"
         completion="current-started"
       />
     </StoryContainer>
-  ))
-  .add("Middle-Completed", () => (
+  );
+
+MiddleCurrentStarted.story = {
+  name: 'Middle-CurrentStarted',
+};
+
+export const MiddleCompleted = () => (
     <StoryContainer>
       <VerticalProgressIndicator position="middle" completion="completed" />
     </StoryContainer>
-  ))
-  .add("End-Upcoming", () => (
+  );
+
+MiddleCompleted.story = {
+  name: 'Middle-Completed',
+};
+
+export const EndUpcoming = () => (
     <StoryContainer>
       <VerticalProgressIndicator position="end" completion="upcoming" />
     </StoryContainer>
-  ))
-  .add("End-CurrentInactionable", () => (
+  );
+
+EndUpcoming.story = {
+  name: 'End-Upcoming',
+};
+
+export const EndCurrentInactionable = () => (
     <StoryContainer>
       <VerticalProgressIndicator
         position="end"
         completion="current-inactionable"
       />
     </StoryContainer>
-  ))
-  .add("End-CurrentActionable", () => (
+  );
+
+EndCurrentInactionable.story = {
+  name: 'End-CurrentInactionable',
+};
+
+export const EndCurrentActionable = () => (
     <StoryContainer>
       <VerticalProgressIndicator
         position="end"
         completion="current-actionable"
       />
     </StoryContainer>
-  ))
-  .add("End-CurrentStarted", () => (
+  );
+
+EndCurrentActionable.story = {
+  name: 'End-CurrentActionable',
+};
+
+export const EndCurrentStarted = () => (
     <StoryContainer>
       <VerticalProgressIndicator position="end" completion="current-started" />
     </StoryContainer>
-  ))
-  .add("End-Completed", () => (
+  );
+
+EndCurrentStarted.story = {
+  name: 'End-CurrentStarted',
+};
+
+export const EndCompleted = () => (
     <StoryContainer>
       <VerticalProgressIndicator position="end" completion="completed" />
     </StoryContainer>
-  ))
+  );
+
+EndCompleted.story = {
+  name: 'End-Completed',
+};

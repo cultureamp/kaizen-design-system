@@ -1,4 +1,3 @@
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 import { Icon, Link, Menu, NavigationBar } from "@kaizen/component-library"
@@ -9,8 +8,11 @@ const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon
 const supportIcon = require("@kaizen/component-library/icons/support.icon.svg")
   .default
 
-storiesOf("NavigationBar (React)", module)
-  .add("Default", () => (
+export default {
+  title: 'NavigationBar (React)',
+};
+
+export const Default = () => (
     <NavigationBar>
       <Link text="Home" href="/" active />
       <Link text="Surveys" href="/" />
@@ -62,9 +64,9 @@ storiesOf("NavigationBar (React)", module)
         </div>
       </Menu>
     </NavigationBar>
-  ))
+  );
 
-  .add("Loading", () => (
+export const Loading = () => (
     <NavigationBar loading>
       <Link text="Home" href="/" active />
       <Link
@@ -98,9 +100,9 @@ storiesOf("NavigationBar (React)", module)
         </div>
       </Menu>
     </NavigationBar>
-  ))
+  );
 
-  .add("Kaizen Colors", () => (
+export const KaizenColors = () => (
     <NavigationBar colorScheme="kaizen">
       <Link text="Home" href="/" active />
       <Link text="Guidelines" href="/" />
@@ -121,6 +123,6 @@ storiesOf("NavigationBar (React)", module)
         ]}
       />
     </NavigationBar>
-  ))
+  );
 
-  .add("Empty", () => <NavigationBar />)
+export const Empty = () => <NavigationBar />;

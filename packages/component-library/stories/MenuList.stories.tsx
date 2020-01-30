@@ -1,5 +1,4 @@
 import { action } from "@storybook/addon-actions"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 import {
@@ -11,8 +10,11 @@ import {
 const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
   .default
 
-storiesOf("MenuList (React)", module)
-  .add("Default", () => (
+export default {
+  title: 'MenuList (React)',
+};
+
+export const Default = () => (
     <MenuList>
       <MenuHeader title="Contextual Select Menu" />
       <MenuItem
@@ -86,8 +88,9 @@ storiesOf("MenuList (React)", module)
         Destructive Action label
       </MenuItem>
     </MenuList>
-  ))
-  .add("Simple List", () => (
+  );
+
+export const SimpleList = () => (
     <MenuList>
       <MenuItem
         action={(e: any) => {
@@ -127,4 +130,4 @@ storiesOf("MenuList (React)", module)
         Action label
       </MenuItem>
     </MenuList>
-  ))
+  );

@@ -2,49 +2,75 @@ import { IconButton } from "@kaizen/component-library"
 const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
   .default
 import { action } from "@storybook/addon-actions"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-storiesOf("IconButton (React)", module)
-  .add("Default", () => (
+export default {
+  title: 'IconButton (React)',
+};
+
+export const Default = () => (
     <IconButton icon={configureIcon} label="Label" automationId="demo-button" />
-  ))
-  .add("Hyperlink", () => (
+  );
+
+export const Hyperlink = () => (
     <IconButton icon={configureIcon} label="Label" href="//example.com" />
-  ))
-  .add("Hyperlink w/ onClick", () => (
+  );
+
+export const HyperlinkWOnClick = () => (
     <IconButton
       icon={configureIcon}
       label="Label"
       href="//example.com"
       onClick={action("I am an onClick handler")}
     />
-  ))
-  .add("Disabled", () => (
+  );
+
+HyperlinkWOnClick.story = {
+  name: 'Hyperlink w/ onClick',
+};
+
+export const Disabled = () => (
     <IconButton icon={configureIcon} label="Label" disabled={true} />
-  ))
-  .add("Destructive", () => (
+  );
+
+export const Destructive = () => (
     <IconButton icon={configureIcon} label="Label" destructive={true} />
-  ))
-  .add("Destructive, Disabled", () => (
+  );
+
+export const DestructiveDisabled = () => (
     <IconButton
       icon={configureIcon}
       label="Label"
       destructive={true}
       disabled={true}
     />
-  ))
-  .add("Reversed", () => (
+  );
+
+DestructiveDisabled.story = {
+  name: 'Destructive, Disabled',
+};
+
+export const Reversed = () => (
     <IconButton icon={configureIcon} label="Label" reversed />
-  ))
-  .add("Reversed, Disabled", () => (
+  );
+
+export const ReversedDisabled = () => (
     <IconButton
       icon={configureIcon}
       label="Label"
       reversed={true}
       disabled={true}
     />
-  ))
-  .add("Form (discouraged)", () => (
+  );
+
+ReversedDisabled.story = {
+  name: 'Reversed, Disabled',
+};
+
+export const FormDiscouraged = () => (
     <IconButton icon={configureIcon} label="Label" form={true} />
-  ))
+  );
+
+FormDiscouraged.story = {
+  name: 'Form (discouraged)',
+};

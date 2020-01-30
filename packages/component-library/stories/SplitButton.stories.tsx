@@ -1,7 +1,6 @@
 import { MenuItem, MenuList } from "@kaizen/component-library"
 import { SplitButton } from "@kaizen/component-library/draft"
 import { action } from "@storybook/addon-actions"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 const duplicateIcon = require("@kaizen/component-library/icons/duplicate.icon.svg")
@@ -9,8 +8,11 @@ const duplicateIcon = require("@kaizen/component-library/icons/duplicate.icon.sv
 const editIcon = require("@kaizen/component-library/icons/edit.icon.svg")
   .default
 
-storiesOf("SplitButton (React)", module)
-  .add("Default (Kaizen Site Demo)", () => (
+export default {
+  title: 'SplitButton (React)',
+};
+
+export const DefaultKaizenSiteDemo = () => (
     <SplitButton
       label="Edit"
       onClick={() => action("Button clicked")}
@@ -38,8 +40,13 @@ storiesOf("SplitButton (React)", module)
       }
       dropdownAltText="Open menu"
     />
-  ))
-  .add("Disabled", () => (
+  );
+
+DefaultKaizenSiteDemo.story = {
+  name: 'Default (Kaizen Site Demo)',
+};
+
+export const Disabled = () => (
     <SplitButton
       label="Edit"
       onClick={() => action("Button clicked")}
@@ -59,8 +66,9 @@ storiesOf("SplitButton (React)", module)
       }
       dropdownAltText="Open menu"
     />
-  ))
-  .add("Anchor link", () => (
+  );
+
+export const AnchorLink = () => (
     <SplitButton
       label="Edit"
       href="//example.com"
@@ -79,8 +87,13 @@ storiesOf("SplitButton (React)", module)
       }
       dropdownAltText="Open menu"
     />
-  ))
-  .add("RTL", () => (
+  );
+
+AnchorLink.story = {
+  name: 'Anchor link',
+};
+
+export const Rtl = () => (
     <SplitButton
       label="Edit"
       onClick={() => action("Button clicked")}
@@ -109,4 +122,8 @@ storiesOf("SplitButton (React)", module)
       dir="rtl"
       dropdownAltText="Open menu"
     />
-  ))
+  );
+
+Rtl.story = {
+  name: 'RTL',
+};

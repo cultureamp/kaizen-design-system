@@ -1,5 +1,4 @@
 import { Radio } from "@kaizen/component-library/draft"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 const ExampleContent = () => (
@@ -48,8 +47,12 @@ class RadioFieldExample extends React.Component<Props> {
     )
   }
 }
-storiesOf("Radio (React)", module)
-  .add("Interactive (Kaizen Site Demo)", () => (
+
+export default {
+  title: 'Radio (React)',
+};
+
+export const InteractiveKaizenSiteDemo = () => (
     <RadioFieldExample
       render={({ selectedStatus, onChangeHandler }) => (
         <Radio
@@ -69,9 +72,13 @@ storiesOf("Radio (React)", module)
         />
       )}
     />
-  ))
+  );
 
-  .add("Unselected disabled", () => (
+InteractiveKaizenSiteDemo.story = {
+  name: 'Interactive (Kaizen Site Demo)',
+};
+
+export const UnselectedDisabled = () => (
     <Radio
       name="radio"
       id="radio-1"
@@ -82,9 +89,13 @@ storiesOf("Radio (React)", module)
     >
       <ExampleContent />
     </Radio>
-  ))
+  );
 
-  .add("Unselected default", () => (
+UnselectedDisabled.story = {
+  name: 'Unselected disabled',
+};
+
+export const UnselectedDefault = () => (
     <Radio
       name="radio"
       id="radio-1"
@@ -95,9 +106,13 @@ storiesOf("Radio (React)", module)
     >
       <ExampleContent />
     </Radio>
-  ))
+  );
 
-  .add("Selected default", () => (
+UnselectedDefault.story = {
+  name: 'Unselected default',
+};
+
+export const SelectedDefault = () => (
     <Radio
       name="radio"
       id="radio-1"
@@ -108,9 +123,13 @@ storiesOf("Radio (React)", module)
     >
       <ExampleContent />
     </Radio>
-  ))
+  );
 
-  .add("Selected disabled", () => (
+SelectedDefault.story = {
+  name: 'Selected default',
+};
+
+export const SelectedDisabled = () => (
     <Radio
       name="radio"
       id="radio-1"
@@ -121,9 +140,13 @@ storiesOf("Radio (React)", module)
     >
       <ExampleContent />
     </Radio>
-  ))
+  );
 
-  .add("RTL", () => (
+SelectedDisabled.story = {
+  name: 'Selected disabled',
+};
+
+export const Rtl = () => (
     <div dir="rtl">
       <Radio
         name="radio"
@@ -136,4 +159,8 @@ storiesOf("Radio (React)", module)
         <ExampleContent />
       </Radio>
     </div>
-  ))
+  );
+
+Rtl.story = {
+  name: 'RTL',
+};

@@ -1,6 +1,5 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 import { action } from "@storybook/addon-actions"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 import { Button } from "../"
 import { Text } from "../"
@@ -44,8 +43,11 @@ class ModalStateContainer extends React.Component<
   }
 }
 
-storiesOf("Modal (React)", module)
-  .add("Confirmation (positive) (Kaizen Site Demo)", () => (
+export default {
+  title: 'Modal (React)',
+};
+
+export const ConfirmationPositiveKaizenSiteDemo = () => (
     <ModalStateContainer isInitiallyOpen={true}>
       {({ open, close, isOpen }) => (
         <div>
@@ -66,9 +68,13 @@ storiesOf("Modal (React)", module)
         </div>
       )}
     </ModalStateContainer>
-  ))
+  );
 
-  .add("Confirmation (informative)", () => (
+ConfirmationPositiveKaizenSiteDemo.story = {
+  name: 'Confirmation (positive) (Kaizen Site Demo)',
+};
+
+export const ConfirmationInformative = () => (
     <ModalStateContainer isInitiallyOpen={true}>
       {({ open, close, isOpen }) => (
         <div>
@@ -89,9 +95,13 @@ storiesOf("Modal (React)", module)
         </div>
       )}
     </ModalStateContainer>
-  ))
+  );
 
-  .add("Confirmation (cautionary)", () => (
+ConfirmationInformative.story = {
+  name: 'Confirmation (informative)',
+};
+
+export const ConfirmationCautionary = () => (
     <ModalStateContainer isInitiallyOpen={true}>
       {({ open, close, isOpen }) => (
         <div>
@@ -112,9 +122,13 @@ storiesOf("Modal (React)", module)
         </div>
       )}
     </ModalStateContainer>
-  ))
+  );
 
-  .add("Confirmation (negative)", () => (
+ConfirmationCautionary.story = {
+  name: 'Confirmation (cautionary)',
+};
+
+export const ConfirmationNegative = () => (
     <ModalStateContainer isInitiallyOpen={true}>
       {({ open, close, isOpen }) => (
         <div>
@@ -135,9 +149,13 @@ storiesOf("Modal (React)", module)
         </div>
       )}
     </ModalStateContainer>
-  ))
+  );
 
-  .add("Input-edit (positive)", () => (
+ConfirmationNegative.story = {
+  name: 'Confirmation (negative)',
+};
+
+export const InputEditPositive = () => (
     <ModalStateContainer isInitiallyOpen={true}>
       {({ open, close, isOpen }) => (
         <div>
@@ -186,9 +204,13 @@ storiesOf("Modal (React)", module)
         </div>
       )}
     </ModalStateContainer>
-  ))
+  );
 
-  .add("Input-edit (positive, rtl locale)", () => (
+InputEditPositive.story = {
+  name: 'Input-edit (positive)',
+};
+
+export const InputEditPositiveRtlLocale = () => (
     <ModalStateContainer isInitiallyOpen={true}>
       {({ open, close, isOpen }) => (
         <div>
@@ -238,9 +260,13 @@ storiesOf("Modal (React)", module)
         </div>
       )}
     </ModalStateContainer>
-  ))
+  );
 
-  .add("Input-edit (negative)", () => (
+InputEditPositiveRtlLocale.story = {
+  name: 'Input-edit (positive, rtl locale)',
+};
+
+export const InputEditNegative = () => (
     <ModalStateContainer isInitiallyOpen={true}>
       {({ open, close, isOpen }) => (
         <div>
@@ -289,9 +315,13 @@ storiesOf("Modal (React)", module)
         </div>
       )}
     </ModalStateContainer>
-  ))
+  );
 
-  .add("Information (with action)", () => (
+InputEditNegative.story = {
+  name: 'Input-edit (negative)',
+};
+
+export const InformationWithAction = () => (
     <ModalStateContainer isInitiallyOpen={true}>
       {({ open, close, isOpen }) => (
         <div>
@@ -332,9 +362,13 @@ storiesOf("Modal (React)", module)
         </div>
       )}
     </ModalStateContainer>
-  ))
+  );
 
-  .add("Information (without action)", () => (
+InformationWithAction.story = {
+  name: 'Information (with action)',
+};
+
+export const InformationWithoutAction = () => (
     <ModalStateContainer isInitiallyOpen={true}>
       {({ open, close, isOpen }) => (
         <div>
@@ -374,9 +408,13 @@ storiesOf("Modal (React)", module)
         </div>
       )}
     </ModalStateContainer>
-  ))
+  );
 
-  .add("Information (with background)", () => (
+InformationWithoutAction.story = {
+  name: 'Information (without action)',
+};
+
+export const InformationWithBackground = () => (
     <ModalStateContainer isInitiallyOpen={true}>
       {({ open, close, isOpen }) => (
         <div>
@@ -421,9 +459,13 @@ storiesOf("Modal (React)", module)
         </div>
       )}
     </ModalStateContainer>
-  ))
+  );
 
-  .add("Generic modal (padded)", () => (
+InformationWithBackground.story = {
+  name: 'Information (with background)',
+};
+
+export const GenericModalPadded = () => (
     <>
       <ModalStateContainer isInitiallyOpen={true}>
         {({ open, close, isOpen }) => (
@@ -462,9 +504,13 @@ storiesOf("Modal (React)", module)
         )}
       </ModalStateContainer>
     </>
-  ))
+  );
 
-  .add("Generic modal (unpadded)", () => (
+GenericModalPadded.story = {
+  name: 'Generic modal (padded)',
+};
+
+export const GenericModalUnpadded = () => (
     <>
       <ModalStateContainer isInitiallyOpen={true}>
         {({ open, close, isOpen }) => (
@@ -504,9 +550,13 @@ storiesOf("Modal (React)", module)
         )}
       </ModalStateContainer>
     </>
-  ))
+  );
 
-  .add("Generic modal (without action)", () => (
+GenericModalUnpadded.story = {
+  name: 'Generic modal (unpadded)',
+};
+
+export const GenericModalWithoutAction = () => (
     <>
       <ModalStateContainer isInitiallyOpen={true}>
         {({ open, close, isOpen }) => (
@@ -535,9 +585,13 @@ storiesOf("Modal (React)", module)
         )}
       </ModalStateContainer>
     </>
-  ))
+  );
 
-  .add("Test - scrolling modal and scrolling content", () => (
+GenericModalWithoutAction.story = {
+  name: 'Generic modal (without action)',
+};
+
+export const TestScrollingModalAndScrollingContent = () => (
     <>
       <ModalStateContainer isInitiallyOpen={false}>
         {({ open, close, isOpen }) => (
@@ -564,7 +618,11 @@ storiesOf("Modal (React)", module)
         )}
       </ModalStateContainer>
     </>
-  ))
+  );
+
+TestScrollingModalAndScrollingContent.story = {
+  name: 'Test - scrolling modal and scrolling content',
+};
 
 loadElmStories("Modal (Elm)", module, require("./ModalStories.elm"), [
   "Generic",

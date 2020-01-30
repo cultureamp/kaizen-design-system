@@ -1,11 +1,13 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 import { InlineNotification } from "@kaizen/component-library"
 
-storiesOf("InlineNotification (React)", module)
-  .add("Dismissible, Positive (Kaizen Site Demo)", () => (
+export default {
+  title: 'InlineNotification (React)',
+};
+
+export const DismissiblePositiveKaizenSiteDemo = () => (
     <InlineNotification
       type="affirmative"
       title="Success!"
@@ -14,8 +16,13 @@ storiesOf("InlineNotification (React)", module)
       New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
       <a href="/">Manage users is now available</a>
     </InlineNotification>
-  ))
-  .add("Dismissible, Positive, Autohide", () => (
+  );
+
+DismissiblePositiveKaizenSiteDemo.story = {
+  name: 'Dismissible, Positive (Kaizen Site Demo)',
+};
+
+export const DismissiblePositiveAutohide = () => (
     <InlineNotification
       type="affirmative"
       title="Success!"
@@ -25,8 +32,13 @@ storiesOf("InlineNotification (React)", module)
       New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
       <a href="/">Manage users is now available</a>
     </InlineNotification>
-  ))
-  .add("Dismissible, Positive, Autohide, Hide Close Icon", () => (
+  );
+
+DismissiblePositiveAutohide.story = {
+  name: 'Dismissible, Positive, Autohide',
+};
+
+export const DismissiblePositiveAutohideHideCloseIcon = () => (
     <InlineNotification
       type="affirmative"
       title="Success!"
@@ -37,8 +49,13 @@ storiesOf("InlineNotification (React)", module)
       New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
       <a href="/">Manage users is now available</a>
     </InlineNotification>
-  ))
-  .add("Dismissible, Informative", () => (
+  );
+
+DismissiblePositiveAutohideHideCloseIcon.story = {
+  name: 'Dismissible, Positive, Autohide, Hide Close Icon',
+};
+
+export const DismissibleInformative = () => (
     <InlineNotification
       type="informative"
       title="Informative"
@@ -47,8 +64,13 @@ storiesOf("InlineNotification (React)", module)
       New user data is currently being processed. We'll let you know when the
       process is completed. <a href="/">Manage users</a>
     </InlineNotification>
-  ))
-  .add("Dismissible, Cautionary", () => (
+  );
+
+DismissibleInformative.story = {
+  name: 'Dismissible, Informative',
+};
+
+export const DismissibleCautionary = () => (
     <InlineNotification
       type="cautionary"
       title="Warning"
@@ -57,8 +79,13 @@ storiesOf("InlineNotification (React)", module)
       New user data, imported by mackenzie@hooli.com has uploaded with some
       minor issues. <a href="/">View issues</a>
     </InlineNotification>
-  ))
-  .add("Dismissible, Negative", () => (
+  );
+
+DismissibleCautionary.story = {
+  name: 'Dismissible, Cautionary',
+};
+
+export const DismissibleNegative = () => (
     <InlineNotification
       type="negative"
       title="No network connection"
@@ -66,8 +93,13 @@ storiesOf("InlineNotification (React)", module)
     >
       Check your connection and try again. <a href="/">Refresh</a>.
     </InlineNotification>
-  ))
-  .add("Dismissible, Multiline", () => (
+  );
+
+DismissibleNegative.story = {
+  name: 'Dismissible, Negative',
+};
+
+export const DismissibleMultiline = () => (
     <InlineNotification
       type="negative"
       title="Error"
@@ -77,8 +109,13 @@ storiesOf("InlineNotification (React)", module)
       check your <a href="/">integration settings</a>, or if you require more
       assistance please <a href="/">contact support</a>.
     </InlineNotification>
-  ))
-  .add("Dismissible, Slim", () => (
+  );
+
+DismissibleMultiline.story = {
+  name: 'Dismissible, Multiline',
+};
+
+export const DismissibleSlim = () => (
     <InlineNotification
       type="affirmative"
       title="Success!"
@@ -86,9 +123,13 @@ storiesOf("InlineNotification (React)", module)
     >
       <a href="/">Manage users is now available</a>
     </InlineNotification>
-  ))
+  );
 
-  .add("Persistent, Positive", () => (
+DismissibleSlim.story = {
+  name: 'Dismissible, Slim',
+};
+
+export const PersistentPositive = () => (
     <InlineNotification
       type="affirmative"
       title="Success!"
@@ -98,8 +139,13 @@ storiesOf("InlineNotification (React)", module)
       New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
       <a href="/">Manage users is now available</a>
     </InlineNotification>
-  ))
-  .add("Persistent, Informative", () => (
+  );
+
+PersistentPositive.story = {
+  name: 'Persistent, Positive',
+};
+
+export const PersistentInformative = () => (
     <InlineNotification
       type="informative"
       title="Informative"
@@ -109,8 +155,13 @@ storiesOf("InlineNotification (React)", module)
       New user data is currently being processed. We'll let you know when the
       process is completed. <a href="/">Manage users</a>
     </InlineNotification>
-  ))
-  .add("Persistent, Cautionary", () => (
+  );
+
+PersistentInformative.story = {
+  name: 'Persistent, Informative',
+};
+
+export const PersistentCautionary = () => (
     <InlineNotification
       type="cautionary"
       title="Warning"
@@ -120,8 +171,13 @@ storiesOf("InlineNotification (React)", module)
       New user data, imported by mackenzie@hooli.com has uploaded with some
       minor issues. <a href="/">View issues</a>
     </InlineNotification>
-  ))
-  .add("Persistent, Negative", () => (
+  );
+
+PersistentCautionary.story = {
+  name: 'Persistent, Cautionary',
+};
+
+export const PersistentNegative = () => (
     <InlineNotification
       type="negative"
       title="No network connection"
@@ -129,9 +185,13 @@ storiesOf("InlineNotification (React)", module)
     >
       Check your connection and try again. <a href="/">Refresh</a>.
     </InlineNotification>
-  ))
+  );
 
-  .add("Persistent, Multiline", () => (
+PersistentNegative.story = {
+  name: 'Persistent, Negative',
+};
+
+export const PersistentMultiline = () => (
     <InlineNotification
       type="negative"
       title="Error"
@@ -142,9 +202,13 @@ storiesOf("InlineNotification (React)", module)
       check your <a href="/">integration settings</a>, or if you require more
       assistance please <a href="/">contact support</a>.
     </InlineNotification>
-  ))
+  );
 
-  .add("Persistent, Slim", () => (
+PersistentMultiline.story = {
+  name: 'Persistent, Multiline',
+};
+
+export const PersistentSlim = () => (
     <InlineNotification
       type="affirmative"
       title="Success!"
@@ -153,9 +217,13 @@ storiesOf("InlineNotification (React)", module)
     >
       <a href="/">Manage users is now available</a>
     </InlineNotification>
-  ))
+  );
 
-  .add("Multiple Notification", () => (
+PersistentSlim.story = {
+  name: 'Persistent, Slim',
+};
+
+export const MultipleNotification = () => (
     <div
       style={{
         width: "100%",
@@ -193,7 +261,8 @@ storiesOf("InlineNotification (React)", module)
         Check your connection and try again. <a href="/">Refresh</a>.
       </InlineNotification>
     </div>
-  ))
+  );
+
 loadElmStories(
   "InlineNotification (Elm)",
   module,

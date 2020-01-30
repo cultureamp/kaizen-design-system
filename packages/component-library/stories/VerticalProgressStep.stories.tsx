@@ -1,5 +1,4 @@
 import { VerticalProgressStep } from "@kaizen/component-library/draft"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => (
@@ -15,8 +14,11 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => (
   </div>
 )
 
-storiesOf("VerticalProgressStep (React)", module)
-  .add("current step actionable", () => (
+export default {
+  title: 'VerticalProgressStep (React)',
+};
+
+export const CurrentStepActionable = () => (
     <StoryContainer>
       <VerticalProgressStep.CurrentStep
         name="Stop!"
@@ -27,8 +29,13 @@ storiesOf("VerticalProgressStep (React)", module)
         <p>Click here to commence the Stop!</p>
       </VerticalProgressStep.CurrentStep>
     </StoryContainer>
-  ))
-  .add("current step started", () => (
+  );
+
+CurrentStepActionable.story = {
+  name: 'current step actionable',
+};
+
+export const CurrentStepStarted = () => (
     <StoryContainer>
       <VerticalProgressStep.CurrentStep
         name="Stop!"
@@ -39,18 +46,32 @@ storiesOf("VerticalProgressStep (React)", module)
         <p>Stopping...</p>
       </VerticalProgressStep.CurrentStep>
     </StoryContainer>
-  ))
-  .add("upcoming step", () => (
+  );
+
+CurrentStepStarted.story = {
+  name: 'current step started',
+};
+
+export const _UpcomingStep = () => (
     <StoryContainer>
       <VerticalProgressStep.UpcomingStep name="Collaborate!" position="middle">
         <p>Only once you have stopped may you collaborate</p>
       </VerticalProgressStep.UpcomingStep>
     </StoryContainer>
-  ))
-  .add("completed step", () => (
+  );
+
+_UpcomingStep.story = {
+  name: 'upcoming step',
+};
+
+export const _CompletedStep = () => (
     <StoryContainer>
       <VerticalProgressStep.CompletedStep name="Listen!" position="end">
         <p>You have finished listening. Vanilla Ice is proud of you.</p>
       </VerticalProgressStep.CompletedStep>
     </StoryContainer>
-  ))
+  );
+
+_CompletedStep.story = {
+  name: 'completed step',
+};
