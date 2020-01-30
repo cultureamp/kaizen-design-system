@@ -66,6 +66,7 @@ type Duration
 type ConfirmationType
     = Informative
     | Positive
+    | Negative
 
 
 type alias ConfirmationConfig msg =
@@ -193,6 +194,20 @@ view (Config config) =
                         GenericModal.view GenericModal.Default
                             [ ConfirmationModal.view
                                 (ConfirmationModal.positive
+                                    |> withOnDismiss
+                                    |> withOnConfirm
+                                    |> withBodySubtext
+                                    |> ConfirmationModal.confirmLabel configs.confirmLabel
+                                    |> ConfirmationModal.dismissLabel configs.dismissLabel
+                                    |> ConfirmationModal.title configs.title
+                                )
+                            ]
+                            (genericModalConfig |> GenericModal.events genericModalEvents)
+
+                    Negative ->
+                        GenericModal.view GenericModal.Default
+                            [ ConfirmationModal.view
+                                (ConfirmationModal.negative
                                     |> withOnDismiss
                                     |> withOnConfirm
                                     |> withBodySubtext
