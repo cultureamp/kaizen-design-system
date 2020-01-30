@@ -1,9 +1,10 @@
-@import "~@cultureamp/kaizen-component-library/styles/layout";
-@import "~@cultureamp/kaizen-component-library/styles/border";
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/animation";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/animation";
 
-$heading-active-color: $ca-palette-ash;
+$heading-active-color: $kz-color-wisteria-100;
 
 .container {
   border: 1px solid $ca-border-color;

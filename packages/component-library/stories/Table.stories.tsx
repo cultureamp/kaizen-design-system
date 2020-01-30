@@ -1,4 +1,4 @@
-import { Text } from "@cultureamp/kaizen-component-library"
+import { Text } from "@kaizen/component-library"
 import {
   CheckboxField,
   TableCard,
@@ -8,21 +8,21 @@ import {
   TableHeaderRowCell,
   TableRow,
   TableRowCell,
-} from "@cultureamp/kaizen-component-library/draft"
+} from "@kaizen/component-library/draft"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 import { IconButton } from "../components"
 const styles = require("./Table.stories.scss")
 
-const commentIcon = require("@cultureamp/kaizen-component-library/icons/comment.icon.svg")
+const commentIcon = require("@kaizen/component-library/icons/comment.icon.svg")
   .default
-const chevronDownIcon = require("@cultureamp/kaizen-component-library/icons/chevron-down.icon.svg")
+const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
-const chevronUpIcon = require("@cultureamp/kaizen-component-library/icons/chevron-up.icon.svg")
+const chevronUpIcon = require("@kaizen/component-library/icons/chevron-up.icon.svg")
   .default
 
 const Container: React.FunctionComponent = ({ children }) => (
-  <div style={{ margin: "5rem auto", width: "100%", maxWidth: "60rem" }}>
+  <div style={{ margin: "1rem auto", width: "100%", maxWidth: "60rem" }}>
     {children}
   </div>
 )
@@ -106,8 +106,8 @@ const ExampleTableRow = ({
   </TableRow>
 )
 
-storiesOf("Table", module)
-  .add("Default", () => (
+storiesOf("Table (React)", module)
+  .add("Default (Kaizen Site Demo)", () => (
     <Container>
       <TableContainer>
         <TableHeader>
@@ -170,7 +170,7 @@ storiesOf("Table", module)
       </TableContainer>
     </Container>
   ))
-  .add("Expanded", () => {
+  .add("Expanded (deprecated)", () => {
     const [expandedId, setExpandedId] = React.useState<string | null>("second")
     const toggleExpanded = id => {
       if (expandedId === id) {
@@ -258,7 +258,7 @@ storiesOf("Table", module)
       </Container>
     )
   })
-  .add("Expanded with custom content", () => {
+  .add("Expanded with custom content (deprecated)", () => {
     const [expandedId, setExpandedId] = React.useState<string | null>("second")
     const toggleExpanded = id => {
       if (expandedId === id) {

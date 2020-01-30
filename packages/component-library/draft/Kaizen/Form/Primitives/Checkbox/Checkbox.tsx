@@ -1,7 +1,7 @@
-import { Icon } from "@cultureamp/kaizen-component-library"
-const checkIcon = require("@cultureamp/kaizen-component-library/icons/check.icon.svg")
+import { Icon } from "@kaizen/component-library"
+const checkIcon = require("@kaizen/component-library/icons/check.icon.svg")
   .default
-const minusIcon = require("@cultureamp/kaizen-component-library/icons/minus.icon.svg")
+const minusIcon = require("@kaizen/component-library/icons/minus.icon.svg")
   .default
 import classnames from "classnames"
 import * as React from "react"

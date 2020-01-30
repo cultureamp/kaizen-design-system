@@ -1,8 +1,5 @@
-import {
-  CheckboxField,
-  CheckboxGroup,
-} from "@cultureamp/kaizen-component-library/draft"
-import { Label } from "@cultureamp/kaizen-component-library/draft"
+import { CheckboxField, CheckboxGroup } from "@kaizen/component-library/draft"
+import { Label } from "@kaizen/component-library/draft"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 const styles = require("./CheckboxGroup.stories.scss")
@@ -44,8 +41,8 @@ export default class CheckboxGroupExample extends React.Component<Props> {
     )
   }
 }
-storiesOf("CheckboxGroup", module)
-  .add("Interactive", () => (
+storiesOf("CheckboxGroup (React)", module)
+  .add("Interactive (Kaizen Site Demo)", () => (
     <div>
       <CheckboxGroup labelText="Checkbox Group Label">
         <CheckboxGroupExample

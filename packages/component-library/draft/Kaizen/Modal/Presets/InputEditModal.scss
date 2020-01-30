@@ -1,6 +1,7 @@
-@import "~@cultureamp/kaizen-component-library/styles/border";
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/type";
 
 .modal {
   composes: genericModal from "../Primitives/GenericModal.scss";
@@ -9,14 +10,14 @@
 }
 
 .header {
-  color: $ca-palette-ink;
+  color: $kz-color-wisteria-800;
   padding: $ca-grid $ca-grid $ca-grid * 1.5;
   text-align: center;
   border-bottom: 1px solid $ca-border-color;
 }
 
 .body {
-  background: $ca-palette-stone;
+  background: $kz-color-stone;
   padding: $ca-grid $ca-grid $ca-grid * 1.5;
   border-bottom: 1px solid $ca-border-color;
 }

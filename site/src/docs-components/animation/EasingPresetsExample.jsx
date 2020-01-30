@@ -1,4 +1,4 @@
-import scssCode from "!raw-loader!@cultureamp/kaizen-component-library/styles/animations/_easings.scss"
+import scssCode from "!raw-loader!@kaizen/component-library/styles/animations/_easings.scss"
 import * as React from "react"
 import Code from "../Code"
 

@@ -3,7 +3,7 @@ import { createPortal } from "react-dom"
 import FocusLock from "react-focus-lock"
 const { CSSTransition } = require("react-transition-group")
 
-import { warn } from "@cultureamp/kaizen-component-library/util/console"
+import { warn } from "@kaizen/component-library/util/console"
 import { ID_DESCRIBEDBY, ID_LABELLEDBY } from "./constants"
 
 const styles = require("./GenericModal.scss")
@@ -59,11 +59,18 @@ class GenericModal extends React.Component<Props> {
   }
 
   preventBodyScroll() {
-    document.documentElement.classList.add(styles.unscrollable)
+    const hasScrollbar =
+      window.innerWidth > document.documentElement.clientWidth
+    document.documentElement.classList.add(
+      ...[styles.unscrollable, hasScrollbar && styles.pseudoScrollbar]
+    )
   }
 
   restoreBodyScroll() {
-    document.documentElement.classList.remove(styles.unscrollable)
+    document.documentElement.classList.remove(
+      styles.unscrollable,
+      styles.pseudoScrollbar
+    )
   }
 
   escapeKeyHandler = (event: KeyboardEvent) => {

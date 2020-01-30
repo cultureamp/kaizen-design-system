@@ -1,5 +1,5 @@
-import { Icon } from "@cultureamp/kaizen-component-library"
-const chevronRightIcon = require("@cultureamp/kaizen-component-library/icons/chevron-right.icon.svg")
+import { Icon } from "@kaizen/component-library"
+const chevronRightIcon = require("@kaizen/component-library/icons/chevron-right.icon.svg")
   .default
 import classNames from "classnames"
 import * as React from "react"

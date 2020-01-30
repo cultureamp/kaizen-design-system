@@ -1,10 +1,10 @@
-import { Icon } from "@cultureamp/kaizen-component-library"
+import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import * as React from "react"
 import wcag from "wcag-contrast-verifier/lib/wcag"
 import Palette from "./Palette"
 
-const successWhite = require("@cultureamp/kaizen-component-library/icons/success.icon.svg")
+const successWhite = require("@kaizen/component-library/icons/success.icon.svg")
   .default
 
 const styles = require("./ColorCard.scss")

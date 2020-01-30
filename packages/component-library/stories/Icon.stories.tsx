@@ -2,18 +2,23 @@ import { loadElmStories } from "@cultureamp/elm-storybook"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-import { Icon } from "@cultureamp/kaizen-component-library"
-const configureIcon = require("@cultureamp/kaizen-component-library/icons/configure.icon.svg")
+import { Icon } from "@kaizen/component-library"
+const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
   .default
 
-storiesOf("Icon", module)
-  .add("Meaningful", () => (
-    <Icon
-      icon={configureIcon}
-      title="Warning"
-      desc="Aliens approaching!"
-      role="img"
-    />
+storiesOf("Icon (React)", module)
+  .add("Meaningful (Kaizen Site Demo)", () => (
+    // the wrapper with the fixed with is to solve a problem when this is used
+    // as a site demo: the iframe was getting a height of 0px in Firefox
+    <div style={{ width: "20px" }}>
+      <Icon
+        icon={configureIcon}
+        title="Warning"
+        desc="Aliens approaching!"
+        role="img"
+        inheritSize={true}
+      />
+    </div>
   ))
   .add("Presentational", () => (
     <Icon icon={configureIcon} role="presentation" />
@@ -24,7 +29,7 @@ storiesOf("Icon", module)
     </div>
   ))
 
-loadElmStories("Icon(Elm)", module, require("./Icon.stories.elm"), [
+loadElmStories("Icon (Elm)", module, require("./Icon.stories.elm"), [
   "Meaningful",
   "Presentational",
   "Inherit Size",

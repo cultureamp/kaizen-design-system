@@ -1,4 +1,5 @@
-@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/type";
 
 .modalBody {
   padding: $ca-grid $ca-grid $ca-grid $ca-grid;
@@ -16,9 +17,9 @@
 }
 
 .white {
-  background-color: $white;
+  background-color: $kz-color-white;
 }
 
 .stone {
-  background-color: $ca-palette-stone;
+  background-color: $kz-color-stone;
 }

@@ -3,18 +3,18 @@ import { action } from "@storybook/addon-actions"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-import { TextField } from "@cultureamp/kaizen-component-library/draft"
-const lockIcon = require("@cultureamp/kaizen-component-library/icons/lock.icon.svg")
+import { TextField } from "@kaizen/component-library/draft"
+const lockIcon = require("@kaizen/component-library/icons/lock.icon.svg")
   .default
-const userIcon = require("@cultureamp/kaizen-component-library/icons/user.icon.svg")
+const userIcon = require("@kaizen/component-library/icons/user.icon.svg")
   .default
 
 const ExampleContainer: React.FunctionComponent = ({ children }) => (
-  <div style={{ width: "100%", margin: 10 }}>{children}</div>
+  <div style={{ width: "98%", margin: "1%" }}>{children}</div>
 )
 
-storiesOf("TextField", module)
-  .add("Default", () => (
+storiesOf("TextField (React)", module)
+  .add("Default (Kaizen Site Demo)", () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -34,7 +34,7 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Default w/ inline", () => (
+  .add("Default, Inline", () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -48,7 +48,7 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Default w/ Icon", () => (
+  .add("Default, Icon", () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -61,7 +61,7 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Default Disabled", () => (
+  .add("Default, Disabled", () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -74,7 +74,7 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Default Disabled w/ value", () => (
+  .add("Default, Disabled w/ value", () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -87,7 +87,7 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Default Disabled + Icon", () => (
+  .add("Default, Disabled + Icon", () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -101,7 +101,7 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Default w/ Success", () => (
+  .add("Default, Success", () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -114,7 +114,7 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Default w/ Success + Icon", () => (
+  .add("Default, Success + Icon", () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -128,7 +128,7 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Default w/ Error", () => (
+  .add("Default, Error", () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -142,7 +142,7 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Default w/ Error + Icon", () => (
+  .add("Default, Error + Icon", () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -156,12 +156,12 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Default Multiple Fields", () => (
+  .add("Default, Multiple Fields", () => (
     <ExampleContainer>
       <TextField
         id="email"
         inputType="email"
-        inputValue="rod.leviton@cultureamp.com"
+        inputValue="mackenzie@example.com"
         labelText="Email"
         placeholder="Please enter your email"
         onChange={action("user input")}
@@ -178,13 +178,13 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Default Multiple Fields w/ Error", () => (
+  .add("Default, Multiple Fields, Error", () => (
     <ExampleContainer>
       <TextField
         id="email"
         status="error"
         inputType="email"
-        inputValue="rod.leviton@cultureamp.com"
+        inputValue="mackenzie@example.com"
         labelText="Email"
         placeholder="Please enter your email"
         onChange={action("user input")}
@@ -217,7 +217,7 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Reversed w/ Icon", () => (
+  .add("Reversed, Icon", () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -231,7 +231,7 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Reversed Disabled", () => (
+  .add("Reversed, Disabled", () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -245,7 +245,7 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Reversed Disabled w/ value", () => (
+  .add("Reversed, Disabled w/ value", () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -259,7 +259,7 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Reversed Disabled + Icon", () => (
+  .add("Reversed, Disabled + Icon", () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -274,7 +274,7 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Reversed w/ Success", () => (
+  .add("Reversed,  Success", () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -288,7 +288,7 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Reversed w/ Success + Icon", () => (
+  .add("Reversed, Success + Icon", () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -304,7 +304,7 @@ storiesOf("TextField", module)
     </ExampleContainer>
   ))
 
-  .add("Reversed w/ Error", () => (
+  .add("Reversed, Error", () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -319,7 +319,7 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Reversed w/ Error + Icon", () => (
+  .add("Reversed, Error + Icon", () => (
     <ExampleContainer>
       <TextField
         id="email"
@@ -335,12 +335,12 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Reversed Multiple Fields", () => (
+  .add("Reversed, Multiple Fields", () => (
     <ExampleContainer>
       <TextField
         id="email"
         inputType="email"
-        inputValue="rod.leviton@cultureamp.com"
+        inputValue="mackenzie@example.com"
         labelText="Email"
         placeholder="Please enter your email"
         onChange={action("user input")}
@@ -359,13 +359,13 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Reversed Multiple Fields w/ Error", () => (
+  .add("Reversed, Multiple Fields w/ Error", () => (
     <ExampleContainer>
       <TextField
         id="email"
         status="error"
         inputType="email"
-        inputValue="rod.leviton@cultureamp.com"
+        inputValue="mackenzie@example.com"
         labelText="Email"
         placeholder="Please enter your email"
         onChange={action("user input")}
@@ -387,7 +387,7 @@ storiesOf("TextField", module)
       />
     </ExampleContainer>
   ))
-  .add("Default with Focus/Blur events", () => (
+  .add("Default, Focus/Blur events", () => (
     <ExampleContainer>
       <TextField
         id="email"

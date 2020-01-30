@@ -1,11 +1,12 @@
-@import "~@cultureamp/kaizen-component-library/draft/Kaizen/Form/Primitives/Input/styles.scss";
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/draft/Kaizen/Form/Primitives/Input/styles.scss";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/type";
 
 @mixin base-font-style() {
   @include ca-type-ideal-body-bold;
   @include ca-inherit-baseline;
-  color: $ca-palette-ink;
+  color: $kz-color-wisteria-800;
 }
 
 .container {
@@ -43,15 +44,15 @@
   }
 
   .focusedOption {
-    background-color: add-tint($ca-palette-ink, 95%);
+    background-color: $kz-color-ash;
 
     &:active {
-      background-color: add-tint($ca-palette-ink, 95%);
+      background-color: $kz-color-ash;
     }
   }
 
   .selectedOption {
-    background-color: add-tint($ca-palette-ocean, 90%);
+    background-color: $kz-color-cluny-100;
   }
 
   .noOptionsMessage {
@@ -65,7 +66,7 @@
   .multiValue {
     @include ca-type-ideal-small-bold;
     @include ca-inherit-baseline;
-    color: $ca-palette-ink;
+    color: $kz-color-wisteria-800;
     border-radius: 15px;
     padding: $ca-grid * 0.075 $ca-grid * 0.25;
     cursor: default;

@@ -1,6 +1,7 @@
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/type";
-@import "~@cultureamp/kaizen-component-library/components/Button/styles";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/components/Button/styles";
 
 .step {
   padding: $ca-grid * 0.5;
@@ -17,7 +18,7 @@
   width: 100%;
 
   &:hover {
-    background: add-tint($ca-palette-ink, 90%);
+    background: $kz-color-wisteria-100;
   }
 
   :global(.js-focus-visible) & {
@@ -28,13 +29,13 @@
 
     // show custom focus ring when :focus-visible
     &:global(.focus-visible) {
-      outline: $caButton-focus-border-width solid $ca-palette-ocean;
+      outline: $caButton-focus-border-width solid $kz-color-cluny-500;
     }
   }
 }
 
 .actionable {
-  color: $ca-palette-ocean;
+  color: $kz-color-cluny-500;
 
   &:hover {
     text-decoration: underline;

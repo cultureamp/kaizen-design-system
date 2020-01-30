@@ -1,7 +1,7 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
-import { Text } from "@cultureamp/kaizen-component-library"
-import { TextField } from "@cultureamp/kaizen-component-library/draft"
-import { Well } from "@cultureamp/kaizen-component-library/draft"
+import { Text } from "@kaizen/component-library"
+import { TextField } from "@kaizen/component-library/draft"
+import { Well } from "@kaizen/component-library/draft"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
@@ -21,8 +21,8 @@ const ExampleContent = () => (
   </div>
 )
 
-storiesOf("Well", module)
-  .add("Default with solid border", () => (
+storiesOf("Well (React)", module)
+  .add("Default with solid border (Kaizen Site Demo)", () => (
     <Well>
       <ExampleContent />
     </Well>
@@ -68,7 +68,7 @@ storiesOf("Well", module)
     </Well>
   ))
 
-loadElmStories("Well(Elm)", module, require("./Well.stories.elm"), [
+loadElmStories("Well (Elm)", module, require("./Well.stories.elm"), [
   "Default with solid border",
   "Default with dashed border",
   "Default without border",

@@ -1,5 +1,5 @@
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/type";
 
 // TODO: update references to style sheets
 
@@ -24,7 +24,7 @@
   margin: 0;
   padding: 0;
   border: none;
-  composes: interactiveIconWrapper from "@cultureamp/kaizen-component-library/components/Icon/Icon.module.scss";
+  composes: interactiveIconWrapper from "@kaizen/component-library/components/Icon/Icon.module.scss";
   color: $ca-palette-ink;
   display: flex;
   width: 100%;
@@ -99,7 +99,7 @@ $accessibilityTileWidth: 46px;
   padding-top: calc(#{$ca-grid / 2} + #{$bottomMargin / 2});
   padding-bottom: calc(#{$ca-grid / 2} - #{$bottomMargin / 2});
 
-  composes: kebabHoverArea from "@cultureamp/kaizen-component-library/components/Dropdown/Dropdown.module.scss";
+  composes: kebabHoverArea from "@kaizen/component-library/components/Dropdown/Dropdown.module.scss";
 
   display: flex;
   flex-direction: row;

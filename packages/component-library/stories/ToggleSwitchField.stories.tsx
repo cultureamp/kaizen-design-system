@@ -23,7 +23,14 @@ class ToggleStateContainer extends React.Component<
   }
   render() {
     return (
-      <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "0.2rem",
+        }}
+      >
         {this.props.children({
           toggledStatus: this.state.toggledStatus,
           toggle: this.toggle,
@@ -37,8 +44,8 @@ const RtlContainer = ({ children }: { children: React.ReactNode }) => (
   <div dir="rtl">{children}</div>
 )
 
-storiesOf("ToggleSwitchField", module)
-  .add("On", () => (
+storiesOf("ToggleSwitchField (React)", module)
+  .add("On (Kaizen Site Demo)", () => (
     <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
       {({ toggledStatus, toggle }) => (
         <ToggleSwitchField

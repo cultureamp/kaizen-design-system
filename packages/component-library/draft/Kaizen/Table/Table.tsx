@@ -1,10 +1,10 @@
-import { Icon, Text } from "@cultureamp/kaizen-component-library"
-import { Checkbox } from "@cultureamp/kaizen-component-library/draft"
+import { Icon, Text } from "@kaizen/component-library"
+import { Checkbox } from "@kaizen/component-library/draft"
 import classNames from "classnames"
 import * as React from "react"
 import { CheckedStatus } from "../Form"
 const styles = require("./styles.scss")
-const sortDescendingIcon = require("@cultureamp/kaizen-component-library/icons/sort-descending.icon.svg")
+const sortDescendingIcon = require("@kaizen/component-library/icons/sort-descending.icon.svg")
   .default
 
 type TableContainer = React.FunctionComponent

@@ -1,10 +1,10 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
-import { Popover } from "@cultureamp/kaizen-component-library/draft"
+import { Popover } from "@kaizen/component-library/draft"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-storiesOf("Popover", module)
-  .add("Default", () => (
+storiesOf("Popover (React)", module)
+  .add("Default (Kaizen Site Demo)", () => (
     <Popover heading="Default">
       Popover body that explains something useful, is optional, and not critical
       to completing a task.

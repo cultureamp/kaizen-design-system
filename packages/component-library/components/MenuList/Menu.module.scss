@@ -1,15 +1,16 @@
+@import "~@kaizen/design-tokens/sass/color";
 @import "../../styles/type";
 @import "../../styles/color";
 @import "../../styles/border";
 @import "../../styles/layers";
 @import "../../styles/animation";
-@import "~@cultureamp/kaizen-component-library/styles/layout";
+@import "~@kaizen/component-library/styles/layout";
 
 $side-padding: 3/4 * $ca-grid;
 
 .menuList {
   background: #fff;
-  border: 1px solid add-tint($ca-palette-ink, 80%);
+  border: 1px solid $kz-color-wisteria-200;
   box-shadow: $ca-box-shadow;
   line-height: 40px;
 }
@@ -17,7 +18,7 @@ $side-padding: 3/4 * $ca-grid;
 .header {
   padding: 10px $side-padding;
   text-align: left;
-  color: add-alpha($ca-palette-ink, 40%);
+  color: add-alpha($kz-color-wisteria-800, 40%);
   border-bottom: $ca-border-color 1px solid;
 }
 
@@ -32,7 +33,7 @@ $side-padding: 3/4 * $ca-grid;
   @include ca-inherit-baseline;
   composes: interactiveIconWrapper from "../Icon/Icon.module.scss";
   background: transparent;
-  color: $ca-palette-ink;
+  color: $kz-color-wisteria-800;
   cursor: pointer;
   text-align: left;
 
@@ -51,13 +52,13 @@ $side-padding: 3/4 * $ca-grid;
   &.menuItem--active,
   &:hover,
   &:focus {
-    background: $ca-palette-stone;
-    color: $ca-palette-ocean;
+    background: $kz-color-stone;
+    color: $kz-color-cluny-500;
     // override Murmur global styles :(
     text-decoration: none;
 
     .menuItem__Icon {
-      color: $ca-palette-ocean;
+      color: $kz-color-cluny-500;
     }
   }
 }
@@ -67,9 +68,9 @@ $side-padding: 3/4 * $ca-grid;
 }
 
 .menuItem--destructive {
-  color: add-shade($ca-palette-coral, 20%);
+  color: $kz-color-coral-600;
   .menuItem__Icon {
-    color: add-shade($ca-palette-coral, 20%);
+    color: $kz-color-coral-600;
   }
 }
 
@@ -83,7 +84,7 @@ $side-padding: 3/4 * $ca-grid;
 
 .menuItem__Icon {
   text-align: right;
-  color: $ca-palette-ink;
+  color: $kz-color-wisteria-800;
   position: relative;
   top: 3px;
 
@@ -101,7 +102,7 @@ $side-padding: 3/4 * $ca-grid;
   height: 1px;
   width: 100%;
   border: 0;
-  background: add-tint($ca-palette-ink, 80%);
+  background: $kz-color-wisteria-200;
   visibility: visible;
   margin: 5px 0;
 }

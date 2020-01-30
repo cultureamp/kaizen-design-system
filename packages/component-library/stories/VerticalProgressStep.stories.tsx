@@ -1,4 +1,4 @@
-import { VerticalProgressStep } from "@cultureamp/kaizen-component-library/draft"
+import { VerticalProgressStep } from "@kaizen/component-library/draft"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
@@ -15,7 +15,7 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => (
   </div>
 )
 
-storiesOf("VerticalProgressStep", module)
+storiesOf("VerticalProgressStep (React)", module)
   .add("current step actionable", () => (
     <StoryContainer>
       <VerticalProgressStep.CurrentStep

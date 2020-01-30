@@ -1,9 +1,9 @@
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/animation";
-@import "~@cultureamp/kaizen-component-library/styles/layout";
-@import "~@cultureamp/kaizen-component-library/styles/type";
-@import "~@cultureamp/kaizen-component-library/styles/utils";
-@import "~@cultureamp/kaizen-component-library/styles/mixins/forms";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/utils";
+@import "~@kaizen/component-library/styles/mixins/forms";
 
 // -----------------------------------------------
 // Text Field
@@ -26,7 +26,7 @@
 ///////////////////////////////////////////////////
 
 .success {
-  @include input-icon($ca-palette-positive, $white);
+  @include input-icon($ca-palette-positive, $kz-color-white);
   @include ca-animation-fade(in);
 }
 

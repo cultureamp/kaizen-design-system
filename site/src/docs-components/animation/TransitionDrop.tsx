@@ -5,7 +5,7 @@ import {
   MenuList,
   MenuSeparator,
   Text,
-} from "@cultureamp/kaizen-component-library"
+} from "@kaizen/component-library"
 import classnames from "classnames"
 import * as React from "react"
 import Drop from "./Drop"

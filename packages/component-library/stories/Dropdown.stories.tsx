@@ -1,8 +1,8 @@
-const caMonogramIcon = require("@cultureamp/kaizen-component-library/icons/ca-monogram.icon.svg")
+const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
   .default
-const kebabIcon = require("@cultureamp/kaizen-component-library/icons/kebab.icon.svg")
+const kebabIcon = require("@kaizen/component-library/icons/kebab.icon.svg")
   .default
-const printIcon = require("@cultureamp/kaizen-component-library/icons/print.icon.svg")
+const printIcon = require("@kaizen/component-library/icons/print.icon.svg")
   .default
 import { action } from "@storybook/addon-actions"
 import { storiesOf } from "@storybook/react"
@@ -14,7 +14,7 @@ import {
   MenuItem,
   MenuList,
   MenuSeparator,
-} from "@cultureamp/kaizen-component-library"
+} from "@kaizen/component-library"
 
 const Menu: React.FunctionComponent = () => (
   <MenuList>
@@ -60,7 +60,7 @@ const Menu: React.FunctionComponent = () => (
     <MenuItem action="https://www.cultureamp.com/">Link label</MenuItem>
   </MenuList>
 )
-storiesOf("Dropdown", module)
+storiesOf("Dropdown (React)", module)
   .add("Default (Meatball)", () => (
     <Dropdown>
       <Menu />

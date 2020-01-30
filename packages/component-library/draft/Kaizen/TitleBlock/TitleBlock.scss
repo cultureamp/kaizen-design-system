@@ -1,10 +1,11 @@
-@import "~@cultureamp/kaizen-component-library/styles/border";
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/type";
-@import "~@cultureamp/kaizen-component-library/styles/layers";
-@import "~@cultureamp/kaizen-component-library/styles/layout";
-@import "~@cultureamp/kaizen-component-library/styles/responsive";
-@import "~@cultureamp/kaizen-component-library/styles/animation";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/layers";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/responsive";
+@import "~@kaizen/component-library/styles/animation";
 
 $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen colour theme and get this from tokens package
 
@@ -15,7 +16,7 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 .titleBlock {
   background-color: #fff;
   border-bottom: 1px solid $ca-border-color;
-  color: $ca-palette-ink;
+  color: $kz-color-wisteria-800;
   width: inherit;
 
   @media print {
@@ -115,8 +116,8 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
   flex: 0 0 40px;
   height: 40px;
   border-radius: 40px;
-  background-color: add-alpha($ca-palette-ocean, 10%);
-  color: $ca-palette-ocean;
+  background-color: add-alpha($kz-color-cluny-500, 10%);
+  color: $kz-color-cluny-500;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -124,7 +125,7 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 
   .breadcrumb:hover &,
   .breadcrumb:focus & {
-    background-color: $ca-palette-ocean;
+    background-color: $kz-color-cluny-500;
     color: #fff;
     transform: scale(1.1);
   }
@@ -255,7 +256,7 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
   flex: 1;
   align-items: stretch;
   height: 100%;
-  color: $ca-palette-ink;
+  color: $kz-color-wisteria-800;
   @include ca-margin($start: $ca-grid * 1.5);
 
   @include ca-media-mobile {
@@ -304,6 +305,8 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
   }
 
   .breadcrumb {
+    color: $kz-color-white;
+
     &:hover {
       .circle {
         background-color: add-alpha(#fff, 40%);
@@ -313,6 +316,7 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 
   .circle {
     background-color: add-alpha(#fff, 20%);
+    color: $kz-color-white;
   }
 
   .titleBlock {
@@ -331,12 +335,12 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 .reverseColorLapis {
   @include ca-media-tablet-and-up {
     .titleBlock {
-      background-color: $ca-palette-lapis;
+      background-color: $kz-color-wisteria-800;
     }
   }
   @include ca-media-mobile {
     .navContainer {
-      background-color: $ca-palette-lapis;
+      background-color: $kz-color-wisteria-800;
     }
   }
 }
@@ -344,12 +348,12 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 .reverseColorOcean {
   @include ca-media-tablet-and-up {
     .titleBlock {
-      background-color: $ca-palette-ocean;
+      background-color: $kz-color-cluny-500;
     }
   }
   @include ca-media-mobile {
     .navContainer {
-      background-color: $ca-palette-ocean;
+      background-color: $kz-color-cluny-500;
     }
   }
 }
@@ -357,12 +361,12 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 .reverseColorPeach {
   @include ca-media-tablet-and-up {
     .titleBlock {
-      background-color: $ca-palette-peach;
+      background-color: $kz-color-peach-500;
     }
   }
   @include ca-media-mobile {
     .navContainer {
-      background-color: $ca-palette-peach;
+      background-color: $kz-color-peach-500;
     }
   }
 }
@@ -370,12 +374,12 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 .reverseColorSeedling {
   @include ca-media-tablet-and-up {
     .titleBlock {
-      background-color: $ca-palette-seedling;
+      background-color: $kz-color-seedling-500;
     }
   }
   @include ca-media-mobile {
     .navContainer {
-      background-color: $ca-palette-seedling;
+      background-color: $kz-color-seedling-500;
     }
   }
 }
@@ -383,12 +387,12 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 .reverseColorWisteria {
   @include ca-media-tablet-and-up {
     .titleBlock {
-      background-color: $ca-palette-wisteria;
+      background-color: $kz-color-wisteria-700;
     }
   }
   @include ca-media-mobile {
     .navContainer {
-      background-color: $ca-palette-wisteria;
+      background-color: $kz-color-wisteria-500;
     }
   }
 }
@@ -396,12 +400,12 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 .reverseColorYuzu {
   @include ca-media-tablet-and-up {
     .titleBlock {
-      background-color: $ca-palette-yuzu;
+      background-color: $kz-color-yuzu-500;
     }
   }
   @include ca-media-mobile {
     .navContainer {
-      background-color: $ca-palette-yuzu;
+      background-color: $kz-color-yuzu-500;
     }
   }
 }
@@ -457,12 +461,12 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 .stickyColorLapis {
   @include ca-media-tablet-and-up {
     .titleBlock {
-      background-color: add-tint($ca-palette-lapis, 20%);
+      background-color: $kz-color-wisteria-600;
     }
   }
   @include ca-media-mobile {
     .navContainer {
-      background-color: add-tint($ca-palette-lapis, 20%);
+      background-color: $kz-color-wisteria-600;
     }
   }
 }
@@ -470,12 +474,12 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 .stickyColorOcean {
   @include ca-media-tablet-and-up {
     .titleBlock {
-      background-color: add-tint($ca-palette-ocean, 20%);
+      background-color: $kz-color-cluny-500;
     }
   }
   @include ca-media-mobile {
     .navContainer {
-      background-color: add-tint($ca-palette-ocean, 20%);
+      background-color: $kz-color-cluny-500;
     }
   }
 }
@@ -483,12 +487,12 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 .stickyColorPeach {
   @include ca-media-tablet-and-up {
     .titleBlock {
-      background-color: add-tint($ca-palette-peach, 20%);
+      background-color: $kz-color-peach-400;
     }
   }
   @include ca-media-mobile {
     .navContainer {
-      background-color: add-tint($ca-palette-peach, 20%);
+      background-color: $kz-color-peach-400;
     }
   }
 }
@@ -496,12 +500,12 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 .stickyColorSeedling {
   @include ca-media-tablet-and-up {
     .titleBlock {
-      background-color: add-tint($ca-palette-seedling, 20%);
+      background-color: $kz-color-seedling-400;
     }
   }
   @include ca-media-mobile {
     .navContainer {
-      background-color: add-tint($ca-palette-seedling, 20%);
+      background-color: $kz-color-seedling-400;
     }
   }
 }
@@ -522,12 +526,12 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 .stickyColorYuzu {
   @include ca-media-tablet-and-up {
     .titleBlock {
-      background-color: add-tint($ca-palette-yuzu, 20%);
+      background-color: $kz-color-yuzu-500;
     }
   }
   @include ca-media-mobile {
     .navContainer {
-      background-color: add-tint($ca-palette-yuzu, 20%);
+      background-color: $kz-color-yuzu-500;
     }
   }
 }

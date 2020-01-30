@@ -1,4 +1,4 @@
-import { Radio } from "@cultureamp/kaizen-component-library/draft"
+import { Radio } from "@kaizen/component-library/draft"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
@@ -48,8 +48,8 @@ class RadioFieldExample extends React.Component<Props> {
     )
   }
 }
-storiesOf("Radio", module)
-  .add("Interactive", () => (
+storiesOf("Radio (React)", module)
+  .add("Interactive (Kaizen Site Demo)", () => (
     <RadioFieldExample
       render={({ selectedStatus, onChangeHandler }) => (
         <Radio

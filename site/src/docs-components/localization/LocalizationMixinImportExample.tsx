@@ -4,8 +4,8 @@ import Code from "../Code"
 class LocalizationMixinImportExample extends React.PureComponent {
   render() {
     return (
-      <Code language="scss">{`@import '~@cultureamp/kaizen-component-library/styles/type';
-@import '~@cultureamp/kaizen-component-library/styles/layout';`}</Code>
+      <Code language="scss">{`@import '~@kaizen/component-library/styles/type';
+@import '~@kaizen/component-library/styles/layout';`}</Code>
     )
   }
 }

@@ -1,12 +1,12 @@
 import classnames from "classnames"
 import * as React from "react"
 
-import { Icon, Text } from "@cultureamp/kaizen-component-library"
-const information = require("@cultureamp/kaizen-component-library/icons/information.icon.svg")
+import { Icon, Text } from "@kaizen/component-library"
+const information = require("@kaizen/component-library/icons/information.icon.svg")
   .default
-const success = require("@cultureamp/kaizen-component-library/icons/success.icon.svg")
+const success = require("@kaizen/component-library/icons/success.icon.svg")
   .default
-const exclamation = require("@cultureamp/kaizen-component-library/icons/exclamation.icon.svg")
+const exclamation = require("@kaizen/component-library/icons/exclamation.icon.svg")
   .default
 
 import {

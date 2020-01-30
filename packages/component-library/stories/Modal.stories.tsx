@@ -44,8 +44,8 @@ class ModalStateContainer extends React.Component<
   }
 }
 
-storiesOf("Modal", module)
-  .add("Confirmation (positive)", () => (
+storiesOf("Modal (React)", module)
+  .add("Confirmation (positive) (Kaizen Site Demo)", () => (
     <ModalStateContainer isInitiallyOpen={true}>
       {({ open, close, isOpen }) => (
         <div>
@@ -164,7 +164,7 @@ storiesOf("Modal", module)
                 <TextField
                   id="email"
                   inputType="email"
-                  inputValue="rod.leviton@cultureamp.com"
+                  inputValue="mackenzie@example.com"
                   labelText="Email"
                   placeholder="Please enter your email"
                   onChange={action("user input")}
@@ -216,7 +216,7 @@ storiesOf("Modal", module)
                 <TextField
                   id="email"
                   inputType="email"
-                  inputValue="rod.leviton@cultureamp.com"
+                  inputValue="mackenzie@example.com"
                   labelText="Email"
                   placeholder="Please enter your email"
                   onChange={action("user input")}
@@ -267,7 +267,7 @@ storiesOf("Modal", module)
                 <TextField
                   id="email"
                   inputType="email"
-                  inputValue="rod.leviton@cultureamp.com"
+                  inputValue="mackenzie@example.com"
                   labelText="Email"
                   placeholder="Please enter your email"
                   onChange={action("user input")}
@@ -569,4 +569,6 @@ storiesOf("Modal", module)
 loadElmStories("Modal (Elm)", module, require("./ModalStories.elm"), [
   "Generic",
   "Confirmation (Informative)",
+  "Confirmation (Positive)",
+  "Confirmation (Negative)",
 ])

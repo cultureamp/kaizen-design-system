@@ -1,14 +1,11 @@
-import { Icon, Text } from "@cultureamp/kaizen-component-library"
-import {
-  Collapsible,
-  CollapsibleGroup,
-} from "@cultureamp/kaizen-component-library/draft"
+import { Icon, Text } from "@kaizen/component-library"
+import { Collapsible, CollapsibleGroup } from "@kaizen/component-library/draft"
 import { action } from "@storybook/addon-actions"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 const styles = require("./Collapsible.stories.scss")
-const translationIcon = require("@cultureamp/kaizen-component-library/icons/translation.icon.svg")
+const translationIcon = require("@kaizen/component-library/icons/translation.icon.svg")
   .default
 
 const ListItem = ({ children }: { children: JSX.Element }) => (
@@ -24,8 +21,8 @@ magna nisl, in cursus urna hendrerit et. Aenean semper, est non
 feugiat sodales, nisl ligula aliquet lorem, sit amet scelerisque
 arcu quam a sapien. Donec in viverra urna.`
 
-storiesOf("Collapsible", module)
-  .add("Single collapsible", () => (
+storiesOf("Collapsible (React)", module)
+  .add("Single collapsible (Kaizen Site Demo)", () => (
     <div style={{ margin: "1rem", width: "40rem" }}>
       <Collapsible id="collapsible-single" open title="Single collapsible">
         <Text tag="p">{lipsum}</Text>

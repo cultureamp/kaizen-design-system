@@ -1,6 +1,7 @@
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/border";
-@import "~@cultureamp/kaizen-component-library/styles/mixins/forms";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/mixins/forms";
 
 $radio-size: 20px;
 $icon-size: 10px;
@@ -15,13 +16,13 @@ $icon-offset: 4px;
   width: $icon-size;
   height: $icon-size;
   border-radius: 50%;
-  background: add-tint($ca-palette-ink, 30%);
+  background: $kz-color-wisteria-600;
   position: absolute;
 }
 
 .box {
   position: relative;
-  background: $white;
+  background: $kz-color-white;
   height: $radio-size;
   width: $radio-size;
   top: 0;
@@ -31,7 +32,7 @@ $icon-offset: 4px;
   border-radius: 50%;
 
   .radioInput:disabled + & {
-    background: $ca-palette-ash;
+    background: $kz-color-ash;
 
     .icon {
       opacity: 0.3;

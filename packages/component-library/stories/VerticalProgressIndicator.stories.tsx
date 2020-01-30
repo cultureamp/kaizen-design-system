@@ -1,4 +1,4 @@
-import { VerticalProgressIndicator } from "@cultureamp/kaizen-component-library/draft/Kaizen/VerticalProgressStep/VerticalProgressIndicator"
+import { VerticalProgressIndicator } from "@kaizen/component-library/draft/Kaizen/VerticalProgressStep/VerticalProgressIndicator"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
@@ -16,7 +16,7 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => (
   </div>
 )
 
-storiesOf("VerticalProgressIndicator", module)
+storiesOf("VerticalProgressIndicator (React)", module)
   .add("Start-Upcoming", () => (
     <StoryContainer>
       <VerticalProgressIndicator position="start" completion="upcoming" />

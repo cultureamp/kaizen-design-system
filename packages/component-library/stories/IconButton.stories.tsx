@@ -1,11 +1,11 @@
-import { IconButton } from "@cultureamp/kaizen-component-library"
-const configureIcon = require("@cultureamp/kaizen-component-library/icons/configure.icon.svg")
+import { IconButton } from "@kaizen/component-library"
+const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
   .default
 import { action } from "@storybook/addon-actions"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-storiesOf("IconButton", module)
+storiesOf("IconButton (React)", module)
   .add("Default", () => (
     <IconButton icon={configureIcon} label="Label" automationId="demo-button" />
   ))
@@ -23,13 +23,10 @@ storiesOf("IconButton", module)
   .add("Disabled", () => (
     <IconButton icon={configureIcon} label="Label" disabled={true} />
   ))
-  .add("Form", () => (
-    <IconButton icon={configureIcon} label="Label" form={true} />
-  ))
   .add("Destructive", () => (
     <IconButton icon={configureIcon} label="Label" destructive={true} />
   ))
-  .add("Destructive Disabled", () => (
+  .add("Destructive, Disabled", () => (
     <IconButton
       icon={configureIcon}
       label="Label"
@@ -40,11 +37,14 @@ storiesOf("IconButton", module)
   .add("Reversed", () => (
     <IconButton icon={configureIcon} label="Label" reversed />
   ))
-  .add("Reversed Disabled", () => (
+  .add("Reversed, Disabled", () => (
     <IconButton
       icon={configureIcon}
       label="Label"
       reversed={true}
       disabled={true}
     />
+  ))
+  .add("Form (discouraged)", () => (
+    <IconButton icon={configureIcon} label="Label" form={true} />
   ))

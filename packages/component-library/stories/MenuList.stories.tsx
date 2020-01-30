@@ -7,11 +7,11 @@ import {
   MenuItem,
   MenuList,
   MenuSeparator,
-} from "@cultureamp/kaizen-component-library"
-const caMonogramIcon = require("@cultureamp/kaizen-component-library/icons/ca-monogram.icon.svg")
+} from "@kaizen/component-library"
+const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
   .default
 
-storiesOf("MenuList", module)
+storiesOf("MenuList (React)", module)
   .add("Default", () => (
     <MenuList>
       <MenuHeader title="Contextual Select Menu" />

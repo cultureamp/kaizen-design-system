@@ -19,35 +19,49 @@ multiline =
 
 main =
     storybook
-        [ statelessStoryOf "Affirmative" <|
+        [ statelessStoryOf "Dismissible, Positive" <|
             Notification.view
                 (Notification.inline "Success!" [ text "New user data, imported by mackenzie@hooli.com has successfully uploaded. ", a [ href "/" ] [ text "Manage users is now available" ] ] False
                     |> Notification.notificationType Notification.Affirmative
                 )
                 (Notification.Manual Notification.Visible)
                 (always "")
-        , statelessStoryOf "Informative" <|
+        , statelessStoryOf "Dismissible, Informative" <|
             Notification.view
                 (Notification.inline "Informative" [ text "New user data is currently being processed. We'll let you know when the process is completed. ", a [ href "/" ] [ text "Manage users" ] ] False
                     |> Notification.notificationType Notification.Informative
                 )
                 (Notification.Manual Notification.Visible)
                 (always "")
-        , statelessStoryOf "Cautionary" <|
+        , statelessStoryOf "Dismissible, Cautionary" <|
             Notification.view
                 (Notification.inline "Cautionary" [ text "New user data, imported by mackenzie@hooli.com has uploaded with some minor issues. ", a [ href "/" ] [ text "View issues" ] ] False
                     |> Notification.notificationType Notification.Cautionary
                 )
                 (Notification.Manual Notification.Visible)
                 (always "")
-        , statelessStoryOf "Negative" <|
+        , statelessStoryOf "Dismissible, Negative" <|
             Notification.view
                 (Notification.inline "Negative" [ text "Check your connection and try again. ", a [ href "/" ] [ text "Refresh" ] ] False
                     |> Notification.notificationType Notification.Negative
                 )
                 (Notification.Manual Notification.Visible)
                 (always "")
-        , statelessStoryOf "Persistent, Affirmative" <|
+        , statelessStoryOf "Dismissible, Multiline" <|
+            Notification.view
+                (Notification.inline "Negative" multiline False
+                    |> Notification.notificationType Notification.Negative
+                )
+                (Notification.Manual Notification.Visible)
+                (always "")
+        , statelessStoryOf "Dismissible, Slim" <|
+            Notification.view
+                (Notification.inline "Success!" [ a [ href "/" ] [ text "Manage users is now available" ] ] False
+                    |> Notification.notificationType Notification.Affirmative
+                )
+                (Notification.Manual Notification.Visible)
+                (always "")
+        , statelessStoryOf "Persistent, Positive" <|
             Notification.view
                 (Notification.inline "Success!" [ text "New user data, imported by mackenzie@hooli.com has successfully uploaded. ", a [ href "/" ] [ text "Manage users is now available" ] ] True
                     |> Notification.notificationType Notification.Affirmative
@@ -75,24 +89,10 @@ main =
                 )
                 (Notification.Manual Notification.Visible)
                 (always "")
-        , statelessStoryOf "Multiline" <|
-            Notification.view
-                (Notification.inline "Negative" multiline False
-                    |> Notification.notificationType Notification.Negative
-                )
-                (Notification.Manual Notification.Visible)
-                (always "")
         , statelessStoryOf "Persistent, Multiline" <|
             Notification.view
                 (Notification.inline "Negative" multiline True
                     |> Notification.notificationType Notification.Negative
-                )
-                (Notification.Manual Notification.Visible)
-                (always "")
-        , statelessStoryOf "Slim" <|
-            Notification.view
-                (Notification.inline "Success!" [ a [ href "/" ] [ text "Manage users is now available" ] ] False
-                    |> Notification.notificationType Notification.Affirmative
                 )
                 (Notification.Manual Notification.Visible)
                 (always "")

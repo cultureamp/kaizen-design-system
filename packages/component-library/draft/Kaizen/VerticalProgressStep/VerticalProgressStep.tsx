@@ -1,4 +1,4 @@
-import { Text } from "@cultureamp/kaizen-component-library"
+import { Text } from "@kaizen/component-library"
 import * as React from "react"
 
 const styles = require("./VerticalProgressStep.module.scss")

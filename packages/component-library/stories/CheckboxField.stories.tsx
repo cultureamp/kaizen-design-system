@@ -1,5 +1,5 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
-import { CheckboxField } from "@cultureamp/kaizen-component-library/draft"
+import { CheckboxField } from "@kaizen/component-library/draft"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
@@ -47,8 +47,8 @@ class CheckboxFieldExample extends React.Component<Props> {
   }
 }
 
-storiesOf("CheckboxField", module)
-  .add("Interactive", () => (
+storiesOf("CheckboxField (React)", module)
+  .add("Interactive (Kaizen Site Demo)", () => (
     <CheckboxFieldExample
       render={({ checkedStatus, onCheckHandler }) => (
         <CheckboxField

@@ -1,3 +1,4 @@
+@import "~@kaizen/design-tokens/sass/color";
 @import "../../styles/color";
 @import "../../styles/type";
 @import "../../styles/border";
@@ -43,7 +44,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 
   &%ca-notification---toast {
     width: 25rem;
-    box-shadow: 0 3px 7px add-alpha($ca-palette-ink, 9%);
+    box-shadow: 0 3px 7px add-alpha($kz-color-wisteria-800, 9%);
     padding: $ca-notification-vertical-padding
       $ca-notification-toast-horizontal-padding;
     transition: $ca-notification-fade-out, $ca-notification-slide-right,
@@ -65,42 +66,42 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
   // Types
 
   &%ca-notification---affirmative {
-    background: add-tint($ca-palette-seedling, 90%);
-    border-color: add-tint($ca-palette-seedling, 60%);
-    color: $ca-palette-lapis;
+    background: $kz-color-seedling-100;
+    border-color: $kz-color-seedling-200;
+    color: $kz-color-wisteria-800;
 
     &%ca-notification---global {
-      background-color: add-tint($ca-palette-seedling, 70%);
+      background-color: $kz-color-seedling-200;
     }
   }
 
   &%ca-notification---informative {
-    background: add-tint($ca-palette-ocean, 90%);
-    border-color: add-tint($ca-palette-ocean, 60%);
-    color: $ca-palette-lapis;
+    background: $kz-color-cluny-100;
+    border-color: $kz-color-cluny-200;
+    color: $kz-color-wisteria-800;
 
     &%ca-notification---global {
-      background-color: add-tint($ca-palette-ocean, 70%);
+      background-color: $kz-color-cluny-200;
     }
   }
 
   &%ca-notification---cautionary {
-    background: add-tint($ca-palette-yuzu, 95%);
-    border-color: add-tint($ca-palette-yuzu, 60%);
-    color: $ca-palette-lapis;
+    background: $kz-color-yuzu-100;
+    border-color: $kz-color-yuzu-300;
+    color: $kz-color-wisteria-800;
 
     &%ca-notification---global {
-      background-color: add-tint($ca-palette-yuzu, 70%);
+      background-color: $kz-color-yuzu-300;
     }
   }
 
   &%ca-notification---negative {
-    background: add-tint($ca-palette-coral, 95%);
-    border-color: add-tint($ca-palette-coral, 60%);
-    color: $ca-palette-lapis;
+    background: $kz-color-coral-100;
+    border-color: $kz-color-coral-200;
+    color: $kz-color-wisteria-800;
 
     &%ca-notification---global {
-      background-color: add-tint($ca-palette-coral, 50%);
+      background-color: $kz-color-coral-300;
     }
   }
 
@@ -134,19 +135,19 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
   align-items: flex-start;
 
   %ca-notification---affirmative & {
-    color: add-tint($ca-palette-seedling, 40%);
+    color: $kz-color-seedling-300;
   }
 
   %ca-notification---informative & {
-    color: add-tint($ca-palette-ocean, 30%);
+    color: $kz-color-cluny-500;
   }
 
   %ca-notification---cautionary & {
-    color: add-tint($ca-palette-yuzu, 20%);
+    color: $kz-color-yuzu-500;
   }
 
   %ca-notification---negative & {
-    color: add-tint($ca-palette-coral, 20%);
+    color: $kz-color-coral-400;
   }
 
   %ca-notification---inline &,
@@ -161,7 +162,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
     height: $ca-grid * 1.25;
     margin-top: $ca-grid / 8;
     // Override the type-specific color values set above
-    color: $ca-palette-lapis;
+    color: $kz-color-wisteria-800;
   }
 }
 
@@ -225,7 +226,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 
     %ca-notification---global &,
     %ca-notification---global &:hover {
-      color: $ca-palette-lapis;
+      color: $kz-color-wisteria-800;
     }
   }
 
@@ -241,7 +242,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 %ca-notification__cancel {
   @include button-reset;
   composes: interactiveIconWrapper from "../../Icon/Icon.module.scss";
-  color: $ca-palette-lapis;
+  color: $kz-color-wisteria-800;
   transform: none;
 
   &:active {

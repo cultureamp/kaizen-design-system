@@ -1,4 +1,4 @@
-import { Button } from "@cultureamp/kaizen-component-library"
+import { Button } from "@kaizen/component-library"
 import { graphql, useStaticQuery, withPrefix } from "gatsby"
 import * as React from "react"
 import { Content, ContentOnly } from "../components/ContentOnly"

@@ -1,6 +1,7 @@
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/border";
-@import "~@cultureamp/kaizen-component-library/styles/mixins/forms";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/mixins/forms";
 
 $checkbox-size: 20px;
 $checkbox-border-width: 1px;
@@ -23,7 +24,7 @@ $icon-size: 20px;
 
 .box {
   position: relative;
-  background: $white;
+  background: $kz-color-white;
   height: $checkbox-size;
   width: $checkbox-size;
   top: 0;
@@ -33,7 +34,7 @@ $icon-size: 20px;
   box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.09);
 
   .checkbox:disabled + & {
-    background: $ca-palette-ash;
+    background: $kz-color-ash;
 
     .icon {
       opacity: 0.3;

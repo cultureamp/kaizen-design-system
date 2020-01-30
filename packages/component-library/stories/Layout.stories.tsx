@@ -10,15 +10,15 @@ import {
   NavigationBar,
   Text,
   ToastNotification,
-} from "@cultureamp/kaizen-component-library"
-const academyIcon = require("@cultureamp/kaizen-component-library/icons/academy.icon.svg")
+} from "@kaizen/component-library"
+const academyIcon = require("@kaizen/component-library/icons/academy.icon.svg")
   .default
-const caMonogramIcon = require("@cultureamp/kaizen-component-library/icons/ca-monogram.icon.svg")
+const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
   .default
-const supportIcon = require("@cultureamp/kaizen-component-library/icons/support.icon.svg")
+const supportIcon = require("@kaizen/component-library/icons/support.icon.svg")
   .default
 
-storiesOf("Layout", module).add("Default", () => (
+storiesOf("Layout (React)", module).add("Default", () => (
   <div
     style={{
       flexGrow: 1,
