@@ -315,8 +315,12 @@ export default function transformer(file, api, options) {
     return source
   }
 
+  if ((options.parser && options.parser === "ts") || options.parser === "tsx") {
+    return source // prettier does not accept ts or tsx as arguments
+  }
+
   return prettier.format(source, {
-    parser: options.parser || "babel",
+    parser: choosePrettierParser(options),
     // FIXME: storybook defaults
     printWidth: 100,
     tabWidth: 2,
