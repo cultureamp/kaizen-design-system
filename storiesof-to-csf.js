@@ -126,7 +126,7 @@ export default function transformer(file, api, options) {
       .filter(
         call =>
           call.node.arguments.length > 0 &&
-          call.node.arguments[0].type === "Literal"
+          call.node.arguments[0].type === "StringLiteral"
       )
       .forEach(storiesOf => {
         const title = storiesOf.node.arguments[0].value
@@ -151,7 +151,7 @@ export default function transformer(file, api, options) {
       .filter(
         add =>
           add.node.arguments.length >= 2 &&
-          add.node.arguments[0].type === "Literal"
+          add.node.arguments[0].type === "StringLiteral"
       )
       .forEach(add => adds.push(add))
 
@@ -278,7 +278,7 @@ export default function transformer(file, api, options) {
     .filter(
       add =>
         add.node.arguments.length >= 2 &&
-        add.node.arguments[0].type === "Literal"
+        add.node.arguments[0].type === "StringLiteral"
     )
     .filter(add =>
       ["ExpressionStatement", "VariableDeclarator"].includes(
