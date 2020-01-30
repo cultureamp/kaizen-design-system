@@ -147,7 +147,7 @@ class =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/LoadingPlaceholder/styles.scss"
+    css "@kaizen/component-library/draft/Kaizen/LoadingPlaceholder/styles.scss"
         { base = "base"
         , animated = "animated"
         , centered = "centered"

@@ -2,8 +2,8 @@ import { loadElmStories } from "@cultureamp/elm-storybook"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-import { Tag } from "@cultureamp/kaizen-component-library/draft"
-import { Tooltip } from "@cultureamp/kaizen-component-library/draft"
+import { Tag } from "@kaizen/component-library/draft"
+import { Tooltip } from "@kaizen/component-library/draft"
 
 storiesOf("Tooltip (React)", module)
   .add("Default - Below (Kaizen Site Demo)", () => (

@@ -1,6 +1,6 @@
-@import "~@cultureamp/kaizen-component-library/styles/layout";
-@import "~@cultureamp/kaizen-component-library/styles/layers";
-@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/layers";
+@import "~@kaizen/component-library/styles/type";
 
 .dismissButton {
   @include ca-position($end: 0, $top: -$ca-grid * 0.25);

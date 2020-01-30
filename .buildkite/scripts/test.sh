@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 
-yarn setup \
-  && yarn test --ci
+yarn install --frozen-lockfile
+yarn test --ci

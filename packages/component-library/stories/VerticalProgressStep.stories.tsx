@@ -1,4 +1,4 @@
-import { VerticalProgressStep } from "@cultureamp/kaizen-component-library/draft"
+import { VerticalProgressStep } from "@kaizen/component-library/draft"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 

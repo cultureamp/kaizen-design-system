@@ -1,10 +1,10 @@
-import { Icon } from "@cultureamp/kaizen-component-library"
+import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import * as React from "react"
 import { SyntheticEvent } from "react"
 import { Dir } from "./types"
 
-const chevronDown = require("@cultureamp/kaizen-component-library/icons/chevron-down.icon.svg")
+const chevronDown = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
 const styles = require("./styles.scss")
 

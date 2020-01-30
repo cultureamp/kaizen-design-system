@@ -12,17 +12,17 @@ main =
         [ statelessStoryOf "Meaningful" <|
             Icon.view
                 (Icon.img "storybook-icon-id" "storybook-icon")
-                (svgAsset "@cultureamp/kaizen-component-library/icons/configure.icon.svg")
+                (svgAsset "@kaizen/component-library/icons/configure.icon.svg")
         , statelessStoryOf "Presentational" <|
             Icon.view
                 Icon.presentation
-                (svgAsset "@cultureamp/kaizen-component-library/icons/configure.icon.svg")
+                (svgAsset "@kaizen/component-library/icons/configure.icon.svg")
         , statelessStoryOf "Inherit Size" <|
             div [ style "width" "100vw" ]
                 [ Icon.view
                     (Icon.presentation
                         |> Icon.inheritSize True
                     )
-                    (svgAsset "@cultureamp/kaizen-component-library/icons/configure.icon.svg")
+                    (svgAsset "@kaizen/component-library/icons/configure.icon.svg")
                 ]
         ]

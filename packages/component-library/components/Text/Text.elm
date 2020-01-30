@@ -109,7 +109,7 @@ className tag typeStyle shouldInheritBaseline shouldInline =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/components/Text/Text.module.scss"
+    css "@kaizen/component-library/components/Text/Text.module.scss"
         { defaultStyle = "defaultStyle"
         , pageTitle = "pageTitle"
         , title = "title"

@@ -3,8 +3,10 @@ module Kaizen.Modal.Presets.ConfirmationModal exposing
     , confirmLabel
     , dismissLabel
     , informative
+    , negative
     , onConfirm
     , onDismiss
+    , positive
     , title
     , view
     )
@@ -47,11 +49,23 @@ type alias Configuration msg =
 
 type Variant
     = Informative
+    | Positive
+    | Negative
 
 
 informative : Config msg
 informative =
     Config { defaults | variant = Informative }
+
+
+positive : Config msg
+positive =
+    Config { defaults | variant = Positive }
+
+
+negative : Config msg
+negative =
+    Config { defaults | variant = Negative }
 
 
 
@@ -103,12 +117,28 @@ view (Config config) =
 
 header : Configuration msg -> Html msg
 header config =
-    div [ styles.classList [ ( .header, True ), ( .informativeHeader, config.variant == Informative ) ] ]
+    let
+        resolveIcon =
+            case config.variant of
+                Positive ->
+                    svgAsset "@kaizen/component-library/icons/success.icon.svg"
+
+                _ ->
+                    svgAsset "@kaizen/component-library/icons/information.icon.svg"
+    in
+    div
+        [ styles.classList
+            [ ( .header, True )
+            , ( .informativeHeader, config.variant == Informative )
+            , ( .positiveHeader, config.variant == Positive )
+            , ( .negativeHeader, config.variant == Negative )
+            ]
+        ]
         [ div [ styles.class .iconContainer ]
             [ svg [ class <| styles.toString .iconBackground ] [ circle [ cx "75", cy "75", r "75" ] [] ]
             , div [ styles.class .icon ]
                 [ Icon.view Icon.presentation
-                    (svgAsset "@cultureamp/kaizen-component-library/icons/exclamation.icon.svg")
+                    resolveIcon
                     |> Html.map never
                 ]
             ]
@@ -139,8 +169,15 @@ footer config =
 
                 Nothing ->
                     buttonConfig
+
+        resolveActionButtonVariant =
+            if config.variant == Negative then
+                Button.destructive
+
+            else
+                Button.primary
     in
-    [ Button.view (Button.secondary |> withOnDismiss) config.dismissLabel, Button.view (Button.primary |> withOnConfirm) config.confirmLabel ]
+    [ Button.view (Button.secondary |> withOnDismiss) config.dismissLabel, Button.view (resolveActionButtonVariant |> withOnConfirm) config.confirmLabel ]
 
 
 
@@ -178,10 +215,12 @@ dismissLabel dismissString (Config config) =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Presets/ConfirmationModal.scss"
+    css "@kaizen/component-library/draft/Kaizen/Modal/Presets/ConfirmationModal.scss"
         { elmModal = "elmModal"
         , header = "header"
         , informativeHeader = "informativeHeader"
+        , negativeHeader = "negativeHeader"
+        , positiveHeader = "positiveHeader"
         , iconContainer = "iconContainer"
         , iconBackground = "iconBackground"
         , icon = "icon"

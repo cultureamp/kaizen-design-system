@@ -1,5 +1,5 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
-import { AsyncSelect, Select } from "@cultureamp/kaizen-component-library/draft"
+import { AsyncSelect, Select } from "@kaizen/component-library/draft"
 import { storiesOf } from "@storybook/react"
 import * as React from "react"
 

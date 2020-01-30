@@ -168,7 +168,7 @@ view (Config config) =
                     button [ styles.class .close, onClick closeMsg ]
                         [ Icon.view
                             Icon.presentation
-                            (svgAsset "@cultureamp/kaizen-component-library/icons/close.icon.svg")
+                            (svgAsset "@kaizen/component-library/icons/close.icon.svg")
                             |> Html.map never
                         ]
 
@@ -220,7 +220,7 @@ view (Config config) =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Popover/styles.scss"
+    css "@kaizen/component-library/draft/Kaizen/Popover/styles.scss"
         { container = "container"
         , root = "root"
         , defaultBox = "defaultBox"
@@ -314,25 +314,25 @@ mapVariantToIcon variant =
         Informative ->
             Icon.view
                 Icon.presentation
-                (svgAsset "@cultureamp/kaizen-component-library/icons/information.icon.svg")
+                (svgAsset "@kaizen/component-library/icons/information.icon.svg")
                 |> Html.map never
 
         Positive ->
             Icon.view
                 Icon.presentation
-                (svgAsset "@cultureamp/kaizen-component-library/icons/success.icon.svg")
+                (svgAsset "@kaizen/component-library/icons/success.icon.svg")
                 |> Html.map never
 
         Negative ->
             Icon.view
                 Icon.presentation
-                (svgAsset "@cultureamp/kaizen-component-library/icons/exclamation.icon.svg")
+                (svgAsset "@kaizen/component-library/icons/exclamation.icon.svg")
                 |> Html.map never
 
         Cautionary ->
             Icon.view
                 Icon.presentation
-                (svgAsset "@cultureamp/kaizen-component-library/icons/exclamation.icon.svg")
+                (svgAsset "@kaizen/component-library/icons/exclamation.icon.svg")
                 |> Html.map never
 
 

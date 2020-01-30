@@ -2,10 +2,10 @@
 
 ## Add to a project
 
-Kaizen Component Library is already included in our main product repositories. If it's needed in a new repo, add `@cultureamp/kaizen-component-library` to your `package.json` file:
+Kaizen Component Library is already included in our main product repositories. If it's needed in a new repo, add `@kaizen/component-library` to your `package.json` file:
 
 ```
-yarn add @cultureamp/kaizen-component-library
+yarn add @kaizen/component-library
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ You can import a Kaizen Component Library package inside your application using 
 React import example:
 
 ```
-import { Button } from "@cultureamp/kaizen-component-library"
+import { Button } from "@kaizen/component-library"
 ```
 
 React usage example:
@@ -51,6 +51,6 @@ For Elm components, we have used Kaizen to namespace them because the source dir
 You can also import Kaizen styles into SCSS files:
 
 ```
-@import '~@cultureamp/kaizen-component-library/styles/type';
+@import '~@kaizen/component-library/styles/type';
 ```
 
