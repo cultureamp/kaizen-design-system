@@ -8,12 +8,17 @@ const configureIcon = require("@kaizen/component-library/icons/configure.icon.sv
 
 storiesOf("Icon (React)", module)
   .add("Meaningful (Kaizen Site Demo)", () => (
-    <Icon
-      icon={configureIcon}
-      title="Warning"
-      desc="Aliens approaching!"
-      role="img"
-    />
+    // the wrapper with the fixed with is to solve a problem when this is used
+    // as a site demo: the iframe was getting a height of 0px in Firefox
+    <div style={{ width: "20px" }}>
+      <Icon
+        icon={configureIcon}
+        title="Warning"
+        desc="Aliens approaching!"
+        role="img"
+        inheritSize={true}
+      />
+    </div>
   ))
   .add("Presentational", () => (
     <Icon icon={configureIcon} role="presentation" />
