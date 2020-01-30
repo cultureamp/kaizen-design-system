@@ -13,7 +13,7 @@ type Props = {
   render: (props: RenderProps) => JSX.Element
 }
 
-export default class RadioGroupExample extends React.Component<Props> {
+class RadioGroupExample extends React.Component<Props> {
   state = {
     selectedOption: "",
   }

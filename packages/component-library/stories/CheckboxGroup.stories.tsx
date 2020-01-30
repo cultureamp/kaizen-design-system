@@ -13,7 +13,7 @@ type Props = {
   render: (props: RenderProps) => JSX.Element
 }
 
-export default class CheckboxGroupExample extends React.Component<Props> {
+class CheckboxGroupExample extends React.Component<Props> {
   state = {
     checkedStatus: "mixed",
   }
