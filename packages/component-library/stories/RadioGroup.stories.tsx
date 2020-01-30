@@ -1,6 +1,5 @@
 import { Radio, RadioGroup } from "@kaizen/component-library/draft"
 import { Label } from "@kaizen/component-library/draft"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 const styles = require("./RadioGroup.stories.scss")
 
@@ -37,8 +36,11 @@ class RadioGroupExample extends React.Component<Props> {
   }
 }
 
-storiesOf("RadioGroup (React)", module)
-  .add("Default (Kaizen Site Demo)", () => (
+export default {
+  title: 'RadioGroup (React)',
+};
+
+export const DefaultKaizenSiteDemo = () => (
     <RadioGroupExample
       render={({ selectedOption, onChangeHandler }) => (
         <RadioGroup labelText="Radio group label">
@@ -69,8 +71,13 @@ storiesOf("RadioGroup (React)", module)
         </RadioGroup>
       )}
     />
-  ))
-  .add("With disabled radios", () => (
+  );
+
+DefaultKaizenSiteDemo.story = {
+  name: 'Default (Kaizen Site Demo)',
+};
+
+export const WithDisabledRadios = () => (
     <RadioGroupExample
       render={({ selectedOption, onChangeHandler }) => (
         <RadioGroup labelText="Radio group label">
@@ -102,79 +109,93 @@ storiesOf("RadioGroup (React)", module)
         </RadioGroup>
       )}
     />
-  ))
-  .add("RTL", () => (
-    <div dir="rtl">
-      <RadioGroupExample
-        render={({ selectedOption, onChangeHandler }) => (
-          <RadioGroup labelText="Radio group label">
-            <Radio
-              labelText="Label"
-              name="radio"
-              id="radio-1"
-              selectedStatus={selectedOption === "radio-1"}
-              onChange={onChangeHandler}
-              value="radio-1"
-            />
-            <Radio
-              labelText="Label"
-              name="radio"
-              id="radio-2"
-              selectedStatus={selectedOption === "radio-2"}
-              onChange={onChangeHandler}
-              value="radio-2"
-            />
-            <Radio
-              labelText="Label"
-              name="radio"
-              id="radio-3"
-              selectedStatus={selectedOption === "radio-3"}
-              onChange={onChangeHandler}
-              value="radio-3"
-            />
-          </RadioGroup>
-        )}
-      />
-    </div>
-  ))
-  .add("RTL with disabled radios", () => (
-    <div dir="rtl">
-      <RadioGroupExample
-        render={({ selectedOption, onChangeHandler }) => (
-          <RadioGroup labelText="Radio group label">
-            <Radio
-              labelText="Label"
-              name="radio"
-              id="radio-1"
-              disabled
-              selectedStatus={selectedOption === "radio-1"}
-              onChange={onChangeHandler}
-              value="radio-1"
-            />
-            <Radio
-              labelText="Label"
-              name="radio"
-              id="radio-2"
-              disabled
-              selectedStatus={selectedOption === "radio-2"}
-              onChange={onChangeHandler}
-              value="radio-2"
-            />
-            <Radio
-              labelText="Label"
-              name="radio"
-              id="radio-3"
-              selectedStatus={selectedOption === "radio-3"}
-              onChange={onChangeHandler}
-              value="radio-3"
-            />
-          </RadioGroup>
-        )}
-      />
-    </div>
-  ))
+  );
 
-  .add("With links", () => (
+WithDisabledRadios.story = {
+  name: 'With disabled radios',
+};
+
+export const Rtl = () => (
+    <div dir="rtl">
+      <RadioGroupExample
+        render={({ selectedOption, onChangeHandler }) => (
+          <RadioGroup labelText="Radio group label">
+            <Radio
+              labelText="Label"
+              name="radio"
+              id="radio-1"
+              selectedStatus={selectedOption === "radio-1"}
+              onChange={onChangeHandler}
+              value="radio-1"
+            />
+            <Radio
+              labelText="Label"
+              name="radio"
+              id="radio-2"
+              selectedStatus={selectedOption === "radio-2"}
+              onChange={onChangeHandler}
+              value="radio-2"
+            />
+            <Radio
+              labelText="Label"
+              name="radio"
+              id="radio-3"
+              selectedStatus={selectedOption === "radio-3"}
+              onChange={onChangeHandler}
+              value="radio-3"
+            />
+          </RadioGroup>
+        )}
+      />
+    </div>
+  );
+
+Rtl.story = {
+  name: 'RTL',
+};
+
+export const RtlWithDisabledRadios = () => (
+    <div dir="rtl">
+      <RadioGroupExample
+        render={({ selectedOption, onChangeHandler }) => (
+          <RadioGroup labelText="Radio group label">
+            <Radio
+              labelText="Label"
+              name="radio"
+              id="radio-1"
+              disabled
+              selectedStatus={selectedOption === "radio-1"}
+              onChange={onChangeHandler}
+              value="radio-1"
+            />
+            <Radio
+              labelText="Label"
+              name="radio"
+              id="radio-2"
+              disabled
+              selectedStatus={selectedOption === "radio-2"}
+              onChange={onChangeHandler}
+              value="radio-2"
+            />
+            <Radio
+              labelText="Label"
+              name="radio"
+              id="radio-3"
+              selectedStatus={selectedOption === "radio-3"}
+              onChange={onChangeHandler}
+              value="radio-3"
+            />
+          </RadioGroup>
+        )}
+      />
+    </div>
+  );
+
+RtlWithDisabledRadios.story = {
+  name: 'RTL with disabled radios',
+};
+
+export const WithLinks = () => (
     <RadioGroupExample
       render={({ selectedOption, onChangeHandler }) => (
         <RadioGroup
@@ -221,8 +242,13 @@ storiesOf("RadioGroup (React)", module)
         </RadioGroup>
       )}
     />
-  ))
-  .add("Without bottom margin", () => (
+  );
+
+WithLinks.story = {
+  name: 'With links',
+};
+
+export const WithoutBottomMargin = () => (
     <RadioGroupExample
       render={({ selectedOption, onChangeHandler }) => (
         <>
@@ -263,8 +289,13 @@ storiesOf("RadioGroup (React)", module)
         </>
       )}
     />
-  ))
-  .add("With bottom margin", () => (
+  );
+
+WithoutBottomMargin.story = {
+  name: 'Without bottom margin',
+};
+
+export const WithBottomMargin = () => (
     <RadioGroupExample
       render={({ selectedOption, onChangeHandler }) => (
         <>
@@ -305,4 +336,8 @@ storiesOf("RadioGroup (React)", module)
         </>
       )}
     />
-  ))
+  );
+
+WithBottomMargin.story = {
+  name: 'With bottom margin',
+};

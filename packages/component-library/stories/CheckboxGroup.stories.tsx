@@ -1,6 +1,5 @@
 import { CheckboxField, CheckboxGroup } from "@kaizen/component-library/draft"
 import { Label } from "@kaizen/component-library/draft"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 const styles = require("./CheckboxGroup.stories.scss")
 
@@ -41,8 +40,12 @@ class CheckboxGroupExample extends React.Component<Props> {
     )
   }
 }
-storiesOf("CheckboxGroup (React)", module)
-  .add("Interactive (Kaizen Site Demo)", () => (
+
+export default {
+  title: 'CheckboxGroup (React)',
+};
+
+export const InteractiveKaizenSiteDemo = () => (
     <div>
       <CheckboxGroup labelText="Checkbox Group Label">
         <CheckboxGroupExample
@@ -98,8 +101,13 @@ storiesOf("CheckboxGroup (React)", module)
         />
       </CheckboxGroup>
     </div>
-  ))
-  .add("with disabled checkboxes", () => (
+  );
+
+InteractiveKaizenSiteDemo.story = {
+  name: 'Interactive (Kaizen Site Demo)',
+};
+
+export const WithDisabledCheckboxes = () => (
     <div>
       <CheckboxGroup labelText="Checkbox Group Label">
         <CheckboxField
@@ -122,8 +130,13 @@ storiesOf("CheckboxGroup (React)", module)
         />
       </CheckboxGroup>
     </div>
-  ))
-  .add("RTL", () => (
+  );
+
+WithDisabledCheckboxes.story = {
+  name: 'with disabled checkboxes',
+};
+
+export const Rtl = () => (
     <div dir="rtl">
       <CheckboxGroup labelText="Checkbox Group Label">
         <CheckboxField
@@ -146,8 +159,13 @@ storiesOf("CheckboxGroup (React)", module)
         />
       </CheckboxGroup>
     </div>
-  ))
-  .add("with links", () => (
+  );
+
+Rtl.story = {
+  name: 'RTL',
+};
+
+export const WithLinks = () => (
     <div>
       <CheckboxGroup labelText="Checkbox Group Label">
         <CheckboxField
@@ -188,8 +206,13 @@ storiesOf("CheckboxGroup (React)", module)
         />
       </CheckboxGroup>
     </div>
-  ))
-  .add("with bottom margin", () => (
+  );
+
+WithLinks.story = {
+  name: 'with links',
+};
+
+export const WithBottomMargin = () => (
     <div>
       <CheckboxGroup labelText="Checkbox Group Label">
         <CheckboxField
@@ -219,8 +242,13 @@ storiesOf("CheckboxGroup (React)", module)
         labelType="checkbox"
       />
     </div>
-  ))
-  .add("without bottom margin", () => (
+  );
+
+WithBottomMargin.story = {
+  name: 'with bottom margin',
+};
+
+export const WithoutBottomMargin = () => (
     <div>
       <CheckboxGroup noBottomMargin labelText="Checkbox Group Label">
         <CheckboxField
@@ -250,4 +278,8 @@ storiesOf("CheckboxGroup (React)", module)
         labelType="checkbox"
       />
     </div>
-  ))
+  );
+
+WithoutBottomMargin.story = {
+  name: 'without bottom margin',
+};
