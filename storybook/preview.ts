@@ -20,5 +20,6 @@ addParameters({
   backgrounds,
   options: {
     theme: create({ brandTitle: "🌱 Storybook", base: "light" }),
+    storySort: (a, b) => a[1].id.localeCompare(b[1].id),
   },
 })
