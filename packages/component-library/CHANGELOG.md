@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.3.0...@kaizen/component-library@1.3.1) (2020-01-30)
+
+
+### Bug Fixes
+
+* tag in Titleblock misaligned in IE11 ([#252](https://github.com/cultureamp/kaizen-design-system/issues/252)) ([fa9d75c](https://github.com/cultureamp/kaizen-design-system/commit/fa9d75c))
+
+
+
+
+
+# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.2.0...@kaizen/component-library@1.3.0) (2020-01-30)
+
+
+### Features
+
+* Add elm modal positive, negative variants ([#250](https://github.com/cultureamp/kaizen-design-system/issues/250)) ([b83cda8](https://github.com/cultureamp/kaizen-design-system/commit/b83cda8))
+
+
+
+
+
+# [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.1.2...@kaizen/component-library@1.2.0) (2020-01-30)
+
+
+### Features
+
+* Make right/left arrows look like forward/backward ([#246](https://github.com/cultureamp/kaizen-design-system/issues/246)) ([a816f59](https://github.com/cultureamp/kaizen-design-system/commit/a816f59))
+
+
+
+
+
 ## [1.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.1.1...@kaizen/component-library@1.1.2) (2020-01-30)
 
 **Note:** Version bump only for package @kaizen/component-library
