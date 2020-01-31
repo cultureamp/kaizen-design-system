@@ -61,61 +61,61 @@ const Menu: React.FunctionComponent = () => (
 )
 
 export default {
-  title: 'Dropdown (React)',
-};
+  title: "Dropdown (React)",
+}
 
 export const DefaultMeatball = () => (
-    <Dropdown>
-      <Menu />
-    </Dropdown>
-  );
+  <Dropdown>
+    <Menu />
+  </Dropdown>
+)
 
 DefaultMeatball.story = {
-  name: 'Default (Meatball)',
-};
+  name: "Default (Meatball)",
+}
 
 export const DefaultKebab = () => (
-    <Dropdown icon={kebabIcon}>
-      <Menu />
-    </Dropdown>
-  );
+  <Dropdown icon={kebabIcon}>
+    <Menu />
+  </Dropdown>
+)
 
 DefaultKebab.story = {
-  name: 'Default (Kebab)',
-};
+  name: "Default (Kebab)",
+}
 
 export const LabelAndIcon = () => (
-    <Dropdown label="Print" icon={kebabIcon}>
-      <Menu />
-    </Dropdown>
-  );
+  <Dropdown label="Print" icon={kebabIcon}>
+    <Menu />
+  </Dropdown>
+)
 
 LabelAndIcon.story = {
-  name: 'Label and Icon',
-};
+  name: "Label and Icon",
+}
 
 export const TextOnly = () => (
-    <Dropdown label="Print">
-      <Menu />
-    </Dropdown>
-  );
+  <Dropdown label="Print">
+    <Menu />
+  </Dropdown>
+)
 
 export const ControlAction = () => (
-    <Dropdown label="Print" icon={printIcon} controlAction>
-      <Menu />
-    </Dropdown>
-  );
+  <Dropdown label="Print" icon={printIcon} controlAction>
+    <Menu />
+  </Dropdown>
+)
 
 ControlAction.story = {
-  name: 'Control action',
-};
+  name: "Control action",
+}
 
 export const ReversedControlAction = () => (
-    <Dropdown label="Print" icon={printIcon} controlAction reversedColor>
-      <Menu />
-    </Dropdown>
-  );
+  <Dropdown label="Print" icon={printIcon} controlAction reversedColor>
+    <Menu />
+  </Dropdown>
+)
 
 ReversedControlAction.story = {
-  name: 'Reversed Control action',
-};
+  name: "Reversed Control action",
+}

@@ -18,8 +18,8 @@ const supportIcon = require("@kaizen/component-library/icons/support.icon.svg")
   .default
 
 export default {
-  title: 'Layout (React)',
-};
+  title: "Layout (React)",
+}
 
 export const Default = () => (
   <div
@@ -130,4 +130,4 @@ export const Default = () => (
       </div>
     </Layout>
   </div>
-);
+)

@@ -15,63 +15,63 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => (
 )
 
 export default {
-  title: 'VerticalProgressStep (React)',
-};
+  title: "VerticalProgressStep (React)",
+}
 
 export const CurrentStepActionable = () => (
-    <StoryContainer>
-      <VerticalProgressStep.CurrentStep
-        name="Stop!"
-        status="actionable"
-        position="start"
-        onClick={console.log.bind(console)}
-      >
-        <p>Click here to commence the Stop!</p>
-      </VerticalProgressStep.CurrentStep>
-    </StoryContainer>
-  );
+  <StoryContainer>
+    <VerticalProgressStep.CurrentStep
+      name="Stop!"
+      status="actionable"
+      position="start"
+      onClick={console.log.bind(console)}
+    >
+      <p>Click here to commence the Stop!</p>
+    </VerticalProgressStep.CurrentStep>
+  </StoryContainer>
+)
 
 CurrentStepActionable.story = {
-  name: 'current step actionable',
-};
+  name: "current step actionable",
+}
 
 export const CurrentStepStarted = () => (
-    <StoryContainer>
-      <VerticalProgressStep.CurrentStep
-        name="Stop!"
-        status="started"
-        position="start"
-        onClick={console.log.bind(console)}
-      >
-        <p>Stopping...</p>
-      </VerticalProgressStep.CurrentStep>
-    </StoryContainer>
-  );
+  <StoryContainer>
+    <VerticalProgressStep.CurrentStep
+      name="Stop!"
+      status="started"
+      position="start"
+      onClick={console.log.bind(console)}
+    >
+      <p>Stopping...</p>
+    </VerticalProgressStep.CurrentStep>
+  </StoryContainer>
+)
 
 CurrentStepStarted.story = {
-  name: 'current step started',
-};
+  name: "current step started",
+}
 
 export const _UpcomingStep = () => (
-    <StoryContainer>
-      <VerticalProgressStep.UpcomingStep name="Collaborate!" position="middle">
-        <p>Only once you have stopped may you collaborate</p>
-      </VerticalProgressStep.UpcomingStep>
-    </StoryContainer>
-  );
+  <StoryContainer>
+    <VerticalProgressStep.UpcomingStep name="Collaborate!" position="middle">
+      <p>Only once you have stopped may you collaborate</p>
+    </VerticalProgressStep.UpcomingStep>
+  </StoryContainer>
+)
 
 _UpcomingStep.story = {
-  name: 'upcoming step',
-};
+  name: "upcoming step",
+}
 
 export const _CompletedStep = () => (
-    <StoryContainer>
-      <VerticalProgressStep.CompletedStep name="Listen!" position="end">
-        <p>You have finished listening. Vanilla Ice is proud of you.</p>
-      </VerticalProgressStep.CompletedStep>
-    </StoryContainer>
-  );
+  <StoryContainer>
+    <VerticalProgressStep.CompletedStep name="Listen!" position="end">
+      <p>You have finished listening. Vanilla Ice is proud of you.</p>
+    </VerticalProgressStep.CompletedStep>
+  </StoryContainer>
+)
 
 _CompletedStep.story = {
-  name: 'completed step',
-};
+  name: "completed step",
+}

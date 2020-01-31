@@ -57,59 +57,55 @@ const promiseOptions = inputValue =>
   })
 
 export default {
-  title: 'Select (React)',
-};
+  title: "Select (React)",
+}
 
 export const Single = () => (
-    <StoryContainer>
-      <Select
-        options={options}
-        placeholder="Placeholder"
-        isSearchable={false}
-      />
-    </StoryContainer>
-  );
+  <StoryContainer>
+    <Select options={options} placeholder="Placeholder" isSearchable={false} />
+  </StoryContainer>
+)
 
 export const SingleSearchable = () => (
-    <StoryContainer>
-      <Select options={options} placeholder="Placeholder" />
-    </StoryContainer>
-  );
+  <StoryContainer>
+    <Select options={options} placeholder="Placeholder" />
+  </StoryContainer>
+)
 
 export const MultiSelectSearchable = () => (
-    <WideStoryContainer>
-      <Select options={options} placeholder="Placeholder" isMulti={true} />
-    </WideStoryContainer>
-  );
+  <WideStoryContainer>
+    <Select options={options} placeholder="Placeholder" isMulti={true} />
+  </WideStoryContainer>
+)
 
 MultiSelectSearchable.story = {
-  name: 'Multi-Select Searchable',
-};
+  name: "Multi-Select Searchable",
+}
 
 export const AsyncSearchable = () => (
-    <WideStoryContainer>
-      <AsyncSelect
-        loadOptions={promiseOptions}
-        defaultOptions={options}
-        placeholder="Placeholder"
-      />
-    </WideStoryContainer>
-  );
+  <WideStoryContainer>
+    <AsyncSelect
+      loadOptions={promiseOptions}
+      defaultOptions={options}
+      placeholder="Placeholder"
+    />
+  </WideStoryContainer>
+)
 
 export const MultiAsyncSearchable = () => (
-    <WideStoryContainer>
-      <AsyncSelect
-        loadOptions={promiseOptions}
-        defaultOptions={options}
-        placeholder="Placeholder"
-        isMulti={true}
-      />
-    </WideStoryContainer>
-  );
+  <WideStoryContainer>
+    <AsyncSelect
+      loadOptions={promiseOptions}
+      defaultOptions={options}
+      placeholder="Placeholder"
+      isMulti={true}
+    />
+  </WideStoryContainer>
+)
 
 MultiAsyncSearchable.story = {
-  name: 'Multi-Async Searchable',
-};
+  name: "Multi-Async Searchable",
+}
 
 loadElmStories("Select (Elm)", module, require("./SelectStories.elm"), [
   "Single (Kaizen Site Demo)",

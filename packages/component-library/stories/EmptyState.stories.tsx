@@ -28,198 +28,172 @@ const ContentOnlyLayout = ({ children }: { children: React.ReactNode }) => (
 )
 
 export default {
-  title: 'EmptyState (React)',
-};
+  title: "EmptyState (React)",
+}
 
 export const DefaultKaizenSiteDemo = () => (
-    <SidebarAndContentLayout>
-      <EmptyState
-        headingText="Empty state title"
-        bodyText="If providing further actions, include a link to an action or use a
+  <SidebarAndContentLayout>
+    <EmptyState
+      headingText="Empty state title"
+      bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
-      />
-    </SidebarAndContentLayout>
-  );
+    />
+  </SidebarAndContentLayout>
+)
 
 DefaultKaizenSiteDemo.story = {
-  name: 'Default (Kaizen Site Demo)',
-};
+  name: "Default (Kaizen Site Demo)",
+}
 
 export const LayoutSidebarContent = () => (
-    <SidebarAndContentLayout>
-      <EmptyState
-        headingText="Empty state title"
-        bodyText="If providing further actions, include a link to an action or use a
+  <SidebarAndContentLayout>
+    <EmptyState
+      headingText="Empty state title"
+      bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
-        layoutContext="sidebarAndContent"
-      />
-    </SidebarAndContentLayout>
-  );
+      layoutContext="sidebarAndContent"
+    />
+  </SidebarAndContentLayout>
+)
 
 LayoutSidebarContent.story = {
-  name: 'Layout, Sidebar + Content',
-};
+  name: "Layout, Sidebar + Content",
+}
 
 export const LayoutContentOnly = () => (
-    <ContentOnlyLayout>
-      <EmptyState
-        headingText="Empty state title"
-        bodyText="If providing further actions, include a link to an action or use a
+  <ContentOnlyLayout>
+    <EmptyState
+      headingText="Empty state title"
+      bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
-        layoutContext="contentOnly"
-      />
-    </ContentOnlyLayout>
-  );
+      layoutContext="contentOnly"
+    />
+  </ContentOnlyLayout>
+)
 
 LayoutContentOnly.story = {
-  name: 'Layout, Content-only',
-};
+  name: "Layout, Content-only",
+}
 
 export const Positive = () => (
-    <SidebarAndContentLayout>
-      <EmptyState
-        headingText="Positive empty state"
-        bodyText="If providing further actions, include a link to an action or use a
+  <SidebarAndContentLayout>
+    <EmptyState
+      headingText="Positive empty state"
+      bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
-        illustrationType="positive"
-      >
-        <div className={styles.buttonContainer}>
-          <Button
-            label="Label"
-            icon={chevronRight}
-            iconPosition="end"
-            fullWidth
-          />
-        </div>
-      </EmptyState>
-    </SidebarAndContentLayout>
-  );
+      illustrationType="positive"
+    >
+      <div className={styles.buttonContainer}>
+        <Button
+          label="Label"
+          icon={chevronRight}
+          iconPosition="end"
+          fullWidth
+        />
+      </div>
+    </EmptyState>
+  </SidebarAndContentLayout>
+)
 
 export const Informative = () => (
-    <SidebarAndContentLayout>
-      <EmptyState
-        headingText="Informative empty state"
-        bodyText="If providing further actions, include a link to an action or use a
+  <SidebarAndContentLayout>
+    <EmptyState
+      headingText="Informative empty state"
+      bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
-        illustrationType="informative"
-      />
-    </SidebarAndContentLayout>
-  );
+      illustrationType="informative"
+    />
+  </SidebarAndContentLayout>
+)
 
 export const Action = () => (
-    <SidebarAndContentLayout>
-      <EmptyState
-        headingText="Action empty state"
-        bodyText="If providing further actions, include a link to an action or use a
+  <SidebarAndContentLayout>
+    <EmptyState
+      headingText="Action empty state"
+      bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
-        illustrationType="action"
-      >
-        <div className={styles.buttonContainer}>
-          <Button
-            label="Label"
-            icon={chevronRight}
-            iconPosition="end"
-            fullWidth
-          />
-        </div>
-      </EmptyState>
-    </SidebarAndContentLayout>
-  );
+      illustrationType="action"
+    >
+      <div className={styles.buttonContainer}>
+        <Button
+          label="Label"
+          icon={chevronRight}
+          iconPosition="end"
+          fullWidth
+        />
+      </div>
+    </EmptyState>
+  </SidebarAndContentLayout>
+)
 
 export const ActionButton = () => (
-    <SidebarAndContentLayout>
-      <EmptyState
-        headingText="Action empty state"
-        bodyText={
-          <p>
-            If providing further actions, include a <a>link</a> to an action or
-            use a Default or Primary action.
-          </p>
-        }
-        illustrationType="action"
-      >
-        <div className={styles.buttonContainer}>
-          <Button
-            label="Label"
-            icon={chevronRight}
-            iconPosition="end"
-            primary
-            fullWidth
-          />
-        </div>
-      </EmptyState>
-    </SidebarAndContentLayout>
-  );
+  <SidebarAndContentLayout>
+    <EmptyState
+      headingText="Action empty state"
+      bodyText={
+        <p>
+          If providing further actions, include a <a>link</a> to an action or
+          use a Default or Primary action.
+        </p>
+      }
+      illustrationType="action"
+    >
+      <div className={styles.buttonContainer}>
+        <Button
+          label="Label"
+          icon={chevronRight}
+          iconPosition="end"
+          primary
+          fullWidth
+        />
+      </div>
+    </EmptyState>
+  </SidebarAndContentLayout>
+)
 
 ActionButton.story = {
-  name: 'Action, Button',
-};
+  name: "Action, Button",
+}
 
 export const Neutral = () => (
-    <SidebarAndContentLayout>
-      <EmptyState
-        headingText="Neutral empty state"
-        bodyText="If providing further actions, include a link to an action or use a
+  <SidebarAndContentLayout>
+    <EmptyState
+      headingText="Neutral empty state"
+      bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
-        illustrationType="neutral"
-      />
-    </SidebarAndContentLayout>
-  );
+      illustrationType="neutral"
+    />
+  </SidebarAndContentLayout>
+)
 
 export const Negative = () => (
-    <SidebarAndContentLayout>
-      <EmptyState
-        headingText="Negative empty state"
-        bodyText="If providing further actions, include a link to an action or use a
+  <SidebarAndContentLayout>
+    <EmptyState
+      headingText="Negative empty state"
+      bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
-        illustrationType="negative"
-      >
-        <div className={styles.buttonContainer}>
-          <Button
-            label="Label"
-            icon={chevronRight}
-            iconPosition="end"
-            fullWidth
-          />
-        </div>
-      </EmptyState>
-    </SidebarAndContentLayout>
-  );
+      illustrationType="negative"
+    >
+      <div className={styles.buttonContainer}>
+        <Button
+          label="Label"
+          icon={chevronRight}
+          iconPosition="end"
+          fullWidth
+        />
+      </div>
+    </EmptyState>
+  </SidebarAndContentLayout>
+)
 
 export const RtlAction = () => (
-    <div dir="rtl">
-      <SidebarAndContentLayout>
-        <EmptyState
-          headingText="Empty state title"
-          bodyText="If providing further actions, include a link to an action or use a
-          Default or Primary action."
-          illustrationType="action"
-        >
-          <div className={styles.buttonContainer}>
-            <Button
-              label="Label"
-              icon={chevronLeft}
-              iconPosition="end"
-              fullWidth
-            />
-          </div>
-        </EmptyState>
-      </SidebarAndContentLayout>
-    </div>
-  );
-
-RtlAction.story = {
-  name: 'RTL, Action',
-};
-
-export const StraightCorners = () => (
+  <div dir="rtl">
     <SidebarAndContentLayout>
       <EmptyState
         headingText="Empty state title"
         bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
         illustrationType="action"
-        straightCorners
       >
         <div className={styles.buttonContainer}>
           <Button
@@ -231,11 +205,32 @@ export const StraightCorners = () => (
         </div>
       </EmptyState>
     </SidebarAndContentLayout>
-  );
+  </div>
+)
+
+RtlAction.story = {
+  name: "RTL, Action",
+}
+
+export const StraightCorners = () => (
+  <SidebarAndContentLayout>
+    <EmptyState
+      headingText="Empty state title"
+      bodyText="If providing further actions, include a link to an action or use a
+          Default or Primary action."
+      illustrationType="action"
+      straightCorners
+    >
+      <div className={styles.buttonContainer}>
+        <Button label="Label" icon={chevronLeft} iconPosition="end" fullWidth />
+      </div>
+    </EmptyState>
+  </SidebarAndContentLayout>
+)
 
 StraightCorners.story = {
-  name: 'Straight corners',
-};
+  name: "Straight corners",
+}
 
 loadElmStories(
   "EmptyState (Elm)",
