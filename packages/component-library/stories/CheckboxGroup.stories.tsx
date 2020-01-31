@@ -1,6 +1,5 @@
 import { CheckboxField, CheckboxGroup } from "@kaizen/component-library/draft"
 import { Label } from "@kaizen/component-library/draft"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 const styles = require("./CheckboxGroup.stories.scss")
 
@@ -13,7 +12,7 @@ type Props = {
   render: (props: RenderProps) => JSX.Element
 }
 
-export default class CheckboxGroupExample extends React.Component<Props> {
+class CheckboxGroupExample extends React.Component<Props> {
   state = {
     checkedStatus: "mixed",
   }
@@ -41,213 +40,246 @@ export default class CheckboxGroupExample extends React.Component<Props> {
     )
   }
 }
-storiesOf("CheckboxGroup (React)", module)
-  .add("Interactive (Kaizen Site Demo)", () => (
-    <div>
-      <CheckboxGroup labelText="Checkbox Group Label">
-        <CheckboxGroupExample
-          render={({ checkedStatus, onCheckHandler }) => (
-            <CheckboxField
-              onCheck={onCheckHandler}
-              id="checkbox-1"
-              checkedStatus={checkedStatus as any}
-              labelText={
-                <div>
-                  This is a label with a{" "}
-                  <a href="http://google.com" target="_blank">
-                    link
-                  </a>
-                </div>
-              }
-            />
-          )}
-        />
-        <CheckboxGroupExample
-          render={({ checkedStatus, onCheckHandler }) => (
-            <CheckboxField
-              onCheck={onCheckHandler}
-              id="checkbox-2"
-              checkedStatus={checkedStatus as any}
-              labelText={
-                <div>
-                  This is a label with a{" "}
-                  <a href="http://google.com" target="_blank">
-                    link
-                  </a>
-                </div>
-              }
-            />
-          )}
-        />
-        <CheckboxGroupExample
-          render={({ checkedStatus, onCheckHandler }) => (
-            <CheckboxField
-              onCheck={onCheckHandler}
-              id="checkbox-3"
-              checkedStatus={checkedStatus as any}
-              labelText={
-                <div>
-                  This is a label with a{" "}
-                  <a href="http://google.com" target="_blank">
-                    link
-                  </a>
-                </div>
-              }
-            />
-          )}
-        />
-      </CheckboxGroup>
-    </div>
-  ))
-  .add("with disabled checkboxes", () => (
-    <div>
-      <CheckboxGroup labelText="Checkbox Group Label">
-        <CheckboxField
-          id="checkbox-1"
-          checkedStatus="off"
-          disabled={true}
-          labelText="Label"
-        />
-        <CheckboxField
-          id="checkbox-2"
-          checkedStatus="on"
-          disabled={false}
-          labelText="Label"
-        />
-        <CheckboxField
-          id="checkbox-3"
-          checkedStatus="on"
-          disabled={true}
-          labelText="Label"
-        />
-      </CheckboxGroup>
-    </div>
-  ))
-  .add("RTL", () => (
-    <div dir="rtl">
-      <CheckboxGroup labelText="Checkbox Group Label">
-        <CheckboxField
-          id="checkbox-1"
-          checkedStatus="off"
-          disabled={true}
-          labelText="Label"
-        />
-        <CheckboxField
-          id="checkbox-2"
-          checkedStatus="on"
-          disabled={false}
-          labelText="Label"
-        />
-        <CheckboxField
-          id="checkbox-3"
-          checkedStatus="on"
-          disabled={true}
-          labelText="Label"
-        />
-      </CheckboxGroup>
-    </div>
-  ))
-  .add("with links", () => (
-    <div>
-      <CheckboxGroup labelText="Checkbox Group Label">
-        <CheckboxField
-          id="checkbox-1"
-          checkedStatus="off"
-          disabled={false}
-          labelText={
-            <div>
-              <a href="http://google.com" target="_blank">
-                Option 1
-              </a>
-            </div>
-          }
-        />
-        <CheckboxField
-          id="checkbox-2"
-          checkedStatus="off"
-          disabled={false}
-          labelText={
-            <div>
-              <a href="http://google.com" target="_blank">
-                Option 2
-              </a>
-            </div>
-          }
-        />
-        <CheckboxField
-          id="checkbox-3"
-          checkedStatus="off"
-          disabled={false}
-          labelText={
-            <div>
-              <a href="http://google.com" target="_blank">
-                Option 3
-              </a>
-            </div>
-          }
-        />
-      </CheckboxGroup>
-    </div>
-  ))
-  .add("with bottom margin", () => (
-    <div>
-      <CheckboxGroup labelText="Checkbox Group Label">
-        <CheckboxField
-          id="checkbox-1"
-          checkedStatus="on"
-          disabled={false}
-          labelText="Label"
-        />
-        <CheckboxField
-          id="checkbox-2"
-          checkedStatus="on"
-          disabled={false}
-          labelText="Label"
-        />
-        <CheckboxField
-          id="checkbox-3"
-          checkedStatus="on"
-          disabled={false}
-          labelText="Label"
-        />
-      </CheckboxGroup>
-      <Label
-        id="test_label"
-        htmlFor="test_label"
-        automationId="test_label"
-        labelText="Next line"
-        labelType="checkbox"
+
+export default {
+  title: "CheckboxGroup (React)",
+}
+
+export const InteractiveKaizenSiteDemo = () => (
+  <div>
+    <CheckboxGroup labelText="Checkbox Group Label">
+      <CheckboxGroupExample
+        render={({ checkedStatus, onCheckHandler }) => (
+          <CheckboxField
+            onCheck={onCheckHandler}
+            id="checkbox-1"
+            checkedStatus={checkedStatus as any}
+            labelText={
+              <div>
+                This is a label with a{" "}
+                <a href="http://google.com" target="_blank">
+                  link
+                </a>
+              </div>
+            }
+          />
+        )}
       />
-    </div>
-  ))
-  .add("without bottom margin", () => (
-    <div>
-      <CheckboxGroup noBottomMargin labelText="Checkbox Group Label">
-        <CheckboxField
-          id="checkbox-1"
-          checkedStatus="on"
-          disabled={false}
-          labelText="Label"
-        />
-        <CheckboxField
-          id="checkbox-2"
-          checkedStatus="on"
-          disabled={false}
-          labelText="Label"
-        />
-        <CheckboxField
-          id="checkbox-3"
-          checkedStatus="on"
-          disabled={false}
-          labelText="Label"
-        />
-      </CheckboxGroup>
-      <Label
-        id="test_label"
-        htmlFor="test_label"
-        automationId="test_label"
-        labelText="Next line"
-        labelType="checkbox"
+      <CheckboxGroupExample
+        render={({ checkedStatus, onCheckHandler }) => (
+          <CheckboxField
+            onCheck={onCheckHandler}
+            id="checkbox-2"
+            checkedStatus={checkedStatus as any}
+            labelText={
+              <div>
+                This is a label with a{" "}
+                <a href="http://google.com" target="_blank">
+                  link
+                </a>
+              </div>
+            }
+          />
+        )}
       />
-    </div>
-  ))
+      <CheckboxGroupExample
+        render={({ checkedStatus, onCheckHandler }) => (
+          <CheckboxField
+            onCheck={onCheckHandler}
+            id="checkbox-3"
+            checkedStatus={checkedStatus as any}
+            labelText={
+              <div>
+                This is a label with a{" "}
+                <a href="http://google.com" target="_blank">
+                  link
+                </a>
+              </div>
+            }
+          />
+        )}
+      />
+    </CheckboxGroup>
+  </div>
+)
+
+InteractiveKaizenSiteDemo.story = {
+  name: "Interactive (Kaizen Site Demo)",
+}
+
+export const WithDisabledCheckboxes = () => (
+  <div>
+    <CheckboxGroup labelText="Checkbox Group Label">
+      <CheckboxField
+        id="checkbox-1"
+        checkedStatus="off"
+        disabled={true}
+        labelText="Label"
+      />
+      <CheckboxField
+        id="checkbox-2"
+        checkedStatus="on"
+        disabled={false}
+        labelText="Label"
+      />
+      <CheckboxField
+        id="checkbox-3"
+        checkedStatus="on"
+        disabled={true}
+        labelText="Label"
+      />
+    </CheckboxGroup>
+  </div>
+)
+
+WithDisabledCheckboxes.story = {
+  name: "with disabled checkboxes",
+}
+
+export const Rtl = () => (
+  <div dir="rtl">
+    <CheckboxGroup labelText="Checkbox Group Label">
+      <CheckboxField
+        id="checkbox-1"
+        checkedStatus="off"
+        disabled={true}
+        labelText="Label"
+      />
+      <CheckboxField
+        id="checkbox-2"
+        checkedStatus="on"
+        disabled={false}
+        labelText="Label"
+      />
+      <CheckboxField
+        id="checkbox-3"
+        checkedStatus="on"
+        disabled={true}
+        labelText="Label"
+      />
+    </CheckboxGroup>
+  </div>
+)
+
+Rtl.story = {
+  name: "RTL",
+}
+
+export const WithLinks = () => (
+  <div>
+    <CheckboxGroup labelText="Checkbox Group Label">
+      <CheckboxField
+        id="checkbox-1"
+        checkedStatus="off"
+        disabled={false}
+        labelText={
+          <div>
+            <a href="http://google.com" target="_blank">
+              Option 1
+            </a>
+          </div>
+        }
+      />
+      <CheckboxField
+        id="checkbox-2"
+        checkedStatus="off"
+        disabled={false}
+        labelText={
+          <div>
+            <a href="http://google.com" target="_blank">
+              Option 2
+            </a>
+          </div>
+        }
+      />
+      <CheckboxField
+        id="checkbox-3"
+        checkedStatus="off"
+        disabled={false}
+        labelText={
+          <div>
+            <a href="http://google.com" target="_blank">
+              Option 3
+            </a>
+          </div>
+        }
+      />
+    </CheckboxGroup>
+  </div>
+)
+
+WithLinks.story = {
+  name: "with links",
+}
+
+export const WithBottomMargin = () => (
+  <div>
+    <CheckboxGroup labelText="Checkbox Group Label">
+      <CheckboxField
+        id="checkbox-1"
+        checkedStatus="on"
+        disabled={false}
+        labelText="Label"
+      />
+      <CheckboxField
+        id="checkbox-2"
+        checkedStatus="on"
+        disabled={false}
+        labelText="Label"
+      />
+      <CheckboxField
+        id="checkbox-3"
+        checkedStatus="on"
+        disabled={false}
+        labelText="Label"
+      />
+    </CheckboxGroup>
+    <Label
+      id="test_label"
+      htmlFor="test_label"
+      automationId="test_label"
+      labelText="Next line"
+      labelType="checkbox"
+    />
+  </div>
+)
+
+WithBottomMargin.story = {
+  name: "with bottom margin",
+}
+
+export const WithoutBottomMargin = () => (
+  <div>
+    <CheckboxGroup noBottomMargin labelText="Checkbox Group Label">
+      <CheckboxField
+        id="checkbox-1"
+        checkedStatus="on"
+        disabled={false}
+        labelText="Label"
+      />
+      <CheckboxField
+        id="checkbox-2"
+        checkedStatus="on"
+        disabled={false}
+        labelText="Label"
+      />
+      <CheckboxField
+        id="checkbox-3"
+        checkedStatus="on"
+        disabled={false}
+        labelText="Label"
+      />
+    </CheckboxGroup>
+    <Label
+      id="test_label"
+      htmlFor="test_label"
+      automationId="test_label"
+      labelText="Next line"
+      labelType="checkbox"
+    />
+  </div>
+)
+
+WithoutBottomMargin.story = {
+  name: "without bottom margin",
+}
