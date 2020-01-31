@@ -190,6 +190,9 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 
 .tag {
   margin-left: $ca-grid / 1.5;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
 }
 
 .actionsContainer {

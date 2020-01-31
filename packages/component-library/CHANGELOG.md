@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.3.0...@kaizen/component-library@1.3.1) (2020-01-30)
+
+
+### Bug Fixes
+
+* tag in Titleblock misaligned in IE11 ([#252](https://github.com/cultureamp/kaizen-design-system/issues/252)) ([fa9d75c](https://github.com/cultureamp/kaizen-design-system/commit/fa9d75c))
+
+
+
+
+
 # [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.2.0...@kaizen/component-library@1.3.0) (2020-01-30)
 
 
