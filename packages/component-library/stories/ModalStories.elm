@@ -59,12 +59,22 @@ update msg state =
             update ModalUpdate state
 
 
+subscriptions : ModalState -> Sub ModalMsg
+subscriptions { modalContext } =
+    case modalContext of
+        Just modalState ->
+            Modal.subscriptions modalState ModalUpdate
+
+        Nothing ->
+            Sub.none
+
+
 main =
     let
         config =
             { update = update
             , init = ( model, Cmd.none )
-            , subscriptions = \_ -> Sub.none
+            , subscriptions = subscriptions
             }
     in
     storybook
@@ -112,8 +122,8 @@ main =
                                             ]
                                     , onDismiss = Just ModalUpdate
                                     , onConfirm = Just ModalConfirmed
-                                    , confirmLabel = "Yea do it!"
-                                    , dismissLabel = "Nah don't do it"
+                                    , confirmLabel = "Confirm"
+                                    , dismissLabel = "Cancel"
                                     }
                                     |> Modal.modalState modalState
                                     -- the modal backdrop uses this to close
@@ -139,8 +149,8 @@ main =
                                             ]
                                     , onDismiss = Just ModalUpdate
                                     , onConfirm = Just ModalConfirmed
-                                    , confirmLabel = "Yea do it!"
-                                    , dismissLabel = "Nah don't do it"
+                                    , confirmLabel = "Confirm"
+                                    , dismissLabel = "Cancel"
                                     }
                                     |> Modal.modalState modalState
                                     -- the modal backdrop uses this to close
@@ -166,8 +176,8 @@ main =
                                             ]
                                     , onDismiss = Just ModalUpdate
                                     , onConfirm = Just ModalConfirmed
-                                    , confirmLabel = "Yea do it!"
-                                    , dismissLabel = "Nah don't do it"
+                                    , confirmLabel = "Confirm"
+                                    , dismissLabel = "Cancel"
                                     }
                                     |> Modal.modalState modalState
                                     -- the modal backdrop uses this to close

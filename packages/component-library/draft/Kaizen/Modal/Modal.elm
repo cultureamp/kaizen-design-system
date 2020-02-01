@@ -8,15 +8,18 @@ module Kaizen.Modal.Modal exposing
     , initialState
     , modalState
     , onUpdate
+    , subscriptions
     , update
     , view
     , withDispatch
     )
 
+import Browser.Events as BrowserEvents
 import CssModules exposing (css)
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
+import Kaizen.Events.Events as KaizenEvents
 import Kaizen.Modal.Presets.ConfirmationModal as ConfirmationModal
 import Kaizen.Modal.Primitives.GenericModal as GenericModal
 import Process
@@ -89,6 +92,15 @@ type alias Timing =
     { startedAt : Time.Posix
     , dt : Time.Posix
     }
+
+
+subscriptions : ModalState msg -> msg -> Sub msg
+subscriptions ms msg =
+    if canSubscribeToEscape ms then
+        BrowserEvents.onKeyDown (KaizenEvents.isEscape msg)
+
+    else
+        Sub.none
 
 
 view : Config msg -> Html msg
@@ -301,6 +313,16 @@ mapDuration duration =
 
         Fast ->
             300
+
+
+canSubscribeToEscape : ModalState msg -> Bool
+canSubscribeToEscape (Msg state progress) =
+    case ( state, progress ) of
+        ( Closed_ _, Stopped ) ->
+            False
+
+        _ ->
+            True
 
 
 
