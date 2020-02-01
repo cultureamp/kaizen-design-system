@@ -256,7 +256,7 @@ initialState =
 
     withDispatch allows you to dispatch a (Cmd msg) on either Closed or Open from the update.
 
-    This is handy for when you want to remove the modal element from the view after the the closing animation.
+    This is handy for when you want to remove the modal element from the view after the closing animation.
 
     Use withDispatch on the modal modalState handler to always fire the Cmd msg's you want to hear back from.
 
