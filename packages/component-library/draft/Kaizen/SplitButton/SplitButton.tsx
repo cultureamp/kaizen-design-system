@@ -51,23 +51,26 @@ const SplitButton: SplitButton = ({
     disabled,
   }
 
-  const dropdownButtonRef = React.useRef<HTMLDivElement>(null)
+  const dropdownButtonsContainerRef = React.useRef<HTMLDivElement>(null)
 
   const [isMenuVisible, setIsMenuVisible] = React.useState<boolean>(false)
 
-  const hideDropdownMenu = () => {
+  const toggleDropdownMenu = () => {
     setIsMenuVisible(!isMenuVisible)
   }
 
-  const getPosition = () => {
-    return dropdownButtonRef.current
-      ? dropdownButtonRef.current.getBoundingClientRect()
+  const getButtonsContainerRect = () => {
+    return dropdownButtonsContainerRef.current
+      ? dropdownButtonsContainerRef.current.getBoundingClientRect()
       : null
   }
 
   return (
     <div className={styles.root} dir={dir} data-automation-id={automationId}>
-      <div className={styles.buttonsContainer} ref={dropdownButtonRef}>
+      <div
+        className={styles.buttonsContainer}
+        ref={dropdownButtonsContainerRef}
+      >
         {href ? (
           <a
             href={disabled ? undefined : href}
@@ -91,16 +94,14 @@ const SplitButton: SplitButton = ({
           dir={dir}
           variant={variant}
           dropdownAltText={dropdownAltText}
-          onOpenDropdown={() => {
-            hideDropdownMenu()
-          }}
+          onOpenDropdown={toggleDropdownMenu}
         />
       </div>
       {isMenuVisible && (
         <DropdownMenu
-          hideDropdownMenu={hideDropdownMenu}
+          hideDropdownMenu={toggleDropdownMenu}
           dir={dir}
-          position={getPosition()}
+          buttonsContainerRect={getButtonsContainerRect()}
         >
           {dropdownContent}
         </DropdownMenu>

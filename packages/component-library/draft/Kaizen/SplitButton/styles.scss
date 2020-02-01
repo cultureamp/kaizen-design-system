@@ -77,6 +77,7 @@ $button-width: 124px;
 .root {
   @include ca-type-block(inline-block);
   height: 40px; // Set a fixed height to avoid expansion when dropdown is displayed
+  position: relative;
 }
 
 .buttonReset {
@@ -125,6 +126,7 @@ $button-width: 124px;
 .default,
 .primary {
   @include ca-type-ideal-body-bold;
+  top: initial; // override from ca-type-ideal-body-bold -> ca-type-ideal -> ca-type
   text-align: left;
   position: inherit;
   text-decoration: none;
@@ -250,5 +252,5 @@ $button-width: 124px;
 .menuContainer {
   z-index: $ca-z-index-dropdown;
   width: 100%;
-  position: relative;
+  position: absolute;
 }
