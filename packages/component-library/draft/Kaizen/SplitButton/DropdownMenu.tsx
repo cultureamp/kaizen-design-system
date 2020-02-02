@@ -10,6 +10,28 @@ type Props = {
   dir?: Dir
 }
 
+export const _calculateMenuTop = (
+  buttonsBoundingRect: ClientRect,
+  menuBoundingRect: ClientRect,
+  viewportHeight
+): number => {
+  // Used to hide the border of the buttonsContainer class
+  const borderRadiusBuffer = 2
+
+  // If there's not enough room to show the menu below the split buttons,
+  // but enough room to show it above...
+  if (
+    buttonsBoundingRect.bottom + menuBoundingRect.height > viewportHeight &&
+    menuBoundingRect.height <= buttonsBoundingRect.top
+  ) {
+    // Show menu above the split buttons
+    return -menuBoundingRect.height + borderRadiusBuffer
+  }
+
+  // Regular behaviour, show menu below the split buttons
+  return buttonsBoundingRect.height - borderRadiusBuffer
+}
+
 export default class DropdownMenu extends React.Component<Props> {
   static displayName = "DropdownMenu"
   static defaultProps = {
@@ -40,23 +62,13 @@ export default class DropdownMenu extends React.Component<Props> {
     if (!buttonsBoundingRect || !menu) {
       return
     }
-    const menuRect = menu.getBoundingClientRect()
-    // Used to hide the border of the buttonsContainer class
-    const borderRadiusBuffer = 2
+    const menuBoundingRect = menu.getBoundingClientRect()
 
-    if (buttonsBoundingRect.bottom + menuRect.height <= window.innerHeight) {
-      // Show menu below the split buttons
-      menu.style.top = `${buttonsBoundingRect.height - borderRadiusBuffer}px`
-    } else {
-      if (menuRect.height <= buttonsBoundingRect.top) {
-        // Show menu above the split buttons
-        menu.style.top = `${-menuRect.height + borderRadiusBuffer}px`
-      } else {
-        // If we can't completely fit the menu above the splitbuttons, then
-        // just show the menu below, as per the normal behaviour.
-        menu.style.top = `${buttonsBoundingRect.height - borderRadiusBuffer}px`
-      }
-    }
+    menu.style.top = `${_calculateMenuTop(
+      buttonsBoundingRect,
+      menuBoundingRect,
+      window.innerHeight
+    )}px`
   }
 
   handleDocumentClick = (e: MouseEvent) => {
