@@ -5,7 +5,7 @@ const styles = require("./styles.scss")
 
 type Props = {
   children: React.ReactNode
-  buttonsContainerRect: ClientRect | null // get by calling getBoundingClientRect()
+  buttonsBoundingRect: ClientRect | null // get by calling getBoundingClientRect()
   hideDropdownMenu: () => void
   dir?: Dir
 }
@@ -35,19 +35,38 @@ export default class DropdownMenu extends React.Component<Props> {
   }
 
   positionMenu() {
-    const { buttonsContainerRect } = this.props
+    const { buttonsBoundingRect } = this.props
     const menu = this._menuRef && this._menuRef.current
-    if (!buttonsContainerRect || !menu) {
+    if (!buttonsBoundingRect || !menu) {
       return
     }
     const menuRect = menu.getBoundingClientRect()
     // Used to hide the border of the buttonsContainer class
     const borderRadiusBuffer = 2
 
-    if (buttonsContainerRect.bottom + menuRect.height > window.innerHeight) {
-      menu.style.top = `${-menuRect.height + borderRadiusBuffer}px`
+    if (buttonsBoundingRect.bottom + menuRect.height <= window.innerHeight) {
+      // Show menu below the split buttons
+      menu.style.top = `${buttonsBoundingRect.height - borderRadiusBuffer}px`
     } else {
-      menu.style.top = `${buttonsContainerRect.height - borderRadiusBuffer}px`
+      if (menuRect.height <= buttonsBoundingRect.top) {
+        // Show menu above the split buttons
+        menu.style.top = `${-menuRect.height + borderRadiusBuffer}px`
+      } else {
+        // We can't completely fit the menu above or below the split buttons,
+        // so we'll position them where we can
+        let offset =
+          buttonsBoundingRect.bottom + menuRect.height - window.innerHeight
+        // Don't let the menu go above the top of the viewport
+        let top = Math.max(
+          -buttonsBoundingRect.top,
+          buttonsBoundingRect.height - offset
+        )
+        // Remove the awkward view of the menu showing half on top of the split buttons
+        if (top > 0 && top < buttonsBoundingRect.height) {
+          top = 0
+        }
+        menu.style.top = `${top}px`
+      }
     }
 
     if (this.props.dir === "rtl") {

@@ -59,7 +59,7 @@ const SplitButton: SplitButton = ({
     setIsMenuVisible(!isMenuVisible)
   }
 
-  const getButtonsContainerRect = () => {
+  const getButtonsBoundingRect = () => {
     return dropdownButtonsContainerRef.current
       ? dropdownButtonsContainerRef.current.getBoundingClientRect()
       : null
@@ -80,7 +80,6 @@ const SplitButton: SplitButton = ({
             {label}
           </a>
         ) : (
-          // @ts-ignore
           <button
             type="button"
             onClick={disabled ? undefined : (onClick as ButtonCallback)}
@@ -101,7 +100,7 @@ const SplitButton: SplitButton = ({
         <DropdownMenu
           hideDropdownMenu={toggleDropdownMenu}
           dir={dir}
-          buttonsContainerRect={getButtonsContainerRect()}
+          buttonsBoundingRect={getButtonsBoundingRect()}
         >
           {dropdownContent}
         </DropdownMenu>
