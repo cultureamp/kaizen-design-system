@@ -57,12 +57,6 @@ export default class DropdownMenu extends React.Component<Props> {
         menu.style.top = `${buttonsBoundingRect.height - borderRadiusBuffer}px`
       }
     }
-
-    if (this.props.dir === "rtl") {
-      menu.style.left = "0px"
-    } else {
-      menu.style.right = "0px"
-    }
   }
 
   handleDocumentClick = (e: MouseEvent) => {
