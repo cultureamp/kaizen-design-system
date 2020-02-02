@@ -52,20 +52,9 @@ export default class DropdownMenu extends React.Component<Props> {
         // Show menu above the split buttons
         menu.style.top = `${-menuRect.height + borderRadiusBuffer}px`
       } else {
-        // We can't completely fit the menu above or below the split buttons,
-        // so we'll position them where we can
-        let offset =
-          buttonsBoundingRect.bottom + menuRect.height - window.innerHeight
-        // Don't let the menu go above the top of the viewport
-        let top = Math.max(
-          -buttonsBoundingRect.top,
-          buttonsBoundingRect.height - offset
-        )
-        // Remove the awkward view of the menu showing half on top of the split buttons
-        if (top > 0 && top < buttonsBoundingRect.height) {
-          top = 0
-        }
-        menu.style.top = `${top}px`
+        // If we can't completely fit the menu above the splitbuttons, then
+        // just show the menu below, as per the normal behaviour.
+        menu.style.top = `${buttonsBoundingRect.height - borderRadiusBuffer}px`
       }
     }
 
