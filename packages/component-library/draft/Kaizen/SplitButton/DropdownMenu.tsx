@@ -4,13 +4,13 @@ const styles = require("./styles.scss")
 
 type Props = {
   children: React.ReactNode
-  hideDropdownMenu: () => void
   position: {
     top: number
     bottom: number
     left: number
     right: number
   } | null
+  hideDropdownMenu: () => void
   dir?: Dir
 }
 
@@ -40,11 +40,13 @@ export default class DropdownMenu extends React.Component<Props> {
     const pos = this.props.position
     const { innerHeight } = window
     const rect = menu.getBoundingClientRect()
+
     if (pos.bottom > innerHeight - rect.height) {
-      menu.style.bottom = "40px"
+      const bottom = rect.height + 40
+      menu.style.bottom = `${bottom}px`
       menu.style.top = "auto"
     } else {
-      menu.style.top = "40px"
+      menu.style.top = "-2px" // This is to hide the border of the buttonsContainer class
       menu.style.bottom = "auto"
     }
     if (this.props.dir === "rtl") {

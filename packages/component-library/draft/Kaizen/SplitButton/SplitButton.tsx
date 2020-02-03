@@ -1,11 +1,14 @@
 import classnames from "classnames"
 import * as React from "react"
 import Dropdown from "./Dropdown"
+import DropdownMenu from "./DropdownMenu"
 import { Dir } from "./types"
 const styles = require("./styles.scss")
 
 type AnchorCallback = (event: React.MouseEvent<HTMLAnchorElement>) => void
 type ButtonCallback = (event: React.MouseEvent<HTMLButtonElement>) => void
+
+type Variant = "default" | "primary"
 
 export type SplitButtonProps = {
   automationId?: string
@@ -14,6 +17,7 @@ export type SplitButtonProps = {
   onClick?: AnchorCallback | ButtonCallback
   // Suggested components - MenuList > MenuItem
   dropdownContent?: React.ReactNode
+  variant?: Variant
   dir?: Dir
   disabled?: boolean
   dropdownAltText: string // recommended text: "Open menu"
@@ -30,13 +34,15 @@ const SplitButton: SplitButton = ({
   label,
   dir = "ltr" as Dir,
   dropdownAltText,
+  variant = "default",
 }) => {
   // If the button has a route, it should be an `a` tag, since it is better
   // accessibility and routing. Otherwise, it should be a `button`.
   const btnProps = {
     // tslint:disable-next-line: object-literal-key-quotes
     className: classnames({
-      [styles.button]: true,
+      [styles.default]: variant === "default",
+      [styles.primary]: variant === "primary",
       [styles.disabled]: disabled,
     }),
     // tslint:disable-next-line: object-literal-key-quotes
@@ -45,33 +51,60 @@ const SplitButton: SplitButton = ({
     disabled,
   }
 
+  const dropdownButtonRef = React.useRef<HTMLDivElement>(null)
+
+  const [isMenuVisible, setIsMenuVisible] = React.useState<boolean>(false)
+
+  const hideDropdownMenu = () => {
+    setIsMenuVisible(!isMenuVisible)
+  }
+
+  const getPosition = () => {
+    return dropdownButtonRef.current
+      ? dropdownButtonRef.current.getBoundingClientRect()
+      : null
+  }
+
   return (
     <div className={styles.root} dir={dir} data-automation-id={automationId}>
-      {href ? (
-        <a
-          href={disabled ? undefined : href}
-          onClick={disabled ? undefined : (onClick as AnchorCallback)}
-          {...btnProps}
+      <div className={styles.buttonsContainer} ref={dropdownButtonRef}>
+        {href ? (
+          <a
+            href={disabled ? undefined : href}
+            onClick={disabled ? undefined : (onClick as AnchorCallback)}
+            {...btnProps}
+          >
+            {label}
+          </a>
+        ) : (
+          // @ts-ignore
+          <button
+            type="button"
+            onClick={disabled ? undefined : (onClick as ButtonCallback)}
+            {...btnProps}
+          >
+            {label}
+          </button>
+        )}
+        <Dropdown
+          automationId="split-button-dropdown"
+          dir={dir}
+          variant={variant}
+          dropdownAltText={dropdownAltText}
+          onOpenDropdown={() => {
+            hideDropdownMenu()
+          }}
+        />
+      </div>
+      {isMenuVisible && (
+        <DropdownMenu
+          hideDropdownMenu={hideDropdownMenu}
+          dir={dir}
+          position={getPosition()}
         >
-          {label}
-        </a>
-      ) : (
-        // @ts-ignore
-        <button
-          type="button"
-          onClick={disabled ? undefined : (onClick as ButtonCallback)}
-          {...btnProps}
-        >
-          {label}
-        </button>
+          {dropdownContent}
+        </DropdownMenu>
       )}
-      <Dropdown
-        automationId="split-button-dropdown"
-        dir={dir}
-        dropdownAltText={dropdownAltText}
-      >
-        {dropdownContent || null}
-      </Dropdown>
     </div>
   )
 }
