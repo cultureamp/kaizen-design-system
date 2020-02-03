@@ -51,17 +51,19 @@
   align-items: center;
   position: relative;
 
-  img {
-    position: absolute;
-  }
-
   @include ca-media-mobile() {
     display: none;
   }
 }
 
-.imageBackdrop {
+.imageBackdrop,
+.headerImage {
   position: absolute;
+}
+
+.headerImage {
+  // same width as the empty state placeholder SVG that shows if no image is provided
+  max-width: 138px;
 }
 
 .tagsContainer {
