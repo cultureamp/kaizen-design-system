@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.4.0...@kaizen/component-library@1.4.1) (2020-02-03)
+
+
+### Bug Fixes
+
+* added tslint:latest to linting rules ([#258](https://github.com/cultureamp/kaizen-design-system/issues/258)) ([37ba7b8](https://github.com/cultureamp/kaizen-design-system/commit/37ba7b8))
+
+
+
+
+
 # [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.3.2...@kaizen/component-library@1.4.0) (2020-02-03)
 
 
