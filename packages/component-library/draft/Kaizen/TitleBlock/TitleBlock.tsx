@@ -1,6 +1,5 @@
 import classNames from "classnames"
 import { throttle } from "lodash"
-import { Fragment, ReactNode } from "react"
 import * as React from "react"
 import Media from "react-media"
 
@@ -11,8 +10,7 @@ const backIcon = require("@kaizen/component-library/icons/arrow-backward.icon.sv
   .default
 const forwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
   .default
-import { NavigationButton } from "./NavigationButtons"
-import NavigationButtons from "./NavigationButtons"
+import NavigationButtons, { NavigationButton } from "./NavigationButtons"
 
 const styles = require("./TitleBlock.scss")
 
@@ -39,10 +37,10 @@ type Props = {
   title: string
   subtitle?: string
   breadcrumb?: Breadcrumb
-  children?: ReactNode
+  children?: React.ReactNode
   textDirection?: "ltr" | "rtl"
   surveyStatus?: SurveyStatus
-  navigationButtons?: Array<NavigationButton>
+  navigationButtons?: NavigationButton[]
   reversed?: boolean
   reverseColor?: Color
   sticky?: boolean
@@ -58,13 +56,16 @@ const meetsCompactThreshold = () =>
   (window.scrollY || window.pageYOffset) >= COMPACT_NAVIGATION_SCROLL_THRESHOLD
 
 class TitleBlock extends React.Component<Props, State> {
+  static defaultProps = {
+    textDirection: "ltr",
+  }
   state = {
     useCompactSize: meetsCompactThreshold(),
   }
 
-  static defaultProps = {
-    textDirection: "ltr",
-  }
+  updateScrollPosition = throttle(() => {
+    this.setState({ useCompactSize: meetsCompactThreshold() })
+  }, 50)
 
   componentDidMount() {
     if (this.props.sticky) {
@@ -77,10 +78,6 @@ class TitleBlock extends React.Component<Props, State> {
       document.removeEventListener("scroll", this.updateScrollPosition)
     }
   }
-
-  updateScrollPosition = throttle(() => {
-    this.setState({ useCompactSize: meetsCompactThreshold() })
-  }, 50)
 
   renderTitle = () => {
     const { title } = this.props
@@ -117,7 +114,7 @@ class TitleBlock extends React.Component<Props, State> {
     if (subtitle == undefined) return
 
     return (
-      <Fragment>
+      <React.Fragment>
         <div
           className={styles.subtitle}
           data-automation-id="TitleBlock__Subtitle"
@@ -125,7 +122,7 @@ class TitleBlock extends React.Component<Props, State> {
           {subtitle}
         </div>
         {this.renderTag()}
-      </Fragment>
+      </React.Fragment>
     )
   }
 
@@ -200,7 +197,9 @@ class TitleBlock extends React.Component<Props, State> {
               </div>
               <Media query={MOBILE_QUERY}>
                 {(matches: boolean) =>
-                  !matches && <Fragment>{this.renderNavigation()}</Fragment>
+                  !matches && (
+                    <React.Fragment>{this.renderNavigation()}</React.Fragment>
+                  )
                 }
               </Media>
             </div>
@@ -214,7 +213,9 @@ class TitleBlock extends React.Component<Props, State> {
         </div>
         <Media query={MOBILE_QUERY}>
           {(matches: boolean) =>
-            matches && <Fragment>{this.renderNavigation()}</Fragment>
+            matches && (
+              <React.Fragment>{this.renderNavigation()}</React.Fragment>
+            )
           }
         </Media>
       </div>

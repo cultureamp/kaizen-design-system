@@ -1,8 +1,7 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 import * as React from "react"
 
-import { Tag } from "@kaizen/component-library/draft"
-import { Tooltip } from "@kaizen/component-library/draft"
+import { Tag, Tooltip } from "@kaizen/component-library/draft"
 
 export default {
   title: "Tooltip (React)",

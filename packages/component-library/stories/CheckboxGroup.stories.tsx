@@ -1,19 +1,22 @@
-import { CheckboxField, CheckboxGroup } from "@kaizen/component-library/draft"
-import { Label } from "@kaizen/component-library/draft"
+import {
+  CheckboxField,
+  CheckboxGroup,
+  Label,
+} from "@kaizen/component-library/draft"
 import * as React from "react"
 const styles = require("./CheckboxGroup.stories.scss")
 
-type RenderProps = {
+interface RenderProps {
   checkedStatus: string
   onCheckHandler: (event: React.ChangeEvent<HTMLInputElement>) => any
 }
 
-type Props = {
+interface Props {
   render: (props: RenderProps) => JSX.Element
 }
 
 class CheckboxGroupExample extends React.Component<Props> {
-  state = {
+  public state = {
     checkedStatus: "mixed",
   }
   constructor(props: Props) {
@@ -22,13 +25,13 @@ class CheckboxGroupExample extends React.Component<Props> {
     this.onCheckHandler = this.onCheckHandler.bind(this)
   }
 
-  onCheckHandler(event: React.ChangeEvent<HTMLInputElement>) {
+  public onCheckHandler(event: React.ChangeEvent<HTMLInputElement>) {
     this.setState({
       checkedStatus: this.state.checkedStatus === "on" ? "off" : "on",
     })
   }
 
-  render() {
+  public render() {
     const { render } = this.props
     return (
       <div>

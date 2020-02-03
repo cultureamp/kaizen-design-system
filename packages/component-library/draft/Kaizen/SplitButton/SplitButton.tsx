@@ -34,13 +34,15 @@ const SplitButton: SplitButton = ({
   // If the button has a route, it should be an `a` tag, since it is better
   // accessibility and routing. Otherwise, it should be a `button`.
   const btnProps = {
+    // tslint:disable-next-line: object-literal-key-quotes
     className: classnames({
       [styles.button]: true,
       [styles.disabled]: disabled,
     }),
+    // tslint:disable-next-line: object-literal-key-quotes
     tabIndex: disabled ? -1 : 0,
     "data-automation-id": "split-button-button",
-    disabled: disabled,
+    disabled,
   }
 
   return (

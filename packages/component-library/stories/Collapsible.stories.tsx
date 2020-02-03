@@ -115,6 +115,7 @@ SingleCollapsibleLazyLoad.story = {
   name: "Single collapsible (lazy load)",
 }
 
+// tslint:disable-next-line: variable-name
 export const _CollapsibleGroup = () => (
   <div style={{ margin: "1rem", width: "40rem" }}>
     <CollapsibleGroup>

@@ -1,8 +1,7 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 import { action } from "@storybook/addon-actions"
 import * as React from "react"
-import { Button } from "../"
-import { Text } from "../"
+import { Button, Text } from "../"
 import { TextField } from "../draft/Kaizen/Form/TextField"
 import {
   ConfirmationModal,

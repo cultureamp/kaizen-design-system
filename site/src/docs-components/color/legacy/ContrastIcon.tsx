@@ -50,9 +50,9 @@ export const renderContrastHeaderIcons = colorHex => {
 }
 
 const ContrastIcon = ({ color, colorName, text, size }) => {
-  const textColor = Palette[text.toLowerCase()],
-    isValid = contrastIsLevelAA(color, textColor, size),
-    title = `${text} text on '${name}' with a font size of at least ${size}pt is level AA contrast.`
+  const textColor = Palette[text.toLowerCase()]
+  const isValid = contrastIsLevelAA(color, textColor, size)
+  const title = `${text} text on '${name}' with a font size of at least ${size}pt is level AA contrast.`
   return (
     <div
       className={styles.accessibilityIcon}
