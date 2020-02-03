@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.5.1...@kaizen/component-library@1.6.0) (2020-02-03)
+
+
+### Features
+
+* close elm modal with escape ([#256](https://github.com/cultureamp/kaizen-design-system/issues/256)) ([77f5ae6](https://github.com/cultureamp/kaizen-design-system/commit/77f5ae6))
+
+
+
+
+
 ## [1.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.5.0...@kaizen/component-library@1.5.1) (2020-02-03)
 
 **Note:** Version bump only for package @kaizen/component-library
