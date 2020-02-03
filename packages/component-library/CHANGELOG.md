@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.4.1...@kaizen/component-library@1.5.0) (2020-02-03)
+
+
+### Features
+
+* Add Primary prop into SplitButton ([#120](https://github.com/cultureamp/kaizen-design-system/issues/120)) ([95edb85](https://github.com/cultureamp/kaizen-design-system/commit/95edb85))
+
+
+
+
+
 ## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.4.0...@kaizen/component-library@1.4.1) (2020-02-03)
 
 
