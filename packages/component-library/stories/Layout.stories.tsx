@@ -1,4 +1,3 @@
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 import {
@@ -18,7 +17,11 @@ const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon
 const supportIcon = require("@kaizen/component-library/icons/support.icon.svg")
   .default
 
-storiesOf("Layout (React)", module).add("Default", () => (
+export default {
+  title: "Layout (React)",
+}
+
+export const Default = () => (
   <div
     style={{
       flexGrow: 1,
@@ -127,4 +130,4 @@ storiesOf("Layout (React)", module).add("Default", () => (
       </div>
     </Layout>
   </div>
-))
+)

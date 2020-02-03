@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.4.0...@kaizen/component-library@1.4.1) (2020-02-03)
+
+
+### Bug Fixes
+
+* added tslint:latest to linting rules ([#258](https://github.com/cultureamp/kaizen-design-system/issues/258)) ([37ba7b8](https://github.com/cultureamp/kaizen-design-system/commit/37ba7b8))
+
+
+
+
+
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.3.2...@kaizen/component-library@1.4.0) (2020-02-03)
+
+
+### Features
+
+* set id on elm Text component ([#257](https://github.com/cultureamp/kaizen-design-system/issues/257)) ([011aadf](https://github.com/cultureamp/kaizen-design-system/commit/011aadf))
+
+
+
+
+
+## [1.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.3.1...@kaizen/component-library@1.3.2) (2020-01-31)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [1.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.3.0...@kaizen/component-library@1.3.1) (2020-01-30)
+
+
+### Bug Fixes
+
+* tag in Titleblock misaligned in IE11 ([#252](https://github.com/cultureamp/kaizen-design-system/issues/252)) ([fa9d75c](https://github.com/cultureamp/kaizen-design-system/commit/fa9d75c))
+
+
+
+
+
 # [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.2.0...@kaizen/component-library@1.3.0) (2020-01-30)
 
 

@@ -24,7 +24,8 @@ export type Props = {
   automationId?: string
   onToggle?: (open: boolean, id: string) => void
 
-  /* Will avoid rendering the content until required (especially important when you have queries inside sections). Removes animation. */
+  /* Will avoid rendering the content until required (especially important when you have queries inside sections).
+  Removes animation. */
   lazyLoad?: boolean
 
   /* Disables internal `open` state, allowing it to be controlled in the usage */
@@ -38,23 +39,6 @@ type State = {
 class Collapsible extends React.Component<Props, State> {
   public state = {
     open: !!this.props.open,
-  }
-
-  private getOpen = () => {
-    return this.props.controlled ? this.props.open : this.state.open
-  }
-
-  private handleClick = () => {
-    const { onToggle, id, controlled } = this.props
-    const open = this.getOpen()
-
-    onToggle && onToggle(!open, id)
-
-    if (!controlled) {
-      this.setState({
-        open: !open,
-      })
-    }
   }
 
   public render() {
@@ -95,9 +79,10 @@ class Collapsible extends React.Component<Props, State> {
           aria-controls={sectionId}
           data-automation-id={`collapsible-button-${id}`}
         >
-          {renderHeader && renderHeader(title) // If a renderHeader prop has been provided: use that to render the header
-          }
-          {!renderHeader && ( // Otherwise, use a prescribed structure for the title
+          {// If a renderHeader prop has been provided: use that to render the header
+          renderHeader && renderHeader(title)}
+          {// Otherwise, use a prescribed structure for the title
+          !renderHeader && (
             <div
               className={styles.title}
               data-automation-id={`collapsible-button-title-${id}`}
@@ -129,6 +114,23 @@ class Collapsible extends React.Component<Props, State> {
         )}
       </div>
     )
+  }
+
+  private getOpen = () => {
+    return this.props.controlled ? this.props.open : this.state.open
+  }
+
+  private handleClick = () => {
+    const { onToggle, id, controlled } = this.props
+    const open = this.getOpen()
+
+    onToggle && onToggle(!open, id)
+
+    if (!controlled) {
+      this.setState({
+        open: !open,
+      })
+    }
   }
 }
 

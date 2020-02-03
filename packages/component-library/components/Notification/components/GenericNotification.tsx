@@ -37,6 +37,12 @@ type State = {
 }
 
 class GenericNotification extends React.Component<Props, State> {
+  static defaultProps = {
+    persistent: false,
+    autohide: false,
+    autohideDelay: "short",
+  }
+
   state = {
     hidden: true,
     removed: false,
@@ -140,12 +146,6 @@ class GenericNotification extends React.Component<Props, State> {
 
   hide() {
     this.setState({ hidden: true })
-  }
-
-  static defaultProps = {
-    persistent: false,
-    autohide: false,
-    autohideDelay: "short",
   }
 }
 

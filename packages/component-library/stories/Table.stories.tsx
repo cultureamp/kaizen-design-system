@@ -9,7 +9,6 @@ import {
   TableRow,
   TableRowCell,
 } from "@kaizen/component-library/draft"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 import { IconButton } from "../components"
 const styles = require("./Table.stories.scss")
@@ -106,92 +105,214 @@ const ExampleTableRow = ({
   </TableRow>
 )
 
-storiesOf("Table (React)", module)
-  .add("Default (Kaizen Site Demo)", () => (
-    <Container>
-      <TableContainer>
-        <TableHeader>
-          <ExampleTableHeaderRow checkable />
-        </TableHeader>
-        <TableCard>
-          <ExampleTableRow expandable={false} />
-        </TableCard>
-        <TableCard>
-          <ExampleTableRow expandable={false} />
-        </TableCard>
-        <TableCard>
-          <ExampleTableRow expandable={false} />
-        </TableCard>
-      </TableContainer>
-    </Container>
-  ))
-  .add("Multiline", () => (
-    <Container>
-      <TableContainer>
-        <TableHeader>
-          <ExampleTableHeaderRow />
-        </TableHeader>
-        <TableCard>
-          <ExampleTableRow multiline expandable={false} />
-        </TableCard>
-        <TableCard>
-          <ExampleTableRow multiline expandable={false} />
-        </TableCard>
-        <TableCard>
-          <ExampleTableRow multiline expandable={false} />
-        </TableCard>
-      </TableContainer>
-    </Container>
-  ))
-  .add("Clickable", () => (
-    <Container>
-      <TableContainer>
-        <TableHeader>
-          <ExampleTableHeaderRow checkable />
-        </TableHeader>
-        <TableCard onClick={() => alert("clicked!")}>
-          <ExampleTableRow
-            expandable={false}
-            description="Button row with onClick callback"
-          />
-        </TableCard>
-        <TableCard href="//example.com">
-          <ExampleTableRow
-            expandable={false}
-            description="Anchor row with route"
-          />
-        </TableCard>
-        <TableCard forceHoverState>
-          <ExampleTableRow
-            expandable={false}
-            description="Row with hover state only"
-          />
-        </TableCard>
-      </TableContainer>
-    </Container>
-  ))
-  .add("Expanded (deprecated)", () => {
-    const [expandedId, setExpandedId] = React.useState<string | null>("second")
-    const toggleExpanded = id => {
-      if (expandedId === id) {
-        setExpandedId(null)
-        return
-      }
-      setExpandedId(id)
+export default {
+  title: "Table (React)",
+}
+
+export const DefaultKaizenSiteDemo = () => (
+  <Container>
+    <TableContainer>
+      <TableHeader>
+        <ExampleTableHeaderRow checkable />
+      </TableHeader>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+
+DefaultKaizenSiteDemo.story = {
+  name: "Default (Kaizen Site Demo)",
+}
+
+export const Multiline = () => (
+  <Container>
+    <TableContainer>
+      <TableHeader>
+        <ExampleTableHeaderRow />
+      </TableHeader>
+      <TableCard>
+        <ExampleTableRow multiline expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow multiline expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow multiline expandable={false} />
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+
+export const Clickable = () => (
+  <Container>
+    <TableContainer>
+      <TableHeader>
+        <ExampleTableHeaderRow checkable />
+      </TableHeader>
+      <TableCard onClick={() => alert("clicked!")}>
+        <ExampleTableRow
+          expandable={false}
+          description="Button row with onClick callback"
+        />
+      </TableCard>
+      <TableCard href="//example.com">
+        <ExampleTableRow
+          expandable={false}
+          description="Anchor row with route"
+        />
+      </TableCard>
+      <TableCard forceHoverState>
+        <ExampleTableRow
+          expandable={false}
+          description="Row with hover state only"
+        />
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+
+export const ExpandedDeprecated = () => {
+  const [expandedId, setExpandedId] = React.useState<string | null>("second")
+  const toggleExpanded = id => {
+    if (expandedId === id) {
+      setExpandedId(null)
+      return
     }
-    return (
-      <Container>
-        <TableContainer>
-          <TableHeader>
-            <ExampleTableHeaderRow checkable />
-          </TableHeader>
-          {["first", "second", "third"].map(id => {
-            const expanded = expandedId === id
-            return (
-              <TableCard expanded={expanded} onClick={() => toggleExpanded(id)}>
-                <ExampleTableRow expanded={expanded} />
-                {expanded && (
+    setExpandedId(id)
+  }
+  return (
+    <Container>
+      <TableContainer>
+        <TableHeader>
+          <ExampleTableHeaderRow checkable />
+        </TableHeader>
+        {["first", "second", "third"].map(id => {
+          const expanded = expandedId === id
+          return (
+            <TableCard expanded={expanded} onClick={() => toggleExpanded(id)}>
+              <ExampleTableRow expanded={expanded} />
+              {expanded && (
+                <TableContainer>
+                  <TableCard>
+                    <ExampleTableRow expandable={false} />
+                  </TableCard>
+                  <TableCard>
+                    <ExampleTableRow expandable={false} />
+                  </TableCard>
+                </TableContainer>
+              )}
+            </TableCard>
+          )
+        })}
+      </TableContainer>
+    </Container>
+  )
+}
+
+ExpandedDeprecated.story = {
+  name: "Expanded (deprecated)",
+}
+
+export const ExpandedPopout = () => {
+  const [expandedId, setExpandedId] = React.useState<string | null>("second")
+  const toggleExpanded = id => {
+    if (expandedId === id) {
+      setExpandedId(null)
+      return
+    }
+    setExpandedId(id)
+  }
+  return (
+    <Container>
+      <TableContainer>
+        <TableHeader>
+          <ExampleTableHeaderRow checkable />
+        </TableHeader>
+        {["first", "second", "third"].map(id => {
+          const expanded = expandedId === id
+          return (
+            <TableCard
+              key={id}
+              expandedStyle="popout"
+              expanded={expanded}
+              onClick={() => toggleExpanded(id)}
+            >
+              <ExampleTableRow expanded={expanded} />
+              {expanded && (
+                <div>
+                  <div className={styles.popoutExpandedBody}>
+                    <div className={styles.customExpandedHeader}>
+                      <Text tag="div" style="label">
+                        Overall progress
+                      </Text>
+                    </div>
+                    <Text tag="p">
+                      We are making good progress towards our goal!
+                    </Text>
+                  </div>
+                  <div className={styles.popoutExpandedFooter}>
+                    <Text tag="div" style="body-bold">
+                      Created on: July 12, 2017
+                    </Text>
+                  </div>
+                </div>
+              )}
+            </TableCard>
+          )
+        })}
+      </TableContainer>
+    </Container>
+  )
+}
+
+ExpandedPopout.story = {
+  name: "Expanded popout",
+}
+
+export const ExpandedWithCustomContentDeprecated = () => {
+  const [expandedId, setExpandedId] = React.useState<string | null>("second")
+  const toggleExpanded = id => {
+    if (expandedId === id) {
+      setExpandedId(null)
+      return
+    }
+    setExpandedId(id)
+  }
+  return (
+    <Container>
+      <TableContainer>
+        <TableHeader>
+          <ExampleTableHeaderRow checkable />
+        </TableHeader>
+        {["first", "second", "third"].map(id => {
+          const expanded = expandedId === id
+          return (
+            <>
+              <TableCard onClick={() => toggleExpanded(id)}>
+                <ExampleTableRow />
+              </TableCard>
+              {expanded && (
+                <TableCard expanded={expanded}>
+                  <div className={styles.customExpandedHeader}>
+                    <Text tag="div" style="label">
+                      Overall progress
+                    </Text>
+                  </div>
                   <TableContainer>
+                    <TableCard onClick={() => toggleExpanded(id)}>
+                      <ExampleTableRow expanded={expanded} />
+                    </TableCard>
+                  </TableContainer>
+                  <TableContainer>
+                    <ExampleTableHeaderRow />
                     <TableCard>
                       <ExampleTableRow expandable={false} />
                     </TableCard>
@@ -199,129 +320,36 @@ storiesOf("Table (React)", module)
                       <ExampleTableRow expandable={false} />
                     </TableCard>
                   </TableContainer>
-                )}
-              </TableCard>
-            )
-          })}
-        </TableContainer>
-      </Container>
-    )
-  })
-  .add("Expanded popout", () => {
-    const [expandedId, setExpandedId] = React.useState<string | null>("second")
-    const toggleExpanded = id => {
-      if (expandedId === id) {
-        setExpandedId(null)
-        return
-      }
-      setExpandedId(id)
-    }
-    return (
-      <Container>
-        <TableContainer>
-          <TableHeader>
-            <ExampleTableHeaderRow checkable />
-          </TableHeader>
-          {["first", "second", "third"].map(id => {
-            const expanded = expandedId === id
-            return (
-              <TableCard
-                key={id}
-                expandedStyle="popout"
-                expanded={expanded}
-                onClick={() => toggleExpanded(id)}
-              >
-                <ExampleTableRow expanded={expanded} />
-                {expanded && (
-                  <div>
-                    <div className={styles.popoutExpandedBody}>
-                      <div className={styles.customExpandedHeader}>
-                        <Text tag="div" style="label">
-                          Overall progress
-                        </Text>
-                      </div>
-                      <Text tag="p">
-                        We are making good progress towards our goal!
-                      </Text>
-                    </div>
-                    <div className={styles.popoutExpandedFooter}>
-                      <Text tag="div" style="body-bold">
-                        Created on: July 12, 2017
-                      </Text>
-                    </div>
-                  </div>
-                )}
-              </TableCard>
-            )
-          })}
-        </TableContainer>
-      </Container>
-    )
-  })
-  .add("Expanded with custom content (deprecated)", () => {
-    const [expandedId, setExpandedId] = React.useState<string | null>("second")
-    const toggleExpanded = id => {
-      if (expandedId === id) {
-        setExpandedId(null)
-        return
-      }
-      setExpandedId(id)
-    }
-    return (
-      <Container>
-        <TableContainer>
-          <TableHeader>
-            <ExampleTableHeaderRow checkable />
-          </TableHeader>
-          {["first", "second", "third"].map(id => {
-            const expanded = expandedId === id
-            return (
-              <>
-                <TableCard onClick={() => toggleExpanded(id)}>
-                  <ExampleTableRow />
                 </TableCard>
-                {expanded && (
-                  <TableCard expanded={expanded}>
-                    <div className={styles.customExpandedHeader}>
-                      <Text tag="div" style="label">
-                        Overall progress
-                      </Text>
-                    </div>
-                    <TableContainer>
-                      <TableCard onClick={() => toggleExpanded(id)}>
-                        <ExampleTableRow expanded={expanded} />
-                      </TableCard>
-                    </TableContainer>
-                    <TableContainer>
-                      <ExampleTableHeaderRow />
-                      <TableCard>
-                        <ExampleTableRow expandable={false} />
-                      </TableCard>
-                      <TableCard>
-                        <ExampleTableRow expandable={false} />
-                      </TableCard>
-                    </TableContainer>
-                  </TableCard>
-                )}
-              </>
-            )
-          })}
-        </TableContainer>
-      </Container>
-    )
-  })
-  .add("No header", () => (
-    <Container>
-      <TableContainer>
-        <TableCard>
-          <ExampleTableRow expandable={false} />
-        </TableCard>
-        <TableCard>
-          <ExampleTableRow expandable={false} />
-        </TableCard>
-        <TableCard>
-          <ExampleTableRow expandable={false} />
-        </TableCard>
+              )}
+            </>
+          )
+        })}
       </TableContainer>
     </Container>
-  ))
+  )
+}
+
+ExpandedWithCustomContentDeprecated.story = {
+  name: "Expanded with custom content (deprecated)",
+}
+
+export const NoHeader = () => (
+  <Container>
+    <TableContainer>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+
+NoHeader.story = {
+  name: "No header",
+}

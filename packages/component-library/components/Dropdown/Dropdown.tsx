@@ -28,11 +28,11 @@ export default class Dropdown extends React.Component<
   DropdownState
 > {
   static displayName = "Dropdown"
-  dropdownButton = React.createRef<HTMLButtonElement>()
-
   static defaultProps = {
     iconPosition: "start",
   }
+
+  dropdownButton = React.createRef<HTMLButtonElement>()
 
   constructor(props: DropdownProps) {
     super(props)

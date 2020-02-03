@@ -1,131 +1,186 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 import { Text } from "@kaizen/component-library"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
-storiesOf("Text (React)", module)
-  .add("H1", () => <Text tag="h1">This is a Page Title (H1)</Text>)
+export default {
+  title: "Text (React)",
+}
 
-  .add("H1 (inherit baseline)", () => (
-    <Text tag="h1" inheritBaseline>
-      This is a Page Title (H1) that inherits the baseline
-    </Text>
-  ))
+export const H1 = () => <Text tag="h1">This is a Page Title (H1)</Text>
 
-  .add("H2", () => <Text tag="h2">This is a Title (H2)</Text>)
-  .add("H2 (no bottom margin)", () => (
-    <Text tag="h2" inline={true}>
-      This is a Title (H2)
-    </Text>
-  ))
+H1.story = {
+  name: "H1",
+}
 
-  .add("H3", () => <Text tag="h3">This is a Display Heading (H3)</Text>)
+export const H1InheritBaseline = () => (
+  <Text tag="h1" inheritBaseline>
+    This is a Page Title (H1) that inherits the baseline
+  </Text>
+)
 
-  .add("H4", () => <Text tag="h4">This is a Heading (H4)</Text>)
+H1InheritBaseline.story = {
+  name: "H1 (inherit baseline)",
+}
 
-  .add("H5", () => (
-    <Text tag="h5">This is a H5, which uses Heading styles</Text>
-  ))
+export const H2 = () => <Text tag="h2">This is a Title (H2)</Text>
 
-  .add("H6", () => (
-    <Text tag="h6">This is a H6, which uses Heading styles</Text>
-  ))
+H2.story = {
+  name: "H2",
+}
 
-  .add("Paragraph", () => (
-    <Text tag="p">
-      Dr. Brené Brown, author of Daring Greatly, is a research professor from
-      the University of Houston who studies human emotions, including shame and
-      vulnerability. In a March 2012 TED talk, she said, “Vulnerability is not
-      weakness, and that myth is profoundly dangerous.” She went on to say that
-      after 12 years of research, she has actually determined that vulnerability
-      is “our most accurate measurement of courage.”
-    </Text>
-  ))
+export const H2NoBottomMargin = () => (
+  <Text tag="h2" inline={true}>
+    This is a Title (H2)
+  </Text>
+)
 
-  .add("Paragraph (no margin)", () => (
-    <Text tag="p" style="body">
-      Dr. Brené Brown, author of Daring Greatly, is a research professor from
-      the University of Houston who studies human emotions, including shame and
-      vulnerability. In a March 2012 TED talk, she said, “Vulnerability is not
-      weakness, and that myth is profoundly dangerous.” She went on to say that
-      after 12 years of research, she has actually determined that vulnerability
-      is “our most accurate measurement of courage.”
-    </Text>
-  ))
+H2NoBottomMargin.story = {
+  name: "H2 (no bottom margin)",
+}
 
-  .add("Lede Paragraph", () => (
-    <Text tag="p" style="lede">
-      Dr. Brené Brown, author of Daring Greatly, is a research professor from
-      the University of Houston who studies human emotions, including shame and
-      vulnerability. In a March 2012 TED talk, she said, “Vulnerability is not
-      weakness, and that myth is profoundly dangerous.” She went on to say that
-      after 12 years of research, she has actually determined that vulnerability
-      is “our most accurate measurement of courage.”
-    </Text>
-  ))
+export const H3 = () => <Text tag="h3">This is a Display Heading (H3)</Text>
 
-  .add("Div", () => (
-    <Text tag="div">
-      Dr. Brené Brown, author of Daring Greatly, is a research professor from
-      the University of Houston who studies human emotions, including shame and
-      vulnerability. In a March 2012 TED talk, she said, “Vulnerability is not
-      weakness, and that myth is profoundly dangerous.” She went on to say that
-      after 12 years of research, she has actually determined that vulnerability
-      is “our most accurate measurement of courage.”
-    </Text>
-  ))
+H3.story = {
+  name: "H3",
+}
 
-  .add("Div with Page Title styles", () => (
-    <Text tag="div" style="page-title">
-      Div with "Page Title" styles
-    </Text>
-  ))
+export const H4 = () => <Text tag="h4">This is a Heading (H4)</Text>
 
-  .add("Span", () => <Text tag="span">Span text</Text>)
+H4.story = {
+  name: "H4",
+}
 
-  .add("Body-bold", () => (
-    <Text tag="div" style="body-bold">
-      Div with "Body Bold" styles
-    </Text>
-  ))
+export const H5 = () => (
+  <Text tag="h5">This is a H5, which uses Heading styles</Text>
+)
 
-  .add("Small", () => (
-    <Text tag="div" style="small">
-      Div with "Small" styles
-    </Text>
-  ))
+H5.story = {
+  name: "H5",
+}
 
-  .add("Small-bold", () => (
-    <Text tag="div" style="small-bold">
-      Div with "Small Bold" styles
-    </Text>
-  ))
+export const H6 = () => (
+  <Text tag="h6">This is a H6, which uses Heading styles</Text>
+)
 
-  .add("Notification", () => (
-    <Text tag="div" style="notification">
-      Div with "Notification" styles
-      <br />
-      that have a smaller line-height
-    </Text>
-  ))
+H6.story = {
+  name: "H6",
+}
 
-  .add("Label", () => (
-    <Text tag="div" style="label">
-      Div with "Label" styles
-    </Text>
-  ))
+export const Paragraph = () => (
+  <Text tag="p">
+    Dr. Brené Brown, author of Daring Greatly, is a research professor from the
+    University of Houston who studies human emotions, including shame and
+    vulnerability. In a March 2012 TED talk, she said, “Vulnerability is not
+    weakness, and that myth is profoundly dangerous.” She went on to say that
+    after 12 years of research, she has actually determined that vulnerability
+    is “our most accurate measurement of courage.”
+  </Text>
+)
 
-  .add("Control-action", () => (
-    <Text tag="div" style="control-action">
-      Div with "Control Action" styles
-    </Text>
-  ))
+export const ParagraphNoMargin = () => (
+  <Text tag="p" style="body">
+    Dr. Brené Brown, author of Daring Greatly, is a research professor from the
+    University of Houston who studies human emotions, including shame and
+    vulnerability. In a March 2012 TED talk, she said, “Vulnerability is not
+    weakness, and that myth is profoundly dangerous.” She went on to say that
+    after 12 years of research, she has actually determined that vulnerability
+    is “our most accurate measurement of courage.”
+  </Text>
+)
 
-  .add("Button", () => (
-    <Text tag="div" style="button">
-      Div with "Button" styles
-    </Text>
-  ))
+ParagraphNoMargin.story = {
+  name: "Paragraph (no margin)",
+}
+
+export const LedeParagraph = () => (
+  <Text tag="p" style="lede">
+    Dr. Brené Brown, author of Daring Greatly, is a research professor from the
+    University of Houston who studies human emotions, including shame and
+    vulnerability. In a March 2012 TED talk, she said, “Vulnerability is not
+    weakness, and that myth is profoundly dangerous.” She went on to say that
+    after 12 years of research, she has actually determined that vulnerability
+    is “our most accurate measurement of courage.”
+  </Text>
+)
+
+export const Div = () => (
+  <Text tag="div">
+    Dr. Brené Brown, author of Daring Greatly, is a research professor from the
+    University of Houston who studies human emotions, including shame and
+    vulnerability. In a March 2012 TED talk, she said, “Vulnerability is not
+    weakness, and that myth is profoundly dangerous.” She went on to say that
+    after 12 years of research, she has actually determined that vulnerability
+    is “our most accurate measurement of courage.”
+  </Text>
+)
+
+export const DivWithPageTitleStyles = () => (
+  <Text tag="div" style="page-title">
+    Div with "Page Title" styles
+  </Text>
+)
+
+DivWithPageTitleStyles.story = {
+  name: "Div with Page Title styles",
+}
+
+export const Span = () => <Text tag="span">Span text</Text>
+
+export const BodyBold = () => (
+  <Text tag="div" style="body-bold">
+    Div with "Body Bold" styles
+  </Text>
+)
+
+BodyBold.story = {
+  name: "Body-bold",
+}
+
+export const Small = () => (
+  <Text tag="div" style="small">
+    Div with "Small" styles
+  </Text>
+)
+
+export const SmallBold = () => (
+  <Text tag="div" style="small-bold">
+    Div with "Small Bold" styles
+  </Text>
+)
+
+SmallBold.story = {
+  name: "Small-bold",
+}
+
+export const Notification = () => (
+  <Text tag="div" style="notification">
+    Div with "Notification" styles
+    <br />
+    that have a smaller line-height
+  </Text>
+)
+
+export const Label = () => (
+  <Text tag="div" style="label">
+    Div with "Label" styles
+  </Text>
+)
+
+export const ControlAction = () => (
+  <Text tag="div" style="control-action">
+    Div with "Control Action" styles
+  </Text>
+)
+
+ControlAction.story = {
+  name: "Control-action",
+}
+
+export const Button = () => (
+  <Text tag="div" style="button">
+    Div with "Button" styles
+  </Text>
+)
 
 loadElmStories("Text (Elm)", module, require("./TextStories.elm"), [
   "h1",

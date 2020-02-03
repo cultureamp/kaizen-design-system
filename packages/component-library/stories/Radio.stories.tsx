@@ -1,5 +1,4 @@
 import { Radio } from "@kaizen/component-library/draft"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 const ExampleContent = () => (
@@ -48,92 +47,120 @@ class RadioFieldExample extends React.Component<Props> {
     )
   }
 }
-storiesOf("Radio (React)", module)
-  .add("Interactive (Kaizen Site Demo)", () => (
-    <RadioFieldExample
-      render={({ selectedStatus, onChangeHandler }) => (
-        <Radio
-          name="radio"
-          onChange={onChangeHandler}
-          id="radio-1"
-          selectedStatus={selectedStatus as any}
-          value="radio-1"
-          labelText={
-            <div>
-              This is a label with a{" "}
-              <a href="http://google.com" target="_blank">
-                link
-              </a>
-            </div>
-          }
-        />
-      )}
-    />
-  ))
 
-  .add("Unselected disabled", () => (
-    <Radio
-      name="radio"
-      id="radio-1"
-      labelText="Label"
-      selectedStatus={false}
-      disabled={true}
-      value="radio-1"
-    >
-      <ExampleContent />
-    </Radio>
-  ))
+export default {
+  title: "Radio (React)",
+}
 
-  .add("Unselected default", () => (
-    <Radio
-      name="radio"
-      id="radio-1"
-      labelText="Label"
-      selectedStatus={false}
-      disabled={false}
-      value="radio-1"
-    >
-      <ExampleContent />
-    </Radio>
-  ))
-
-  .add("Selected default", () => (
-    <Radio
-      name="radio"
-      id="radio-1"
-      labelText="Label"
-      selectedStatus={true}
-      disabled={false}
-      value="radio-1"
-    >
-      <ExampleContent />
-    </Radio>
-  ))
-
-  .add("Selected disabled", () => (
-    <Radio
-      name="radio"
-      id="radio-1"
-      labelText="Label"
-      selectedStatus={true}
-      disabled={true}
-      value="radio-1"
-    >
-      <ExampleContent />
-    </Radio>
-  ))
-
-  .add("RTL", () => (
-    <div dir="rtl">
+export const InteractiveKaizenSiteDemo = () => (
+  <RadioFieldExample
+    render={({ selectedStatus, onChangeHandler }) => (
       <Radio
         name="radio"
+        onChange={onChangeHandler}
         id="radio-1"
-        labelText="Label"
-        selectedStatus={true}
-        disabled={true}
+        selectedStatus={selectedStatus as any}
         value="radio-1"
-      >
-        <ExampleContent />
-      </Radio>
-    </div>
-  ))
+        labelText={
+          <div>
+            This is a label with a{" "}
+            <a href="http://google.com" target="_blank">
+              link
+            </a>
+          </div>
+        }
+      />
+    )}
+  />
+)
+
+InteractiveKaizenSiteDemo.story = {
+  name: "Interactive (Kaizen Site Demo)",
+}
+
+export const UnselectedDisabled = () => (
+  <Radio
+    name="radio"
+    id="radio-1"
+    labelText="Label"
+    selectedStatus={false}
+    disabled={true}
+    value="radio-1"
+  >
+    <ExampleContent />
+  </Radio>
+)
+
+UnselectedDisabled.story = {
+  name: "Unselected disabled",
+}
+
+export const UnselectedDefault = () => (
+  <Radio
+    name="radio"
+    id="radio-1"
+    labelText="Label"
+    selectedStatus={false}
+    disabled={false}
+    value="radio-1"
+  >
+    <ExampleContent />
+  </Radio>
+)
+
+UnselectedDefault.story = {
+  name: "Unselected default",
+}
+
+export const SelectedDefault = () => (
+  <Radio
+    name="radio"
+    id="radio-1"
+    labelText="Label"
+    selectedStatus={true}
+    disabled={false}
+    value="radio-1"
+  >
+    <ExampleContent />
+  </Radio>
+)
+
+SelectedDefault.story = {
+  name: "Selected default",
+}
+
+export const SelectedDisabled = () => (
+  <Radio
+    name="radio"
+    id="radio-1"
+    labelText="Label"
+    selectedStatus={true}
+    disabled={true}
+    value="radio-1"
+  >
+    <ExampleContent />
+  </Radio>
+)
+
+SelectedDisabled.story = {
+  name: "Selected disabled",
+}
+
+export const Rtl = () => (
+  <div dir="rtl">
+    <Radio
+      name="radio"
+      id="radio-1"
+      labelText="Label"
+      selectedStatus={true}
+      disabled={true}
+      value="radio-1"
+    >
+      <ExampleContent />
+    </Radio>
+  </div>
+)
+
+Rtl.story = {
+  name: "RTL",
+}

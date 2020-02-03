@@ -1,7 +1,6 @@
 import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import * as React from "react"
-import { SyntheticEvent } from "react"
 import { Dir } from "./types"
 
 const chevronDown = require("@kaizen/component-library/icons/chevron-down.icon.svg")
@@ -29,7 +28,7 @@ export default class Dropdown extends React.Component<Props> {
     super(props)
   }
 
-  toggleDropdownMenu = (e: SyntheticEvent<HTMLButtonElement>) => {
+  toggleDropdownMenu = (e: React.SyntheticEvent<HTMLButtonElement>) => {
     e.stopPropagation()
     const { onOpenDropdown } = this.props
     onOpenDropdown()

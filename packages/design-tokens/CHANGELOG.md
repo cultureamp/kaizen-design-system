@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@0.2.0...@kaizen/design-tokens@0.3.0) (2020-01-31)
+
+
+### Features
+
+* Added types to colours  ([#149](https://github.com/cultureamp/kaizen-design-system/issues/149)) ([13dd295](https://github.com/cultureamp/kaizen-design-system/commit/13dd295))
+
+
+
+
+
 # 0.2.0 (2020-01-23)
 
 

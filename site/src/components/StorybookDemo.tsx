@@ -15,14 +15,15 @@ declare global {
 }
 
 export default class StorybookDemo extends React.Component<StorybookDemoProps> {
+  state = {
+    iFrameHeight: "0px",
+  }
+
   private iFrameRef: React.RefObject<HTMLIFrameElement>
 
   constructor(props) {
     super(props)
     this.iFrameRef = React.createRef()
-  }
-  state = {
-    iFrameHeight: "0px",
   }
 
   render() {

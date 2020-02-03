@@ -46,8 +46,8 @@ class IconTile extends React.Component<IconTileProps> {
   }
 
   renderCopyLabel() {
-    const path = `${ICONS_IMPORT_DIR}${this.props.filename}`,
-      copied = this.state.recentlyCopied
+    const path = `${ICONS_IMPORT_DIR}${this.props.filename}`
+    const copied = this.state.recentlyCopied
     return (
       <>
         {copied && (

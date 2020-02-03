@@ -1,6 +1,5 @@
 import classnames from "classnames"
 import * as React from "react"
-import { useRef, useState } from "react"
 import Dropdown from "./Dropdown"
 import DropdownMenu from "./DropdownMenu"
 import { Dir } from "./types"
@@ -40,19 +39,21 @@ const SplitButton: SplitButton = ({
   // If the button has a route, it should be an `a` tag, since it is better
   // accessibility and routing. Otherwise, it should be a `button`.
   const btnProps = {
+    // tslint:disable-next-line: object-literal-key-quotes
     className: classnames({
       [styles.default]: variant === "default",
       [styles.primary]: variant === "primary",
       [styles.disabled]: disabled,
     }),
+    // tslint:disable-next-line: object-literal-key-quotes
     tabIndex: disabled ? -1 : 0,
     "data-automation-id": "split-button-button",
-    disabled: disabled,
+    disabled,
   }
 
-  const dropdownButtonRef = useRef<HTMLDivElement>(null)
+  const dropdownButtonRef = React.useRef<HTMLDivElement>(null)
 
-  const [isMenuVisible, setIsMenuVisible] = useState<boolean>(false)
+  const [isMenuVisible, setIsMenuVisible] = React.useState<boolean>(false)
 
   const hideDropdownMenu = () => {
     setIsMenuVisible(!isMenuVisible)
