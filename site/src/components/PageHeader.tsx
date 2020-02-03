@@ -8,7 +8,7 @@ type PageHeaderProps = {
   children?: React.ReactNode
   headingText: string | React.ReactNode
   summaryParagraph?: string
-  tags?: Array<string>
+  tags?: string[]
   image?: React.ReactNode
   headingOnly?: boolean
 }

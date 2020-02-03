@@ -1,11 +1,11 @@
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
-@import "~@cultureamp/kaizen-component-library/styles/border";
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/type";
-@import "~@cultureamp/kaizen-component-library/styles/layers";
-@import "~@cultureamp/kaizen-component-library/styles/layout";
-@import "~@cultureamp/kaizen-component-library/styles/responsive";
-@import "~@cultureamp/kaizen-component-library/styles/animation";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/layers";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/responsive";
+@import "~@kaizen/component-library/styles/animation";
 
 $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen colour theme and get this from tokens package
 
@@ -190,6 +190,9 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 
 .tag {
   margin-left: $ca-grid / 1.5;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
 }
 
 .actionsContainer {

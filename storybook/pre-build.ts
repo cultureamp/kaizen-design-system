@@ -6,17 +6,18 @@ import { dirname } from "path"
 
 /** Print a conspicuous red error message and exit non-zero. */
 const exitWithError = (...message: string[]) => {
+  // tslint:disable-next-line: no-console
   console.error(chalk.red(`\n${message.join("\n")}\n`))
   process.exit(1)
 }
 
-// Check for compiler output in the @cultureamp/kaizen-component-library
+// Check for compiler output in the @kaizen/component-library
 // package. This state is required for linking with murmur, but it causes
 // storybook to fail in ways that are difficult to diagnose.
 if (
-  readdirSync(
-    dirname(require.resolve("@cultureamp/kaizen-component-library"))
-  ).includes("index.js")
+  readdirSync(dirname(require.resolve("@kaizen/component-library"))).includes(
+    "index.js"
+  )
 ) {
   exitWithError(
     "The component-library package contains compiled javascript!",

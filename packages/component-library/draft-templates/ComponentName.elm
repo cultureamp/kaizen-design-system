@@ -80,6 +80,6 @@ view (Config config) =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/ComponentName/styles.scss"
+    css "@kaizen/component-library/draft/ComponentName/styles.scss"
         { container = "container"
         }

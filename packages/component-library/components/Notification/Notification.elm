@@ -223,16 +223,16 @@ icon : NotificationType -> Icon.SvgAsset.SvgAsset
 icon type_ =
     case type_ of
         Affirmative ->
-            svgAsset "@cultureamp/kaizen-component-library/icons/success.icon.svg"
+            svgAsset "@kaizen/component-library/icons/success.icon.svg"
 
         Cautionary ->
-            svgAsset "@cultureamp/kaizen-component-library/icons/exclamation.icon.svg"
+            svgAsset "@kaizen/component-library/icons/exclamation.icon.svg"
 
         Negative ->
-            svgAsset "@cultureamp/kaizen-component-library/icons/exclamation.icon.svg"
+            svgAsset "@kaizen/component-library/icons/exclamation.icon.svg"
 
         Informative ->
-            svgAsset "@cultureamp/kaizen-component-library/icons/information.icon.svg"
+            svgAsset "@kaizen/component-library/icons/information.icon.svg"
 
 
 viewTitle : Config msg -> Html msg
@@ -283,14 +283,14 @@ viewCancelButton (Config { persistent, variant }) state onStateChange =
                 [ -- We are using a hidden span and Icon.presentation rather than the usual Icon.img to avoid this components API requiring a unique ID.
                   span [ styles.class .cancelLabel ] [ text "close notification" ]
                 , Icon.view Icon.presentation
-                    (svgAsset "@cultureamp/kaizen-component-library/icons/close.icon.svg")
+                    (svgAsset "@kaizen/component-library/icons/close.icon.svg")
                     |> Html.map never
                 ]
             ]
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/components/Notification/components/GenericNotification.module.scss"
+    css "@kaizen/component-library/components/Notification/components/GenericNotification.module.scss"
         { notification = "notification"
         , icon = "icon"
         , textContainer = "textContainer"

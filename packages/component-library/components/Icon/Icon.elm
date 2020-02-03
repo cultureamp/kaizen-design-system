@@ -24,7 +24,7 @@ view : Config -> SvgAsset -> Html Never
 view ((Config configValue) as config) svgAsset =
     let
         { toString } =
-            css "@cultureamp/kaizen-component-library/components/Icon/Icon.module.scss"
+            css "@kaizen/component-library/components/Icon/Icon.module.scss"
                 { icon = "icon"
                 , inheritSize = "inheritSize"
                 }

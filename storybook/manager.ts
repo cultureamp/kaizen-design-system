@@ -8,6 +8,5 @@ import "@storybook/addon-a11y/register"
 import "@storybook/addon-actions/register"
 
 // The following do not use the addons panel:
-import "@storybook/addon-options/register"
 import "@storybook/addon-backgrounds/register"
 import "@storybook/addon-viewport/register"

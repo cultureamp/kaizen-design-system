@@ -1,11 +1,10 @@
-const caMonogramIcon = require("@cultureamp/kaizen-component-library/icons/ca-monogram.icon.svg")
+const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
   .default
-const kebabIcon = require("@cultureamp/kaizen-component-library/icons/kebab.icon.svg")
+const kebabIcon = require("@kaizen/component-library/icons/kebab.icon.svg")
   .default
-const printIcon = require("@cultureamp/kaizen-component-library/icons/print.icon.svg")
+const printIcon = require("@kaizen/component-library/icons/print.icon.svg")
   .default
 import { action } from "@storybook/addon-actions"
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 import {
@@ -14,7 +13,7 @@ import {
   MenuItem,
   MenuList,
   MenuSeparator,
-} from "@cultureamp/kaizen-component-library"
+} from "@kaizen/component-library"
 
 const Menu: React.FunctionComponent = () => (
   <MenuList>
@@ -60,34 +59,63 @@ const Menu: React.FunctionComponent = () => (
     <MenuItem action="https://www.cultureamp.com/">Link label</MenuItem>
   </MenuList>
 )
-storiesOf("Dropdown (React)", module)
-  .add("Default (Meatball)", () => (
-    <Dropdown>
-      <Menu />
-    </Dropdown>
-  ))
-  .add("Default (Kebab)", () => (
-    <Dropdown icon={kebabIcon}>
-      <Menu />
-    </Dropdown>
-  ))
-  .add("Label and Icon", () => (
-    <Dropdown label="Print" icon={kebabIcon}>
-      <Menu />
-    </Dropdown>
-  ))
-  .add("Text Only", () => (
-    <Dropdown label="Print">
-      <Menu />
-    </Dropdown>
-  ))
-  .add("Control action", () => (
-    <Dropdown label="Print" icon={printIcon} controlAction>
-      <Menu />
-    </Dropdown>
-  ))
-  .add("Reversed Control action", () => (
-    <Dropdown label="Print" icon={printIcon} controlAction reversedColor>
-      <Menu />
-    </Dropdown>
-  ))
+
+export default {
+  title: "Dropdown (React)",
+}
+
+export const DefaultMeatball = () => (
+  <Dropdown>
+    <Menu />
+  </Dropdown>
+)
+
+DefaultMeatball.story = {
+  name: "Default (Meatball)",
+}
+
+export const DefaultKebab = () => (
+  <Dropdown icon={kebabIcon}>
+    <Menu />
+  </Dropdown>
+)
+
+DefaultKebab.story = {
+  name: "Default (Kebab)",
+}
+
+export const LabelAndIcon = () => (
+  <Dropdown label="Print" icon={kebabIcon}>
+    <Menu />
+  </Dropdown>
+)
+
+LabelAndIcon.story = {
+  name: "Label and Icon",
+}
+
+export const TextOnly = () => (
+  <Dropdown label="Print">
+    <Menu />
+  </Dropdown>
+)
+
+export const ControlAction = () => (
+  <Dropdown label="Print" icon={printIcon} controlAction>
+    <Menu />
+  </Dropdown>
+)
+
+ControlAction.story = {
+  name: "Control action",
+}
+
+export const ReversedControlAction = () => (
+  <Dropdown label="Print" icon={printIcon} controlAction reversedColor>
+    <Menu />
+  </Dropdown>
+)
+
+ReversedControlAction.story = {
+  name: "Reversed Control action",
+}

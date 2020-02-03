@@ -1,5 +1,5 @@
 import { withA11y } from "@storybook/addon-a11y"
-import { addDecorator, addParameters, configure } from "@storybook/react"
+import { addDecorator, addParameters } from "@storybook/react"
 import { create } from "@storybook/theming"
 import { backgrounds } from "./backgrounds"
 
@@ -20,12 +20,6 @@ addParameters({
   backgrounds,
   options: {
     theme: create({ brandTitle: "🌱 Storybook", base: "light" }),
+    storySort: (a, b) => a[1].id.localeCompare(b[1].id),
   },
 })
-
-const loadStories = () => {
-  const req = require.context("../packages", true, /\.stories.tsx?$/)
-  req.keys().forEach(filename => req(filename))
-}
-
-configure(loadStories, module)

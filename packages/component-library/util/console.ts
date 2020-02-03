@@ -9,13 +9,14 @@ export const error = (message: string) => {
 }
 
 export const warn = (message: string) => {
+  // tslint:disable-next-line: no-console
   console.warn(
     `${yellow}\nCULTUREAMP UI WARNING:\n${singleLine(message)}${reset}\n`
   )
 }
 
-export const singleLine = (string: string) => {
-  return string
+export const singleLine = (message: string) => {
+  return message
     .replace(/^ +/gm, " ")
     .replace(/\n|\r/gm, "")
     .trim()

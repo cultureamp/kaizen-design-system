@@ -1,6 +1,5 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
-import { AsyncSelect, Select } from "@cultureamp/kaizen-component-library/draft"
-import { storiesOf } from "@storybook/react"
+import { AsyncSelect, Select } from "@kaizen/component-library/draft"
 import * as React from "react"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => {
@@ -57,49 +56,56 @@ const promiseOptions = inputValue =>
     }, 1000)
   })
 
-storiesOf("Select (React)", module)
-  .add("Single", () => (
-    <StoryContainer>
-      <Select
-        options={options}
-        placeholder="Placeholder"
-        isSearchable={false}
-      />
-    </StoryContainer>
-  ))
+export default {
+  title: "Select (React)",
+}
 
-  .add("Single Searchable", () => (
-    <StoryContainer>
-      <Select options={options} placeholder="Placeholder" />
-    </StoryContainer>
-  ))
+export const Single = () => (
+  <StoryContainer>
+    <Select options={options} placeholder="Placeholder" isSearchable={false} />
+  </StoryContainer>
+)
 
-  .add("Multi-Select Searchable", () => (
-    <WideStoryContainer>
-      <Select options={options} placeholder="Placeholder" isMulti={true} />
-    </WideStoryContainer>
-  ))
+export const SingleSearchable = () => (
+  <StoryContainer>
+    <Select options={options} placeholder="Placeholder" />
+  </StoryContainer>
+)
 
-  .add("Async Searchable", () => (
-    <WideStoryContainer>
-      <AsyncSelect
-        loadOptions={promiseOptions}
-        defaultOptions={options}
-        placeholder="Placeholder"
-      />
-    </WideStoryContainer>
-  ))
+export const MultiSelectSearchable = () => (
+  <WideStoryContainer>
+    <Select options={options} placeholder="Placeholder" isMulti={true} />
+  </WideStoryContainer>
+)
 
-  .add("Multi-Async Searchable", () => (
-    <WideStoryContainer>
-      <AsyncSelect
-        loadOptions={promiseOptions}
-        defaultOptions={options}
-        placeholder="Placeholder"
-        isMulti={true}
-      />
-    </WideStoryContainer>
-  ))
+MultiSelectSearchable.story = {
+  name: "Multi-Select Searchable",
+}
+
+export const AsyncSearchable = () => (
+  <WideStoryContainer>
+    <AsyncSelect
+      loadOptions={promiseOptions}
+      defaultOptions={options}
+      placeholder="Placeholder"
+    />
+  </WideStoryContainer>
+)
+
+export const MultiAsyncSearchable = () => (
+  <WideStoryContainer>
+    <AsyncSelect
+      loadOptions={promiseOptions}
+      defaultOptions={options}
+      placeholder="Placeholder"
+      isMulti={true}
+    />
+  </WideStoryContainer>
+)
+
+MultiAsyncSearchable.story = {
+  name: "Multi-Async Searchable",
+}
 
 loadElmStories("Select (Elm)", module, require("./SelectStories.elm"), [
   "Single (Kaizen Site Demo)",

@@ -65,6 +65,8 @@ type Duration
 
 type ConfirmationType
     = Informative
+    | Positive
+    | Negative
 
 
 type alias ConfirmationConfig msg =
@@ -187,6 +189,34 @@ view (Config config) =
                                 )
                             ]
                             (genericModalConfig |> GenericModal.events genericModalEvents)
+
+                    Positive ->
+                        GenericModal.view GenericModal.Default
+                            [ ConfirmationModal.view
+                                (ConfirmationModal.positive
+                                    |> withOnDismiss
+                                    |> withOnConfirm
+                                    |> withBodySubtext
+                                    |> ConfirmationModal.confirmLabel configs.confirmLabel
+                                    |> ConfirmationModal.dismissLabel configs.dismissLabel
+                                    |> ConfirmationModal.title configs.title
+                                )
+                            ]
+                            (genericModalConfig |> GenericModal.events genericModalEvents)
+
+                    Negative ->
+                        GenericModal.view GenericModal.Default
+                            [ ConfirmationModal.view
+                                (ConfirmationModal.negative
+                                    |> withOnDismiss
+                                    |> withOnConfirm
+                                    |> withBodySubtext
+                                    |> ConfirmationModal.confirmLabel configs.confirmLabel
+                                    |> ConfirmationModal.dismissLabel configs.dismissLabel
+                                    |> ConfirmationModal.title configs.title
+                                )
+                            ]
+                            (genericModalConfig |> GenericModal.events genericModalEvents)
         ]
 
 
@@ -244,7 +274,7 @@ defaultModalData =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/GenericModal.scss"
+    css "@kaizen/component-library/draft/Kaizen/Modal/Primitives/GenericModal.scss"
         { backdropLayer = "backdropLayer"
         , animatingElmEnter = "animatingElmEnter"
         , animatingElmExit = "animatingElmExit"

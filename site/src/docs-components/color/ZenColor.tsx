@@ -1,15 +1,15 @@
-import colorTokens from "@cultureamp/kaizen-design-tokens/tokens/color.json"
+import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
 import wcag from "wcag-contrast-verifier/lib/wcag"
 
 const DARK_TEXT_COLOR_FOR_CONTRAST_CHECKING = colorTokens.kz.color.wisteria[700]
 
 function shouldUseWhiteText(color) {
-  const whiteContrast = wcag.getContrastRatio(color, "#ffffff"),
-    blackContrast = wcag.getContrastRatio(
-      color,
-      DARK_TEXT_COLOR_FOR_CONTRAST_CHECKING
-    )
+  const whiteContrast = wcag.getContrastRatio(color, "#ffffff")
+  const blackContrast = wcag.getContrastRatio(
+    color,
+    DARK_TEXT_COLOR_FOR_CONTRAST_CHECKING
+  )
   return whiteContrast > blackContrast
 }
 

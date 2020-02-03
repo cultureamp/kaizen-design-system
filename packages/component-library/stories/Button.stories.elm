@@ -18,7 +18,7 @@ main =
         , statelessStoryOf "Destructive w/ Icon" <|
             Button.view
                 (Button.destructive
-                    |> Button.icon (svgAsset "@cultureamp/kaizen-component-library/icons/trash.icon.svg")
+                    |> Button.icon (svgAsset "@kaizen/component-library/icons/trash.icon.svg")
                     |> Button.iconPosition Button.Start
                 )
                 "Label"
@@ -31,7 +31,7 @@ main =
         , statelessStoryOf "Secondary Destructive w/ Icon" <|
             Button.view
                 (Button.secondary
-                    |> Button.icon (svgAsset "@cultureamp/kaizen-component-library/icons/trash.icon.svg")
+                    |> Button.icon (svgAsset "@kaizen/component-library/icons/trash.icon.svg")
                     |> Button.iconPosition Button.Start
                     |> Button.destructiveModifier True
                 )

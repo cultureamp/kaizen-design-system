@@ -1,9 +1,4 @@
-import {
-  Checkbox,
-  CheckedStatus,
-} from "@cultureamp/kaizen-component-library/draft"
-import { FieldGroup } from "@cultureamp/kaizen-component-library/draft"
-import { Label } from "@cultureamp/kaizen-component-library/draft"
+import { Checkbox, CheckedStatus, Label } from "@kaizen/component-library/draft"
 import classnames from "classnames"
 import * as React from "react"
 

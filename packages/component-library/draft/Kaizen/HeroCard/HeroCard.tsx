@@ -9,7 +9,7 @@ interface Props {
   readonly title?: React.ReactNode
   readonly image?: React.ReactNode
   readonly badge?: React.ReactNode
-  readonly fullWidth?: Boolean
+  readonly fullWidth?: boolean
   readonly minHeight?: string
 }
 

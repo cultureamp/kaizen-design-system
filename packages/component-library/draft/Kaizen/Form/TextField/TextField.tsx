@@ -1,15 +1,15 @@
-import { Icon } from "@cultureamp/kaizen-component-library/components/Icon"
-import { FieldGroup } from "@cultureamp/kaizen-component-library/draft"
-import { FieldMessage } from "@cultureamp/kaizen-component-library/draft"
+import { Icon } from "@kaizen/component-library/components/Icon"
 import {
+  FieldGroup,
+  FieldMessage,
   Input,
   InputStatus,
   InputType,
-} from "@cultureamp/kaizen-component-library/draft"
-import { Label } from "@cultureamp/kaizen-component-library/draft"
-const exclamationIcon = require("@cultureamp/kaizen-component-library/icons/exclamation.icon.svg")
+  Label,
+} from "@kaizen/component-library/draft"
+const exclamationIcon = require("@kaizen/component-library/icons/exclamation.icon.svg")
   .default
-const successIcon = require("@cultureamp/kaizen-component-library/icons/success.icon.svg")
+const successIcon = require("@kaizen/component-library/icons/success.icon.svg")
   .default
 import classnames from "classnames"
 import * as React from "react"

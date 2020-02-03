@@ -1,13 +1,13 @@
 import * as React from "react"
 
-const emptyIcon = require("@cultureamp/kaizen-component-library/icons/empty.icon.svg")
+const emptyIcon = require("@kaizen/component-library/icons/empty.icon.svg")
   .default
-const printIcon = require("@cultureamp/kaizen-component-library/icons/print.icon.svg")
+const printIcon = require("@kaizen/component-library/icons/print.icon.svg")
   .default
-const successIcon = require("@cultureamp/kaizen-component-library/icons/success.icon.svg")
+const successIcon = require("@kaizen/component-library/icons/success.icon.svg")
   .default
 
-import { Icon } from "@cultureamp/kaizen-component-library"
+import { Icon } from "@kaizen/component-library"
 
 const styles = require("./VerticalProgressIndicator.module.scss")
 
@@ -76,7 +76,9 @@ export const VerticalProgressIndicator = ({ position, completion }: Props) => {
   }
 
   const renderLines = ({
+    // tslint:disable-next-line: no-shadowed-variable
     completion,
+    // tslint:disable-next-line: no-shadowed-variable
     position,
   }: {
     completion: Completion

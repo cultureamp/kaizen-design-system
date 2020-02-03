@@ -6,7 +6,7 @@ import Html.Attributes
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Form/Primitives/FieldMessage/styles.scss"
+    css "@kaizen/component-library/draft/Kaizen/Form/Primitives/FieldMessage/styles.scss"
         { error = "error"
         , default = "default"
         , reversed = "reversed"

@@ -1,7 +1,7 @@
-import { Icon } from "@cultureamp/kaizen-component-library"
-const chevronDownIcon = require("@cultureamp/kaizen-component-library/icons/chevron-down.icon.svg")
+import { Icon } from "@kaizen/component-library"
+const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
-const ellipsisIcon = require("@cultureamp/kaizen-component-library/icons/ellipsis.icon.svg")
+const ellipsisIcon = require("@kaizen/component-library/icons/ellipsis.icon.svg")
   .default
 import classNames from "classnames"
 import * as React from "react"
@@ -28,11 +28,11 @@ export default class Dropdown extends React.Component<
   DropdownState
 > {
   static displayName = "Dropdown"
-  dropdownButton = React.createRef<HTMLButtonElement>()
-
   static defaultProps = {
     iconPosition: "start",
   }
+
+  dropdownButton = React.createRef<HTMLButtonElement>()
 
   constructor(props: DropdownProps) {
     super(props)

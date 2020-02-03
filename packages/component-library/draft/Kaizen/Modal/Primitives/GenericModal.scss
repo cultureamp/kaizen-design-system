@@ -1,9 +1,9 @@
-@import "~@cultureamp/kaizen-component-library/styles/animation";
-@import "~@cultureamp/kaizen-component-library/styles/border";
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/layers";
-@import "~@cultureamp/kaizen-component-library/styles/layout";
-@import "~@cultureamp/kaizen-component-library/styles/responsive";
+@import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/layers";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/responsive";
 
 .backdropLayer {
   @include ca-position($start: 0, $end: 0, $top: 0, $bottom: 0);
@@ -97,6 +97,9 @@
 
 .unscrollable {
   overflow: hidden !important;
+}
+
+.pseudoScrollbar {
   padding-right: 15px !important;
 }
 

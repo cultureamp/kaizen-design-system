@@ -32,7 +32,7 @@ import Kaizen.Events.Events as Events
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Form/Primitives/Input/styles.scss"
+    css "@kaizen/component-library/draft/Kaizen/Form/Primitives/Input/styles.scss"
         { wrapper = "wrapper"
         , input = "input"
         , default = "default"

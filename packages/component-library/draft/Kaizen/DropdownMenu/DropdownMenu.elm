@@ -77,7 +77,7 @@ view args state =
             , span
                 [ styles.class .chevronIcon ]
                 [ Icon.view Icon.presentation
-                    (svgAsset "@cultureamp/kaizen-component-library/icons/chevron-down.icon.svg")
+                    (svgAsset "@kaizen/component-library/icons/chevron-down.icon.svg")
                     |> Html.map never
                 ]
             ]
@@ -102,7 +102,7 @@ onClickWithStopAndPrevent msg =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/DropdownMenu/DropdownMenu.scss"
+    css "@kaizen/component-library/draft/Kaizen/DropdownMenu/DropdownMenu.scss"
         { dropdown = "dropdown"
         , dropdownControlAction = "dropdownControlAction"
         , buttonReset = "buttonReset"

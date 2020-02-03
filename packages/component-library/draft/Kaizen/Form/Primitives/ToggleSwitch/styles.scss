@@ -1,10 +1,10 @@
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
-@import "~@cultureamp/kaizen-component-library/styles/animation";
-@import "~@cultureamp/kaizen-component-library/styles/border";
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/layout";
-@import "~@cultureamp/kaizen-component-library/styles/type";
-@import "~@cultureamp/kaizen-component-library/styles/mixins/forms";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/mixins/forms";
 
 $animation-timing: $ca-duration-immediate $ca-linear;
 
@@ -16,6 +16,7 @@ $animation-timing: $ca-duration-immediate $ca-linear;
   border: 1px solid $kz-color-wisteria-300;
   background-color: $kz-color-ash;
   border-radius: $ca-grid;
+  box-sizing: content-box;
   width: ($ca-grid * 1.05) * 2;
   height: ($ca-grid * 1.25);
   padding: 0 $ca-grid * 0.15;
@@ -40,6 +41,7 @@ $animation-timing: $ca-duration-immediate $ca-linear;
 .thumb {
   background-color: $kz-color-white;
   border: 1px solid transparent;
+  box-sizing: content-box;
   width: $ca-grid * 0.9;
   height: $ca-grid * 0.9;
   border-radius: $ca-grid;
@@ -53,8 +55,8 @@ $animation-timing: $ca-duration-immediate $ca-linear;
     background-color: $kz-color-seedling-500;
 
     &.freemium {
-      background-color: add-shade($ca-freemium-green, 10%);
-      border-color: add-shade($ca-freemium-green, 10%);
+      background-color: $kz-color-seedling-400;
+      border-color: $kz-color-seedling-400;
     }
   }
 

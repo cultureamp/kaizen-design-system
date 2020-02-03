@@ -8,6 +8,7 @@ module Text.Text exposing
     , h4
     , h5
     , h6
+    , id
     , inheritBaseline
     , inline
     , label
@@ -40,6 +41,7 @@ If you want to inherit the baseline of the parent (no relative positioning), use
 
 import CssModules exposing (css)
 import Html exposing (Html)
+import Html.Attributes as HtmlAttributes
 
 
 
@@ -48,7 +50,16 @@ import Html exposing (Html)
 
 view : Config msg -> List (Html.Html msg) -> Html.Html msg
 view (Config config) children =
-    config.tag [ className config.tag config.style config.inheritBaseline config.inline ] children
+    let
+        resolveId =
+            case config.id of
+                Just id_ ->
+                    [ HtmlAttributes.id id_ ]
+
+                Nothing ->
+                    []
+    in
+    config.tag ([ className config.tag config.style config.inheritBaseline config.inline ] ++ resolveId) children
 
 
 className : Element msg -> TypeStyle -> Bool -> Bool -> Html.Attribute msg
@@ -109,7 +120,7 @@ className tag typeStyle shouldInheritBaseline shouldInline =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/components/Text/Text.module.scss"
+    css "@kaizen/component-library/components/Text/Text.module.scss"
         { defaultStyle = "defaultStyle"
         , pageTitle = "pageTitle"
         , title = "title"
@@ -143,6 +154,7 @@ type alias ConfigValue msg =
     , style : TypeStyle
     , inheritBaseline : Bool
     , inline : Bool
+    , id : Maybe String
     }
 
 
@@ -174,6 +186,7 @@ defaultConfig =
     , style = DefaultStyle
     , inheritBaseline = False
     , inline = False
+    , id = Nothing
     }
 
 
@@ -244,3 +257,8 @@ inline value (Config config) =
 style : TypeStyle -> Config msg -> Config msg
 style value (Config config) =
     Config { config | style = value }
+
+
+id : String -> Config msg -> Config msg
+id id_ (Config config) =
+    Config { config | id = Just id_ }

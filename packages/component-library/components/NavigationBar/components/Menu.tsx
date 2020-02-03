@@ -2,8 +2,8 @@ import {
   IconButton,
   OffCanvas,
   OffCanvasContext,
-} from "@cultureamp/kaizen-component-library"
-const arrowLeftIcon = require("@cultureamp/kaizen-component-library/icons/arrow-left.icon.svg")
+} from "@kaizen/component-library"
+const arrowLeftIcon = require("@kaizen/component-library/icons/arrow-left.icon.svg")
   .default
 import * as React from "react"
 import Media from "react-media"
@@ -31,13 +31,12 @@ type State = {
 }
 
 export default class Menu extends React.Component<MenuProps, State> {
-  rootRef = React.createRef<HTMLElement>()
-
   static displayName = "Menu"
   static defaultProps = {
     items: [],
     mobileEnabled: true,
   }
+  rootRef = React.createRef<HTMLElement>()
 
   state = { open: false }
 
@@ -137,7 +136,8 @@ export default class Menu extends React.Component<MenuProps, State> {
     if (method && method !== "get") {
       return (
         // HTML forms only accept POST. We use a hidden `_method` input as a convention for emulating other HTTP verbs.
-        // This behaviour is the same as what is implemented by UJS and supported by Rails: https://github.com/rails/jquery-ujs
+        // This behaviour is the same as what is implemented by UJS and supported by Rails:
+        // https://github.com/rails/jquery-ujs
         <form method="post" action={url}>
           <input name="_method" value={method} type="hidden" />
           <button type="submit" className={styles.menuItem}>

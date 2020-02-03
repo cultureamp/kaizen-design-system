@@ -1,5 +1,5 @@
 import_mapping = {
-    "~@cultureamp/kaizen-design-tokens/sass/color": [
+    "~@kaizen/design-tokens/sass/color": [
         "$kz-color-wisteria-100",
         "$kz-color-wisteria-200",
         "$kz-color-wisteria-300",

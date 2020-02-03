@@ -1,5 +1,5 @@
 {
-  "extends": ["tslint-config-prettier"],
+  "extends": ["tslint-config-prettier", "tslint:latest"],
   "linterOptions": {
     "exclude": ["**/*.js?(x)"]
   },
@@ -7,8 +7,37 @@
     "no-implicit-dependencies": [
       true,
       "dev",
-      ["@cultureamp", "@storybook", "@testing-library", "react", "react-dom"]
+      ["@kaizen", "@storybook", "@testing-library", "react", "react-dom"]
     ],
-    "ordered-imports": true
+    "ordered-imports": true,
+    "semicolon": false,
+    "no-submodule-imports": false,
+    "no-var-requires": false,
+    "interface-name": false,
+
+    "interface-over-type-literal": {
+      "severity": "none"
+    },
+    "trailing-comma": {
+      "severity": "none"
+    },
+    "arrow-parens": {
+      "severity": "none"
+    },
+    "curly": {
+      "severity": "none"
+    },
+    "triple-equals": {
+      "severity": "none"
+    },
+    "no-unused-expression": {
+      "severity": "none"
+    },
+    "object-literal-sort-keys": {
+      "severity": "none"
+    },
+    "member-access": {
+      "severity": "none"
+    }
   }
 }
