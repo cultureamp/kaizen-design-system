@@ -1,6 +1,5 @@
 import { Icon } from "@kaizen/component-library"
 import * as React from "react"
-import { SyntheticEvent } from "react"
 import DropdownMenu from "./DropdownMenu"
 import { Dir } from "./types"
 
@@ -35,7 +34,7 @@ export default class Dropdown extends React.Component<Props, State> {
     }
   }
 
-  toggleDropdownMenu = (e: SyntheticEvent<HTMLButtonElement>) => {
+  toggleDropdownMenu = (e: React.SyntheticEvent<HTMLButtonElement>) => {
     e.stopPropagation()
     const currentState = this.state.isMenuVisible
     this.setState({
