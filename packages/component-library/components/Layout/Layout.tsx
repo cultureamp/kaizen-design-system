@@ -100,7 +100,7 @@ const extractChildOfType = (
 ) => {
   const match = children.find(child => {
     if (React.isValidElement(child) && typeof child.type === "function") {
-      return child.type.displayName === type.displayName
+      return (child.type as React.SFC).displayName === type.displayName
     }
 
     return false
