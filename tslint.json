@@ -39,9 +39,6 @@
     "member-access": {
       "severity": "none"
     },
-    "variable-name": {
-      "options": ["allow-leading-underscore", "allow-pascal-case"]
-    },
     "object-literal-key-quotes": [true, "as-needed"]
   }
 }

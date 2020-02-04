@@ -1,6 +1,6 @@
-import { _calculateMenuTop } from "./DropdownMenu"
+import { calculateMenuTop } from "./DropdownMenu"
 
-describe("_calculateMenuTop", () => {
+describe("calculateMenuTop", () => {
   const newMenuRect = (): ClientRect => ({
     width: 170,
     height: 425,
@@ -25,7 +25,7 @@ describe("_calculateMenuTop", () => {
     "returns the css `top` value required for the dropdown menu, " +
       "when there is enough room below the SplitButtons",
     () => {
-      const result = _calculateMenuTop(newButtonsRect(32), newMenuRect(), 500)
+      const result = calculateMenuTop(newButtonsRect(32), newMenuRect(), 500)
       expect(result).toEqual(40) // ie. show the menu below the split buttons
     }
   )
@@ -34,7 +34,7 @@ describe("_calculateMenuTop", () => {
     "returns the css `top` value required for the dropdown menu, " +
       "when there is not enough room below the SplitButtons, but enough room above",
     () => {
-      const result = _calculateMenuTop(newButtonsRect(459), newMenuRect(), 500)
+      const result = calculateMenuTop(newButtonsRect(459), newMenuRect(), 500)
       expect(result).toEqual(-423) // ie. show the menu above the split buttons
     }
   )
@@ -43,8 +43,7 @@ describe("_calculateMenuTop", () => {
     "returns the css `top` value required for the dropdown menu, " +
       "when there is not enough room below or above the SplitButtons",
     () => {
-      // @ts-ignore
-      const result = _calculateMenuTop(newButtonsRect(315), newMenuRect(), 500)
+      const result = calculateMenuTop(newButtonsRect(315), newMenuRect(), 500)
       expect(result).toEqual(40) // ie. show the menu below the split buttons
     }
   )

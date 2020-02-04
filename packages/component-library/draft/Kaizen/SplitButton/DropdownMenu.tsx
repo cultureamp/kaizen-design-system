@@ -9,7 +9,7 @@ type Props = {
   dir?: Dir
 }
 
-export const _calculateMenuTop = (
+export const calculateMenuTop = (
   buttonsBoundingRect: ClientRect,
   menuBoundingRect: ClientRect,
   viewportHeight
@@ -37,11 +37,11 @@ export default class DropdownMenu extends React.Component<Props> {
     dir: "ltr",
   }
 
-  _menuRef: RefObject<HTMLDivElement> | null
+  menuRef: RefObject<HTMLDivElement> | null
 
   constructor(props: Props) {
     super(props)
-    this._menuRef = React.createRef()
+    this.menuRef = React.createRef()
   }
 
   componentDidMount() {
@@ -57,13 +57,13 @@ export default class DropdownMenu extends React.Component<Props> {
 
   positionMenu() {
     const { buttonsBoundingRect } = this.props
-    const menu = this._menuRef && this._menuRef.current
+    const menu = this.menuRef && this.menuRef.current
     if (!buttonsBoundingRect || !menu) {
       return
     }
     const menuBoundingRect = menu.getBoundingClientRect()
 
-    menu.style.top = `${_calculateMenuTop(
+    menu.style.top = `${calculateMenuTop(
       buttonsBoundingRect,
       menuBoundingRect,
       window.innerHeight
@@ -72,10 +72,10 @@ export default class DropdownMenu extends React.Component<Props> {
 
   handleDocumentClick = (e: MouseEvent) => {
     if (
-      this._menuRef &&
-      this._menuRef.current &&
+      this.menuRef &&
+      this.menuRef.current &&
       e.target instanceof Node &&
-      !this._menuRef.current.contains(e.target)
+      !this.menuRef.current.contains(e.target)
     ) {
       this.props.hideDropdownMenu()
     }
@@ -90,7 +90,7 @@ export default class DropdownMenu extends React.Component<Props> {
     return (
       <div
         className={styles.menuContainer}
-        ref={this._menuRef}
+        ref={this.menuRef}
         onClick={() => props.hideDropdownMenu()}
       >
         {props.children}
