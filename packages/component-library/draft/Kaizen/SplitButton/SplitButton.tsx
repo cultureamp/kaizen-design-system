@@ -39,35 +39,36 @@ const SplitButton: SplitButton = ({
   // If the button has a route, it should be an `a` tag, since it is better
   // accessibility and routing. Otherwise, it should be a `button`.
   const btnProps = {
-    // tslint:disable-next-line: object-literal-key-quotes
     className: classnames({
       [styles.default]: variant === "default",
       [styles.primary]: variant === "primary",
       [styles.disabled]: disabled,
     }),
-    // tslint:disable-next-line: object-literal-key-quotes
     tabIndex: disabled ? -1 : 0,
     "data-automation-id": "split-button-button",
     disabled,
   }
 
-  const dropdownButtonRef = React.useRef<HTMLDivElement>(null)
+  const dropdownButtonsContainerRef = React.useRef<HTMLDivElement>(null)
 
   const [isMenuVisible, setIsMenuVisible] = React.useState<boolean>(false)
 
-  const hideDropdownMenu = () => {
+  const toggleDropdownMenu = () => {
     setIsMenuVisible(!isMenuVisible)
   }
 
-  const getPosition = () => {
-    return dropdownButtonRef.current
-      ? dropdownButtonRef.current.getBoundingClientRect()
+  const getButtonsBoundingRect = () => {
+    return dropdownButtonsContainerRef.current
+      ? dropdownButtonsContainerRef.current.getBoundingClientRect()
       : null
   }
 
   return (
     <div className={styles.root} dir={dir} data-automation-id={automationId}>
-      <div className={styles.buttonsContainer} ref={dropdownButtonRef}>
+      <div
+        className={styles.buttonsContainer}
+        ref={dropdownButtonsContainerRef}
+      >
         {href ? (
           <a
             href={disabled ? undefined : href}
@@ -77,7 +78,6 @@ const SplitButton: SplitButton = ({
             {label}
           </a>
         ) : (
-          // @ts-ignore
           <button
             type="button"
             onClick={disabled ? undefined : (onClick as ButtonCallback)}
@@ -91,16 +91,14 @@ const SplitButton: SplitButton = ({
           dir={dir}
           variant={variant}
           dropdownAltText={dropdownAltText}
-          onOpenDropdown={() => {
-            hideDropdownMenu()
-          }}
+          onOpenDropdown={toggleDropdownMenu}
         />
       </div>
       {isMenuVisible && (
         <DropdownMenu
-          hideDropdownMenu={hideDropdownMenu}
+          hideDropdownMenu={toggleDropdownMenu}
           dir={dir}
-          position={getPosition()}
+          buttonsBoundingRect={getButtonsBoundingRect()}
         >
           {dropdownContent}
         </DropdownMenu>

@@ -1,17 +1,34 @@
-import * as React from "react"
+import React, { RefObject } from "react"
 import { Dir } from "./types"
 const styles = require("./styles.scss")
 
 type Props = {
   children: React.ReactNode
-  position: {
-    top: number
-    bottom: number
-    left: number
-    right: number
-  } | null
+  buttonsBoundingRect: ClientRect | null // get by calling getBoundingClientRect()
   hideDropdownMenu: () => void
   dir?: Dir
+}
+
+export const calculateMenuTop = (
+  buttonsBoundingRect: ClientRect,
+  menuBoundingRect: ClientRect,
+  viewportHeight
+): number => {
+  // Used to hide the border of the buttonsContainer class
+  const borderRadiusBuffer = 2
+
+  // If there's not enough room to show the menu below the split buttons,
+  // but enough room to show it above...
+  if (
+    buttonsBoundingRect.bottom + menuBoundingRect.height > viewportHeight &&
+    menuBoundingRect.height <= buttonsBoundingRect.top
+  ) {
+    // Show menu above the split buttons
+    return -menuBoundingRect.height + borderRadiusBuffer
+  }
+
+  // Regular behaviour, show menu below the split buttons
+  return buttonsBoundingRect.height - borderRadiusBuffer
 }
 
 export default class DropdownMenu extends React.Component<Props> {
@@ -19,7 +36,13 @@ export default class DropdownMenu extends React.Component<Props> {
   static defaultProps = {
     dir: "ltr",
   }
-  menu: HTMLDivElement | null = null
+
+  menuRef: RefObject<HTMLDivElement> | null
+
+  constructor(props: Props) {
+    super(props)
+    this.menuRef = React.createRef()
+  }
 
   componentDidMount() {
     document.addEventListener("click", this.handleDocumentClick, false)
@@ -33,34 +56,26 @@ export default class DropdownMenu extends React.Component<Props> {
   }
 
   positionMenu() {
-    const menu = this.menu
-    if (!this.props.position || !menu) {
+    const { buttonsBoundingRect } = this.props
+    const menu = this.menuRef && this.menuRef.current
+    if (!buttonsBoundingRect || !menu) {
       return
     }
-    const pos = this.props.position
-    const { innerHeight } = window
-    const rect = menu.getBoundingClientRect()
+    const menuBoundingRect = menu.getBoundingClientRect()
 
-    if (pos.bottom > innerHeight - rect.height) {
-      const bottom = rect.height + 40
-      menu.style.bottom = `${bottom}px`
-      menu.style.top = "auto"
-    } else {
-      menu.style.top = "-2px" // This is to hide the border of the buttonsContainer class
-      menu.style.bottom = "auto"
-    }
-    if (this.props.dir === "rtl") {
-      menu.style.left = "0px"
-    } else {
-      menu.style.right = "0px"
-    }
+    menu.style.top = `${calculateMenuTop(
+      buttonsBoundingRect,
+      menuBoundingRect,
+      window.innerHeight
+    )}px`
   }
 
   handleDocumentClick = (e: MouseEvent) => {
     if (
-      this.menu &&
+      this.menuRef &&
+      this.menuRef.current &&
       e.target instanceof Node &&
-      !this.menu.contains(e.target)
+      !this.menuRef.current.contains(e.target)
     ) {
       this.props.hideDropdownMenu()
     }
@@ -75,7 +90,7 @@ export default class DropdownMenu extends React.Component<Props> {
     return (
       <div
         className={styles.menuContainer}
-        ref={m => (this.menu = m)}
+        ref={this.menuRef}
         onClick={() => props.hideDropdownMenu()}
       >
         {props.children}
