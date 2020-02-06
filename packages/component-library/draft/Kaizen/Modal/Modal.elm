@@ -34,7 +34,7 @@ type Config msg
 
 
 type ModalState msg
-    = ModalState (State msg) Progress
+    = ModalState State Progress
 
 
 type Progress
@@ -58,7 +58,7 @@ type alias Configuration msg =
     }
 
 
-type State msg
+type State
     = Opening_ ModalData
     | Open_ ModalData
     | Closing_ ModalData
@@ -270,18 +270,6 @@ initialState =
         Stopped
 
 
-{-| A modal is only truly opened or closed after the animation has completed.
-
-    e.g. If you remove the modal element from the view as soon as you click a close button
-    then the modal will disappear without animating closed first.
-
-    withDispatch allows you to dispatch a (Cmd msg) on either Closed or Open from the update.
-
-    This is handy for when you want to remove the modal element from the view after the closing animation.
-
-    Use withDispatch on the modal modalState handler to always fire the Cmd msg's you want to hear back from.
-
--}
 defaultModalData : ModalData
 defaultModalData =
     { duration = Fast
@@ -446,7 +434,7 @@ update ms modalMsg =
             trigger ms
 
 
-updateRunning : State msg -> ( ModalState msg, Cmd ModalMsg, Maybe Status )
+updateRunning : State -> ( ModalState msg, Cmd ModalMsg, Maybe Status )
 updateRunning state =
     case state of
         Opening_ d ->
@@ -474,12 +462,12 @@ updateRunning state =
             )
 
 
-getState : ModalState msg -> State msg
+getState : ModalState msg -> State
 getState (ModalState state _) =
     state
 
 
-getData : State msg -> ModalData
+getData : State -> ModalData
 getData state =
     case state of
         Opening_ s ->
