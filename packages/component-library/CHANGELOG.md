@@ -3,6 +3,92 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.7.0...@kaizen/component-library@2.0.0) (2020-02-06)
+
+
+### Code Refactoring
+
+* Allow modal to send internal Cmd msgs  ([#262](https://github.com/cultureamp/kaizen-design-system/issues/262)) ([2df5846](https://github.com/cultureamp/kaizen-design-system/commit/2df5846))
+
+
+### BREAKING CHANGES
+
+* In order for the elm modal to handle focus-lock
+within elm accurately it needs to be able to send and receive
+internal messages. This PR nudges the code in the right direction to be
+able to handle focus.
+
+Because Generic variants allow the consumer to pass their own view with
+their own Cmd msgs the modal now uses the onUpdate msg to send these
+internal messages which are opaque to the consumer.
+
+The consumer being told when the modal had closed or opened was also
+unecessarily complicated and now the update and trigger functions return
+the Status so consumers can act on a fully Open or Closed modal. This
+cleaned up a lot of tricky code.
+
+WIP Make modal send Cmd ModalMsg
+
+Modal previously sending msg matching the consumer msgs types. This very much
+limited the extensibility of the type of msgs the modal could dispatch
+internally.
+
+Now that the modal is dispatching ModalMsg's we can create more
+sophisticated functionality such as controlling focus.
+
+Remove dispatch data from state
+
+Use onUpdate message if onDismiss is not passed
+
+Add all modal status types to Status type
+
+This type will be available to consumer when updating the modal. The
+consumer will be able to know what state the modal is in via these
+types.
+
+Differentiate types
+
+To avoid duplicate custom types we are adding a _ to State types as they
+are used internally.
+
+Exposing Status type to consumer
+
+WIth the Status type the consumer will be able to check if the Modal is
+Open or Closed without needing any overly complex dispatch logic.
+
+Send Status out with Cmd msgs
+
+When the consumer updates or triggers the Modal they will be abvle to
+access the modals state through the Status type.
+
+A consumer can then know when a modal is closed and subsequently remove
+the modal context from the state and DOM.
+
+Rewrite comment to focus on internal messages
+
+The onUpdate is specifically for Modal internal messages. It essentailly
+allows the modal to have a window for its own unique internal messages
+whilst still allowing the consumer to fire their own msgs.
+
+Open modal on story click
+
+Setting modal state to force open
+
+This helper function allows the modal to start off its life with an
+opening animation. This really isnt recommended as modals should be
+triggered.
+
+Mapping Modal subscriptions
+
+* Remove msg argument to type
+
+This msg type is no longer needed as the dispatch logic has been
+removed.
+
+
+
+
+
 # [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.6.1...@kaizen/component-library@1.7.0) (2020-02-04)
 
 
