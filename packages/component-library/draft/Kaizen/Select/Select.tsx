@@ -12,9 +12,7 @@ const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.ic
 
 const styles = require("./styles.react.scss")
 
-interface Props extends ReactSelectProps {}
-
-export const Select = (props: Props) => {
+export const Select = (props: ReactSelectProps) => {
   return (
     <ReactSelect
       {...props}

@@ -24,6 +24,7 @@ export const CurrentStepActionable = () => (
       name="Stop!"
       status="actionable"
       position="start"
+      // tslint:disable-next-line: no-console
       onClick={console.log.bind(console)}
     >
       <p>Click here to commence the Stop!</p>
@@ -41,6 +42,7 @@ export const CurrentStepStarted = () => (
       name="Stop!"
       status="started"
       position="start"
+      // tslint:disable-next-line: no-console
       onClick={console.log.bind(console)}
     >
       <p>Stopping...</p>
@@ -52,6 +54,7 @@ CurrentStepStarted.story = {
   name: "current step started",
 }
 
+// tslint:disable-next-line: variable-name
 export const _UpcomingStep = () => (
   <StoryContainer>
     <VerticalProgressStep.UpcomingStep name="Collaborate!" position="middle">
@@ -64,6 +67,7 @@ _UpcomingStep.story = {
   name: "upcoming step",
 }
 
+// tslint:disable-next-line: variable-name
 export const _CompletedStep = () => (
   <StoryContainer>
     <VerticalProgressStep.CompletedStep name="Listen!" position="end">

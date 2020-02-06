@@ -1,5 +1,5 @@
 import { action } from "@storybook/addon-actions"
-import { cleanup, fireEvent, render } from "@testing-library/react"
+import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
 import { MenuItem, MenuList } from "../../../components/MenuList"
 import SplitButton, { SplitButtonProps } from "./SplitButton"

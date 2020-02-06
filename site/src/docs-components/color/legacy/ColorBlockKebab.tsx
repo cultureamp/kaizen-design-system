@@ -11,17 +11,17 @@ const duplicate = require("@kaizen/component-library/icons/duplicate.icon.svg")
 const styles = require("./ColorCard.scss")
 
 const ColorBlockKebab = ({ bgColor, sassVar }) => {
-  const hex = bgColor.hex(),
-    rgb = bgColor
-      .rgb()
-      .array()
-      .map(Math.round)
-      .join(", "),
-    cmyk = bgColor
-      .cmyk()
-      .array()
-      .map(Math.round)
-      .join(", ")
+  const hex = bgColor.hex()
+  const rgb = bgColor
+    .rgb()
+    .array()
+    .map(Math.round)
+    .join(", ")
+  const cmyk = bgColor
+    .cmyk()
+    .array()
+    .map(Math.round)
+    .join(", ")
   return (
     <span className={styles.kebabContainer}>
       <Dropdown>

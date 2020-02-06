@@ -8,15 +8,18 @@ module Kaizen.Modal.Modal exposing
     , initialState
     , modalState
     , onUpdate
+    , subscriptions
     , update
     , view
     , withDispatch
     )
 
+import Browser.Events as BrowserEvents
 import CssModules exposing (css)
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
+import Kaizen.Events.Events as KaizenEvents
 import Kaizen.Modal.Presets.ConfirmationModal as ConfirmationModal
 import Kaizen.Modal.Primitives.GenericModal as GenericModal
 import Process
@@ -33,7 +36,7 @@ type ModalState msg
 
 
 type Progress
-    = Running
+    = Animating
     | Stopped
 
 
@@ -89,6 +92,15 @@ type alias Timing =
     { startedAt : Time.Posix
     , dt : Time.Posix
     }
+
+
+subscriptions : ModalState msg -> msg -> Sub msg
+subscriptions ms msg =
+    if canSubscribeToEscape ms then
+        BrowserEvents.onKeyDown (KaizenEvents.isEscape msg)
+
+    else
+        Sub.none
 
 
 view : Config msg -> Html msg
@@ -256,7 +268,7 @@ initialState =
 
     withDispatch allows you to dispatch a (Cmd msg) on either Closed or Open from the update.
 
-    This is handy for when you want to remove the modal element from the view after the the closing animation.
+    This is handy for when you want to remove the modal element from the view after the closing animation.
 
     Use withDispatch on the modal modalState handler to always fire the Cmd msg's you want to hear back from.
 
@@ -303,6 +315,16 @@ mapDuration duration =
             300
 
 
+canSubscribeToEscape : ModalState msg -> Bool
+canSubscribeToEscape (Msg state progress) =
+    case ( state, progress ) of
+        ( Closed_ _, Stopped ) ->
+            False
+
+        _ ->
+            True
+
+
 
 -- VARIANTS
 
@@ -345,7 +367,7 @@ modalState msg (Config config) =
 update : ModalState msg -> msg -> ( ModalState msg, Cmd msg )
 update (Msg state progress) modalUpdateHandlerMsg =
     case progress of
-        Running ->
+        Animating ->
             updateRunning state modalUpdateHandlerMsg
 
         -- To know what to do next we specify what state the modal was in when stopped
@@ -358,7 +380,7 @@ update (Msg state progress) modalUpdateHandlerMsg =
                     )
 
                 Open_ s ->
-                    ( Msg (Closing s) <| Running
+                    ( Msg (Closing s) <| Animating
                     , Task.perform identity (Task.succeed modalUpdateHandlerMsg)
                     )
 
@@ -367,7 +389,7 @@ update (Msg state progress) modalUpdateHandlerMsg =
                     ( Msg (Closed_ defaultModalData) Stopped, Cmd.none )
 
                 Closed_ s ->
-                    ( Msg (Opening s) <| Running
+                    ( Msg (Opening s) <| Animating
                     , Task.perform identity (Task.succeed modalUpdateHandlerMsg)
                     )
 
@@ -378,7 +400,7 @@ updateRunning state modalUpdateHandlerMsg =
         Opening d ->
             let
                 noDispatch =
-                    ( Msg (Open_ d) Running, Task.perform identity (Task.succeed modalUpdateHandlerMsg) )
+                    ( Msg (Open_ d) Animating, Task.perform identity (Task.succeed modalUpdateHandlerMsg) )
 
                 ( newState, cmd ) =
                     case d.dispatch of
@@ -409,11 +431,11 @@ updateRunning state modalUpdateHandlerMsg =
                                 (\dispatchMsg acc ->
                                     getDispatchClosed acc dispatchMsg d
                                 )
-                                ( Msg (Closed_ d) Running, Cmd.none )
+                                ( Msg (Closed_ d) Animating, Cmd.none )
                                 dispatchMsgs
 
                         Nothing ->
-                            ( Msg (Closed_ d) Running
+                            ( Msg (Closed_ d) Animating
                             , Task.perform (\_ -> modalUpdateHandlerMsg) (Process.sleep <| mapDuration d.duration)
                             )
             in
@@ -429,7 +451,7 @@ getDispatchOpen : ( ModalState msg, Cmd msg ) -> Dispatch msg -> ModalData msg -
 getDispatchOpen fallBack dispatch modalData =
     case dispatch of
         Open msg ->
-            ( Msg (Open_ modalData) Running, Task.perform (\_ -> msg) (Process.sleep <| mapDuration modalData.duration) )
+            ( Msg (Open_ modalData) Animating, Task.perform (\_ -> msg) (Process.sleep <| mapDuration modalData.duration) )
 
         _ ->
             fallBack
@@ -439,7 +461,7 @@ getDispatchClosed : ( ModalState msg, Cmd msg ) -> Dispatch msg -> ModalData msg
 getDispatchClosed fallBack dispatch modalData =
     case dispatch of
         Closed msg ->
-            ( Msg (Closed_ modalData) Running, Task.perform (\_ -> msg) (Process.sleep <| mapDuration modalData.duration) )
+            ( Msg (Closed_ modalData) Animating, Task.perform (\_ -> msg) (Process.sleep <| mapDuration modalData.duration) )
 
         _ ->
             fallBack

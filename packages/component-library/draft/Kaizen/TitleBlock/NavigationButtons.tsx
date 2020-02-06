@@ -10,7 +10,7 @@ export type NavigationButton = {
 }
 
 type Props = {
-  navigationButtons: Array<NavigationButton>
+  navigationButtons: NavigationButton[]
   reversed: boolean
 }
 

@@ -1,0 +1,163 @@
+---
+title: "Date Picker"
+navTitle: "Date Picker (not built)"
+summaryParagraph: A Date Picker lets users select a date or range of dates. It uses a text field and a visual calendar in a popover.
+tags: ["Calendar", "Time"]
+needToKnow:
+- Date Pickers might include a single date or a date range.
+- Date Pickers often require validation for the user's input.
+- Choose good defaults, such as the current date, end of financial year, end of calendar year, or according to some other schedule, such as a company's feedback schedule.
+- Help people prevent and recover from invalid dates by disabling some dates or providing validation feedback.
+---
+
+import DosAndDonts from "docs-components/DosAndDonts"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
+## Visuals
+
+### UI Kit
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D11526%253A26098" allowfullscreen></iframe>
+
+## To keep in mind
+
+### Anatomy
+
+- **Text Field label**:
+  - Provide a descriptive label that conveys the purpose of the field. Aim to convey if it a single date or a date range is expected.
+- **Calendar icon**:
+  - The calendar [Icon](/components/icon) shows that this is a date field and that the user may select a date from the visual calendar popover.
+- **Visual calendar**:
+  - The calendar view itself shows selected dates in a visual calendar layout.
+- **Month and year**:
+  - The month and year is shown on each month of the visual calendar.
+- **Popover**:
+  - The visual calendar appears inside a [Popover](/components/popover).
+- **Previous and next month buttons**:
+  - In the popover, the previous and next buttons let people navigate one month at a time.
+- **Placeholder text**:
+  - Below the Date Picker, placeholder text can be used to show the accepted date format or other supporting information.
+
+### Good defaults
+
+To reduce the cognitive load and effort for users, pre-select a good default date. To choose a good default date, some options and considerations include:
+
+- Today. This is an easy reference for many people.
+- Significant calendar boundaries, such as the end of financial or calendar year.
+- Significant dates for the customer, such as their existing feedback schedule.
+- People science. We know typical time periods for collecting, understanding, and acting on feedback. We can use these date ranges.
+
+Sometimes if it is necessary for the user to make a conscious choice, you might not provide a pre-selected good default. In that case, you'll need to provide clear and specific validation feedback.
+
+### Date formats
+
+Where it makes sense, provide text below the Date Picker to provide placeholder info about the accepted date format. Avoid using HTML `placeholder` text to show date formats because it can be inaccessible to some people using screen readers. See the [Product language style guide dates section](https://cultureamp.design/guidelines/language/#dates) for details on presenting date formats, such as `Mmm DD, YYYY`.
+
+### Dates far in the future or past
+
+For selecting a date far in the future or past compared to the default, you might consider using a [Select component](/components/select) instead.
+
+### Today, Tomorrow, Next Week, Next Month
+
+You might consider providing shortcut buttons that select specific relative dates if they are common choices.
+
+### Single date selection
+
+When a user select a single date, close the visual calendar.
+
+### Date range selection
+
+When a user first selects a date, set the start date in the range.
+
+When a user selects a second date, close the visual calendar.
+
+### Prevent and recover from invalid dates
+
+**To prevent errors**, you might disable dates before or after dates that don't make sense. For example, an employee cannot start at a company before they are born, so for selecting a start date, you might disable dates before their date of birth. To do this, you might set a "min" date or a "max" date.
+
+**To help people recover from errors**, you might instead allow dates that don't make sense and then show validation errors so people know what they need to change. Sometimes it can be easier to make a minor adjustment to an incorrect date than to start over. For example, if the user has selected the right month but was off by 1 day, it might be easier to adjust it by 1 day than to have that date rejected and need to select the month and day again.
+
+### Autosaving vs buttons
+
+By default, we immediately update the date value when a user selects the date or dismisses the visual calendar popover, a little like autosaving. For some circumstances, you might instead choose to provide "Update" and "Cancel" buttons in the popover if the risk and impact of errors is high. For example, if selecting the wrong date as a filter for some data would immediately cause the data to reload and performance is an issue, you might choose to include buttons to prevent frustration with slow interfaces.
+
+### Localization
+
+All text used in the Date Picker, including the calendar days, month, year, buttons, and text field, needs to be localized. For more information, see the [Localization guidelines](/guidelines/localization).
+
+### Week starts on
+
+We show weeks starting on Sundays.
+
+### Accessibility
+
+Some people might find using a Date Picker difficult. Let people use the text field or visual calendar to select dates.
+
+See [WAI ARIA: Date Picker Dialog Example](https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/datepicker-dialog.html) for more details.
+
+#### Mouse support
+
+- Show the visual calendar popover when a person using a mouse clicks on the Text Field label or input.
+
+#### Keyboard support
+
+- Show the visual calendar popover when a person using a keyboard presses enter or space while the Text Field has focus.
+- Let people tab forward and backward through the previous month button, next month button, and the visual calendar dates.
+- When the focus is in the calendar, let people move keyboard focus between dates using the arrow keys.
+- Let people press the enter key to select the date that has focus.
+- Let people press escape to close the visual calendar popover without choosing a date and return focus to the Text Field.
+
+### Validation
+
+When the Date Picker has an error, show the error Text Field state and provide a meaningful validation error message that tells people how to recover from the error.
+
+- Valid dates:
+  - You may need to validate that the date makes sense for its context.
+- Valid formatting or input:
+  - You may need to validate to make sure the input is not garbage.
+- Required dates:
+  - You may need to validate to make sure the user has selected a required date.
+
+### Date and time
+
+For selecting a date and time, use a Date Picker and adjacent Time Picker using a [Text Field](/components/text-field).
+
+The resulting value in code for a selected date includes the year, month, and day, but not the time.
+
+### Mobile
+
+On mobile devices, you might choose to use a native date picker component instead of the visual calendar popover.
+
+## When to use and when not to use
+
+<DosAndDonts>
+<Do>
+
+- Use a Date Picker when it's more efficient that typing a date in a [Text Field](/components/text-field).
+- Use a Date Picker when the date to be selected will be within a year of the default date.
+
+</Do>
+<Dont>
+
+- When the default date provided is highly likely to be right or only off by 1 day, you might consider using only a [Text Field](/components/text-field).
+- For selecting a date far in the future or past compared to the default, you might consider using a [Select component](/components/select) instead.
+
+</Dont>
+</DosAndDonts>
+
+
+## External Links
+
+Here are some examples from elsewhere:
+
+- [Polaris: Date Picker](https://polaris.shopify.com/components/forms/date-picker).
+- [Atlassian: Date Picker](https://www.atlassian.design/guidelines/product/components/date-picker).
+- [Lightning Design System: Datepicker](https://www.lightningdesignsystem.com/components/datepickers/#site-main-content).
+- [Lightning Design System: Datetime Picker](https://www.lightningdesignsystem.com/components/datetime-picker/#site-main-content).
+- [Material: Pickers](https://material.io/components/pickers/).
+- [Material: Text Fields with calendar icons](https://material.io/components/text-fields/#anatomy).
+- [MDN: input date](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date).
+- [W3C WAI-ARIA Date Picker Dialog Example](https://www.w3.org/TR/wai-aria-practices/examples/dialog-modal/datepicker-dialog.html).
+- [Airbnb: React Dates](https://github.com/airbnb/react-dates).
+
