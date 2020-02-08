@@ -1,8 +1,6 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 import { Text } from "@kaizen/component-library"
-import { TextField } from "@kaizen/component-library/draft"
-import { Well } from "@kaizen/component-library/draft"
-import { storiesOf } from "@storybook/react"
+import { TextField, Well } from "@kaizen/component-library/draft"
 import * as React from "react"
 
 const ExampleContent = () => (
@@ -16,57 +14,88 @@ const ExampleContent = () => (
       id="blerg"
       labelText="Example text field"
       inputValue=""
-      onChange={() => {}}
+      onChange={() => undefined}
     />
   </div>
 )
 
-storiesOf("Well (React)", module)
-  .add("Default with solid border (Kaizen Site Demo)", () => (
-    <Well>
-      <ExampleContent />
-    </Well>
-  ))
-  .add("Default with dashed border", () => (
-    <Well borderStyle="dashed">
-      <ExampleContent />
-    </Well>
-  ))
-  .add("Default without border", () => (
-    <Well borderStyle="none">
-      <ExampleContent />
-    </Well>
-  ))
-  .add("Default with no margin", () => (
-    <Well noMargin>
-      <ExampleContent />
-    </Well>
-  ))
-  .add("Positive", () => (
-    <Well variant="positive">
-      <ExampleContent />
-    </Well>
-  ))
-  .add("Negative", () => (
-    <Well variant="negative">
-      <ExampleContent />
-    </Well>
-  ))
-  .add("Informative", () => (
-    <Well variant="informative">
-      <ExampleContent />
-    </Well>
-  ))
-  .add("Cautionary", () => (
-    <Well variant="cautionary">
-      <ExampleContent />
-    </Well>
-  ))
-  .add("Informative with dashed border", () => (
-    <Well variant="informative" borderStyle="dashed">
-      <ExampleContent />
-    </Well>
-  ))
+export default {
+  title: "Well (React)",
+}
+
+export const DefaultWithSolidBorderKaizenSiteDemo = () => (
+  <Well>
+    <ExampleContent />
+  </Well>
+)
+
+DefaultWithSolidBorderKaizenSiteDemo.story = {
+  name: "Default with solid border (Kaizen Site Demo)",
+}
+
+export const DefaultWithDashedBorder = () => (
+  <Well borderStyle="dashed">
+    <ExampleContent />
+  </Well>
+)
+
+DefaultWithDashedBorder.story = {
+  name: "Default with dashed border",
+}
+
+export const DefaultWithoutBorder = () => (
+  <Well borderStyle="none">
+    <ExampleContent />
+  </Well>
+)
+
+DefaultWithoutBorder.story = {
+  name: "Default without border",
+}
+
+export const DefaultWithNoMargin = () => (
+  <Well noMargin>
+    <ExampleContent />
+  </Well>
+)
+
+DefaultWithNoMargin.story = {
+  name: "Default with no margin",
+}
+
+export const Positive = () => (
+  <Well variant="positive">
+    <ExampleContent />
+  </Well>
+)
+
+export const Negative = () => (
+  <Well variant="negative">
+    <ExampleContent />
+  </Well>
+)
+
+export const Informative = () => (
+  <Well variant="informative">
+    <ExampleContent />
+  </Well>
+)
+
+export const Cautionary = () => (
+  <Well variant="cautionary">
+    <ExampleContent />
+  </Well>
+)
+
+export const InformativeWithDashedBorder = () => (
+  <Well variant="informative" borderStyle="dashed">
+    <ExampleContent />
+  </Well>
+)
+
+InformativeWithDashedBorder.story = {
+  name: "Informative with dashed border",
+}
 
 loadElmStories("Well (Elm)", module, require("./Well.stories.elm"), [
   "Default with solid border",

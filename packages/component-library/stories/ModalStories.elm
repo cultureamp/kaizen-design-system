@@ -1,6 +1,5 @@
 module Main exposing (main)
 
-import Button.Button as Button
 import ElmStorybook exposing (storyOf, storybook)
 import Html exposing (div, text)
 import Html.Attributes exposing (style)
@@ -12,15 +11,18 @@ import Text.Text as Text
 
 
 type ModalMsg
-    = ModalUpdate
-    | ModalClosed
+    = ModalUpdate Modal.ModalMsg
     | ModalConfirmed
-    | SetModalContext
+    | ModalDismissed
+
+
+
+--    | SetModalContext
 
 
 model : ModalState
 model =
-    { modalContext = Nothing }
+    { modalContext = Just (Modal.forceOpen Modal.initialState) }
 
 
 type alias ModalState =
@@ -31,32 +33,61 @@ type alias ModalState =
 update : ModalMsg -> ModalState -> ( ModalState, Cmd ModalMsg )
 update msg state =
     case msg of
-        SetModalContext ->
-            let
-                ( modalState, modalCmd ) =
-                    Modal.update Modal.initialState ModalUpdate
-            in
-            ( { state | modalContext = Just modalState }, modalCmd )
-
-        ModalUpdate ->
+        ModalUpdate modalMsg ->
             case state.modalContext of
                 Just ms ->
                     let
-                        ( modalState, modalCmd ) =
-                            Modal.update (ms |> Modal.withDispatch [ Modal.Closed ModalClosed ]) ModalUpdate
+                        ( modalState, modalCmd, modalStatus ) =
+                            Modal.update ms modalMsg
+
+                        updatedModalState =
+                            case modalStatus of
+                                Just Modal.Closed ->
+                                    Nothing
+
+                                _ ->
+                                    Just modalState
                     in
-                    ( { state | modalContext = Just modalState }, modalCmd )
+                    ( { state | modalContext = updatedModalState }, Cmd.map ModalUpdate modalCmd )
 
                 Nothing ->
                     ( state, Cmd.none )
 
-        ModalClosed ->
-            ( { state | modalContext = Nothing }, Cmd.none )
-
         ModalConfirmed ->
-            -- we can do some stuff here when the user clicks confirm, then update the modal so it closes.
-            -- For now we are just going to close the modal by calling ModalUpdate
-            update ModalUpdate state
+            -- we can do some stuff here when the user clicks confirm, then trigger the modal so it closes.
+            case state.modalContext of
+                Just ms ->
+                    let
+                        ( modalState, modalCmd, _ ) =
+                            Modal.trigger ms
+                    in
+                    ( { state | modalContext = Just modalState }, Cmd.map ModalUpdate modalCmd )
+
+                Nothing ->
+                    ( state, Cmd.none )
+
+        ModalDismissed ->
+            -- we can do some stuff here when the user clicks cancel, then trigger the modal so it closes.
+            case state.modalContext of
+                Just ms ->
+                    let
+                        ( modalState, modalCmd, _ ) =
+                            Modal.trigger ms
+                    in
+                    ( { state | modalContext = Just modalState }, Cmd.map ModalUpdate modalCmd )
+
+                Nothing ->
+                    ( state, Cmd.none )
+
+
+subscriptions : ModalState -> Sub ModalMsg
+subscriptions { modalContext } =
+    case modalContext of
+        Just modalState ->
+            Sub.map ModalUpdate <| Modal.subscriptions modalState
+
+        Nothing ->
+            Sub.none
 
 
 main =
@@ -64,15 +95,14 @@ main =
         config =
             { update = update
             , init = ( model, Cmd.none )
-            , subscriptions = \_ -> Sub.none
+            , subscriptions = subscriptions
             }
     in
     storybook
         [ storyOf "Generic" config <|
             \m ->
                 div []
-                    [ Button.view (Button.primary |> Button.onClick SetModalContext) "Open Modal"
-                    , case m.modalContext of
+                    [ case m.modalContext of
                         Just modalState ->
                             Modal.view <|
                                 (Modal.generic
@@ -99,8 +129,7 @@ main =
         , storyOf "Confirmation (Informative)" config <|
             \m ->
                 div []
-                    [ Button.view (Button.primary |> Button.onClick SetModalContext) "Open Modal"
-                    , case m.modalContext of
+                    [ case m.modalContext of
                         Just modalState ->
                             Modal.view <|
                                 (Modal.confirmation Modal.Informative
@@ -110,13 +139,13 @@ main =
                                             [ div [ style "text-align" "center" ]
                                                 [ Text.view (Text.p |> Text.style Text.Lede |> Text.inline True) [ text "Additional subtext to aid the user can be added here." ] ]
                                             ]
-                                    , onDismiss = Just ModalUpdate
+                                    , onDismiss = Just ModalDismissed
                                     , onConfirm = Just ModalConfirmed
-                                    , confirmLabel = "Yea do it!"
-                                    , dismissLabel = "Nah don't do it"
+                                    , confirmLabel = "Confirm"
+                                    , dismissLabel = "Cancel"
                                     }
                                     |> Modal.modalState modalState
-                                    -- the modal backdrop uses this to close
+                                    -- the modal uses this for internal messages
                                     |> Modal.onUpdate ModalUpdate
                                 )
 
@@ -126,8 +155,7 @@ main =
         , storyOf "Confirmation (Positive)" config <|
             \m ->
                 div []
-                    [ Button.view (Button.primary |> Button.onClick SetModalContext) "Open Modal"
-                    , case m.modalContext of
+                    [ case m.modalContext of
                         Just modalState ->
                             Modal.view <|
                                 (Modal.confirmation Modal.Positive
@@ -137,13 +165,13 @@ main =
                                             [ div [ style "text-align" "center" ]
                                                 [ Text.view (Text.p |> Text.style Text.Lede |> Text.inline True) [ text "Additional subtext to aid the user can be added here." ] ]
                                             ]
-                                    , onDismiss = Just ModalUpdate
+                                    , onDismiss = Just ModalDismissed
                                     , onConfirm = Just ModalConfirmed
-                                    , confirmLabel = "Yea do it!"
-                                    , dismissLabel = "Nah don't do it"
+                                    , confirmLabel = "Confirm"
+                                    , dismissLabel = "Cancel"
                                     }
                                     |> Modal.modalState modalState
-                                    -- the modal backdrop uses this to close
+                                    -- the modal uses this for internal messages
                                     |> Modal.onUpdate ModalUpdate
                                 )
 
@@ -153,8 +181,7 @@ main =
         , storyOf "Confirmation (Negative)" config <|
             \m ->
                 div []
-                    [ Button.view (Button.destructive |> Button.onClick SetModalContext) "Open Modal"
-                    , case m.modalContext of
+                    [ case m.modalContext of
                         Just modalState ->
                             Modal.view <|
                                 (Modal.confirmation Modal.Negative
@@ -164,13 +191,13 @@ main =
                                             [ div [ style "text-align" "center" ]
                                                 [ Text.view (Text.p |> Text.style Text.Lede |> Text.inline True) [ text "Additional subtext to aid the user can be added here." ] ]
                                             ]
-                                    , onDismiss = Just ModalUpdate
+                                    , onDismiss = Just ModalDismissed
                                     , onConfirm = Just ModalConfirmed
-                                    , confirmLabel = "Yea do it!"
-                                    , dismissLabel = "Nah don't do it"
+                                    , confirmLabel = "Confirm"
+                                    , dismissLabel = "Cancel"
                                     }
                                     |> Modal.modalState modalState
-                                    -- the modal backdrop uses this to close
+                                    -- the modal uses this for internal messages
                                     |> Modal.onUpdate ModalUpdate
                                 )
 

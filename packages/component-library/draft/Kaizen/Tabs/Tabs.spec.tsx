@@ -58,6 +58,7 @@ describe("Tabs", () => {
         <Tabs
           tabs={tabs}
           renderTab={({
+            // tslint:disable-next-line: no-shadowed-variable
             tab,
             tabClassName,
             activeTabClassName,

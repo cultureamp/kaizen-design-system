@@ -10,7 +10,7 @@ type Props = {
   automationId?: string
   lazyLoad?: boolean
   onToggle?: (open: boolean, id: string) => void
-  children: React.ReactElement<any>[]
+  children: Array<React.ReactElement<any>>
 }
 
 export type Sticky = {

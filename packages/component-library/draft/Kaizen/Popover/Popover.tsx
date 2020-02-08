@@ -9,7 +9,6 @@ const positiveIcon = require("@kaizen/component-library/icons/success.icon.svg")
   .default
 import classNames from "classnames"
 import * as React from "react"
-import { forwardRef } from "react"
 
 const styles = require("./styles.scss")
 
@@ -44,7 +43,7 @@ type Size = "small" | "large"
 
 type Popover = React.FunctionComponent<Props>
 
-const Popover: Popover = forwardRef<HTMLDivElement, Props>(
+const Popover: Popover = React.forwardRef<HTMLDivElement, Props>(
   (
     {
       id,

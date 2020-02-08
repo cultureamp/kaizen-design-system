@@ -1,22 +1,27 @@
 module Kaizen.Modal.Modal exposing
     ( Config
     , ConfirmationType(..)
-    , Dispatch(..)
+    , ModalMsg
     , ModalState
+    , Status(..)
     , confirmation
+    , forceOpen
     , generic
     , initialState
     , modalState
     , onUpdate
+    , subscriptions
+    , trigger
     , update
     , view
-    , withDispatch
     )
 
+import Browser.Events as BrowserEvents
 import CssModules exposing (css)
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
+import Kaizen.Events.Events as KaizenEvents
 import Kaizen.Modal.Presets.ConfirmationModal as ConfirmationModal
 import Kaizen.Modal.Primitives.GenericModal as GenericModal
 import Process
@@ -29,31 +34,35 @@ type Config msg
 
 
 type ModalState msg
-    = Msg (State msg) Progress
+    = ModalState State Progress
 
 
 type Progress
-    = Running
+    = Animating
     | Stopped
 
 
-type Dispatch msg
-    = Closed msg
-    | Open msg
+type Status
+    = Closed
+    | Open
+
+
+type ModalMsg
+    = Update
 
 
 type alias Configuration msg =
     { variant : Variant msg
-    , onUpdate : Maybe msg
+    , onUpdate : Maybe (ModalMsg -> msg)
     , state : ModalState msg
     }
 
 
-type State msg
-    = Opening (ModalData msg)
-    | Open_ (ModalData msg)
-    | Closing (ModalData msg)
-    | Closed_ (ModalData msg)
+type State
+    = Opening_ ModalData
+    | Open_ ModalData
+    | Closing_ ModalData
+    | Closed_ ModalData
 
 
 type Duration
@@ -79,9 +88,8 @@ type alias ConfirmationConfig msg =
     }
 
 
-type alias ModalData msg =
+type alias ModalData =
     { duration : Duration
-    , dispatch : Maybe (List (Dispatch msg))
     }
 
 
@@ -91,11 +99,20 @@ type alias Timing =
     }
 
 
+subscriptions : ModalState msg -> Sub ModalMsg
+subscriptions ms =
+    if canSubscribeToEscape ms then
+        BrowserEvents.onKeyDown (KaizenEvents.isEscape Update)
+
+    else
+        Sub.none
+
+
 view : Config msg -> Html msg
 view (Config config) =
     let
-        updateModal onCloseMsg =
-            onClick onCloseMsg
+        updateModal onUpdateMsg =
+            onClick (onUpdateMsg Update)
 
         genericModalConfig =
             GenericModal.default
@@ -113,13 +130,13 @@ view (Config config) =
 
         resolveAnimationStyles =
             case mState of
-                Opening _ ->
+                Opening_ _ ->
                     [ ( .animatingElmEnter, True ) ]
 
                 Open_ _ ->
                     [ ( .animatingElmEnter, True ) ]
 
-                Closing _ ->
+                Closing_ _ ->
                     [ ( .animatingElmExit, True ) ]
 
                 Closed_ _ ->
@@ -127,7 +144,7 @@ view (Config config) =
 
         resolveVisibilityStyles =
             case config.state of
-                Msg (Closed_ _) Stopped ->
+                ModalState (Closed_ _) Stopped ->
                     [ ( .hide, True ) ]
 
                 _ ->
@@ -157,7 +174,12 @@ view (Config config) =
                                 ConfirmationModal.onDismiss dismissMsg confirmationConfig
 
                             Nothing ->
-                                confirmationConfig
+                                case config.onUpdate of
+                                    Just updateMsg ->
+                                        ConfirmationModal.onDismiss (updateMsg Update) confirmationConfig
+
+                                    Nothing ->
+                                        confirmationConfig
 
                     withOnConfirm confirmationConfig =
                         case configs.onConfirm of
@@ -240,36 +262,17 @@ defaults =
 -}
 initialState : ModalState msg
 initialState =
-    Msg
+    ModalState
         (Closed_
             { duration = Fast
-            , dispatch = Nothing
             }
         )
         Stopped
 
 
-{-| A modal is only truly opened or closed after the animation has completed.
-
-    e.g. If you remove the modal element from the view as soon as you click a close button
-    then the modal will disappear without animating closed first.
-
-    withDispatch allows you to dispatch a (Cmd msg) on either Closed or Open from the update.
-
-    This is handy for when you want to remove the modal element from the view after the the closing animation.
-
-    Use withDispatch on the modal modalState handler to always fire the Cmd msg's you want to hear back from.
-
--}
-withDispatch : List (Dispatch msg) -> ModalState msg -> ModalState msg
-withDispatch dispatchList msg =
-    injectData msg (\md -> { md | dispatch = Just dispatchList })
-
-
-defaultModalData : ModalData msg
+defaultModalData : ModalData
 defaultModalData =
     { duration = Fast
-    , dispatch = Nothing
     }
 
 
@@ -303,6 +306,49 @@ mapDuration duration =
             300
 
 
+canSubscribeToEscape : ModalState msg -> Bool
+canSubscribeToEscape (ModalState state progress) =
+    case ( state, progress ) of
+        ( Closed_ _, Stopped ) ->
+            False
+
+        _ ->
+            True
+
+
+{-| For when you want to start the modal off open without being triggered open.
+
+    This is not recommended as modals should be triggered by an intentional user action
+
+-}
+forceOpen : ModalState msg -> ModalState msg
+forceOpen ms =
+    case ms of
+        ModalState (Open_ s) Animating ->
+            ModalState (Open_ s) Stopped
+
+        ModalState (Opening_ s) Animating ->
+            ModalState (Open_ s) Stopped
+
+        ModalState (Closed_ s) Animating ->
+            ModalState (Open_ s) Stopped
+
+        ModalState (Closing_ s) Animating ->
+            ModalState (Open_ s) Stopped
+
+        ModalState (Opening_ s) Stopped ->
+            ModalState (Open_ s) Stopped
+
+        ModalState (Closed_ s) Stopped ->
+            ModalState (Open_ s) Stopped
+
+        ModalState (Closing_ s) Stopped ->
+            ModalState (Open_ s) Stopped
+
+        _ ->
+            ms
+
+
 
 -- VARIANTS
 
@@ -328,7 +374,7 @@ confirmation confirmationType confirmationConfig =
 
 {-| Handler should call Modal.update to handle all animating states.
 -}
-onUpdate : msg -> Config msg -> Config msg
+onUpdate : (ModalMsg -> msg) -> Config msg -> Config msg
 onUpdate msg (Config config) =
     Config { config | onUpdate = Just msg }
 
@@ -342,141 +388,96 @@ modalState msg (Config config) =
 --UPDATE
 
 
-update : ModalState msg -> msg -> ( ModalState msg, Cmd msg )
-update (Msg state progress) modalUpdateHandlerMsg =
+{-| Triggering the modal will initiate the next logical step.
+E.g. If the modal is closed trigger will begin the open animation for the modal.
+-}
+trigger : ModalState msg -> ( ModalState msg, Cmd ModalMsg, Maybe Status )
+trigger (ModalState state progress) =
     case progress of
-        Running ->
-            updateRunning state modalUpdateHandlerMsg
+        Animating ->
+            updateRunning state
 
         -- To know what to do next we specify what state the modal was in when stopped
         Stopped ->
             case state of
                 -- Impossible state as updates never set Stopped on an Opening state
-                Opening _ ->
-                    ( Msg (Closed_ defaultModalData) Stopped
-                    , Task.perform identity (Task.succeed modalUpdateHandlerMsg)
+                Opening_ _ ->
+                    ( ModalState (Closed_ defaultModalData) Stopped
+                    , Task.perform identity (Task.succeed Update)
+                    , Nothing
                     )
 
                 Open_ s ->
-                    ( Msg (Closing s) <| Running
-                    , Task.perform identity (Task.succeed modalUpdateHandlerMsg)
+                    ( ModalState (Closing_ s) <| Animating
+                    , Task.perform identity (Task.succeed Update)
+                    , Nothing
                     )
 
                 -- Impossible state as updates never set Stopped on a Closing state
-                Closing _ ->
-                    ( Msg (Closed_ defaultModalData) Stopped, Cmd.none )
+                Closing_ _ ->
+                    ( ModalState (Closed_ defaultModalData) Stopped
+                    , Cmd.none
+                    , Nothing
+                    )
 
                 Closed_ s ->
-                    ( Msg (Opening s) <| Running
-                    , Task.perform identity (Task.succeed modalUpdateHandlerMsg)
+                    ( ModalState (Opening_ s) <| Animating
+                    , Task.perform identity (Task.succeed Update)
+                    , Nothing
                     )
 
 
-updateRunning : State msg -> msg -> ( ModalState msg, Cmd msg )
-updateRunning state modalUpdateHandlerMsg =
+update : ModalState msg -> ModalMsg -> ( ModalState msg, Cmd ModalMsg, Maybe Status )
+update ms modalMsg =
+    case modalMsg of
+        Update ->
+            trigger ms
+
+
+updateRunning : State -> ( ModalState msg, Cmd ModalMsg, Maybe Status )
+updateRunning state =
     case state of
-        Opening d ->
-            let
-                noDispatch =
-                    ( Msg (Open_ d) Running, Task.perform identity (Task.succeed modalUpdateHandlerMsg) )
-
-                ( newState, cmd ) =
-                    case d.dispatch of
-                        Just dispatchMsgs ->
-                            List.foldl
-                                (\dispatchMsg acc ->
-                                    getDispatchOpen acc dispatchMsg d
-                                )
-                                noDispatch
-                                dispatchMsgs
-
-                        Nothing ->
-                            noDispatch
-            in
-            ( newState
-            , cmd
+        Opening_ d ->
+            ( ModalState (Open_ d) Animating
+            , Task.perform identity (Task.succeed Update)
+            , Nothing
             )
 
         Open_ d ->
-            ( Msg (Open_ d) Stopped, Cmd.none )
+            ( ModalState (Open_ d) Stopped
+            , Cmd.none
+            , Just Open
+            )
 
-        Closing d ->
-            let
-                ( newState, cmd ) =
-                    case d.dispatch of
-                        Just dispatchMsgs ->
-                            List.foldl
-                                (\dispatchMsg acc ->
-                                    getDispatchClosed acc dispatchMsg d
-                                )
-                                ( Msg (Closed_ d) Running, Cmd.none )
-                                dispatchMsgs
-
-                        Nothing ->
-                            ( Msg (Closed_ d) Running
-                            , Task.perform (\_ -> modalUpdateHandlerMsg) (Process.sleep <| mapDuration d.duration)
-                            )
-            in
-            ( newState
-            , cmd
+        Closing_ d ->
+            ( ModalState (Closed_ d) Animating
+            , Task.perform (\_ -> Update) (Process.sleep <| mapDuration d.duration)
+            , Nothing
             )
 
         Closed_ d ->
-            ( Msg (Closed_ d) Stopped, Cmd.none )
+            ( ModalState (Closed_ d) Stopped
+            , Cmd.none
+            , Just Closed
+            )
 
 
-getDispatchOpen : ( ModalState msg, Cmd msg ) -> Dispatch msg -> ModalData msg -> ( ModalState msg, Cmd msg )
-getDispatchOpen fallBack dispatch modalData =
-    case dispatch of
-        Open msg ->
-            ( Msg (Open_ modalData) Running, Task.perform (\_ -> msg) (Process.sleep <| mapDuration modalData.duration) )
-
-        _ ->
-            fallBack
-
-
-getDispatchClosed : ( ModalState msg, Cmd msg ) -> Dispatch msg -> ModalData msg -> ( ModalState msg, Cmd msg )
-getDispatchClosed fallBack dispatch modalData =
-    case dispatch of
-        Closed msg ->
-            ( Msg (Closed_ modalData) Running, Task.perform (\_ -> msg) (Process.sleep <| mapDuration modalData.duration) )
-
-        _ ->
-            fallBack
-
-
-getState : ModalState msg -> State msg
-getState (Msg state _) =
+getState : ModalState msg -> State
+getState (ModalState state _) =
     state
 
 
-getData : State msg -> ModalData msg
+getData : State -> ModalData
 getData state =
     case state of
-        Opening s ->
+        Opening_ s ->
             s
 
         Open_ s ->
             s
 
-        Closing s ->
+        Closing_ s ->
             s
 
         Closed_ s ->
             s
-
-
-injectData : ModalState msg -> (ModalData msg -> ModalData msg) -> ModalState msg
-injectData (Msg state progress) f =
-    case state of
-        Opening data ->
-            Msg (Opening <| f data) progress
-
-        Open_ data ->
-            Msg (Open_ <| f data) progress
-
-        Closing data ->
-            Msg (Closing <| f data) progress
-
-        Closed_ data ->
-            Msg (Closed_ <| f data) progress

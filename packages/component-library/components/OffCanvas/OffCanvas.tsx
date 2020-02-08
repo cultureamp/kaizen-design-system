@@ -25,8 +25,8 @@ type OffCanvasContextProps = {
 
 export const OffCanvasContext = React.createContext<OffCanvasContextProps>({
   visibleMenus: [],
-  toggleVisibleMenu: menuId => {},
-  resetVisibleMenus: () => {},
+  toggleVisibleMenu: menuId => undefined,
+  resetVisibleMenus: () => undefined,
 })
 
 export class OffCanvas extends React.Component<Props> {
@@ -59,6 +59,7 @@ export class OffCanvas extends React.Component<Props> {
 }
 
 const withContextProvider = (Component: React.ComponentType<any>) => {
+  // tslint:disable-next-line: max-classes-per-file
   return class OffCanvasWithContextProvider extends React.Component<
     Props,
     State
@@ -97,6 +98,7 @@ const withContextProvider = (Component: React.ComponentType<any>) => {
 }
 
 const withTrigger = (Component: React.ComponentType<any>) => {
+  // tslint:disable-next-line: max-classes-per-file
   return class OffCanvasWithTrigger extends React.Component<Props> {
     render() {
       return (

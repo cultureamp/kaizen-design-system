@@ -28,7 +28,7 @@ type SidebarTabProps = {
 }
 
 type ContentNeedToKnowProps = {
-  listOfTips: Array<string>
+  listOfTips: string[]
 }
 
 export const Sidebar: React.SFC<SidebarProps> = ({ children }) => (

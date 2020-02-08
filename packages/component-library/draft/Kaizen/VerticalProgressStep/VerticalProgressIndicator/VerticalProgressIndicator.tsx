@@ -76,7 +76,9 @@ export const VerticalProgressIndicator = ({ position, completion }: Props) => {
   }
 
   const renderLines = ({
+    // tslint:disable-next-line: no-shadowed-variable
     completion,
+    // tslint:disable-next-line: no-shadowed-variable
     position,
   }: {
     completion: Completion

@@ -31,8 +31,9 @@ Footer.displayName = "Footer"
 /**
  * An area for toast notifications that will also trigger a screen-reader announcement.
  * Content is absolutely positioned in the top right, but it is up to you to add appropriately styled notifications.
- * By setting the children of `<Layout.Toasts>` the screen reader will immediately read its contents, without losing focus.
- * You can safely add and remove toasts without worrying about the screen reader announcement being interrupted or repeated.
+ * By setting the children of `<Layout.Toasts>` the screen reader will immediately read its contents, without losing
+ * focus. You can safely add and remove toasts without worrying about the screen reader announcement being interrupted
+ * or repeated.
  */
 const Toasts: React.FunctionComponent = ({ children }) => (
   <div className={styles.toasts} aria-live="assertive">
@@ -44,8 +45,9 @@ Toasts.displayName = "Toasts"
 
 /**
  * Announcements intended for screen readers only. Content will be invisible for sighted users.
- * By setting the children of `<Layout.Announcers>` the screen reader will immediately read its contents, without losing focus.
- * You can safely override the contents when adding a new announcement rather than appending the contents.
+ * By setting the children of `<Layout.Announcers>` the screen reader will immediately read its contents,
+ * without losing focus. You can safely override the contents when adding a new announcement rather than
+ * appending the contents.
  */
 const Announcers: React.FunctionComponent = ({ children }) => (
   <div className={styles.announcers} aria-live="assertive">
@@ -56,6 +58,13 @@ const Announcers: React.FunctionComponent = ({ children }) => (
 Announcers.displayName = "Announcers"
 
 class Layout extends React.Component {
+  static displayName = "Layout"
+  static NavigationBar = NavigationBar
+  static Sidebar = Sidebar
+  static Header = Header
+  static Footer = Footer
+  static Toasts = Toasts
+  static Announcers = Announcers
   render() {
     const content = React.Children.toArray(this.props.children)
     const navbar = extractChildOfType(content, NavigationBar)
@@ -83,14 +92,6 @@ class Layout extends React.Component {
       </div>
     )
   }
-
-  static displayName = "Layout"
-  static NavigationBar = NavigationBar
-  static Sidebar = Sidebar
-  static Header = Header
-  static Footer = Footer
-  static Toasts = Toasts
-  static Announcers = Announcers
 }
 
 const extractChildOfType = (
@@ -99,7 +100,7 @@ const extractChildOfType = (
 ) => {
   const match = children.find(child => {
     if (React.isValidElement(child) && typeof child.type === "function") {
-      return child.type["displayName"] === type.displayName
+      return (child.type as React.SFC).displayName === type.displayName
     }
 
     return false
