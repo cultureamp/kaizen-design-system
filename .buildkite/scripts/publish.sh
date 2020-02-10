@@ -23,4 +23,4 @@ echo "Reporting the deployed URL via the GitHub status API"
 commit_hash=$(git rev-parse --verify HEAD)
 curl --fail -s "https://api.github.com/repos/cultureamp/kaizen-design-system/statuses/$commit_hash" \
   --header "authorization: Bearer $GITHUB_STATUS_TOKEN" \
-  --data '{"state": "success", "target_url": "https://'"$destination"'", "description": "Branch preview"}'
+  --data '{"state": "success", "context": "Branch preview", "target_url": "https://'"$destination"'", "description": "Branch preview"}'
