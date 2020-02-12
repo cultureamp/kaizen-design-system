@@ -4,7 +4,8 @@ RUN apk add --no-cache \
   git \
   openssh \
   python \
-  py-pip
+  py-pip \
+  curl
 
 RUN pip install \
   awscli
