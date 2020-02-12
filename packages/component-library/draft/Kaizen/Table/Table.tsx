@@ -72,7 +72,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
 
   const style = {
     width: ratioToPercent(width),
-    flex: "flex",
+    flex,
   }
   return onClick ? (
     <button

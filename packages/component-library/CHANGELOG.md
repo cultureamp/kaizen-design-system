@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@2.0.0...@kaizen/component-library@2.0.1) (2020-02-10)
+
+
+### Bug Fixes
+
+* Style regression with Table component ([#265](https://github.com/cultureamp/kaizen-design-system/issues/265)) ([55a9f37](https://github.com/cultureamp/kaizen-design-system/commit/55a9f37))
+
+
+
+
+
 # [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.7.0...@kaizen/component-library@2.0.0) (2020-02-06)
 
 
