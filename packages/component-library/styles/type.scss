@@ -2,6 +2,10 @@
 @import "color";
 @import "layers";
 
+// QUICK HACKY STUFF!!
+$greycliff: "Greycliff CF";
+$greycliff-descender-height: 0.095;
+
 $ca-grid: 1.5rem; // 24px @ default root font-size of 16px
 
 $ca-weight-extra-light: 200;
@@ -85,6 +89,8 @@ $ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
 
 @mixin ca-type-title($args...) {
   @include ca-type(
+    $family: $greycliff,
+    $descender-height: $greycliff-descender-height,
     $size-ratio: 12/7,
     $line-height-in-grid-units: 1.5,
     $weight: $ca-weight-medium,
@@ -98,11 +104,23 @@ $ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
 }
 
 @mixin ca-type-display($args...) {
-  @include ca-type($size-ratio: 10/7, $weight: $ca-weight-medium, $args...);
+  @include ca-type(
+    $family: $greycliff,
+    $descender-height: $greycliff-descender-height,
+    $size-ratio: 10/7,
+    $weight: $ca-weight-medium,
+    $args...
+  );
 }
 
 @mixin ca-type-heading($args...) {
-  @include ca-type($size-ratio: 8/7, $weight: $ca-weight-medium, $args...);
+  @include ca-type(
+    $family: $greycliff,
+    $descender-height: $greycliff-descender-height,
+    $size-ratio: 8/7,
+    $weight: $ca-weight-medium,
+    $args...
+  );
 }
 
 @mixin ca-type-lede($args...) {
@@ -131,15 +149,17 @@ $ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
 @mixin ca-type-ideal(
   $size,
   $weight,
+  $family: $ca-ideal-sans-font-family,
+  $descender-height: $ca-ideal-sans-font-descender-height,
   $line-height-in-grid-units: 1,
   $letter-spacing: normal,
   $args...
 ) {
   @include ca-type(
     $size-ratio: $size / 16,
-    $family: $ca-ideal-sans-font-family,
+    $family: $family,
     $base-size: $ca-ideal-sans-font-base-size,
-    $descender-height: $ca-ideal-sans-font-descender-height,
+    $descender-height: $descender-height,
     $line-height-in-grid-units: $line-height-in-grid-units,
     $letter-spacing: $letter-spacing,
     $weight: $weight,
@@ -155,6 +175,8 @@ $ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
 
 @mixin ca-type-ideal-page-title($size: 32, $args...) {
   @include ca-type-ideal(
+    $family: $greycliff,
+    $descender-height: $greycliff-descender-height,
     $size: $size,
     $line-height-in-grid-units: 1.5,
     $weight: $ca-weight-book,
@@ -164,6 +186,8 @@ $ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
 
 @mixin ca-type-ideal-title($size: 26, $args...) {
   @include ca-type-ideal(
+    $family: $greycliff,
+    $descender-height: $greycliff-descender-height,
     $size: $size,
     $line-height-in-grid-units: 1.5,
     $weight: $ca-weight-book,
@@ -172,11 +196,23 @@ $ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
 }
 
 @mixin ca-type-ideal-display($size: 22, $args...) {
-  @include ca-type-ideal($size: $size, $weight: $ca-weight-book, $args...);
+  @include ca-type-ideal(
+    $family: $greycliff,
+    $descender-height: $greycliff-descender-height,
+    $size: $size,
+    $weight: $ca-weight-book,
+    $args...
+  );
 }
 
 @mixin ca-type-ideal-heading($size: 18, $args...) {
-  @include ca-type-ideal($size: $size, $weight: $ca-weight-book, $args...);
+  @include ca-type-ideal(
+    $family: $greycliff,
+    $descender-height: $greycliff-descender-height,
+    $size: $size,
+    $weight: $ca-weight-book,
+    $args...
+  );
 }
 
 @mixin ca-type-ideal-lede($size: 20, $args...) {
