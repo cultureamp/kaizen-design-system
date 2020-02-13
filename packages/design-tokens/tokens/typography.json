@@ -1,56 +1,68 @@
 {
   "kz": {
     "typography": {
-      "family": {
-        "mono": "\"IBM Plex Mono\"",
-        "display": "\"Greycliff CF\"",
-        "text": "\"Inter\""
+      "heading0": {
+        "fontFamily": "\"Greycliff CF\"",
+        "fontSize": "4.5rem",
+        "lineHeight": "4.5rem",
+        "letterSpacing": "-0.03em"
       },
-      "weight": {
-        "bold": "600",
-        "regular": "400"
+      "heading1": {
+        "fontFamily": "\"Greycliff CF\"",
+        "fontSize": "2.25rem",
+        "lineHeight": "2.25rem",
+        "letterSpacing": "-0.03em"
       },
-      "display": {
-        "fontSize": {
-          "1": "4.5rem",
-          "2": "2.25rem",
-          "3": "1.875rem",
-          "4": "1.375rem",
-          "5": "1.125rem",
-          "6": "1rem",
-          "7": "0.875rem"
-        },
-        "lineHeight": {
-          "1": "4.5rem",
-          "2": "2.25rem",
-          "3": "2.25rem",
-          "4": "1.5rem",
-          "5": "1.5rem",
-          "6": "1.5rem",
-          "7": "1.5rem"
-        }
+      "heading2": {
+        "fontFamily": "\"Greycliff CF\"",
+        "fontSize": "1.875rem",
+        "lineHeight": "2.25rem",
+        "letterSpacing": "-0.03em"
       },
-      "text": {
-        "fontSize": {
-          "1": "1.25rem",
-          "2": "1rem",
-          "3": "0.875rem",
-          "4": "0.75rem"
-        },
-        "lineHeight": {
-          "1": "1.875rem",
-          "2": "1.5rem",
-          "3": "1.125rem",
-          "4": "1.125rem"
-        }
+      "heading3": {
+        "fontFamily": "\"Greycliff CF\"",
+        "fontSize": "1.375rem",
+        "lineHeight": "1.5rem",
+        "letterSpacing": "-0.03em"
       },
-      "mono": {
-        "fontSize": {
-          "1": "1rem"
-        },
-        "lineHeight": {
-          "1": "1.5rem"
-        }
+      "heading4": {
+        "fontFamily": "\"Inter\"",
+        "fontWeight": "600",
+        "fontSize": "1.125rem",
+        "lineHeight": "1.5rem"
+      },
+      "heading5": {
+        "fontFamily": "\"Inter\"",
+        "fontWeight": "600",
+        "fontSize": "1rem",
+        "lineHeight": "1.5rem"
+      },
+      "heading6": {
+        "fontFamily": "\"Inter\"",
+        "fontWeight": "600",
+        "fontSize": "0.875rem",
+        "lineHeight": "1.5rem"
+      },
+      "paragraphIntroLede": {
+        "fontFamily": "\"Inter\"",
+        "fontSize": "1.25rem",
+        "lineHeight": "1.875rem",
+        "letterSpacing": "-0.5px"
+      }, 
+      "paragraphBody": {
+        "fontFamily": "\"Inter\"",
+        "fontSize": "1rem",
+        "lineHeight": "1.5rem"
+      }, 
+      "paragraphSmall": {
+        "fontFamily": "\"Inter\"",
+        "fontSize": "0.875rem",
+        "lineHeight": "1.125rem"
+      },
+      "paragraphExtraSmall": {
+        "fontFamily": "\"Inter\"",
+        "fontSize": "0.75rem",
+        "lineHeight": "1.125rem"
       }
     }
   }
