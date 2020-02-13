@@ -8,9 +8,13 @@ export default {
   title: "IconButton (React)",
 }
 
-export const Default = () => (
+export const DefaultKaizenSiteDemo = () => (
   <IconButton icon={configureIcon} label="Label" automationId="demo-button" />
 )
+
+DefaultKaizenSiteDemo.story = {
+  name: "Default (Kaizen Site Demo)",
+}
 
 export const Hyperlink = () => (
   <IconButton icon={configureIcon} label="Label" href="//example.com" />
