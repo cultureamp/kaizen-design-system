@@ -12753,10 +12753,12 @@ json-stringify-safe@5.0.x, json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
-json-to-flat-sass@^0.0.14:
-  version "0.0.14"
-  resolved "https://registry.yarnpkg.com/json-to-flat-sass/-/json-to-flat-sass-0.0.14.tgz#d7da8b68c8dc352793ead570821532f6c824a363"
-  integrity sha512-QQdubWVo1cABYKn/1w9BaqBCk4pW6rWC+w0GLVARGqi+V2R90Hgnzycio2L8DlfAGGtWs0VGpludk4+L7+6YVg==
+json-to-flat-sass@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/json-to-flat-sass/-/json-to-flat-sass-1.0.0.tgz#35e71ca58ffbd8850b5566eaa2750037414e9f6e"
+  integrity sha512-8Yq+0UByPO/D8Z0k7aMtG0VCmn4sbyR+UTeg1a3BBix37pa9jANS6S+tcKJLkbfdAK440rXiIT2yhDnry8nowg==
+  dependencies:
+    lodash "^4.17.15"
 
 json2mq@^0.2.0:
   version "0.2.0"
