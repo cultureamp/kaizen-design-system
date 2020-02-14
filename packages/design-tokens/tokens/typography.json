@@ -33,19 +33,22 @@
         "fontFamily": "\"Inter\"",
         "fontWeight": "600",
         "fontSize": "1.125rem",
-        "lineHeight": "1.5rem"
+        "lineHeight": "1.5rem",
+        "letterSpacing": "normal"
       },
       "heading5": {
         "fontFamily": "\"Inter\"",
         "fontWeight": "600",
         "fontSize": "1rem",
-        "lineHeight": "1.5rem"
+        "lineHeight": "1.5rem",
+        "letterSpacing": "normal"
       },
       "heading6": {
         "fontFamily": "\"Inter\"",
         "fontWeight": "600",
         "fontSize": "0.875rem",
-        "lineHeight": "1.5rem"
+        "lineHeight": "1.5rem",
+        "letterSpacing": "normal"
       },
       "paragraphIntroLede": {
         "fontFamily": "\"Inter\"",
@@ -53,24 +56,27 @@
         "fontSize": "1.25rem",
         "lineHeight": "1.875rem",
         "letterSpacing": "-0.5px"
-      }, 
+      },
       "paragraphBody": {
         "fontFamily": "\"Inter\"",
         "fontWeight": "400",
         "fontSize": "1rem",
-        "lineHeight": "1.5rem"
-      }, 
+        "lineHeight": "1.5rem",
+        "letterSpacing": "normal"
+      },
       "paragraphSmall": {
         "fontFamily": "\"Inter\"",
         "fontWeight": "400",
         "fontSize": "0.875rem",
-        "lineHeight": "1.125rem"
+        "lineHeight": "1.125rem",
+        "letterSpacing": "normal"
       },
       "paragraphExtraSmall": {
         "fontFamily": "\"Inter\"",
         "fontWeight": "400",
         "fontSize": "0.75rem",
-        "lineHeight": "1.125rem"
+        "lineHeight": "1.125rem",
+        "letterSpacing": "normal"
       }
     }
   }
