@@ -3,28 +3,28 @@
     "typography": {
       "display0": {
         "fontFamily": "\"Greycliff CF\"",
-        "fontWeight": "400",
+        "fontWeight": "700",
         "fontSize": "4.5rem",
         "lineHeight": "4.5rem",
         "letterSpacing": "-0.03em"
       },
       "heading1": {
         "fontFamily": "\"Greycliff CF\"",
-        "fontWeight": "400",
+        "fontWeight": "700",
         "fontSize": "2.25rem",
         "lineHeight": "2.25rem",
         "letterSpacing": "-0.03em"
       },
       "heading2": {
         "fontFamily": "\"Greycliff CF\"",
-        "fontWeight": "400",
+        "fontWeight": "700",
         "fontSize": "1.875rem",
         "lineHeight": "2.25rem",
         "letterSpacing": "-0.03em"
       },
       "heading3": {
         "fontFamily": "\"Greycliff CF\"",
-        "fontWeight": "400",
+        "fontWeight": "700",
         "fontSize": "1.375rem",
         "lineHeight": "1.5rem",
         "letterSpacing": "-0.03em"
@@ -45,7 +45,7 @@
       },
       "heading6": {
         "fontFamily": "\"Inter\"",
-        "fontWeight": "600",
+        "fontWeight": "700",
         "fontSize": "0.875rem",
         "lineHeight": "1.5rem",
         "letterSpacing": "normal"
