@@ -4,11 +4,11 @@ export interface Typography {
   kz: {
     typography: {
       [key: string]: {
-        fontFamily: string,
-        fontWeight: string,
-        fontSize: string,
-        lineHeight: string,
-        letterSpacing?: string
+        fontFamily: string
+        fontWeight: string
+        fontSize: string
+        lineHeight: string
+        letterSpacing: string
       }
     }
   }
