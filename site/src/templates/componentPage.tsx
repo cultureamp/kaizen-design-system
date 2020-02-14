@@ -44,10 +44,10 @@ export default ({ data, pageContext, location }) => {
   )
 
   const renderStorybookIFrame = () => {
-    if (!md.frontmatter.demoStoryId) {
+    if (!md.frontmatter.demoStoryId && md.frontmatter.title !== "Overview") {
       // tslint:disable-next-line: no-console
-      console.error(
-        "Could not find a demo story ID. Please make sure there is a frontmatter field called demoStoryId in the component docs. The ID comes from the Storybook URL for a given story."
+      console.warn(
+        `Could not find a demo story ID for "${md.frontmatter.title}". Please make sure there is a frontmatter field called demoStoryId in the component docs. The ID comes from the Storybook URL for a given story.`
       )
       return undefined
     }
