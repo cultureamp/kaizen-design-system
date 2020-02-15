@@ -54,10 +54,10 @@ type Status
 
 type ModalMsg
     = Update
+    | ForceUpdate Time.Posix
     | FirstFocusableElementFocused (Result BrowserDom.Error ())
     | LastFocusableElementFocused (Result BrowserDom.Error ())
     | DefaultFocusableElementFocused (Result BrowserDom.Error ())
-    | InitiateDefaultFocusableElementFocus Time.Posix
 
 
 type alias Configuration msg =
@@ -117,8 +117,8 @@ type alias ModalData =
     { duration : Duration
     , firstFocusableId : FirstFocusableId
     , lastFocusableId : LastFocusableId
-    , defaultFocusableControlId : DefaultFocusableId
-    , forceDefaultFocusableElementFocus : Bool
+    , defaultFocusableId : DefaultFocusableId
+    , forceOpen : Bool
     }
 
 
@@ -141,14 +141,14 @@ subscriptions ms =
             else
                 Sub.none
 
-        focusDefaultFocusableElement =
-            if mData.forceDefaultFocusableElementFocus && isOpenStopped ms then
-                BrowserEvents.onAnimationFrame InitiateDefaultFocusableElementFocus
+        forceOpenUpdate =
+            if mData.forceOpen then
+                BrowserEvents.onAnimationFrame ForceUpdate
 
             else
                 Sub.none
     in
-    Sub.batch [ subscribeToEscape, focusDefaultFocusableElement ]
+    Sub.batch [ subscribeToEscape, forceOpenUpdate ]
 
 
 view : Config msg -> Html msg
@@ -184,6 +184,15 @@ view (Config config) =
 
         resolveVisibilityStyles =
             case config.state of
+                ModalState ( Opening_, _ ) Animating ->
+                    [ ( .elmUnscrollable, True ) ]
+
+                ModalState ( Open_, _ ) Animating ->
+                    [ ( .elmUnscrollable, True ) ]
+
+                ModalState ( Open_, _ ) Stopped ->
+                    [ ( .elmEntered, True ) ]
+
                 ModalState ( Closed_, _ ) Stopped ->
                     [ ( .hide, True ) ]
 
@@ -314,8 +323,8 @@ initialState =
         , { duration = Fast
           , firstFocusableId = firstFocusableId Constants.firstFocusableId
           , lastFocusableId = lastFocusableId Constants.lastFocusableId
-          , defaultFocusableControlId = defaultFocusableId Constants.defaultFocusableControlId
-          , forceDefaultFocusableElementFocus = False
+          , defaultFocusableId = defaultFocusableId Constants.defaultFocusableId
+          , forceOpen = False
           }
         )
         Stopped
@@ -325,6 +334,8 @@ styles =
     css "@kaizen/component-library/draft/Kaizen/Modal/Primitives/GenericModal.scss"
         { backdropLayer = "backdropLayer"
         , animatingElmEnter = "animatingElmEnter"
+        , elmUnscrollable = "elmUnscrollable"
+        , elmEntered = "elmEntered"
         , animatingElmExit = "animatingElmExit"
         , elmGenericModal = "elmGenericModal"
         , hide = "hide"
@@ -349,6 +360,11 @@ mapDuration duration =
 
         Fast ->
             300
+
+
+mapDurationWithAddedMillis : Duration -> Float -> Float
+mapDurationWithAddedMillis duration millis =
+    mapDuration duration + millis
 
 
 isOpenStopped : ModalState msg -> Bool
@@ -376,9 +392,9 @@ defaultFocusableIdToString (DefaultFocusableId id_) =
     id_
 
 
-setForceDefaultFocusableElementFocus : Bool -> ModalState msg -> ModalState msg
-setForceDefaultFocusableElementFocus force (ModalState ( mState, mData ) progress) =
-    ModalState ( mState, { mData | forceDefaultFocusableElementFocus = force } ) progress
+setForceOpen : Bool -> ModalState msg -> ModalState msg
+setForceOpen force (ModalState ( mState, mData ) progress) =
+    ModalState ( mState, { mData | forceOpen = force } ) progress
 
 
 
@@ -396,7 +412,7 @@ setForceDefaultFocusableElementFocus force (ModalState ( mState, mData ) progres
 -}
 forceOpen : ModalState msg -> ModalState msg
 forceOpen (ModalState ( _, mData ) _) =
-    ModalState ( Open_, { mData | forceDefaultFocusableElementFocus = True } ) Stopped
+    ModalState ( Closed_, { mData | forceOpen = True } ) Stopped
 
 
 {-| Set the first focusable element id. Modal updates will attempt to focus on this element
@@ -497,7 +513,7 @@ trigger (ModalState ( state, mData ) progress) =
 
                 Closed_ ->
                     ( ModalState ( Opening_, mData ) <| Animating
-                    , Task.perform identity (Task.succeed Update)
+                    , Task.perform (\_ -> Update) (Process.sleep <| mapDurationWithAddedMillis mData.duration 6)
                     , Nothing
                     )
 
@@ -511,6 +527,9 @@ update ms modalMsg =
     case modalMsg of
         Update ->
             trigger ms
+
+        ForceUpdate _ ->
+            trigger <| setForceOpen False ms
 
         FirstFocusableElementFocused focusResult ->
             case focusResult of
@@ -541,12 +560,6 @@ update ms modalMsg =
                     , Nothing
                     )
 
-        InitiateDefaultFocusableElementFocus _ ->
-            ( ms |> setForceDefaultFocusableElementFocus False
-            , Task.attempt DefaultFocusableElementFocused (BrowserDom.focus <| defaultFocusableIdToString mData.defaultFocusableControlId)
-            , Nothing
-            )
-
 
 updateRunning : State -> ( ModalState msg, Cmd ModalMsg, Maybe Status )
 updateRunning ( state, mData ) =
@@ -559,7 +572,7 @@ updateRunning ( state, mData ) =
 
         Open_ ->
             ( ModalState ( Open_, mData ) Stopped
-            , Task.attempt FirstFocusableElementFocused (BrowserDom.focus <| firstFocusableIdToString mData.firstFocusableId)
+            , Task.attempt DefaultFocusableElementFocused (BrowserDom.focus <| defaultFocusableIdToString mData.defaultFocusableId)
             , Just Open
             )
 

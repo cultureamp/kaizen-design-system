@@ -1,7 +1,7 @@
 module Kaizen.Modal.Primitives.Constants exposing
     ( ariaDescribedBy
     , ariaLabelledBy
-    , defaultFocusableControlId
+    , defaultFocusableId
     , firstFocusableId
     , lastFocusableId
     )
@@ -19,14 +19,14 @@ ariaLabelledBy =
 
 firstFocusableId : String
 firstFocusableId =
-    "modal-header-dismiss-id-focusable"
+    "modal-first-focusable"
 
 
 lastFocusableId : String
 lastFocusableId =
-    "modal-footer-action-id-focusable"
+    "modal-last-focusable"
 
 
-defaultFocusableControlId : String
-defaultFocusableControlId =
+defaultFocusableId : String
+defaultFocusableId =
     "modal-default-control-focusable"
