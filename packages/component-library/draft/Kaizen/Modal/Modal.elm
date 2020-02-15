@@ -190,12 +190,6 @@ view (Config config) =
                 ModalState ( Open_, _ ) Animating ->
                     [ ( .elmUnscrollable, True ) ]
 
-                ModalState ( Open_, _ ) Stopped ->
-                    [ ( .elmEntered, True ) ]
-
-                ModalState ( Closed_, _ ) Stopped ->
-                    [ ( .hide, True ) ]
-
                 _ ->
                     []
     in
@@ -335,7 +329,6 @@ styles =
         { backdropLayer = "backdropLayer"
         , animatingElmEnter = "animatingElmEnter"
         , elmUnscrollable = "elmUnscrollable"
-        , elmEntered = "elmEntered"
         , animatingElmExit = "animatingElmExit"
         , elmGenericModal = "elmGenericModal"
         , hide = "hide"
@@ -406,8 +399,11 @@ setForceOpen force (ModalState ( mState, mData ) progress) =
     This is not recommended as modals should be triggered by an intentional user action
 
     Forcing the modal open will bypass the internal Cmd msgs so the forced open property
-    will be set to True. This ensures the subscriptions trigger the modal to focus on
-    the first focusable element in this situation.
+    will be set to True. This triggers subscriptions which then attempts to focus on
+    the first focusable element.
+
+    IMPORTANT: This needs subscriptions hooked up or else the modal will just be closed
+    and do nothing.
 
 -}
 forceOpen : ModalState msg -> ModalState msg
@@ -415,15 +411,6 @@ forceOpen (ModalState ( _, mData ) _) =
     ModalState ( Closed_, { mData | forceOpen = True } ) Stopped
 
 
-{-| Set the first focusable element id. Modal updates will attempt to focus on this element
-When the modal is in an open state.
-
-By default Modal will use Kaizen.Modal.Primitives.Constants.firstFocusableId which consumers
-can use as id attributes to their custom views in a Generic variant.
-
-This function can also be used to create more uniqueness to the default id used internally.
-
--}
 firstFocusableId : String -> FirstFocusableId
 firstFocusableId id =
     FirstFocusableId id
@@ -513,6 +500,7 @@ trigger (ModalState ( state, mData ) progress) =
 
                 Closed_ ->
                     ( ModalState ( Opening_, mData ) <| Animating
+                      -- Adding 6 milliseconds due to class switching sometimes triggering scroll bar in .scrollLayer class
                     , Task.perform (\_ -> Update) (Process.sleep <| mapDurationWithAddedMillis mData.duration 6)
                     , Nothing
                     )
