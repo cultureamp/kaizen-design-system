@@ -13,6 +13,11 @@ export interface Color {
   }
 }
 
+/**
+ * A helper to access deeply nested tokens
+ * @param name The color name
+ * @param variant A variant typically between 100-900
+ */
 export const get: <N extends ColorNames>(
   name: N,
   variant: keyof ColorTokens[N]
