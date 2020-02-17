@@ -5,7 +5,7 @@ export default {
   title: "@kaizen deprecated-component-library-helpers/styles/type.scss",
 }
 
-export const kzTypeDisplay0 = () => (
+export const headingMixins = () => (
   <div>
     <div>
       <div className={styles.display0}>Display 0</div>
@@ -27,6 +27,3 @@ export const kzTypeDisplay0 = () => (
     </div>
   </div>
 )
-kzTypeDisplay0.story = {
-  name: "Heading mixins",
-}
