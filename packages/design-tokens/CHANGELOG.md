@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@0.4.1...@kaizen/design-tokens@1.0.0) (2020-02-17)
+
+
+### Code Refactoring
+
+* Rebuild as major change ([#281](https://github.com/cultureamp/kaizen-design-system/issues/281)) ([ecfd988](https://github.com/cultureamp/kaizen-design-system/commit/ecfd988))
+
+
+### BREAKING CHANGES
+
+* * Sass and Less tokens will now strictly follow the kebab case convention.
+* Sass and Less variables are all lower-case
+
+
+
+
+
 ## [0.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@0.4.0...@kaizen/design-tokens@0.4.1) (2020-02-16)
 
 **Note:** Version bump only for package @kaizen/design-tokens
