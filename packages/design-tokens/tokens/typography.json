@@ -1,6 +1,27 @@
 {
   "kz": {
     "typography": {
+      "dataLarge": {
+        "fontFamily": "\"Greycliff CF\"",
+        "fontWeight": "700",
+        "fontSize": "5.25rem",
+        "lineHeight": "5.25rem",
+        "letterSpacing": "normal"
+      },
+      "dataMedium": {
+        "fontFamily": "\"Greycliff CF\"",
+        "fontWeight": "700",
+        "fontSize": "3rem",
+        "lineHeight": "5rem",
+        "letterSpacing": "normal"
+      },
+      "dataSmall": {
+        "fontFamily": "\"Greycliff CF\"",
+        "fontWeight": "700",
+        "fontSize": "1.5rem",
+        "lineHeight": "1.5rem",
+        "letterSpacing": "normal"
+      },
       "display0": {
         "fontFamily": "\"Greycliff CF\"",
         "fontWeight": "700",
