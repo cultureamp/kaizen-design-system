@@ -5,9 +5,12 @@ module Kaizen.Modal.Modal exposing
     , ModalState
     , Status(..)
     , confirmation
+    , defaultFocusableId
+    , firstFocusableId
     , forceOpen
     , generic
     , initialState
+    , lastFocusableId
     , modalState
     , onUpdate
     , subscriptions
@@ -16,6 +19,7 @@ module Kaizen.Modal.Modal exposing
     , view
     )
 
+import Browser.Dom as BrowserDom
 import Browser.Events as BrowserEvents
 import CssModules exposing (css)
 import Html exposing (Html, div, text)
@@ -23,6 +27,7 @@ import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
 import Kaizen.Events.Events as KaizenEvents
 import Kaizen.Modal.Presets.ConfirmationModal as ConfirmationModal
+import Kaizen.Modal.Primitives.Constants as Constants
 import Kaizen.Modal.Primitives.GenericModal as GenericModal
 import Process
 import Task
@@ -49,6 +54,10 @@ type Status
 
 type ModalMsg
     = Update
+    | ForceUpdate Time.Posix
+    | FirstFocusableElementFocused (Result BrowserDom.Error ())
+    | LastFocusableElementFocused (Result BrowserDom.Error ())
+    | DefaultFocusableElementFocused (Result BrowserDom.Error ())
 
 
 type alias Configuration msg =
@@ -58,11 +67,15 @@ type alias Configuration msg =
     }
 
 
-type State
-    = Opening_ ModalData
-    | Open_ ModalData
-    | Closing_ ModalData
-    | Closed_ ModalData
+type alias State =
+    ( State_, ModalData )
+
+
+type State_
+    = Opening_
+    | Open_
+    | Closing_
+    | Closed_
 
 
 type Duration
@@ -78,6 +91,18 @@ type ConfirmationType
     | Negative
 
 
+type FirstFocusableId
+    = FirstFocusableId String
+
+
+type LastFocusableId
+    = LastFocusableId String
+
+
+type DefaultFocusableId
+    = DefaultFocusableId String
+
+
 type alias ConfirmationConfig msg =
     { title : String
     , bodySubtext : Maybe (List (Html msg))
@@ -90,6 +115,10 @@ type alias ConfirmationConfig msg =
 
 type alias ModalData =
     { duration : Duration
+    , firstFocusableId : FirstFocusableId
+    , lastFocusableId : LastFocusableId
+    , defaultFocusableId : DefaultFocusableId
+    , forceOpen : Bool
     }
 
 
@@ -101,11 +130,25 @@ type alias Timing =
 
 subscriptions : ModalState msg -> Sub ModalMsg
 subscriptions ms =
-    if canSubscribeToEscape ms then
-        BrowserEvents.onKeyDown (KaizenEvents.isEscape Update)
+    let
+        (ModalState ( _, mData ) _) =
+            ms
 
-    else
-        Sub.none
+        subscribeToEscape =
+            if isOpenStopped ms then
+                BrowserEvents.onKeyDown (KaizenEvents.isEscape Update)
+
+            else
+                Sub.none
+
+        forceOpenUpdate =
+            if mData.forceOpen then
+                BrowserEvents.onAnimationFrame ForceUpdate
+
+            else
+                Sub.none
+    in
+    Sub.batch [ subscribeToEscape, forceOpenUpdate ]
 
 
 view : Config msg -> Html msg
@@ -117,11 +160,8 @@ view (Config config) =
         genericModalConfig =
             GenericModal.default
 
-        mState =
+        ( mState, modalData ) =
             getState config.state
-
-        modalData =
-            getData mState
 
         genericModalEvents =
             List.filterMap identity
@@ -130,22 +170,25 @@ view (Config config) =
 
         resolveAnimationStyles =
             case mState of
-                Opening_ _ ->
+                Opening_ ->
                     [ ( .animatingElmEnter, True ) ]
 
-                Open_ _ ->
+                Open_ ->
                     [ ( .animatingElmEnter, True ) ]
 
-                Closing_ _ ->
+                Closing_ ->
                     [ ( .animatingElmExit, True ) ]
 
-                Closed_ _ ->
+                Closed_ ->
                     [ ( .animatingElmExit, True ) ]
 
         resolveVisibilityStyles =
             case config.state of
-                ModalState (Closed_ _) Stopped ->
-                    [ ( .hide, True ) ]
+                ModalState ( Opening_, _ ) Animating ->
+                    [ ( .elmUnscrollable, True ) ]
+
+                ModalState ( Open_, _ ) Animating ->
+                    [ ( .elmUnscrollable, True ) ]
 
                 _ ->
                     []
@@ -196,6 +239,10 @@ view (Config config) =
 
                             Nothing ->
                                 confirmationConfig
+
+                    withFocusableIds confirmationConfig =
+                        ConfirmationModal.headerDismissId (firstFocusableIdToString modalData.firstFocusableId) confirmationConfig
+                            |> ConfirmationModal.confirmId (lastFocusableIdToString modalData.lastFocusableId)
                 in
                 case confirmationType of
                     Informative ->
@@ -205,6 +252,7 @@ view (Config config) =
                                     |> withOnDismiss
                                     |> withOnConfirm
                                     |> withBodySubtext
+                                    |> withFocusableIds
                                     |> ConfirmationModal.confirmLabel configs.confirmLabel
                                     |> ConfirmationModal.dismissLabel configs.dismissLabel
                                     |> ConfirmationModal.title configs.title
@@ -219,6 +267,7 @@ view (Config config) =
                                     |> withOnDismiss
                                     |> withOnConfirm
                                     |> withBodySubtext
+                                    |> withFocusableIds
                                     |> ConfirmationModal.confirmLabel configs.confirmLabel
                                     |> ConfirmationModal.dismissLabel configs.dismissLabel
                                     |> ConfirmationModal.title configs.title
@@ -233,6 +282,7 @@ view (Config config) =
                                     |> withOnDismiss
                                     |> withOnConfirm
                                     |> withBodySubtext
+                                    |> withFocusableIds
                                     |> ConfirmationModal.confirmLabel configs.confirmLabel
                                     |> ConfirmationModal.dismissLabel configs.dismissLabel
                                     |> ConfirmationModal.title configs.title
@@ -263,23 +313,22 @@ defaults =
 initialState : ModalState msg
 initialState =
     ModalState
-        (Closed_
-            { duration = Fast
-            }
+        ( Closed_
+        , { duration = Fast
+          , firstFocusableId = firstFocusableId Constants.firstFocusableId
+          , lastFocusableId = lastFocusableId Constants.lastFocusableId
+          , defaultFocusableId = defaultFocusableId Constants.defaultFocusableId
+          , forceOpen = False
+          }
         )
         Stopped
-
-
-defaultModalData : ModalData
-defaultModalData =
-    { duration = Fast
-    }
 
 
 styles =
     css "@kaizen/component-library/draft/Kaizen/Modal/Primitives/GenericModal.scss"
         { backdropLayer = "backdropLayer"
         , animatingElmEnter = "animatingElmEnter"
+        , elmUnscrollable = "elmUnscrollable"
         , animatingElmExit = "animatingElmExit"
         , elmGenericModal = "elmGenericModal"
         , hide = "hide"
@@ -287,7 +336,7 @@ styles =
 
 
 
--- HELPERS
+-- INTERNAL HELPERS
 
 
 mapDuration : Duration -> Float
@@ -306,47 +355,75 @@ mapDuration duration =
             300
 
 
-canSubscribeToEscape : ModalState msg -> Bool
-canSubscribeToEscape (ModalState state progress) =
+mapDurationWithAddedMillis : Duration -> Float -> Float
+mapDurationWithAddedMillis duration millis =
+    mapDuration duration + millis
+
+
+isOpenStopped : ModalState msg -> Bool
+isOpenStopped (ModalState state progress) =
     case ( state, progress ) of
-        ( Closed_ _, Stopped ) ->
-            False
+        ( ( Open_, _ ), Stopped ) ->
+            True
 
         _ ->
-            True
+            False
+
+
+firstFocusableIdToString : FirstFocusableId -> String
+firstFocusableIdToString (FirstFocusableId id_) =
+    id_
+
+
+lastFocusableIdToString : LastFocusableId -> String
+lastFocusableIdToString (LastFocusableId id_) =
+    id_
+
+
+defaultFocusableIdToString : DefaultFocusableId -> String
+defaultFocusableIdToString (DefaultFocusableId id_) =
+    id_
+
+
+setForceOpen : Bool -> ModalState msg -> ModalState msg
+setForceOpen force (ModalState ( mState, mData ) progress) =
+    ModalState ( mState, { mData | forceOpen = force } ) progress
+
+
+
+-- HELPERS
 
 
 {-| For when you want to start the modal off open without being triggered open.
 
     This is not recommended as modals should be triggered by an intentional user action
 
+    Forcing the modal open will bypass the internal Cmd msgs so the forced open property
+    will be set to True. This triggers subscriptions which then attempts to focus on
+    the first focusable element.
+
+    IMPORTANT: This needs subscriptions hooked up or else the modal will just be closed
+    and do nothing.
+
 -}
 forceOpen : ModalState msg -> ModalState msg
-forceOpen ms =
-    case ms of
-        ModalState (Open_ s) Animating ->
-            ModalState (Open_ s) Stopped
+forceOpen (ModalState ( _, mData ) _) =
+    ModalState ( Closed_, { mData | forceOpen = True } ) Stopped
 
-        ModalState (Opening_ s) Animating ->
-            ModalState (Open_ s) Stopped
 
-        ModalState (Closed_ s) Animating ->
-            ModalState (Open_ s) Stopped
+firstFocusableId : String -> FirstFocusableId
+firstFocusableId id =
+    FirstFocusableId id
 
-        ModalState (Closing_ s) Animating ->
-            ModalState (Open_ s) Stopped
 
-        ModalState (Opening_ s) Stopped ->
-            ModalState (Open_ s) Stopped
+lastFocusableId : String -> LastFocusableId
+lastFocusableId id =
+    LastFocusableId id
 
-        ModalState (Closed_ s) Stopped ->
-            ModalState (Open_ s) Stopped
 
-        ModalState (Closing_ s) Stopped ->
-            ModalState (Open_ s) Stopped
-
-        _ ->
-            ms
+defaultFocusableId : String -> DefaultFocusableId
+defaultFocusableId id =
+    DefaultFocusableId id
 
 
 
@@ -365,15 +442,16 @@ generic v size =
 
 confirmation : ConfirmationType -> ConfirmationConfig msg -> Config msg
 confirmation confirmationType confirmationConfig =
-    Config { defaults | variant = Confirmation confirmationType confirmationConfig }
+    Config
+        { defaults
+            | variant = Confirmation confirmationType confirmationConfig
+        }
 
 
 
 -- MODIFIERS
 
 
-{-| Handler should call Modal.update to handle all animating states.
--}
 onUpdate : (ModalMsg -> msg) -> Config msg -> Config msg
 onUpdate msg (Config config) =
     Config { config | onUpdate = Just msg }
@@ -392,71 +470,108 @@ modalState msg (Config config) =
 E.g. If the modal is closed trigger will begin the open animation for the modal.
 -}
 trigger : ModalState msg -> ( ModalState msg, Cmd ModalMsg, Maybe Status )
-trigger (ModalState state progress) =
+trigger (ModalState ( state, mData ) progress) =
     case progress of
         Animating ->
-            updateRunning state
+            updateRunning ( state, mData )
 
         -- To know what to do next we specify what state the modal was in when stopped
         Stopped ->
             case state of
                 -- Impossible state as updates never set Stopped on an Opening state
-                Opening_ _ ->
-                    ( ModalState (Closed_ defaultModalData) Stopped
+                Opening_ ->
+                    ( initialState
                     , Task.perform identity (Task.succeed Update)
                     , Nothing
                     )
 
-                Open_ s ->
-                    ( ModalState (Closing_ s) <| Animating
+                Open_ ->
+                    ( ModalState ( Closing_, mData ) <| Animating
                     , Task.perform identity (Task.succeed Update)
                     , Nothing
                     )
 
                 -- Impossible state as updates never set Stopped on a Closing state
-                Closing_ _ ->
-                    ( ModalState (Closed_ defaultModalData) Stopped
+                Closing_ ->
+                    ( initialState
                     , Cmd.none
                     , Nothing
                     )
 
-                Closed_ s ->
-                    ( ModalState (Opening_ s) <| Animating
-                    , Task.perform identity (Task.succeed Update)
+                Closed_ ->
+                    ( ModalState ( Opening_, mData ) <| Animating
+                      -- Adding 6 milliseconds due to class switching sometimes triggering scroll bar in .scrollLayer class
+                    , Task.perform (\_ -> Update) (Process.sleep <| mapDurationWithAddedMillis mData.duration 6)
                     , Nothing
                     )
 
 
 update : ModalState msg -> ModalMsg -> ( ModalState msg, Cmd ModalMsg, Maybe Status )
 update ms modalMsg =
+    let
+        (ModalState ( _, mData ) _) =
+            ms
+    in
     case modalMsg of
         Update ->
             trigger ms
 
+        ForceUpdate _ ->
+            trigger <| setForceOpen False ms
+
+        FirstFocusableElementFocused focusResult ->
+            case focusResult of
+                Ok () ->
+                    ( ms, Cmd.none, Nothing )
+
+                Err _ ->
+                    ( ms, Cmd.none, Nothing )
+
+        LastFocusableElementFocused focusResult ->
+            case focusResult of
+                Ok () ->
+                    ( ms, Cmd.none, Nothing )
+
+                Err _ ->
+                    ( ms, Cmd.none, Nothing )
+
+        DefaultFocusableElementFocused focusResult ->
+            case focusResult of
+                Ok () ->
+                    ( ms, Cmd.none, Nothing )
+
+                -- Fallback to the last focusable element if the default focusable element is not found
+                -- This will work for when the last and default focusable element ids are the same e.g. Confirmation variants
+                Err _ ->
+                    ( ms
+                    , Task.attempt LastFocusableElementFocused (BrowserDom.focus <| lastFocusableIdToString mData.lastFocusableId)
+                    , Nothing
+                    )
+
 
 updateRunning : State -> ( ModalState msg, Cmd ModalMsg, Maybe Status )
-updateRunning state =
+updateRunning ( state, mData ) =
     case state of
-        Opening_ d ->
-            ( ModalState (Open_ d) Animating
+        Opening_ ->
+            ( ModalState ( Open_, mData ) Animating
             , Task.perform identity (Task.succeed Update)
             , Nothing
             )
 
-        Open_ d ->
-            ( ModalState (Open_ d) Stopped
-            , Cmd.none
+        Open_ ->
+            ( ModalState ( Open_, mData ) Stopped
+            , Task.attempt DefaultFocusableElementFocused (BrowserDom.focus <| defaultFocusableIdToString mData.defaultFocusableId)
             , Just Open
             )
 
-        Closing_ d ->
-            ( ModalState (Closed_ d) Animating
-            , Task.perform (\_ -> Update) (Process.sleep <| mapDuration d.duration)
+        Closing_ ->
+            ( ModalState ( Closed_, mData ) Animating
+            , Task.perform (\_ -> Update) (Process.sleep <| mapDuration mData.duration)
             , Nothing
             )
 
-        Closed_ d ->
-            ( ModalState (Closed_ d) Stopped
+        Closed_ ->
+            ( ModalState ( Closed_, mData ) Stopped
             , Cmd.none
             , Just Closed
             )
@@ -465,19 +580,3 @@ updateRunning state =
 getState : ModalState msg -> State
 getState (ModalState state _) =
     state
-
-
-getData : State -> ModalData
-getData state =
-    case state of
-        Opening_ s ->
-            s
-
-        Open_ s ->
-            s
-
-        Closing_ s ->
-            s
-
-        Closed_ s ->
-            s
