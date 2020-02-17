@@ -254,7 +254,6 @@ $ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
 // will become `kz-typography-heading-4(32)` which would be converted internally to `2rem`.
 
 @function to-unitless-pixels($value-in-rems) {
-  @debug "strip-unit: #{strip-unit($value-in-rems)}";
   @return strip-unit($value-in-rems) * 16;
 }
 
