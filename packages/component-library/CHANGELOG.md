@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@2.1.0...@kaizen/component-library@2.2.0) (2020-02-17)
+
+
+### Features
+
+* Elm modal focus first focusable element ([#277](https://github.com/cultureamp/kaizen-design-system/issues/277)) ([91c88c5](https://github.com/cultureamp/kaizen-design-system/commit/91c88c5))
+
+
+
+
+
 # [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@2.0.2...@kaizen/component-library@2.1.0) (2020-02-16)
 
 
