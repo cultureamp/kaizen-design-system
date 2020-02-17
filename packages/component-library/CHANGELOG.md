@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@2.1.0...@kaizen/component-library@2.2.0) (2020-02-17)
+
+
+### Features
+
+* Elm modal focus first focusable element ([#277](https://github.com/cultureamp/kaizen-design-system/issues/277)) ([91c88c5](https://github.com/cultureamp/kaizen-design-system/commit/91c88c5))
+
+
+
+
+
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@2.0.2...@kaizen/component-library@2.1.0) (2020-02-16)
+
+
+### Features
+
+* Add font-face declarations for Zen fonts ([#275](https://github.com/cultureamp/kaizen-design-system/issues/275)) ([72c8cb8](https://github.com/cultureamp/kaizen-design-system/commit/72c8cb8))
+
+
+
+
+
 ## [2.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@2.0.1...@kaizen/component-library@2.0.2) (2020-02-13)
 
 **Note:** Version bump only for package @kaizen/component-library

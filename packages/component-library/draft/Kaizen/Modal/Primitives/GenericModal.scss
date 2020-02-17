@@ -95,6 +95,12 @@
   }
 }
 
+.elmUnscrollable {
+  .scrollLayer {
+    overflow-y: hidden;
+  }
+}
+
 .unscrollable {
   overflow: hidden !important;
 }

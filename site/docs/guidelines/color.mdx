@@ -12,10 +12,14 @@ import ColorShowcase from "docs-components/color/legacy/ColorShowcase"
 import ZenWisteria from "docs-components/color/ZenWisteria"
 import ZenNeutrals from "docs-components/color/ZenNeutrals"
 import ZenCluny from "docs-components/color/ZenCluny"
+import ZenSeedling from "docs-components/color/ZenSeedling"
+import ZenYuzu from "docs-components/color/ZenYuzu"
+import ZenPeach from "docs-components/color/ZenPeach"
+import ZenCoral from "docs-components/color/ZenCoral"
 
 ## Zen palette
 
-These color design tokens can be used in Sass or JavaScript. See the [design tokens package for details](https://github.com/cultureamp/kaizen-design-system/tree/master/packages/design-tokens).
+These color design tokens can be used in Sass or JavaScript. See the [design tokens package](https://github.com/cultureamp/kaizen-design-system/tree/master/packages/design-tokens).
 
 ### Neutrals
 
@@ -35,9 +39,35 @@ Used for links (Cluny 500), control actions, guidance and onboarding.
 
 <ZenCluny />
 
-**The rest of the palette is coming soon.** To learn more, Culture Amp employees can visit the [Color page in Figma](https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/Zen-UI-Kit?node-id=1929%3A81).
+### Seedling
+
+Used for Calls To Action (CTAs) and positive moods (e.g. success messages, status, progress).
+
+<ZenSeedling />
+
+### Yuzu
+
+Used for highlighting Collective Intelligence assets and cautionary moods (e.g. warning messages, progress).
+
+<ZenYuzu />
+
+### Peach
+
+Used for indicating intensity (e.g. Impact bar) and status tags.
+
+<ZenPeach />
+
+### Coral
+
+Used for destructive actions and negative moods (e.g. error messages, status, progress).
+
+<ZenCoral />
+
+To learn more, Culture Amp employees can visit the [Color page in Figma](https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/Zen-UI-Kit?node-id=1929%3A81).
 
 ## Legacy palette
+
+We no longer use these colors, but they'll stay here for reference for a short time.
 
 <ColorShowcase />
 
@@ -45,7 +75,6 @@ Used for links (Cluny 500), control actions, guidance and onboarding.
 
 - Contrast and accessibility is crucial. To [consider everyone](../language#culture-amp-brand-tone-and-design-principles), we use color contrast ratios that adhered to [WCAG 2.0 AA](https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast) guidelines.
 - Use our official color palette variables and helpers (`add-alpha`) for all color CSS declarations.
-- Use tints (to add white) and shades (to add black) to a base color in increments of 10% to define the appropriate perceived lightness or darkness of a color. You might need 5% steps at the lighter end of the range.
 - Be mindful of color psychology associations and cultural values (such as Red symbolizing danger versus good luck).
 
 ### Links
@@ -54,15 +83,15 @@ To indicate links and on-page actions, use Cluny.
 
 ### Primary action
 
-For the most important action on a page, use Seedling.
+For the most important action on a page, use Wisteria.
 
 ### Data visualization
 
 To indicate Sentiment, use:
 
-- Seedling + 50% tint for Positive sentiment.
-- Ink + 93% tint for Neutral sentiment.
-- Coral + 70% tint for Negative sentiment.
+- Seedling 400 for Positive sentiment.
+- Ash for Neutral sentiment.
+- Coral 300 for Negative sentiment.
 
 
 
@@ -79,7 +108,7 @@ To indicate Sentiment, use:
 ## When not to use
 
 - Use more than color alone to convey information. Test with with a gray scale filter and color blindness simulators.
-- Avoid using color when you can use contrast (such as tints and shades of ink), spacing, or typography to create hierarchy or groupings.
+- Avoid using color when you can use contrast (such as levels of Wisteria or Neutrals), spacing, or typography to create hierarchy or groupings.
 - Avoid color when there’s a risk of overuse or a ‘candy shop’ effect.
 - Avoid color when it might overload the user and create confusion.
 
