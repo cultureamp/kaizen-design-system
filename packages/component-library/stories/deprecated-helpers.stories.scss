@@ -1,0 +1,66 @@
+@import "~@kaizen/component-library/styles/fonts";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+
+@mixin margin-reset {
+  margin-top: 0;
+  margin-bottom: $ca-grid;
+}
+
+.wrapper {
+  @include debug-vertical-rhythm-grid;
+  padding-bottom: $ca-grid;
+}
+
+.dataLarge {
+  @include kz-typography-data-large;
+}
+
+.dataLargeUnits {
+  @include kz-typography-data-large-units;
+}
+
+.dataMedium {
+  @include kz-typography-data-medium;
+}
+
+.dataMediumUnits {
+  @include kz-typography-data-medium-units;
+}
+
+.dataSmall {
+  @include kz-typography-data-small;
+}
+
+.dataSmallUnits {
+  @include kz-typography-data-small-units;
+}
+
+.dataWrapper {
+  display: flex;
+  // align-items: baseline;
+}
+
+.display0 {
+  @include kz-typography-display-0;
+  @include margin-reset;
+}
+
+.heading1 {
+  @include kz-typography-heading-1;
+  @include margin-reset;
+}
+
+.heading2 {
+  @include kz-typography-heading-2;
+  @include margin-reset;
+}
+
+.heading3 {
+  @include kz-typography-heading-3;
+  @include margin-reset;
+}
+
+.heading1CustomSize48 {
+  @include kz-typography-heading-1(48);
+  @include margin-reset;
+}
