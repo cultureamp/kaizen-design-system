@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@2.3.0...@kaizen/component-library@2.4.0) (2020-02-18)
+
+
+### Features
+
+* Allow for inputs to be uncontrolled ([#279](https://github.com/cultureamp/kaizen-design-system/issues/279)) ([c8892c8](https://github.com/cultureamp/kaizen-design-system/commit/c8892c8))
+
+
+
+
+
 # [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@2.2.0...@kaizen/component-library@2.3.0) (2020-02-18)
 
 
