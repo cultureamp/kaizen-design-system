@@ -1,7 +1,5 @@
 @import "~@kaizen/component-library/styles/fonts";
-@import "~@kaizen/component-library/styles/type"; // just for the baseline grid helper
-
-$ca-grid: 1.5rem;
+@import "~@kaizen/component-library/styles/type"; // just for the grid unit
 
 $spacing-list: (
   ("eighth", $ca-grid/8),
