@@ -18,7 +18,9 @@ module Button.Button exposing
     , iconPosition
     , id
     , newTabAndIUnderstandTheAccessibilityImplications
+    , onBlur
     , onClick
+    , onFocus
     , primary
     , reverseColor
     , reversed
@@ -27,10 +29,10 @@ module Button.Button exposing
     )
 
 import CssModules exposing (css)
-import Elm18Compatible.Html.Events as Events exposing (defaultOptions, onWithOptions)
 import Html exposing (Html, a, button, span, text)
 import Html.Attributes
 import Html.Attributes.Aria
+import Html.Events as HtmlEvents
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (SvgAsset)
 import Json.Decode as Json
@@ -105,10 +107,12 @@ view (Config config) label =
 
         attribs =
             buttonClass
-                ++ onClickAttribs (Config config)
+                ++ onClickAttribs config
+                ++ onFocusAttribs config
+                ++ onBlurAttribs config
                 ++ automationIdAttr
                 ++ titleAttr
-                ++ buttonTypeAttribs (Config config)
+                ++ buttonTypeAttribs config
                 ++ idAttr
     in
     span
@@ -128,8 +132,28 @@ view (Config config) label =
         ]
 
 
-onClickAttribs : Config msg -> List (Html.Attribute msg)
-onClickAttribs (Config config) =
+onFocusAttribs : ConfigValue msg -> List (Html.Attribute msg)
+onFocusAttribs config =
+    case config.onFocus of
+        Just focusMsg ->
+            [ HtmlEvents.onFocus focusMsg ]
+
+        Nothing ->
+            []
+
+
+onBlurAttribs : ConfigValue msg -> List (Html.Attribute msg)
+onBlurAttribs config =
+    case config.onBlur of
+        Just blurMsg ->
+            [ HtmlEvents.onBlur blurMsg ]
+
+        Nothing ->
+            []
+
+
+onClickAttribs : ConfigValue msg -> List (Html.Attribute msg)
+onClickAttribs config =
     case config.onClick of
         Just msg ->
             let
@@ -145,19 +169,26 @@ onClickAttribs (Config config) =
 
                         Nothing ->
                             True
+
+                decoder =
+                    Json.map
+                        (\m ->
+                            { message = m
+                            , stopPropagation = False
+                            , preventDefault = preventDefault
+                            }
+                        )
+                        (Json.succeed msg)
             in
-            [ onWithOptions
-                "click"
-                { defaultOptions | preventDefault = preventDefault }
-                (Json.succeed msg)
+            [ HtmlEvents.custom "click" decoder
             ]
 
         Nothing ->
             []
 
 
-buttonTypeAttribs : Config msg -> List (Html.Attribute msg)
-buttonTypeAttribs (Config config) =
+buttonTypeAttribs : ConfigValue msg -> List (Html.Attribute msg)
+buttonTypeAttribs config =
     case config.href of
         Just _ ->
             []
@@ -258,6 +289,8 @@ type alias ConfigValue msg =
     , reversed : Bool
     , reverseColor : Maybe BrandColor
     , onClick : Maybe msg
+    , onFocus : Maybe msg
+    , onBlur : Maybe msg
     , href : Maybe String
     , newTabAndIUnderstandTheAccessibilityImplications : Bool
     , id : Maybe String
@@ -305,6 +338,8 @@ defaults =
     , reversed = False
     , reverseColor = Nothing
     , onClick = Nothing
+    , onFocus = Nothing
+    , onBlur = Nothing
     , href = Nothing
     , newTabAndIUnderstandTheAccessibilityImplications = False
     , id = Nothing
@@ -382,6 +417,16 @@ reverseColor value (Config config) =
 onClick : msg -> Config msg -> Config msg
 onClick value (Config config) =
     Config { config | onClick = Just value }
+
+
+onFocus : msg -> Config msg -> Config msg
+onFocus value (Config config) =
+    Config { config | onFocus = Just value }
+
+
+onBlur : msg -> Config msg -> Config msg
+onBlur value (Config config) =
+    Config { config | onBlur = Just value }
 
 
 href : String -> Config msg -> Config msg
