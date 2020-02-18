@@ -17,6 +17,7 @@ export type CheckboxProps = {
   onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
   disabled?: boolean
   name?: string
+  tabIndex?: number
 }
 
 type Input = React.FunctionComponent<CheckboxProps>
@@ -48,12 +49,14 @@ const Input: Input = ({
   checkedStatus = "off" as CheckedStatus,
   onCheck,
   disabled = false,
+  tabIndex,
 }) => (
   <div className={styles.container}>
     <input
       type="checkbox"
       id={id}
       name={name}
+      tabIndex={tabIndex}
       data-automation-id={automationId}
       // This si only used as a handle for unit testing
       data-indeterminate={checkedStatus === "mixed"}
