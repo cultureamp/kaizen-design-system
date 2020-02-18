@@ -1,0 +1,54 @@
+@import "~@kaizen/design-tokens/sass/typography.scss";
+@import "../Base.module.scss";
+
+.heading {
+  // @TODO - figure out fallbacks and i18n
+  font-family: "Greycliff CF", sans-serif;
+  color: $kz-color-wisteria-800;
+}
+
+$font-scale-map: (
+  (
+    "0",
+    $kz-typography-display-0-font-size,
+    $kz-typography-display-0-line-height
+  ),
+  (
+    "1",
+    $kz-typography-heading-1-font-size,
+    $kz-typography-heading-1-line-height
+  ),
+  (
+    "2",
+    $kz-typography-heading-2-font-size,
+    $kz-typography-heading-2-line-height
+  ),
+  (
+    "3",
+    $kz-typography-heading-3-font-size,
+    $kz-typography-heading-3-line-height
+  ),
+  (
+    "4",
+    $kz-typography-heading-4-font-size,
+    $kz-typography-heading-4-line-height
+  ),
+  (
+    "5",
+    $kz-typography-heading-5-font-size,
+    $kz-typography-heading-5-line-height
+  ),
+  (
+    "6",
+    $kz-typography-heading-6-font-size,
+    $kz-typography-heading-6-line-height
+  )
+);
+
+@each $scale, $font-size, $line-height in $font-scale-map {
+  .heading-#{$scale} {
+    font-family: "Greycliff CF", sans-serif;
+    font-size: $font-size;
+    line-height: $line-height;
+  }
+}

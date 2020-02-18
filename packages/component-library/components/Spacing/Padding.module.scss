@@ -1,0 +1,35 @@
+@import "./Base.module.scss";
+
+@each $fraction, $padding in $spacing-list {
+  .p-#{$fraction} {
+    padding: $padding;
+  }
+  .pt-#{$fraction} {
+    padding-top: $padding;
+  }
+  .pr-#{$fraction} {
+    padding-right: $padding;
+  }
+  .pb-#{$fraction} {
+    padding-bottom: $padding;
+  }
+  .pl-#{$fraction} {
+    padding-left: $padding;
+  }
+  .px-#{$fraction} {
+    padding: 0 $padding;
+  }
+  .py-#{$fraction} {
+    padding: $padding 0;
+  }
+}
+
+@each $screen, $min in $breakpoints {
+  @media (min-width: #{$min}) {
+    @each $fraction, $margin in $spacing-list {
+      .p-#{$fraction}--#{$screen} {
+        margin: $margin;
+      }
+    }
+  }
+}
