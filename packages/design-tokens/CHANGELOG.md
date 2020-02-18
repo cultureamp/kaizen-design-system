@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.1.0...@kaizen/design-tokens@1.2.0) (2020-02-18)
+
+
+### Features
+
+* regenerate design token scss and  less files ([#286](https://github.com/cultureamp/kaizen-design-system/issues/286)) ([8570bbb](https://github.com/cultureamp/kaizen-design-system/commit/8570bbb))
+
+
+
+
+
+# [1.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.0.0...@kaizen/design-tokens@1.1.0) (2020-02-18)
+
+
+### Features
+
+* Add type styles for data ([#282](https://github.com/cultureamp/kaizen-design-system/issues/282)) ([9ea1150](https://github.com/cultureamp/kaizen-design-system/commit/9ea1150))
+
+
+
+
+
 # [1.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@0.4.1...@kaizen/design-tokens@1.0.0) (2020-02-17)
 
 

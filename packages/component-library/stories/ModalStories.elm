@@ -17,7 +17,7 @@ type ModalMsg
 
 
 
---    | SetModalContext
+-- SetModalContext
 
 
 model : ModalState
@@ -120,6 +120,7 @@ main =
                                     ]
                                     ( 800, 640 )
                                     |> Modal.modalState modalState
+                                    -- IMPORTANT: the modal uses this for internal messages
                                     |> Modal.onUpdate ModalUpdate
                                 )
 
@@ -145,7 +146,7 @@ main =
                                     , dismissLabel = "Cancel"
                                     }
                                     |> Modal.modalState modalState
-                                    -- the modal uses this for internal messages
+                                    -- IMPORTANT: the modal uses this for internal messages
                                     |> Modal.onUpdate ModalUpdate
                                 )
 
@@ -171,7 +172,7 @@ main =
                                     , dismissLabel = "Cancel"
                                     }
                                     |> Modal.modalState modalState
-                                    -- the modal uses this for internal messages
+                                    -- IMPORTANT: the modal uses this for internal messages
                                     |> Modal.onUpdate ModalUpdate
                                 )
 
@@ -197,7 +198,7 @@ main =
                                     , dismissLabel = "Cancel"
                                     }
                                     |> Modal.modalState modalState
-                                    -- the modal uses this for internal messages
+                                    -- IMPORTANT: the modal uses this for internal messages
                                     |> Modal.onUpdate ModalUpdate
                                 )
 
