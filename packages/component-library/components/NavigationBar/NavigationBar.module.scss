@@ -15,6 +15,14 @@
       color: #fff;
     }
   }
+
+  &.content {
+    background: $kz-color-cluny-500;
+
+    a {
+      color: #fff;
+    }
+  }
 }
 
 .links {
@@ -69,4 +77,8 @@
 
 .kaizen .active {
   background-color: $kz-color-wisteria-700;
+}
+
+.content .active {
+  background-color: $kz-color-cluny-500;
 }

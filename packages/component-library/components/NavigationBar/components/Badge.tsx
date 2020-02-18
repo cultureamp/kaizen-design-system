@@ -11,10 +11,11 @@ const styles = require("./Badge.module.scss")
 type BadgeProps = {
   loading: boolean
   href: string
+  colorScheme: string
 }
 
 export const ProductionBadge = (props: BadgeProps) => (
-  <div className={styles.badge}>
+  <div className={classNames(styles.badge, styles[props.colorScheme])}>
     <a href={props.href}>
       {props.loading ? (
         <Icon icon={spinnerIcon} title="loading…" />
