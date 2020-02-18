@@ -11,27 +11,6 @@ export type Safelist = AriaAttributes & {
   title?: string
   role?: string
 }
-// @TODO add data attributes
-// @TODO enforce data-test-id (check name)?
-
-export type AllowedTags = {
-  pre: HTMLPreElement
-  p: HTMLParagraphElement
-  a: HTMLAnchorElement
-  div: HTMLDivElement
-  span: HTMLSpanElement
-  h1: HTMLHeadingElement
-  h2: HTMLHeadingElement
-  h3: HTMLHeadingElement
-  h4: HTMLHeadingElement
-  h5: HTMLHeadingElement
-  h6: HTMLHeadingElement
-}
-
-/**
- * Scale refers to difference in size of components within the same component family
- */
-export type Sizing = "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl"
 
 export type GridFractions = "1/8" | "1/4" | "1/2" | "0" | "1" | "2" | "3" | "4"
 
@@ -40,12 +19,6 @@ export type Breakpoint = {
   tablet: "768"
   desktop: "1024"
 }
-
-export type Scale =
-  | {
-      [key in keyof Breakpoint]?: Sizing
-    }
-  | Sizing
 
 export type ResponsiveSpacing =
   | {
