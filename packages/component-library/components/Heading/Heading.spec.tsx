@@ -61,7 +61,7 @@ describe("<Heading />", () => {
       it(`renders the correct element for <Heading scale={${scale}} />`, () => {
         const headingMock = render(<Heading level={scale}>Example</Heading>)
         expect(headingMock.getByText("Example").tagName.toLowerCase()).toBe(el)
-        expect(headingMock).toMatchSnapshot()
+        expect(headingMock.baseElement).toMatchSnapshot()
       })
     })
   })
