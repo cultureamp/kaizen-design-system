@@ -241,6 +241,22 @@ $ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
   @include ca-type-ideal($size: $size, $weight: $ca-weight-medium, $args...);
 }
 
+@mixin debug-vertical-rhythm-grid() {
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAKUlEQVRIiWN49OjRf1pihlEwCkbBKCACvH379j8t8UD7bxSMglEwJAAAvrOyCTd0/dgAAAAASUVORK5CYII=");
+    pointer-events: none;
+    z-index: 10000;
+    opacity: 0.5;
+  }
+}
+
 // Greycliff styles
 
 // A utility to strip the unit from a value. Eg: `1.5rem` to `1.5`
