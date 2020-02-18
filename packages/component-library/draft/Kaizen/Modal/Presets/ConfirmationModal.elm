@@ -1,7 +1,9 @@
 module Kaizen.Modal.Presets.ConfirmationModal exposing
     ( bodySubtext
+    , confirmId
     , confirmLabel
     , dismissLabel
+    , headerDismissId
     , informative
     , negative
     , onConfirm
@@ -16,6 +18,7 @@ import CssModules exposing (css)
 import Html exposing (Html, div, text)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
+import Kaizen.Modal.Primitives.Constants as Constants
 import Kaizen.Modal.Primitives.ModalBody as ModalBody
 import Kaizen.Modal.Primitives.ModalFooter as ModalFooter
 import Kaizen.Modal.Primitives.ModalHeader as ModalHeader
@@ -40,6 +43,8 @@ type alias Configuration msg =
     , bodySubtext : Maybe (List (Html msg))
     , dismissLabel : String
     , confirmLabel : String
+    , headerDismissId : Maybe String
+    , confirmId : Maybe String
     }
 
 
@@ -81,6 +86,8 @@ defaults =
     , bodySubtext = Nothing
     , dismissLabel = "Cancel"
     , confirmLabel = "Confirm"
+    , headerDismissId = Nothing
+    , confirmId = Just Constants.lastFocusableId
     }
 
 
@@ -95,6 +102,14 @@ view (Config config) =
                 Nothing ->
                     headerConfig
 
+        withHeaderDismissId headerConfig =
+            case config.headerDismissId of
+                Just id_ ->
+                    ModalHeader.dismissId id_ headerConfig
+
+                Nothing ->
+                    headerConfig
+
         withBody =
             case config.bodySubtext of
                 Just bodyContent ->
@@ -104,7 +119,11 @@ view (Config config) =
                     text ""
     in
     div [ styles.class .elmModal ]
-        [ ModalHeader.view (ModalHeader.layout [ header config ] |> withHeaderOnDismiss)
+        [ ModalHeader.view
+            (ModalHeader.layout [ header config ]
+                |> withHeaderOnDismiss
+                |> withHeaderDismissId
+            )
         , withBody
         , ModalFooter.view <|
             (ModalFooter.layout (footer config)
@@ -176,8 +195,27 @@ footer config =
 
             else
                 Button.primary
+
+        withConfirmId buttonConfig =
+            case config.confirmId of
+                Just id ->
+                    Button.id id buttonConfig
+
+                Nothing ->
+                    buttonConfig
     in
-    [ Button.view (Button.secondary |> withOnDismiss) config.dismissLabel, Button.view (resolveActionButtonVariant |> withOnConfirm) config.confirmLabel ]
+    [ Button.view
+        (Button.secondary
+            |> withOnDismiss
+        )
+        config.dismissLabel
+    , Button.view
+        (resolveActionButtonVariant
+            |> withOnConfirm
+            |> withConfirmId
+        )
+        config.confirmLabel
+    ]
 
 
 
@@ -212,6 +250,16 @@ confirmLabel confirmString (Config config) =
 dismissLabel : String -> Config msg -> Config msg
 dismissLabel dismissString (Config config) =
     Config { config | dismissLabel = dismissString }
+
+
+headerDismissId : String -> Config msg -> Config msg
+headerDismissId id_ (Config config) =
+    Config { config | headerDismissId = Just id_ }
+
+
+confirmId : String -> Config msg -> Config msg
+confirmId id_ (Config config) =
+    Config { config | confirmId = Just id_ }
 
 
 styles =
