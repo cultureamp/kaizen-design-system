@@ -5,13 +5,13 @@ import { responsivePaddingClasses } from "../Spacing/padding"
 import { Spacing } from "../types"
 
 export interface BoxProps {
-  style?: React.CSSProperties
   children: React.ReactNode
+  classNameAndIHaveSpokenToDST?: string
 }
 
 export const Box = ({
   children,
-  style,
+  classNameAndIHaveSpokenToDST,
   p,
   pt,
   pr,
@@ -33,7 +33,9 @@ export const Box = ({
   ]
 
   return (
-    <div style={{ ...style }} className={classnames(classes.join(" "))}>
+    <div
+      className={classnames(classes.join(" "), classNameAndIHaveSpokenToDST)}
+    >
       {children}
     </div>
   )

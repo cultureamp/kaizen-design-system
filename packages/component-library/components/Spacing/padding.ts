@@ -41,7 +41,6 @@ export const p = (unit: ResponsiveSpacing): string[] => {
 }
 
 // @TODO - i18n. Use padding before / padding after
-// Seb can help with this
 export const responsivePaddingClasses = ({
   p: padding,
   pt: paddingTop,

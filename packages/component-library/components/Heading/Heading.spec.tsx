@@ -9,7 +9,7 @@ describe("<Heading />", () => {
     const headingMock = render(<Heading variant="display-0">Example</Heading>)
     const headingClasslist = headingMock.getByText("Example").classList
     expect(headingClasslist).toContain("heading")
-    expect(headingClasslist).toContain("heading-0")
+    expect(headingClasslist).toContain("display-0")
   })
 
   it("changes rendered HTML element when passed tag", () => {
@@ -27,7 +27,7 @@ describe("<Heading />", () => {
         Example
       </Heading>
     )
-    expect(container.querySelector('[aria-variant="1"]')).not.toBeNull()
+    expect(container.querySelector('[aria-level="1"]')).not.toBeNull()
     expect(container.querySelector('[role="heading"]')).not.toBeNull()
   })
 
@@ -61,5 +61,17 @@ describe("<Heading />", () => {
         expect(headingMock.baseElement).toMatchSnapshot()
       })
     })
+  })
+
+  it("allows consumers to provide a className", () => {
+    const { getByText } = render(
+      <Heading
+        variant="heading-4"
+        classNameAndIHaveSpokenToDST="example-classname"
+      >
+        Example
+      </Heading>
+    )
+    expect(getByText("Example").classList).toContain("example-classname")
   })
 })

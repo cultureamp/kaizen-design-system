@@ -1,6 +1,6 @@
 import classNames from "classnames"
 import { createElement } from "react"
-import { Safelist } from "../types"
+import { className, Safelist } from "../types"
 
 const styles = require("./Heading.module.scss")
 
@@ -36,12 +36,17 @@ export const Heading = ({
   tag,
   variant,
   children,
+  classNameAndIHaveSpokenToDST,
   ...otherProps
-}: HeadingProps & Safelist) => {
+}: HeadingProps & Safelist & className) => {
   const inferredTag =
     tag === undefined ? translateHeadingLevelToTag(variant) : tag
 
-  const classes: string = classNames(styles.heading, styles[variant])
+  const classes: string = classNames(
+    styles.heading,
+    styles[variant],
+    classNameAndIHaveSpokenToDST
+  )
 
   return createElement(
     inferredTag,

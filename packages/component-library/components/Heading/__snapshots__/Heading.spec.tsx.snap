@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading scale={0} /> 1`] = `
+exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading variant={display-0} /> 1`] = `
 <body>
   <div>
     <h1
-      class="heading heading-0"
+      class="heading display-0"
     >
       Example
     </h1>
@@ -12,7 +12,7 @@ exports[`<Heading /> defaults to the correct HTML element renders the correct el
 </body>
 `;
 
-exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading scale={1} /> 1`] = `
+exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading variant={heading-1} /> 1`] = `
 <body>
   <div>
     <h1
@@ -24,7 +24,7 @@ exports[`<Heading /> defaults to the correct HTML element renders the correct el
 </body>
 `;
 
-exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading scale={2} /> 1`] = `
+exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading variant={heading-2} /> 1`] = `
 <body>
   <div>
     <h2
@@ -36,7 +36,7 @@ exports[`<Heading /> defaults to the correct HTML element renders the correct el
 </body>
 `;
 
-exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading scale={3} /> 1`] = `
+exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading variant={heading-3} /> 1`] = `
 <body>
   <div>
     <h3
@@ -48,7 +48,7 @@ exports[`<Heading /> defaults to the correct HTML element renders the correct el
 </body>
 `;
 
-exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading scale={4} /> 1`] = `
+exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading variant={heading-4} /> 1`] = `
 <body>
   <div>
     <h4
@@ -60,7 +60,7 @@ exports[`<Heading /> defaults to the correct HTML element renders the correct el
 </body>
 `;
 
-exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading scale={5} /> 1`] = `
+exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading variant={heading-5} /> 1`] = `
 <body>
   <div>
     <h5
@@ -72,7 +72,7 @@ exports[`<Heading /> defaults to the correct HTML element renders the correct el
 </body>
 `;
 
-exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading scale={6} /> 1`] = `
+exports[`<Heading /> defaults to the correct HTML element renders the correct element for <Heading variant={heading-6} /> 1`] = `
 <body>
   <div>
     <h6

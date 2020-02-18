@@ -45,3 +45,7 @@ export type Spacing = {
   mx?: GridFractions
   my?: GridFractions
 }
+
+export type className = {
+  classNameAndIHaveSpokenToDST?: string
+}
