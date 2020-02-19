@@ -8,6 +8,7 @@ module Kaizen.Modal.Presets.ConfirmationModal exposing
     , negative
     , onConfirm
     , onDismiss
+    , onHeaderDismissFocus
     , positive
     , title
     , view
@@ -44,6 +45,7 @@ type alias Configuration msg =
     , dismissLabel : String
     , confirmLabel : String
     , headerDismissId : Maybe String
+    , onHeaderDismissFocus : Maybe msg
     , confirmId : Maybe String
     }
 
@@ -87,6 +89,7 @@ defaults =
     , dismissLabel = "Cancel"
     , confirmLabel = "Confirm"
     , headerDismissId = Nothing
+    , onHeaderDismissFocus = Nothing
     , confirmId = Just Constants.lastFocusableId
     }
 
@@ -110,6 +113,14 @@ view (Config config) =
                 Nothing ->
                     headerConfig
 
+        withHeaderOnDismissFocus headerConfig =
+            case config.onHeaderDismissFocus of
+                Just dismissFocus ->
+                    ModalHeader.onDismissFocus dismissFocus headerConfig
+
+                Nothing ->
+                    headerConfig
+
         withBody =
             case config.bodySubtext of
                 Just bodyContent ->
@@ -122,6 +133,7 @@ view (Config config) =
         [ ModalHeader.view
             (ModalHeader.layout [ header config ]
                 |> withHeaderOnDismiss
+                |> withHeaderOnDismissFocus
                 |> withHeaderDismissId
             )
         , withBody
@@ -255,6 +267,11 @@ dismissLabel dismissString (Config config) =
 headerDismissId : String -> Config msg -> Config msg
 headerDismissId id_ (Config config) =
     Config { config | headerDismissId = Just id_ }
+
+
+onHeaderDismissFocus : msg -> Config msg -> Config msg
+onHeaderDismissFocus msg (Config config) =
+    Config { config | onHeaderDismissFocus = Just msg }
 
 
 confirmId : String -> Config msg -> Config msg
