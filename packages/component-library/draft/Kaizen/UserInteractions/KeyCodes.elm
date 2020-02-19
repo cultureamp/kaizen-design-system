@@ -1,4 +1,13 @@
-module Kaizen.UserInteractions.KeyCodes exposing (backspace, downArrow, enter, escape, space, tab, upArrow)
+module Kaizen.UserInteractions.KeyCodes exposing
+    ( backspace
+    , downArrow
+    , enter
+    , escape
+    , shift
+    , space
+    , tab
+    , upArrow
+    )
 
 import Elm18Compatible.Keyboard as Keyboard18
 
@@ -36,3 +45,8 @@ downArrow =
 space : Keyboard18.KeyCode
 space =
     32
+
+
+shift : Keyboard18.KeyCode
+shift =
+    16

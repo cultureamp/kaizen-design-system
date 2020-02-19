@@ -11,6 +11,8 @@ type Key
     | Enter
     | Backspace
     | Space
+    | Shift
+    | Tab
     | Other
 
 
@@ -33,6 +35,12 @@ decoder keyCode =
 
     else if keyCode == KeyCodes.space then
         Space
+
+    else if keyCode == KeyCodes.shift then
+        Shift
+
+    else if keyCode == KeyCodes.tab then
+        Tab
 
     else
         Other
