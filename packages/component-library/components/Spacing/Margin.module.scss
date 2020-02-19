@@ -17,10 +17,12 @@
     margin-left: $margin;
   }
   .mx-#{$fraction} {
-    margin: 0 $margin;
+    margin-left: $margin;
+    margin-right: $margin;
   }
   .my-#{$fraction} {
-    margin: $margin 0;
+    margin-top: $margin;
+    margin-bottom: $margin;
   }
 }
 
