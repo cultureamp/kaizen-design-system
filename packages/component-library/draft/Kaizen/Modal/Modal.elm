@@ -208,7 +208,7 @@ viewContent (Config config) =
                     [ ( .animatingElmExit, True ) ]
 
                 Closed_ ->
-                    [ ( .animatingElmExit, True ) ]
+                    [ ( .hide, True ) ]
 
                 _ ->
                     []
