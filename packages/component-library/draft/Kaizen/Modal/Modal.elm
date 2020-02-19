@@ -55,7 +55,8 @@ type Status
 type ModalMsg
     = Update
     | RunModal Time.Posix
-    | FirstFocusableElementFocused (Result BrowserDom.Error ())
+    | FocusFirstFocusableElement (Result BrowserDom.Error ())
+    | FirstFocusableElementFocused
     | LastFocusableElementFocused (Result BrowserDom.Error ())
     | DefaultFocusableElementFocused (Result BrowserDom.Error ())
 
