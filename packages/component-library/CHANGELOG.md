@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.0.0...@kaizen/component-library@3.1.0) (2020-02-18)
+
+
+### Features
+
+* Add ability to set a tab index on a Checkbox and CheckboxField ([#291](https://github.com/cultureamp/kaizen-design-system/issues/291)) ([29b3b04](https://github.com/cultureamp/kaizen-design-system/commit/29b3b04))
+
+
+
+
+
 # [3.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@2.4.0...@kaizen/component-library@3.0.0) (2020-02-18)
 
 
