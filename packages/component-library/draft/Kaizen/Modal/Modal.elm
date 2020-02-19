@@ -107,6 +107,7 @@ type DefaultFocusableId
 type FocusedFocusable
     = FirstFocusableFocused
     | LastFocusableFocused
+    | NoFocusableFocused
 
 
 type ModalStep
@@ -132,6 +133,7 @@ type alias ModalData =
     , modalStep : ModalStep
     , startTime : Maybe Time.Posix
     , animatingStep : Progress
+    , focusedFocusable : FocusedFocusable
     }
 
 
@@ -352,6 +354,7 @@ initialState =
           , modalStep = NotRunning
           , startTime = Nothing
           , animatingStep = NotAnimating
+          , focusedFocusable = NoFocusableFocused
           }
         )
 
