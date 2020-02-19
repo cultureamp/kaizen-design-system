@@ -23,14 +23,16 @@ type TextField = React.FunctionComponent<{
   placeholder?: string
   labelText: string | React.ReactNode
   disabled?: boolean
-  inputValue: string
+  inputValue?: string
+  defaultInputValue?: string
+  inputRef?: React.RefObject<HTMLInputElement>
   reversed?: boolean
   inline?: boolean
   icon?: React.SVGAttributes<SVGSymbolElement>
   status?: InputStatus
   validationMessage?: string
   description?: string
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => any
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any
   name?: string
@@ -42,7 +44,9 @@ const TextField: TextField = ({
   disabled = false,
   placeholder,
   labelText,
-  inputValue = "",
+  inputValue,
+  defaultInputValue,
+  inputRef,
   validationMessage,
   description,
   reversed = false,
@@ -90,6 +94,8 @@ const TextField: TextField = ({
         ariaDescribedBy={ariaDescribedBy}
         inputType={inputType}
         inputValue={inputValue}
+        defaultInputValue={defaultInputValue}
+        inputRef={inputRef}
         placeholder={placeholder}
         onChange={onChange}
         onBlur={onBlur}

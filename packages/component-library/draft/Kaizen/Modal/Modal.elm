@@ -25,11 +25,11 @@ import CssModules exposing (css)
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
+import Html.Lazy exposing (lazy)
 import Kaizen.Events.Events as KaizenEvents
 import Kaizen.Modal.Presets.ConfirmationModal as ConfirmationModal
 import Kaizen.Modal.Primitives.Constants as Constants
 import Kaizen.Modal.Primitives.GenericModal as GenericModal
-import Process
 import Task
 import Time as Time
 
@@ -39,7 +39,7 @@ type Config msg
 
 
 type ModalState msg
-    = ModalState State Progress
+    = ModalState State
 
 
 type Progress
@@ -54,7 +54,7 @@ type Status
 
 type ModalMsg
     = Update
-    | ForceUpdate Time.Posix
+    | RunModal Time.Posix
     | FirstFocusableElementFocused (Result BrowserDom.Error ())
     | LastFocusableElementFocused (Result BrowserDom.Error ())
     | DefaultFocusableElementFocused (Result BrowserDom.Error ())
@@ -103,6 +103,11 @@ type DefaultFocusableId
     = DefaultFocusableId String
 
 
+type ModalStep
+    = Idle
+    | Running
+
+
 type alias ConfirmationConfig msg =
     { title : String
     , bodySubtext : Maybe (List (Html msg))
@@ -118,7 +123,9 @@ type alias ModalData =
     , firstFocusableId : FirstFocusableId
     , lastFocusableId : LastFocusableId
     , defaultFocusableId : DefaultFocusableId
-    , forceOpen : Bool
+    , modalStep : ModalStep
+    , startTime : Maybe Time.Posix
+    , progress : Progress
     }
 
 
@@ -131,28 +138,42 @@ type alias Timing =
 subscriptions : ModalState msg -> Sub ModalMsg
 subscriptions ms =
     let
-        (ModalState ( _, mData ) _) =
-            ms
-
         subscribeToEscape =
-            if isOpenStopped ms then
+            if isOpen ms then
                 BrowserEvents.onKeyDown (KaizenEvents.isEscape Update)
 
             else
                 Sub.none
 
-        forceOpenUpdate =
-            if mData.forceOpen then
-                BrowserEvents.onAnimationFrame ForceUpdate
+        runModal =
+            if isRunning ms then
+                BrowserEvents.onAnimationFrame RunModal
 
             else
                 Sub.none
     in
-    Sub.batch [ subscribeToEscape, forceOpenUpdate ]
+    Sub.batch [ subscribeToEscape, runModal ]
 
 
 view : Config msg -> Html msg
-view (Config config) =
+view c =
+    let
+        (Config config) =
+            c
+
+        ( mState, modalData ) =
+            getState config.state
+    in
+    case ( mState, modalData.progress ) of
+        ( Closed_, Stopped ) ->
+            text ""
+
+        _ ->
+            lazy viewContent c
+
+
+viewContent : Config msg -> Html msg
+viewContent (Config config) =
     let
         updateModal onUpdateMsg =
             onClick (onUpdateMsg Update)
@@ -173,21 +194,18 @@ view (Config config) =
                 Opening_ ->
                     [ ( .animatingElmEnter, True ) ]
 
-                Open_ ->
-                    [ ( .animatingElmEnter, True ) ]
-
                 Closing_ ->
                     [ ( .animatingElmExit, True ) ]
 
                 Closed_ ->
                     [ ( .animatingElmExit, True ) ]
 
+                _ ->
+                    []
+
         resolveVisibilityStyles =
             case config.state of
-                ModalState ( Opening_, _ ) Animating ->
-                    [ ( .elmUnscrollable, True ) ]
-
-                ModalState ( Open_, _ ) Animating ->
+                ModalState ( Opening_, _ ) ->
                     [ ( .elmUnscrollable, True ) ]
 
                 _ ->
@@ -302,10 +320,6 @@ defaults =
 
 {-| An initial state for the modal update cycle.
 
-    To be used when first calling Modal.update.
-
-    This state needs to be updated when opening or closing the modal to track animations.
-
     If the modal is being removed from the view dynamically it can be discarded when modal is closed
     and initialState used again later when next rendering the modal.
 
@@ -318,10 +332,11 @@ initialState =
           , firstFocusableId = firstFocusableId Constants.firstFocusableId
           , lastFocusableId = lastFocusableId Constants.lastFocusableId
           , defaultFocusableId = defaultFocusableId Constants.defaultFocusableId
-          , forceOpen = False
+          , modalStep = Idle
+          , startTime = Nothing
+          , progress = Stopped
           }
         )
-        Stopped
 
 
 styles =
@@ -360,14 +375,19 @@ mapDurationWithAddedMillis duration millis =
     mapDuration duration + millis
 
 
-isOpenStopped : ModalState msg -> Bool
-isOpenStopped (ModalState state progress) =
-    case ( state, progress ) of
-        ( ( Open_, _ ), Stopped ) ->
+isOpen : ModalState msg -> Bool
+isOpen (ModalState state) =
+    case state of
+        ( Open_, _ ) ->
             True
 
         _ ->
             False
+
+
+isRunning : ModalState msg -> Bool
+isRunning (ModalState ( _, mData )) =
+    mData.modalStep == Running
 
 
 firstFocusableIdToString : FirstFocusableId -> String
@@ -385,9 +405,42 @@ defaultFocusableIdToString (DefaultFocusableId id_) =
     id_
 
 
-setForceOpen : Bool -> ModalState msg -> ModalState msg
-setForceOpen force (ModalState ( mState, mData ) progress) =
-    ModalState ( mState, { mData | forceOpen = force } ) progress
+setModalStep : ModalStep -> ModalState msg -> ModalState msg
+setModalStep force (ModalState ( mState, mData )) =
+    ModalState ( mState, { mData | modalStep = force } )
+
+
+resolveCmdsFromState : ModalState msg -> Cmd ModalMsg
+resolveCmdsFromState (ModalState ( ms, mData )) =
+    case mData.modalStep of
+        Idle ->
+            case ( ms, mData.progress ) of
+                ( Open_, Stopped ) ->
+                    Task.attempt DefaultFocusableElementFocused <| BrowserDom.focus (defaultFocusableIdToString mData.defaultFocusableId)
+
+                _ ->
+                    Cmd.none
+
+        Running ->
+            Cmd.none
+
+
+resolveStatusFromState : ModalState msg -> Maybe Status
+resolveStatusFromState (ModalState ( ms, mData )) =
+    case mData.modalStep of
+        Idle ->
+            case ms of
+                Open_ ->
+                    Just Open
+
+                Closed_ ->
+                    Just Closed
+
+                _ ->
+                    Nothing
+
+        Running ->
+            Nothing
 
 
 
@@ -398,17 +451,13 @@ setForceOpen force (ModalState ( mState, mData ) progress) =
 
     This is not recommended as modals should be triggered by an intentional user action
 
-    Forcing the modal open will bypass the internal Cmd msgs so the forced open property
-    will be set to True. This triggers subscriptions which then attempts to focus on
-    the first focusable element.
-
     IMPORTANT: This needs subscriptions hooked up or else the modal will just be closed
     and do nothing.
 
 -}
 forceOpen : ModalState msg -> ModalState msg
-forceOpen (ModalState ( _, mData ) _) =
-    ModalState ( Closed_, { mData | forceOpen = True } ) Stopped
+forceOpen (ModalState ( _, mData )) =
+    ModalState ( Open_, { mData | modalStep = Running, progress = Animating } )
 
 
 firstFocusableId : String -> FirstFocusableId
@@ -466,58 +515,32 @@ modalState msg (Config config) =
 --UPDATE
 
 
-{-| Triggering the modal will initiate the next logical step.
-E.g. If the modal is closed trigger will begin the open animation for the modal.
--}
-trigger : ModalState msg -> ( ModalState msg, Cmd ModalMsg, Maybe Status )
-trigger (ModalState ( state, mData ) progress) =
-    case progress of
-        Animating ->
-            updateRunning ( state, mData )
-
-        -- To know what to do next we specify what state the modal was in when stopped
-        Stopped ->
-            case state of
-                -- Impossible state as updates never set Stopped on an Opening state
-                Opening_ ->
-                    ( initialState
-                    , Task.perform identity (Task.succeed Update)
-                    , Nothing
-                    )
-
-                Open_ ->
-                    ( ModalState ( Closing_, mData ) <| Animating
-                    , Task.perform identity (Task.succeed Update)
-                    , Nothing
-                    )
-
-                -- Impossible state as updates never set Stopped on a Closing state
-                Closing_ ->
-                    ( initialState
-                    , Cmd.none
-                    , Nothing
-                    )
-
-                Closed_ ->
-                    ( ModalState ( Opening_, mData ) <| Animating
-                      -- Adding 6 milliseconds due to class switching sometimes triggering scroll bar in .scrollLayer class
-                    , Task.perform (\_ -> Update) (Process.sleep <| mapDurationWithAddedMillis mData.duration 6)
-                    , Nothing
-                    )
+trigger : ModalState msg -> ModalState msg
+trigger (ModalState ( state, mData )) =
+    ModalState ( state, { mData | modalStep = Running } )
 
 
 update : ModalState msg -> ModalMsg -> ( ModalState msg, Cmd ModalMsg, Maybe Status )
 update ms modalMsg =
     let
-        (ModalState ( _, mData ) _) =
+        (ModalState ( _, mData )) =
             ms
     in
     case modalMsg of
         Update ->
-            trigger ms
+            ( setModalStep Running ms, Cmd.none, Nothing )
 
-        ForceUpdate _ ->
-            trigger <| setForceOpen False ms
+        RunModal currentTimePosix ->
+            case mData.modalStep of
+                Running ->
+                    let
+                        newRunningState =
+                            updateRunningState ms currentTimePosix
+                    in
+                    ( newRunningState, resolveCmdsFromState newRunningState, resolveStatusFromState newRunningState )
+
+                Idle ->
+                    ( ms, Cmd.none, Nothing )
 
         FirstFocusableElementFocused focusResult ->
             case focusResult of
@@ -549,34 +572,59 @@ update ms modalMsg =
                     )
 
 
-updateRunning : State -> ( ModalState msg, Cmd ModalMsg, Maybe Status )
-updateRunning ( state, mData ) =
+updateRunningState : ModalState msg -> Time.Posix -> ModalState msg
+updateRunningState ((ModalState ( state, mData )) as ms) currentTime =
     case state of
-        Opening_ ->
-            ( ModalState ( Open_, mData ) Animating
-            , Task.perform identity (Task.succeed Update)
-            , Nothing
-            )
-
         Open_ ->
-            ( ModalState ( Open_, mData ) Stopped
-            , Task.attempt DefaultFocusableElementFocused (BrowserDom.focus <| defaultFocusableIdToString mData.defaultFocusableId)
-            , Just Open
-            )
+            let
+                resolveState =
+                    case mData.progress of
+                        Animating ->
+                            ModalState ( Open_, { mData | progress = Stopped, modalStep = Idle } )
+
+                        Stopped ->
+                            ModalState ( Closing_, { mData | progress = Animating, startTime = Just currentTime } )
+            in
+            resolveState
+
+        -- progress is always Animating when Opening
+        Opening_ ->
+            case mData.startTime of
+                Nothing ->
+                    ms
+
+                Just startTime ->
+                    if (Time.posixToMillis currentTime - Time.posixToMillis startTime) < round (mapDuration mData.duration) then
+                        ms
+
+                    else
+                        ModalState ( Open_, mData )
 
         Closing_ ->
-            ( ModalState ( Closed_, mData ) Animating
-            , Task.perform (\_ -> Update) (Process.sleep <| mapDuration mData.duration)
-            , Nothing
-            )
+            case mData.startTime of
+                Nothing ->
+                    ms
+
+                Just previousTime ->
+                    if (Time.posixToMillis currentTime - Time.posixToMillis previousTime) < round (mapDuration mData.duration) then
+                        ms
+
+                    else
+                        ModalState ( Closed_, mData )
 
         Closed_ ->
-            ( ModalState ( Closed_, mData ) Stopped
-            , Cmd.none
-            , Just Closed
-            )
+            let
+                resolveState =
+                    case mData.progress of
+                        Animating ->
+                            ModalState ( Closed_, { mData | progress = Stopped, modalStep = Idle, startTime = Nothing } )
+
+                        Stopped ->
+                            ModalState ( Opening_, { mData | progress = Animating, startTime = Just currentTime } )
+            in
+            resolveState
 
 
 getState : ModalState msg -> State
-getState (ModalState state _) =
+getState (ModalState state) =
     state

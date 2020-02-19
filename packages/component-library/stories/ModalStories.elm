@@ -22,7 +22,7 @@ type ModalMsg
 
 model : ModalState
 model =
-    { modalContext = Just (Modal.forceOpen Modal.initialState) }
+    { modalContext = Just (Modal.trigger Modal.initialState) }
 
 
 type alias ModalState =
@@ -58,10 +58,10 @@ update msg state =
             case state.modalContext of
                 Just ms ->
                     let
-                        ( modalState, modalCmd, _ ) =
+                        modalState =
                             Modal.trigger ms
                     in
-                    ( { state | modalContext = Just modalState }, Cmd.map ModalUpdate modalCmd )
+                    ( { state | modalContext = Just modalState }, Cmd.none )
 
                 Nothing ->
                     ( state, Cmd.none )
@@ -71,10 +71,10 @@ update msg state =
             case state.modalContext of
                 Just ms ->
                     let
-                        ( modalState, modalCmd, _ ) =
+                        modalState =
                             Modal.trigger ms
                     in
-                    ( { state | modalContext = Just modalState }, Cmd.map ModalUpdate modalCmd )
+                    ( { state | modalContext = Just modalState }, Cmd.none )
 
                 Nothing ->
                     ( state, Cmd.none )
