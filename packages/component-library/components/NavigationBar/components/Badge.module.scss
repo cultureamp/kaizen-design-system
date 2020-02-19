@@ -54,4 +54,8 @@
   &.local {
     background-color: #99c3e1; // DST-TODO: change this to $kz-color-cluny-300 once kaizen-design-tokens is installed
   }
+
+  &.content {
+    background-color: $kz-color-cluny-500;
+  }
 }
