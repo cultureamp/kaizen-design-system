@@ -29,6 +29,7 @@ module Button.Button exposing
     )
 
 import CssModules exposing (css)
+import Elm18Compatible.Html.Events exposing (defaultOptions, onWithOptions)
 import Html exposing (Html, a, button, span, text)
 import Html.Attributes
 import Html.Attributes.Aria
@@ -169,18 +170,11 @@ onClickAttribs config =
 
                         Nothing ->
                             True
-
-                decoder =
-                    Json.map
-                        (\m ->
-                            { message = m
-                            , stopPropagation = False
-                            , preventDefault = preventDefault
-                            }
-                        )
-                        (Json.succeed msg)
             in
-            [ HtmlEvents.custom "click" decoder
+            [ onWithOptions
+                "click"
+                { defaultOptions | preventDefault = preventDefault }
+                (Json.succeed msg)
             ]
 
         Nothing ->
