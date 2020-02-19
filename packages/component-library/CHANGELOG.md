@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.2.0...@kaizen/component-library@3.3.0) (2020-02-19)
+
+
+### Features
+
+* set focus and blur attributes ([#290](https://github.com/cultureamp/kaizen-design-system/issues/290)) ([82d8ee7](https://github.com/cultureamp/kaizen-design-system/commit/82d8ee7))
+
+
+
+
+
 # [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.1.0...@kaizen/component-library@3.2.0) (2020-02-19)
 
 
