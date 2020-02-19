@@ -1,6 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "color";
-@import "layers";
+@import "~@kaizen/design-tokens/sass/typography";
 
 $ca-grid: 1.5rem; // 24px @ default root font-size of 16px
 
@@ -20,6 +19,9 @@ $ca-ideal-sans-font-family: "Ideal Sans A", "Ideal Sans B",
   $ca-default-font-family;
 $ca-ideal-sans-font-base-size: 1rem; /* 16px */
 $ca-ideal-sans-font-descender-height: 0.14;
+
+$ca-greycliff-font-base-size: 1rem; /* 16px */
+$ca-greycliff-font-descender-height: 0.098;
 
 // Locale-specific fonts
 $ca-locale-he-font-family: "Open Sans", Tahoma, sans-serif;
@@ -250,9 +252,104 @@ $ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
     left: 0;
     background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAKUlEQVRIiWN49OjRf1pihlEwCkbBKCACvH379j8t8UD7bxSMglEwJAAAvrOyCTd0/dgAAAAASUVORK5CYII=");
     pointer-events: none;
-    z-index: $ca-z-index-popover;
+    z-index: 10000;
     opacity: 0.5;
   }
+}
+
+// Greycliff styles
+
+// A utility to strip the unit from a value. Eg: `1.5rem` to `1.5`
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+// Given a rem unit like `1.5rem`, convert to pixels, but without the unit,
+// (eg `24`). This is to maintain backwards compatibility with existing usages
+// of the mixins, which are specified in unitless pixels. Eg: `ca-type-ideal-heading(32)`
+// will become `kz-typography-heading-4(32)` which would be converted internally to `2rem`.
+
+@function to-unitless-pixels($value-in-rems) {
+  @return strip-unit($value-in-rems) * 16;
+}
+
+@function to-grid-units($value-in-rems) {
+  @return $value-in-rems / $ca-grid;
+}
+
+@mixin kz-typography-greycliff(
+  $size,
+  $weight,
+  $line-height-in-grid-units: 1,
+  $letter-spacing: $kz-typography-heading-1-letter-spacing,
+  $args...
+) {
+  @include ca-type(
+    $size-ratio: $size / 16,
+    $family: $kz-typography-heading-1-font-family,
+    $base-size: $ca-greycliff-font-base-size,
+    $descender-height: $ca-greycliff-font-descender-height,
+    $line-height-in-grid-units: $line-height-in-grid-units,
+    $letter-spacing: $letter-spacing,
+    $weight: $weight,
+    $args...
+  );
+}
+
+@mixin kz-typography-display-0(
+  $size: to-unitless-pixels($kz-typography-display-0-font-size),
+  $args...
+) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $kz-typography-display-0-font-weight,
+    $letter-spacing: $kz-typography-display-0-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-display-0-line-height),
+    $args...
+  );
+}
+
+@mixin kz-typography-heading-1(
+  $size: to-unitless-pixels($kz-typography-heading-1-font-size),
+  $args...
+) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $kz-typography-heading-1-font-weight,
+    $letter-spacing: $kz-typography-heading-1-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-heading-1-line-height),
+    $args...
+  );
+}
+
+@mixin kz-typography-heading-2(
+  $size: to-unitless-pixels($kz-typography-heading-2-font-size),
+  $args...
+) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $kz-typography-heading-2-font-weight,
+    $letter-spacing: $kz-typography-heading-2-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-heading-2-line-height),
+    $args...
+  );
+}
+
+@mixin kz-typography-heading-3(
+  $size: to-unitless-pixels($kz-typography-heading-3-font-size),
+  $args...
+) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $kz-typography-heading-3-font-weight,
+    $letter-spacing: $kz-typography-heading-3-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-heading-3-line-height),
+    $args...
+  );
 }
 
 @mixin ca-type-align-start() {

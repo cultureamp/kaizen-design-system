@@ -1,6 +1,6 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 import { action } from "@storybook/addon-actions"
-import * as React from "react"
+import React, { useCallback, useRef } from "react"
 
 import { TextField } from "@kaizen/component-library/draft"
 const lockIcon = require("@kaizen/component-library/icons/lock.icon.svg")
@@ -524,6 +524,36 @@ export const DefaultFocusBlurEvents = () => (
 
 DefaultFocusBlurEvents.story = {
   name: "Default, Focus/Blur events",
+}
+
+// More info about uncontrolled components:
+//   https://reactjs.org/docs/uncontrolled-components.html
+export const DefaultUncontrolled = () => {
+  const ref = useRef<HTMLInputElement>(null)
+  // This is just to confirm that the ref is working correctly
+  const onSubmit = useCallback(e => {
+    e.preventDefault()
+    alert(`Entered text: ${ref.current && ref.current.value}`)
+  }, [])
+
+  return (
+    <ExampleContainer>
+      <form onSubmit={onSubmit}>
+        <TextField
+          id="uncontrolled"
+          inputType="text"
+          inputRef={ref}
+          labelText="This is an uncontrolled text field"
+          placeholder="Placeholder text"
+          description="Press ENTER to test the inputRef property"
+        />
+      </form>
+    </ExampleContainer>
+  )
+}
+
+DefaultUncontrolled.story = {
+  name: "Default, Uncontrolled",
 }
 
 loadElmStories("TextField (Elm)", module, require("./TextFieldStories.elm"), [

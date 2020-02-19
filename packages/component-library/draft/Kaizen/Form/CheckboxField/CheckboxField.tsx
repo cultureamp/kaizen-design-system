@@ -13,6 +13,7 @@ export type CheckboxFieldProps = {
   onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
   disabled?: boolean
   noBottomMargin?: boolean
+  tabIndex?: number
 }
 
 type CheckboxField = React.FunctionComponent<CheckboxFieldProps>
@@ -26,6 +27,7 @@ const CheckboxField: CheckboxField = ({
   onCheck,
   disabled = false,
   noBottomMargin = false,
+  tabIndex,
 }) => (
   <div
     data-automation-id={automationId}
@@ -50,6 +52,7 @@ const CheckboxField: CheckboxField = ({
         checkedStatus={checkedStatus}
         name={name}
         onCheck={onCheck}
+        tabIndex={tabIndex}
       />
     </Label>
   </div>

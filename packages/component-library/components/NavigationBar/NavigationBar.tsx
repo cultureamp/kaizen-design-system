@@ -22,7 +22,7 @@ type SupportedChild =
 type Props = {
   environment?: "production" | "staging" | "test" | "local"
   loading?: boolean
-  colorScheme?: "cultureamp" | "kaizen"
+  colorScheme?: "cultureamp" | "kaizen" | "content"
   badgeHref?: string
   footerComponent?: React.ReactNode
 }
@@ -100,6 +100,7 @@ export default class NavigationBar extends React.Component<Props> {
       environment = "production",
       loading = false,
       badgeHref = "/",
+      colorScheme = "kaizen",
     } = this.props
 
     const badges = {
@@ -111,7 +112,9 @@ export default class NavigationBar extends React.Component<Props> {
 
     const Badge = badges[environment] || namedBadge(environment)
 
-    return <Badge loading={loading} href={badgeHref} />
+    return (
+      <Badge loading={loading} href={badgeHref} colorScheme={colorScheme} />
+    )
   }
 
   renderLinks(links: Array<React.ReactElement<LinkProps>>) {
