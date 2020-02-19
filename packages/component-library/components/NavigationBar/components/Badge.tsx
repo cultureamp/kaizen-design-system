@@ -34,6 +34,7 @@ export const StagingBadge = (props: BadgeProps) => (
     monogram="staging"
     loading={props.loading}
     href={props.href}
+    colorScheme={props.colorScheme}
   />
 )
 
@@ -45,6 +46,7 @@ export const TestBadge = (props: BadgeProps) => (
     monogram="test"
     loading={props.loading}
     href={props.href}
+    colorScheme={props.colorScheme}
   />
 )
 
@@ -56,6 +58,7 @@ export const LocalBadge = (props: BadgeProps) => (
     monogram="local"
     loading={props.loading}
     href={props.href}
+    colorScheme={props.colorScheme}
   />
 )
 
@@ -67,6 +70,7 @@ export const namedBadge = (environment: string) => (props: BadgeProps) => (
     monogram={environment}
     loading={props.loading}
     href={props.href}
+    colorScheme={props.colorScheme}
   />
 )
 
