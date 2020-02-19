@@ -44,7 +44,7 @@ type ModalState msg
 
 type Progress
     = Animating
-    | Stopped
+    | NotAnimating
 
 
 type Status
@@ -131,7 +131,7 @@ type alias ModalData =
     , defaultFocusableId : DefaultFocusableId
     , modalStep : ModalStep
     , startTime : Maybe Time.Posix
-    , progress : Progress
+    , animatingStep : Progress
     }
 
 
@@ -170,8 +170,8 @@ view c =
         ( mState, modalData ) =
             getState config.state
     in
-    case ( mState, modalData.progress ) of
-        ( Closed_, Stopped ) ->
+    case ( mState, modalData.animatingStep ) of
+        ( Closed_, NotAnimating ) ->
             text ""
 
         _ ->
@@ -351,7 +351,7 @@ initialState =
           , defaultFocusableId = defaultFocusableId Constants.defaultFocusableId
           , modalStep = NotRunning
           , startTime = Nothing
-          , progress = Stopped
+          , animatingStep = NotAnimating
           }
         )
 
@@ -426,8 +426,8 @@ resolveCmdsFromState : ModalState msg -> Cmd ModalMsg
 resolveCmdsFromState (ModalState ( ms, mData )) =
     case mData.modalStep of
         NotRunning ->
-            case ( ms, mData.progress ) of
-                ( Open_, Stopped ) ->
+            case ( ms, mData.animatingStep ) of
+                ( Open_, NotAnimating ) ->
                     Task.attempt DefaultFocusableElementFocused <| BrowserDom.focus (defaultFocusableIdToString mData.defaultFocusableId)
 
                 _ ->
@@ -468,7 +468,7 @@ resolveStatusFromState (ModalState ( ms, mData )) =
 -}
 forceOpen : ModalState msg -> ModalState msg
 forceOpen (ModalState ( _, mData )) =
-    ModalState ( Open_, { mData | modalStep = Running, progress = Animating } )
+    ModalState ( Open_, { mData | modalStep = Running, animatingStep = Animating } )
 
 
 firstFocusableId : String -> FirstFocusableId
@@ -593,12 +593,12 @@ updateRunningState ((ModalState ( state, mData )) as ms) currentTime =
         Open_ ->
             let
                 resolveState =
-                    case mData.progress of
+                    case mData.animatingStep of
                         Animating ->
-                            ModalState ( Open_, { mData | progress = Stopped, modalStep = NotRunning } )
+                            ModalState ( Open_, { mData | animatingStep = NotAnimating, modalStep = NotRunning } )
 
-                        Stopped ->
-                            ModalState ( Closing_, { mData | progress = Animating, startTime = Just currentTime } )
+                        NotAnimating ->
+                            ModalState ( Closing_, { mData | animatingStep = Animating, startTime = Just currentTime } )
             in
             resolveState
 
@@ -631,12 +631,12 @@ updateRunningState ((ModalState ( state, mData )) as ms) currentTime =
         Closed_ ->
             let
                 resolveState =
-                    case mData.progress of
+                    case mData.animatingStep of
                         Animating ->
-                            ModalState ( Closed_, { mData | progress = Stopped, modalStep = NotRunning, startTime = Nothing } )
+                            ModalState ( Closed_, { mData | animatingStep = NotAnimating, modalStep = NotRunning, startTime = Nothing } )
 
-                        Stopped ->
-                            ModalState ( Opening_, { mData | progress = Animating, startTime = Just currentTime } )
+                        NotAnimating ->
+                            ModalState ( Opening_, { mData | animatingStep = Animating, startTime = Just currentTime } )
             in
             resolveState
 
