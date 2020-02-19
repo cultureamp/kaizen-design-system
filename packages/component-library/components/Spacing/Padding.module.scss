@@ -17,12 +17,12 @@
     padding-left: $padding;
   }
   .px-#{$fraction} {
-    margin-left: $margin;
-    margin-right: $margin;
+    margin-left: $padding;
+    margin-right: $padding;
   }
   .py-#{$fraction} {
-    margin-top: $margin;
-    margin-bottom: $margin;
+    margin-top: $padding;
+    margin-bottom: $padding;
   }
 }
 
