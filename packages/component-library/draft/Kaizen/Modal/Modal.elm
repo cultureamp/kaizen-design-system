@@ -59,6 +59,7 @@ type ModalMsg
     | FirstFocusableElementFocused
     | LastFocusableElementFocused (Result BrowserDom.Error ())
     | DefaultFocusableElementFocused (Result BrowserDom.Error ())
+    | ClearFocusedFocusable
 
 
 type alias Configuration msg =
@@ -564,9 +565,11 @@ update ms modalMsg =
                 Err _ ->
                     ( ms, Cmd.none, Nothing )
 
+        ClearFocusedFocusable ->
+            ( updateModalDataFromState (\md -> { md | focusedFocusable = NoFocusableFocused }) ms, Cmd.none, Nothing )
+
         FirstFocusableElementFocused ->
-            -- do nothing for now
-            ( ms, Cmd.none, Nothing )
+            ( updateModalDataFromState (\md -> { md | focusedFocusable = FirstFocusableFocused }) ms, Cmd.none, Nothing )
 
         LastFocusableElementFocused focusResult ->
             case focusResult of
