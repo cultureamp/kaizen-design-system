@@ -421,9 +421,9 @@ defaultFocusableIdToString (DefaultFocusableId id_) =
     id_
 
 
-setModalStep : ModalStep -> ModalState msg -> ModalState msg
-setModalStep force (ModalState ( mState, mData )) =
-    ModalState ( mState, { mData | modalStep = force } )
+updateModalDataFromState : (ModalData -> ModalData) -> ModalState msg -> ModalState msg
+updateModalDataFromState f (ModalState ( mState, mData )) =
+    ModalState ( mState, f mData )
 
 
 resolveCmdsFromState : ModalState msg -> Cmd ModalMsg
@@ -466,8 +466,6 @@ resolveStatusFromState (ModalState ( ms, mData )) =
 {-| For when you want to start the modal off open without being triggered open.
 
     This is not recommended as modals should be triggered by an intentional user action
-
-    IMPORTANT: This needs subscriptions hooked up
 
 -}
 forceOpen : ModalState msg -> ModalState msg
@@ -543,7 +541,7 @@ update ms modalMsg =
     in
     case modalMsg of
         Update ->
-            ( setModalStep Running ms, Cmd.none, Nothing )
+            ( updateModalDataFromState (\md -> { md | modalStep = Running }) ms, Cmd.none, Nothing )
 
         RunModal currentTimePosix ->
             case mData.modalStep of
