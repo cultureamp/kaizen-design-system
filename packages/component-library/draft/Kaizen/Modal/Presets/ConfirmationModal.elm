@@ -7,6 +7,7 @@ module Kaizen.Modal.Presets.ConfirmationModal exposing
     , informative
     , negative
     , onConfirm
+    , onConfirmFocus
     , onDismiss
     , onHeaderDismissFocus
     , positive
@@ -46,6 +47,7 @@ type alias Configuration msg =
     , confirmLabel : String
     , headerDismissId : Maybe String
     , onHeaderDismissFocus : Maybe msg
+    , onConfirmFocus : Maybe msg
     , confirmId : Maybe String
     }
 
@@ -90,6 +92,7 @@ defaults =
     , confirmLabel = "Confirm"
     , headerDismissId = Nothing
     , onHeaderDismissFocus = Nothing
+    , onConfirmFocus = Nothing
     , confirmId = Just Constants.lastFocusableId
     }
 
@@ -215,6 +218,14 @@ footer config =
 
                 Nothing ->
                     buttonConfig
+
+        withOnConfirmFocus buttonConfig =
+            case config.onConfirmFocus of
+                Just onConfirmMsg ->
+                    Button.onFocus onConfirmMsg buttonConfig
+
+                Nothing ->
+                    buttonConfig
     in
     [ Button.view
         (Button.secondary
@@ -225,6 +236,7 @@ footer config =
         (resolveActionButtonVariant
             |> withOnConfirm
             |> withConfirmId
+            |> withOnConfirmFocus
         )
         config.confirmLabel
     ]
@@ -271,6 +283,11 @@ headerDismissId id_ (Config config) =
 
 onHeaderDismissFocus : msg -> Config msg -> Config msg
 onHeaderDismissFocus msg (Config config) =
+    Config { config | onHeaderDismissFocus = Just msg }
+
+
+onConfirmFocus : msg -> Config msg -> Config msg
+onConfirmFocus msg (Config config) =
     Config { config | onHeaderDismissFocus = Just msg }
 
 
