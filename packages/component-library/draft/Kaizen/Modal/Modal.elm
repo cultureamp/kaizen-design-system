@@ -56,8 +56,9 @@ type ModalMsg
     = Update
     | RunModal Time.Posix
     | FocusFirstFocusableElement (Result BrowserDom.Error ())
+    | FocusLastFocusableElement (Result BrowserDom.Error ())
     | FirstFocusableElementFocused
-    | LastFocusableElementFocused (Result BrowserDom.Error ())
+    | LastFocusableElementFocused
     | DefaultFocusableElementFocused (Result BrowserDom.Error ())
     | ClearFocusedFocusable
 
@@ -275,6 +276,7 @@ viewContent (Config config) =
                         case config.onUpdate of
                             Just updateMsg ->
                                 ConfirmationModal.onHeaderDismissFocus (updateMsg FirstFocusableElementFocused) confirmationConfig
+                                    |> ConfirmationModal.onConfirmFocus (updateMsg LastFocusableElementFocused)
 
                             Nothing ->
                                 confirmationConfig
@@ -555,6 +557,15 @@ update ms modalMsg =
                 NotRunning ->
                     ( ms, Cmd.none, Nothing )
 
+        FirstFocusableElementFocused ->
+            ( updateModalDataFromState (\md -> { md | focusedFocusable = FirstFocusableFocused }) ms, Cmd.none, Nothing )
+
+        LastFocusableElementFocused ->
+            ( updateModalDataFromState (\md -> { md | focusedFocusable = LastFocusableFocused }) ms, Cmd.none, Nothing )
+
+        ClearFocusedFocusable ->
+            ( updateModalDataFromState (\md -> { md | focusedFocusable = NoFocusableFocused }) ms, Cmd.none, Nothing )
+
         FocusFirstFocusableElement focusResult ->
             case focusResult of
                 Ok () ->
@@ -563,13 +574,7 @@ update ms modalMsg =
                 Err _ ->
                     ( ms, Cmd.none, Nothing )
 
-        ClearFocusedFocusable ->
-            ( updateModalDataFromState (\md -> { md | focusedFocusable = NoFocusableFocused }) ms, Cmd.none, Nothing )
-
-        FirstFocusableElementFocused ->
-            ( updateModalDataFromState (\md -> { md | focusedFocusable = FirstFocusableFocused }) ms, Cmd.none, Nothing )
-
-        LastFocusableElementFocused focusResult ->
+        FocusLastFocusableElement focusResult ->
             case focusResult of
                 Ok () ->
                     ( ms, Cmd.none, Nothing )
@@ -586,7 +591,7 @@ update ms modalMsg =
                 -- This will work for when the last and default focusable element ids are the same e.g. Confirmation variants
                 Err _ ->
                     ( ms
-                    , Task.attempt LastFocusableElementFocused (BrowserDom.focus <| lastFocusableIdToString mData.lastFocusableId)
+                    , Task.attempt FocusLastFocusableElement (BrowserDom.focus <| lastFocusableIdToString mData.lastFocusableId)
                     , Nothing
                     )
 

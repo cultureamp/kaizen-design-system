@@ -288,7 +288,7 @@ onHeaderDismissFocus msg (Config config) =
 
 onConfirmFocus : msg -> Config msg -> Config msg
 onConfirmFocus msg (Config config) =
-    Config { config | onHeaderDismissFocus = Just msg }
+    Config { config | onConfirmFocus = Just msg }
 
 
 confirmId : String -> Config msg -> Config msg
