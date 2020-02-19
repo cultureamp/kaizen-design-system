@@ -3,6 +3,7 @@ module Kaizen.Modal.Primitives.ModalHeader exposing
     , fixed
     , layout
     , onDismiss
+    , onDismissFocus
     , view
     )
 
@@ -22,6 +23,7 @@ type alias Configuration msg =
     , fixed : Bool
     , onDismiss : Maybe msg
     , dismissId : Maybe String
+    , onDismissFocus : Maybe msg
     }
 
 
@@ -31,6 +33,7 @@ defaults =
     , fixed = False
     , onDismiss = Nothing
     , dismissId = Nothing
+    , onDismissFocus = Nothing
     }
 
 
@@ -64,6 +67,14 @@ layoutBox content config =
                 Nothing ->
                     buttonConfig
 
+        withFocus buttonConfig =
+            case config.onDismissFocus of
+                Just msg ->
+                    Button.onFocus msg buttonConfig
+
+                Nothing ->
+                    buttonConfig
+
         resolveDismissButton =
             case config.onDismiss of
                 Just onDismissMsg ->
@@ -73,6 +84,7 @@ layoutBox content config =
                                 (svgAsset "@kaizen/component-library/icons/close.icon.svg")
                                 |> Button.reversed True
                                 |> withDismissId
+                                |> withFocus
                             )
                             "Dismiss"
                         ]
@@ -126,6 +138,11 @@ as it may clash with the provided close button
 onDismiss : msg -> Config msg -> Config msg
 onDismiss msg (Config config) =
     Config { config | onDismiss = Just msg }
+
+
+onDismissFocus : msg -> Config msg -> Config msg
+onDismissFocus msg (Config config) =
+    Config { config | onDismissFocus = Just msg }
 
 
 dismissId : String -> Config msg -> Config msg
