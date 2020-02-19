@@ -125,4 +125,27 @@ export const KaizenColors = () => (
   </NavigationBar>
 )
 
+export const ContentColors = () => (
+  <NavigationBar colorScheme="content">
+    <Link text="Home" href="/" active />
+    <Link text="Guidelines" href="/" />
+    <Link text="Components" href="/" />
+    <Link text="Status" href="/" />
+    <Menu
+      heading="Custom menu..."
+      items={[
+        {
+          label: "About Culture Amp",
+          url: "https://www.cultureamp.com/",
+        },
+        {
+          label: "Contribute to this guide",
+          url:
+            "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
+        },
+      ]}
+    />
+  </NavigationBar>
+)
+
 export const Empty = () => <NavigationBar />

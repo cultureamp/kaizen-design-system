@@ -13,6 +13,8 @@ export type InputProps = {
   ariaDescribedBy?: string
   className?: string
   inputType?: InputType
+  defaultInputValue?: string
+  inputRef?: React.RefObject<HTMLInputElement>
   placeholder?: string
   disabled?: boolean
   inputValue?: string
@@ -36,7 +38,9 @@ const Input: Input = ({
   inputType = "text",
   placeholder,
   disabled = false,
-  inputValue = "",
+  inputValue,
+  defaultInputValue,
+  inputRef,
   reversed = false,
   status = "default",
   startIconAdornment,
@@ -63,6 +67,8 @@ const Input: Input = ({
       data-automation-id={automationId}
       type={inputType}
       value={inputValue}
+      defaultValue={defaultInputValue}
+      ref={inputRef}
       aria-describedby={ariaDescribedBy}
       placeholder={placeholder}
       onChange={onChange}
