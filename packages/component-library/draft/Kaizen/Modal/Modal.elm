@@ -262,6 +262,14 @@ viewContent (Config config) =
                     withFocusableIds confirmationConfig =
                         ConfirmationModal.headerDismissId (firstFocusableIdToString modalData.firstFocusableId) confirmationConfig
                             |> ConfirmationModal.confirmId (lastFocusableIdToString modalData.lastFocusableId)
+
+                    withFocusLockAttribs confirmationConfig =
+                        case config.onUpdate of
+                            Just updateMsg ->
+                                ConfirmationModal.onHeaderDismissFocus (updateMsg FirstFocusableElementFocused) confirmationConfig
+
+                            Nothing ->
+                                confirmationConfig
                 in
                 case confirmationType of
                     Informative ->
@@ -272,6 +280,7 @@ viewContent (Config config) =
                                     |> withOnConfirm
                                     |> withBodySubtext
                                     |> withFocusableIds
+                                    |> withFocusLockAttribs
                                     |> ConfirmationModal.confirmLabel configs.confirmLabel
                                     |> ConfirmationModal.dismissLabel configs.dismissLabel
                                     |> ConfirmationModal.title configs.title
@@ -287,6 +296,7 @@ viewContent (Config config) =
                                     |> withOnConfirm
                                     |> withBodySubtext
                                     |> withFocusableIds
+                                    |> withFocusLockAttribs
                                     |> ConfirmationModal.confirmLabel configs.confirmLabel
                                     |> ConfirmationModal.dismissLabel configs.dismissLabel
                                     |> ConfirmationModal.title configs.title
@@ -302,6 +312,7 @@ viewContent (Config config) =
                                     |> withOnConfirm
                                     |> withBodySubtext
                                     |> withFocusableIds
+                                    |> withFocusLockAttribs
                                     |> ConfirmationModal.confirmLabel configs.confirmLabel
                                     |> ConfirmationModal.dismissLabel configs.dismissLabel
                                     |> ConfirmationModal.title configs.title
@@ -369,11 +380,6 @@ mapDuration duration =
 
         Fast ->
             300
-
-
-mapDurationWithAddedMillis : Duration -> Float -> Float
-mapDurationWithAddedMillis duration millis =
-    mapDuration duration + millis
 
 
 isOpen : ModalState msg -> Bool
@@ -452,8 +458,7 @@ resolveStatusFromState (ModalState ( ms, mData )) =
 
     This is not recommended as modals should be triggered by an intentional user action
 
-    IMPORTANT: This needs subscriptions hooked up or else the modal will just be closed
-    and do nothing.
+    IMPORTANT: This needs subscriptions hooked up
 
 -}
 forceOpen : ModalState msg -> ModalState msg
@@ -543,13 +548,17 @@ update ms modalMsg =
                 Idle ->
                     ( ms, Cmd.none, Nothing )
 
-        FirstFocusableElementFocused focusResult ->
+        FocusFirstFocusableElement focusResult ->
             case focusResult of
                 Ok () ->
                     ( ms, Cmd.none, Nothing )
 
                 Err _ ->
                     ( ms, Cmd.none, Nothing )
+
+        FirstFocusableElementFocused ->
+            -- do nothing for now
+            ( ms, Cmd.none, Nothing )
 
         LastFocusableElementFocused focusResult ->
             case focusResult of
@@ -601,6 +610,7 @@ updateRunningState ((ModalState ( state, mData )) as ms) currentTime =
                     else
                         ModalState ( Open_, mData )
 
+        -- progress is always Animating when Closing
         Closing_ ->
             case mData.startTime of
                 Nothing ->
