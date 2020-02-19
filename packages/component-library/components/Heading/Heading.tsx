@@ -42,15 +42,15 @@ export const Heading = ({
   const inferredTag =
     tag === undefined ? translateHeadingLevelToTag(variant) : tag
 
-  const classes: string = classNames(
+  const classes: string[] = [
     styles.heading,
     styles[variant],
-    classNameAndIHaveSpokenToDST
-  )
+    classNameAndIHaveSpokenToDST,
+  ]
 
   return createElement(
     inferredTag,
-    { ...otherProps, className: classes },
+    { ...otherProps, className: classNames(classes) },
     children
   )
 }
