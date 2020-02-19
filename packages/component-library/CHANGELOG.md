@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.1.0...@kaizen/component-library@3.2.0) (2020-02-19)
+
+
+### Features
+
+* Add content colorscheme to NavigationBar ([#292](https://github.com/cultureamp/kaizen-design-system/issues/292)) ([88c08b2](https://github.com/cultureamp/kaizen-design-system/commit/88c08b2))
+
+
+
+
+
 # [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.0.0...@kaizen/component-library@3.1.0) (2020-02-18)
 
 
