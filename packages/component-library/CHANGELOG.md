@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.3.1...@kaizen/component-library@3.4.0) (2020-02-20)
+
+
+### Features
+
+* Add Zen headings and hero data styles to Text component ([#296](https://github.com/cultureamp/kaizen-design-system/issues/296)) ([6bf9154](https://github.com/cultureamp/kaizen-design-system/commit/6bf9154))
+
+
+
+
+
 ## [3.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.3.0...@kaizen/component-library@3.3.1) (2020-02-19)
 
 
