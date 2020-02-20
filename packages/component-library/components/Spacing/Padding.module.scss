@@ -16,14 +16,6 @@
   .pl-#{$fraction} {
     padding-left: $padding;
   }
-  .px-#{$fraction} {
-    padding-left: $padding;
-    padding-right: $padding;
-  }
-  .py-#{$fraction} {
-    padding-top: $padding;
-    padding-bottom: $padding;
-  }
 }
 
 @each $screen, $min in $breakpoints {

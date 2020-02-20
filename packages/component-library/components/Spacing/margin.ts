@@ -20,16 +20,18 @@ export const ml = (unit: GridFractions): string[] => [
 ]
 
 export const mx = (unit: GridFractions): string[] => [
-  styles[`mx-${convertFractionToString(unit)}`],
+  styles[`ml-${convertFractionToString(unit)}`],
+  styles[`mr-${convertFractionToString(unit)}`],
 ]
 
 export const my = (unit: GridFractions): string[] => [
-  styles[`my-${convertFractionToString(unit)}`],
+  styles[`mt-${convertFractionToString(unit)}`],
+  styles[`mb-${convertFractionToString(unit)}`],
 ]
 
 export const m = (unit: ResponsiveSpacing): string[] => {
   const classes: string[] = []
-  if (typeof unit === "string") {
+  if (typeof unit === "number") {
     classes.push(styles[`m-${convertFractionToString(unit)}`])
   } else {
     Object.keys(unit).forEach(key => {
@@ -69,7 +71,7 @@ export const responsiveMarginClasses = ({
     marginXAxis === undefined &&
     marginYAxis === undefined
   ) {
-    classes.push(...m("0"))
+    classes.push(...m(0))
   }
 
   return classes

@@ -16,14 +16,6 @@
   .ml-#{$fraction} {
     margin-left: $margin;
   }
-  .mx-#{$fraction} {
-    margin-left: $margin;
-    margin-right: $margin;
-  }
-  .my-#{$fraction} {
-    margin-top: $margin;
-    margin-bottom: $margin;
-  }
 }
 
 @each $screen, $min in $breakpoints {

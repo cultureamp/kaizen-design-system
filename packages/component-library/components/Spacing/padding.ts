@@ -20,16 +20,18 @@ export const pl = (unit: GridFractions): string[] => [
 ]
 
 export const px = (unit: GridFractions): string[] => [
-  styles[`px-${convertFractionToString(unit)}`],
+  styles[`pl-${convertFractionToString(unit)}`],
+  styles[`pr-${convertFractionToString(unit)}`],
 ]
 
 export const py = (unit: GridFractions): string[] => [
-  styles[`py-${convertFractionToString(unit)}`],
+  styles[`pt-${convertFractionToString(unit)}`],
+  styles[`pb-${convertFractionToString(unit)}`],
 ]
 
 export const p = (unit: ResponsiveSpacing): string[] => {
   const classes: string[] = []
-  if (typeof unit === "string") {
+  if (typeof unit === "number") {
     classes.push(styles[`p-${convertFractionToString(unit)}`])
   } else {
     Object.keys(unit).forEach(key => {
@@ -70,7 +72,7 @@ export const responsivePaddingClasses = ({
     paddingXAxis === undefined &&
     paddingYAxis === undefined
   ) {
-    classes.push(...p("0"))
+    classes.push(...p(0))
   }
   return classes
 }

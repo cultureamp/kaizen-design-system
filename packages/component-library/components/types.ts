@@ -12,7 +12,20 @@ export type Safelist = AriaAttributes & {
   role?: string
 }
 
-export type GridFractions = "1/8" | "1/4" | "1/2" | "0" | "1" | "2" | "3" | "4"
+export type GridFractions =
+  | 0
+  | 0.25
+  | 0.5
+  | 0.75
+  | 1
+  | 1.25
+  | 1.5
+  | 1.75
+  | 2
+  | 2.5
+  | 3
+  | 3.5
+  | 4
 
 export type Breakpoint = {
   mobile: "0"
