@@ -123,6 +123,24 @@ className tag typeStyle shouldInheritBaseline shouldInline =
 
                 ZenHeading3 ->
                     .zenHeading3
+
+                ZenDataLarge ->
+                    .zenDataLarge
+
+                ZenDataLargeUnits ->
+                    .zenDataLargeUnits
+
+                ZenDataMedium ->
+                    .zenDataMedium
+
+                ZenDataMediumUnits ->
+                    .zenDataMediumUnits
+
+                ZenDataSmall ->
+                    .zenDataSmall
+
+                ZenDataSmallUnits ->
+                    .zenDataSmallUnits
     in
     styles.classList
         [ ( styleClass, True )
@@ -154,6 +172,12 @@ styles =
         , zenHeading1 = "zen-heading-1"
         , zenHeading2 = "zen-heading-2"
         , zenHeading3 = "zen-heading-3"
+        , zenDataLarge = "zen-data-large"
+        , zenDataLargeUnits = "zen-data-large-units"
+        , zenDataMedium = "zen-data-medium"
+        , zenDataMediumUnits = "zen-data-medium-units"
+        , zenDataSmall = "zen-data-small"
+        , zenDataSmallUnits = "zen-data-small-units"
         }
 
 
@@ -198,6 +222,12 @@ type TypeStyle
     | ZenHeading1
     | ZenHeading2
     | ZenHeading3
+    | ZenDataLarge
+    | ZenDataLargeUnits
+    | ZenDataMedium
+    | ZenDataMediumUnits
+    | ZenDataSmall
+    | ZenDataSmallUnits
 
 
 defaultConfig : ConfigValue msg

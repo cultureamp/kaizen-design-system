@@ -35,4 +35,28 @@ main =
             Text.view
                 (Text.h3 |> Text.style ZenHeading3)
                 [ Html.text "This is a Zen Heading 3" ]
+        , statelessStoryOf "zen-data-large" <|
+            Text.view
+                (Text.span |> Text.style ZenDataLarge)
+                [ Html.text "This is a Zen Data Large" ]
+        , statelessStoryOf "zen-data-large-units" <|
+            Text.view
+                (Text.span |> Text.style ZenDataLargeUnits)
+                [ Html.text "This is a Zen Data Large Units" ]
+        , statelessStoryOf "zen-data-medium" <|
+            Text.view
+                (Text.span |> Text.style ZenDataMedium)
+                [ Html.text "This is a Zen Data Medium" ]
+        , statelessStoryOf "zen-data-medium-units" <|
+            Text.view
+                (Text.span |> Text.style ZenDataMediumUnits)
+                [ Html.text "This is a Zen Data Medium Units" ]
+        , statelessStoryOf "zen-data-small" <|
+            Text.view
+                (Text.span |> Text.style ZenDataSmall)
+                [ Html.text "This is a Zen Data Small" ]
+        , statelessStoryOf "zen-data-small-units" <|
+            Text.view
+                (Text.span |> Text.style ZenDataSmallUnits)
+                [ Html.text "This is a Zen Data Small Units" ]
         ]
