@@ -42,7 +42,6 @@ export const p = (unit: ResponsiveSpacing): string[] => {
   return classes
 }
 
-// @TODO - i18n. Use padding before / padding after
 export const responsivePaddingClasses = ({
   p: padding,
   pt: paddingTop,
@@ -51,16 +50,24 @@ export const responsivePaddingClasses = ({
   pl: paddingLeft,
   px: paddingXAxis,
   py: paddingYAxis,
-}: Spacing): string[] => {
+  rtl = false,
+}: { rtl?: boolean } & Spacing): string[] => {
   const classes: string[] = []
 
   if (padding !== undefined) classes.push(...p(padding))
   if (paddingTop !== undefined) classes.push(...pt(paddingTop))
-  if (paddingRight !== undefined) classes.push(...pr(paddingRight))
   if (paddingBottom !== undefined) classes.push(...pb(paddingBottom))
-  if (paddingLeft !== undefined) classes.push(...pl(paddingLeft))
   if (paddingXAxis !== undefined) classes.push(...px(paddingXAxis))
   if (paddingYAxis !== undefined) classes.push(...py(paddingYAxis))
+
+  if (rtl) {
+    // for RTL languages, swap the left and right padding
+    if (paddingRight !== undefined) classes.push(...pl(paddingRight))
+    if (paddingLeft !== undefined) classes.push(...pr(paddingLeft))
+  } else {
+    if (paddingRight !== undefined) classes.push(...pr(paddingRight))
+    if (paddingLeft !== undefined) classes.push(...pl(paddingLeft))
+  }
 
   // if no padding defined on any param, default to 0
   if (

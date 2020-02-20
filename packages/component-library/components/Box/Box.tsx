@@ -5,6 +5,7 @@ import { responsivePaddingClasses } from "../Spacing/padding"
 import { Spacing } from "../types"
 
 export interface BoxProps {
+  rtl?: boolean
   children: React.ReactNode
   classNameAndIHaveSpokenToDST?: string
 }
@@ -12,6 +13,7 @@ export interface BoxProps {
 export const Box = ({
   children,
   classNameAndIHaveSpokenToDST,
+  rtl = false,
   p,
   pt,
   pr,
@@ -28,8 +30,8 @@ export const Box = ({
   my,
 }: BoxProps & Spacing) => {
   const classes: string[] = [
-    ...responsivePaddingClasses({ p, pt, pr, pb, pl, px, py }),
-    ...responsiveMarginClasses({ m, mt, mr, mb, ml, mx, my }),
+    ...responsivePaddingClasses({ p, pt, pr, pb, pl, px, py, rtl }),
+    ...responsiveMarginClasses({ m, mt, mr, mb, ml, mx, my, rtl }),
   ]
 
   return (

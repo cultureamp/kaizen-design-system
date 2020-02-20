@@ -50,16 +50,24 @@ export const responsiveMarginClasses = ({
   ml: marginLeft,
   mx: marginXAxis,
   my: marginYAxis,
-}: Spacing): string[] => {
+  rtl = false,
+}: { rtl?: boolean } & Spacing): string[] => {
   const classes: string[] = []
 
   if (margin !== undefined) classes.push(...m(margin))
   if (marginTop !== undefined) classes.push(...mt(marginTop))
-  if (marginRight !== undefined) classes.push(...mr(marginRight))
   if (marginBottom !== undefined) classes.push(...mb(marginBottom))
-  if (marginLeft !== undefined) classes.push(...ml(marginLeft))
   if (marginXAxis !== undefined) classes.push(...mx(marginXAxis))
   if (marginYAxis !== undefined) classes.push(...my(marginYAxis))
+
+  if (rtl) {
+    // for RTL languages, swap the left and right margin
+    if (marginRight !== undefined) classes.push(...ml(marginRight))
+    if (marginLeft !== undefined) classes.push(...mr(marginLeft))
+  } else {
+    if (marginRight !== undefined) classes.push(...mr(marginRight))
+    if (marginLeft !== undefined) classes.push(...ml(marginLeft))
+  }
 
   // if no padding defined on any param, default to 0
   if (

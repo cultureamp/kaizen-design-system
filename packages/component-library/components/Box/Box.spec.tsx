@@ -8,8 +8,21 @@ describe("<Box />", () => {
   it("renders the correct classes for a default box", () => {
     const { getByText } = render(<Box>Example</Box>)
     const boxClasslist = getByText("Example").classList
-    expect(boxClasslist).toContain("p-0")
-    expect(boxClasslist).toContain("m-0")
+    expect(Object.values(boxClasslist)).toEqual(
+      expect.arrayContaining(["p-0", "m-0"])
+    )
+  })
+
+  it("applies the correct spacing classes", () => {
+    const { getByText } = render(
+      <Box m={3} pl={1} pt={0.25}>
+        Example
+      </Box>
+    )
+    const boxClasslist = getByText("Example").classList
+    expect(Object.values(boxClasslist)).toEqual(
+      expect.arrayContaining(["m-3", "pl-1", "pt-0-point-25"])
+    )
   })
 
   it("allows consumers to provide a className", () => {
@@ -18,5 +31,31 @@ describe("<Box />", () => {
     )
     const boxClasslist = getByText("Example").classList
     expect(boxClasslist).toContain("example-classname")
+  })
+
+  describe("RTL support", () => {
+    it("swaps the left and right padding", () => {
+      const { getByText } = render(
+        <Box rtl pl={4} pr={2}>
+          Example
+        </Box>
+      )
+      const boxClasslist = getByText("Example").classList
+      expect(Object.values(boxClasslist)).toEqual(
+        expect.arrayContaining(["m-0", "pr-4", "pl-2"])
+      )
+    })
+
+    it("swaps the left and right margins", () => {
+      const { getByText } = render(
+        <Box rtl ml={4} mr={2}>
+          Example
+        </Box>
+      )
+      const boxClasslist = getByText("Example").classList
+      expect(Object.values(boxClasslist)).toEqual(
+        expect.arrayContaining(["p-0", "mr-4", "ml-2"])
+      )
+    })
   })
 })
