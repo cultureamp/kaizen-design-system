@@ -21,7 +21,7 @@ export const Heading5 = () => <Heading variant="heading-5">Heading 5</Heading>
 export const Heading6 = () => <Heading variant="heading-6">Heading 6</Heading>
 
 export const HeadingResponsive = () => (
-  <Box m={{ mobile: "1/8", tablet: "2", desktop: "4" }}>
+  <Box m={{ mobile: 0.25, tablet: 2, desktop: 4 }}>
     <Heading variant="heading-1">
       This is a responsive heading, wrapped in a box
     </Heading>
