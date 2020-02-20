@@ -111,6 +111,18 @@ className tag typeStyle shouldInheritBaseline shouldInline =
 
                 Button ->
                     .button
+
+                ZenDisplay0 ->
+                    .zenDisplay0
+
+                ZenHeading1 ->
+                    .zenHeading1
+
+                ZenHeading2 ->
+                    .zenHeading2
+
+                ZenHeading3 ->
+                    .zenHeading3
     in
     styles.classList
         [ ( styleClass, True )
@@ -138,6 +150,10 @@ styles =
         , button = "button"
         , inheritBaseline = "inheritBaseline"
         , inline = "inline"
+        , zenDisplay0 = "zen-display-0"
+        , zenHeading1 = "zen-heading-1"
+        , zenHeading2 = "zen-heading-2"
+        , zenHeading3 = "zen-heading-3"
         }
 
 
@@ -178,6 +194,10 @@ type TypeStyle
     | Label
     | ControlAction
     | Button
+    | ZenDisplay0
+    | ZenHeading1
+    | ZenHeading2
+    | ZenHeading3
 
 
 defaultConfig : ConfigValue msg

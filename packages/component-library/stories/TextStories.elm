@@ -2,7 +2,7 @@ module Main exposing (main)
 
 import ElmStorybook exposing (statelessStoryOf, storybook)
 import Html exposing (text)
-import Text.Text as Text exposing (h1, view)
+import Text.Text as Text exposing (TypeStyle(..), h1, view)
 
 
 main =
@@ -19,4 +19,20 @@ main =
             Text.view
                 Text.h3
                 [ Html.text "This is a h3" ]
+        , statelessStoryOf "zen-display-0" <|
+            Text.view
+                (Text.p |> Text.style ZenDisplay0)
+                [ Html.text "This is a Zen Display 0" ]
+        , statelessStoryOf "zen-heading-1" <|
+            Text.view
+                (Text.h1 |> Text.style ZenHeading1)
+                [ Html.text "This is a Zen Heading 1" ]
+        , statelessStoryOf "zen-heading-2" <|
+            Text.view
+                (Text.h2 |> Text.style ZenHeading2)
+                [ Html.text "This is a Zen Heading 2" ]
+        , statelessStoryOf "zen-heading-3" <|
+            Text.view
+                (Text.h3 |> Text.style ZenHeading3)
+                [ Html.text "This is a Zen Heading 3" ]
         ]

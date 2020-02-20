@@ -246,4 +246,8 @@ loadElmStories("Text (Elm)", module, require("./TextStories.elm"), [
   "h1",
   "h2",
   "h3",
+  "zen-display-0",
+  "zen-heading-1",
+  "zen-heading-3",
+  "zen-heading-3",
 ])
