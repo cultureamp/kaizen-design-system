@@ -66,7 +66,6 @@ H6.story = {
   name: "H6",
 }
 
-
 export const Paragraph = () => (
   <Text tag="p">
     Dr. Brené Brown, author of Daring Greatly, is a research professor from the
@@ -191,7 +190,7 @@ export const ZenDisplay0 = () => (
 
 export const ZenHeading1 = () => (
   <Text style="zen-heading-1" tag="h1">
-    This is a Zend Heading 1, which uses Heading styles
+    This is a Zen Heading 1, which uses Heading styles
   </Text>
 )
 
