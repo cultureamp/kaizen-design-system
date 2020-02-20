@@ -136,3 +136,39 @@ p.default-style {
   margin-bottom: $ca-grid;
   margin-top: 0;
 }
+
+.zen-data-large {
+  @include kz-typography-data-large;
+  margin-bottom: $ca-grid;
+  margin-top: 0;
+}
+
+.zen-data-large-units {
+  @include kz-typography-data-large-units;
+  margin-bottom: $ca-grid;
+  margin-top: 0;
+}
+
+.zen-data-medium {
+  @include kz-typography-data-medium;
+  margin-bottom: $ca-grid;
+  margin-top: 0;
+}
+
+.zen-data-medium-units {
+  @include kz-typography-data-medium-units;
+  margin-bottom: $ca-grid;
+  margin-top: 0;
+}
+
+.zen-data-small {
+  @include kz-typography-data-small;
+  margin-bottom: $ca-grid;
+  margin-top: 0;
+}
+
+.zen-data-small-units {
+  @include kz-typography-data-small-units;
+  margin-bottom: $ca-grid;
+  margin-top: 0;
+}

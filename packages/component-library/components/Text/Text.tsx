@@ -25,6 +25,12 @@ type TextProps = {
     | "zen-heading-1"
     | "zen-heading-2"
     | "zen-heading-3"
+    | "zen-data-large"
+    | "zen-data-large-units"
+    | "zen-data-medium"
+    | "zen-data-medium-units"
+    | "zen-data-small"
+    | "zen-data-small-units"
   inheritBaseline?: boolean
   inline?: boolean
 }

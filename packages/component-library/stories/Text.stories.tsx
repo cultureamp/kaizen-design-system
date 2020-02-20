@@ -206,6 +206,42 @@ export const ZenHeading3 = () => (
   </Text>
 )
 
+export const ZenDataLarge = () => (
+  <Text style="zen-data-large" tag="span">
+    42
+  </Text>
+)
+
+export const ZenDataLargeUnits = () => (
+  <Text style="zen-data-large-units" tag="span">
+    %
+  </Text>
+)
+
+export const ZenDataMedium = () => (
+  <Text style="zen-data-medium" tag="span">
+    42
+  </Text>
+)
+
+export const ZenDataMediumUnits = () => (
+  <Text style="zen-data-medium-units" tag="span">
+    %
+  </Text>
+)
+
+export const ZenDataSmall = () => (
+  <Text style="zen-data-small" tag="span">
+    42
+  </Text>
+)
+
+export const ZenDataSmallUnits = () => (
+  <Text style="zen-data-small-units" tag="span">
+    %
+  </Text>
+)
+
 loadElmStories("Text (Elm)", module, require("./TextStories.elm"), [
   "h1",
   "h2",
