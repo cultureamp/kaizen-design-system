@@ -1,4 +1,5 @@
 @import "../../styles/type";
+@import "@kaizen/deprecated-component-library-helpers/styles/type";
 
 .page-title,
 h1.default-style {
@@ -110,4 +111,64 @@ p.default-style {
 }
 .controlAction {
   composes: control-action;
+}
+
+.zen-display-0 {
+  @include kz-typography-display-0;
+  margin-bottom: $ca-grid;
+  margin-top: 0;
+}
+
+.zen-heading-1 {
+  @include kz-typography-heading-1;
+  margin-bottom: $ca-grid;
+  margin-top: 0;
+}
+
+.zen-heading-2 {
+  @include kz-typography-heading-2;
+  margin-bottom: $ca-grid;
+  margin-top: 0;
+}
+
+.zen-heading-3 {
+  @include kz-typography-heading-3;
+  margin-bottom: $ca-grid;
+  margin-top: 0;
+}
+
+.zen-data-large {
+  @include kz-typography-data-large;
+  margin-bottom: $ca-grid;
+  margin-top: 0;
+}
+
+.zen-data-large-units {
+  @include kz-typography-data-large-units;
+  margin-bottom: $ca-grid;
+  margin-top: 0;
+}
+
+.zen-data-medium {
+  @include kz-typography-data-medium;
+  margin-bottom: $ca-grid;
+  margin-top: 0;
+}
+
+.zen-data-medium-units {
+  @include kz-typography-data-medium-units;
+  margin-bottom: $ca-grid;
+  margin-top: 0;
+}
+
+.zen-data-small {
+  @include kz-typography-data-small;
+  margin-bottom: $ca-grid;
+  margin-top: 0;
+}
+
+.zen-data-small-units {
+  @include kz-typography-data-small-units;
+  margin-bottom: $ca-grid;
+  margin-top: 0;
 }

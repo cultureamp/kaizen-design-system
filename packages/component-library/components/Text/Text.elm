@@ -111,6 +111,36 @@ className tag typeStyle shouldInheritBaseline shouldInline =
 
                 Button ->
                     .button
+
+                ZenDisplay0 ->
+                    .zenDisplay0
+
+                ZenHeading1 ->
+                    .zenHeading1
+
+                ZenHeading2 ->
+                    .zenHeading2
+
+                ZenHeading3 ->
+                    .zenHeading3
+
+                ZenDataLarge ->
+                    .zenDataLarge
+
+                ZenDataLargeUnits ->
+                    .zenDataLargeUnits
+
+                ZenDataMedium ->
+                    .zenDataMedium
+
+                ZenDataMediumUnits ->
+                    .zenDataMediumUnits
+
+                ZenDataSmall ->
+                    .zenDataSmall
+
+                ZenDataSmallUnits ->
+                    .zenDataSmallUnits
     in
     styles.classList
         [ ( styleClass, True )
@@ -138,6 +168,16 @@ styles =
         , button = "button"
         , inheritBaseline = "inheritBaseline"
         , inline = "inline"
+        , zenDisplay0 = "zen-display-0"
+        , zenHeading1 = "zen-heading-1"
+        , zenHeading2 = "zen-heading-2"
+        , zenHeading3 = "zen-heading-3"
+        , zenDataLarge = "zen-data-large"
+        , zenDataLargeUnits = "zen-data-large-units"
+        , zenDataMedium = "zen-data-medium"
+        , zenDataMediumUnits = "zen-data-medium-units"
+        , zenDataSmall = "zen-data-small"
+        , zenDataSmallUnits = "zen-data-small-units"
         }
 
 
@@ -178,6 +218,16 @@ type TypeStyle
     | Label
     | ControlAction
     | Button
+    | ZenDisplay0
+    | ZenHeading1
+    | ZenHeading2
+    | ZenHeading3
+    | ZenDataLarge
+    | ZenDataLargeUnits
+    | ZenDataMedium
+    | ZenDataMediumUnits
+    | ZenDataSmall
+    | ZenDataSmallUnits
 
 
 defaultConfig : ConfigValue msg
