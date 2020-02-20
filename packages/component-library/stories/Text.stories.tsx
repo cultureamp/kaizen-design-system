@@ -66,6 +66,7 @@ H6.story = {
   name: "H6",
 }
 
+
 export const Paragraph = () => (
   <Text tag="p">
     Dr. Brené Brown, author of Daring Greatly, is a research professor from the
@@ -179,6 +180,30 @@ ControlAction.story = {
 export const Button = () => (
   <Text tag="div" style="button">
     Div with "Button" styles
+  </Text>
+)
+
+export const ZenDisplay0 = () => (
+  <Text style="zen-display-0" tag="p">
+    This is a Zen Display 0, which uses Heading styles
+  </Text>
+)
+
+export const ZenHeading1 = () => (
+  <Text style="zen-heading-1" tag="h1">
+    This is a Zend Heading 1, which uses Heading styles
+  </Text>
+)
+
+export const ZenHeading2 = () => (
+  <Text style="zen-heading-2" tag="h2">
+    This is a Zen Heading 2, which uses Heading styles
+  </Text>
+)
+
+export const ZenHeading3 = () => (
+  <Text style="zen-heading-3" tag="h3">
+    This is a Zen Heading 3, which uses Heading styles
   </Text>
 )
 

@@ -21,6 +21,10 @@ type TextProps = {
     | "label"
     | "control-action"
     | "button"
+    | "zen-display-0"
+    | "zen-heading-1"
+    | "zen-heading-2"
+    | "zen-heading-3"
   inheritBaseline?: boolean
   inline?: boolean
 }
