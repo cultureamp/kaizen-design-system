@@ -35,7 +35,7 @@ import Html.Attributes.Aria
 import Html.Events as HtmlEvents
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (SvgAsset)
-import Json.Decode as Json
+import Json.Decode as Decode
 import Maybe
 
 
@@ -171,14 +171,14 @@ onClickAttribs config =
                             True
 
                 decoder =
-                    Json.map
+                    Decode.map
                         (\m ->
                             { message = m
                             , stopPropagation = False
                             , preventDefault = preventDefault
                             }
                         )
-                        (Json.succeed msg)
+                        (Decode.succeed msg)
             in
             [ HtmlEvents.custom "click" decoder ]
 
