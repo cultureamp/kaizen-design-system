@@ -21,6 +21,7 @@ module Button.Button exposing
     , onBlur
     , onClick
     , onFocus
+    , preventKeydownOn
     , primary
     , reverseColor
     , reversed
@@ -110,6 +111,7 @@ view (Config config) label =
                 ++ onClickAttribs config
                 ++ onFocusAttribs config
                 ++ onBlurAttribs config
+                ++ preventKeydownAttribs config
                 ++ automationIdAttr
                 ++ titleAttr
                 ++ buttonTypeAttribs config
@@ -150,6 +152,15 @@ onBlurAttribs config =
 
         Nothing ->
             []
+
+
+preventKeydownAttribs : ConfigValue msg -> List (Html.Attribute msg)
+preventKeydownAttribs config =
+    if List.isEmpty config.preventKeydownOn then
+        []
+
+    else
+        [ HtmlEvents.preventDefaultOn "keydown" <| Decode.map (\msg -> ( msg, True )) (Decode.oneOf config.preventKeydownOn) ]
 
 
 onClickAttribs : ConfigValue msg -> List (Html.Attribute msg)
@@ -290,6 +301,7 @@ type alias ConfigValue msg =
     , onClick : Maybe msg
     , onFocus : Maybe msg
     , onBlur : Maybe msg
+    , preventKeydownOn : List (Decode.Decoder msg)
     , href : Maybe String
     , newTabAndIUnderstandTheAccessibilityImplications : Bool
     , id : Maybe String
@@ -339,6 +351,7 @@ defaults =
     , onClick = Nothing
     , onFocus = Nothing
     , onBlur = Nothing
+    , preventKeydownOn = []
     , href = Nothing
     , newTabAndIUnderstandTheAccessibilityImplications = False
     , id = Nothing
@@ -426,6 +439,11 @@ onFocus value (Config config) =
 onBlur : msg -> Config msg -> Config msg
 onBlur value (Config config) =
     Config { config | onBlur = Just value }
+
+
+preventKeydownOn : List (Decode.Decoder msg) -> Config msg -> Config msg
+preventKeydownOn decoders (Config config) =
+    Config { config | preventKeydownOn = decoders }
 
 
 href : String -> Config msg -> Config msg
