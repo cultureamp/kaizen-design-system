@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.4.0...@kaizen/component-library@3.4.1) (2020-02-21)
+
+
+### Bug Fixes
+
+* add @kaizen/deprecated-component-library-helpers depency to packages/component-library ([#297](https://github.com/cultureamp/kaizen-design-system/issues/297)) ([97b4428](https://github.com/cultureamp/kaizen-design-system/commit/97b4428))
+
+
+
+
+
 # [3.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.3.1...@kaizen/component-library@3.4.0) (2020-02-20)
 
 
