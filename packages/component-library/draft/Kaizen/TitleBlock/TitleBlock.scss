@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/color";
-@import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
@@ -157,17 +157,17 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 }
 
 .title {
-  @include ca-type-ideal-page-title;
+  @include kz-typography-heading-1;
   display: inline-block;
   top: auto;
 
   @include ca-media-tablet {
-    @include ca-type-ideal-title;
+    @include kz-typography-heading-2;
     @include ca-inherit-baseline;
   }
 
   @include ca-media-mobile {
-    @include ca-type-ideal-display;
+    @include kz-typography-heading-3;
     @include ca-inherit-baseline;
   }
 }

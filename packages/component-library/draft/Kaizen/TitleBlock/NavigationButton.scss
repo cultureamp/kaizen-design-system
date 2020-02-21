@@ -1,9 +1,9 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
-@import "~@kaizen/component-library/styles/type";
 
 .button {
   @include ca-type-ideal-button;
