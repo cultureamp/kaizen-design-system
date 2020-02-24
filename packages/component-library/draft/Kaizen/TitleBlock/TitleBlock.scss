@@ -182,6 +182,7 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
   display: inline-block;
   top: auto;
   @include ca-margin($start: $ca-grid);
+  transform: translateY(-1px);
 
   @include ca-media-mobile {
     display: none;
