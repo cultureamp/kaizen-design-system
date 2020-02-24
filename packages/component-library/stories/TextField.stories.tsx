@@ -558,4 +558,5 @@ DefaultUncontrolled.story = {
 
 loadElmStories("TextField (Elm)", module, require("./TextFieldStories.elm"), [
   "Default",
+  "Default /w icon",
 ])
