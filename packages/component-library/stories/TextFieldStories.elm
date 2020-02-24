@@ -2,6 +2,9 @@ module Main exposing (TextFieldModel)
 
 import Browser.Dom exposing (blur)
 import ElmStorybook exposing (storyOf, storybook)
+import Html.Extra exposing (static)
+import Icon.Icon as Icon
+import Icon.SvgAsset exposing (svgAsset)
 import Kaizen.Form.TextField.TextField as TextField
 import Task
 
@@ -41,6 +44,12 @@ main =
             , init = ( model, Cmd.none )
             , subscriptions = \_ -> Sub.none
             }
+
+        icon =
+            [ Icon.view Icon.presentation
+                (svgAsset "@kaizen/component-library/icons/date-end.icon.svg")
+                |> static
+            ]
     in
     storybook
         [ storyOf "Default" config <|
@@ -54,5 +63,18 @@ main =
                         |> TextField.onBlurWithValue TextFieldMsg
                         |> TextField.placeholder "Placeholder"
                         |> TextField.onEnter TextFieldEnter
+                    )
+        , storyOf "Default /w icon" config <|
+            \m ->
+                TextField.view
+                    (TextField.default
+                        |> TextField.id "the-id"
+                        |> TextField.labelText "Default TextField with icon"
+                        |> TextField.controlled False
+                        |> TextField.autoComplete False
+                        |> TextField.onBlurWithValue TextFieldMsg
+                        |> TextField.placeholder "Placeholder"
+                        |> TextField.onEnter TextFieldEnter
+                        |> TextField.icon icon
                     )
         ]
