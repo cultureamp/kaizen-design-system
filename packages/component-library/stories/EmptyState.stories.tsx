@@ -37,6 +37,7 @@ export const DefaultKaizenSiteDemo = () => (
       headingText="Empty state title"
       bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
+      useZenStyles
     />
   </SidebarAndContentLayout>
 )
@@ -52,6 +53,7 @@ export const LayoutSidebarContent = () => (
       bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
       layoutContext="sidebarAndContent"
+      useZenStyles
     />
   </SidebarAndContentLayout>
 )
@@ -67,6 +69,7 @@ export const LayoutContentOnly = () => (
       bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
       layoutContext="contentOnly"
+      useZenStyles
     />
   </ContentOnlyLayout>
 )
@@ -82,6 +85,7 @@ export const Positive = () => (
       bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
       illustrationType="positive"
+      useZenStyles
     >
       <div className={styles.buttonContainer}>
         <Button
@@ -102,11 +106,33 @@ export const Informative = () => (
       bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
       illustrationType="informative"
+      useZenStyles
     />
   </SidebarAndContentLayout>
 )
 
 export const Action = () => (
+  <SidebarAndContentLayout>
+    <EmptyState
+      headingText="Action empty state"
+      bodyText="If providing further actions, include a link to an action or use a
+          Default or Primary action."
+      illustrationType="action"
+      useZenStyles
+    >
+      <div className={styles.buttonContainer}>
+        <Button
+          label="Label"
+          icon={chevronRight}
+          iconPosition="end"
+          fullWidth
+        />
+      </div>
+    </EmptyState>
+  </SidebarAndContentLayout>
+)
+
+export const ActionButNotZen = () => (
   <SidebarAndContentLayout>
     <EmptyState
       headingText="Action empty state"
@@ -126,6 +152,10 @@ export const Action = () => (
   </SidebarAndContentLayout>
 )
 
+ActionButNotZen.story = {
+  name: "Action (pre-Zen legacy styles)",
+}
+
 export const ActionButton = () => (
   <SidebarAndContentLayout>
     <EmptyState
@@ -137,6 +167,7 @@ export const ActionButton = () => (
         </p>
       }
       illustrationType="action"
+      useZenStyles
     >
       <div className={styles.buttonContainer}>
         <Button
@@ -162,6 +193,7 @@ export const Neutral = () => (
       bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
       illustrationType="neutral"
+      useZenStyles
     />
   </SidebarAndContentLayout>
 )
@@ -173,6 +205,7 @@ export const Negative = () => (
       bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
       illustrationType="negative"
+      useZenStyles
     >
       <div className={styles.buttonContainer}>
         <Button
@@ -194,6 +227,7 @@ export const RtlAction = () => (
         bodyText="If providing further actions, include a link to an action or use a
           Default or Primary action."
         illustrationType="action"
+        useZenStyles
       >
         <div className={styles.buttonContainer}>
           <Button
@@ -220,6 +254,7 @@ export const StraightCorners = () => (
           Default or Primary action."
       illustrationType="action"
       straightCorners
+      useZenStyles
     >
       <div className={styles.buttonContainer}>
         <Button label="Label" icon={chevronLeft} iconPosition="end" fullWidth />
