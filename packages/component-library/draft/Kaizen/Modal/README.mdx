@@ -36,12 +36,16 @@ Modals contain smaller pieces of additional content while maintaining the contex
 
 ### All modals
 
-* All modals are dismissible (Close button, cancel button, Esc keystroke, Click outside).
-* Always a single primary action. Never two action buttons. If a second action is an option, use a control link (e.g. Cancel (Cluny, no underline). Always align button to the center of modal.
-* Where appropriate, use precise language and match the heading and primary button e.g. heading is “Delete photo” and primary button is “Delete”. Avoid questions like “Are you sure?”.
-* Close icon sits top right, never outside of modal. Screen reader reads icon name, i.e. “Close”.
-* The overlay is pure black (not Ink) with 50% opacity.
-* Directional modal carousel? Modals shouldn’t be used as carousels. Progress stepper in modal is preferable if you need to guide a user through a flow.
+* All modals are **dismissible** (Close button, cancel button, Esc keystroke, Click outside).
+* All modals use a **single Primary Action Button**. Never two primary action buttons. If a second action is an option, use a Secondary Action button (e.g. Cancel, in Cluny, no underline). Always align buttons to the center of the modal.
+* Where appropriate, use precise language and **match the heading and primary button text** e.g. heading is “Delete photo” and primary button is “Delete”. Avoid questions like “Are you sure?”.
+* **Don't depend on a scrollable modal body**. We only support a scrollable modal body as a fallback for when content is unintentionally long, such as when user-generated content is provided. This is strongly discouraged. If there's a high risk of a scrollable modal body:
+    * Consider responsive behavior on small screens.
+    * A modal might not be the best approach. Consider using an inline page section or a separate page instead.
+    * Consider if any content inside the modal might be clipped, such as a Select dropdown section.
+* Close icon sits top right, never outside of modal. Screen reader reads the action for the icon, i.e. “Close”.
+* The backdrop overlay is pure black (not Wisteria) with 50% opacity.
+* We don't use modals as carousels. A Progress stepper in a modal is preferable if you need to guide a user through a flow.
 * Never stacks multiple modals together on screen at the same time.
 
 ### Confirmation modal

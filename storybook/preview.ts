@@ -14,6 +14,8 @@ require("focus-visible")
 // See: https://github.com/necolas/normalize.css/
 require("normalize.css")
 
+require("@kaizen/component-library/styles/fonts.scss")
+
 addDecorator(withA11y)
 
 addParameters({

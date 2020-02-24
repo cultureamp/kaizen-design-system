@@ -3,6 +3,88 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.4.4...@kaizen/component-library@3.5.0) (2020-02-24)
+
+
+### Features
+
+* Add prevent default on keydown to Button ([#301](https://github.com/cultureamp/kaizen-design-system/issues/301)) ([902f43b](https://github.com/cultureamp/kaizen-design-system/commit/902f43b))
+
+
+
+
+
+## [3.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.4.3...@kaizen/component-library@3.4.4) (2020-02-24)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [3.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.4.2...@kaizen/component-library@3.4.3) (2020-02-24)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [3.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.4.1...@kaizen/component-library@3.4.2) (2020-02-21)
+
+
+### Bug Fixes
+
+* fix an scss import statement in Text.module.scss ([#299](https://github.com/cultureamp/kaizen-design-system/issues/299)) ([b3b11f2](https://github.com/cultureamp/kaizen-design-system/commit/b3b11f2))
+
+
+
+
+
+## [3.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.4.0...@kaizen/component-library@3.4.1) (2020-02-21)
+
+
+### Bug Fixes
+
+* add @kaizen/deprecated-component-library-helpers depency to packages/component-library ([#297](https://github.com/cultureamp/kaizen-design-system/issues/297)) ([97b4428](https://github.com/cultureamp/kaizen-design-system/commit/97b4428))
+
+
+
+
+
+# [3.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.3.1...@kaizen/component-library@3.4.0) (2020-02-20)
+
+
+### Features
+
+* Add Zen headings and hero data styles to Text component ([#296](https://github.com/cultureamp/kaizen-design-system/issues/296)) ([6bf9154](https://github.com/cultureamp/kaizen-design-system/commit/6bf9154))
+
+
+
+
+
+## [3.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.3.0...@kaizen/component-library@3.3.1) (2020-02-19)
+
+
+### Bug Fixes
+
+* remove elm18 module reference ([#293](https://github.com/cultureamp/kaizen-design-system/issues/293)) ([e63a699](https://github.com/cultureamp/kaizen-design-system/commit/e63a699))
+
+
+
+
+
+# [3.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.2.0...@kaizen/component-library@3.3.0) (2020-02-19)
+
+
+### Features
+
+* set focus and blur attributes ([#290](https://github.com/cultureamp/kaizen-design-system/issues/290)) ([82d8ee7](https://github.com/cultureamp/kaizen-design-system/commit/82d8ee7))
+
+
+
+
+
 # [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.1.0...@kaizen/component-library@3.2.0) (2020-02-19)
 
 
