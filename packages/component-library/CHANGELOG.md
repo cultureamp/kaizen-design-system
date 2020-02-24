@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.4.4...@kaizen/component-library@3.5.0) (2020-02-24)
+
+
+### Features
+
+* Add prevent default on keydown to Button ([#301](https://github.com/cultureamp/kaizen-design-system/issues/301)) ([902f43b](https://github.com/cultureamp/kaizen-design-system/commit/902f43b))
+
+
+
+
+
+## [3.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.4.3...@kaizen/component-library@3.4.4) (2020-02-24)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [3.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.4.2...@kaizen/component-library@3.4.3) (2020-02-24)
 
 **Note:** Version bump only for package @kaizen/component-library
