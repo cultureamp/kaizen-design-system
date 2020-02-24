@@ -2,7 +2,7 @@ import { Button, Icon, Text } from "@kaizen/component-library"
 import classnames from "classnames"
 import * as React from "react"
 
-const styles = require("./CallToActionBanner.scss")
+const styles = require("./GuidanceBlock.scss")
 
 const closeIcon = require("@kaizen/component-library/icons/close.icon.svg")
   .default
@@ -27,7 +27,7 @@ type State = {
   hidden: boolean
   removed: boolean
 }
-class CallToActionBanner extends React.Component<Props, State> {
+class GuidanceBlock extends React.Component<Props, State> {
   state = {
     hidden: false,
     removed: false,
@@ -119,4 +119,4 @@ const CancelButton = ({ onClick }: CancelButtonProps) => (
   </button>
 )
 
-export default CallToActionBanner
+export default GuidanceBlock

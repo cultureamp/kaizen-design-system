@@ -1,18 +1,18 @@
 import * as React from "react"
 
-import { CallToActionBanner } from "@kaizen/component-library/draft"
+import { GuidanceBlock } from "@kaizen/component-library/draft"
 const bannerImg = require("@kaizen/component-library/stories/illustrations/@2x_single_point_onboard_survey.png")
 
 export default {
-  title: "CallToActionBanner (React)",
+  title: "GuidanceBlock (React)",
 }
 
 export const Default = () => (
   <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
-    <CallToActionBanner
-      img={{ src: bannerImg, alt: "Call to action banner" }}
+    <GuidanceBlock
+      img={{ src: bannerImg, alt: "Guidance block" }}
       text={{
-        title: "This is the call to action title",
+        title: "This is the Guidance title",
         description:
           "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
       }}

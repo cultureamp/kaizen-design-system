@@ -1,9 +1,9 @@
 // Export `draft` components from this barrel file
-export * from "./Kaizen/CallToActionBanner"
 export * from "./Kaizen/CheckboxGroup"
 export * from "./Kaizen/Collapsible"
 export * from "./Kaizen/EmptyState"
 export * from "./Kaizen/Form"
+export * from "./Kaizen/GuidanceBlock"
 export * from "./Kaizen/HeroCard"
 export * from "./Kaizen/LoadingPlaceholder"
 export * from "./Kaizen/Modal"

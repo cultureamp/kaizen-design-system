@@ -6,14 +6,14 @@ import {
 } from "@testing-library/react"
 import * as React from "react"
 import * as ReactTestUtils from "react-dom/test-utils"
-import CallToActionBanner from "./CallToActionBanner"
+import GuidanceBlock from "./GuidanceBlock"
 
-describe("CallToActionBanner", () => {
+describe("GuidanceBlock", () => {
   afterEach(cleanup)
 
   test("starts visible", () => {
     const { container } = render(
-      <CallToActionBanner
+      <GuidanceBlock
         img={{ src: "image/path.png", alt: "Call to action banner" }}
         text={{
           title: "This is the call to action title",
@@ -38,7 +38,7 @@ describe("CallToActionBanner", () => {
   test("The cancel button hides the notification and calls the on dismiss function", () => {
     const onDismiss = jest.fn()
     const { container } = render(
-      <CallToActionBanner
+      <GuidanceBlock
         img={{ src: "image/path.png", alt: "Call to action banner" }}
         text={{
           title: "This is the call to action title",
@@ -69,7 +69,7 @@ describe("CallToActionBanner", () => {
   test("The action button calls the action function", () => {
     const onAction = jest.fn()
     const { container } = render(
-      <CallToActionBanner
+      <GuidanceBlock
         img={{ src: "image/path.png", alt: "Call to action banner" }}
         text={{
           title: "This is the call to action title",
@@ -92,7 +92,7 @@ describe("CallToActionBanner", () => {
 
   test("when animation ends the element is removed", () => {
     const { container } = render(
-      <CallToActionBanner
+      <GuidanceBlock
         img={{ src: "image/path.png", alt: "Call to action banner" }}
         text={{
           title: "This is the call to action title",
