@@ -28,6 +28,12 @@ export const BoxWithPadding = () => (
   </Box>
 )
 
+export const BoxWithXAndYPadding = () => (
+  <Box px={4} py={1}>
+    <span>Box with 4 units of padding</span>
+  </Box>
+)
+
 export const BoxWithRtlSupport = () => (
   <Box rtl pr={4}>
     <span>

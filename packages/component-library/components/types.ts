@@ -42,6 +42,9 @@ export type ResponsiveSpacing =
 export type Padding = ResponsiveSpacing
 export type Margin = ResponsiveSpacing
 
+/**
+ * Spacing is in grid units
+ */
 export type Spacing = {
   p?: ResponsiveSpacing
   pt?: GridFractions
@@ -57,8 +60,4 @@ export type Spacing = {
   ml?: GridFractions
   mx?: GridFractions
   my?: GridFractions
-}
-
-export type className = {
-  classNameAndIHaveSpokenToDST?: string
 }
