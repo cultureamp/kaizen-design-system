@@ -1,15 +1,21 @@
 @import "~@kaizen/component-library/styles/fonts";
 @import "~@kaizen/component-library/styles/type"; // just for the grid unit
 
+// this should always be parity with util.ts
 $spacing-list: (
-  ("eighth", $ca-grid/8),
-  ("quarter", $ca-grid/4),
-  ("half", $ca-grid/2),
-  ("0", $ca-grid * 0),
+  ("0", 0),
+  ("0-point-25", 0.25 * $ca-grid),
+  ("0-point-5", 0.5 * $ca-grid),
+  ("0-point-75", 0.75 * $ca-grid),
   ("1", $ca-grid),
+  ("1-point-25", 1.25 * ($ca-grid/4)),
+  ("1-point-5", 1.5 * $ca-grid),
+  ("1-point-75", 1.75 * $ca-grid),
   ("2", $ca-grid * 2),
-  ("4", $ca-grid * 4),
-  ("8", $ca-grid * 8)
+  ("2-point-5", 2.5 * $ca-grid),
+  ("3", 3 * $ca-grid),
+  ("3-point-5", 3.5 * $ca-grid),
+  ("4", $ca-grid * 4)
 );
 
 $breakpoints: (("mobile", 0px), ("tablet", 768px), ("desktop", 1024px));
