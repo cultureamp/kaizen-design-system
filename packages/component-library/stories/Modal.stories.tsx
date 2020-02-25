@@ -628,4 +628,5 @@ loadElmStories("Modal (Elm)", module, require("./ModalStories.elm"), [
   "Confirmation (Informative)",
   "Confirmation (Positive)",
   "Confirmation (Negative)",
+  "Confirmation (User action)",
 ])
