@@ -1,5 +1,7 @@
-import { GridFractions, ResponsiveSpacing, Spacing } from "../types"
+import { GridFractions, ResponsiveSpacing, Spacing } from "./types"
 import { convertFractionToString } from "./util"
+
+export type Padding = ResponsiveSpacing
 
 const styles = require("./Padding.module.scss")
 

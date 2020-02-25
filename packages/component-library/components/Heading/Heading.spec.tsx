@@ -21,16 +21,6 @@ describe("<Heading />", () => {
     expect(headingMock.getByText("Example").tagName).toBe("DIV")
   })
 
-  it("passes through aria labels and roles", () => {
-    const { container } = render(
-      <Heading variant="display-0" tag="div" role="heading" aria-level={1}>
-        Example
-      </Heading>
-    )
-    expect(container.querySelector('[aria-level="1"]')).not.toBeNull()
-    expect(container.querySelector('[role="heading"]')).not.toBeNull()
-  })
-
   it("passes through data attributes", () => {
     const { container } = render(
       <Heading variant="display-0" data-automation-id="test-id">

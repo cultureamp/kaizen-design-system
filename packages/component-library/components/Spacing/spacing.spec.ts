@@ -1,6 +1,6 @@
-import { GridFractions } from "../types"
 import { mb, ml, mr, mt, mx, my, responsiveMarginClasses } from "./margin"
 import { pb, pl, pr, pt, px, py, responsivePaddingClasses } from "./padding"
+import { GridFractions } from "./types"
 
 type TestObject = {
   unit: GridFractions

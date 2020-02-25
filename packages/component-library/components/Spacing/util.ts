@@ -1,4 +1,4 @@
-import { GridFractions } from "../types"
+import { GridFractions } from "./types"
 
 export const convertFractionToString = (fraction: GridFractions): string => {
   switch (fraction) {

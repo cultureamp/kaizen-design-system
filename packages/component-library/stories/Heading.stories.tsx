@@ -8,7 +8,11 @@ export const Display0 = () => (
   <Heading variant="display-0">This is a display heading</Heading>
 )
 
-export const Heading1 = () => <Heading variant="heading-1">Heading 1</Heading>
+export const Heading1 = () => (
+  <Heading data-automation-id="test" variant="heading-1">
+    Heading 1
+  </Heading>
+)
 
 export const Heading2 = () => <Heading variant="heading-2">Heading 2</Heading>
 

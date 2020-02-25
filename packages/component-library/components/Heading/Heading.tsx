@@ -1,6 +1,5 @@
 import classNames from "classnames"
 import { createElement } from "react"
-import { Safelist } from "../types"
 
 const styles = require("./Heading.module.scss")
 
@@ -27,19 +26,19 @@ export type AllowedTags =
   | "h6"
 
 export interface HeadingProps {
-  variant: HeadingVariants
-  tag?: AllowedTags
-  children: React.ReactNode
   classNameAndIHaveSpokenToDST?: string
+  children: React.ReactNode
+  tag?: AllowedTags
+  variant: HeadingVariants
 }
 
 export const Heading = ({
+  classNameAndIHaveSpokenToDST,
+  children,
   tag,
   variant,
-  children,
-  classNameAndIHaveSpokenToDST,
   ...otherProps
-}: HeadingProps & Safelist) => {
+}: HeadingProps) => {
   const inferredTag =
     tag === undefined ? translateHeadingLevelToTag(variant) : tag
 

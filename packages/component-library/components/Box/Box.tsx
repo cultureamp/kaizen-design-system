@@ -1,26 +1,21 @@
+import {
+  responsiveMarginClasses,
+  responsivePaddingClasses,
+  Spacing,
+} from "@kaizen/component-library"
 import classnames from "classnames"
 import * as React from "react"
-import { responsiveMarginClasses } from "../Spacing/margin"
-import { responsivePaddingClasses } from "../Spacing/padding"
-import { Spacing } from "../types"
 
 export interface BoxProps {
-  rtl?: boolean
   children: React.ReactNode
   classNameAndIHaveSpokenToDST?: string
+  rtl?: boolean
 }
 
 export const Box = ({
   children,
   classNameAndIHaveSpokenToDST,
   rtl = false,
-  p,
-  pt,
-  pr,
-  pb,
-  pl,
-  px,
-  py,
   m,
   mt,
   mr,
@@ -28,7 +23,17 @@ export const Box = ({
   ml,
   mx,
   my,
-}: BoxProps & Spacing) => {
+  p,
+  pt,
+  pr,
+  pb,
+  pl,
+  px,
+  py,
+  ...otherProps
+}: // otherProps accounts for data attributes, which are not valid JS identifiers
+// https://www.typescriptlang.org/docs/handbook/jsx.html#attribute-type-checking
+BoxProps & Spacing) => {
   const classes: string[] = [
     ...responsivePaddingClasses({ p, pt, pr, pb, pl, px, py, rtl }),
     ...responsiveMarginClasses({ m, mt, mr, mb, ml, mx, my, rtl }),
@@ -36,6 +41,7 @@ export const Box = ({
 
   return (
     <div
+      {...otherProps}
       className={classnames(classes.join(" "), classNameAndIHaveSpokenToDST)}
     >
       {children}

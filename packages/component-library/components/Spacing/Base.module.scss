@@ -18,4 +18,5 @@ $spacing-list: (
   ("4", $ca-grid * 4)
 );
 
+// this should be parity with types.ts
 $breakpoints: (("mobile", 0px), ("tablet", 768px), ("desktop", 1024px));

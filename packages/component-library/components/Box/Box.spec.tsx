@@ -33,6 +33,15 @@ describe("<Box />", () => {
     expect(boxClasslist).toContain("example-classname")
   })
 
+  it("allows consumers to provide data attributes", () => {
+    const { container } = render(
+      <Box data-automation-id="test-id">Example</Box>
+    )
+    expect(
+      container.querySelector('[data-automation-id="test-id"]')
+    ).not.toBeNull()
+  })
+
   describe("RTL support", () => {
     it("swaps the left and right padding", () => {
       const { getByText } = render(
