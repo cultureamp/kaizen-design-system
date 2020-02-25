@@ -27,12 +27,12 @@
 
   @include ca-media-tablet-and-up {
     color: $kz-color-wisteria-800;
-    padding-top: 17px;
+    padding-top: 1.0625rem;
   }
 
   @include ca-media-mobile {
     margin: 0;
-    padding-bottom: 5px;
+    padding-bottom: 0.3125rem;
   }
 }
 
