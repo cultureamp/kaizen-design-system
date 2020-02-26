@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.6.1...@kaizen/component-library@3.6.2) (2020-02-26)
+
+
+### Bug Fixes
+
+* Added @kaizen/hosted-assets as a dependency of component library ([#306](https://github.com/cultureamp/kaizen-design-system/issues/306)) ([3332f78](https://github.com/cultureamp/kaizen-design-system/commit/3332f78))
+
+
+
+
+
 ## [3.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.6.0...@kaizen/component-library@3.6.1) (2020-02-26)
 
 
