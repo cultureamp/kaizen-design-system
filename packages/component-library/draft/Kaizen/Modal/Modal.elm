@@ -7,12 +7,14 @@ module Kaizen.Modal.Modal exposing
     , confirmation
     , defaultFocusableId
     , firstFocusableId
+    , focusElementWhenClosed
     , forceOpen
     , generic
     , initialState
     , lastFocusableId
     , modalState
     , onUpdate
+    , returnFocusableId
     , subscriptions
     , trigger
     , update
@@ -57,9 +59,10 @@ type ModalMsg
     | RunModal Time.Posix
     | FocusFirstFocusableElement (Result BrowserDom.Error ())
     | FocusLastFocusableElement (Result BrowserDom.Error ())
+    | FocusDefaultFocusableElement (Result BrowserDom.Error ())
+    | FocusReturnFocusableElement (Result BrowserDom.Error ())
     | FirstFocusableElementFocused
     | LastFocusableElementFocused
-    | DefaultFocusableElementFocused (Result BrowserDom.Error ())
     | ClearFocusedFocusable
     | ShiftKeydown
     | ShiftKeyup
@@ -110,6 +113,10 @@ type DefaultFocusableId
     = DefaultFocusableId String
 
 
+type ReturnFocusableId
+    = ReturnFocusableId String
+
+
 type FocusedFocusable
     = FirstFocusable
     | LastFocusable
@@ -136,6 +143,7 @@ type alias ModalData =
     , firstFocusableId : FirstFocusableId
     , lastFocusableId : LastFocusableId
     , defaultFocusableId : DefaultFocusableId
+    , returnFocusableId : Maybe ReturnFocusableId
     , modalStep : ModalStep
     , startTime : Time.Posix
     , animatingStep : AnimatingStep
@@ -377,6 +385,7 @@ initialState =
           , firstFocusableId = firstFocusableId Constants.firstFocusableId
           , lastFocusableId = lastFocusableId Constants.lastFocusableId
           , defaultFocusableId = defaultFocusableId Constants.defaultFocusableId
+          , returnFocusableId = Nothing
           , modalStep = NotRunning
           , startTime = Time.millisToPosix 0
           , animatingStep = NotAnimating
@@ -462,6 +471,11 @@ defaultFocusableIdToString (DefaultFocusableId id_) =
     id_
 
 
+returnFocusableIdToString : ReturnFocusableId -> String
+returnFocusableIdToString (ReturnFocusableId id_) =
+    id_
+
+
 updateModalDataFromState : (ModalData -> ModalData) -> ModalState msg -> ModalState msg
 updateModalDataFromState f (ModalState ( mState, mData )) =
     ModalState ( mState, f mData )
@@ -473,7 +487,15 @@ resolveCmdsFromState (ModalState ( ms, mData )) =
         NotRunning ->
             case ( ms, mData.animatingStep ) of
                 ( Open_, NotAnimating ) ->
-                    Task.attempt DefaultFocusableElementFocused <| BrowserDom.focus (defaultFocusableIdToString mData.defaultFocusableId)
+                    Task.attempt FocusDefaultFocusableElement <| BrowserDom.focus (defaultFocusableIdToString mData.defaultFocusableId)
+
+                ( Closed_, NotAnimating ) ->
+                    case mData.returnFocusableId of
+                        Just returnFocusable ->
+                            Task.attempt FocusReturnFocusableElement <| BrowserDom.focus (returnFocusableIdToString returnFocusable)
+
+                        Nothing ->
+                            Cmd.none
 
                 _ ->
                     Cmd.none
@@ -514,6 +536,17 @@ forceOpen (ModalState ( _, mData )) =
     ModalState ( Open_, { mData | modalStep = Running, animatingStep = Animating } )
 
 
+{-| The modal update will attempt to focus on the element with the id passed when it completes
+the close animation.
+
+<https://www.w3.org/TR/wai-aria-practices/#dialog_modal>
+
+-}
+focusElementWhenClosed : ReturnFocusableId -> ModalState msg -> ModalState msg
+focusElementWhenClosed id state =
+    updateModalDataFromState (\md -> { md | returnFocusableId = Just id }) state
+
+
 firstFocusableId : String -> FirstFocusableId
 firstFocusableId id =
     FirstFocusableId id
@@ -527,6 +560,11 @@ lastFocusableId id =
 defaultFocusableId : String -> DefaultFocusableId
 defaultFocusableId id =
     DefaultFocusableId id
+
+
+returnFocusableId : String -> ReturnFocusableId
+returnFocusableId id =
+    ReturnFocusableId id
 
 
 
@@ -621,7 +659,7 @@ update ms modalMsg =
                 Err _ ->
                     ( ms, Cmd.none, Nothing )
 
-        DefaultFocusableElementFocused focusResult ->
+        FocusDefaultFocusableElement focusResult ->
             case focusResult of
                 Ok () ->
                     ( ms, Cmd.none, Nothing )
@@ -633,6 +671,14 @@ update ms modalMsg =
                     , Task.attempt FocusLastFocusableElement (BrowserDom.focus <| lastFocusableIdToString mData.lastFocusableId)
                     , Nothing
                     )
+
+        FocusReturnFocusableElement focusResult ->
+            case focusResult of
+                Ok () ->
+                    ( ms, Cmd.none, Nothing )
+
+                Err _ ->
+                    ( ms, Cmd.none, Nothing )
 
         ShiftKeydown ->
             ( updateModalDataFromState (\md -> { md | shiftKeydown = True }) ms, Cmd.none, Nothing )
