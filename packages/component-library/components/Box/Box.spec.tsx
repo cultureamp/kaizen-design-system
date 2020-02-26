@@ -1,6 +1,6 @@
 import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
-import Box from "./index"
+import { Box } from "./index"
 
 afterEach(cleanup)
 
