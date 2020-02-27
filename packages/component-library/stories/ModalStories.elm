@@ -89,7 +89,11 @@ update msg state =
         SetModalContext ->
             let
                 modalState =
-                    Modal.trigger Modal.initialState
+                    Modal.trigger
+                        (Modal.initialState
+                            -- focus on the element with this id when the modal closes
+                            |> Modal.focusElementWhenClosed (Modal.returnFocusableId "modal-invoker-element")
+                        )
             in
             ( { state | idealWayToSetUpModal = True, modalContext = Just modalState }, Cmd.none )
 
@@ -222,7 +226,12 @@ main =
         , storyOf "Confirmation (User action)" config <|
             \m ->
                 div []
-                    [ Button.view (Button.default |> Button.onClick SetModalContext) "Open Modal"
+                    [ Button.view
+                        (Button.default
+                            |> Button.onClick SetModalContext
+                            |> Button.id "modal-invoker-element"
+                        )
+                        "Open Modal"
                     , if m.idealWayToSetUpModal then
                         case m.modalContext of
                             Just modalState ->
