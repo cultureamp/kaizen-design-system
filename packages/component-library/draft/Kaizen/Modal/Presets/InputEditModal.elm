@@ -1,12 +1,10 @@
-module Kaizen.Modal.Presets.ConfirmationModal exposing
-    ( bodySubtext
-    , cautionary
-    , confirmId
+module Kaizen.Modal.Presets.InputEditModal exposing
+    ( confirmId
     , confirmLabel
     , confirmPreventKeydownOn
     , dismissLabel
     , headerDismissId
-    , informative
+    , instructiveText
     , negative
     , onConfirm
     , onConfirmBlur
@@ -16,27 +14,23 @@ module Kaizen.Modal.Presets.ConfirmationModal exposing
     , onHeaderDismissFocus
     , onPreventHeaderDismissKeydown
     , positive
+    , textFieldConfigs
     , title
     , view
     )
 
 import Button.Button as Button
 import CssModules exposing (css)
-import Html exposing (Html, div, text)
-import Icon.Icon as Icon
-import Icon.SvgAsset exposing (svgAsset)
+import Html exposing (Html, div, form, span, text)
 import Json.Decode as Decode
-import Kaizen.Modal.Primitives.Constants as Constants
+import Kaizen.Form.TextField.TextField as TextField
+import Kaizen.Modal.Primitives.Configuration as ModalConfiguration exposing (configurationDefaults)
+import Kaizen.Modal.Primitives.ModalAccessibleDescription as ModalAccessibleDescription
+import Kaizen.Modal.Primitives.ModalAccessibleLabel as ModalAccessibleLabel
 import Kaizen.Modal.Primitives.ModalBody as ModalBody
 import Kaizen.Modal.Primitives.ModalFooter as ModalFooter
 import Kaizen.Modal.Primitives.ModalHeader as ModalHeader
-import Svg exposing (circle, svg)
-import Svg.Attributes exposing (class, cx, cy, r)
 import Text.Text as Text
-
-
-
--- TYPES
 
 
 type Config msg
@@ -44,77 +38,51 @@ type Config msg
 
 
 type alias Configuration msg =
-    { variant : Variant
-    , onDismiss : Maybe msg
-    , onConfirm : Maybe msg
-    , title : String
-    , bodySubtext : Maybe (List (Html msg))
-    , dismissLabel : String
-    , confirmLabel : String
-    , headerDismissId : Maybe String
-    , onHeaderDismissFocus : Maybe msg
-    , onHeaderDismissBlur : Maybe msg
-    , onPreventHeaderDismissKeydown : List (Decode.Decoder msg)
-    , confirmPreventKeydownOn : List (Decode.Decoder msg)
-    , onConfirmFocus : Maybe msg
-    , onConfirmBlur : Maybe msg
-    , confirmId : Maybe String
+    InputEditConfiguration msg (ModalConfiguration.ConfigurationBase msg)
+
+
+type alias InputEditConfiguration msg base =
+    { base
+        | variant : Variant
+        , instructiveText : Maybe String
+        , textFieldConfigs : List (TextField.Config msg)
     }
 
 
-
--- VARIANTS
-
-
 type Variant
-    = Informative
-    | Positive
+    = Positive
     | Negative
-    | Cautionary
 
 
-informative : Config msg
-informative =
-    Config { defaults | variant = Informative }
+defaults : Configuration msg
+defaults =
+    { variant = Positive
+    , instructiveText = Nothing
+    , textFieldConfigs = []
+    , onDismiss = configurationDefaults.onDismiss
+    , onConfirm = configurationDefaults.onConfirm
+    , title = configurationDefaults.title
+    , dismissLabel = configurationDefaults.dismissLabel
+    , confirmLabel = configurationDefaults.confirmLabel
+    , headerDismissId = configurationDefaults.headerDismissId
+    , onHeaderDismissFocus = configurationDefaults.onHeaderDismissFocus
+    , onHeaderDismissBlur = configurationDefaults.onHeaderDismissBlur
+    , onPreventHeaderDismissKeydown = configurationDefaults.onPreventHeaderDismissKeydown
+    , confirmPreventKeydownOn = configurationDefaults.confirmPreventKeydownOn
+    , onConfirmFocus = configurationDefaults.onConfirmFocus
+    , onConfirmBlur = configurationDefaults.onConfirmBlur
+    , confirmId = configurationDefaults.confirmId
+    }
 
 
 positive : Config msg
 positive =
-    Config { defaults | variant = Positive }
+    Config defaults
 
 
 negative : Config msg
 negative =
     Config { defaults | variant = Negative }
-
-
-cautionary : Config msg
-cautionary =
-    Config { defaults | variant = Cautionary }
-
-
-
--- DEFAULTS
-
-
-defaults : Configuration msg
-defaults =
-    { variant = Informative
-    , onDismiss = Nothing
-    , onConfirm = Nothing
-    , title = "Provide title"
-    , bodySubtext = Nothing
-    , dismissLabel = "Cancel"
-    , confirmLabel = "Confirm"
-    , headerDismissId = Nothing
-    , onHeaderDismissFocus = Nothing
-    , onHeaderDismissBlur = Nothing
-    , onPreventHeaderDismissKeydown = []
-    , confirmPreventKeydownOn = []
-    , onConfirmFocus = Nothing
-    , onConfirmBlur = Nothing
-    , confirmId = Just Constants.lastFocusableId
-    }
 
 
 view : Config msg -> Html msg
@@ -158,29 +126,25 @@ view (Config config) =
 
             else
                 ModalHeader.preventDismissKeydown config.onPreventHeaderDismissKeydown headerConfig
-
-        withBody =
-            case config.bodySubtext of
-                Just bodyContent ->
-                    body bodyContent
-
-                Nothing ->
-                    text ""
     in
     div [ genericStyles.class .defaultModalWidth ]
-        [ ModalHeader.view
+        [ ModalHeader.view <|
             (ModalHeader.layout [ header config ]
                 |> withHeaderOnDismiss
+                |> withHeaderDismissId
                 |> withHeaderDismissFocus
                 |> withHeaderDismissBlur
-                |> withHeaderDismissId
                 |> withPreventHeaderDismissKeydown
+                |> ModalHeader.dismissReverse False
             )
-        , withBody
+        , ModalBody.view <|
+            (ModalBody.layout [ body config ]
+                |> ModalBody.background ModalBody.Stone
+            )
         , ModalFooter.view <|
             (ModalFooter.layout (footer config)
                 |> ModalFooter.positionContent ModalFooter.Center
-                |> ModalFooter.border False
+                --|> ModalFooter.border False
                 |> ModalFooter.padded True
             )
         ]
@@ -188,39 +152,41 @@ view (Config config) =
 
 header : Configuration msg -> Html msg
 header config =
+    div [ styles.class .header ]
+        [ ModalAccessibleLabel.view
+            [ Text.view
+                (Text.h1
+                    |> Text.inline True
+                    |> Text.style Text.ZenHeading3
+                )
+                [ text config.title ]
+            ]
+        ]
+
+
+body : Configuration msg -> Html msg
+body config =
     let
-        resolveIcon =
-            case config.variant of
-                Positive ->
-                    svgAsset "@kaizen/component-library/icons/success.icon.svg"
+        withInstructiveText =
+            case config.instructiveText of
+                Just instText ->
+                    ModalAccessibleDescription.view
+                        [ Text.view Text.p [ text instText ]
+                        ]
 
-                _ ->
-                    svgAsset "@kaizen/component-library/icons/information.icon.svg"
+                Nothing ->
+                    text ""
+
+        textField textConfig =
+            TextField.view textConfig
+
+        withTextFields =
+            List.map textField config.textFieldConfigs
     in
-    div
-        [ styles.classList
-            [ ( .header, True )
-            , ( .informativeHeader, config.variant == Informative )
-            , ( .positiveHeader, config.variant == Positive )
-            , ( .negativeHeader, config.variant == Negative )
-            , ( .cautionaryHeader, config.variant == Cautionary )
-            ]
-        ]
-        [ div [ styles.class .iconContainer ]
-            [ svg [ class <| styles.toString .iconBackground ] [ circle [ cx "75", cy "75", r "75" ] [] ]
-            , div [ styles.class .icon ]
-                [ Icon.view Icon.presentation
-                    resolveIcon
-                    |> Html.map never
-                ]
-            ]
-        , Text.view (Text.h1 |> Text.style Text.ZenHeading1 |> Text.inline True |> Text.id Constants.ariaLabelledBy) [ text config.title ]
-        ]
-
-
-body : List (Html msg) -> Html msg
-body content =
-    ModalBody.view <| ModalBody.layout content
+    div []
+        ([ span [ styles.class .instructiveText ] [ withInstructiveText ] ]
+            ++ [ form [] withTextFields ]
+        )
 
 
 footer : Configuration msg -> List (Html msg)
@@ -316,19 +282,9 @@ title titleString (Config config) =
     Config { config | title = titleString }
 
 
-bodySubtext : List (Html msg) -> Config msg -> Config msg
-bodySubtext content (Config config) =
-    Config { config | bodySubtext = Just content }
-
-
-confirmLabel : String -> Config msg -> Config msg
-confirmLabel confirmString (Config config) =
-    Config { config | confirmLabel = confirmString }
-
-
-dismissLabel : String -> Config msg -> Config msg
-dismissLabel dismissString (Config config) =
-    Config { config | dismissLabel = dismissString }
+instructiveText : String -> Config msg -> Config msg
+instructiveText instText (Config config) =
+    Config { config | instructiveText = Just instText }
 
 
 headerDismissId : String -> Config msg -> Config msg
@@ -346,9 +302,19 @@ onHeaderDismissBlur msg (Config config) =
     Config { config | onHeaderDismissBlur = Just msg }
 
 
-onConfirmFocus : msg -> Config msg -> Config msg
-onConfirmFocus msg (Config config) =
-    Config { config | onConfirmFocus = Just msg }
+confirmId : String -> Config msg -> Config msg
+confirmId id_ (Config config) =
+    Config { config | confirmId = Just id_ }
+
+
+confirmLabel : String -> Config msg -> Config msg
+confirmLabel confirmString (Config config) =
+    Config { config | confirmLabel = confirmString }
+
+
+dismissLabel : String -> Config msg -> Config msg
+dismissLabel dismissString (Config config) =
+    Config { config | dismissLabel = dismissString }
 
 
 onPreventHeaderDismissKeydown : List (Decode.Decoder msg) -> Config msg -> Config msg
@@ -361,26 +327,25 @@ confirmPreventKeydownOn keydownDecoders (Config config) =
     Config { config | confirmPreventKeydownOn = keydownDecoders }
 
 
+onConfirmFocus : msg -> Config msg -> Config msg
+onConfirmFocus msg (Config config) =
+    Config { config | onConfirmFocus = Just msg }
+
+
 onConfirmBlur : msg -> Config msg -> Config msg
 onConfirmBlur msg (Config config) =
     Config { config | onConfirmBlur = Just msg }
 
 
-confirmId : String -> Config msg -> Config msg
-confirmId id_ (Config config) =
-    Config { config | confirmId = Just id_ }
+textFieldConfigs : List (TextField.Config msg) -> Config msg -> Config msg
+textFieldConfigs configs (Config config) =
+    Config { config | textFieldConfigs = configs }
 
 
 styles =
-    css "@kaizen/component-library/draft/Kaizen/Modal/Presets/ConfirmationModal.scss"
+    css "@kaizen/component-library/draft/Kaizen/Modal/Presets/InputEditModal.scss"
         { header = "header"
-        , informativeHeader = "informativeHeader"
-        , negativeHeader = "negativeHeader"
-        , positiveHeader = "positiveHeader"
-        , cautionaryHeader = "cautionaryHeader"
-        , iconContainer = "iconContainer"
-        , iconBackground = "iconBackground"
-        , icon = "icon"
+        , instructiveText = "instructiveText"
         }
 
 

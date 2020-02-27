@@ -4,7 +4,11 @@ import Button.Button as Button
 import ElmStorybook exposing (storyOf, storybook)
 import Html exposing (div, text)
 import Html.Attributes exposing (style)
+import Icon.Icon as Icon
+import Icon.SvgAsset exposing (svgAsset)
+import Kaizen.Form.TextField.TextField as TextField
 import Kaizen.Modal.Modal as Modal
+import Kaizen.Modal.Primitives.Constants as ModalConstants
 import Kaizen.Modal.Primitives.ModalBody as ModalBody
 import Kaizen.Modal.Primitives.ModalFooter as ModalFooter
 import Kaizen.Modal.Primitives.ModalHeader as ModalHeader
@@ -167,7 +171,7 @@ main =
                         Nothing ->
                             text ""
                     ]
-        , storyOf "Confirmation (Informative)" config <|
+        , storyOf "Confirmation (informative)" config <|
             \m ->
                 div []
                     [ case m.modalContext of
@@ -193,7 +197,7 @@ main =
                         Nothing ->
                             text ""
                     ]
-        , storyOf "Confirmation (Positive)" config <|
+        , storyOf "Confirmation (positive)" config <|
             \m ->
                 div []
                     [ case m.modalContext of
@@ -219,7 +223,7 @@ main =
                         Nothing ->
                             text ""
                     ]
-        , storyOf "Confirmation (Negative)" config <|
+        , storyOf "Confirmation (negative)" config <|
             \m ->
                 div []
                     [ case m.modalContext of
@@ -245,7 +249,7 @@ main =
                         Nothing ->
                             text ""
                     ]
-        , storyOf "Confirmation (User action)" config <|
+        , storyOf "Confirmation (user action)" config <|
             \m ->
                 div []
                     [ Button.view (Button.default |> Button.onClick SetModalContext) "Open Modal"
@@ -275,5 +279,83 @@ main =
 
                       else
                         text ""
+                    ]
+        , storyOf "InputEdit (positive)" config <|
+            \m ->
+                let
+                    textFieldConfigs =
+                        [ TextField.default
+                            |> TextField.inputType TextField.Email
+                            |> TextField.labelText "email"
+                            |> TextField.inputValue "mackenzie@example.com"
+                            |> TextField.icon [ Html.map never <| Icon.view Icon.presentation (svgAsset "@kaizen/component-library/icons/user.icon.svg") ]
+                            |> TextField.id ModalConstants.defaultFocusableId
+                        , TextField.default
+                            |> TextField.inputType TextField.Password
+                            |> TextField.labelText "password"
+                            |> TextField.inputValue "123456789"
+                            |> TextField.icon [ Html.map never <| Icon.view Icon.presentation (svgAsset "@kaizen/component-library/icons/lock.icon.svg") ]
+                        ]
+                in
+                div []
+                    [ case m.modalContext of
+                        Just modalState ->
+                            Modal.view <|
+                                (Modal.inputEdit Modal.InputPositive
+                                    { title = "Input-edit modal title"
+                                    , textFieldConfigs = textFieldConfigs
+                                    , instructiveText =
+                                        Just "Instructive text to drive user selection goes here."
+                                    , onDismiss = Just ModalDismissed
+                                    , onConfirm = Just ModalConfirmed
+                                    , confirmLabel = "Submit"
+                                    , dismissLabel = "Cancel"
+                                    }
+                                    |> Modal.modalState modalState
+                                    -- IMPORTANT: the modal uses this for internal messages
+                                    |> Modal.onUpdate ModalUpdate
+                                )
+
+                        Nothing ->
+                            text ""
+                    ]
+        , storyOf "InputEdit (negative)" config <|
+            \m ->
+                let
+                    textFieldConfigs =
+                        [ TextField.default
+                            |> TextField.inputType TextField.Email
+                            |> TextField.labelText "email"
+                            |> TextField.inputValue "mackenzie@example.com"
+                            |> TextField.icon [ Html.map never <| Icon.view Icon.presentation (svgAsset "@kaizen/component-library/icons/user.icon.svg") ]
+                            |> TextField.id ModalConstants.defaultFocusableId
+                        , TextField.default
+                            |> TextField.inputType TextField.Password
+                            |> TextField.labelText "password"
+                            |> TextField.inputValue "123456789"
+                            |> TextField.icon [ Html.map never <| Icon.view Icon.presentation (svgAsset "@kaizen/component-library/icons/lock.icon.svg") ]
+                        ]
+                in
+                div []
+                    [ case m.modalContext of
+                        Just modalState ->
+                            Modal.view <|
+                                (Modal.inputEdit Modal.InputNegative
+                                    { title = "Input-edit modal title"
+                                    , textFieldConfigs = textFieldConfigs
+                                    , instructiveText =
+                                        Just "Instructive text to drive user selection goes here."
+                                    , onDismiss = Just ModalDismissed
+                                    , onConfirm = Just ModalConfirmed
+                                    , confirmLabel = "Submit"
+                                    , dismissLabel = "Cancel"
+                                    }
+                                    |> Modal.modalState modalState
+                                    -- IMPORTANT: the modal uses this for internal messages
+                                    |> Modal.onUpdate ModalUpdate
+                                )
+
+                        Nothing ->
+                            text ""
                     ]
         ]

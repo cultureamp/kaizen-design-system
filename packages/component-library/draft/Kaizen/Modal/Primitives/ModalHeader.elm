@@ -1,5 +1,6 @@
 module Kaizen.Modal.Primitives.ModalHeader exposing
     ( dismissId
+    , dismissReverse
     , fixed
     , layout
     , onDismiss
@@ -29,6 +30,7 @@ type alias Configuration msg =
     , onDismissFocus : Maybe msg
     , onDismissBlur : Maybe msg
     , preventDismissKeydown : List (Decode.Decoder msg)
+    , dismissReverse : Bool
     }
 
 
@@ -41,6 +43,7 @@ defaults =
     , onDismissFocus = Nothing
     , onDismissBlur = Nothing
     , preventDismissKeydown = []
+    , dismissReverse = True
     }
 
 
@@ -104,7 +107,7 @@ layoutBox content config =
                         [ Button.view
                             (Button.iconButton
                                 (svgAsset "@kaizen/component-library/icons/close.icon.svg")
-                                |> Button.reversed True
+                                |> Button.reversed config.dismissReverse
                                 |> withDismissId
                                 |> withFocus
                                 |> withBlur
@@ -167,6 +170,11 @@ onDismiss msg (Config config) =
 onDismissFocus : msg -> Config msg -> Config msg
 onDismissFocus msg (Config config) =
     Config { config | onDismissFocus = Just msg }
+
+
+dismissReverse : Bool -> Config msg -> Config msg
+dismissReverse predicate (Config config) =
+    Config { config | dismissReverse = predicate }
 
 
 onDismissBlur : msg -> Config msg -> Config msg

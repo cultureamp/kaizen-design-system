@@ -1,6 +1,7 @@
 module Kaizen.Modal.Modal exposing
     ( Config
     , ConfirmationType(..)
+    , InputEditType(..)
     , ModalMsg
     , ModalState
     , Status(..)
@@ -10,6 +11,7 @@ module Kaizen.Modal.Modal exposing
     , forceOpen
     , generic
     , initialState
+    , inputEdit
     , lastFocusableId
     , modalState
     , onUpdate
@@ -27,7 +29,9 @@ import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
 import Html.Lazy exposing (lazy)
 import Kaizen.Events.Events as KaizenEvents
+import Kaizen.Form.TextField.TextField as TextField
 import Kaizen.Modal.Presets.ConfirmationModal as ConfirmationModal
+import Kaizen.Modal.Presets.InputEditModal as InputEditModal
 import Kaizen.Modal.Primitives.Constants as Constants
 import Kaizen.Modal.Primitives.GenericModal as GenericModal
 import Task
@@ -99,6 +103,11 @@ type ConfirmationType
     | Cautionary
 
 
+type InputEditType
+    = InputPositive
+    | InputNegative
+
+
 type FirstFocusableId
     = FirstFocusableId String
 
@@ -125,6 +134,17 @@ type ModalStep
 type alias ConfirmationConfig msg =
     { title : String
     , bodySubtext : Maybe (List (Html msg))
+    , onDismiss : Maybe msg
+    , onConfirm : Maybe msg
+    , confirmLabel : String
+    , dismissLabel : String
+    }
+
+
+type alias InputEditConfig msg =
+    { title : String
+    , instructiveText : Maybe String
+    , textFieldConfigs : List (TextField.Config msg)
     , onDismiss : Maybe msg
     , onConfirm : Maybe msg
     , confirmLabel : String
@@ -362,6 +382,100 @@ viewContent (Config config) =
                                 )
                             ]
                             (genericModalConfig |> GenericModal.events genericModalEvents)
+
+            InputEdit inputEditType configs ->
+                let
+                    withOnDismiss inputEditConfig =
+                        case configs.onDismiss of
+                            Just dismissMsg ->
+                                InputEditModal.onDismiss dismissMsg inputEditConfig
+
+                            Nothing ->
+                                case config.onUpdate of
+                                    Just updateMsg ->
+                                        InputEditModal.onDismiss (updateMsg Update) inputEditConfig
+
+                                    Nothing ->
+                                        inputEditConfig
+
+                    withOnConfirm inputEditConfig =
+                        case configs.onConfirm of
+                            Just confirmMsg ->
+                                InputEditModal.onConfirm confirmMsg inputEditConfig
+
+                            Nothing ->
+                                inputEditConfig
+
+                    withFocusableIds inputEditConfig =
+                        InputEditModal.headerDismissId (firstFocusableIdToString modalData.firstFocusableId) inputEditConfig
+                            |> InputEditModal.confirmId (lastFocusableIdToString modalData.lastFocusableId)
+
+                    withFocusLockAttribs inputEditConfig =
+                        case config.onUpdate of
+                            Just updateMsg ->
+                                let
+                                    withHeaderDismissPreventKeydownOn inputEConfig =
+                                        if isShiftKeydown config.state && firstFocusableFocused config.state then
+                                            InputEditModal.onPreventHeaderDismissKeydown [ KaizenEvents.isTab (updateMsg FirstFocusableShiftTabbed) ] inputEConfig
+
+                                        else
+                                            inputEConfig
+
+                                    withConfirmPreventKeydownOn inputEConfig =
+                                        if not <| isShiftKeydown config.state && lastFocusableFocused config.state then
+                                            InputEditModal.confirmPreventKeydownOn [ KaizenEvents.isTab (updateMsg LastFocusableTabbed) ] inputEConfig
+
+                                        else
+                                            inputEConfig
+                                in
+                                InputEditModal.onHeaderDismissFocus (updateMsg FirstFocusableElementFocused) inputEditConfig
+                                    |> InputEditModal.onConfirmFocus (updateMsg LastFocusableElementFocused)
+                                    |> InputEditModal.onConfirmBlur (updateMsg ClearFocusedFocusable)
+                                    |> InputEditModal.onHeaderDismissBlur (updateMsg ClearFocusedFocusable)
+                                    |> withHeaderDismissPreventKeydownOn
+                                    |> withConfirmPreventKeydownOn
+
+                            Nothing ->
+                                inputEditConfig
+
+                    withInstructiveText inputEditConfig =
+                        case configs.instructiveText of
+                            Just instructiveText ->
+                                InputEditModal.instructiveText instructiveText inputEditConfig
+
+                            Nothing ->
+                                inputEditConfig
+
+                    commonInputEditConfig inputEditConfig =
+                        withOnDismiss inputEditConfig
+                            |> withOnConfirm
+                            |> withFocusableIds
+                            |> withFocusLockAttribs
+                            |> InputEditModal.confirmLabel configs.confirmLabel
+                            |> InputEditModal.dismissLabel configs.dismissLabel
+                            |> InputEditModal.title configs.title
+                            |> InputEditModal.textFieldConfigs configs.textFieldConfigs
+                in
+                case inputEditType of
+                    InputPositive ->
+                        GenericModal.view GenericModal.Default
+                            [ InputEditModal.view
+                                (InputEditModal.positive
+                                    |> commonInputEditConfig
+                                    |> withInstructiveText
+                                )
+                            ]
+                            (genericModalConfig |> GenericModal.events genericModalEvents)
+
+                    InputNegative ->
+                        GenericModal.view GenericModal.Default
+                            [ InputEditModal.view
+                                (InputEditModal.negative
+                                    |> commonInputEditConfig
+                                    |> withInstructiveText
+                                )
+                            ]
+                            (genericModalConfig |> GenericModal.events genericModalEvents)
         ]
 
 
@@ -546,6 +660,7 @@ defaultFocusableId id =
 type Variant msg
     = Generic (List (Html msg)) ( Float, Float )
     | Confirmation ConfirmationType (ConfirmationConfig msg)
+    | InputEdit InputEditType (InputEditConfig msg)
 
 
 generic : List (Html msg) -> ( Float, Float ) -> Config msg
@@ -558,6 +673,14 @@ confirmation confirmationType confirmationConfig =
     Config
         { defaults
             | variant = Confirmation confirmationType confirmationConfig
+        }
+
+
+inputEdit : InputEditType -> InputEditConfig msg -> Config msg
+inputEdit inputEditType inputEditConfig =
+    Config
+        { defaults
+            | variant = InputEdit inputEditType inputEditConfig
         }
 
 
