@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.6.3...@kaizen/component-library@3.7.0) (2020-02-28)
+
+
+### Features
+
+* Add cautionary modal variant ([#310](https://github.com/cultureamp/kaizen-design-system/issues/310)) ([455da70](https://github.com/cultureamp/kaizen-design-system/commit/455da70))
+
+
+
+
+
 ## [3.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.6.2...@kaizen/component-library@3.6.3) (2020-02-27)
 
 **Note:** Version bump only for package @kaizen/component-library
