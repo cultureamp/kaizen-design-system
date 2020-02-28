@@ -96,6 +96,7 @@ type ConfirmationType
     = Informative
     | Positive
     | Negative
+    | Cautionary
 
 
 type FirstFocusableId
@@ -348,6 +349,15 @@ viewContent (Config config) =
                         GenericModal.view GenericModal.Default
                             [ ConfirmationModal.view
                                 (ConfirmationModal.negative
+                                    |> commonConfirmationConfig
+                                )
+                            ]
+                            (genericModalConfig |> GenericModal.events genericModalEvents)
+
+                    Cautionary ->
+                        GenericModal.view GenericModal.Default
+                            [ ConfirmationModal.view
+                                (ConfirmationModal.cautionary
                                     |> commonConfirmationConfig
                                 )
                             ]
