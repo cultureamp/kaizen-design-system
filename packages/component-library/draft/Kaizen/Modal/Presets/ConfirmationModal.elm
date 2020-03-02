@@ -1,5 +1,6 @@
 module Kaizen.Modal.Presets.ConfirmationModal exposing
     ( bodySubtext
+    , cautionary
     , confirmId
     , confirmLabel
     , confirmPreventKeydownOn
@@ -69,6 +70,7 @@ type Variant
     = Informative
     | Positive
     | Negative
+    | Cautionary
 
 
 informative : Config msg
@@ -84,6 +86,11 @@ positive =
 negative : Config msg
 negative =
     Config { defaults | variant = Negative }
+
+
+cautionary : Config msg
+cautionary =
+    Config { defaults | variant = Cautionary }
 
 
 
@@ -196,6 +203,7 @@ header config =
             , ( .informativeHeader, config.variant == Informative )
             , ( .positiveHeader, config.variant == Positive )
             , ( .negativeHeader, config.variant == Negative )
+            , ( .cautionaryHeader, config.variant == Cautionary )
             ]
         ]
         [ div [ styles.class .iconContainer ]
@@ -370,6 +378,7 @@ styles =
         , informativeHeader = "informativeHeader"
         , negativeHeader = "negativeHeader"
         , positiveHeader = "positiveHeader"
+        , cautionaryHeader = "cautionaryHeader"
         , iconContainer = "iconContainer"
         , iconBackground = "iconBackground"
         , icon = "icon"
