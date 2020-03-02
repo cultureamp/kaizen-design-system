@@ -85,7 +85,7 @@ describe("GuidanceBlock", () => {
         }}
       />
     )
-    const actionButton = container.querySelector(".primary")
+    const actionButton = container.querySelector("button")
     actionButton && fireEvent.click(actionButton)
     expect(onAction).toHaveBeenCalledTimes(1)
   })

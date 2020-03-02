@@ -1,4 +1,7 @@
 import { Button, Icon, Text } from "@kaizen/component-library"
+const configureIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
+  .default
+
 import classnames from "classnames"
 import * as React from "react"
 
@@ -74,19 +77,22 @@ class GuidanceBlock extends React.Component<Props, State> {
             width="96px"
           />
         </div>
-        <div className={styles.textWrapper}>
-          <Text tag="h3">{this.props.text.title}</Text>
-          <Text tag="p">{this.props.text.description}</Text>
+        <div>
+          <Text style="heading" tag="h3">
+            {this.props.text.title}
+          </Text>
+          <Text style="notification" tag="p">
+            {this.props.text.description}
+          </Text>
         </div>
-        {this.props.button && (
-          <div className={styles.buttonContainer}>
-            <Button
-              label={this.props.button.label}
-              primary
-              onClick={this.props.button.onClick}
-            />
-          </div>
-        )}
+        <div className={styles.buttonContainer}>
+          <Button
+            label={this.props.button.label}
+            onClick={this.props.button.onClick}
+            icon={configureIcon}
+            iconPosition="end"
+          />
+        </div>
         <CancelButton onClick={this.dismissBanner} />
       </div>
     )

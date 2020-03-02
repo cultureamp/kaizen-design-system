@@ -32,15 +32,6 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
   margin-bottom: 0;
 }
 
-.textWrapper {
-  flex: 1 auto;
-  padding: $ca-grid / 2 $ca-grid / 2 0 $ca-grid / 2;
-
-  h3 {
-    margin-bottom: $ca-grid / 2;
-  }
-}
-
 .imageContainer {
   padding: $ca-grid / 2;
 }
