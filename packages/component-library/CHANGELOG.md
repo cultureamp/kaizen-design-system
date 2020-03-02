@@ -3,6 +3,88 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.6.3...@kaizen/component-library@3.7.0) (2020-02-28)
+
+
+### Features
+
+* Add cautionary modal variant ([#310](https://github.com/cultureamp/kaizen-design-system/issues/310)) ([455da70](https://github.com/cultureamp/kaizen-design-system/commit/455da70))
+
+
+
+
+
+## [3.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.6.2...@kaizen/component-library@3.6.3) (2020-02-27)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [3.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.6.1...@kaizen/component-library@3.6.2) (2020-02-26)
+
+
+### Bug Fixes
+
+* Added @kaizen/hosted-assets as a dependency of component library ([#306](https://github.com/cultureamp/kaizen-design-system/issues/306)) ([3332f78](https://github.com/cultureamp/kaizen-design-system/commit/3332f78))
+
+
+
+
+
+## [3.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.6.0...@kaizen/component-library@3.6.1) (2020-02-26)
+
+
+### Bug Fixes
+
+* Bump design-tokens peer dependency ([#305](https://github.com/cultureamp/kaizen-design-system/issues/305)) ([6f5092a](https://github.com/cultureamp/kaizen-design-system/commit/6f5092a))
+
+
+
+
+
+# [3.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.5.1...@kaizen/component-library@3.6.0) (2020-02-25)
+
+
+### Features
+
+* apply focus lock on modal ([#295](https://github.com/cultureamp/kaizen-design-system/issues/295)) ([2d71ea1](https://github.com/cultureamp/kaizen-design-system/commit/2d71ea1))
+
+
+
+
+
+## [3.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.5.0...@kaizen/component-library@3.5.1) (2020-02-25)
+
+
+### Bug Fixes
+
+* Use correct import path for hosted-assets sass file in fonts ([#303](https://github.com/cultureamp/kaizen-design-system/issues/303)) ([0bb3378](https://github.com/cultureamp/kaizen-design-system/commit/0bb3378))
+
+
+
+
+
+# [3.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.4.4...@kaizen/component-library@3.5.0) (2020-02-24)
+
+
+### Features
+
+* Add prevent default on keydown to Button ([#301](https://github.com/cultureamp/kaizen-design-system/issues/301)) ([902f43b](https://github.com/cultureamp/kaizen-design-system/commit/902f43b))
+
+
+
+
+
+## [3.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.4.3...@kaizen/component-library@3.4.4) (2020-02-24)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [3.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.4.2...@kaizen/component-library@3.4.3) (2020-02-24)
 
 **Note:** Version bump only for package @kaizen/component-library

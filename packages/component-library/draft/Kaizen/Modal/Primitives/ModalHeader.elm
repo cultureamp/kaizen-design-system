@@ -3,6 +3,9 @@ module Kaizen.Modal.Primitives.ModalHeader exposing
     , fixed
     , layout
     , onDismiss
+    , onDismissBlur
+    , onDismissFocus
+    , preventDismissKeydown
     , view
     )
 
@@ -11,6 +14,7 @@ import CssModules exposing (css)
 import Html exposing (Html, div, text)
 import Html.Events exposing (onClick)
 import Icon.SvgAsset exposing (svgAsset)
+import Json.Decode as Decode
 
 
 type Config msg
@@ -22,6 +26,9 @@ type alias Configuration msg =
     , fixed : Bool
     , onDismiss : Maybe msg
     , dismissId : Maybe String
+    , onDismissFocus : Maybe msg
+    , onDismissBlur : Maybe msg
+    , preventDismissKeydown : List (Decode.Decoder msg)
     }
 
 
@@ -31,6 +38,9 @@ defaults =
     , fixed = False
     , onDismiss = Nothing
     , dismissId = Nothing
+    , onDismissFocus = Nothing
+    , onDismissBlur = Nothing
+    , preventDismissKeydown = []
     }
 
 
@@ -64,6 +74,29 @@ layoutBox content config =
                 Nothing ->
                     buttonConfig
 
+        withFocus buttonConfig =
+            case config.onDismissFocus of
+                Just msg ->
+                    Button.onFocus msg buttonConfig
+
+                Nothing ->
+                    buttonConfig
+
+        withBlur buttonConfig =
+            case config.onDismissBlur of
+                Just msg ->
+                    Button.onBlur msg buttonConfig
+
+                Nothing ->
+                    buttonConfig
+
+        withPreventKeydown buttonConfig =
+            if List.isEmpty config.preventDismissKeydown then
+                buttonConfig
+
+            else
+                Button.preventKeydownOn config.preventDismissKeydown buttonConfig
+
         resolveDismissButton =
             case config.onDismiss of
                 Just onDismissMsg ->
@@ -73,6 +106,9 @@ layoutBox content config =
                                 (svgAsset "@kaizen/component-library/icons/close.icon.svg")
                                 |> Button.reversed True
                                 |> withDismissId
+                                |> withFocus
+                                |> withBlur
+                                |> withPreventKeydown
                             )
                             "Dismiss"
                         ]
@@ -128,9 +164,24 @@ onDismiss msg (Config config) =
     Config { config | onDismiss = Just msg }
 
 
+onDismissFocus : msg -> Config msg -> Config msg
+onDismissFocus msg (Config config) =
+    Config { config | onDismissFocus = Just msg }
+
+
+onDismissBlur : msg -> Config msg -> Config msg
+onDismissBlur msg (Config config) =
+    Config { config | onDismissBlur = Just msg }
+
+
 dismissId : String -> Config msg -> Config msg
 dismissId id_ (Config config) =
     Config { config | dismissId = Just id_ }
+
+
+preventDismissKeydown : List (Decode.Decoder msg) -> Config msg -> Config msg
+preventDismissKeydown keydownDecoders (Config config) =
+    Config { config | preventDismissKeydown = keydownDecoders }
 
 
 styles =

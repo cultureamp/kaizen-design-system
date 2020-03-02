@@ -42,9 +42,9 @@ type ModalState msg
     = ModalState State
 
 
-type Progress
+type AnimatingStep
     = Animating
-    | Stopped
+    | NotAnimating
 
 
 type Status
@@ -55,9 +55,16 @@ type Status
 type ModalMsg
     = Update
     | RunModal Time.Posix
-    | FirstFocusableElementFocused (Result BrowserDom.Error ())
-    | LastFocusableElementFocused (Result BrowserDom.Error ())
+    | FocusFirstFocusableElement (Result BrowserDom.Error ())
+    | FocusLastFocusableElement (Result BrowserDom.Error ())
+    | FirstFocusableElementFocused
+    | LastFocusableElementFocused
     | DefaultFocusableElementFocused (Result BrowserDom.Error ())
+    | ClearFocusedFocusable
+    | ShiftKeydown
+    | ShiftKeyup
+    | FirstFocusableShiftTabbed
+    | LastFocusableTabbed
 
 
 type alias Configuration msg =
@@ -89,6 +96,7 @@ type ConfirmationType
     = Informative
     | Positive
     | Negative
+    | Cautionary
 
 
 type FirstFocusableId
@@ -103,8 +111,14 @@ type DefaultFocusableId
     = DefaultFocusableId String
 
 
+type FocusedFocusable
+    = FirstFocusable
+    | LastFocusable
+    | NoFocus
+
+
 type ModalStep
-    = Idle
+    = NotRunning
     | Running
 
 
@@ -124,8 +138,10 @@ type alias ModalData =
     , lastFocusableId : LastFocusableId
     , defaultFocusableId : DefaultFocusableId
     , modalStep : ModalStep
-    , startTime : Maybe Time.Posix
-    , progress : Progress
+    , startTime : Time.Posix
+    , animatingStep : AnimatingStep
+    , focusedFocusable : FocusedFocusable
+    , shiftKeydown : Bool
     }
 
 
@@ -138,12 +154,22 @@ type alias Timing =
 subscriptions : ModalState msg -> Sub ModalMsg
 subscriptions ms =
     let
-        subscribeToEscape =
-            if isOpen ms then
-                BrowserEvents.onKeyDown (KaizenEvents.isEscape Update)
+        shiftKey =
+            if isShiftKeydown ms then
+                BrowserEvents.onKeyUp (KaizenEvents.isShift ShiftKeyup)
 
             else
-                Sub.none
+                BrowserEvents.onKeyDown (KaizenEvents.isShift ShiftKeydown)
+
+        keydownEscape =
+            BrowserEvents.onKeyDown (KaizenEvents.isEscape Update)
+
+        keySubscriptions =
+            if isOpen ms then
+                [ keydownEscape, shiftKey ]
+
+            else
+                []
 
         runModal =
             if isRunning ms then
@@ -152,7 +178,7 @@ subscriptions ms =
             else
                 Sub.none
     in
-    Sub.batch [ subscribeToEscape, runModal ]
+    Sub.batch ([ runModal ] ++ keySubscriptions)
 
 
 view : Config msg -> Html msg
@@ -164,8 +190,8 @@ view c =
         ( mState, modalData ) =
             getState config.state
     in
-    case ( mState, modalData.progress ) of
-        ( Closed_, Stopped ) ->
+    case ( mState, modalData.animatingStep ) of
+        ( Closed_, NotAnimating ) ->
             text ""
 
         _ ->
@@ -197,9 +223,6 @@ viewContent (Config config) =
                 Closing_ ->
                     [ ( .animatingElmExit, True ) ]
 
-                Closed_ ->
-                    [ ( .animatingElmExit, True ) ]
-
                 _ ->
                     []
 
@@ -207,6 +230,9 @@ viewContent (Config config) =
             case config.state of
                 ModalState ( Opening_, _ ) ->
                     [ ( .elmUnscrollable, True ) ]
+
+                ModalState ( Closed_, _ ) ->
+                    [ ( .hide, True ) ]
 
                 _ ->
                     []
@@ -261,19 +287,51 @@ viewContent (Config config) =
                     withFocusableIds confirmationConfig =
                         ConfirmationModal.headerDismissId (firstFocusableIdToString modalData.firstFocusableId) confirmationConfig
                             |> ConfirmationModal.confirmId (lastFocusableIdToString modalData.lastFocusableId)
+
+                    withFocusLockAttribs confirmationConfig =
+                        case config.onUpdate of
+                            Just updateMsg ->
+                                let
+                                    withHeaderDismissPreventKeydownOn conConfig =
+                                        if isShiftKeydown config.state && firstFocusableFocused config.state then
+                                            ConfirmationModal.onPreventHeaderDismissKeydown [ KaizenEvents.isTab (updateMsg FirstFocusableShiftTabbed) ] conConfig
+
+                                        else
+                                            conConfig
+
+                                    withConfirmPreventKeydownOn conConfig =
+                                        if not <| isShiftKeydown config.state && lastFocusableFocused config.state then
+                                            ConfirmationModal.confirmPreventKeydownOn [ KaizenEvents.isTab (updateMsg LastFocusableTabbed) ] conConfig
+
+                                        else
+                                            conConfig
+                                in
+                                ConfirmationModal.onHeaderDismissFocus (updateMsg FirstFocusableElementFocused) confirmationConfig
+                                    |> ConfirmationModal.onConfirmFocus (updateMsg LastFocusableElementFocused)
+                                    |> ConfirmationModal.onConfirmBlur (updateMsg ClearFocusedFocusable)
+                                    |> ConfirmationModal.onHeaderDismissBlur (updateMsg ClearFocusedFocusable)
+                                    |> withHeaderDismissPreventKeydownOn
+                                    |> withConfirmPreventKeydownOn
+
+                            Nothing ->
+                                confirmationConfig
+
+                    commonConfirmationConfig confirmationConfig =
+                        withOnDismiss confirmationConfig
+                            |> withOnConfirm
+                            |> withBodySubtext
+                            |> withFocusableIds
+                            |> withFocusLockAttribs
+                            |> ConfirmationModal.confirmLabel configs.confirmLabel
+                            |> ConfirmationModal.dismissLabel configs.dismissLabel
+                            |> ConfirmationModal.title configs.title
                 in
                 case confirmationType of
                     Informative ->
                         GenericModal.view GenericModal.Default
                             [ ConfirmationModal.view
                                 (ConfirmationModal.informative
-                                    |> withOnDismiss
-                                    |> withOnConfirm
-                                    |> withBodySubtext
-                                    |> withFocusableIds
-                                    |> ConfirmationModal.confirmLabel configs.confirmLabel
-                                    |> ConfirmationModal.dismissLabel configs.dismissLabel
-                                    |> ConfirmationModal.title configs.title
+                                    |> commonConfirmationConfig
                                 )
                             ]
                             (genericModalConfig |> GenericModal.events genericModalEvents)
@@ -282,13 +340,7 @@ viewContent (Config config) =
                         GenericModal.view GenericModal.Default
                             [ ConfirmationModal.view
                                 (ConfirmationModal.positive
-                                    |> withOnDismiss
-                                    |> withOnConfirm
-                                    |> withBodySubtext
-                                    |> withFocusableIds
-                                    |> ConfirmationModal.confirmLabel configs.confirmLabel
-                                    |> ConfirmationModal.dismissLabel configs.dismissLabel
-                                    |> ConfirmationModal.title configs.title
+                                    |> commonConfirmationConfig
                                 )
                             ]
                             (genericModalConfig |> GenericModal.events genericModalEvents)
@@ -297,13 +349,16 @@ viewContent (Config config) =
                         GenericModal.view GenericModal.Default
                             [ ConfirmationModal.view
                                 (ConfirmationModal.negative
-                                    |> withOnDismiss
-                                    |> withOnConfirm
-                                    |> withBodySubtext
-                                    |> withFocusableIds
-                                    |> ConfirmationModal.confirmLabel configs.confirmLabel
-                                    |> ConfirmationModal.dismissLabel configs.dismissLabel
-                                    |> ConfirmationModal.title configs.title
+                                    |> commonConfirmationConfig
+                                )
+                            ]
+                            (genericModalConfig |> GenericModal.events genericModalEvents)
+
+                    Cautionary ->
+                        GenericModal.view GenericModal.Default
+                            [ ConfirmationModal.view
+                                (ConfirmationModal.cautionary
+                                    |> commonConfirmationConfig
                                 )
                             ]
                             (genericModalConfig |> GenericModal.events genericModalEvents)
@@ -332,9 +387,11 @@ initialState =
           , firstFocusableId = firstFocusableId Constants.firstFocusableId
           , lastFocusableId = lastFocusableId Constants.lastFocusableId
           , defaultFocusableId = defaultFocusableId Constants.defaultFocusableId
-          , modalStep = Idle
-          , startTime = Nothing
-          , progress = Stopped
+          , modalStep = NotRunning
+          , startTime = Time.millisToPosix 0
+          , animatingStep = NotAnimating
+          , focusedFocusable = NoFocus
+          , shiftKeydown = False
           }
         )
 
@@ -370,11 +427,6 @@ mapDuration duration =
             300
 
 
-mapDurationWithAddedMillis : Duration -> Float -> Float
-mapDurationWithAddedMillis duration millis =
-    mapDuration duration + millis
-
-
 isOpen : ModalState msg -> Bool
 isOpen (ModalState state) =
     case state of
@@ -388,6 +440,21 @@ isOpen (ModalState state) =
 isRunning : ModalState msg -> Bool
 isRunning (ModalState ( _, mData )) =
     mData.modalStep == Running
+
+
+isShiftKeydown : ModalState msg -> Bool
+isShiftKeydown (ModalState ( _, mData )) =
+    mData.shiftKeydown
+
+
+firstFocusableFocused : ModalState msg -> Bool
+firstFocusableFocused (ModalState ( _, mData )) =
+    mData.focusedFocusable == FirstFocusable
+
+
+lastFocusableFocused : ModalState msg -> Bool
+lastFocusableFocused (ModalState ( _, mData )) =
+    mData.focusedFocusable == LastFocusable
 
 
 firstFocusableIdToString : FirstFocusableId -> String
@@ -405,17 +472,17 @@ defaultFocusableIdToString (DefaultFocusableId id_) =
     id_
 
 
-setModalStep : ModalStep -> ModalState msg -> ModalState msg
-setModalStep force (ModalState ( mState, mData )) =
-    ModalState ( mState, { mData | modalStep = force } )
+updateModalDataFromState : (ModalData -> ModalData) -> ModalState msg -> ModalState msg
+updateModalDataFromState f (ModalState ( mState, mData )) =
+    ModalState ( mState, f mData )
 
 
 resolveCmdsFromState : ModalState msg -> Cmd ModalMsg
 resolveCmdsFromState (ModalState ( ms, mData )) =
     case mData.modalStep of
-        Idle ->
-            case ( ms, mData.progress ) of
-                ( Open_, Stopped ) ->
+        NotRunning ->
+            case ( ms, mData.animatingStep ) of
+                ( Open_, NotAnimating ) ->
                     Task.attempt DefaultFocusableElementFocused <| BrowserDom.focus (defaultFocusableIdToString mData.defaultFocusableId)
 
                 _ ->
@@ -428,7 +495,7 @@ resolveCmdsFromState (ModalState ( ms, mData )) =
 resolveStatusFromState : ModalState msg -> Maybe Status
 resolveStatusFromState (ModalState ( ms, mData )) =
     case mData.modalStep of
-        Idle ->
+        NotRunning ->
             case ms of
                 Open_ ->
                     Just Open
@@ -451,13 +518,10 @@ resolveStatusFromState (ModalState ( ms, mData )) =
 
     This is not recommended as modals should be triggered by an intentional user action
 
-    IMPORTANT: This needs subscriptions hooked up or else the modal will just be closed
-    and do nothing.
-
 -}
 forceOpen : ModalState msg -> ModalState msg
 forceOpen (ModalState ( _, mData )) =
-    ModalState ( Open_, { mData | modalStep = Running, progress = Animating } )
+    ModalState ( Open_, { mData | modalStep = Running, animatingStep = Animating } )
 
 
 firstFocusableId : String -> FirstFocusableId
@@ -528,7 +592,7 @@ update ms modalMsg =
     in
     case modalMsg of
         Update ->
-            ( setModalStep Running ms, Cmd.none, Nothing )
+            ( updateModalDataFromState (\md -> { md | modalStep = Running }) ms, Cmd.none, Nothing )
 
         RunModal currentTimePosix ->
             case mData.modalStep of
@@ -539,10 +603,19 @@ update ms modalMsg =
                     in
                     ( newRunningState, resolveCmdsFromState newRunningState, resolveStatusFromState newRunningState )
 
-                Idle ->
+                NotRunning ->
                     ( ms, Cmd.none, Nothing )
 
-        FirstFocusableElementFocused focusResult ->
+        FirstFocusableElementFocused ->
+            ( updateModalDataFromState (\md -> { md | focusedFocusable = FirstFocusable }) ms, Cmd.none, Nothing )
+
+        LastFocusableElementFocused ->
+            ( updateModalDataFromState (\md -> { md | focusedFocusable = LastFocusable }) ms, Cmd.none, Nothing )
+
+        ClearFocusedFocusable ->
+            ( updateModalDataFromState (\md -> { md | focusedFocusable = NoFocus }) ms, Cmd.none, Nothing )
+
+        FocusFirstFocusableElement focusResult ->
             case focusResult of
                 Ok () ->
                     ( ms, Cmd.none, Nothing )
@@ -550,7 +623,7 @@ update ms modalMsg =
                 Err _ ->
                     ( ms, Cmd.none, Nothing )
 
-        LastFocusableElementFocused focusResult ->
+        FocusLastFocusableElement focusResult ->
             case focusResult of
                 Ok () ->
                     ( ms, Cmd.none, Nothing )
@@ -567,60 +640,73 @@ update ms modalMsg =
                 -- This will work for when the last and default focusable element ids are the same e.g. Confirmation variants
                 Err _ ->
                     ( ms
-                    , Task.attempt LastFocusableElementFocused (BrowserDom.focus <| lastFocusableIdToString mData.lastFocusableId)
+                    , Task.attempt FocusLastFocusableElement (BrowserDom.focus <| lastFocusableIdToString mData.lastFocusableId)
                     , Nothing
                     )
 
+        ShiftKeydown ->
+            ( updateModalDataFromState (\md -> { md | shiftKeydown = True }) ms, Cmd.none, Nothing )
+
+        ShiftKeyup ->
+            ( updateModalDataFromState (\md -> { md | shiftKeydown = False }) ms, Cmd.none, Nothing )
+
+        FirstFocusableShiftTabbed ->
+            ( ms
+            , Task.attempt FocusLastFocusableElement (BrowserDom.focus <| lastFocusableIdToString mData.lastFocusableId)
+            , Nothing
+            )
+
+        LastFocusableTabbed ->
+            ( ms
+            , Task.attempt FocusFirstFocusableElement (BrowserDom.focus <| firstFocusableIdToString mData.firstFocusableId)
+            , Nothing
+            )
+
 
 updateRunningState : ModalState msg -> Time.Posix -> ModalState msg
-updateRunningState ((ModalState ( state, mData )) as ms) currentTime =
+updateRunningState ((ModalState ( state, mData )) as ms) now =
+    let
+        deltaTime =
+            Time.posixToMillis now - Time.posixToMillis mData.startTime
+    in
     case state of
         Open_ ->
             let
                 resolveState =
-                    case mData.progress of
+                    case mData.animatingStep of
                         Animating ->
-                            ModalState ( Open_, { mData | progress = Stopped, modalStep = Idle } )
+                            ModalState ( Open_, { mData | animatingStep = NotAnimating, modalStep = NotRunning } )
 
-                        Stopped ->
-                            ModalState ( Closing_, { mData | progress = Animating, startTime = Just currentTime } )
+                        NotAnimating ->
+                            ModalState ( Closing_, { mData | animatingStep = Animating, startTime = now } )
             in
             resolveState
 
         -- progress is always Animating when Opening
         Opening_ ->
-            case mData.startTime of
-                Nothing ->
-                    ms
+            if deltaTime < round (mapDuration mData.duration) then
+                ms
 
-                Just startTime ->
-                    if (Time.posixToMillis currentTime - Time.posixToMillis startTime) < round (mapDuration mData.duration) then
-                        ms
+            else
+                ModalState ( Open_, mData )
 
-                    else
-                        ModalState ( Open_, mData )
-
+        -- progress is always Animating when Closing
         Closing_ ->
-            case mData.startTime of
-                Nothing ->
-                    ms
+            if deltaTime < round (mapDuration mData.duration) then
+                ms
 
-                Just previousTime ->
-                    if (Time.posixToMillis currentTime - Time.posixToMillis previousTime) < round (mapDuration mData.duration) then
-                        ms
-
-                    else
-                        ModalState ( Closed_, mData )
+            else
+                ModalState ( Closed_, mData )
 
         Closed_ ->
             let
                 resolveState =
-                    case mData.progress of
+                    case mData.animatingStep of
                         Animating ->
-                            ModalState ( Closed_, { mData | progress = Stopped, modalStep = Idle, startTime = Nothing } )
+                            ModalState ( Closed_, { mData | animatingStep = NotAnimating, modalStep = NotRunning, startTime = Time.millisToPosix 0 } )
 
-                        Stopped ->
-                            ModalState ( Opening_, { mData | progress = Animating, startTime = Just currentTime } )
+                        NotAnimating ->
+                            ModalState ( Opening_, { mData | animatingStep = Animating, startTime = now } )
             in
             resolveState
 

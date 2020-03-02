@@ -1,5 +1,6 @@
 module Main exposing (main)
 
+import Button.Button as Button
 import ElmStorybook exposing (storyOf, storybook)
 import Html exposing (div, text)
 import Html.Attributes exposing (style)
@@ -14,19 +15,23 @@ type ModalMsg
     = ModalUpdate Modal.ModalMsg
     | ModalConfirmed
     | ModalDismissed
+    | SetModalContext
 
 
 
--- SetModalContext
-
-
-model : ModalState
-model =
-    { modalContext = Just (Modal.trigger Modal.initialState) }
+-- MODEL
 
 
 type alias ModalState =
     { modalContext : Maybe (Modal.ModalState ModalMsg)
+    , idealWayToSetUpModal : Bool
+    }
+
+
+model : ModalState
+model =
+    { modalContext = Just (Modal.trigger Modal.initialState)
+    , idealWayToSetUpModal = False
     }
 
 
@@ -79,6 +84,15 @@ update msg state =
                 Nothing ->
                     ( state, Cmd.none )
 
+        -- Typically modals dont start off open when you load a page. Setting the modal context is the ideal way
+        -- to render the modal into view.
+        SetModalContext ->
+            let
+                modalState =
+                    Modal.trigger Modal.initialState
+            in
+            ( { state | idealWayToSetUpModal = True, modalContext = Just modalState }, Cmd.none )
+
 
 subscriptions : ModalState -> Sub ModalMsg
 subscriptions { modalContext } =
@@ -99,7 +113,33 @@ main =
             }
     in
     storybook
-        [ storyOf "Generic" config <|
+        [ storyOf "Confirmation (cautionary)" config <|
+            \m ->
+                div []
+                    [ case m.modalContext of
+                        Just modalState ->
+                            Modal.view <|
+                                (Modal.confirmation Modal.Cautionary
+                                    { title = "Cautionary title"
+                                    , bodySubtext =
+                                        Just
+                                            [ div [ style "text-align" "center" ]
+                                                [ Text.view (Text.p |> Text.style Text.Lede |> Text.inline True) [ text "Additional subtext to aid the user can be added here." ] ]
+                                            ]
+                                    , onDismiss = Just ModalDismissed
+                                    , onConfirm = Just ModalConfirmed
+                                    , confirmLabel = "Confirm"
+                                    , dismissLabel = "Cancel"
+                                    }
+                                    |> Modal.modalState modalState
+                                    -- IMPORTANT: the modal uses this for internal messages
+                                    |> Modal.onUpdate ModalUpdate
+                                )
+
+                        Nothing ->
+                            text ""
+                    ]
+        , storyOf "Generic" config <|
             \m ->
                 div []
                     [ case m.modalContext of
@@ -204,5 +244,36 @@ main =
 
                         Nothing ->
                             text ""
+                    ]
+        , storyOf "Confirmation (User action)" config <|
+            \m ->
+                div []
+                    [ Button.view (Button.default |> Button.onClick SetModalContext) "Open Modal"
+                    , if m.idealWayToSetUpModal then
+                        case m.modalContext of
+                            Just modalState ->
+                                Modal.view <|
+                                    (Modal.confirmation Modal.Negative
+                                        { title = "Negative title"
+                                        , bodySubtext =
+                                            Just
+                                                [ div [ style "text-align" "center" ]
+                                                    [ Text.view (Text.p |> Text.style Text.Lede |> Text.inline True) [ text "Additional subtext to aid the user can be added here." ] ]
+                                                ]
+                                        , onDismiss = Just ModalDismissed
+                                        , onConfirm = Just ModalConfirmed
+                                        , confirmLabel = "Confirm"
+                                        , dismissLabel = "Cancel"
+                                        }
+                                        |> Modal.modalState modalState
+                                        -- IMPORTANT: the modal uses this for internal messages
+                                        |> Modal.onUpdate ModalUpdate
+                                    )
+
+                            Nothing ->
+                                text ""
+
+                      else
+                        text ""
                     ]
         ]
