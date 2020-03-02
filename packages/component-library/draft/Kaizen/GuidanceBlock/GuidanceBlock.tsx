@@ -69,7 +69,7 @@ class GuidanceBlock extends React.Component<Props, State> {
         ref={this.containerRef}
         onTransitionEnd={this.onTransitionEnd}
       >
-        <div className={styles.imageContainer}>
+        <div>
           <img
             src={this.props.img.src}
             alt={this.props.img.alt}
@@ -78,21 +78,19 @@ class GuidanceBlock extends React.Component<Props, State> {
           />
         </div>
         <div>
-          <Text style="heading" tag="h3">
-            {this.props.text.title}
-          </Text>
-          <Text style="notification" tag="p">
-            {this.props.text.description}
-          </Text>
+          <div className={styles.headingWrapper}>
+            <Text inline={true} tag="h3">
+              {this.props.text.title}
+            </Text>
+          </div>
+          <Text tag="p">{this.props.text.description}</Text>
         </div>
-        <div className={styles.buttonContainer}>
-          <Button
-            label={this.props.button.label}
-            onClick={this.props.button.onClick}
-            icon={configureIcon}
-            iconPosition="end"
-          />
-        </div>
+        <Button
+          label={this.props.button.label}
+          onClick={this.props.button.onClick}
+          icon={configureIcon}
+          iconPosition="end"
+        />
         <CancelButton onClick={this.dismissBanner} />
       </div>
     )

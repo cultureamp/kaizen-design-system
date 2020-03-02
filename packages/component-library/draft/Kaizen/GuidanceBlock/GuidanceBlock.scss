@@ -25,6 +25,10 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
   top: -1px;
   transition: $ca-banner-fade-out, $ca-banner-collapse-height-delayed;
   color: $kz-color-wisteria-800;
+
+  > * {
+    padding: $ca-grid / 2;
+  }
 }
 
 .hidden {
@@ -32,13 +36,8 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
   margin-bottom: 0;
 }
 
-.imageContainer {
-  padding: $ca-grid / 2;
-}
-
-.buttonContainer {
-  width: 55%;
-  text-align: right;
+.headingWrapper {
+  margin-bottom: $ca-grid / 2;
 }
 
 .cancel {
