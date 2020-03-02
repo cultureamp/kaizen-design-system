@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.3.0...@kaizen/deprecated-component-library-helpers@1.3.1) (2020-02-27)
+
+
+### Bug Fixes
+
+* add missing @kaizen/design-tokens dependency to deprecated-component-library-helpers ([#309](https://github.com/cultureamp/kaizen-design-system/issues/309)) ([c7d643a](https://github.com/cultureamp/kaizen-design-system/commit/c7d643a))
+
+
+
+
+
 # [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.2.0...@kaizen/deprecated-component-library-helpers@1.3.0) (2020-02-19)
 
 
