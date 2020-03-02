@@ -17,7 +17,7 @@ export const Default = () => (
           "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
       }}
       button={{
-        label: "Action!",
+        label: "Action",
         onClick: () => {
           alert("tada: 🎉")
         },

@@ -73,11 +73,11 @@ class GuidanceBlock extends React.Component<Props, State> {
           <img
             src={this.props.img.src}
             alt={this.props.img.alt}
-            height="96px"
-            width="96px"
+            height="155px"
+            width="155px"
           />
         </div>
-        <div>
+        <div className={styles.descriptionContainer}>
           <div className={styles.headingWrapper}>
             <Text inline={true} tag="h3">
               {this.props.text.title}
@@ -85,13 +85,15 @@ class GuidanceBlock extends React.Component<Props, State> {
           </div>
           <Text tag="p">{this.props.text.description}</Text>
         </div>
-        <Button
-          label={this.props.button.label}
-          onClick={this.props.button.onClick}
-          icon={configureIcon}
-          iconPosition="end"
-        />
-        <CancelButton onClick={this.dismissBanner} />
+        <div className={styles.buttonContainer}>
+          <Button
+            label={this.props.button.label}
+            onClick={this.props.button.onClick}
+            icon={configureIcon}
+            iconPosition="end"
+          />
+          <CancelButton onClick={this.dismissBanner} />
+        </div>
       </div>
     )
   }

@@ -31,13 +31,21 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
   }
 }
 
+.descriptionContainer {
+  max-width: 650px;
+}
+
+.buttonContainer {
+  padding-left: $ca-grid;
+}
+
 .hidden {
   opacity: 0;
   margin-bottom: 0;
 }
 
 .headingWrapper {
-  margin-bottom: $ca-grid / 2;
+  margin-bottom: $ca-grid / 4;
 }
 
 .cancel {
