@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.8.0...@kaizen/component-library@3.9.0) (2020-03-03)
+
+
+### Features
+
+* Uplift Empty State with Greycliff headings ([#302](https://github.com/cultureamp/kaizen-design-system/issues/302)) ([e8fa948](https://github.com/cultureamp/kaizen-design-system/commit/e8fa948))
+
+
+
+
+
 # [3.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.7.0...@kaizen/component-library@3.8.0) (2020-03-02)
 
 
