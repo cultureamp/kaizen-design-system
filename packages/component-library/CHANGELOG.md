@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.7.0...@kaizen/component-library@3.8.0) (2020-03-02)
+
+
+### Features
+
+* Uplift Title Block heading to Greycliff ([#298](https://github.com/cultureamp/kaizen-design-system/issues/298)) ([8bada1d](https://github.com/cultureamp/kaizen-design-system/commit/8bada1d))
+
+
+
+
+
 # [3.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.6.3...@kaizen/component-library@3.7.0) (2020-02-28)
 
 
