@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.9.0...@kaizen/component-library@3.10.0) (2020-03-03)
+
+
+### Features
+
+* use zen css styling for Elm Empty State by default ([#311](https://github.com/cultureamp/kaizen-design-system/issues/311)) ([d51d0e4](https://github.com/cultureamp/kaizen-design-system/commit/d51d0e4))
+
+
+
+
+
 # [3.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.8.0...@kaizen/component-library@3.9.0) (2020-03-03)
 
 
