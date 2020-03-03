@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/border";
-@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "./responsive";
 
 .container {
@@ -139,6 +139,27 @@
     }
   }
 }
+
+// ===================================================
+// This works with the temporary useZenStyles prop and
+// will enable Zen headings. This block can be removed
+// once these typography styles are the default.
+.zen .heading {
+  @include kz-typography-heading-3;
+
+  .sidebarAndContent & {
+    @include large-sidebar-and-content {
+      @include kz-typography-heading-2;
+    }
+  }
+
+  .contentOnly & {
+    @include large-content-only {
+      @include kz-typography-heading-2;
+    }
+  }
+}
+// ===================================================
 
 .description {
   @include ca-type-ideal-lede;
