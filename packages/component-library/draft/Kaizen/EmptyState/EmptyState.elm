@@ -198,6 +198,7 @@ view (Config config) =
                     [ ( .container, True )
                     , ( .sidebarAndContent, config.layoutContext == SidebarAndContent )
                     , ( .contentOnly, config.layoutContext == ContentOnly )
+                    , ( .zen, True )
                     ]
                ]
         )
@@ -222,6 +223,7 @@ styles =
         , textSide = "textSide"
         , illustration = "illustration"
         , textSideInner = "textSideInner"
+        , zen = "zen"
         , heading = "heading"
         , description = "description"
         , sidebarAndContent = "sidebarAndContent"
