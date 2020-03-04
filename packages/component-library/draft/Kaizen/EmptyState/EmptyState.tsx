@@ -34,6 +34,7 @@ export type EmptyStateProps = {
   straightCorners?: boolean
   illustrationType?: IllustrationType
   layoutContext?: LayoutContextType
+  useZenStyles?: boolean
   children?: React.ReactNode
 }
 
@@ -48,6 +49,7 @@ const EmptyState: EmptyState = ({
   bodyText,
   children,
   straightCorners,
+  useZenStyles,
 }) => (
   <div
     className={classnames([
@@ -64,7 +66,9 @@ const EmptyState: EmptyState = ({
         className={styles.illustration}
       />
     </div>
-    <div className={styles.textSide}>
+    <div
+      className={classnames([styles.textSide, { [styles.zen]: useZenStyles }])}
+    >
       <div className={styles.textSideInner}>
         <div className={styles.heading}>{headingText}</div>
         <div className={styles.description}>{bodyText}</div>
