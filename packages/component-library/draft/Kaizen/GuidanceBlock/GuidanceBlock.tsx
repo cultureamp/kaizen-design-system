@@ -79,11 +79,13 @@ class GuidanceBlock extends React.Component<Props, State> {
         </div>
         <div className={styles.descriptionContainer}>
           <div className={styles.headingWrapper}>
-            <Text inline={true} tag="h3">
+            <Text inline={true} tag="h3" style="display">
               {this.props.text.title}
             </Text>
           </div>
-          <Text tag="p">{this.props.text.description}</Text>
+          <Text tag="p" style="body">
+            {this.props.text.description}
+          </Text>
         </div>
         <div className={styles.buttonContainer}>
           <Button

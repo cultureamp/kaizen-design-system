@@ -12,7 +12,7 @@ export const Default = () => (
     <GuidanceBlock
       img={{ src: bannerImg, alt: "Guidance block" }}
       text={{
-        title: "This is the Guidance title",
+        title: "This is the Guidance block title",
         description:
           "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
       }}
