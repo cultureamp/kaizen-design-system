@@ -1,8 +1,7 @@
+@use "grid";
 @import "~@kaizen/design-tokens/sass/color";
 @import "color";
 @import "layers";
-
-$ca-grid: 1.5rem; // 24px @ default root font-size of 16px
 
 $ca-weight-extra-light: 200;
 $ca-weight-light: 300;
