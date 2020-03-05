@@ -49,7 +49,7 @@ const InputEditModal = ({
       <ModalHeader unpadded onDismiss={onDismiss}>
         <div className={styles.header}>
           <ModalAccessibleLabel>
-            <Text tag="h1" style="display" inline>
+            <Text tag="h1" style="zen-heading-3" inline>
               {title}
             </Text>
           </ModalAccessibleLabel>
