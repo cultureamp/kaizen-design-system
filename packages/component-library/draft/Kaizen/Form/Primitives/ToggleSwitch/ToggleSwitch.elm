@@ -19,7 +19,7 @@ type alias ConfigValue msg =
     , automationId : Maybe String
     , name : Maybe String
     , toggledStatus : Maybe ToggledStatus
-    , onToggle : Maybe (Bool -> msg)
+    , onToggle : Maybe (String -> msg)
     , disabled : Maybe Bool
     , theme : Maybe ToggleTheme
     }
@@ -37,9 +37,9 @@ type ToggleTheme
 
 defaults : ConfigValue msg
 defaults =
-    { id = Nothing
-    , automationId = Nothing
-    , name = Nothing
+    { id = Just ""
+    , automationId = Just ""
+    , name = Just ""
     , toggledStatus = Nothing
     , onToggle = Nothing
     , disabled = Nothing
@@ -80,7 +80,7 @@ toggledStatus value (Config config) =
     Config { config | toggledStatus = Just value }
 
 
-onToggle : (Bool -> msg) -> Config msg -> Config msg
+onToggle : (String -> msg) -> Config msg -> Config msg
 onToggle value (Config config) =
     Config { config | onToggle = Just value }
 
@@ -98,26 +98,10 @@ theme value (Config config) =
 view : Config msg -> Html msg
 view (Config config) =
     let
-        idProplala =
-            case config.id of
-                Just idString ->
-                    idString
-
-                Nothing ->
-                    ""
-
-        automationIdProp =
-            case config.automationId of
-                Just automationIdString ->
-                    automationIdString
-
-                Nothing ->
-                    ""
-
-        nameProp =
-            case config.name of
-                Just nameString ->
-                    nameString
+        convertToString prop =
+            case prop of
+                Just string ->
+                    string
 
                 Nothing ->
                     ""
@@ -154,6 +138,14 @@ view (Config config) =
 
                 Nothing ->
                     False
+
+        onToggleAttr =
+            case config.onToggle of
+                Just onToggleMsg ->
+                    [ onChange onToggleMsg ]
+
+                Nothing ->
+                    []
     in
     div
         [ styles.classList
@@ -163,17 +155,16 @@ view (Config config) =
             ]
         ]
         [ input
-            [ type_ "checkbox"
-
-            -- , id idProplala
-            -- , name nameProp
-            , attribute "data-automation-id" automationIdProp
-            , styles.class .checkbox
-            , checked isOn
-
-            -- , onChange onToggle
-            -- , disabled disabledProp
-            ]
+            ([ type_ "checkbox"
+             , Html.Attributes.id (convertToString config.id)
+             , Html.Attributes.name (convertToString config.name)
+             , attribute "data-automation-id" (convertToString config.automationId)
+             , styles.class .checkbox
+             , checked isOn
+             , Html.Attributes.disabled disabledProp
+             ]
+                ++ onToggleAttr
+            )
             []
         , div
             [ styles.classList
