@@ -3,6 +3,7 @@ module Kaizen.Form.Primitives.ToggleSwitch.ToggleSwitch exposing (..)
 import CssModules exposing (css)
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import Html.Events as Events
 import Html.Events.Extra exposing (onChange)
 
 
@@ -19,7 +20,7 @@ type alias ConfigValue msg =
     , automationId : Maybe String
     , name : Maybe String
     , toggledStatus : Maybe ToggledStatus
-    , onToggle : Maybe (String -> msg)
+    , onToggle : Maybe (Bool -> msg)
     , disabled : Maybe Bool
     , theme : Maybe ToggleTheme
     }
@@ -40,7 +41,7 @@ defaults =
     { id = Just ""
     , automationId = Just ""
     , name = Just ""
-    , toggledStatus = Nothing
+    , toggledStatus = Just On
     , onToggle = Nothing
     , disabled = Nothing
     , theme = Nothing
@@ -80,7 +81,7 @@ toggledStatus value (Config config) =
     Config { config | toggledStatus = Just value }
 
 
-onToggle : (String -> msg) -> Config msg -> Config msg
+onToggle : (Bool -> msg) -> Config msg -> Config msg
 onToggle value (Config config) =
     Config { config | onToggle = Just value }
 
@@ -128,6 +129,7 @@ view (Config config) =
                 Nothing ->
                     False
 
+
         isFreemiumTheme =
             case config.theme of
                 Just Default ->
@@ -139,10 +141,11 @@ view (Config config) =
                 Nothing ->
                     False
 
+
         onToggleAttr =
             case config.onToggle of
                 Just onToggleMsg ->
-                    [ onChange
+                    [ Events.onCheck
                         (\val ->
                             let
                                 ala =
@@ -163,15 +166,14 @@ view (Config config) =
             ]
         ]
         [ input
-            ([ type_ "checkbox"
-             , Html.Attributes.id (convertToString config.id)
-             , Html.Attributes.name (convertToString config.name)
-             , attribute "data-automation-id" (convertToString config.automationId)
-             , styles.class .checkbox
-             , checked isOn
-             , Html.Attributes.disabled disabledProp
-             ]
-                ++ onToggleAttr
+            (onToggleAttr
+                ++ [ type_ "checkbox"
+                   , Html.Attributes.id (convertToString config.id ++ "-field-toggle")
+                   , Html.Attributes.name (convertToString config.name)
+                   , attribute "data-automation-id" (convertToString config.automationId)
+                   , styles.class .checkbox
+                   , Html.Attributes.disabled disabledProp
+                   ]
             )
             []
         , div

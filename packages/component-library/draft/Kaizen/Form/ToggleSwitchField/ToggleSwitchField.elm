@@ -17,7 +17,7 @@ type alias ConfigValue msg =
     , name : Maybe String
     , labelText : Label.LabelProp msg
     , toggledStatus : Maybe ToggledStatus
-    , onToggle : Maybe (String -> msg)
+    , onToggle : Maybe (Bool -> msg)
     , disabled : Maybe Bool
     , inline : Maybe Bool
     , fullWidth : Maybe Bool
@@ -82,7 +82,7 @@ toggledStatus value (Config config) =
     Config { config | toggledStatus = Just value }
 
 
-onToggle : (String -> msg) -> Config msg -> Config msg
+onToggle : (Bool -> msg) -> Config msg -> Config msg
 onToggle value (Config config) =
     Config { config | onToggle = Just value }
 

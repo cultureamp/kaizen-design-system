@@ -10,7 +10,7 @@ type alias ToggleSwitchFieldModel =
 
 
 type ToggleSwitchFieldMsg
-    = ToggleSwitchMsg String
+    = ToggleSwitchMsg Bool
 
 
 model : ToggleSwitchFieldModel
@@ -28,24 +28,17 @@ update msg toggleSwitchFieldModel =
 
                 newToggleStatus =
                     case toggleStatus of
-                        "on" ->
+                        True ->
                             let
                                 _ =
                                     Debug.log "on path" toggleStatus
                             in
                             ToggleSwitchField.Off
 
-                        "off" ->
+                        False ->
                             let
                                 _ =
                                     Debug.log "off path" toggleStatus
-                            in
-                            ToggleSwitchField.On
-
-                        _ ->
-                            let
-                                _ =
-                                    Debug.log "RANDOM path" toggleStatus
                             in
                             ToggleSwitchField.On
 
@@ -73,6 +66,7 @@ main =
                 ToggleSwitchField.view
                     (ToggleSwitchField.default
                         |> ToggleSwitchField.labelText "Label"
+                        |> ToggleSwitchField.id "hello"
                         |> ToggleSwitchField.toggledStatus m.toggledStatus
                         |> ToggleSwitchField.theme ToggleSwitchField.Default
                         |> ToggleSwitchField.onToggle
