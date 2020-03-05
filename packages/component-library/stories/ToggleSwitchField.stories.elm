@@ -24,18 +24,33 @@ update msg toggleSwitchFieldModel =
         ToggleSwitchMsg toggleStatus ->
             let
                 _ =
-                    Debug.log "ALALA" toggleStatus
+                    Debug.log "ToggleSwitchMsg toggleStatus:" toggleStatus
 
                 newToggleStatus =
                     case toggleStatus of
                         "on" ->
+                            let
+                                _ =
+                                    Debug.log "on path" toggleStatus
+                            in
                             ToggleSwitchField.Off
 
                         "off" ->
+                            let
+                                _ =
+                                    Debug.log "off path" toggleStatus
+                            in
                             ToggleSwitchField.On
 
                         _ ->
+                            let
+                                _ =
+                                    Debug.log "RANDOM path" toggleStatus
+                            in
                             ToggleSwitchField.On
+
+                ola =
+                    Debug.log "NEW TOGGLE STATUS" newToggleStatus
             in
             ( { toggleSwitchFieldModel | toggledStatus = newToggleStatus }, Cmd.none )
 
@@ -51,11 +66,40 @@ main =
     storybook
         [ storyOf "hello im an elm toggle story" config <|
             \m ->
+                let
+                    _ =
+                        Debug.log "storybook m toggleStatus" m.toggledStatus
+                in
                 ToggleSwitchField.view
                     (ToggleSwitchField.default
                         |> ToggleSwitchField.labelText "Label"
                         |> ToggleSwitchField.toggledStatus m.toggledStatus
+                        |> ToggleSwitchField.theme ToggleSwitchField.Default
+                        |> ToggleSwitchField.onToggle
+                            (\val ->
+                                let
+                                    ala =
+                                        Debug.log "ToggleSwitchMsg val" val
+                                in
+                                ToggleSwitchMsg val
+                            )
+                    )
+        , storyOf "Disabled Off" config <|
+            \m ->
+                ToggleSwitchField.view
+                    (ToggleSwitchField.default
+                        |> ToggleSwitchField.labelText "Label"
+                        |> ToggleSwitchField.toggledStatus ToggleSwitchField.Off
                         |> ToggleSwitchField.theme ToggleSwitchField.Freemium
-                        |> ToggleSwitchField.onToggle (\val -> ToggleSwitchMsg val)
+                        |> ToggleSwitchField.disabled True
+                    )
+        , storyOf "Disabled On" config <|
+            \m ->
+                ToggleSwitchField.view
+                    (ToggleSwitchField.default
+                        |> ToggleSwitchField.labelText "Label"
+                        |> ToggleSwitchField.toggledStatus ToggleSwitchField.On
+                        |> ToggleSwitchField.theme ToggleSwitchField.Freemium
+                        |> ToggleSwitchField.disabled True
                     )
         ]

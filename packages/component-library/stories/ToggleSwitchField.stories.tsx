@@ -237,5 +237,5 @@ loadElmStories(
   "ToggleSwitchField (Elm)",
   module,
   require("./ToggleSwitchField.stories.elm"),
-  ["hello im an elm toggle story"]
+  ["hello im an elm toggle story", "Disabled Off", "Disabled On"]
 )

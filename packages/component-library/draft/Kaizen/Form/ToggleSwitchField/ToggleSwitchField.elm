@@ -161,16 +161,38 @@ view (Config config) =
                     ToggleSwitch.Default
 
         toggleSwitch =
-            [ ToggleSwitch.view
-                (ToggleSwitch.default
-                    |> ToggleSwitch.id (convertToString config.id)
-                    |> ToggleSwitch.automationId (convertToString config.id)
-                    |> ToggleSwitch.name (convertToString config.name)
-                    |> ToggleSwitch.toggledStatus toggledStatusProp
-                    |> ToggleSwitch.disabled False
-                    |> ToggleSwitch.theme themeProp
-                )
-            ]
+            case config.onToggle of
+                Just toggleMsg ->
+                    [ ToggleSwitch.view
+                        (ToggleSwitch.default
+                            |> ToggleSwitch.id (convertToString config.id)
+                            |> ToggleSwitch.automationId (convertToString config.id)
+                            |> ToggleSwitch.name (convertToString config.name)
+                            |> ToggleSwitch.toggledStatus toggledStatusProp
+                            |> ToggleSwitch.disabled disabledProp
+                            |> ToggleSwitch.theme themeProp
+                            |> ToggleSwitch.onToggle
+                                (\val ->
+                                    let
+                                        _ =
+                                            Debug.log "ToggleSwitchField val"
+                                    in
+                                    toggleMsg val
+                                )
+                        )
+                    ]
+
+                Nothing ->
+                    [ ToggleSwitch.view
+                        (ToggleSwitch.default
+                            |> ToggleSwitch.id (convertToString config.id)
+                            |> ToggleSwitch.automationId (convertToString config.id)
+                            |> ToggleSwitch.name (convertToString config.name)
+                            |> ToggleSwitch.toggledStatus toggledStatusProp
+                            |> ToggleSwitch.disabled disabledProp
+                            |> ToggleSwitch.theme themeProp
+                        )
+                    ]
     in
     FieldGroup.view
         (FieldGroup.default

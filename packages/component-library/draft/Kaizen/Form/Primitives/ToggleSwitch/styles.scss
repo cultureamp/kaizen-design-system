@@ -10,6 +10,8 @@ $animation-timing: $ca-duration-immediate $ca-linear;
 
 .checkbox {
   @include form-input-visually-hidden();
+  width: 60px;
+  height: 33px;
 }
 
 .track {

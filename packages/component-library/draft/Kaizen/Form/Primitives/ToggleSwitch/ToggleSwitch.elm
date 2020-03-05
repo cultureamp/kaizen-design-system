@@ -142,7 +142,15 @@ view (Config config) =
         onToggleAttr =
             case config.onToggle of
                 Just onToggleMsg ->
-                    [ onChange onToggleMsg ]
+                    [ onChange
+                        (\val ->
+                            let
+                                ala =
+                                    Debug.log "ToggleSwitch val" val
+                            in
+                            onToggleMsg val
+                        )
+                    ]
 
                 Nothing ->
                     []
