@@ -30,8 +30,6 @@
 
   padding: $ca-grid 0;
   width: 100%;
-  -webkit-font-smoothing: antialiased;
-  color: $kz-color-wisteria-800;
 }
 
 .genericModal {
@@ -41,6 +39,8 @@
   box-shadow: $ca-box-shadow;
   position: relative;
   width: 90%;
+  -webkit-font-smoothing: antialiased;
+  color: $kz-color-wisteria-800;
 
   @include ca-media-tablet-and-up {
     width: 100%;
