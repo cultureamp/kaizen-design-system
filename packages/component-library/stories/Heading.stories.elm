@@ -35,4 +35,11 @@ main =
             Heading.view
                 (Heading.h1 |> Heading.variant Heading6)
                 [ Html.text "This the Heading6 variant" ]
+        , statelessStoryOf "HeadingWithDataAttr" <|
+            Heading.view
+                (Heading.h1
+                    |> Heading.variant Heading6
+                    |> Heading.addAttribute { name = "automation-id", value = "inbox-heading" }
+                )
+                [ Html.text "This the Heading6 variant" ]
         ]

@@ -1,7 +1,9 @@
 module Heading.Heading exposing
     ( Config
+    , DataAttribute
     , TypeVariant(..)
     , a
+    , addAttribute
     , div
     , h1
     , h2
@@ -13,6 +15,7 @@ module Heading.Heading exposing
     , p
     , pre
     , span
+    , tag
     , variant
     , view
     )
@@ -21,17 +24,30 @@ import CssModules exposing (css)
 import Debug exposing (log)
 import Html exposing (text)
 import Html.Attributes
+import List
 
 
-type alias ConfigValue msg =
-    { tag : Element msg
-    , variant : TypeVariant
-    , id : Maybe String
+type alias DataAttribute =
+    { name : String
+    , value : String
     }
 
 
-type BaseConfig msg
-    = BaseConfig (ConfigValue msg)
+type alias ConfigValue msg =
+    { tag : Maybe (Element msg)
+    , variant : TypeVariant
+    , id : Maybe String
+    , data : List DataAttribute
+    }
+
+
+defaultConfig : ConfigValue msg
+defaultConfig =
+    { tag = Nothing
+    , variant = Display0
+    , id = Nothing
+    , data = []
+    }
 
 
 type Config msg
@@ -42,16 +58,41 @@ type alias Element msg =
     List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg
 
 
-defaultConfig : ConfigValue msg
-defaultConfig =
-    { tag = Html.div
-    , id = Nothing
-    , variant = Heading1
-    }
+toUntypedAttribute : DataAttribute -> Html.Attribute msg
+toUntypedAttribute typedAttribute =
+    case typedAttribute of
+        { name, value } ->
+            Html.Attributes.attribute ("data-" ++ name) value
+
+
+inferTagFromVariant : TypeVariant -> Element msg
+inferTagFromVariant typeVariant =
+    case typeVariant of
+        Display0 ->
+            Html.h1
+
+        Heading1 ->
+            Html.h1
+
+        Heading2 ->
+            Html.h2
+
+        Heading3 ->
+            Html.h3
+
+        Heading4 ->
+            Html.h4
+
+        Heading5 ->
+            Html.h5
+
+        Heading6 ->
+            Html.h6
 
 
 
 -- VIEW
+-- use List.map
 
 
 view : Config msg -> List (Html.Html msg) -> Html.Html msg
@@ -64,9 +105,20 @@ view (Config config) children =
 
                 Nothing ->
                     []
+
+        resolveAttributes =
+            List.map toUntypedAttribute config.data
+
+        resolveTag =
+            case config.tag of
+                Just tag_ ->
+                    tag_
+
+                Nothing ->
+                    inferTagFromVariant config.variant
     in
-    config.tag
-        ([ className config.variant ] ++ resolveId)
+    resolveTag
+        ([ className config.variant ] ++ resolveId ++ resolveAttributes)
         children
 
 
@@ -192,3 +244,12 @@ variant value (Config config) =
 id : String -> Config msg -> Config msg
 id id_ (Config config) =
     Config { config | id = Just id_ }
+
+
+addAttribute : DataAttribute -> Config msg -> Config msg
+addAttribute attribute_ (Config config) =
+    Config { config | data = config.data ++ [ attribute_ ] }
+
+
+tag tag_ (Config config) =
+    Config { config | id = Just tag_ }

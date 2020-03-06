@@ -8,4 +8,5 @@ loadElmStories("Heading (Elm)", module, require("./Heading.stories.elm"), [
   "Heading4",
   "Heading5",
   "Heading6",
+  "HeadingWithDataAttr",
 ])
