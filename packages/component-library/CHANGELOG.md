@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.11.1...@kaizen/component-library@3.12.0) (2020-03-05)
+
+
+### Features
+
+* add elm toggleswitch component ([#314](https://github.com/cultureamp/kaizen-design-system/issues/314)) ([b74ea5f](https://github.com/cultureamp/kaizen-design-system/commit/b74ea5f))
+
+
+
+
+
+## [3.11.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.11.0...@kaizen/component-library@3.11.1) (2020-03-05)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [3.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.10.0...@kaizen/component-library@3.11.0) (2020-03-05)
+
+
+### Features
+
+* Add Guidance Block draft component ([#280](https://github.com/cultureamp/kaizen-design-system/issues/280)) ([606a610](https://github.com/cultureamp/kaizen-design-system/commit/606a610))
+
+
+
+
+
 # [3.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.9.0...@kaizen/component-library@3.10.0) (2020-03-03)
 
 
