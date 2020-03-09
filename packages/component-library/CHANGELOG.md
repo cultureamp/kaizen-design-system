@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.12.0...@kaizen/component-library@3.13.0) (2020-03-08)
+
+
+### Features
+
+* Added heading component ([#287](https://github.com/cultureamp/kaizen-design-system/issues/287)) ([b0a680e](https://github.com/cultureamp/kaizen-design-system/commit/b0a680e))
+
+
+
+
+
 # [3.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.11.1...@kaizen/component-library@3.12.0) (2020-03-05)
 
 
