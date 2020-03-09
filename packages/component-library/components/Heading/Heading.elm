@@ -4,6 +4,7 @@ module Heading.Heading exposing
     , TypeVariant(..)
     , a
     , addAttribute
+    , classNameAndIHaveSpokenToDST
     , div
     , h1
     , h2
@@ -27,6 +28,14 @@ import Html.Attributes
 import List
 
 
+type Config msg
+    = Config (ConfigValue msg)
+
+
+type alias Element msg =
+    List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg
+
+
 type alias DataAttribute =
     { name : String
     , value : String
@@ -38,6 +47,7 @@ type alias ConfigValue msg =
     , variant : TypeVariant
     , id : Maybe String
     , data : List DataAttribute
+    , classNameAndIHaveSpokenToDST : Maybe String
     }
 
 
@@ -47,15 +57,8 @@ defaultConfig =
     , variant = Display0
     , id = Nothing
     , data = []
+    , classNameAndIHaveSpokenToDST = Nothing
     }
-
-
-type Config msg
-    = Config (ConfigValue msg)
-
-
-type alias Element msg =
-    List (Html.Attribute msg) -> List (Html.Html msg) -> Html.Html msg
 
 
 toUntypedAttribute : DataAttribute -> Html.Attribute msg
@@ -92,7 +95,6 @@ inferTagFromVariant typeVariant =
 
 
 -- VIEW
--- use List.map
 
 
 view : Config msg -> List (Html.Html msg) -> Html.Html msg
@@ -116,9 +118,17 @@ view (Config config) children =
 
                 Nothing ->
                     inferTagFromVariant config.variant
+
+        resoleCustomClass =
+            case config.classNameAndIHaveSpokenToDST of
+                Just classNameAndIHaveSpokenToDST_ ->
+                    classNameAndIHaveSpokenToDST_
+
+                Nothing ->
+                    ""
     in
     resolveTag
-        ([ className config.variant ] ++ resolveId ++ resolveAttributes)
+        ([ className config.variant ] ++ [ Html.Attributes.class resoleCustomClass ] ++ resolveId ++ resolveAttributes)
         children
 
 
@@ -183,57 +193,57 @@ type TypeVariant
 
 pre : Config msg
 pre =
-    Config { defaultConfig | tag = Html.pre }
+    Config { defaultConfig | tag = Just Html.pre }
 
 
 p : Config msg
 p =
-    Config { defaultConfig | tag = Html.p }
+    Config { defaultConfig | tag = Just Html.p }
 
 
 a : Config msg
 a =
-    Config { defaultConfig | tag = Html.a }
+    Config { defaultConfig | tag = Just Html.a }
 
 
 div : Config msg
 div =
-    Config { defaultConfig | tag = Html.div }
+    Config { defaultConfig | tag = Just Html.div }
 
 
 span : Config msg
 span =
-    Config { defaultConfig | tag = Html.span }
+    Config { defaultConfig | tag = Just Html.span }
 
 
 h1 : Config msg
 h1 =
-    Config { defaultConfig | tag = Html.h1 }
+    Config { defaultConfig | tag = Just Html.h1 }
 
 
 h2 : Config msg
 h2 =
-    Config { defaultConfig | tag = Html.h2 }
+    Config { defaultConfig | tag = Just Html.h2 }
 
 
 h3 : Config msg
 h3 =
-    Config { defaultConfig | tag = Html.h3 }
+    Config { defaultConfig | tag = Just Html.h3 }
 
 
 h4 : Config msg
 h4 =
-    Config { defaultConfig | tag = Html.h4 }
+    Config { defaultConfig | tag = Just Html.h4 }
 
 
 h5 : Config msg
 h5 =
-    Config { defaultConfig | tag = Html.h5 }
+    Config { defaultConfig | tag = Just Html.h5 }
 
 
 h6 : Config msg
 h6 =
-    Config { defaultConfig | tag = Html.h6 }
+    Config { defaultConfig | tag = Just Html.h6 }
 
 
 variant : TypeVariant -> Config msg -> Config msg
@@ -244,6 +254,11 @@ variant value (Config config) =
 id : String -> Config msg -> Config msg
 id id_ (Config config) =
     Config { config | id = Just id_ }
+
+
+classNameAndIHaveSpokenToDST : String -> Config msg -> Config msg
+classNameAndIHaveSpokenToDST value (Config config) =
+    Config { config | classNameAndIHaveSpokenToDST = Just value }
 
 
 addAttribute : DataAttribute -> Config msg -> Config msg
