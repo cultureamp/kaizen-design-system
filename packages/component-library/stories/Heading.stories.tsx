@@ -4,9 +4,7 @@ import { Heading } from "../components/Heading"
 
 export default { title: "typography/Heading" }
 
-export const Display0 = () => (
-  <Heading variant="display-0">This is a display heading</Heading>
-)
+export const Display0 = () => <Heading variant="display-0">Display 0</Heading>
 
 export const Heading1 = () => (
   <Heading data-automation-id="test" variant="heading-1">
