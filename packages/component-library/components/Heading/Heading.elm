@@ -119,7 +119,7 @@ view (Config config) children =
                 Nothing ->
                     inferTagFromVariant config.variant
 
-        resoleCustomClass =
+        resolveCustomClass =
             case config.classNameAndIHaveSpokenToDST of
                 Just classNameAndIHaveSpokenToDST_ ->
                     classNameAndIHaveSpokenToDST_
@@ -128,7 +128,7 @@ view (Config config) children =
                     ""
     in
     resolveTag
-        ([ className config.variant ] ++ [ Html.Attributes.class resoleCustomClass ] ++ resolveId ++ resolveAttributes)
+        ([ className config.variant ] ++ [ Html.Attributes.class resolveCustomClass ] ++ resolveId ++ resolveAttributes)
         children
 
 
