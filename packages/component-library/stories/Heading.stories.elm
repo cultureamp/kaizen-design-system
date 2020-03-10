@@ -1,5 +1,6 @@
 module Main exposing (main)
 
+import CssModules exposing (css)
 import ElmStorybook exposing (statelessStoryOf, storybook)
 import Heading.Heading as Heading exposing (TypeVariant(..), view)
 import Html exposing (text)
@@ -46,7 +47,13 @@ main =
             Heading.view
                 (Heading.h1
                     |> Heading.variant Heading6
-                    |> Heading.classNameAndIHaveSpokenToDST "test"
+                    |> Heading.classNameAndIHaveSpokenToDST (styles.toString .blinking)
                 )
                 [ Html.text "Heading with custom class" ]
         ]
+
+
+styles =
+    css "@kaizen/component-library/stories/Heading.stories.scss"
+        { blinking = "blinking"
+        }
