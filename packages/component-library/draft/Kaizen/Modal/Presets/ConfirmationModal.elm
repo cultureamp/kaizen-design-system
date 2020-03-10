@@ -214,7 +214,7 @@ header config =
                     |> Html.map never
                 ]
             ]
-        , Text.view (Text.h1 |> Text.inline True |> Text.id Constants.ariaLabelledBy) [ text config.title ]
+        , Text.view (Text.h1 |> Text.style Text.ZenHeading1 |> Text.inline True |> Text.id Constants.ariaLabelledBy) [ text config.title ]
         ]
 
 

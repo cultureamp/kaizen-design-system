@@ -79,7 +79,7 @@ const ConfirmationModal = ({
             </div>
           </div>
           <ModalAccessibleLabel>
-            <Text tag="h1" inline>
+            <Text tag="h1" style="zen-heading-1" inline>
               {title}
             </Text>
           </ModalAccessibleLabel>
