@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.14.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.13.0...@kaizen/component-library@3.14.0) (2020-03-10)
+
+
+### Features
+
+* Uplift Modal typography ([#315](https://github.com/cultureamp/kaizen-design-system/issues/315)) ([c95b556](https://github.com/cultureamp/kaizen-design-system/commit/c95b556))
+
+
+
+
+
 # [3.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.12.0...@kaizen/component-library@3.13.0) (2020-03-08)
 
 
