@@ -3,7 +3,7 @@ module Heading.Heading exposing
     , DataAttribute
     , TypeVariant(..)
     , a
-    , addAttribute
+    , addDataAttribute
     , classNameAndIHaveSpokenToDST
     , div
     , h1
@@ -46,7 +46,7 @@ type alias ConfigValue msg =
     { tag : Maybe (Element msg)
     , variant : TypeVariant
     , id : Maybe String
-    , data : List DataAttribute
+    , dataAttribute : List DataAttribute
     , classNameAndIHaveSpokenToDST : Maybe String
     }
 
@@ -56,13 +56,13 @@ defaultConfig =
     { tag = Nothing
     , variant = Display0
     , id = Nothing
-    , data = []
+    , dataAttribute = []
     , classNameAndIHaveSpokenToDST = Nothing
     }
 
 
-toUntypedAttribute : DataAttribute -> Html.Attribute msg
-toUntypedAttribute typedAttribute =
+toUntypedDataAttribute : DataAttribute -> Html.Attribute msg
+toUntypedDataAttribute typedAttribute =
     case typedAttribute of
         { name, value } ->
             Html.Attributes.attribute ("data-" ++ name) value
@@ -109,7 +109,7 @@ view (Config config) children =
                     []
 
         resolveAttributes =
-            List.map toUntypedAttribute config.data
+            List.map toUntypedDataAttribute config.dataAttribute
 
         resolveTag =
             case config.tag of
@@ -256,9 +256,9 @@ classNameAndIHaveSpokenToDST value (Config config) =
     Config { config | classNameAndIHaveSpokenToDST = Just value }
 
 
-addAttribute : DataAttribute -> Config msg -> Config msg
-addAttribute attribute_ (Config config) =
-    Config { config | data = config.data ++ [ attribute_ ] }
+addDataAttribute : DataAttribute -> Config msg -> Config msg
+addDataAttribute attribute_ (Config config) =
+    Config { config | dataAttribute = config.dataAttribute ++ [ attribute_ ] }
 
 
 tag tag_ (Config config) =

@@ -40,7 +40,7 @@ main =
             Heading.view
                 (Heading.h1
                     |> Heading.variant Heading6
-                    |> Heading.addAttribute { name = "automation-id", value = "inbox-heading" }
+                    |> Heading.addDataAttribute { name = "automation-id", value = "inbox-heading" }
                 )
                 [ Html.text "Heading with data attribute" ]
         , statelessStoryOf "HeadingWithCustomClass" <|
