@@ -120,12 +120,7 @@ view (Config config) children =
                     inferTagFromVariant config.variant
 
         resolveCustomClass =
-            case config.classNameAndIHaveSpokenToDST of
-                Just classNameAndIHaveSpokenToDST_ ->
-                    classNameAndIHaveSpokenToDST_
-
-                Nothing ->
-                    ""
+            config.classNameAndIHaveSpokenToDST |> Maybe.withDefault ""
     in
     resolveTag
         ([ className config.variant ] ++ [ Html.Attributes.class resolveCustomClass ] ++ resolveId ++ resolveAttributes)
