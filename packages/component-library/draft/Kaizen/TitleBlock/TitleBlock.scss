@@ -7,16 +7,14 @@
 @import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/component-library/styles/animation";
 
-$kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen colour theme and get this from tokens package
-
 .titleBlockContainer {
+  color: $kz-color-wisteria-800;
   width: 100%;
 }
 
 .titleBlock {
   background-color: #fff;
   border-bottom: 1px solid $ca-border-color;
-  color: $kz-color-wisteria-800;
   width: inherit;
 
   @media print {
@@ -517,12 +515,12 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 .stickyColorWisteria {
   @include ca-media-tablet-and-up {
     .titleBlock {
-      background-color: $kz-color-wisteria-700-copy;
+      background-color: $kz-color-wisteria-700;
     }
   }
   @include ca-media-mobile {
     .navContainer {
-      background-color: $kz-color-wisteria-700-copy;
+      background-color: $kz-color-wisteria-700;
     }
   }
 }
