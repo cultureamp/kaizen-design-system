@@ -1,6 +1,6 @@
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/border";
-@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
@@ -39,6 +39,8 @@
   box-shadow: $ca-box-shadow;
   position: relative;
   width: 90%;
+  -webkit-font-smoothing: antialiased;
+  color: $kz-color-wisteria-800;
 
   @include ca-media-tablet-and-up {
     width: 100%;

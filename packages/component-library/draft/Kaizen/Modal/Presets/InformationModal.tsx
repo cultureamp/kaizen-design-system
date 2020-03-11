@@ -43,7 +43,7 @@ const InformationModal = ({
       <ModalHeader unpadded onDismiss={onDismiss}>
         <div className={styles.header}>
           <ModalAccessibleLabel>
-            <Text tag="h1" style="title" inline>
+            <Text tag="h1" style="zen-heading-2" inline>
               {title}
             </Text>
           </ModalAccessibleLabel>
