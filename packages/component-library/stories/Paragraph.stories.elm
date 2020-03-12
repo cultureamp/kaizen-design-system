@@ -11,17 +11,17 @@ main =
         [ statelessStoryOf "IntroLede" <|
             Paragraph.view
                 (Paragraph.p |> Paragraph.variant IntroLede)
-                [ Html.text "IntroLede Paragraph" ]
+                [ Html.text "Paragraph Intro Lede " ]
         , statelessStoryOf "Body" <|
             Paragraph.view
                 (Paragraph.p |> Paragraph.variant Body)
-                [ Html.text "Body Paragraph" ]
+                [ Html.text "Paragraph Body" ]
         , statelessStoryOf "Small" <|
             Paragraph.view
                 (Paragraph.p |> Paragraph.variant Small)
-                [ Html.text "Small Paragraph" ]
+                [ Html.text "Paragraph Small" ]
         , statelessStoryOf "ExtraSmall" <|
             Paragraph.view
                 (Paragraph.p |> Paragraph.variant ExtraSmall)
-                [ Html.text "ExtraSmall Paragraph" ]
+                [ Html.text "Paragraph Extra Small" ]
         ]
