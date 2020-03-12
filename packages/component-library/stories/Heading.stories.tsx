@@ -1,3 +1,4 @@
+import { loadElmStories } from "@cultureamp/elm-storybook"
 import * as React from "react"
 import { Heading } from "../components/Heading"
 
@@ -20,3 +21,15 @@ export const Heading4 = () => <Heading variant="heading-4">Heading 4</Heading>
 export const Heading5 = () => <Heading variant="heading-5">Heading 5</Heading>
 
 export const Heading6 = () => <Heading variant="heading-6">Heading 6</Heading>
+
+loadElmStories("Heading (Elm)", module, require("./Heading.stories.elm"), [
+  "Display0",
+  "Heading1",
+  "Heading2",
+  "Heading3",
+  "Heading4",
+  "Heading5",
+  "Heading6",
+  "HeadingWithDataAttr",
+  "HeadingWithCustomClass",
+])

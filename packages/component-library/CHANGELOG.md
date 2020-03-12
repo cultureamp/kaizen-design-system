@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.15.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.14.1...@kaizen/component-library@3.15.0) (2020-03-11)
+
+
+### Features
+
+* Added Heading component for Elm ([#312](https://github.com/cultureamp/kaizen-design-system/issues/312)) ([67a999f](https://github.com/cultureamp/kaizen-design-system/commit/67a999f))
+
+
+
+
+
 ## [3.14.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.14.0...@kaizen/component-library@3.14.1) (2020-03-11)
 
 
