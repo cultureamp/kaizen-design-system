@@ -31,6 +31,10 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
   }
 }
 
+.iconWrapper {
+  padding: 0 ($ca-grid / 2);
+}
+
 .descriptionContainer {
   max-width: 650px;
 }
