@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.16.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.15.0...@kaizen/component-library@3.16.0) (2020-03-12)
+
+
+### Features
+
+* Paragraph component for Elm ([#320](https://github.com/cultureamp/kaizen-design-system/issues/320)) ([900d336](https://github.com/cultureamp/kaizen-design-system/commit/900d336))
+
+
+
+
+
 # [3.15.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.14.1...@kaizen/component-library@3.15.0) (2020-03-11)
 
 
