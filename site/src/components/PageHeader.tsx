@@ -2,6 +2,7 @@ import classnames from "classnames"
 import { graphql, StaticQuery } from "gatsby"
 import * as React from "react"
 import Tag from "./Tag"
+import { Heading } from "@kaizen/component-library/components/Heading"
 const styles = require("./PageHeader.scss")
 
 type PageHeaderProps = {
@@ -64,7 +65,9 @@ const PageHeader: React.SFC<PageHeaderProps> = ({
             </div>
           )}
           <div className={styles.mainSection}>
-            <h1 className={styles.headingText}>{headingText}</h1>
+            <div className={styles.headingTextWrapper}>
+              <Heading variant="heading-1">{headingText}</Heading>
+            </div>
             {summaryParagraph && (
               <h3 className={styles.summaryParagraph}>{summaryParagraph}</h3>
             )}

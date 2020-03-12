@@ -90,10 +90,7 @@
   }
 }
 
-.headingText {
-  font-size: 3.75rem;
-  line-height: 1.4;
-  font-weight: 400;
+.headingTextWrapper {
   margin-bottom: $ca-grid * 2;
   margin-top: calc(-0.5 * 0.5em); // hack to make text flush with adjacent image
 
