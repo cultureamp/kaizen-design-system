@@ -83,6 +83,7 @@ module.exports = {
         precision: 9,
         sassRuleModulesTest: /^(?!(.*normalize\.css$)).+\.s?css$/,
         cssLoaderOptions: {
+          camelCase: false,
           modules: true,
         },
       },
