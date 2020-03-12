@@ -37,6 +37,7 @@
     "@types/lodash": "^4.14.132",
     "@types/react-select": "^3.0.5",
     "@types/uuid": "^3.4.4",
+    "camelcase": "^5.3.1",
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
     "motion-ui": "^2.0.3",

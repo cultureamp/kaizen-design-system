@@ -1,3 +1,4 @@
+import camelCase from "camelcase"
 import classNames from "classnames"
 import { createElement } from "react"
 
@@ -44,7 +45,7 @@ export const Heading = ({
 
   const classes: string[] = [
     styles.heading,
-    styles[variant],
+    styles[camelCase(variant)], // the variant name needs to be camelCased to match the CSS Modules class name
     classNameAndIHaveSpokenToDST,
   ]
 
