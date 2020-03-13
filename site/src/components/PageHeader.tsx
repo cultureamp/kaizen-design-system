@@ -65,8 +65,14 @@ const PageHeader: React.SFC<PageHeaderProps> = ({
             </div>
           )}
           <div className={styles.mainSection}>
-            <div className={styles.headingTextWrapper}>
-              <Heading variant="heading-1">{headingText}</Heading>
+            <div className={styles.headingTextContainer}>
+              <Heading
+                variant="display-0"
+                tag="h1"
+                classNameAndIHaveSpokenToDST={styles.headingTextOverrides}
+              >
+                {headingText}
+              </Heading>
             </div>
             {summaryParagraph && (
               <h3 className={styles.summaryParagraph}>{summaryParagraph}</h3>
