@@ -15,6 +15,7 @@ module Kaizen.Modal.Modal exposing
     , lastFocusableId
     , modalState
     , onUpdate
+    , setDefaultFocusableId
     , subscriptions
     , trigger
     , update
@@ -508,6 +509,11 @@ initialState =
           , shiftKeydown = False
           }
         )
+
+
+setDefaultFocusableId : DefaultFocusableId -> ModalState msg -> ModalState msg
+setDefaultFocusableId defaultId (ModalState ( state, modalData )) =
+    ModalState ( state, { modalData | defaultFocusableId = defaultId } )
 
 
 styles =
