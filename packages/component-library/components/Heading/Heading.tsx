@@ -41,8 +41,6 @@ export const Heading = ({
 }: HeadingProps) => {
   const inferredTag =
     tag === undefined ? translateHeadingLevelToTag(variant) : tag
-  console.log("variant", variant)
-  console.log("keys", Object.keys(styles))
 
   const classes: string[] = [
     styles.heading,

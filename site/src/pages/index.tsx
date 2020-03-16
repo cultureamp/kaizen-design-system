@@ -1,11 +1,11 @@
 import { Button } from "@kaizen/component-library"
+import { Heading } from "@kaizen/component-library/components/Heading"
 import { graphql, useStaticQuery, withPrefix } from "gatsby"
 import * as React from "react"
 import { Content, ContentOnly } from "../components/ContentOnly"
 import Footer from "../components/Footer"
 import Layout from "../components/Layout"
 import PageHeader from "../components/PageHeader"
-import { Heading } from "@kaizen/component-library/components/Heading"
 
 const styles = require("./index.scss")
 

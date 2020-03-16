@@ -1,8 +1,8 @@
+import { Heading } from "@kaizen/component-library/components/Heading"
 import classnames from "classnames"
 import { graphql, StaticQuery } from "gatsby"
 import * as React from "react"
 import Tag from "./Tag"
-import { Heading } from "@kaizen/component-library/components/Heading"
 const styles = require("./PageHeader.scss")
 
 type PageHeaderProps = {
