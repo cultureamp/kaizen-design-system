@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import { GuidanceBlock } from "@kaizen/component-library/draft"
-const bannerImg = require("@kaizen/component-library/stories/illustrations/team.png")
+const bannerImg = require("@kaizen/component-library/stories/illustrations/training.png")
 
 export default {
   title: "GuidanceBlock (React)",
