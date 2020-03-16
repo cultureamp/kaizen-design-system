@@ -298,7 +298,8 @@ main =
                         ]
                 in
                 div []
-                    [ case m.modalContext of
+                    [ Button.view (Button.default |> Button.onClick SetModalContext) "Open Modal"
+                    , case m.modalContext of
                         Just modalState ->
                             Modal.view <|
                                 (Modal.inputEdit Modal.InputPositive
@@ -337,7 +338,8 @@ main =
                         ]
                 in
                 div []
-                    [ case m.modalContext of
+                    [ Button.view (Button.default |> Button.onClick SetModalContext) "Open Modal"
+                    , case m.modalContext of
                         Just modalState ->
                             Modal.view <|
                                 (Modal.inputEdit Modal.InputNegative
