@@ -100,7 +100,7 @@
 }
 
 .headingTextOverrides {
-  color: $kz-color-white;
+  color: $kz-color-white !important; //this is until we find a better way to specify colour overrides of the Text component. Without this, the css file load order becomes important, but it is non deterministic or unpredictable (is different in development and production)
 }
 
 .summaryParagraph {
