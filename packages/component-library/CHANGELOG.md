@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.17.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.17.0...@kaizen/component-library@3.17.1) (2020-03-16)
+
+
+### Bug Fixes
+
+* remove top and bottom padding on the icon to make the block shorter ([#322](https://github.com/cultureamp/kaizen-design-system/issues/322)) ([e78fbe3](https://github.com/cultureamp/kaizen-design-system/commit/e78fbe3744fa941bf31ef412e06bf214021130cf))
+
+
+
+
+
 # [3.17.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.16.0...@kaizen/component-library@3.17.0) (2020-03-13)
 
 
