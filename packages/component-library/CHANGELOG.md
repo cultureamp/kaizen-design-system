@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.17.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.16.0...@kaizen/component-library@3.17.0) (2020-03-13)
+
+
+### Features
+
+* Paragraph component for React ([#318](https://github.com/cultureamp/kaizen-design-system/issues/318)) ([9e67a26](https://github.com/cultureamp/kaizen-design-system/commit/9e67a26))
+
+
+
+
+
 # [3.16.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.15.0...@kaizen/component-library@3.16.0) (2020-03-12)
 
 
