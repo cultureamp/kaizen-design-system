@@ -69,7 +69,7 @@ class GuidanceBlock extends React.Component<Props, State> {
         ref={this.containerRef}
         onTransitionEnd={this.onTransitionEnd}
       >
-        <div>
+        <div className={styles.iconWrapper}>
           <img
             src={this.props.img.src}
             alt={this.props.img.alt}
