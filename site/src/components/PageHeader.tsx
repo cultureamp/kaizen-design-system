@@ -67,7 +67,7 @@ const PageHeader: React.SFC<PageHeaderProps> = ({
           <div className={styles.mainSection}>
             <div className={styles.headingTextContainer}>
               <Heading
-                variant="display-0"
+                variant={headingOnly ? "display-0" : "heading-1"}
                 tag="h1"
                 classNameAndIHaveSpokenToDST={styles.headingTextOverrides}
               >
