@@ -3,6 +3,7 @@ module Kaizen.Modal.Primitives.ModalBody exposing
     , background
     , fillVerticalSpace
     , layout
+    , padded
     , scrollable
     , view
     )
@@ -27,6 +28,7 @@ type alias Configuration msg =
     , scrollable : Bool
     , fillSpace : Bool
     , background : BackgroundColor
+    , padded : Bool
     }
 
 
@@ -46,6 +48,7 @@ modalBody content config =
             , ( .stone, config.background == Stone )
             , ( .scrollable, config.scrollable )
             , ( .fillSpace, config.fillSpace )
+            , ( .padded, config.padded )
             ]
         , HtmlAttributes.id Constants.ariaDescribedBy
         ]
@@ -75,6 +78,7 @@ defaults =
     , scrollable = False
     , fillSpace = False
     , background = White
+    , padded = True
     }
 
 
@@ -90,6 +94,11 @@ scrollable predicate (Config config) =
 background : BackgroundColor -> Config msg -> Config msg
 background color (Config config) =
     Config { config | background = color }
+
+
+padded : Bool -> Config msg -> Config msg
+padded pad (Config config) =
+    Config { config | padded = pad }
 
 
 
@@ -108,4 +117,5 @@ styles =
         , fillSpace = "fillSpace"
         , white = "white"
         , stone = "stone"
+        , padded = "padded"
         }

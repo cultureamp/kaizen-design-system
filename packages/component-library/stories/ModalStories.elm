@@ -4,7 +4,11 @@ import Button.Button as Button
 import ElmStorybook exposing (storyOf, storybook)
 import Html exposing (div, text)
 import Html.Attributes exposing (style)
+import Icon.Icon as Icon
+import Icon.SvgAsset exposing (svgAsset)
+import Kaizen.Form.TextField.TextField as TextField
 import Kaizen.Modal.Modal as Modal
+import Kaizen.Modal.Primitives.Constants as ModalConstants
 import Kaizen.Modal.Primitives.ModalBody as ModalBody
 import Kaizen.Modal.Primitives.ModalFooter as ModalFooter
 import Kaizen.Modal.Primitives.ModalHeader as ModalHeader
@@ -15,7 +19,14 @@ type ModalMsg
     = ModalUpdate Modal.ModalMsg
     | ModalConfirmed
     | ModalDismissed
-    | SetModalContext
+    | SetDefaultModalContext
+    | SetInputEditModalContext
+
+
+type ModalContext
+    = Default (Modal.ModalState ModalMsg)
+    | InputEditModal (Modal.ModalState ModalMsg)
+    | NoModal
 
 
 
@@ -23,14 +34,14 @@ type ModalMsg
 
 
 type alias ModalState =
-    { modalContext : Maybe (Modal.ModalState ModalMsg)
+    { modalContext : ModalContext
     , idealWayToSetUpModal : Bool
     }
 
 
 model : ModalState
 model =
-    { modalContext = Just (Modal.trigger Modal.initialState)
+    { modalContext = Default (Modal.trigger Modal.initialState)
     , idealWayToSetUpModal = False
     }
 
@@ -40,7 +51,7 @@ update msg state =
     case msg of
         ModalUpdate modalMsg ->
             case state.modalContext of
-                Just ms ->
+                Default ms ->
                     let
                         ( modalState, modalCmd, modalStatus ) =
                             Modal.update ms modalMsg
@@ -48,59 +59,99 @@ update msg state =
                         updatedModalState =
                             case modalStatus of
                                 Just Modal.Closed ->
-                                    Nothing
+                                    NoModal
 
                                 _ ->
-                                    Just modalState
+                                    Default modalState
                     in
                     ( { state | modalContext = updatedModalState }, Cmd.map ModalUpdate modalCmd )
 
-                Nothing ->
+                InputEditModal ms ->
+                    let
+                        ( modalState, modalCmd, modalStatus ) =
+                            Modal.update ms modalMsg
+
+                        updatedModalState =
+                            case modalStatus of
+                                Just Modal.Closed ->
+                                    NoModal
+
+                                _ ->
+                                    InputEditModal modalState
+                    in
+                    ( { state | modalContext = updatedModalState }, Cmd.map ModalUpdate modalCmd )
+
+                _ ->
                     ( state, Cmd.none )
 
+        -- we can do some stuff here when the user clicks confirm, then trigger the modal so it closes.
         ModalConfirmed ->
-            -- we can do some stuff here when the user clicks confirm, then trigger the modal so it closes.
+            -- there should ideally only be one modal context, don't do this.
             case state.modalContext of
-                Just ms ->
+                Default ms ->
                     let
                         modalState =
                             Modal.trigger ms
                     in
-                    ( { state | modalContext = Just modalState }, Cmd.none )
+                    ( { state | modalContext = Default modalState }, Cmd.none )
 
-                Nothing ->
+                InputEditModal ms ->
+                    let
+                        modalState =
+                            Modal.trigger ms
+                    in
+                    ( { state | modalContext = InputEditModal modalState }, Cmd.none )
+
+                _ ->
                     ( state, Cmd.none )
 
+        -- we can do some stuff here when the user clicks cancel, then trigger the modal so it closes.
         ModalDismissed ->
-            -- we can do some stuff here when the user clicks cancel, then trigger the modal so it closes.
             case state.modalContext of
-                Just ms ->
+                Default ms ->
                     let
                         modalState =
                             Modal.trigger ms
                     in
-                    ( { state | modalContext = Just modalState }, Cmd.none )
+                    ( { state | modalContext = Default modalState }, Cmd.none )
 
-                Nothing ->
+                InputEditModal ms ->
+                    let
+                        modalState =
+                            Modal.trigger ms
+                    in
+                    ( { state | modalContext = InputEditModal modalState }, Cmd.none )
+
+                _ ->
                     ( state, Cmd.none )
 
         -- Typically modals dont start off open when you load a page. Setting the modal context is the ideal way
         -- to render the modal into view.
-        SetModalContext ->
+        SetDefaultModalContext ->
             let
                 modalState =
                     Modal.trigger Modal.initialState
             in
-            ( { state | idealWayToSetUpModal = True, modalContext = Just modalState }, Cmd.none )
+            ( { state | idealWayToSetUpModal = True, modalContext = Default modalState }, Cmd.none )
+
+        SetInputEditModalContext ->
+            let
+                modalState =
+                    Modal.trigger <| Modal.setDefaultFocusableId (Modal.defaultFocusableId <| ModalConstants.defaultFocusableId ++ "-field-input") Modal.initialState
+            in
+            ( { state | idealWayToSetUpModal = True, modalContext = InputEditModal modalState }, Cmd.none )
 
 
 subscriptions : ModalState -> Sub ModalMsg
 subscriptions { modalContext } =
     case modalContext of
-        Just modalState ->
+        Default modalState ->
             Sub.map ModalUpdate <| Modal.subscriptions modalState
 
-        Nothing ->
+        InputEditModal modalState ->
+            Sub.map ModalUpdate <| Modal.subscriptions modalState
+
+        NoModal ->
             Sub.none
 
 
@@ -117,7 +168,7 @@ main =
             \m ->
                 div []
                     [ case m.modalContext of
-                        Just modalState ->
+                        Default modalState ->
                             Modal.view <|
                                 (Modal.confirmation Modal.Cautionary
                                     { title = "Cautionary title"
@@ -136,14 +187,14 @@ main =
                                     |> Modal.onUpdate ModalUpdate
                                 )
 
-                        Nothing ->
+                        _ ->
                             text ""
                     ]
         , storyOf "Generic" config <|
             \m ->
                 div []
                     [ case m.modalContext of
-                        Just modalState ->
+                        Default modalState ->
                             Modal.view <|
                                 (Modal.generic
                                     [ ModalHeader.view <| ModalHeader.layout [ div [] [ text "Generic header" ] ]
@@ -164,14 +215,14 @@ main =
                                     |> Modal.onUpdate ModalUpdate
                                 )
 
-                        Nothing ->
+                        _ ->
                             text ""
                     ]
-        , storyOf "Confirmation (Informative)" config <|
+        , storyOf "Confirmation (informative)" config <|
             \m ->
                 div []
                     [ case m.modalContext of
-                        Just modalState ->
+                        Default modalState ->
                             Modal.view <|
                                 (Modal.confirmation Modal.Informative
                                     { title = "Informative title"
@@ -190,14 +241,14 @@ main =
                                     |> Modal.onUpdate ModalUpdate
                                 )
 
-                        Nothing ->
+                        _ ->
                             text ""
                     ]
-        , storyOf "Confirmation (Positive)" config <|
+        , storyOf "Confirmation (positive)" config <|
             \m ->
                 div []
                     [ case m.modalContext of
-                        Just modalState ->
+                        Default modalState ->
                             Modal.view <|
                                 (Modal.confirmation Modal.Positive
                                     { title = "Positive title"
@@ -216,14 +267,14 @@ main =
                                     |> Modal.onUpdate ModalUpdate
                                 )
 
-                        Nothing ->
+                        _ ->
                             text ""
                     ]
-        , storyOf "Confirmation (Negative)" config <|
+        , storyOf "Confirmation (negative)" config <|
             \m ->
                 div []
                     [ case m.modalContext of
-                        Just modalState ->
+                        Default modalState ->
                             Modal.view <|
                                 (Modal.confirmation Modal.Negative
                                     { title = "Negative title"
@@ -242,16 +293,16 @@ main =
                                     |> Modal.onUpdate ModalUpdate
                                 )
 
-                        Nothing ->
+                        _ ->
                             text ""
                     ]
-        , storyOf "Confirmation (User action)" config <|
+        , storyOf "Confirmation (user action)" config <|
             \m ->
                 div []
-                    [ Button.view (Button.default |> Button.onClick SetModalContext) "Open Modal"
+                    [ Button.view (Button.default |> Button.onClick SetDefaultModalContext) "Open Modal"
                     , if m.idealWayToSetUpModal then
                         case m.modalContext of
-                            Just modalState ->
+                            Default modalState ->
                                 Modal.view <|
                                     (Modal.confirmation Modal.Negative
                                         { title = "Negative title"
@@ -270,10 +321,90 @@ main =
                                         |> Modal.onUpdate ModalUpdate
                                     )
 
-                            Nothing ->
+                            _ ->
                                 text ""
 
                       else
                         text ""
+                    ]
+        , storyOf "InputEdit (positive)" config <|
+            \m ->
+                let
+                    textFieldConfigs =
+                        [ TextField.default
+                            |> TextField.inputType TextField.Email
+                            |> TextField.labelText "email"
+                            |> TextField.inputValue "mackenzie@example.com"
+                            |> TextField.icon [ Html.map never <| Icon.view Icon.presentation (svgAsset "@kaizen/component-library/icons/user.icon.svg") ]
+                            |> TextField.id ModalConstants.defaultFocusableId
+                        , TextField.default
+                            |> TextField.inputType TextField.Password
+                            |> TextField.labelText "password"
+                            |> TextField.inputValue "123456789"
+                            |> TextField.icon [ Html.map never <| Icon.view Icon.presentation (svgAsset "@kaizen/component-library/icons/lock.icon.svg") ]
+                        ]
+                in
+                div []
+                    [ Button.view (Button.default |> Button.onClick SetInputEditModalContext) "Open Modal"
+                    , case m.modalContext of
+                        InputEditModal modalState ->
+                            Modal.view <|
+                                (Modal.inputEdit Modal.InputPositive
+                                    { title = "Input-edit modal title"
+                                    , textFieldConfigs = textFieldConfigs
+                                    , instructiveText =
+                                        Just "Instructive text to drive user selection goes here."
+                                    , onDismiss = Just ModalDismissed
+                                    , onConfirm = Just ModalConfirmed
+                                    , confirmLabel = "Submit"
+                                    , dismissLabel = "Cancel"
+                                    }
+                                    |> Modal.modalState modalState
+                                    -- IMPORTANT: the modal uses this for internal messages
+                                    |> Modal.onUpdate ModalUpdate
+                                )
+
+                        _ ->
+                            text ""
+                    ]
+        , storyOf "InputEdit (negative)" config <|
+            \m ->
+                let
+                    textFieldConfigs =
+                        [ TextField.default
+                            |> TextField.inputType TextField.Email
+                            |> TextField.labelText "email"
+                            |> TextField.inputValue "mackenzie@example.com"
+                            |> TextField.icon [ Html.map never <| Icon.view Icon.presentation (svgAsset "@kaizen/component-library/icons/user.icon.svg") ]
+                            |> TextField.id ModalConstants.defaultFocusableId
+                        , TextField.default
+                            |> TextField.inputType TextField.Password
+                            |> TextField.labelText "password"
+                            |> TextField.inputValue "123456789"
+                            |> TextField.icon [ Html.map never <| Icon.view Icon.presentation (svgAsset "@kaizen/component-library/icons/lock.icon.svg") ]
+                        ]
+                in
+                div []
+                    [ Button.view (Button.default |> Button.onClick SetInputEditModalContext) "Open Modal"
+                    , case m.modalContext of
+                        InputEditModal modalState ->
+                            Modal.view <|
+                                (Modal.inputEdit Modal.InputNegative
+                                    { title = "Input-edit modal title"
+                                    , textFieldConfigs = textFieldConfigs
+                                    , instructiveText =
+                                        Just "Instructive text to drive user selection goes here."
+                                    , onDismiss = Just ModalDismissed
+                                    , onConfirm = Just ModalConfirmed
+                                    , confirmLabel = "Submit"
+                                    , dismissLabel = "Cancel"
+                                    }
+                                    |> Modal.modalState modalState
+                                    -- IMPORTANT: the modal uses this for internal messages
+                                    |> Modal.onUpdate ModalUpdate
+                                )
+
+                        _ ->
+                            text ""
                     ]
         ]

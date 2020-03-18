@@ -2,8 +2,11 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 .modalBody {
-  padding: $ca-grid $ca-grid $ca-grid $ca-grid;
   overflow-x: hidden;
+}
+
+.padded {
+  padding: $ca-grid $ca-grid $ca-grid $ca-grid;
 }
 
 .modalBody.scrollable {
