@@ -44,7 +44,7 @@ export default ({ data, pageContext, location }) => {
   )
 
   const renderStorybookIFrame = () => {
-    if (!md.frontmatter.demoStoryId && md.frontmatter.title !== "Overview") {
+    if (!md.frontmatter.demoStoryId) {
       // tslint:disable-next-line: no-console
       console.warn(
         `Could not find a demo story ID for "${md.frontmatter.title}". Please make sure there is a frontmatter field called demoStoryId in the component docs. The ID comes from the Storybook URL for a given story.`
@@ -83,7 +83,7 @@ export default ({ data, pageContext, location }) => {
         </Sidebar>
         <Content>
           <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
-          {renderStorybookIFrame()}
+          {md.frontmatter.title === "Overview" ? null : renderStorybookIFrame()}
           <ContentMarkdownSection>
             <h1>{md.frontmatter.navTitle}</h1>
             {/*
