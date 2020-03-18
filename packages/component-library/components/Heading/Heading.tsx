@@ -15,7 +15,6 @@ export type HeadingVariants =
 export type AllowedTags =
   | "pre"
   | "p"
-  | "a"
   | "div"
   | "span"
   | "h1"

@@ -8,7 +8,6 @@ export type ParagraphVariants = "intro-lede" | "body" | "small" | "extra-small"
 export type AllowedTags =
   | "pre"
   | "p"
-  | "a"
   | "div"
   | "span"
   | "h1"

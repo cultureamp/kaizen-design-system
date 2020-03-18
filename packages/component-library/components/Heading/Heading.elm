@@ -2,7 +2,6 @@ module Heading.Heading exposing
     ( Config
     , DataAttribute
     , TypeVariant(..)
-    , a
     , addDataAttribute
     , classNameAndIHaveSpokenToDST
     , div
@@ -194,11 +193,6 @@ pre =
 p : Config msg
 p =
     Config { defaultConfig | tag = Just Html.p }
-
-
-a : Config msg
-a =
-    Config { defaultConfig | tag = Just Html.a }
 
 
 div : Config msg
