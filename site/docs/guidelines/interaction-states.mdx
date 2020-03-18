@@ -6,7 +6,7 @@ tags: ["States", "Interactive states", "Properties", "Visual states", "Disabled"
 needToKnow:
   - "Interaction states include default, hover, focus, active, disabled, read-only, selected, checked/unchecked/mixed, grabbed, expanded/collapsed, and aria-pressed (toggled) states."
   - "Interaction states can be combined. For example, an element could be selected, hovered, and focused at the same time."
-  - "There are other visual variations beyond interaction states that are not covered here, such as primary, secondary, destructive, reversed, persistent/dismissible styles, visited/unvisited, and expand/collapse."
+  - "There are other visual variations beyond interaction states that are not covered here, such as primary, secondary, destructive, reversed, persistent/dismissible styles, visited/unvisited, and loading."
 ---
 
 import DosAndDonts from "docs-components/DosAndDonts"
@@ -19,23 +19,34 @@ import Dont from "docs-components/Dont"
 
 A disabled state applies to an element when the action is unavailable to a user. It might be unavailable due to permissions or pre-requisites, such as needing particular data. For example, you might prevent launching a survey with no questions and no participants by disabling the launch button.
 
-- Disabled components have 30% opacity. The opacity is usually applied at the parent component level, not to internal elements. For example, a disabled button has 30% opacity while its text color and background color has 100% opacity.
-- Disabled elements are exempt from [minimum contrast requirements](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html) because they're "incidental".
-- Use the `disabled` attribute on disabled form elements, such as buttons, so that the disabled state is perceivable to different users, including those using assistive technologies.
-- Form elements can inherit disabled states from parent form elements. For example, a `form` might be disabled so its child [Checkbox Group](/components/checkbox-group) would be disabled too.
-- Disabled states remove all interactive functions of a component, including its normal action and hover states. They ignore clicks.
-- Disable elements when they are temporarily unavailable and removing it would be conspicuous.
+
+#### Styling
+
+- Disabled components have **30% opacity**. The opacity is usually applied at the parent component level, not to internal elements. For example, a disabled button has 30% opacity while its text color and background color has 100% opacity.
+- Disabled elements are **exempt from [minimum contrast requirements](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)** because they're "incidental".
+
+#### Behavior
+
+- **Use the `disabled` attribute** on disabled form elements, such as buttons, so that the disabled state is perceivable to different users, including those using assistive technologies.
+- Form elements can **inherit disabled states** from parent form elements. For example, a `form` might be disabled so its child [Checkbox Group](/components/checkbox-group) would be disabled too.
+- Disabled states **remove all interactive functions** of a component, including its normal action and hover states. They ignore clicks.
+
+#### Disabling vs hiding
+
+- Disable elements when they are **temporarily unavailable** and **hiding it would be conspicuous**.
   - You might disable filtering options when the user has narrowed the selection so much that there are no more results available.
   - You might disable a [button](/components/button) immediately after a user clicks it to prevent duplicate actions or when removing the button would be conspicuous. For example, if removing the button would mess up the layout, confuse users about its absence, or make it unclear that usually more actions are possible.
-- Consider providing a message to explain why an element is disabled.
-  - For example, a form might show a negative [Inline notification](/components/inline-notification) at the top of the form summarizing all the invalid fields that need to be corrected before proceeding.
-  - If you need to disable a button, help users (including people using assistive technologies, such as screen reader) understand how to enable it again. For example, include nearby microcopy that explains why it is disabled and what action the user can take e.g. “There are no more reports to share. To share more reports, wait for a survey to close.”
-- Show disabled elements if people need to know what actions might be available to them that are temporarily unavailable. Let them know what's needed to make these actions available, such as permissions, data, or some action they need to take. If there's no way for the action to become available, consider hiding it.
+- Show disabled elements if people need to know **what actions might be available** to them that are temporarily unavailable. Let them know what's needed to make these actions available, such as permissions, data, or some action they need to take. If there's no way for the action to become available, consider hiding it.
 - For a split button with multiple actions, a menu with links or actions, or a [Select](/components/select), you might want to disable only some options. Before doing this, consider if there's another approach that would minimize cognitive load and effort for the user.
   - If there's only 1 valid option available in a Select, you might replace the Select with that selected option as text information.
   - If there's only 2 valid options available in a Select, you might use a [Radio Group](/components/radio-group) instead.
   - If there are alternative options that alternate between availability, you might hide the unavailable option instead of disabling. For example, if a menu contains an option for "give access", after giving access that item could then become unavailable. You might then replace it with a "remove access" option. Don't show both options at the same time with one disabled.
 
+#### Content
+
+- Consider providing a message to explain why an element is disabled and how to enable it.
+  - For example, a form might show a negative [Inline notification](/components/inline-notification) at the top of the form summarizing all the invalid fields that need to be corrected before proceeding.
+  - If you need to disable a button, help users (including people using assistive technologies, such as screen reader) understand how to enable it again. For example, include nearby microcopy that explains why it is disabled and what action the user can take e.g. “There are no more reports to share. To share more reports, wait for a survey to close.”
 
 
 ### Read-only
@@ -68,10 +79,11 @@ A "read-only" form element cannot be modified, but can otherwise be focused, rea
 - [Link vs button](/guidelines/link-vs-button).
 - [Button](/components/button).
 - [Checkbox Group](/components/checkbox-group).
-- [Radio Group](/components/radio-group).
-- [Text field](/components/text-field).
+- [Date Picker](/components/date-picker).
+- [Icon Button](/components/icon-button).
 - [Icon](/components/icon).
-- [Icon button](/components/icon-button).
+- [Radio Group](/components/radio-group).
+- [Text Field](/components/text-field).
 
 
 
