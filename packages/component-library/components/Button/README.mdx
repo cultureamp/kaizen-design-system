@@ -9,6 +9,10 @@ needToKnow:
 demoStoryId: button-react--default-kaizen-site-demo
 ---
 
+import DosAndDonts from "docs-components/DosAndDonts"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
 ## Visuals
 
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D205%253A10355" allowfullscreen></iframe>
@@ -44,7 +48,10 @@ demoStoryId: button-react--default-kaizen-site-demo
 *   Supplementary information:
     *   You might show additional, optional information on hover and focus using a [Tooltip](/components/tooltip) or [Popover](/components/popover).
 
-## When to use
+## When to use and when not to use
+
+<DosAndDonts>
+<Do>
 
 A button indicates to a user that they can perform an action on this page, such as:
 
@@ -54,10 +61,14 @@ A button indicates to a user that they can perform an action on this page, such 
 *   Trigger a new element to appear on the page e.g. toggle additional information, open a modal
 *   Trigger the next step in a process
 
-## When not to use
+</Do>
+<Dont>
 
 *   Don’t use a button when navigation is involved. Instead, use a [link](/guidelines/link-vs-button/).
 *   If the button is used to toggle between 2 states, use a [Toggle Switch](/components/toggle-switch-field) instead.
+
+</Dont>
+</DosAndDonts>
 
 ## See also
 
