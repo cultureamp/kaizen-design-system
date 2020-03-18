@@ -24,8 +24,12 @@ A disabled state applies to an element when the action is unavailable to a user.
 - Use the `disabled` attribute on disabled form elements, such as buttons, so that the disabled state is perceivable to different users, including those using assistive technologies.
 - Form elements can inherit disabled states from parent form elements. For example, a `form` might be disabled so its child [Checkbox Group](/components/checkbox-group) would be disabled too.
 - Disabled states remove all interactive functions of a component, including its normal action and hover states. They ignore clicks.
-- To avoid showing error messages for unavailable actions, you might disable the element until the action is available again. This is most appropriate for short-lived unavailability, such as a submit button for a form that was just submitted.
-- Consider providing a message to explain why an element is disabled. For example, a form might show a negative [Inline notification](/components/inline-notification) at the top of the form summarizing all the invalid fields that need to be corrected before proceeding.
+- Disable elements when they are temporarily unavailable and removing it would be conspicuous.
+  - You might disable filtering options when the user has narrowed the selection so much that there are no more results available.
+  - You might disable a [button](/components/button) immediately after a user clicks it to prevent duplicate actions or when removing the button would be conspicuous. For example, if removing the button would mess up the layout, confuse users about its absence, or make it unclear that usually more actions are possible.
+- Consider providing a message to explain why an element is disabled.
+  - For example, a form might show a negative [Inline notification](/components/inline-notification) at the top of the form summarizing all the invalid fields that need to be corrected before proceeding.
+  - If you need to disable a button, help users (including people using assistive technologies, such as screen reader) understand how to enable it again. For example, include nearby microcopy that explains why it is disabled and what action the user can take e.g. “There are no more reports to share. To share more reports, wait for a survey to close.”
 - Show disabled elements if people need to know what actions might be available to them that are temporarily unavailable. Let them know what's needed to make these actions available, such as permissions, data, or some action they need to take. If there's no way for the action to become available, consider hiding it.
 - For a split button with multiple actions, a menu with links or actions, or a [Select](/components/select), you might want to disable only some options. Before doing this, consider if there's another approach that would minimize cognitive load and effort for the user.
   - If there's only 1 valid option available in a Select, you might replace the Select with that selected option as text information.
@@ -47,12 +51,12 @@ A "read-only" form element cannot be modified, but can otherwise be focused, rea
 
 - Use default, hover, focus, active, and disabled states on links, buttons, checkboxes, radios, text fields, icons with tooltips or popovers and icon buttons.
 - Use a disabled state when hiding an element would be conspicuous.
-- Consider disabling a button on submit to prevent unintentional subsequent clicks.
 
 </Do>
 <Dont>
 
 - Instead of disabling an element, you may show a blocking modal on click that explains why it won't perform its usual action. You might visually style the element as disabled without actually disabling it.
+- Avoid disabling an element when there's no path for a user to make it available.
 
 </Dont>
 </DosAndDonts>
