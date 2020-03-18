@@ -27,8 +27,10 @@ A disabled state applies to an element when the action is unavailable to a user.
 - To avoid showing error messages for unavailable actions, you might disable the element until the action is available again. This is most appropriate for short-lived unavailability, such as a submit button for a form that was just submitted.
 - Consider providing a message to explain why an element is disabled. For example, a form might show a negative [Inline notification](/components/inline-notification) at the top of the form summarizing all the invalid fields that need to be corrected before proceeding.
 - Show disabled elements if people need to know what actions might be available to them that are temporarily unavailable. Let them know what's needed to make these actions available, such as permissions, data, or some action they need to take. If there's no way for the action to become available, consider hiding it.
-- For menus with links or [Select](/components/select), you might want to disable only some options. Before doing this, consider if there's another approach that would minimize cognitive load and effort for the user. For example, if there's only 1 valid option available, you might replace the Select with that selected option as text information. If there's only 2 valid options, you might use a [Radio Group](/components/radio-group) instead.
-
+- For a split button with multiple actions, a menu with links or actions, or a [Select](/components/select), you might want to disable only some options. Before doing this, consider if there's another approach that would minimize cognitive load and effort for the user.
+  - If there's only 1 valid option available in a Select, you might replace the Select with that selected option as text information.
+  - If there's only 2 valid options available in a Select, you might use a [Radio Group](/components/radio-group) instead.
+  - If there are alternative options that alternate between availability, you might hide the unavailable option instead of disabling. For example, if a menu contains an option for "give access", after giving access that item could then become unavailable. You might then replace it with a "remove access" option. Don't show both options at the same time with one disabled.
 
 
 
