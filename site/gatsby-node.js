@@ -84,6 +84,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 }
 
 const mapSlugToPage = slug => {
+  if (/^\/language/.test(slug))
+    return path.resolve(`./src/templates/languagePage.tsx`)
   if (/^\/guidelines/.test(slug))
     return path.resolve(`./src/templates/guidelinePage.tsx`)
   if (/^\/components/.test(slug))
