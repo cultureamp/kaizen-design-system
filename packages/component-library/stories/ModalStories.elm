@@ -164,7 +164,7 @@ main =
             }
     in
     storybook
-        [ storyOf "Confirmation (cautionary)" config <|
+        [ storyOf "Confirmation (cautionary), shown by default" config <|
             \m ->
                 div []
                     [ case m.modalContext of
@@ -190,7 +190,7 @@ main =
                         _ ->
                             text ""
                     ]
-        , storyOf "Generic" config <|
+        , storyOf "Generic, shown by default" config <|
             \m ->
                 div []
                     [ case m.modalContext of
@@ -218,7 +218,7 @@ main =
                         _ ->
                             text ""
                     ]
-        , storyOf "Confirmation (informative)" config <|
+        , storyOf "Confirmation (informative), shown by default" config <|
             \m ->
                 div []
                     [ case m.modalContext of
@@ -244,7 +244,7 @@ main =
                         _ ->
                             text ""
                     ]
-        , storyOf "Confirmation (positive)" config <|
+        , storyOf "Confirmation (positive), shown by default" config <|
             \m ->
                 div []
                     [ case m.modalContext of
@@ -270,7 +270,7 @@ main =
                         _ ->
                             text ""
                     ]
-        , storyOf "Confirmation (negative)" config <|
+        , storyOf "Confirmation (negative), shown by default" config <|
             \m ->
                 div []
                     [ case m.modalContext of
@@ -296,7 +296,7 @@ main =
                         _ ->
                             text ""
                     ]
-        , storyOf "Confirmation (user action)" config <|
+        , storyOf "Confirmation, user initiated" config <|
             \m ->
                 div []
                     [ Button.view (Button.default |> Button.onClick SetDefaultModalContext) "Open Modal"
@@ -327,7 +327,7 @@ main =
                       else
                         text ""
                     ]
-        , storyOf "InputEdit (positive)" config <|
+        , storyOf "InputEdit (positive), user initiated" config <|
             \m ->
                 let
                     textFieldConfigs =
@@ -367,7 +367,7 @@ main =
                         _ ->
                             text ""
                     ]
-        , storyOf "InputEdit (negative)" config <|
+        , storyOf "InputEdit (negative), user initiated" config <|
             \m ->
                 let
                     textFieldConfigs =
