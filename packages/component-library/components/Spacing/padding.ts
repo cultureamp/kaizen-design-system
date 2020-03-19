@@ -1,7 +1,5 @@
-import { GridFractions, ResponsiveSpacing, Spacing } from "./types"
+import { GridFractions, Spacing } from "./types"
 import { convertFractionToString } from "./util"
-
-export type Padding = ResponsiveSpacing
 
 const styles = require("./Padding.module.scss")
 
@@ -31,7 +29,7 @@ export const py = (unit: GridFractions): string[] => [
   styles[`pb-${convertFractionToString(unit)}`],
 ]
 
-export const p = (unit: ResponsiveSpacing): string[] => {
+export const p = (unit: GridFractions): string[] => {
   const classes: string[] = []
   if (typeof unit === "number") {
     classes.push(styles[`p-${convertFractionToString(unit)}`])

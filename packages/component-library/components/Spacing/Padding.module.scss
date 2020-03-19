@@ -17,13 +17,3 @@
     padding-left: $padding;
   }
 }
-
-@each $screen, $min in $breakpoints {
-  @media (min-width: #{$min}) {
-    @each $fraction, $margin in $spacing-list {
-      .p-#{$fraction}--#{$screen} {
-        margin: $margin;
-      }
-    }
-  }
-}

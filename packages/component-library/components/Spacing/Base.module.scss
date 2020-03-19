@@ -1,5 +1,5 @@
 @import "~@kaizen/component-library/styles/fonts";
-@import "~@kaizen/component-library/styles/type"; // just for the grid unit
+@import "~@kaizen/component-library/styles/type"; // just for the grid unit @TODO - update when we move to dart-sass
 
 // this should always be parity with util.ts
 $spacing-list: (
@@ -17,6 +17,3 @@ $spacing-list: (
   ("3-point-5", 3.5 * $ca-grid),
   ("4", $ca-grid * 4)
 );
-
-// this should be parity with types.ts
-$breakpoints: (("mobile", 0px), ("tablet", 768px), ("desktop", 1024px));

@@ -2,14 +2,14 @@
  * Spacing is in grid units (24px grid)
  */
 export type Spacing = {
-  p?: ResponsiveSpacing
+  p?: GridFractions
   pt?: GridFractions
   pr?: GridFractions
   pb?: GridFractions
   pl?: GridFractions
   px?: GridFractions
   py?: GridFractions
-  m?: ResponsiveSpacing
+  m?: GridFractions
   mt?: GridFractions
   mr?: GridFractions
   mb?: GridFractions
@@ -32,15 +32,3 @@ export type GridFractions =
   | 3
   | 3.5
   | 4
-
-export type Breakpoint = {
-  mobile: "0"
-  tablet: "768"
-  desktop: "1024"
-}
-
-export type ResponsiveSpacing =
-  | {
-      [key in keyof Breakpoint]?: GridFractions
-    }
-  | GridFractions
