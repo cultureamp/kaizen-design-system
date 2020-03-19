@@ -345,6 +345,8 @@ $caButton-verticalPaddingForm: calc(
   line-height: 1;
 
   &:only-child {
+    margin: 0 $ca-grid / 2;
+
     %caButtonSecondary & {
       margin: 0;
     }
