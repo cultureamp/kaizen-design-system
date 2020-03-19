@@ -624,12 +624,12 @@ TestScrollingModalAndScrollingContent.story = {
 }
 
 loadElmStories("Modal (Elm)", module, require("./ModalStories.elm"), [
-  "Confirmation (cautionary)",
-  "Generic",
-  "Confirmation (informative)",
-  "Confirmation (positive)",
-  "Confirmation (negative)",
-  "Confirmation (user action)",
-  "InputEdit (positive)",
-  "InputEdit (negative)",
+  "Confirmation (cautionary), shown by default",
+  "Generic, shown by default",
+  "Confirmation (informative), shown by default",
+  "Confirmation (positive), shown by default",
+  "Confirmation (negative), shown by default",
+  "Confirmation, user initiated",
+  "InputEdit (positive), user initiated",
+  "InputEdit (negative), user initiated",
 ])
