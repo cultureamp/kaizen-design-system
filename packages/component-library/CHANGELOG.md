@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.18.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.2...@kaizen/component-library@3.18.3) (2020-03-19)
+
+
+### Bug Fixes
+
+* revert "Remove text margin in the button" ([#340](https://github.com/cultureamp/kaizen-design-system/issues/340)) ([ff904d4](https://github.com/cultureamp/kaizen-design-system/commit/ff904d47df0113ffbbedc3e33bccd5e8caaf154f)), closes [#338](https://github.com/cultureamp/kaizen-design-system/issues/338)
+
+
+
+
+
+## [3.18.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.1...@kaizen/component-library@3.18.2) (2020-03-19)
+
+
+### Bug Fixes
+
+* Remove text margin in the button ([#338](https://github.com/cultureamp/kaizen-design-system/issues/338)) ([6ae61f5](https://github.com/cultureamp/kaizen-design-system/commit/6ae61f53e0cbf1a47c00d7f170acef6059825822))
+
+
+
+
+
 ## [3.18.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.0...@kaizen/component-library@3.18.1) (2020-03-18)
 
 **Note:** Version bump only for package @kaizen/component-library
