@@ -1,5 +1,6 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 import * as React from "react"
+import { Box } from "../components/Box"
 import { Heading } from "../components/Heading"
 
 export default { title: "typography/Heading" }
