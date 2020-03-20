@@ -1,7 +1,5 @@
-import { GridFractions, ResponsiveSpacing, Spacing } from "./types"
+import { GridFractions, Spacing } from "./types"
 import { convertFractionToString } from "./util"
-
-export type Margin = ResponsiveSpacing
 
 const styles = require("./Margin.module.scss")
 
@@ -31,7 +29,7 @@ export const my = (unit: GridFractions): string[] => [
   styles[`mb-${convertFractionToString(unit)}`],
 ]
 
-export const m = (unit: ResponsiveSpacing): string[] => {
+export const m = (unit: GridFractions): string[] => {
   const classes: string[] = []
   if (typeof unit === "number") {
     classes.push(styles[`m-${convertFractionToString(unit)}`])
