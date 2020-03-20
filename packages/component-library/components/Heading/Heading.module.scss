@@ -63,3 +63,42 @@
   line-height: $kz-typography-heading-6-line-height;
   letter-spacing: $kz-typography-heading-6-letter-spacing;
 }
+
+.dark {
+  color: $kz-color-wisteria-800;
+  opacity: 1;
+}
+
+.dark-translucent {
+  color: $kz-color-wisteria-800;
+  opacity: 0.7;
+}
+
+.light {
+  color: $kz-color-white;
+  opacity: 1;
+}
+
+.light-translucent {
+  color: $kz-color-white;
+  opacity: 0.8;
+}
+
+.positive {
+  &.small {
+    color: $kz-color-seedling-600;
+  }
+  &.large {
+    color: $kz-color-seedling-500;
+  }
+}
+
+.negative {
+  &.small {
+    color: $kz-color-coral-600;
+  }
+
+  &.large {
+    color: $kz-color-coral-500;
+  }
+}
