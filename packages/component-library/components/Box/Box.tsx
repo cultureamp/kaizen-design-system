@@ -42,7 +42,7 @@ BoxProps & Spacing) => {
   return (
     <div
       {...otherProps}
-      className={classnames(classes.join(" "), classNameAndIHaveSpokenToDST)}
+      className={classnames(classes, classNameAndIHaveSpokenToDST)}
     >
       {children}
     </div>

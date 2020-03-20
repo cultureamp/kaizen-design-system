@@ -1,13 +1,7 @@
 import * as React from "react"
 import { Box } from "../components/Box"
 
-export default { title: "layout/Box" }
-
-export const BoxResponsive = () => (
-  <Box m={{ mobile: 0.25, tablet: 1, desktop: 4 }}>
-    Move the viewport this way to see the responsive margin 👈
-  </Box>
-)
+export default { title: "Box" }
 
 export const BoxDefault = () => (
   <Box>
