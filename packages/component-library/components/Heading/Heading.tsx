@@ -28,9 +28,9 @@ export type AllowedTags =
 
 export type AllowedColors =
   | "dark"
-  | "dark-translucent"
-  | "light"
-  | "light-translucent"
+  | "dark-reduced-opacity"
+  | "white"
+  | "white-reduced-opacity"
   | "positive"
   | "negative"
 
@@ -50,7 +50,7 @@ export interface HeadingProps {
    * Allowed heading variants
    */
   variant: HeadingVariants
-  color?: AllowedColors
+  textColor?: AllowedColors
 }
 
 export const Heading = ({
@@ -58,7 +58,7 @@ export const Heading = ({
   children,
   tag,
   variant,
-  color = "dark",
+  textColor = "dark",
   ...otherProps
 }: HeadingProps) => {
   const inferredTag =
@@ -68,7 +68,7 @@ export const Heading = ({
     styles.heading,
     styles[variant],
     classNameAndIHaveSpokenToDST,
-    styles[color],
+    styles[textColor],
     VARIANTS_24PX_OR_GREATER.includes(variant) ? styles.large : styles.small,
   ]
 

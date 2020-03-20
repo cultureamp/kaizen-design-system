@@ -24,50 +24,50 @@ export const Heading5 = () => <Heading variant="heading-5">Heading 5</Heading>
 
 export const Heading6 = () => <Heading variant="heading-6">Heading 6</Heading>
 
-const Heading1DarkTranslucent = () => (
-  <Heading variant="heading-1" color="dark-translucent">
-    Heading 1 (dark, translucent)
+const Heading1DarkReducedOpacity = () => (
+  <Heading variant="heading-1" textColor="dark-reduced-opacity">
+    Heading 1 (dark, reduced opacity)
   </Heading>
 )
 
-const Heading1Light = () => (
-  <Heading variant="heading-1" color="light">
-    Heading 1 (light)
+const Heading1White = () => (
+  <Heading variant="heading-1" textColor="white">
+    Heading 1 (white)
   </Heading>
 )
 
-const Heading1LightTranslucent = () => (
-  <Heading variant="heading-1" color="light-translucent">
-    Heading 1 (light, translucent)
+const Heading1WhiteReducedOpacity = () => (
+  <Heading variant="heading-1" textColor="white-reduced-opacity">
+    Heading 1 (white, reduced opacity)
   </Heading>
 )
 
 export const Heading1Positive = () => (
-  <Heading variant="heading-1" color="positive">
+  <Heading variant="heading-1" textColor="positive">
     Heading 1 (positive)
   </Heading>
 )
 
 export const Heading1Negative = () => (
-  <Heading variant="heading-1" color="negative">
+  <Heading variant="heading-1" textColor="negative">
     Heading 1 (negative)
   </Heading>
 )
 
 export const Heading3Positive = () => (
-  <Heading variant="heading-3" color="positive">
+  <Heading variant="heading-3" textColor="positive">
     Heading 3 (positive)
   </Heading>
 )
 
 export const Heading3Negative = () => (
-  <Heading variant="heading-3" color="negative">
+  <Heading variant="heading-3" textColor="negative">
     Heading 3 (negative)
   </Heading>
 )
 
-Heading1Light.story = {
-  name: "Heading 1 Light",
+Heading1White.story = {
+  name: "Heading 1 White",
   parameters: {
     backgrounds: [
       {
@@ -79,8 +79,8 @@ Heading1Light.story = {
   },
 }
 
-Heading1LightTranslucent.story = {
-  name: "Heading 1 Light Translucent",
+Heading1WhiteReducedOpacity.story = {
+  name: "Heading 1 White Reduced Opacity",
   parameters: {
     backgrounds: [
       {
@@ -92,7 +92,11 @@ Heading1LightTranslucent.story = {
   },
 }
 
-export { Heading1Light, Heading1LightTranslucent, Heading1DarkTranslucent }
+export {
+  Heading1White,
+  Heading1WhiteReducedOpacity,
+  Heading1DarkReducedOpacity,
+}
 
 loadElmStories("Heading (Elm)", module, require("./Heading.stories.elm"), [
   "Display0",
