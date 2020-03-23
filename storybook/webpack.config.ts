@@ -136,11 +136,14 @@ const storybookSource: Rule = {
           // as these are addressed, they should be added to reportFiles
           // until we reach full TS coverage
         ],
-        // compilerOptions: { noEmit: true },
+        compilerOptions: { noEmit: false },
       },
     },
     {
       loader: require.resolve("react-docgen-typescript-loader"),
+      options: {
+        compilerOptions: { noEmit: false },
+      },
     },
   ],
 }
