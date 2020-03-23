@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["stories/**/*"],
+  "compilerOptions": {
+    "allowJs": false,
+    "sourceMap": true,
+    "declaration": true,
+    "noEmit": false
+  }
+}
