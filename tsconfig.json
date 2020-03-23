@@ -9,7 +9,6 @@
     "skipLibCheck": true,
     "noImplicitAny": false,
     "strict": true,
-    "allowJs": true,
-    "noEmit": true
+    "allowJs": true
   }
 }

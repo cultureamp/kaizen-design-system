@@ -26,9 +26,18 @@ export type AllowedTags =
   | "h6"
 
 export interface HeadingProps {
+  /**
+   * Not recommended. A short-circuit for overriding styled in a pinch
+   */
   classNameAndIHaveSpokenToDST?: string
   children: React.ReactNode
+  /**
+   * HTML elements that are allowed on Headings
+   */
   tag?: AllowedTags
+  /**
+   * Allowed heading variants
+   */
   variant: HeadingVariants
 }
 
