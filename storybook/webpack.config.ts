@@ -130,13 +130,13 @@ const storybookSource: Rule = {
       options: {
         reportFiles: [
           "!**/component-library/**/*.{ts,tsx}",
-          "!**/component-library/**/*.stories.{ts,tsx}",
           "**/component-library/Heading/**/*.{ts,tsx}",
           "**/component-library/Paragraph/**/*.{ts,tsx}",
           // @TODO - there's a heck of a lot of files with type errors
           // as these are addressed, they should be added to reportFiles
           // until we reach full TS coverage
         ],
+        // compilerOptions: { noEmit: true },
       },
     },
     {

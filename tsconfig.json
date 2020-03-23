@@ -10,6 +10,6 @@
     "noImplicitAny": false,
     "strict": true,
     "allowJs": true,
-    "noEmit": true
+    "noEmit": false
   }
 }

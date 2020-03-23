@@ -1,9 +1,13 @@
 {
   "extends": "../../tsconfig.json",
+  "include": [
+    "components/**/*",
+    "stories/**/*",
+    "draft/**/*",
+    "util/**/*",
+    "index.ts"
+  ],
   "compilerOptions": {
-    "allowJs": false,
-    "declaration": true,
-    "noEmit": false,
-    "sourceMap": true
+    "noEmit": false
   }
 }

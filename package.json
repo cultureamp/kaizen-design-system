@@ -8,7 +8,7 @@
     "node": "10.16.3"
   },
   "scripts": {
-    "ts-node": "TS_NODE_TRANSPILE_ONLY=true TS_NODE_EMIT=true ts-node --project packages/component-library/tsconfig.dist.json",
+    "ts-node": "TS_NODE_TRANSPILE_ONLY=true ts-node --project packages/component-library/tsconfig.storybook.json",
     "storybook": "yarn ts-node node_modules/.bin/start-storybook -c storybook",
     "storybook:build": "yarn ts-node node_modules/.bin/build-storybook -c storybook -o storybook/public",
     "gatsby": "yarn workspace site gatsby",
@@ -18,7 +18,9 @@
     "compile": "tsc",
     "lint": "elm-format --validate packages && yarn tslint && yarn prettier",
     "lint:fix": "elm-format --yes packages && yarn tslint --fix && yarn prettier --write",
-    "clean": "lerna run clean && yarn gatsby clean && rimraf 'elm-stuff' 'storybook/public'",
+    "clean:site": "rimraf 'site/src/components/**/*.js' 'site/src/docs-components/**/*.js' 'site/src/pages/**/*.js' 'site/src/templates/**/*.js'",
+    "clean:storybook": "rimraf 'storybook/public' 'storybook/*.js'",
+    "clean": "lerna run clean && yarn gatsby clean && yarn clean:site && yarn clean:storybook && rimraf 'elm-stuff' ",
     "reset": "yarn clean && yarn install --force"
   },
   "babel": {
