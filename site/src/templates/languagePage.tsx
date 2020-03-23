@@ -31,18 +31,13 @@ const renderSidebarTabs = (pages, currentPath, sectionName) => {
 export default ({ data, pageContext, location }) => {
   const md = data.mdx
   const allPages = data.allMdx.edges
-  //   const overviewPage = allPages.filter(
-  //     el => el.node.frontmatter.navTitle === "Overview"
-  //   )
-  //   const pagesWithoutOverview = allPages.filter(
-  //     el => el.node.frontmatter.navTitle !== "Overview"
-  //   )
-  //   const guidelinePages = sortSidebarTabs(
-  //     pagesWithoutOverview.filter(el => !el.node.frontmatter.inComparingSection)
-  //   )
-  //   const comparingPages = sortSidebarTabs(
-  //     pagesWithoutOverview.filter(el => el.node.frontmatter.inComparingSection)
-  //   )
+  const overviewPage = allPages.filter(
+    el => el.node.frontmatter.navTitle === "Overview"
+  )
+  const pagesWithoutOverview = sortSidebarTabs(
+    allPages.filter(el => el.node.frontmatter.navTitle !== "Overview")
+  )
+
   const currentPath = location.pathname
 
   const LanguagePageHeader = (
@@ -62,7 +57,8 @@ export default ({ data, pageContext, location }) => {
     >
       <SidebarAndContent>
         <Sidebar>
-          {renderSidebarTabs(allPages, currentPath, "Language")}
+          {renderSidebarTabs(overviewPage, currentPath, "language")}
+          {renderSidebarTabs(pagesWithoutOverview, currentPath, "language")}
         </Sidebar>
         <Content>
           <ContentMarkdownSection>
