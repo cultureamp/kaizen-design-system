@@ -18,9 +18,8 @@
     "compile": "tsc",
     "lint": "elm-format --validate packages && yarn tslint && yarn prettier",
     "lint:fix": "elm-format --yes packages && yarn tslint --fix && yarn prettier --write",
-    "clean:site": "rimraf 'site/src/components/**/*.js' 'site/src/docs-components/**/*.js' 'site/src/pages/**/*.js' 'site/src/templates/**/*.js'",
-    "clean:storybook": "rimraf 'storybook/public' 'storybook/*.js'",
-    "clean": "lerna run clean && yarn gatsby clean && yarn clean:site && yarn clean:storybook && rimraf 'elm-stuff' ",
+    "clean:storybook": "rimraf 'storybook/public'",
+    "clean": "lerna run clean && yarn gatsby clean && yarn clean:storybook && rimraf 'elm-stuff'",
     "reset": "yarn clean && yarn install --force"
   },
   "babel": {

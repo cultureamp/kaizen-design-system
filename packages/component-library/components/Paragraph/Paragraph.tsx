@@ -26,7 +26,8 @@ export interface ParagraphProps {
   classNameAndIHaveSpokenToDST?: string
   children: React.ReactNode
   /**
-   * HTML elements that are allowed on Headings
+   * HTML elements that are allowed on Paragraphs
+   * @default "p"
    */
   tag?: AllowedTags
   /**

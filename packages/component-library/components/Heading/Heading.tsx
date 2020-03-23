@@ -33,7 +33,8 @@ export interface HeadingProps {
   classNameAndIHaveSpokenToDST?: string
   children: React.ReactNode
   /**
-   * HTML elements that are allowed on Headings
+   * HTML elements that are allowed on Headings. When not supplied, the tag is inferred from
+   * the variant. E.g. display-0 will infer h1
    */
   tag?: AllowedTags
   /**
