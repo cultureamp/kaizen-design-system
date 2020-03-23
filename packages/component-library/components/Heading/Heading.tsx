@@ -27,7 +27,8 @@ export type AllowedTags =
 
 export interface HeadingProps {
   /**
-   * Not recommended. A short-circuit for overriding styled in a pinch
+   * Not recommended. A short-circuit for overriding styles in a pinch
+   * @default ""
    */
   classNameAndIHaveSpokenToDST?: string
   children: React.ReactNode
