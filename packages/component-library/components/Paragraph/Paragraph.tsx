@@ -19,9 +19,20 @@ export type AllowedTags =
   | "h6"
 
 export interface ParagraphProps {
+  /**
+   * Not recommended. A short-circuit for overriding styles in a pinch
+   * @default ""
+   */
   classNameAndIHaveSpokenToDST?: string
   children: React.ReactNode
+  /**
+   * HTML elements that are allowed on Paragraphs
+   * @default "p"
+   */
   tag?: AllowedTags
+  /**
+   * Allowed paragraph variants
+   */
   variant: ParagraphVariants
 }
 
