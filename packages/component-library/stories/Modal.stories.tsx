@@ -47,7 +47,7 @@ export default {
 }
 
 export const ConfirmationPositiveKaizenSiteDemo = () => (
-  <ModalStateContainer isInitiallyOpen={true}>
+  <ModalStateContainer isInitiallyOpen={false}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -74,7 +74,7 @@ ConfirmationPositiveKaizenSiteDemo.story = {
 }
 
 export const ConfirmationInformative = () => (
-  <ModalStateContainer isInitiallyOpen={true}>
+  <ModalStateContainer isInitiallyOpen={false}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -101,7 +101,7 @@ ConfirmationInformative.story = {
 }
 
 export const ConfirmationCautionary = () => (
-  <ModalStateContainer isInitiallyOpen={true}>
+  <ModalStateContainer isInitiallyOpen={false}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -128,7 +128,7 @@ ConfirmationCautionary.story = {
 }
 
 export const ConfirmationNegative = () => (
-  <ModalStateContainer isInitiallyOpen={true}>
+  <ModalStateContainer isInitiallyOpen={false}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -155,7 +155,7 @@ ConfirmationNegative.story = {
 }
 
 export const InputEditPositive = () => (
-  <ModalStateContainer isInitiallyOpen={true}>
+  <ModalStateContainer isInitiallyOpen={false}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -210,7 +210,7 @@ InputEditPositive.story = {
 }
 
 export const InputEditPositiveRtlLocale = () => (
-  <ModalStateContainer isInitiallyOpen={true}>
+  <ModalStateContainer isInitiallyOpen={false}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -266,7 +266,7 @@ InputEditPositiveRtlLocale.story = {
 }
 
 export const InputEditNegative = () => (
-  <ModalStateContainer isInitiallyOpen={true}>
+  <ModalStateContainer isInitiallyOpen={false}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -321,7 +321,7 @@ InputEditNegative.story = {
 }
 
 export const InformationWithAction = () => (
-  <ModalStateContainer isInitiallyOpen={true}>
+  <ModalStateContainer isInitiallyOpen={false}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -368,7 +368,7 @@ InformationWithAction.story = {
 }
 
 export const InformationWithoutAction = () => (
-  <ModalStateContainer isInitiallyOpen={true}>
+  <ModalStateContainer isInitiallyOpen={false}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -414,7 +414,7 @@ InformationWithoutAction.story = {
 }
 
 export const InformationWithBackground = () => (
-  <ModalStateContainer isInitiallyOpen={true}>
+  <ModalStateContainer isInitiallyOpen={false}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -466,7 +466,7 @@ InformationWithBackground.story = {
 
 export const GenericModalPadded = () => (
   <>
-    <ModalStateContainer isInitiallyOpen={true}>
+    <ModalStateContainer isInitiallyOpen={false}>
       {({ open, close, isOpen }) => (
         <div>
           <Button label="Open modal" onClick={open} />
@@ -511,7 +511,7 @@ GenericModalPadded.story = {
 
 export const GenericModalUnpadded = () => (
   <>
-    <ModalStateContainer isInitiallyOpen={true}>
+    <ModalStateContainer isInitiallyOpen={false}>
       {({ open, close, isOpen }) => (
         <div>
           <Button label="Open modal" onClick={open} />
@@ -557,7 +557,7 @@ GenericModalUnpadded.story = {
 
 export const GenericModalWithoutAction = () => (
   <>
-    <ModalStateContainer isInitiallyOpen={true}>
+    <ModalStateContainer isInitiallyOpen={false}>
       {({ open, close, isOpen }) => (
         <div>
           <Button label="Open modal" onClick={open} />
