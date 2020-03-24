@@ -3,7 +3,7 @@ import * as React from "react"
 import { Box } from "../components/Box"
 import { Heading } from "../components/Heading"
 
-export default { title: "typography/Heading" }
+export default { title: "Heading (React)", component: Heading }
 
 export const Display0 = () => <Heading variant="display-0">Display 0</Heading>
 

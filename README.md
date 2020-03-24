@@ -48,6 +48,7 @@ To run Storybook locally, run the following from the repository root:
 ```
 yarn storybook
 ```
+(Having trouble running Storybook? Try running `yarn clean` and `yarn install --force`!)
 
 To develop the site locally, please refer to the documentation in [the site package](./site/README.md).
 
