@@ -83,7 +83,7 @@ export default ({ data, pageContext, location }) => {
         </Sidebar>
         <Content>
           <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
-          {md.frontmatter.title === "Overview" ? null : renderStorybookIFrame()}
+          {md.frontmatter.title !== "Overview" && renderStorybookIFrame()}
           <ContentMarkdownSection>
             <h1>{md.frontmatter.navTitle}</h1>
             {/*
