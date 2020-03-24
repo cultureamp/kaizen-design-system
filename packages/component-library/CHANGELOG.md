@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.18.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.5...@kaizen/component-library@3.18.6) (2020-03-24)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [3.18.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.4...@kaizen/component-library@3.18.5) (2020-03-19)
+
+
+### Bug Fixes
+
+* Add padding in dropdown ([#339](https://github.com/cultureamp/kaizen-design-system/issues/339)) ([6661163](https://github.com/cultureamp/kaizen-design-system/commit/6661163d42d32221dc14856044b8c349ac7e2d0d))
+
+
+
+
+
+## [3.18.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.3...@kaizen/component-library@3.18.4) (2020-03-19)
+
+
+### Bug Fixes
+
+* unrevert "Remove text margin in the button"" ([#342](https://github.com/cultureamp/kaizen-design-system/issues/342)) ([4a58cd2](https://github.com/cultureamp/kaizen-design-system/commit/4a58cd2bd8f4a48e90406fbf9a9f990b0185b129)), closes [#340](https://github.com/cultureamp/kaizen-design-system/issues/340)
+
+
+
+
+
 ## [3.18.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.2...@kaizen/component-library@3.18.3) (2020-03-19)
 
 
