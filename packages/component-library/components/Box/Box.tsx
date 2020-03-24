@@ -1,6 +1,6 @@
 import {
-  responsiveMarginClasses,
-  responsivePaddingClasses,
+  marginClasses,
+  paddingClasses,
   Spacing,
 } from "@kaizen/component-library"
 import classnames from "classnames"
@@ -35,8 +35,8 @@ export const Box = ({
 // https://www.typescriptlang.org/docs/handbook/jsx.html#attribute-type-checking
 BoxProps & Spacing) => {
   const classes: string[] = [
-    ...responsivePaddingClasses({ p, pt, pr, pb, pl, px, py, rtl }),
-    ...responsiveMarginClasses({ m, mt, mr, mb, ml, mx, my, rtl }),
+    ...paddingClasses({ p, pt, pr, pb, pl, px, py, rtl }),
+    ...marginClasses({ m, mt, mr, mb, ml, mx, my, rtl }),
   ]
 
   return (

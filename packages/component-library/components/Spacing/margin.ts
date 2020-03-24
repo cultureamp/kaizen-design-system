@@ -42,7 +42,7 @@ export const m = (unit: GridFractions): string[] => {
   return classes
 }
 
-export const responsiveMarginClasses = ({
+export const marginClasses = ({
   m: margin,
   mt: marginTop,
   mr: marginRight,

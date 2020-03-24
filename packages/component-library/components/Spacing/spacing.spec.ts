@@ -1,5 +1,5 @@
-import { mb, ml, mr, mt, mx, my, responsiveMarginClasses } from "./margin"
-import { pb, pl, pr, pt, px, py, responsivePaddingClasses } from "./padding"
+import { mb, ml, mr, mt, mx, my, marginClasses } from "./margin"
+import { pb, pl, pr, pt, px, py, paddingClasses } from "./padding"
 import { GridFractions } from "./types"
 
 type TestObject = {
@@ -71,13 +71,13 @@ describe("padding", () => {
       })
     })
   })
-  describe("responsivePaddingClasses", () => {
+  describe("paddingClasses", () => {
     it(`generates a single padding class`, () => {
-      expect(responsivePaddingClasses({ p: 0.25 })).toContain(`p-0-point-25`)
-      expect(responsivePaddingClasses({ p: 0.25 })).toHaveLength(1)
+      expect(paddingClasses({ p: 0.25 })).toContain(`p-0-point-25`)
+      expect(paddingClasses({ p: 0.25 })).toHaveLength(1)
     })
     it(`generates multiple padding classes`, () => {
-      const classes = responsivePaddingClasses({ px: 0.25, pt: 1 })
+      const classes = paddingClasses({ px: 0.25, pt: 1 })
       expect(classes).toEqual(
         expect.arrayContaining(["pl-0-point-25", "pr-0-point-25", "pt-1"])
       )
@@ -139,13 +139,13 @@ describe("margin", () => {
       })
     })
   })
-  describe("responsiveMarginClasses", () => {
+  describe("marginClasses", () => {
     it(`generates a single margin class`, () => {
-      expect(responsiveMarginClasses({ m: 0.25 })).toContain(`m-0-point-25`)
-      expect(responsiveMarginClasses({ m: 0.25 })).toHaveLength(1)
+      expect(marginClasses({ m: 0.25 })).toContain(`m-0-point-25`)
+      expect(marginClasses({ m: 0.25 })).toHaveLength(1)
     })
     it(`generates multimle margin classes`, () => {
-      const classes = responsiveMarginClasses({ mx: 0.25, mt: 1 })
+      const classes = marginClasses({ mx: 0.25, mt: 1 })
       expect(classes).toHaveLength(3)
       expect(classes).toEqual(
         expect.arrayContaining(["ml-0-point-25", "mr-0-point-25", "mt-1"])

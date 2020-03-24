@@ -42,7 +42,7 @@ export const p = (unit: GridFractions): string[] => {
   return classes
 }
 
-export const responsivePaddingClasses = ({
+export const paddingClasses = ({
   p: padding,
   pt: paddingTop,
   pr: paddingRight,
