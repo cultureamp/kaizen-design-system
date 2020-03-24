@@ -6,6 +6,8 @@ summaryParagraph: |
 tags: ['Breadcrumb button', 'Button', 'Icon']
 needToKnow:
   - Default icon buttons perform actions using action icons without labels.
+  - Use a Primary icon button when it's the most important action to take.
+  - Use a Destructive icon button when the action will result in data loss, cannot be undone, or otherwise have significant consequences.
   - Breadcrumb icon buttons use link elements to navigate and must show a destination as text on hover/focus.
 demoStoryId: iconbutton-react--default-kaizen-site-demo
 ---
@@ -56,13 +58,7 @@ A breadcrumb icon button is an exceptional case that uses a link element instead
 
 ### Interaction guidelines
 
-| Icon color | Disabled    | Default/Inactive | Hover/Focus | Active/Pressed |
-| ---------- | ----------- | ---------------- | ----------- | -------------- |
-| Ink        | 30% opacity | 50% opacity      | 70% opacity | 100% opacity   |
-| White      | 30% opacity | 50% opacity      | 70% opacity | 100% opacity   |
-| Ocean      | 30% opacity | 50% opacity      | 70% opacity | 100% opacity   |
-
-In CSS, “Default/Inactive” maps to `initial` style, “Hover/Focus” to `:hover` and `:focus`, and “Active/Pressed” to `:active`.
+Disabled Icon Buttons use 30% opacity on the component itself (not, for example, the inner icon).
 
 ## When to use and when not to use
 

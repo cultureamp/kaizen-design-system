@@ -1,3 +1,4 @@
+import { Heading } from "@kaizen/component-library/components/Heading"
 import classnames from "classnames"
 import { graphql, StaticQuery } from "gatsby"
 import * as React from "react"
@@ -64,7 +65,15 @@ const PageHeader: React.SFC<PageHeaderProps> = ({
             </div>
           )}
           <div className={styles.mainSection}>
-            <h1 className={styles.headingText}>{headingText}</h1>
+            <div className={styles.headingTextContainer}>
+              <Heading
+                variant={headingOnly ? "display-0" : "heading-1"}
+                tag="h1"
+                classNameAndIHaveSpokenToDST={styles.headingTextOverrides}
+              >
+                {headingText}
+              </Heading>
+            </div>
             {summaryParagraph && (
               <h3 className={styles.summaryParagraph}>{summaryParagraph}</h3>
             )}
