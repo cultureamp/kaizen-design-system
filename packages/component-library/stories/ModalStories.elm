@@ -181,6 +181,7 @@ main =
                                     , onConfirm = Just ModalConfirmed
                                     , confirmLabel = "Confirm"
                                     , dismissLabel = "Cancel"
+                                    , onConfirmDisabled = False
                                     }
                                     |> Modal.modalState modalState
                                     -- IMPORTANT: the modal uses this for internal messages
@@ -235,6 +236,7 @@ main =
                                     , onConfirm = Just ModalConfirmed
                                     , confirmLabel = "Confirm"
                                     , dismissLabel = "Cancel"
+                                    , onConfirmDisabled = False
                                     }
                                     |> Modal.modalState modalState
                                     -- IMPORTANT: the modal uses this for internal messages
@@ -261,6 +263,7 @@ main =
                                     , onConfirm = Just ModalConfirmed
                                     , confirmLabel = "Confirm"
                                     , dismissLabel = "Cancel"
+                                    , onConfirmDisabled = False
                                     }
                                     |> Modal.modalState modalState
                                     -- IMPORTANT: the modal uses this for internal messages
@@ -287,6 +290,34 @@ main =
                                     , onConfirm = Just ModalConfirmed
                                     , confirmLabel = "Confirm"
                                     , dismissLabel = "Cancel"
+                                    , onConfirmDisabled = False
+                                    }
+                                    |> Modal.modalState modalState
+                                    -- IMPORTANT: the modal uses this for internal messages
+                                    |> Modal.onUpdate ModalUpdate
+                                )
+
+                        _ ->
+                            text ""
+                    ]
+        , storyOf "Confirmation (negative), with disabled confirm button" config <|
+            \m ->
+                div []
+                    [ case m.modalContext of
+                        Default modalState ->
+                            Modal.view <|
+                                (Modal.confirmation Modal.Negative
+                                    { title = "Negative title"
+                                    , bodySubtext =
+                                        Just
+                                            [ div [ style "text-align" "center" ]
+                                                [ Text.view (Text.p |> Text.style Text.Lede |> Text.inline True) [ text "Additional subtext to aid the user can be added here." ] ]
+                                            ]
+                                    , onDismiss = Just ModalDismissed
+                                    , onConfirm = Nothing
+                                    , confirmLabel = "Confirm"
+                                    , dismissLabel = "Cancel"
+                                    , onConfirmDisabled = True
                                     }
                                     |> Modal.modalState modalState
                                     -- IMPORTANT: the modal uses this for internal messages
@@ -315,6 +346,7 @@ main =
                                         , onConfirm = Just ModalConfirmed
                                         , confirmLabel = "Confirm"
                                         , dismissLabel = "Cancel"
+                                        , onConfirmDisabled = False
                                         }
                                         |> Modal.modalState modalState
                                         -- IMPORTANT: the modal uses this for internal messages
