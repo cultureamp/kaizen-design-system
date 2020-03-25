@@ -5,6 +5,7 @@ import Html exposing (Html, div, text)
 import Html.Attributes exposing (style)
 import Kaizen.Table.Column as Column
 import Kaizen.Table.Table as Table
+import Text.Text as Text
 
 
 storyContainer : List (Html msg) -> Html msg
@@ -24,28 +25,29 @@ main =
                 Column.default
                     { labelText = "resource name"
                     , width = 4 / 12
-                    , cellContent = \_ -> text "Table row label"
+                    , cellContent = \_ -> Text.view (Text.div |> Text.inheritBaseline True) [ text "Table row label" ]
                     }
+                    |> Column.withAdditionalCellAttributes [ style "color" "#A569BD" ]
 
             column2 =
                 Column.default
                     { labelText = "supplementary information"
                     , width = 4 / 12
-                    , cellContent = \_ -> text "Supplementary information"
+                    , cellContent = \_ -> Text.view (Text.div |> Text.inheritBaseline True) [ text "Supplementary information" ]
                     }
 
             column3 =
                 Column.default
                     { labelText = "date"
                     , width = 2 / 12
-                    , cellContent = \{ date } -> text date
+                    , cellContent = \{ date } -> Text.view (Text.div |> Text.inheritBaseline True) [ text date ]
                     }
 
             column4 =
                 Column.default
                     { labelText = "icon"
                     , width = 2 / 12
-                    , cellContent = \{ number } -> text number
+                    , cellContent = \{ number } -> Text.view (Text.div |> Text.inheritBaseline True) [ text number ]
                     }
 
             tableConfig =

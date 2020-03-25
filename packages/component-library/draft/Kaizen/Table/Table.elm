@@ -82,8 +82,11 @@ rowView (Config { columns }) data =
 
 cellView : data -> Column.ConfigValue data msg -> Html msg
 cellView data column =
-    div [ styles.class .rowCell, style "width" (ratioToPercent column.width) ]
-        [ column.cellContent data ]
+    let
+        cellAttributes =
+            [ styles.class .rowCell, style "width" (ratioToPercent column.width) ] ++ column.additionalCellAttributes
+    in
+    div cellAttributes [ column.cellContent data ]
 
 
 ratioToPercent : Float -> String

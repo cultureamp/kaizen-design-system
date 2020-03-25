@@ -1,16 +1,26 @@
 module Kaizen.Table.Column exposing
     ( ConfigValue
     , default
+    , withAdditionalCellAttributes
     )
 
 import Html exposing (Html)
+
+
+
+-- CONFIG
 
 
 type alias ConfigValue data msg =
     { labelText : String
     , width : Float
     , cellContent : data -> Html msg
+    , additionalCellAttributes : List (Html.Attribute msg)
     }
+
+
+
+-- VARIANTS
 
 
 default : { labelText : String, width : Float, cellContent : data -> Html msg } -> ConfigValue data msg
@@ -18,32 +28,14 @@ default { labelText, width, cellContent } =
     { labelText = labelText
     , width = width
     , cellContent = cellContent
+    , additionalCellAttributes = []
     }
 
 
 
---
---
---withContentWidth : ColumnConfig data msg -> ColumnConfig data msg
---withContentWidth column =
---    { column | width = ContentWidth }
---
---
---withUnstyledContentWidth : ColumnConfig data msg -> ColumnConfig data msg
---withUnstyledContentWidth column =
---    { column | width = Unstyled }
---
---
---withoutPadding : ColumnConfig data msg -> ColumnConfig data msg
---withoutPadding column =
---    { column | cellPadding = NoPadding }
---
---
---withHeaderOnClick : msg -> ColumnConfig data msg -> ColumnConfig data msg
---withHeaderOnClick onClick column =
---    { column | onClick = Just onClick }
---
---
---withAdditionalCellAttributes : List (Html.Attribute msg) -> ColumnConfig data msg -> ColumnConfig data msg
---withAdditionalCellAttributes additionalCellAttributes column =
---    { column | additionalCellAttributes = additionalCellAttributes }
+-- MODIFIERS
+
+
+withAdditionalCellAttributes : List (Html.Attribute msg) -> ConfigValue data msg -> ConfigValue data msg
+withAdditionalCellAttributes additionalCellAttributes config =
+    { config | additionalCellAttributes = additionalCellAttributes }
