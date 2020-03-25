@@ -112,5 +112,7 @@
     "@storybook/node-logger": "^5.3.9",
     "jscodeshift": "^0.7.0"
   },
-  "resolutions": { "**/**/minimist": "^1.2.3" }
+  "resolutions": {
+    "**/**/minimist": "^1.2.3"
+  }
 }
