@@ -1,11 +1,18 @@
 module Kaizen.Table.Table exposing
-    ( default
+    ( Msg
+    , State
+    , default
+    , initState
+    , update
     , view
+    , withExpandedContent
+    , withState
     )
 
 import CssModules exposing (css)
-import Html exposing (Html, div, text)
+import Html exposing (Html, button, div, text)
 import Html.Attributes exposing (style)
+import Html.Events exposing (onClick)
 import Kaizen.Table.Column as Column
 import Text.Text as Text
 
@@ -16,11 +23,32 @@ import Text.Text as Text
 
 type alias ConfigValue data msg =
     { columns : List (Column.ConfigValue data msg)
+    , isExpandable : Bool
+    , expandedContent : data -> Html msg
+    , state : State
     }
 
 
 type Config data msg
     = Config (ConfigValue data msg)
+
+
+type Msg
+    = RowClicked (Maybe Int)
+
+
+type State
+    = State TableState
+
+
+type alias TableState =
+    { expandedRowIndex : Maybe Int
+    }
+
+
+initState : State
+initState =
+    State { expandedRowIndex = Nothing }
 
 
 
@@ -29,7 +57,22 @@ type Config data msg
 
 default : List (Column.ConfigValue data msg) -> Config data msg
 default columns =
-    Config { columns = columns }
+    Config
+        { columns = columns
+        , isExpandable = False
+        , expandedContent = \_ -> text ""
+        , state = initState
+        }
+
+
+withExpandedContent : (data -> Html msg) -> Config data msg -> Config data msg
+withExpandedContent expandableContent (Config config) =
+    Config { config | isExpandable = True, expandedContent = expandableContent }
+
+
+withState : State -> Config data msg -> Config data msg
+withState stateValue (Config config) =
+    Config { config | state = stateValue }
 
 
 
@@ -46,13 +89,13 @@ default columns =
 -- VIEW
 
 
-view : Config data msg -> List data -> Html msg
+view : Config data Msg -> List data -> Html Msg
 view config data =
     div [ styles.class .container ]
         ([ headersView config ] ++ bodyView config data)
 
 
-headersView : Config data msg -> Html msg
+headersView : Config data Msg -> Html Msg
 headersView (Config { columns }) =
     div [ styles.class .header ]
         [ div [ styles.class .headerRow ]
@@ -60,27 +103,68 @@ headersView (Config { columns }) =
         ]
 
 
-headerRowCell : Column.ConfigValue data msg -> Html msg
+headerRowCell : Column.ConfigValue data Msg -> Html Msg
 headerRowCell column =
     div [ styles.class .headerRowCell, style "width" (ratioToPercent column.width) ]
         [ Text.view (Text.div |> Text.inheritBaseline True |> Text.style Text.Label) [ text column.labelText ]
         ]
 
 
-bodyView : Config data msg -> List data -> List (Html msg)
+bodyView : Config data Msg -> List data -> List (Html Msg)
 bodyView tableConfig data =
-    List.map (rowView tableConfig) data
+    List.indexedMap (rowView tableConfig) data
 
 
-rowView : Config data msg -> data -> Html msg
-rowView (Config { columns }) data =
-    div [ styles.class .card ]
-        [ div [ styles.class .row ]
-            (List.map (cellView data) columns)
-        ]
+rowView : Config data Msg -> Int -> data -> Html Msg
+rowView (Config { columns, isExpandable, expandedContent, state }) index data =
+    let
+        (State stateValue) =
+            state
+
+        isExpanded =
+            case stateValue.expandedRowIndex of
+                Nothing ->
+                    False
+
+                Just expandedRowIndex ->
+                    expandedRowIndex == index
+
+        clickedIndex =
+            case isExpanded of
+                True ->
+                    Nothing
+
+                False ->
+                    Just index
+
+        cardClasses =
+            [ styles.classList
+                [ ( .card, True )
+                , ( .hasHoverState, isExpandable )
+                , ( .expanded, isExpanded )
+                ]
+            ]
+
+        children =
+            [ div [ styles.class .row ]
+                (List.map (cellView data) columns)
+            ]
+    in
+    case isExpandable of
+        True ->
+            button (cardClasses ++ [ onClick (RowClicked clickedIndex) ])
+                (if isExpanded then
+                    children ++ [ expandedContent data ]
+
+                 else
+                    children
+                )
+
+        False ->
+            div cardClasses children
 
 
-cellView : data -> Column.ConfigValue data msg -> Html msg
+cellView : data -> Column.ConfigValue data Msg -> Html Msg
 cellView data column =
     let
         cellAttributes =
@@ -94,6 +178,17 @@ ratioToPercent width =
     String.fromFloat (width * 100) ++ "%"
 
 
+
+-- UPDATE
+
+
+update : Msg -> State -> ( State, Cmd Msg )
+update msg (State state) =
+    case msg of
+        RowClicked index ->
+            ( State { state | expandedRowIndex = index }, Cmd.none )
+
+
 styles =
     css "@kaizen/component-library/draft/Kaizen/Table/styles.scss"
         { container = "container"
@@ -102,6 +197,7 @@ styles =
         , headerRowCell = "headerRowCell"
         , card = "card"
         , expanded = "expanded"
+        , hasHoverState = "hasHoverState"
         , row = "row"
         , rowCell = "rowCell"
         }

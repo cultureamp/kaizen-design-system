@@ -355,4 +355,7 @@ NoHeader.story = {
   name: "No header",
 }
 
-loadElmStories("Table (Elm)", module, require("./TableStories.elm"), ["Basic"])
+loadElmStories("Table (Elm)", module, require("./TableStories.elm"), [
+  "Basic",
+  "Expandable",
+])
