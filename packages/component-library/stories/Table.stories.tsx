@@ -1,3 +1,4 @@
+import { loadElmStories } from "@cultureamp/elm-storybook"
 import { Text } from "@kaizen/component-library"
 import {
   CheckboxField,
@@ -353,3 +354,5 @@ export const NoHeader = () => (
 NoHeader.story = {
   name: "No header",
 }
+
+loadElmStories("Table (Elm)", module, require("./TableStories.elm"), ["Basic"])
