@@ -1,5 +1,5 @@
-import { mb, ml, mr, mt, mx, my, marginClasses } from "./margin"
-import { pb, pl, pr, pt, px, py, paddingClasses } from "./padding"
+import { marginClasses, mb, ml, mr, mt, mx, my } from "./margin"
+import { paddingClasses, pb, pl, pr, pt, px, py } from "./padding"
 import { GridFractions } from "./types"
 
 type TestObject = {
