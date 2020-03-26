@@ -25,9 +25,13 @@ import Dont from "docs-components/Dont"
 - Where possible, link the avatar to details about the individual or group it represents:
   - Where appropriate, link the avatar to a context-specific view of that individual or group. Otherwise, link to their canonical "profile" page.
   - Don't link the avatar while it's shown on the individual's canonical "profile" page.
-- When there is no image to show, use initials:
-  - For a single name, use the first letter only, capitalized. For 2 names, use the initial letter of both names, capitalized. For 3 or more names, use the initial letter of the first and last name, capitalized.
-  - When the name is known, use "personal" initials. Otherwise, use "generic" initials.
+- When there is no personal photo to show, use initials:
+  - Because personal names differ around the world, consider avoiding using initials that may not represent an individual accurately. You might show their full name instead.
+  - We tend to use the first letter of each space-separated word for initials and capitalize them. You may need to resize the initials text for more than 4 names.
+  - For the current user, show the personal avatar using the personal background color. That is, use the personal avatar color for "you".
+  - For all other users in a page, show the generic avatar using the generic background color. That is, use the generic avatar color for "everyone else".
+- When there is no specific individual or group identified, use the default user avatar.
+  - For example, if you were previewing a 360 survey template with no specific user assigned, you might show a default user avatar.
 - Use with name:
   - Provide a text label showing the individual or group's name near the avatar when it's the only place the name is shown.
   - Use an empty `alt=""`.
@@ -35,7 +39,7 @@ import Dont from "docs-components/Dont"
   - You might skip showing the individual or group's name when the avatar is shown in a list and linked to a place where the name is shown.
   - For `alt` text, use their name.
 - Loading:
-  - If an image fails to load, fall back to initials.
+  - If an image fails to load, fall back to the default user avatar.
 
 ## When to use and when not to use
 
@@ -67,4 +71,5 @@ import Dont from "docs-components/Dont"
 - [Ant Design: avatar](https://ant.design/components/avatar/#header).
 - [Spectrum: tag avatar](https://spectrum.adobe.com/page/tag/#Avatar).
 - [Redbubble: avatar](http://redbubble.design/components/Avatar/examples).
+- [W3C: Personal names around the world](https://www.w3.org/International/questions/qa-personal-names).
 
