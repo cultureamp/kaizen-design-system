@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@4.0.0...@kaizen/component-library@4.1.0) (2020-03-26)
+
+
+### Features
+
+* Adding Box component for React ([#345](https://github.com/cultureamp/kaizen-design-system/issues/345)) ([7a7b0f4](https://github.com/cultureamp/kaizen-design-system/commit/7a7b0f4390650f6abe9e3405aa7c09135a079b01))
+
+
+
+
+
 # [4.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.6...@kaizen/component-library@4.0.0) (2020-03-25)
 
 
