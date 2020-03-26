@@ -4,11 +4,22 @@ import ColorBlock from "./ColorBlock"
 import { renderContrastHeaderIcons } from "./ContrastIcon"
 import Palette from "./Palette"
 
-const chevronDown = require("@kaizen/component-library/icons/chevron-down.icon.svg").default
-const chevronUp = require("@kaizen/component-library/icons/chevron-up.icon.svg").default
+const chevronDown = require("@kaizen/component-library/icons/chevron-down.icon.svg")
+  .default
+const chevronUp = require("@kaizen/component-library/icons/chevron-up.icon.svg")
+  .default
 const styles = require("./ColorCard.scss")
 
-class ColorCard extends React.Component {
+interface ColorCardProps {
+  name: string
+  showAccessibility: boolean
+}
+
+interface ColorCardState {
+  expanded?: boolean
+}
+
+class ColorCard extends React.Component<ColorCardProps, ColorCardState> {
   state = {
     expanded: false,
   }
@@ -31,8 +42,8 @@ class ColorCard extends React.Component {
     if (!this.isExpandable()) {
       return this.props.name
     }
-    const toggleIcon = this.state.expanded ? chevronUp : chevronDown,
-      toggleTitle = this.state.expanded ? "Collapse Color" : "Expand Color"
+    const toggleIcon = this.state.expanded ? chevronUp : chevronDown
+    const toggleTitle = this.state.expanded ? "Collapse Color" : "Expand Color"
     return (
       <button
         className={styles.cardToggleButton}
@@ -56,9 +67,9 @@ class ColorCard extends React.Component {
   }
 
   renderSubtitle() {
-    const showContrast = this.props.showAccessibility,
-      title = showContrast ? "WCAG 2.0 AA" : "Tint & Shade",
-      color = Palette[this.props.name.toLowerCase()]
+    const showContrast = this.props.showAccessibility
+    const title = showContrast ? "WCAG 2.0 AA" : "Tint & Shade"
+    const color = Palette[this.props.name.toLowerCase()]
     return (
       <div className={styles.subheader}>
         <label>{title}</label>

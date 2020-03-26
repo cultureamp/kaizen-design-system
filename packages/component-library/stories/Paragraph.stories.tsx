@@ -2,7 +2,7 @@ import { loadElmStories } from "@cultureamp/elm-storybook"
 import * as React from "react"
 import { Paragraph } from "../components/Paragraph"
 
-export default { title: "typography/Paragraph" }
+export default { title: "Paragraph", component: Paragraph }
 
 export const IntroLede = () => (
   <Paragraph variant="intro-lede">Paragraph Intro Lede</Paragraph>
