@@ -629,6 +629,7 @@ loadElmStories("Modal (Elm)", module, require("./ModalStories.elm"), [
   "Confirmation (informative), shown by default",
   "Confirmation (positive), shown by default",
   "Confirmation (negative), shown by default",
+  "Confirmation (negative), with disabled confirm button",
   "Confirmation, user initiated",
   "InputEdit (positive), user initiated",
   "InputEdit (negative), user initiated",

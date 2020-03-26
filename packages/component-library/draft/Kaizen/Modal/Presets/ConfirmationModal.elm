@@ -10,6 +10,7 @@ module Kaizen.Modal.Presets.ConfirmationModal exposing
     , negative
     , onConfirm
     , onConfirmBlur
+    , onConfirmDisabled
     , onConfirmFocus
     , onDismiss
     , onHeaderDismissBlur
@@ -59,6 +60,7 @@ type alias Configuration msg =
     , onConfirmFocus : Maybe msg
     , onConfirmBlur : Maybe msg
     , confirmId : Maybe String
+    , onConfirmDisabled : Bool
     }
 
 
@@ -114,6 +116,7 @@ defaults =
     , onConfirmFocus = Nothing
     , onConfirmBlur = Nothing
     , confirmId = Just Constants.lastFocusableId
+    , onConfirmDisabled = False
     }
 
 
@@ -242,6 +245,13 @@ footer config =
                 Nothing ->
                     buttonConfig
 
+        withOnConfirmDisabled buttonConfig =
+            if config.onConfirmDisabled then
+                Button.disabled True buttonConfig
+
+            else
+                Button.disabled False buttonConfig
+
         resolveActionButtonVariant =
             if config.variant == Negative then
                 Button.destructive
@@ -288,6 +298,7 @@ footer config =
     , Button.view
         (resolveActionButtonVariant
             |> withOnConfirm
+            |> withOnConfirmDisabled
             |> withConfirmId
             |> withConfirmFocus
             |> withConfirmBlur
@@ -309,6 +320,11 @@ onDismiss msg (Config config) =
 onConfirm : msg -> Config msg -> Config msg
 onConfirm msg (Config config) =
     Config { config | onConfirm = Just msg }
+
+
+onConfirmDisabled : Bool -> Config msg -> Config msg
+onConfirmDisabled isDisabled (Config config) =
+    Config { config | onConfirmDisabled = isDisabled }
 
 
 title : String -> Config msg -> Config msg
