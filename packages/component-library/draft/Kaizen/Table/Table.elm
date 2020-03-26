@@ -1,5 +1,5 @@
 module Kaizen.Table.Table exposing
-    ( Msg
+    ( Msg(..)
     , State
     , default
     , initState
@@ -23,10 +23,21 @@ import Text.Text as Text
 
 type alias ConfigValue data msg =
     { columns : List (Column.ConfigValue data msg)
-    , isExpandable : Bool
-    , expandedContent : data -> Html msg
     , state : State
+    , tableType : TableType data msg
     }
+
+
+type TableType data msg
+    = Basic
+    | Expandable
+        { expandedContent : data -> Html msg
+        , rowClickHandler : Maybe Int -> msg
+        }
+
+
+type alias RowClickHandler msg =
+    Maybe Int -> msg
 
 
 type Config data msg
@@ -59,15 +70,16 @@ default : List (Column.ConfigValue data msg) -> Config data msg
 default columns =
     Config
         { columns = columns
-        , isExpandable = False
-        , expandedContent = \_ -> text ""
+        , tableType = Basic
         , state = initState
         }
 
 
-withExpandedContent : (data -> Html msg) -> Config data msg -> Config data msg
-withExpandedContent expandableContent (Config config) =
-    Config { config | isExpandable = True, expandedContent = expandableContent }
+
+
+withExpandedContent : (data -> Html msg) -> RowClickHandler msg -> Config data msg -> Config data msg
+withExpandedContent expandableContent rowClickHandler (Config config) =
+    Config { config | tableType = Expandable { expandedContent = expandableContent, rowClickHandler = rowClickHandler } }
 
 
 withState : State -> Config data msg -> Config data msg
@@ -89,13 +101,13 @@ withState stateValue (Config config) =
 -- VIEW
 
 
-view : Config data Msg -> List data -> Html Msg
+view : Config data msg -> List data -> Html msg
 view config data =
     div [ styles.class .container ]
         ([ headersView config ] ++ bodyView config data)
 
 
-headersView : Config data Msg -> Html Msg
+headersView : Config data msg -> Html msg
 headersView (Config { columns }) =
     div [ styles.class .header ]
         [ div [ styles.class .headerRow ]
@@ -103,20 +115,20 @@ headersView (Config { columns }) =
         ]
 
 
-headerRowCell : Column.ConfigValue data Msg -> Html Msg
+headerRowCell : Column.ConfigValue data msg -> Html msg
 headerRowCell column =
     div [ styles.class .headerRowCell, style "width" (ratioToPercent column.width) ]
         [ Text.view (Text.div |> Text.inheritBaseline True |> Text.style Text.Label) [ text column.labelText ]
         ]
 
 
-bodyView : Config data Msg -> List data -> List (Html Msg)
+bodyView : Config data msg -> List data -> List (Html msg)
 bodyView tableConfig data =
     List.indexedMap (rowView tableConfig) data
 
 
-rowView : Config data Msg -> Int -> data -> Html Msg
-rowView (Config { columns, isExpandable, expandedContent, state }) index data =
+rowView : Config data msg -> Int -> data -> Html msg
+rowView (Config { columns, tableType, state }) index data =
     let
         (State stateValue) =
             state
@@ -140,7 +152,7 @@ rowView (Config { columns, isExpandable, expandedContent, state }) index data =
         cardClasses =
             [ styles.classList
                 [ ( .card, True )
-                , ( .hasHoverState, isExpandable )
+                , ( .hasHoverState, isExpandable tableType )
                 , ( .expanded, isExpanded )
                 ]
             ]
@@ -150,9 +162,12 @@ rowView (Config { columns, isExpandable, expandedContent, state }) index data =
                 (List.map (cellView data) columns)
             ]
     in
-    case isExpandable of
-        True ->
-            button (cardClasses ++ [ onClick (RowClicked clickedIndex) ])
+    case tableType of
+        Basic ->
+            div cardClasses children
+
+        Expandable { expandedContent, rowClickHandler } ->
+            button (cardClasses ++ [ onClick (rowClickHandler clickedIndex) ])
                 (if isExpanded then
                     children ++ [ expandedContent data ]
 
@@ -160,11 +175,18 @@ rowView (Config { columns, isExpandable, expandedContent, state }) index data =
                     children
                 )
 
-        False ->
-            div cardClasses children
+
+isExpandable : TableType data msg -> Bool
+isExpandable tableType =
+    case tableType of
+        Basic ->
+            False
+
+        Expandable _ ->
+            True
 
 
-cellView : data -> Column.ConfigValue data Msg -> Html Msg
+cellView : data -> Column.ConfigValue data msg -> Html msg
 cellView data column =
     let
         cellAttributes =
@@ -182,7 +204,7 @@ ratioToPercent width =
 -- UPDATE
 
 
-update : Msg -> State -> ( State, Cmd Msg )
+update : Msg -> State -> ( State, Cmd msg )
 update msg (State state) =
     case msg of
         RowClicked index ->

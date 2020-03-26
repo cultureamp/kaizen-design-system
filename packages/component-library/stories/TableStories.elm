@@ -1,7 +1,7 @@
 module Main exposing (main)
 
 import CssModules exposing (css)
-import ElmStorybook exposing (storyOf, storybook)
+import ElmStorybook exposing (statelessStoryOf, storyOf, storybook)
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (style)
 import Kaizen.Table.Column as Column
@@ -14,7 +14,7 @@ type alias TableModel =
     }
 
 
-type TableMsg
+type Msg
     = TableMsg Table.Msg
 
 
@@ -24,7 +24,7 @@ model =
     }
 
 
-update : TableMsg -> TableModel -> ( TableModel, Cmd TableMsg )
+update : Msg -> TableModel -> ( TableModel, Cmd Msg )
 update msg tableModel =
     case msg of
         TableMsg tableMsg ->
@@ -113,16 +113,20 @@ main =
     storybook
         [ storyOf "Basic" config <|
             \m ->
-                Html.map TableMsg <|
-                    storyContainer
-                        [ Table.view tableConfig data
-                        ]
+                storyContainer
+                    [ Table.view tableConfig data
+                    ]
         , storyOf "Expandable" config <|
             \m ->
-                Html.map TableMsg <|
-                    storyContainer
-                        [ Table.view (tableConfig |> Table.withExpandedContent expandedView |> Table.withState m.tableState) data
-                        ]
+                storyContainer
+                    [ Table.view
+                        (tableConfig
+                            |> Table.withExpandedContent expandedView
+                                (\maybeRowIndex -> TableMsg (Table.RowClicked maybeRowIndex))
+                            |> Table.withState m.tableState
+                        )
+                        data
+                    ]
         ]
 
 
