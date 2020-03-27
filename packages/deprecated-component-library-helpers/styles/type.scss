@@ -287,7 +287,9 @@ $ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
   @include ca-type(
     $size-ratio: $size / 16,
     $family:
-      "#{$kz-typography-heading-1-font-family}, Helvetica, Arial, sans-serif",
+      unquote(
+        "#{$kz-typography-heading-1-font-family}, Helvetica, Arial, sans-serif"
+      ),
     $base-size: $ca-greycliff-font-base-size,
     $descender-height: $ca-greycliff-font-descender-height,
     $line-height-in-grid-units: $line-height-in-grid-units,
