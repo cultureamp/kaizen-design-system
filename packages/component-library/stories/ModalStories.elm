@@ -164,7 +164,7 @@ main =
             }
     in
     storybook
-        [ storyOf "Confirmation (cautionary)" config <|
+        [ storyOf "Confirmation (cautionary), shown by default" config <|
             \m ->
                 div []
                     [ case m.modalContext of
@@ -181,6 +181,7 @@ main =
                                     , onConfirm = Just ModalConfirmed
                                     , confirmLabel = "Confirm"
                                     , dismissLabel = "Cancel"
+                                    , onConfirmDisabled = False
                                     }
                                     |> Modal.modalState modalState
                                     -- IMPORTANT: the modal uses this for internal messages
@@ -190,7 +191,7 @@ main =
                         _ ->
                             text ""
                     ]
-        , storyOf "Generic" config <|
+        , storyOf "Generic, shown by default" config <|
             \m ->
                 div []
                     [ case m.modalContext of
@@ -218,7 +219,7 @@ main =
                         _ ->
                             text ""
                     ]
-        , storyOf "Confirmation (informative)" config <|
+        , storyOf "Confirmation (informative), shown by default" config <|
             \m ->
                 div []
                     [ case m.modalContext of
@@ -235,6 +236,7 @@ main =
                                     , onConfirm = Just ModalConfirmed
                                     , confirmLabel = "Confirm"
                                     , dismissLabel = "Cancel"
+                                    , onConfirmDisabled = False
                                     }
                                     |> Modal.modalState modalState
                                     -- IMPORTANT: the modal uses this for internal messages
@@ -244,7 +246,7 @@ main =
                         _ ->
                             text ""
                     ]
-        , storyOf "Confirmation (positive)" config <|
+        , storyOf "Confirmation (positive), shown by default" config <|
             \m ->
                 div []
                     [ case m.modalContext of
@@ -261,6 +263,7 @@ main =
                                     , onConfirm = Just ModalConfirmed
                                     , confirmLabel = "Confirm"
                                     , dismissLabel = "Cancel"
+                                    , onConfirmDisabled = False
                                     }
                                     |> Modal.modalState modalState
                                     -- IMPORTANT: the modal uses this for internal messages
@@ -270,7 +273,7 @@ main =
                         _ ->
                             text ""
                     ]
-        , storyOf "Confirmation (negative)" config <|
+        , storyOf "Confirmation (negative), shown by default" config <|
             \m ->
                 div []
                     [ case m.modalContext of
@@ -287,6 +290,7 @@ main =
                                     , onConfirm = Just ModalConfirmed
                                     , confirmLabel = "Confirm"
                                     , dismissLabel = "Cancel"
+                                    , onConfirmDisabled = False
                                     }
                                     |> Modal.modalState modalState
                                     -- IMPORTANT: the modal uses this for internal messages
@@ -296,7 +300,34 @@ main =
                         _ ->
                             text ""
                     ]
-        , storyOf "Confirmation (user action)" config <|
+        , storyOf "Confirmation (negative), with disabled confirm button" config <|
+            \m ->
+                div []
+                    [ case m.modalContext of
+                        Default modalState ->
+                            Modal.view <|
+                                (Modal.confirmation Modal.Negative
+                                    { title = "Negative title"
+                                    , bodySubtext =
+                                        Just
+                                            [ div [ style "text-align" "center" ]
+                                                [ Text.view (Text.p |> Text.style Text.Lede |> Text.inline True) [ text "Additional subtext to aid the user can be added here." ] ]
+                                            ]
+                                    , onDismiss = Just ModalDismissed
+                                    , onConfirm = Nothing
+                                    , confirmLabel = "Confirm"
+                                    , dismissLabel = "Cancel"
+                                    , onConfirmDisabled = True
+                                    }
+                                    |> Modal.modalState modalState
+                                    -- IMPORTANT: the modal uses this for internal messages
+                                    |> Modal.onUpdate ModalUpdate
+                                )
+
+                        _ ->
+                            text ""
+                    ]
+        , storyOf "Confirmation, user initiated" config <|
             \m ->
                 div []
                     [ Button.view (Button.default |> Button.onClick SetDefaultModalContext) "Open Modal"
@@ -315,6 +346,7 @@ main =
                                         , onConfirm = Just ModalConfirmed
                                         , confirmLabel = "Confirm"
                                         , dismissLabel = "Cancel"
+                                        , onConfirmDisabled = False
                                         }
                                         |> Modal.modalState modalState
                                         -- IMPORTANT: the modal uses this for internal messages
@@ -327,7 +359,7 @@ main =
                       else
                         text ""
                     ]
-        , storyOf "InputEdit (positive)" config <|
+        , storyOf "InputEdit (positive), user initiated" config <|
             \m ->
                 let
                     textFieldConfigs =
@@ -367,7 +399,7 @@ main =
                         _ ->
                             text ""
                     ]
-        , storyOf "InputEdit (negative)" config <|
+        , storyOf "InputEdit (negative), user initiated" config <|
             \m ->
                 let
                     textFieldConfigs =

@@ -139,6 +139,7 @@ type alias ConfirmationConfig msg =
     , onConfirm : Maybe msg
     , confirmLabel : String
     , dismissLabel : String
+    , onConfirmDisabled : Bool
     }
 
 
@@ -297,6 +298,13 @@ viewContent (Config config) =
                             Nothing ->
                                 confirmationConfig
 
+                    withOnConfirmDisabled confirmationConfig =
+                        if configs.onConfirmDisabled then
+                            ConfirmationModal.onConfirmDisabled True confirmationConfig
+
+                        else
+                            ConfirmationModal.onConfirmDisabled False confirmationConfig
+
                     withBodySubtext confirmationConfig =
                         case configs.bodySubtext of
                             Just subtext ->
@@ -340,6 +348,7 @@ viewContent (Config config) =
                     commonConfirmationConfig confirmationConfig =
                         withOnDismiss confirmationConfig
                             |> withOnConfirm
+                            |> withOnConfirmDisabled
                             |> withBodySubtext
                             |> withFocusableIds
                             |> withFocusLockAttribs

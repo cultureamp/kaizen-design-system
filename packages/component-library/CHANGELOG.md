@@ -3,6 +3,120 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@4.2.0...@kaizen/component-library@4.2.1) (2020-03-27)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [4.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@4.1.1...@kaizen/component-library@4.2.0) (2020-03-27)
+
+
+### Features
+
+* Add header images to docs pages ([#259](https://github.com/cultureamp/kaizen-design-system/issues/259)) ([65b0e5e](https://github.com/cultureamp/kaizen-design-system/commit/65b0e5e748a34ce50284f079a570fd97124df022))
+
+
+
+
+
+## [4.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@4.1.0...@kaizen/component-library@4.1.1) (2020-03-26)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [4.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@4.0.0...@kaizen/component-library@4.1.0) (2020-03-26)
+
+
+### Features
+
+* Adding Box component for React ([#345](https://github.com/cultureamp/kaizen-design-system/issues/345)) ([7a7b0f4](https://github.com/cultureamp/kaizen-design-system/commit/7a7b0f4390650f6abe9e3405aa7c09135a079b01))
+
+
+
+
+
+# [4.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.6...@kaizen/component-library@4.0.0) (2020-03-25)
+
+
+### Features
+
+* add disabled confirmButton feature to elm modal ([#352](https://github.com/cultureamp/kaizen-design-system/issues/352)) ([32b2100](https://github.com/cultureamp/kaizen-design-system/commit/32b2100c036db3fd020df8a22ea22ec492a06737))
+
+
+### BREAKING CHANGES
+
+* everywhere the modal is used will need to now have the 'onConfirmDisabled' in the config
+
+
+
+
+
+## [3.18.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.5...@kaizen/component-library@3.18.6) (2020-03-24)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [3.18.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.4...@kaizen/component-library@3.18.5) (2020-03-19)
+
+
+### Bug Fixes
+
+* Add padding in dropdown ([#339](https://github.com/cultureamp/kaizen-design-system/issues/339)) ([6661163](https://github.com/cultureamp/kaizen-design-system/commit/6661163d42d32221dc14856044b8c349ac7e2d0d))
+
+
+
+
+
+## [3.18.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.3...@kaizen/component-library@3.18.4) (2020-03-19)
+
+
+### Bug Fixes
+
+* unrevert "Remove text margin in the button"" ([#342](https://github.com/cultureamp/kaizen-design-system/issues/342)) ([4a58cd2](https://github.com/cultureamp/kaizen-design-system/commit/4a58cd2bd8f4a48e90406fbf9a9f990b0185b129)), closes [#340](https://github.com/cultureamp/kaizen-design-system/issues/340)
+
+
+
+
+
+## [3.18.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.2...@kaizen/component-library@3.18.3) (2020-03-19)
+
+
+### Bug Fixes
+
+* revert "Remove text margin in the button" ([#340](https://github.com/cultureamp/kaizen-design-system/issues/340)) ([ff904d4](https://github.com/cultureamp/kaizen-design-system/commit/ff904d47df0113ffbbedc3e33bccd5e8caaf154f)), closes [#338](https://github.com/cultureamp/kaizen-design-system/issues/338)
+
+
+
+
+
+## [3.18.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.1...@kaizen/component-library@3.18.2) (2020-03-19)
+
+
+### Bug Fixes
+
+* Remove text margin in the button ([#338](https://github.com/cultureamp/kaizen-design-system/issues/338)) ([6ae61f5](https://github.com/cultureamp/kaizen-design-system/commit/6ae61f53e0cbf1a47c00d7f170acef6059825822))
+
+
+
+
+
+## [3.18.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.0...@kaizen/component-library@3.18.1) (2020-03-18)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 # [3.18.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.17.1...@kaizen/component-library@3.18.0) (2020-03-18)
 
 
