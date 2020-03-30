@@ -50,7 +50,7 @@ export interface HeadingProps {
    * Allowed heading variants
    */
   variant: HeadingVariants
-  textColor?: AllowedColors
+  color?: AllowedColors
 }
 
 export const Heading = ({
@@ -58,7 +58,7 @@ export const Heading = ({
   children,
   tag,
   variant,
-  textColor = "dark",
+  color = "dark",
   ...otherProps
 }: HeadingProps) => {
   const inferredTag =
@@ -68,7 +68,7 @@ export const Heading = ({
     styles.heading,
     styles[variant],
     classNameAndIHaveSpokenToDST,
-    styles[textColor],
+    styles[color],
     VARIANTS_24PX_OR_GREATER.includes(variant) ? styles.large : styles.small,
   ]
 
