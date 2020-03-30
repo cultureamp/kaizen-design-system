@@ -28,6 +28,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path: resolve(__dirname, `src/header-images`),
+        name: `headerImages`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: resolve(`../packages/component-library/icons`),
         name: `icons`,
       },

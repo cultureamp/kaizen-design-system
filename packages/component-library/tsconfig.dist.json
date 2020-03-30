@@ -2,9 +2,9 @@
   "extends": "../../tsconfig.json",
   "include": ["components/**/*", "draft/**/*", "util/**/*", "index.ts"],
   "compilerOptions": {
-    "noEmit": false,
     "allowJs": false,
-    "sourceMap": true,
-    "declaration": true
+    "declaration": true,
+    "noEmit": false,
+    "sourceMap": true
   }
 }
