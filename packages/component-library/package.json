@@ -39,7 +39,7 @@
     "@types/uuid": "^3.4.4",
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
-    "motion-ui": "^2.0.3",
+    "motion-ui": "cultureamp/motion-ui",
     "react-animate-height": "^2.0.15",
     "react-focus-lock": "^1.19.1",
     "react-media": "^1.9.2",

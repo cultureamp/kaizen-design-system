@@ -12856,10 +12856,9 @@ moment@^2.24.0:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
   integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
 
-motion-ui@^2.0.3:
+motion-ui@cultureamp/motion-ui:
   version "2.0.3"
-  resolved "https://registry.yarnpkg.com/motion-ui/-/motion-ui-2.0.3.tgz#3a87f8fea4512d654c0822a0b346f23dadf0d0b7"
-  integrity sha512-f9xzh/hbZTUYjk4M7y1aDcsiPTfqUbuvCv/+If05TSIBEJMu3hGBU+YSe9csQPP7WBBHXxjossEygM/TJo2enw==
+  resolved "https://codeload.github.com/cultureamp/motion-ui/tar.gz/8be21797f0b63740fc38493b8ea2b947d248b222"
 
 move-concurrently@^1.0.1:
   version "1.0.1"
