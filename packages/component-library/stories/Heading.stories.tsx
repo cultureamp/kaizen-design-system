@@ -108,4 +108,5 @@ loadElmStories("Heading (Elm)", module, require("./Heading.stories.elm"), [
   "Heading6",
   "HeadingWithDataAttr",
   "HeadingWithCustomClass",
+  "HeadingWithPositiveColor",
 ])
