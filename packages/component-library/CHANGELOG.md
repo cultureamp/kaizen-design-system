@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@4.2.2...@kaizen/component-library@4.2.3) (2020-03-30)
+
+
+### Bug Fixes
+
+* allow version 5.x of focus-visible ([#353](https://github.com/cultureamp/kaizen-design-system/issues/353)) ([ba478eb](https://github.com/cultureamp/kaizen-design-system/commit/ba478eb9500882b8cdbb41d69fde26765004feb6))
+
+
+
+
+
 ## [4.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@4.2.1...@kaizen/component-library@4.2.2) (2020-03-30)
 
 
