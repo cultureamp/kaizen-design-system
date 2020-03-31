@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@4.2.3...@kaizen/component-library@4.3.0) (2020-03-31)
+
+
+### Features
+
+* added prop to allow disabling of focus lock ([#360](https://github.com/cultureamp/kaizen-design-system/issues/360)) ([5600b3a](https://github.com/cultureamp/kaizen-design-system/commit/5600b3aa805ad7737eee1228c5927ec0fafa94c0))
+
+
+
+
+
 ## [4.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@4.2.2...@kaizen/component-library@4.2.3) (2020-03-30)
 
 
