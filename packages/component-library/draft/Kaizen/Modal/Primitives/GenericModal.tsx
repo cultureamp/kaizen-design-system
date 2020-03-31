@@ -11,6 +11,7 @@ const styles = require("./GenericModal.scss")
 interface Props {
   readonly isOpen: boolean
   readonly children: React.ReactNode
+  readonly focusLockDisabled?: boolean
   readonly onEscapeKeyup?: (event: KeyboardEvent) => void
   readonly onOutsideModalClick?: (event: React.MouseEvent) => void
 }
@@ -110,7 +111,7 @@ class GenericModal extends React.Component<Props> {
   }
 
   render(): React.ReactPortal {
-    const { isOpen, children } = this.props
+    const { isOpen, children, focusLockDisabled = false } = this.props
 
     return createPortal(
       <CSSTransition
@@ -122,7 +123,7 @@ class GenericModal extends React.Component<Props> {
       >
         {/* This is not an unused div. It will receive `animating-` classes from react-transition-group */}
         <div>
-          <FocusLock returnFocus={true}>
+          <FocusLock disabled={focusLockDisabled} returnFocus={true}>
             <div className={styles.backdropLayer} />
             <div
               className={styles.scrollLayer}
