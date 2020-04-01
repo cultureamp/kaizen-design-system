@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@4.3.0...@kaizen/component-library@5.0.0) (2020-04-01)
+
+
+### Bug Fixes
+
+* Focus lock fix when confirm button disabled ([#358](https://github.com/cultureamp/kaizen-design-system/issues/358)) ([86abe9a](https://github.com/cultureamp/kaizen-design-system/commit/86abe9a2f332a1445c539ebf1be5e6147a530885))
+
+
+### BREAKING CHANGES
+
+* Some exposed functions in Modal.Presets.Confrimation
+have been renamed.
+
+The LastFocusableElement may be disabled and therefore not focusable, in
+this case we attempt to fall back to the FirstFocusableElement.
+
+This is specifically for when the modal opens and during focus-lock.
+
+Allow for disabled buttons to not receive ids
+
+the confirm button when disabled will not be given an ID.
+
+This is because Modal tries to focus it when it is a
+LastFocusableElement. The Browser.focus result returns as Ok because it finds
+the element but in reality it was not focused.
+
+The confirmation modal by default sets the confirm button as the 'last
+focusable element'. This is important for the focus lock implementation.
+
+The confirm button can be set as disabled and in this case the button
+will no longer receive focus and therefore not technically be the last
+focusable element.
+
+In this case we want to promote the footer dismiss button to be the last
+focusable element whilst confirm is disabled and inverse once the
+confirm is not disabled.
+
+
+
+
+
 # [4.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@4.2.3...@kaizen/component-library@4.3.0) (2020-03-31)
 
 
