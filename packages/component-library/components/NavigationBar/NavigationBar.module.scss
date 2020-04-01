@@ -19,8 +19,11 @@
   &.content {
     background: $kz-color-cluny-200;
 
-    a {
-      color: $kz-color-wisteria-800;
+    .links {
+      a {
+        color: $kz-color-wisteria-800;
+        font-weight: 500;
+      }
     }
   }
 }
