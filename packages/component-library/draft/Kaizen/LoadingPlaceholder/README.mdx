@@ -4,9 +4,13 @@ navTitle: Loading Placeholder
 summaryParagraph: A single loading placeholder element used in a loading skeleton to visually communicate that piece of content.
 tags: ["Skeleton", "Stencil", "Placeholder UI"]
 needToKnow:
-  - "Only use loading placeholders with loading skeletons"
+  - "Only use loading placeholders with loading skeletons."
 demoStoryId: loadingplaceholder-react--default-multiple-kaizen-site-demo
 ---
+
+import DosAndDonts from "docs-components/DosAndDonts"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
 
 ## Visuals
 
@@ -23,14 +27,20 @@ demoStoryId: loadingplaceholder-react--default-multiple-kaizen-site-demo
 * Assuming the content will instantly load without a page reload, animate the loading placeholder’s opacity.
 * If the skeleton loading will load in content when it’s ready without refreshing the page, animate the loading placeholders. We don’t currently use gradients in our branding aesthetic, so for ‘shimmering’ skeletons we opt for opacity changes rather than animated gradients.
 
-## When to use
+## When to use and when not to use
+
+<DosAndDonts>
+<Do>
 
 * Use with a [loading skeleton](/components/loading-skeleton).
 
-## When not to use
+</Do>
+<Dont>
 
 * **Only** use loading placeholders with loading skeletons.
 
+</Dont>
+</DosAndDonts>
 
 ## External Links
 
