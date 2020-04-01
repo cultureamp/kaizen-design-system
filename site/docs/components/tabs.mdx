@@ -1,0 +1,115 @@
+---
+title: Tabs
+navTitle: Tabs
+summaryParagraph: Tabs organize content by grouping similar information into containers that are shown and hidden through navigation.
+tags: ["Tab list", "Tab group", "Tab panel", "Section tabs", "Nav bar", "Vertical tabs", "Horizontal tabs"]
+needToKnow:
+- Navigation tabs are always used for global navigation at the top of the page or inside an offscreen menu on small screens.
+- Section tabs are used for chunking content, allowing movement between content within a single section of a page.
+---
+
+import DosAndDonts from "docs-components/DosAndDonts"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
+
+## Visuals
+
+### UI Kit
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D18760%253A108" allowfullscreen></iframe>
+
+## Options
+
+- Navigation tabs and Section tabs:
+    - Navigation tabs are always used for global navigation at the top of the page or inside an offscreen menu on small screens.
+    - Section tabs are used for chunking content, allowing movement between content within a single section of a page.
+- Vertical tabs and horizontal tabs are used for establishing hierarchy as appropriate for the product area.
+- Default and reversed
+
+## To keep in mind
+
+- Anatomy:
+    - Tab list: This refers to the container holding each of the tab items.
+    - Selected tab: The current, active tab. One tab—and only one tab—is always selected for a given tab list.
+    - Unselected tab: The other available tabs.
+    - Tab item:
+        - A tab item contains a large clickable target area, a label, a selected tab indicator (when the tab is selected), and optional metadata.
+        - Tab link: The large clickable area of the tab item uses a link to navigate to that tab's content.
+        - Tab label: The label describes what content will be displayed. Use 1 short noun or noun phrase.
+        - Selected tab indicator: This contains a selected tab indicator to show that the tab is current.
+        - Optional metadata: You might display 1 item of metadata, such as a [Badge](/components/badge) to bring data forward from the content in that section or a [Tag](/components/tag) to add supplementary information, such as "New".
+    - Tab content: The content that lives "inside" a tab and is revealed when that tab item is selected.
+    - Separator: To separate tabs from content, use whitespace or the edge of another component, such as Title Blocks or Cards, not a [Divider](/components/divider).
+- Styling:
+    - Align navigation tabs and section tabs left (in left-to-right languages) and never center within a page or section.
+    - For small screens, tab items must be presented without loss of information or functionality, and without requiring scrolling in two dimensions for vertical scrolling content at a width equivalent to 320 CSS pixels and horizontal scrolling content at a height equivalent to 256 CSS pixels, as per [W3C: Understanding Success Criterion 1.4.10: Reflow](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html).
+    - Limit tabs to a maximum of 8 tab items and aim for 3–6. Avoid only 2 tabs.
+    - Avoid using icons in tab items.
+    - Tab content always appears below horizontal tabs. Tab content always appears to the right of vertical tabs in left-to-right languages and to the left of vertical tabs in right-to-left languages.
+- Tab content and ordering:
+    - The first tab is selected by default. The default tab is most important use case of the page
+    - Use smart defaults for defining tabs that accelerate users to the content they care about most. For example, you might surface the most common pathway or personalized content, such as the current user's saved comments.
+    - Avoid tabs that you can "toggle off". That is, 1 tab is always selected. If you want a tab list with no selected tabs, consider instead adding a tab representing "All" the content as the first tab.
+- Navigation:
+    - A user can navigate between tabs to reveal that tab's content by clicking or tapping on the tab item. We don't support swiping between sections using the tab content area (for example, using edge swipes on mobile devices), especially when tabs have content of different length.
+- Labels:
+    - Don't truncate long tab text. Use short tab label text, and if it absolutely must be longer, consider wrapping the text instead of truncating.
+- Fixed or scrolling:
+    - Use fixed tabs of equal width for a small number of tab items (e.g. 3) that fit inside 320px containers or viewports.
+    - Use scrolling tabs of flexible width for all other tabs. That is, you can scroll them horizontally to see more tabs offscreen.
+- Overflow:
+    - Consider providing an action next to the tabs to access additional tabs that do not fit on screen. For example, you might use an adjacent menu list.
+- Empty state:
+    - If a tab contains no content or has an error, consider disabling or hiding it according to the [Interaction states guidelines for disabled elements](/guidelines/interaction-states#disabled-state).
+- Right-To-Left (RTL):
+    - Reverse tab order for right-to-left languages.
+- Hierarchy:
+    - You might use horizontal and vertical section tabs to distinguish multiple levels of hierarchy. That is, vertical tabs might navigate between larger page sections, while horizontal tabs might navigate between data in a specific section.
+    - Don't place tabs inside tabs. Avoid nesting multiple levels of tabs in one orientation.
+
+## When to use and when not to use
+
+<DosAndDonts>
+<Do>
+
+- Use tabs when you have too much content to show at once. Use them to reduce cognitive load and allow users to progressively disclose the content they're interested in.
+- Use tabs for pre-defined chunks of content that users can navigate between.
+
+</Do>
+<Dont>
+
+- Avoid tabs when the items perform an action. Instead, use a [Button](/components/button) or [Button group](/components/button-group). For example, if the action filters content, use a filter instead.
+- Avoid tabs for allowing users to interact with data and reduce it themselves. Instead, use filters.
+
+</Dont>
+</DosAndDonts>
+
+## See also
+
+* [Badge](/components/badge).
+* [Tag](/components/tag).
+* [Button](/components/button).
+* [Button group](/components/button-group).
+
+## External Links
+
+Here are some examples of other existing design systems:
+
+- [Polaris: Tabs](https://polaris.shopify.com/components/navigation/tabs#navigation).
+- [Material: Tabs](https://material.io/components/tabs/).
+- [FutureLearn: Tabs](https://design-system.futurelearn.com/molecules/tabs).
+- [FutureLearn: Section tabs](https://design-system.futurelearn.com/molecules/section-tabs).
+- [Feelix: FilterBar](https://feelix.myob.com/#/Components/Filtering/FilterBar).
+- [Feelix: Gauges](https://feelix.myob.com/#/Components/Filtering/Gauges).
+- [Feelix: Tabs](https://feelix.myob.com/#/Components/Navigations/Tabs).
+- [Lightning: Tabs](https://www.lightningdesignsystem.com/components/tabs/#site-main-content).
+- [Zendesk Garden: Tabs](https://garden.zendesk.com/react-components/tabs/).
+- [Ant Design: Tabs](https://ant.design/components/tabs/#header).
+- [Atlassian: Tabs](https://www.atlassian.design/guidelines/product/components/tabs).
+- [Hudl: Tabs](http://uniform.hudl.com/patterns/tabs).
+- [Quickbooks: Tabs](https://designsystem.quickbooks.com/component/tabs/).
+- [MailChimp: Combo button](https://ux.mailchimp.com/patterns/buttons#combo-button).
+- [W3C: Understanding Success Criterion 1.4.10: Reflow](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html).
+- [MDN: Tab Role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Tab_Role).
+
