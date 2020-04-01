@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.0.0...@kaizen/component-library@5.1.0) (2020-04-01)
+
+
+### Features
+
+* Add color to Heading ([#343](https://github.com/cultureamp/kaizen-design-system/issues/343)) ([7f152c7](https://github.com/cultureamp/kaizen-design-system/commit/7f152c7096fa09ea2bc23e96f11aceb7fbd1c1cf))
+
+
+
+
+
 # [5.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@4.3.0...@kaizen/component-library@5.0.0) (2020-04-01)
 
 
