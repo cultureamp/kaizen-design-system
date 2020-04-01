@@ -9,6 +9,10 @@ needToKnow:
 demoStoryId: table-react--default-kaizen-site-demo
 ---
 
+import DosAndDonts from "docs-components/DosAndDonts"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
 ## Visuals
 
 ### UI Kit
@@ -73,15 +77,22 @@ A table organizes and displays tabular data. It shows all data in a set, whereas
     *   For more than 10 rows and other data on the page, consider pagination or inline truncation & expansion.
     *   For more than 25 rows as the only table on the page, consider pagination or inline truncation & expansion.
 
-## When to use
+## When to use and when not to use
 
-*   Use tables when a summary or data visualization will be insufficient
-*   Use tables when exact values are useful to know
-*   Use tables when an item has 3+ interesting dimensions (i.e. columns) of data
+<DosAndDonts>
+<Do>
 
-## When not to use
+*   Use tables when a summary or data visualization will be insufficient.
+*   Use tables when exact values are useful to know.
+*   Use tables when an item has 3+ interesting dimensions (i.e. columns) of data.
+
+</Do>
+<Dont>
 
 *   When you can summarize the data visually, use a data visualization instead.
+
+</Dont>
+</DosAndDonts>
 
 ## External Links
 
