@@ -1,0 +1,18 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/component-library/styles/mixins/forms";
+
+.textarea {
+  @include form-input-reset;
+  border-radius: $ca-border-radius;
+  width: 100%;
+  border: 1px solid $ca-border-color;
+  padding: $ca-grid * 0.5;
+  color: $kz-color-wisteria-800;
+
+  @include form-input-placeholder {
+    line-height: 1.5;
+    color: $kz-color-wisteria-600;
+  }
+}
