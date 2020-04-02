@@ -132,6 +132,7 @@ const storybookSource: Rule = {
           "!**/component-library/**/*.{ts,tsx}",
           "**/component-library/Heading/**/*.{ts,tsx}",
           "**/component-library/Paragraph/**/*.{ts,tsx}",
+          "**/component-library/Box/**/*.{ts,tsx}",
           // @TODO - there's a heck of a lot of files with type errors
           // as these are addressed, they should be added to reportFiles
           // until we reach full TS coverage
