@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/mixins/forms";
 
 .textarea {
@@ -13,6 +14,6 @@
 
   @include form-input-placeholder {
     line-height: 1.5;
-    color: $kz-color-wisteria-600;
+    color: add-alpha($kz-color-wisteria-800, 70%);
   }
 }
