@@ -1,0 +1,68 @@
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/fonts";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+
+.data {
+  margin: 0;
+}
+
+.large {
+  font-family: $kz-typography-data-large-font-family;
+  font-weight: $kz-typography-data-large-font-weight;
+  font-size: $kz-typography-data-large-font-size;
+  line-height: $kz-typography-data-large-line-height;
+  letter-spacing: $kz-typography-data-large-letter-spacing;
+}
+
+.medium {
+  font-family: $kz-typography-data-medium-font-family;
+  font-weight: $kz-typography-data-medium-font-weight;
+  font-size: $kz-typography-data-medium-font-size;
+  line-height: $kz-typography-data-medium-line-height;
+  letter-spacing: $kz-typography-data-medium-letter-spacing;
+}
+
+.small {
+  font-family: $kz-typography-data-small-font-family;
+  font-weight: $kz-typography-data-small-font-weight;
+  font-size: $kz-typography-data-small-font-size;
+  line-height: $kz-typography-data-small-line-height;
+  letter-spacing: $kz-typography-data-small-letter-spacing;
+}
+
+.units-large {
+  font-family: $kz-typography-data-large-units-font-family;
+  font-weight: $kz-typography-data-large-units-font-weight;
+  font-size: $kz-typography-data-large-units-font-size;
+  line-height: $kz-typography-data-large-units-line-height;
+  letter-spacing: $kz-typography-data-large-units-letter-spacing;
+}
+
+.units-medium {
+  font-family: $kz-typography-data-medium-units-font-family;
+  font-weight: $kz-typography-data-medium-units-font-weight;
+  font-size: $kz-typography-data-medium-units-font-size;
+  line-height: $kz-typography-data-medium-units-line-height;
+  letter-spacing: $kz-typography-data-medium-units-letter-spacing;
+}
+
+.units-small {
+  font-family: $kz-typography-data-small-units-font-family;
+  font-weight: $kz-typography-data-small-units-font-weight;
+  font-size: $kz-typography-data-small-units-font-size;
+  line-height: $kz-typography-data-small-units-line-height;
+  letter-spacing: $kz-typography-data-small-units-letter-spacing;
+}
+
+.dark {
+  color: $kz-color-wisteria-800;
+}
+
+.positive {
+  color: $kz-color-seedling-500;
+}
+
+.negative {
+  color: $kz-color-coral-500;
+}
