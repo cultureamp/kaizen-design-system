@@ -17,6 +17,14 @@ export type AllowedTags =
   | "h5"
   | "h6"
 
+export type AllowedColors =
+  | "dark"
+  | "dark-reduced-opacity"
+  | "white"
+  | "white-reduced-opacity"
+  | "positive"
+  | "negative"
+
 export interface ParagraphProps {
   /**
    * Not recommended. A short-circuit for overriding styles in a pinch
@@ -33,6 +41,7 @@ export interface ParagraphProps {
    * Allowed paragraph variants
    */
   variant: ParagraphVariants
+  color?: AllowedColors
 }
 
 export const Paragraph = ({
@@ -40,11 +49,13 @@ export const Paragraph = ({
   children,
   tag,
   variant,
+  color = "dark",
   ...otherProps
 }: ParagraphProps) => {
   const classes: string[] = [
     styles.paragraph,
     styles[variant],
+    styles[color],
     classNameAndIHaveSpokenToDST,
   ]
 

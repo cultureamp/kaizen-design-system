@@ -8,6 +8,10 @@ needToKnow:
 - Use a “pop” animation style when badge numbers increase.
 ---
 
+import DosAndDonts from "docs-components/DosAndDonts"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
 ## Visuals
 
 ### UI Kit
@@ -30,16 +34,23 @@ We want to draw attention to a specific value
 
 *   The badge text can be a number or a number with text like “10x” for a multiplier
 
-## When to use
+## When to use and when not to use
+
+<DosAndDonts>
+<Do>
 
 *   Use **badges** for **counts** of important information, close to the relevant item.
 *   A **dot badge** notifies the user that something is new or updated without showing a count, such as an “unread report”, or activity notification. It may be useful as a less prominent badge, even when the count is known.
 *   Use badges to notify or draw attention to changed values or status.
 *   Use a [“pop” animation style](/guidelines/animation) when badge numbers increase.
 
-## When not to use
+</Do>
+<Dont>
 
 *   If you need a text label, use [tags](/components/tag) instead
+
+</Dont>
+</DosAndDonts>
 
 ## See also
 
