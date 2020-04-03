@@ -1,11 +1,16 @@
 import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
-import { AllowedTags, Paragraph, ParagraphVariants } from "./index"
+import {
+  AllowedColors,
+  AllowedTags,
+  Paragraph,
+  ParagraphVariants,
+} from "./index"
 
 afterEach(cleanup)
 
 describe("<Paragraph />", () => {
-  describe("renders the correct classes", () => {
+  describe("renders the correct variant classes", () => {
     const testCases: ParagraphVariants[] = [
       "intro-lede",
       "body",
@@ -43,6 +48,30 @@ describe("<Paragraph />", () => {
           </Paragraph>
         )
         expect(paragraphMock.getByText("Example").tagName).toBe("DIV")
+      })
+    })
+  })
+
+  describe("renders the correct color classes", () => {
+    const testCases: AllowedColors[] = [
+      "dark",
+      "dark-reduced-opacity",
+      "white",
+      "white-reduced-opacity",
+      "positive",
+      "negative",
+    ]
+
+    testCases.forEach(color => {
+      it(`renders the correct class for <Paragraph color={${color}} />`, () => {
+        const paragraphMock = render(
+          <Paragraph variant="body" color={color} tag="div">
+            Example
+          </Paragraph>
+        )
+        const paragraphClasslist = paragraphMock.getByText("Example").classList
+        expect(paragraphClasslist).toContain("paragraph")
+        expect(paragraphClasslist).toContain(color)
       })
     })
   })

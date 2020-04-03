@@ -8,3 +8,4 @@ lerna-*.log
 /packages/**/*.js
 /packages/**/*.js.map
 /packages/**/*.d.ts
+.DS_Store
