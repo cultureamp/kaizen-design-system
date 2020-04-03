@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.2.0...@kaizen/component-library@5.3.0) (2020-04-03)
+
+
+### Features
+
+* Add color support to Paragraph component ([#367](https://github.com/cultureamp/kaizen-design-system/issues/367)) ([47d5e05](https://github.com/cultureamp/kaizen-design-system/commit/47d5e056d0d58b85a89e4db29426435e00760986))
+
+
+
+
+
 # [5.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.1.0...@kaizen/component-library@5.2.0) (2020-04-01)
 
 
