@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.3.1...@kaizen/component-library@5.3.2) (2020-04-05)
+
+
+### Bug Fixes
+
+* Adjust active link color for content colorscheme ([#370](https://github.com/cultureamp/kaizen-design-system/issues/370)) ([1ba9794](https://github.com/cultureamp/kaizen-design-system/commit/1ba97949889cc87064c917cadf9362af083e0cdc))
+
+
+
+
+
 ## [5.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.3.0...@kaizen/component-library@5.3.1) (2020-04-03)
 
 **Note:** Version bump only for package @kaizen/component-library
