@@ -9,6 +9,10 @@ needToKnow:
 demoStoryId: toggleswitchfield-react--on-kaizen-site-demo
 ---
 
+import DosAndDonts from "docs-components/DosAndDonts"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
 ## Visuals
 
 ### UI Kit
@@ -24,14 +28,21 @@ demoStoryId: toggleswitchfield-react--on-kaizen-site-demo
 *   Toggle switches can be triggered by a drag gesture.
 *   In RTL documents, the toggle switch and label are both flipped
 
-## When to use
+## When to use and when not to use
 
-*   When space is tight
-*   Applies to a single setting. When it’s instantly applied (the page doesn’t require a save trigger), as opposed to a Checkbox, which would require a save to action.
+<DosAndDonts>
+<Do>
 
-## When not to use
+*   When space is tight.
+*   Applies to a single setting. When it’s instantly applied (the page doesn’t require a save trigger), as opposed to a [Checkbox Field](/components/checkbox-field), which would require a save to action.
 
-*   If there are more than 1 setting / option, such as filter settings, consider using [Checkboxes](/components/checkboxes)
+</Do>
+<Dont>
+
+*   If there are more than 1 setting / option, such as filter settings, consider using a [Checkbox Group](/components/checkbox-group).
+
+</Dont>
+</DosAndDonts>
 
 ## See also
 

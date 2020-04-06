@@ -3,6 +3,8 @@ import { createElement } from "react"
 
 const styles = require("./Heading.module.scss")
 
+const VARIANTS_24PX_OR_GREATER = ["display-0", "heading-1", "heading-2"]
+
 export type HeadingVariants =
   | "display-0"
   | "heading-1"
@@ -15,7 +17,6 @@ export type HeadingVariants =
 export type AllowedTags =
   | "pre"
   | "p"
-  | "a"
   | "div"
   | "span"
   | "h1"
@@ -25,11 +26,31 @@ export type AllowedTags =
   | "h5"
   | "h6"
 
+export type AllowedColors =
+  | "dark"
+  | "dark-reduced-opacity"
+  | "white"
+  | "white-reduced-opacity"
+  | "positive"
+  | "negative"
+
 export interface HeadingProps {
+  /**
+   * Not recommended. A short-circuit for overriding styles in a pinch
+   * @default ""
+   */
   classNameAndIHaveSpokenToDST?: string
   children: React.ReactNode
+  /**
+   * HTML elements that are allowed on Headings. When not supplied, the tag is inferred from
+   * the variant. E.g. display-0 will infer h1
+   */
   tag?: AllowedTags
+  /**
+   * Allowed heading variants
+   */
   variant: HeadingVariants
+  color?: AllowedColors
 }
 
 export const Heading = ({
@@ -37,6 +58,7 @@ export const Heading = ({
   children,
   tag,
   variant,
+  color = "dark",
   ...otherProps
 }: HeadingProps) => {
   const inferredTag =
@@ -46,6 +68,8 @@ export const Heading = ({
     styles.heading,
     styles[variant],
     classNameAndIHaveSpokenToDST,
+    styles[color],
+    VARIANTS_24PX_OR_GREATER.includes(variant) ? styles.large : styles.small,
   ]
 
   return createElement(
