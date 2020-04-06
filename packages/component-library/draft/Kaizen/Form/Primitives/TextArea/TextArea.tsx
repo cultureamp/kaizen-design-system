@@ -10,6 +10,8 @@ type Props = {
   placeholder?: string
   name?: string
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => any
+  onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
+  onFocus?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
 }
 
 const TextArea = (props: Props) => {
@@ -20,6 +22,8 @@ const TextArea = (props: Props) => {
     name,
     rows = 3,
     onChange,
+    onBlur,
+    onFocus,
     automationId,
   } = props
 
@@ -31,6 +35,8 @@ const TextArea = (props: Props) => {
       name={name}
       rows={rows}
       onChange={onChange}
+      onBlur={onBlur}
+      onFocus={onFocus}
       data-automation-id={automationId}
     >
       {value}
