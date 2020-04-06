@@ -36,7 +36,7 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
       <Label
         id={`${id}-field-label`}
         automationId={`${id}-field-label`}
-        htmlFor={`${id}-field-input`}
+        htmlFor={`${id}-field-textarea`}
         labelText={labelText}
       />
       <TextArea
