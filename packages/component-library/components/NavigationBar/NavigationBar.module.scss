@@ -24,6 +24,10 @@
         color: $kz-color-wisteria-800;
         font-weight: 500;
       }
+
+      .active a {
+        color: $kz-color-cluny-500;
+      }
     }
   }
 }
@@ -87,12 +91,4 @@
 
 .kaizen .active {
   background-color: $kz-color-wisteria-700;
-}
-
-.content .active {
-  background-color: $kz-color-cluny-200;
-
-  a {
-    color: $kz-color-cluny-500;
-  }
 }
