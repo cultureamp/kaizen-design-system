@@ -16,6 +16,11 @@ class WithState extends React.Component<Props> {
     controlledValue: "Controlled value",
   }
 
+  constructor(props: Props) {
+    super(props)
+    this.updateValue = this.updateValue.bind(this)
+  }
+
   public updateValue(event: React.ChangeEvent<HTMLTextAreaElement>) {
     this.setState({
       controlledValue: event.target.value,
