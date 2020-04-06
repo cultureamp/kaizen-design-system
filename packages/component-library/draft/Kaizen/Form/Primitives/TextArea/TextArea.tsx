@@ -38,9 +38,8 @@ const TextArea = (props: Props) => {
       onBlur={onBlur}
       onFocus={onFocus}
       data-automation-id={automationId}
-    >
-      {value}
-    </textarea>
+      value={value}
+    />
   )
 }
 
