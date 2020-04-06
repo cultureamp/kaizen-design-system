@@ -128,9 +128,20 @@ export const KaizenColors = () => (
 export const ContentColors = () => (
   <NavigationBar colorScheme="content">
     <Link text="Home" href="/" active />
-    <Link text="Guidelines" href="/" />
-    <Link text="Components" href="/" />
-    <Link text="Status" href="/" />
+    <Link text="Surveys" href="/" />
+    <Link text="Performance" href="/" notificationText="New" />
+    <Link
+      icon={supportIcon}
+      text="Support"
+      href="http://academy.cultureamp.com/"
+      secondary
+    />
+    <Link
+      icon={academyIcon}
+      text="Academy"
+      href="http://academy.cultureamp.com/"
+      secondary
+    />
     <Menu
       heading="Custom menu..."
       items={[
@@ -143,8 +154,28 @@ export const ContentColors = () => (
           url:
             "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
         },
+        {
+          label: "Sign out",
+          url: "http://localhost:3000/session/sign_out",
+          method: "delete",
+        },
+        {
+          label: "Stop Masquerading",
+          url: "http://localhost:3000/admin/masquerade/",
+          method: "delete",
+        },
       ]}
-    />
+    >
+      <div
+        style={{
+          backgroundColor: "#ffffff",
+          borderRadius: "3px",
+          color: "#F8A6AE",
+        }}
+      >
+        <Icon icon={caMonogramIcon} title="Culture Amp Logo" inheritSize />
+      </div>
+    </Menu>
   </NavigationBar>
 )
 

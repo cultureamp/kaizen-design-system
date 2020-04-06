@@ -1,0 +1,39 @@
+---
+
+title: Voice and tone
+navTitle: Voice and tone
+summaryParagraph: Give your writing that Culture Amp touch
+tags: ["voice and tone", "voice", "tone"]
+
+---
+
+Voice and tone are crucial elements to writing to the Culture Amp brand. We’ve got a personality and it shines through in the way we speak - whether in the platform, or outside of it. 
+
+What’s the difference between voice and tone? Glad you asked. Simply put - your voice stays the same, but your tone changes based on the situation and who you’re talking to. For example, you wouldn’t speak to a new user the same way you would someone who’s a Culture Amp novice – but you’re still helpful and friendly. Or, you wouldn’t speak about a system error the same way you would about an exciting new feature – but you still want to guide the user and look out for what they need.
+
+
+### Our voice
+
+At Culture Amp, we’re experts when it comes to the people and culture space and we’re excited to share our knowledge with everyone. To HR professionals, we’re a guide to help them through the land of employee feedback. We understand their challenges and want to do everything we can to help them make the most of their company culture, no matter what level they’re at. Based on that sentiment, here are our voice principles (based off of Culture Amp’s design principles):
+
+
+
+* **We’re guiding.** We don’t presume that the user knows everything about our platform. We guide, teach and recommend with expert advice. We use our extensive knowledge to help them solve problems while being accessible and not overly academic in any way.
+* **We’re human.** We understand what our users are going through. We put ourselves in their shoes and we’re intuitive to their needs. In other words, we’re empathetic and friendly.
+* **We’re honest and purposeful.** We don’t muddle our information in an effort to try to be nice or funny. We’re direct but friendly. We give users the information they need to navigate the platform, and we give it to them straight.
+* **We consider everyone.** We write in a way that’s inclusive of every user, no matter where they’re from or what kind of experience they have. 
+
+
+### Our tone
+
+We’re clear and friendly. While we like to be fun, it's more important to be clear than entertaining. When you’re writing, consider the reader's state of mind. Are they trying to learn more about the future of people analytics? Is this the first time they’re launching a survey and they might be stressed (or excited!). Considering the emotional state of your audience will help you make the best decision when it comes to tone. 
+
+When integrated correctly and in unison, these principles will encourage us to:
+
+
+
+*   refer to the user (you) and ourselves (we) in the interface and product communications
+*   write as if we are speaking to the people using the product
+*   keep in mind the many languages into which the text will be translated, and the cultures in which it will be used
+
+Every time you write or review product text, ask yourself if it reflects the four qualities listed above. If it doesn’t, you can improve it using the advice in this guide.

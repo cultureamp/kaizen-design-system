@@ -9,6 +9,10 @@ needToKnow:
 demoStoryId: table-react--default-kaizen-site-demo
 ---
 
+import DosAndDonts from "docs-components/DosAndDonts"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
 ## Visuals
 
 ### UI Kit
@@ -62,7 +66,7 @@ A table organizes and displays tabular data. It shows all data in a set, whereas
     *   **Truncate**: truncate when the full value can be seen on interaction (e.g. hover/focus shows a tooltip or clicking expands the table) or elsewhere (e.g. on a page just for that data)
 *   Arranging data:
     *   Sort: use an icon to indicate the column header is sortable, showing if it’s ascending, descending, or not selected
-    *   Filter: use a [checkbox](/components/checkbox) in the table or [select](/components/select) (default or secondary style) above the table
+    *   Filter: use a [Checkbox Field](/components/checkbox-field) in the table or [Select](/components/select) (default or secondary style) above the table
     *   Search: use search to find specific rows (showing search in the top–right above the table)
 *   Selecting rows:
     *   For selecting multiple rows, use checkboxes in the first column to select multiple rows for bulk actions, such as deletion.
@@ -73,15 +77,22 @@ A table organizes and displays tabular data. It shows all data in a set, whereas
     *   For more than 10 rows and other data on the page, consider pagination or inline truncation & expansion.
     *   For more than 25 rows as the only table on the page, consider pagination or inline truncation & expansion.
 
-## When to use
+## When to use and when not to use
 
-*   Use tables when a summary or data visualization will be insufficient
-*   Use tables when exact values are useful to know
-*   Use tables when an item has 3+ interesting dimensions (i.e. columns) of data
+<DosAndDonts>
+<Do>
 
-## When not to use
+*   Use tables when a summary or data visualization will be insufficient.
+*   Use tables when exact values are useful to know.
+*   Use tables when an item has 3+ interesting dimensions (i.e. columns) of data.
+
+</Do>
+<Dont>
 
 *   When you can summarize the data visually, use a data visualization instead.
+
+</Dont>
+</DosAndDonts>
 
 ## External Links
 

@@ -1,10 +1,11 @@
 module Heading.Heading exposing
-    ( Config
+    ( AllowedColor(..)
+    , Config
     , DataAttribute
     , TypeVariant(..)
-    , a
     , addDataAttribute
     , classNameAndIHaveSpokenToDST
+    , color
     , div
     , h1
     , h2
@@ -45,6 +46,7 @@ type alias DataAttribute =
 type alias ConfigValue msg =
     { tag : Maybe (Element msg)
     , variant : TypeVariant
+    , color : AllowedColor
     , id : Maybe String
     , dataAttribute : List DataAttribute
     , classNameAndIHaveSpokenToDST : Maybe String
@@ -55,6 +57,7 @@ defaultConfig : ConfigValue msg
 defaultConfig =
     { tag = Nothing
     , variant = Display0
+    , color = Dark
     , id = Nothing
     , dataAttribute = []
     , classNameAndIHaveSpokenToDST = Nothing
@@ -123,14 +126,43 @@ view (Config config) children =
             config.classNameAndIHaveSpokenToDST |> Maybe.withDefault ""
     in
     resolveTag
-        ([ className config.variant ] ++ [ Html.Attributes.class resolveCustomClass ] ++ resolveId ++ resolveAttributes)
+        ([ styles.class .heading, variantClass config.variant, sizeClass config.variant, colorClass config.color ] ++ [ Html.Attributes.class resolveCustomClass ] ++ resolveId ++ resolveAttributes)
         children
 
 
-className : TypeVariant -> Html.Attribute msg
-className typeVariant =
+sizeClass : TypeVariant -> Html.Attribute msg
+sizeClass typeVariant =
     let
-        styleClass =
+        sizeClassname =
+            case typeVariant of
+                Display0 ->
+                    .large
+
+                Heading1 ->
+                    .large
+
+                Heading2 ->
+                    .large
+
+                Heading3 ->
+                    .small
+
+                Heading4 ->
+                    .small
+
+                Heading5 ->
+                    .small
+
+                Heading6 ->
+                    .small
+    in
+    styles.class sizeClassname
+
+
+variantClass : TypeVariant -> Html.Attribute msg
+variantClass typeVariant =
+    let
+        variantClassname =
             case typeVariant of
                 Display0 ->
                     .display0
@@ -153,10 +185,7 @@ className typeVariant =
                 Heading6 ->
                     .heading6
     in
-    styles.classList
-        [ ( styleClass, True )
-        , ( .heading, True )
-        ]
+    styles.class variantClassname
 
 
 styles =
@@ -169,6 +198,14 @@ styles =
         , heading4 = "heading-4"
         , heading5 = "heading-5"
         , heading6 = "heading-6"
+        , dark = "dark"
+        , darkReducedOpacity = "dark-reduced-opacity"
+        , white = "white"
+        , whiteReducedOpacity = "white-reduced-opacity"
+        , positive = "positive"
+        , negative = "negative"
+        , small = "small"
+        , large = "large"
         }
 
 
@@ -180,6 +217,41 @@ type TypeVariant
     | Heading4
     | Heading5
     | Heading6
+
+
+type AllowedColor
+    = Dark
+    | DarkReducedOpacity
+    | White
+    | WhiteReducedOpacity
+    | Positive
+    | Negative
+
+
+colorClass : AllowedColor -> Html.Attribute msg
+colorClass allowedColor =
+    let
+        colorClassname =
+            case allowedColor of
+                Dark ->
+                    .dark
+
+                DarkReducedOpacity ->
+                    .darkReducedOpacity
+
+                White ->
+                    .white
+
+                WhiteReducedOpacity ->
+                    .whiteReducedOpacity
+
+                Positive ->
+                    .positive
+
+                Negative ->
+                    .negative
+    in
+    styles.class colorClassname
 
 
 
@@ -194,11 +266,6 @@ pre =
 p : Config msg
 p =
     Config { defaultConfig | tag = Just Html.p }
-
-
-a : Config msg
-a =
-    Config { defaultConfig | tag = Just Html.a }
 
 
 div : Config msg
@@ -244,6 +311,11 @@ h6 =
 variant : TypeVariant -> Config msg -> Config msg
 variant value (Config config) =
     Config { config | variant = value }
+
+
+color : AllowedColor -> Config msg -> Config msg
+color value (Config config) =
+    Config { config | color = value }
 
 
 id : String -> Config msg -> Config msg

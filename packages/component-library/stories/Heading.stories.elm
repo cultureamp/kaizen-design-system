@@ -2,7 +2,7 @@ module Main exposing (main)
 
 import CssModules exposing (css)
 import ElmStorybook exposing (statelessStoryOf, storybook)
-import Heading.Heading as Heading exposing (TypeVariant(..), view)
+import Heading.Heading as Heading exposing (AllowedColor(..), TypeVariant(..), view)
 import Html exposing (text)
 
 
@@ -50,6 +50,10 @@ main =
                     |> Heading.classNameAndIHaveSpokenToDST (styles.toString .blinking)
                 )
                 [ Html.text "Heading with custom class" ]
+        , statelessStoryOf "HeadingWithPositiveColor" <|
+            Heading.view
+                (Heading.h1 |> Heading.variant Heading1 |> Heading.color Positive)
+                [ Html.text "Heading with Positive color" ]
         ]
 
 

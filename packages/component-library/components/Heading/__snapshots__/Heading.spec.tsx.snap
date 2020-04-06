@@ -4,7 +4,7 @@ exports[`<Heading /> defaults to the correct HTML element renders the correct el
 <body>
   <div>
     <h1
-      class="heading display-0"
+      class="heading display-0 dark large"
     >
       Example
     </h1>
@@ -16,7 +16,7 @@ exports[`<Heading /> defaults to the correct HTML element renders the correct el
 <body>
   <div>
     <h1
-      class="heading heading-1"
+      class="heading heading-1 dark large"
     >
       Example
     </h1>
@@ -28,7 +28,7 @@ exports[`<Heading /> defaults to the correct HTML element renders the correct el
 <body>
   <div>
     <h2
-      class="heading heading-2"
+      class="heading heading-2 dark large"
     >
       Example
     </h2>
@@ -40,7 +40,7 @@ exports[`<Heading /> defaults to the correct HTML element renders the correct el
 <body>
   <div>
     <h3
-      class="heading heading-3"
+      class="heading heading-3 dark small"
     >
       Example
     </h3>
@@ -52,7 +52,7 @@ exports[`<Heading /> defaults to the correct HTML element renders the correct el
 <body>
   <div>
     <h4
-      class="heading heading-4"
+      class="heading heading-4 dark small"
     >
       Example
     </h4>
@@ -64,7 +64,7 @@ exports[`<Heading /> defaults to the correct HTML element renders the correct el
 <body>
   <div>
     <h5
-      class="heading heading-5"
+      class="heading heading-5 dark small"
     >
       Example
     </h5>
@@ -76,7 +76,7 @@ exports[`<Heading /> defaults to the correct HTML element renders the correct el
 <body>
   <div>
     <h6
-      class="heading heading-6"
+      class="heading heading-6 dark small"
     >
       Example
     </h6>
