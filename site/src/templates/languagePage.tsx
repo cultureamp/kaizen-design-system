@@ -7,10 +7,8 @@ import Layout from "../components/Layout"
 import PageHeader from "../components/PageHeader"
 import {
   Content,
-  ContentNeedToKnowSection,
   Sidebar,
   SidebarAndContent,
-  SidebarSection,
   SidebarTab,
 } from "../components/SidebarAndContent"
 import { sortSidebarTabs, stripTrailingSlash } from "./util"
@@ -36,23 +34,17 @@ export default ({ data, pageContext, location }) => {
   const overviewPage = allPages.filter(
     el => el.node.frontmatter.navTitle === "Overview"
   )
-  const pagesWithoutOverview = allPages.filter(
-    el => el.node.frontmatter.navTitle !== "Overview"
+  const pagesWithoutOverview = sortSidebarTabs(
+    allPages.filter(el => el.node.frontmatter.navTitle !== "Overview")
   )
-  const guidelinePages = sortSidebarTabs(
-    pagesWithoutOverview.filter(el => !el.node.frontmatter.inComparingSection)
-  )
-  const comparingPages = sortSidebarTabs(
-    pagesWithoutOverview.filter(el => el.node.frontmatter.inComparingSection)
-  )
+
   const currentPath = location.pathname
 
-  const GuidelinesPageHeader = (
+  const LanguagePageHeader = (
     <PageHeader
       headingText={md.frontmatter.title}
       summaryParagraph={md.frontmatter.summaryParagraph}
       tags={md.frontmatter.tags}
-      headerImageName={md.frontmatter.headerImage}
     />
   )
 
@@ -60,27 +52,15 @@ export default ({ data, pageContext, location }) => {
     <Layout
       pageTitle={md.frontmatter.title}
       currentPath={currentPath}
-      pageHeader={GuidelinesPageHeader}
+      pageHeader={LanguagePageHeader}
       footer={<Footer />}
     >
       <SidebarAndContent>
         <Sidebar>
-          <SidebarSection>
-            {renderSidebarTabs(overviewPage, currentPath, "Overview")}
-          </SidebarSection>
-          <SidebarSection title="Comparing components">
-            {renderSidebarTabs(
-              comparingPages,
-              currentPath,
-              "Comparing components"
-            )}
-          </SidebarSection>
-          <SidebarSection title="Guidelines">
-            {renderSidebarTabs(guidelinePages, currentPath, "Guidelines")}
-          </SidebarSection>
+          {renderSidebarTabs(overviewPage, currentPath, "language")}
+          {renderSidebarTabs(pagesWithoutOverview, currentPath, "language")}
         </Sidebar>
         <Content>
-          <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
           <ContentMarkdownSection>
             {/*
             // @ts-ignore */}
@@ -94,7 +74,7 @@ export default ({ data, pageContext, location }) => {
 
 export const query = graphql`
   query($slug: String!) {
-    allMdx(filter: { fields: { slug: { regex: "/^/guidelines//" } } }) {
+    allMdx(filter: { fields: { slug: { regex: "/^/language//" } } }) {
       edges {
         node {
           fields {
@@ -103,7 +83,6 @@ export const query = graphql`
           frontmatter {
             title
             navTitle
-            inComparingSection
           }
         }
       }
@@ -114,8 +93,6 @@ export const query = graphql`
         title
         summaryParagraph
         tags
-        needToKnow
-        headerImage
       }
     }
   }

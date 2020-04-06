@@ -12,6 +12,10 @@ demoStoryId: popover-react--default-kaizen-site-demo
 demoStoryHeight: 160px
 ---
 
+import DosAndDonts from "docs-components/DosAndDonts"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
 ## Visuals
 
 ### UI Kit
@@ -79,16 +83,16 @@ Popovers display contextual information.
     *   A user might interact with a Popover, requiring focus, and it might contain rich content such as a link, so we need to move focus to the Popover when it’s triggered and support keyboard navigation to dismiss a dismissible Popover, allowing people using screen readers to fully perceive and operate the Popover content.
     *   In contrast, Tooltips contain limited content so we can use an ‘announcer’ to announce tooltip content to people using screen readers e.g. using an ARIA live region.
 
+## When to use and when not to use
 
-## When to use
-
-
+<DosAndDonts>
+<Do>
 
 *   Use when the popover content would be too much information to include inline or create too much clutter. For example, show popovers for specific data points a user might be interested in a data visualization.
 *   Use when the context of the rest of the page is important to keep visible.
 
-
-## When not to use
+</Do>
+<Dont>
 
 *   When there’s **only non-interactive text**, use a [tooltip](/components/tooltip) instead.
 *   Avoid using popovers for **forms or image content**. Consider using a [modal](/components/modal) instead.
@@ -97,6 +101,9 @@ Popovers display contextual information.
     *   focus events don't work because chart elements are typically SVG elements; they're not focusable
     *   It’s possible to hook into click events, but scrolling is generally a more natural interaction for mobile and tablet; a chart element is not usually perceived as a clickable element
 *   Avoid using popovers when people **don’t need to see the rest of the screen**. Consider using a [modal](/components/modal) instead.
+
+</Dont>
+</DosAndDonts>
 
 ## External Links
 

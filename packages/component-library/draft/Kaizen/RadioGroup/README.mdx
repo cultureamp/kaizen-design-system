@@ -10,6 +10,10 @@ needToKnow:
 demoStoryId: radiogroup-react--default-kaizen-site-demo
 ---
 
+import DosAndDonts from "docs-components/DosAndDonts"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
 ## Visuals
 
 ### UI Kit
@@ -35,19 +39,26 @@ demoStoryId: radiogroup-react--default-kaizen-site-demo
 *   Disabled state:
     *   See [Interaction states guidelines for disabled elements](/guidelines/interaction-states#disabled-state).
 
-## When to use
+## When to use and when not to use
 
-*   Single choice options
-*   Shown side-by-side or stacked
-*   Where there is space to show them all at once
+<DosAndDonts>
+<Do>
 
-## When not to use
+*   Single choice options.
+*   Shown side-by-side or stacked.
+*   Where there is space to show them all at once.
 
-*   Don’t use when there is more than 20 options
+</Do>
+<Dont>
+
+*   Don’t use when there is more than 20 options.
 *   When there’s only two options, consider if a single [checkbox](/components/checkbox-field) would be better.
 *   For settings that are immediately applied, consider using a [toggle switch](/components/toggle-switch-field) instead.
 *   When there’s limited space, consider using a select dropdown instead.
 *   Sometimes, a dropdown menu might be better. If it’s an infrequently used setting, has a good default, has 4 or more options, consider using a select dropdown menu.
+
+</Dont>
+</DosAndDonts>
 
 ## See also
 

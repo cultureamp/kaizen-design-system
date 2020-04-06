@@ -4,7 +4,6 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 .paragraph {
-  color: $kz-color-wisteria-800;
   margin: 0;
 }
 
@@ -38,4 +37,32 @@
   font-size: $kz-typography-paragraph-extra-small-font-size;
   line-height: $kz-typography-paragraph-extra-small-line-height;
   letter-spacing: $kz-typography-paragraph-extra-small-letter-spacing;
+}
+
+.dark {
+  color: $kz-color-wisteria-800;
+  opacity: 1;
+}
+
+.dark-reduced-opacity {
+  color: $kz-color-wisteria-800;
+  opacity: 0.7;
+}
+
+.white {
+  color: $kz-color-white;
+  opacity: 1;
+}
+
+.white-reduced-opacity {
+  color: $kz-color-white;
+  opacity: 0.8;
+}
+
+.positive {
+  color: $kz-color-seedling-600;
+}
+
+.negative {
+  color: $kz-color-coral-600;
 }
