@@ -14,6 +14,7 @@ type Props = {
   placeholder?: string
   name?: string
   value?: string
+  defaultValue?: string
   validationMessage?: string
   status?: InputStatus
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => any
@@ -26,6 +27,7 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
     id,
     labelText,
     value,
+    defaultValue,
     validationMessage,
     status,
     placeholder,
@@ -52,6 +54,7 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
         onBlur={onBlur}
         onFocus={onFocus}
         value={value}
+        defaultValue={defaultValue}
         rows={rows}
       />
       {validationMessage && (

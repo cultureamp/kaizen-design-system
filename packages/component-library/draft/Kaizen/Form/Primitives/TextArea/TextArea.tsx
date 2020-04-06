@@ -7,6 +7,7 @@ type Props = {
   automationId?: string
   rows?: number
   value?: string
+  defaultValue?: string
   placeholder?: string
   name?: string
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => any
@@ -18,6 +19,7 @@ const TextArea = (props: Props) => {
   const {
     id,
     value,
+    defaultValue,
     placeholder,
     name,
     rows = 3,
@@ -39,6 +41,7 @@ const TextArea = (props: Props) => {
       onFocus={onFocus}
       data-automation-id={automationId}
       value={value}
+      defaultValue={defaultValue}
     />
   )
 }

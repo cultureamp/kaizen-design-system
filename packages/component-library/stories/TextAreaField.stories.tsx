@@ -96,6 +96,21 @@ DefaultError.story = {
   name: "Default, Error",
 }
 
+export const DefaultPrefilled = () => (
+  <ExampleContainer>
+    <TextAreaField
+      id="reply"
+      labelText="Your Reply"
+      onChange={action("user input")}
+      defaultValue="A prefilled value in uncontrolled mode"
+    />
+  </ExampleContainer>
+)
+
+DefaultPrefilled.story = {
+  name: "Default, Prefilled & uncontrolled",
+}
+
 export const DefaultControlled = () => (
   <ExampleContainer>
     <WithState
@@ -103,7 +118,6 @@ export const DefaultControlled = () => (
         <TextAreaField
           id="reply"
           labelText="Your Reply"
-          placeholder="Write your reply..."
           value={controlledValue}
           onChange={updateValue}
         />
