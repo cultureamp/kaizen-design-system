@@ -19,10 +19,12 @@ type SupportedChild =
   | React.ReactElement<LinkProps>
   | React.ReactElement<MenuProps>
 
+export type ColorScheme = "cultureamp" | "kaizen" | "content" | "zen"
+
 type Props = {
   environment?: "production" | "staging" | "test" | "local"
   loading?: boolean
-  colorScheme?: "cultureamp" | "kaizen" | "content"
+  colorScheme?: ColorScheme
   badgeHref?: string
   footerComponent?: React.ReactNode
 }
@@ -118,6 +120,8 @@ export default class NavigationBar extends React.Component<Props> {
   }
 
   renderLinks(links: Array<React.ReactElement<LinkProps>>) {
+    const { colorScheme = "cultureamp" } = this.props
+
     const indexOfFirstSecondaryLink = links.findIndex(
       link => !!link.props.secondary
     )
@@ -132,6 +136,7 @@ export default class NavigationBar extends React.Component<Props> {
                 [styles.active]: link.props.active,
                 [styles.secondary]: link.props.secondary,
                 [styles.first]: index === indexOfFirstSecondaryLink,
+                [styles[colorScheme]]: true
               })}
             >
               {link}

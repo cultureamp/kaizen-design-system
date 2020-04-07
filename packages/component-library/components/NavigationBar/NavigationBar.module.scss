@@ -30,6 +30,11 @@
       }
     }
   }
+
+  &.zen {
+    height: 84px;
+    align-items: center;
+  }
 }
 
 .links {
@@ -62,6 +67,12 @@
 
       @include ca-media-tablet {
         margin: 0;
+      }
+
+      &.zen {
+        a {
+          height: inherit;
+        }
       }
     }
   }
