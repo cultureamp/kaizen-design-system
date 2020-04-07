@@ -23,6 +23,11 @@ const MainNav: React.SFC<MainNavProps> = ({ currentPath = "" }) => {
         active={currentPathStartsWith("/guidelines")}
       />
       <NavLink
+        text="Language"
+        href={withPrefix("/language/overview")}
+        active={currentPathStartsWith("/language")}
+      />
+      <NavLink
         text="Components"
         href={withPrefix("/components/overview")}
         active={currentPathStartsWith("/components")}

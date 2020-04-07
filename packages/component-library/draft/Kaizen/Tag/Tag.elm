@@ -176,21 +176,21 @@ view (Config config) value =
 
                 Validation ValidationInformative ->
                     if config.size == Medium then
-                        viewValidationIcon config
+                        viewValidationIcon config informationIconAsset
 
                     else
                         text ""
 
                 Validation ValidationNegative ->
                     if config.size == Medium then
-                        viewValidationIcon config
+                        viewValidationIcon config exclamationIconAsset
 
                     else
                         text ""
 
                 Validation ValidationCautionary ->
                     if config.size == Medium then
-                        viewValidationIcon config
+                        viewValidationIcon config exclamationIconAsset
 
                     else
                         text ""
@@ -290,13 +290,21 @@ viewPositiveValidationIcon config =
         ]
 
 
-viewValidationIcon : Configuration msg -> Html msg
-viewValidationIcon config =
+viewValidationIcon : Configuration msg -> Icon.SvgAsset.SvgAsset -> Html msg
+viewValidationIcon config iconAsset =
     span [ styles.class .validationIcon ]
         [ Icon.view Icon.presentation
-            (svgAsset "@kaizen/component-library/icons/exclamation.icon.svg")
+            iconAsset
             |> Html.map never
         ]
+
+
+exclamationIconAsset =
+    svgAsset "@kaizen/component-library/icons/exclamation.icon.svg"
+
+
+informationIconAsset =
+    svgAsset "@kaizen/component-library/icons/information.icon.svg"
 
 
 viewIndicatorIcon : Configuration msg -> Html msg
