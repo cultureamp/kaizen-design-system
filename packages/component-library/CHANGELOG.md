@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.3.3...@kaizen/component-library@5.4.0) (2020-04-06)
+
+
+### Features
+
+* Create TextArea & TextAreaField components ([#368](https://github.com/cultureamp/kaizen-design-system/issues/368)) ([cbef1d5](https://github.com/cultureamp/kaizen-design-system/commit/cbef1d56c0070dd01162ccf10fb1514be8907044))
+
+
+
+
+
 ## [5.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.3.2...@kaizen/component-library@5.3.3) (2020-04-06)
 
 
