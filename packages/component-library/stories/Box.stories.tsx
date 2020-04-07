@@ -1,4 +1,5 @@
 import * as React from "react"
+import { loadElmStories } from "@cultureamp/elm-storybook"
 import { Box } from "../components/Box"
 
 export default { title: "Box", component: Box }
@@ -35,3 +36,7 @@ export const BoxWithRtlSupport = () => (
     </span>
   </Box>
 )
+
+loadElmStories("Box (Elm)", module, require("./Box.stories.elm"), [
+  "Box Default",
+])
