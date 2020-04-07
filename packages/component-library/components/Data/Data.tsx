@@ -1,5 +1,5 @@
 import classNames from "classnames"
-import { createElement } from "react"
+import * as React from "react"
 
 const styles = require("./Data.module.scss")
 
@@ -27,55 +27,62 @@ export interface DataProps {
   classNameAndIHaveSpokenToDST?: string
   children: React.ReactNode
   /**
-   * HTML elements that are allowed on Headings. When not supplied, the tag is inferred from
+   * HTML elements that are allowed on Datas. When not supplied, the tag is inferred from
    * the variant. E.g. display-0 will infer h1
    */
   tag?: AllowedTags
   /**
-   * Allowed heading variants
+   * Allowed Data variants
    */
   variant: DataVariants
+  /**
+   * The color variants that are allowed on the Data
+   * @default "dark"
+   */
   color?: AllowedColors
+  /**
+   * Units should go here. +/- should be added to the children of the component, rather than the unit
+   */
+  before?: string
+  /**
+   * Units should go here
+   */
+  after?: string
 }
 
-export const Heading = ({
+export const Data = ({
   classNameAndIHaveSpokenToDST,
   children,
-  tag,
+  tag = "div",
   variant,
   color = "dark",
+  before = "",
+  after = "",
   ...otherProps
 }: DataProps) => {
-  const inferredTag =
-    tag === undefined ? translateHeadingLevelToTag(variant) : tag
-
-  const classes: string[] = [
-    styles.heading,
+  const wrapperClasses: string[] = [
+    styles.Data,
     styles[variant],
     styles[color],
     classNameAndIHaveSpokenToDST,
   ]
 
-  return createElement(
-    inferredTag,
-    { ...otherProps, className: classNames(classes) },
-    children
-  )
-}
+  const renderedChildrenClasses = classNames(styles[`units-${variant}`])
 
-/**
- * A helper to infer the tag when not explicitly passed as a prop
- * @param headingLevel Level of the heading
- */
-const translateHeadingLevelToTag = (dataVariant: DataVariants) => {
-  switch (dataVariant) {
-    case "large":
-      return "h2"
-    case "medium":
-      return "h3"
-    case "small":
-      return "h4"
-    default:
-      return "h4"
-  }
+  /**
+   * Future improvements - change ordering of prefix/suffix based on locale
+   */
+  const renderedChildren = (
+    <div>
+      {before && <span className={renderedChildrenClasses}>{before}</span>}
+      <span>{children}</span>
+      {after && <span className={renderedChildrenClasses}>{after}</span>}
+    </div>
+  )
+
+  return React.createElement(
+    tag,
+    { ...otherProps, className: classNames(wrapperClasses) },
+    renderedChildren
+  )
 }
