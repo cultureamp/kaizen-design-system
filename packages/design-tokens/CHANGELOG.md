@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.2.0...@kaizen/design-tokens@1.3.0) (2020-04-07)
+
+
+### Features
+
+* Add shadow tokens ([#362](https://github.com/cultureamp/kaizen-design-system/issues/362)) ([38dcbc2](https://github.com/cultureamp/kaizen-design-system/commit/38dcbc2ef0599fcbc6158d6623e2d9c1ecafc0a3))
+
+
+
+
+
 # [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.1.0...@kaizen/design-tokens@1.2.0) (2020-02-18)
 
 
