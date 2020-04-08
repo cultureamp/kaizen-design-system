@@ -59,4 +59,14 @@
     background-color: $kz-color-cluny-200;
     color: $kz-color-wisteria-800;
   }
+
+  &.zen {
+    background-color: transparent;
+  }
+}
+
+.zen {
+  .badge::after {
+    width: 123px;
+  }
 }

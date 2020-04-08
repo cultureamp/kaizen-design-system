@@ -5,6 +5,11 @@
 @import "../../styles/layout";
 @import "../../styles/responsive";
 
+@mixin rounded-border {
+  height: 5px;
+  border-radius: 0 0 7px 7px;
+}
+
 .navigationBar {
   @extend %ca-navigation-bar;
 
@@ -33,6 +38,7 @@
 
   &.zen {
     height: 84px;
+    max-height: 84px;
     align-items: center;
   }
 }
@@ -60,9 +66,8 @@
 
       // Bit of a hack selector, but because of module scoping this is the easiest way
       .content & span::before {
+        @include rounded-border;
         background-color: $kz-color-cluny-500;
-        height: 5px;
-        border-radius: 0 0 7px 7px;
       }
 
       @include ca-media-tablet {
@@ -73,6 +78,10 @@
         a {
           height: inherit;
         }
+      }
+
+      .zen & span::before {
+        @include rounded-border;
       }
     }
   }
