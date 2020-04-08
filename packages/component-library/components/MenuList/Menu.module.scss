@@ -1,10 +1,11 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/component-library/styles/layout";
 @import "../../styles/type";
 @import "../../styles/color";
 @import "../../styles/border";
 @import "../../styles/layers";
 @import "../../styles/animation";
-@import "~@kaizen/component-library/styles/layout";
 
 $side-padding: 3/4 * $ca-grid;
 
@@ -13,6 +14,8 @@ $side-padding: 3/4 * $ca-grid;
   border: 1px solid $kz-color-wisteria-200;
   box-shadow: $ca-box-shadow;
   line-height: 40px;
+  border-radius: $kz-border-solid-border-radius;
+  overflow: hidden; /* clip the background colors on child hover */
 }
 
 .header {
