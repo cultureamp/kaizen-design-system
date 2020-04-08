@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/border";
@@ -134,7 +135,8 @@ $button-width: 124px;
   padding: 0.5rem 1rem;
   border: $base-border;
   border-right: 0;
-  border-radius: $ca-border-radius 0 0 $ca-border-radius;
+  border-radius: $kz-border-solid-border-radius 0 0
+    $kz-border-solid-border-radius;
   white-space: nowrap;
   min-width: $button-width;
   display: block;
@@ -143,7 +145,8 @@ $button-width: 124px;
   [dir="rtl"] & {
     border-right: $base-border;
     border-left: 0;
-    border-radius: 0 $ca-border-radius $ca-border-radius 0;
+    border-radius: 0 $kz-border-solid-border-radius
+      $kz-border-solid-border-radius 0;
     text-align: right;
   }
 
@@ -190,7 +193,7 @@ $button-width: 124px;
 
 .buttonFullBorder {
   border-right: $base-border;
-  border-radius: $ca-border-radius;
+  border-radius: $kz-border-solid-border-radius;
   min-width: 0;
 
   [dir="rtl"] & {
@@ -218,10 +221,12 @@ $button-width: 124px;
   justify-content: center;
   padding: 0 0.75rem;
   border: $base-border;
-  border-radius: 0 $ca-border-radius $ca-border-radius 0;
+  border-radius: 0 $kz-border-solid-border-radius $kz-border-solid-border-radius
+    0;
 
   [dir="rtl"] & {
-    border-radius: $ca-border-radius 0 0 $ca-border-radius;
+    border-radius: $kz-border-solid-border-radius 0 0
+      $kz-border-solid-border-radius;
   }
 }
 

@@ -1,3 +1,4 @@
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
@@ -40,7 +41,7 @@
 .genericModal {
   margin: auto;
   background-color: $kz-color-white;
-  border-radius: $ca-border-radius;
+  border-radius: $kz-border-solid-border-radius;
   box-shadow: $ca-box-shadow;
   position: relative;
   width: 90%;

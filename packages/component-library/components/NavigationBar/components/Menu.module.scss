@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "../styles";
 @import "../../../styles/border";
 @import "../../../styles/color";
@@ -67,8 +68,8 @@ $menu__square-size: $ca-grid * 2;
   > * {
     color: #fff;
     background-color: #35374a; // DST-TODO: Replace this with $kz-color-wisteria-800 once kaizen-design-tokens is installed
-    border-radius: $ca-border-radius;
-    padding: $ca-border-radius 0;
+    border-radius: $kz-border-solid-border-radius;
+    padding: $kz-border-solid-border-radius 0;
     white-space: nowrap;
   }
 
