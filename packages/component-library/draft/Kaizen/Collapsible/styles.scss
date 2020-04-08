@@ -32,7 +32,9 @@ $heading-active-color: $kz-color-wisteria-100;
   text-align: left;
   background-color: white;
   border: none;
-  transition: background-color $ca-duration-rapid;
+  transition: background-color $ca-duration-rapid,
+    border-radius $ca-duration-rapid;
+  border-radius: $kz-border-solid-border-radius;
 
   @include ca-padding(
     $top: $ca-grid,
@@ -52,6 +54,8 @@ $heading-active-color: $kz-color-wisteria-100;
 
 .open {
   background-color: $heading-active-color;
+  border-radius: $kz-border-solid-border-radius $kz-border-solid-border-radius 0
+    0;
 }
 
 .sticky {
@@ -62,6 +66,8 @@ $heading-active-color: $kz-color-wisteria-100;
 
 .section {
   background-color: white;
+  border-radius: 0 0 $kz-border-solid-border-radius
+    $kz-border-solid-border-radius;
   @include ca-padding(
     $top: $ca-grid,
     $end: $ca-grid,
