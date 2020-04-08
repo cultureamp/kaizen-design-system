@@ -1,0 +1,12 @@
+{
+  "kz": {
+    "shadow": {
+      "small": {
+        "boxShadow": "0 0 6px rgba(53, 55, 74, 0.09)"
+      },
+      "large": {
+        "boxShadow": "0 0 12px rgba(53, 55, 74, 0.19)"
+      }
+    }
+  }
+}
