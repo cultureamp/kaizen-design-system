@@ -124,7 +124,7 @@ const elm: Rule = {
 const storybookSource: Rule = {
   test: /\.tsx?$/,
   include: [
-    resolve(__dirname, "../core-packages/component-library"),
+    resolve(__dirname, "../packages/component-library"),
     resolve(__dirname, "../draft-packages/component-library"),
   ],
   use: [

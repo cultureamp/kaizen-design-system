@@ -1360,44 +1360,6 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@kaizen/component-library@*":
-  version "5.4.3"
-  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-5.4.3.tgz#aeea4e86b4b3e8014f81a8fa10f851af63e48ca6"
-  integrity sha512-Si4t1Q4SwD/JQh+uBNB3PWWBSYwB/R8kacbyYIG0BeLxJEHYyf7y64w0IbcipQFlz5BX70j1rsMkP+2D/S1OCw==
-  dependencies:
-    "@kaizen/deprecated-component-library-helpers" "^1.3.5"
-    "@kaizen/hosted-assets" "^1.0.1"
-    "@types/classnames" "^2.2.6"
-    "@types/lodash" "^4.14.132"
-    "@types/react-select" "^3.0.5"
-    "@types/uuid" "^3.4.4"
-    classnames "^2.2.6"
-    lodash "^4.17.11"
-    motion-ui cultureamp/motion-ui
-    react-animate-height "^2.0.15"
-    react-focus-lock "^1.19.1"
-    react-media "^1.9.2"
-    react-select "^3.0.8"
-    react-transition-group "^2.9.0"
-    uuid "^3.3.2"
-
-"@kaizen/deprecated-component-library-helpers@^1.3.5":
-  version "1.3.5"
-  resolved "https://registry.yarnpkg.com/@kaizen/deprecated-component-library-helpers/-/deprecated-component-library-helpers-1.3.5.tgz#e435db0e5b652a0a13b10916f8f2c09d5d230711"
-  integrity sha512-vopWsybcWi41fVUdsdqWRC+D/aleMV53N3TXXyz/KH6QGJIFwz/+pLK6cQw0hx15N4Ns/uStYX3IpQaM6YYQ3g==
-  dependencies:
-    "@kaizen/design-tokens" "^1.4.0"
-
-"@kaizen/design-tokens@*", "@kaizen/design-tokens@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@kaizen/design-tokens/-/design-tokens-1.4.0.tgz#9feed5ddbf07538d874c3f2bb14e49a2af83e85b"
-  integrity sha512-A35gkgnRZmMOskSOQSTH2nQ3pP33oU3S7ZaHQs2lrE4aSCB6YznofAFHXwMhYaW5HCw2oEaTIQ8wwEmHv4ZoRg==
-
-"@kaizen/hosted-assets@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@kaizen/hosted-assets/-/hosted-assets-1.0.1.tgz#9adefe1ecc67b6ac818b36f3d666f65db1e95c7e"
-  integrity sha512-Qt6gD1Y64K4uhcjL+hQrH6OvjC08VFtbtOUDgsI4GyMzTIeFIKd2V5Ycfhc/cxAYsHj+431Y9BhZtzlxd10TWw==
-
 "@lerna/add@3.20.0":
   version "3.20.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.20.0.tgz#bea7edf36fc93fb72ec34cb9ba854c48d4abf309"
@@ -11570,6 +11532,13 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
+json-to-flat-sass@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/json-to-flat-sass/-/json-to-flat-sass-1.0.0.tgz#35e71ca58ffbd8850b5566eaa2750037414e9f6e"
+  integrity sha512-8Yq+0UByPO/D8Z0k7aMtG0VCmn4sbyR+UTeg1a3BBix37pa9jANS6S+tcKJLkbfdAK440rXiIT2yhDnry8nowg==
+  dependencies:
+    lodash "^4.17.15"
+
 json2mq@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/json2mq/-/json2mq-0.2.0.tgz#b637bd3ba9eabe122c83e9720483aeb10d2c904a"
@@ -12887,7 +12856,7 @@ moment@^2.24.0:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
   integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
 
-"motion-ui@github:cultureamp/motion-ui":
+motion-ui@cultureamp/motion-ui:
   version "2.0.3"
   resolved "https://codeload.github.com/cultureamp/motion-ui/tar.gz/8be21797f0b63740fc38493b8ea2b947d248b222"
 
