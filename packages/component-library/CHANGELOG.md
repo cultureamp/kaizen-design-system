@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.4.3...@kaizen/component-library@5.4.4) (2020-04-09)
+
+
+### Bug Fixes
+
+* Export Paragraph and Heading from components folder ([#381](https://github.com/cultureamp/kaizen-design-system/issues/381)) ([800ef7d](https://github.com/cultureamp/kaizen-design-system/commit/800ef7df6a201166486402c58b27201eccb4fb2c))
+
+
+
+
+
 ## [5.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.4.2...@kaizen/component-library@5.4.3) (2020-04-08)
 
 **Note:** Version bump only for package @kaizen/component-library
