@@ -74,7 +74,7 @@ To strengthen the Kaizen Design System, we encourage engineers to take a compone
 
 ```sh
 # Navigate to code source
-$ cd ./packages/component-library
+$ cd ./core-packages/component-library
 
 # Register package for linking
 $ yarn link
@@ -207,7 +207,7 @@ Note that in the case that a pull request touches files from more than one packa
 
 To use a newly released version of the Kaizen Component Library (or any other package) in a front-end codebase, run `yarn upgrade --latest <scoped package name>` (e.g. `yarn upgrade --latest @kaizen/component-library`).
 
-Remember to always check the CHANGELOG (e.g. [`/packages/component-library/CHANGELOG.md`](./packages/component-library/CHANGELOG.md) or the [releases page](https://github.com/cultureamp/kaizen-design-system/releases)) for any package you wish to upgrade, paying extra attention to any breaking changes which have been introduced since the last version used in your project.
+Remember to always check the CHANGELOG (e.g. [`/core-packages/component-library/CHANGELOG.md`](./core-packages/component-library/CHANGELOG.md) or the [releases page](https://github.com/cultureamp/kaizen-design-system/releases)) for any package you wish to upgrade, paying extra attention to any breaking changes which have been introduced since the last version used in your project.
 
 ## Contributing components
 

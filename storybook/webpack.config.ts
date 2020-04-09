@@ -123,7 +123,10 @@ const elm: Rule = {
 
 const storybookSource: Rule = {
   test: /\.tsx?$/,
-  include: resolve(__dirname, "../packages/component-library"),
+  include: [
+    resolve(__dirname, "../core-packages/component-library"),
+    resolve(__dirname, "../draft-packages/component-library"),
+  ],
   use: [
     {
       loader: require.resolve("ts-loader"),
