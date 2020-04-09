@@ -73,7 +73,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: resolve(`../packages/draft`),
+        path: resolve(`../draft-packages`),
         name: `draftComponents`,
         ignore: [
           `**/*.ts`,

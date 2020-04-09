@@ -125,7 +125,7 @@ const storybookSource: Rule = {
   test: /\.tsx?$/,
   include: [
     resolve(__dirname, "../packages/component-library"),
-    resolve(__dirname, "../draft-packages/component-library"),
+    resolve(__dirname, "../draft-packages"),
   ],
   use: [
     {
