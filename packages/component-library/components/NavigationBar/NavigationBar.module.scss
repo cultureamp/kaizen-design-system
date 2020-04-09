@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "./styles";
 @import "../../styles/color";
 @import "../../styles/type";
@@ -57,7 +58,8 @@
       .content & span::before {
         background-color: $kz-color-cluny-500;
         height: 5px;
-        border-radius: 0 0 7px 7px;
+        border-radius: 0 0 $kz-border-solid-border-radius
+          $kz-border-solid-border-radius;
       }
 
       @include ca-media-tablet {
