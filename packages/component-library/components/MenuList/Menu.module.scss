@@ -15,7 +15,6 @@ $side-padding: 3/4 * $ca-grid;
   box-shadow: $ca-box-shadow;
   line-height: 40px;
   border-radius: $kz-border-solid-border-radius;
-  overflow: hidden; /* clip the background colors on child hover */
 }
 
 .header {
