@@ -64,6 +64,7 @@ export default ({ data, pageContext, location }) => {
       headingText={md.frontmatter.title}
       summaryParagraph={md.frontmatter.summaryParagraph}
       tags={md.frontmatter.tags}
+      headerImageName={md.frontmatter.headerImage}
     />
   )
 
@@ -98,7 +99,7 @@ export default ({ data, pageContext, location }) => {
 
 export const query = graphql`
   query($slug: String!) {
-    allMdx(filter: { fields: { slug: { regex: "/^/components/" } } }) {
+    allMdx(filter: { fields: { slug: { regex: "/^/components//" } } }) {
       edges {
         node {
           fields {
@@ -118,6 +119,7 @@ export const query = graphql`
         tags
         needToKnow
         summaryParagraph
+        headerImage
         demoStoryId
         demoStoryHeight
       }

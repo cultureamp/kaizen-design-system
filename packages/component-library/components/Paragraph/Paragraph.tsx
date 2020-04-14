@@ -8,7 +8,6 @@ export type ParagraphVariants = "intro-lede" | "body" | "small" | "extra-small"
 export type AllowedTags =
   | "pre"
   | "p"
-  | "a"
   | "div"
   | "span"
   | "h1"
@@ -17,6 +16,14 @@ export type AllowedTags =
   | "h4"
   | "h5"
   | "h6"
+
+export type AllowedColors =
+  | "dark"
+  | "dark-reduced-opacity"
+  | "white"
+  | "white-reduced-opacity"
+  | "positive"
+  | "negative"
 
 export interface ParagraphProps {
   /**
@@ -34,6 +41,7 @@ export interface ParagraphProps {
    * Allowed paragraph variants
    */
   variant: ParagraphVariants
+  color?: AllowedColors
 }
 
 export const Paragraph = ({
@@ -41,11 +49,13 @@ export const Paragraph = ({
   children,
   tag,
   variant,
+  color = "dark",
   ...otherProps
 }: ParagraphProps) => {
   const classes: string[] = [
     styles.paragraph,
     styles[variant],
+    styles[color],
     classNameAndIHaveSpokenToDST,
   ]
 
