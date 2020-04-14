@@ -10,6 +10,14 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-force-trailing-slashes`,
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "GTM-KS4VWLT",
+        includeInDevelopment: false,
+        defaultDataLayer: { platform: "gatsby" },
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
