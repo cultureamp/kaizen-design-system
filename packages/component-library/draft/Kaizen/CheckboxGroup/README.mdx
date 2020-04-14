@@ -8,8 +8,11 @@ needToKnow:
 - When choices are mutually exclusive, use a radio instead.
 - For settings that are immediately applied, consider using a toggle switch instead.
 demoStoryId: checkboxgroup-react--interactive-kaizen-site-demo
-
 ---
+
+import DosAndDonts from "docs-components/DosAndDonts"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
 
 ## Visuals
 
@@ -26,18 +29,27 @@ demoStoryId: checkboxgroup-react--interactive-kaizen-site-demo
 *   Prefer vertical (stacked) checkbox fields to easily scan and compare options.
 *   Offer a default option.
 *   Avoid nesting.
+*   Disabled state:
+    *   See [Interaction states guidelines for disabled elements](/guidelines/interaction-states#disabled-state).
 
-## When to use
+## When to use and when not to use
+
+<DosAndDonts>
+<Do>
 
 *   Single choice options
 *   Shown side-by-side or stacked
 *   Where there is space to show them all at once
 
-## When not to use
+</Do>
+<Dont>
 
 *   Don’t use when there is more than 20 options.
 *   When choices are mutually exclusive, use a [radio](/components/radio) instead.
 *   For settings that are immediately applied, consider using a [toggle switch](/components/toggle-switch-field) instead.
+
+</Dont>
+</DosAndDonts>
 
 ## See also
 

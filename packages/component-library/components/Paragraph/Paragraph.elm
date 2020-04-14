@@ -1,10 +1,11 @@
 module Paragraph.Paragraph exposing
-    ( Config
+    ( AllowedColor(..)
+    , Config
     , DataAttribute
     , TypeVariant(..)
-    , a
     , addDataAttribute
     , classNameAndIHaveSpokenToDST
+    , color
     , div
     , h1
     , h2
@@ -45,6 +46,7 @@ type alias DataAttribute =
 type alias ConfigValue msg =
     { tag : Maybe (Element msg)
     , variant : TypeVariant
+    , color : AllowedColor
     , id : Maybe String
     , dataAttribute : List DataAttribute
     , classNameAndIHaveSpokenToDST : Maybe String
@@ -55,6 +57,7 @@ defaultConfig : ConfigValue msg
 defaultConfig =
     { tag = Nothing
     , variant = Body
+    , color = Dark
     , id = Nothing
     , dataAttribute = []
     , classNameAndIHaveSpokenToDST = Nothing
@@ -98,14 +101,14 @@ view (Config config) children =
             config.classNameAndIHaveSpokenToDST |> Maybe.withDefault ""
     in
     resolveTag
-        ([ className config.variant ] ++ [ Html.Attributes.class resolveCustomClass ] ++ resolveId ++ resolveAttributes)
+        ([ styles.class .paragraph, variantClass config.variant, colorClass config.color ] ++ [ Html.Attributes.class resolveCustomClass ] ++ resolveId ++ resolveAttributes)
         children
 
 
-className : TypeVariant -> Html.Attribute msg
-className typeVariant =
+variantClass : TypeVariant -> Html.Attribute msg
+variantClass typeVariant =
     let
-        styleClass =
+        variantClassname =
             case typeVariant of
                 IntroLede ->
                     .introLede
@@ -119,10 +122,33 @@ className typeVariant =
                 ExtraSmall ->
                     .extraSmall
     in
-    styles.classList
-        [ ( styleClass, True )
-        , ( .paragraph, True )
-        ]
+    styles.class variantClassname
+
+
+colorClass : AllowedColor -> Html.Attribute msg
+colorClass allowedColor =
+    let
+        colorClassname =
+            case allowedColor of
+                Dark ->
+                    .dark
+
+                DarkReducedOpacity ->
+                    .darkReducedOpacity
+
+                White ->
+                    .white
+
+                WhiteReducedOpacity ->
+                    .whiteReducedOpacity
+
+                Positive ->
+                    .positive
+
+                Negative ->
+                    .negative
+    in
+    styles.class colorClassname
 
 
 styles =
@@ -132,6 +158,12 @@ styles =
         , body = "body"
         , small = "small"
         , extraSmall = "extra-small"
+        , dark = "dark"
+        , darkReducedOpacity = "dark-reduced-opacity"
+        , white = "white"
+        , whiteReducedOpacity = "white-reduced-opacity"
+        , positive = "positive"
+        , negative = "negative"
         }
 
 
@@ -140,6 +172,15 @@ type TypeVariant
     | Body
     | Small
     | ExtraSmall
+
+
+type AllowedColor
+    = Dark
+    | DarkReducedOpacity
+    | White
+    | WhiteReducedOpacity
+    | Positive
+    | Negative
 
 
 
@@ -154,11 +195,6 @@ pre =
 p : Config msg
 p =
     Config { defaultConfig | tag = Just Html.p }
-
-
-a : Config msg
-a =
-    Config { defaultConfig | tag = Just Html.a }
 
 
 div : Config msg
@@ -204,6 +240,11 @@ h6 =
 variant : TypeVariant -> Config msg -> Config msg
 variant value (Config config) =
     Config { config | variant = value }
+
+
+color : AllowedColor -> Config msg -> Config msg
+color value (Config config) =
+    Config { config | color = value }
 
 
 id : String -> Config msg -> Config msg

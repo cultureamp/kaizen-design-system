@@ -132,13 +132,14 @@ type ModalStep
     | Running
 
 
-type alias ConfirmationConfig msg =
+type alias ConfirmationContract msg =
     { title : String
     , bodySubtext : Maybe (List (Html msg))
     , onDismiss : Maybe msg
     , onConfirm : Maybe msg
     , confirmLabel : String
     , dismissLabel : String
+    , onConfirmDisabled : Bool
     }
 
 
@@ -220,7 +221,7 @@ view c =
 
 
 viewContent : Config msg -> Html msg
-viewContent (Config config) =
+viewContent (Config modalConfig) =
     let
         updateModal onUpdateMsg =
             onClick (onUpdateMsg Update)
@@ -229,11 +230,11 @@ viewContent (Config config) =
             GenericModal.default
 
         ( mState, modalData ) =
-            getState config.state
+            getState modalConfig.state
 
         genericModalEvents =
             List.filterMap identity
-                [ Maybe.map updateModal config.onUpdate
+                [ Maybe.map updateModal modalConfig.onUpdate
                 ]
 
         resolveAnimationStyles =
@@ -248,7 +249,7 @@ viewContent (Config config) =
                     []
 
         resolveVisibilityStyles =
-            case config.state of
+            case modalConfig.state of
                 ModalState ( Opening_, _ ) ->
                     [ ( .elmUnscrollable, True ) ]
 
@@ -268,21 +269,21 @@ viewContent (Config config) =
                 ++ [ style "animation-duration" <| (mapDuration modalData.duration |> String.fromFloat |> (\duration -> duration ++ "ms")) ]
             )
             []
-        , case config.variant of
+        , case modalConfig.variant of
             Generic content size ->
                 GenericModal.view (GenericModal.Custom size)
                     content
                     (genericModalConfig |> GenericModal.events genericModalEvents)
 
-            Confirmation confirmationType configs ->
+            Confirmation confirmationType contract ->
                 let
                     withOnDismiss confirmationConfig =
-                        case configs.onDismiss of
+                        case contract.onDismiss of
                             Just dismissMsg ->
                                 ConfirmationModal.onDismiss dismissMsg confirmationConfig
 
                             Nothing ->
-                                case config.onUpdate of
+                                case modalConfig.onUpdate of
                                     Just updateMsg ->
                                         ConfirmationModal.onDismiss (updateMsg Update) confirmationConfig
 
@@ -290,49 +291,44 @@ viewContent (Config config) =
                                         confirmationConfig
 
                     withOnConfirm confirmationConfig =
-                        case configs.onConfirm of
+                        case contract.onConfirm of
                             Just confirmMsg ->
                                 ConfirmationModal.onConfirm confirmMsg confirmationConfig
 
                             Nothing ->
                                 confirmationConfig
 
+                    withOnConfirmDisabled confirmationConfig =
+                        if contract.onConfirmDisabled then
+                            ConfirmationModal.onConfirmDisabled True confirmationConfig
+
+                        else
+                            ConfirmationModal.onConfirmDisabled False confirmationConfig
+
                     withBodySubtext confirmationConfig =
-                        case configs.bodySubtext of
+                        case contract.bodySubtext of
                             Just subtext ->
                                 ConfirmationModal.bodySubtext subtext confirmationConfig
 
                             Nothing ->
                                 confirmationConfig
 
-                    withFocusableIds confirmationConfig =
-                        ConfirmationModal.headerDismissId (firstFocusableIdToString modalData.firstFocusableId) confirmationConfig
-                            |> ConfirmationModal.confirmId (lastFocusableIdToString modalData.lastFocusableId)
-
                     withFocusLockAttribs confirmationConfig =
-                        case config.onUpdate of
+                        case modalConfig.onUpdate of
                             Just updateMsg ->
                                 let
-                                    withHeaderDismissPreventKeydownOn conConfig =
-                                        if isShiftKeydown config.state && firstFocusableFocused config.state then
-                                            ConfirmationModal.onPreventHeaderDismissKeydown [ KaizenEvents.isTab (updateMsg FirstFocusableShiftTabbed) ] conConfig
-
-                                        else
-                                            conConfig
-
-                                    withConfirmPreventKeydownOn conConfig =
-                                        if not <| isShiftKeydown config.state && lastFocusableFocused config.state then
-                                            ConfirmationModal.confirmPreventKeydownOn [ KaizenEvents.isTab (updateMsg LastFocusableTabbed) ] conConfig
+                                    withFirstFocusablePreventKeydownOn conConfig =
+                                        if isShiftKeydown modalConfig.state && firstFocusableFocused modalConfig.state then
+                                            ConfirmationModal.onHeaderDismissPreventKeydown [ KaizenEvents.isTab (updateMsg FirstFocusableShiftTabbed) ] conConfig
 
                                         else
                                             conConfig
                                 in
                                 ConfirmationModal.onHeaderDismissFocus (updateMsg FirstFocusableElementFocused) confirmationConfig
-                                    |> ConfirmationModal.onConfirmFocus (updateMsg LastFocusableElementFocused)
-                                    |> ConfirmationModal.onConfirmBlur (updateMsg ClearFocusedFocusable)
+                                    |> ConfirmationModal.headerDismissId (firstFocusableIdToString modalData.firstFocusableId)
                                     |> ConfirmationModal.onHeaderDismissBlur (updateMsg ClearFocusedFocusable)
-                                    |> withHeaderDismissPreventKeydownOn
-                                    |> withConfirmPreventKeydownOn
+                                    |> withFirstFocusablePreventKeydownOn
+                                    |> confirmationLastFocusableConfig modalConfig.state contract updateMsg
 
                             Nothing ->
                                 confirmationConfig
@@ -340,12 +336,12 @@ viewContent (Config config) =
                     commonConfirmationConfig confirmationConfig =
                         withOnDismiss confirmationConfig
                             |> withOnConfirm
+                            |> withOnConfirmDisabled
                             |> withBodySubtext
-                            |> withFocusableIds
                             |> withFocusLockAttribs
-                            |> ConfirmationModal.confirmLabel configs.confirmLabel
-                            |> ConfirmationModal.dismissLabel configs.dismissLabel
-                            |> ConfirmationModal.title configs.title
+                            |> ConfirmationModal.confirmLabel contract.confirmLabel
+                            |> ConfirmationModal.dismissLabel contract.dismissLabel
+                            |> ConfirmationModal.title contract.title
                 in
                 case confirmationType of
                     Informative ->
@@ -392,7 +388,7 @@ viewContent (Config config) =
                                 InputEditModal.onDismiss dismissMsg inputEditConfig
 
                             Nothing ->
-                                case config.onUpdate of
+                                case modalConfig.onUpdate of
                                     Just updateMsg ->
                                         InputEditModal.onDismiss (updateMsg Update) inputEditConfig
 
@@ -412,18 +408,18 @@ viewContent (Config config) =
                             |> InputEditModal.confirmId (lastFocusableIdToString modalData.lastFocusableId)
 
                     withFocusLockAttribs inputEditConfig =
-                        case config.onUpdate of
+                        case modalConfig.onUpdate of
                             Just updateMsg ->
                                 let
                                     withHeaderDismissPreventKeydownOn inputEConfig =
-                                        if isShiftKeydown config.state && firstFocusableFocused config.state then
+                                        if isShiftKeydown modalConfig.state && firstFocusableFocused modalConfig.state then
                                             InputEditModal.onPreventHeaderDismissKeydown [ KaizenEvents.isTab (updateMsg FirstFocusableShiftTabbed) ] inputEConfig
 
                                         else
                                             inputEConfig
 
                                     withConfirmPreventKeydownOn inputEConfig =
-                                        if not <| isShiftKeydown config.state && lastFocusableFocused config.state then
+                                        if not <| isShiftKeydown modalConfig.state && lastFocusableFocused modalConfig.state then
                                             InputEditModal.confirmPreventKeydownOn [ KaizenEvents.isTab (updateMsg LastFocusableTabbed) ] inputEConfig
 
                                         else
@@ -529,6 +525,43 @@ styles =
 
 
 -- INTERNAL HELPERS
+
+
+{-| This handles setting up the last focusable element attributes.
+For example if the confirm button which is typically set as the last focusable element
+is disabled, then the logic promotes the footer dismiss button as the last focusable element
+-}
+confirmationLastFocusableConfig : ModalState msg -> ConfirmationContract msg -> (ModalMsg -> msg) -> ConfirmationModal.Config msg -> ConfirmationModal.Config msg
+confirmationLastFocusableConfig ((ModalState ( _, modalData )) as ms) contract updateMsg config =
+    let
+        shouldPreventKeydown =
+            not <| isShiftKeydown ms && lastFocusableFocused ms
+
+        withFooterPreventKeydown conConfig =
+            if shouldPreventKeydown then
+                ConfirmationModal.onFooterDismissPreventKeydownOn [ KaizenEvents.isTab (updateMsg LastFocusableTabbed) ] conConfig
+
+            else
+                conConfig
+
+        withConfirmPreventKeydown conConfig =
+            if shouldPreventKeydown then
+                ConfirmationModal.onConfirmPreventKeydownOn [ KaizenEvents.isTab (updateMsg LastFocusableTabbed) ] conConfig
+
+            else
+                conConfig
+    in
+    if contract.onConfirmDisabled then
+        ConfirmationModal.onFooterDismissFocus (updateMsg LastFocusableElementFocused) config
+            |> ConfirmationModal.onFooterDismissBlur (updateMsg ClearFocusedFocusable)
+            |> ConfirmationModal.footerDismissId (lastFocusableIdToString modalData.lastFocusableId)
+            |> withFooterPreventKeydown
+
+    else
+        ConfirmationModal.onConfirmFocus (updateMsg LastFocusableElementFocused) config
+            |> ConfirmationModal.onConfirmBlur (updateMsg ClearFocusedFocusable)
+            |> ConfirmationModal.confirmId (lastFocusableIdToString modalData.lastFocusableId)
+            |> withConfirmPreventKeydown
 
 
 mapDuration : Duration -> Float
@@ -665,7 +698,7 @@ defaultFocusableId id =
 
 type Variant msg
     = Generic (List (Html msg)) ( Float, Float )
-    | Confirmation ConfirmationType (ConfirmationConfig msg)
+    | Confirmation ConfirmationType (ConfirmationContract msg)
     | InputEdit InputEditType (InputEditConfig msg)
 
 
@@ -674,7 +707,7 @@ generic v size =
     Config { defaults | variant = Generic v size }
 
 
-confirmation : ConfirmationType -> ConfirmationConfig msg -> Config msg
+confirmation : ConfirmationType -> ConfirmationContract msg -> Config msg
 confirmation confirmationType confirmationConfig =
     Config
         { defaults
@@ -757,8 +790,12 @@ update ms modalMsg =
                 Ok () ->
                     ( ms, Cmd.none, Nothing )
 
+                -- Fallback to the FirstFocusableElement
                 Err _ ->
-                    ( ms, Cmd.none, Nothing )
+                    ( ms
+                    , Task.attempt FocusFirstFocusableElement (BrowserDom.focus <| firstFocusableIdToString mData.firstFocusableId)
+                    , Nothing
+                    )
 
         DefaultFocusableElementFocused focusResult ->
             case focusResult of

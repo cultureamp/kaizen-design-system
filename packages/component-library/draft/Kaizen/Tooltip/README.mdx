@@ -13,6 +13,10 @@ demoStoryId: tooltip-react--default-below-kaizen-site-demo
 demoStoryHeight: 100px
 ---
 
+import DosAndDonts from "docs-components/DosAndDonts"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
 ## Visuals
 
 ### UI Kit
@@ -62,17 +66,26 @@ demoStoryHeight: 100px
     *   In contrast, a user might interact with a Popover, requiring focus, so we need to move focus to the Popover when it’s triggered and support keyboard navigation to dismiss a dismissible Popover.
 *   Use sparingly. Tooltips innately hide information. Consider exposing it immediately without a tooltip or removing it completely.
 
-## When to use
+## When to use and when not to use
+
+<DosAndDonts>
+<Do>
 
 *   Use when the description content would be too much information to include inline or create too much clutter. For example, when expert users have seen it many times.
 *   Use for icon-only buttons or for a button with an associated keyboard shortcut.
 
-## When not to use
+</Do>
+<Dont>
 
 *   Don’t use tooltips to restate visible UI text.
 *   If you need lots of tooltips and icons to trigger them, consider an onboarding pattern instead, such as coachmarks.
 *   To communicate critical information, including errors in forms or other interaction feedback. Consider using [Modals](/components/modal) or [Notifications](/guidelines/notifications)
 *   Not contain any links or buttons. Consider using a [Popover](/components/popover).
+
+</Dont>
+</DosAndDonts>
+
+
 
 ## See also
 

@@ -28,8 +28,12 @@ You can edit Kaizen Site documentation using GitHub's interface.
     - Under "Commit changes", write a commit message starting with `docs: `, such as `docs: update typography documentation`.
     - Create a new branch for this commit and start a pull request, e.g. `di/update-typography-guidelines`.
     - Click the "Commit changes" button. This will start a pull request.
-7. **PR with branch preview**: You can give your pull request a description. It's convenient for reviewers if you add a link to your "branch preview", which shows how your changes will look on the Kaizen Site. The branch preview link will use your branch name like this: <https://dev.cultureamp.design/>(branch-name)
-9. **Create PR**: Click the "Create pull request" button. Add someone as a reviewer or let #team_design_systems know.
+5. **Create PR**: Click the "Create pull request" button. Add someone as a reviewer or let #team_design_systems know.
+6. **PR description and branch preview**:
+    - Give your PR **a description** to help reviewers quickly understand why you've made the changes you have made and give feedback.
+    - Where it says "No description provided", look for an "**Edit**" action (in the unlabeled icon dropdown).
+    - If there is an **open Issue** for your changes, link to it in the description by writing `#` and writing the number or title of the Issue. You can find the Issue number or title by searching for it in [Issues](https://github.com/cultureamp/kaizen-design-system/issues).
+    - It's convenient for reviewers if you add a link to your "**branch preview**", which shows how your changes will look on the Kaizen Site after it has automatically been built (within a few minutes of opening the PR). The branch preview link will use your branch name like this: <https://dev.cultureamp.design/>(branch-name), which you can find in the "Checks" section of the page (likely under "Show all checks" > Branch preview: "Details").
 
 Once it's approved, click "Squash and merge" to publish your changes. Share the link to the updated documentation on #team_design_systems for awareness.
 

@@ -44,7 +44,7 @@ export default ({ data, pageContext, location }) => {
   )
 
   const renderStorybookIFrame = () => {
-    if (!md.frontmatter.demoStoryId && md.frontmatter.title !== "Overview") {
+    if (!md.frontmatter.demoStoryId) {
       // tslint:disable-next-line: no-console
       console.warn(
         `Could not find a demo story ID for "${md.frontmatter.title}". Please make sure there is a frontmatter field called demoStoryId in the component docs. The ID comes from the Storybook URL for a given story.`
@@ -64,6 +64,7 @@ export default ({ data, pageContext, location }) => {
       headingText={md.frontmatter.title}
       summaryParagraph={md.frontmatter.summaryParagraph}
       tags={md.frontmatter.tags}
+      headerImageName={md.frontmatter.headerImage}
     />
   )
 
@@ -83,7 +84,7 @@ export default ({ data, pageContext, location }) => {
         </Sidebar>
         <Content>
           <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
-          {renderStorybookIFrame()}
+          {md.frontmatter.title !== "Overview" && renderStorybookIFrame()}
           <ContentMarkdownSection>
             <h1>{md.frontmatter.navTitle}</h1>
             {/*
@@ -98,7 +99,7 @@ export default ({ data, pageContext, location }) => {
 
 export const query = graphql`
   query($slug: String!) {
-    allMdx(filter: { fields: { slug: { regex: "/^/components/" } } }) {
+    allMdx(filter: { fields: { slug: { regex: "/^/components//" } } }) {
       edges {
         node {
           fields {
@@ -118,6 +119,7 @@ export const query = graphql`
         tags
         needToKnow
         summaryParagraph
+        headerImage
         demoStoryId
         demoStoryHeight
       }

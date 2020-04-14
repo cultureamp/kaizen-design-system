@@ -52,6 +52,7 @@ export default ({ data, pageContext, location }) => {
       headingText={md.frontmatter.title}
       summaryParagraph={md.frontmatter.summaryParagraph}
       tags={md.frontmatter.tags}
+      headerImageName={md.frontmatter.headerImage}
     />
   )
 
@@ -93,7 +94,7 @@ export default ({ data, pageContext, location }) => {
 
 export const query = graphql`
   query($slug: String!) {
-    allMdx(filter: { fields: { slug: { regex: "^/guidelines/" } } }) {
+    allMdx(filter: { fields: { slug: { regex: "/^/guidelines//" } } }) {
       edges {
         node {
           fields {
@@ -114,6 +115,7 @@ export const query = graphql`
         summaryParagraph
         tags
         needToKnow
+        headerImage
       }
     }
   }

@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.3.4...@kaizen/deprecated-component-library-helpers@1.3.5) (2020-04-08)
+
+**Note:** Version bump only for package @kaizen/deprecated-component-library-helpers
+
+
+
+
+
+## [1.3.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.3.3...@kaizen/deprecated-component-library-helpers@1.3.4) (2020-04-07)
+
+**Note:** Version bump only for package @kaizen/deprecated-component-library-helpers
+
+
+
+
+
+## [1.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.3.2...@kaizen/deprecated-component-library-helpers@1.3.3) (2020-04-07)
+
+**Note:** Version bump only for package @kaizen/deprecated-component-library-helpers
+
+
+
+
+
+## [1.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.3.1...@kaizen/deprecated-component-library-helpers@1.3.2) (2020-03-27)
+
+
+### Bug Fixes
+
+* add missing font-family fallbacks to zen heading mixins ([#357](https://github.com/cultureamp/kaizen-design-system/issues/357)) ([a9f33f5](https://github.com/cultureamp/kaizen-design-system/commit/a9f33f591fe9bc64e2f64ec35cf39d8922068860))
+
+
+
+
+
 ## [1.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.3.0...@kaizen/deprecated-component-library-helpers@1.3.1) (2020-02-27)
 
 

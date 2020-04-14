@@ -4,7 +4,7 @@ exports[`<Paragraph /> defaults to the correct HTML element renders the correct 
 <body>
   <div>
     <p
-      class="paragraph body"
+      class="paragraph body dark"
     >
       Example
     </p>
@@ -16,7 +16,7 @@ exports[`<Paragraph /> defaults to the correct HTML element renders the correct 
 <body>
   <div>
     <p
-      class="paragraph extra-small"
+      class="paragraph extra-small dark"
     >
       Example
     </p>
@@ -28,7 +28,7 @@ exports[`<Paragraph /> defaults to the correct HTML element renders the correct 
 <body>
   <div>
     <p
-      class="paragraph intro-lede"
+      class="paragraph intro-lede dark"
     >
       Example
     </p>
@@ -40,7 +40,7 @@ exports[`<Paragraph /> defaults to the correct HTML element renders the correct 
 <body>
   <div>
     <p
-      class="paragraph small"
+      class="paragraph small dark"
     >
       Example
     </p>
