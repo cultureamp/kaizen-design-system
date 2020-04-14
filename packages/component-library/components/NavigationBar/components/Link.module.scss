@@ -176,7 +176,7 @@ $link-margin: $ca-grid / 4;
   @include ca-padding($start: $ca-grid * 0.5, $end: $ca-grid * 0.5);
   @include ca-type-ideal-small-bold;
   @include ca-inherit-baseline;
-  border-radius: $kz-border-solid-border-radius;
+  border-radius: $ca-grid;
   background-color: $kz-color-seedling-200;
   color: $kz-color-wisteria-800;
 }
