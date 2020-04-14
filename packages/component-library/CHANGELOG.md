@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.4.4...@kaizen/component-library@5.4.5) (2020-04-14)
+
+
+### Bug Fixes
+
+* title block breadcrumb z index ([#355](https://github.com/cultureamp/kaizen-design-system/issues/355)) ([20b1869](https://github.com/cultureamp/kaizen-design-system/commit/20b186913bcc19e6310894a7cb16411386df1c31))
+
+
+
+
+
 ## [5.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.4.3...@kaizen/component-library@5.4.4) (2020-04-09)
 
 
