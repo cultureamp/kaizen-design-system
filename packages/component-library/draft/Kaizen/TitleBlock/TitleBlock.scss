@@ -46,7 +46,7 @@
   @include ca-type-ideal-small;
   display: flex;
   position: absolute;
-  z-index: $ca-z-index-popover;
+  z-index: $ca-z-index-sticky;
   align-items: center;
   top: $ca-layout-title-block-height / 2;
   transform: translateY(-50%);
