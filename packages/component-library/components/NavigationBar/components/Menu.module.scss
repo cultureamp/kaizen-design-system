@@ -113,6 +113,6 @@ $menu__square-size: $ca-grid * 2;
   }
 
   &:hover {
-    background-color: #4b4d68; // DST-TODO: Replace this with $kz-color-wisteria-700 once kaizen-design-tokens is installed
+    background-color: $kz-color-wisteria-700;
   }
 }
