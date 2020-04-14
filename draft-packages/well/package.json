@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "packages/draft/Well"
+    "directory": "draft-packages/well"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
