@@ -28,46 +28,46 @@ import Dont from "docs-components/Dont"
 A table organizes and displays tabular data. It shows all data in a set, whereas a data visualization might highlight only the interesting values. A table makes it efficient to look up values across multiple categories.
 
 *   All tables have these elements:
-    *   **Container: **wraps the table header and rows
-    *   **Headers**: 
-        *   Header row
-        *   Header cell (can be checkbox etc.)
-            *   Use labels that are as short as possible
+    *   **Container: **wraps the table header and rows.
+    *   **Headers**:
+        *   Header row.
+        *   Header cell (can be checkbox etc.).
+            *   Use labels that are as short as possible.
     *   **Rows / cards**:
-        *   Collapsed: Default
-        *   (Optional) Expanded: Shows more detail about that row’s item
+        *   Collapsed: Default.
+        *   (Optional) Expanded: Shows more detail about that row’s item.
     *   **Columns**:
         *   The first column contains the most identifying information about the item, such as name.
 *   **Expanded** **rows / cards**:
-    *   Can be expanded or collapsed by an icon button containing a chevron icon
-    *   Expanded cards can contain either: 
-        *   A nested table: with aligned column headings and additional rows or 
-        *   A card row:  that does not align with the column headers and contains different but related information that happens to sit inside of a table
+    *   Can be expanded or collapsed by an icon button containing a chevron icon.
+    *   Expanded cards can contain either:
+        *   A nested table: with aligned column headings and additional rows.
+        *   A card row: that does not align with the column headers and contains different but related information that happens to sit inside of a table.
 *   **Summary rows**:
     *   Summary rows either provide summary data such as totals or additional metadata, such as when the item was created.
 *   **Alignment**:
     *   Numerical data is often right aligned:
-        *   Centered is useful for unitless, whole numbers, ratios, and dimensions e.g. 17, 5:1, or 1920x108-
-        *   Right aligned numerical data with units or symbols makes it easier to scan and sum, especially for decimal places, or percentages, e.g. -17 or 50%
-        *   Left aligned numerical data is useful for unitless numbers with symbols on the left, such as dollar sign ($) or hash/pound (#), e.g. $300 or #73
-    *   Text data is left aligned
-    *   Headers are aligned with their related data
+        *   Centered is useful for unitless, whole numbers, ratios, and dimensions e.g. 17, 5:1, or 1920x1080.
+        *   Right aligned numerical data with units or symbols makes it easier to scan and sum, especially for decimal places, or percentages, e.g. -17 or 50%.
+        *   Left aligned numerical data is useful for unitless numbers with symbols on the left, such as dollar sign ($) or hash/pound (#), e.g. $300 or #73.
+    *   Text data is left aligned.
+    *   Headers are aligned with their related data.
     *   Final column is usually the second most important data and is right aligned, especially for total numbers with decimals e.g. comparison data or call to action.
 *   Style:
     *   **Expanded row style**: 
-        *   Our **current style is "Popout"**
-        *   Our previous style is "Well" and we’re deprecating this
+        *   Our **current style is "Popout"**.
+        *   Our previous style is "Well" and we’re deprecating this.
     *   **We don’t use “zebra striping”** on rows (alternating highlighting) because there is enough visual delineation (spacing and borders) to visually track a single item across the whole row.
     *   Responsive:
-        *   On small screens, the table is sideways scrollable
-        *   On touch devices (small or large), scroll is available on touch
+        *   On small screens, the table is sideways scrollable.
+        *   On touch devices (small or large), scroll is available on touch.
 *   **Wrap or truncate long text**:
-    *   **Wrap**: wrap when there’s no other way to see the full value
-    *   **Truncate**: truncate when the full value can be seen on interaction (e.g. hover/focus shows a tooltip or clicking expands the table) or elsewhere (e.g. on a page just for that data)
+    *   **Wrap**: wrap when there’s no other way to see the full value.
+    *   **Truncate**: truncate when the full value can be seen on interaction (e.g. hover/focus shows a tooltip or clicking expands the table) or elsewhere (e.g. on a page just for that data).
 *   Arranging data:
-    *   Sort: use an icon to indicate the column header is sortable, showing if it’s ascending, descending, or not selected
-    *   Filter: use a [Checkbox Field](/components/checkbox-field) in the table or [Select](/components/select) (default or secondary style) above the table
-    *   Search: use search to find specific rows (showing search in the top–right above the table)
+    *   Sort: use an icon to indicate the column header is sortable, showing if it’s ascending, descending, or not selected.
+    *   Filter: use a [Checkbox Field](/components/checkbox-field) in the table or [Select](/components/select) (default or secondary style) above the table.
+    *   Search: use search to find specific rows (showing search in the top–right above the table).
 *   Selecting rows:
     *   For selecting multiple rows, use checkboxes in the first column to select multiple rows for bulk actions, such as deletion.
     *   For selecting one row, use a hover style for hovering and an active style for the selected row.
