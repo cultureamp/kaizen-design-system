@@ -1,9 +1,10 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/design-tokens/sass/border";
 
 .container {
-  border-radius: $ca-border-radius;
+  border-radius: $kz-border-solid-border-radius;
   margin-bottom: $ca-grid;
 }
 

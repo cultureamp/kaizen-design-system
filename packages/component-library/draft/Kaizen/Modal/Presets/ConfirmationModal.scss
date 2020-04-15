@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
@@ -19,6 +20,8 @@
   padding: $ca-grid $ca-grid $ca-grid * 1.5;
   text-align: center;
   background-repeat: no-repeat;
+  border-radius: $kz-border-solid-border-radius $kz-border-solid-border-radius 0
+    0;
 }
 
 .positiveHeader {
