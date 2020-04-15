@@ -4,7 +4,7 @@
 @import "../styles";
 
 .badge {
-  background-color: $kz-color-coral-500; // DST-TODO: change this to $kz-color-coral-500 once kaizen-design-tokens is installed
+  background-color: $kz-color-coral-500;
   color: #fff;
   font-weight: $ca-weight-medium;
   text-decoration: none;
@@ -52,7 +52,7 @@
   }
 
   &.local {
-    background-color: #99c3e1; // DST-TODO: change this to $kz-color-cluny-300 once kaizen-design-tokens is installed
+    background-color: $kz-color-cluny-300;
   }
 
   &.content {

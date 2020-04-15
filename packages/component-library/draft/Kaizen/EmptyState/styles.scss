@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
@@ -15,7 +16,7 @@
   background-color: $kz-color-ash;
   color: $kz-color-wisteria-800;
   border: 1px solid $ca-border-color;
-  border-radius: $ca-border-radius;
+  border-radius: $kz-border-solid-border-radius;
 
   @include small {
     flex-direction: column;
