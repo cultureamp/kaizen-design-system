@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.4.5...@kaizen/component-library@5.5.0) (2020-04-15)
+
+
+### Features
+
+* Use the new border radius token ([#378](https://github.com/cultureamp/kaizen-design-system/issues/378)) ([4918bc6](https://github.com/cultureamp/kaizen-design-system/commit/4918bc66bd5f0b7b52f0eb78611a3b612ccf3241))
+
+
+
+
+
 ## [5.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.4.4...@kaizen/component-library@5.4.5) (2020-04-14)
 
 
