@@ -3,7 +3,7 @@
   "include": [
     "components/**/*",
     "stories/**/*",
-    "draft/**/*",
+    "draft-packages/**/*",
     "util/**/*",
     "index.ts"
   ],
