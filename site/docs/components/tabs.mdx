@@ -22,51 +22,72 @@ import Dont from "docs-components/Dont"
 ## Options
 
 - Navigation tabs and Section tabs:
-    - Navigation tabs are always used for global navigation at the top of the page or inside an offscreen menu on small screens.
-    - Section tabs are used for chunking content, allowing movement between content within a single section of a page.
+    - **Navigation tabs** are always used for global navigation at the top of the page or inside an offscreen menu on small screens. Navigation tabs navigate to unrelated content.
+    - **Section tabs** are used for chunking content, allowing movement between content within a single section of a page. Each section tab's content is similar and closely related to each other tab.
 - Vertical tabs and horizontal tabs are used for establishing hierarchy as appropriate for the product area.
 - Default and reversed
 
 ## To keep in mind
 
-- Anatomy:
-    - Tab list: This refers to the container holding each of the tab items.
-    - Selected tab: The current, active tab. One tab—and only one tab—is always selected for a given tab list.
-    - Unselected tab: The other available tabs.
-    - Tab item:
-        - A tab item contains a large clickable target area, a label, a selected tab indicator (when the tab is selected), and optional metadata.
-        - Tab link: The large clickable area of the tab item uses a link to navigate to that tab's content.
-        - Tab label: The label describes what content will be displayed. Use 1 short noun or noun phrase.
-        - Selected tab indicator: This contains a selected tab indicator to show that the tab is current.
-        - Optional metadata: You might display 1 item of metadata, such as a [Badge](/components/badge) to bring data forward from the content in that section or a [Tag](/components/tag) to add supplementary information, such as "New".
-    - Tab content: The content that lives "inside" a tab and is revealed when that tab item is selected.
-    - Separator: To separate tabs from content, use whitespace or the edge of another component, such as Title Blocks or Cards, not a [Divider](/components/divider).
-- Styling:
-    - Align navigation tabs and section tabs left (in left-to-right languages) and never center within a page or section.
-    - For small screens, tab items must be presented without loss of information or functionality, and without requiring scrolling in two dimensions for vertical scrolling content at a width equivalent to 320 CSS pixels and horizontal scrolling content at a height equivalent to 256 CSS pixels, as per [W3C: Understanding Success Criterion 1.4.10: Reflow](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html).
-    - Limit tabs to a maximum of 8 tab items and aim for 3–6. Avoid only 2 tabs.
-    - Avoid using icons in tab items.
-    - Tab content always appears below horizontal tabs. Tab content always appears to the right of vertical tabs in left-to-right languages and to the left of vertical tabs in right-to-left languages.
-- Tab content and ordering:
-    - The first tab is selected by default. The default tab is most important use case of the page
-    - Use smart defaults for defining tabs that accelerate users to the content they care about most. For example, you might surface the most common pathway or personalized content, such as the current user's saved comments.
-    - Avoid tabs that you can "toggle off". That is, 1 tab is always selected. If you want a tab list with no selected tabs, consider instead adding a tab representing "All" the content as the first tab.
-- Navigation:
-    - A user can navigate between tabs to reveal that tab's content by clicking or tapping on the tab item. We don't support swiping between sections using the tab content area (for example, using edge swipes on mobile devices), especially when tabs have content of different length.
-- Labels:
-    - Don't truncate long tab text. Use short tab label text, and if it absolutely must be longer, consider wrapping the text instead of truncating.
-- Fixed or scrolling:
-    - Use fixed tabs of equal width for a small number of tab items (e.g. 3) that fit inside 320px containers or viewports.
-    - Use scrolling tabs of flexible width for all other tabs. That is, you can scroll them horizontally to see more tabs offscreen.
-- Overflow:
-    - Consider providing an action next to the tabs to access additional tabs that do not fit on screen. For example, you might use an adjacent menu list.
-- Empty state:
-    - If a tab contains no content or has an error, consider disabling or hiding it according to the [Interaction states guidelines for disabled elements](/guidelines/interaction-states#disabled-state).
-- Right-To-Left (RTL):
-    - Reverse tab order for right-to-left languages.
-- Hierarchy:
-    - You might use horizontal and vertical section tabs to distinguish multiple levels of hierarchy. That is, vertical tabs might navigate between larger page sections, while horizontal tabs might navigate between data in a specific section.
-    - Don't place tabs inside tabs. Avoid nesting multiple levels of tabs in one orientation.
+### Anatomy
+
+- **Tab list**: This refers to the container holding each of the tab items.
+- **Selected tab**: The current, active tab. One tab—and only one tab—is always selected for a given tab list.
+- **Unselected tab**: The other available tabs.
+- **Tab item**:
+    - A tab item contains: a large clickable target area, a label, a selected tab indicator (when the tab is selected), and optional metadata.
+    - **Tab link**: The large clickable area of the tab item uses a link to navigate to that tab's content.
+    - **Tab label**: The label describes what content will be displayed. Use 1 short noun or noun phrase.
+    - **Selected tab indicator**: This contains a selected tab indicator to show that the tab is current.
+    - **Optional metadata**: You might display 1 item of metadata, such as a [Badge](/components/badge) to bring data forward from the content in that section or a [Tag](/components/tag) to add supplementary information, such as "New".
+- **Tab content**: The content that lives "inside" a tab and is revealed when that tab item is selected.
+- **Separator**: To separate tabs from content, use whitespace or the edge of another component, such as Title Blocks or Cards, not a [Divider](/components/divider).
+
+### Styling
+
+- Align navigation tabs and section tabs left (in left-to-right languages) and never center within a page or section.
+- For small screens, tab items must be presented without loss of information or functionality, and without requiring scrolling in two dimensions for vertical scrolling content at a width equivalent to 320 CSS pixels and horizontal scrolling content at a height equivalent to 256 CSS pixels, as per [W3C: Understanding Success Criterion 1.4.10: Reflow](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html).
+- Never use icons in section tabs. If we need icons for navigation tabs on small screens, we might use stacked icons above labels.
+- Tab content always appears below horizontal tabs.
+- Tab content always appears to the right of vertical tabs in left-to-right languages (and to the left of vertical tabs in right-to-left languages).
+- Use a single row of tabs without wrapping and without showing multiple rows.
+
+### Tab content and ordering
+
+- Aim for 3–6 tab items. If you only have 2 tabs, consider using something else.
+- The first tab is selected by default. The default tab is most important use case of the page.
+- Use smart defaults for defining tabs that accelerate users to the content they care about most. For example, you might surface the most common pathway or personalized content, such as the current user's saved comments.
+- Avoid tabs that you can "toggle off". That is, 1 tab is always selected.
+- To decide how to chunk content into different tabs, consider a card sorting activity.
+
+### Navigation
+
+- A user can navigate between tabs to reveal that tab's content by clicking or tapping on the tab item. We don't support swiping between sections using the tab content area (for example, using edge swipes on mobile devices).
+
+### Labels
+
+- Don't truncate long tab text. Use short tab label text, and if it absolutely must be longer, consider wrapping the text instead of truncating.
+
+### Fixed or scrolling
+
+- Use fixed tabs of equal width for a small number of tab items (e.g. 3) that fit inside 320px containers or viewports.
+- Use scrolling tabs of flexible width for all other tabs. That is, you can scroll them horizontally to see more tabs offscreen.
+
+### Overflow
+
+- Consider providing an action next to the tabs to access additional tabs that do not fit on screen. For example, you might use an adjacent menu list.
+
+### Tabs with no content
+
+- If a tab contains no content or has an error, consider either disabling it or enabling it and showing an empty state or error message within the tab content. You might show a [Badge](/components/badge) with a count of 0. See also: [Interaction states guidelines for disabled elements](/guidelines/interaction-states#disabled-state).
+
+### Right-To-Left (RTL)
+
+- Reverse tab order for right-to-left languages.
+
+### Hierarchy
+
+- Don't place tabs inside tabs. Avoid nesting multiple levels of tabs in one orientation.
 
 ## When to use and when not to use
 
@@ -79,8 +100,10 @@ import Dont from "docs-components/Dont"
 </Do>
 <Dont>
 
-- Avoid tabs when the items perform an action. Instead, use a [Button](/components/button) or [Button group](/components/button-group). For example, if the action filters content, use a filter instead.
-- Avoid tabs for allowing users to interact with data and reduce it themselves. Instead, use filters.
+- Avoid tabs when the items perform an action. Instead, use a [Button](/components/button) or [Button group](/components/button-group).
+- Avoid tabs when you have more than 6 sections. Instead, consider using a [Collapsible](/components/collapsible).
+- Avoid tabs when each tab or most tabs have limited content. Consider showing it all at once.
+- Avoid tabs when a user needs to see content from multiple tabs at the same time.
 
 </Dont>
 </DosAndDonts>
