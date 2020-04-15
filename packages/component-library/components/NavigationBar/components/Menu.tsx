@@ -18,9 +18,14 @@ type MenuItem = {
   method?: "get" | "post" | "put" | "delete"
 }
 
+type Submenu = {
+  title: string
+  items: MenuItem[]
+}
+
 export type MenuProps = {
   header?: React.ReactElement<any>
-  items: MenuItem[]
+  items: Array<MenuItem | Submenu>
   automationId?: string
   heading: string
   mobileEnabled?: boolean
@@ -91,7 +96,13 @@ export default class Menu extends React.Component<MenuProps, State> {
       <div className={styles.menu}>
         <div>
           {header}
-          {items.map(this.renderMenuItem)}
+          {items.map((item, index) => {
+            if ("url" in item) {
+              return this.renderMenuItem(item, index)
+            } else if ("title" in item) {
+              return this.renderSubmenu(item)
+            }
+          })}
         </div>
       </div>
     )
@@ -151,6 +162,17 @@ export default class Menu extends React.Component<MenuProps, State> {
       <a href={url} className={styles.menuItem} tabIndex={0}>
         {label}
       </a>
+    )
+  }
+
+  renderSubmenu = (submenu: Submenu) => {
+    const { title, items } = submenu
+
+    return (
+      <>
+        <p>{title}</p>
+        {items.map(this.renderMenuItem)}
+      </>
     )
   }
 
