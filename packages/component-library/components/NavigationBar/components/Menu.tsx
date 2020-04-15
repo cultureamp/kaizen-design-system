@@ -8,7 +8,7 @@ const arrowLeftIcon = require("@kaizen/component-library/icons/arrow-left.icon.s
 import * as React from "react"
 import Media from "react-media"
 import { MOBILE_QUERY } from "../constants"
-import Link from "./Link"
+import Link, { LinkProps } from "./Link"
 
 const styles = require("./Menu.module.scss")
 
@@ -24,6 +24,7 @@ export type MenuProps = {
   automationId?: string
   heading: string
   mobileEnabled?: boolean
+  active?: boolean
 }
 
 type State = {
@@ -36,7 +37,7 @@ export default class Menu extends React.Component<MenuProps, State> {
     items: [],
     mobileEnabled: true,
   }
-  rootRef = React.createRef<HTMLElement>()
+  rootRef = React.createRef<any>()
 
   state = { open: false }
 
@@ -61,40 +62,31 @@ export default class Menu extends React.Component<MenuProps, State> {
               {this.renderOffCanvas()}
             </React.Fragment>
           ) : (
-            <nav className={styles.root} ref={this.rootRef}>
-              <button
-                className={styles.button}
-                onClick={this.toggle}
+            <React.Fragment>
+              <Link
+                ref={this.rootRef}
+                text={heading}
+                href="#"
+                onClick={e => this.toggle(e)}
                 aria-expanded={this.state.open}
                 data-automation-id={automationId}
-                onMouseDown={e => e.preventDefault()}
-              >
-                {children}
-              </button>
+                hasMenu
+              />
               {this.state.open && this.renderMenu()}
-            </nav>
+            </React.Fragment>
           )
         }
       </Media>
     )
   }
 
-  toggle = (e: React.SyntheticEvent<HTMLButtonElement> | MouseEvent) => {
+  toggle = (e: React.SyntheticEvent<HTMLAnchorElement> | MouseEvent) => {
     const open = !this.state.open
     this.setState({ open })
   }
 
   renderMenu() {
-    const { header, items } = this.props
-
-    return (
-      <div className={styles.menu}>
-        <div>
-          {header}
-          {items.map(this.renderMenuItem)}
-        </div>
-      </div>
-    )
+    return <ul className={styles.menu}>{this.props.items.map(this.renderMenuItem)}</ul>
   }
 
   renderOffCanvas() {

@@ -25,6 +25,7 @@ type Props = {
   colorScheme?: "cultureamp" | "kaizen" | "content"
   badgeHref?: string
   footerComponent?: React.ReactNode
+  children?: { primary?: any; secondary?: any; final?: any }
 }
 
 export default class NavigationBar extends React.Component<Props> {
@@ -36,14 +37,20 @@ export default class NavigationBar extends React.Component<Props> {
     loading: false,
     colorScheme: "cultureamp",
     badgeHref: "/",
+    primary: [],
+    secondary: [],
+    final: [],
   }
 
   render() {
-    const { children, colorScheme = "cultureamp" } = this.props
-    const links: Array<React.ReactElement<LinkProps>> = []
-    const otherChildren: Array<React.ReactElement<MenuProps>> = []
+    const {
+      children,
+      colorScheme = "cultureamp",
+    } = this.props
+    const links: SupportedChild[] = []
+    if (!children) return null;
 
-    React.Children.toArray(children).forEach(child => {
+    React.Children.toArray([children.primary, children.secondary, children.final]).forEach(child => {
       if (!child) {
         return
       }
@@ -61,7 +68,7 @@ export default class NavigationBar extends React.Component<Props> {
         childElement.type &&
         childElement.type.displayName === Menu.displayName
       ) {
-        otherChildren.push(child as React.ReactElement<MenuProps>)
+        links.push(child as React.ReactElement<MenuProps>)
       } else {
         // tslint:disable-next-line: no-console
         console.warn(
@@ -77,7 +84,7 @@ export default class NavigationBar extends React.Component<Props> {
             <ControlledOffCanvas
               headerComponent={this.renderBadge()}
               footerComponent={this.props.footerComponent}
-              links={[...links, ...otherChildren]}
+              links={[...links]}
               heading="Menu"
               menuId="menu"
             />
@@ -86,12 +93,24 @@ export default class NavigationBar extends React.Component<Props> {
               className={classNames(styles.navigationBar, styles[colorScheme])}
             >
               {this.renderBadge()}
-              {this.renderLinks(links)}
-              {this.renderOtherChildren(otherChildren)}
+              {this.renderNavItems(links)}
             </header>
           )
         }
       </Media>
+    )
+  }
+
+  renderNavItem(link: SupportedChild, index) {
+    return (
+      <li
+        key={link.key || index}
+        className={classNames(styles.child, {
+          [styles.active]: link.props.active,
+        })}
+      >
+        {link}
+      </li>
     )
   }
 
@@ -117,40 +136,11 @@ export default class NavigationBar extends React.Component<Props> {
     )
   }
 
-  renderLinks(links: Array<React.ReactElement<LinkProps>>) {
-    const indexOfFirstSecondaryLink = links.findIndex(
-      link => !!link.props.secondary
-    )
-
+  renderNavItems(links: SupportedChild[]) {
     return (
       <nav className={styles.links}>
-        <ul>
-          {links.map((link: React.ReactElement<LinkProps>, index) => (
-            <li
-              key={link.key || index}
-              className={classNames(styles.child, {
-                [styles.active]: link.props.active,
-                [styles.secondary]: link.props.secondary,
-                [styles.first]: index === indexOfFirstSecondaryLink,
-              })}
-            >
-              {link}
-            </li>
-          ))}
-        </ul>
+        <ul>{links.map((link, index) => this.renderNavItem(link, index))}</ul>
       </nav>
-    )
-  }
-
-  renderOtherChildren(otherChildren: SupportedChild[]) {
-    return (
-      <div className={styles.otherChildren}>
-        {otherChildren.map((child, index) => (
-          <div key={child.key || index} className={styles.child}>
-            {child}
-          </div>
-        ))}
-      </div>
     )
   }
 }

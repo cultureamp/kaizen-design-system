@@ -18,6 +18,7 @@ export type LinkProps = {
   target?: "_self" | "_blank"
   hasMenu?: boolean
   notificationText?: string
+  ref?: React.Ref<HTMLAnchorElement>
 }
 
 export default class Link extends React.PureComponent<LinkProps> {
@@ -43,6 +44,7 @@ export default class Link extends React.PureComponent<LinkProps> {
       target,
       hasMenu,
       notificationText,
+      ref,
     } = this.props
 
     return (
@@ -53,7 +55,7 @@ export default class Link extends React.PureComponent<LinkProps> {
           [styles.secondary]: secondary,
         })}
         tabIndex={0}
-        {...{ href, id, onClick, target }}
+        {...{ href, id, onClick, target, ref }}
       >
         {icon && (
           <span className={styles.linkIcon}>
