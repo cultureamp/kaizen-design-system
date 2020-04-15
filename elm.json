@@ -5,6 +5,7 @@
         "./node_modules/@kaizen/component-library/components",
         "./node_modules/@kaizen/component-library/draft",
         "./node_modules/@kaizen/component-library/stories",
+        "./node_modules/@kaizen/draft-well",
         "./node_modules/@cultureamp/elm-storybook/src",
         "./node_modules/elm-upgrade-shims/lib-0.19"
     ],
