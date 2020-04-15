@@ -2,6 +2,7 @@
   "private": true,
   "workspaces": [
     "packages/*",
+    "draft-packages/*",
     "site"
   ],
   "engines": {
