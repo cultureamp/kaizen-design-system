@@ -1,11 +1,11 @@
 {
   "extends": "../tsconfig.json",
   "include": [
-    "components/**/*",
-    "stories/**/*",
-    "draft-packages/**/*",
-    "util/**/*",
-    "index.ts"
+    "../packages/**/components/**/*",
+    "../packages/**/stories/**/*",
+    "../packages/**/util/**/*",
+    "../packages/component-library/index.ts",
+    "../draft-packages/**/*"
   ],
   "compilerOptions": {
     "noEmit": false
