@@ -9,6 +9,10 @@ needToKnow:
 demoStoryId: collapsible-react--single-collapsible-kaizen-site-demo
 ---
 
+import DosAndDonts from "docs-components/DosAndDonts"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
 ## Options
 
 * Collapsible group: a group of related collapsible sections that may be combined or separated by whitespace.
@@ -31,14 +35,21 @@ We don't yet support:
 * Avoid multi-level expansions.
 * Animation: we animate expansion using a reveal animation (see [animation](/guidelines/animation) for guidance on timing and variable height animations).
 
-## When to use
+## When to use and when not to use
+
+<DosAndDonts>
+<Do>
 
 * Use collapsibles when many users want an overview and some users want to dig into specific parts.
 * Use accordion when it’s extremely important to focus on one single thing at a time.
 
-## When not to use
+</Do>
+<Dont>
 
-* Use a table when there’s a consistent heading and tabular data.
+* Use a [Table](/components/table) when there’s a consistent heading and tabular data.
+
+</Dont>
+</DosAndDonts>
 
 ## See also
 

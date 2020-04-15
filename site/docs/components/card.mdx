@@ -8,6 +8,10 @@ needToKnow:
 - This does not yet exist as a component in the Component Library.
 ---
 
+import DosAndDonts from "docs-components/DosAndDonts"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
 ## Visuals
 
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D1292%253A583" allowfullscreen></iframe>
@@ -21,13 +25,24 @@ needToKnow:
 * For tabular data, use cards in a Table Row, separated by a light [divider](/components/divider).
 * For featured items, use a card in a [Tile](/components/tile).
 
-## When not to use
+## When to use and when not to use
+
+<DosAndDonts>
+<Do>
+
+- Use a Card to bring primary content off the canvas.
+
+</Do>
+<Dont>
 
 * For an Empty State use a [Well](/components/well).
 * For Drag & Drop input, use a [Well](/components/well).
 * For supplementary content, use a [well](/components/well) in content areas or show content without a card in areas such as Side navigation.
 * An internal content [Well](/components/well) helps to define, divide or shape content within a card.
 * An external content [Well](/components/well) wraps one or more cards or pieces of content into a group.
+
+</Dont>
+</DosAndDonts>
 
 ## External Links
 

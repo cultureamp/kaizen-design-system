@@ -94,7 +94,7 @@ export default ({ data, pageContext, location }) => {
 
 export const query = graphql`
   query($slug: String!) {
-    allMdx(filter: { fields: { slug: { regex: "^/guidelines/" } } }) {
+    allMdx(filter: { fields: { slug: { regex: "/^/guidelines//" } } }) {
       edges {
         node {
           fields {

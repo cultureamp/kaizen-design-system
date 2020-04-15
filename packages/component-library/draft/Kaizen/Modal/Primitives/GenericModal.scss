@@ -1,9 +1,10 @@
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/border";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
+@import "~@kaizen/deprecated-component-library-helpers/styles/color";
 
 .defaultModalWidth {
   min-width: 300px;
@@ -40,7 +41,7 @@
 .genericModal {
   margin: auto;
   background-color: $kz-color-white;
-  border-radius: $ca-border-radius;
+  border-radius: $kz-border-solid-border-radius;
   box-shadow: $ca-box-shadow;
   position: relative;
   width: 90%;

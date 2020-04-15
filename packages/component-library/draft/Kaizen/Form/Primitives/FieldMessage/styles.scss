@@ -1,9 +1,10 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/type";
 
 $message-error-color: $kz-color-wisteria-800;
-$message-border-radius: 3px;
+$message-border-radius: $kz-border-solid-border-radius;
 
 .message {
   @include ca-type-ideal-small-bold;

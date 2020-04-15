@@ -9,6 +9,10 @@ needToKnow:
 - Toggle button groups apply mutually exclusive settings.
 ---
 
+import DosAndDonts from "docs-components/DosAndDonts"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
 ## Visuals
 
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D1292%253A0" allowfullscreen></iframe>
@@ -21,7 +25,7 @@ A button group contains buttons that indicate to a user that they can perform ac
 *   Trigger the next step in a process
 
 
-*   Default button groups: 
+*   Default button groups:
     *   Follow [button](/components/button) principles.
     *   These use extremely closely related actions on a single object.
 *   Toggle button groups
@@ -29,16 +33,21 @@ A button group contains buttons that indicate to a user that they can perform ac
     *   If using icon buttons, follow [icon button](/components/icon-button) principles too.
     *   Mutually exclusive settings, such as choosing left, centered, or right aligned text.
 
+## When to use and when not to use
 
-## When to use
+<DosAndDonts>
+<Do>
 
-When there’s not enough space for separate buttons or they control the one setting.
+- Use when there’s not enough space for separate buttons or they control the one setting.
 
+</Do>
+<Dont>
 
-## When not to use
+- Don’t use a button group when there’s space for separate buttons.
+- Don’t use a button group when switching between content or object pages. Use [tabs](/components/tabs) instead.
 
-*   Don’t use a button group when there’s space for separate buttons.
-*   Don’t use a button group when switching between content or object pages. Use [tabs](/components/tabs) instead.
+</Dont>
+</DosAndDonts>
 
 ## External Links
 
