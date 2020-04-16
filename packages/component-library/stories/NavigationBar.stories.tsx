@@ -235,7 +235,18 @@ export const MenuGroup = () => (
         },
       ]}
     >
-      <div style={{ color: "white" }}>Admin</div>
+      <div
+        style={{
+          color: "white",
+          fontFamily: "Ideal Sans A, sans-serif",
+          marginRight: "20px",
+          opacity: "0.8",
+          fontWeight: "lighter",
+          fontSize: "1rem",
+        }}
+      >
+        Admin
+      </div>
     </Menu>
     <Menu
       heading="Custom menu..."
