@@ -116,3 +116,18 @@ $menu__square-size: $ca-grid * 2;
     background-color: $kz-color-wisteria-700;
   }
 }
+
+.submenu {
+  border-top: 1px solid rgba($kz-color-white, 0.3);
+  margin-top: $ca-grid / 3;
+}
+
+.submenuTitle {
+  @include ca-type-ideal-body-bold;
+  @include ca-inherit-baseline;
+  @include ca-type-align-start;
+
+  font-weight: 700;
+  padding: 0 32px;
+  margin: $ca-grid / 3 0 0;
+}

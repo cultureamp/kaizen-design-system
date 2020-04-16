@@ -186,10 +186,10 @@ export default class Menu extends React.Component<MenuProps, State> {
     const { title, items } = submenu
 
     return (
-      <>
-        <h4>{title}</h4>
+      <div className={styles.submenu}>
+        <h4 className={styles.submenuTitle}>{title}</h4>
         {items.map(this.renderMenuItem)}
-      </>
+      </div>
     )
   }
 
