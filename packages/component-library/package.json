@@ -22,7 +22,7 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "5.5.0",
+  "version": "5.6.0",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
@@ -31,7 +31,7 @@
     "react": "^16.9.0"
   },
   "dependencies": {
-    "@kaizen/deprecated-component-library-helpers": "^1.3.5",
+    "@kaizen/deprecated-component-library-helpers": "^1.3.6",
     "@kaizen/hosted-assets": "^1.0.1",
     "@types/classnames": "^2.2.6",
     "@types/lodash": "^4.14.132",
@@ -55,6 +55,6 @@
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf 'components/**/*.js' 'draft/**/*.js' 'util/**/*.js' 'index.js' 'components/**/*.js.map' 'draft/**/*.js.map' 'util/**/*.js.map' 'index.js.map' 'components/**/*.d.ts' 'draft/**/*.d.ts' 'util/**/*.d.ts' 'index.d.ts'"
+    "clean": "rimraf 'components/**/*.js' 'draft/**/*.js' 'util/**/*.js' 'index.js' 'components/**/*.js.map' 'draft/**/*.js.map' 'util/**/*.js.map' 'index.js.map' 'components/**/*.d.ts' 'draft/**/*.d.ts' 'util/**/*.d.ts' 'index.d.ts' 'stories/*.stories.js'"
   }
 }
