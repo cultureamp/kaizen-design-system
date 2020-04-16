@@ -33,7 +33,7 @@ enum AriaRoles {
 /**
  * Simple Wrapper with absolute bare basics.
  * Although we use data-automation-id in practice,
- * I am opted with data-testid for quick validation.
+ * I have opted with data-testid for quick validation.
  * I will leave it up to team DS if they want to
  * change the config if they wish.
  *
