@@ -110,7 +110,13 @@ export default class Menu extends React.Component<MenuProps, State> {
 
   renderOffCanvas() {
     const { items, heading } = this.props
-    const links = items.map(this.renderOffCanvasMenuItem)
+    const links = items.map((item, index) => {
+      if ("url" in item) {
+        return this.renderOffCanvasMenuItem(item, index)
+      } else if ("title" in item) {
+        return this.renderOffCanvasSubmenu(item)
+      }
+    })
 
     return (
       <OffCanvas
@@ -141,6 +147,17 @@ export default class Menu extends React.Component<MenuProps, State> {
     <Link key={index} text={item.label} href={item.url} />
   )
 
+  renderOffCanvasSubmenu = (submenu: Submenu) => {
+    const { title, items } = submenu
+
+    return (
+      <div>
+        <h4>{title}</h4>
+        {items.map(this.renderOffCanvasMenuItem)}
+      </div>
+    )
+  }
+
   renderMenuItem = (item: MenuItem, index: number) => {
     const { label, url, method } = item
 
@@ -170,7 +187,7 @@ export default class Menu extends React.Component<MenuProps, State> {
 
     return (
       <>
-        <p>{title}</p>
+        <h4>{title}</h4>
         {items.map(this.renderMenuItem)}
       </>
     )
