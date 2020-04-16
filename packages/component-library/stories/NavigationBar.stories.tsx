@@ -208,7 +208,7 @@ export const Submenu = () => (
           url: "meh",
         },
         {
-          title: 'Manager requested feedback',
+          title: "Manager requested feedback",
           items: [
             {
               label: "Request history",
@@ -218,10 +218,10 @@ export const Submenu = () => (
               label: "Request feedback",
               url: "meh",
             },
-          ]
+          ],
         },
         {
-          title: 'Usage stats',
+          title: "Usage stats",
           items: [
             {
               label: "Goal stats",
@@ -231,13 +231,11 @@ export const Submenu = () => (
               label: "Feedback stats",
               url: "meh",
             },
-          ]
+          ],
         },
       ]}
     >
-      <div style={{ color: "white" }}>
-        Admin
-      </div>
+      <div style={{ color: "white" }}>Admin</div>
     </Menu>
     <Menu
       heading="Custom menu..."

@@ -5,11 +5,11 @@ import {
 } from "@kaizen/component-library"
 const arrowLeftIcon = require("@kaizen/component-library/icons/arrow-left.icon.svg")
   .default
+import classNames from "classnames"
 import * as React from "react"
 import Media from "react-media"
 import { MOBILE_QUERY } from "../constants"
 import Link from "./Link"
-import classNames from "classnames"
 
 const styles = require("./Menu.module.scss")
 
@@ -152,9 +152,11 @@ export default class Menu extends React.Component<MenuProps, State> {
     const { title, items } = submenu
 
     return (
-      <div className={classNames(styles.offCanvasSubmenu, {
-        [styles.first]: index === 0
-      })}>
+      <div
+        className={classNames(styles.offCanvasSubmenu, {
+          [styles.first]: index === 0,
+        })}
+      >
         <h4 className={styles.offCanvasSubmenuTitle}>{title}</h4>
         {items.map(this.renderOffCanvasMenuItem)}
       </div>
@@ -189,9 +191,11 @@ export default class Menu extends React.Component<MenuProps, State> {
     const { title, items } = submenu
 
     return (
-      <div className={classNames(styles.submenu, {
-        [styles.first]: index === 0
-      })}>
+      <div
+        className={classNames(styles.submenu, {
+          [styles.first]: index === 0,
+        })}
+      >
         <h4 className={styles.submenuTitle}>{title}</h4>
         {items.map(this.renderMenuItem)}
       </div>
