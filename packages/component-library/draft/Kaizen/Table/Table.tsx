@@ -115,6 +115,10 @@ type AnchorClickEvent = (e: React.MouseEvent<HTMLAnchorElement>) => void
  * adding the same here as all rows look to be wrapped in the
  * TableCard.
  *
+ * It may mean that the consumer needs to add their own container
+ * around with the role="row". We could also just add it as a
+ * very simple component similar to TableHeader.
+ *
  * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Table_Role
  */
 type TableCard = React.FunctionComponent<{
