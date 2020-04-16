@@ -999,6 +999,12 @@
   dependencies:
     react-elm-components "^1.1.0"
 
+"@cultureamp/elm-storybook@cultureamp/elm-storybook#0.2.0":
+  version "0.2.0"
+  resolved "https://codeload.github.com/cultureamp/elm-storybook/tar.gz/e73b617a069e8ecdd40056fedb361a55b886321b"
+  dependencies:
+    react-elm-components "^1.1.0"
+
 "@egoist/vue-to-react@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@egoist/vue-to-react/-/vue-to-react-1.1.0.tgz#83c884b8608e8ee62e76c03e91ce9c26063a91ad"
