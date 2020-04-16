@@ -48,7 +48,7 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.1.0",
+    "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.2.0",
     "rimraf": "^2.6.3"
   },
   "scripts": {
