@@ -179,4 +179,101 @@ export const ContentColors = () => (
   </NavigationBar>
 )
 
+export const Submenu = () => (
+  <NavigationBar>
+    <Link text="Home" href="/" active />
+    <Link text="Surveys" href="/" />
+    <Link text="Performance" href="/" notificationText="New" />
+    <Link
+      icon={supportIcon}
+      text="Support"
+      href="http://academy.cultureamp.com/"
+      secondary
+    />
+    <Link
+      icon={academyIcon}
+      text="Academy"
+      href="http://academy.cultureamp.com/"
+      secondary
+    />
+    <Menu
+      heading="Admin"
+      items={[
+        {
+          label: "Skills",
+          url: "meh",
+        },
+        {
+          label: "Self-reflections",
+          url: "meh",
+        },
+        {
+          title: 'Manager requested feedback',
+          items: [
+            {
+              label: "Request history",
+              url: "meh",
+            },
+            {
+              label: "Request feedback",
+              url: "meh",
+            },
+          ]
+        },
+        {
+          title: 'Usage stats',
+          items: [
+            {
+              label: "Goal stats",
+              url: "meh",
+            },
+            {
+              label: "Feedback stats",
+              url: "meh",
+            },
+          ]
+        },
+      ]}
+    >
+      <div style={{ color: "white" }}>
+        Admin
+      </div>
+    </Menu>
+    <Menu
+      heading="Custom menu..."
+      items={[
+        {
+          label: "About Culture Amp",
+          url: "https://www.cultureamp.com/",
+        },
+        {
+          label: "Contribute to this guide",
+          url:
+            "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
+        },
+        {
+          label: "Sign out",
+          url: "http://localhost:3000/session/sign_out",
+          method: "delete",
+        },
+        {
+          label: "Stop Masquerading",
+          url: "http://localhost:3000/admin/masquerade/",
+          method: "delete",
+        },
+      ]}
+    >
+      <div
+        style={{
+          backgroundColor: "#ffffff",
+          borderRadius: "3px",
+          color: "#F8A6AE",
+        }}
+      >
+        <Icon icon={caMonogramIcon} title="Culture Amp Logo" inheritSize />
+      </div>
+    </Menu>
+  </NavigationBar>
+)
+
 export const Empty = () => <NavigationBar />
