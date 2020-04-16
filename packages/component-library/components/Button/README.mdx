@@ -9,9 +9,9 @@ needToKnow:
 demoStoryId: button-react--default-kaizen-site-demo
 ---
 
-import DosAndDonts from "docs-components/DosAndDonts"
-import Do from "docs-components/Do"
-import Dont from "docs-components/Dont"
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -50,8 +50,8 @@ import Dont from "docs-components/Dont"
 
 ## When to use and when not to use
 
-<DosAndDonts>
-<Do>
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 *   A button indicates to a user that they can perform an action on this page, such as:
     *   Apply an action to an object, e.g. save, delete, add an item, undo, create a new item
@@ -60,14 +60,14 @@ import Dont from "docs-components/Dont"
     *   Trigger a new element to appear on the page e.g. toggle additional information, open a modal
     *   Trigger the next step in a process
 
-</Do>
-<Dont>
+</WhenToUse>
+<WhenNotToUse>
 
 *   Don’t use a button when navigation is involved. Instead, use a [link](/guidelines/link-vs-button/).
 *   If the button is used to toggle between 2 states, use a [Toggle Switch](/components/toggle-switch-field) instead.
 
-</Dont>
-</DosAndDonts>
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 
