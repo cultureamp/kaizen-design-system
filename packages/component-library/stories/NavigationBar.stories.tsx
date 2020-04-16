@@ -179,7 +179,7 @@ export const ContentColors = () => (
   </NavigationBar>
 )
 
-export const Submenu = () => (
+export const MenuGroup = () => (
   <NavigationBar>
     <Link text="Home" href="/" active />
     <Link text="Surveys" href="/" />

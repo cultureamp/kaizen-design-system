@@ -121,7 +121,7 @@ $menu__square-size: $ca-grid * 2;
   }
 }
 
-.submenu {
+.menuGroup {
   border-top: 1px solid $kz-color-wisteria-700;
   margin-top: $ca-grid / 2;
 
@@ -130,21 +130,21 @@ $menu__square-size: $ca-grid * 2;
   }
 }
 
-.submenuTitle {
+.menuGroupTitle {
   @include menu-font-styles;
   @include ca-padding($start: 32px, $end: 32px, $bottom: 5px);
   @include ca-margin($top: $ca-grid / 2, $bottom: 0);
   font-weight: 700;
 }
 
-.offCanvasSubmenu {
-  @extend .submenu;
+.offCanvasMenuGroup {
+  @extend .menuGroup;
   margin-top: $ca-grid / 3;
   width: 100%;
 }
 
-.offCanvasSubmenuTitle {
-  @extend .submenuTitle;
+.offCanvasMenuGroupTitle {
+  @extend .menuGroupTitle;
   font-size: 18px;
   color: $kz-color-white;
   padding: ($ca-grid / 2) $ca-grid;
