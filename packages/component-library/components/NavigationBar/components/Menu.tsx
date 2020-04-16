@@ -151,8 +151,8 @@ export default class Menu extends React.Component<MenuProps, State> {
     const { title, items } = submenu
 
     return (
-      <div>
-        <h4>{title}</h4>
+      <div className={styles.offCanvasSubmenu}>
+        <h4 className={styles.offCanvasSubmenuTitle}>{title}</h4>
         {items.map(this.renderOffCanvasMenuItem)}
       </div>
     )
