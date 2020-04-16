@@ -18,8 +18,7 @@ $menu-footer-height: 100px;
 }
 
 .child {
-  display: flex;
-  flex: 0 0 auto;
+  display: block;
   text-decoration: none;
 
   &.secondary.first {

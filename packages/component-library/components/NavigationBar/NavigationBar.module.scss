@@ -49,7 +49,11 @@
     }
 
     &.secondary {
-      @include ca-margin($start: 0, $end: auto);
+      @include ca-margin($start: auto, $end: 0);
+    }
+
+    &.final {
+      @include ca-margin($start: 0, $end: 0);
     }
 
     // Bit of a hack selector, but because of module scoping this is the easiest way

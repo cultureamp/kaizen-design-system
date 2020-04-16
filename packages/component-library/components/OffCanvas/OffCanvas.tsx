@@ -36,21 +36,23 @@ export class OffCanvas extends React.Component<Props> {
   }
 
   render() {
+    const { links, menuId, heading, headerComponent, footerComponent} = this.props;
+
     return (
       <OffCanvasContext.Consumer>
         {({ visibleMenus, resetVisibleMenus }) => (
           <div
             className={classNames(styles.root, {
-              [styles.active]: visibleMenus.includes(this.props.menuId),
+              [styles.active]: visibleMenus.includes(menuId),
             })}
           >
             <Header
               onClose={resetVisibleMenus}
-              leftComponent={this.props.headerComponent}
-              heading={this.props.heading}
+              leftComponent={headerComponent}
+              heading={heading}
             />
-            <Menu links={this.props.links} />
-            {this.props.footerComponent}
+            <Menu links={Object.values(links)} />
+            {footerComponent}
           </div>
         )}
       </OffCanvasContext.Consumer>

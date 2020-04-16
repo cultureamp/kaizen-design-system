@@ -8,9 +8,11 @@ type Props = {
 }
 
 const Menu = ({ links }: Props) => {
-  const indexOfFirstSecondaryLink = links.findIndex(
-    link => link.props.secondary
-  )
+
+  // Todo: This needs figuring out still along with targeting secondary links.
+  // const indexOfFirstSecondaryLink = links.findIndex(
+  //  link => link.props.secondary
+  // )
 
   return (
     <nav className={styles.links}>
@@ -19,9 +21,9 @@ const Menu = ({ links }: Props) => {
           <li
             key={link.key || index}
             className={classNames(styles.child, {
-              [styles.active]: link.props.active,
-              [styles.secondary]: link.props.secondary,
-              [styles.first]: index === indexOfFirstSecondaryLink,
+              [styles.active]: link.active,
+              //[styles.secondary]: link.props.secondary,
+              //[styles.first]: index === indexOfFirstSecondaryLink,
             })}
           >
             {link}

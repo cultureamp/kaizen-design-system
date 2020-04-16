@@ -47,8 +47,6 @@ export default class NavigationBar extends React.Component<Props> {
 
   render() {
     const { children, colorScheme = "cultureamp" } = this.props
-    if (!children) return null
-
     return (
       <Media query={MOBILE_QUERY}>
         {(matches: boolean) =>
@@ -56,7 +54,7 @@ export default class NavigationBar extends React.Component<Props> {
             <ControlledOffCanvas
               headerComponent={this.renderBadge()}
               footerComponent={this.props.footerComponent}
-              links={[children]}
+              links={children}
               heading="Menu"
               menuId="menu"
             />
@@ -73,7 +71,8 @@ export default class NavigationBar extends React.Component<Props> {
     )
   }
 
-  renderNav(children: Children) {
+  renderNav(children?: Children) {
+    if (!children) return null;
     return (
       <nav className={styles.links}>
         {Object.keys(children).map(key =>
