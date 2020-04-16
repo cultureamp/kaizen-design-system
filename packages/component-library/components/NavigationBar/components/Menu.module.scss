@@ -124,6 +124,10 @@ $menu__square-size: $ca-grid * 2;
 .submenu {
   border-top: 1px solid $kz-color-wisteria-700;
   margin-top: $ca-grid / 2;
+
+  &.first {
+    border: 0;
+  }
 }
 
 .submenuTitle {
@@ -134,15 +138,14 @@ $menu__square-size: $ca-grid * 2;
 }
 
 .offCanvasSubmenu {
-  border-top: 1px solid $kz-color-wisteria-700;
-  width: 100%;
+  @extend .submenu;
   margin-top: $ca-grid / 3;
+  width: 100%;
 }
 
 .offCanvasSubmenuTitle {
-  @include menu-font-styles;
-  font-weight: 700;
+  @extend .submenuTitle;
   font-size: 18px;
   color: $kz-color-white;
-  padding: 0 $ca-grid;
+  padding: ($ca-grid / 2) $ca-grid;
 }

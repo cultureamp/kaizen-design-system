@@ -9,6 +9,7 @@ import * as React from "react"
 import Media from "react-media"
 import { MOBILE_QUERY } from "../constants"
 import Link from "./Link"
+import classNames from "classnames"
 
 const styles = require("./Menu.module.scss")
 
@@ -100,7 +101,7 @@ export default class Menu extends React.Component<MenuProps, State> {
             if ("url" in item) {
               return this.renderMenuItem(item, index)
             } else if ("title" in item) {
-              return this.renderSubmenu(item)
+              return this.renderSubmenu(item, index)
             }
           })}
         </div>
@@ -114,7 +115,7 @@ export default class Menu extends React.Component<MenuProps, State> {
       if ("url" in item) {
         return this.renderOffCanvasMenuItem(item, index)
       } else if ("title" in item) {
-        return this.renderOffCanvasSubmenu(item)
+        return this.renderOffCanvasSubmenu(item, index)
       }
     })
 
@@ -147,11 +148,13 @@ export default class Menu extends React.Component<MenuProps, State> {
     <Link key={index} text={item.label} href={item.url} />
   )
 
-  renderOffCanvasSubmenu = (submenu: Submenu) => {
+  renderOffCanvasSubmenu = (submenu: Submenu, index: number) => {
     const { title, items } = submenu
 
     return (
-      <div className={styles.offCanvasSubmenu}>
+      <div className={classNames(styles.offCanvasSubmenu, {
+        [styles.first]: index === 0
+      })}>
         <h4 className={styles.offCanvasSubmenuTitle}>{title}</h4>
         {items.map(this.renderOffCanvasMenuItem)}
       </div>
@@ -182,11 +185,13 @@ export default class Menu extends React.Component<MenuProps, State> {
     )
   }
 
-  renderSubmenu = (submenu: Submenu) => {
+  renderSubmenu = (submenu: Submenu, index: number) => {
     const { title, items } = submenu
 
     return (
-      <div className={styles.submenu}>
+      <div className={classNames(styles.submenu, {
+        [styles.first]: index === 0
+      })}>
         <h4 className={styles.submenuTitle}>{title}</h4>
         {items.map(this.renderMenuItem)}
       </div>
