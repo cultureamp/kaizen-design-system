@@ -1,0 +1,100 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/responsive";
+
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  @include ca-media-mobile() {
+    flex-direction: column;
+  }
+}
+
+.tagAndCard {
+  margin-bottom: var(--ca-grid);
+  width: 48%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  @include ca-media-mobile() {
+    width: 100%;
+  }
+}
+
+.card {
+  border-radius: 3px;
+  border-top-style: solid;
+  border-top-width: 7px;
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  margin-top: calc(var(--ca-grid) / 2);
+  padding: var(--ca-grid);
+
+  :global(.md-li.md-li) {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    list-style-type: none;
+    margin-top: 0.75rem;
+  }
+
+  :global(.md-strong.md-strong) {
+    font-weight: 500;
+  }
+
+  .doOrDontList {
+    margin: 0;
+    padding-left: 1.75rem;
+  }
+
+  .doOrDontListItem {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.8;
+    list-style-type: none;
+    margin: 0;
+    padding-bottom: 1rem;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    :global(.md-li) {
+      list-style-type: initial;
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    &.tooManyItemsWarning {
+      margin-left: -1.75rem;
+    }
+
+    // Visibly highlight extraneous items to content contributors
+    &:nth-child(n+4) {
+      color: $kz-color-coral-500;
+    }
+  }
+}
+
+.doCard {
+  border-top-color: $kz-color-seedling-500;
+  background-color: $kz-color-seedling-100;
+}
+
+.dontCard {
+  border-top-color: $kz-color-coral-500;
+  background-color: $kz-color-coral-100;
+}
+
+.doText {
+  color: $kz-color-seedling-600;
+  font-weight: 500;
+}
+
+.dontText {
+  color: $kz-color-coral-600;
+  font-weight: 500;
+}
+
