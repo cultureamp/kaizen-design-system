@@ -1,32 +1,39 @@
+@import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/component-library/styles/fonts";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/responsive";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "../styles";
-@import "../../../styles/border";
-@import "../../../styles/type";
-@import "../../../styles/fonts";
-@import "../../../styles/layout";
-@import "../../../styles/responsive";
 
 $nav-ease: cubic-bezier(0.55, 0.085, 0.68, 0.53);
 $nav-timing: 150ms;
 $indicator-height: 5px;
 $link-margin: $ca-grid / 4;
 
+@mixin anti-aliasing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 @mixin heading-4 {
-  $kz-typography-heading-4-font-family: "Inter";
-  $kz-typography-heading-4-font-weight: 600;
-  $kz-typography-heading-4-font-size: 1.125rem;
-  $kz-typography-heading-4-line-height: 1.5rem;
-  $kz-typography-heading-4-letter-spacing: normal;
+  @include anti-aliasing;
+  font-family: $kz-typography-heading-4-font-family;
+  font-weight: $kz-typography-heading-4-font-weight;
+  font-size: $kz-typography-heading-4-font-size;
+  line-height: $kz-typography-heading-4-line-height;
+  letter-spacing: $kz-typography-heading-4-letter-spacing;
 }
 
 @mixin heading-5 {
-  $kz-typography-heading-5-font-family: "Inter";
-  $kz-typography-heading-5-font-weight: 600;
-  $kz-typography-heading-5-font-size: 1rem;
-  $kz-typography-heading-5-line-height: 1.5rem;
-  $kz-typography-heading-5-letter-spacing: normal;
+  @include anti-aliasing;
+  font-family: $kz-typography-heading-5-font-family;
+  font-weight: $kz-typography-heading-5-font-weight;
+  font-size: $kz-typography-heading-5-font-size;
+  line-height: $kz-typography-heading-5-line-height;
+  letter-spacing: $kz-typography-heading-5-letter-spacing;
 }
 
 .link {
