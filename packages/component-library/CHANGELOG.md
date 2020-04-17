@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.7.1...@kaizen/component-library@6.0.0) (2020-04-17)
+
+
+### Features
+
+* added new badge type to NavigationBar ([#393](https://github.com/cultureamp/kaizen-design-system/issues/393)) ([6817bf6](https://github.com/cultureamp/kaizen-design-system/commit/6817bf6192c21dbcbd38744c0863c1fe2e50259e))
+
+
+### BREAKING CHANGES
+
+* NavigationBar.Link component deprecates `notificationText` prop in favour of `badge` prop to allow for new types.
+
+* fix: merge conflict issue
+
+
+
+
+
+## [5.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.7.0...@kaizen/component-library@5.7.1) (2020-04-17)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [5.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.6.1...@kaizen/component-library@5.7.0) (2020-04-17)
+
+
+### Features
+
+* allow grouping of list items in navigation menu ([#385](https://github.com/cultureamp/kaizen-design-system/issues/385)) ([65fa8e9](https://github.com/cultureamp/kaizen-design-system/commit/65fa8e925d4d1d63f1769770c6b9d0aaba6f480f))
+
+
+
+
+
 ## [5.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.6.0...@kaizen/component-library@5.6.1) (2020-04-16)
 
 **Note:** Version bump only for package @kaizen/component-library

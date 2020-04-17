@@ -9,9 +9,9 @@ needToKnow:
 demoStoryId: emptystate-react--default-kaizen-site-demo
 ---
 
-import DosAndDonts from "docs-components/DosAndDonts"
-import Do from "docs-components/Do"
-import Dont from "docs-components/Dont"
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -71,20 +71,20 @@ import Dont from "docs-components/Dont"
 
 ## When to use and when not to use
 
-<DosAndDonts>
-<Do>
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 * Use empty states when you don’t have anything else to show. It is the only content on the page. There might be navigation present in addition to the empty state.  
 * You might use a negative empty state for an intentionally negative state where the system is operating correctly and the user has provided accurate information.
 
-</Do>
-<Dont>
+</WhenToUse>
+<WhenNotToUse>
 
 * Don’t use empty states to provide feedback about a change in state or context that the user needs to be notified about during a task.
 * Don’t use empty states when something negative has happened because the system failed or is a direct result of the user providing bad input.
 
-</Dont>
-</DosAndDonts>
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 
