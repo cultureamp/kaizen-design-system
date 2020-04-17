@@ -16,7 +16,8 @@ export const Default = () => (
   <NavigationBar>
     <Link text="Home" href="/" active />
     <Link text="Surveys" href="/" />
-    <Link text="Performance" href="/" notificationText="New" />
+    <Link text="Performance" href="/" badge={{ kind: "new", text: "New" }} />
+    <Link text="Inbox" href="/" badge={{ kind: "notification", text: "5" }} />
     <Link
       icon={supportIcon}
       text="Support"
@@ -129,7 +130,9 @@ export const ContentColors = () => (
   <NavigationBar colorScheme="content">
     <Link text="Home" href="/" active />
     <Link text="Surveys" href="/" />
-    <Link text="Performance" href="/" notificationText="New" />
+    <Link text="Performance" href="/" badge={{ kind: "new", text: "New" }} />
+    <Link text="Inbox" href="/" badge={{ kind: "notification", text: "55" }} />
+
     <Link
       icon={supportIcon}
       text="Support"
