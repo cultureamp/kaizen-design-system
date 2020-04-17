@@ -1,5 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/typography";
 @import "../styles";
 @import "../../../styles/border";
 @import "../../../styles/type";
@@ -11,10 +12,25 @@ $nav-timing: 150ms;
 $indicator-height: 5px;
 $link-margin: $ca-grid / 4;
 
+@mixin heading-4 {
+  $kz-typography-heading-4-font-family: "Inter";
+  $kz-typography-heading-4-font-weight: 600;
+  $kz-typography-heading-4-font-size: 1.125rem;
+  $kz-typography-heading-4-line-height: 1.5rem;
+  $kz-typography-heading-4-letter-spacing: normal;
+}
+
+@mixin heading-5 {
+  $kz-typography-heading-5-font-family: "Inter";
+  $kz-typography-heading-5-font-weight: 600;
+  $kz-typography-heading-5-font-size: 1rem;
+  $kz-typography-heading-5-line-height: 1.5rem;
+  $kz-typography-heading-5-letter-spacing: normal;
+}
+
 .link {
   @extend %ca-navigation-bar__menu-item-focus;
 
-  @include ca-type-reverse;
   @include ca-media-mobile {
     width: 100%;
     justify-content: flex-start;
@@ -33,7 +49,7 @@ $link-margin: $ca-grid / 4;
 
   border-radius: $kz-border-solid-border-radius;
 
-  color: rgba(#fff, 0.8);
+  color: rgba($kz-color-white, 0.8);
   padding: 0;
   text-decoration: none;
 
@@ -73,7 +89,7 @@ $link-margin: $ca-grid / 4;
     }
   }
 
-  @include ca-type-ideal-heading;
+  @include heading-4;
   @include ca-inherit-baseline;
   top: 0;
 
