@@ -4,6 +4,7 @@
 @import "../styles";
 @import "../../../styles/border";
 @import "../../../styles/type";
+@import "../../../styles/fonts";
 @import "../../../styles/layout";
 @import "../../../styles/responsive";
 
@@ -94,6 +95,8 @@ $link-margin: $ca-grid / 4;
   top: 0;
 
   &.secondary {
+    color: $kz-color-white;
+
     @include ca-media-tablet-and-up {
       @include ca-type-ideal-body;
       @include ca-inherit-baseline;
@@ -101,9 +104,7 @@ $link-margin: $ca-grid / 4;
       padding: 0 $ca-grid / 2;
 
       .linkIcon {
-        @include ca-media-tablet {
-          opacity: 1;
-        }
+        opacity: 1;
       }
 
       .linkText {
@@ -171,7 +172,7 @@ $link-margin: $ca-grid / 4;
 }
 
 .active {
-  color: #fff; // override hyperlink hover color
+  color: $kz-color-white; // override hyperlink hover color
   outline: none; // override native focus styles
   text-decoration: none;
 
