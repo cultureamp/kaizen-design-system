@@ -5,13 +5,14 @@
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "../styles";
 
 $nav-ease: cubic-bezier(0.55, 0.085, 0.68, 0.53);
 $nav-timing: 150ms;
 $indicator-height: 5px;
-$link-margin: $ca-grid / 4;
+$link-margin: 18px;
 
 @mixin anti-aliasing {
   -webkit-font-smoothing: antialiased;
@@ -57,7 +58,7 @@ $link-margin: $ca-grid / 4;
   // fill parent
   display: flex;
   min-width: 2 * $ca-grid;
-  height: inherit;
+  height: 100%;
   margin: ($ca-grid / 4) 0;
 
   // center child
@@ -98,11 +99,14 @@ $link-margin: $ca-grid / 4;
     text-decoration: none;
 
     .linkText::before {
-      transform: translateY(-#{$link-margin});
-
       @include ca-media-mobile {
         transform: translateX(-#{$link-margin});
       }
+    }
+
+    .linkText {
+      background-color: rgba($kz-color-white, 0.1);
+      border-radius: 7px;
     }
   }
 
@@ -178,9 +182,10 @@ $link-margin: $ca-grid / 4;
   position: relative;
   display: flex;
   align-items: center;
-  height: 100%;
-  padding: $ca-grid;
+  padding: 0 $ca-grid/1.5;
   justify-content: center;
+  height: 48px;
+  transition: background-color $ca-duration-rapid $ca-ease-in-out;
 }
 
 .containsText {
