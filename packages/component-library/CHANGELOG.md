@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.7.0...@kaizen/component-library@5.7.1) (2020-04-17)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [5.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.6.1...@kaizen/component-library@5.7.0) (2020-04-17)
+
+
+### Features
+
+* allow grouping of list items in navigation menu ([#385](https://github.com/cultureamp/kaizen-design-system/issues/385)) ([65fa8e9](https://github.com/cultureamp/kaizen-design-system/commit/65fa8e925d4d1d63f1769770c6b9d0aaba6f480f))
+
+
+
+
+
+## [5.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.6.0...@kaizen/component-library@5.6.1) (2020-04-16)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [5.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.5.0...@kaizen/component-library@5.6.0) (2020-04-15)
+
+
+### Features
+
+* Publish the draft well component ([#369](https://github.com/cultureamp/kaizen-design-system/issues/369)) ([517ed88](https://github.com/cultureamp/kaizen-design-system/commit/517ed8836719652bf18a8c1d8776092da598dc1c))
+
+
+
+
+
 # [5.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.4.5...@kaizen/component-library@5.5.0) (2020-04-15)
 
 
