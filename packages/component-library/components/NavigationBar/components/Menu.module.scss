@@ -125,7 +125,7 @@ $menu__square-size: $ca-grid * 2;
   border-top: 1px solid $kz-color-wisteria-700;
   margin-top: $ca-grid / 2;
 
-  &.first {
+  &:first-child {
     border: 0;
   }
 }
