@@ -96,9 +96,9 @@ export default class Menu extends React.Component<MenuProps, State> {
       <div className={styles.menu}>
         <div>
           {header}
-          {items.map((item, index) => {
+          {items.map(item => {
             if ("url" in item) {
-              return this.renderMenuItem(item, index)
+              return this.renderMenuItem(item)
             } else if ("title" in item) {
               return this.renderMenuGroup(item)
             }
@@ -110,9 +110,9 @@ export default class Menu extends React.Component<MenuProps, State> {
 
   renderOffCanvas() {
     const { items, heading } = this.props
-    const links = items.map((item, index) => {
+    const links = items.map(item => {
       if ("url" in item) {
-        return this.renderOffCanvasMenuItem(item, index)
+        return this.renderOffCanvasMenuItem(item)
       } else if ("title" in item) {
         return this.renderOffCanvasMenuGroup(item)
       }
@@ -143,24 +143,22 @@ export default class Menu extends React.Component<MenuProps, State> {
     )
   }
 
-  renderOffCanvasMenuItem = (item: MenuItem, index: number) => (
-    <Link key={index} text={item.label} href={item.url} />
+  renderOffCanvasMenuItem = (item: MenuItem) => (
+    <Link key={item.url} text={item.label} href={item.url} />
   )
 
   renderOffCanvasMenuGroup = (menuGroup: MenuGroup) => {
     const { title, items } = menuGroup
 
     return (
-      <div
-        className={styles.offCanvasMenuGroup}
-      >
+      <div className={styles.offCanvasMenuGroup}>
         <h4 className={styles.offCanvasMenuGroupTitle}>{title}</h4>
         {items.map(this.renderOffCanvasMenuItem)}
       </div>
     )
   }
 
-  renderMenuItem = (item: MenuItem, index: number) => {
+  renderMenuItem = (item: MenuItem) => {
     const { label, url, method } = item
 
     if (method && method !== "get") {
@@ -188,9 +186,7 @@ export default class Menu extends React.Component<MenuProps, State> {
     const { title, items } = menuGroup
 
     return (
-      <div
-        className={styles.menuGroup}
-      >
+      <div className={styles.menuGroup}>
         <h4 className={styles.menuGroupTitle}>{title}</h4>
         {items.map(this.renderMenuItem)}
       </div>
