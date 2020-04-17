@@ -2,13 +2,15 @@
 @import "../../styles/color";
 @import "../../styles/type";
 
-$ca-navigation-bar__height: 2.5 * $ca-grid;
+$ca-navigation-bar__height: 3.5 * $ca-grid;
 
 %ca-navigation-bar {
   display: flex;
   flex-direction: row;
+  align-items: center;
   background-color: $kz-color-wisteria-700;
   height: $ca-navigation-bar__height;
+  max-height: $ca-navigation-bar__height;
   width: 100%;
   position: fixed;
 

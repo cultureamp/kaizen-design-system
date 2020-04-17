@@ -8,7 +8,7 @@
 
 $nav-ease: cubic-bezier(0.55, 0.085, 0.68, 0.53);
 $nav-timing: 150ms;
-$indicator-height: 3px;
+$indicator-height: 5px;
 $link-margin: $ca-grid / 4;
 
 .link {
@@ -24,7 +24,7 @@ $link-margin: $ca-grid / 4;
   // fill parent
   display: flex;
   min-width: 2 * $ca-grid;
-  height: 2 * $ca-grid;
+  height: inherit;
   margin: ($ca-grid / 4) 0;
 
   // center child
@@ -50,6 +50,7 @@ $link-margin: $ca-grid / 4;
     right: 0;
     background-color: #fff;
     transition: transform $nav-ease $nav-timing;
+    border-radius: 0 0 7px 7px;
 
     @include ca-media-mobile {
       width: $indicator-height;
