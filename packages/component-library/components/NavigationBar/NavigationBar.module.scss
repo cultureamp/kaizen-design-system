@@ -50,6 +50,8 @@
 
     &.secondary {
       @include ca-margin($start: auto, $end: 0);
+      display: flex;
+      align-items: center;
     }
 
     &.final {
