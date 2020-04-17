@@ -7,9 +7,9 @@ needToKnow:
   - "You may upload files using a file picker (with a Button) or a drag and drop interface (with a Well)."
 ---
 
-import DosAndDonts from "docs-components/DosAndDonts"
-import Do from "docs-components/Do"
-import Dont from "docs-components/Dont"
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## To keep in mind
 
@@ -75,18 +75,18 @@ A drag-and-drop file upload lets people drag a file or files from their device t
 
 ## When to use and when not to use
 
-<DosAndDonts>
-<Do>
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 - We can sometimes avoid building features for manipulating files in our products when people can export and import files to manipulate them outside of the platform, especially tabular data.
 
-</Do>
-<Dont>
+</WhenToUse>
+<WhenNotToUse>
 
 - Drag and drop is often more complex than a file picker, so you might offer only a file picker for infrequently used features.
 
-</Dont>
-</DosAndDonts>
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 
 ## External links

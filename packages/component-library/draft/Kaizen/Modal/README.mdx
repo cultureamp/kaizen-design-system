@@ -13,9 +13,9 @@ demoStoryHeight: 500px
 headerImage: modal-informative
 ---
 
-import DosAndDonts from "docs-components/DosAndDonts"
-import Do from "docs-components/Do"
-import Dont from "docs-components/Dont"
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -89,15 +89,15 @@ Information modals assist with education. They’re user triggered. They may be 
 
 ## When to use and when not to use
 
-<DosAndDonts>
-<Do>
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 - Use a modal when you need to **change the flow of content or interaction** and yet maintain the context of the existing page or task.
 - Modals can be **disruptive and intrusive so use sparingly**. To avoid “banner blindness” and to avoid people immediately dismissing modals without reading them, show only on user interactions like a clicked button, not system driven events such as immediately on page load.
 - **Don’t trigger modals automatically without user interaction** at any time other than page load. That is, don’t trigger modals on scroll or after some time viewing a page. This risks inaccessibly stealing keyboard focus, disorienting the user, and introducing mode errors.
 
-</Do>
-<Dont>
+</WhenToUse>
+<WhenNotToUse>
 
 - Avoid using modals on **small screens**.
 - Avoid using modals when the additional content is a huge **change in context**. Consider linking to a separate page.
@@ -111,8 +111,8 @@ Information modals assist with education. They’re user triggered. They may be 
 - Instead of a modal, consider collapsible “disclosure” elements.
 - Instead of a modal, consider inline actions.
 
-</Dont>
-</DosAndDonts>
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## External Links
 

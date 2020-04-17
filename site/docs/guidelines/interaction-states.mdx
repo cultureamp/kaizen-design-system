@@ -9,9 +9,9 @@ needToKnow:
   - "There are other visual variations beyond interaction states that are not covered here, such as primary, secondary, destructive, reversed, persistent/dismissible styles, visited/unvisited, and loading."
 ---
 
-import DosAndDonts from "docs-components/DosAndDonts"
-import Do from "docs-components/Do"
-import Dont from "docs-components/Dont"
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## To keep in mind
 
@@ -57,20 +57,20 @@ A "read-only" form element cannot be modified, but can otherwise be focused, rea
 
 ## When to use and when not to use
 
-<DosAndDonts>
-<Do>
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 - Use default, hover, focus, active, and disabled states on links, buttons, checkboxes, radios, text fields, icons with tooltips or popovers and icon buttons.
 - Use a disabled state when hiding an element would be conspicuous.
 
-</Do>
-<Dont>
+</WhenToUse>
+<WhenNotToUse>
 
 - Instead of disabling an element, you may show a blocking modal on click that explains why it won't perform its usual action. You might visually style the element as disabled without actually disabling it.
 - Avoid disabling an element when there's no path for a user to make it available.
 
-</Dont>
-</DosAndDonts>
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 
 

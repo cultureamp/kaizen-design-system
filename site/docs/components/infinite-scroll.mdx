@@ -8,9 +8,9 @@ needToKnow:
   - This has been designed but not built.
 ---
 
-import DosAndDonts from "docs-components/DosAndDonts"
-import Do from "docs-components/Do"
-import Dont from "docs-components/Dont"
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## To keep in mind
 
@@ -35,15 +35,15 @@ Traditionally, Infinite Scroll loads and presents more results as you scroll wit
 
 ## When to use and when not to use
 
-<DosAndDonts>
-<Do>
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 - Use "View more" when someone may want to see every item and compare them at the same time.
 - Use "View more" when we want and expect people to read more than 1 page worth of content without disrupting the experience with a page load.
 - On small and touch devices, "View more" can feel more efficient than pagination.
 
-</Do>
-<Dont>
+</WhenToUse>
+<WhenNotToUse>
 
 - Use [Pagination](/components/pagination) when people are unlikely to need to see ALL the content.
 - Use [Pagination](/components/pagination) when the first page is enough.
@@ -51,8 +51,8 @@ Traditionally, Infinite Scroll loads and presents more results as you scroll wit
 - Consider using [Pagination](/components/pagination) when there's lot of screen real estate.
 - Consider using [Pagination](/components/pagination) when a list contains more than 50 items of a single line of text each.
 
-</Dont>
-</DosAndDonts>
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## Research insights
 

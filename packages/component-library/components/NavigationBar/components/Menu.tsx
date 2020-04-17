@@ -18,9 +18,14 @@ type MenuItem = {
   method?: "get" | "post" | "put" | "delete"
 }
 
+type MenuGroup = {
+  title: string
+  items: MenuItem[]
+}
+
 export type MenuProps = {
   header?: React.ReactElement<any>
-  items: MenuItem[]
+  items: Array<MenuItem | MenuGroup>
   automationId?: string
   heading: string
   mobileEnabled?: boolean
@@ -91,7 +96,13 @@ export default class Menu extends React.Component<MenuProps, State> {
       <div className={styles.menu}>
         <div>
           {header}
-          {items.map(this.renderMenuItem)}
+          {items.map(item => {
+            if ("url" in item) {
+              return this.renderMenuItem(item)
+            } else if ("title" in item) {
+              return this.renderMenuGroup(item)
+            }
+          })}
         </div>
       </div>
     )
@@ -99,7 +110,13 @@ export default class Menu extends React.Component<MenuProps, State> {
 
   renderOffCanvas() {
     const { items, heading } = this.props
-    const links = items.map(this.renderOffCanvasMenuItem)
+    const links = items.map(item => {
+      if ("url" in item) {
+        return this.renderOffCanvasMenuItem(item)
+      } else if ("title" in item) {
+        return this.renderOffCanvasMenuGroup(item)
+      }
+    })
 
     return (
       <OffCanvas
@@ -126,11 +143,22 @@ export default class Menu extends React.Component<MenuProps, State> {
     )
   }
 
-  renderOffCanvasMenuItem = (item: MenuItem, index: number) => (
-    <Link key={index} text={item.label} href={item.url} />
+  renderOffCanvasMenuItem = (item: MenuItem) => (
+    <Link key={item.url} text={item.label} href={item.url} />
   )
 
-  renderMenuItem = (item: MenuItem, index: number) => {
+  renderOffCanvasMenuGroup = (menuGroup: MenuGroup) => {
+    const { title, items } = menuGroup
+
+    return (
+      <div className={styles.offCanvasMenuGroup}>
+        <h4 className={styles.offCanvasMenuGroupTitle}>{title}</h4>
+        {items.map(this.renderOffCanvasMenuItem)}
+      </div>
+    )
+  }
+
+  renderMenuItem = (item: MenuItem) => {
     const { label, url, method } = item
 
     if (method && method !== "get") {
@@ -151,6 +179,17 @@ export default class Menu extends React.Component<MenuProps, State> {
       <a href={url} className={styles.menuItem} tabIndex={0}>
         {label}
       </a>
+    )
+  }
+
+  renderMenuGroup = (menuGroup: MenuGroup) => {
+    const { title, items } = menuGroup
+
+    return (
+      <div className={styles.menuGroup}>
+        <h4 className={styles.menuGroupTitle}>{title}</h4>
+        {items.map(this.renderMenuItem)}
+      </div>
     )
   }
 
