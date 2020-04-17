@@ -8,9 +8,9 @@ needToKnow:
 demoStoryId: globalnotification-react--positive-kaizen-site-demo
 ---
 
-import DosAndDonts from "docs-components/DosAndDonts"
-import Do from "docs-components/Do"
-import Dont from "docs-components/Dont"
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -43,8 +43,8 @@ Global Notifications are used to inform the user of system level messages.
 
 ## When to use and when not to use
 
-<DosAndDonts>
-<Do>
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 *  **Positive**:
     - System messages: e.g. Account has been upgraded, new feature added.
@@ -60,15 +60,15 @@ Global Notifications are used to inform the user of system level messages.
     - Background processes, e.g. Data import finished successfully, but may have problems
 
 
-</Do>
-<Dont>
+</WhenToUse>
+<WhenNotToUse>
 
 *   When you are speaking directly to a piece of content, use [Inline Notifications](/components/inline-notification) which can be positioned closer to it.
 *   When you are notifying a user of an action they have taken, provide visual feedback with a [Toast Notification](/components/toast-notification).
 *   When an action is user triggered and you need to inform the user, use a [Confirmation Modal](/components/modal) with relevant [Mood](/guidelines/mood), e.g. Informative Confirmation Modal
 
-</Dont>
-</DosAndDonts>
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 
