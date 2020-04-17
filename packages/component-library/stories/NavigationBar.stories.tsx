@@ -186,7 +186,7 @@ export const MenuGroup = () => (
   <NavigationBar>
     <Link text="Home" href="/" active />
     <Link text="Surveys" href="/" />
-    <Link text="Performance" href="/" notificationText="New" />
+    <Link text="Performance" href="/" badge={{ kind: "new", text: "New" }} />
     <Link
       icon={supportIcon}
       text="Support"
