@@ -5,6 +5,7 @@ import {
 } from "@kaizen/component-library"
 const arrowLeftIcon = require("@kaizen/component-library/icons/arrow-left.icon.svg")
   .default
+import classNames from "classnames"
 import * as React from "react"
 import Media from "react-media"
 import { MOBILE_QUERY } from "../constants"
@@ -18,14 +19,14 @@ type MenuItem = {
   method?: "get" | "post" | "put" | "delete"
 }
 
-type Submenu = {
+type MenuGroup = {
   title: string
   items: MenuItem[]
 }
 
 export type MenuProps = {
   header?: React.ReactElement<any>
-  items: Array<MenuItem | Submenu>
+  items: Array<MenuItem | MenuGroup>
   automationId?: string
   heading: string
   mobileEnabled?: boolean
@@ -100,7 +101,7 @@ export default class Menu extends React.Component<MenuProps, State> {
             if ("url" in item) {
               return this.renderMenuItem(item, index)
             } else if ("title" in item) {
-              return this.renderSubmenu(item)
+              return this.renderMenuGroup(item, index)
             }
           })}
         </div>
@@ -114,7 +115,7 @@ export default class Menu extends React.Component<MenuProps, State> {
       if ("url" in item) {
         return this.renderOffCanvasMenuItem(item, index)
       } else if ("title" in item) {
-        return this.renderOffCanvasSubmenu(item)
+        return this.renderOffCanvasMenuGroup(item, index)
       }
     })
 
@@ -147,12 +148,16 @@ export default class Menu extends React.Component<MenuProps, State> {
     <Link key={index} text={item.label} href={item.url} />
   )
 
-  renderOffCanvasSubmenu = (submenu: Submenu) => {
-    const { title, items } = submenu
+  renderOffCanvasMenuGroup = (menuGroup: MenuGroup, index: number) => {
+    const { title, items } = menuGroup
 
     return (
-      <div>
-        <h4>{title}</h4>
+      <div
+        className={classNames(styles.offCanvasMenuGroup, {
+          [styles.first]: index === 0,
+        })}
+      >
+        <h4 className={styles.offCanvasMenuGroupTitle}>{title}</h4>
         {items.map(this.renderOffCanvasMenuItem)}
       </div>
     )
@@ -182,14 +187,18 @@ export default class Menu extends React.Component<MenuProps, State> {
     )
   }
 
-  renderSubmenu = (submenu: Submenu) => {
-    const { title, items } = submenu
+  renderMenuGroup = (menuGroup: MenuGroup, index: number) => {
+    const { title, items } = menuGroup
 
     return (
-      <>
-        <h4>{title}</h4>
+      <div
+        className={classNames(styles.menuGroup, {
+          [styles.first]: index === 0,
+        })}
+      >
+        <h4 className={styles.menuGroupTitle}>{title}</h4>
         {items.map(this.renderMenuItem)}
-      </>
+      </div>
     )
   }
 
