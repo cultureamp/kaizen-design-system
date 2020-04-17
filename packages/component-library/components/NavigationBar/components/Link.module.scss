@@ -36,6 +36,15 @@ $link-margin: $ca-grid / 4;
   letter-spacing: $kz-typography-heading-5-letter-spacing;
 }
 
+@mixin heading-6 {
+  @include anti-aliasing;
+  font-family: $kz-typography-heading-6-font-family;
+  font-weight: $kz-typography-heading-6-font-weight;
+  font-size: $kz-typography-heading-6-font-size;
+  line-height: $kz-typography-heading-6-line-height;
+  letter-spacing: $kz-typography-heading-6-letter-spacing;
+}
+
 .link {
   @extend %ca-navigation-bar__menu-item-focus;
 
@@ -199,7 +208,7 @@ $link-margin: $ca-grid / 4;
 .notificationPill {
   @include ca-margin($start: $ca-grid * 0.25);
   @include ca-padding($start: $ca-grid * 0.5, $end: $ca-grid * 0.5);
-  @include ca-type-ideal-small-bold;
+  @include heading-6;
   @include ca-inherit-baseline;
   border-radius: $ca-grid;
   background-color: $kz-color-seedling-200;
