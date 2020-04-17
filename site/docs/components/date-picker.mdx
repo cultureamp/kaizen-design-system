@@ -10,9 +10,9 @@ needToKnow:
 - Help people prevent and recover from invalid dates by disabling some dates or providing validation feedback.
 ---
 
-import DosAndDonts from "docs-components/DosAndDonts"
-import Do from "docs-components/Do"
-import Dont from "docs-components/Dont"
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -131,20 +131,20 @@ On mobile devices, you might choose to use a native date picker component instea
 
 ## When to use and when not to use
 
-<DosAndDonts>
-<Do>
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 - Use a Date Picker when it's more efficient that typing a date in a [Text Field](/components/text-field).
 - Use a Date Picker when the date to be selected will be within a year of the default date.
 
-</Do>
-<Dont>
+</WhenToUse>
+<WhenNotToUse>
 
 - When the default date provided is highly likely to be right or only off by 1 day, you might consider using only a [Text Field](/components/text-field).
 - For selecting a date far in the future or past compared to the default, you might consider using a [Select component](/components/select) instead.
 
-</Dont>
-</DosAndDonts>
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 
 ## External Links

@@ -7,33 +7,33 @@ const success = require("@kaizen/component-library/icons/success-white.icon.svg"
   .default
 const exclamation = require("@kaizen/component-library/icons/exclamation-white.icon.svg")
   .default
-const styles = require("./WhenUse.scss")
+const styles = require("./WhenOrWhenNotToUse.scss")
 
-type Variant = "do" | "dont"
+type Variant = "whenToUse" | "whenNotToUse"
 
-type WhenUseProps = {
+type WhenOrWhenNotToUseProps = {
   variant: Variant
 }
 
 const getIcon = (variant: Variant) => {
   switch (variant) {
-    case "do":
+    case "whenToUse":
       return success
-    case "dont":
+    case "whenNotToUse":
       return exclamation
   }
 }
 
 const getText = (variant: Variant) => {
   switch (variant) {
-    case "do":
+    case "whenToUse":
       return "When to use"
-    case "dont":
+    case "whenNotToUse":
       return "When not to use"
   }
 }
 
-export default ({ variant }: WhenUseProps) => (
+export default ({ variant }: WhenOrWhenNotToUseProps) => (
   <div className={classnames(styles.container, styles[variant])}>
     <span className={styles.icon}>
       <Icon icon={getIcon(variant)} role="presentation" />
