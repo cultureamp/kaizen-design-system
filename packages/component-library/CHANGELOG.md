@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@6.0.0...@kaizen/component-library@6.1.0) (2020-04-17)
+
+
+### Features
+
+* Uplift Table for accessibility roles and custom attributes ([#386](https://github.com/cultureamp/kaizen-design-system/issues/386)) ([365e7f0](https://github.com/cultureamp/kaizen-design-system/commit/365e7f0a8429bc8553bdae38105790bddc65197b))
+
+
+
+
+
 # [6.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.7.1...@kaizen/component-library@6.0.0) (2020-04-17)
 
 
