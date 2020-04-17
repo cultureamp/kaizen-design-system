@@ -3,6 +3,8 @@ const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon
   .default
 const spinnerIcon = require("@kaizen/component-library/icons/spinner.icon.svg")
   .default
+
+const caLogo = require("../illustrations/ca-logo.svg").default
 import classNames from "classnames"
 import * as React from "react"
 
@@ -14,14 +16,21 @@ type BadgeProps = {
   colorScheme: string
 }
 
+const renderProductionBadge = (props: BadgeProps) => {
+  if (props.colorScheme === "zen") {
+    return <Icon icon={caLogo} title="Culture Amp" />
+  } else {
+    return <Icon icon={caMonogramIcon} title="Culture Amp" />
+  }
+}
+
 export const ProductionBadge = (props: BadgeProps) => (
   <div className={classNames(styles.badge, styles[props.colorScheme])}>
     <a href={props.href}>
       {props.loading ? (
         <Icon icon={spinnerIcon} title="loading…" />
-      ) : (
-        <Icon icon={caMonogramIcon} title="Culture Amp" />
-      )}
+      ) : (renderProductionBadge(props))
+      }
     </a>
   </div>
 )

@@ -6,6 +6,11 @@
 @import "../../styles/layout";
 @import "../../styles/responsive";
 
+@mixin rounded-border {
+  height: 5px;
+  border-radius: 0 0 7px 7px;
+}
+
 .navigationBar {
   @extend %ca-navigation-bar;
   display: inline-flex;
@@ -31,6 +36,12 @@
         color: $kz-color-cluny-500;
       }
     }
+  }
+
+  &.zen {
+    height: 84px;
+    max-height: 84px;
+    align-items: center;
   }
 }
 
@@ -58,13 +69,25 @@
 
     // Bit of a hack selector, but because of module scoping this is the easiest way
     .content & span::before {
+      @include rounded-border;
       background-color: $kz-color-cluny-500;
-      height: 5px;
-      border-radius: 0 0 $kz-border-solid-border-radius $kz-border-solid-border-radius;
     }
 
     @include ca-media-tablet {
       margin: 0;
+      @include ca-media-tablet {
+        margin: 0;
+      }
+
+      &.zen {
+        a {
+          height: inherit;
+        }
+      }
+
+      .zen & span::before {
+        @include rounded-border;
+      }
     }
   }
 
