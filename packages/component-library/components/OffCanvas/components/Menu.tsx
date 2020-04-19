@@ -1,34 +1,34 @@
 import classNames from "classnames"
 import * as React from "react"
+import { MenuProps } from "../../NavigationBar/types"
 
 const styles = require("./Menu.module.scss")
 
 type Props = {
-  links: any[]
+  section: string
+  links: MenuProps
 }
 
-const Menu = ({ links }: Props) => {
-  const indexOfFirstSecondaryLink = links.findIndex(
-    link => link.props.secondary
+const Menu = ({ links, section }: Props) => {
+  const renderNavItems = (link: MenuProps, index) => (
+    <li
+      key={index}
+      className={classNames({
+        [styles.active]: link.active,
+      })}
+    >
+      {link}
+    </li>
   )
 
   return (
-    <nav className={styles.links}>
-      <ul>
-        {links.map((link, index) => (
-          <li
-            key={link.key || index}
-            className={classNames(styles.child, {
-              [styles.active]: link.props.active,
-              [styles.secondary]: link.props.secondary,
-              [styles.first]: index === indexOfFirstSecondaryLink,
-            })}
-          >
-            {link}
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <ul
+      className={classNames({
+        [styles.primary]: section === "primary",
+      })}
+    >
+      {[links].map((link, index) => renderNavItems(link, index))}
+    </ul>
   )
 }
 
