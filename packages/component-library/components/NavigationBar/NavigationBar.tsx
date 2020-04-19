@@ -9,15 +9,12 @@ import {
   StagingBadge,
   TestBadge,
 } from "./components/Badge"
-import Link, { LinkProps } from "./components/Link"
-import Menu, { MenuProps } from "./components/Menu"
+import Link from "./components/Link"
+import Menu from "./components/Menu"
 import { MOBILE_QUERY } from "./constants"
+import { Navigation, SupportedChild } from "./types"
 
 const styles = require("./NavigationBar.module.scss")
-
-type SupportedChild =
-  | React.ReactElement<LinkProps>
-  | React.ReactElement<MenuProps>
 
 type Props = {
   environment?: "production" | "staging" | "test" | "local"
@@ -25,6 +22,7 @@ type Props = {
   colorScheme?: "cultureamp" | "kaizen" | "content"
   badgeHref?: string
   footerComponent?: React.ReactNode
+  children?: Navigation
 }
 
 export default class NavigationBar extends React.Component<Props> {
@@ -40,35 +38,8 @@ export default class NavigationBar extends React.Component<Props> {
 
   render() {
     const { children, colorScheme = "cultureamp" } = this.props
-    const links: Array<React.ReactElement<LinkProps>> = []
-    const otherChildren: Array<React.ReactElement<MenuProps>> = []
 
-    React.Children.toArray(children).forEach(child => {
-      if (!child) {
-        return
-      }
-
-      // Because react-hot-loader wraps the type, and uglify changes the type name,
-      // we compare the displayName rather than comparing the type of name directly.
-      const childElement = child as any
-
-      if (
-        childElement.type &&
-        childElement.type.displayName === Link.displayName
-      ) {
-        links.push(child as React.ReactElement<LinkProps>)
-      } else if (
-        childElement.type &&
-        childElement.type.displayName === Menu.displayName
-      ) {
-        otherChildren.push(child as React.ReactElement<MenuProps>)
-      } else {
-        // tslint:disable-next-line: no-console
-        console.warn(
-          "A child Element has been provided to <NavigationBar /> that is not of type `Menu` or `Link`."
-        )
-      }
-    })
+    if (!children) return null;
 
     return (
       <Media query={MOBILE_QUERY}>
@@ -77,7 +48,7 @@ export default class NavigationBar extends React.Component<Props> {
             <ControlledOffCanvas
               headerComponent={this.renderBadge()}
               footerComponent={this.props.footerComponent}
-              links={[...links, ...otherChildren]}
+              links={children}
               heading="Menu"
               menuId="menu"
             />
@@ -86,12 +57,48 @@ export default class NavigationBar extends React.Component<Props> {
               className={classNames(styles.navigationBar, styles[colorScheme])}
             >
               {this.renderBadge()}
-              {this.renderLinks(links)}
-              {this.renderOtherChildren(otherChildren)}
+              {this.renderNav(children)}
             </header>
           )
         }
       </Media>
+    )
+  }
+
+  renderNav(children: Navigation) {
+    return (
+      <nav className={styles.links}>
+        {Object.keys(children).map(key =>
+          this.renderNavSection(key, children[key])
+        )}
+      </nav>
+    )
+  }
+
+  renderNavSection(section: string, items: SupportedChild[]) {
+    return (
+      <ul
+        className={classNames({
+          [styles.primary]: section === "primary",
+          [styles.secondary]: section === "secondary",
+          [styles.final]: section === "final",
+        })}
+      >
+        {items.map((item, index) => this.renderNavItem(item, index))}
+      </ul>
+    )
+  }
+
+  renderNavItem(link: SupportedChild, index) {
+    return (
+      <li
+        key={link.key || index}
+        className={classNames(styles.child, {
+          [styles.active]: link.props.active,
+        })}
+      >
+        {link}
+      </li>
     )
   }
 
@@ -114,43 +121,6 @@ export default class NavigationBar extends React.Component<Props> {
 
     return (
       <Badge loading={loading} href={badgeHref} colorScheme={colorScheme} />
-    )
-  }
-
-  renderLinks(links: Array<React.ReactElement<LinkProps>>) {
-    const indexOfFirstSecondaryLink = links.findIndex(
-      link => !!link.props.secondary
-    )
-
-    return (
-      <nav className={styles.links}>
-        <ul>
-          {links.map((link: React.ReactElement<LinkProps>, index) => (
-            <li
-              key={link.key || index}
-              className={classNames(styles.child, {
-                [styles.active]: link.props.active,
-                [styles.secondary]: link.props.secondary,
-                [styles.first]: index === indexOfFirstSecondaryLink,
-              })}
-            >
-              {link}
-            </li>
-          ))}
-        </ul>
-      </nav>
-    )
-  }
-
-  renderOtherChildren(otherChildren: SupportedChild[]) {
-    return (
-      <div className={styles.otherChildren}>
-        {otherChildren.map((child, index) => (
-          <div key={child.key || index} className={styles.child}>
-            {child}
-          </div>
-        ))}
-      </div>
     )
   }
 }
