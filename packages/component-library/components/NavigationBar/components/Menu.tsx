@@ -8,28 +8,10 @@ const arrowLeftIcon = require("@kaizen/component-library/icons/arrow-left.icon.s
 import * as React from "react"
 import Media from "react-media"
 import { MOBILE_QUERY } from "../constants"
+import { MenuGroup, MenuItem, MenuProps } from "../types"
 import Link from "./Link"
 
 const styles = require("./Menu.module.scss")
-
-type MenuItem = {
-  label: string
-  url: string
-  method?: "get" | "post" | "put" | "delete"
-}
-
-type MenuGroup = {
-  title: string
-  items: MenuItem[]
-}
-
-export type MenuProps = {
-  header?: React.ReactElement<any>
-  items: Array<MenuItem | MenuGroup>
-  automationId?: string
-  heading: string
-  mobileEnabled?: boolean
-}
 
 type State = {
   open: boolean
