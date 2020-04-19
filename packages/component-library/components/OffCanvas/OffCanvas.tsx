@@ -1,13 +1,12 @@
 import classNames from "classnames"
 import * as React from "react"
-import { Navigation } from "../NavigationBar/types"
 import Header from "./components/Header"
 import Menu from "./components/Menu"
 
 const styles = require("./OffCanvas.module.scss")
 
 type Props = {
-  links?: Navigation
+  links?: any
   heading: string
   headerComponent: React.ReactNode
   footerComponent?: React.ReactNode
@@ -32,7 +31,6 @@ export const OffCanvasContext = React.createContext<OffCanvasContextProps>({
 
 export class OffCanvas extends React.Component<Props> {
   static defaultProps = {
-    links: [],
     withTrigger: false,
   }
 
