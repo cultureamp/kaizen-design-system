@@ -1,12 +1,12 @@
 import { default as React, ReactElement } from "react"
 
-export type SupportedChild = ReactElement<LinkProps> | ReactElement<MenuProps>
-
 export type Navigation = {
-  primary?: SupportedChild[]
-  secondary?: SupportedChild[]
-  final?: SupportedChild[]
+  primary?: NavigationItem[]
+  secondary?: NavigationItem[]
+  final?: NavigationItem[]
 }
+
+export type NavigationItem = ReactElement<LinkProps> | ReactElement<MenuProps>
 
 export type LinkProps = {
   icon?: React.SVGAttributes<SVGSymbolElement>

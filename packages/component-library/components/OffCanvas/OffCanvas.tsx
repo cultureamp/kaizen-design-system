@@ -57,9 +57,10 @@ export class OffCanvas extends React.Component<Props> {
               heading={heading}
             />
             <nav className={styles.links}>
-              {links && Object.keys(links).map(section => (
-                <Menu section={section} links={links[section]} />
-              ))}
+              {links &&
+                Object.keys(links).map(section => (
+                  <Menu section={section} links={links[section]} />
+                ))}
             </nav>
             {footerComponent}
           </div>

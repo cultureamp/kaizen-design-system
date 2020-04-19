@@ -6,7 +6,7 @@ import { LocalBadge, namedBadge, ProductionBadge, StagingBadge, TestBadge } from
 import Link from "./components/Link"
 import Menu from "./components/Menu"
 import { MOBILE_QUERY } from "./constants"
-import { Navigation, SupportedChild } from "./types"
+import { Navigation, NavigationItem } from "./types"
 
 const styles = require("./NavigationBar.module.scss")
 
@@ -69,7 +69,7 @@ export default class NavigationBar extends React.Component<Props> {
     )
   }
 
-  renderNavSection(section: string, items: SupportedChild[]) {
+  renderNavSection(section: string, items: NavigationItem[]) {
     return (
       <ul
         className={classNames({
@@ -83,7 +83,7 @@ export default class NavigationBar extends React.Component<Props> {
     )
   }
 
-  renderNavItem(link: SupportedChild, index) {
+  renderNavItem(link: NavigationItem, index) {
     return (
       <li
         key={link.key || index}
