@@ -1,6 +1,7 @@
 import * as React from "react"
 
 import { Icon, Link, Menu, NavigationBar } from "@kaizen/component-library"
+
 const academyIcon = require("@kaizen/component-library/icons/academy.icon.svg")
   .default
 const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
@@ -127,10 +128,10 @@ export const Loading = () => (
 
 export const KaizenColors = () => (
   <NavigationBar colorScheme="kaizen">
-    <Link text="Home" href="/" active />
-    <Link text="Guidelines" href="/" />
-    <Link text="Components" href="/" />
-    <Link text="Status" href="/" />
+    {{ primary: [<Link text="Home" href="/" active />,
+    <Link text="Guidelines" href="/" />,
+    <Link text="Components" href="/" />,
+    <Link text="Status" href="/" />,
     <Menu
       heading="Custom menu..."
       items={[
@@ -144,7 +145,7 @@ export const KaizenColors = () => (
             "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
         },
       ]}
-    />
+    />]}}
   </NavigationBar>
 )
 
@@ -230,7 +231,7 @@ export const MenuGroup = () => (
           text="Performance"
           href="/"
           badge={{ kind: "new", text: "New" }}
-        />
+        />,
       ],
       secondary: [
         <Link

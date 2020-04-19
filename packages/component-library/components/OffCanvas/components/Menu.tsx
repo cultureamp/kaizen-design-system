@@ -10,7 +10,7 @@ type Props = {
 }
 
 const Menu = ({ links, section }: Props) => {
-  const renderNavItems = (link: MenuProps, index) => (
+  const renderNavItem = (link: MenuProps, index) => (
     <li
       key={index}
       className={classNames({
@@ -27,7 +27,7 @@ const Menu = ({ links, section }: Props) => {
         [styles.primary]: section === "primary",
       })}
     >
-      {[links].map((link, index) => renderNavItems(link, index))}
+      {[links].map((link, index) => renderNavItem(link, index))}
     </ul>
   )
 }

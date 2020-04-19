@@ -2,13 +2,7 @@ import { ControlledOffCanvas } from "@kaizen/component-library"
 import classNames from "classnames"
 import * as React from "react"
 import Media from "react-media"
-import {
-  LocalBadge,
-  namedBadge,
-  ProductionBadge,
-  StagingBadge,
-  TestBadge,
-} from "./components/Badge"
+import { LocalBadge, namedBadge, ProductionBadge, StagingBadge, TestBadge } from "./components/Badge"
 import Link from "./components/Link"
 import Menu from "./components/Menu"
 import { MOBILE_QUERY } from "./constants"
@@ -39,8 +33,6 @@ export default class NavigationBar extends React.Component<Props> {
   render() {
     const { children, colorScheme = "cultureamp" } = this.props
 
-    if (!children) return null;
-
     return (
       <Media query={MOBILE_QUERY}>
         {(matches: boolean) =>
@@ -65,7 +57,9 @@ export default class NavigationBar extends React.Component<Props> {
     )
   }
 
-  renderNav(children: Navigation) {
+  renderNav(children?: Navigation) {
+    if (!children) return null
+
     return (
       <nav className={styles.links}>
         {Object.keys(children).map(key =>

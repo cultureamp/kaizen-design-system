@@ -1,12 +1,13 @@
 import classNames from "classnames"
 import * as React from "react"
+import { Navigation } from "../NavigationBar/types"
 import Header from "./components/Header"
 import Menu from "./components/Menu"
 
 const styles = require("./OffCanvas.module.scss")
 
 type Props = {
-  links: any
+  links?: Navigation
   heading: string
   headerComponent: React.ReactNode
   footerComponent?: React.ReactNode
@@ -58,7 +59,7 @@ export class OffCanvas extends React.Component<Props> {
               heading={heading}
             />
             <nav className={styles.links}>
-              {Object.keys(links).map(section => (
+              {links && Object.keys(links).map(section => (
                 <Menu section={section} links={links[section]} />
               ))}
             </nav>
