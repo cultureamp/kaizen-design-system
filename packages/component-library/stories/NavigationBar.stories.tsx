@@ -14,92 +14,114 @@ export default {
 
 export const Default = () => (
   <NavigationBar>
-    <Link text="Home" href="/" active />
-    <Link text="Surveys" href="/" />
-    <Link text="Performance" href="/" badge={{ kind: "new", text: "New" }} />
-    <Link text="Inbox" href="/" badge={{ kind: "notification", text: "5" }} />
-    <Link
-      icon={supportIcon}
-      text="Support"
-      href="http://academy.cultureamp.com/"
-      secondary
-    />
-    <Link
-      icon={academyIcon}
-      text="Academy"
-      href="http://academy.cultureamp.com/"
-      secondary
-    />
-    <Menu
-      heading="Custom menu..."
-      items={[
-        {
-          label: "About Culture Amp",
-          url: "https://www.cultureamp.com/",
-        },
-        {
-          label: "Contribute to this guide",
-          url:
-            "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
-        },
-        {
-          label: "Sign out",
-          url: "http://localhost:3000/session/sign_out",
-          method: "delete",
-        },
-        {
-          label: "Stop Masquerading",
-          url: "http://localhost:3000/admin/masquerade/",
-          method: "delete",
-        },
-      ]}
-    >
-      <div
-        style={{
-          backgroundColor: "#ffffff",
-          borderRadius: "3px",
-          color: "#F8A6AE",
-        }}
-      >
-        <Icon icon={caMonogramIcon} title="Culture Amp Logo" inheritSize />
-      </div>
-    </Menu>
+    {{
+      primary: [
+        <Link text="Home" href="/" active />,
+        <Link text="Surveys" href="/" />,
+        <Link
+          text="Performance"
+          href="/"
+          badge={{ kind: "new", text: "New" }}
+        />,
+        <Link
+          text="Inbox"
+          href="/"
+          badge={{ kind: "notification", text: "5" }}
+        />,
+      ],
+      secondary: [
+        <Link
+          icon={supportIcon}
+          text="Support"
+          href="http://academy.cultureamp.com/"
+          secondary
+        />,
+        <Link
+          icon={academyIcon}
+          text="Academy"
+          href="http://academy.cultureamp.com/"
+          secondary
+        />,
+      ],
+      final: [
+        <Menu
+          heading="Custom menu..."
+          items={[
+            {
+              label: "About Culture Amp",
+              url: "https://www.cultureamp.com/",
+            },
+            {
+              label: "Contribute to this guide",
+              url:
+                "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
+            },
+            {
+              label: "Sign out",
+              url: "http://localhost:3000/session/sign_out",
+              method: "delete",
+            },
+            {
+              label: "Stop Masquerading",
+              url: "http://localhost:3000/admin/masquerade/",
+              method: "delete",
+            },
+          ]}
+        >
+          <div
+            style={{
+              backgroundColor: "#ffffff",
+              borderRadius: "3px",
+              color: "#F8A6AE",
+            }}
+          >
+            <Icon icon={caMonogramIcon} title="Culture Amp Logo" inheritSize />
+          </div>
+        </Menu>,
+      ],
+    }}
   </NavigationBar>
 )
 
 export const Loading = () => (
   <NavigationBar loading>
-    <Link text="Home" href="/" active />
-    <Link
-      icon={academyIcon}
-      text="Support"
-      href="http://academy.cultureamp.com/"
-      secondary
-    />
-    <Menu
-      heading="Custom menu..."
-      items={[
-        {
-          label: "About Culture Amp",
-          url: "https://www.cultureamp.com/",
-        },
-        {
-          label: "Contribute to this guide",
-          url:
-            "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
-        },
-      ]}
-    >
-      <div
-        style={{
-          backgroundColor: "#ffffff",
-          borderRadius: "3px",
-          color: "#F8A6AE",
-        }}
-      >
-        <Icon icon={caMonogramIcon} title="Culture Amp Logo" inheritSize />
-      </div>
-    </Menu>
+    {{
+      primary: [<Link text="Home" href="/" active />],
+      secondary: [
+        <Link
+          icon={academyIcon}
+          text="Support"
+          href="http://academy.cultureamp.com/"
+          secondary
+        />,
+      ],
+      final: [
+        <Menu
+          heading="Custom menu..."
+          items={[
+            {
+              label: "About Culture Amp",
+              url: "https://www.cultureamp.com/",
+            },
+            {
+              label: "Contribute to this guide",
+              url:
+                "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
+            },
+          ]}
+        >
+          <div
+            style={{
+              backgroundColor: "#ffffff",
+              borderRadius: "3px",
+              color: "#F8A6AE",
+            }}
+          >
+            <Icon icon={caMonogramIcon} title="Culture Amp Logo" inheritSize />
+          </div>
+        </Menu>,
+      ],
+    }}
   </NavigationBar>
 )
 
@@ -128,163 +150,191 @@ export const KaizenColors = () => (
 
 export const ContentColors = () => (
   <NavigationBar colorScheme="content">
-    <Link text="Home" href="/" active />
-    <Link text="Surveys" href="/" />
-    <Link text="Performance" href="/" badge={{ kind: "new", text: "New" }} />
-    <Link text="Inbox" href="/" badge={{ kind: "notification", text: "55" }} />
+    {{
+      primary: [
+        <Link text="Home" href="/" active />,
+        <Link text="Surveys" href="/" />,
+        <Link
+          text="Performance"
+          href="/"
+          badge={{ kind: "new", text: "New" }}
+        />,
+        <Link
+          text="Inbox"
+          href="/"
+          badge={{ kind: "notification", text: "55" }}
+        />,
+      ],
 
-    <Link
-      icon={supportIcon}
-      text="Support"
-      href="http://academy.cultureamp.com/"
-      secondary
-    />
-    <Link
-      icon={academyIcon}
-      text="Academy"
-      href="http://academy.cultureamp.com/"
-      secondary
-    />
-    <Menu
-      heading="Custom menu..."
-      items={[
-        {
-          label: "About Culture Amp",
-          url: "https://www.cultureamp.com/",
-        },
-        {
-          label: "Contribute to this guide",
-          url:
-            "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
-        },
-        {
-          label: "Sign out",
-          url: "http://localhost:3000/session/sign_out",
-          method: "delete",
-        },
-        {
-          label: "Stop Masquerading",
-          url: "http://localhost:3000/admin/masquerade/",
-          method: "delete",
-        },
-      ]}
-    >
-      <div
-        style={{
-          backgroundColor: "#ffffff",
-          borderRadius: "3px",
-          color: "#F8A6AE",
-        }}
-      >
-        <Icon icon={caMonogramIcon} title="Culture Amp Logo" inheritSize />
-      </div>
-    </Menu>
+      secondary: [
+        <Link
+          icon={supportIcon}
+          text="Support"
+          href="http://academy.cultureamp.com/"
+          secondary
+        />,
+        <Link
+          icon={academyIcon}
+          text="Academy"
+          href="http://academy.cultureamp.com/"
+          secondary
+        />,
+      ],
+      final: [
+        <Menu
+          heading="Custom menu..."
+          items={[
+            {
+              label: "About Culture Amp",
+              url: "https://www.cultureamp.com/",
+            },
+            {
+              label: "Contribute to this guide",
+              url:
+                "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
+            },
+            {
+              label: "Sign out",
+              url: "http://localhost:3000/session/sign_out",
+              method: "delete",
+            },
+            {
+              label: "Stop Masquerading",
+              url: "http://localhost:3000/admin/masquerade/",
+              method: "delete",
+            },
+          ]}
+        >
+          <div
+            style={{
+              backgroundColor: "#ffffff",
+              borderRadius: "3px",
+              color: "#F8A6AE",
+            }}
+          >
+            <Icon icon={caMonogramIcon} title="Culture Amp Logo" inheritSize />
+          </div>
+        </Menu>,
+      ],
+    }}
   </NavigationBar>
 )
 
 export const MenuGroup = () => (
   <NavigationBar>
-    <Link text="Home" href="/" active />
-    <Link text="Surveys" href="/" />
-    <Link text="Performance" href="/" badge={{ kind: "new", text: "New" }} />
-    <Link
-      icon={supportIcon}
-      text="Support"
-      href="http://academy.cultureamp.com/"
-      secondary
-    />
-    <Link
-      icon={academyIcon}
-      text="Academy"
-      href="http://academy.cultureamp.com/"
-      secondary
-    />
-    <Menu
-      heading="Admin"
-      items={[
-        {
-          label: "Skills",
-          url: "meh",
-        },
-        {
-          label: "Self-reflections",
-          url: "meh",
-        },
-        {
-          title: "Manager requested feedback",
-          items: [
+    {{
+      primary: [
+        <Link text="Home" href="/" active />,
+        <Link text="Surveys" href="/" />,
+        <Link
+          text="Performance"
+          href="/"
+          badge={{ kind: "new", text: "New" }}
+        />
+      ],
+      secondary: [
+        <Link
+          icon={supportIcon}
+          text="Support"
+          href="http://academy.cultureamp.com/"
+          secondary
+        />,
+        <Link
+          icon={academyIcon}
+          text="Academy"
+          href="http://academy.cultureamp.com/"
+          secondary
+        />,
+      ],
+      final: [
+        <Menu
+          heading="Admin"
+          items={[
             {
-              label: "Request history",
+              label: "Skills",
               url: "meh",
             },
             {
-              label: "Request feedback",
-              url: "meh",
-            },
-          ],
-        },
-        {
-          title: "Usage stats",
-          items: [
-            {
-              label: "Goal stats",
+              label: "Self-reflections",
               url: "meh",
             },
             {
-              label: "Feedback stats",
-              url: "meh",
+              title: "Manager requested feedback",
+              items: [
+                {
+                  label: "Request history",
+                  url: "meh",
+                },
+                {
+                  label: "Request feedback",
+                  url: "meh",
+                },
+              ],
             },
-          ],
-        },
-      ]}
-    >
-      <div
-        style={{
-          color: "white",
-          fontFamily: "Ideal Sans A, sans-serif",
-          marginRight: "20px",
-          opacity: "0.8",
-          fontWeight: "lighter",
-          fontSize: "1rem",
-        }}
-      >
-        Admin
-      </div>
-    </Menu>
-    <Menu
-      heading="Custom menu..."
-      items={[
-        {
-          label: "About Culture Amp",
-          url: "https://www.cultureamp.com/",
-        },
-        {
-          label: "Contribute to this guide",
-          url:
-            "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
-        },
-        {
-          label: "Sign out",
-          url: "http://localhost:3000/session/sign_out",
-          method: "delete",
-        },
-        {
-          label: "Stop Masquerading",
-          url: "http://localhost:3000/admin/masquerade/",
-          method: "delete",
-        },
-      ]}
-    >
-      <div
-        style={{
-          backgroundColor: "#ffffff",
-          borderRadius: "3px",
-          color: "#F8A6AE",
-        }}
-      >
-        <Icon icon={caMonogramIcon} title="Culture Amp Logo" inheritSize />
-      </div>
-    </Menu>
+            {
+              title: "Usage stats",
+              items: [
+                {
+                  label: "Goal stats",
+                  url: "meh",
+                },
+                {
+                  label: "Feedback stats",
+                  url: "meh",
+                },
+              ],
+            },
+          ]}
+        >
+          <div
+            style={{
+              color: "white",
+              fontFamily: "Ideal Sans A, sans-serif",
+              marginRight: "20px",
+              opacity: "0.8",
+              fontWeight: "lighter",
+              fontSize: "1rem",
+            }}
+          >
+            Admin
+          </div>
+        </Menu>,
+        <Menu
+          heading="Custom menu..."
+          items={[
+            {
+              label: "About Culture Amp",
+              url: "https://www.cultureamp.com/",
+            },
+            {
+              label: "Contribute to this guide",
+              url:
+                "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
+            },
+            {
+              label: "Sign out",
+              url: "http://localhost:3000/session/sign_out",
+              method: "delete",
+            },
+            {
+              label: "Stop Masquerading",
+              url: "http://localhost:3000/admin/masquerade/",
+              method: "delete",
+            },
+          ]}
+        >
+          <div
+            style={{
+              backgroundColor: "#ffffff",
+              borderRadius: "3px",
+              color: "#F8A6AE",
+            }}
+          >
+            <Icon icon={caMonogramIcon} title="Culture Amp Logo" inheritSize />
+          </div>
+        </Menu>,
+      ],
+    }}
   </NavigationBar>
 )
 
