@@ -2,7 +2,13 @@ import { ControlledOffCanvas } from "@kaizen/component-library"
 import classNames from "classnames"
 import * as React from "react"
 import Media from "react-media"
-import { LocalBadge, namedBadge, ProductionBadge, StagingBadge, TestBadge } from "./components/Badge"
+import {
+  LocalBadge,
+  namedBadge,
+  ProductionBadge,
+  StagingBadge,
+  TestBadge,
+} from "./components/Badge"
 import Link from "./components/Link"
 import Menu from "./components/Menu"
 import { MOBILE_QUERY } from "./constants"
