@@ -1,4 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/component-library/styles/fonts";
 @import "../../styles/color";
 @import "../../styles/type";
 
@@ -32,4 +34,47 @@ $ca-navigation-bar__height: 3.5 * $ca-grid;
       outline: 2px solid $kz-color-cluny-500;
     }
   }
+}
+
+// FONTS
+
+@mixin anti-aliasing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin font-heading-4 {
+  @include anti-aliasing;
+  font-family: $kz-typography-heading-4-font-family;
+  font-weight: $kz-typography-heading-4-font-weight;
+  font-size: $kz-typography-heading-4-font-size;
+  line-height: $kz-typography-heading-4-line-height;
+  letter-spacing: $kz-typography-heading-4-letter-spacing;
+}
+
+@mixin font-heading-5 {
+  @include anti-aliasing;
+  font-family: $kz-typography-heading-5-font-family;
+  font-weight: $kz-typography-heading-5-font-weight;
+  font-size: $kz-typography-heading-5-font-size;
+  line-height: $kz-typography-heading-5-line-height;
+  letter-spacing: $kz-typography-heading-5-letter-spacing;
+}
+
+@mixin font-heading-6 {
+  @include anti-aliasing;
+  font-family: $kz-typography-heading-6-font-family;
+  font-weight: $kz-typography-heading-6-font-weight;
+  font-size: $kz-typography-heading-6-font-size;
+  line-height: $kz-typography-heading-6-line-height;
+  letter-spacing: $kz-typography-heading-6-letter-spacing;
+}
+
+@mixin font-body {
+  @include anti-aliasing;
+  font-family: $kz-typography-paragraph-body-font-family;
+  font-weight: $kz-typography-paragraph-body-font-weight;
+  font-size: $kz-typography-paragraph-body-font-size;
+  line-height: $kz-typography-paragraph-body-line-height;
+  letter-spacing: $kz-typography-paragraph-body-letter-spacing;
 }

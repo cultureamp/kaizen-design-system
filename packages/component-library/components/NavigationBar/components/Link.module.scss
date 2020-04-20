@@ -1,7 +1,5 @@
-@import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/component-library/styles/fonts";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/component-library/styles/border";
@@ -13,38 +11,6 @@ $nav-ease: cubic-bezier(0.55, 0.085, 0.68, 0.53);
 $nav-timing: 150ms;
 $indicator-height: 5px;
 $link-margin: 18px;
-
-@mixin anti-aliasing {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-@mixin heading-4 {
-  @include anti-aliasing;
-  font-family: $kz-typography-heading-4-font-family;
-  font-weight: $kz-typography-heading-4-font-weight;
-  font-size: $kz-typography-heading-4-font-size;
-  line-height: $kz-typography-heading-4-line-height;
-  letter-spacing: $kz-typography-heading-4-letter-spacing;
-}
-
-@mixin heading-5 {
-  @include anti-aliasing;
-  font-family: $kz-typography-heading-5-font-family;
-  font-weight: $kz-typography-heading-5-font-weight;
-  font-size: $kz-typography-heading-5-font-size;
-  line-height: $kz-typography-heading-5-line-height;
-  letter-spacing: $kz-typography-heading-5-letter-spacing;
-}
-
-@mixin heading-6 {
-  @include anti-aliasing;
-  font-family: $kz-typography-heading-6-font-family;
-  font-weight: $kz-typography-heading-6-font-weight;
-  font-size: $kz-typography-heading-6-font-size;
-  line-height: $kz-typography-heading-6-line-height;
-  letter-spacing: $kz-typography-heading-6-letter-spacing;
-}
 
 .link {
   @extend %ca-navigation-bar__menu-item-focus;
@@ -108,7 +74,7 @@ $link-margin: 18px;
     }
   }
 
-  @include heading-4;
+  @include font-heading-4;
   @include ca-inherit-baseline;
   top: 0;
 
@@ -116,7 +82,7 @@ $link-margin: 18px;
     color: $kz-color-white;
 
     @include ca-media-tablet-and-up {
-      @include heading-5;
+      @include font-heading-5;
       @include ca-inherit-baseline;
 
       padding: 0 $ca-grid / 2;
@@ -209,7 +175,7 @@ $link-margin: 18px;
 .notificationPill {
   @include ca-margin($start: $ca-grid * 0.25);
   @include ca-padding($start: $ca-grid * 0.5, $end: $ca-grid * 0.5);
-  @include heading-6;
+  @include font-heading-6;
   @include ca-inherit-baseline;
   border-radius: $ca-grid;
   background-color: $kz-color-seedling-200;
