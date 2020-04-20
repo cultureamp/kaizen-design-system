@@ -50,9 +50,8 @@ $menuItem__margin: 4px;
   background-color: $kz-color-white;
   box-shadow: 0 0 ($ca-grid / 2) rgba($kz-color-wisteria-800, 0.3);
   border-radius: $kz-border-solid-border-radius;
-  padding: 0;
   overflow: hidden;
-  padding-top: $menuItem__margin;
+  padding: $menuItem__margin 0 0;
 
   // HACK: duplicate class selector to bump specificity to work around https://trello.com/c/VGvOyHk4
   &.menu {
@@ -60,10 +59,6 @@ $menuItem__margin: 4px;
       // focus is non-interactive
       outline: 0;
     }
-  }
-
-  > * {
-    list-style: none;
   }
 }
 
@@ -78,6 +73,7 @@ $menuItem__margin: 4px;
   margin: 0;
   width: 100%;
   overflow: hidden;
+  list-style: none;
 }
 
 .menuItem {
@@ -109,6 +105,7 @@ $menuItem__margin: 4px;
 
 .menuGroup {
   border-top: 1px solid $kz-color-ash;
+  list-style: none;
 
   .menuGroupTitle {
     @include ca-padding($end: 16px, $start: 16px, $bottom: 8px, $top: 16px);
