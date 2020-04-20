@@ -17,6 +17,7 @@ export type LinkProps = {
   onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void
   target?: "_self" | "_blank"
   hasMenu?: boolean
+  menuOpen?: boolean
   notificationText?: string
   ref?: React.Ref<HTMLAnchorElement>
 }
@@ -43,6 +44,7 @@ export default class Link extends React.PureComponent<LinkProps> {
       iconOnly,
       target,
       hasMenu,
+      menuOpen,
       notificationText,
       ref,
     } = this.props
@@ -53,6 +55,7 @@ export default class Link extends React.PureComponent<LinkProps> {
           [styles.active]: active,
           [styles.containsText]: text !== "",
           [styles.secondary]: secondary,
+          [styles.menuOpen]: hasMenu && menuOpen,
         })}
         tabIndex={0}
         {...{ href, id, onClick, target, ref }}

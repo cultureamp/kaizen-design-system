@@ -76,6 +76,7 @@ export default class Menu extends React.Component<MenuProps, State> {
                 aria-expanded={this.state.open}
                 data-automation-id={automationId}
                 hasMenu
+                menuOpen={this.state.open}
               />
               {this.state.open && this.renderMenu()}
             </React.Fragment>

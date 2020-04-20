@@ -61,7 +61,7 @@ $link-margin: 18px;
     }
   }
 
-  &:hover {
+  &:hover, &.menuOpen {
     color: #fff; // override hyperlink hover color
     text-decoration: none;
     background-color: rgba($kz-color-white, 0.1);
