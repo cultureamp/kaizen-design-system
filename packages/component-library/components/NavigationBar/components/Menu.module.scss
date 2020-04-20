@@ -45,12 +45,12 @@ $menu__square-size: $ca-grid * 2;
   $menu__arrow-size: $ca-grid / 4;
 
   align-items: center;
-  //position: absolute;
+  position: absolute;
   z-index: $ca-z-index-dropdown;
   background-color: $kz-color-white;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
   border-radius: $kz-border-solid-border-radius;
-  padding: 0;
+  padding: 4px;
   overflow: hidden;
   min-width: 200px;
 
@@ -82,17 +82,14 @@ $menu__square-size: $ca-grid * 2;
 
 .menuItem {
   @include font-body;
+  display: block;
 
   color: $kz-color-wisteria-800;
   border-radius: $kz-border-solid-border-radius;
   //white-space:
 
-  display: flex;
-  width: calc(100% - 8px);
-  height: 42px;
-  align-items: center;
-  padding: 4px;
-  margin: 4px;
+  padding: $ca-grid / 2;
+  text-align: left;
 
   &,
   &:hover {
@@ -107,8 +104,10 @@ $menu__square-size: $ca-grid * 2;
 }
 
 .menuItemBtn {
+  @extend .menuItem;
+
   composes: buttonReset;
-  @extend .menuItem
+  width: 100%;
 }
 
 .menuGroup {
