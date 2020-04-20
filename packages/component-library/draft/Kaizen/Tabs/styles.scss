@@ -11,12 +11,18 @@
 }
 
 .tab {
+  $underline-height: 4px;
+
   @include ca-padding($top: $ca-grid * 0.5, $bottom: $ca-grid * 0.75);
   @include ca-type-ideal-button;
   @include ca-inherit-baseline;
   text-decoration: none;
   color: $kz-color-wisteria-800;
-  border-bottom: 4px solid transparent;
+  // This border will become visible when the .activeTab class is applied
+  border-bottom: $underline-height solid transparent;
+  // This invisible border is to compensate for the bottom border,
+  // as to make sure the content is vertically centered
+  border-top: $underline-height solid transparent;
   cursor: pointer;
 
   &:hover {
