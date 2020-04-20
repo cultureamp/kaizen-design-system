@@ -1,9 +1,15 @@
-@import "~@cultureamp/kaizen-component-library/styles/animation";
-@import "~@cultureamp/kaizen-component-library/styles/border";
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/layers";
-@import "~@cultureamp/kaizen-component-library/styles/layout";
-@import "~@cultureamp/kaizen-component-library/styles/responsive";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/layers";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/responsive";
+@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+
+.defaultModalWidth {
+  min-width: 300px;
+  max-width: 600px;
+}
 
 .backdropLayer {
   @include ca-position($start: 0, $end: 0, $top: 0, $bottom: 0);
@@ -35,10 +41,12 @@
 .genericModal {
   margin: auto;
   background-color: $kz-color-white;
-  border-radius: $ca-border-radius;
+  border-radius: $kz-border-solid-border-radius;
   box-shadow: $ca-box-shadow;
   position: relative;
   width: 90%;
+  -webkit-font-smoothing: antialiased;
+  color: $kz-color-wisteria-800;
 
   @include ca-media-tablet-and-up {
     width: 100%;
@@ -95,8 +103,17 @@
   }
 }
 
+.elmUnscrollable {
+  .scrollLayer {
+    overflow-y: hidden;
+  }
+}
+
 .unscrollable {
   overflow: hidden !important;
+}
+
+.pseudoScrollbar {
   padding-right: 15px !important;
 }
 

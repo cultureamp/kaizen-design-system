@@ -6,8 +6,12 @@ tags: ["Link button", "Primary action", "Secondary action", "Default action", "D
 needToKnow:
 - Buttons perform actions.
 - If it needs to navigate somewhere and can be opened in a new tab, use a link instead.
-demoStoryId: button--default
+demoStoryId: button-react--default-kaizen-site-demo
 ---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -40,24 +44,30 @@ demoStoryId: button--default
 *   Label + icon (icon on the right):
     *   RTL: flip the direction of arrow icons when the user is using a right-to-left language
 *   Disabled buttons:
-    *   Only disable buttons immediately after a user clicks a button to prevent duplicate actions or when removing the disabled button would be conspicuous. For example, if removing the button would mess up the layout, confuse users about its absence, or make it unclear that usually more actions are possible.
-    *   If you need to disable a button, help users (including people using assistive technologies such as screen reader) understand how to enable it again. For example, include nearby microcopy that explains why it is disabled and what action the user can take e.g. “There are no more reports to share. To share more reports, wait for a survey to close.”
-*   Button with tooltip…?
+    *   See the [Interaction states guidelines for disabled elements](/guidelines/interaction-states#disabled-state).
+*   Supplementary information:
+    *   You might show additional, optional information on hover and focus using a [Tooltip](/components/tooltip) or [Popover](/components/popover).
 
-## When to use
+## When to use and when not to use
 
-A button indicates to a user that they can perform an action on this page, such as:
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
-*   Apply an action to an object, e.g. save, delete, add an item, undo, create a new item
-*   Submit a form to send data
-*   Start a new task
-*   Trigger a new element to appear on the page e.g. toggle additional information, open a modal
-*   Trigger the next step in a process
+*   A button indicates to a user that they can perform an action on this page, such as:
+    *   Apply an action to an object, e.g. save, delete, add an item, undo, create a new item
+    *   Submit a form to send data
+    *   Start a new task
+    *   Trigger a new element to appear on the page e.g. toggle additional information, open a modal
+    *   Trigger the next step in a process
 
-## When not to use
+</WhenToUse>
+<WhenNotToUse>
 
-*   Don’t use a button when navigation is involved. Instead, use a [link](/components/links-vs-button).
+*   Don’t use a button when navigation is involved. Instead, use a [link](/guidelines/link-vs-button/).
 *   If the button is used to toggle between 2 states, use a [Toggle Switch](/components/toggle-switch-field) instead.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 

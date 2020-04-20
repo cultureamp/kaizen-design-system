@@ -1,5 +1,4 @@
-import { VerticalProgressStep } from "@cultureamp/kaizen-component-library/draft"
-import { storiesOf } from "@storybook/react"
+import { VerticalProgressStep } from "@kaizen/component-library/draft"
 import * as React from "react"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => (
@@ -15,42 +14,68 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => (
   </div>
 )
 
-storiesOf("VerticalProgressStep", module)
-  .add("current step actionable", () => (
-    <StoryContainer>
-      <VerticalProgressStep.CurrentStep
-        name="Stop!"
-        status="actionable"
-        position="start"
-        onClick={console.log.bind(console)}
-      >
-        <p>Click here to commence the Stop!</p>
-      </VerticalProgressStep.CurrentStep>
-    </StoryContainer>
-  ))
-  .add("current step started", () => (
-    <StoryContainer>
-      <VerticalProgressStep.CurrentStep
-        name="Stop!"
-        status="started"
-        position="start"
-        onClick={console.log.bind(console)}
-      >
-        <p>Stopping...</p>
-      </VerticalProgressStep.CurrentStep>
-    </StoryContainer>
-  ))
-  .add("upcoming step", () => (
-    <StoryContainer>
-      <VerticalProgressStep.UpcomingStep name="Collaborate!" position="middle">
-        <p>Only once you have stopped may you collaborate</p>
-      </VerticalProgressStep.UpcomingStep>
-    </StoryContainer>
-  ))
-  .add("completed step", () => (
-    <StoryContainer>
-      <VerticalProgressStep.CompletedStep name="Listen!" position="end">
-        <p>You have finished listening. Vanilla Ice is proud of you.</p>
-      </VerticalProgressStep.CompletedStep>
-    </StoryContainer>
-  ))
+export default {
+  title: "VerticalProgressStep (React)",
+}
+
+export const CurrentStepActionable = () => (
+  <StoryContainer>
+    <VerticalProgressStep.CurrentStep
+      name="Stop!"
+      status="actionable"
+      position="start"
+      // tslint:disable-next-line: no-console
+      onClick={console.log.bind(console)}
+    >
+      <p>Click here to commence the Stop!</p>
+    </VerticalProgressStep.CurrentStep>
+  </StoryContainer>
+)
+
+CurrentStepActionable.story = {
+  name: "current step actionable",
+}
+
+export const CurrentStepStarted = () => (
+  <StoryContainer>
+    <VerticalProgressStep.CurrentStep
+      name="Stop!"
+      status="started"
+      position="start"
+      // tslint:disable-next-line: no-console
+      onClick={console.log.bind(console)}
+    >
+      <p>Stopping...</p>
+    </VerticalProgressStep.CurrentStep>
+  </StoryContainer>
+)
+
+CurrentStepStarted.story = {
+  name: "current step started",
+}
+
+// tslint:disable-next-line: variable-name
+export const _UpcomingStep = () => (
+  <StoryContainer>
+    <VerticalProgressStep.UpcomingStep name="Collaborate!" position="middle">
+      <p>Only once you have stopped may you collaborate</p>
+    </VerticalProgressStep.UpcomingStep>
+  </StoryContainer>
+)
+
+_UpcomingStep.story = {
+  name: "upcoming step",
+}
+
+// tslint:disable-next-line: variable-name
+export const _CompletedStep = () => (
+  <StoryContainer>
+    <VerticalProgressStep.CompletedStep name="Listen!" position="end">
+      <p>You have finished listening. Vanilla Ice is proud of you.</p>
+    </VerticalProgressStep.CompletedStep>
+  </StoryContainer>
+)
+
+_CompletedStep.story = {
+  name: "completed step",
+}

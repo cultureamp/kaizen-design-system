@@ -1,7 +1,8 @@
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/layout";
-@import "~@cultureamp/kaizen-component-library/styles/responsive";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/responsive";
 
 // override Murmur global styles :(
 .header h1 {
@@ -14,16 +15,13 @@
   max-width: 600px;
 }
 
-.elmModal {
-  min-width: 300px;
-  max-width: 600px;
-}
-
 .header {
   color: $kz-color-white;
   padding: $ca-grid $ca-grid $ca-grid * 1.5;
   text-align: center;
   background-repeat: no-repeat;
+  border-radius: $kz-border-solid-border-radius $kz-border-solid-border-radius 0
+    0;
 }
 
 .positiveHeader {

@@ -5,8 +5,13 @@ summaryParagraph: A select lets you choose options from an option menu. A single
 tags: ["Select", "Select menu", "Select dropdown", "Dropdown", "Select input"]
 needToKnow:
 - Use for 4+ options when you need to conserve space and provide a pre-selected good default. There are single- and multi-select variants.
-demoStoryId: select-elm--single
+demoStoryId: select-elm--single-kaizen-site-demo
+demoStoryHeight: 300px
 ---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -43,8 +48,8 @@ A single-select lets the user choose one option from 4 or more items. A multi-se
         *   Where appropriate you might instead use a label for a group of controls that includes the select.
         *   Where appropriate you might use a good default value that is self-evident, explaining what the options control.
 *   Anatomy:
-    *   Select input: shows the currently selected option
-    *   Select dropdown menu: shows the available options
+    *   Select input: shows the currently selected option.
+    *   Select dropdown menu: shows the available options. It is always shown above other elements, including the edges of modals.
 *   5+ or 10+ options:
     *   If there's more than 10 options, provide another method of accessing the options such as an autocomplete search or using smart defaults by surfacing recommended options.
     *   If there's more than 5 options, consider showing options in alphabetical order or other predictable ordering for easy scanning.
@@ -64,9 +69,14 @@ A single-select lets the user choose one option from 4 or more items. A multi-se
 *   Loading state:
     *   We can lazy load items to be shown in the single-select on search
     *   Shows loading spinner
+*   Disabled state:
+    *   See [Interaction states guidelines for disabled elements](/guidelines/interaction-states#disabled-state).
 *   Keyboard accessibility is tricky in Selects and need regular testing.
 
-## When to use
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 *   Use a single-select when the user needs to choose one option from 4 or more items.
 *   Use a multi-select when the user needs to choose multiple options from 4 or more items.
@@ -74,9 +84,13 @@ A single-select lets the user choose one option from 4 or more items. A multi-se
 *   Consider a select when there is a good default option and show that as pre-selected.
 *   Consider a select when you need to conserve space.
 
-## When not to use
+</WhenToUse>
+<WhenNotToUse>
 
 *   When there's only 2-3 options and enough space, use a [checkbox group](/components/checkbox-group), [radio group](/components/radio), or [toggle switch](/components/toggle-switch-field) instead.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 

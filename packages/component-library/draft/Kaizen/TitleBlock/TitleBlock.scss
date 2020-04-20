@@ -1,22 +1,20 @@
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
-@import "~@cultureamp/kaizen-component-library/styles/border";
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/type";
-@import "~@cultureamp/kaizen-component-library/styles/layers";
-@import "~@cultureamp/kaizen-component-library/styles/layout";
-@import "~@cultureamp/kaizen-component-library/styles/responsive";
-@import "~@cultureamp/kaizen-component-library/styles/animation";
-
-$kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen colour theme and get this from tokens package
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/layers";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/responsive";
+@import "~@kaizen/component-library/styles/animation";
 
 .titleBlockContainer {
+  color: $kz-color-wisteria-800;
   width: 100%;
 }
 
 .titleBlock {
   background-color: #fff;
   border-bottom: 1px solid $ca-border-color;
-  color: $kz-color-wisteria-800;
   width: inherit;
 
   @media print {
@@ -48,7 +46,7 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
   @include ca-type-ideal-small;
   display: flex;
   position: absolute;
-  z-index: $ca-z-index-popover;
+  z-index: $ca-z-index-sticky;
   align-items: center;
   top: $ca-layout-title-block-height / 2;
   transform: translateY(-50%);
@@ -157,17 +155,17 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 }
 
 .title {
-  @include ca-type-ideal-page-title;
+  @include kz-typography-heading-1;
   display: inline-block;
   top: auto;
 
   @include ca-media-tablet {
-    @include ca-type-ideal-title;
+    @include kz-typography-heading-2;
     @include ca-inherit-baseline;
   }
 
   @include ca-media-mobile {
-    @include ca-type-ideal-display;
+    @include kz-typography-heading-3;
     @include ca-inherit-baseline;
   }
 }
@@ -182,6 +180,7 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
   display: inline-block;
   top: auto;
   @include ca-margin($start: $ca-grid);
+  transform: translateY(-1px);
 
   @include ca-media-mobile {
     display: none;
@@ -190,6 +189,9 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 
 .tag {
   margin-left: $ca-grid / 1.5;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
 }
 
 .actionsContainer {
@@ -513,12 +515,12 @@ $kz-color-wisteria-700-copy: #4b4d68; // temporary until we update Kaizen to Zen
 .stickyColorWisteria {
   @include ca-media-tablet-and-up {
     .titleBlock {
-      background-color: $kz-color-wisteria-700-copy;
+      background-color: $kz-color-wisteria-700;
     }
   }
   @include ca-media-mobile {
     .navContainer {
-      background-color: $kz-color-wisteria-700-copy;
+      background-color: $kz-color-wisteria-700;
     }
   }
 }

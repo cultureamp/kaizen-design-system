@@ -7,7 +7,7 @@ import {
   ToggledStatus,
   ToggleSwitch,
   ToggleTheme,
-} from "@cultureamp/kaizen-component-library/draft"
+} from "@kaizen/component-library/draft"
 
 const styles = require("./styles.scss")
 

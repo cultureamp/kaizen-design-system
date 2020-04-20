@@ -1,10 +1,11 @@
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/component-library/styles/layout";
 @import "../../styles/type";
 @import "../../styles/color";
 @import "../../styles/border";
 @import "../../styles/layers";
 @import "../../styles/animation";
-@import "~@cultureamp/kaizen-component-library/styles/layout";
 
 $side-padding: 3/4 * $ca-grid;
 

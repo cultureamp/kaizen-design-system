@@ -6,8 +6,12 @@ tags: ["Zero State", "Empty well", "Starter content", "Educational content"]
 needToKnow:
 - Empty states communicate the current state, allowing users to feel in control of the system, take appropriate actions to reach their goal, and ultimately trust the brand.
 - Without an empty state, people are confused about what to do next.
-demoStoryId: emptystate--default
+demoStoryId: emptystate-react--default-kaizen-site-demo
 ---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -65,16 +69,22 @@ demoStoryId: emptystate--default
         * Neutral empty state - Let people know that nothing is required of them.
         * Negative empty state - See our language guide on errors
 
-## When to use
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 * Use empty states when you don’t have anything else to show. It is the only content on the page. There might be navigation present in addition to the empty state.  
 * You might use a negative empty state for an intentionally negative state where the system is operating correctly and the user has provided accurate information.
 
-## When not to use
+</WhenToUse>
+<WhenNotToUse>
 
 * Don’t use empty states to provide feedback about a change in state or context that the user needs to be notified about during a task.
 * Don’t use empty states when something negative has happened because the system failed or is a direct result of the user providing bad input.
 
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 

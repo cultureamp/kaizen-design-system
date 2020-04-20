@@ -2,7 +2,8 @@
 @import "../../styles/color";
 @import "../../styles/type";
 @import "../../styles/layout";
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 
 $caButton-border-width: 1px;
 $caButton-focus-border-width: 2px;
@@ -38,7 +39,7 @@ $caButton-verticalPaddingForm: calc(
   box-sizing: border-box;
   min-height: $caButton-height;
   border: $caButton-border-width solid;
-  border-radius: $ca-border-radius;
+  border-radius: $kz-border-solid-border-radius;
   // looking for padding? See %caButtonContent
 
   &[href] {
@@ -345,8 +346,6 @@ $caButton-verticalPaddingForm: calc(
   line-height: 1;
 
   &:only-child {
-    margin: 0 $ca-grid / 2;
-
     %caButtonSecondary & {
       margin: 0;
     }

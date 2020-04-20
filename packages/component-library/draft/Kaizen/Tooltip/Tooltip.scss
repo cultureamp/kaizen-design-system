@@ -1,13 +1,14 @@
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
-@import "~@cultureamp/kaizen-component-library/styles/type";
-@import "~@cultureamp/kaizen-component-library/styles/animation";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/animation";
 
 .root {
   opacity: 0;
   left: 50%;
   position: absolute;
   pointer-events: none;
-  border-radius: 3px;
+  border-radius: $kz-border-solid-border-radius;
   transition: opacity $ca-duration-fast, transform $ca-duration-fast;
   padding: $ca-grid / 2 $ca-grid / 2;
   z-index: 2;

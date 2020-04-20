@@ -5,8 +5,12 @@ summaryParagraph: A checkbox field includes a checkable input and its label. Che
 tags: ["Checkbox", "Tick box", "Check item", "Option button", "Choice", "Selection"]
 needToKnow:
 - Lets a user choose to select or unselect a single item. When used in a Checkbox Group, a checkbox lets a user select zero or more items from a set, which are all visible at the same time.
-demoStoryId: checkboxfield--interactive
+demoStoryId: checkboxfield-react--interactive-kaizen-site-demo
 ---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -18,16 +22,23 @@ demoStoryId: checkboxfield--interactive
 
 *   Ensure both label and input are clickable to select the checkbox field. That is, use `label` tags that wrap the `input` element or use a `for` attribute.
 
-## When to use
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 *   For a single opt-in choice: show one checkbox field.
 
-## When not to use
+</WhenToUse>
+<WhenNotToUse>
 
 *   For a few options: show two or more checkbox fields in a [Checkbox Group](/components/checkbox-group).
 *   Don’t use when there is more than 20 options.
 *   When choices are mutually exclusive, use a [radio](/components/radio) instead.
 *   For settings that are immediately applied, consider using a [toggle switch](/components/toggle-switch-field) instead.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 

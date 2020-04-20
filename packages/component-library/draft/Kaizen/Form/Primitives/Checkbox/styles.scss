@@ -1,7 +1,8 @@
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/border";
-@import "~@cultureamp/kaizen-component-library/styles/mixins/forms";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/mixins/forms";
 
 $checkbox-size: 20px;
 $checkbox-border-width: 1px;
@@ -29,7 +30,7 @@ $icon-size: 20px;
   width: $checkbox-size;
   top: 0;
   border: 1px solid $ca-border-color;
-  border-radius: $ca-border-radius;
+  border-radius: $kz-border-solid-border-radius;
   box-sizing: border-box;
   box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.09);
 

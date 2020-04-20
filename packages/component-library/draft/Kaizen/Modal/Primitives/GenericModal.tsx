@@ -3,7 +3,7 @@ import { createPortal } from "react-dom"
 import FocusLock from "react-focus-lock"
 const { CSSTransition } = require("react-transition-group")
 
-import { warn } from "@cultureamp/kaizen-component-library/util/console"
+import { warn } from "@kaizen/component-library/util/console"
 import { ID_DESCRIBEDBY, ID_LABELLEDBY } from "./constants"
 
 const styles = require("./GenericModal.scss")
@@ -11,6 +11,7 @@ const styles = require("./GenericModal.scss")
 interface Props {
   readonly isOpen: boolean
   readonly children: React.ReactNode
+  readonly focusLockDisabled?: boolean
   readonly onEscapeKeyup?: (event: KeyboardEvent) => void
   readonly onOutsideModalClick?: (event: React.MouseEvent) => void
 }
@@ -59,11 +60,18 @@ class GenericModal extends React.Component<Props> {
   }
 
   preventBodyScroll() {
-    document.documentElement.classList.add(styles.unscrollable)
+    const hasScrollbar =
+      window.innerWidth > document.documentElement.clientWidth
+    document.documentElement.classList.add(
+      ...[styles.unscrollable, hasScrollbar && styles.pseudoScrollbar]
+    )
   }
 
   restoreBodyScroll() {
-    document.documentElement.classList.remove(styles.unscrollable)
+    document.documentElement.classList.remove(
+      styles.unscrollable,
+      styles.pseudoScrollbar
+    )
   }
 
   escapeKeyHandler = (event: KeyboardEvent) => {
@@ -103,7 +111,7 @@ class GenericModal extends React.Component<Props> {
   }
 
   render(): React.ReactPortal {
-    const { isOpen, children } = this.props
+    const { isOpen, children, focusLockDisabled = false } = this.props
 
     return createPortal(
       <CSSTransition
@@ -115,7 +123,7 @@ class GenericModal extends React.Component<Props> {
       >
         {/* This is not an unused div. It will receive `animating-` classes from react-transition-group */}
         <div>
-          <FocusLock returnFocus={true}>
+          <FocusLock disabled={focusLockDisabled} returnFocus={true}>
             <div className={styles.backdropLayer} />
             <div
               className={styles.scrollLayer}

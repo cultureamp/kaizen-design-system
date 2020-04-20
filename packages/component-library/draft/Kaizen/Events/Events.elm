@@ -6,7 +6,9 @@ module Kaizen.Events.Events exposing
     , isEnter
     , isEnterAndValueChange
     , isEscape
+    , isShift
     , isSpace
+    , isTab
     , isUpArrow
     , mapAt
     , onBlurAt
@@ -193,6 +195,16 @@ isDownArrow msg =
 isUpArrow : msg -> Decode.Decoder msg
 isUpArrow msg =
     keyCode |> Decode.andThen (isCode UpArrow msg)
+
+
+isShift : msg -> Decode.Decoder msg
+isShift msg =
+    keyCode |> Decode.andThen (isCode Shift msg)
+
+
+isTab : msg -> Decode.Decoder msg
+isTab msg =
+    keyCode |> Decode.andThen (isCode Tab msg)
 
 
 isEnterAndValueChange : String -> (String -> msg) -> msg -> ( Keyboard.KeyCode, String ) -> Decode.Decoder msg

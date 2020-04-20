@@ -176,21 +176,21 @@ view (Config config) value =
 
                 Validation ValidationInformative ->
                     if config.size == Medium then
-                        viewValidationIcon config
+                        viewValidationIcon config informationIconAsset
 
                     else
                         text ""
 
                 Validation ValidationNegative ->
                     if config.size == Medium then
-                        viewValidationIcon config
+                        viewValidationIcon config exclamationIconAsset
 
                     else
                         text ""
 
                 Validation ValidationCautionary ->
                     if config.size == Medium then
-                        viewValidationIcon config
+                        viewValidationIcon config exclamationIconAsset
 
                     else
                         text ""
@@ -285,18 +285,26 @@ viewPositiveValidationIcon : Configuration msg -> Html msg
 viewPositiveValidationIcon config =
     span [ styles.class .validationIcon ]
         [ Icon.view Icon.presentation
-            (svgAsset "@cultureamp/kaizen-component-library/icons/success.icon.svg")
+            (svgAsset "@kaizen/component-library/icons/success.icon.svg")
             |> Html.map never
         ]
 
 
-viewValidationIcon : Configuration msg -> Html msg
-viewValidationIcon config =
+viewValidationIcon : Configuration msg -> Icon.SvgAsset.SvgAsset -> Html msg
+viewValidationIcon config iconAsset =
     span [ styles.class .validationIcon ]
         [ Icon.view Icon.presentation
-            (svgAsset "@cultureamp/kaizen-component-library/icons/exclamation.icon.svg")
+            iconAsset
             |> Html.map never
         ]
+
+
+exclamationIconAsset =
+    svgAsset "@kaizen/component-library/icons/exclamation.icon.svg"
+
+
+informationIconAsset =
+    svgAsset "@kaizen/component-library/icons/information.icon.svg"
 
 
 viewIndicatorIcon : Configuration msg -> Html msg
@@ -327,13 +335,13 @@ viewClear config =
     in
     span ([ styles.class .dismissIcon ] ++ events)
         [ Icon.view (Icon.presentation |> Icon.inheritSize True)
-            (svgAsset "@cultureamp/kaizen-component-library/icons/clear.icon.svg")
+            (svgAsset "@kaizen/component-library/icons/clear.icon.svg")
             |> Html.map never
         ]
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Tag/Tag.scss"
+    css "@kaizen/component-library/draft/Kaizen/Tag/Tag.scss"
         { root = "root"
         , layoutContainer = "layoutContainer"
         , default = "default"

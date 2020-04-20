@@ -1,7 +1,7 @@
-import { Icon } from "@cultureamp/kaizen-component-library"
-const caMonogramIcon = require("@cultureamp/kaizen-component-library/icons/ca-monogram.icon.svg")
+import { Icon } from "@kaizen/component-library"
+const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
   .default
-const spinnerIcon = require("@cultureamp/kaizen-component-library/icons/spinner.icon.svg")
+const spinnerIcon = require("@kaizen/component-library/icons/spinner.icon.svg")
   .default
 import classNames from "classnames"
 import * as React from "react"
@@ -11,10 +11,11 @@ const styles = require("./Badge.module.scss")
 type BadgeProps = {
   loading: boolean
   href: string
+  colorScheme: string
 }
 
 export const ProductionBadge = (props: BadgeProps) => (
-  <div className={styles.badge}>
+  <div className={classNames(styles.badge, styles[props.colorScheme])}>
     <a href={props.href}>
       {props.loading ? (
         <Icon icon={spinnerIcon} title="loading…" />
@@ -33,6 +34,7 @@ export const StagingBadge = (props: BadgeProps) => (
     monogram="staging"
     loading={props.loading}
     href={props.href}
+    colorScheme={props.colorScheme}
   />
 )
 
@@ -44,6 +46,7 @@ export const TestBadge = (props: BadgeProps) => (
     monogram="test"
     loading={props.loading}
     href={props.href}
+    colorScheme={props.colorScheme}
   />
 )
 
@@ -55,6 +58,7 @@ export const LocalBadge = (props: BadgeProps) => (
     monogram="local"
     loading={props.loading}
     href={props.href}
+    colorScheme={props.colorScheme}
   />
 )
 
@@ -66,6 +70,7 @@ export const namedBadge = (environment: string) => (props: BadgeProps) => (
     monogram={environment}
     loading={props.loading}
     href={props.href}
+    colorScheme={props.colorScheme}
   />
 )
 

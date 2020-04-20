@@ -73,7 +73,7 @@ main =
             }
     in
     storybook
-        [ storyOf "Single" config <|
+        [ storyOf "Single (Kaizen Site Demo)" config <|
             \m ->
                 Html.map SelectMsg <|
                     div [ style "width" "300px", style "margin-top" "12px" ]

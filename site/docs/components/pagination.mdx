@@ -8,9 +8,9 @@ needToKnow:
   - This has been designed but not built.
 ---
 
-import DosAndDonts from "docs-components/DosAndDonts"
-import Do from "docs-components/Do"
-import Dont from "docs-components/Dont"
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## To keep in mind
 
@@ -30,8 +30,8 @@ import Dont from "docs-components/Dont"
 
 ## When to use and when not to use
 
-<DosAndDonts>
-<Do>
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 - Use Pagination when people are unlikely to need to see **all** the content.
 - Use Pagination when the first page is enough to make a decision.
@@ -40,16 +40,16 @@ import Dont from "docs-components/Dont"
 - Use Pagination when there's lot of screen real estate.
 - Consider using pagination when a list contains more than 50 items of a single line of text each.
 
-</Do>
-<Dont>
+</WhenToUse>
+<WhenNotToUse>
 
 - Avoid pagination when seeing every item and comparing them at the same time is important to the task.
 - Manual pagination may be less efficient than [Infinite Scroll](/components/infinite-scroll) because it may require additional cognitive load to choose a page number or pagination button.
 - When we want and expect people to read more than 1 page worth of content, pagination may be disruptive to the reading experience. You might consider a "View more" button instead.
 - On small and touch devices, consider using [Infinite Scroll](/components/infinite-scroll) instead to avoid interrupting the flow with the need to tap a button as people scroll.
 
-</Dont>
-</DosAndDonts>
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## Research insights
 

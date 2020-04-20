@@ -113,7 +113,7 @@ const elm: Rule = {
     {
       loader: "elm-webpack-loader",
       options: {
-        debug: true,
+        debug: false,
         cwd: resolve(__dirname, ".."),
         pathToElm: resolve(__dirname, "../node_modules/.bin/elm"),
       },
@@ -122,9 +122,19 @@ const elm: Rule = {
 }
 
 const storybookSource: Rule = {
-  test: /\.stories\.tsx?$/,
-  loaders: [require.resolve("@storybook/source-loader")],
-  enforce: "pre",
+  test: /\.tsx?$/,
+  include: [
+    resolve(__dirname, "../packages/component-library"),
+    resolve(__dirname, "../draft-packages"),
+  ],
+  use: [
+    {
+      loader: require.resolve("react-docgen-typescript-loader"),
+      options: {
+        compilerOptions: { noEmit: false },
+      },
+    },
+  ],
 }
 
 const removeSvgFromTest = (rule: Rule): Rule => {
@@ -140,7 +150,7 @@ const removeSvgFromTest = (rule: Rule): Rule => {
 }
 
 const excludeExternalModules = (rule: Rule): Rule => ({
-  exclude: /node_modules\/(?!(\@cultureamp)).*/,
+  exclude: /node_modules\/(?!(\@kaizen|\@cultureamp)).*/,
   ...rule,
 })
 

@@ -1,49 +1,53 @@
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/type";
-@import "~@cultureamp/kaizen-component-library/styles/border";
-@import "~@cultureamp/kaizen-component-library/styles/layers";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/layers";
 
 $base-border: 1px solid $ca-border-color;
 $focus-border-width: 2px;
 $button-width: 124px;
 
-.root {
-  display: inline-flex;
+@mixin input-icon($color, $reversed) {
+  color: $color;
+
+  .withReversed & {
+    color: $reversed;
+  }
 }
 
-.buttonReset {
-  appearance: none;
-  display: inline;
-  background: transparent;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-.buttonStates {
+@mixin button-mixing(
+  $background,
+  $border-color,
+  $color,
+  $hover-background,
+  $hover-border-color,
+  $active-background,
+  $active-border-color,
+  $disabled-background,
+  $disabled-border-color,
+  $disabled-color
+) {
   &:hover {
     text-decoration: none;
     color: inherit;
   }
 
   &:not(.disabled):not(:disabled) {
-    background: $kz-color-white;
-    border-color: $kz-color-wisteria-200;
-    color: $kz-color-wisteria-800;
+    background: $background;
+    border-color: $border-color;
+    color: $color;
 
     &:hover,
     &:active {
-      background: $kz-color-stone;
-      border-color: $kz-color-wisteria-400;
+      background: $hover-background;
+      border-color: $hover-border-color;
     }
 
     &:active {
-      background: $kz-color-ash;
-      border-color: $kz-color-wisteria-500;
+      background: $active-background;
+      border-color: $active-border-color;
       transform: translateY(1px);
     }
 
@@ -65,15 +69,65 @@ $button-width: 124px;
   // Disabled
   &:disabled,
   &.disabled {
-    background: $kz-color-white;
-    border-color: $kz-color-wisteria-200;
-    color: $kz-color-wisteria-300;
+    background: $disabled-background;
+    border-color: $disabled-border-color;
+    color: $disabled-color;
   }
 }
 
-.button {
+.root {
+  @include ca-type-block(inline-block);
+  height: 40px; // Set a fixed height to avoid expansion when dropdown is displayed
+  position: relative;
+}
+
+.buttonReset {
+  appearance: none;
+  display: inline;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.buttonDefault {
+  @include button-mixing(
+    $background: $kz-color-white,
+    $border-color: $kz-color-wisteria-200,
+    $color: $kz-color-wisteria-800,
+    $hover-background: $kz-color-stone,
+    $hover-border-color: $kz-color-wisteria-400,
+    $active-background: $kz-color-ash,
+    $active-border-color: $kz-color-wisteria-500,
+    $disabled-background: $kz-color-white,
+    $disabled-border-color: $kz-color-wisteria-200,
+    $disabled-color: $kz-color-wisteria-300
+  );
+}
+
+.buttonPrimary {
+  // equal to add-tint($ca-palette-seedling, 10%). Temporary until we upgrade to Zen (Wisteria)
+  @include button-mixing(
+    $background: #58b59a,
+    $border-color: #58b59a,
+    $color: $kz-color-white,
+    $hover-background: $kz-color-seedling-500,
+    $hover-border-color: $kz-color-seedling-500,
+    $active-background: $kz-color-seedling-500,
+    $active-border-color: $kz-color-seedling-500,
+    $disabled-background: $kz-color-white,
+    $disabled-border-color: $kz-color-wisteria-100,
+    $disabled-color: $kz-color-wisteria-300
+  );
+}
+
+.default,
+.primary {
   @include ca-type-ideal-body-bold;
-  composes: buttonStates;
+  top: initial; // override from ca-type-ideal-body-bold -> ca-type-ideal -> ca-type
   text-align: left;
   position: inherit;
   text-decoration: none;
@@ -81,7 +135,8 @@ $button-width: 124px;
   padding: 0.5rem 1rem;
   border: $base-border;
   border-right: 0;
-  border-radius: $ca-border-radius 0 0 $ca-border-radius;
+  border-radius: $kz-border-solid-border-radius 0 0
+    $kz-border-solid-border-radius;
   white-space: nowrap;
   min-width: $button-width;
   display: block;
@@ -90,7 +145,8 @@ $button-width: 124px;
   [dir="rtl"] & {
     border-right: $base-border;
     border-left: 0;
-    border-radius: 0 $ca-border-radius $ca-border-radius 0;
+    border-radius: 0 $kz-border-solid-border-radius
+      $kz-border-solid-border-radius 0;
     text-align: right;
   }
 
@@ -127,9 +183,17 @@ $button-width: 124px;
   }
 }
 
+.default {
+  composes: buttonDefault;
+}
+
+.primary {
+  composes: buttonPrimary;
+}
+
 .buttonFullBorder {
   border-right: $base-border;
-  border-radius: $ca-border-radius;
+  border-radius: $kz-border-solid-border-radius;
   min-width: 0;
 
   [dir="rtl"] & {
@@ -138,12 +202,17 @@ $button-width: 124px;
   }
 }
 
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+}
+
 .dropdown {
   position: relative;
 }
 
-.dropdownButton {
-  composes: buttonReset buttonStates;
+.dropdownButtonDefault,
+.dropdownButtonPrimary {
   cursor: pointer;
   display: flex;
   height: 100%;
@@ -152,10 +221,29 @@ $button-width: 124px;
   justify-content: center;
   padding: 0 0.75rem;
   border: $base-border;
-  border-radius: 0 $ca-border-radius $ca-border-radius 0;
+  border-radius: 0 $kz-border-solid-border-radius $kz-border-solid-border-radius
+    0;
 
   [dir="rtl"] & {
-    border-radius: $ca-border-radius 0 0 $ca-border-radius;
+    border-radius: $kz-border-solid-border-radius 0 0
+      $kz-border-solid-border-radius;
+  }
+}
+
+.dropdownButtonDefault {
+  composes: buttonReset buttonDefault;
+}
+
+.dropdownButtonPrimary {
+  composes: buttonReset buttonPrimary;
+
+  // Making the left | right border white to separate the button with dropdown button
+  border-left-color: $kz-color-white !important;
+
+  [dir="rtl"] & {
+    // equal to add-tint($ca-palette-seedling, 10%). Temporary until we upgrade to Zen (Wisteria)
+    border-left-color: #58b59a !important;
+    border-right-color: $kz-color-white !important;
   }
 }
 
@@ -167,7 +255,7 @@ $button-width: 124px;
 }
 
 .menuContainer {
-  position: absolute;
-  width: calc(#{$button-width} + 100%);
   z-index: $ca-z-index-dropdown;
+  width: 100%;
+  position: absolute;
 }

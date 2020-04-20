@@ -5,8 +5,12 @@ summaryParagraph: A radio includes a radio input and its label. Radios are used 
 tags: ["Radio button", "Radio group", "Option button", "Choice", "Selection", "Disc", "Radio input"]
 needToKnow:
 - Radios are only used in radio groups to let people select exactly one option from a set.
-demoStoryId: radio--interactive
+demoStoryId: radio-react--interactive-kaizen-site-demo
 ---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -24,14 +28,22 @@ There must always be more than one radio used together in a [radio group](/compo
 
 *   Ensure both label and input are clickable to select the radio. That is, use `label` tags that wrap the `input` element or use a `for` attribute.
 
-## When to use
+## When to use and when not to use
 
-*   Use radios when a radio group needs items.
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
-## When not to use
+*   Only use radios inside a radio group.
+
+</WhenToUse>
+<WhenNotToUse>
 
 *   When there’s limited space, consider using a select dropdown instead.
 *   For settings that are immediately applied, consider using a [toggle switch](/components/toggle-switch-field) instead.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
+
 
 ## See also
 

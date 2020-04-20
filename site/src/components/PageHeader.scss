@@ -1,7 +1,7 @@
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
-@import "~@cultureamp/kaizen-component-library/styles/type";
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/responsive";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/responsive";
 
 .pageHeader {
   display: grid;
@@ -51,17 +51,18 @@
   align-items: center;
   position: relative;
 
-  img {
-    position: absolute;
-  }
-
   @include ca-media-mobile() {
     display: none;
   }
 }
 
-.imageBackdrop {
+.imageBackdrop,
+.headerImage {
   position: absolute;
+}
+
+.headerImage {
+  max-width: 200px;
 }
 
 .tagsContainer {
@@ -90,16 +91,18 @@
   }
 }
 
-.headingText {
-  font-size: 3.75rem;
-  line-height: 1.4;
-  font-weight: 400;
+.headingTextContainer {
   margin-bottom: $ca-grid * 2;
   margin-top: calc(-0.5 * 0.5em); // hack to make text flush with adjacent image
 
   .headingOnly & {
     text-align: center;
   }
+}
+
+.headingTextOverrides.headingTextOverrides {
+  // the double class name is to get higher specificity. This is until we find a better way to specify colour overrides of the Text component. Without this, the css file load order becomes important, but it is non deterministic or unpredictable (is different in development and production)
+  color: $kz-color-white;
 }
 
 .summaryParagraph {

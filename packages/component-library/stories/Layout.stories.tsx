@@ -1,4 +1,3 @@
-import { storiesOf } from "@storybook/react"
 import * as React from "react"
 
 import {
@@ -10,15 +9,20 @@ import {
   NavigationBar,
   Text,
   ToastNotification,
-} from "@cultureamp/kaizen-component-library"
-const academyIcon = require("@cultureamp/kaizen-component-library/icons/academy.icon.svg")
+} from "@kaizen/component-library"
+const academyIcon = require("@kaizen/component-library/icons/academy.icon.svg")
   .default
-const caMonogramIcon = require("@cultureamp/kaizen-component-library/icons/ca-monogram.icon.svg")
+const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
   .default
-const supportIcon = require("@cultureamp/kaizen-component-library/icons/support.icon.svg")
+const supportIcon = require("@kaizen/component-library/icons/support.icon.svg")
   .default
+import { TitleBlock } from "@kaizen/component-library/draft"
 
-storiesOf("Layout", module).add("Default", () => (
+export default {
+  title: "Layout (React)",
+}
+
+export const Default = () => (
   <div
     style={{
       flexGrow: 1,
@@ -127,4 +131,79 @@ storiesOf("Layout", module).add("Default", () => (
       </div>
     </Layout>
   </div>
-))
+)
+
+export const WithTitleBlock = () => (
+  <div
+    style={{
+      flexGrow: 1,
+    }}
+  >
+    <Layout>
+      <Layout.NavigationBar>
+        <NavigationBar>
+          <Link text="Home" href="/" active />
+          <Link text="Surveys" href="/" />
+          <Link
+            icon={supportIcon}
+            text="Support"
+            href="http://academy.cultureamp.com/"
+            secondary
+          />
+          <Link
+            icon={academyIcon}
+            text="Academy"
+            href="http://academy.cultureamp.com/"
+            secondary
+          />
+          <Menu
+            heading="Custom menu..."
+            items={[
+              {
+                label: "About Culture Amp",
+                url: "https://www.cultureamp.com/",
+              },
+              {
+                label: "Contribute to this guide",
+                url:
+                  "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
+              },
+            ]}
+          >
+            <div
+              style={{
+                backgroundColor: "#ffffff",
+                borderRadius: "3px",
+                color: "#F8A6AE",
+              }}
+            >
+              <Icon
+                icon={caMonogramIcon}
+                title="Culture Amp Logo"
+                inheritSize
+              />
+            </div>
+          </Menu>
+        </NavigationBar>
+      </Layout.NavigationBar>
+      <Layout.Footer>
+        <div style={{ textAlign: "center", padding: "1.5rem 0" }}>
+          <Text tag="p" style="small">
+            © Culture Amp 2019
+          </Text>
+        </div>
+      </Layout.Footer>
+      <div style={{ height: "1000rem", paddingTop: "3rem" }}>
+        <TitleBlock
+          title="Home"
+          subtitle="Subtitle goes here"
+          breadcrumb={{ path: "#", text: "Back to reports" }}
+        />
+      </div>
+    </Layout>
+  </div>
+)
+
+WithTitleBlock.story = {
+  name: "With TitleBlock",
+}

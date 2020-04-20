@@ -70,27 +70,27 @@ defaults =
 
 actionIllustrationUrl : WebpackAsset.AssetUrl
 actionIllustrationUrl =
-    assetUrl "@cultureamp/kaizen-component-library/draft/Kaizen/EmptyState/illustrations/action.png"
+    assetUrl "@kaizen/component-library/draft/Kaizen/EmptyState/illustrations/action.png"
 
 
 informativeIllustrationUrl : WebpackAsset.AssetUrl
 informativeIllustrationUrl =
-    assetUrl "@cultureamp/kaizen-component-library/draft/Kaizen/EmptyState/illustrations/informative.png"
+    assetUrl "@kaizen/component-library/draft/Kaizen/EmptyState/illustrations/informative.png"
 
 
 negativeIllustrationUrl : WebpackAsset.AssetUrl
 negativeIllustrationUrl =
-    assetUrl "@cultureamp/kaizen-component-library/draft/Kaizen/EmptyState/illustrations/negative.png"
+    assetUrl "@kaizen/component-library/draft/Kaizen/EmptyState/illustrations/negative.png"
 
 
 neutralIllustrationUrl : WebpackAsset.AssetUrl
 neutralIllustrationUrl =
-    assetUrl "@cultureamp/kaizen-component-library/draft/Kaizen/EmptyState/illustrations/neutral.png"
+    assetUrl "@kaizen/component-library/draft/Kaizen/EmptyState/illustrations/neutral.png"
 
 
 positiveIllustrationUrl : WebpackAsset.AssetUrl
 positiveIllustrationUrl =
-    assetUrl "@cultureamp/kaizen-component-library/draft/Kaizen/EmptyState/illustrations/positive.png"
+    assetUrl "@kaizen/component-library/draft/Kaizen/EmptyState/illustrations/positive.png"
 
 
 
@@ -198,6 +198,7 @@ view (Config config) =
                     [ ( .container, True )
                     , ( .sidebarAndContent, config.layoutContext == SidebarAndContent )
                     , ( .contentOnly, config.layoutContext == ContentOnly )
+                    , ( .zen, True )
                     ]
                ]
         )
@@ -216,12 +217,13 @@ view (Config config) =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/EmptyState/styles.scss"
+    css "@kaizen/component-library/draft/Kaizen/EmptyState/styles.scss"
         { container = "container"
         , illustrationSide = "illustrationSide"
         , textSide = "textSide"
         , illustration = "illustration"
         , textSideInner = "textSideInner"
+        , zen = "zen"
         , heading = "heading"
         , description = "description"
         , sidebarAndContent = "sidebarAndContent"

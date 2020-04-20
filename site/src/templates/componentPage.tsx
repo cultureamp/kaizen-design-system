@@ -45,12 +45,18 @@ export default ({ data, pageContext, location }) => {
 
   const renderStorybookIFrame = () => {
     if (!md.frontmatter.demoStoryId) {
-      console.error(
-        "Could not find a demo story ID. Please make sure there is a frontmatter field called demoStoryId in the component docs. The ID comes from the Storybook URL for a given story."
+      // tslint:disable-next-line: no-console
+      console.warn(
+        `Could not find a demo story ID for "${md.frontmatter.title}". Please make sure there is a frontmatter field called demoStoryId in the component docs. The ID comes from the Storybook URL for a given story.`
       )
       return undefined
     }
-    return <StorybookDemo demoId={md.frontmatter.demoStoryId} />
+    return (
+      <StorybookDemo
+        demoId={md.frontmatter.demoStoryId}
+        demoHeight={md.frontmatter.demoStoryHeight}
+      />
+    )
   }
 
   const ComponentPageHeader = (
@@ -58,6 +64,7 @@ export default ({ data, pageContext, location }) => {
       headingText={md.frontmatter.title}
       summaryParagraph={md.frontmatter.summaryParagraph}
       tags={md.frontmatter.tags}
+      headerImageName={md.frontmatter.headerImage}
     />
   )
 
@@ -77,7 +84,7 @@ export default ({ data, pageContext, location }) => {
         </Sidebar>
         <Content>
           <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
-          {renderStorybookIFrame()}
+          {md.frontmatter.title !== "Overview" && renderStorybookIFrame()}
           <ContentMarkdownSection>
             <h1>{md.frontmatter.navTitle}</h1>
             {/*
@@ -92,7 +99,7 @@ export default ({ data, pageContext, location }) => {
 
 export const query = graphql`
   query($slug: String!) {
-    allMdx(filter: { fields: { slug: { regex: "/^/components/" } } }) {
+    allMdx(filter: { fields: { slug: { regex: "/^/components//" } } }) {
       edges {
         node {
           fields {
@@ -112,7 +119,9 @@ export const query = graphql`
         tags
         needToKnow
         summaryParagraph
+        headerImage
         demoStoryId
+        demoStoryHeight
       }
     }
   }

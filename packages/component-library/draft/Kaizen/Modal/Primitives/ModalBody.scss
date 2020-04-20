@@ -1,9 +1,12 @@
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
-@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 .modalBody {
-  padding: $ca-grid $ca-grid $ca-grid $ca-grid;
   overflow-x: hidden;
+}
+
+.padded {
+  padding: $ca-grid $ca-grid $ca-grid $ca-grid;
 }
 
 .modalBody.scrollable {

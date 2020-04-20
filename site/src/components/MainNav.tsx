@@ -1,7 +1,4 @@
-import {
-  Link as NavLink,
-  NavigationBar,
-} from "@cultureamp/kaizen-component-library"
+import { Link as NavLink, NavigationBar } from "@kaizen/component-library"
 import { withPrefix } from "gatsby"
 import * as React from "react"
 
@@ -24,6 +21,11 @@ const MainNav: React.SFC<MainNavProps> = ({ currentPath = "" }) => {
         text="Guidelines"
         href={withPrefix("/guidelines/overview")}
         active={currentPathStartsWith("/guidelines")}
+      />
+      <NavLink
+        text="Language"
+        href={withPrefix("/language/overview")}
+        active={currentPathStartsWith("/language")}
       />
       <NavLink
         text="Components"

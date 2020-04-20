@@ -3,6 +3,1316 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@6.0.0...@kaizen/component-library@6.1.0) (2020-04-17)
+
+
+### Features
+
+* Uplift Table for accessibility roles and custom attributes ([#386](https://github.com/cultureamp/kaizen-design-system/issues/386)) ([365e7f0](https://github.com/cultureamp/kaizen-design-system/commit/365e7f0a8429bc8553bdae38105790bddc65197b))
+
+
+
+
+
+# [6.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.7.1...@kaizen/component-library@6.0.0) (2020-04-17)
+
+
+### Features
+
+* added new badge type to NavigationBar ([#393](https://github.com/cultureamp/kaizen-design-system/issues/393)) ([6817bf6](https://github.com/cultureamp/kaizen-design-system/commit/6817bf6192c21dbcbd38744c0863c1fe2e50259e))
+
+
+### BREAKING CHANGES
+
+* NavigationBar.Link component deprecates `notificationText` prop in favour of `badge` prop to allow for new types.
+
+* fix: merge conflict issue
+
+
+
+
+
+## [5.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.7.0...@kaizen/component-library@5.7.1) (2020-04-17)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [5.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.6.1...@kaizen/component-library@5.7.0) (2020-04-17)
+
+
+### Features
+
+* allow grouping of list items in navigation menu ([#385](https://github.com/cultureamp/kaizen-design-system/issues/385)) ([65fa8e9](https://github.com/cultureamp/kaizen-design-system/commit/65fa8e925d4d1d63f1769770c6b9d0aaba6f480f))
+
+
+
+
+
+## [5.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.6.0...@kaizen/component-library@5.6.1) (2020-04-16)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [5.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.5.0...@kaizen/component-library@5.6.0) (2020-04-15)
+
+
+### Features
+
+* Publish the draft well component ([#369](https://github.com/cultureamp/kaizen-design-system/issues/369)) ([517ed88](https://github.com/cultureamp/kaizen-design-system/commit/517ed8836719652bf18a8c1d8776092da598dc1c))
+
+
+
+
+
+# [5.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.4.5...@kaizen/component-library@5.5.0) (2020-04-15)
+
+
+### Features
+
+* Use the new border radius token ([#378](https://github.com/cultureamp/kaizen-design-system/issues/378)) ([4918bc6](https://github.com/cultureamp/kaizen-design-system/commit/4918bc66bd5f0b7b52f0eb78611a3b612ccf3241))
+
+
+
+
+
+## [5.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.4.4...@kaizen/component-library@5.4.5) (2020-04-14)
+
+
+### Bug Fixes
+
+* title block breadcrumb z index ([#355](https://github.com/cultureamp/kaizen-design-system/issues/355)) ([20b1869](https://github.com/cultureamp/kaizen-design-system/commit/20b186913bcc19e6310894a7cb16411386df1c31))
+
+
+
+
+
+## [5.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.4.3...@kaizen/component-library@5.4.4) (2020-04-09)
+
+
+### Bug Fixes
+
+* Export Paragraph and Heading from components folder ([#381](https://github.com/cultureamp/kaizen-design-system/issues/381)) ([800ef7d](https://github.com/cultureamp/kaizen-design-system/commit/800ef7df6a201166486402c58b27201eccb4fb2c))
+
+
+
+
+
+## [5.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.4.2...@kaizen/component-library@5.4.3) (2020-04-08)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [5.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.4.1...@kaizen/component-library@5.4.2) (2020-04-07)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [5.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.4.0...@kaizen/component-library@5.4.1) (2020-04-07)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [5.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.3.3...@kaizen/component-library@5.4.0) (2020-04-06)
+
+
+### Features
+
+* Create TextArea & TextAreaField components ([#368](https://github.com/cultureamp/kaizen-design-system/issues/368)) ([cbef1d5](https://github.com/cultureamp/kaizen-design-system/commit/cbef1d56c0070dd01162ccf10fb1514be8907044))
+
+
+
+
+
+## [5.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.3.2...@kaizen/component-library@5.3.3) (2020-04-06)
+
+
+### Bug Fixes
+
+* informative tag icon ([#356](https://github.com/cultureamp/kaizen-design-system/issues/356)) ([89259d6](https://github.com/cultureamp/kaizen-design-system/commit/89259d688bd4865cd3212b77b8bfebd89f3fe4d5))
+
+
+
+
+
+## [5.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.3.1...@kaizen/component-library@5.3.2) (2020-04-05)
+
+
+### Bug Fixes
+
+* Adjust active link color for content colorscheme ([#370](https://github.com/cultureamp/kaizen-design-system/issues/370)) ([1ba9794](https://github.com/cultureamp/kaizen-design-system/commit/1ba97949889cc87064c917cadf9362af083e0cdc))
+
+
+
+
+
+## [5.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.3.0...@kaizen/component-library@5.3.1) (2020-04-03)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [5.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.2.0...@kaizen/component-library@5.3.0) (2020-04-03)
+
+
+### Features
+
+* Add color support to Paragraph component ([#367](https://github.com/cultureamp/kaizen-design-system/issues/367)) ([47d5e05](https://github.com/cultureamp/kaizen-design-system/commit/47d5e056d0d58b85a89e4db29426435e00760986))
+
+
+
+
+
+# [5.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.1.0...@kaizen/component-library@5.2.0) (2020-04-01)
+
+
+### Features
+
+* Update content colorscheme for NavigationBar component ([#364](https://github.com/cultureamp/kaizen-design-system/issues/364)) ([1d8b99e](https://github.com/cultureamp/kaizen-design-system/commit/1d8b99e5b12ab0751c1e0d5bb8ffa25c45359bb0))
+
+
+
+
+
+# [5.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.0.0...@kaizen/component-library@5.1.0) (2020-04-01)
+
+
+### Features
+
+* Add color to Heading ([#343](https://github.com/cultureamp/kaizen-design-system/issues/343)) ([7f152c7](https://github.com/cultureamp/kaizen-design-system/commit/7f152c7096fa09ea2bc23e96f11aceb7fbd1c1cf))
+
+
+
+
+
+# [5.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@4.3.0...@kaizen/component-library@5.0.0) (2020-04-01)
+
+
+### Bug Fixes
+
+* Focus lock fix when confirm button disabled ([#358](https://github.com/cultureamp/kaizen-design-system/issues/358)) ([86abe9a](https://github.com/cultureamp/kaizen-design-system/commit/86abe9a2f332a1445c539ebf1be5e6147a530885))
+
+
+### BREAKING CHANGES
+
+* Some exposed functions in Modal.Presets.Confrimation
+have been renamed.
+
+The LastFocusableElement may be disabled and therefore not focusable, in
+this case we attempt to fall back to the FirstFocusableElement.
+
+This is specifically for when the modal opens and during focus-lock.
+
+Allow for disabled buttons to not receive ids
+
+the confirm button when disabled will not be given an ID.
+
+This is because Modal tries to focus it when it is a
+LastFocusableElement. The Browser.focus result returns as Ok because it finds
+the element but in reality it was not focused.
+
+The confirmation modal by default sets the confirm button as the 'last
+focusable element'. This is important for the focus lock implementation.
+
+The confirm button can be set as disabled and in this case the button
+will no longer receive focus and therefore not technically be the last
+focusable element.
+
+In this case we want to promote the footer dismiss button to be the last
+focusable element whilst confirm is disabled and inverse once the
+confirm is not disabled.
+
+
+
+
+
+# [4.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@4.2.3...@kaizen/component-library@4.3.0) (2020-03-31)
+
+
+### Features
+
+* added prop to allow disabling of focus lock ([#360](https://github.com/cultureamp/kaizen-design-system/issues/360)) ([5600b3a](https://github.com/cultureamp/kaizen-design-system/commit/5600b3aa805ad7737eee1228c5927ec0fafa94c0))
+
+
+
+
+
+## [4.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@4.2.2...@kaizen/component-library@4.2.3) (2020-03-30)
+
+
+### Bug Fixes
+
+* allow version 5.x of focus-visible ([#353](https://github.com/cultureamp/kaizen-design-system/issues/353)) ([ba478eb](https://github.com/cultureamp/kaizen-design-system/commit/ba478eb9500882b8cdbb41d69fde26765004feb6))
+
+
+
+
+
+## [4.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@4.2.1...@kaizen/component-library@4.2.2) (2020-03-30)
+
+
+### Bug Fixes
+
+* Use a fork of motion-ui to remove jQuery peer dependency ([#351](https://github.com/cultureamp/kaizen-design-system/issues/351)) ([314e3b7](https://github.com/cultureamp/kaizen-design-system/commit/314e3b747062edebe9885d0d7f70d7a48eeb49ea))
+
+
+
+
+
+## [4.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@4.2.0...@kaizen/component-library@4.2.1) (2020-03-27)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [4.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@4.1.1...@kaizen/component-library@4.2.0) (2020-03-27)
+
+
+### Features
+
+* Add header images to docs pages ([#259](https://github.com/cultureamp/kaizen-design-system/issues/259)) ([65b0e5e](https://github.com/cultureamp/kaizen-design-system/commit/65b0e5e748a34ce50284f079a570fd97124df022))
+
+
+
+
+
+## [4.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@4.1.0...@kaizen/component-library@4.1.1) (2020-03-26)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [4.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@4.0.0...@kaizen/component-library@4.1.0) (2020-03-26)
+
+
+### Features
+
+* Adding Box component for React ([#345](https://github.com/cultureamp/kaizen-design-system/issues/345)) ([7a7b0f4](https://github.com/cultureamp/kaizen-design-system/commit/7a7b0f4390650f6abe9e3405aa7c09135a079b01))
+
+
+
+
+
+# [4.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.6...@kaizen/component-library@4.0.0) (2020-03-25)
+
+
+### Features
+
+* add disabled confirmButton feature to elm modal ([#352](https://github.com/cultureamp/kaizen-design-system/issues/352)) ([32b2100](https://github.com/cultureamp/kaizen-design-system/commit/32b2100c036db3fd020df8a22ea22ec492a06737))
+
+
+### BREAKING CHANGES
+
+* everywhere the modal is used will need to now have the 'onConfirmDisabled' in the config
+
+
+
+
+
+## [3.18.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.5...@kaizen/component-library@3.18.6) (2020-03-24)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [3.18.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.4...@kaizen/component-library@3.18.5) (2020-03-19)
+
+
+### Bug Fixes
+
+* Add padding in dropdown ([#339](https://github.com/cultureamp/kaizen-design-system/issues/339)) ([6661163](https://github.com/cultureamp/kaizen-design-system/commit/6661163d42d32221dc14856044b8c349ac7e2d0d))
+
+
+
+
+
+## [3.18.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.3...@kaizen/component-library@3.18.4) (2020-03-19)
+
+
+### Bug Fixes
+
+* unrevert "Remove text margin in the button"" ([#342](https://github.com/cultureamp/kaizen-design-system/issues/342)) ([4a58cd2](https://github.com/cultureamp/kaizen-design-system/commit/4a58cd2bd8f4a48e90406fbf9a9f990b0185b129)), closes [#340](https://github.com/cultureamp/kaizen-design-system/issues/340)
+
+
+
+
+
+## [3.18.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.2...@kaizen/component-library@3.18.3) (2020-03-19)
+
+
+### Bug Fixes
+
+* revert "Remove text margin in the button" ([#340](https://github.com/cultureamp/kaizen-design-system/issues/340)) ([ff904d4](https://github.com/cultureamp/kaizen-design-system/commit/ff904d47df0113ffbbedc3e33bccd5e8caaf154f)), closes [#338](https://github.com/cultureamp/kaizen-design-system/issues/338)
+
+
+
+
+
+## [3.18.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.1...@kaizen/component-library@3.18.2) (2020-03-19)
+
+
+### Bug Fixes
+
+* Remove text margin in the button ([#338](https://github.com/cultureamp/kaizen-design-system/issues/338)) ([6ae61f5](https://github.com/cultureamp/kaizen-design-system/commit/6ae61f53e0cbf1a47c00d7f170acef6059825822))
+
+
+
+
+
+## [3.18.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.18.0...@kaizen/component-library@3.18.1) (2020-03-18)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [3.18.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.17.1...@kaizen/component-library@3.18.0) (2020-03-18)
+
+
+### Features
+
+* Add InputEditModal variant for Elm Modal ([#325](https://github.com/cultureamp/kaizen-design-system/issues/325)) ([5bc7e79](https://github.com/cultureamp/kaizen-design-system/commit/5bc7e795032f8c87aad476abfaf6b6e8519139cd))
+
+
+
+
+
+## [3.17.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.17.0...@kaizen/component-library@3.17.1) (2020-03-16)
+
+
+### Bug Fixes
+
+* remove top and bottom padding on the icon to make the block shorter ([#322](https://github.com/cultureamp/kaizen-design-system/issues/322)) ([e78fbe3](https://github.com/cultureamp/kaizen-design-system/commit/e78fbe3744fa941bf31ef412e06bf214021130cf))
+
+
+
+
+
+# [3.17.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.16.0...@kaizen/component-library@3.17.0) (2020-03-13)
+
+
+### Features
+
+* Paragraph component for React ([#318](https://github.com/cultureamp/kaizen-design-system/issues/318)) ([9e67a26](https://github.com/cultureamp/kaizen-design-system/commit/9e67a26))
+
+
+
+
+
+# [3.16.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.15.0...@kaizen/component-library@3.16.0) (2020-03-12)
+
+
+### Features
+
+* Paragraph component for Elm ([#320](https://github.com/cultureamp/kaizen-design-system/issues/320)) ([900d336](https://github.com/cultureamp/kaizen-design-system/commit/900d336))
+
+
+
+
+
+# [3.15.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.14.1...@kaizen/component-library@3.15.0) (2020-03-11)
+
+
+### Features
+
+* Added Heading component for Elm ([#312](https://github.com/cultureamp/kaizen-design-system/issues/312)) ([67a999f](https://github.com/cultureamp/kaizen-design-system/commit/67a999f))
+
+
+
+
+
+## [3.14.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.14.0...@kaizen/component-library@3.14.1) (2020-03-11)
+
+
+### Bug Fixes
+
+* Fix Title Block color bug ([#319](https://github.com/cultureamp/kaizen-design-system/issues/319)) ([2089ba9](https://github.com/cultureamp/kaizen-design-system/commit/2089ba9))
+
+
+
+
+
+# [3.14.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.13.0...@kaizen/component-library@3.14.0) (2020-03-10)
+
+
+### Features
+
+* Uplift Modal typography ([#315](https://github.com/cultureamp/kaizen-design-system/issues/315)) ([c95b556](https://github.com/cultureamp/kaizen-design-system/commit/c95b556))
+
+
+
+
+
+# [3.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.12.0...@kaizen/component-library@3.13.0) (2020-03-08)
+
+
+### Features
+
+* Added heading component ([#287](https://github.com/cultureamp/kaizen-design-system/issues/287)) ([b0a680e](https://github.com/cultureamp/kaizen-design-system/commit/b0a680e))
+
+
+
+
+
+# [3.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.11.1...@kaizen/component-library@3.12.0) (2020-03-05)
+
+
+### Features
+
+* add elm toggleswitch component ([#314](https://github.com/cultureamp/kaizen-design-system/issues/314)) ([b74ea5f](https://github.com/cultureamp/kaizen-design-system/commit/b74ea5f))
+
+
+
+
+
+## [3.11.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.11.0...@kaizen/component-library@3.11.1) (2020-03-05)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [3.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.10.0...@kaizen/component-library@3.11.0) (2020-03-05)
+
+
+### Features
+
+* Add Guidance Block draft component ([#280](https://github.com/cultureamp/kaizen-design-system/issues/280)) ([606a610](https://github.com/cultureamp/kaizen-design-system/commit/606a610))
+
+
+
+
+
+# [3.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.9.0...@kaizen/component-library@3.10.0) (2020-03-03)
+
+
+### Features
+
+* use zen css styling for Elm Empty State by default ([#311](https://github.com/cultureamp/kaizen-design-system/issues/311)) ([d51d0e4](https://github.com/cultureamp/kaizen-design-system/commit/d51d0e4))
+
+
+
+
+
+# [3.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.8.0...@kaizen/component-library@3.9.0) (2020-03-03)
+
+
+### Features
+
+* Uplift Empty State with Greycliff headings ([#302](https://github.com/cultureamp/kaizen-design-system/issues/302)) ([e8fa948](https://github.com/cultureamp/kaizen-design-system/commit/e8fa948))
+
+
+
+
+
+# [3.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.7.0...@kaizen/component-library@3.8.0) (2020-03-02)
+
+
+### Features
+
+* Uplift Title Block heading to Greycliff ([#298](https://github.com/cultureamp/kaizen-design-system/issues/298)) ([8bada1d](https://github.com/cultureamp/kaizen-design-system/commit/8bada1d))
+
+
+
+
+
+# [3.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.6.3...@kaizen/component-library@3.7.0) (2020-02-28)
+
+
+### Features
+
+* Add cautionary modal variant ([#310](https://github.com/cultureamp/kaizen-design-system/issues/310)) ([455da70](https://github.com/cultureamp/kaizen-design-system/commit/455da70))
+
+
+
+
+
+## [3.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.6.2...@kaizen/component-library@3.6.3) (2020-02-27)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [3.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.6.1...@kaizen/component-library@3.6.2) (2020-02-26)
+
+
+### Bug Fixes
+
+* Added @kaizen/hosted-assets as a dependency of component library ([#306](https://github.com/cultureamp/kaizen-design-system/issues/306)) ([3332f78](https://github.com/cultureamp/kaizen-design-system/commit/3332f78))
+
+
+
+
+
+## [3.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.6.0...@kaizen/component-library@3.6.1) (2020-02-26)
+
+
+### Bug Fixes
+
+* Bump design-tokens peer dependency ([#305](https://github.com/cultureamp/kaizen-design-system/issues/305)) ([6f5092a](https://github.com/cultureamp/kaizen-design-system/commit/6f5092a))
+
+
+
+
+
+# [3.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.5.1...@kaizen/component-library@3.6.0) (2020-02-25)
+
+
+### Features
+
+* apply focus lock on modal ([#295](https://github.com/cultureamp/kaizen-design-system/issues/295)) ([2d71ea1](https://github.com/cultureamp/kaizen-design-system/commit/2d71ea1))
+
+
+
+
+
+## [3.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.5.0...@kaizen/component-library@3.5.1) (2020-02-25)
+
+
+### Bug Fixes
+
+* Use correct import path for hosted-assets sass file in fonts ([#303](https://github.com/cultureamp/kaizen-design-system/issues/303)) ([0bb3378](https://github.com/cultureamp/kaizen-design-system/commit/0bb3378))
+
+
+
+
+
+# [3.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.4.4...@kaizen/component-library@3.5.0) (2020-02-24)
+
+
+### Features
+
+* Add prevent default on keydown to Button ([#301](https://github.com/cultureamp/kaizen-design-system/issues/301)) ([902f43b](https://github.com/cultureamp/kaizen-design-system/commit/902f43b))
+
+
+
+
+
+## [3.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.4.3...@kaizen/component-library@3.4.4) (2020-02-24)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [3.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.4.2...@kaizen/component-library@3.4.3) (2020-02-24)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [3.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.4.1...@kaizen/component-library@3.4.2) (2020-02-21)
+
+
+### Bug Fixes
+
+* fix an scss import statement in Text.module.scss ([#299](https://github.com/cultureamp/kaizen-design-system/issues/299)) ([b3b11f2](https://github.com/cultureamp/kaizen-design-system/commit/b3b11f2))
+
+
+
+
+
+## [3.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.4.0...@kaizen/component-library@3.4.1) (2020-02-21)
+
+
+### Bug Fixes
+
+* add @kaizen/deprecated-component-library-helpers depency to packages/component-library ([#297](https://github.com/cultureamp/kaizen-design-system/issues/297)) ([97b4428](https://github.com/cultureamp/kaizen-design-system/commit/97b4428))
+
+
+
+
+
+# [3.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.3.1...@kaizen/component-library@3.4.0) (2020-02-20)
+
+
+### Features
+
+* Add Zen headings and hero data styles to Text component ([#296](https://github.com/cultureamp/kaizen-design-system/issues/296)) ([6bf9154](https://github.com/cultureamp/kaizen-design-system/commit/6bf9154))
+
+
+
+
+
+## [3.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.3.0...@kaizen/component-library@3.3.1) (2020-02-19)
+
+
+### Bug Fixes
+
+* remove elm18 module reference ([#293](https://github.com/cultureamp/kaizen-design-system/issues/293)) ([e63a699](https://github.com/cultureamp/kaizen-design-system/commit/e63a699))
+
+
+
+
+
+# [3.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.2.0...@kaizen/component-library@3.3.0) (2020-02-19)
+
+
+### Features
+
+* set focus and blur attributes ([#290](https://github.com/cultureamp/kaizen-design-system/issues/290)) ([82d8ee7](https://github.com/cultureamp/kaizen-design-system/commit/82d8ee7))
+
+
+
+
+
+# [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.1.0...@kaizen/component-library@3.2.0) (2020-02-19)
+
+
+### Features
+
+* Add content colorscheme to NavigationBar ([#292](https://github.com/cultureamp/kaizen-design-system/issues/292)) ([88c08b2](https://github.com/cultureamp/kaizen-design-system/commit/88c08b2))
+
+
+
+
+
+# [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@3.0.0...@kaizen/component-library@3.1.0) (2020-02-18)
+
+
+### Features
+
+* Add ability to set a tab index on a Checkbox and CheckboxField ([#291](https://github.com/cultureamp/kaizen-design-system/issues/291)) ([29b3b04](https://github.com/cultureamp/kaizen-design-system/commit/29b3b04))
+
+
+
+
+
+# [3.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@2.4.0...@kaizen/component-library@3.0.0) (2020-02-18)
+
+
+### Code Refactoring
+
+* Make elm modal completely dependant on subscriptions ([#283](https://github.com/cultureamp/kaizen-design-system/issues/283)) ([98327e3](https://github.com/cultureamp/kaizen-design-system/commit/98327e3))
+
+
+### BREAKING CHANGES
+
+* The modal has been changed to exclusively work with
+subscriptions which massively siimplifies the modal logic.
+
+As a result using the trigger function simply updates the ModalState
+which fires the subscriptions.
+
+This allows timing to be done with a requestAnimationFrame instead of a
+Process.sleep. This change removed a lot of the jank the modal was
+experiencing.
+
+Changing implementations is very easy, remove Cmds and status returns
+from the trigger function. It simply just returns ModalState.
+
+
+
+
+
+# [2.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@2.3.0...@kaizen/component-library@2.4.0) (2020-02-18)
+
+
+### Features
+
+* Allow for inputs to be uncontrolled ([#279](https://github.com/cultureamp/kaizen-design-system/issues/279)) ([c8892c8](https://github.com/cultureamp/kaizen-design-system/commit/c8892c8))
+
+
+
+
+
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@2.2.0...@kaizen/component-library@2.3.0) (2020-02-18)
+
+
+### Features
+
+* @kaizen/deprecated-kaizen-helpers package for typography scss mixins ([#273](https://github.com/cultureamp/kaizen-design-system/issues/273)) ([6be0424](https://github.com/cultureamp/kaizen-design-system/commit/6be0424))
+
+
+
+
+
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@2.1.0...@kaizen/component-library@2.2.0) (2020-02-17)
+
+
+### Features
+
+* Elm modal focus first focusable element ([#277](https://github.com/cultureamp/kaizen-design-system/issues/277)) ([91c88c5](https://github.com/cultureamp/kaizen-design-system/commit/91c88c5))
+
+
+
+
+
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@2.0.2...@kaizen/component-library@2.1.0) (2020-02-16)
+
+
+### Features
+
+* Add font-face declarations for Zen fonts ([#275](https://github.com/cultureamp/kaizen-design-system/issues/275)) ([72c8cb8](https://github.com/cultureamp/kaizen-design-system/commit/72c8cb8))
+
+
+
+
+
+## [2.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@2.0.1...@kaizen/component-library@2.0.2) (2020-02-13)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@2.0.0...@kaizen/component-library@2.0.1) (2020-02-10)
+
+
+### Bug Fixes
+
+* Style regression with Table component ([#265](https://github.com/cultureamp/kaizen-design-system/issues/265)) ([55a9f37](https://github.com/cultureamp/kaizen-design-system/commit/55a9f37))
+
+
+
+
+
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.7.0...@kaizen/component-library@2.0.0) (2020-02-06)
+
+
+### Code Refactoring
+
+* Allow modal to send internal Cmd msgs  ([#262](https://github.com/cultureamp/kaizen-design-system/issues/262)) ([2df5846](https://github.com/cultureamp/kaizen-design-system/commit/2df5846))
+
+
+### BREAKING CHANGES
+
+* In order for the elm modal to handle focus-lock
+within elm accurately it needs to be able to send and receive
+internal messages. This PR nudges the code in the right direction to be
+able to handle focus.
+
+Because Generic variants allow the consumer to pass their own view with
+their own Cmd msgs the modal now uses the onUpdate msg to send these
+internal messages which are opaque to the consumer.
+
+The consumer being told when the modal had closed or opened was also
+unecessarily complicated and now the update and trigger functions return
+the Status so consumers can act on a fully Open or Closed modal. This
+cleaned up a lot of tricky code.
+
+WIP Make modal send Cmd ModalMsg
+
+Modal previously sending msg matching the consumer msgs types. This very much
+limited the extensibility of the type of msgs the modal could dispatch
+internally.
+
+Now that the modal is dispatching ModalMsg's we can create more
+sophisticated functionality such as controlling focus.
+
+Remove dispatch data from state
+
+Use onUpdate message if onDismiss is not passed
+
+Add all modal status types to Status type
+
+This type will be available to consumer when updating the modal. The
+consumer will be able to know what state the modal is in via these
+types.
+
+Differentiate types
+
+To avoid duplicate custom types we are adding a _ to State types as they
+are used internally.
+
+Exposing Status type to consumer
+
+WIth the Status type the consumer will be able to check if the Modal is
+Open or Closed without needing any overly complex dispatch logic.
+
+Send Status out with Cmd msgs
+
+When the consumer updates or triggers the Modal they will be abvle to
+access the modals state through the Status type.
+
+A consumer can then know when a modal is closed and subsequently remove
+the modal context from the state and DOM.
+
+Rewrite comment to focus on internal messages
+
+The onUpdate is specifically for Modal internal messages. It essentailly
+allows the modal to have a window for its own unique internal messages
+whilst still allowing the consumer to fire their own msgs.
+
+Open modal on story click
+
+Setting modal state to force open
+
+This helper function allows the modal to start off its life with an
+opening animation. This really isnt recommended as modals should be
+triggered.
+
+Mapping Modal subscriptions
+
+* Remove msg argument to type
+
+This msg type is no longer needed as the dispatch logic has been
+removed.
+
+
+
+
+
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.6.1...@kaizen/component-library@1.7.0) (2020-02-04)
+
+
+### Features
+
+* SplitButton positioning improvements ([#255](https://github.com/cultureamp/kaizen-design-system/issues/255)) ([87c20bb](https://github.com/cultureamp/kaizen-design-system/commit/87c20bb))
+
+
+
+
+
+## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.6.0...@kaizen/component-library@1.6.1) (2020-02-04)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.5.1...@kaizen/component-library@1.6.0) (2020-02-03)
+
+
+### Features
+
+* close elm modal with escape ([#256](https://github.com/cultureamp/kaizen-design-system/issues/256)) ([77f5ae6](https://github.com/cultureamp/kaizen-design-system/commit/77f5ae6))
+
+
+
+
+
+## [1.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.5.0...@kaizen/component-library@1.5.1) (2020-02-03)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.4.1...@kaizen/component-library@1.5.0) (2020-02-03)
+
+
+### Features
+
+* Add Primary prop into SplitButton ([#120](https://github.com/cultureamp/kaizen-design-system/issues/120)) ([95edb85](https://github.com/cultureamp/kaizen-design-system/commit/95edb85))
+
+
+
+
+
+## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.4.0...@kaizen/component-library@1.4.1) (2020-02-03)
+
+
+### Bug Fixes
+
+* added tslint:latest to linting rules ([#258](https://github.com/cultureamp/kaizen-design-system/issues/258)) ([37ba7b8](https://github.com/cultureamp/kaizen-design-system/commit/37ba7b8))
+
+
+
+
+
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.3.2...@kaizen/component-library@1.4.0) (2020-02-03)
+
+
+### Features
+
+* set id on elm Text component ([#257](https://github.com/cultureamp/kaizen-design-system/issues/257)) ([011aadf](https://github.com/cultureamp/kaizen-design-system/commit/011aadf))
+
+
+
+
+
+## [1.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.3.1...@kaizen/component-library@1.3.2) (2020-01-31)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [1.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.3.0...@kaizen/component-library@1.3.1) (2020-01-30)
+
+
+### Bug Fixes
+
+* tag in Titleblock misaligned in IE11 ([#252](https://github.com/cultureamp/kaizen-design-system/issues/252)) ([fa9d75c](https://github.com/cultureamp/kaizen-design-system/commit/fa9d75c))
+
+
+
+
+
+# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.2.0...@kaizen/component-library@1.3.0) (2020-01-30)
+
+
+### Features
+
+* Add elm modal positive, negative variants ([#250](https://github.com/cultureamp/kaizen-design-system/issues/250)) ([b83cda8](https://github.com/cultureamp/kaizen-design-system/commit/b83cda8))
+
+
+
+
+
+# [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.1.2...@kaizen/component-library@1.2.0) (2020-01-30)
+
+
+### Features
+
+* Make right/left arrows look like forward/backward ([#246](https://github.com/cultureamp/kaizen-design-system/issues/246)) ([a816f59](https://github.com/cultureamp/kaizen-design-system/commit/a816f59))
+
+
+
+
+
+## [1.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.1.1...@kaizen/component-library@1.1.2) (2020-01-30)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [1.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.1.0...@kaizen/component-library@1.1.1) (2020-01-23)
+
+
+### Bug Fixes
+
+* fixed modal body padding issue ([#244](https://github.com/cultureamp/kaizen-design-system/issues/244)) ([8cb3868](https://github.com/cultureamp/kaizen-design-system/commit/8cb3868))
+
+
+
+
+
+# [1.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@1.0.0...@kaizen/component-library@1.1.0) (2020-01-23)
+
+
+### Features
+
+* Removed dependency to kaizen tokens in favour of a peer dependency ([#243](https://github.com/cultureamp/kaizen-design-system/issues/243)) ([c87cd15](https://github.com/cultureamp/kaizen-design-system/commit/c87cd15))
+
+
+
+
+
+# 1.0.0 (2020-01-23)
+
+
+### Bug Fixes
+
+* Add automation ID to TitleBlock breadcrumb ([#233](https://github.com/cultureamp/kaizen-design-system/issues/233)) ([d54aa88](https://github.com/cultureamp/kaizen-design-system/commit/d54aa88))
+* Add missing automation Ids to elm Titleblock ([#239](https://github.com/cultureamp/kaizen-design-system/issues/239)) ([453ba95](https://github.com/cultureamp/kaizen-design-system/commit/453ba95))
+* Add missing flex styles for GenericModal ([#177](https://github.com/cultureamp/kaizen-design-system/issues/177)) ([efd3558](https://github.com/cultureamp/kaizen-design-system/commit/efd3558))
+* Add scaffolding to the React Tooltip Story to make it work ([#148](https://github.com/cultureamp/kaizen-design-system/issues/148)) ([76df67e](https://github.com/cultureamp/kaizen-design-system/commit/76df67e))
+* Add scroll layer style to parent span ([#175](https://github.com/cultureamp/kaizen-design-system/issues/175)) ([9045bd3](https://github.com/cultureamp/kaizen-design-system/commit/9045bd3))
+* apply fastclick "opt-out" classname to enable React Select to work on mobile ([#174](https://github.com/cultureamp/kaizen-design-system/issues/174)) ([ed2afea](https://github.com/cultureamp/kaizen-design-system/commit/ed2afea))
+* Disable fastclick so mobile devices don't require double click ([#178](https://github.com/cultureamp/kaizen-design-system/issues/178)) ([f02530a](https://github.com/cultureamp/kaizen-design-system/commit/f02530a))
+* Ensure that className prop also taken into account for Select ([#170](https://github.com/cultureamp/kaizen-design-system/issues/170)) ([a666c74](https://github.com/cultureamp/kaizen-design-system/commit/a666c74))
+* Ensure that sticky TitleBlock's navigation bar gets a background when scrolling ([#134](https://github.com/cultureamp/kaizen-design-system/issues/134)) ([268b22a](https://github.com/cultureamp/kaizen-design-system/commit/268b22a))
+* ensure that the Elm TitleBlock component reflects recent changes to the JS version ([#143](https://github.com/cultureamp/kaizen-design-system/issues/143)) ([a4ac956](https://github.com/cultureamp/kaizen-design-system/commit/a4ac956))
+* Explicitly include module indexes in published files ([7e9ab80](https://github.com/cultureamp/kaizen-design-system/commit/7e9ab80))
+* Fix elm styling regression for the Popover component ([#226](https://github.com/cultureamp/kaizen-design-system/issues/226)) ([162ccda](https://github.com/cultureamp/kaizen-design-system/commit/162ccda))
+* Fix shifting text when expanding and collapsing table rows ([#110](https://github.com/cultureamp/kaizen-design-system/issues/110)) ([0164056](https://github.com/cultureamp/kaizen-design-system/commit/0164056))
+* Fix small Storybook and component bugs ([#228](https://github.com/cultureamp/kaizen-design-system/issues/228)) ([ca81849](https://github.com/cultureamp/kaizen-design-system/commit/ca81849))
+* Fix Tag not constraining its width to its content ([#121](https://github.com/cultureamp/kaizen-design-system/issues/121)) ([bf53280](https://github.com/cultureamp/kaizen-design-system/commit/bf53280))
+* fix visibility of Elm Select's selected item text ([#95](https://github.com/cultureamp/kaizen-design-system/issues/95)) ([754c321](https://github.com/cultureamp/kaizen-design-system/commit/754c321))
+* Fixed off-by-one percent error added with last update ([#214](https://github.com/cultureamp/kaizen-design-system/issues/214)) ([718a09b](https://github.com/cultureamp/kaizen-design-system/commit/718a09b))
+* Hoist gitignore and fix published file globs ([423551d](https://github.com/cultureamp/kaizen-design-system/commit/423551d))
+* IE11 fixes for HeroCard ([#211](https://github.com/cultureamp/kaizen-design-system/issues/211)) ([6bc0fc4](https://github.com/cultureamp/kaizen-design-system/commit/6bc0fc4))
+* Include types referenced in declarations ([#87](https://github.com/cultureamp/kaizen-design-system/issues/87)) ([8394a01](https://github.com/cultureamp/kaizen-design-system/commit/8394a01))
+* Increase z-index of close icon to prevent it being hidden ([#182](https://github.com/cultureamp/kaizen-design-system/issues/182)) ([d087dd5](https://github.com/cultureamp/kaizen-design-system/commit/d087dd5))
+* Limit sticky TitleBlock to tablet and up to work better with NavigationBar hamburger menu ([#137](https://github.com/cultureamp/kaizen-design-system/issues/137)) ([e39063b](https://github.com/cultureamp/kaizen-design-system/commit/e39063b))
+* Remove mouseup selection ([#108](https://github.com/cultureamp/kaizen-design-system/issues/108)) ([c6835c0](https://github.com/cultureamp/kaizen-design-system/commit/c6835c0))
+* Remove tsx files from published package ([#105](https://github.com/cultureamp/kaizen-design-system/issues/105)) ([f47c0c3](https://github.com/cultureamp/kaizen-design-system/commit/f47c0c3))
+* Replace npmignore with files array ([2f4237b](https://github.com/cultureamp/kaizen-design-system/commit/2f4237b))
+* Republish after fixing release pipeline script ([222a395](https://github.com/cultureamp/kaizen-design-system/commit/222a395))
+* revert select content alignment in ie11 off ([#86](https://github.com/cultureamp/kaizen-design-system/issues/86)) ([#99](https://github.com/cultureamp/kaizen-design-system/issues/99)) ([c20d03d](https://github.com/cultureamp/kaizen-design-system/commit/c20d03d))
+* Secondary button hover state on ash background not obvious ([#76](https://github.com/cultureamp/kaizen-design-system/issues/76)) ([98e5d4d](https://github.com/cultureamp/kaizen-design-system/commit/98e5d4d))
+* select content alignment in ie11 off ([#86](https://github.com/cultureamp/kaizen-design-system/issues/86)) ([4ca0463](https://github.com/cultureamp/kaizen-design-system/commit/4ca0463))
+* toggle switch field positioning bug ([#241](https://github.com/cultureamp/kaizen-design-system/issues/241)) ([1e2d793](https://github.com/cultureamp/kaizen-design-system/commit/1e2d793))
+* Update Navigation Bar to Zen (and Wisteria Title Block) ([#145](https://github.com/cultureamp/kaizen-design-system/issues/145)) ([e24b2f9](https://github.com/cultureamp/kaizen-design-system/commit/e24b2f9))
+* vertically center modal in IE11 ([#229](https://github.com/cultureamp/kaizen-design-system/issues/229)) ([ffaa1b1](https://github.com/cultureamp/kaizen-design-system/commit/ffaa1b1))
+
+
+### chore
+
+* Migrate component library package ([#61](https://github.com/cultureamp/kaizen-design-system/issues/61)) ([eebe17a](https://github.com/cultureamp/kaizen-design-system/commit/eebe17a))
+* Re-release as `@kaizen/component-library@1.0.0` ([#242](https://github.com/cultureamp/kaizen-design-system/issues/242)) ([b49c811](https://github.com/cultureamp/kaizen-design-system/commit/b49c811))
+
+
+### Features
+
+* Add 'cautionary' confirmation modal ([#135](https://github.com/cultureamp/kaizen-design-system/issues/135)) ([4c68290](https://github.com/cultureamp/kaizen-design-system/commit/4c68290))
+* Add `boxOffset` property to the `Popover` component ([#181](https://github.com/cultureamp/kaizen-design-system/issues/181)) ([e94e473](https://github.com/cultureamp/kaizen-design-system/commit/e94e473))
+* Add a React version of the Select component ([#85](https://github.com/cultureamp/kaizen-design-system/issues/85)) ([3df916c](https://github.com/cultureamp/kaizen-design-system/commit/3df916c))
+* Add analytics props to component Button ([#118](https://github.com/cultureamp/kaizen-design-system/issues/118)) ([5502b26](https://github.com/cultureamp/kaizen-design-system/commit/5502b26))
+* Add AsyncSelect component ([#221](https://github.com/cultureamp/kaizen-design-system/issues/221)) ([eb39896](https://github.com/cultureamp/kaizen-design-system/commit/eb39896))
+* Add basic rtl support to input modal ([#179](https://github.com/cultureamp/kaizen-design-system/issues/179)) ([332474b](https://github.com/cultureamp/kaizen-design-system/commit/332474b))
+* Add confirmation variant to elm modal ([#168](https://github.com/cultureamp/kaizen-design-system/issues/168)) ([0488bcc](https://github.com/cultureamp/kaizen-design-system/commit/0488bcc))
+* add focus events to TextField ([#201](https://github.com/cultureamp/kaizen-design-system/issues/201)) ([c6fbdbb](https://github.com/cultureamp/kaizen-design-system/commit/c6fbdbb))
+* Add generic elm modal ([#139](https://github.com/cultureamp/kaizen-design-system/issues/139)) ([4926760](https://github.com/cultureamp/kaizen-design-system/commit/4926760))
+* add HeroCard component ([#184](https://github.com/cultureamp/kaizen-design-system/issues/184)) ([2694bc9](https://github.com/cultureamp/kaizen-design-system/commit/2694bc9))
+* add noBottomMargin prop to inlineNotification ([#161](https://github.com/cultureamp/kaizen-design-system/issues/161)) ([f6bc0fd](https://github.com/cultureamp/kaizen-design-system/commit/f6bc0fd))
+* Add organization icon ([#131](https://github.com/cultureamp/kaizen-design-system/issues/131)) ([8c8c77f](https://github.com/cultureamp/kaizen-design-system/commit/8c8c77f))
+* Add restore icon ([#97](https://github.com/cultureamp/kaizen-design-system/issues/97)) ([8954c60](https://github.com/cultureamp/kaizen-design-system/commit/8954c60))
+* allow any react node as title and badge props in `HeroCard` ([#230](https://github.com/cultureamp/kaizen-design-system/issues/230)) ([7f8fa3d](https://github.com/cultureamp/kaizen-design-system/commit/7f8fa3d))
+* Auto generate anchors for headings ([#103](https://github.com/cultureamp/kaizen-design-system/issues/103)) ([281e0ef](https://github.com/cultureamp/kaizen-design-system/commit/281e0ef))
+* component library zen colors uplift ([#194](https://github.com/cultureamp/kaizen-design-system/issues/194)) ([1bc3631](https://github.com/cultureamp/kaizen-design-system/commit/1bc3631))
+* Create SplitButton component ([#73](https://github.com/cultureamp/kaizen-design-system/issues/73)) ([51c15b7](https://github.com/cultureamp/kaizen-design-system/commit/51c15b7))
+* HeroCard enhancements ([#212](https://github.com/cultureamp/kaizen-design-system/issues/212)) ([d090fe3](https://github.com/cultureamp/kaizen-design-system/commit/d090fe3))
+* Include svg mock in published package ([#153](https://github.com/cultureamp/kaizen-design-system/issues/153)) ([3740d5b](https://github.com/cultureamp/kaizen-design-system/commit/3740d5b))
+* make mobile version of navigation bar menu optional ([#138](https://github.com/cultureamp/kaizen-design-system/issues/138)) ([45fa8b5](https://github.com/cultureamp/kaizen-design-system/commit/45fa8b5))
+* Minor enhancements to the Table component ([#74](https://github.com/cultureamp/kaizen-design-system/issues/74)) ([3069546](https://github.com/cultureamp/kaizen-design-system/commit/3069546))
+* passing optional prop to disable submit button on edit modal ([#127](https://github.com/cultureamp/kaizen-design-system/issues/127)) ([81b8e20](https://github.com/cultureamp/kaizen-design-system/commit/81b8e20))
+* Remove header divider if no heading prop is provided ([#208](https://github.com/cultureamp/kaizen-design-system/issues/208)) ([524a06a](https://github.com/cultureamp/kaizen-design-system/commit/524a06a))
+* revert Use Zen colours for NavigationBar ([#144](https://github.com/cultureamp/kaizen-design-system/issues/144)) ([e0cd64b](https://github.com/cultureamp/kaizen-design-system/commit/e0cd64b))
+* Support all current variants in React and Elm Tag components ([#91](https://github.com/cultureamp/kaizen-design-system/issues/91)) ([4ced1ea](https://github.com/cultureamp/kaizen-design-system/commit/4ced1ea))
+* Use Zen colours for NavigationBar ([#140](https://github.com/cultureamp/kaizen-design-system/issues/140)) ([699e423](https://github.com/cultureamp/kaizen-design-system/commit/699e423))
+
+
+### BREAKING CHANGES
+
+* Reset package version to `1.0.0`
+
+The package `@cultureamp/kaizen-component-library@17.9.6` has been re-released as `@kaizen/component-library@1.0.0`.
+* Elm requires modules to be resolved with capitalized folder names.
+
+* chore: Build elm story for Confirmation Informative modal
+
+* Add title to confirmation config
+
+* Render body on confirmation modal
+
+* feat: Make background color flexible on ModalBody
+
+Some modal bodies may want to have a stone background instead of the
+default white. This prop allows the consumer both options.
+
+Previously ModalBody background color was set to stone, now by default
+it is white.
+
+* Add ModalFooter to confirmation modal
+
+* Add onDismiss msg to cancel button
+
+* Add onConfirm and onDismiss msgs to confrimation modal
+
+Remove styling
+
+This styling makes more sense being done in the ModalFooter component
+
+Add style to each action button in list
+
+This styling differes slightly from the react version as it does not
+row-reverse the action buttons.
+
+* rename ModalBody scss file
+
+There is no need to namespace this scss file with .elm
+
+Clean up some css class definitions
+
+* Add confirm and dismiss label configuration
+
+* Add padding to Confirmation config
+
+Change argument name
+
+The size being passed in is not a maybe its a Size type
+* Add generic elm modal
+
+Elm requires directories to be capitalised when resolving elm modules.
+
+In order to satisfy this the 'Modal/primitives' directory has been
+renamed to 'Modal/Primitives'.
+
+This breaks all current calls to 'Modal/primitives'.
+
+Internally this has been updated for kaizen but will need to be updated
+for other services using 'Modal/primitives'.
+
+* Change primitives namespace to be captitalized
+
+Point elm imports to correct namespace
+
+Setup sotries boiler plate for elm modal
+
+change funcion names to be more specific
+
+The modal handles its own state and the consumer does not need to tell
+it to close. If you update the modal it will perform the next logical
+update. e.g. If the modal is open and it gets updated, the modal will
+begin the close sequence. No one needs to tell the modal to close.
+
+Given the above onClose is misleading and is now just onUpdate.
+
+Modal updatate is also renamed to modalState which is what it takes.
+
+Contain footer within modal width.
+
+Build view for Modal
+
+Change modal Msg to ModalState
+
+Update onClose to onUpdate
+
+Set custom width on generic modal
+
+Remove optional sizes and leave only custom
+
+Remove redundant check
+* React Tag:
+
+- `color`, `withIcon` and `disableAnimation` props are removed. Use
+the new variant prop to control which preset variant of Tag should be
+rendered. Each preset variant controls whether it should have an
+icon and/or animation.
+
+- `text` prop is removed. Pass the text to be rendered as a child
+`<Tag>Example</Tag>`
+
+Elm Tag:
+
+- `Tag.Cautionary` has been renamed to `Tag.ValidationCautionary`
+- `Tag.Negative` has been renamed to `Tag.ValidationNegative`
+
+TitleBlock
+
+- `surveyStatus.color` and `surveyStatus.showIcon` props are removed.
+Use `surveyStatus.status` which provides the same functionality in
+one prop.
+* Upgrade to react 16.9
+
+* Add svg mocking to jest
+
+* Use the local component library in the site
+
+* Add missing storybook addons
+
+* Move storybook backgrounds out of component library
+
+* Update gatsby filesystem paths to use local component library
+
+* Upgrade react in the site package
+
+* Remove (unused) module type declarations
+
+* Fix component library build script compiler errors
+
+* Remove storybook backgrounds config from stories
+
+* Hoist focus-visible polyfill and apply to storybook
+
+* Add elm-format to linters
+
+* Run elm-format on the component library package
+
+* Use debian jessie for build images
+
+elm-format fails in alpine :cry:
+
+* Let elm format the elm.json file
+
+* Add the repository root as an elm source directory
+
+Reportedly appeases rubymine
+
+* Add .npmignore and remove files key from package
+
+Defaults to "*", ignoring stories, tests, typescript source and config.
+
+* Add focus-visible as a peer dependency
+
+* Address comments from review
+
+* Update package metadata
+
+
+
+
+
+## [17.9.6](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.9.5...@cultureamp/kaizen-component-library@17.9.6) (2020-01-23)
+
+
+### Bug Fixes
+
+* toggle switch field positioning bug ([#241](https://github.com/cultureamp/kaizen-design-system/issues/241)) ([1e2d793](https://github.com/cultureamp/kaizen-design-system/commit/1e2d793))
+
+
+
+
+
+## [17.9.5](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.9.4...@cultureamp/kaizen-component-library@17.9.5) (2020-01-22)
+
+
+### Bug Fixes
+
+* Add missing automation Ids to elm Titleblock ([#239](https://github.com/cultureamp/kaizen-design-system/issues/239)) ([453ba95](https://github.com/cultureamp/kaizen-design-system/commit/453ba95))
+
+
+
+
+
+## [17.9.4](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.9.3...@cultureamp/kaizen-component-library@17.9.4) (2020-01-21)
+
+
+### Bug Fixes
+
+* Add automation ID to TitleBlock breadcrumb ([#233](https://github.com/cultureamp/kaizen-design-system/issues/233)) ([d54aa88](https://github.com/cultureamp/kaizen-design-system/commit/d54aa88))
+
+
+
+
+
+## [17.9.3](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.9.2...@cultureamp/kaizen-component-library@17.9.3) (2020-01-17)
+
+
+### Bug Fixes
+
+* Fix small Storybook and component bugs ([#228](https://github.com/cultureamp/kaizen-design-system/issues/228)) ([ca81849](https://github.com/cultureamp/kaizen-design-system/commit/ca81849))
+
+
+
+
+
+## [17.9.2](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.9.1...@cultureamp/kaizen-component-library@17.9.2) (2020-01-17)
+
+**Note:** Version bump only for package @cultureamp/kaizen-component-library
+
+
+
+
+
 ## [17.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@cultureamp/kaizen-component-library@17.9.0...@cultureamp/kaizen-component-library@17.9.1) (2020-01-17)
 
 

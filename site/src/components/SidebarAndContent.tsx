@@ -1,4 +1,4 @@
-import { Icon } from "@cultureamp/kaizen-component-library"
+import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import { Link } from "gatsby"
 import * as React from "react"
@@ -28,7 +28,7 @@ type SidebarTabProps = {
 }
 
 type ContentNeedToKnowProps = {
-  listOfTips: Array<string>
+  listOfTips: string[]
 }
 
 export const Sidebar: React.SFC<SidebarProps> = ({ children }) => (

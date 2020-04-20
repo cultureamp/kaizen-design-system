@@ -1,11 +1,11 @@
-import { Icon } from "@cultureamp/kaizen-component-library"
-const closeIcon = require("@cultureamp/kaizen-component-library/icons/close.icon.svg")
+import { Icon } from "@kaizen/component-library"
+const closeIcon = require("@kaizen/component-library/icons/close.icon.svg")
   .default
-const exclamationIcon = require("@cultureamp/kaizen-component-library/icons/exclamation.icon.svg")
+const exclamationIcon = require("@kaizen/component-library/icons/exclamation.icon.svg")
   .default
-const informationIcon = require("@cultureamp/kaizen-component-library/icons/information.icon.svg")
+const informationIcon = require("@kaizen/component-library/icons/information.icon.svg")
   .default
-const successIcon = require("@cultureamp/kaizen-component-library/icons/success.icon.svg")
+const successIcon = require("@kaizen/component-library/icons/success.icon.svg")
   .default
 import classnames from "classnames"
 import * as React from "react"
@@ -37,6 +37,12 @@ type State = {
 }
 
 class GenericNotification extends React.Component<Props, State> {
+  static defaultProps = {
+    persistent: false,
+    autohide: false,
+    autohideDelay: "short",
+  }
+
   state = {
     hidden: true,
     removed: false,
@@ -140,12 +146,6 @@ class GenericNotification extends React.Component<Props, State> {
 
   hide() {
     this.setState({ hidden: true })
-  }
-
-  static defaultProps = {
-    persistent: false,
-    autohide: false,
-    autohideDelay: "short",
   }
 }
 

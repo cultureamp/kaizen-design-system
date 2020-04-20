@@ -8,8 +8,13 @@ needToKnow:
 - Unlike a tooltip, a user can interact with popover content.
 - Trigger popovers from Interactive elements (Buttons, Links, Icon buttons) or Non-interactive elements (Icons, Abbreviations, Truncated text)—be mindful of keyboard accessibility
 - Use sparingly.
-demoStoryId: popover--default
+demoStoryId: popover-react--default-kaizen-site-demo
+demoStoryHeight: 160px
 ---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -78,16 +83,16 @@ Popovers display contextual information.
     *   A user might interact with a Popover, requiring focus, and it might contain rich content such as a link, so we need to move focus to the Popover when it’s triggered and support keyboard navigation to dismiss a dismissible Popover, allowing people using screen readers to fully perceive and operate the Popover content.
     *   In contrast, Tooltips contain limited content so we can use an ‘announcer’ to announce tooltip content to people using screen readers e.g. using an ARIA live region.
 
+## When to use and when not to use
 
-## When to use
-
-
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 *   Use when the popover content would be too much information to include inline or create too much clutter. For example, show popovers for specific data points a user might be interested in a data visualization.
 *   Use when the context of the rest of the page is important to keep visible.
 
-
-## When not to use
+</WhenToUse>
+<WhenNotToUse>
 
 *   When there’s **only non-interactive text**, use a [tooltip](/components/tooltip) instead.
 *   Avoid using popovers for **forms or image content**. Consider using a [modal](/components/modal) instead.
@@ -96,6 +101,9 @@ Popovers display contextual information.
     *   focus events don't work because chart elements are typically SVG elements; they're not focusable
     *   It’s possible to hook into click events, but scrolling is generally a more natural interaction for mobile and tablet; a chart element is not usually perceived as a clickable element
 *   Avoid using popovers when people **don’t need to see the rest of the screen**. Consider using a [modal](/components/modal) instead.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## External Links
 

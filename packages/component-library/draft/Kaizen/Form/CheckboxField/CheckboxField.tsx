@@ -1,9 +1,4 @@
-import {
-  Checkbox,
-  CheckedStatus,
-} from "@cultureamp/kaizen-component-library/draft"
-import { FieldGroup } from "@cultureamp/kaizen-component-library/draft"
-import { Label } from "@cultureamp/kaizen-component-library/draft"
+import { Checkbox, CheckedStatus, Label } from "@kaizen/component-library/draft"
 import classnames from "classnames"
 import * as React from "react"
 
@@ -18,6 +13,7 @@ export type CheckboxFieldProps = {
   onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
   disabled?: boolean
   noBottomMargin?: boolean
+  tabIndex?: number
 }
 
 type CheckboxField = React.FunctionComponent<CheckboxFieldProps>
@@ -31,6 +27,7 @@ const CheckboxField: CheckboxField = ({
   onCheck,
   disabled = false,
   noBottomMargin = false,
+  tabIndex,
 }) => (
   <div
     data-automation-id={automationId}
@@ -55,6 +52,7 @@ const CheckboxField: CheckboxField = ({
         checkedStatus={checkedStatus}
         name={name}
         onCheck={onCheck}
+        tabIndex={tabIndex}
       />
     </Label>
   </div>

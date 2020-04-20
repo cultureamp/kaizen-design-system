@@ -1,4 +1,5 @@
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "./styles";
 @import "../../styles/color";
 @import "../../styles/type";
@@ -13,6 +14,21 @@
 
     a {
       color: #fff;
+    }
+  }
+
+  &.content {
+    background: $kz-color-cluny-200;
+
+    .links {
+      a {
+        color: $kz-color-wisteria-800;
+        font-weight: 500;
+      }
+
+      .active a {
+        color: $kz-color-cluny-500;
+      }
     }
   }
 }
@@ -36,6 +52,14 @@
 
       &.secondary {
         @include ca-margin($start: 0, $end: 0);
+      }
+
+      // Bit of a hack selector, but because of module scoping this is the easiest way
+      .content & span::before {
+        background-color: $kz-color-cluny-500;
+        height: 5px;
+        border-radius: 0 0 $kz-border-solid-border-radius
+          $kz-border-solid-border-radius;
       }
 
       @include ca-media-tablet {

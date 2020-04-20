@@ -1,11 +1,13 @@
-import { Icon } from "@cultureamp/kaizen-component-library"
+import { Icon } from "@kaizen/component-library"
 import classNames from "classnames"
 import * as React from "react"
-const clearIcon = require("@cultureamp/kaizen-component-library/icons/clear.icon.svg")
+const clearIcon = require("@kaizen/component-library/icons/clear.icon.svg")
   .default
-const exclamationIcon = require("@cultureamp/kaizen-component-library/icons/exclamation.icon.svg")
+const exclamationIcon = require("@kaizen/component-library/icons/exclamation.icon.svg")
   .default
-const successIcon = require("@cultureamp/kaizen-component-library/icons/success.icon.svg")
+const informationIcon = require("@kaizen/component-library/icons/information.icon.svg")
+  .default
+const successIcon = require("@kaizen/component-library/icons/success.icon.svg")
   .default
 const styles = require("./Tag.scss")
 
@@ -39,7 +41,6 @@ interface Props {
 const successIconVariants: Variant[] = ["validationPositive"]
 
 const exclamationIconVariants: Variant[] = [
-  "validationInformative",
   "validationNegative",
   "validationCautionary",
 ]
@@ -96,6 +97,13 @@ const Tag = (props: Props) => {
               return (
                 <span className={styles.validationIcon}>
                   <Icon icon={exclamationIcon} role="presentation" />
+                </span>
+              )
+            }
+            if (variant === "validationInformative") {
+              return (
+                <span className={styles.validationIcon}>
+                  <Icon icon={informationIcon} role="presentation" />
                 </span>
               )
             }

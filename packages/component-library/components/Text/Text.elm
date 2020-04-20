@@ -8,6 +8,7 @@ module Text.Text exposing
     , h4
     , h5
     , h6
+    , id
     , inheritBaseline
     , inline
     , label
@@ -40,6 +41,7 @@ If you want to inherit the baseline of the parent (no relative positioning), use
 
 import CssModules exposing (css)
 import Html exposing (Html)
+import Html.Attributes as HtmlAttributes
 
 
 
@@ -48,7 +50,16 @@ import Html exposing (Html)
 
 view : Config msg -> List (Html.Html msg) -> Html.Html msg
 view (Config config) children =
-    config.tag [ className config.tag config.style config.inheritBaseline config.inline ] children
+    let
+        resolveId =
+            case config.id of
+                Just id_ ->
+                    [ HtmlAttributes.id id_ ]
+
+                Nothing ->
+                    []
+    in
+    config.tag ([ className config.tag config.style config.inheritBaseline config.inline ] ++ resolveId) children
 
 
 className : Element msg -> TypeStyle -> Bool -> Bool -> Html.Attribute msg
@@ -100,6 +111,36 @@ className tag typeStyle shouldInheritBaseline shouldInline =
 
                 Button ->
                     .button
+
+                ZenDisplay0 ->
+                    .zenDisplay0
+
+                ZenHeading1 ->
+                    .zenHeading1
+
+                ZenHeading2 ->
+                    .zenHeading2
+
+                ZenHeading3 ->
+                    .zenHeading3
+
+                ZenDataLarge ->
+                    .zenDataLarge
+
+                ZenDataLargeUnits ->
+                    .zenDataLargeUnits
+
+                ZenDataMedium ->
+                    .zenDataMedium
+
+                ZenDataMediumUnits ->
+                    .zenDataMediumUnits
+
+                ZenDataSmall ->
+                    .zenDataSmall
+
+                ZenDataSmallUnits ->
+                    .zenDataSmallUnits
     in
     styles.classList
         [ ( styleClass, True )
@@ -109,7 +150,7 @@ className tag typeStyle shouldInheritBaseline shouldInline =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/components/Text/Text.module.scss"
+    css "@kaizen/component-library/components/Text/Text.module.scss"
         { defaultStyle = "defaultStyle"
         , pageTitle = "pageTitle"
         , title = "title"
@@ -127,6 +168,16 @@ styles =
         , button = "button"
         , inheritBaseline = "inheritBaseline"
         , inline = "inline"
+        , zenDisplay0 = "zen-display-0"
+        , zenHeading1 = "zen-heading-1"
+        , zenHeading2 = "zen-heading-2"
+        , zenHeading3 = "zen-heading-3"
+        , zenDataLarge = "zen-data-large"
+        , zenDataLargeUnits = "zen-data-large-units"
+        , zenDataMedium = "zen-data-medium"
+        , zenDataMediumUnits = "zen-data-medium-units"
+        , zenDataSmall = "zen-data-small"
+        , zenDataSmallUnits = "zen-data-small-units"
         }
 
 
@@ -143,6 +194,7 @@ type alias ConfigValue msg =
     , style : TypeStyle
     , inheritBaseline : Bool
     , inline : Bool
+    , id : Maybe String
     }
 
 
@@ -166,6 +218,16 @@ type TypeStyle
     | Label
     | ControlAction
     | Button
+    | ZenDisplay0
+    | ZenHeading1
+    | ZenHeading2
+    | ZenHeading3
+    | ZenDataLarge
+    | ZenDataLargeUnits
+    | ZenDataMedium
+    | ZenDataMediumUnits
+    | ZenDataSmall
+    | ZenDataSmallUnits
 
 
 defaultConfig : ConfigValue msg
@@ -174,6 +236,7 @@ defaultConfig =
     , style = DefaultStyle
     , inheritBaseline = False
     , inline = False
+    , id = Nothing
     }
 
 
@@ -244,3 +307,8 @@ inline value (Config config) =
 style : TypeStyle -> Config msg -> Config msg
 style value (Config config) =
     Config { config | style = value }
+
+
+id : String -> Config msg -> Config msg
+id id_ (Config config) =
+    Config { config | id = Just id_ }

@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import * as React from "react"
 
-import { Label } from "@cultureamp/kaizen-component-library/draft"
+import { Label } from "@kaizen/component-library/draft"
 
 const styles = require("./styles.scss")
 

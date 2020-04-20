@@ -31,7 +31,7 @@ type LabelProps = {
 
 type Analytics = {
   eventName: string
-  properties: Object
+  properties: object
 }
 
 export type IconButtonProps = GenericProps

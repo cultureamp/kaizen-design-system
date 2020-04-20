@@ -107,11 +107,11 @@ breadCrumbView { label, link } (Config config) =
                 , ( .reversed, config.reversed )
                 ]
     in
-    a [ href link, breadCrumbClassList ]
+    a [ href link, breadCrumbClassList, attribute "data-automation-id" "TitleBlock__Breadcrumb" ]
         [ div [ class .circle ]
             [ Icon.view
                 Icon.presentation
-                (svgAsset "@cultureamp/kaizen-component-library/icons/arrow-backward.icon.svg")
+                (svgAsset "@kaizen/component-library/icons/arrow-backward.icon.svg")
                 |> static
             ]
         , span
@@ -170,7 +170,7 @@ view title (Config config) =
         subtitleView =
             case config.subtitle of
                 Just subtileString ->
-                    div [ class .subtitle ] [ text subtileString ]
+                    div [ class .subtitle, attribute "data-automation-id" "TitleBlock__Subtitle" ] [ text subtileString ]
 
                 Nothing ->
                     text ""
@@ -219,13 +219,13 @@ view title (Config config) =
                 , div [ class .leftContent ]
                     [ div [ class .titleContainer ]
                         [ div [ class .textContainer ]
-                            [ div [ class .title ] [ text title ]
+                            [ div [ class .title, attribute "data-automation-id" "TitleBlock__Heading" ] [ text title ]
                             , subtitleView
                             ]
                         ]
                     , div [ styles.classList [ ( .navContainer, True ), ( .nonMobileNav, True ) ] ] [ navigationButtonsView ]
                     ]
-                , div [ class .actionsContainer ] actionsListProp
+                , div [ class .actionsContainer, attribute "data-automation-id" "title-block--actions" ] actionsListProp
                 ]
             ]
         , div [ styles.classList [ ( .navContainer, True ), ( .mobileNav, True ) ] ] [ navigationButtonsView ]
@@ -237,7 +237,7 @@ class =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/TitleBlock/TitleBlock.scss"
+    css "@kaizen/component-library/draft/Kaizen/TitleBlock/TitleBlock.scss"
         { breadcrumb = "breadcrumb"
         , circle = "circle"
         , breadcrumbText = "breadcrumbText"

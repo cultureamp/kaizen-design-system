@@ -1,0 +1,64 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/components/Button/styles";
+@import "~@kaizen/component-library/components/Icon/Icon.module.scss";
+
+$heightConstraint: $ca-grid * 6;
+$ca-banner-fade-out: opacity $ca-duration-slow ease;
+$ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
+  $ca-duration-slow ease;
+
+.banner {
+  min-height: $heightConstraint;
+  background: #fff;
+  width: 100%;
+  max-width: $ca-layout-content-width;
+  border: solid 1px $ca-border-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $ca-grid;
+  box-shadow: 0 1px 2px add-alpha($kz-color-wisteria-800, 10%);
+  position: relative;
+  top: -1px;
+  transition: $ca-banner-fade-out, $ca-banner-collapse-height-delayed;
+  color: $kz-color-wisteria-800;
+
+  > * {
+    padding: $ca-grid / 2;
+  }
+}
+
+.iconWrapper {
+  padding: 0 ($ca-grid / 2);
+  flex: 1 0 auto;
+}
+
+.descriptionContainer {
+  flex: 0 1 auto;
+}
+
+.buttonContainer {
+  padding-left: $ca-grid;
+  flex: 1 0 auto;
+}
+
+.hidden {
+  opacity: 0;
+  margin-bottom: 0;
+}
+
+.headingWrapper {
+  margin-bottom: $ca-grid / 4;
+}
+
+.cancel {
+  @include button-reset;
+  composes: interactiveIconWrapper from "~@kaizen/component-library/components/Icon/Icon.module.scss";
+  position: absolute;
+  top: $ca-grid / 2;
+  right: $ca-grid / 2;
+  color: $kz-color-wisteria-800;
+}

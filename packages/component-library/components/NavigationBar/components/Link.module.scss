@@ -1,4 +1,5 @@
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "../styles";
 @import "../../../styles/border";
 @import "../../../styles/type";
@@ -30,7 +31,7 @@ $link-margin: $ca-grid / 4;
   align-items: center;
   justify-content: center;
 
-  border-radius: $ca-border-radius;
+  border-radius: $kz-border-solid-border-radius;
 
   color: rgba(#fff, 0.8);
   padding: 0;
@@ -170,12 +171,20 @@ $link-margin: $ca-grid / 4;
   align-items: center;
 }
 
-.notificationPill {
+.badge {
   @include ca-margin($start: $ca-grid * 0.25);
-  @include ca-padding($start: $ca-grid * 0.5, $end: $ca-grid * 0.5);
   @include ca-type-ideal-small-bold;
   @include ca-inherit-baseline;
+
   border-radius: $ca-grid;
-  background-color: #bce3dc; // DST-TODO: Replace with $kz-color-seedling-200 once kaizen-design-tokens is installed
-  color: #35374a; // DST-TODO: Replace with $kz-color-wisteria-800 once kaizen-design-tokens is installed
+  &.badgeNew {
+    @include ca-padding($start: $ca-grid * 0.5, $end: $ca-grid * 0.5);
+    background-color: $kz-color-seedling-200;
+    color: $kz-color-wisteria-800;
+  }
+  &.badgeNotification {
+    @include ca-padding($start: $ca-grid / 3, $end: $ca-grid / 3);
+    background-color: $kz-color-coral-500;
+    color: $kz-color-white;
+  }
 }

@@ -1,10 +1,10 @@
-import { Icon } from "@cultureamp/kaizen-component-library"
+import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import * as React from "react"
 import wcag from "wcag-contrast-verifier/lib/wcag"
 import Palette from "./Palette"
 
-const successWhite = require("@cultureamp/kaizen-component-library/icons/success.icon.svg")
+const successWhite = require("@kaizen/component-library/icons/success.icon.svg")
   .default
 
 const styles = require("./ColorCard.scss")
@@ -50,9 +50,9 @@ export const renderContrastHeaderIcons = colorHex => {
 }
 
 const ContrastIcon = ({ color, colorName, text, size }) => {
-  const textColor = Palette[text.toLowerCase()],
-    isValid = contrastIsLevelAA(color, textColor, size),
-    title = `${text} text on '${name}' with a font size of at least ${size}pt is level AA contrast.`
+  const textColor = Palette[text.toLowerCase()]
+  const isValid = contrastIsLevelAA(color, textColor, size)
+  const title = `${text} text on '${name}' with a font size of at least ${size}pt is level AA contrast.`
   return (
     <div
       className={styles.accessibilityIcon}

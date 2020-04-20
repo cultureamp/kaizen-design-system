@@ -3,12 +3,15 @@ module Kaizen.Modal.Primitives.ModalBody exposing
     , background
     , fillVerticalSpace
     , layout
+    , padded
     , scrollable
     , view
     )
 
 import CssModules exposing (css)
 import Html exposing (Html, section, text)
+import Html.Attributes as HtmlAttributes
+import Kaizen.Modal.Primitives.Constants as Constants
 
 
 type Config msg
@@ -25,6 +28,7 @@ type alias Configuration msg =
     , scrollable : Bool
     , fillSpace : Bool
     , background : BackgroundColor
+    , padded : Bool
     }
 
 
@@ -44,7 +48,9 @@ modalBody content config =
             , ( .stone, config.background == Stone )
             , ( .scrollable, config.scrollable )
             , ( .fillSpace, config.fillSpace )
+            , ( .padded, config.padded )
             ]
+        , HtmlAttributes.id Constants.ariaDescribedBy
         ]
         content
 
@@ -72,6 +78,7 @@ defaults =
     , scrollable = False
     , fillSpace = False
     , background = White
+    , padded = True
     }
 
 
@@ -89,6 +96,11 @@ background color (Config config) =
     Config { config | background = color }
 
 
+padded : Bool -> Config msg -> Config msg
+padded pad (Config config) =
+    Config { config | padded = pad }
+
+
 
 -- Must be direct child of GenericModal.view to grow into available space
 
@@ -99,10 +111,11 @@ fillVerticalSpace predicate (Config config) =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/draft/Kaizen/Modal/Primitives/ModalBody.scss"
+    css "@kaizen/component-library/draft/Kaizen/Modal/Primitives/ModalBody.scss"
         { modalBody = "modalBody"
         , scrollable = "scrollable"
         , fillSpace = "fillSpace"
         , white = "white"
         , stone = "stone"
+        , padded = "padded"
         }

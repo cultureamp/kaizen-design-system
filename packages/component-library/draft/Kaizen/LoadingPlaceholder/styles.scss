@@ -1,13 +1,14 @@
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
-@import "~@cultureamp/kaizen-component-library/styles/animation";
-@import "~@cultureamp/kaizen-component-library/styles/border";
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/layout";
-@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/type";
 
 .base {
   background-color: $kz-color-wisteria-100;
-  border-radius: $ca-border-radius * 3;
+  border-radius: $kz-border-solid-border-radius * 3;
   position: relative;
   top: $ca-grid * 0.175;
   margin-bottom: $ca-grid * 0.5;

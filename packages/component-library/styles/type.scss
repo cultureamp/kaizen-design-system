@@ -1,4 +1,4 @@
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color";
 @import "color";
 @import "layers";
 
@@ -251,6 +251,7 @@ $ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
     background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAKUlEQVRIiWN49OjRf1pihlEwCkbBKCACvH379j8t8UD7bxSMglEwJAAAvrOyCTd0/dgAAAAASUVORK5CYII=");
     pointer-events: none;
     z-index: $ca-z-index-popover;
+    opacity: 0.5;
   }
 }
 

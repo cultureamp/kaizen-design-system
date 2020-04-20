@@ -8,8 +8,14 @@ needToKnow:
 - "Modals need an overlay behind them and over the page."
 - "Choose your type (confirmation, informative, etc.)."
 - "Use sparingly."
-demoStoryId: modal--confirmation-positive
+demoStoryId: modal-react--confirmation-positive-kaizen-site-demo
+demoStoryHeight: 500px
+headerImage: modal-informative
 ---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -35,12 +41,16 @@ Modals contain smaller pieces of additional content while maintaining the contex
 
 ### All modals
 
-* All modals are dismissible (Close button, cancel button, Esc keystroke, Click outside).
-* Always a single primary action. Never two action buttons. If a second action is an option, use a control link (e.g. Cancel (Cluny, no underline). Always align button to the center of modal.
-* Where appropriate, use precise language and match the heading and primary button e.g. heading is “Delete photo” and primary button is “Delete”. Avoid questions like “Are you sure?”.
-* Close icon sits top right, never outside of modal. Screen reader reads icon name, i.e. “Close”.
-* The overlay is pure black (not Ink) with 50% opacity.
-* Directional modal carousel? Modals shouldn’t be used as carousels. Progress stepper in modal is preferable if you need to guide a user through a flow.
+* All modals are **dismissible** (Close button, cancel button, Esc keystroke, Click outside).
+* All modals use a **single Primary Action Button**. Never two primary action buttons. If a second action is an option, use a Secondary Action button (e.g. Cancel, in Cluny, no underline). Always align buttons to the center of the modal.
+* Where appropriate, use precise language and **match the heading and primary button text** e.g. heading is “Delete photo” and primary button is “Delete”. Avoid questions like “Are you sure?”.
+* **Don't depend on a scrollable modal body**. We only support a scrollable modal body as a fallback for when content is unintentionally long, such as when user-generated content is provided. This is strongly discouraged. If there's a high risk of a scrollable modal body:
+    * Consider responsive behavior on small screens.
+    * A modal might not be the best approach. Consider using an inline page section or a separate page instead.
+    * Consider if any content inside the modal might be clipped, such as a Select dropdown section.
+* Close icon sits top right, never outside of modal. Screen reader reads the action for the icon, i.e. “Close”.
+* The backdrop overlay is pure black (not Wisteria) with 50% opacity.
+* We don't use modals as carousels. A Progress stepper in a modal is preferable if you need to guide a user through a flow.
 * Never stacks multiple modals together on screen at the same time.
 
 ### Confirmation modal
@@ -77,13 +87,17 @@ Information modals assist with education. They’re user triggered. They may be 
   - Illustrations may last longer without needing to be updated as well as potentially have a smaller file size than a screenshot.
   - If you need a new illustration, see [illustrations](/guidelines/illustrations).
 
-## When to use
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 - Use a modal when you need to **change the flow of content or interaction** and yet maintain the context of the existing page or task.
 - Modals can be **disruptive and intrusive so use sparingly**. To avoid “banner blindness” and to avoid people immediately dismissing modals without reading them, show only on user interactions like a clicked button, not system driven events such as immediately on page load.
 - **Don’t trigger modals automatically without user interaction** at any time other than page load. That is, don’t trigger modals on scroll or after some time viewing a page. This risks inaccessibly stealing keyboard focus, disorienting the user, and introducing mode errors.
 
-## When not to use
+</WhenToUse>
+<WhenNotToUse>
 
 - Avoid using modals on **small screens**.
 - Avoid using modals when the additional content is a huge **change in context**. Consider linking to a separate page.
@@ -92,10 +106,13 @@ Information modals assist with education. They’re user triggered. They may be 
 - Avoid using modals when you can **display content inline**. Consider using a collapsible “disclosure” element.
 - Avoid using modals when people **need to see the rest of the screen**. Consider using a [Popover](/components/popover) or [Tooltip](/components/tooltip) instead.
 - Instead of an informative modal, you might use an [inline notification](/components/inline-notification).
-- Instead of a modal, consider [Overview: tooltips, popovers, modals](/guidelines/overview-tooltips-popovers-modals).
+- Instead of a modal, consider [Overview: tooltips, popovers, modals](/guidelines/tooltip-popover-modal).
 - Instead of a modal, consider a separate page.
 - Instead of a modal, consider collapsible “disclosure” elements.
 - Instead of a modal, consider inline actions.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## External Links
 

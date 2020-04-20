@@ -1,7 +1,8 @@
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
-@import "~@cultureamp/kaizen-component-library/draft/Kaizen/Form/Primitives/Input/styles.scss";
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/type";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/component-library/draft/Kaizen/Form/Primitives/Input/styles.scss";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/type";
 
 @mixin base-font-style() {
   @include ca-type-ideal-body-bold;
@@ -13,7 +14,7 @@
   .control {
     min-height: $input-height;
     border-color: $ca-border-color;
-    border-radius: $ca-border-radius;
+    border-radius: $kz-border-solid-border-radius;
 
     &:hover {
       border-color: $ca-border-color-hover;
@@ -35,7 +36,7 @@
 
   .menu {
     border: 1px solid $ca-border-color;
-    border-radius: $ca-border-radius;
+    border-radius: $kz-border-solid-border-radius;
     box-shadow: $ca-box-shadow;
   }
 

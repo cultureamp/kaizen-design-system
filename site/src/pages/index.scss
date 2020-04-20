@@ -1,5 +1,5 @@
-@import "~@cultureamp/kaizen-component-library/styles/responsive";
-@import "~@cultureamp/kaizen-component-library/styles/animation";
+@import "~@kaizen/component-library/styles/responsive";
+@import "~@kaizen/component-library/styles/animation";
 
 .content {
   display: grid;
@@ -63,10 +63,8 @@
   grid-area: components-text;
 }
 
-.heading {
+.headingContainer {
   margin-top: calc(var(--ca-grid) * 1.5);
-  font-size: 2rem;
-  line-height: 1.125;
 
   a {
     text-decoration: none;

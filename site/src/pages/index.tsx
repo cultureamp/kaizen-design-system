@@ -1,4 +1,5 @@
-import { Button } from "@cultureamp/kaizen-component-library"
+import { Button } from "@kaizen/component-library"
+import { Heading } from "@kaizen/component-library/components/Heading"
 import { graphql, useStaticQuery, withPrefix } from "gatsby"
 import * as React from "react"
 import { Content, ContentOnly } from "../components/ContentOnly"
@@ -86,8 +87,10 @@ export default ({ location }) => {
               </a>
             </div>
             <div className={styles.guidelinesTextContainer}>
-              <div className={styles.heading}>
-                <a href={withPrefix("/guidelines/overview")}>Guidelines</a>
+              <div className={styles.headingContainer}>
+                <Heading tag="div" variant="heading-2">
+                  <a href={withPrefix("/guidelines/overview")}>Guidelines</a>
+                </Heading>
               </div>
               <div className={styles.body}>
                 Learn how to design and build cohesive and predictable products
@@ -95,8 +98,10 @@ export default ({ location }) => {
               </div>
             </div>
             <div className={styles.componentsTextContainer}>
-              <div className={styles.heading}>
-                <a href={withPrefix(firstComponentPath)}>Components</a>
+              <div className={styles.headingContainer}>
+                <Heading tag="div" variant="heading-2">
+                  <a href={withPrefix(firstComponentPath)}>Components</a>
+                </Heading>
               </div>
               <div className={styles.body}>
                 Kaizen’s Component Library includes reusable code used to

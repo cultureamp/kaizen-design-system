@@ -1,5 +1,5 @@
-import { Icon } from "@cultureamp/kaizen-component-library"
-const chevronRightIcon = require("@cultureamp/kaizen-component-library/icons/chevron-right.icon.svg")
+import { Icon } from "@kaizen/component-library"
+const chevronRightIcon = require("@kaizen/component-library/icons/chevron-right.icon.svg")
   .default
 import classNames from "classnames"
 import * as React from "react"
@@ -17,7 +17,10 @@ export type LinkProps = {
   onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void
   target?: "_self" | "_blank"
   hasMenu?: boolean
-  notificationText?: string
+  badge?: {
+    kind: "new" | "notification"
+    text: string
+  }
 }
 
 export default class Link extends React.PureComponent<LinkProps> {
@@ -32,6 +35,7 @@ export default class Link extends React.PureComponent<LinkProps> {
 
   render = () => {
     const {
+      badge,
       icon,
       text,
       href,
@@ -42,7 +46,6 @@ export default class Link extends React.PureComponent<LinkProps> {
       iconOnly,
       target,
       hasMenu,
-      notificationText,
     } = this.props
 
     return (
@@ -67,9 +70,14 @@ export default class Link extends React.PureComponent<LinkProps> {
         {text && !(icon && iconOnly) && (
           <span className={styles.linkText}>
             {text}
-            {notificationText && (
-              <span className={styles.notificationPill}>
-                {notificationText}
+            {badge && (
+              <span
+                className={classNames(styles.badge, {
+                  [styles.badgeNotification]: badge.kind === "notification",
+                  [styles.badgeNew]: badge.kind === "new",
+                })}
+              >
+                {badge.text}
               </span>
             )}
           </span>

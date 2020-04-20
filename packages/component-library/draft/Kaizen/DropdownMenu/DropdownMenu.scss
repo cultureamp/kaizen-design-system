@@ -1,15 +1,15 @@
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/type";
-@import "~@cultureamp/kaizen-component-library/styles/layout";
-@import "~@cultureamp/kaizen-component-library/styles/border";
-@import "~@cultureamp/kaizen-component-library/styles/mixins/forms";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/mixins/forms";
 
 .dropdown {
   position: relative;
   background: #fff;
   border: solid 1px $ca-border-color;
-  border-radius: $ca-border-radius;
+  border-radius: $kz-border-solid-border-radius;
   padding: $ca-grid / 2;
   color: $kz-color-wisteria-800;
   width: 100%;

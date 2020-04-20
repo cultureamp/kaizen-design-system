@@ -7,8 +7,12 @@ needToKnow:
 - Prefer vertical (stacked) radios to easily scan and compare options.
 - When there’s only two options, consider if a single checkbox would be better.
 - For settings that are immediately applied, consider using a toggle switch instead.
-demoStoryId: radiogroup--standard
+demoStoryId: radiogroup-react--default-kaizen-site-demo
 ---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -32,20 +36,29 @@ demoStoryId: radiogroup--standard
 *   Prefer to use a default selected option.
 *   Avoid nesting.
 *   For Right-To-Left languages, add `dir=”rtl”` to a `div` wrapping the Radios
+*   Disabled state:
+    *   See [Interaction states guidelines for disabled elements](/guidelines/interaction-states#disabled-state).
 
-## When to use
+## When to use and when not to use
 
-*   Single choice options
-*   Shown side-by-side or stacked
-*   Where there is space to show them all at once
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
-## When not to use
+*   Single choice options.
+*   Shown side-by-side or stacked.
+*   Where there is space to show them all at once.
 
-*   Don’t use when there is more than 20 options
+</WhenToUse>
+<WhenNotToUse>
+
+*   Don’t use when there is more than 20 options.
 *   When there’s only two options, consider if a single [checkbox](/components/checkbox-field) would be better.
 *   For settings that are immediately applied, consider using a [toggle switch](/components/toggle-switch-field) instead.
 *   When there’s limited space, consider using a select dropdown instead.
 *   Sometimes, a dropdown menu might be better. If it’s an infrequently used setting, has a good default, has 4 or more options, consider using a select dropdown menu.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 

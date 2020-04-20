@@ -1,7 +1,8 @@
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
-@import "~@cultureamp/kaizen-component-library/styles/type";
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/layout";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/layout";
 
 $badge__height: 80px;
 $left-content__width: 221px;
@@ -12,7 +13,7 @@ $left-content__width: 221px;
   display: flex;
   box-shadow: 0 0 18px rgba(0, 0, 0, 0.1);
   background-color: transparent;
-  border-radius: 5px;
+  border-radius: $kz-border-solid-border-radius;
 }
 
 .fullWidth {
@@ -21,7 +22,8 @@ $left-content__width: 221px;
 
 .left {
   display: flex;
-  border-radius: 5px 0 0 5px;
+  border-radius: $kz-border-solid-border-radius 0 0
+    $kz-border-solid-border-radius;
   background-color: $kz-color-wisteria-700;
   color: $kz-color-white;
   padding: ($ca-grid / 2) ($ca-grid * 2);
@@ -42,7 +44,8 @@ $left-content__width: 221px;
 }
 
 .right {
-  border-radius: 0 5px 5px 0;
+  border-radius: 0 $kz-border-solid-border-radius $kz-border-solid-border-radius
+    0;
   display: flex;
   flex-direction: column;
   padding: 51px;

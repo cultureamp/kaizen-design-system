@@ -74,13 +74,24 @@ reversedOceanPlaceholder =
 
 main =
     storybook
-        [ statelessStoryOf "Basic block" <|
+        [ statelessStoryOf "Default, Multiple" <|
             storyContainer
                 ([ paragraph ]
                     ++ List.repeat 5
                         defaultPlaceholder
                 )
-        , statelessStoryOf "Variable width block" <|
+        , statelessStoryOf "Default, Multiple, Inline" <|
+            storyContainer
+                [ paragraph
+                , div []
+                    [ div [] (List.repeat 3 (inlinePlaceholder 30))
+                    , div [] (List.repeat 3 (inlinePlaceholder 30))
+                    , div [] (List.repeat 3 (inlinePlaceholder 30))
+                    , div [] (List.repeat 3 (inlinePlaceholder 30))
+                    , div [] (List.repeat 3 (inlinePlaceholder 30))
+                    ]
+                ]
+        , statelessStoryOf "Default, Multiple, Variable width" <|
             storyContainer
                 [ paragraph
                 , variableWidthPlaceholder 90
@@ -89,7 +100,7 @@ main =
                 , variableWidthPlaceholder 85
                 , variableWidthPlaceholder 80
                 ]
-        , statelessStoryOf "Variable width block (centred)" <|
+        , statelessStoryOf "Default, Multiple, Variable width, Centered" <|
             storyContainer
                 [ div [ style "text-align" "center" ] [ paragraph ]
                 , LoadingPlaceholder.view
@@ -117,45 +128,7 @@ main =
                         |> LoadingPlaceholder.width 60
                     )
                 ]
-        , statelessStoryOf "Tall" <|
-            storyContainer
-                ([ paragraph ]
-                    ++ List.repeat 5 tallPlaceholder
-                )
-        , statelessStoryOf "Inline" <|
-            storyContainer
-                [ paragraph
-                , div []
-                    [ div [] (List.repeat 3 (inlinePlaceholder 30))
-                    , div [] (List.repeat 3 (inlinePlaceholder 30))
-                    , div [] (List.repeat 3 (inlinePlaceholder 30))
-                    , div [] (List.repeat 3 (inlinePlaceholder 30))
-                    , div [] (List.repeat 3 (inlinePlaceholder 30))
-                    ]
-                ]
-        , statelessStoryOf "Without bottom margin" <|
-            storyContainer
-                [ LoadingPlaceholder.view
-                    (LoadingPlaceholder.default
-                        |> LoadingPlaceholder.noBottomMargin
-                    )
-                , Text.view (Text.p |> Text.inline True) [ text "These loading placeholders have no bottom margin." ]
-                , LoadingPlaceholder.view
-                    (LoadingPlaceholder.default
-                        |> LoadingPlaceholder.noBottomMargin
-                    )
-                ]
-        , statelessStoryOf "Inherit baseline" <|
-            storyContainer
-                [ div [ class .flexbox ]
-                    [ Text.view (Text.h2 |> Text.inheritBaseline True) [ text "Inheriting baseline" ]
-                    , LoadingPlaceholder.view
-                        (LoadingPlaceholder.default
-                            |> LoadingPlaceholder.inheritBaseline
-                        )
-                    ]
-                ]
-        , statelessStoryOf "Combined block and inline" <|
+        , statelessStoryOf "Default, Multiple, Combined block and inline" <|
             storyContainer
                 [ paragraph
                 , div []
@@ -169,7 +142,34 @@ main =
                 , div [] (List.repeat 3 (inlinePlaceholder 30))
                 , div [] (List.repeat 3 (inlinePlaceholder 30))
                 ]
-        , statelessStoryOf "Reversed Default" <|
+        , statelessStoryOf "Default, Without bottom margin" <|
+            storyContainer
+                [ LoadingPlaceholder.view
+                    (LoadingPlaceholder.default
+                        |> LoadingPlaceholder.noBottomMargin
+                    )
+                , Text.view (Text.p |> Text.inline True) [ text "These loading placeholders have no bottom margin." ]
+                , LoadingPlaceholder.view
+                    (LoadingPlaceholder.default
+                        |> LoadingPlaceholder.noBottomMargin
+                    )
+                ]
+        , statelessStoryOf "Default, Inherit baseline" <|
+            storyContainer
+                [ div [ class .flexbox ]
+                    [ Text.view (Text.h2 |> Text.inheritBaseline True) [ text "Inheriting baseline" ]
+                    , LoadingPlaceholder.view
+                        (LoadingPlaceholder.default
+                            |> LoadingPlaceholder.inheritBaseline
+                        )
+                    ]
+                ]
+        , statelessStoryOf "Heading" <|
+            storyContainer
+                ([ paragraph ]
+                    ++ List.repeat 5 tallPlaceholder
+                )
+        , statelessStoryOf "Reversed, Default" <|
             storyContainer
                 [ div
                     [ class .reversedDefault ]
@@ -261,7 +261,7 @@ class =
 
 
 styles =
-    css "@cultureamp/kaizen-component-library/stories/LoadingPlaceholder.stories.scss"
+    css "@kaizen/component-library/stories/LoadingPlaceholder.stories.scss"
         { storyContainer = "storyContainer"
         , reversedDefault = "reversedDefault"
         , reversedOcean = "reversedOcean"

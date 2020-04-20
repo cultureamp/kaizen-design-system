@@ -1,4 +1,4 @@
-import { ControlledOffCanvas } from "@cultureamp/kaizen-component-library"
+import { ControlledOffCanvas } from "@kaizen/component-library"
 import classNames from "classnames"
 import * as React from "react"
 import Media from "react-media"
@@ -22,7 +22,7 @@ type SupportedChild =
 type Props = {
   environment?: "production" | "staging" | "test" | "local"
   loading?: boolean
-  colorScheme?: "cultureamp" | "kaizen"
+  colorScheme?: "cultureamp" | "kaizen" | "content"
   badgeHref?: string
   footerComponent?: React.ReactNode
 }
@@ -40,8 +40,8 @@ export default class NavigationBar extends React.Component<Props> {
 
   render() {
     const { children, colorScheme = "cultureamp" } = this.props
-    const links: React.ReactElement<LinkProps>[] = []
-    const otherChildren: React.ReactElement<MenuProps>[] = []
+    const links: Array<React.ReactElement<LinkProps>> = []
+    const otherChildren: Array<React.ReactElement<MenuProps>> = []
 
     React.Children.toArray(children).forEach(child => {
       if (!child) {
@@ -63,6 +63,7 @@ export default class NavigationBar extends React.Component<Props> {
       ) {
         otherChildren.push(child as React.ReactElement<MenuProps>)
       } else {
+        // tslint:disable-next-line: no-console
         console.warn(
           "A child Element has been provided to <NavigationBar /> that is not of type `Menu` or `Link`."
         )
@@ -99,6 +100,7 @@ export default class NavigationBar extends React.Component<Props> {
       environment = "production",
       loading = false,
       badgeHref = "/",
+      colorScheme = "kaizen",
     } = this.props
 
     const badges = {
@@ -110,10 +112,12 @@ export default class NavigationBar extends React.Component<Props> {
 
     const Badge = badges[environment] || namedBadge(environment)
 
-    return <Badge loading={loading} href={badgeHref} />
+    return (
+      <Badge loading={loading} href={badgeHref} colorScheme={colorScheme} />
+    )
   }
 
-  renderLinks(links: React.ReactElement<LinkProps>[]) {
+  renderLinks(links: Array<React.ReactElement<LinkProps>>) {
     const indexOfFirstSecondaryLink = links.findIndex(
       link => !!link.props.secondary
     )

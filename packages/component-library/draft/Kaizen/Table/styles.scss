@@ -1,10 +1,11 @@
-@import "~@cultureamp/kaizen-design-tokens/sass/color";
-@import "~@cultureamp/kaizen-component-library/styles/animation";
-@import "~@cultureamp/kaizen-component-library/styles/border";
-@import "~@cultureamp/kaizen-component-library/styles/color";
-@import "~@cultureamp/kaizen-component-library/styles/type";
-@import "~@cultureamp/kaizen-component-library/styles/layout";
-@import "~@cultureamp/kaizen-component-library/components/Button/styles";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/components/Button/styles";
 
 $row-height: 60px;
 
@@ -76,8 +77,8 @@ $row-height: 60px;
   }
 
   &:first-child {
-    border-top-left-radius: $ca-border-radius;
-    border-top-right-radius: $ca-border-radius;
+    border-top-left-radius: $kz-border-solid-border-radius;
+    border-top-right-radius: $kz-border-solid-border-radius;
   }
 
   &:not(:first-child) {
@@ -85,8 +86,8 @@ $row-height: 60px;
   }
 
   &:last-child {
-    border-bottom-left-radius: $ca-border-radius;
-    border-bottom-right-radius: $ca-border-radius;
+    border-bottom-left-radius: $kz-border-solid-border-radius;
+    border-bottom-right-radius: $kz-border-solid-border-radius;
   }
 
   &:hover {
@@ -105,7 +106,7 @@ $row-height: 60px;
 .well {
   border-color: transparent;
   box-shadow: none;
-  border-radius: $ca-border-radius;
+  border-radius: $kz-border-solid-border-radius;
   background-color: $kz-color-ash;
   margin-bottom: $ca-grid * 0.5;
 }

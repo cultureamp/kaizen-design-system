@@ -10,6 +10,14 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-force-trailing-slashes`,
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "GTM-KS4VWLT",
+        includeInDevelopment: false,
+        defaultDataLayer: { platform: "gatsby" },
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -23,6 +31,13 @@ module.exports = {
       options: {
         path: resolve(__dirname, `src/components/images`),
         name: `images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: resolve(__dirname, `src/header-images`),
+        name: `headerImages`,
       },
     },
     {
@@ -47,10 +62,26 @@ module.exports = {
         ],
       },
     },
+    // TODO - remove when all draft components are migrated
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: resolve(`../packages/component-library/draft`),
+        name: `draftComponents`,
+        ignore: [
+          `**/*.ts`,
+          `**/*.tsx`,
+          `**/*.elm`,
+          `**/*.scss`,
+          `**/*.snap`,
+          `**/*.png`,
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: resolve(`../draft-packages`),
         name: `draftComponents`,
         ignore: [
           `**/*.ts`,
@@ -83,6 +114,7 @@ module.exports = {
         precision: 9,
         sassRuleModulesTest: /^(?!(.*normalize\.css$)).+\.s?css$/,
         cssLoaderOptions: {
+          camelCase: false,
           modules: true,
         },
       },

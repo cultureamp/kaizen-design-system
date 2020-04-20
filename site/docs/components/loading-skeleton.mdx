@@ -7,6 +7,10 @@ needToKnow:
 - "Give people an idea of what’s about to come and what’s happening (it's currently loading) when a page full of content/data takes more than 300ms to load."
 ---
 
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
 ## Visuals
 
 ### UI Kit
@@ -32,14 +36,18 @@ needToKnow:
     * If the skeleton loading will load in content when it’s ready without refreshing the page, animate the loading placeholders. We don’t currently use gradients in our branding aesthetic, so for ‘shimmering’ skeletons we opt for opacity changes rather than animated gradients.
     * If data **sometimes** arrives in less than 300ms, still show a loading skeleton for at least 300ms to avoid distracting people with an unnecessary skeleton. That is, don’t show a skeleton for 100ms before content appears as that will feel slower and be a distracting, jarring change.
 
-## When to use
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 * Use a loading skeleton when a loading spinner is not prominent enough.
 * Use when there’s more than 1 element loading at the same time that requires an indicator.
 * Use on high-traffic pages, such as our account dashboard.
 * Use when data takes more than 300ms to load on an average connection for our user base.
 
-## When not to use
+</WhenToUse>
+<WhenNotToUse>
 
 * For a **long-running process or background process**, e.g. importing data or exporting reports, use a progress bar (link to come) instead.
 * For **fast processes that take less than 300ms**, consider a spinner or no loading state at all.
@@ -47,6 +55,9 @@ needToKnow:
 * For **low-traffic pages**, such as super-user only admin pages, use a loading spinner instead.
 * If a **page refresh is required**, use an [Empty State](/components/empty-state) with a Call To Action to refresh.
 * For **introducing content with flair**, use a choreographed or stylized entrance. In contrast to a placeholder loading skeleton, choreographed or stylized entrances don’t care how long content takes to load. For example, the whole page might be loaded already, but we only reveal each section with a fade as the person scrolls down the page. A single stylized entrance may mask and replace a loading spinner.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## External Links
 

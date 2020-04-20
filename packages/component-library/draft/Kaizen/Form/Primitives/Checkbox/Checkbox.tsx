@@ -1,7 +1,7 @@
-import { Icon } from "@cultureamp/kaizen-component-library"
-const checkIcon = require("@cultureamp/kaizen-component-library/icons/check.icon.svg")
+import { Icon } from "@kaizen/component-library"
+const checkIcon = require("@kaizen/component-library/icons/check.icon.svg")
   .default
-const minusIcon = require("@cultureamp/kaizen-component-library/icons/minus.icon.svg")
+const minusIcon = require("@kaizen/component-library/icons/minus.icon.svg")
   .default
 import classnames from "classnames"
 import * as React from "react"
@@ -17,6 +17,7 @@ export type CheckboxProps = {
   onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
   disabled?: boolean
   name?: string
+  tabIndex?: number
 }
 
 type Input = React.FunctionComponent<CheckboxProps>
@@ -48,16 +49,19 @@ const Input: Input = ({
   checkedStatus = "off" as CheckedStatus,
   onCheck,
   disabled = false,
+  tabIndex,
 }) => (
   <div className={styles.container}>
     <input
       type="checkbox"
       id={id}
       name={name}
+      tabIndex={tabIndex}
       data-automation-id={automationId}
       // This si only used as a handle for unit testing
       data-indeterminate={checkedStatus === "mixed"}
-      // TODO - needsclick class disables fastclick on this element to prevent double tap on mobile. Remove when fastclick is removed from consuming repos
+      // TODO - needsclick class disables fastclick on this element to prevent double tap on mobile.
+      // Remove when fastclick is removed from consuming repos
       className={classnames(styles.checkbox, "needsclick")}
       checked={getCheckedFromStatus(checkedStatus)}
       onChange={onCheck}

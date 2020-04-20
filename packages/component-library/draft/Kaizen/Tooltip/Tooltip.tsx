@@ -6,7 +6,7 @@ type Position = "above" | "below"
 
 type Props = {
   position?: Position
-  text: String
+  text: string
   children?: React.ReactNode
 }
 

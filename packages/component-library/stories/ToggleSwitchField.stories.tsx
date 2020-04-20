@@ -1,4 +1,4 @@
-import { storiesOf } from "@storybook/react"
+import { loadElmStories } from "@cultureamp/elm-storybook"
 import * as React from "react"
 import { ToggledStatus, ToggleSwitchField, ToggleTheme } from "../draft"
 
@@ -23,7 +23,14 @@ class ToggleStateContainer extends React.Component<
   }
   render() {
     return (
-      <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "0.2rem",
+        }}
+      >
         {this.props.children({
           toggledStatus: this.state.toggledStatus,
           toggle: this.toggle,
@@ -37,146 +44,198 @@ const RtlContainer = ({ children }: { children: React.ReactNode }) => (
   <div dir="rtl">{children}</div>
 )
 
-storiesOf("ToggleSwitchField", module)
-  .add("On", () => (
-    <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-      {({ toggledStatus, toggle }) => (
+export default {
+  title: "ToggleSwitchField (React)",
+}
+
+export const OnKaizenSiteDemo = () => (
+  <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+    {({ toggledStatus, toggle }) => (
+      <ToggleSwitchField
+        labelText="Label"
+        toggledStatus={toggledStatus}
+        onToggle={toggle}
+      />
+    )}
+  </ToggleStateContainer>
+)
+
+OnKaizenSiteDemo.story = {
+  name: "On (Kaizen Site Demo)",
+}
+
+export const Off = () => (
+  <ToggleStateContainer initialToggledStatus={ToggledStatus.OFF}>
+    {({ toggledStatus, toggle }) => (
+      <ToggleSwitchField
+        labelText="Label"
+        toggledStatus={toggledStatus}
+        onToggle={toggle}
+      />
+    )}
+  </ToggleStateContainer>
+)
+
+export const OnRtl = () => (
+  <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+    {({ toggledStatus, toggle }) => (
+      <RtlContainer>
         <ToggleSwitchField
           labelText="Label"
           toggledStatus={toggledStatus}
           onToggle={toggle}
         />
-      )}
-    </ToggleStateContainer>
-  ))
-  .add("Off", () => (
-    <ToggleStateContainer initialToggledStatus={ToggledStatus.OFF}>
-      {({ toggledStatus, toggle }) => (
+      </RtlContainer>
+    )}
+  </ToggleStateContainer>
+)
+
+OnRtl.story = {
+  name: "On (RTL)",
+}
+
+export const OffRtl = () => (
+  <ToggleStateContainer initialToggledStatus={ToggledStatus.OFF}>
+    {({ toggledStatus, toggle }) => (
+      <RtlContainer>
         <ToggleSwitchField
           labelText="Label"
           toggledStatus={toggledStatus}
           onToggle={toggle}
         />
-      )}
-    </ToggleStateContainer>
-  ))
-  .add("On (RTL)", () => (
-    <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-      {({ toggledStatus, toggle }) => (
-        <RtlContainer>
-          <ToggleSwitchField
-            labelText="Label"
-            toggledStatus={toggledStatus}
-            onToggle={toggle}
-          />
-        </RtlContainer>
-      )}
-    </ToggleStateContainer>
-  ))
-  .add("Off (RTL)", () => (
-    <ToggleStateContainer initialToggledStatus={ToggledStatus.OFF}>
-      {({ toggledStatus, toggle }) => (
-        <RtlContainer>
-          <ToggleSwitchField
-            labelText="Label"
-            toggledStatus={toggledStatus}
-            onToggle={toggle}
-          />
-        </RtlContainer>
-      )}
-    </ToggleStateContainer>
-  ))
-  .add("Disabled On", () => (
-    <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-      {({ toggledStatus, toggle }) => (
+      </RtlContainer>
+    )}
+  </ToggleStateContainer>
+)
+
+OffRtl.story = {
+  name: "Off (RTL)",
+}
+
+export const DisabledOn = () => (
+  <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+    {({ toggledStatus, toggle }) => (
+      <ToggleSwitchField
+        labelText="Label"
+        toggledStatus={toggledStatus}
+        onToggle={toggle}
+        disabled
+      />
+    )}
+  </ToggleStateContainer>
+)
+
+export const DisabledOff = () => (
+  <ToggleStateContainer initialToggledStatus={ToggledStatus.OFF}>
+    {({ toggledStatus, toggle }) => (
+      <ToggleSwitchField
+        labelText="Label"
+        toggledStatus={toggledStatus}
+        onToggle={toggle}
+        disabled
+      />
+    )}
+  </ToggleStateContainer>
+)
+
+export const DisabledOnRtl = () => (
+  <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+    {({ toggledStatus, toggle }) => (
+      <RtlContainer>
         <ToggleSwitchField
           labelText="Label"
           toggledStatus={toggledStatus}
           onToggle={toggle}
           disabled
         />
-      )}
-    </ToggleStateContainer>
-  ))
-  .add("Disabled Off", () => (
-    <ToggleStateContainer initialToggledStatus={ToggledStatus.OFF}>
-      {({ toggledStatus, toggle }) => (
+      </RtlContainer>
+    )}
+  </ToggleStateContainer>
+)
+
+DisabledOnRtl.story = {
+  name: "Disabled On (RTL)",
+}
+
+export const DisabledOffRtl = () => (
+  <ToggleStateContainer initialToggledStatus={ToggledStatus.OFF}>
+    {({ toggledStatus, toggle }) => (
+      <RtlContainer>
         <ToggleSwitchField
           labelText="Label"
           toggledStatus={toggledStatus}
           onToggle={toggle}
           disabled
         />
-      )}
-    </ToggleStateContainer>
-  ))
-  .add("Disabled On (RTL)", () => (
-    <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-      {({ toggledStatus, toggle }) => (
+      </RtlContainer>
+    )}
+  </ToggleStateContainer>
+)
+
+DisabledOffRtl.story = {
+  name: "Disabled Off (RTL)",
+}
+
+export const FullWidth = () => (
+  <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+    {({ toggledStatus, toggle }) => (
+      <div style={{ width: "100%" }}>
+        <ToggleSwitchField
+          labelText="Label"
+          toggledStatus={toggledStatus}
+          onToggle={toggle}
+          fullWidth
+        />
+      </div>
+    )}
+  </ToggleStateContainer>
+)
+
+FullWidth.story = {
+  name: "Full width",
+}
+
+export const FullWidthRtl = () => (
+  <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+    {({ toggledStatus, toggle }) => (
+      <div style={{ width: "100%" }}>
         <RtlContainer>
-          <ToggleSwitchField
-            labelText="Label"
-            toggledStatus={toggledStatus}
-            onToggle={toggle}
-            disabled
-          />
-        </RtlContainer>
-      )}
-    </ToggleStateContainer>
-  ))
-  .add("Disabled Off (RTL)", () => (
-    <ToggleStateContainer initialToggledStatus={ToggledStatus.OFF}>
-      {({ toggledStatus, toggle }) => (
-        <RtlContainer>
-          <ToggleSwitchField
-            labelText="Label"
-            toggledStatus={toggledStatus}
-            onToggle={toggle}
-            disabled
-          />
-        </RtlContainer>
-      )}
-    </ToggleStateContainer>
-  ))
-  .add("Full width", () => (
-    <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-      {({ toggledStatus, toggle }) => (
-        <div style={{ width: "100%" }}>
           <ToggleSwitchField
             labelText="Label"
             toggledStatus={toggledStatus}
             onToggle={toggle}
             fullWidth
           />
-        </div>
-      )}
-    </ToggleStateContainer>
-  ))
-  .add("Full width (RTL)", () => (
-    <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-      {({ toggledStatus, toggle }) => (
-        <div style={{ width: "100%" }}>
-          <RtlContainer>
-            <ToggleSwitchField
-              labelText="Label"
-              toggledStatus={toggledStatus}
-              onToggle={toggle}
-              fullWidth
-            />
-          </RtlContainer>
-        </div>
-      )}
-    </ToggleStateContainer>
-  ))
-  .add("Freemium theme", () => (
-    <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
-      {({ toggledStatus, toggle }) => (
-        <ToggleSwitchField
-          labelText="Label"
-          toggledStatus={toggledStatus}
-          onToggle={toggle}
-          theme={ToggleTheme.FREEMIUM}
-        />
-      )}
-    </ToggleStateContainer>
-  ))
+        </RtlContainer>
+      </div>
+    )}
+  </ToggleStateContainer>
+)
+
+FullWidthRtl.story = {
+  name: "Full width (RTL)",
+}
+
+export const FreemiumTheme = () => (
+  <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+    {({ toggledStatus, toggle }) => (
+      <ToggleSwitchField
+        labelText="Label"
+        toggledStatus={toggledStatus}
+        onToggle={toggle}
+        theme={ToggleTheme.FREEMIUM}
+      />
+    )}
+  </ToggleStateContainer>
+)
+
+FreemiumTheme.story = {
+  name: "Freemium theme",
+}
+
+loadElmStories(
+  "ToggleSwitchField (Elm)",
+  module,
+  require("./ToggleSwitchField.stories.elm"),
+  ["Default theme", "Freemium theme", "Disabled Off", "Disabled On"]
+)

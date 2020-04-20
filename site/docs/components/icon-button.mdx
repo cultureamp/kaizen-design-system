@@ -6,12 +6,15 @@ summaryParagraph: |
 tags: ['Breadcrumb button', 'Button', 'Icon']
 needToKnow:
   - Default icon buttons perform actions using action icons without labels.
+  - Use a Primary icon button when it's the most important action to take.
+  - Use a Destructive icon button when the action will result in data loss, cannot be undone, or otherwise have significant consequences.
   - Breadcrumb icon buttons use link elements to navigate and must show a destination as text on hover/focus.
+demoStoryId: iconbutton-react--default-kaizen-site-demo
 ---
 
-import DosAndDonts from "docs-components/DosAndDonts"
-import Do from "docs-components/Do"
-import Dont from "docs-components/Dont"
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -32,48 +35,48 @@ A default icon button indicates to a user that they can perform an inline action
 
 Other considerations:
 
-- Icon buttons use a button element (not a link element and no `role="button"`):
-- All buttons have an `aria-label` to describe the action to people using assistive technologies, such as screen readers:
+- Icon buttons use a button element (not a link element and no `role="button"`).
+- All icon buttons have an `aria-label` to describe the action to people using assistive technologies, such as screen readers:
     - No more than 2 to 3 words long.
     - Use verbs first; use only verbs where possible e.g. “Save”.
     - Avoid unnecessary words and articles, such as “the” or “a”.
     - Use sentence case.
 - New icons used as icon buttons need to be user tested to test comprehension—can the user identify the action indicated by the icon?
-- If there's any doubt about comprehension, a tooltip must be used on hover/focus of the icon button.
 - Icons used in icon buttons are, by default, 20px in size (minimum) and can be scaled to larger sizes if it contextually makes sense.
 - Icon buttons have a minimum touch zone of 48px.
 - RTL: flip the direction of arrow icons when the user is using a right-to-left language.
 
+### Icon buttons with Tooltips
+
+If there's any doubt about comprehension for an Icon Button with no text label, a [Tooltip](/components/tooltip) must be used on hover and focus of the Icon Button. Buttons natively receive keyboard focus so there's no need to add a `tabindex` attribute.
+
+In a Tooltip used to describe the Icon Button's action (the "tool's tip"), use 1 noun or noun phrase to label the action that will occur by activating the button.
+
 ### Breadcrumb icon button
 
-A breadcrumb icon button uses a link element instead of a button and navigates to another page.
+A breadcrumb icon button is an exceptional case that uses a link element instead of a button because it navigates to another page.
 
 ### Interaction guidelines
 
-| Icon color | Disabled    | Default/Inactive | Hover/Focus | Active/Pressed |
-| ---------- | ----------- | ---------------- | ----------- | -------------- |
-| Ink        | 30% opacity | 50% opacity      | 70% opacity | 100% opacity   |
-| White      | 30% opacity | 50% opacity      | 70% opacity | 100% opacity   |
-| Ocean      | 30% opacity | 50% opacity      | 70% opacity | 100% opacity   |
-
-In CSS, “Default/Inactive” maps to `initial` style, “Hover/Focus” to `:hover` and `:focus`, and “Active/Pressed” to `:active`.
+Disabled Icon Buttons use 30% opacity on the component itself (not, for example, the inner icon) as described in the [Interaction states guidelines](/guidelines/interaction-states#disabled-state).
 
 ## When to use and when not to use
 
-<DosAndDonts>
-<Do>
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 - Use an icon button when a user can perform an inline action on this page and there's no room for a default button. Icon buttons are often used when there are 2 or 3 adjacent icons buttons that perform actions on a single item presented in a row.
 
-</Do>
-<Dont>
+</WhenToUse>
+<WhenNotToUse>
 
 - To display icons that do not have actions associated with them, use the [Icon](/components/icon) component.
+- To show a [Tooltip](/components/tooltip) or [Popover](/components/popover) on focus and hover without any button action, use an [Icon](/components/icon) component instead.
 - Avoid using more than 1 icon button in a [table](/components/table) row.
 - When there's enough space, use a [button](/components/button) instead.
 
-</Dont>
-</DosAndDonts>
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 

@@ -9,8 +9,13 @@ needToKnow:
 - Tooltips must be accessible via hover, focus or click.
 - Trigger tooltips from Interactive elements (Buttons, Links, Icon buttons) or Non-interactive elements (Icons, Abbreviations, Truncated text)—be mindful of keyboard accessibility
 - Use sparingly. Tooltips innately hide information. Consider exposing it immediately without a tooltip or removing it completely.
-demoStoryId: tooltip--default-below
+demoStoryId: tooltip-react--default-below-kaizen-site-demo
+demoStoryHeight: 100px
 ---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -61,17 +66,26 @@ demoStoryId: tooltip--default-below
     *   In contrast, a user might interact with a Popover, requiring focus, so we need to move focus to the Popover when it’s triggered and support keyboard navigation to dismiss a dismissible Popover.
 *   Use sparingly. Tooltips innately hide information. Consider exposing it immediately without a tooltip or removing it completely.
 
-## When to use
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 *   Use when the description content would be too much information to include inline or create too much clutter. For example, when expert users have seen it many times.
 *   Use for icon-only buttons or for a button with an associated keyboard shortcut.
 
-## When not to use
+</WhenToUse>
+<WhenNotToUse>
 
 *   Don’t use tooltips to restate visible UI text.
 *   If you need lots of tooltips and icons to trigger them, consider an onboarding pattern instead, such as coachmarks.
 *   To communicate critical information, including errors in forms or other interaction feedback. Consider using [Modals](/components/modal) or [Notifications](/guidelines/notifications)
 *   Not contain any links or buttons. Consider using a [Popover](/components/popover).
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
+
+
 
 ## See also
 

@@ -8,6 +8,10 @@ needToKnow:
 - Use a “pop” animation style when badge numbers increase.
 ---
 
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
 ## Visuals
 
 ### UI Kit
@@ -30,16 +34,23 @@ We want to draw attention to a specific value
 
 *   The badge text can be a number or a number with text like “10x” for a multiplier
 
-## When to use
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 *   Use **badges** for **counts** of important information, close to the relevant item.
 *   A **dot badge** notifies the user that something is new or updated without showing a count, such as an “unread report”, or activity notification. It may be useful as a less prominent badge, even when the count is known.
 *   Use badges to notify or draw attention to changed values or status.
 *   Use a [“pop” animation style](/guidelines/animation) when badge numbers increase.
 
-## When not to use
+</WhenToUse>
+<WhenNotToUse>
 
 *   If you need a text label, use [tags](/components/tag) instead
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 

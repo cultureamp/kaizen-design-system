@@ -6,8 +6,12 @@ tags: ["Toggle button", "Switch", "Toggle"]
 needToKnow:
 - Toggle Switch labels must include a verb. E.g. Show translations
 - The label should never be on both sides (e.g. On/Off).
-demoStoryId: toggleswitchfield--on
+demoStoryId: toggleswitchfield-react--on-kaizen-site-demo
 ---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -24,14 +28,21 @@ demoStoryId: toggleswitchfield--on
 *   Toggle switches can be triggered by a drag gesture.
 *   In RTL documents, the toggle switch and label are both flipped
 
-## When to use
+## When to use and when not to use
 
-*   When space is tight
-*   Applies to a single setting. When it’s instantly applied (the page doesn’t require a save trigger), as opposed to a Checkbox, which would require a save to action.
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
-## When not to use
+*   When space is tight.
+*   Applies to a single setting. When it’s instantly applied (the page doesn’t require a save trigger), as opposed to a [Checkbox Field](/components/checkbox-field), which would require a save to action.
 
-*   If there are more than 1 setting / option, such as filter settings, consider using [Checkboxes](/components/checkboxes)
+</WhenToUse>
+<WhenNotToUse>
+
+*   If there are more than 1 setting / option, such as filter settings, consider using a [Checkbox Group](/components/checkbox-group).
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 

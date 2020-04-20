@@ -6,8 +6,12 @@ tags: ["Expandable", "Accordion", "Show and hide", "Reveal", "Disclosure"]
 needToKnow:
   - "We usually start collapsibles in a collapsed position by default so that users can see what's available."
   - "We often avoid accordions, which are a specific type of collapsible that allows only 1 section open at a time and is often an annoying constraint on user interaction."
-demoStoryId: collapsible--single-collapsible
+demoStoryId: collapsible-react--single-collapsible-kaizen-site-demo
 ---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Options
 
@@ -31,14 +35,21 @@ We don't yet support:
 * Avoid multi-level expansions.
 * Animation: we animate expansion using a reveal animation (see [animation](/guidelines/animation) for guidance on timing and variable height animations).
 
-## When to use
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 * Use collapsibles when many users want an overview and some users want to dig into specific parts.
 * Use accordion when it’s extremely important to focus on one single thing at a time.
 
-## When not to use
+</WhenToUse>
+<WhenNotToUse>
 
-* Use a table when there’s a consistent heading and tabular data.
+* Use a [Table](/components/table) when there’s a consistent heading and tabular data.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 
