@@ -1,5 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/animation";
 
@@ -13,7 +14,7 @@
   padding: $ca-grid / 2 $ca-grid / 2;
   z-index: 2;
   border: 1px $ca-border-color solid;
-  box-shadow: $kz-color-wisteria-100 0 2px 11px;
+  box-shadow: $kz-shadow-small-box-shadow;
   text-align: center;
 }
 
