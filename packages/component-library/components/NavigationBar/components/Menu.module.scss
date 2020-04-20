@@ -48,48 +48,21 @@ $menu__square-size: $ca-grid * 2;
 .menu {
   $menu__arrow-size: $ca-grid / 4;
 
-  @include ca-position($top: calc(100% + #{$ca-grid * 0.75}), $end: 0);
+  @include ca-position($top: calc(100% - #{$ca-grid / 2}), $end: $ca-grid/3);
 
   align-items: center;
   position: absolute;
-  height: 100%;
   z-index: $ca-z-index-dropdown;
-
-  // menu arrow
-  &::before {
-    content: "";
-    position: absolute;
-    top: -0.3rem;
-    right: calc(#{$menu__square-size / 2} - #{$menu__arrow-size});
-    border: $menu__arrow-size solid transparent;
-    border-top-width: 0;
-    border-bottom-color: $kz-color-wisteria-800;
-  }
-
-  [dir="rtl"] &::before {
-    left: calc(#{$menu__square-size / 2} - #{$menu__arrow-size});
-    right: auto;
-  }
-
-  > * {
-    color: #fff;
-    background-color: $kz-color-wisteria-800;
-    border-radius: $kz-border-solid-border-radius;
-    padding: 3px 0; // @TODO-DST - No magic padding
-    white-space: nowrap;
-  }
+  background-color: $kz-color-white;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  border-radius: $kz-border-solid-border-radius;
+  padding: 4px;
 
   // HACK: duplicate class selector to bump specificity to work around https://trello.com/c/VGvOyHk4
   &.menu {
     &:focus {
       // focus is non-interactive
       outline: 0;
-    }
-
-    > * {
-      align-self: flex-start;
-      padding-bottom: $ca-grid * 0.75;
-      padding-top: $ca-grid * 0.25;
     }
   }
 }
@@ -101,14 +74,21 @@ $menu__square-size: $ca-grid * 2;
 }
 
 .menuItem {
-  @include menu-font-styles;
+  @include font-body;
 
   composes: buttonReset;
 
-  display: block;
+  color: $kz-color-wisteria-800;
+  border-radius: $kz-border-solid-border-radius;
+  white-space: nowrap;
+
+  display: flex;
   box-sizing: border-box;
   width: 100%;
-  padding: ($ca-grid / 8) 2em;
+  height: 42px;
+  align-self: flex-start;
+  align-items: center;
+  padding: 0 $ca-grid / 1.5;
 
   &,
   &:hover {
@@ -117,7 +97,8 @@ $menu__square-size: $ca-grid * 2;
   }
 
   &:hover {
-    background-color: $kz-color-wisteria-700;
+    background-color: $kz-color-cluny-100;
+    color: $kz-color-cluny-500;
   }
 }
 
