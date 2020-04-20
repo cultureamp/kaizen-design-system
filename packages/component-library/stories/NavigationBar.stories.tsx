@@ -195,6 +195,15 @@ export const MenuGroup = () => (
           heading="Admin"
           items={[
             {
+              label: "Skills",
+              url: "meh",
+            },
+            {
+              label: "Self-reflections",
+              url: "meh",
+              switcher: true,
+            },
+            {
               title: "Manager requested feedback",
               items: [
                 {
@@ -219,27 +228,6 @@ export const MenuGroup = () => (
                   url: "meh",
                 },
               ],
-            },
-            {
-              title: "Usage stats",
-              items: [
-                {
-                  label: "Goal stats",
-                  url: "meh",
-                },
-                {
-                  label: "Feedback stats",
-                  url: "meh",
-                },
-              ],
-            },
-            {
-              label: "Skills",
-              url: "meh",
-            },
-            {
-              label: "Self-reflections",
-              url: "meh",
             },
           ]}
         >
