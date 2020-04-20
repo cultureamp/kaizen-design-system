@@ -1,4 +1,3 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
 import * as React from "react"
 
 import { GlobalNotification } from "@kaizen/component-library"
@@ -71,16 +70,3 @@ export const MultipleNotifications = () => (
 MultipleNotifications.story = {
   name: "Multiple notifications",
 }
-
-loadElmStories(
-  "GlobalNotification (Elm)",
-  module,
-  require("./GlobalNotification.stories.elm"),
-  [
-    "Positive",
-    "Informative",
-    "Cautionary",
-    "Negative",
-    "Multiple notifications",
-  ]
-)

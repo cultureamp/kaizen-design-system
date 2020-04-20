@@ -1,4 +1,3 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
 import { AsyncSelect, Select } from "@kaizen/component-library/draft"
 import * as React from "react"
 
@@ -107,8 +106,3 @@ MultiAsyncSearchable.story = {
   name: "Multi-Async Searchable",
 }
 
-loadElmStories("Select (Elm)", module, require("./SelectStories.elm"), [
-  "Single (Kaizen Site Demo)",
-  "Single Searchable",
-  "Multi-Select Searchable",
-])

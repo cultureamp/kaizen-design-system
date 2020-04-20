@@ -1,4 +1,3 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
 import * as React from "react"
 
 import { ToastNotification } from "@kaizen/component-library"
@@ -130,15 +129,3 @@ MultipleNotifications.story = {
   name: "Multiple notifications",
 }
 
-loadElmStories(
-  "ToastNotification (Elm)",
-  module,
-  require("./ToastNotification.stories.elm"),
-  [
-    "Positive",
-    "Informative",
-    "Cautionary",
-    "Negative",
-    "Multiple notifications",
-  ]
-)
