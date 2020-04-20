@@ -55,7 +55,7 @@
     }
 
     &.final {
-      @include ca-margin($start: 0, $end: 0);
+      @include ca-margin($start: 0, $end: 33px);
     }
 
     // Bit of a hack selector, but because of module scoping this is the easiest way
