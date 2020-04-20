@@ -8,6 +8,8 @@
 @import "../../../styles/layout";
 
 $menu__square-size: $ca-grid * 2;
+$menuItem__padding: $ca-grid / 2;
+$menuItem__margin: 4px;
 
 .root {
   position: relative;
@@ -50,7 +52,7 @@ $menu__square-size: $ca-grid * 2;
   border-radius: $kz-border-solid-border-radius;
   padding: 0;
   overflow: hidden;
-  min-width: 200px;
+  padding-top: $menuItem__margin;
 
   // HACK: duplicate class selector to bump specificity to work around https://trello.com/c/VGvOyHk4
   &.menu {
@@ -80,7 +82,7 @@ $menu__square-size: $ca-grid * 2;
 
 .menuItem {
   @include font-body;
-  @include ca-margin($end: 4px, $start: 4px, $bottom: 4px);
+  @include ca-margin($end: $menuItem__margin, $start: $menuItem__margin, $bottom: $menuItem__margin);
   display: flex;
   align-items: center;
 
@@ -88,13 +90,8 @@ $menu__square-size: $ca-grid * 2;
   border-radius: $kz-border-solid-border-radius;
 
   height: 42px;
-  padding: 0 $ca-grid / 2;
+  padding: 0 $menuItem__padding;
   text-align: left;
-
-
-  &:first-child {
-    margin-top: 4px;
-  }
 
   &:hover, &:focus {
     background-color: $kz-color-cluny-100;
@@ -107,22 +104,29 @@ $menu__square-size: $ca-grid * 2;
   @extend .menuItem;
 
   composes: buttonReset;
-  width: calc(100% - 8px);
+  width: calc(100% - #{$menuItem__margin * 2});
 }
 
 .menuGroup {
   border-top: 1px solid $kz-color-ash;
-  margin-top: $ca-grid / 2;
+
+  .menuGroupTitle {
+    @include ca-padding($end: 16px, $start: 16px, $bottom: 8px, $top: 16px);
+    @include font-heading-6;
+
+    padding: 16px 16px 8px 16px;
+    margin: 0;
+
+    color: rgba($kz-color-wisteria-800, 0.8);
+  }
 
   &:first-child {
-    border: 0;
-  }
-}
+    border-top: 0;
 
-.menuGroupTitle {
-  @include font-heading-6;
-  padding: 4px $ca-grid / 1.5;
-  color: rgba($kz-color-wisteria-800, 0.8);
+    .menuGroupTitle {
+      padding-top: 8px;
+    }
+  }
 }
 
 .offCanvasMenuGroup {
@@ -132,7 +136,7 @@ $menu__square-size: $ca-grid * 2;
 }
 
 .offCanvasMenuGroupTitle {
-  //@extend .menuGroupTitle;
+  @extend .menuGroupTitle;
   font-size: 18px;
   color: $kz-color-white;
   padding: ($ca-grid / 2) $ca-grid;
