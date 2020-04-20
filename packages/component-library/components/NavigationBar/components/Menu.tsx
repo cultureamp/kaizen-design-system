@@ -165,19 +165,23 @@ export default class Menu extends React.Component<MenuProps, State> {
         // HTML forms only accept POST. We use a hidden `_method` input as a convention for emulating other HTTP verbs.
         // This behaviour is the same as what is implemented by UJS and supported by Rails:
         // https://github.com/rails/jquery-ujs
-        <form method="post" action={url}>
-          <input name="_method" value={method} type="hidden" />
-          <button type="submit" className={styles.menuItem}>
-            {label}
-          </button>
-        </form>
+        <li className={styles.menuItemContainer}>
+          <form method="post" action={url}>
+            <input name="_method" value={method} type="hidden" />
+            <button type="submit" className={styles.menuItemBtn}>
+              {label}
+            </button>
+          </form>
+        </li>
       )
     }
 
     return (
-      <a href={url} className={styles.menuItem} tabIndex={0}>
-        {label}
-      </a>
+      <li className={styles.menuItemContainer}>
+        <a href={url} className={styles.menuItem} tabIndex={0}>
+          {label}
+        </a>
+      </li>
     )
   }
 
@@ -185,10 +189,10 @@ export default class Menu extends React.Component<MenuProps, State> {
     const { title, items } = menuGroup
 
     return (
-      <div className={styles.menuGroup}>
+      <li className={styles.menuGroup}>
         <h4 className={styles.menuGroupTitle}>{title}</h4>
         {items.map(this.renderMenuItem)}
-      </div>
+      </li>
     )
   }
 
