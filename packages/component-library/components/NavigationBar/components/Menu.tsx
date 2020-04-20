@@ -157,30 +157,38 @@ export default class Menu extends React.Component<MenuProps, State> {
     )
   }
 
-  renderMenuItem = (item: MenuItem) => {
-    const { label, url, method } = item
+  renderMenuItemForm = (item: MenuItem) => {
+    const { url, label, method } = item;
 
-    if (method && method !== "get") {
-      return (
-        // HTML forms only accept POST. We use a hidden `_method` input as a convention for emulating other HTTP verbs.
-        // This behaviour is the same as what is implemented by UJS and supported by Rails:
-        // https://github.com/rails/jquery-ujs
-        <li className={styles.menuItemContainer}>
-          <form method="post" action={url}>
-            <input name="_method" value={method} type="hidden" />
-            <button type="submit" className={styles.menuItemBtn}>
-              {label}
-            </button>
-          </form>
-        </li>
-      )
-    }
+    return (
+      // HTML forms only accept POST. We use a hidden `_method` input as a convention for emulating other HTTP verbs.
+      // This behaviour is the same as what is implemented by UJS and supported by Rails:
+      // https://github.com/rails/jquery-ujs
+      <form method="post" action={url}>
+        <input name="_method" value={method} type="hidden"/>
+        <button type="submit" className={styles.menuItemBtn}>
+          {label}
+        </button>
+      </form>
+    )
+  }
+
+  renderMenuItemLink = (item: MenuItem) => {
+    const { url, label } = item;
+
+    return (
+      <a href={url} className={styles.menuItem} tabIndex={0}>
+        {label}
+      </a>
+    )
+  }
+
+  renderMenuItem = (item: MenuItem) => {
+    const { method } = item
 
     return (
       <li className={styles.menuItemContainer}>
-        <a href={url} className={styles.menuItem} tabIndex={0}>
-          {label}
-        </a>
+        {method && method !== "get" ? this.renderMenuItemForm(item) : this.renderMenuItemLink(item)}
       </li>
     )
   }
