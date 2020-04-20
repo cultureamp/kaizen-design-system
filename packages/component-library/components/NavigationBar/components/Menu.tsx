@@ -9,23 +9,18 @@ import * as React from "react"
 import Media from "react-media"
 import { MOBILE_QUERY } from "../constants"
 import Link, { LinkProps } from "./Link"
+import MenuItem, { MenuItemProps } from "./MenuItem"
 
 const styles = require("./Menu.module.scss")
 
-type MenuItem = {
-  label: string
-  url: string
-  method?: "get" | "post" | "put" | "delete"
-}
-
 type MenuGroup = {
   title: string
-  items: MenuItem[]
+  items: MenuItemProps[]
 }
 
 export type MenuProps = {
   header?: React.ReactElement<any>
-  items: Array<MenuItem | MenuGroup>
+  items: Array<MenuItemProps | MenuGroup>
   automationId?: string
   heading: string
   mobileEnabled?: boolean
@@ -69,7 +64,6 @@ export default class Menu extends React.Component<MenuProps, State> {
           ) : (
             <React.Fragment>
               <Link
-                ref={this.rootRef}
                 text={heading}
                 href="#"
                 onClick={e => this.toggle(e)}
@@ -98,7 +92,7 @@ export default class Menu extends React.Component<MenuProps, State> {
       <ul className={styles.menu}>
         {items.map(item => {
           if ("url" in item) {
-            return this.renderMenuItem(item)
+            return <MenuItem {...item} />
           } else if ("title" in item) {
             return this.renderMenuGroup(item)
           }
@@ -142,7 +136,7 @@ export default class Menu extends React.Component<MenuProps, State> {
     )
   }
 
-  renderOffCanvasMenuItem = (item: MenuItem) => (
+  renderOffCanvasMenuItem = (item: MenuItemProps) => (
     <Link key={item.url} text={item.label} href={item.url} />
   )
 
@@ -157,49 +151,13 @@ export default class Menu extends React.Component<MenuProps, State> {
     )
   }
 
-  renderMenuItemForm = (item: MenuItem) => {
-    const { url, label, method } = item;
-
-    return (
-      // HTML forms only accept POST. We use a hidden `_method` input as a convention for emulating other HTTP verbs.
-      // This behaviour is the same as what is implemented by UJS and supported by Rails:
-      // https://github.com/rails/jquery-ujs
-      <form method="post" action={url}>
-        <input name="_method" value={method} type="hidden"/>
-        <button type="submit" className={styles.menuItemBtn}>
-          {label}
-        </button>
-      </form>
-    )
-  }
-
-  renderMenuItemLink = (item: MenuItem) => {
-    const { url, label } = item;
-
-    return (
-      <a href={url} className={styles.menuItem} tabIndex={0}>
-        {label}
-      </a>
-    )
-  }
-
-  renderMenuItem = (item: MenuItem) => {
-    const { method } = item
-
-    return (
-      <li className={styles.menuItemContainer}>
-        {method && method !== "get" ? this.renderMenuItemForm(item) : this.renderMenuItemLink(item)}
-      </li>
-    )
-  }
-
   renderMenuGroup = (menuGroup: MenuGroup) => {
     const { title, items } = menuGroup
 
     return (
       <li className={styles.menuGroup}>
         <h4 className={styles.menuGroupTitle}>{title}</h4>
-        {items.map(this.renderMenuItem)}
+        {items.map(item => <MenuItem {...item} />)}
       </li>
     )
   }

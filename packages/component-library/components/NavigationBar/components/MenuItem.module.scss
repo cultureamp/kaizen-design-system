@@ -1,0 +1,57 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/design-tokens/sass/border";
+@import "../styles";
+
+$menuItem__padding: $ca-grid / 2;
+$menuItem__margin: 4px;
+
+.buttonReset {
+  // reset button styles
+  appearance: none;
+  background: transparent;
+  border: none;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  // override Murmur global styles :(
+  transition: none;
+}
+
+.container {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+  list-style: none;
+}
+
+.item {
+  @include font-body;
+  @include ca-margin($end: $menuItem__margin, $start: $menuItem__margin, $bottom: $menuItem__margin);
+
+  display: flex;
+  align-items: center;
+
+  color: $kz-color-wisteria-800;
+  border-radius: $kz-border-solid-border-radius;
+
+  height: 42px;
+  padding: 0 $menuItem__padding;
+  text-align: left;
+
+  &:hover, &:focus {
+    background-color: $kz-color-cluny-100;
+    color: $kz-color-cluny-500;
+    text-decoration: none;
+  }
+}
+
+.itemBtn {
+  @extend .item;
+
+  composes: buttonReset;
+  width: calc(100% - #{$menuItem__margin * 2});
+}
