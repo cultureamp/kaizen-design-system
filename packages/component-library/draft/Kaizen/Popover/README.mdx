@@ -12,9 +12,9 @@ demoStoryId: popover-react--default-kaizen-site-demo
 demoStoryHeight: 160px
 ---
 
-import DosAndDonts from "docs-components/DosAndDonts"
-import Do from "docs-components/Do"
-import Dont from "docs-components/Dont"
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -85,14 +85,14 @@ Popovers display contextual information.
 
 ## When to use and when not to use
 
-<DosAndDonts>
-<Do>
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 *   Use when the popover content would be too much information to include inline or create too much clutter. For example, show popovers for specific data points a user might be interested in a data visualization.
 *   Use when the context of the rest of the page is important to keep visible.
 
-</Do>
-<Dont>
+</WhenToUse>
+<WhenNotToUse>
 
 *   When there’s **only non-interactive text**, use a [tooltip](/components/tooltip) instead.
 *   Avoid using popovers for **forms or image content**. Consider using a [modal](/components/modal) instead.
@@ -102,8 +102,8 @@ Popovers display contextual information.
     *   It’s possible to hook into click events, but scrolling is generally a more natural interaction for mobile and tablet; a chart element is not usually perceived as a clickable element
 *   Avoid using popovers when people **don’t need to see the rest of the screen**. Consider using a [modal](/components/modal) instead.
 
-</Dont>
-</DosAndDonts>
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## External Links
 

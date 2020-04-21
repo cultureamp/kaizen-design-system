@@ -1,36 +1,22 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "../../../styles/color";
 @import "../../../styles/type";
+@import "../../../styles/border";
 
-$menu-header-height: 60px;
-$menu-footer-height: 100px;
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 
-.links {
-  max-height: calc(100vh - #{$menu-header-height + $menu-footer-height});
-  overflow-y: scroll;
-  overflow-x: hidden;
-
-  > ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+  &.primary {
+    border-bottom: solid 1px $kz-color-wisteria-500;
   }
-}
-
-.child {
-  display: block;
-  text-decoration: none;
 
   &.secondary.first {
     border-top: 1px solid $kz-color-wisteria-700;
     padding-top: $ca-grid / 2;
     margin-top: $ca-grid / 2;
   }
-}
-
-.otherChildren {
-  display: flex;
-  margin-left: -1px;
 }
 
 .active {

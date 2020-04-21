@@ -1,6 +1,7 @@
 import * as React from "react"
 
 import { Icon, Link, Menu, NavigationBar } from "@kaizen/component-library"
+
 const academyIcon = require("@kaizen/component-library/icons/academy.icon.svg")
   .default
 const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
@@ -18,20 +19,27 @@ export const Default = () => (
       primary: [
         <Link text="Home" href="/" active />,
         <Link text="Surveys" href="/" />,
-        <Link text="Performance" href="/" notificationText="New" />,
+        <Link
+          text="Performance"
+          href="/"
+          badge={{ kind: "new", text: "New" }}
+        />,
+        <Link
+          text="Inbox"
+          href="/"
+          badge={{ kind: "notification", text: "5" }}
+        />,
       ],
       secondary: [
-        <Link
-          icon={academyIcon}
-          text="Academy"
-          href="http://academy.cultureamp.com/"
-          secondary
-        />,
         <Link
           icon={supportIcon}
           text="Support"
           href="http://academy.cultureamp.com/"
-          secondary
+        />,
+        <Link
+          icon={academyIcon}
+          text="Academy"
+          href="http://academy.cultureamp.com/"
         />,
       ],
       final: [
@@ -77,14 +85,15 @@ export const Default = () => (
 export const Loading = () => (
   <NavigationBar loading>
     {{
-      primary: [
-        <Link text="Home" href="/" active />,
+      primary: [<Link text="Home" href="/" active />],
+      secondary: [
         <Link
           icon={academyIcon}
           text="Support"
           href="http://academy.cultureamp.com/"
-          secondary
         />,
+      ],
+      final: [
         <Menu
           heading="Custom menu..."
           items={[
@@ -146,9 +155,30 @@ export const ContentColors = () => (
     {{
       primary: [
         <Link text="Home" href="/" active />,
-        <Link text="Guidelines" href="/" />,
-        <Link text="Components" href="/" />,
-        <Link text="Status" href="/" />,
+        <Link text="Surveys" href="/" />,
+        <Link
+          text="Performance"
+          href="/"
+          badge={{ kind: "new", text: "New" }}
+        />,
+        <Link
+          text="Inbox"
+          href="/"
+          badge={{ kind: "notification", text: "55" }}
+        />,
+      ],
+
+      secondary: [
+        <Link
+          icon={supportIcon}
+          text="Support"
+          href="http://academy.cultureamp.com/"
+        />,
+        <Link
+          icon={academyIcon}
+          text="Academy"
+          href="http://academy.cultureamp.com/"
+        />,
       ],
       final: [
         <Menu
@@ -163,8 +193,28 @@ export const ContentColors = () => (
               url:
                 "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
             },
+            {
+              label: "Sign out",
+              url: "http://localhost:3000/session/sign_out",
+              method: "delete",
+            },
+            {
+              label: "Stop Masquerading",
+              url: "http://localhost:3000/admin/masquerade/",
+              method: "delete",
+            },
           ]}
-        />,
+        >
+          <div
+            style={{
+              backgroundColor: "#ffffff",
+              borderRadius: "3px",
+              color: "#F8A6AE",
+            }}
+          >
+            <Icon icon={caMonogramIcon} title="Culture Amp Logo" inheritSize />
+          </div>
+        </Menu>,
       ],
     }}
   </NavigationBar>
@@ -176,20 +226,10 @@ export const MenuGroup = () => (
       primary: [
         <Link text="Home" href="/" active />,
         <Link text="Surveys" href="/" />,
-        <Link text="Performance" href="/" notificationText="New" />,
-      ],
-      secondary: [
         <Link
-          icon={supportIcon}
-          text="Support"
-          href="http://academy.cultureamp.com/"
-          secondary
-        />,
-        <Link
-          icon={academyIcon}
-          text="Academy"
-          href="http://academy.cultureamp.com/"
-          secondary
+          text="Performance"
+          href="/"
+          badge={{ kind: "new", text: "New" }}
         />,
         <Menu
           heading="Admin"
@@ -201,7 +241,59 @@ export const MenuGroup = () => (
             {
               label: "Self-reflections",
               url: "meh",
-              switcher: true,
+            },
+            {
+              title: "Manager requested feedback",
+              items: [
+                {
+                  label: "Request history",
+                  url: "meh",
+                },
+                {
+                  label: "Request feedback",
+                  url: "meh",
+                },
+              ],
+            },
+            {
+              title: "Usage stats",
+              items: [
+                {
+                  label: "Goal stats",
+                  url: "meh",
+                },
+                {
+                  label: "Feedback stats",
+                  url: "meh",
+                },
+              ],
+            },
+          ]}
+        />,
+      ],
+      secondary: [
+        <Link
+          icon={supportIcon}
+          text="Support"
+          href="http://academy.cultureamp.com/"
+        />,
+        <Link
+          icon={academyIcon}
+          text="Academy"
+          href="http://academy.cultureamp.com/"
+        />,
+      ],
+      final: [
+        <Menu
+          heading="Admin"
+          items={[
+            {
+              label: "Skills",
+              url: "meh",
+            },
+            {
+              label: "Self-reflections",
+              url: "meh",
             },
             {
               title: "Manager requested feedback",
@@ -244,11 +336,8 @@ export const MenuGroup = () => (
             Admin
           </div>
         </Menu>,
-      ],
-      final: [
         <Menu
           heading="Custom menu..."
-          header={<div>test</div>}
           items={[
             {
               label: "About Culture Amp",

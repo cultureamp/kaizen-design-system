@@ -14,6 +14,7 @@ $link-margin: 18px;
 
 .link {
   @extend %ca-navigation-bar__menu-item-focus;
+  @include ca-navigation-bar__link-item;
 
   @include ca-media-mobile {
     width: 100%;
@@ -172,12 +173,19 @@ $link-margin: 18px;
   align-items: center;
 }
 
-.notificationPill {
+.badge {
   @include ca-margin($start: $ca-grid * 0.25);
-  @include ca-padding($start: $ca-grid * 0.5, $end: $ca-grid * 0.5);
   @include font-heading-6;
-  @include ca-inherit-baseline;
+
   border-radius: $ca-grid;
-  background-color: $kz-color-seedling-200;
-  color: $kz-color-wisteria-800;
+  &.badgeNew {
+    @include ca-padding($start: $ca-grid * 0.5, $end: $ca-grid * 0.5);
+    background-color: $kz-color-seedling-200;
+    color: $kz-color-wisteria-800;
+  }
+  &.badgeNotification {
+    @include ca-padding($start: $ca-grid / 3, $end: $ca-grid / 3);
+    background-color: $kz-color-coral-500;
+    color: $kz-color-white;
+  }
 }

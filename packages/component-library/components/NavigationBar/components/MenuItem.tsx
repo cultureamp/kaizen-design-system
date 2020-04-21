@@ -1,17 +1,10 @@
 import React from "react"
 
-// Components
 import { Icon } from "@kaizen/component-library"
+import { MenuItemProps } from "../types"
 
 const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg").default
 const styles = require("./MenuItem.module.scss")
-
-export type MenuItemProps = {
-  label: string
-  url: string
-  method?: "get" | "post" | "put" | "delete"
-  switcher?: boolean
-}
 
 const MenuItem = ({ label, url, method, switcher = false }: MenuItemProps) => {
   const renderArrowIcon = () => (

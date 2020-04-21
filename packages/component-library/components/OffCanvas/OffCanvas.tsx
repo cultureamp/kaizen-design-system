@@ -6,7 +6,7 @@ import Menu from "./components/Menu"
 const styles = require("./OffCanvas.module.scss")
 
 type Props = {
-  links: any[]
+  links?: any
   heading: string
   headerComponent: React.ReactNode
   footerComponent?: React.ReactNode
@@ -31,12 +31,17 @@ export const OffCanvasContext = React.createContext<OffCanvasContextProps>({
 
 export class OffCanvas extends React.Component<Props> {
   static defaultProps = {
-    links: [],
     withTrigger: false,
   }
 
   render() {
-    const { links, menuId, heading, headerComponent, footerComponent} = this.props;
+    const {
+      menuId,
+      headerComponent,
+      heading,
+      links,
+      footerComponent,
+    } = this.props
 
     return (
       <OffCanvasContext.Consumer>
@@ -51,7 +56,12 @@ export class OffCanvas extends React.Component<Props> {
               leftComponent={headerComponent}
               heading={heading}
             />
-            <Menu links={Object.values(links)} />
+            <nav className={styles.links}>
+              {links &&
+                Object.keys(links).map(section => (
+                  <Menu section={section} links={links[section]} />
+                ))}
+            </nav>
             {footerComponent}
           </div>
         )}

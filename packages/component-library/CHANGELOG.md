@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@6.1.0...@kaizen/component-library@6.2.0) (2020-04-20)
+
+
+### Features
+
+* Tweak the vertical centering of the Tab component ([#397](https://github.com/cultureamp/kaizen-design-system/issues/397)) ([a00755d](https://github.com/cultureamp/kaizen-design-system/commit/a00755d7e24ac6c70b367cbabec513ded6a06a98))
+
+
+
+
+
+# [6.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@6.0.0...@kaizen/component-library@6.1.0) (2020-04-17)
+
+
+### Features
+
+* Uplift Table for accessibility roles and custom attributes ([#386](https://github.com/cultureamp/kaizen-design-system/issues/386)) ([365e7f0](https://github.com/cultureamp/kaizen-design-system/commit/365e7f0a8429bc8553bdae38105790bddc65197b))
+
+
+
+
+
+# [6.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.7.1...@kaizen/component-library@6.0.0) (2020-04-17)
+
+
+### Features
+
+* added new badge type to NavigationBar ([#393](https://github.com/cultureamp/kaizen-design-system/issues/393)) ([6817bf6](https://github.com/cultureamp/kaizen-design-system/commit/6817bf6192c21dbcbd38744c0863c1fe2e50259e))
+
+
+### BREAKING CHANGES
+
+* NavigationBar.Link component deprecates `notificationText` prop in favour of `badge` prop to allow for new types.
+
+* fix: merge conflict issue
+
+
+
+
+
+## [5.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.7.0...@kaizen/component-library@5.7.1) (2020-04-17)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 # [5.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@5.6.1...@kaizen/component-library@5.7.0) (2020-04-17)
 
 
