@@ -15,7 +15,6 @@ export type LinkProps = {
   href: string
   active?: boolean
   id?: string
-  secondary?: boolean
   onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void
   target?: "_self" | "_blank"
   hasMenu?: boolean
@@ -23,6 +22,7 @@ export type LinkProps = {
     kind: "new" | "notification"
     text: string
   }
+  section?: string
 }
 
 export type MenuProps = {
@@ -32,6 +32,7 @@ export type MenuProps = {
   heading: string
   mobileEnabled?: boolean
   active?: boolean
+  section?: string
 }
 
 export type MenuItem = {

@@ -35,13 +35,11 @@ export const Default = () => (
           icon={supportIcon}
           text="Support"
           href="http://academy.cultureamp.com/"
-          secondary
         />,
         <Link
           icon={academyIcon}
           text="Academy"
           href="http://academy.cultureamp.com/"
-          secondary
         />,
       ],
       final: [
@@ -93,7 +91,6 @@ export const Loading = () => (
           icon={academyIcon}
           text="Support"
           href="http://academy.cultureamp.com/"
-          secondary
         />,
       ],
       final: [
@@ -176,13 +173,11 @@ export const ContentColors = () => (
           icon={supportIcon}
           text="Support"
           href="http://academy.cultureamp.com/"
-          secondary
         />,
         <Link
           icon={academyIcon}
           text="Academy"
           href="http://academy.cultureamp.com/"
-          secondary
         />,
       ],
       final: [
@@ -236,20 +231,57 @@ export const MenuGroup = () => (
           href="/"
           badge={{ kind: "new", text: "New" }}
         />,
+        <Menu
+          heading="Admin"
+          items={[
+            {
+              label: "Skills",
+              url: "meh",
+            },
+            {
+              label: "Self-reflections",
+              url: "meh",
+            },
+            {
+              title: "Manager requested feedback",
+              items: [
+                {
+                  label: "Request history",
+                  url: "meh",
+                },
+                {
+                  label: "Request feedback",
+                  url: "meh",
+                },
+              ],
+            },
+            {
+              title: "Usage stats",
+              items: [
+                {
+                  label: "Goal stats",
+                  url: "meh",
+                },
+                {
+                  label: "Feedback stats",
+                  url: "meh",
+                },
+              ],
+            },
+          ]}
+        />
       ],
       secondary: [
         <Link
           icon={supportIcon}
           text="Support"
           href="http://academy.cultureamp.com/"
-          secondary
         />,
         <Link
           icon={academyIcon}
           text="Academy"
           href="http://academy.cultureamp.com/"
-          secondary
-        />,
+        />
       ],
       final: [
         <Menu
