@@ -96,6 +96,10 @@ $menuItem__margin: 4px;
   }
 }
 
+.menuItems {
+  padding: 0;
+}
+
 .menuItemBtn {
   @extend .menuItem;
 

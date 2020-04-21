@@ -248,6 +248,7 @@ export const MenuGroup = () => (
       final: [
         <Menu
           heading="Custom menu..."
+          header={<div>test</div>}
           items={[
             {
               label: "About Culture Amp",

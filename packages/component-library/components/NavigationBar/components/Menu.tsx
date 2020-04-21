@@ -86,18 +86,21 @@ export default class Menu extends React.Component<MenuProps, State> {
   }
 
   renderMenu() {
-    const { items } = this.props
+    const { items, header } = this.props
 
     return (
-      <ul className={styles.menu}>
-        {items.map(item => {
-          if ("url" in item) {
-            return <MenuItem {...item} />
-          } else if ("title" in item) {
-            return this.renderMenuGroup(item)
-          }
-        })}
-      </ul>
+      <div className={styles.menu}>
+        {header}
+        <ul className={styles.menuItems}>
+          {items.map(item => {
+            if ("url" in item) {
+              return <MenuItem {...item} />
+            } else if ("title" in item) {
+              return this.renderMenuGroup(item)
+            }
+          })}
+        </ul>
+      </div>
     )
   }
 
