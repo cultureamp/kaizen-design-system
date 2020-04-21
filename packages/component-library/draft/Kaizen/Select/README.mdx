@@ -9,9 +9,9 @@ demoStoryId: select-elm--single-kaizen-site-demo
 demoStoryHeight: 300px
 ---
 
-import DosAndDonts from "docs-components/DosAndDonts"
-import Do from "docs-components/Do"
-import Dont from "docs-components/Dont"
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -75,8 +75,8 @@ A single-select lets the user choose one option from 4 or more items. A multi-se
 
 ## When to use and when not to use
 
-<DosAndDonts>
-<Do>
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 *   Use a single-select when the user needs to choose one option from 4 or more items.
 *   Use a multi-select when the user needs to choose multiple options from 4 or more items.
@@ -84,13 +84,13 @@ A single-select lets the user choose one option from 4 or more items. A multi-se
 *   Consider a select when there is a good default option and show that as pre-selected.
 *   Consider a select when you need to conserve space.
 
-</Do>
-<Dont>
+</WhenToUse>
+<WhenNotToUse>
 
 *   When there's only 2-3 options and enough space, use a [checkbox group](/components/checkbox-group), [radio group](/components/radio), or [toggle switch](/components/toggle-switch-field) instead.
 
-</Dont>
-</DosAndDonts>
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 

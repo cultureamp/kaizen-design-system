@@ -8,9 +8,9 @@ needToKnow:
 - "Give people an idea of what’s happening when a small content/data item takes less than 10s to load."
 ---
 
-import DosAndDonts from "docs-components/DosAndDonts"
-import Do from "docs-components/Do"
-import Dont from "docs-components/Dont"
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -24,24 +24,24 @@ import Dont from "docs-components/Dont"
 
 ## When to use and when not to use
 
-<DosAndDonts>
-<Do>
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 * For a tiny, inline action or feedback, e.g. clicked a button and the action will take time.
 * For fast processes that take less than 300ms, consider a spinner or no loading state at all.
 * When data takes less than 10s to load on an average connection for our user base.
 * For low-traffic pages such as super-user only admin pages.
 
-</Do>
-<Dont>
+</WhenToUse>
+<WhenNotToUse>
 
 * When there’s more than 1 element loading, use a [loading skeleton](/components/loading-skeleton) instead.
 * For a long-running process or background process, e.g. importing data or exporting reports, use a progress bar (link to come) instead.
 * For high-traffic pages like our account dashboard, use a [loading skeleton](/components/loading-skeleton).
 * For introducing content with flair, use a choreographed or stylized entrance. In contrast to a placeholder loading skeleton, choreographed or stylized entrances don’t care how long content takes to load. For example, the whole page might be loaded already, but we only reveal each section with a fade as the person scrolls down the page. A single stylized entrance may mask and replace a loading spinner.
 
-</Dont>
-</DosAndDonts>
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## External Links
 

@@ -10,9 +10,9 @@ needToKnow:
 demoStoryId: radiogroup-react--default-kaizen-site-demo
 ---
 
-import DosAndDonts from "docs-components/DosAndDonts"
-import Do from "docs-components/Do"
-import Dont from "docs-components/Dont"
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -41,15 +41,15 @@ import Dont from "docs-components/Dont"
 
 ## When to use and when not to use
 
-<DosAndDonts>
-<Do>
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 *   Single choice options.
 *   Shown side-by-side or stacked.
 *   Where there is space to show them all at once.
 
-</Do>
-<Dont>
+</WhenToUse>
+<WhenNotToUse>
 
 *   Don’t use when there is more than 20 options.
 *   When there’s only two options, consider if a single [checkbox](/components/checkbox-field) would be better.
@@ -57,8 +57,8 @@ import Dont from "docs-components/Dont"
 *   When there’s limited space, consider using a select dropdown instead.
 *   Sometimes, a dropdown menu might be better. If it’s an infrequently used setting, has a good default, has 4 or more options, consider using a select dropdown menu.
 
-</Dont>
-</DosAndDonts>
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 
