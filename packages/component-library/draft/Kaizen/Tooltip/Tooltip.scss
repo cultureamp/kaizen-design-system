@@ -116,7 +116,9 @@
 
 // Triangle portion is a little darker to bring out shadow
 .shadow::after {
-  border-top: 10px solid $kz-color-wisteria-200;
+  // this color is a duplication of the color portion of our
+  // "small" shadow token defined in the design-tokens package
+  border-top: 10px solid rgba(53, 55, 74, 0.09);
   margin-top: 1px;
   filter: blur(4px);
   z-index: 2;
