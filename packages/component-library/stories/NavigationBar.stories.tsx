@@ -269,7 +269,7 @@ export const MenuGroup = () => (
               ],
             },
           ]}
-        />
+        />,
       ],
       secondary: [
         <Link
@@ -281,7 +281,7 @@ export const MenuGroup = () => (
           icon={academyIcon}
           text="Academy"
           href="http://academy.cultureamp.com/"
-        />
+        />,
       ],
       final: [
         <Menu
