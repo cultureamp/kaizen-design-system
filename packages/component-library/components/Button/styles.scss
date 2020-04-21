@@ -116,7 +116,7 @@ $caButton-verticalPaddingForm: calc(
   &:disabled {
     color: $kz-color-white;
     background: add-alpha($kz-color-seedling-500, 30%);
-    border-color: transparent;
+    border-color: $kz-border-borderless-border-color;
   }
 }
 
@@ -150,7 +150,7 @@ $caButton-verticalPaddingForm: calc(
 
   &:not(:disabled) {
     background: transparent;
-    border-color: transparent;
+    border-color: $kz-border-borderless-border-color;
     color: $kz-color-cluny-500;
 
     %caButtonLabel {
@@ -161,7 +161,7 @@ $caButton-verticalPaddingForm: calc(
     &:active {
       color: $kz-color-cluny-500;
       background: $kz-color-wisteria-100;
-      border-color: transparent;
+      border-color: $kz-border-borderless-border-color;
     }
 
     &:active {
@@ -171,7 +171,7 @@ $caButton-verticalPaddingForm: calc(
 
   &:disabled {
     background: transparent;
-    border-color: transparent;
+    border-color: $kz-border-borderless-border-color;
     color: add-alpha($kz-color-cluny-500, 30%);
   }
 }
@@ -210,7 +210,7 @@ $caButton-verticalPaddingForm: calc(
   &%caButtonPrimary {
     &:not(:disabled) {
       background: $kz-color-white;
-      border-color: transparent;
+      border-color: $kz-border-borderless-border-color;
       color: $kz-color-wisteria-800;
 
       &%caButtonReverseColorLapis {
@@ -252,20 +252,20 @@ $caButton-verticalPaddingForm: calc(
 
       &:active {
         background: add-alpha($kz-color-white, 90%);
-        border-color: transparent;
+        border-color: $kz-border-borderless-border-color;
       }
     }
 
     &:disabled {
       background: add-alpha($kz-color-white, 10%);
-      border-color: transparent;
+      border-color: $kz-border-borderless-border-color;
     }
   }
 
   &%caButtonSecondary {
     &:not(:disabled) {
       background: transparent;
-      border-color: transparent;
+      border-color: $kz-border-borderless-border-color;
       color: $kz-color-white;
 
       %caButtonLabel {
@@ -291,7 +291,7 @@ $caButton-verticalPaddingForm: calc(
 
     &:disabled {
       background: transparent;
-      border-color: transparent;
+      border-color: $kz-border-borderless-border-color;
       color: add-alpha($kz-color-white, 30%);
     }
   }
@@ -378,7 +378,7 @@ $caButton-verticalPaddingForm: calc(
     &%caButtonSecondary {
       color: $kz-color-wisteria-800;
       background: none;
-      border-color: transparent;
+      border-color: $kz-border-borderless-border-color;
 
       &%caButtonReversed {
         color: white;
