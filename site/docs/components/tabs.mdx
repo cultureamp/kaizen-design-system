@@ -46,8 +46,8 @@ import Dont from "docs-components/Dont"
 ### Styling
 
 - Align navigation tabs and section tabs left (in left-to-right languages) and never center within a page or section.
-- For small screens, tab items must be presented without loss of information or functionality, and without requiring scrolling in two dimensions for vertical scrolling content at a width equivalent to 320 CSS pixels and horizontal scrolling content at a height equivalent to 256 CSS pixels, as per [W3C: Understanding Success Criterion 1.4.10: Reflow](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html).
-- Never use icons in section tabs. If we need icons for navigation tabs on small screens, we might use stacked icons above labels.
+- For small screens, tab items must adhere to [WCAG Success Criterion 1.4.10: Reflow](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html). For navigation tabs on small screens, we use a hamburger menu and offscreen navigation to present tabs vertically. For section tabs on small screens, a user can scroll horizontally. For touch devices (large or small), a user may drag section tabs to reveal more offscreen tab items.
+- Never use icons in section tabs. If we need icons for navigation tabs on small screens, we might use stacked icons above labels. We avoid icons in section tabs to reduce tab width, which is important for localization and small screens, and to avoid overburdening a tab item that might already have a badge as optional metadata.
 - Tab content always appears below horizontal tabs.
 - Tab content always appears to the right of vertical tabs in left-to-right languages (and to the left of vertical tabs in right-to-left languages).
 - Use a single row of tabs without wrapping and without showing multiple rows.
@@ -71,7 +71,7 @@ import Dont from "docs-components/Dont"
 ### Fixed or scrolling
 
 - Use fixed tabs of equal width for a small number of tab items (e.g. 3) that fit inside 320px containers or viewports.
-- Use scrolling tabs of flexible width for all other tabs. That is, you can scroll them horizontally to see more tabs offscreen.
+- Use scrolling section tabs of flexible width for all other tabs. That is, you can scroll them horizontally to see more tabs offscreen.
 
 ### Overflow
 
