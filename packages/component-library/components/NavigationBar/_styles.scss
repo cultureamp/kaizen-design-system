@@ -1,6 +1,8 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/component-library/styles/fonts";
+@import "~@kaizen/component-library/styles/animation";
 @import "../../styles/color";
 @import "../../styles/type";
 @import "../../styles/responsive";
@@ -11,8 +13,8 @@ $ca-navigation-bar__animation-ease: cubic-bezier(0.55, 0.085, 0.68, 0.53);
 $ca-navigation-bar__animation-timing: 150ms;
 
 $ca-navigation-bar__link-item-height: 2 * $ca-grid;
-$ca-navigation-bar__link-item-indicator-height: 3px;
-$ca-navigation-bar__link-item-margin: $ca-grid / 4;
+$ca-navigation-bar__link-item-indicator-height: 5px;
+$ca-navigation-bar__link-item-margin: 18px;
 
 @mixin ca-navigation-bar__link-item {
   @extend %ca-navigation-bar__menu-item-focus;
@@ -36,9 +38,10 @@ $ca-navigation-bar__link-item-margin: $ca-grid / 4;
 
   border-radius: $kz-border-solid-border-radius;
 
-  color: rgba(#fff, 0.8);
+  color: rgba($kz-color-white, 0.8);
   padding: 0;
   text-decoration: none;
+  transition: background-color $ca-duration-rapid $ca-ease-in-out;
 
   // active indicator
   .linkText::before {
@@ -52,9 +55,10 @@ $ca-navigation-bar__link-item-margin: $ca-grid / 4;
     top: 0;
     left: 0;
     right: 0;
-    background-color: #fff;
+    background-color: $kz-color-white;
     transition: transform $ca-navigation-bar__animation-ease
       $ca-navigation-bar__animation-timing;
+    border-radius: 0 0 $kz-border-borderless-border-radius $kz-border-borderless-border-radius;
 
     @include ca-media-mobile {
       width: $ca-navigation-bar__link-item-indicator-height;
@@ -65,9 +69,11 @@ $ca-navigation-bar__link-item-margin: $ca-grid / 4;
     }
   }
 
-  &:hover {
-    color: #fff; // override hyperlink hover color
+  &:hover, &.menuOpen {
+    color: $kz-color-white; // override hyperlink hover color
     text-decoration: none;
+    background-color: rgba($kz-color-white, 0.1);
+    border-radius: $kz-border-borderless-border-radius;
 
     .linkText::before {
       transform: translateY(-#{$ca-navigation-bar__link-item-margin});
@@ -78,21 +84,22 @@ $ca-navigation-bar__link-item-margin: $ca-grid / 4;
     }
   }
 
-  @include ca-type-ideal-heading;
+  @include font-heading-4;
   @include ca-inherit-baseline;
   top: 0;
 
   &.secondary {
+    color: $kz-color-white;
+
     @include ca-media-tablet-and-up {
-      @include ca-type-ideal-body;
+      @include font-heading-5;
       @include ca-inherit-baseline;
 
       padding: 0 $ca-grid / 2;
 
       .linkIcon {
-        @include ca-media-tablet {
-          opacity: 1;
-        }
+        opacity: 1;
+        transition: opacity $ca-duration-rapid $ca-ease-in-out;
       }
 
       .linkText {
@@ -109,7 +116,7 @@ $ca-navigation-bar__link-item-margin: $ca-grid / 4;
 
       &:hover,
       &:focus {
-        background-color: rgba(#fff, 0.1);
+        background-color: rgba($kz-color-white, 0.1);
 
         .linkIcon {
           opacity: 0.7;
@@ -117,7 +124,7 @@ $ca-navigation-bar__link-item-margin: $ca-grid / 4;
       }
 
       &:active {
-        background-color: rgba(#fff, 0.2);
+        background-color: rgba($kz-color-white, 0.2);
         transform: translateY(1px);
 
         .linkIcon {
