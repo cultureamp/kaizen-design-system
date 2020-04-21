@@ -133,7 +133,7 @@ $link-margin: 18px;
 }
 
 .linkIcon + .linkText {
-  @include ca-margin($start: $link-margin);
+  @include ca-margin($start: 8px);
 
   @include ca-media-mobile {
     @include ca-margin($start: 0);
