@@ -1,10 +1,15 @@
 import {
+  Icon,
   IconButton,
   OffCanvas,
   OffCanvasContext,
 } from "@kaizen/component-library"
 const arrowLeftIcon = require("@kaizen/component-library/icons/arrow-left.icon.svg")
   .default
+
+const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
+  .default
+import classNames from "classnames"
 import * as React from "react"
 import Media from "react-media"
 import { MOBILE_QUERY } from "../constants"
@@ -23,12 +28,18 @@ export default class Menu extends React.Component<MenuProps, State> {
     items: [],
     mobileEnabled: true,
   }
-  rootRef = React.createRef<HTMLElement>()
+  rootRef = React.createRef<any>()
 
   state = { open: false }
 
   render() {
-    const { children, automationId, heading, mobileEnabled } = this.props
+    const {
+      children,
+      automationId,
+      heading,
+      mobileEnabled,
+      section,
+    } = this.props
 
     return (
       <Media query={MOBILE_QUERY}>
@@ -42,6 +53,7 @@ export default class Menu extends React.Component<MenuProps, State> {
                     href="#"
                     onClick={() => toggleVisibleMenu(heading)}
                     hasMenu
+                    section={section}
                   />
                 )}
               </OffCanvasContext.Consumer>
@@ -50,13 +62,23 @@ export default class Menu extends React.Component<MenuProps, State> {
           ) : (
             <nav className={styles.root} ref={this.rootRef}>
               <button
-                className={styles.button}
+                className={classNames(styles.button, {
+                  [styles.buttonLink]: section === "primary",
+                  [styles.linkText]: heading,
+                })}
                 onClick={this.toggle}
                 aria-expanded={this.state.open}
                 data-automation-id={automationId}
                 onMouseDown={e => e.preventDefault()}
               >
-                {children}
+                {children ? (
+                  children
+                ) : (
+                  <React.Fragment>
+                    <span className={styles.linkText}>{heading}</span>
+                    <Icon icon={chevronDownIcon} role="presentation" />
+                  </React.Fragment>
+                )}
               </button>
               {this.state.open && this.renderMenu()}
             </nav>
@@ -66,7 +88,9 @@ export default class Menu extends React.Component<MenuProps, State> {
     )
   }
 
-  toggle = (e: React.SyntheticEvent<HTMLButtonElement> | MouseEvent) => {
+  toggle = (
+    e: React.SyntheticEvent<HTMLAnchorElement | HTMLButtonElement> | MouseEvent
+  ) => {
     const open = !this.state.open
     this.setState({ open })
   }

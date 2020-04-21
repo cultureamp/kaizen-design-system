@@ -26,10 +26,10 @@ export default class Link extends React.PureComponent<LinkProps> {
       active,
       id,
       onClick,
-      secondary,
       iconOnly,
       target,
       hasMenu,
+      section,
     } = this.props
 
     return (
@@ -37,7 +37,7 @@ export default class Link extends React.PureComponent<LinkProps> {
         className={classNames(styles.link, {
           [styles.active]: active,
           [styles.containsText]: text !== "",
-          [styles.secondary]: secondary,
+          [styles.secondary]: section === "secondary",
         })}
         tabIndex={0}
         {...{ href, id, onClick, target }}
