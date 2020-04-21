@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/design-tokens/sass/border";
 @import "../styles";
 
@@ -28,24 +29,39 @@ $menuItem__margin: 4px;
   list-style: none;
 }
 
+.arrowIcon {
+  @include ca-margin($start: $ca-grid / 2);
+
+  display: flex;
+  color: $kz-color-cluny-500;
+  opacity: 0;
+  transition: opacity $ca-ease $ca-duration-immediate;
+}
+
 .item {
   @include font-body;
   @include ca-margin($end: $menuItem__margin, $start: $menuItem__margin, $bottom: $menuItem__margin);
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
-  color: $kz-color-wisteria-800;
   border-radius: $kz-border-solid-border-radius;
-
   height: 42px;
   padding: 0 $menuItem__padding;
   text-align: left;
+
+  color: $kz-color-wisteria-800;
+  transition: background-color $ca-ease $ca-duration-immediate;
 
   &:hover, &:focus {
     background-color: $kz-color-cluny-100;
     color: $kz-color-cluny-500;
     text-decoration: none;
+
+    .arrowIcon {
+      opacity: 1;
+    }
   }
 }
 

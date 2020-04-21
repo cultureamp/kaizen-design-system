@@ -1,14 +1,23 @@
 import React from "react"
 
+// Components
+import { Icon } from "@kaizen/component-library"
+
+const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg").default
 const styles = require("./MenuItem.module.scss")
 
 export type MenuItemProps = {
   label: string
   url: string
   method?: "get" | "post" | "put" | "delete"
+  switcher?: boolean
 }
 
-const MenuItem = ({ label, url, method }: MenuItemProps) => {
+const MenuItem = ({ label, url, method, switcher = false }: MenuItemProps) => {
+  const renderArrowIcon = () => (
+    <span className={styles.arrowIcon}><Icon icon={arrowForwardIcon} role="presentation" /></span>
+  )
+
   const renderForm = () => (
     // HTML forms only accept POST. We use a hidden `_method` input as a convention for emulating other HTTP verbs.
     // This behaviour is the same as what is implemented by UJS and supported by Rails:
@@ -17,6 +26,7 @@ const MenuItem = ({ label, url, method }: MenuItemProps) => {
       <input name="_method" value={method} type="hidden"/>
       <button type="submit" className={styles.itemBtn}>
         {label}
+        {switcher && renderArrowIcon()}
       </button>
     </form>
   )
@@ -24,6 +34,7 @@ const MenuItem = ({ label, url, method }: MenuItemProps) => {
   const renderLink = () => (
     <a href={url} className={styles.item} tabIndex={0}>
       {label}
+      {switcher && renderArrowIcon()}
     </a>
   )
 
