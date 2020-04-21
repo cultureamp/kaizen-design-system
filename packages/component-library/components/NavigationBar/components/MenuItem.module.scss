@@ -50,9 +50,11 @@ $menuItem__margin: 4px;
   height: 42px;
   padding: 0 $menuItem__padding;
   text-align: left;
-
   color: $kz-color-wisteria-800;
-  transition: background-color $ca-ease $ca-duration-immediate;
+
+  transition-property: background-color, color;
+  transition-duration: $ca-duration-immediate;
+  transition-timing-function: $ca-ease;
 
   &:hover, &:focus {
     background-color: $kz-color-cluny-100;
