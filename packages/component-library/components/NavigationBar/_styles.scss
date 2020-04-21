@@ -76,8 +76,6 @@ $ca-navigation-bar__link-item-margin: 18px;
     border-radius: $kz-border-borderless-border-radius;
 
     .linkText::before {
-      transform: translateY(-#{$ca-navigation-bar__link-item-margin});
-
       @include ca-media-mobile {
         transform: translateX(-#{$ca-navigation-bar__link-item-margin});
       }
