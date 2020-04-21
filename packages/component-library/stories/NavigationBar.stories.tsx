@@ -285,58 +285,6 @@ export const MenuGroup = () => (
       ],
       final: [
         <Menu
-          heading="Admin"
-          items={[
-            {
-              label: "Skills",
-              url: "meh",
-            },
-            {
-              label: "Self-reflections",
-              url: "meh",
-            },
-            {
-              title: "Manager requested feedback",
-              items: [
-                {
-                  label: "Request history",
-                  url: "meh",
-                },
-                {
-                  label: "Request feedback",
-                  url: "meh",
-                },
-              ],
-            },
-            {
-              title: "Usage stats",
-              items: [
-                {
-                  label: "Goal stats",
-                  url: "meh",
-                },
-                {
-                  label: "Feedback stats",
-                  url: "meh",
-                },
-              ],
-            },
-          ]}
-        >
-          <div
-            style={{
-              color: "white",
-              fontFamily: "Ideal Sans A, sans-serif",
-              marginRight: "20px",
-              opacity: "0.8",
-              fontWeight: "lighter",
-              fontSize: "1rem",
-            }}
-          >
-            Admin
-          </div>
-        </Menu>,
-        <Menu
           heading="Custom menu..."
           items={[
             {
