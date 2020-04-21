@@ -2,6 +2,7 @@ import { ControlledOffCanvas } from "@kaizen/component-library"
 import classNames from "classnames"
 import * as React from "react"
 import Media from "react-media"
+import uuidv4 from "uuid/v4"
 import {
   LocalBadge,
   namedBadge,
@@ -78,26 +79,34 @@ export default class NavigationBar extends React.Component<Props> {
   renderNavSection(section: string, items: NavigationItem[]) {
     return (
       <ul
+        key={`${section}-${uuidv4()}`}
         className={classNames({
           [styles.primary]: section === "primary",
           [styles.secondary]: section === "secondary",
           [styles.final]: section === "final",
         })}
       >
-        {items.map((item, index) => this.renderNavItem(item, index))}
+        {items.map(item => this.renderNavItem(item, section))}
       </ul>
     )
   }
 
-  renderNavItem(link: NavigationItem, index) {
+  renderNavItem(link: NavigationItem, section) {
+    const linkWithSection = { ...link, props: { ...link.props, section } }
+
+    const key =
+      "href" in linkWithSection.props
+        ? linkWithSection.props.href
+        : linkWithSection.props.heading
+
     return (
       <li
-        key={link.key || index}
+        key={`${key}-${uuidv4()}`}
         className={classNames(styles.child, {
-          [styles.active]: link.props.active,
+          [styles.active]: linkWithSection.props.active,
         })}
       >
-        {link}
+        {linkWithSection}
       </li>
     )
   }
