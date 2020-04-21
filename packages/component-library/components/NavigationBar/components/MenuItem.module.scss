@@ -45,6 +45,7 @@ $menuItem__margin: 4px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  white-space: nowrap;
 
   border-radius: $kz-border-solid-border-radius;
   height: 42px;

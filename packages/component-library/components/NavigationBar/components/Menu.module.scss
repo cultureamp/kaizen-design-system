@@ -58,7 +58,7 @@ $menu__square-size: $ca-grid * 2;
 }
 
 .menu {
-  @include ca-position($top: calc(100% - #{$ca-grid / 2}), $end: $ca-grid/3);
+  @include ca-position($top: calc(100% + 2px), $end: $ca-grid/3);
 
   align-items: center;
   position: absolute;
@@ -68,6 +68,7 @@ $menu__square-size: $ca-grid * 2;
   border-radius: $kz-border-solid-border-radius;
   overflow: hidden;
   padding: 4px 0 0;
+  max-width: 300px;
 
   // HACK: duplicate class selector to bump specificity to work around https://trello.com/c/VGvOyHk4
   &.menu {
@@ -92,6 +93,7 @@ $menu__square-size: $ca-grid * 2;
 
     padding: 16px 16px 8px 16px;
     margin: 0;
+    white-space: nowrap;
 
     color: rgba($kz-color-wisteria-800, 0.8);
   }
