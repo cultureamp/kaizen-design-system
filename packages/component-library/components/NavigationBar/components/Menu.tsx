@@ -71,6 +71,7 @@ export default class Menu extends React.Component<MenuProps, State> {
                   [styles.buttonLink]: section === "primary",
                   [styles.linkText]: heading,
                   [styles.menuOpen]: this.state.open,
+                  [styles.secondary]: section === "secondary"
                 })}
                 onClick={this.toggle}
                 aria-expanded={this.state.open}

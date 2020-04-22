@@ -244,6 +244,46 @@ export const MenuGroup = () => (
           text="Academy"
           href="http://academy.cultureamp.com/"
         />,
+        <Menu
+          heading="Menu"
+          items={[
+            {
+              label: "Skills",
+              url: "meh",
+              switcher: true,
+            },
+            {
+              label: "Self-reflections",
+              url: "meh",
+            },
+            {
+              title: "Manager requested feedback",
+              items: [
+                {
+                  label: "Request history",
+                  url: "meh",
+                },
+                {
+                  label: "Request feedback",
+                  url: "meh",
+                },
+              ],
+            },
+            {
+              title: "Usage stats",
+              items: [
+                {
+                  label: "Goal stats",
+                  url: "meh",
+                },
+                {
+                  label: "Feedback stats",
+                  url: "meh",
+                },
+              ],
+            },
+          ]}
+        />,
       ],
       final: [
         <Menu

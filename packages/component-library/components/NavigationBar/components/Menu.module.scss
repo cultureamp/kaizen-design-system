@@ -45,7 +45,7 @@ $menu__square-size: $ca-grid * 2;
   }
 }
 
-.buttonLink {
+.buttonLink, .secondary {
   @include ca-navigation-bar__link-item;
   composes: buttonReset;
 
