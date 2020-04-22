@@ -5,23 +5,7 @@ import classNames from "classnames"
 import * as React from "react"
 
 const styles = require("./Link.module.scss")
-
-export type LinkProps = {
-  icon?: React.SVGAttributes<SVGSymbolElement>
-  text?: string
-  iconOnly?: boolean
-  href: string
-  active?: boolean
-  id?: string
-  secondary?: boolean
-  onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void
-  target?: "_self" | "_blank"
-  hasMenu?: boolean
-  badge?: {
-    kind: "new" | "notification"
-    text: string
-  }
-}
+import { LinkProps } from "../types"
 
 export default class Link extends React.PureComponent<LinkProps> {
   static displayName = "Link"
@@ -42,10 +26,10 @@ export default class Link extends React.PureComponent<LinkProps> {
       active,
       id,
       onClick,
-      secondary,
       iconOnly,
       target,
       hasMenu,
+      section,
     } = this.props
 
     return (
@@ -53,7 +37,7 @@ export default class Link extends React.PureComponent<LinkProps> {
         className={classNames(styles.link, {
           [styles.active]: active,
           [styles.containsText]: text !== "",
-          [styles.secondary]: secondary,
+          [styles.secondary]: section === "secondary",
         })}
         tabIndex={0}
         {...{ href, id, onClick, target }}
