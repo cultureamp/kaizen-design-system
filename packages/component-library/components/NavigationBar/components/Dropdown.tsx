@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useLayoutEffect, useRef, useState } from "react"
 
 import classNames from "classnames"
 import { MenuGroup, MenuItemProps } from "../types"
@@ -15,7 +15,7 @@ const Dropdown = ({ items, header }: Props) => {
   const [shiftLeft, setShiftLeft] = useState<boolean>(false)
   const menuRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const menuElem = menuRef.current
 
     if (menuElem) {
