@@ -9,14 +9,6 @@
 .navigationBar {
   @extend %ca-navigation-bar;
 
-  &.kaizen {
-    background: $kz-color-wisteria-700;
-
-    a {
-      color: #fff;
-    }
-  }
-
   &.content {
     background: $kz-color-cluny-200;
 
@@ -81,8 +73,4 @@
   position: relative;
   flex: 0 0 auto;
   text-decoration: none;
-}
-
-.kaizen .active {
-  background-color: $kz-color-wisteria-700;
 }
