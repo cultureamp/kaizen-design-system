@@ -10,7 +10,7 @@ import {
 import classNames from "classnames"
 import Media from "react-media"
 import { MOBILE_QUERY } from "../constants"
-import { MenuGroup, MenuItemProps, MenuProps } from "../types"
+import { MenuGroupProps, MenuItemProps, MenuProps } from "../types"
 import Dropdown from "./Dropdown"
 import Link from "./Link"
 
@@ -140,7 +140,7 @@ export default class Menu extends React.Component<MenuProps, State> {
     <Link key={item.url} text={item.label} href={item.url} />
   )
 
-  renderOffCanvasMenuGroup = (menuGroup: MenuGroup) => {
+  renderOffCanvasMenuGroup = (menuGroup: MenuGroupProps) => {
     const { title, items } = menuGroup
 
     return (

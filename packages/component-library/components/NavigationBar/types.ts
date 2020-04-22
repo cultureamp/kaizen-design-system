@@ -28,7 +28,7 @@ export type LinkProps = {
 
 export type MenuProps = {
   header?: React.ReactElement<any>
-  items: Array<MenuItemProps | MenuGroup>
+  items: Array<MenuItemProps | MenuGroupProps>
   automationId?: string
   heading: string
   mobileEnabled?: boolean
@@ -43,7 +43,7 @@ export type MenuItemProps = {
   switcher?: boolean
 }
 
-export type MenuGroup = {
+export type MenuGroupProps = {
   title: string
   items: MenuItemProps[]
 }

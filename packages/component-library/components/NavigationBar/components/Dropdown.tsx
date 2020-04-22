@@ -1,14 +1,14 @@
 import React, { useLayoutEffect, useRef, useState } from "react"
 
 import classNames from "classnames"
-import { MenuGroup, MenuItemProps } from "../types"
+import { MenuGroupProps, MenuItemProps } from "../types"
 import MenuItem from "./MenuItem"
 
 const styles = require("./Menu.module.scss")
 
 type Props = {
   header?: React.ReactElement<any>
-  items: Array<MenuItemProps | MenuGroup>
+  items: Array<MenuItemProps | MenuGroupProps>
 }
 
 const Dropdown = ({ items, header }: Props) => {
@@ -31,7 +31,7 @@ const Dropdown = ({ items, header }: Props) => {
     }
   }, [])
 
-  const renderMenuGroup = (menuGroup: MenuGroup) => {
+  const renderMenuGroup = (menuGroup: MenuGroupProps) => {
     return (
       <li className={styles.menuGroup}>
         <h4 className={styles.menuGroupTitle}>{menuGroup.title}</h4>
