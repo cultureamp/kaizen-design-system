@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@6.3.0...@kaizen/component-library@7.0.0) (2020-04-22)
+
+
+### Features
+
+* set position NavigationBar refactor ([#396](https://github.com/cultureamp/kaizen-design-system/issues/396)) ([3405c4d](https://github.com/cultureamp/kaizen-design-system/commit/3405c4dde5fb5a8bd473868d918f5097da01210c))
+
+
+### BREAKING CHANGES
+
+* Changes the NavigationBar component API
+
+* feat: Use unique key rather than index
+
+* feat: Make link style a mixin so it can be used on the button link variant and add section to control secondary style
+
+* feat: Update types
+
+* chore: Reformat nav storybook
+
+* feat: allow active submenu item and menu component
+
+- added prop
+-updated story
+- adjusted types
+
+Co-authored-by: Samuel Norris <samuel.norris@cultureamp.com>
+
+
+
+
+
 # [6.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@6.2.1...@kaizen/component-library@6.3.0) (2020-04-22)
 
 
