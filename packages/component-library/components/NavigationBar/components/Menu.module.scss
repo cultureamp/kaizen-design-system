@@ -58,7 +58,7 @@ $menu__square-size: $ca-grid * 2;
 }
 
 .menu {
-  @include ca-position($top: calc(100% + 2px), $end: $ca-grid/3);
+  @include ca-position($top: calc(100% + 2px));
 
   align-items: center;
   position: absolute;
@@ -77,6 +77,10 @@ $menu__square-size: $ca-grid * 2;
       outline: 0;
     }
   }
+}
+
+.shiftMenuLeft {
+  @include ca-position($end: 5px);
 }
 
 .menuItems {

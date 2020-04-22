@@ -1,21 +1,23 @@
+import * as React from "react"
+
 import {
   Icon,
   IconButton,
   OffCanvas,
   OffCanvasContext,
 } from "@kaizen/component-library"
-const arrowLeftIcon = require("@kaizen/component-library/icons/arrow-left.icon.svg")
-  .default
 
-const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
-  .default
 import classNames from "classnames"
-import * as React from "react"
 import Media from "react-media"
 import { MOBILE_QUERY } from "../constants"
 import { MenuGroup, MenuItemProps, MenuProps } from "../types"
+import Dropdown from "./Dropdown"
 import Link from "./Link"
-import MenuItem from "./MenuItem"
+
+const arrowLeftIcon = require("@kaizen/component-library/icons/arrow-left.icon.svg")
+  .default
+const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
+  .default
 
 const styles = require("./Menu.module.scss")
 
@@ -40,6 +42,8 @@ export default class Menu extends React.Component<MenuProps, State> {
       heading,
       mobileEnabled,
       section,
+      items,
+      header,
     } = this.props
 
     return (
@@ -82,7 +86,7 @@ export default class Menu extends React.Component<MenuProps, State> {
                   </React.Fragment>
                 )}
               </button>
-              {this.state.open && this.renderMenu()}
+              {this.state.open && <Dropdown items={items} header={header} />}
             </nav>
           )
         }
@@ -95,25 +99,6 @@ export default class Menu extends React.Component<MenuProps, State> {
   ) => {
     const open = !this.state.open
     this.setState({ open })
-  }
-
-  renderMenu() {
-    const { header, items } = this.props
-
-    return (
-      <div className={styles.menu}>
-        {header}
-        <ul className={styles.menuItems}>
-          {items.map(item => {
-            if ("url" in item) {
-              return <MenuItem {...item} />
-            } else if ("title" in item) {
-              return this.renderMenuGroup(item)
-            }
-          })}
-        </ul>
-      </div>
-    )
   }
 
   renderOffCanvas() {
@@ -163,17 +148,6 @@ export default class Menu extends React.Component<MenuProps, State> {
         <h4 className={styles.offCanvasMenuGroupTitle}>{title}</h4>
         {items.map(this.renderOffCanvasMenuItem)}
       </div>
-    )
-  }
-
-  renderMenuGroup = (menuGroup: MenuGroup) => {
-    const { title, items } = menuGroup
-
-    return (
-      <li className={styles.menuGroup}>
-        <h4 className={styles.menuGroupTitle}>{title}</h4>
-        {items.map(item => <MenuItem {...item} />)}
-      </li>
     )
   }
 
