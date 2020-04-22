@@ -21,7 +21,10 @@ const Dropdown = ({ items, header }: Props) => {
     if (menuElem) {
       const bounding = menuElem.getBoundingClientRect()
 
-      if (bounding.right > (window.innerWidth || document.documentElement.clientWidth)) {
+      if (
+        bounding.right >
+        (window.innerWidth || document.documentElement.clientWidth)
+      ) {
         // Right side of menu is out of viewport
         setShiftLeft(true)
       }
@@ -32,15 +35,20 @@ const Dropdown = ({ items, header }: Props) => {
     return (
       <li className={styles.menuGroup}>
         <h4 className={styles.menuGroupTitle}>{menuGroup.title}</h4>
-        {menuGroup.items.map(item => <MenuItem {...item} />)}
+        {menuGroup.items.map(item => (
+          <MenuItem {...item} />
+        ))}
       </li>
     )
   }
 
   return (
-    <div className={classNames(styles.menu, {
-      [styles.shiftMenuLeft]: shiftLeft,
-    })} ref={menuRef}>
+    <div
+      className={classNames(styles.menu, {
+        [styles.shiftMenuLeft]: shiftLeft,
+      })}
+      ref={menuRef}
+    >
       {header}
       <ul className={styles.menuItems}>
         {items.map(item => {

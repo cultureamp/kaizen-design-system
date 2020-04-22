@@ -29,8 +29,9 @@ export const ProductionBadge = (props: BadgeProps) => (
     <a href={props.href}>
       {props.loading ? (
         <Icon icon={spinnerIcon} title="loading…" />
-      ) : (renderProductionBadge(props))
-      }
+      ) : (
+        renderProductionBadge(props)
+      )}
     </a>
   </div>
 )

@@ -3,12 +3,15 @@ import React from "react"
 import { Icon } from "@kaizen/component-library"
 import { MenuItemProps } from "../types"
 
-const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg").default
+const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
+  .default
 const styles = require("./MenuItem.module.scss")
 
 const MenuItem = ({ label, url, method, switcher = false }: MenuItemProps) => {
   const renderArrowIcon = () => (
-    <span className={styles.arrowIcon}><Icon icon={arrowForwardIcon} role="presentation" /></span>
+    <span className={styles.arrowIcon}>
+      <Icon icon={arrowForwardIcon} role="presentation" />
+    </span>
   )
 
   const renderForm = () => (
@@ -16,7 +19,7 @@ const MenuItem = ({ label, url, method, switcher = false }: MenuItemProps) => {
     // This behaviour is the same as what is implemented by UJS and supported by Rails:
     // https://github.com/rails/jquery-ujs
     <form method="post" action={url}>
-      <input name="_method" value={method} type="hidden"/>
+      <input name="_method" value={method} type="hidden" />
       <button type="submit" className={styles.itemBtn}>
         {label}
         {switcher && renderArrowIcon()}

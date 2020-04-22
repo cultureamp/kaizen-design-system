@@ -40,7 +40,11 @@ $menuItem__margin: 4px;
 
 .item {
   @include font-body;
-  @include ca-margin($end: $menuItem__margin, $start: $menuItem__margin, $bottom: $menuItem__margin);
+  @include ca-margin(
+    $end: $menuItem__margin,
+    $start: $menuItem__margin,
+    $bottom: $menuItem__margin
+  );
 
   display: flex;
   align-items: center;
@@ -57,7 +61,8 @@ $menuItem__margin: 4px;
   transition-duration: $ca-duration-immediate;
   transition-timing-function: $ca-ease;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     background-color: $kz-color-cluny-100;
     color: $kz-color-cluny-500;
     text-decoration: none;

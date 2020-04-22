@@ -58,7 +58,8 @@ $ca-navigation-bar__link-item-margin: 18px;
     background-color: $kz-color-white;
     transition: transform $ca-navigation-bar__animation-ease
       $ca-navigation-bar__animation-timing;
-    border-radius: 0 0 $kz-border-borderless-border-radius $kz-border-borderless-border-radius;
+    border-radius: 0 0 $kz-border-borderless-border-radius
+      $kz-border-borderless-border-radius;
 
     @include ca-media-mobile {
       width: $ca-navigation-bar__link-item-indicator-height;
@@ -69,7 +70,8 @@ $ca-navigation-bar__link-item-margin: 18px;
     }
   }
 
-  &:hover, &.menuOpen {
+  &:hover,
+  &.menuOpen {
     color: $kz-color-white; // override hyperlink hover color
     text-decoration: none;
     background-color: rgba($kz-color-white, 0.1);
