@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@6.2.1...@kaizen/component-library@6.3.0) (2020-04-22)
+
+
+### Features
+
+* Replace ca-box-shadow with Zen shadow tokens ([#400](https://github.com/cultureamp/kaizen-design-system/issues/400)) ([cc4bdfb](https://github.com/cultureamp/kaizen-design-system/commit/cc4bdfb870da3f6caf161d68aca0de5833d152e5))
+
+
+
+
+
 ## [6.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@6.2.0...@kaizen/component-library@6.2.1) (2020-04-21)
 
 
