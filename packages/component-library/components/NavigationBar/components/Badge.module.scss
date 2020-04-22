@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "../../../styles/color";
 @import "../../../styles/type";
+@import "../../../styles/layout";
 @import "../styles";
 
 .badge {
@@ -60,13 +61,11 @@
     color: $kz-color-wisteria-800;
   }
 
-  &.zen {
-    background-color: transparent;
-  }
-}
+  @include ca-media-mobile {
+    @include ca-margin($start: 21px);
 
-.zen {
-  .badge::after {
-    width: 123px;
+    background: none;
+    flex: none;
+    width: 20px;
   }
 }

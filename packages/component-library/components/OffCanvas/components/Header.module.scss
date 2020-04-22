@@ -1,24 +1,24 @@
+@import "~@kaizen/component-library/components/NavigationBar/styles";
 @import "~@kaizen/design-tokens/sass/color";
 @import "../../../styles/type";
+@import "../../../styles/layout";
 @import "../../../styles/color";
+@import "../../../styles/responsive";
 
 .root {
+  @include ca-padding($end: $ca-grid / 2);
+
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: space-between;
   height: 60px;
-  background-color: $kz-color-wisteria-800;
-}
-
-.close {
-  position: absolute;
-  top: $ca-grid / 2;
-  right: $ca-grid / 2;
+  background-color: $kz-color-wisteria-700;
+  box-sizing: border-box;
 }
 
 .heading {
-  @include ca-type-ideal-display;
-  @include ca-inherit-baseline;
-  color: #fff;
+  @include font-heading-3;
+
+  color: $kz-color-white;
 }
