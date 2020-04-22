@@ -119,19 +119,6 @@ export const Loading = () => (
   </NavigationBar>
 )
 
-export const KaizenColors = () => (
-  <NavigationBar colorScheme="kaizen">
-    {{
-      primary: [
-        <Link text="Home" href="/" active />,
-        <Link text="Guidelines" href="/" />,
-        <Link text="Components" href="/" />,
-        <Link text="Status" href="/" />,
-      ],
-    }}
-  </NavigationBar>
-)
-
 export const ContentColors = () => (
   <NavigationBar colorScheme="content">
     {{
