@@ -75,6 +75,8 @@
 }
 
 .child {
+  @include ca-margin($end: $ca-grid);
+
   display: flex;
   position: relative;
   flex: 0 0 auto;
