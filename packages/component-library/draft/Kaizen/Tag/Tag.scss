@@ -87,12 +87,10 @@ $small: $ca-grid;
 
 .sentimentNone {
   background-color: $kz-color-white;
-  border-color: $kz-color-wisteria-300;
 }
 
 .validationPositive {
   background-color: $kz-color-seedling-100;
-  border-color: $kz-color-seedling-200;
 
   .validationIcon {
     color: $kz-color-seedling-500;
@@ -101,7 +99,6 @@ $small: $ca-grid;
 
 .validationInformative {
   background-color: $kz-color-cluny-100;
-  border-color: $kz-color-cluny-200;
 
   .validationIcon {
     color: $kz-color-cluny-500;
@@ -110,7 +107,6 @@ $small: $ca-grid;
 
 .validationNegative {
   background-color: $kz-color-coral-100;
-  border-color: $kz-color-coral-200;
 
   .validationIcon {
     color: $kz-color-coral-500;
@@ -119,7 +115,6 @@ $small: $ca-grid;
 
 .validationCautionary {
   background-color: $kz-color-yuzu-100;
-  border-color: $kz-color-yuzu-400;
 
   .validationIcon {
     color: $kz-color-yuzu-500;
@@ -128,24 +123,20 @@ $small: $ca-grid;
 
 .statusLive {
   background-color: $kz-color-seedling-100;
-  border-color: $kz-color-seedling-100;
   color: $kz-color-wisteria-800;
 }
 
 .statusDraft {
   background-color: add-alpha($kz-color-peach-500, 20%);
-  border-color: $kz-color-peach-100;
   color: $kz-color-wisteria-800;
 }
 
 .statusClosed {
   background-color: $kz-color-wisteria-200;
-  border-color: $kz-color-wisteria-200;
 }
 
 .statusAction {
   background-color: $kz-color-cluny-100;
-  border-color: $kz-color-cluny-100;
   color: $kz-color-wisteria-800;
 }
 
