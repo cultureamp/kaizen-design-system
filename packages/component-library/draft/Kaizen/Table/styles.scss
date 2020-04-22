@@ -1,5 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/color";
@@ -62,7 +63,7 @@ $row-height: 60px;
   @include button-reset;
   background: $kz-color-white;
   border: solid 1px $ca-border-color;
-  box-shadow: $ca-box-shadow;
+  box-shadow: $kz-shadow-small-box-shadow;
   transition: box-shadow $ca-duration-rapid, border-color $ca-duration-rapid,
     margin $ca-duration-rapid, padding $ca-duration-rapid,
     width $ca-duration-rapid;
@@ -112,7 +113,7 @@ $row-height: 60px;
 }
 
 .popout {
-  box-shadow: 0 3px 10px add-alpha($kz-color-wisteria-800, 9%);
+  box-shadow: $kz-shadow-large-box-shadow;
 }
 
 .expanded {

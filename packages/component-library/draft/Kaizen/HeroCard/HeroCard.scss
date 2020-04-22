@@ -1,5 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/layout";
@@ -11,7 +12,8 @@ $left-content__width: 221px;
   @include ca-type-ideal-body;
   @include ca-inherit-baseline;
   display: flex;
-  box-shadow: 0 0 18px rgba(0, 0, 0, 0.1);
+  // this box shadow should change to small once the Zen look is adopted
+  box-shadow: $kz-shadow-large-box-shadow;
   background-color: transparent;
   border-radius: $kz-border-solid-border-radius;
 }

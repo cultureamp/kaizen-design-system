@@ -1,7 +1,8 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/component-library/styles/layout";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/components/Button/styles";
 @import "~@kaizen/component-library/components/Icon/Icon.module.scss";
 
@@ -15,12 +16,12 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
   background: #fff;
   width: 100%;
   max-width: $ca-layout-content-width;
-  border: solid 1px $ca-border-color;
+  border: solid 1px $kz-color-wisteria-200;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: $ca-grid;
-  box-shadow: 0 1px 2px add-alpha($kz-color-wisteria-800, 10%);
+  box-shadow: $kz-shadow-small-box-shadow;
   position: relative;
   top: -1px;
   transition: $ca-banner-fade-out, $ca-banner-collapse-height-delayed;

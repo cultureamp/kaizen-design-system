@@ -1,5 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/component-library/draft/Kaizen/Form/Primitives/Input/styles.scss";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/border";
@@ -113,7 +114,7 @@
   box-sizing: border-box;
   border: 1px solid $ca-border-color;
   border-radius: $kz-border-solid-border-radius;
-  box-shadow: $ca-box-shadow;
+  box-shadow: $kz-shadow-large-box-shadow;
   z-index: 1;
 }
 
