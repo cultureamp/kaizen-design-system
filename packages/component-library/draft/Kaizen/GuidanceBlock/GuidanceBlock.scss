@@ -26,6 +26,7 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
   top: -1px;
   transition: $ca-banner-fade-out, $ca-banner-collapse-height-delayed;
   color: $kz-color-wisteria-800;
+  border-radius: $kz-border-borderless-border-radius;
 
   > * {
     padding: $ca-grid / 2;
