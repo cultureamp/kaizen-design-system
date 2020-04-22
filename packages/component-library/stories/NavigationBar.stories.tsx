@@ -13,6 +13,18 @@ export default {
   title: "NavigationBar (React)",
 }
 
+const accountMenuBtn = (
+  <div
+    style={{
+      backgroundColor: "#ffffff",
+      borderRadius: "7px",
+      color: "#F8A6AE",
+    }}
+  >
+    <Icon icon={caMonogramIcon} title="Culture Amp Logo" inheritSize />
+  </div>
+)
+
 export const Default = () => (
   <NavigationBar>
     {{
@@ -67,15 +79,7 @@ export const Default = () => (
             },
           ]}
         >
-          <div
-            style={{
-              backgroundColor: "#ffffff",
-              borderRadius: "3px",
-              color: "#F8A6AE",
-            }}
-          >
-            <Icon icon={caMonogramIcon} title="Culture Amp Logo" inheritSize />
-          </div>
+          {accountMenuBtn}
         </Menu>,
       ],
     }}
@@ -108,15 +112,7 @@ export const Loading = () => (
             },
           ]}
         >
-          <div
-            style={{
-              backgroundColor: "#ffffff",
-              borderRadius: "3px",
-              color: "#F8A6AE",
-            }}
-          >
-            <Icon icon={caMonogramIcon} title="Culture Amp Logo" inheritSize />
-          </div>
+          {accountMenuBtn}
         </Menu>,
       ],
     }}
@@ -205,15 +201,7 @@ export const ContentColors = () => (
             },
           ]}
         >
-          <div
-            style={{
-              backgroundColor: "#ffffff",
-              borderRadius: "3px",
-              color: "#F8A6AE",
-            }}
-          >
-            <Icon icon={caMonogramIcon} title="Culture Amp Logo" inheritSize />
-          </div>
+          {accountMenuBtn}
         </Menu>,
       ],
     }}
@@ -308,15 +296,7 @@ export const MenuGroup = () => (
             },
           ]}
         >
-          <div
-            style={{
-              backgroundColor: "#ffffff",
-              borderRadius: "3px",
-              color: "#F8A6AE",
-            }}
-          >
-            <Icon icon={caMonogramIcon} title="Culture Amp Logo" inheritSize />
-          </div>
+          {accountMenuBtn}
         </Menu>,
       ],
     }}
