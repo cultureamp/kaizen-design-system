@@ -225,6 +225,7 @@ export const MenuGroup = () => (
             {
               label: "Skills",
               url: "meh",
+              switcher: true,
             },
             {
               label: "Self-reflections",
