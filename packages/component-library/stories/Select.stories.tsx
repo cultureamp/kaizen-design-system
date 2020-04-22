@@ -1,6 +1,7 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 import { AsyncSelect, Select } from "@kaizen/component-library/draft"
 import * as React from "react"
+import Ports from "../draft/Kaizen/Select/ports"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => {
   return <div style={{ width: "300px", margin: "12px auto" }}>{children}</div>
@@ -107,8 +108,10 @@ MultiAsyncSearchable.story = {
   name: "Multi-Async Searchable",
 }
 
-loadElmStories("Select (Elm)", module, require("./SelectStories.elm"), [
-  "Single (Kaizen Site Demo)",
-  "Single Searchable",
-  "Multi-Select Searchable",
-])
+loadElmStories(
+  "Select (Elm)",
+  module,
+  require("./SelectStories.elm"),
+  ["Single (Kaizen Site Demo)", "Single Searchable", "Multi-Select Searchable"],
+  Ports
+)
