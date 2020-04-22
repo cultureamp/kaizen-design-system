@@ -9,7 +9,6 @@
 $nav-ease: cubic-bezier(0.55, 0.085, 0.68, 0.53);
 $nav-timing: 150ms;
 $indicator-height: 3px;
-$link-margin: $ca-grid / 4;
 
 .link {
   @include ca-navigation-bar__link-item;
@@ -44,16 +43,6 @@ $link-margin: $ca-grid / 4;
 
 .containsText {
   padding: 0;
-}
-
-.active {
-  color: #fff; // override hyperlink hover color
-  outline: none; // override native focus styles
-  text-decoration: none;
-
-  .linkText::before {
-    transform: translateY(-#{$link-margin});
-  }
 }
 
 .menuIcon {

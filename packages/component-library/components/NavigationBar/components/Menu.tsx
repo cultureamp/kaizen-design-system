@@ -26,6 +26,7 @@ export default class Menu extends React.Component<MenuProps, State> {
   static displayName = "Menu"
   static defaultProps = {
     items: [],
+    active: false,
     mobileEnabled: true,
   }
   rootRef = React.createRef<any>()
@@ -34,6 +35,7 @@ export default class Menu extends React.Component<MenuProps, State> {
 
   render() {
     const {
+      active,
       children,
       automationId,
       heading,
@@ -64,7 +66,8 @@ export default class Menu extends React.Component<MenuProps, State> {
               <button
                 className={classNames(styles.button, {
                   [styles.buttonLink]: section === "primary",
-                  [styles.linkText]: heading,
+                  [styles.active]: active,
+                  [styles.linkText]: !!heading,
                 })}
                 onClick={this.toggle}
                 aria-expanded={this.state.open}
@@ -165,7 +168,7 @@ export default class Menu extends React.Component<MenuProps, State> {
   }
 
   renderMenuItem = (item: MenuItem) => {
-    const { label, url, method } = item
+    const { label, url, method, active = false } = item
 
     if (method && method !== "get") {
       return (
@@ -174,7 +177,12 @@ export default class Menu extends React.Component<MenuProps, State> {
         // https://github.com/rails/jquery-ujs
         <form method="post" action={url}>
           <input name="_method" value={method} type="hidden" />
-          <button type="submit" className={styles.menuItem}>
+          <button
+            type="submit"
+            className={classNames(styles.menuItem, {
+              [styles.menuItemActive]: active,
+            })}
+          >
             {label}
           </button>
         </form>
@@ -182,7 +190,13 @@ export default class Menu extends React.Component<MenuProps, State> {
     }
 
     return (
-      <a href={url} className={styles.menuItem} tabIndex={0}>
+      <a
+        href={url}
+        className={classNames(styles.menuItem, {
+          [styles.menuItemActive]: active,
+        })}
+        tabIndex={0}
+      >
         {label}
       </a>
     )

@@ -133,10 +133,12 @@ export const KaizenColors = () => (
         <Link text="Status" href="/" />,
         <Menu
           heading="Custom menu..."
+          active={true}
           items={[
             {
               label: "About Culture Amp",
               url: "https://www.cultureamp.com/",
+              active: true,
             },
             {
               label: "Contribute to this guide",

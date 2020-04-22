@@ -26,18 +26,19 @@ export type LinkProps = {
 }
 
 export type MenuProps = {
+  active?: boolean
   header?: React.ReactElement<any>
   items: Array<MenuItem | MenuGroup>
   automationId?: string
   heading: string
   mobileEnabled?: boolean
-  active?: boolean
   section?: string
 }
 
 export type MenuItem = {
   label: string
   url: string
+  active?: boolean
   method?: "get" | "post" | "put" | "delete"
 }
 

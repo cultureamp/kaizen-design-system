@@ -12,6 +12,8 @@ $ca-navigation-bar__link-item-height: 2 * $ca-grid;
 $ca-navigation-bar__link-item-indicator-height: 3px;
 $ca-navigation-bar__link-item-margin: $ca-grid / 4;
 
+$link-margin: $ca-grid / 4;
+
 @mixin ca-navigation-bar__link-item {
   @extend %ca-navigation-bar__menu-item-focus;
 
@@ -37,6 +39,16 @@ $ca-navigation-bar__link-item-margin: $ca-grid / 4;
   color: rgba(#fff, 0.8);
   padding: 0;
   text-decoration: none;
+
+  &.active {
+    color: #fff; // override hyperlink hover color
+    outline: none; // override native focus styles
+    text-decoration: none;
+
+    .linkText::before {
+      transform: translateY(-#{$link-margin});
+    }
+  }
 
   // active indicator
   .linkText::before {

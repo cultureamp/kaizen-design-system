@@ -134,7 +134,8 @@ $menu__square-size: $ca-grid * 2;
     text-decoration: none;
   }
 
-  &:hover {
+  &:hover,
+  &.menuItemActive {
     background-color: $kz-color-wisteria-700;
   }
 }
