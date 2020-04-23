@@ -13,7 +13,8 @@
   transition: opacity $ca-duration-fast, transform $ca-duration-fast;
   padding: $ca-grid / 2 $ca-grid / 2;
   z-index: 2;
-  border: 1px $ca-border-color solid;
+  border: $kz-border-solid-border-width $kz-border-solid-border-style
+    $kz-color-wisteria-200;
   box-shadow: $kz-shadow-small-box-shadow;
   text-align: center;
 }

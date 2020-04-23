@@ -16,7 +16,9 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
   background: #fff;
   width: 100%;
   max-width: $ca-layout-content-width;
-  border: solid 1px $kz-border-borderless-border-color;
+  border: $kz-border-borderless-border-width $kz-border-borderless-border-style
+    $kz-border-borderless-border-color;
+  border-radius: $kz-border-solid-border-radius;
   display: flex;
   justify-content: space-between;
   align-items: center;

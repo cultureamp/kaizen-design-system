@@ -26,9 +26,9 @@ $icon-offset: 4px;
   height: $radio-size;
   width: $radio-size;
   top: 0;
-  border: 1px solid $ca-border-color;
+  border: $kz-border-solid-border-width $kz-border-solid-border-style
+    $ca-border-color;
   box-sizing: border-box;
-  box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.09);
   border-radius: 50%;
 
   .radioInput:disabled + & {

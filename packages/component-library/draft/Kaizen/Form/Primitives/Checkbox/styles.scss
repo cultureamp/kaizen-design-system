@@ -5,7 +5,7 @@
 @import "~@kaizen/component-library/styles/mixins/forms";
 
 $checkbox-size: 20px;
-$checkbox-border-width: 1px;
+$checkbox-border-width: $kz-border-solid-border-width;
 $icon-size: 20px;
 
 .checkbox {
@@ -29,7 +29,8 @@ $icon-size: 20px;
   height: $checkbox-size;
   width: $checkbox-size;
   top: 0;
-  border: 1px solid $ca-border-color;
+  border: $kz-border-solid-border-width $kz-border-solid-border-style
+    $ca-border-color;
   border-radius: $kz-border-solid-border-radius;
   box-sizing: border-box;
   box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.09);

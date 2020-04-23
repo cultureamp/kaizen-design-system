@@ -5,8 +5,8 @@
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/layers";
 
-$base-border: 1px solid $ca-border-color;
-$focus-border-width: 2px;
+$base-border: $kz-border-solid-border-width $kz-border-solid-border-style
+  $ca-border-color;
 $button-width: 124px;
 
 @mixin input-icon($color, $reversed) {
@@ -61,7 +61,8 @@ $button-width: 124px;
 
       // show custom focus ring when :focus-visible
       &:global(.focus-visible) {
-        border: $focus-border-width solid $kz-color-cluny-500;
+        border: $kz-border-focus-ring-border-width
+          $kz-border-focus-ring-border-style $kz-color-cluny-500;
       }
     }
   }
@@ -258,4 +259,5 @@ $button-width: 124px;
   z-index: $ca-z-index-dropdown;
   width: 100%;
   position: absolute;
+  margin-top: 4px;
 }

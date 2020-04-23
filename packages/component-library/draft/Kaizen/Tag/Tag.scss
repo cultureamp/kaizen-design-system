@@ -13,7 +13,8 @@ $small: $ca-grid;
   @include ca-margin($end: $ca-grid * 0.5);
   color: $kz-color-wisteria-800;
   display: inline-block;
-  border: 1px solid $kz-border-borderless-border-color;
+  border: $kz-border-borderless-border-width $kz-border-borderless-border-style
+    $kz-border-borderless-border-color;
   border-radius: $ca-grid * 0.75;
   padding: 0 $ca-grid * 0.4;
   cursor: default;

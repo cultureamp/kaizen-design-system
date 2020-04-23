@@ -35,7 +35,8 @@
   min-height: 48px;
   position: relative;
   box-sizing: border-box;
-  border: solid 1px $ca-border-color;
+  border: $kz-border-solid-border-width $kz-border-solid-border-style
+    $ca-border-color;
   border-radius: $kz-border-solid-border-radius;
   outline: 0 !important;
 
@@ -112,7 +113,8 @@
   position: absolute;
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid $ca-border-color;
+  // Temporary 6px until we redesign this component with Inter
+  border: 6px $kz-border-solid-border-style transparent;
   border-radius: $kz-border-solid-border-radius;
   box-shadow: $kz-shadow-large-box-shadow;
   z-index: 1;
@@ -138,6 +140,7 @@
   width: 100%;
   user-select: none;
   box-sizing: border-box;
+  border-radius: 4px;
   padding: 8px $ca-grid / 2;
   outline: none;
 
