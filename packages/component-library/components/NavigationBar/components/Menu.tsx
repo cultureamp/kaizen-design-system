@@ -104,11 +104,11 @@ export default class Menu extends React.Component<MenuProps, State> {
 
   renderOffCanvas() {
     const { items, heading } = this.props
-    const links = items.map(item => {
+    const links = items.map((item, index) => {
       if ("url" in item) {
         return this.renderOffCanvasMenuItem(item)
       } else if ("title" in item) {
-        return this.renderOffCanvasMenuGroup(item)
+        return this.renderOffCanvasMenuGroup(item, index)
       }
     })
 
@@ -141,11 +141,13 @@ export default class Menu extends React.Component<MenuProps, State> {
     <Link key={item.url} text={item.label} href={item.url} />
   )
 
-  renderOffCanvasMenuGroup = (menuGroup: MenuGroupProps) => {
+  renderOffCanvasMenuGroup = (menuGroup: MenuGroupProps, index: number) => {
     const { title, items } = menuGroup
 
     return (
-      <div className={styles.offCanvasMenuGroup}>
+      <div className={classNames(styles.offCanvasMenuGroup, {
+        [styles.firstMenuItem]: index === 0,
+      })}>
         <h4 className={styles.offCanvasMenuGroupTitle}>{title}</h4>
         {items.map(this.renderOffCanvasMenuItem)}
       </div>

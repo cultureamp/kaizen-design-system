@@ -87,20 +87,19 @@ $menu__square-size: $ca-grid * 2;
   padding: 0;
 }
 
+.menuGroupTitle {
+  @include ca-padding($end: 16px, $start: 16px, $bottom: 8px, $top: 16px);
+  @include font-heading-6;
+
+  margin: 0;
+  white-space: nowrap;
+
+  color: rgba($kz-color-wisteria-800, 0.8);
+}
+
 .menuGroup {
-  border-top: 1px solid $kz-color-ash;
+  border-top: 1px solid rgba($kz-color-wisteria-800, 0.1);
   list-style: none;
-
-  .menuGroupTitle {
-    @include ca-padding($end: 16px, $start: 16px, $bottom: 8px, $top: 16px);
-    @include font-heading-6;
-
-    padding: 16px 16px 8px 16px;
-    margin: 0;
-    white-space: nowrap;
-
-    color: rgba($kz-color-wisteria-800, 0.8);
-  }
 
   &:first-child {
     border-top: 0;
@@ -113,13 +112,26 @@ $menu__square-size: $ca-grid * 2;
 
 .offCanvasMenuGroup {
   @extend .menuGroup;
-  margin-top: $ca-grid / 3;
+
+  margin-top: $ca-grid / 1.5;
+  padding-top: $ca-grid / 3;
   width: 100%;
+
+  &:first-child {
+    border-top: 1px solid rgba($kz-color-wisteria-800, 0.1);
+  }
+
+  &.firstMenuItem {
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 0;
+  }
 }
 
 .offCanvasMenuGroupTitle {
-  @extend .menuGroupTitle;
-  font-size: 18px;
-  color: $kz-color-white;
-  padding: ($ca-grid / 2) $ca-grid;
+  @include ca-padding($top: 10px, $bottom: 4px, $start: 16px, $end: 16px);
+  @include font-heading-6;
+
+  margin: 0 10px;
+  color: $kz-color-wisteria-800;
 }
