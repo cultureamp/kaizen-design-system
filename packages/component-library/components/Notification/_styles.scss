@@ -1,5 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/shadow";
 @import "../../styles/color";
 @import "../../styles/type";
 @import "../../styles/border";
@@ -45,7 +46,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 
   &%ca-notification---toast {
     width: 25rem;
-    box-shadow: 0 3px 7px add-alpha($kz-color-wisteria-800, 9%);
+    box-shadow: $kz-shadow-small-box-shadow;
     padding: $ca-notification-vertical-padding
       $ca-notification-toast-horizontal-padding;
     transition: $ca-notification-fade-out, $ca-notification-slide-right,

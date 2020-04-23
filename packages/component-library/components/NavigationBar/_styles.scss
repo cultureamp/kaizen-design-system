@@ -48,7 +48,7 @@ $ca-navigation-bar__link-item-margin: 18px;
     content: "";
     display: block;
     transform: translateY(-#{$ca-navigation-bar__link-item-margin})
-      translateY(-100%);
+    translateY(-100%);
     height: $ca-navigation-bar__link-item-indicator-height;
     width: 100%;
     position: absolute;
@@ -57,16 +57,16 @@ $ca-navigation-bar__link-item-margin: 18px;
     right: 0;
     background-color: $kz-color-white;
     transition: transform $ca-navigation-bar__animation-ease
-      $ca-navigation-bar__animation-timing;
+    $ca-navigation-bar__animation-timing;
     border-radius: 0 0 $kz-border-borderless-border-radius
-      $kz-border-borderless-border-radius;
+    $kz-border-borderless-border-radius;
 
     @include ca-media-mobile {
       width: $ca-navigation-bar__link-item-indicator-height;
       height: 60px;
       right: auto;
       transform: translateX(-#{$ca-navigation-bar__link-item-margin})
-        translateX(-100%);
+      translateX(-100%);
     }
   }
 

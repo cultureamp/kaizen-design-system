@@ -2,7 +2,6 @@ import classNames from "classnames"
 import * as React from "react"
 import uuidv4 from "uuid/v4"
 import { MenuProps } from "../../NavigationBar/types"
-
 const styles = require("./Menu.module.scss")
 
 type Props = {
@@ -24,7 +23,7 @@ const Menu = ({ links, section }: Props) => {
 
   return (
     <ul
-      className={classNames({
+      className={classNames(styles.menu, {
         [styles.primary]: section === "primary",
       })}
     >
