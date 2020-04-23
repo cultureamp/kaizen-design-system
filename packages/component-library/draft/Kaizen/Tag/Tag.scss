@@ -90,7 +90,7 @@ $small: $ca-grid;
   background-color: $kz-color-ash;
 
   &:hover {
-    border-color: $kz-color-wisteria-300;
+    border-color: $kz-color-wisteria-200;
   }
 }
 
@@ -98,12 +98,13 @@ $small: $ca-grid;
   background-color: $kz-color-coral-100;
 
   &:hover {
-    border-color: $kz-color-coral-300;
+    border-color: $kz-color-coral-200;
   }
 }
 
 .sentimentNone {
   background-color: $kz-color-white;
+  border-color: $kz-color-wisteria-300;
 
   &:hover {
     border-color: $kz-color-wisteria-500;
@@ -114,11 +115,11 @@ $small: $ca-grid;
   background-color: $kz-color-seedling-100;
 
   &:hover {
-    border-color: $kz-color-seedling-300;
+    border-color: $kz-color-seedling-200;
   }
 
   .validationIcon {
-    color: $kz-color-seedling-500;
+    color: $kz-color-seedling-300;
   }
 }
 
@@ -138,7 +139,7 @@ $small: $ca-grid;
   background-color: $kz-color-coral-100;
 
   &:hover {
-    border-color: $kz-color-coral-300;
+    border-color: $kz-color-coral-200;
   }
 
   .validationIcon {
@@ -150,7 +151,7 @@ $small: $ca-grid;
   background-color: $kz-color-yuzu-100;
 
   &:hover {
-    border-color: $kz-color-yuzu-500;
+    border-color: $kz-color-yuzu-300;
   }
 
   .validationIcon {
