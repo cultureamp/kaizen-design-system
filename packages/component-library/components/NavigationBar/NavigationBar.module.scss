@@ -34,6 +34,7 @@
 }
 
 .links {
+  display: inline-flex;
   flex: 1 0 0;
   @include ca-margin($start: 2 * $ca-grid);
 
@@ -43,28 +44,28 @@
     list-style-type: none;
     display: flex;
 
-    li {
-      margin: 0 ($ca-grid / 4);
+    &.primary {
+      @include ca-margin($start: 0);
+    }
 
-      &:first-child {
-        @include ca-margin($start: 0);
-      }
+    &.secondary {
+      @include ca-margin($start: auto, $end: 0);
+    }
 
-      &.secondary {
-        @include ca-margin($start: 0, $end: 0);
-      }
+    &.final {
+      @include ca-margin($end: 0);
+    }
 
-      // Bit of a hack selector, but because of module scoping this is the easiest way
-      .content & span::before {
-        background-color: $kz-color-cluny-500;
-        height: 5px;
-        border-radius: 0 0 $kz-border-solid-border-radius
-          $kz-border-solid-border-radius;
-      }
+    // Bit of a hack selector, but because of module scoping this is the easiest way
+    .content & span::before {
+      background-color: $kz-color-cluny-500;
+      height: 5px;
+      border-radius: 0 0 $kz-border-solid-border-radius
+        $kz-border-solid-border-radius;
+    }
 
-      @include ca-media-tablet {
-        margin: 0;
-      }
+    @include ca-media-tablet {
+      margin: 0;
     }
   }
 
@@ -75,20 +76,10 @@
 
 .child {
   display: flex;
+  position: relative;
   flex: 0 0 auto;
   text-decoration: none;
-
-  &.secondary.first {
-    @include ca-margin($start: auto);
-  }
-}
-
-.otherChildren {
-  display: flex;
-  @include ca-margin($start: $ca-grid / 2);
-  @include ca-media-tablet {
-    margin: 0;
-  }
+  margin: 0 ($ca-grid / 4);
 }
 
 .kaizen .active {

@@ -17,9 +17,8 @@ $menu__square-size: $ca-grid * 2;
 
 .root {
   position: relative;
-  margin: $ca-grid / 4;
-  width: $menu__square-size;
-  height: $menu__square-size;
+  margin-top: 0;
+  width: auto;
 }
 
 .buttonReset {
@@ -43,6 +42,25 @@ $menu__square-size: $ca-grid * 2;
   display: block;
   width: 100%;
   height: 100%;
+
+  .root & {
+    position: relative;
+    margin: $ca-grid / 4;
+    width: $menu__square-size;
+    height: $menu__square-size;
+  }
+}
+
+.buttonLink {
+  @include ca-navigation-bar__link-item;
+  composes: buttonReset;
+
+  .root & {
+    width: auto;
+    margin-left: 0;
+  }
+
+  padding: 0 ($ca-grid / 2);
 }
 
 .menu {
@@ -116,7 +134,8 @@ $menu__square-size: $ca-grid * 2;
     text-decoration: none;
   }
 
-  &:hover {
+  &:hover,
+  &.menuItemActive {
     background-color: $kz-color-wisteria-700;
   }
 }
