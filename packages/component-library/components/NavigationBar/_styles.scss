@@ -142,7 +142,9 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
     transition: none;
     margin: 0 $ca-navigation-bar__link-item-margin-mobile;
 
-    &.active, &:hover, &:focus {
+    &.active,
+    &:hover,
+    &:focus {
       color: $kz-color-cluny-500;
       background-color: $kz-color-cluny-100;
     }

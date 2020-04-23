@@ -21,10 +21,12 @@ const MenuGroup = ({ title, items, index, offCanvas }: Props) => {
 
   const renderOffCanvasMenuGroup = () => {
     return (
-      <ul className={classNames(styles.container, {
-        [styles.offCanvas]: true,
-        [styles.firstMenuItem]: index === 0,
-      })}>
+      <ul
+        className={classNames(styles.container, {
+          [styles.offCanvas]: true,
+          [styles.firstMenuItem]: index === 0,
+        })}
+      >
         <h4 className={styles.title}>{title}</h4>
         {items.map(renderOffCanvasMenuItem)}
       </ul>
