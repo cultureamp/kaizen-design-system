@@ -50,7 +50,7 @@ export class OffCanvas extends React.Component<Props> {
         {({ visibleMenus, resetVisibleMenus }) => (
           <div
             className={classNames(styles.root, {
-              [styles.active]: ["menu"].includes(menuId),
+              [styles.active]: visibleMenus.includes(menuId),
             })}
           >
             <Header
