@@ -2,11 +2,12 @@ import classNames from "classnames"
 import * as React from "react"
 import Header from "./components/Header"
 import Menu from "./components/Menu"
+import { Navigation } from "../NavigationBar/types"
 
 const styles = require("./OffCanvas.module.scss")
 
 type Props = {
-  links?: any
+  links?: Navigation
   heading: string
   headerComponent: React.ReactNode
   footerComponent?: React.ReactNode
@@ -48,7 +49,7 @@ export class OffCanvas extends React.Component<Props> {
         {({ visibleMenus, resetVisibleMenus }) => (
           <div
             className={classNames(styles.root, {
-              [styles.active]: visibleMenus.includes(menuId),
+              [styles.active]: ["menu"].includes(menuId),
             })}
           >
             <Header

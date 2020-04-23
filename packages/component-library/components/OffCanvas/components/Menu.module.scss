@@ -8,14 +8,10 @@ ul {
   padding: 0;
   list-style-type: none;
 
-  &.primary {
-    border-bottom: solid 1px $kz-color-wisteria-500;
-  }
-
-  &.secondary.first {
-    border-top: 1px solid $kz-color-wisteria-700;
-    padding-top: $ca-grid / 2;
-    margin-top: $ca-grid / 2;
+  &.secondary {
+    border-top: 1px solid rgba($kz-color-wisteria-700, 0.1);
+    padding-top: 20px;
+    margin-top: 20px;
   }
 }
 

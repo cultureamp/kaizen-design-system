@@ -40,16 +40,6 @@
   padding: 0;
 }
 
-.active {
-  color: $kz-color-white; // override hyperlink hover color
-  outline: none; // override native focus styles
-  text-decoration: none;
-
-  .linkText::before {
-    transform: translateY(-18px);
-  }
-}
-
 .menuIcon {
   margin-left: auto;
   margin-right: $ca-grid;

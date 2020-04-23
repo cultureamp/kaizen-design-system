@@ -15,16 +15,12 @@ $ca-navigation-bar__animation-timing: 150ms;
 $ca-navigation-bar__link-item-height: 2 * $ca-grid;
 $ca-navigation-bar__link-item-indicator-height: 5px;
 $ca-navigation-bar__link-item-margin: 18px;
+$ca-navigation-bar__link-item-margin-mobile: 10px;
 
 @mixin ca-navigation-bar__link-item {
   @extend %ca-navigation-bar__menu-item-focus;
 
   @include ca-type-reverse;
-  @include ca-media-mobile {
-    width: 100%;
-    justify-content: flex-start;
-    align-items: center;
-  }
 
   // fill parent
   display: flex;
@@ -44,29 +40,33 @@ $ca-navigation-bar__link-item-margin: 18px;
   transition: background-color $ca-duration-rapid $ca-ease-in-out;
 
   // active indicator
-  .linkText::before {
-    content: "";
-    display: block;
-    transform: translateY(-#{$ca-navigation-bar__link-item-margin})
-      translateY(-100%);
-    height: $ca-navigation-bar__link-item-indicator-height;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: $kz-color-white;
-    transition: transform $ca-navigation-bar__animation-ease
-      $ca-navigation-bar__animation-timing;
-    border-radius: 0 0 $kz-border-borderless-border-radius
-      $kz-border-borderless-border-radius;
+  @include ca-media-tablet-and-up {
+    .linkText::before {
+      content: "";
+      display: block;
+      transform: translateY(-#{$ca-navigation-bar__link-item-margin})
+        translateY(-100%);
+      height: $ca-navigation-bar__link-item-indicator-height;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: $kz-color-white;
+      transition: transform $ca-navigation-bar__animation-ease
+        $ca-navigation-bar__animation-timing;
+      border-radius: 0 0 $kz-border-borderless-border-radius
+        $kz-border-borderless-border-radius;
+    }
+  }
 
-    @include ca-media-mobile {
-      width: $ca-navigation-bar__link-item-indicator-height;
-      height: 60px;
-      right: auto;
-      transform: translateX(-#{$ca-navigation-bar__link-item-margin})
-        translateX(-100%);
+  &.active {
+    outline: none; // override native focus styles
+    text-decoration: none;
+    color: $kz-color-white;
+
+    .linkText::before {
+      transform: translateY(-18px);
     }
   }
 
@@ -82,6 +82,10 @@ $ca-navigation-bar__link-item-margin: 18px;
         transform: translateX(-#{$ca-navigation-bar__link-item-margin});
       }
     }
+
+    //@include ca-media-mobile {
+    //  color: $kz-color-cluny-500;
+    //}
   }
 
   @include font-heading-4;
@@ -133,6 +137,20 @@ $ca-navigation-bar__link-item-margin: 18px;
       }
     }
   }
+
+  @include ca-media-mobile {
+    width: calc(100% - #{$ca-navigation-bar__link-item-margin-mobile * 2});
+    justify-content: flex-start;
+    align-items: center;
+    color: $kz-color-wisteria-700;
+    transition: none;
+    margin: 0 $ca-navigation-bar__link-item-margin-mobile;
+
+    &.active, &:hover, &:focus {
+      color: $kz-color-cluny-500;
+      background-color: $kz-color-cluny-100;
+    }
+  }
 }
 
 %ca-navigation-bar {
@@ -170,6 +188,15 @@ $ca-navigation-bar__link-item-margin: 18px;
 @mixin anti-aliasing {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin font-heading-3 {
+  @include anti-aliasing;
+  font-family: $kz-typography-heading-3-font-family;
+  font-weight: $kz-typography-heading-3-font-weight;
+  font-size: $kz-typography-heading-3-font-size;
+  line-height: $kz-typography-heading-3-line-height;
+  letter-spacing: $kz-typography-heading-3-letter-spacing;
 }
 
 @mixin font-heading-4 {

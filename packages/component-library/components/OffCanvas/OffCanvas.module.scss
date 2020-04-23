@@ -18,7 +18,8 @@ $menu-footer-height: 100px;
   top: 0;
   left: 0;
   transform: translate3d(-120%, 0, 0);
-  background-color: $kz-color-wisteria-800;
+  background-color: $kz-color-white;
+  color: $kz-color-wisteria-800;
   transition: transform $ca-duration-fast $ca-ease-out;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
@@ -67,6 +68,8 @@ $menu-footer-height: 100px;
 }
 
 .links {
+  @include ca-padding($top: 18px);
+
   max-height: calc(100vh - #{$menu-header-height + $menu-footer-height});
   overflow-y: scroll;
   overflow-x: hidden;

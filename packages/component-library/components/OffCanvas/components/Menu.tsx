@@ -26,6 +26,7 @@ const Menu = ({ links, section }: Props) => {
     <ul
       className={classNames({
         [styles.primary]: section === "primary",
+        [styles.secondary]: section === "secondary",
       })}
     >
       {[links].map(link => renderNavItem(link))}
