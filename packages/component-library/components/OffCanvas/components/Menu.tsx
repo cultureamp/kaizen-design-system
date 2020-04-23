@@ -23,7 +23,7 @@ const Menu = ({ links, section }: Props) => {
 
   return (
     <ul
-      className={classNames({
+      className={classNames(styles.menu, {
         [styles.primary]: section === "primary",
       })}
     >
