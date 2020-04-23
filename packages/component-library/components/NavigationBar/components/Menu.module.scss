@@ -1,9 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/component-library/styles/border";
-@import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/type";
-@import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/component-library/styles/layout";
 @import "../styles";
 
@@ -57,69 +53,13 @@ $menu__square-size: $ca-grid * 2;
   padding: 0 ($ca-grid / 2);
 }
 
-.menu {
-  @include ca-position($top: calc(100% + 2px));
-
-  align-items: center;
-  position: absolute;
-  z-index: $ca-z-index-dropdown;
-  background-color: $kz-color-white;
-  box-shadow: 0 0 ($ca-grid / 2) rgba($kz-color-wisteria-800, 0.3);
-  border-radius: $kz-border-solid-border-radius;
-  overflow: hidden;
-  padding: 4px 0 0;
-  max-width: 300px;
-
-  // HACK: duplicate class selector to bump specificity to work around https://trello.com/c/VGvOyHk4
-  &.menu {
-    &:focus {
-      // focus is non-interactive
-      outline: 0;
-    }
-  }
-}
-
-.shiftMenuLeft {
-  @include ca-position($end: 5px);
-}
-
-.menuItems {
-  padding: 0;
-}
-
-.menuGroupTitle {
-  @include ca-padding($end: 16px, $start: 16px, $bottom: 8px, $top: 16px);
-  @include font-heading-6;
-
-  margin: 0;
-  white-space: nowrap;
-
-  color: rgba($kz-color-wisteria-800, 0.8);
-}
-
-.menuGroup {
+.offCanvasMenuGroup {
   border-top: 1px solid rgba($kz-color-wisteria-800, 0.1);
   list-style: none;
-
-  &:first-child {
-    border-top: 0;
-
-    .menuGroupTitle {
-      padding-top: 8px;
-    }
-  }
-}
-
-.offCanvasMenuGroup {
-  @extend .menuGroup;
 
   margin-top: $ca-grid / 1.5;
   padding-top: $ca-grid / 3;
   width: 100%;
-
-  &:first-child {
-    border-top: 1px solid rgba($kz-color-wisteria-800, 0.1);
-  }
 
   &.firstMenuItem {
     border-top: 0;

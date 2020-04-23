@@ -4,7 +4,7 @@ import classNames from "classnames"
 import { MenuGroupProps, MenuItemProps } from "../types"
 import MenuItem from "./MenuItem"
 
-const styles = require("./Menu.module.scss")
+const styles = require("./Dropdown.module.scss")
 
 type Props = {
   header?: React.ReactElement<any>
@@ -13,13 +13,13 @@ type Props = {
 
 const Dropdown = ({ items, header }: Props) => {
   const [shiftLeft, setShiftLeft] = useState<boolean>(false)
-  const menuRef = useRef<HTMLDivElement>(null)
+  const dropdownRef = useRef<HTMLDivElement>(null)
 
   useLayoutEffect(() => {
-    const menuElem = menuRef.current
+    const dropdownElem = dropdownRef.current
 
-    if (menuElem) {
-      const bounding = menuElem.getBoundingClientRect()
+    if (dropdownElem) {
+      const bounding = dropdownElem.getBoundingClientRect()
 
       if (
         bounding.right >
@@ -44,10 +44,10 @@ const Dropdown = ({ items, header }: Props) => {
 
   return (
     <div
-      className={classNames(styles.menu, {
-        [styles.shiftMenuLeft]: shiftLeft,
+      className={classNames(styles.dropdown, {
+        [styles.shiftDropdownLeft]: shiftLeft,
       })}
-      ref={menuRef}
+      ref={dropdownRef}
     >
       {header}
       <ul className={styles.menuItems}>
