@@ -1,5 +1,5 @@
 import { Icon } from "@kaizen/component-library"
-const chevronRightIcon = require("@kaizen/component-library/icons/chevron-right.icon.svg")
+const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
   .default
 import classNames from "classnames"
 import * as React from "react"
@@ -70,7 +70,7 @@ export default class Link extends React.PureComponent<LinkProps> {
         )}
         {hasMenu && (
           <span className={styles.menuIcon}>
-            <Icon icon={chevronRightIcon} role="presentation" />
+            <Icon icon={arrowForwardIcon} role="presentation" />
           </span>
         )}
       </a>
