@@ -1,8 +1,9 @@
-import classNames from "classnames"
 import * as React from "react"
-import Header from "./components/Header"
-import Menu from "./components/Menu"
+
+import classNames from "classnames"
 import { Navigation } from "../NavigationBar/types"
+import Header from "./components/Header"
+import Link from "./components/Menu"
 
 const styles = require("./OffCanvas.module.scss")
 
