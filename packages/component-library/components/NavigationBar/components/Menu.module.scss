@@ -52,26 +52,3 @@ $menu__square-size: $ca-grid * 2;
 
   padding: 0 ($ca-grid / 2);
 }
-
-.offCanvasMenuGroup {
-  border-top: 1px solid rgba($kz-color-wisteria-800, 0.1);
-  list-style: none;
-
-  margin-top: $ca-grid / 1.5;
-  padding-top: $ca-grid / 3;
-  width: 100%;
-
-  &.firstMenuItem {
-    border-top: 0;
-    margin-top: 0;
-    padding-top: 0;
-  }
-}
-
-.offCanvasMenuGroupTitle {
-  @include ca-padding($top: 10px, $bottom: 4px, $start: 16px, $end: 16px);
-  @include font-heading-6;
-
-  margin: 0 10px;
-  color: $kz-color-wisteria-800;
-}

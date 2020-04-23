@@ -10,9 +10,10 @@ import {
 import classNames from "classnames"
 import Media from "react-media"
 import { MOBILE_QUERY } from "../constants"
-import { MenuGroupProps, MenuItemProps, MenuProps } from "../types"
+import { MenuProps } from "../types"
 import Dropdown from "./Dropdown"
 import Link from "./Link"
+import MenuGroup from "./MenuGroup"
 
 const arrowLeftIcon = require("@kaizen/component-library/icons/arrow-left.icon.svg")
   .default
@@ -106,9 +107,9 @@ export default class Menu extends React.Component<MenuProps, State> {
     const { items, heading } = this.props
     const links = items.map((item, index) => {
       if ("url" in item) {
-        return this.renderOffCanvasMenuItem(item)
+        return <Link key={item.url} text={item.label} href={item.url} />
       } else if ("title" in item) {
-        return this.renderOffCanvasMenuGroup(item, index)
+        return <MenuGroup {...item} index={index} offCanvas />
       }
     })
 
@@ -134,23 +135,6 @@ export default class Menu extends React.Component<MenuProps, State> {
           />
         )}
       </OffCanvasContext.Consumer>
-    )
-  }
-
-  renderOffCanvasMenuItem = (item: MenuItemProps) => (
-    <Link key={item.url} text={item.label} href={item.url} />
-  )
-
-  renderOffCanvasMenuGroup = (menuGroup: MenuGroupProps, index: number) => {
-    const { title, items } = menuGroup
-
-    return (
-      <div className={classNames(styles.offCanvasMenuGroup, {
-        [styles.firstMenuItem]: index === 0,
-      })}>
-        <h4 className={styles.offCanvasMenuGroupTitle}>{title}</h4>
-        {items.map(this.renderOffCanvasMenuItem)}
-      </div>
     )
   }
 

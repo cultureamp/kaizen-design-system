@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useRef, useState } from "react"
 
 import classNames from "classnames"
 import { MenuGroupProps, MenuItemProps } from "../types"
+import MenuGroup from "./MenuGroup"
 import MenuItem from "./MenuItem"
 
 const styles = require("./Dropdown.module.scss")
@@ -31,17 +32,6 @@ const Dropdown = ({ items, header }: Props) => {
     }
   }, [])
 
-  const renderMenuGroup = (menuGroup: MenuGroupProps) => {
-    return (
-      <li className={styles.menuGroup}>
-        <h4 className={styles.menuGroupTitle}>{menuGroup.title}</h4>
-        {menuGroup.items.map(item => (
-          <MenuItem {...item} />
-        ))}
-      </li>
-    )
-  }
-
   return (
     <div
       className={classNames(styles.dropdown, {
@@ -51,11 +41,11 @@ const Dropdown = ({ items, header }: Props) => {
     >
       {header}
       <ul className={styles.menuItems}>
-        {items.map(item => {
+        {items.map((item, index) => {
           if ("url" in item) {
             return <MenuItem {...item} />
           } else if ("title" in item) {
-            return renderMenuGroup(item)
+            return <MenuGroup {...item} index={index} />
           }
         })}
       </ul>
