@@ -7,30 +7,21 @@ const styles = require("./Menu.module.scss")
 
 type Props = {
   section: string
-  links: MenuProps
+  link: MenuProps
 }
 
-const Menu = ({ links, section }: Props) => {
-  const renderNavItem = (link: MenuProps) => (
-    <li
-      key={`${link.heading}-${uuidv4()}`}
-      className={classNames({
-        [styles.active]: link.active,
-      })}
-    >
-      {link}
-    </li>
-  )
-
+const Menu = ({ link, section }: Props) => {
   return (
-    <ul
+    <div
       className={classNames(styles.menu, {
         [styles.primary]: section === "primary",
         [styles.secondary]: section === "secondary",
+        [styles.active]: link.active,
       })}
+      key={`${link.heading}-${uuidv4()}`}
     >
-      {[links].map(link => renderNavItem(link))}
-    </ul>
+      {link}
+    </div>
   )
 }
 
