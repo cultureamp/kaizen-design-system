@@ -30,6 +30,7 @@ export default class Menu extends React.Component<MenuProps, State> {
   static displayName = "Menu"
   static defaultProps = {
     items: [],
+    active: false,
     mobileEnabled: true,
   }
   rootRef = React.createRef<any>()
@@ -38,6 +39,7 @@ export default class Menu extends React.Component<MenuProps, State> {
 
   render() {
     const {
+      active,
       children,
       automationId,
       heading,
@@ -70,9 +72,10 @@ export default class Menu extends React.Component<MenuProps, State> {
               <button
                 className={classNames(styles.button, {
                   [styles.buttonLink]: section === "primary",
-                  [styles.linkText]: heading,
+                  [styles.linkText]: !!heading,
                   [styles.menuOpen]: this.state.open,
-                  [styles.secondary]: section === "secondary"
+                  [styles.secondary]: section === "secondary",
+                  [styles.active]: active,
                 })}
                 onClick={this.toggle}
                 aria-expanded={this.state.open}

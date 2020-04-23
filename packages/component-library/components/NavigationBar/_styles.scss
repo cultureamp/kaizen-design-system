@@ -82,10 +82,6 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
         transform: translateX(-#{$ca-navigation-bar__link-item-margin});
       }
     }
-
-    //@include ca-media-mobile {
-    //  color: $kz-color-cluny-500;
-    //}
   }
 
   @include font-heading-4;
