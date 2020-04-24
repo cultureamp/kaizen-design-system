@@ -1,9 +1,6 @@
 import * as React from "react"
 
-import {
-  Icon,
-  IconButton,
-} from "@kaizen/component-library"
+import { Icon, IconButton } from "@kaizen/component-library"
 import {
   OffCanvasContext,
   ZenOffCanvas,

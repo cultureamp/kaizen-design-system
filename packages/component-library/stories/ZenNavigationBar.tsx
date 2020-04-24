@@ -1,7 +1,11 @@
 import * as React from "react"
 
 import { Icon } from "@kaizen/component-library"
-import { Link, Menu, ZenNavigationBar } from "@kaizen/component-library/draft/Kaizen/ZenNavigationBar"
+import {
+  Link,
+  Menu,
+  ZenNavigationBar,
+} from "@kaizen/component-library/draft/Kaizen/ZenNavigationBar"
 
 const academyIcon = require("@kaizen/component-library/icons/academy.icon.svg")
   .default
