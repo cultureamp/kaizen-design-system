@@ -1,5 +1,7 @@
 import React from "react"
 
+import classNames from "classnames"
+
 import { Icon } from "@kaizen/component-library"
 import { MenuItemProps } from "../types"
 
@@ -13,6 +15,7 @@ const MenuItem = ({
   method,
   switcher = false,
   onLinkClick,
+  active = false,
 }: MenuItemProps) => {
   const renderArrowIcon = () => (
     <span className={styles.arrowIcon}>
@@ -41,7 +44,9 @@ const MenuItem = ({
   )
 
   return (
-    <li className={styles.container}>
+    <li className={classNames(styles.container, {
+      [styles.active]: active
+    })}>
       {method && method !== "get" ? renderForm() : renderLink()}
     </li>
   )

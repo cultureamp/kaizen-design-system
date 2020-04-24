@@ -45,6 +45,7 @@ export type MenuItemProps = {
   method?: "get" | "post" | "put" | "delete"
   switcher?: boolean
   onLinkClick?: LinkClick
+  active?: boolean
 }
 
 export type MenuGroupProps = {
