@@ -3,9 +3,11 @@ import * as React from "react"
 import {
   Icon,
   IconButton,
-  OffCanvas,
-  OffCanvasContext,
 } from "@kaizen/component-library"
+import {
+  OffCanvasContext,
+  ZenOffCanvas,
+} from "@kaizen/component-library/draft/Kaizen/ZenOffCanvas"
 
 import classNames from "classnames"
 import Media from "react-media"
@@ -117,7 +119,7 @@ export default class Menu extends React.Component<MenuProps, State> {
     })
 
     return (
-      <OffCanvas
+      <ZenOffCanvas
         links={links}
         heading={heading ? heading : "Menu"}
         headerComponent={this.renderBackButton()}

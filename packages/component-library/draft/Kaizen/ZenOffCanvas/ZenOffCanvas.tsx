@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import classNames from "classnames"
-import { Navigation } from "../NavigationBar/types"
+import { Navigation } from "../ZenNavigationBar/types"
 import Header from "./components/Header"
 import Menu from "./components/Menu"
 
@@ -31,7 +31,7 @@ export const OffCanvasContext = React.createContext<OffCanvasContextProps>({
   resetVisibleMenus: () => undefined,
 })
 
-export class OffCanvas extends React.Component<Props> {
+export class ZenOffCanvas extends React.Component<Props> {
   static defaultProps = {
     withTrigger: false,
   }
@@ -134,4 +134,4 @@ const withTrigger = (Component: React.ComponentType<any>) => {
   }
 }
 
-export default withContextProvider(withTrigger(OffCanvas))
+export default withContextProvider(withTrigger(ZenOffCanvas))

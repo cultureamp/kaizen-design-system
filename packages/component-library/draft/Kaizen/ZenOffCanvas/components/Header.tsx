@@ -1,7 +1,8 @@
+import * as React from "react"
+
 const closeIcon = require("@kaizen/component-library/icons/close.icon.svg")
   .default
-import * as React from "react"
-import IconButton from "../../Button/IconButton"
+import IconButton from "@kaizen/component-library/components/Button/IconButton"
 
 const styles = require("./Header.module.scss")
 

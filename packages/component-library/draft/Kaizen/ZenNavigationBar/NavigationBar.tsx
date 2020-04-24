@@ -1,6 +1,7 @@
-import { ControlledOffCanvas } from "@kaizen/component-library"
-import classNames from "classnames"
 import * as React from "react"
+
+import { ZenControlledOffCanvas } from "@kaizen/component-library/draft/Kaizen/ZenOffCanvas"
+import classNames from "classnames"
 import Media from "react-media"
 import uuidv4 from "uuid/v4"
 import {
@@ -44,7 +45,7 @@ export default class NavigationBar extends React.Component<Props> {
       <Media query={MOBILE_QUERY}>
         {(matches: boolean) =>
           matches ? (
-            <ControlledOffCanvas
+            <ZenControlledOffCanvas
               headerComponent={this.renderBadge()}
               footerComponent={this.props.footerComponent}
               links={children}
