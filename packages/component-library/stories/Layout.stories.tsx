@@ -31,48 +31,54 @@ export const Default = () => (
     <Layout>
       <Layout.NavigationBar>
         <NavigationBar>
-          <Link text="Home" href="/" active />
-          <Link text="Surveys" href="/" />
-          <Link
-            icon={supportIcon}
-            text="Support"
-            href="http://academy.cultureamp.com/"
-            secondary
-          />
-          <Link
-            icon={academyIcon}
-            text="Academy"
-            href="http://academy.cultureamp.com/"
-            secondary
-          />
-          <Menu
-            heading="Custom menu..."
-            items={[
-              {
-                label: "About Culture Amp",
-                url: "https://www.cultureamp.com/",
-              },
-              {
-                label: "Contribute to this guide",
-                url:
-                  "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
-              },
-            ]}
-          >
-            <div
-              style={{
-                backgroundColor: "#ffffff",
-                borderRadius: "3px",
-                color: "#F8A6AE",
-              }}
-            >
-              <Icon
-                icon={caMonogramIcon}
-                title="Culture Amp Logo"
-                inheritSize
-              />
-            </div>
-          </Menu>
+          {{
+            primary: [
+              <Link text="Home" href="/" active />,
+              <Link text="Surveys" href="/" />,
+            ],
+            secondary: [
+              <Link
+                icon={supportIcon}
+                text="Support"
+                href="http://academy.cultureamp.com/"
+              />,
+              <Link
+                icon={academyIcon}
+                text="Academy"
+                href="http://academy.cultureamp.com/"
+              />,
+            ],
+            final: [
+              <Menu
+                heading="Custom menu..."
+                items={[
+                  {
+                    label: "About Culture Amp",
+                    url: "https://www.cultureamp.com/",
+                  },
+                  {
+                    label: "Contribute to this guide",
+                    url:
+                      "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
+                  },
+                ]}
+              >
+                <div
+                  style={{
+                    backgroundColor: "#ffffff",
+                    borderRadius: "3px",
+                    color: "#F8A6AE",
+                  }}
+                >
+                  <Icon
+                    icon={caMonogramIcon}
+                    title="Culture Amp Logo"
+                    inheritSize
+                  />
+                </div>
+              </Menu>,
+            ],
+          }}
         </NavigationBar>
       </Layout.NavigationBar>
 
@@ -142,48 +148,54 @@ export const WithTitleBlock = () => (
     <Layout>
       <Layout.NavigationBar>
         <NavigationBar>
-          <Link text="Home" href="/" active />
-          <Link text="Surveys" href="/" />
-          <Link
-            icon={supportIcon}
-            text="Support"
-            href="http://academy.cultureamp.com/"
-            secondary
-          />
-          <Link
-            icon={academyIcon}
-            text="Academy"
-            href="http://academy.cultureamp.com/"
-            secondary
-          />
-          <Menu
-            heading="Custom menu..."
-            items={[
-              {
-                label: "About Culture Amp",
-                url: "https://www.cultureamp.com/",
-              },
-              {
-                label: "Contribute to this guide",
-                url:
-                  "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
-              },
-            ]}
-          >
-            <div
-              style={{
-                backgroundColor: "#ffffff",
-                borderRadius: "3px",
-                color: "#F8A6AE",
-              }}
-            >
-              <Icon
-                icon={caMonogramIcon}
-                title="Culture Amp Logo"
-                inheritSize
-              />
-            </div>
-          </Menu>
+          {{
+            primary: [
+              <Link text="Home" href="/" active />,
+              <Link text="Surveys" href="/" />,
+            ],
+            secondary: [
+              <Link
+                icon={supportIcon}
+                text="Support"
+                href="http://academy.cultureamp.com/"
+              />,
+              <Link
+                icon={academyIcon}
+                text="Academy"
+                href="http://academy.cultureamp.com/"
+              />,
+            ],
+            final: [
+              <Menu
+                heading="Custom menu..."
+                items={[
+                  {
+                    label: "About Culture Amp",
+                    url: "https://www.cultureamp.com/",
+                  },
+                  {
+                    label: "Contribute to this guide",
+                    url:
+                      "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
+                  },
+                ]}
+              >
+                <div
+                  style={{
+                    backgroundColor: "#ffffff",
+                    borderRadius: "3px",
+                    color: "#F8A6AE",
+                  }}
+                >
+                  <Icon
+                    icon={caMonogramIcon}
+                    title="Culture Amp Logo"
+                    inheritSize
+                  />
+                </div>
+              </Menu>,
+            ],
+          }}
         </NavigationBar>
       </Layout.NavigationBar>
       <Layout.Footer>

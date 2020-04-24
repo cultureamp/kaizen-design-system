@@ -27,7 +27,7 @@ $caButton-verticalPaddingForm: calc(
 }
 
 %caButtonContainer {
-  @include ca-type-block(inline-flex);
+  @include ca-type-block(inline-block);
 }
 
 %caButton {

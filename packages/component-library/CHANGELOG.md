@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.1.0...@kaizen/component-library@7.1.1) (2020-04-24)
+
+
+### Bug Fixes
+
+* revert "update caButtonContainer display type to avoid IE11 issue" ([#413](https://github.com/cultureamp/kaizen-design-system/issues/413)) ([e2d390b](https://github.com/cultureamp/kaizen-design-system/commit/e2d390b3f0e8534f01b71eda3afd1bab42e94557)), closes [#401](https://github.com/cultureamp/kaizen-design-system/issues/401)
+
+
+
+
+
+# [7.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.0.1...@kaizen/component-library@7.1.0) (2020-04-23)
+
+
+### Features
+
+* allow menu items to return click event ([#411](https://github.com/cultureamp/kaizen-design-system/issues/411)) ([1f7ebe5](https://github.com/cultureamp/kaizen-design-system/commit/1f7ebe50ce904bd891b42cdabf6fca905eb9455d))
+
+
+
+
+
 ## [7.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.0.0...@kaizen/component-library@7.0.1) (2020-04-23)
 
 
