@@ -1,9 +1,9 @@
 @import "~@kaizen/component-library/components/NavigationBar/styles";
 @import "~@kaizen/design-tokens/sass/color";
-@import "../../../styles/type";
-@import "../../../styles/layout";
-@import "../../../styles/color";
-@import "../../../styles/responsive";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/responsive";
 
 .root {
   @include ca-padding($end: $ca-grid / 2);

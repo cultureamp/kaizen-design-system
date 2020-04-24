@@ -3,9 +3,9 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/component-library/styles/fonts";
 @import "~@kaizen/component-library/styles/animation";
-@import "../../styles/color";
-@import "../../styles/type";
-@import "../../styles/responsive";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/responsive";
 
 $ca-navigation-bar__height: 3.5 * $ca-grid;
 

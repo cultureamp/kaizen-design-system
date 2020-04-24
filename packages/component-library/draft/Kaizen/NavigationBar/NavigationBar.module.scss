@@ -1,10 +1,10 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/responsive";
 @import "./styles";
-@import "../../styles/color";
-@import "../../styles/type";
-@import "../../styles/layout";
-@import "../../styles/responsive";
 
 .navigationBar {
   @extend %ca-navigation-bar;

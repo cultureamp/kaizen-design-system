@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "../../../styles/color";
-@import "../../../styles/type";
-@import "../../../styles/layout";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/layout";
 @import "../styles";
 
 .badge {
