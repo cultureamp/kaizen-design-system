@@ -9,7 +9,7 @@ import {
 import classNames from "classnames"
 import Media from "react-media"
 import { MOBILE_QUERY } from "../constants"
-import { MenuProps } from "../types"
+import { MenuProps, NavigationItem } from "../types"
 import Dropdown from "./Dropdown"
 import Link from "./Link"
 import MenuGroup from "./MenuGroup"
@@ -107,13 +107,15 @@ export default class Menu extends React.Component<MenuProps, State> {
 
   renderOffCanvas() {
     const { items, heading } = this.props
-    const links = items.map((item, index) => {
-      if ("url" in item) {
-        return <Link key={item.url} text={item.label} href={item.url} />
-      } else if ("title" in item) {
-        return <MenuGroup {...item} index={index} offCanvas />
+    const links: Array<NavigationItem | undefined> = items.map(
+      (item, index) => {
+        if ("url" in item) {
+          return <Link key={item.url} text={item.label} href={item.url} />
+        } else if ("title" in item) {
+          return <MenuGroup {...item} index={index} offCanvas />
+        }
       }
-    })
+    )
 
     return (
       <ZenOffCanvas

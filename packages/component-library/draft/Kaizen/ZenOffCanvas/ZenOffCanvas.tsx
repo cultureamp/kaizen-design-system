@@ -1,14 +1,13 @@
 import * as React from "react"
 
 import classNames from "classnames"
-import { Navigation } from "../ZenNavigationBar/types"
 import Header from "./components/Header"
 import Menu from "./components/Menu"
 
 const styles = require("./OffCanvas.module.scss")
 
 type Props = {
-  links?: Navigation
+  links?: any
   heading: string
   headerComponent: React.ReactNode
   footerComponent?: React.ReactNode
