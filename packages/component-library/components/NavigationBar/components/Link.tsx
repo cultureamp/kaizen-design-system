@@ -5,20 +5,7 @@ import classNames from "classnames"
 import * as React from "react"
 
 const styles = require("./Link.module.scss")
-
-export type LinkProps = {
-  icon?: React.SVGAttributes<SVGSymbolElement>
-  text?: string
-  iconOnly?: boolean
-  href: string
-  active?: boolean
-  id?: string
-  secondary?: boolean
-  onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void
-  target?: "_self" | "_blank"
-  hasMenu?: boolean
-  notificationText?: string
-}
+import { LinkProps } from "../types"
 
 export default class Link extends React.PureComponent<LinkProps> {
   static displayName = "Link"
@@ -32,17 +19,17 @@ export default class Link extends React.PureComponent<LinkProps> {
 
   render = () => {
     const {
+      badge,
       icon,
       text,
       href,
       active,
       id,
       onClick,
-      secondary,
       iconOnly,
       target,
       hasMenu,
-      notificationText,
+      section,
     } = this.props
 
     return (
@@ -50,7 +37,7 @@ export default class Link extends React.PureComponent<LinkProps> {
         className={classNames(styles.link, {
           [styles.active]: active,
           [styles.containsText]: text !== "",
-          [styles.secondary]: secondary,
+          [styles.secondary]: section === "secondary",
         })}
         tabIndex={0}
         {...{ href, id, onClick, target }}
@@ -67,9 +54,14 @@ export default class Link extends React.PureComponent<LinkProps> {
         {text && !(icon && iconOnly) && (
           <span className={styles.linkText}>
             {text}
-            {notificationText && (
-              <span className={styles.notificationPill}>
-                {notificationText}
+            {badge && (
+              <span
+                className={classNames(styles.badge, {
+                  [styles.badgeNotification]: badge.kind === "notification",
+                  [styles.badgeNew]: badge.kind === "new",
+                })}
+              >
+                {badge.text}
               </span>
             )}
           </span>

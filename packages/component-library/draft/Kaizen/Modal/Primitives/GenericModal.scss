@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/layers";
@@ -42,7 +43,7 @@
   margin: auto;
   background-color: $kz-color-white;
   border-radius: $kz-border-solid-border-radius;
-  box-shadow: $ca-box-shadow;
+  box-shadow: $kz-shadow-large-box-shadow;
   position: relative;
   width: 90%;
   -webkit-font-smoothing: antialiased;
