@@ -8,6 +8,7 @@ needToKnow:
 - We separate Autocomplete into a separate component.
 - Ensure the search input is wide enough to fit the majority of search queries informed by analytics or user research.
 - Design for loading, empty, and zero states.
+- "Search" describes the general behavior and, informally, the search field. "Search field" describes the main search component (label and input).
 
 ---
 
@@ -23,17 +24,18 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Options
 
-- Search/search field: "Search" describes the general behavior and, informally, the search field. "Search field" describes the main search component (label, input and button).
 - Live-filtering search: This describes a specific kind of search that reduce results instantly. There's no need to press "submit". There's no dropdown container or autocomplete for results. For example, it might be used to match text on a page for a list or table.
+- Search on submit: When you cannot use live-filtering search, use "search on submit" that shows results only after submitting the search query when the user presses a search [Button](/components/button).
 
 ## To keep in mind
 
 ### Styling
 
-- **Search icon**: Use the search icon to help users identify search fields. Either display the search icon as a presentional icon inside the search input or as an Icon Button to submit.
+- **Search icon**: Use the search icon to help users identify search fields. Display the search icon as a presentational icon inside the search input.
 - **Positioning**: Position search in the top–right of a page for site- or page-wide search and the top–right of a section for contextual searches so that search positioning is predictable and follows Internet convention. For mobile apps, consider platform conventions.
 - **Size**: Ensure the search input is wide enough to fit the majority of search queries informed by analytics or user research.
 - **Prominence**: Avoid hiding the search behind a click to ensure it's discoverable and efficient to use.
+- **Search button**: For "search on submit", provide a search [Button](/components/button) nearby the search input, on the right (in left-to-right languages) or on the left (in right-to-left languages).
 
 ### Label
 
@@ -44,7 +46,7 @@ All form elements including search must have a label, whether it's visually disp
 
 ### Submit
 
-- Let users submit search by clicking a button or hitting enter, unless it's a live-filtering search. For live-filtering search, update search results immediately and be mindful of performance.
+- Let users submit search by hitting enter. For live-filtering search, update search results immediately without hitting enter and be mindful of performance.
 
 ### Displaying results
 
@@ -75,13 +77,13 @@ All form elements including search must have a label, whether it's visually disp
 
 ### Behavior
 
-- **Global search**: try to use global search that searches all of the site instead of scoped search, according to newer studies on search usability.
+- **Global search**: try to offer global search that searches all of the site instead of scoped search for microsites outside of the Culture Amp platform.
 - **Preserve user data**: After submitting a search, preserve the previous search query so that the user may adjust and amend their previous search instead of starting from scratch.
    - **Matching**: If you're using fuzzy search where a user can write some text and a partial match returns results, consider whether the text needs to be in order, what effect spaces have, and the effect of capitalization on the match. For example, a forgiving search input that lets you type “design” to match the result “Marketing Design” may be ideal for users that aren't sure what exactly it will be called here.
 - **Loading state**:
-   - If search results are likely to take longer than 1 second to show for the majority of users, display a loading indicator. For example, display a loading spinner in place of the search icon. See loading guidelines.
-   - Consider if “debouncing” is necessary for rapidly changing search queries to maintain performance and responsive interaction.
-- **Empty state**: Before a user has searched, consider giving them an indication of what to expect from a search. See Empty State component.
+   - If search results are likely to take longer than 1 second to show for the majority of users, display a [loading indicator](/guidelines/loading-patterns/). For example, display a loading spinner in place of the search icon. See loading guidelines.
+   - To maintain performance and responsive interaction, you may consider if “[debouncing](https://css-tricks.com/the-difference-between-throttling-and-debouncing/)” is necessary for rapidly changing search queries, avoiding search results appearing and reappearing rapidly or blocking the page and preventing the user from typing.
+- **Empty state**: Before a user has searched, consider giving them an indication of what to expect from a search. See [Empty State component](/components/empty-state) for general guidance on telling users that there’s no content to display and what they can do next.
 - **Zero state**: If there are no matching results for a search query, tell the user that there are no matching results. Consider offering a clearly sign-posted alternative, such as a popular search query, a related search query with results, or filters to adjust.
 - **Highlight matching text**: Clearly identify matching and non-matching text in results. For example, in a data table, consider showing matching text in stronger font weight.
 - **Input helpers**: Consider what additional properties might be useful for the search input, such as spellcheck or autocomplete.
