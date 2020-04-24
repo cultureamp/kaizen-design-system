@@ -8,7 +8,7 @@
 
 @mixin select-border($color: $color) {
   border-color: $color;
-  box-shadow: 0 0 0 1px $color;
+  // box-shadow: 0 0 0 1px $color;
 }
 
 .basePlaceholder {

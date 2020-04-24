@@ -24,10 +24,12 @@
   }
 
   .focusedControl {
-    @include form-input-focus-border($ca-border-color-focus);
+    border-color: $ca-border-color-focus;
+    box-shadow: none;
 
     &:hover {
-      @include form-input-focus-border($ca-border-color-focus);
+      border-color: $ca-border-color-focus;
+      box-shadow: none;
     }
   }
 
