@@ -18,6 +18,8 @@
   @include ca-type-ideal-button;
   @include ca-inherit-baseline;
 
+  @include ca-padding($start: $ca-grid * 0.5, $end: $ca-grid * 0.5);
+
   position: relative;
   top: 0; // this overrides baseline shift. @include ca-inherit-baseline does not work because
   // we need to make this position: relative, for the absolutely positioned underline.
@@ -25,7 +27,6 @@
   min-width: 4.5rem; // give tabs with short text some breathing room
   text-decoration: none;
   color: $kz-color-wisteria-800;
-  padding: 0 ($ca-grid * 0.5);
   cursor: pointer;
 
   display: flex;
