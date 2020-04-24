@@ -7,7 +7,13 @@ const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.
   .default
 const styles = require("./MenuItem.module.scss")
 
-const MenuItem = ({ label, url, method, switcher = false }: MenuItemProps) => {
+const MenuItem = ({
+  label,
+  url,
+  method,
+  switcher = false,
+  onLinkClick,
+}: MenuItemProps) => {
   const renderArrowIcon = () => (
     <span className={styles.arrowIcon}>
       <Icon icon={arrowForwardIcon} role="presentation" />
@@ -28,7 +34,7 @@ const MenuItem = ({ label, url, method, switcher = false }: MenuItemProps) => {
   )
 
   const renderLink = () => (
-    <a href={url} className={styles.item} tabIndex={0}>
+    <a href={url} className={styles.item} tabIndex={0} onClick={onLinkClick}>
       {label}
       {switcher && renderArrowIcon()}
     </a>
