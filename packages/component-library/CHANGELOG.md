@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.1.1...@kaizen/component-library@7.1.2) (2020-04-24)
+
+
+### Bug Fixes
+
+* NavigationBar component using old API in Layout ([#414](https://github.com/cultureamp/kaizen-design-system/issues/414)) ([f271aab](https://github.com/cultureamp/kaizen-design-system/commit/f271aabd5c1497969c85d8a63d5157c9a52a14d8))
+
+
+
+
+
 ## [7.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.1.0...@kaizen/component-library@7.1.1) (2020-04-24)
 
 
