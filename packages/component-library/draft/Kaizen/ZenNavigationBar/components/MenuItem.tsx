@@ -44,9 +44,11 @@ const MenuItem = ({
   )
 
   return (
-    <li className={classNames(styles.container, {
-      [styles.active]: active
-    })}>
+    <li
+      className={classNames(styles.container, {
+        [styles.active]: active,
+      })}
+    >
       {method && method !== "get" ? renderForm() : renderLink()}
     </li>
   )
