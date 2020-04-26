@@ -110,7 +110,14 @@ export default class Menu extends React.Component<MenuProps, State> {
     const links: Array<NavigationItem | undefined> = items.map(
       (item, index) => {
         if ("url" in item) {
-          return <Link key={item.url} text={item.label} href={item.url} />
+          return (
+            <Link
+              key={item.url}
+              text={item.label}
+              href={item.url}
+              onClick={item.onLinkClick}
+            />
+          )
         } else if ("title" in item) {
           return <MenuGroup {...item} index={index} offCanvas />
         }

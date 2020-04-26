@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.2.0...@kaizen/component-library@7.3.0) (2020-04-26)
+
+
+### Features
+
+* Re-add onLinkClick to all links in zen navbar ([#415](https://github.com/cultureamp/kaizen-design-system/issues/415)) ([0999d9b](https://github.com/cultureamp/kaizen-design-system/commit/0999d9b292abc73fff67c1005e486144f2e5c82a))
+
+
+
+
+
 # [7.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.1.2...@kaizen/component-library@7.2.0) (2020-04-24)
 
 

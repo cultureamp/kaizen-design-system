@@ -16,7 +16,12 @@ type Props = {
 
 const MenuGroup = ({ title, items, index, offCanvas }: Props) => {
   const renderOffCanvasMenuItem = (item: MenuItemProps) => (
-    <Link key={item.url} text={item.label} href={item.url} />
+    <Link
+      key={item.url}
+      text={item.label}
+      href={item.url}
+      onClick={item.onLinkClick}
+    />
   )
 
   const renderOffCanvasMenuGroup = () => {
