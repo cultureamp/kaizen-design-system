@@ -62,7 +62,8 @@ $menuItem__margin: 4px;
   transition-timing-function: $ca-ease;
 
   &:hover,
-  &:focus {
+  &:focus,
+  .active & {
     background-color: $kz-color-cluny-100;
     color: $kz-color-cluny-500;
     text-decoration: none;
