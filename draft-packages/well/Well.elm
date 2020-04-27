@@ -1,4 +1,4 @@
-module Kaizen.Well.Well exposing
+module KaizenDraft.Well.Well exposing
     ( BorderStyle(..)
     , Config
     , Variant(..)

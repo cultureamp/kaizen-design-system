@@ -1,4 +1,3 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
 import { Tag } from "@kaizen/component-library/draft"
 import * as React from "react"
 
@@ -247,24 +246,3 @@ export const InlineDismissible = () => (
 InlineDismissible.story = {
   name: "Inline - Dismissible",
 }
-
-loadElmStories("Tag (Elm)", module, require("./TagStories.elm"), [
-  "Default - Medium",
-  "Default - Small",
-  "Sentiment - Positive",
-  "Sentiment - Neutral",
-  "Sentiment - Negative",
-  "Sentiment - None",
-  "Validation - Positive",
-  "Validation - Informative",
-  "Validation - Negative",
-  "Validation - Cautionary",
-  "Truncated",
-  "Truncated - Dismissible",
-  "Inline",
-  "Inline - Dismissible",
-  "Status - Live",
-  "Status - Draft",
-  "Status - Closed",
-  "Status - Action",
-])
