@@ -3,7 +3,7 @@ import * as React from "react"
 import { ZenControlledOffCanvas } from "@kaizen/component-library/draft/Kaizen/ZenOffCanvas"
 import classNames from "classnames"
 import Media from "react-media"
-import uuidv4 from "uuid/v4"
+import uuid from "uuid/v4"
 import {
   LocalBadge,
   namedBadge,
@@ -13,7 +13,6 @@ import {
 } from "./components/Badge"
 import Link from "./components/Link"
 import Menu from "./components/Menu"
-import { MOBILE_QUERY } from "./constants"
 import { Navigation, NavigationItem } from "./types"
 
 const styles = require("./NavigationBar.module.scss")
@@ -23,8 +22,13 @@ type Props = {
   loading?: boolean
   colorScheme?: "cultureamp" | "kaizen" | "content"
   badgeHref?: string
+  headerComponent?: {
+    desktop: React.ReactNode
+    mobile: React.ReactNode
+  }
   footerComponent?: React.ReactNode
   children?: Navigation
+  mobileMaxWidth?: number
 }
 
 export default class NavigationBar extends React.Component<Props> {
@@ -36,17 +40,25 @@ export default class NavigationBar extends React.Component<Props> {
     loading: false,
     colorScheme: "cultureamp",
     badgeHref: "/",
+    mobileMaxWidth: 767,
   }
 
   render() {
-    const { children, colorScheme = "cultureamp" } = this.props
+    const {
+      children,
+      colorScheme = "cultureamp",
+      headerComponent,
+      mobileMaxWidth,
+    } = this.props
 
     return (
-      <Media query={MOBILE_QUERY}>
+      <Media query={`(max-width: ${mobileMaxWidth}px)`}>
         {(matches: boolean) =>
           matches ? (
             <ZenControlledOffCanvas
-              headerComponent={this.renderBadge()}
+              headerComponent={
+                headerComponent ? headerComponent.mobile : this.renderBadge()
+              }
               footerComponent={this.props.footerComponent}
               links={children}
               heading="Menu"
@@ -56,7 +68,13 @@ export default class NavigationBar extends React.Component<Props> {
             <header
               className={classNames(styles.navigationBar, styles[colorScheme])}
             >
-              {this.renderBadge()}
+              {headerComponent ? (
+                <span className={styles.headerSlot}>
+                  {headerComponent.desktop}
+                </span>
+              ) : (
+                this.renderBadge()
+              )}
               {this.renderNav(children)}
             </header>
           )
@@ -78,9 +96,9 @@ export default class NavigationBar extends React.Component<Props> {
   }
 
   renderNavSection(section: string, items: NavigationItem[]) {
-    return (
+    return items.length > 0 ? (
       <ul
-        key={`${section}-${uuidv4()}`}
+        key={`${section}-${uuid()}`}
         className={classNames({
           [styles.primary]: section === "primary",
           [styles.secondary]: section === "secondary",
@@ -89,25 +107,26 @@ export default class NavigationBar extends React.Component<Props> {
       >
         {items.map(item => this.renderNavItem(item, section))}
       </ul>
-    )
+    ) : null
   }
 
   renderNavItem(link: NavigationItem, section) {
-    const linkWithSection = { ...link, props: { ...link.props, section } }
-
-    const key =
-      "href" in linkWithSection.props
-        ? linkWithSection.props.href
-        : linkWithSection.props.heading
+    const { props: linkProps } = link
+    const isFinal = section === "final"
+    const linkWithProps = {
+      ...link,
+      props: { ...linkProps, opaque: isFinal, small: isFinal },
+    }
+    const key = "href" in linkProps ? linkProps.href : linkProps.heading
 
     return (
       <li
-        key={`${key}-${uuidv4()}`}
+        key={`${key}-${uuid()}`}
         className={classNames(styles.child, {
-          [styles.active]: linkWithSection.props.active,
+          [styles.active]: linkProps.active,
         })}
       >
-        {linkWithSection}
+        {linkWithProps}
       </li>
     )
   }

@@ -13,7 +13,7 @@ const MenuItem = ({
   label,
   url,
   method,
-  switcher = false,
+  showArrowIcon = false,
   onLinkClick,
   active = false,
 }: MenuItemProps) => {
@@ -31,7 +31,7 @@ const MenuItem = ({
       <input name="_method" value={method} type="hidden" />
       <button type="submit" className={styles.itemBtn}>
         {label}
-        {switcher && renderArrowIcon()}
+        {showArrowIcon && renderArrowIcon()}
       </button>
     </form>
   )
@@ -39,7 +39,7 @@ const MenuItem = ({
   const renderLink = () => (
     <a href={url} className={styles.item} tabIndex={0} onClick={onLinkClick}>
       {label}
-      {switcher && renderArrowIcon()}
+      {showArrowIcon && renderArrowIcon()}
     </a>
   )
 

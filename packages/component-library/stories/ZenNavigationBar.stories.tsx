@@ -7,6 +7,8 @@ import {
   ZenNavigationBar,
 } from "@kaizen/component-library/draft/Kaizen/ZenNavigationBar"
 
+const caIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
+  .default
 const academyIcon = require("@kaizen/component-library/icons/academy.icon.svg")
   .default
 const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
@@ -47,7 +49,8 @@ export const Default = () => (
           badge={{ kind: "notification", text: "5" }}
         />,
       ],
-      secondary: [
+      secondary: [],
+      final: [
         <Link
           icon={supportIcon}
           text="Support"
@@ -58,8 +61,6 @@ export const Default = () => (
           text="Academy"
           href="http://academy.cultureamp.com/"
         />,
-      ],
-      final: [
         <Menu
           heading="Custom menu..."
           items={[
@@ -95,14 +96,13 @@ export const Loading = () => (
   <ZenNavigationBar loading>
     {{
       primary: [<Link text="Home" href="/" active />],
-      secondary: [
+      secondary: [],
+      final: [
         <Link
           icon={academyIcon}
           text="Support"
           href="http://academy.cultureamp.com/"
         />,
-      ],
-      final: [
         <Menu
           heading="Custom menu..."
           items={[
@@ -136,13 +136,14 @@ export const ContentColors = () => (
           badge={{ kind: "new", text: "New" }}
         />,
         <Link
+          icon={supportIcon}
           text="Inbox"
           href="/"
           badge={{ kind: "notification", text: "55" }}
         />,
       ],
-
-      secondary: [
+      secondary: [],
+      final: [
         <Link
           icon={supportIcon}
           text="Support"
@@ -153,8 +154,6 @@ export const ContentColors = () => (
           text="Academy"
           href="http://academy.cultureamp.com/"
         />,
-      ],
-      final: [
         <Menu
           heading="Custom menu..."
           items={[
@@ -187,7 +186,29 @@ export const ContentColors = () => (
 )
 
 export const MenuGroup = () => (
-  <ZenNavigationBar>
+  <ZenNavigationBar
+    headerComponent={{
+      mobile: <span>Mobile</span>,
+      desktop: (
+        <Menu
+          icon={caIcon}
+          opaque
+          heading="Engagement"
+          items={[
+            {
+              title: "Switch To",
+              items: [
+                {
+                  label: "Skills",
+                  url: "meh",
+                },
+              ],
+            },
+          ]}
+        />
+      ),
+    }}
+  >
     {{
       primary: [
         <Link text="Home" href="/" active />,
@@ -197,6 +218,8 @@ export const MenuGroup = () => (
           href="/"
           badge={{ kind: "new", text: "New" }}
         />,
+      ],
+      secondary: [
         <Menu
           heading="Admin"
           items={[
@@ -237,7 +260,7 @@ export const MenuGroup = () => (
           ]}
         />,
       ],
-      secondary: [
+      final: [
         <Link
           icon={supportIcon}
           text="Support"
@@ -248,47 +271,6 @@ export const MenuGroup = () => (
           text="Academy"
           href="http://academy.cultureamp.com/"
         />,
-        <Menu
-          heading="Secondary"
-          items={[
-            {
-              label: "Skills",
-              url: "meh",
-            },
-            {
-              label: "Self-reflections",
-              url: "meh",
-            },
-            {
-              title: "Manager requested feedback",
-              items: [
-                {
-                  label: "Request history",
-                  url: "meh",
-                },
-                {
-                  label: "Request feedback",
-                  url: "meh",
-                },
-              ],
-            },
-            {
-              title: "Usage stats",
-              items: [
-                {
-                  label: "Goal stats",
-                  url: "meh",
-                },
-                {
-                  label: "Feedback stats",
-                  url: "meh",
-                },
-              ],
-            },
-          ]}
-        />,
-      ],
-      final: [
         <Menu
           heading="Custom menu..."
           items={[
