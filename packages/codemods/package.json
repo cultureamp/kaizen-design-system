@@ -1,0 +1,33 @@
+{
+  "name": "codemod-draft-packages",
+  "version": "1.0.0",
+  "main": "bin/index.js",
+  "license": "MIT",
+  "files": [
+    "bin"
+  ],
+  "scripts": {
+    "build": "yarn clean && yarn prepublish",
+    "clean": "rimraf 'bin/*'",
+    "dev": "nodemon",
+    "lint": "prettier 'lib/*' 'index.ts' --write",
+    "prepublish": "tsc --project tsconfig.dist.json",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "jest": "^25.4.0",
+    "nodemon": "^2.0.3",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^25.4.0",
+    "ts-node": "^8.9.0"
+  },
+  "dependencies": {
+    "@types/node": "^13.13.2",
+    "lodash": "^4.17.15",
+    "prettier": "^2.0.5",
+    "typescript": "^3.8.3",
+    "typescript-tslint-plugin": "^0.5.5",
+    "yargs": "^15.3.1"
+  }
+}

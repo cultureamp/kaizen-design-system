@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "lib": ["es2020"],
+    "module": "commonjs",
+    "downlevelIteration": true,
+    "outDir": "./bin"
+  }
+}
