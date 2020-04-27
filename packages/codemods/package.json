@@ -6,6 +6,9 @@
   "files": [
     "bin"
   ],
+  "engines": {
+    "node": "10.16.3"
+  },
   "scripts": {
     "build": "yarn clean && yarn prepublish",
     "clean": "rimraf 'bin/*'",
