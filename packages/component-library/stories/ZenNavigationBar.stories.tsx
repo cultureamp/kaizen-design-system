@@ -196,35 +196,10 @@ export const MenuGroup = () => (
           heading="Engagement"
           items={[
             {
-              label: "Skills",
-              url: "meh",
-            },
-            {
-              label: "Self-reflections",
-              url: "meh",
-            },
-            {
-              title: "Manager requested feedback",
+              title: "Switch To",
               items: [
                 {
-                  label: "Request history",
-                  url: "meh",
-                },
-                {
-                  label: "Request feedback",
-                  url: "meh",
-                },
-              ],
-            },
-            {
-              title: "Usage stats",
-              items: [
-                {
-                  label: "Goal stats",
-                  url: "meh",
-                },
-                {
-                  label: "Feedback stats",
+                  label: "Skills",
                   url: "meh",
                 },
               ],

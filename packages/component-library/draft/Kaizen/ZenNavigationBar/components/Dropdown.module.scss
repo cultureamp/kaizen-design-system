@@ -4,7 +4,7 @@
 @import "../styles";
 
 .dropdown {
-  @include ca-position($top: calc(100% + 2px));
+  @include ca-position($top: calc(100% + 6px));
 
   align-items: center;
   position: absolute;
@@ -14,7 +14,7 @@
   border-radius: $kz-border-solid-border-radius;
   overflow: hidden;
   padding: 4px 0 0;
-  margin-top: $ca-grid / 4;
+  min-width: 100%;
   max-width: 300px;
 
   // HACK: duplicate class selector to bump specificity to work around https://trello.com/c/VGvOyHk4

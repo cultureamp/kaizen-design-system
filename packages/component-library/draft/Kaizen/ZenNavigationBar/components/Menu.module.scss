@@ -34,7 +34,6 @@ $menu__square-size: $ca-grid * 2;
   height: 100%;
 
   .root & {
-    // @include ca-margin($start: $ca-grid / 4, $end: $ca-grid / 4);
     position: relative;
     width: $menu__square-size;
     height: $menu__square-size;
