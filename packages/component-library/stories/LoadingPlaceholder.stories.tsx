@@ -1,4 +1,3 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
 import { Text } from "@kaizen/component-library"
 import { LoadingPlaceholder } from "@kaizen/component-library/draft"
 import * as React from "react"
@@ -333,21 +332,3 @@ export const InTheWild = () => {
 InTheWild.story = {
   name: "In the wild",
 }
-
-loadElmStories(
-  "LoadingPlaceholder (Elm)",
-  module,
-  require("./LoadingPlaceholder.stories.elm"),
-  [
-    "Default, Multiple",
-    "Default, Multiple, Inline",
-    "Default, Multiple, Variable width",
-    "Default, Multiple, Variable width, Centered",
-    "Default, Multiple, Combined block and inline",
-    "Default, Without bottom margin",
-    "Default, Inherit baseline",
-    "Heading",
-    "Reversed, Default",
-    "In the wild",
-  ]
-)

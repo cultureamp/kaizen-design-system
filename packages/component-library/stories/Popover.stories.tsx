@@ -1,4 +1,3 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
 import { Popover } from "@kaizen/component-library/draft"
 import * as React from "react"
 
@@ -172,15 +171,3 @@ export const BoxOffset = () => (
 BoxOffset.story = {
   name: "Box offset",
 }
-
-loadElmStories("Popover (Elm)", module, require("./PopoverStories.elm"), [
-  "Default",
-  "Informative",
-  "Positive",
-  "Negative",
-  "Cautionary",
-  "Dismissible",
-  "Arrow above",
-  "Arrow start",
-  "Arrow end",
-])

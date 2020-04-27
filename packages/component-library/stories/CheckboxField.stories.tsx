@@ -1,4 +1,3 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
 import { CheckboxField } from "@kaizen/component-library/draft"
 import * as React from "react"
 
@@ -183,19 +182,3 @@ export const WithoutBottomMargin = () => (
 WithoutBottomMargin.story = {
   name: "without bottom margin",
 }
-
-loadElmStories(
-  "CheckboxField (Elm)",
-  module,
-  require("./CheckboxField.stories.elm"),
-  [
-    "On",
-    "Mixed",
-    "Off",
-    "Disabled + on",
-    "Disabled + mixed",
-    "Disabled + off",
-    "with bottom margin",
-    "without bottom margin",
-  ]
-)
