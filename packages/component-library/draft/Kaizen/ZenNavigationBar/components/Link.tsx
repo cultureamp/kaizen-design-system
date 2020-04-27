@@ -12,7 +12,8 @@ export default class Link extends React.PureComponent<LinkProps> {
   static defaultProps = {
     iconOnly: false,
     active: false,
-    secondary: false,
+    opaque: false,
+    small: false,
     new: false,
     target: "_self",
   }
@@ -29,7 +30,8 @@ export default class Link extends React.PureComponent<LinkProps> {
       iconOnly,
       target,
       hasMenu,
-      section,
+      opaque,
+      small,
       menuOpen,
     } = this.props
 
@@ -37,8 +39,9 @@ export default class Link extends React.PureComponent<LinkProps> {
       <a
         className={classNames(styles.link, {
           [styles.active]: active,
-          [styles.containsText]: text !== "",
-          [styles.secondary]: section === "secondary",
+          [styles.containsText]: !!text,
+          [styles.opaque]: opaque,
+          [styles.small]: small,
           [styles.menuOpen]: hasMenu && menuOpen,
         })}
         tabIndex={0}

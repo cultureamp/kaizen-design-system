@@ -35,13 +35,13 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
   border-radius: $kz-border-solid-border-radius;
 
   color: rgba($kz-color-white, 0.8);
-  padding: 0;
+  padding: 0 ($ca-grid / 2);
   text-decoration: none;
   transition: background-color $ca-duration-rapid $ca-ease-in-out;
 
   // active indicator
   @include ca-media-tablet-and-up {
-    .linkText::before {
+    &::before {
       content: "";
       display: block;
       transform: translateY(-#{$ca-navigation-bar__link-item-margin})
@@ -65,7 +65,7 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
     text-decoration: none;
     color: $kz-color-white;
 
-    .linkText::before {
+    &::before {
       transform: translateY(-18px);
     }
   }
@@ -88,15 +88,45 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
   @include ca-inherit-baseline;
   top: 0;
 
-  &.secondary {
-    color: $kz-color-white;
+  .linkIcon {
+    display: inline-flex;
+    opacity: 0.5;
 
+    @include ca-media-mobile {
+      display: none;
+    }
+  }
+
+  .linkIcon + .linkText {
+    padding: 0;
+    @include ca-margin($start: 8px);
+
+    @include ca-media-mobile {
+      @include ca-margin($start: 0);
+    }
+  }
+
+  .linkText {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: center;
+    // padding: 0 ($ca-grid / 1.5);
+    justify-content: center;
+    height: 48px;
+  }
+
+  &.small {
     @include ca-media-tablet-and-up {
       @include font-heading-5;
       @include ca-inherit-baseline;
+    }
+  }
 
-      padding: 0 $ca-grid / 2;
+  &.opaque {
+    color: $kz-color-white;
 
+    @include ca-media-tablet-and-up {
       .linkIcon {
         opacity: 1;
         transition: opacity $ca-duration-rapid $ca-ease-in-out;
@@ -125,7 +155,6 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
 
       &:active {
         background-color: rgba($kz-color-white, 0.2);
-        transform: translateY(1px);
 
         .linkIcon {
           opacity: 1;
