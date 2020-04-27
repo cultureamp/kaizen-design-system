@@ -1,4 +1,3 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
 import { Box } from "../components/Box"
@@ -97,16 +96,3 @@ export {
   Heading1WhiteReducedOpacity,
   Heading1DarkReducedOpacity,
 }
-
-loadElmStories("Heading (Elm)", module, require("./Heading.stories.elm"), [
-  "Display0",
-  "Heading1",
-  "Heading2",
-  "Heading3",
-  "Heading4",
-  "Heading5",
-  "Heading6",
-  "HeadingWithDataAttr",
-  "HeadingWithCustomClass",
-  "HeadingWithPositiveColor",
-])
