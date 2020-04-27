@@ -162,7 +162,6 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
   }
 
   @include ca-media-mobile {
-    width: calc(100% - #{$ca-navigation-bar__link-item-margin-mobile * 2});
     justify-content: flex-start;
     align-items: center;
     color: $kz-color-wisteria-700;

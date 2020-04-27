@@ -27,7 +27,6 @@ export type LinkProps = {
   }
   opaque?: boolean
   small?: boolean
-  onLinkClick?: LinkClick
 }
 
 export type MenuProps = {
@@ -40,6 +39,7 @@ export type MenuProps = {
   icon?: React.SVGAttributes<SVGSymbolElement>
   opaque?: boolean
   small?: boolean
+  onLinkClick?: LinkClick
 }
 
 export type MenuItemProps = {
@@ -54,4 +54,7 @@ export type MenuItemProps = {
 export type MenuGroupProps = {
   title: string
   items: MenuItemProps[]
+  offCanvas?: boolean
+  first?: boolean
+  onLinkClick?: LinkClick
 }
