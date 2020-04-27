@@ -1,0 +1,79 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/component-library/components/Button/styles";
+
+$hamburger-width: 18px;
+$hamburger-layer-height: 2px;
+$hamburger-layer-spacing: 3px;
+
+$menu-header-height: 60px;
+$menu-footer-height: 100px;
+
+.root {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  transform: translate3d(-120%, 0, 0);
+  background-color: $kz-color-white;
+  color: $kz-color-wisteria-800;
+  transition: transform $ca-duration-fast $ca-ease-out;
+  box-shadow: $kz-shadow-small-box-shadow;
+}
+
+.active {
+  // Here we need to do a 3d transform and z-index bump
+  // in order to promote this to its own layer
+  transform: translate3d(0, 0, 0);
+  z-index: 1;
+}
+
+.trigger {
+  @include button-reset;
+  position: absolute;
+  top: $ca-grid;
+  left: $ca-grid / 2;
+  color: $kz-color-cluny-500;
+}
+
+.hamburger {
+  width: $hamburger-width;
+  height: $hamburger-layer-height;
+  background-color: $kz-color-cluny-500;
+  position: relative;
+  display: block;
+
+  &::before {
+    content: "";
+    width: $hamburger-width;
+    height: $hamburger-layer-height;
+    position: absolute;
+    top: $hamburger-layer-height + $hamburger-layer-spacing;
+    left: 0;
+    background-color: $kz-color-cluny-500;
+  }
+
+  &::after {
+    content: "";
+    width: $hamburger-width;
+    height: $hamburger-layer-height;
+    position: absolute;
+    top: ($hamburger-layer-height + $hamburger-layer-spacing) * 2;
+    left: 0;
+    background-color: $kz-color-cluny-500;
+  }
+}
+
+.links {
+  @include ca-padding($top: 18px);
+
+  //max-height: calc(100vh - #{$menu-header-height + $menu-footer-height});
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  margin-left: 0;
+}

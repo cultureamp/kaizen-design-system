@@ -152,10 +152,17 @@ export default class Menu extends React.Component<MenuProps, State> {
     )
   }
 
-  renderOffCanvasMenuItem = (item: MenuItem) => (
-    <Link key={item.url} text={item.label} href={item.url} />
-  )
-
+  renderOffCanvasMenuItem = (item: MenuItem) => {
+    const { onLinkClick } = this.props
+    return (
+      <Link
+        key={item.url}
+        text={item.label}
+        href={item.url}
+        onClick={onLinkClick}
+      />
+    )
+  }
   renderOffCanvasMenuGroup = (menuGroup: MenuGroup) => {
     const { title, items } = menuGroup
 
@@ -168,6 +175,7 @@ export default class Menu extends React.Component<MenuProps, State> {
   }
 
   renderMenuItem = (item: MenuItem) => {
+    const { onLinkClick } = this.props
     const { label, url, method, active = false } = item
 
     if (method && method !== "get") {
@@ -196,6 +204,7 @@ export default class Menu extends React.Component<MenuProps, State> {
           [styles.menuItemActive]: active,
         })}
         tabIndex={0}
+        onClick={onLinkClick}
       >
         {label}
       </a>

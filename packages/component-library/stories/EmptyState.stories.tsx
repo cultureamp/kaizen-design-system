@@ -4,7 +4,6 @@ const chevronRight = require("@kaizen/component-library/icons/chevron-right.icon
   .default
 import * as React from "react"
 
-import { loadElmStories } from "@cultureamp/elm-storybook"
 import { Button } from "@kaizen/component-library"
 import { EmptyState } from "@kaizen/component-library/draft"
 
@@ -266,21 +265,3 @@ export const StraightCorners = () => (
 StraightCorners.story = {
   name: "Straight corners",
 }
-
-loadElmStories(
-  "EmptyState (Elm)",
-  module,
-  require("./EmptyState.stories.elm"),
-  [
-    "Default",
-    "Default (minimal props)",
-    "Layout, Content-only",
-    "Positive",
-    "Informative",
-    "Action",
-    "Action, button",
-    "Neutral",
-    "Negative",
-    "RTL, Action",
-  ]
-)
