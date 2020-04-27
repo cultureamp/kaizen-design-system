@@ -1,4 +1,3 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
 import { Paragraph } from "../components/Paragraph"
@@ -63,13 +62,3 @@ export const Small = () => (
 export const ExtraSmall = () => (
   <Paragraph variant="extra-small">Paragraph Extra Small</Paragraph>
 )
-
-loadElmStories("Paragraph (Elm)", module, require("./Paragraph.stories.elm"), [
-  "IntroLede",
-  "Body",
-  "Body Dark Reduced Opacity",
-  "Body Positive",
-  "Body Negative",
-  "Small",
-  "ExtraSmall",
-])
