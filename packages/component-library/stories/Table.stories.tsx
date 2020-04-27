@@ -175,6 +175,33 @@ export const Clickable = () => (
           description="Row with hover state only"
         />
       </TableCard>
+      <TableCard forceHoverState>
+        <TableRow>
+          <TableRowCell width={4 / 12}>
+            <CheckboxField
+              labelText="Row with cell-only anchor"
+              noBottomMargin
+            />
+          </TableRowCell>
+          <TableRowCell width={4 / 12} href="//example.com">
+            <Text tag="div" inheritBaseline>
+              (Anchor on this cell)
+            </Text>
+          </TableRowCell>
+          <TableRowCell width={2 / 12}>
+            <Text tag="div" inheritBaseline>
+              Jan 1, 2017
+            </Text>
+          </TableRowCell>
+          <TableRowCell width={2 / 12}>
+            <div className={styles.countAndExpander}>
+              <Text tag="div" inheritBaseline>
+                24
+              </Text>
+            </div>
+          </TableRowCell>
+        </TableRow>
+      </TableCard>
     </TableContainer>
   </Container>
 )
