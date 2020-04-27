@@ -10,7 +10,7 @@ const styles = require("./MenuGroup.module.scss")
 const MenuGroup = ({
   title,
   items,
-  index,
+  first = false,
   offCanvas,
   onLinkClick,
 }: MenuGroupProps) => {
@@ -28,7 +28,7 @@ const MenuGroup = ({
       <ul
         className={classNames(styles.container, {
           [styles.offCanvas]: true,
-          [styles.firstMenuItem]: index === 0,
+          [styles.firstMenuItem]: first,
         })}
       >
         <h4 className={styles.title}>{title}</h4>

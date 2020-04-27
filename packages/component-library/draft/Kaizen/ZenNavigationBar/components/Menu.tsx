@@ -135,9 +135,9 @@ export default class Menu extends React.Component<MenuProps, State> {
         } else if ("title" in item) {
           return (
             <MenuGroup
+              first={index === 0}
               {...item}
               onLinkClick={onLinkClick}
-              index={index}
               offCanvas
             />
           )

@@ -54,7 +54,7 @@ export type MenuItemProps = {
 export type MenuGroupProps = {
   title: string
   items: MenuItemProps[]
-  index: number
   offCanvas?: boolean
+  first?: boolean
   onLinkClick?: LinkClick
 }
