@@ -28,7 +28,7 @@ type Props = {
   title: string
   subtitle?: string
   breadcrumb?: Breadcrumb
-  children?: React.ReactNode
+  actions?: React.ReactNode
   textDirection?: "ltr" | "rtl"
   surveyStatus?: SurveyStatus
   navigationButtons?: NavigationButton[]
@@ -153,7 +153,7 @@ class TitleBlock extends React.Component<Props, State> {
   }
 
   render() {
-    const { sticky, children } = this.props
+    const { sticky, actions } = this.props
     const { useCompactSize } = this.state
 
     return (
@@ -191,7 +191,7 @@ class TitleBlock extends React.Component<Props, State> {
               className={styles.actionsContainer}
               data-automation-id="title-block--actions"
             >
-              {children}
+              {actions}
             </div>
           </div>
         </div>
