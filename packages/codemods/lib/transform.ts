@@ -24,6 +24,7 @@ const extractImports = (data: string): JsToken["name"] => {
 
   let exportsList: string[] = []
   let match
+  // tslint:disable-next-line: no-conditional-assignment
   while ((match = namedExports.exec(data)) !== null) {
     exportsList = match[1]
       .split(",")
@@ -57,13 +58,11 @@ const jsTokenise = (
   // @TODO - now that our bastardised mix of flow, ts, and js is removed,
   // in future versions we can use AST to tokenise. This is fine for now.
   const allImportsRegex = /import (?:type)?({?.*?}?) from '(.*?)';/gs
-  // const matches = data.matchAll(allImportsRegex)
-
   const importTokens: JsToken[] = []
   let match
+  // tslint:disable-next-line: no-conditional-assignment
   while ((match = allImportsRegex.exec(data)) !== null) {
     const imports = extractImports(match[1])
-
     importTokens.push({
       name: imports,
       packageName: match[2],
@@ -71,8 +70,6 @@ const jsTokenise = (
       meta: match,
     })
   }
-
-  console.log(importTokens)
 
   let startIndex = 0
   let endIndex = 0
@@ -159,6 +156,7 @@ const elmTokenise = (data: string) => {
 
   let match
   const importTokens: ElmToken[] = []
+  // tslint:disable-next-line: no-conditional-assignment
   while ((match = allImportsRegex.exec(data)) !== null) {
     importTokens.push({
       name: match[0],
