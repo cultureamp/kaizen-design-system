@@ -13,7 +13,6 @@ import {
 } from "./components/Badge"
 import Link from "./components/Link"
 import Menu from "./components/Menu"
-import { MOBILE_QUERY } from "./constants"
 import { Navigation, NavigationItem } from "./types"
 
 const styles = require("./NavigationBar.module.scss")
@@ -29,6 +28,7 @@ type Props = {
   }
   footerComponent?: React.ReactNode
   children?: Navigation
+  mobileMaxWidth?: number
 }
 
 export default class NavigationBar extends React.Component<Props> {
@@ -40,18 +40,24 @@ export default class NavigationBar extends React.Component<Props> {
     loading: false,
     colorScheme: "cultureamp",
     badgeHref: "/",
+    mobileMaxWidth: 767,
   }
 
   render() {
-    const { children, colorScheme = "cultureamp", headerComponent } = this.props
+    const {
+      children,
+      colorScheme = "cultureamp",
+      headerComponent,
+      mobileMaxWidth,
+    } = this.props
 
     return (
-      <Media query={MOBILE_QUERY}>
+      <Media query={`(max-width: ${mobileMaxWidth}px)`}>
         {(matches: boolean) =>
           matches ? (
             <ZenControlledOffCanvas
               headerComponent={
-                headerComponent ? headerComponent : this.renderBadge()
+                headerComponent ? headerComponent.mobile : this.renderBadge()
               }
               footerComponent={this.props.footerComponent}
               links={children}
