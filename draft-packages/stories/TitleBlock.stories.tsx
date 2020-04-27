@@ -17,12 +17,6 @@ const navigationButtons = [
   },
 ]
 
-const reversedContainerStyle = {
-  width: "100%",
-  height: "600px",
-  background: "lightgrey",
-}
-
 const stickyContainerStyle = {
   width: "100%",
   height: "2000px",
@@ -90,89 +84,15 @@ WithTag.story = {
   name: "with tag",
 }
 
-export const Reversed = () => (
-  <div style={reversedContainerStyle}>
-    <TitleBlock
-      title="Home"
-      breadcrumb={{ path: "#", text: "Back to reports" }}
-      navigationButtons={navigationButtons}
-      reversed
-      reverseColor="Wisteria"
-    />
-  </div>
-)
-
-Reversed.story = {
-  name: "reversed",
-}
-
 export const Sticky = () => (
   <div style={stickyContainerStyle}>
     <TitleBlock title="Home" navigationButtons={navigationButtons} sticky>
-      <Button label="Action" secondary reversed />
-      <Button label="Action 2" secondary reversed />
+      <Button label="Action" secondary />
+      <Button label="Action 2" secondary />
     </TitleBlock>
   </div>
 )
 
 Sticky.story = {
   name: "sticky",
-}
-
-export const StickyReversed = () => (
-  <div style={stickyContainerStyle}>
-    <TitleBlock
-      title="Home"
-      navigationButtons={navigationButtons}
-      reversed
-      reverseColor="Wisteria"
-      sticky
-    >
-      <Button label="Action" secondary reversed />
-      <Button label="Action 2" secondary reversed />
-    </TitleBlock>
-  </div>
-)
-
-StickyReversed.story = {
-  name: "sticky reversed",
-}
-
-export const StickyTransparent = () => (
-  <div style={stickyContainerStyle}>
-    <TitleBlock
-      title="Home"
-      navigationButtons={navigationButtons}
-      reversed
-      reverseColor="Transparent"
-      sticky
-    >
-      <Button label="Action" secondary reversed />
-      <Button label="Action 2" secondary reversed />
-    </TitleBlock>
-  </div>
-)
-
-StickyTransparent.story = {
-  name: "sticky transparent",
-}
-
-export const StickyTransparentInitially = () => (
-  <div style={stickyContainerStyle}>
-    <TitleBlock
-      title="Home"
-      navigationButtons={navigationButtons}
-      reversed
-      reverseColor="Transparent"
-      sticky
-      stickyColor="Ocean"
-    >
-      <Button label="Action" secondary reversed />
-      <Button label="Action 2" secondary reversed />
-    </TitleBlock>
-  </div>
-)
-
-StickyTransparentInitially.story = {
-  name: "sticky transparent initially",
 }

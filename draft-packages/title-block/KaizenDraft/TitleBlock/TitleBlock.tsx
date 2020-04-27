@@ -14,15 +14,6 @@ import NavigationButtons, { NavigationButton } from "./NavigationButtons"
 
 const styles = require("./TitleBlock.scss")
 
-type Color =
-  | "Lapis"
-  | "Ocean"
-  | "Peach"
-  | "Seedling"
-  | "Wisteria"
-  | "Yuzu"
-  | "Transparent"
-
 type SurveyStatus = {
   text: string
   status: "draft" | "live"
@@ -41,10 +32,7 @@ type Props = {
   textDirection?: "ltr" | "rtl"
   surveyStatus?: SurveyStatus
   navigationButtons?: NavigationButton[]
-  reversed?: boolean
-  reverseColor?: Color
   sticky?: boolean
-  stickyColor?: Color
 }
 
 type State = {
@@ -147,7 +135,7 @@ class TitleBlock extends React.Component<Props, State> {
   }
 
   renderNavigation = () => {
-    const { navigationButtons, reversed } = this.props
+    const { navigationButtons } = this.props
     if (navigationButtons == undefined) return
 
     return (
@@ -158,7 +146,6 @@ class TitleBlock extends React.Component<Props, State> {
         <div className={styles.navButtonsContainer}>
           <NavigationButtons
             navigationButtons={navigationButtons}
-            reversed={reversed}
           />
         </div>
       </div>
@@ -166,17 +153,14 @@ class TitleBlock extends React.Component<Props, State> {
   }
 
   render() {
-    const { reversed, reverseColor, sticky, stickyColor, children } = this.props
+    const { sticky, children } = this.props
     const { useCompactSize } = this.state
 
     return (
       <div
         className={classNames(styles.titleBlockContainer, {
-          [styles.reversed]: reversed,
-          [styles[`reverseColor${reverseColor}`]]: reverseColor,
           [styles.sticky]: sticky,
           [styles.compact]: useCompactSize,
-          [styles[`stickyColor${stickyColor}`]]: useCompactSize && stickyColor,
         })}
       >
         <div
