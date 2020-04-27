@@ -15,6 +15,7 @@ module Kaizen.Select.Select exposing
     , single
     , state
     , update
+    , usePorts
     , view
     )
 
@@ -30,11 +31,12 @@ import Html.Lazy exposing (lazy)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
 import Json.Decode as Decode
+import Json.Encode as Encode
 import Kaizen.Events.Events as Events
+import Kaizen.Select.Ports as Ports
 import Kaizen.Select.SelectInput as SelectInput
 import Kaizen.Tag.Tag as Tag
 import List.Extra as ListExtra
-import Process
 import Task
 
 
@@ -48,14 +50,14 @@ type SelectId
 
 type Msg item
     = InputChanged SelectId String
-    | InputReceivedFocused
+    | InputReceivedFocused (Maybe SelectId)
     | SelectedItem item
     | DeselectedMultiItem item
     | SearchableSelectContainerClicked SelectId
     | UnsearchableSelectContainerClicked SelectId
     | ToggleMenuAtKey SelectId
     | OnInputFocused (Result Dom.Error ())
-    | OnInputBlurred
+    | OnInputBlurred (Maybe SelectId)
     | MenuItemClickFocus Int
     | MultiItemFocus Int
     | InputMousedowned
@@ -64,7 +66,7 @@ type Msg item
     | EnterSelect item
     | KeyboardDown SelectId Int
     | KeyboardUp SelectId Int
-    | OpenMenu SelectId
+    | OpenMenu
     | CloseMenu
     | FocusMenuViewport SelectId (Result Dom.Error ( MenuListElement, MenuItemElement ))
     | MenuListScrollTop Float
@@ -150,6 +152,7 @@ type alias ViewSelectInputData item =
     , maybeActiveTarget : Maybe (MenuItem item)
     , totalViewableMenuItems : Int
     , menuOpen : Bool
+    , usePorts : Bool
     }
 
 
@@ -204,6 +207,7 @@ type alias SelectState =
     , menuViewportFocusNodes : Maybe ( MenuListElement, MenuItemElement )
     , menuListScrollTop : Float
     , menuNavigation : MenuNavigation
+    , usePorts : Bool
     }
 
 
@@ -242,6 +246,7 @@ initState =
         , menuViewportFocusNodes = Nothing
         , menuListScrollTop = 0
         , menuNavigation = Mouse
+        , usePorts = False
         }
 
 
@@ -320,6 +325,11 @@ selectIdentifier id_ =
     SelectId id_
 
 
+usePorts : Bool -> State -> State
+usePorts predicate (State state_) =
+    State { state_ | usePorts = predicate }
+
+
 
 -- UPDATE
 
@@ -347,12 +357,25 @@ update msg (State state_) =
         InputChanged selectId inputValue ->
             let
                 ( _, State stateWithOpenMenu, cmdWithOpenMenu ) =
-                    update (OpenMenu selectId) (State state_)
+                    update OpenMenu (State state_)
             in
             ( InputChange inputValue, State { stateWithOpenMenu | inputValue = Just inputValue }, cmdWithOpenMenu )
 
-        InputReceivedFocused ->
-            ( Internal, State { state_ | controlFocused = True }, Cmd.none )
+        InputReceivedFocused maybeSelectId ->
+            case maybeSelectId of
+                Just selectId ->
+                    let
+                        ports =
+                            if state_.usePorts then
+                                Ports.kaizenConnectSelectInputDynamicWidth <| buildEncodedValueForPorts selectId
+
+                            else
+                                Cmd.none
+                    in
+                    ( Internal, State { state_ | controlFocused = True }, ports )
+
+                Nothing ->
+                    ( Internal, State { state_ | controlFocused = True }, Cmd.none )
 
         SelectedItem item ->
             let
@@ -393,13 +416,13 @@ update msg (State state_) =
 
         -- If the menu list element was not found it likely has no viewable menu items.
         -- In this case the menu does not render therefore no id is present on menu element.
-        FocusMenuViewport selectId (Err _) ->
+        FocusMenuViewport _ (Err _) ->
             ( Internal, State { state_ | menuViewportFocusNodes = Nothing }, Cmd.none )
 
         DoNothing ->
             ( Internal, State state_, Cmd.none )
 
-        OnInputBlurred ->
+        OnInputBlurred maybeSelectId ->
             let
                 ( _, State stateWithClosedMenu, cmdWithClosedMenu ) =
                     update CloseMenu (State state_)
@@ -420,10 +443,22 @@ update msg (State state_) =
                               }
                             , cmdWithClosedMenu
                             )
+
+                ports =
+                    case maybeSelectId of
+                        Just id_ ->
+                            if state_.usePorts then
+                                Ports.kaizenDisconnectSelectInputDynamicWidth <| buildEncodedValueForPorts id_
+
+                            else
+                                Cmd.none
+
+                        Nothing ->
+                            Cmd.none
             in
             ( Internal
             , State updatedState
-            , updatedCmds
+            , Cmd.batch [ updatedCmds, ports ]
             )
 
         MenuItemClickFocus i ->
@@ -444,7 +479,7 @@ update msg (State state_) =
                     SelectInput.inputId id
 
                 ( _, State stateWithOpenMenu, cmdWithOpenMenu ) =
-                    update (OpenMenu <| SelectId id) (State state_)
+                    update OpenMenu (State state_)
 
                 ( _, State stateWithClosedMenu, cmdWithClosedMenu ) =
                     update CloseMenu (State state_)
@@ -493,7 +528,7 @@ update msg (State state_) =
         UnsearchableSelectContainerClicked (SelectId id) ->
             let
                 ( _, State stateWithOpenMenu, cmdWithOpenMenu ) =
-                    update (OpenMenu <| SelectId id) (State state_)
+                    update OpenMenu (State state_)
 
                 ( _, State stateWithClosedMenu, cmdWithClosedMenu ) =
                     update CloseMenu (State state_)
@@ -510,7 +545,7 @@ update msg (State state_) =
         ToggleMenuAtKey selectId ->
             let
                 ( _, State stateWithOpenMenu, cmdWithOpenMenu ) =
-                    update (OpenMenu selectId) (State state_)
+                    update OpenMenu (State state_)
 
                 ( _, State stateWithClosedMenu, cmdWithClosedMenu ) =
                     update CloseMenu (State state_)
@@ -527,7 +562,7 @@ update msg (State state_) =
         KeyboardDown selectId totalTargetCount ->
             let
                 ( _, State stateWithOpenMenu, cmdWithOpenMenu ) =
-                    update (OpenMenu selectId) (State state_)
+                    update OpenMenu (State state_)
 
                 nextActiveTargetIndex =
                     calculateNextActiveTarget state_.activeTargetIndex totalTargetCount Down
@@ -551,7 +586,7 @@ update msg (State state_) =
         KeyboardUp selectId totalTargetCount ->
             let
                 ( _, State stateWithOpenMenu, cmdWithOpenMenu ) =
-                    update (OpenMenu selectId) (State state_)
+                    update OpenMenu (State state_)
 
                 nextActiveTargetIndex =
                     calculateNextActiveTarget state_.activeTargetIndex totalTargetCount Up
@@ -572,7 +607,7 @@ update msg (State state_) =
             in
             ( Internal, State updatedState, updatedCmd )
 
-        OpenMenu selectId ->
+        OpenMenu ->
             ( Internal, State { state_ | menuOpen = True, activeTargetIndex = 0 }, Cmd.none )
 
         CloseMenu ->
@@ -664,7 +699,7 @@ view (Config config) selectId =
         buildInput =
             if config.searchable then
                 lazy viewSelectInput
-                    (ViewSelectInputData (getSelectId selectId) state_.inputValue enterSelectTargetItem totalMenuItems state_.menuOpen)
+                    (ViewSelectInputData (getSelectId selectId) state_.inputValue enterSelectTargetItem totalMenuItems state_.menuOpen state_.usePorts)
 
             else
                 lazy viewDummyInput
@@ -857,12 +892,12 @@ viewSelectedPlaceholder item =
 
 
 viewSelectInput : ViewSelectInputData item -> Html (Msg item)
-viewSelectInput viewSelectInoutData =
+viewSelectInput viewSelectInputData =
     let
         enterKeydownDecoder =
             -- There will always be a target item if the menu is
             -- open and not empty
-            case viewSelectInoutData.maybeActiveTarget of
+            case viewSelectInputData.maybeActiveTarget of
                 Just mi ->
                     [ Events.isEnter (EnterSelect mi.item) ]
 
@@ -870,31 +905,40 @@ viewSelectInput viewSelectInoutData =
                     []
 
         resolveInputValue =
-            Maybe.withDefault "" viewSelectInoutData.maybeInputValue
+            Maybe.withDefault "" viewSelectInputData.maybeInputValue
 
         spaceKeydownDecoder decoders =
-            if canBeSpaceToggled viewSelectInoutData.menuOpen viewSelectInoutData.maybeInputValue then
-                Events.isSpace (ToggleMenuAtKey <| SelectId viewSelectInoutData.id) :: decoders
+            if canBeSpaceToggled viewSelectInputData.menuOpen viewSelectInputData.maybeInputValue then
+                Events.isSpace (ToggleMenuAtKey <| SelectId viewSelectInputData.id) :: decoders
 
             else
                 decoders
 
         whenArrowEvents =
-            if viewSelectInoutData.menuOpen && 0 == viewSelectInoutData.totalViewableMenuItems then
+            if viewSelectInputData.menuOpen && 0 == viewSelectInputData.totalViewableMenuItems then
                 []
 
             else
-                [ Events.isDownArrow (KeyboardDown (SelectId viewSelectInoutData.id) viewSelectInoutData.totalViewableMenuItems)
-                , Events.isUpArrow (KeyboardUp (SelectId viewSelectInoutData.id) viewSelectInoutData.totalViewableMenuItems)
+                [ Events.isDownArrow (KeyboardDown (SelectId viewSelectInputData.id) viewSelectInputData.totalViewableMenuItems)
+                , Events.isUpArrow (KeyboardUp (SelectId viewSelectInputData.id) viewSelectInputData.totalViewableMenuItems)
                 ]
+
+        resolveInputWidth selectInputConfig =
+            if viewSelectInputData.usePorts then
+                -- Fixed because javascript controls its width via ports
+                SelectInput.inputSizing SelectInput.Fixed selectInputConfig
+
+            else
+                SelectInput.inputSizing SelectInput.Dynamic selectInputConfig
     in
     SelectInput.view
         (SelectInput.default
-            |> SelectInput.onInput (InputChanged <| SelectId viewSelectInoutData.id)
-            |> SelectInput.onBlurMsg OnInputBlurred
-            |> SelectInput.onFocusMsg InputReceivedFocused
+            |> SelectInput.onInput (InputChanged <| SelectId viewSelectInputData.id)
+            |> SelectInput.onBlurMsg (OnInputBlurred (Just <| SelectId viewSelectInputData.id))
+            |> SelectInput.onFocusMsg (InputReceivedFocused (Just <| SelectId viewSelectInputData.id))
             |> SelectInput.currentValue resolveInputValue
             |> SelectInput.onMousedown InputMousedowned
+            |> resolveInputWidth
             |> (SelectInput.preventKeydownOn <|
                     (enterKeydownDecoder |> spaceKeydownDecoder)
                         ++ [ Events.isEscape CloseMenu
@@ -902,7 +946,7 @@ viewSelectInput viewSelectInoutData =
                         ++ whenArrowEvents
                )
         )
-        viewSelectInoutData.id
+        viewSelectInputData.id
 
 
 viewDummyInput : ViewDummyInputData item -> Html (Msg item)
@@ -941,8 +985,8 @@ viewDummyInput viewDummyInputData =
                , value ""
                , tabindex 0
                , id ("dummy-input-" ++ viewDummyInputData.id)
-               , onFocus InputReceivedFocused
-               , onBlur OnInputBlurred
+               , onFocus (InputReceivedFocused Nothing)
+               , onBlur (OnInputBlurred Nothing)
                , preventDefaultOn "keydown" <|
                     Decode.map
                         (\msg -> ( msg, True ))
@@ -1115,6 +1159,19 @@ buildMenuItem selectId variant initialMousedown activeTargetIndex menuNavigation
         Multi _ _ ->
             viewMenuItem <|
                 ViewMenuItemData idx False (isMenuItemClickFocused initialMousedown idx) (isTarget activeTargetIndex idx) selectId item menuNavigation initialMousedown
+
+
+buildEncodedValueForPorts : SelectId -> Encode.Value
+buildEncodedValueForPorts (SelectId id_) =
+    let
+        ( sizerId, inputId ) =
+            ( SelectInput.sizerId id_, SelectInput.inputId id_ )
+    in
+    Encode.object
+        [ ( "sizerId", Encode.string sizerId )
+        , ( "inputId", Encode.string inputId )
+        , ( "defaultInputWidth", Encode.int SelectInput.defaultWidth )
+        ]
 
 
 

@@ -24,7 +24,7 @@ type SelectMsg
 
 model : SelectModel
 model =
-    { selectState = Select.initState
+    { selectState = Select.initState |> Select.usePorts True
     , selectedMembers = []
     , selectedMember = Nothing
     , members = [ "Mindy", "Jaime", "Rafa", "Elaine", "Julio", "Priyanka", "Prince", "Charith", "Nick" ]
