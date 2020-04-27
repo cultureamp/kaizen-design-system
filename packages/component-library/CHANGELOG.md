@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.5.0...@kaizen/component-library@7.5.1) (2020-04-27)
+
+
+### Bug Fixes
+
+* corrected click events ([#418](https://github.com/cultureamp/kaizen-design-system/issues/418)) ([2de6c08](https://github.com/cultureamp/kaizen-design-system/commit/2de6c08992bde3c2239b532eb87a73e89140c912))
+
+
+
+
+
+# [7.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.4.0...@kaizen/component-library@7.5.0) (2020-04-27)
+
+
+### Features
+
+* Use ports to dynamically adjust the select input on change ([#406](https://github.com/cultureamp/kaizen-design-system/issues/406)) ([f376124](https://github.com/cultureamp/kaizen-design-system/commit/f376124dbadb6b0781eb775aaed66de02e22c690))
+
+
+
+
+
 # [7.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.3.1...@kaizen/component-library@7.4.0) (2020-04-27)
 
 
