@@ -9,11 +9,9 @@ import {
 describe("tokenise", () => {
   describe("-- js input", () => {
     test("Converts a default import to a token list", () => {
-      const { tokens } = tokenise(
-        "js",
-        Buffer.from("import React from 'react';")
-      )
-      expect(tokens).toMatchSnapshot()
+      const output = tokenise("js", Buffer.from("import React from 'react';"))
+
+      expect(output).toMatchSnapshot()
     })
 
     test("Converts a named import to a token list", () => {

@@ -1,5 +1,4 @@
 import * as _ from "lodash"
-import matchAll from "string.prototype.matchall"
 
 export interface JsToken {
   packageName: string
@@ -22,10 +21,10 @@ export interface ElmToken {
  */
 const extractImports = (data: string): JsToken["name"] => {
   const namedExports = /(?:,\s)?(\{.*?\})(?:,\s)?/gs
-  const matches = matchAll(data, namedExports)
 
   let exportsList: string[] = []
-  for (const match of matches) {
+  let match
+  while ((match = namedExports.exec(data)) !== null) {
     exportsList = match[1]
       .split(",")
       .map((curr) => curr.replace("}", "").replace("{", ""))
@@ -58,11 +57,11 @@ const jsTokenise = (
   // @TODO - now that our bastardised mix of flow, ts, and js is removed,
   // in future versions we can use AST to tokenise. This is fine for now.
   const allImportsRegex = /import (?:type)?({?.*?}?) from '(.*?)';/gs
-  const matches = matchAll(data, allImportsRegex)
+  // const matches = data.matchAll(allImportsRegex)
 
   const importTokens: JsToken[] = []
-
-  for (const match of matches) {
+  let match
+  while ((match = allImportsRegex.exec(data)) !== null) {
     const imports = extractImports(match[1])
 
     importTokens.push({
@@ -72,6 +71,8 @@ const jsTokenise = (
       meta: match,
     })
   }
+
+  console.log(importTokens)
 
   let startIndex = 0
   let endIndex = 0
@@ -155,10 +156,10 @@ const jsTransformDrafts = (tokens: JsToken[]): JsToken[] => {
  */
 const elmTokenise = (data: string) => {
   const allImportsRegex = /import.*/g
-  const matches = matchAll(data, allImportsRegex)
 
+  let match
   const importTokens: ElmToken[] = []
-  for (const match of matches) {
+  while ((match = allImportsRegex.exec(data)) !== null) {
     importTokens.push({
       name: match[0],
       meta: match,
