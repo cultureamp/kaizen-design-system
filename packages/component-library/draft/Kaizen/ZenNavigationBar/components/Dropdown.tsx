@@ -45,7 +45,7 @@ const Dropdown = ({ items, header }: Props) => {
           if ("url" in item) {
             return <MenuItem {...item} />
           } else if ("title" in item) {
-            return <MenuGroup {...item} index={index} />
+            return <MenuGroup {...item} first={index === 0} />
           }
         })}
       </ul>
