@@ -34,9 +34,7 @@ $icon-size: 20px;
   box-sizing: border-box;
 
   .checkbox:disabled + & {
-    .icon {
-      opacity: 0.3;
-    }
+    opacity: 0.3;
   }
 
   .checkbox:focus:not([disabled]) + &,
