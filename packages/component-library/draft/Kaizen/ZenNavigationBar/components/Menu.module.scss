@@ -35,14 +35,12 @@ $menu__square-size: $ca-grid * 2;
 
   .root & {
     position: relative;
-    margin: $ca-grid / 4;
     width: $menu__square-size;
     height: $menu__square-size;
   }
 }
 
-.buttonLink,
-.secondary {
+.buttonLink {
   @include ca-navigation-bar__link-item;
   composes: buttonReset;
 

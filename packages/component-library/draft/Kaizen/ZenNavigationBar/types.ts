@@ -25,7 +25,8 @@ export type LinkProps = {
     kind: "new" | "notification"
     text: string
   }
-  section?: string
+  opaque?: boolean
+  small?: boolean
   onLinkClick?: LinkClick
 }
 
@@ -36,14 +37,16 @@ export type MenuProps = {
   heading: string
   mobileEnabled?: boolean
   active?: boolean
-  section?: string
+  icon?: React.SVGAttributes<SVGSymbolElement>
+  opaque?: boolean
+  small?: boolean
 }
 
 export type MenuItemProps = {
   label: string
   url: string
   method?: "get" | "post" | "put" | "delete"
-  switcher?: boolean
+  showArrowIcon?: boolean
   onLinkClick?: LinkClick
   active?: boolean
 }

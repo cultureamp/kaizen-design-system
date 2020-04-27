@@ -30,7 +30,8 @@ export const Default = () => (
           badge={{ kind: "notification", text: "5" }}
         />,
       ],
-      secondary: [
+      secondary: [],
+      final: [
         <Link
           icon={supportIcon}
           text="Support"
@@ -41,8 +42,6 @@ export const Default = () => (
           text="Academy"
           href="http://academy.cultureamp.com/"
         />,
-      ],
-      final: [
         <Menu
           heading="Custom menu..."
           items={[
