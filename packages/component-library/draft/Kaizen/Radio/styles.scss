@@ -1,6 +1,5 @@
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/color";
-
 @import "~@kaizen/component-library/draft/Kaizen/Radio/Primitives/styles";
 
 .container {
@@ -20,7 +19,8 @@
 
   label:hover {
     input:not([disabled]) + div {
-      border-color: $ca-border-color-hover;
+      border-color: $kz-color-wisteria-700;
+      background-color: $kz-color-wisteria-100;
     }
   }
 

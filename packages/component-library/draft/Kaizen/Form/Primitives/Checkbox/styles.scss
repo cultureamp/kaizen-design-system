@@ -4,9 +4,9 @@
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/mixins/forms";
 
-$checkbox-size: 20px;
-$checkbox-border-width: 1px;
-$icon-size: 20px;
+$checkbox-size: 24px;
+$focus-ring-offset: 2px;
+$icon-size: 24px;
 
 .checkbox {
   @include form-input-visually-hidden();
@@ -20,7 +20,8 @@ $icon-size: 20px;
   transform: translateY(-50%);
   // .icon is inside .box so .box's border-box rule means
   // .icon sits to the right of .box's left-side border
-  left: -1px;
+  left: -$kz-border-solid-border-width;
+  color: $kz-color-white;
 }
 
 .box {
@@ -29,25 +30,47 @@ $icon-size: 20px;
   height: $checkbox-size;
   width: $checkbox-size;
   top: 0;
-  border: 1px solid $ca-border-color;
+  transform: translateY($checkbox-size / 8);
+  border: $kz-border-solid-border-width $kz-border-solid-border-style
+    $kz-color-wisteria-500;
   border-radius: $kz-border-solid-border-radius;
   box-sizing: border-box;
   box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.09);
 
+  .checkbox:not([checked]):hover + &,
+  .checkbox:not([checked]):focus + & {
+    border-color: $kz-color-wisteria-700;
+    background-color: $kz-color-wisteria-100;
+  }
+
+  .checkbox:checked + &,
+  .checkbox:indeterminate + & {
+    background: $kz-color-wisteria-500;
+  }
+
+  .checkbox:checked:hover + &,
+  .checkbox:checked:focus + &,
+  .checkbox:indeterminate:hover + &,
+  .checkbox:indeterminate:focus + & {
+    background: $kz-color-wisteria-700;
+    border-color: $kz-color-wisteria-700;
+  }
+
+  .checkbox:focus + &::after {
+    content: "";
+    position: absolute;
+    background: transparent;
+    border-radius: $kz-border-focus-ring-border-radius;
+    border-width: $kz-border-focus-ring-border-width;
+    border-style: $kz-border-focus-ring-border-style;
+    border-color: $ca-border-color-focus;
+    top: -$focus-ring-offset - ($checkbox-size / 8);
+    left: -$focus-ring-offset - ($checkbox-size / 8);
+    width: $checkbox-size + $focus-ring-offset;
+    height: $checkbox-size + $focus-ring-offset;
+  }
+
   .checkbox:disabled + & {
-    background: $kz-color-ash;
-
-    .icon {
-      opacity: 0.3;
-    }
-  }
-
-  .checkbox:focus:not([disabled]) + &,
-  .checkbox:hover:focus:not([disabled]) + & {
-    @include form-input-focus-border($ca-border-color-focus);
-  }
-
-  .checkbox:not([disabled]) + &:hover {
-    border-color: $ca-border-color-hover;
+    opacity: 0.3;
   }
 }
