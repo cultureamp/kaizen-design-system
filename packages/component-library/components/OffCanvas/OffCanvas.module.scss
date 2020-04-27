@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/shadow";
 @import "../../styles/color";
 @import "../../styles/type";
 @import "../../styles/animation";
@@ -7,6 +8,9 @@
 $hamburger-width: 18px;
 $hamburger-layer-height: 2px;
 $hamburger-layer-spacing: 3px;
+
+$menu-header-height: 60px;
+$menu-footer-height: 100px;
 
 .root {
   position: fixed;
@@ -17,7 +21,7 @@ $hamburger-layer-spacing: 3px;
   transform: translate3d(-120%, 0, 0);
   background-color: $kz-color-wisteria-800;
   transition: transform $ca-duration-fast $ca-ease-out;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: $kz-shadow-small-box-shadow;
 }
 
 .active {
@@ -61,4 +65,12 @@ $hamburger-layer-spacing: 3px;
     left: 0;
     background-color: $kz-color-cluny-500;
   }
+}
+
+.links {
+  max-height: calc(100vh - #{$menu-header-height + $menu-footer-height});
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  margin-left: 0;
 }
