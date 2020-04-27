@@ -1,4 +1,3 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
 import { Button } from "@kaizen/component-library"
 const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
   .default
@@ -426,13 +425,3 @@ export const MultipleButtons = () => (
     <Button label="Exit" automationId="demo-button-2" />
   </div>
 )
-
-loadElmStories("Button (Elm)", module, require("./Button.stories.elm"), [
-  "Default",
-  "Primary",
-  "Secondary",
-  "Destructive",
-  "Destructive w/ Icon",
-  "Secondary Destructive",
-  "Secondary Destructive w/ Icon",
-])

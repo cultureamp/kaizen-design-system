@@ -1,5 +1,7 @@
 import React from "react"
 
+import classNames from "classnames"
+
 import { Icon } from "@kaizen/component-library"
 import { MenuItemProps } from "../types"
 
@@ -7,7 +9,14 @@ const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.
   .default
 const styles = require("./MenuItem.module.scss")
 
-const MenuItem = ({ label, url, method, switcher = false }: MenuItemProps) => {
+const MenuItem = ({
+  label,
+  url,
+  method,
+  showArrowIcon = false,
+  onLinkClick,
+  active = false,
+}: MenuItemProps) => {
   const renderArrowIcon = () => (
     <span className={styles.arrowIcon}>
       <Icon icon={arrowForwardIcon} role="presentation" />
@@ -22,20 +31,24 @@ const MenuItem = ({ label, url, method, switcher = false }: MenuItemProps) => {
       <input name="_method" value={method} type="hidden" />
       <button type="submit" className={styles.itemBtn}>
         {label}
-        {switcher && renderArrowIcon()}
+        {showArrowIcon && renderArrowIcon()}
       </button>
     </form>
   )
 
   const renderLink = () => (
-    <a href={url} className={styles.item} tabIndex={0}>
+    <a href={url} className={styles.item} tabIndex={0} onClick={onLinkClick}>
       {label}
-      {switcher && renderArrowIcon()}
+      {showArrowIcon && renderArrowIcon()}
     </a>
   )
 
   return (
-    <li className={styles.container}>
+    <li
+      className={classNames(styles.container, {
+        [styles.active]: active,
+      })}
+    >
       {method && method !== "get" ? renderForm() : renderLink()}
     </li>
   )
