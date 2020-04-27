@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tokenise -- elm input Converts a nested import to a list 1`] = `Array []`;
+
+exports[`tokenise -- elm input Converts a nested import with exposing 1`] = `Array []`;
+
+exports[`tokenise -- js input Converts a default import to a token list 1`] = `Array []`;
+
+exports[`tokenise -- js input Converts a named import to a token list 1`] = `Array []`;
+
+exports[`tokenise -- js input Converts mixed named and default exports 1`] = `Array []`;
+
+exports[`tokenise -- js input Converts multiple multi-line named imports to a token list 1`] = `Array []`;
+
+exports[`tokenise -- js input Converts multiple named imports to a token list 1`] = `Array []`;

@@ -1,6 +1,8 @@
 {
+  "extends": "../../tsconfig.json",
+  "include": ["lib/**/*", "index.ts"],
   "compilerOptions": {
-    "lib": ["es2020"],
+    "lib": ["es2020.string"],
     "module": "commonjs",
     "downlevelIteration": true,
     "outDir": "./bin"

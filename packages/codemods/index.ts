@@ -26,9 +26,9 @@ const VERBOSE_LEVEL = argv.verbose
 const logger = log(VERBOSE_LEVEL)
 
 if (argv._.includes("bless")) {
-  console.log("bless will happen in the future")
+  logger("info", "bless - not yet implements")
 } else if (argv._.includes("curse")) {
-  console.log("curse this will happen in the future")
+  logger("info", "curse - not yet implements")
 } else if (argv._.includes("move-drafts")) {
   let locations = "./"
   if (argv._.length == 2) {

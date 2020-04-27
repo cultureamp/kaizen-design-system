@@ -1,5 +1,5 @@
 {
-  "name": "codemod-draft-packages",
+  "name": "@kaizen/codemods",
   "version": "1.0.0",
   "main": "bin/index.js",
   "license": "MIT",
@@ -28,6 +28,7 @@
     "prettier": "^2.0.5",
     "typescript": "^3.8.3",
     "typescript-tslint-plugin": "^0.5.5",
-    "yargs": "^15.3.1"
+    "yargs": "^15.3.1",
+    "string.prototype.matchall": "^4.0.2"
   }
 }
