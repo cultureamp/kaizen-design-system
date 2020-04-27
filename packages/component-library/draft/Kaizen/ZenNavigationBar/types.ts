@@ -46,7 +46,7 @@ export type MenuItemProps = {
   label: string
   url: string
   method?: "get" | "post" | "put" | "delete"
-  switcher?: boolean
+  showArrowIcon?: boolean
   onLinkClick?: LinkClick
   active?: boolean
 }
