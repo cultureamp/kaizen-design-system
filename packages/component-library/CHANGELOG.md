@@ -3,6 +3,61 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.5.0...@kaizen/component-library@7.5.1) (2020-04-27)
+
+
+### Bug Fixes
+
+* corrected click events ([#418](https://github.com/cultureamp/kaizen-design-system/issues/418)) ([2de6c08](https://github.com/cultureamp/kaizen-design-system/commit/2de6c08992bde3c2239b532eb87a73e89140c912))
+
+
+
+
+
+# [7.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.4.0...@kaizen/component-library@7.5.0) (2020-04-27)
+
+
+### Features
+
+* Use ports to dynamically adjust the select input on change ([#406](https://github.com/cultureamp/kaizen-design-system/issues/406)) ([f376124](https://github.com/cultureamp/kaizen-design-system/commit/f376124dbadb6b0781eb775aaed66de02e22c690))
+
+
+
+
+
+# [7.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.3.1...@kaizen/component-library@7.4.0) (2020-04-27)
+
+
+### Features
+
+* refactor navbar styling ([#417](https://github.com/cultureamp/kaizen-design-system/issues/417)) ([e57dcad](https://github.com/cultureamp/kaizen-design-system/commit/e57dcad1028ef3a50d4991b309544837e851effb))
+
+
+
+
+
+## [7.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.3.0...@kaizen/component-library@7.3.1) (2020-04-27)
+
+
+### Bug Fixes
+
+* split Elm tsx stories into separate files ([#416](https://github.com/cultureamp/kaizen-design-system/issues/416)) ([65f93e0](https://github.com/cultureamp/kaizen-design-system/commit/65f93e03c9b2a3ac9fdf1be4ef73269ed7c76a01))
+
+
+
+
+
+# [7.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.2.0...@kaizen/component-library@7.3.0) (2020-04-26)
+
+
+### Features
+
+* Re-add onLinkClick to all links in zen navbar ([#415](https://github.com/cultureamp/kaizen-design-system/issues/415)) ([0999d9b](https://github.com/cultureamp/kaizen-design-system/commit/0999d9b292abc73fff67c1005e486144f2e5c82a))
+
+
+
+
+
 # [7.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.1.2...@kaizen/component-library@7.2.0) (2020-04-24)
 
 

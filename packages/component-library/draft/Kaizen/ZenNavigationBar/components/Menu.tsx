@@ -31,6 +31,8 @@ export default class Menu extends React.Component<MenuProps, State> {
     items: [],
     active: false,
     mobileEnabled: true,
+    small: false,
+    opaque: false,
   }
   rootRef = React.createRef<any>()
 
@@ -43,7 +45,9 @@ export default class Menu extends React.Component<MenuProps, State> {
       automationId,
       heading,
       mobileEnabled,
-      section,
+      opaque,
+      small,
+      icon,
       items,
       header,
     } = this.props
@@ -60,7 +64,7 @@ export default class Menu extends React.Component<MenuProps, State> {
                     href="#"
                     onClick={() => toggleVisibleMenu(heading)}
                     hasMenu
-                    section={section}
+                    opaque={opaque}
                   />
                 )}
               </OffCanvasContext.Consumer>
@@ -70,10 +74,11 @@ export default class Menu extends React.Component<MenuProps, State> {
             <nav className={styles.root} ref={this.rootRef}>
               <button
                 className={classNames(styles.button, {
-                  [styles.buttonLink]: section === "primary",
+                  [styles.opaque]: opaque,
+                  [styles.small]: small,
+                  [styles.buttonLink]: !children,
                   [styles.linkText]: !!heading,
                   [styles.menuOpen]: this.state.open,
-                  [styles.secondary]: section === "secondary",
                   [styles.active]: active,
                 })}
                 onClick={this.toggle}
@@ -85,6 +90,15 @@ export default class Menu extends React.Component<MenuProps, State> {
                   children
                 ) : (
                   <React.Fragment>
+                    {icon && (
+                      <span className={styles.linkIcon}>
+                        <Icon
+                          icon={icon}
+                          role="presentation"
+                          title={`${heading} icon`}
+                        />
+                      </span>
+                    )}
                     <span className={styles.linkText}>{heading}</span>
                     <Icon icon={chevronDownIcon} role="presentation" />
                   </React.Fragment>
@@ -106,13 +120,27 @@ export default class Menu extends React.Component<MenuProps, State> {
   }
 
   renderOffCanvas() {
-    const { items, heading } = this.props
+    const { items, heading, onLinkClick } = this.props
     const links: Array<NavigationItem | undefined> = items.map(
       (item, index) => {
         if ("url" in item) {
-          return <Link key={item.url} text={item.label} href={item.url} />
+          return (
+            <Link
+              key={item.url}
+              text={item.label}
+              href={item.url}
+              onClick={onLinkClick}
+            />
+          )
         } else if ("title" in item) {
-          return <MenuGroup {...item} index={index} offCanvas />
+          return (
+            <MenuGroup
+              first={index === 0}
+              {...item}
+              onLinkClick={onLinkClick}
+              offCanvas
+            />
+          )
         }
       }
     )

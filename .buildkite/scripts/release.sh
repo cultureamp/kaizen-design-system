@@ -1,20 +1,15 @@
 #!/bin/sh
 set -e
 
+# shellcheck source=helpers/get-secret.sh
+. ".buildkite/scripts/helpers/get-secret.sh"
+
 GITHUB_SSH_HOST_KEY="
 github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXY
 PCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mU
 jvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwo
 G6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq
 3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ=="
-
-get_secret() {
-  aws secretsmanager get-secret-value \
-    --secret-id "kaizen-design-system/$1" \
-    --query SecretString \
-    | tr -d '"' \
-    | sed 's/\\n/\n/g'
-}
 
 setup_github() {
   git config --global credential.helper cache
@@ -76,4 +71,4 @@ main() {
 
 main
 
-unset -f main get_secret setup_github setup_npm
+unset -f main setup_github setup_npm
