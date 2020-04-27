@@ -1,10 +1,9 @@
 import React from "react"
 
 import classNames from "classnames"
-import { MenuItemProps } from "../types"
+import { MenuGroupProps, MenuItemProps } from "../types"
 import Link from "./Link"
 import MenuItem from "./MenuItem"
-import { MenuGroupProps } from "../types"
 
 const styles = require("./MenuGroup.module.scss")
 
