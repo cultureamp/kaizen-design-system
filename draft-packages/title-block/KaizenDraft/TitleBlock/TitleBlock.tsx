@@ -137,6 +137,7 @@ class TitleBlock extends React.Component<Props, State> {
                   data-automation-id="TitleBlock__Text"
                 >
                   {this.renderTitle()}
+                  {this.renderTag()}
                 </div>
               </div>
             </div>
