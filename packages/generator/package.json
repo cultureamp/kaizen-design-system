@@ -1,0 +1,13 @@
+{
+  "name": "generator-kaizen-component",
+  "version": "1.0.0",
+  "description": "Quickly scaffolds new components in Kaizen",
+  "main": "index.js",
+  "license": "MIT",
+  "files": [
+    "generators"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^4.9.0"
+  }
+}
