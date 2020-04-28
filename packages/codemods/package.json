@@ -6,6 +6,9 @@
   "files": [
     "bin"
   ],
+  "bin": {
+    "kaizen-codemods": "bin/index.js"
+  },
   "engines": {
     "node": "10.16.3"
   },
