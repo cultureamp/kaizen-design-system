@@ -1,4 +1,3 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
 import * as React from "react"
 import { ToggledStatus, ToggleSwitchField, ToggleTheme } from "../draft"
 
@@ -232,10 +231,3 @@ export const FreemiumTheme = () => (
 FreemiumTheme.story = {
   name: "Freemium theme",
 }
-
-loadElmStories(
-  "ToggleSwitchField (Elm)",
-  module,
-  require("./ToggleSwitchField.stories.elm"),
-  ["Default theme", "Freemium theme", "Disabled Off", "Disabled On"]
-)

@@ -1,4 +1,3 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
 import { action } from "@storybook/addon-actions"
 import React, { useCallback, useRef } from "react"
 
@@ -555,8 +554,3 @@ export const DefaultUncontrolled = () => {
 DefaultUncontrolled.story = {
   name: "Default, Uncontrolled",
 }
-
-loadElmStories("TextField (Elm)", module, require("./TextFieldStories.elm"), [
-  "Default",
-  "Default /w icon",
-])

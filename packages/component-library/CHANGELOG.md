@@ -3,6 +3,124 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.5.1...@kaizen/component-library@7.5.2) (2020-04-28)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.5.0...@kaizen/component-library@7.5.1) (2020-04-27)
+
+
+### Bug Fixes
+
+* corrected click events ([#418](https://github.com/cultureamp/kaizen-design-system/issues/418)) ([2de6c08](https://github.com/cultureamp/kaizen-design-system/commit/2de6c08992bde3c2239b532eb87a73e89140c912))
+
+
+
+
+
+# [7.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.4.0...@kaizen/component-library@7.5.0) (2020-04-27)
+
+
+### Features
+
+* Use ports to dynamically adjust the select input on change ([#406](https://github.com/cultureamp/kaizen-design-system/issues/406)) ([f376124](https://github.com/cultureamp/kaizen-design-system/commit/f376124dbadb6b0781eb775aaed66de02e22c690))
+
+
+
+
+
+# [7.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.3.1...@kaizen/component-library@7.4.0) (2020-04-27)
+
+
+### Features
+
+* refactor navbar styling ([#417](https://github.com/cultureamp/kaizen-design-system/issues/417)) ([e57dcad](https://github.com/cultureamp/kaizen-design-system/commit/e57dcad1028ef3a50d4991b309544837e851effb))
+
+
+
+
+
+## [7.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.3.0...@kaizen/component-library@7.3.1) (2020-04-27)
+
+
+### Bug Fixes
+
+* split Elm tsx stories into separate files ([#416](https://github.com/cultureamp/kaizen-design-system/issues/416)) ([65f93e0](https://github.com/cultureamp/kaizen-design-system/commit/65f93e03c9b2a3ac9fdf1be4ef73269ed7c76a01))
+
+
+
+
+
+# [7.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.2.0...@kaizen/component-library@7.3.0) (2020-04-26)
+
+
+### Features
+
+* Re-add onLinkClick to all links in zen navbar ([#415](https://github.com/cultureamp/kaizen-design-system/issues/415)) ([0999d9b](https://github.com/cultureamp/kaizen-design-system/commit/0999d9b292abc73fff67c1005e486144f2e5c82a))
+
+
+
+
+
+# [7.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.1.2...@kaizen/component-library@7.2.0) (2020-04-24)
+
+
+### Features
+
+* Navigation bar zen styles uplift draft component ([#412](https://github.com/cultureamp/kaizen-design-system/issues/412)) ([b41d0f6](https://github.com/cultureamp/kaizen-design-system/commit/b41d0f62da3cf799ea41ac09c163eeab76d1b97f))
+
+
+
+
+
+## [7.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.1.1...@kaizen/component-library@7.1.2) (2020-04-24)
+
+
+### Bug Fixes
+
+* NavigationBar component using old API in Layout ([#414](https://github.com/cultureamp/kaizen-design-system/issues/414)) ([f271aab](https://github.com/cultureamp/kaizen-design-system/commit/f271aabd5c1497969c85d8a63d5157c9a52a14d8))
+
+
+
+
+
+## [7.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.1.0...@kaizen/component-library@7.1.1) (2020-04-24)
+
+
+### Bug Fixes
+
+* revert "update caButtonContainer display type to avoid IE11 issue" ([#413](https://github.com/cultureamp/kaizen-design-system/issues/413)) ([e2d390b](https://github.com/cultureamp/kaizen-design-system/commit/e2d390b3f0e8534f01b71eda3afd1bab42e94557)), closes [#401](https://github.com/cultureamp/kaizen-design-system/issues/401)
+
+
+
+
+
+# [7.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.0.1...@kaizen/component-library@7.1.0) (2020-04-23)
+
+
+### Features
+
+* allow menu items to return click event ([#411](https://github.com/cultureamp/kaizen-design-system/issues/411)) ([1f7ebe5](https://github.com/cultureamp/kaizen-design-system/commit/1f7ebe50ce904bd891b42cdabf6fca905eb9455d))
+
+
+
+
+
+## [7.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.0.0...@kaizen/component-library@7.0.1) (2020-04-23)
+
+
+### Bug Fixes
+
+* ul selector specificity and add margin to navigation list items. ([#407](https://github.com/cultureamp/kaizen-design-system/issues/407)) ([1b18405](https://github.com/cultureamp/kaizen-design-system/commit/1b18405f8f74c52ce0d649e07145643fcf484466))
+
+
+
+
+
 # [7.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@6.3.0...@kaizen/component-library@7.0.0) (2020-04-22)
 
 

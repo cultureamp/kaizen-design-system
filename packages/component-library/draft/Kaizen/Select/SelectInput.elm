@@ -1,8 +1,11 @@
 module Kaizen.Select.SelectInput exposing
-    ( currentValue
+    ( InputSizing(..)
+    , currentValue
     , default
+    , defaultWidth
     , disabled
     , inputId
+    , inputSizing
     , onBlurMsg
     , onFocusMsg
     , onInput
@@ -23,6 +26,11 @@ type Config msg
     = Config (Configuration msg)
 
 
+type InputSizing
+    = Dynamic
+    | Fixed
+
+
 type alias Configuration msg =
     { onInput : Maybe (String -> msg)
     , onBlur : Maybe msg
@@ -30,8 +38,9 @@ type alias Configuration msg =
     , onMousedown : Maybe msg
     , currentValue : Maybe String
     , disabled : Bool
-    , minWidth : Float
+    , minWidth : Int
     , preventKeydownOn : List (Decode.Decoder msg)
+    , inputSizing : InputSizing
     }
 
 
@@ -47,8 +56,9 @@ defaults =
     , onMousedown = Nothing
     , currentValue = Nothing
     , disabled = False
-    , minWidth = 2
+    , minWidth = defaultWidth
     , preventKeydownOn = []
+    , inputSizing = Dynamic
     }
 
 
@@ -59,16 +69,30 @@ default =
 
 sizerId : String -> String
 sizerId sid =
-    "sizer-target-" ++ sid
+    "kaizen-select-input-sizer-target-" ++ sid
 
 
 inputId : String -> String
 inputId iid =
-    "input-target-" ++ iid
+    "kaizen-select-input-target-" ++ iid
+
+
+
+-- CONSTANTS
+
+
+defaultWidth : Int
+defaultWidth =
+    2
 
 
 
 -- MODIFIERS
+
+
+inputSizing : InputSizing -> Config msg -> Config msg
+inputSizing width (Config config) =
+    Config { config | inputSizing = width }
 
 
 preventKeydownOn : List (Decode.Decoder msg) -> Config msg -> Config msg
@@ -113,6 +137,18 @@ disabled predicate (Config config) =
 view : Config msg -> String -> Html msg
 view (Config config) id_ =
     let
+        inputWidthStyle =
+            case config.inputSizing of
+                Dynamic ->
+                    if String.isEmpty inputValue then
+                        [ size 1 ]
+
+                    else
+                        [ size <| String.length inputValue + config.minWidth ]
+
+                Fixed ->
+                    [ style "width" (String.fromInt config.minWidth ++ "px") ]
+
         input_ changeMsg =
             Events.onInputAt [ "target", "value" ] changeMsg
 
@@ -156,6 +192,7 @@ view (Config config) id_ =
             , style "padding" "0px"
             , style "color" "inherit"
             ]
+                ++ inputWidthStyle
 
         sizerStyles =
             [ style "position" "absolute"
@@ -176,18 +213,10 @@ view (Config config) id_ =
             , style "box-sizing" "border-box"
             , style "margin" "2px"
             ]
-
-        inputSize : Int
-        inputSize =
-            if String.isEmpty inputValue then
-                1
-
-            else
-                String.length inputValue
     in
     div autoSizeInputContainerStyles
         [ input
-            ([ id (inputId id_), value inputValue, type_ "text", attribute "autocomplete" "new-password", size inputSize ] ++ events ++ inputStyles)
+            ([ id (inputId id_), value inputValue, type_ "text", attribute "autocomplete" "new-password" ] ++ events ++ inputStyles)
             []
 
         -- query the div width to set the input width

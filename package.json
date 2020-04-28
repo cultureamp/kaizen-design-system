@@ -21,7 +21,8 @@
     "lint:fix": "elm-format --yes packages && yarn tslint --fix && yarn prettier --write",
     "clean:storybook": "rimraf 'storybook/public'",
     "clean": "lerna run clean && yarn gatsby clean && yarn clean:storybook && rimraf 'elm-stuff'",
-    "reset": "yarn clean && yarn install --force"
+    "reset": "yarn clean && yarn install --force",
+    "chromatic": "chromatic"
   },
   "babel": {
     "presets": [
@@ -107,6 +108,7 @@
     "webpack": "^4.40.2"
   },
   "devDependencies": {
+    "storybook-chromatic": "^3.4.1",
     "@storybook/addon-docs": "^5.3.17",
     "@storybook/codemod": "^5.3.9",
     "@storybook/csf": "^0.0.1",

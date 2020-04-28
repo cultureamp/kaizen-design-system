@@ -1,4 +1,3 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
 import * as React from "react"
 
 import { Tag, Tooltip } from "@kaizen/component-library/draft"
@@ -34,8 +33,3 @@ export const DefaultAbove = () => (
 DefaultAbove.story = {
   name: "Default - Above",
 }
-
-loadElmStories("Tooltip (Elm)", module, require("./TooltipStories.elm"), [
-  "Default - Below",
-  "Default - Above",
-])
