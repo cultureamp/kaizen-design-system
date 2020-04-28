@@ -10,6 +10,17 @@
 
 $row-height: 60px;
 
+.anchorReset {
+  text-decoration: none;
+  color: $kz-color-wisteria-800;
+  display: block;
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
 .container {
   width: 100%;
   margin-bottom: $ca-grid * 0.5;
@@ -68,14 +79,7 @@ $row-height: 60px;
     margin $ca-duration-rapid, padding $ca-duration-rapid,
     width $ca-duration-rapid;
   // These css properties are required for when the rows are anchor elements
-  text-decoration: none;
-  color: $kz-color-wisteria-800;
-  display: block;
-  &:hover,
-  &:active,
-  &:focus {
-    text-decoration: none;
-  }
+  composes: anchorReset;
 
   &:first-child {
     border-top-left-radius: $kz-border-solid-border-radius;
@@ -144,4 +148,6 @@ $row-height: 60px;
   padding: 0 $ca-grid * 0.8;
   display: flex;
   align-items: center;
+  // These css properties are required for when the cells are anchor elements
+  composes: anchorReset;
 }
