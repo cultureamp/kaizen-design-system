@@ -141,6 +141,12 @@
     color: #fff;
     transform: scale(1.1);
   }
+
+  .reportingVariant & {
+    color: $kz-color-white;
+    border-color: add-alpha($kz-color-white, 50%);
+    border-width: 2px;
+  }
 }
 
 .leftContent {
