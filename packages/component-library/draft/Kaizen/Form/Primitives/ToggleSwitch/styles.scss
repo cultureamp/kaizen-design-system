@@ -32,7 +32,7 @@ $animation-timing: $ca-duration-immediate $ca-linear;
 
   .checkbox:focus:not([disabled]) + &,
   .checkbox:hover:focus:not([disabled]) + & {
-    @include form-input-focus-border($ca-border-color-focus);
+    border-color: $ca-border-color-focus;
   }
 
   .checkbox:not([disabled]) + &:hover {
@@ -55,6 +55,10 @@ $animation-timing: $ca-duration-immediate $ca-linear;
   .checkbox:not([disabled]) + .track {
     border-color: $kz-border-borderless-border-color;
     background-color: $kz-color-seedling-400;
+  }
+
+  .checkbox:focus:not([disabled]) + .track {
+    border-color: $ca-border-color-focus;
   }
 
   .thumb {
