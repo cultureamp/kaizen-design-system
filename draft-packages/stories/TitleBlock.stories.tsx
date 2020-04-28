@@ -1,4 +1,5 @@
 import { Button } from "@kaizen/component-library/components/Button"
+import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { TitleBlock } from "@kaizen/draft-title-block"
 import * as React from "react"
 
@@ -12,6 +13,15 @@ const stickyContainerStyle = {
 
 export default {
   title: "TitleBlock (React)",
+  parameters: {
+    backgrounds: [
+      {
+        name: "White",
+        value: colorTokens.kz.color.white,
+        default: true,
+      },
+    ],
+  },
 }
 
 export const WithTitle = () => <TitleBlock title="Reports" />
@@ -79,6 +89,15 @@ export const ReportingVariant = () => (
 
 ReportingVariant.story = {
   name: "reporting variant",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria["700"],
+        default: true,
+      },
+    ],
+  },
 }
 
 export const EducationVariant = () => (
@@ -92,4 +111,13 @@ export const EducationVariant = () => (
 
 EducationVariant.story = {
   name: "education variant",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Cluny 200",
+        value: colorTokens.kz.color.cluny["200"],
+        default: true,
+      },
+    ],
+  },
 }
