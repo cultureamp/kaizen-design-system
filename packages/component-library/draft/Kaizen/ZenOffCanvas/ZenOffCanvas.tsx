@@ -60,7 +60,10 @@ export class ZenOffCanvas extends React.Component<Props> {
             <nav className={styles.links}>
               {links &&
                 Object.keys(links).map(section => (
-                  <Menu section={section} link={links[section]} />
+                  <>
+                    {console.log(`${section}`, links)}
+                    <Menu section={section} link={links[section]} />
+                  </>
                 ))}
             </nav>
             {footerComponent}

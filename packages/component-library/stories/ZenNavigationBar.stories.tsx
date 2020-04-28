@@ -20,6 +20,11 @@ export default {
   title: "ZenNavigationBar (React)",
 }
 
+const handleNavigationChange = event => {
+  event.preventDefault()
+  console.log(event)
+}
+
 const accountMenuBtn = (
   <div
     style={{
@@ -33,7 +38,7 @@ const accountMenuBtn = (
 )
 
 export const Default = () => (
-  <ZenNavigationBar>
+  <ZenNavigationBar onNavigationChange={handleNavigationChange}>
     {{
       primary: [
         <Link text="Home" href="/" active />,
@@ -125,7 +130,10 @@ export const Loading = () => (
 )
 
 export const ContentColors = () => (
-  <ZenNavigationBar colorScheme="content">
+  <ZenNavigationBar
+    onNavigationChange={handleNavigationChange}
+    colorScheme="content"
+  >
     {{
       primary: [
         <Link text="Home" href="/" active />,
@@ -187,6 +195,7 @@ export const ContentColors = () => (
 
 export const MenuGroup = () => (
   <ZenNavigationBar
+    onNavigationChange={handleNavigationChange}
     headerComponent={{
       mobile: <span>Mobile</span>,
       desktop: (
