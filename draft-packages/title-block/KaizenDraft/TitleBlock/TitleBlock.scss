@@ -15,7 +15,6 @@
 
 .titleBlock {
   background-color: #fff;
-  border-bottom: 1px solid $ca-border-color;
   width: inherit;
 
   @media print {
@@ -37,9 +36,14 @@
   justify-content: space-between;
   position: relative;
   max-width: $ca-layout-max-width;
-  padding: 0 $ca-layout-side-padding;
+  margin: 0 $ca-layout-side-padding;
   height: $ca-layout-title-block-height;
   margin: 0 auto;
+  border-bottom: 3px solid add-alpha($kz-color-wisteria-700, 20%);
+
+  .reportingVariant & {
+    border-bottom: 3px solid add-alpha($kz-color-white, 10%);
+  }
 
   @include ca-media-tablet {
     height: $ca-layout-title-block-tablet-height;
@@ -52,6 +56,8 @@
   }
 }
 
+$breadcrumb-circle-width: 40px;
+
 .breadcrumb {
   @include ca-type-ideal-small;
   display: flex;
@@ -60,7 +66,7 @@
   align-items: center;
   top: $ca-layout-title-block-height / 2;
   transform: translateY(-50%);
-  left: -38px;
+  left: calc(-#{$breadcrumb-circle-width} - #{$ca-grid});
   color: $ca-link-text-color;
   height: 45px;
 
@@ -122,10 +128,11 @@
 
 .circle {
   $border-width: 3px;
-  $width: 40px - $border-width * 2;
-  flex: 0 0 $width;
-  height: $width;
-  border-radius: $width;
+  flex: 0 0 $breadcrumb-circle-width;
+  box-sixing: border-box;
+  width: $breadcrumb-circle-width;
+  height: $breadcrumb-circle-width;
+  border-radius: 50%;
   border-width: $border-width;
   border-color: $kz-color-cluny-300;
   border-style: solid;
