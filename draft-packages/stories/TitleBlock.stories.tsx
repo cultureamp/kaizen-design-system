@@ -63,3 +63,20 @@ export const Sticky = () => (
 Sticky.story = {
   name: "sticky",
 }
+
+export const ReportingVariant = () => (
+  <TitleBlock
+    title="Q4 Evaluation, 2019"
+    variant="reporting"
+    breadcrumb={{ path: "#", text: "Back to reports" }}
+    toolbar={[
+      <Button label="Action" reversed />,
+      <Button label="Action 2" primary reversed />,
+    ]}
+    surveyStatus={{ status: "live", text: "Live" }}
+  />
+)
+
+ReportingVariant.story = {
+  name: "reporting variant",
+}
