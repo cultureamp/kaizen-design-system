@@ -34,11 +34,7 @@ WithBreadcrumb.story = {
 export const WithToolbar = () => (
   <TitleBlock
     title="Home"
-    toolbar={
-      <>
-        <Button label="Action" /> <Button label="Action 2" primary />
-      </>
-    }
+    toolbar={[<Button label="Action" />, <Button label="Action 2" primary />]}
   />
 )
 
@@ -59,12 +55,7 @@ export const Sticky = () => (
     <TitleBlock
       title="Home"
       sticky
-      toolbar={
-        <>
-          <Button label="Action" secondary />
-          <Button label="Action 2" secondary />
-        </>
-      }
+      toolbar={[<Button label="Action" />, <Button label="Action 2" primary />]}
     />
   </div>
 )

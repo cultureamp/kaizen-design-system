@@ -184,9 +184,17 @@
 }
 
 .toolbarContainer {
+  $gap-emulation-margin: $ca-grid * 0.25; // if we could use column-gap, it would be used instead, and would be a half grid;
   display: flex;
   flex: 0 0 auto;
   align-items: center;
+  margin-left: -$gap-emulation-margin;
+  margin-right: -$gap-emulation-margin;
+
+  & > * {
+    margin-left: $gap-emulation-margin;
+    margin-right: $gap-emulation-margin;
+  }
 
   @include ca-media-mobile {
     display: none;

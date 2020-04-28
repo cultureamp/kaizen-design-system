@@ -25,7 +25,7 @@ type Breadcrumb = {
 type Props = {
   title: string
   breadcrumb?: Breadcrumb
-  toolbar?: React.ReactNode
+  toolbar?: React.ReactNode[]
   textDirection?: "ltr" | "rtl"
   surveyStatus?: SurveyStatus
   sticky?: boolean
