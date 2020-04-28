@@ -10,7 +10,7 @@ import {
   TableRowCell,
 } from "@kaizen/component-library/draft"
 import * as React from "react"
-import { IconButton } from "../components"
+import { Button, IconButton } from "../components"
 const styles = require("./Table.stories.scss")
 
 const commentIcon = require("@kaizen/component-library/icons/comment.icon.svg")
@@ -163,7 +163,7 @@ export const Clickable = () => (
           description="Button row with onClick callback"
         />
       </TableCard>
-      <TableCard href="//example.com">
+      <TableCard href="//cultureamp.com">
         <ExampleTableRow
           expandable={false}
           description="Anchor row with route"
@@ -183,22 +183,21 @@ export const Clickable = () => (
               noBottomMargin
             />
           </TableRowCell>
-          <TableRowCell width={4 / 12} href="//example.com">
+          <TableRowCell width={4 / 12} href="//cultureamp.com">
+            <Text tag="div" inheritBaseline>
+              (Anchor on this cell)
+            </Text>
+          </TableRowCell>
+          <TableRowCell width={2 / 12} href="//cultureamp.com">
             <Text tag="div" inheritBaseline>
               (Anchor on this cell)
             </Text>
           </TableRowCell>
           <TableRowCell width={2 / 12}>
-            <Text tag="div" inheritBaseline>
-              Jan 1, 2017
-            </Text>
-          </TableRowCell>
-          <TableRowCell width={2 / 12}>
-            <div className={styles.countAndExpander}>
-              <Text tag="div" inheritBaseline>
-                24
-              </Text>
-            </div>
+            <Button
+              label="Button"
+              onClick={() => alert("Clicked the button, not the anchor")}
+            />
           </TableRowCell>
         </TableRow>
       </TableCard>
