@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.5.3...@kaizen/component-library@7.6.0) (2020-04-28)
+
+
+### Features
+
+* add ability to make a Table cell an anchor element ([#419](https://github.com/cultureamp/kaizen-design-system/issues/419)) ([8a37634](https://github.com/cultureamp/kaizen-design-system/commit/8a376343bbd15880f6643cc6ec7440367fe4cf61))
+
+
+
+
+
 ## [7.5.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.5.2...@kaizen/component-library@7.5.3) (2020-04-28)
 
 **Note:** Version bump only for package @kaizen/component-library
