@@ -3,6 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.1.2...@kaizen/draft-well@2.1.3) (2020-04-28)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [2.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.1.1...@kaizen/draft-well@2.1.2) (2020-04-28)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.1.0...@kaizen/draft-well@2.1.1) (2020-04-28)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.0.4...@kaizen/draft-well@2.1.0) (2020-04-27)
+
+
+### Features
+
+* Kaizen module has been moved to KaizenDraft/Well/Well.elm ([#424](https://github.com/cultureamp/kaizen-design-system/issues/424)) ([c224134](https://github.com/cultureamp/kaizen-design-system/commit/c2241347c7f96aec73f830886e58ca70f7b73faf))
+
+
+
+
+
+## [2.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.0.3...@kaizen/draft-well@2.0.4) (2020-04-27)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [2.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.0.2...@kaizen/draft-well@2.0.3) (2020-04-27)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [2.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.0.1...@kaizen/draft-well@2.0.2) (2020-04-27)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.0.0...@kaizen/draft-well@2.0.1) (2020-04-27)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@1.1.16...@kaizen/draft-well@2.0.0) (2020-04-27)
+
+
+### Features
+
+* Draft components change scope ([#399](https://github.com/cultureamp/kaizen-design-system/issues/399)) ([1057d63](https://github.com/cultureamp/kaizen-design-system/commit/1057d631805b5617fbb7a8c04a26955cace58bab))
+
+
+### BREAKING CHANGES
+
+* Draft components move to be under a different scope, previously Kaizen, now KaizenDraft
+
+
+
+
+
+## [1.1.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@1.1.15...@kaizen/draft-well@1.1.16) (2020-04-26)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
 ## [1.1.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@1.1.14...@kaizen/draft-well@1.1.15) (2020-04-24)
 
 **Note:** Version bump only for package @kaizen/draft-well

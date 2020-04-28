@@ -44,7 +44,7 @@
   color: rgba($kz-color-wisteria-800, 0.8);
 
   .offCanvas & {
-    @include ca-padding($top: 10px, $bottom: 4px, $start: 16px, $end: 16px);
+    @include ca-padding($top: 10px, $bottom: 4px, $start: 12px, $end: 12px);
     @include font-heading-6;
 
     margin: 0 10px;

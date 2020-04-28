@@ -1,4 +1,3 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
 import { action } from "@storybook/addon-actions"
 import * as React from "react"
 import { Button, Text } from "../"
@@ -622,15 +621,3 @@ export const TestScrollingModalAndScrollingContent = () => (
 TestScrollingModalAndScrollingContent.story = {
   name: "Test - scrolling modal and scrolling content",
 }
-
-loadElmStories("Modal (Elm)", module, require("./ModalStories.elm"), [
-  "Confirmation (cautionary), shown by default",
-  "Generic, shown by default",
-  "Confirmation (informative), shown by default",
-  "Confirmation (positive), shown by default",
-  "Confirmation (negative), shown by default",
-  "Confirmation (negative), with disabled confirm button",
-  "Confirmation, user initiated",
-  "InputEdit (positive), user initiated",
-  "InputEdit (negative), user initiated",
-])

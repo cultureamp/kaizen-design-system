@@ -1,4 +1,3 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
 import * as React from "react"
 
 import { Icon } from "@kaizen/component-library"
@@ -36,9 +35,3 @@ export const InheritSize = () => (
     <Icon icon={configureIcon} role="presentation" inheritSize={true} />
   </div>
 )
-
-loadElmStories("Icon (Elm)", module, require("./Icon.stories.elm"), [
-  "Meaningful",
-  "Presentational",
-  "Inherit Size",
-])
