@@ -14,6 +14,10 @@
   padding: $ca-grid * 0.5;
   color: $kz-color-wisteria-800;
 
+  &:focus {
+    border-color: $ca-border-color-focus;
+  }
+
   @include form-input-placeholder {
     line-height: 1.5;
     color: add-alpha($kz-color-wisteria-800, 70%);
