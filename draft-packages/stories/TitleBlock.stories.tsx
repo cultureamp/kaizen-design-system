@@ -31,15 +31,20 @@ WithBreadcrumb.story = {
   name: "with breadcrumb",
 }
 
-export const WithActionButtons = () => (
-  <TitleBlock title="Home">
-    <Button label="Action" secondary />
-    <Button label="Action 2" secondary />
-  </TitleBlock>
+export const WithToolbar = () => (
+  <TitleBlock
+    title="Home"
+    toolbar={
+      <>
+        <Button label="Action" secondary />{" "}
+        <Button label="Action 2" secondary />
+      </>
+    }
+  />
 )
 
-WithActionButtons.story = {
-  name: "with action buttons",
+WithToolbar.story = {
+  name: "with toolbar",
 }
 
 export const WithTag = () => (
