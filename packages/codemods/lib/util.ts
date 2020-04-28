@@ -1,4 +1,4 @@
-export const log = (VERBOSE_LEVEL) => {
+export const log = VERBOSE_LEVEL => {
   return (level: "info" | "verbose", ...args) => {
     if (level === "info" && VERBOSE_LEVEL >= 0) {
       // tslint:disable-next-line: no-console

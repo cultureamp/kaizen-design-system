@@ -28,9 +28,9 @@ const extractImports = (data: string): JsToken["name"] => {
   while ((match = namedExports.exec(data)) !== null) {
     exportsList = match[1]
       .split(",")
-      .map((curr) => curr.replace("}", "").replace("{", ""))
-      .map((curr) => curr.trim())
-      .filter((curr) => !_.isEmpty(curr))
+      .map(curr => curr.replace("}", "").replace("{", ""))
+      .map(curr => curr.trim())
+      .filter(curr => !_.isEmpty(curr))
   }
 
   const defaultExport = data.replace(namedExports, "").trim()
@@ -90,7 +90,7 @@ const jsTokenise = (
 /**
  * Converts tokens back to a string
  */
-const jsDetokenise = (data) => {
+const jsDetokenise = data => {
   return data
     .map(({ name, packageName }) => {
       let returnString = "import"
@@ -130,7 +130,7 @@ const jsTransformDrafts = (tokens: JsToken[]): JsToken[] => {
         acc.push(newToken)
       } else {
         // multiple named imports
-        namedImports.forEach((curr) => {
+        namedImports.forEach(curr => {
           acc.push({
             packageName: `@kaizen/draft-${_.kebabCase(curr)}`,
             name: {
@@ -198,7 +198,7 @@ const elmTransformDrafts = (data: ElmToken[]) => {
   return data.map(({ name, meta }) => {
     if (!name) return name
 
-    const matchedDraft = draftPackages.find((curr) => name.includes(curr))
+    const matchedDraft = draftPackages.find(curr => name.includes(curr))
     let newVal = name
     if (matchedDraft) {
       newVal = newVal.replace(
