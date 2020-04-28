@@ -24,7 +24,6 @@ type Breadcrumb = {
 
 type Props = {
   title: string
-  subtitle?: string
   breadcrumb?: Breadcrumb
   actions?: React.ReactNode
   textDirection?: "ltr" | "rtl"
@@ -94,23 +93,6 @@ class TitleBlock extends React.Component<Props, State> {
     )
   }
 
-  renderSubtitle = () => {
-    const { subtitle } = this.props
-    if (subtitle == undefined) return
-
-    return (
-      <React.Fragment>
-        <div
-          className={styles.subtitle}
-          data-automation-id="TitleBlock__Subtitle"
-        >
-          {subtitle}
-        </div>
-        {this.renderTag()}
-      </React.Fragment>
-    )
-  }
-
   renderBreadcrumb = () => {
     const { breadcrumb, textDirection } = this.props
     if (breadcrumb == undefined) return
@@ -155,7 +137,6 @@ class TitleBlock extends React.Component<Props, State> {
                   data-automation-id="TitleBlock__Text"
                 >
                   {this.renderTitle()}
-                  {this.renderSubtitle()}
                 </div>
               </div>
             </div>

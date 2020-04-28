@@ -20,18 +20,9 @@ WithTitle.story = {
   name: "with Title",
 }
 
-export const WithSubtitle = () => (
-  <TitleBlock title="Home" subtitle="Subtitle goes here" />
-)
-
-WithSubtitle.story = {
-  name: "with subtitle",
-}
-
 export const WithBreadcrumb = () => (
   <TitleBlock
     title="Home"
-    subtitle="Subtitle goes here"
     breadcrumb={{ path: "#", text: "Back to reports" }}
   />
 )
@@ -52,11 +43,7 @@ WithActionButtons.story = {
 }
 
 export const WithTag = () => (
-  <TitleBlock
-    title="Home"
-    subtitle="Subtitle goes here"
-    surveyStatus={{ status: "live", text: "Live" }}
-  />
+  <TitleBlock title="Home" surveyStatus={{ status: "live", text: "Live" }} />
 )
 
 WithTag.story = {
