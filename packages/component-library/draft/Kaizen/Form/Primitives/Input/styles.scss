@@ -187,7 +187,7 @@ $input-disabled-border-alpha: 50%;
 
   &:focus:not([disabled]),
   &:hover:focus:not([disabled]) {
-    @include form-input-focus-border($ca-border-color-focus);
+    border-color: $ca-border-color-focus;
   }
 
   &:hover:not([disabled]) {
@@ -203,7 +203,7 @@ $input-disabled-border-alpha: 50%;
   }
 
   &.error:not(:focus) {
-    @include form-input-focus-border($ca-palette-input-validation-negative);
+    border-color: $ca-palette-input-validation-negative;
   }
 }
 
@@ -220,7 +220,7 @@ $input-disabled-border-alpha: 50%;
   &:focus:not([disabled]),
   &:hover:focus:not([disabled]) {
     background: rgba($kz-color-white, 0.1);
-    @include form-input-focus-border($input-focus-border-color-reversed);
+    border-color: $input-focus-border-color-reversed;
   }
 
   &:hover:not([disabled]) {
@@ -237,7 +237,7 @@ $input-disabled-border-alpha: 50%;
   }
 
   &.error:not(:focus) {
-    @include form-input-focus-border($ca-palette-input-validation-negative);
+    border-color: $ca-palette-input-validation-negative;
 
     @include form-input-placeholder {
       opacity: $input-placeholder-opacity;
