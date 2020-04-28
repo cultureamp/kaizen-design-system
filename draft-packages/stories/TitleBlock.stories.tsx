@@ -56,10 +56,16 @@ WithTag.story = {
 
 export const Sticky = () => (
   <div style={stickyContainerStyle}>
-    <TitleBlock title="Home" sticky>
-      <Button label="Action" secondary />
-      <Button label="Action 2" secondary />
-    </TitleBlock>
+    <TitleBlock
+      title="Home"
+      sticky
+      toolbar={
+        <>
+          <Button label="Action" secondary />
+          <Button label="Action 2" secondary />
+        </>
+      }
+    />
   </div>
 )
 
