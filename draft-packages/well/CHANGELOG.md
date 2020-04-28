@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.0.4...@kaizen/draft-well@2.1.0) (2020-04-27)
+
+
+### Features
+
+* Kaizen module has been moved to KaizenDraft/Well/Well.elm ([#424](https://github.com/cultureamp/kaizen-design-system/issues/424)) ([c224134](https://github.com/cultureamp/kaizen-design-system/commit/c2241347c7f96aec73f830886e58ca70f7b73faf))
+
+
+
+
+
+## [2.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.0.3...@kaizen/draft-well@2.0.4) (2020-04-27)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
 ## [2.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.0.2...@kaizen/draft-well@2.0.3) (2020-04-27)
 
 **Note:** Version bump only for package @kaizen/draft-well
