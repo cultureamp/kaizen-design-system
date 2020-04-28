@@ -191,22 +191,39 @@ export const TableRow: TableRow = ({ children, ...otherProps }) => (
 type TableRowCell = React.FunctionComponent<{
   width?: number
   flex?: string
+  href?: string
 }>
 export const TableRowCell: TableRowCell = ({
   children,
   width,
   flex,
+  href,
   ...otherProps
-}) => (
-  <div
-    role="cell"
-    style={{
-      width: ratioToPercent(width),
-      flex,
-    }}
-    className={styles.rowCell}
-    {...otherProps}
-  >
-    {children}
-  </div>
-)
+}) => {
+  return href != null ? (
+    <a
+      role="cell"
+      style={{
+        width: ratioToPercent(width),
+        flex,
+      }}
+      className={styles.rowCell}
+      href={href}
+      {...otherProps}
+    >
+      {children}
+    </a>
+  ) : (
+    <div
+      role="cell"
+      style={{
+        width: ratioToPercent(width),
+        flex,
+      }}
+      className={styles.rowCell}
+      {...otherProps}
+    >
+      {children}
+    </div>
+  )
+}
