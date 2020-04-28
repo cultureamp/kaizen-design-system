@@ -4,13 +4,11 @@ import * as React from "react"
 import Media from "react-media"
 
 import Icon from "@kaizen/component-library/components/Icon/Icon"
-import { MOBILE_QUERY } from "@kaizen/component-library/components/NavigationBar/constants"
 import { Tag } from "@kaizen/draft-tag"
 const backIcon = require("@kaizen/component-library/icons/arrow-backward.icon.svg")
   .default
 const forwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
   .default
-import NavigationButtons, { NavigationButton } from "./NavigationButtons"
 
 const styles = require("./TitleBlock.scss")
 
@@ -31,7 +29,6 @@ type Props = {
   actions?: React.ReactNode
   textDirection?: "ltr" | "rtl"
   surveyStatus?: SurveyStatus
-  navigationButtons?: NavigationButton[]
   sticky?: boolean
 }
 
@@ -134,24 +131,6 @@ class TitleBlock extends React.Component<Props, State> {
     )
   }
 
-  renderNavigation = () => {
-    const { navigationButtons } = this.props
-    if (navigationButtons == undefined) return
-
-    return (
-      <div
-        className={styles.navContainer}
-        data-automation-id="TitleBlock__Navigation"
-      >
-        <div className={styles.navButtonsContainer}>
-          <NavigationButtons
-            navigationButtons={navigationButtons}
-          />
-        </div>
-      </div>
-    )
-  }
-
   render() {
     const { sticky, actions } = this.props
     const { useCompactSize } = this.state
@@ -179,13 +158,6 @@ class TitleBlock extends React.Component<Props, State> {
                   {this.renderSubtitle()}
                 </div>
               </div>
-              <Media query={MOBILE_QUERY}>
-                {(matches: boolean) =>
-                  !matches && (
-                    <React.Fragment>{this.renderNavigation()}</React.Fragment>
-                  )
-                }
-              </Media>
             </div>
             <div
               className={styles.actionsContainer}
@@ -195,13 +167,6 @@ class TitleBlock extends React.Component<Props, State> {
             </div>
           </div>
         </div>
-        <Media query={MOBILE_QUERY}>
-          {(matches: boolean) =>
-            matches && (
-              <React.Fragment>{this.renderNavigation()}</React.Fragment>
-            )
-          }
-        </Media>
       </div>
     )
   }

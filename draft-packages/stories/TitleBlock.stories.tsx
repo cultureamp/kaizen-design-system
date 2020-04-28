@@ -4,19 +4,6 @@ import * as React from "react"
 
 require("./TitleBlock.stories.scss")
 
-const navigationButtons = [
-  {
-    buttonText: "Dashboard",
-    path: "#",
-    active: true,
-  },
-  {
-    buttonText: "Tasks",
-    path: "#",
-    active: false,
-  },
-]
-
 const stickyContainerStyle = {
   width: "100%",
   height: "2000px",
@@ -64,14 +51,6 @@ WithActionButtons.story = {
   name: "with action buttons",
 }
 
-export const WithNavigationButtons = () => (
-  <TitleBlock title="Home" navigationButtons={navigationButtons} />
-)
-
-WithNavigationButtons.story = {
-  name: "with navigation buttons",
-}
-
 export const WithTag = () => (
   <TitleBlock
     title="Home"
@@ -86,7 +65,7 @@ WithTag.story = {
 
 export const Sticky = () => (
   <div style={stickyContainerStyle}>
-    <TitleBlock title="Home" navigationButtons={navigationButtons} sticky>
+    <TitleBlock title="Home" sticky>
       <Button label="Action" secondary />
       <Button label="Action 2" secondary />
     </TitleBlock>
