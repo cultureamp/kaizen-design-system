@@ -25,7 +25,7 @@ type Breadcrumb = {
 type Props = {
   title: string
   breadcrumb?: Breadcrumb
-  actions?: React.ReactNode
+  toolbar?: React.ReactNode
   textDirection?: "ltr" | "rtl"
   surveyStatus?: SurveyStatus
   sticky?: boolean
@@ -114,7 +114,7 @@ class TitleBlock extends React.Component<Props, State> {
   }
 
   render() {
-    const { sticky, actions } = this.props
+    const { sticky, toolbar } = this.props
     const { useCompactSize } = this.state
 
     return (
@@ -141,10 +141,10 @@ class TitleBlock extends React.Component<Props, State> {
               </div>
             </div>
             <div
-              className={styles.actionsContainer}
+              className={styles.toolbarContainer}
               data-automation-id="title-block--actions"
             >
-              {actions}
+              {toolbar}
             </div>
           </div>
         </div>
