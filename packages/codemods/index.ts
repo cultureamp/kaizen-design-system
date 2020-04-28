@@ -22,8 +22,8 @@ const argv = require("yargs")
   .alias("h", "help").argv
 
 const VERBOSE_LEVEL = argv.verbose
-
 const logger = log(VERBOSE_LEVEL)
+const isDryRun = argv.dryRun
 
 if (argv._.includes("bless")) {
   logger("info", "bless - not yet implements")
@@ -35,5 +35,5 @@ if (argv._.includes("bless")) {
     locations = argv._[1]
   }
 
-  main(locations, logger)
+  main(locations, isDryRun, logger)
 }

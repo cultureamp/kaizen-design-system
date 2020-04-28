@@ -4,10 +4,12 @@ import * as prettier from "prettier"
 const { readdir, readFile, writeFile } = require("fs").promises
 import { detokenise, tokenise, transformDrafts } from "./transform"
 
+// @TODO - surface elm.json
 async function getFiles(dir) {
+  // @TODO - exclude node_modules
   const dirents = await readdir(dir, { withFileTypes: true })
   const files = await Promise.all(
-    dirents.map(dirent => {
+    dirents.map((dirent) => {
       const res = path.resolve(dir, dirent.name)
       return dirent.isDirectory() ? getFiles(res) : res
     })
@@ -15,12 +17,12 @@ async function getFiles(dir) {
   return Array.prototype.concat(...files)
 }
 
-const main = async (locations: string, logger: any) => {
+const main = async (locations: string, isDryRun: boolean, logger: any) => {
   logger("verbose", `Checking file location: ${locations}`)
 
   try {
     const files = await getFiles(locations)
-    files.forEach(async file => {
+    files.forEach(async (file) => {
       const data = await readFile(file)
       logger("verbose", `---\nReading: ${file}`)
 
@@ -28,6 +30,7 @@ const main = async (locations: string, logger: any) => {
       if (file.includes(".elm")) {
         target = "elm"
       } else if (file.includes(".js")) {
+        // @TODO - add jsx/tsx and possibly ts support
         target = "js"
       } else {
         logger("verbose", "not a .elm or .js file, skipping")
@@ -38,24 +41,32 @@ const main = async (locations: string, logger: any) => {
 
       // write to file if there are changes
       if (data.toString() !== newFile) {
-        logger("verbose", `transforms, writing to file`)
+        logger(
+          "verbose",
+          `${isDryRun && "dry run - "}transforms found, writing to file`
+        )
 
-        if (target === "js") {
-          newFile = prettier.format(newFile, {
-            semi: false,
-            singleQuote: false,
-            trailingComma: "es5",
-            parser: "typescript",
-          })
+        if (!isDryRun) {
+          if (target === "js") {
+            newFile = prettier.format(newFile, {
+              semi: false,
+              singleQuote: false,
+              trailingComma: "es5",
+              parser: "typescript",
+            })
+          }
+
+          writeFile(file, newFile)
         }
-
-        writeFile(file, newFile)
       } else {
-        logger("verbose", "no transforms, skip writing file")
+        logger(
+          "verbose",
+          `${isDryRun && "dry run - "}no transforms, skip writing file`
+        )
       }
     })
   } catch (e) {
-    logger("info", "bless - not yet implements")
+    logger("info", e)
   }
 }
 
