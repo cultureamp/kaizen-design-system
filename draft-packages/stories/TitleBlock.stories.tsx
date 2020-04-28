@@ -36,8 +36,7 @@ export const WithToolbar = () => (
     title="Home"
     toolbar={
       <>
-        <Button label="Action" secondary />{" "}
-        <Button label="Action 2" secondary />
+        <Button label="Action" /> <Button label="Action 2" primary />
       </>
     }
   />
