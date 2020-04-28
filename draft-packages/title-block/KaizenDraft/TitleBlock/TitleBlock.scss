@@ -176,18 +176,6 @@
   align-items: baseline;
 }
 
-.subtitle {
-  @include ca-type-ideal-heading;
-  display: inline-block;
-  top: auto;
-  @include ca-margin($start: $ca-grid);
-  transform: translateY(-1px);
-
-  @include ca-media-mobile {
-    display: none;
-  }
-}
-
 .tag {
   margin-left: $ca-grid / 1.5;
   height: 100%;
