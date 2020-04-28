@@ -7,7 +7,8 @@ import Menu from "./components/Menu"
 
 const styles = require("./OffCanvas.module.scss")
 
-const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg").default
+const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
+  .default
 
 type Props = {
   links?: any
