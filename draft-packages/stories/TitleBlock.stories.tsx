@@ -80,3 +80,16 @@ export const ReportingVariant = () => (
 ReportingVariant.story = {
   name: "reporting variant",
 }
+
+export const EducationVariant = () => (
+  <TitleBlock
+    title="How to tie up your shoelaces"
+    variant="education"
+    breadcrumb={{ path: "#", text: "Back to tutorials" }}
+    toolbar={[<Button label="Action" />, <Button label="Action 2" primary />]}
+  />
+)
+
+EducationVariant.story = {
+  name: "education variant",
+}

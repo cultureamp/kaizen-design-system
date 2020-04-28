@@ -24,7 +24,7 @@ type Breadcrumb = {
 
 type Props = {
   title: string
-  variant?: "reporting" // this will be "reporting" | "education" eventually. The default is "admin" (white)
+  variant?: "reporting" | "education" // the default is white bg (AKA "admin")
   breadcrumb?: Breadcrumb
   toolbar?: React.ReactNode[]
   textDirection?: "ltr" | "rtl"
@@ -127,7 +127,8 @@ class TitleBlock extends React.Component<Props, State> {
       >
         <div
           className={classNames(styles.titleBlock, {
-            [styles.reporting]: variant === "reporting",
+            [styles.reportingVariant]: variant === "reporting",
+            [styles.educationVariant]: variant === "education",
           })}
           data-automation-id="TitleBlock__TitleBlock"
         >
