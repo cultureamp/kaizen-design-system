@@ -3,5 +3,6 @@ module.exports = {
   stories: [
     "../packages/component-library/stories/*.stories.tsx",
     "../draft-packages/**/*.stories.tsx",
+    "../legacy-packages/**/*.stories.tsx",
   ],
 }

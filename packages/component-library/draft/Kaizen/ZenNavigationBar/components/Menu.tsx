@@ -120,27 +120,13 @@ export default class Menu extends React.Component<MenuProps, State> {
   }
 
   renderOffCanvas() {
-    const { items, heading, onLinkClick } = this.props
+    const { items, heading } = this.props
     const links: Array<NavigationItem | undefined> = items.map(
       (item, index) => {
         if ("url" in item) {
-          return (
-            <Link
-              key={item.url}
-              text={item.label}
-              href={item.url}
-              onClick={onLinkClick}
-            />
-          )
+          return <Link key={item.url} text={item.label} href={item.url} />
         } else if ("title" in item) {
-          return (
-            <MenuGroup
-              first={index === 0}
-              {...item}
-              onLinkClick={onLinkClick}
-              offCanvas
-            />
-          )
+          return <MenuGroup first={index === 0} {...item} offCanvas />
         }
       }
     )
