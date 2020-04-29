@@ -94,13 +94,13 @@ var Menu = /** @class */ (function (_super) {
         }));
     };
     Menu.prototype.renderOffCanvas = function () {
-        var _a = this.props, items = _a.items, heading = _a.heading, onLinkClick = _a.onLinkClick;
+        var _a = this.props, items = _a.items, heading = _a.heading;
         var links = items.map(function (item, index) {
             if ("url" in item) {
-                return (React.createElement(Link_1["default"], { key: item.url, text: item.label, href: item.url, onClick: onLinkClick }));
+                return React.createElement(Link_1["default"], { key: item.url, text: item.label, href: item.url });
             }
             else if ("title" in item) {
-                return (React.createElement(MenuGroup_1["default"], __assign({ first: index === 0 }, item, { onLinkClick: onLinkClick, offCanvas: true })));
+                return React.createElement(MenuGroup_1["default"], __assign({ first: index === 0 }, item, { offCanvas: true }));
             }
         });
         return (React.createElement(ZenOffCanvas_1.ZenOffCanvas, { links: links, heading: heading ? heading : "Menu", headerComponent: this.renderBackButton(), menuId: heading }));

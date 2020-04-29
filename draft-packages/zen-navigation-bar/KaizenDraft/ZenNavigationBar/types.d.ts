@@ -4,8 +4,8 @@ export declare type Navigation = {
     secondary?: NavigationItem[];
     final?: NavigationItem[];
 };
+export declare type NavigationChange = (event: React.MouseEvent<HTMLAnchorElement>) => void;
 export declare type NavigationItem = ReactElement<LinkProps> | ReactElement<MenuProps>;
-export declare type LinkClick = (event: React.MouseEvent<HTMLAnchorElement>) => void;
 export declare type LinkProps = {
     icon?: React.SVGAttributes<SVGSymbolElement>;
     text?: string;
@@ -13,9 +13,9 @@ export declare type LinkProps = {
     href: string;
     active?: boolean;
     id?: string;
-    onClick?: LinkClick;
     target?: "_self" | "_blank";
     hasMenu?: boolean;
+    onClick?: NavigationChange;
     menuOpen?: boolean;
     badge?: {
         kind: "new" | "notification";
@@ -34,20 +34,18 @@ export declare type MenuProps = {
     icon?: React.SVGAttributes<SVGSymbolElement>;
     opaque?: boolean;
     small?: boolean;
-    onLinkClick?: LinkClick;
 };
 export declare type MenuItemProps = {
     label: string;
     url: string;
     method?: "get" | "post" | "put" | "delete";
     showArrowIcon?: boolean;
-    onLinkClick?: LinkClick;
     active?: boolean;
+    onClick?: NavigationChange;
 };
 export declare type MenuGroupProps = {
     title: string;
     items: MenuItemProps[];
     offCanvas?: boolean;
     first?: boolean;
-    onLinkClick?: LinkClick;
 };

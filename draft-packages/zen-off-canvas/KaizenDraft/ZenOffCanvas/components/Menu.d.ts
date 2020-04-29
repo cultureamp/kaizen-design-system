@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { MenuProps } from "../../ZenNavigationBar/types";
+import { MenuProps } from "@kaizen/component-library/draft/Kaizen/ZenNavigationBar/types";
 declare type Props = {
     section: string;
     link: MenuProps;

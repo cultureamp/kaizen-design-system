@@ -3,14 +3,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-var react_1 = __importDefault(require("react"));
-var classnames_1 = __importDefault(require("classnames"));
 var component_library_1 = require("@kaizen/component-library");
+var classnames_1 = __importDefault(require("classnames"));
+var react_1 = __importDefault(require("react"));
+var context_1 = require("../context");
 var arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")["default"];
 var styles = require("./MenuItem.module.scss");
 var MenuItem = function (_a) {
     var _b;
-    var label = _a.label, url = _a.url, method = _a.method, _c = _a.showArrowIcon, showArrowIcon = _c === void 0 ? false : _c, onLinkClick = _a.onLinkClick, _d = _a.active, active = _d === void 0 ? false : _d;
+    var label = _a.label, url = _a.url, method = _a.method, onClick = _a.onClick, _c = _a.showArrowIcon, showArrowIcon = _c === void 0 ? false : _c, _d = _a.active, active = _d === void 0 ? false : _d;
+    var handleNavigationChange = react_1["default"].useContext(context_1.LinkClickContext).handleNavigationChange;
+    var handleItemClick = function (event) {
+        onClick && onClick(event);
+        handleNavigationChange && handleNavigationChange(event);
+    };
     var renderArrowIcon = function () { return (react_1["default"].createElement("span", { className: styles.arrowIcon },
         react_1["default"].createElement(component_library_1.Icon, { icon: arrowForwardIcon, role: "presentation" }))); };
     var renderForm = function () { return (
@@ -22,7 +28,7 @@ var MenuItem = function (_a) {
         react_1["default"].createElement("button", { type: "submit", className: styles.itemBtn },
             label,
             showArrowIcon && renderArrowIcon()))); };
-    var renderLink = function () { return (react_1["default"].createElement("a", { href: url, className: styles.item, tabIndex: 0, onClick: onLinkClick },
+    var renderLink = function () { return (react_1["default"].createElement("a", { href: url, className: styles.item, tabIndex: 0, onClick: handleItemClick },
         label,
         showArrowIcon && renderArrowIcon())); };
     return (react_1["default"].createElement("li", { className: classnames_1["default"](styles.container, (_b = {},

@@ -17,7 +17,7 @@ export default class Menu extends React.Component<MenuProps, State> {
         open: boolean;
     };
     render(): JSX.Element;
-    toggle: (e: MouseEvent | React.SyntheticEvent<HTMLAnchorElement | HTMLButtonElement, Event>) => void;
+    toggle: (e: MouseEvent | React.SyntheticEvent<HTMLButtonElement | HTMLAnchorElement, Event>) => void;
     renderOffCanvas(): JSX.Element;
     renderBackButton(): JSX.Element;
     componentDidMount(): void;

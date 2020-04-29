@@ -42,6 +42,7 @@ var v4_1 = __importDefault(require("uuid/v4"));
 var Badge_1 = require("./components/Badge");
 var Link_1 = __importDefault(require("./components/Link"));
 var Menu_1 = __importDefault(require("./components/Menu"));
+var context_1 = require("./context");
 var styles = require("./NavigationBar.module.scss");
 var NavigationBar = /** @class */ (function (_super) {
     __extends(NavigationBar, _super);
@@ -50,12 +51,13 @@ var NavigationBar = /** @class */ (function (_super) {
     }
     NavigationBar.prototype.render = function () {
         var _this = this;
-        var _a = this.props, children = _a.children, _b = _a.colorScheme, colorScheme = _b === void 0 ? "cultureamp" : _b, headerComponent = _a.headerComponent, mobileMaxWidth = _a.mobileMaxWidth;
-        return (React.createElement(react_media_1["default"], { query: "(max-width: " + mobileMaxWidth + "px)" }, function (matches) {
-            return matches ? (React.createElement(ZenOffCanvas_1.ZenControlledOffCanvas, { headerComponent: headerComponent ? headerComponent.mobile : _this.renderBadge(), footerComponent: _this.props.footerComponent, links: children, heading: "Menu", menuId: "menu" })) : (React.createElement("header", { className: classnames_1["default"](styles.navigationBar, styles[colorScheme]) },
-                headerComponent ? (React.createElement("span", { className: styles.headerSlot }, headerComponent.desktop)) : (_this.renderBadge()),
-                _this.renderNav(children)));
-        }));
+        var _a = this.props, children = _a.children, _b = _a.colorScheme, colorScheme = _b === void 0 ? "cultureamp" : _b, headerComponent = _a.headerComponent, mobileMaxWidth = _a.mobileMaxWidth, onNavigationChange = _a.onNavigationChange;
+        return (React.createElement(context_1.LinkClickContext.Provider, { value: { handleNavigationChange: onNavigationChange } },
+            React.createElement(react_media_1["default"], { query: "(max-width: " + mobileMaxWidth + "px)" }, function (matches) {
+                return matches ? (React.createElement(ZenOffCanvas_1.ZenControlledOffCanvas, { headerComponent: headerComponent ? headerComponent.mobile : _this.renderBadge(), footerComponent: _this.props.footerComponent, links: children, heading: "Menu", menuId: "menu" })) : (React.createElement("header", { className: classnames_1["default"](styles.navigationBar, styles[colorScheme]) },
+                    headerComponent ? (React.createElement("span", { className: styles.headerSlot }, headerComponent.desktop)) : (_this.renderBadge()),
+                    _this.renderNav(children)));
+            })));
     };
     NavigationBar.prototype.renderNav = function (children) {
         var _this = this;
@@ -103,7 +105,8 @@ var NavigationBar = /** @class */ (function (_super) {
         loading: false,
         colorScheme: "cultureamp",
         badgeHref: "/",
-        mobileMaxWidth: 767
+        mobileMaxWidth: 767,
+        onNavigationChange: function () { return null; }
     };
     return NavigationBar;
 }(React.Component));

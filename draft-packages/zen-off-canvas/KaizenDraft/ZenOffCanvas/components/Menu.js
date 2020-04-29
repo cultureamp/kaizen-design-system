@@ -18,9 +18,8 @@ var Menu = function (_a) {
     var _b;
     var link = _a.link, section = _a.section;
     return (React.createElement("div", { className: classnames_1["default"](styles.menu, (_b = {},
-            _b[styles.primary] = section === "primary",
             _b[styles.secondary] = section === "secondary",
-            _b[styles.active] = link.active,
+            _b[styles.active] = !!link.active,
             _b)), key: link.heading + "-" + v4_1["default"]() }, link));
 };
 exports["default"] = Menu;

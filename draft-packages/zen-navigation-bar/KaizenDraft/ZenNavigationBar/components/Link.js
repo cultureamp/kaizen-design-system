@@ -35,9 +35,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 exports.__esModule = true;
 var component_library_1 = require("@kaizen/component-library");
-var arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")["default"];
 var classnames_1 = __importDefault(require("classnames"));
 var React = __importStar(require("react"));
+var context_1 = require("../context");
+var arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")["default"];
 var styles = require("./Link.module.scss");
 var Link = /** @class */ (function (_super) {
     __extends(Link, _super);
@@ -45,14 +46,18 @@ var Link = /** @class */ (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.render = function () {
             var _a, _b;
-            var _c = _this.props, badge = _c.badge, icon = _c.icon, text = _c.text, href = _c.href, active = _c.active, id = _c.id, onClick = _c.onClick, iconOnly = _c.iconOnly, target = _c.target, hasMenu = _c.hasMenu, opaque = _c.opaque, small = _c.small, menuOpen = _c.menuOpen;
+            var handleNavigationChange = _this.context.handleNavigationChange;
+            var _c = _this.props, badge = _c.badge, icon = _c.icon, text = _c.text, href = _c.href, active = _c.active, id = _c.id, iconOnly = _c.iconOnly, target = _c.target, hasMenu = _c.hasMenu, opaque = _c.opaque, onClick = _c.onClick, small = _c.small, menuOpen = _c.menuOpen;
             return (React.createElement("a", __assign({ className: classnames_1["default"](styles.link, (_a = {},
                     _a[styles.active] = active,
                     _a[styles.containsText] = !!text,
                     _a[styles.opaque] = opaque,
                     _a[styles.small] = small,
                     _a[styles.menuOpen] = hasMenu && menuOpen,
-                    _a)), tabIndex: 0 }, { href: href, id: id, onClick: onClick, target: target }),
+                    _a)), tabIndex: 0, onClick: function (event) {
+                    onClick && onClick(event);
+                    handleNavigationChange && handleNavigationChange(event);
+                } }, { href: href, id: id, target: target }),
                 icon && (React.createElement("span", { className: styles.linkIcon },
                     React.createElement(component_library_1.Icon, { icon: icon, role: iconOnly ? "img" : "presentation", title: iconOnly ? text : undefined }))),
                 text && !(icon && iconOnly) && (React.createElement("span", { className: styles.linkText },
@@ -67,6 +72,7 @@ var Link = /** @class */ (function (_super) {
         return _this;
     }
     Link.displayName = "Link";
+    Link.contextType = context_1.LinkClickContext;
     Link.defaultProps = {
         iconOnly: false,
         active: false,

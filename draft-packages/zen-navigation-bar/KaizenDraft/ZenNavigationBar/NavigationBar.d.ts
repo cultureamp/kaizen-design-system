@@ -1,12 +1,13 @@
 import * as React from "react";
 import Link from "./components/Link";
 import Menu from "./components/Menu";
-import { Navigation, NavigationItem } from "./types";
+import { Navigation, NavigationChange, NavigationItem } from "./types";
 declare type Props = {
     environment?: "production" | "staging" | "test" | "local";
     loading?: boolean;
     colorScheme?: "cultureamp" | "kaizen" | "content";
     badgeHref?: string;
+    onNavigationChange: NavigationChange;
     headerComponent?: {
         desktop: React.ReactNode;
         mobile: React.ReactNode;
@@ -25,6 +26,7 @@ export default class NavigationBar extends React.Component<Props> {
         colorScheme: string;
         badgeHref: string;
         mobileMaxWidth: number;
+        onNavigationChange: () => null;
     };
     render(): JSX.Element;
     renderNav(children?: Navigation): JSX.Element | null;

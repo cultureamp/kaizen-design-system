@@ -42,10 +42,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 exports.__esModule = true;
 var React = __importStar(require("react"));
+var component_library_1 = require("@kaizen/component-library");
 var classnames_1 = __importDefault(require("classnames"));
 var Header_1 = __importDefault(require("./components/Header"));
 var Menu_1 = __importDefault(require("./components/Menu"));
 var styles = require("./OffCanvas.module.scss");
+var caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")["default"];
 exports.OffCanvasContext = React.createContext({
     visibleMenus: [],
     toggleVisibleMenu: function (menuId) { return undefined; },
@@ -64,7 +66,9 @@ var ZenOffCanvas = /** @class */ (function (_super) {
             return (React.createElement("div", { className: classnames_1["default"](styles.root, (_b = {},
                     _b[styles.active] = visibleMenus.includes(menuId),
                     _b)) },
-                React.createElement(Header_1["default"], { onClose: resetVisibleMenus, leftComponent: headerComponent, heading: heading }),
+                React.createElement(Header_1["default"], { onClose: resetVisibleMenus, leftComponent: React.createElement("div", { className: styles.caLogo },
+                        React.createElement(component_library_1.Icon, { icon: caMonogramIcon, role: "presentation", inheritSize: true })), heading: heading }),
+                headerComponent,
                 React.createElement("nav", { className: styles.links }, links &&
                     Object.keys(links).map(function (section) { return (React.createElement(Menu_1["default"], { section: section, link: links[section] })); })),
                 footerComponent));
