@@ -1,8 +1,8 @@
 import { Icon, Text } from "@kaizen/component-library"
 import { Checkbox } from "@kaizen/component-library/draft"
+import { CheckedStatus } from "@kaizen/component-library/draft"
 import classNames from "classnames"
 import * as React from "react"
-import { CheckedStatus } from "@kaizen/component-library/draft"
 const styles = require("./styles.scss")
 const sortDescendingIcon = require("@kaizen/component-library/icons/sort-descending.icon.svg")
   .default
