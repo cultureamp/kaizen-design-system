@@ -1,4 +1,5 @@
 import * as _ from "lodash"
+import { Target } from "./index"
 
 export interface JsToken {
   packageName: string
@@ -211,7 +212,7 @@ const elmTransformDrafts = (data: ElmToken[]) => {
   })
 }
 
-export const tokenise = (target: string, data: Buffer) => {
+export const tokenise = (target: Target, data: Buffer) => {
   if (target === "elm") {
     return elmTokenise(data.toString("utf8"))
   } else if (target === "js") {
@@ -225,7 +226,7 @@ export const tokenise = (target: string, data: Buffer) => {
   }
 }
 
-export const detokenise = (target: string, data) => {
+export const detokenise = (target: Target, data) => {
   if (target === "elm") {
     return elmDetokenise(data)
   } else if (target === "js") {
@@ -234,7 +235,7 @@ export const detokenise = (target: string, data) => {
   return ""
 }
 
-export const transformDrafts = (target: string, data) => {
+export const transformDrafts = (target: Target, data) => {
   if (target === "elm") {
     return elmTransformDrafts(data)
   } else if (target === "js") {

@@ -2,16 +2,20 @@
 import * as fs from "fs"
 import * as path from "path"
 import * as prettier from "prettier"
-import util from "util"
+import { promisify } from "util"
 import { detokenise, tokenise, transformDrafts } from "./transform"
 
-const readdir = util.promisify(fs.readdir)
-const readFile = util.promisify(fs.readFile)
-const writeFile = util.promisify(fs.writeFile)
+export type Target = "js" | "elm"
 
-// @TODO - surface elm.json
-async function getFiles(dir) {
-  // @TODO - exclude node_modules
+const readdir = promisify(fs.readdir)
+const readFile = promisify(fs.readFile)
+const writeFile = promisify(fs.writeFile)
+
+/**
+ * Walks the provided directory, excluding node_modules
+ * @param dir directory to search
+ */
+async function getFiles(dir: string) {
   const dirents = await readdir(dir, { withFileTypes: true })
   const files = await Promise.all(
     dirents.map((dirent) => {
@@ -19,10 +23,13 @@ async function getFiles(dir) {
       return dirent.isDirectory() ? getFiles(res) : res
     })
   )
-  return Array.prototype.concat(...files)
+
+  return Array.prototype.concat(
+    ...files.filter((curr) => !curr.includes("node_modules"))
+  )
 }
 
-const main = async (locations: string, isDryRun: boolean, logger: any) => {
+async function main(locations: string, isDryRun: boolean, logger: any) {
   logger("verbose", `Checking file location: ${locations}`)
 
   try {
@@ -31,11 +38,16 @@ const main = async (locations: string, isDryRun: boolean, logger: any) => {
       const data = await readFile(file)
       logger("verbose", `---\nReading: ${file}`)
 
-      let target = ""
+      let target: Target
       if (file.includes(".elm")) {
         target = "elm"
-      } else if (file.includes(".js")) {
-        // @TODO - add jsx/tsx and possibly ts support
+      } else if (
+        file.includes(".js") ||
+        file.includes(".ts") ||
+        file.includes(".jsx") ||
+        file.includes(".tsx")
+      ) {
+        // for the purposes of this transformation, we don't care if the file is a ts or js file
         target = "js"
       } else {
         logger("verbose", "not a .elm or .js file, skipping")
@@ -75,7 +87,12 @@ const main = async (locations: string, isDryRun: boolean, logger: any) => {
   }
 }
 
-const transform = (target: string, data: Buffer) => {
+/**
+ *
+ * @param target The language we are transforming
+ * @param data the file buffer
+ */
+const transform = (target: Target, data: Buffer) => {
   const { tokens, endIndex, startIndex } = tokenise(target, data)
 
   const theStartOfTheFile = data.toString().slice(0, startIndex)
