@@ -193,8 +193,36 @@ const elmDetokenise = (data: ElmToken[]) => {
 }
 
 const elmTransformDrafts = (data: ElmToken[]) => {
-  // @TODO - list still in progress
-  const draftPackages = ["Well"]
+  const draftPackages = [
+    "Well",
+    "CheckboxGroup",
+    "Collapsible",
+    "Dropdown",
+    "DropdownMenu",
+    "EmptyState",
+    "Events",
+    "Form",
+    "GuidanceBlock",
+    "HeroCard",
+    "LoadingPlaceholder",
+    "MenuList",
+    "Modal",
+    "Popover",
+    "Radio",
+    "RadioGroup",
+    "Select",
+    "SplitButton",
+    "Table",
+    "Tabs",
+    "Tag",
+    "TitleBlock",
+    "Tooltip",
+    "UserInteractions",
+    "VerticalProgressStep",
+    "Well",
+    "ZenNavigationBar",
+    "ZenOffCanvas",
+  ]
 
   return data.map(({ name, meta }) => {
     if (!name) return name
