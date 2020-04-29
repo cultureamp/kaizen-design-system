@@ -79,6 +79,10 @@ $breadcrumb-circle-width: 40px;
     right: -38px;
   }
 
+  .reportingVariant & {
+    color: $kz-color-white;
+  }
+
   @media only screen and (max-width: $ca-layout-max-width + ($ca-layout-side-padding * 2)) {
     position: relative;
     @include ca-margin($end: $ca-grid * 1.5);
@@ -147,12 +151,21 @@ $breadcrumb-circle-width: 40px;
     background-color: $kz-color-cluny-500;
     color: #fff;
     transform: scale(1.1);
+    border-color: transparent;
   }
 
   .reportingVariant & {
     color: $kz-color-white;
     border-color: add-alpha($kz-color-white, 50%);
     border-width: 2px;
+  }
+
+  .reportingVariant .breadcrumb:hover &,
+  .reportingVariant .breadcrumb:focus & {
+    background-color: $kz-color-white;
+    color: $kz-color-wisteria-700;
+    transform: scale(1.1);
+    border-color: transparent;
   }
 }
 
