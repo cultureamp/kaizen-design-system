@@ -1,0 +1,311 @@
+---
+title: Filtering guidelines
+navTitle: Filtering
+summaryParagraph: Filtering aids users to find relevant data on a page using a combination of pre-defined attributes and form input controls.
+tags: ["rules", "logic", "search filter", "facets", "filters"]
+needToKnow:
+  - "Guidelines are used to document our decisions, onboard new designers and engineers, and are the source of truth for our shared practices."
+  - "These guidelines are flexible, and we continuously revise and expand them to match our evolving product needs."
+---
+
+## Overview
+
+*   A **filter menu** describes the group of components available to apply filters.
+*   A **filter dimension** describes a specific aspect of data that you might have different options for, such as “Price”.
+*   A **filter value** describes a specific option for a dimension, such as “>$50”.
+*   An **applied filter** shows all the selected values for that filter dimension, such as “Price” being set to “>$50” and “&lt;$100”.
+*   A “**filter**” tends to describe a single filter dimension and sometimes its selected values. 
+*   **Results** describe all the data or content that matches the applied filters.
+*   **Results metadata **includes extra info about the results, such as the total number of results that match
+*   **Matching** describes how closely a result matches its applied filter, such as whether a search query of “design” matches a filter value of “Marketing design”.
+*   **Loading state**: while filters are being applied and results are being fetched, you might show that the system is in a loading state. See [loading guidelines](https://cultureamp.design/guidelines/loading-patterns/).
+*   **Empty state**: Before a user has applied any filters, consider giving them an indication of what to expect from applying a filter. See [Empty State component](https://cultureamp.design/components/empty-state/).
+*   **Zero state**: If there are no matching results for an applied filter or combination of applied filters, tell the user that there are no matching results. Consider offering a clearly sign-posted alternative, such as a popular search query or which filters to adjust to return more results.
+
+##### Live filters
+
+Refining results in real time using “live” filters—instantly updating results—lets your users directly manipulate the results and gives them control to respond to feedback: each set of new results lets them know whether they need to add another filter to find content right for them.
+
+
+##### Batch filters
+
+You might let your users batch together their filter choices by selecting
+
+a few filters at once and choosing “Search,” “Apply,” or “Done” before presenting any results. This is particularly useful if your product has a lot of data. Otherwise, your user might be frustrated by irrelevant, distracting information until they’ve added the final filter necessary to produce the results they want.
+
+
+## To keep in mind
+
+For any filtering system, consider these questions in your approach:
+
+
+
+*   General usage questions:
+    *   Filtering frequency. What % of data views have at least one filter active?
+    *   Concurrent filtering. What’s the distribution curve for concurrent filter usage, e.g. % of filtered views with 1,2,3 etc active filters?
+    *   Filter switching. What distribution curve for no. filter views per session e.g. switching between filtering by department, then by country etc 
+*   Targeted usage questions:
+    *   Filter task prioritisation. What tasks have the highest % filter use
+    *   Filter prioritisation. For each task, what are the most frequently used filters (e.g. eng report / department)
+*   Structural questions:
+    *   Positioning. Top or left panel? Exposed filters or Filter CTA?
+    *   Hierarchy. How do filters and navigation work together?
+    *   Filter continuity/retention. As a user switches between functional areas when should filters stay active, and when should they be reset (e.g. switching between engagement insights and comments)
+
+
+#### Select:
+
+A [select](https://cultureamp.design/components/select/) lets you choose options from an option menu. A single-select lets you choose one option while a multi-select lets you choose multiple options.
+
+Select is useful in filtering when:
+
+
+
+*   There are too many results to show at once
+*   Reducing data by pre-defined segments
+*   Shows the options available for that dimension
+*   AND/OR union or intersect of data when using multiple select filters
+*   Reducing data in 1 dimension e.g. "Department" is a "Dimension" and "CA Design" is the value
+
+The select filter:
+
+
+
+*   Could be live-updating, could have "Apply", "Cancel", "Reset" options
+*   Limited scannability, hidden by dropdown
+*   Single select or adjacent selects that can be combined
+*   Works for longer lists of possible values
+*   Multiple ways to remove the filter or set to "All" values
+*   Select value dismissible Tags that you can remove to remove that value
+*   Dropdown list might include an "All" option to effectively remove the select filtering
+*   Ordering optimised for scanning:
+    *   Alphabetic lists for names
+    *   Time series like today, yesterday, last month, last year, last financial year
+    *   Other things that have natural ordering like age groups, performance rating (exceptional etc), rating scales (strongly disagree to strongly agree)
+*   Combined with typeahead autocomplete search within the select dropdown
+
+
+#### Tabs:
+
+Tabs organize content by grouping similar information into containers that are shown and hidden through navigation.
+
+Tabs are useful in filtering when:
+
+
+
+*   There are too many surveys to show at once
+*   Narrowing data by pre-defined things: Surveys have pre-defined status you can reduce by (that match workflows)
+*   Survey tabs have mutually exclusive categories (cannot be open and closed)
+*   Navigate to things I care about
+    *   Smart default: All comments shows all by default
+    *   Smart default: topics and themes narrows results by standard topics
+    *   Personal content: saved comment narrows by your saved comments.
+*   Understand information at a glance:
+    *   Understanding progress (visibility)
+    *   Summarising data
+    *   Bringing the data forward
+*   Choose and remove segments of data:
+    *   Toggle buttons let you deselect the "tab" to remove the filter :/
+*   Understanding relationships between segments of data:
+    *   Some tabs are parts of a whole (e.g. complete/incomplete)
+
+
+#### Checkbox group:
+
+A [checkbox group](https://cultureamp.design/components/checkbox-group/) contains checkbox fields that let people select zero or more options from a set.
+
+Use a checkbox group in a filter when:
+
+
+
+*   There are too many results to show at once
+*   Reducing data by pre-defined segments
+*   Shows the options available for that already-selected dimension (unless it's set by default)
+*   AND/OR union or intersect of data
+*   Reducing data in 1 dimension e.g. "Survey type" is a "Dimension" and "Experience" is the value
+
+The checkbox group filter:
+
+
+
+*   One-click
+*   Live-updating
+*   Scannability
+*   Combine groups of checkboxes
+*   Works for 5+ checkboxes
+
+
+#### Radio group:
+
+[Radio groups](https://cultureamp.design/components/radio-group/) include a set of radios that let people select exactly one option in a set.
+
+Use a radio group in filtering when:
+
+
+
+*   There are too many results to show at once
+*   Reducing data by pre-defined segments
+*   OR intersection of data
+*   Reducing data in 1 dimension e.g. Process status is "Dimension" and "Draft" is the value
+
+A radio group filter:
+
+
+
+*   One-click
+*   Live-updating
+*   Scannability
+*   Radios are tabs
+*   Works for 5–20 radios whereas tabs might only work for &lt;5
+
+
+#### Search
+
+Search lets users quickly find relevant content. It allows a user to type a word or phrase to filter a large amount of data down to a known piece of content or to a narrower list of relevant content without navigation.
+
+**User problems**
+
+
+
+*   Looking for something specific
+*   In a long list, 10–10,000 results
+*   Finding out what's available? e.g. keywords for searching comments
+*   Narrowing data by pre-defined things: e.g. Group employees… "by City" where you can search for city or department
+
+**Principle:**
+
+
+
+*   Search combines with all the other filter things
+*   If there's a table, should there *always* be search available?
+*   Is this a strong enough convention that users always expect it like "search lives in the top–right"
+
+**Solution:**
+
+
+
+*   Search and "enter"/choose (might be click result, check checkbox, etc.):
+*   Selecting a result within the search subsequently changes the page
+*   Good for partial matches
+*   Auto-suggest/Autocomplete:
+    *   Must select a specific result from the list
+    *   Partial search must lead to exact match result
+    *   Where possible, show good defaults on focus
+*   Live-filtering search:
+    *   As you type employee name, data results immediately reduce
+    *   Good for partial matches
+*   Results can be shown as:
+    *   Tags for selected values
+    *   Above/below the filters that you can dismiss
+    *   Within the select/search
+    *   Data table/cards (reduced results)
+    *   Traditional search results (link and description)
+*   Combinations:
+    *   Filters can be separate from search and add the selected value Tag to the search input field
+    *   Possible to combine specific tag results and keyword search in one search bar e.g. Gmail searching for `"Label: unread" covid-19|`
+
+
+#### Date picker
+
+A Date Picker lets users select a date or range of dates. It uses a text field and a visual calendar in a popover.
+
+**User problems**
+
+
+
+*   Narrowing results by time frames
+
+**Principle:**
+
+
+
+*   Dates
+*   Date and time
+
+**Solution:**
+
+
+
+*   Pre-selected good defaults:
+*   Today, yesterday, last quarter, last year
+*   Date picker:
+*   Single date
+*   Date range
+*   Visual calendar might be easier to choose a date than typing in input
+*   Shortcuts to Today, Tomorrow, Next Week, Next Month
+
+**Time periods:**
+
+
+
+*   Select
+*   Last month (with date in parentheses)
+*   Last year
+*   Choosing time might be combined or separate:
+*   Separate if it's complex e.g. need to choose hours and minutes separately
+
+**Data viz:**
+
+
+
+*   In charts that show time on the X-axis, we might use handles to reduce the time period?
+
+
+#### Tags:
+
+[Tags](https://cultureamp.design/components/tag/) helps users quickly recognize important information about items that organize and categorize them. They visually label items with small amounts of information or the item’s status, usually with keywords that help organize and categorize the items.
+
+Use dismissible tags with a select to show selected filter values when there are multiple selected values you want to show while the select is closed.
+
+
+#### Branch logic: 
+
+
+#### Badges:
+
+[Badges](https://cultureamp.design/components/badge/) show the count of some adjacent data. A dot badge notifies the user that something is new or updated without showing a count.
+
+Use badges to highlight counts available in that filter value
+
+Use badges to highlight meta data / counts
+
+
+
+## When to use
+
+-
+
+
+
+## When not to use
+
+-
+
+
+## See also
+
+- [Badges](../badges)
+
+
+
+### External Links
+
+3 links to existing design system examples of a component or pattern that is similar. e.g. Material Design, Salesforce Lightning, Shopify Polaris.
+
+Specific to Filtering guidelines:
+
+1. [https://www.lightningdesignsystem.com/guidelines/rules-filters-logic/#site-main-content](https://www.lightningdesignsystem.com/guidelines/rules-filters-logic/#site-main-content)
+2. [https://www.carbondesignsystem.com/patterns/filtering](https://www.carbondesignsystem.com/patterns/filtering)
+3. [https://polaris.shopify.com/components/lists-and-tables/filters](https://polaris.shopify.com/components/lists-and-tables/filters)
+4. [https://spectrum.adobe.com/page/bar-chart/#Provide-filtering-and-sorting-controls](https://spectrum.adobe.com/page/bar-chart/#Provide-filtering-and-sorting-controls)
+5. [https://feelix.myob.com/#/Components/Filtering/FilterBar](https://feelix.myob.com/#/Components/Filtering/FilterBar)
+
+Related components and their filtering guidelines:
+
+6. [https://www.uxbooth.com/articles/best-practices-for-search/](https://www.uxbooth.com/articles/best-practices-for-search/)
+7. [https://material.io/components/chips/#filter-chips](https://material.io/components/chips/#filter-chips)
+8. [https://ant.design/components/table/#components-table-demo-head](https://ant.design/components/table/#components-table-demo-head)
+9. [https://www.lightningdesignsystem.com/components/picklist/#site-main-content](https://www.lightningdesignsystem.com/components/picklist/#site-main-content)
+10. [https://spectrum.adobe.com/page/bar-chart/#Provide-filtering-and-sorting-controls](https://spectrum.adobe.com/page/bar-chart/#Provide-filtering-and-sorting-controls)
+11. [https://feelix.myob.com/#/Components/Navigations/Tabs](https://feelix.myob.com/#/Components/Navigations/Tabs)
+12. [https://feelix.myob.com/#/Components/Filtering/Gauges](https://feelix.myob.com/#/Components/Filtering/Gauges)
