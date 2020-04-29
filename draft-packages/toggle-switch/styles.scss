@@ -1,0 +1,81 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/mixins/forms";
+
+$animation-timing: $ca-duration-immediate $ca-linear;
+
+.checkbox {
+  @include form-input-visually-hidden();
+}
+
+.track {
+  border: 1px solid $kz-color-wisteria-300;
+  background-color: $kz-color-ash;
+  border-radius: $ca-grid;
+  box-sizing: content-box;
+  width: ($ca-grid * 1.05) * 2;
+  height: ($ca-grid * 1.25);
+  padding: 0 $ca-grid * 0.15;
+  display: flex;
+  align-items: center;
+  transition: border-color $animation-timing, background-color $animation-timing;
+
+  .checkbox:disabled + & {
+    background-color: $kz-color-wisteria-100;
+  }
+
+  .checkbox:focus:not([disabled]) + &,
+  .checkbox:hover:focus:not([disabled]) + & {
+    @include form-input-focus-border($ca-border-color-focus);
+  }
+
+  .checkbox:not([disabled]) + &:hover {
+    border-color: $ca-border-color-hover;
+  }
+}
+
+.thumb {
+  background-color: $kz-color-white;
+  border: 1px solid transparent;
+  box-sizing: content-box;
+  width: $ca-grid * 0.9;
+  height: $ca-grid * 0.9;
+  border-radius: $ca-grid;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: left $animation-timing, right $animation-timing;
+}
+
+.on {
+  .checkbox:not([disabled]) + .track {
+    border-color: $kz-color-wisteria-600;
+    background-color: $kz-color-seedling-500;
+
+    &.freemium {
+      background-color: $kz-color-seedling-400;
+      border-color: $kz-color-seedling-400;
+    }
+  }
+
+  .thumb {
+    position: relative;
+    @include ca-position($start: $ca-grid * 1.1);
+  }
+}
+
+.off {
+  .thumb {
+    position: relative;
+    @include ca-position($start: 0);
+  }
+}
+
+.disabled {
+  .thumb {
+    background-color: $kz-color-ash;
+    border-color: $kz-color-wisteria-300;
+  }
+}
