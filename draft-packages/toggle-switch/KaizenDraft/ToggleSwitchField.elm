@@ -6,7 +6,7 @@ import CssModules exposing (css)
 import Html exposing (..)
 import Kaizen.Form.Primitives.FieldGroup.FieldGroup as FieldGroup
 import Kaizen.Form.Primitives.Label.Label as Label
-import KaizenDraft.ToggleSwitch.ToggleSwitch as ToggleSwitch
+import Kaizen.Form.Primitives.ToggleSwitch.ToggleSwitch as ToggleSwitch
 
 
 type Config msg
