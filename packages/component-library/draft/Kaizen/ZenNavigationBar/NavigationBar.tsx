@@ -13,7 +13,8 @@ import {
 } from "./components/Badge"
 import Link from "./components/Link"
 import Menu from "./components/Menu"
-import { Navigation, NavigationItem } from "./types"
+import { LinkClickContext } from "./context"
+import { Navigation, NavigationChange, NavigationItem } from "./types"
 
 const styles = require("./NavigationBar.module.scss")
 
@@ -22,6 +23,7 @@ type Props = {
   loading?: boolean
   colorScheme?: "cultureamp" | "kaizen" | "content"
   badgeHref?: string
+  onNavigationChange: NavigationChange
   headerComponent?: {
     desktop: React.ReactNode
     mobile: React.ReactNode
@@ -41,6 +43,7 @@ export default class NavigationBar extends React.Component<Props> {
     colorScheme: "cultureamp",
     badgeHref: "/",
     mobileMaxWidth: 767,
+    onNavigationChange: () => null,
   }
 
   render() {
@@ -49,37 +52,45 @@ export default class NavigationBar extends React.Component<Props> {
       colorScheme = "cultureamp",
       headerComponent,
       mobileMaxWidth,
+      onNavigationChange,
     } = this.props
 
     return (
-      <Media query={`(max-width: ${mobileMaxWidth}px)`}>
-        {(matches: boolean) =>
-          matches ? (
-            <ZenControlledOffCanvas
-              headerComponent={
-                headerComponent ? headerComponent.mobile : this.renderBadge()
-              }
-              footerComponent={this.props.footerComponent}
-              links={children}
-              heading="Menu"
-              menuId="menu"
-            />
-          ) : (
-            <header
-              className={classNames(styles.navigationBar, styles[colorScheme])}
-            >
-              {headerComponent ? (
-                <span className={styles.headerSlot}>
-                  {headerComponent.desktop}
-                </span>
-              ) : (
-                this.renderBadge()
-              )}
-              {this.renderNav(children)}
-            </header>
-          )
-        }
-      </Media>
+      <LinkClickContext.Provider
+        value={{ handleNavigationChange: onNavigationChange }}
+      >
+        <Media query={`(max-width: ${mobileMaxWidth}px)`}>
+          {(matches: boolean) =>
+            matches ? (
+              <ZenControlledOffCanvas
+                headerComponent={
+                  headerComponent ? headerComponent.mobile : this.renderBadge()
+                }
+                footerComponent={this.props.footerComponent}
+                links={children}
+                heading="Menu"
+                menuId="menu"
+              />
+            ) : (
+              <header
+                className={classNames(
+                  styles.navigationBar,
+                  styles[colorScheme]
+                )}
+              >
+                {headerComponent ? (
+                  <span className={styles.headerSlot}>
+                    {headerComponent.desktop}
+                  </span>
+                ) : (
+                  this.renderBadge()
+                )}
+                {this.renderNav(children)}
+              </header>
+            )
+          }
+        </Media>
+      </LinkClickContext.Provider>
     )
   }
 
@@ -115,7 +126,11 @@ export default class NavigationBar extends React.Component<Props> {
     const isFinal = section === "final"
     const linkWithProps = {
       ...link,
-      props: { ...linkProps, opaque: isFinal, small: isFinal },
+      props: {
+        ...linkProps,
+        opaque: isFinal,
+        small: isFinal,
+      },
     }
     const key = "href" in linkProps ? linkProps.href : linkProps.heading
 
