@@ -1,15 +1,20 @@
 #!/usr/bin/env node
+import * as fs from "fs"
 import * as path from "path"
 import * as prettier from "prettier"
-const { readdir, readFile, writeFile } = require("fs").promises
+import util from "util"
 import { detokenise, tokenise, transformDrafts } from "./transform"
+
+const readdir = util.promisify(fs.readdir)
+const readFile = util.promisify(fs.readFile)
+const writeFile = util.promisify(fs.writeFile)
 
 // @TODO - surface elm.json
 async function getFiles(dir) {
   // @TODO - exclude node_modules
   const dirents = await readdir(dir, { withFileTypes: true })
   const files = await Promise.all(
-    dirents.map(dirent => {
+    dirents.map((dirent) => {
       const res = path.resolve(dir, dirent.name)
       return dirent.isDirectory() ? getFiles(res) : res
     })
@@ -22,7 +27,7 @@ const main = async (locations: string, isDryRun: boolean, logger: any) => {
 
   try {
     const files = await getFiles(locations)
-    files.forEach(async file => {
+    files.forEach(async (file) => {
       const data = await readFile(file)
       logger("verbose", `---\nReading: ${file}`)
 
