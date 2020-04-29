@@ -1,0 +1,55 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/layers";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/responsive";
+
+.container {
+  display: flex;
+  position: fixed;
+  justify-content: space-around;
+  width: 100%;
+
+  z-index: $ca-z-index-popover;
+  margin-top: $ca-grid;
+  padding-top: $ca-grid;
+  bottom: 0;
+
+  background-color: $kz-color-cluny-500;
+}
+
+.content {
+  display: flex;
+  width: $ca-layout-content-width;
+  align-content: center;
+  justify-content: center;
+
+  color: $kz-color-white;
+
+  @include ca-media-tablet-and-under {
+    padding: $ca-grid;
+  }
+}
+
+.close {
+  position: absolute;
+
+  top: $ca-grid / 2;
+  right: $ca-grid / 2;
+
+  svg {
+    color: $kz-color-white;
+  }
+}
+
+.image {
+  margin-right: $ca-grid * 2;
+
+  @include ca-media-tablet-and-under {
+    display: none;
+  }
+}
+
+.children {
+  max-width: 500px;
+}
