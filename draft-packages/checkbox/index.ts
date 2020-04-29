@@ -1,2 +1,2 @@
-export { default as Checkbox, CheckedStatus } from "./checkbox/Checkbox"
-export { default as CheckboxField } from "../checkbox/checkbox-field/CheckboxField"
+export { default as Checkbox, CheckedStatus } from "./KaizenDraft/checkbox/Checkbox"
+export { default as CheckboxField } from "./KaizenDraft/checkbox-field/CheckboxField"

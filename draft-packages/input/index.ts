@@ -1,2 +1,2 @@
-export { default as Input } from "./Input"
-export * from "./Input"
+export { default as Input } from "./KaizenDraft/Input"
+export * from "./KaizenDraft/Input"

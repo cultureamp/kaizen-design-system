@@ -1,8 +1,7 @@
 import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
 
-import { FieldGroup } from "."
-import { FieldGroupProps } from "./FieldGroup"
+import FormGroup, { FieldGroupProps } from "./FieldGroup"
 
 afterEach(cleanup)
 
@@ -13,7 +12,7 @@ const defaultFieldGroupProps = {
 const renderFieldGroup = (props?: FieldGroupProps) => {
   const mergedFieldGroupProps = { ...defaultFieldGroupProps, ...props }
 
-  return render(<FieldGroup {...mergedFieldGroupProps} />)
+  return render(<FormGroup {...mergedFieldGroupProps} />)
 }
 
 describe("<FieldMessage />", () => {
