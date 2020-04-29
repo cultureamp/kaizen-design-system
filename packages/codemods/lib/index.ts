@@ -18,14 +18,14 @@ const writeFile = promisify(fs.writeFile)
 async function getFiles(dir: string) {
   const dirents = await readdir(dir, { withFileTypes: true })
   const files = await Promise.all(
-    dirents.map((dirent) => {
+    dirents.map(dirent => {
       const res = path.resolve(dir, dirent.name)
       return dirent.isDirectory() ? getFiles(res) : res
     })
   )
 
   return Array.prototype.concat(
-    ...files.filter((curr) => !curr.includes("node_modules"))
+    ...files.filter(curr => !curr.includes("node_modules"))
   )
 }
 
@@ -34,7 +34,7 @@ async function main(locations: string, isDryRun: boolean, logger: any) {
 
   try {
     const files = await getFiles(locations)
-    files.forEach(async (file) => {
+    files.forEach(async file => {
       const data = await readFile(file)
       logger("verbose", `---\nReading: ${file}`)
 
