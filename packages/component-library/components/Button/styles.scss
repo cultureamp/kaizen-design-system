@@ -4,6 +4,8 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 
+$caButton-border-width: $kz-border-solid-border-width;
+$caButton-focus-border-width: $kz-border-focus-ring-border-width;
 $caButton-height: $ca-grid * 2;
 $caButtonIcon-height: 20px;
 $caButton-formHeight: $ca-grid * 5/3;
