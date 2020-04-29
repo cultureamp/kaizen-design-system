@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.6.2...@kaizen/component-library@7.7.0) (2020-04-29)
+
+
+### Features
+
+* Move header compoment out of mobile heading ([#426](https://github.com/cultureamp/kaizen-design-system/issues/426)) ([45e0268](https://github.com/cultureamp/kaizen-design-system/commit/45e02684fe25de2a7aa64df05da032a10b29b661))
+
+
+
+
+
 ## [7.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.6.1...@kaizen/component-library@7.6.2) (2020-04-29)
 
 
