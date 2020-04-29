@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { Box, Text, Button } from "@kaizen/component-library"
+import { Box, Button, Text } from "@kaizen/component-library"
 import { Panel } from "../draft/Kaizen/Panel"
 
 const reportDataIllustration = require("./illustrations/reporting-hero-data.png")
