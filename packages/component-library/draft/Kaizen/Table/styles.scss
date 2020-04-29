@@ -109,7 +109,7 @@ $row-height: 60px;
 }
 
 .well {
-  border-color: transparent;
+  border-color: $kz-border-borderless-border-color;
   box-shadow: none;
   border-radius: $kz-border-solid-border-radius;
   background-color: $kz-color-ash;

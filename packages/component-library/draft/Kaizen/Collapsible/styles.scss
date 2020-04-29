@@ -9,7 +9,8 @@
 $heading-active-color: $kz-color-wisteria-100;
 
 .container {
-  border: 1px solid $ca-border-color;
+  border: $kz-border-solid-border-width $kz-border-solid-border-style
+    $ca-border-color;
   box-shadow: $kz-shadow-small-box-shadow;
   border-radius: $ca-border-radius;
 }
