@@ -22,7 +22,6 @@ export default {
 
 const handleNavigationChange = event => {
   event.preventDefault()
-  console.log(event)
 }
 
 const accountMenuBtn = (

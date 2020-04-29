@@ -16,11 +16,11 @@ const MenuItem = ({
   showArrowIcon = false,
   active = false,
 }: MenuItemProps) => {
-  const { handleNavigationClick } = React.useContext(LinkClickContext)
+  const { handleNavigationChange } = React.useContext(LinkClickContext)
 
   const handleItemClick = event => {
     onClick && onClick(event)
-    handleNavigationClick && handleNavigationClick(event)
+    handleNavigationChange && handleNavigationChange(event)
   }
 
   const renderArrowIcon = () => (
@@ -33,7 +33,7 @@ const MenuItem = ({
     // HTML forms only accept POST. We use a hidden `_method` input as a convention for emulating other HTTP verbs.
     // This behaviour is the same as what is implemented by UJS and supported by Rails:
     // https://github.com/rails/jquery-ujs
-    <form method="post" action={url} onSubmit={handleItemClick}>
+    <form method="post" action={url}>
       <input name="_method" value={method} type="hidden" />
       <button type="submit" className={styles.itemBtn}>
         {label}

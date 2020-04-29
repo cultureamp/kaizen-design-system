@@ -14,7 +14,7 @@ import {
 import Link from "./components/Link"
 import Menu from "./components/Menu"
 import { LinkClickContext } from "./context"
-import { Navigation, NavigationItem } from "./types"
+import { Navigation, NavigationChange, NavigationItem } from "./types"
 
 const styles = require("./NavigationBar.module.scss")
 
@@ -23,11 +23,7 @@ type Props = {
   loading?: boolean
   colorScheme?: "cultureamp" | "kaizen" | "content"
   badgeHref?: string
-  onNavigationChange: (
-    event:
-      | React.MouseEvent<HTMLAnchorElement>
-      | React.FormEvent<HTMLFormElement>
-  ) => void
+  onNavigationChange: NavigationChange
   headerComponent?: {
     desktop: React.ReactNode
     mobile: React.ReactNode
@@ -61,7 +57,7 @@ export default class NavigationBar extends React.Component<Props> {
 
     return (
       <LinkClickContext.Provider
-        value={{ handleNavigationClick: onNavigationChange }}
+        value={{ handleNavigationChange: onNavigationChange }}
       >
         <Media query={`(max-width: ${mobileMaxWidth}px)`}>
           {(matches: boolean) =>
@@ -134,7 +130,6 @@ export default class NavigationBar extends React.Component<Props> {
         ...linkProps,
         opaque: isFinal,
         small: isFinal,
-        onClick: this.props.onNavigationChange,
       },
     }
     const key = "href" in linkProps ? linkProps.href : linkProps.heading

@@ -1,11 +1,8 @@
 import React from "react"
+import { NavigationChange } from "./types"
 
 type LinkClickContextType = {
-  handleNavigationClick?: (
-    event:
-      | React.MouseEvent<HTMLAnchorElement>
-      | React.FormEvent<HTMLFormElement>
-  ) => void
+  handleNavigationChange?: NavigationChange
 }
 
 export const LinkClickContext = React.createContext<LinkClickContextType>({})

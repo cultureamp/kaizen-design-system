@@ -21,7 +21,7 @@ export default class Link extends React.PureComponent<LinkProps> {
   }
 
   render = () => {
-    const { handleNavigationClick } = this.context
+    const { handleNavigationChange } = this.context
     const {
       badge,
       icon,
@@ -50,7 +50,7 @@ export default class Link extends React.PureComponent<LinkProps> {
         tabIndex={0}
         onClick={event => {
           onClick && onClick(event)
-          handleNavigationClick && handleNavigationClick(event)
+          handleNavigationChange && handleNavigationChange(event)
         }}
         {...{ href, id, target }}
       >
