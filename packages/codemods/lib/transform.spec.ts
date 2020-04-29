@@ -274,7 +274,7 @@ describe("transformDrafts", () => {
       ]
       expect(transformDrafts("elm", input)).toEqual([
         {
-          name: "import Kaizen.Select.Select as KaizenSelect",
+          name: "import KaizenDraft.Select.Select as KaizenSelect",
         },
       ])
     })
@@ -282,7 +282,7 @@ describe("transformDrafts", () => {
     test("converts multiple modules", () => {
       const input = [
         {
-          name: "import Kaizen.Select.Select as KaizenSelect",
+          name: "import Kaizen.Box.Box as KaizenBox",
         },
         {
           name: "import KaizenDraft.Well.Well as Well",

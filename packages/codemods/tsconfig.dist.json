@@ -1,8 +1,6 @@
 {
   "extends": "../../tsconfig.json",
-  "exclude": [
-    "./examples"
-  ],
+  "exclude": ["./examples"],
   "compilerOptions": {
     "module": "commonjs",
     "downlevelIteration": true,
