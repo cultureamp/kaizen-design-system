@@ -1,8 +1,7 @@
 import { cleanup, fireEvent, render } from "@testing-library/react"
 import * as React from "react"
 
-import Checkbox from "./Checkbox"
-import { CheckboxProps, CheckedStatus } from "./Checkbox"
+import Checkbox, { CheckboxProps } from "./Checkbox"
 
 afterEach(cleanup)
 
