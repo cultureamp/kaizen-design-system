@@ -14,9 +14,8 @@ const Menu = ({ link, section }: Props) => {
   return (
     <div
       className={classNames(styles.menu, {
-        [styles.primary]: section === "primary",
         [styles.secondary]: section === "secondary",
-        [styles.active]: link.active,
+        [styles.active]: !!link.active,
       })}
       key={`${link.heading}-${uuidv4()}`}
     >

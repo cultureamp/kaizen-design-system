@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.6.1...@kaizen/component-library@7.6.2) (2020-04-29)
+
+
+### Bug Fixes
+
+* restructure navbar clicks ([#425](https://github.com/cultureamp/kaizen-design-system/issues/425)) ([8d45565](https://github.com/cultureamp/kaizen-design-system/commit/8d455656365f0f85a71f534304f0dfc14870643f))
+
+
+
+
+
 ## [7.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.6.0...@kaizen/component-library@7.6.1) (2020-04-28)
 
 **Note:** Version bump only for package @kaizen/component-library
