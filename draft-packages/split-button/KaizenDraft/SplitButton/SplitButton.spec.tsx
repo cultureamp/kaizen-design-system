@@ -1,7 +1,7 @@
 import { action } from "@storybook/addon-actions"
 import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
-import { MenuItem, MenuList } from "../../../components/MenuList"
+import { MenuItem, MenuList } from "@kaizen/component-library"
 import SplitButton, { SplitButtonProps } from "./SplitButton"
 const editIcon = require("../../../icons/edit.icon.svg")
 const duplicateIcon = require("../../../icons/duplicate.icon.svg")
