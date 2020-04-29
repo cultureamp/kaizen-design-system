@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.7.0...@kaizen/component-library@7.8.0) (2020-04-29)
+
+
+### Features
+
+* Update border width and color + make borders invisible where appropriate ([#408](https://github.com/cultureamp/kaizen-design-system/issues/408)) ([9045f56](https://github.com/cultureamp/kaizen-design-system/commit/9045f567d75617c735e7b5fb6d9c3000792cb024))
+
+
+
+
+
+# [7.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.6.2...@kaizen/component-library@7.7.0) (2020-04-29)
+
+
+### Features
+
+* Move header compoment out of mobile heading ([#426](https://github.com/cultureamp/kaizen-design-system/issues/426)) ([45e0268](https://github.com/cultureamp/kaizen-design-system/commit/45e02684fe25de2a7aa64df05da032a10b29b661))
+
+
+
+
+
+## [7.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.6.1...@kaizen/component-library@7.6.2) (2020-04-29)
+
+
+### Bug Fixes
+
+* restructure navbar clicks ([#425](https://github.com/cultureamp/kaizen-design-system/issues/425)) ([8d45565](https://github.com/cultureamp/kaizen-design-system/commit/8d455656365f0f85a71f534304f0dfc14870643f))
+
+
+
+
+
 ## [7.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.6.0...@kaizen/component-library@7.6.1) (2020-04-28)
 
 **Note:** Version bump only for package @kaizen/component-library

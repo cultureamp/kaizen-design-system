@@ -33,7 +33,8 @@ $input-disabled-border-alpha: 50%;
   @include form-input-reset;
   background-color: transparent;
   background-clip: padding-box;
-  border: 1px solid transparent;
+  border: $kz-border-solid-border-width $kz-border-solid-border-style
+    transparent;
   border-radius: $kz-border-solid-border-radius;
   display: block;
   font-size: 1rem;
@@ -186,7 +187,7 @@ $input-disabled-border-alpha: 50%;
 
   &:focus:not([disabled]),
   &:hover:focus:not([disabled]) {
-    @include form-input-focus-border($ca-border-color-focus);
+    border-color: $ca-border-color-focus;
   }
 
   &:hover:not([disabled]) {
@@ -202,7 +203,7 @@ $input-disabled-border-alpha: 50%;
   }
 
   &.error:not(:focus) {
-    @include form-input-focus-border($ca-palette-input-validation-negative);
+    border-color: $ca-palette-input-validation-negative;
   }
 }
 
@@ -219,7 +220,7 @@ $input-disabled-border-alpha: 50%;
   &:focus:not([disabled]),
   &:hover:focus:not([disabled]) {
     background: rgba($kz-color-white, 0.1);
-    @include form-input-focus-border($input-focus-border-color-reversed);
+    border-color: $input-focus-border-color-reversed;
   }
 
   &:hover:not([disabled]) {
@@ -236,7 +237,7 @@ $input-disabled-border-alpha: 50%;
   }
 
   &.error:not(:focus) {
-    @include form-input-focus-border($ca-palette-input-validation-negative);
+    border-color: $ca-palette-input-validation-negative;
 
     @include form-input-placeholder {
       opacity: $input-placeholder-opacity;

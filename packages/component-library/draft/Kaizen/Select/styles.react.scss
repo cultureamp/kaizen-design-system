@@ -14,7 +14,8 @@
 .container {
   .control {
     min-height: $input-height;
-    border-color: $ca-border-color;
+    border: $kz-border-solid-border-width $kz-border-solid-border-style
+      $ca-border-color;
     border-radius: $kz-border-solid-border-radius;
 
     &:hover {
@@ -23,10 +24,12 @@
   }
 
   .focusedControl {
-    @include form-input-focus-border($ca-border-color-focus);
+    border-color: $ca-border-color-focus;
+    box-shadow: none;
 
     &:hover {
-      @include form-input-focus-border($ca-border-color-focus);
+      border-color: $ca-border-color-focus;
+      box-shadow: none;
     }
   }
 
@@ -36,13 +39,15 @@
   }
 
   .menu {
-    border: 1px solid $ca-border-color;
+    // Temporary 6px until we redesign this component with Inter
+    border: 6px $kz-border-solid-border-style transparent;
     border-radius: $kz-border-solid-border-radius;
     box-shadow: $kz-shadow-large-box-shadow;
   }
 
   .option {
     @include base-font-style();
+    border-radius: 4px;
   }
 
   .focusedOption {

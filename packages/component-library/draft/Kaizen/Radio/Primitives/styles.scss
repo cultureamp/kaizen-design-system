@@ -5,7 +5,7 @@
 
 $radio-size: 20px;
 $icon-size: 10px;
-$icon-offset: 4px;
+$icon-offset: 3px;
 
 .radioInput {
   @include form-input-visually-hidden();
@@ -16,7 +16,7 @@ $icon-offset: 4px;
   width: $icon-size;
   height: $icon-size;
   border-radius: 50%;
-  background: $kz-color-wisteria-600;
+  background: $kz-color-wisteria-700;
   position: absolute;
 }
 
@@ -26,25 +26,23 @@ $icon-offset: 4px;
   height: $radio-size;
   width: $radio-size;
   top: 0;
-  border: 1px solid $ca-border-color;
+  border: $kz-border-solid-border-width $kz-border-solid-border-style
+    $kz-color-wisteria-500;
   box-sizing: border-box;
-  box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.09);
   border-radius: 50%;
 
   .radioInput:disabled + & {
-    background: $kz-color-ash;
-
-    .icon {
-      opacity: 0.3;
-    }
+    opacity: 0.3;
   }
 
   .radioInput:focus:not([disabled]) + &,
   .radioInput:hover:focus:not([disabled]) + & {
-    @include form-input-focus-border($ca-border-color-focus);
+    border-color: $ca-border-color-focus;
+    background-color: $kz-color-wisteria-100;
   }
 
   .radioInput:not([disabled]) + &:hover {
-    border-color: $ca-border-color-hover;
+    border-color: $kz-color-wisteria-700;
+    background-color: $kz-color-wisteria-100;
   }
 }

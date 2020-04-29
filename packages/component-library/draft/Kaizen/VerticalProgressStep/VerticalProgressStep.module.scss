@@ -29,7 +29,8 @@
 
     // show custom focus ring when :focus-visible
     &:global(.focus-visible) {
-      outline: $caButton-focus-border-width solid $kz-color-cluny-500;
+      outline: $kz-border-focus-ring-border-width
+        $kz-border-focus-ring-border-style $kz-color-cluny-500;
     }
   }
 }

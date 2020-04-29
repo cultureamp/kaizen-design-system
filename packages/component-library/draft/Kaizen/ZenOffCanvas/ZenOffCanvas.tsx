@@ -1,10 +1,14 @@
 import * as React from "react"
 
+import { Icon } from "@kaizen/component-library"
 import classNames from "classnames"
 import Header from "./components/Header"
 import Menu from "./components/Menu"
 
 const styles = require("./OffCanvas.module.scss")
+
+const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
+  .default
 
 type Props = {
   links?: any
@@ -54,9 +58,14 @@ export class ZenOffCanvas extends React.Component<Props> {
           >
             <Header
               onClose={resetVisibleMenus}
-              leftComponent={headerComponent}
+              leftComponent={
+                <div className={styles.caLogo}>
+                  <Icon icon={caMonogramIcon} role="presentation" inheritSize />
+                </div>
+              }
               heading={heading}
             />
+            {headerComponent}
             <nav className={styles.links}>
               {links &&
                 Object.keys(links).map(section => (
