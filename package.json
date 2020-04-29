@@ -3,6 +3,7 @@
   "workspaces": [
     "packages/*",
     "draft-packages/*",
+    "legacy-packages/*",
     "site"
   ],
   "engines": {
