@@ -1,4 +1,4 @@
-module Kaizen.Form.Primitives.Input.Input exposing
+module KaizenDraft.Input.Input exposing
     ( Config
     , InputStatus(..)
     , InputType(..)

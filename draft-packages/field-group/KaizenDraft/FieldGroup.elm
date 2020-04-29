@@ -1,4 +1,4 @@
-module Kaizen.Form.Primitives.FieldGroup.FieldGroup exposing (automationId, className, default, id, inline, view)
+module KaizenDraft.FieldGroup.FieldGroup exposing (automationId, className, default, id, inline, view)
 
 import CssModules exposing (css)
 import Html exposing (..)

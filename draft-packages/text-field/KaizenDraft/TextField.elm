@@ -1,4 +1,4 @@
-module Kaizen.Form.TextField.TextField exposing
+module KaizenDraft.TextField.TextField exposing
     ( Config
     , TextFieldStatus(..)
     , TextFieldType(..)
@@ -24,6 +24,8 @@ module Kaizen.Form.TextField.TextField exposing
     , validationMessage
     , view
     )
+
+-- TODO - change Form imports to KaizenDraft
 
 import CssModules exposing (css)
 import Html exposing (..)

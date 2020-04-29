@@ -1,4 +1,4 @@
-module Kaizen.Form.Primitives.FieldMessage.FieldMessage exposing (FieldMessageStatus(..), automationId, default, id, message, reversed, status, view)
+module KaizenDraft.FieldMessage.FieldMessage exposing (FieldMessageStatus(..), automationId, default, id, message, reversed, status, view)
 
 import CssModules exposing (css)
 import Html exposing (..)

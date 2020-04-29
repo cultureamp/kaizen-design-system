@@ -19,6 +19,8 @@ module Kaizen.Modal.Presets.InputEditModal exposing
     , view
     )
 
+-- TODO - change TextField import to KaizenDraft.TextField.TextField
+
 import Button.Button as Button
 import CssModules exposing (css)
 import Html exposing (Html, div, form, span, text)

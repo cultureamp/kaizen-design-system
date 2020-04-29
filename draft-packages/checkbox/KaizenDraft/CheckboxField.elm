@@ -1,4 +1,4 @@
-module Kaizen.Form.CheckboxField.CheckboxField exposing
+module KaizenDraft.CheckboxField.CheckboxField exposing
     ( CheckedValue(..)
     , Config
     , checkedStatus
@@ -13,11 +13,13 @@ module Kaizen.Form.CheckboxField.CheckboxField exposing
     , view
     )
 
+-- TODO - change FieldGroup and Label imports to KaizenDraft
+
 import CssModules exposing (css)
 import Html exposing (..)
-import Kaizen.Form.Primitives.Checkbox.Checkbox as Checkbox
 import Kaizen.Form.Primitives.FieldGroup.FieldGroup as FieldGroup
 import Kaizen.Form.Primitives.Label.Label as Label
+import KaizenDraft.Checkbox.Checkbox as Checkbox
 
 
 styles =

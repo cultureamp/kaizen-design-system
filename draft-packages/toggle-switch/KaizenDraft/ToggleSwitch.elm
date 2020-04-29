@@ -1,4 +1,4 @@
-module Kaizen.Form.Primitives.ToggleSwitch.ToggleSwitch exposing (ToggleTheme(..), ToggledStatus(..), automationId, default, disabled, id, name, onToggle, theme, toggledStatus, view)
+module KaizenDraft.ToggleSwitch.ToggleSwitch exposing (ToggleTheme(..), ToggledStatus(..), automationId, default, disabled, id, name, onToggle, theme, toggledStatus, view)
 
 import CssModules exposing (css)
 import Html exposing (..)

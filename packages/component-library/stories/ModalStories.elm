@@ -1,5 +1,7 @@
 module Main exposing (main)
 
+-- TODO - change TextField import to KaizenDraft.TextField.TextField
+
 import Button.Button as Button
 import ElmStorybook exposing (storyOf, storybook)
 import Html exposing (div, text)

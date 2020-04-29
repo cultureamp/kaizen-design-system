@@ -1,4 +1,4 @@
-module Kaizen.Form.Primitives.Checkbox.Checkbox exposing
+module KaizenDraft.Checkbox.Checkbox exposing
     ( CheckedValue(..)
     , Config
     , automationId

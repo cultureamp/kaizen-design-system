@@ -1,10 +1,12 @@
-module Kaizen.Form.ToggleSwitchField.ToggleSwitchField exposing (ToggleTheme(..), ToggledStatus(..), default, disabled, fullWidth, id, inline, labelText, name, onToggle, theme, toggledStatus, view)
+module KaizenDraft.ToggleSwitchField.ToggleSwitchField exposing (ToggleTheme(..), ToggledStatus(..), default, disabled, fullWidth, id, inline, labelText, name, onToggle, theme, toggledStatus, view)
+
+-- TODO - change all form primitive imports to KaizenDraft
 
 import CssModules exposing (css)
 import Html exposing (..)
 import Kaizen.Form.Primitives.FieldGroup.FieldGroup as FieldGroup
 import Kaizen.Form.Primitives.Label.Label as Label
-import Kaizen.Form.Primitives.ToggleSwitch.ToggleSwitch as ToggleSwitch
+import KaizenDraft.ToggleSwitch.ToggleSwitch as ToggleSwitch
 
 
 type Config msg

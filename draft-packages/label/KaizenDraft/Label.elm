@@ -1,4 +1,4 @@
-module Kaizen.Form.Primitives.Label.Label exposing
+module KaizenDraft.Label.Label exposing
     ( LabelProp(..)
     , LabelType(..)
     , automationId
