@@ -1,10 +1,10 @@
 @import "../../styles/color";
-@import "../../styles/border";
 @import "../../styles/layers";
 @import "../../styles/type";
+@import "~@kaizen/design-tokens/sass/border";
 
 $width: 248px;
-$caButton-border-width: 1px;
+$caButton-border-width: $kz-border-solid-border-width;
 $caButton-verticalPadding: calc(#{$ca-grid / 2} - #{$caButton-border-width});
 
 .dropdown {
