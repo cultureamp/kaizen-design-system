@@ -6,21 +6,28 @@ const crossIcon = require("@kaizen/component-library/icons/close.icon.svg")
   .default
 const styles = require("./styles.scss")
 
-export type PanelProps = {
-  id?: string
-  automationId?: string
-  img?: {
-    src: string
-    alt: string
-    width: number
-    height: number
+interface Props {
+  readonly id?: string
+  readonly automationId?: string
+  readonly onDismiss?: () => void
+  readonly img?: {
+    readonly src: string
+    readonly alt: string
+    readonly width: number
+    readonly height: number
   }
 }
 
-type Panel = React.FunctionComponent<PanelProps>
+type Panel = React.FunctionComponent<Props>
 
-const Panel: Panel = ({ id, automationId, children, img }) => {
+const Panel: Panel = ({ id, automationId, children, img, onDismiss }) => {
   const [dismissed, setDismissed] = useState(false)
+
+  const dismissPanel = () => {
+    onDismiss?.()
+
+    setDismissed(true)
+  }
 
   if (dismissed) return null
 
@@ -30,7 +37,7 @@ const Panel: Panel = ({ id, automationId, children, img }) => {
         <IconButton
           icon={crossIcon}
           label="Close"
-          onClick={() => setDismissed(true)}
+          onClick={() => dismissPanel()}
         />
       </div>
       <div className={styles.content}>
@@ -39,8 +46,8 @@ const Panel: Panel = ({ id, automationId, children, img }) => {
             <img
               src={img.src}
               alt={img.alt}
-              width={img?.width}
-              height={img?.height}
+              width={img.width}
+              height={img.height}
             />
           </div>
         )}

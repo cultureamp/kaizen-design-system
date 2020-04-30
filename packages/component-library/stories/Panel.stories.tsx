@@ -50,7 +50,3 @@ export const NoImagePanel = () => (
     </Box>
   </Panel>
 )
-
-DefaultPanel.story = {
-  name: "Panel",
-}
