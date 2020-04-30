@@ -1,6 +1,6 @@
-import React from "react"
-
 import classNames from "classnames"
+import React from "react"
+import uuid from "uuid/v4"
 import { MenuGroupProps, MenuItemProps } from "../types"
 import Link from "./Link"
 import MenuItem from "./MenuItem"
@@ -12,15 +12,9 @@ const MenuGroup = ({
   items,
   first = false,
   offCanvas,
-  onLinkClick,
 }: MenuGroupProps) => {
   const renderOffCanvasMenuItem = (item: MenuItemProps) => (
-    <Link
-      key={item.url}
-      text={item.label}
-      href={item.url}
-      onClick={onLinkClick}
-    />
+    <Link key={item.url} text={item.label} href={item.url} />
   )
 
   const renderOffCanvasMenuGroup = () => {
@@ -40,9 +34,11 @@ const MenuGroup = ({
   const renderMenuGroup = () => (
     <li className={styles.container}>
       <h4 className={styles.title}>{title}</h4>
-      {items.map(item => (
-        <MenuItem {...item} onLinkClick={onLinkClick} />
-      ))}
+      <ul className={styles.subList}>
+        {items.map(item => (
+          <MenuItem key={`${item.url}-${uuid()}`} {...item} />
+        ))}
+      </ul>
     </li>
   )
 

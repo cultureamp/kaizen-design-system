@@ -5,8 +5,8 @@
 @import "~@kaizen/component-library/styles/mixins/forms";
 
 $checkbox-size: 24px;
-$focus-ring-offset: 2px;
 $icon-size: 24px;
+$focus-ring-offset: 2px;
 
 .checkbox {
   @include form-input-visually-hidden();
@@ -35,7 +35,6 @@ $icon-size: 24px;
     $kz-color-wisteria-500;
   border-radius: $kz-border-solid-border-radius;
   box-sizing: border-box;
-  box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.09);
 
   .checkbox:not([checked]):hover + &,
   .checkbox:not([checked]):focus + & {

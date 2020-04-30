@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/layout";
@@ -8,7 +9,8 @@
 .dropdown {
   position: relative;
   background: #fff;
-  border: solid 1px $ca-border-color;
+  border: $kz-border-solid-border-width $kz-border-solid-border-style
+    $ca-border-color;
   border-radius: $kz-border-solid-border-radius;
   padding: $ca-grid / 2;
   color: $kz-color-wisteria-800;

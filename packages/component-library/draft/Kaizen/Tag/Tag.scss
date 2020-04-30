@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/type";
@@ -12,7 +13,8 @@ $small: $ca-grid;
   @include ca-margin($end: $ca-grid * 0.5);
   color: $kz-color-wisteria-800;
   display: inline-block;
-  border: 1px solid transparent;
+  border: $kz-border-borderless-border-width $kz-border-borderless-border-style
+    $kz-border-borderless-border-color;
   border-radius: $ca-grid * 0.75;
   padding: 0 $ca-grid * 0.4;
   cursor: default;
@@ -88,7 +90,7 @@ $small: $ca-grid;
   background-color: $kz-color-ash;
 
   &:hover {
-    border-color: $kz-color-wisteria-300;
+    border-color: $kz-color-wisteria-200;
   }
 }
 
@@ -96,7 +98,7 @@ $small: $ca-grid;
   background-color: $kz-color-coral-100;
 
   &:hover {
-    border-color: $kz-color-coral-300;
+    border-color: $kz-color-coral-200;
   }
 }
 
@@ -111,20 +113,18 @@ $small: $ca-grid;
 
 .validationPositive {
   background-color: $kz-color-seedling-100;
-  border-color: $kz-color-seedling-200;
 
   &:hover {
-    border-color: $kz-color-seedling-300;
+    border-color: $kz-color-seedling-200;
   }
 
   .validationIcon {
-    color: $kz-color-seedling-500;
+    color: $kz-color-seedling-300;
   }
 }
 
 .validationInformative {
   background-color: $kz-color-cluny-100;
-  border-color: $kz-color-cluny-200;
 
   &:hover {
     border-color: $kz-color-cluny-300;
@@ -137,10 +137,9 @@ $small: $ca-grid;
 
 .validationNegative {
   background-color: $kz-color-coral-100;
-  border-color: $kz-color-coral-200;
 
   &:hover {
-    border-color: $kz-color-coral-300;
+    border-color: $kz-color-coral-200;
   }
 
   .validationIcon {
@@ -150,10 +149,9 @@ $small: $ca-grid;
 
 .validationCautionary {
   background-color: $kz-color-yuzu-100;
-  border-color: $kz-color-yuzu-400;
 
   &:hover {
-    border-color: $kz-color-yuzu-500;
+    border-color: $kz-color-yuzu-300;
   }
 
   .validationIcon {
@@ -163,24 +161,20 @@ $small: $ca-grid;
 
 .statusLive {
   background-color: $kz-color-seedling-100;
-  border-color: $kz-color-seedling-100;
   color: $kz-color-wisteria-800;
 }
 
 .statusDraft {
   background-color: add-alpha($kz-color-peach-500, 20%);
-  border-color: $kz-color-peach-100;
   color: $kz-color-wisteria-800;
 }
 
 .statusClosed {
   background-color: $kz-color-wisteria-200;
-  border-color: $kz-color-wisteria-200;
 }
 
 .statusAction {
   background-color: $kz-color-cluny-100;
-  border-color: $kz-color-cluny-100;
   color: $kz-color-wisteria-800;
 }
 
