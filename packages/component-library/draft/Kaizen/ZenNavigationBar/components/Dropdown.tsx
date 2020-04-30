@@ -1,6 +1,6 @@
-import React, { useLayoutEffect, useRef, useState } from "react"
-
 import classNames from "classnames"
+import React, { useLayoutEffect, useRef, useState } from "react"
+import uuid from "uuid/v4"
 import { MenuGroupProps, MenuItemProps } from "../types"
 import MenuGroup from "./MenuGroup"
 import MenuItem from "./MenuItem"
@@ -43,9 +43,15 @@ const Dropdown = ({ items, header }: Props) => {
       <ul className={styles.menuItems}>
         {items.map((item, index) => {
           if ("url" in item) {
-            return <MenuItem {...item} />
+            return <MenuItem key={`${item.url}-${uuid()}`} {...item} />
           } else if ("title" in item) {
-            return <MenuGroup {...item} index={index} />
+            return (
+              <MenuGroup
+                key={`${item.title}-${uuid()}`}
+                {...item}
+                first={index === 0}
+              />
+            )
           }
         })}
       </ul>

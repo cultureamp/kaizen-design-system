@@ -1,8 +1,7 @@
-import React from "react"
-
-import classNames from "classnames"
-
 import { Icon } from "@kaizen/component-library"
+import classNames from "classnames"
+import React from "react"
+import { LinkClickContext } from "../context"
 import { MenuItemProps } from "../types"
 
 const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
@@ -13,10 +12,17 @@ const MenuItem = ({
   label,
   url,
   method,
-  switcher = false,
-  onLinkClick,
+  onClick,
+  showArrowIcon = false,
   active = false,
 }: MenuItemProps) => {
+  const { handleNavigationChange } = React.useContext(LinkClickContext)
+
+  const handleItemClick = event => {
+    onClick && onClick(event)
+    handleNavigationChange && handleNavigationChange(event)
+  }
+
   const renderArrowIcon = () => (
     <span className={styles.arrowIcon}>
       <Icon icon={arrowForwardIcon} role="presentation" />
@@ -31,15 +37,20 @@ const MenuItem = ({
       <input name="_method" value={method} type="hidden" />
       <button type="submit" className={styles.itemBtn}>
         {label}
-        {switcher && renderArrowIcon()}
+        {showArrowIcon && renderArrowIcon()}
       </button>
     </form>
   )
 
   const renderLink = () => (
-    <a href={url} className={styles.item} tabIndex={0} onClick={onLinkClick}>
+    <a
+      href={url}
+      className={styles.item}
+      tabIndex={0}
+      onClick={handleItemClick}
+    >
       {label}
-      {switcher && renderArrowIcon()}
+      {showArrowIcon && renderArrowIcon()}
     </a>
   )
 

@@ -1,34 +1,41 @@
 ---
 title: Typography
 navTitle: Typography
-summaryParagraph: Typography in a strong design system helps create balance and hierarchy for textual information. By creating structure within a page, text becomes enjoyable and appealing to read. We aim to ensure type within our product complies with WCAG 2.0 AA standards.
+summaryParagraph: Typography in a strong design system helps create balance and hierarchy for textual information. By creating structure within a page, text becomes enjoyable and appealing to read. We aim to ensure type within our product complies with WCAG 2.1 AA standards.
 tags: ["Font", "Text"]
 needToKnow:
-  - "Align text with the baseline grid."
-  - "Avoid long lines by keeping line length under 90 characters."
+  - "Use Greycliff CF for hero data, display 0, and headings 1–3."
+  - "Use Inter for headings 4–6, all paragraphs, and buttons."
+  - "Use IBM Plex Mono for preformatted body text, such as code blocks."
+  - "Visually create vertical rhythm by aligning text with the baseline grid. We are moving away from a technical baseline grid."
+  - "Avoid long lines by keeping line length under 90 characters to improve readability."
 ---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 import TypographyShowcase from "docs-components/typography/TypographyShowcase"
 
-# Typography scale
+## Visuals
 
-This shows our previous typography scale and brand type face:
-
-<TypographyShowcase />
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D22080%253A18" allowfullscreen></iframe>
 
 ## To keep in mind
 
-* For font size, use 16px (pixel size) / 1em (in code) to ensure text is readable and legible. To comply with WCAG 2.0 AA standards, use a minimum font size of 12px only for supplementary text.
-* Aim for [vertical rhythm](../vertical-rhythm-and-baseline-grid) and align text to the [baseline grid](../vertical-rhythm-and-baseline-grid).
-* To keep line length under 90 characters, constrain paragraphs to a maximum width of 870px wide for Inter when there's more than 1 line of text.
-* Text color / contrast is crucial. Ensure color ratios comply with WCAG 2.0 AA.
+* For font size, use 16px (pixel size) / 1em (in code) to ensure text is readable and legible. To comply with WCAG 2.1 AA standards, use a minimum font size of 12px only for supplementary, non-critical text.
+* Aim for [vertical rhythm](/guidelines/vertical-rhythm-and-baseline-grid) and align text to the [baseline grid](/guidelines/vertical-rhythm-and-baseline-grid).
+* To keep line length under 90 characters:
+    * Constrain typography containers to a maximum width when there's more than 1 line of text.
+    * See the Figma embed sticker sheet for specific values in pixels to maintain optimal line length for readability.
+    * When there are multiple headings close together on a page, such as a Heading 1, a paragraph, and a Heading 2, constrain the container to the shortest line length.
+* Text color / contrast is crucial. Ensure color ratios comply with WCAG 2.1 AA. See [Color guidelines](/guidelines/color) for text color guidelines.
 * White space is equally important. Let your text breathe.
-
-
 
 ### Links
 
-Use underlines for links in body copy with no underline on hover/focus. For standalone links, such as a privacy link at the bottom of a page, use no underline and show underline on hover/focus.
+- **Paragraph links:** Use underlines to represent a link within a paragraph of text to help it stand out. Do not rely on the color alone as it may not be visible for vision impaired users. On hover, hide paragraph link underlines.
+- **Standalone links:** For standalone links, you may use spacing and context (such as navigation bars or a privacy links at the bottom of a page) to identify the link. Show no underline by default on a standalone link and show an underline on the hover.
 
 ### Abbreviations
 
@@ -50,24 +57,35 @@ In Sketch, you can set these in Fonts > cog icon > Typography > Number spacing (
 
 In code, you can set the `font-variant-numeric` and different type face.
 
-## When to use
+## When to use and when not to use
 
-* Use brand typefaces, including [Greycliff](https://connary.com/greycliff.html) (Sans Serif) for headings, [Inter](https://rsms.me/inter/) for body copy and [IBM Plex Mono](https://boldmonday.com/custom/ibm/) (Monospace) for code or machine-generated tabular data.
-* Use type styles to define content structure (Page titles, Intro Lede, Body, Small, etc.).
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
+
+* Use brand typefaces, including [Greycliff CF](https://connary.com/greycliff.html) (Sans Serif) for headings, [Inter](https://rsms.me/inter/) for body copy and [IBM Plex Mono](https://boldmonday.com/custom/ibm/) (Monospace) for code or machine-generated tabular data.
+* Use type styles to define content structure (Display 0 for landing page titles, Intro Lede, Body, Small, etc.).
 * Use typography when it's a pleasure to read and makes sense in terms of visuals and information.
 
-
-
-## When not to use
+</WhenToUse>
+<WhenNotToUse>
 
 * Avoid overwhelming people with text. Consider using imagery or data visualizations instead.
 * Avoid using typography styles that will fail to render correctly across all devices and operating systems (i.e. avoid jank).
 
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
+
+
+# Legacy typography scale
+
+We no longer use this typography scale and brand type face, but they'll stay here for reference for a short time.
+
+<TypographyShowcase />
 
 
 ## See also
 
-* Use the [Product Writing Checklist](../language) to quickly check any text you are adding to the Culture Amp product or related communications.
+* Use the [Copy quality checklist](/language/check/) to quickly check any text you are adding to the Culture Amp product or related communications.
 
 ## External links
 
@@ -77,3 +95,4 @@ Here are some examples of typography in existing design systems and typography r
 - [Material: type system](https://material.io/design/typography/the-type-system.html).
 - [Visualize working with line-height](https://aresluna.org/line-height-playground/).
 - [Butterick’s Practical Typography: Alternate figures](https://practicaltypography.com/alternate-figures.html)
+

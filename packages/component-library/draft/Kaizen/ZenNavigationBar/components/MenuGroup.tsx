@@ -1,27 +1,20 @@
-import React from "react"
-
 import classNames from "classnames"
-import { MenuItemProps } from "../types"
+import React from "react"
+import uuid from "uuid/v4"
+import { MenuGroupProps, MenuItemProps } from "../types"
 import Link from "./Link"
 import MenuItem from "./MenuItem"
 
 const styles = require("./MenuGroup.module.scss")
 
-type Props = {
-  title: string
-  items: MenuItemProps[]
-  index: number
-  offCanvas?: boolean
-}
-
-const MenuGroup = ({ title, items, index, offCanvas }: Props) => {
+const MenuGroup = ({
+  title,
+  items,
+  first = false,
+  offCanvas,
+}: MenuGroupProps) => {
   const renderOffCanvasMenuItem = (item: MenuItemProps) => (
-    <Link
-      key={item.url}
-      text={item.label}
-      href={item.url}
-      onClick={item.onLinkClick}
-    />
+    <Link key={item.url} text={item.label} href={item.url} />
   )
 
   const renderOffCanvasMenuGroup = () => {
@@ -29,7 +22,7 @@ const MenuGroup = ({ title, items, index, offCanvas }: Props) => {
       <ul
         className={classNames(styles.container, {
           [styles.offCanvas]: true,
-          [styles.firstMenuItem]: index === 0,
+          [styles.firstMenuItem]: first,
         })}
       >
         <h4 className={styles.title}>{title}</h4>
@@ -41,9 +34,11 @@ const MenuGroup = ({ title, items, index, offCanvas }: Props) => {
   const renderMenuGroup = () => (
     <li className={styles.container}>
       <h4 className={styles.title}>{title}</h4>
-      {items.map(item => (
-        <MenuItem {...item} />
-      ))}
+      <ul className={styles.subList}>
+        {items.map(item => (
+          <MenuItem key={`${item.url}-${uuid()}`} {...item} />
+        ))}
+      </ul>
     </li>
   )
 

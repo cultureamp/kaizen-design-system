@@ -39,7 +39,7 @@ $large: 450px;
   /* The white fill of the triangle */
   &::after {
     border-top: $size solid $background-color;
-    margin-top: -1px;
+    margin-top: -2px;
     z-index: 1;
   }
 }
@@ -53,7 +53,8 @@ $large: 450px;
 
 %box {
   background: #fff;
-  border: 1px solid $kz-color-wisteria-200;
+  border: $kz-border-solid-border-width $kz-border-solid-border-style
+    $kz-color-wisteria-200;
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.1));
   border-radius: $kz-border-solid-border-radius;
   color: $kz-color-wisteria-800;

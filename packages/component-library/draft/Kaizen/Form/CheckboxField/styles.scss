@@ -25,7 +25,8 @@
 
   label:hover {
     input:not([disabled]) + div {
-      border-color: $ca-border-color-hover;
+      border-color: $kz-color-wisteria-700;
+      background-color: $kz-color-wisteria-100;
     }
   }
 

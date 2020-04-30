@@ -3,6 +3,107 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.7.0...@kaizen/component-library@7.8.0) (2020-04-29)
+
+
+### Features
+
+* Update border width and color + make borders invisible where appropriate ([#408](https://github.com/cultureamp/kaizen-design-system/issues/408)) ([9045f56](https://github.com/cultureamp/kaizen-design-system/commit/9045f567d75617c735e7b5fb6d9c3000792cb024))
+
+
+
+
+
+# [7.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.6.2...@kaizen/component-library@7.7.0) (2020-04-29)
+
+
+### Features
+
+* Move header compoment out of mobile heading ([#426](https://github.com/cultureamp/kaizen-design-system/issues/426)) ([45e0268](https://github.com/cultureamp/kaizen-design-system/commit/45e02684fe25de2a7aa64df05da032a10b29b661))
+
+
+
+
+
+## [7.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.6.1...@kaizen/component-library@7.6.2) (2020-04-29)
+
+
+### Bug Fixes
+
+* restructure navbar clicks ([#425](https://github.com/cultureamp/kaizen-design-system/issues/425)) ([8d45565](https://github.com/cultureamp/kaizen-design-system/commit/8d455656365f0f85a71f534304f0dfc14870643f))
+
+
+
+
+
+## [7.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.6.0...@kaizen/component-library@7.6.1) (2020-04-28)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [7.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.5.3...@kaizen/component-library@7.6.0) (2020-04-28)
+
+
+### Features
+
+* add ability to make a Table cell an anchor element ([#419](https://github.com/cultureamp/kaizen-design-system/issues/419)) ([8a37634](https://github.com/cultureamp/kaizen-design-system/commit/8a376343bbd15880f6643cc6ec7440367fe4cf61))
+
+
+
+
+
+## [7.5.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.5.2...@kaizen/component-library@7.5.3) (2020-04-28)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.5.1...@kaizen/component-library@7.5.2) (2020-04-28)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.5.0...@kaizen/component-library@7.5.1) (2020-04-27)
+
+
+### Bug Fixes
+
+* corrected click events ([#418](https://github.com/cultureamp/kaizen-design-system/issues/418)) ([2de6c08](https://github.com/cultureamp/kaizen-design-system/commit/2de6c08992bde3c2239b532eb87a73e89140c912))
+
+
+
+
+
+# [7.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.4.0...@kaizen/component-library@7.5.0) (2020-04-27)
+
+
+### Features
+
+* Use ports to dynamically adjust the select input on change ([#406](https://github.com/cultureamp/kaizen-design-system/issues/406)) ([f376124](https://github.com/cultureamp/kaizen-design-system/commit/f376124dbadb6b0781eb775aaed66de02e22c690))
+
+
+
+
+
+# [7.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.3.1...@kaizen/component-library@7.4.0) (2020-04-27)
+
+
+### Features
+
+* refactor navbar styling ([#417](https://github.com/cultureamp/kaizen-design-system/issues/417)) ([e57dcad](https://github.com/cultureamp/kaizen-design-system/commit/e57dcad1028ef3a50d4991b309544837e851effb))
+
+
+
+
+
 ## [7.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.3.0...@kaizen/component-library@7.3.1) (2020-04-27)
 
 

@@ -34,9 +34,16 @@
   }
 }
 
+.subList {
+  list-style: none;
+  padding: 0;
+}
+
 .title {
   @include ca-padding($end: 16px, $start: 16px, $bottom: 8px, $top: 16px);
   @include font-heading-6;
+  // Override perform-ui code
+  text-align: left;
 
   margin: 0;
   white-space: nowrap;
@@ -44,7 +51,7 @@
   color: rgba($kz-color-wisteria-800, 0.8);
 
   .offCanvas & {
-    @include ca-padding($top: 10px, $bottom: 4px, $start: 16px, $end: 16px);
+    @include ca-padding($top: 10px, $bottom: 4px, $start: 12px, $end: 12px);
     @include font-heading-6;
 
     margin: 0 10px;

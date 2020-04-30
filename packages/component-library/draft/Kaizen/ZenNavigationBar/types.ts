@@ -6,9 +6,11 @@ export type Navigation = {
   final?: NavigationItem[]
 }
 
-export type NavigationItem = ReactElement<LinkProps> | ReactElement<MenuProps>
+export type NavigationChange = (
+  event: React.MouseEvent<HTMLAnchorElement>
+) => void
 
-export type LinkClick = (event: React.MouseEvent<HTMLAnchorElement>) => void
+export type NavigationItem = ReactElement<LinkProps> | ReactElement<MenuProps>
 
 export type LinkProps = {
   icon?: React.SVGAttributes<SVGSymbolElement>
@@ -17,16 +19,16 @@ export type LinkProps = {
   href: string
   active?: boolean
   id?: string
-  onClick?: LinkClick
   target?: "_self" | "_blank"
   hasMenu?: boolean
+  onClick?: NavigationChange
   menuOpen?: boolean
   badge?: {
     kind: "new" | "notification"
     text: string
   }
-  section?: string
-  onLinkClick?: LinkClick
+  opaque?: boolean
+  small?: boolean
 }
 
 export type MenuProps = {
@@ -36,19 +38,23 @@ export type MenuProps = {
   heading: string
   mobileEnabled?: boolean
   active?: boolean
-  section?: string
+  icon?: React.SVGAttributes<SVGSymbolElement>
+  opaque?: boolean
+  small?: boolean
 }
 
 export type MenuItemProps = {
   label: string
   url: string
   method?: "get" | "post" | "put" | "delete"
-  switcher?: boolean
-  onLinkClick?: LinkClick
+  showArrowIcon?: boolean
   active?: boolean
+  onClick?: NavigationChange
 }
 
 export type MenuGroupProps = {
   title: string
   items: MenuItemProps[]
+  offCanvas?: boolean
+  first?: boolean
 }

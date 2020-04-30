@@ -1,23 +1,27 @@
 import { Icon } from "@kaizen/component-library"
-const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
-  .default
 import classNames from "classnames"
 import * as React from "react"
-
-const styles = require("./Link.module.scss")
+import { LinkClickContext } from "../context"
 import { LinkProps } from "../types"
+
+const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
+  .default
+const styles = require("./Link.module.scss")
 
 export default class Link extends React.PureComponent<LinkProps> {
   static displayName = "Link"
+  static contextType = LinkClickContext
   static defaultProps = {
     iconOnly: false,
     active: false,
-    secondary: false,
+    opaque: false,
+    small: false,
     new: false,
     target: "_self",
   }
 
   render = () => {
+    const { handleNavigationChange } = this.context
     const {
       badge,
       icon,
@@ -25,11 +29,12 @@ export default class Link extends React.PureComponent<LinkProps> {
       href,
       active,
       id,
-      onClick,
       iconOnly,
       target,
       hasMenu,
-      section,
+      opaque,
+      onClick,
+      small,
       menuOpen,
     } = this.props
 
@@ -37,12 +42,17 @@ export default class Link extends React.PureComponent<LinkProps> {
       <a
         className={classNames(styles.link, {
           [styles.active]: active,
-          [styles.containsText]: text !== "",
-          [styles.secondary]: section === "secondary",
+          [styles.containsText]: !!text,
+          [styles.opaque]: opaque,
+          [styles.small]: small,
           [styles.menuOpen]: hasMenu && menuOpen,
         })}
         tabIndex={0}
-        {...{ href, id, onClick, target }}
+        onClick={event => {
+          onClick && onClick(event)
+          handleNavigationChange && handleNavigationChange(event)
+        }}
+        {...{ href, id, target }}
       >
         {icon && (
           <span className={styles.linkIcon}>
