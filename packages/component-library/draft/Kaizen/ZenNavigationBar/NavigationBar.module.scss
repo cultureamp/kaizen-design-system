@@ -71,7 +71,7 @@
   .final & {
     @include ca-margin($end: 8px);
     &:last-child {
-      @include ca-margin($end: 0);
+      @include ca-margin($end: 1rem);
     }
   }
 
@@ -82,7 +82,7 @@
 }
 
 .headerSlot {
-  @include ca-margin($start: $ca-grid, $end: $ca-grid);
+  @include ca-margin($start: $ca-grid);
 
   height: 100%;
 }

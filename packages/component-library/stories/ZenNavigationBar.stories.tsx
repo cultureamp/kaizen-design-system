@@ -30,6 +30,8 @@ const accountMenuBtn = (
       backgroundColor: "#ffffff",
       borderRadius: "7px",
       color: "#F8A6AE",
+      width: "60px",
+      height: "60px",
     }}
   >
     <Icon icon={caMonogramIcon} title="Culture Amp Logo" inheritSize />
