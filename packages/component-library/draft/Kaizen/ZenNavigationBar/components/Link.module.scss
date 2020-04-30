@@ -28,7 +28,12 @@
   }
   &.badgeNotification {
     @include ca-padding($start: $ca-grid / 3, $end: $ca-grid / 3);
-    background-color: $kz-color-coral-500;
-    color: $kz-color-white;
+    background-color: $kz-color-white;
+    color: $kz-color-wisteria-800;
+    
+    @include ca-media-mobile {
+      background-color: $kz-color-coral-500;
+      color: $kz-color-white;
+    }
   }
 }
