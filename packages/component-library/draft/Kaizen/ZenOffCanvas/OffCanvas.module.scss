@@ -77,3 +77,14 @@ $menu-footer-height: 100px;
 
   margin-left: 0;
 }
+
+.caLogo {
+  @include ca-padding($start: 20px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $kz-color-white;
+  width: 22px;
+  height: 22px;
+}

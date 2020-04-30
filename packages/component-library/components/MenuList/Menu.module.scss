@@ -12,7 +12,8 @@ $side-padding: 3/4 * $ca-grid;
 
 .menuList {
   background: #fff;
-  border: 1px solid $kz-color-wisteria-200;
+  border: $kz-border-solid-border-width $kz-border-solid-border-style
+    $kz-color-wisteria-200;
   box-shadow: $kz-shadow-small-box-shadow;
   line-height: 40px;
 }
