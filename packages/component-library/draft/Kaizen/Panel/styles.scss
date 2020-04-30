@@ -50,6 +50,12 @@
   }
 }
 
-.children {
+.description {
   max-width: 500px;
+}
+
+.actions {
+  button {
+    margin-right: $ca-grid / 2;
+  }
 }
