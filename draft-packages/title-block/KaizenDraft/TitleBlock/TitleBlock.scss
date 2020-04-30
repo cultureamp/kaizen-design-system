@@ -345,10 +345,6 @@ $breadcrumb-circle-width: 40px;
 .compact {
   @include ca-media-tablet-and-up {
     box-shadow: $kz-shadow-large-box-shadow;
-
-    .titleBlockInner {
-      height: $ca-layout-title-block-tablet-height;
-    }
   }
 }
 
