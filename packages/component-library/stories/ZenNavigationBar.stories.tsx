@@ -211,6 +211,7 @@ export const MenuGroup = () => (
                 {
                   label: "Skills",
                   url: "meh",
+                  showArrowIcon: true,
                 },
               ],
             },

@@ -33,9 +33,8 @@ $menuItem__margin: 4px;
   @include ca-margin($start: $ca-grid / 2);
 
   display: flex;
-  color: $kz-color-cluny-500;
-  opacity: 0;
-  transition: opacity $ca-ease $ca-duration-immediate;
+  color: rgba($kz-color-wisteria-800, 0.5);
+  transition: color $ca-ease $ca-duration-immediate;
 }
 
 .item {
@@ -70,7 +69,7 @@ $menuItem__margin: 4px;
     text-decoration: none;
 
     .arrowIcon {
-      opacity: 1;
+      color: $kz-color-cluny-500;
     }
   }
 }
