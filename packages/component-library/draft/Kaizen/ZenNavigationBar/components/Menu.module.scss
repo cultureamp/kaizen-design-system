@@ -9,6 +9,7 @@ $menu__square-size: $ca-grid * 2;
   position: relative;
   margin-top: 0;
   width: auto;
+  height: 100%;
 }
 
 .buttonReset {
@@ -36,7 +37,6 @@ $menu__square-size: $ca-grid * 2;
   .root & {
     position: relative;
     width: $menu__square-size;
-    height: $menu__square-size;
   }
 }
 
@@ -49,5 +49,5 @@ $menu__square-size: $ca-grid * 2;
     margin-left: 0;
   }
 
-  padding: 0 ($ca-grid / 2);
+  margin: 0 ($ca-grid / 2);
 }

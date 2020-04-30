@@ -25,7 +25,7 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
   // fill parent
   display: flex;
   min-width: 2 * $ca-grid;
-  height: $ca-navigation-bar__link-item-height;
+  height: 100%;
 
   // center child
   align-items: center;
@@ -34,7 +34,6 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
   border-radius: $kz-border-solid-border-radius;
 
   color: rgba($kz-color-white, 0.8);
-  padding: 0 ($ca-grid / 2);
   text-decoration: none;
   transition: background-color $ca-duration-rapid $ca-ease-in-out;
 
@@ -65,16 +64,27 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
     color: $kz-color-white;
 
     &::before {
-      transform: translateY(-18px);
+      transform: translateY(-1px);
     }
   }
 
-  &:hover,
-  &.menuOpen {
-    color: $kz-color-white; // override hyperlink hover color
-    text-decoration: none;
-    background-color: rgba($kz-color-white, 0.1);
+  .hoverArea {
+    display: flex;
+    align-items: center;
+    height: $ca-navigation-bar__link-item-height;
+    padding: 0 ($ca-grid / 2);
     border-radius: $kz-border-borderless-border-radius;
+  }
+
+  &:hover,
+  &.menuOpen,
+  &:focus {
+    text-decoration: none;
+    color: $kz-color-white; // override hyperlink hover color
+
+    .hoverArea {
+      background-color: rgba($kz-color-white, 0.1);
+    }
 
     .linkText::before {
       @include ca-media-mobile {
@@ -144,18 +154,22 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
 
       &:hover,
       &:focus {
-        background-color: rgba($kz-color-white, 0.1);
+        .hoverArea {
+          background-color: rgba($kz-color-white, 0.1);
 
-        .linkIcon {
-          opacity: 0.7;
+          .linkIcon {
+            opacity: 0.7;
+          }
         }
       }
 
       &:active {
-        background-color: rgba($kz-color-white, 0.2);
+        .hoverArea {
+          background-color: rgba($kz-color-white, 0.2);
 
-        .linkIcon {
-          opacity: 1;
+          .linkIcon {
+            opacity: 1;
+          }
         }
       }
     }
@@ -185,7 +199,9 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
       &:focus,
       &.menuOpen {
         color: $kz-color-cluny-500;
-        background-color: rgba($kz-color-white, 0.5);
+        .hoverArea {
+          background-color: rgba($kz-color-white, 0.5);
+        }
       }
 
       &::before {
