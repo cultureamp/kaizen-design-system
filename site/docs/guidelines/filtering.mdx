@@ -10,28 +10,28 @@ needToKnow:
 
 ## Overview
 
-*   A **filter menu** describes the group of components available to apply filters.
-*   A **filter dimension** describes a specific aspect of data that you might have different options for, such as “Price”.
+*   A **filter menu** describes a group of components available to apply filters.
+*   A **filter field** describes a specific group of data that you might have different options for, such as “Price”.
 *   A **filter value** describes a specific option for a dimension, such as “>$50”.
 *   An **applied filter** shows all the selected values for that filter dimension, such as “Price” being set to “>$50” and “&lt;$100”.
-*   A “**filter**” tends to describe a single filter dimension and sometimes its selected values. 
-*   **Results** describe all the data or content that matches the applied filters.
-*   **Results metadata **includes extra info about the results, such as the total number of results that match
+*   A “**filter**” tends to describe a single filter field, such as "Price" and sometimes its selected values as well, such as ">$50". If you are referring to a group of filters, refer to it as a **filter menu**.
+*   **Filter results** describe all the data or content that matches the applied filters.
+*   **Results metadata** includes extra info about the results, such as the total number of results or the participation # of a survey.
 *   **Matching** describes how closely a result matches its applied filter, such as whether a search query of “design” matches a filter value of “Marketing design”.
 *   **Loading state**: while filters are being applied and results are being fetched, you might show that the system is in a loading state. See [loading guidelines](https://cultureamp.design/guidelines/loading-patterns/).
-*   **Empty state**: Before a user has applied any filters, consider giving them an indication of what to expect from applying a filter. See [Empty State component](https://cultureamp.design/components/empty-state/).
-*   **Zero state**: If there are no matching results for an applied filter or combination of applied filters, tell the user that there are no matching results. Consider offering a clearly sign-posted alternative, such as a popular search query or which filters to adjust to return more results.
+*   **Empty state**: Before a user has applied any filters, consider giving them an indication of what to expect from applying a filter. See [Empty State component](https://cultureamp.design/components/empty-state/) for general guidelines. **Note: More guidance to be developed around Empty States for Filtering**
+*   **Zero state**: If there are no matching results for an applied filter or combination of applied filters, tell the user that there are no matching results. Consider offering a clearly sign-posted alternative, such as similar queries, popular search queries or which filters to adjust to return more results.
+
+## Choosing between live or batch filters
 
 ##### Live filters
 
-Refining results in real time using “live” filters—instantly updating results—lets your users directly manipulate the results and gives them control to respond to feedback: each set of new results lets them know whether they need to add another filter to find content right for them.
+Refining results in real time using “live” filters (instantly updating results) lets your users directly manipulate the results being served and gives them control to respond to visual feedback. I.e. each set of new results lets them know whether they need to add another filter to find content that's right for them.
 
 
 ##### Batch filters
 
-You might let your users batch together their filter choices by selecting
-
-a few filters at once and choosing “Search,” “Apply,” or “Done” before presenting any results. This is particularly useful if your product has a lot of data. Otherwise, your user might be frustrated by irrelevant, distracting information until they’ve added the final filter necessary to produce the results they want.
+You might let your users batch together their filter choices by selecting a few filters at once and choosing “Search,” “Apply,” or “Done” before presenting any results. This is particularly useful if your product has a lot of data. Otherwise, your user might be frustrated by irrelevant, distracting information until they’ve added the final filter necessary to produce the results they want.
 
 
 ## To keep in mind
@@ -39,18 +39,19 @@ a few filters at once and choosing “Search,” “Apply,” or “Done” befo
 For any filtering system, consider these questions in your approach:
 
 
+General usage questions you could answer with analytics:
+    *   **Filtering frequency:** What % of data views have at least one filter active?
+    *   **Concurrent filtering:** What’s the distribution curve for concurrent filter usage, e.g. % of filtered views with 1,2,3 etc active filters?
+    *   **Filter switching:** What's the distribution curve for number of filter views per session, e.g. switching between filtering by department, then by country, etc.
 
-*   General usage questions:
-    *   Filtering frequency. What % of data views have at least one filter active?
-    *   Concurrent filtering. What’s the distribution curve for concurrent filter usage, e.g. % of filtered views with 1,2,3 etc active filters?
-    *   Filter switching. What distribution curve for no. filter views per session e.g. switching between filtering by department, then by country etc 
-*   Targeted usage questions:
-    *   Filter task prioritisation. What tasks have the highest % filter use
-    *   Filter prioritisation. For each task, what are the most frequently used filters (e.g. eng report / department)
-*   Structural questions:
-    *   Positioning. Top or left panel? Exposed filters or Filter CTA?
-    *   Hierarchy. How do filters and navigation work together?
-    *   Filter continuity/retention. As a user switches between functional areas when should filters stay active, and when should they be reset (e.g. switching between engagement insights and comments)
+Targeted usage questions:
+    *   **Filter prioritization:** For each task, what are the most frequently used filters? E.g. Engagement report -> Department.
+*   **Filter task prioritization:** What tasks have the highest % filter use? E.g. Filtering to understand your group's engagement
+
+Structural questions:
+    *   **Hierarchy:** How do filters and navigation work together?
+    *   **Positioning:** Top or left panel? Exposed filters (E.g. [Checkboxes](/components/checkbox-group) or [Date Picker](/components/date-picker)) exposed next to content, or button that reveals a Filter menu (E.g. A panel of options that reveals itself, to help minimize content clutter).
+    *   **Filter continuity/retention:** As a user switches between functional areas, when should filters stay active, and when should they be reset? E.g. switching between engagement insights and comments.
 
 
 #### Select:
