@@ -64,6 +64,7 @@ steps:
     fields:
       - text: "Build Chromatic"
         key: "build-chromatic"
+        prompt: "check in Chromatic?"
 
 
   - name: ":rainbow: Build (chromatic)"
