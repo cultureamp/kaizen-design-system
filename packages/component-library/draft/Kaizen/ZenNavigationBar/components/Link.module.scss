@@ -19,6 +19,7 @@
 .badge {
   @include ca-margin($start: $ca-grid * 0.25);
   @include font-heading-6;
+  font-weight: 600;
 
   border-radius: $ca-grid;
   &.badgeNew {
