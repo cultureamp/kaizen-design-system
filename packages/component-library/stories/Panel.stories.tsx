@@ -8,7 +8,6 @@ const reportDataIllustration = require("./illustrations/reporting-hero-data.png"
 export default { title: "Panel", component: Panel }
 
 export const Default = () => (
-  <div style={{ lineHeight: 0 }}>
     <Panel
       data-automation-id="panel"
       img={{
@@ -37,5 +36,4 @@ export const Default = () => (
           "We’ve made it easier to navigate between the Engagement and Performance products. Learn more about this improvement.",
       }}
     />
-  </div>
 )
