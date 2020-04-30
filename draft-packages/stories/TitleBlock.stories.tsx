@@ -2,13 +2,12 @@ import { Button } from "@kaizen/component-library/components/Button"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { TitleBlock } from "@kaizen/draft-title-block"
 import * as React from "react"
-
+import { Paragraph } from "@kaizen/component-library"
 require("./TitleBlock.stories.scss")
 
 const stickyContainerStyle = {
   width: "100%",
   height: "2000px",
-  background: "lightgrey",
 }
 
 export default {
@@ -44,7 +43,10 @@ WithBreadcrumb.story = {
 export const WithToolbar = () => (
   <TitleBlock
     title="Home"
-    toolbar={[<Button label="Action" />, <Button label="Action 2" primary />]}
+    toolbar={[
+      <Button label="Action" reversed />,
+      <Button label="Action 2" primary reversed />,
+    ]}
   />
 )
 
@@ -65,8 +67,27 @@ export const Sticky = () => (
     <TitleBlock
       title="Home"
       sticky
-      toolbar={[<Button label="Action" />, <Button label="Action 2" primary />]}
+      breadcrumb={{ path: "#", text: "Back to home" }}
+      toolbar={[
+        <Button label="Action" reversed />,
+        <Button label="Action 2" primary reversed />,
+      ]}
     />
+    <div style={{ padding: "6rem", paddingTop: "8rem", maxWidth: "650px" }}>
+      <Paragraph variant="body" color="white">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
+        aliquam ipsum sit amet tortor sodales malesuada quis a nisi. Sed porta
+        ullamcorper velit a scelerisque. Aliquam erat volutpat. Class aptent
+        taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+        himenaeos. Proin ac vulputate mi. Vestibulum vitae pulvinar nibh. Cras
+        congue, lorem tincidunt porta laoreet, mauris nunc elementum metus, at
+        aliquet erat est eget odio. Vestibulum pretium ac massa id pretium. Nam
+        convallis tincidunt lorem at elementum. Integer rhoncus nulla sit amet
+        mollis placerat. Ut ullamcorper tortor eget metus sodales imperdiet.
+        Proin sagittis porttitor lectus vitae vestibulum. Fusce lacinia mollis
+        ullamcorper. Quisque sed molestie ex. Mauris dapibus neque eu dictum
+      </Paragraph>
+    </div>
   </div>
 )
 
@@ -128,7 +149,6 @@ export const NoBottomBorder = () => (
     variant="admin"
     noBottomBorder
     breadcrumb={{ path: "#", text: "Back to Home" }}
-    toolbar={[<Button label="Action" />, <Button label="Action 2" primary />]}
   />
 )
 
