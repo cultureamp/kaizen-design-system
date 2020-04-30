@@ -61,11 +61,7 @@ steps:
           run: publish
 
   - block: ":rainbow: Build (chromatic)"
-    fields:
-      - text: "Build Chromatic"
-        key: "build-chromatic"
-        prompt: "check in Chromatic?"
-
+    prompt: "Check in Chromatic?"
 
   - name: ":rainbow: Build (chromatic)"
     command: ".buildkite/scripts/run-chromatic-build.sh"
