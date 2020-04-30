@@ -130,6 +130,7 @@ export default class NavigationBar extends React.Component<Props> {
         ...linkProps,
         opaque: isFinal,
         small: isFinal,
+        content: this.props.colorScheme === "content"
       },
     }
     const key = "href" in linkProps ? linkProps.href : linkProps.heading

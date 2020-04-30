@@ -8,21 +8,6 @@
 
 .navigationBar {
   @extend %ca-navigation-bar;
-
-  &.content {
-    background: $kz-color-cluny-200;
-
-    .links {
-      a {
-        color: $kz-color-wisteria-800;
-        font-weight: 500;
-      }
-
-      .active a {
-        color: $kz-color-cluny-500;
-      }
-    }
-  }
 }
 
 .links {

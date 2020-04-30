@@ -17,6 +17,7 @@ export default class Link extends React.PureComponent<LinkProps> {
     opaque: false,
     small: false,
     new: false,
+    content: false,
     target: "_self",
   }
 
@@ -36,6 +37,7 @@ export default class Link extends React.PureComponent<LinkProps> {
       onClick,
       small,
       menuOpen,
+      content,
     } = this.props
 
     return (
@@ -46,6 +48,7 @@ export default class Link extends React.PureComponent<LinkProps> {
           [styles.opaque]: opaque,
           [styles.small]: small,
           [styles.menuOpen]: hasMenu && menuOpen,
+          [styles.content]: content
         })}
         tabIndex={0}
         onClick={event => {

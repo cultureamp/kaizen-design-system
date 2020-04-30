@@ -161,6 +161,39 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
     }
   }
 
+  @include ca-media-tablet-and-up {
+    &.content {
+      color: rgba($kz-color-wisteria-800, 0.7);
+
+      &.opaque, &.menuOpen {
+        color: $kz-color-wisteria-800;
+      }
+
+      &.small {
+        color: $kz-color-cluny-500;
+
+        &.opaque {
+          color: $kz-color-cluny-500;
+        }
+      }
+
+      &.active {
+        color: $kz-color-cluny-500;
+      }
+
+      &:hover,
+      &:focus,
+      &.menuOpen {
+        color: $kz-color-cluny-500;
+        background-color: rgba($kz-color-white, 0.5);
+      }
+
+      &::before {
+        background-color: $kz-color-cluny-500;
+      }
+    }
+  }
+
   @include ca-media-mobile {
     justify-content: flex-start;
     align-items: center;
@@ -189,6 +222,10 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
 
   @media print {
     display: none;
+  }
+
+  &.content {
+    background: $kz-color-cluny-200;
   }
 }
 
