@@ -121,3 +121,26 @@ EducationVariant.story = {
     ],
   },
 }
+
+export const NoBottomBorder = () => (
+  <TitleBlock
+    title="Admin"
+    variant="admin"
+    noBottomBorder
+    breadcrumb={{ path: "#", text: "Back to Home" }}
+    toolbar={[<Button label="Action" />, <Button label="Action 2" primary />]}
+  />
+)
+
+NoBottomBorder.story = {
+  name: "no bottom border",
+  parameters: {
+    backgrounds: [
+      {
+        name: "White",
+        value: colorTokens.kz.color.white,
+        default: true,
+      },
+    ],
+  },
+}

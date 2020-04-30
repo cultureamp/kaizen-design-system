@@ -30,6 +30,7 @@ type Props = {
   textDirection?: "ltr" | "rtl"
   surveyStatus?: SurveyStatus
   sticky?: boolean
+  noBottomBorder ?: boolean
 }
 
 type State = {
@@ -43,6 +44,7 @@ const meetsCompactThreshold = () =>
 class TitleBlock extends React.Component<Props, State> {
   static defaultProps = {
     textDirection: "ltr",
+    noBottomBorder: false,
   }
   state = {
     useCompactSize: meetsCompactThreshold(),
@@ -115,7 +117,7 @@ class TitleBlock extends React.Component<Props, State> {
   }
 
   render() {
-    const { sticky, toolbar, variant } = this.props
+    const { sticky, toolbar, variant, noBottomBorder } = this.props
     const { useCompactSize } = this.state
 
     return (
@@ -129,6 +131,7 @@ class TitleBlock extends React.Component<Props, State> {
           className={classNames(styles.titleBlock, {
             [styles.educationVariant]: variant === "education",
             [styles.adminVariant]: variant === "admin",
+            [styles.noBottomBorder]: noBottomBorder,
           })}
           data-automation-id="TitleBlock__TitleBlock"
         >

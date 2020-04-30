@@ -48,6 +48,10 @@
     border-bottom: 3px solid add-alpha($kz-color-wisteria-700, 20%);
   }
 
+  .noBottomBorder & {
+    border-bottom: 3px solid transparent;
+  }
+
   @include ca-media-tablet {
     height: $ca-layout-title-block-tablet-height;
   }
