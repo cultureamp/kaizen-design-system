@@ -16,6 +16,8 @@ const argv = require("yargs")
     "curse",
     "TODO - Curse deprecates a component. All existing references will be moved to the legacy location"
   )
+  .command("--dry-run", "does not write files")
+  .command("--prettier", "runs prettier over the files before writing them")
   .count("verbose")
   .alias("v", "verbose")
   .help("h")
@@ -24,6 +26,7 @@ const argv = require("yargs")
 const VERBOSE_LEVEL = argv.verbose
 const logger = log(VERBOSE_LEVEL)
 const isDryRun = argv.dryRun
+const isEnablePrettier = argv.prettier;
 
 if (argv._.includes("bless")) {
   logger("info", "bless - not yet implements")
@@ -35,5 +38,5 @@ if (argv._.includes("bless")) {
     locations = argv._[1]
   }
 
-  main(locations, isDryRun, logger)
+  main(locations, isDryRun, isEnablePrettier, logger)
 }

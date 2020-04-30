@@ -10,11 +10,11 @@
     "kaizen-codemods": "bin/index.js"
   },
   "engines": {
-    "node": "10.16.3"
+    "node": "~10"
   },
   "scripts": {
     "build": "yarn clean && yarn prepublish",
-    "clean": "rimraf 'bin/*'",
+    "clean": "rimraf 'bin'",
     "dev": "nodemon",
     "lint": "prettier 'lib/*' 'index.ts' --write",
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -29,7 +29,9 @@
     "ts-node": "^8.9.0"
   },
   "dependencies": {
+    "@kaizen/codemods": "file:/Users/ally.beaton/Code/kds/packages/codemods",
     "@types/node": "^13.13.2",
+    "global": "^4.4.0",
     "lodash": "^4.17.15",
     "prettier": "^2.0.5",
     "typescript": "^3.8.3",

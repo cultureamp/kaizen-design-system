@@ -29,24 +29,21 @@ async function getFiles(dir: string) {
   )
 }
 
-async function main(locations: string, isDryRun: boolean, logger: any) {
+async function main(locations: string, isDryRun: boolean, isEnablePrettier: boolean, logger: any) {
   logger("verbose", `Checking file location: ${locations}`)
 
   try {
     const files = await getFiles(locations)
+
     files.forEach(async file => {
       const data = await readFile(file)
       logger("verbose", `---\nReading: ${file}`)
 
       let target: Target
-      if (file.includes(".elm")) {
+      const extension: string = file.split(".").pop()
+      if (extension === "elm") {
         target = "elm"
-      } else if (
-        file.includes(".js") ||
-        file.includes(".ts") ||
-        file.includes(".jsx") ||
-        file.includes(".tsx")
-      ) {
+      } else if (extension === "js" || extension === "ts" || extension === "jsx" || extension === "tsx") {
         // for the purposes of this transformation, we don't care if the file is a ts or js file
         target = "js"
       } else {
@@ -64,7 +61,7 @@ async function main(locations: string, isDryRun: boolean, logger: any) {
         )
 
         if (!isDryRun) {
-          if (target === "js") {
+          if (target === "js" && isEnablePrettier) {
             newFile = prettier.format(newFile, {
               semi: false,
               singleQuote: false,
@@ -83,10 +80,9 @@ async function main(locations: string, isDryRun: boolean, logger: any) {
       }
     })
   } catch (e) {
-    logger("info", e)
+    logger("info", e);
   }
 }
-
 /**
  *
  * @param target The language we are transforming
