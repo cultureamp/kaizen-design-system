@@ -331,16 +331,6 @@ $breadcrumb-circle-width: 40px;
   }
 }
 
-%backgroundAnimated {
-  will-change: background-color;
-  transition: background-color $ca-duration-rapid $ca-linear;
-}
-
-%heightAnimated {
-  will-change: height;
-  transition: height $ca-duration-rapid $ca-ease-in;
-}
-
 .compact {
   @include ca-media-tablet-and-up {
     box-shadow: $kz-shadow-large-box-shadow;
@@ -351,13 +341,5 @@ $breadcrumb-circle-width: 40px;
   @include ca-media-tablet-and-up {
     position: fixed;
     z-index: $ca-z-index-sticky;
-  }
-
-  .titleBlock {
-    @extend %backgroundAnimated;
-  }
-
-  .titleBlockInner {
-    @extend %heightAnimated;
   }
 }
