@@ -29,7 +29,6 @@ $focus-ring-offset: 2px;
   height: $radio-size;
   width: $radio-size;
   top: 0;
-  transform: translateY($radio-size / 8);
   border: $kz-border-solid-border-width $kz-border-solid-border-style
     $kz-color-wisteria-500;
   box-sizing: border-box;
@@ -41,6 +40,7 @@ $focus-ring-offset: 2px;
 
   .radioInput:focus:not([disabled]) + &,
   .radioInput:hover:focus:not([disabled]) + & {
+    border-color: $kz-color-wisteria-700;
     background-color: $kz-color-wisteria-100;
   }
 

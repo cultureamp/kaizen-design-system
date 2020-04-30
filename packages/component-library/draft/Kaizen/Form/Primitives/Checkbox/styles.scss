@@ -30,7 +30,6 @@ $focus-ring-offset: 2px;
   height: $checkbox-size;
   width: $checkbox-size;
   top: 0;
-  transform: translateY($checkbox-size / 8);
   border: $kz-border-solid-border-width $kz-border-solid-border-style
     $kz-color-wisteria-500;
   border-radius: $kz-border-solid-border-radius;
