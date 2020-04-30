@@ -60,7 +60,7 @@ async function main(locations: string, isDryRun: boolean, logger: any) {
       if (data.toString() !== newFile) {
         logger(
           "verbose",
-          `${isDryRun && "dry run - "}transforms found, writing to file`
+          `${isDryRun ? "dry run - " : ""}transforms found, writing to file`
         )
 
         if (!isDryRun) {
@@ -78,7 +78,7 @@ async function main(locations: string, isDryRun: boolean, logger: any) {
       } else {
         logger(
           "verbose",
-          `${isDryRun && "dry run - "}no transforms, skip writing file`
+          `${isDryRun ? "dry run - " : ""}no transforms, skip writing file`
         )
       }
     })
