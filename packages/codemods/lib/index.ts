@@ -63,30 +63,28 @@ async function main(
 
       let newFile = transform(target, data)
 
+      if (prettierLocation !== "" && target === "js") {
+        const configFilePath = path.resolve(process.cwd(), prettierLocation);
+        const configOptions = prettier.resolveConfig.sync(
+          configFilePath
+        )
+        newFile = prettier.format(
+          newFile,
+          {
+            ...configOptions,
+            filepath: configFilePath,
+            parser: "typescript"
+          }
+        )
+      }
+
       // write to file if there are changes
       if (data.toString() !== newFile) {
         logger(
           "verbose",
           `${isDryRun ? "dry run - " : ""}transforms found, writing to file`
         )
-
         if (!isDryRun) {
-          if (target === "js" && prettierLocation !== "") {
-            const configFilePath = path.resolve(process.cwd(), prettierLocation);
-            const configOptions = prettier.resolveConfig.sync(
-              configFilePath
-            )
-
-            newFile = prettier.format(
-              newFile,
-              {
-                ...configOptions,
-                filepath: configFilePath,
-                parser: "typescript"
-              }
-            )
-
-          }
           writeFile(file, newFile)
         }
       } else {
