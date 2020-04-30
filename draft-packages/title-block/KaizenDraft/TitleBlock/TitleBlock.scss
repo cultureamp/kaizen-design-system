@@ -67,11 +67,10 @@ $breadcrumb-circle-width: 40px;
   position: absolute;
   z-index: $ca-z-index-sticky;
   align-items: center;
-  top: $ca-layout-title-block-height / 2;
+  top: 50%;
   transform: translateY(-50%);
   left: calc(-#{$breadcrumb-circle-width} - #{$ca-grid});
   color: $kz-color-white;
-  height: 45px;
 
   &:hover {
     text-decoration: none;
