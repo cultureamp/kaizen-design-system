@@ -18,24 +18,29 @@ const writeFile = promisify(fs.writeFile)
 async function getFiles(dir: string) {
   const dirents = await readdir(dir, { withFileTypes: true })
   const files = await Promise.all(
-    dirents.map(dirent => {
+    dirents.map((dirent) => {
       const res = path.resolve(dir, dirent.name)
       return dirent.isDirectory() ? getFiles(res) : res
     })
   )
 
   return Array.prototype.concat(
-    ...files.filter(curr => !curr.includes("node_modules"))
+    ...files.filter((curr) => !curr.includes("node_modules"))
   )
 }
 
-async function main(locations: string, isDryRun: boolean, isEnablePrettier: boolean, logger: any) {
+async function main(
+  locations: string,
+  isDryRun: boolean,
+  prettierLocation: string,
+  logger: any
+) {
   logger("verbose", `Checking file location: ${locations}`)
 
   try {
     const files = await getFiles(locations)
 
-    files.forEach(async file => {
+    files.forEach(async (file) => {
       const data = await readFile(file)
       logger("verbose", `---\nReading: ${file}`)
 
@@ -43,7 +48,12 @@ async function main(locations: string, isDryRun: boolean, isEnablePrettier: bool
       const extension: string = file.split(".").pop()
       if (extension === "elm") {
         target = "elm"
-      } else if (extension === "js" || extension === "ts" || extension === "jsx" || extension === "tsx") {
+      } else if (
+        extension === "js" ||
+        extension === "ts" ||
+        extension === "jsx" ||
+        extension === "tsx"
+      ) {
         // for the purposes of this transformation, we don't care if the file is a ts or js file
         target = "js"
       } else {
@@ -61,15 +71,22 @@ async function main(locations: string, isDryRun: boolean, isEnablePrettier: bool
         )
 
         if (!isDryRun) {
-          if (target === "js" && isEnablePrettier) {
-            newFile = prettier.format(newFile, {
-              semi: false,
-              singleQuote: false,
-              trailingComma: "es5",
-              parser: "typescript",
-            })
-          }
+          if (target === "js" && prettierLocation !== "") {
+            const configFilePath = path.resolve(process.cwd(), prettierLocation);
+            const configOptions = prettier.resolveConfig.sync(
+              configFilePath
+            )
 
+            newFile = prettier.format(
+              newFile,
+              {
+                ...configOptions,
+                filepath: configFilePath,
+                parser: "typescript"
+              }
+            )
+
+          }
           writeFile(file, newFile)
         }
       } else {
@@ -80,7 +97,7 @@ async function main(locations: string, isDryRun: boolean, isEnablePrettier: bool
       }
     })
   } catch (e) {
-    logger("info", e);
+    logger("info", e)
   }
 }
 /**
