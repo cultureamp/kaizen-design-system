@@ -16,8 +16,8 @@ export default {
   parameters: {
     backgrounds: [
       {
-        name: "White",
-        value: colorTokens.kz.color.white,
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria["700"],
         default: true,
       },
     ],
@@ -74,11 +74,11 @@ Sticky.story = {
   name: "sticky",
 }
 
-export const ReportingVariant = () => (
+export const AdminVariant = () => (
   <TitleBlock
-    title="Q4 Evaluation, 2019"
-    variant="reporting"
-    breadcrumb={{ path: "#", text: "Back to reports" }}
+    title="Admin"
+    variant="admin"
+    breadcrumb={{ path: "#", text: "Back to home" }}
     toolbar={[
       <Button label="Action" reversed />,
       <Button label="Action 2" primary reversed />,
@@ -87,13 +87,13 @@ export const ReportingVariant = () => (
   />
 )
 
-ReportingVariant.story = {
-  name: "reporting variant",
+AdminVariant.story = {
+  name: "admin variant",
   parameters: {
     backgrounds: [
       {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria["700"],
+        name: "White",
+        value: colorTokens.kz.color.white,
         default: true,
       },
     ],

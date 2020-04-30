@@ -9,12 +9,13 @@
 @import "~@kaizen/component-library/styles/animation";
 
 .titleBlockContainer {
-  color: $kz-color-wisteria-800;
   width: 100%;
 }
 
 .titleBlock {
   background-color: #fff;
+  background-color: $kz-color-wisteria-700;
+  color: $kz-color-white;
   width: inherit;
 
   @media print {
@@ -22,13 +23,14 @@
   }
 }
 
-.reportingVariant {
-  background-color: $kz-color-wisteria-700;
-  color: $kz-color-white;
-}
-
 .educationVariant {
   background-color: $kz-color-cluny-200;
+  color: $kz-color-wisteria-800;
+}
+
+.adminVariant {
+  background-color: $kz-color-white;
+  color: $kz-color-wisteria-800;
 }
 
 .titleBlockInner {
@@ -39,10 +41,11 @@
   margin: 0 $ca-layout-side-padding;
   height: $ca-layout-title-block-height;
   margin: 0 auto;
-  border-bottom: 3px solid add-alpha($kz-color-wisteria-700, 20%);
+  border-bottom: 3px solid add-alpha($kz-color-white, 10%);
 
-  .reportingVariant & {
-    border-bottom: 3px solid add-alpha($kz-color-white, 10%);
+  .educationVariant &,
+  .adminVariant & {
+    border-bottom: 3px solid add-alpha($kz-color-wisteria-700, 20%);
   }
 
   @include ca-media-tablet {
@@ -67,7 +70,7 @@ $breadcrumb-circle-width: 40px;
   top: $ca-layout-title-block-height / 2;
   transform: translateY(-50%);
   left: calc(-#{$breadcrumb-circle-width} - #{$ca-grid});
-  color: $ca-link-text-color;
+  color: $kz-color-white;
   height: 45px;
 
   &:hover {
@@ -79,8 +82,9 @@ $breadcrumb-circle-width: 40px;
     right: -38px;
   }
 
-  .reportingVariant & {
-    color: $kz-color-white;
+  .educationVariant &,
+  .adminVariant & {
+    color: $ca-link-text-color;
   }
 
   @media only screen and (max-width: $ca-layout-max-width + ($ca-layout-side-padding * 2)) {
@@ -136,11 +140,11 @@ $breadcrumb-circle-width: 40px;
   box-sixing: border-box;
   width: $breadcrumb-circle-width;
   height: $breadcrumb-circle-width;
+  color: $kz-color-white;
+  border-color: add-alpha($kz-color-white, 50%);
+  border-width: 2px;
   border-radius: 50%;
-  border-width: $border-width;
-  border-color: $kz-color-cluny-300;
   border-style: solid;
-  color: $kz-color-cluny-500;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -148,24 +152,25 @@ $breadcrumb-circle-width: 40px;
 
   .breadcrumb:hover &,
   .breadcrumb:focus & {
-    background-color: $kz-color-cluny-500;
-    color: #fff;
     transform: scale(1.1);
     border-color: transparent;
-  }
-
-  .reportingVariant & {
-    color: $kz-color-white;
-    border-color: add-alpha($kz-color-white, 50%);
-    border-width: 2px;
-  }
-
-  .reportingVariant .breadcrumb:hover &,
-  .reportingVariant .breadcrumb:focus & {
     background-color: $kz-color-white;
     color: $kz-color-wisteria-700;
-    transform: scale(1.1);
-    border-color: transparent;
+  }
+
+  .educationVariant &,
+  .adminVariant & {
+    color: $kz-color-cluny-500;
+    border-color: $kz-color-cluny-300;
+    border-width: $border-width;
+  }
+
+  .educationVariant .breadcrumb:hover &,
+  .educationVariant .breadcrumb:focus &,
+  .adminVariant .breadcrumb:hover &,
+  .adminVariant .breadcrumb:focus & {
+    background-color: $kz-color-cluny-500;
+    color: #fff;
   }
 }
 
