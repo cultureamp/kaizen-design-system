@@ -58,7 +58,7 @@ const jsTokenise = (
 } => {
   // @TODO - now that our bastardised mix of flow, ts, and js is removed,
   // in future versions we can use AST to tokenise. This is fine for now.
-  const allImportsRegex = /import (?:type)?({?.*?}?) from '(.*?)';/gs
+  const allImportsRegex = /import (?:type)?(.*?) from (?:"|')+(.*?)(?:"|')+/gs;
   const importTokens: JsToken[] = []
   let match
   // tslint:disable-next-line: no-conditional-assignment
@@ -70,6 +70,7 @@ const jsTokenise = (
       isDefaultExport: match[1] === undefined,
       meta: match,
     })
+
   }
 
   let startIndex = 0
