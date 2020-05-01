@@ -38,6 +38,13 @@ $menu__square-size: 60px;
     position: relative;
     width: $menu__square-size;
   }
+
+  .customChild {
+    height: $menu__square-size;
+    max-height: $menu__square-size;
+    display: flex;
+    align-items: center;
+  }
 }
 
 .buttonLink {

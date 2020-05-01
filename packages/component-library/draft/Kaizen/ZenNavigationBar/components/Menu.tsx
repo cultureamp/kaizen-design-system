@@ -87,7 +87,7 @@ export default class Menu extends React.Component<MenuProps, State> {
                 onMouseDown={e => e.preventDefault()}
               >
                 {children ? (
-                  children
+                  <div className={styles.customChild}>{children}</div>
                 ) : (
                   <span className={styles.hoverArea}>
                     {icon && (
