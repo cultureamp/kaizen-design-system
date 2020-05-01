@@ -1,0 +1,34 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/responsive";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "../styles";
+
+.link {
+  @include ca-navigation-bar__link-item;
+}
+
+.menuIcon {
+  margin-left: auto;
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+}
+
+.badge {
+  @include ca-margin($start: $ca-grid * 0.25);
+  @include font-heading-6;
+
+  border-radius: $ca-grid;
+  &.badgeNew {
+    @include ca-padding($start: $ca-grid * 0.5, $end: $ca-grid * 0.5);
+    background-color: $kz-color-seedling-200;
+    color: $kz-color-wisteria-800;
+  }
+  &.badgeNotification {
+    @include ca-padding($start: $ca-grid / 3, $end: $ca-grid / 3);
+    background-color: $kz-color-coral-500;
+    color: $kz-color-white;
+  }
+}
