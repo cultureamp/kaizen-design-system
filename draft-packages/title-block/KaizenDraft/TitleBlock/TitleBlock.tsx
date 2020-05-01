@@ -30,7 +30,7 @@ type Props = {
   textDirection?: "ltr" | "rtl"
   surveyStatus?: SurveyStatus
   sticky?: boolean
-  noBottomBorder ?: boolean
+  noBottomSeparator?: boolean
 }
 
 type State = {
@@ -44,7 +44,7 @@ const meetsCompactThreshold = () =>
 class TitleBlock extends React.Component<Props, State> {
   static defaultProps = {
     textDirection: "ltr",
-    noBottomBorder: false,
+    noBottomSeparator: false,
   }
   state = {
     useCompactSize: meetsCompactThreshold(),
@@ -117,7 +117,7 @@ class TitleBlock extends React.Component<Props, State> {
   }
 
   render() {
-    const { sticky, toolbar, variant, noBottomBorder } = this.props
+    const { sticky, toolbar, variant, noBottomSeparator } = this.props
     const { useCompactSize } = this.state
 
     return (
@@ -131,28 +131,30 @@ class TitleBlock extends React.Component<Props, State> {
           className={classNames(styles.titleBlock, {
             [styles.educationVariant]: variant === "education",
             [styles.adminVariant]: variant === "admin",
-            [styles.noBottomBorder]: noBottomBorder,
+            [styles.noBottomSeparator]: noBottomSeparator,
           })}
           data-automation-id="TitleBlock__TitleBlock"
         >
-          <div className={styles.titleBlockInner}>
-            {this.renderBreadcrumb()}
-            <div className={styles.leftContent}>
-              <div className={styles.titleContainer}>
-                <div
-                  className={styles.textContainer}
-                  data-automation-id="TitleBlock__Text"
-                >
-                  {this.renderTitle()}
-                  {this.renderTag()}
+          <div className={styles.bottomSeparatorContainer}>
+            <div className={styles.titleBlockInner}>
+              {this.renderBreadcrumb()}
+              <div className={styles.leftContent}>
+                <div className={styles.titleContainer}>
+                  <div
+                    className={styles.textContainer}
+                    data-automation-id="TitleBlock__Text"
+                  >
+                    {this.renderTitle()}
+                    {this.renderTag()}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div
-              className={styles.toolbarContainer}
-              data-automation-id="title-block--actions"
-            >
-              {toolbar}
+              <div
+                className={styles.toolbarContainer}
+                data-automation-id="title-block--actions"
+              >
+                {toolbar}
+              </div>
             </div>
           </div>
         </div>

@@ -145,17 +145,17 @@ EducationVariant.story = {
   },
 }
 
-export const NoBottomBorder = () => (
+export const NoBottomSeparator = () => (
   <TitleBlock
     title="Admin"
     variant="admin"
-    noBottomBorder
+    noBottomSeparator
     breadcrumb={{ path: "#", text: "Back to Home" }}
   />
 )
 
-NoBottomBorder.story = {
-  name: "no bottom border",
+NoBottomSeparator.story = {
+  name: "no bottom separator",
   parameters: {
     backgrounds: [
       {
@@ -187,5 +187,24 @@ SmallMobileKitchenSink.story = {
   name: "small mobile kitchen sink",
   parameters: {
     viewport: { defaultViewport: "mobile1" },
+  },
+}
+
+export const TabletKitchenSink = () => (
+  <TitleBlock
+    title="Home"
+    breadcrumb={{ path: "#", text: "Back to reports" }}
+    surveyStatus={{ status: "live", text: "Live" }}
+    toolbar={[
+      <Button label="Action" reversed />,
+      <Button label="Action 2" primary reversed />,
+    ]}
+  />
+)
+
+TabletKitchenSink.story = {
+  name: "tablet kitchen sink",
+  parameters: {
+    viewport: { defaultViewport: "tablet" },
   },
 }
