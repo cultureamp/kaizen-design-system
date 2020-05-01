@@ -1,0 +1,98 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/responsive";
+@import "./styles";
+
+.navigationBar {
+  @extend %ca-navigation-bar;
+
+  &.content {
+    background: $kz-color-cluny-200;
+
+    .links {
+      a {
+        color: $kz-color-wisteria-800;
+        font-weight: 500;
+      }
+
+      .active a {
+        color: $kz-color-cluny-500;
+      }
+    }
+  }
+}
+
+.links {
+  @include ca-margin($start: $ca-grid, $end: $ca-grid);
+  display: inline-flex;
+  flex: 1 0 0;
+
+  > ul {
+    margin: 0 ($ca-grid / 4);
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+
+    &.primary {
+      @include ca-margin($start: 0);
+    }
+
+    &.secondary {
+      @include ca-margin($start: 0);
+      padding-left: $ca-grid;
+      position: relative;
+      &:before {
+        position: absolute;
+        content: "";
+        left: 0;
+        background-color: rgba($white, 0.1);
+        height: 100%;
+        width: 3px;
+        border-radius: 3px;
+      }
+    }
+
+    &.final {
+      @include ca-margin($start: auto, $end: 0);
+    }
+
+    // Bit of a hack selector, but because of module scoping this is the easiest way
+    .content & span::before {
+      background-color: $kz-color-cluny-500;
+      height: 5px;
+      border-radius: 0 0 $kz-border-solid-border-radius
+        $kz-border-solid-border-radius;
+    }
+
+    @include ca-media-tablet {
+      margin: 0;
+    }
+  }
+
+  @include ca-media-tablet {
+    @include ca-margin($start: $ca-grid / 2);
+  }
+}
+
+.child {
+  @include ca-margin($end: $ca-grid);
+
+  .final & {
+    @include ca-margin($end: 8px);
+    &:last-child {
+      @include ca-margin($end: 0);
+    }
+  }
+
+  display: flex;
+  position: relative;
+  flex: 0 0 auto;
+  text-decoration: none;
+}
+
+.headerSlot {
+  @include ca-margin($start: $ca-grid, $end: $ca-grid);
+}

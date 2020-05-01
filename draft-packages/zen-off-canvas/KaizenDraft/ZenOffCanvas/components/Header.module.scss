@@ -1,0 +1,24 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/responsive";
+@import "../../ZenNavigationBar/styles";
+
+.root {
+  @include ca-padding($end: $ca-grid / 2);
+
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  background-color: $kz-color-wisteria-700;
+  box-sizing: border-box;
+}
+
+.heading {
+  @include font-heading-3;
+
+  color: $kz-color-white;
+}
