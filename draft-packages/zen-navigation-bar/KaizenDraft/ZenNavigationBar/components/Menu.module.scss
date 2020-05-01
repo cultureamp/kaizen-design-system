@@ -1,0 +1,53 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/layout";
+@import "../styles";
+
+$menu__square-size: $ca-grid * 2;
+
+.root {
+  position: relative;
+  margin-top: 0;
+  width: auto;
+}
+
+.buttonReset {
+  // reset button styles
+  appearance: none;
+  background: transparent;
+  border: none;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  // override Murmur global styles :(
+  transition: none;
+}
+
+.button {
+  @extend %ca-navigation-bar__menu-item-focus;
+  composes: buttonReset;
+
+  // fill parent
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  .root & {
+    position: relative;
+    width: $menu__square-size;
+    height: $menu__square-size;
+  }
+}
+
+.buttonLink {
+  @include ca-navigation-bar__link-item;
+  composes: buttonReset;
+
+  .root & {
+    width: auto;
+    margin-left: 0;
+  }
+
+  padding: 0 ($ca-grid / 2);
+}
