@@ -171,6 +171,22 @@ WithTitle.story = {
   name: "with title",
 }
 
+export const DesktopKitchenSink = () => (
+  <TitleBlock
+    title="Home"
+    breadcrumb={{ path: "#", text: "Back to reports" }}
+    surveyStatus={{ status: "live", text: "Live" }}
+    toolbar={[
+      <Button label="Action" reversed />,
+      <Button label="Action 2" primary reversed />,
+    ]}
+  />
+)
+
+DesktopKitchenSink.story = {
+  name: "desktop kitchen sink",
+}
+
 export const SmallMobileKitchenSink = () => (
   <TitleBlock
     title="Home"

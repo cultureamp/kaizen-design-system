@@ -161,9 +161,9 @@ $breadcrumb-circle-width: 40px;
   .breadcrumb:hover &,
   .breadcrumb:focus & {
     transform: scale(1.1);
-    border-color: transparent;
-    background-color: $kz-color-white;
-    color: $kz-color-wisteria-700;
+    border-color: $kz-color-white;
+    color: $kz-color-white;
+    background-color: add-alpha($kz-color-white, 10%);
   }
 
   .educationVariant &,
@@ -177,8 +177,9 @@ $breadcrumb-circle-width: 40px;
   .educationVariant .breadcrumb:focus &,
   .adminVariant .breadcrumb:hover &,
   .adminVariant .breadcrumb:focus & {
-    background-color: $kz-color-cluny-500;
-    color: #fff;
+    border-color: $kz-color-cluny-500;
+    color: $kz-color-cluny-500;
+    background-color: add-alpha($kz-color-cluny-500, 10%);
   }
 }
 
