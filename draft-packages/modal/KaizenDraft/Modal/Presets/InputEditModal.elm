@@ -23,13 +23,13 @@ import Button.Button as Button
 import CssModules exposing (css)
 import Html exposing (Html, div, form, span, text)
 import Json.Decode as Decode
-import Kaizen.Form.TextField.TextField as TextField
-import Kaizen.Modal.Primitives.Configuration as ModalConfiguration exposing (configurationDefaults)
-import Kaizen.Modal.Primitives.ModalAccessibleDescription as ModalAccessibleDescription
-import Kaizen.Modal.Primitives.ModalAccessibleLabel as ModalAccessibleLabel
-import Kaizen.Modal.Primitives.ModalBody as ModalBody
-import Kaizen.Modal.Primitives.ModalFooter as ModalFooter
-import Kaizen.Modal.Primitives.ModalHeader as ModalHeader
+import KaizenDraft.Form.TextField.TextField as TextField
+import KaizenDraft.Modal.Primitives.Configuration as ModalConfiguration exposing (configurationDefaults)
+import KaizenDraft.Modal.Primitives.ModalAccessibleDescription as ModalAccessibleDescription
+import KaizenDraft.Modal.Primitives.ModalAccessibleLabel as ModalAccessibleLabel
+import KaizenDraft.Modal.Primitives.ModalBody as ModalBody
+import KaizenDraft.Modal.Primitives.ModalFooter as ModalFooter
+import KaizenDraft.Modal.Primitives.ModalHeader as ModalHeader
 import Text.Text as Text
 
 

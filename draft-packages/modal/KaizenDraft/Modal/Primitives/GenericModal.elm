@@ -4,7 +4,7 @@ import CssModules exposing (css)
 import Html exposing (Html, div, span)
 import Html.Attributes exposing (style)
 import Html.Attributes.Aria exposing (ariaDescribedby, ariaLabelledby, role)
-import Kaizen.Modal.Primitives.Constants as Constants
+import KaizenDraft.Modal.Primitives.Constants as Constants
 
 
 type Config msg

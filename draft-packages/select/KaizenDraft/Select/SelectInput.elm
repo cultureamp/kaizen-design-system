@@ -19,7 +19,7 @@ import Html exposing (Html, div, input, text)
 import Html.Attributes exposing (attribute, id, size, style, type_, value)
 import Html.Events exposing (on, onBlur, onFocus, preventDefaultOn)
 import Json.Decode as Decode
-import Kaizen.Events.Events as Events
+import KaizenDraft.Events.Events as Events
 
 
 type Config msg

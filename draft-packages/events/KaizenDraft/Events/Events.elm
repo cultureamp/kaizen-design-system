@@ -32,7 +32,7 @@ import Elm18Compatible.Keyboard as Keyboard
 import Html exposing (Html)
 import Html.Events exposing (keyCode, on, preventDefaultOn)
 import Json.Decode as Decode
-import Kaizen.UserInteractions.Keyboard exposing (Key(..), decoder)
+import KaizenDraft.UserInteractions.Keyboard exposing (Key(..), decoder)
 
 
 onEnter : msg -> Html.Attribute msg

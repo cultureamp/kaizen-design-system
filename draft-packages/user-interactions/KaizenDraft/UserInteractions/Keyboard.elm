@@ -1,7 +1,7 @@
 module KaizenDraft.UserInteractions.Keyboard exposing (Key(..), decoder, subscriptions)
 
 import Elm18Compatible.Keyboard as Keyboard18
-import Kaizen.UserInteractions.KeyCodes as KeyCodes
+import KaizenDraft.UserInteractions.KeyCodes as KeyCodes
 
 
 type Key
