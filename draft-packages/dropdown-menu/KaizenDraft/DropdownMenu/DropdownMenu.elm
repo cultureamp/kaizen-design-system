@@ -16,8 +16,8 @@ import Html.Attributes as Attributes exposing (attribute, selected, tabindex, ti
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
 import Json.Decode as Decode
-import Kaizen.Dropdown.Dropdown as Dropdown
-import Kaizen.MenuList.MenuList as MenuList
+import KaizenDraft.Dropdown.Dropdown as Dropdown
+import KaizenDraft.MenuList.MenuList as MenuList
 
 
 type State

@@ -29,12 +29,12 @@ import Html exposing (Html, div, text)
 import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
 import Html.Lazy exposing (lazy)
-import Kaizen.Events.Events as KaizenEvents
-import Kaizen.Form.TextField.TextField as TextField
-import Kaizen.Modal.Presets.ConfirmationModal as ConfirmationModal
-import Kaizen.Modal.Presets.InputEditModal as InputEditModal
-import Kaizen.Modal.Primitives.Constants as Constants
-import Kaizen.Modal.Primitives.GenericModal as GenericModal
+import KaizenDraft.Events.Events as KaizenEvents
+import KaizenDraft.Form.TextField.TextField as TextField
+import KaizenDraft.Modal.Presets.ConfirmationModal as ConfirmationModal
+import KaizenDraft.Modal.Presets.InputEditModal as InputEditModal
+import KaizenDraft.Modal.Primitives.Constants as Constants
+import KaizenDraft.Modal.Primitives.GenericModal as GenericModal
 import Task
 import Time as Time
 

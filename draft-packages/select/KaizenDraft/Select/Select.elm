@@ -32,10 +32,10 @@ import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
 import Json.Decode as Decode
 import Json.Encode as Encode
-import Kaizen.Events.Events as Events
-import Kaizen.Select.Ports as Ports
-import Kaizen.Select.SelectInput as SelectInput
-import Kaizen.Tag.Tag as Tag
+import KaizenDraft.Events.Events as Events
+import KaizenDraft.Select.Ports as Ports
+import KaizenDraft.Select.SelectInput as SelectInput
+import KaizenDraft.Tag.Tag as Tag
 import List.Extra as ListExtra
 import Task
 

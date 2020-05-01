@@ -6,7 +6,7 @@ import Html.Attributes exposing (..)
 import Html.Extra exposing (static)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
-import Kaizen.TitleBlock.NavigationButton as NavigationButton
+import KaizenDraft.TitleBlock.NavigationButton as NavigationButton
 
 
 type alias Breadcrumb =

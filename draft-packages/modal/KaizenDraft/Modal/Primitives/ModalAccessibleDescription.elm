@@ -2,7 +2,7 @@ module KaizenDraft.Modal.Primitives.ModalAccessibleDescription exposing (view)
 
 import Html exposing (Html, div)
 import Html.Attributes exposing (id)
-import Kaizen.Modal.Primitives.Constants as Constants
+import KaizenDraft.Modal.Primitives.Constants as Constants
 
 
 view : List (Html msg) -> Html msg

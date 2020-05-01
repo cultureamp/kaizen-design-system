@@ -2,9 +2,9 @@ module KaizenDraft.Form.ToggleSwitchField.ToggleSwitchField exposing (ToggleThem
 
 import CssModules exposing (css)
 import Html exposing (..)
-import Kaizen.Form.Primitives.FieldGroup.FieldGroup as FieldGroup
-import Kaizen.Form.Primitives.Label.Label as Label
-import Kaizen.Form.Primitives.ToggleSwitch.ToggleSwitch as ToggleSwitch
+import KaizenDraft.Form.Primitives.FieldGroup.FieldGroup as FieldGroup
+import KaizenDraft.Form.Primitives.Label.Label as Label
+import KaizenDraft.Form.Primitives.ToggleSwitch.ToggleSwitch as ToggleSwitch
 
 
 type Config msg

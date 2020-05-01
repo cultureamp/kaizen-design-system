@@ -1,7 +1,7 @@
 module KaizenDraft.Modal.Primitives.Configuration exposing (ConfigurationBase, configurationDefaults)
 
 import Json.Decode as Decode
-import Kaizen.Modal.Primitives.Constants as Constants
+import KaizenDraft.Modal.Primitives.Constants as Constants
 
 
 {-| This is a bunch of properties common to all modals.
