@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.2.0...@kaizen/draft-well@2.2.1) (2020-05-01)
+
+
+### Bug Fixes
+
+* draft-package elm imports ([#444](https://github.com/cultureamp/kaizen-design-system/issues/444)) ([16c9ffd](https://github.com/cultureamp/kaizen-design-system/commit/16c9ffde3ecd6d4f361fb2ab40bf4452a77b0e8a))
+
+
+
+
+
 # [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.1.7...@kaizen/draft-well@2.2.0) (2020-05-01)
 
 
