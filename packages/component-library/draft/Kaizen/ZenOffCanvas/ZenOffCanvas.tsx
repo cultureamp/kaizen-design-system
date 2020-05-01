@@ -15,6 +15,7 @@ type Props = {
   heading: string
   headerComponent: React.ReactNode
   footerComponent?: React.ReactNode
+  productSwitcher?: React.ReactNode
   menuId: string
 }
 
@@ -46,6 +47,7 @@ export class ZenOffCanvas extends React.Component<Props> {
       heading,
       links,
       footerComponent,
+      productSwitcher,
     } = this.props
 
     return (
@@ -58,17 +60,13 @@ export class ZenOffCanvas extends React.Component<Props> {
           >
             <Header
               onClose={resetVisibleMenus}
-              leftComponent={
-                <div className={styles.caLogo}>
-                  <Icon icon={caMonogramIcon} role="presentation" inheritSize />
-                </div>
-              }
+              leftComponent={headerComponent}
               heading={heading}
             />
             <div className={classNames(styles.contentContainer, {
               [styles.hasFooter]: !!footerComponent,
             })}>
-              {headerComponent && headerComponent}
+              {productSwitcher && productSwitcher}
               <nav className={styles.links}>
                 {links &&
                 Object.keys(links).map(section => (

@@ -63,10 +63,9 @@ export default class NavigationBar extends React.Component<Props> {
           {(matches: boolean) =>
             matches ? (
               <ZenControlledOffCanvas
-                headerComponent={
-                  headerComponent ? headerComponent.mobile : this.renderBadge()
-                }
+                headerComponent={this.renderBadge()}
                 footerComponent={this.props.footerComponent}
+                productSwitcher={headerComponent && headerComponent.mobile}
                 links={children}
                 heading="Menu"
                 menuId="menu"
