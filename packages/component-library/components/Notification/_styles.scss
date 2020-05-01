@@ -9,7 +9,7 @@
 @import "../../styles/responsive";
 @import "../../components/Button/styles";
 
-$ca-notification-border-width: 1px;
+$ca-notification-border-width: $kz-border-solid-border-width;
 $ca-notification-vertical-padding: calc(
   #{$ca-grid / 4} - #{$ca-notification-border-width}
 );
@@ -32,7 +32,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
   &%ca-notification---toast {
     margin-bottom: $ca-grid;
     border-width: $ca-notification-border-width;
-    border-style: solid;
+    border-style: $kz-border-solid-border-style;
     border-radius: $kz-border-solid-border-radius;
   }
 

@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.1.7...@kaizen/draft-well@2.2.0) (2020-05-01)
+
+
+### Features
+
+* Copy All Drafts **except Form** Into Draft Packages ([#431](https://github.com/cultureamp/kaizen-design-system/issues/431)) ([55bfde9](https://github.com/cultureamp/kaizen-design-system/commit/55bfde98611d2c4070d26ba082e478f96ddca1fd))
+
+
+
+
+
+## [2.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.1.6...@kaizen/draft-well@2.1.7) (2020-04-29)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [2.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.1.5...@kaizen/draft-well@2.1.6) (2020-04-29)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [2.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.1.4...@kaizen/draft-well@2.1.5) (2020-04-29)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
 ## [2.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.1.3...@kaizen/draft-well@2.1.4) (2020-04-28)
 
 **Note:** Version bump only for package @kaizen/draft-well
