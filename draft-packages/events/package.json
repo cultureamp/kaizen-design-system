@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-events",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "The draft Events component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
