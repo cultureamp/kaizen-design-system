@@ -4,13 +4,7 @@ import { ZenControlledOffCanvas } from "@kaizen/component-library/draft/Kaizen/Z
 import classNames from "classnames"
 import Media from "react-media"
 import uuid from "uuid/v4"
-import {
-  LocalBadge,
-  namedBadge,
-  ProductionBadge,
-  StagingBadge,
-  TestBadge,
-} from "./components/Badge"
+import Badge from "./components/Badge"
 import Link from "./components/Link"
 import Menu from "./components/Menu"
 import { LinkClickContext } from "./context"
@@ -148,20 +142,10 @@ export default class NavigationBar extends React.Component<Props> {
 
   renderBadge() {
     const {
-      environment = "production",
       loading = false,
       badgeHref = "/",
       colorScheme = "kaizen",
     } = this.props
-
-    const badges = {
-      production: ProductionBadge,
-      staging: StagingBadge,
-      test: TestBadge,
-      local: LocalBadge,
-    }
-
-    const Badge = badges[environment] || namedBadge(environment)
 
     return (
       <Badge loading={loading} href={badgeHref} colorScheme={colorScheme} />
