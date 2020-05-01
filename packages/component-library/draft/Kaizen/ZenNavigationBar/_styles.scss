@@ -230,11 +230,13 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
     &.active,
     &:hover,
     &:focus {
-      color: $kz-color-cluny-500;
-      background-color: $kz-color-cluny-100;
+      .hoverArea {
+        color: $kz-color-cluny-500;
+        background-color: $kz-color-cluny-100;
 
-      .menuIcon {
-        opacity: 1;
+        .menuIcon {
+          opacity: 1;
+        }
       }
     }
   }
