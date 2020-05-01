@@ -4,7 +4,7 @@
 @import "../styles";
 
 .dropdown {
-  @include ca-position($top: 85%);
+  @include ca-position($top: 91%);
 
   align-items: center;
   position: absolute;
@@ -26,7 +26,7 @@
 }
 
 .shiftDropdownLeft {
-  @include ca-position($end: 5px);
+  @include ca-position($end: 0);
 }
 
 .menuItems {
