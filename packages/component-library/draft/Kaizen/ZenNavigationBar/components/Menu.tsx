@@ -86,25 +86,23 @@ export default class Menu extends React.Component<MenuProps, State> {
                 data-automation-id={automationId}
                 onMouseDown={e => e.preventDefault()}
               >
-                <span className={styles.hoverArea}>
-                  {children ? (
-                    children
-                  ) : (
-                    <React.Fragment>
-                      {icon && (
-                        <span className={styles.linkIcon}>
-                          <Icon
-                            icon={icon}
-                            role="presentation"
-                            title={`${heading} icon`}
-                          />
-                        </span>
-                      )}
-                      <span className={styles.linkText}>{heading}</span>
-                      <Icon icon={chevronDownIcon} role="presentation" />
-                    </React.Fragment>
-                  )}
-                </span>
+                {children ? (
+                  children
+                ) : (
+                  <span className={styles.hoverArea}>
+                    {icon && (
+                      <span className={styles.linkIcon}>
+                        <Icon
+                          icon={icon}
+                          role="presentation"
+                          title={`${heading} icon`}
+                        />
+                      </span>
+                    )}
+                    <span className={styles.linkText}>{heading}</span>
+                    <Icon icon={chevronDownIcon} role="presentation" />
+                  </span>
+                )}
               </button>
               {this.state.open && <Dropdown items={items} header={header} />}
             </nav>
