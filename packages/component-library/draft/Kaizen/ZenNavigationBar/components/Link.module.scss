@@ -9,13 +9,6 @@
   @include ca-navigation-bar__link-item;
 }
 
-.menuIcon {
-  margin-left: auto;
-  opacity: 0.5;
-  display: flex;
-  align-items: center;
-}
-
 .badge {
   @include ca-margin($start: $ca-grid * 0.25);
   @include font-heading-6;

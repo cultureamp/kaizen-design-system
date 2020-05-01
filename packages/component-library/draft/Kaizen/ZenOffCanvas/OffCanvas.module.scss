@@ -76,8 +76,6 @@ $menu-footer-height: 100px;
 }
 
 .links {
-  @include ca-padding($top: 18px);
-
   //max-height: calc(100vh - #{$menu-header-height + $menu-footer-height});
   overflow-y: scroll;
   overflow-x: hidden;

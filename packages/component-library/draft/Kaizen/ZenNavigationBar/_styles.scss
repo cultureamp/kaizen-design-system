@@ -74,6 +74,15 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
     height: $ca-navigation-bar__link-item-height;
     padding: 0 ($ca-grid / 2);
     border-radius: $kz-border-borderless-border-radius;
+    width: 100%;
+  }
+
+
+  .menuIcon {
+    margin-left: auto;
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
   }
 
   &:hover,
@@ -211,6 +220,7 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
   }
 
   @include ca-media-mobile {
+    font-weight: normal;
     justify-content: flex-start;
     align-items: center;
     color: $kz-color-wisteria-700;
@@ -222,6 +232,10 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
     &:focus {
       color: $kz-color-cluny-500;
       background-color: $kz-color-cluny-100;
+
+      .menuIcon {
+        opacity: 1;
+      }
     }
   }
 }
