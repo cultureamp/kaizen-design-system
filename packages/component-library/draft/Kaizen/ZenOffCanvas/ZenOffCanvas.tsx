@@ -65,14 +65,18 @@ export class ZenOffCanvas extends React.Component<Props> {
               }
               heading={heading}
             />
-            {headerComponent}
-            <nav className={styles.links}>
-              {links &&
+            <div className={classNames(styles.contentContainer, {
+              [styles.hasFooter]: !!footerComponent,
+            })}>
+              {headerComponent && headerComponent}
+              <nav className={styles.links}>
+                {links &&
                 Object.keys(links).map(section => (
                   <Menu section={section} link={links[section]} />
                 ))}
-            </nav>
-            {footerComponent}
+              </nav>
+            </div>
+            {footerComponent && <div className={styles.footerComponent}>{footerComponent}</div>}
           </div>
         )}
       </OffCanvasContext.Consumer>
