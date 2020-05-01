@@ -35,9 +35,16 @@ $menu-footer-height: 100px;
 .trigger {
   @include button-reset;
   position: absolute;
-  top: $ca-grid;
+  top: $ca-grid / 2;
   left: $ca-grid / 2;
   color: $kz-color-cluny-500;
+  height: $hamburger-width;
+  width: $hamburger-width;
+  padding-bottom: $hamburger-layer-height;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .hamburger {
