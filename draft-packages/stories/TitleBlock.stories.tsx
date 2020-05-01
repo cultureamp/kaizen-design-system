@@ -3,6 +3,8 @@ import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { TitleBlock } from "@kaizen/draft-title-block"
 import * as React from "react"
 import { Paragraph } from "@kaizen/component-library"
+
+import { MINIMAL_VIEWPORTS } from "@storybook/addon-viewport"
 require("./TitleBlock.stories.scss")
 
 const stickyContainerStyle = {
@@ -162,5 +164,28 @@ NoBottomBorder.story = {
         default: true,
       },
     ],
+  },
+}
+
+WithTitle.story = {
+  name: "with title",
+}
+
+export const SmallMobileKitchenSink = () => (
+  <TitleBlock
+    title="Home"
+    breadcrumb={{ path: "#", text: "Back to reports" }}
+    surveyStatus={{ status: "live", text: "Live" }}
+    toolbar={[
+      <Button label="Action" reversed />,
+      <Button label="Action 2" primary reversed />,
+    ]}
+  />
+)
+
+SmallMobileKitchenSink.story = {
+  name: "small mobile kitchen sink",
+  parameters: {
+    viewport: { defaultViewport: "mobile1" },
   },
 }
