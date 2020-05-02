@@ -20,17 +20,16 @@ interface Props {
     readonly description: string | React.ReactNode
   }
   readonly buttons: {
-    readonly dismiss: {
-      readonly label: string
+    readonly dismiss?: {
       readonly onClick: () => void
     }
     readonly accept: {
       readonly label: string
-      readonly onClick: () => void
+      readonly onClick?: () => void
     }
     readonly decline: {
       readonly label: string
-      readonly onClick: () => void
+      readonly onClick?: () => void
     }
   }
 }
@@ -61,7 +60,7 @@ const Panel: Panel = ({
   }
 
   const onDismiss = () => {
-    dismiss.onClick?.()
+    dismiss?.onClick()
     closePanel()
   }
 
@@ -72,7 +71,7 @@ const Panel: Panel = ({
       <div className={styles.close}>
         <IconButton
           icon={crossIcon}
-          label={dismiss.label}
+          label="Close"
           onClick={() => onDismiss()}
         />
       </div>
