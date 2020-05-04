@@ -1,14 +1,11 @@
 import * as React from "react"
 
-import { Icon } from "@kaizen/component-library"
+import { ColorScheme } from "@kaizen/component-library/draft/Kaizen/ZenNavigationBar/types"
 import classNames from "classnames"
 import Header from "./components/Header"
 import Menu from "./components/Menu"
 
 const styles = require("./OffCanvas.module.scss")
-
-const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
-  .default
 
 type Props = {
   links?: any
@@ -17,6 +14,7 @@ type Props = {
   footerComponent?: React.ReactNode
   productSwitcher?: React.ReactNode
   menuId: string
+  colorScheme: ColorScheme
 }
 
 type State = {
@@ -38,6 +36,7 @@ export const OffCanvasContext = React.createContext<OffCanvasContextProps>({
 export class ZenOffCanvas extends React.Component<Props> {
   static defaultProps = {
     withTrigger: false,
+    colorScheme: "cultureamp"
   }
 
   render() {
@@ -48,6 +47,7 @@ export class ZenOffCanvas extends React.Component<Props> {
       links,
       footerComponent,
       productSwitcher,
+      colorScheme,
     } = this.props
 
     return (
@@ -62,6 +62,7 @@ export class ZenOffCanvas extends React.Component<Props> {
               onClose={resetVisibleMenus}
               leftComponent={headerComponent}
               heading={heading}
+              colorScheme={colorScheme}
             />
             <div className={classNames(styles.contentContainer, {
               [styles.hasFooter]: !!footerComponent,
