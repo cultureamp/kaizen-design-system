@@ -126,7 +126,11 @@ const storybookSource: Rule = {
   include: [
     resolve(__dirname, "../packages/component-library"),
     resolve(__dirname, "../draft-packages/stories"),
-    // resolve(__dirname, "../legacy-packages"),
+    /**
+     * Ensure there are no compiled js (even in node modules!)
+     * in these packages
+     */
+    resolve(__dirname, "../legacy-packages"),
   ],
   use: [
     {
