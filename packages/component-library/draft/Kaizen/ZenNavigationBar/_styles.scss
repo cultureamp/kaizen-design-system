@@ -77,7 +77,6 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
     width: 100%;
   }
 
-
   .menuIcon {
     margin-left: auto;
     opacity: 0.5;
@@ -111,7 +110,7 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
     opacity: 0.5;
 
     @include ca-media-mobile {
-      @include ca-margin($end: $ca-grid / 2)
+      @include ca-margin($end: $ca-grid / 2);
     }
   }
 
@@ -188,7 +187,8 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
     &.content {
       color: rgba($kz-color-wisteria-800, 0.7);
 
-      &.opaque, &.menuOpen {
+      &.opaque,
+      &.menuOpen {
         color: $kz-color-wisteria-800;
       }
 

@@ -48,7 +48,7 @@ export default class Link extends React.PureComponent<LinkProps> {
           [styles.opaque]: opaque,
           [styles.small]: small,
           [styles.menuOpen]: hasMenu && menuOpen,
-          [styles.content]: content
+          [styles.content]: content,
         })}
         tabIndex={0}
         onClick={event => {
