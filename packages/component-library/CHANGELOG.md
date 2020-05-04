@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.8.1...@kaizen/component-library@7.8.2) (2020-05-04)
+
+
+### Bug Fixes
+
+* export ColorScheme type from zen nav index ([#447](https://github.com/cultureamp/kaizen-design-system/issues/447)) ([eeeca87](https://github.com/cultureamp/kaizen-design-system/commit/eeeca8786b780bd2b38a819e39e21c667baaf4c7))
+
+
+
+
+
 ## [7.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.8.0...@kaizen/component-library@7.8.1) (2020-05-04)
 
 
