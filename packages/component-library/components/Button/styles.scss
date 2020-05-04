@@ -135,7 +135,6 @@ $caButton-verticalPaddingForm: calc(
   }
 
   &:disabled {
-    opacity: 0.3;
     background: $kz-color-cluny-500;
     color: $kz-color-white;
     border-color: $kz-border-borderless-border-color;
@@ -144,7 +143,7 @@ $caButton-verticalPaddingForm: calc(
 
 %caButtonDestructive {
   &:disabled {
-    background: rgba($kz-color-coral-500, 0.3);
+    background: $kz-color-coral-500;
   }
 }
 
