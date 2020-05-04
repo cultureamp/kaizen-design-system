@@ -144,7 +144,7 @@ main =
 
 
 styles =
-    css "@kaizen/component-library/stories/EmptyState.stories.scss"
+    css "./EmptyState.stories.scss"
         { container = "container"
         , sidebar = "sidebar"
         , content = "content"

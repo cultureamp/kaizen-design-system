@@ -1,5 +1,5 @@
 import { Icon, Text } from "@kaizen/component-library"
-import { Checkbox, CheckedStatus } from "@kaizen/component-library/draft"
+import { Checkbox, CheckedStatus } from "@kaizen/draft-form"
 import classNames from "classnames"
 import * as React from "react"
 const styles = require("./styles.scss")

@@ -51,7 +51,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.5.4",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.6.0",
-    "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.1.0",
+    "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.2.1",
     "@storybook/addon-a11y": "^5.3.9",
     "@storybook/addon-actions": "^5.3.9",
     "@storybook/addon-backgrounds": "^5.3.9",
@@ -109,12 +109,12 @@
     "webpack": "^4.40.2"
   },
   "devDependencies": {
-    "storybook-chromatic": "^3.4.1",
     "@storybook/addon-docs": "^5.3.17",
     "@storybook/codemod": "^5.3.9",
     "@storybook/csf": "^0.0.1",
     "@storybook/node-logger": "^5.3.9",
-    "jscodeshift": "^0.7.0"
+    "jscodeshift": "^0.7.0",
+    "storybook-chromatic": "^3.4.1"
   },
   "resolutions": {
     "**/**/minimist": "^1.2.3"

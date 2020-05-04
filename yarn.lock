@@ -1094,6 +1094,12 @@
   dependencies:
     react-elm-components "^1.1.0"
 
+"@cultureamp/elm-storybook@cultureamp/elm-storybook#0.2.1":
+  version "0.2.1"
+  resolved "https://codeload.github.com/cultureamp/elm-storybook/tar.gz/c82229e769ba91c15e67257635e893363f266b7f"
+  dependencies:
+    react-elm-components "^1.1.0"
+
 "@egoist/vue-to-react@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@egoist/vue-to-react/-/vue-to-react-1.1.0.tgz#83c884b8608e8ee62e76c03e91ce9c26063a91ad"
@@ -1626,6 +1632,64 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
+
+"@kaizen/component-library@^7.8.2":
+  version "7.8.2"
+  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-7.8.2.tgz#0097f5b14bb3c5bbbef938615c4406f1cab03c17"
+  integrity sha512-fwDpWO2uKfih06vaZyrI4OwBJ2dfxcSIf0ksuwYBNJ/A3UR4vcARI3I2NUYYE/hhCaKOMwvo65AfEQP6M9SKSw==
+  dependencies:
+    "@kaizen/deprecated-component-library-helpers" "^1.3.6"
+    "@kaizen/hosted-assets" "^1.0.1"
+    "@types/classnames" "^2.2.6"
+    "@types/lodash" "^4.14.132"
+    "@types/react-select" "^3.0.5"
+    "@types/uuid" "^3.4.4"
+    classnames "^2.2.6"
+    lodash "^4.17.11"
+    motion-ui cultureamp/motion-ui
+    react-animate-height "^2.0.15"
+    react-focus-lock "^1.19.1"
+    react-media "^1.9.2"
+    react-select "^3.0.8"
+    react-transition-group "^2.9.0"
+    uuid "^3.3.2"
+
+"@kaizen/draft-form@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-form/-/draft-form-1.1.3.tgz#b6087adf3a0742b13d28c15c01538e4035732dce"
+  integrity sha512-sgJVkKa8HMINn4pFqM0UMZJe+lrl/x9f6Y8OkyRdnZdZf2lTvCkYsXSvmWuDv6LiFmFTn6opsDkVjOP40s21xg==
+  dependencies:
+    "@kaizen/component-library" "^7.8.2"
+    "@types/classnames" "^2.2.10"
+    classnames "^2.2.6"
+
+"@kaizen/draft-hero-card@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-hero-card/-/draft-hero-card-1.1.2.tgz#bf2d97fe75e29fa83498503cd71b26d2133a4e04"
+  integrity sha512-czxGGGSg/msZz+izlT6F/1U0fJDny/hK5yHwxKYHr/3OEU+TnamUhBkz7Gl6ib4bQFXmgcgU/DuiXM8YnDoHJA==
+  dependencies:
+    "@kaizen/component-library" "^7.8.2"
+    "@types/classnames" "^2.2.10"
+    classnames "^2.2.6"
+
+"@kaizen/draft-select@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-select/-/draft-select-1.1.3.tgz#f3e26f2c10837793d7dea48c34b4226d6ae1cafe"
+  integrity sha512-fyXCkNFCVxAjeQp19QbhXEVtNVgK06zzgsWUqs6vTsFa9Nf8oLFeIpHxywIlfChdBzalf4Bagl9jfpJ+07Qlag==
+  dependencies:
+    "@kaizen/component-library" "^7.8.2"
+    "@types/classnames" "^2.2.10"
+    classnames "^2.2.6"
+    react-select "3.0.8"
+
+"@kaizen/draft-tag@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-tag/-/draft-tag-1.1.2.tgz#413d199f9a371d09e9d5250411c752e2e95b69d4"
+  integrity sha512-pRFtm/tNJs1IHzwlY7za1qdjEiKgHgb5b7gG9A7BcBTzgeX1N8byq6iYZnVESQOkL38M2zOL1rMVZBheoAiURw==
+  dependencies:
+    "@kaizen/component-library" "^7.8.2"
+    "@types/classnames" "^2.2.10"
+    classnames "^2.2.6"
 
 "@lerna/add@3.20.0":
   version "3.20.0"
@@ -13805,15 +13869,10 @@ minimist-options@^4.0.1:
     arrify "^1.0.1"
     is-plain-obj "^1.1.0"
 
-minimist@^1.1.1, minimist@^1.1.3, minimist@^1.2.0, minimist@^1.2.5:
+minimist@^1.1.1, minimist@^1.1.3, minimist@^1.2.0, minimist@^1.2.3, minimist@^1.2.5, minimist@~0.0.1:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
   integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
-
-minimist@~0.0.1:
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.10.tgz#de3f98543dbf96082be48ad1a0c7cda836301dcf"
-  integrity sha1-3j+YVD2/lggr5IrRoMfNqDYwHc8=
 
 minipass-collect@^1.0.2:
   version "1.0.2"
