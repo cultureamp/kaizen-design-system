@@ -119,18 +119,18 @@ $caButton-verticalPaddingForm: calc(
     color: $kz-color-white;
 
     &:hover {
-      background: #00518c; // TODO: replace this with Cluny 600 once there's a token for it
-      border-color: #00518c;
+      background: $kz-color-cluny-600;
+      border-color: $kz-color-cluny-600;
     }
 
     &:active {
-      background: #00518c; // TODO: replace this with Cluny 600 once there's a token for it
-      border-color: #00518c;
+      background: $kz-color-cluny-600;
+      border-color: $kz-color-cluny-600;
     }
 
     :global(.js-focus-visible) &:global(.focus-visible) {
-      background: #00518c; // TODO: replace this with Cluny 600 once there's a token for it
-      border-color: #00518c;
+      background: $kz-color-cluny-600;
+      border-color: $kz-color-cluny-600;
     }
   }
 
