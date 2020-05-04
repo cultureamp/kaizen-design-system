@@ -36,7 +36,7 @@ export const OffCanvasContext = React.createContext<OffCanvasContextProps>({
 export class ZenOffCanvas extends React.Component<Props> {
   static defaultProps = {
     withTrigger: false,
-    colorScheme: "cultureamp"
+    colorScheme: "cultureamp",
   }
 
   render() {
@@ -64,18 +64,22 @@ export class ZenOffCanvas extends React.Component<Props> {
               heading={heading}
               colorScheme={colorScheme}
             />
-            <div className={classNames(styles.contentContainer, {
-              [styles.hasFooter]: !!footerComponent,
-            })}>
+            <div
+              className={classNames(styles.contentContainer, {
+                [styles.hasFooter]: !!footerComponent,
+              })}
+            >
               {productSwitcher && productSwitcher}
               <nav className={styles.links}>
                 {links &&
-                Object.keys(links).map(section => (
-                  <Menu section={section} link={links[section]} />
-                ))}
+                  Object.keys(links).map(section => (
+                    <Menu section={section} link={links[section]} />
+                  ))}
               </nav>
             </div>
-            {footerComponent && <div className={styles.footerComponent}>{footerComponent}</div>}
+            {footerComponent && (
+              <div className={styles.footerComponent}>{footerComponent}</div>
+            )}
           </div>
         )}
       </OffCanvasContext.Consumer>
