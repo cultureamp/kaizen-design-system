@@ -1,7 +1,5 @@
-import { action } from "@storybook/addon-actions"
-import * as React from "react"
-import { Button, Text } from "../"
-import { TextField } from "../draft/Kaizen/Form/TextField"
+import { Button, Text } from "@kaizen/component-library"
+import { TextField } from "@kaizen/draft-form"
 import {
   ConfirmationModal,
   GenericModal,
@@ -12,9 +10,13 @@ import {
   ModalBody,
   ModalFooter,
   ModalHeader,
-} from "../draft/Kaizen/Modal"
-const lockIcon = require("../icons/lock.icon.svg").default
-const userIcon = require("../icons/user.icon.svg").default
+} from "@kaizen/draft-modal"
+import { action } from "@storybook/addon-actions"
+import * as React from "react"
+const lockIcon = require("@kaizen/component-library/icons/lock.icon.svg")
+  .default
+const userIcon = require("@kaizen/component-library/icons/user.icon.svg")
+  .default
 
 const styles = require("./Modal.stories.scss")
 

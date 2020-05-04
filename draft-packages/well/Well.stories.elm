@@ -3,8 +3,8 @@ module Main exposing (main)
 import ElmStorybook exposing (statelessStoryOf, storybook)
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (style)
-import KaizenDraft.Form.TextField.TextField as TextField
-import KaizenDraft.Well.Well as Well
+import Kaizen.Form.TextField.TextField as TextField
+import Kaizen.Well.Well as Well
 import Text.Text as Text
 
 

@@ -1,5 +1,5 @@
-import { VerticalProgressIndicator } from "@kaizen/component-library/draft/Kaizen/VerticalProgressStep/VerticalProgressIndicator"
 import * as React from "react"
+import { VerticalProgressIndicator } from "./KaizenDraft/VerticalProgressStep/VerticalProgressIndicator/VerticalProgressIndicator"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => (
   <div

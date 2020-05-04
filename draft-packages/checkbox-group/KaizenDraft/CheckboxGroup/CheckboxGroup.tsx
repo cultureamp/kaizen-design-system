@@ -1,7 +1,6 @@
+import { Label } from "@kaizen/draft-form"
 import classnames from "classnames"
 import * as React from "react"
-
-import { Label } from "@kaizen/component-library/draft"
 
 const styles = require("./styles.scss")
 

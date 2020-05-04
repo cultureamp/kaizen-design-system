@@ -1,6 +1,7 @@
-import { Text } from "@kaizen/component-library"
+import { Button, IconButton, Text } from "@kaizen/component-library"
+import { CheckboxField } from "@kaizen/draft-form"
+import * as React from "react"
 import {
-  CheckboxField,
   TableCard,
   TableContainer,
   TableHeader,
@@ -8,9 +9,7 @@ import {
   TableHeaderRowCell,
   TableRow,
   TableRowCell,
-} from "@kaizen/component-library/draft"
-import * as React from "react"
-import { Button, IconButton } from "../components"
+} from "."
 const styles = require("./Table.stories.scss")
 
 const commentIcon = require("@kaizen/component-library/icons/comment.icon.svg")

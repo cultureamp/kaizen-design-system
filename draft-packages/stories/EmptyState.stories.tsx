@@ -5,7 +5,7 @@ const chevronRight = require("@kaizen/component-library/icons/chevron-right.icon
 import * as React from "react"
 
 import { Button } from "@kaizen/component-library"
-import { EmptyState } from "@kaizen/component-library/draft"
+import { EmptyState } from "../empty-state"
 
 const styles = require("./EmptyState.stories.scss")
 
