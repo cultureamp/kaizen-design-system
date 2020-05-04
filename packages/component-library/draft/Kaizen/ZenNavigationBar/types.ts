@@ -59,3 +59,5 @@ export type MenuGroupProps = {
   offCanvas?: boolean
   first?: boolean
 }
+
+export type ColorScheme = "cultureamp" | "kaizen" | "content"

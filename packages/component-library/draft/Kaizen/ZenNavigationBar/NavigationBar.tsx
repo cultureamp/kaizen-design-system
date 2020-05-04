@@ -8,14 +8,19 @@ import Badge from "./components/Badge"
 import Link from "./components/Link"
 import Menu from "./components/Menu"
 import { LinkClickContext } from "./context"
-import { Navigation, NavigationChange, NavigationItem } from "./types"
+import {
+  ColorScheme,
+  Navigation,
+  NavigationChange,
+  NavigationItem,
+} from "./types"
 
 const styles = require("./NavigationBar.module.scss")
 
 type Props = {
   environment?: "production" | "staging" | "test" | "local"
   loading?: boolean
-  colorScheme?: "cultureamp" | "kaizen" | "content"
+  colorScheme?: ColorScheme
   badgeHref?: string
   onNavigationChange: NavigationChange
   headerComponent?: {
@@ -63,6 +68,7 @@ export default class NavigationBar extends React.Component<Props> {
                 links={children}
                 heading="Menu"
                 menuId="menu"
+                colorScheme={colorScheme}
               />
             ) : (
               <header
@@ -123,7 +129,7 @@ export default class NavigationBar extends React.Component<Props> {
         ...linkProps,
         opaque: isFinal,
         small: isFinal,
-        content: this.props.colorScheme === "content"
+        content: this.props.colorScheme === "content",
       },
     }
     const key = "href" in linkProps ? linkProps.href : linkProps.heading
