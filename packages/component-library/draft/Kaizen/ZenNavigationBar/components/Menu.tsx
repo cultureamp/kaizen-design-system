@@ -87,9 +87,9 @@ export default class Menu extends React.Component<MenuProps, State> {
                 onMouseDown={e => e.preventDefault()}
               >
                 {children ? (
-                  children
+                  <div className={styles.customChild}>{children}</div>
                 ) : (
-                  <React.Fragment>
+                  <span className={styles.hoverArea}>
                     {icon && (
                       <span className={styles.linkIcon}>
                         <Icon
@@ -101,7 +101,7 @@ export default class Menu extends React.Component<MenuProps, State> {
                     )}
                     <span className={styles.linkText}>{heading}</span>
                     <Icon icon={chevronDownIcon} role="presentation" />
-                  </React.Fragment>
+                  </span>
                 )}
               </button>
               {this.state.open && <Dropdown items={items} header={header} />}

@@ -1,12 +1,12 @@
 {
   "name": "@kaizen/draft-well",
-  "version": "2.1.7",
+  "version": "2.3.0",
   "description": "The draft well component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf '*.d.ts' '*.js' '*.map'"
+    "clean": "rimraf '*.d.ts' '*.js' '*.map' 'KaizenDraft/**/*.d.ts' 'KaizenDraft/**/*.js' 'KaizenDraft/**/*.map'"
   },
   "repository": {
     "type": "git",
@@ -31,7 +31,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^7.8.0",
+    "@kaizen/component-library": "^7.9.0",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },

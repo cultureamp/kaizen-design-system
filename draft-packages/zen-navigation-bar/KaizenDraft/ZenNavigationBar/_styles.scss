@@ -1,0 +1,260 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/component-library/styles/fonts";
+@import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/responsive";
+
+$ca-navigation-bar__height: 3.5 * $ca-grid;
+
+$ca-navigation-bar__animation-ease: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+$ca-navigation-bar__animation-timing: 150ms;
+
+$ca-navigation-bar__link-item-height: 2 * $ca-grid;
+$ca-navigation-bar__link-item-indicator-height: 5px;
+$ca-navigation-bar__link-item-margin: 18px;
+$ca-navigation-bar__link-item-margin-mobile: 10px;
+
+@mixin ca-navigation-bar__link-item {
+  @extend %ca-navigation-bar__menu-item-focus;
+
+  @include ca-type-reverse;
+
+  // fill parent
+  display: flex;
+  min-width: 2 * $ca-grid;
+  height: $ca-navigation-bar__link-item-height;
+
+  // center child
+  align-items: center;
+  justify-content: center;
+
+  border-radius: $kz-border-solid-border-radius;
+
+  color: rgba($kz-color-white, 0.8);
+  padding: 0 ($ca-grid / 2);
+  text-decoration: none;
+  transition: background-color $ca-duration-rapid $ca-ease-in-out;
+
+  // active indicator
+  @include ca-media-tablet-and-up {
+    &::before {
+      content: "";
+      display: block;
+      transform: translateY(-#{$ca-navigation-bar__link-item-margin})
+        translateY(-100%);
+      height: $ca-navigation-bar__link-item-indicator-height;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: $kz-color-white;
+      transition: transform $ca-navigation-bar__animation-ease
+        $ca-navigation-bar__animation-timing;
+      border-radius: 0 0 $kz-border-borderless-border-radius
+        $kz-border-borderless-border-radius;
+    }
+  }
+
+  &.active {
+    outline: none; // override native focus styles
+    text-decoration: none;
+    color: $kz-color-white;
+
+    &::before {
+      transform: translateY(-18px);
+    }
+  }
+
+  &:hover,
+  &.menuOpen {
+    color: $kz-color-white; // override hyperlink hover color
+    text-decoration: none;
+    background-color: rgba($kz-color-white, 0.1);
+    border-radius: $kz-border-borderless-border-radius;
+
+    .linkText::before {
+      @include ca-media-mobile {
+        transform: translateX(-#{$ca-navigation-bar__link-item-margin});
+      }
+    }
+  }
+
+  @include font-heading-4;
+  @include ca-inherit-baseline;
+  top: 0;
+
+  .linkIcon {
+    display: inline-flex;
+    opacity: 0.5;
+
+    @include ca-media-mobile {
+      display: none;
+    }
+  }
+
+  .linkIcon + .linkText {
+    padding: 0;
+    @include ca-margin($start: 8px);
+
+    @include ca-media-mobile {
+      @include ca-margin($start: 0);
+    }
+  }
+
+  .linkText {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+  }
+
+  &.small {
+    @include ca-media-tablet-and-up {
+      @include font-heading-5;
+      @include ca-inherit-baseline;
+    }
+  }
+
+  &.opaque {
+    color: $kz-color-white;
+
+    @include ca-media-tablet-and-up {
+      .linkIcon {
+        opacity: 1;
+        transition: opacity $ca-duration-rapid $ca-ease-in-out;
+      }
+
+      .linkText {
+        @include ca-media-tablet {
+          display: none;
+        }
+
+        padding: 0;
+
+        &::before {
+          display: none;
+        }
+      }
+
+      &:hover,
+      &:focus {
+        background-color: rgba($kz-color-white, 0.1);
+
+        .linkIcon {
+          opacity: 0.7;
+        }
+      }
+
+      &:active {
+        background-color: rgba($kz-color-white, 0.2);
+
+        .linkIcon {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  @include ca-media-mobile {
+    justify-content: flex-start;
+    align-items: center;
+    color: $kz-color-wisteria-700;
+    transition: none;
+    margin: 0 $ca-navigation-bar__link-item-margin-mobile;
+
+    &.active,
+    &:hover,
+    &:focus {
+      color: $kz-color-cluny-500;
+      background-color: $kz-color-cluny-100;
+    }
+  }
+}
+
+%ca-navigation-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: $kz-color-wisteria-700;
+  height: $ca-navigation-bar__height;
+  max-height: $ca-navigation-bar__height;
+  width: 100%;
+  position: fixed;
+
+  @media print {
+    display: none;
+  }
+}
+
+%ca-navigation-bar__menu-item-focus {
+  :global(.js-focus-visible) & {
+    // hide native focus ring when :focus but not :focus-visible
+    &:focus {
+      outline: none;
+    }
+
+    // show custom focus ring when :focus-visible
+    &:global(.focus-visible) {
+      color: #fff;
+      outline: 2px solid $kz-color-cluny-500;
+    }
+  }
+}
+
+// FONTS
+
+@mixin anti-aliasing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin font-heading-3 {
+  @include anti-aliasing;
+  font-family: $kz-typography-heading-3-font-family;
+  font-weight: $kz-typography-heading-3-font-weight;
+  font-size: $kz-typography-heading-3-font-size;
+  line-height: $kz-typography-heading-3-line-height;
+  letter-spacing: $kz-typography-heading-3-letter-spacing;
+}
+
+@mixin font-heading-4 {
+  @include anti-aliasing;
+  font-family: $kz-typography-heading-4-font-family;
+  font-weight: $kz-typography-heading-4-font-weight;
+  font-size: $kz-typography-heading-4-font-size;
+  line-height: $kz-typography-heading-4-line-height;
+  letter-spacing: $kz-typography-heading-4-letter-spacing;
+}
+
+@mixin font-heading-5 {
+  @include anti-aliasing;
+  font-family: $kz-typography-heading-5-font-family;
+  font-weight: $kz-typography-heading-5-font-weight;
+  font-size: $kz-typography-heading-5-font-size;
+  line-height: $kz-typography-heading-5-line-height;
+  letter-spacing: $kz-typography-heading-5-letter-spacing;
+}
+
+@mixin font-heading-6 {
+  @include anti-aliasing;
+  font-family: $kz-typography-heading-6-font-family;
+  font-weight: $kz-typography-heading-6-font-weight;
+  font-size: $kz-typography-heading-6-font-size;
+  line-height: $kz-typography-heading-6-line-height;
+  letter-spacing: $kz-typography-heading-6-letter-spacing;
+}
+
+@mixin font-body {
+  @include anti-aliasing;
+  font-family: $kz-typography-paragraph-body-font-family;
+  font-weight: $kz-typography-paragraph-body-font-weight;
+  font-size: $kz-typography-paragraph-body-font-size;
+  line-height: $kz-typography-paragraph-body-line-height;
+  letter-spacing: $kz-typography-paragraph-body-letter-spacing;
+}
