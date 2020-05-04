@@ -36,12 +36,27 @@ const accountMenuBtn = (
   </div>
 )
 
+const mobileHeaderComponent = (
+  <div
+    style={{
+      width: "100%",
+      padding: "24px 12px",
+      backgroundColor: "#E6F0F7",
+      color: "#0168B3",
+      fontFamily: "sans-serif",
+      boxSizing: "border-box",
+    }}
+  >
+    Switch to performance
+  </div>
+)
+
 const footerComponent = (
   <div
     style={{
       borderTop: "1px solid #eee",
       height: "inherit",
-      backgroundColor: "#fff"
+      backgroundColor: "#fff",
     }}
   >
     Footer test
@@ -323,12 +338,12 @@ export const MenuGroup = () => (
   </ZenNavigationBar>
 )
 
-export const WithFooter = () => (
+export const WithFooterAndHeaderComponents = () => (
   <ZenNavigationBar
     onNavigationChange={handleNavigationChange}
     footerComponent={footerComponent}
     headerComponent={{
-      mobile: <span>Mobile</span>,
+      mobile: mobileHeaderComponent,
       desktop: (
         <Menu
           icon={caIcon}
