@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.8.2...@kaizen/component-library@7.9.0) (2020-05-04)
+
+
+### Features
+
+* Added missing dependencies to packages  ([#449](https://github.com/cultureamp/kaizen-design-system/issues/449)) ([cb1dc2a](https://github.com/cultureamp/kaizen-design-system/commit/cb1dc2aead68e591cc21c665fb25c1817633c4d7))
+
+
+
+
+
 ## [7.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.8.1...@kaizen/component-library@7.8.2) (2020-05-04)
 
 
