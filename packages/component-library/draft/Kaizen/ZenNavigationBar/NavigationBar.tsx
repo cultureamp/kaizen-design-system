@@ -9,7 +9,6 @@ import Link from "./components/Link"
 import Menu from "./components/Menu"
 import { LinkClickContext } from "./context"
 import {
-  ColorScheme,
   Navigation,
   NavigationChange,
   NavigationItem,
@@ -31,6 +30,8 @@ type Props = {
   children?: Navigation
   mobileMaxWidth?: number
 }
+
+export type ColorScheme = "cultureamp" | "kaizen" | "content"
 
 export default class NavigationBar extends React.Component<Props> {
   static displayName = "NavigationBar"
