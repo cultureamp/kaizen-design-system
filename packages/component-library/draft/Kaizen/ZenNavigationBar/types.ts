@@ -29,6 +29,7 @@ export type LinkProps = {
   }
   opaque?: boolean
   small?: boolean
+  content?: boolean
 }
 
 export type MenuProps = {
@@ -58,3 +59,5 @@ export type MenuGroupProps = {
   offCanvas?: boolean
   first?: boolean
 }
+
+export type ColorScheme = "cultureamp" | "kaizen" | "content"

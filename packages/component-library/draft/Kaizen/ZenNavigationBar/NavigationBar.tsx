@@ -4,24 +4,23 @@ import { ZenControlledOffCanvas } from "@kaizen/component-library/draft/Kaizen/Z
 import classNames from "classnames"
 import Media from "react-media"
 import uuid from "uuid/v4"
-import {
-  LocalBadge,
-  namedBadge,
-  ProductionBadge,
-  StagingBadge,
-  TestBadge,
-} from "./components/Badge"
+import Badge from "./components/Badge"
 import Link from "./components/Link"
 import Menu from "./components/Menu"
 import { LinkClickContext } from "./context"
-import { Navigation, NavigationChange, NavigationItem } from "./types"
+import {
+  ColorScheme,
+  Navigation,
+  NavigationChange,
+  NavigationItem,
+} from "./types"
 
 const styles = require("./NavigationBar.module.scss")
 
 type Props = {
   environment?: "production" | "staging" | "test" | "local"
   loading?: boolean
-  colorScheme?: "cultureamp" | "kaizen" | "content"
+  colorScheme?: ColorScheme
   badgeHref?: string
   onNavigationChange: NavigationChange
   headerComponent?: {
@@ -63,13 +62,13 @@ export default class NavigationBar extends React.Component<Props> {
           {(matches: boolean) =>
             matches ? (
               <ZenControlledOffCanvas
-                headerComponent={
-                  headerComponent ? headerComponent.mobile : this.renderBadge()
-                }
+                headerComponent={this.renderBadge()}
                 footerComponent={this.props.footerComponent}
+                productSwitcher={headerComponent && headerComponent.mobile}
                 links={children}
                 heading="Menu"
                 menuId="menu"
+                colorScheme={colorScheme}
               />
             ) : (
               <header
@@ -130,6 +129,7 @@ export default class NavigationBar extends React.Component<Props> {
         ...linkProps,
         opaque: isFinal,
         small: isFinal,
+        content: this.props.colorScheme === "content",
       },
     }
     const key = "href" in linkProps ? linkProps.href : linkProps.heading
@@ -148,20 +148,10 @@ export default class NavigationBar extends React.Component<Props> {
 
   renderBadge() {
     const {
-      environment = "production",
       loading = false,
       badgeHref = "/",
       colorScheme = "kaizen",
     } = this.props
-
-    const badges = {
-      production: ProductionBadge,
-      staging: StagingBadge,
-      test: TestBadge,
-      local: LocalBadge,
-    }
-
-    const Badge = badges[environment] || namedBadge(environment)
 
     return (
       <Badge loading={loading} href={badgeHref} colorScheme={colorScheme} />
