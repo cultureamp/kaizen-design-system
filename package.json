@@ -114,10 +114,16 @@
     "@storybook/codemod": "^5.3.9",
     "@storybook/csf": "^0.0.1",
     "@storybook/node-logger": "^5.3.9",
+    "husky": "^4.2.5",
     "jscodeshift": "^0.7.0",
     "storybook-chromatic": "^3.4.1"
   },
   "resolutions": {
     "**/**/minimist": "^1.2.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "yarn run lint:fix"
+    }
   }
 }
