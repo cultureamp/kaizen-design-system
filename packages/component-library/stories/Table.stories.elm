@@ -115,6 +115,9 @@ main =
                         |> TableContainer.children
                             [ exampleTableHeader
                             , exampleTableCard
+                            , exampleTableCard
+                            , exampleTableCard
+                            , exampleTableCard
                             ]
                     )
                 ]
