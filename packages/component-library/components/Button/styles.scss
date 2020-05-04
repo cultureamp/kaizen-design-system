@@ -178,20 +178,11 @@ $caButton-verticalPaddingForm: calc(
     }
 
     &:hover,
-    &:active {
-      color: $kz-color-cluny-500;
-      background: $kz-color-cluny-100;
-      border-color: $kz-border-borderless-border-color;
-    }
-
+    &:active,
     :global(.js-focus-visible) &:global(.focus-visible) {
       color: $kz-color-cluny-500;
       background: $kz-color-cluny-100;
-      border-color: $kz-color-cluny-500;
-    }
-
-    :global(.js-focus-visible) &:global(.focus-visible)::after {
-      content: none;
+      border-color: $kz-border-borderless-border-color;
     }
   }
 
