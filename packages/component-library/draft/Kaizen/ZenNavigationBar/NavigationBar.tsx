@@ -8,12 +8,7 @@ import Badge from "./components/Badge"
 import Link from "./components/Link"
 import Menu from "./components/Menu"
 import { LinkClickContext } from "./context"
-import {
-  ColorScheme,
-  Navigation,
-  NavigationChange,
-  NavigationItem,
-} from "./types"
+import { Navigation, NavigationChange, NavigationItem } from "./types"
 
 const styles = require("./NavigationBar.module.scss")
 
@@ -31,6 +26,8 @@ type Props = {
   children?: Navigation
   mobileMaxWidth?: number
 }
+
+export type ColorScheme = "cultureamp" | "kaizen" | "content"
 
 export default class NavigationBar extends React.Component<Props> {
   static displayName = "NavigationBar"
