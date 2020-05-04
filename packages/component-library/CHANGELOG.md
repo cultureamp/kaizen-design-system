@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.8.0...@kaizen/component-library@7.8.1) (2020-05-04)
+
+
+### Bug Fixes
+
+* Adjust styles of the zen navbar ([#442](https://github.com/cultureamp/kaizen-design-system/issues/442)) ([35bcda7](https://github.com/cultureamp/kaizen-design-system/commit/35bcda7f0734a60e3dc7b5588ca1a0a359f2b141))
+
+
+
+
+
 # [7.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.7.0...@kaizen/component-library@7.8.0) (2020-04-29)
 
 
