@@ -8,11 +8,7 @@ import Badge from "./components/Badge"
 import Link from "./components/Link"
 import Menu from "./components/Menu"
 import { LinkClickContext } from "./context"
-import {
-  Navigation,
-  NavigationChange,
-  NavigationItem,
-} from "./types"
+import { Navigation, NavigationChange, NavigationItem } from "./types"
 
 const styles = require("./NavigationBar.module.scss")
 
