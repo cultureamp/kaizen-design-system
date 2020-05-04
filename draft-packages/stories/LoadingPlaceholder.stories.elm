@@ -261,7 +261,7 @@ class =
 
 
 styles =
-    css "@kaizen/component-library/stories/LoadingPlaceholder.stories.scss"
+    css "./LoadingPlaceholder.stories.scss"
         { storyContainer = "storyContainer"
         , reversedDefault = "reversedDefault"
         , reversedOcean = "reversedOcean"
