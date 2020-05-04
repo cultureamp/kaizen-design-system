@@ -14,7 +14,7 @@ type Props = {
   footerComponent?: React.ReactNode
   productSwitcher?: React.ReactNode
   menuId: string
-  colorScheme: ColorScheme
+  colorScheme?: ColorScheme
 }
 
 type State = {

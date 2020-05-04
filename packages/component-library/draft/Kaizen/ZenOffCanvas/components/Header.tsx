@@ -12,7 +12,7 @@ type Props = {
   leftComponent: React.ReactNode
   onClose: (e: MouseEvent) => void
   heading: string
-  colorScheme: ColorScheme
+  colorScheme?: ColorScheme
 }
 
 const Header = ({
