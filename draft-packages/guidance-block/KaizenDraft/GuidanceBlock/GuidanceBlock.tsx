@@ -19,15 +19,19 @@ type Props = {
     title: string
     description: string | React.ReactNode
   }
-  button: {
-    label: string
-    onClick: () => void
+  actions: {
+    primary?: {
+      label: string
+      onClick: () => void
+    }
+    secondary?: {
+      label: string
+      onClick: () => void
+    }
+    dismiss?: {
+      onClick: () => void
+    }
   }
-  secondaryAction?: {
-    label: string
-    onClick: () => void
-  }
-  onDismiss: () => void
   persistent?: boolean
 }
 
@@ -52,7 +56,7 @@ class GuidanceBlock extends React.Component<Props, State> {
 
   dismissBanner(): void {
     this.setState({ hidden: true })
-    this.props.onDismiss()
+    this.props.actions.dismiss?.onClick()
   }
 
   onTransitionEnd(e: React.TransitionEvent<HTMLDivElement>) {
@@ -67,7 +71,12 @@ class GuidanceBlock extends React.Component<Props, State> {
       return null
     }
 
-    const { button, img, text, secondaryAction, persistent } = this.props
+    const {
+      actions: { primary, secondary },
+      img,
+      text,
+      persistent,
+    } = this.props
 
     return (
       <div
@@ -79,6 +88,7 @@ class GuidanceBlock extends React.Component<Props, State> {
         <div className={styles.iconWrapper}>
           <img src={img.src} alt={img.alt} height="155px" width="155px" />
         </div>
+
         <div className={styles.descriptionContainer}>
           <div className={styles.headingWrapper}>
             <Text inline={true} tag="h3" style="display">
@@ -91,26 +101,28 @@ class GuidanceBlock extends React.Component<Props, State> {
         </div>
         <div
           className={classnames(styles.buttonContainer, {
-            [styles.secondaryAction]: secondaryAction,
+            [styles.secondaryAction]: secondary,
           })}
         >
-          <Button
-            label={button.label}
-            onClick={button.onClick}
-            icon={configureIcon}
-            iconPosition="end"
-          />
-          {secondaryAction && (
+          {primary && (
+            <Button
+              label={primary.label}
+              onClick={primary.onClick}
+              icon={configureIcon}
+              iconPosition="end"
+            />
+          )}
+          {secondary && (
             <div className={styles.secondaryAction}>
               <Button
-                label={secondaryAction.label}
-                onClick={secondaryAction.onClick}
+                label={secondary.label}
+                onClick={secondary.onClick}
                 secondary
               />
             </div>
           )}
-          {!persistent && <CancelButton onClick={this.dismissBanner} />}
         </div>
+        {!persistent && <CancelButton onClick={this.dismissBanner} />}
       </div>
     )
   }

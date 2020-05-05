@@ -18,14 +18,16 @@ const Default = () => (
         description:
           "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
       }}
-      button={{
-        label: "Action",
-        onClick: () => {
-          alert("tada: 🎉")
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
         },
-      }}
-      onDismiss={() => {
-        /* do nothing */
+        dismiss: {
+          onClick: () => alert("tada: 🎉"),
+        },
       }}
     />
   </div>
@@ -40,14 +42,13 @@ const Persistent = () => (
         description:
           "This beta is to test out the new navigation, read about our thinking behind the change. And let us know if you have any feedback",
       }}
-      button={{
-        label: "Turn on for the whole org",
-        onClick: () => {
-          alert("tada: 🎉")
+      actions={{
+        primary: {
+          label: "Turn on for the whole org",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
         },
-      }}
-      onDismiss={() => {
-        /* do nothing */
       }}
       persistent
     />
@@ -63,18 +64,17 @@ const SecondaryAction = () => (
         description:
           "This beta is to test out the new navigation, read about our thinking behind the change. And let us know if you have any feedback",
       }}
-      button={{
-        label: "Turn on for the whole org",
-        onClick: () => {
-          alert("tada: 🎉")
+      actions={{
+        primary: {
+          label: "Turn on for the whole org",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
         },
-      }}
-      secondaryAction={{
-        label: "Turn off new navigation",
-        onClick: () => alert("tada: 🎉"),
-      }}
-      onDismiss={() => {
-        /* do nothing */
+        secondary: {
+          label: "Turn off new navigation",
+          onClick: () => alert("tada: 🎉"),
+        },
       }}
       persistent
     />
