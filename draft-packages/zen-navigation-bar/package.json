@@ -43,6 +43,7 @@
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "1.2.0",
+    "@kaizen/deaft-zen-off-canvas": "^1.2.2",
     "react": "^16.9.0"
   }
 }

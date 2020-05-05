@@ -42,6 +42,7 @@
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "1.2.0",
+    "@kaizen/draft-zen-navigation-bar": "^1.3.3",
     "react": "^16.9.0"
   }
 }
