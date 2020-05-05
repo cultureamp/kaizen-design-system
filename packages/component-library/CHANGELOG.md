@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.10.0...@kaizen/component-library@7.11.0) (2020-05-05)
+
+
+### Features
+
+* Add two more guidance block variances ([#446](https://github.com/cultureamp/kaizen-design-system/issues/446)) ([e5b2d45](https://github.com/cultureamp/kaizen-design-system/commit/e5b2d457b590de0989533e5b35271ff7e3f1673c))
+
+
+
+
+
 # [7.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.9.1...@kaizen/component-library@7.10.0) (2020-05-05)
 
 
