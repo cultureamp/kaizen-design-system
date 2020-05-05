@@ -1,0 +1,86 @@
+---
+title: Button
+navTitle: Button
+summaryParagraph: Buttons perform actions.
+tags: ["Link button", "Primary action", "Secondary action", "Default action", "Destructive action"]
+needToKnow:
+- Buttons perform actions.
+- If it needs to navigate somewhere and can be opened in a new tab, use a link instead.
+demoStoryId: button-react--default-kaizen-site-demo
+---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
+## Visuals
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D205%253A10355" allowfullscreen></iframe>
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D205%253A12210" allowfullscreen></iframe>
+
+## To keep in mind
+
+*   All buttons use a button element (not a link element and no `role=”button”`)
+*   All buttons have a label:
+    *   no more than 2 to 3 words long
+    *   use verbs first; use only verbs where possible e.g. “Save”
+    *   avoid unnecessary words and articles, such as “the” or “a”
+    *   use sentence case
+    *   DON’T use long phrases as label
+    *   DON’T have finishing punctuation
+    *   DON’T have text overflowing across 2 lines—this can sometimes happen when the label is translated from a 3-word English label 
+*   All buttons have a large click target of 48px to meet minimum touch target sizes
+*   Default action button:
+    *   Use this when there is more than 1 button or it is not the most important action on the page
+*   Primary action button:
+    *   Use only 1 primary action button per page
+*   Destructive action button:
+    *   Only use when the action will result in data loss, cannot be undone, or otherwise have significant consequences
+*   Secondary action button:
+    *   Secondary Action Buttons kind of look like links but have lots of padding, a large clickable area, and sit next to other buttons, such as a Primary button. That is, they perform actions and do not navigate.
+*   Icon + label (icon on the left):
+    *   RTL: flip the direction of arrow icons when the user is using a right-to-left language
+*   Label + icon (icon on the right):
+    *   RTL: flip the direction of arrow icons when the user is using a right-to-left language
+*   Disabled buttons:
+    *   See the [Interaction states guidelines for disabled elements](/guidelines/interaction-states#disabled-state).
+*   Supplementary information:
+    *   You might show additional, optional information on hover and focus using a [Tooltip](/components/tooltip) or [Popover](/components/popover).
+
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
+
+*   A button indicates to a user that they can perform an action on this page, such as:
+    *   Apply an action to an object, e.g. save, delete, add an item, undo, create a new item
+    *   Submit a form to send data
+    *   Start a new task
+    *   Trigger a new element to appear on the page e.g. toggle additional information, open a modal
+    *   Trigger the next step in a process
+
+</WhenToUse>
+<WhenNotToUse>
+
+*   Don’t use a button when navigation is involved. Instead, use a [link](/guidelines/link-vs-button/).
+*   If the button is used to toggle between 2 states, use a [Toggle Switch](/components/toggle-switch-field) instead.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
+
+## See also
+
+*   [Link vs button](/guidelines/link-vs-button/)
+*   [Typography](/guidelines/typography/)
+*   [Icon Button](/components/icon-button/)
+
+## External Links
+
+Here are some examples of other existing design systems:
+
+- [Lightning: buttons](https://www.lightningdesignsystem.com/components/buttons/#site-main-content)
+- [Polaris: button](https://polaris.shopify.com/components/actions/button)
+- [Material: designing buttons](https://material.io/design/components/buttons.html#)
+- [Material: component buttons](https://material.io/develop/web/components/buttons/)
+
