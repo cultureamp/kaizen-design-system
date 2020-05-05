@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-checkbox-group",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "The draft Checkbox group component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
