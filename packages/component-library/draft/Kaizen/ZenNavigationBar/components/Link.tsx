@@ -1,24 +1,28 @@
 import { Icon } from "@kaizen/component-library"
-const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
-  .default
 import classNames from "classnames"
 import * as React from "react"
-
-const styles = require("./Link.module.scss")
+import { LinkClickContext } from "../context"
 import { LinkProps } from "../types"
+
+const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
+  .default
+const styles = require("./Link.module.scss")
 
 export default class Link extends React.PureComponent<LinkProps> {
   static displayName = "Link"
+  static contextType = LinkClickContext
   static defaultProps = {
     iconOnly: false,
     active: false,
     opaque: false,
     small: false,
     new: false,
+    content: false,
     target: "_self",
   }
 
   render = () => {
+    const { handleNavigationChange } = this.context
     const {
       badge,
       icon,
@@ -26,13 +30,14 @@ export default class Link extends React.PureComponent<LinkProps> {
       href,
       active,
       id,
-      onClick,
       iconOnly,
       target,
       hasMenu,
       opaque,
+      onClick,
       small,
       menuOpen,
+      content,
     } = this.props
 
     return (
@@ -43,39 +48,46 @@ export default class Link extends React.PureComponent<LinkProps> {
           [styles.opaque]: opaque,
           [styles.small]: small,
           [styles.menuOpen]: hasMenu && menuOpen,
+          [styles.content]: content,
         })}
         tabIndex={0}
-        {...{ href, id, onClick, target }}
+        onClick={event => {
+          onClick && onClick(event)
+          handleNavigationChange && handleNavigationChange(event)
+        }}
+        {...{ href, id, target }}
       >
-        {icon && (
-          <span className={styles.linkIcon}>
-            <Icon
-              icon={icon}
-              role={iconOnly ? "img" : "presentation"}
-              title={iconOnly ? text : undefined}
-            />
-          </span>
-        )}
-        {text && !(icon && iconOnly) && (
-          <span className={styles.linkText}>
-            {text}
-            {badge && (
-              <span
-                className={classNames(styles.badge, {
-                  [styles.badgeNotification]: badge.kind === "notification",
-                  [styles.badgeNew]: badge.kind === "new",
-                })}
-              >
-                {badge.text}
-              </span>
-            )}
-          </span>
-        )}
-        {hasMenu && (
-          <span className={styles.menuIcon}>
-            <Icon icon={arrowForwardIcon} role="presentation" />
-          </span>
-        )}
+        <span className={styles.hoverArea}>
+          {icon && (
+            <span className={styles.linkIcon}>
+              <Icon
+                icon={icon}
+                role={iconOnly ? "img" : "presentation"}
+                title={iconOnly ? text : undefined}
+              />
+            </span>
+          )}
+          {text && !(icon && iconOnly) && (
+            <span className={styles.linkText}>
+              {text}
+              {badge && (
+                <span
+                  className={classNames(styles.badge, {
+                    [styles.badgeNotification]: badge.kind === "notification",
+                    [styles.badgeNew]: badge.kind === "new",
+                  })}
+                >
+                  {badge.text}
+                </span>
+              )}
+            </span>
+          )}
+          {hasMenu && (
+            <span className={styles.menuIcon}>
+              <Icon icon={arrowForwardIcon} role="presentation" />
+            </span>
+          )}
+        </span>
       </a>
     )
   }

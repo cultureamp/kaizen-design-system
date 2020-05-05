@@ -1,0 +1,71 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/layout";
+@import "../styles";
+
+.badge {
+  background-color: $kz-color-coral-500;
+  color: #fff;
+  font-weight: $ca-weight-medium;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: $ca-navigation-bar__height;
+  flex: 0 0 $ca-navigation-bar__height;
+
+  // auto 1:1 (square) aspect ratio
+  position: relative;
+  &::after {
+    display: block;
+    content: "";
+    padding-bottom: 100%; // % of parent width
+  }
+  > * {
+    @extend %ca-navigation-bar__menu-item-focus;
+
+    // fill the square
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    // center child
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:link,
+    &:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+
+  &.staging {
+    background-color: $kz-color-peach-500;
+  }
+
+  &.named {
+    background-color: $kz-color-seedling-400;
+  }
+
+  &.test {
+    background-color: $kz-color-wisteria-400;
+  }
+
+  &.local {
+    background-color: $kz-color-cluny-300;
+  }
+
+  &.content {
+    background-color: $kz-color-cluny-200;
+    color: $kz-color-wisteria-800;
+  }
+
+  @include ca-media-mobile {
+    @include ca-margin($start: 21px);
+
+    background: none;
+    flex: none;
+    width: 20px;
+  }
+}

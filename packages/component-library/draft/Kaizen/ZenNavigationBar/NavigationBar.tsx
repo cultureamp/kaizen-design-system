@@ -4,24 +4,20 @@ import { ZenControlledOffCanvas } from "@kaizen/component-library/draft/Kaizen/Z
 import classNames from "classnames"
 import Media from "react-media"
 import uuid from "uuid/v4"
-import {
-  LocalBadge,
-  namedBadge,
-  ProductionBadge,
-  StagingBadge,
-  TestBadge,
-} from "./components/Badge"
+import Badge from "./components/Badge"
 import Link from "./components/Link"
 import Menu from "./components/Menu"
-import { Navigation, NavigationItem } from "./types"
+import { LinkClickContext } from "./context"
+import { Navigation, NavigationChange, NavigationItem } from "./types"
 
 const styles = require("./NavigationBar.module.scss")
 
 type Props = {
   environment?: "production" | "staging" | "test" | "local"
   loading?: boolean
-  colorScheme?: "cultureamp" | "kaizen" | "content"
+  colorScheme?: ColorScheme
   badgeHref?: string
+  onNavigationChange: NavigationChange
   headerComponent?: {
     desktop: React.ReactNode
     mobile: React.ReactNode
@@ -30,6 +26,8 @@ type Props = {
   children?: Navigation
   mobileMaxWidth?: number
 }
+
+export type ColorScheme = "cultureamp" | "kaizen" | "content"
 
 export default class NavigationBar extends React.Component<Props> {
   static displayName = "NavigationBar"
@@ -41,6 +39,7 @@ export default class NavigationBar extends React.Component<Props> {
     colorScheme: "cultureamp",
     badgeHref: "/",
     mobileMaxWidth: 767,
+    onNavigationChange: () => null,
   }
 
   render() {
@@ -49,37 +48,45 @@ export default class NavigationBar extends React.Component<Props> {
       colorScheme = "cultureamp",
       headerComponent,
       mobileMaxWidth,
+      onNavigationChange,
     } = this.props
 
     return (
-      <Media query={`(max-width: ${mobileMaxWidth}px)`}>
-        {(matches: boolean) =>
-          matches ? (
-            <ZenControlledOffCanvas
-              headerComponent={
-                headerComponent ? headerComponent.mobile : this.renderBadge()
-              }
-              footerComponent={this.props.footerComponent}
-              links={children}
-              heading="Menu"
-              menuId="menu"
-            />
-          ) : (
-            <header
-              className={classNames(styles.navigationBar, styles[colorScheme])}
-            >
-              {headerComponent ? (
-                <span className={styles.headerSlot}>
-                  {headerComponent.desktop}
-                </span>
-              ) : (
-                this.renderBadge()
-              )}
-              {this.renderNav(children)}
-            </header>
-          )
-        }
-      </Media>
+      <LinkClickContext.Provider
+        value={{ handleNavigationChange: onNavigationChange }}
+      >
+        <Media query={`(max-width: ${mobileMaxWidth}px)`}>
+          {(matches: boolean) =>
+            matches ? (
+              <ZenControlledOffCanvas
+                headerComponent={this.renderBadge()}
+                footerComponent={this.props.footerComponent}
+                productSwitcher={headerComponent && headerComponent.mobile}
+                links={children}
+                heading="Menu"
+                menuId="menu"
+                colorScheme={colorScheme}
+              />
+            ) : (
+              <header
+                className={classNames(
+                  styles.navigationBar,
+                  styles[colorScheme]
+                )}
+              >
+                {headerComponent ? (
+                  <span className={styles.headerSlot}>
+                    {headerComponent.desktop}
+                  </span>
+                ) : (
+                  this.renderBadge()
+                )}
+                {this.renderNav(children)}
+              </header>
+            )
+          }
+        </Media>
+      </LinkClickContext.Provider>
     )
   }
 
@@ -115,7 +122,12 @@ export default class NavigationBar extends React.Component<Props> {
     const isFinal = section === "final"
     const linkWithProps = {
       ...link,
-      props: { ...linkProps, opaque: isFinal, small: isFinal },
+      props: {
+        ...linkProps,
+        opaque: isFinal,
+        small: isFinal,
+        content: this.props.colorScheme === "content",
+      },
     }
     const key = "href" in linkProps ? linkProps.href : linkProps.heading
 
@@ -133,20 +145,10 @@ export default class NavigationBar extends React.Component<Props> {
 
   renderBadge() {
     const {
-      environment = "production",
       loading = false,
       badgeHref = "/",
       colorScheme = "kaizen",
     } = this.props
-
-    const badges = {
-      production: ProductionBadge,
-      staging: StagingBadge,
-      test: TestBadge,
-      local: LocalBadge,
-    }
-
-    const Badge = badges[environment] || namedBadge(environment)
 
     return (
       <Badge loading={loading} href={badgeHref} colorScheme={colorScheme} />

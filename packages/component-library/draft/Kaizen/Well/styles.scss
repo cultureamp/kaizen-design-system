@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/design-tokens/sass/border";
@@ -15,20 +16,22 @@
 // Border Style Variations
 
 .solid {
-  border-width: 1px;
-  border-style: solid;
+  border-width: $kz-border-solid-border-width;
+  border-style: $kz-border-solid-border-style;
   padding: 1px;
 }
 
 .dashed {
-  border-style: dashed;
-  border-width: 2px;
-  padding: 0;
+  border-style: $kz-border-dashed-border-style;
+  border-width: $kz-border-dashed-border-width;
+  padding: 1px;
 }
 
-.none {
-  border: none;
-  padding: 2px;
+.none.none {
+  border-style: $kz-border-borderless-border-style;
+  border-width: $kz-border-borderless-border-width;
+  border-color: $kz-border-borderless-border-color;
+  padding: 1px;
 }
 
 // Background Style Variations
