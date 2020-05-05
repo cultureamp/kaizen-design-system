@@ -22,7 +22,7 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
   border: $kz-border-borderless-border-width $kz-border-borderless-border-style
     $kz-border-borderless-border-color;
   border-radius: $kz-border-solid-border-radius;
-  padding: $ca-grid;
+  padding: $ca-grid / 2;
   box-shadow: $kz-shadow-small-box-shadow;
   position: relative;
   top: -1px;

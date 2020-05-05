@@ -20,14 +20,9 @@ describe("GuidanceBlock", () => {
           description:
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
-        button={{
-          label: "Action!",
-          onClick: () => {
-            alert("tada: 🎉")
-          },
-        }}
-        onDismiss={() => {
-          /* do nothing */
+        actions={{
+          primary: { label: "Action!", onClick: () => alert("tada: 🎉") },
+          dismiss: { onClick: () => null },
         }}
       />
     )
@@ -45,13 +40,10 @@ describe("GuidanceBlock", () => {
           description:
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
-        button={{
-          label: "Action!",
-          onClick: () => {
-            /* do nothing */
-          },
+        actions={{
+          primary: { label: "Action!", onClick: () => alert("tada: 🎉") },
+          dismiss: { onClick: onDismiss },
         }}
-        onDismiss={onDismiss}
       />
     )
 
@@ -76,12 +68,8 @@ describe("GuidanceBlock", () => {
           description:
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
-        button={{
-          label: "Action!",
-          onClick: onAction,
-        }}
-        onDismiss={() => {
-          /* do nothing */
+        actions={{
+          primary: { label: "Action!", onClick: onAction },
         }}
       />
     )
@@ -99,14 +87,8 @@ describe("GuidanceBlock", () => {
           description:
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
-        button={{
-          label: "Action!",
-          onClick: () => {
-            /* do nothing */
-          },
-        }}
-        onDismiss={() => {
-          /* do nothing */
+        actions={{
+          primary: { label: "Action!", onClick: () => null },
         }}
       />
     )
@@ -134,14 +116,8 @@ describe("GuidanceBlock", () => {
           description:
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
-        button={{
-          label: "Action!",
-          onClick: () => {
-            /* do nothing */
-          },
-        }}
-        onDismiss={() => {
-          /* do nothing */
+        actions={{
+          primary: { label: "Action!", onClick: () => null },
         }}
         persistent
       />
@@ -160,16 +136,10 @@ describe("GuidanceBlock", () => {
           description:
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
-        button={{
-          label: "Action!",
-          onClick: () => {
-            /* do nothing */
-          },
+        actions={{
+          primary: { label: "Action!", onClick: () => null },
+          secondary: { label: "Secondary action", onClick: () => null}
         }}
-        onDismiss={() => {
-          /* do nothing */
-        }}
-        secondaryAction={{ label: "Secondary", onClick: () => null }}
       />
     )
 
