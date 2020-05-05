@@ -24,102 +24,91 @@ main =
     let
         exampleTableHeaderRow =
             TableHeaderRow.view
-                (TableHeaderRow.default
-                    |> TableHeaderRow.children
-                        [ TableHeaderRowCell.view
-                            (TableHeaderRowCell.default
-                                |> TableHeaderRowCell.labelText "Resource name"
-                                |> TableHeaderRowCell.width (4 / 12)
-                            )
-                        , TableHeaderRowCell.view
-                            (TableHeaderRowCell.default
-                                |> TableHeaderRowCell.labelText "Supplementary information"
-                                |> TableHeaderRowCell.width (4 / 12)
-                            )
-                        , TableHeaderRowCell.view
-                            (TableHeaderRowCell.default
-                                |> TableHeaderRowCell.labelText "Date"
-                                |> TableHeaderRowCell.width (2 / 12)
-                            )
-                        , TableHeaderRowCell.view
-                            (TableHeaderRowCell.default
-                                |> TableHeaderRowCell.labelText "Comments"
-                                |> TableHeaderRowCell.width (2 / 12)
-                            )
-                        ]
-                )
+                TableHeaderRow.default
+                [ TableHeaderRowCell.view
+                    (TableHeaderRowCell.default
+                        |> TableHeaderRowCell.labelText "Resource name"
+                        |> TableHeaderRowCell.width (4 / 12)
+                    )
+                , TableHeaderRowCell.view
+                    (TableHeaderRowCell.default
+                        |> TableHeaderRowCell.labelText "Supplementary information"
+                        |> TableHeaderRowCell.width (4 / 12)
+                    )
+                , TableHeaderRowCell.view
+                    (TableHeaderRowCell.default
+                        |> TableHeaderRowCell.labelText "Date"
+                        |> TableHeaderRowCell.width (2 / 12)
+                    )
+                , TableHeaderRowCell.view
+                    (TableHeaderRowCell.default
+                        |> TableHeaderRowCell.labelText "Comments"
+                        |> TableHeaderRowCell.width (2 / 12)
+                    )
+                ]
 
         exampleTableHeader =
-            TableHeader.view
-                (TableHeader.default |> TableHeader.children [ exampleTableHeaderRow ])
+            TableHeader.view TableHeader.default [ exampleTableHeaderRow ]
 
         exampleTableRow =
             TableRow.view
-                (TableRow.default
-                    |> TableRow.children
-                        [ TableRowCell.view
-                            (TableRowCell.default
-                                |> TableRowCell.width (4 / 12)
-                                |> TableRowCell.children
-                                    [ Text.view
-                                        (Text.div
-                                            |> Text.inheritBaseline True
-                                        )
-                                        [ text "This is a resource label" ]
-                                    ]
-                            )
-                        , TableRowCell.view
-                            (TableRowCell.default
-                                |> TableRowCell.width (4 / 12)
-                                |> TableRowCell.children
-                                    [ Text.view
-                                        (Text.div
-                                            |> Text.inheritBaseline True
-                                        )
-                                        [ text "Supplementary information" ]
-                                    ]
-                            )
-                        , TableRowCell.view
-                            (TableRowCell.default
-                                |> TableRowCell.width (2 / 12)
-                                |> TableRowCell.children
-                                    [ Text.view
-                                        (Text.div
-                                            |> Text.inheritBaseline True
-                                        )
-                                        [ text "Jan 1, 2017" ]
-                                    ]
-                            )
-                        , TableRowCell.view
-                            (TableRowCell.default
-                                |> TableRowCell.width (2 / 12)
-                                |> TableRowCell.children
-                                    [ Text.view
-                                        (Text.div
-                                            |> Text.inheritBaseline True
-                                        )
-                                        [ text "24" ]
-                                    ]
-                            )
-                        ]
-                )
+                TableRow.default
+                [ TableRowCell.view
+                    (TableRowCell.default
+                        |> TableRowCell.width (4 / 12)
+                    )
+                    [ Text.view
+                        (Text.div
+                            |> Text.inheritBaseline True
+                        )
+                        [ text "This is a resource label" ]
+                    ]
+                , TableRowCell.view
+                    (TableRowCell.default
+                        |> TableRowCell.width (4 / 12)
+                    )
+                    [ Text.view
+                        (Text.div
+                            |> Text.inheritBaseline True
+                        )
+                        [ text "Supplementary information" ]
+                    ]
+                , TableRowCell.view
+                    (TableRowCell.default
+                        |> TableRowCell.width (2 / 12)
+                    )
+                    [ Text.view
+                        (Text.div
+                            |> Text.inheritBaseline True
+                        )
+                        [ text "Jan 1, 2017" ]
+                    ]
+                , TableRowCell.view
+                    (TableRowCell.default
+                        |> TableRowCell.width (2 / 12)
+                    )
+                    [ Text.view
+                        (Text.div
+                            |> Text.inheritBaseline True
+                        )
+                        [ text "24" ]
+                    ]
+                ]
 
         exampleTableCard =
-            TableCard.view (TableCard.default |> TableCard.children [ exampleTableRow ])
+            TableCard.view TableCard.default [ exampleTableRow ]
     in
     storybook
         [ statelessStoryOf "Default" <|
             storyContainer
                 [ TableContainer.view
-                    (TableContainer.default
-                        |> TableContainer.children
-                            [ exampleTableHeader
-                            , exampleTableCard
-                            , exampleTableCard
-                            , exampleTableCard
-                            , exampleTableCard
-                            ]
-                    )
+                    TableContainer.default
+                    [ exampleTableHeader
+                    , exampleTableCard
+                    , exampleTableCard
+                    , exampleTableCard
+                    , exampleTableCard
+                    ]
                 ]
         ]
 

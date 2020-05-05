@@ -1,6 +1,5 @@
 module Kaizen.Table.TableRowCell exposing
-    ( children
-    , default
+    ( default
     , flex
     , view
     , width
@@ -15,7 +14,7 @@ import Kaizen.Table.TableHelpers exposing (ratioToPercent)
 
 
 type Config msg
-    = Config (ConfigValue msg)
+    = Config ConfigValue
 
 
 default : Config msg
@@ -23,18 +22,16 @@ default =
     Config defaults
 
 
-type alias ConfigValue msg =
+type alias ConfigValue =
     { width : Maybe Float
     , flex : Maybe String
-    , children : List (Html msg)
     }
 
 
-defaults : ConfigValue msg
+defaults : ConfigValue
 defaults =
     { width = Nothing
     , flex = Nothing
-    , children = []
     }
 
 
@@ -48,13 +45,8 @@ flex value (Config config) =
     Config { config | flex = Just value }
 
 
-children : List (Html msg) -> Config msg -> Config msg
-children value (Config config) =
-    Config { config | children = value }
-
-
-view : Config msg -> Html msg
-view (Config config) =
+view : Config msg -> List (Html msg) -> Html msg
+view (Config config) children =
     let
         widthStyle =
             case config.width of
@@ -78,7 +70,7 @@ view (Config config) =
         , styles.class .rowCell
         , role "cell"
         ]
-        config.children
+        children
 
 
 styles =

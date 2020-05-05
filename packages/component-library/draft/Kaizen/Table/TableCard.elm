@@ -1,4 +1,4 @@
-module Kaizen.Table.TableCard exposing (children, default, view)
+module Kaizen.Table.TableCard exposing (default, view)
 
 import CssModules exposing (css)
 import Html exposing (Attribute, Html, button, div, text)
@@ -7,7 +7,7 @@ import Html.Events exposing (onClick)
 
 
 type Config msg
-    = Config (ConfigValue msg)
+    = Config ConfigValue
 
 
 default : Config msg
@@ -15,25 +15,18 @@ default =
     Config defaults
 
 
-type alias ConfigValue msg =
-    { children : List (Html msg)
-    }
+type alias ConfigValue =
+    {}
 
 
-defaults : ConfigValue msg
+defaults : ConfigValue
 defaults =
-    { children = []
-    }
+    {}
 
 
-children : List (Html msg) -> Config msg -> Config msg
-children value (Config config) =
-    Config { config | children = value }
-
-
-view : Config msg -> Html msg
-view (Config config) =
-    div [ styles.class .card ] config.children
+view : Config msg -> List (Html msg) -> Html msg
+view (Config config) children =
+    div [ styles.class .card ] children
 
 
 styles =
