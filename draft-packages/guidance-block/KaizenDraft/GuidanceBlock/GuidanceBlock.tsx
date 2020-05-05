@@ -23,7 +23,12 @@ type Props = {
     label: string
     onClick: () => void
   }
+  secondaryAction?: {
+    label: string
+    onClick: () => void
+  }
   onDismiss: () => void
+  persistent?: boolean
 }
 
 type State = {
@@ -62,6 +67,8 @@ class GuidanceBlock extends React.Component<Props, State> {
       return null
     }
 
+    const { button, img, text, secondaryAction, persistent } = this.props
+
     return (
       <div
         className={this.bannerClassName()}
@@ -70,31 +77,39 @@ class GuidanceBlock extends React.Component<Props, State> {
         onTransitionEnd={this.onTransitionEnd}
       >
         <div className={styles.iconWrapper}>
-          <img
-            src={this.props.img.src}
-            alt={this.props.img.alt}
-            height="155px"
-            width="155px"
-          />
+          <img src={img.src} alt={img.alt} height="155px" width="155px" />
         </div>
         <div className={styles.descriptionContainer}>
           <div className={styles.headingWrapper}>
             <Text inline={true} tag="h3" style="display">
-              {this.props.text.title}
+              {text.title}
             </Text>
           </div>
           <Text tag="p" style="body">
-            {this.props.text.description}
+            {text.description}
           </Text>
         </div>
-        <div className={styles.buttonContainer}>
+        <div
+          className={classnames(styles.buttonContainer, {
+            [styles.secondaryAction]: secondaryAction,
+          })}
+        >
           <Button
-            label={this.props.button.label}
-            onClick={this.props.button.onClick}
+            label={button.label}
+            onClick={button.onClick}
             icon={configureIcon}
             iconPosition="end"
           />
-          <CancelButton onClick={this.dismissBanner} />
+          {secondaryAction && (
+            <div className={styles.secondaryAction}>
+              <Button
+                label={secondaryAction.label}
+                onClick={secondaryAction.onClick}
+                secondary
+              />
+            </div>
+          )}
+          {!persistent && <CancelButton onClick={this.dismissBanner} />}
         </div>
       </div>
     )

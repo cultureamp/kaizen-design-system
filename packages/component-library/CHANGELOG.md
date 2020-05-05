@@ -3,6 +3,69 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.10.0...@kaizen/component-library@7.11.0) (2020-05-05)
+
+
+### Features
+
+* Add two more guidance block variances ([#446](https://github.com/cultureamp/kaizen-design-system/issues/446)) ([e5b2d45](https://github.com/cultureamp/kaizen-design-system/commit/e5b2d457b590de0989533e5b35271ff7e3f1673c))
+
+
+
+
+
+# [7.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.9.1...@kaizen/component-library@7.10.0) (2020-05-05)
+
+
+### Features
+
+* [SUP-40] add Elm Table ([#448](https://github.com/cultureamp/kaizen-design-system/issues/448)) ([93b8af1](https://github.com/cultureamp/kaizen-design-system/commit/93b8af1adee46b743370d7b3b0372faf95272275))
+
+
+
+
+
+## [7.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.9.0...@kaizen/component-library@7.9.1) (2020-05-04)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [7.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.8.2...@kaizen/component-library@7.9.0) (2020-05-04)
+
+
+### Features
+
+* Added missing dependencies to packages  ([#449](https://github.com/cultureamp/kaizen-design-system/issues/449)) ([cb1dc2a](https://github.com/cultureamp/kaizen-design-system/commit/cb1dc2aead68e591cc21c665fb25c1817633c4d7))
+
+
+
+
+
+## [7.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.8.1...@kaizen/component-library@7.8.2) (2020-05-04)
+
+
+### Bug Fixes
+
+* export ColorScheme type from zen nav index ([#447](https://github.com/cultureamp/kaizen-design-system/issues/447)) ([eeeca87](https://github.com/cultureamp/kaizen-design-system/commit/eeeca8786b780bd2b38a819e39e21c667baaf4c7))
+
+
+
+
+
+## [7.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.8.0...@kaizen/component-library@7.8.1) (2020-05-04)
+
+
+### Bug Fixes
+
+* Adjust styles of the zen navbar ([#442](https://github.com/cultureamp/kaizen-design-system/issues/442)) ([35bcda7](https://github.com/cultureamp/kaizen-design-system/commit/35bcda7f0734a60e3dc7b5588ca1a0a359f2b141))
+
+
+
+
+
 # [7.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.7.0...@kaizen/component-library@7.8.0) (2020-04-29)
 
 
