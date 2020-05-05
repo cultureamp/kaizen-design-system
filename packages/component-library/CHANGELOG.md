@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.9.1...@kaizen/component-library@7.10.0) (2020-05-05)
+
+
+### Features
+
+* [SUP-40] add Elm Table ([#448](https://github.com/cultureamp/kaizen-design-system/issues/448)) ([93b8af1](https://github.com/cultureamp/kaizen-design-system/commit/93b8af1adee46b743370d7b3b0372faf95272275))
+
+
+
+
+
 ## [7.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.9.0...@kaizen/component-library@7.9.1) (2020-05-04)
 
 **Note:** Version bump only for package @kaizen/component-library

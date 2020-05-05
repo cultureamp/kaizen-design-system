@@ -27,6 +27,8 @@ $row-height: 60px;
 }
 
 .header {
+  @include ca-type-ideal-label;
+  @include ca-inherit-baseline;
   background-color: $kz-color-ash;
   border: solid 1px $ca-border-color;
 }
