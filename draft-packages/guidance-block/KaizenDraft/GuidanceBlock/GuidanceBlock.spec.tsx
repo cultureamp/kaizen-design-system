@@ -124,4 +124,56 @@ describe("GuidanceBlock", () => {
     const bannerAfter = container.querySelector(".banner")
     expect(bannerAfter).toBeNull()
   })
+
+  test("when guidance block is persistent", () => {
+    const { container } = render(
+      <GuidanceBlock
+        img={{ src: "image/path.png", alt: "Call to action banner" }}
+        text={{
+          title: "This is the call to action title",
+          description:
+            "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
+        }}
+        button={{
+          label: "Action!",
+          onClick: () => {
+            /* do nothing */
+          },
+        }}
+        onDismiss={() => {
+          /* do nothing */
+        }}
+        persistent
+      />
+    )
+
+    const cancelButton = container.querySelector(".cancel")
+    expect(cancelButton).toBeNull()
+  })
+
+  test("when secondary action is supplied", () => {
+    const { container } = render(
+      <GuidanceBlock
+        img={{ src: "image/path.png", alt: "Call to action banner" }}
+        text={{
+          title: "This is the call to action title",
+          description:
+            "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
+        }}
+        button={{
+          label: "Action!",
+          onClick: () => {
+            /* do nothing */
+          },
+        }}
+        onDismiss={() => {
+          /* do nothing */
+        }}
+        secondaryAction={{ label: "Secondary", onClick: () => null }}
+      />
+    )
+
+    const secondaryAction = container.querySelector(".secondaryAction")
+    expect(secondaryAction).not.toBeNull()
+  })
 })

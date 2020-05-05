@@ -2,9 +2,11 @@
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/components/Button/styles";
 @import "~@kaizen/component-library/components/Icon/Icon.module.scss";
+@import "~@kaizen/component-library/components/Button/styles";
 
 $heightConstraint: $ca-grid * 6;
 $ca-banner-fade-out: opacity $ca-duration-slow ease;
@@ -45,8 +47,14 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
 }
 
 .buttonContainer {
-  padding-left: $ca-grid;
+  padding: 0 0 0 $ca-grid;
   flex: 1 0 auto;
+  flex-direction: row;
+  text-align: center;
+}
+
+.secondaryAction {
+  margin-top: auto;
 }
 
 .hidden {
