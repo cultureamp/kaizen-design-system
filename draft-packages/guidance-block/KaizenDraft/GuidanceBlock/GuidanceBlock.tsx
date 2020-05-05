@@ -23,10 +23,12 @@ type Props = {
     primary?: {
       label: string
       onClick: () => void
+      disabled?: boolean
     }
     secondary?: {
       label: string
       onClick: () => void
+      disabled?: boolean
     }
     dismiss?: {
       onClick: () => void
@@ -110,6 +112,7 @@ class GuidanceBlock extends React.Component<Props, State> {
               onClick={primary.onClick}
               icon={configureIcon}
               iconPosition="end"
+              disabled={primary.disabled}
             />
           )}
           {secondary && (
@@ -118,6 +121,7 @@ class GuidanceBlock extends React.Component<Props, State> {
                 label={secondary.label}
                 onClick={secondary.onClick}
                 secondary
+                disabled={secondary.disabled}
               />
             </div>
           )}
