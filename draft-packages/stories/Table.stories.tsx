@@ -9,7 +9,7 @@ import {
   TableHeaderRowCell,
   TableRow,
   TableRowCell,
-} from "."
+} from "../table"
 const styles = require("./Table.stories.scss")
 
 const commentIcon = require("@kaizen/component-library/icons/comment.icon.svg")
