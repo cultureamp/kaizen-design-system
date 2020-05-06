@@ -1,6 +1,6 @@
+import { Icon } from "@kaizen/component-library/Icon"
 import classNames from "classnames"
 import * as React from "react"
-import Icon from "../../Icon/Icon"
 
 const styles = require("./GenericButton.module.scss")
 
