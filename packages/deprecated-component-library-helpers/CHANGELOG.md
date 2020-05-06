@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.3.7...@kaizen/deprecated-component-library-helpers@1.4.0) (2020-05-06)
+
+
+### Features
+
+* Copy layout styles to deprecated-helpers pkg ([#456](https://github.com/cultureamp/kaizen-design-system/issues/456)) ([6901025](https://github.com/cultureamp/kaizen-design-system/commit/6901025ae833cc2cf0be98207c586d1ae82329c1))
+
+
+
+
+
 ## [1.3.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.3.6...@kaizen/deprecated-component-library-helpers@1.3.7) (2020-05-04)
 
 **Note:** Version bump only for package @kaizen/deprecated-component-library-helpers
