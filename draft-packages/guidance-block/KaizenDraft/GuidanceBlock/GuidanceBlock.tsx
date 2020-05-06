@@ -20,7 +20,7 @@ type Props = {
     description: string | React.ReactNode
   }
   actions: {
-    primary?: {
+    primary: {
       label: string
       onClick: () => void
       disabled?: boolean
@@ -106,15 +106,14 @@ class GuidanceBlock extends React.Component<Props, State> {
             [styles.secondaryAction]: secondary,
           })}
         >
-          {primary && (
-            <Button
-              label={primary.label}
-              onClick={primary.onClick}
-              icon={configureIcon}
-              iconPosition="end"
-              disabled={primary.disabled}
-            />
-          )}
+          <Button
+            label={primary.label}
+            onClick={primary.onClick}
+            icon={configureIcon}
+            iconPosition="end"
+            disabled={primary.disabled}
+          />
+
           {secondary && (
             <div className={styles.secondaryAction}>
               <Button
