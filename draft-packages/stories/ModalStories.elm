@@ -7,11 +7,12 @@ import Html.Attributes exposing (style)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
 import Kaizen.Form.TextField.TextField as TextField
-import Kaizen.Modal.Modal as Modal
-import Kaizen.Modal.Primitives.Constants as ModalConstants
-import Kaizen.Modal.Primitives.ModalBody as ModalBody
-import Kaizen.Modal.Primitives.ModalFooter as ModalFooter
-import Kaizen.Modal.Primitives.ModalHeader as ModalHeader
+import KaizenDraft.Modal.Modal as Modal
+import KaizenDraft.Modal.Primitives.Constants as ModalConstants
+import KaizenDraft.Modal.Primitives.ModalAccessibleDescription as ModalAccessibleDescription
+import KaizenDraft.Modal.Primitives.ModalBody as ModalBody
+import KaizenDraft.Modal.Primitives.ModalFooter as ModalFooter
+import KaizenDraft.Modal.Primitives.ModalHeader as ModalHeader
 import Text.Text as Text
 
 
@@ -375,6 +376,14 @@ main =
                             |> TextField.inputValue "123456789"
                             |> TextField.icon [ Html.map never <| Icon.view Icon.presentation (svgAsset "@kaizen/component-library/icons/lock.icon.svg") ]
                         ]
+
+                    instructionText =
+                        ModalAccessibleDescription.view
+                            [ Text.view Text.p [ text "Instructive text to drive user selection goes here." ]
+                            ]
+
+                    textFields =
+                        List.map TextField.view textFieldConfigs
                 in
                 div []
                     [ Button.view (Button.default |> Button.onClick SetInputEditModalContext) "Open Modal"
@@ -383,9 +392,7 @@ main =
                             Modal.view <|
                                 (Modal.inputEdit Modal.InputPositive
                                     { title = "Input-edit modal title"
-                                    , textFieldConfigs = textFieldConfigs
-                                    , instructiveText =
-                                        Just "Instructive text to drive user selection goes here."
+                                    , children = instructionText :: textFields
                                     , onDismiss = Just ModalDismissed
                                     , onConfirm = Just ModalConfirmed
                                     , confirmLabel = "Submit"
@@ -415,17 +422,23 @@ main =
                             |> TextField.inputValue "123456789"
                             |> TextField.icon [ Html.map never <| Icon.view Icon.presentation (svgAsset "@kaizen/component-library/icons/lock.icon.svg") ]
                         ]
+
+                    instructionText =
+                        ModalAccessibleDescription.view
+                            [ Text.view Text.p [ text "Instructive text to drive user selection goes here." ]
+                            ]
+
+                    textFields =
+                        List.map TextField.view textFieldConfigs
                 in
                 div []
                     [ Button.view (Button.default |> Button.onClick SetInputEditModalContext) "Open Modal"
                     , case m.modalContext of
                         InputEditModal modalState ->
-                            Modal.view <|
+                            Modal.view
                                 (Modal.inputEdit Modal.InputNegative
                                     { title = "Input-edit modal title"
-                                    , textFieldConfigs = textFieldConfigs
-                                    , instructiveText =
-                                        Just "Instructive text to drive user selection goes here."
+                                    , children = instructionText :: textFields
                                     , onDismiss = Just ModalDismissed
                                     , onConfirm = Just ModalConfirmed
                                     , confirmLabel = "Submit"
