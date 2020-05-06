@@ -3,12 +3,13 @@
 @import "~@kaizen/component-library/styles/layout";
 @import "../styles";
 
-$menu__square-size: $ca-grid * 2;
+$menu__square-size: 60px;
 
 .root {
   position: relative;
   margin-top: 0;
   width: auto;
+  height: 100%;
 }
 
 .buttonReset {
@@ -36,7 +37,13 @@ $menu__square-size: $ca-grid * 2;
   .root & {
     position: relative;
     width: $menu__square-size;
+  }
+
+  .customChild {
     height: $menu__square-size;
+    max-height: $menu__square-size;
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -49,5 +56,5 @@ $menu__square-size: $ca-grid * 2;
     margin-left: 0;
   }
 
-  padding: 0 ($ca-grid / 2);
+  margin: 0 ($ca-grid / 2);
 }
