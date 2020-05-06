@@ -138,7 +138,7 @@ describe("GuidanceBlock", () => {
         }}
         actions={{
           primary: { label: "Action!", onClick: () => null },
-          secondary: { label: "Secondary action", onClick: () => null}
+          secondary: { label: "Secondary action", onClick: () => null },
         }}
       />
     )
