@@ -36,7 +36,12 @@ const getText = (variant: Variant) => {
 export default ({ variant }: DoOrDontProps) => (
   <div className={classnames(styles.tag, styles[variant])}>
     <span className={styles.icon}>
-      <Icon icon={getIcon(variant)} role="img" title={getText(variant)} inheritSize={false} />
+      <Icon
+        icon={getIcon(variant)}
+        role="img"
+        title={getText(variant)}
+        inheritSize={false}
+      />
     </span>
   </div>
 )

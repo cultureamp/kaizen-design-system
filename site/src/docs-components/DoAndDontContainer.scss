@@ -72,7 +72,7 @@
     }
 
     // Visibly highlight extraneous items to content contributors
-    &:nth-child(n+4) {
+    &:nth-child(n + 4) {
       color: $kz-color-coral-500;
     }
   }
@@ -97,4 +97,3 @@
   color: $kz-color-coral-600;
   font-weight: 500;
 }
-
