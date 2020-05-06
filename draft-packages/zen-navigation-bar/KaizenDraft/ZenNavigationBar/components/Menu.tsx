@@ -1,10 +1,7 @@
 import * as React from "react"
 
 import { Icon, IconButton } from "@kaizen/component-library"
-import {
-  OffCanvasContext,
-  ZenOffCanvas,
-} from "@kaizen/component-library/draft/Kaizen/ZenOffCanvas"
+import { OffCanvasContext, ZenOffCanvas } from "@kaizen/draft-zen-off-canvas"
 
 import classNames from "classnames"
 import Media from "react-media"
@@ -87,9 +84,9 @@ export default class Menu extends React.Component<MenuProps, State> {
                 onMouseDown={e => e.preventDefault()}
               >
                 {children ? (
-                  children
+                  <div className={styles.customChild}>{children}</div>
                 ) : (
-                  <React.Fragment>
+                  <span className={styles.hoverArea}>
                     {icon && (
                       <span className={styles.linkIcon}>
                         <Icon
@@ -101,7 +98,7 @@ export default class Menu extends React.Component<MenuProps, State> {
                     )}
                     <span className={styles.linkText}>{heading}</span>
                     <Icon icon={chevronDownIcon} role="presentation" />
-                  </React.Fragment>
+                  </span>
                 )}
               </button>
               {this.state.open && <Dropdown items={items} header={header} />}

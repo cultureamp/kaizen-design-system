@@ -29,6 +29,7 @@ export type LinkProps = {
   }
   opaque?: boolean
   small?: boolean
+  content?: boolean
 }
 
 export type MenuProps = {
