@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@1.3.3...@kaizen/draft-modal@2.0.0) (2020-05-06)
+
+
+### Features
+
+* pass arbitrary children to input edit model instead of text fields ([#459](https://github.com/cultureamp/kaizen-design-system/issues/459)) ([c98753e](https://github.com/cultureamp/kaizen-design-system/commit/c98753e8c8da298f3f8cc1fb8237be6bfbecbb1d))
+
+
+### BREAKING CHANGES
+
+* Removed two configuration options (textFieldConfigs, instructiveText). Replaced with children.
+
+
+
+
+
 ## [1.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@1.3.2...@kaizen/draft-modal@1.3.3) (2020-05-06)
 
 **Note:** Version bump only for package @kaizen/draft-modal
