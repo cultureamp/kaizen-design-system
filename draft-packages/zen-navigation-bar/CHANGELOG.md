@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.4.2...@kaizen/draft-zen-navigation-bar@1.4.3) (2020-05-07)
+
+
+### Bug Fixes
+
+* navbar events - use href to detect if trigger or not ([#468](https://github.com/cultureamp/kaizen-design-system/issues/468)) ([e561732](https://github.com/cultureamp/kaizen-design-system/commit/e5617328517090e305928a65dce076f0c4f1ed6a))
+
+
+
+
+
 ## [1.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.4.1...@kaizen/draft-zen-navigation-bar@1.4.2) (2020-05-07)
 
 
