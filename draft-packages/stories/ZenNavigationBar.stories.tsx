@@ -70,13 +70,14 @@ export const Default = () => (
           href="/"
           badge={{ kind: "new", text: "New" }}
         />,
+      ],
+      secondary: [
         <Link
           text="Inbox"
           href="/"
           badge={{ kind: "notification", text: "5" }}
         />,
       ],
-      secondary: [],
       final: [
         <Link
           icon={supportIcon}
