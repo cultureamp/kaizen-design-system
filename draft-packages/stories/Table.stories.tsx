@@ -131,6 +131,29 @@ DefaultKaizenSiteDemo.story = {
   name: "Default (Kaizen Site Demo)",
 }
 
+export const HeaderWithWhiteBackground = () => (
+  <Container>
+    <TableContainer>
+      <TableHeader backgroundColor="white">
+        <ExampleTableHeaderRow checkable />
+      </TableHeader>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+
+HeaderWithWhiteBackground.story = {
+  name: "Header with white background",
+}
+
 export const Multiline = () => (
   <Container>
     <TableContainer>
