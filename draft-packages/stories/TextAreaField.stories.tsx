@@ -87,7 +87,7 @@ export const DefaultError = () => (
       placeholder="Write your reply..."
       onChange={action("user input")}
       status="error"
-      validationMessage="Enter a reply."
+      validationMessage="Enter a reply"
     />
   </ExampleContainer>
 )
@@ -137,7 +137,7 @@ export const DefaultWithDesc = () => (
       labelText="Your Reply"
       placeholder="Write your reply..."
       onChange={action("user input")}
-      description="Your reply will only be seen by you."
+      description="Your reply will only be seen by you"
     />
   </ExampleContainer>
 )
@@ -170,8 +170,8 @@ export const DefaultErrorAndDesc = () => (
       placeholder="Write your reply..."
       onChange={action("user input")}
       status="error"
-      validationMessage="Enter a reply."
-      description="Your reply will only be seen by you."
+      validationMessage="Enter a reply"
+      description="Your reply will only be seen by you"
     />
   </ExampleContainer>
 )
