@@ -1,11 +1,7 @@
 import * as React from "react"
 
 import { Icon } from "@kaizen/component-library"
-import {
-  Link,
-  Menu,
-  ZenNavigationBar,
-} from "@kaizen/component-library/draft/Kaizen/ZenNavigationBar"
+import { Link, Menu, ZenNavigationBar } from "@kaizen/draft-zen-navigation-bar"
 
 const caIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
   .default
@@ -74,13 +70,14 @@ export const Default = () => (
           href="/"
           badge={{ kind: "new", text: "New" }}
         />,
+      ],
+      secondary: [
         <Link
           text="Inbox"
           href="/"
           badge={{ kind: "notification", text: "5" }}
         />,
       ],
-      secondary: [],
       final: [
         <Link
           icon={supportIcon}
@@ -88,6 +85,7 @@ export const Default = () => (
           href="http://academy.cultureamp.com/"
         />,
         <Link
+          tooltip="Opens in new tab"
           icon={academyIcon}
           text="Academy"
           href="http://academy.cultureamp.com/"

@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { ZenControlledOffCanvas } from "@kaizen/component-library/draft/Kaizen/ZenOffCanvas"
+import { ZenControlledOffCanvas } from "@kaizen/draft-zen-off-canvas"
 import classNames from "classnames"
 import Media from "react-media"
 import uuid from "uuid/v4"
@@ -27,9 +27,13 @@ type Props = {
   mobileMaxWidth?: number
 }
 
+type State = {
+  mobileKey: number
+}
+
 export type ColorScheme = "cultureamp" | "kaizen" | "content"
 
-export default class NavigationBar extends React.Component<Props> {
+export default class NavigationBar extends React.Component<Props, State> {
   static displayName = "NavigationBar"
   static Link = Link
   static Menu = Menu
@@ -38,8 +42,13 @@ export default class NavigationBar extends React.Component<Props> {
     loading: false,
     colorScheme: "cultureamp",
     badgeHref: "/",
-    mobileMaxWidth: 767,
+    mobileMaxWidth: styles.caBreakpointMobile,
     onNavigationChange: () => null,
+  }
+
+  constructor(props) {
+    super(props)
+    this.state = { mobileKey: 1 }
   }
 
   render() {
@@ -53,12 +62,20 @@ export default class NavigationBar extends React.Component<Props> {
 
     return (
       <LinkClickContext.Provider
-        value={{ handleNavigationChange: onNavigationChange }}
+        value={{
+          handleNavigationChange: event => {
+            this.setState({
+              mobileKey: this.state.mobileKey + 1,
+            })
+            onNavigationChange(event)
+          },
+        }}
       >
-        <Media query={`(max-width: ${mobileMaxWidth}px)`}>
+        <Media query={`(max-width: ${mobileMaxWidth})`}>
           {(matches: boolean) =>
             matches ? (
               <ZenControlledOffCanvas
+                key={this.state.mobileKey}
                 headerComponent={this.renderBadge()}
                 footerComponent={this.props.footerComponent}
                 productSwitcher={headerComponent && headerComponent.mobile}
