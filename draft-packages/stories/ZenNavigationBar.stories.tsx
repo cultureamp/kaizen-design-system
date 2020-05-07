@@ -84,6 +84,7 @@ export const Default = () => (
           href="http://academy.cultureamp.com/"
         />,
         <Link
+          tooltip="Opens in new tab"
           icon={academyIcon}
           text="Academy"
           href="http://academy.cultureamp.com/"
