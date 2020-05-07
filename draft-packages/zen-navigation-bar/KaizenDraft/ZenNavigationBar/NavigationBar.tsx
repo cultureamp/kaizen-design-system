@@ -65,7 +65,7 @@ export default class NavigationBar extends React.Component<Props, State> {
         value={{
           handleNavigationChange: event => {
             const navigationHash = event.currentTarget.hash
-            if (!!navigationHash && navigationHash !== "#") {
+            if (navigationHash !== "#") {
               this.setState({
                 mobileKey: this.state.mobileKey + 1,
               })
