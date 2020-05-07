@@ -1,11 +1,7 @@
 import * as React from "react"
 
 import { Icon } from "@kaizen/component-library"
-import {
-  Link,
-  Menu,
-  ZenNavigationBar,
-} from "@kaizen/component-library/draft/Kaizen/ZenNavigationBar"
+import { Link, Menu, ZenNavigationBar } from "@kaizen/draft-zen-navigation-bar"
 
 const caIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
   .default
