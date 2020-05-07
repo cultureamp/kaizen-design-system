@@ -13,9 +13,21 @@ export const TableContainer: TableContainer = ({ children, ...otherProps }) => (
   </div>
 )
 
-type TableHeader = React.FunctionComponent
-export const TableHeader: TableHeader = ({ children, ...otherProps }) => (
-  <div className={styles.header} role="rowgroup" {...otherProps}>
+export type AllowedTableHeaderBackgroundColors = "ash" | "white"
+
+type TableHeader = React.FunctionComponent<{
+  backgroundColor?: AllowedTableHeaderBackgroundColors
+}>
+export const TableHeader: TableHeader = ({
+  children,
+  backgroundColor = "ash",
+  ...otherProps
+}) => (
+  <div
+    className={classNames(styles.header, styles[backgroundColor])}
+    role="rowgroup"
+    {...otherProps}
+  >
     {children}
   </div>
 )
