@@ -14,6 +14,7 @@ type Props = {
   placeholder?: string
   name?: string
   value?: string
+  inline?: boolean
   defaultValue?: string
   validationMessage?: string
   status?: InputStatus
@@ -32,6 +33,7 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
     validationMessage,
     status,
     description,
+    inline,
     placeholder,
     onChange,
     onBlur,
@@ -40,7 +42,11 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
   } = props
 
   return (
-    <FieldGroup id={`${id}-field-group`} automationId={`${id}-field-group`}>
+    <FieldGroup
+      id={`${id}-field-group`}
+      inline={inline}
+      automationId={`${id}-field-group`}
+    >
       <Label
         id={`${id}-field-label`}
         automationId={`${id}-field-label`}

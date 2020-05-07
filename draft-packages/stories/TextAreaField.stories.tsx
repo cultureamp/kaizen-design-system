@@ -145,3 +145,19 @@ export const DefaultWithDesc = () => (
 DefaultWithDesc.story = {
   name: "Default, With description",
 }
+
+export const DefaultInline = () => (
+  <ExampleContainer>
+    <TextAreaField
+      id="reply"
+      labelText="Your Reply"
+      placeholder="Write your reply..."
+      onChange={action("user input")}
+      inline={true}
+    />
+  </ExampleContainer>
+)
+
+DefaultInline.story = {
+  name: "Default, Inline",
+}
