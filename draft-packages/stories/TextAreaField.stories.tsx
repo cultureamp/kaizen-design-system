@@ -129,3 +129,19 @@ export const DefaultControlled = () => (
 DefaultControlled.story = {
   name: "Default, Controlled",
 }
+
+export const DefaultWithDesc = () => (
+  <ExampleContainer>
+    <TextAreaField
+      id="reply"
+      labelText="Your Reply"
+      placeholder="Write your reply..."
+      onChange={action("user input")}
+      description="Your reply will only be seen by you"
+    />
+  </ExampleContainer>
+)
+
+DefaultWithDesc.story = {
+  name: "Default, With description",
+}
