@@ -157,7 +157,6 @@ $row-height: 60px;
   padding: 0 $ca-grid * 0.8;
   display: flex;
   align-items: center;
-  box-shadow: none;
   // These css properties are required for when the cells are anchor elements
   composes: anchorReset;
 }
