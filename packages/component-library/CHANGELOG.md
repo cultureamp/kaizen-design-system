@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.12.0...@kaizen/component-library@7.13.0) (2020-05-07)
+
+
+### Features
+
+* Create description prop for TextAreaField ([#464](https://github.com/cultureamp/kaizen-design-system/issues/464)) ([a4069f5](https://github.com/cultureamp/kaizen-design-system/commit/a4069f5ccc3e0be38e9ccd54baa04cb77b9731b2))
+
+
+
+
+
 # [7.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.11.1...@kaizen/component-library@7.12.0) (2020-05-06)
 
 
