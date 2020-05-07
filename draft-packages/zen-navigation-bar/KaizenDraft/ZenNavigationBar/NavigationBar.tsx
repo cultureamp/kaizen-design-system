@@ -64,8 +64,8 @@ export default class NavigationBar extends React.Component<Props, State> {
       <LinkClickContext.Provider
         value={{
           handleNavigationChange: event => {
-            const navigationHash = event.currentTarget.hash
-            if (navigationHash !== "#") {
+            const navigationHref = event.currentTarget.getAttribute("href")
+            if (navigationHref && navigationHref !== "#") {
               this.setState({
                 mobileKey: this.state.mobileKey + 1,
               })
