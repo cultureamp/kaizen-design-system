@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-collapsible",
-  "version": "1.2.4",
-  "description": "The draft Collapsible component",
+  "name": "@kaizen/draft-hero-panel",
+  "version": "1.2.0",
+  "description": "The draft Hero panel component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/collapsible"
+    "directory": "draft-packages/hero-panel"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
@@ -33,8 +33,7 @@
   "dependencies": {
     "@kaizen/component-library": "^7.12.0",
     "@types/classnames": "^2.2.10",
-    "classnames": "^2.2.6",
-    "react-animate-height": "^2.0.15"
+    "classnames": "^2.2.6"
   },
   "devDependencies": {
     "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.1.0",
