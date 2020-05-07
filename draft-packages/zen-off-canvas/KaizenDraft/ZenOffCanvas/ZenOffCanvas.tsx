@@ -73,7 +73,11 @@ export class ZenOffCanvas extends React.Component<Props> {
               <nav className={styles.links}>
                 {links &&
                   Object.keys(links).map(section => (
-                    <Menu section={section} link={links[section]} />
+                    <Menu
+                      key={section}
+                      section={section}
+                      link={links[section]}
+                    />
                   ))}
               </nav>
             </div>
