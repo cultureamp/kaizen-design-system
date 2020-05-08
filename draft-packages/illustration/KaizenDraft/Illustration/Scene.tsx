@@ -1,6 +1,7 @@
 import { assetUrl } from "@kaizen/hosted-assets"
 import * as React from "react"
 import { SceneName } from "../../types"
+import { mapSceneNameToLocation } from "./util"
 
 export type SceneProps = {
   /**
@@ -19,7 +20,7 @@ export type SceneProps = {
  * Scene illustrations tell a rich story to set the scene for users and let them know what's possible.
  */
 const Scene = ({ name, alt }: SceneProps) => (
-  <img alt={alt} src={assetUrl(name)} />
+  <img alt={alt} src={assetUrl(mapSceneNameToLocation(name))} />
 )
 
 export default Scene

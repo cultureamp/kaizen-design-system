@@ -1,115 +1,113 @@
-export enum SceneName {
-  EmptyStatesAction = "illustrations/scene/empty-states-action.svg",
-  EmptyStatesInformative = "illustrations/scene/empty-states-informative.svg",
-  EmptyStatesNegative = "illustrations/scene/empty-states-negative.svg",
-  EmptyStatesPositive = "illustrations/scene/empty-states-positive.svg",
-  EmptyStatesNeutral = "illustrations/scene/empty-states-neutral.svg",
-  IntroductionsNewAccount = "illustrations/scene/introductions-new-account.svg",
-  IntroductionsCaptureIntro = "illustrations/scene/introductions-capture-intro.svg",
-  IntroductionsPerformance = "illustrations/scene/introductions-performance.svg",
-  IntroductionsNewAdmin = "illustrations/scene/introductions-new-admin.svg",
-  Information360Upgrade = "illustrations/scene/introductions-360-upgrade.svg",
-  InformationDemographicFocus = "illustrations/scene/information-modals-demographic-focus.svg",
-  InformationTurnoverCalculator = "illustrations/scene/information-modals-turnover-calculator.svg",
-  InformationTurnoverForecast = "illustrations/scene/information-modals-turnover-forecast.svg",
-  InformationEmergingTrends = "illustrations/scene/information-modals-emerging-trends.svg",
-  InformationEmployeeLifecycle = "illustrations/scene/information-modals-employee-lifecycle.svg",
-  InformationReportOwner = "illustrations/scene/information-modals-report-owner.svg",
-  InformationReportOwnerByRule = "illustrations/scene/information-modals-report-owner-by-rule.svg",
-  PerformanceEvaluations = "illustrations/scene/performance-evaluations.svg",
-  PerformanceCalibration = "illustrations/scene/performance-calibration.svg",
-  PerformanceFaq = "illustrations/scene/performance-faq.svg",
-  PerformancePerformanceFeedback = "illustrations/scene/performance-feedback.svg",
-  PerformanceGoalStats = "illustrations/scene/performance-goal-stats.svg",
-  PerformanceGoals = "illustrations/scene/performance-goals.svg",
-  PerformancePeopleNetwork = "illustrations/scene/performance-people-network.svg",
-  PerformanceSelfReflections = "illustrations/scene/performance-self-reflections.svg",
-  PerformanceSupport = "illustrations/scene/performance-support.svg",
-  PerformanceTeamSummary = "illustrations/scene/performance-team-summary.svg",
-  PerformanceCompanySettings = "illustrations/scene/company-settings.svg",
-  ManagerLearningManagerHub = "illustrations/scene/manager-learning-manager-hub.svg",
-  ManagerLearningCoaching = "illustrations/scene/manager-learning-coaching.svg",
-  ManagerLearningFeedback = "illustrations/scene/manager-learning-feedback.svg",
-  ManagerLearningProductivity = "illustrations/scene/manager-learning-productivity.svg",
-  ManagerLearningResilience = "illustrations/scene/manager-learning-resilience.svg",
-  ManagerLearning1On1Meetings = "illustrations/scene/manager-learning-1-on-1-meetings.svg",
-  ManagerLearningStrategy = "illustrations/scene/manager-learning-strategy.svg",
-  ManagerLearningRemoteManager = "illustrations/scene/manager-learning-remote-manager.svg",
-  KaizenSiteBrandAlt = "illustrations/scene/kaizen-site-brand-alt.svg",
-  KaizenSiteBrand = "illustrations/scene/kaizen-site-brand.svg",
-  KaizenSitePrinciples = "illustrations/scene/kaizen-site-principles.svg",
-  KaizenSitePrinciplesAlt = "illustrations/scene/kaizen-site-principles-alt.svg",
-  KaizenSiteProduct = "illustrations/scene/kaizen-site-product.svg",
-  KaizenSiteProductAlt = "illustrations/scene/kaizen-site-product-alt.svg",
-  KaizenSiteResources = "illustrations/scene/kaizen-site-resources.svg",
-  KaizenSiteResourcesAlt = "illustrations/scene/kaizen-site-resources-alt.svg",
-}
+export type SceneName =
+  | "EmptyStatesAction"
+  | "EmptyStatesInformative"
+  | "EmptyStatesNegative"
+  | "EmptyStatesPositive"
+  | "EmptyStatesNeutral"
+  | "IntroductionsNewAccount"
+  | "IntroductionsCaptureIntro"
+  | "IntroductionsPerformance"
+  | "IntroductionsNewAdmin"
+  | "Information360Upgrade"
+  | "InformationDemographicFocus"
+  | "InformationTurnoverCalculator"
+  | "InformationTurnoverForecast"
+  | "InformationEmergingTrends"
+  | "InformationEmployeeLifecycle"
+  | "InformationReportOwner"
+  | "InformationReportOwnerByRule"
+  | "PerformanceEvaluations"
+  | "PerformanceCalibration"
+  | "PerformanceFaq"
+  | "PerformancePerformanceFeedback"
+  | "PerformanceGoalStats"
+  | "PerformanceGoals"
+  | "PerformancePeopleNetwork"
+  | "PerformanceSelfReflections"
+  | "PerformanceSupport"
+  | "PerformanceTeamSummary"
+  | "PerformanceCompanySettings"
+  | "ManagerLearningManagerHub"
+  | "ManagerLearningCoaching"
+  | "ManagerLearningFeedback"
+  | "ManagerLearningProductivity"
+  | "ManagerLearningResilience"
+  | "ManagerLearning1On1Meetings"
+  | "ManagerLearningStrategy"
+  | "ManagerLearningRemoteManager"
+  | "KaizenSiteBrandAlt"
+  | "KaizenSiteBrand"
+  | "KaizenSitePrinciples"
+  | "KaizenSitePrinciplesAlt"
+  | "KaizenSiteProduct"
+  | "KaizenSiteProductAlt"
+  | "KaizenSiteResources"
+  | "KaizenSiteResourcesAlt"
 
-export enum SpotName {
-  BenefitsSurvey = "illustrations/spot/template-library-benefits-survey.svg",
-  CustomSurvey = "illustrations/spot/template-library-custom-survey.svg",
-  CustomUnattributedSurvey = "illustrations/spot/template-library-custom-unattributed-survey.svg",
-  EngagementSurvey = "illustrations/spot/template-library-engagement-survey.svg",
-  InclusionSurvey = "illustrations/spot/template-library-inclusion-survey.svg",
-  QuickEngagementSurvey = "illustrations/spot/template-library-quick-engagement-survey.svg",
-  ValuesSurvey1 = "illustrations/spot/template-library-values-survey-1.svg",
-  ValuesSurvey2 = "illustrations/spot/template-library-values-survey-2.svg",
-  WellbeingSurvey1 = "illustrations/spot/template-library-wellbeing-survey-1.svg",
-  WellbeingSurvey2 = "illustrations/spot/template-library-wellbeing-survey-2.svg",
-  WellbeingSurvey3 = "illustrations/spot/template-library-wellbeing-survey-3.svg",
-  ChangeReadiness = "illustrations/spot/template-library-change-readiness.svg",
-  ChangeSuccess = "illustrations/spot/template-library-change-success.svg",
-  CandidateSurvey = "illustrations/spot/template-library-candidate-survey.svg",
-  CustomOnboardSurvey = "illustrations/spot/template-library-custom-onboard-survey.svg",
-  ExitSurvey = "illustrations/spot/template-library-exit-survey.svg",
-  InternSurvey = "illustrations/spot/template-library-intern-survey.svg",
-  PhasedWeek1OnboardSurvey = "illustrations/spot/template-library-phased-week-1-onboard-survey.svg",
-  PhasedWeek5OnboardSurvey = "illustrations/spot/template-library-phased-week-5-onboard-survey.svg",
-  SinglePointOnboardSurvey = "illustrations/spot/template-library-single-point-onboard-survey.svg",
-  Individual360 = "illustrations/spot/template-library-individual-360.svg",
-  Leadership360 = "illustrations/spot/template-library-leadership-360.svg",
-  Manager360 = "illustrations/spot/template-library-manager-360.svg",
-  TeamEffectiveness1 = "illustrations/spot/template-library-team-effectiveness-1.svg",
-  TeamEffectiveness2 = "illustrations/spot/template-library-team-effectiveness-2.svg",
-  AccountBasics = "illustrations/spot/new-account-account-basics.svg",
-  CompanyDetails = "illustrations/spot/new-account-company-details.svg",
-  EmployeeData = "illustrations/spot/new-account-employee-data.svg",
-  Gdpr = "illustrations/spot/new-account-gdpr.svg",
-  Timezone = "illustrations/spot/new-account-timezone.svg",
-  AddUser = "illustrations/spot/new-account-add-user.svg",
-  ViewReports = "illustrations/spot/miscellaneous-view-reports.svg",
-  ReadArticle = "illustrations/spot/miscellaneous-read-article.svg",
-  FastAction = "illustrations/spot/miscellaneous-fast-action.svg",
-  BaselineSurvey = "illustrations/spot/miscellaneous-baseline-survey.svg",
-  SpreadsheetTemplate = "illustrations/spot/miscellaneous-spreadsheet-template.svg",
-  AddImage = "illustrations/spot/miscellaneous-add-image.svg",
-  MeetingVoices = "illustrations/spot/miscellaneous-meeting-voices.svg",
-  Workshop = "illustrations/spot/miscellaneous-workshop.svg",
-  Video = "illustrations/spot/miscellaneous-video.svg",
-  ReportSharing = "illustrations/spot/miscellaneous-report-sharing.svg",
-  BlankSurvey = "illustrations/spot/miscellaneous-blank-survey.svg",
-  TakeAim = "illustrations/spot/miscellaneous-take-aim.svg",
-  Action = "illustrations/spot/miscellaneous-action.svg",
-  Training1 = "illustrations/spot/miscellaneous-training-1.svg",
-  Training2 = "illustrations/spot/miscellaneous-training-2.svg",
-  Training3 = "illustrations/spot/miscellaneous-training-3.svg",
-  ShareReport = "illustrations/spot/miscellaneous-share-report.svg",
-  Team = "illustrations/spot/miscellaneous-team.svg",
-  ExecutiveReportSharing = "illustrations/spot/miscellaneous-executive-report-sharing.svg",
-  ManagerReportSharing = "illustrations/spot/miscellaneous-manager-report-sharing.svg",
-  LeaderReportSharing = "illustrations/spot/miscellaneous-leader-report-sharing.svg",
-  Cautionary = "illustrations/spot/moods-cautionary.svg",
-  Informative = "illustrations/spot/moods-informative.svg",
-  Negative = "illustrations/spot/moods-negative.svg",
-  PositiveMale = "illustrations/spot/moods-positive-male.svg",
-  PositiveFemale = "illustrations/spot/moods-positive-female.svg",
-  OneOnOne = "illustrations/spot/manager-learning-1-on-1.svg",
-  Productivity = "illustrations/spot/manager-learning-productivity.svg",
-  Strategy = "illustrations/spot/manager-learning-strategy.svg",
-  Resilience = "illustrations/spot/manager-learning-resilience.svg",
-  Coaching = "illustrations/spot/manager-learning-coaching.svg",
-  Feedback = "illustrations/spot/manager-learning-feedback.svg",
-  RemoteManager = "illustrations/spot/manager-learning-remote-manager.svg",
-  ManagerLearning = "illustrations/spot/manager-learning-manager-learning.svg",
-  Diagnostics = "illustrations/spot/template-library-diagnostics.svg",
-}
+export type SpotName =
+  | "BenefitsSurvey"
+  | "CustomSurvey"
+  | "CustomUnattributedSurvey"
+  | "EngagementSurvey"
+  | "InclusionSurvey"
+  | "QuickEngagementSurvey"
+  | "ValuesSurvey1"
+  | "ValuesSurvey2"
+  | "WellbeingSurvey1"
+  | "WellbeingSurvey2"
+  | "WellbeingSurvey3"
+  | "ChangeReadiness"
+  | "ChangeSuccess"
+  | "CandidateSurvey"
+  | "CustomOnboardSurvey"
+  | "ExitSurvey"
+  | "InternSurvey"
+  | "PhasedWeek1OnboardSurvey"
+  | "PhasedWeek5OnboardSurvey"
+  | "SinglePointOnboardSurvey"
+  | "Individual360"
+  | "Leadership360"
+  | "Manager360"
+  | "TeamEffectiveness1"
+  | "TeamEffectiveness2"
+  | "AccountBasics"
+  | "CompanyDetails"
+  | "EmployeeData"
+  | "Gdpr"
+  | "Timezone"
+  | "AddUser"
+  | "ViewReports"
+  | "ReadArticle"
+  | "FastAction"
+  | "BaselineSurvey"
+  | "SpreadsheetTemplate"
+  | "AddImage"
+  | "MeetingVoices"
+  | "Workshop"
+  | "Video"
+  | "ReportSharing"
+  | "BlankSurvey"
+  | "TakeAim"
+  | "Action"
+  | "Training1"
+  | "Training2"
+  | "Training3"
+  | "ShareReport"
+  | "Team"
+  | "ExecutiveReportSharing"
+  | "ManagerReportSharing"
+  | "LeaderReportSharing"
+  | "Cautionary"
+  | "Informative"
+  | "Negative"
+  | "PositiveMale"
+  | "PositiveFemale"
+  | "OneOnOne"
+  | "Productivity"
+  | "Strategy"
+  | "Resilience"
+  | "Coaching"
+  | "Feedback"
+  | "RemoteManager"
+  | "ManagerLearning"
+  | "Diagnostics"

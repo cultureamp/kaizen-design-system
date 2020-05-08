@@ -1,6 +1,7 @@
 import { assetUrl } from "@kaizen/hosted-assets"
 import * as React from "react"
 import { SpotName } from "../../types"
+import { mapSpotNameToLocation } from "./util"
 
 export type SpotProps = {
   /**
@@ -19,7 +20,7 @@ export type SpotProps = {
  * Spot illustrations are simple, informational visuals that assist users in their task.
  */
 const Spot = ({ name, alt }: SpotProps) => (
-  <img alt={alt} src={assetUrl(name)} />
+  <img alt={alt} src={assetUrl(mapSpotNameToLocation(name))} />
 )
 
 export default Spot
