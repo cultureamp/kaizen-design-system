@@ -22,22 +22,24 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "2.3.0",
+  "version": "7.13.1",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
-    "@kaizen/design-tokens": "0.x",
-    "focus-visible": "^4.1.5",
+    "@kaizen/design-tokens": "^1.4.0",
+    "focus-visible": "4.x || 5.x",
     "react": "^16.9.0"
   },
   "dependencies": {
+    "@kaizen/deprecated-component-library-helpers": "^1.4.0",
+    "@kaizen/hosted-assets": "^1.0.1",
     "@types/classnames": "^2.2.6",
     "@types/lodash": "^4.14.132",
     "@types/react-select": "^3.0.5",
     "@types/uuid": "^3.4.4",
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
-    "motion-ui": "^2.0.3",
+    "motion-ui": "cultureamp/motion-ui",
     "react-animate-height": "^2.0.15",
     "react-focus-lock": "^1.19.1",
     "react-media": "^1.9.2",
@@ -46,13 +48,13 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.1.0",
+    "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.2.0",
     "rimraf": "^2.6.3"
   },
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf 'components/**/*.js' 'draft/**/*.js' 'util/**/*.js' 'index.js' 'components/**/*.js.map' 'draft/**/*.js.map' 'util/**/*.js.map' 'index.js.map' 'components/**/*.d.ts' 'draft/**/*.d.ts' 'util/**/*.d.ts' 'index.d.ts'"
+    "clean": "rimraf 'components/**/*.js' 'draft/**/*.js' 'util/**/*.js' 'index.js' 'components/**/*.js.map' 'draft/**/*.js.map' 'util/**/*.js.map' 'index.js.map' 'components/**/*.d.ts' 'draft/**/*.d.ts' 'util/**/*.d.ts' 'index.d.ts' 'stories/*.stories.js'"
   }
 }

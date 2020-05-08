@@ -1,17 +1,19 @@
-@import "../../styles/border";
 @import "../../styles/color";
 @import "../../styles/type";
 @import "../../styles/layout";
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 
-$caButton-border-width: 1px;
-$caButton-focus-border-width: 2px;
+$caButton-border-width: $kz-border-solid-border-width;
+$caButton-focus-border-width: $kz-border-focus-ring-border-width;
 $caButton-height: $ca-grid * 2;
 $caButtonIcon-height: 20px;
 $caButton-formHeight: $ca-grid * 5/3;
-$caButton-verticalPadding: calc(#{$ca-grid / 2} - #{$caButton-border-width});
+$caButton-verticalPadding: calc(
+  #{$ca-grid / 2} - #{$kz-border-solid-border-width}
+);
 $caButton-verticalPaddingForm: calc(
-  #{$ca-grid / 3} - #{$caButton-border-width}
+  #{$ca-grid / 3} - #{$kz-border-solid-border-width}
 );
 
 // reset user agent syles for button elment type
@@ -37,8 +39,8 @@ $caButton-verticalPaddingForm: calc(
   align-items: center;
   box-sizing: border-box;
   min-height: $caButton-height;
-  border: $caButton-border-width solid;
-  border-radius: $ca-border-radius;
+  border: $kz-border-solid-border-width $kz-border-solid-border-style;
+  border-radius: $kz-border-solid-border-radius;
   // looking for padding? See %caButtonContent
 
   &[href] {
@@ -77,7 +79,8 @@ $caButton-verticalPaddingForm: calc(
 
       // show custom focus ring when :focus-visible
       &:global(.focus-visible) {
-        border: $caButton-focus-border-width solid $kz-color-cluny-500;
+        border: $kz-border-focus-ring-border-width $kz-border-solid-border-style
+          $kz-color-cluny-500;
       }
     }
   }
@@ -115,7 +118,7 @@ $caButton-verticalPaddingForm: calc(
   &:disabled {
     color: $kz-color-white;
     background: add-alpha($kz-color-seedling-500, 30%);
-    border-color: transparent;
+    border-color: $kz-border-borderless-border-color;
   }
 }
 
@@ -149,7 +152,7 @@ $caButton-verticalPaddingForm: calc(
 
   &:not(:disabled) {
     background: transparent;
-    border-color: transparent;
+    border-color: $kz-border-borderless-border-color;
     color: $kz-color-cluny-500;
 
     %caButtonLabel {
@@ -160,7 +163,7 @@ $caButton-verticalPaddingForm: calc(
     &:active {
       color: $kz-color-cluny-500;
       background: $kz-color-wisteria-100;
-      border-color: transparent;
+      border-color: $kz-border-borderless-border-color;
     }
 
     &:active {
@@ -170,7 +173,7 @@ $caButton-verticalPaddingForm: calc(
 
   &:disabled {
     background: transparent;
-    border-color: transparent;
+    border-color: $kz-border-borderless-border-color;
     color: add-alpha($kz-color-cluny-500, 30%);
   }
 }
@@ -209,7 +212,7 @@ $caButton-verticalPaddingForm: calc(
   &%caButtonPrimary {
     &:not(:disabled) {
       background: $kz-color-white;
-      border-color: transparent;
+      border-color: $kz-border-borderless-border-color;
       color: $kz-color-wisteria-800;
 
       &%caButtonReverseColorLapis {
@@ -251,20 +254,20 @@ $caButton-verticalPaddingForm: calc(
 
       &:active {
         background: add-alpha($kz-color-white, 90%);
-        border-color: transparent;
+        border-color: $kz-border-borderless-border-color;
       }
     }
 
     &:disabled {
       background: add-alpha($kz-color-white, 10%);
-      border-color: transparent;
+      border-color: $kz-border-borderless-border-color;
     }
   }
 
   &%caButtonSecondary {
     &:not(:disabled) {
       background: transparent;
-      border-color: transparent;
+      border-color: $kz-border-borderless-border-color;
       color: $kz-color-white;
 
       %caButtonLabel {
@@ -290,7 +293,7 @@ $caButton-verticalPaddingForm: calc(
 
     &:disabled {
       background: transparent;
-      border-color: transparent;
+      border-color: $kz-border-borderless-border-color;
       color: add-alpha($kz-color-white, 30%);
     }
   }
@@ -302,11 +305,11 @@ $caButton-verticalPaddingForm: calc(
   align-items: center;
 
   padding: $caButton-verticalPadding
-    calc(#{$ca-grid * 1} - #{$caButton-border-width});
+    calc(#{$ca-grid * 1} - #{$kz-border-solid-border-width});
 
   %caButtonSecondary & {
-    padding-left: calc(#{$ca-grid * 0.5} - #{$caButton-border-width});
-    padding-right: calc(#{$ca-grid * 0.5} - #{$caButton-border-width});
+    padding-left: calc(#{$ca-grid * 0.5} - #{$kz-border-solid-border-width});
+    padding-right: calc(#{$ca-grid * 0.5} - #{$kz-border-solid-border-width});
   }
 
   %caButtonForm & {
@@ -315,25 +318,25 @@ $caButton-verticalPaddingForm: calc(
   }
 
   :global(.js-focus-visible) %caButton:global(.focus-visible) & {
-    padding: calc(#{$ca-grid / 2} - #{$caButton-focus-border-width})
-      calc(#{$ca-grid * 1} - #{$caButton-focus-border-width});
+    padding: calc(#{$ca-grid / 2} - #{$kz-border-focus-ring-border-width})
+      calc(#{$ca-grid * 1} - #{$kz-border-focus-ring-border-width});
   }
 
   :global(.js-focus-visible) %caButtonSecondary:global(.focus-visible) & {
-    padding: calc(#{$ca-grid / 2} - #{$caButton-focus-border-width})
-      calc(#{$ca-grid * 0.5} - #{$caButton-focus-border-width});
+    padding: calc(#{$ca-grid / 2} - #{$kz-border-focus-ring-border-width})
+      calc(#{$ca-grid * 0.5} - #{$kz-border-focus-ring-border-width});
   }
 
   :global(.js-focus-visible) %caButton%caButtonForm:global(.focus-visible) & {
-    padding: calc(#{$ca-grid / 3} - #{$caButton-focus-border-width})
-      calc(#{$ca-grid * 1} - #{$caButton-focus-border-width});
+    padding: calc(#{$ca-grid / 3} - #{$kz-border-focus-ring-border-width})
+      calc(#{$ca-grid * 1} - #{$kz-border-focus-ring-border-width});
   }
 
   :global(.js-focus-visible)
     %caButtonSecondary%caButtonForm:global(.focus-visible)
     & {
-    padding: calc(#{$ca-grid / 3} - #{$caButton-focus-border-width})
-      calc(#{$ca-grid * 0.5} - #{$caButton-focus-border-width});
+    padding: calc(#{$ca-grid / 3} - #{$kz-border-focus-ring-border-width})
+      calc(#{$ca-grid * 0.5} - #{$kz-border-focus-ring-border-width});
   }
 }
 
@@ -345,8 +348,6 @@ $caButton-verticalPaddingForm: calc(
   line-height: 1;
 
   &:only-child {
-    margin: 0 $ca-grid / 2;
-
     %caButtonSecondary & {
       margin: 0;
     }
@@ -379,7 +380,7 @@ $caButton-verticalPaddingForm: calc(
     &%caButtonSecondary {
       color: $kz-color-wisteria-800;
       background: none;
-      border-color: transparent;
+      border-color: $kz-border-borderless-border-color;
 
       &%caButtonReversed {
         color: white;
@@ -405,7 +406,7 @@ $caButton-verticalPaddingForm: calc(
     padding: 0;
     // IE 10/11 workaround to fix vertical centering of icon
     margin: calc(
-        (((#{$caButton-height}) - #{$caButtonIcon-height}) / 2) - #{$caButton-border-width}
+        (((#{$caButton-height}) - #{$caButtonIcon-height}) / 2) - #{$kz-border-solid-border-width}
       )
       0;
   }

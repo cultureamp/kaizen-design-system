@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "../styles";
 @import "../../../styles/border";
 @import "../../../styles/color";
@@ -8,11 +9,16 @@
 
 $menu__square-size: $ca-grid * 2;
 
+@mixin menu-font-styles {
+  @include ca-type-ideal-body;
+  @include ca-inherit-baseline;
+  @include ca-type-align-start;
+}
+
 .root {
   position: relative;
-  margin: $ca-grid / 4;
-  width: $menu__square-size;
-  height: $menu__square-size;
+  margin-top: 0;
+  width: auto;
 }
 
 .buttonReset {
@@ -36,6 +42,25 @@ $menu__square-size: $ca-grid * 2;
   display: block;
   width: 100%;
   height: 100%;
+
+  .root & {
+    position: relative;
+    margin: $ca-grid / 4;
+    width: $menu__square-size;
+    height: $menu__square-size;
+  }
+}
+
+.buttonLink {
+  @include ca-navigation-bar__link-item;
+  composes: buttonReset;
+
+  .root & {
+    width: auto;
+    margin-left: 0;
+  }
+
+  padding: 0 ($ca-grid / 2);
 }
 
 .menu {
@@ -56,7 +81,7 @@ $menu__square-size: $ca-grid * 2;
     right: calc(#{$menu__square-size / 2} - #{$menu__arrow-size});
     border: $menu__arrow-size solid transparent;
     border-top-width: 0;
-    border-bottom-color: #35374a; // DST-TODO: Replace this with $kz-color-wisteria-800 once kaizen-design-tokens is installed
+    border-bottom-color: $kz-color-wisteria-800;
   }
 
   [dir="rtl"] &::before {
@@ -66,9 +91,9 @@ $menu__square-size: $ca-grid * 2;
 
   > * {
     color: #fff;
-    background-color: #35374a; // DST-TODO: Replace this with $kz-color-wisteria-800 once kaizen-design-tokens is installed
-    border-radius: $ca-border-radius;
-    padding: $ca-border-radius 0;
+    background-color: $kz-color-wisteria-800;
+    border-radius: $kz-border-solid-border-radius;
+    padding: 3px 0; // @TODO-DST - No magic padding
     white-space: nowrap;
   }
 
@@ -94,9 +119,7 @@ $menu__square-size: $ca-grid * 2;
 }
 
 .menuItem {
-  @include ca-type-ideal-body;
-  @include ca-inherit-baseline;
-  @include ca-type-align-start;
+  @include menu-font-styles;
 
   composes: buttonReset;
 
@@ -111,7 +134,37 @@ $menu__square-size: $ca-grid * 2;
     text-decoration: none;
   }
 
-  &:hover {
-    background-color: #4b4d68; // DST-TODO: Replace this with $kz-color-wisteria-700 once kaizen-design-tokens is installed
+  &:hover,
+  &.menuItemActive {
+    background-color: $kz-color-wisteria-700;
   }
+}
+
+.menuGroup {
+  border-top: 1px solid $kz-color-wisteria-700;
+  margin-top: $ca-grid / 2;
+
+  &:first-child {
+    border: 0;
+  }
+}
+
+.menuGroupTitle {
+  @include menu-font-styles;
+  @include ca-padding($start: 32px, $end: 32px, $bottom: 5px);
+  @include ca-margin($top: $ca-grid / 2, $bottom: 0);
+  font-weight: 700;
+}
+
+.offCanvasMenuGroup {
+  @extend .menuGroup;
+  margin-top: $ca-grid / 3;
+  width: 100%;
+}
+
+.offCanvasMenuGroupTitle {
+  @extend .menuGroupTitle;
+  font-size: 18px;
+  color: $kz-color-white;
+  padding: ($ca-grid / 2) $ca-grid;
 }

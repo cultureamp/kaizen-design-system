@@ -1,30 +1,22 @@
 import {
+  Icon,
   IconButton,
   OffCanvas,
   OffCanvasContext,
 } from "@kaizen/component-library"
 const arrowLeftIcon = require("@kaizen/component-library/icons/arrow-left.icon.svg")
   .default
+
+const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
+  .default
+import classNames from "classnames"
 import * as React from "react"
 import Media from "react-media"
 import { MOBILE_QUERY } from "../constants"
+import { MenuGroup, MenuItem, MenuProps } from "../types"
 import Link from "./Link"
 
 const styles = require("./Menu.module.scss")
-
-type MenuItem = {
-  label: string
-  url: string
-  method?: "get" | "post" | "put" | "delete"
-}
-
-export type MenuProps = {
-  header?: React.ReactElement<any>
-  items: MenuItem[]
-  automationId?: string
-  heading: string
-  mobileEnabled?: boolean
-}
 
 type State = {
   open: boolean
@@ -34,14 +26,22 @@ export default class Menu extends React.Component<MenuProps, State> {
   static displayName = "Menu"
   static defaultProps = {
     items: [],
+    active: false,
     mobileEnabled: true,
   }
-  rootRef = React.createRef<HTMLElement>()
+  rootRef = React.createRef<any>()
 
   state = { open: false }
 
   render() {
-    const { children, automationId, heading, mobileEnabled } = this.props
+    const {
+      active,
+      children,
+      automationId,
+      heading,
+      mobileEnabled,
+      section,
+    } = this.props
 
     return (
       <Media query={MOBILE_QUERY}>
@@ -55,6 +55,7 @@ export default class Menu extends React.Component<MenuProps, State> {
                     href="#"
                     onClick={() => toggleVisibleMenu(heading)}
                     hasMenu
+                    section={section}
                   />
                 )}
               </OffCanvasContext.Consumer>
@@ -63,13 +64,24 @@ export default class Menu extends React.Component<MenuProps, State> {
           ) : (
             <nav className={styles.root} ref={this.rootRef}>
               <button
-                className={styles.button}
+                className={classNames(styles.button, {
+                  [styles.buttonLink]: section === "primary",
+                  [styles.active]: active,
+                  [styles.linkText]: !!heading,
+                })}
                 onClick={this.toggle}
                 aria-expanded={this.state.open}
                 data-automation-id={automationId}
                 onMouseDown={e => e.preventDefault()}
               >
-                {children}
+                {children ? (
+                  children
+                ) : (
+                  <React.Fragment>
+                    <span className={styles.linkText}>{heading}</span>
+                    <Icon icon={chevronDownIcon} role="presentation" />
+                  </React.Fragment>
+                )}
               </button>
               {this.state.open && this.renderMenu()}
             </nav>
@@ -79,7 +91,9 @@ export default class Menu extends React.Component<MenuProps, State> {
     )
   }
 
-  toggle = (e: React.SyntheticEvent<HTMLButtonElement> | MouseEvent) => {
+  toggle = (
+    e: React.SyntheticEvent<HTMLAnchorElement | HTMLButtonElement> | MouseEvent
+  ) => {
     const open = !this.state.open
     this.setState({ open })
   }
@@ -91,7 +105,13 @@ export default class Menu extends React.Component<MenuProps, State> {
       <div className={styles.menu}>
         <div>
           {header}
-          {items.map(this.renderMenuItem)}
+          {items.map(item => {
+            if ("url" in item) {
+              return this.renderMenuItem(item)
+            } else if ("title" in item) {
+              return this.renderMenuGroup(item)
+            }
+          })}
         </div>
       </div>
     )
@@ -99,7 +119,13 @@ export default class Menu extends React.Component<MenuProps, State> {
 
   renderOffCanvas() {
     const { items, heading } = this.props
-    const links = items.map(this.renderOffCanvasMenuItem)
+    const links = items.map(item => {
+      if ("url" in item) {
+        return this.renderOffCanvasMenuItem(item)
+      } else if ("title" in item) {
+        return this.renderOffCanvasMenuGroup(item)
+      }
+    })
 
     return (
       <OffCanvas
@@ -126,12 +152,31 @@ export default class Menu extends React.Component<MenuProps, State> {
     )
   }
 
-  renderOffCanvasMenuItem = (item: MenuItem, index: number) => (
-    <Link key={index} text={item.label} href={item.url} />
-  )
+  renderOffCanvasMenuItem = (item: MenuItem) => {
+    const { onLinkClick } = this.props
+    return (
+      <Link
+        key={item.url}
+        text={item.label}
+        href={item.url}
+        onClick={onLinkClick}
+      />
+    )
+  }
+  renderOffCanvasMenuGroup = (menuGroup: MenuGroup) => {
+    const { title, items } = menuGroup
 
-  renderMenuItem = (item: MenuItem, index: number) => {
-    const { label, url, method } = item
+    return (
+      <div className={styles.offCanvasMenuGroup}>
+        <h4 className={styles.offCanvasMenuGroupTitle}>{title}</h4>
+        {items.map(this.renderOffCanvasMenuItem)}
+      </div>
+    )
+  }
+
+  renderMenuItem = (item: MenuItem) => {
+    const { onLinkClick } = this.props
+    const { label, url, method, active = false } = item
 
     if (method && method !== "get") {
       return (
@@ -140,7 +185,12 @@ export default class Menu extends React.Component<MenuProps, State> {
         // https://github.com/rails/jquery-ujs
         <form method="post" action={url}>
           <input name="_method" value={method} type="hidden" />
-          <button type="submit" className={styles.menuItem}>
+          <button
+            type="submit"
+            className={classNames(styles.menuItem, {
+              [styles.menuItemActive]: active,
+            })}
+          >
             {label}
           </button>
         </form>
@@ -148,9 +198,27 @@ export default class Menu extends React.Component<MenuProps, State> {
     }
 
     return (
-      <a href={url} className={styles.menuItem} tabIndex={0}>
+      <a
+        href={url}
+        className={classNames(styles.menuItem, {
+          [styles.menuItemActive]: active,
+        })}
+        tabIndex={0}
+        onClick={onLinkClick}
+      >
         {label}
       </a>
+    )
+  }
+
+  renderMenuGroup = (menuGroup: MenuGroup) => {
+    const { title, items } = menuGroup
+
+    return (
+      <div className={styles.menuGroup}>
+        <h4 className={styles.menuGroupTitle}>{title}</h4>
+        {items.map(this.renderMenuItem)}
+      </div>
     )
   }
 

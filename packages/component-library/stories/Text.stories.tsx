@@ -1,4 +1,3 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
 import { Text } from "@kaizen/component-library"
 import * as React from "react"
 
@@ -182,8 +181,62 @@ export const Button = () => (
   </Text>
 )
 
-loadElmStories("Text (Elm)", module, require("./TextStories.elm"), [
-  "h1",
-  "h2",
-  "h3",
-])
+export const ZenDisplay0 = () => (
+  <Text style="zen-display-0" tag="p">
+    This is a Zen Display 0, which uses Heading styles
+  </Text>
+)
+
+export const ZenHeading1 = () => (
+  <Text style="zen-heading-1" tag="h1">
+    This is a Zen Heading 1, which uses Heading styles
+  </Text>
+)
+
+export const ZenHeading2 = () => (
+  <Text style="zen-heading-2" tag="h2">
+    This is a Zen Heading 2, which uses Heading styles
+  </Text>
+)
+
+export const ZenHeading3 = () => (
+  <Text style="zen-heading-3" tag="h3">
+    This is a Zen Heading 3, which uses Heading styles
+  </Text>
+)
+
+export const ZenDataLarge = () => (
+  <Text style="zen-data-large" tag="span">
+    42
+  </Text>
+)
+
+export const ZenDataLargeUnits = () => (
+  <Text style="zen-data-large-units" tag="span">
+    %
+  </Text>
+)
+
+export const ZenDataMedium = () => (
+  <Text style="zen-data-medium" tag="span">
+    42
+  </Text>
+)
+
+export const ZenDataMediumUnits = () => (
+  <Text style="zen-data-medium-units" tag="span">
+    %
+  </Text>
+)
+
+export const ZenDataSmall = () => (
+  <Text style="zen-data-small" tag="span">
+    42
+  </Text>
+)
+
+export const ZenDataSmallUnits = () => (
+  <Text style="zen-data-small-units" tag="span">
+    %
+  </Text>
+)

@@ -8,6 +8,10 @@ needToKnow:
 demoStoryId: globalnotification-react--positive-kaizen-site-demo
 ---
 
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
 ## Visuals
 
 ### UI Kit
@@ -37,33 +41,34 @@ Global Notifications are used to inform the user of system level messages.
     *   Use **Persistent** notifications when the information continues to be relevant to the next task, e.g. The server is down, all pages will continue to be broken.
     *   Use **Dismissible** notifications when the information has been acknowledged and the message is no longer relevant to the next task, e.g. your data import successfully finished. Refreshing the page on dismissible notifications will not remove them
 
-##  When to use
+## When to use and when not to use
 
-*   **Positive**
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
-    System messages: e.g. Account has been upgraded, new feature added.
-    Background messages: e.g. Data import has successfully finished
+*  **Positive**:
+    - System messages: e.g. Account has been upgraded, new feature added.
+    - Background messages: e.g. Data import has successfully finished
+*  **Negative**:
+    - System messages, e.g. Server status - is down
+    - Background messages: e.g. Data import failed
+*  **Informative**:
+    - System messages, e.g. Logging in, To indicate demo data in use
+    - Background processes, e.g. Imported data is currently being processed
+*  **Cautionary**:
+    - System messages, e.g. Unreliable network connection
+    - Background processes, e.g. Data import finished successfully, but may have problems
 
-*   **Negative**
 
-    System messages, e.g. Server status - is down
-    Background messages: e.g. Data import failed
-
-*   **Informative**
-
-    System messages, e.g. Logging in, To indicate demo data in use
-    Background processes, e.g. Imported data is currently being processed
-
-*   **Cautionary**
-
-    System messages, e.g. Unreliable network connection
-    Background processes, e.g. Data import finished successfully, but may have problems
-
-## When not to use
+</WhenToUse>
+<WhenNotToUse>
 
 *   When you are speaking directly to a piece of content, use [Inline Notifications](/components/inline-notification) which can be positioned closer to it.
 *   When you are notifying a user of an action they have taken, provide visual feedback with a [Toast Notification](/components/toast-notification).
 *   When an action is user triggered and you need to inform the user, use a [Confirmation Modal](/components/modal) with relevant [Mood](/guidelines/mood), e.g. Informative Confirmation Modal
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 

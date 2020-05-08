@@ -122,9 +122,24 @@ const elm: Rule = {
 }
 
 const storybookSource: Rule = {
-  test: /\.stories\.tsx?$/,
-  loaders: [require.resolve("@storybook/source-loader")],
-  enforce: "pre",
+  test: /\.tsx?$/,
+  include: [
+    resolve(__dirname, "../packages/component-library"),
+    resolve(__dirname, "../draft-packages/stories"),
+    /**
+     * Ensure there are no compiled js (even in node modules!)
+     * in these packages
+     */
+    resolve(__dirname, "../legacy-packages"),
+  ],
+  use: [
+    {
+      loader: require.resolve("react-docgen-typescript-loader"),
+      options: {
+        compilerOptions: { noEmit: false },
+      },
+    },
+  ],
 }
 
 const removeSvgFromTest = (rule: Rule): Rule => {

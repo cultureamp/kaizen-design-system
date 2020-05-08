@@ -286,12 +286,99 @@ $ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
 ) {
   @include ca-type(
     $size-ratio: $size / 16,
-    $family: $kz-typography-heading-1-font-family,
+    $family:
+      unquote(
+        "#{$kz-typography-heading-1-font-family}, Helvetica, Arial, sans-serif"
+      ),
     $base-size: $ca-greycliff-font-base-size,
     $descender-height: $ca-greycliff-font-descender-height,
     $line-height-in-grid-units: $line-height-in-grid-units,
     $letter-spacing: $letter-spacing,
     $weight: $weight,
+    $args...
+  );
+}
+
+@mixin kz-typography-data-large(
+  $size: to-unitless-pixels($kz-typography-data-large-font-size),
+  $args...
+) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $kz-typography-data-large-font-weight,
+    $letter-spacing: $kz-typography-data-large-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-data-large-line-height),
+    $args...
+  );
+}
+
+@mixin kz-typography-data-large-units(
+  $size: to-unitless-pixels($kz-typography-data-large-units-font-size),
+  $args...
+) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $kz-typography-data-large-units-font-weight,
+    $letter-spacing: $kz-typography-data-large-units-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-data-large-units-line-height),
+    $args...
+  );
+}
+
+@mixin kz-typography-data-medium(
+  $size: to-unitless-pixels($kz-typography-data-medium-font-size),
+  $args...
+) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $kz-typography-data-medium-font-weight,
+    $letter-spacing: $kz-typography-data-medium-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-data-medium-line-height),
+    $args...
+  );
+}
+
+@mixin kz-typography-data-medium-units(
+  $size: to-unitless-pixels($kz-typography-data-medium-units-font-size),
+  $args...
+) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $kz-typography-data-medium-units-font-weight,
+    $letter-spacing: $kz-typography-data-medium-units-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-data-medium-units-line-height),
+    $args...
+  );
+}
+
+@mixin kz-typography-data-small(
+  $size: to-unitless-pixels($kz-typography-data-small-font-size),
+  $args...
+) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $kz-typography-data-small-font-weight,
+    $letter-spacing: $kz-typography-data-small-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-data-small-line-height),
+    $args...
+  );
+}
+
+@mixin kz-typography-data-small-units(
+  $size: to-unitless-pixels($kz-typography-data-small-units-font-size),
+  $args...
+) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $kz-typography-data-small-units-font-weight,
+    $letter-spacing: $kz-typography-data-small-units-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-data-small-units-line-height),
     $args...
   );
 }

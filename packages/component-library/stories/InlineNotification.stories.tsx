@@ -1,4 +1,3 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
 import * as React from "react"
 
 import { InlineNotification } from "@kaizen/component-library"
@@ -261,25 +260,4 @@ export const MultipleNotification = () => (
       Check your connection and try again. <a href="/">Refresh</a>.
     </InlineNotification>
   </div>
-)
-
-loadElmStories(
-  "InlineNotification (Elm)",
-  module,
-  require("./InlineNotification.stories.elm"),
-  [
-    "Dismissible, Positive",
-    "Dismissible, Informative",
-    "Dismissible, Cautionary",
-    "Dismissible, Negative",
-    "Dismissible, Multiline",
-    "Dismissible, Slim",
-    "Persistent, Positive",
-    "Persistent, Informative",
-    "Persistent, Cautionary",
-    "Persistent, Negative",
-    "Persistent, Multiline",
-    "Persistent, Slim",
-    "Multiple Notification",
-  ]
 )

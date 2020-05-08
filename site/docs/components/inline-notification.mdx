@@ -8,6 +8,10 @@ needToKnow:
 demoStoryId: inlinenotification-react--dismissible-positive-kaizen-site-demo
 ---
 
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
 ## Visuals
 
 ### UI Kit
@@ -59,11 +63,23 @@ E.g. **Meaning changed** We prevent significant changes to the meaning of questi
 *   What’s an **autohide**?
     *   TODO: add details
 
-## When not to use
+## When to use and when not to use
 
-*   When a message applies at a system level or does not apply to a specific piece of content and it needs to alert all users, use [Global Notifications](/components/global-notification)
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
+
+*   Use an Inline Notification when you are speaking directly to a piece of content and the notification can be positioned close to the content.
+*   Use an Inline Notification for highly contextual information.
+
+</WhenToUse>
+<WhenNotToUse>
+
+*   When a message applies at a system level or does not apply to a specific piece of content and it needs to alert all users, use [Global Notifications](/components/global-notification).
 *   When you are notifying a user of an action they have taken, provide visual feedback with a [Toast Notification](/components/toast-notification).
-*   When an action is user triggered and you need to inform the user, use a [Confirmation Modal](/components/modal) with relevant [Mood](/guidelines/mood), e.g. Informative Confirmation Modal
+*   When an action is user triggered and you need to inform the user, use a [Confirmation Modal](/components/modal) with relevant [Mood](/guidelines/mood), e.g. Informative Confirmation Modal.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 

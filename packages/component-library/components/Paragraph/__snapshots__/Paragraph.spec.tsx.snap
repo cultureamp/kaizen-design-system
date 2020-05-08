@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Paragraph /> defaults to the correct HTML element renders the correct element for <Paragraph variant={body} /> 1`] = `
+<body>
+  <div>
+    <p
+      class="paragraph body dark"
+    >
+      Example
+    </p>
+  </div>
+</body>
+`;
+
+exports[`<Paragraph /> defaults to the correct HTML element renders the correct element for <Paragraph variant={extra-small} /> 1`] = `
+<body>
+  <div>
+    <p
+      class="paragraph extra-small dark"
+    >
+      Example
+    </p>
+  </div>
+</body>
+`;
+
+exports[`<Paragraph /> defaults to the correct HTML element renders the correct element for <Paragraph variant={intro-lede} /> 1`] = `
+<body>
+  <div>
+    <p
+      class="paragraph intro-lede dark"
+    >
+      Example
+    </p>
+  </div>
+</body>
+`;
+
+exports[`<Paragraph /> defaults to the correct HTML element renders the correct element for <Paragraph variant={small} /> 1`] = `
+<body>
+  <div>
+    <p
+      class="paragraph small dark"
+    >
+      Example
+    </p>
+  </div>
+</body>
+`;

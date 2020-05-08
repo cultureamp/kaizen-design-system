@@ -8,6 +8,10 @@ needToKnow:
 demoStoryId: toastnotification-react--positive-kaizen-site-demo
 ---
 
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
 ## Visuals
 
 ### UI Kit
@@ -49,25 +53,29 @@ When you are notifying a user of the outcome of an action they have taken, provi
 *   Why’s it called a toast?
     *   Traditionally “toast” notifications in products have “popped up” from the bottom of the screen on mobile devices, like a slice of toast in a toaster. There are also “snackbars”!
 
-## When to use
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 *   When you are notifying a user of an action they have taken and need to provide visual feedback.
 *   It is used immediately after a specific event such as a user action that does not relate to an object on the page. For example, confirmation of deleted items.
-
-*   **Positive**
-
-*   E.g. a notification about deleting successfully is positive because the user’s intended action was successful.
-
+*   **Positive**:
+    *   E.g. a notification about deleting successfully is positive because the user’s intended action was successful.
 *   **Informative**
     *   TODO: Add images and examples here
 *   **Cautionary**
     *   TODO: Add images and examples here
 
-## When not to use
+</WhenToUse>
+<WhenNotToUse>
 
 *   When you are speaking directly to a piece of content, use [Inline Notifications](/components/inline-notification) which can be positioned closer to it.
 *   When a message applies at a system level or does not apply to a specific piece of content and it needs to alert all users, use [Global Notifications](/components/global-notification).
 *   When an action is user triggered and you need to inform the user, use a [Confirmation Modal](/components/modal) with relevant [Mood](/guidelines/mood), e.g. Informative Confirmation Modal
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 

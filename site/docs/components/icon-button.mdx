@@ -6,13 +6,15 @@ summaryParagraph: |
 tags: ['Breadcrumb button', 'Button', 'Icon']
 needToKnow:
   - Default icon buttons perform actions using action icons without labels.
+  - Use a Primary icon button when it's the most important action to take.
+  - Use a Destructive icon button when the action will result in data loss, cannot be undone, or otherwise have significant consequences.
   - Breadcrumb icon buttons use link elements to navigate and must show a destination as text on hover/focus.
 demoStoryId: iconbutton-react--default-kaizen-site-demo
 ---
 
-import DosAndDonts from "docs-components/DosAndDonts"
-import Do from "docs-components/Do"
-import Dont from "docs-components/Dont"
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
@@ -56,31 +58,25 @@ A breadcrumb icon button is an exceptional case that uses a link element instead
 
 ### Interaction guidelines
 
-| Icon color | Disabled    | Default/Inactive | Hover/Focus | Active/Pressed |
-| ---------- | ----------- | ---------------- | ----------- | -------------- |
-| Ink        | 30% opacity | 50% opacity      | 70% opacity | 100% opacity   |
-| White      | 30% opacity | 50% opacity      | 70% opacity | 100% opacity   |
-| Ocean      | 30% opacity | 50% opacity      | 70% opacity | 100% opacity   |
-
-In CSS, “Default/Inactive” maps to `initial` style, “Hover/Focus” to `:hover` and `:focus`, and “Active/Pressed” to `:active`.
+Disabled Icon Buttons use 30% opacity on the component itself (not, for example, the inner icon) as described in the [Interaction states guidelines](/guidelines/interaction-states#disabled-state).
 
 ## When to use and when not to use
 
-<DosAndDonts>
-<Do>
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 - Use an icon button when a user can perform an inline action on this page and there's no room for a default button. Icon buttons are often used when there are 2 or 3 adjacent icons buttons that perform actions on a single item presented in a row.
 
-</Do>
-<Dont>
+</WhenToUse>
+<WhenNotToUse>
 
 - To display icons that do not have actions associated with them, use the [Icon](/components/icon) component.
 - To show a [Tooltip](/components/tooltip) or [Popover](/components/popover) on focus and hover without any button action, use an [Icon](/components/icon) component instead.
 - Avoid using more than 1 icon button in a [table](/components/table) row.
 - When there's enough space, use a [button](/components/button) instead.
 
-</Dont>
-</DosAndDonts>
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 

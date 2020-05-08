@@ -1,13 +1,26 @@
 module Kaizen.Modal.Presets.ConfirmationModal exposing
-    ( bodySubtext
+    ( Config
+    , bodySubtext
+    , cautionary
     , confirmId
     , confirmLabel
     , dismissLabel
+    , footerDismissId
     , headerDismissId
     , informative
     , negative
     , onConfirm
+    , onConfirmBlur
+    , onConfirmDisabled
+    , onConfirmFocus
+    , onConfirmPreventKeydownOn
     , onDismiss
+    , onFooterDismissBlur
+    , onFooterDismissFocus
+    , onFooterDismissPreventKeydownOn
+    , onHeaderDismissBlur
+    , onHeaderDismissFocus
+    , onHeaderDismissPreventKeydown
     , positive
     , title
     , view
@@ -18,6 +31,7 @@ import CssModules exposing (css)
 import Html exposing (Html, div, text)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
+import Json.Decode as Decode
 import Kaizen.Modal.Primitives.Constants as Constants
 import Kaizen.Modal.Primitives.ModalBody as ModalBody
 import Kaizen.Modal.Primitives.ModalFooter as ModalFooter
@@ -44,7 +58,18 @@ type alias Configuration msg =
     , dismissLabel : String
     , confirmLabel : String
     , headerDismissId : Maybe String
+    , onHeaderDismissFocus : Maybe msg
+    , onHeaderDismissBlur : Maybe msg
+    , onHeaderDismissPreventKeydownOn : List (Decode.Decoder msg)
+    , onFooterDismissFocus : Maybe msg
+    , onFooterDismissBlur : Maybe msg
+    , footerDismissId : Maybe String
+    , onConfirmPreventKeydownOn : List (Decode.Decoder msg)
+    , onFooterDismissPreventKeydownOn : List (Decode.Decoder msg)
+    , onConfirmFocus : Maybe msg
+    , onConfirmBlur : Maybe msg
     , confirmId : Maybe String
+    , onConfirmDisabled : Bool
     }
 
 
@@ -56,6 +81,7 @@ type Variant
     = Informative
     | Positive
     | Negative
+    | Cautionary
 
 
 informative : Config msg
@@ -73,6 +99,11 @@ negative =
     Config { defaults | variant = Negative }
 
 
+cautionary : Config msg
+cautionary =
+    Config { defaults | variant = Cautionary }
+
+
 
 -- DEFAULTS
 
@@ -87,7 +118,18 @@ defaults =
     , dismissLabel = "Cancel"
     , confirmLabel = "Confirm"
     , headerDismissId = Nothing
+    , onHeaderDismissFocus = Nothing
+    , onHeaderDismissBlur = Nothing
+    , onFooterDismissFocus = Nothing
+    , onFooterDismissBlur = Nothing
+    , footerDismissId = Nothing
+    , onHeaderDismissPreventKeydownOn = []
+    , onConfirmPreventKeydownOn = []
+    , onFooterDismissPreventKeydownOn = []
+    , onConfirmFocus = Nothing
+    , onConfirmBlur = Nothing
     , confirmId = Just Constants.lastFocusableId
+    , onConfirmDisabled = False
     }
 
 
@@ -110,6 +152,29 @@ view (Config config) =
                 Nothing ->
                     headerConfig
 
+        withHeaderDismissFocus headerConfig =
+            case config.onHeaderDismissFocus of
+                Just dismissFocus ->
+                    ModalHeader.onDismissFocus dismissFocus headerConfig
+
+                Nothing ->
+                    headerConfig
+
+        withHeaderDismissBlur headerConfig =
+            case config.onHeaderDismissBlur of
+                Just dismissBlur ->
+                    ModalHeader.onDismissBlur dismissBlur headerConfig
+
+                Nothing ->
+                    headerConfig
+
+        withPreventHeaderDismissKeydown headerConfig =
+            if List.isEmpty config.onHeaderDismissPreventKeydownOn then
+                headerConfig
+
+            else
+                ModalHeader.preventDismissKeydown config.onHeaderDismissPreventKeydownOn headerConfig
+
         withBody =
             case config.bodySubtext of
                 Just bodyContent ->
@@ -118,11 +183,14 @@ view (Config config) =
                 Nothing ->
                     text ""
     in
-    div [ styles.class .elmModal ]
+    div [ genericStyles.class .defaultModalWidth ]
         [ ModalHeader.view
             (ModalHeader.layout [ header config ]
                 |> withHeaderOnDismiss
+                |> withHeaderDismissFocus
+                |> withHeaderDismissBlur
                 |> withHeaderDismissId
+                |> withPreventHeaderDismissKeydown
             )
         , withBody
         , ModalFooter.view <|
@@ -151,6 +219,7 @@ header config =
             , ( .informativeHeader, config.variant == Informative )
             , ( .positiveHeader, config.variant == Positive )
             , ( .negativeHeader, config.variant == Negative )
+            , ( .cautionaryHeader, config.variant == Cautionary )
             ]
         ]
         [ div [ styles.class .iconContainer ]
@@ -161,7 +230,7 @@ header config =
                     |> Html.map never
                 ]
             ]
-        , Text.view (Text.h1 |> Text.inline True) [ text config.title ]
+        , Text.view (Text.h1 |> Text.style Text.ZenHeading1 |> Text.inline True |> Text.id Constants.ariaLabelledBy) [ text config.title ]
         ]
 
 
@@ -173,21 +242,55 @@ body content =
 footer : Configuration msg -> List (Html msg)
 footer config =
     let
-        withOnDismiss buttonConfig =
-            case config.onDismiss of
-                Just dismissMsg ->
-                    Button.onClick dismissMsg buttonConfig
+        withOnClick configSelector buttonConfig =
+            case configSelector config of
+                Just onClickMsg ->
+                    Button.onClick onClickMsg buttonConfig
 
                 Nothing ->
                     buttonConfig
 
-        withOnConfirm buttonConfig =
-            case config.onConfirm of
-                Just confirmMsg ->
-                    Button.onClick confirmMsg buttonConfig
+        withId configSelector disabled buttonConfig =
+            case configSelector config of
+                Just id ->
+                    if disabled then
+                        buttonConfig
+
+                    else
+                        Button.id id buttonConfig
 
                 Nothing ->
                     buttonConfig
+
+        withFocus configSelector buttonConfig =
+            case configSelector config of
+                Just onFocusMsg ->
+                    Button.onFocus onFocusMsg buttonConfig
+
+                Nothing ->
+                    buttonConfig
+
+        withBlur configSelector buttonConfig =
+            case configSelector config of
+                Just blurMsg ->
+                    Button.onBlur blurMsg buttonConfig
+
+                Nothing ->
+                    buttonConfig
+
+        withPreventKeydown configSelector buttonConfig =
+            if List.isEmpty (configSelector config) then
+                buttonConfig
+
+            else
+                Button.preventKeydownOn (configSelector config) buttonConfig
+
+        withOnConfirmDisabled buttonConfig =
+            if config.onConfirmDisabled then
+                Button.disabled True buttonConfig
+
+            else
+                Button.disabled False buttonConfig
 
         resolveActionButtonVariant =
             if config.variant == Negative then
@@ -195,24 +298,24 @@ footer config =
 
             else
                 Button.primary
-
-        withConfirmId buttonConfig =
-            case config.confirmId of
-                Just id ->
-                    Button.id id buttonConfig
-
-                Nothing ->
-                    buttonConfig
     in
     [ Button.view
         (Button.secondary
-            |> withOnDismiss
+            |> withOnClick .onDismiss
+            |> withId .footerDismissId False
+            |> withFocus .onFooterDismissFocus
+            |> withBlur .onFooterDismissBlur
+            |> withPreventKeydown .onFooterDismissPreventKeydownOn
         )
         config.dismissLabel
     , Button.view
         (resolveActionButtonVariant
-            |> withOnConfirm
-            |> withConfirmId
+            |> withOnClick .onConfirm
+            |> withOnConfirmDisabled
+            |> withId .confirmId config.onConfirmDisabled
+            |> withFocus .onConfirmFocus
+            |> withBlur .onConfirmBlur
+            |> withPreventKeydown .onConfirmPreventKeydownOn
         )
         config.confirmLabel
     ]
@@ -230,6 +333,11 @@ onDismiss msg (Config config) =
 onConfirm : msg -> Config msg -> Config msg
 onConfirm msg (Config config) =
     Config { config | onConfirm = Just msg }
+
+
+onConfirmDisabled : Bool -> Config msg -> Config msg
+onConfirmDisabled isDisabled (Config config) =
+    Config { config | onConfirmDisabled = isDisabled }
 
 
 title : String -> Config msg -> Config msg
@@ -257,6 +365,56 @@ headerDismissId id_ (Config config) =
     Config { config | headerDismissId = Just id_ }
 
 
+footerDismissId : String -> Config msg -> Config msg
+footerDismissId id_ (Config config) =
+    Config { config | footerDismissId = Just id_ }
+
+
+onHeaderDismissFocus : msg -> Config msg -> Config msg
+onHeaderDismissFocus msg (Config config) =
+    Config { config | onHeaderDismissFocus = Just msg }
+
+
+onHeaderDismissBlur : msg -> Config msg -> Config msg
+onHeaderDismissBlur msg (Config config) =
+    Config { config | onHeaderDismissBlur = Just msg }
+
+
+onConfirmFocus : msg -> Config msg -> Config msg
+onConfirmFocus msg (Config config) =
+    Config { config | onConfirmFocus = Just msg }
+
+
+onHeaderDismissPreventKeydown : List (Decode.Decoder msg) -> Config msg -> Config msg
+onHeaderDismissPreventKeydown keydownDecoders (Config config) =
+    Config { config | onHeaderDismissPreventKeydownOn = keydownDecoders }
+
+
+onConfirmPreventKeydownOn : List (Decode.Decoder msg) -> Config msg -> Config msg
+onConfirmPreventKeydownOn keydownDecoders (Config config) =
+    Config { config | onConfirmPreventKeydownOn = keydownDecoders }
+
+
+onFooterDismissPreventKeydownOn : List (Decode.Decoder msg) -> Config msg -> Config msg
+onFooterDismissPreventKeydownOn keydownDecoders (Config config) =
+    Config { config | onFooterDismissPreventKeydownOn = keydownDecoders }
+
+
+onConfirmBlur : msg -> Config msg -> Config msg
+onConfirmBlur msg (Config config) =
+    Config { config | onConfirmBlur = Just msg }
+
+
+onFooterDismissFocus : msg -> Config msg -> Config msg
+onFooterDismissFocus msg (Config config) =
+    Config { config | onFooterDismissFocus = Just msg }
+
+
+onFooterDismissBlur : msg -> Config msg -> Config msg
+onFooterDismissBlur msg (Config config) =
+    Config { config | onFooterDismissBlur = Just msg }
+
+
 confirmId : String -> Config msg -> Config msg
 confirmId id_ (Config config) =
     Config { config | confirmId = Just id_ }
@@ -264,12 +422,18 @@ confirmId id_ (Config config) =
 
 styles =
     css "@kaizen/component-library/draft/Kaizen/Modal/Presets/ConfirmationModal.scss"
-        { elmModal = "elmModal"
-        , header = "header"
+        { header = "header"
         , informativeHeader = "informativeHeader"
         , negativeHeader = "negativeHeader"
         , positiveHeader = "positiveHeader"
+        , cautionaryHeader = "cautionaryHeader"
         , iconContainer = "iconContainer"
         , iconBackground = "iconBackground"
         , icon = "icon"
+        }
+
+
+genericStyles =
+    css "@kaizen/component-library/draft/Kaizen/Modal/Primitives/GenericModal.scss"
+        { defaultModalWidth = "defaultModalWidth"
         }

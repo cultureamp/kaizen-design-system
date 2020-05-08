@@ -10,6 +10,10 @@ needToKnow:
 demoStoryId: splitbutton-react--default-kaizen-site-demo
 ---
 
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
 ## Visuals
 
 ### UI Kit
@@ -24,15 +28,22 @@ Sometimes there’s not enough space for a separate Button and Icon button, and 
 *   See [dropdown](/components/dropdown) guidelines.
 *   RTL: the segmented chevron appears on the left.
 
-## When to use
+## When to use and when not to use
 
-Use when there’s not enough space for a separate Button and Icon button, and they both control closely related actions. 
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
-## When not to use
+*   Use when there’s not enough space for a separate Button and Icon button, and they both control closely related actions. 
+
+</WhenToUse>
+<WhenNotToUse>
 
 *   Don’t use a button when navigation is involved. Instead, use a [link](/guidelines/links-vs-buttons).
 *   Don’t use a split button separate [Button](/components/button) and [Icon Button](/components/icon-button) will do.
 *   If there’s only 1 action for the dropdown, try to use another button.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 

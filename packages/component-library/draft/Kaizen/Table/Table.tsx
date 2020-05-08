@@ -8,18 +8,24 @@ const sortDescendingIcon = require("@kaizen/component-library/icons/sort-descend
   .default
 
 type TableContainer = React.FunctionComponent
-export const TableContainer: TableContainer = ({ children }) => (
-  <div className={styles.container}>{children}</div>
+export const TableContainer: TableContainer = ({ children, ...otherProps }) => (
+  <div className={styles.container} role="table" {...otherProps}>
+    {children}
+  </div>
 )
 
 type TableHeader = React.FunctionComponent
-export const TableHeader: TableHeader = ({ children }) => (
-  <div className={styles.header}>{children}</div>
+export const TableHeader: TableHeader = ({ children, ...otherProps }) => (
+  <div className={styles.header} role="rowgroup" {...otherProps}>
+    {children}
+  </div>
 )
 
 type TableHeaderRow = React.FunctionComponent
-export const TableHeaderRow: TableHeaderRow = ({ children }) => (
-  <div className={styles.headerRow}>{children}</div>
+export const TableHeaderRow: TableHeaderRow = ({ children, ...otherProps }) => (
+  <div className={styles.headerRow} role="rowheader" {...otherProps}>
+    {children}
+  </div>
 )
 
 const ratioToPercent = (width?: number) =>
@@ -52,6 +58,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   checkedStatus,
   onCheck,
   active,
+  ...otherProps
 }) => {
   const label = icon ? (
     <span className={styles.headerRowCellIcon}>
@@ -79,12 +86,19 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
       style={style}
       className={classNames(styles.headerRowCell, { [styles.active]: active })}
       onClick={onClick}
+      role="columnheader"
+      {...otherProps}
     >
       {label}
       {active && <Icon icon={sortDescendingIcon} role="presentation" />}
     </button>
   ) : (
-    <div style={style} className={styles.headerRowCell}>
+    <div
+      style={style}
+      className={styles.headerRowCell}
+      role="columnheader"
+      {...otherProps}
+    >
       {label}
     </div>
   )
@@ -93,6 +107,20 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
 type ButtonClickEvent = (e: React.MouseEvent<HTMLButtonElement>) => void
 type AnchorClickEvent = (e: React.MouseEvent<HTMLAnchorElement>) => void
 
+/**
+ * As the Card examples in Storybook take a TableRow,
+ * I opted to give the child the role="row" tag. That being
+ * said, while TableHeader has a role="rowgroup" as given
+ * in an example on the accessibility docs, I couldn't justify
+ * adding the same here as all rows look to be wrapped in the
+ * TableCard.
+ *
+ * It may mean that the consumer needs to add their own container
+ * around with the role="row". We could also just add it as a
+ * very simple component similar to TableHeader.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Table_Role
+ */
 type TableCard = React.FunctionComponent<{
   onClick?: ButtonClickEvent | AnchorClickEvent
   expanded?: boolean
@@ -110,6 +138,7 @@ export const TableCard: TableCard = ({
   onClick,
   href,
   forceHoverState = false,
+  ...otherProps
 }) => {
   const className = classNames(styles.card, {
     [styles.expanded]: expanded,
@@ -117,21 +146,40 @@ export const TableCard: TableCard = ({
     [styles.hasHoverState]: forceHoverState || onClick != null || href != null,
   })
   return href != null ? (
-    <a href={href} className={className} onClick={onClick as AnchorClickEvent}>
+    <a
+      href={href}
+      className={className}
+      onClick={onClick as AnchorClickEvent}
+      {...otherProps}
+    >
       {children}
     </a>
   ) : onClick ? (
-    <button className={className} onClick={onClick as ButtonClickEvent}>
+    <button
+      className={className}
+      onClick={onClick as ButtonClickEvent}
+      {...otherProps}
+    >
       {children}
     </button>
   ) : (
-    <div className={className}>{children}</div>
+    <div className={className} {...otherProps}>
+      {children}
+    </div>
   )
 }
 
+/**
+ * Aria roles like aria-rowindex can be added from
+ * the component consumer.
+ *
+ * @param {*} { children, ...otherProps }
+ */
 type TableRow = React.FunctionComponent
-export const TableRow: TableRow = ({ children }) => (
-  <div className={styles.row}>{children}</div>
+export const TableRow: TableRow = ({ children, ...otherProps }) => (
+  <div className={styles.row} role="row" {...otherProps}>
+    {children}
+  </div>
 )
 
 /**
@@ -143,15 +191,39 @@ export const TableRow: TableRow = ({ children }) => (
 type TableRowCell = React.FunctionComponent<{
   width?: number
   flex?: string
+  href?: string
 }>
-export const TableRowCell: TableRowCell = ({ children, width, flex }) => (
-  <div
-    style={{
-      width: ratioToPercent(width),
-      flex,
-    }}
-    className={styles.rowCell}
-  >
-    {children}
-  </div>
-)
+export const TableRowCell: TableRowCell = ({
+  children,
+  width,
+  flex,
+  href,
+  ...otherProps
+}) => {
+  return href != null ? (
+    <a
+      role="cell"
+      style={{
+        width: ratioToPercent(width),
+        flex,
+      }}
+      className={styles.rowCell}
+      href={href}
+      {...otherProps}
+    >
+      {children}
+    </a>
+  ) : (
+    <div
+      role="cell"
+      style={{
+        width: ratioToPercent(width),
+        flex,
+      }}
+      className={styles.rowCell}
+      {...otherProps}
+    >
+      {children}
+    </div>
+  )
+}

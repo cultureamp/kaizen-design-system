@@ -28,8 +28,12 @@ You can edit Kaizen Site documentation using GitHub's interface.
     - Under "Commit changes", write a commit message starting with `docs: `, such as `docs: update typography documentation`.
     - Create a new branch for this commit and start a pull request, e.g. `di/update-typography-guidelines`.
     - Click the "Commit changes" button. This will start a pull request.
-7. **PR with branch preview**: You can give your pull request a description. It's convenient for reviewers if you add a link to your "branch preview", which shows how your changes will look on the Kaizen Site. The branch preview link will use your branch name like this: <https://dev.cultureamp.design/>(branch-name)
-9. **Create PR**: Click the "Create pull request" button. Add someone as a reviewer or let #team_design_systems know.
+5. **Create PR**: Click the "Create pull request" button. Add someone as a reviewer or let #team_design_systems know.
+6. **PR description and branch preview**:
+    - Give your PR **a description** to help reviewers quickly understand why you've made the changes you have made and give feedback.
+    - Where it says "No description provided", look for an "**Edit**" action (in the unlabeled icon dropdown).
+    - If there is an **open Issue** for your changes, link to it in the description by writing `#` and writing the number or title of the Issue. You can find the Issue number or title by searching for it in [Issues](https://github.com/cultureamp/kaizen-design-system/issues).
+    - It's convenient for reviewers if you add a link to your "**branch preview**", which shows how your changes will look on the Kaizen Site after it has automatically been built (within a few minutes of opening the PR). The branch preview link will use your branch name like this: <https://dev.cultureamp.design/>(branch-name), which you can find in the "Checks" section of the page (likely under "Show all checks" > Branch preview: "Details").
 
 Once it's approved, click "Squash and merge" to publish your changes. Share the link to the updated documentation on #team_design_systems for awareness.
 
@@ -183,7 +187,7 @@ In addition to `feat` and `fix` releases, if a pull request includes changes whi
 
 Since we are using a squash-and-merge strategy for our pull requests, we recommend that you introduce breaking changes in their own commits, each with a commit summary in the format `BREAKING CHANGE: <description>`, with any additional notes in the commit body.
 
-> **Note:** Pull requests for branches containing a single commit are a special case, and should contain a commit with a conventional commit message (and a matching pull request title), with any `BREAKING CHANGE` annotations included in the commit body. To avoid this edge case, you can push an additional commit to your branch!
+> **Note:** Pull requests for branches containing a single commit are a special case, and should contain a commit with a conventional commit message (and a matching pull request title), with any `BREAKING CHANGE` annotations included in the commit body. To avoid this edge case, you can push an additional commit to your branch! (you can use `git commit --allow-empty` if you don't have any code to add). Note that merge commits don't count, so you will still need to do this if there are two commits but one is a merge commit.
 
 For example, a pull request might have the title `feat: Add color option to Gizmo component`, and include the following commit in the branch for the pull request (including additional detail in the commit body):
 

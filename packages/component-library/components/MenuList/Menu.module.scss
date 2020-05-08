@@ -1,17 +1,20 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/component-library/styles/layout";
 @import "../../styles/type";
 @import "../../styles/color";
 @import "../../styles/border";
 @import "../../styles/layers";
 @import "../../styles/animation";
-@import "~@kaizen/component-library/styles/layout";
 
 $side-padding: 3/4 * $ca-grid;
 
 .menuList {
   background: #fff;
-  border: 1px solid $kz-color-wisteria-200;
-  box-shadow: $ca-box-shadow;
+  border: $kz-border-solid-border-width $kz-border-solid-border-style
+    $kz-color-wisteria-200;
+  box-shadow: $kz-shadow-small-box-shadow;
   line-height: 40px;
 }
 

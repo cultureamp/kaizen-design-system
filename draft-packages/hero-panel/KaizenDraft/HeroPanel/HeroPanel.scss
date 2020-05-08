@@ -1,0 +1,68 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/component-library/styles/layers";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/responsive";
+
+.container {
+  display: flex;
+  position: absolute;
+  justify-content: space-around;
+  width: 100%;
+
+  z-index: $ca-z-index-popover;
+  margin-top: $ca-grid;
+  padding-top: $ca-grid;
+  bottom: 0;
+
+  background-color: $kz-color-cluny-500;
+}
+
+.content {
+  display: flex;
+  position: relative;
+  width: $ca-layout-content-width;
+  align-content: center;
+  justify-content: center;
+
+  color: $kz-color-white;
+
+  @include ca-media-tablet-and-under {
+    justify-content: left;
+    width: 100%;
+    padding: 0 ($ca-grid) ($ca-grid);
+  }
+}
+
+.close {
+  position: absolute;
+
+  top: -($ca-grid / 2);
+  right: 0;
+
+  svg {
+    color: $kz-color-white;
+  }
+}
+
+.image {
+  position: relative;
+  margin-right: $ca-grid * 2;
+
+  // We ignore line-height since the image should be sitting flush at the very bottom of the panel
+  line-height: 0;
+
+  @include ca-media-tablet-and-under {
+    display: none;
+  }
+}
+
+.description {
+  max-width: 500px;
+}
+
+.actions {
+  button {
+    margin-right: $ca-grid / 2;
+  }
+}

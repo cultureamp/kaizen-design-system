@@ -1,6 +1,5 @@
-@import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/border";
-
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 .showcase {
   margin-top: $ca-grid * 2.5;
 }
