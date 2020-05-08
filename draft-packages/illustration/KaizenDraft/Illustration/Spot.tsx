@@ -14,13 +14,29 @@ export type SpotProps = {
    * provide an empty string
    */
   alt: string
+
+  /**
+   * Not recommended. A short-circuit for overriding styles in a pinch
+   * @default ""
+   */
+  classNameAndIHaveSpokenToDST?: string
 }
 
 /**
  * Spot illustrations are simple, informational visuals that assist users in their task.
  */
-const Spot = ({ name, alt }: SpotProps) => (
-  <img alt={alt} src={assetUrl(mapSpotNameToLocation(name))} />
+const Spot = ({
+  name,
+  alt,
+  classNameAndIHaveSpokenToDST,
+  ...otherProps
+}: SpotProps) => (
+  <img
+    {...otherProps}
+    className={classNameAndIHaveSpokenToDST}
+    alt={alt}
+    src={assetUrl(mapSpotNameToLocation(name))}
+  />
 )
 
 export default Spot

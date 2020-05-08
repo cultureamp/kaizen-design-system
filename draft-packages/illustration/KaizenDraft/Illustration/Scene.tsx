@@ -14,13 +14,29 @@ export type SceneProps = {
    * provide an empty string
    */
   alt: string
+
+  /**
+   * Not recommended. A short-circuit for overriding styles in a pinch
+   * @default ""
+   */
+  classNameAndIHaveSpokenToDST?: string
 }
 
 /**
  * Scene illustrations tell a rich story to set the scene for users and let them know what's possible.
  */
-const Scene = ({ name, alt }: SceneProps) => (
-  <img alt={alt} src={assetUrl(mapSceneNameToLocation(name))} />
+const Scene = ({
+  name,
+  alt,
+  classNameAndIHaveSpokenToDST,
+  ...otherProps
+}: SceneProps) => (
+  <img
+    {...otherProps}
+    className={classNameAndIHaveSpokenToDST}
+    alt={alt}
+    src={assetUrl(mapSceneNameToLocation(name))}
+  />
 )
 
 export default Scene
