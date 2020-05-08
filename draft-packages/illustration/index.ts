@@ -1,1 +1,1 @@
-export { Spot, Scene } from "./KaizenDraft/Illustration"
+export * from "./KaizenDraft/Illustration"

@@ -1,12 +1,15 @@
 import * as React from "react"
-import { Scene } from "../illustration"
+import { EmptyStatesAction, ManagerLearningResilience } from "../illustration"
 
-export default { title: "Illustration, Scene (React)", component: Scene }
+export default {
+  title: "Illustration, Scene (React)",
+  component: EmptyStatesAction,
+}
 
-export const SceneComponent = () => <Scene alt="" name="EmptyStatesPositive" />
+export const SceneComponent = () => <ManagerLearningResilience alt="" />
 
 export const SceneWithSpacing = () => (
   <div style={{ width: "100px" }}>
-    <Scene alt="" name="EmptyStatesPositive" />
+    <EmptyStatesAction alt="" />
   </div>
 )
