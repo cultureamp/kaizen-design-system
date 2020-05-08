@@ -28,7 +28,7 @@ import Html exposing (..)
 import Html.Attributes
 import Html.Events exposing (onFocus, onInput)
 import Html.Extra exposing (nothing)
-import Kaizen.Events.Events as Events
+import KaizenDraft.Events.Events as Events
 
 
 styles =

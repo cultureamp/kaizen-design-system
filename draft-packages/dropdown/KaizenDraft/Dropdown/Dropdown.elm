@@ -10,7 +10,7 @@ module KaizenDraft.Dropdown.Dropdown exposing
     )
 
 import Elm18Compatible.Mouse as Mouse
-import Kaizen.UserInteractions.Keyboard as Keyboard
+import KaizenDraft.UserInteractions.Keyboard as Keyboard
 
 
 type State

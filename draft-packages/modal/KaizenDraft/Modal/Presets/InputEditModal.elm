@@ -1,10 +1,10 @@
 module KaizenDraft.Modal.Presets.InputEditModal exposing
-    ( confirmId
+    ( children
+    , confirmId
     , confirmLabel
     , confirmPreventKeydownOn
     , dismissLabel
     , headerDismissId
-    , instructiveText
     , negative
     , onConfirm
     , onConfirmBlur
@@ -14,22 +14,19 @@ module KaizenDraft.Modal.Presets.InputEditModal exposing
     , onHeaderDismissFocus
     , onPreventHeaderDismissKeydown
     , positive
-    , textFieldConfigs
     , title
     , view
     )
 
 import Button.Button as Button
 import CssModules exposing (css)
-import Html exposing (Html, div, form, span, text)
+import Html exposing (Html, div, text)
 import Json.Decode as Decode
-import Kaizen.Form.TextField.TextField as TextField
-import Kaizen.Modal.Primitives.Configuration as ModalConfiguration exposing (configurationDefaults)
-import Kaizen.Modal.Primitives.ModalAccessibleDescription as ModalAccessibleDescription
-import Kaizen.Modal.Primitives.ModalAccessibleLabel as ModalAccessibleLabel
-import Kaizen.Modal.Primitives.ModalBody as ModalBody
-import Kaizen.Modal.Primitives.ModalFooter as ModalFooter
-import Kaizen.Modal.Primitives.ModalHeader as ModalHeader
+import KaizenDraft.Modal.Primitives.Configuration as ModalConfiguration exposing (configurationDefaults)
+import KaizenDraft.Modal.Primitives.ModalAccessibleLabel as ModalAccessibleLabel
+import KaizenDraft.Modal.Primitives.ModalBody as ModalBody
+import KaizenDraft.Modal.Primitives.ModalFooter as ModalFooter
+import KaizenDraft.Modal.Primitives.ModalHeader as ModalHeader
 import Text.Text as Text
 
 
@@ -44,8 +41,7 @@ type alias Configuration msg =
 type alias InputEditConfiguration msg base =
     { base
         | variant : Variant
-        , instructiveText : Maybe String
-        , textFieldConfigs : List (TextField.Config msg)
+        , children : List (Html msg)
     }
 
 
@@ -57,8 +53,7 @@ type Variant
 defaults : Configuration msg
 defaults =
     { variant = Positive
-    , instructiveText = Nothing
-    , textFieldConfigs = []
+    , children = []
     , onDismiss = configurationDefaults.onDismiss
     , onConfirm = configurationDefaults.onConfirm
     , title = configurationDefaults.title
@@ -138,7 +133,7 @@ view (Config config) =
                 |> ModalHeader.dismissReverse False
             )
         , ModalBody.view <|
-            (ModalBody.layout [ body config ]
+            (ModalBody.layout config.children
                 |> ModalBody.background ModalBody.Stone
             )
         , ModalFooter.view <|
@@ -162,31 +157,6 @@ header config =
                 [ text config.title ]
             ]
         ]
-
-
-body : Configuration msg -> Html msg
-body config =
-    let
-        withInstructiveText =
-            case config.instructiveText of
-                Just instText ->
-                    ModalAccessibleDescription.view
-                        [ Text.view Text.p [ text instText ]
-                        ]
-
-                Nothing ->
-                    text ""
-
-        textField textConfig =
-            TextField.view textConfig
-
-        withTextFields =
-            List.map textField config.textFieldConfigs
-    in
-    div []
-        ([ span [ styles.class .instructiveText ] [ withInstructiveText ] ]
-            ++ [ form [] withTextFields ]
-        )
 
 
 footer : Configuration msg -> List (Html msg)
@@ -282,11 +252,6 @@ title titleString (Config config) =
     Config { config | title = titleString }
 
 
-instructiveText : String -> Config msg -> Config msg
-instructiveText instText (Config config) =
-    Config { config | instructiveText = Just instText }
-
-
 headerDismissId : String -> Config msg -> Config msg
 headerDismissId id_ (Config config) =
     Config { config | headerDismissId = Just id_ }
@@ -337,15 +302,14 @@ onConfirmBlur msg (Config config) =
     Config { config | onConfirmBlur = Just msg }
 
 
-textFieldConfigs : List (TextField.Config msg) -> Config msg -> Config msg
-textFieldConfigs configs (Config config) =
-    Config { config | textFieldConfigs = configs }
+children : List (Html msg) -> Config msg -> Config msg
+children value (Config config) =
+    Config { config | children = value }
 
 
 styles =
     css "@kaizen/component-library/draft/Kaizen/Modal/Presets/InputEditModal.scss"
         { header = "header"
-        , instructiveText = "instructiveText"
         }
 
 

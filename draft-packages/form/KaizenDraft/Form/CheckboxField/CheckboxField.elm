@@ -15,9 +15,9 @@ module KaizenDraft.Form.CheckboxField.CheckboxField exposing
 
 import CssModules exposing (css)
 import Html exposing (..)
-import Kaizen.Form.Primitives.Checkbox.Checkbox as Checkbox
-import Kaizen.Form.Primitives.FieldGroup.FieldGroup as FieldGroup
-import Kaizen.Form.Primitives.Label.Label as Label
+import KaizenDraft.Form.Primitives.Checkbox.Checkbox as Checkbox
+import KaizenDraft.Form.Primitives.FieldGroup.FieldGroup as FieldGroup
+import KaizenDraft.Form.Primitives.Label.Label as Label
 
 
 styles =

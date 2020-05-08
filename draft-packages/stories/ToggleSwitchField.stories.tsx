@@ -1,5 +1,9 @@
+import {
+  ToggledStatus,
+  ToggleSwitchField,
+  ToggleTheme,
+} from "@kaizen/draft-form"
 import * as React from "react"
-import { ToggledStatus, ToggleSwitchField, ToggleTheme } from "../draft"
 
 class ToggleStateContainer extends React.Component<
   {

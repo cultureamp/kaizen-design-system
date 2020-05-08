@@ -5,7 +5,7 @@ import Media from "react-media"
 
 import Icon from "@kaizen/component-library/components/Icon/Icon"
 import { MOBILE_QUERY } from "@kaizen/component-library/components/NavigationBar/constants"
-import { Tag } from "@kaizen/component-library/draft"
+import { Tag } from "@kaizen/draft-tag"
 const backIcon = require("@kaizen/component-library/icons/arrow-backward.icon.svg")
   .default
 const forwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")

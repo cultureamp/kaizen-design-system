@@ -1,10 +1,8 @@
 import * as React from "react"
+import uuid from "uuid/v4"
 
 import { Icon, IconButton } from "@kaizen/component-library"
-import {
-  OffCanvasContext,
-  ZenOffCanvas,
-} from "@kaizen/component-library/draft/Kaizen/ZenOffCanvas"
+import { OffCanvasContext, ZenOffCanvas } from "@kaizen/draft-zen-off-canvas"
 
 import classNames from "classnames"
 import Media from "react-media"
@@ -60,6 +58,7 @@ export default class Menu extends React.Component<MenuProps, State> {
               <OffCanvasContext.Consumer>
                 {({ toggleVisibleMenu }) => (
                   <Link
+                    key={uuid()}
                     text={heading}
                     href="#"
                     onClick={() => toggleVisibleMenu(heading)}
@@ -87,9 +86,9 @@ export default class Menu extends React.Component<MenuProps, State> {
                 onMouseDown={e => e.preventDefault()}
               >
                 {children ? (
-                  children
+                  <div className={styles.customChild}>{children}</div>
                 ) : (
-                  <React.Fragment>
+                  <span className={styles.hoverArea}>
                     {icon && (
                       <span className={styles.linkIcon}>
                         <Icon
@@ -101,7 +100,7 @@ export default class Menu extends React.Component<MenuProps, State> {
                     )}
                     <span className={styles.linkText}>{heading}</span>
                     <Icon icon={chevronDownIcon} role="presentation" />
-                  </React.Fragment>
+                  </span>
                 )}
               </button>
               {this.state.open && <Dropdown items={items} header={header} />}
@@ -124,9 +123,22 @@ export default class Menu extends React.Component<MenuProps, State> {
     const links: Array<NavigationItem | undefined> = items.map(
       (item, index) => {
         if ("url" in item) {
-          return <Link key={item.url} text={item.label} href={item.url} />
+          return (
+            <Link
+              key={`${item.url}-${uuid()}`}
+              text={item.label}
+              href={item.url}
+            />
+          )
         } else if ("title" in item) {
-          return <MenuGroup first={index === 0} {...item} offCanvas />
+          return (
+            <MenuGroup
+              key={`${item.title}-${uuid()}`}
+              first={index === 0}
+              {...item}
+              offCanvas
+            />
+          )
         }
       }
     )

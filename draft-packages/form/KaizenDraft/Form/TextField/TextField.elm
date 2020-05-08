@@ -30,10 +30,10 @@ import Html exposing (..)
 import Html.Extra exposing (static)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
-import Kaizen.Form.Primitives.FieldGroup.FieldGroup as FieldGroup
-import Kaizen.Form.Primitives.FieldMessage.FieldMessage as FieldMessage
-import Kaizen.Form.Primitives.Input.Input as Input
-import Kaizen.Form.Primitives.Label.Label as Label
+import KaizenDraft.Form.Primitives.FieldGroup.FieldGroup as FieldGroup
+import KaizenDraft.Form.Primitives.FieldMessage.FieldMessage as FieldMessage
+import KaizenDraft.Form.Primitives.Input.Input as Input
+import KaizenDraft.Form.Primitives.Label.Label as Label
 
 
 styles =

@@ -11,7 +11,7 @@ module KaizenDraft.Modal.Primitives.ModalBody exposing
 import CssModules exposing (css)
 import Html exposing (Html, section, text)
 import Html.Attributes as HtmlAttributes
-import Kaizen.Modal.Primitives.Constants as Constants
+import KaizenDraft.Modal.Primitives.Constants as Constants
 
 
 type Config msg
