@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.4.2...@kaizen/draft-table@1.4.3) (2020-05-08)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [1.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.4.1...@kaizen/draft-table@1.4.2) (2020-05-08)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.4.0...@kaizen/draft-table@1.4.1) (2020-05-08)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.3.7...@kaizen/draft-table@1.4.0) (2020-05-08)
+
+
+### Features
+
+* Extend TableHeader API for bg colors + revert box shadow ([#469](https://github.com/cultureamp/kaizen-design-system/issues/469)) ([e1256d2](https://github.com/cultureamp/kaizen-design-system/commit/e1256d2bc64429d15e51214e961f8371e0b7d32f))
+
+
+
+
+
+## [1.3.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.3.6...@kaizen/draft-table@1.3.7) (2020-05-08)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [1.3.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.3.5...@kaizen/draft-table@1.3.6) (2020-05-07)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
 ## [1.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.3.4...@kaizen/draft-table@1.3.5) (2020-05-06)
 
 **Note:** Version bump only for package @kaizen/draft-table

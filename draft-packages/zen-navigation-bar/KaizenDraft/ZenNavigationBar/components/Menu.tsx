@@ -1,4 +1,5 @@
 import * as React from "react"
+import uuid from "uuid/v4"
 
 import { Icon, IconButton } from "@kaizen/component-library"
 import { OffCanvasContext, ZenOffCanvas } from "@kaizen/draft-zen-off-canvas"
@@ -57,6 +58,7 @@ export default class Menu extends React.Component<MenuProps, State> {
               <OffCanvasContext.Consumer>
                 {({ toggleVisibleMenu }) => (
                   <Link
+                    key={uuid()}
                     text={heading}
                     href="#"
                     onClick={() => toggleVisibleMenu(heading)}
@@ -121,9 +123,22 @@ export default class Menu extends React.Component<MenuProps, State> {
     const links: Array<NavigationItem | undefined> = items.map(
       (item, index) => {
         if ("url" in item) {
-          return <Link key={item.url} text={item.label} href={item.url} />
+          return (
+            <Link
+              key={`${item.url}-${uuid()}`}
+              text={item.label}
+              href={item.url}
+            />
+          )
         } else if ("title" in item) {
-          return <MenuGroup first={index === 0} {...item} offCanvas />
+          return (
+            <MenuGroup
+              key={`${item.title}-${uuid()}`}
+              first={index === 0}
+              {...item}
+              offCanvas
+            />
+          )
         }
       }
     )

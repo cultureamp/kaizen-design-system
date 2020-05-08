@@ -31,7 +31,7 @@ export const DefaultKaizenSiteDemo = () => (
       }
       placeholder="Please enter your email"
       onChange={action("user input")}
-      description="Valid email addresses must have an @ and a suffix."
+      description="Valid email addresses must have an @ and a suffix"
     />
   </ExampleContainer>
 )
@@ -50,7 +50,7 @@ export const DefaultInline = () => (
       placeholder="Please enter your email"
       onChange={action("user input")}
       inline={true}
-      description="Valid email addresses must have an @ and a suffix."
+      description="Valid email addresses must have an @ and a suffix"
     />
   </ExampleContainer>
 )
@@ -179,7 +179,7 @@ export const DefaultError = () => (
       placeholder="Please enter your email"
       onChange={action("user input")}
       status="error"
-      validationMessage="Your email address looks like it’s from 1996."
+      validationMessage="Your email address looks like it’s from 1996"
     />
   </ExampleContainer>
 )
@@ -245,7 +245,7 @@ export const DefaultMultipleFieldsError = () => (
       placeholder="Please enter your email"
       onChange={action("user input")}
       icon={userIcon}
-      validationMessage="Please enter a valid email address."
+      validationMessage="Please enter a valid email address"
     />
     <TextField
       id="password"
@@ -256,7 +256,7 @@ export const DefaultMultipleFieldsError = () => (
       placeholder="Please enter your password"
       onChange={action("user input")}
       icon={lockIcon}
-      validationMessage="The password entered does not correctly match the provided email address."
+      validationMessage="The password entered does not correctly match the provided email address"
     />
   </ExampleContainer>
 )
@@ -406,7 +406,7 @@ export const ReversedError = () => (
       onChange={action("user input")}
       reversed={true}
       status="error"
-      validationMessage="Your email address looks like it’s from 1996."
+      validationMessage="Your email address looks like it’s from 1996"
     />
   </ExampleContainer>
 )
@@ -427,7 +427,7 @@ export const ReversedErrorIcon = () => (
       icon={userIcon}
       reversed={true}
       status="error"
-      validationMessage="Your email address looks like it’s from 1996."
+      validationMessage="Your email address looks like it’s from 1996"
     />
   </ExampleContainer>
 )
@@ -476,7 +476,7 @@ export const ReversedMultipleFieldsWError = () => (
       placeholder="Please enter your email"
       onChange={action("user input")}
       icon={userIcon}
-      validationMessage="Please enter a valid email address."
+      validationMessage="Please enter a valid email address"
       reversed={true}
     />
     <TextField
@@ -488,7 +488,7 @@ export const ReversedMultipleFieldsWError = () => (
       placeholder="Please enter your password"
       onChange={action("user input")}
       icon={lockIcon}
-      validationMessage="The password entered does not correctly match the provided email addrress."
+      validationMessage="The password entered does not correctly match the provided email addrress"
       reversed={true}
     />
   </ExampleContainer>
@@ -516,7 +516,7 @@ export const DefaultFocusBlurEvents = () => (
       onFocus={action("onFocus fired")}
       onBlur={action("onBlur fired")}
       onChange={action("user input")}
-      description="Valid email addresses must have an @ and a suffix."
+      description="Valid email addresses must have an @ and a suffix"
     />
   </ExampleContainer>
 )

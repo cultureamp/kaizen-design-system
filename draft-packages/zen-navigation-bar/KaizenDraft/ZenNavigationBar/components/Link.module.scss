@@ -31,3 +31,7 @@
     }
   }
 }
+
+:global(.__react_component_tooltip) {
+  @include font-extra-small;
+}

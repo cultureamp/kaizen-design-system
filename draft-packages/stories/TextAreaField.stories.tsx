@@ -129,3 +129,53 @@ export const DefaultControlled = () => (
 DefaultControlled.story = {
   name: "Default, Controlled",
 }
+
+export const DefaultWithDesc = () => (
+  <ExampleContainer>
+    <TextAreaField
+      id="reply"
+      labelText="Your Reply"
+      placeholder="Write your reply..."
+      onChange={action("user input")}
+      description="Your reply will only be seen by you"
+    />
+  </ExampleContainer>
+)
+
+DefaultWithDesc.story = {
+  name: "Default, With description",
+}
+
+export const DefaultInline = () => (
+  <ExampleContainer>
+    <TextAreaField
+      id="reply"
+      labelText="Your Reply"
+      placeholder="Write your reply..."
+      onChange={action("user input")}
+      inline={true}
+    />
+  </ExampleContainer>
+)
+
+DefaultInline.story = {
+  name: "Default, Inline",
+}
+
+export const DefaultErrorAndDesc = () => (
+  <ExampleContainer>
+    <TextAreaField
+      id="reply"
+      labelText="Your Reply"
+      placeholder="Write your reply..."
+      onChange={action("user input")}
+      status="error"
+      validationMessage="Enter a reply"
+      description="Your reply will only be seen by you"
+    />
+  </ExampleContainer>
+)
+
+DefaultErrorAndDesc.story = {
+  name: "Default, Error & Description",
+}
