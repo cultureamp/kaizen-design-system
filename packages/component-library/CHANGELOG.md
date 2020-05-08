@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.13.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.13.0...@kaizen/component-library@7.13.1) (2020-05-08)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [7.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.12.0...@kaizen/component-library@7.13.0) (2020-05-07)
+
+
+### Features
+
+* Create description prop for TextAreaField ([#464](https://github.com/cultureamp/kaizen-design-system/issues/464)) ([a4069f5](https://github.com/cultureamp/kaizen-design-system/commit/a4069f5ccc3e0be38e9ccd54baa04cb77b9731b2))
+
+
+
+
+
+# [7.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.11.1...@kaizen/component-library@7.12.0) (2020-05-06)
+
+
+### Features
+
+* Hero Panel draft component ([#445](https://github.com/cultureamp/kaizen-design-system/issues/445)) ([4568518](https://github.com/cultureamp/kaizen-design-system/commit/4568518737456e48d59b59f908c4c4d4f29cd83d))
+
+
+
+
+
+## [7.11.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.11.0...@kaizen/component-library@7.11.1) (2020-05-06)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [7.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.10.0...@kaizen/component-library@7.11.0) (2020-05-05)
+
+
+### Features
+
+* Add two more guidance block variances ([#446](https://github.com/cultureamp/kaizen-design-system/issues/446)) ([e5b2d45](https://github.com/cultureamp/kaizen-design-system/commit/e5b2d457b590de0989533e5b35271ff7e3f1673c))
+
+
+
+
+
 # [7.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.9.1...@kaizen/component-library@7.10.0) (2020-05-05)
 
 
