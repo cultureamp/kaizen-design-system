@@ -91,7 +91,8 @@ export const mapSceneNameToLocation = (name: SceneName) => {
     case "KaizenSiteResourcesAlt":
       return "illustrations/scene/kaizen-site-resources-alt.svg"
     default:
-      console.warn("Illustration - invalid name")
+      // tslint:disable-next-line: no-console
+      console.error("Kaizen Illustration - invalid name ", name)
       return ""
   }
 }
@@ -231,7 +232,8 @@ export const mapSpotNameToLocation = (name: SpotName) => {
     case "Diagnostics":
       return "illustrations/spot/template-library-diagnostics.svg"
     default:
-      console.warn("Illustration - invalid name")
+      // tslint:disable-next-line: no-console
+      console.error("Kaizen Illustration - invalid name ", name)
       return ""
   }
 }
