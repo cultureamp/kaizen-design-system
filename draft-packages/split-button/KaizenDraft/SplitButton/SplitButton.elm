@@ -3,18 +3,17 @@ module KaizenDraft.SplitButton.SplitButton exposing (Msg(..), SplitButton, defau
 import Browser.Events
 import CssModules exposing (css)
 import Html exposing (Html, a, button, div, span, text)
-import Html.Attributes exposing (dir, style)
+import Html.Attributes exposing (dir, style, tabindex)
 import Html.Events exposing (onClick)
 import Html.Events.Extra exposing (onClickPreventDefaultAndStopPropagation)
 import Html.Extra exposing (static, viewIf)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
 import Json.Decode as Decode exposing (Decoder)
-import KaizenDraft.MenuList.MenuList as MenuList
 
 
 
--- MODEL
+-- DATA
 
 
 type alias SplitButtonId =
@@ -24,6 +23,16 @@ type alias SplitButtonId =
 type DropdownMenuVisibility
     = Open SplitButtonId
     | Closed
+
+
+type alias MenuItem menuItemMsg =
+    { label : String
+    , action : menuItemMsg
+    }
+
+
+
+-- MODEL
 
 
 type SplitButton
@@ -48,7 +57,7 @@ subscriptions =
 
         toMsg : String -> Msg menuItemMsg
         toMsg string =
-            case Debug.log "key" string of
+            case string of
                 "Escape" ->
                     CloseDropdownMenu
 
@@ -71,7 +80,7 @@ type Config menuItemMsg
 
 type alias ConfigValue menuItemMsg =
     { href : String
-    , menuItems : List (MenuList.MenuItemConfig menuItemMsg)
+    , menuItems : List (MenuItem (Msg menuItemMsg))
     , dir : String
     }
 
@@ -81,13 +90,19 @@ default =
     Config { href = "", menuItems = [], dir = "ltr" }
 
 
-menuItems : List (MenuList.MenuItemConfig menuItemMsg) -> Config menuItemMsg -> Config menuItemMsg
-menuItems items (Config config) =
-    Config { config | menuItems = items }
-
-
 
 -- MODIFIERS
+
+
+menuItems : List (MenuItem menuItemMsg) -> Config menuItemMsg -> Config menuItemMsg
+menuItems items (Config config) =
+    let
+        menuItems_ =
+            items
+                |> List.map
+                    (\item -> { label = item.label, action = MenuItemClicked item.action })
+    in
+    Config { config | menuItems = menuItems_ }
 
 
 href : String -> Config menuItemMsg -> Config menuItemMsg
@@ -102,7 +117,7 @@ href value (Config config) =
 type Msg menuItemMsg
     = ToggleDropdownMenu
     | CloseDropdownMenu
-    | MenuItem menuItemMsg
+    | MenuItemClicked menuItemMsg
     | NoOp
 
 
@@ -124,7 +139,7 @@ update msg (SplitButton model) =
         CloseDropdownMenu ->
             ( SplitButton { model | dropdownMenuVisibility = Closed }, Cmd.none )
 
-        MenuItem _ ->
+        MenuItemClicked _ ->
             ( SplitButton model, Cmd.none )
 
         NoOp ->
@@ -137,33 +152,26 @@ update msg (SplitButton model) =
 
 view : Config menuItemMsg -> SplitButton -> String -> Html (Msg menuItemMsg)
 view (Config config) (SplitButton splitButton) label =
-    let
-        mappedMenuItems : List (MenuList.MenuItemConfig (Msg menuItemMsg))
-        mappedMenuItems =
-            config.menuItems
-                |> List.map
-                    (\item -> { label = item.label, onClickMsg = MenuItem item.onClickMsg })
-    in
     div [ styles.class .root, dir config.dir ]
         [ div [ styles.class .buttonsContainer ]
-            [ viewPrimaryActionButton config.href label
-            , viewDropdown
+            [ primaryActionButtonView config.href label
+            , dropdownView
             , viewIf (splitButton.dropdownMenuVisibility == Open "") <|
-                viewDropdownMenu mappedMenuItems
+                dropdownMenuView config.menuItems
             ]
         ]
 
 
-viewPrimaryActionButton : String -> String -> Html (Msg menuItemMsg)
-viewPrimaryActionButton url label =
+primaryActionButtonView : String -> String -> Html (Msg menuItemMsg)
+primaryActionButtonView url label =
     a [ styles.class .default, Html.Attributes.href url ]
         [ span [ styles.class .label ]
             [ text label ]
         ]
 
 
-viewDropdown : Html (Msg msg)
-viewDropdown =
+dropdownView : Html (Msg msg)
+dropdownView =
     div [ styles.class .dropdown ]
         [ button
             [ onClickPreventDefaultAndStopPropagation ToggleDropdownMenu
@@ -179,14 +187,30 @@ viewDropdown =
         ]
 
 
-viewDropdownMenu : List (MenuList.MenuItemConfig (Msg menuItemMsg)) -> Html (Msg menuItemMsg)
-viewDropdownMenu menuItems_ =
+dropdownMenuView : List (MenuItem (Msg menuItemMsg)) -> Html (Msg menuItemMsg)
+dropdownMenuView menuItems_ =
     div
         [ styles.class .menuContainer
         , style "right" "0px"
-        , style "top" "40px"
+        , style "top" "42px"
         ]
-        [ MenuList.view { items = menuItems_ } ]
+        [ menuListView menuItems_ ]
+
+
+menuListView : List (MenuItem (Msg menuItemMsg)) -> Html (Msg menuItemMsg)
+menuListView menuItems_ =
+    div [ styles.class .menuList ]
+        (menuItems_ |> List.map menuItemView)
+
+
+menuItemView : MenuItem (Msg menuItemMsg) -> Html (Msg menuItemMsg)
+menuItemView { label, action } =
+    div
+        [ styles.class .menuItem
+        , onClick action
+        , tabindex 0
+        ]
+        [ text label ]
 
 
 styles =
@@ -200,4 +224,6 @@ styles =
         , dropdownButtonDefault = "dropdownButtonDefault"
         , dropdownIcon = "dropdownIcon"
         , menuContainer = "menuContainer"
+        , menuList = "menuList"
+        , menuItem = "menuItem"
         }

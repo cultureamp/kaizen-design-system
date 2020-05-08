@@ -21,14 +21,14 @@ update msg model =
         Foo ->
             let
                 ( newSplitButton, splitButtonCmds ) =
-                    SplitButton.update (SplitButton.MenuItem Foo) model.splitButton
+                    SplitButton.update (SplitButton.MenuItemClicked Foo) model.splitButton
             in
             ( { model | splitButton = newSplitButton }, splitButtonCmds |> Cmd.map SplitButtonMsg )
 
         Bar ->
             let
                 ( newSplitButton, splitButtonCmds ) =
-                    SplitButton.update (SplitButton.MenuItem Foo) model.splitButton
+                    SplitButton.update (SplitButton.MenuItemClicked Foo) model.splitButton
             in
             ( { model | splitButton = newSplitButton }, splitButtonCmds |> Cmd.map SplitButtonMsg )
 
@@ -43,8 +43,8 @@ update msg model =
 main =
     let
         menuItems_ =
-            [ { label = "Foo", onClickMsg = Foo }
-            , { label = "Bar", onClickMsg = Bar }
+            [ { label = "Foo", action = Foo }
+            , { label = "Bar", action = Bar }
             ]
 
         config =
