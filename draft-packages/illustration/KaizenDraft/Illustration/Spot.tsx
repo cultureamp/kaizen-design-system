@@ -2,6 +2,7 @@ import { assetUrl } from "@kaizen/hosted-assets"
 import * as React from "react"
 import { SpotName } from "../../types"
 import { mapSpotNameToLocation } from "./util"
+const styles = require("./style.module.scss")
 
 export type SpotProps = {
   /**
@@ -30,13 +31,20 @@ const Spot = ({
   alt,
   classNameAndIHaveSpokenToDST,
   ...otherProps
-}: SpotProps) => (
-  <img
-    {...otherProps}
-    className={classNameAndIHaveSpokenToDST}
-    alt={alt}
-    src={assetUrl(mapSpotNameToLocation(name))}
-  />
-)
+}: SpotProps) => {
+  const className =
+    (classNameAndIHaveSpokenToDST ? classNameAndIHaveSpokenToDST : "") +
+    " " +
+    styles.wrapper
+
+  return (
+    <img
+      {...otherProps}
+      className={className}
+      alt={alt}
+      src={assetUrl(mapSpotNameToLocation(name))}
+    />
+  )
+}
 
 export default Spot

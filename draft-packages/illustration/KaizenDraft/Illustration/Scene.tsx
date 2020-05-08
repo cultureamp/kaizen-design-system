@@ -2,6 +2,7 @@ import { assetUrl } from "@kaizen/hosted-assets"
 import * as React from "react"
 import { SceneName } from "../../types"
 import { mapSceneNameToLocation } from "./util"
+const styles = require("./style.module.scss")
 
 export type SceneProps = {
   /**
@@ -30,13 +31,20 @@ const Scene = ({
   alt,
   classNameAndIHaveSpokenToDST,
   ...otherProps
-}: SceneProps) => (
-  <img
-    {...otherProps}
-    className={classNameAndIHaveSpokenToDST}
-    alt={alt}
-    src={assetUrl(mapSceneNameToLocation(name))}
-  />
-)
+}: SceneProps) => {
+  const className =
+    (classNameAndIHaveSpokenToDST ? classNameAndIHaveSpokenToDST : "") +
+    " " +
+    styles.wrapper
+
+  return (
+    <img
+      {...otherProps}
+      className={className}
+      alt={alt}
+      src={assetUrl(mapSceneNameToLocation(name))}
+    />
+  )
+}
 
 export default Scene
