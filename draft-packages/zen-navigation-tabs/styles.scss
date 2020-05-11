@@ -1,11 +1,10 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/fonts";
 
 .container {
-  // background: rgba(white, 0.1);
-  // padding: 0 $ca-grid;
   display: flex;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -15,6 +14,11 @@
   display: flex;
   padding: 0 $ca-grid;
   color: rgba($kz-color-white, 0.7);
+
+  &:hover {
+    color: $kz-color-white;
+    text-decoration: none;
+  }
 }
 
 .linkLabel {
@@ -23,27 +27,26 @@
   align-items: center;
 
   font-family: $kz-typography-heading-4-font-family;
-  font-weight: 500;
+  font-weight: $kz-typography-heading-4-font-weight;
   font-size: $kz-typography-heading-4-font-size;
   line-height: $kz-typography-heading-4-line-height;
   letter-spacing: $kz-typography-heading-4-letter-spacing;
 
   &.active {
     color: $kz-color-white;
-    font-weight: 700;
 
     &::before {
       content: "";
       display: block;
       height: 5px;
-      width: 100%;
       position: absolute;
       top: 0;
-      left: 0;
-      right: 0;
+      left: -$ca-grid / 2;
+      right: -$ca-grid / 2;
       background-color: #ffffff;
       transition: transform cubic-bezier(0.55, 0.085, 0.68, 0.53) 150ms;
-      border-radius: 0 0 7px 7px;
+      border-radius: 0 0 $kz-border-solid-border-radius
+        $kz-border-solid-border-radius;
     }
   }
 
