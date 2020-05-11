@@ -46,22 +46,18 @@ init =
 
 subscriptions : SplitButton -> Sub (Msg menuItemMsg)
 subscriptions (SplitButton splitButton) =
-    let
-        onClickSub =
-            case splitButton.dropdownMenuVisibility of
-                Opening ->
-                    Browser.Events.onAnimationFrame (\_ -> FinishOpenDropdownMenu)
+    case splitButton.dropdownMenuVisibility of
+        Opening ->
+            Browser.Events.onAnimationFrame (\_ -> FinishOpenDropdownMenu)
 
-                Open ->
-                    Browser.Events.onClick (Decode.succeed CloseDropdownMenu)
+        Open ->
+            Sub.batch
+                [ Browser.Events.onClick (Decode.succeed CloseDropdownMenu)
+                , Browser.Events.onKeyDown <| isEscape CloseDropdownMenu
+                ]
 
-                Closed ->
-                    Sub.none
-    in
-    Sub.batch
-        [ onClickSub
-        , Browser.Events.onKeyDown <| isEscape CloseDropdownMenu
-        ]
+        Closed ->
+            Sub.none
 
 
 
