@@ -1,27 +1,25 @@
-module KaizenDraft.SplitButton.SplitButton exposing (Msg(..), SplitButton, default, href, init, menuItems, subscriptions, update, view)
+module KaizenDraft.SplitButton.SplitButton exposing (MenuItem, Msg(..), SplitButton, default, disable, href, init, menuItems, subscriptions, update, view)
 
 import Browser.Events
 import CssModules exposing (css)
 import Html exposing (Html, a, button, div, span, text)
-import Html.Attributes exposing (dir, style, tabindex)
+import Html.Attributes exposing (dir, disabled, style, tabindex)
 import Html.Events exposing (onClick)
 import Html.Events.Extra exposing (onClickPreventDefaultAndStopPropagation)
 import Html.Extra exposing (static, viewIf)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
 import Json.Decode as Decode exposing (Decoder)
+import KaizenDraft.Events.Events exposing (isEscape)
 
 
 
 -- DATA
 
 
-type alias SplitButtonId =
-    String
-
-
 type DropdownMenuVisibility
-    = Open SplitButtonId
+    = Opening
+    | Open
     | Closed
 
 
@@ -37,36 +35,32 @@ type alias MenuItem menuItemMsg =
 
 type SplitButton
     = SplitButton
-        { id : SplitButtonId
-        , dropdownMenuVisibility : DropdownMenuVisibility
-        , disabled : Bool
+        { dropdownMenuVisibility : DropdownMenuVisibility
         }
 
 
 init : SplitButton
 init =
-    SplitButton { id = "", dropdownMenuVisibility = Closed, disabled = False }
+    SplitButton { dropdownMenuVisibility = Closed }
 
 
-subscriptions : Sub (Msg menuItemMsg)
-subscriptions =
+subscriptions : SplitButton -> Sub (Msg menuItemMsg)
+subscriptions (SplitButton splitButton) =
     let
-        keyDecoder : Decoder (Msg menuItemMsg)
-        keyDecoder =
-            Decode.map toMsg (Decode.field "key" Decode.string)
+        onClickSub =
+            case splitButton.dropdownMenuVisibility of
+                Opening ->
+                    Browser.Events.onAnimationFrame (\_ -> FinishOpenDropdownMenu)
 
-        toMsg : String -> Msg menuItemMsg
-        toMsg string =
-            case string of
-                "Escape" ->
-                    CloseDropdownMenu
+                Open ->
+                    Browser.Events.onClick (Decode.succeed CloseDropdownMenu)
 
-                _ ->
-                    NoOp
+                Closed ->
+                    Sub.none
     in
     Sub.batch
-        [ Browser.Events.onClick (Decode.succeed CloseDropdownMenu)
-        , Browser.Events.onKeyDown keyDecoder
+        [ onClickSub
+        , Browser.Events.onKeyDown <| isEscape CloseDropdownMenu
         ]
 
 
@@ -82,12 +76,13 @@ type alias ConfigValue menuItemMsg =
     { href : String
     , menuItems : List (MenuItem (Msg menuItemMsg))
     , dir : String
+    , disabled : Bool
     }
 
 
 default : Config menuItemMsg
 default =
-    Config { href = "", menuItems = [], dir = "ltr" }
+    Config { href = "", menuItems = [], dir = "ltr", disabled = False }
 
 
 
@@ -110,12 +105,18 @@ href value (Config config) =
     Config { config | href = value }
 
 
+disable : Bool -> Config menuItemMsg -> Config menuItemMsg
+disable value (Config config) =
+    Config { config | disabled = value }
+
+
 
 --UPDATE
 
 
 type Msg menuItemMsg
-    = ToggleDropdownMenu
+    = OpenDropdownMenu
+    | FinishOpenDropdownMenu
     | CloseDropdownMenu
     | MenuItemClicked menuItemMsg
     | NoOp
@@ -124,17 +125,11 @@ type Msg menuItemMsg
 update : Msg menuItemMsg -> SplitButton -> ( SplitButton, Cmd (Msg menuItemMsg) )
 update msg (SplitButton model) =
     case msg of
-        ToggleDropdownMenu ->
-            let
-                newVisibility =
-                    case model.dropdownMenuVisibility of
-                        Closed ->
-                            Open ""
+        OpenDropdownMenu ->
+            ( SplitButton { model | dropdownMenuVisibility = Opening }, Cmd.none )
 
-                        Open _ ->
-                            Closed
-            in
-            ( SplitButton { model | dropdownMenuVisibility = newVisibility }, Cmd.none )
+        FinishOpenDropdownMenu ->
+            ( SplitButton { model | dropdownMenuVisibility = Open }, Cmd.none )
 
         CloseDropdownMenu ->
             ( SplitButton { model | dropdownMenuVisibility = Closed }, Cmd.none )
@@ -150,16 +145,61 @@ update msg (SplitButton model) =
 -- VIEW
 
 
-view : Config menuItemMsg -> SplitButton -> String -> Html (Msg menuItemMsg)
-view (Config config) (SplitButton splitButton) label =
+disabledView : Config menuItemMsg -> String -> Html (Msg menuItemMsg)
+disabledView (Config config) label =
+    let
+        disabledPrimaryButton =
+            div
+                [ styles.classList
+                    [ ( .default, True )
+                    , ( .disabled, True )
+                    ]
+                ]
+                [ span [ styles.class .label ]
+                    [ text label ]
+                ]
+
+        disabledDropDown =
+            div [ styles.class .dropdown ]
+                [ button
+                    [ styles.classList [ ( .dropdownButton, True ), ( .dropdownButtonDefault, True ), ( .disabled, True ) ]
+                    ]
+                    [ span
+                        [ styles.class .dropdownIcon ]
+                        [ Icon.view Icon.presentation
+                            (svgAsset "@kaizen/component-library/icons/chevron-down.icon.svg")
+                            |> static
+                        ]
+                    ]
+                ]
+    in
+    div [ styles.class .root, dir config.dir ]
+        [ div [ styles.class .buttonsContainer ]
+            [ disabledPrimaryButton
+            , disabledDropDown
+            ]
+        ]
+
+
+enabledView : Config menuItemMsg -> SplitButton -> String -> Html (Msg menuItemMsg)
+enabledView (Config config) (SplitButton splitButton) label =
     div [ styles.class .root, dir config.dir ]
         [ div [ styles.class .buttonsContainer ]
             [ primaryActionButtonView config.href label
-            , dropdownView
-            , viewIf (splitButton.dropdownMenuVisibility == Open "") <|
+            , dropdownView splitButton.dropdownMenuVisibility
+            , viewIf (splitButton.dropdownMenuVisibility == Open) <|
                 dropdownMenuView config.menuItems
             ]
         ]
+
+
+view : Config menuItemMsg -> SplitButton -> String -> Html (Msg menuItemMsg)
+view ((Config unwrappedConfig) as config) splitButton label =
+    if unwrappedConfig.disabled then
+        disabledView config label
+
+    else
+        enabledView config splitButton label
 
 
 primaryActionButtonView : String -> String -> Html (Msg menuItemMsg)
@@ -170,11 +210,23 @@ primaryActionButtonView url label =
         ]
 
 
-dropdownView : Html (Msg msg)
-dropdownView =
+dropdownView : DropdownMenuVisibility -> Html (Msg msg)
+dropdownView visibility =
+    let
+        onClickAttribute =
+            case visibility of
+                Opening ->
+                    onClick NoOp
+
+                Open ->
+                    onClick CloseDropdownMenu
+
+                Closed ->
+                    onClick OpenDropdownMenu
+    in
     div [ styles.class .dropdown ]
         [ button
-            [ onClickPreventDefaultAndStopPropagation ToggleDropdownMenu
+            [ onClickAttribute
             , styles.classList [ ( .dropdownButton, True ), ( .dropdownButtonDefault, True ) ]
             ]
             [ span
@@ -219,6 +271,7 @@ styles =
         , buttonsContainer = "buttonsContainer"
         , label = "label"
         , default = "default"
+        , disabled = "disabled"
         , dropdown = "dropdown"
         , dropdownButton = "dropdownButton"
         , dropdownButtonDefault = "dropdownButtonDefault"

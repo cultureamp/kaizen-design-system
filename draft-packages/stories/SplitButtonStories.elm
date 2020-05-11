@@ -50,7 +50,7 @@ main =
         config =
             { update = update
             , init = ( { splitButton = SplitButton.init }, Cmd.none )
-            , subscriptions = \_ -> SplitButton.subscriptions |> Sub.map SplitButtonMsg
+            , subscriptions = \model -> SplitButton.subscriptions model.splitButton |> Sub.map SplitButtonMsg
             }
     in
     storybook
