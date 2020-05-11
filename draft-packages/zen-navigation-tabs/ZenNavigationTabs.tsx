@@ -6,9 +6,6 @@ const styles = require("./styles.scss")
 export type ZenNavigationTabsProps = {
   id?: string
   automationId?: string
-
-  //   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any
-  //   disabled?: boolean
 }
 
 export type ZenNavigationTabsLinkProps = {
@@ -33,8 +30,6 @@ const Container = ({ children }) => (
   <div className={styles.container}>{children}</div>
 )
 
-// type ZenNavigationTabs = React.FunctionComponent<ZenNavigationTabsProps>
-
 class ZenNavigationTabs extends React.Component<ZenNavigationTabsProps> {
   static Link = Link
   static Container = Container
@@ -42,18 +37,6 @@ class ZenNavigationTabs extends React.Component<ZenNavigationTabsProps> {
   constructor(props) {
     super(props)
   }
-
-  // render() {
-  //   const { children } = this.props
-
-  //   return
-  // }
 }
-
-// const ZenNavigationTabs: ZenNavigationTabs = ({
-//   id,
-//   automationId,
-//   children,
-// }) =>
 
 export default ZenNavigationTabs
