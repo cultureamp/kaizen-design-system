@@ -16,6 +16,10 @@
   bottom: 0;
 
   background-color: $kz-color-cluny-500;
+
+  @include ca-media-mobile {
+    padding-top: 0;
+  }
 }
 
 .content {
@@ -27,7 +31,7 @@
 
   color: $kz-color-white;
 
-  @include ca-media-tablet-and-under {
+  @include ca-media-mobile {
     justify-content: left;
     width: 100%;
     padding: 0 ($ca-grid) ($ca-grid);
@@ -37,7 +41,7 @@
 .close {
   position: absolute;
 
-  top: -($ca-grid / 2);
+  top: 0;
   right: 0;
 
   svg {
@@ -47,12 +51,12 @@
 
 .image {
   position: relative;
-  margin-right: $ca-grid * 2;
+  margin: auto ($ca-grid * 2) 0 0;
 
   // We ignore line-height since the image should be sitting flush at the very bottom of the panel
   line-height: 0;
 
-  @include ca-media-tablet-and-under {
+  @include ca-media-mobile {
     display: none;
   }
 }
