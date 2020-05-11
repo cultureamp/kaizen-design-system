@@ -18,7 +18,6 @@ export default {
   title: "ZenNavigationTabs (React)",
 }
 
-// <Link  />,
 export const DefaultKaizenSiteDemo = () => (
   <>
     <Container>
@@ -30,19 +29,13 @@ export const DefaultKaizenSiteDemo = () => (
         <ZenNavigationTabs.Link text="Comments" href="#" />
       </ZenNavigationTabs.Container>
     </Container>
-    {/* <p>
-      Note that this component does not set a background color – that is being
-      set by the container here.
-    </p> */}
+    <p style={{ fontFamily: "sans-serif" }}>
+      Note that this component does not set a background color or height – those
+      are being set by the container here.
+    </p>
   </>
 )
 
 DefaultKaizenSiteDemo.story = {
   name: "Default (Kaizen Site Demo)",
 }
-
-export const Title = () => (
-  <Container>
-    <ZenNavigationTabs>"test"</ZenNavigationTabs>
-  </Container>
-)
