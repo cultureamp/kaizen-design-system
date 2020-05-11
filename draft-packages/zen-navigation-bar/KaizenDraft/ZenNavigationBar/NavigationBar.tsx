@@ -1,16 +1,10 @@
 import * as React from "react"
 
-import { ZenControlledOffCanvas } from "@kaizen/component-library/draft/Kaizen/ZenOffCanvas"
+import { ZenControlledOffCanvas } from "@kaizen/draft-zen-off-canvas"
 import classNames from "classnames"
 import Media from "react-media"
 import uuid from "uuid/v4"
-import {
-  LocalBadge,
-  namedBadge,
-  ProductionBadge,
-  StagingBadge,
-  TestBadge,
-} from "./components/Badge"
+import Badge from "./components/Badge"
 import Link from "./components/Link"
 import Menu from "./components/Menu"
 import { LinkClickContext } from "./context"
@@ -21,7 +15,7 @@ const styles = require("./NavigationBar.module.scss")
 type Props = {
   environment?: "production" | "staging" | "test" | "local"
   loading?: boolean
-  colorScheme?: "cultureamp" | "kaizen" | "content"
+  colorScheme?: ColorScheme
   badgeHref?: string
   onNavigationChange: NavigationChange
   headerComponent?: {
@@ -33,7 +27,13 @@ type Props = {
   mobileMaxWidth?: number
 }
 
-export default class NavigationBar extends React.Component<Props> {
+type State = {
+  mobileKey: number
+}
+
+export type ColorScheme = "cultureamp" | "kaizen" | "content"
+
+export default class NavigationBar extends React.Component<Props, State> {
   static displayName = "NavigationBar"
   static Link = Link
   static Menu = Menu
@@ -42,8 +42,13 @@ export default class NavigationBar extends React.Component<Props> {
     loading: false,
     colorScheme: "cultureamp",
     badgeHref: "/",
-    mobileMaxWidth: 767,
+    mobileMaxWidth: styles.caBreakpointMobile,
     onNavigationChange: () => null,
+  }
+
+  constructor(props) {
+    super(props)
+    this.state = { mobileKey: 1 }
   }
 
   render() {
@@ -57,19 +62,30 @@ export default class NavigationBar extends React.Component<Props> {
 
     return (
       <LinkClickContext.Provider
-        value={{ handleNavigationChange: onNavigationChange }}
+        value={{
+          handleNavigationChange: event => {
+            const navigationHref = event.currentTarget.getAttribute("href")
+            if (navigationHref && navigationHref !== "#") {
+              this.setState({
+                mobileKey: this.state.mobileKey + 1,
+              })
+              onNavigationChange(event)
+            }
+          },
+        }}
       >
-        <Media query={`(max-width: ${mobileMaxWidth}px)`}>
+        <Media query={`(max-width: ${mobileMaxWidth})`}>
           {(matches: boolean) =>
             matches ? (
               <ZenControlledOffCanvas
-                headerComponent={
-                  headerComponent ? headerComponent.mobile : this.renderBadge()
-                }
+                key={this.state.mobileKey}
+                headerComponent={this.renderBadge()}
                 footerComponent={this.props.footerComponent}
+                productSwitcher={headerComponent && headerComponent.mobile}
                 links={children}
                 heading="Menu"
                 menuId="menu"
+                colorScheme={colorScheme}
               />
             ) : (
               <header
@@ -130,6 +146,7 @@ export default class NavigationBar extends React.Component<Props> {
         ...linkProps,
         opaque: isFinal,
         small: isFinal,
+        content: this.props.colorScheme === "content",
       },
     }
     const key = "href" in linkProps ? linkProps.href : linkProps.heading
@@ -148,20 +165,10 @@ export default class NavigationBar extends React.Component<Props> {
 
   renderBadge() {
     const {
-      environment = "production",
       loading = false,
       badgeHref = "/",
       colorScheme = "kaizen",
     } = this.props
-
-    const badges = {
-      production: ProductionBadge,
-      staging: StagingBadge,
-      test: TestBadge,
-      local: LocalBadge,
-    }
-
-    const Badge = badges[environment] || namedBadge(environment)
 
     return (
       <Badge loading={loading} href={badgeHref} colorScheme={colorScheme} />

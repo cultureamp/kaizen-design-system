@@ -3,6 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.0.4...@kaizen/draft-guidance-block@2.0.5) (2020-05-08)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [2.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.0.3...@kaizen/draft-guidance-block@2.0.4) (2020-05-08)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [2.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.0.2...@kaizen/draft-guidance-block@2.0.3) (2020-05-08)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [2.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.0.1...@kaizen/draft-guidance-block@2.0.2) (2020-05-07)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.0.0...@kaizen/draft-guidance-block@2.0.1) (2020-05-06)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@1.3.1...@kaizen/draft-guidance-block@2.0.0) (2020-05-06)
+
+
+### Features
+
+* Update responsive styles for guidance block ([#457](https://github.com/cultureamp/kaizen-design-system/issues/457)) ([2061d0c](https://github.com/cultureamp/kaizen-design-system/commit/2061d0c746d4e2667a6d01691d91d21d2e4c52d3))
+
+
+### BREAKING CHANGES
+
+* This changes the way in which action button labels and functions are passed through to the component to better support secondary actions and optional dismiss
+
+* feat: Update tests
+
+* feat: Add ability to disable
+
+* feat: Make primary action not optional
+
+* feat: Fix lint issue
+
+
+
+
+
+## [1.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@1.3.0...@kaizen/draft-guidance-block@1.3.1) (2020-05-06)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
 # [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@1.2.1...@kaizen/draft-guidance-block@1.3.0) (2020-05-05)
 
 

@@ -1,21 +1,20 @@
 import * as React from "react"
 
-import { Icon } from "@kaizen/component-library"
+import { ColorScheme } from "@kaizen/component-library/draft/Kaizen/ZenNavigationBar"
 import classNames from "classnames"
 import Header from "./components/Header"
 import Menu from "./components/Menu"
 
 const styles = require("./OffCanvas.module.scss")
 
-const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
-  .default
-
 type Props = {
   links?: any
   heading: string
   headerComponent: React.ReactNode
   footerComponent?: React.ReactNode
+  productSwitcher?: React.ReactNode
   menuId: string
+  colorScheme?: ColorScheme
 }
 
 type State = {
@@ -37,6 +36,7 @@ export const OffCanvasContext = React.createContext<OffCanvasContextProps>({
 export class ZenOffCanvas extends React.Component<Props> {
   static defaultProps = {
     withTrigger: false,
+    colorScheme: "cultureamp",
   }
 
   render() {
@@ -46,6 +46,8 @@ export class ZenOffCanvas extends React.Component<Props> {
       heading,
       links,
       footerComponent,
+      productSwitcher,
+      colorScheme,
     } = this.props
 
     return (
@@ -58,21 +60,30 @@ export class ZenOffCanvas extends React.Component<Props> {
           >
             <Header
               onClose={resetVisibleMenus}
-              leftComponent={
-                <div className={styles.caLogo}>
-                  <Icon icon={caMonogramIcon} role="presentation" inheritSize />
-                </div>
-              }
+              leftComponent={headerComponent}
               heading={heading}
+              colorScheme={colorScheme}
             />
-            {headerComponent}
-            <nav className={styles.links}>
-              {links &&
-                Object.keys(links).map(section => (
-                  <Menu section={section} link={links[section]} />
-                ))}
-            </nav>
-            {footerComponent}
+            <div
+              className={classNames(styles.contentContainer, {
+                [styles.hasFooter]: !!footerComponent,
+              })}
+            >
+              {productSwitcher && productSwitcher}
+              <nav className={styles.links}>
+                {links &&
+                  Object.keys(links).map(section => (
+                    <Menu
+                      key={section}
+                      section={section}
+                      link={links[section]}
+                    />
+                  ))}
+              </nav>
+            </div>
+            {footerComponent && (
+              <div className={styles.footerComponent}>{footerComponent}</div>
+            )}
           </div>
         )}
       </OffCanvasContext.Consumer>

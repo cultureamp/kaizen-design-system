@@ -1,6 +1,7 @@
 import { Icon } from "@kaizen/component-library"
 import classNames from "classnames"
 import * as React from "react"
+import ReactTooltip from "react-tooltip"
 import { LinkClickContext } from "../context"
 import { LinkProps } from "../types"
 
@@ -17,6 +18,7 @@ export default class Link extends React.PureComponent<LinkProps> {
     opaque: false,
     small: false,
     new: false,
+    content: false,
     target: "_self",
   }
 
@@ -36,54 +38,67 @@ export default class Link extends React.PureComponent<LinkProps> {
       onClick,
       small,
       menuOpen,
+      content,
+      tooltip,
     } = this.props
 
     return (
-      <a
-        className={classNames(styles.link, {
-          [styles.active]: active,
-          [styles.containsText]: !!text,
-          [styles.opaque]: opaque,
-          [styles.small]: small,
-          [styles.menuOpen]: hasMenu && menuOpen,
-        })}
-        tabIndex={0}
-        onClick={event => {
-          onClick && onClick(event)
-          handleNavigationChange && handleNavigationChange(event)
-        }}
-        {...{ href, id, target }}
-      >
-        {icon && (
-          <span className={styles.linkIcon}>
-            <Icon
-              icon={icon}
-              role={iconOnly ? "img" : "presentation"}
-              title={iconOnly ? text : undefined}
-            />
-          </span>
-        )}
-        {text && !(icon && iconOnly) && (
-          <span className={styles.linkText}>
-            {text}
-            {badge && (
-              <span
-                className={classNames(styles.badge, {
-                  [styles.badgeNotification]: badge.kind === "notification",
-                  [styles.badgeNew]: badge.kind === "new",
-                })}
-              >
-                {badge.text}
+      <>
+        {!!tooltip && <ReactTooltip place={"left"} effect={"solid"} />}
+        <a
+          className={classNames(styles.link, {
+            [styles.active]: active,
+            [styles.containsText]: !!text,
+            [styles.opaque]: opaque,
+            [styles.small]: small,
+            [styles.menuOpen]: hasMenu && menuOpen,
+            [styles.content]: content,
+          })}
+          tabIndex={0}
+          onClick={event => {
+            onClick && onClick(event)
+            handleNavigationChange && handleNavigationChange(event)
+          }}
+          {...{
+            href,
+            id,
+            target,
+            ...(!!tooltip && { "data-tip": tooltip }),
+          }}
+        >
+          <span className={styles.hoverArea}>
+            {icon && (
+              <span className={styles.linkIcon}>
+                <Icon
+                  icon={icon}
+                  role={iconOnly ? "img" : "presentation"}
+                  title={iconOnly ? text : undefined}
+                />
+              </span>
+            )}
+            {text && !(icon && iconOnly) && (
+              <span className={styles.linkText}>
+                {text}
+                {badge && (
+                  <span
+                    className={classNames(styles.badge, {
+                      [styles.badgeNotification]: badge.kind === "notification",
+                      [styles.badgeNew]: badge.kind === "new",
+                    })}
+                  >
+                    {badge.text}
+                  </span>
+                )}
+              </span>
+            )}
+            {hasMenu && (
+              <span className={styles.menuIcon}>
+                <Icon icon={arrowForwardIcon} role="presentation" />
               </span>
             )}
           </span>
-        )}
-        {hasMenu && (
-          <span className={styles.menuIcon}>
-            <Icon icon={arrowForwardIcon} role="presentation" />
-          </span>
-        )}
-      </a>
+        </a>
+      </>
     )
   }
 }
