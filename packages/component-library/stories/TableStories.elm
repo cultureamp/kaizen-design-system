@@ -121,8 +121,7 @@ main =
                 storyContainer
                     [ Table.view
                         (tableConfig
-                            |> Table.withExpandedContent expandedView
-                                (\maybeRowIndex -> TableMsg (Table.RowClicked maybeRowIndex))
+                            |> Table.withExpandedContent expandedView (Table.defaultRowClickHandler TableMsg)
                             |> Table.withState m.tableState
                         )
                         data

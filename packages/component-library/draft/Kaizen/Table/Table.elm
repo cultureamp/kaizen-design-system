@@ -2,6 +2,7 @@ module Kaizen.Table.Table exposing
     ( Msg(..)
     , State
     , default
+    , defaultRowClickHandler
     , initState
     , update
     , view
@@ -75,8 +76,6 @@ default columns =
         }
 
 
-
-
 withExpandedContent : (data -> Html msg) -> RowClickHandler msg -> Config data msg -> Config data msg
 withExpandedContent expandableContent rowClickHandler (Config config) =
     Config { config | tableType = Expandable { expandedContent = expandableContent, rowClickHandler = rowClickHandler } }
@@ -85,6 +84,10 @@ withExpandedContent expandableContent rowClickHandler (Config config) =
 withState : State -> Config data msg -> Config data msg
 withState stateValue (Config config) =
     Config { config | state = stateValue }
+
+
+defaultRowClickHandler msg maybeRowIndex =
+    msg (RowClicked maybeRowIndex)
 
 
 
