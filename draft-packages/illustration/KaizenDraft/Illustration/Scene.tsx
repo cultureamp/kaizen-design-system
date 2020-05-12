@@ -244,5 +244,9 @@ export const KaizenSiteProductAlt = (props: SceneProps) => (
 )
 
 export const KaizenSiteResources = (props: SceneProps) => (
-  <Base {...props} name="" />
+  <Base {...props} name="illustrations/scene/kaizen-site-product.svg" />
+)
+
+export const KaizenSiteResourcesAlt = (props: SceneProps) => (
+  <Base {...props} name="illustrations/scene/kaizen-site-product-alt.svg" />
 )
