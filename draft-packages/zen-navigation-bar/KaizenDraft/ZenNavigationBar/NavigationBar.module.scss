@@ -6,10 +6,6 @@
 @import "~@kaizen/component-library/styles/responsive";
 @import "./styles";
 
-:export {
-  caBreakpointMobileMax: #{$ca-breakpoint-tablet - 1};
-}
-
 .navigationBar {
   @extend %ca-navigation-bar;
 }
@@ -85,9 +81,7 @@
 
 .headerSlot {
   @include navbar-responsive-spacing($start: true, $margin: true);
-
   height: 100%;
-  // width: 197px;
   display: flex;
   align-items: center;
 }

@@ -17,7 +17,8 @@ $ca-navigation-bar__link-item-indicator-height: 5px;
 $ca-navigation-bar__link-item-margin: 18px;
 $ca-navigation-bar__link-item-margin-mobile: 10px;
 
-$ca-breakpoint-desktop: 1440px;
+$ca-breakpoint-desktop-small-up: 1280px;
+$ca-breakpoint-desktop-large-up: 1440px;
 
 :export {
   caBreakpointMobileMax: #{$ca-breakpoint-tablet - 1};
@@ -35,8 +36,14 @@ $ca-breakpoint-desktop: 1440px;
   }
 }
 
-@mixin navbar-desktop-up {
-  @media (min-width: 1440px) {
+@mixin navbar-desktop-small-up {
+  @media (min-width: $ca-breakpoint-desktop-small-up) {
+    @content;
+  }
+}
+
+@mixin navbar-desktop-large-up {
+  @media (min-width: $ca-breakpoint-desktop-large-up) {
     @content;
   }
 }
@@ -66,7 +73,7 @@ $ca-breakpoint-desktop: 1440px;
     }
   }
 
-  @include navbar-desktop-up {
+  @include navbar-desktop-small-up {
     @if $margin {
       @include ca-margin(
         $end: if($end, $desktop, null),
@@ -201,6 +208,9 @@ $ca-breakpoint-desktop: 1440px;
     @include navbar-tablet-up {
       @include font-heading-5;
       @include ca-inherit-baseline;
+      .linkText {
+        display: none;
+      }
     }
   }
 
@@ -214,14 +224,7 @@ $ca-breakpoint-desktop: 1440px;
       }
 
       .linkText {
-        @include navbar-tablet-up {
-          display: none;
-        }
-
-        @include navbar-desktop-up {
-          display: flex;
-        }
-
+        display: none;
         padding: 0;
 
         &::before {
@@ -249,6 +252,20 @@ $ca-breakpoint-desktop: 1440px;
           }
         }
       }
+    }
+
+    &:not(.small) {
+      @include navbar-desktop-small-up {
+        .linkText {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  @include navbar-desktop-large-up {
+    &.small .linkText {
+      display: flex;
     }
   }
 
@@ -312,6 +329,8 @@ $ca-breakpoint-desktop: 1440px;
 }
 
 %ca-navigation-bar {
+  @include navbar-responsive-spacing($end: true, $padding: true);
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: center;
