@@ -1,8 +1,10 @@
 module Kaizen.Table.Table exposing
     ( Msg(..)
     , State
+    , automationId
     , default
     , defaultRowClickHandler
+    , id
     , initState
     , update
     , view
@@ -23,7 +25,9 @@ import Text.Text as Text
 
 
 type alias ConfigValue data msg =
-    { columns : List (Column.ConfigValue data msg)
+    { id : Maybe String
+    , automationId : Maybe String
+    , columns : List (Column.ConfigValue data msg)
     , state : State
     , tableType : TableType data msg
     }
@@ -70,7 +74,9 @@ initState =
 default : List (Column.ConfigValue data msg) -> Config data msg
 default columns =
     Config
-        { columns = columns
+        { id = Nothing
+        , automationId = Nothing
+        , columns = columns
         , tableType = Basic
         , state = initState
         }
@@ -92,22 +98,43 @@ defaultRowClickHandler msg maybeRowIndex =
 
 
 -- MODIFIERS
---
---id : String -> Config msg -> Config msg
---id value (Config config) =
---    Config { config | id = Just value }
---
---
---automationId : String -> Config msg -> Config msg
---automationId value (Config config) =
---    Config { config | automationId = Just value }
+
+
+id : String -> Config data msg -> Config data msg
+id value (Config config) =
+    Config { config | id = Just value }
+
+
+automationId : String -> Config data msg -> Config data msg
+automationId value (Config config) =
+    Config { config | automationId = Just value }
+
+
+
 -- VIEW
 
 
 view : Config data msg -> List data -> Html msg
-view config data =
-    div [ styles.class .container ]
-        ([ headersView config ] ++ bodyView config data)
+view (Config config) data =
+    let
+        idAttr =
+            case config.id of
+                Just idString ->
+                    [ Html.Attributes.id idString ]
+
+                Nothing ->
+                    []
+
+        automationIdAttr =
+            case config.automationId of
+                Just idString ->
+                    [ Html.Attributes.attribute "data-automation-id" idString ]
+
+                Nothing ->
+                    []
+    in
+    div ([ styles.class .container ] ++ idAttr ++ automationIdAttr)
+        ([ headersView (Config config) ] ++ bodyView (Config config) data)
 
 
 headersView : Config data msg -> Html msg

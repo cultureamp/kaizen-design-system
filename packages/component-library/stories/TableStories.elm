@@ -114,7 +114,7 @@ main =
         [ storyOf "Basic" config <|
             \m ->
                 storyContainer
-                    [ Table.view tableConfig data
+                    [ Table.view (tableConfig |> Table.id "table-id") data
                     ]
         , storyOf "Expandable" config <|
             \m ->
@@ -123,6 +123,7 @@ main =
                         (tableConfig
                             |> Table.withExpandedContent expandedView (Table.defaultRowClickHandler TableMsg)
                             |> Table.withState m.tableState
+                            |> Table.automationId "my-test-id"
                         )
                         data
                     ]
