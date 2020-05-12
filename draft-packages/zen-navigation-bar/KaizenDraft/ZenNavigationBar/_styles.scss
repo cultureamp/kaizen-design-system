@@ -18,8 +18,8 @@ $ca-navigation-bar__link-item-margin: 18px;
 $ca-navigation-bar__link-item-margin-mobile: 10px;
 
 // Smallest sizes to fit perform data in.
-$ca-breakpoint-desktop-small-up: 1240px;
-$ca-breakpoint-desktop-large-up: 1400px;
+$navbar-breakpoint-desktop-small-up: 1240px;
+$navbar-breakpoint-desktop-small-up: 1400px;
 
 :export {
   caBreakpointMobileMax: #{$ca-breakpoint-tablet - 1};
@@ -38,13 +38,13 @@ $ca-breakpoint-desktop-large-up: 1400px;
 }
 
 @mixin navbar-desktop-small-up {
-  @media (min-width: $ca-breakpoint-desktop-small-up) {
+  @media (min-width: $navbar-breakpoint-desktop-small-up) {
     @content;
   }
 }
 
 @mixin navbar-desktop-large-up {
-  @media (min-width: $ca-breakpoint-desktop-large-up) {
+  @media (min-width: $navbar-breakpoint-desktop-small-up) {
     @content;
   }
 }
