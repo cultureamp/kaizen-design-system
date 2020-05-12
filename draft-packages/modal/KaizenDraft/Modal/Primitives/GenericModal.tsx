@@ -150,4 +150,70 @@ class GenericModal extends React.Component<Props> {
   }
 }
 
+/**
+ * Get an element's owner document. Useful when components are used in iframes
+ * or other environments like dev tools.
+ *
+ * @param element
+ */
+function getOwnerDocument<T extends HTMLElement = HTMLElement>(
+  element: T | null
+) {
+  return element && element.ownerDocument
+    ? element.ownerDocument
+    : canUseDOM()
+    ? document
+    : null
+}
+
+function canUseDOM(): boolean {
+  return (
+    typeof window !== "undefined" &&
+    typeof window.document !== "undefined" &&
+    typeof window.document.createElement !== "undefined"
+  )
+}
+
+// tslint:disable-next-line: no-empty
+function noop(): void {}
+
+function createAriaHider(dialogNode: HTMLElement) {
+  const originalValues: any[] = []
+  const rootNodes: HTMLElement[] = []
+  const ownerDocument = getOwnerDocument(dialogNode) || document
+
+  if (!dialogNode) {
+    return noop
+  }
+
+  Array.prototype.forEach.call(
+    ownerDocument.querySelectorAll("body > *"),
+    node => {
+      const portalNode = dialogNode.parentNode?.parentNode?.parentNode
+      if (node === portalNode) {
+        return
+      }
+      const attr = node.getAttribute("aria-hidden")
+      const alreadyHidden = attr !== null && attr !== "false"
+      if (alreadyHidden) {
+        return
+      }
+      originalValues.push(attr)
+      rootNodes.push(node)
+      node.setAttribute("aria-hidden", "true")
+    }
+  )
+
+  return () => {
+    rootNodes.forEach((node, index) => {
+      const originalValue = originalValues[index]
+      if (originalValue === null) {
+        node.removeAttribute("aria-hidden")
+      } else {
+        node.setAttribute("aria-hidden", originalValue)
+      }
+    })
+  }
+}
+
 export default GenericModal
