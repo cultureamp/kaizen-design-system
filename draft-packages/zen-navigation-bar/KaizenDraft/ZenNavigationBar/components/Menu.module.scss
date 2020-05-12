@@ -45,6 +45,12 @@ $menu__square-size: 60px;
     display: flex;
     align-items: center;
   }
+
+  .downIcon {
+    display: flex;
+    margin-left: 0.1em;
+    margin-right: -0.3em;
+  }
 }
 
 .buttonLink {
@@ -55,6 +61,4 @@ $menu__square-size: 60px;
     width: auto;
     margin-left: 0;
   }
-
-  margin: 0 ($ca-grid / 2);
 }

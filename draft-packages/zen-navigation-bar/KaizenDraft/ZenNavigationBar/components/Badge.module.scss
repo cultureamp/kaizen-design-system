@@ -61,7 +61,7 @@
     color: $kz-color-wisteria-800;
   }
 
-  @include ca-media-mobile {
+  @include navbar-mobile-only {
     @include ca-margin($start: 21px);
 
     background: none;

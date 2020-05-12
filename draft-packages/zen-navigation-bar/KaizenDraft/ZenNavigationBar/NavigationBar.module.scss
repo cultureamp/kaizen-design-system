@@ -7,7 +7,7 @@
 @import "./styles";
 
 :export {
-  caBreakpointMobile: $ca-breakpoint-mobile;
+  caBreakpointMobileMax: #{$ca-breakpoint-tablet - 1};
 }
 
 .navigationBar {
@@ -15,12 +15,13 @@
 }
 
 .links {
-  @include ca-margin($start: $ca-grid, $end: $ca-grid);
+  @include navbar-responsive-spacing($end: true, $start: true, $margin: true);
   display: inline-flex;
   flex: 1 0 0;
   height: 100%;
 
   > ul {
+    flex-shrink: 0;
     margin: 0 ($ca-grid / 4);
     padding: 0;
     list-style-type: none;
@@ -32,14 +33,14 @@
 
     &.secondary {
       @include ca-margin($start: 0);
-      padding-left: $ca-grid;
+      @include navbar-responsive-spacing($start: true, $padding: true);
       position: relative;
       &:before {
         position: absolute;
         content: "";
         left: 0;
         top: 50%;
-        transform: translateY(-50%);
+        transform: translate(-50%, -50%);
         height: 36px;
         width: 3px;
         background-color: rgba($white, 0.1);
@@ -59,18 +60,18 @@
         $kz-border-solid-border-radius;
     }
 
-    @include ca-media-tablet {
+    @include navbar-tablet-up {
       margin: 0;
     }
   }
 
-  @include ca-media-tablet {
+  @include navbar-tablet-up {
     @include ca-margin($start: $ca-grid / 2);
   }
 }
 
 .child {
-  @include ca-margin($end: $ca-grid);
+  @include navbar-responsive-spacing($end: true, $margin: true);
 
   .final & {
     @include ca-margin($end: 8px);
@@ -83,10 +84,10 @@
 }
 
 .headerSlot {
-  @include ca-margin($start: $ca-grid);
+  @include navbar-responsive-spacing($start: true, $margin: true);
 
   height: 100%;
-  width: 197px;
+  // width: 197px;
   display: flex;
   align-items: center;
 }

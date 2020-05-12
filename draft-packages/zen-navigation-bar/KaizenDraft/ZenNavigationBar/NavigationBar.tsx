@@ -24,7 +24,6 @@ type Props = {
   }
   footerComponent?: React.ReactNode
   children?: Navigation
-  mobileMaxWidth?: number
 }
 
 type State = {
@@ -42,7 +41,6 @@ export default class NavigationBar extends React.Component<Props, State> {
     loading: false,
     colorScheme: "cultureamp",
     badgeHref: "/",
-    mobileMaxWidth: styles.caBreakpointMobile,
     onNavigationChange: () => null,
   }
 
@@ -56,7 +54,6 @@ export default class NavigationBar extends React.Component<Props, State> {
       children,
       colorScheme = "cultureamp",
       headerComponent,
-      mobileMaxWidth,
       onNavigationChange,
     } = this.props
 
@@ -74,7 +71,7 @@ export default class NavigationBar extends React.Component<Props, State> {
           },
         }}
       >
-        <Media query={`(max-width: ${mobileMaxWidth})`}>
+        <Media query={`(max-width: ${styles.caBreakpointMobileMax})`}>
           {(matches: boolean) =>
             matches ? (
               <ZenControlledOffCanvas

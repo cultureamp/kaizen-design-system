@@ -6,7 +6,6 @@ import { OffCanvasContext, ZenOffCanvas } from "@kaizen/draft-zen-off-canvas"
 
 import classNames from "classnames"
 import Media from "react-media"
-import { MOBILE_QUERY } from "../constants"
 import { MenuProps, NavigationItem } from "../types"
 import Dropdown from "./Dropdown"
 import Link from "./Link"
@@ -51,7 +50,7 @@ export default class Menu extends React.Component<MenuProps, State> {
     } = this.props
 
     return (
-      <Media query={MOBILE_QUERY}>
+      <Media query={`(max-width: ${styles.caBreakpointMobileMax})`}>
         {(matches: boolean) =>
           mobileEnabled && matches ? (
             <React.Fragment>
@@ -99,7 +98,9 @@ export default class Menu extends React.Component<MenuProps, State> {
                       </span>
                     )}
                     <span className={styles.linkText}>{heading}</span>
-                    <Icon icon={chevronDownIcon} role="presentation" />
+                    <span className={styles.downIcon}>
+                      <Icon icon={chevronDownIcon} role="presentation" />
+                    </span>
                   </span>
                 )}
               </button>

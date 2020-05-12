@@ -25,7 +25,7 @@
     background-color: $kz-color-white;
     color: $kz-color-wisteria-800;
 
-    @include ca-media-mobile {
+    @include navbar-mobile-only {
       background-color: $kz-color-coral-500;
       color: $kz-color-white;
     }
