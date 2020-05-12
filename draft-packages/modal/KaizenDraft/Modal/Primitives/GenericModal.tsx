@@ -42,11 +42,15 @@ class GenericModal extends React.Component<Props> {
     this.preventBodyScroll()
     this.ensureAccessiblityIsMet()
     this.scrollModalToTop()
+    if (this.modalLayer) {
+      this.removeAriaHider = createAriaHider(this.modalLayer)
+    }
   }
 
   onClose() {
     this.removeEventHandlers()
     this.restoreBodyScroll()
+    this.removeAriaHider()
   }
 
   addEventHandlers() {
@@ -58,6 +62,9 @@ class GenericModal extends React.Component<Props> {
     this.props.onEscapeKeyup &&
       document.removeEventListener("keyup", this.escapeKeyHandler)
   }
+
+  // tslint:disable-next-line: no-empty
+  removeAriaHider(): void {}
 
   preventBodyScroll() {
     const hasScrollbar =
