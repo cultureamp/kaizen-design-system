@@ -2,22 +2,25 @@ import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
 
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
-const bannerImg = require("@kaizen/component-library/stories/illustrations/team.png")
-const informationImg = require("@kaizen/component-library/stories/illustrations/information.png")
+import { assetUrl } from "@kaizen/hosted-assets"
 
 export default {
   title: "GuidanceBlock (React)",
 }
 
+const guidanceBlockText = {
+  title: "This is the Guidance block title",
+  description:
+    "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
+}
+
+const guidanceBlockImg = assetUrl("illustrations/spot/moods-informative.svg")
+
 const Default = () => (
   <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
     <GuidanceBlock
-      img={{ src: bannerImg, alt: "Guidance block" }}
-      text={{
-        title: "This is the Guidance block title",
-        description:
-          "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
-      }}
+      img={{ src: guidanceBlockImg, alt: "Guidance block" }}
+      text={guidanceBlockText}
       actions={{
         primary: {
           label: "Action",
@@ -35,12 +38,8 @@ const Default = () => (
 const WithoutActionArrowButton = () => (
   <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
     <GuidanceBlock
-      img={{ src: bannerImg, alt: "Guidance block" }}
-      text={{
-        title: "This is the Guidance block title",
-        description:
-          "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
-      }}
+      img={{ src: guidanceBlockImg, alt: "Guidance block" }}
+      text={guidanceBlockText}
       actions={{
         primary: {
           label: "Action",
@@ -60,15 +59,11 @@ const WithoutActionArrowButton = () => (
 const Persistent = () => (
   <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
     <GuidanceBlock
-      img={{ src: informationImg, alt: "Information illustration" }}
-      text={{
-        title: "You're using the updated navigation",
-        description:
-          "This beta is to test out the new navigation, read about our thinking behind the change. And let us know if you have any feedback",
-      }}
+      img={{ src: guidanceBlockImg, alt: "Information illustration" }}
+      text={guidanceBlockText}
       actions={{
         primary: {
-          label: "Turn on for the whole org",
+          label: "Action",
           onClick: () => {
             alert("tada: 🎉")
           },
@@ -82,21 +77,17 @@ const Persistent = () => (
 const SecondaryAction = () => (
   <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
     <GuidanceBlock
-      img={{ src: informationImg, alt: "Information illustration" }}
-      text={{
-        title: "Loving the streamlined navigation?",
-        description:
-          "Then roll it out to everyone. Or you can turn it off for now. Learn more about this improvement.",
-      }}
+      img={{ src: guidanceBlockImg, alt: "Information illustration" }}
+      text={guidanceBlockText}
       actions={{
         primary: {
-          label: "Turn on for everyone",
+          label: "Action",
           onClick: () => {
             alert("tada: 🎉")
           },
         },
         secondary: {
-          label: "Turn off for me",
+          label: "Secondary action",
           onClick: () => alert("tada: 🎉"),
         },
       }}
