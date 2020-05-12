@@ -1,7 +1,8 @@
-import { Icon } from "@kaizen/component-library"
+import { Heading, Icon } from "@kaizen/component-library"
 import classNames from "classnames"
 import * as React from "react"
 import ReactTooltip from "react-tooltip"
+import uuid from "uuid/v4"
 import { LinkClickContext } from "../context"
 import { LinkProps } from "../types"
 
@@ -42,9 +43,21 @@ export default class Link extends React.PureComponent<LinkProps> {
       tooltip,
     } = this.props
 
+    const toolId = uuid()
+
     return (
       <>
-        {!!tooltip && <ReactTooltip place={"left"} effect={"solid"} />}
+        {icon && (
+          <ReactTooltip id={toolId} place={"left"} effect={"solid"}>
+            <span className={styles.tooltip}>
+              <Heading color="white" variant="heading-6">
+                {text}
+              </Heading>
+              {tooltip && tooltip}
+            </span>
+          </ReactTooltip>
+        )}
+
         <a
           className={classNames(styles.link, {
             [styles.active]: active,
@@ -63,7 +76,7 @@ export default class Link extends React.PureComponent<LinkProps> {
             href,
             id,
             target,
-            ...(!!tooltip && { "data-tip": tooltip }),
+            ...(!!icon && { "data-tip": true, "data-for": toolId }),
           }}
         >
           <span className={styles.hoverArea}>

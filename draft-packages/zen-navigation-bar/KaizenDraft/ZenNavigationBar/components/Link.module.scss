@@ -13,7 +13,6 @@
   @include ca-margin($start: $ca-grid * 0.25);
   @include font-heading-6;
   font-weight: 600;
-
   border-radius: $ca-grid;
   &.badgeNew {
     @include ca-padding($start: $ca-grid * 0.5, $end: $ca-grid * 0.5);
@@ -34,4 +33,10 @@
 
 :global(.__react_component_tooltip) {
   @include font-extra-small;
+  @include navbar-desktop-large-up {
+    display: none;
+  }
+  @include navbar-mobile-only {
+    display: none;
+  }
 }

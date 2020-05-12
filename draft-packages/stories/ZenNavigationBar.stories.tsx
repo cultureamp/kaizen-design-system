@@ -11,6 +11,10 @@ const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon
   .default
 const supportIcon = require("@kaizen/component-library/icons/support.icon.svg")
   .default
+const usersIcon = require("@kaizen/component-library/icons/users.icon.svg")
+  .default
+const helpIcon = require("@kaizen/component-library/icons/question.icon.svg")
+  .default
 
 export default {
   title: "ZenNavigationBar (React)",
@@ -26,6 +30,8 @@ const accountMenuBtn = (
       backgroundColor: "#ffffff",
       borderRadius: "7px",
       color: "#F8A6AE",
+      width: "100%",
+      height: "100%",
     }}
   >
     <Icon icon={caMonogramIcon} title="Culture Amp Logo" inheritSize />
@@ -217,7 +223,7 @@ export const ContentColors = () => (
   </ZenNavigationBar>
 )
 
-export const MenuGroup = () => (
+export const PerformanceExample = () => (
   <ZenNavigationBar
     onNavigationChange={handleNavigationChange}
     headerComponent={{
@@ -233,7 +239,7 @@ export const MenuGroup = () => (
               items: [
                 {
                   label: "Skills",
-                  url: "meh",
+                  url: "/",
                   showArrowIcon: true,
                 },
               ],
@@ -245,12 +251,70 @@ export const MenuGroup = () => (
   >
     {{
       primary: [
-        <Link text="Home" href="/" active />,
-        <Link text="Surveys" href="/" />,
-        <Link
-          text="Performance"
-          href="/"
-          badge={{ kind: "new", text: "New" }}
+        <Link text="Inbox" href="/" active />,
+        <Link text="Goals" href="/" />,
+        <Menu
+          heading="Me"
+          items={[
+            {
+              label: "Feedback",
+              url: "/",
+            },
+            {
+              label: "Summary",
+              url: "/",
+            },
+            {
+              label: "Self-reflections",
+              url: "/",
+            },
+            {
+              label: "Shared evaluations",
+              url: "/",
+            },
+            {
+              label: "Development resources",
+              url: "/",
+            },
+          ]}
+        />,
+        <Menu
+          heading="My direct reports"
+          items={[
+            {
+              label: "Direct reports",
+              url: "/",
+            },
+            {
+              label: "Feedback",
+              url: "/",
+            },
+            {
+              label: "Self-reflections",
+              url: "/",
+            },
+            {
+              label: "Evaluations",
+              url: "/",
+            },
+            {
+              label: "Skills summary",
+              url: "/",
+            },
+            {
+              label: "Feedback usage",
+              url: "/",
+            },
+          ]}
+        />,
+        <Menu
+          heading="My company"
+          items={[
+            {
+              label: "Directory",
+              url: "/",
+            },
+          ]}
         />,
       ],
       secondary: [
@@ -259,22 +323,22 @@ export const MenuGroup = () => (
           items={[
             {
               label: "Skills",
-              url: "meh",
+              url: "/",
             },
             {
               label: "Self-reflections",
-              url: "meh",
+              url: "/",
             },
             {
               title: "Manager requested feedback",
               items: [
                 {
                   label: "Request history",
-                  url: "meh",
+                  url: "/",
                 },
                 {
                   label: "Request feedback",
-                  url: "meh",
+                  url: "/",
                 },
               ],
             },
@@ -283,11 +347,11 @@ export const MenuGroup = () => (
               items: [
                 {
                   label: "Goal stats",
-                  url: "meh",
+                  url: "/",
                 },
                 {
                   label: "Feedback stats",
-                  url: "meh",
+                  url: "/",
                 },
               ],
             },
@@ -296,15 +360,13 @@ export const MenuGroup = () => (
       ],
       final: [
         <Link
-          icon={supportIcon}
-          text="Support"
-          href="http://academy.cultureamp.com/"
+          tooltip="Opens in a new tab"
+          target="_blank"
+          icon={usersIcon}
+          text="Manage Users"
+          href="/"
         />,
-        <Link
-          icon={academyIcon}
-          text="Academy"
-          href="http://academy.cultureamp.com/"
-        />,
+        <Link icon={helpIcon} text="Help" href="/" />,
         <Menu
           heading="Custom menu..."
           items={[
@@ -346,14 +408,14 @@ export const WithFooterAndHeaderComponents = () => (
         <Menu
           icon={caIcon}
           opaque
-          heading="Engagement"
+          heading="Performance"
           items={[
             {
               title: "Switch To",
               items: [
                 {
-                  label: "Skills",
-                  url: "meh",
+                  label: "Engagement",
+                  url: "/",
                   showArrowIcon: true,
                 },
               ],
@@ -367,11 +429,10 @@ export const WithFooterAndHeaderComponents = () => (
       primary: [
         <Link text="Home" href="/" active />,
         <Link text="Surveys" href="/" />,
-        <Link
-          text="Performance"
-          href="/"
-          badge={{ kind: "new", text: "New" }}
-        />,
+        <Link text="Performance" href="/" />,
+        <Link text="Performance" href="/" />,
+        <Link text="Performance" href="/" />,
+        <Link text="Performance" href="/" />,
       ],
       secondary: [
         <Menu
@@ -379,22 +440,22 @@ export const WithFooterAndHeaderComponents = () => (
           items={[
             {
               label: "Skills",
-              url: "meh",
+              url: "/",
             },
             {
               label: "Self-reflections",
-              url: "meh",
+              url: "/",
             },
             {
               title: "Manager requested feedback",
               items: [
                 {
                   label: "Request history",
-                  url: "meh",
+                  url: "/",
                 },
                 {
                   label: "Request feedback",
-                  url: "meh",
+                  url: "/",
                 },
               ],
             },
@@ -403,11 +464,11 @@ export const WithFooterAndHeaderComponents = () => (
               items: [
                 {
                   label: "Goal stats",
-                  url: "meh",
+                  url: "/",
                 },
                 {
                   label: "Feedback stats",
-                  url: "meh",
+                  url: "/",
                 },
               ],
             },
@@ -415,6 +476,11 @@ export const WithFooterAndHeaderComponents = () => (
         />,
       ],
       final: [
+        <Link
+          icon={supportIcon}
+          text="Support"
+          href="http://academy.cultureamp.com/"
+        />,
         <Link
           icon={supportIcon}
           text="Support"
