@@ -131,7 +131,34 @@ export const Loading = () => (
   <ZenNavigationBar loading>
     {{
       primary: [<Link text="Home" href="/" active />],
-      secondary: [],
+      secondary: [
+        <Menu
+          heading="Custom menu..."
+          items={[
+            {
+              label: "About Culture Amp",
+              url: "https://www.cultureamp.com/",
+            },
+            {
+              label: "Contribute to this guide",
+              url:
+                "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
+            },
+            {
+              label: "Sign out",
+              url: "http://localhost:3000/session/sign_out",
+              method: "delete",
+            },
+            {
+              label: "Stop Masquerading",
+              url: "http://localhost:3000/admin/masquerade/",
+              method: "delete",
+            },
+          ]}
+        >
+          {accountMenuBtn}
+        </Menu>,
+      ],
       final: [
         <Link
           icon={academyIcon}
@@ -180,18 +207,7 @@ export const ContentColors = () => (
           badge={{ kind: "notification", text: "55" }}
         />,
       ],
-      secondary: [],
-      final: [
-        <Link
-          icon={supportIcon}
-          text="Support"
-          href="http://academy.cultureamp.com/"
-        />,
-        <Link
-          icon={academyIcon}
-          text="Academy"
-          href="http://academy.cultureamp.com/"
-        />,
+      secondary: [
         <Menu
           heading="Custom menu..."
           items={[
@@ -219,154 +235,17 @@ export const ContentColors = () => (
           {accountMenuBtn}
         </Menu>,
       ],
-    }}
-  </ZenNavigationBar>
-)
-
-export const PerformanceExample = () => (
-  <ZenNavigationBar
-    onNavigationChange={handleNavigationChange}
-    headerComponent={{
-      mobile: <span>Mobile</span>,
-      desktop: (
-        <Menu
-          icon={caIcon}
-          opaque
-          heading="Engagement"
-          items={[
-            {
-              title: "Switch To",
-              items: [
-                {
-                  label: "Skills",
-                  url: "/",
-                  showArrowIcon: true,
-                },
-              ],
-            },
-          ]}
-        />
-      ),
-    }}
-  >
-    {{
-      primary: [
-        <Link text="Inbox" href="/" active />,
-        <Link text="Goals" href="/" />,
-        <Menu
-          heading="Me"
-          items={[
-            {
-              label: "Feedback",
-              url: "/",
-            },
-            {
-              label: "Summary",
-              url: "/",
-            },
-            {
-              label: "Self-reflections",
-              url: "/",
-            },
-            {
-              label: "Shared evaluations",
-              url: "/",
-            },
-            {
-              label: "Development resources",
-              url: "/",
-            },
-          ]}
-        />,
-        <Menu
-          heading="My direct reports"
-          items={[
-            {
-              label: "Direct reports",
-              url: "/",
-            },
-            {
-              label: "Feedback",
-              url: "/",
-            },
-            {
-              label: "Self-reflections",
-              url: "/",
-            },
-            {
-              label: "Evaluations",
-              url: "/",
-            },
-            {
-              label: "Skills summary",
-              url: "/",
-            },
-            {
-              label: "Feedback usage",
-              url: "/",
-            },
-          ]}
-        />,
-        <Menu
-          heading="My company"
-          items={[
-            {
-              label: "Directory",
-              url: "/",
-            },
-          ]}
-        />,
-      ],
-      secondary: [
-        <Menu
-          heading="Admin"
-          items={[
-            {
-              label: "Skills",
-              url: "/",
-            },
-            {
-              label: "Self-reflections",
-              url: "/",
-            },
-            {
-              title: "Manager requested feedback",
-              items: [
-                {
-                  label: "Request history",
-                  url: "/",
-                },
-                {
-                  label: "Request feedback",
-                  url: "/",
-                },
-              ],
-            },
-            {
-              title: "Usage stats",
-              items: [
-                {
-                  label: "Goal stats",
-                  url: "/",
-                },
-                {
-                  label: "Feedback stats",
-                  url: "/",
-                },
-              ],
-            },
-          ]}
-        />,
-      ],
       final: [
         <Link
-          tooltip="Opens in a new tab"
-          target="_blank"
-          icon={usersIcon}
-          text="Manage Users"
-          href="/"
+          icon={supportIcon}
+          text="Support"
+          href="http://academy.cultureamp.com/"
         />,
-        <Link icon={helpIcon} text="Help" href="/" />,
+        <Link
+          icon={academyIcon}
+          text="Academy"
+          href="http://academy.cultureamp.com/"
+        />,
         <Menu
           heading="Custom menu..."
           items={[
