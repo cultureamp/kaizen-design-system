@@ -17,7 +17,7 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
   display: flex;
   flex-direction: column;
   background: $kz-color-white;
-  min-width: 300px;
+  min-width: 320px;
   max-width: $ca-layout-content-width;
   border: $kz-border-borderless-border-width $kz-border-borderless-border-style
     $kz-border-borderless-border-color;
@@ -59,35 +59,37 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
 
 .descriptionContainer {
   flex: 0 1 auto;
+  margin: ($ca-grid / 2) 0;
+  text-align: center;
 
-  @include ca-media-tablet {
-    text-align: center;
+  @include ca-media-desktop {
     padding-left: $ca-grid;
+    text-align: left;
   }
 }
 
 .buttonContainer {
-  padding: ($ca-grid / 2) 0;
+  display: flex;
   flex: 1 0 auto;
-  flex-direction: row;
-  text-align: left;
+  justify-content: center;
+  flex-direction: row-reverse;
+
   width: 100%;
 
   @include ca-media-tablet-and-up {
-    padding: ($ca-grid) 0;
-    text-align: center;
     width: auto;
+    padding: ($ca-grid / 2) 0;
+    text-align: center;
   }
 
   @include ca-media-desktop {
     padding: 0 ($ca-grid);
+    margin-top: 0;
   }
 }
 
 .secondaryAction {
-  @include ca-media-tablet-and-up {
-    margin-top: auto;
-  }
+  margin-right: $ca-grid;
 }
 
 .hidden {
