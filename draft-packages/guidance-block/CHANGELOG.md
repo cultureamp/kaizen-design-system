@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.0.5...@kaizen/draft-guidance-block@2.1.0) (2020-05-13)
+
+
+### Features
+
+* Responsive adjustments ([#474](https://github.com/cultureamp/kaizen-design-system/issues/474)) ([d9e61bd](https://github.com/cultureamp/kaizen-design-system/commit/d9e61bdb4e07a851cc65b49495dc82a2b50baca7))
+
+
+
+
+
 ## [2.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.0.4...@kaizen/draft-guidance-block@2.0.5) (2020-05-08)
 
 **Note:** Version bump only for package @kaizen/draft-guidance-block
