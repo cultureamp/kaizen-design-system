@@ -17,9 +17,11 @@ $ca-navigation-bar__link-item-indicator-height: 5px;
 $ca-navigation-bar__link-item-margin: 18px;
 $ca-navigation-bar__link-item-margin-mobile: 10px;
 
-// Smallest sizes to fit perform data in.
-$navbar-breakpoint-desktop-small-up: 1240px;
-$navbar-breakpoint-desktop-small-up: 1400px;
+// Extended Navigation breakpoints
+$navbar-breakpoint-extended-small-up: 1118px;
+$navbar-breakpoint-extended-large-up: 1350px;
+// Condensed Navigation breakpoints
+$navbar-breakpoint-condensed-large-up: 1150px;
 
 :export {
   caBreakpointMobileMax: #{$ca-breakpoint-tablet - 1};
@@ -37,14 +39,21 @@ $navbar-breakpoint-desktop-small-up: 1400px;
   }
 }
 
-@mixin navbar-desktop-small-up {
-  @media (min-width: $navbar-breakpoint-desktop-small-up) {
+@mixin navbar-extended-small-up {
+  @media (min-width: $navbar-breakpoint-extended-small-up) {
     @content;
   }
 }
 
-@mixin navbar-desktop-large-up {
-  @media (min-width: $navbar-breakpoint-desktop-small-up) {
+@mixin navbar-extended-large-up {
+  @media (min-width: $navbar-breakpoint-extended-large-up) {
+    @content;
+  }
+}
+
+// Condensed
+@mixin navbar-condensed-large-up {
+  @media (min-width: $navbar-breakpoint-condensed-large-up) {
     @content;
   }
 }
@@ -53,9 +62,9 @@ $navbar-breakpoint-desktop-small-up: 1400px;
   $margin: false,
   $padding: false,
   $start: false,
-  $end: false
+  $end: false,
+  $large: true
 ) {
-  $tablet: $ca-grid / 6;
   $medium: $ca-grid / 2;
   $desktop: $ca-grid;
 
@@ -74,18 +83,20 @@ $navbar-breakpoint-desktop-small-up: 1400px;
     }
   }
 
-  @include navbar-desktop-small-up {
-    @if $margin {
-      @include ca-margin(
-        $end: if($end, $desktop, null),
-        $start: if($start, $desktop, null)
-      );
-    }
-    @if $padding {
-      @include ca-padding(
-        $end: if($end, $desktop, null),
-        $start: if($start, $desktop, null)
-      );
+  @if $large {
+    @include navbar-extended-large-up {
+      @if $margin {
+        @include ca-margin(
+          $end: if($end, $desktop, null),
+          $start: if($start, $desktop, null)
+        );
+      }
+      @if $padding {
+        @include ca-padding(
+          $end: if($end, $desktop, null),
+          $start: if($start, $desktop, null)
+        );
+      }
     }
   }
 }
@@ -259,18 +270,34 @@ $navbar-breakpoint-desktop-small-up: 1400px;
       }
     }
 
-    &:not(.small) {
-      @include navbar-desktop-small-up {
+    &:not(.extendedNavigation) {
+      &:not(.small) {
         .linkText {
           display: flex;
         }
       }
-    }
-  }
 
-  @include navbar-desktop-large-up {
-    &.small .linkText {
-      display: flex;
+      @include navbar-condensed-large-up {
+        &.small .linkText {
+          display: flex;
+        }
+      }
+    }
+
+    &.extendedNavigation {
+      &:not(.small) {
+        @include navbar-extended-small-up {
+          .linkText {
+            display: flex;
+          }
+        }
+      }
+
+      @include navbar-extended-large-up {
+        &.small .linkText {
+          display: flex;
+        }
+      }
     }
   }
 

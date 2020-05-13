@@ -3,7 +3,7 @@ import classNames from "classnames"
 import * as React from "react"
 import ReactTooltip from "react-tooltip"
 import uuid from "uuid/v4"
-import { LinkClickContext } from "../context"
+import { NavBarContext } from "../context"
 import { LinkProps } from "../types"
 
 const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
@@ -12,7 +12,7 @@ const styles = require("./Link.module.scss")
 
 export default class Link extends React.PureComponent<LinkProps> {
   static displayName = "Link"
-  static contextType = LinkClickContext
+  static contextType = NavBarContext
   static defaultProps = {
     iconOnly: false,
     active: false,
@@ -24,7 +24,7 @@ export default class Link extends React.PureComponent<LinkProps> {
   }
 
   render = () => {
-    const { handleNavigationChange } = this.context
+    const { handleNavigationChange, hasExtendedNavigation } = this.context
     const {
       badge,
       icon,
@@ -47,8 +47,13 @@ export default class Link extends React.PureComponent<LinkProps> {
 
     return (
       <>
-        {icon && (
-          <ReactTooltip id={toolId} place={"left"} effect={"solid"}>
+        {icon && small && (
+          <ReactTooltip
+            className={hasExtendedNavigation}
+            id={toolId}
+            place={"left"}
+            effect={"solid"}
+          >
             <span className={styles.tooltip}>
               <Heading color="white" variant="heading-6">
                 {text}
@@ -66,6 +71,7 @@ export default class Link extends React.PureComponent<LinkProps> {
             [styles.small]: small,
             [styles.menuOpen]: hasMenu && menuOpen,
             [styles.content]: content,
+            [styles.extendedNavigation]: hasExtendedNavigation,
           })}
           tabIndex={0}
           onClick={event => {
@@ -90,7 +96,7 @@ export default class Link extends React.PureComponent<LinkProps> {
               </span>
             )}
             {text && !(icon && iconOnly) && (
-              <span className={styles.linkText}>
+              <span className={classNames(styles.linkText)}>
                 {text}
                 {badge && (
                   <span

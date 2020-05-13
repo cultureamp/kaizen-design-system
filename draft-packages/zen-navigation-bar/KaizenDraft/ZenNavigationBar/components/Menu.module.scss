@@ -36,10 +36,12 @@ $menu__square-size: 60px;
 
   .root & {
     position: relative;
-    width: $menu__square-size;
   }
 
   .customChild {
+    @include navbar-responsive-spacing($start: true, $margin: true);
+    width: $menu__square-size;
+    box-sizing: border-box;
     height: $menu__square-size;
     max-height: $menu__square-size;
     display: flex;

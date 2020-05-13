@@ -29,7 +29,11 @@
 
     &.secondary {
       @include ca-margin($start: 0);
-      @include navbar-responsive-spacing($start: true, $padding: true);
+      @include navbar-responsive-spacing(
+        $start: true,
+        $padding: true,
+        $large: false
+      );
       position: relative;
       &:before {
         position: absolute;
@@ -67,10 +71,21 @@
 }
 
 .child {
-  @include navbar-responsive-spacing($end: true, $margin: true);
+  &:not(:last-child) {
+    @include navbar-responsive-spacing($end: true, $margin: true);
+  }
+
+  &:last-child {
+    @include navbar-responsive-spacing(
+      $end: true,
+      $margin: true,
+      $large: false
+    );
+  }
 
   .final & {
     @include ca-margin($end: 8px);
+    margin-right: 0;
   }
 
   display: flex;
