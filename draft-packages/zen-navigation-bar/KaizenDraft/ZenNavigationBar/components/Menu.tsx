@@ -6,7 +6,7 @@ import { OffCanvasContext, ZenOffCanvas } from "@kaizen/draft-zen-off-canvas"
 
 import classNames from "classnames"
 import Media from "react-media"
-import { MOBILE_QUERY } from "../constants"
+import { NavBarContext } from "../context"
 import { MenuProps, NavigationItem } from "../types"
 import Dropdown from "./Dropdown"
 import Link from "./Link"
@@ -25,6 +25,7 @@ type State = {
 
 export default class Menu extends React.Component<MenuProps, State> {
   static displayName = "Menu"
+  static contextType = NavBarContext
   static defaultProps = {
     items: [],
     active: false,
@@ -37,6 +38,8 @@ export default class Menu extends React.Component<MenuProps, State> {
   state = { open: false }
 
   render() {
+    const { hasExtendedNavigation } = this.context
+
     const {
       active,
       children,
@@ -51,7 +54,7 @@ export default class Menu extends React.Component<MenuProps, State> {
     } = this.props
 
     return (
-      <Media query={MOBILE_QUERY}>
+      <Media query={`(max-width: ${styles.caBreakpointMobileMax})`}>
         {(matches: boolean) =>
           mobileEnabled && matches ? (
             <React.Fragment>
@@ -79,6 +82,7 @@ export default class Menu extends React.Component<MenuProps, State> {
                   [styles.linkText]: !!heading,
                   [styles.menuOpen]: this.state.open,
                   [styles.active]: active,
+                  [styles.extendedNavigation]: hasExtendedNavigation,
                 })}
                 onClick={this.toggle}
                 aria-expanded={this.state.open}
@@ -99,7 +103,9 @@ export default class Menu extends React.Component<MenuProps, State> {
                       </span>
                     )}
                     <span className={styles.linkText}>{heading}</span>
-                    <Icon icon={chevronDownIcon} role="presentation" />
+                    <span className={styles.downIcon}>
+                      <Icon icon={chevronDownIcon} role="presentation" />
+                    </span>
                   </span>
                 )}
               </button>
