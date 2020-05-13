@@ -1,5 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/color";
@@ -9,12 +10,25 @@
 
 $row-height: 60px;
 
+.anchorReset {
+  text-decoration: none;
+  color: $kz-color-wisteria-800;
+  display: block;
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
 .container {
   width: 100%;
   margin-bottom: $ca-grid * 0.5;
 }
 
 .header {
+  @include ca-type-ideal-label;
+  @include ca-inherit-baseline;
   background-color: $kz-color-ash;
   border: solid 1px $ca-border-color;
 }
@@ -62,19 +76,12 @@ $row-height: 60px;
   @include button-reset;
   background: $kz-color-white;
   border: solid 1px $ca-border-color;
-  box-shadow: $ca-box-shadow;
+  box-shadow: $kz-shadow-small-box-shadow;
   transition: box-shadow $ca-duration-rapid, border-color $ca-duration-rapid,
     margin $ca-duration-rapid, padding $ca-duration-rapid,
     width $ca-duration-rapid;
   // These css properties are required for when the rows are anchor elements
-  text-decoration: none;
-  color: $kz-color-wisteria-800;
-  display: block;
-  &:hover,
-  &:active,
-  &:focus {
-    text-decoration: none;
-  }
+  composes: anchorReset;
 
   &:first-child {
     border-top-left-radius: $kz-border-solid-border-radius;
@@ -104,7 +111,7 @@ $row-height: 60px;
 }
 
 .well {
-  border-color: transparent;
+  border-color: $kz-border-borderless-border-color;
   box-shadow: none;
   border-radius: $kz-border-solid-border-radius;
   background-color: $kz-color-ash;
@@ -112,7 +119,7 @@ $row-height: 60px;
 }
 
 .popout {
-  box-shadow: 0 3px 10px add-alpha($kz-color-wisteria-800, 9%);
+  box-shadow: $kz-shadow-large-box-shadow;
 }
 
 .expanded {
@@ -143,4 +150,6 @@ $row-height: 60px;
   padding: 0 $ca-grid * 0.8;
   display: flex;
   align-items: center;
+  // These css properties are required for when the cells are anchor elements
+  composes: anchorReset;
 }

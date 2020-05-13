@@ -125,7 +125,12 @@ const storybookSource: Rule = {
   test: /\.tsx?$/,
   include: [
     resolve(__dirname, "../packages/component-library"),
-    resolve(__dirname, "../draft-packages"),
+    resolve(__dirname, "../draft-packages/stories"),
+    /**
+     * Ensure there are no compiled js (even in node modules!)
+     * in these packages
+     */
+    resolve(__dirname, "../legacy-packages"),
   ],
   use: [
     {
