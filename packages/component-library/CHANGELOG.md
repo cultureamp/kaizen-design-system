@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.14.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.13.3...@kaizen/component-library@7.14.0) (2020-05-13)
+
+
+### Features
+
+* Responsive adjustments ([#474](https://github.com/cultureamp/kaizen-design-system/issues/474)) ([d9e61bd](https://github.com/cultureamp/kaizen-design-system/commit/d9e61bdb4e07a851cc65b49495dc82a2b50baca7))
+
+
+
+
+
 ## [7.13.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.13.2...@kaizen/component-library@7.13.3) (2020-05-08)
 
 **Note:** Version bump only for package @kaizen/component-library

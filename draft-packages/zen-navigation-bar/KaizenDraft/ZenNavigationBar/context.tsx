@@ -1,8 +1,11 @@
 import React from "react"
 import { NavigationChange } from "./types"
 
-type LinkClickContextType = {
+type NavBarContextType = {
   handleNavigationChange?: NavigationChange
+  hasExtendedNavigation: boolean
 }
 
-export const LinkClickContext = React.createContext<LinkClickContextType>({})
+export const NavBarContext = React.createContext<NavBarContextType>({
+  hasExtendedNavigation: false,
+})
