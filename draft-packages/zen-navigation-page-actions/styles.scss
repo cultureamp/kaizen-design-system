@@ -1,0 +1,16 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/fonts";
+
+.container {
+  display: flex;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  align-items: center;
+}
+
+.buttonContainer {
+  margin: 0 $ca-grid / 4;
+}
