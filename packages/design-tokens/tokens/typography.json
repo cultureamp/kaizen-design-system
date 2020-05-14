@@ -54,7 +54,7 @@
         "fontFamily": "\"Greycliff CF\"",
         "fontWeight": "700",
         "fontSize": "2.25rem",
-        "lineHeight": "2.25rem",
+        "lineHeight": "2.625rem",
         "letterSpacing": "-0.03em"
       },
       "heading2": {
