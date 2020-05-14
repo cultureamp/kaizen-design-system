@@ -7,7 +7,7 @@
     "site"
   ],
   "engines": {
-    "node": "10.16.3"
+    "node": "10.18.1"
   },
   "scripts": {
     "ts-node": "TS_NODE_TRANSPILE_ONLY=true ts-node --project storybook/tsconfig.storybook.json",
