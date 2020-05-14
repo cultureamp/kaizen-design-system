@@ -1,10 +1,10 @@
 module KaizenDraft.Modal.Presets.InputEditModal exposing
-    ( children
-    , confirmId
+    ( confirmId
     , confirmLabel
     , confirmPreventKeydownOn
     , dismissLabel
     , headerDismissId
+    , instructiveText
     , negative
     , onConfirm
     , onConfirmBlur
@@ -14,15 +14,18 @@ module KaizenDraft.Modal.Presets.InputEditModal exposing
     , onHeaderDismissFocus
     , onPreventHeaderDismissKeydown
     , positive
+    , textFieldConfigs
     , title
     , view
     )
 
 import Button.Button as Button
 import CssModules exposing (css)
-import Html exposing (Html, div, text)
+import Html exposing (Html, div, form, span, text)
 import Json.Decode as Decode
+import KaizenDraft.Form.TextField.TextField as TextField
 import KaizenDraft.Modal.Primitives.Configuration as ModalConfiguration exposing (configurationDefaults)
+import KaizenDraft.Modal.Primitives.ModalAccessibleDescription as ModalAccessibleDescription
 import KaizenDraft.Modal.Primitives.ModalAccessibleLabel as ModalAccessibleLabel
 import KaizenDraft.Modal.Primitives.ModalBody as ModalBody
 import KaizenDraft.Modal.Primitives.ModalFooter as ModalFooter
@@ -41,7 +44,8 @@ type alias Configuration msg =
 type alias InputEditConfiguration msg base =
     { base
         | variant : Variant
-        , children : List (Html msg)
+        , instructiveText : Maybe String
+        , textFieldConfigs : List (TextField.Config msg)
     }
 
 
@@ -53,7 +57,8 @@ type Variant
 defaults : Configuration msg
 defaults =
     { variant = Positive
-    , children = []
+    , instructiveText = Nothing
+    , textFieldConfigs = []
     , onDismiss = configurationDefaults.onDismiss
     , onConfirm = configurationDefaults.onConfirm
     , title = configurationDefaults.title
@@ -133,7 +138,7 @@ view (Config config) =
                 |> ModalHeader.dismissReverse False
             )
         , ModalBody.view <|
-            (ModalBody.layout config.children
+            (ModalBody.layout [ body config ]
                 |> ModalBody.background ModalBody.Stone
             )
         , ModalFooter.view <|
@@ -157,6 +162,31 @@ header config =
                 [ text config.title ]
             ]
         ]
+
+
+body : Configuration msg -> Html msg
+body config =
+    let
+        withInstructiveText =
+            case config.instructiveText of
+                Just instText ->
+                    ModalAccessibleDescription.view
+                        [ Text.view Text.p [ text instText ]
+                        ]
+
+                Nothing ->
+                    text ""
+
+        textField textConfig =
+            TextField.view textConfig
+
+        withTextFields =
+            List.map textField config.textFieldConfigs
+    in
+    div []
+        ([ span [ styles.class .instructiveText ] [ withInstructiveText ] ]
+            ++ [ form [] withTextFields ]
+        )
 
 
 footer : Configuration msg -> List (Html msg)
@@ -252,6 +282,11 @@ title titleString (Config config) =
     Config { config | title = titleString }
 
 
+instructiveText : String -> Config msg -> Config msg
+instructiveText instText (Config config) =
+    Config { config | instructiveText = Just instText }
+
+
 headerDismissId : String -> Config msg -> Config msg
 headerDismissId id_ (Config config) =
     Config { config | headerDismissId = Just id_ }
@@ -302,14 +337,15 @@ onConfirmBlur msg (Config config) =
     Config { config | onConfirmBlur = Just msg }
 
 
-children : List (Html msg) -> Config msg -> Config msg
-children value (Config config) =
-    Config { config | children = value }
+textFieldConfigs : List (TextField.Config msg) -> Config msg -> Config msg
+textFieldConfigs configs (Config config) =
+    Config { config | textFieldConfigs = configs }
 
 
 styles =
     css "@kaizen/component-library/draft/Kaizen/Modal/Presets/InputEditModal.scss"
         { header = "header"
+        , instructiveText = "instructiveText"
         }
 
 

@@ -23,7 +23,9 @@ export type SplitButtonProps = {
   dropdownAltText: string // recommended text: "Open menu"
 }
 
-const SplitButton: React.FunctionComponent<SplitButtonProps> = ({
+type SplitButton = React.FunctionComponent<SplitButtonProps>
+
+const SplitButton: SplitButton = ({
   automationId,
   href,
   disabled,

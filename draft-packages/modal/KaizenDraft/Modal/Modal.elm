@@ -30,6 +30,7 @@ import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
 import Html.Lazy exposing (lazy)
 import KaizenDraft.Events.Events as KaizenEvents
+import KaizenDraft.Form.TextField.TextField as TextField
 import KaizenDraft.Modal.Presets.ConfirmationModal as ConfirmationModal
 import KaizenDraft.Modal.Presets.InputEditModal as InputEditModal
 import KaizenDraft.Modal.Primitives.Constants as Constants
@@ -144,7 +145,8 @@ type alias ConfirmationContract msg =
 
 type alias InputEditConfig msg =
     { title : String
-    , children : List (Html msg)
+    , instructiveText : Maybe String
+    , textFieldConfigs : List (TextField.Config msg)
     , onDismiss : Maybe msg
     , onConfirm : Maybe msg
     , confirmLabel : String
@@ -433,6 +435,14 @@ viewContent (Config modalConfig) =
                             Nothing ->
                                 inputEditConfig
 
+                    withInstructiveText inputEditConfig =
+                        case configs.instructiveText of
+                            Just instructiveText ->
+                                InputEditModal.instructiveText instructiveText inputEditConfig
+
+                            Nothing ->
+                                inputEditConfig
+
                     commonInputEditConfig inputEditConfig =
                         withOnDismiss inputEditConfig
                             |> withOnConfirm
@@ -441,7 +451,7 @@ viewContent (Config modalConfig) =
                             |> InputEditModal.confirmLabel configs.confirmLabel
                             |> InputEditModal.dismissLabel configs.dismissLabel
                             |> InputEditModal.title configs.title
-                            |> InputEditModal.children configs.children
+                            |> InputEditModal.textFieldConfigs configs.textFieldConfigs
                 in
                 case inputEditType of
                     InputPositive ->
@@ -449,6 +459,7 @@ viewContent (Config modalConfig) =
                             [ InputEditModal.view
                                 (InputEditModal.positive
                                     |> commonInputEditConfig
+                                    |> withInstructiveText
                                 )
                             ]
                             (genericModalConfig |> GenericModal.events genericModalEvents)
@@ -458,6 +469,7 @@ viewContent (Config modalConfig) =
                             [ InputEditModal.view
                                 (InputEditModal.negative
                                     |> commonInputEditConfig
+                                    |> withInstructiveText
                                 )
                             ]
                             (genericModalConfig |> GenericModal.events genericModalEvents)
