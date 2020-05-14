@@ -1,6 +1,12 @@
 import * as React from "react"
 
-import { Icon, Link, Menu, NavigationBar } from "@kaizen/component-library"
+import {
+  Icon,
+  Link,
+  Menu,
+  NavigationBar,
+  ToastNotification,
+} from "@kaizen/component-library"
 
 const academyIcon = require("@kaizen/component-library/icons/academy.icon.svg")
   .default
@@ -374,6 +380,20 @@ export const MenuGroup = () => (
       ],
     }}
   </NavigationBar>
+)
+
+export const WithToast = () => (
+  <>
+    <Default />
+    <ToastNotification
+      type="informative"
+      title="Informative"
+      automationId="notification1"
+    >
+      New user data is currently being processed. We'll let you know when the
+      process is completed. <a href="/">Manage users</a>
+    </ToastNotification>
+  </>
 )
 
 export const Empty = () => <NavigationBar />

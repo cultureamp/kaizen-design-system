@@ -12,6 +12,7 @@ const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.ic
 import classNames from "classnames"
 import * as React from "react"
 import Media from "react-media"
+import store from "../../../state"
 import { MOBILE_QUERY } from "../constants"
 import { MenuGroup, MenuItem, MenuProps } from "../types"
 import Link from "./Link"
@@ -96,6 +97,7 @@ export default class Menu extends React.Component<MenuProps, State> {
   ) => {
     const open = !this.state.open
     this.setState({ open })
+    store.actions.setNavigationBarMenuOpen(open)
   }
 
   renderMenu() {
