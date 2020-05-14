@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@1.3.0...@kaizen/draft-form@1.3.1) (2020-05-13)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@1.2.8...@kaizen/draft-form@1.3.0) (2020-05-08)
+
+
+### Features
+
+* Add description prop to TextAreaField ([#471](https://github.com/cultureamp/kaizen-design-system/issues/471)) ([5cbe468](https://github.com/cultureamp/kaizen-design-system/commit/5cbe4681fb1b75e49c78dbfc02aa4eb31e4c0ef2))
+
+
+
+
+
 ## [1.2.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@1.2.7...@kaizen/draft-form@1.2.8) (2020-05-08)
 
 **Note:** Version bump only for package @kaizen/draft-form

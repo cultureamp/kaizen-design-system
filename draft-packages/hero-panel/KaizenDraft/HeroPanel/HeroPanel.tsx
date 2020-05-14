@@ -67,14 +67,14 @@ const HeroPanel: Panel = ({
 
   return (
     <div id={id} className={styles.container} data-automation-id={automationId}>
+      <div className={styles.close}>
+        <IconButton
+          icon={crossIcon}
+          label="Dismiss"
+          onClick={() => onDismiss()}
+        />
+      </div>
       <div className={styles.content}>
-        <div className={styles.close}>
-          <IconButton
-            icon={crossIcon}
-            label="Dismiss"
-            onClick={() => onDismiss()}
-          />
-        </div>
         <div className={styles.image}>
           <img
             src={img.src}
