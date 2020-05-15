@@ -2,7 +2,7 @@ import classNames from "classnames"
 import * as React from "react"
 import ReactSelect, { components } from "react-select"
 import Async from "react-select/async"
-import { AsyncProps as ReactAsyncSelectProps } from "react-select/src/Async"
+import { Props as ReactAsyncSelectProps } from "react-select/src/Async"
 import { Props as ReactSelectProps } from "react-select/src/Select"
 
 import { Icon } from "@kaizen/component-library"
@@ -12,7 +12,11 @@ const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.ic
 
 const styles = require("./styles.react.scss")
 
-export const Select = (props: ReactSelectProps) => {
+type DefaultOptionType = { label: string; value: string }
+
+export function Select<OptionType = DefaultOptionType>(
+  props: ReactSelectProps<OptionType>
+) {
   return (
     <ReactSelect
       {...props}
@@ -33,9 +37,9 @@ export const Select = (props: ReactSelectProps) => {
   )
 }
 
-interface AsyncProps extends ReactAsyncSelectProps<any>, ReactSelectProps {}
-
-export const AsyncSelect = (props: AsyncProps) => {
+export function AsyncSelect<OptionType = DefaultOptionType>(
+  props: ReactAsyncSelectProps<OptionType>
+) {
   return (
     <Async
       {...props}
