@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { ColorScheme } from "@kaizen/draft-zen-navigation-bar/KaizenDraft/ZenNavigationBar"
+import { ColorScheme } from "@kaizen/draft-zen-navigation-bar/KaizenDraft/ZenNavigationBar/NavigationBar"
 import classNames from "classnames"
 const closeIcon = require("@kaizen/component-library/icons/close.icon.svg")
   .default
