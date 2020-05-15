@@ -12,7 +12,7 @@ needToKnow:
 
 *   A **filter menu** describes a group of components available to apply filters.
 *   A **filter field** describes a specific group of data that you might have different options for, such as “Price”.
-*   A **filter value** describes a specific option for a dimension, such as “>$50”.
+*   A **filter value** describes a specific option for a value, such as “>$50”.
 *   An **applied filter** shows all the selected values for that filter dimension, such as “Price” being set to “>$50” and “&lt;$100”.
 *   A “**filter**” tends to describe a single filter field, such as "Price" and sometimes its selected values as well, such as ">$50". If you are referring to a group of filters, refer to it as a **filter menu**.
 *   **Filter results** describe all the data or content that matches the applied filters.
@@ -58,55 +58,44 @@ Structural questions:
 
 A [select](https://cultureamp.design/components/select/) lets you choose options from an option menu. A single-select lets you choose one option while a multi-select lets you choose multiple options.
 
-Select is useful in filtering when:
-
-
+A select is useful in filtering when:
 
 *   There are too many results to show at once
-*   Reducing data by pre-defined segments
-*   Shows the options available for that dimension
-*   AND/OR union or intersect of data when using multiple select filters
-*   Reducing data in 1 dimension e.g. "Department" is a "Dimension" and "CA Design" is the value
+*   Reducing data by pre-defined segment of data (E.g. In a report select 'Administrator Report' or by comment sentiment, 'Positive', 'Neutral', 'Negative')  
+*   Shows the options available for that field (E.g. Country demographic, 'Australia', 'England', 'United States')
+*   Reducing data in 1 field e.g. "Department" is a "Field" and "Marketing Design" is the value
 
 The select filter:
 
-
-
 *   Could be live-updating, could have "Apply", "Cancel", "Reset" options
-*   Limited scannability, hidden by dropdown
-*   Single select or adjacent selects that can be combined
-*   Works for longer lists of possible values
-*   Multiple ways to remove the filter or set to "All" values
-*   Select value dismissible Tags that you can remove to remove that value
-*   Dropdown list might include an "All" option to effectively remove the select filtering
-*   Ordering optimised for scanning:
+*   The select filter has limited scannability, because it is hidden by a dropdown
+*   Selects can be a single instance or multiple adjacent selects to provide greater choice.
+*   Works for longer lists of selectable values to assist with screen clutter
+*   Offer dismissible tags that allow the removal of a selected value/field
+*   Dropdown list might include a "Clear all" action to effectively remove the select filtering
+*   Ordering optimized for scanning:
     *   Alphabetic lists for names
     *   Time series like today, yesterday, last month, last year, last financial year
-    *   Other things that have natural ordering like age groups, performance rating (exceptional etc), rating scales (strongly disagree to strongly agree)
-*   Combined with typeahead autocomplete search within the select dropdown
+    *   Other things that have natural ordering like age groups, performance rating (good, great, better), rating scales (strongly disagree to strongly agree)
+*   Can combine autocomplete search within the select input
 
 
-#### Tabs:
+#### Section tabs:
 
-Tabs organize content by grouping similar information into containers that are shown and hidden through navigation.
+Section tabs organize content by grouping similar information from the same dataset into containers that are shown and hidden into sections.
 
-Tabs are useful in filtering when:
+Section tabs are useful in filtering when:
 
-
-
-*   There are too many surveys to show at once
-*   Narrowing data by pre-defined things: Surveys have pre-defined status you can reduce by (that match workflows)
-*   Survey tabs have mutually exclusive categories (cannot be open and closed)
-*   Navigate to things I care about
-    *   Smart default: All comments shows all by default
-    *   Smart default: topics and themes narrows results by standard topics
-    *   Personal content: saved comment narrows by your saved comments.
+*   There is too much data/content to show at once
+*   Narrowing data by pre-defined things: E.g. Surveys have pre-defined status (Draft, Live, Closed)
+*   Section tabs have mutually exclusive categories, which cannot be open and closed at the same time
+*   Navigate to things I care about:
+    *   Smart default: "All comments" shows all comments by default
+    *   Smart default: Grouping by topics/themes helps to narrow data/content to relevant topics
+    *   Personal content: "Saved comments" groups your saved comments apart from "All comments"
 *   Understand information at a glance:
-    *   Understanding progress (visibility)
-    *   Summarising data
-    *   Bringing the data forward
-*   Choose and remove segments of data:
-    *   Toggle buttons let you deselect the "tab" to remove the filter :/
+    *   Summarizing key data
+    *   Bringing relevant data forward
 *   Understanding relationships between segments of data:
     *   Some tabs are parts of a whole (e.g. complete/incomplete)
 
@@ -117,21 +106,17 @@ A [checkbox group](https://cultureamp.design/components/checkbox-group/) contain
 
 Use a checkbox group in a filter when:
 
+*   You want to visibly show all the filtering field at once
+*   There are too many results (E.g. Surveys) to show at once
+*   Reducing data by pre-defined segments (E.g. Draft, Live and Closed surveys)
+*   Reducing data in 1 field e.g. "Department" is a "Field" and "Marketing Design" is the value
 
-
-*   There are too many results to show at once
-*   Reducing data by pre-defined segments
-*   Shows the options available for that already-selected dimension (unless it's set by default)
-*   AND/OR union or intersect of data
-*   Reducing data in 1 dimension e.g. "Survey type" is a "Dimension" and "Experience" is the value
 
 The checkbox group filter:
 
-
-
 *   One-click
 *   Live-updating
-*   Scannability
+*   Scannable
 *   Combine groups of checkboxes
 *   Works for 5+ checkboxes
 
@@ -142,16 +127,11 @@ The checkbox group filter:
 
 Use a radio group in filtering when:
 
-
-
 *   There are too many results to show at once
-*   Reducing data by pre-defined segments
-*   OR intersection of data
-*   Reducing data in 1 dimension e.g. Process status is "Dimension" and "Draft" is the value
+*   Reducing data by pre-defined groups
+*   Reducing data in 1 field e.g. "Department" is a "Field" and "Marketing Design" is the value
 
 A radio group filter:
-
-
 
 *   One-click
 *   Live-updating
