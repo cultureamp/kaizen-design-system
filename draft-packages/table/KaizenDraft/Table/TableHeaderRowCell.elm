@@ -1,4 +1,4 @@
-module Kaizen.Table.TableHeaderRowCell exposing
+module KaizenDraft.Table.TableHeaderRowCell exposing
     ( active
     , default
     , flex
@@ -13,7 +13,7 @@ import Html exposing (Attribute, Html, button, div, text)
 import Html.Attributes exposing (style)
 import Html.Attributes.Aria exposing (role)
 import Html.Events exposing (onClick)
-import Kaizen.Table.TableHelpers exposing (ratioToPercent)
+import KaizenDraft.Table.TableHelpers exposing (ratioToPercent)
 
 
 type Config msg

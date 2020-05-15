@@ -1,4 +1,4 @@
-module Kaizen.Table.TableHelpers exposing (ratioToPercent)
+module KaizenDraft.Table.TableHelpers exposing (ratioToPercent)
 
 
 ratioToPercent : Float -> String

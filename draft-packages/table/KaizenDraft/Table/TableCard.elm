@@ -1,4 +1,4 @@
-module Kaizen.Table.TableCard exposing (default, view)
+module KaizenDraft.Table.TableCard exposing (default, view)
 
 import CssModules exposing (css)
 import Html exposing (Attribute, Html, button, div, text)

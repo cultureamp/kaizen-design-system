@@ -6,7 +6,7 @@ import Html exposing (div, text)
 import Html.Attributes exposing (style)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
-import Kaizen.Form.TextField.TextField as TextField
+import KaizenDraft.Form.TextField.TextField as TextField
 import KaizenDraft.Modal.Modal as Modal
 import KaizenDraft.Modal.Primitives.Constants as ModalConstants
 import KaizenDraft.Modal.Primitives.ModalAccessibleDescription as ModalAccessibleDescription
