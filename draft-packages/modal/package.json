@@ -39,7 +39,7 @@
     "react-transition-group": "^2.9.0"
   },
   "devDependencies": {
-    "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.1.0",
+    "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.2.1",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {

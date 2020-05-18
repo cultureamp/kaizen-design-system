@@ -1,13 +1,13 @@
 import * as React from "react"
 
-import { ZenControlledOffCanvas } from "@kaizen/component-library/draft/Kaizen/ZenOffCanvas"
+import { ZenControlledOffCanvas } from "@kaizen/draft-zen-off-canvas"
 import classNames from "classnames"
 import Media from "react-media"
 import uuid from "uuid/v4"
 import Badge from "./components/Badge"
 import Link from "./components/Link"
 import Menu from "./components/Menu"
-import { LinkClickContext } from "./context"
+import { NavBarContext } from "./context"
 import { Navigation, NavigationChange, NavigationItem } from "./types"
 
 const styles = require("./NavigationBar.module.scss")
@@ -24,12 +24,15 @@ type Props = {
   }
   footerComponent?: React.ReactNode
   children?: Navigation
-  mobileMaxWidth?: number
+}
+
+type State = {
+  mobileKey: number
 }
 
 export type ColorScheme = "cultureamp" | "kaizen" | "content"
 
-export default class NavigationBar extends React.Component<Props> {
+export default class NavigationBar extends React.Component<Props, State> {
   static displayName = "NavigationBar"
   static Link = Link
   static Menu = Menu
@@ -38,8 +41,12 @@ export default class NavigationBar extends React.Component<Props> {
     loading: false,
     colorScheme: "cultureamp",
     badgeHref: "/",
-    mobileMaxWidth: 767,
     onNavigationChange: () => null,
+  }
+
+  constructor(props) {
+    super(props)
+    this.state = { mobileKey: 1 }
   }
 
   render() {
@@ -47,18 +54,29 @@ export default class NavigationBar extends React.Component<Props> {
       children,
       colorScheme = "cultureamp",
       headerComponent,
-      mobileMaxWidth,
       onNavigationChange,
     } = this.props
 
     return (
-      <LinkClickContext.Provider
-        value={{ handleNavigationChange: onNavigationChange }}
+      <NavBarContext.Provider
+        value={{
+          handleNavigationChange: event => {
+            const navigationHref = event.currentTarget.getAttribute("href")
+            if (navigationHref && navigationHref !== "#") {
+              this.setState({
+                mobileKey: this.state.mobileKey + 1,
+              })
+              onNavigationChange(event)
+            }
+          },
+          hasExtendedNavigation: !!children?.secondary?.length,
+        }}
       >
-        <Media query={`(max-width: ${mobileMaxWidth}px)`}>
+        <Media query={`(max-width: ${styles.caBreakpointMobileMax})`}>
           {(matches: boolean) =>
             matches ? (
               <ZenControlledOffCanvas
+                key={this.state.mobileKey}
                 headerComponent={this.renderBadge()}
                 footerComponent={this.props.footerComponent}
                 productSwitcher={headerComponent && headerComponent.mobile}
@@ -86,7 +104,7 @@ export default class NavigationBar extends React.Component<Props> {
             )
           }
         </Media>
-      </LinkClickContext.Provider>
+      </NavBarContext.Provider>
     )
   }
 
