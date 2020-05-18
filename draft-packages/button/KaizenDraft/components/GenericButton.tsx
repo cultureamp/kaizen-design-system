@@ -1,4 +1,4 @@
-import { Icon } from "@kaizen/component-library/Icon"
+import { Icon } from "@kaizen/component-library"
 import classNames from "classnames"
 import * as React from "react"
 
