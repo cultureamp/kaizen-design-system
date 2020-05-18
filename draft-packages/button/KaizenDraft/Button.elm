@@ -1,4 +1,4 @@
-module Button.Button exposing
+module KaizenDraft.Button.Button exposing
     ( BrandColor(..)
     , ButtonType(..)
     , Config

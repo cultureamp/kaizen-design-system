@@ -4,6 +4,7 @@
         ".",
         "./node_modules/@kaizen/component-library/components",
         "./node_modules/@kaizen/component-library/stories",
+        "./node_modules/@kaizen/draft-button",
         "./node_modules/@kaizen/draft-checkbox-group",
         "./node_modules/@kaizen/draft-collapsible",
         "./node_modules/@kaizen/draft-dropdown",

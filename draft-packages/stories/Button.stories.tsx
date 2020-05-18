@@ -1,4 +1,4 @@
-import { Button } from "@kaizen/component-library"
+import { Button } from "../button"
 const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
   .default
 import { action } from "@storybook/addon-actions"
