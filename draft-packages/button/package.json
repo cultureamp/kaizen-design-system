@@ -36,7 +36,6 @@
     "classnames": "^2.2.6"
   },
   "devDependencies": {
-    "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.1.0",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
