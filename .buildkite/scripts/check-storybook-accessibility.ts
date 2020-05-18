@@ -27,3 +27,15 @@ const getExamples = async page => {
   })
   return result
 }
+
+const getViolations = async storybookExampleUrls => {
+  const analysisPromise = async url => {
+    const newBrowser = await puppeteer.launch()
+    const examplePage = await newBrowser.newPage()
+    await examplePage.goto(url)
+    const analysis = await new AxePuppeteer(examplePage).analyze()
+    newBrowser.close()
+    return { url, violations: analysis.violations }
+  }
+  return Promise.all(storybookExampleUrls.map(url => analysisPromise(url)))
+}
