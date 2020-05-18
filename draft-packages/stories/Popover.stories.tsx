@@ -1,4 +1,4 @@
-import { Popover } from "@kaizen/component-library/draft"
+import { Popover } from "@kaizen/draft-popover"
 import * as React from "react"
 
 export default {

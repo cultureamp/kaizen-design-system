@@ -98,6 +98,6 @@ view (Config config) =
 
 
 styles =
-    css "@kaizen/component-library/draft/Kaizen/Table/styles.scss"
+    css "@kaizen/draft-table/KaizenDraft/Table/styles.scss"
         { headerRowCell = "headerRowCell"
         }
