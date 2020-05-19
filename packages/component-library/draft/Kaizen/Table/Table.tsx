@@ -1,7 +1,7 @@
 import { Icon, Text } from "@kaizen/component-library"
-import { Checkbox, CheckedStatus } from "@kaizen/draft-form"
 import classNames from "classnames"
 import * as React from "react"
+import { Checkbox, CheckedStatus } from "../Form" // relative imports are not ideal, but drafts are being deleted soon
 const styles = require("./styles.scss")
 const sortDescendingIcon = require("@kaizen/component-library/icons/sort-descending.icon.svg")
   .default

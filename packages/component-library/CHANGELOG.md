@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.15.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.15.2...@kaizen/component-library@7.15.3) (2020-05-19)
+
+
+### Bug Fixes
+
+* Make Navigation Bar consume core components ([#497](https://github.com/cultureamp/kaizen-design-system/issues/497)) ([51c7c2e](https://github.com/cultureamp/kaizen-design-system/commit/51c7c2e2b8db7c7e4f3bd3d0d5bf6feff9ae31cf))
+
+
+
+
+
 ## [7.15.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.15.1...@kaizen/component-library@7.15.2) (2020-05-19)
 
 
