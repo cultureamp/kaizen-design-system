@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.3.14...@kaizen/draft-select@1.3.15) (2020-05-19)
+
+
+### Bug Fixes
+
+* Export ValueType from Select index.ts ([#498](https://github.com/cultureamp/kaizen-design-system/issues/498)) ([0930de0](https://github.com/cultureamp/kaizen-design-system/commit/0930de05691278c450ffa96c104b22eeae827252))
+
+
+
+
+
 ## [1.3.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.3.13...@kaizen/draft-select@1.3.14) (2020-05-19)
 
 **Note:** Version bump only for package @kaizen/draft-select
