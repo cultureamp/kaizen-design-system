@@ -356,6 +356,6 @@ export const ManagerLearning = (props: SpotProps) => (
   />
 )
 
-export const Diagnostics = (props: SpotProps) => (
+export const PerformanceDiagnostics = (props: SpotProps) => (
   <Base {...props} name="illustrations/spot/template-library-diagnostics.svg" />
 )

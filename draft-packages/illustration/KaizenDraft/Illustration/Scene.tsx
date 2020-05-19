@@ -40,7 +40,10 @@ export const IntroductionsNewAdmin = (props: SceneProps) => (
 )
 
 export const Information360Upgrade = (props: SceneProps) => (
-  <Base {...props} name="illustrations/scene/introductions-360-upgrade.svg" />
+  <Base
+    {...props}
+    name="illustrations/scene/information-modals-360-upgrade.svg"
+  />
 )
 
 export const InformationDemographicFocus = (props: SceneProps) => (
@@ -136,7 +139,10 @@ export const PerformanceTeamSummary = (props: SceneProps) => (
 )
 
 export const PerformanceCompanySettings = (props: SceneProps) => (
-  <Base {...props} name="illustrations/scene/company-settings.svg" />
+  <Base
+    {...props}
+    name="illustrations/scene/performance-company-settings.svg"
+  />
 )
 
 export const ManagerLearningManagerHub = (props: SceneProps) => (
@@ -208,9 +214,9 @@ export const KaizenSiteProductAlt = (props: SceneProps) => (
 )
 
 export const KaizenSiteResources = (props: SceneProps) => (
-  <Base {...props} name="illustrations/scene/kaizen-site-product.svg" />
+  <Base {...props} name="illustrations/scene/kaizen-site-resources.svg" />
 )
 
 export const KaizenSiteResourcesAlt = (props: SceneProps) => (
-  <Base {...props} name="illustrations/scene/kaizen-site-product-alt.svg" />
+  <Base {...props} name="illustrations/scene/kaizen-site-resources-alt.svg" />
 )
