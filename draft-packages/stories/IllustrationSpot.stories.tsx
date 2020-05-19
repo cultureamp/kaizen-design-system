@@ -499,7 +499,7 @@ export const OneOnOneStory = () => (
     <OneOnOne alt="" />
   </div>
 )
-OneOnOneStory.story = { name: "Manager Learning: OneOnOne" }
+OneOnOneStory.story = { name: "Manager Learning: 1 On 1" }
 
 export const ProductivityStory = () => (
   <div style={{ width: "500px" }}>

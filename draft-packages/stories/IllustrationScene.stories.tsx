@@ -25,10 +25,10 @@ import {
   KaizenSiteProductAlt,
   KaizenSiteResources,
   KaizenSiteResourcesAlt,
-  ManagerLearning1On1Meetings,
   ManagerLearningCoaching,
   ManagerLearningFeedback,
   ManagerLearningManagerHub,
+  ManagerLearningOneOnOneMeetings,
   ManagerLearningProductivity,
   ManagerLearningRemoteManager,
   ManagerLearningResilience,
@@ -312,12 +312,12 @@ export const ManagerLearningResilienceStory = () => (
 )
 ManagerLearningResilienceStory.story = { name: "Manager Learning: Resilience" }
 
-export const ManagerLearning1On1MeetingsStory = () => (
+export const ManagerLearningOneOnOneMeetingsStory = () => (
   <div style={{ width: "500px" }}>
-    <ManagerLearning1On1Meetings alt="" />
+    <ManagerLearningOneOnOneMeetings alt="" />
   </div>
 )
-ManagerLearning1On1MeetingsStory.story = {
+ManagerLearningOneOnOneMeetingsStory.story = {
   name: "Manager Learning: 1 On 1 Meetings",
 }
 

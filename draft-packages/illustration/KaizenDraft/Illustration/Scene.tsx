@@ -171,11 +171,8 @@ export const ManagerLearningResilience = (props: SceneProps) => (
   <Base {...props} name="illustrations/scene/manager-learning-resilience.svg" />
 )
 
-export const ManagerLearning1On1Meetings = (props: SceneProps) => (
-  <Base
-    {...props}
-    name="illustrations/scene/manager-learning-1-on-1-meetings.svg"
-  />
+export const ManagerLearningOneOnOneMeetings = (props: SceneProps) => (
+  <Base {...props} name="illustrations/scene/manager-learning-1-on-1.svg" />
 )
 
 export const ManagerLearningStrategy = (props: SceneProps) => (
