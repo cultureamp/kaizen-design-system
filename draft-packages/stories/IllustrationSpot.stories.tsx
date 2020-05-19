@@ -1,15 +1,14 @@
 import * as React from "react"
-import { Spot } from "../illustration"
+import { EmptyStatesNeutral, InformationReportOwner } from "../illustration"
 const styles = require("./illustration.module.scss")
 
-export default { title: "Illustration, Spot (React)", component: Spot }
+export default {
+  title: "Illustration, Spot (React)",
+  component: InformationReportOwner,
+}
 
-export const SpotBase = () => <Spot alt="" name="BlankSurvey" />
+export const SpotBase = () => <InformationReportOwner alt="" />
 
 export const SpotWithOverrides = () => (
-  <Spot
-    classNameAndIHaveSpokenToDST={styles.wrapper}
-    alt=""
-    name="BlankSurvey"
-  />
+  <EmptyStatesNeutral classNameAndIHaveSpokenToDST={styles.wrapper} alt="" />
 )
