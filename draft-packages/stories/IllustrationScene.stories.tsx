@@ -46,148 +46,278 @@ import {
   PerformanceTeamSummary,
 } from "../illustration"
 
-export const SceneComponentForSite = () => <ManagerLearningResilience alt="" />
+export default {
+  title: "Illustration, Scene (React)",
+  component: ManagerLearningResilience,
+}
 
-export const EmptyStatesActionStory = () => <EmptyStatesAction alt="" />
-
-export const EmptyStatesInformativeStory = () => (
-  <EmptyStatesInformative alt="" />
+export const SceneStoryForKaizenSite = () => (
+  <div style={{ width: "500px" }}>
+    <ManagerLearningResilience alt="" />
+  </div>
 )
 
-export const EmptyStatesNegativeStory = () => <EmptyStatesNegative alt="" />
+export const EmptyStatesActionStory = () => (
+  <div style={{ width: "500px" }}>
+    <EmptyStatesAction alt="" />
+  </div>
+)
 
-export const EmptyStatesPositiveStory = () => <EmptyStatesPositive alt="" />
+export const EmptyStatesInformativeStory = () => (
+  <div style={{ width: "500px" }}>
+    <EmptyStatesInformative alt="" />
+  </div>
+)
 
-export const EmptyStatesNeutralStory = () => <EmptyStatesNeutral alt="" />
+export const EmptyStatesNegativeStory = () => (
+  <div style={{ width: "500px" }}>
+    <EmptyStatesNegative alt="" />
+  </div>
+)
+
+export const EmptyStatesPositiveStory = () => (
+  <div style={{ width: "500px" }}>
+    <EmptyStatesPositive alt="" />
+  </div>
+)
+
+export const EmptyStatesNeutralStory = () => (
+  <div style={{ width: "500px" }}>
+    <EmptyStatesNeutral alt="" />
+  </div>
+)
 
 export const IntroductionsNewAccountStory = () => (
-  <IntroductionsNewAccount alt="" />
+  <div style={{ width: "500px" }}>
+    <IntroductionsNewAccount alt="" />
+  </div>
 )
 
 export const IntroductionsCaptureIntroStory = () => (
-  <IntroductionsCaptureIntro alt="" />
+  <div style={{ width: "500px" }}>
+    <IntroductionsCaptureIntro alt="" />
+  </div>
 )
 
 export const IntroductionsPerformanceStory = () => (
-  <IntroductionsPerformance alt="" />
+  <div style={{ width: "500px" }}>
+    <IntroductionsPerformance alt="" />
+  </div>
 )
 
-export const IntroductionsNewAdminStory = () => <IntroductionsNewAdmin alt="" />
+export const IntroductionsNewAdminStory = () => (
+  <div style={{ width: "500px" }}>
+    <IntroductionsNewAdmin alt="" />
+  </div>
+)
 
-export const Information360UpgradeStory = () => <Information360Upgrade alt="" />
+export const Information360UpgradeStory = () => (
+  <div style={{ width: "500px" }}>
+    <Information360Upgrade alt="" />
+  </div>
+)
 
 export const InformationDemographicFocusStory = () => (
-  <InformationDemographicFocus alt="" />
+  <div style={{ width: "500px" }}>
+    <InformationDemographicFocus alt="" />
+  </div>
 )
 
 export const InformationTurnoverCalculatorStory = () => (
-  <InformationTurnoverCalculator alt="" />
+  <div style={{ width: "500px" }}>
+    <InformationTurnoverCalculator alt="" />
+  </div>
 )
 
 export const InformationTurnoverForecastStory = () => (
-  <InformationTurnoverForecast alt="" />
+  <div style={{ width: "500px" }}>
+    <InformationTurnoverForecast alt="" />
+  </div>
 )
 
 export const InformationEmergingTrendsStory = () => (
-  <InformationEmergingTrends alt="" />
+  <div style={{ width: "500px" }}>
+    <InformationEmergingTrends alt="" />
+  </div>
 )
 
 export const InformationEmployeeLifecycleStory = () => (
-  <InformationEmployeeLifecycle alt="" />
+  <div style={{ width: "500px" }}>
+    <InformationEmployeeLifecycle alt="" />
+  </div>
 )
 
 export const InformationReportOwnerStory = () => (
-  <InformationReportOwner alt="" />
+  <div style={{ width: "500px" }}>
+    <InformationReportOwner alt="" />
+  </div>
 )
 
 export const InformationReportOwnerByRuleStory = () => (
-  <InformationReportOwnerByRule alt="" />
+  <div style={{ width: "500px" }}>
+    <InformationReportOwnerByRule alt="" />
+  </div>
 )
 
 export const PerformanceEvaluationsStory = () => (
-  <PerformanceEvaluations alt="" />
+  <div style={{ width: "500px" }}>
+    <PerformanceEvaluations alt="" />
+  </div>
 )
 
 export const PerformanceCalibrationStory = () => (
-  <PerformanceCalibration alt="" />
+  <div style={{ width: "500px" }}>
+    <PerformanceCalibration alt="" />
+  </div>
 )
 
-export const PerformanceFaqStory = () => <PerformanceFaq alt="" />
+export const PerformanceFaqStory = () => (
+  <div style={{ width: "500px" }}>
+    {" "}
+    <PerformanceFaq alt="" />
+  </div>
+)
 
 export const PerformancePerformanceFeedbackStory = () => (
-  <PerformancePerformanceFeedback alt="" />
+  <div style={{ width: "500px" }}>
+    <PerformancePerformanceFeedback alt="" />
+  </div>
 )
 
-export const PerformanceGoalStatsStory = () => <PerformanceGoalStats alt="" />
+export const PerformanceGoalStatsStory = () => (
+  <div style={{ width: "500px" }}>
+    <PerformanceGoalStats alt="" />
+  </div>
+)
 
-export const PerformanceGoalsStory = () => <PerformanceGoals alt="" />
+export const PerformanceGoalsStory = () => (
+  <div style={{ width: "500px" }}>
+    <PerformanceGoals alt="" />
+  </div>
+)
 
 export const PerformancePeopleNetworkStory = () => (
-  <PerformancePeopleNetwork alt="" />
+  <div style={{ width: "500px" }}>
+    <PerformancePeopleNetwork alt="" />
+  </div>
 )
 
 export const PerformanceSelfReflectionsStory = () => (
-  <PerformanceSelfReflections alt="" />
+  <div style={{ width: "500px" }}>
+    <PerformanceSelfReflections alt="" />
+  </div>
 )
 
-export const PerformanceSupportStory = () => <PerformanceSupport alt="" />
+export const PerformanceSupportStory = () => (
+  <div style={{ width: "500px" }}>
+    <PerformanceSupport alt="" />
+  </div>
+)
 
 export const PerformanceTeamSummaryStory = () => (
-  <PerformanceTeamSummary alt="" />
+  <div style={{ width: "500px" }}>
+    <PerformanceTeamSummary alt="" />
+  </div>
 )
 
 export const PerformanceCompanySettingsStory = () => (
-  <PerformanceCompanySettings alt="" />
+  <div style={{ width: "500px" }}>
+    <PerformanceCompanySettings alt="" />
+  </div>
 )
 
 export const ManagerLearningManagerHubStory = () => (
-  <ManagerLearningManagerHub alt="" />
+  <div style={{ width: "500px" }}>
+    <ManagerLearningManagerHub alt="" />
+  </div>
 )
 
 export const ManagerLearningCoachingStory = () => (
-  <ManagerLearningCoaching alt="" />
+  <div style={{ width: "500px" }}>
+    <ManagerLearningCoaching alt="" />
+  </div>
 )
 
 export const ManagerLearningFeedbackStory = () => (
-  <ManagerLearningFeedback alt="" />
+  <div style={{ width: "500px" }}>
+    <ManagerLearningFeedback alt="" />
+  </div>
 )
 
 export const ManagerLearningProductivityStory = () => (
-  <ManagerLearningProductivity alt="" />
+  <div style={{ width: "500px" }}>
+    <ManagerLearningProductivity alt="" />
+  </div>
 )
 
 export const ManagerLearningResilienceStory = () => (
-  <ManagerLearningResilience alt="" />
+  <div style={{ width: "500px" }}>
+    <ManagerLearningResilience alt="" />
+  </div>
 )
 
 export const ManagerLearning1On1MeetingsStory = () => (
-  <ManagerLearning1On1Meetings alt="" />
+  <div style={{ width: "500px" }}>
+    <ManagerLearning1On1Meetings alt="" />
+  </div>
 )
 
 export const ManagerLearningStrategyStory = () => (
-  <ManagerLearningStrategy alt="" />
+  <div style={{ width: "500px" }}>
+    <ManagerLearningStrategy alt="" />
+  </div>
 )
 
 export const ManagerLearningRemoteManagerStory = () => (
-  <ManagerLearningRemoteManager alt="" />
+  <div style={{ width: "500px" }}>
+    <ManagerLearningRemoteManager alt="" />
+  </div>
 )
 
-export const KaizenSiteBrandAltStory = () => <KaizenSiteBrandAlt alt="" />
+export const KaizenSiteBrandAltStory = () => (
+  <div style={{ width: "500px" }}>
+    <KaizenSiteBrandAlt alt="" />
+  </div>
+)
 
-export const KaizenSiteBrandStory = () => <KaizenSiteBrand alt="" />
+export const KaizenSiteBrandStory = () => (
+  <div style={{ width: "500px" }}>
+    <KaizenSiteBrand alt="" />
+  </div>
+)
 
-export const KaizenSitePrinciplesStory = () => <KaizenSitePrinciples alt="" />
+export const KaizenSitePrinciplesStory = () => (
+  <div style={{ width: "500px" }}>
+    {" "}
+    <KaizenSitePrinciples alt="" />
+  </div>
+)
 
 export const KaizenSitePrinciplesAltStory = () => (
-  <KaizenSitePrinciplesAlt alt="" />
+  <div style={{ width: "500px" }}>
+    <KaizenSitePrinciplesAlt alt="" />
+  </div>
+)
+export const KaizenSiteProductStory = () => (
+  <div style={{ width: "500px" }}>
+    <KaizenSiteProduct alt="" />
+  </div>
 )
 
-export const KaizenSiteProductStory = () => <KaizenSiteProduct alt="" />
+export const KaizenSiteProductAltStory = () => (
+  <div style={{ width: "500px" }}>
+    <KaizenSiteProductAlt alt="" />
+  </div>
+)
 
-export const KaizenSiteProductAltStory = () => <KaizenSiteProductAlt alt="" />
-
-export const KaizenSiteResourcesStory = () => <KaizenSiteResources alt="" />
+export const KaizenSiteResourcesStory = () => (
+  <div style={{ width: "500px" }}>
+    <KaizenSiteResources alt="" />
+  </div>
+)
 
 export const KaizenSiteResourcesAltStory = () => (
-  <KaizenSiteResourcesAlt alt="" />
+  <div style={{ width: "500px" }}>
+    <KaizenSiteResourcesAlt alt="" />
+  </div>
 )
