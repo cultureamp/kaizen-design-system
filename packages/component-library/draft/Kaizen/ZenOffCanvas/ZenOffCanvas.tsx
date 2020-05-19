@@ -1,7 +1,7 @@
 import * as React from "react"
 
-import { ColorScheme } from "@kaizen/draft-zen-navigation-bar/KaizenDraft/ZenNavigationBar/NavigationBar"
 import classNames from "classnames"
+import { ColorScheme } from "../ZenNavigationBar/NavigationBar"
 import Header from "./components/Header"
 import Menu from "./components/Menu"
 
