@@ -12,6 +12,8 @@ const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.ic
 
 const styles = require("./styles.react.scss")
 
+export { ValueType } from "react-select"
+
 export const Select = (props: ReactSelectProps) => {
   return (
     <ReactSelect

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu-list@1.2.10...@kaizen/draft-menu-list@1.2.11) (2020-05-18)
+
+
+### Bug Fixes
+
+* sync old and new draft components ([#492](https://github.com/cultureamp/kaizen-design-system/issues/492)) ([6755e4b](https://github.com/cultureamp/kaizen-design-system/commit/6755e4beedf5d3953c5a50e152cfd181389d9be0))
+
+
+
+
+
+## [1.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu-list@1.2.9...@kaizen/draft-menu-list@1.2.10) (2020-05-15)
+
+**Note:** Version bump only for package @kaizen/draft-menu-list
+
+
+
+
+
 ## [1.2.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu-list@1.2.8...@kaizen/draft-menu-list@1.2.9) (2020-05-13)
 
 **Note:** Version bump only for package @kaizen/draft-menu-list
