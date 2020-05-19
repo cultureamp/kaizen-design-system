@@ -94,7 +94,7 @@
     "react": "^16.9.0",
     "react-docgen-typescript-loader": "^3.7.1",
     "react-dom": "^16.9.0",
-    "sass": "^1.26.3",
+    "sass": "^1.26.5",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "svg-sprite-loader": "^4.1.6",
@@ -112,11 +112,11 @@
   "devDependencies": {
     "@storybook/addon-docs": "^5.3.17",
     "@storybook/codemod": "^5.3.9",
-    "lint-staged": "^10.2.2",
     "@storybook/csf": "^0.0.1",
     "@storybook/node-logger": "^5.3.9",
     "husky": "^4.2.5",
     "jscodeshift": "^0.7.0",
+    "lint-staged": "^10.2.2",
     "storybook-chromatic": "^3.4.1"
   },
   "resolutions": {
