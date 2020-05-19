@@ -20,14 +20,9 @@ describe("GuidanceBlock", () => {
           description:
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
-        button={{
-          label: "Action!",
-          onClick: () => {
-            alert("tada: 🎉")
-          },
-        }}
-        onDismiss={() => {
-          /* do nothing */
+        actions={{
+          primary: { label: "Action!", onClick: () => alert("tada: 🎉") },
+          dismiss: { onClick: () => null },
         }}
       />
     )
@@ -45,13 +40,10 @@ describe("GuidanceBlock", () => {
           description:
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
-        button={{
-          label: "Action!",
-          onClick: () => {
-            /* do nothing */
-          },
+        actions={{
+          primary: { label: "Action!", onClick: () => alert("tada: 🎉") },
+          dismiss: { onClick: onDismiss },
         }}
-        onDismiss={onDismiss}
       />
     )
 
@@ -76,12 +68,8 @@ describe("GuidanceBlock", () => {
           description:
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
-        button={{
-          label: "Action!",
-          onClick: onAction,
-        }}
-        onDismiss={() => {
-          /* do nothing */
+        actions={{
+          primary: { label: "Action!", onClick: onAction },
         }}
       />
     )
@@ -99,14 +87,8 @@ describe("GuidanceBlock", () => {
           description:
             "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
         }}
-        button={{
-          label: "Action!",
-          onClick: () => {
-            /* do nothing */
-          },
-        }}
-        onDismiss={() => {
-          /* do nothing */
+        actions={{
+          primary: { label: "Action!", onClick: () => null },
         }}
       />
     )
@@ -123,5 +105,45 @@ describe("GuidanceBlock", () => {
 
     const bannerAfter = container.querySelector(".banner")
     expect(bannerAfter).toBeNull()
+  })
+
+  test("when guidance block is persistent", () => {
+    const { container } = render(
+      <GuidanceBlock
+        img={{ src: "image/path.png", alt: "Call to action banner" }}
+        text={{
+          title: "This is the call to action title",
+          description:
+            "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
+        }}
+        actions={{
+          primary: { label: "Action!", onClick: () => null },
+        }}
+        persistent
+      />
+    )
+
+    const cancelButton = container.querySelector(".cancel")
+    expect(cancelButton).toBeNull()
+  })
+
+  test("when secondary action is supplied", () => {
+    const { container } = render(
+      <GuidanceBlock
+        img={{ src: "image/path.png", alt: "Call to action banner" }}
+        text={{
+          title: "This is the call to action title",
+          description:
+            "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
+        }}
+        actions={{
+          primary: { label: "Action!", onClick: () => null },
+          secondary: { label: "Secondary action", onClick: () => null },
+        }}
+      />
+    )
+
+    const secondaryAction = container.querySelector(".secondaryAction")
+    expect(secondaryAction).not.toBeNull()
   })
 })

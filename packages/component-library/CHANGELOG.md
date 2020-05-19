@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.15.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.15.0...@kaizen/component-library@7.15.1) (2020-05-18)
+
+
+### Bug Fixes
+
+* sync old and new draft components ([#492](https://github.com/cultureamp/kaizen-design-system/issues/492)) ([6755e4b](https://github.com/cultureamp/kaizen-design-system/commit/6755e4beedf5d3953c5a50e152cfd181389d9be0))
+
+
+
+
+
+# [7.15.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.14.0...@kaizen/component-library@7.15.0) (2020-05-15)
+
+
+### Features
+
+* Make Kaizen Site pull draft component READMEs from draft packages ([#491](https://github.com/cultureamp/kaizen-design-system/issues/491)) ([31a321f](https://github.com/cultureamp/kaizen-design-system/commit/31a321f033f66805d4e8e299a329da1e0eb6a8e8))
+
+
+
+
+
 # [7.14.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.13.3...@kaizen/component-library@7.14.0) (2020-05-13)
 
 
