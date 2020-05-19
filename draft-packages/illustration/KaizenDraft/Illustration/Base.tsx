@@ -9,8 +9,9 @@ export type BaseProps = {
   name: string
 
   /**
-   * If there is context/text surrounding this illustration that provides alt text,
-   * provide an empty string
+   * If there is context/text surrounding this illustration that serves
+   * the function of alt text, provide an empty string so that any
+   * accessibility checks know the alt text has been intentionally left out
    */
   alt: string
 
