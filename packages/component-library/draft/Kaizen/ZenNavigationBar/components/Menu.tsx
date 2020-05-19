@@ -2,7 +2,7 @@ import * as React from "react"
 import uuid from "uuid/v4"
 
 import { Icon, IconButton } from "@kaizen/component-library"
-import { OffCanvasContext, ZenOffCanvas } from "@kaizen/draft-zen-off-canvas"
+import { OffCanvasContext, ZenOffCanvas } from "../../ZenOffCanvas" // relative imports are not ideal
 
 import classNames from "classnames"
 import Media from "react-media"
