@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.15.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.15.1...@kaizen/component-library@7.15.2) (2020-05-19)
+
+
+### Bug Fixes
+
+* Add ValueType export to old component-library location as well ([#495](https://github.com/cultureamp/kaizen-design-system/issues/495)) ([e9f6199](https://github.com/cultureamp/kaizen-design-system/commit/e9f6199399f0936546dc794b684abe15249cdf03))
+
+
+
+
+
 ## [7.15.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.15.0...@kaizen/component-library@7.15.1) (2020-05-18)
 
 
