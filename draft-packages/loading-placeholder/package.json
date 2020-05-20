@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-loading-placeholder",
-  "version": "1.2.14",
+  "version": "1.2.15",
   "description": "The draft Loading placeholder component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",

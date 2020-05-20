@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@1.3.15...@kaizen/draft-tooltip@1.3.16) (2020-05-20)
+
+
+### Bug Fixes
+
+* unpin unintentionally pinned @kaizen/design-token peer dependencies ([#503](https://github.com/cultureamp/kaizen-design-system/issues/503)) ([aa6f1d3](https://github.com/cultureamp/kaizen-design-system/commit/aa6f1d3a63cd7f2e3dac9cd631aa7a9e88b153ac))
+
+
+
+
+
 ## [1.3.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@1.3.14...@kaizen/draft-tooltip@1.3.15) (2020-05-19)
 
 **Note:** Version bump only for package @kaizen/draft-tooltip
