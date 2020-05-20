@@ -30,6 +30,6 @@ view (Config config) children =
 
 
 styles =
-    css "@kaizen/component-library/draft/Kaizen/Table/styles.scss"
+    css "@kaizen/draft-table/KaizenDraft/Table/styles.scss"
         { card = "card"
         }

@@ -1,4 +1,4 @@
-import { TextAreaField } from "@kaizen/component-library/draft"
+import { TextAreaField } from "@kaizen/draft-form"
 import { action } from "@storybook/addon-actions"
 import React from "react"
 
