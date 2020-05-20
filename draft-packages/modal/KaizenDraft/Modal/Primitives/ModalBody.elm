@@ -111,7 +111,7 @@ fillVerticalSpace predicate (Config config) =
 
 
 styles =
-    css "@kaizen/component-library/draft/Kaizen/Modal/Primitives/ModalBody.scss"
+    css "@kaizen/draft-modal/KaizenDraft/Modal/Primitives/ModalBody.scss"
         { modalBody = "modalBody"
         , scrollable = "scrollable"
         , fillSpace = "fillSpace"

@@ -1,5 +1,6 @@
 import { Text } from "@kaizen/component-library"
-import { TextField, Well } from "@kaizen/component-library/draft"
+import { TextField } from "@kaizen/draft-form"
+import { Well } from "@kaizen/draft-well"
 import * as React from "react"
 
 const ExampleContent = () => (

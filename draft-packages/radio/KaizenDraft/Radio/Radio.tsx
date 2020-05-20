@@ -1,4 +1,4 @@
-import { Label } from "@kaizen/component-library/draft"
+import { Label } from "@kaizen/draft-form"
 import classnames from "classnames"
 import * as React from "react"
 import RadioInput from "./Primitives/RadioInput"
