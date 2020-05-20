@@ -1,9 +1,5 @@
-// import __STORYBOOK_CLIENT_API__ from "@storybook/react"
 import AxePuppeteer from "axe-puppeteer"
 import puppeteer from "puppeteer"
-
-// Avoid memory leak error
-process.setMaxListeners(0)
 
 const getExamples = async page => {
   const handle = await page.evaluateHandle(() => ({ window, document }))
@@ -12,7 +8,6 @@ const getExamples = async page => {
   const clientApiHandle = await (await windowHandle.getProperties()).get(
     "__STORYBOOK_CLIENT_API__"
   )
-  const storyStore = await clientApiHandle.evaluate(thing => thing.store())
   const getStorybook = await clientApiHandle.evaluate(thing =>
     thing.getStorybook()
   )
