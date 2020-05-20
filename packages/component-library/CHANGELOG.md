@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.15.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.15.3...@kaizen/component-library@7.15.4) (2020-05-19)
+
+
+### Bug Fixes
+
+* Export ValueType from Select index.ts ([#498](https://github.com/cultureamp/kaizen-design-system/issues/498)) ([0930de0](https://github.com/cultureamp/kaizen-design-system/commit/0930de05691278c450ffa96c104b22eeae827252))
+
+
+
+
+
 ## [7.15.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.15.2...@kaizen/component-library@7.15.3) (2020-05-19)
 
 
