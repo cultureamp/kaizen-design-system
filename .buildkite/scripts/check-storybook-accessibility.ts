@@ -26,16 +26,23 @@ const getExamples = async page => {
   return result
 }
 
-const getExampleAnalyses = async storybookExampleUrls => {
-  const analysisPromise = async url => {
-    const newBrowser = await puppeteer.launch()
-    const examplePage = await newBrowser.newPage()
-    await examplePage.goto(url)
-    const analysis = await new AxePuppeteer(examplePage).analyze()
-    newBrowser.close()
-    return { url, violations: analysis.violations }
+const asyncForEach = async (array, callback) => {
+  for (let index = 0; index < array.length; index++) {
+    await callback(array[index], index, array)
   }
-  return Promise.all(storybookExampleUrls.map(url => analysisPromise(url)))
+}
+
+const getViolations = async (storybookExampleUrls, page) => {
+  const axePuppeteerInstance = new AxePuppeteer(page)
+  const analyses = []
+  await asyncForEach(storybookExampleUrls, async url => {
+    await page.goto(url)
+    const analysis = await axePuppeteerInstance.analyze()
+    if (analysis.violations.length > 0) {
+      analyses.push({ url, violations: analysis.violations })
+    }
+  })
+  return analyses
 }
 
 const main = async () => {
@@ -53,16 +60,14 @@ const main = async () => {
     )}&selectedStory=${encodeURIComponent(name)}`
   })
 
-  const analysedExamples = await getExampleAnalyses(storybookExampleUrls)
-
-  const analysedExamplesWithViolations = analysedExamples.filter(e => !!e)
+  const violations = await getViolations(storybookExampleUrls, page)
 
   await page.close()
   await browser.close()
 
-  if (analysedExamplesWithViolations.length > 0) {
+  if (violations.length > 0) {
     console.log("Accessibility violations found:")
-    analysedExamplesWithViolations.forEach(analysis => {
+    violations.forEach(analysis => {
       console.log(analysis)
     })
     process.exit(1)
