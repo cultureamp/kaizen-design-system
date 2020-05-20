@@ -1,1 +1,1 @@
-FROM node:10.16.3-jessie
+FROM node:10.18.1-jessie
