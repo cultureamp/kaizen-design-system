@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-well",
-  "version": "2.5.4",
+  "version": "2.5.5",
   "description": "The draft well component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -40,7 +40,7 @@
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "1.2.0",
+    "@kaizen/design-tokens": "^1.2.0",
     "react": "^16.9.0"
   }
 }

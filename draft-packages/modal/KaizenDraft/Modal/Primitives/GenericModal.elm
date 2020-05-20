@@ -83,7 +83,7 @@ events msg (Config config) =
 
 
 styles =
-    css "@kaizen/component-library/draft/Kaizen/Modal/Primitives/GenericModal.scss"
+    css "@kaizen/draft-modal/KaizenDraft/Modal/Primitives/GenericModal.scss"
         { scrollLayer = "scrollLayer"
         , elmGenericModal = "elmGenericModal"
         }
