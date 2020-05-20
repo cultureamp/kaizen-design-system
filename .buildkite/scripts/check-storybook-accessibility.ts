@@ -2,6 +2,9 @@
 import AxePuppeteer from "axe-puppeteer"
 import puppeteer from "puppeteer"
 
+// Avoid memory leak error
+process.setMaxListeners(0)
+
 const getExamples = async page => {
   const handle = await page.evaluateHandle(() => ({ window, document }))
   const properties = await handle.getProperties()
@@ -28,7 +31,7 @@ const getExamples = async page => {
   return result
 }
 
-const getViolations = async storybookExampleUrls => {
+const getExampleAnalyses = async storybookExampleUrls => {
   const analysisPromise = async url => {
     const newBrowser = await puppeteer.launch()
     const examplePage = await newBrowser.newPage()
@@ -39,3 +42,39 @@ const getViolations = async storybookExampleUrls => {
   }
   return Promise.all(storybookExampleUrls.map(url => analysisPromise(url)))
 }
+
+const main = async () => {
+  const browser = await puppeteer.launch()
+  const page = await browser.newPage()
+  await page.setBypassCSP(true)
+
+  const baseIframeUrl = "http://localhost:57357/iframe.html"
+  await page.goto(`${baseIframeUrl}?id=table-elm--default`)
+
+  const storybookExamples = await getExamples(page)
+  const storybookExampleUrls = storybookExamples.map(({ kind, name }) => {
+    return `${baseIframeUrl}?selectedKind=${encodeURIComponent(
+      kind
+    )}&selectedStory=${encodeURIComponent(name)}`
+  })
+
+  const analysedExamples = await getExampleAnalyses(storybookExampleUrls)
+
+  const analysedExamplesWithViolations = analysedExamples.filter(e => !!e)
+
+  await page.close()
+  await browser.close()
+
+  if (analysedExamplesWithViolations.length > 0) {
+    console.log("Accessibility violations found:")
+    analysedExamplesWithViolations.forEach(analysis => {
+      console.log(analysis)
+    })
+    process.exit(1)
+  } else {
+    console.log("No accessibility violations found")
+    process.exit(0)
+  }
+}
+
+main()
