@@ -3,7 +3,7 @@ module Main exposing (main)
 import ElmStorybook exposing (StatelessMsg(..), statelessStoryOf, storybook)
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (style)
-import Kaizen.Popover.Popover as Popover exposing (view)
+import KaizenDraft.Popover.Popover as Popover exposing (view)
 
 
 type Msg

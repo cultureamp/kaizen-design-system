@@ -1,5 +1,5 @@
 import { Text } from "@kaizen/component-library"
-import { LoadingPlaceholder } from "@kaizen/component-library/draft"
+import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
 import * as React from "react"
 
 const styles = require("./LoadingPlaceholder.stories.scss")

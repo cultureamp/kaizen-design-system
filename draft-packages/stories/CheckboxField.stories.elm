@@ -3,7 +3,7 @@ module Main exposing (main)
 import CssModules exposing (css)
 import ElmStorybook exposing (statelessStoryOf, storybook)
 import Html exposing (..)
-import Kaizen.Form.CheckboxField.CheckboxField as CheckboxField
+import KaizenDraft.Form.CheckboxField.CheckboxField as CheckboxField
 
 
 main =
