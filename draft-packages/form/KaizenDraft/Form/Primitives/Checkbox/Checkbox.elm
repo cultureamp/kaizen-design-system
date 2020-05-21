@@ -189,7 +189,7 @@ view (Config config) =
 
 
 styles =
-    css "@kaizen/component-library/draft/Kaizen/Form/Primitives/Checkbox/styles.scss"
+    css "@kaizen/draft-form/KaizenDraft/Form/Primitives/Checkbox/styles.scss"
         { checkbox = "checkbox"
         , disabled = "disabled"
         , container = "container"

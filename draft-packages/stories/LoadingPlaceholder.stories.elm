@@ -4,7 +4,7 @@ import CssModules exposing (css)
 import ElmStorybook exposing (statelessStoryOf, storybook)
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (style)
-import Kaizen.LoadingPlaceholder.LoadingPlaceholder as LoadingPlaceholder
+import KaizenDraft.LoadingPlaceholder.LoadingPlaceholder as LoadingPlaceholder
 import Text.Text as Text
 
 

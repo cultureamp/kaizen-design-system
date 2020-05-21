@@ -70,27 +70,27 @@ defaults =
 
 actionIllustrationUrl : WebpackAsset.AssetUrl
 actionIllustrationUrl =
-    assetUrl "@kaizen/component-library/draft/Kaizen/EmptyState/illustrations/action.png"
+    assetUrl "@kaizen/draft-empty-state/KaizenDraft/EmptyState/illustrations/action.png"
 
 
 informativeIllustrationUrl : WebpackAsset.AssetUrl
 informativeIllustrationUrl =
-    assetUrl "@kaizen/component-library/draft/Kaizen/EmptyState/illustrations/informative.png"
+    assetUrl "@kaizen/draft-empty-state/KaizenDraft/EmptyState/illustrations/informative.png"
 
 
 negativeIllustrationUrl : WebpackAsset.AssetUrl
 negativeIllustrationUrl =
-    assetUrl "@kaizen/component-library/draft/Kaizen/EmptyState/illustrations/negative.png"
+    assetUrl "@kaizen/draft-empty-state/KaizenDraft/EmptyState/illustrations/negative.png"
 
 
 neutralIllustrationUrl : WebpackAsset.AssetUrl
 neutralIllustrationUrl =
-    assetUrl "@kaizen/component-library/draft/Kaizen/EmptyState/illustrations/neutral.png"
+    assetUrl "@kaizen/draft-empty-state/KaizenDraft/EmptyState/illustrations/neutral.png"
 
 
 positiveIllustrationUrl : WebpackAsset.AssetUrl
 positiveIllustrationUrl =
-    assetUrl "@kaizen/component-library/draft/Kaizen/EmptyState/illustrations/positive.png"
+    assetUrl "@kaizen/draft-empty-state/KaizenDraft/EmptyState/illustrations/positive.png"
 
 
 
@@ -217,7 +217,7 @@ view (Config config) =
 
 
 styles =
-    css "@kaizen/component-library/draft/Kaizen/EmptyState/styles.scss"
+    css "@kaizen/draft-empty-state/KaizenDraft/EmptyState/styles.scss"
         { container = "container"
         , illustrationSide = "illustrationSide"
         , textSide = "textSide"
