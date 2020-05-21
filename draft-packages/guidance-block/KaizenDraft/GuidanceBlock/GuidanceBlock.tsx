@@ -35,6 +35,7 @@ type Props = {
     }
   }
   persistent?: boolean
+  withActionButtonArrow?: boolean
 }
 
 type State = {
@@ -42,6 +43,10 @@ type State = {
   removed: boolean
 }
 class GuidanceBlock extends React.Component<Props, State> {
+  static defaultProps = {
+    withActionButtonArrow: true,
+  }
+
   state = {
     hidden: false,
     removed: false,
@@ -78,6 +83,7 @@ class GuidanceBlock extends React.Component<Props, State> {
       img,
       text,
       persistent,
+      withActionButtonArrow,
     } = this.props
 
     return (
@@ -109,7 +115,7 @@ class GuidanceBlock extends React.Component<Props, State> {
           <Button
             label={primary.label}
             onClick={primary.onClick}
-            icon={configureIcon}
+            icon={withActionButtonArrow ? configureIcon : null}
             iconPosition="end"
             disabled={primary.disabled}
           />

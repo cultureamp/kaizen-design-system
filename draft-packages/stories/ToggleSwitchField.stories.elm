@@ -2,7 +2,7 @@ module Main exposing (main)
 
 import ElmStorybook exposing (storyOf, storybook)
 import Html exposing (..)
-import Kaizen.Form.ToggleSwitchField.ToggleSwitchField as ToggleSwitchField
+import KaizenDraft.Form.ToggleSwitchField.ToggleSwitchField as ToggleSwitchField
 
 
 type alias ToggleSwitchFieldModel =

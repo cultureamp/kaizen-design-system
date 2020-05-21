@@ -19,11 +19,23 @@ type Props = {
     title: string
     description: string | React.ReactNode
   }
-  button: {
-    label: string
-    onClick: () => void
+  actions: {
+    primary: {
+      label: string
+      onClick: () => void
+      disabled?: boolean
+    }
+    secondary?: {
+      label: string
+      onClick: () => void
+      disabled?: boolean
+    }
+    dismiss?: {
+      onClick: () => void
+    }
   }
-  onDismiss: () => void
+  persistent?: boolean
+  withActionButtonArrow?: boolean
 }
 
 type State = {
@@ -31,6 +43,10 @@ type State = {
   removed: boolean
 }
 class GuidanceBlock extends React.Component<Props, State> {
+  static defaultProps = {
+    withActionButtonArrow: true,
+  }
+
   state = {
     hidden: false,
     removed: false,
@@ -47,7 +63,7 @@ class GuidanceBlock extends React.Component<Props, State> {
 
   dismissBanner(): void {
     this.setState({ hidden: true })
-    this.props.onDismiss()
+    this.props.actions.dismiss?.onClick()
   }
 
   onTransitionEnd(e: React.TransitionEvent<HTMLDivElement>) {
@@ -62,6 +78,14 @@ class GuidanceBlock extends React.Component<Props, State> {
       return null
     }
 
+    const {
+      actions: { primary, secondary },
+      img,
+      text,
+      persistent,
+      withActionButtonArrow,
+    } = this.props
+
     return (
       <div
         className={this.bannerClassName()}
@@ -70,32 +94,44 @@ class GuidanceBlock extends React.Component<Props, State> {
         onTransitionEnd={this.onTransitionEnd}
       >
         <div className={styles.iconWrapper}>
-          <img
-            src={this.props.img.src}
-            alt={this.props.img.alt}
-            height="155px"
-            width="155px"
-          />
+          <img src={img.src} alt={img.alt} height="155px" width="155px" />
         </div>
+
         <div className={styles.descriptionContainer}>
           <div className={styles.headingWrapper}>
             <Text inline={true} tag="h3" style="display">
-              {this.props.text.title}
+              {text.title}
             </Text>
           </div>
           <Text tag="p" style="body">
-            {this.props.text.description}
+            {text.description}
           </Text>
         </div>
-        <div className={styles.buttonContainer}>
+        <div
+          className={classnames(styles.buttonContainer, {
+            [styles.secondaryAction]: secondary,
+          })}
+        >
           <Button
-            label={this.props.button.label}
-            onClick={this.props.button.onClick}
-            icon={configureIcon}
+            label={primary.label}
+            onClick={primary.onClick}
+            icon={withActionButtonArrow ? configureIcon : null}
             iconPosition="end"
+            disabled={primary.disabled}
           />
-          <CancelButton onClick={this.dismissBanner} />
+
+          {secondary && (
+            <div className={styles.secondaryAction}>
+              <Button
+                label={secondary.label}
+                onClick={secondary.onClick}
+                secondary
+                disabled={secondary.disabled}
+              />
+            </div>
+          )}
         </div>
+        {!persistent && <CancelButton onClick={this.dismissBanner} />}
       </div>
     )
   }

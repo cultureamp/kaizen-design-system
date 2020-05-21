@@ -220,7 +220,7 @@ view (Config config) =
 
 
 styles =
-    css "@kaizen/component-library/draft/Kaizen/Popover/styles.scss"
+    css "@kaizen/draft-popover/KaizenDraft/Popover/styles.scss"
         { container = "container"
         , root = "root"
         , defaultBox = "defaultBox"

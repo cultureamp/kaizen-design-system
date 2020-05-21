@@ -27,10 +27,15 @@ $row-height: 60px;
 }
 
 .header {
-  @include ca-type-ideal-label;
-  @include ca-inherit-baseline;
-  background-color: $kz-color-ash;
   border: solid 1px $ca-border-color;
+
+  &.ash {
+    background-color: $kz-color-ash;
+  }
+
+  &.white {
+    background-color: $kz-color-white;
+  }
 }
 
 .headerRow {
@@ -76,7 +81,9 @@ $row-height: 60px;
   @include button-reset;
   background: $kz-color-white;
   border: solid 1px $ca-border-color;
-  box-shadow: $kz-shadow-small-box-shadow;
+  // Reverting back from $kz-shadow-small-box-shadow as an interim.
+  // @see https://cultureamp.slack.com/archives/CETLTFG9G/p1588658249280300?thread_ts=1588587636.273700&cid=CETLTFG9G
+  box-shadow: $ca-box-shadow;
   transition: box-shadow $ca-duration-rapid, border-color $ca-duration-rapid,
     margin $ca-duration-rapid, padding $ca-duration-rapid,
     width $ca-duration-rapid;
