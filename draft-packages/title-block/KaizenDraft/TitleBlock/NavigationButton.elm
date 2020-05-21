@@ -101,7 +101,7 @@ class =
 
 
 styles =
-    css "@kaizen/component-library/draft/Kaizen/TitleBlock/NavigationButton.scss"
+    css "@kaizen/draft-title-block/KaizenDraft/TitleBlock/NavigationButton.scss"
         { button = "button"
         , activeButton = "activeButton"
         , reversed = "reversed"

@@ -6,7 +6,7 @@ import ElmStorybook exposing (statelessStoryOf, storybook)
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (dir)
 import Icon.SvgAsset exposing (svgAsset)
-import Kaizen.EmptyState.EmptyState as EmptyState
+import KaizenDraft.EmptyState.EmptyState as EmptyState
 
 
 sidebarAndContentLayout : List (Html msg) -> Html msg

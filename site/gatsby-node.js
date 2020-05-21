@@ -53,7 +53,7 @@ exports.onCreateBabelConfig = ({ actions }, options) => {
 
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
-const componentReadmeRegex = /\/(?:components|draft\/Kaizen).*\W(\w+)\/README.mdx?$/i
+const componentReadmeRegex = /\/(?:components|draft-packages).*\W(\w+)\/README.mdx?$/i
 
 const camelToKebab = string => {
   return string

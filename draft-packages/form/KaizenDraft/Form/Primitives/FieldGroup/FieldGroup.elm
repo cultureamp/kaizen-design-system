@@ -6,7 +6,7 @@ import Html.Attributes
 
 
 styles =
-    css "@kaizen/component-library/draft/Kaizen/Form/Primitives/FieldGroup/styles.scss"
+    css "@kaizen/draft-form/KaizenDraft/Form/Primitives/FieldGroup/styles.scss"
         { group = "group"
         , inline = "inline"
         }

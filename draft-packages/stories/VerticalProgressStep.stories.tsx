@@ -1,4 +1,4 @@
-import { VerticalProgressStep } from "@kaizen/component-library/draft"
+import { VerticalProgressStep } from "@kaizen/draft-vertical-progress-step"
 import * as React from "react"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => (

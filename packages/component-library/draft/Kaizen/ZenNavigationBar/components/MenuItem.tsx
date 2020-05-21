@@ -1,7 +1,7 @@
 import { Icon } from "@kaizen/component-library"
 import classNames from "classnames"
 import React from "react"
-import { LinkClickContext } from "../context"
+import { NavBarContext } from "../context"
 import { MenuItemProps } from "../types"
 
 const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
@@ -16,7 +16,7 @@ const MenuItem = ({
   showArrowIcon = false,
   active = false,
 }: MenuItemProps) => {
-  const { handleNavigationChange } = React.useContext(LinkClickContext)
+  const { handleNavigationChange } = React.useContext(NavBarContext)
 
   const handleItemClick = event => {
     onClick && onClick(event)

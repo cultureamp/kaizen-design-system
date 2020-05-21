@@ -3,8 +3,8 @@ module Main exposing (main)
 import ElmStorybook exposing (statelessStoryOf, storybook)
 import Html exposing (div)
 import Html.Attributes exposing (style)
-import Kaizen.Tag.Tag as Tag
-import Kaizen.Tooltip.Tooltip as Tooltip
+import KaizenDraft.Tag.Tag as Tag
+import KaizenDraft.Tooltip.Tooltip as Tooltip
 
 
 main =
