@@ -430,7 +430,7 @@ update msg (State state_) =
                 ( updatedState, updatedCmds ) =
                     case state_.initialMousedown of
                         ContainerMousedown ->
-                            ( { state_ | inputValue = Nothing }, Cmd.none )
+                            ( { state_ | inputValue = Nothing }, ports )
 
                         MultiItemMousedown _ ->
                             ( state_, Cmd.none )
@@ -441,7 +441,7 @@ update msg (State state_) =
                                 , controlFocused = False
                                 , inputValue = Nothing
                               }
-                            , cmdWithClosedMenu
+                            , Cmd.batch [ cmdWithClosedMenu, ports ]
                             )
 
                 ports =
@@ -458,7 +458,7 @@ update msg (State state_) =
             in
             ( Internal
             , State updatedState
-            , Cmd.batch [ updatedCmds, ports ]
+            , updatedCmds
             )
 
         MenuItemClickFocus i ->
