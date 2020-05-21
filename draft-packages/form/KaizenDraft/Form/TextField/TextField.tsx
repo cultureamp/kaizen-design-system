@@ -6,7 +6,7 @@ import {
   InputStatus,
   InputType,
   Label,
-} from "@kaizen/component-library/draft"
+} from "@kaizen/draft-form"
 const exclamationIcon = require("@kaizen/component-library/icons/exclamation.icon.svg")
   .default
 const successIcon = require("@kaizen/component-library/icons/success.icon.svg")

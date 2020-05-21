@@ -1,0 +1,21 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/color";
+
+.tag {
+  margin-left: -1.75rem;
+  margin-right: 0.25rem;
+  position: absolute;
+  transform: translateY(0.2em);
+}
+
+.do {
+  .icon {
+    color: $kz-color-seedling-500;
+  }
+}
+
+.dont {
+  .icon {
+    color: $kz-color-coral-500;
+  }
+}

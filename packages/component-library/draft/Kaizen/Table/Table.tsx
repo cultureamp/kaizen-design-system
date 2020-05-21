@@ -1,8 +1,7 @@
 import { Icon, Text } from "@kaizen/component-library"
-import { Checkbox } from "@kaizen/component-library/draft"
 import classNames from "classnames"
 import * as React from "react"
-import { CheckedStatus } from "../Form"
+import { Checkbox, CheckedStatus } from "../Form" // relative imports are not ideal, but drafts are being deleted soon
 const styles = require("./styles.scss")
 const sortDescendingIcon = require("@kaizen/component-library/icons/sort-descending.icon.svg")
   .default
@@ -14,9 +13,21 @@ export const TableContainer: TableContainer = ({ children, ...otherProps }) => (
   </div>
 )
 
-type TableHeader = React.FunctionComponent
-export const TableHeader: TableHeader = ({ children, ...otherProps }) => (
-  <div className={styles.header} role="rowgroup" {...otherProps}>
+export type AllowedTableHeaderBackgroundColors = "ash" | "white"
+
+type TableHeader = React.FunctionComponent<{
+  backgroundColor?: AllowedTableHeaderBackgroundColors
+}>
+export const TableHeader: TableHeader = ({
+  children,
+  backgroundColor = "ash",
+  ...otherProps
+}) => (
+  <div
+    className={classNames(styles.header, styles[backgroundColor])}
+    role="rowgroup"
+    {...otherProps}
+  >
     {children}
   </div>
 )

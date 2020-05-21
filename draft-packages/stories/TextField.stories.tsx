@@ -1,7 +1,7 @@
 import { action } from "@storybook/addon-actions"
 import React, { useCallback, useRef } from "react"
 
-import { TextField } from "@kaizen/component-library/draft"
+import { TextField } from "@kaizen/draft-form"
 const lockIcon = require("@kaizen/component-library/icons/lock.icon.svg")
   .default
 const userIcon = require("@kaizen/component-library/icons/user.icon.svg")

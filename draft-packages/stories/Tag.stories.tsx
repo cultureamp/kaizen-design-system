@@ -1,4 +1,4 @@
-import { Tag } from "@kaizen/component-library/draft"
+import { Tag } from "@kaizen/draft-tag"
 import * as React from "react"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => (
