@@ -1,5 +1,5 @@
 import { Button } from "@kaizen/component-library/components/Button"
-import { TitleBlock } from "@kaizen/component-library/draft"
+import { TitleBlock } from "@kaizen/draft-title-block"
 import * as React from "react"
 
 require("./TitleBlock.stories.scss")

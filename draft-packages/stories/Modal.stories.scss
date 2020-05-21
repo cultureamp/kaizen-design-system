@@ -9,7 +9,7 @@
 
   @include ca-media-tablet-and-up {
     background-size: 80%;
-    background-image: url(~@kaizen/component-library/draft/Kaizen/Modal/backgrounds/brush-informative.png);
+    background-image: url(~@kaizen/draft-modal/KaizenDraft/Modal/backgrounds/brush-informative.png);
   }
 }
 
@@ -23,6 +23,6 @@
 }
 
 .genericModal {
-  composes: genericModal from "~@kaizen/component-library/draft/Kaizen/Modal/Primitives/GenericModal.scss";
+  composes: genericModal from "~@kaizen/draft-modal/KaizenDraft/Modal/Primitives/GenericModal.scss";
   max-width: 90%;
 }

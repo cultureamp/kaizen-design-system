@@ -7,7 +7,7 @@ import uuid from "uuid/v4"
 import Badge from "./components/Badge"
 import Link from "./components/Link"
 import Menu from "./components/Menu"
-import { LinkClickContext } from "./context"
+import { NavBarContext } from "./context"
 import { Navigation, NavigationChange, NavigationItem } from "./types"
 
 const styles = require("./NavigationBar.module.scss")
@@ -24,7 +24,6 @@ type Props = {
   }
   footerComponent?: React.ReactNode
   children?: Navigation
-  mobileMaxWidth?: number
 }
 
 type State = {
@@ -42,7 +41,6 @@ export default class NavigationBar extends React.Component<Props, State> {
     loading: false,
     colorScheme: "cultureamp",
     badgeHref: "/",
-    mobileMaxWidth: styles.caBreakpointMobile,
     onNavigationChange: () => null,
   }
 
@@ -56,12 +54,11 @@ export default class NavigationBar extends React.Component<Props, State> {
       children,
       colorScheme = "cultureamp",
       headerComponent,
-      mobileMaxWidth,
       onNavigationChange,
     } = this.props
 
     return (
-      <LinkClickContext.Provider
+      <NavBarContext.Provider
         value={{
           handleNavigationChange: event => {
             const navigationHref = event.currentTarget.getAttribute("href")
@@ -72,9 +69,10 @@ export default class NavigationBar extends React.Component<Props, State> {
               onNavigationChange(event)
             }
           },
+          hasExtendedNavigation: !!children?.secondary?.length,
         }}
       >
-        <Media query={`(max-width: ${mobileMaxWidth})`}>
+        <Media query={`(max-width: ${styles.caBreakpointMobileMax})`}>
           {(matches: boolean) =>
             matches ? (
               <ZenControlledOffCanvas
@@ -106,7 +104,7 @@ export default class NavigationBar extends React.Component<Props, State> {
             )
           }
         </Media>
-      </LinkClickContext.Provider>
+      </NavBarContext.Provider>
     )
   }
 

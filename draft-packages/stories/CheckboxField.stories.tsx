@@ -1,4 +1,4 @@
-import { CheckboxField } from "@kaizen/component-library/draft"
+import { CheckboxField } from "@kaizen/draft-form"
 import * as React from "react"
 
 type RenderProps = {
