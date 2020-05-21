@@ -12,6 +12,10 @@ import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
 import WhenToUse from "docs-components/WhenToUse"
 import WhenNotToUse from "docs-components/WhenNotToUse"
 
+import DoAndDontContainer from "docs-components/DoAndDontContainer"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
 ## Visuals
 
 ### UI Kit
@@ -47,42 +51,66 @@ E.g. **Meaning changed** We prevent significant changes to the meaning of questi
 *   Lines:
     *   Single-line: inline/adjacent heading and body
     *   Multi-line: stacked heading and body
-    
+
 ## Copy guidelines
 
 The key to a good inline notification is conciseness and clarity.  Here are some language rules:
 
 ### Give it a descriptive title
+
 Keep the title short but descriptive. Describe exactly what has happened or what needs to happen.
 
-Do:
+<DoAndDontContainer>
+<Do>
+
 - Data imported successfully
 - Errors found in your employee data
 
-Don't:
+</Do>
+
+<Dont>
+
 - Success!
 - Critical error.
 
+</Dont>
+</DoAndDontContainer>
+
 ### Include an explanatory body
+
 Explain the title further but keep it to one to two sentences maximum. Include links to supporting documentation or next actions. If the notification is dismissible, don’t include information that the user would need to perform crucial actions.
 
-Do:
+<DoAndDontContainer>
+<Do>
+
 - **Survey invitations have been scheduled.** 10 participants will receive their survey invitations at 9:00AM EST on 10 March 2020.
 - **Errors found in your employee data.** For your survey to run smoothly, you must fix these errors and re-import your data.
 
-Don't:
+</Do>
+
+<Dont>
+
 - **Sent!** They’ll get their invitations soon.
 - **Errors found in your employee data.** Fix them to proceed. 
 
+</Dont>
+</DoAndDontContainer>
+
 ### Guide with a Call-To-Action (CTA)
+
 Make sure you guide the user towards a next step if there are any to be taken. Include a link directly to the next step.
+
 ### Pay close attention to the context
-Make sure you [adjust the tone](https://cultureamp.design/language/voiceandtone/) of your writing to fit the specific mood of the notification:
-      * **Positive notifications** - Let the user know that the action they performed was successful. Give them a link to a next step, or an opportunity to view the successful result.
-      * **Informative notifications** - Give the user supplementary information to the content on the page.
-      * **Cautionary notifications** - Warn the user of any side effects of the action they’re about to perform. 
-      * **Negative notifications** - Let the user know that an error has occurred, describe  the error and how they can fix it. Remember to avoid jargon and tech speak. 
+
+Make sure you [adjust the tone](/language/voiceandtone/) of your writing to fit the specific mood of the notification:
+
+* **Positive notifications** - Let the user know that the action they performed was successful. Give them a link to a next step, or an opportunity to view the successful result.
+* **Informative notifications** - Give the user supplementary information to the content on the page.
+* **Cautionary notifications** - Warn the user of any side effects of the action they’re about to perform. 
+* **Negative notifications** - Let the user know that an error has occurred, describe  the error and how they can fix it. Remember to avoid jargon and tech speak. 
+
 ### Write in sentence case with minimal punctuation. 
+
 All inline notifications copy should be in sentence case i.e. the first letter of the first word is capitalized and everything else is in lower case unless it’s a proper noun or feature name. Always err on the side of minimal punctuation, so leave out full stops and commas where possible.
 
 ## To keep in mind
