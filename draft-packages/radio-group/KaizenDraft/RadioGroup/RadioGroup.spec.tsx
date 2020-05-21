@@ -1,4 +1,4 @@
-import { Radio } from "@kaizen/component-library/draft"
+import { Radio } from "@kaizen/draft-radio"
 import { cleanup, fireEvent, render } from "@testing-library/react"
 import * as React from "react"
 import RadioGroup, { RadioGroupProps } from "./RadioGroup"

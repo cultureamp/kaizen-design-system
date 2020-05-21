@@ -98,7 +98,7 @@ baseTooltip body =
 
 
 styles =
-    css "@kaizen/component-library/draft/Kaizen/Tooltip/Tooltip.scss"
+    css "@kaizen/draft-tooltip/KaizenDraft/Tooltip/Tooltip.scss"
         { root = "root"
         , default = "default"
         , tooltipWrap = "tooltipWrap"

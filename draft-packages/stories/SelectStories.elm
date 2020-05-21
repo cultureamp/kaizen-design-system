@@ -3,7 +3,7 @@ module Main exposing (main)
 import ElmStorybook exposing (storyOf, storybook)
 import Html exposing (Html, div)
 import Html.Attributes exposing (style)
-import Kaizen.Select.Select as Select
+import KaizenDraft.Select.Select as Select
 
 
 type alias Item =
