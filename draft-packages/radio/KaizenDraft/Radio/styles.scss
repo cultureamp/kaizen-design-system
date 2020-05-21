@@ -1,7 +1,7 @@
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/color";
 
-@import "~@kaizen/draft-radio/KaizenDraft/Radio/Primitives/styles";
+@import "./Primitives/styles";
 
 .container {
   position: relative;
