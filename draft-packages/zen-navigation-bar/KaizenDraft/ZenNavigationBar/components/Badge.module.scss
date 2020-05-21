@@ -11,6 +11,7 @@
   text-decoration: none;
   text-transform: uppercase;
   width: $ca-navigation-bar__height;
+  max-height: 100%;
   flex: 0 0 $ca-navigation-bar__height;
 
   // auto 1:1 (square) aspect ratio
@@ -61,7 +62,7 @@
     color: $kz-color-wisteria-800;
   }
 
-  @include ca-media-mobile {
+  @include navbar-mobile-only {
     @include ca-margin($start: 21px);
 
     background: none;

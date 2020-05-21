@@ -30,6 +30,7 @@ export type LinkProps = {
   opaque?: boolean
   small?: boolean
   content?: boolean
+  tooltip?: string
 }
 
 export type MenuProps = {

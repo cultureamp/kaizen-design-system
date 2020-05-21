@@ -37,7 +37,7 @@ import KaizenDraft.Form.Primitives.Label.Label as Label
 
 
 styles =
-    css "@kaizen/component-library/draft/Kaizen/Form/TextField/styles.scss"
+    css "@kaizen/draft-form/KaizenDraft/Form/TextField/styles.scss"
         { withLabel = "withLabel"
         , withDisabled = "withDisabled"
         , withReversed = "withReversed"

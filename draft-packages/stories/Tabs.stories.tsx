@@ -2,7 +2,7 @@ import classnames from "classnames"
 import * as React from "react"
 
 import { Text } from "@kaizen/component-library"
-import { Tabs } from "@kaizen/component-library/draft"
+import { Tabs } from "@kaizen/draft-tabs"
 
 export default {
   title: "Tabs (React)",

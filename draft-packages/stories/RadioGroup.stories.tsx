@@ -1,4 +1,6 @@
-import { Label, Radio, RadioGroup } from "@kaizen/component-library/draft"
+import { Label } from "@kaizen/draft-form"
+import { Radio } from "@kaizen/draft-radio"
+import { RadioGroup } from "@kaizen/draft-radio-group"
 import * as React from "react"
 const styles = require("./RadioGroup.stories.scss")
 
