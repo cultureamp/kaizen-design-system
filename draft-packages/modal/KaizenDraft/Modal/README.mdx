@@ -17,6 +17,10 @@ import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
 import WhenToUse from "docs-components/WhenToUse"
 import WhenNotToUse from "docs-components/WhenNotToUse"
 
+import DoAndDontContainer from "docs-components/DoAndDontContainer"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
 ## Visuals
 
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D136%253A4458" allowfullscreen></iframe>
@@ -31,60 +35,89 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
       * Informative
   * Input/edit
   * Information
-  
+
 ## Copy guidelines
+
 Modals are highly contextual and can be disruptive, so pay close attention to the following language rules:
 
 ### Consider the flow
+
 Pay close attention to where the user encounters this modal in their flow. Is this new information? Or is this a change in the usual flow? Adjust your language accordingly. A new step might require more context and an intro (like in an information modal). Whereas a change doesn’t require as much context as it does justification for the change and how it affects the user’s usual workflow.
 
 ### Give it a descriptive title
+
 Make sure that your titles are scannable and describe what the user is about to do. Include a strong verb. Avoid questions. Avoid words like “a” and “an.”
 
-Do:
+<DoAndDontContainer>
+<Do>
+
 - Data file will be replaced
 - Notify users
 
-Don't:
+</Do>
+
+<Dont>
+
 - Replace data file?
 - Notifications
 
+</Dont>
+</DoAndDontContainer>
+
 ### Provide actionable body content
+
 Write your body content keeping in mind that a user needs to perform an action. Guide them and avoid using superfluous language. Make each word count. Integrate links into your text to keep your writing concise.
 
-Do:
+<DoAndDontContainer>
+<Do>
+
 - **Data file will be replaced**
-If you continue, your original data file will be replaced with the one you recently imported.
-
+    <br /> If you continue, your original data file will be replaced with the one you recently imported.
 - **Notify survey participants**
-Let your participants know that the survey report is now live.
+    <br /> Let your participants know that the survey report is now live.
 
-Don't:
+</Do>
+
+<Dont>
+
 - **Replace data file?**
-Continuing will replace all your data.
+    <br /> Continuing will replace all your data.
 - **Notifications**
-Awesome, your survey is now live! Send your users a message.
+    <br /> Awesome, your survey is now live! Send your users a message.
+
+</Dont>
+</DoAndDontContainer>
 
 ### Give it a complementary Call-To-Action (CTA) button
+
 Your CTA button should complement the title of the modal. If a user scans the title, the CTA button should clearly direct them towards an action. Don’t hesitate to use “next” as a button if the modal includes multiple pages.
 
-Do: 
-- **Data file will be replaced**
-If you continue, your original data file will be replaced with the one you recently imported.
-[Cancel] [Replace data]
-- **Notify survey participants**
-Let your participants know that the survey report is now live.
-[Cancel] [Send notification]
+<DoAndDontContainer>
+<Do>
 
-Don't:
+- **Data file will be replaced**
+    <br />If you continue, your original data file will be replaced with the one you recently imported.
+    <br />[Cancel] [Replace data]
+- **Notify survey participants**
+    <br />Let your participants know that the survey report is now live.
+    <br />[Cancel] [Send notification]
+
+</Do>
+
+<Dont>
+
 - **Replace data file?**
-Continuing will replace all your data.
-[Continue]
+    <br />Continuing will replace all your data.
+    <br />[Continue]
 - **Notifications**
-Awesome, your survey is now live! Send your users a message.
-[Let users know]
+    <br />Awesome, your survey is now live! Send your users a message.
+    <br />[Let users know]
+
+</Dont>
+</DoAndDontContainer>
 
 ### Write in sentence case with minimal punctuation
+
 All modals copy should be in sentence case i.e. the first letter of the first word is capitalized and everything else is in lower case unless it’s a proper noun or feature name. Always err on the side of minimal punctuation, so when you’ve written single, standalone sentences, leave out full stops and commas where possible.
 
 ## To keep in mind
