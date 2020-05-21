@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.4.1...@kaizen/draft-select@1.4.2) (2020-05-21)
+
+
+### Bug Fixes
+
+* Conditionally dispatch port for Multi Select variant ([#499](https://github.com/cultureamp/kaizen-design-system/issues/499)) ([02b87c4](https://github.com/cultureamp/kaizen-design-system/commit/02b87c4a6b922d2e64a9e7373c501d4854af0626))
+
+
+
+
+
 ## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.4.0...@kaizen/draft-select@1.4.1) (2020-05-21)
 
 **Note:** Version bump only for package @kaizen/draft-select
