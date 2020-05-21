@@ -13,6 +13,10 @@ import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
 import WhenToUse from "docs-components/WhenToUse"
 import WhenNotToUse from "docs-components/WhenNotToUse"
 
+import DoAndDontContainer from "docs-components/DoAndDontContainer"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
 ## Visuals
 
 ### UI Kit
@@ -37,56 +41,87 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
     *   None
 
 ## Copy guidelines
-Empty states are a great way to engage and educate users. It’s a chance for our brand voice to shine through, but make sure to always prioritize clarity and action over joyful language and humor. Here are some rules to keep in mind: 
+
+Empty states are a great way to engage and educate users. It’s a chance for our brand voice to shine through, but make sure to always prioritize clarity and action over joyful language and humor. Here are some rules to keep in mind:
 
 ### Include an informative title
+
 Make sure your title is scannable. A user should be able to take away the main point of the empty state simply by reading the title. Your title should describe the empty state and not tell the user what to do (leave the action for the CTA button). Avoid phrases like “Oops!” Or “Looks like something went wrong…” Instead, describe exactly what has happened. Remember to keep it short and snappy. Any supplementary information can be included in the body copy under it.
 
-Do:
+<DoAndDontContainer>
+<Do>
+
 - No reports found
 - Survey in progress
 
-Don't:
+</Do>
+
+<Dont>
+
 - Oops! There are no reports!
 - There’s nothing to see here
 
+</Dont>
+</DoAndDontContainer>
+
 ### Guide towards the next step
+
 Never leave the user hanging. Always make sure you guide the user towards taking the next step. If there’s nothing for the user to do, suggest that they explore something else in the platform. If they’ve encountered an error, give them suggestions on how to fix that error or give them a link to contact our support team.
 
-Do:
-- **Reports couldn’t be loaded.**
-Try refreshing this page, or [contact support] for help.
-- **This survey is currently collecting responses**
-Once the survey is closed, you’ll see the results on this page.
-[Go back]
+<DoAndDontContainer>
+<Do>
 
-Don't:
+- **Reports couldn’t be loaded.**
+    <br /> Try refreshing this page, or [contact support] for help.
+- **This survey is currently collecting responses**
+    <br /> Once the survey is closed, you’ll see the results on this page.
+    <br /> [Go back]
+
+</Do>
+
+<Dont>
+
 - **Oh no! We couldn’t load your reports.**
-Please try again later
+    <br /> Please try again later
 - **There’s nothing to see here**
-The survey is open. We don’t have any information to show you right now.
+    <br /> The survey is open. We don’t have any information to show you right now.
+
+</Dont>
+</DoAndDontContainer>
 
 ### Give it a complementary Call-To-Action (CTA) button
+
 Your CTA button should compliment the title of the empty state. If a user scans the title, the CTA button should clearly direct them towards an action.
 
-Do:
+
+<DoAndDontContainer>
+<Do>
+
 - [Choose focus area]
 - [Explore other reports]
 
-Don't:
+</Do>
+
+<Dont>
+
 - [Go to reports]
 - [Cancel]
 
+</Dont>
+</DoAndDontContainer>
+
 ### Convey the right message
+
 Based on the overall user flow and the nature of the empty state, make sure you adjust your tone accordingly. A positive empty state should contain encouraging language, while an action empty state should get to the point quickly. Here are some helpful tips for each type of empty state:
 
 *   **Positive empty state** - Include words of affirmation here. If a user has nothing left to do after this point, let them know that. Be careful though, as this type of language can sometimes come off as condescending.
 *   **Informative empty state** - Reassure the user that work is being done in the background and that we’ll notify them when there’s data on that page for them to see or action. This is an opportunity to educate.
 *   **Action empty state** - Let the user know that in order for them to see any data here, they’re going to need to perform certain actions. Guide them towards that action clearly and include a CTA button that takes them directly towards completing that action.
 *   **Neutral empty state** - Let the user know that nothing is required of them. Guide them back to where they were before they encountered this empty state.
-*   **Negative empty state** - Clearly let the user know what has happened and how they can fix it (if they want). If the empty state keeps showing up, give them an option to contact support. For example, if a user is trying to view a report they don’t have access to, your message could say, “You don’t have access to this report. If you’d like to view this report, contact your account administrator.” Remember to avoid jargon and tech speak. 
+*   **Negative empty state** - Clearly let the user know what has happened and how they can fix it (if they want). If the empty state keeps showing up, give them an option to contact support. For example, if a user is trying to view a report they don’t have access to, your message could say, “You don’t have access to this report. If you’d like to view this report, contact your account administrator.” Remember to avoid jargon and tech speak.
 
 ### Write in sentence case with minimal punctuation
+
 All empty state copy should be in sentence case i.e. the first letter of the first word is capitalized and everything else is in lower case unless it’s a proper noun or feature name. Always err on the side of minimal punctuation, so leave out full stops and commas where possible.
 
 
