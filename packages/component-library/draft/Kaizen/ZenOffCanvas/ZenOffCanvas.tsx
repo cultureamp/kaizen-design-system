@@ -1,7 +1,7 @@
 import * as React from "react"
 
-import { ColorScheme } from "@kaizen/component-library/draft/Kaizen/ZenNavigationBar"
 import classNames from "classnames"
+import { ColorScheme } from "../ZenNavigationBar/NavigationBar"
 import Header from "./components/Header"
 import Menu from "./components/Menu"
 
@@ -73,7 +73,11 @@ export class ZenOffCanvas extends React.Component<Props> {
               <nav className={styles.links}>
                 {links &&
                   Object.keys(links).map(section => (
-                    <Menu section={section} link={links[section]} />
+                    <Menu
+                      key={section}
+                      section={section}
+                      link={links[section]}
+                    />
                   ))}
               </nav>
             </div>

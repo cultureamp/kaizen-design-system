@@ -34,7 +34,7 @@ item { onClickMsg, label } =
 
 menuListCss : CssModules.Helpers { menuList : String, menuItem : String } msg
 menuListCss =
-    css "@kaizen/component-library/draft/Kaizen/MenuList/MenuList.scss"
+    css "@kaizen/draft-menu-list/KaizenDraft/MenuList/MenuList.scss"
         { menuList = "menuList"
         , menuItem = "menuItem"
         }

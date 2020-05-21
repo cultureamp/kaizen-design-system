@@ -4,7 +4,7 @@ import {
   InputStatus,
   Label,
   TextArea,
-} from "@kaizen/component-library/draft"
+} from "@kaizen/draft-form"
 import React from "react"
 
 type Props = {

@@ -147,7 +147,7 @@ class =
 
 
 styles =
-    css "@kaizen/component-library/draft/Kaizen/LoadingPlaceholder/styles.scss"
+    css "@kaizen/draft-loading-placeholder/KaizenDraft/LoadingPlaceholder/styles.scss"
         { base = "base"
         , animated = "animated"
         , centered = "centered"
