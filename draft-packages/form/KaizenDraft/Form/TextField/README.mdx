@@ -12,6 +12,10 @@ import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
 import WhenToUse from "docs-components/WhenToUse"
 import WhenNotToUse from "docs-components/WhenNotToUse"
 
+import DoAndDontContainer from "docs-components/DoAndDontContainer"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
 ## Visuals
 
 ### UI Kit
@@ -20,9 +24,90 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D205%253A12677" allowfullscreen></iframe>
 
+## Copy guidelines
+
+To be scannable and fully helpful, a text field must have an associated label and must contain an example of the text you wish the user to input. Here’s what you should know:
+
+### Give it a clear, short label
+
+Make sure your text field has a short, descriptive label above it that describes what the user should type into the box below. Avoid phrasing your labels as questions. Keep in mind that your label shouldn’t contain instructions. Reserve those for the helper text. 
+
+<DoAndDontContainer>
+<Do>
+
+- Email address
+
+</Do>
+
+<Dont>
+
+- Enter your email address here
+
+</Dont>
+</DoAndDontContainer>
+
+### Placeholder text should be examples and not instructions
+
+Make sure that any text inside the field box serves as an example of what the user should type into the box. Don’t put any instructions inside the box. 
+
+<DoAndDontContainer>
+<Do>
+
+- e.g. example@example.com
+
+</Do>
+
+<Dont>
+
+- Enter your email address here
+
+</Dont>
+</DoAndDontContainer>
+
+Keep in mind that examples aren’t always required. For example, a text field asking for someone’s first name doesn’t need an example like “e.g. Bob” in it. Only use placeholder text when required. More often than not, blank text fields are easier to spot and scan.
+
+### Error text should be succinct
+
+Keep all error text short, useful and to the point.
+
+<DoAndDontContainer>
+<Do>
+
+- Dates needs to be MM/DD/YYYY
+
+</Do>
+
+<Dont>
+
+- You entered an invalid date format
+
+</Dont>
+</DoAndDontContainer>
+
+### Helper text should provide extra guidance
+
+Helper text placed below the field can include further instructions or information on how to fill out the text field. It can also include details on what will happen with the filled out information. Don’t put placeholders here.
+
+<DoAndDontContainer>
+<Do>
+
+- Your email address will be used to send you survey notifications and reports
+
+</Do>
+
+<Dont>
+
+- For example, example@example.com
+
+</Dont>
+</DoAndDontContainer>
+
+### Write in sentence case with minimal punctuation
+
+All text field copy should be in sentence case i.e. the first letter of the first word is capitalized and everything else is in lower case unless it’s a proper noun or feature name. Always err on the side of minimal punctuation, so leave out full stops and commas where possible.
+
 ## To keep in mind
 
-* Provide a descriptive label that conveys the purpose of the field.
 * Most of the time, we validate text fields on “blur” (when leaving the text fields) or on form submission as needed. We don’t validate on key strokes.
 * As a rule of thumb, generally use “ (optional)” to indicate optional fields instead of “`*`” to indicate required fields.
 * Consider if a more specific `type` is needed as an `email` type for email addresses.
@@ -54,4 +139,5 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 - [MDN: input type="text"](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/text).
 - [MDN: label](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label).
 - [WAI: labels](https://www.w3.org/WAI/tutorials/forms/labels/)
+- Copy resource: [Nielsen Norman Group: Placeholders in form fields are harmful](https://www.nngroup.com/articles/form-design-placeholders/)
 
