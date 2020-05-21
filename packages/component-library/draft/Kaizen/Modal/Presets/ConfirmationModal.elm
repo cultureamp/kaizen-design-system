@@ -1,4 +1,4 @@
-module Kaizen.Modal.Presets.ConfirmationModal exposing
+module KaizenDraft.Modal.Presets.ConfirmationModal exposing
     ( Config
     , bodySubtext
     , cautionary
@@ -32,10 +32,10 @@ import Html exposing (Html, div, text)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
 import Json.Decode as Decode
-import Kaizen.Modal.Primitives.Constants as Constants
-import Kaizen.Modal.Primitives.ModalBody as ModalBody
-import Kaizen.Modal.Primitives.ModalFooter as ModalFooter
-import Kaizen.Modal.Primitives.ModalHeader as ModalHeader
+import KaizenDraft.Modal.Primitives.Constants as Constants
+import KaizenDraft.Modal.Primitives.ModalBody as ModalBody
+import KaizenDraft.Modal.Primitives.ModalFooter as ModalFooter
+import KaizenDraft.Modal.Primitives.ModalHeader as ModalHeader
 import Svg exposing (circle, svg)
 import Svg.Attributes exposing (class, cx, cy, r)
 import Text.Text as Text

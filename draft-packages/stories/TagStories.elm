@@ -3,7 +3,7 @@ module Main exposing (main)
 import ElmStorybook exposing (statelessStoryOf, storybook)
 import Html exposing (Html, div)
 import Html.Attributes exposing (style)
-import Kaizen.Tag.Tag as Tag
+import KaizenDraft.Tag.Tag as Tag
 
 
 storyContainer : List (Html msg) -> Html msg

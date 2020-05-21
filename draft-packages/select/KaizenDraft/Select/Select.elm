@@ -1340,7 +1340,7 @@ menuMarginTop =
 
 
 styles =
-    css "@kaizen/component-library/draft/Kaizen/Select/styles.elm.scss"
+    css "@kaizen/draft-select/KaizenDraft/Select/styles.elm.scss"
         { container = "container"
         , control = "control"
         , valueContainer = "valueContainer"

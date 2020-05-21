@@ -142,7 +142,7 @@ padded predicate (Config config) =
 
 
 styles =
-    css "@kaizen/component-library/draft/Kaizen/Modal/Primitives/ModalFooter.scss"
+    css "@kaizen/draft-modal/KaizenDraft/Modal/Primitives/ModalFooter.scss"
         { footerWrap = "footerWrap"
         , center = "center"
         , border = "border"

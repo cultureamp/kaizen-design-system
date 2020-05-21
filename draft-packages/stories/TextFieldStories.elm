@@ -5,7 +5,7 @@ import ElmStorybook exposing (storyOf, storybook)
 import Html.Extra exposing (static)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
-import Kaizen.Form.TextField.TextField as TextField
+import KaizenDraft.Form.TextField.TextField as TextField
 import Task
 
 
