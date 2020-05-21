@@ -1,4 +1,4 @@
-import { Radio } from "@kaizen/component-library/draft"
+import { Radio } from "@kaizen/draft-radio"
 import * as React from "react"
 
 const ExampleContent = () => (

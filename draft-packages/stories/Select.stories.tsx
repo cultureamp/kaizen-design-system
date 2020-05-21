@@ -1,4 +1,4 @@
-import { AsyncSelect, Select } from "@kaizen/component-library/draft"
+import { AsyncSelect, Select } from "@kaizen/draft-select"
 import * as React from "react"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => {

@@ -1,6 +1,7 @@
 import * as React from "react"
 
-import { Tag, Tooltip } from "@kaizen/component-library/draft"
+import { Tag } from "@kaizen/draft-tag"
+import { Tooltip } from "@kaizen/draft-tooltip"
 
 export default {
   title: "Tooltip (React)",
