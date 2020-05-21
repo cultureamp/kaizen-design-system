@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-radio-group",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "The draft Radio group component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
