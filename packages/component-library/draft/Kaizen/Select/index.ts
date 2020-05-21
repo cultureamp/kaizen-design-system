@@ -1,1 +1,1 @@
-export { Select, AsyncSelect } from "./Select"
+export { Select, AsyncSelect, ValueType } from "./Select"

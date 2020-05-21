@@ -3,6 +3,71 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio-group@1.2.15...@kaizen/draft-radio-group@1.3.0) (2020-05-20)
+
+
+### Features
+
+* removed references to the old draft packages ([#504](https://github.com/cultureamp/kaizen-design-system/issues/504)) ([ddda156](https://github.com/cultureamp/kaizen-design-system/commit/ddda156513445ca8da8bcc64364f15dc4b94b1a6))
+
+
+
+
+
+## [1.2.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio-group@1.2.14...@kaizen/draft-radio-group@1.2.15) (2020-05-20)
+
+
+### Bug Fixes
+
+* unpin unintentionally pinned @kaizen/design-token peer dependencies ([#503](https://github.com/cultureamp/kaizen-design-system/issues/503)) ([aa6f1d3](https://github.com/cultureamp/kaizen-design-system/commit/aa6f1d3a63cd7f2e3dac9cd631aa7a9e88b153ac))
+
+
+
+
+
+## [1.2.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio-group@1.2.13...@kaizen/draft-radio-group@1.2.14) (2020-05-19)
+
+**Note:** Version bump only for package @kaizen/draft-radio-group
+
+
+
+
+
+## [1.2.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio-group@1.2.12...@kaizen/draft-radio-group@1.2.13) (2020-05-19)
+
+**Note:** Version bump only for package @kaizen/draft-radio-group
+
+
+
+
+
+## [1.2.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio-group@1.2.11...@kaizen/draft-radio-group@1.2.12) (2020-05-19)
+
+**Note:** Version bump only for package @kaizen/draft-radio-group
+
+
+
+
+
+## [1.2.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio-group@1.2.10...@kaizen/draft-radio-group@1.2.11) (2020-05-18)
+
+
+### Bug Fixes
+
+* sync old and new draft components ([#492](https://github.com/cultureamp/kaizen-design-system/issues/492)) ([6755e4b](https://github.com/cultureamp/kaizen-design-system/commit/6755e4beedf5d3953c5a50e152cfd181389d9be0))
+
+
+
+
+
+## [1.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio-group@1.2.9...@kaizen/draft-radio-group@1.2.10) (2020-05-15)
+
+**Note:** Version bump only for package @kaizen/draft-radio-group
+
+
+
+
+
 ## [1.2.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio-group@1.2.8...@kaizen/draft-radio-group@1.2.9) (2020-05-13)
 
 **Note:** Version bump only for package @kaizen/draft-radio-group

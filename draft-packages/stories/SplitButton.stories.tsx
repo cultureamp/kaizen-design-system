@@ -1,5 +1,5 @@
 import { MenuItem, MenuList } from "@kaizen/component-library"
-import { SplitButton } from "@kaizen/component-library/draft"
+import { SplitButton } from "@kaizen/draft-split-button"
 import { action } from "@storybook/addon-actions"
 import * as React from "react"
 

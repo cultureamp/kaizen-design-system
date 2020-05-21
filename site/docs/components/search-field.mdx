@@ -73,7 +73,7 @@ All form elements including search must have a label, whether it's visually disp
 
 ### Combine with other components
 
-- Combine search with Autocomplete where possible.
+- Combine search with [Autocomplete](/components/autocomplete) where possible.
 
 ### Behavior
 
@@ -81,7 +81,7 @@ All form elements including search must have a label, whether it's visually disp
 - **Preserve user data**: After submitting a search, preserve the previous search query so that the user may adjust and amend their previous search instead of starting from scratch.
    - **Matching**: If you're using fuzzy search where a user can write some text and a partial match returns results, consider whether the text needs to be in order, what effect spaces have, and the effect of capitalization on the match. For example, a forgiving search input that lets you type “design” to match the result “Marketing Design” may be ideal for users that aren't sure what exactly it will be called here.
 - **Loading state**:
-   - If search results are likely to take longer than 1 second to show for the majority of users, display a [loading indicator](/guidelines/loading-patterns/). For example, display a loading spinner in place of the search icon. See loading guidelines.
+   - If search results are likely to take longer than 1 second to show for the majority of users, display a [loading indicator](/guidelines/loading-patterns/). For example, display a [loading spinner](/components/loading-spinner) in place of the search icon. See loading guidelines.
    - To maintain performance and responsive interaction, you may consider if “[debouncing](https://css-tricks.com/the-difference-between-throttling-and-debouncing/)” is necessary for rapidly changing search queries, avoiding search results appearing and reappearing rapidly or blocking the page and preventing the user from typing.
 - **Empty state**: Before a user has searched, consider giving them an indication of what to expect from a search. See [Empty State component](/components/empty-state) for general guidance on telling users that there’s no content to display and what they can do next.
 - **Zero state**: If there are no matching results for a search query, tell the user that there are no matching results. Consider offering a clearly sign-posted alternative, such as a popular search query, a related search query with results, or filters to adjust.
@@ -113,7 +113,7 @@ All form elements including search must have a label, whether it's visually disp
 ## See also
 
 - [Text Field](/components/text-field).
-- Autocomplete.
+- [Autocomplete](/components/autocomplete).
 
 ## External links
 

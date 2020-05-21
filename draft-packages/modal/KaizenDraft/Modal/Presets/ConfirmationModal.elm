@@ -421,7 +421,7 @@ confirmId id_ (Config config) =
 
 
 styles =
-    css "@kaizen/component-library/draft/Kaizen/Modal/Presets/ConfirmationModal.scss"
+    css "@kaizen/draft-modal/KaizenDraft/Modal/Presets/ConfirmationModal.scss"
         { header = "header"
         , informativeHeader = "informativeHeader"
         , negativeHeader = "negativeHeader"
@@ -434,6 +434,6 @@ styles =
 
 
 genericStyles =
-    css "@kaizen/component-library/draft/Kaizen/Modal/Primitives/GenericModal.scss"
+    css "@kaizen/draft-modal/KaizenDraft/Modal/Primitives/GenericModal.scss"
         { defaultModalWidth = "defaultModalWidth"
         }
