@@ -1,5 +1,6 @@
 import AxePuppeteer from "axe-puppeteer"
 import puppeteer from "puppeteer"
+const passableViolationCount = 2079
 
 const getExamples = async page => {
   const handle = await page.evaluateHandle(() => ({ window, document }))
@@ -62,14 +63,11 @@ const main = async () => {
   await page.goto(`${baseIframeUrl}?id=table-elm--default`)
 
   const storybookExamples = await getExamples(page)
-  // const storybookExampleUrls = storybookExamples.map(({ kind, name }) => {
-  const storybookExampleUrls = storybookExamples
-    .slice(0, 3)
-    .map(({ kind, name }) => {
-      return `${baseIframeUrl}?selectedKind=${encodeURIComponent(
-        kind
-      )}&selectedStory=${encodeURIComponent(name)}`
-    })
+  const storybookExampleUrls = storybookExamples.map(({ kind, name }) => {
+    return `${baseIframeUrl}?selectedKind=${encodeURIComponent(
+      kind
+    )}&selectedStory=${encodeURIComponent(name)}`
+  })
 
   const examples: ExampleWithViolations[] = await examplesWithViolations(
     storybookExampleUrls,
@@ -84,11 +82,14 @@ const main = async () => {
   await page.close()
   await browser.close()
 
-  if (examples.length > 0) {
+  if (violationCount > passableViolationCount) {
     console.log("Accessibility violations found:")
     examples.forEach(example => {
       console.log(example)
     })
+    console.log(
+      `More accessibility violations were found than the current allowable limit of ${passableViolationCount}. This likely means that a new accessibility violation has been added to the code base.`
+    )
     process.exit(1)
   } else {
     console.log("No accessibility violations found")
