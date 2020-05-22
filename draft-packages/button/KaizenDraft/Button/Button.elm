@@ -256,7 +256,7 @@ viewIconFor configValue forPosition =
 
 
 styles =
-    css "@kaizen/component-library/components/Button/components/GenericButton.module.scss"
+    css "/draft-packages/button/KaizenDraft/components/GenericButton.module.scss"
         { container = "container"
         , button = "button"
         , primary = "primary"
