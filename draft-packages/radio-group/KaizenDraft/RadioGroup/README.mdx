@@ -14,6 +14,10 @@ import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
 import WhenToUse from "docs-components/WhenToUse"
 import WhenNotToUse from "docs-components/WhenNotToUse"
 
+import DoAndDontContainer from "docs-components/DoAndDontContainer"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
 ## Visuals
 
 ### UI Kit
@@ -22,6 +26,47 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D1412%253A277" allowfullscreen></iframe>
 
+## Copy guidelines
+
+Radios are helpful when presenting a set of mutually exclusive options out of which a user must make one selection. Keep these points in mind:
+
+### Present mutually exclusive options
+
+Each option in a radio group should be mutually exclusive from the other to make it easier for a user to make a selection.
+
+<DoAndDontContainer>
+<Do>
+
+- Select your age group:
+    - 18-24
+    - 25-34
+    - 35-44
+    - 45-54
+    - 55+
+
+</Do>
+
+<Dont>
+
+- Your age group is...
+    - 18-24,
+    - 24-34,
+    - 34-44,
+    - 44-54,
+    - 54+
+
+</Dont>
+</DoAndDontContainer>
+
+### Always introduce options with a label
+Always present radio options with an intro sentence (or label) that describes the choice the user has to make. End the label with a colon.
+
+### Don’t end options in punctuation
+If your options are single sentences, words or fragments, don’t place a period, comma or semicolon at the end of them. Always err on the side of minimal punctuation, so leave out full stops and commas where possible.
+
+### Write in sentence case
+All radio copy should be in sentence case i.e. the first letter of the first word is capitalized and everything else is in lower case unless it’s a proper noun or feature name.
+
 ## To keep in mind
 
 *   There must always be more than one radio field used together in a group.
@@ -29,7 +74,6 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 *   Show options in a sensible order, such as alphabetical, numeric.
 *   Avoid long lists. Chunk long lists and group related options together.
 *   The setting only applies when the user takes an action, such as clicking a save button.
-*   Use specific, clear, concrete labels.
 *   Prefer vertical (stacked) radios to easily scan and compare options.
 *   Use a fieldset to group related radio fields together in a set.
 *   Offer a default option.
@@ -73,3 +117,5 @@ Here are some examples of other existing design systems:
 - [Lightning: radio group](https://www.lightningdesignsystem.com/components/radio-group/)
 - [Polaris: choice list](https://polaris.shopify.com/components/forms/choice-list)
 - [Polaris: radio button](https://polaris.shopify.com/components/forms/radio-button)
+- Copy resource: [Nielsen Norman Group: Checkboxes vs. radio buttons](https://www.nngroup.com/articles/checkboxes-vs-radio-buttons/)
+- Copy resource: [UX Planet: Radio buttons](https://uxplanet.org/radio-buttons-ux-design-588e5c0a50dc)
