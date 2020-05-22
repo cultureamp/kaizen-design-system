@@ -12,6 +12,10 @@ import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
 import WhenToUse from "docs-components/WhenToUse"
 import WhenNotToUse from "docs-components/WhenNotToUse"
 
+import DoAndDontContainer from "docs-components/DoAndDontContainer"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
 ## Visuals
 
 ### UI Kit
@@ -48,18 +52,79 @@ E.g. **Meaning changed** We prevent significant changes to the meaning of questi
     *   Single-line: inline/adjacent heading and body
     *   Multi-line: stacked heading and body
 
+## Copy guidelines
+
+The key to a good inline notification is conciseness and clarity.  Here are some language rules:
+
+### Give it a descriptive title
+
+Keep the title short but descriptive. Describe exactly what has happened or what needs to happen.
+
+<DoAndDontContainer>
+<Do>
+
+- Data imported successfully
+- Errors found in your employee data
+
+</Do>
+
+<Dont>
+
+- Success!
+- Critical error.
+
+</Dont>
+</DoAndDontContainer>
+
+### Include an explanatory body
+
+Explain the title further but keep it to one to two sentences maximum. Include links to supporting documentation or next actions. If the notification is dismissible, don’t include information that the user would need to perform crucial actions.
+
+<DoAndDontContainer>
+<Do>
+
+- **Survey invitations have been scheduled.** 10 participants will receive their survey invitations at 9:00AM EST on 10 March 2020.
+- **Errors found in your employee data.** For your survey to run smoothly, you must fix these errors and re-import your data.
+
+</Do>
+
+<Dont>
+
+- **Sent!** They’ll get their invitations soon.
+- **Errors found in your employee data.** Fix them to proceed. 
+
+</Dont>
+</DoAndDontContainer>
+
+### Guide with a Call-To-Action (CTA)
+
+Make sure you guide the user towards a next step if there are any to be taken. Include a link directly to the next step.
+
+### Pay close attention to the context
+
+Make sure you [adjust the tone](/language/voiceandtone/) of your writing to fit the specific mood of the notification:
+
+* **Positive notifications** - Let the user know that the action they performed was successful. Give them a link to a next step, or an opportunity to view the successful result.
+* **Informative notifications** - Give the user supplementary information to the content on the page.
+* **Cautionary notifications** - Warn the user of any side effects of the action they’re about to perform. 
+* **Negative notifications** - Let the user know that an error has occurred, describe  the error and how they can fix it. Remember to avoid jargon and tech speak. 
+
+### Write in sentence case with minimal punctuation. 
+
+All inline notifications copy should be in sentence case i.e. the first letter of the first word is capitalized and everything else is in lower case unless it’s a proper noun or feature name. Always err on the side of minimal punctuation, so leave out full stops and commas where possible.
+
 ## To keep in mind
 
 *   Inline Notifications are used for contextual information, including positive feedback or confirmation about an action, warnings about possible issues or show-stopping errors.
 *   They are used to provide context in close **proximity** to a piece of content.
+*   They must always follow this **anatomy**:
+      * Title
+      * Body
+      * CTA link
 *   Inline notifications can be **system or user triggered**.
 *   Dismissible or persistent:
     *   Use **Persistent** notifications when the information continues to be relevant after the message is shown, e.g. Defining the reporting size on an Insight report
     *   Use **Dismissible** notifications when the information has been acknowledged and the message is no longer relevant, e.g. helpfully updating formatting for user input data.
-*   Anatomy:
-    *   **Heading**: summarizes the message. This relates directly to the message. Do not use generic language such as “Success”, “Error”, etc.
-    *   **Description**: succinct description that is a standalone sentence (that is, it does not run on from the heading).
-    *   **Call to action** (optional): hyperlinks can be included to provide the user with a clear call to action.
 *   What’s an **autohide**?
     *   TODO: add details
 
@@ -83,15 +148,16 @@ E.g. **Meaning changed** We prevent significant changes to the meaning of questi
 
 ## See also
 
-*   **Global Notification: **A [Global Notification](/components/global-notification) is a message object used for system-level notifications that inform the user about system status such as logging in and background processes like data imports.
+*   **Global Notification**: A [Global Notification](/components/global-notification) is a message object used for system-level notifications that inform the user about system status such as logging in and background processes like data imports.
 *   **Toast Notification**: [Toasts](/components/toast-notification) appear in the top–right (or top–left in right-to-left languages). It is used immediately after a specific event such as a user action that does not relate to an object on the page. For example, confirmation of deleted items.
 
 ## External Links
 
-- [Lightning: messaging guidelines](https://www.lightningdesignsystem.com/guidelines/messaging/components/notifications/#site-main-content)
 - [Lightning: notifications](https://www.lightningdesignsystem.com/components/notifications/#site-main-content)
 - [Polaris: error messages](https://polaris.shopify.com/patterns-and-guides/error-messages#section-home-notifications)
 - [Material: confirmation and acknowledgement](https://material.io/design/communication/confirmation-acknowledgement.html#usage)
 - [Predix UI: notifications](https://www.predix-ui.com/#/design/communication/notifications)
 - [Predix UI: notifications](https://www.predix-ui.com/#/elements/px-notification)
+- Copy resource: [Lightning: messaging guidelines](https://www.lightningdesignsystem.com/guidelines/messaging/components/notifications/#site-main-content)
+- Copy resource: [Nielsen Norman Group: Indicators, Validations, and Notifications](https://www.nngroup.com/articles/indicators-validations-notifications/)
 
