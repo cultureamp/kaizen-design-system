@@ -56,6 +56,11 @@ steps:
     <<: *defaults
     agent_query_rules: ["queue=build-unrestricted-large"]
 
+  - name: ":wheelchair: Accessibility Check (storybook)"
+    command: ".buildkite/scripts/run-accessibility-check.sh"
+    <<: *defaults
+    agent_query_rules: ["queue=build-unrestricted-large"]
+
   - wait: ~
     continue_on_failure: true
 
