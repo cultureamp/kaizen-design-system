@@ -90,6 +90,4 @@
 .headerSlot {
   @include ca-margin($start: $ca-navigation-bar__spacer);
   height: 100%;
-  display: flex;
-  align-items: center;
 }
