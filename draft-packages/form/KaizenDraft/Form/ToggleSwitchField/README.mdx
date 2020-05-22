@@ -13,16 +13,112 @@ import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
 import WhenToUse from "docs-components/WhenToUse"
 import WhenNotToUse from "docs-components/WhenNotToUse"
 
+import DoAndDontContainer from "docs-components/DoAndDontContainer"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
 ## Visuals
 
 ### UI Kit
 
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D1412%253A1819" allowfullscreen></iframe>
 
+## Copy guidelines
+
+All toggle switches should begin with a verb and should be clear and concise. When a user clicks on a toggle switch, they expect the action to be immediate. Therefore, avoid ambiguous language and pay close attention to the following rules:
+
+### Label your toggle switch based on the context
+
+Pay close attention to the context within which you place the toggle switch. Based on that, you’ll get a good indication of whether your label should contain an affirmative verb or be neutral (i.e. without a verb). For example, in a list of settings with toggles, it’s a good idea to frame your labels neutrally. For example:
+
+<DoAndDontContainer>
+<Do>
+
+- Report includes:
+    - Comments [toggle]
+    - Engagement score [toggle]
+    - Heatmap [toggle]
+
+</Do>
+
+<Dont>
+
+- Report includes:
+    - Show comments [toggle]
+    - Show engagement score [toggle]
+    - Turn on heatmap [toggle]
+
+
+</Dont>
+</DoAndDontContainer>
+
+In cases where the action that the toggle button will perform is not clear, the label should begin with a strong verb that indicates to the user what will happen when the switch is turned on. Avoid negative language including mentioning the “turned off” state.
+
+<DoAndDontContainer>
+<Do>
+
+- Turn on hierarchies [toggle]
+- Show ignored data [toggle]
+
+</Do>
+
+<Dont>
+
+- Turn off hierarchies [toggle]
+- Don't show ignored data [toggle]
+
+</Dont>
+</DoAndDontContainer>
+
+### Be clear
+
+Make sure you’re completely clear about what the toggle switch does - this includes paying close attention to the placement of the switch as well as any supporting body copy that the user will read before interacting with the toggle.
+
+### Keep it short
+
+Avoid long labels for toggles. All labels should be short, to the point and be frontloaded with keywords. Remove any superfluous language and always write for scannability.
+
+<DoAndDontContainer>
+<Do>
+
+- Show comments [toggle]
+- Send emails automatically [toggle]
+
+</Do>
+
+<Dont>
+
+- Make comments visible [toggle]
+- Automatically send emails when survey is live [toggle]
+
+</Dont>
+</DoAndDontContainer>
+
+### Avoid questions
+
+Never phrase your label as a question. Refer to the point above. Depending on the context of the button, use a verb or phrase the label neutrally.
+
+<DoAndDontContainer>
+<Do>
+
+- Show demographics [toggle]
+
+</Do>
+
+<Dont>
+
+- Do you want to see demographics? [toggle]
+
+</Dont>
+</DoAndDontContainer>
+
+### Write in sentence case with minimal punctuation
+
+All toggle switch copy should be in sentence case i.e. the first letter of the first word is capitalized and everything else is in lower case unless it’s a proper noun or feature name. Always err on the side of minimal punctuation, so leave out full stops and commas where possible.
+
 ## To keep in mind
 
 *   Toggles are made up of two states: On (green, always on the right) & Off (grey, always on the left)
-*   The label must include a verb. E.g. Show translations [Toggle]
 *   Labels can be positioned to the left or right of a toggle, depending on layout constraints. 
 *   The label should never be on both sides (e.g. On/Off).
 *   Toggle switches can be triggered by a drag gesture.
@@ -60,5 +156,6 @@ See also [Checkboxes](/components/checkboxes)
 - [Accessibility and toggle button switch](https://scottaohara.github.io/a11y_styled_form_controls/src/toggle-button-switch/)
 - [React switch](https://www.npmjs.com/package/react-switch)
 - [Toggle switch in React](https://scotch.io/tutorials/build-a-custom-toggle-switch-with-react)
-- [Checkbox vs Toggle in forms](https://ux.stackexchange.com/a/113640) 
+- [Checkbox vs Toggle in forms](https://ux.stackexchange.com/a/113640)
+- Copy resource: [UX Movement: Stop misusing toggle switches](https://uxmovement.com/mobile/stop-misusing-toggle-switches/)
 
