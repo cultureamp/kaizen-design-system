@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown-menu@1.3.1...@kaizen/draft-dropdown-menu@1.3.2) (2020-05-22)
+
+
+### Bug Fixes
+
+* Elm css reference to DropdownMenu.scss was broken ([#507](https://github.com/cultureamp/kaizen-design-system/issues/507)) ([c729903](https://github.com/cultureamp/kaizen-design-system/commit/c72990362e873711d695d57ebb47b5231b88b4e3))
+
+
+
+
+
 ## [1.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown-menu@1.3.0...@kaizen/draft-dropdown-menu@1.3.1) (2020-05-21)
 
 **Note:** Version bump only for package @kaizen/draft-dropdown-menu
