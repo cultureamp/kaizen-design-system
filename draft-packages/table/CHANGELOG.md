@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.5.3...@kaizen/draft-table@1.5.4) (2020-05-22)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [1.5.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.5.2...@kaizen/draft-table@1.5.3) (2020-05-22)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [1.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.5.1...@kaizen/draft-table@1.5.2) (2020-05-21)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
 ## [1.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.5.0...@kaizen/draft-table@1.5.1) (2020-05-21)
 
 **Note:** Version bump only for package @kaizen/draft-table

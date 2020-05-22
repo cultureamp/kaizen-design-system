@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-form",
-  "version": "1.4.1",
+  "version": "1.4.4",
   "description": "The draft Form component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
