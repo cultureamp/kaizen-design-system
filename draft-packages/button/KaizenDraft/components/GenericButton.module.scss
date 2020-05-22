@@ -18,11 +18,11 @@
 
 .iconButton {
   @extend %caButtonIconButton;
-  composes: interactiveIconWrapper from "../../Icon/Icon.module.scss";
+  composes: interactiveIconWrapper from "~@kaizen/component-library/components/Icon/Icon.module.scss";
 }
 
 .reversedIconButton {
-  composes: reversedInteractiveIconWrapper from "../../Icon/Icon.module.scss";
+  composes: reversedInteractiveIconWrapper from "~@kaizen/component-library/components/Icon/Icon.module.scss";
 }
 
 .destructive {
