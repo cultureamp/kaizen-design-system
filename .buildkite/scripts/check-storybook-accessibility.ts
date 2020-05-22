@@ -32,17 +32,25 @@ const asyncForEach = async (array, callback) => {
   }
 }
 
-const getViolations = async (storybookExampleUrls, page) => {
+type ExampleWithViolations = {
+  url: string
+  violations: Array<{}>
+}
+
+const examplesWithViolations = async (
+  storybookExampleUrls,
+  page
+): Promise<ExampleWithViolations[]> => {
   const axePuppeteerInstance = new AxePuppeteer(page)
-  const analyses = []
+  const result = []
   await asyncForEach(storybookExampleUrls, async url => {
     await page.goto(url)
     const analysis = await axePuppeteerInstance.analyze()
     if (analysis.violations.length > 0) {
-      analyses.push({ url, violations: analysis.violations })
+      result.push({ url, violations: analysis.violations })
     }
   })
-  return analyses
+  return result
 }
 
 const main = async () => {
@@ -54,21 +62,32 @@ const main = async () => {
   await page.goto(`${baseIframeUrl}?id=table-elm--default`)
 
   const storybookExamples = await getExamples(page)
-  const storybookExampleUrls = storybookExamples.map(({ kind, name }) => {
-    return `${baseIframeUrl}?selectedKind=${encodeURIComponent(
-      kind
-    )}&selectedStory=${encodeURIComponent(name)}`
-  })
+  // const storybookExampleUrls = storybookExamples.map(({ kind, name }) => {
+  const storybookExampleUrls = storybookExamples
+    .slice(0, 3)
+    .map(({ kind, name }) => {
+      return `${baseIframeUrl}?selectedKind=${encodeURIComponent(
+        kind
+      )}&selectedStory=${encodeURIComponent(name)}`
+    })
 
-  const violations = await getViolations(storybookExampleUrls, page)
+  const examples: ExampleWithViolations[] = await examplesWithViolations(
+    storybookExampleUrls,
+    page
+  )
+
+  const violationCount = examples.reduce(
+    (tally, example) => tally + example.violations.length,
+    0
+  )
 
   await page.close()
   await browser.close()
 
-  if (violations.length > 0) {
+  if (examples.length > 0) {
     console.log("Accessibility violations found:")
-    violations.forEach(analysis => {
-      console.log(analysis)
+    examples.forEach(example => {
+      console.log(example)
     })
     process.exit(1)
   } else {
