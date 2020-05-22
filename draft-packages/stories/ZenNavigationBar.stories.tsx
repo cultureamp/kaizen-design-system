@@ -309,9 +309,6 @@ export const WithFooterAndHeaderComponents = () => (
         <Link text="Home" href="/" active />,
         <Link text="Surveys" href="/" />,
         <Link text="Performance" href="/" />,
-        <Link text="Performance" href="/" />,
-        <Link text="Performance" href="/" />,
-        <Link text="Performance" href="/" />,
       ],
       secondary: [
         <Menu
@@ -355,11 +352,6 @@ export const WithFooterAndHeaderComponents = () => (
         />,
       ],
       final: [
-        <Link
-          icon={supportIcon}
-          text="Support"
-          href="http://academy.cultureamp.com/"
-        />,
         <Link
           icon={supportIcon}
           text="Support"
