@@ -92,6 +92,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   height: 100%;
   justify-content: center;
   min-width: 2 * $ca-grid;
+  position: relative;
   text-decoration: none;
   transition: background-color $ca-duration-rapid $ca-ease-in-out;
 
@@ -162,11 +163,6 @@ $navbar-breakpoint-condensed-large-up: 1150px;
     }
   }
 
-  @include font-heading-4;
-  @include ca-inherit-baseline;
-
-  position: relative;
-
   .linkIcon {
     display: inline-flex;
     opacity: 0.5;
@@ -186,19 +182,24 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   }
 
   .linkText {
+    @include font-heading-4;
+    @include ca-inherit-baseline;
     box-sizing: border-box;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 48px;
+    @include navbar-mobile-only {
+      font-weight: $kz-typography-paragraph-body-font-weight;
+    }
   }
 
   &.small {
     @include navbar-tablet-up {
-      @include font-heading-5;
-      @include ca-inherit-baseline;
       .linkText {
+        @include font-heading-5;
+        @include ca-inherit-baseline;
         display: none;
       }
     }
@@ -226,20 +227,12 @@ $navbar-breakpoint-condensed-large-up: 1150px;
       &:focus {
         .hoverArea {
           background-color: rgba($kz-color-white, 0.1);
-
-          .linkIcon {
-            opacity: 0.7;
-          }
         }
       }
 
       &:active {
         .hoverArea {
           background-color: rgba($kz-color-white, 0.2);
-
-          .linkIcon {
-            opacity: 1;
-          }
         }
       }
     }
@@ -312,7 +305,6 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   }
 
   @include navbar-mobile-only {
-    font-weight: normal;
     justify-content: flex-start;
     align-items: center;
     color: $kz-color-wisteria-700;

@@ -355,6 +355,7 @@ export const WithFooterAndHeaderComponents = () => (
         <Link
           icon={supportIcon}
           text="Support"
+          active
           href="http://academy.cultureamp.com/"
         />,
         <Link
