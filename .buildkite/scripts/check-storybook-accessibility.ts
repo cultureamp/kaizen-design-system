@@ -51,7 +51,6 @@ const examplesWithViolations = async (
 const main = async () => {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
-  await page.setBypassCSP(true)
 
   const baseIframeUrl = "http://localhost:57357/iframe.html"
   await page.goto(`${baseIframeUrl}?id=table-elm--default`)
