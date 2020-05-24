@@ -82,7 +82,9 @@ const main = async () => {
   await page.close()
   await browser.close()
 
-  if (violationCount > passableViolationCount) {
+  if (violationCount == 0) {
+    console.log("No accessibility violations found")
+  } else if (violationCount > passableViolationCount) {
     console.log("Accessibility violations found:")
     examples.forEach(example => {
       console.log(example)
@@ -92,8 +94,10 @@ const main = async () => {
     )
     process.exit(1)
   } else {
-    console.log("No accessibility violations found")
-    process.exit(0)
+    console.log(`${violationCount} accessibility violations found.`)
+    console.log(
+      `This number is below the current allowable limit of ${passableViolationCount}.`
+    )
   }
 }
 
