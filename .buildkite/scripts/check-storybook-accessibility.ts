@@ -27,12 +27,6 @@ const getExamples = async page => {
   return result
 }
 
-const asyncForEach = async (array, callback) => {
-  for (let index = 0; index < array.length; index++) {
-    await callback(array[index], index, array)
-  }
-}
-
 type ExampleWithViolations = {
   url: string
   violations: Array<{}>
@@ -44,13 +38,13 @@ const examplesWithViolations = async (
 ): Promise<ExampleWithViolations[]> => {
   const axePuppeteerInstance = new AxePuppeteer(page)
   const result = []
-  await asyncForEach(storybookExampleUrls, async url => {
+  for (const url of storybookExampleUrls) {
     await page.goto(url)
     const analysis = await axePuppeteerInstance.analyze()
     if (analysis.violations.length > 0) {
       result.push({ url, violations: analysis.violations })
     }
-  })
+  }
   return result
 }
 
