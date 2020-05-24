@@ -53,7 +53,7 @@ const main = async () => {
   const page = await browser.newPage()
 
   const baseIframeUrl = "http://localhost:57357/iframe.html"
-  await page.goto(`${baseIframeUrl}?id=table-elm--default`)
+  await page.goto(baseIframeUrl)
 
   const storybookExamples = await getExamples(page)
   const storybookExampleUrls = storybookExamples.map(({ kind, name }) => {
