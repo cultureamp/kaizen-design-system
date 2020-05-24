@@ -9,22 +9,22 @@ const getExamples = async page => {
   const clientApiHandle = await (await windowHandle.getProperties()).get(
     "__STORYBOOK_CLIENT_API__"
   )
-  const getStorybook = await clientApiHandle.evaluate(clientApi =>
+  const storybook = await clientApiHandle.evaluate(clientApi =>
     clientApi.getStorybook()
   )
 
-  const result = []
-  getStorybook.forEach(story => {
+  const storybookExamples = []
+  storybook.forEach(story => {
     const { kind } = story
-    story.stories.forEach(example => {
-      const { name } = example
-      result.push({
+    story.stories.forEach(storybookExample => {
+      const { name } = storybookExample
+      storybookExamples.push({
         kind,
         name,
       })
     })
   })
-  return result
+  return storybookExamples
 }
 
 type ExampleWithViolations = {
