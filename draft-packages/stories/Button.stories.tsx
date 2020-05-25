@@ -5,7 +5,7 @@ import { action } from "@storybook/addon-actions"
 import * as React from "react"
 
 export default {
-  title: "Button (React)",
+  title: "Button (Zen) (React)",
 }
 
 export const DefaultKaizenSiteDemo = () => <Button label="Label" />
