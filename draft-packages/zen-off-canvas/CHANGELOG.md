@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-off-canvas@1.5.1...@kaizen/draft-zen-off-canvas@1.6.0) (2020-05-25)
+
+
+### Features
+
+* navigation bar spacing alterations ([#508](https://github.com/cultureamp/kaizen-design-system/issues/508)) ([d780b6a](https://github.com/cultureamp/kaizen-design-system/commit/d780b6ac0307b8e9409c09f712abb1046c72fcb3))
+
+
+
+
+
 ## [1.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-off-canvas@1.5.0...@kaizen/draft-zen-off-canvas@1.5.1) (2020-05-21)
 
 **Note:** Version bump only for package @kaizen/draft-zen-off-canvas
