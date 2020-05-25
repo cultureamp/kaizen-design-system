@@ -2,26 +2,57 @@ const Generator = require("yeoman-generator")
 
 module.exports = class extends Generator {
   constructor(args, opts) {
-    super(args, opts);
-  }
-  method1() {
-    this.log("method 1 just ran");
-  }
-
-  method2() {
-    this.log("method 2 just ran");
+    super(args, opts)
   }
 
   async prompting() {
-    const answers = await this.prompt([
+    this.answers = await this.prompt([
       {
         type: "input",
         name: "name",
         message: "Your component name",
-        default: ""
-      }
-    ]);
+        default: "",
+      },
+    ])
 
-    this.log("app name", answers.name);
+    this.log("app name", this.answers.name)
   }
-};
+
+  writing() {
+    // root level files
+    this.fs.copyTpl(
+      this.templatePath("package.txt"),
+      this.destinationPath("draft-packages/package.json"),
+      { componentName: this.answers.name }
+    )
+
+    this.fs.copyTpl(
+      this.templatePath("tsconfig.txt"),
+      this.destinationPath("draft-packages/tsconfig-config.json"),
+      { componentName: this.answers.name }
+    )
+
+    this.fs.copyTpl(
+      this.templatePath("index.txt"),
+      this.destinationPath("draft-packages/index.ts"),
+      { componentName: this.answers.name }
+    )
+
+    // component files
+    this.fs.copyTpl(
+      this.templatePath("component-elm.txt"),
+      this.destinationPath(
+        `draft-packages/KaizenDraft/${this.answers.name}.elm`
+      ),
+      { componentName: this.answers.name }
+    )
+
+    this.fs.copyTpl(
+      this.templatePath("component-react.txt"),
+      this.destinationPath(
+        `draft-packages/KaizenDraft/${this.answers.name}.tsx`
+      ),
+      { componentName: this.answers.name }
+    )
+  }
+}
