@@ -1,7 +1,7 @@
 import * as React from "react"
 const styles = require("./style.module.scss")
 
-export interface Props {
+export interface <%= componentName %>Props {
   /**
    * Remember to annotate your props! The typehints make developers happy
    * @default ""
@@ -9,6 +9,6 @@ export interface Props {
   example?: string
 }
 
-export const Test = ({ example = "" }: TestProps) => {
-  return <h1 className={styles.example}>This is your test component</h1>
+export const <%= componentName %> = ({ example = "" }: <%= componentName %>Props) => {
+  return <h1 className={styles.wrapper}>This is your test component</h1>
 }

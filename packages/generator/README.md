@@ -6,12 +6,11 @@ Install Yeoman first:
 `yarn global add yo`
 
 Then install this generator: 
-`yarn global add @kaizen/generator`
+`yarn global add @kaizen/generator-create`
 
 ## Usage
-`yo kaizen-component` 
-`yo kaizen-component:draft`
-`yo kaizen-component:legacy`
+`yo create` 
+`yo create:draft`
 
 ## Help 
 Q: I get an error when I run `yo` in a terminal

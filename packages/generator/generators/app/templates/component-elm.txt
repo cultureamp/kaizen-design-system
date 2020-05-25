@@ -1,1 +1,28 @@
-module KaizenDraft.Dropdown.Dropdown exposing
+module KaizenDraft.<%= componentName %>.<%= componentName %> exposing
+  ( Config
+  , view
+  )
+
+import CssModules exposing (css)
+import Html exposing (text)
+
+
+-- VIEW
+
+view : Config msg -> String -> Html msg
+view (Config config) children =
+    let
+        <%= componentName %>Class =
+            styles.classList
+                [ ( .wrapper, True )
+                ]
+    in
+    div <%= componentName %>Class ++ [ text "Hello, World!" ]
+
+styles =
+    css "@kaizen/draft-library/components/<%= componentName %>/<%= componentName %>.module.scss"
+        { wrapper = "wrapper"
+        }
+
+-- MODIFIERS
+
