@@ -62,22 +62,6 @@ module.exports = {
         ],
       },
     },
-    // TODO - remove when all draft components are migrated
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: resolve(`../packages/component-library/draft`),
-        name: `draftComponents`,
-        ignore: [
-          `**/*.ts`,
-          `**/*.tsx`,
-          `**/*.elm`,
-          `**/*.scss`,
-          `**/*.snap`,
-          `**/*.png`,
-        ],
-      },
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

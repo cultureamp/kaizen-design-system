@@ -1,0 +1,140 @@
+---
+title: Search Field
+navTitle: Search Field (not built)
+summaryParagraph: Search lets users quickly find relevant content. A search field allows a user to type a word or phrase to filter a large amount of data down to a known piece of content or to a narrower list of relevant content without navigation.
+tags: ["Search", "Searchbox", "Forms", "Text input", "Top bar", "Filters", "Autocomplete", "Autosuggest", "Live filter"]
+needToKnow:
+- "All form elements including search must have a label, whether it's visually displayed or hidden."
+- 'We separate Autocomplete into a separate component.'
+- 'Ensure the search input is wide enough to fit the majority of search queries informed by analytics or user research.'
+- 'Design for loading, empty, and zero states.'
+- '"Search" describes the general behavior and, informally, the search field. "Search field" describes the main search component (label and input).'
+
+---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
+## Visuals
+
+### UI Kit
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D19823%253A84" allowfullscreen></iframe>
+
+## Options
+
+- Live-filtering search: This describes a specific kind of search that reduce results instantly. There's no need to press "submit". There's no dropdown container or autocomplete for results. For example, it might be used to match text on a page for a list or table.
+- Search on submit: When you cannot use live-filtering search, use "search on submit" that shows results only after submitting the search query when the user presses a search [Button](/components/button).
+
+## To keep in mind
+
+### Styling
+
+- **Search icon**: Use the search icon to help users identify search fields. Display the search icon as a presentational icon inside the search input.
+- **Positioning**: Position search in the top–right of a page for site- or page-wide search and the top–right of a section for contextual searches so that search positioning is predictable and follows Internet convention. For mobile apps, consider platform conventions.
+- **Size**: Ensure the search input is wide enough to fit the majority of search queries informed by analytics or user research.
+- **Prominence**: Avoid hiding the search behind a click to ensure it's discoverable and efficient to use.
+- **Search button**: For "search on submit", provide a search [Button](/components/button) nearby the search input, on the right (in left-to-right languages) or on the left (in right-to-left languages).
+
+### Label
+
+All form elements including search must have a label, whether it's visually displayed or hidden:
+
+- **Visible label**: Consider using a visible label to help users understand the scope of the search. For example, you might label a search field, “Search comments”.
+- **Hidden label**: If the search field is visually clearly identifiable as search without a label, provide an alternative, such as a hidden `<label>` or `aria-label`, to describe the field. Add placeholder text that says, “Search”, or a more specific phrase, such as “Search comments”.
+
+### Submit
+
+- Let users submit search by hitting enter. For live-filtering search, update search results immediately without hitting enter and be mindful of performance.
+
+### Displaying results
+
+- Announce changes in results to people using screen reader and visually draw attention to changed results.
+- You might use a [Dropdown container](/components/dropdown) to present results.
+- Consider displaying rich results if it will help people choose between them, such as showing an [Avatar](/components/avatar) for employee searches.
+- Results content might be shown as:
+    - Data table.
+    - Lists, such as Cards.
+    - Traditional search results (link and description).
+
+### Show the number of results
+
+- By showing the number of results available, people may choose how many results to inspect and whether they need to amend their search query.
+
+### Advanced options
+
+- Keep search options simple and progressively disclose advanced options as a user needs them.
+- Keep advanced search options such as "boolean queries" in advanced search.
+
+### Show what's available
+
+- Consider helping users understand what they can search for by offering placeholder examples or autosuggested results.
+
+### Combine with other components
+
+- Combine search with [Autocomplete](/components/autocomplete) where possible.
+
+### Behavior
+
+- **Global search**: try to offer global search that searches all of the site instead of scoped search for microsites outside of the Culture Amp platform.
+- **Preserve user data**: After submitting a search, preserve the previous search query so that the user may adjust and amend their previous search instead of starting from scratch.
+   - **Matching**: If you're using fuzzy search where a user can write some text and a partial match returns results, consider whether the text needs to be in order, what effect spaces have, and the effect of capitalization on the match. For example, a forgiving search input that lets you type “design” to match the result “Marketing Design” may be ideal for users that aren't sure what exactly it will be called here.
+- **Loading state**:
+   - If search results are likely to take longer than 1 second to show for the majority of users, display a [loading indicator](/guidelines/loading-patterns/). For example, display a [loading spinner](/components/loading-spinner) in place of the search icon. See loading guidelines.
+   - To maintain performance and responsive interaction, you may consider if “[debouncing](https://css-tricks.com/the-difference-between-throttling-and-debouncing/)” is necessary for rapidly changing search queries, avoiding search results appearing and reappearing rapidly or blocking the page and preventing the user from typing.
+- **Empty state**: Before a user has searched, consider giving them an indication of what to expect from a search. See [Empty State component](/components/empty-state) for general guidance on telling users that there’s no content to display and what they can do next.
+- **Zero state**: If there are no matching results for a search query, tell the user that there are no matching results. Consider offering a clearly sign-posted alternative, such as a popular search query, a related search query with results, or filters to adjust.
+- **Highlight matching text**: Clearly identify matching and non-matching text in results. For example, in a data table, consider showing matching text in stronger font weight.
+- **Input helpers**: Consider what additional properties might be useful for the search input, such as spellcheck or autocomplete.
+
+
+
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
+
+- Use search to find something specific or explore what's available via relevant keywords.
+- Use search to help people find relevant content in large amounts of content quickly.
+- Use search when there are 10–10,000+ items available.
+- Consider using live-filtering search for 10–30 items.
+
+</WhenToUse>
+<WhenNotToUse>
+
+- Avoid using more than 1 search field on a page at a time.
+- For a small amount of content, use a [Select](/components/select) instead of search.
+- Avoid using search when you're unlikely to show reliable results. For example, if most search queries result zero results, you might instead display top choices without search.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
+
+## See also
+
+- [Text Field](/components/text-field).
+- [Autocomplete](/components/autocomplete).
+
+## External links
+
+- [Hudl: search input](https://uniform.hudl.com/components/forms/search-input/design/).
+- [MDN: search input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/search).
+- [W3C: search link type](https://www.w3.org/TR/html52/links.html#link-type-search)
+- [WebAIM: advanced forms](https://webaim.org/techniques/forms/advanced).
+- [Material: search](https://material.io/design/navigation/search.html).
+- [Sainsburys: search](https://luna.sainsburys.co.uk/components/search).
+- [Mixpanel: filter bar](https://design.mixpanel.com/#mp-filter-bar).
+- [Spectrum: search header](https://spectrum.adobe.com/page/headers/#Search).
+- [Microsoft: searchbox](https://developer.microsoft.com/en-us/fluentui#/controls/web/searchbox).
+- [Polaris: top bar](https://polaris.shopify.com/components/structure/top-bar).
+- [Polaris: lists and tables filters](https://polaris.shopify.com/components/lists-and-tables/filters).
+- [Atlassian: Page header](https://www.atlassian.design/guidelines/product/patterns/page-header).
+- [Atlassian: text field](https://www.atlassian.design/guidelines/product/components/text-field).
+- [Ant Design: data entry search](https://ant.design/docs/spec/data-entry#Search).
+- [Ant Design: input search](https://ant.design/components/input/#Input.Search).
+- [UX Booth: best practices for search](https://www.uxbooth.com/articles/best-practices-for-search/).
+- [UX Planet: design a search box](https://uxplanet.org/design-a-perfect-search-box-b6baaf9599c).
+- [NYC design: best UX practices for a search box](https://medium.com/nyc-design/best-ux-practises-for-search-box-de39e31d1588).
+- [Nielsen Norman Group: search is not enough](https://www.nngroup.com/articles/search-not-enough/).
+- [Nielsen Norman Group: search and you may find](https://www.nngroup.com/articles/search-and-you-may-find/).
+

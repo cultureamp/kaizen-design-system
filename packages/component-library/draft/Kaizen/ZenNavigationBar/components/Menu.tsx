@@ -1,14 +1,12 @@
 import * as React from "react"
+import uuid from "uuid/v4"
 
 import { Icon, IconButton } from "@kaizen/component-library"
-import {
-  OffCanvasContext,
-  ZenOffCanvas,
-} from "@kaizen/component-library/draft/Kaizen/ZenOffCanvas"
+import { OffCanvasContext, ZenOffCanvas } from "../../ZenOffCanvas" // relative imports are not ideal
 
 import classNames from "classnames"
 import Media from "react-media"
-import { MOBILE_QUERY } from "../constants"
+import { NavBarContext } from "../context"
 import { MenuProps, NavigationItem } from "../types"
 import Dropdown from "./Dropdown"
 import Link from "./Link"
@@ -27,6 +25,7 @@ type State = {
 
 export default class Menu extends React.Component<MenuProps, State> {
   static displayName = "Menu"
+  static contextType = NavBarContext
   static defaultProps = {
     items: [],
     active: false,
@@ -39,6 +38,8 @@ export default class Menu extends React.Component<MenuProps, State> {
   state = { open: false }
 
   render() {
+    const { hasExtendedNavigation } = this.context
+
     const {
       active,
       children,
@@ -53,13 +54,14 @@ export default class Menu extends React.Component<MenuProps, State> {
     } = this.props
 
     return (
-      <Media query={MOBILE_QUERY}>
+      <Media query={`(max-width: ${styles.caBreakpointMobileMax})`}>
         {(matches: boolean) =>
           mobileEnabled && matches ? (
             <React.Fragment>
               <OffCanvasContext.Consumer>
                 {({ toggleVisibleMenu }) => (
                   <Link
+                    key={uuid()}
                     text={heading}
                     href="#"
                     onClick={() => toggleVisibleMenu(heading)}
@@ -80,6 +82,7 @@ export default class Menu extends React.Component<MenuProps, State> {
                   [styles.linkText]: !!heading,
                   [styles.menuOpen]: this.state.open,
                   [styles.active]: active,
+                  [styles.extendedNavigation]: hasExtendedNavigation,
                 })}
                 onClick={this.toggle}
                 aria-expanded={this.state.open}
@@ -87,9 +90,9 @@ export default class Menu extends React.Component<MenuProps, State> {
                 onMouseDown={e => e.preventDefault()}
               >
                 {children ? (
-                  children
+                  <div className={styles.customChild}>{children}</div>
                 ) : (
-                  <React.Fragment>
+                  <span className={styles.hoverArea}>
                     {icon && (
                       <span className={styles.linkIcon}>
                         <Icon
@@ -100,8 +103,10 @@ export default class Menu extends React.Component<MenuProps, State> {
                       </span>
                     )}
                     <span className={styles.linkText}>{heading}</span>
-                    <Icon icon={chevronDownIcon} role="presentation" />
-                  </React.Fragment>
+                    <span className={styles.downIcon}>
+                      <Icon icon={chevronDownIcon} role="presentation" />
+                    </span>
+                  </span>
                 )}
               </button>
               {this.state.open && <Dropdown items={items} header={header} />}
@@ -120,24 +125,23 @@ export default class Menu extends React.Component<MenuProps, State> {
   }
 
   renderOffCanvas() {
-    const { items, heading, onLinkClick } = this.props
+    const { items, heading } = this.props
     const links: Array<NavigationItem | undefined> = items.map(
       (item, index) => {
         if ("url" in item) {
           return (
             <Link
-              key={item.url}
+              key={`${item.url}-${uuid()}`}
               text={item.label}
               href={item.url}
-              onClick={onLinkClick}
             />
           )
         } else if ("title" in item) {
           return (
             <MenuGroup
+              key={`${item.title}-${uuid()}`}
               first={index === 0}
               {...item}
-              onLinkClick={onLinkClick}
               offCanvas
             />
           )

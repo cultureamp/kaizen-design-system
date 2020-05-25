@@ -17,6 +17,90 @@ $ca-navigation-bar__link-item-indicator-height: 5px;
 $ca-navigation-bar__link-item-margin: 18px;
 $ca-navigation-bar__link-item-margin-mobile: 10px;
 
+// Extended Navigation breakpoints
+$navbar-breakpoint-extended-small-up: 1118px;
+$navbar-breakpoint-extended-large-up: 1350px;
+// Condensed Navigation breakpoints
+$navbar-breakpoint-condensed-large-up: 1150px;
+
+:export {
+  caBreakpointMobileMax: #{$ca-breakpoint-tablet - 1};
+}
+
+@mixin navbar-mobile-only {
+  @media (max-width: #{$ca-breakpoint-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin navbar-tablet-up {
+  @media (min-width: $ca-breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin navbar-extended-small-up {
+  @media (min-width: $navbar-breakpoint-extended-small-up) {
+    @content;
+  }
+}
+
+@mixin navbar-extended-large-up {
+  @media (min-width: $navbar-breakpoint-extended-large-up) {
+    @content;
+  }
+}
+
+// Condensed
+@mixin navbar-condensed-large-up {
+  @media (min-width: $navbar-breakpoint-condensed-large-up) {
+    @content;
+  }
+}
+
+@mixin navbar-responsive-spacing(
+  $margin: false,
+  $padding: false,
+  $start: false,
+  $end: false,
+  $large: true
+) {
+  $medium: $ca-grid / 2;
+  $desktop: $ca-grid;
+
+  @include navbar-tablet-up {
+    @if $margin {
+      @include ca-margin(
+        $end: if($end, $medium, null),
+        $start: if($start, $medium, null)
+      );
+    }
+    @if $padding {
+      @include ca-padding(
+        $end: if($end, $medium, null),
+        $start: if($start, $medium, null)
+      );
+    }
+  }
+
+  @if $large {
+    @include navbar-extended-large-up {
+      @if $margin {
+        @include ca-margin(
+          $end: if($end, $desktop, null),
+          $start: if($start, $desktop, null)
+        );
+      }
+      @if $padding {
+        @include ca-padding(
+          $end: if($end, $desktop, null),
+          $start: if($start, $desktop, null)
+        );
+      }
+    }
+  }
+}
+
 @mixin ca-navigation-bar__link-item {
   @extend %ca-navigation-bar__menu-item-focus;
 
@@ -25,7 +109,7 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
   // fill parent
   display: flex;
   min-width: 2 * $ca-grid;
-  height: $ca-navigation-bar__link-item-height;
+  height: 100%;
 
   // center child
   align-items: center;
@@ -34,12 +118,11 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
   border-radius: $kz-border-solid-border-radius;
 
   color: rgba($kz-color-white, 0.8);
-  padding: 0 ($ca-grid / 2);
   text-decoration: none;
   transition: background-color $ca-duration-rapid $ca-ease-in-out;
 
   // active indicator
-  @include ca-media-tablet-and-up {
+  @include navbar-tablet-up {
     &::before {
       content: "";
       display: block;
@@ -65,19 +148,42 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
     color: $kz-color-white;
 
     &::before {
-      transform: translateY(-18px);
+      transform: translateY(-1px);
     }
   }
 
-  &:hover,
-  &.menuOpen {
-    color: $kz-color-white; // override hyperlink hover color
-    text-decoration: none;
-    background-color: rgba($kz-color-white, 0.1);
+  .hoverArea {
+    display: flex;
+    align-items: center;
+    height: $ca-navigation-bar__link-item-height;
+    padding: 0 ($ca-grid / 2);
     border-radius: $kz-border-borderless-border-radius;
+    width: 100%;
+    justify-content: center;
+    @include navbar-mobile-only {
+      justify-content: start;
+    }
+  }
+
+  .menuIcon {
+    margin-left: auto;
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+  }
+
+  &:hover,
+  &.menuOpen,
+  &:focus {
+    text-decoration: none;
+    color: $kz-color-white; // override hyperlink hover color
+
+    .hoverArea {
+      background-color: rgba($kz-color-white, 0.1);
+    }
 
     .linkText::before {
-      @include ca-media-mobile {
+      @include navbar-mobile-only {
         transform: translateX(-#{$ca-navigation-bar__link-item-margin});
       }
     }
@@ -91,8 +197,8 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
     display: inline-flex;
     opacity: 0.5;
 
-    @include ca-media-mobile {
-      display: none;
+    @include navbar-mobile-only {
+      @include ca-margin($end: $ca-grid / 2);
     }
   }
 
@@ -100,7 +206,7 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
     padding: 0;
     @include ca-margin($start: 8px);
 
-    @include ca-media-mobile {
+    @include navbar-mobile-only {
       @include ca-margin($start: 0);
     }
   }
@@ -115,26 +221,26 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
   }
 
   &.small {
-    @include ca-media-tablet-and-up {
+    @include navbar-tablet-up {
       @include font-heading-5;
       @include ca-inherit-baseline;
+      .linkText {
+        display: none;
+      }
     }
   }
 
   &.opaque {
     color: $kz-color-white;
 
-    @include ca-media-tablet-and-up {
+    @include navbar-tablet-up {
       .linkIcon {
         opacity: 1;
         transition: opacity $ca-duration-rapid $ca-ease-in-out;
       }
 
       .linkText {
-        @include ca-media-tablet {
-          display: none;
-        }
-
+        display: none;
         padding: 0;
 
         &::before {
@@ -144,24 +250,95 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
 
       &:hover,
       &:focus {
-        background-color: rgba($kz-color-white, 0.1);
+        .hoverArea {
+          background-color: rgba($kz-color-white, 0.1);
 
-        .linkIcon {
-          opacity: 0.7;
+          .linkIcon {
+            opacity: 0.7;
+          }
         }
       }
 
       &:active {
-        background-color: rgba($kz-color-white, 0.2);
+        .hoverArea {
+          background-color: rgba($kz-color-white, 0.2);
 
-        .linkIcon {
-          opacity: 1;
+          .linkIcon {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    &:not(.extendedNavigation) {
+      &:not(.small) {
+        .linkText {
+          display: flex;
+        }
+      }
+
+      @include navbar-condensed-large-up {
+        &.small .linkText {
+          display: flex;
+        }
+      }
+    }
+
+    &.extendedNavigation {
+      &:not(.small) {
+        @include navbar-extended-small-up {
+          .linkText {
+            display: flex;
+          }
+        }
+      }
+
+      @include navbar-extended-large-up {
+        &.small .linkText {
+          display: flex;
         }
       }
     }
   }
 
-  @include ca-media-mobile {
+  @include navbar-tablet-up {
+    &.content {
+      color: rgba($kz-color-wisteria-800, 0.7);
+
+      &.opaque,
+      &.menuOpen {
+        color: $kz-color-wisteria-800;
+      }
+
+      &.small {
+        color: $kz-color-cluny-500;
+
+        &.opaque {
+          color: $kz-color-cluny-500;
+        }
+      }
+
+      &.active {
+        color: $kz-color-cluny-500;
+      }
+
+      &:hover,
+      &:focus,
+      &.menuOpen {
+        color: $kz-color-cluny-500;
+        .hoverArea {
+          background-color: rgba($kz-color-white, 0.5);
+        }
+      }
+
+      &::before {
+        background-color: $kz-color-cluny-500;
+      }
+    }
+  }
+
+  @include navbar-mobile-only {
+    font-weight: normal;
     justify-content: flex-start;
     align-items: center;
     color: $kz-color-wisteria-700;
@@ -171,13 +348,21 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
     &.active,
     &:hover,
     &:focus {
-      color: $kz-color-cluny-500;
-      background-color: $kz-color-cluny-100;
+      .hoverArea {
+        color: $kz-color-cluny-500;
+        background-color: $kz-color-cluny-100;
+
+        .menuIcon {
+          opacity: 1;
+        }
+      }
     }
   }
 }
 
 %ca-navigation-bar {
+  @include navbar-responsive-spacing($end: true, $padding: true);
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -189,6 +374,10 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
 
   @media print {
     display: none;
+  }
+
+  &.content {
+    background: $kz-color-cluny-200;
   }
 }
 
@@ -257,4 +446,13 @@ $ca-navigation-bar__link-item-margin-mobile: 10px;
   font-size: $kz-typography-paragraph-body-font-size;
   line-height: $kz-typography-paragraph-body-line-height;
   letter-spacing: $kz-typography-paragraph-body-letter-spacing;
+}
+
+@mixin font-extra-small {
+  @include anti-aliasing;
+  font-family: $kz-typography-paragraph-extra-small-font-family;
+  font-weight: $kz-typography-paragraph-extra-small-font-weight;
+  font-size: $kz-typography-paragraph-extra-small-font-size;
+  line-height: $kz-typography-paragraph-extra-small-line-height;
+  letter-spacing: $kz-typography-paragraph-extra-small-letter-spacing;
 }

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.5.0...@kaizen/design-tokens@1.6.0) (2020-05-04)
+
+
+### Features
+
+* Add Peach 600 and Cluny 600 to color tokens ([#441](https://github.com/cultureamp/kaizen-design-system/issues/441)) ([4c6bf66](https://github.com/cultureamp/kaizen-design-system/commit/4c6bf665d2f39c1aca2d54821beee4239d6d7212))
+
+
+
+
+
 # [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.4.0...@kaizen/design-tokens@1.5.0) (2020-04-15)
 
 

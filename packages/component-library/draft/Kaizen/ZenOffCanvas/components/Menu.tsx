@@ -1,7 +1,7 @@
+import { MenuProps } from "@kaizen/component-library/draft/Kaizen/ZenNavigationBar/types"
 import classNames from "classnames"
 import * as React from "react"
 import uuidv4 from "uuid/v4"
-import { MenuProps } from "../../ZenNavigationBar/types"
 
 const styles = require("./Menu.module.scss")
 
@@ -14,9 +14,8 @@ const Menu = ({ link, section }: Props) => {
   return (
     <div
       className={classNames(styles.menu, {
-        [styles.primary]: section === "primary",
         [styles.secondary]: section === "secondary",
-        [styles.active]: link.active,
+        [styles.active]: !!link.active,
       })}
       key={`${link.heading}-${uuidv4()}`}
     >

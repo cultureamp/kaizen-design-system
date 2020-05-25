@@ -1,0 +1,20 @@
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/color";
+
+.container {
+  display: flex;
+}
+
+.disabled {
+  label {
+    > span {
+      opacity: 0.3;
+    }
+  }
+}
+
+.fullWidth {
+  .inner {
+    width: 100%;
+  }
+}

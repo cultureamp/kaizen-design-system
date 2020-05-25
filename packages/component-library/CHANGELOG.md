@@ -3,6 +3,265 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.15.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.15.4...@kaizen/component-library@7.15.5) (2020-05-21)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.15.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.15.3...@kaizen/component-library@7.15.4) (2020-05-19)
+
+
+### Bug Fixes
+
+* Export ValueType from Select index.ts ([#498](https://github.com/cultureamp/kaizen-design-system/issues/498)) ([0930de0](https://github.com/cultureamp/kaizen-design-system/commit/0930de05691278c450ffa96c104b22eeae827252))
+
+
+
+
+
+## [7.15.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.15.2...@kaizen/component-library@7.15.3) (2020-05-19)
+
+
+### Bug Fixes
+
+* Make Navigation Bar consume core components ([#497](https://github.com/cultureamp/kaizen-design-system/issues/497)) ([51c7c2e](https://github.com/cultureamp/kaizen-design-system/commit/51c7c2e2b8db7c7e4f3bd3d0d5bf6feff9ae31cf))
+
+
+
+
+
+## [7.15.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.15.1...@kaizen/component-library@7.15.2) (2020-05-19)
+
+
+### Bug Fixes
+
+* Add ValueType export to old component-library location as well ([#495](https://github.com/cultureamp/kaizen-design-system/issues/495)) ([e9f6199](https://github.com/cultureamp/kaizen-design-system/commit/e9f6199399f0936546dc794b684abe15249cdf03))
+
+
+
+
+
+## [7.15.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.15.0...@kaizen/component-library@7.15.1) (2020-05-18)
+
+
+### Bug Fixes
+
+* sync old and new draft components ([#492](https://github.com/cultureamp/kaizen-design-system/issues/492)) ([6755e4b](https://github.com/cultureamp/kaizen-design-system/commit/6755e4beedf5d3953c5a50e152cfd181389d9be0))
+
+
+
+
+
+# [7.15.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.14.0...@kaizen/component-library@7.15.0) (2020-05-15)
+
+
+### Features
+
+* Make Kaizen Site pull draft component READMEs from draft packages ([#491](https://github.com/cultureamp/kaizen-design-system/issues/491)) ([31a321f](https://github.com/cultureamp/kaizen-design-system/commit/31a321f033f66805d4e8e299a329da1e0eb6a8e8))
+
+
+
+
+
+# [7.14.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.13.3...@kaizen/component-library@7.14.0) (2020-05-13)
+
+
+### Features
+
+* Responsive adjustments ([#474](https://github.com/cultureamp/kaizen-design-system/issues/474)) ([d9e61bd](https://github.com/cultureamp/kaizen-design-system/commit/d9e61bdb4e07a851cc65b49495dc82a2b50baca7))
+
+
+
+
+
+## [7.13.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.13.2...@kaizen/component-library@7.13.3) (2020-05-08)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.13.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.13.1...@kaizen/component-library@7.13.2) (2020-05-08)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.13.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.13.0...@kaizen/component-library@7.13.1) (2020-05-08)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [7.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.12.0...@kaizen/component-library@7.13.0) (2020-05-07)
+
+
+### Features
+
+* Create description prop for TextAreaField ([#464](https://github.com/cultureamp/kaizen-design-system/issues/464)) ([a4069f5](https://github.com/cultureamp/kaizen-design-system/commit/a4069f5ccc3e0be38e9ccd54baa04cb77b9731b2))
+
+
+
+
+
+# [7.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.11.1...@kaizen/component-library@7.12.0) (2020-05-06)
+
+
+### Features
+
+* Hero Panel draft component ([#445](https://github.com/cultureamp/kaizen-design-system/issues/445)) ([4568518](https://github.com/cultureamp/kaizen-design-system/commit/4568518737456e48d59b59f908c4c4d4f29cd83d))
+
+
+
+
+
+## [7.11.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.11.0...@kaizen/component-library@7.11.1) (2020-05-06)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [7.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.10.0...@kaizen/component-library@7.11.0) (2020-05-05)
+
+
+### Features
+
+* Add two more guidance block variances ([#446](https://github.com/cultureamp/kaizen-design-system/issues/446)) ([e5b2d45](https://github.com/cultureamp/kaizen-design-system/commit/e5b2d457b590de0989533e5b35271ff7e3f1673c))
+
+
+
+
+
+# [7.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.9.1...@kaizen/component-library@7.10.0) (2020-05-05)
+
+
+### Features
+
+* [SUP-40] add Elm Table ([#448](https://github.com/cultureamp/kaizen-design-system/issues/448)) ([93b8af1](https://github.com/cultureamp/kaizen-design-system/commit/93b8af1adee46b743370d7b3b0372faf95272275))
+
+
+
+
+
+## [7.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.9.0...@kaizen/component-library@7.9.1) (2020-05-04)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [7.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.8.2...@kaizen/component-library@7.9.0) (2020-05-04)
+
+
+### Features
+
+* Added missing dependencies to packages  ([#449](https://github.com/cultureamp/kaizen-design-system/issues/449)) ([cb1dc2a](https://github.com/cultureamp/kaizen-design-system/commit/cb1dc2aead68e591cc21c665fb25c1817633c4d7))
+
+
+
+
+
+## [7.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.8.1...@kaizen/component-library@7.8.2) (2020-05-04)
+
+
+### Bug Fixes
+
+* export ColorScheme type from zen nav index ([#447](https://github.com/cultureamp/kaizen-design-system/issues/447)) ([eeeca87](https://github.com/cultureamp/kaizen-design-system/commit/eeeca8786b780bd2b38a819e39e21c667baaf4c7))
+
+
+
+
+
+## [7.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.8.0...@kaizen/component-library@7.8.1) (2020-05-04)
+
+
+### Bug Fixes
+
+* Adjust styles of the zen navbar ([#442](https://github.com/cultureamp/kaizen-design-system/issues/442)) ([35bcda7](https://github.com/cultureamp/kaizen-design-system/commit/35bcda7f0734a60e3dc7b5588ca1a0a359f2b141))
+
+
+
+
+
+# [7.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.7.0...@kaizen/component-library@7.8.0) (2020-04-29)
+
+
+### Features
+
+* Update border width and color + make borders invisible where appropriate ([#408](https://github.com/cultureamp/kaizen-design-system/issues/408)) ([9045f56](https://github.com/cultureamp/kaizen-design-system/commit/9045f567d75617c735e7b5fb6d9c3000792cb024))
+
+
+
+
+
+# [7.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.6.2...@kaizen/component-library@7.7.0) (2020-04-29)
+
+
+### Features
+
+* Move header compoment out of mobile heading ([#426](https://github.com/cultureamp/kaizen-design-system/issues/426)) ([45e0268](https://github.com/cultureamp/kaizen-design-system/commit/45e02684fe25de2a7aa64df05da032a10b29b661))
+
+
+
+
+
+## [7.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.6.1...@kaizen/component-library@7.6.2) (2020-04-29)
+
+
+### Bug Fixes
+
+* restructure navbar clicks ([#425](https://github.com/cultureamp/kaizen-design-system/issues/425)) ([8d45565](https://github.com/cultureamp/kaizen-design-system/commit/8d455656365f0f85a71f534304f0dfc14870643f))
+
+
+
+
+
+## [7.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.6.0...@kaizen/component-library@7.6.1) (2020-04-28)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [7.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.5.3...@kaizen/component-library@7.6.0) (2020-04-28)
+
+
+### Features
+
+* add ability to make a Table cell an anchor element ([#419](https://github.com/cultureamp/kaizen-design-system/issues/419)) ([8a37634](https://github.com/cultureamp/kaizen-design-system/commit/8a376343bbd15880f6643cc6ec7440367fe4cf61))
+
+
+
+
+
+## [7.5.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.5.2...@kaizen/component-library@7.5.3) (2020-04-28)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.5.1...@kaizen/component-library@7.5.2) (2020-04-28)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [7.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.5.0...@kaizen/component-library@7.5.1) (2020-04-27)
 
 
