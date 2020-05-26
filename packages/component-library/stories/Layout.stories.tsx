@@ -16,7 +16,7 @@ const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon
   .default
 const supportIcon = require("@kaizen/component-library/icons/support.icon.svg")
   .default
-import { TitleBlock } from "@kaizen/component-library/draft"
+import { TitleBlock } from "@kaizen/draft-title-block"
 
 export default {
   title: "Layout (React)",

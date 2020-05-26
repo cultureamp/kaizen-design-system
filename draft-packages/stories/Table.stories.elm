@@ -4,13 +4,13 @@ import CssModules exposing (css)
 import ElmStorybook exposing (statelessStoryOf, storybook)
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (dir, style)
-import Kaizen.Table.TableCard as TableCard
-import Kaizen.Table.TableContainer as TableContainer
-import Kaizen.Table.TableHeader as TableHeader
-import Kaizen.Table.TableHeaderRow as TableHeaderRow
-import Kaizen.Table.TableHeaderRowCell as TableHeaderRowCell
-import Kaizen.Table.TableRow as TableRow
-import Kaizen.Table.TableRowCell as TableRowCell
+import KaizenDraft.Table.TableCard as TableCard
+import KaizenDraft.Table.TableContainer as TableContainer
+import KaizenDraft.Table.TableHeader as TableHeader
+import KaizenDraft.Table.TableHeaderRow as TableHeaderRow
+import KaizenDraft.Table.TableHeaderRowCell as TableHeaderRowCell
+import KaizenDraft.Table.TableRow as TableRow
+import KaizenDraft.Table.TableRowCell as TableRowCell
 import Text.Text as Text
 
 
