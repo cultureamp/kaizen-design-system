@@ -10,12 +10,16 @@
   border-radius: $kz-border-solid-border-radius;
   width: 100%;
   border: $kz-border-solid-border-width $kz-border-solid-border-style
-    $ca-border-color;
+    $kz-color-wisteria-500;
   padding: $ca-grid * 0.5;
   color: $kz-color-wisteria-800;
 
   &:focus {
     border-color: $ca-border-color-focus;
+  }
+
+  &:hover {
+    border-color: $kz-color-wisteria-700;
   }
 
   @include form-input-placeholder {
