@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-panel@1.2.13...@kaizen/draft-hero-panel@1.2.14) (2020-05-26)
+
+**Note:** Version bump only for package @kaizen/draft-hero-panel
+
+
+
+
+
 ## [1.2.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-panel@1.2.12...@kaizen/draft-hero-panel@1.2.13) (2020-05-21)
 
 **Note:** Version bump only for package @kaizen/draft-hero-panel

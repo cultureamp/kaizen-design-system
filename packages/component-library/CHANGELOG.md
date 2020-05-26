@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.16.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.15.5...@kaizen/component-library@7.16.0) (2020-05-26)
+
+
+### Features
+
+* Delete drafts from core kaizen ([#462](https://github.com/cultureamp/kaizen-design-system/issues/462)) ([14bdc61](https://github.com/cultureamp/kaizen-design-system/commit/14bdc6181158cab5d3350b3ecf1b2dee6d5baeae))
+
+
+
+
+
 ## [7.15.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.15.4...@kaizen/component-library@7.15.5) (2020-05-21)
 
 **Note:** Version bump only for package @kaizen/component-library
