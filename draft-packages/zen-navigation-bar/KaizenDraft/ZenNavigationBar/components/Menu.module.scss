@@ -3,8 +3,6 @@
 @import "~@kaizen/component-library/styles/layout";
 @import "../styles";
 
-$menu__square-size: 60px;
-
 .root {
   position: relative;
   margin-top: 0;
@@ -39,11 +37,10 @@ $menu__square-size: 60px;
   }
 
   .customChild {
-    @include navbar-responsive-spacing($start: true, $margin: true);
-    width: $menu__square-size;
+    @include ca-margin($start: $ca-navigation-bar__spacer);
+    width: $ca-grid * 2;
     box-sizing: border-box;
-    height: $menu__square-size;
-    max-height: $menu__square-size;
+    height: $ca-navigation-bar__child-height;
     display: flex;
     align-items: center;
   }
