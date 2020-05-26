@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@1.4.5...@kaizen/draft-form@1.5.0) (2020-05-26)
+
+
+### Features
+
+* Update border-color of TextAreaField and TextField to match Zen ([#510](https://github.com/cultureamp/kaizen-design-system/issues/510)) ([6e2b643](https://github.com/cultureamp/kaizen-design-system/commit/6e2b6438384073c854ca393b1be9e531ee4a10a3))
+
+
+
+
+
 ## [1.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@1.4.4...@kaizen/draft-form@1.4.5) (2020-05-26)
 
 **Note:** Version bump only for package @kaizen/draft-form
