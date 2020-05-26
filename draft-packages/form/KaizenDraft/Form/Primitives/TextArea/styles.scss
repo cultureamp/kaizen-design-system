@@ -18,6 +18,10 @@
     border-color: $ca-border-color-focus;
   }
 
+  &:hover {
+    border-color: $kz-color-wisteria-700;
+  }
+
   @include form-input-placeholder {
     line-height: 1.5;
     color: add-alpha($kz-color-wisteria-800, 70%);
