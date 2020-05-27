@@ -1,8 +1,9 @@
+@import "~@kaizen/component-library/styles/grid";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/typography";
 
 $caButton-border-width: $kz-border-solid-border-width;
 $caButton-focus-border-width: $kz-border-focus-ring-border-width;
@@ -28,19 +29,28 @@ $caButton-verticalPaddingForm: calc(
 }
 
 %caButtonContainer {
-  @include ca-type-block(inline-block);
+  display: inline-block;
 }
 
 %caButton {
   @include button-reset;
-  @include ca-type-ideal-button;
 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-family: $kz-typography-button-primary-font-family;
+  font-weight: $kz-typography-button-primary-font-weight;
+  font-size: $kz-typography-button-primary-font-size;
+  line-height: $kz-typography-button-primary-line-height;
+  letter-spacing: $kz-typography-button-primary-letter-spacing;
   display: flex;
   align-items: center;
   box-sizing: border-box;
   min-height: $caButton-height;
   border: $kz-border-solid-border-width $kz-border-solid-border-style;
   border-radius: $kz-border-solid-border-radius;
+  position: relative;
+
   // looking for padding? See %caButtonContent
 
   &[href] {
@@ -168,7 +178,11 @@ $caButton-verticalPaddingForm: calc(
 }
 
 %caButtonSecondary {
-  @include ca-type-ideal-body-bold;
+  font-family: $kz-typography-button-secondary-font-family;
+  font-weight: $kz-typography-button-secondary-font-weight;
+  font-size: $kz-typography-button-secondary-font-size;
+  line-height: $kz-typography-button-secondary-line-height;
+  letter-spacing: $kz-typography-button-secondary-letter-spacing;
 
   &:not(:disabled) {
     background: transparent;
@@ -445,6 +459,8 @@ $caButton-verticalPaddingForm: calc(
   &:hover,
   &:active,
   &:global(.focus-visible) {
+    // These are only used by consumers, so the !important is there to make sure these
+    // override any local competing styles that we can't foresee
     color: $kz-color-coral-600 !important;
     background: $kz-color-coral-100 !important;
   }
