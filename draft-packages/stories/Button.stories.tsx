@@ -1,6 +1,7 @@
 import { Button } from "../button"
 const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
   .default
+import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { action } from "@storybook/addon-actions"
 import * as React from "react"
 
@@ -135,6 +136,15 @@ export const ReversedDefault = () => <Button label="Label" reversed={true} />
 
 ReversedDefault.story = {
   name: "Reversed, Default",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
 }
 
 export const ReversedDefaultDisabled = () => (
@@ -143,6 +153,15 @@ export const ReversedDefaultDisabled = () => (
 
 ReversedDefaultDisabled.story = {
   name: "Reversed, Default, Disabled",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
 }
 
 export const ReversedPrimary = () => (
@@ -151,6 +170,15 @@ export const ReversedPrimary = () => (
 
 ReversedPrimary.story = {
   name: "Reversed, Primary",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
 }
 
 export const ReversedPrimaryDisabled = () => (
@@ -159,6 +187,15 @@ export const ReversedPrimaryDisabled = () => (
 
 ReversedPrimaryDisabled.story = {
   name: "Reversed, Primary, Disabled",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
 }
 
 export const ReversedSecondary = () => (
@@ -167,6 +204,15 @@ export const ReversedSecondary = () => (
 
 ReversedSecondary.story = {
   name: "Reversed, Secondary",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
 }
 
 export const ReversedSecondaryDisabled = () => (
@@ -175,6 +221,15 @@ export const ReversedSecondaryDisabled = () => (
 
 ReversedSecondaryDisabled.story = {
   name: "Reversed, Secondary, Disabled",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
 }
 
 export const ReversedSecondaryWIcon = () => (
@@ -188,6 +243,15 @@ export const ReversedSecondaryWIcon = () => (
 
 ReversedSecondaryWIcon.story = {
   name: "Reversed, Secondary w/ Icon",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
 }
 
 export const ReversedSecondaryWIconDisabled = () => (
@@ -202,6 +266,15 @@ export const ReversedSecondaryWIconDisabled = () => (
 
 ReversedSecondaryWIconDisabled.story = {
   name: "Reversed, Secondary w/ Icon, Disabled",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
 }
 
 export const TypeSubmit = () => <Button label="Label" type="submit" />
