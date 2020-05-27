@@ -64,7 +64,8 @@ $caButton-verticalPaddingForm: calc(
     }
 
     &:active {
-      background: $kz-color-wisteria-100;
+      background: $kz-color-ash;
+      border-color: $kz-color-wisteria-500;
       transform: translateY(1px);
     }
 
@@ -76,34 +77,19 @@ $caButton-verticalPaddingForm: calc(
         outline: none;
       }
 
-      &:global(.focus-visible) {
-        background: $kz-color-wisteria-100;
-        border-color: $kz-color-wisteria-700;
-      }
-
       // show custom focus ring when :focus-visible
-      &:global(.focus-visible)::after {
-        $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px;
-        content: "";
-        position: absolute;
-        background: transparent;
-        border-radius: $kz-border-focus-ring-border-radius;
-        border-width: $kz-border-focus-ring-border-width;
-        border-style: $kz-border-focus-ring-border-style;
-        border-color: $kz-color-cluny-500;
-        top: -$focus-ring-offset;
-        left: -$focus-ring-offset;
-        right: -$focus-ring-offset;
-        bottom: -$focus-ring-offset;
+      &:global(.focus-visible) {
+        border: $kz-border-focus-ring-border-width $kz-border-solid-border-style
+          $kz-color-cluny-500;
       }
     }
   }
 
+  // Disabled
   &:disabled {
-    opacity: 0.3;
     background: $kz-color-white;
-    border-color: $kz-color-wisteria-500;
-    color: $kz-color-wisteria-800;
+    border-color: add-alpha($kz-color-wisteria-500, 30%);
+    color: add-alpha($kz-color-wisteria-800, 30%);
   }
 }
 
@@ -114,36 +100,31 @@ $caButton-verticalPaddingForm: calc(
 %caButtonPrimary,
 %caButtonDestructive {
   &:not(:disabled) {
-    background: $kz-color-cluny-500;
-    border-color: $kz-border-borderless-border-color;
+    background: #58b59a; // equal to add-tint($ca-palette-seedling, 10%). Temporary until we upgrade to Zen (Wisteria)
+    border-color: #58b59a;
     color: $kz-color-white;
 
     &:hover {
-      background: $kz-color-cluny-600;
-      border-color: $kz-color-cluny-600;
+      background: #45ad8f; // equal to $ca-palette-seedling. Temporary until we upgrade to Zen (Wisteria)
+      border-color: #45ad8f;
     }
 
     &:active {
-      background: $kz-color-cluny-600;
-      border-color: $kz-color-cluny-600;
-    }
-
-    :global(.js-focus-visible) &:global(.focus-visible) {
-      background: $kz-color-cluny-600;
-      border-color: $kz-color-cluny-600;
+      background: #58b59a; // equal to add-tint($ca-palette-seedling, 10%). Temporary until we upgrade to Zen (Wisteria)
+      border-color: #58b59a;
     }
   }
 
   &:disabled {
-    background: $kz-color-cluny-500;
     color: $kz-color-white;
+    background: add-alpha($kz-color-seedling-500, 30%);
     border-color: $kz-border-borderless-border-color;
   }
 }
 
 %caButtonDestructive {
   &:disabled {
-    background: $kz-color-coral-500;
+    background: add-alpha($kz-color-coral-500, 30%);
   }
 }
 
@@ -162,7 +143,6 @@ $caButton-verticalPaddingForm: calc(
   }
 
   :global(.js-focus-visible) &:global(.focus-visible) {
-    background: $kz-color-coral-600;
     border-color: $kz-color-coral-600;
   }
 }
@@ -180,53 +160,58 @@ $caButton-verticalPaddingForm: calc(
     }
 
     &:hover,
-    &:active,
-    :global(.js-focus-visible) &:global(.focus-visible) {
+    &:active {
       color: $kz-color-cluny-500;
-      background: $kz-color-cluny-100;
+      background: $kz-color-wisteria-100;
       border-color: $kz-border-borderless-border-color;
+    }
+
+    &:active {
+      background: add-alpha($kz-color-wisteria-800, 30%);
     }
   }
 
   &:disabled {
     background: transparent;
     border-color: $kz-border-borderless-border-color;
-    color: rgba($kz-color-cluny-500, 0.3);
+    color: add-alpha($kz-color-cluny-500, 30%);
   }
 }
 
 %caButtonReversed {
   &:not(:disabled) {
     background: transparent;
-    border-color: rgba($kz-color-white, 0.5);
+    border-color: $kz-color-white;
     color: $kz-color-white;
 
     &:hover {
-      background: rgba($kz-color-white, 0.1);
+      background: add-alpha($kz-color-white, 10%);
       border-color: $kz-color-white;
     }
 
     :global(.js-focus-visible) &:global(.focus-visible) {
-      border-color: $kz-color-white;
+      border-color: $kz-color-yuzu-500;
 
-      &::after {
-        border-color: $kz-color-cluny-300;
+      &:not(:active) {
+        background: add-alpha($kz-color-white, 10%);
       }
+    }
 
-      background: rgba($kz-color-white, 0.1);
+    &:active {
+      background: add-alpha($kz-color-white, 20%);
+      border-color: $kz-color-white;
     }
   }
 
   &:disabled {
-    opacity: 0.3;
-    border-color: rgba($kz-color-white, 0.5);
-    color: $kz-color-white;
     background: transparent;
+    border-color: add-alpha($kz-color-white, 30%);
+    color: add-alpha($kz-color-white, 30%);
   }
 
   &%caButtonPrimary {
     &:not(:disabled) {
-      background: $kz-color-seedling-300;
+      background: $kz-color-white;
       border-color: $kz-border-borderless-border-color;
       color: $kz-color-wisteria-800;
 
@@ -256,19 +241,26 @@ $caButton-verticalPaddingForm: calc(
       }
 
       &:hover {
-        background: $kz-color-seedling-400;
+        background: add-alpha($kz-color-white, 95%);
       }
 
       :global(.js-focus-visible) &:global(.focus-visible) {
+        border-color: $kz-color-cluny-500;
+
+        &:not(:active) {
+          background: add-alpha($kz-color-white, 95%);
+        }
+      }
+
+      &:active {
+        background: add-alpha($kz-color-white, 90%);
         border-color: $kz-border-borderless-border-color;
-        background: $kz-color-seedling-400;
       }
     }
 
     &:disabled {
-      background: $kz-color-seedling-300;
+      background: add-alpha($kz-color-white, 10%);
       border-color: $kz-border-borderless-border-color;
-      color: $kz-color-wisteria-800;
     }
   }
 
@@ -283,19 +275,26 @@ $caButton-verticalPaddingForm: calc(
       }
 
       &:hover {
-        background: rgba($kz-color-white, 0.1);
+        background: add-alpha($kz-color-white, 10%);
+      }
+
+      &:active {
+        background: add-alpha($kz-color-white, 20%);
       }
 
       :global(.js-focus-visible) &:global(.focus-visible) {
-        border-color: $kz-color-cluny-300;
-        color: $kz-color-white;
+        border-color: $kz-color-yuzu-500;
+
+        &:not(:active):not(:hover) {
+          background: transparent;
+        }
       }
     }
 
     &:disabled {
       background: transparent;
       border-color: $kz-border-borderless-border-color;
-      color: rgba($kz-color-white, 0.3);
+      color: add-alpha($kz-color-white, 30%);
     }
   }
 }
@@ -419,7 +418,7 @@ $caButton-verticalPaddingForm: calc(
   &%caButtonDestructive:not(:disabled) {
     &:hover,
     &:active {
-      color: $kz-color-coral-600;
+      color: $kz-color-coral-500;
     }
 
     :global(.js-focus-visible) &:global(.focus-visible) {
@@ -440,12 +439,5 @@ $caButton-verticalPaddingForm: calc(
   &:hover span,
   &:active span {
     color: $kz-color-coral-600;
-  }
-
-  &:hover,
-  &:active,
-  &:global(.focus-visible) {
-    color: $kz-color-coral-600 !important;
-    background: $kz-color-coral-100 !important;
   }
 }
