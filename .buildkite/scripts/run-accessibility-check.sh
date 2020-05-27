@@ -3,4 +3,4 @@ set -e
 
 yarn install --frozen-lockfile
 
-ts-node ./check-storybook-accessibility.ts
+yarn ts-node ./check-storybook-accessibility.ts
