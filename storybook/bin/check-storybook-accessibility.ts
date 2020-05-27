@@ -109,6 +109,16 @@ const main = async () => {
     console.log(
       `This number is below the current allowable limit of ${passableViolationCount}.`
     )
+    console.log(
+      `This is good news! It means that your work has removed some accessibility violations.`
+    )
+    console.log(
+      `Please update the passableViolationCount value at the top of this file to the new minimum of ${violationCount}.`
+    )
+    console.log(
+      `This will prevent future work from regressing back to a higher violation count.`
+    )
+    process.exit(1)
   }
 }
 
