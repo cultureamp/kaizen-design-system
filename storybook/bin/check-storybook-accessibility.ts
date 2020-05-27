@@ -2,19 +2,29 @@ import AxePuppeteer from "axe-puppeteer"
 import puppeteer from "puppeteer"
 const passableViolationCount = 2079
 
+// To avoid running ts-ignore on all log statements
+function printToConsole(...messages: string[]) {
+  messages.forEach(message => {
+    // tslint:disable-next-line:no-console
+    console.log(message)
+  })
+}
+
 const printUsage = () => {
-  console.log(`
+  printToConsole(
+    `
     Usage:
     yarn storybook-axe BASE_STORYBOOK_URL
       eg. yarn storybook-axe http://localhost:1234
           yarn storybook-axe storybook/public
-  `)
+  `
+  )
 }
 
 const args = process.argv.slice(2)
 
 if (!args[0]) {
-  console.log("Please provide url")
+  printUsage()
   process.exit(1)
 }
 
@@ -94,30 +104,30 @@ const main = async () => {
   await browser.close()
 
   if (violationCount == 0) {
-    console.log("No accessibility violations found")
+    printToConsole(["No accessibility violations found"])
   } else if (violationCount > passableViolationCount) {
-    console.log("Accessibility violations found:")
+    printToConsole(["Accessibility violations found:"])
     examples.forEach(example => {
-      console.log(example)
+      printToConsole([example])
     })
-    console.log(
-      `More accessibility violations were found than the current allowable limit of ${passableViolationCount}. This likely means that a new accessibility violation has been added to the code base.`
-    )
+    printToConsole([
+      `More accessibility violations were found than the current allowable limit of ${passableViolationCount}. This likely means that a new accessibility violation has been added to the code base.`,
+    ])
     process.exit(1)
   } else {
-    console.log(`${violationCount} accessibility violations found.`)
-    console.log(
-      `This number is below the current allowable limit of ${passableViolationCount}.`
-    )
-    console.log(
-      `This is good news! It means that your work has removed some accessibility violations.`
-    )
-    console.log(
-      `Please update the passableViolationCount value at the top of this file to the new minimum of ${violationCount}.`
-    )
-    console.log(
-      `This will prevent future work from regressing back to a higher violation count.`
-    )
+    printToConsole([`${violationCount} accessibility violations found.`])
+    printToConsole([
+      `This number is below the current allowable limit of ${passableViolationCount}.`,
+    ])
+    printToConsole([
+      `This is good news! It means that your work has removed some accessibility violations.`,
+    ])
+    printToConsole([
+      `Please update the passableViolationCount value at the top of this file to the new minimum of ${violationCount}.`,
+    ])
+    printToConsole([
+      `This will prevent future work from regressing back to a higher violation count.`,
+    ])
     process.exit(1)
   }
 }
