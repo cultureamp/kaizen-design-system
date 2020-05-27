@@ -2,6 +2,24 @@ import AxePuppeteer from "axe-puppeteer"
 import puppeteer from "puppeteer"
 const passableViolationCount = 2079
 
+const printUsage = () => {
+  console.log(`
+    Usage:
+    yarn storybook-axe BASE_STORYBOOK_URL
+      eg. yarn storybook-axe http://localhost:1234
+          yarn storybook-axe storybook/public
+  `)
+}
+
+const args = process.argv.slice(2)
+
+if (!args[0]) {
+  console.log("Please provide url")
+  process.exit(1)
+}
+
+const baseStorybookUrl = args[0]
+
 const getExamples = async page => {
   const handle = await page.evaluateHandle(() => ({ window, document }))
   const properties = await handle.getProperties()
@@ -52,7 +70,7 @@ const main = async () => {
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
 
-  const baseIframeUrl = "http://localhost:57357/iframe.html"
+  const baseIframeUrl = `${baseStorybookUrl}/iframe.html`
   await page.goto(baseIframeUrl)
 
   const storybookExamples = await getExamples(page)
