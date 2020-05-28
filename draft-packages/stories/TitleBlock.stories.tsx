@@ -1,10 +1,9 @@
+import { Paragraph } from "@kaizen/component-library"
 import { Button } from "@kaizen/component-library/components/Button"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { TitleBlock } from "@kaizen/draft-title-block"
 import * as React from "react"
-import { Paragraph } from "@kaizen/component-library"
 
-import { MINIMAL_VIEWPORTS } from "@storybook/addon-viewport"
 require("./TitleBlock.stories.scss")
 
 const stickyContainerStyle = {
