@@ -62,7 +62,7 @@
 }
 
 .headerImage {
-  max-width: 200px;
+  max-width: 240px;
 }
 
 .tagsContainer {
@@ -74,12 +74,14 @@
   line-height: 1.5;
   text-transform: uppercase;
   font-weight: 500;
+  margin-left: $ca-grid / 2;
   margin-bottom: $ca-grid / 2;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
+  margin-left: -0.25em;
 }
 
 .mainSection {
