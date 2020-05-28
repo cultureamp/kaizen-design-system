@@ -454,8 +454,12 @@ $caButton-verticalPaddingForm: calc(
   &:hover,
   &:active,
   &:global(.focus-visible) {
-    // These are only used by consumers, so the !important is there to make sure these
-    // override any local competing styles that we can't foresee
+    // caButtonDestructiveModifier is only used in the Elm component
+    // in order to create a Secondary Destructive variant.
+    // The Elm component's HTML structure is different to the React one
+    // and these !importants are here to protect against consumers
+    // overriding the colours if they depending on the
+    // Elm Button's internal structure.
     color: $kz-color-coral-600 !important;
     background: $kz-color-coral-100 !important;
   }
