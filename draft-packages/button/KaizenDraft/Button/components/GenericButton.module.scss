@@ -1,0 +1,87 @@
+@import "../styles";
+
+.container {
+  @extend %caButtonContainer;
+}
+
+.button {
+  @extend %caButton;
+}
+
+.primary {
+  @extend %caButtonPrimary;
+}
+
+.secondary {
+  @extend %caButtonSecondary;
+}
+
+.iconButton {
+  @extend %caButtonIconButton;
+  composes: interactiveIconWrapper from "~@kaizen/component-library/components/Icon/Icon.module.scss";
+}
+
+.reversedIconButton {
+  composes: reversedInteractiveIconWrapper from "~@kaizen/component-library/components/Icon/Icon.module.scss";
+}
+
+.destructive {
+  @extend %caButtonDestructive;
+}
+
+.form {
+  @extend %caButtonForm;
+}
+
+.reversed {
+  @extend %caButtonReversed;
+}
+
+.reverseColorCluny {
+  @extend %caButtonReverseColorCluny;
+}
+
+.reverseColorPeach {
+  @extend %caButtonReverseColorPeach;
+}
+
+.reverseColorSeedling {
+  @extend %caButtonReverseColorSeedling;
+}
+
+.reverseColorWisteria {
+  @extend %caButtonReverseColorWisteria;
+}
+
+.reverseColorYuzu {
+  @extend %caButtonReverseColorYuzu;
+}
+
+.content {
+  @extend %caButtonContent;
+}
+
+.label {
+  @extend %caButtonLabel;
+}
+
+.fullWidth {
+  width: 100%;
+
+  .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .content {
+    justify-content: center;
+  }
+}
+
+.iconWrapper {
+  @extend %caButtonIconWrapper;
+}
+
+.destructiveModifier.destructiveModifier {
+  @extend %caButtonDestructiveModifier;
+}
