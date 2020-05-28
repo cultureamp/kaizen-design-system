@@ -4,24 +4,13 @@ import * as React from "react"
 import Media from "react-media"
 
 import Icon from "@kaizen/component-library/components/Icon/Icon"
-import { MOBILE_QUERY } from "@kaizen/component-library/components/NavigationBar/constants"
 import { Tag } from "@kaizen/draft-tag"
 const backIcon = require("@kaizen/component-library/icons/arrow-backward.icon.svg")
   .default
 const forwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
   .default
-import NavigationButtons, { NavigationButton } from "./NavigationButtons"
 
-const styles = require("./TitleBlock.scss")
-
-type Color =
-  | "Lapis"
-  | "Ocean"
-  | "Peach"
-  | "Seedling"
-  | "Wisteria"
-  | "Yuzu"
-  | "Transparent"
+const styles = require("./ZenTitleBlock.scss")
 
 type SurveyStatus = {
   text: string
@@ -35,16 +24,13 @@ type Breadcrumb = {
 
 type Props = {
   title: string
-  subtitle?: string
+  variant?: "admin" | "education" // the default is wisteria bg (AKA "reporting")
   breadcrumb?: Breadcrumb
-  children?: React.ReactNode
+  toolbar?: React.ReactNode[]
   textDirection?: "ltr" | "rtl"
   surveyStatus?: SurveyStatus
-  navigationButtons?: NavigationButton[]
-  reversed?: boolean
-  reverseColor?: Color
   sticky?: boolean
-  stickyColor?: Color
+  noBottomSeparator?: boolean
 }
 
 type State = {
@@ -55,9 +41,10 @@ const COMPACT_NAVIGATION_SCROLL_THRESHOLD = 5
 const meetsCompactThreshold = () =>
   (window.scrollY || window.pageYOffset) >= COMPACT_NAVIGATION_SCROLL_THRESHOLD
 
-class TitleBlock extends React.Component<Props, State> {
+class ZenTitleBlock extends React.Component<Props, State> {
   static defaultProps = {
     textDirection: "ltr",
+    noBottomSeparator: false,
   }
   state = {
     useCompactSize: meetsCompactThreshold(),
@@ -109,23 +96,6 @@ class TitleBlock extends React.Component<Props, State> {
     )
   }
 
-  renderSubtitle = () => {
-    const { subtitle } = this.props
-    if (subtitle == undefined) return
-
-    return (
-      <React.Fragment>
-        <div
-          className={styles.subtitle}
-          data-automation-id="TitleBlock__Subtitle"
-        >
-          {subtitle}
-        </div>
-        {this.renderTag()}
-      </React.Fragment>
-    )
-  }
-
   renderBreadcrumb = () => {
     const { breadcrumb, textDirection } = this.props
     if (breadcrumb == undefined) return
@@ -146,81 +116,51 @@ class TitleBlock extends React.Component<Props, State> {
     )
   }
 
-  renderNavigation = () => {
-    const { navigationButtons, reversed } = this.props
-    if (navigationButtons == undefined) return
-
-    return (
-      <div
-        className={styles.navContainer}
-        data-automation-id="TitleBlock__Navigation"
-      >
-        <div className={styles.navButtonsContainer}>
-          <NavigationButtons
-            navigationButtons={navigationButtons}
-            reversed={reversed}
-          />
-        </div>
-      </div>
-    )
-  }
-
   render() {
-    const { reversed, reverseColor, sticky, stickyColor, children } = this.props
+    const { sticky, toolbar, variant, noBottomSeparator } = this.props
     const { useCompactSize } = this.state
 
     return (
       <div
         className={classNames(styles.titleBlockContainer, {
-          [styles.reversed]: reversed,
-          [styles[`reverseColor${reverseColor}`]]: reverseColor,
           [styles.sticky]: sticky,
           [styles.compact]: useCompactSize,
-          [styles[`stickyColor${stickyColor}`]]: useCompactSize && stickyColor,
         })}
       >
         <div
-          className={classNames(styles.titleBlock)}
+          className={classNames(styles.titleBlock, {
+            [styles.educationVariant]: variant === "education",
+            [styles.adminVariant]: variant === "admin",
+            [styles.noBottomSeparator]: noBottomSeparator,
+          })}
           data-automation-id="TitleBlock__TitleBlock"
         >
-          <div className={styles.titleBlockInner}>
-            {this.renderBreadcrumb()}
-            <div className={styles.leftContent}>
-              <div className={styles.titleContainer}>
-                <div
-                  className={styles.textContainer}
-                  data-automation-id="TitleBlock__Text"
-                >
-                  {this.renderTitle()}
-                  {this.renderSubtitle()}
+          <div className={styles.bottomSeparatorContainer}>
+            <div className={styles.titleBlockInner}>
+              {this.renderBreadcrumb()}
+              <div className={styles.leftContent}>
+                <div className={styles.titleContainer}>
+                  <div
+                    className={styles.textContainer}
+                    data-automation-id="TitleBlock__Text"
+                  >
+                    {this.renderTitle()}
+                    {this.renderTag()}
+                  </div>
                 </div>
               </div>
-              <Media query={MOBILE_QUERY}>
-                {(matches: boolean) =>
-                  !matches && (
-                    <React.Fragment>{this.renderNavigation()}</React.Fragment>
-                  )
-                }
-              </Media>
-            </div>
-            <div
-              className={styles.actionsContainer}
-              data-automation-id="title-block--actions"
-            >
-              {children}
+              <div
+                className={styles.toolbarContainer}
+                data-automation-id="title-block--actions"
+              >
+                {toolbar}
+              </div>
             </div>
           </div>
         </div>
-        <Media query={MOBILE_QUERY}>
-          {(matches: boolean) =>
-            matches && (
-              <React.Fragment>{this.renderNavigation()}</React.Fragment>
-            )
-          }
-        </Media>
       </div>
     )
   }
 }
 
-export default TitleBlock
+export default ZenTitleBlock
