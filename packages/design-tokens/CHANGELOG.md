@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.7.0...@kaizen/design-tokens@1.8.0) (2020-05-27)
+
+
+### Features
+
+* Change Coral 500 hex value ([#514](https://github.com/cultureamp/kaizen-design-system/issues/514)) ([73e5d23](https://github.com/cultureamp/kaizen-design-system/commit/73e5d230a8c84e7e0a81b106dd2e3e29a7486f92)), closes [#F04C5](https://github.com/cultureamp/kaizen-design-system/issues/F04C5) [#E22B3](https://github.com/cultureamp/kaizen-design-system/issues/E22B3)
+
+
+
+
+
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.6.0...@kaizen/design-tokens@1.7.0) (2020-05-26)
+
+
+### Features
+
+* Add tokens for button type styles ([#512](https://github.com/cultureamp/kaizen-design-system/issues/512)) ([baf326e](https://github.com/cultureamp/kaizen-design-system/commit/baf326e526c0cfd0988a12389348f17ae83e3abb))
+
+
+
+
+
 # [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.5.0...@kaizen/design-tokens@1.6.0) (2020-05-04)
 
 

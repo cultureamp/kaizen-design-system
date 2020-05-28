@@ -176,7 +176,7 @@ $input-disabled-border-alpha: 50%;
 .input.default {
   background-color: $kz-color-white;
   color: $ca-base-text-color;
-  border-color: $ca-border-color;
+  border-color: $kz-color-wisteria-500;
   display: flex;
   align-items: center;
 
@@ -191,7 +191,7 @@ $input-disabled-border-alpha: 50%;
   }
 
   &:hover:not([disabled]) {
-    border-color: $ca-border-color-hover;
+    border-color: $kz-color-wisteria-700;
   }
 
   &.disabled {
