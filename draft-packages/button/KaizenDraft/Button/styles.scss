@@ -453,7 +453,7 @@ $caButton-verticalPaddingForm: calc(
 
   &:hover,
   &:active,
-  &:global(.focus-visible) {
+  :global(.js-focus-visible) &:global(.focus-visible) {
     // caButtonDestructiveModifier is only used in the Elm component
     // in order to create a Secondary Destructive variant.
     // The Elm component's HTML structure is different to the React one
