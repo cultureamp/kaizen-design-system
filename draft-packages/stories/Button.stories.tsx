@@ -72,28 +72,6 @@ SecondaryWIconDisabled.story = {
   name: "Secondary w/ Icon, Disabled",
 }
 
-export const SecondaryDestructiveNotYetImplemented = () => (
-  <Button label="Delete" secondary={true} disabled={false} destructive={true} />
-)
-
-SecondaryDestructiveNotYetImplemented.story = {
-  name: "Secondary, Destructive (not yet implemented)",
-}
-
-export const SecondaryWIconDestructiveNotYetImplemented = () => (
-  <Button
-    label="Delete"
-    icon={configureIcon}
-    secondary={true}
-    disabled={false}
-    destructive={true}
-  />
-)
-
-SecondaryWIconDestructiveNotYetImplemented.story = {
-  name: "Secondary w/ Icon, Destructive (not yet implemented)",
-}
-
 export const IconLabel = () => <Button label="Configure" icon={configureIcon} />
 
 IconLabel.story = {
