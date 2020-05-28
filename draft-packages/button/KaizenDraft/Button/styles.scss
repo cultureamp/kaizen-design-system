@@ -205,7 +205,7 @@ $caButton-verticalPaddingForm: calc(
   &:disabled {
     background: transparent;
     border-color: $kz-border-borderless-border-color;
-    color: rgba($kz-color-cluny-500, 0.3);
+    color: $kz-color-cluny-500;
   }
 }
 
@@ -309,7 +309,7 @@ $caButton-verticalPaddingForm: calc(
     &:disabled {
       background: transparent;
       border-color: $kz-border-borderless-border-color;
-      color: rgba($kz-color-white, 0.3);
+      color: $kz-color-white;
     }
   }
 }
