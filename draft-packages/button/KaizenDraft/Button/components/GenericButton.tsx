@@ -26,7 +26,7 @@ type LabelProps = {
   iconPosition?: "start" | "end"
   primary?: boolean
   secondary?: boolean
-  reverseColor?: "lapis" | "ocean" | "peach" | "seedling" | "wisteria" | "yuzu"
+  reverseColor?: "cluny" | "peach" | "seedling" | "wisteria" | "yuzu"
 }
 
 type Analytics = {
@@ -146,8 +146,7 @@ const buttonClass = (props: Props) => {
     [styles.form]: props.form,
     [styles.reversed]: props.reversed,
     [styles.iconButton]: props.iconButton,
-    [styles.reverseColorLapis]: props.reverseColor === "lapis",
-    [styles.reverseColorOcean]: props.reverseColor === "ocean",
+    [styles.reverseColorCluny]: props.reverseColor === "cluny",
     [styles.reverseColorPeach]: props.reverseColor === "peach",
     [styles.reverseColorSeedling]: props.reverseColor === "seedling",
     [styles.reverseColorWisteria]: props.reverseColor === "wisteria",

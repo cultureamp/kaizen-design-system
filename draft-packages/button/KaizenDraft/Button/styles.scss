@@ -244,12 +244,7 @@ $caButton-verticalPaddingForm: calc(
       border-color: $kz-border-borderless-border-color;
       color: $kz-color-wisteria-800;
 
-      &%caButtonReverseColorLapis {
-        color: $kz-color-wisteria-800;
-      }
-
-      // to be deprecated or renamed to caButtonReverseColorCluny
-      &%caButtonReverseColorOcean {
+      &%caButtonReverseColorCluny {
         color: $kz-color-cluny-500;
       }
 

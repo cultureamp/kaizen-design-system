@@ -64,8 +64,7 @@ view (Config config) label =
                 , ( .destructive, config.variant == Destructive )
                 , ( .form, config.form )
                 , ( .reversed, config.reversed )
-                , ( .reverseColorLapis, config.reverseColor == Just Lapis )
-                , ( .reverseColorOcean, config.reverseColor == Just Ocean )
+                , ( .reverseColorCluny, config.reverseColor == Just Cluny )
                 , ( .reverseColorPeach, config.reverseColor == Just Peach )
                 , ( .reverseColorSeedling, config.reverseColor == Just Seedling )
                 , ( .reverseColorWisteria, config.reverseColor == Just Wisteria )
@@ -267,8 +266,7 @@ styles =
         , secondaryDestructive = "secondaryDestructive"
         , form = "form"
         , reversed = "reversed"
-        , reverseColorLapis = "reverseColorLapis"
-        , reverseColorOcean = "reverseColorOcean"
+        , reverseColorCluny = "reverseColorCluny"
         , reverseColorPeach = "reverseColorPeach"
         , reverseColorSeedling = "reverseColorSeedling"
         , reverseColorWisteria = "reverseColorWisteria"
@@ -325,8 +323,7 @@ type IconPosition
 
 
 type BrandColor
-    = Lapis
-    | Ocean
+    = Cluny
     | Peach
     | Seedling
     | Wisteria
