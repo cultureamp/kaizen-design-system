@@ -160,8 +160,6 @@ class GenericModal extends React.Component<Props> {
 /**
  * Get an element's owner document. Useful when components are used in iframes
  * or other environments like dev tools.
- *
- * @param element
  */
 function getOwnerDocument<T extends HTMLElement = HTMLElement>(
   element: T | null
@@ -173,6 +171,9 @@ function getOwnerDocument<T extends HTMLElement = HTMLElement>(
     : null
 }
 
+/**
+ * Check if the DOM exists and is usable
+ */
 function canUseDOM(): boolean {
   return (
     typeof window !== "undefined" &&
@@ -184,7 +185,15 @@ function canUseDOM(): boolean {
 // tslint:disable-next-line: no-empty
 function noop(): void {}
 
-function createAriaHider(dialogNode: HTMLElement) {
+/**
+ * Hide elements in the DOM from screenreaders that are outside the parent tree
+ * of the reference node. We do this by setting `aria-hidden` attribute to true
+ * for any elements top-level DOM nodes.
+ *
+ * Returns a function that restores the _original_ values of the affected nodes,
+ * so any pre-aria-hidden values will continue to stay hidden.
+ */
+function createAriaHider(dialogNode: HTMLElement): () => void {
   const originalValues: any[] = []
   const rootNodes: HTMLElement[] = []
   const ownerDocument = getOwnerDocument(dialogNode) || document
