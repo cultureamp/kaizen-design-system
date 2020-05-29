@@ -47,8 +47,8 @@
 
 .image {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  align-items: end;
   position: relative;
 
   @include ca-media-mobile() {
@@ -56,13 +56,15 @@
   }
 }
 
-.imageBackdrop,
-.headerImage {
+.imageBackdrop {
   position: absolute;
+  margin-left: -20px;
+  margin-top: -10px;
 }
 
 .headerImage {
-  max-width: 240px;
+  position: absolute;
+  max-width: 200px;
 }
 
 .tagsContainer {
