@@ -10,6 +10,7 @@ export type InputProps = {
   id?: string
   name?: string
   automationId?: string
+  ariaLabel?: string
   ariaDescribedBy?: string
   className?: string
   inputType?: InputType
@@ -33,6 +34,7 @@ const Input: Input = ({
   id,
   name,
   automationId,
+  ariaLabel,
   ariaDescribedBy,
   className,
   inputType = "text",
@@ -70,6 +72,7 @@ const Input: Input = ({
       defaultValue={defaultInputValue}
       ref={inputRef}
       aria-describedby={ariaDescribedBy}
+      aria-label={ariaLabel}
       placeholder={placeholder}
       onChange={onChange}
       onBlur={onBlur}
