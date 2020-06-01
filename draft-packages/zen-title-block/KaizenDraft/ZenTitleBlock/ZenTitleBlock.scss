@@ -51,7 +51,7 @@
 
 .titleBlockInner {
   position: relative;
-  padding: 0 $ca-layout-side-padding;
+  @include ca-padding($start: $ca-layout-side-padding);
   height: $ca-layout-title-block-height;
   display: flex;
   width: 100%;
