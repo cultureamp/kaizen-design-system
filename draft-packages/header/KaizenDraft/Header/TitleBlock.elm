@@ -1,4 +1,4 @@
-module KaizenDraft.ZenTitleBlock.TitleBlock exposing (Breadcrumb, NavButton(..), ReverseColor(..), actionsList, breadcrumb, class, default, navigationButtons, reverseColor, reversed, subtitle, view)
+module KaizenDraft.TitleBlock.TitleBlock exposing (Breadcrumb, NavButton(..), ReverseColor(..), actionsList, breadcrumb, class, default, navigationButtons, reverseColor, reversed, subtitle, view)
 
 import CssModules exposing (css)
 import Html exposing (Html, a, div, h2, h3, span, text)
@@ -6,7 +6,7 @@ import Html.Attributes exposing (..)
 import Html.Extra exposing (static)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
-import KaizenDraft.ZenTitleBlock.NavigationButton as NavigationButton
+import KaizenDraft.TitleBlock.NavigationButton as NavigationButton
 
 
 type alias Breadcrumb =

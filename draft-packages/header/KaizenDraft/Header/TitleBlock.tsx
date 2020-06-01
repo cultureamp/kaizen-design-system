@@ -9,7 +9,7 @@ const backIcon = require("@kaizen/component-library/icons/arrow-backward.icon.sv
 const forwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
   .default
 
-const styles = require("./ZenTitleBlock.scss")
+const styles = require("./TitleBlock.scss")
 
 type SurveyStatus = {
   text: string
@@ -40,7 +40,7 @@ const COMPACT_NAVIGATION_SCROLL_THRESHOLD = 5
 const meetsCompactThreshold = () =>
   (window.scrollY || window.pageYOffset) >= COMPACT_NAVIGATION_SCROLL_THRESHOLD
 
-class ZenTitleBlock extends React.Component<Props, State> {
+class TitleBlock extends React.Component<Props, State> {
   static defaultProps = {
     textDirection: "ltr",
     noBottomSeparator: false,
@@ -162,4 +162,4 @@ class ZenTitleBlock extends React.Component<Props, State> {
   }
 }
 
-export default ZenTitleBlock
+export default TitleBlock

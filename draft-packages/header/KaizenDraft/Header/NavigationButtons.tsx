@@ -1,5 +1,5 @@
 import * as React from "react"
-const styles = require("./ZenNavigationButton.scss")
+const styles = require("./NavigationButton.scss")
 import classNames from "classnames"
 
 export type NavigationButton = {
@@ -37,6 +37,6 @@ NavigationButtons.defaultProps = {
   reversed: false,
 }
 
-NavigationButtons.displayName = "ZenNavigationButtons"
+NavigationButtons.displayName = "NavigationButtons"
 
 export default NavigationButtons
