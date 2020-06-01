@@ -1,0 +1,215 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/component-library/styles/grid";
+@import "~@kaizen/component-library/styles/layers";
+@import "~@kaizen/component-library/styles/layout";
+
+.header {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $kz-color-wisteria-700;
+  min-height: 375px;
+  width: 100%;
+
+  @media print {
+    display: none;
+  }
+}
+
+.headerInner {
+  max-width: 1392px;
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  position: relative;
+
+  &.bottomSeparator {
+    border-bottom: 3px solid rgba($kz-color-white, 0.1);
+  }
+}
+
+.titleRow {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: $ca-grid * 3.5;
+  justify-content: space-between;
+}
+
+.bottomRow {
+}
+
+.titleAndAdjacent {
+  display: flex;
+  transition: opacity 0.3s ease;
+
+  .breadcrumb:hover + &,
+  .breadcrumb:focus + & {
+    opacity: 0;
+  }
+}
+
+.toolbar {
+  display: flex;
+  margin-right: -$ca-grid / 4;
+  margin-left: -$ca-grid / 4;
+
+  .toolbarItem {
+    margin: 0 ($ca-grid / 4);
+  }
+}
+
+.tag {
+  margin-left: $ca-grid;
+  display: flex;
+}
+
+$breadcrumb-circle-width: 40px;
+
+.breadcrumb {
+  display: flex;
+  position: absolute;
+  z-index: $ca-z-index-sticky;
+  align-items: center;
+  top: 50%;
+  transform: translateY(-50%);
+  left: calc(-#{$breadcrumb-circle-width} - #{$ca-grid});
+  color: $kz-color-white;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  [dir="rtl"] & {
+    left: auto;
+    right: -38px;
+  }
+
+  // .educationVariant &,
+  // .adminVariant & {
+  //   color: $ca-link-text-color;
+  // }
+
+  @media only screen and (max-width: $ca-layout-max-width + ($ca-layout-side-padding * 2)) {
+    position: relative;
+    @include ca-margin($end: $ca-grid * 1.5);
+    left: 0;
+
+    [dir="rtl"] & {
+      right: 0;
+    }
+  }
+
+  // @include ca-media-tablet {
+  //   top: $ca-layout-title-block-tablet-height / 2;
+  // }
+
+  // @include ca-media-mobile {
+  //   display: none;
+  // }
+}
+
+.breadcrumbText {
+  flex: 0 0 $ca-grid * 8;
+  top: 0;
+  display: none;
+  @include ca-margin($start: $ca-grid);
+  white-space: nowrap;
+  font-family: $kz-typography-heading-5-font-family;
+  font-weight: $kz-typography-heading-5-font-weight;
+  font-size: $kz-typography-heading-5-font-size;
+  line-height: $kz-typography-heading-5-line-height;
+  letter-spacing: $kz-typography-heading-5-letter-spacing;
+
+  .breadcrumb:hover &,
+  .breadcrumb:focus & {
+    display: inline-block;
+    animation: slide-fade 0.4s;
+
+    [dir="rtl"] & {
+      animation: reverse-slide-fade 0.4s;
+    }
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  [dir="rtl"] & {
+    margin-left: 0;
+    margin-right: $ca-grid;
+  }
+}
+
+.circle {
+  $border-width: 3px;
+  flex: 0 0 $breadcrumb-circle-width;
+  box-sizing: border-box;
+  width: $breadcrumb-circle-width;
+  height: $breadcrumb-circle-width;
+  color: $kz-color-white;
+  border-color: rgba($kz-color-white, 0.5);
+  border-width: 2px;
+  border-radius: 50%;
+  border-style: solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  .breadcrumb:hover &,
+  .breadcrumb:focus & {
+    transform: scale(1.1);
+    border-color: $kz-color-white;
+    color: $kz-color-white;
+    background-color: rgba($kz-color-white, 0.1);
+  }
+
+  .educationVariant &,
+  .adminVariant & {
+    color: $kz-color-cluny-500;
+    border-color: $kz-color-cluny-300;
+    border-width: $border-width;
+  }
+
+  .educationVariant .breadcrumb:hover &,
+  .educationVariant .breadcrumb:focus &,
+  .adminVariant .breadcrumb:hover &,
+  .adminVariant .breadcrumb:focus & {
+    border-color: $kz-color-cluny-500;
+    color: $kz-color-cluny-500;
+    background-color: rgba($kz-color-cluny-500, 0.1);
+  }
+}
+
+@keyframes slide-fade {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes reverse-slide-fade {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}

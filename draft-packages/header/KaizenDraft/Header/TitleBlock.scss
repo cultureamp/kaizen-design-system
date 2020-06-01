@@ -8,6 +8,8 @@
 @import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/component-library/styles/animation";
 
+$title-block-height-desktop: $ca-grid * 3.5;
+
 .titleBlockContainer {
   width: 100%;
 }
@@ -17,6 +19,8 @@
   background-color: $kz-color-wisteria-700;
   color: $kz-color-white;
   width: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   @media print {
     display: none;
@@ -51,7 +55,7 @@
 
 .titleBlockInner {
   position: relative;
-  height: $ca-layout-title-block-height;
+  height: $title-block-height-desktop;
   display: flex;
   width: 100%;
   justify-content: space-between;
