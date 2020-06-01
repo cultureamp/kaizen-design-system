@@ -1,7 +1,6 @@
 import classNames from "classnames"
 import { throttle } from "lodash"
 import * as React from "react"
-import Media from "react-media"
 
 import Icon from "@kaizen/component-library/components/Icon/Icon"
 import { Tag } from "@kaizen/draft-tag"

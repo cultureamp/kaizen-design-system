@@ -1,6 +1,5 @@
 import * as React from "react"
 const styles = require("./ZenNavigationButton.scss")
-const titleblockStyles = require("./ZenTitleBlock.scss")
 import classNames from "classnames"
 
 export type NavigationButton = {
