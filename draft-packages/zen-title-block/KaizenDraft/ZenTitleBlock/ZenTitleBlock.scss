@@ -34,7 +34,7 @@
 }
 
 .bottomSeparatorContainer {
-  max-width: $ca-layout-max-width;
+  max-width: 1392px;
   border-bottom: 3px solid add-alpha($kz-color-white, 10%);
   margin: 0 auto;
   display: flex;
@@ -51,7 +51,6 @@
 
 .titleBlockInner {
   position: relative;
-  @include ca-padding($start: $ca-layout-side-padding);
   height: $ca-layout-title-block-height;
   display: flex;
   width: 100%;
