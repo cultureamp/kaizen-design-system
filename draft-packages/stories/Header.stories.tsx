@@ -2,7 +2,7 @@ import { Paragraph } from "@kaizen/component-library"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
 import { Button } from "../button"
-import { TitleBlock } from "../header/KaizenDraft/Header"
+import { Header, TitleBlock } from "../header/KaizenDraft/Header"
 
 require("./Header.stories.scss")
 
@@ -18,16 +18,32 @@ export default {
       {
         name: "Wisteria 700",
         value: colorTokens.kz.color.wisteria["700"],
-        default: true,
+        default: false,
       },
     ],
   },
 }
 
+export const HeaderDefault = () => (
+  <Header
+    title="Page title"
+    surveyStatus={{ text: "Live", status: "live" }}
+    toolbarItems={[
+      <Button label="Label" reversed />,
+      <Button label="Label" primary reversed />,
+    ]}
+    breadcrumb={{ path: "#", text: "Back to home" }}
+  ></Header>
+)
+
+HeaderDefault.story = {
+  name: "Default",
+}
+
 export const WithTitle = () => <TitleBlock title="Reports" />
 
 WithTitle.story = {
-  name: "with Title",
+  name: "TitleBlock with Title",
 }
 
 export const WithBreadcrumb = () => (
@@ -38,7 +54,7 @@ export const WithBreadcrumb = () => (
 )
 
 WithBreadcrumb.story = {
-  name: "with breadcrumb",
+  name: "TitleBlock with breadcrumb",
 }
 
 export const WithToolbar = () => (
@@ -52,7 +68,7 @@ export const WithToolbar = () => (
 )
 
 WithToolbar.story = {
-  name: "with toolbar",
+  name: "TitleBlock with toolbar",
 }
 
 export const WithTag = () => (
@@ -60,7 +76,7 @@ export const WithTag = () => (
 )
 
 WithTag.story = {
-  name: "with tag",
+  name: "TitleBlock with tag",
 }
 
 export const Sticky = () => (
@@ -93,7 +109,7 @@ export const Sticky = () => (
 )
 
 Sticky.story = {
-  name: "sticky",
+  name: "TitleBlock sticky",
 }
 
 export const AdminVariant = () => (
@@ -110,7 +126,7 @@ export const AdminVariant = () => (
 )
 
 AdminVariant.story = {
-  name: "admin variant",
+  name: "TitleBlock admin variant",
   parameters: {
     backgrounds: [
       {
@@ -132,7 +148,7 @@ export const EducationVariant = () => (
 )
 
 EducationVariant.story = {
-  name: "education variant",
+  name: "TitleBlock education variant",
   parameters: {
     backgrounds: [
       {
@@ -154,7 +170,7 @@ export const NoBottomSeparator = () => (
 )
 
 NoBottomSeparator.story = {
-  name: "no bottom separator",
+  name: "TitleBlock no bottom separator",
   parameters: {
     backgrounds: [
       {
@@ -167,7 +183,7 @@ NoBottomSeparator.story = {
 }
 
 WithTitle.story = {
-  name: "with title",
+  name: "TitleBlock with title",
 }
 
 export const DesktopKitchenSink = () => (
@@ -183,7 +199,7 @@ export const DesktopKitchenSink = () => (
 )
 
 DesktopKitchenSink.story = {
-  name: "desktop kitchen sink",
+  name: "TitleBlock desktop kitchen sink",
 }
 
 export const SmallMobileKitchenSink = () => (
@@ -199,7 +215,7 @@ export const SmallMobileKitchenSink = () => (
 )
 
 SmallMobileKitchenSink.story = {
-  name: "small mobile kitchen sink",
+  name: "TitleBlock small mobile kitchen sink",
   parameters: {
     viewport: { defaultViewport: "mobile1" },
   },
@@ -218,7 +234,7 @@ export const TabletKitchenSink = () => (
 )
 
 TabletKitchenSink.story = {
-  name: "tablet kitchen sink",
+  name: "TitleBlock tablet kitchen sink",
   parameters: {
     viewport: { defaultViewport: "tablet" },
   },

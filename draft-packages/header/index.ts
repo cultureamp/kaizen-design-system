@@ -1,1 +1,1 @@
-export * from "./KaizenDraft/Header/TitleBlock"
+export * from "./KaizenDraft/Header"
