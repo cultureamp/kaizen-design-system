@@ -1,7 +1,7 @@
 import { Paragraph } from "@kaizen/component-library"
-import { Button } from "@kaizen/component-library/components/Button"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
+import { Button } from "../button"
 import { ZenTitleBlock } from "../zen-title-block/KaizenDraft/ZenTitleBlock"
 
 require("./ZenTitleBlock.stories.scss")
