@@ -2,9 +2,9 @@ import { Paragraph } from "@kaizen/component-library"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
 import { Button } from "../button"
-import { ZenTitleBlock } from "../zen-title-block/KaizenDraft/ZenTitleBlock"
+import { TitleBlock } from "../header/KaizenDraft/Header"
 
-require("./ZenTitleBlock.stories.scss")
+require("./Header.stories.scss")
 
 const stickyContainerStyle = {
   width: "100%",
@@ -12,7 +12,7 @@ const stickyContainerStyle = {
 }
 
 export default {
-  title: "ZenTitleBlock (React)",
+  title: "Header (React)",
   parameters: {
     backgrounds: [
       {
@@ -24,14 +24,14 @@ export default {
   },
 }
 
-export const WithTitle = () => <ZenTitleBlock title="Reports" />
+export const WithTitle = () => <TitleBlock title="Reports" />
 
 WithTitle.story = {
   name: "with Title",
 }
 
 export const WithBreadcrumb = () => (
-  <ZenTitleBlock
+  <TitleBlock
     title="Home"
     breadcrumb={{ path: "#", text: "Back to reports" }}
   />
@@ -42,7 +42,7 @@ WithBreadcrumb.story = {
 }
 
 export const WithToolbar = () => (
-  <ZenTitleBlock
+  <TitleBlock
     title="Home"
     toolbar={[
       <Button label="Action" reversed />,
@@ -56,7 +56,7 @@ WithToolbar.story = {
 }
 
 export const WithTag = () => (
-  <ZenTitleBlock title="Home" surveyStatus={{ status: "live", text: "Live" }} />
+  <TitleBlock title="Home" surveyStatus={{ status: "live", text: "Live" }} />
 )
 
 WithTag.story = {
@@ -65,7 +65,7 @@ WithTag.story = {
 
 export const Sticky = () => (
   <div style={stickyContainerStyle}>
-    <ZenTitleBlock
+    <TitleBlock
       title="Home"
       sticky
       breadcrumb={{ path: "#", text: "Back to home" }}
@@ -97,7 +97,7 @@ Sticky.story = {
 }
 
 export const AdminVariant = () => (
-  <ZenTitleBlock
+  <TitleBlock
     title="Admin"
     variant="admin"
     breadcrumb={{ path: "#", text: "Back to home" }}
@@ -123,7 +123,7 @@ AdminVariant.story = {
 }
 
 export const EducationVariant = () => (
-  <ZenTitleBlock
+  <TitleBlock
     title="How to tie up your shoelaces"
     variant="education"
     breadcrumb={{ path: "#", text: "Back to tutorials" }}
@@ -145,7 +145,7 @@ EducationVariant.story = {
 }
 
 export const NoBottomSeparator = () => (
-  <ZenTitleBlock
+  <TitleBlock
     title="Admin"
     variant="admin"
     noBottomSeparator
@@ -171,7 +171,7 @@ WithTitle.story = {
 }
 
 export const DesktopKitchenSink = () => (
-  <ZenTitleBlock
+  <TitleBlock
     title="Home"
     breadcrumb={{ path: "#", text: "Back to reports" }}
     surveyStatus={{ status: "live", text: "Live" }}
@@ -187,7 +187,7 @@ DesktopKitchenSink.story = {
 }
 
 export const SmallMobileKitchenSink = () => (
-  <ZenTitleBlock
+  <TitleBlock
     title="Home"
     breadcrumb={{ path: "#", text: "Back to reports" }}
     surveyStatus={{ status: "live", text: "Live" }}
@@ -206,7 +206,7 @@ SmallMobileKitchenSink.story = {
 }
 
 export const TabletKitchenSink = () => (
-  <ZenTitleBlock
+  <TitleBlock
     title="Home"
     breadcrumb={{ path: "#", text: "Back to reports" }}
     surveyStatus={{ status: "live", text: "Live" }}

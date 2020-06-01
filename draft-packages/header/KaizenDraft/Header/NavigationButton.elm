@@ -1,4 +1,4 @@
-module KaizenDraft.ZenTitleBlock.NavigationButton exposing (active, default, onClick, path, reversed, view)
+module KaizenDraft.TitleBlock.NavigationButton exposing (active, default, onClick, path, reversed, view)
 
 import CssModules exposing (css)
 import Elm18Compatible.Html.Events as Events exposing (defaultOptions, onWithOptions)

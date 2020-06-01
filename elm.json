@@ -12,6 +12,7 @@
         "./draft-packages/events",
         "./draft-packages/form",
         "./draft-packages/guidance-block",
+        "./draft-packages/header",
         "./draft-packages/hero-card",
         "./draft-packages/loading-placeholder",
         "./draft-packages/menu-list",
@@ -30,7 +31,6 @@
         "./draft-packages/vertical-progress-step",
         "./draft-packages/zen-navigation-bar",
         "./draft-packages/zen-off-canvas",
-        "./draft-packages/zen-title-block",
         "./draft-packages/well",
         "./node_modules/@cultureamp/elm-storybook/src",
         "./node_modules/elm-upgrade-shims/lib-0.19"
