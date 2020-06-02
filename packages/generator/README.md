@@ -9,8 +9,7 @@ Then install this generator:
 `yarn global add @kaizen/generator-create`
 
 ## Usage
-`yo create` 
-`yo create:draft`
+`yo @kaizen/create:draft` 
 
 ## Help 
 Q: I get an error when I run `yo` in a terminal
