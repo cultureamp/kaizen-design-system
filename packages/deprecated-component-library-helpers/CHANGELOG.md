@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.4.3...@kaizen/deprecated-component-library-helpers@1.4.4) (2020-06-02)
+
+**Note:** Version bump only for package @kaizen/deprecated-component-library-helpers
+
+
+
+
+
 ## [1.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.4.2...@kaizen/deprecated-component-library-helpers@1.4.3) (2020-05-27)
 
 **Note:** Version bump only for package @kaizen/deprecated-component-library-helpers

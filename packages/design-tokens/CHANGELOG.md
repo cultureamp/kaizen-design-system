@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.8.0...@kaizen/design-tokens@1.9.0) (2020-06-02)
+
+
+### Features
+
+* Create layout tokens file ([#519](https://github.com/cultureamp/kaizen-design-system/issues/519)) ([c84e106](https://github.com/cultureamp/kaizen-design-system/commit/c84e1063ab4d0644292b0cf0c3d959bf1280ef66))
+
+
+
+
+
 # [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.7.0...@kaizen/design-tokens@1.8.0) (2020-05-27)
 
 
