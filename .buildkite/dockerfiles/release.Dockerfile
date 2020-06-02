@@ -1,6 +1,6 @@
-FROM node:12-alpine
+FROM node:12-alpine3.11
 
-RUN apk add --no-cache \
+RUN apk update && apk add --no-cache \
   git \
   openssh \
   python \
