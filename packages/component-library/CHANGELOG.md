@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.18.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.17.2...@kaizen/component-library@7.18.0) (2020-05-28)
+
+
+### Features
+
+* Create new Button package ([#460](https://github.com/cultureamp/kaizen-design-system/issues/460)) ([9f8d95d](https://github.com/cultureamp/kaizen-design-system/commit/9f8d95d0fdc64385dfbdf305d5773e8703600393))
+
+
+
+
+
 ## [7.17.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.17.1...@kaizen/component-library@7.17.2) (2020-05-27)
 
 **Note:** Version bump only for package @kaizen/component-library
