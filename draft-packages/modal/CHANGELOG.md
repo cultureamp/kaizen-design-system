@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.2.2...@kaizen/draft-modal@2.2.3) (2020-06-02)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.2.1...@kaizen/draft-modal@2.2.2) (2020-06-02)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.2.0...@kaizen/draft-modal@2.2.1) (2020-06-01)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.1.11...@kaizen/draft-modal@2.2.0) (2020-05-29)
+
+
+### Features
+
+* Ensure focus-lock for modals when using iOS VoiceOver [CAP-54] ([#475](https://github.com/cultureamp/kaizen-design-system/issues/475)) ([d1f0507](https://github.com/cultureamp/kaizen-design-system/commit/d1f05076d3b7451a4a5a38a936478ba5e23464ed))
+
+
+
+
+
+## [2.1.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.1.10...@kaizen/draft-modal@2.1.11) (2020-05-28)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
 ## [2.1.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.1.9...@kaizen/draft-modal@2.1.10) (2020-05-27)
 
 **Note:** Version bump only for package @kaizen/draft-modal
