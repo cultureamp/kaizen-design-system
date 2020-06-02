@@ -1,6 +1,6 @@
-const Generator = require("yeoman-generator")
+const YoGenerator = require("yeoman-generator")
 
-module.exports = class extends Generator {
+module.exports = class extends YoGenerator {
   constructor(args, opts) {
     super(args, opts)
   }
