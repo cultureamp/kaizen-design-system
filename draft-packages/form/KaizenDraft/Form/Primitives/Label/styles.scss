@@ -1,4 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/layout";
@@ -32,12 +34,25 @@ $label-start-padding: 10px;
 :global(.ideal-sans) .text {
   @include ca-type-ideal-label;
   @include ca-inherit-baseline;
+
+  // font-family: $kz-typography-paragraph-body-font-family;
+  // font-weight: $kz-typography-paragraph-body-font-weight;
+  // font-size: $kz-typography-paragraph-body-font-size;
+  // line-height: $kz-typography-paragraph-body-line-height;
+  // letter-spacing: $kz-typography-paragraph-body-letter-spacing;
 }
 
 %checkboxOrRadio,
 :global(.ideal-sans) %checkboxOrRadio {
-  @include ca-type-ideal-body;
+  @include kz-typography-paragraph-body;
   @include ca-inherit-baseline;
+
+  // font-family: $kz-typography-paragraph-body-font-family;
+  // font-weight: $kz-typography-paragraph-body-font-weight;
+  // font-size: $kz-typography-paragraph-body-font-size;
+  // line-height: $kz-typography-paragraph-body-line-height;
+  // letter-spacing: $kz-typography-paragraph-body-letter-spacing;
+
   display: flex;
 
   .labelText {
@@ -52,8 +67,15 @@ $label-start-padding: 10px;
   @extend %checkboxOrRadio;
 }
 .toggle {
-  @include ca-type-ideal-body-bold;
+  // @include kz-typography-paragraph-body;
   @include ca-inherit-baseline;
+
+  // font-family: $kz-typography-paragraph-body-font-family;
+  // font-weight: $kz-typography-paragraph-body-font-weight;
+  // font-size: $kz-typography-paragraph-body-font-size;
+  // line-height: $kz-typography-paragraph-body-line-height;
+  // letter-spacing: $kz-typography-paragraph-body-letter-spacing;
+
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -23,6 +23,9 @@ $ca-ideal-sans-font-descender-height: 0.14;
 $ca-greycliff-font-base-size: 1rem; /* 16px */
 $ca-greycliff-font-descender-height: 0.098;
 
+$ca-inter-font-base-size: 1rem; /* 16px */
+$ca-inter-font-descender-height: 0.098;
+
 // Locale-specific fonts
 $ca-locale-he-font-family: "Open Sans", Tahoma, sans-serif;
 $ca-locale-ar-font-family: "Open Sans", Tahoma, sans-serif;
@@ -435,6 +438,20 @@ $ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
     $letter-spacing: $kz-typography-heading-3-letter-spacing,
     $line-height-in-grid-units:
       to-grid-units($kz-typography-heading-3-line-height),
+    $args...
+  );
+}
+
+@mixin kz-typography-paragraph-body(
+  $size: to-unitless-pixels($kz-typography-paragraph-body-font-size),
+  $args...
+) {
+  @include kz-typography-greycliff(
+    $size: $size,
+    $weight: $kz-typography-paragraph-body-font-weight,
+    $letter-spacing: $kz-typography-paragraph-body-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-paragraph-body-line-height),
     $args...
   );
 }
