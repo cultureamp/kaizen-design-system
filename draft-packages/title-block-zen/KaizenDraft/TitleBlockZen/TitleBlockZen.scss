@@ -37,10 +37,31 @@
   }
 }
 
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  border: 3px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  height: $ca-grid * 2;
+  width: $ca-grid * 2;
+  @include ca-margin($end: $ca-grid / 2);
+
+  > img,
+  > svg {
+    max-width: 100%;
+  }
+}
+
 .belowSeparatorRow {
   display: flex;
   width: 100%;
   height: $ca-grid * 3;
+  margin-top: -3px;
+  justify-content: space-between;
 }
 
 .titleAndAdjacent {
@@ -55,25 +76,37 @@
 
 .toolbar {
   display: flex;
-  margin-right: -$ca-grid / 4;
-  margin-left: -$ca-grid / 4;
+  align-items: center;
 
   .toolbarItem {
     margin: 0 ($ca-grid / 4);
   }
+
+  .toolbarItem:first-of-type {
+    @include ca-margin($start: 0, $end: $ca-grid / 4);
+  }
+
+  .toolbarItem:last-of-type {
+    @include ca-margin($start: $ca-grid / 4, $end: 0);
+  }
 }
 
 .tag {
-  margin-left: $ca-grid;
+  @include ca-margin($start: $ca-grid / 2);
   display: flex;
+  align-items: center;
 }
 
 .navigationTabsContainer {
   display: flex;
-  margin-top: -3px;
 }
 
-$breadcrumb-circle-width: 40px;
+.secondaryActionsContainer {
+  display: flex;
+  align-items: center;
+}
+
+$breadcrumb-circle-width: 48px;
 
 .breadcrumb {
   display: flex;
@@ -82,16 +115,14 @@ $breadcrumb-circle-width: 40px;
   align-items: center;
   top: 50%;
   transform: translateY(-50%);
-  left: calc(-#{$breadcrumb-circle-width} - #{$ca-grid});
+  // left: calc(-#{$breadcrumb-circle-width} - #{$ca-grid / 2});
+  @include ca-position(
+    $start: calc(-#{$breadcrumb-circle-width} - #{$ca-grid / 2})
+  );
   color: $kz-color-white;
 
   &:hover {
     text-decoration: none;
-  }
-
-  [dir="rtl"] & {
-    left: auto;
-    right: -38px;
   }
 
   // .educationVariant &,
@@ -102,27 +133,15 @@ $breadcrumb-circle-width: 40px;
   @media only screen and (max-width: $ca-layout-max-width + ($ca-layout-side-padding * 2)) {
     position: relative;
     @include ca-margin($end: $ca-grid * 1.5);
-    left: 0;
-
-    [dir="rtl"] & {
-      right: 0;
-    }
+    @include ca-position($start: 0);
   }
-
-  // @include ca-media-tablet {
-  //   top: $ca-layout-title-block-tablet-height / 2;
-  // }
-
-  // @include ca-media-mobile {
-  //   display: none;
-  // }
 }
 
 .breadcrumbText {
   flex: 0 0 $ca-grid * 8;
   top: 0;
   display: none;
-  @include ca-margin($start: $ca-grid);
+  @include ca-margin($start: $ca-grid / 2);
   white-space: nowrap;
   font-family: $kz-typography-heading-5-font-family;
   font-weight: $kz-typography-heading-5-font-weight;
@@ -142,11 +161,6 @@ $breadcrumb-circle-width: 40px;
 
   &:hover {
     text-decoration: underline;
-  }
-
-  [dir="rtl"] & {
-    margin-left: 0;
-    margin-right: $ca-grid;
   }
 }
 

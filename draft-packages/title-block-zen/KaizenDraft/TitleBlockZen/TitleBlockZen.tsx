@@ -4,9 +4,9 @@ import classNames from "classnames"
 import * as React from "react"
 import NavigationTab, { NavigationTabProps } from "./NavigationTabs"
 const styles = require("./TitleBlockZen.scss")
-const backIcon = require("@kaizen/component-library/icons/arrow-backward.icon.svg")
+const leftArrow = require("@kaizen/component-library/icons/arrow-backward.icon.svg")
   .default
-const forwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
+const rightArrow = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
   .default
 
 type Props = {
@@ -14,6 +14,7 @@ type Props = {
   title: string
   variant?: "admin" | "education" // the default is wisteria bg (AKA "reporting")
   breadcrumb?: Breadcrumb
+  avatar?: JSX.Element
   primaryActions?: React.ReactNode[]
   secondaryActions?: React.ReactNode[]
   navigationTabs?: Array<React.ReactElement<NavigationTabProps>>
@@ -22,7 +23,6 @@ type Props = {
   sticky?: boolean
   noBottomSeparator?: boolean
 }
-// NavTabs are links with optional click events you can hijack
 // look at Kaizen Tab component in Perform
 // Hamburger needs to trigger an event
 // use classnameAndIHaveSpokenToDST for responsive headings
@@ -40,12 +40,6 @@ type Breadcrumb = {
   text: string
   handleClick?: (event: React.MouseEvent) => void
 }
-
-// type NavigationTab = {
-//   path: string
-//   text: string
-//   handleClick?: (event: React.MouseEvent) => void
-// }
 
 // This belongs to Toolbar, which should eventually be
 // broken out into its own component
@@ -71,10 +65,12 @@ const renderTag = surveyStatus => {
   )
 }
 
+const renderAvatar = image => <div className={styles.avatar}>{image}</div>
+
 const renderBreadcrumb = (breadcrumb, textDirection) => {
   if (breadcrumb == undefined) return
 
-  const icon = textDirection === "rtl" ? forwardIcon : backIcon
+  const icon = textDirection === "rtl" ? rightArrow : leftArrow
 
   return (
     <a
@@ -93,6 +89,10 @@ const renderBreadcrumb = (breadcrumb, textDirection) => {
 
 const renderNavigationTabs = navigationTabs => {
   return <div className={styles.navigationTabsContainer}>{navigationTabs}</div>
+}
+
+const renderSecondaryActions = secondaryActions => {
+  return <Toolbar items={secondaryActions}></Toolbar>
 }
 
 // Toolbar is intended to be broken out
@@ -114,6 +114,7 @@ const TitleBlockZen = ({
   title,
   variant,
   breadcrumb,
+  avatar,
   primaryActions,
   secondaryActions,
   navigationTabs,
@@ -131,19 +132,19 @@ const TitleBlockZen = ({
       >
         {breadcrumb && renderBreadcrumb(breadcrumb, textDirection)}
         <div className={styles.titleAndAdjacent}>
-          <Heading variant="heading-1" color="white">
-            {title}
-          </Heading>
+          {avatar && renderAvatar(avatar)}
+          <div className={styles.title}>
+            <Heading variant="heading-1" color="white">
+              {title}
+            </Heading>
+          </div>
           {renderTag(surveyStatus)}
         </div>
-        {primaryActions && (
-          <>
-            <Toolbar items={primaryActions}></Toolbar>
-          </>
-        )}
+        {primaryActions && <Toolbar items={primaryActions}></Toolbar>}
       </div>
       <div className={styles.belowSeparatorRow}>
         {navigationTabs && renderNavigationTabs(navigationTabs)}
+        {secondaryActions && renderSecondaryActions(secondaryActions)}
       </div>
     </div>
   </div>

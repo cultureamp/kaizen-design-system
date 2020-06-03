@@ -7,6 +7,11 @@ import {
   TitleBlock,
   TitleBlockZen,
 } from "../title-block-zen/KaizenDraft/TitleBlockZen"
+const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
+  .default
+const visibleIcon = require("@kaizen/component-library/icons/visible.icon.svg")
+  .default
+import { assetUrl } from "@kaizen/hosted-assets"
 
 require("./TitleBlockZen.stories.scss")
 
@@ -36,6 +41,11 @@ export const TitleBlockZenDefault = () => (
       <Button label="Label" reversed />,
       <Button label="Label" primary reversed />,
     ]}
+    secondaryActions={[
+      <Button label="Configure" secondary reversed icon={configureIcon} />,
+      <Button label="Label" secondary reversed icon={visibleIcon} />,
+      <Button label="Label" secondary reversed icon={visibleIcon} />,
+    ]}
     breadcrumb={{
       path: "#",
       text: "Back to home",
@@ -43,6 +53,7 @@ export const TitleBlockZenDefault = () => (
         alert("breadcrumb clicked!")
       },
     }}
+    avatar={<img alt="avatar image" src={assetUrl("site/empty-state.png")} />}
     navigationTabs={[
       <NavigationTab text="Insight" href="#" active />,
       <NavigationTab

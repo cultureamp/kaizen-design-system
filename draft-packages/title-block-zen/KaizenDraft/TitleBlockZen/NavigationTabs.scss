@@ -3,6 +3,7 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/fonts";
+@import "~@kaizen/component-library/styles/layout";
 
 .container {
   display: flex;
@@ -12,7 +13,8 @@
 
 .linkAnchor {
   display: flex;
-  padding: 0 $ca-grid;
+  padding: 0 $ca-grid / 2;
+  @include ca-margin($end: $ca-grid);
   color: rgba($kz-color-white, 0.7);
 
   &:hover {
