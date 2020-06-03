@@ -32,7 +32,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^7.18.2",
-    "@kaizen/draft-select": "^1.4.9",
+    "@kaizen/draft-form": "^1.6.3",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",
     "react-select": "3.0.8"
