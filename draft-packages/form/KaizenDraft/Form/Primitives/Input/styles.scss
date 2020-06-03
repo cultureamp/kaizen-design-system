@@ -1,10 +1,11 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/component-library/styles/color";
-@import "~@kaizen/component-library/styles/animation";
-@import "~@kaizen/component-library/styles/layout";
-@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/mixins/forms";
+
+// @TODO - brought through from borders.scss in component-library
+$ca-border-color-focus: $kz-color-cluny-500;
+$ca-border-color-hover: $kz-color-wisteria-400;
 
 // -----------------------------------------------
 // Form Input Primitive

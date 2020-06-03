@@ -1,9 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/component-library/styles/color";
-@import "~@kaizen/component-library/styles/type";
-@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 
 $label-start-padding: 10px;
 
@@ -32,26 +30,14 @@ $label-start-padding: 10px;
 // This is to override bootstrap styles. Remove when appropriate
 .text,
 :global(.ideal-sans) .text {
-  @include ca-type-ideal-label;
+  @include kz-typography-paragraph-body;
   @include ca-inherit-baseline;
-
-  // font-family: $kz-typography-paragraph-body-font-family;
-  // font-weight: $kz-typography-paragraph-body-font-weight;
-  // font-size: $kz-typography-paragraph-body-font-size;
-  // line-height: $kz-typography-paragraph-body-line-height;
-  // letter-spacing: $kz-typography-paragraph-body-letter-spacing;
 }
 
 %checkboxOrRadio,
 :global(.ideal-sans) %checkboxOrRadio {
   @include kz-typography-paragraph-body;
   @include ca-inherit-baseline;
-
-  // font-family: $kz-typography-paragraph-body-font-family;
-  // font-weight: $kz-typography-paragraph-body-font-weight;
-  // font-size: $kz-typography-paragraph-body-font-size;
-  // line-height: $kz-typography-paragraph-body-line-height;
-  // letter-spacing: $kz-typography-paragraph-body-letter-spacing;
 
   display: flex;
 
@@ -67,14 +53,8 @@ $label-start-padding: 10px;
   @extend %checkboxOrRadio;
 }
 .toggle {
-  // @include kz-typography-paragraph-body;
+  @include kz-typography-paragraph-body;
   @include ca-inherit-baseline;
-
-  // font-family: $kz-typography-paragraph-body-font-family;
-  // font-weight: $kz-typography-paragraph-body-font-weight;
-  // font-size: $kz-typography-paragraph-body-font-size;
-  // line-height: $kz-typography-paragraph-body-line-height;
-  // letter-spacing: $kz-typography-paragraph-body-letter-spacing;
 
   display: flex;
   justify-content: space-between;
