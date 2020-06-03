@@ -50,8 +50,7 @@
   width: $ca-grid * 2;
   @include ca-margin($end: $ca-grid / 2);
 
-  > img,
-  > svg {
+  > * {
     max-width: 100%;
   }
 }
