@@ -31,12 +31,6 @@ type Props = {
   sticky?: boolean
   noBottomSeparator?: boolean
 }
-// look at Kaizen Tab component in Perform
-// Hamburger needs to trigger an event
-// use classnameAndIHaveSpokenToDST for responsive headings
-// rename branch to include ticket number
-// create a "Create Header component" in Jira (task, not story)
-// only show skirt when needed (if there is stuff on that row)
 
 type SurveyStatus = {
   text: string
