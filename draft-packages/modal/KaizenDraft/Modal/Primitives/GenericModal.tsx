@@ -24,7 +24,7 @@ interface Props extends ContainerProps, ModalAccessibleContextType {}
 
 const MODAL_TRANSITION_TIMEOUT = 350
 
-function GenericModalContainer(props: ContainerProps): React.ReactNode {
+function GenericModalContainer(props: ContainerProps) {
   const labelledByID = uuid()
   const describedByID = uuid()
   return (
