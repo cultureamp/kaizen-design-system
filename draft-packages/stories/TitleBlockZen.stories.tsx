@@ -56,17 +56,17 @@ export const TitleBlockZenDefault = () => (
     }}
     avatar={<img alt="avatar image" src={assetUrl("site/empty-state.png")} />}
     navigationTabs={[
-      <NavigationTab text="Insight" href="#" active />,
+      <NavigationTab text="Label" href="#" active />,
       <NavigationTab
-        text="Participation"
+        text="Label"
         href="#"
         handleClick={event => {
-          alert("Participation clicked!")
+          alert("Label clicked!")
         }}
       />,
-      <NavigationTab text="Questions" href="#" />,
-      <NavigationTab text="Heatmap" href="#" />,
-      <NavigationTab text="Comments" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
     ]}
   ></TitleBlockZen>
 )
