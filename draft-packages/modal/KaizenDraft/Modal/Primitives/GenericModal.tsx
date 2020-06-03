@@ -67,6 +67,7 @@ class GenericModal extends React.Component<Props> {
     this.preventBodyScroll()
     this.ensureAccessiblityIsMet()
     this.scrollModalToTop()
+    this.focusAccessibleLabel()
     if (this.modalLayer) {
       this.removeAriaHider = createAriaHider(this.modalLayer)
     }
@@ -140,6 +141,17 @@ class GenericModal extends React.Component<Props> {
       if (!this.scrollLayer) return
       this.scrollLayer.scrollTop = 0
     })
+  }
+
+  focusAccessibleLabel() {
+    if (this.modalLayer) {
+      const labelElement: HTMLElement | null = document.getElementById(
+        this.props.labelledByID
+      )
+      if (labelElement) {
+        labelElement.focus()
+      }
+    }
   }
 
   render(): React.ReactPortal {
