@@ -112,15 +112,17 @@ const TitleBlockZen = ({
           [styles.bottomSeparator]: !noBottomSeparator,
         })}
       >
-        {breadcrumb && renderBreadcrumb(breadcrumb, textDirection)}
         <div className={styles.titleAndAdjacent}>
-          {avatar && renderAvatar(avatar)}
-          <div className={styles.title}>
-            <Heading variant="heading-1" color="white">
-              {title}
-            </Heading>
+          {breadcrumb && renderBreadcrumb(breadcrumb, textDirection)}
+          <div className={styles.titleAndAdjacentNotBreadcrumb}>
+            {avatar && renderAvatar(avatar)}
+            <div className={styles.title}>
+              <Heading variant="heading-1" color="white">
+                {title}
+              </Heading>
+            </div>
+            {renderTag(surveyStatus)}
           </div>
-          {renderTag(surveyStatus)}
         </div>
         {primaryActions && <Toolbar items={primaryActions}></Toolbar>}
       </div>

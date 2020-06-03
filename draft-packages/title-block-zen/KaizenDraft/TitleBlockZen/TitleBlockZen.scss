@@ -1,8 +1,14 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/component-library/styles/grid";
 @import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/component-library/styles/layout";
+
+$page-margin-width: 28px;
+$breadcrumb-circle-width: 48px;
+$breadcrumb-breakpoint-width: $kz-layout-content-max-width + $page-margin-width *
+  2 + $breadcrumb-circle-width * 2;
 
 .titleBlock {
   -webkit-font-smoothing: antialiased;
@@ -10,6 +16,8 @@
   background-color: $kz-color-wisteria-700;
   min-height: 375px;
   width: 100%;
+  display: flex;
+  justify-content: center;
 
   @media print {
     display: none;
@@ -17,8 +25,8 @@
 }
 
 .titleBlockInner {
-  max-width: 1392px;
-  margin: 0 auto;
+  max-width: $kz-layout-content-max-width;
+  margin: 0 $page-margin-width;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -65,11 +73,28 @@
 
 .titleAndAdjacent {
   display: flex;
+}
+
+.titleAndAdjacentNotBreadcrumb {
+  display: flex;
   transition: opacity 0.3s ease;
 
   .breadcrumb:hover + &,
   .breadcrumb:focus + & {
     opacity: 0;
+  }
+
+  // This is a hack. Without this block,
+  // the non-breadcrumb stuff will jump to the right
+  // as it fades out.
+  @media only screen and (max-width: $breadcrumb-breakpoint-width) {
+    .breadcrumb:hover + &,
+    .breadcrumb:focus + & {
+      left: $breadcrumb-circle-width + 12px;
+      transform: translateY(-3px);
+      position: absolute;
+      opacity: 0;
+    }
   }
 }
 
@@ -88,8 +113,6 @@
   align-items: center;
 }
 
-$breadcrumb-circle-width: 48px;
-
 .breadcrumb {
   display: flex;
   position: absolute;
@@ -101,6 +124,7 @@ $breadcrumb-circle-width: 48px;
     $start: calc(-#{$breadcrumb-circle-width} - #{$ca-grid / 2})
   );
   color: $kz-color-white;
+  align-self: normal;
 
   &:hover {
     text-decoration: none;
@@ -111,10 +135,11 @@ $breadcrumb-circle-width: 48px;
   //   color: $ca-link-text-color;
   // }
 
-  @media only screen and (max-width: $ca-layout-max-width + ($ca-layout-side-padding * 2)) {
+  @media only screen and (max-width: $breadcrumb-breakpoint-width) {
     position: relative;
-    @include ca-margin($end: $ca-grid * 1.5);
+    @include ca-margin($end: $ca-grid / 2);
     @include ca-position($start: 0);
+    transform: translateY(0);
   }
 }
 
