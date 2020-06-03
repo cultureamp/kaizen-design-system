@@ -1,0 +1,19 @@
+@import "~@kaizen/component-library/styles/grid";
+@import "~@kaizen/component-library/styles/layout";
+
+.toolbar {
+  display: flex;
+  align-items: center;
+
+  .toolbarItem {
+    margin: 0 ($ca-grid / 4);
+  }
+
+  .toolbarItem:first-of-type {
+    @include ca-margin($start: 0, $end: $ca-grid / 4);
+  }
+
+  .toolbarItem:last-of-type {
+    @include ca-margin($start: $ca-grid / 4, $end: 0);
+  }
+}

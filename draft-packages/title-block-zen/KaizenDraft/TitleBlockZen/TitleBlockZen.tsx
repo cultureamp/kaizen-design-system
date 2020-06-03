@@ -3,6 +3,7 @@ import { Tag } from "@kaizen/draft-tag"
 import classNames from "classnames"
 import * as React from "react"
 import NavigationTab, { NavigationTabProps } from "./NavigationTabs"
+import Toolbar from "./Toolbar"
 const styles = require("./TitleBlockZen.scss")
 const leftArrow = require("@kaizen/component-library/icons/arrow-backward.icon.svg")
   .default
@@ -39,12 +40,6 @@ type Breadcrumb = {
   path: string
   text: string
   handleClick?: (event: React.MouseEvent) => void
-}
-
-// This belongs to Toolbar, which should eventually be
-// broken out into its own component
-type ToolbarProps = {
-  items?: React.ReactNode[]
 }
 
 const renderTag = surveyStatus => {
@@ -93,20 +88,6 @@ const renderNavigationTabs = navigationTabs => {
 
 const renderSecondaryActions = secondaryActions => {
   return <Toolbar items={secondaryActions}></Toolbar>
-}
-
-// Toolbar is intended to be broken out
-// into its own component
-const Toolbar = ({ items }: ToolbarProps) => {
-  return (
-    <div className={styles.toolbar}>
-      {items!.map((item, i) => (
-        <div className={styles.toolbarItem} key={`toolbar-item-${i}`}>
-          {item}
-        </div>
-      ))}
-    </div>
-  )
 }
 
 const TitleBlockZen = ({
