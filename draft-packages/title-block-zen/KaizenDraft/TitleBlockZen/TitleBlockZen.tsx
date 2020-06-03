@@ -2,8 +2,7 @@ import { Heading, Icon } from "@kaizen/component-library"
 import { Tag } from "@kaizen/draft-tag"
 import classNames from "classnames"
 import * as React from "react"
-import { NoBottomSeparator } from "../../../stories/Header.stories"
-const styles = require("./Header.scss")
+const styles = require("./TitleBlockZen.scss")
 const backIcon = require("@kaizen/component-library/icons/arrow-backward.icon.svg")
   .default
 const forwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
@@ -14,12 +13,21 @@ type Props = {
   title: string
   variant?: "admin" | "education" // the default is wisteria bg (AKA "reporting")
   breadcrumb?: Breadcrumb
-  toolbarItems?: React.ReactNode[]
+  primaryActions?: React.ReactNode[]
+  secondaryActions?: React.ReactNode[]
+  navigationTabs?: React.ReactNode[]
   textDirection?: "ltr" | "rtl"
   surveyStatus?: SurveyStatus
   sticky?: boolean
   noBottomSeparator?: boolean
 }
+// NavTabs are links with optional click events you can hijack
+// look at Kaizen Tab component in Perform
+// Hamburger needs to trigger an event
+// use classnameAndIHaveSpokenToDST for responsive headings
+// rename branch to include ticket number
+// create a "Create Header component" in Jira (task, not story)
+// only show skirt when needed (if there is stuff on that row)
 
 type SurveyStatus = {
   text: string
@@ -29,8 +37,11 @@ type SurveyStatus = {
 type Breadcrumb = {
   path: string
   text: string
+  handleClick?: (event: React.MouseEvent) => void
 }
 
+// This belongs to Toolbar, which should eventually be
+// broken out into its own component
 type ToolbarProps = {
   items?: React.ReactNode[]
 }
@@ -63,6 +74,7 @@ const renderBreadcrumb = (breadcrumb, textDirection) => {
       href={breadcrumb.path}
       className={styles.breadcrumb}
       data-automation-id="TitleBlock__Breadcrumb"
+      onClick={breadcrumb.handleClick}
     >
       <div className={styles.circle}>
         <Icon icon={icon} role="presentation" />
@@ -72,6 +84,8 @@ const renderBreadcrumb = (breadcrumb, textDirection) => {
   )
 }
 
+// Toolbar is intended to be broken out
+// into its own component
 const Toolbar = ({ items }: ToolbarProps) => {
   return (
     <div className={styles.toolbar}>
@@ -84,20 +98,20 @@ const Toolbar = ({ items }: ToolbarProps) => {
   )
 }
 
-const Header = ({
+const TitleBlockZen = ({
   children,
   title,
   variant,
   breadcrumb,
-  toolbarItems,
+  primaryActions,
   textDirection,
   surveyStatus,
   sticky,
   noBottomSeparator = false,
 }: Props) => (
-  <div className={styles.header}>
+  <div className={styles.titleBlock}>
     <div
-      className={classNames(styles.headerInner, {
+      className={classNames(styles.titleBlockInner, {
         [styles.bottomSeparator]: !noBottomSeparator,
       })}
     >
@@ -109,9 +123,9 @@ const Header = ({
           </Heading>
           {renderTag(surveyStatus)}
         </div>
-        {toolbarItems && (
+        {primaryActions && (
           <>
-            <Toolbar items={toolbarItems}></Toolbar>
+            <Toolbar items={primaryActions}></Toolbar>
           </>
         )}
       </div>
@@ -122,4 +136,4 @@ const Header = ({
   </div>
 )
 
-export default Header
+export default TitleBlockZen

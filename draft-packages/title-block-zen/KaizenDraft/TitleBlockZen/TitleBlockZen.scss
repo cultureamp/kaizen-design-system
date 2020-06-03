@@ -4,7 +4,7 @@
 @import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/component-library/styles/layout";
 
-.header {
+.titleBlock {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $kz-color-wisteria-700;
@@ -16,7 +16,7 @@
   }
 }
 
-.headerInner {
+.titleBlockInner {
   max-width: 1392px;
   margin: 0 auto;
   display: flex;

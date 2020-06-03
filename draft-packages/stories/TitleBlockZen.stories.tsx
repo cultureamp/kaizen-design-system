@@ -2,9 +2,12 @@ import { Paragraph } from "@kaizen/component-library"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
 import { Button } from "../button"
-import { Header, TitleBlock } from "../header/KaizenDraft/Header"
+import {
+  TitleBlock,
+  TitleBlockZen,
+} from "../title-block-zen/KaizenDraft/TitleBlockZen"
 
-require("./Header.stories.scss")
+require("./TitleBlockZen.stories.scss")
 
 const stickyContainerStyle = {
   width: "100%",
@@ -12,7 +15,7 @@ const stickyContainerStyle = {
 }
 
 export default {
-  title: "Header (React)",
+  title: "TitleBlockZen (React)",
   parameters: {
     backgrounds: [
       {
@@ -24,19 +27,25 @@ export default {
   },
 }
 
-export const HeaderDefault = () => (
-  <Header
+export const TitleBlockZenDefault = () => (
+  <TitleBlockZen
     title="Page title"
     surveyStatus={{ text: "Live", status: "live" }}
-    toolbarItems={[
+    primaryActions={[
       <Button label="Label" reversed />,
       <Button label="Label" primary reversed />,
     ]}
-    breadcrumb={{ path: "#", text: "Back to home" }}
-  ></Header>
+    breadcrumb={{
+      path: "#",
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+  ></TitleBlockZen>
 )
 
-HeaderDefault.story = {
+TitleBlockZenDefault.story = {
   name: "Default",
 }
 
