@@ -12,7 +12,7 @@ import { warn } from "@kaizen/component-library/util/console"
 
 const styles = require("./GenericModal.scss")
 
-interface ContainerProps {
+interface GenericModalContainerProps {
   readonly isOpen: boolean
   readonly children: React.ReactNode
   readonly focusLockDisabled?: boolean
@@ -20,11 +20,13 @@ interface ContainerProps {
   readonly onOutsideModalClick?: (event: React.MouseEvent) => void
 }
 
-interface Props extends ContainerProps, ModalAccessibleContextType {}
+interface GenericModalProps
+  extends GenericModalContainerProps,
+    ModalAccessibleContextType {}
 
 const MODAL_TRANSITION_TIMEOUT = 350
 
-function GenericModalContainer(props: ContainerProps) {
+function GenericModalContainer(props: GenericModalContainerProps) {
   const labelledByID = uuid()
   const describedByID = uuid()
   return (
@@ -43,7 +45,7 @@ function GenericModalContainer(props: ContainerProps) {
   )
 }
 
-class GenericModal extends React.Component<Props> {
+class GenericModal extends React.Component<GenericModalProps> {
   scrollLayer: HTMLDivElement | null = null
   modalLayer: HTMLDivElement | null = null
 
@@ -51,7 +53,7 @@ class GenericModal extends React.Component<Props> {
     if (this.props.isOpen) this.onOpen()
   }
 
-  componentDidUpdate(prevProps: Props) {
+  componentDidUpdate(prevProps: GenericModalProps) {
     const hasJustOpened = !prevProps.isOpen && this.props.isOpen
     const hasJustClosed = prevProps.isOpen && !this.props.isOpen
     if (hasJustOpened) this.onOpen()
