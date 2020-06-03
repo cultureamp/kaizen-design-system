@@ -43,7 +43,7 @@
 }
 
 .avatar {
-  border: 3px solid #fff;
+  border: 3px solid $kz-color-white;
   border-radius: 50%;
   overflow: hidden;
   height: $ca-grid * 2;
@@ -97,7 +97,6 @@ $breadcrumb-circle-width: 48px;
   align-items: center;
   top: 50%;
   transform: translateY(-50%);
-  // left: calc(-#{$breadcrumb-circle-width} - #{$ca-grid / 2});
   @include ca-position(
     $start: calc(-#{$breadcrumb-circle-width} - #{$ca-grid / 2})
   );
