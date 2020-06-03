@@ -1,4 +1,9 @@
-import { Heading, Icon } from "@kaizen/component-library"
+import {
+  ButtonProps,
+  DropdownProps,
+  Heading,
+  Icon,
+} from "@kaizen/component-library"
 import { Tag } from "@kaizen/draft-tag"
 import classNames from "classnames"
 import * as React from "react"
@@ -16,8 +21,10 @@ type Props = {
   variant?: "admin" | "education" // the default is wisteria bg (AKA "reporting")
   breadcrumb?: Breadcrumb
   avatar?: JSX.Element
-  primaryActions?: React.ReactNode[]
-  secondaryActions?: React.ReactNode[]
+  primaryActions?: Array<React.ReactElement<ButtonProps>>
+  secondaryActions?: Array<
+    React.ReactElement<ButtonProps> | React.ReactElement<DropdownProps>
+  >
   navigationTabs?: Array<React.ReactElement<NavigationTabProps>>
   textDirection?: "ltr" | "rtl"
   surveyStatus?: SurveyStatus

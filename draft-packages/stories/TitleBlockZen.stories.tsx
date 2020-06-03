@@ -1,4 +1,4 @@
-import { Paragraph } from "@kaizen/component-library"
+import { Dropdown, Paragraph } from "@kaizen/component-library"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
 import { Button } from "../button"
@@ -45,6 +45,7 @@ export const TitleBlockZenDefault = () => (
       <Button label="Configure" secondary reversed icon={configureIcon} />,
       <Button label="Label" secondary reversed icon={visibleIcon} />,
       <Button label="Label" secondary reversed icon={visibleIcon} />,
+      <Dropdown reversedColor />,
     ]}
     breadcrumb={{
       path: "#",
