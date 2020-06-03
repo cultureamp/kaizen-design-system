@@ -1,14 +1,18 @@
 import * as React from "react"
 import { createPortal } from "react-dom"
 import FocusLock from "react-focus-lock"
+import uuid from "uuid/v4"
 const { CSSTransition } = require("react-transition-group")
+import {
+  ModalAccessibleContext,
+  ModalAccessibleContextType,
+} from "./ModalAccessibleContext"
 
 import { warn } from "@kaizen/component-library/util/console"
-import { ID_DESCRIBEDBY, ID_LABELLEDBY } from "./constants"
 
 const styles = require("./GenericModal.scss")
 
-interface Props {
+interface ContainerProps {
   readonly isOpen: boolean
   readonly children: React.ReactNode
   readonly focusLockDisabled?: boolean
@@ -16,7 +20,28 @@ interface Props {
   readonly onOutsideModalClick?: (event: React.MouseEvent) => void
 }
 
+interface Props extends ContainerProps, ModalAccessibleContextType {}
+
 const MODAL_TRANSITION_TIMEOUT = 350
+
+function GenericModalContainer(props: ContainerProps): React.ReactNode {
+  const labelledByID = uuid()
+  const describedByID = uuid()
+  return (
+    <ModalAccessibleContext.Provider
+      value={{
+        labelledByID,
+        describedByID,
+      }}
+    >
+      <GenericModal
+        {...props}
+        labelledByID={labelledByID}
+        describedByID={describedByID}
+      />
+    </ModalAccessibleContext.Provider>
+  )
+}
 
 class GenericModal extends React.Component<Props> {
   scrollLayer: HTMLDivElement | null = null
@@ -99,7 +124,7 @@ class GenericModal extends React.Component<Props> {
     if (!this.modalLayer) return
     // Ensure that consumers have provided an element that labels the modal
     // to meet ARIA accessibility guidelines.
-    if (!document.getElementById(ID_LABELLEDBY)) {
+    if (!document.getElementById(this.props.labelledByID)) {
       warn(
         `When using the Modal component, you must provide a label for the modal.
         Make sure you have a <ModalAccessibleLabel /> component with content that labels the modal.`
@@ -130,7 +155,11 @@ class GenericModal extends React.Component<Props> {
       >
         {/* This is not an unused div. It will receive `animating-` classes from react-transition-group */}
         <div>
-          <FocusLock disabled={focusLockDisabled} returnFocus={true}>
+          <FocusLock
+            disabled={focusLockDisabled}
+            returnFocus={true}
+            autoFocus={false}
+          >
             <div className={styles.backdropLayer} />
             <div
               className={styles.scrollLayer}
@@ -141,8 +170,8 @@ class GenericModal extends React.Component<Props> {
             >
               <div
                 role="dialog"
-                aria-labelledby={ID_LABELLEDBY}
-                aria-describedby={ID_DESCRIBEDBY}
+                aria-labelledby={this.props.labelledByID}
+                aria-describedby={this.props.describedByID}
                 className={styles.modalLayer}
                 ref={modalLayer => (this.modalLayer = modalLayer)}
               >
@@ -232,4 +261,4 @@ function createAriaHider(dialogNode: HTMLElement): () => void {
   }
 }
 
-export default GenericModal
+export default GenericModalContainer

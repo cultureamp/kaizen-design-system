@@ -1,5 +1,5 @@
 import * as React from "react"
-import { ID_LABELLEDBY } from "./constants"
+import { ModalAccessibleContext } from "./ModalAccessibleContext"
 
 interface Props {
   readonly children: React.ReactNode
@@ -8,7 +8,9 @@ interface Props {
 type ModalAccessibleLabel = React.FunctionComponent<Props>
 
 const ModalAccessibleLabel: ModalAccessibleLabel = ({ children }) => (
-  <div id={ID_LABELLEDBY}>{children}</div>
+  <ModalAccessibleContext.Consumer>
+    {({ labelledByID }) => <div id={labelledByID}>{children}</div>}
+  </ModalAccessibleContext.Consumer>
 )
 
 export default ModalAccessibleLabel
