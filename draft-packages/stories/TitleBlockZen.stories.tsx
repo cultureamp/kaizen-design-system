@@ -3,6 +3,7 @@ import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
 import { Button } from "../button"
 import {
+  NavigationTab,
   TitleBlock,
   TitleBlockZen,
 } from "../title-block-zen/KaizenDraft/TitleBlockZen"
@@ -42,6 +43,19 @@ export const TitleBlockZenDefault = () => (
         alert("breadcrumb clicked!")
       },
     }}
+    navigationTabs={[
+      <NavigationTab text="Insight" href="#" active />,
+      <NavigationTab
+        text="Participation"
+        href="#"
+        handleClick={event => {
+          alert("Participation clicked!")
+        }}
+      />,
+      <NavigationTab text="Questions" href="#" />,
+      <NavigationTab text="Heatmap" href="#" />,
+      <NavigationTab text="Comments" href="#" />,
+    ]}
   ></TitleBlockZen>
 )
 

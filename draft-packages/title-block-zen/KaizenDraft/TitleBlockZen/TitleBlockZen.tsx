@@ -2,6 +2,7 @@ import { Heading, Icon } from "@kaizen/component-library"
 import { Tag } from "@kaizen/draft-tag"
 import classNames from "classnames"
 import * as React from "react"
+import NavigationTab, { NavigationTabProps } from "./NavigationTabs"
 const styles = require("./TitleBlockZen.scss")
 const backIcon = require("@kaizen/component-library/icons/arrow-backward.icon.svg")
   .default
@@ -15,7 +16,7 @@ type Props = {
   breadcrumb?: Breadcrumb
   primaryActions?: React.ReactNode[]
   secondaryActions?: React.ReactNode[]
-  navigationTabs?: React.ReactNode[]
+  navigationTabs?: Array<React.ReactElement<NavigationTabProps>>
   textDirection?: "ltr" | "rtl"
   surveyStatus?: SurveyStatus
   sticky?: boolean
@@ -39,6 +40,12 @@ type Breadcrumb = {
   text: string
   handleClick?: (event: React.MouseEvent) => void
 }
+
+// type NavigationTab = {
+//   path: string
+//   text: string
+//   handleClick?: (event: React.MouseEvent) => void
+// }
 
 // This belongs to Toolbar, which should eventually be
 // broken out into its own component
@@ -84,6 +91,10 @@ const renderBreadcrumb = (breadcrumb, textDirection) => {
   )
 }
 
+const renderNavigationTabs = navigationTabs => {
+  return <div className={styles.navigationTabsContainer}>{navigationTabs}</div>
+}
+
 // Toolbar is intended to be broken out
 // into its own component
 const Toolbar = ({ items }: ToolbarProps) => {
@@ -104,18 +115,20 @@ const TitleBlockZen = ({
   variant,
   breadcrumb,
   primaryActions,
+  secondaryActions,
+  navigationTabs,
   textDirection,
   surveyStatus,
   sticky,
   noBottomSeparator = false,
 }: Props) => (
   <div className={styles.titleBlock}>
-    <div
-      className={classNames(styles.titleBlockInner, {
-        [styles.bottomSeparator]: !noBottomSeparator,
-      })}
-    >
-      <div className={styles.titleRow}>
+    <div className={styles.titleBlockInner}>
+      <div
+        className={classNames(styles.titleRow, {
+          [styles.bottomSeparator]: !noBottomSeparator,
+        })}
+      >
         {breadcrumb && renderBreadcrumb(breadcrumb, textDirection)}
         <div className={styles.titleAndAdjacent}>
           <Heading variant="heading-1" color="white">
@@ -129,11 +142,12 @@ const TitleBlockZen = ({
           </>
         )}
       </div>
-      <div className={styles.bottomRow}></div>
-
-      {children}
+      <div className={styles.belowSeparatorRow}>
+        {navigationTabs && renderNavigationTabs(navigationTabs)}
+      </div>
     </div>
   </div>
 )
 
 export default TitleBlockZen
+export { NavigationTab }

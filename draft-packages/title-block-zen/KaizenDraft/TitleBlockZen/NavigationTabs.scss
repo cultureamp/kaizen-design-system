@@ -1,0 +1,56 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/fonts";
+
+.container {
+  display: flex;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.linkAnchor {
+  display: flex;
+  padding: 0 $ca-grid;
+  color: rgba($kz-color-white, 0.7);
+
+  &:hover {
+    color: $kz-color-white;
+    text-decoration: none;
+  }
+}
+
+.linkLabel {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  font-family: $kz-typography-heading-4-font-family;
+  font-weight: $kz-typography-heading-4-font-weight;
+  font-size: $kz-typography-heading-4-font-size;
+  line-height: $kz-typography-heading-4-line-height;
+  letter-spacing: $kz-typography-heading-4-letter-spacing;
+
+  &.active {
+    color: $kz-color-white;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 5px;
+      position: absolute;
+      top: 0;
+      left: -$ca-grid / 2;
+      right: -$ca-grid / 2;
+      background-color: #ffffff;
+      transition: transform cubic-bezier(0.55, 0.085, 0.68, 0.53) 150ms;
+      border-radius: 0 0 $kz-border-solid-border-radius
+        $kz-border-solid-border-radius;
+    }
+  }
+
+  &.active:hover {
+    text-decoration: none;
+  }
+}

@@ -20,23 +20,27 @@
   max-width: 1392px;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   width: 100%;
+}
+
+.titleRow {
   position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: $ca-grid * 3.5;
+  justify-content: space-between;
 
   &.bottomSeparator {
     border-bottom: 3px solid rgba($kz-color-white, 0.1);
   }
 }
 
-.titleRow {
+.belowSeparatorRow {
   display: flex;
   width: 100%;
-  align-items: center;
-  height: $ca-grid * 3.5;
-  justify-content: space-between;
-}
-
-.bottomRow {
+  height: $ca-grid * 3;
 }
 
 .titleAndAdjacent {
@@ -62,6 +66,11 @@
 .tag {
   margin-left: $ca-grid;
   display: flex;
+}
+
+.navigationTabsContainer {
+  display: flex;
+  margin-top: -3px;
 }
 
 $breadcrumb-circle-width: 40px;
