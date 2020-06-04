@@ -26,10 +26,8 @@ $ca-palette-input-validation-negative: $kz-color-coral-600;
 }
 
 .error {
-  padding: 0 $ca-grid / 2;
+  padding: $ca-grid / 2;
   color: $message-error-color;
   border-radius: $message-border-radius;
-  background: $ca-palette-input-validation-negative;
-  // Aligns error message with input focus ring
-  box-shadow: 0 0 0 1px $ca-palette-input-validation-negative;
+  background: $kz-color-coral-100;
 }
