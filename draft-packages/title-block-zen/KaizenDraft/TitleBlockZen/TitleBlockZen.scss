@@ -4,17 +4,19 @@
 @import "~@kaizen/component-library/styles/grid";
 @import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/component-library/styles/layout";
+@import "./TitleBlockBreakpoints.scss";
 
-$page-margin-width: 28px;
+$page-margin-width-large: 28px;
+$page-margin-width-small: 12px;
 $breadcrumb-circle-width: 48px;
-$breadcrumb-breakpoint-width: $kz-layout-content-max-width + $page-margin-width *
-  2 + $breadcrumb-circle-width * 2;
+$breadcrumb-breakpoint-width: $kz-layout-content-max-width +
+  $page-margin-width-large * 2 + $breadcrumb-circle-width * 2;
+$title-block-separator-height: 3px;
 
 .titleBlock {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $kz-color-wisteria-700;
-  min-height: 375px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -26,10 +28,22 @@ $breadcrumb-breakpoint-width: $kz-layout-content-max-width + $page-margin-width 
 
 .titleBlockInner {
   max-width: $kz-layout-content-max-width;
-  margin: 0 $page-margin-width;
+  margin: 0 $page-margin-width-large;
   display: flex;
   flex-direction: column;
   width: 100%;
+
+  @include title-block-under-1440 {
+    max-width: 1224px;
+  }
+
+  @include title-block-under-1366 {
+    max-width: 1024px;
+  }
+
+  @include title-block-under-1080 {
+    margin: 0 $page-margin-width-small;
+  }
 }
 
 .titleRow {
@@ -41,13 +55,58 @@ $breadcrumb-breakpoint-width: $kz-layout-content-max-width + $page-margin-width 
   justify-content: space-between;
 
   &.bottomSeparator {
-    border-bottom: 3px solid rgba($kz-color-white, 0.1);
+    border-bottom: $title-block-separator-height solid
+      rgba($kz-color-white, 0.1);
+
+    @include title-block-under-1080 {
+      border-bottom: none;
+    }
+  }
+
+  @include title-block-under-1080 {
+    height: $ca-grid * 2.5;
   }
 }
 
 .title {
   display: flex;
   align-items: center;
+}
+
+.titleAndSubtitle {
+  display: flex;
+  align-items: center;
+}
+
+.titleAndSubtitleInner {
+  display: flex;
+
+  &.hasSubtitle {
+    align-items: baseline;
+    @include title-block-under-768 {
+      align-items: normal;
+      flex-direction: column;
+      justify-content: space-between;
+      transform: translateY($ca-grid / 2);
+    }
+  }
+}
+
+.titleTextOverride {
+  @include title-block-under-1366 {
+    font-family: $kz-typography-heading-2-font-family;
+    font-weight: $kz-typography-heading-2-font-weight;
+    font-size: $kz-typography-heading-2-font-size;
+    line-height: $kz-typography-heading-2-line-height;
+    letter-spacing: $kz-typography-heading-2-letter-spacing;
+  }
+  @include title-block-under-1080 {
+    font-family: $kz-typography-heading-3-font-family;
+    font-weight: $kz-typography-heading-3-font-weight;
+    font-size: $kz-typography-heading-3-font-size;
+    line-height: $kz-typography-heading-3-line-height;
+    letter-spacing: $kz-typography-heading-3-letter-spacing;
+  }
 }
 
 .avatar {
@@ -61,14 +120,55 @@ $breadcrumb-breakpoint-width: $kz-layout-content-max-width + $page-margin-width 
   > * {
     max-width: 100%;
   }
+
+  @include title-block-under-1080 {
+    display: none;
+  }
+}
+
+.subtitle {
+  display: flex;
+  align-items: center;
+  color: $kz-color-white;
+  font-family: $kz-typography-paragraph-small-font-family;
+  font-weight: $kz-typography-paragraph-small-font-weight;
+  font-size: $kz-typography-paragraph-small-font-size;
+  line-height: $kz-typography-paragraph-small-line-height;
+  letter-spacing: $kz-typography-paragraph-small-letter-spacing;
+  @include ca-margin($start: $ca-grid / 2);
+
+  @include title-block-under-768 {
+    margin: $ca-grid / 3 0;
+  }
+}
+
+.hamburger {
+  display: none;
+  color: $kz-color-white;
+  @include ca-margin($end: $ca-grid * 2/3);
+
+  @include title-block-under-1080 {
+    display: flex;
+    align-items: center;
+  }
+
+  &.hasSubtitle {
+    @include title-block-under-768 {
+      transform: translateY(-5px);
+    }
+  }
 }
 
 .belowSeparatorRow {
   display: flex;
   width: 100%;
   height: $ca-grid * 3;
-  margin-top: -3px;
+  margin-top: -$title-block-separator-height;
   justify-content: space-between;
+
+  @include title-block-under-1080 {
+    height: $ca-grid * 2.5;
+  }
 }
 
 .titleAndAdjacent {
@@ -91,7 +191,7 @@ $breadcrumb-breakpoint-width: $kz-layout-content-max-width + $page-margin-width 
     .breadcrumb:hover + &,
     .breadcrumb:focus + & {
       left: $breadcrumb-circle-width + 12px;
-      transform: translateY(-3px);
+      transform: translateY(6px);
       position: absolute;
       opacity: 0;
     }
@@ -102,15 +202,32 @@ $breadcrumb-breakpoint-width: $kz-layout-content-max-width + $page-margin-width 
   @include ca-margin($start: $ca-grid / 2);
   display: flex;
   align-items: center;
+
+  @include title-block-under-1080 {
+    display: none;
+  }
 }
 
 .navigationTabsContainer {
   display: flex;
 }
 
+.primaryActionsContainer {
+  display: flex;
+  align-items: center;
+
+  @include title-block-under-768 {
+    display: none;
+  }
+}
+
 .secondaryActionsContainer {
   display: flex;
   align-items: center;
+
+  @include title-block-under-1080 {
+    display: none;
+  }
 }
 
 .breadcrumb {
@@ -140,6 +257,10 @@ $breadcrumb-breakpoint-width: $kz-layout-content-max-width + $page-margin-width 
     @include ca-margin($end: $ca-grid / 2);
     @include ca-position($start: 0);
     transform: translateY(0);
+  }
+
+  @include title-block-under-1080 {
+    display: none;
   }
 }
 

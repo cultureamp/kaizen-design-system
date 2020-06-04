@@ -14,6 +14,8 @@ const leftArrow = require("@kaizen/component-library/icons/arrow-backward.icon.s
   .default
 const rightArrow = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
   .default
+const hamburgerIcon = require("@kaizen/component-library/icons/hamburger.icon.svg")
+  .default
 
 type Props = {
   children?: React.ReactNode
@@ -21,6 +23,8 @@ type Props = {
   variant?: "admin" | "education" // the default is wisteria bg (AKA "reporting")
   breadcrumb?: Breadcrumb
   avatar?: JSX.Element
+  subtitle?: string
+  handleHamburgerClick?: (event: React.MouseEvent) => void
   primaryActions?: Array<React.ReactElement<ButtonProps>>
   secondaryActions?: Array<
     React.ReactElement<ButtonProps> | React.ReactElement<DropdownProps>
@@ -63,6 +67,10 @@ const renderTag = surveyStatus => {
 
 const renderAvatar = image => <div className={styles.avatar}>{image}</div>
 
+const renderSubtitle = subtitle => (
+  <div className={styles.subtitle}>{subtitle}</div>
+)
+
 const renderBreadcrumb = (breadcrumb, textDirection) => {
   if (breadcrumb == undefined) return
 
@@ -88,7 +96,19 @@ const renderNavigationTabs = navigationTabs => {
 }
 
 const renderSecondaryActions = secondaryActions => {
-  return <Toolbar items={secondaryActions}></Toolbar>
+  return (
+    <div className={styles.secondaryActionsContainer}>
+      <Toolbar items={secondaryActions}></Toolbar>
+    </div>
+  )
+}
+
+const renderPrimaryActions = primaryActions => {
+  return (
+    <div className={styles.primaryActionsContainer}>
+      <Toolbar items={primaryActions}></Toolbar>
+    </div>
+  )
 }
 
 const TitleBlockZen = ({
@@ -97,6 +117,8 @@ const TitleBlockZen = ({
   variant,
   breadcrumb,
   avatar,
+  subtitle,
+  handleHamburgerClick,
   primaryActions,
   secondaryActions,
   navigationTabs,
@@ -115,16 +137,37 @@ const TitleBlockZen = ({
         <div className={styles.titleAndAdjacent}>
           {breadcrumb && renderBreadcrumb(breadcrumb, textDirection)}
           <div className={styles.titleAndAdjacentNotBreadcrumb}>
+            <div
+              className={classNames(styles.hamburger, {
+                [styles.hasSubtitle]: Boolean(subtitle),
+              })}
+              onClick={handleHamburgerClick}
+            >
+              <Icon icon={hamburgerIcon} role="img" title="Open menu" />
+            </div>
             {avatar && renderAvatar(avatar)}
-            <div className={styles.title}>
-              <Heading variant="heading-1" color="white">
-                {title}
-              </Heading>
+            <div className={styles.titleAndSubtitle}>
+              <div
+                className={classNames(styles.titleAndSubtitleInner, {
+                  [styles.hasSubtitle]: Boolean(subtitle),
+                })}
+              >
+                <div className={styles.title}>
+                  <Heading
+                    variant="heading-1"
+                    color="white"
+                    classNameAndIHaveSpokenToDST={styles.titleTextOverride}
+                  >
+                    {title}
+                  </Heading>
+                </div>
+                {subtitle && renderSubtitle(subtitle)}
+              </div>
             </div>
             {renderTag(surveyStatus)}
           </div>
         </div>
-        {primaryActions && <Toolbar items={primaryActions}></Toolbar>}
+        {primaryActions && renderPrimaryActions(primaryActions)}
       </div>
       <div className={styles.belowSeparatorRow}>
         {navigationTabs && renderNavigationTabs(navigationTabs)}

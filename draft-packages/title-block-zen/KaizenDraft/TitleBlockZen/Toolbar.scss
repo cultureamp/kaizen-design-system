@@ -1,5 +1,6 @@
 @import "~@kaizen/component-library/styles/grid";
 @import "~@kaizen/component-library/styles/layout";
+@import "./TitleBlockBreakpoints.scss";
 
 .toolbar {
   display: flex;
@@ -7,13 +8,25 @@
 
   .toolbarItem {
     margin: 0 ($ca-grid / 4);
+
+    @include title-block-under-1024 {
+      margin: 0 ($ca-grid / 8);
+    }
   }
 
   .toolbarItem:first-of-type {
     @include ca-margin($start: 0, $end: $ca-grid / 4);
+
+    @include title-block-under-1024 {
+      @include ca-margin($start: 0, $end: $ca-grid / 8);
+    }
   }
 
   .toolbarItem:last-of-type {
     @include ca-margin($start: $ca-grid / 4, $end: 0);
+
+    @include title-block-under-1024 {
+      @include ca-margin($start: $ca-grid / 8, $end: 0);
+    }
   }
 }
