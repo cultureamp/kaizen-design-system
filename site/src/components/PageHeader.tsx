@@ -63,11 +63,13 @@ const PageHeader: React.SFC<PageHeaderProps> = ({
             {!headingOnly && (
               <div className={styles.sideSection}>
                 <div className={styles.image}>
-                  <img
-                    src={data.amoeba.publicURL}
-                    className={styles.imageBackdrop}
-                    alt=""
-                  />
+                  {!headerImageURL && (
+                    <img
+                      src={data.amoeba.publicURL}
+                      className={styles.imageBackdrop}
+                      alt=""
+                    />
+                  )}
                   <img
                     src={headerImageURL || emptyStateHeaderImageURL}
                     className={styles.headerImage}
