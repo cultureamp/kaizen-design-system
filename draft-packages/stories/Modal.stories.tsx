@@ -641,7 +641,7 @@ export const NestedModal = () => (
                 confirmLabel={"Go deeper"}
               >
                 <div style={{ textAlign: "center" }}>
-                  <Paragraph variant="body" style="lede" inline>
+                  <Paragraph variant="intro-lede">
                     Additional subtext to aid the user can be added here.
                   </Paragraph>
                 </div>
@@ -654,7 +654,7 @@ export const NestedModal = () => (
                 onDismiss={internal.close}
               >
                 <div style={{ textAlign: "center" }}>
-                  <Paragraph variant="body" style="lede" inline>
+                  <Paragraph variant="intro-lede">
                     Whoa, this is, like, deep.
                   </Paragraph>
                 </div>

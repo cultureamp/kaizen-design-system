@@ -1,4 +1,4 @@
-import { Heading, Paragraph, Box } from "@kaizen/component-library"
+import { Box, Heading, Paragraph } from "@kaizen/component-library"
 import { TextField } from "@kaizen/draft-form"
 import { Well } from "@kaizen/draft-well"
 import * as React from "react"
