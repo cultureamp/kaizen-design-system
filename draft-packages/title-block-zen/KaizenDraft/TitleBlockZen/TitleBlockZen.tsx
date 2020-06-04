@@ -127,7 +127,11 @@ const TitleBlockZen = ({
   sticky,
   noBottomSeparator = false,
 }: Props) => (
-  <div className={styles.titleBlock}>
+  <div
+    className={classNames(styles.titleBlock, {
+      [styles.hasSubtitle]: Boolean(subtitle),
+    })}
+  >
     <div className={styles.titleBlockInner}>
       <div
         className={classNames(styles.titleRow, {
@@ -137,21 +141,12 @@ const TitleBlockZen = ({
         <div className={styles.titleAndAdjacent}>
           {breadcrumb && renderBreadcrumb(breadcrumb, textDirection)}
           <div className={styles.titleAndAdjacentNotBreadcrumb}>
-            <div
-              className={classNames(styles.hamburger, {
-                [styles.hasSubtitle]: Boolean(subtitle),
-              })}
-              onClick={handleHamburgerClick}
-            >
+            <div className={styles.hamburger} onClick={handleHamburgerClick}>
               <Icon icon={hamburgerIcon} role="img" title="Open menu" />
             </div>
             {avatar && renderAvatar(avatar)}
             <div className={styles.titleAndSubtitle}>
-              <div
-                className={classNames(styles.titleAndSubtitleInner, {
-                  [styles.hasSubtitle]: Boolean(subtitle),
-                })}
-              >
+              <div className={styles.titleAndSubtitleInner}>
                 <div className={styles.title}>
                   <Heading
                     variant="heading-1"

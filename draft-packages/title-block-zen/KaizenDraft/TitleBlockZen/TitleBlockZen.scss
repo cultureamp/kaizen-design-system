@@ -81,8 +81,9 @@ $title-block-separator-height: 3px;
 .titleAndSubtitleInner {
   display: flex;
 
-  &.hasSubtitle {
+  .hasSubtitle & {
     align-items: baseline;
+
     @include title-block-under-768 {
       align-items: normal;
       flex-direction: column;
@@ -152,7 +153,7 @@ $title-block-separator-height: 3px;
     align-items: center;
   }
 
-  &.hasSubtitle {
+  .hasSubtitle & {
     @include title-block-under-768 {
       transform: translateY(-5px);
     }
@@ -190,10 +191,14 @@ $title-block-separator-height: 3px;
   @media only screen and (max-width: $breadcrumb-breakpoint-width) {
     .breadcrumb:hover + &,
     .breadcrumb:focus + & {
-      left: $breadcrumb-circle-width + 12px;
-      transform: translateY(6px);
       position: absolute;
       opacity: 0;
+      left: $breadcrumb-circle-width + 12px;
+      transform: translateY(6px);
+
+      .hasSubtitle & {
+        transform: translateY(-3px);
+      }
     }
   }
 }
