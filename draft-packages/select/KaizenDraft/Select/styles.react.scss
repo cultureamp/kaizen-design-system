@@ -4,9 +4,10 @@
 @import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/Input/styles.scss";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/zen-type";
 
 @mixin base-font-style() {
-  @include ca-type-ideal-body-bold;
+  @include kz-typography-paragraph-body-bold;
   @include ca-inherit-baseline;
   color: $kz-color-wisteria-800;
 }

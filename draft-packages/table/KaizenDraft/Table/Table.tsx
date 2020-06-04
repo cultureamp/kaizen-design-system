@@ -1,4 +1,4 @@
-import { Icon, Text } from "@kaizen/component-library"
+import { Icon, Paragraph } from "@kaizen/component-library"
 import { Checkbox, CheckedStatus } from "@kaizen/draft-form"
 import classNames from "classnames"
 import * as React from "react"
@@ -82,9 +82,9 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
           <Checkbox checkedStatus={checkedStatus} onCheck={onCheck} />
         </div>
       )}
-      <Text tag="div" style="label" inheritBaseline>
+      <Paragraph tag="div" variant="body">
         {labelText}
-      </Text>
+      </Paragraph>
     </div>
   )
 
