@@ -2,6 +2,7 @@
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/zen-type";
 
 .modal {
   composes: genericModal from "../Primitives/GenericModal.scss";
@@ -20,4 +21,5 @@
   background: $kz-color-stone;
   padding: $ca-grid $ca-grid $ca-grid * 1.5;
   border-bottom: 1px solid $ca-border-color;
+  @include kz-typography-paragraph-body;
 }

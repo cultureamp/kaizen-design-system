@@ -257,6 +257,48 @@ $ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
   );
 }
 
+@mixin kz-typography-heading-4(
+  $size: to-unitless-pixels($kz-typography-heading-4-font-size),
+  $args...
+) {
+  @include kz-typography-inter(
+    $size: $size,
+    $weight: $kz-typography-heading-4-font-weight,
+    $letter-spacing: $kz-typography-heading-4-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-heading-4-line-height),
+    $args...
+  );
+}
+
+@mixin kz-typography-heading-5(
+  $size: to-unitless-pixels($kz-typography-heading-5-font-size),
+  $args...
+) {
+  @include kz-typography-inter(
+    $size: $size,
+    $weight: $kz-typography-heading-5-font-weight,
+    $letter-spacing: $kz-typography-heading-5-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-heading-5-line-height),
+    $args...
+  );
+}
+
+@mixin kz-typography-heading-6(
+  $size: to-unitless-pixels($kz-typography-heading-6-font-size),
+  $args...
+) {
+  @include kz-typography-inter(
+    $size: $size,
+    $weight: $kz-typography-heading-6-font-weight,
+    $letter-spacing: $kz-typography-heading-6-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-heading-6-line-height),
+    $args...
+  );
+}
+
 @mixin kz-typography-paragraph-body(
   $size: to-unitless-pixels($kz-typography-paragraph-body-font-size),
   $args...
