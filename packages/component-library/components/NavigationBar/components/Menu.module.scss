@@ -6,11 +6,12 @@
 @import "../../../styles/type";
 @import "../../../styles/layers";
 @import "../../../styles/layout";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 $menu__square-size: $ca-grid * 2;
 
 @mixin menu-font-styles {
-  @include ca-type-ideal-body;
+  @include ca-type-inter-body;
   @include ca-inherit-baseline;
   @include ca-type-align-start;
 }

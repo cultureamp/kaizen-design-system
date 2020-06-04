@@ -44,7 +44,7 @@
 }
 
 .breadcrumb {
-  @include ca-type-ideal-small;
+  @include ca-type-inter-small;
   display: flex;
   position: absolute;
   z-index: $ca-z-index-sticky;
@@ -85,7 +85,7 @@
 
 .breadcrumbText {
   flex: 0 0 $ca-grid * 8;
-  @include ca-type-ideal-heading;
+  @include ca-type-inter-heading;
   top: 0;
   display: none;
   @include ca-margin($start: $ca-grid);
@@ -177,7 +177,7 @@
 }
 
 .subtitle {
-  @include ca-type-ideal-heading;
+  @include ca-type-inter-heading;
   display: inline-block;
   top: auto;
   @include ca-margin($start: $ca-grid);

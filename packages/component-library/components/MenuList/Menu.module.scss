@@ -7,6 +7,7 @@
 @import "../../styles/border";
 @import "../../styles/layers";
 @import "../../styles/animation";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 $side-padding: 3/4 * $ca-grid;
 
@@ -26,13 +27,13 @@ $side-padding: 3/4 * $ca-grid;
 }
 
 .header__title {
-  @include ca-type-ideal-labels-and-legends;
+  @include ca-type-inter-labels-and-legends;
   @include ca-inherit-baseline;
   display: block;
 }
 
 .menuItem {
-  @include ca-type-ideal-body;
+  @include ca-type-inter-body;
   @include ca-inherit-baseline;
   composes: interactiveIconWrapper from "../Icon/Icon.module.scss";
   background: transparent;

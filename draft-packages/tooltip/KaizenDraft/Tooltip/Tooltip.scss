@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/shadow";
-@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/animation";
 
 .root {
@@ -32,7 +32,7 @@
 }
 
 .tooltipContent {
-  @include ca-type-ideal-body($size: 14);
+  @include ca-type-inter-body($size: 14);
   color: $kz-color-wisteria-800;
   top: initial;
 }

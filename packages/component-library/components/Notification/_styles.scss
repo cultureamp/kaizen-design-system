@@ -8,6 +8,7 @@
 @import "../../styles/animation";
 @import "../../styles/responsive";
 @import "../../components/Button/styles";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 $ca-notification-border-width: $kz-border-solid-border-width;
 $ca-notification-vertical-padding: calc(
@@ -191,7 +192,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 }
 
 %ca-notification__title {
-  @include ca-type-ideal-heading;
+  @include ca-type-inter-heading;
   margin: 0;
   padding-right: $ca-grid / 2;
   // overriding Bootstrap style that changes h6s to text-transform: uppercase
@@ -206,7 +207,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 
   %ca-notification---inline &,
   %ca-notification---toast & {
-    @include ca-type-ideal-notification;
+    @include ca-type-inter-notification;
     // When the title and text are on different lines this ensures the baselines of the first lines are exactly 1 grid unit apart.
     // When they are both on a single line it ensures both are 1 grid unit tall.
     margin-top: $ca-grid / 4;
@@ -214,7 +215,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
   }
 
   %ca-notification---global & {
-    @include ca-type-ideal-body;
+    @include ca-type-inter-body;
   }
 
   a[href] {

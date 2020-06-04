@@ -1,4 +1,4 @@
-@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 $cardPadding: $ca-grid / 2;
 
@@ -13,7 +13,7 @@ $cardPadding: $ca-grid / 2;
 }
 
 .iconExample {
-  @include ca-type-ideal-labels-and-legends;
+  @include ca-type-inter-labels-and-legends;
   display: inline-flex;
   flex-direction: column;
   align-items: center;

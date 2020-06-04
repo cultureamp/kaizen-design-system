@@ -5,6 +5,7 @@
 @import "../../../styles/type";
 @import "../../../styles/layout";
 @import "../../../styles/responsive";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 $nav-ease: cubic-bezier(0.55, 0.085, 0.68, 0.53);
 $nav-timing: 150ms;
@@ -55,7 +56,7 @@ $indicator-height: 3px;
 
 .badge {
   @include ca-margin($start: $ca-grid * 0.25);
-  @include ca-type-ideal-small-bold;
+  @include ca-type-inter-small-bold;
   @include ca-inherit-baseline;
 
   border-radius: $ca-grid;

@@ -2,7 +2,7 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/component-library/styles/color";
-@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/component-library/styles/animation";
@@ -131,7 +131,7 @@ $side-padding: 3/4 * $ca-grid;
 
 .default,
 .primary {
-  @include ca-type-ideal-body-bold;
+  @include ca-type-inter-body-bold;
   top: initial; // override from ca-type-ideal-body-bold -> ca-type-ideal -> ca-type
   text-align: left;
   position: inherit;
@@ -280,7 +280,7 @@ version since the React version relies on kaizen's MenuList
 }
 
 .menuItem {
-  @include ca-type-ideal-body;
+  @include ca-type-inter-body;
   @include ca-inherit-baseline;
   composes: interactiveIconWrapper from "~@kaizen/component-library/components/Icon/Icon.module.scss";
   background: transparent;

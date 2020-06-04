@@ -2,7 +2,7 @@
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/layout";
-@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 .container {
   @include ca-margin($bottom: $ca-grid);
@@ -14,7 +14,7 @@
   $underline-height: 4px;
 
   @include ca-padding($top: $ca-grid * 0.5, $bottom: $ca-grid * 0.75);
-  @include ca-type-ideal-button;
+  @include ca-type-inter-button;
   @include ca-inherit-baseline;
   text-decoration: none;
   color: $kz-color-wisteria-800;

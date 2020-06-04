@@ -3,6 +3,7 @@
 @import "../../styles/layout";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 $caButton-border-width: $kz-border-solid-border-width;
 $caButton-focus-border-width: $kz-border-focus-ring-border-width;
@@ -33,7 +34,7 @@ $caButton-verticalPaddingForm: calc(
 
 %caButton {
   @include button-reset;
-  @include ca-type-ideal-button;
+  @include ca-type-inter-button;
 
   display: flex;
   align-items: center;
@@ -148,7 +149,7 @@ $caButton-verticalPaddingForm: calc(
 }
 
 %caButtonSecondary {
-  @include ca-type-ideal-body-bold;
+  @include ca-type-inter-body-bold;
 
   &:not(:disabled) {
     background: transparent;

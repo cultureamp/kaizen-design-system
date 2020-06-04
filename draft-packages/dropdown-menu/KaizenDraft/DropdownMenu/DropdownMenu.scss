@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/component-library/styles/color";
-@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/mixins/forms";
@@ -30,7 +30,7 @@
 }
 
 .dropdownButton {
-  @include ca-type-ideal-button;
+  @include ca-type-inter-button;
   @include ca-inherit-baseline;
   composes: buttonReset;
   cursor: pointer;
@@ -41,7 +41,7 @@
 }
 
 .dropdownControlAction {
-  @include ca-type-ideal-control-action;
+  @include ca-type-inter-control-action;
   @include ca-inherit-baseline;
 
   &:hover {
@@ -58,7 +58,7 @@
 }
 
 .dropdownLabel {
-  // @include ca-type-ideal-button;
+  // @include ca-type-inter-button;
   top: 0;
   color: $kz-color-wisteria-800;
 

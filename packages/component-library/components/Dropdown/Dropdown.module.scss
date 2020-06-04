@@ -2,6 +2,7 @@
 @import "../../styles/layers";
 @import "../../styles/type";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 $width: 248px;
 $caButton-border-width: $kz-border-solid-border-width;
@@ -26,7 +27,7 @@ $caButton-verticalPadding: calc(#{$ca-grid / 2} - #{$caButton-border-width});
 }
 
 .dropdownButton {
-  @include ca-type-ideal-button;
+  @include ca-type-inter-button;
   @include ca-inherit-baseline;
   composes: buttonReset;
   cursor: pointer;
@@ -38,7 +39,7 @@ $caButton-verticalPadding: calc(#{$ca-grid / 2} - #{$caButton-border-width});
 }
 
 .dropdownControlAction {
-  @include ca-type-ideal-control-action;
+  @include ca-type-inter-control-action;
   @include ca-inherit-baseline;
 }
 
