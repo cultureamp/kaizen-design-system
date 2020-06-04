@@ -47,8 +47,8 @@
 
 .image {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  align-items: end;
   position: relative;
 
   @include ca-media-mobile() {
@@ -56,12 +56,14 @@
   }
 }
 
-.imageBackdrop,
-.headerImage {
+.imageBackdrop {
   position: absolute;
+  margin-left: -20px;
+  margin-top: -10px;
 }
 
 .headerImage {
+  position: absolute;
   max-width: 200px;
 }
 
@@ -74,12 +76,14 @@
   line-height: 1.5;
   text-transform: uppercase;
   font-weight: 500;
+  margin-left: $ca-grid / 2;
   margin-bottom: $ca-grid / 2;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
+  margin-left: -0.25em;
 }
 
 .mainSection {
