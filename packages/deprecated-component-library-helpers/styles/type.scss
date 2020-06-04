@@ -280,28 +280,6 @@ $ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
   @return $value-in-rems / $ca-grid;
 }
 
-@mixin kz-typography-inter(
-  $size,
-  $weight,
-  $line-height-in-grid-units: 1,
-  $letter-spacing: $kz-typography-heading-1-letter-spacing,
-  $args...
-) {
-  @include ca-type(
-    $size-ratio: $size / 16,
-    $family:
-      unquote(
-        "#{$kz-typography-paragraph-body-font-family}, Helvetica, Arial, sans-serif"
-      ),
-    $base-size: $ca-inter-font-base-size,
-    $descender-height: $ca-inter-font-descender-height,
-    $line-height-in-grid-units: $line-height-in-grid-units,
-    $letter-spacing: $letter-spacing,
-    $weight: $weight,
-    $args...
-  );
-}
-
 @mixin kz-typography-greycliff(
   $size,
   $weight,
@@ -462,64 +440,6 @@ $ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
       to-grid-units($kz-typography-heading-3-line-height),
     $args...
   );
-}
-
-@mixin kz-typography-paragraph-body(
-  $size: to-unitless-pixels($kz-typography-paragraph-body-font-size),
-  $args...
-) {
-  @include kz-typography-inter(
-    $size: $size,
-    $weight: $kz-typography-paragraph-body-font-weight,
-    $letter-spacing: $kz-typography-paragraph-body-letter-spacing,
-    $line-height-in-grid-units:
-      to-grid-units($kz-typography-paragraph-body-line-height),
-    $args...
-  );
-}
-
-@mixin kz-typography-paragraph-body-bold(
-  $size: to-unitless-pixels($kz-typography-paragraph-body-font-size),
-  $args...
-) {
-  @include kz-typography-inter(
-    $size: $size,
-    $weight: $kz-typography-paragraph-body-font-weight,
-    $letter-spacing: $kz-typography-paragraph-body-letter-spacing,
-    $line-height-in-grid-units:
-      to-grid-units($kz-typography-paragraph-body-line-height),
-    $args...
-  );
-  font-weight: 600; // @TODO this should be a token
-}
-
-@mixin kz-typography-paragraph-small(
-  $size: to-unitless-pixels($kz-typography-paragraph-small-font-size),
-  $args...
-) {
-  @include kz-typography-inter(
-    $size: $size,
-    $weight: $kz-typography-paragraph-small-font-weight,
-    $letter-spacing: $kz-typography-paragraph-small-letter-spacing,
-    $line-height-in-grid-units:
-      to-grid-units($kz-typography-paragraph-small-line-height),
-    $args...
-  );
-}
-
-@mixin kz-type-inter-button-primary($size: 16, $args...) {
-  @include kz-typography-inter(
-    $size: $size,
-    $weight: $ca-weight-book,
-    $args...
-  );
-  text-decoration: none;
-  text-decoration-skip-ink: auto;
-  color: $kz-color-cluny-500;
-  cursor: pointer;
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 @mixin ca-type-align-start() {
