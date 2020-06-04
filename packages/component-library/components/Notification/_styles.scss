@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/deprecated-component-library-helpers/styles/zen-type";
 @import "../../styles/color";
 @import "../../styles/type";
 @import "../../styles/border";
@@ -214,7 +215,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
   }
 
   %ca-notification---global & {
-    @include ca-type-ideal-body;
+    @include kz-typography-paragraph-body;
   }
 
   a[href] {
