@@ -1,19 +1,24 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/component-library/styles/color";
-@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/color";
 
 $message-error-color: $kz-color-wisteria-800;
 $message-border-radius: $kz-border-solid-border-radius;
 
+// @TODO - taken from ~@kaizen/component-library/styles/color
+// previously add-tint($ca-palette-coral, 70%);
+// a proper uplift would change this to use an inline notification
+$ca-palette-input-validation-negative: $kz-color-coral-600;
+
 .message {
-  @include ca-type-ideal-small-bold;
+  @include kz-typography-paragraph-small;
   @include ca-inherit-baseline;
   margin-top: 4px;
 }
 
 .default {
-  color: add-alpha($kz-color-wisteria-800, 70%);
+  color: add-alpha($kz-color-wisteria-800, 80%);
 
   &.reversed {
     color: $kz-color-white;

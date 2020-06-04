@@ -493,6 +493,20 @@ $ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
   font-weight: 600; // @TODO this should be a token
 }
 
+@mixin kz-typography-paragraph-small(
+  $size: to-unitless-pixels($kz-typography-paragraph-small-font-size),
+  $args...
+) {
+  @include kz-typography-inter(
+    $size: $size,
+    $weight: $kz-typography-paragraph-small-font-weight,
+    $letter-spacing: $kz-typography-paragraph-small-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-paragraph-small-line-height),
+    $args...
+  );
+}
+
 @mixin ca-type-align-start() {
   text-align: left; // fallback for IE and Edge
   text-align: start;
