@@ -1,15 +1,19 @@
-import { Text } from "@kaizen/component-library"
+import { Heading, Paragraph, Box } from "@kaizen/component-library"
 import { TextField } from "@kaizen/draft-form"
 import { Well } from "@kaizen/draft-well"
 import * as React from "react"
 
 const ExampleContent = () => (
   <div style={{ padding: "1em 2em", maxWidth: "400px" }}>
-    <Text tag="h3">Heading</Text>
-    <Text tag="p">
-      This is just a sentence to fill the content area so that you have
-      something to look at.
-    </Text>
+    <Heading tag="h3" variant="heading-3">
+      Heading
+    </Heading>
+    <Box my={1}>
+      <Paragraph tag="p" variant="body">
+        This is just a sentence to fill the content area so that you have
+        something to look at.
+      </Paragraph>
+    </Box>
     <TextField
       id="blerg"
       labelText="Example text field"
