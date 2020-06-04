@@ -1,5 +1,6 @@
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/deprecated-component-library-helpers/styles/zen-type";
 
 @import "./Primitives/styles";
 
@@ -27,7 +28,7 @@
 
   &.selected {
     label {
-      @include ca-type-ideal-body-bold;
+      @include kz-typography-paragraph-body-bold;
       @include ca-inherit-baseline;
     }
   }

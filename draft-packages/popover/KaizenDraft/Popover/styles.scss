@@ -7,6 +7,7 @@
 @import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/components/Button/styles";
+@import "~@kaizen/deprecated-component-library-helpers/styles/zen-type";
 
 /* The bordered part of the triangle */
 $default-size: 8px;
@@ -110,7 +111,7 @@ $large: 450px;
 }
 
 .header {
-  @include ca-type-ideal-label;
+  @include kz-typography-heading-6;
   @include ca-inherit-baseline;
   padding: ($ca-grid / 4) ($ca-grid / 2);
   border-bottom: 1px solid $ca-border-color;
@@ -122,7 +123,7 @@ $large: 450px;
 
 .container {
   @include ca-inherit-baseline;
-  @include ca-type-ideal-notification;
+  @include kz-typography-paragraph-small;
   padding: ($ca-grid / 6) ($ca-grid / 2) ($ca-grid);
   white-space: pre-line;
 }
