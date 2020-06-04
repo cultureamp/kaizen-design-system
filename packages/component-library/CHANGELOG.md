@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.19.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.18.2...@kaizen/component-library@7.19.0) (2020-06-04)
+
+
+### Features
+
+* Add RTE icons ([#529](https://github.com/cultureamp/kaizen-design-system/issues/529)) ([7d057f9](https://github.com/cultureamp/kaizen-design-system/commit/7d057f9c97872346216c72c631e9029ecacd21ae))
+
+
+
+
+
 ## [7.18.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.18.1...@kaizen/component-library@7.18.2) (2020-06-02)
 
 **Note:** Version bump only for package @kaizen/component-library
