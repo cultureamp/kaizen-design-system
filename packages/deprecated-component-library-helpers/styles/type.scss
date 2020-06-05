@@ -564,6 +564,106 @@ $ca-inter-locale-he-font-family: "Inter", Tahoma, sans-serif;
   );
 }
 
+@mixin kz-typography-heading-4(
+  $size: to-unitless-pixels($kz-typography-heading-4-font-size),
+  $args...
+) {
+  @include kz-typography-inter(
+    $size: $size,
+    $weight: $kz-typography-heading-4-font-weight,
+    $letter-spacing: $kz-typography-heading-4-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-heading-4-line-height),
+    $args...
+  );
+}
+
+@mixin kz-typography-heading-5(
+  $size: to-unitless-pixels($kz-typography-heading-5-font-size),
+  $args...
+) {
+  @include kz-typography-inter(
+    $size: $size,
+    $weight: $kz-typography-heading-5-font-weight,
+    $letter-spacing: $kz-typography-heading-5-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-heading-5-line-height),
+    $args...
+  );
+}
+
+@mixin kz-typography-heading-6(
+  $size: to-unitless-pixels($kz-typography-heading-6-font-size),
+  $args...
+) {
+  @include kz-typography-inter(
+    $size: $size,
+    $weight: $kz-typography-heading-6-font-weight,
+    $letter-spacing: $kz-typography-heading-6-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-heading-6-line-height),
+    $args...
+  );
+}
+
+@mixin kz-typography-paragraph-body(
+  $size: to-unitless-pixels($kz-typography-paragraph-body-font-size),
+  $args...
+) {
+  @include kz-typography-inter(
+    $size: $size,
+    $weight: $kz-typography-paragraph-body-font-weight,
+    $letter-spacing: $kz-typography-paragraph-body-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-paragraph-body-line-height),
+    $args...
+  );
+}
+
+@mixin kz-typography-paragraph-body-bold(
+  $size: to-unitless-pixels($kz-typography-paragraph-body-font-size),
+  $args...
+) {
+  @include kz-typography-inter(
+    $size: $size,
+    $weight: $kz-typography-paragraph-body-font-weight,
+    $letter-spacing: $kz-typography-paragraph-body-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-paragraph-body-line-height),
+    $args...
+  );
+  font-weight: 600; // @TODO this should be a token
+}
+
+@mixin kz-typography-paragraph-small(
+  $size: to-unitless-pixels($kz-typography-paragraph-small-font-size),
+  $args...
+) {
+  @include kz-typography-inter(
+    $size: $size,
+    $weight: $kz-typography-paragraph-small-font-weight,
+    $letter-spacing: $kz-typography-paragraph-small-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-paragraph-small-line-height),
+    $args...
+  );
+}
+
+@mixin kz-type-inter-button-primary($size: 16, $args...) {
+  @include kz-typography-inter(
+    $size: $size,
+    $weight: $ca-weight-book,
+    $args...
+  );
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  color: $kz-color-cluny-500;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 @mixin ca-type-align-start() {
   text-align: left; // fallback for IE and Edge
   text-align: start;
