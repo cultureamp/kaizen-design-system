@@ -10,7 +10,7 @@ $page-margin-width-large: 28px;
 $page-margin-width-small: 12px;
 $breadcrumb-circle-width: 48px;
 $breadcrumb-breakpoint-width: $kz-layout-content-max-width +
-  $page-margin-width-large * 2 + $breadcrumb-circle-width * 2;
+  $page-margin-width-large * 2 + $breadcrumb-circle-width * 2.25;
 $title-block-separator-height: 3px;
 
 .titleBlock {
@@ -332,7 +332,7 @@ $title-block-separator-height: 3px;
   top: 50%;
   transform: translateY(-50%);
   @include ca-position(
-    $start: calc(-#{$breadcrumb-circle-width} - #{$ca-grid / 2})
+    $start: calc(-#{$breadcrumb-circle-width} - #{$ca-grid})
   );
   align-self: normal;
   color: $kz-color-white;
@@ -345,11 +345,6 @@ $title-block-separator-height: 3px;
   &:hover {
     text-decoration: none;
   }
-
-  // .educationVariant &,
-  // .adminVariant & {
-  //   color: $ca-link-text-color;
-  // }
 
   @media only screen and (max-width: $breadcrumb-breakpoint-width) {
     position: relative;
@@ -367,7 +362,7 @@ $title-block-separator-height: 3px;
   flex: 0 0 $ca-grid * 8;
   top: 0;
   display: none;
-  @include ca-margin($start: $ca-grid / 2);
+  @include ca-margin($start: $ca-grid);
   white-space: nowrap;
   font-family: $kz-typography-heading-5-font-family;
   font-weight: $kz-typography-heading-5-font-weight;
