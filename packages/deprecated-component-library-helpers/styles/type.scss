@@ -424,6 +424,28 @@ $ca-inter-locale-he-font-family: "Inter", Tahoma, sans-serif;
   );
 }
 
+@mixin kz-typography-inter(
+  $size,
+  $weight,
+  $line-height-in-grid-units: 1,
+  $letter-spacing: $kz-typography-heading-1-letter-spacing,
+  $args...
+) {
+  @include ca-type(
+    $size-ratio: $size / 16,
+    $family:
+      unquote(
+        "#{$kz-typography-paragraph-body-font-family}, Helvetica, Arial, sans-serif"
+      ),
+    $base-size: $ca-inter-font-base-size,
+    $descender-height: $ca-inter-font-descender-height,
+    $line-height-in-grid-units: $line-height-in-grid-units,
+    $letter-spacing: $letter-spacing,
+    $weight: $weight,
+    $args...
+  );
+}
+
 @mixin kz-typography-data-large(
   $size: to-unitless-pixels($kz-typography-data-large-font-size),
   $args...
