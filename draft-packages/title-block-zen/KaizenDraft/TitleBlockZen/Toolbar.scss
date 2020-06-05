@@ -12,6 +12,10 @@
     @include title-block-under-1024 {
       margin: 0 ($ca-grid / 8);
     }
+
+    &.noGap {
+      margin: 0;
+    }
   }
 
   .toolbarItem:first-of-type {
@@ -20,6 +24,10 @@
     @include title-block-under-1024 {
       @include ca-margin($start: 0, $end: $ca-grid / 8);
     }
+
+    &.noGap {
+      margin: 0;
+    }
   }
 
   .toolbarItem:last-of-type {
@@ -27,6 +35,10 @@
 
     @include title-block-under-1024 {
       @include ca-margin($start: $ca-grid / 8, $end: 0);
+    }
+
+    &.noGap {
+      margin: 0;
     }
   }
 }

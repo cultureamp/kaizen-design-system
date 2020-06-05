@@ -118,7 +118,7 @@ const renderNavigationTabs = navigationTabs => {
 const renderSecondaryActions = secondaryActions => {
   return (
     <div className={styles.secondaryActionsContainer}>
-      <Toolbar items={secondaryActions}></Toolbar>
+      <Toolbar items={secondaryActions} noGap></Toolbar>
     </div>
   )
 }
