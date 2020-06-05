@@ -151,6 +151,7 @@ $title-block-separator-height: 3px;
 }
 
 .avatar {
+  box-sizing: border-box;
   border: 3px solid $kz-color-white;
   border-radius: 50%;
   overflow: hidden;
@@ -285,7 +286,7 @@ $title-block-separator-height: 3px;
       transform: translateY(6px);
 
       .hasSubtitle & {
-        transform: translateY(-3px);
+        transform: translateY(0px);
       }
     }
   }
