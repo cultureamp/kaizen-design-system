@@ -13,9 +13,8 @@
 
 .tab {
   $underline-height: 4px;
-
   @include ca-padding($top: $ca-grid * 0.5, $bottom: $ca-grid * 0.75);
-  @include kz-type-inter-button-primary;
+  @include kz-typography-heading-4;
   @include ca-inherit-baseline;
   text-decoration: none;
   color: $kz-color-wisteria-800;
