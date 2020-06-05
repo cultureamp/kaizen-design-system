@@ -109,6 +109,7 @@ $title-block-separator-height: 3px;
 .titleAndSubtitle {
   display: flex;
   align-items: center;
+  transform: translateY(-0.0833333em);
 }
 
 .titleAndSubtitleInner {
@@ -240,11 +241,16 @@ $title-block-separator-height: 3px;
   @include title-block-under-1080 {
     display: flex;
     align-items: center;
+    transform: translateY(-1px);
+  }
+
+  @include title-block-under-1024 {
+    transform: translateY(-2px);
   }
 
   .hasSubtitle & {
     @include title-block-under-768 {
-      transform: translateY(-5px);
+      transform: translateY(-7px);
     }
   }
 }
