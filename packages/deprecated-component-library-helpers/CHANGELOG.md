@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.4.5...@kaizen/deprecated-component-library-helpers@1.5.0) (2020-06-05)
+
+
+### Features
+
+* add temporary Inter helper mixins to deprecated-component-library-helpers ([#532](https://github.com/cultureamp/kaizen-design-system/issues/532)) ([d09b272](https://github.com/cultureamp/kaizen-design-system/commit/d09b2723756df18d034c7f58cea28abd601339f0))
+
+
+
+
+
 ## [1.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.4.4...@kaizen/deprecated-component-library-helpers@1.4.5) (2020-06-02)
 
 **Note:** Version bump only for package @kaizen/deprecated-component-library-helpers
