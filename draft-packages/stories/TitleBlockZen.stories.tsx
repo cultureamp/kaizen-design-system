@@ -23,15 +23,6 @@ require("./TitleBlockZen.stories.scss")
 
 export default {
   title: "TitleBlockZen (React)",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria["700"],
-        default: false,
-      },
-    ],
-  },
 }
 
 export const Default = () => (
