@@ -13,6 +13,7 @@ type GenericProps = {
   reversed?: boolean
   icon?: React.SVGAttributes<SVGSymbolElement>
   onClick?: (e: MouseEvent) => void
+  onMouseDown?: (e: MouseEvent) => void
   href?: string
   newTabAndIUnderstandTheAccessibilityImplications?: boolean
   type?: "submit" | "reset" | "button"
@@ -68,6 +69,7 @@ const renderButton: React.FunctionComponent<Props> = props => {
     id,
     disabled,
     onClick,
+    onMouseDown,
     type,
     disableTabFocusAndIUnderstandTheAccessibilityImplications,
   } = props
@@ -84,6 +86,7 @@ const renderButton: React.FunctionComponent<Props> = props => {
           onClick && onClick(e)
         }
       }}
+      onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
       type={type}
       data-automation-id={props.automationId}
       title={label}
