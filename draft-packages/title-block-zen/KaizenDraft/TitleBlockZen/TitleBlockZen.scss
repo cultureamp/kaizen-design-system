@@ -141,6 +141,13 @@ $title-block-separator-height: 3px;
     line-height: $kz-typography-heading-3-line-height;
     letter-spacing: $kz-typography-heading-3-letter-spacing;
   }
+  @include title-block-under-1024 {
+    font-family: $kz-typography-heading-4-font-family;
+    font-weight: $kz-typography-heading-4-font-weight;
+    font-size: $kz-typography-heading-4-font-size;
+    line-height: $kz-typography-heading-4-line-height;
+    letter-spacing: $kz-typography-heading-4-letter-spacing;
+  }
 }
 
 .avatar {
