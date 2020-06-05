@@ -42,7 +42,6 @@ $caButton-verticalPadding: calc(#{$ca-grid / 2} - #{$caButton-border-width});
 }
 
 .dropdownControlAction {
-  // @TODO - pinched from ca-type-ideal-control-action in deprecated helpers
   @include kz-type-inter-button-primary;
   @include ca-inherit-baseline;
 }
