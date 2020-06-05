@@ -108,7 +108,7 @@ $ca-inter-locale-he-font-family: "Inter", Tahoma, sans-serif;
 
 @mixin ca-type-inter-small-bold($args...) {
   @include ca-type-inter-small;
-  font-weight: 600;
+  font-weight: $ca-weight-semibold;
 }
 
 @mixin ca-type-display($args...) {
@@ -284,7 +284,7 @@ $ca-inter-locale-he-font-family: "Inter", Tahoma, sans-serif;
   @include ca-type-inter(
     $size: $size,
     $line-height-in-grid-units: 1.5,
-    $weight: 700,
+    $weight: $ca-weight-book,
     $args...
   );
 }
@@ -293,37 +293,37 @@ $ca-inter-locale-he-font-family: "Inter", Tahoma, sans-serif;
   @include ca-type-inter(
     $size: $size,
     $line-height-in-grid-units: 1.5,
-    $weight: 700,
+    $weight: $ca-weight-book,
     $args...
   );
 }
 
 @mixin ca-type-inter-display($size: 22, $args...) {
-  @include ca-type-inter($size: $size, $weight: 600, $args...);
+  @include ca-type-inter($size: $size, $weight: $ca-weight-book, $args...);
 }
 
 @mixin ca-type-inter-heading($size: 18, $args...) {
-  @include ca-type-inter($size: $size, $weight: 600, $args...);
+  @include ca-type-inter($size: $size, $weight: $ca-weight-book, $args...);
 }
 
 @mixin ca-type-inter-lede($size: 20, $args...) {
-  @include ca-type-inter($size: $size, $weight: 400, $args...);
+  @include ca-type-inter($size: $size, $weight: $ca-weight-light, $args...);
 }
 
 @mixin ca-type-inter-body($size: 16, $args...) {
-  @include ca-type-inter($size: $size, $weight: 400, $args...);
+  @include ca-type-inter($size: $size, $weight: $ca-weight-light, $args...);
 }
 
 @mixin ca-type-inter-body-bold($size: 16, $args...) {
-  @include ca-type-inter($size: $size, $weight: 400, $args...);
+  @include ca-type-inter($size: $size, $weight: $ca-weight-book, $args...);
 }
 
 @mixin ca-type-inter-small($size: 14, $args...) {
-  @include ca-type-inter($size: $size, $weight: 400, $args...);
+  @include ca-type-inter($size: $size, $weight: $ca-weight-light, $args...);
 }
 
 @mixin ca-type-inter-small-bold($size: 14, $args...) {
-  @include ca-type-inter($size: $size, $weight: 400, $args...);
+  @include ca-type-inter($size: $size, $weight: $ca-weight-book, $args...);
 }
 
 @mixin ca-type-inter-notification($size: 15, $args...) {
@@ -339,7 +339,7 @@ $ca-inter-locale-he-font-family: "Inter", Tahoma, sans-serif;
   $letter-spacing-in-px: 0.5;
   @include ca-type-inter(
     $size: $size,
-    $weight: 600,
+    $weight: $ca-weight-medium,
     $letter-spacing: $letter-spacing-in-px / $size * 1em,
     $args...
   );
@@ -352,7 +352,7 @@ $ca-inter-locale-he-font-family: "Inter", Tahoma, sans-serif;
 }
 
 @mixin ca-type-inter-control-action($size: 16, $args...) {
-  @include ca-type-inter($size: $size, $weight: 500, $args...);
+  @include ca-type-inter($size: $size, $weight: $ca-weight-book, $args...);
   text-decoration: none;
   text-decoration-skip-ink: auto;
   color: $kz-color-cluny-500;
@@ -363,7 +363,7 @@ $ca-inter-locale-he-font-family: "Inter", Tahoma, sans-serif;
 }
 
 @mixin ca-type-inter-button($size: 18, $args...) {
-  @include ca-type-inter($size: $size, $weight: 700, $args...);
+  @include ca-type-inter($size: $size, $weight: $ca-weight-medium, $args...);
 }
 
 @mixin debug-vertical-rhythm-grid() {
