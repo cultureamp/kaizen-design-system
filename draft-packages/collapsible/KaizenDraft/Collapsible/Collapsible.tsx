@@ -1,4 +1,4 @@
-import { Icon, Paragraph } from "@kaizen/component-library"
+import { Heading, Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import * as React from "react"
 import AnimateHeight from "react-animate-height"
@@ -87,9 +87,9 @@ class Collapsible extends React.Component<Props, State> {
               className={styles.title}
               data-automation-id={`collapsible-button-title-${id}`}
             >
-              <Paragraph variant="body" tag="span">
+              <Heading variant="heading-4" tag="span">
                 {title}
-              </Paragraph>
+              </Heading>
             </div>
           )}
           <div>

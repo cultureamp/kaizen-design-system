@@ -9,7 +9,7 @@ export default {
 export const DismissiblePositiveKaizenSiteDemo = () => (
   <InlineNotification
     type="affirmative"
-    title="Success!"
+    title="Success"
     automationId="notification1"
   >
     New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
@@ -24,7 +24,7 @@ DismissiblePositiveKaizenSiteDemo.story = {
 export const DismissiblePositiveAutohide = () => (
   <InlineNotification
     type="affirmative"
-    title="Success!"
+    title="Success"
     autohide
     automationId="notification1"
   >
@@ -40,7 +40,7 @@ DismissiblePositiveAutohide.story = {
 export const DismissiblePositiveAutohideHideCloseIcon = () => (
   <InlineNotification
     type="affirmative"
-    title="Success!"
+    title="Success"
     autohide
     hideCloseIcon
     automationId="notification1"
@@ -101,7 +101,7 @@ DismissibleNegative.story = {
 export const DismissibleMultiline = () => (
   <InlineNotification
     type="negative"
-    title="Error"
+    title="Negative"
     automationId="notification1"
   >
     There’s a problem connecting to your HRIS. Check your HRIS is working and
@@ -117,7 +117,7 @@ DismissibleMultiline.story = {
 export const DismissibleSlim = () => (
   <InlineNotification
     type="affirmative"
-    title="Success!"
+    title="Success"
     automationId="notification1"
   >
     <a href="/">Manage users is now available</a>
@@ -131,7 +131,7 @@ DismissibleSlim.story = {
 export const PersistentPositive = () => (
   <InlineNotification
     type="affirmative"
-    title="Success!"
+    title="Success"
     persistent
     automationId="notification1"
   >
@@ -193,7 +193,7 @@ PersistentNegative.story = {
 export const PersistentMultiline = () => (
   <InlineNotification
     type="negative"
-    title="Error"
+    title="Negative"
     persistent
     automationId="notification1"
   >
@@ -210,7 +210,7 @@ PersistentMultiline.story = {
 export const PersistentSlim = () => (
   <InlineNotification
     type="affirmative"
-    title="Success!"
+    title="Success"
     persistent
     automationId="notification1"
   >
@@ -230,7 +230,7 @@ export const MultipleNotification = () => (
   >
     <InlineNotification
       type="affirmative"
-      title="Success!"
+      title="Success"
       automationId="notification1"
     >
       New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}

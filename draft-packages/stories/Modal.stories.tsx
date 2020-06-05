@@ -60,7 +60,7 @@ export const ConfirmationPositiveKaizenSiteDemo = () => (
           onDismiss={close}
         >
           <div style={{ textAlign: "center" }}>
-            <Paragraph variant="intro-lede">
+            <Paragraph variant="body">
               Additional subtext to aid the user can be added here.
             </Paragraph>
           </div>
@@ -87,7 +87,7 @@ export const ConfirmationInformative = () => (
           onDismiss={close}
         >
           <div style={{ textAlign: "center" }}>
-            <Paragraph variant="intro-lede">
+            <Paragraph variant="body">
               Additional subtext to aid the user can be added here.
             </Paragraph>
           </div>
@@ -114,7 +114,7 @@ export const ConfirmationCautionary = () => (
           onDismiss={close}
         >
           <div style={{ textAlign: "center" }}>
-            <Paragraph variant="intro-lede">
+            <Paragraph variant="body">
               Additional subtext to aid the user can be added here.
             </Paragraph>
           </div>
@@ -141,7 +141,7 @@ export const ConfirmationNegative = () => (
           onDismiss={close}
         >
           <div style={{ textAlign: "center" }}>
-            <Paragraph tag="p" variant="intro-lede">
+            <Paragraph tag="p" variant="body">
               Additional subtext to aid the user can be added here.
             </Paragraph>
           </div>
@@ -641,7 +641,7 @@ export const NestedModal = () => (
                 confirmLabel={"Go deeper"}
               >
                 <div style={{ textAlign: "center" }}>
-                  <Paragraph variant="intro-lede">
+                  <Paragraph variant="body">
                     Additional subtext to aid the user can be added here.
                   </Paragraph>
                 </div>
@@ -654,7 +654,7 @@ export const NestedModal = () => (
                 onDismiss={internal.close}
               >
                 <div style={{ textAlign: "center" }}>
-                  <Paragraph variant="intro-lede">
+                  <Paragraph variant="body">
                     Whoa, this is, like, deep.
                   </Paragraph>
                 </div>

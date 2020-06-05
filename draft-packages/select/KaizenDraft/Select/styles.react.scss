@@ -72,7 +72,7 @@
   }
 
   .multiValue {
-    @include ca-type-ideal-small-bold;
+    @include kz-typography-paragraph-body;
     @include ca-inherit-baseline;
     color: $kz-color-wisteria-800;
     border-radius: 15px;

@@ -1,6 +1,12 @@
 import React, { useState } from "react"
 
-import { Box, Button, IconButton, Text } from "@kaizen/component-library"
+import {
+  Box,
+  Button, // @TODO - use the Zen button
+  IconButton,
+  Paragraph,
+  Text,
+} from "@kaizen/component-library"
 const styles = require("./HeroPanel.scss")
 const crossIcon = require("@kaizen/component-library/icons/close.icon.svg")
   .default
@@ -88,7 +94,9 @@ const HeroPanel: Panel = ({
             {text.title}
           </Text>
           <div className={styles.description}>
-            <Text tag="p">{text.description}</Text>
+            <Paragraph variant="body" tag="p" color="white">
+              {text.description}
+            </Paragraph>
           </div>
           <div className={styles.actions}>
             <Box mt={1}>

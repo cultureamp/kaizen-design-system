@@ -30,7 +30,7 @@ $label-start-padding: 10px;
 // This is to override bootstrap styles. Remove when appropriate
 .text,
 :global(.ideal-sans) .text {
-  @include kz-typography-paragraph-body;
+  @include kz-typography-heading-6;
   @include ca-inherit-baseline;
 }
 

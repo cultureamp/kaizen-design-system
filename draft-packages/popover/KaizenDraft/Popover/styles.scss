@@ -114,7 +114,6 @@ $large: 450px;
   @include kz-typography-heading-6;
   @include ca-inherit-baseline;
   padding: ($ca-grid / 4) ($ca-grid / 2);
-  border-bottom: 1px solid $ca-border-color;
   margin-bottom: $ca-grid / 4;
   display: flex;
   align-items: center;
