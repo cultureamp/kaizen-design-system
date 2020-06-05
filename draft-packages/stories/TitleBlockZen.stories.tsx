@@ -6,6 +6,7 @@ import {
   NavigationTab,
   TitleBlockZen,
 } from "../title-block-zen/KaizenDraft/TitleBlockZen"
+const addIcon = require("@kaizen/component-library/icons/add.icon.svg").default
 const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
   .default
 const visibleIcon = require("@kaizen/component-library/icons/visible.icon.svg")
@@ -33,7 +34,42 @@ export default {
   },
 }
 
-export const TitleBlockZenDefault = () => (
+export const Default = () => (
+  <TitleBlockZen
+    title="Page title"
+    surveyStatus={{ text: "Live", status: "live" }}
+    primaryActions={[
+      <Button label="Label" reversed icon={addIcon} />,
+      <Button label="Label" primary reversed icon={addIcon} />,
+    ]}
+    secondaryActions={[
+      <Button label="Label" secondary reversed icon={visibleIcon} />,
+      <Button label="Label" secondary reversed icon={visibleIcon} />,
+      <Dropdown reversedColor />,
+    ]}
+    breadcrumb={{
+      path: "#",
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+    navigationTabs={[
+      <NavigationTab text="Label" href="#" active />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+    ]}
+  ></TitleBlockZen>
+)
+
+Default.story = {
+  name: "Default",
+}
+
+export const Engagement = () => (
   <TitleBlockZen
     title="Baseline Engagement Survey"
     surveyStatus={{ text: "Live", status: "live" }}
@@ -74,11 +110,11 @@ export const TitleBlockZenDefault = () => (
   ></TitleBlockZen>
 )
 
-TitleBlockZenDefault.story = {
-  name: "Default",
+Engagement.story = {
+  name: "Engagement",
 }
 
-export const TitleBlockZenPerformance = () => (
+export const Performance = () => (
   <TitleBlockZen
     title="Blanca Wheeler"
     primaryActions={[
@@ -114,6 +150,6 @@ export const TitleBlockZenPerformance = () => (
   ></TitleBlockZen>
 )
 
-TitleBlockZenPerformance.story = {
-  name: "TitleBlock (Performance)",
+Performance.story = {
+  name: "Performance",
 }
