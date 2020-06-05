@@ -32,7 +32,6 @@ type Props = {
   navigationTabs?: Array<React.ReactElement<NavigationTabProps>>
   textDirection?: "ltr" | "rtl"
   surveyStatus?: SurveyStatus
-  sticky?: boolean
   noBottomSeparator?: boolean
 }
 
@@ -124,7 +123,6 @@ const TitleBlockZen = ({
   navigationTabs,
   textDirection,
   surveyStatus,
-  sticky,
   noBottomSeparator = false,
 }: Props) => (
   <div
