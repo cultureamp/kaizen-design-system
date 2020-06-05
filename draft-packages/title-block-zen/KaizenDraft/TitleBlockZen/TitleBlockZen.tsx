@@ -24,6 +24,8 @@ type Props = {
   breadcrumb?: Breadcrumb
   avatar?: JSX.Element
   subtitle?: string
+  sectionTitle?: string
+  sectionTitleDescription?: string
   handleHamburgerClick?: (event: React.MouseEvent) => void
   primaryActions?: Array<React.ReactElement<ButtonProps>>
   secondaryActions?: Array<
@@ -32,7 +34,6 @@ type Props = {
   navigationTabs?: Array<React.ReactElement<NavigationTabProps>>
   textDirection?: "ltr" | "rtl"
   surveyStatus?: SurveyStatus
-  noBottomSeparator?: boolean
 }
 
 type SurveyStatus = {
@@ -59,7 +60,9 @@ const renderTag = surveyStatus => {
 
   return (
     <div className={styles.tag}>
-      <Tag variant={variant}>{surveyStatus.text}</Tag>
+      <Tag variant={variant} size="small">
+        {surveyStatus.text}
+      </Tag>
     </div>
   )
 }
@@ -68,6 +71,24 @@ const renderAvatar = image => <div className={styles.avatar}>{image}</div>
 
 const renderSubtitle = subtitle => (
   <div className={styles.subtitle}>{subtitle}</div>
+)
+
+const renderSectionTitle = (sectionTitle, sectionTitleDescription) => (
+  <div className={styles.sectionTitleContainer}>
+    <div className={styles.sectionTitleInner}>
+      <div className={styles.sectionTitle}>
+        <Heading
+          variant="heading-2"
+          classNameAndIHaveSpokenToDST={styles.sectionTitleOverride}
+        >
+          {sectionTitle}
+        </Heading>
+      </div>
+      <div className={styles.sectionTitleDescription}>
+        {sectionTitleDescription}
+      </div>
+    </div>
+  </div>
 )
 
 const renderBreadcrumb = (breadcrumb, textDirection) => {
@@ -117,54 +138,65 @@ const TitleBlockZen = ({
   breadcrumb,
   avatar,
   subtitle,
+  sectionTitle,
+  sectionTitleDescription,
   handleHamburgerClick,
   primaryActions,
   secondaryActions,
   navigationTabs,
   textDirection,
   surveyStatus,
-  noBottomSeparator = false,
 }: Props) => (
   <div
     className={classNames(styles.titleBlock, {
       [styles.hasSubtitle]: Boolean(subtitle),
+      [styles.educationVariant]: variant === "education",
+      [styles.adminVariant]: variant === "admin",
     })}
   >
-    <div className={styles.titleBlockInner}>
-      <div
-        className={classNames(styles.titleRow, {
-          [styles.bottomSeparator]: !noBottomSeparator,
-        })}
-      >
-        <div className={styles.titleAndAdjacent}>
-          {breadcrumb && renderBreadcrumb(breadcrumb, textDirection)}
-          <div className={styles.titleAndAdjacentNotBreadcrumb}>
-            <div className={styles.hamburger} onClick={handleHamburgerClick}>
-              <Icon icon={hamburgerIcon} role="img" title="Open menu" />
-            </div>
-            {avatar && renderAvatar(avatar)}
-            <div className={styles.titleAndSubtitle}>
-              <div className={styles.titleAndSubtitleInner}>
-                <div className={styles.title}>
-                  <Heading
-                    variant="heading-1"
-                    color="white"
-                    classNameAndIHaveSpokenToDST={styles.titleTextOverride}
-                  >
-                    {title}
-                  </Heading>
-                </div>
-                {subtitle && renderSubtitle(subtitle)}
+    <div className={styles.titleRow}>
+      <div className={styles.titleRowInner}>
+        <div className={styles.titleRowInnerContent}>
+          <div className={styles.titleAndAdjacent}>
+            {breadcrumb && renderBreadcrumb(breadcrumb, textDirection)}
+            <div className={styles.titleAndAdjacentNotBreadcrumb}>
+              <div className={styles.hamburger} onClick={handleHamburgerClick}>
+                <Icon icon={hamburgerIcon} role="img" title="Open menu" />
               </div>
+              {avatar && renderAvatar(avatar)}
+              <div className={styles.titleAndSubtitle}>
+                <div className={styles.titleAndSubtitleInner}>
+                  <div className={styles.title}>
+                    <Heading
+                      variant="heading-1"
+                      color={
+                        variant === "education" || variant === "admin"
+                          ? "dark"
+                          : "white"
+                      }
+                      classNameAndIHaveSpokenToDST={styles.titleTextOverride}
+                    >
+                      {title}
+                    </Heading>
+                  </div>
+                  {subtitle && renderSubtitle(subtitle)}
+                </div>
+              </div>
+              {renderTag(surveyStatus)}
             </div>
-            {renderTag(surveyStatus)}
           </div>
+          {primaryActions && renderPrimaryActions(primaryActions)}
         </div>
-        {primaryActions && renderPrimaryActions(primaryActions)}
       </div>
-      <div className={styles.belowSeparatorRow}>
-        {navigationTabs && renderNavigationTabs(navigationTabs)}
-        {secondaryActions && renderSecondaryActions(secondaryActions)}
+    </div>
+    <div className={styles.rowBelowSeparator}>
+      <div className={styles.rowBelowSeparatorInner}>
+        <div className={styles.rowBelowSeparatorInnerContent}>
+          {sectionTitle &&
+            renderSectionTitle(sectionTitle, sectionTitleDescription)}
+          {renderNavigationTabs(navigationTabs)}
+          {secondaryActions && renderSecondaryActions(secondaryActions)}
+        </div>
       </div>
     </div>
   </div>

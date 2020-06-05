@@ -60,6 +60,61 @@ Default.story = {
   name: "Default",
 }
 
+export const AdminVariant = () => (
+  <TitleBlockZen
+    title="Page title"
+    variant="admin"
+    sectionTitle="Section title"
+    sectionTitleDescription="Description of section can go here"
+    primaryActions={[
+      <Button label="Label" icon={addIcon} />,
+      <Button label="Label" primary icon={addIcon} />,
+    ]}
+    secondaryActions={[
+      <Button label="Label" secondary icon={visibleIcon} />,
+      <Button label="Label" secondary icon={visibleIcon} />,
+      <Dropdown />,
+    ]}
+    breadcrumb={{
+      path: "#",
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+  ></TitleBlockZen>
+)
+
+AdminVariant.story = {
+  name: "Admin variant",
+}
+
+export const EducationVariant = () => (
+  <TitleBlockZen
+    title="Page title"
+    variant="education"
+    sectionTitle="Section title"
+    sectionTitleDescription="Description of section can go here"
+    primaryActions={[<Button label="Label" primary icon={addIcon} />]}
+    secondaryActions={[
+      <Button label="Label" secondary icon={visibleIcon} />,
+      <Button label="Label" secondary icon={visibleIcon} />,
+      <Dropdown />,
+    ]}
+    breadcrumb={{
+      path: "#",
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+  ></TitleBlockZen>
+)
+
+EducationVariant.story = {
+  name: "Education variant",
+}
+
 export const Engagement = () => (
   <TitleBlockZen
     title="Baseline Engagement Survey"
