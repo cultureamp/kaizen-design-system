@@ -7,7 +7,7 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 @mixin base-font-style() {
-  @include kz-typography-paragraph-body-bold;
+  @include kz-typography-paragraph-body;
   @include ca-inherit-baseline;
   color: $kz-color-wisteria-800;
 }
@@ -52,10 +52,11 @@
   }
 
   .focusedOption {
-    background-color: $kz-color-ash;
+    background-color: $kz-color-cluny-100;
+    color: $kz-color-cluny-500;
 
     &:active {
-      background-color: $kz-color-ash;
+      background-color: $kz-color-cluny-100;
     }
   }
 

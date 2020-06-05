@@ -29,10 +29,6 @@ $row-height: 60px;
 .header {
   border: solid 1px $ca-border-color;
 
-  &.ash {
-    background-color: $kz-color-ash;
-  }
-
   &.white {
     background-color: $kz-color-white;
   }
@@ -68,12 +64,6 @@ $row-height: 60px;
 
   .active & {
     color: $kz-color-wisteria-800;
-  }
-}
-
-.active {
-  .header & {
-    background-color: $kz-color-wisteria-100;
   }
 }
 
