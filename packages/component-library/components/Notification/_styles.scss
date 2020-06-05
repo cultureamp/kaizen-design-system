@@ -212,6 +212,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
     // When they are both on a single line it ensures both are 1 grid unit tall.
     margin-top: $ca-grid / 4;
     flex: 0 1 auto;
+    padding-bottom: 0.75rem;
   }
 
   %ca-notification---global & {
