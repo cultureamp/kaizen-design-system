@@ -28,6 +28,8 @@ const stylePreprocessors: Loader[] = [
     loader: "sass-loader",
     options: {
       sourceMap: true,
+      // Prefer dart-sass
+      implementation: require("sass"),
     },
   },
 ]
