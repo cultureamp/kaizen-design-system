@@ -32,7 +32,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^7.19.3",
-    "@kaizen/deprecated-component-library-helpers": "^1.4.3",
+    "@kaizen/deprecated-component-library-helpers": "^1.6.1",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },
