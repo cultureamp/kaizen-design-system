@@ -104,30 +104,30 @@ const main = async () => {
   await browser.close()
 
   if (violationCount == 0) {
-    printToConsole(["No accessibility violations found"])
+    printToConsole("No accessibility violations found")
   } else if (violationCount > passableViolationCount) {
-    printToConsole(["Accessibility violations found:"])
+    printToConsole("Accessibility violations found:")
     examples.forEach(example => {
-      printToConsole([example])
+      printToConsole("" + example)
     })
-    printToConsole([
-      `More accessibility violations were found than the current allowable limit of ${passableViolationCount}. This likely means that a new accessibility violation has been added to the code base.`,
-    ])
+    printToConsole(
+      `More accessibility violations were found than the current allowable limit of ${passableViolationCount}. This likely means that a new accessibility violation has been added to the code base.`
+    )
     process.exit(1)
   } else {
-    printToConsole([`${violationCount} accessibility violations found.`])
-    printToConsole([
-      `This number is below the current allowable limit of ${passableViolationCount}.`,
-    ])
-    printToConsole([
-      `This is good news! It means that your work has removed some accessibility violations.`,
-    ])
-    printToConsole([
-      `Please update the passableViolationCount value at the top of this file to the new minimum of ${violationCount}.`,
-    ])
-    printToConsole([
-      `This will prevent future work from regressing back to a higher violation count.`,
-    ])
+    printToConsole(`${violationCount} accessibility violations found.`)
+    printToConsole(
+      `This number is below the current allowable limit of ${passableViolationCount}.`
+    )
+    printToConsole(
+      `This is good news! It means that your work has removed some accessibility violations.`
+    )
+    printToConsole(
+      `Please update the passableViolationCount value at the top of this file to the new minimum of ${violationCount}.`
+    )
+    printToConsole(
+      `This will prevent future work from regressing back to a higher violation count.`
+    )
     process.exit(1)
   }
 }
