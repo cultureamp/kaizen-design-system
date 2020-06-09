@@ -70,6 +70,8 @@ To learn more about what browsers and devices we support in Kaizen Component Lib
 
 To strengthen the Kaizen Design System, we encourage engineers to take a component-first development approach. By concentrating on developing Kaizen components in Storybook, we are likely to improve the API design and achieve good separation of concerns, avoiding components tightly coupled to specific applications. If, however, you want to test a component in the context of another front-end codebase, you can [yarn link](https://yarnpkg.com/lang/en/docs/cli/link/) your local version of `@kaizen/component-library` with your other front-end codebase.
 
+#### For non-draft components
+
 **Step 1**: Make your local copy of `@kaizen/component-library` available.
 
 ```sh
@@ -97,16 +99,55 @@ Your local Kaizen changes will now show in your other front-end codebase.
 
 **Step 3**: Unlink
 
-When you are done, unlink the package:
+When you are done, unlink the package from your front-end codebase:
 
 `yarn unlink @kaizen/component-library`
 
-You can also clean up generated files:
+You can also clean up generated files in your `@kaizen/component-library` repo:
+
+`yarn clean`
+
+#### For draft components
+
+**Step 1**: Make your local copy of the relevant `@kaizen/draft-*` module available (the code below uses the `@kaizen/draft-modal` component as an example).
+
+```sh
+# Navigate to code source
+$ cd ./draft-packages/modal
+
+# Register package for linking
+$ yarn link
+
+# Build in watch mode
+$ yarn build:watch
+```
+
+**Step 2**: Link `@kaizen/draft-modal` to your other front-end codebase.
+
+```sh
+# Navigate to code source
+$ cd <your_code>/cultureamp/YOUR_FRONT_END_CODEBASE
+
+# Link repo to locally registered package
+$ yarn link @kaizen/draft-modal
+```
+
+Your local Kaizen changes will now show in your other front-end codebase.
+
+**Step 3**: Unlink
+
+When you are done, unlink the package from your front-end codebase:
+
+`yarn unlink @kaizen/draft-modal`
+
+You can also clean up generated files in your `@kaizen/draft-*` repo:
 
 `yarn clean`
 
 ### Elm components stories
-Besides creating your Elm story on an Elm file, there is an extra step in order to make it appear on the storybook. 
+
+Besides creating your Elm story on an Elm file, there is an extra step in order to make it appear on the storybook.
+
 You have to refer it on the component's JS story.
 
 ```

@@ -1,0 +1,31 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+
+.label {
+  position: relative;
+
+  // Use JS polyfill to simulate :focus-visible, not yet supported by browsers
+  // https://github.com/WICG/focus-visible#backwards-compatibility
+  :global(.js-focus-visible) & {
+    // hide native focus ring when :focus but not :focus-visible
+    &:focus {
+      outline: none;
+    }
+
+    // show custom focus ring when :focus-visible
+    &:global(.focus-visible)::after {
+      $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px;
+      content: "";
+      position: absolute;
+      background: transparent;
+      border-radius: $kz-border-focus-ring-border-radius;
+      border-width: $kz-border-focus-ring-border-width;
+      border-style: $kz-border-focus-ring-border-style;
+      border-color: $kz-color-cluny-500;
+      top: -$focus-ring-offset;
+      left: -$focus-ring-offset;
+      right: -$focus-ring-offset;
+      bottom: -$focus-ring-offset;
+    }
+  }
+}

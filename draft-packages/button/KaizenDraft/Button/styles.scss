@@ -1,0 +1,466 @@
+@import "~@kaizen/component-library/styles/grid";
+@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/typography";
+
+$caButton-border-width: $kz-border-solid-border-width;
+$caButton-focus-border-width: $kz-border-focus-ring-border-width;
+$caButton-height: $ca-grid * 2;
+$caButtonIcon-height: 20px;
+$caButton-formHeight: $ca-grid * 5/3;
+$caButton-verticalPadding: calc(
+  #{$ca-grid / 2} - #{$kz-border-solid-border-width}
+);
+$caButton-verticalPaddingForm: calc(
+  #{$ca-grid / 3} - #{$kz-border-solid-border-width}
+);
+
+// reset user agent syles for button elment type
+@mixin button-reset {
+  appearance: none;
+  background: transparent;
+  border: none;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  transition: none; // override Murmur global styles :(
+}
+
+%caButtonContainer {
+  display: inline-block;
+}
+
+%caButton {
+  @include button-reset;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-family: $kz-typography-button-primary-font-family;
+  font-weight: $kz-typography-button-primary-font-weight;
+  font-size: $kz-typography-button-primary-font-size;
+  line-height: $kz-typography-button-primary-line-height;
+  letter-spacing: $kz-typography-button-primary-letter-spacing;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: $caButton-height;
+  border: $kz-border-solid-border-width $kz-border-solid-border-style;
+  border-radius: $kz-border-solid-border-radius;
+  position: relative;
+
+  // looking for padding? See %caButtonContent
+
+  &[href] {
+    text-decoration: none;
+  }
+
+  // Enabled (to restrict application of hover/focus/active styles)
+  //
+  // We can't just used :enabled here, because we want to be able to apply these
+  // styles to non-form elements, such as hyperlinks. :not(:disabled) is
+  // equivalent to :enabled on form elements, but also allows these styles to be
+  // applied to elements that have no enabled/disabled states.
+  &:not(:disabled) {
+    background: $kz-color-white;
+    border-color: $kz-color-wisteria-500;
+    color: $kz-color-wisteria-800;
+
+    &:hover {
+      background: $kz-color-wisteria-100;
+      border-color: $kz-color-wisteria-700;
+    }
+
+    &:active {
+      background: $kz-color-wisteria-100;
+      transform: translateY(1px);
+    }
+
+    // Use JS polyfill to simulate :focus-visible, not yet supported by browsers
+    // https://github.com/WICG/focus-visible#backwards-compatibility
+    :global(.js-focus-visible) & {
+      // hide native focus ring when :focus but not :focus-visible
+      &:focus {
+        outline: none;
+      }
+
+      &:global(.focus-visible) {
+        background: $kz-color-wisteria-100;
+        border-color: $kz-color-wisteria-700;
+      }
+
+      // show custom focus ring when :focus-visible
+      &:global(.focus-visible)::after {
+        $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px;
+        content: "";
+        position: absolute;
+        background: transparent;
+        border-radius: $kz-border-focus-ring-border-radius;
+        border-width: $kz-border-focus-ring-border-width;
+        border-style: $kz-border-focus-ring-border-style;
+        border-color: $kz-color-cluny-500;
+        top: -$focus-ring-offset;
+        left: -$focus-ring-offset;
+        right: -$focus-ring-offset;
+        bottom: -$focus-ring-offset;
+      }
+    }
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    background: $kz-color-white;
+    border-color: $kz-color-wisteria-500;
+    color: $kz-color-wisteria-800;
+  }
+}
+
+%caButtonForm {
+  min-height: $caButton-formHeight;
+}
+
+%caButtonPrimary,
+%caButtonDestructive {
+  &:not(:disabled) {
+    background: $kz-color-cluny-500;
+    border-color: $kz-border-borderless-border-color;
+    color: $kz-color-white;
+
+    &:hover {
+      background: $kz-color-cluny-600;
+      border-color: $kz-color-cluny-600;
+    }
+
+    &:active {
+      background: $kz-color-cluny-600;
+      border-color: $kz-color-cluny-600;
+    }
+
+    :global(.js-focus-visible) &:global(.focus-visible) {
+      background: $kz-color-cluny-600;
+      border-color: $kz-color-cluny-600;
+    }
+  }
+
+  &:disabled {
+    background: $kz-color-cluny-500;
+    color: $kz-color-white;
+    border-color: $kz-border-borderless-border-color;
+  }
+}
+
+%caButtonDestructive {
+  &:disabled {
+    background: $kz-color-coral-500;
+  }
+}
+
+%caButtonDestructive:not(:disabled) {
+  background: $kz-color-coral-500;
+  border-color: $kz-color-coral-500;
+
+  &:hover {
+    background: $kz-color-coral-600;
+    border-color: $kz-color-coral-600;
+  }
+
+  &:active {
+    background: $kz-color-coral-600;
+    border-color: $kz-color-coral-600;
+  }
+
+  :global(.js-focus-visible) &:global(.focus-visible) {
+    background: $kz-color-coral-600;
+    border-color: $kz-color-coral-600;
+  }
+}
+
+%caButtonSecondary {
+  font-family: $kz-typography-button-secondary-font-family;
+  font-weight: $kz-typography-button-secondary-font-weight;
+  font-size: $kz-typography-button-secondary-font-size;
+  line-height: $kz-typography-button-secondary-line-height;
+  letter-spacing: $kz-typography-button-secondary-letter-spacing;
+
+  &:not(:disabled) {
+    background: transparent;
+    border-color: $kz-border-borderless-border-color;
+    color: $kz-color-cluny-500;
+
+    %caButtonLabel {
+      color: $kz-color-cluny-500;
+    }
+
+    &:hover,
+    &:active,
+    :global(.js-focus-visible) &:global(.focus-visible) {
+      color: $kz-color-cluny-500;
+      background: $kz-color-cluny-100;
+      border-color: $kz-border-borderless-border-color;
+    }
+  }
+
+  &:disabled {
+    background: transparent;
+    border-color: $kz-border-borderless-border-color;
+    color: $kz-color-cluny-500;
+  }
+}
+
+%caButtonReversed {
+  &:not(:disabled) {
+    background: transparent;
+    border-color: rgba($kz-color-white, 0.5);
+    color: $kz-color-white;
+
+    &:hover {
+      background: rgba($kz-color-white, 0.1);
+      border-color: $kz-color-white;
+    }
+
+    :global(.js-focus-visible) &:global(.focus-visible) {
+      border-color: $kz-color-white;
+
+      &::after {
+        border-color: $kz-color-cluny-300;
+      }
+
+      background: rgba($kz-color-white, 0.1);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    border-color: rgba($kz-color-white, 0.5);
+    color: $kz-color-white;
+    background: transparent;
+  }
+
+  &%caButtonPrimary {
+    &:not(:disabled) {
+      background: $kz-color-seedling-300;
+      border-color: $kz-border-borderless-border-color;
+      color: $kz-color-wisteria-800;
+
+      &%caButtonReverseColorCluny {
+        color: $kz-color-cluny-500;
+      }
+
+      &%caButtonReverseColorPeach {
+        color: $kz-color-peach-500;
+      }
+
+      &%caButtonReverseColorSeedling {
+        color: $kz-color-seedling-500;
+      }
+
+      &%caButtonReverseColorWisteria {
+        color: $kz-color-wisteria-500;
+      }
+
+      &%caButtonReverseColorYuzu {
+        color: $kz-color-yuzu-500;
+      }
+
+      &:hover {
+        background: $kz-color-seedling-400;
+      }
+
+      :global(.js-focus-visible) &:global(.focus-visible) {
+        border-color: $kz-border-borderless-border-color;
+        background: $kz-color-seedling-400;
+      }
+    }
+
+    &:disabled {
+      background: $kz-color-seedling-300;
+      border-color: $kz-border-borderless-border-color;
+      color: $kz-color-wisteria-800;
+    }
+  }
+
+  &%caButtonSecondary {
+    &:not(:disabled) {
+      background: transparent;
+      border-color: $kz-border-borderless-border-color;
+      color: $kz-color-white;
+
+      %caButtonLabel {
+        color: $kz-color-white;
+      }
+
+      &:hover {
+        background: rgba($kz-color-white, 0.1);
+      }
+
+      :global(.js-focus-visible) &:global(.focus-visible) {
+        border-color: $kz-color-cluny-300;
+        color: $kz-color-white;
+      }
+    }
+
+    &:disabled {
+      background: transparent;
+      border-color: $kz-border-borderless-border-color;
+      color: $kz-color-white;
+    }
+  }
+}
+
+%caButtonContent {
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  padding: $caButton-verticalPadding
+    calc(#{$ca-grid * 1} - #{$kz-border-solid-border-width});
+
+  %caButtonSecondary & {
+    padding-left: calc(#{$ca-grid * 0.5} - #{$kz-border-solid-border-width});
+    padding-right: calc(#{$ca-grid * 0.5} - #{$kz-border-solid-border-width});
+  }
+
+  %caButtonForm & {
+    padding-top: $caButton-verticalPaddingForm;
+    padding-bottom: $caButton-verticalPaddingForm;
+  }
+
+  :global(.js-focus-visible) %caButton:global(.focus-visible) & {
+    padding: calc(#{$ca-grid / 2} - #{$kz-border-focus-ring-border-width})
+      calc(#{$ca-grid * 1} - #{$kz-border-focus-ring-border-width});
+  }
+
+  :global(.js-focus-visible) %caButtonSecondary:global(.focus-visible) & {
+    padding: calc(#{$ca-grid / 2} - #{$kz-border-focus-ring-border-width})
+      calc(#{$ca-grid * 0.5} - #{$kz-border-focus-ring-border-width});
+  }
+
+  :global(.js-focus-visible) %caButton%caButtonForm:global(.focus-visible) & {
+    padding: calc(#{$ca-grid / 3} - #{$kz-border-focus-ring-border-width})
+      calc(#{$ca-grid * 1} - #{$kz-border-focus-ring-border-width});
+  }
+
+  :global(.js-focus-visible)
+    %caButtonSecondary%caButtonForm:global(.focus-visible)
+    & {
+    padding: calc(#{$ca-grid / 3} - #{$kz-border-focus-ring-border-width})
+      calc(#{$ca-grid * 0.5} - #{$kz-border-focus-ring-border-width});
+  }
+}
+
+%caButtonLabel {
+  // This line height equates to 3/4 of a grid unit - so 18px. We set this
+  // here rather than in ca-type-ideal-button because changing the type style
+  // changes the baseline grid alignment for all buttons. Changing it here keeps
+  // the baseline alignment correct for single line buttons.
+  line-height: 1;
+
+  &:only-child {
+    %caButtonSecondary & {
+      margin: 0;
+    }
+  }
+
+  &:not(:first-child) {
+    @include ca-margin($start: 0.5em);
+  }
+
+  &:not(:last-child) {
+    @include ca-margin($end: 0.5em);
+  }
+}
+
+%caButtonIconWrapper {
+  height: $caButtonIcon-height;
+  align-self: flex-start;
+}
+
+%caButtonIconButton {
+  width: $caButton-height;
+
+  // Reset for various states and variants
+  &:not(:disabled),
+  &:disabled {
+    &,
+    &:hover,
+    &:active,
+    &%caButtonPrimary,
+    &%caButtonSecondary {
+      color: $kz-color-wisteria-800;
+      background: none;
+      border-color: $kz-border-borderless-border-color;
+
+      &%caButtonReversed {
+        color: white;
+        &%caButtonPrimary {
+          %caButtonContent {
+            color: white;
+            background: none;
+          }
+        }
+      }
+    }
+  }
+  &%caButtonReversed,
+  :global(.js-focus-visible) &:global(.focus-visible) {
+    %caButtonContent {
+      padding: 0;
+    }
+  }
+
+  %caButtonContent {
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    // IE 10/11 workaround to fix vertical centering of icon
+    margin: calc(
+        (((#{$caButton-height}) - #{$caButtonIcon-height}) / 2) - #{$kz-border-solid-border-width}
+      )
+      0;
+  }
+
+  &%caButtonForm {
+    width: $caButton-formHeight;
+  }
+
+  &%caButtonDestructive:not(:disabled) {
+    &:hover,
+    &:active {
+      color: $kz-color-coral-600;
+    }
+
+    :global(.js-focus-visible) &:global(.focus-visible) {
+      border-color: $kz-color-cluny-500;
+    }
+  }
+}
+
+%caButtonDestructiveModifier {
+  &:not(:disabled) {
+    color: $kz-color-coral-600;
+
+    %caButtonLabel {
+      color: $kz-color-coral-600;
+    }
+  }
+
+  &:hover span,
+  &:active span {
+    color: $kz-color-coral-600;
+  }
+
+  &:hover,
+  &:active,
+  :global(.js-focus-visible) &:global(.focus-visible) {
+    // caButtonDestructiveModifier is only used in the Elm component
+    // in order to create a Secondary Destructive variant.
+    // The Elm component's HTML structure is different to the React one
+    // and these !importants are here to protect against consumers
+    // overriding the colours if they depending on the
+    // Elm Button's internal structure.
+    color: $kz-color-coral-600 !important;
+    background: $kz-color-coral-100 !important;
+  }
+}

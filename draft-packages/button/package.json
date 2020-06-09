@@ -1,0 +1,45 @@
+{
+  "name": "@kaizen/draft-button",
+  "version": "1.2.1",
+  "description": "The draft Button component",
+  "scripts": {
+    "prepublish": "tsc --project tsconfig.dist.json",
+    "build": "yarn clean && yarn prepublish",
+    "build:watch": "yarn clean && yarn prepublish --watch",
+    "clean": "rimraf '*.d.ts' '*.js' '*.map' 'KaizenDraft/**/*.d.ts' 'KaizenDraft/**/*.js' 'KaizenDraft/**/*.map'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
+    "directory": "draft-packages/button"
+  },
+  "bugs": {
+    "url": "https://github.com/cultureamp/kaizen-design-system/issues"
+  },
+  "files": [
+    "**/*",
+    "!**/*.ts",
+    "!**/*.tsx",
+    "**/*.d.ts",
+    "!**/*.spec.*",
+    "!**/*.snap",
+    "!draft-templates",
+    "!stories",
+    "!tsconfig.dist.json"
+  ],
+  "author": "",
+  "private": false,
+  "license": "MIT",
+  "dependencies": {
+    "@kaizen/component-library": "^7.19.3",
+    "@types/classnames": "^2.2.10",
+    "classnames": "^2.2.6"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  },
+  "peerDependencies": {
+    "@kaizen/design-tokens": "1.6.0",
+    "react": "^16.9.0"
+  }
+}
