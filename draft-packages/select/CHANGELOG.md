@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.4.14...@kaizen/draft-select@1.5.0) (2020-06-09)
+
+
+### Features
+
+* Rollout inter ([#530](https://github.com/cultureamp/kaizen-design-system/issues/530)) ([a1b2059](https://github.com/cultureamp/kaizen-design-system/commit/a1b2059980ea753036caa5cb15ba6b1235d52ba4))
+
+
+
+
+
 ## [1.4.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.4.13...@kaizen/draft-select@1.4.14) (2020-06-05)
 
 **Note:** Version bump only for package @kaizen/draft-select
