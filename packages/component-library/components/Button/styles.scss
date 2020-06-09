@@ -236,7 +236,7 @@ $caButton-verticalPaddingForm: calc(
 
   &%caButtonPrimary {
     &:not(:disabled) {
-      background: $kz-color-seedling-300;
+      background: $kz-color-white;
       border-color: $kz-border-borderless-border-color;
       color: $kz-color-wisteria-800;
 
@@ -266,10 +266,6 @@ $caButton-verticalPaddingForm: calc(
         color: $kz-color-yuzu-500;
       }
 
-      &:hover {
-        background: $kz-color-seedling-400;
-      }
-
       :global(.js-focus-visible) &:global(.focus-visible) {
         border-color: $kz-border-borderless-border-color;
         background: $kz-color-seedling-400;
@@ -279,7 +275,7 @@ $caButton-verticalPaddingForm: calc(
     &:disabled {
       background: $kz-color-seedling-300;
       border-color: $kz-border-borderless-border-color;
-      color: $kz-color-wisteria-800;
+      color: $kz-color-white;
     }
   }
 
