@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { IconButton } from "@kaizen/draft-button"
+import { IconButton } from "@kaizen/component-library"
 const close = require("@kaizen/component-library/icons/close.icon.svg").default
 import GenericModalSection from "./GenericModalSection"
 
