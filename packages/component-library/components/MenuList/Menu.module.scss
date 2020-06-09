@@ -27,7 +27,7 @@ $side-padding: 3/4 * $ca-grid;
 }
 
 .header__title {
-  @include ca-type-ideal-labels-and-legends; // @TODO - what to do with this
+  @include kz-typography-heading-6;
   @include ca-inherit-baseline;
   display: block;
 }
