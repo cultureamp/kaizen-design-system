@@ -18,10 +18,10 @@ module KaizenDraft.Modal.Presets.InputEditModal exposing
     , view
     )
 
-import Button.Button as Button
 import CssModules exposing (css)
 import Html exposing (Html, div, text)
 import Json.Decode as Decode
+import KaizenDraft.Button.Button as Button
 import KaizenDraft.Modal.Primitives.Configuration as ModalConfiguration exposing (configurationDefaults)
 import KaizenDraft.Modal.Primitives.ModalAccessibleLabel as ModalAccessibleLabel
 import KaizenDraft.Modal.Primitives.ModalBody as ModalBody

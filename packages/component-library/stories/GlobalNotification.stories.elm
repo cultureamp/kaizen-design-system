@@ -4,7 +4,6 @@ import ElmStorybook exposing (statelessStoryOf, storybook)
 import Html exposing (Html, a, div, text)
 import Html.Attributes exposing (href, style)
 import Notification.Notification as Notification
-import Text.Text as Text
 
 
 main =

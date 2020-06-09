@@ -1,4 +1,4 @@
-import { Button, Icon, Text } from "@kaizen/component-library"
+import { Button, Heading, Icon, Paragraph } from "@kaizen/component-library"
 const configureIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
   .default
 
@@ -99,13 +99,13 @@ class GuidanceBlock extends React.Component<Props, State> {
 
         <div className={styles.descriptionContainer}>
           <div className={styles.headingWrapper}>
-            <Text inline={true} tag="h3" style="display">
+            <Heading tag="h3" variant="heading-4">
               {text.title}
-            </Text>
+            </Heading>
           </div>
-          <Text tag="p" style="body">
+          <Paragraph tag="p" variant="body">
             {text.description}
-          </Text>
+          </Paragraph>
         </div>
         <div
           className={classnames(styles.buttonContainer, {

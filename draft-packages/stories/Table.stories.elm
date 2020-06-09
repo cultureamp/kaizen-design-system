@@ -11,7 +11,7 @@ import KaizenDraft.Table.TableHeaderRow as TableHeaderRow
 import KaizenDraft.Table.TableHeaderRowCell as TableHeaderRowCell
 import KaizenDraft.Table.TableRow as TableRow
 import KaizenDraft.Table.TableRowCell as TableRowCell
-import Text.Text as Text
+import Paragraph.Paragraph as Paragraph
 
 
 storyContainer : List (Html msg) -> Html msg
@@ -57,40 +57,32 @@ main =
                     (TableRowCell.default
                         |> TableRowCell.width (4 / 12)
                     )
-                    [ Text.view
-                        (Text.div
-                            |> Text.inheritBaseline True
-                        )
+                    [ Paragraph.view
+                        Paragraph.div
                         [ text "This is a resource label" ]
                     ]
                 , TableRowCell.view
                     (TableRowCell.default
                         |> TableRowCell.width (4 / 12)
                     )
-                    [ Text.view
-                        (Text.div
-                            |> Text.inheritBaseline True
-                        )
+                    [ Paragraph.view
+                        Paragraph.div
                         [ text "Supplementary information" ]
                     ]
                 , TableRowCell.view
                     (TableRowCell.default
                         |> TableRowCell.width (2 / 12)
                     )
-                    [ Text.view
-                        (Text.div
-                            |> Text.inheritBaseline True
-                        )
+                    [ Paragraph.view
+                        Paragraph.div
                         [ text "Jan 1, 2017" ]
                     ]
                 , TableRowCell.view
                     (TableRowCell.default
                         |> TableRowCell.width (2 / 12)
                     )
-                    [ Text.view
-                        (Text.div
-                            |> Text.inheritBaseline True
-                        )
+                    [ Paragraph.view
+                        Paragraph.div
                         [ text "24" ]
                     ]
                 ]

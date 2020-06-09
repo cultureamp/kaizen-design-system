@@ -3,6 +3,7 @@
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 .root {
   opacity: 0;
@@ -32,7 +33,7 @@
 }
 
 .tooltipContent {
-  @include ca-type-ideal-body($size: 14);
+  @include kz-typography-paragraph-body($size: 14);
   color: $kz-color-wisteria-800;
   top: initial;
 }

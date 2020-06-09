@@ -4,12 +4,13 @@
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 $badge__height: 80px;
 $left-content__width: 221px;
 
 .root {
-  @include ca-type-ideal-body;
+  @include kz-typography-paragraph-body;
   @include ca-inherit-baseline;
   display: flex;
   // this box shadow should change to small once the Zen look is adopted
@@ -61,13 +62,13 @@ $left-content__width: 221px;
 }
 
 .title {
-  @include ca-type-ideal-page-title;
+  @include kz-typography-heading-3;
   @include ca-inherit-baseline;
   @include ca-margin($top: 0, $bottom: $ca-grid);
 }
 
 .badge {
-  @include ca-type-ideal-page-title;
+  @include kz-typography-heading-3;
   @include ca-inherit-baseline;
   display: flex;
   font-size: 42px;

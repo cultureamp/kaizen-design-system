@@ -1,4 +1,5 @@
-import { Button, Text } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/component-library"
+import { Button } from "@kaizen/draft-button"
 import { TextField } from "@kaizen/draft-form"
 import {
   ConfirmationModal,
@@ -60,9 +61,9 @@ export const ConfirmationPositiveKaizenSiteDemo = () => (
           onDismiss={close}
         >
           <div style={{ textAlign: "center" }}>
-            <Text tag="p" style="lede" inline>
+            <Paragraph variant="body">
               Additional subtext to aid the user can be added here.
-            </Text>
+            </Paragraph>
           </div>
         </ConfirmationModal>
       </div>
@@ -87,9 +88,9 @@ export const ConfirmationInformative = () => (
           onDismiss={close}
         >
           <div style={{ textAlign: "center" }}>
-            <Text tag="p" style="lede" inline>
+            <Paragraph variant="body">
               Additional subtext to aid the user can be added here.
-            </Text>
+            </Paragraph>
           </div>
         </ConfirmationModal>
       </div>
@@ -114,9 +115,9 @@ export const ConfirmationCautionary = () => (
           onDismiss={close}
         >
           <div style={{ textAlign: "center" }}>
-            <Text tag="p" style="lede" inline>
+            <Paragraph variant="body">
               Additional subtext to aid the user can be added here.
-            </Text>
+            </Paragraph>
           </div>
         </ConfirmationModal>
       </div>
@@ -141,9 +142,9 @@ export const ConfirmationNegative = () => (
           onDismiss={close}
         >
           <div style={{ textAlign: "center" }}>
-            <Text tag="p" style="lede" inline>
+            <Paragraph tag="p" variant="body">
               Additional subtext to aid the user can be added here.
-            </Text>
+            </Paragraph>
           </div>
         </ConfirmationModal>
       </div>
@@ -170,13 +171,13 @@ export const InputEditPositive = () => (
           <form>
             <div style={{ textAlign: "center" }}>
               <ModalAccessibleDescription>
-                <Text tag="p" inline>
+                <Paragraph variant="body">
                   Instructive text to drive user selection goes here.
-                </Text>
+                </Paragraph>
               </ModalAccessibleDescription>
-              <Text tag="p">
+              <Paragraph variant="body">
                 Instructive text to drive user selection goes here.
-              </Text>
+              </Paragraph>
             </div>
             <div>
               <TextField
@@ -226,13 +227,13 @@ export const InputEditPositiveRtlLocale = () => (
           <form>
             <div style={{ textAlign: "center" }}>
               <ModalAccessibleDescription>
-                <Text tag="p" inline>
+                <Paragraph tag="p" variant="body">
                   Instructive text to drive user selection goes here.
-                </Text>
+                </Paragraph>
               </ModalAccessibleDescription>
-              <Text tag="p">
+              <Paragraph tag="p" variant="body">
                 Instructive text to drive user selection goes here.
-              </Text>
+              </Paragraph>
             </div>
             <div>
               <TextField
@@ -281,13 +282,13 @@ export const InputEditNegative = () => (
           <form>
             <div style={{ textAlign: "center" }}>
               <ModalAccessibleDescription>
-                <Text tag="p" inline>
+                <Paragraph variant="body">
                   Instructive text to drive user selection goes here.
-                </Text>
+                </Paragraph>
               </ModalAccessibleDescription>
-              <Text tag="p">
+              <Paragraph variant="body">
                 Instructive text to drive user selection goes here.
-              </Text>
+              </Paragraph>
             </div>
             <div>
               <TextField
@@ -333,31 +334,31 @@ export const InformationWithAction = () => (
           onDismiss={close}
         >
           <ModalAccessibleDescription>
-            <Text tag="p">
+            <Paragraph variant="body">
               Intro defining what the modal is trying to explain or depict.
               Intro defining what the modal is trying to explain or depict.
-            </Text>
+            </Paragraph>
           </ModalAccessibleDescription>
           <ul>
             <li>
-              <Text tag="div">
+              <Paragraph variant="body">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              </Text>
+              </Paragraph>
             </li>
             <li>
-              <Text tag="div">
+              <Paragraph variant="body">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Eligendi.
-              </Text>
+              </Paragraph>
             </li>
             <li>
-              <Text tag="div">Lorem ipsum dolor sit amet.</Text>
+              <Paragraph variant="body">Lorem ipsum dolor sit amet.</Paragraph>
             </li>
           </ul>
-          <Text tag="p" inline>
+          <Paragraph variant="body">
             More information to conclude can go here. More information to
             conclude can go here. More information to conclude can go here.
-          </Text>
+          </Paragraph>
         </InformationModal>
       </div>
     )}
@@ -379,31 +380,31 @@ export const InformationWithoutAction = () => (
           onDismiss={close}
         >
           <ModalAccessibleDescription>
-            <Text tag="p">
+            <Paragraph variant="body">
               Intro defining what the modal is trying to explain or depict.
               Intro defining what the modal is trying to explain or depict.
-            </Text>
+            </Paragraph>
           </ModalAccessibleDescription>
           <ul>
             <li>
-              <Text tag="div">
+              <Paragraph variant="body">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              </Text>
+              </Paragraph>
             </li>
             <li>
-              <Text tag="div">
+              <Paragraph variant="body">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Eligendi.
-              </Text>
+              </Paragraph>
             </li>
             <li>
-              <Text tag="div">Lorem ipsum dolor sit amet.</Text>
+              <Paragraph variant="body">Lorem ipsum dolor sit amet.</Paragraph>
             </li>
           </ul>
-          <Text tag="p" inline>
+          <Paragraph variant="body">
             More information to conclude can go here. More information to
             conclude can go here. More information to conclude can go here.
-          </Text>
+          </Paragraph>
         </InformationModal>
       </div>
     )}
@@ -430,31 +431,31 @@ export const InformationWithBackground = () => (
           )}
         >
           <ModalAccessibleDescription>
-            <Text tag="p">
+            <Paragraph variant="body">
               Intro defining what the modal is trying to explain or depict.
               Intro defining what the modal is trying to explain or depict.
-            </Text>
+            </Paragraph>
           </ModalAccessibleDescription>
           <ul>
             <li>
-              <Text tag="div">
+              <Paragraph variant="body">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              </Text>
+              </Paragraph>
             </li>
             <li>
-              <Text tag="div">
+              <Paragraph variant="body">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Eligendi.
-              </Text>
+              </Paragraph>
             </li>
             <li>
-              <Text tag="div">Lorem ipsum dolor sit amet.</Text>
+              <Paragraph variant="body">Lorem ipsum dolor sit amet.</Paragraph>
             </li>
           </ul>
-          <Text tag="p" inline>
+          <Paragraph variant="body">
             More information to conclude can go here. More information to
             conclude can go here. More information to conclude can go here.
-          </Text>
+          </Paragraph>
         </InformationModal>
       </div>
     )}
@@ -641,9 +642,9 @@ export const NestedModal = () => (
                 confirmLabel={"Go deeper"}
               >
                 <div style={{ textAlign: "center" }}>
-                  <Text tag="p" style="lede" inline>
+                  <Paragraph variant="body">
                     Additional subtext to aid the user can be added here.
-                  </Text>
+                  </Paragraph>
                 </div>
               </ConfirmationModal>
               <ConfirmationModal
@@ -654,9 +655,9 @@ export const NestedModal = () => (
                 onDismiss={internal.close}
               >
                 <div style={{ textAlign: "center" }}>
-                  <Text tag="p" style="lede" inline>
+                  <Paragraph variant="body">
                     Whoa, this is, like, deep.
-                  </Text>
+                  </Paragraph>
                 </div>
               </ConfirmationModal>
             </>

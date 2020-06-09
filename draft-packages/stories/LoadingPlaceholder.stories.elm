@@ -5,7 +5,7 @@ import ElmStorybook exposing (statelessStoryOf, storybook)
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (style)
 import KaizenDraft.LoadingPlaceholder.LoadingPlaceholder as LoadingPlaceholder
-import Text.Text as Text
+import Paragraph.Paragraph as Paragraph
 
 
 storyContainer : List (Html msg) -> Html msg
@@ -23,7 +23,7 @@ paragraph =
                 ++ " say that after 12 years of research, she has actually determined that vulnerability is “our most"
                 ++ " accurate measurement of courage.”"
     in
-    Text.view Text.p [ text paragraphText ]
+    Paragraph.view Paragraph.p [ text paragraphText ]
 
 
 defaultPlaceholder : Html msg
@@ -148,7 +148,7 @@ main =
                     (LoadingPlaceholder.default
                         |> LoadingPlaceholder.noBottomMargin
                     )
-                , Text.view (Text.p |> Text.inline True) [ text "These loading placeholders have no bottom margin." ]
+                , Paragraph.view Paragraph.p [ text "These loading placeholders have no bottom margin." ]
                 , LoadingPlaceholder.view
                     (LoadingPlaceholder.default
                         |> LoadingPlaceholder.noBottomMargin
@@ -157,7 +157,7 @@ main =
         , statelessStoryOf "Default, Inherit baseline" <|
             storyContainer
                 [ div [ class .flexbox ]
-                    [ Text.view (Text.h2 |> Text.inheritBaseline True) [ text "Inheriting baseline" ]
+                    [ Paragraph.view Paragraph.h2 [ text "Inheriting baseline" ]
                     , LoadingPlaceholder.view
                         (LoadingPlaceholder.default
                             |> LoadingPlaceholder.inheritBaseline
@@ -180,44 +180,41 @@ main =
         , statelessStoryOf "In the wild" <|
             storyContainer
                 [ div []
-                    [ Text.view Text.h1 [ text "In the wild" ]
-                    , Text.view Text.p
+                    [ Paragraph.view Paragraph.h1 [ text "In the wild" ]
+                    , Paragraph.view Paragraph.p
                         [ text
                             ("This is an example of how you could use LoadingPlaceholder to "
                                 ++ "construct a loading state for a fictional tooltip component."
                             )
                         ]
-                    , Text.view Text.h2 [ text "Tooltip component in a loaded state:" ]
+                    , Paragraph.view Paragraph.h2 [ text "Tooltip component in a loaded state:" ]
                     , div [ class .tooltip ]
                         [ div [ class .tooltipHeader ]
-                            [ Text.view
-                                (Text.div
-                                    |> Text.style Text.BodyBold
-                                    |> Text.inheritBaseline True
+                            [ Paragraph.view
+                                (Paragraph.div
+                                    |> Paragraph.variant Paragraph.IntroLede
                                 )
                                 [ text "Hooli's Engagement Survey" ]
-                            , Text.view
-                                (Text.div
-                                    |> Text.inheritBaseline True
-                                )
+                            , Paragraph.view
+                                Paragraph.div
                                 [ text "2019" ]
                             ]
                         , div [ class .tooltipBody ]
                             [ div [ class .tooltipRow ]
-                                [ Text.view (Text.div |> Text.inheritBaseline True) [ text "Favorable" ]
-                                , Text.view (Text.div |> Text.inheritBaseline True) [ text "76%" ]
+                                [ Paragraph.view Paragraph.div [ text "Favorable" ]
+                                , Paragraph.view Paragraph.div [ text "76%" ]
                                 ]
                             , div [ class .tooltipRow ]
-                                [ Text.view (Text.div |> Text.inheritBaseline True) [ text "Neutral" ]
-                                , Text.view (Text.div |> Text.inheritBaseline True) [ text "21%" ]
+                                [ Paragraph.view Paragraph.div [ text "Neutral" ]
+                                , Paragraph.view Paragraph.div [ text "21%" ]
                                 ]
                             , div [ class .tooltipRow ]
-                                [ Text.view (Text.div |> Text.inheritBaseline True) [ text "Unfavorable" ]
-                                , Text.view (Text.div |> Text.inheritBaseline True) [ text "3%" ]
+                                [ Paragraph.view Paragraph.div [ text "Unfavorable" ]
+                                , Paragraph.view Paragraph.div [ text "3%" ]
                                 ]
                             ]
                         ]
-                    , Text.view Text.h2 [ text "Tooltip component in a loading state:" ]
+                    , Paragraph.view Paragraph.h2 [ text "Tooltip component in a loading state:" ]
                     , div [ class .tooltip ]
                         [ div [ class .tooltipHeader ]
                             [ LoadingPlaceholder.view

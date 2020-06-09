@@ -111,7 +111,7 @@ export const Default = () => (
         <ToastNotification
           automationId="notification1"
           type="affirmative"
-          title="Success!"
+          title="Success"
         >
           New user data, imported by mackenzie@hooli.com has successfully
           uploaded.

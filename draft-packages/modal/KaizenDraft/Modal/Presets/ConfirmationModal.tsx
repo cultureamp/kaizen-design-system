@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import * as React from "react"
 
-import { Icon, Text } from "@kaizen/component-library"
+import { Heading, Icon } from "@kaizen/component-library"
 const information = require("@kaizen/component-library/icons/information.icon.svg")
   .default
 const success = require("@kaizen/component-library/icons/success.icon.svg")
@@ -79,9 +79,9 @@ const ConfirmationModal = ({
             </div>
           </div>
           <ModalAccessibleLabel>
-            <Text tag="h1" style="zen-heading-1" inline>
+            <Heading tag="h1" variant="heading-1">
               {title}
-            </Text>
+            </Heading>
           </ModalAccessibleLabel>
         </div>
       </ModalHeader>

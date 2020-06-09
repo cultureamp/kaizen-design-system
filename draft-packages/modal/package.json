@@ -32,6 +32,8 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^7.19.3",
+    "@kaizen/deprecated-component-library-helpers": "^1.6.1",
+    "@kaizen/draft-button": "^1.2.1",
     "@kaizen/draft-form": "^1.6.7",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",
