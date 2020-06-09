@@ -27,14 +27,22 @@ type Props = {
   sectionTitle?: string
   sectionTitleDescription?: string
   handleHamburgerClick?: (event: React.MouseEvent) => void
-  primaryActions?: Array<React.ReactElement<ButtonProps>>
-  secondaryActions?: Array<
-    React.ReactElement<ButtonProps> | React.ReactElement<DropdownProps>
-  >
-  navigationTabs?: Array<React.ReactElement<NavigationTabProps>>
-  textDirection?: "ltr" | "rtl"
+  primaryActions?: PrimaryActions
+  secondaryActions?: SecondaryActions
+  navigationTabs?: NavigationTabs
+  textDirection?: TextDirection
   surveyStatus?: SurveyStatus
 }
+
+type PrimaryActions = Array<React.ReactElement<ButtonProps>>
+
+type SecondaryActions = Array<
+  React.ReactElement<ButtonProps> | React.ReactElement<DropdownProps>
+>
+
+type NavigationTabs = Array<React.ReactElement<NavigationTabProps>>
+
+type TextDirection = "ltr" | "rtl"
 
 type SurveyStatus = {
   text: string
@@ -47,9 +55,7 @@ type Breadcrumb = {
   handleClick?: (event: React.MouseEvent) => void
 }
 
-const renderTag = surveyStatus => {
-  if (surveyStatus == undefined) return
-
+const renderTag = (surveyStatus: SurveyStatus) => {
   let variant
   if (surveyStatus.status === "draft") {
     variant = "statusDraft"
@@ -67,13 +73,18 @@ const renderTag = surveyStatus => {
   )
 }
 
-const renderAvatar = image => <div className={styles.avatar}>{image}</div>
+const renderAvatar = (image: JSX.Element) => (
+  <div className={styles.avatar}>{image}</div>
+)
 
-const renderSubtitle = subtitle => (
+const renderSubtitle = (subtitle: string) => (
   <div className={styles.subtitle}>{subtitle}</div>
 )
 
-const renderSectionTitle = (sectionTitle, sectionTitleDescription) => (
+const renderSectionTitle = (
+  sectionTitle: string,
+  sectionTitleDescription?: string
+) => (
   <div className={styles.sectionTitleContainer}>
     <div className={styles.sectionTitleInner}>
       <div className={styles.sectionTitle}>
@@ -91,9 +102,10 @@ const renderSectionTitle = (sectionTitle, sectionTitleDescription) => (
   </div>
 )
 
-const renderBreadcrumb = (breadcrumb, textDirection) => {
-  if (breadcrumb == undefined) return
-
+const renderBreadcrumb = (
+  breadcrumb: Breadcrumb,
+  textDirection?: TextDirection
+) => {
   const icon = textDirection === "rtl" ? rightArrow : leftArrow
 
   return (
@@ -111,22 +123,22 @@ const renderBreadcrumb = (breadcrumb, textDirection) => {
   )
 }
 
-const renderNavigationTabs = navigationTabs => {
+const renderNavigationTabs = (navigationTabs: NavigationTabs) => {
   return <div className={styles.navigationTabsContainer}>{navigationTabs}</div>
 }
 
-const renderSecondaryActions = secondaryActions => {
+const renderSecondaryActions = (secondaryActions: SecondaryActions) => {
   return (
     <div className={styles.secondaryActionsContainer}>
-      <Toolbar items={secondaryActions} noGap></Toolbar>
+      <Toolbar items={secondaryActions} noGap />
     </div>
   )
 }
 
-const renderPrimaryActions = primaryActions => {
+const renderPrimaryActions = (primaryActions: PrimaryActions) => {
   return (
     <div className={styles.primaryActionsContainer}>
-      <Toolbar items={primaryActions}></Toolbar>
+      <Toolbar items={primaryActions} />
     </div>
   )
 }
@@ -182,7 +194,7 @@ const TitleBlockZen = ({
                   {subtitle && renderSubtitle(subtitle)}
                 </div>
               </div>
-              {renderTag(surveyStatus)}
+              {surveyStatus && renderTag(surveyStatus)}
             </div>
           </div>
           {primaryActions && renderPrimaryActions(primaryActions)}
@@ -194,7 +206,7 @@ const TitleBlockZen = ({
         <div className={styles.rowBelowSeparatorInnerContent}>
           {sectionTitle &&
             renderSectionTitle(sectionTitle, sectionTitleDescription)}
-          {renderNavigationTabs(navigationTabs)}
+          {navigationTabs && renderNavigationTabs(navigationTabs)}
           {secondaryActions && renderSecondaryActions(secondaryActions)}
         </div>
       </div>

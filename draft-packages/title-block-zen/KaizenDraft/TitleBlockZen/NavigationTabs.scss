@@ -14,7 +14,7 @@
 
 .linkAnchor {
   display: flex;
-  padding: 0 $ca-grid / 2;
+  padding: 0 ($ca-grid / 2);
   @include ca-margin($end: $ca-grid);
   color: rgba($kz-color-white, 0.7);
 
@@ -23,7 +23,7 @@
   }
 
   @include title-block-under-1080 {
-    padding: 0 $ca-grid / 3;
+    padding: 0 ($ca-grid / 3);
   }
 
   &:hover {
@@ -60,8 +60,8 @@
       height: 5px;
       position: absolute;
       top: 0;
-      left: -$ca-grid / 2;
-      right: -$ca-grid / 2;
+      left: -($ca-grid / 2);
+      right: -($ca-grid / 2);
       background-color: #ffffff;
       transition: transform cubic-bezier(0.55, 0.085, 0.68, 0.53) 150ms;
       border-radius: 0 0 $kz-border-solid-border-radius

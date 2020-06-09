@@ -15,7 +15,6 @@ $title-block-height-desktop: $ca-grid * 3.5;
 }
 
 .titleBlock {
-  background-color: #fff;
   background-color: $kz-color-wisteria-700;
   color: $kz-color-white;
   width: inherit;
@@ -148,7 +147,7 @@ $breadcrumb-circle-width: 40px;
 .circle {
   $border-width: 3px;
   flex: 0 0 $breadcrumb-circle-width;
-  box-sixing: border-box;
+  box-sizing: border-box;
   width: $breadcrumb-circle-width;
   height: $breadcrumb-circle-width;
   color: $kz-color-white;
