@@ -244,12 +244,12 @@ $side-padding: 3/4 * $ca-grid;
   composes: buttonReset buttonPrimary;
 
   // Making the left | right border white to separate the button with dropdown button
-  border-left-color: add-alpha($kz-color-white, 70%) !important;
+  border-left-color: $kz-color-white !important;
 
   [dir="rtl"] & {
     // equal to add-tint($ca-palette-seedling, 10%). Temporary until we upgrade to Zen (Wisteria)
     border-left-color: #58b59a !important;
-    border-right-color: add-alpha($kz-color-white, 70%) !important;
+    border-left-color: $kz-color-white !important;
   }
 }
 
