@@ -23,6 +23,12 @@ services:
       context: .
       dockerfile: .buildkite/dockerfiles/build.Dockerfile
 
+  puppeteer:
+    <<: *defaults
+    build:
+      context: .
+      dockerfile: .buildkite/dockerfiles/puppeteer.Dockerfile
+
   publish:
     <<: *defaults
     build:
