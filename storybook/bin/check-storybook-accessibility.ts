@@ -1,5 +1,10 @@
+import { ClientStoryApi } from "@storybook/addons"
+import {
+  IStorybookSection,
+  StoryFnReactReturnType,
+} from "@storybook/react/dist/client/preview/types"
 import AxePuppeteer from "axe-puppeteer"
-import puppeteer from "puppeteer"
+import { JSHandle, launch, Page } from "puppeteer"
 const passableViolationCount = 2079
 
 // To avoid running ts-ignore on all log statements
@@ -28,20 +33,23 @@ if (!args[0]) {
   process.exit(1)
 }
 
+interface StorybookClientApi extends ClientStoryApi<StoryFnReactReturnType> {
+  getStorybook(): IStorybookSection[]
+}
+
+type StoryExample = { kind: string; name: string }
+
 const baseStorybookUrl = args[0]
 
-const getExamples = async page => {
-  const handle = await page.evaluateHandle(() => ({ window, document }))
-  const properties = await handle.getProperties()
-  const windowHandle = properties.get("window")
-  const clientApiHandle = await (await windowHandle.getProperties()).get(
-    "__STORYBOOK_CLIENT_API__"
+const getExamples = async (page: Page) => {
+  const clientApiHandle: JSHandle<StorybookClientApi> = await page.evaluateHandle(
+    () => (window as any).__STORYBOOK_CLIENT_API__
   )
   const storybook = await clientApiHandle.evaluate(clientApi =>
     clientApi.getStorybook()
   )
 
-  const storybookExamples = []
+  const storybookExamples: StoryExample[] = []
   storybook.forEach(story => {
     const { kind } = story
     story.stories.forEach(storybookExample => {
@@ -65,7 +73,7 @@ const examplesWithViolations = async (
   page
 ): Promise<ExampleWithViolations[]> => {
   const axePuppeteerInstance = new AxePuppeteer(page)
-  const result = []
+  const result: ExampleWithViolations[] = []
   for (const url of storybookExampleUrls) {
     await page.goto(url)
     const analysis = await axePuppeteerInstance.analyze()
@@ -77,7 +85,7 @@ const examplesWithViolations = async (
 }
 
 const main = async () => {
-  const browser = await puppeteer.launch()
+  const browser = await launch()
   const page = await browser.newPage()
 
   const baseIframeUrl = `${baseStorybookUrl}/iframe.html`
