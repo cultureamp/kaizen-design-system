@@ -6,7 +6,7 @@
 @import "~@kaizen/component-library/styles/responsive";
 
 .button {
-  @include ca-type-ideal-button;
+  @include kz-type-inter-button-primary;
   @include ca-inherit-baseline;
   top: 0;
   padding-top: $ca-grid * 0.25;
