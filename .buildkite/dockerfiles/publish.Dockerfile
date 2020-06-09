@@ -1,6 +1,6 @@
-FROM alpine:latest
+FROM alpine:3.11
 
-RUN apk add --no-cache \
+RUN apk update && apk add --no-cache \
   git \
   openssh \
   python \

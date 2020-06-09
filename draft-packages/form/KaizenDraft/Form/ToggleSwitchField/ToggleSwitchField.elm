@@ -203,7 +203,7 @@ view (Config config) =
 
 
 styles =
-    css "@kaizen/component-library/draft/Kaizen/Form/ToggleSwitchField/styles.scss"
+    css "@kaizen/draft-form/KaizenDraft/Form/ToggleSwitchField/styles.scss"
         { container = "container"
         , disabled = "disabled"
         , fullWidth = "fullWidth"

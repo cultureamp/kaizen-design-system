@@ -1088,12 +1088,6 @@
   dependencies:
     react-elm-components "^1.1.0"
 
-"@cultureamp/elm-storybook@cultureamp/elm-storybook#0.2.0":
-  version "0.2.0"
-  resolved "https://codeload.github.com/cultureamp/elm-storybook/tar.gz/e73b617a069e8ecdd40056fedb361a55b886321b"
-  dependencies:
-    react-elm-components "^1.1.0"
-
 "@cultureamp/elm-storybook@cultureamp/elm-storybook#0.2.1":
   version "0.2.1"
   resolved "https://codeload.github.com/cultureamp/elm-storybook/tar.gz/c82229e769ba91c15e67257635e893363f266b7f"

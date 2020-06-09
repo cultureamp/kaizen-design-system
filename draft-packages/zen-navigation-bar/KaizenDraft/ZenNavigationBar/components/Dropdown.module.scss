@@ -4,8 +4,7 @@
 @import "../styles";
 
 .dropdown {
-  @include ca-position($top: 91%);
-
+  top: calc(100% + #{$ca-grid / 4});
   align-items: center;
   position: absolute;
   z-index: $ca-z-index-dropdown;

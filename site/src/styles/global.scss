@@ -5,7 +5,7 @@
 
 :root {
   --ca-grid: #{$ca-grid};
-  --content-card-top-offset: calc(var(--ca-grid) * 2.5);
+  --content-card-top-offset: calc(var(--ca-grid) * 3);
   --sidebar-content-gap: calc(var(--ca-grid) * 2);
   --content-top-and-bottom-margin: calc(var(--ca-grid) * 4);
   --content-side-margin: calc(var(--ca-grid) * 6);

@@ -119,6 +119,20 @@
         "fontSize": "0.75rem",
         "lineHeight": "1.125rem",
         "letterSpacing": "normal"
+      },
+      "buttonPrimary": {
+        "fontFamily": "\"Inter\"",
+        "fontWeight": "700",
+        "fontSize": "1.125rem",
+        "lineHeight": "1.5rem",
+        "letterSpacing": "normal"
+      },
+      "buttonSecondary": {
+        "fontFamily": "\"Inter\"",
+        "fontWeight": "500",
+        "fontSize": "1rem",
+        "lineHeight": "1.5rem",
+        "letterSpacing": "normal"
       }
     }
   }

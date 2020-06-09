@@ -10,11 +10,8 @@
   font-weight: $ca-weight-medium;
   text-decoration: none;
   text-transform: uppercase;
+  max-height: $ca-navigation-bar__height;
   width: $ca-navigation-bar__height;
-  max-height: 100%;
-  flex: 0 0 $ca-navigation-bar__height;
-
-  // auto 1:1 (square) aspect ratio
   position: relative;
   &::after {
     display: block;
@@ -24,12 +21,9 @@
   > * {
     @extend %ca-navigation-bar__menu-item-focus;
 
-    // fill the square
     position: absolute;
     width: 100%;
     height: 100%;
-
-    // center child
     display: flex;
     align-items: center;
     justify-content: center;

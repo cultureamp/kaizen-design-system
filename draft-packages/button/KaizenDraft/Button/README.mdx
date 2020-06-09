@@ -1,0 +1,227 @@
+---
+title: Button
+navTitle: Button
+summaryParagraph: Buttons perform actions.
+tags: ["Link button", "Primary action", "Secondary action", "Default action", "Destructive action"]
+needToKnow:
+- Buttons perform actions.
+- If it needs to navigate somewhere and can be opened in a new tab, use a link instead.
+headerImage: button
+demoStoryId: button-zen-react--default-kaizen-site-demo
+---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
+import DoAndDontContainer from "docs-components/DoAndDontContainer"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
+## Visuals
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D205%253A10355" allowfullscreen></iframe>
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D205%253A12210" allowfullscreen></iframe>
+
+## Copy guidelines
+
+All buttons across the platform should be clear, actionable and predictable. When a user clicks on a button, they should know what to expect. Therefore, it’s important to pay close attention to the labelling. Here are the most important rules to keep in mind:
+
+### Use a verb
+
+Make sure that all your buttons begin with a strong verb (something that elicits an action from the user). Verbs indicate to a user what they’re about to see or do next. There are two ways to use verbs in a button:
+
+*Verb + noun*
+
+A verb and noun combination gives users more context and can help guide them when the action they’re about to perform isn’t commonplace.
+
+<DoAndDontContainer>
+<Do>
+
+- View heatmap
+- Create survey
+- Archive survey
+
+</Do>
+
+<Dont>
+
+- Heatmap
+- Create
+- Archive
+
+</Dont>
+</DoAndDontContainer>
+
+*Verb only*
+
+A verb only label should be used in cases where the action the user is about to perform is common and the meaning is clear. In these cases, the context in which the button appears is enough to know what the verb is referring to without needing a noun. This is a good option for when space is tight.
+
+<DoAndDontContainer>
+<Do>
+
+- Next
+- Done
+- Cancel
+
+</Do>
+
+<Dont>
+
+- Go to next step
+- Close this screen
+- Ignore this
+
+</Dont>
+</DoAndDontContainer>
+
+Here are the some commonly used verb-only buttons in the platform:
+
+- Next (not ‘Continue’)
+- Done (not ‘Close’)
+- Cancel (not ‘Ignore’ or ‘Discard’)
+- Back (not ‘Previous’)
+- View (not ‘See’)
+- Edit (not ‘Change’)
+- Save
+- Update
+- Skip
+- Delete
+
+### Write in sentence case with minimal punctuation
+
+All buttons should be in sentence case i.e. the first letter of the first word is capitalized and everything else is in lower case unless it’s a proper noun or feature name. Always err on the side of minimal punctuation, so leave out full stops and commas where possible.
+
+<DoAndDontContainer>
+<Do>
+
+- Create survey
+- Deactivate & continue
+- View heatmap
+
+</Do>
+
+<Dont>
+
+- Create Survey
+- Deactivate And Continue
+- View Heatmap
+
+</Dont>
+</DoAndDontContainer>
+
+### Keep it short
+
+The optimum number of words for a button is between 2 and 3 words. Buttons should be in active voice, succinct and scannable. So, avoid words like “a” and “an” and use an ampersand if you’re short for space.
+
+<DoAndDontContainer>
+<Do>
+
+- Create survey
+- Archive survey
+- Select action
+
+</Do>
+
+<Dont>
+
+- Create a survey
+- Archive onboarding survey
+- Select this action
+
+</Dont>
+</DoAndDontContainer>
+
+### Be descriptive
+
+Make sure that your verbs describe the action accurately. Use words like “Cancel” and “Save.” Avoid phrases like, “Click here.” Not only is that redundant, it also doesn’t describe what the user will see next nor does it comply with our accessibility rules.
+
+### Don’t use “yes” or “no”
+
+Avoid using “yes” or “no” as buttons. This requires the user to read the body text to know what they’re agreeing or disagreeing to.
+
+### Use second person
+
+Any buttons that include a personal pronoun should be written in the second person. 
+
+<DoAndDontContainer>
+<Do>
+
+- View your reports
+
+</Do>
+
+<Dont>
+
+- View my reports
+
+</Dont>
+</DoAndDontContainer>
+
+Keep in mind that you shouldn’t use personal pronouns unless you’re asking the user to filter something. For example, “View your reports” vs “View all reports.” 
+
+### The button should match the body
+
+Make sure that the button uses the same verb and noun as what’s used in the body text above it. For example, if you say “Upload your most up-to-date employee data into Culture Amp.” in the body, the button should say “Upload data,” not “Import data.” There are also cases in which the action the user wants to perform is a common label button like “Next” or “Cancel.” Make sure that you’ve rewritten your body copy to make the action very clear. For example, if a user is trying to cancel sending a survey, but there’s also a cancel button to exit the modal they’re viewing, reword the copy of the body to say “don’t send survey.”
+
+## To keep in mind
+
+*   All buttons use a button element (not a link element and no `role=”button”`)
+*   All buttons have a large click target of 48px to meet minimum touch target sizes
+*   Default action button:
+    *   Use this when there is more than 1 button or it is not the most important action on the page
+*   Primary action button:
+    *   Use only 1 primary action button per page
+*   Destructive action button:
+    *   Only use when the action will result in data loss, cannot be undone, or otherwise have significant consequences
+*   Secondary action button:
+    *   Secondary Action Buttons kind of look like links but have lots of padding, a large clickable area, and sit next to other buttons, such as a Primary button. That is, they perform actions and do not navigate.
+*   Icon + label (icon on the left):
+    *   RTL: flip the direction of arrow icons when the user is using a right-to-left language
+*   Label + icon (icon on the right):
+    *   RTL: flip the direction of arrow icons when the user is using a right-to-left language
+*   Disabled buttons:
+    *   See the [Interaction states guidelines for disabled elements](/guidelines/interaction-states#disabled-state).
+*   Supplementary information:
+    *   You might show additional, optional information on hover and focus using a [Tooltip](/components/tooltip) or [Popover](/components/popover).
+
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
+
+*   A button indicates to a user that they can perform an action on this page, such as:
+    *   Apply an action to an object, e.g. save, delete, add an item, undo, create a new item
+    *   Submit a form to send data
+    *   Start a new task
+    *   Trigger a new element to appear on the page e.g. toggle additional information, open a modal
+    *   Trigger the next step in a process
+
+</WhenToUse>
+<WhenNotToUse>
+
+*   Don’t use a button when navigation is involved. Instead, use a [link](/guidelines/link-vs-button/).
+*   If the button is used to toggle between 2 states, use a [Toggle Switch](/components/toggle-switch-field) instead.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
+
+## See also
+
+*   [Link vs button](/guidelines/link-vs-button/)
+*   [Typography](/guidelines/typography/)
+*   [Icon Button](/components/icon-button/)
+
+## External Links
+
+Here are some examples of other existing design systems:
+
+- [Lightning: buttons](https://www.lightningdesignsystem.com/components/buttons/#site-main-content)
+- [Polaris: button](https://polaris.shopify.com/components/actions/button)
+- [Material: designing buttons](https://material.io/design/components/buttons.html#)
+- [Material: component buttons](https://material.io/develop/web/components/buttons/)
+- Copy resource: [UX Movement: 5 rules for choosing the right words on button label](https://medium.com/@uxmovement/5-rules-for-choosing-the-right-words-on-button-labels-dc3f74c2c2a3)
+- Copy resource: [Polaris: Actionable language for buttons](https://polaris.shopify.com/content/actionable-language#section-buttons)
+- Copy resource: [Gov.uk: Button](https://design-system.service.gov.uk/components/button/)
+- Copy resource: [UX Collective: UI cheatsheets (buttons)](https://uxdesign.cc/ui-cheat-sheets-buttons-7329ed9d6112)

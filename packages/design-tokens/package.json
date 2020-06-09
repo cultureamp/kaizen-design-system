@@ -1,7 +1,7 @@
 {
   "name": "@kaizen/design-tokens",
   "description": "Tokens used in the Kaizen Design System",
-  "version": "1.6.0",
+  "version": "1.10.0",
   "homepage": "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/design-tokens",
   "repository": {
     "type": "git",

@@ -623,3 +623,50 @@ export const TestScrollingModalAndScrollingContent = () => (
 TestScrollingModalAndScrollingContent.story = {
   name: "Test - scrolling modal and scrolling content",
 }
+
+export const NestedModal = () => (
+  <ModalStateContainer isInitiallyOpen={false}>
+    {({ open, close, isOpen }) => (
+      <div>
+        <Button label="Open modal" onClick={open} />
+        <ModalStateContainer isInitiallyOpen={false}>
+          {internal => (
+            <>
+              <ConfirmationModal
+                isOpen={isOpen}
+                type="positive"
+                title="Positive title"
+                onConfirm={internal.open}
+                onDismiss={close}
+                confirmLabel={"Go deeper"}
+              >
+                <div style={{ textAlign: "center" }}>
+                  <Text tag="p" style="lede" inline>
+                    Additional subtext to aid the user can be added here.
+                  </Text>
+                </div>
+              </ConfirmationModal>
+              <ConfirmationModal
+                isOpen={internal.isOpen}
+                type="negative"
+                title="Inception"
+                onConfirm={internal.close}
+                onDismiss={internal.close}
+              >
+                <div style={{ textAlign: "center" }}>
+                  <Text tag="p" style="lede" inline>
+                    Whoa, this is, like, deep.
+                  </Text>
+                </div>
+              </ConfirmationModal>
+            </>
+          )}
+        </ModalStateContainer>
+      </div>
+    )}
+  </ModalStateContainer>
+)
+
+NestedModal.story = {
+  name: "Nested confirmation modal",
+}

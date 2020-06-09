@@ -7,7 +7,7 @@ import {
   ToggledStatus,
   ToggleSwitch,
   ToggleTheme,
-} from "@kaizen/component-library/draft"
+} from "@kaizen/draft-form"
 
 const styles = require("./styles.scss")
 

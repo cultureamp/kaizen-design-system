@@ -1,14 +1,18 @@
 import * as React from "react"
 import { createPortal } from "react-dom"
 import FocusLock from "react-focus-lock"
+import uuid from "uuid/v4"
 const { CSSTransition } = require("react-transition-group")
+import {
+  ModalAccessibleContext,
+  ModalAccessibleContextType,
+} from "./ModalAccessibleContext"
 
 import { warn } from "@kaizen/component-library/util/console"
-import { ID_DESCRIBEDBY, ID_LABELLEDBY } from "./constants"
 
 const styles = require("./GenericModal.scss")
 
-interface Props {
+interface GenericModalContainerProps {
   readonly isOpen: boolean
   readonly children: React.ReactNode
   readonly focusLockDisabled?: boolean
@@ -16,9 +20,32 @@ interface Props {
   readonly onOutsideModalClick?: (event: React.MouseEvent) => void
 }
 
+interface GenericModalProps
+  extends GenericModalContainerProps,
+    ModalAccessibleContextType {}
+
 const MODAL_TRANSITION_TIMEOUT = 350
 
-class GenericModal extends React.Component<Props> {
+function GenericModalContainer(props: GenericModalContainerProps) {
+  const labelledByID = uuid()
+  const describedByID = uuid()
+  return (
+    <ModalAccessibleContext.Provider
+      value={{
+        labelledByID,
+        describedByID,
+      }}
+    >
+      <GenericModal
+        {...props}
+        labelledByID={labelledByID}
+        describedByID={describedByID}
+      />
+    </ModalAccessibleContext.Provider>
+  )
+}
+
+class GenericModal extends React.Component<GenericModalProps> {
   scrollLayer: HTMLDivElement | null = null
   modalLayer: HTMLDivElement | null = null
 
@@ -26,7 +53,7 @@ class GenericModal extends React.Component<Props> {
     if (this.props.isOpen) this.onOpen()
   }
 
-  componentDidUpdate(prevProps: Props) {
+  componentDidUpdate(prevProps: GenericModalProps) {
     const hasJustOpened = !prevProps.isOpen && this.props.isOpen
     const hasJustClosed = prevProps.isOpen && !this.props.isOpen
     if (hasJustOpened) this.onOpen()
@@ -42,11 +69,16 @@ class GenericModal extends React.Component<Props> {
     this.preventBodyScroll()
     this.ensureAccessiblityIsMet()
     this.scrollModalToTop()
+    this.focusAccessibleLabel()
+    if (this.modalLayer) {
+      this.removeAriaHider = createAriaHider(this.modalLayer)
+    }
   }
 
   onClose() {
     this.removeEventHandlers()
     this.restoreBodyScroll()
+    this.removeAriaHider()
   }
 
   addEventHandlers() {
@@ -58,6 +90,9 @@ class GenericModal extends React.Component<Props> {
     this.props.onEscapeKeyup &&
       document.removeEventListener("keyup", this.escapeKeyHandler)
   }
+
+  // tslint:disable-next-line: no-empty
+  removeAriaHider(): void {}
 
   preventBodyScroll() {
     const hasScrollbar =
@@ -92,7 +127,7 @@ class GenericModal extends React.Component<Props> {
     if (!this.modalLayer) return
     // Ensure that consumers have provided an element that labels the modal
     // to meet ARIA accessibility guidelines.
-    if (!document.getElementById(ID_LABELLEDBY)) {
+    if (!document.getElementById(this.props.labelledByID)) {
       warn(
         `When using the Modal component, you must provide a label for the modal.
         Make sure you have a <ModalAccessibleLabel /> component with content that labels the modal.`
@@ -110,6 +145,17 @@ class GenericModal extends React.Component<Props> {
     })
   }
 
+  focusAccessibleLabel() {
+    if (this.modalLayer) {
+      const labelElement: HTMLElement | null = document.getElementById(
+        this.props.labelledByID
+      )
+      if (labelElement) {
+        labelElement.focus()
+      }
+    }
+  }
+
   render(): React.ReactPortal {
     const { isOpen, children, focusLockDisabled = false } = this.props
 
@@ -123,7 +169,11 @@ class GenericModal extends React.Component<Props> {
       >
         {/* This is not an unused div. It will receive `animating-` classes from react-transition-group */}
         <div>
-          <FocusLock disabled={focusLockDisabled} returnFocus={true}>
+          <FocusLock
+            disabled={focusLockDisabled}
+            returnFocus={true}
+            autoFocus={false}
+          >
             <div className={styles.backdropLayer} />
             <div
               className={styles.scrollLayer}
@@ -134,8 +184,8 @@ class GenericModal extends React.Component<Props> {
             >
               <div
                 role="dialog"
-                aria-labelledby={ID_LABELLEDBY}
-                aria-describedby={ID_DESCRIBEDBY}
+                aria-labelledby={this.props.labelledByID}
+                aria-describedby={this.props.describedByID}
                 className={styles.modalLayer}
                 ref={modalLayer => (this.modalLayer = modalLayer)}
               >
@@ -150,4 +200,79 @@ class GenericModal extends React.Component<Props> {
   }
 }
 
-export default GenericModal
+/**
+ * Get an element's owner document. Useful when components are used in iframes
+ * or other environments like dev tools.
+ */
+function getOwnerDocument<T extends HTMLElement = HTMLElement>(
+  element: T | null
+) {
+  return element && element.ownerDocument
+    ? element.ownerDocument
+    : canUseDOM()
+    ? document
+    : null
+}
+
+/**
+ * Check if the DOM exists and is usable
+ */
+function canUseDOM(): boolean {
+  return (
+    typeof window !== "undefined" &&
+    typeof window.document !== "undefined" &&
+    typeof window.document.createElement !== "undefined"
+  )
+}
+
+// tslint:disable-next-line: no-empty
+function noop(): void {}
+
+/**
+ * Hide elements in the DOM from screenreaders that are outside the parent tree
+ * of the reference node. We do this by setting `aria-hidden` attribute to true
+ * for any elements top-level DOM nodes.
+ *
+ * Returns a function that restores the _original_ values of the affected nodes,
+ * so any pre-aria-hidden values will continue to stay hidden.
+ */
+function createAriaHider(dialogNode: HTMLElement): () => void {
+  const originalValues: any[] = []
+  const rootNodes: HTMLElement[] = []
+  const ownerDocument = getOwnerDocument(dialogNode) || document
+
+  if (!dialogNode) {
+    return noop
+  }
+
+  Array.prototype.forEach.call(
+    ownerDocument.querySelectorAll("body > *"),
+    node => {
+      const portalNode = dialogNode.parentNode?.parentNode?.parentNode
+      if (node === portalNode) {
+        return
+      }
+      const attr = node.getAttribute("aria-hidden")
+      const alreadyHidden = attr !== null && attr !== "false"
+      if (alreadyHidden) {
+        return
+      }
+      originalValues.push(attr)
+      rootNodes.push(node)
+      node.setAttribute("aria-hidden", "true")
+    }
+  )
+
+  return () => {
+    rootNodes.forEach((node, index) => {
+      const originalValue = originalValues[index]
+      if (originalValue === null) {
+        node.removeAttribute("aria-hidden")
+      } else {
+        node.setAttribute("aria-hidden", originalValue)
+      }
+    })
+  }
+}
+
+export default GenericModalContainer
