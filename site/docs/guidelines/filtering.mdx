@@ -1,0 +1,294 @@
+---
+title: Filtering
+navTitle: Filtering
+summaryParagraph: Filtering aids users to find relevant data on a page using a combination of pre-defined attributes and form input controls.
+tags: ["Rules", "Logic", "Search filter", "Facets", "Filters", "Filter bar", "Control panel"]
+needToKnow:
+  - "Design for loading, empty, and zero state experiences."
+  - "Provide metadata about filtering menus and filter results."
+  - "Ask yourself general usage, targeted usage, and structural questions about filtering for any page or feature."
+  - "Use the following filtering components: Select, Checkbox group, Radio group, Search, Date Picker, Tag, and Badge."
+  - "Consider letting people clear or save filters."
+---
+
+## Visuals
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D26297%253A73&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+## Overview
+
+These definitions are used throughout the subsequent guidance.
+
+*   A **filter menu** describes a group of components available to apply filters.
+*   A **filter field** describes a specific group of data that you might have different options for, such as “Price”.
+*   A **filter value** describes a specific option for a value, such as “>$50”.
+*   An **applied filter** shows all the selected values for that filter dimension, such as “Price” being set to “>$50” and “&lt;$100”.
+*   A “**filter**” tends to describe a single filter field, such as "Price" and sometimes its selected values as well, such as ">$50". If you are referring to a group of filters, refer to it as a **filter menu**.
+*   A **filter view** describes the state of all the filter fields and values applied in a filter menu at a given moment.
+*   **Filter results** describe all the data or content that matches the applied filters.
+*   **Results metadata** includes extra info about the results, such as the total number of results or the participation # of a survey.
+*   **Matching** describes how closely a result matches its applied filter, such as whether a search query of “design” matches a filter value of “Marketing design”.
+*   **Loading state**: while filters are being applied and results are being fetched, you might show that the system is in a loading state. See [loading guidelines](/guidelines/loading-patterns/).
+*   **Empty state**: Before a user has applied any filters, consider giving them an indication of what to expect from applying a filter. See [Empty State component](/components/empty-state/) for general guidelines. Note: More guidance to be developed around Empty States for Filtering.
+*   **Zero state**: If there are no matching results for an applied filter or combination of applied filters, tell the user that there are no matching results. Consider offering a clearly sign-posted alternative, such as similar queries, popular search queries or which filters to adjust to return more results.
+
+### Choosing between live or batch filters
+
+#### Live filters
+
+Refining results in real time using “live” filters (instantly updating results) lets your users directly manipulate the results being served and gives them control to respond to visual feedback. I.e. each set of new results lets them know whether they need to add another filter to find content that's right for them.
+
+
+#### Batch filters
+
+You might let your users batch together their filter choices by selecting a few filters at once and choosing “Search,” “Apply,” or “Done” before presenting any results. This is particularly useful if your product has a lot of data. Otherwise, your user might be frustrated by irrelevant, distracting information until they’ve added the final filter necessary to produce the results they want.
+
+
+## To keep in mind
+
+For any filtering system, consider these questions in your approach.
+
+General usage questions you could answer with analytics:
+
+*   **Filtering frequency:** What % of data views have at least one filter active?
+*   **Concurrent filtering:** What’s the distribution curve for concurrent filter usage, e.g. % of filtered views with 1, 2, 3 etc. active filters?
+*   **Filter switching:** What's the distribution curve for number of filter views per session, e.g. switching between filtering by department, then by country, etc.
+
+Targeted usage questions:
+
+*   **Filter prioritization:** For each task, what are the most frequently used filters? E.g. Engagement report -> Department.
+*   **Filter task prioritization:** What tasks have the highest % filter use? E.g. Filtering to understand your group's engagement
+
+Structural questions:
+
+*   **Hierarchy:** How do filters and navigation work together?
+*   **Positioning:** Top or left panel? Exposed filters (E.g. [Checkboxes](/components/checkbox-group) or [Date Picker](/components/date-picker)) exposed next to content, or button that reveals a Filter menu (E.g. A panel of options that reveals itself, to help minimize content clutter).
+*   **Filter continuity/retention:** As a user switches between functional areas, when should filters stay active, and when should they be reset? E.g. switching between engagement insights and comments.
+
+### Clear filters
+
+Consider showing a [secondary action button](/components/button) at the end of the filter menu to clear all filters at once. Use the label, "Clear filters". When activated, it resets all filters back to their default values.
+
+For [filtering that uses tags](#tags-in-filtering) to display selected values, consider showing a [secondary action button](/components/button) after all the tags to clear that filter field. Use the label, "Clear [filter field]". When activated, it removes all the selected filter value tags for that filter field and returns focus to the filter field.
+
+### Save filters
+
+Consider providing a method for users to preserve or return to a combination of filter fields and values. For example, you might support "saving" a filter view. Alternatively, you might considering reusing the same filter settings across pages or browser sessions.
+
+### Filtering components
+
+We sometimes use the following components in filters:
+
+*   [Select](/components/select/)
+*   [Checkbox group](/components/checkbox-group/)
+*   [Radio group](/components/radio-group/)
+*   [Search](/components/search-field)
+*   [Date Picker](/components/date-picker)
+*   [Tag](/components/tag/)
+*   [Badge](/components/badge/)
+
+#### Recommendations
+
+- For filtering tables or lists, we prefer filters to sit above the content and left-aligned, rather than beside the content.
+- We prefer section tabs over a radio group for 3–6 items and a radio group over section tabs for 7–20 items.
+- We prefer search above content and right-aligned.
+- Use multi-select with tags outside the select input when it's important to keep the applied filter values visible. In contrast, if it's sufficient context to know only that a filter is applied but not the exact values, you might show the selected values as checkboxes in the select dropdown instead. Note: we currently use tags for selected values in our [Select component](/components/select).
+
+#### Select in filtering
+
+A [select](/components/select/) lets you choose options from an option menu. A single-select lets you choose one option while a multi-select lets you choose multiple options.
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D26297%253A14&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+A select is useful in filtering when:
+
+*   There are too many results to show at once
+*   Reducing data by pre-defined segment of data (E.g. In a report select 'Administrator Report' or by comment sentiment, 'Positive', 'Neutral', 'Negative')
+*   Shows the options available for that field (E.g. Country demographic, 'Australia', 'England', 'United States')
+*   Reducing data in 1 field e.g. "Department" is a "Field" and "Marketing Design" is the value
+
+The select filter:
+
+*   Could be live-updating, could have "Apply", "Cancel", "Reset" options
+*   The select filter has limited scannability, because it is hidden by a dropdown
+*   Selects can be a single instance or multiple adjacent selects to provide greater choice.
+*   Works for longer lists of selectable values to assist with screen clutter
+*   Offer dismissible tags that allow the removal of a selected value/field
+*   Dropdown list might include a "Clear all" action to effectively remove the select filtering
+*   Ordering optimized for scanning:
+    *   Alphabetic lists for names
+    *   Time series like today, yesterday, last month, last year, last financial year
+    *   Other things that have natural ordering like age groups, performance rating (good, great, better), rating scales (strongly disagree to strongly agree)
+*   Can combine autocomplete search within the select input
+
+#### Section tabs in filtering
+
+Section tabs organize content by grouping similar information from the same dataset into containers that are shown and hidden into sections.
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D26297%253A24&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+Section tabs are useful in filtering when:
+
+*   There is too much data/content to show at once
+*   Narrowing data by pre-defined things: E.g. Surveys have pre-defined status (Draft, Live, Closed)
+*   Section tabs have mutually exclusive categories, which cannot be open and closed at the same time
+*   Navigate to things I care about:
+    *   Smart default: "All comments" shows all comments by default
+    *   Smart default: Grouping by topics/themes helps to narrow data/content to relevant topics
+    *   Personal content: "Saved comments" groups your saved comments apart from "All comments"
+*   Understand information at a glance:
+    *   Summarizing key data
+    *   Bringing relevant data forward
+*   Understanding relationships between segments of data:
+    *   Some tabs are parts of a whole (e.g. complete/incomplete)
+
+#### Checkbox group in filtering
+
+A [checkbox group](/components/checkbox-group/) contains checkbox fields that let people select zero or more options from a set.
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D26297%253A35&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+Use a checkbox group in a filter when:
+
+*   You want to visibly show all the filtering field at once
+*   There are too many results (E.g. Surveys) to show at once
+*   Reducing data by pre-defined segments (E.g. Draft, Live and Closed surveys)
+*   Reducing data in 1 field e.g. "Department" is a "Field" and "Marketing Design" is the value
+
+The checkbox group filter:
+
+*   One-click
+*   Live-updating
+*   Scannable
+*   Combine groups of checkboxes
+*   Works for 5+ checkboxes
+
+#### Radio group in filtering
+
+[Radio groups](/components/radio-group/) include a set of radios that let people select exactly one option in a set.
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D26297%253A41&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+Use a radio group in filtering when:
+
+*   There are too many results to show at once
+*   Reducing data by pre-defined groups
+*   Reducing data in 1 field e.g. "Department" is a "Field" and "Marketing Design" is the value
+
+A radio group filter:
+
+*   One-click
+*   Live-updating
+*   Scannability
+*   Radios are tabs
+*   Works for 5–20 radios whereas tabs might only work for &lt;5
+
+#### Search in filtering
+
+[Search](/components/search-field) lets users quickly find relevant content. It allows a user to type a word or phrase to filter a large amount of data down to a known piece of content or to a narrower list of relevant content without navigation.
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D26297%253A48&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+Search combines with all the other filter components.
+
+Use search in filtering when:
+
+*   Looking for something specific
+*   In a long list, 10–10,000 results
+*   Finding out what's available, e.g. keywords for searching comments
+*   Narrowing data by pre-defined things in another component: e.g. Group employees… "by City" where you can search for city or department and then select it
+
+Here are some considerations for search in filtering:
+
+*   In table, consider showing a search field in the top–right (in left-to-right languages)
+*   Consider using "search on submit" when live-filtering performance might be slow. Learn more in [Search field](/components/search-field).
+*   Search is useful for users providing partial match search terms
+*   Auto-suggest or [Autocomplete](/components/autocomplete):
+    *   Must select a specific result from the list
+    *   Partial search must lead to exact match result in autocomplete
+    *   Where possible, show good defaults on focus
+*   Live-filtering search:
+    *   As you type employee name, data results immediately reduce
+    *   Good for partial matches
+*   Results can be shown as:
+    *   Tags for selected values
+    *   Above/below the filters that you can dismiss
+    *   Within the select/search
+    *   Data table/cards (reduced results)
+    *   Traditional search results (link and description)
+*   Combinations:
+    *   Filters can be separate from search and add the selected value Tag to the search input field
+    *   Possible to combine specific tag results and keyword search in one search bar e.g. Gmail searching for `"Label: unread" covid-19|`
+
+#### Date picker in filtering
+
+A [Date Picker](/components/date-picker) lets users select a date or range of dates. It uses a text field and a visual calendar in a popover.
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D26297%253A53&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+Use a date picker when:
+
+*   Narrowing results by time frames, such as before a date, after a date, or between two dates
+
+Here are some considerations for using a date picker in filtering:
+
+*   Consider if you need only dates or date and time
+*   Provide pre-selected good defaults:
+    *   Today, yesterday, last quarter, last year
+*   Consider providing button shortcuts to Today, Tomorrow, Next Week, or Next Month
+
+In data visualizations, such as a bar chart that show time on the X Axis:
+
+*   Consider providing handles to filter and zoom in on a time period.
+
+#### Tags in filtering
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D26297%253A59&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+A [Tag](/components/tag/) helps users quickly recognize important information about items that organize and categorize them. They visually label items with small amounts of information or the item’s status, usually with keywords that help organize and categorize the items.
+
+Use dismissible tags with a [select](/component/select) to show selected filter values when there are multiple selected values you want to show while the select is closed.
+
+#### Logic and rules
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D26297%253A0&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+- For multiple rows:
+    - Use a `fieldset` for each row of form fields. Use a single `legend` to describe all elements in that row. Use an individual `label` for each form field in that form. To avoid visual repetition and noise, you might visibly hide redundant labels, providing them only to people using screen readers off screen.
+    - Show how each row relates to the next. For example, for survey branching logic, you might show that each condition is combined together using the keyword "AND".
+
+#### Badges in filtering
+
+[Badges](/components/badge/) show the count of some adjacent data. A dot badge notifies the user that something is new or updated without showing a count.
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D26297%253A68&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+Use badges to highlight counts available in that filter field.
+
+Use badges to highlight other metadata or counts, such as total results after applying several filters in a filter menu.
+
+### External Links
+
+Here are some examples of existing design system with filtering.
+
+Filtering guidelines:
+
+- [Lightning Design System: Rules, Filters, Logic](https://www.lightningdesignsystem.com/guidelines/rules-filters-logic/#site-main-content)
+- [Lightning Design System for React: Filters](https://react.lightningdesignsystem.com/components/filters/)
+- [Patternfly: Filters](https://www.patternfly.org/v4/design-guidelines/usage-and-behavior/filters)
+- [Carbon Design System: Filtering](https://www.carbondesignsystem.com/patterns/filtering)
+- [Polaris: Lists and Tables: Filters](https://polaris.shopify.com/components/lists-and-tables/filters)
+- [Spectrum: Bar chart, provide filtering and sorting controls](https://spectrum.adobe.com/page/bar-chart/#Provide-filtering-and-sorting-controls)
+- [Feelix: Filter bar](https://feelix.myob.com/#/Components/Filtering/FilterBar)
+- [CFPB Design System: Filterable list pages](https://cfpb.github.io/design-system/templates/filterable-list-pages)
+
+Related components and their filtering guidelines:
+
+- [UXBooth: Best practices for search](https://www.uxbooth.com/articles/best-practices-for-search/)
+- [Material: Filter chips](https://material.io/components/chips/#filter-chips)
+- [Ant Design: Table](https://ant.design/components/table/#components-table-demo-head)
+- [Lightning Design System: Picklist](https://www.lightningdesignsystem.com/components/picklist/#site-main-content)
+- [Spectrum: Bar chart, provide filtering and sorting controls](https://spectrum.adobe.com/page/bar-chart/#Provide-filtering-and-sorting-controls)
+- [Feelix: Tabs](https://feelix.myob.com/#/Components/Navigations/Tabs)
+- [Feelix: Gauges](https://feelix.myob.com/#/Components/Filtering/Gauges)
+

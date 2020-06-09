@@ -1,5 +1,5 @@
 import * as React from "react"
-import { ID_DESCRIBEDBY } from "./constants"
+import { ModalAccessibleContext } from "./ModalAccessibleContext"
 
 interface Props {
   readonly children: React.ReactNode
@@ -9,6 +9,10 @@ type ModalAccessibleDescription = React.FunctionComponent<Props>
 
 const ModalAccessibleDescription: ModalAccessibleDescription = ({
   children,
-}) => <div id={ID_DESCRIBEDBY}>{children}</div>
+}) => (
+  <ModalAccessibleContext.Consumer>
+    {({ describedByID }) => <div id={describedByID}>{children}</div>}
+  </ModalAccessibleContext.Consumer>
+)
 
 export default ModalAccessibleDescription

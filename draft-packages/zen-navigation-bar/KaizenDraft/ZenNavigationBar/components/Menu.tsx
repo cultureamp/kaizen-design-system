@@ -62,10 +62,9 @@ export default class Menu extends React.Component<MenuProps, State> {
                 {({ toggleVisibleMenu }) => (
                   <Link
                     key={uuid()}
-                    text={heading}
+                    text={`${heading}…`}
                     href="#"
                     onClick={() => toggleVisibleMenu(heading)}
-                    hasMenu
                     opaque={opaque}
                   />
                 )}

@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-zen-navigation-bar",
-  "version": "1.5.8",
+  "version": "1.6.11",
   "description": "The draft Zen navigation bar component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -31,8 +31,8 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^7.15.5",
-    "@kaizen/draft-zen-off-canvas": "^1.5.1",
+    "@kaizen/component-library": "^7.19.3",
+    "@kaizen/draft-zen-off-canvas": "^1.6.11",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",
     "react-media": "^1.9.2",

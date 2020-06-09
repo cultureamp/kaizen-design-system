@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-modal",
-  "version": "2.1.1",
+  "version": "2.3.4",
   "description": "The draft Modal component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -31,12 +31,13 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^7.15.5",
-    "@kaizen/draft-form": "^1.4.1",
+    "@kaizen/component-library": "^7.19.3",
+    "@kaizen/draft-form": "^1.6.7",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",
     "react-focus-lock": "1.19.1",
-    "react-transition-group": "^2.9.0"
+    "react-transition-group": "^2.9.0",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.2.1",

@@ -80,6 +80,6 @@ view (Config config) =
 
 
 styles =
-    css "@kaizen/component-library/draft/ComponentName/styles.scss"
+    css "@kaizen/draft-component-name/ComponentName/styles.scss"
         { container = "container"
         }

@@ -11,7 +11,7 @@
 }
 
 .links {
-  @include navbar-responsive-spacing($end: true, $start: true, $margin: true);
+  @include ca-margin($end: $ca-grid);
   display: inline-flex;
   flex: 1 0 0;
   height: 100%;
@@ -29,11 +29,8 @@
 
     &.secondary {
       @include ca-margin($start: 0);
-      @include navbar-responsive-spacing(
-        $start: true,
-        $padding: true,
-        $large: false
-      );
+      @include ca-padding($start: 0);
+      @include navbar-uncollapsed-spacing($start: true, $padding: true);
       position: relative;
       &:before {
         position: absolute;
@@ -66,21 +63,17 @@
   }
 
   @include navbar-tablet-up {
-    @include ca-margin($start: $ca-grid / 2);
+    @include ca-margin($start: $ca-grid);
   }
 }
 
 .child {
   &:not(:last-child) {
-    @include navbar-responsive-spacing($end: true, $margin: true);
+    @include navbar-uncollapsed-spacing($end: true, $margin: true);
   }
 
   &:last-child {
-    @include navbar-responsive-spacing(
-      $end: true,
-      $margin: true,
-      $large: false
-    );
+    @include navbar-uncollapsed-spacing($end: true, $margin: true);
   }
 
   .final & {
@@ -95,8 +88,7 @@
 }
 
 .headerSlot {
-  @include navbar-responsive-spacing($start: true, $margin: true);
+  @include ca-margin($start: $ca-navigation-bar__spacer);
   height: 100%;
   display: flex;
-  align-items: center;
 }

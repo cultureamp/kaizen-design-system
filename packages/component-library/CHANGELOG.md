@@ -3,6 +3,106 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.19.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.19.2...@kaizen/component-library@7.19.3) (2020-06-05)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.19.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.19.1...@kaizen/component-library@7.19.2) (2020-06-05)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.19.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.19.0...@kaizen/component-library@7.19.1) (2020-06-05)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [7.19.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.18.2...@kaizen/component-library@7.19.0) (2020-06-04)
+
+
+### Features
+
+* Add RTE icons ([#529](https://github.com/cultureamp/kaizen-design-system/issues/529)) ([7d057f9](https://github.com/cultureamp/kaizen-design-system/commit/7d057f9c97872346216c72c631e9029ecacd21ae))
+
+
+
+
+
+## [7.18.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.18.1...@kaizen/component-library@7.18.2) (2020-06-02)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.18.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.18.0...@kaizen/component-library@7.18.1) (2020-06-02)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [7.18.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.17.2...@kaizen/component-library@7.18.0) (2020-05-28)
+
+
+### Features
+
+* Create new Button package ([#460](https://github.com/cultureamp/kaizen-design-system/issues/460)) ([9f8d95d](https://github.com/cultureamp/kaizen-design-system/commit/9f8d95d0fdc64385dfbdf305d5773e8703600393))
+
+
+
+
+
+## [7.17.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.17.1...@kaizen/component-library@7.17.2) (2020-05-27)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.17.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.17.0...@kaizen/component-library@7.17.1) (2020-05-26)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [7.17.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.16.0...@kaizen/component-library@7.17.0) (2020-05-26)
+
+
+### Features
+
+* Create separate stylesheet for ca-grid var ([#511](https://github.com/cultureamp/kaizen-design-system/issues/511)) ([4d55551](https://github.com/cultureamp/kaizen-design-system/commit/4d55551677b8ba03f4ea2fcd19bfe0eb4a3b3601))
+
+
+
+
+
+# [7.16.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.15.5...@kaizen/component-library@7.16.0) (2020-05-26)
+
+
+### Features
+
+* Delete drafts from core kaizen ([#462](https://github.com/cultureamp/kaizen-design-system/issues/462)) ([14bdc61](https://github.com/cultureamp/kaizen-design-system/commit/14bdc6181158cab5d3350b3ecf1b2dee6d5baeae))
+
+
+
+
+
 ## [7.15.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.15.4...@kaizen/component-library@7.15.5) (2020-05-21)
 
 **Note:** Version bump only for package @kaizen/component-library

@@ -3,6 +3,71 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.6.0...@kaizen/deprecated-component-library-helpers@1.6.1) (2020-06-05)
+
+
+### Bug Fixes
+
+* Added missing typography inter mixin ([#534](https://github.com/cultureamp/kaizen-design-system/issues/534)) ([9a50e89](https://github.com/cultureamp/kaizen-design-system/commit/9a50e8920e05036e5b01c6563384f1cd0fa51055))
+
+
+
+
+
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.5.0...@kaizen/deprecated-component-library-helpers@1.6.0) (2020-06-05)
+
+
+### Features
+
+* Added inter mixins that map 1-1 with Figma typography ([#533](https://github.com/cultureamp/kaizen-design-system/issues/533)) ([e898e61](https://github.com/cultureamp/kaizen-design-system/commit/e898e61e6e6f9721caa48491911393ccef10c009))
+
+
+
+
+
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.4.5...@kaizen/deprecated-component-library-helpers@1.5.0) (2020-06-05)
+
+
+### Features
+
+* add temporary Inter helper mixins to deprecated-component-library-helpers ([#532](https://github.com/cultureamp/kaizen-design-system/issues/532)) ([d09b272](https://github.com/cultureamp/kaizen-design-system/commit/d09b2723756df18d034c7f58cea28abd601339f0))
+
+
+
+
+
+## [1.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.4.4...@kaizen/deprecated-component-library-helpers@1.4.5) (2020-06-02)
+
+**Note:** Version bump only for package @kaizen/deprecated-component-library-helpers
+
+
+
+
+
+## [1.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.4.3...@kaizen/deprecated-component-library-helpers@1.4.4) (2020-06-02)
+
+**Note:** Version bump only for package @kaizen/deprecated-component-library-helpers
+
+
+
+
+
+## [1.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.4.2...@kaizen/deprecated-component-library-helpers@1.4.3) (2020-05-27)
+
+**Note:** Version bump only for package @kaizen/deprecated-component-library-helpers
+
+
+
+
+
+## [1.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.4.1...@kaizen/deprecated-component-library-helpers@1.4.2) (2020-05-26)
+
+**Note:** Version bump only for package @kaizen/deprecated-component-library-helpers
+
+
+
+
+
 ## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.4.0...@kaizen/deprecated-component-library-helpers@1.4.1) (2020-05-08)
 
 **Note:** Version bump only for package @kaizen/deprecated-component-library-helpers

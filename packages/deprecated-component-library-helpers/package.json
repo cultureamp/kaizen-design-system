@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/deprecated-component-library-helpers",
-  "version": "1.4.1",
+  "version": "1.6.1",
   "homepage": "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/deprecated-comonent-library-helpers",
   "repository": {
     "type": "git",
@@ -16,6 +16,6 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/design-tokens": "^1.6.0"
+    "@kaizen/design-tokens": "^1.10.0"
   }
 }

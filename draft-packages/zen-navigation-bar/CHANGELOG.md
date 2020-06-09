@@ -3,6 +3,105 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.6.10...@kaizen/draft-zen-navigation-bar@1.6.11) (2020-06-05)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+## [1.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.6.9...@kaizen/draft-zen-navigation-bar@1.6.10) (2020-06-05)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+## [1.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.6.8...@kaizen/draft-zen-navigation-bar@1.6.9) (2020-06-05)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+## [1.6.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.6.7...@kaizen/draft-zen-navigation-bar@1.6.8) (2020-06-04)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+## [1.6.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.6.6...@kaizen/draft-zen-navigation-bar@1.6.7) (2020-06-02)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+## [1.6.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.6.5...@kaizen/draft-zen-navigation-bar@1.6.6) (2020-06-02)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+## [1.6.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.6.4...@kaizen/draft-zen-navigation-bar@1.6.5) (2020-05-28)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+## [1.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.6.3...@kaizen/draft-zen-navigation-bar@1.6.4) (2020-05-27)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+## [1.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.6.2...@kaizen/draft-zen-navigation-bar@1.6.3) (2020-05-26)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+## [1.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.6.1...@kaizen/draft-zen-navigation-bar@1.6.2) (2020-05-26)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.6.0...@kaizen/draft-zen-navigation-bar@1.6.1) (2020-05-26)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.5.8...@kaizen/draft-zen-navigation-bar@1.6.0) (2020-05-25)
+
+
+### Features
+
+* navigation bar spacing alterations ([#508](https://github.com/cultureamp/kaizen-design-system/issues/508)) ([d780b6a](https://github.com/cultureamp/kaizen-design-system/commit/d780b6ac0307b8e9409c09f712abb1046c72fcb3))
+
+
+
+
+
 ## [1.5.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.5.7...@kaizen/draft-zen-navigation-bar@1.5.8) (2020-05-21)
 
 **Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
