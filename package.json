@@ -18,7 +18,7 @@
     "prettier": "prettier --check '**/*'",
     "test": "jest",
     "compile": "tsc",
-    "lint": "elm-format --validate packages && yarn tslint && yarn prettier",
+    "lint": "elm-format --validate packages && yarn tslint && yarn prettier && stylelint '**/*.scss'",
     "lint:fix": "elm-format --yes packages && yarn tslint --fix && yarn prettier --write",
     "clean:storybook": "rimraf 'storybook/public'",
     "clean": "lerna run clean && yarn gatsby clean && yarn clean:storybook && rimraf 'elm-stuff'",
@@ -97,6 +97,7 @@
     "react-dom": "^16.9.0",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
+    "stylelint": "^13.6.0",
     "svg-sprite-loader": "^4.1.6",
     "svgo": "^1.3.0",
     "svgo-loader": "^2.2.1",
@@ -112,11 +113,11 @@
   "devDependencies": {
     "@storybook/addon-docs": "^5.3.17",
     "@storybook/codemod": "^5.3.9",
-    "lint-staged": "^10.2.2",
     "@storybook/csf": "^0.0.1",
     "@storybook/node-logger": "^5.3.9",
     "husky": "^4.2.5",
     "jscodeshift": "^0.7.0",
+    "lint-staged": "^10.2.2",
     "storybook-chromatic": "^3.4.1"
   },
   "resolutions": {
