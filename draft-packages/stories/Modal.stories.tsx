@@ -1,4 +1,5 @@
-import { Button, Paragraph, Text } from "@kaizen/component-library"
+import { Paragraph } from "@kaizen/component-library"
+import { Button } from "@kaizen/draft-button"
 import { TextField } from "@kaizen/draft-form"
 import {
   ConfirmationModal,

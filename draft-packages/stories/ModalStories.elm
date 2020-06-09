@@ -1,11 +1,11 @@
 module Main exposing (main)
 
-import Button.Button as Button
 import ElmStorybook exposing (storyOf, storybook)
 import Html exposing (div, text)
 import Html.Attributes exposing (style)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
+import KaizenDraft.Button.Button as Button
 import KaizenDraft.Form.TextField.TextField as TextField
 import KaizenDraft.Modal.Modal as Modal
 import KaizenDraft.Modal.Primitives.Constants as ModalConstants

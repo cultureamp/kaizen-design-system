@@ -1,12 +1,7 @@
 import React, { useState } from "react"
 
-import {
-  Box,
-  Button, // @TODO - use the Zen button
-  IconButton,
-  Paragraph,
-  Text,
-} from "@kaizen/component-library"
+import { Box, Paragraph, Text } from "@kaizen/component-library"
+import { Button, IconButton } from "@kaizen/draft-button"
 const styles = require("./HeroPanel.scss")
 const crossIcon = require("@kaizen/component-library/icons/close.icon.svg")
   .default
