@@ -1,4 +1,4 @@
-import { Icon, Text } from "@kaizen/component-library"
+import { Icon, Paragraph } from "@kaizen/component-library"
 import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible"
 import { action } from "@storybook/addon-actions"
 import * as React from "react"
@@ -27,7 +27,7 @@ export default {
 export const SingleCollapsibleKaizenSiteDemo = () => (
   <div style={{ margin: "1rem", width: "40rem" }}>
     <Collapsible id="collapsible-single" open title="Single collapsible">
-      <Text tag="p">{lipsum}</Text>
+      <Paragraph variant="body">{lipsum}</Paragraph>
     </Collapsible>
   </div>
 )
@@ -45,19 +45,17 @@ export const SingleCollapsibleNoPadding = () => (
       title="Single collapsible with no padding"
     >
       <ListItem>
-        <Text tag="p" inline>
-          Maybe you would like...
-        </Text>
+        <Paragraph variant="body">Maybe you would like...</Paragraph>
       </ListItem>
       <ListItem>
-        <Text tag="p" inline>
+        <Paragraph variant="body">
           ...content items separated with full length borders?
-        </Text>
+        </Paragraph>
       </ListItem>
       <ListItem>
-        <Text tag="p" inline>
+        <Paragraph variant="body">
           In that case you should use the 'noSectionPadding' prop.
-        </Text>
+        </Paragraph>
       </ListItem>
     </Collapsible>
   </div>
@@ -77,16 +75,16 @@ export const SingleCollapsibleCustomHeader = () => (
         <>
           <Icon icon={translationIcon} />
           <div style={{ flex: "1 0 auto", marginLeft: "1rem" }}>
-            <Text tag="span" style="heading" inheritBaseline>
+            <Paragraph tag="span" variant="body">
               {title}
-            </Text>
+            </Paragraph>
           </div>
         </>
       )}
     >
-      <Text tag="p">
+      <Paragraph variant="body">
         You can create a custom header using the renderHeader prop.
-      </Text>
+      </Paragraph>
     </Collapsible>
   </div>
 )
@@ -98,15 +96,15 @@ SingleCollapsibleCustomHeader.story = {
 export const SingleCollapsibleLazyLoad = () => (
   <div style={{ margin: "1rem", width: "40rem" }}>
     <Collapsible id="collapsible-single" title="Single collapsible" lazyLoad>
-      <Text tag="p">
+      <Paragraph variant="body">
         This content won't be rendered until the collapsible is opened. This is
         particularly useful when you have data being queried inside your
         collapsible content.
-      </Text>
-      <Text tag="p">
+      </Paragraph>
+      <Paragraph variant="body">
         This has a necessary side effect of removing the height animation on
         open and close.
-      </Text>
+      </Paragraph>
     </Collapsible>
   </div>
 )
@@ -120,13 +118,13 @@ export const _CollapsibleGroup = () => (
   <div style={{ margin: "1rem", width: "40rem" }}>
     <CollapsibleGroup>
       <Collapsible id="collapsible-separate-1" open title="First panel">
-        <Text tag="p">{lipsum}</Text>
+        <Paragraph variant="body">{lipsum}</Paragraph>
       </Collapsible>
       <Collapsible id="collapsible-separate-2" title="Second panel">
-        <Text tag="p">{lipsum}</Text>
+        <Paragraph variant="body">{lipsum}</Paragraph>
       </Collapsible>
       <Collapsible id="collapsible-separate-3" title="Third panel">
-        <Text tag="p">{lipsum}</Text>
+        <Paragraph variant="body">{lipsum}</Paragraph>
       </Collapsible>
     </CollapsibleGroup>
   </div>
@@ -140,13 +138,13 @@ export const CollapsibleGroupSeparated = () => (
   <div style={{ margin: "1rem", width: "40rem" }}>
     <CollapsibleGroup separated>
       <Collapsible id="collapsible-separate-1" open title="First panel">
-        <Text tag="p">{lipsum}</Text>
+        <Paragraph variant="body">{lipsum}</Paragraph>
       </Collapsible>
       <Collapsible id="collapsible-separate-2" title="Second panel">
-        <Text tag="p">{lipsum}</Text>
+        <Paragraph variant="body">{lipsum}</Paragraph>
       </Collapsible>
       <Collapsible id="collapsible-separate-3" title="Third panel">
-        <Text tag="p">{lipsum}</Text>
+        <Paragraph variant="body">{lipsum}</Paragraph>
       </Collapsible>
     </CollapsibleGroup>
   </div>
@@ -160,28 +158,28 @@ export const CollapsibleGroupStickyHeaders = () => (
   <div style={{ margin: "4rem", width: "40rem" }}>
     <CollapsibleGroup separated sticky={{ top: "0" }}>
       <Collapsible id="collapsible-separate-1" title="First panel" open>
-        <Text tag="p">{lipsum}</Text>
-        <Text tag="p">{lipsum}</Text>
-        <Text tag="p">{lipsum}</Text>
+        <Paragraph variant="body">{lipsum}</Paragraph>
+        <Paragraph variant="body">{lipsum}</Paragraph>
+        <Paragraph variant="body">{lipsum}</Paragraph>
       </Collapsible>
       <Collapsible id="collapsible-separate-2" title="Second panel" open>
-        <Text tag="p">{lipsum}</Text>
-        <Text tag="p">{lipsum}</Text>
+        <Paragraph variant="body">{lipsum}</Paragraph>
+        <Paragraph variant="body">{lipsum}</Paragraph>
       </Collapsible>
       <Collapsible id="collapsible-separate-3" title="Third panel" open>
-        <Text tag="p">{lipsum}</Text>
-        <Text tag="p">{lipsum}</Text>
-        <Text tag="p">{lipsum}</Text>
+        <Paragraph variant="body">{lipsum}</Paragraph>
+        <Paragraph variant="body">{lipsum}</Paragraph>
+        <Paragraph variant="body">{lipsum}</Paragraph>
       </Collapsible>
       <Collapsible id="collapsible-separate-4" title="Forth panel" open>
-        <Text tag="p">{lipsum}</Text>
-        <Text tag="p">{lipsum}</Text>
-        <Text tag="p">{lipsum}</Text>
+        <Paragraph variant="body">{lipsum}</Paragraph>
+        <Paragraph variant="body">{lipsum}</Paragraph>
+        <Paragraph variant="body">{lipsum}</Paragraph>
       </Collapsible>
       <Collapsible id="collapsible-separate-5" title="Fifth panel" open>
-        <Text tag="p">{lipsum}</Text>
-        <Text tag="p">{lipsum}</Text>
-        <Text tag="p">{lipsum}</Text>
+        <Paragraph variant="body">{lipsum}</Paragraph>
+        <Paragraph variant="body">{lipsum}</Paragraph>
+        <Paragraph variant="body">{lipsum}</Paragraph>
       </Collapsible>
     </CollapsibleGroup>
   </div>
@@ -196,13 +194,13 @@ export const CollapsibleGroupCallbackOnOpenClose = () => {
     <div style={{ margin: "1rem", width: "40rem" }}>
       <CollapsibleGroup onToggle={action("Collapsible toggled")}>
         <Collapsible id="collapsible-separate-1" open title="First panel">
-          <Text tag="p">{lipsum}</Text>
+          <Paragraph variant="body">{lipsum}</Paragraph>
         </Collapsible>
         <Collapsible id="collapsible-separate-2" title="Second panel">
-          <Text tag="p">{lipsum}</Text>
+          <Paragraph variant="body">{lipsum}</Paragraph>
         </Collapsible>
         <Collapsible id="collapsible-separate-3" title="Third panel">
-          <Text tag="p">{lipsum}</Text>
+          <Paragraph variant="body">{lipsum}</Paragraph>
         </Collapsible>
       </CollapsibleGroup>
     </div>

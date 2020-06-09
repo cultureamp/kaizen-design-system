@@ -52,7 +52,7 @@ export const DefaultKaizenSiteDemo = () => (
   <ExampleContainer>
     <TextAreaField
       id="reply"
-      labelText="Your Reply"
+      labelText="Your reply"
       placeholder="Write your reply..."
       onChange={action("user input")}
     />
@@ -67,7 +67,7 @@ export const DefaultLarge = () => (
   <ExampleContainer>
     <TextAreaField
       id="reply"
-      labelText="Your Reply"
+      labelText="Your reply"
       placeholder="Write your reply..."
       onChange={action("user input")}
       rows={7}
@@ -83,7 +83,7 @@ export const DefaultError = () => (
   <ExampleContainer>
     <TextAreaField
       id="reply"
-      labelText="Your Reply"
+      labelText="Your reply"
       placeholder="Write your reply..."
       onChange={action("user input")}
       status="error"
@@ -100,7 +100,7 @@ export const DefaultPrefilled = () => (
   <ExampleContainer>
     <TextAreaField
       id="reply"
-      labelText="Your Reply"
+      labelText="Your reply"
       onChange={action("user input")}
       defaultValue="A prefilled value in uncontrolled mode"
     />
@@ -117,7 +117,7 @@ export const DefaultControlled = () => (
       render={({ controlledValue, updateValue }) => (
         <TextAreaField
           id="reply"
-          labelText="Your Reply"
+          labelText="Your reply"
           value={controlledValue}
           onChange={updateValue}
         />
@@ -134,7 +134,7 @@ export const DefaultWithDesc = () => (
   <ExampleContainer>
     <TextAreaField
       id="reply"
-      labelText="Your Reply"
+      labelText="Your reply"
       placeholder="Write your reply..."
       onChange={action("user input")}
       description="Your reply will only be seen by you"
@@ -150,7 +150,7 @@ export const DefaultInline = () => (
   <ExampleContainer>
     <TextAreaField
       id="reply"
-      labelText="Your Reply"
+      labelText="Your reply"
       placeholder="Write your reply..."
       onChange={action("user input")}
       inline={true}
@@ -166,7 +166,7 @@ export const DefaultErrorAndDesc = () => (
   <ExampleContainer>
     <TextAreaField
       id="reply"
-      labelText="Your Reply"
+      labelText="Your reply"
       placeholder="Write your reply..."
       onChange={action("user input")}
       status="error"

@@ -173,7 +173,6 @@ export const ActionButton = () => (
           label="Label"
           icon={chevronRight}
           iconPosition="end"
-          primary
           fullWidth
         />
       </div>
