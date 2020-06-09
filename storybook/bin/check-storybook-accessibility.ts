@@ -16,7 +16,7 @@ const printUsage = () => {
     Usage:
     yarn storybook-axe BASE_STORYBOOK_URL
       eg. yarn storybook-axe http://localhost:1234
-          yarn storybook-axe storybook/public
+          yarn storybook-axe file:///path/to/kaizen-design-system/storybook/public
   `
   )
 }
