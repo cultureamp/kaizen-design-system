@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { Button } from "@kaizen/draft-button"
+import { Button } from "@kaizen/component-library"
 import GenericModalSection from "./GenericModalSection"
 
 const styles = require("./ModalFooter.scss")

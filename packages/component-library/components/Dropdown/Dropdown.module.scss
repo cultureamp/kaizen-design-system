@@ -21,7 +21,7 @@ $caButton-verticalPadding: calc(#{$ca-grid / 2} - #{$caButton-border-width});
   display: inline;
   background: transparent;
   color: inherit;
-  // font: inherit;
+  font: inherit;
   cursor: pointer;
   margin: 0;
   padding: 0;
