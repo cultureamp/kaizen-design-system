@@ -18,7 +18,39 @@ require("normalize.css")
 require("@kaizen/component-library/styles/fonts.scss")
 
 addDecorator(withA11y)
-addDecorator(withInfo)
+addDecorator(
+  withInfo({
+    styles: {
+      button: {
+        topRight: {
+          top: "calc(100vh - 24px)",
+          left: 0,
+          borderRadius: "0px 7px 0px 0px",
+        },
+      },
+      infoBody: {
+        fontFamily:
+          '"Inter", Helvetica Neue, Helvetica, Segoe UI, Arial, freesans, sans-serif',
+        color: "#35374a",
+      },
+      header: {
+        h1: {
+          fontFamily:
+            '"Greycliff CF", Helvetica Neue, Helvetica, Segoe UI, Arial, freesans, sans-serif',
+        },
+        h2: {
+          fontFamily:
+            '"Greycliff CF", Helvetica Neue, Helvetica, Segoe UI, Arial, freesans, sans-serif',
+          fontWeight: "700",
+        },
+        h3: {
+          fontFamily:
+            '"Greycliff CF", Helvetica Neue, Helvetica, Segoe UI, Arial, freesans, sans-serif',
+        },
+      },
+    },
+  })
+)
 
 addParameters({
   backgrounds,
