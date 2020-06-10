@@ -43,7 +43,7 @@ $label-start-padding: 10px;
 
   .labelText {
     @include ca-padding($start: $label-start-padding);
-    transform: translateY(-0.11em); // optically centre label
+    // transform: translateY(-0.11em); // optically centre label
   }
 }
 .checkbox {
