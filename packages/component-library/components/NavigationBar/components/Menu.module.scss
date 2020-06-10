@@ -3,9 +3,10 @@
 @import "../styles";
 @import "../../../styles/border";
 @import "../../../styles/color";
-@import "../../../styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "../../../styles/layers";
 @import "../../../styles/layout";
+@import "../../../styles/grid";
 
 $menu__square-size: $ca-grid * 2;
 
