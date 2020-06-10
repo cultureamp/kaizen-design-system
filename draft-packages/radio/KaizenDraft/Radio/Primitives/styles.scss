@@ -1,15 +1,18 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/mixins/forms";
 
-$radio-size: 20px;
+$radio-size: 24px;
 $icon-size: 10px;
-$icon-offset: 3px;
+$icon-offset: 5px;
+$focus-ring-offset: 2px;
 
 .radioInput {
   @include form-input-visually-hidden();
 }
+
 .icon {
   top: $icon-offset;
   left: $icon-offset;
@@ -37,8 +40,22 @@ $icon-offset: 3px;
 
   .radioInput:focus:not([disabled]) + &,
   .radioInput:hover:focus:not([disabled]) + & {
-    border-color: $ca-border-color-focus;
+    border-color: $kz-color-wisteria-700;
     background-color: $kz-color-wisteria-100;
+  }
+
+  .radioInput:focus:not([disabled]) + &::after {
+    content: "";
+    position: absolute;
+    background: transparent;
+    border-radius: $radio-size + $focus-ring-offset;
+    border-width: $kz-border-focus-ring-border-width;
+    border-style: $kz-border-focus-ring-border-style;
+    border-color: $ca-border-color-focus;
+    top: -$focus-ring-offset - ($radio-size / 8);
+    left: -$focus-ring-offset - ($radio-size / 8);
+    width: $radio-size + $focus-ring-offset;
+    height: $radio-size + $focus-ring-offset;
   }
 
   .radioInput:not([disabled]) + &:hover {

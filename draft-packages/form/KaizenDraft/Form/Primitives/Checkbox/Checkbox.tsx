@@ -18,6 +18,8 @@ export type CheckboxProps = {
   disabled?: boolean
   name?: string
   tabIndex?: number
+  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
 }
 
 type Input = React.FunctionComponent<CheckboxProps>
@@ -48,6 +50,8 @@ const Input: Input = ({
   name,
   checkedStatus = "off" as CheckedStatus,
   onCheck,
+  onFocus,
+  onBlur,
   disabled = false,
   tabIndex,
 }) => (
@@ -65,6 +69,8 @@ const Input: Input = ({
       className={classnames(styles.checkbox, "needsclick")}
       checked={getCheckedFromStatus(checkedStatus)}
       onChange={onCheck}
+      onFocus={onFocus}
+      onBlur={onBlur}
       disabled={disabled}
       ref={node => {
         if (node && checkedStatus === "mixed") {
