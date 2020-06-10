@@ -6,6 +6,7 @@
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 $base-border: $kz-border-solid-border-width $kz-border-solid-border-style
   $ca-border-color;
@@ -131,7 +132,7 @@ $side-padding: 3/4 * $ca-grid;
 
 .default,
 .primary {
-  @include ca-type-ideal-body-bold;
+  @include kz-typography-paragraph-body-bold;
   top: initial; // override from ca-type-ideal-body-bold -> ca-type-ideal -> ca-type
   text-align: left;
   position: inherit;
@@ -248,7 +249,7 @@ $side-padding: 3/4 * $ca-grid;
   [dir="rtl"] & {
     // equal to add-tint($ca-palette-seedling, 10%). Temporary until we upgrade to Zen (Wisteria)
     border-left-color: #58b59a !important;
-    border-right-color: $kz-color-white !important;
+    border-left-color: $kz-color-white !important;
   }
 }
 

@@ -11,7 +11,7 @@ beforeEach(() => {
 
 test('Begins "hidden" but transitions out of it immediately', async () => {
   const { container } = render(
-    <GenericNotification type="affirmative" style="inline" title="Success!">
+    <GenericNotification type="affirmative" style="inline" title="Success">
       This is my positive notification
     </GenericNotification>
   )
@@ -27,7 +27,7 @@ test("The cancel button hides the notification and triggers the onHide callback"
     <GenericNotification
       type="affirmative"
       style="inline"
-      title="Success!"
+      title="Success"
       onHide={onHide}
     >
       This is my positive notification
@@ -62,7 +62,7 @@ test("If autohide is specified, we should start hiding after 5s", async () => {
     <GenericNotification
       type="affirmative"
       style="toast"
-      title="Success!"
+      title="Success"
       autohide
     >
       This is my positive notification

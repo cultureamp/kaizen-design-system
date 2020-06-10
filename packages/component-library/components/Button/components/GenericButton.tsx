@@ -20,6 +20,8 @@ type GenericProps = {
   fullWidth?: boolean
   disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean
   analytics?: Analytics
+  onFocus?: (e: React.FocusEvent<HTMLElement>) => void
+  onBlur?: (e: React.FocusEvent<HTMLElement>) => void
 }
 
 type LabelProps = {
@@ -70,6 +72,8 @@ const renderButton: React.FunctionComponent<Props> = props => {
     onClick,
     type,
     disableTabFocusAndIUnderstandTheAccessibilityImplications,
+    onFocus,
+    onBlur,
   } = props
   const label = props.icon && props.iconButton ? props.label : undefined
 
@@ -84,6 +88,8 @@ const renderButton: React.FunctionComponent<Props> = props => {
           onClick && onClick(e)
         }
       }}
+      onFocus={onFocus}
+      onBlur={onBlur}
       type={type}
       data-automation-id={props.automationId}
       title={label}
@@ -109,6 +115,8 @@ const renderLink: React.FunctionComponent<Props> = props => {
     href,
     onClick,
     newTabAndIUnderstandTheAccessibilityImplications,
+    onFocus,
+    onBlur,
   } = props
 
   return (
@@ -125,6 +133,8 @@ const renderLink: React.FunctionComponent<Props> = props => {
           onClick && onClick(e)
         }
       }}
+      onFocus={onFocus}
+      onBlur={onBlur}
       data-automation-id={props.automationId}
       data-analytics-click={props.analytics && props.analytics.eventName}
       data-analytics-properties={

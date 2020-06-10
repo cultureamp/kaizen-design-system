@@ -6,7 +6,7 @@ afterEach(cleanup)
 
 test("The basic notification renders correctly", () => {
   const { container } = render(
-    <ToastNotification type="affirmative" title="Success!">
+    <ToastNotification type="affirmative" title="Success">
       It worked!
     </ToastNotification>
   )

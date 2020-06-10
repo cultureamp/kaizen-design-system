@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/component-library/styles/color";
-@import "~@kaizen/component-library/styles/type";
-@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 
 $label-start-padding: 10px;
 
@@ -30,14 +30,15 @@ $label-start-padding: 10px;
 // This is to override bootstrap styles. Remove when appropriate
 .text,
 :global(.ideal-sans) .text {
-  @include ca-type-ideal-label;
+  @include kz-typography-heading-6;
   @include ca-inherit-baseline;
 }
 
 %checkboxOrRadio,
 :global(.ideal-sans) %checkboxOrRadio {
-  @include ca-type-ideal-body;
+  @include kz-typography-paragraph-body;
   @include ca-inherit-baseline;
+
   display: flex;
 
   .labelText {
@@ -52,8 +53,9 @@ $label-start-padding: 10px;
   @extend %checkboxOrRadio;
 }
 .toggle {
-  @include ca-type-ideal-body-bold;
+  @include kz-typography-paragraph-body;
   @include ca-inherit-baseline;
+
   display: flex;
   justify-content: space-between;
   align-items: center;

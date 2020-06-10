@@ -1,8 +1,9 @@
-@import "../../styles/color";
-@import "../../styles/type";
-@import "../../styles/layout";
+@import "~@kaizen/component-library/styles/grid";
+@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/typography";
 
 $caButton-border-width: $kz-border-solid-border-width;
 $caButton-focus-border-width: $kz-border-focus-ring-border-width;
@@ -33,7 +34,13 @@ $caButton-verticalPaddingForm: calc(
 
 %caButton {
   @include button-reset;
-  @include ca-type-ideal-button;
+  @include kz-typography-inter(
+    $size: 18,
+    $weight: $kz-typography-button-primary-font-weight,
+    $letter-spacing: $kz-typography-button-primary-letter-spacing,
+    $line-height-in-grid-units:
+      to-grid-units($kz-typography-button-primary-line-height)
+  );
 
   display: flex;
   align-items: center;
