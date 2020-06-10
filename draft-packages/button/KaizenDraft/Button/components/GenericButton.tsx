@@ -21,6 +21,8 @@ type GenericProps = {
   fullWidth?: boolean
   disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean
   analytics?: Analytics
+  onFocus?: (e: React.FocusEvent<HTMLButtonElement>) => void
+  onBlur?: (e: React.FocusEvent<HTMLButtonElement>) => void
 }
 
 type LabelProps = {
@@ -72,6 +74,8 @@ const renderButton: React.FunctionComponent<Props> = props => {
     onMouseDown,
     type,
     disableTabFocusAndIUnderstandTheAccessibilityImplications,
+    onFocus,
+    onBlur,
   } = props
   const label = props.icon && props.iconButton ? props.label : undefined
 
@@ -86,6 +90,8 @@ const renderButton: React.FunctionComponent<Props> = props => {
           onClick && onClick(e)
         }
       }}
+      onFocus={onFocus}
+      onBlur={onBlur}
       onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
       type={type}
       data-automation-id={props.automationId}
