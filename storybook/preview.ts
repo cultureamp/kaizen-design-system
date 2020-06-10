@@ -1,4 +1,5 @@
 import { withA11y } from "@storybook/addon-a11y"
+import { withInfo } from "@storybook/addon-info"
 import { addDecorator, addParameters } from "@storybook/react"
 import { create } from "@storybook/theming"
 import { backgrounds } from "./backgrounds"
@@ -17,6 +18,7 @@ require("normalize.css")
 require("@kaizen/component-library/styles/fonts.scss")
 
 addDecorator(withA11y)
+addDecorator(withInfo)
 
 addParameters({
   backgrounds,
