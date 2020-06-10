@@ -62,6 +62,14 @@ const Menu: React.FunctionComponent = () => (
 
 export default {
   title: "Dropdown (React)",
+  component: Dropdown,
+  parameters: {
+    info: {
+      text: `
+        import { Dropdown, MenuHeader, MenuItem, MenuList, MenuSeparator, } from "@kaizen/component-library";
+      `,
+    },
+  },
 }
 
 export const DefaultMeatball = () => (

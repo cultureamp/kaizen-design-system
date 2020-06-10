@@ -25,6 +25,14 @@ const ExampleContent = () => (
 
 export default {
   title: "Well (React)",
+  component: Well,
+  parameters: {
+    info: {
+      text: `
+      import { Well } from "@kaizen/draft-well"
+      `,
+    },
+  },
 }
 
 export const DefaultWithSolidBorderKaizenSiteDemo = () => (

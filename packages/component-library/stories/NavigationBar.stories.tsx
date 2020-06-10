@@ -11,6 +11,14 @@ const supportIcon = require("@kaizen/component-library/icons/support.icon.svg")
 
 export default {
   title: "NavigationBar (React)",
+  component: NavigationBar,
+  parameters: {
+    info: {
+      text: `
+        import { NavigationBar, Menu, Link } from "@kaizen/component-library";
+      `,
+    },
+  },
 }
 
 export const Default = () => (

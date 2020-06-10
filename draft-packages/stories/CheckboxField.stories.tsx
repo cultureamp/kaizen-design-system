@@ -47,6 +47,14 @@ class CheckboxFieldExample extends React.Component<Props> {
 
 export default {
   title: "CheckboxField (React)",
+  component: CheckboxField,
+  parameters: {
+    info: {
+      text: `
+        import { CheckboxField } from "@kaizen/draft-form";
+      `,
+    },
+  },
 }
 
 export const InteractiveKaizenSiteDemo = () => (

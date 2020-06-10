@@ -17,6 +17,14 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => (
 
 export default {
   title: "VerticalProgressIndicator (React)",
+  component: VerticalProgressIndicator,
+  parameters: {
+    info: {
+      text: `
+      import { VerticalProgressIndicator } from "@kaizen/draft-vertical-progress-step"
+      `,
+    },
+  },
 }
 
 export const StartUpcoming = () => (

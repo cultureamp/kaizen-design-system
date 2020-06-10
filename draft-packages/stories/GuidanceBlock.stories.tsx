@@ -6,6 +6,14 @@ import { assetUrl } from "@kaizen/hosted-assets"
 
 export default {
   title: "GuidanceBlock (React)",
+  component: GuidanceBlock,
+  parameters: {
+    info: {
+      text: `
+        import { GuidanceBlock } from "@kaizen/draft-guidance-block";
+      `,
+    },
+  },
 }
 
 const guidanceBlockText = {

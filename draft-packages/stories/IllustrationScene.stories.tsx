@@ -49,6 +49,13 @@ import {
 export default {
   title: "Illustration, Scene (React)",
   component: ManagerLearningResilience,
+  parameters: {
+    info: {
+      text: `
+        import { EmptyStatesAction, EmptyStatesInformative, EmptyStatesNegative } from "@kaizen/draft-illustration";
+      `,
+    },
+  },
 }
 
 export const DefaultSiteDemo = () => (

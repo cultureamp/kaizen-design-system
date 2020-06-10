@@ -46,6 +46,14 @@ const ExampleContainer: React.FunctionComponent = ({ children }) => (
 
 export default {
   title: "TextAreaField (React)",
+  component: TextAreaField,
+  parameters: {
+    info: {
+      text: `
+      import { TextAreaField } from "@kaizen/draft-form"
+      `,
+    },
+  },
 }
 
 export const DefaultKaizenSiteDemo = () => (

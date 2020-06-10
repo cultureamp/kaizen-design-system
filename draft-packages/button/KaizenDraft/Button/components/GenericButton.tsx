@@ -4,7 +4,7 @@ import * as React from "react"
 
 const styles = require("./GenericButton.module.scss")
 
-type GenericProps = {
+export type GenericProps = {
   id?: string
   label: string
   destructive?: boolean

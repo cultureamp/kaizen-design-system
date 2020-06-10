@@ -49,6 +49,14 @@ const RtlContainer = ({ children }: { children: React.ReactNode }) => (
 
 export default {
   title: "ToggleSwitchField (React)",
+  component: ToggleSwitchField,
+  parameters: {
+    info: {
+      text: `
+      import { ToggledStatus, ToggleSwitchField, ToggleTheme } from "@kaizen/draft-form"
+      `,
+    },
+  },
 }
 
 export const OnKaizenSiteDemo = () => (

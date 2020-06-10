@@ -39,6 +39,14 @@ class RadioGroupExample extends React.Component<Props> {
 
 export default {
   title: "RadioGroup (React)",
+  component: RadioGroup,
+  parameters: {
+    info: {
+      text: `
+      import { RadioGroup } from "@kaizen/draft-radio-group"
+      `,
+    },
+  },
 }
 
 export const DefaultKaizenSiteDemo = () => (
