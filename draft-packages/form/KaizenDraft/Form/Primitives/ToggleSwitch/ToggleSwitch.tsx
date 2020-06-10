@@ -21,6 +21,8 @@ interface Props {
   onToggle?: (event: React.ChangeEvent<HTMLInputElement>) => any
   disabled?: boolean
   theme?: ToggleTheme
+  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
 }
 
 type ToggleSwitch = React.FunctionComponent<Props>
@@ -33,6 +35,8 @@ const ToggleSwitch: ToggleSwitch = ({
   onToggle,
   disabled,
   theme,
+  onFocus,
+  onBlur,
 }) => {
   const isOn = toggledStatus === ToggledStatus.ON
 
@@ -52,6 +56,8 @@ const ToggleSwitch: ToggleSwitch = ({
         className={styles.checkbox}
         checked={isOn ? true : false}
         onChange={onToggle}
+        onFocus={onFocus}
+        onBlur={onBlur}
         disabled={disabled}
       />
       <div

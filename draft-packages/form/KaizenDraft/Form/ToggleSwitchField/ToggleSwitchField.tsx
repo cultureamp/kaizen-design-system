@@ -21,6 +21,8 @@ interface Props {
   inline?: boolean
   fullWidth?: boolean
   theme?: ToggleTheme
+  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
 }
 
 type ToggleSwitchField = React.FunctionComponent<Props>
@@ -35,6 +37,8 @@ const ToggleSwitchField: ToggleSwitchField = ({
   inline = false,
   fullWidth = false,
   theme = ToggleTheme.DEFAULT,
+  onFocus,
+  onBlur,
 }) => (
   <FieldGroup
     id={`${id}-field-group`}
@@ -60,6 +64,8 @@ const ToggleSwitchField: ToggleSwitchField = ({
           toggledStatus={toggledStatus}
           name={name}
           onToggle={onToggle}
+          onFocus={onFocus}
+          onBlur={onBlur}
           theme={theme}
         />
       </Label>
