@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@1.7.0...@kaizen/draft-form@1.8.0) (2020-06-10)
+
+
+### Features
+
+* Add blur and focus callbacks to form components ([#537](https://github.com/cultureamp/kaizen-design-system/issues/537)) ([5bd717b](https://github.com/cultureamp/kaizen-design-system/commit/5bd717b019d89da27cee0cd4b198c606b458b795))
+
+
+
+
+
 # [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@1.6.7...@kaizen/draft-form@1.7.0) (2020-06-09)
 
 
