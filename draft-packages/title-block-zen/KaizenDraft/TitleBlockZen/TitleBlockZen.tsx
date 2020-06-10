@@ -20,7 +20,7 @@ const hamburgerIcon = require("@kaizen/component-library/icons/hamburger.icon.sv
 type Props = {
   children?: React.ReactNode
   title: string
-  variant?: "admin" | "education" // the default is wisteria bg (AKA "reporting")
+  variant?: Variant
   breadcrumb?: Breadcrumb
   avatar?: JSX.Element
   subtitle?: string
@@ -33,6 +33,8 @@ type Props = {
   textDirection?: TextDirection
   surveyStatus?: SurveyStatus
 }
+
+type Variant = "admin" | "education" // the default is wisteria bg (AKA "reporting")
 
 type PrimaryActions = Array<React.ReactElement<ButtonProps>>
 
@@ -83,13 +85,17 @@ const renderSubtitle = (subtitle: string) => (
 
 const renderSectionTitle = (
   sectionTitle: string,
-  sectionTitleDescription?: string
+  sectionTitleDescription?: string,
+  variant?: Variant
 ) => (
   <div className={styles.sectionTitleContainer}>
     <div className={styles.sectionTitleInner}>
       <div className={styles.sectionTitle}>
         <Heading
           variant="heading-2"
+          color={
+            variant === "education" || variant === "admin" ? "dark" : "white"
+          }
           classNameAndIHaveSpokenToDST={styles.sectionTitleOverride}
         >
           {sectionTitle}
@@ -213,7 +219,7 @@ const TitleBlockZen = ({
       <div className={styles.rowBelowSeparatorInner}>
         <div className={styles.rowBelowSeparatorInnerContent}>
           {sectionTitle &&
-            renderSectionTitle(sectionTitle, sectionTitleDescription)}
+            renderSectionTitle(sectionTitle, sectionTitleDescription, variant)}
           {navigationTabs && renderNavigationTabs(navigationTabs)}
           {secondaryActions && renderSecondaryActions(secondaryActions)}
         </div>
