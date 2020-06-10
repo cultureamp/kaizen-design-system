@@ -66,7 +66,7 @@ export default {
   parameters: {
     info: {
       text: `
-        import { Dropdown, MenuHeader, MenuItem, MenuList, MenuSeparator, } from "@kaizen/component-library";
+        import { Dropdown, MenuHeader, MenuItem, MenuList, MenuSeparator } from "@kaizen/component-library";
       `,
     },
   },
