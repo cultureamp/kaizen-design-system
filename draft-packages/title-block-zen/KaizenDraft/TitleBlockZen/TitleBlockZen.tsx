@@ -124,7 +124,15 @@ const renderBreadcrumb = (
 }
 
 const renderNavigationTabs = (navigationTabs: NavigationTabs) => {
-  return <div className={styles.navigationTabsContainer}>{navigationTabs}</div>
+  return (
+    <div className={styles.navigationTabScrollerContainer}>
+      <div className={styles.navigationTabsContainer}>
+        <span className={styles.navigationTabEdgeShadowLeft} />
+        {navigationTabs}
+        <span className={styles.navigationTabEdgeShadowRight} />
+      </div>
+    </div>
+  )
 }
 
 const renderSecondaryActions = (secondaryActions: SecondaryActions) => {

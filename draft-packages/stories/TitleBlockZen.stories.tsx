@@ -53,7 +53,7 @@ export const Default = () => (
       <NavigationTab text="Label" href="#" />,
       <NavigationTab text="Label" href="#" />,
     ]}
-  ></TitleBlockZen>
+  />
 )
 
 Default.story = {
@@ -82,7 +82,7 @@ export const AdminVariant = () => (
         alert("breadcrumb clicked!")
       },
     }}
-  ></TitleBlockZen>
+  />
 )
 
 AdminVariant.story = {
@@ -108,7 +108,7 @@ export const EducationVariant = () => (
         alert("breadcrumb clicked!")
       },
     }}
-  ></TitleBlockZen>
+  />
 )
 
 EducationVariant.story = {
@@ -153,7 +153,7 @@ export const Engagement = () => (
       <NavigationTab text="Heatmap" href="#" />,
       <NavigationTab text="Comments" href="#" />,
     ]}
-  ></TitleBlockZen>
+  />
 )
 
 Engagement.story = {
@@ -193,9 +193,55 @@ export const Performance = () => (
       <NavigationTab text="Evaluations" href="#" />,
       <NavigationTab text="Notes" href="#" />,
     ]}
-  ></TitleBlockZen>
+  />
 )
 
 Performance.story = {
   name: "Performance",
 }
+
+export const International = () => (
+  <TitleBlockZen
+    title="Blanca Wheeler"
+    primaryActions={[
+      <Button label="Feedback anfordern" reversed />,
+      <Button label="Feedback geben" primary reversed />,
+    ]}
+    secondaryActions={[
+      <Button
+        label="Schneller Kommentar"
+        secondary
+        reversed
+        icon={commentIcon}
+      />,
+      <Button
+        label="Fähigkeiten überprüfen"
+        secondary
+        reversed
+        icon={starIcon}
+      />,
+    ]}
+    breadcrumb={{
+      path: "#",
+      text: "Zurück nach Hause",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+    avatar={<img alt="avatar image" src={assetUrl("site/empty-state.png")} />}
+    subtitle="Marketing-Assistentin"
+    navigationTabs={[
+      <NavigationTab text="Feedback" href="#" active />,
+      <NavigationTab
+        text="Selbstreflexion"
+        href="#"
+        handleClick={event => {
+          alert("Self-reflection clicked!")
+        }}
+      />,
+      <NavigationTab text="Tor" href="#" />,
+      <NavigationTab text="Bewertungen" href="#" />,
+      <NavigationTab text="Anmerkungen" href="#" />,
+    ]}
+  />
+)

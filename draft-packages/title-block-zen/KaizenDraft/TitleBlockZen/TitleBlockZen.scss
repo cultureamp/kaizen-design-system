@@ -13,6 +13,9 @@ $breadcrumb-breakpoint-width: $kz-layout-content-max-width +
   $page-margin-width-large * 2 + $breadcrumb-circle-width * 2.25;
 $title-block-separator-height: 3px;
 
+$tab-container-height-default: $ca-grid * 3;
+$tab-container-height-small: $ca-grid * 2.5;
+
 .titleBlock {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -258,13 +261,9 @@ $title-block-separator-height: 3px;
 .rowBelowSeparatorInnerContent {
   display: flex;
   width: 100%;
-  height: $ca-grid * 3;
+  height: inherit;
   margin-top: -$title-block-separator-height;
   justify-content: space-between;
-
-  @include title-block-under-1080 {
-    height: $ca-grid * 2.5;
-  }
 }
 
 .titleAndAdjacent {
@@ -310,6 +309,45 @@ $title-block-separator-height: 3px;
 
 .navigationTabsContainer {
   display: flex;
+  position: relative;
+  height: $tab-container-height-default;
+
+  @include title-block-under-768 {
+    height: $tab-container-height-small;
+  }
+}
+
+.navigationTabScrollerContainer {
+  overflow-x: scroll;
+}
+
+.navigationTabEdgeShadow {
+  display: none;
+
+  @include title-block-under-768 {
+    display: block;
+    position: fixed;
+    width: $ca-grid * 2;
+    height: $tab-container-height-small;
+    background: linear-gradient(
+      0,
+      $kz-color-wisteria-700,
+      add-alpha($kz-color-wisteria-700, 0%)
+    );
+    z-index: $ca-z-index-sticky;
+  }
+}
+
+.navigationTabEdgeShadowLeft {
+  composes: navigationTabEdgeShadow;
+  transform: rotate(90deg);
+  left: 0;
+}
+
+.navigationTabEdgeShadowRight {
+  composes: navigationTabEdgeShadow;
+  transform: rotate(-90deg);
+  right: 0;
 }
 
 .primaryActionsContainer {
