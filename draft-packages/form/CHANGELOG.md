@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@1.8.0...@kaizen/draft-form@2.0.0) (2020-06-10)
+
+
+### Features
+
+* Use new focus ring & size for checkbox & radio ([#420](https://github.com/cultureamp/kaizen-design-system/issues/420)) ([f287fb4](https://github.com/cultureamp/kaizen-design-system/commit/f287fb4f9d9f2322d44eb9581fea8d644e8a0f02))
+
+
+### BREAKING CHANGES
+
+* this PR has been raised from feat to major
+
+We feel that usage of this PR in consuming repos will need
+some QA, therefore we are upgrading to major/breaking. This is
+inline with the direction we are heading in that feat releases
+will not require QA.
+
+Co-authored-by: Michael Bylstra <mbylstra@gmail.com>
+
+
+
+
+
+# [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@1.7.0...@kaizen/draft-form@1.8.0) (2020-06-10)
+
+
+### Features
+
+* Add blur and focus callbacks to form components ([#537](https://github.com/cultureamp/kaizen-design-system/issues/537)) ([5bd717b](https://github.com/cultureamp/kaizen-design-system/commit/5bd717b019d89da27cee0cd4b198c606b458b795))
+
+
+
+
+
 # [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@1.6.7...@kaizen/draft-form@1.7.0) (2020-06-09)
 
 

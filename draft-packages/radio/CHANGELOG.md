@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@1.4.1...@kaizen/draft-radio@2.0.0) (2020-06-10)
+
+
+### Features
+
+* Use new focus ring & size for checkbox & radio ([#420](https://github.com/cultureamp/kaizen-design-system/issues/420)) ([f287fb4](https://github.com/cultureamp/kaizen-design-system/commit/f287fb4f9d9f2322d44eb9581fea8d644e8a0f02))
+
+
+### BREAKING CHANGES
+
+* this PR has been raised from feat to major
+
+We feel that usage of this PR in consuming repos will need
+some QA, therefore we are upgrading to major/breaking. This is
+inline with the direction we are heading in that feat releases
+will not require QA.
+
+Co-authored-by: Michael Bylstra <mbylstra@gmail.com>
+
+
+
+
+
+## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@1.4.0...@kaizen/draft-radio@1.4.1) (2020-06-10)
+
+**Note:** Version bump only for package @kaizen/draft-radio
+
+
+
+
+
 # [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@1.3.13...@kaizen/draft-radio@1.4.0) (2020-06-09)
 
 
