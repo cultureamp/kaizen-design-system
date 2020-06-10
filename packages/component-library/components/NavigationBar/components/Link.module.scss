@@ -55,7 +55,7 @@ $indicator-height: 3px;
 
 .badge {
   @include ca-margin($start: $ca-grid * 0.25);
-  @include ca-type-ideal-small-bold;
+  @include ca-type-inter-small-bold;
   @include ca-inherit-baseline;
 
   border-radius: $ca-grid;

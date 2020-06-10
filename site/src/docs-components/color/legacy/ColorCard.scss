@@ -90,7 +90,7 @@ $accessibilityTileWidth: 46px;
 }
 
 .colorBlock {
-  @include ca-type-ideal-body;
+  @include ca-type-inter-body;
 
   box-sizing: border-box;
   $bottomMargin: 2px;
@@ -146,13 +146,13 @@ $accessibilityTileWidth: 46px;
 }
 
 .dropdownItem strong {
-  @include ca-type-ideal-labels-and-legends;
+  @include ca-type-inter-labels-and-legends;
   @include ca-inherit-baseline;
   width: 25%;
 }
 
 .dropdownItem input {
-  @include ca-type-ideal-small;
+  @include ca-type-inter-small;
   @include ca-inherit-baseline;
   opacity: 0.4;
   outline: none;

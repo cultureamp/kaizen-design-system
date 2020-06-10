@@ -83,7 +83,7 @@ $tileHeight: $ca-grid * 6;
   opacity: 0;
 
   .copyLabelText {
-    @include ca-type-ideal-small;
+    @include ca-type-inter-small;
     display: block;
     text-align: center;
     color: $kz-color-cluny-500;

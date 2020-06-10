@@ -13,7 +13,7 @@ $cardPadding: $ca-grid / 2;
 }
 
 .iconExample {
-  @include ca-type-ideal-labels-and-legends;
+  @include ca-type-inter-labels-and-legends;
   display: inline-flex;
   flex-direction: column;
   align-items: center;

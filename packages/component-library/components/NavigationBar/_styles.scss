@@ -88,13 +88,13 @@ $link-margin: $ca-grid / 4;
     }
   }
 
-  @include ca-type-ideal-heading;
+  @include ca-type-inter-heading;
   @include ca-inherit-baseline;
   top: 0;
 
   &.secondary {
     @include ca-media-tablet-and-up {
-      @include ca-type-ideal-body;
+      @include ca-type-inter-body;
       @include ca-inherit-baseline;
 
       padding: 0 $ca-grid / 2;

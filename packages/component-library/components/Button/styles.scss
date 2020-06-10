@@ -155,7 +155,7 @@ $caButton-verticalPaddingForm: calc(
 }
 
 %caButtonSecondary {
-  @include ca-type-ideal-body-bold;
+  @include ca-type-inter-body-bold;
 
   &:not(:disabled) {
     background: transparent;
@@ -349,7 +349,7 @@ $caButton-verticalPaddingForm: calc(
 
 %caButtonLabel {
   // This line height equates to 3/4 of a grid unit - so 18px. We set this
-  // here rather than in ca-type-ideal-button because changing the type style
+  // here rather than in ca-type-inter-button because changing the type style
   // changes the baseline grid alignment for all buttons. Changing it here keeps
   // the baseline alignment correct for single line buttons.
   line-height: 1;

@@ -5,71 +5,71 @@
 }
 
 .pageTitle {
-  @include ca-type-ideal-page-title;
+  @include ca-type-inter-page-title;
   margin: $ca-grid * 1.5 0;
 }
 
 .title {
-  @include ca-type-ideal-title;
+  @include ca-type-inter-title;
   margin: $ca-grid * 1.5 0;
 }
 
 .display {
-  @include ca-type-ideal-display;
+  @include ca-type-inter-display;
   margin: $ca-grid 0;
 }
 
 .heading {
-  @include ca-type-ideal-heading;
+  @include ca-type-inter-heading;
 }
 
 .lede {
-  @include ca-type-ideal-lede;
+  @include ca-type-inter-lede;
 }
 
 .body {
-  @include ca-type-ideal-body;
+  @include ca-type-inter-body;
 }
 
 .bodyBold {
-  @include ca-type-ideal-body-bold;
+  @include ca-type-inter-body-bold;
 }
 
 .small {
-  @include ca-type-ideal-small;
+  @include ca-type-inter-small;
 }
 
 .smallBold {
-  @include ca-type-ideal-small-bold;
+  @include ca-type-inter-small-bold;
 }
 
 .notification {
-  @include ca-type-ideal-notification;
+  @include ca-type-inter-notification;
 }
 
 .label {
-  @include ca-type-ideal-label;
+  @include ca-type-inter-label;
 }
 
 .controlAction {
-  @include ca-type-ideal-control-action;
+  @include ca-type-inter-control-action;
 }
 
 .button {
-  @include ca-type-ideal-button;
+  @include ca-type-inter-button;
 }
 
 .typographyShowcaseItem {
   margin-bottom: $ca-grid * 2;
   h3 {
-    @include ca-type-ideal-body;
+    @include ca-type-inter-body;
     margin-bottom: $ca-grid;
   }
   p {
     margin: 0 0 $ca-grid 0;
   }
   pre {
-    // @include ca-type-ideal-body;
+    // @include ca-type-inter-body;
     white-space: pre;
     background: $ca-palette-ink;
     color: white;
