@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.22.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.22.1...@kaizen/component-library@7.22.2) (2020-06-11)
+
+
+### Bug Fixes
+
+* a legacy var was accidentally renamed ([#543](https://github.com/cultureamp/kaizen-design-system/issues/543)) ([9e3beff](https://github.com/cultureamp/kaizen-design-system/commit/9e3beff9d95bc8206caae728785ca80f1e4da14e))
+
+
+
+
+
 ## [7.22.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.22.0...@kaizen/component-library@7.22.1) (2020-06-11)
 
 
