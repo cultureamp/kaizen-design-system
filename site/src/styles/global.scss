@@ -21,7 +21,7 @@ html {
 body {
   background-color: $kz-color-stone;
   color: $kz-color-wisteria-800;
-  font-family: $ca-ideal-sans-font-family;
+  font-family: $ca-inter-font-family;
 
   @include ca-media-mobile() {
     background-color: #fff;
