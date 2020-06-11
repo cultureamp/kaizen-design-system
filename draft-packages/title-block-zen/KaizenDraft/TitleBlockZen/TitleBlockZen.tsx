@@ -101,7 +101,9 @@ const renderSectionTitle = (
           {sectionTitle}
         </Heading>
       </div>
-      <div className={styles.sectionTitleDescription}>
+      <div className={classNames(styles.sectionTitleDescription, {
+        [styles.dark]: variant === "education" || variant === "admin"
+      })}>
         {sectionTitleDescription}
       </div>
     </div>

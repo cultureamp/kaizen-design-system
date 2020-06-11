@@ -223,12 +223,16 @@ $tab-container-height-small: $ca-grid * 2.5;
 
 .sectionTitleDescription {
   @include ca-margin($start: $ca-grid);
-  color: rgba($kz-color-wisteria-800, 0.7);
+  color: $kz-color-white;
   font-family: $kz-typography-paragraph-small-font-family;
   font-weight: $kz-typography-paragraph-small-font-weight;
   font-size: $kz-typography-paragraph-small-font-size;
   line-height: $kz-typography-paragraph-small-line-height;
   letter-spacing: $kz-typography-paragraph-small-letter-spacing;
+
+  &.dark {
+    color: rgba($kz-color-wisteria-800, 0.7);
+  }
 }
 
 .hamburger {
