@@ -133,7 +133,7 @@ $side-padding: 3/4 * $ca-grid;
 .default,
 .primary {
   @include kz-typography-paragraph-body-bold;
-  top: initial; // override from ca-type-ideal-body-bold -> ca-type-ideal -> ca-type
+  top: initial; // override from ca-type-inter-body-bold -> ca-type-inter -> ca-type
   text-align: left;
   position: inherit;
   text-decoration: none;
@@ -281,7 +281,7 @@ version since the React version relies on kaizen's MenuList
 }
 
 .menuItem {
-  @include ca-type-ideal-body;
+  @include ca-type-inter-body;
   @include ca-inherit-baseline;
   composes: interactiveIconWrapper from "~@kaizen/component-library/components/Icon/Icon.module.scss";
   background: transparent;
