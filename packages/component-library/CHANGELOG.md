@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.22.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.22.0...@kaizen/component-library@7.22.1) (2020-06-11)
+
+
+### Bug Fixes
+
+* Copy inter mixins from helper packages back to legacy type.scss ([#542](https://github.com/cultureamp/kaizen-design-system/issues/542)) ([5f11081](https://github.com/cultureamp/kaizen-design-system/commit/5f11081caafb3694234f54409f06d61609bc25a7))
+
+
+
+
+
 # [7.22.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.21.0...@kaizen/component-library@7.22.0) (2020-06-11)
 
 
