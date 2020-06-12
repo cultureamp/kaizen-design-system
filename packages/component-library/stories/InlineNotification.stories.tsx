@@ -4,6 +4,14 @@ import { InlineNotification } from "@kaizen/component-library"
 
 export default {
   title: "InlineNotification (React)",
+  component: InlineNotification,
+  parameters: {
+    info: {
+      text: `
+        import { InlineNotification } from "@kaizen/component-library";
+      `,
+    },
+  },
 }
 
 export const DismissiblePositiveKaizenSiteDemo = () => (

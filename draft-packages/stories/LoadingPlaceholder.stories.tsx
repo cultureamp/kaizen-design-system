@@ -10,6 +10,14 @@ const StoryContainer: React.FunctionComponent<{}> = ({ children }) => {
 
 export default {
   title: "LoadingPlaceholder (React)",
+  component: LoadingPlaceholder,
+  parameters: {
+    info: {
+      text: `
+      import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
+      `,
+    },
+  },
 }
 
 export const DefaultMultipleKaizenSiteDemo = () => (

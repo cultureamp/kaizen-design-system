@@ -20,6 +20,14 @@ import { TitleBlock } from "@kaizen/draft-title-block"
 
 export default {
   title: "Layout (React)",
+  component: Layout,
+  parameters: {
+    info: {
+      text: `
+        import { Layout } from "@kaizen/component-library";
+      `,
+    },
+  },
 }
 
 export const Default = () => (

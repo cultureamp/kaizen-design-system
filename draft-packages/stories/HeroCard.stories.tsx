@@ -26,6 +26,14 @@ const renderContent = () => (
 
 export default {
   title: "HeroCard (React)",
+  component: HeroCard,
+  parameters: {
+    info: {
+      text: `
+        import { HeroCard } from "@kaizen/draft-hero-card";
+      `,
+    },
+  },
 }
 
 export const DefaultKaizenSiteDemo = () => (

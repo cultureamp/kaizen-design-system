@@ -6,6 +6,14 @@ import { Tabs } from "@kaizen/draft-tabs"
 
 export default {
   title: "Tabs (React)",
+  component: Tabs,
+  parameters: {
+    info: {
+      text: `
+      import { Tabs } from "@kaizen/draft-tabs"
+      `,
+    },
+  },
 }
 
 export const Default = () => {

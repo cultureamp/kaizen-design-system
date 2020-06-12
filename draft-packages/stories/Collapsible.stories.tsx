@@ -34,6 +34,14 @@ export const SingleCollapsibleKaizenSiteDemo = () => (
 
 SingleCollapsibleKaizenSiteDemo.story = {
   name: "Single collapsible (Kaizen Site Demo)",
+  component: Collapsible,
+  parameters: {
+    info: {
+      text: `
+        import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible";
+      `,
+    },
+  },
 }
 
 export const SingleCollapsibleNoPadding = () => (

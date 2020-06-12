@@ -10,6 +10,14 @@ const editIcon = require("@kaizen/component-library/icons/edit.icon.svg")
 
 export default {
   title: "SplitButton (React)",
+  component: SplitButton,
+  parameters: {
+    info: {
+      text: `
+      import { SplitButton } from "@kaizen/draft-split-button"
+      `,
+    },
+  },
 }
 
 export const DefaultKaizenSiteDemo = () => (
