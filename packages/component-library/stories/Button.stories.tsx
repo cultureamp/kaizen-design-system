@@ -6,6 +6,14 @@ import * as React from "react"
 
 export default {
   title: "Button (deprecated) (React)",
+  component: Button,
+  parameters: {
+    info: {
+      text: `
+        import { Button } from "@kaizen/component-library";
+      `,
+    },
+  },
 }
 
 export const DefaultKaizenSiteDemo = () => <Button label="Label" />

@@ -28,6 +28,14 @@ const ContentOnlyLayout = ({ children }: { children: React.ReactNode }) => (
 
 export default {
   title: "EmptyState (React)",
+  component: EmptyState,
+  parameters: {
+    info: {
+      text: `
+        import { EmptyState } from "@kaizen/draft-empty-state";
+      `,
+    },
+  },
 }
 
 export const DefaultKaizenSiteDemo = () => (
@@ -173,7 +181,6 @@ export const ActionButton = () => (
           label="Label"
           icon={chevronRight}
           iconPosition="end"
-          primary
           fullWidth
         />
       </div>

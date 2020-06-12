@@ -2,10 +2,11 @@
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/component-library/styles/color";
-@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/layers";
+@import "~@kaizen/component-library/styles/grid";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/components/Icon/Icon.module";
 
@@ -31,13 +32,13 @@ $side-padding: 3/4 * $ca-grid;
 }
 
 .header__title {
-  @include ca-type-ideal-labels-and-legends;
+  @include kz-typography-heading-6;
   @include ca-inherit-baseline;
   display: block;
 }
 
 .menuItem {
-  @include ca-type-ideal-body;
+  @include ca-type-inter-body;
   @include ca-inherit-baseline;
   @extend .interactiveIconWrapper;
   background: transparent;

@@ -13,6 +13,14 @@ const ExampleContainer: React.FunctionComponent = ({ children }) => (
 
 export default {
   title: "TextField (React)",
+  component: TextField,
+  parameters: {
+    info: {
+      text: `
+      import { TextField } from "@kaizen/draft-form"
+      `,
+    },
+  },
 }
 
 export const DefaultKaizenSiteDemo = () => (

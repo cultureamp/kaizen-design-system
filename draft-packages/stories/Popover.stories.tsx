@@ -3,6 +3,14 @@ import * as React from "react"
 
 export default {
   title: "Popover (React)",
+  component: Popover,
+  parameters: {
+    info: {
+      text: `
+      import { Popover } from "@kaizen/draft-popover"
+      `,
+    },
+  },
 }
 
 export const DefaultKaizenSiteDemo = () => (

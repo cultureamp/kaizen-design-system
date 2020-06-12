@@ -1,7 +1,17 @@
 import * as React from "react"
 import { Box } from "../components/Box"
 
-export default { title: "Box", component: Box }
+export default {
+  title: "Box",
+  component: Box,
+  parameters: {
+    info: {
+      text: `
+        import { Box } from "@kaizen/component-library";
+      `,
+    },
+  },
+}
 
 export const BoxDefault = () => (
   <Box>

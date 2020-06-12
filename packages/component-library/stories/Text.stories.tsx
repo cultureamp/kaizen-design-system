@@ -3,6 +3,17 @@ import * as React from "react"
 
 export default {
   title: "Text (React)",
+  component: Text,
+  parameters: {
+    info: {
+      text: `
+        import { Text } from "@kaizen/component-library";
+
+        ## Deprecated
+        This component is now deprecated. Please use Heading or Paragraph instead
+      `,
+    },
+  },
 }
 
 export const H1 = () => <Text tag="h1">This is a Page Title (H1)</Text>

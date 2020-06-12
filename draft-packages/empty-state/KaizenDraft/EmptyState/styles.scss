@@ -126,18 +126,18 @@
 }
 
 .heading {
-  @include ca-type-ideal-display;
+  @include ca-type-inter-display;
   margin-bottom: $ca-grid;
 
   .sidebarAndContent & {
     @include large-sidebar-and-content {
-      @include ca-type-ideal-title;
+      @include ca-type-inter-title;
     }
   }
 
   .contentOnly & {
     @include large-content-only {
-      @include ca-type-ideal-title;
+      @include ca-type-inter-title;
     }
   }
 }
@@ -164,18 +164,18 @@
 // ===================================================
 
 .description {
-  @include ca-type-ideal-lede;
+  @include kz-typography-paragraph-body;
   margin-bottom: $ca-grid;
 
   .sidebarAndContent & {
     @include small {
-      @include ca-type-ideal-body;
+      @include kz-typography-paragraph-body;
     }
   }
 
   .contentOnly & {
     @include small {
-      @include ca-type-ideal-body;
+      @include kz-typography-paragraph-body;
     }
   }
 }

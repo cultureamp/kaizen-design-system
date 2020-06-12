@@ -26,12 +26,12 @@ module KaizenDraft.Modal.Presets.ConfirmationModal exposing
     , view
     )
 
-import Button.Button as Button
 import CssModules exposing (css)
 import Html exposing (Html, div, text)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
 import Json.Decode as Decode
+import KaizenDraft.Button.Button as Button
 import KaizenDraft.Modal.Primitives.Constants as Constants
 import KaizenDraft.Modal.Primitives.ModalBody as ModalBody
 import KaizenDraft.Modal.Primitives.ModalFooter as ModalFooter

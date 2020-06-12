@@ -71,6 +71,13 @@ import {
 export default {
   title: "Illustration, Spot (React)",
   component: AccountBasics,
+  parameters: {
+    info: {
+      text: `
+        import { AccountBasics } from "@kaizen/draft-illustration";
+      `,
+    },
+  },
 }
 
 export const SpotStoryForKaizenSite = () => (
