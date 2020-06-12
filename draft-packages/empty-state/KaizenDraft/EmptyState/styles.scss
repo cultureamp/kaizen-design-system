@@ -126,18 +126,18 @@
 }
 
 .heading {
-  @include ca-type-ideal-display;
+  @include ca-type-inter-display;
   margin-bottom: $ca-grid;
 
   .sidebarAndContent & {
     @include large-sidebar-and-content {
-      @include ca-type-ideal-title;
+      @include ca-type-inter-title;
     }
   }
 
   .contentOnly & {
     @include large-content-only {
-      @include ca-type-ideal-title;
+      @include ca-type-inter-title;
     }
   }
 }
