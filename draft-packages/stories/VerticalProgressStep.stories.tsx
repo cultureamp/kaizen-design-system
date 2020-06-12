@@ -1,3 +1,4 @@
+import { Paragraph } from "@kaizen/component-library"
 import { VerticalProgressStep } from "@kaizen/draft-vertical-progress-step"
 import * as React from "react"
 
@@ -16,6 +17,14 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => (
 
 export default {
   title: "VerticalProgressStep (React)",
+  component: VerticalProgressStep,
+  parameters: {
+    info: {
+      text: `
+      import { VerticalProgressStep } from "@kaizen/draft-vertical-progress-step"
+      `,
+    },
+  },
 }
 
 export const CurrentStepActionable = () => (
@@ -27,7 +36,7 @@ export const CurrentStepActionable = () => (
       // tslint:disable-next-line: no-console
       onClick={console.log.bind(console)}
     >
-      <p>Click here to commence the Stop!</p>
+      <Paragraph variant="body">Click here to commence the Stop!</Paragraph>
     </VerticalProgressStep.CurrentStep>
   </StoryContainer>
 )
@@ -45,7 +54,7 @@ export const CurrentStepStarted = () => (
       // tslint:disable-next-line: no-console
       onClick={console.log.bind(console)}
     >
-      <p>Stopping...</p>
+      <Paragraph variant="body">Stopping...</Paragraph>
     </VerticalProgressStep.CurrentStep>
   </StoryContainer>
 )
@@ -58,7 +67,9 @@ CurrentStepStarted.story = {
 export const _UpcomingStep = () => (
   <StoryContainer>
     <VerticalProgressStep.UpcomingStep name="Collaborate!" position="middle">
-      <p>Only once you have stopped may you collaborate</p>
+      <Paragraph variant="body">
+        Only once you have stopped may you collaborate
+      </Paragraph>
     </VerticalProgressStep.UpcomingStep>
   </StoryContainer>
 )
@@ -71,7 +82,9 @@ _UpcomingStep.story = {
 export const _CompletedStep = () => (
   <StoryContainer>
     <VerticalProgressStep.CompletedStep name="Listen!" position="end">
-      <p>You have finished listening. Vanilla Ice is proud of you.</p>
+      <Paragraph variant="body">
+        You have finished listening. Vanilla Ice is proud of you.
+      </Paragraph>
     </VerticalProgressStep.CompletedStep>
   </StoryContainer>
 )

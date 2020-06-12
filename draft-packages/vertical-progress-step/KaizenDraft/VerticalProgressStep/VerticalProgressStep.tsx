@@ -1,4 +1,4 @@
-import { Text } from "@kaizen/component-library"
+import { Heading } from "@kaizen/component-library"
 import * as React from "react"
 
 const styles = require("./VerticalProgressStep.module.scss")
@@ -24,9 +24,9 @@ const CompletedStep = (props: CompletedStepProps) => {
         completion="completed"
       />
       <div className={styles.content}>
-        <Text tag="h3" style="label">
+        <Heading tag="h3" variant="heading-4">
           {props.name}
-        </Text>
+        </Heading>
         {props.children}
       </div>
     </div>
@@ -62,9 +62,9 @@ const CurrentStep = (props: CurrentStepProps) => {
         completion={toCompletion(props.status)}
       />
       <div className={styles.content}>
-        <Text tag="h3" style="label">
+        <Heading tag="h3" variant="heading-4">
           {props.name}
-        </Text>
+        </Heading>
         {props.children}
       </div>
     </div>
@@ -85,9 +85,9 @@ const CurrentStep = (props: CurrentStepProps) => {
             completion={toCompletion(props.status)}
           />
           <div className={styles.content}>
-            <Text tag="h3" style="label">
+            <Heading tag="h3" variant="heading-4">
               <span className={styles.actionable}>{props.name}</span>
-            </Text>
+            </Heading>
             {props.children}
           </div>
         </div>
@@ -101,9 +101,9 @@ const CurrentStep = (props: CurrentStepProps) => {
           completion={toCompletion(props.status)}
         />
         <div className={styles.content}>
-          <Text tag="h3" style="label">
+          <Heading tag="h3" variant="heading-4">
             {props.name}
-          </Text>
+          </Heading>
           {props.children}
         </div>
       </div>
@@ -125,9 +125,9 @@ const UpcomingStep = (props: UpcomingStepProps) => {
         completion="upcoming"
       />
       <div className={styles.content}>
-        <Text tag="h3" style="label">
+        <Heading tag="h3" variant="heading-4">
           {props.name}
-        </Text>
+        </Heading>
         {props.children}
       </div>
     </div>

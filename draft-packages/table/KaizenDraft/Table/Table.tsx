@@ -1,7 +1,8 @@
-import { Icon, Text } from "@kaizen/component-library"
+import { Heading, Icon } from "@kaizen/component-library"
 import { Checkbox, CheckedStatus } from "@kaizen/draft-form"
 import classNames from "classnames"
 import * as React from "react"
+
 const styles = require("./styles.scss")
 const sortDescendingIcon = require("@kaizen/component-library/icons/sort-descending.icon.svg")
   .default
@@ -82,9 +83,9 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
           <Checkbox checkedStatus={checkedStatus} onCheck={onCheck} />
         </div>
       )}
-      <Text tag="div" style="label" inheritBaseline>
+      <Heading tag="div" variant="heading-6">
         {labelText}
-      </Text>
+      </Heading>
     </div>
   )
 

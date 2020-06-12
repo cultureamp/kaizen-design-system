@@ -11,7 +11,7 @@ main =
     storybook
         [ statelessStoryOf "Positive" <|
             Notification.view
-                (Notification.toast "Success!" [ text "New user data, imported by mackenzie@hooli.com has successfully uploaded. ", a [ href "/" ] [ text "Manage users is now available" ] ] False
+                (Notification.toast "Success" [ text "New user data, imported by mackenzie@hooli.com has successfully uploaded. ", a [ href "/" ] [ text "Manage users is now available" ] ] False
                     |> Notification.notificationType Notification.Affirmative
                 )
                 (Notification.Manual Notification.Visible)
@@ -40,7 +40,7 @@ main =
         , statelessStoryOf "Multiple notifications" <|
             div []
                 [ Notification.view
-                    (Notification.toast "Success!" [ text "New user data, imported by mackenzie@hooli.com has successfully uploaded. ", a [ href "/" ] [ text "Manage users is now available" ] ] False
+                    (Notification.toast "Success" [ text "New user data, imported by mackenzie@hooli.com has successfully uploaded. ", a [ href "/" ] [ text "Manage users is now available" ] ] False
                         |> Notification.notificationType Notification.Affirmative
                     )
                     (Notification.Manual Notification.Visible)

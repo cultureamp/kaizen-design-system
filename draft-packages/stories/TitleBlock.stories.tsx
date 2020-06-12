@@ -1,4 +1,4 @@
-import { Button } from "@kaizen/component-library/components/Button"
+import { Button } from "@kaizen/draft-button"
 import { TitleBlock } from "@kaizen/draft-title-block"
 import * as React from "react"
 
@@ -31,6 +31,14 @@ const stickyContainerStyle = {
 
 export default {
   title: "TitleBlock (React)",
+  component: TitleBlock,
+  parameters: {
+    info: {
+      text: `
+      import { TitleBlock } from "@kaizen/draft-title-block"
+      `,
+    },
+  },
 }
 
 export const WithTitle = () => <TitleBlock title="Reports" />

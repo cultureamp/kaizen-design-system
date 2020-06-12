@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="288px" height="224px" viewBox="0 0 288 224" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
-    <title>Amoeba shape</title>
-    <desc>Created with Sketch.</desc>
-    <g id="Components" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.300000012">
-        <g id="Empty-State-Background" fill="#F9F9F9">
-            <g id="Amoeba-shape">
-                <path d="M284.00665,140.242612 C266.099095,91.819716 204.16031,73.0015052 174.070977,42.9326049 C149.38544,18.262903 123.736931,-6.20486926 85.6463813,1.4163012 C34.0429969,11.7415416 -20.3191712,95.3560941 7.57577602,143.073354 C42.3832984,202.615797 118.864815,226.926348 184.447276,223.721551 C235.394799,221.232078 305.533343,198.453512 284.00665,140.242612"></path>
-            </g>
-        </g>
-    </g>
-</svg>
+<svg width="288" height="224" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity=".1" fill-rule="evenodd" clip-rule="evenodd" d="M284.007 140.243c-17.908-48.423-79.847-67.242-109.936-97.31-24.686-24.67-50.334-49.138-88.425-41.517-51.603 10.325-105.965 93.94-78.07 141.657 34.807 59.543 111.289 83.853 176.871 80.649 50.948-2.49 121.086-25.268 99.56-83.479" fill="#fff"/></svg>

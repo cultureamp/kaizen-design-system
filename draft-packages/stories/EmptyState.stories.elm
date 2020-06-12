@@ -95,7 +95,7 @@ main =
                         |> EmptyState.children
                             [ div [ styles.class .buttonContainer ]
                                 [ Button.view
-                                    (Button.primary
+                                    (Button.default
                                         |> Button.icon (svgAsset "@kaizen/component-library/icons/chevron-right.icon.svg")
                                         |> Button.iconPosition Button.End
                                     )

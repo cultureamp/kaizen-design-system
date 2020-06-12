@@ -27,7 +27,7 @@ exports[`The basic notification renders correctly 1`] = `
     <h6
       class="title"
     >
-      Success!
+      Success
     </h6>
     <p
       class="text"

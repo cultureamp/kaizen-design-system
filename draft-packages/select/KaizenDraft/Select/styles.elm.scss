@@ -5,6 +5,7 @@
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 @mixin select-border($color: $color) {
   border-color: $color;
@@ -12,7 +13,7 @@
 }
 
 .basePlaceholder {
-  @include ca-type-ideal-body;
+  @include kz-typography-paragraph-body;
   margin-left: 2px;
   margin-right: 2px;
   top: 50%;
@@ -130,7 +131,7 @@
 }
 
 .option {
-  @include ca-type-ideal-body-bold;
+  @include kz-typography-paragraph-body;
   background-color: transparent;
   color: inherit;
   cursor: default;
@@ -144,20 +145,25 @@
   outline: none;
 
   &.isTarget:not(.isSelected) {
-    background-color: $kz-color-stone;
+    color: $kz-color-cluny-500;
+    background-color: $kz-color-cluny-100;
   }
 
   &:focus:not(.isSelected) {
-    background-color: $kz-color-ash;
+    background-color: $kz-color-cluny-100;
   }
 
   &.isFocused:not(.isSelected) {
-    background-color: $kz-color-ash;
+    background-color: $kz-color-cluny-100;
   }
 }
 
 .isSelected {
   background-color: $kz-color-cluny-100;
+
+  &:hover {
+    color: $kz-color-cluny-500;
+  }
 }
 
 .multiValue {

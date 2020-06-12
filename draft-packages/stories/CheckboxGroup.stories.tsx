@@ -43,6 +43,14 @@ class CheckboxGroupExample extends React.Component<Props> {
 
 export default {
   title: "CheckboxGroup (React)",
+  component: CheckboxGroup,
+  parameters: {
+    info: {
+      text: `
+        import { CheckboxGroup } from "@kaizen/draft-checkbox-group";
+      `,
+    },
+  },
 }
 
 export const InteractiveKaizenSiteDemo = () => (

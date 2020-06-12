@@ -21,6 +21,7 @@ module KaizenDraft.Button.Button exposing
     , onBlur
     , onClick
     , onFocus
+    , onMouseDown
     , preventKeydownOn
     , primary
     , reverseColor
@@ -111,6 +112,7 @@ view (Config config) label =
                 ++ onFocusAttribs config
                 ++ onBlurAttribs config
                 ++ preventKeydownAttribs config
+                ++ onMouseDownAttribs config
                 ++ automationIdAttr
                 ++ titleAttr
                 ++ buttonTypeAttribs config
@@ -160,6 +162,16 @@ preventKeydownAttribs config =
 
     else
         [ HtmlEvents.preventDefaultOn "keydown" <| Decode.map (\msg -> ( msg, True )) (Decode.oneOf config.preventKeydownOn) ]
+
+
+onMouseDownAttribs : ConfigValue msg -> List (Html.Attribute msg)
+onMouseDownAttribs config =
+    case config.onMouseDown of
+        Just mouseDownMsg ->
+            [ HtmlEvents.onMouseDown mouseDownMsg ]
+
+        Nothing ->
+            []
 
 
 onClickAttribs : ConfigValue msg -> List (Html.Attribute msg)
@@ -255,7 +267,7 @@ viewIconFor configValue forPosition =
 
 
 styles =
-    css "@kaizen/draft-button/KaizenDraft/components/GenericButton.module.scss"
+    css "@kaizen/draft-button/KaizenDraft/Button/components/GenericButton.module.scss"
         { container = "container"
         , button = "button"
         , primary = "primary"
@@ -300,6 +312,7 @@ type alias ConfigValue msg =
     , onFocus : Maybe msg
     , onBlur : Maybe msg
     , preventKeydownOn : List (Decode.Decoder msg)
+    , onMouseDown : Maybe msg
     , href : Maybe String
     , newTabAndIUnderstandTheAccessibilityImplications : Bool
     , id : Maybe String
@@ -349,6 +362,7 @@ defaults =
     , onFocus = Nothing
     , onBlur = Nothing
     , preventKeydownOn = []
+    , onMouseDown = Nothing
     , href = Nothing
     , newTabAndIUnderstandTheAccessibilityImplications = False
     , id = Nothing
@@ -441,6 +455,11 @@ onBlur value (Config config) =
 preventKeydownOn : List (Decode.Decoder msg) -> Config msg -> Config msg
 preventKeydownOn decoders (Config config) =
     Config { config | preventKeydownOn = decoders }
+
+
+onMouseDown : msg -> Config msg -> Config msg
+onMouseDown value (Config config) =
+    Config { config | onMouseDown = Just value }
 
 
 href : String -> Config msg -> Config msg
