@@ -9,11 +9,8 @@ To live in the core component library, a component must satisfy a number of qual
 
 All components that do not yet meet these standards live in their own individual draft component packages.
 
-To see a list of available draft component packages, run:
-```
-npm search @kaizen/draft
-```
-This will give you an up-to-date list of all published draft packages which you can include in your project's `package.json`.
+You can find documentation on where to find a particular component in [Storybook](https://cultureamp.design/storybook/). If you click on the blue `Show Info` button at the bottom of a story for a component, you will
+find the name of the npm package for that component.
 
 ## Add to a project
 
