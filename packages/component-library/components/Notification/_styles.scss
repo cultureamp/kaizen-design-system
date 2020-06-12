@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "../../styles/color";
 @import "../../styles/type";
 @import "../../styles/border";
@@ -191,7 +192,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 }
 
 %ca-notification__title {
-  @include ca-type-ideal-heading;
+  @include kz-typography-heading-6;
   margin: 0;
   padding-right: $ca-grid / 2;
   // overriding Bootstrap style that changes h6s to text-transform: uppercase
@@ -200,21 +201,22 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 }
 
 %ca-notification__text {
-  @include ca-type-block;
+  @include kz-typography-paragraph-small;
   margin: 0;
   color: inherit;
 
   %ca-notification---inline &,
   %ca-notification---toast & {
-    @include ca-type-ideal-notification;
+    @include kz-typography-paragraph-small;
     // When the title and text are on different lines this ensures the baselines of the first lines are exactly 1 grid unit apart.
     // When they are both on a single line it ensures both are 1 grid unit tall.
     margin-top: $ca-grid / 4;
     flex: 0 1 auto;
+    padding-bottom: 0.75rem;
   }
 
   %ca-notification---global & {
-    @include ca-type-ideal-body;
+    @include kz-typography-paragraph-body;
   }
 
   a[href] {

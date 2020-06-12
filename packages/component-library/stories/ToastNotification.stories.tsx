@@ -4,12 +4,20 @@ import { ToastNotification } from "@kaizen/component-library"
 
 export default {
   title: "ToastNotification (React)",
+  component: ToastNotification,
+  parameters: {
+    info: {
+      text: `
+        import { ToastNotification } from "@kaizen/component-library";
+      `,
+    },
+  },
 }
 
 export const PositiveKaizenSiteDemo = () => (
   <ToastNotification
     type="affirmative"
-    title="Success!"
+    title="Success"
     automationId="notification1"
   >
     New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
@@ -24,7 +32,7 @@ PositiveKaizenSiteDemo.story = {
 export const PositiveAutohide = () => (
   <ToastNotification
     type="affirmative"
-    title="Success!"
+    title="Success"
     autohide
     automationId="notification1"
   >
@@ -41,7 +49,7 @@ export const PositiveAutohideHideCloseIcon = () => (
   <ToastNotification
     automationId="notification1"
     type="affirmative"
-    title="Success!"
+    title="Success"
     autohide
     hideCloseIcon
   >
@@ -90,7 +98,7 @@ export const MultipleNotifications = () => (
   <div>
     <ToastNotification
       type="affirmative"
-      title="Success!"
+      title="Success"
       automationId="notification1"
     >
       New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}

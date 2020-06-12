@@ -2,7 +2,17 @@ import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
 import { Paragraph } from "../components/Paragraph"
 
-export default { title: "Paragraph", component: Paragraph }
+export default {
+  title: "Paragraph",
+  component: Paragraph,
+  parameters: {
+    info: {
+      text: `
+        import { Paragraph } from "@kaizen/component-library";
+      `,
+    },
+  },
+}
 
 export const IntroLede = () => (
   <Paragraph variant="intro-lede">Paragraph Intro Lede</Paragraph>

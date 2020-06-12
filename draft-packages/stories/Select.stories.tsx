@@ -57,6 +57,14 @@ const promiseOptions = inputValue =>
 
 export default {
   title: "Select (React)",
+  component: Select,
+  parameters: {
+    info: {
+      text: `
+      import { AsyncSelect, Select } from "@kaizen/draft-select"
+      `,
+    },
+  },
 }
 
 export const Single = () => (

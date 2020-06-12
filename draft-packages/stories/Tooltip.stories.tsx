@@ -17,6 +17,14 @@ export const DefaultBelowKaizenSiteDemo = () => (
 
 DefaultBelowKaizenSiteDemo.story = {
   name: "Default - Below (Kaizen Site Demo)",
+  component: Tooltip,
+  parameters: {
+    info: {
+      text: `
+      import { Tooltip } from "@kaizen/draft-tooltip"
+      `,
+    },
+  },
 }
 
 export const DefaultAbove = () => (

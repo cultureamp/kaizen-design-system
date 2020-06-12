@@ -1,11 +1,12 @@
 module Main exposing (main)
 
 import ElmStorybook exposing (statelessStoryOf, storybook)
+import Heading.Heading as Heading exposing (AllowedColor(..), TypeVariant(..), view)
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (style)
 import KaizenDraft.Form.TextField.TextField as TextField
 import KaizenDraft.Well.Well as Well
-import Text.Text as Text
+import Paragraph.Paragraph as Paragraph
 
 
 placeholderContent : Html msg
@@ -14,7 +15,7 @@ placeholderContent =
         blurb =
             "This is just a sentence to fill the content area so that you have something to look at."
     in
-    Text.view Text.p [ text blurb ]
+    Paragraph.view Paragraph.p [ text blurb ]
 
 
 heading : Html msg
@@ -23,7 +24,9 @@ heading =
         headingText =
             "Heading"
     in
-    Text.view Text.h3 [ text headingText ]
+    Heading.view
+        (Heading.h1 |> Heading.variant Heading3)
+        [ text headingText ]
 
 
 inputField : Html msg

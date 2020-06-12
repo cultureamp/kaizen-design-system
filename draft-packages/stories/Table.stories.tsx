@@ -1,4 +1,5 @@
-import { Button, IconButton, Text } from "@kaizen/component-library"
+import { IconButton, Paragraph } from "@kaizen/component-library"
+import { Button } from "@kaizen/draft-button"
 import { CheckboxField } from "@kaizen/draft-form"
 import * as React from "react"
 import {
@@ -67,32 +68,30 @@ const ExampleTableRow = ({
     <TableRowCell width={4 / 12}>
       {multiline ? (
         <div className={styles.multiline}>
-          <Text tag="div" style="label" inheritBaseline>
+          <Paragraph tag="div" variant="body">
             This is a resource label
-          </Text>
-          <Text tag="div" inheritBaseline>
+          </Paragraph>
+          <Paragraph tag="div" variant="body">
             This is a long name for the resource that splits over multiple lines
-          </Text>
+          </Paragraph>
         </div>
       ) : (
         <CheckboxField labelText={description} noBottomMargin />
       )}
     </TableRowCell>
     <TableRowCell width={4 / 12}>
-      <Text tag="div" inheritBaseline>
+      <Paragraph tag="div" variant="body">
         Supplementary information
-      </Text>
+      </Paragraph>
     </TableRowCell>
     <TableRowCell width={2 / 12}>
-      <Text tag="div" inheritBaseline>
+      <Paragraph tag="div" variant="body">
         Jan 1, 2017
-      </Text>
+      </Paragraph>
     </TableRowCell>
     <TableRowCell width={2 / 12}>
       <div className={styles.countAndExpander}>
-        <Text tag="div" inheritBaseline>
-          24
-        </Text>
+        <Paragraph variant="body">24</Paragraph>
         {expandable && (
           <IconButton
             label="Expand"
@@ -106,6 +105,14 @@ const ExampleTableRow = ({
 
 export default {
   title: "Table (React)",
+  component: TableCard,
+  parameters: {
+    info: {
+      text: `
+      import { TableCard, TableContainer, TableHeader, TableHeaderRow, TableHeaderRowCell, TableRow, TableRowCell } from "@kaizen/draft-table"
+      `,
+    },
+  },
 }
 
 export const DefaultKaizenSiteDemo = () => (
@@ -206,14 +213,10 @@ export const Clickable = () => (
             />
           </TableRowCell>
           <TableRowCell width={4 / 12} href="//cultureamp.com">
-            <Text tag="div" inheritBaseline>
-              (Anchor on this cell)
-            </Text>
+            <Paragraph variant="body">(Anchor on this cell)</Paragraph>
           </TableRowCell>
           <TableRowCell width={2 / 12} href="//cultureamp.com">
-            <Text tag="div" inheritBaseline>
-              (Anchor on this cell)
-            </Text>
+            <Paragraph variant="body">(Anchor on this cell)</Paragraph>
           </TableRowCell>
           <TableRowCell width={2 / 12}>
             <Button
@@ -298,18 +301,18 @@ export const ExpandedPopout = () => {
                 <div>
                   <div className={styles.popoutExpandedBody}>
                     <div className={styles.customExpandedHeader}>
-                      <Text tag="div" style="label">
+                      <Paragraph tag="div" variant="body">
                         Overall progress
-                      </Text>
+                      </Paragraph>
                     </div>
-                    <Text tag="p">
+                    <Paragraph tag="p" variant="body">
                       We are making good progress towards our goal!
-                    </Text>
+                    </Paragraph>
                   </div>
                   <div className={styles.popoutExpandedFooter}>
-                    <Text tag="div" style="body-bold">
+                    <Paragraph tag="div" variant="body">
                       Created on: July 12, 2017
-                    </Text>
+                    </Paragraph>
                   </div>
                 </div>
               )}
@@ -350,9 +353,9 @@ export const ExpandedWithCustomContentDeprecated = () => {
               {expanded && (
                 <TableCard expanded={expanded}>
                   <div className={styles.customExpandedHeader}>
-                    <Text tag="div" style="label">
+                    <Paragraph tag="div" variant="body">
                       Overall progress
-                    </Text>
+                    </Paragraph>
                   </div>
                   <TableContainer>
                     <TableCard onClick={() => toggleExpanded(id)}>

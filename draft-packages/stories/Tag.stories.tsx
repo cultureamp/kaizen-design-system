@@ -9,6 +9,14 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => (
 
 export default {
   title: "Tag (React)",
+  component: Tag,
+  parameters: {
+    info: {
+      text: `
+      import { Tag } from "@kaizen/draft-tag"
+      `,
+    },
+  },
 }
 
 export const DefaultMediumKaizenSiteDemo = () => (
