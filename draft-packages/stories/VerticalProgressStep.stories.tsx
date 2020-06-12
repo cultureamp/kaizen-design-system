@@ -17,6 +17,14 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => (
 
 export default {
   title: "VerticalProgressStep (React)",
+  component: VerticalProgressStep,
+  parameters: {
+    info: {
+      text: `
+      import { VerticalProgressStep } from "@kaizen/draft-vertical-progress-step"
+      `,
+    },
+  },
 }
 
 export const CurrentStepActionable = () => (

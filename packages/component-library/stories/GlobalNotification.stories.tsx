@@ -4,6 +4,14 @@ import { GlobalNotification } from "@kaizen/component-library"
 
 export default {
   title: "GlobalNotification (React)",
+  component: GlobalNotification,
+  parameters: {
+    info: {
+      text: `
+        import { GlobalNotification } from "@kaizen/component-library";
+      `,
+    },
+  },
 }
 
 export const PositiveKaizenSiteDemo = () => (

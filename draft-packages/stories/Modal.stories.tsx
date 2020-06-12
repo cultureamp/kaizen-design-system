@@ -46,6 +46,14 @@ class ModalStateContainer extends React.Component<
 
 export default {
   title: "Modal (React)",
+  component: ConfirmationModal,
+  parameters: {
+    info: {
+      text: `
+      import { ConfirmationModal, GenericModal, InformationModal, InputEditModal, ModalAccessibleDescription, ModalAccessibleLabel, ModalBody, ModalFooter, ModalHeader } from "@kaizen/draft-modal"
+      `,
+    },
+  },
 }
 
 export const ConfirmationPositiveKaizenSiteDemo = () => (

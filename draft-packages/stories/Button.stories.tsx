@@ -7,6 +7,14 @@ import * as React from "react"
 
 export default {
   title: "Button (Zen) (React)",
+  component: Button,
+  parameters: {
+    info: {
+      text: `
+        import { Button } from "@kaizen/draft-button";
+      `,
+    },
+  },
 }
 
 export const DefaultKaizenSiteDemo = () => <Button label="Label" />

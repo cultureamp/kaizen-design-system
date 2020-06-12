@@ -31,6 +31,14 @@ const stickyContainerStyle = {
 
 export default {
   title: "TitleBlock (React)",
+  component: TitleBlock,
+  parameters: {
+    info: {
+      text: `
+      import { TitleBlock } from "@kaizen/draft-title-block"
+      `,
+    },
+  },
 }
 
 export const WithTitle = () => <TitleBlock title="Reports" />

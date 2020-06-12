@@ -50,6 +50,14 @@ class RadioFieldExample extends React.Component<Props> {
 
 export default {
   title: "Radio (React)",
+  component: Radio,
+  parameters: {
+    info: {
+      text: `
+      import { Radio } from "@kaizen/draft-radio"
+      `,
+    },
+  },
 }
 
 export const InteractiveKaizenSiteDemo = () => (

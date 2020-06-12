@@ -4,6 +4,14 @@ import { ToastNotification } from "@kaizen/component-library"
 
 export default {
   title: "ToastNotification (React)",
+  component: ToastNotification,
+  parameters: {
+    info: {
+      text: `
+        import { ToastNotification } from "@kaizen/component-library";
+      `,
+    },
+  },
 }
 
 export const PositiveKaizenSiteDemo = () => (

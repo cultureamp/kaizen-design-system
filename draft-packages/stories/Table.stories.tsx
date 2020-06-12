@@ -105,6 +105,14 @@ const ExampleTableRow = ({
 
 export default {
   title: "Table (React)",
+  component: TableCard,
+  parameters: {
+    info: {
+      text: `
+      import { TableCard, TableContainer, TableHeader, TableHeaderRow, TableHeaderRowCell, TableRow, TableRowCell } from "@kaizen/draft-table"
+      `,
+    },
+  },
 }
 
 export const DefaultKaizenSiteDemo = () => (

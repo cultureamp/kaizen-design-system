@@ -1,9 +1,18 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
-import { Box } from "../components/Box"
 import { Heading } from "../components/Heading"
 
-export default { title: "Heading (React)", component: Heading }
+export default {
+  title: "Heading (React)",
+  component: Heading,
+  parameters: {
+    info: {
+      text: `
+        import { Heading } from "@kaizen/component-library";
+      `,
+    },
+  },
+}
 
 export const Display0 = () => <Heading variant="display-0">Display 0</Heading>
 
