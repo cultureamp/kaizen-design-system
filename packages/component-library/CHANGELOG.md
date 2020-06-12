@@ -3,6 +3,112 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.22.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.22.3...@kaizen/component-library@7.22.4) (2020-06-12)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.22.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.22.2...@kaizen/component-library@7.22.3) (2020-06-12)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.22.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.22.1...@kaizen/component-library@7.22.2) (2020-06-11)
+
+
+### Bug Fixes
+
+* a legacy var was accidentally renamed ([#543](https://github.com/cultureamp/kaizen-design-system/issues/543)) ([9e3beff](https://github.com/cultureamp/kaizen-design-system/commit/9e3beff9d95bc8206caae728785ca80f1e4da14e))
+
+
+
+
+
+## [7.22.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.22.0...@kaizen/component-library@7.22.1) (2020-06-11)
+
+
+### Bug Fixes
+
+* Copy inter mixins from helper packages back to legacy type.scss ([#542](https://github.com/cultureamp/kaizen-design-system/issues/542)) ([5f11081](https://github.com/cultureamp/kaizen-design-system/commit/5f11081caafb3694234f54409f06d61609bc25a7))
+
+
+
+
+
+# [7.22.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.21.0...@kaizen/component-library@7.22.0) (2020-06-11)
+
+
+### Features
+
+* replace remaining usages of ca-type-ideal-sans-xxx ([#538](https://github.com/cultureamp/kaizen-design-system/issues/538)) ([4f6618f](https://github.com/cultureamp/kaizen-design-system/commit/4f6618feb2bfe894c56ee994c15d3fddd87c048e))
+
+
+
+
+
+# [7.21.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.20.0...@kaizen/component-library@7.21.0) (2020-06-10)
+
+
+### Features
+
+* Add blur and focus callbacks to form components ([#537](https://github.com/cultureamp/kaizen-design-system/issues/537)) ([5bd717b](https://github.com/cultureamp/kaizen-design-system/commit/5bd717b019d89da27cee0cd4b198c606b458b795))
+
+
+
+
+
+# [7.20.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.19.3...@kaizen/component-library@7.20.0) (2020-06-09)
+
+
+### Features
+
+* Rollout inter ([#530](https://github.com/cultureamp/kaizen-design-system/issues/530)) ([a1b2059](https://github.com/cultureamp/kaizen-design-system/commit/a1b2059980ea753036caa5cb15ba6b1235d52ba4))
+
+
+
+
+
+## [7.19.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.19.2...@kaizen/component-library@7.19.3) (2020-06-05)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.19.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.19.1...@kaizen/component-library@7.19.2) (2020-06-05)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.19.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.19.0...@kaizen/component-library@7.19.1) (2020-06-05)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [7.19.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.18.2...@kaizen/component-library@7.19.0) (2020-06-04)
+
+
+### Features
+
+* Add RTE icons ([#529](https://github.com/cultureamp/kaizen-design-system/issues/529)) ([7d057f9](https://github.com/cultureamp/kaizen-design-system/commit/7d057f9c97872346216c72c631e9029ecacd21ae))
+
+
+
+
+
 ## [7.18.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.18.1...@kaizen/component-library@7.18.2) (2020-06-02)
 
 **Note:** Version bump only for package @kaizen/component-library

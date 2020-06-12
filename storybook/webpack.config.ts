@@ -137,6 +137,7 @@ const storybookSource: Rule = {
       loader: require.resolve("react-docgen-typescript-loader"),
       options: {
         compilerOptions: { noEmit: false },
+        skipPropsWithoutDoc: true,
       },
     },
   ],

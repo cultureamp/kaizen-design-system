@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "../../../styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "../../../styles/color";
+@import "../../../styles/grid";
 
 .root {
   display: flex;
@@ -18,7 +19,7 @@
 }
 
 .heading {
-  @include ca-type-ideal-display;
+  @include ca-type-inter-display;
   @include ca-inherit-baseline;
   color: #fff;
 }

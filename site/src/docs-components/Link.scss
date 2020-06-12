@@ -38,6 +38,6 @@
   // as we want the styles in `.link` to take override those in `.buttonReset`.
   composes: buttonReset;
   composes: link;
-  @include ca-type-ideal-body;
+  @include ca-type-inter-body;
   padding: 0 2px;
 }

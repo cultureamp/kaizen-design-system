@@ -6,6 +6,13 @@ const configureIcon = require("@kaizen/component-library/icons/configure.icon.sv
 
 export default {
   title: "Icon (React)",
+  parameters: {
+    info: {
+      text: `
+        import { Icon } from "@kaizen/component-library";
+      `,
+    },
+  },
 }
 
 export const MeaningfulKaizenSiteDemo = () => (

@@ -7,7 +7,7 @@ $input-placeholder-line-height: 2.9rem;
 @mixin form-input-reset() {
   outline: 0;
   box-sizing: border-box;
-  @include ca-type-ideal($size: 16, $weight: $ca-weight-light);
+  @include ca-type-inter($size: 16, $weight: $ca-weight-light);
   @include ca-inherit-baseline;
 }
 
@@ -26,27 +26,27 @@ $input-placeholder-line-height: 2.9rem;
 // ```
 @mixin form-input-placeholder() {
   &::-webkit-input-placeholder {
-    @include ca-type-ideal($size: 16, $weight: $ca-weight-light);
+    @include ca-type-inter($size: 16, $weight: $ca-weight-light);
     @include ca-inherit-baseline;
     @content;
   }
 
   &:-moz-placeholder {
-    @include ca-type-ideal($size: 16, $weight: $ca-weight-light);
+    @include ca-type-inter($size: 16, $weight: $ca-weight-light);
     @include ca-inherit-baseline;
     line-height: $input-placeholder-line-height;
     @content;
   }
 
   &::-moz-placeholder {
-    @include ca-type-ideal($size: 16, $weight: $ca-weight-light);
+    @include ca-type-inter($size: 16, $weight: $ca-weight-light);
     @include ca-inherit-baseline;
     line-height: $input-placeholder-line-height;
     @content;
   }
 
   &:-ms-input-placeholder {
-    @include ca-type-ideal($size: 16, $weight: $ca-weight-light);
+    @include ca-type-inter($size: 16, $weight: $ca-weight-light);
     @include ca-inherit-baseline;
     line-height: $input-placeholder-line-height;
     @content;

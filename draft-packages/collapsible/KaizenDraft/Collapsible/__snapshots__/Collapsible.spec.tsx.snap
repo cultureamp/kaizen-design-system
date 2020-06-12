@@ -72,7 +72,7 @@ exports[`matches snapshot with everything enabled 1`] = `
           data-automation-id="collapsible-button-title-2"
         >
           <span
-            class="heading inheritBaseline"
+            class="heading heading-4 dark small"
           >
             Second panel
           </span>

@@ -3,6 +3,123 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.1.3...@kaizen/draft-radio@2.1.4) (2020-06-12)
+
+**Note:** Version bump only for package @kaizen/draft-radio
+
+
+
+
+
+## [2.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.1.2...@kaizen/draft-radio@2.1.3) (2020-06-12)
+
+**Note:** Version bump only for package @kaizen/draft-radio
+
+
+
+
+
+## [2.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.1.1...@kaizen/draft-radio@2.1.2) (2020-06-11)
+
+**Note:** Version bump only for package @kaizen/draft-radio
+
+
+
+
+
+## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.1.0...@kaizen/draft-radio@2.1.1) (2020-06-11)
+
+**Note:** Version bump only for package @kaizen/draft-radio
+
+
+
+
+
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.0.0...@kaizen/draft-radio@2.1.0) (2020-06-11)
+
+
+### Features
+
+* replace remaining usages of ca-type-ideal-sans-xxx ([#538](https://github.com/cultureamp/kaizen-design-system/issues/538)) ([4f6618f](https://github.com/cultureamp/kaizen-design-system/commit/4f6618feb2bfe894c56ee994c15d3fddd87c048e))
+
+
+
+
+
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@1.4.1...@kaizen/draft-radio@2.0.0) (2020-06-10)
+
+
+### Features
+
+* Use new focus ring & size for checkbox & radio ([#420](https://github.com/cultureamp/kaizen-design-system/issues/420)) ([f287fb4](https://github.com/cultureamp/kaizen-design-system/commit/f287fb4f9d9f2322d44eb9581fea8d644e8a0f02))
+
+
+### BREAKING CHANGES
+
+* this PR has been raised from feat to major
+
+We feel that usage of this PR in consuming repos will need
+some QA, therefore we are upgrading to major/breaking. This is
+inline with the direction we are heading in that feat releases
+will not require QA.
+
+Co-authored-by: Michael Bylstra <mbylstra@gmail.com>
+
+
+
+
+
+## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@1.4.0...@kaizen/draft-radio@1.4.1) (2020-06-10)
+
+**Note:** Version bump only for package @kaizen/draft-radio
+
+
+
+
+
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@1.3.13...@kaizen/draft-radio@1.4.0) (2020-06-09)
+
+
+### Features
+
+* Rollout inter ([#530](https://github.com/cultureamp/kaizen-design-system/issues/530)) ([a1b2059](https://github.com/cultureamp/kaizen-design-system/commit/a1b2059980ea753036caa5cb15ba6b1235d52ba4))
+
+
+
+
+
+## [1.3.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@1.3.12...@kaizen/draft-radio@1.3.13) (2020-06-05)
+
+**Note:** Version bump only for package @kaizen/draft-radio
+
+
+
+
+
+## [1.3.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@1.3.11...@kaizen/draft-radio@1.3.12) (2020-06-05)
+
+**Note:** Version bump only for package @kaizen/draft-radio
+
+
+
+
+
+## [1.3.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@1.3.10...@kaizen/draft-radio@1.3.11) (2020-06-05)
+
+**Note:** Version bump only for package @kaizen/draft-radio
+
+
+
+
+
+## [1.3.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@1.3.9...@kaizen/draft-radio@1.3.10) (2020-06-04)
+
+**Note:** Version bump only for package @kaizen/draft-radio
+
+
+
+
+
 ## [1.3.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@1.3.8...@kaizen/draft-radio@1.3.9) (2020-06-02)
 
 **Note:** Version bump only for package @kaizen/draft-radio

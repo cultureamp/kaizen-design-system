@@ -2,8 +2,9 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "../styles";
 @import "../../../styles/border";
-@import "../../../styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "../../../styles/layout";
+@import "../../../styles/grid";
 @import "../../../styles/responsive";
 
 $nav-ease: cubic-bezier(0.55, 0.085, 0.68, 0.53);
@@ -55,7 +56,7 @@ $indicator-height: 3px;
 
 .badge {
   @include ca-margin($start: $ca-grid * 0.25);
-  @include ca-type-ideal-small-bold;
+  @include ca-type-inter-small-bold;
   @include ca-inherit-baseline;
 
   border-radius: $ca-grid;

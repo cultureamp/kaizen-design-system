@@ -1,11 +1,11 @@
 module Main exposing (main)
 
-import Button.Button as Button
 import ElmStorybook exposing (storyOf, storybook)
 import Html exposing (div, text)
 import Html.Attributes exposing (style)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
+import KaizenDraft.Button.Button as Button
 import KaizenDraft.Form.TextField.TextField as TextField
 import KaizenDraft.Modal.Modal as Modal
 import KaizenDraft.Modal.Primitives.Constants as ModalConstants
@@ -13,6 +13,7 @@ import KaizenDraft.Modal.Primitives.ModalAccessibleDescription as ModalAccessibl
 import KaizenDraft.Modal.Primitives.ModalBody as ModalBody
 import KaizenDraft.Modal.Primitives.ModalFooter as ModalFooter
 import KaizenDraft.Modal.Primitives.ModalHeader as ModalHeader
+import Paragraph.Paragraph as Paragraph
 import Text.Text as Text
 
 
@@ -176,7 +177,7 @@ main =
                                     , bodySubtext =
                                         Just
                                             [ div [ style "text-align" "center" ]
-                                                [ Text.view (Text.p |> Text.style Text.Lede |> Text.inline True) [ text "Additional subtext to aid the user can be added here." ] ]
+                                                [ Paragraph.view (Paragraph.p |> Paragraph.variant Paragraph.Body) [ text "Additional subtext to aid the user can be added here." ] ]
                                             ]
                                     , onDismiss = Just ModalDismissed
                                     , onConfirm = Just ModalConfirmed
@@ -231,7 +232,7 @@ main =
                                     , bodySubtext =
                                         Just
                                             [ div [ style "text-align" "center" ]
-                                                [ Text.view (Text.p |> Text.style Text.Lede |> Text.inline True) [ text "Additional subtext to aid the user can be added here." ] ]
+                                                [ Paragraph.view (Paragraph.p |> Paragraph.variant Paragraph.Body) [ text "Additional subtext to aid the user can be added here." ] ]
                                             ]
                                     , onDismiss = Just ModalDismissed
                                     , onConfirm = Just ModalConfirmed
@@ -258,7 +259,7 @@ main =
                                     , bodySubtext =
                                         Just
                                             [ div [ style "text-align" "center" ]
-                                                [ Text.view (Text.p |> Text.style Text.Lede |> Text.inline True) [ text "Additional subtext to aid the user can be added here." ] ]
+                                                [ Paragraph.view (Paragraph.p |> Paragraph.variant Paragraph.Body) [ text "Additional subtext to aid the user can be added here." ] ]
                                             ]
                                     , onDismiss = Just ModalDismissed
                                     , onConfirm = Just ModalConfirmed
@@ -285,7 +286,7 @@ main =
                                     , bodySubtext =
                                         Just
                                             [ div [ style "text-align" "center" ]
-                                                [ Text.view (Text.p |> Text.style Text.Lede |> Text.inline True) [ text "Additional subtext to aid the user can be added here." ] ]
+                                                [ Paragraph.view (Paragraph.p |> Paragraph.variant Paragraph.Body) [ text "Additional subtext to aid the user can be added here." ] ]
                                             ]
                                     , onDismiss = Just ModalDismissed
                                     , onConfirm = Just ModalConfirmed
@@ -312,7 +313,7 @@ main =
                                     , bodySubtext =
                                         Just
                                             [ div [ style "text-align" "center" ]
-                                                [ Text.view (Text.p |> Text.style Text.Lede |> Text.inline True) [ text "Additional subtext to aid the user can be added here." ] ]
+                                                [ Paragraph.view (Paragraph.p |> Paragraph.variant Paragraph.Body) [ text "Additional subtext to aid the user can be added here." ] ]
                                             ]
                                     , onDismiss = Just ModalDismissed
                                     , onConfirm = Nothing
@@ -341,7 +342,7 @@ main =
                                         , bodySubtext =
                                             Just
                                                 [ div [ style "text-align" "center" ]
-                                                    [ Text.view (Text.p |> Text.style Text.Lede |> Text.inline True) [ text "Additional subtext to aid the user can be added here." ] ]
+                                                    [ Paragraph.view (Paragraph.p |> Paragraph.variant Paragraph.Body) [ text "Additional subtext to aid the user can be added here." ] ]
                                                 ]
                                         , onDismiss = Just ModalDismissed
                                         , onConfirm = Just ModalConfirmed
@@ -379,7 +380,7 @@ main =
 
                     instructionText =
                         ModalAccessibleDescription.view
-                            [ Text.view Text.p [ text "Instructive text to drive user selection goes here." ]
+                            [ Paragraph.view Paragraph.p [ text "Instructive text to drive user selection goes here." ]
                             ]
 
                     textFields =
@@ -425,7 +426,7 @@ main =
 
                     instructionText =
                         ModalAccessibleDescription.view
-                            [ Text.view Text.p [ text "Instructive text to drive user selection goes here." ]
+                            [ Paragraph.view Paragraph.p [ text "Instructive text to drive user selection goes here." ]
                             ]
 
                     textFields =

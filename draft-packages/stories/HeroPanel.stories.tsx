@@ -5,7 +5,16 @@ const reportHeroData = require("../illustrations/reporting-hero-data.png")
 
 export default {
   title: "HeroPanel (React)",
+  component: HeroPanel,
+  parameters: {
+    info: {
+      text: `
+        import { HeroPanel } from "@kaizen/draft-hero-panel";
+      `,
+    },
+  },
 }
+
 export const Default = () => (
   <HeroPanel
     data-automation-id="panel"

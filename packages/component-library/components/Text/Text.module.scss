@@ -3,21 +3,21 @@
 
 .page-title,
 h1.default-style {
-  @include ca-type-ideal-page-title;
+  @include ca-type-inter-page-title;
   margin-bottom: $ca-grid;
   margin-top: 0;
 }
 
 .title,
 h2.default-style {
-  @include ca-type-ideal-title;
+  @include ca-type-inter-title;
   margin-bottom: $ca-grid;
   margin-top: 0;
 }
 
 .display,
 h3.default-style {
-  @include ca-type-ideal-display;
+  @include ca-type-inter-display;
   margin-bottom: $ca-grid;
   margin-top: 0;
 }
@@ -26,62 +26,62 @@ h3.default-style {
 h4.default-style,
 h5.default-style,
 h6.default-style {
-  @include ca-type-ideal-heading;
+  @include ca-type-inter-heading;
   margin-bottom: $ca-grid;
   margin-top: 0;
 }
 
 .lede {
-  @include ca-type-ideal-lede;
+  @include ca-type-inter-lede;
   margin-bottom: $ca-grid;
   margin-top: 0;
 }
 
 .paragraph,
 p.default-style {
-  @include ca-type-ideal-body;
+  @include ca-type-inter-body;
   margin-bottom: $ca-grid;
   margin-top: 0;
 }
 
 .body,
 .default-style {
-  @include ca-type-ideal-body;
+  @include ca-type-inter-body;
   margin: 0;
 }
 
 .body-bold {
-  @include ca-type-ideal-body-bold;
+  @include ca-type-inter-body-bold;
   margin: 0;
 }
 
 .small {
-  @include ca-type-ideal-small;
+  @include ca-type-inter-small;
   margin: 0;
 }
 
 .small-bold {
-  @include ca-type-ideal-small-bold;
+  @include ca-type-inter-small-bold;
   margin: 0;
 }
 
 .notification {
-  @include ca-type-ideal-notification;
+  @include ca-type-inter-notification;
   margin: 0;
 }
 
 .label {
-  @include ca-type-ideal-label;
+  @include ca-type-inter-label;
   margin: 0;
 }
 
 .control-action {
-  @include ca-type-ideal-control-action;
+  @include ca-type-inter-control-action;
   margin: 0;
 }
 
 .button {
-  @include ca-type-ideal-button;
+  @include ca-type-inter-button;
   margin: 0;
 }
 

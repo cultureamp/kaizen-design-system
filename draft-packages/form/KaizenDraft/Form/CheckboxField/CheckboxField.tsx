@@ -11,6 +11,8 @@ export type CheckboxFieldProps = {
   labelText: string | React.ReactNode
   checkedStatus?: CheckedStatus
   onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any
   disabled?: boolean
   noBottomMargin?: boolean
   tabIndex?: number
@@ -25,6 +27,8 @@ const CheckboxField: CheckboxField = ({
   labelText,
   checkedStatus,
   onCheck,
+  onFocus,
+  onBlur,
   disabled = false,
   noBottomMargin = false,
   tabIndex,
@@ -52,6 +56,8 @@ const CheckboxField: CheckboxField = ({
         checkedStatus={checkedStatus}
         name={name}
         onCheck={onCheck}
+        onFocus={onFocus}
+        onBlur={onBlur}
         tabIndex={tabIndex}
       />
     </Label>

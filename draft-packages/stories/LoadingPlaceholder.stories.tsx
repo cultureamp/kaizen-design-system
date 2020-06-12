@@ -1,4 +1,4 @@
-import { Text } from "@kaizen/component-library"
+import { Heading, Paragraph } from "@kaizen/component-library"
 import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
 import * as React from "react"
 
@@ -10,18 +10,26 @@ const StoryContainer: React.FunctionComponent<{}> = ({ children }) => {
 
 export default {
   title: "LoadingPlaceholder (React)",
+  component: LoadingPlaceholder,
+  parameters: {
+    info: {
+      text: `
+      import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
+      `,
+    },
+  },
 }
 
 export const DefaultMultipleKaizenSiteDemo = () => (
   <StoryContainer>
-    <Text tag="p">
+    <Paragraph variant="body">
       Dr. Brené Brown, author of Daring Greatly, is a research professor from
       the University of Houston who studies human emotions, including shame and
       vulnerability. In a March 2012 TED talk, she said, “Vulnerability is not
       weakness, and that myth is profoundly dangerous.” She went on to say that
       after 12 years of research, she has actually determined that vulnerability
       is “our most accurate measurement of courage.”
-    </Text>
+    </Paragraph>
     <>
       <LoadingPlaceholder />
       <LoadingPlaceholder />
@@ -39,14 +47,14 @@ DefaultMultipleKaizenSiteDemo.story = {
 export const DefaultMultipleInline = () => (
   <StoryContainer>
     <div>
-      <Text tag="p">
+      <Paragraph variant="body">
         Dr. Brené Brown, author of Daring Greatly, is a research professor from
         the University of Houston who studies human emotions, including shame
         and vulnerability. In a March 2012 TED talk, she said, “Vulnerability is
         not weakness, and that myth is profoundly dangerous.” She went on to say
         that after 12 years of research, she has actually determined that
         vulnerability is “our most accurate measurement of courage.”
-      </Text>
+      </Paragraph>
     </div>
     <>
       <div>
@@ -84,14 +92,14 @@ DefaultMultipleInline.story = {
 
 export const DefaultMultipleVariableWidth = () => (
   <StoryContainer>
-    <Text tag="p">
+    <Paragraph variant="body">
       Dr. Brené Brown, author of Daring Greatly, is a research professor from
       the University of Houston who studies human emotions, including shame and
       vulnerability. In a March 2012 TED talk, she said, “Vulnerability is not
       weakness, and that myth is profoundly dangerous.” She went on to say that
       after 12 years of research, she has actually determined that vulnerability
       is “our most accurate measurement of courage.”
-    </Text>
+    </Paragraph>
     <>
       <LoadingPlaceholder width={90} />
       <LoadingPlaceholder />
@@ -109,14 +117,14 @@ DefaultMultipleVariableWidth.story = {
 export const DefaultMultipleVariableWidthCentered = () => (
   <StoryContainer>
     <div style={{ textAlign: "center" }}>
-      <Text tag="p">
+      <Paragraph variant="body">
         Dr. Brené Brown, author of Daring Greatly, is a research professor from
         the University of Houston who studies human emotions, including shame
         and vulnerability. In a March 2012 TED talk, she said, “Vulnerability is
         not weakness, and that myth is profoundly dangerous.” She went on to say
         that after 12 years of research, she has actually determined that
         vulnerability is “our most accurate measurement of courage.”
-      </Text>
+      </Paragraph>
     </div>
     <>
       <LoadingPlaceholder centred width={90} />
@@ -135,14 +143,14 @@ DefaultMultipleVariableWidthCentered.story = {
 export const DefaultMultipleCombinedBlockAndInline = () => (
   <StoryContainer>
     <div>
-      <Text tag="p">
+      <Paragraph variant="body">
         Dr. Brené Brown, author of Daring Greatly, is a research professor from
         the University of Houston who studies human emotions, including shame
         and vulnerability. In a March 2012 TED talk, she said, “Vulnerability is
         not weakness, and that myth is profoundly dangerous.” She went on to say
         that after 12 years of research, she has actually determined that
         vulnerability is “our most accurate measurement of courage.”
-      </Text>
+      </Paragraph>
     </div>
     <>
       <div>
@@ -176,9 +184,9 @@ DefaultMultipleCombinedBlockAndInline.story = {
 export const DefaultWithoutBottomMargin = () => (
   <StoryContainer>
     <LoadingPlaceholder noBottomMargin />
-    <Text tag="p" inline>
+    <Paragraph variant="body">
       These loading placeholders have no bottom margin.
-    </Text>
+    </Paragraph>
 
     <LoadingPlaceholder noBottomMargin />
   </StoryContainer>
@@ -188,32 +196,32 @@ DefaultWithoutBottomMargin.story = {
   name: "Default, Without bottom margin",
 }
 
-export const DefaultInheritBaseline = () => (
+export const Defaul = () => (
   <StoryContainer>
     <div className={styles.flexbox}>
-      <Text tag="h2" inheritBaseline>
+      <Heading tag="h2" variant="heading-2">
         Inheriting baseline
-      </Text>
-      <LoadingPlaceholder inheritBaseline />
+      </Heading>
+      <LoadingPlaceholder />
     </div>
   </StoryContainer>
 )
 
-DefaultInheritBaseline.story = {
+Defaul.story = {
   name: "Default, Inherit baseline",
 }
 
-export const Heading = () => (
+export const HeadingLoading = () => (
   <StoryContainer>
     <div>
-      <Text tag="p">
+      <Paragraph variant="body">
         Dr. Brené Brown, author of Daring Greatly, is a research professor from
         the University of Houston who studies human emotions, including shame
         and vulnerability. In a March 2012 TED talk, she said, “Vulnerability is
         not weakness, and that myth is profoundly dangerous.” She went on to say
         that after 12 years of research, she has actually determined that
         vulnerability is “our most accurate measurement of courage.”
-      </Text>
+      </Paragraph>
     </div>
     <>
       <LoadingPlaceholder tall />
@@ -229,7 +237,7 @@ export const ReversedDefault = () => {
   return (
     <StoryContainer>
       <div className={styles.reversedDefault}>
-        <Text tag="p">
+        <Paragraph variant="body" color="white">
           Dr. Brené Brown, author of Daring Greatly, is a research professor
           from the University of Houston who studies human emotions, including
           shame and vulnerability. In a March 2012 TED talk, she said,
@@ -237,7 +245,7 @@ export const ReversedDefault = () => {
           dangerous.” She went on to say that after 12 years of research, she
           has actually determined that vulnerability is “our most accurate
           measurement of courage.”
-        </Text>
+        </Paragraph>
       </div>
       <div className={styles.reversedDefault}>
         <LoadingPlaceholder reversedDefault />
@@ -258,49 +266,55 @@ export const InTheWild = () => {
   return (
     <StoryContainer>
       <div>
-        <Text tag="h1">In the wild</Text>
-        <Text tag="p">
+        <Paragraph variant="body" tag="h1">
+          In the wild
+        </Paragraph>
+        <Paragraph variant="body">
           This is an example of how you could use LoadingPlaceholder to
           construct a loading state for a fictional tooltip component.
-        </Text>
-        <Text tag="h2">Tooltip component in a loaded state:</Text>
+        </Paragraph>
+        <Paragraph variant="body" tag="h2">
+          Tooltip component in a loaded state:
+        </Paragraph>
         <div className={styles.tooltip}>
           <div className={styles.tooltipHeader}>
-            <Text tag="div" style="body-bold" inheritBaseline>
+            <Paragraph tag="div" variant="intro-lede">
               Hooli's Engagement Survey
-            </Text>
-            <Text tag="div" inheritBaseline>
+            </Paragraph>
+            <Paragraph variant="body" tag="div">
               2019
-            </Text>
+            </Paragraph>
           </div>
           <div className={styles.tooltipBody}>
             <div className={styles.tooltipRow}>
-              <Text tag="div" inheritBaseline>
+              <Paragraph variant="body" tag="div">
                 Favorable
-              </Text>
-              <Text tag="div" inheritBaseline>
+              </Paragraph>
+              <Paragraph variant="body" tag="div">
                 76%
-              </Text>
+              </Paragraph>
             </div>
             <div className={styles.tooltipRow}>
-              <Text tag="div" inheritBaseline>
+              <Paragraph variant="body" tag="div">
                 Neutral
-              </Text>
-              <Text tag="div" inheritBaseline>
+              </Paragraph>
+              <Paragraph variant="body" tag="div">
                 21%
-              </Text>
+              </Paragraph>
             </div>
             <div className={styles.tooltipRow}>
-              <Text tag="div" inheritBaseline>
+              <Paragraph variant="body" tag="div">
                 Unfavorable
-              </Text>
-              <Text tag="div" inheritBaseline>
+              </Paragraph>
+              <Paragraph variant="body" tag="div">
                 3%
-              </Text>
+              </Paragraph>
             </div>
           </div>
         </div>
-        <Text tag="h2">Tooltip component in a loading state:</Text>
+        <Paragraph variant="body" tag="h2">
+          Tooltip component in a loading state:
+        </Paragraph>
         <div className={styles.tooltip}>
           <div className={styles.tooltipHeader}>
             <LoadingPlaceholder reversedOcean inline width={80} />

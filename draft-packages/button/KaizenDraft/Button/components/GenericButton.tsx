@@ -13,6 +13,7 @@ type GenericProps = {
   reversed?: boolean
   icon?: React.SVGAttributes<SVGSymbolElement>
   onClick?: (e: MouseEvent) => void
+  onMouseDown?: (e: MouseEvent) => void
   href?: string
   newTabAndIUnderstandTheAccessibilityImplications?: boolean
   type?: "submit" | "reset" | "button"
@@ -20,6 +21,8 @@ type GenericProps = {
   fullWidth?: boolean
   disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean
   analytics?: Analytics
+  onFocus?: (e: React.FocusEvent<HTMLElement>) => void
+  onBlur?: (e: React.FocusEvent<HTMLElement>) => void
 }
 
 type LabelProps = {
@@ -68,8 +71,11 @@ const renderButton: React.FunctionComponent<Props> = props => {
     id,
     disabled,
     onClick,
+    onMouseDown,
     type,
     disableTabFocusAndIUnderstandTheAccessibilityImplications,
+    onFocus,
+    onBlur,
   } = props
   const label = props.icon && props.iconButton ? props.label : undefined
 
@@ -84,6 +90,9 @@ const renderButton: React.FunctionComponent<Props> = props => {
           onClick && onClick(e)
         }
       }}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
       type={type}
       data-automation-id={props.automationId}
       title={label}
@@ -109,6 +118,8 @@ const renderLink: React.FunctionComponent<Props> = props => {
     href,
     onClick,
     newTabAndIUnderstandTheAccessibilityImplications,
+    onFocus,
+    onBlur,
   } = props
 
   return (
@@ -125,6 +136,8 @@ const renderLink: React.FunctionComponent<Props> = props => {
           onClick && onClick(e)
         }
       }}
+      onFocus={onFocus}
+      onBlur={onBlur}
       data-automation-id={props.automationId}
       data-analytics-click={props.analytics && props.analytics.eventName}
       data-analytics-properties={
