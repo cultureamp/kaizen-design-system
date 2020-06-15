@@ -101,9 +101,11 @@ const renderSectionTitle = (
           {sectionTitle}
         </Heading>
       </div>
-      <div className={classNames(styles.sectionTitleDescription, {
-        [styles.dark]: variant === "education" || variant === "admin"
-      })}>
+      <div
+        className={classNames(styles.sectionTitleDescription, {
+          [styles.dark]: variant === "education" || variant === "admin",
+        })}
+      >
         {sectionTitleDescription}
       </div>
     </div>
@@ -122,6 +124,7 @@ const renderBreadcrumb = (
       className={styles.breadcrumb}
       data-automation-id="TitleBlock__Breadcrumb"
       onClick={breadcrumb.handleClick}
+      aria-label="Back to previous page"
     >
       <div className={styles.circle}>
         <Icon icon={icon} role="presentation" />
@@ -189,7 +192,11 @@ const TitleBlockZen = ({
             {breadcrumb && renderBreadcrumb(breadcrumb, textDirection)}
             <div className={styles.titleAndAdjacentNotBreadcrumb}>
               <div className={styles.hamburger} onClick={handleHamburgerClick}>
-                <Icon icon={hamburgerIcon} role="img" title="Open menu" />
+                <Icon
+                  icon={hamburgerIcon}
+                  role="presentation"
+                  title="Open menu"
+                />
               </div>
               {avatar && renderAvatar(avatar)}
               <div className={styles.titleAndSubtitle}>

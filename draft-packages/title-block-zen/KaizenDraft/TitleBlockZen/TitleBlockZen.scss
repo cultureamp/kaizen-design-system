@@ -270,9 +270,8 @@ $tab-container-height-small: $ca-grid * 2.5;
   justify-content: space-between;
 
   @include title-block-under-768 {
-    height: $ca-grid * 2.5
+    height: $ca-grid * 2.5;
   }
-
 }
 
 .titleAndAdjacent {
