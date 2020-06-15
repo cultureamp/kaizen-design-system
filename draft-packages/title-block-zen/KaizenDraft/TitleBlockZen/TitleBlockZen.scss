@@ -326,7 +326,13 @@ $tab-container-height-small: $ca-grid * 2.5;
 }
 
 .navigationTabScrollerContainer {
-  overflow-x: scroll;
+  @include title-block-under-768 {
+    overflow-x: scroll;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
 
 .navigationTabEdgeShadow {
