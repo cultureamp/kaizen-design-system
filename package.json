@@ -115,9 +115,11 @@
     "@storybook/codemod": "^5.3.9",
     "@storybook/csf": "^0.0.1",
     "@storybook/node-logger": "^5.3.9",
+    "danger": "^10.2.0",
     "husky": "^4.2.5",
     "jscodeshift": "^0.7.0",
     "lint-staged": "^10.2.2",
+    "pkg-up": "^3.1.0",
     "storybook-chromatic": "^3.4.1"
   },
   "resolutions": {

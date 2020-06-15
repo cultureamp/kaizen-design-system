@@ -30,6 +30,11 @@ steps:
     branches: "!master"
     <<: *defaults
 
+  - name: ":zap: Danger"
+    command: ".buildkite/scripts/danger.sh"
+    branches: "!master"
+    <<: *defaults
+
   - name: ":pencil2: Test"
     command: ".buildkite/scripts/test.sh"
     branches: "!master"

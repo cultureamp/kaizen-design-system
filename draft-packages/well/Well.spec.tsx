@@ -40,7 +40,6 @@ describe("<Well />", () => {
 
       expect(container.querySelector(".negative")).toBeTruthy()
     })
-
     it("should render a positive well", () => {
       const { container } = renderWell({ variant: "positive" })
 
