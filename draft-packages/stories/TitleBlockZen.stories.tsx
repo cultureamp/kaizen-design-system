@@ -1,5 +1,4 @@
-import { Dropdown, Paragraph } from "@kaizen/component-library"
-import colorTokens from "@kaizen/design-tokens/tokens/color.json"
+import { Dropdown } from "@kaizen/component-library"
 import * as React from "react"
 import { Button } from "../button"
 import {
@@ -7,7 +6,6 @@ import {
   TitleBlockZen,
 } from "../title-block-zen/KaizenDraft/TitleBlockZen"
 const addIcon = require("@kaizen/component-library/icons/add.icon.svg").default
-const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
   .default
 const visibleIcon = require("@kaizen/component-library/icons/visible.icon.svg")
   .default
