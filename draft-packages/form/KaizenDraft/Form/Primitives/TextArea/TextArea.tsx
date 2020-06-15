@@ -10,6 +10,7 @@ type Props = {
   defaultValue?: string
   placeholder?: string
   name?: string
+  reversed?: boolean
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => any
   onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
   onFocus?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
@@ -22,6 +23,7 @@ const TextArea = (props: Props) => {
     defaultValue,
     placeholder,
     name,
+    reversed,
     rows = 3,
     onChange,
     onBlur,
@@ -32,7 +34,9 @@ const TextArea = (props: Props) => {
   return (
     <textarea
       id={id}
-      className={classnames(styles.textarea, styles.default)}
+      className={classnames(styles.textarea, styles.default, {
+        [styles.reversed]: reversed,
+      })}
       placeholder={placeholder}
       name={name}
       rows={rows}

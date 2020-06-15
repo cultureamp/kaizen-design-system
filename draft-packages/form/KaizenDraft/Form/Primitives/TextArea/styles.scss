@@ -27,3 +27,25 @@
     color: add-alpha($kz-color-wisteria-800, 70%);
   }
 }
+
+// Reversed (Dark Backgrounds)
+.textarea.reversed {
+  color: $kz-color-white;
+  border-color: add-alpha($kz-color-white, 50%);
+  background: transparent;
+
+  @include form-input-placeholder {
+    line-height: 1.5;
+    color: $kz-color-white;
+  }
+
+  &:focus:not([disabled]),
+  &:hover:focus:not([disabled]) {
+    background: add-alpha($kz-color-white, 10%);
+    border-color: $kz-color-white;
+  }
+
+  &.error:not(:focus) {
+    border-color: $kz-color-coral-300;
+  }
+}
