@@ -21,7 +21,7 @@ $ca-palette-input-validation-negative: $kz-color-coral-600;
   color: add-alpha($kz-color-wisteria-800, 80%);
 
   &.reversed {
-    color: $kz-color-white;
+    color: add-alpha($kz-color-white, 80%);
   }
 }
 
@@ -29,5 +29,5 @@ $ca-palette-input-validation-negative: $kz-color-coral-600;
   padding: $ca-grid / 2;
   color: $message-error-color;
   border-radius: $message-border-radius;
-  background: $kz-color-coral-100;
+  background: $kz-color-coral-300;
 }
