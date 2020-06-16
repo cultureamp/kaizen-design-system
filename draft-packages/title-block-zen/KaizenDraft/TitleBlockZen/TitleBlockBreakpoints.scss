@@ -1,0 +1,30 @@
+@mixin title-block-under-1440 {
+  @media (max-width: 1439px) {
+    @content;
+  }
+}
+@mixin title-block-under-1366 {
+  @media (max-width: 1365px) {
+    @content;
+  }
+}
+@mixin title-block-under-1080 {
+  @media (max-width: 1079px) {
+    @content;
+  }
+}
+@mixin title-block-under-1024 {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+@mixin title-block-under-768 {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+@mixin title-block-under-375 {
+  @media (max-width: 374px) {
+    @content;
+  }
+}

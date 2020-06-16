@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.5.7...@kaizen/draft-select@1.5.8) (2020-06-16)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
 ## [1.5.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.5.6...@kaizen/draft-select@1.5.7) (2020-06-12)
 
 **Note:** Version bump only for package @kaizen/draft-select
