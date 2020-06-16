@@ -1,0 +1,525 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/layout";
+@import "~@kaizen/component-library/styles/grid";
+@import "~@kaizen/component-library/styles/layers";
+@import "~@kaizen/component-library/styles/layout";
+@import "./TitleBlockBreakpoints.scss";
+
+$page-margin-width-large: 28px;
+$page-margin-width-small: 12px;
+$breadcrumb-circle-width: 48px;
+$breadcrumb-breakpoint-width: $kz-layout-content-max-width +
+  $page-margin-width-large * 2 + $breadcrumb-circle-width * 2.25;
+$title-block-separator-height: 3px;
+
+$tab-container-height-default: $ca-grid * 3;
+$tab-container-height-small: $ca-grid * 2.5;
+
+.titleBlock {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $kz-color-wisteria-700;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  &.educationVariant {
+    background-color: $kz-color-cluny-200;
+  }
+
+  &.adminVariant {
+    background-color: $kz-color-stone;
+  }
+
+  @media print {
+    display: none;
+  }
+}
+
+.titleRow,
+.rowBelowSeparator {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.adminVariant .titleRow {
+  background-color: $kz-color-white;
+}
+
+%titleBlockInner {
+  max-width: $kz-layout-content-max-width;
+  margin: 0 $page-margin-width-large;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @include title-block-under-1440 {
+    max-width: 1224px;
+  }
+
+  @include title-block-under-1366 {
+    max-width: 1024px;
+  }
+
+  @include title-block-under-1080 {
+    margin: 0 $page-margin-width-small;
+  }
+}
+
+.titleRowInner {
+  @extend %titleBlockInner;
+}
+
+.rowBelowSeparatorInner {
+  @extend %titleBlockInner;
+}
+
+.titleRowInnerContent {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: $ca-grid * 3.5;
+  justify-content: space-between;
+
+  border-bottom: $title-block-separator-height solid rgba($kz-color-white, 0.1);
+
+  .educationVariant & {
+    border-bottom-color: rgba($kz-color-wisteria-700, 0.2);
+  }
+
+  .adminVariant & {
+    border-bottom-color: transparent;
+  }
+
+  @include title-block-under-1080 {
+    border-bottom: none;
+  }
+
+  @include title-block-under-1080 {
+    height: $ca-grid * 2.5;
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.titleAndSubtitle {
+  display: flex;
+  align-items: center;
+  transform: translateY(-0.0833333em);
+}
+
+.titleAndSubtitleInner {
+  display: flex;
+
+  .hasSubtitle & {
+    align-items: baseline;
+
+    @include title-block-under-768 {
+      align-items: normal;
+      flex-direction: column;
+      justify-content: space-between;
+      transform: translateY($ca-grid / 2);
+    }
+  }
+}
+
+.titleTextOverride.titleTextOverride {
+  @include title-block-under-1366 {
+    font-family: $kz-typography-heading-2-font-family;
+    font-weight: $kz-typography-heading-2-font-weight;
+    font-size: $kz-typography-heading-2-font-size;
+    line-height: $kz-typography-heading-2-line-height;
+    letter-spacing: $kz-typography-heading-2-letter-spacing;
+  }
+  @include title-block-under-1080 {
+    font-family: $kz-typography-heading-3-font-family;
+    font-weight: $kz-typography-heading-3-font-weight;
+    font-size: $kz-typography-heading-3-font-size;
+    line-height: $kz-typography-heading-3-line-height;
+    letter-spacing: $kz-typography-heading-3-letter-spacing;
+  }
+  @include title-block-under-1024 {
+    font-family: $kz-typography-heading-4-font-family;
+    font-weight: $kz-typography-heading-4-font-weight;
+    font-size: $kz-typography-heading-4-font-size;
+    line-height: $kz-typography-heading-4-line-height;
+    letter-spacing: $kz-typography-heading-4-letter-spacing;
+  }
+}
+
+.avatar {
+  box-sizing: border-box;
+  border: 3px solid $kz-color-white;
+  border-radius: 50%;
+  overflow: hidden;
+  height: $ca-grid * 2;
+  width: $ca-grid * 2;
+  @include ca-margin($end: $ca-grid / 2);
+
+  > * {
+    max-width: 100%;
+  }
+
+  @include title-block-under-1080 {
+    display: none;
+  }
+}
+
+.subtitle {
+  display: flex;
+  align-items: center;
+  color: $kz-color-white;
+  font-family: $kz-typography-paragraph-small-font-family;
+  font-weight: $kz-typography-paragraph-small-font-weight;
+  font-size: $kz-typography-paragraph-small-font-size;
+  line-height: $kz-typography-paragraph-small-line-height;
+  letter-spacing: $kz-typography-paragraph-small-letter-spacing;
+  @include ca-margin($start: $ca-grid / 2);
+
+  @include title-block-under-768 {
+    margin: $ca-grid / 3 0;
+  }
+}
+
+.sectionTitleContainer {
+  display: flex;
+  align-items: center;
+}
+
+.sectionTitleInner {
+  display: flex;
+  align-items: baseline;
+}
+
+.sectionTitleOverride.sectionTitleOverride {
+  font-family: $kz-typography-heading-2-font-family;
+  font-weight: $kz-typography-heading-2-font-weight;
+  font-size: $kz-typography-heading-2-font-size;
+  line-height: $kz-typography-heading-2-line-height;
+  letter-spacing: $kz-typography-heading-2-letter-spacing;
+
+  @include title-block-under-1366 {
+    font-family: $kz-typography-heading-3-font-family;
+    font-weight: $kz-typography-heading-3-font-weight;
+    font-size: $kz-typography-heading-3-font-size;
+    line-height: $kz-typography-heading-3-line-height;
+    letter-spacing: $kz-typography-heading-3-letter-spacing;
+  }
+  @include title-block-under-1080 {
+    font-family: $kz-typography-heading-4-font-family;
+    font-weight: $kz-typography-heading-4-font-weight;
+    font-size: $kz-typography-heading-4-font-size;
+    line-height: $kz-typography-heading-4-line-height;
+    letter-spacing: $kz-typography-heading-4-letter-spacing;
+  }
+}
+
+.sectionTitleDescription {
+  @include ca-margin($start: $ca-grid);
+  color: $kz-color-white;
+  font-family: $kz-typography-paragraph-small-font-family;
+  font-weight: $kz-typography-paragraph-small-font-weight;
+  font-size: $kz-typography-paragraph-small-font-size;
+  line-height: $kz-typography-paragraph-small-line-height;
+  letter-spacing: $kz-typography-paragraph-small-letter-spacing;
+
+  &.dark {
+    color: rgba($kz-color-wisteria-800, 0.7);
+  }
+}
+
+.hamburger {
+  display: none;
+  @include ca-margin($end: $ca-grid * 2/3);
+  color: $kz-color-white;
+
+  .educationVariant &,
+  .adminVariant & {
+    color: $kz-color-wisteria-800;
+  }
+
+  @include title-block-under-1080 {
+    display: flex;
+    align-items: center;
+    transform: translateY(-1px);
+  }
+
+  @include title-block-under-1024 {
+    transform: translateY(-2px);
+  }
+
+  .hasSubtitle & {
+    @include title-block-under-768 {
+      transform: translateY(-7px);
+    }
+  }
+}
+
+.rowBelowSeparatorInnerContent {
+  display: flex;
+  width: 100%;
+  height: $ca-grid * 3;
+  margin-top: -$title-block-separator-height;
+  justify-content: space-between;
+
+  @include title-block-under-768 {
+    height: $ca-grid * 2.5;
+  }
+}
+
+.titleAndAdjacent {
+  display: flex;
+}
+
+.titleAndAdjacentNotBreadcrumb {
+  display: flex;
+  transition: opacity 0.3s ease;
+
+  .breadcrumb:hover + &,
+  .breadcrumb:focus + & {
+    opacity: 0;
+  }
+
+  // This is a hack. Without this block,
+  // the non-breadcrumb stuff will jump to the right
+  // as it fades out.
+  @media only screen and (max-width: $breadcrumb-breakpoint-width) {
+    .breadcrumb:hover + &,
+    .breadcrumb:focus + & {
+      position: absolute;
+      opacity: 0;
+      left: $breadcrumb-circle-width + 12px;
+      transform: translateY(6px);
+
+      .hasSubtitle & {
+        transform: translateY(0px);
+      }
+    }
+  }
+}
+
+.tag {
+  @include ca-margin($start: $ca-grid / 2);
+  display: flex;
+  align-items: center;
+
+  @include title-block-under-1080 {
+    display: none;
+  }
+}
+
+.navigationTabsContainer {
+  display: flex;
+  position: relative;
+  height: $tab-container-height-default;
+
+  @include title-block-under-768 {
+    height: $tab-container-height-small;
+  }
+}
+
+.navigationTabScrollerContainer {
+  @include title-block-under-768 {
+    overflow-x: scroll;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.navigationTabEdgeShadow {
+  display: none;
+
+  @include title-block-under-768 {
+    display: block;
+    position: fixed;
+    width: $ca-grid * 2;
+    height: $tab-container-height-small;
+    background: linear-gradient(
+      0,
+      $kz-color-wisteria-700,
+      add-alpha($kz-color-wisteria-700, 0%)
+    );
+    z-index: $ca-z-index-sticky;
+  }
+}
+
+.navigationTabEdgeShadowLeft {
+  composes: navigationTabEdgeShadow;
+  transform: rotate(90deg);
+  left: 0;
+}
+
+.navigationTabEdgeShadowRight {
+  composes: navigationTabEdgeShadow;
+  transform: rotate(-90deg);
+  right: 0;
+}
+
+.primaryActionsContainer {
+  display: flex;
+  align-items: center;
+
+  @include title-block-under-768 {
+    display: none;
+  }
+}
+
+.secondaryActionsContainer {
+  display: flex;
+  align-items: center;
+
+  // To be removed eventually – the Dropdown does not
+  // currently set its own color, and we want it
+  // to be Cluny like the default secondary buttons
+  .educationVariant &,
+  .adminVariant & {
+    color: $kz-color-cluny-500;
+  }
+
+  @include title-block-under-1080 {
+    display: none;
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  position: absolute;
+  z-index: $ca-z-index-sticky;
+  align-items: center;
+  top: 50%;
+  transform: translateY(-50%);
+  @include ca-position(
+    $start: calc(-#{$breadcrumb-circle-width} - #{$ca-grid})
+  );
+  align-self: normal;
+  color: $kz-color-white;
+
+  .educationVariant &,
+  .adminVariant & {
+    color: $kz-color-wisteria-800;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  @media only screen and (max-width: $breadcrumb-breakpoint-width) {
+    position: relative;
+    @include ca-margin($end: $ca-grid / 2);
+    @include ca-position($start: 0);
+    transform: translateY(0);
+  }
+
+  @include title-block-under-1080 {
+    display: none;
+  }
+}
+
+.breadcrumbText {
+  flex: 0 0 $ca-grid * 8;
+  top: 0;
+  display: none;
+  @include ca-margin($start: $ca-grid);
+  white-space: nowrap;
+  font-family: $kz-typography-heading-5-font-family;
+  font-weight: $kz-typography-heading-5-font-weight;
+  font-size: $kz-typography-heading-5-font-size;
+  line-height: $kz-typography-heading-5-line-height;
+  letter-spacing: $kz-typography-heading-5-letter-spacing;
+
+  .breadcrumb:hover &,
+  .breadcrumb:focus & {
+    display: inline-block;
+    animation: slide-fade 0.4s;
+
+    [dir="rtl"] & {
+      animation: reverse-slide-fade 0.4s;
+    }
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.circle {
+  $border-width: 3px;
+  flex: 0 0 $breadcrumb-circle-width;
+  box-sizing: border-box;
+  width: $breadcrumb-circle-width;
+  height: $breadcrumb-circle-width;
+  color: $kz-color-white;
+  border-color: rgba($kz-color-white, 0.5);
+  border-width: 2px;
+  border-radius: 50%;
+  border-style: solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  .breadcrumb:hover &,
+  .breadcrumb:focus & {
+    transform: scale(1.1);
+    border-color: $kz-color-white;
+    color: $kz-color-white;
+    background-color: rgba($kz-color-white, 0.1);
+  }
+
+  .educationVariant &,
+  .adminVariant & {
+    color: $kz-color-cluny-500;
+    border-color: $kz-color-cluny-300;
+    border-width: $border-width;
+  }
+
+  .educationVariant .breadcrumb:hover &,
+  .educationVariant .breadcrumb:focus &,
+  .adminVariant .breadcrumb:hover &,
+  .adminVariant .breadcrumb:focus & {
+    border-color: $kz-color-cluny-500;
+    color: $kz-color-cluny-500;
+    background-color: rgba($kz-color-cluny-500, 0.1);
+  }
+}
+
+@keyframes slide-fade {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes reverse-slide-fade {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}

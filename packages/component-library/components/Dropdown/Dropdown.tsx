@@ -13,7 +13,7 @@ type DropdownState = {
   isMenuVisible: boolean
 }
 
-type DropdownProps = {
+export type DropdownProps = {
   icon?: React.SVGAttributes<SVGSymbolElement>
   label?: React.ReactNode
   menuVisible?: boolean
