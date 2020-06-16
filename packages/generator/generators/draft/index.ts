@@ -52,7 +52,7 @@ module.exports = class extends Generator {
         this.destinationPath(
           `${packageLocation}KaizenDraft/${componentName}/${componentName}.elm`
         ),
-        { componentName: componentName }
+        { componentName }
       )
     }
 
@@ -61,7 +61,7 @@ module.exports = class extends Generator {
       this.fs.copyTpl(
         this.templatePath("index.txt"),
         this.destinationPath(`${packageLocation}index.ts`),
-        { componentName: componentName }
+        { componentName }
       )
 
       this.fs.copyTpl(
@@ -69,7 +69,7 @@ module.exports = class extends Generator {
         this.destinationPath(
           `${packageLocation}/KaizenDraft/${componentName}/${componentName}.tsx`
         ),
-        { componentName: componentName }
+        { componentName }
       )
 
       this.fs.copyTpl(
@@ -92,5 +92,5 @@ module.exports = class extends Generator {
 }
 
 function pascalCase(s) {
-  return startCase(s).replace(" ", "")
+  return startCase(s).replace(/ /gi, "")
 }
