@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-zen-title-block",
+  "name": "@kaizen/draft-title-block-zen",
   "version": "1.0.0",
-  "description": "The draft Zen Title block component",
+  "description": "The draft Title Block (Zen) component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/zen-title-block"
+    "directory": "draft-packages/title-block-zen"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
