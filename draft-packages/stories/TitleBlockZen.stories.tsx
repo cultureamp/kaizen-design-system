@@ -198,9 +198,9 @@ Performance.story = {
   name: "Performance",
 }
 
-export const International = () => (
+export const LongLabels = () => (
   <TitleBlockZen
-    title="Blanca Wheeler"
+    title="Hubert Blaine Wolfeschlegelsteinhausenbergerdorff"
     primaryActions={[
       <Button label="Feedback anfordern" reversed />,
       <Button label="Feedback geben" primary reversed />,
@@ -221,13 +221,13 @@ export const International = () => (
     ]}
     breadcrumb={{
       path: "#",
-      text: "Zurück nach Hause",
+      text: "Drehen Sie sich um und kehren Sie zur Startseite zurück",
       handleClick: event => {
         alert("breadcrumb clicked!")
       },
     }}
     avatar={<img alt="avatar image" src={assetUrl("site/empty-state.png")} />}
-    subtitle="Marketing-Assistentin"
+    subtitle="Wissenschaftlicher Mitarbeiter (Habilitation)"
     navigationTabs={[
       <NavigationTab text="Feedback" href="#" active />,
       <NavigationTab
