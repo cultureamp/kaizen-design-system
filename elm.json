@@ -25,7 +25,6 @@
         "./draft-packages/tabs",
         "./draft-packages/tag",
         "./draft-packages/title-block",
-        "./draft-packages/title-block-zen",
         "./draft-packages/tooltip",
         "./draft-packages/user-interactions",
         "./draft-packages/vertical-progress-step",
