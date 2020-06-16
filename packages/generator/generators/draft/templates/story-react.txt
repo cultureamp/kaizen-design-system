@@ -1,0 +1,17 @@
+import * as React from "react"
+
+import { <%= componentName %> } from "@kaizen/draft-<%= componentName %>"
+
+export default {
+  title: "<%= componentName %> (React)",
+}
+
+export const DefaultStory = () => (
+  <<%= componentName %> example="test">
+    Render some children
+  </<%= componentName %>>
+)
+
+DefaultStory.story = {
+  name: "Default - Below (Kaizen Site Demo)",
+}
