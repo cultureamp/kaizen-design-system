@@ -1,0 +1,9 @@
+@import "~@kaizen/design-tokens/sass/color";
+
+.wrapper {
+  color: $kz-color-wisteria-800;
+}
+
+
+
+
