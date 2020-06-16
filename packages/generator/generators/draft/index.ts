@@ -12,7 +12,7 @@ module.exports = class extends Generator {
       {
         type: "input",
         name: "name",
-        message: "Your component name",
+        message: "Your component name in PascalCase (Eg: EmptyState)",
         default: "",
       },
       {
@@ -31,6 +31,7 @@ module.exports = class extends Generator {
   }
 
   writing() {
+    const componentName = pascalCase(this.answers.name)
     const packageLocation = `draft-packages/${kebabCase(this.answers.name)}/`
     // root level files
     this.fs.copyTpl(
@@ -49,9 +50,9 @@ module.exports = class extends Generator {
       this.fs.copyTpl(
         this.templatePath("component-elm.txt"),
         this.destinationPath(
-          `${packageLocation}KaizenDraft/${startCase(this.answers.name)}.elm`
+          `${packageLocation}KaizenDraft/${componentName}/${componentName}.elm`
         ),
-        { componentName: startCase(this.answers.name) }
+        { componentName: componentName }
       )
     }
 
@@ -60,24 +61,36 @@ module.exports = class extends Generator {
       this.fs.copyTpl(
         this.templatePath("index.txt"),
         this.destinationPath(`${packageLocation}index.ts`),
-        { componentName: startCase(this.answers.name) }
+        { componentName: componentName }
       )
 
       this.fs.copyTpl(
         this.templatePath("component-react.txt"),
         this.destinationPath(
-          `${packageLocation}/KaizenDraft/${startCase(this.answers.name)}.tsx`
+          `${packageLocation}/KaizenDraft/${componentName}/${componentName}.tsx`
         ),
-        { componentName: startCase(this.answers.name) }
+        { componentName: componentName }
       )
 
       this.fs.copyTpl(
         this.templatePath("story-react.txt"),
         this.destinationPath(
-          `draft-packages/stories/${startCase(this.answers.name)}.stories.tsx`
+          `draft-packages/stories/${componentName}.stories.tsx`
         ),
-        { componentName: startCase(this.answers.name) }
+        { componentName: pascalCase(this.answers.name) }
       )
     }
+
+    // scss files
+    this.fs.copyTpl(
+      this.templatePath("component-scss.txt"),
+      this.destinationPath(
+        `${packageLocation}/KaizenDraft/${componentName}/styles.module.scss`
+      )
+    )
   }
+}
+
+function pascalCase(s) {
+  return startCase(s).replace(" ", "")
 }

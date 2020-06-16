@@ -1,1 +1,1 @@
-export * from "./KaizenDraft/<%= componentName %>"
+export * from "./KaizenDraft/<%= componentName %>/<%= componentName %>/"

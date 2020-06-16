@@ -1,28 +1,37 @@
 module KaizenDraft.<%= componentName %>.<%= componentName %> exposing
-  ( Config
-  , view
-  )
+    ( Config
+    , view
+    )
 
 import CssModules exposing (css)
-import Html exposing (text)
+import Html exposing (Html, div, text)
+
 
 
 -- VIEW
 
-view : Config msg -> String -> Html msg
+
+type Config msg
+    = Config { example : String }
+
+
+withExample : String -> Config msg -> Config msg
+withExample name (Config config) =
+    Config { config | example = name }
+
+
+view : Config msg -> List (Html msg) -> Html msg
 view (Config config) children =
     let
-        <%= componentName %>Class =
+        classes =
             styles.classList
                 [ ( .wrapper, True )
                 ]
     in
-    div <%= componentName %>Class ++ [ text "Hello, World!" ]
+    div [ classes ] [ text "Hello, World!" ]
+
 
 styles =
-    css "@kaizen/draft-library/components/<%= componentName %>/<%= componentName %>.module.scss"
+    css "@kaizen/draft-library/components/<%= componentName %>/styles.module.scss"
         { wrapper = "wrapper"
         }
-
--- MODIFIERS
-
