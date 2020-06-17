@@ -11,6 +11,8 @@
   margin-bottom: $ca-grid / 2;
 
   label {
+    -webkit-tap-highlight-color: transparent;
+
     :global(.ideal-sans) & {
       // This is to override bootstrap styles. Remove when appropriate
       font-size: $ca-inter-font-base-size;
