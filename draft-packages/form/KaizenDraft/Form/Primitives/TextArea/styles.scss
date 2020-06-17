@@ -1,9 +1,19 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/base";
+
+// @TODO - brought through from borders.scss in component-library
+// In the future these tokens should be better represented in
+// a separate package so they are shareable.
+$ca-border-color-focus: $kz-color-cluny-500;
+$ca-border-color-hover: $kz-color-wisteria-400;
+$ca-border-color-focus-reversed: $kz-color-cluny-300;
+
+.wrapper {
+  position: relative;
+}
 
 .textarea {
   @include form-input-reset;
@@ -14,17 +24,39 @@
   padding: $ca-grid * 0.5;
   color: $kz-color-wisteria-800;
 
-  &:focus {
-    border-color: $ca-border-color-focus;
-  }
-
+  &:focus,
   &:hover {
     border-color: $kz-color-wisteria-700;
+  }
+
+  &:focus {
+    outline: none;
   }
 
   @include form-input-placeholder {
     line-height: 1.5;
     color: add-alpha($kz-color-wisteria-800, 70%);
+  }
+}
+
+.textarea:focus + .focusRing {
+  $focus-ring-offset: 3px;
+  position: absolute;
+  background: transparent;
+  border-radius: $kz-border-focus-ring-border-radius;
+  border-width: $kz-border-focus-ring-border-width;
+  border-style: $kz-border-focus-ring-border-style;
+  border-color: transparent;
+  top: -$focus-ring-offset;
+  left: -$focus-ring-offset;
+  right: -$focus-ring-offset;
+  bottom: -$focus-ring-offset;
+  pointer-events: none;
+}
+
+.textarea.default {
+  &:focus + .focusRing {
+    border-color: $ca-border-color-focus;
   }
 }
 
@@ -39,13 +71,17 @@
     color: $kz-color-white;
   }
 
-  &:focus:not([disabled]),
-  &:hover:focus:not([disabled]) {
+  &:focus,
+  &:hover {
     background: add-alpha($kz-color-white, 10%);
     border-color: $kz-color-white;
   }
 
   &.error:not(:focus) {
     border-color: $kz-color-coral-300;
+  }
+
+  &:focus + .focusRing {
+    border-color: $ca-border-color-focus-reversed;
   }
 }

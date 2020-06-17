@@ -32,21 +32,28 @@ const TextArea = (props: Props) => {
   } = props
 
   return (
-    <textarea
-      id={id}
-      className={classnames(styles.textarea, styles.default, {
-        [styles.reversed]: reversed,
-      })}
-      placeholder={placeholder}
-      name={name}
-      rows={rows}
-      onChange={onChange}
-      onBlur={onBlur}
-      onFocus={onFocus}
-      data-automation-id={automationId}
-      value={value}
-      defaultValue={defaultValue}
-    />
+    <div className={styles.wrapper}>
+      <textarea
+        id={id}
+        className={classnames(styles.textarea, {
+          [styles.default]: !reversed,
+          [styles.reversed]: reversed,
+        })}
+        placeholder={placeholder}
+        name={name}
+        rows={rows}
+        onChange={onChange}
+        onBlur={onBlur}
+        onFocus={onFocus}
+        data-automation-id={automationId}
+        value={value}
+        defaultValue={defaultValue}
+      />
+
+      {/* Textareas aren't able to have pseudo elements like ::after on them,
+          so we have to create an element ourselves for the focus ring */}
+      <div className={styles.focusRing} />
+    </div>
   )
 }
 
