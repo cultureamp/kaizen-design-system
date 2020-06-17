@@ -28,10 +28,6 @@ $ca-border-color-focus-reversed: $kz-color-cluny-300;
     border-color: $kz-color-wisteria-700;
   }
 
-  &:focus {
-    outline: none; // Bootstrap override
-  }
-
   @include form-input-placeholder {
     line-height: 1.5;
     color: rgba($kz-color-wisteria-800, 0.7);

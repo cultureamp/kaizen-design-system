@@ -59,10 +59,6 @@ $input-disabled-border-alpha: 50%;
     }
   }
 
-  &:focus {
-    outline: none; // Bootstrap override
-  }
-
   &.disabled {
     &:not(.reversed) {
       background: $input-disabled-background;
