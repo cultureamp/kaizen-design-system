@@ -60,8 +60,7 @@ $input-disabled-border-alpha: 50%;
   }
 
   &:focus {
-    // override Bootstrap style
-    outline: none;
+    outline: none; // Bootstrap override
   }
 
   &.disabled {

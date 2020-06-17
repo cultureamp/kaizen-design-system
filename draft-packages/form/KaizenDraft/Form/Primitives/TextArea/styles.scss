@@ -29,7 +29,7 @@ $ca-border-color-focus-reversed: $kz-color-cluny-300;
   }
 
   &:focus {
-    outline: none;
+    outline: none; // Bootstrap override
   }
 
   @include form-input-placeholder {
