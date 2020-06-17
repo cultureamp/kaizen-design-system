@@ -17,7 +17,6 @@ $ca-border-color-focus-reversed: $kz-color-cluny-300;
 
 // Vars
 $input-height: 48px;
-$input-focus-border-color-reversed: $kz-color-yuzu-500;
 $input-base-padding-horizontal: $ca-grid / 2;
 $input-icon-size: 1.25rem; // 20px
 $input-placeholder-opacity: 0.5;
@@ -217,7 +216,7 @@ $input-disabled-border-alpha: 50%;
 
   &:focus:not([disabled]),
   &:hover:focus:not([disabled]) {
-    border-color: $ca-border-color-focus;
+    border-color: $ca-border-color-hover;
   }
 
   &:focus + .focusRing {
@@ -240,7 +239,7 @@ $input-disabled-border-alpha: 50%;
 // Reversed (Dark Backgrounds)
 .input.reversed {
   color: $kz-color-white;
-  border-color: $kz-color-white;
+  border-color: rgba($kz-color-white, 0.65);
 
   @include form-input-placeholder {
     color: $kz-color-white;
@@ -248,13 +247,9 @@ $input-disabled-border-alpha: 50%;
   }
 
   &:focus:not([disabled]),
-  &:hover:focus:not([disabled]) {
-    background: rgba($kz-color-white, 0.1);
-    border-color: $input-focus-border-color-reversed;
-  }
-
   &:hover:not([disabled]) {
     background: rgba($kz-color-white, 0.1);
+    border-color: $kz-color-white;
   }
 
   &:focus + .focusRing {
