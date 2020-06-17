@@ -12,7 +12,7 @@
 
   label {
     -webkit-tap-highlight-color: transparent;
-    * {
+    input[type="radio"] {
       pointer-events: none;
     }
 
