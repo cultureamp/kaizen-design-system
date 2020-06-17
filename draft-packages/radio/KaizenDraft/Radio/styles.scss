@@ -12,6 +12,9 @@
 
   label {
     -webkit-tap-highlight-color: transparent;
+    * {
+      pointer-events: none;
+    }
 
     :global(.ideal-sans) & {
       // This is to override bootstrap styles. Remove when appropriate
