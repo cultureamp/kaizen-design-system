@@ -20,7 +20,7 @@ $ca-palette-input-validation-negative: $kz-color-coral-600;
   color: rgba($kz-color-wisteria-800, 0.8);
 
   &.reversed {
-    color: rgba($kz-color-white, 0.8);
+    color: $kz-color-white;
   }
 }
 
