@@ -1,3 +1,4 @@
+import { touchEnabled } from "@kaizen/component-library/util/browserFeatures"
 import { Label } from "@kaizen/draft-form"
 import classnames from "classnames"
 import * as React from "react"
@@ -33,6 +34,7 @@ const Radio: Radio = ({
   <div
     data-automation-id={automationId}
     className={classnames(styles.container, {
+      [styles.touchEnabled]: touchEnabled,
       [styles.selected]: selectedStatus,
       [styles.disabled]: disabled,
       [styles.inline]: inline,

@@ -1,4 +1,5 @@
 import { Checkbox, CheckedStatus, Label } from "@kaizen/draft-form"
+import { touchEnabled } from "@kaizen/component-library/util/browserFeatures"
 import classnames from "classnames"
 import * as React from "react"
 
@@ -36,6 +37,7 @@ const CheckboxField: CheckboxField = ({
   <div
     data-automation-id={automationId}
     className={classnames(styles.container, {
+      [styles.touchEnabled]: touchEnabled,
       [styles.checked]: checkedStatus === "on",
       [styles.mixed]: checkedStatus === "mixed",
       [styles.disabled]: disabled,

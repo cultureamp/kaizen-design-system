@@ -25,10 +25,12 @@
     margin-bottom: 0;
   }
 
-  label:hover {
-    input:not([disabled]) + div {
-      border-color: $kz-color-wisteria-700;
-      background-color: $kz-color-wisteria-100;
+  &:not(.touchEnabled) {
+    label:hover {
+      input:not([disabled]) + div {
+        border-color: $kz-color-wisteria-700;
+        background-color: $kz-color-wisteria-100;
+      }
     }
   }
 
