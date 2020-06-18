@@ -17,13 +17,24 @@ export { ValueType } from "react-select"
 export type SelectProps = {
   variant?: VariantType
   reversed?: boolean
+  selectControlWidth?: SelectControlWidthType
 }
 
 export type VariantType = "default" | "secondary"
+export type SelectControlWidthType = "fillContainer" | "containSelection"
 
 export const Select = (props: SelectProps & ReactSelectProps) => {
-  const { variant = "default", reversed = false } = props
-  const kaizenProps = { variant, reversed }
+  if (props.selectControlWidth) {
+    throw new Error(
+      `the selectControlWidth prop is not yet implemented for the Select component`
+    )
+  }
+  const {
+    variant = "default",
+    reversed = false,
+    selectControlWidth = "fillContainer",
+  } = props
+  const kaizenProps = { variant, reversed, selectControlWidth }
 
   if (reversed === true && variant === "default") {
     throw new Error(

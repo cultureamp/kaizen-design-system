@@ -122,6 +122,7 @@ export const SingleSelectSecondaryReversed = () => (
       // placeholder="Placeholder"
       isSearchable={false}
       // autoSizeControl={true}
+      selectControlWidth="containSeelection"
       defaultValue={options[0]}
       defaultMenuIsOpen={true}
       variant="secondary"
