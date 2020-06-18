@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.1.6...@kaizen/draft-radio@2.1.7) (2020-06-18)
+
+
+### Bug Fixes
+
+* Checkbox and radio button inconsistent behaviour on touch devices ([#550](https://github.com/cultureamp/kaizen-design-system/issues/550)) ([da66a82](https://github.com/cultureamp/kaizen-design-system/commit/da66a828aea401187ae99f7e6fa55975fce8b7a7))
+
+
+
+
+
+## [2.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.1.5...@kaizen/draft-radio@2.1.6) (2020-06-17)
+
+**Note:** Version bump only for package @kaizen/draft-radio
+
+
+
+
+
 ## [2.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.1.4...@kaizen/draft-radio@2.1.5) (2020-06-16)
 
 **Note:** Version bump only for package @kaizen/draft-radio

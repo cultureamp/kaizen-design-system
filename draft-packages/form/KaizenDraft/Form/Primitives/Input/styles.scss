@@ -132,18 +132,23 @@ $input-disabled-border-alpha: 50%;
 }
 
 // Default theme
+/* stylelint-disable-next-line no-duplicate-selectors */
 .withStartIconAdornment {
+  /* stylelint-disable-next-line no-duplicate-selectors */
   .startIconAdornment {
     color: $kz-color-wisteria-800;
     opacity: 0.5;
   }
 
+  /* stylelint-disable-next-line no-duplicate-selectors */
   &.withDisabled {
+    /* stylelint-disable-next-line no-duplicate-selectors */
     .startIconAdornment {
       opacity: 0.3;
     }
   }
 
+  /* stylelint-disable-next-line no-duplicate-selectors */
   &:hover:not(.withDisabled),
   &:focus-within:not(.withDisabled) {
     .startIconAdornment {

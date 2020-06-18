@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.28](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.5.27...@kaizen/draft-well@2.5.28) (2020-06-18)
+
+
+### Bug Fixes
+
+* Checkbox and radio button inconsistent behaviour on touch devices ([#550](https://github.com/cultureamp/kaizen-design-system/issues/550)) ([da66a82](https://github.com/cultureamp/kaizen-design-system/commit/da66a828aea401187ae99f7e6fa55975fce8b7a7))
+
+
+
+
+
+## [2.5.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.5.26...@kaizen/draft-well@2.5.27) (2020-06-17)
+
+
+### Bug Fixes
+
+* Update Well to latest colours/tokens ([#553](https://github.com/cultureamp/kaizen-design-system/issues/553)) ([87745af](https://github.com/cultureamp/kaizen-design-system/commit/87745af14ba184ec5162f69194697f5e8266186c))
+
+
+
+
+
+## [2.5.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.5.25...@kaizen/draft-well@2.5.26) (2020-06-17)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
 ## [2.5.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.5.24...@kaizen/draft-well@2.5.25) (2020-06-16)
 
 **Note:** Version bump only for package @kaizen/draft-well
