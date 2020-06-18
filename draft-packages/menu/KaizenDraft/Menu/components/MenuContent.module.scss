@@ -9,13 +9,12 @@
 $side-padding: 1/2 * $ca-grid;
 
 .menuContent {
-  background: #fff;
+  background: $kz-color-white;
   color: $kz-color-wisteria-800;
   border-radius: $kz-border-solid-border-radius;
   box-shadow: $kz-shadow-large-box-shadow;
-  line-height: 40px;
-  text-align: left;
   padding: 6px 4px;
+  text-align: left;
 
   [dir="rtl"] & {
     text-align: right;
@@ -62,7 +61,6 @@ $side-padding: 1/2 * $ca-grid;
     text-decoration: none;
   }
 
-  &.menuItem--active,
   &:not(.menuItem--disabled):hover,
   &:focus {
     background: $kz-color-cluny-100;
@@ -83,11 +81,6 @@ $side-padding: 1/2 * $ca-grid;
   }
 }
 
-// .menuItem--active {
-// This was left over from the legacy MenuList component and is here as a reminder
-// that we can use this class for any "active" menuItem states.
-// }
-
 .menuItem--disabled {
   color: rgba($kz-color-wisteria-800, 0.3);
 }
@@ -100,7 +93,7 @@ $side-padding: 1/2 * $ca-grid;
 }
 
 .menuItem__Label {
-  flex: 1;
+  flex-grow: 1;
 }
 
 .menuItem__Icon {

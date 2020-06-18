@@ -5,11 +5,6 @@ import Menu from "./Menu"
 
 afterEach(cleanup)
 
-const svgIcon = {
-  id: "my-icon",
-  viewBox: "0 0 20 20",
-}
-
 describe("Dropdown", () => {
   test("renders default view", () => {
     const { container } = render(
