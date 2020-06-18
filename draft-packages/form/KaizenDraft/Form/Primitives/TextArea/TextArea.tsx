@@ -13,6 +13,7 @@ type Props = {
   name?: string
   reversed?: boolean
   status?: InputStatus
+  textAreaRef?: React.RefObject<HTMLTextAreaElement>
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => any
   onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
   onFocus?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
@@ -28,6 +29,7 @@ const TextArea = (props: Props) => {
     reversed,
     rows = 3,
     status = "default",
+    textAreaRef,
     onChange,
     onBlur,
     onFocus,
@@ -52,6 +54,7 @@ const TextArea = (props: Props) => {
         data-automation-id={automationId}
         value={value}
         defaultValue={defaultValue}
+        ref={textAreaRef}
       />
 
       {/* Textareas aren't able to have pseudo elements like ::after on them,

@@ -20,6 +20,7 @@ type Props = {
   validationMessage?: string
   status?: InputStatus
   description?: string
+  textAreaRef?: React.RefObject<HTMLTextAreaElement>
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => any
   onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
   onFocus?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
@@ -37,6 +38,7 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
     inline,
     reversed,
     placeholder,
+    textAreaRef,
     onChange,
     onBlur,
     onFocus,
@@ -69,6 +71,7 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
         rows={rows}
         reversed={reversed}
         status={status}
+        textAreaRef={textAreaRef}
       />
       {validationMessage && (
         <FieldMessage
