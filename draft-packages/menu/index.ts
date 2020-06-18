@@ -3,3 +3,4 @@ export { default as MenuContent } from "./KaizenDraft/Menu/components/MenuConten
 export { default as MenuHeader } from "./KaizenDraft/Menu/components/MenuHeader"
 export { default as MenuItem } from "./KaizenDraft/Menu/components/MenuItem"
 export { default as MenuSeparator } from "./KaizenDraft/Menu/components/MenuSeparator"
+export { MenuItemProps } from "./KaizenDraft/Menu/components/MenuItem"

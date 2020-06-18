@@ -4,14 +4,16 @@ import * as React from "react"
 
 const styles = require("./MenuContent.module.scss")
 
-const MenuItem = (props: {
+export type MenuItemProps = {
   label: string
   action: string | ((e: React.MouseEvent<HTMLAnchorElement>) => void)
   icon?: React.SVGAttributes<SVGSymbolElement>
   destructive?: boolean
   disabled?: boolean
   automationId?: string
-}) => {
+}
+
+const MenuItem = (props: MenuItemProps) => {
   const { label, icon, action, destructive, disabled, automationId } = props
 
   const wrappedLabel = <span className={styles.menuItem__Label}>{label}</span>
