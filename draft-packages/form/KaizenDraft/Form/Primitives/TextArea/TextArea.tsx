@@ -1,3 +1,4 @@
+import { InputStatus } from "@kaizen/draft-form"
 import classnames from "classnames"
 import React from "react"
 const styles = require("./styles.scss")
@@ -11,6 +12,7 @@ type Props = {
   placeholder?: string
   name?: string
   reversed?: boolean
+  status?: InputStatus
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => any
   onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
   onFocus?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
@@ -25,6 +27,7 @@ const TextArea = (props: Props) => {
     name,
     reversed,
     rows = 3,
+    status = "default",
     onChange,
     onBlur,
     onFocus,
@@ -38,6 +41,7 @@ const TextArea = (props: Props) => {
         className={classnames(styles.textarea, {
           [styles.default]: !reversed,
           [styles.reversed]: reversed,
+          [styles.error]: status === "error",
         })}
         placeholder={placeholder}
         name={name}

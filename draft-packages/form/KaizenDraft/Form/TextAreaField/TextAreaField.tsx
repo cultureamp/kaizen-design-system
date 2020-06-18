@@ -68,6 +68,7 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
         defaultValue={defaultValue}
         rows={rows}
         reversed={reversed}
+        status={status}
       />
       {validationMessage && (
         <FieldMessage

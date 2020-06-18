@@ -29,6 +29,10 @@ $ca-border-color-focus-reversed: $kz-color-cluny-300;
     border-color: $kz-color-wisteria-700;
   }
 
+  &.error:not(:focus) {
+    border-color: $kz-color-coral-500;
+  }
+
   @include form-input-placeholder {
     line-height: 1.5;
     color: rgba($kz-color-wisteria-800, 0.7);
@@ -73,7 +77,7 @@ $ca-border-color-focus-reversed: $kz-color-cluny-300;
     border-color: $kz-color-white;
   }
 
-  &.error:not(:focus) {
+  &.error {
     border-color: $kz-color-coral-300;
   }
 
