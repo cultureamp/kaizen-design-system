@@ -175,7 +175,7 @@ view (Config config) =
                 ++ maybeOnCheckAttr
                 ++ maybeNameAttr
     in
-    div [ styles.class .container ]
+    div []
         [ input
             (attribs
                 ++ [ type_ "checkbox"

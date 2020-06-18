@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.0.9...@kaizen/draft-form@2.0.10) (2020-06-18)
+
+
+### Bug Fixes
+
+* use specificity hack to overide bootstrap styles ([#555](https://github.com/cultureamp/kaizen-design-system/issues/555)) ([133c334](https://github.com/cultureamp/kaizen-design-system/commit/133c334daaf844f0eb4ca34c29b527d27664491b))
+
+
+
+
+
+## [2.0.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.0.8...@kaizen/draft-form@2.0.9) (2020-06-18)
+
+
+### Bug Fixes
+
+* add pointer-events none to .box element ([#554](https://github.com/cultureamp/kaizen-design-system/issues/554)) ([43b6d6f](https://github.com/cultureamp/kaizen-design-system/commit/43b6d6fa895a3e3df1a35d77d2d27cf468f644e9))
+
+
+
+
+
 ## [2.0.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.0.7...@kaizen/draft-form@2.0.8) (2020-06-18)
 
 

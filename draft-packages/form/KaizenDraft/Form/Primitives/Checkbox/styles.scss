@@ -8,8 +8,12 @@ $checkbox-size: 24px;
 $icon-size: 24px;
 $focus-ring-offset: 2px;
 
-.checkbox {
+// override bootstrap styles
+.checkbox.checkbox {
   @include form-input-visually-hidden();
+  width: $checkbox-size;
+  height: $checkbox-size;
+  margin: 0;
 }
 
 .icon {
@@ -26,6 +30,7 @@ $focus-ring-offset: 2px;
 
 .box {
   position: relative;
+  pointer-events: none;
   background: $kz-color-white;
   height: $checkbox-size;
   width: $checkbox-size;
