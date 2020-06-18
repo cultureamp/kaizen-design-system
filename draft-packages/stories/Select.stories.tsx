@@ -123,6 +123,7 @@ export const SingleSelectAutoSizeControl = () => (
     defaultValue={options[0]}
     defaultMenuIsOpen={true}
     variant="secondary"
+    reversed={false}
   />
 )
 

@@ -15,15 +15,21 @@ const styles = require("./styles.react.scss")
 export { ValueType } from "react-select"
 
 export type SelectProps = {
-  variant: VariantType
+  variant?: VariantType
+  reversed?: boolean
 }
 
 export type VariantType = "default" | "secondary"
 
-export const Select = (props: SelectProps & ReactSelectProps) => {
+export const Select = ({
+  variant = "default",
+  reversed = false,
+  className,
+  ...reactSelectProps
+}: SelectProps & ReactSelectProps) => {
   return (
     <ReactSelect
-      {...props}
+      {...reactSelectProps}
       components={{
         Control,
         Placeholder,
@@ -36,7 +42,7 @@ export const Select = (props: SelectProps & ReactSelectProps) => {
         ClearIndicator: null,
         IndicatorSeparator: null,
       }}
-      className={classNames(styles.container, props.className)}
+      className={classNames(styles.container, className)}
     />
   )
 }
