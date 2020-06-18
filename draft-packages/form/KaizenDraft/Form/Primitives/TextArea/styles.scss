@@ -22,6 +22,7 @@ $ca-border-color-focus-reversed: $kz-color-cluny-300;
     $kz-color-wisteria-500;
   padding: $ca-grid * 0.5;
   color: $kz-color-wisteria-800;
+  display: block;
 
   &:focus,
   &:hover {
