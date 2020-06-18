@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-tooltip",
-  "version": "1.5.5",
+  "version": "1.5.8",
   "description": "The draft Tooltip component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -31,7 +31,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^7.22.3",
+    "@kaizen/component-library": "^7.23.1",
     "@kaizen/deprecated-component-library-helpers": "^1.6.1",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"

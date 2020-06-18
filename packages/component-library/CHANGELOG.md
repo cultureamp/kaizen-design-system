@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.23.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.23.0...@kaizen/component-library@7.23.1) (2020-06-17)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [7.23.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.22.4...@kaizen/component-library@7.23.0) (2020-06-16)
+
+
+### Features
+
+* Create draft TitleBlockZen component ([#523](https://github.com/cultureamp/kaizen-design-system/issues/523)) ([3db1f29](https://github.com/cultureamp/kaizen-design-system/commit/3db1f29f7a809c2719b00cc3ac49f546e42fe160))
+
+
+
+
+
+## [7.22.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.22.3...@kaizen/component-library@7.22.4) (2020-06-12)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [7.22.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.22.2...@kaizen/component-library@7.22.3) (2020-06-12)
 
 **Note:** Version bump only for package @kaizen/component-library
