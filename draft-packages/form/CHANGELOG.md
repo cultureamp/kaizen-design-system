@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.0.7...@kaizen/draft-form@2.0.8) (2020-06-18)
+
+
+### Bug Fixes
+
+* Checkbox and radio button inconsistent behaviour on touch devices ([#550](https://github.com/cultureamp/kaizen-design-system/issues/550)) ([da66a82](https://github.com/cultureamp/kaizen-design-system/commit/da66a828aea401187ae99f7e6fa55975fce8b7a7))
+
+
+
+
+
 ## [2.0.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.0.6...@kaizen/draft-form@2.0.7) (2020-06-17)
 
 **Note:** Version bump only for package @kaizen/draft-form
