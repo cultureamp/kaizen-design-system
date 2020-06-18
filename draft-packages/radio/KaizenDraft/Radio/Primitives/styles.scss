@@ -38,13 +38,13 @@ $focus-ring-offset: 2px;
     opacity: 0.3;
   }
 
-  .radioInput:focus:not([disabled]) + &,
-  .radioInput:hover:focus:not([disabled]) + & {
+  .radioInput:focus:not([disabled]) + & {
     border-color: $kz-color-wisteria-700;
     background-color: $kz-color-wisteria-100;
   }
 
   .radioInput:focus:not([disabled]) + &::after {
+    pointer-events: none;
     content: "";
     position: absolute;
     background: transparent;
@@ -58,8 +58,10 @@ $focus-ring-offset: 2px;
     height: $radio-size + $focus-ring-offset;
   }
 
-  .radioInput:not([disabled]) + &:hover {
-    border-color: $kz-color-wisteria-700;
-    background-color: $kz-color-wisteria-100;
+  @media (hover: hover) and (pointer: fine) {
+    .radioInput:not([disabled]) + &:hover {
+      border-color: $kz-color-wisteria-700;
+      background-color: $kz-color-wisteria-100;
+    }
   }
 }

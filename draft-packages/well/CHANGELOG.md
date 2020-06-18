@@ -8,7 +8,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* Update <Well> to latest colours/tokens ([#553](https://github.com/cultureamp/kaizen-design-system/issues/553)) ([87745af](https://github.com/cultureamp/kaizen-design-system/commit/87745af14ba184ec5162f69194697f5e8266186c))
+* Update Well to latest colours/tokens ([#553](https://github.com/cultureamp/kaizen-design-system/issues/553)) ([87745af](https://github.com/cultureamp/kaizen-design-system/commit/87745af14ba184ec5162f69194697f5e8266186c))
 
 
 
