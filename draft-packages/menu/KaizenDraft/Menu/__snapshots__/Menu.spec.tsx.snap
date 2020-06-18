@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown renders default view 1`] = `
+<div
+  class="dropdown"
+>
+  <span
+    class="container"
+  >
+    <button
+      class="button"
+      type="button"
+    >
+      <span
+        class="content"
+      >
+        <span
+          class="label"
+        >
+          Button
+        </span>
+      </span>
+    </button>
+  </span>
+</div>
+`;

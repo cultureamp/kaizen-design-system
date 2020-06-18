@@ -1,0 +1,122 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/layers";
+@import "~@kaizen/component-library/styles/animation";
+
+$side-padding: 1/2 * $ca-grid;
+
+.menuContent {
+  background: #fff;
+  color: $kz-color-wisteria-800;
+  border-radius: $kz-border-solid-border-radius;
+  box-shadow: $kz-shadow-large-box-shadow;
+  line-height: 40px;
+  text-align: left;
+  padding: 6px 4px;
+
+  [dir="rtl"] & {
+    text-align: right;
+  }
+}
+
+.header {
+  padding: 10px $side-padding 5px;
+  color: $kz-color-wisteria-800;
+}
+
+.header__title {
+  font-family: $kz-typography-heading-6-font-family;
+  font-weight: $kz-typography-heading-6-font-weight;
+  font-size: $kz-typography-heading-6-font-size;
+  line-height: $kz-typography-heading-6-line-height;
+  letter-spacing: $kz-typography-heading-6-letter-spacing;
+  display: block;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  padding: 8px $side-padding;
+  min-height: 1.75 * $ca-grid;
+  border-radius: 4px;
+  font-family: $kz-typography-paragraph-body-font-family;
+  font-weight: $kz-typography-paragraph-body-font-weight;
+  font-size: $kz-typography-paragraph-body-font-size;
+  line-height: $kz-typography-paragraph-body-line-height;
+  letter-spacing: $kz-typography-paragraph-body-letter-spacing;
+  text-decoration: none;
+  color: $kz-color-wisteria-800;
+
+  cursor: default;
+
+  &:not(.menuItem--disabled) {
+    cursor: pointer;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &.menuItem--active,
+  &:not(.menuItem--disabled):hover,
+  &:focus {
+    background: $kz-color-cluny-100;
+    color: $kz-color-cluny-500;
+
+    .menuItem__Icon {
+      color: $kz-color-cluny-500;
+    }
+
+    &.menuItem--destructive {
+      background: $kz-color-coral-100;
+      color: $kz-color-coral-600;
+
+      .menuItem__Icon {
+        color: $kz-color-coral-600;
+      }
+    }
+  }
+}
+
+// .menuItem--active {
+// This was left over from the legacy MenuList component and is here as a reminder
+// that we can use this class for any "active" menuItem states.
+// }
+
+.menuItem--disabled {
+  color: rgba($kz-color-wisteria-800, 0.3);
+}
+
+.menuItem--destructive {
+  color: $kz-color-coral-600;
+  .menuItem__Icon {
+    color: $kz-color-coral-600;
+  }
+}
+
+.menuItem__Label {
+  flex: 1;
+}
+
+.menuItem__Icon {
+  @include ca-margin($end: $ca-grid / 3);
+
+  display: flex;
+  align-self: flex-start;
+  transform: translateY(0.2em);
+  color: rgba($kz-color-wisteria-800, 0.75);
+}
+
+.separator {
+  height: 1px;
+  width: 100%;
+  border: 0;
+  background: $kz-color-wisteria-200;
+  visibility: visible;
+  margin: 5px 0;
+}
