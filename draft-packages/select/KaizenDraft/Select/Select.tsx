@@ -27,6 +27,11 @@ export const Select = ({
   className,
   ...reactSelectProps
 }: SelectProps & ReactSelectProps) => {
+  if (reversed === true) {
+    throw new Error(
+      "the prop reversed=true is not yet implemented for the Select component"
+    )
+  }
   return (
     <ReactSelect
       {...reactSelectProps}
