@@ -23,10 +23,9 @@ const MenuItem = (props: MenuItemProps) => {
     </span>
   )
 
-  const className = classNames({
-    styles.menuItem,
-    styles["menuItem--destructive"]: destructive,
-    styles["menuItem--disabled"]: disabled,
+  const className = classNames(styles.menuItem, {
+    [styles["menuItem--destructive"]]: destructive,
+    [styles["menuItem--disabled"]]: disabled,
   })
 
   if (disabled) {
