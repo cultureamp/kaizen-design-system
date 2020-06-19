@@ -24,10 +24,6 @@ const MenuItem = (props: MenuItemProps) => {
   )
 
   const className = classNames({
-    [styles.menuItem]: true,
-    [styles["menuItem--destructive"]]: destructive,
-    [styles["menuItem--disabled"]]: disabled,
-  const className = classNames({
     styles.menuItem,
     styles["menuItem--destructive"]: destructive,
     styles["menuItem--disabled"]: disabled,
