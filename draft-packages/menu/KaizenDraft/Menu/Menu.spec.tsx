@@ -6,7 +6,7 @@ import Menu from "./Menu"
 afterEach(cleanup)
 
 describe("Dropdown", () => {
-  test("renders default view", () => {
+  it("renders default view", () => {
     const { container } = render(
       <Menu button={<Button label="Button"></Button>} />
     )
@@ -14,7 +14,7 @@ describe("Dropdown", () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
-  test("shows menu when clicking on the button", () => {
+  it("shows menu when clicking on the button", () => {
     const { container, queryByText } = render(
       <Menu button={<Button label="Button"></Button>}>
         <div>Item</div>
