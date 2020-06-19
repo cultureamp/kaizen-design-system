@@ -1,3 +1,19 @@
+@import "~@kaizen/component-library/styles/layout";
+@import "../title-block-zen/KaizenDraft/TitleBlockZen/TitleBlockZen.scss";
+@import "../title-block-zen/KaizenDraft/TitleBlockZen/TitleBlockBreakpoints.scss";
+
 body {
   margin: 0;
+}
+
+.contentContainer {
+  box-sizing: border-box;
+  padding: 24px;
+  max-width: 1392px;
+  margin: 0 $page-margin-width-on-desktop;
+  background: #eee;
+
+  @include title-block-tablet-and-mobile {
+    margin: 0;
+  }
 }
