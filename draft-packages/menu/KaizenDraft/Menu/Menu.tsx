@@ -1,6 +1,5 @@
+import { ButtonProps } from "@kaizen/draft-button"
 import * as React from "react"
-// TODO: get this from @kaizen/draft-button once published version offers ButtonProps
-import { ButtonProps } from "../../../button"
 import MenuDropdown from "./MenuDropdown"
 
 const styles = require("./styles.scss")
