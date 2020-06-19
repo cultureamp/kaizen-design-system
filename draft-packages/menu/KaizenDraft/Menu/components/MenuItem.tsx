@@ -27,6 +27,10 @@ const MenuItem = (props: MenuItemProps) => {
     [styles.menuItem]: true,
     [styles["menuItem--destructive"]]: destructive,
     [styles["menuItem--disabled"]]: disabled,
+  const className = classNames({
+    styles.menuItem,
+    styles["menuItem--destructive"]: destructive,
+    styles["menuItem--disabled"]: disabled,
   })
 
   if (disabled) {
