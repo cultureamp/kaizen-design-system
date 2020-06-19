@@ -120,7 +120,8 @@
     "jscodeshift": "^0.7.0",
     "lint-staged": "^10.2.2",
     "pkg-up": "^3.1.0",
-    "storybook-chromatic": "^3.4.1"
+    "storybook-chromatic": "^3.4.1",
+    "string.prototype.matchall": "^4.0.2"
   },
   "resolutions": {
     "**/**/minimist": "^1.2.3"

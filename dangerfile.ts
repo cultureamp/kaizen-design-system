@@ -1,6 +1,7 @@
 import { danger, fail, schedule } from "danger"
 import path from "path"
 import pkgUp from "pkg-up"
+import matchAll from "string.prototype.matchall"
 
 const modifiedSassFiles = danger.git.modified_files.filter(curr =>
   curr.includes(".scss")
@@ -52,7 +53,7 @@ schedule(async () => {
  */
 const stripImportString = (importString: string): string => {
   const regexp = /(?:.*)"(?:~)?(.*)"/g
-  const allMatches = [...importString.matchAll(regexp)]
+  const allMatches = [...matchAll(importString, regexp)]
   const stringResult = allMatches.map((curr): string => {
     const [, returnObj] = curr // pick the first matched group
 
