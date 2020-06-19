@@ -11,6 +11,7 @@ const WideStoryContainer = ({ children }: { children: React.ReactNode }) => {
 }
 
 const options = [
+  { value: "longname", label: "Very very long long long name" },
   { value: "Mindy", label: "Mindy" },
   { value: "Jaime", label: "Jaime" },
   { value: "Rafa", label: "Rafa" },
@@ -110,7 +111,6 @@ export const MultiAsyncSearchable = () => (
     />
   </WideStoryContainer>
 )
-
 MultiAsyncSearchable.story = {
   name: "Multi-Async Searchable",
 }
@@ -122,7 +122,7 @@ export const SingleSelectSecondaryReversed = () => (
       // placeholder="Placeholder"
       isSearchable={false}
       // autoSizeControl={true}
-      selectControlWidth="containSeelection"
+      selectControlWidth="containSelection"
       defaultValue={options[0]}
       defaultMenuIsOpen={true}
       variant="secondary"

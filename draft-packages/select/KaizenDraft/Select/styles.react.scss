@@ -112,4 +112,19 @@
       }
     }
   }
+
+  &.controlWidthContainSelection {
+    .control {
+      display: inline-flex;
+    }
+
+    .singleValueOverrides {
+      max-width: none;
+      overflow: visible;
+      position: static;
+      white-space: normal;
+      top: auto;
+      transform: none;
+    }
+  }
 }

@@ -24,9 +24,9 @@ export type VariantType = "default" | "secondary"
 export type SelectControlWidthType = "fillContainer" | "containSelection"
 
 export const Select = (props: SelectProps & ReactSelectProps) => {
-  if (props.selectControlWidth) {
+  if (props.selectControlWidth && props.variant !== "secondary") {
     throw new Error(
-      `the selectControlWidth prop is not yet implemented for the Select component`
+      `the selectControlWidth prop is not yet implemented when variant="default"`
     )
   }
   const {
@@ -50,6 +50,8 @@ export const Select = (props: SelectProps & ReactSelectProps) => {
   const classes = classNames(props.className, styles.specificityIncreaser, {
     [styles.reversed]: reversed,
     [styles.secondary]: variant === "secondary",
+    [styles.controlWidthContainSelection]:
+      selectControlWidth === "containSelection",
   })
   return (
     <ReactSelect
@@ -145,7 +147,10 @@ const NoOptionsMessage: typeof components.NoOptionsMessage = props => (
 
 const CustomSingleValue: typeof components.SingleValue = props => {
   return (
-    <components.SingleValue {...props.singleValueProps}>
+    <components.SingleValue
+      {...props.singleValueProps}
+      className={styles.singleValueOverrides}
+    >
       <span className={styles.singleValue}>
         {props.singleValueProps.children}
       </span>
