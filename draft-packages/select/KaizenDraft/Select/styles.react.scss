@@ -72,8 +72,13 @@
     @include base-font-style();
   }
 
-  &.reversed .singleValue {
-    color: $kz-color-white;
+  &.reversed {
+    .singleValue {
+      color: $kz-color-white;
+    }
+    .singleValueOverrides {
+      color: $kz-color-white;
+    }
   }
 
   .multiValue {
@@ -116,15 +121,27 @@
   &.controlWidthContainSelection {
     .control {
       display: inline-flex;
+      max-width: 100%;
+
+      > div {
+        // gross, sorry! I Couldnt find a way to add a class to this
+        // element that comes from react-select
+
+        flex-wrap: nowrap;
+      }
     }
 
     .singleValueOverrides {
-      max-width: none;
-      overflow: visible;
+      overflow: hidden;
       position: static;
-      white-space: normal;
+      white-space: nowrap;
       top: auto;
       transform: none;
+      max-width: 100%;
+    }
+
+    .singleValue {
+      max-width: 100%;
     }
   }
 }

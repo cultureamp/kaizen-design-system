@@ -10,8 +10,11 @@ const WideStoryContainer = ({ children }: { children: React.ReactNode }) => {
   return <div style={{ width: "500px", margin: "12px auto" }}>{children}</div>
 }
 
+const NarrowStoryContainer = ({ children }: { children: React.ReactNode }) => {
+  return <div style={{ width: "200px", margin: "12px auto" }}>{children}</div>
+}
+
 const options = [
-  { value: "longname", label: "Very very long long long name" },
   { value: "Mindy", label: "Mindy" },
   { value: "Jaime", label: "Jaime" },
   { value: "Rafa", label: "Rafa" },
@@ -75,6 +78,31 @@ export const Single = () => (
   </StoryContainer>
 )
 
+export const SingleEllipsis = () => {
+  const options = [
+    {
+      value: "a",
+      label:
+        "Long option where the container is 200px fixed width and the selected option should ellipsize",
+    },
+    { value: "b", label: "B" },
+  ]
+
+  return (
+    <NarrowStoryContainer>
+      <Select
+        options={options}
+        isSearchable={false}
+        defaultValue={options[0]}
+      />
+    </NarrowStoryContainer>
+  )
+}
+
+SingleEllipsis.story = {
+  name: "Single with ellipsizing selection",
+}
+
 export const SingleSearchable = () => (
   <StoryContainer>
     <Select options={options} placeholder="Placeholder" />
@@ -115,14 +143,14 @@ MultiAsyncSearchable.story = {
   name: "Multi-Async Searchable",
 }
 
-export const SingleSelectSecondaryReversed = () => (
+export const SingleSecondaryReversed = () => (
   <WideStoryContainer>
     <Select
       options={options}
       // placeholder="Placeholder"
       isSearchable={false}
       // autoSizeControl={true}
-      selectControlWidth="containSelection"
+      // selectControlWidth="containSelection"
       defaultValue={options[0]}
       defaultMenuIsOpen={true}
       variant="secondary"
@@ -131,8 +159,48 @@ export const SingleSelectSecondaryReversed = () => (
   </WideStoryContainer>
 )
 
-SingleSelectSecondaryReversed.story = {
+SingleSecondaryReversed.story = {
   name: "Single Select Secondary Reversed",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
+}
+
+export const SingleSecondaryContainSelectionEllipsis = () => {
+  const options = [
+    {
+      value: "a",
+      label:
+        "Long option where the container is 200px fixed width and the selected option should ellipsize",
+    },
+    { value: "b", label: "B" },
+    { value: "c", label: "Regular" },
+  ]
+  return (
+    <NarrowStoryContainer>
+      <Select
+        options={options}
+        // placeholder="Placeholder"
+        isSearchable={false}
+        // autoSizeControl={true}
+        selectControlWidth="containSelection"
+        defaultValue={options[0]}
+        defaultMenuIsOpen={true}
+        variant="secondary"
+        reversed={true}
+      />
+    </NarrowStoryContainer>
+  )
+}
+
+SingleSecondaryContainSelectionEllipsis.story = {
+  name: "Single Select Secondary containSelection ellipsis",
   parameters: {
     backgrounds: [
       {
