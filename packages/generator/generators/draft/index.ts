@@ -77,7 +77,10 @@ module.exports = class extends Generator {
         this.destinationPath(
           `draft-packages/stories/${componentName}.stories.tsx`
         ),
-        { componentName: pascalCase(this.answers.name) }
+        {
+          componentName: pascalCase(this.answers.name),
+          npmPackageName: `@kaizen/draft-${kebabCase(this.answers.name)}`,
+        }
       )
     }
 

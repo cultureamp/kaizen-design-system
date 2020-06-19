@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-modal",
-  "version": "2.4.14",
-  "description": "The draft Modal component",
+  "name": "@kaizen/draft-menu",
+  "version": "1.1.0",
+  "description": "The draft Menu component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/modal"
+    "directory": "draft-packages/menu"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
@@ -31,22 +31,15 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^7.23.2",
-    "@kaizen/deprecated-component-library-helpers": "^1.6.2",
-    "@kaizen/draft-button": "^1.6.0",
-    "@kaizen/draft-form": "^2.0.11",
+    "@kaizen/component-library": "^7.23.0",
     "@types/classnames": "^2.2.10",
-    "classnames": "^2.2.6",
-    "react-focus-lock": "1.19.1",
-    "react-transition-group": "^2.9.0",
-    "uuid": "^3.3.2"
+    "classnames": "^2.2.6"
   },
   "devDependencies": {
-    "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.2.1",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^1.2.0",
+    "@kaizen/design-tokens": "1.6.0",
     "react": "^16.9.0"
   }
 }

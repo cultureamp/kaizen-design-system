@@ -1,0 +1,27 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/component-library/styles/layers";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+
+$menu-container-width: 248px;
+
+.dropdown {
+  position: relative;
+}
+
+.menuContainer {
+  position: absolute;
+  width: $menu-container-width;
+  z-index: $ca-z-index-dropdown;
+  right: 0;
+
+  [dir="rtl"] & {
+    right: auto;
+    left: 0;
+  }
+}
+
+.reversedColor {
+  color: $kz-color-white;
+}
