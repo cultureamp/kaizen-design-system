@@ -1,7 +1,11 @@
 {
   "kz": {
     "layout": {
-      "contentMaxWidth": "1392px"
+      "contentMaxWidth": "1392px",
+      "breakpoints": {
+        "tabletMinimum": "768px",
+        "desktopMinimum": "1080px"
+      }
     }
   }
 }
