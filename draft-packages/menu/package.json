@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-menu",
-  "version": "1.5.5",
+  "version": "1.0.0",
   "description": "The draft Menu component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
