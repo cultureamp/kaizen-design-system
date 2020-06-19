@@ -56,13 +56,13 @@ $tab-container-height-small: $ca-grid * 2.5;
   flex-direction: column;
   width: 100%;
 
-  @include title-block-under-1440 {
-    max-width: 1224px;
-  }
+  // @include title-block-under-1440 {
+  //   max-width: 1224px;
+  // }
 
-  @include title-block-under-1366 {
-    max-width: 1024px;
-  }
+  // @include title-block-under-1366 {
+  //   max-width: 1024px;
+  // }
 
   @include title-block-under-1080 {
     margin: 0 $page-margin-width-small;
