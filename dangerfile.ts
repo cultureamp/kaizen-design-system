@@ -48,7 +48,7 @@ schedule(async () => {
 })
 
 /**
- * This whole function sucks and requires us to add matchAll to our config
+ * Pick out imports from the Sass file, and remove git diff annotations
  * @param curr
  */
 const stripImportString = (importString: string): string => {
