@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { <%= componentName %> } from "@kaizen/draft-<%= componentName %>"
+import { <%= componentName %> } from "<%= npmPackageName %>"
 
 export default {
   title: "<%= componentName %> (React)",
@@ -13,5 +13,5 @@ export const DefaultStory = () => (
 )
 
 DefaultStory.story = {
-  name: "Default - Below (Kaizen Site Demo)",
+  name: "Default (Kaizen Site Demo)",
 }

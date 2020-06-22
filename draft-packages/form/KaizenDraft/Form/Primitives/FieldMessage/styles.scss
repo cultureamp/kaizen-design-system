@@ -1,7 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
 
 $message-error-color: $kz-color-wisteria-800;
 $message-border-radius: $kz-border-solid-border-radius;
@@ -18,7 +17,7 @@ $ca-palette-input-validation-negative: $kz-color-coral-600;
 }
 
 .default {
-  color: add-alpha($kz-color-wisteria-800, 80%);
+  color: rgba($kz-color-wisteria-800, 0.8);
 
   &.reversed {
     color: $kz-color-white;
@@ -29,5 +28,5 @@ $ca-palette-input-validation-negative: $kz-color-coral-600;
   padding: $ca-grid / 2;
   color: $message-error-color;
   border-radius: $message-border-radius;
-  background: $kz-color-coral-100;
+  background: $kz-color-coral-300;
 }
