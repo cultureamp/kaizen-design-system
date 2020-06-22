@@ -109,8 +109,12 @@
   cursor: inherit;
   opacity: 0.3;
 
-  &:hover {
+  &:hover:not(.activeTab) {
     color: $kz-color-wisteria-800;
+    background-color: transparent;
+  }
+
+  &.activeTab:hover {
     background-color: transparent;
   }
 }
