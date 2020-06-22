@@ -1,3 +1,4 @@
+import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { action } from "@storybook/addon-actions"
 import React, { useCallback, useRef } from "react"
 
@@ -10,6 +11,12 @@ const userIcon = require("@kaizen/component-library/icons/user.icon.svg")
 const ExampleContainer: React.FunctionComponent = ({ children }) => (
   <div style={{ width: "98%", margin: "1%" }}>{children}</div>
 )
+
+const ReversedBg = {
+  parameters: {
+    backgrounds: [{ value: colorTokens.kz.color.wisteria[700], default: true }],
+  },
+}
 
 export default {
   title: "TextField (React)",
@@ -287,6 +294,10 @@ export const Reversed = () => (
   </ExampleContainer>
 )
 
+Reversed.story = {
+  ...ReversedBg,
+}
+
 export const ReversedIcon = () => (
   <ExampleContainer>
     <TextField
@@ -304,6 +315,7 @@ export const ReversedIcon = () => (
 
 ReversedIcon.story = {
   name: "Reversed, Icon",
+  ...ReversedBg,
 }
 
 export const ReversedDisabled = () => (
@@ -323,6 +335,7 @@ export const ReversedDisabled = () => (
 
 ReversedDisabled.story = {
   name: "Reversed, Disabled",
+  ...ReversedBg,
 }
 
 export const ReversedDisabledWValue = () => (
@@ -342,6 +355,7 @@ export const ReversedDisabledWValue = () => (
 
 ReversedDisabledWValue.story = {
   name: "Reversed, Disabled w/ value",
+  ...ReversedBg,
 }
 
 export const ReversedDisabledIcon = () => (
@@ -362,6 +376,7 @@ export const ReversedDisabledIcon = () => (
 
 ReversedDisabledIcon.story = {
   name: "Reversed, Disabled + Icon",
+  ...ReversedBg,
 }
 
 export const ReversedSuccess = () => (
@@ -381,6 +396,7 @@ export const ReversedSuccess = () => (
 
 ReversedSuccess.story = {
   name: "Reversed,  Success",
+  ...ReversedBg,
 }
 
 export const ReversedSuccessIcon = () => (
@@ -401,6 +417,7 @@ export const ReversedSuccessIcon = () => (
 
 ReversedSuccessIcon.story = {
   name: "Reversed, Success + Icon",
+  ...ReversedBg,
 }
 
 export const ReversedError = () => (
@@ -421,6 +438,7 @@ export const ReversedError = () => (
 
 ReversedError.story = {
   name: "Reversed, Error",
+  ...ReversedBg,
 }
 
 export const ReversedErrorIcon = () => (
@@ -442,6 +460,7 @@ export const ReversedErrorIcon = () => (
 
 ReversedErrorIcon.story = {
   name: "Reversed, Error + Icon",
+  ...ReversedBg,
 }
 
 export const ReversedMultipleFields = () => (
@@ -471,6 +490,7 @@ export const ReversedMultipleFields = () => (
 
 ReversedMultipleFields.story = {
   name: "Reversed, Multiple Fields",
+  ...ReversedBg,
 }
 
 export const ReversedMultipleFieldsWError = () => (
@@ -504,6 +524,7 @@ export const ReversedMultipleFieldsWError = () => (
 
 ReversedMultipleFieldsWError.story = {
   name: "Reversed, Multiple Fields w/ Error",
+  ...ReversedBg,
 }
 
 export const DefaultFocusBlurEvents = () => (

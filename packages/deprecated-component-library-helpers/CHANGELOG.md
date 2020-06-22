@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.6.3...@kaizen/deprecated-component-library-helpers@1.6.4) (2020-06-22)
+
+**Note:** Version bump only for package @kaizen/deprecated-component-library-helpers
+
+
+
+
+
+## [1.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.6.2...@kaizen/deprecated-component-library-helpers@1.6.3) (2020-06-19)
+
+
+### Bug Fixes
+
+* correct font weights for legacy ca-type paragraph bold mixins ([#560](https://github.com/cultureamp/kaizen-design-system/issues/560)) ([6928624](https://github.com/cultureamp/kaizen-design-system/commit/6928624d769f881495ba6619860478dc97069415))
+
+
+
+
+
+## [1.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.6.1...@kaizen/deprecated-component-library-helpers@1.6.2) (2020-06-18)
+
+**Note:** Version bump only for package @kaizen/deprecated-component-library-helpers
+
+
+
+
+
 ## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.6.0...@kaizen/deprecated-component-library-helpers@1.6.1) (2020-06-05)
 
 

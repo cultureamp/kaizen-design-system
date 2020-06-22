@@ -22,6 +22,7 @@ interface Props {
   readonly localeDirection?: "rtl" | "ltr"
   readonly submitLabel?: string
   readonly dismissLabel?: string
+  readonly automationId?: string
   readonly children: React.ReactNode
   readonly submitDisabled?: boolean
 }
@@ -37,6 +38,7 @@ const InputEditModal = ({
   localeDirection = "ltr",
   submitLabel = "Submit",
   dismissLabel = "Cancel",
+  automationId,
   children,
   submitDisabled = false,
 }: Props) => (
@@ -44,6 +46,7 @@ const InputEditModal = ({
     isOpen={isOpen}
     onEscapeKeyup={onDismiss}
     onOutsideModalClick={onDismiss}
+    automationId={automationId}
   >
     <div className={styles.modal} dir={localeDirection}>
       <ModalHeader unpadded onDismiss={onDismiss}>
@@ -66,6 +69,7 @@ const InputEditModal = ({
           { label: dismissLabel, action: onDismiss },
         ]}
         appearance={type === "negative" ? "destructive" : "primary"}
+        automationId={automationId}
       />
     </div>
   </GenericModal>

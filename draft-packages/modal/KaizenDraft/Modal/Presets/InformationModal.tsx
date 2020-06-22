@@ -18,6 +18,7 @@ interface Props {
   readonly onConfirm?: () => void
   readonly onDismiss: () => void
   readonly confirmLabel?: string
+  readonly automationId?: string
   readonly renderBackground?: () => React.ReactNode
   readonly children: React.ReactNode
 }
@@ -30,6 +31,7 @@ const InformationModal = ({
   onConfirm,
   onDismiss,
   confirmLabel = "Confirm",
+  automationId,
   renderBackground,
   children,
 }: Props) => (
@@ -37,6 +39,7 @@ const InformationModal = ({
     isOpen={isOpen}
     onEscapeKeyup={onDismiss}
     onOutsideModalClick={onDismiss}
+    automationId={automationId}
   >
     <div className={styles.modal}>
       {renderBackground && renderBackground()}
@@ -60,6 +63,7 @@ const InformationModal = ({
         <ModalFooter
           actions={[{ label: confirmLabel, action: onConfirm }]}
           appearance={"primary"}
+          automationId={automationId}
         />
       )}
     </div>
