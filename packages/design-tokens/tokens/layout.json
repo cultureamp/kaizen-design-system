@@ -1,7 +1,13 @@
 {
   "kz": {
     "layout": {
-      "contentMaxWidth": "1392px"
+      "contentMaxWidth": "1392px",
+      "contentSideMargin": "72px",
+      "mobileActionsDrawerHeight": "60px",
+      "breakpoints": {
+        "medium": "768px",
+        "large": "1080px"
+      }
     }
   }
 }
