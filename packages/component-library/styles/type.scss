@@ -313,7 +313,7 @@ $ca-inter-locale-he-font-family: "Inter", Tahoma, sans-serif;
 }
 
 @mixin ca-type-inter-body-bold($size: 16, $args...) {
-  @include ca-type-inter($size: $size, $weight: 400, $args...);
+  @include ca-type-inter($size: $size, $weight: 600, $args...);
 }
 
 @mixin ca-type-inter-small($size: 14, $args...) {
@@ -321,7 +321,7 @@ $ca-inter-locale-he-font-family: "Inter", Tahoma, sans-serif;
 }
 
 @mixin ca-type-inter-small-bold($size: 14, $args...) {
-  @include ca-type-inter($size: $size, $weight: 400, $args...);
+  @include ca-type-inter($size: $size, $weight: 600, $args...);
 }
 
 @mixin ca-type-inter-notification($size: 15, $args...) {

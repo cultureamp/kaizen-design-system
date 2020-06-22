@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.6.1...@kaizen/draft-button@1.7.0) (2020-06-22)
+
+
+### Features
+
+* Add focus rings to TextField & TextAreaField + reversed support for TextAreaField ([#544](https://github.com/cultureamp/kaizen-design-system/issues/544)) ([ba4334e](https://github.com/cultureamp/kaizen-design-system/commit/ba4334e273be1aa8f8d9bfa820268b41e5373773))
+
+
+
+
+
+## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.6.0...@kaizen/draft-button@1.6.1) (2020-06-19)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.5.7...@kaizen/draft-button@1.6.0) (2020-06-19)
+
+
+### Features
+
+* Expose ButtonProps ([#559](https://github.com/cultureamp/kaizen-design-system/issues/559)) ([cc1cfad](https://github.com/cultureamp/kaizen-design-system/commit/cc1cfade7e270fca6b8f6535ed1e92c394c9625f))
+
+
+
+
+
 ## [1.5.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.5.6...@kaizen/draft-button@1.5.7) (2020-06-18)
 
 **Note:** Version bump only for package @kaizen/draft-button
