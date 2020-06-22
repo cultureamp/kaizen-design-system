@@ -39,7 +39,8 @@
   border: $kz-border-solid-border-width $kz-border-solid-border-style
     $ca-border-color;
   border-radius: $kz-border-solid-border-radius;
-  outline: 0 !important;
+  /* Tech debt - this !important existed before Stylelint rules */
+  outline: 0 !important; /* stylelint-disable-line declaration-no-important */
 
   &:hover {
     border-color: $ca-border-color-hover;
