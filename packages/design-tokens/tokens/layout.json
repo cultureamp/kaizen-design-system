@@ -2,6 +2,7 @@
   "kz": {
     "layout": {
       "contentMaxWidth": "1392px",
+      "mobileActionsDrawerHeight": "60px",
       "breakpoints": {
         "tabletMinimum": "768px",
         "desktopMinimum": "1080px"
