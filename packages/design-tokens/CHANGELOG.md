@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.11.0...@kaizen/design-tokens@1.12.0) (2020-06-22)
+
+
+### Features
+
+* Add tokens for breakpoints ([#564](https://github.com/cultureamp/kaizen-design-system/issues/564)) ([a644e5d](https://github.com/cultureamp/kaizen-design-system/commit/a644e5dc25db918ec0afbfea517b8a985a6c0c9b))
+
+
+
+
+
 # [1.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.10.0...@kaizen/design-tokens@1.11.0) (2020-06-18)
 
 
