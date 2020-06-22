@@ -1,3 +1,4 @@
+import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { TextAreaField } from "@kaizen/draft-form"
 import { action } from "@storybook/addon-actions"
 import React from "react"
@@ -43,6 +44,12 @@ class WithState extends React.Component<Props> {
 const ExampleContainer: React.FunctionComponent = ({ children }) => (
   <div style={{ width: "98%", margin: "1%" }}>{children}</div>
 )
+
+const ReversedBg = {
+  parameters: {
+    backgrounds: [{ value: colorTokens.kz.color.wisteria[700], default: true }],
+  },
+}
 
 export default {
   title: "TextAreaField (React)",
@@ -186,4 +193,41 @@ export const DefaultErrorAndDesc = () => (
 
 DefaultErrorAndDesc.story = {
   name: "Default, Error & Description",
+}
+
+export const Reversed = () => (
+  <ExampleContainer>
+    <TextAreaField
+      id="reply"
+      labelText="Your reply"
+      placeholder="Write your reply..."
+      onChange={action("user input")}
+      reversed
+    />
+  </ExampleContainer>
+)
+
+Reversed.story = {
+  name: "Reversed",
+  ...ReversedBg,
+}
+
+export const ReversedErrorAndDesc = () => (
+  <ExampleContainer>
+    <TextAreaField
+      id="reply"
+      labelText="Your reply"
+      placeholder="Write your reply..."
+      onChange={action("user input")}
+      status="error"
+      validationMessage="Enter a reply"
+      description="Your reply will only be seen by you"
+      reversed
+    />
+  </ExampleContainer>
+)
+
+ReversedErrorAndDesc.story = {
+  name: "Reversed, Error & Description",
+  ...ReversedBg,
 }

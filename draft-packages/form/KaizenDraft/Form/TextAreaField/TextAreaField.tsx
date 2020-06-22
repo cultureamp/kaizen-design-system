@@ -15,10 +15,12 @@ type Props = {
   name?: string
   value?: string
   inline?: boolean
+  reversed?: boolean
   defaultValue?: string
   validationMessage?: string
   status?: InputStatus
   description?: string
+  textAreaRef?: React.RefObject<HTMLTextAreaElement>
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => any
   onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
   onFocus?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
@@ -34,7 +36,9 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
     status,
     description,
     inline,
+    reversed,
     placeholder,
+    textAreaRef,
     onChange,
     onBlur,
     onFocus,
@@ -52,6 +56,7 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
         automationId={`${id}-field-label`}
         htmlFor={`${id}-field-textarea`}
         labelText={labelText}
+        reversed={reversed}
       />
       <TextArea
         id={`${id}-field-textarea`}
@@ -64,6 +69,9 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
         value={value}
         defaultValue={defaultValue}
         rows={rows}
+        reversed={reversed}
+        status={status}
+        textAreaRef={textAreaRef}
       />
       {validationMessage && (
         <FieldMessage
@@ -71,6 +79,7 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
           automationId={`${id}-field-validation-message`}
           message={validationMessage}
           status={status}
+          reversed={reversed}
         />
       )}
       {description && (
@@ -78,6 +87,7 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
           id={`${id}-field-message`}
           automationId={`${id}-field-description`}
           message={description}
+          reversed={reversed}
         />
       )}
     </FieldGroup>
