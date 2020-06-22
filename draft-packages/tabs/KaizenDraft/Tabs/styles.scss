@@ -14,7 +14,6 @@
 
 .container {
   @include ca-margin($bottom: $ca-grid);
-  border-bottom: 1px solid add-alpha($kz-color-wisteria-700, 10%);
   display: flex;
 }
 
