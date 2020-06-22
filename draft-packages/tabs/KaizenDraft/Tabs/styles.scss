@@ -12,22 +12,6 @@
   background-color: $kz-color-cluny-100;
 }
 
-%tabFocus {
-  $focus-ring-offset: $kz-border-focus-ring-border-width - 1;
-  content: "";
-  position: absolute;
-  background: transparent;
-  border-radius: $kz-border-borderless-border-radius
-    $kz-border-borderless-border-radius 0 0;
-  border-width: $kz-border-focus-ring-border-width;
-  border-style: $kz-border-focus-ring-border-style;
-  border-color: $kz-color-cluny-500;
-  top: -$focus-ring-offset;
-  left: -$focus-ring-offset;
-  right: -$focus-ring-offset;
-  bottom: -$focus-ring-offset;
-}
-
 .container {
   @include ca-margin($bottom: $ca-grid);
   border-bottom: 1px solid add-alpha($kz-color-wisteria-700, 10%);
@@ -70,7 +54,19 @@
       @extend %tabHover;
       // show custom focus ring when :focus-visible
       &:after {
-        @extend %tabFocus;
+        $focus-ring-offset: $kz-border-focus-ring-border-width - 1;
+        content: "";
+        position: absolute;
+        background: transparent;
+        border-radius: $kz-border-borderless-border-radius
+          $kz-border-borderless-border-radius 0 0;
+        border-width: $kz-border-focus-ring-border-width;
+        border-style: $kz-border-focus-ring-border-style;
+        border-color: $kz-color-cluny-500;
+        top: -$focus-ring-offset;
+        left: -$focus-ring-offset;
+        right: -$focus-ring-offset;
+        bottom: -$focus-ring-offset;
       }
     }
   }
