@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.0.12...@kaizen/draft-form@2.0.13) (2020-06-22)
+
+
+### Bug Fixes
+
+* Ensure inner elements don't conflict with label ([#556](https://github.com/cultureamp/kaizen-design-system/issues/556)) ([914daf7](https://github.com/cultureamp/kaizen-design-system/commit/914daf74aa8aadf59fe48d5a8f79a02c70bc0c81))
+
+
+
+
+
 ## [2.0.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.0.11...@kaizen/draft-form@2.0.12) (2020-06-19)
 
 **Note:** Version bump only for package @kaizen/draft-form
