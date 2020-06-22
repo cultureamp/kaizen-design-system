@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.10.0...@kaizen/design-tokens@1.11.0) (2020-06-18)
+
+
+### Features
+
+* Add new hex values for Coral ([#521](https://github.com/cultureamp/kaizen-design-system/issues/521)) ([bc684a1](https://github.com/cultureamp/kaizen-design-system/commit/bc684a1e183e349df9979a4bfc463c38821c973b)), closes [#B02130](https://github.com/cultureamp/kaizen-design-system/issues/B02130) [#FC7C89](https://github.com/cultureamp/kaizen-design-system/issues/FC7C89) [#FCAEB6](https://github.com/cultureamp/kaizen-design-system/issues/FCAEB6) [#FCCFD4](https://github.com/cultureamp/kaizen-design-system/issues/FCCFD4)
+
+
+
+
+
 # [1.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.9.0...@kaizen/design-tokens@1.10.0) (2020-06-02)
 
 
