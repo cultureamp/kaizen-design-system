@@ -46,6 +46,7 @@ styles =
         , startIconAdornment = "startIconAdornment"
         , withEndIconAdornment = "withEndIconAdornment"
         , endIconAdornment = "endIconAdornment"
+        , focusRing = "focusRing"
         }
 
 
@@ -362,5 +363,6 @@ view (Config config) =
     inputWrapperHtml
         [ startIconAdornmentHtml
         , inputHtml
+        , div [ styles.class .focusRing ] []
         , endIconAdornmentHtml
         ]
