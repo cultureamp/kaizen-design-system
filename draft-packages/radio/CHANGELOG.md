@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.1.9...@kaizen/draft-radio@2.1.10) (2020-06-22)
+
+
+### Bug Fixes
+
+* Disable pointer-events on input wrapper for Radio ([#566](https://github.com/cultureamp/kaizen-design-system/issues/566)) ([7066aec](https://github.com/cultureamp/kaizen-design-system/commit/7066aec822f0c82beca31c394687292d70c2dea9))
+
+
+
+
+
 ## [2.1.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.1.8...@kaizen/draft-radio@2.1.9) (2020-06-19)
 
 **Note:** Version bump only for package @kaizen/draft-radio
