@@ -6,11 +6,10 @@
 @import "~@kaizen/component-library/styles/layout";
 @import "./TitleBlockBreakpoints.scss";
 
-$page-margin-width-on-desktop: 72px;
-$title-block-margin-width-on-tablet-and-mobile: 12px;
+$title-block-margin-width-on-medium-and-small: 12px;
 $breadcrumb-circle-width: 48px;
 $breadcrumb-breakpoint-width: $kz-layout-content-max-width +
-  $page-margin-width-on-desktop * 2 + $breadcrumb-circle-width * 2.25;
+  $kz-layout-content-side-margin * 2 + $breadcrumb-circle-width * 2.25;
 $title-block-separator-height: 3px;
 $tab-container-height-default: $ca-grid * 3;
 $tab-container-height-small: $ca-grid * 2.5;
@@ -50,13 +49,13 @@ $tab-container-height-small: $ca-grid * 2.5;
 
 %titleBlockInner {
   max-width: $kz-layout-content-max-width;
-  margin: 0 $page-margin-width-on-desktop;
+  margin: 0 $kz-layout-content-side-margin;
   display: flex;
   flex-direction: column;
   width: 100%;
 
-  @include title-block-tablet-and-mobile {
-    margin: 0 $title-block-margin-width-on-tablet-and-mobile;
+  @include title-block-medium-and-small {
+    margin: 0 $title-block-margin-width-on-medium-and-small;
   }
 }
 
@@ -86,7 +85,7 @@ $tab-container-height-small: $ca-grid * 2.5;
     border-bottom-color: transparent;
   }
 
-  @include title-block-tablet-and-mobile {
+  @include title-block-medium-and-small {
     border-bottom: none;
     height: $ca-grid * 2.5;
   }
@@ -109,7 +108,7 @@ $tab-container-height-small: $ca-grid * 2.5;
   .hasSubtitle & {
     align-items: baseline;
 
-    @include title-block-mobile {
+    @include title-block-small {
       align-items: normal;
       flex-direction: column;
       justify-content: space-between;
@@ -126,7 +125,7 @@ $tab-container-height-small: $ca-grid * 2.5;
     line-height: $kz-typography-heading-2-line-height;
     letter-spacing: $kz-typography-heading-2-letter-spacing;
   }
-  @include title-block-tablet-and-mobile {
+  @include title-block-medium-and-small {
     font-family: $kz-typography-heading-3-font-family;
     font-weight: $kz-typography-heading-3-font-weight;
     font-size: $kz-typography-heading-3-font-size;
@@ -155,7 +154,7 @@ $tab-container-height-small: $ca-grid * 2.5;
     max-width: 100%;
   }
 
-  @include title-block-tablet-and-mobile {
+  @include title-block-medium-and-small {
     display: none;
   }
 }
@@ -171,7 +170,7 @@ $tab-container-height-small: $ca-grid * 2.5;
   letter-spacing: $kz-typography-paragraph-small-letter-spacing;
   @include ca-margin($start: $ca-grid / 2);
 
-  @include title-block-mobile {
+  @include title-block-small {
     margin: $ca-grid / 3 0;
   }
 }
@@ -200,7 +199,7 @@ $tab-container-height-small: $ca-grid * 2.5;
     line-height: $kz-typography-heading-3-line-height;
     letter-spacing: $kz-typography-heading-3-letter-spacing;
   }
-  @include title-block-tablet-and-mobile {
+  @include title-block-medium-and-small {
     font-family: $kz-typography-heading-4-font-family;
     font-weight: $kz-typography-heading-4-font-weight;
     font-size: $kz-typography-heading-4-font-size;
@@ -233,7 +232,7 @@ $tab-container-height-small: $ca-grid * 2.5;
     color: $kz-color-wisteria-800;
   }
 
-  @include title-block-tablet-and-mobile {
+  @include title-block-medium-and-small {
     display: flex;
     align-items: center;
     transform: translateY(-1px);
@@ -244,7 +243,7 @@ $tab-container-height-small: $ca-grid * 2.5;
   }
 
   .hasSubtitle & {
-    @include title-block-mobile {
+    @include title-block-small {
       transform: translateY(-7px);
     }
   }
@@ -257,7 +256,7 @@ $tab-container-height-small: $ca-grid * 2.5;
   margin-top: -$title-block-separator-height;
   justify-content: space-between;
 
-  @include title-block-mobile {
+  @include title-block-small {
     height: $ca-grid * 2.5;
   }
 }
@@ -298,7 +297,7 @@ $tab-container-height-small: $ca-grid * 2.5;
   display: flex;
   align-items: center;
 
-  @include title-block-tablet-and-mobile {
+  @include title-block-medium-and-small {
     display: none;
   }
 }
@@ -308,13 +307,13 @@ $tab-container-height-small: $ca-grid * 2.5;
   position: relative;
   height: $tab-container-height-default;
 
-  @include title-block-mobile {
+  @include title-block-small {
     height: $tab-container-height-small;
   }
 }
 
 .navigationTabScrollerContainer {
-  @include title-block-mobile {
+  @include title-block-small {
     overflow-x: scroll;
     scrollbar-width: none;
     &::-webkit-scrollbar {
@@ -326,7 +325,7 @@ $tab-container-height-small: $ca-grid * 2.5;
 .navigationTabEdgeShadow {
   display: none;
 
-  @include title-block-mobile {
+  @include title-block-small {
     display: block;
     position: fixed;
     width: $ca-grid * 2;
@@ -356,7 +355,7 @@ $tab-container-height-small: $ca-grid * 2.5;
   display: flex;
   align-items: center;
 
-  @include title-block-mobile {
+  @include title-block-small {
     display: none;
   }
 }
@@ -373,7 +372,7 @@ $tab-container-height-small: $ca-grid * 2.5;
     color: $kz-color-cluny-500;
   }
 
-  @include title-block-tablet-and-mobile {
+  @include title-block-medium-and-small {
     display: none;
   }
 }
@@ -407,7 +406,7 @@ $tab-container-height-small: $ca-grid * 2.5;
     transform: translateY(0);
   }
 
-  @include title-block-tablet-and-mobile {
+  @include title-block-medium-and-small {
     display: none;
   }
 }

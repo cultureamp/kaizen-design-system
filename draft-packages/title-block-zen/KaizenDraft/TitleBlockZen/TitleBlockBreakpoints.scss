@@ -10,8 +10,8 @@
     @content;
   }
 }
-@mixin title-block-tablet-and-mobile {
-  @media (max-width: $kz-layout-breakpoints-desktop-minimum - 1px) {
+@mixin title-block-medium-and-small {
+  @media (max-width: $kz-layout-breakpoints-large - 1px) {
     @content;
   }
 }
@@ -20,8 +20,8 @@
     @content;
   }
 }
-@mixin title-block-mobile {
-  @media (max-width: $kz-layout-breakpoints-tablet-minimum - 1px) {
+@mixin title-block-small {
+  @media (max-width: $kz-layout-breakpoints-medium - 1px) {
     @content;
   }
 }

@@ -1,5 +1,4 @@
 @import "~@kaizen/component-library/styles/layout";
-@import "../title-block-zen/KaizenDraft/TitleBlockZen/TitleBlockZen.scss";
 @import "../title-block-zen/KaizenDraft/TitleBlockZen/TitleBlockBreakpoints.scss";
 
 body {
@@ -9,11 +8,11 @@ body {
 .contentContainer {
   box-sizing: border-box;
   padding: 24px;
-  max-width: 1392px;
-  margin: 0 $page-margin-width-on-desktop;
+  max-width: $kz-layout-content-max-width;
+  margin: 0 $kz-layout-content-side-margin;
   background: #eee;
 
-  @include title-block-tablet-and-mobile {
+  @include title-block-medium-and-small {
     margin: 0;
   }
 }
