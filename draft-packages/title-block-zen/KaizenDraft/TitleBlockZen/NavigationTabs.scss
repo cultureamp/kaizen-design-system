@@ -22,7 +22,7 @@
     @include ca-margin($end: $ca-grid * 0.5);
   }
 
-  @include title-block-under-1080 {
+  @include title-block-medium-and-small {
     padding: 0 ($ca-grid / 3);
   }
 
@@ -67,7 +67,7 @@
       border-radius: 0 0 $kz-border-solid-border-radius
         $kz-border-solid-border-radius;
 
-      @include title-block-under-1080 {
+      @include title-block-medium-and-small {
         top: auto;
         bottom: 0;
         border-radius: $kz-border-solid-border-radius
