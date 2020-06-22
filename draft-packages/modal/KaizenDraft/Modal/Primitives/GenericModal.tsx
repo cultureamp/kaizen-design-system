@@ -18,6 +18,7 @@ interface GenericModalContainerProps {
   readonly focusLockDisabled?: boolean
   readonly onEscapeKeyup?: (event: KeyboardEvent) => void
   readonly onOutsideModalClick?: (event: React.MouseEvent) => void
+  readonly automationId?: string
 }
 
 interface GenericModalProps
@@ -157,7 +158,12 @@ class GenericModal extends React.Component<GenericModalProps> {
   }
 
   render(): React.ReactPortal {
-    const { isOpen, children, focusLockDisabled = false } = this.props
+    const {
+      isOpen,
+      children,
+      focusLockDisabled = false,
+      automationId,
+    } = this.props
 
     return createPortal(
       <CSSTransition
@@ -188,6 +194,7 @@ class GenericModal extends React.Component<GenericModalProps> {
                 aria-describedby={this.props.describedByID}
                 className={styles.modalLayer}
                 ref={modalLayer => (this.modalLayer = modalLayer)}
+                data-automation-id={automationId}
               >
                 {children}
               </div>
