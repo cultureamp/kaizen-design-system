@@ -12,7 +12,9 @@
 
   label {
     -webkit-tap-highlight-color: transparent;
-    input[type="radio"] {
+
+    // Disable pointer-events on the wrapper for the <RadioInput> primitive
+    > div:first-child {
       pointer-events: none;
     }
 
