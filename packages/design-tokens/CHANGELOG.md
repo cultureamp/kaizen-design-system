@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.12.0...@kaizen/design-tokens@1.13.0) (2020-06-22)
+
+
+### Features
+
+* Added spacing tokens ([#549](https://github.com/cultureamp/kaizen-design-system/issues/549)) ([e398249](https://github.com/cultureamp/kaizen-design-system/commit/e39824905821397726d5b295449cf56ea06bd686))
+
+
+
+
+
 # [1.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.11.0...@kaizen/design-tokens@1.12.0) (2020-06-22)
 
 
