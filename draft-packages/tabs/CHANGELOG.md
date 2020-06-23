@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@1.3.13...@kaizen/draft-tabs@1.4.0) (2020-06-23)
+
+
+### Features
+
+* Content Tabs Zen uplift 50% ([#409](https://github.com/cultureamp/kaizen-design-system/issues/409)) ([4f8a8a1](https://github.com/cultureamp/kaizen-design-system/commit/4f8a8a138405f907aa96c13af8fa829e6d80e624))
+
+
+
+
+
 ## [1.3.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@1.3.12...@kaizen/draft-tabs@1.3.13) (2020-06-22)
 
 **Note:** Version bump only for package @kaizen/draft-tabs
