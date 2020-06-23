@@ -120,7 +120,7 @@
 
   &.controlWidthContainSelection {
     .control {
-      display: inline-flex;
+      display: inline-block;
       max-width: 100%;
 
       > div {
@@ -131,6 +131,12 @@
       }
     }
 
+    .indicatorsContainer {
+      position: absolute;
+      right: 0;
+      top: 4px; //TODO hacky!
+    }
+
     .singleValueOverrides {
       overflow: hidden;
       position: static;
@@ -138,6 +144,8 @@
       top: auto;
       transform: none;
       max-width: 100%;
+      padding-right: 30px;
+      line-height: 40px; //TODO hacky!
     }
 
     .singleValue {

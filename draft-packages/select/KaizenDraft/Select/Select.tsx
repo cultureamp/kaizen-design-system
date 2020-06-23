@@ -70,6 +70,7 @@ export const Select = (props: SelectProps & ReactSelectProps) => {
           />
         ),
         MultiValue,
+        IndicatorsContainer,
         ClearIndicator: null,
         IndicatorSeparator: null,
       }}
@@ -158,7 +159,13 @@ const CustomSingleValue: typeof components.SingleValue = props => {
   )
 }
 
-// <span className={classes}>{props.children}</span>
 const MultiValue: typeof components.MultiValue = props => (
   <components.MultiValue {...props} className={styles.multiValue} />
+)
+
+const IndicatorsContainer: typeof components.MultiValue = props => (
+  <components.IndicatorsContainer
+    {...props}
+    className={styles.indicatorsContainer}
+  />
 )
