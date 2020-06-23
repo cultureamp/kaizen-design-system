@@ -73,6 +73,7 @@ $focus-ring-offset: 2px;
 
   .checkbox:focus + &::after {
     content: "";
+    box-sizing: border-box;
     position: absolute;
     background: transparent;
     border-radius: $kz-border-focus-ring-border-radius;
@@ -81,8 +82,10 @@ $focus-ring-offset: 2px;
     border-color: $ca-border-color-focus;
     top: -$focus-ring-offset - ($checkbox-size / 8);
     left: -$focus-ring-offset - ($checkbox-size / 8);
-    width: $checkbox-size + $focus-ring-offset;
-    height: $checkbox-size + $focus-ring-offset;
+    width: $checkbox-size + $focus-ring-offset + $kz-border-solid-border-width *
+      2;
+    height: $checkbox-size + $focus-ring-offset + $kz-border-solid-border-width *
+      2;
   }
 
   .checkbox:disabled + & {
