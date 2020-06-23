@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.13.0...@kaizen/design-tokens@1.13.1) (2020-06-22)
+
+
+### Bug Fixes
+
+* Add fallback font stacks ([#558](https://github.com/cultureamp/kaizen-design-system/issues/558)) ([cd92fa1](https://github.com/cultureamp/kaizen-design-system/commit/cd92fa18eb31fe4bde3ccebd9f1ca429b4462e32))
+
+
+
+
+
+# [1.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.12.0...@kaizen/design-tokens@1.13.0) (2020-06-22)
+
+
+### Features
+
+* Added spacing tokens ([#549](https://github.com/cultureamp/kaizen-design-system/issues/549)) ([e398249](https://github.com/cultureamp/kaizen-design-system/commit/e39824905821397726d5b295449cf56ea06bd686))
+
+
+
+
+
 # [1.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.11.0...@kaizen/design-tokens@1.12.0) (2020-06-22)
 
 
