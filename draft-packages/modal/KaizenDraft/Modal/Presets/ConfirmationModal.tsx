@@ -28,6 +28,7 @@ interface Props {
   readonly onDismiss: () => void
   readonly confirmLabel?: string
   readonly dismissLabel?: string
+  readonly automationId?: string
   readonly children: React.ReactNode
 }
 
@@ -53,12 +54,14 @@ const ConfirmationModal = ({
   onDismiss,
   confirmLabel = "Confirm",
   dismissLabel = "Cancel",
+  automationId,
   children,
 }: Props) => (
   <GenericModal
     isOpen={isOpen}
     onEscapeKeyup={onDismiss}
     onOutsideModalClick={onDismiss}
+    automationId={automationId}
   >
     <div className={styles.modal}>
       <ModalHeader unpadded reversed onDismiss={onDismiss}>
@@ -94,6 +97,7 @@ const ConfirmationModal = ({
           { label: dismissLabel, action: onDismiss },
         ]}
         appearance={type === "negative" ? "destructive" : "primary"}
+        automationId={automationId}
       />
     </div>
   </GenericModal>

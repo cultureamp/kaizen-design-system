@@ -31,6 +31,8 @@
   padding: 0 $ca-layout-side-padding;
   height: $ca-layout-title-block-height;
   margin: 0 auto;
+  // Specifying this explicity in case the consuming app don't have this specified by default
+  box-sizing: border-box;
 
   @include ca-media-tablet {
     height: $ca-layout-title-block-tablet-height;

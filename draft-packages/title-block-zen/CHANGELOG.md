@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.2.1...@kaizen/draft-title-block-zen@1.2.2) (2020-06-22)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [1.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.2.0...@kaizen/draft-title-block-zen@1.2.1) (2020-06-22)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+# [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.1.3...@kaizen/draft-title-block-zen@1.2.0) (2020-06-22)
+
+
+### Features
+
+* Add tokens for breakpoints ([#564](https://github.com/cultureamp/kaizen-design-system/issues/564)) ([a644e5d](https://github.com/cultureamp/kaizen-design-system/commit/a644e5dc25db918ec0afbfea517b8a985a6c0c9b))
+
+
+
+
+
 ## [1.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.1.2...@kaizen/draft-title-block-zen@1.1.3) (2020-06-19)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
