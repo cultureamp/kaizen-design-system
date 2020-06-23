@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.1.3...@kaizen/draft-form@2.1.4) (2020-06-23)
+
+
+### Bug Fixes
+
+* Explicitly set the box-sizing for the checkbox & radio focus ring ([#572](https://github.com/cultureamp/kaizen-design-system/issues/572)) ([a93b289](https://github.com/cultureamp/kaizen-design-system/commit/a93b289703463f66c7b46d234dc3843ca737cd2f))
+
+
+
+
+
 ## [2.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.1.2...@kaizen/draft-form@2.1.3) (2020-06-22)
 
 **Note:** Version bump only for package @kaizen/draft-form
