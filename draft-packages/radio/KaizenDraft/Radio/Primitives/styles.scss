@@ -46,6 +46,7 @@ $focus-ring-offset: 2px;
   .radioInput:focus:not([disabled]) + &::after {
     pointer-events: none;
     content: "";
+    box-sizing: border-box;
     position: absolute;
     background: transparent;
     border-radius: $radio-size + $focus-ring-offset;
@@ -54,8 +55,8 @@ $focus-ring-offset: 2px;
     border-color: $ca-border-color-focus;
     top: -$focus-ring-offset - ($radio-size / 8);
     left: -$focus-ring-offset - ($radio-size / 8);
-    width: $radio-size + $focus-ring-offset;
-    height: $radio-size + $focus-ring-offset;
+    width: $radio-size + $focus-ring-offset + $kz-border-solid-border-width * 2;
+    height: $radio-size + $focus-ring-offset + $kz-border-solid-border-width * 2;
   }
 
   @media (hover: hover) and (pointer: fine) {
