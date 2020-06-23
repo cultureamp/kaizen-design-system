@@ -125,6 +125,11 @@ $link-icon-margin: 12px;
     font-weight: $ca-weight-book;
   }
 
+  :global(.md-strong) {
+    font-style: normal;
+    font-weight: 600; //TODO: create token in @kaizen/design-tokens
+  }
+
   :global(.md-hr) {
     height: 1px;
     border: 0;
