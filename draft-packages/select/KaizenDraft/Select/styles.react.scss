@@ -124,9 +124,11 @@
       max-width: 100%;
 
       > div {
-        // TODO: gross, sorry! I Couldnt find a way to add a class to this
-        // element that comes from react-select
-
+        // If this CSS is removed, then the control becomes too tall when
+        // it ellipsizes. It's strange, as the parent element is
+        // display: inline-block, so you wouldn't expect it to have any affect,
+        // but it works and was honesty a fluke from some unintentionally
+        // leftover code when refactoring to support IE11 :shrug
         flex-wrap: nowrap;
       }
     }
