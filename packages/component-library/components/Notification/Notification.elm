@@ -15,12 +15,10 @@ module Notification.Notification exposing
     , view
     )
 
+import Browser.Events exposing (onAnimationFrame)
 import CssModules exposing (css)
 import Elm18Compatible.Html.Events exposing (defaultOptions, onWithOptions)
 import Elm18Compatible.Time exposing (second)
-import Elm19Compatible.Browser.Events exposing (onAnimationFrame)
-import Elm19Compatible.Html.Attributes
-import Elm19Compatible.String exposing (fromInt)
 import Html exposing (Html, button, div, h6, p, span, text)
 import Html.Attributes exposing (type_)
 import Html.Events as Events exposing (on)
@@ -28,6 +26,7 @@ import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
 import Json.Decode
 import Platform.Sub
+import String exposing (fromInt)
 import Time exposing (every)
 
 
@@ -113,7 +112,7 @@ view (Config config) state onStateChange =
         styleAttr =
             case notificationStage state of
                 Disappearing height ->
-                    [ Elm19Compatible.Html.Attributes.style
+                    [ Html.Attributes.style
                         "marginTop"
                         (fromInt -height ++ "px")
                     ]

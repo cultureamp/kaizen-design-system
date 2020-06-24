@@ -14,9 +14,9 @@ module KaizenDraft.LoadingPlaceholder.LoadingPlaceholder exposing
     )
 
 import CssModules exposing (css)
-import Elm19Compatible.Html.Attributes exposing (style)
-import Elm19Compatible.String exposing (fromInt)
 import Html exposing (Html, div, text)
+import Html.Attributes exposing (style)
+import String exposing (fromInt)
 
 
 type ColorVariant
