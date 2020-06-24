@@ -57,12 +57,13 @@ const DEFAULT_ACTION = {
 type renderMenuContentProps = {
   drawerHandleAction?: object
   primaryMenuActions?: any[]
-  primaryAction: PrimaryActionProps
+  primaryAction?: PrimaryActionProps
   defaultAction?: ButtonWithOnClickOrHref
   secondaryActions?: SecondaryActionsProps
 }
 
 const renderPrimaryLinks = (primaryAction: PrimaryActionProps) => {
+  if (!primaryAction) return null
   if (isMenuGroupNotButton(primaryAction)) {
     return primaryAction.menuItems
       .filter(item => typeof item.action === "string")
@@ -141,14 +142,14 @@ const renderMenuContent = ({
 }: renderMenuContentProps) => {
   return (
     <>
-      {renderPrimaryLinks(primaryAction)}
-      {renderDefaultLink(defaultAction)}
-      {renderPrimaryActions(primaryAction)}
+      {primaryAction && renderPrimaryLinks(primaryAction)}
+      {defaultAction && renderDefaultLink(defaultAction)}
+      {primaryAction && renderPrimaryActions(primaryAction)}
       {/* TODO: Only render this if there are either Default or Secondary actions present */}
       <MenuSeparator />
       <MenuHeader title="Other actions" />
-      {renderDefaultAction(defaultAction)}
-      {renderSecondaryActions(secondaryActions)}
+      {defaultAction && renderDefaultAction(defaultAction)}
+      {secondaryActions && renderSecondaryActions(secondaryActions)}
     </>
   )
 }

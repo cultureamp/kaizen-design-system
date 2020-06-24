@@ -16,7 +16,7 @@ const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.ic
 const styles = require("./TitleBlockZen.scss")
 
 type MainActionsProps = {
-  primaryAction: PrimaryActionProps
+  primaryAction?: PrimaryActionProps
   secondaryActions?: SecondaryActionsProps
   defaultAction?: ButtonWithOnClickOrHref
   reversed?: boolean
@@ -28,7 +28,7 @@ const MainActions = ({
   reversed = false,
 }: MainActionsProps) => {
   let items
-  if (isMenuGroupNotButton(primaryAction)) {
+  if (primaryAction && isMenuGroupNotButton(primaryAction)) {
     const menuContent = (
       <MenuContent>
         {primaryAction.menuItems.map(item => (
