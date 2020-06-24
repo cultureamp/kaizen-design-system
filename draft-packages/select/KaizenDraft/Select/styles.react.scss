@@ -132,6 +132,7 @@
         // leftover code when refactoring to support IE11 :shrug
         // I don't like the descendent selector, but there doesn't seem to be
         // a way to customise this element in react-select.
+        height: 44px; // fixed height required for vertical centering, due to IE11 hack
         flex-wrap: nowrap;
       }
     }
@@ -140,18 +141,17 @@
       position: absolute; // absolute positioning is required due to IE11 and not
       // being able to use inline-flex
       right: 0;
-      top: 4px; //TODO use calculations and variables
+      top: 0;
     }
 
     .singleValueOverrides {
       overflow: hidden;
       position: static;
       white-space: nowrap;
-      top: auto;
+      top: 0px;
       transform: none;
       max-width: 100%;
       padding-right: 30px;
-      line-height: 40px; //TODO use calculations and variables. note: line-height is required instead of vertical centering as IE11 is forcing the use of inline-block instead of inline-flex
     }
 
     .singleValue {
