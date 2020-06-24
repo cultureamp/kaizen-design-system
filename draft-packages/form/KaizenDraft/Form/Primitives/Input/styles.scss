@@ -8,7 +8,8 @@
 // In the future these tokens should be better represented in
 // a separate package so they are shareable.
 $ca-border-color-focus: $kz-color-cluny-500;
-$ca-border-color-hover: $kz-color-wisteria-400;
+$ca-border-color-hover: $kz-color-wisteria-700;
+$ca-border-color-focus-reversed: $kz-color-cluny-300;
 
 // -----------------------------------------------
 // Form Input Primitive
@@ -16,7 +17,6 @@ $ca-border-color-hover: $kz-color-wisteria-400;
 
 // Vars
 $input-height: 48px;
-$input-focus-border-color-reversed: $kz-color-yuzu-500;
 $input-base-padding-horizontal: $ca-grid / 2;
 $input-icon-size: 1.25rem; // 20px
 $input-placeholder-opacity: 0.5;
@@ -68,6 +68,21 @@ $input-disabled-border-alpha: 50%;
       color: add-alpha($ca-base-text-color, $input-disabled-alpha);
     }
   }
+}
+
+.input:focus + .focusRing {
+  $focus-ring-offset: 3px;
+  position: absolute;
+  background: transparent;
+  border-radius: $kz-border-focus-ring-border-radius;
+  border-width: $kz-border-focus-ring-border-width;
+  border-style: $kz-border-focus-ring-border-style;
+  border-color: transparent;
+  top: -$focus-ring-offset;
+  left: -$focus-ring-offset;
+  right: -$focus-ring-offset;
+  bottom: -$focus-ring-offset;
+  pointer-events: none;
 }
 
 ///////////////////////////////////////////////////
@@ -132,18 +147,23 @@ $input-disabled-border-alpha: 50%;
 }
 
 // Default theme
+/* stylelint-disable-next-line no-duplicate-selectors */
 .withStartIconAdornment {
+  /* stylelint-disable-next-line no-duplicate-selectors */
   .startIconAdornment {
     color: $kz-color-wisteria-800;
     opacity: 0.5;
   }
 
+  /* stylelint-disable-next-line no-duplicate-selectors */
   &.withDisabled {
+    /* stylelint-disable-next-line no-duplicate-selectors */
     .startIconAdornment {
       opacity: 0.3;
     }
   }
 
+  /* stylelint-disable-next-line no-duplicate-selectors */
   &:hover:not(.withDisabled),
   &:focus-within:not(.withDisabled) {
     .startIconAdornment {
@@ -191,11 +211,11 @@ $input-disabled-border-alpha: 50%;
 
   &:focus:not([disabled]),
   &:hover:focus:not([disabled]) {
-    border-color: $ca-border-color-focus;
+    border-color: $ca-border-color-hover;
   }
 
-  &:hover:not([disabled]) {
-    border-color: $kz-color-wisteria-700;
+  &:focus + .focusRing {
+    border-color: $ca-border-color-focus;
   }
 
   &.disabled {
@@ -214,7 +234,7 @@ $input-disabled-border-alpha: 50%;
 // Reversed (Dark Backgrounds)
 .input.reversed {
   color: $kz-color-white;
-  border-color: $kz-color-white;
+  border-color: rgba($kz-color-white, 0.65);
 
   @include form-input-placeholder {
     color: $kz-color-white;
@@ -222,13 +242,13 @@ $input-disabled-border-alpha: 50%;
   }
 
   &:focus:not([disabled]),
-  &:hover:focus:not([disabled]) {
-    background: rgba($kz-color-white, 0.1);
-    border-color: $input-focus-border-color-reversed;
-  }
-
   &:hover:not([disabled]) {
     background: rgba($kz-color-white, 0.1);
+    border-color: $kz-color-white;
+  }
+
+  &:focus + .focusRing {
+    border-color: $ca-border-color-focus-reversed;
   }
 
   &.disabled {

@@ -8,8 +8,12 @@ $checkbox-size: 24px;
 $icon-size: 24px;
 $focus-ring-offset: 2px;
 
-.checkbox {
+// override bootstrap styles
+.checkbox.checkbox {
   @include form-input-visually-hidden();
+  width: $checkbox-size;
+  height: $checkbox-size;
+  margin: 0;
 }
 
 .icon {
@@ -26,6 +30,7 @@ $focus-ring-offset: 2px;
 
 .box {
   position: relative;
+  pointer-events: none;
   background: $kz-color-white;
   height: $checkbox-size;
   width: $checkbox-size;
@@ -35,10 +40,16 @@ $focus-ring-offset: 2px;
   border-radius: $kz-border-solid-border-radius;
   box-sizing: border-box;
 
-  .checkbox:not([checked]):hover + &,
   .checkbox:not([checked]):focus + & {
     border-color: $kz-color-wisteria-700;
     background-color: $kz-color-wisteria-100;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .checkbox:not([checked]):hover + & {
+      border-color: $kz-color-wisteria-700;
+      background-color: $kz-color-wisteria-100;
+    }
   }
 
   .checkbox:checked + &,
@@ -46,16 +57,23 @@ $focus-ring-offset: 2px;
     background: $kz-color-wisteria-500;
   }
 
-  .checkbox:checked:hover + &,
   .checkbox:checked:focus + &,
-  .checkbox:indeterminate:hover + &,
   .checkbox:indeterminate:focus + & {
     background: $kz-color-wisteria-700;
     border-color: $kz-color-wisteria-700;
   }
 
+  @media (hover: hover) and (pointer: fine) {
+    .checkbox:indeterminate:hover + &,
+    .checkbox:checked:hover + & {
+      background: $kz-color-wisteria-700;
+      border-color: $kz-color-wisteria-700;
+    }
+  }
+
   .checkbox:focus + &::after {
     content: "";
+    box-sizing: border-box;
     position: absolute;
     background: transparent;
     border-radius: $kz-border-focus-ring-border-radius;
@@ -64,8 +82,10 @@ $focus-ring-offset: 2px;
     border-color: $ca-border-color-focus;
     top: -$focus-ring-offset - ($checkbox-size / 8);
     left: -$focus-ring-offset - ($checkbox-size / 8);
-    width: $checkbox-size + $focus-ring-offset;
-    height: $checkbox-size + $focus-ring-offset;
+    width: $checkbox-size + $focus-ring-offset + $kz-border-solid-border-width *
+      2;
+    height: $checkbox-size + $focus-ring-offset + $kz-border-solid-border-width *
+      2;
   }
 
   .checkbox:disabled + & {

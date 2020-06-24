@@ -11,6 +11,13 @@
   margin-bottom: $ca-grid / 2;
 
   label {
+    -webkit-tap-highlight-color: transparent;
+
+    // Disable pointer-events on the wrapper for the <RadioInput> primitive
+    > div:first-child {
+      pointer-events: none;
+    }
+
     :global(.ideal-sans) & {
       // This is to override bootstrap styles. Remove when appropriate
       font-size: $ca-inter-font-base-size;
@@ -18,10 +25,12 @@
     }
   }
 
-  label:hover {
-    input:not([disabled]) + div {
-      border-color: $kz-color-wisteria-700;
-      background-color: $kz-color-wisteria-100;
+  @media (hover: hover) and (pointer: fine) {
+    label:hover {
+      input:not([disabled]) + div {
+        border-color: $kz-color-wisteria-700;
+        background-color: $kz-color-wisteria-100;
+      }
     }
   }
 

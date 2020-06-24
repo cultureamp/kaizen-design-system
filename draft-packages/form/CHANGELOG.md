@@ -3,6 +3,128 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.1.3...@kaizen/draft-form@2.1.4) (2020-06-23)
+
+
+### Bug Fixes
+
+* Explicitly set the box-sizing for the checkbox & radio focus ring ([#572](https://github.com/cultureamp/kaizen-design-system/issues/572)) ([a93b289](https://github.com/cultureamp/kaizen-design-system/commit/a93b289703463f66c7b46d234dc3843ca737cd2f))
+
+
+
+
+
+## [2.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.1.2...@kaizen/draft-form@2.1.3) (2020-06-22)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.1.1...@kaizen/draft-form@2.1.2) (2020-06-22)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.1.0...@kaizen/draft-form@2.1.1) (2020-06-22)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.0.13...@kaizen/draft-form@2.1.0) (2020-06-22)
+
+
+### Features
+
+* Add focus rings to TextField & TextAreaField + reversed support for TextAreaField ([#544](https://github.com/cultureamp/kaizen-design-system/issues/544)) ([ba4334e](https://github.com/cultureamp/kaizen-design-system/commit/ba4334e273be1aa8f8d9bfa820268b41e5373773))
+
+
+
+
+
+## [2.0.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.0.12...@kaizen/draft-form@2.0.13) (2020-06-22)
+
+
+### Bug Fixes
+
+* Ensure inner elements don't conflict with label ([#556](https://github.com/cultureamp/kaizen-design-system/issues/556)) ([914daf7](https://github.com/cultureamp/kaizen-design-system/commit/914daf74aa8aadf59fe48d5a8f79a02c70bc0c81))
+
+
+
+
+
+## [2.0.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.0.11...@kaizen/draft-form@2.0.12) (2020-06-19)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.0.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.0.10...@kaizen/draft-form@2.0.11) (2020-06-18)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.0.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.0.9...@kaizen/draft-form@2.0.10) (2020-06-18)
+
+
+### Bug Fixes
+
+* use specificity hack to overide bootstrap styles ([#555](https://github.com/cultureamp/kaizen-design-system/issues/555)) ([133c334](https://github.com/cultureamp/kaizen-design-system/commit/133c334daaf844f0eb4ca34c29b527d27664491b))
+
+
+
+
+
+## [2.0.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.0.8...@kaizen/draft-form@2.0.9) (2020-06-18)
+
+
+### Bug Fixes
+
+* add pointer-events none to .box element ([#554](https://github.com/cultureamp/kaizen-design-system/issues/554)) ([43b6d6f](https://github.com/cultureamp/kaizen-design-system/commit/43b6d6fa895a3e3df1a35d77d2d27cf468f644e9))
+
+
+
+
+
+## [2.0.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.0.7...@kaizen/draft-form@2.0.8) (2020-06-18)
+
+
+### Bug Fixes
+
+* Checkbox and radio button inconsistent behaviour on touch devices ([#550](https://github.com/cultureamp/kaizen-design-system/issues/550)) ([da66a82](https://github.com/cultureamp/kaizen-design-system/commit/da66a828aea401187ae99f7e6fa55975fce8b7a7))
+
+
+
+
+
+## [2.0.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.0.6...@kaizen/draft-form@2.0.7) (2020-06-17)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.0.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.0.5...@kaizen/draft-form@2.0.6) (2020-06-16)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
 ## [2.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.0.4...@kaizen/draft-form@2.0.5) (2020-06-12)
 
 **Note:** Version bump only for package @kaizen/draft-form

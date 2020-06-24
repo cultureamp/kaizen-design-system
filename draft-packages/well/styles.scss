@@ -1,33 +1,14 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/component-library/styles/layout";
 
 .container {
-  border-radius: $ca-border-radius;
+  border-radius: $kz-border-solid-border-radius;
   margin-bottom: $ca-grid;
 }
 
 .noMargin {
   margin: 0;
-}
-
-// Border Style Variations
-
-.solid {
-  border-width: 1px;
-  border-style: solid;
-  padding: 1px;
-}
-
-.dashed {
-  border-style: dashed;
-  border-width: 2px;
-  padding: 0;
-}
-
-.none {
-  border: none;
-  padding: 2px;
 }
 
 // Background Style Variations
@@ -58,5 +39,23 @@
 
 .default {
   background-color: $kz-color-ash;
-  border-color: $ca-border-color;
+  border-color: $kz-color-wisteria-300;
+}
+
+// Border Style Variations
+
+.solid {
+  border-style: $kz-border-solid-border-style;
+  border-width: $kz-border-solid-border-width;
+}
+
+.dashed {
+  border-style: $kz-border-dashed-border-style;
+  border-width: $kz-border-dashed-border-width;
+}
+
+.none {
+  border-color: $kz-border-borderless-border-color;
+  border-style: $kz-border-borderless-border-style;
+  border-width: $kz-border-borderless-border-width;
 }

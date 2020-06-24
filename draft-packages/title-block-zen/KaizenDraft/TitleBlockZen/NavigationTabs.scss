@@ -1,0 +1,82 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/fonts";
+@import "~@kaizen/component-library/styles/layout";
+@import "./TitleBlockBreakpoints.scss";
+
+.container {
+  display: flex;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.linkAnchor {
+  display: flex;
+  padding: 0 ($ca-grid / 2);
+  @include ca-margin($end: $ca-grid);
+  color: rgba($kz-color-white, 0.7);
+
+  @include title-block-under-1440 {
+    @include ca-margin($end: $ca-grid * 0.5);
+  }
+
+  @include title-block-medium-and-small {
+    padding: 0 ($ca-grid / 3);
+  }
+
+  &:hover {
+    color: $kz-color-white;
+    text-decoration: none;
+  }
+}
+
+.linkLabel {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  font-family: $kz-typography-heading-4-font-family;
+  font-weight: $kz-typography-heading-4-font-weight;
+  font-size: $kz-typography-heading-4-font-size;
+  line-height: $kz-typography-heading-4-line-height;
+  letter-spacing: $kz-typography-heading-4-letter-spacing;
+
+  @include title-block-under-1366 {
+    font-family: $kz-typography-heading-5-font-family;
+    font-weight: $kz-typography-heading-5-font-weight;
+    font-size: $kz-typography-heading-5-font-size;
+    line-height: $kz-typography-heading-5-line-height;
+    letter-spacing: $kz-typography-heading-5-letter-spacing;
+  }
+
+  &.active {
+    color: $kz-color-white;
+
+    &::before {
+      content: "";
+      display: block;
+      height: 5px;
+      position: absolute;
+      top: 0;
+      left: -($ca-grid / 2);
+      right: -($ca-grid / 2);
+      background-color: #ffffff;
+      transition: transform cubic-bezier(0.55, 0.085, 0.68, 0.53) 150ms;
+      border-radius: 0 0 $kz-border-solid-border-radius
+        $kz-border-solid-border-radius;
+
+      @include title-block-medium-and-small {
+        top: auto;
+        bottom: 0;
+        border-radius: $kz-border-solid-border-radius
+          $kz-border-solid-border-radius 0 0;
+      }
+    }
+  }
+
+  &.active:hover {
+    text-decoration: none;
+  }
+}

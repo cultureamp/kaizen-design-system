@@ -3,6 +3,73 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@1.3.13...@kaizen/draft-tabs@1.4.0) (2020-06-23)
+
+
+### Features
+
+* Content Tabs Zen uplift 50% ([#409](https://github.com/cultureamp/kaizen-design-system/issues/409)) ([4f8a8a1](https://github.com/cultureamp/kaizen-design-system/commit/4f8a8a138405f907aa96c13af8fa829e6d80e624))
+
+
+
+
+
+## [1.3.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@1.3.12...@kaizen/draft-tabs@1.3.13) (2020-06-22)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [1.3.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@1.3.11...@kaizen/draft-tabs@1.3.12) (2020-06-22)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [1.3.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@1.3.10...@kaizen/draft-tabs@1.3.11) (2020-06-22)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [1.3.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@1.3.9...@kaizen/draft-tabs@1.3.10) (2020-06-19)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [1.3.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@1.3.8...@kaizen/draft-tabs@1.3.9) (2020-06-18)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [1.3.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@1.3.7...@kaizen/draft-tabs@1.3.8) (2020-06-17)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [1.3.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@1.3.6...@kaizen/draft-tabs@1.3.7) (2020-06-16)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
 ## [1.3.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@1.3.5...@kaizen/draft-tabs@1.3.6) (2020-06-12)
 
 **Note:** Version bump only for package @kaizen/draft-tabs

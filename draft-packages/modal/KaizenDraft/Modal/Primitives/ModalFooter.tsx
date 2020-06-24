@@ -14,12 +14,13 @@ interface Props {
     disabled?: boolean
   }>
   readonly appearance?: "primary" | "destructive"
+  readonly automationId?: string
 }
 
 type ModalFooter = React.FunctionComponent<Props>
 
 const ModalFooter: ModalFooter = props => {
-  const { unpadded, actions, appearance = "primary" } = props
+  const { unpadded, actions, appearance = "primary", automationId } = props
 
   return (
     <GenericModalSection unpadded={unpadded}>
@@ -35,6 +36,7 @@ const ModalFooter: ModalFooter = props => {
               destructive={index === 0 && appearance === "destructive"}
               secondary={index > 0}
               disabled={a.disabled}
+              automationId={`${automationId}-action-${index}`}
             />
           </div>
         ))}
