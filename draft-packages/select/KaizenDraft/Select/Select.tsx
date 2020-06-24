@@ -33,8 +33,9 @@ export type SelectProps = {
    * Whether the "control" (the button you click to open the menu) width fills the
    * container or is as wide as the selected option text. Note that the control text
    * will ellipsize if it is wider than the parent container.
-   * `variant="default" selectControlWidth="containSelection"` is not implemented and will throw a "not implemented" error
-   @default "containSelection" if variant is "secondary", otherwise "fillContainer"
+   * `variant="default" selectControlWidth="containSelection"` is not implemented and
+   * will throw a "not implemented" error
+   * @default "containSelection" if variant is "secondary", otherwise "fillContainer"
    */
   selectControlWidth?: SelectControlWidthType
 }
@@ -128,6 +129,7 @@ const Control: typeof components.Control = props => (
     {...props}
     className={classNames(styles.control, {
       [styles.focusedControl]: props.isFocused,
+      [styles.disabled]: props.isDisabled,
     })}
   />
 )

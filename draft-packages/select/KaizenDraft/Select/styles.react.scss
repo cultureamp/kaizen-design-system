@@ -101,6 +101,10 @@
       &:hover {
         background: add-alpha($kz-color-white, 20%);
       }
+
+      &.disabled {
+        opacity: 0.3;
+      }
     }
 
     .dropdownIndicator {

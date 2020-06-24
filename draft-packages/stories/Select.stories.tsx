@@ -74,7 +74,13 @@ export default {
 
 export const Single = () => (
   <StoryContainer>
-    <Select options={options} placeholder="Placeholder" isSearchable={false} />
+    <Select
+      options={options}
+      placeholder="Placeholder"
+      isSearchable={false}
+      isDisabled={true}
+      defaultValue={options[0]}
+    />
   </StoryContainer>
 )
 
@@ -193,6 +199,32 @@ export const SingleSecondaryWithEllipsis = () => {
 
 SingleSecondaryWithEllipsis.story = {
   name: "Single Secondary with ellipsis",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
+}
+
+export const SingleSecondaryReversedDisabled = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      isDisabled={true}
+      isSearchable={false}
+      defaultValue={options[0]}
+      variant="secondary"
+      reversed={true}
+    />
+  </StoryContainer>
+)
+
+SingleSecondaryReversedDisabled.story = {
+  name: "Single Secondary Reversed (disabled)",
   parameters: {
     backgrounds: [
       {
