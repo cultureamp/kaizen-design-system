@@ -17,12 +17,14 @@ export { ValueType } from "react-select"
 export type SelectProps = {
   /**
    * The secondary variant is a more subdued variant that takes up as little space as possible
+   * `variant="secondary" reversed="false" is not implemented and will throw a "not implemented" error
    * @default "default"
    */
   variant?: VariantType
 
   /**
    * Use a reversed colour scheme
+   * `variant="default" reversed="true" is not implemented and will throw a "not implemented" error
    * @default false
    */
   reversed?: boolean
@@ -31,6 +33,7 @@ export type SelectProps = {
    * Whether the "control" (the button you click to open the menu) width fills the
    * container or is as wide as the selected option text. Note that the control text
    * will ellipsize if it is wider than the parent container.
+   * `variant="default" selectControlWidth="containSelection"` is not implemented and will throw a "not implemented" error
    @default "containSelection" if variant is "secondary", otherwise "fillContainer"
    */
   selectControlWidth?: SelectControlWidthType
