@@ -37,7 +37,7 @@ export interface TitleBlockProps {
   sectionTitle?: string
   sectionTitleDescription?: string
   handleHamburgerClick?: (event: React.MouseEvent) => void
-  primaryAction: PrimaryActionProps
+  primaryAction?: PrimaryActionProps
   defaultAction?: ButtonWithOnClickOrHref
   secondaryActions?: SecondaryActionsProps
   secondaryOverflowMenuItems?: MenuItemProps[]
