@@ -24,16 +24,24 @@ export type VariantType = "default" | "secondary"
 export type SelectControlWidthType = "fillContainer" | "containSelection"
 
 export const Select = (props: SelectProps & ReactSelectProps) => {
-  if (props.selectControlWidth && props.variant !== "secondary") {
+  if (
+    props.selectControlWidth === "containSelection" &&
+    props.variant !== "secondary"
+  ) {
     throw new Error(
-      `the selectControlWidth prop is not yet implemented when variant="default"`
+      `the prop selectControlWidth=containSelection is not yet implemented when variant="default"`
     )
   }
-  const {
-    variant = "default",
-    reversed = false,
-    selectControlWidth = "fillContainer",
-  } = props
+  const { variant = "default", reversed = false } = props
+
+  // the default for selectControlWidth depends on the variant
+  const selectControlWidth =
+    props.selectControlWidth != null
+      ? props.selectControlWidth
+      : variant === "secondary"
+      ? "containSelection"
+      : "fillContainer"
+
   const kaizenProps = { variant, reversed, selectControlWidth }
 
   if (reversed === true && variant === "default") {

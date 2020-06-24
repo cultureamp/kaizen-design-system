@@ -144,7 +144,7 @@ MultiAsyncSearchable.story = {
 }
 
 export const SingleSecondaryReversed = () => (
-  <WideStoryContainer>
+  <StoryContainer>
     <Select
       options={options}
       // placeholder="Placeholder"
@@ -156,11 +156,11 @@ export const SingleSecondaryReversed = () => (
       variant="secondary"
       reversed={true}
     />
-  </WideStoryContainer>
+  </StoryContainer>
 )
 
 SingleSecondaryReversed.story = {
-  name: "Single Select Secondary Reversed",
+  name: "Single Secondary Reversed",
   parameters: {
     backgrounds: [
       {
@@ -172,7 +172,7 @@ SingleSecondaryReversed.story = {
   },
 }
 
-export const SingleSecondaryContainSelectionEllipsis = () => {
+export const SingleSecondaryWithEllipsis = () => {
   const options = [
     {
       value: "a",
@@ -191,7 +191,6 @@ export const SingleSecondaryContainSelectionEllipsis = () => {
         // autoSizeControl={true}
         selectControlWidth="containSelection"
         defaultValue={options[0]}
-        defaultMenuIsOpen={true}
         variant="secondary"
         reversed={true}
       />
@@ -199,8 +198,8 @@ export const SingleSecondaryContainSelectionEllipsis = () => {
   )
 }
 
-SingleSecondaryContainSelectionEllipsis.story = {
-  name: "Single Select Secondary containSelection ellipsis",
+SingleSecondaryWithEllipsis.story = {
+  name: "Single Secondary with ellipsis",
   parameters: {
     backgrounds: [
       {
