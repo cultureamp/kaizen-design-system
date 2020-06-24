@@ -15,8 +15,24 @@ const styles = require("./styles.react.scss")
 export { ValueType } from "react-select"
 
 export type SelectProps = {
+  /**
+   * The secondary variant is a more subdued variant that takes up as little space as possible
+   * @default "default"
+   */
   variant?: VariantType
+
+  /**
+   * Use a reversed colour scheme
+   * @default false
+   */
   reversed?: boolean
+
+  /**
+   * Whether the "control" (the button you click to open the menu) width fills the
+   * container or is as wide as the selected option text. Note that the control text
+   * will ellipsize if it is wider than the parent container.
+   @default "containSelection" if variant is "secondary", otherwise "fillContainer"
+   */
   selectControlWidth?: SelectControlWidthType
 }
 
