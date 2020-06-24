@@ -42,8 +42,6 @@ export const Select = (props: SelectProps & ReactSelectProps) => {
       ? "containSelection"
       : "fillContainer"
 
-  const kaizenProps = { variant, reversed, selectControlWidth }
-
   if (reversed === true && variant === "default") {
     throw new Error(
       `the combo variant="default" and reversed=true is not yet implemented for the Select component`
@@ -71,12 +69,7 @@ export const Select = (props: SelectProps & ReactSelectProps) => {
         Menu,
         Option,
         NoOptionsMessage,
-        SingleValue: singleValueProps => (
-          <CustomSingleValue
-            singleValueProps={singleValueProps}
-            {...kaizenProps}
-          />
-        ),
+        SingleValue,
         MultiValue,
         IndicatorsContainer,
         ClearIndicator: null,
@@ -100,8 +93,9 @@ export const AsyncSelect = (props: AsyncProps) => {
         Menu,
         Option,
         NoOptionsMessage,
-        SingleValue: CustomSingleValue,
+        SingleValue,
         MultiValue,
+        IndicatorsContainer,
         ClearIndicator: null,
         IndicatorSeparator: null,
       }}
@@ -154,15 +148,10 @@ const NoOptionsMessage: typeof components.NoOptionsMessage = props => (
   </components.NoOptionsMessage>
 )
 
-const CustomSingleValue: typeof components.SingleValue = props => {
+const SingleValue: typeof components.SingleValue = props => {
   return (
-    <components.SingleValue
-      {...props.singleValueProps}
-      className={styles.singleValueOverrides}
-    >
-      <span className={styles.singleValue}>
-        {props.singleValueProps.children}
-      </span>
+    <components.SingleValue {...props} className={styles.singleValueOverrides}>
+      <span className={styles.singleValue}>{props.children}</span>
     </components.SingleValue>
   )
 }
@@ -171,7 +160,7 @@ const MultiValue: typeof components.MultiValue = props => (
   <components.MultiValue {...props} className={styles.multiValue} />
 )
 
-const IndicatorsContainer: typeof components.MultiValue = props => (
+const IndicatorsContainer: typeof components.IndicatorsContainer = props => (
   <components.IndicatorsContainer
     {...props}
     className={styles.indicatorsContainer}

@@ -129,6 +129,8 @@
         // display: inline-block, so you wouldn't expect it to have any affect,
         // but it works and was honesty a fluke from some unintentionally
         // leftover code when refactoring to support IE11 :shrug
+        // I don't like the descendent selector, but there doesn't seem to be
+        // a way to customise this element in react-select.
         flex-wrap: nowrap;
       }
     }
