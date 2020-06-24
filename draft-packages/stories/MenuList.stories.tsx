@@ -11,7 +11,7 @@ const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon
   .default
 
 export default {
-  title: "MenuList (React)",
+  title: "MenuList (React, deprecated)",
 }
 
 export const Default = () => (
