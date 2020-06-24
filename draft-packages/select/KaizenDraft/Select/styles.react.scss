@@ -121,6 +121,7 @@
   &.controlWidthContainSelection {
     .control {
       display: inline-block;
+      // ideally this would be inline-flex, but that causes problems in IE11
       max-width: 100%;
 
       > div {
@@ -136,9 +137,10 @@
     }
 
     .indicatorsContainer {
-      position: absolute;
+      position: absolute; // absolute positioning is required due to IE11 and not
+      // being able to use inline-flex
       right: 0;
-      top: 4px; //TODO hacky!
+      top: 4px; //TODO use calculations and variables
     }
 
     .singleValueOverrides {
@@ -149,7 +151,7 @@
       transform: none;
       max-width: 100%;
       padding-right: 30px;
-      line-height: 40px; //TODO hacky!
+      line-height: 40px; //TODO use calculations and variables. note: line-height is required instead of vertical centering as IE11 is forcing the use of inline-block instead of inline-flex
     }
 
     .singleValue {
