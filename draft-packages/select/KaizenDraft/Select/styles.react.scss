@@ -12,7 +12,7 @@
   color: $kz-color-wisteria-800;
 }
 
-.container {
+.specificityIncreaser {
   .control {
     min-height: $input-height;
     border: $kz-border-solid-border-width $kz-border-solid-border-style
@@ -72,6 +72,10 @@
     @include base-font-style();
   }
 
+  &.reversed .singleValue {
+    color: $kz-color-white;
+  }
+
   .multiValue {
     @include kz-typography-paragraph-body;
     @include ca-inherit-baseline;
@@ -79,5 +83,33 @@
     border-radius: 15px;
     padding: $ca-grid * 0.075 $ca-grid * 0.25;
     cursor: default;
+  }
+
+  &.secondary.reversed {
+    .control {
+      background: add-alpha($kz-color-white, 10%);
+      color: $kz-color-white;
+      border: $kz-border-borderless-border-width
+        $kz-border-borderless-border-style $kz-border-borderless-border-color;
+      border-radius: $kz-border-borderless-border-radius;
+
+      &:hover {
+        background: add-alpha($kz-color-white, 20%);
+      }
+    }
+
+    .dropdownIndicator {
+      color: $kz-color-white;
+    }
+
+    $secondary-reversed-focus-color: $kz-color-cluny-300;
+
+    .focusedControl {
+      border-color: $secondary-reversed-focus-color;
+
+      &:hover {
+        border-color: $secondary-reversed-focus-color;
+      }
+    }
   }
 }

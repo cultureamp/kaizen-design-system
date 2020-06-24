@@ -21,20 +21,28 @@ export type SelectProps = {
 
 export type VariantType = "default" | "secondary"
 
-export const Select = ({
-  variant = "default",
-  reversed = false,
-  className,
-  ...reactSelectProps
-}: SelectProps & ReactSelectProps) => {
-  if (reversed === true) {
+export const Select = (props: SelectProps & ReactSelectProps) => {
+  const { variant = "default", reversed = false } = props
+  const kaizenProps = { variant, reversed }
+
+  if (reversed === true && variant === "default") {
     throw new Error(
-      "the prop reversed=true is not yet implemented for the Select component"
+      `the combo variant="default" and reversed=true is not yet implemented for the Select component`
     )
   }
+  if (reversed === false && variant === "secondary") {
+    throw new Error(
+      `the combo variant="secondary" and reversed=false is not yet implemented for the Select component`
+    )
+  }
+
+  const classes = classNames(props.className, styles.specificityIncreaser, {
+    [styles.reversed]: reversed,
+    [styles.secondary]: variant === "secondary",
+  })
   return (
     <ReactSelect
-      {...reactSelectProps}
+      {...props}
       components={{
         Control,
         Placeholder,
@@ -42,12 +50,17 @@ export const Select = ({
         Menu,
         Option,
         NoOptionsMessage,
-        SingleValue,
+        SingleValue: singleValueProps => (
+          <CustomSingleValue
+            singleValueProps={singleValueProps}
+            {...kaizenProps}
+          />
+        ),
         MultiValue,
         ClearIndicator: null,
         IndicatorSeparator: null,
       }}
-      className={classNames(styles.container, className)}
+      className={classes}
     />
   )
 }
@@ -65,12 +78,12 @@ export const AsyncSelect = (props: AsyncProps) => {
         Menu,
         Option,
         NoOptionsMessage,
-        SingleValue,
+        SingleValue: CustomSingleValue,
         MultiValue,
         ClearIndicator: null,
         IndicatorSeparator: null,
       }}
-      className={classNames(styles.container, props.className)}
+      className={classNames(styles.specificityIncreaser, props.className)}
     />
   )
 }
@@ -93,7 +106,7 @@ const Placeholder: typeof components.Placeholder = props => (
 const DropdownIndicator: typeof components.DropdownIndicator = props => (
   // Suppress typing issue - looks like the type defs are incorrect
   // @ts-ignore
-  <components.DropdownIndicator {...props}>
+  <components.DropdownIndicator {...props} className={styles.dropdownIndicator}>
     <Icon icon={chevronDownIcon} role="presentation" />
   </components.DropdownIndicator>
 )
@@ -119,12 +132,17 @@ const NoOptionsMessage: typeof components.NoOptionsMessage = props => (
   </components.NoOptionsMessage>
 )
 
-const SingleValue: typeof components.SingleValue = props => (
-  <components.SingleValue {...props}>
-    <span className={styles.singleValue}>{props.children}</span>
-  </components.SingleValue>
-)
+const CustomSingleValue: typeof components.SingleValue = props => {
+  return (
+    <components.SingleValue {...props.singleValueProps}>
+      <span className={styles.singleValue}>
+        {props.singleValueProps.children}
+      </span>
+    </components.SingleValue>
+  )
+}
 
+// <span className={classes}>{props.children}</span>
 const MultiValue: typeof components.MultiValue = props => (
   <components.MultiValue {...props} className={styles.multiValue} />
 )

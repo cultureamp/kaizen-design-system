@@ -1,5 +1,6 @@
 import { AsyncSelect, Select } from "@kaizen/draft-select"
 import * as React from "react"
+import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => {
   return <div style={{ width: "300px", margin: "12px auto" }}>{children}</div>
@@ -10,7 +11,6 @@ const WideStoryContainer = ({ children }: { children: React.ReactNode }) => {
 }
 
 const options = [
-  { value: "longname", label: "Very very long long long name" },
   { value: "Mindy", label: "Mindy" },
   { value: "Jaime", label: "Jaime" },
   { value: "Rafa", label: "Rafa" },
@@ -110,22 +110,35 @@ export const MultiAsyncSearchable = () => (
     />
   </WideStoryContainer>
 )
+
 MultiAsyncSearchable.story = {
   name: "Multi-Async Searchable",
 }
 
-export const SingleSelectAutoSizeControl = () => (
-  <Select
-    options={options}
-    // placeholder="Placeholder"
-    isSearchable={false}
-    // autoSizeControl={true}
-    defaultValue={options[0]}
-    defaultMenuIsOpen={true}
-    variant="secondary"
-  />
+export const SingleSelectSecondaryReversed = () => (
+  <WideStoryContainer>
+    <Select
+      options={options}
+      // placeholder="Placeholder"
+      isSearchable={false}
+      // autoSizeControl={true}
+      defaultValue={options[0]}
+      defaultMenuIsOpen={true}
+      variant="secondary"
+      reversed={true}
+    />
+  </WideStoryContainer>
 )
 
-SingleSelectAutoSizeControl.story = {
-  name: "Secondary Single Select",
+SingleSelectSecondaryReversed.story = {
+  name: "Single Select Secondary Reversed",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
 }
