@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.1.13...@kaizen/draft-radio@2.1.14) (2020-06-23)
+
+
+### Bug Fixes
+
+* Explicitly set the box-sizing for the checkbox & radio focus ring ([#572](https://github.com/cultureamp/kaizen-design-system/issues/572)) ([a93b289](https://github.com/cultureamp/kaizen-design-system/commit/a93b289703463f66c7b46d234dc3843ca737cd2f))
+
+
+
+
+
+## [2.1.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.1.12...@kaizen/draft-radio@2.1.13) (2020-06-22)
+
+**Note:** Version bump only for package @kaizen/draft-radio
+
+
+
+
+
+## [2.1.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.1.11...@kaizen/draft-radio@2.1.12) (2020-06-22)
+
+**Note:** Version bump only for package @kaizen/draft-radio
+
+
+
+
+
 ## [2.1.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.1.10...@kaizen/draft-radio@2.1.11) (2020-06-22)
 
 **Note:** Version bump only for package @kaizen/draft-radio

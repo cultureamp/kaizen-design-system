@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.7.3...@kaizen/draft-button@1.7.4) (2020-06-23)
+
+
+### Bug Fixes
+
+* Properly disable buttons when a href is supplied ([#570](https://github.com/cultureamp/kaizen-design-system/issues/570)) ([4c61c73](https://github.com/cultureamp/kaizen-design-system/commit/4c61c73e5af0d27f5f550a8c97616227bf7cf9e8))
+
+
+
+
+
+## [1.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.7.2...@kaizen/draft-button@1.7.3) (2020-06-22)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.7.1...@kaizen/draft-button@1.7.2) (2020-06-22)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
 ## [1.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.7.0...@kaizen/draft-button@1.7.1) (2020-06-22)
 
 **Note:** Version bump only for package @kaizen/draft-button

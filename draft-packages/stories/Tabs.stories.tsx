@@ -26,6 +26,17 @@ export const Default = () => {
   return <Tabs tabs={tabs} />
 }
 
+export const LongAndShortText = () => {
+  const tabs = [
+    { label: "Long Text in a Tab" },
+    { label: "A" },
+    { label: "B" },
+    { label: "Some more long text that's really long" },
+    { label: "C" },
+  ]
+  return <Tabs tabs={tabs} />
+}
+
 export const ActiveTab = () => {
   const tabs = [
     { label: "One", active: true },

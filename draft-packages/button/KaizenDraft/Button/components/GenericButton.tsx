@@ -51,7 +51,7 @@ const GenericButton: React.FunctionComponent<Props> = props => {
         [styles.fullWidth]: props.fullWidth,
       })}
     >
-      {props.href ? renderLink(props) : renderButton(props)}
+      {props.href && !props.disabled ? renderLink(props) : renderButton(props)}
     </span>
   )
 }

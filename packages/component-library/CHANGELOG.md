@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.23.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.23.5...@kaizen/component-library@7.23.6) (2020-06-22)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.23.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.23.4...@kaizen/component-library@7.23.5) (2020-06-22)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [7.23.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.23.3...@kaizen/component-library@7.23.4) (2020-06-22)
 
 **Note:** Version bump only for package @kaizen/component-library
