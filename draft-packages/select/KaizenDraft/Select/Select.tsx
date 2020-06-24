@@ -14,7 +14,13 @@ const styles = require("./styles.react.scss")
 
 export { ValueType } from "react-select"
 
-export const Select = (props: ReactSelectProps) => {
+export type SelectProps = {
+  variant: VariantType
+}
+
+export type VariantType = "default" | "secondary"
+
+export const Select = (props: SelectProps & ReactSelectProps) => {
   return (
     <ReactSelect
       {...props}
