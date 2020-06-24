@@ -154,11 +154,16 @@ const renderMenuContent = ({
   )
 }
 
-const renderDrawerHandle = (primaryAction: PrimaryActionProps) =>
-  primaryAction.label
+const renderDrawerHandle = (primaryAction: PrimaryActionProps | undefined) => {
+  if (primaryAction) {
+    return primaryAction.label
+  } else {
+    return "Other actions"
+  }
+}
 
 export type MobileActionsProps = {
-  primaryAction: PrimaryActionProps
+  primaryAction?: PrimaryActionProps
   defaultAction?: ButtonWithOnClickOrHref
   secondaryActions?: SecondaryActionsProps
   // TODO add types for menuContent
