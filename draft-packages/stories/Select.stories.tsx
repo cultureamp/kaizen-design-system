@@ -1,6 +1,6 @@
+import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { AsyncSelect, Select } from "@kaizen/draft-select"
 import * as React from "react"
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => {
   return <div style={{ width: "300px", margin: "12px auto" }}>{children}</div>
@@ -79,7 +79,7 @@ export const Single = () => (
 )
 
 export const SingleEllipsis = () => {
-  const options = [
+  const localOptions = [
     {
       value: "a",
       label:
@@ -91,9 +91,9 @@ export const SingleEllipsis = () => {
   return (
     <NarrowStoryContainer>
       <Select
-        options={options}
+        options={localOptions}
         isSearchable={false}
-        defaultValue={options[0]}
+        defaultValue={localOptions[0]}
       />
     </NarrowStoryContainer>
   )
@@ -147,12 +147,8 @@ export const SingleSecondaryReversed = () => (
   <StoryContainer>
     <Select
       options={options}
-      // placeholder="Placeholder"
       isSearchable={false}
-      // autoSizeControl={true}
-      // selectControlWidth="containSelection"
       defaultValue={options[0]}
-      defaultMenuIsOpen={true}
       variant="secondary"
       reversed={true}
     />
@@ -173,7 +169,7 @@ SingleSecondaryReversed.story = {
 }
 
 export const SingleSecondaryWithEllipsis = () => {
-  const options = [
+  const localOptions = [
     {
       value: "a",
       label:
@@ -185,12 +181,9 @@ export const SingleSecondaryWithEllipsis = () => {
   return (
     <NarrowStoryContainer>
       <Select
-        options={options}
-        // placeholder="Placeholder"
+        options={localOptions}
         isSearchable={false}
-        // autoSizeControl={true}
-        selectControlWidth="containSelection"
-        defaultValue={options[0]}
+        defaultValue={localOptions[0]}
         variant="secondary"
         reversed={true}
       />
