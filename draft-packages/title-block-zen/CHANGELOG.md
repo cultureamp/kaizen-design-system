@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.2.2...@kaizen/draft-title-block-zen@1.3.0) (2020-06-24)
+
+
+### Features
+
+* Create mobile actions component ([#574](https://github.com/cultureamp/kaizen-design-system/issues/574)) ([2e0558d](https://github.com/cultureamp/kaizen-design-system/commit/2e0558d479b21520607b26e0894f52c0aa3e4b3b))
+
+
+
+
+
 ## [1.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.2.1...@kaizen/draft-title-block-zen@1.2.2) (2020-06-22)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
