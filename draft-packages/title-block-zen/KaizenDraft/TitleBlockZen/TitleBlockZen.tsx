@@ -1,14 +1,21 @@
+import { Heading, Icon } from "@kaizen/component-library"
+import { Button, ButtonProps } from "@kaizen/draft-button"
 import {
-  ButtonProps,
-  DropdownProps,
-  Heading,
-  Icon,
-} from "@kaizen/component-library"
+  Menu,
+  MenuContent,
+  MenuHeader,
+  MenuItem,
+  MenuItemProps,
+  MenuSeparator,
+} from "@kaizen/draft-menu"
 import { Tag } from "@kaizen/draft-tag"
 import classNames from "classnames"
 import * as React from "react"
+import MainActions from "./MainActions"
+import MobileActions from "./MobileActions"
 import NavigationTab, { NavigationTabProps } from "./NavigationTabs"
-import Toolbar from "./Toolbar"
+import SecondaryActions from "./SecondaryActions"
+
 const styles = require("./TitleBlockZen.scss")
 const leftArrow = require("@kaizen/component-library/icons/arrow-backward.icon.svg")
   .default
@@ -17,7 +24,10 @@ const rightArrow = require("@kaizen/component-library/icons/arrow-forward.icon.s
 const hamburgerIcon = require("@kaizen/component-library/icons/hamburger.icon.svg")
   .default
 
-type Props = {
+/**
+ * @param TitleBlockProps  If the primary action is a menu, primaryAction must take a `label` and list of `menuItem`s.
+ */
+export interface TitleBlockProps {
   children?: React.ReactNode
   title: string
   variant?: Variant
@@ -27,20 +37,47 @@ type Props = {
   sectionTitle?: string
   sectionTitleDescription?: string
   handleHamburgerClick?: (event: React.MouseEvent) => void
-  primaryActions?: PrimaryActions
-  secondaryActions?: SecondaryActions
+  primaryAction?: PrimaryActionProps
+  defaultAction?: ButtonWithOnClickOrHref
+  secondaryActions?: SecondaryActionsProps
+  secondaryOverflowMenuItems?: MenuItemProps[]
   navigationTabs?: NavigationTabs
   textDirection?: TextDirection
   surveyStatus?: SurveyStatus
 }
 
+export type ButtonWithOnClickOrHref = ButtonProps &
+  Pick<ButtonProps, "href" | "onClick">
+
+export type MenuGroup = {
+  label: string
+  menuItems: MenuItemProps[]
+}
+
+export type PrimaryActionProps =
+  | MenuGroup
+  | (ButtonWithOnClickOrHref & { primary: true })
+
+/**
+ * @param SecondaryActionsProps Secondary actions can only be buttons, menus, or an overflow menu,
+ * which the Title Block will render as a Menu component with a "meatballs" IconButton.
+ * For the menu, pass in an array of menu items.
+ */
+export type SecondaryActionsProps = Array<MenuGroup | ButtonWithOnClickOrHref>
+
+export const isMenuItemNotButton = (
+  value: ButtonWithOnClickOrHref | MenuItemProps
+): value is MenuItemProps => {
+  return value.hasOwnProperty("action")
+}
+
+export const isMenuGroupNotButton = (
+  value: ButtonWithOnClickOrHref | MenuGroup
+): value is MenuGroup => {
+  return value.hasOwnProperty("menuItems")
+}
+
 type Variant = "admin" | "education" // the default is wisteria bg (AKA "reporting")
-
-type PrimaryActions = Array<React.ReactElement<ButtonProps>>
-
-type SecondaryActions = Array<
-  React.ReactElement<ButtonProps> | React.ReactElement<DropdownProps>
->
 
 type NavigationTabs = Array<React.ReactElement<NavigationTabProps>>
 
@@ -146,24 +183,26 @@ const renderNavigationTabs = (navigationTabs: NavigationTabs) => {
   )
 }
 
-const renderSecondaryActions = (secondaryActions: SecondaryActions) => {
-  return (
-    <div className={styles.secondaryActionsContainer}>
-      <Toolbar items={secondaryActions} noGap />
-    </div>
-  )
-}
-
-const renderPrimaryActions = (primaryActions: PrimaryActions) => {
-  return (
-    <div className={styles.primaryActionsContainer}>
-      <Toolbar items={primaryActions} />
-    </div>
-  )
-}
-
+/**
+ * ### primaryAction
+ *
+ * The primary action (the "main" button in the top right) can either be a Button, or a Button that reveals a Menu.
+ *
+ * If you want it to be a Button, you can't pass in a `<Button />`, because the Title Block needs to grab the Button's
+ * props and use them to render the mobile actions drawer as well as the Button itself. Instead, you have to pass
+ * in the ButtonProps as an object.
+ *
+ * If you want it to be a Menu, pass in this object as your primaryAction:
+ * ```typescript
+ * {
+ *    label: string
+ *    menuItems: MenuItemProps[]
+ * }
+ * ```
+ * Using the `label`, the Title Block will render a Button with a chevron icon and your `menuItems` will appear
+ * in the dropdown menu when you click it.
+ */
 const TitleBlockZen = ({
-  children,
   title,
   variant,
   breadcrumb,
@@ -172,69 +211,95 @@ const TitleBlockZen = ({
   sectionTitle,
   sectionTitleDescription,
   handleHamburgerClick,
-  primaryActions,
+  primaryAction,
+  defaultAction,
   secondaryActions,
+  secondaryOverflowMenuItems,
   navigationTabs,
   textDirection,
   surveyStatus,
-}: Props) => (
-  <div
-    className={classNames(styles.titleBlock, {
-      [styles.hasSubtitle]: Boolean(subtitle),
-      [styles.educationVariant]: variant === "education",
-      [styles.adminVariant]: variant === "admin",
-    })}
-  >
-    <div className={styles.titleRow}>
-      <div className={styles.titleRowInner}>
-        <div className={styles.titleRowInnerContent}>
-          <div className={styles.titleAndAdjacent}>
-            {breadcrumb && renderBreadcrumb(breadcrumb, textDirection)}
-            <div className={styles.titleAndAdjacentNotBreadcrumb}>
-              <div className={styles.hamburger} onClick={handleHamburgerClick}>
-                <Icon
-                  icon={hamburgerIcon}
-                  role="presentation"
-                  title="Open menu"
-                />
-              </div>
-              {avatar && renderAvatar(avatar)}
-              <div className={styles.titleAndSubtitle}>
-                <div className={styles.titleAndSubtitleInner}>
-                  <div className={styles.title}>
-                    <Heading
-                      variant="heading-1"
-                      color={
-                        variant === "education" || variant === "admin"
-                          ? "dark"
-                          : "white"
-                      }
-                      classNameAndIHaveSpokenToDST={styles.titleTextOverride}
-                    >
-                      {title}
-                    </Heading>
-                  </div>
-                  {subtitle && renderSubtitle(subtitle)}
+}: TitleBlockProps) => (
+  <>
+    <div
+      className={classNames(styles.titleBlock, {
+        [styles.hasSubtitle]: Boolean(subtitle),
+        [styles.educationVariant]: variant === "education",
+        [styles.adminVariant]: variant === "admin",
+      })}
+    >
+      <div className={styles.titleRow}>
+        <div className={styles.titleRowInner}>
+          <div className={styles.titleRowInnerContent}>
+            <div className={styles.titleAndAdjacent}>
+              {breadcrumb && renderBreadcrumb(breadcrumb, textDirection)}
+              <div className={styles.titleAndAdjacentNotBreadcrumb}>
+                <div
+                  className={styles.hamburger}
+                  onClick={handleHamburgerClick}
+                >
+                  <Icon
+                    icon={hamburgerIcon}
+                    role="presentation"
+                    title="Open menu"
+                  />
                 </div>
+                {avatar && renderAvatar(avatar)}
+                <div className={styles.titleAndSubtitle}>
+                  <div className={styles.titleAndSubtitleInner}>
+                    <div className={styles.title}>
+                      <Heading
+                        variant="heading-1"
+                        color={
+                          variant === "education" || variant === "admin"
+                            ? "dark"
+                            : "white"
+                        }
+                        classNameAndIHaveSpokenToDST={styles.titleTextOverride}
+                      >
+                        {title}
+                      </Heading>
+                    </div>
+                    {subtitle && renderSubtitle(subtitle)}
+                  </div>
+                </div>
+                {surveyStatus && renderTag(surveyStatus)}
               </div>
-              {surveyStatus && renderTag(surveyStatus)}
             </div>
+            {(primaryAction || defaultAction) && (
+              <MainActions
+                primaryAction={primaryAction}
+                defaultAction={defaultAction}
+                reversed={true}
+              />
+            )}
           </div>
-          {primaryActions && renderPrimaryActions(primaryActions)}
+        </div>
+      </div>
+      <div className={styles.rowBelowSeparator}>
+        <div className={styles.rowBelowSeparatorInner}>
+          <div className={styles.rowBelowSeparatorInnerContent}>
+            {sectionTitle &&
+              renderSectionTitle(
+                sectionTitle,
+                sectionTitleDescription,
+                variant
+              )}
+            {navigationTabs && renderNavigationTabs(navigationTabs)}
+            <SecondaryActions
+              secondaryActions={secondaryActions}
+              secondaryOverflowMenuItems={secondaryOverflowMenuItems}
+              reversed={variant !== "education" && variant !== "admin"}
+            />
+          </div>
         </div>
       </div>
     </div>
-    <div className={styles.rowBelowSeparator}>
-      <div className={styles.rowBelowSeparatorInner}>
-        <div className={styles.rowBelowSeparatorInnerContent}>
-          {sectionTitle &&
-            renderSectionTitle(sectionTitle, sectionTitleDescription, variant)}
-          {navigationTabs && renderNavigationTabs(navigationTabs)}
-          {secondaryActions && renderSecondaryActions(secondaryActions)}
-        </div>
-      </div>
-    </div>
-  </div>
+    <MobileActions
+      primaryAction={primaryAction}
+      defaultAction={defaultAction}
+      secondaryActions={secondaryActions}
+    />
+  </>
 )
 
 export default TitleBlockZen
