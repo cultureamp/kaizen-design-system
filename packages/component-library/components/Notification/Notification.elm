@@ -17,11 +17,10 @@ module Notification.Notification exposing
 
 import Browser.Events exposing (onAnimationFrame)
 import CssModules exposing (css)
-import Elm18Compatible.Html.Events exposing (defaultOptions, onWithOptions)
 import Elm18Compatible.Time exposing (second)
 import Html exposing (Html, button, div, h6, p, span, text)
 import Html.Attributes exposing (type_)
-import Html.Events as Events exposing (on)
+import Html.Events as Events exposing (on, preventDefaultOn)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
 import Json.Decode
@@ -260,11 +259,11 @@ viewCancelButton (Config { persistent, variant }) state onStateChange =
                     persistent
 
         onClickCancel =
-            [ onWithOptions
+            [ preventDefaultOn
                 "click"
-                { defaultOptions | preventDefault = True }
                 (Json.Decode.at [ "target", "parentNode", "clientHeight" ] Json.Decode.int
                     |> Json.Decode.andThen (\height -> Json.Decode.succeed <| onStateChange <| Manual (Disappearing height))
+                    |> Json.Decode.map (\m -> ( m, True ))
                 )
             ]
     in
