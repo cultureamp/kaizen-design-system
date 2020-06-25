@@ -4,10 +4,9 @@
 # Require Design Systems Team approval for any new packages or this file
 /CODEOWNERS @cultureamp/design-systems
 /packages/ @cultureamp/design-systems
-/draft-packages/ @cultureamp/design-systems
+/draft-packages/ @ghost
 
 # Exclude modifications to existing packages by assigning it to no one
-/packages/component-library @ghost
 /packages/hosted-assets @ghost
 
 # Pipelines are maintained by Delivery Engineering:

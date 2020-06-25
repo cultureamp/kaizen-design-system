@@ -73,30 +73,6 @@ export default {
   },
 }
 
-export const DefaultMeatball = () => (
-  <StoryWrapper>
-    <Menu button={<IconButton label="" icon={meatballsIcon} />}>
-      <MenuInstance />
-    </Menu>
-  </StoryWrapper>
-)
-
-DefaultMeatball.story = {
-  name: "Default (Meatball)",
-}
-
-export const DefaultKebab = () => (
-  <StoryWrapper>
-    <Menu button={<IconButton label="" icon={kebabIcon} />}>
-      <MenuInstance />
-    </Menu>
-  </StoryWrapper>
-)
-
-DefaultKebab.story = {
-  name: "Default (Kebab)",
-}
-
 export const LabelAndIcon = () => (
   <StoryWrapper>
     <Menu
@@ -108,7 +84,7 @@ export const LabelAndIcon = () => (
 )
 
 LabelAndIcon.story = {
-  name: "Label and Icon",
+  name: "Label and Icon (Kaizen Site Demo)",
 }
 
 export const LabelAndIconReversed = () => (
@@ -134,4 +110,28 @@ LabelAndIconReversed.story = {
       },
     ],
   },
+}
+
+export const DefaultMeatball = () => (
+  <StoryWrapper>
+    <Menu button={<IconButton label="" icon={meatballsIcon} />}>
+      <MenuInstance />
+    </Menu>
+  </StoryWrapper>
+)
+
+DefaultMeatball.story = {
+  name: "Default (Meatball)",
+}
+
+export const DefaultKebab = () => (
+  <StoryWrapper>
+    <Menu button={<IconButton label="" icon={kebabIcon} />}>
+      <MenuInstance />
+    </Menu>
+  </StoryWrapper>
+)
+
+DefaultKebab.story = {
+  name: "Default (Kebab)",
 }
