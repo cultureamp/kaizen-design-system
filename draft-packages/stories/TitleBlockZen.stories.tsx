@@ -6,7 +6,6 @@ import {
   TitleBlockZen,
 } from "../title-block-zen/KaizenDraft/TitleBlockZen"
 const addIcon = require("@kaizen/component-library/icons/add.icon.svg").default
-  .default
 const visibleIcon = require("@kaizen/component-library/icons/visible.icon.svg")
   .default
 const commentIcon = require("@kaizen/component-library/icons/comment.icon.svg")
@@ -23,18 +22,63 @@ export default {
   title: "TitleBlockZen (React)",
 }
 
+const SECONDARY_ACTIONS = [
+  {
+    label: "Secondary menu",
+    menuItems: [
+      {
+        onClick: () => {
+          alert("test")
+        },
+        label: "Secondary menu action 1",
+      },
+      {
+        onClick: () => {
+          alert("test")
+        },
+        label: "Secondary menu action 2",
+        icon: starIcon,
+      },
+    ],
+  },
+  {
+    onClick: () => {
+      alert("test")
+    },
+    label: "Secondary action",
+  },
+]
+
 export const Default = () => (
   <TitleBlockZen
     title="Page title"
     surveyStatus={{ text: "Live", status: "live" }}
-    primaryActions={[
-      <Button label="Label" reversed icon={addIcon} />,
-      <Button label="Label" primary reversed icon={addIcon} />,
-    ]}
-    secondaryActions={[
-      <Button label="Label" secondary reversed icon={visibleIcon} />,
-      <Button label="Label" secondary reversed icon={visibleIcon} />,
-      <Dropdown reversedColor />,
+    primaryAction={{
+      label: "Primary link",
+      icon: addIcon,
+      reversed: true,
+      primary: true,
+      href: "#",
+    }}
+    defaultAction={{
+      label: "Default link",
+      reversed: true,
+      href: "#",
+    }}
+    secondaryActions={SECONDARY_ACTIONS}
+    secondaryOverflowMenuItems={[
+      {
+        action: () => {
+          alert("test")
+        },
+        label: "Overflow action 1",
+        icon: starIcon,
+      },
+      {
+        action: "#",
+        label: "Overflow link 1",
+        icon: starIcon,
+      },
     ]}
     breadcrumb={{
       path: "#",
@@ -58,21 +102,66 @@ Default.story = {
   name: "Default",
 }
 
+export const DefaultWithMenuButton = () => (
+  <TitleBlockZen
+    title="Page title"
+    surveyStatus={{ text: "Live", status: "live" }}
+    primaryAction={{
+      label: "Menu button",
+      menuItems: [
+        {
+          action: "#",
+          label: "Item 1",
+        },
+        {
+          action: () => {
+            alert("Item 2 clicked")
+          },
+          label: "Item 2",
+        },
+        {
+          action: "#",
+          label: "Item 3",
+        },
+      ],
+    }}
+    defaultAction={{
+      label: "Label",
+      icon: addIcon,
+      reversed: true,
+    }}
+    secondaryActions={SECONDARY_ACTIONS}
+    breadcrumb={{
+      path: "#",
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+    navigationTabs={[
+      <NavigationTab text="Label" href="#" active />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+    ]}
+  />
+)
+
+DefaultWithMenuButton.story = {
+  name: "Default (Menu Button)",
+}
+
 export const AdminVariant = () => (
   <TitleBlockZen
     title="Page title"
     variant="admin"
     sectionTitle="Section title"
     sectionTitleDescription="Description of section can go here"
-    primaryActions={[
-      <Button label="Label" icon={addIcon} />,
-      <Button label="Label" primary icon={addIcon} />,
-    ]}
-    secondaryActions={[
-      <Button label="Label" secondary icon={visibleIcon} />,
-      <Button label="Label" secondary icon={visibleIcon} />,
-      <Dropdown />,
-    ]}
+    primaryAction={{ label: "Primary link", primary: true, href: "#" }}
+    defaultAction={{ label: "Default link", href: "#" }}
+    secondaryActions={SECONDARY_ACTIONS}
     breadcrumb={{
       path: "#",
       text: "Back to home",
@@ -93,11 +182,21 @@ export const EducationVariant = () => (
     variant="education"
     sectionTitle="Section title"
     sectionTitleDescription="Description of section can go here"
-    primaryActions={[<Button label="Label" primary icon={addIcon} />]}
-    secondaryActions={[
-      <Button label="Label" secondary icon={visibleIcon} />,
-      <Button label="Label" secondary icon={visibleIcon} />,
-      <Dropdown />,
+    primaryAction={{ label: "Label", primary: true }}
+    secondaryActions={SECONDARY_ACTIONS}
+    secondaryOverflowMenuItems={[
+      {
+        action: () => {
+          alert("test")
+        },
+        label: "Overflow action 1",
+        icon: starIcon,
+      },
+      {
+        action: "#",
+        label: "Overflow link 1",
+        icon: starIcon,
+      },
     ]}
     breadcrumb={{
       path: "#",
@@ -117,19 +216,20 @@ export const Engagement = () => (
   <TitleBlockZen
     title="Baseline Engagement Survey"
     surveyStatus={{ text: "Live", status: "live" }}
-    primaryActions={[
-      <Button label="Label" reversed />,
-      <Button label="Label" primary reversed />,
-    ]}
-    secondaryActions={[
-      <Button
-        label="Share report"
-        secondary
-        reversed
-        icon={reportSharingIcon}
-      />,
-      <Dropdown label="Export" reversedColor controlAction />,
-    ]}
+    primaryAction={{
+      label: "Label",
+      icon: addIcon,
+      reversed: true,
+      primary: true,
+      href: "#",
+    }}
+    defaultAction={{
+      label: "Label",
+      icon: addIcon,
+      reversed: true,
+      href: "#",
+    }}
+    secondaryActions={SECONDARY_ACTIONS}
     breadcrumb={{
       path: "#",
       text: "Back to home",
@@ -161,13 +261,32 @@ Engagement.story = {
 export const Performance = () => (
   <TitleBlockZen
     title="Blanca Wheeler"
-    primaryActions={[
-      <Button label="Request feedback" reversed />,
-      <Button label="Give feedback" primary reversed />,
-    ]}
+    primaryAction={{
+      href: "#",
+      label: "Request feedback",
+      primary: true,
+      reversed: true,
+    }}
+    defaultAction={{
+      href: "#",
+      label: "Give feedback",
+      reversed: true,
+    }}
     secondaryActions={[
-      <Button label="Quick comment" secondary reversed icon={commentIcon} />,
-      <Button label="Review skills" secondary reversed icon={starIcon} />,
+      {
+        onClick: () => {
+          alert("test")
+        },
+        label: "Quick comment",
+        icon: commentIcon,
+      },
+      {
+        onClick: () => {
+          alert("test")
+        },
+        label: "Review skills",
+        icon: starIcon,
+      },
     ]}
     breadcrumb={{
       path: "#",
@@ -201,23 +320,34 @@ Performance.story = {
 export const LongLabels = () => (
   <TitleBlockZen
     title="Hubert Blaine Wolfeschlegelsteinhausenbergerdorff"
-    primaryActions={[
-      <Button label="Feedback anfordern" reversed />,
-      <Button label="Feedback geben" primary reversed />,
-    ]}
+    primaryAction={{
+      label: "Feedback anfordern",
+      reversed: true,
+      primary: true,
+    }}
+    defaultAction={{
+      label: "Feedback geben",
+      reversed: true,
+    }}
     secondaryActions={[
-      <Button
-        label="Schneller Kommentar"
-        secondary
-        reversed
-        icon={commentIcon}
-      />,
-      <Button
-        label="Fähigkeiten überprüfen"
-        secondary
-        reversed
-        icon={starIcon}
-      />,
+      {
+        label: "Schneller Kommentar",
+        onClick: () => {
+          alert("test")
+        },
+        secondary: true,
+        reversed: true,
+        icon: commentIcon,
+      },
+      {
+        label: "Fähigkeiten überprüfen",
+        onClick: () => {
+          alert("test")
+        },
+        secondary: true,
+        reversed: true,
+        icon: starIcon,
+      },
     ]}
     breadcrumb={{
       path: "#",
@@ -244,20 +374,47 @@ export const LongLabels = () => (
   />
 )
 
+const MENU_LINKS = [
+  {
+    label: "Primary menu link 1",
+    action: "#",
+  },
+  {
+    label: "Primary menu link 2",
+    action: "#",
+  },
+  {
+    label: "Primary menu action 1",
+    action: () => {
+      alert("test")
+    },
+    icon: reportSharingIcon,
+  },
+  {
+    label: "Primary menu action 2",
+    action: () => {
+      alert("test")
+    },
+    icon: starIcon,
+  },
+]
+
 export const DefaultWithContent = () => (
   <div>
     <TitleBlockZen
       title="Page title"
       surveyStatus={{ text: "Live", status: "live" }}
-      primaryActions={[
-        <Button label="Label" reversed icon={addIcon} />,
-        <Button label="Label" primary reversed icon={addIcon} />,
-      ]}
-      secondaryActions={[
-        <Button label="Label" secondary reversed icon={visibleIcon} />,
-        <Button label="Label" secondary reversed icon={visibleIcon} />,
-        <Dropdown reversedColor />,
-      ]}
+      primaryAction={{
+        label: "Primary menu",
+        menuItems: MENU_LINKS,
+      }}
+      defaultAction={{
+        label: "Default link",
+        icon: addIcon,
+        reversed: true,
+        href: "#",
+      }}
+      secondaryActions={SECONDARY_ACTIONS}
       breadcrumb={{
         path: "#",
         text: "Back to home",
