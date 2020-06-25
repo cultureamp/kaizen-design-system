@@ -1,0 +1,91 @@
+---
+title: Progress Bar
+navTitle: Progress Bar (not built)
+summaryParagraph: Progress bars show continuous progress through a process, such as a percentage value. They show how much progress is complete and how much remains.
+tags: ["Progress", "Progress bar", "Progress indicator", "Progress tracker", "Loading bar", "Loader"]
+needToKnow:
+- Give people feedback about progress.
+---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
+## Visuals
+
+### UI Kit
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D34915%253A1&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+### Examples
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D34915%253A529&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+## Options
+
+- Static process or loading progress:
+    - **Static**: a static progress bar shows current progress through a process that will not progress without user interaction.
+    - **Loading**: a loading progress bar shows current progress through a loading process that the system will progress by itself without user interaction. We use animation to show that the system is operating.
+- Props:
+    - Min
+    - Max
+    - Initial value
+    - Infinite/indeterminate
+- [Moods](/guidelines/mood): positive, informative, cautionary, negative
+
+## To keep in mind
+
+Give people feedback with progress bars.
+
+- Anatomy:
+    - **Progress track:** This track shows the path the progress bar will take.
+    - **Progress bar fill:** This shows the completed progress visually as a colored bar.
+    - **Progress value:** This shows the completed progress as text, usually a percentage. Sometimes a fraction or ratio may be shown.
+    - **Progress label:** This describes the process that's in action.
+- Use **loading progress bars** for system processes, such as downloading, uploading, or processing.
+- Start progress bars on 1% instead of 0% to show the process has started, where it makes sense.
+- A progress bar is not interactive.
+- Avoid using indeterminate progress bars. Try to estimate how long a process will take or how many items it will process. A progress bar may start with an unknown amount of progress, then become determinate.
+- In right-to-left (RTL) languages, start the progress bar fill from the right and fill towards the left as progress increases.
+- Accessibility:
+    - Use the `progressbar` `role` to show that the element displays progress status.
+    - Use the `aria-valuenow`, `aria-valuemin`, and `aria-valuemax` attributes to indicate progress completion.
+
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
+
+- Use a progress bar when it will give people feedback in a long-running process with continuous values.
+
+</WhenToUse>
+<WhenNotToUse>
+
+- For an unknown amount of time/progress, consider using a [loading spinner](/components/loading-spinner) instead.
+- For loading content in a module, consider using a [loading skeleton](/components/loading-skeleton) instead.
+- For discrete steps, consider using a progress stepper instead.
+- For an interactive element that lets people provide input to show progress, use a range slider.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
+
+## See also
+
+- [Loading spinner](/components/loading-spinner)
+- [Loading skeleton](/components/loading-skeleton)
+- [Progress stepper](/components/progress-stepper)
+
+## External Links
+
+Here are some examples of other existing design systems:
+
+- [Spectrum: progress bar](https://spectrum.adobe.com/page/progress-bar/)
+- [Ant Design: Progress](https://ant.design/components/progress/#header)
+- [Predix UI: progress bar](https://www.predix-ui.com/#/elements/px-progress-bar)
+- [Red Bubble: Progress Bar](https://redbubble.design/components/progress-bar/examples)
+- [Lightning: Progress bar](https://www.lightningdesignsystem.com/components/progress-bar/#site-main-content)
+- [Chakra: Progress](https://chakra-ui.com/progress)
+- [MDN: progress](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress)
+- [MDN: progressbar](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_progressbar_role)
+- [MDN: range](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range)
+
