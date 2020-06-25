@@ -24,6 +24,8 @@ const rightArrow = require("@kaizen/component-library/icons/arrow-forward.icon.s
 const hamburgerIcon = require("@kaizen/component-library/icons/hamburger.icon.svg")
   .default
 
+const NON_REVERSED_VARIANTS = ["education", "admin"]
+
 /**
  * @param TitleBlockProps ### Accessing internal types of TitleBlockProps
  * If you want access to types like `PrimaryActionProps` (for example, in the scenario
@@ -102,17 +104,17 @@ type Breadcrumb = {
 }
 
 const renderTag = (surveyStatus: SurveyStatus) => {
-  let variant
+  let tagVariant
   if (surveyStatus.status === "draft") {
-    variant = "statusDraft"
+    tagVariant = "statusDraft"
   }
   if (surveyStatus.status === "live") {
-    variant = "statusLive"
+    tagVariant = "statusLive"
   }
 
   return (
     <div className={styles.tag}>
-      <Tag variant={variant} size="small">
+      <Tag variant={tagVariant} size="small">
         {surveyStatus.text}
       </Tag>
     </div>
@@ -134,23 +136,19 @@ const renderSectionTitle = (
 ) => (
   <div className={styles.sectionTitleContainer}>
     <div className={styles.sectionTitleInner}>
-      {sectionTitle && (
-        <div className={styles.sectionTitle}>
-          <Heading
-            variant="heading-2"
-            color={
-              variant === "education" || variant === "admin" ? "dark" : "white"
-            }
-            classNameAndIHaveSpokenToDST={styles.sectionTitleOverride}
-          >
-            {sectionTitle}
-          </Heading>
-        </div>
-      )}
+      <div className={styles.sectionTitle}>
+        <Heading
+          variant="heading-2"
+          color={isReversed(variant) ? "white" : "dark"}
+          classNameAndIHaveSpokenToDST={styles.sectionTitleOverride}
+        >
+          {sectionTitle}
+        </Heading>
+      </div>
       {sectionTitleDescription && (
         <div
           className={classNames(styles.sectionTitleDescription, {
-            [styles.dark]: variant === "education" || variant === "admin",
+            [styles.dark]: !isReversed(variant),
           })}
         >
           {sectionTitleDescription}
@@ -192,6 +190,12 @@ const renderNavigationTabs = (navigationTabs: NavigationTabs) => {
       </div>
     </div>
   )
+}
+
+const isReversed = (variant: Variant | undefined): boolean => {
+  // The default variant (no variant prop) is reversed (dark background)
+  if (variant === undefined) return true
+  return !NON_REVERSED_VARIANTS.includes(variant)
 }
 
 /**
@@ -260,11 +264,7 @@ const TitleBlockZen = ({
                     <div className={styles.title}>
                       <Heading
                         variant="heading-1"
-                        color={
-                          variant === "education" || variant === "admin"
-                            ? "dark"
-                            : "white"
-                        }
+                        color={isReversed(variant) ? "white" : "dark"}
                         classNameAndIHaveSpokenToDST={styles.titleTextOverride}
                       >
                         {title}
@@ -299,7 +299,7 @@ const TitleBlockZen = ({
             <SecondaryActions
               secondaryActions={secondaryActions}
               secondaryOverflowMenuItems={secondaryOverflowMenuItems}
-              reversed={variant !== "education" && variant !== "admin"}
+              reversed={isReversed(variant)}
             />
           </div>
         </div>
