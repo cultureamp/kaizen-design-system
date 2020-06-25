@@ -18,7 +18,26 @@
   display: flex;
 }
 
+.tab {
+  $underline-height: 4px;
+  @include ca-inherit-baseline;
+  font-family: $kz-typography-heading-4-font-family;
+  font-weight: $kz-typography-heading-4-font-weight;
+  font-size: $kz-typography-heading-4-font-size;
+  line-height: $kz-typography-heading-4-line-height;
+  letter-spacing: $kz-typography-heading-4-letter-spacing;
+  text-decoration: none;
+  color: $kz-color-wisteria-800;
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    @extend %tabHover;
+  }
+}
+
 .row {
+  composes: tab;
   border-top-left-radius: $kz-border-borderless-border-radius;
   border-top-right-radius: $kz-border-borderless-border-radius;
   padding: 0 $ca-grid * 0.75;
@@ -63,6 +82,7 @@
 }
 
 .column {
+  composes: tab;
   height: $kz-spacing-xl;
   display: flex;
   align-items: center;
@@ -96,24 +116,6 @@
         bottom: -$focus-ring-offset;
       }
     }
-  }
-}
-
-.tab {
-  $underline-height: 4px;
-  @include ca-inherit-baseline;
-  font-family: $kz-typography-heading-4-font-family;
-  font-weight: $kz-typography-heading-4-font-weight;
-  font-size: $kz-typography-heading-4-font-size;
-  line-height: $kz-typography-heading-4-line-height;
-  letter-spacing: $kz-typography-heading-4-letter-spacing;
-  text-decoration: none;
-  color: $kz-color-wisteria-800;
-  cursor: pointer;
-  position: relative;
-
-  &:hover {
-    @extend %tabHover;
   }
 }
 

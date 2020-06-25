@@ -37,6 +37,25 @@ export const LongAndShortText = () => {
   return <Tabs tabs={tabs} />
 }
 
+LongAndShortText.story = {
+  name: "Long and short text (row)",
+}
+
+export const ColumnLongAndShortText = () => {
+  const tabs = [
+    { label: "Long Text in a Tab" },
+    { label: "A" },
+    { label: "B" },
+    { label: "Some more long text that's really long" },
+    { label: "C" },
+  ]
+  return <Tabs direction="column" tabs={tabs} />
+}
+
+ColumnLongAndShortText.story = {
+  name: "Long and short text (column)",
+}
+
 export const ActiveTab = () => {
   const tabs = [
     { label: "One", active: true },
@@ -48,10 +67,24 @@ export const ActiveTab = () => {
 }
 
 ActiveTab.story = {
-  name: "Active tab",
+  name: "Active tab (row)",
 }
 
-export const DisabledTab = () => {
+export const ActiveColumnTabs = () => {
+  const tabs = [
+    { label: "One (href here)", active: true },
+    { label: "Two" },
+    { label: "Three" },
+    { label: "Four" },
+  ]
+  return <Tabs direction="column" tabs={tabs} />
+}
+
+ActiveColumnTabs.story = {
+  name: "Active tab (column)",
+}
+
+export const DisabledTabRow = () => {
   const tabs = [
     { label: "One", disabled: true },
     { label: "Two" },
@@ -61,8 +94,22 @@ export const DisabledTab = () => {
   return <Tabs tabs={tabs} />
 }
 
-DisabledTab.story = {
-  name: "Disabled tab",
+DisabledTabRow.story = {
+  name: "Disabled tab (row)",
+}
+
+export const DisabledTabColumn = () => {
+  const tabs = [
+    { label: "One", disabled: true },
+    { label: "Two" },
+    { label: "Three" },
+    { label: "Four" },
+  ]
+  return <Tabs direction="column" tabs={tabs} />
+}
+
+DisabledTabColumn.story = {
+  name: "Disabled tab (column)",
 }
 
 export const WithOnClick = () => {
@@ -147,7 +194,44 @@ export const WithCustomTabRenderer = () => {
 }
 
 WithCustomTabRenderer.story = {
-  name: "With custom tab renderer",
+  name: "With custom tab renderer (row)",
+}
+
+export const WithCustomTabRendererColumn = () => {
+  const tabs = [
+    { label: "One", active: true },
+    { label: "Two", disabled: true },
+    { label: "Three" },
+    { label: "Four" },
+  ]
+  return (
+    <Tabs
+      tabs={tabs}
+      direction="column"
+      renderTab={({
+        tab,
+        tabClassName,
+        activeTabClassName,
+        disabledTabClassName,
+      }) => {
+        return (
+          <a
+            key={tab.label}
+            className={classnames(tabClassName, {
+              [activeTabClassName]: tab.active,
+              [disabledTabClassName]: tab.disabled,
+            })}
+          >
+            {tab.label}
+          </a>
+        )
+      }}
+    />
+  )
+}
+
+WithCustomTabRendererColumn.story = {
+  name: "With custom tab renderer (column)",
 }
 
 export const ColumnTabs = () => {
@@ -162,18 +246,4 @@ export const ColumnTabs = () => {
 
 ColumnTabs.story = {
   name: "Column",
-}
-
-export const ActiveColumnTabs = () => {
-  const tabs = [
-    { label: "One (href here)", active: true },
-    { label: "Two" },
-    { label: "Three" },
-    { label: "Four" },
-  ]
-  return <Tabs direction="column" tabs={tabs} />
-}
-
-ActiveColumnTabs.story = {
-  name: "Column (active tab)",
 }

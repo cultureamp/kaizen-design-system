@@ -32,7 +32,7 @@ const Tabs = ({ direction = "row", ...props }: Props) => {
           return renderTab ? (
             renderTab({
               tab: t,
-              tabClassName: styles.tab,
+              tabClassName: styles.row,
               activeTabClassName: styles.activeTab,
               disabledTabClassName: styles.disabledTab,
             })
@@ -42,8 +42,7 @@ const Tabs = ({ direction = "row", ...props }: Props) => {
               onClick={t.onClick}
               href={t.href}
               className={classnames({
-                [styles.row]: true,
-                [styles.tab]: !t.active && !t.disabled,
+                [styles.row]: !t.active && !t.disabled,
                 [styles.activeTab]: t.active,
                 [styles.disabledTab]: t.disabled,
               })}
@@ -62,8 +61,8 @@ const Tabs = ({ direction = "row", ...props }: Props) => {
         return renderTab ? (
           renderTab({
             tab: t,
-            tabClassName: styles.tab,
-            activeTabClassName: styles.activeTab,
+            tabClassName: styles.column,
+            activeTabClassName: styles.activeTabColumn,
             disabledTabClassName: styles.disabledTab,
           })
         ) : (
@@ -72,8 +71,7 @@ const Tabs = ({ direction = "row", ...props }: Props) => {
             onClick={t.onClick}
             href={t.href}
             className={classnames({
-              [styles.tab]: !t.active && !t.disabled,
-              [styles.column]: true,
+              [styles.column]: !t.active && !t.disabled,
               [styles.activeTabColumn]: t.active,
               [styles.disabledTab]: t.disabled,
             })}
