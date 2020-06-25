@@ -74,7 +74,7 @@ const Tabs = ({ direction = "row", ...props }: Props) => {
             className={classnames({
               [styles.tab]: !t.active && !t.disabled,
               [styles.column]: true,
-              [styles.activeTab]: t.active,
+              [styles.activeTabColumn]: t.active,
               [styles.disabledTab]: t.disabled,
             })}
           >

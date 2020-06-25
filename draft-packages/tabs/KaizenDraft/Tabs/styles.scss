@@ -24,13 +24,13 @@
   padding: 0 $ca-grid * 0.75;
   height: 3 * $ca-grid;
 
-  position: relative;
   top: 0; // this overrides baseline shift. @include ca-inherit-baseline does not work because
   // we need to make this position: relative, for the absolutely positioned underline.
 
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 4.5rem - ($ca-grid * 0.75) * 2; // give tabs with short text some breathing room
 
   // Use JS polyfill to simulate :focus-visible, not yet supported by browsers
   // https://github.com/WICG/focus-visible#backwards-compatibility
@@ -68,8 +68,35 @@
   align-items: center;
   justify-content: left;
   padding-left: $kz-spacing-sm;
-
   border-radius: $kz-border-solid-border-radius;
+
+  // Use JS polyfill to simulate :focus-visible, not yet supported by browsers
+  // https://github.com/WICG/focus-visible#backwards-compatibility
+  :global(.js-focus-visible) & {
+    // hide native focus ring when :focus but not :focus-visible
+    &:focus {
+      outline: none;
+    }
+
+    &:global(.focus-visible) {
+      @extend %tabHover;
+      // show custom focus ring when :focus-visible
+      &:after {
+        $focus-ring-offset: $kz-border-focus-ring-border-width - 1;
+        content: "";
+        position: absolute;
+        background: transparent;
+        border-radius: $kz-border-borderless-border-radius;
+        border-width: $kz-border-focus-ring-border-width;
+        border-style: $kz-border-focus-ring-border-style;
+        border-color: $kz-color-cluny-500;
+        top: -$focus-ring-offset;
+        left: -$focus-ring-offset;
+        right: -$focus-ring-offset;
+        bottom: -$focus-ring-offset;
+      }
+    }
+  }
 }
 
 .tab {
@@ -80,10 +107,10 @@
   font-size: $kz-typography-heading-4-font-size;
   line-height: $kz-typography-heading-4-line-height;
   letter-spacing: $kz-typography-heading-4-letter-spacing;
-  min-width: 4.5rem - ($ca-grid * 0.75) * 2; // give tabs with short text some breathing room
   text-decoration: none;
   color: $kz-color-wisteria-800;
   cursor: pointer;
+  position: relative;
 
   &:hover {
     @extend %tabHover;
@@ -92,6 +119,10 @@
 
 .row + .row {
   @include ca-margin($start: $ca-grid * 0.5);
+}
+
+.column + .column {
+  margin-top: 1px; // add some breathing room for focus
 }
 
 .activeTab {
@@ -112,6 +143,11 @@
     right: 0;
     bottom: 0;
   }
+}
+
+.activeTabColumn {
+  composes: tab;
+  color: $kz-color-cluny-500;
 }
 
 .disabledTab {
