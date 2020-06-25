@@ -15,6 +15,7 @@ $side-padding: 1/2 * $ca-grid;
   box-shadow: $kz-shadow-large-box-shadow;
   padding: 6px 4px;
   text-align: left;
+  width: 100%;
 
   [dir="rtl"] & {
     text-align: right;

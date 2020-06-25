@@ -1,0 +1,52 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/component-library/styles/grid";
+@import "~@kaizen/component-library/styles/layout";
+@import "./TitleBlockBreakpoints.scss";
+
+$mobile-actions-split-select-square-width: 64px;
+
+.mobileActionsContainer {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top-left-radius: $kz-border-solid-border-radius;
+  border-top-right-radius: $kz-border-solid-border-radius;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+
+  @include title-block-medium-and-small {
+    display: flex;
+  }
+}
+
+.mobileActionsTopRow {
+  display: flex;
+  align-items: center;
+  height: $ca-grid * 2.5;
+  width: 100%;
+  background-color: $kz-color-cluny-500;
+}
+
+.mobileActionsMenuContainer {
+  display: flex;
+  // height: $ca-grid * 10;
+  width: 100%;
+  background: $kz-color-white;
+}
+
+.mobileActionsPrimaryLabel {
+  @include ca-padding($start: $ca-grid / 2);
+
+  color: $kz-color-white;
+  font-family: $kz-typography-button-primary-font-family;
+  font-weight: $kz-typography-button-primary-font-weight;
+  font-size: $kz-typography-button-primary-font-size;
+  line-height: $kz-typography-button-primary-line-height;
+  letter-spacing: $kz-typography-button-primary-letter-spacing;
+}
