@@ -149,3 +149,17 @@ export const WithCustomTabRenderer = () => {
 WithCustomTabRenderer.story = {
   name: "With custom tab renderer",
 }
+
+export const ColumeTabs = () => {
+  const tabs = [
+    { label: "One (href here)", href: "//www.example.com" },
+    { label: "Two" },
+    { label: "Three" },
+    { label: "Four" },
+  ]
+  return <Tabs direction="column" tabs={tabs} />
+}
+
+ColumeTabs.story = {
+  name: "Column",
+}

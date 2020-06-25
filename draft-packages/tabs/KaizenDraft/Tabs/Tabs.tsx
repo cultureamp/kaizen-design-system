@@ -13,6 +13,7 @@ interface Tab {
 
 interface Props {
   readonly tabs: Tab[]
+  readonly direction?: "row" | "column"
   readonly renderTab?: (renderProps: {
     readonly tab: Tab
     readonly tabClassName: string
@@ -21,11 +22,42 @@ interface Props {
   }) => React.ReactNode
 }
 
-const Tabs = (props: Props) => {
+const Tabs = ({ direction = "row", ...props }: Props) => {
   const { tabs, renderTab } = props
 
+  if (direction === "row") {
+    return (
+      <div className={styles.container}>
+        {tabs.map(t => {
+          return renderTab ? (
+            renderTab({
+              tab: t,
+              tabClassName: styles.tab,
+              activeTabClassName: styles.activeTab,
+              disabledTabClassName: styles.disabledTab,
+            })
+          ) : (
+            <a
+              key={t.label}
+              onClick={t.onClick}
+              href={t.href}
+              className={classnames({
+                [styles.row]: true,
+                [styles.tab]: !t.active && !t.disabled,
+                [styles.activeTab]: t.active,
+                [styles.disabledTab]: t.disabled,
+              })}
+            >
+              {t.label}
+            </a>
+          )
+        })}
+      </div>
+    )
+  }
+
   return (
-    <div className={styles.container}>
+    <div>
       {tabs.map(t => {
         return renderTab ? (
           renderTab({
@@ -41,6 +73,7 @@ const Tabs = (props: Props) => {
             href={t.href}
             className={classnames({
               [styles.tab]: !t.active && !t.disabled,
+              [styles.column]: true,
               [styles.activeTab]: t.active,
               [styles.disabledTab]: t.disabled,
             })}

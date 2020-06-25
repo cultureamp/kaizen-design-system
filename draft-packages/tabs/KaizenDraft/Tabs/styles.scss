@@ -1,5 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/layout";
@@ -17,29 +18,19 @@
   display: flex;
 }
 
-.tab {
-  $underline-height: 4px;
-  @include ca-inherit-baseline;
-  font-family: $kz-typography-heading-4-font-family;
-  font-weight: $kz-typography-heading-4-font-weight;
-  font-size: $kz-typography-heading-4-font-size;
-  line-height: $kz-typography-heading-4-line-height;
-  letter-spacing: $kz-typography-heading-4-letter-spacing;
+.row {
+  border-top-left-radius: $kz-border-borderless-border-radius;
+  border-top-right-radius: $kz-border-borderless-border-radius;
   padding: 0 $ca-grid * 0.75;
+  height: 3 * $ca-grid;
+
   position: relative;
   top: 0; // this overrides baseline shift. @include ca-inherit-baseline does not work because
   // we need to make this position: relative, for the absolutely positioned underline.
-  height: 3 * $ca-grid;
-  min-width: 4.5rem - ($ca-grid * 0.75) * 2; // give tabs with short text some breathing room
-  text-decoration: none;
-  color: $kz-color-wisteria-800;
-  cursor: pointer;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top-left-radius: $kz-border-borderless-border-radius;
-  border-top-right-radius: $kz-border-borderless-border-radius;
 
   // Use JS polyfill to simulate :focus-visible, not yet supported by browsers
   // https://github.com/WICG/focus-visible#backwards-compatibility
@@ -69,13 +60,37 @@
       }
     }
   }
+}
+
+.column {
+  height: $kz-spacing-xl;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding-left: $kz-spacing-sm;
+
+  border-radius: $kz-border-solid-border-radius;
+}
+
+.tab {
+  $underline-height: 4px;
+  @include ca-inherit-baseline;
+  font-family: $kz-typography-heading-4-font-family;
+  font-weight: $kz-typography-heading-4-font-weight;
+  font-size: $kz-typography-heading-4-font-size;
+  line-height: $kz-typography-heading-4-line-height;
+  letter-spacing: $kz-typography-heading-4-letter-spacing;
+  min-width: 4.5rem - ($ca-grid * 0.75) * 2; // give tabs with short text some breathing room
+  text-decoration: none;
+  color: $kz-color-wisteria-800;
+  cursor: pointer;
 
   &:hover {
     @extend %tabHover;
   }
 }
 
-.tab + .tab {
+.row + .row {
   @include ca-margin($start: $ca-grid * 0.5);
 }
 
