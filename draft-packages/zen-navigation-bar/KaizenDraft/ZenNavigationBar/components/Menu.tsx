@@ -7,7 +7,7 @@ import { OffCanvasContext, ZenOffCanvas } from "@kaizen/draft-zen-off-canvas"
 import classNames from "classnames"
 import Media from "react-media"
 import { NavBarContext } from "../context"
-import { MenuProps, NavigationItem } from "../types"
+import { ColorScheme, MenuProps, NavigationItem } from "../types"
 import Dropdown from "./Dropdown"
 import Link from "./Link"
 import MenuGroup from "./MenuGroup"
@@ -51,6 +51,7 @@ export default class Menu extends React.Component<MenuProps, State> {
       icon,
       items,
       header,
+      colorScheme,
     } = this.props
 
     return (
@@ -82,6 +83,7 @@ export default class Menu extends React.Component<MenuProps, State> {
                   [styles.menuOpen]: this.state.open,
                   [styles.active]: active,
                   [styles.extendedNavigation]: hasExtendedNavigation,
+                  [styles[colorScheme]]: !!colorScheme,
                 })}
                 onClick={this.toggle}
                 aria-expanded={this.state.open}

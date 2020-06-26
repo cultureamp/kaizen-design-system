@@ -8,7 +8,12 @@ import Badge from "./components/Badge"
 import Link from "./components/Link"
 import Menu from "./components/Menu"
 import { NavBarContext } from "./context"
-import { Navigation, NavigationChange, NavigationItem } from "./types"
+import {
+  ColorScheme,
+  Navigation,
+  NavigationChange,
+  NavigationItem,
+} from "./types"
 
 const styles = require("./NavigationBar.module.scss")
 
@@ -29,8 +34,6 @@ type Props = {
 type State = {
   mobileKey: number
 }
-
-export type ColorScheme = "cultureamp" | "kaizen" | "content"
 
 export default class NavigationBar extends React.Component<Props, State> {
   static displayName = "NavigationBar"
@@ -94,7 +97,9 @@ export default class NavigationBar extends React.Component<Props, State> {
               >
                 {headerComponent ? (
                   <span className={styles.headerSlot}>
-                    {headerComponent.desktop}
+                    {React.cloneElement(headerComponent.desktop, {
+                      colorScheme,
+                    })}
                   </span>
                 ) : (
                   this.renderBadge()
@@ -144,7 +149,7 @@ export default class NavigationBar extends React.Component<Props, State> {
         ...linkProps,
         opaque: isFinal,
         small: isFinal,
-        content: this.props.colorScheme === "content",
+        colorScheme: this.props.colorScheme,
       },
     }
     const key = "href" in linkProps ? linkProps.href : linkProps.heading

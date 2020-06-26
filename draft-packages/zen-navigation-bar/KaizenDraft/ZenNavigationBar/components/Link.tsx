@@ -39,7 +39,7 @@ export default class Link extends React.PureComponent<LinkProps> {
       onClick,
       small,
       menuOpen,
-      content,
+      colorScheme,
       tooltip,
     } = this.props
 
@@ -70,7 +70,7 @@ export default class Link extends React.PureComponent<LinkProps> {
             [styles.opaque]: opaque,
             [styles.small]: small,
             [styles.menuOpen]: hasMenu && menuOpen,
-            [styles.content]: content,
+            [styles[colorScheme]]: !!colorScheme,
             [styles.extendedNavigation]: hasExtendedNavigation,
           })}
           tabIndex={0}
