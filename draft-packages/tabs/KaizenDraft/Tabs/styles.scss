@@ -13,7 +13,6 @@
 }
 
 .tab {
-  $underline-height: 4px;
   @include ca-inherit-baseline;
   font-family: $kz-typography-heading-4-font-family;
   font-size: $kz-typography-heading-4-font-size;
@@ -125,6 +124,10 @@
   }
 }
 
+.row + .row {
+  @include ca-margin($start: $ca-grid * 0.5);
+}
+
 .column {
   composes: tab;
   min-height: $kz-spacing-xl;
@@ -138,10 +141,6 @@
     border-radius: $kz-border-borderless-border-radius;
     z-index: 1; // pop the border out so sibling tabs don't overlap
   }
-}
-
-.row + .row {
-  @include ca-margin($start: $ca-grid * 0.5);
 }
 
 .activeTabColumn {

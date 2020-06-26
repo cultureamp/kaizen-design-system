@@ -59,7 +59,7 @@ const RowTab = ({ tabs, renderTab }) => (
 )
 
 const ColumnTab = ({ tabs, renderTab }) => (
-  <div className={styles.container}>
+  <div>
     {tabs.map(t =>
       renderTab ? (
         renderTab({
