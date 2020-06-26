@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/component-library/styles/color";
-@import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/type";
 @import "../styles";
 
 .badge {
@@ -10,8 +10,8 @@
   font-weight: $ca-weight-medium;
   text-decoration: none;
   text-transform: uppercase;
-  max-height: $ca-navigation-bar__height;
-  width: $ca-navigation-bar__height;
+  max-height: $kz-layout-navigation-bar-height;
+  width: $kz-layout-navigation-bar-height;
   position: relative;
   &::after {
     display: block;
