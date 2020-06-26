@@ -182,7 +182,10 @@ export const EducationVariant = () => (
     variant="education"
     sectionTitle="Section title"
     sectionTitleDescription="Description of section can go here"
-    primaryAction={{ label: "Label", primary: true }}
+    primaryAction={{
+      label: "Label",
+      primary: true,
+    }}
     secondaryActions={SECONDARY_ACTIONS}
     secondaryOverflowMenuItems={[
       {
@@ -515,4 +518,75 @@ export const DefaultWithContent = () => (
 
 DefaultWithContent.story = {
   name: "Default with content",
+}
+
+export const DefaultNoSecondary = () => (
+  <TitleBlockZen
+    title="Page title"
+    surveyStatus={{ text: "Live", status: "live" }}
+    primaryAction={{
+      label: "Primary link",
+      icon: addIcon,
+      reversed: true,
+      primary: true,
+      href: "#",
+    }}
+    defaultAction={{
+      label: "Default link",
+      reversed: true,
+      href: "#",
+    }}
+    breadcrumb={{
+      path: "#",
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+    navigationTabs={[
+      <NavigationTab text="Label" href="#" active />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+    ]}
+  />
+)
+
+DefaultNoSecondary.story = {
+  name: "Default (no secondary actions)",
+}
+
+export const DefaultOnlyPrimary = () => (
+  <TitleBlockZen
+    title="Page title"
+    surveyStatus={{ text: "Live", status: "live" }}
+    primaryAction={{
+      label: "Primary link",
+      icon: addIcon,
+      reversed: true,
+      primary: true,
+      href: "#",
+    }}
+    breadcrumb={{
+      path: "#",
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+    navigationTabs={[
+      <NavigationTab text="Label" href="#" active />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+    ]}
+  />
+)
+
+DefaultOnlyPrimary.story = {
+  name: "Default (only primary action)",
 }

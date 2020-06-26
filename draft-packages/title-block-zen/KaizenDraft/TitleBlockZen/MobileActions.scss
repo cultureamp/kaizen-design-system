@@ -20,7 +20,7 @@ $mobile-actions-split-select-square-width: 64px;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
 
-  @include title-block-medium-and-small {
+  @include title-block-small {
     display: flex;
   }
 }
@@ -40,6 +40,17 @@ $mobile-actions-split-select-square-width: 64px;
   background: $kz-color-white;
 }
 
+.drawerHandleIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include ca-margin($end: $ca-grid / 2);
+
+  .drawerHandleLabelText + & {
+    @include ca-margin($start: $ca-grid / 2);
+  }
+}
+
 .mobileActionsPrimaryLabel {
   @include ca-padding($start: $ca-grid / 2);
 
@@ -49,4 +60,53 @@ $mobile-actions-split-select-square-width: 64px;
   font-size: $kz-typography-button-primary-font-size;
   line-height: $kz-typography-button-primary-line-height;
   letter-spacing: $kz-typography-button-primary-letter-spacing;
+}
+
+.mobileActionsPrimaryButton,
+.mobileActionsExpandButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  height: 100%;
+  cursor: pointer;
+  border-radius: none;
+  border: 0;
+  box-sizing: border-box;
+  outline: none;
+  color: $kz-color-white;
+
+  &:focus {
+    background-color: $kz-color-cluny-600;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.mobileActionsPrimaryButton {
+  flex-grow: 1;
+}
+
+.mobileActionsExpandButton {
+  flex-basis: $ca-grid * 2.5;
+  border-left: 1px solid $kz-color-white;
+}
+
+.mobileActionsExpandButtonFullWidth {
+  @extend .mobileActionsExpandButton;
+
+  position: relative;
+  flex-basis: 100%;
+  border: none;
+}
+
+.mobileActionsChevronSquare {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: absolute;
+  @include ca-position($end: 20px);
 }

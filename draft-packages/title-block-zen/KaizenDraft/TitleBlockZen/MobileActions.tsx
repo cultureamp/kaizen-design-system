@@ -1,4 +1,5 @@
-import { Button } from "@kaizen/draft-button"
+import { Icon } from "@kaizen/component-library"
+import { Button, ButtonProps } from "@kaizen/draft-button"
 import {
   MenuContent,
   MenuHeader,
@@ -18,49 +19,10 @@ import {
 } from "./TitleBlockZen"
 const starIcon = require("@kaizen/component-library/icons/star-on.icon.svg")
   .default
+const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
+  .default
 
 const styles = require("./MobileActions.scss")
-
-const PRIMARY_ACTION_AS_BUTTON = {
-  label: "Primary action as button",
-  icon: starIcon,
-  reversed: true,
-  primary: true,
-}
-
-const PRIMARY_ACTIONS_AS_MENU = {
-  label: "Primary actions as menu",
-  menuItems: [
-    {
-      action: "#",
-      label: "Item 1",
-    },
-    {
-      action: () => {
-        alert("Item 2 clicked")
-      },
-      label: "Item 2",
-    },
-    {
-      action: "#",
-      label: "Item 3",
-    },
-  ],
-}
-
-const DEFAULT_ACTION = {
-  label: "Default button",
-  reversed: true,
-  href: "#",
-}
-
-type renderMenuContentProps = {
-  drawerHandleAction?: object
-  primaryMenuActions?: any[]
-  primaryAction?: PrimaryActionProps
-  defaultAction?: ButtonWithOnClickOrHref
-  secondaryActions?: SecondaryActionsProps
-}
 
 const renderPrimaryLinks = (primaryAction: PrimaryActionProps) => {
   if (!primaryAction) return null
@@ -133,32 +95,224 @@ const renderSecondaryActions = secondaryActions => {
   ))
 }
 
-const renderMenuContent = ({
-  drawerHandleAction,
+const rendersecondaryOverflowMenuItems = (
+  secondaryOverflowMenuItems: MenuItemProps[]
+) => {
+  return secondaryOverflowMenuItems.map(item => (
+    <MenuItem action={item.action} label={item.label} icon={item.icon} />
+  ))
+}
+
+type DrawerMenuContentProps = {
+  primaryMenuActions?: any[]
+  primaryAction?: PrimaryActionProps
+  defaultAction?: ButtonWithOnClickOrHref
+  secondaryActions?: SecondaryActionsProps
+  secondaryOverflowMenuItems?: MenuItemProps[]
+}
+
+type ConditionalOtherActionsHeadingProps = {
+  defaultAction?: ButtonWithOnClickOrHref
+  secondaryActions?: SecondaryActionsProps
+  secondaryOverflowMenuItems?: MenuItemProps[]
+}
+
+const ConditionalOtherActionsHeading = ({
+  defaultAction,
+  secondaryActions,
+  secondaryOverflowMenuItems,
+}: ConditionalOtherActionsHeadingProps) => {
+  if (
+    (defaultAction && defaultAction.onClick) ||
+    secondaryActions ||
+    secondaryOverflowMenuItems
+  ) {
+    return (
+      <>
+        <MenuSeparator />
+        <MenuHeader title="Other actions" />
+      </>
+    )
+  }
+  return null
+}
+
+const DrawerMenuContent = ({
   primaryMenuActions,
   primaryAction,
   defaultAction,
   secondaryActions,
-}: renderMenuContentProps) => {
+  secondaryOverflowMenuItems,
+}: DrawerMenuContentProps) => {
   return (
     <>
       {primaryAction && renderPrimaryLinks(primaryAction)}
       {defaultAction && renderDefaultLink(defaultAction)}
       {primaryAction && renderPrimaryActions(primaryAction)}
-      {/* TODO: Only render this if there are either Default or Secondary actions present */}
-      <MenuSeparator />
-      <MenuHeader title="Other actions" />
+      <ConditionalOtherActionsHeading
+        defaultAction={defaultAction}
+        secondaryActions={secondaryActions}
+        secondaryOverflowMenuItems={secondaryOverflowMenuItems}
+      />
       {defaultAction && renderDefaultAction(defaultAction)}
       {secondaryActions && renderSecondaryActions(secondaryActions)}
+      {secondaryOverflowMenuItems &&
+        rendersecondaryOverflowMenuItems(secondaryOverflowMenuItems)}
     </>
   )
 }
 
-const renderDrawerHandle = (primaryAction: PrimaryActionProps | undefined) => {
-  if (primaryAction) {
-    return primaryAction.label
+const renderDrawerHandleLabel = (
+  label: string,
+  icon?: React.SVGAttributes<SVGSymbolElement>,
+  drawerHandleLabelIconPosition?: Pick<ButtonProps, "iconPosition">
+) => {
+  if (drawerHandleLabelIconPosition === "end") {
+    return (
+      <>
+        <span className={styles.drawerHandleLabelText}>{label}</span>
+        <>
+          {icon && (
+            <span className={styles.drawerHandleIcon}>
+              <Icon icon={icon} />
+            </span>
+          )}
+        </>
+      </>
+    )
   } else {
-    return "Other actions"
+    return (
+      <>
+        <>
+          {icon && (
+            <span className={styles.drawerHandleIcon}>
+              <Icon icon={icon} />
+            </span>
+          )}
+        </>
+        <span className={styles.drawerHandleLabelText}>{label}</span>
+      </>
+    )
+  }
+}
+
+type ButtonOrLinkProps = {
+  action: Pick<ButtonProps, "href" | "onClick">
+  children: React.ReactNode
+}
+
+const ButtonOrLink = ({ action, children }: ButtonOrLinkProps) => {
+  if (typeof action === "function") {
+    return (
+      <button
+        onClick={action}
+        className={classnames(
+          styles.mobileActionsPrimaryLabel,
+          styles.mobileActionsPrimaryButton
+        )}
+      >
+        {children}
+      </button>
+    )
+  }
+  if (typeof action === "string") {
+    return (
+      <a
+        href={action}
+        className={classnames(
+          styles.mobileActionsPrimaryLabel,
+          styles.mobileActionsPrimaryButton
+        )}
+      >
+        {children}
+      </a>
+    )
+  }
+  // If there is no onClick or href (should never happen)
+  return (
+    <button
+      className={classnames(
+        styles.mobileActionsPrimaryLabel,
+        styles.mobileActionsPrimaryButton
+      )}
+    >
+      {children}
+    </button>
+  )
+}
+
+const getAction = primaryAction => {
+  if (primaryAction) {
+    if (primaryAction.onClick) {
+      return primaryAction.onClick
+    }
+    if (primaryAction.href) {
+      return primaryAction.href
+    }
+  }
+}
+
+type DrawerHandleProps = {
+  primaryAction: PrimaryActionProps | undefined
+  secondaryActions: SecondaryActionsProps | undefined
+  defaultAction?: ButtonWithOnClickOrHref | MenuGroup
+  secondaryOverflowMenuItems?: MenuItemProps[]
+  drawerHandleLabelIconPosition?: Pick<ButtonProps, "iconPosition">
+}
+
+const DrawerHandle = ({
+  primaryAction,
+  secondaryActions,
+  defaultAction,
+  secondaryOverflowMenuItems,
+  drawerHandleLabelIconPosition,
+}: DrawerHandleProps) => {
+  if (primaryAction) {
+    // If the primary action is a menu
+    if (isMenuGroupNotButton(primaryAction)) {
+      return (
+        <div className={styles.mobileActionsTopRow}>
+          <button
+            className={classnames(
+              styles.mobileActionsExpandButtonFullWidth,
+              styles.mobileActionsPrimaryLabel
+            )}
+          >
+            {primaryAction.label}
+            <div className={styles.mobileActionsChevronSquare}>
+              <Icon icon={chevronDownIcon} />
+            </div>
+          </button>
+        </div>
+      )
+    } else {
+      // If the primary action is a button, or has no onClick/href/action
+      return (
+        <div className={styles.mobileActionsTopRow}>
+          {
+            <ButtonOrLink action={getAction(primaryAction)}>
+              {renderDrawerHandleLabel(
+                primaryAction.label,
+                primaryAction.icon,
+                drawerHandleLabelIconPosition
+              )}
+            </ButtonOrLink>
+          }
+
+          {/* If there are no secondary etc. actions, just show the button without drawer */}
+          {(defaultAction ||
+            secondaryActions ||
+            secondaryOverflowMenuItems) && (
+            <button className={styles.mobileActionsExpandButton}>
+              <Icon icon={chevronDownIcon} />
+            </button>
+          )}
+        </div>
+      )
+    }
+  } else {
+    // no primary action
+    return <span>{"Other actions"}</span>
   }
 }
 
@@ -166,6 +320,8 @@ export type MobileActionsProps = {
   primaryAction?: PrimaryActionProps
   defaultAction?: ButtonWithOnClickOrHref
   secondaryActions?: SecondaryActionsProps
+  secondaryOverflowMenuItems?: MenuItemProps[]
+  drawerHandleLabelIconPosition?: Pick<ButtonProps, "iconPosition">
   // TODO add types for menuContent
   // menuContent?: any
 }
@@ -174,22 +330,29 @@ const MobileActions = ({
   primaryAction,
   defaultAction,
   secondaryActions,
+  secondaryOverflowMenuItems,
+  drawerHandleLabelIconPosition,
 }: MobileActionsProps) => (
   <div className={styles.mobileActionsContainer}>
-    <div className={styles.mobileActionsTopRow}>
-      <span className={styles.mobileActionsPrimaryLabel}>
-        {renderDrawerHandle(primaryAction)}
-      </span>
-    </div>
-    <div className={styles.mobileActionsMenuContainer}>
-      <MenuContent>
-        {renderMenuContent({
-          primaryAction,
-          defaultAction,
-          secondaryActions,
-        })}
-      </MenuContent>
-    </div>
+    <DrawerHandle
+      primaryAction={primaryAction}
+      secondaryActions={secondaryActions}
+      defaultAction={defaultAction}
+      secondaryOverflowMenuItems={secondaryOverflowMenuItems}
+      drawerHandleLabelIconPosition={drawerHandleLabelIconPosition}
+    />
+    {(defaultAction || secondaryActions) && (
+      <div className={styles.mobileActionsMenuContainer}>
+        <MenuContent>
+          <DrawerMenuContent
+            primaryAction={primaryAction}
+            defaultAction={defaultAction}
+            secondaryActions={secondaryActions}
+            secondaryOverflowMenuItems={secondaryOverflowMenuItems}
+          />
+        </MenuContent>
+      </div>
+    )}
   </div>
 )
 

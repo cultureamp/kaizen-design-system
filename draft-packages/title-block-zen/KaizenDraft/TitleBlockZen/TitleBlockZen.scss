@@ -328,7 +328,7 @@ $tab-container-height-small: $ca-grid * 2.5;
 
   @include title-block-small {
     display: block;
-    position: fixed;
+    position: absolute;
     width: $ca-grid * 2;
     height: $tab-container-height-small;
     background: linear-gradient(

@@ -308,7 +308,10 @@ const TitleBlockZen = ({
     <MobileActions
       primaryAction={primaryAction}
       defaultAction={defaultAction}
+      // TODO: secondaryActions here needs to include overflow menu items!
       secondaryActions={secondaryActions}
+      secondaryOverflowMenuItems={secondaryOverflowMenuItems}
+      drawerHandleLabelIconPosition={primaryAction.iconPosition}
     />
   </>
 )
