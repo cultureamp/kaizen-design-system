@@ -60,5 +60,6 @@ subscriptions toMsg =
 
 {-| deprecated: this has been left in to avoid a breaking API change. This function is no longer used in this module. The name is confusing as it's not actually a decoder (it's just a transformation function)
 -}
+decoder : Int -> Key
 decoder =
     keyCodeToKey
