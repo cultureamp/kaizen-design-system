@@ -24,8 +24,8 @@ type Props = {
   badgeHref?: string
   onNavigationChange: NavigationChange
   headerComponent?: {
-    desktop: React.ReactNode
-    mobile: React.ReactNode
+    desktop: React.ReactElement
+    mobile: React.ReactElement
   }
   footerComponent?: React.ReactNode
   children?: Navigation
@@ -97,9 +97,10 @@ export default class NavigationBar extends React.Component<Props, State> {
               >
                 {headerComponent ? (
                   <span className={styles.headerSlot}>
-                    {React.cloneElement(headerComponent.desktop, {
-                      colorScheme,
-                    })}
+                    {headerComponent.desktop &&
+                      React.cloneElement(headerComponent.desktop, {
+                        colorScheme,
+                      })}
                   </span>
                 ) : (
                   this.renderBadge()

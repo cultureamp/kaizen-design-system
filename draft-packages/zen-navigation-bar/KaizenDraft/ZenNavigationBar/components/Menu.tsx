@@ -75,16 +75,19 @@ export default class Menu extends React.Component<MenuProps, State> {
           ) : (
             <nav className={styles.root} ref={this.rootRef}>
               <button
-                className={classNames(styles.button, {
-                  [styles.opaque]: opaque,
-                  [styles.small]: small,
-                  [styles.buttonLink]: !children,
-                  [styles.linkText]: !!heading,
-                  [styles.menuOpen]: this.state.open,
-                  [styles.active]: active,
-                  [styles.extendedNavigation]: hasExtendedNavigation,
-                  [styles[colorScheme]]: !!colorScheme,
-                })}
+                className={classNames([
+                  styles.button,
+                  ...(colorScheme ? [styles[colorScheme]] : []),
+                  {
+                    [styles.opaque]: opaque,
+                    [styles.small]: small,
+                    [styles.buttonLink]: !children,
+                    [styles.linkText]: !!heading,
+                    [styles.menuOpen]: this.state.open,
+                    [styles.active]: active,
+                    [styles.extendedNavigation]: hasExtendedNavigation,
+                  },
+                ])}
                 onClick={this.toggle}
                 aria-expanded={this.state.open}
                 data-automation-id={automationId}
