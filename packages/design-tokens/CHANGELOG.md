@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.13.1...@kaizen/design-tokens@1.14.0) (2020-06-26)
+
+
+### Features
+
+* Add layout token for nav bar height ([#582](https://github.com/cultureamp/kaizen-design-system/issues/582)) ([1be3bcb](https://github.com/cultureamp/kaizen-design-system/commit/1be3bcb8464f18ffe7ca5c586aa57c00f4f60764))
+
+
+
+
+
 ## [1.13.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.13.0...@kaizen/design-tokens@1.13.1) (2020-06-22)
 
 
