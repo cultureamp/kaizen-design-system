@@ -1,6 +1,7 @@
 module KaizenDraft.UserInteractions.Keyboard exposing (Key(..), decoder, subscriptions)
 
 import Browser.Events
+import Html.Events
 import Json.Decode as Decode exposing (Decoder)
 import KaizenDraft.UserInteractions.KeyCodes as KeyCodes
 
@@ -49,7 +50,7 @@ keyCodeToKey keyCode =
 
 keyDownDecoder : Decoder Key
 keyDownDecoder =
-    Decode.field "keyCode" Decode.int |> Decode.map keyCodeToKey
+    Decode.map keyCodeToKey Html.Events.keyCode
 
 
 subscriptions : (Key -> msg) -> Sub msg
