@@ -277,10 +277,102 @@ export const ContentColors = () => (
   </ZenNavigationBar>
 )
 
+export const AdminColours = () => (
+  <ZenNavigationBar
+    onNavigationChange={handleNavigationChange}
+    colorScheme="admin"
+  >
+    {{
+      primary: [
+        <Link text="Home" href="/" active />,
+        <Link text="Surveys" href="/" />,
+        <Link
+          text="Performance"
+          href="/"
+          badge={{ kind: "new", text: "New" }}
+        />,
+        <Link
+          icon={supportIcon}
+          text="Inbox"
+          href="/"
+          badge={{ kind: "notification", text: "55" }}
+        />,
+      ],
+      secondary: [
+        <Menu
+          heading="Custom menu..."
+          items={[
+            {
+              label: "About Culture Amp",
+              url: "https://www.cultureamp.com/",
+            },
+            {
+              label: "Contribute to this guide",
+              url:
+                "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
+            },
+            {
+              label: "Sign out",
+              url: "http://localhost:3000/session/sign_out",
+              method: "delete",
+            },
+            {
+              label: "Stop Masquerading",
+              url: "http://localhost:3000/admin/masquerade/",
+              method: "delete",
+            },
+          ]}
+        >
+          {accountMenuBtn}
+        </Menu>,
+      ],
+      final: [
+        <Link
+          icon={supportIcon}
+          text="Support"
+          href="http://academy.cultureamp.com/"
+        />,
+        <Link
+          icon={academyIcon}
+          text="Academy"
+          href="http://academy.cultureamp.com/"
+        />,
+        <Menu
+          heading="Custom menu..."
+          items={[
+            {
+              label: "About Culture Amp",
+              url: "https://www.cultureamp.com/",
+            },
+            {
+              label: "Contribute to this guide",
+              url:
+                "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
+            },
+            {
+              label: "Sign out",
+              url: "http://localhost:3000/session/sign_out",
+              method: "delete",
+            },
+            {
+              label: "Stop Masquerading",
+              url: "http://localhost:3000/admin/masquerade/",
+              method: "delete",
+            },
+          ]}
+        >
+          {accountMenuBtn}
+        </Menu>,
+      ],
+    }}
+  </ZenNavigationBar>
+)
+
 export const WithFooterAndHeaderComponents = () => (
   <ZenNavigationBar
     onNavigationChange={handleNavigationChange}
     footerComponent={footerComponent}
+    colorScheme="admin"
     headerComponent={{
       mobile: mobileHeaderComponent,
       desktop: (

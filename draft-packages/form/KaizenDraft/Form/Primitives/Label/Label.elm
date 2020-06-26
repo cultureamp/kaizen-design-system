@@ -15,7 +15,6 @@ module KaizenDraft.Form.Primitives.Label.Label exposing
 import CssModules exposing (css)
 import Html exposing (..)
 import Html.Attributes
-import Text.Text as Text exposing (TypeStyle(..))
 
 
 type LabelProp msg
@@ -31,6 +30,7 @@ styles =
         , checkbox = "checkbox"
         , toggle = "toggle"
         , labelText = "labelText"
+        , radio = "radio"
         }
 
 
@@ -57,6 +57,7 @@ type LabelType
     = Text
     | Checkbox
     | Toggle
+    | Radio
 
 
 defaults : ConfigValue msg
@@ -167,6 +168,7 @@ view (Config config) =
                     , ( .text, config.labelType == Text )
                     , ( .checkbox, config.labelType == Checkbox )
                     , ( .toggle, config.labelType == Toggle )
+                    , ( .radio, config.labelType == Radio )
                     ]
                ]
         )
