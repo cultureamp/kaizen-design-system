@@ -269,6 +269,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   }
 
   @include navbar-tablet-up {
+    &.admin,
     &.content {
       color: rgba($kz-color-wisteria-800, 0.7);
 
@@ -348,6 +349,10 @@ $navbar-breakpoint-condensed-large-up: 1150px;
 
   &.content {
     background: $kz-color-cluny-200;
+  }
+
+  &.admin {
+    background: $kz-color-white;
   }
 }
 
