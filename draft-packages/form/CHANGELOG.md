@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.1.4...@kaizen/draft-form@2.2.0) (2020-06-26)
+
+
+### Features
+
+* add radio styles to label ([#585](https://github.com/cultureamp/kaizen-design-system/issues/585)) ([68f428f](https://github.com/cultureamp/kaizen-design-system/commit/68f428f330b76762aec4650d48df63228a01cb9c))
+
+
+
+
+
 ## [2.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.1.3...@kaizen/draft-form@2.1.4) (2020-06-23)
 
 
