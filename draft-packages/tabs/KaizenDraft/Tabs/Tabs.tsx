@@ -13,7 +13,7 @@ interface Tab {
 
 interface Props {
   readonly tabs: Tab[]
-  readonly direction?: "row" | "column"
+  readonly orientation?: "row" | "column"
   readonly renderTab?: (renderProps: {
     readonly tab: Tab
     readonly tabClassName: string
@@ -22,66 +22,68 @@ interface Props {
   }) => React.ReactNode
 }
 
-const Tabs = ({ direction = "row", ...props }: Props) => {
-  const { tabs, renderTab } = props
-
-  if (direction === "row") {
-    return (
-      <div className={styles.container}>
-        {tabs.map(t => {
-          return renderTab ? (
-            renderTab({
-              tab: t,
-              tabClassName: styles.row,
-              activeTabClassName: styles.activeTab,
-              disabledTabClassName: styles.disabledTab,
-            })
-          ) : (
-            <a
-              key={t.label}
-              onClick={t.onClick}
-              href={t.href}
-              className={classnames({
-                [styles.row]: !t.active && !t.disabled,
-                [styles.activeTab]: t.active,
-                [styles.disabledTab]: t.disabled,
-              })}
-            >
-              {t.label}
-            </a>
-          )
-        })}
-      </div>
-    )
+const Tabs = ({ orientation = "row", tabs, renderTab }: Props) => {
+  if (orientation === "row") {
+    return <RowTab tabs={tabs} renderTab={renderTab} />
   }
 
-  return (
-    <div>
-      {tabs.map(t => {
-        return renderTab ? (
-          renderTab({
-            tab: t,
-            tabClassName: styles.column,
-            activeTabClassName: styles.activeTabColumn,
-            disabledTabClassName: styles.disabledTab,
-          })
-        ) : (
-          <a
-            key={t.label}
-            onClick={t.onClick}
-            href={t.href}
-            className={classnames({
-              [styles.column]: !t.active && !t.disabled,
-              [styles.activeTabColumn]: t.active,
-              [styles.disabledTab]: t.disabled,
-            })}
-          >
-            {t.label}
-          </a>
-        )
-      })}
-    </div>
-  )
+  return <ColumnTab tabs={tabs} renderTab={renderTab} />
 }
+
+const RowTab = ({ tabs, renderTab }) => (
+  <div className={styles.container}>
+    {tabs.map(t =>
+      renderTab ? (
+        renderTab({
+          tab: t,
+          tabClassName: styles.row,
+          activeTabClassName: styles.activeTabRow,
+          disabledTabClassName: styles.disabledTabRow,
+        })
+      ) : (
+        <a
+          key={t.label}
+          onClick={t.onClick}
+          href={t.href}
+          className={classnames({
+            [styles.row]: !t.active && !t.disabled,
+            [styles.activeTabRow]: t.active,
+            [styles.disabledTabRow]: t.disabled,
+          })}
+        >
+          {t.label}
+        </a>
+      )
+    )}
+  </div>
+)
+
+const ColumnTab = ({ tabs, renderTab }) => (
+  <div className={styles.container}>
+    {tabs.map(t =>
+      renderTab ? (
+        renderTab({
+          tab: t,
+          tabClassName: styles.column,
+          activeTabClassName: styles.activeTabColumn,
+          disabledTabClassName: styles.disabledTabColumn,
+        })
+      ) : (
+        <a
+          key={t.label}
+          onClick={t.onClick}
+          href={t.href}
+          className={classnames({
+            [styles.column]: !t.active && !t.disabled,
+            [styles.activeTabColumn]: t.active,
+            [styles.disabledTabColumn]: t.disabled,
+          })}
+        >
+          {t.label}
+        </a>
+      )
+    )}
+  </div>
+)
 
 export default Tabs

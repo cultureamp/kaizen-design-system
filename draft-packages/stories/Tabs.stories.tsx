@@ -16,7 +16,7 @@ export default {
   },
 }
 
-export const Default = () => {
+export const DefaultRow = () => {
   const tabs = [
     { label: "One" },
     { label: "Two" },
@@ -24,6 +24,16 @@ export const Default = () => {
     { label: "Four" },
   ]
   return <Tabs tabs={tabs} />
+}
+
+export const DefaultColumn = () => {
+  const tabs = [
+    { label: "One" },
+    { label: "Two" },
+    { label: "Three" },
+    { label: "Four" },
+  ]
+  return <Tabs orientation="column" tabs={tabs} />
 }
 
 export const LongAndShortText = () => {
@@ -49,7 +59,7 @@ export const ColumnLongAndShortText = () => {
     { label: "Some more long text that's really long" },
     { label: "C" },
   ]
-  return <Tabs direction="column" tabs={tabs} />
+  return <Tabs orientation="column" tabs={tabs} />
 }
 
 ColumnLongAndShortText.story = {
@@ -77,7 +87,7 @@ export const ActiveColumnTabs = () => {
     { label: "Three" },
     { label: "Four" },
   ]
-  return <Tabs direction="column" tabs={tabs} />
+  return <Tabs orientation="column" tabs={tabs} />
 }
 
 ActiveColumnTabs.story = {
@@ -105,7 +115,7 @@ export const DisabledTabColumn = () => {
     { label: "Three" },
     { label: "Four" },
   ]
-  return <Tabs direction="column" tabs={tabs} />
+  return <Tabs orientation="column" tabs={tabs} />
 }
 
 DisabledTabColumn.story = {
@@ -207,7 +217,7 @@ export const WithCustomTabRendererColumn = () => {
   return (
     <Tabs
       tabs={tabs}
-      direction="column"
+      orientation="column"
       renderTab={({
         tab,
         tabClassName,
@@ -232,18 +242,4 @@ export const WithCustomTabRendererColumn = () => {
 
 WithCustomTabRendererColumn.story = {
   name: "With custom tab renderer (column)",
-}
-
-export const ColumnTabs = () => {
-  const tabs = [
-    { label: "One (href here)", href: "//www.example.com" },
-    { label: "Two" },
-    { label: "Three" },
-    { label: "Four" },
-  ]
-  return <Tabs direction="column" tabs={tabs} />
-}
-
-ColumnTabs.story = {
-  name: "Column",
 }
