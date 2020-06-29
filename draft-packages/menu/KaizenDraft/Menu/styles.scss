@@ -14,8 +14,17 @@ $menu-container-width: 248px;
   position: absolute;
   width: $menu-container-width;
   z-index: $ca-z-index-dropdown;
-  right: 0;
+  left: 0;
 
+  [dir="rtl"] & {
+    left: auto;
+    right: 0;
+  }
+}
+
+.alignRight {
+  right: 0;
+  left: auto;
   [dir="rtl"] & {
     right: auto;
     left: 0;

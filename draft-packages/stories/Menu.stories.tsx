@@ -114,7 +114,7 @@ LabelAndIconReversed.story = {
 
 export const DefaultMeatball = () => (
   <StoryWrapper>
-    <Menu button={<IconButton label="" icon={meatballsIcon} />}>
+    <Menu button={<IconButton label="" icon={meatballsIcon} />} align="right">
       <MenuInstance />
     </Menu>
   </StoryWrapper>
@@ -126,7 +126,7 @@ DefaultMeatball.story = {
 
 export const DefaultKebab = () => (
   <StoryWrapper>
-    <Menu button={<IconButton label="" icon={kebabIcon} />}>
+    <Menu button={<IconButton label="" icon={kebabIcon} />} align="right">
       <MenuInstance />
     </Menu>
   </StoryWrapper>

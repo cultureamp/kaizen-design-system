@@ -1,3 +1,4 @@
+import classnames from "classnames"
 import * as React from "react"
 
 const styles = require("./styles.scss")
@@ -10,6 +11,7 @@ type MenuDropdownProps = {
     left: number
     right: number
   } | null
+  align?: "left" | "right"
 }
 
 export default class MenuDropdown extends React.Component<MenuDropdownProps> {
@@ -39,13 +41,8 @@ export default class MenuDropdown extends React.Component<MenuDropdownProps> {
       const { innerHeight } = window
       const rect = menu.current.getBoundingClientRect()
 
-      if (pos.bottom > innerHeight - rect.height) {
-        menu.current.style.bottom = "24px"
-        menu.current.style.top = "auto"
-      } else {
-        menu.current.style.top = "24px"
-        menu.current.style.bottom = "auto"
-      }
+      menu.current.style.bottom =
+        pos.bottom > innerHeight - rect.height ? "24px" : "auto"
     }
   }
 
@@ -65,11 +62,13 @@ export default class MenuDropdown extends React.Component<MenuDropdownProps> {
   }
 
   render(): JSX.Element {
-    const { hideMenuDropdown, children } = this.props
+    const { hideMenuDropdown, children, align = "left" } = this.props
 
     return (
       <div
-        className={styles.menuContainer}
+        className={classnames(styles.menuContainer, {
+          [styles.alignRight]: align == "right",
+        })}
         ref={this.menu}
         onClick={() => hideMenuDropdown()}
       >
