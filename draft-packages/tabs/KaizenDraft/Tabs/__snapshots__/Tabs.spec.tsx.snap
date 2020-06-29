@@ -5,12 +5,12 @@ exports[`Tabs renders a disabled tab 1`] = `
   class="container"
 >
   <a
-    class="disabledTab"
+    class="disabledTabRow"
   >
     One
   </a>
   <a
-    class="tab"
+    class="row"
   >
     Two
   </a>
@@ -22,13 +22,13 @@ exports[`Tabs renders a tab with a href 1`] = `
   class="container"
 >
   <a
-    class="tab"
+    class="row"
     href="//example"
   >
     One
   </a>
   <a
-    class="tab"
+    class="row"
   >
     Two
   </a>
@@ -40,12 +40,12 @@ exports[`Tabs renders a tab with an onClick 1`] = `
   class="container"
 >
   <a
-    class="tab"
+    class="row"
   >
     One
   </a>
   <a
-    class="tab"
+    class="row"
   >
     Two
   </a>
@@ -57,12 +57,12 @@ exports[`Tabs renders an active tab 1`] = `
   class="container"
 >
   <a
-    class="activeTab"
+    class="activeTabRow"
   >
     One
   </a>
   <a
-    class="tab"
+    class="row"
   >
     Two
   </a>
@@ -74,12 +74,12 @@ exports[`Tabs renders basic tabs 1`] = `
   class="container"
 >
   <a
-    class="tab"
+    class="row"
   >
     One
   </a>
   <a
-    class="tab"
+    class="row"
   >
     Two
   </a>
