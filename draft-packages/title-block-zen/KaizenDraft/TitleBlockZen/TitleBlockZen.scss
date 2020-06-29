@@ -325,6 +325,7 @@ $tab-container-height-small: $ca-grid * 2.5;
 
 .navigationTabEdgeShadow {
   display: none;
+  pointer-events: none;
 
   @include title-block-small {
     display: block;
