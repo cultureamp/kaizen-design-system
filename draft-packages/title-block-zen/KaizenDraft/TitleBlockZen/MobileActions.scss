@@ -80,11 +80,11 @@ $mobile-actions-split-select-square-width: 64px;
   border-radius: none;
   border: 0;
   box-sizing: border-box;
-  outline: none;
   color: $kz-color-white;
 
   &:focus {
     background-color: $kz-color-cluny-600;
+    outline: none;
   }
 
   &:hover {
@@ -98,7 +98,7 @@ $mobile-actions-split-select-square-width: 64px;
 
 .mobileActionsExpandButton {
   flex-basis: $ca-grid * 2.5;
-  border-left: 1px solid $kz-color-white;
+  border-left: 2px solid $kz-color-cluny-200;
 }
 
 .mobileActionsExpandButtonFullWidth {
