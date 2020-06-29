@@ -1,9 +1,16 @@
+import { Box, Heading, Paragraph } from "@kaizen/component-library"
+import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
+import { Tabs } from "@kaizen/draft-tabs"
 import classnames from "classnames"
 import * as React from "react"
+import { ExampleLayout } from "./ExampleLayout"
 
-import { Box, Heading, Paragraph } from "@kaizen/component-library"
-import { Tabs } from "@kaizen/draft-tabs"
-
+// disabled isn't actually disabled for anchor tags
+// change to default cursor on disabled
+// RTL support
+// columns right align text
+// row reverse the order of the tabs
+// put a fake sidebar in the story to make the RTL stuff clear
 export default {
   title: "Tabs (React)",
   component: Tabs,
@@ -18,31 +25,39 @@ export default {
 
 export const DefaultRow = () => {
   const tabs = [
-    { label: "One" },
-    { label: "Two" },
-    { label: "Three" },
-    { label: "Four" },
+    { label: "One", href: "https://www.cultureamp.design/storybook" },
+    { label: "Two", href: "https://www.cultureamp.design/storybook" },
+    { label: "Three", href: "https://www.cultureamp.design/storybook" },
+    { label: "Four", href: "https://www.cultureamp.design/storybook" },
   ]
   return <Tabs tabs={tabs} />
 }
 
 export const DefaultColumn = () => {
   const tabs = [
-    { label: "One" },
-    { label: "Two" },
-    { label: "Three" },
-    { label: "Four" },
+    { label: "One", href: "https://www.cultureamp.design/storybook" },
+    { label: "Two", href: "https://www.cultureamp.design/storybook" },
+    { label: "Three", href: "https://www.cultureamp.design/storybook" },
+    { label: "Four", href: "https://www.cultureamp.design/storybook" },
   ]
   return <Tabs orientation="column" tabs={tabs} />
 }
 
+// @TODO - (Kaizen site demo)
+
 export const LongAndShortText = () => {
   const tabs = [
-    { label: "Long Text in a Tab" },
-    { label: "A" },
-    { label: "B" },
-    { label: "Some more long text that's really long" },
-    { label: "C" },
+    {
+      label: "Long Text in a Tab",
+      href: "https://www.cultureamp.design/storybook",
+    },
+    { label: "A", href: "https://www.cultureamp.design/storybook" },
+    { label: "B", href: "https://www.cultureamp.design/storybook" },
+    {
+      label: "Some more long text that's really long",
+      href: "https://www.cultureamp.design/storybook",
+    },
+    { label: "C", href: "https://www.cultureamp.design/storybook" },
   ]
   return <Tabs tabs={tabs} />
 }
@@ -53,11 +68,17 @@ LongAndShortText.story = {
 
 export const ColumnLongAndShortText = () => {
   const tabs = [
-    { label: "Long Text in a Tab" },
-    { label: "A" },
-    { label: "B" },
-    { label: "Some more long text that's really long" },
-    { label: "C" },
+    {
+      label: "Long Text in a Tab",
+      href: "https://www.cultureamp.design/storybook",
+    },
+    { label: "A", href: "https://www.cultureamp.design/storybook" },
+    { label: "B", href: "https://www.cultureamp.design/storybook" },
+    {
+      label: "Some more long text that's really long",
+      href: "https://www.cultureamp.design/storybook",
+    },
+    { label: "C", href: "https://www.cultureamp.design/storybook" },
   ]
   return <Tabs orientation="column" tabs={tabs} />
 }
@@ -68,10 +89,14 @@ ColumnLongAndShortText.story = {
 
 export const ActiveTab = () => {
   const tabs = [
-    { label: "One", active: true },
-    { label: "Two" },
-    { label: "Three" },
-    { label: "Four" },
+    {
+      label: "One",
+      active: true,
+      href: "https://www.cultureamp.design/storybook",
+    },
+    { label: "Two", href: "https://www.cultureamp.design/storybook" },
+    { label: "Three", href: "https://www.cultureamp.design/storybook" },
+    { label: "Four", href: "https://www.cultureamp.design/storybook" },
   ]
   return <Tabs tabs={tabs} />
 }
@@ -82,10 +107,14 @@ ActiveTab.story = {
 
 export const ActiveColumnTabs = () => {
   const tabs = [
-    { label: "One (href here)", active: true },
-    { label: "Two" },
-    { label: "Three" },
-    { label: "Four" },
+    {
+      label: "One (href here)",
+      active: true,
+      href: "https://www.cultureamp.design/storybook",
+    },
+    { label: "Two", href: "https://www.cultureamp.design/storybook" },
+    { label: "Three", href: "https://www.cultureamp.design/storybook" },
+    { label: "Four", href: "https://www.cultureamp.design/storybook" },
   ]
   return <Tabs orientation="column" tabs={tabs} />
 }
@@ -96,10 +125,14 @@ ActiveColumnTabs.story = {
 
 export const DisabledTabRow = () => {
   const tabs = [
-    { label: "One", disabled: true },
-    { label: "Two" },
-    { label: "Three" },
-    { label: "Four" },
+    {
+      label: "One",
+      disabled: true,
+      href: "https://www.cultureamp.design/storybook",
+    },
+    { label: "Two", href: "https://www.cultureamp.design/storybook" },
+    { label: "Three", href: "https://www.cultureamp.design/storybook" },
+    { label: "Four", href: "https://www.cultureamp.design/storybook" },
   ]
   return <Tabs tabs={tabs} />
 }
@@ -110,10 +143,14 @@ DisabledTabRow.story = {
 
 export const DisabledTabColumn = () => {
   const tabs = [
-    { label: "One", disabled: true },
-    { label: "Two" },
-    { label: "Three" },
-    { label: "Four" },
+    {
+      label: "One",
+      disabled: true,
+      href: "https://www.cultureamp.design/storybook",
+    },
+    { label: "Two", href: "https://www.cultureamp.design/storybook" },
+    { label: "Three", href: "https://www.cultureamp.design/storybook" },
+    { label: "Four", href: "https://www.cultureamp.design/storybook" },
   ]
   return <Tabs orientation="column" tabs={tabs} />
 }
@@ -124,10 +161,14 @@ DisabledTabColumn.story = {
 
 export const WithOnClick = () => {
   const tabs = [
-    { label: "One (click this)", onClick: () => alert("clicked!") },
-    { label: "Two" },
-    { label: "Three" },
-    { label: "Four" },
+    {
+      label: "One (click this)",
+      onClick: () => alert("clicked!"),
+      href: "https://www.cultureamp.design/storybook",
+    },
+    { label: "Two", href: "https://www.cultureamp.design/storybook" },
+    { label: "Three", href: "https://www.cultureamp.design/storybook" },
+    { label: "Four", href: "https://www.cultureamp.design/storybook" },
   ]
   return <Tabs tabs={tabs} />
 }
@@ -138,10 +179,13 @@ WithOnClick.story = {
 
 export const WithHref = () => {
   const tabs = [
-    { label: "One (href here)", href: "//www.example.com" },
-    { label: "Two" },
-    { label: "Three" },
-    { label: "Four" },
+    {
+      label: "One (href here)",
+      href: "//www.example.com",
+    },
+    { label: "Two", href: "https://www.cultureamp.design/storybook" },
+    { label: "Three", href: "https://www.cultureamp.design/storybook" },
+    { label: "Four", href: "https://www.cultureamp.design/storybook" },
   ]
   return <Tabs tabs={tabs} />
 }
@@ -152,10 +196,18 @@ WithHref.story = {
 
 export const WithCustomTabRenderer = () => {
   const tabs = [
-    { label: "One", active: true },
-    { label: "Two", disabled: true },
-    { label: "Three" },
-    { label: "Four" },
+    {
+      label: "One",
+      active: true,
+      href: "https://www.cultureamp.design/storybook",
+    },
+    {
+      label: "Two",
+      disabled: true,
+      href: "https://www.cultureamp.design/storybook",
+    },
+    { label: "Three", href: "https://www.cultureamp.design/storybook" },
+    { label: "Four", href: "https://www.cultureamp.design/storybook" },
   ]
   return (
     <div>
@@ -184,19 +236,18 @@ export const WithCustomTabRenderer = () => {
             tabClassName,
             activeTabClassName,
             disabledTabClassName,
-          }) => {
-            return (
-              <a
-                key={tab.label}
-                className={classnames(tabClassName, {
-                  [activeTabClassName]: tab.active,
-                  [disabledTabClassName]: tab.disabled,
-                })}
-              >
-                {tab.label}
-              </a>
-            )
-          }}
+          }) => (
+            <a
+              key={tab.label}
+              href="#"
+              className={classnames(tabClassName, {
+                [activeTabClassName]: tab.active,
+                [disabledTabClassName]: tab.disabled,
+              })}
+            >
+              {tab.label}
+            </a>
+          )}
         />
       </div>
     </div>
@@ -209,10 +260,18 @@ WithCustomTabRenderer.story = {
 
 export const WithCustomTabRendererColumn = () => {
   const tabs = [
-    { label: "One", active: true },
-    { label: "Two", disabled: true },
-    { label: "Three" },
-    { label: "Four" },
+    {
+      label: "One",
+      active: true,
+      href: "https://www.cultureamp.design/storybook",
+    },
+    {
+      label: "Two",
+      disabled: true,
+      href: "https://www.cultureamp.design/storybook",
+    },
+    { label: "Three", href: "https://www.cultureamp.design/storybook" },
+    { label: "Four", href: "https://www.cultureamp.design/storybook" },
   ]
   return (
     <Tabs
@@ -227,6 +286,7 @@ export const WithCustomTabRendererColumn = () => {
         return (
           <a
             key={tab.label}
+            href="#"
             className={classnames(tabClassName, {
               [activeTabClassName]: tab.active,
               [disabledTabClassName]: tab.disabled,
@@ -242,4 +302,76 @@ export const WithCustomTabRendererColumn = () => {
 
 WithCustomTabRendererColumn.story = {
   name: "With custom tab renderer (column)",
+}
+
+export const WithLayoutColumnLTR = () => {
+  const tabs = [
+    {
+      label: "One (href here)",
+      href: "//www.example.com",
+      active: true,
+    },
+    { label: "Two", href: "https://www.cultureamp.design/storybook" },
+    { label: "Three", href: "https://www.cultureamp.design/storybook" },
+    { label: "Four", href: "https://www.cultureamp.design/storybook" },
+  ]
+  return (
+    <ExampleLayout>
+      <ExampleLayout.Sidebar>
+        <Tabs orientation="column" tabs={tabs} rtl={true} />
+      </ExampleLayout.Sidebar>
+      <ExampleLayout.Content>
+        <Box p={2}>Example layout</Box>
+      </ExampleLayout.Content>
+    </ExampleLayout>
+  )
+}
+
+WithLayoutColumnLTR.story = {
+  name: "Layout LTR (column)",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.stone,
+        default: true,
+      },
+    ],
+  },
+}
+
+export const WithLayoutColumnRTL = () => {
+  const tabs = [
+    {
+      label: "One (href here)",
+      href: "//www.example.com",
+      active: true,
+    },
+    { label: "Two", href: "https://www.cultureamp.design/storybook" },
+    { label: "Three", href: "https://www.cultureamp.design/storybook" },
+    { label: "Four", href: "https://www.cultureamp.design/storybook" },
+  ]
+  return (
+    <ExampleLayout rtl>
+      <ExampleLayout.Sidebar>
+        <Tabs orientation="column" tabs={tabs} rtl={true} />
+      </ExampleLayout.Sidebar>
+      <ExampleLayout.Content>
+        <Box p={2}>Example layout</Box>
+      </ExampleLayout.Content>
+    </ExampleLayout>
+  )
+}
+
+WithLayoutColumnRTL.story = {
+  name: "Layout RTL (column)",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.stone,
+        default: true,
+      },
+    ],
+  },
 }
