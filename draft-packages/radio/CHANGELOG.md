@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.1.15...@kaizen/draft-radio@2.2.0) (2020-06-26)
+
+
+### Features
+
+* add elm radio component ([#581](https://github.com/cultureamp/kaizen-design-system/issues/581)) ([d4332a5](https://github.com/cultureamp/kaizen-design-system/commit/d4332a53ca316720dc6e3efed4e5a6339311f8f2))
+
+
+
+
+
+## [2.1.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.1.14...@kaizen/draft-radio@2.1.15) (2020-06-26)
+
+**Note:** Version bump only for package @kaizen/draft-radio
+
+
+
+
+
 ## [2.1.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.1.13...@kaizen/draft-radio@2.1.14) (2020-06-23)
 
 

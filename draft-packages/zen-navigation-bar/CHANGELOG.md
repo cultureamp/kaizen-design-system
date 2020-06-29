@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.7.0...@kaizen/draft-zen-navigation-bar@1.8.0) (2020-06-26)
+
+
+### Features
+
+* Add layout token for nav bar height ([#582](https://github.com/cultureamp/kaizen-design-system/issues/582)) ([1be3bcb](https://github.com/cultureamp/kaizen-design-system/commit/1be3bcb8464f18ffe7ca5c586aa57c00f4f60764))
+
+
+
+
+
 # [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.6.25...@kaizen/draft-zen-navigation-bar@1.7.0) (2020-06-26)
 
 
