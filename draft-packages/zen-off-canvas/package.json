@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-zen-off-canvas",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "description": "The draft Zen off canvas component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,7 +32,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^7.24.0",
-    "@kaizen/draft-zen-navigation-bar": "^1.8.1",
+    "@kaizen/draft-zen-navigation-bar": "^1.8.2",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",
     "uuid": "^3.3.2"
