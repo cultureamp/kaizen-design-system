@@ -1,6 +1,8 @@
 module KaizenDraft.UserInteractions.Keyboard exposing (Key(..), decoder, subscriptions)
 
-import Elm18Compatible.Keyboard as Keyboard18
+import Browser.Events
+import Html.Events
+import Json.Decode as Decode exposing (Decoder)
 import KaizenDraft.UserInteractions.KeyCodes as KeyCodes
 
 
@@ -16,8 +18,8 @@ type Key
     | Other
 
 
-decoder : Keyboard18.KeyCode -> Key
-decoder keyCode =
+keyCodeToKey : Int -> Key
+keyCodeToKey keyCode =
     if keyCode == KeyCodes.escape then
         Escape
 
@@ -46,6 +48,18 @@ decoder keyCode =
         Other
 
 
+keyDownDecoder : Decoder Key
+keyDownDecoder =
+    Decode.map keyCodeToKey Html.Events.keyCode
+
+
 subscriptions : (Key -> msg) -> Sub msg
 subscriptions toMsg =
-    Keyboard18.downs (decoder >> toMsg)
+    Browser.Events.onKeyDown (keyDownDecoder |> Decode.map toMsg)
+
+
+{-| deprecated: this has been left in to avoid a breaking API change. This function is no longer used in this module. The name is confusing as it's not actually a decoder (it's just a transformation function)
+-}
+decoder : Int -> Key
+decoder =
+    keyCodeToKey
