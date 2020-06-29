@@ -5,12 +5,6 @@ import classnames from "classnames"
 import * as React from "react"
 import { ExampleLayout } from "./ExampleLayout"
 
-// disabled isn't actually disabled for anchor tags
-// change to default cursor on disabled
-// RTL support
-// columns right align text
-// row reverse the order of the tabs
-// put a fake sidebar in the story to make the RTL stuff clear
 export default {
   title: "Tabs (React)",
   component: Tabs,
