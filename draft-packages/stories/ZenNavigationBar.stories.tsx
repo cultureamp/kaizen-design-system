@@ -2,6 +2,7 @@ import * as React from "react"
 
 import { Button, Icon } from "@kaizen/component-library"
 import { Link, Menu, ZenNavigationBar } from "@kaizen/draft-zen-navigation-bar"
+import { ColorScheme } from "@kaizen/draft-zen-navigation-bar/KaizenDraft/ZenNavigationBar/types"
 
 const caIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
   .default
@@ -274,7 +275,7 @@ export const ContentColors = () => (
 )
 
 export const AdminColours = () => {
-  const [currentTheme, setCurrentTheme] = React.useState("admin")
+  const [currentTheme, setCurrentTheme] = React.useState<ColorScheme>("admin")
   return (
     <>
       <ZenNavigationBar
