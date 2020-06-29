@@ -348,7 +348,7 @@ export const WithLayoutColumnRTL = () => {
   return (
     <ExampleLayout rtl>
       <ExampleLayout.Sidebar>
-        <Tabs orientation="column" tabs={tabs} />
+        <Tabs orientation="column" tabs={tabs} textDirection="rtl" />
       </ExampleLayout.Sidebar>
       <ExampleLayout.Content>
         <Box p={2}>Example layout</Box>

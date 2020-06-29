@@ -16,7 +16,7 @@ interface Props {
    * Support for languages that read right to left. This will flip margins and paddings on the x-axis.
    * @default "false"
    */
-  readonly rtl?: boolean
+  readonly textDirection?: "ltr" | "rtl"
   readonly tabs: Tab[]
   readonly orientation?: "row" | "column"
   readonly renderTab?: (renderProps: {
@@ -27,16 +27,29 @@ interface Props {
   }) => React.ReactNode
 }
 
-const Tabs = ({ orientation = "row", rtl = false, tabs, renderTab }: Props) => {
+const Tabs = ({
+  orientation = "row",
+  textDirection = "ltr",
+  tabs,
+  renderTab,
+}: Props) => {
   if (orientation === "row") {
-    return <RowTab rtl={rtl} tabs={tabs} renderTab={renderTab} />
+    return (
+      <RowTab textDirection={textDirection} tabs={tabs} renderTab={renderTab} />
+    )
   }
 
-  return <ColumnTab rtl={rtl} tabs={tabs} renderTab={renderTab} />
+  return (
+    <ColumnTab
+      textDirection={textDirection}
+      tabs={tabs}
+      renderTab={renderTab}
+    />
+  )
 }
 
-const RowTab = ({ tabs, renderTab, rtl }) => (
-  <div className={styles.container} dir={rtl ? "rtl" : "ltr"}>
+const RowTab = ({ tabs, renderTab, textDirection }) => (
+  <div className={styles.container} dir={textDirection}>
     {tabs.map(t =>
       renderTab ? (
         renderTab({
@@ -63,8 +76,8 @@ const RowTab = ({ tabs, renderTab, rtl }) => (
   </div>
 )
 
-const ColumnTab = ({ tabs, renderTab, rtl }) => (
-  <div dir={rtl ? "rtl" : "ltr"}>
+const ColumnTab = ({ tabs, renderTab, textDirection }) => (
+  <div dir={textDirection}>
     {tabs.map(t =>
       renderTab ? (
         renderTab({
