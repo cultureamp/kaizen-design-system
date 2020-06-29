@@ -348,7 +348,7 @@ export const WithLayoutColumnRTL = () => {
   return (
     <ExampleLayout rtl>
       <ExampleLayout.Sidebar>
-        <Tabs orientation="column" tabs={tabs} rtl={true} />
+        <Tabs orientation="column" tabs={tabs} />
       </ExampleLayout.Sidebar>
       <ExampleLayout.Content>
         <Box p={2}>Example layout</Box>
@@ -362,7 +362,7 @@ WithLayoutColumnRTL.story = {
   parameters: {
     backgrounds: [
       {
-        name: "Wisteria 700",
+        name: "Stone",
         value: colorTokens.kz.color.stone,
         default: true,
       },
