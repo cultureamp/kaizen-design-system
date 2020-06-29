@@ -1,4 +1,5 @@
 import { Heading, Icon } from "@kaizen/component-library"
+import * as layoutTokens from "@kaizen/design-tokens/tokens/layout.json"
 import { Button, ButtonProps } from "@kaizen/draft-button"
 import {
   Menu,
@@ -198,6 +199,35 @@ const isReversed = (variant: Variant | undefined): boolean => {
   return !NON_REVERSED_VARIANTS.includes(variant)
 }
 
+const createTabletOverflowMenuItems = (
+  secondaryActions?: SecondaryActionsProps,
+  secondaryOverflowMenuItems?: MenuItemProps[]
+): MenuItemProps[] => {
+  let secondaryActionsList = new Array()
+  if (secondaryActions) {
+    secondaryActionsList = secondaryActions.map(
+      (el: MenuGroup | ButtonWithOnClickOrHref) => {
+        if (isMenuGroupNotButton(el)) {
+          return el.menuItems
+        } else {
+          return [
+            {
+              ...el,
+              action: el.onClick || el.href,
+            },
+          ]
+        }
+      }
+    )
+  }
+  const flatSecondaryActionsList = Array.prototype.concat.apply(
+    [],
+    secondaryActionsList
+  )
+  const flatSecondaryOverflowItemsList = secondaryOverflowMenuItems || []
+  return flatSecondaryActionsList.concat(flatSecondaryOverflowItemsList)
+}
+
 /**
  * ### primaryAction
  *
@@ -233,56 +263,94 @@ const TitleBlockZen = ({
   navigationTabs,
   textDirection,
   surveyStatus,
-}: TitleBlockProps) => (
-  <>
-    <div
-      className={classNames(styles.titleBlock, {
-        [styles.hasSubtitle]: Boolean(subtitle),
-        [styles.educationVariant]: variant === "education",
-        [styles.adminVariant]: variant === "admin",
-      })}
-    >
-      <div className={styles.titleRow}>
-        <div className={styles.titleRowInner}>
-          <div className={styles.titleRowInnerContent}>
-            <div className={styles.titleAndAdjacent}>
-              {breadcrumb && renderBreadcrumb(breadcrumb, textDirection)}
-              <div className={styles.titleAndAdjacentNotBreadcrumb}>
-                <div
-                  className={styles.hamburger}
-                  onClick={handleHamburgerClick}
-                >
-                  <Icon
-                    icon={hamburgerIcon}
-                    role="presentation"
-                    title="Open menu"
-                  />
-                </div>
-                {avatar && renderAvatar(avatar)}
-                <div className={styles.titleAndSubtitle}>
-                  <div className={styles.titleAndSubtitleInner}>
-                    <div className={styles.title}>
-                      <Heading
-                        variant="heading-1"
-                        color={isReversed(variant) ? "white" : "dark"}
-                        classNameAndIHaveSpokenToDST={styles.titleTextOverride}
-                      >
-                        {title}
-                      </Heading>
-                    </div>
-                    {subtitle && renderSubtitle(subtitle)}
+}: TitleBlockProps) => {
+  const [isSmallOrMediumViewport, setSmallOrMediumViewport] = React.useState(
+    false
+  )
+
+  const largeViewMinSizeInPixels = parseInt(
+    layoutTokens.kz.layout.breakpoints.large,
+    10
+  )
+  const smallAndMediumMediaQuery = window.matchMedia(
+    `(max-width: ${largeViewMinSizeInPixels - 1}px)`
+  )
+
+  const updateOnViewportChange = mediaQuery => {
+    if (mediaQuery.matches && !isSmallOrMediumViewport) {
+      setSmallOrMediumViewport(true)
+    }
+    if (!mediaQuery.matches && isSmallOrMediumViewport) {
+      setSmallOrMediumViewport(false)
+    }
+  }
+
+  React.useEffect(() => {
+    smallAndMediumMediaQuery.addListener(updateOnViewportChange)
+    return () => {
+      smallAndMediumMediaQuery.removeListener(updateOnViewportChange)
+    }
+  })
+  updateOnViewportChange(smallAndMediumMediaQuery)
+
+  return (
+    <>
+      <div
+        className={classNames(styles.titleBlock, {
+          [styles.hasSubtitle]: Boolean(subtitle),
+          [styles.educationVariant]: variant === "education",
+          [styles.adminVariant]: variant === "admin",
+        })}
+      >
+        <div className={styles.titleRow}>
+          <div className={styles.titleRowInner}>
+            <div className={styles.titleRowInnerContent}>
+              <div className={styles.titleAndAdjacent}>
+                {breadcrumb && renderBreadcrumb(breadcrumb, textDirection)}
+                <div className={styles.titleAndAdjacentNotBreadcrumb}>
+                  <div
+                    className={styles.hamburger}
+                    onClick={handleHamburgerClick}
+                  >
+                    <Icon
+                      icon={hamburgerIcon}
+                      role="presentation"
+                      title="Open menu"
+                    />
                   </div>
+                  {avatar && renderAvatar(avatar)}
+                  <div className={styles.titleAndSubtitle}>
+                    <div className={styles.titleAndSubtitleInner}>
+                      <div className={styles.title}>
+                        <Heading
+                          variant="heading-1"
+                          color={isReversed(variant) ? "white" : "dark"}
+                          classNameAndIHaveSpokenToDST={
+                            styles.titleTextOverride
+                          }
+                        >
+                          {title}
+                        </Heading>
+                      </div>
+                      {subtitle && renderSubtitle(subtitle)}
+                    </div>
+                  </div>
+                  {surveyStatus && renderTag(surveyStatus)}
                 </div>
-                {surveyStatus && renderTag(surveyStatus)}
               </div>
+              {(primaryAction || defaultAction) && (
+                <MainActions
+                  primaryAction={primaryAction}
+                  defaultAction={defaultAction}
+                  reversed={true}
+                  overflowMenuItems={createTabletOverflowMenuItems(
+                    secondaryActions,
+                    secondaryOverflowMenuItems
+                  )}
+                  showOverflowMenu={isSmallOrMediumViewport}
+                />
+              )}
             </div>
-            {(primaryAction || defaultAction) && (
-              <MainActions
-                primaryAction={primaryAction}
-                defaultAction={defaultAction}
-                reversed={true}
-              />
-            )}
           </div>
         </div>
       </div>
@@ -304,17 +372,20 @@ const TitleBlockZen = ({
           </div>
         </div>
       </div>
-    </div>
-    <MobileActions
-      primaryAction={primaryAction}
-      defaultAction={defaultAction}
-      // TODO: secondaryActions here needs to include overflow menu items!
-      secondaryActions={secondaryActions}
-      secondaryOverflowMenuItems={secondaryOverflowMenuItems}
-      drawerHandleLabelIconPosition={primaryAction.iconPosition}
-    />
-  </>
-)
+      <MobileActions
+        primaryAction={primaryAction}
+        defaultAction={defaultAction}
+        secondaryActions={secondaryActions}
+        secondaryOverflowMenuItems={secondaryOverflowMenuItems}
+        drawerHandleLabelIconPosition={
+          primaryAction && "iconPosition" in primaryAction
+            ? (primaryAction.iconPosition as Pick<ButtonProps, "iconPosition">)
+            : undefined
+        }
+      />
+    </>
+  )
+}
 
 export default TitleBlockZen
 export { NavigationTab }

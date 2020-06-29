@@ -7,6 +7,7 @@ import {
   MenuProps,
 } from "@kaizen/draft-menu"
 import * as React from "react"
+import { Secondary } from "../../../stories/Button.stories"
 import {
   ButtonWithOnClickOrHref,
   isMenuGroupNotButton,
@@ -51,33 +52,36 @@ const SecondaryActions = ({
   secondaryOverflowMenuItems,
   reversed = false,
 }: Props) => {
-  if (!secondaryActions) return null
+  if (!secondaryActions && !secondaryOverflowMenuItems) return null
 
-  const stuff = secondaryActions.map(a => {
-    if (isMenuGroupNotButton(a)) {
-      return (
-        <Menu
-          button={
-            <Button
-              secondary
-              label={a.label}
-              reversed={reversed}
-              icon={chevronDownIcon}
-              iconPosition="end"
-            />
-          }
-        >
-          <MenuContent>
-            {a.menuItems.map(menuItem => (
-              <MenuItem {...menuItem} />
-            ))}
-          </MenuContent>
-        </Menu>
-      )
-    } else {
-      return <Button secondary reversed={reversed} {...a} />
-    }
-  })
+  let stuff
+  if (secondaryActions) {
+    stuff = secondaryActions.map(a => {
+      if (isMenuGroupNotButton(a)) {
+        return (
+          <Menu
+            button={
+              <Button
+                secondary
+                label={a.label}
+                reversed={reversed}
+                icon={chevronDownIcon}
+                iconPosition="end"
+              />
+            }
+          >
+            <MenuContent>
+              {a.menuItems.map(menuItem => (
+                <MenuItem {...menuItem} />
+              ))}
+            </MenuContent>
+          </Menu>
+        )
+      } else {
+        return <Button secondary reversed={reversed} {...a} />
+      }
+    })
+  }
 
   let toolbarItems = stuff
   const overflowMenu = renderSecondaryOverflowMenu(

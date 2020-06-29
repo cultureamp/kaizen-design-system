@@ -1,5 +1,5 @@
-import { Button, ButtonProps } from "@kaizen/draft-button"
-import { Menu, MenuContent, MenuItem } from "@kaizen/draft-menu"
+import { Button, ButtonProps, IconButton } from "@kaizen/draft-button"
+import { Menu, MenuContent, MenuItem, MenuItemProps } from "@kaizen/draft-menu"
 import * as React from "react"
 import {
   ButtonWithOnClickOrHref,
@@ -12,20 +12,25 @@ import {
 import Toolbar from "./Toolbar"
 const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
+const meatballsIcon = require("@kaizen/component-library/icons/meatballs.icon.svg")
+  .default
 
 const styles = require("./TitleBlockZen.scss")
 
 type MainActionsProps = {
   primaryAction?: PrimaryActionProps
-  secondaryActions?: SecondaryActionsProps
   defaultAction?: ButtonWithOnClickOrHref
   reversed?: boolean
+  overflowMenuItems?: MenuItemProps[]
+  showOverflowMenu?: boolean
 }
 
 const MainActions = ({
   primaryAction,
   defaultAction,
   reversed = false,
+  overflowMenuItems,
+  showOverflowMenu = false,
 }: MainActionsProps) => {
   let items
   if (primaryAction && isMenuGroupNotButton(primaryAction)) {
@@ -60,6 +65,23 @@ const MainActions = ({
     items = [
       ...(defaultAction ? [<Button {...defaultAction} />] : []),
       ...(primaryAction ? [<Button {...primaryAction} />] : []),
+    ]
+  }
+
+  if (overflowMenuItems && showOverflowMenu) {
+    items = [
+      <Menu
+        button={
+          <IconButton label="" reversed={reversed} icon={meatballsIcon} />
+        }
+      >
+        <MenuContent>
+          {overflowMenuItems.map(menuItem => (
+            <MenuItem {...menuItem} />
+          ))}
+        </MenuContent>
+      </Menu>,
+      ...items,
     ]
   }
 
