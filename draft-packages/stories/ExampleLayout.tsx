@@ -20,11 +20,7 @@ export class ExampleLayout extends React.Component<ExampleLayoutProps> {
 
   render() {
     return (
-      <div
-        className={classnames(styles.container, {
-          [styles.rtl]: this.props.rtl,
-        })}
-      >
+      <div dir={this.props.rtl ? "rtl" : "ltr"} className={styles.container}>
         {this.props.children}
       </div>
     )

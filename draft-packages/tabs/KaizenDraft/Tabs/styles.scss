@@ -62,7 +62,7 @@
   }
 }
 
-.row {
+.rowTab {
   composes: tab;
   font-weight: $kz-typography-heading-4-font-weight;
   border-top-left-radius: $kz-border-borderless-border-radius;
@@ -84,9 +84,9 @@
   }
 }
 
-.activeTabRow {
+.rowTabActive {
   composes: tab;
-  composes: row;
+  composes: rowTab;
   font-weight: $kz-typography-heading-4-font-weight;
   color: $kz-color-cluny-500;
 
@@ -106,34 +106,34 @@
   }
 }
 
-.disabledTabRow {
+.rowTabDisabled {
   composes: tab;
-  composes: row;
+  composes: rowTab;
   cursor: inherit;
   opacity: 0.3;
   font-weight: normal;
 
-  &.activeTabRow:hover {
+  &.rowTabActive:hover {
     background-color: transparent;
   }
 
-  &:hover:not(.activeTabRow) {
+  &:hover:not(.rowTabActive) {
     color: $kz-color-wisteria-800;
     background-color: transparent;
     font-weight: normal;
   }
 }
 
-.row + .row {
+.rowTab + .rowTab {
   @include ca-margin($start: $ca-grid * 0.5);
 }
 
-.column {
+.columnTab {
   composes: tab;
   min-height: $kz-spacing-xl;
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: start;
   padding-left: $kz-spacing-sm;
   border-radius: $kz-border-solid-border-radius;
 
@@ -141,30 +141,26 @@
     border-radius: $kz-border-borderless-border-radius;
     z-index: 1; // pop the border out so sibling tabs don't overlap
   }
-
-  &.rtl {
-    justify-content: right;
-  }
 }
 
-.activeTabColumn {
+.columnTabActive {
   composes: tab;
-  composes: column;
+  composes: columnTab;
   font-weight: $kz-typography-heading-4-font-weight;
   color: $kz-color-cluny-500;
 }
 
-.disabledTabColumn {
+.columnTabDisabled {
   composes: tab;
-  composes: column;
+  composes: columnTab;
   cursor: inherit;
   opacity: 0.3;
 
-  &.activeTabColumn:hover {
+  &.columnTabActive:hover {
     background-color: transparent;
   }
 
-  &:hover:not(.activeTabColumn) {
+  &:hover:not(.columnTabActive) {
     color: $kz-color-wisteria-800;
     background-color: transparent;
     font-weight: normal;

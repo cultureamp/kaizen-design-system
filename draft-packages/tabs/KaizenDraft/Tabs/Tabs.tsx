@@ -36,14 +36,14 @@ const Tabs = ({ orientation = "row", rtl = false, tabs, renderTab }: Props) => {
 }
 
 const RowTab = ({ tabs, renderTab, rtl }) => (
-  <div className={styles.container}>
+  <div className={styles.container} dir={rtl ? "rtl" : "ltr"}>
     {tabs.map(t =>
       renderTab ? (
         renderTab({
           tab: t,
-          tabClassName: styles.row,
-          activeTabClassName: styles.activeTabRow,
-          disabledTabClassName: styles.disabledTabRow,
+          tabClassName: styles.rowTab,
+          activeTabClassName: styles.rowTabActive,
+          disabledTabClassName: styles.rowTabDisabled,
         })
       ) : (
         <a
@@ -51,10 +51,9 @@ const RowTab = ({ tabs, renderTab, rtl }) => (
           onClick={t.onClick}
           href={!t.disabled ? t.href : null}
           className={classnames({
-            [styles.row]: !t.active && !t.disabled,
-            [styles.rtl]: rtl,
-            [styles.activeTabRow]: t.active,
-            [styles.disabledTabRow]: t.disabled,
+            [styles.rowTab]: !t.active && !t.disabled,
+            [styles.rowTabActive]: t.active,
+            [styles.rowTabDisabled]: t.disabled,
           })}
         >
           {t.label}
@@ -65,14 +64,14 @@ const RowTab = ({ tabs, renderTab, rtl }) => (
 )
 
 const ColumnTab = ({ tabs, renderTab, rtl }) => (
-  <div>
+  <div dir={rtl ? "rtl" : "ltr"}>
     {tabs.map(t =>
       renderTab ? (
         renderTab({
           tab: t,
-          tabClassName: styles.column,
-          activeTabClassName: styles.activeTabColumn,
-          disabledTabClassName: styles.disabledTabColumn,
+          tabClassName: styles.columnTab,
+          activeTabClassName: styles.columnTabActive,
+          disabledTabClassName: styles.columnTabDisabled,
         })
       ) : (
         <a
@@ -80,10 +79,9 @@ const ColumnTab = ({ tabs, renderTab, rtl }) => (
           onClick={t.onClick}
           href={!t.disabled ? t.href : null}
           className={classnames({
-            [styles.column]: !t.active && !t.disabled,
-            [styles.rtl]: rtl,
-            [styles.activeTabColumn]: t.active,
-            [styles.disabledTabColumn]: t.disabled,
+            [styles.columnTab]: !t.active && !t.disabled,
+            [styles.columnTabActive]: t.active,
+            [styles.columnTabDisabled]: t.disabled,
           })}
         >
           {t.label}
