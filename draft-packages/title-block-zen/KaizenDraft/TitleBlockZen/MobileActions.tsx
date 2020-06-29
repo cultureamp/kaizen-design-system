@@ -42,7 +42,10 @@ const renderPrimaryLinks = (primaryAction: PrimaryActionProps) => {
 }
 
 const renderPrimaryActions = (primaryAction: PrimaryActionProps) => {
-  if (isMenuGroupNotButton(primaryAction)) {
+  if (
+    isMenuGroupNotButton(primaryAction) &&
+    primaryAction.menuItems.length > 0
+  ) {
     return [
       <MenuSeparator />,
       primaryAction.menuItems
@@ -114,29 +117,29 @@ type DrawerMenuContentProps = {
 }
 
 type ConditionalOtherActionsHeadingProps = {
+  primaryAction?: PrimaryActionProps
   defaultAction?: ButtonWithOnClickOrHref
   secondaryActions?: SecondaryActionsProps
   secondaryOverflowMenuItems?: MenuItemProps[]
 }
 
 const ConditionalOtherActionsHeading = ({
+  primaryAction,
   defaultAction,
   secondaryActions,
   secondaryOverflowMenuItems,
 }: ConditionalOtherActionsHeadingProps) => {
-  if (
-    (defaultAction && defaultAction.onClick) ||
-    secondaryActions ||
-    secondaryOverflowMenuItems
-  ) {
-    return (
-      <>
+  return (
+    <>
+      {(defaultAction ||
+        (primaryAction && primaryAction.hasOwnProperty("menuItems"))) && (
         <MenuSeparator />
-        <MenuHeader title="Other actions" />
-      </>
-    )
-  }
-  return null
+      )}
+      {((defaultAction && defaultAction.onClick) ||
+        secondaryActions ||
+        secondaryOverflowMenuItems) && <MenuHeader title="Other actions" />}
+    </>
+  )
 }
 
 const DrawerMenuContent = ({
@@ -152,6 +155,7 @@ const DrawerMenuContent = ({
       {defaultAction && renderDefaultLink(defaultAction)}
       {primaryAction && renderPrimaryActions(primaryAction)}
       <ConditionalOtherActionsHeading
+        primaryAction={primaryAction}
         defaultAction={defaultAction}
         secondaryActions={secondaryActions}
         secondaryOverflowMenuItems={secondaryOverflowMenuItems}
@@ -345,11 +349,11 @@ export default class MobileActions extends React.Component<MobileActionsProps> {
 
   render() {
     const {
-  primaryAction,
-  defaultAction,
-  secondaryActions,
-  secondaryOverflowMenuItems,
-  drawerHandleLabelIconPosition,
+      primaryAction,
+      defaultAction,
+      secondaryActions,
+      secondaryOverflowMenuItems,
+      drawerHandleLabelIconPosition,
     } = this.props
 
     this.toggleDisplay = this.toggleDisplay.bind(this)
@@ -360,28 +364,28 @@ export default class MobileActions extends React.Component<MobileActionsProps> {
           [styles.isOpen]: this.state.isOpen,
         })}
       >
-    <DrawerHandle
-      primaryAction={primaryAction}
-      secondaryActions={secondaryActions}
-      defaultAction={defaultAction}
-      secondaryOverflowMenuItems={secondaryOverflowMenuItems}
-      drawerHandleLabelIconPosition={drawerHandleLabelIconPosition}
+        <DrawerHandle
+          primaryAction={primaryAction}
+          secondaryActions={secondaryActions}
+          defaultAction={defaultAction}
+          secondaryOverflowMenuItems={secondaryOverflowMenuItems}
+          drawerHandleLabelIconPosition={drawerHandleLabelIconPosition}
           toggleDisplay={this.toggleDisplay}
           isOpen={this.state.isOpen}
-    />
-    {(defaultAction || secondaryActions) && (
-      <div className={styles.mobileActionsMenuContainer}>
-        <MenuContent>
-          <DrawerMenuContent
-            primaryAction={primaryAction}
-            defaultAction={defaultAction}
-            secondaryActions={secondaryActions}
-            secondaryOverflowMenuItems={secondaryOverflowMenuItems}
-          />
-        </MenuContent>
+        />
+        {(defaultAction || secondaryActions) && (
+          <div className={styles.mobileActionsMenuContainer}>
+            <MenuContent>
+              <DrawerMenuContent
+                primaryAction={primaryAction}
+                defaultAction={defaultAction}
+                secondaryActions={secondaryActions}
+                secondaryOverflowMenuItems={secondaryOverflowMenuItems}
+              />
+            </MenuContent>
+          </div>
+        )}
       </div>
-    )}
-  </div>
-)
+    )
   }
 }
