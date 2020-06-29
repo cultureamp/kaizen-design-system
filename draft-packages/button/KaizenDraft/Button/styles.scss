@@ -460,7 +460,7 @@ $caButton-verticalPaddingForm: calc(
     // and these !importants are here to protect against consumers
     // overriding the colours if they depending on the
     // Elm Button's internal structure.
-    color: $kz-color-coral-600 !important;
-    background: $kz-color-coral-100 !important;
+    color: $kz-color-coral-600 !important; /* stylelint-disable-line declaration-no-important */
+    background: $kz-color-coral-100 !important; /* stylelint-disable-line declaration-no-important */
   }
 }

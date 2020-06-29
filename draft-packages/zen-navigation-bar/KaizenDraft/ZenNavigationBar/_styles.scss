@@ -195,6 +195,35 @@ $navbar-breakpoint-condensed-large-up: 1150px;
     }
   }
 
+  .badge {
+    @include ca-margin($start: $ca-grid * 0.25);
+    @include font-heading-6;
+    font-weight: 600;
+    border-radius: $ca-grid;
+    &.badgeNew {
+      @include ca-padding($start: $ca-grid * 0.5, $end: $ca-grid * 0.5);
+      background-color: $kz-color-seedling-200;
+      color: $kz-color-wisteria-800;
+    }
+    &.badgeNotification {
+      @include ca-padding($start: $ca-grid / 3, $end: $ca-grid / 3);
+      background-color: $kz-color-white;
+      color: $kz-color-wisteria-800;
+
+      @include navbar-mobile-only {
+        background-color: $kz-color-coral-500;
+        color: $kz-color-white;
+      }
+    }
+  }
+
+  &.admin .badge {
+    &.badgeNotification {
+      background-color: $kz-color-wisteria-800;
+      color: $kz-color-white;
+    }
+  }
+
   &.small {
     @include navbar-tablet-up {
       .linkText {
@@ -347,12 +376,14 @@ $navbar-breakpoint-condensed-large-up: 1150px;
     display: none;
   }
 
+  transition: background-color $ca-duration-slow $ca-ease-in-out;
+
   &.content {
-    background: $kz-color-cluny-200;
+    background-color: $kz-color-cluny-200;
   }
 
   &.admin {
-    background: $kz-color-white;
+    background-color: $kz-color-white;
   }
 }
 
