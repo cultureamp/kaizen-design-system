@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/component-library/styles/grid";
 @import "~@kaizen/component-library/styles/layout";
 @import "./TitleBlockBreakpoints.scss";
@@ -19,6 +20,13 @@ $mobile-actions-split-select-square-width: 64px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
+  // $kz-layout-mobile-actions-drawer-height is 60px but we can't use the var in calc()
+  transform: translateY(calc(100% - 60px));
+  transition: 0.4s ease;
+
+  &.isOpen {
+    transform: translateY(0%);
+  }
 
   @include title-block-small {
     display: flex;
@@ -28,14 +36,13 @@ $mobile-actions-split-select-square-width: 64px;
 .mobileActionsTopRow {
   display: flex;
   align-items: center;
-  height: $ca-grid * 2.5;
+  height: $kz-layout-mobile-actions-drawer-height;
   width: 100%;
   background-color: $kz-color-cluny-500;
 }
 
 .mobileActionsMenuContainer {
   display: flex;
-  // height: $ca-grid * 10;
   width: 100%;
   background: $kz-color-white;
 }

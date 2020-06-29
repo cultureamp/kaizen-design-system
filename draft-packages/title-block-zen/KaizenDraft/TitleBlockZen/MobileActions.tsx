@@ -21,6 +21,8 @@ const starIcon = require("@kaizen/component-library/icons/star-on.icon.svg")
   .default
 const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
+const chevronUpIcon = require("@kaizen/component-library/icons/chevron-up.icon.svg")
+  .default
 
 const styles = require("./MobileActions.scss")
 
@@ -258,6 +260,8 @@ type DrawerHandleProps = {
   defaultAction?: ButtonWithOnClickOrHref | MenuGroup
   secondaryOverflowMenuItems?: MenuItemProps[]
   drawerHandleLabelIconPosition?: Pick<ButtonProps, "iconPosition">
+  toggleDisplay: () => void
+  isOpen: boolean
 }
 
 const DrawerHandle = ({
@@ -266,6 +270,8 @@ const DrawerHandle = ({
   defaultAction,
   secondaryOverflowMenuItems,
   drawerHandleLabelIconPosition,
+  toggleDisplay,
+  isOpen,
 }: DrawerHandleProps) => {
   if (primaryAction) {
     // If the primary action is a menu
@@ -277,10 +283,11 @@ const DrawerHandle = ({
               styles.mobileActionsExpandButtonFullWidth,
               styles.mobileActionsPrimaryLabel
             )}
+            onClick={toggleDisplay}
           >
             {primaryAction.label}
             <div className={styles.mobileActionsChevronSquare}>
-              <Icon icon={chevronDownIcon} />
+              <Icon icon={isOpen ? chevronUpIcon : chevronDownIcon} />
             </div>
           </button>
         </div>
@@ -303,17 +310,18 @@ const DrawerHandle = ({
           {(defaultAction ||
             secondaryActions ||
             secondaryOverflowMenuItems) && (
-            <button className={styles.mobileActionsExpandButton}>
-              <Icon icon={chevronDownIcon} />
+            <button
+              className={styles.mobileActionsExpandButton}
+              onClick={toggleDisplay}
+            >
+              <Icon icon={isOpen ? chevronUpIcon : chevronDownIcon} />
             </button>
           )}
         </div>
       )
     }
-  } else {
-    // no primary action
-    return <span>{"Other actions"}</span>
   }
+  return null
 }
 
 export type MobileActionsProps = {
@@ -326,20 +334,40 @@ export type MobileActionsProps = {
   // menuContent?: any
 }
 
-const MobileActions = ({
+export default class MobileActions extends React.Component<MobileActionsProps> {
+  state = {
+    isOpen: false,
+  }
+
+  toggleDisplay() {
+    this.setState({ isOpen: !this.state.isOpen })
+  }
+
+  render() {
+    const {
   primaryAction,
   defaultAction,
   secondaryActions,
   secondaryOverflowMenuItems,
   drawerHandleLabelIconPosition,
-}: MobileActionsProps) => (
-  <div className={styles.mobileActionsContainer}>
+    } = this.props
+
+    this.toggleDisplay = this.toggleDisplay.bind(this)
+
+    return (
+      <div
+        className={classnames(styles.mobileActionsContainer, {
+          [styles.isOpen]: this.state.isOpen,
+        })}
+      >
     <DrawerHandle
       primaryAction={primaryAction}
       secondaryActions={secondaryActions}
       defaultAction={defaultAction}
       secondaryOverflowMenuItems={secondaryOverflowMenuItems}
       drawerHandleLabelIconPosition={drawerHandleLabelIconPosition}
+          toggleDisplay={this.toggleDisplay}
+          isOpen={this.state.isOpen}
     />
     {(defaultAction || secondaryActions) && (
       <div className={styles.mobileActionsMenuContainer}>
@@ -355,5 +383,5 @@ const MobileActions = ({
     )}
   </div>
 )
-
-export default MobileActions
+  }
+}
