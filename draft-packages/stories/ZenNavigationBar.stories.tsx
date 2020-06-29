@@ -1,7 +1,8 @@
 import * as React from "react"
 
-import { Icon } from "@kaizen/component-library"
+import { Button, Icon } from "@kaizen/component-library"
 import { Link, Menu, ZenNavigationBar } from "@kaizen/draft-zen-navigation-bar"
+import { ColorScheme } from "@kaizen/draft-zen-navigation-bar/KaizenDraft/ZenNavigationBar/types"
 
 const caIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
   .default
@@ -10,10 +11,6 @@ const academyIcon = require("@kaizen/component-library/icons/academy.icon.svg")
 const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
   .default
 const supportIcon = require("@kaizen/component-library/icons/support.icon.svg")
-  .default
-const usersIcon = require("@kaizen/component-library/icons/users.icon.svg")
-  .default
-const helpIcon = require("@kaizen/component-library/icons/question.icon.svg")
   .default
 
 export default {
@@ -277,96 +274,113 @@ export const ContentColors = () => (
   </ZenNavigationBar>
 )
 
-export const AdminColours = () => (
-  <ZenNavigationBar
-    onNavigationChange={handleNavigationChange}
-    colorScheme="admin"
-  >
-    {{
-      primary: [
-        <Link text="Home" href="/" active />,
-        <Link text="Surveys" href="/" />,
-        <Link
-          text="Performance"
-          href="/"
-          badge={{ kind: "new", text: "New" }}
-        />,
-        <Link
-          icon={supportIcon}
-          text="Inbox"
-          href="/"
-          badge={{ kind: "notification", text: "55" }}
-        />,
-      ],
-      secondary: [
-        <Menu
-          heading="Custom menu..."
-          items={[
-            {
-              label: "About Culture Amp",
-              url: "https://www.cultureamp.com/",
-            },
-            {
-              label: "Contribute to this guide",
-              url:
-                "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
-            },
-            {
-              label: "Sign out",
-              url: "http://localhost:3000/session/sign_out",
-              method: "delete",
-            },
-            {
-              label: "Stop Masquerading",
-              url: "http://localhost:3000/admin/masquerade/",
-              method: "delete",
-            },
-          ]}
-        >
-          {accountMenuBtn}
-        </Menu>,
-      ],
-      final: [
-        <Link
-          icon={supportIcon}
-          text="Support"
-          href="http://academy.cultureamp.com/"
-        />,
-        <Link
-          icon={academyIcon}
-          text="Academy"
-          href="http://academy.cultureamp.com/"
-        />,
-        <Menu
-          heading="Custom menu..."
-          items={[
-            {
-              label: "About Culture Amp",
-              url: "https://www.cultureamp.com/",
-            },
-            {
-              label: "Contribute to this guide",
-              url:
-                "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
-            },
-            {
-              label: "Sign out",
-              url: "http://localhost:3000/session/sign_out",
-              method: "delete",
-            },
-            {
-              label: "Stop Masquerading",
-              url: "http://localhost:3000/admin/masquerade/",
-              method: "delete",
-            },
-          ]}
-        >
-          {accountMenuBtn}
-        </Menu>,
-      ],
-    }}
-  </ZenNavigationBar>
-)
+export const AdminColours = () => {
+  const [currentTheme, setCurrentTheme] = React.useState<ColorScheme>("admin")
+  return (
+    <>
+      <ZenNavigationBar
+        onNavigationChange={handleNavigationChange}
+        colorScheme={currentTheme}
+      >
+        {{
+          primary: [
+            <Link text="Home" href="/" active />,
+            <Link text="Surveys" href="/" />,
+            <Link
+              text="Performance"
+              href="/"
+              badge={{ kind: "new", text: "New" }}
+            />,
+            <Link
+              icon={supportIcon}
+              text="Inbox"
+              href="/"
+              badge={{ kind: "notification", text: "55" }}
+            />,
+          ],
+          secondary: [
+            <Menu
+              heading="Custom menu..."
+              items={[
+                {
+                  label: "About Culture Amp",
+                  url: "https://www.cultureamp.com/",
+                },
+                {
+                  label: "Contribute to this guide",
+                  url:
+                    "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
+                },
+                {
+                  label: "Sign out",
+                  url: "http://localhost:3000/session/sign_out",
+                  method: "delete",
+                },
+                {
+                  label: "Stop Masquerading",
+                  url: "http://localhost:3000/admin/masquerade/",
+                  method: "delete",
+                },
+              ]}
+            >
+              {accountMenuBtn}
+            </Menu>,
+          ],
+          final: [
+            <Link
+              icon={supportIcon}
+              text="Support"
+              href="http://academy.cultureamp.com/"
+            />,
+            <Link
+              icon={academyIcon}
+              text="Academy"
+              href="http://academy.cultureamp.com/"
+            />,
+            <Menu
+              heading="Custom menu..."
+              items={[
+                {
+                  label: "About Culture Amp",
+                  url: "https://www.cultureamp.com/",
+                },
+                {
+                  label: "Contribute to this guide",
+                  url:
+                    "https://github.com/cultureamp/cultureamp-style-guide/tree/master/guide",
+                },
+                {
+                  label: "Sign out",
+                  url: "http://localhost:3000/session/sign_out",
+                  method: "delete",
+                },
+                {
+                  label: "Stop Masquerading",
+                  url: "http://localhost:3000/admin/masquerade/",
+                  method: "delete",
+                },
+              ]}
+            >
+              {accountMenuBtn}
+            </Menu>,
+          ],
+        }}
+      </ZenNavigationBar>
+      <div style={{ paddingTop: "5rem" }}>
+        <Button
+          label="Default Theme"
+          disabled={currentTheme === "cultureamp"}
+          onClick={() => setCurrentTheme("cultureamp")}
+        />
+        <Button
+          label="Admin Theme"
+          disabled={currentTheme === "admin"}
+          onClick={() => setCurrentTheme("admin")}
+        />
+      </div>
+    </>
+  )
+}
 
 export const WithFooterAndHeaderComponents = () => (
   <ZenNavigationBar
@@ -485,5 +499,3 @@ export const WithFooterAndHeaderComponents = () => (
     }}
   </ZenNavigationBar>
 )
-
-export const Empty = () => <ZenNavigationBar />

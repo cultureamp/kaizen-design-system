@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.8...@kaizen/draft-modal@2.5.9) (2020-06-29)
+
+
+### Bug Fixes
+
+* Add stylelint ignores for all preexisting usages of !important ([#568](https://github.com/cultureamp/kaizen-design-system/issues/568)) ([baa2a56](https://github.com/cultureamp/kaizen-design-system/commit/baa2a566277bdd6d2e7ff9b101ccbbcdf88718d2))
+
+
+
+
+
 ## [2.5.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.7...@kaizen/draft-modal@2.5.8) (2020-06-29)
 
 **Note:** Version bump only for package @kaizen/draft-modal
