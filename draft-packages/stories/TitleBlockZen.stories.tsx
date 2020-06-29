@@ -331,6 +331,7 @@ export const LongLabels = () => (
     defaultAction={{
       label: "Feedback geben",
       reversed: true,
+      href: "#",
     }}
     secondaryActions={[
       {
