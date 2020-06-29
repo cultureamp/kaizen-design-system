@@ -1,0 +1,14 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/shadow";
+
+.wrapper {
+  color: $kz-color-wisteria-800;
+  border-radius: $kz-border-borderless-border-radius;
+  box-shadow: $kz-shadow-small-box-shadow;
+  transition: box-shadow 0.1s;
+
+  &:hover {
+    box-shadow: $kz-shadow-large-box-shadow;
+  }
+}
