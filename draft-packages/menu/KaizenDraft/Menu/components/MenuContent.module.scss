@@ -9,6 +9,7 @@
 $side-padding: 1/2 * $ca-grid;
 
 .menuContent {
+  box-sizing: border-box;
   background: $kz-color-white;
   color: $kz-color-wisteria-800;
   border-radius: $kz-border-solid-border-radius;

@@ -1,5 +1,6 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
@@ -11,6 +12,7 @@ $menu-container-width: 248px;
 }
 
 .menuContainer {
+  margin-top: $kz-spacing-xs;
   position: absolute;
   width: $menu-container-width;
   z-index: $ca-z-index-dropdown;
