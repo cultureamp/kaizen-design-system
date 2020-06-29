@@ -141,6 +141,10 @@
     border-radius: $kz-border-borderless-border-radius;
     z-index: 1; // pop the border out so sibling tabs don't overlap
   }
+
+  &.rtl {
+    justify-content: right;
+  }
 }
 
 .activeTabColumn {
