@@ -12,8 +12,9 @@ export interface CardProps {
 
   /**
    * HTML elements that are allowed on Card.
+   * @default "div"
    */
-  tag?: "pre" | "div" | "article" | "header" | "main" | "section"
+  tag?: "div" | "article" | "header" | "main" | "section" | "li"
 }
 
 export const Card = ({
