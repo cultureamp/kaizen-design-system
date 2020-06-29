@@ -20,7 +20,7 @@ describe("Tabs", () => {
     const { container, getByText } = render(<Tabs tabs={tabs} />)
 
     expect(container.firstChild).toMatchSnapshot()
-    expect(getByText("One").classList.contains(styles.activeTabRow)).toBe(true)
+    expect(getByText("One").classList.contains(styles.rowTabActive)).toBe(true)
   })
 
   it("renders a disabled tab", () => {
@@ -28,7 +28,7 @@ describe("Tabs", () => {
     const { container, getByText } = render(<Tabs tabs={tabs} />)
 
     expect(container.firstChild).toMatchSnapshot()
-    expect(getByText("One").classList.contains(styles.disabledTabRow)).toBe(
+    expect(getByText("One").classList.contains(styles.rowTabDisabled)).toBe(
       true
     )
   })
@@ -81,9 +81,9 @@ describe("Tabs", () => {
       const spans = tab.querySelectorAll("span")
 
       expect(spans[0].innerHTML).toBe("One")
-      expect(spans[1].innerHTML).toBe(styles.row)
-      expect(spans[2].innerHTML).toBe(styles.activeTabRow)
-      expect(spans[3].innerHTML).toBe(styles.disabledTabRow)
+      expect(spans[1].innerHTML).toBe(styles.rowTab)
+      expect(spans[2].innerHTML).toBe(styles.rowTabActive)
+      expect(spans[3].innerHTML).toBe(styles.rowTabDisabled)
     })
   })
 })
