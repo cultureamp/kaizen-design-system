@@ -6,12 +6,12 @@ const styles = require("./styles.module.scss")
 type Variant = "default" | "active"
 
 export interface BadgeProps {
+  readonly children: React.ReactNode
   readonly variant?: Variant
-  text: string
 }
 
 export const Badge = (props: BadgeProps) => {
-  const { text = "0", variant = "default" } = props
+  const { children, variant = "default" } = props
 
   return (
     <span
@@ -20,7 +20,7 @@ export const Badge = (props: BadgeProps) => {
         [styles.active]: variant === "active",
       })}
     >
-      {text}
+      {children}
     </span>
   )
 }
