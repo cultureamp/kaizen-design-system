@@ -164,7 +164,6 @@ const buttonClass = (props: Props) => {
     [styles.reverseColorSeedling]: props.reverseColor === "seedling",
     [styles.reverseColorWisteria]: props.reverseColor === "wisteria",
     [styles.reverseColorYuzu]: props.reverseColor === "yuzu",
-    [styles.reversedIconButton]: props.iconButton && props.reversed,
   })
 }
 
