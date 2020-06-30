@@ -87,7 +87,7 @@ class CheckboxGroupExample extends React.Component<Props> {
 
 export const DefaultStory = () => (
   <StoryWrapper>
-    <FilterDrawer labelText="Filter">
+    <FilterDrawer labelText="Filter" metadata={["Furry", "Venomous"]}>
       <DemoFilters />
     </FilterDrawer>
   </StoryWrapper>

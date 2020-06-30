@@ -7,14 +7,22 @@ const styles = require("./styles.module.scss")
 
 export interface FilterDrawerProps {
   labelText: string
+  metadata: string[]
   children: React.ReactElement
 }
 
-export const FilterDrawer = ({ labelText, children }: FilterDrawerProps) => {
+export const FilterDrawer = ({
+  labelText,
+  children,
+  metadata,
+}: FilterDrawerProps) => {
   return (
-    <Menu button={filterButton(labelText)}>
-      <MenuContent>{children}</MenuContent>
-    </Menu>
+    <div className={styles.filterDrawer}>
+      <Menu button={filterButton(labelText)}>
+        <MenuContent>{children}</MenuContent>
+      </Menu>
+      <Metadata items={metadata} />
+    </div>
   )
 }
 
@@ -33,4 +41,8 @@ const filterButton = (labelText: string) => (
       iconPosition="start"
     />
   </div>
+)
+
+const Metadata = ({ items }: { items: string[] }) => (
+  <div className={styles.metadata}>{items.join("・")}</div>
 )

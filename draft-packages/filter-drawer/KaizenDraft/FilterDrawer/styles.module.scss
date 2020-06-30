@@ -1,5 +1,21 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "@kaizen/deprecated-component-library-helpers/styles/type";
+
+$gap: $kz-spacing-sm;
+
+.filterDrawer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 (-$gap / 2);
+
+  > * {
+    margin: 0 ($gap / 2);
+  }
+}
 
 // The button used for the Filter Drawer component is similar to the
 // standard secondary reversed button, but has a background when
@@ -10,4 +26,10 @@
   display: inline-block;
   background-color: rgba($kz-color-white, 0.1);
   border-radius: $kz-border-borderless-border-radius;
+}
+
+.metadata {
+  @include kz-typography-paragraph-small;
+  @include ca-inherit-baseline;
+  color: $kz-color-white;
 }
