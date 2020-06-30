@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.5.25...@kaizen/draft-select@1.6.0) (2020-06-30)
+
+
+### Features
+
+* Secondary Single Select Reversed (React) ([#548](https://github.com/cultureamp/kaizen-design-system/issues/548)) ([dfe963c](https://github.com/cultureamp/kaizen-design-system/commit/dfe963c0220d03b6457058c0872e4b45c4313f92))
+
+
+
+
+
+## [1.5.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.5.24...@kaizen/draft-select@1.5.25) (2020-06-30)
+
+
+### Bug Fixes
+
+* Add clear button to React Select implementation ([#595](https://github.com/cultureamp/kaizen-design-system/issues/595)) ([0ec19b9](https://github.com/cultureamp/kaizen-design-system/commit/0ec19b9723280c7299aea357757cd0804cccdb5b))
+
+
+
+
+
 ## [1.5.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.5.23...@kaizen/draft-select@1.5.24) (2020-06-29)
 
 
