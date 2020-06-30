@@ -186,6 +186,8 @@ $tab-container-height-small: $ca-grid * 2.5;
 }
 
 .sectionTitleOverride.sectionTitleOverride {
+  @include ca-margin($end: $ca-grid);
+
   font-family: $kz-typography-heading-2-font-family;
   font-weight: $kz-typography-heading-2-font-weight;
   font-size: $kz-typography-heading-2-font-size;
@@ -209,7 +211,6 @@ $tab-container-height-small: $ca-grid * 2.5;
 }
 
 .sectionTitleDescription {
-  @include ca-margin($start: $ca-grid);
   color: $kz-color-white;
   font-family: $kz-typography-paragraph-small-font-family;
   font-weight: $kz-typography-paragraph-small-font-weight;
