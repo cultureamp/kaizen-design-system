@@ -23,7 +23,13 @@ $small: $ca-grid;
   color: $kz-color-wisteria-800;
 }
 
+.reversed.active,
 .active {
   background-color: $kz-color-cluny-500;
+  color: $kz-color-white;
+}
+
+.reversed {
+  background-color: add-alpha($kz-color-white, 10%);
   color: $kz-color-white;
 }
