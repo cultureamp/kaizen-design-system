@@ -215,13 +215,12 @@
   }
 }
 
-// scss-lint:disable ImportantRule
 .copyButton {
-  margin-right: 12px !important;
-  margin-left: 0 !important;
-  margin-top: 0 !important;
+  /* Tech debt - this !important existed before Stylelint rules */
+  margin-right: 12px !important; /* stylelint-disable-line declaration-no-important */
+  margin-left: 0 !important; /* stylelint-disable-line declaration-no-important */
+  margin-top: 0 !important; /* stylelint-disable-line declaration-no-important */
 }
-// scss-lint:enable ImportantRule
 
 @keyframes slide-fade {
   0% {
