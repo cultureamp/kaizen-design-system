@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.5.23...@kaizen/draft-select@1.5.24) (2020-06-29)
+
+
+### Bug Fixes
+
+* Add stylelint ignores for all preexisting usages of !important ([#568](https://github.com/cultureamp/kaizen-design-system/issues/568)) ([baa2a56](https://github.com/cultureamp/kaizen-design-system/commit/baa2a566277bdd6d2e7ff9b101ccbbcdf88718d2))
+
+
+
+
+
+## [1.5.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.5.22...@kaizen/draft-select@1.5.23) (2020-06-29)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.5.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.5.21...@kaizen/draft-select@1.5.22) (2020-06-26)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.5.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.5.20...@kaizen/draft-select@1.5.21) (2020-06-26)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
 ## [1.5.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.5.19...@kaizen/draft-select@1.5.20) (2020-06-23)
 
 **Note:** Version bump only for package @kaizen/draft-select
