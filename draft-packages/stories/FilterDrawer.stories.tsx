@@ -58,7 +58,7 @@ interface Props {
 }
 class CheckboxGroupExample extends React.Component<Props> {
   public state = {
-    checkedStatus: "mixed",
+    checkedStatus: "on",
   }
   constructor(props: Props) {
     super(props)
