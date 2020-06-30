@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.44](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.2.43...@kaizen/draft-user-interactions@1.2.44) (2020-06-29)
+
+**Note:** Version bump only for package @kaizen/draft-user-interactions
+
+
+
+
+
+## [1.2.43](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.2.42...@kaizen/draft-user-interactions@1.2.43) (2020-06-26)
+
+
+### Bug Fixes
+
+* avoid reliance on Elm18Compatible in UserInteractions/Keyboard ([#586](https://github.com/cultureamp/kaizen-design-system/issues/586)) ([7b3ed60](https://github.com/cultureamp/kaizen-design-system/commit/7b3ed6082aae6594ca4222295fd0b1e0fa05cd42))
+
+
+
+
+
+## [1.2.42](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.2.41...@kaizen/draft-user-interactions@1.2.42) (2020-06-26)
+
+**Note:** Version bump only for package @kaizen/draft-user-interactions
+
+
+
+
+
 ## [1.2.41](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.2.40...@kaizen/draft-user-interactions@1.2.41) (2020-06-22)
 
 **Note:** Version bump only for package @kaizen/draft-user-interactions

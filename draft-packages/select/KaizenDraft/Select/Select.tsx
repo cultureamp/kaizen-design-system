@@ -9,6 +9,8 @@ import { Icon } from "@kaizen/component-library"
 
 const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
+const clearIcon = require("@kaizen/component-library/icons/clear.icon.svg")
+  .default
 
 const styles = require("./styles.react.scss")
 
@@ -27,7 +29,7 @@ export const Select = (props: ReactSelectProps) => {
         NoOptionsMessage,
         SingleValue,
         MultiValue,
-        ClearIndicator: null,
+        ClearIndicator,
         IndicatorSeparator: null,
       }}
       className={classNames(styles.container, props.className)}
@@ -110,4 +112,10 @@ const SingleValue: typeof components.SingleValue = props => (
 
 const MultiValue: typeof components.MultiValue = props => (
   <components.MultiValue {...props} className={styles.multiValue} />
+)
+
+const ClearIndicator: typeof components.ClearIndicator = props => (
+  <components.ClearIndicator {...props}>
+    <Icon icon={clearIcon} role="presentation" />
+  </components.ClearIndicator>
 )

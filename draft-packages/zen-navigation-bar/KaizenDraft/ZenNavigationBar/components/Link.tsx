@@ -39,7 +39,7 @@ export default class Link extends React.PureComponent<LinkProps> {
       onClick,
       small,
       menuOpen,
-      content,
+      colorScheme,
       tooltip,
     } = this.props
 
@@ -64,15 +64,18 @@ export default class Link extends React.PureComponent<LinkProps> {
         )}
 
         <a
-          className={classNames(styles.link, {
-            [styles.active]: active,
-            [styles.containsText]: !!text,
-            [styles.opaque]: opaque,
-            [styles.small]: small,
-            [styles.menuOpen]: hasMenu && menuOpen,
-            [styles.content]: content,
-            [styles.extendedNavigation]: hasExtendedNavigation,
-          })}
+          className={classNames([
+            styles.link,
+            ...(colorScheme ? [styles[colorScheme]] : []),
+            {
+              [styles.active]: active,
+              [styles.containsText]: !!text,
+              [styles.opaque]: opaque,
+              [styles.small]: small,
+              [styles.menuOpen]: hasMenu && menuOpen,
+              [styles.extendedNavigation]: hasExtendedNavigation,
+            },
+          ])}
           tabIndex={0}
           onClick={event => {
             onClick && onClick(event)
