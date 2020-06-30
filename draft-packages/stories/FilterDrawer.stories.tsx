@@ -87,7 +87,7 @@ class CheckboxGroupExample extends React.Component<Props> {
 
 export const DefaultStory = () => (
   <StoryWrapper>
-    <FilterDrawer>
+    <FilterDrawer labelText="Filter">
       <DemoFilters />
     </FilterDrawer>
   </StoryWrapper>

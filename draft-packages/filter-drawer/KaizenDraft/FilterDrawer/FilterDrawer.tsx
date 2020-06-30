@@ -6,25 +6,31 @@ const filterIcon = require("@kaizen/component-library/icons/filter.icon.svg")
 const styles = require("./styles.module.scss")
 
 export interface FilterDrawerProps {
+  labelText: string
   children: React.ReactElement
 }
 
-export const FilterDrawer = ({ children }: FilterDrawerProps) => {
+export const FilterDrawer = ({ labelText, children }: FilterDrawerProps) => {
   return (
     <div style={{ display: "inline-block" }}>
-      <Menu button={Button}>
+      <Menu button={filterButton(labelText)}>
         <MenuContent>{children}</MenuContent>
       </Menu>
     </div>
   )
 }
 
-const Button = (
+// This is intentionally a simple lower case function,
+// rather than a React Function Component,
+// as for some reason the click handler dissapears if a Component is used
+// instead (Menu uses React.cloneElement to customise the button, and appears
+// to have issues if it's a component). This works, so going with this.
+const filterButton = (labelText: string) => (
   <div className={styles.buttonEdgeCaseStyling}>
     <KaizenButton.Button
       secondary={true}
       reversed={true}
-      label="TODO"
+      label={labelText}
       icon={filterIcon}
       iconPosition="start"
     />
