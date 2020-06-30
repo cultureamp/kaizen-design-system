@@ -17,3 +17,9 @@ export const Active = () => <Badge variant="active">3</Badge>
 Active.story = {
   name: "Active",
 }
+
+export const LongerText = () => <Badge variant="default">2x</Badge>
+
+LongerText.story = {
+  name: "Longer text",
+}
