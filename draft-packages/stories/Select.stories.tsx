@@ -78,7 +78,7 @@ export const Single = () => (
       options={options}
       placeholder="Placeholder"
       isSearchable={false}
-      isDisabled={true}
+      isDisabled={false}
       defaultValue={options[0]}
     />
   </StoryContainer>
