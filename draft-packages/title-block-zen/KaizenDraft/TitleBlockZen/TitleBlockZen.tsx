@@ -121,30 +121,34 @@ const renderSubtitle = (subtitle: string) => (
 )
 
 const renderSectionTitle = (
-  sectionTitle: string,
+  sectionTitle?: string,
   sectionTitleDescription?: string,
   variant?: Variant
 ) => (
   <div className={styles.sectionTitleContainer}>
     <div className={styles.sectionTitleInner}>
-      <div className={styles.sectionTitle}>
-        <Heading
-          variant="heading-2"
-          color={
-            variant === "education" || variant === "admin" ? "dark" : "white"
-          }
-          classNameAndIHaveSpokenToDST={styles.sectionTitleOverride}
+      {sectionTitle && (
+        <div className={styles.sectionTitle}>
+          <Heading
+            variant="heading-2"
+            color={
+              variant === "education" || variant === "admin" ? "dark" : "white"
+            }
+            classNameAndIHaveSpokenToDST={styles.sectionTitleOverride}
+          >
+            {sectionTitle}
+          </Heading>
+        </div>
+      )}
+      {sectionTitleDescription && (
+        <div
+          className={classNames(styles.sectionTitleDescription, {
+            [styles.dark]: variant === "education" || variant === "admin",
+          })}
         >
-          {sectionTitle}
-        </Heading>
-      </div>
-      <div
-        className={classNames(styles.sectionTitleDescription, {
-          [styles.dark]: variant === "education" || variant === "admin",
-        })}
-      >
-        {sectionTitleDescription}
-      </div>
+          {sectionTitleDescription}
+        </div>
+      )}
     </div>
   </div>
 )
@@ -278,7 +282,7 @@ const TitleBlockZen = ({
       <div className={styles.rowBelowSeparator}>
         <div className={styles.rowBelowSeparatorInner}>
           <div className={styles.rowBelowSeparatorInnerContent}>
-            {sectionTitle &&
+            {(sectionTitle || sectionTitleDescription) &&
               renderSectionTitle(
                 sectionTitle,
                 sectionTitleDescription,
