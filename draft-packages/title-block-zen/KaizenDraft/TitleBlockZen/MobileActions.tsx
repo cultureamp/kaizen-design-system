@@ -28,11 +28,12 @@ const renderPrimaryLinks = (primaryAction: PrimaryActionProps) => {
   if (isMenuGroupNotButton(primaryAction)) {
     return primaryAction.menuItems
       .filter(item => typeof item.action === "string")
-      .map(item => (
+      .map((item, idx) => (
         <MenuItem
           action={item.action}
           label={item.label}
           icon={item.hasOwnProperty("icon") ? item.icon : undefined}
+          key={`primary-link-${idx}`}
         />
       ))
   }
@@ -47,11 +48,12 @@ const renderPrimaryActions = (primaryAction: PrimaryActionProps) => {
       <MenuSeparator />,
       primaryAction.menuItems
         .filter(item => typeof item.action !== "string")
-        .map(item => (
+        .map((item, idx) => (
           <MenuItem
             action={item.action}
             label={item.label}
             icon={item.hasOwnProperty("icon") ? item.icon : undefined}
+            key={`primary-action-${idx}`}
           />
         )),
     ]
@@ -92,16 +94,26 @@ const renderSecondaryActions = secondaryActions => {
   })
   const flattened = Array.prototype.concat.apply([], secondaryActionMenuItems)
 
-  return flattened.map(item => (
-    <MenuItem action={item.action} label={item.label} icon={item.icon} />
+  return flattened.map((item, idx) => (
+    <MenuItem
+      action={item.action}
+      label={item.label}
+      icon={item.icon}
+      key={`secondary-action-${idx}`}
+    />
   ))
 }
 
 const rendersecondaryOverflowMenuItems = (
   secondaryOverflowMenuItems: MenuItemProps[]
 ) => {
-  return secondaryOverflowMenuItems.map(item => (
-    <MenuItem action={item.action} label={item.label} icon={item.icon} />
+  return secondaryOverflowMenuItems.map((item, idx) => (
+    <MenuItem
+      action={item.action}
+      label={item.label}
+      icon={item.icon}
+      key={`overflow-menu-item-${idx}`}
+    />
   ))
 }
 
@@ -288,7 +300,7 @@ const DrawerHandle = ({
           >
             {primaryAction.label}
             <div className={styles.mobileActionsChevronSquare}>
-              <Icon icon={isOpen ? chevronUpIcon : chevronDownIcon} />
+              <Icon icon={isOpen ? chevronDownIcon : chevronUpIcon} />
             </div>
           </button>
         </div>
@@ -315,7 +327,7 @@ const DrawerHandle = ({
               className={styles.mobileActionsExpandButton}
               onClick={toggleDisplay}
             >
-              <Icon icon={isOpen ? chevronUpIcon : chevronDownIcon} />
+              <Icon icon={isOpen ? chevronDownIcon : chevronUpIcon} />
             </button>
           )}
         </div>
