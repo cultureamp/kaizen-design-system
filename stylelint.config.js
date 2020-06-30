@@ -31,7 +31,7 @@ module.exports = {
     "declaration-no-important": [
       true,
       {
-        severity: "warning",
+        severity: "error",
       },
     ],
   },

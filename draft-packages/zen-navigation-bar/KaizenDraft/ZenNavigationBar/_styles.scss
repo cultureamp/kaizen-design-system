@@ -1,13 +1,13 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/component-library/styles/fonts";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/responsive";
 
-$ca-navigation-bar__height: 3 * $ca-grid;
 $ca-navigation-bar__spacer: $ca-grid / 2;
 $ca-navigation-bar__child-height: $ca-grid * 2;
 
@@ -99,7 +99,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   // active indicator
   @include navbar-tablet-up {
     margin-top: -$ca-navigation-bar__spacer;
-    height: $ca-navigation-bar__height;
+    height: $kz-layout-navigation-bar-height;
     &::before {
       content: "";
       display: block;
@@ -195,6 +195,35 @@ $navbar-breakpoint-condensed-large-up: 1150px;
     }
   }
 
+  .badge {
+    @include ca-margin($start: $ca-grid * 0.25);
+    @include font-heading-6;
+    font-weight: 600;
+    border-radius: $ca-grid;
+    &.badgeNew {
+      @include ca-padding($start: $ca-grid * 0.5, $end: $ca-grid * 0.5);
+      background-color: $kz-color-seedling-200;
+      color: $kz-color-wisteria-800;
+    }
+    &.badgeNotification {
+      @include ca-padding($start: $ca-grid / 3, $end: $ca-grid / 3);
+      background-color: $kz-color-white;
+      color: $kz-color-wisteria-800;
+
+      @include navbar-mobile-only {
+        background-color: $kz-color-coral-500;
+        color: $kz-color-white;
+      }
+    }
+  }
+
+  &.admin .badge {
+    &.badgeNotification {
+      background-color: $kz-color-wisteria-800;
+      color: $kz-color-white;
+    }
+  }
+
   &.small {
     @include navbar-tablet-up {
       .linkText {
@@ -269,6 +298,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   }
 
   @include navbar-tablet-up {
+    &.admin,
     &.content {
       color: rgba($kz-color-wisteria-800, 0.7);
 
@@ -337,8 +367,8 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   flex-direction: row;
   align-items: center;
   background-color: $kz-color-wisteria-700;
-  height: $ca-navigation-bar__height;
-  max-height: $ca-navigation-bar__height;
+  height: $kz-layout-navigation-bar-height;
+  max-height: $kz-layout-navigation-bar-height;
   width: 100%;
   position: fixed;
 
@@ -346,8 +376,14 @@ $navbar-breakpoint-condensed-large-up: 1150px;
     display: none;
   }
 
+  transition: background-color $ca-duration-slow $ca-ease-in-out;
+
   &.content {
-    background: $kz-color-cluny-200;
+    background-color: $kz-color-cluny-200;
+  }
+
+  &.admin {
+    background-color: $kz-color-white;
   }
 }
 

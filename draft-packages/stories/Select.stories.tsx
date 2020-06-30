@@ -109,6 +109,17 @@ SingleEllipsis.story = {
   name: "Single with ellipsizing selection",
 }
 
+export const SingleClearable = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      placeholder="Placeholder"
+      isSearchable={false}
+      isClearable={true}
+    />
+  </StoryContainer>
+)
+
 export const SingleSearchable = () => (
   <StoryContainer>
     <Select options={options} placeholder="Placeholder" />

@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.8.1...@kaizen/draft-zen-navigation-bar@1.8.2) (2020-06-29)
+
+
+### Bug Fixes
+
+* reverse badge colour for admin theme ([#591](https://github.com/cultureamp/kaizen-design-system/issues/591)) ([cd3a4eb](https://github.com/cultureamp/kaizen-design-system/commit/cd3a4ebd7577fcb5953bc572c0bd962702c1f20c))
+
+
+
+
+
+## [1.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.8.0...@kaizen/draft-zen-navigation-bar@1.8.1) (2020-06-29)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+# [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.7.0...@kaizen/draft-zen-navigation-bar@1.8.0) (2020-06-26)
+
+
+### Features
+
+* Add layout token for nav bar height ([#582](https://github.com/cultureamp/kaizen-design-system/issues/582)) ([1be3bcb](https://github.com/cultureamp/kaizen-design-system/commit/1be3bcb8464f18ffe7ca5c586aa57c00f4f60764))
+
+
+
+
+
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.6.25...@kaizen/draft-zen-navigation-bar@1.7.0) (2020-06-26)
+
+
+### Features
+
+* add colour scheme to navigation bar ([#583](https://github.com/cultureamp/kaizen-design-system/issues/583)) ([8948e41](https://github.com/cultureamp/kaizen-design-system/commit/8948e412064ef5df00425607013c8f457d805e7a))
+
+
+
+
+
 ## [1.6.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.6.24...@kaizen/draft-zen-navigation-bar@1.6.25) (2020-06-22)
 
 **Note:** Version bump only for package @kaizen/draft-zen-navigation-bar

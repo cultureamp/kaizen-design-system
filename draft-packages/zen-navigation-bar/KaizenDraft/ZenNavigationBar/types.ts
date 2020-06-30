@@ -1,5 +1,7 @@
 import { default as React, ReactElement } from "react"
 
+export type ColorScheme = "cultureamp" | "kaizen" | "content" | "admin"
+
 export type Navigation = {
   primary?: NavigationItem[]
   secondary?: NavigationItem[]
@@ -29,7 +31,7 @@ export type LinkProps = {
   }
   opaque?: boolean
   small?: boolean
-  content?: boolean
+  colorScheme?: ColorScheme
   tooltip?: string
 }
 
@@ -43,6 +45,7 @@ export type MenuProps = {
   icon?: React.SVGAttributes<SVGSymbolElement>
   opaque?: boolean
   small?: boolean
+  colorScheme?: ColorScheme
 }
 
 export type MenuItemProps = {
