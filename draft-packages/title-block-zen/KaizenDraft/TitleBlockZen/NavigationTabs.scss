@@ -19,11 +19,11 @@
   color: rgba($kz-color-white, 0.7);
 
   @include title-block-under-1440 {
-    @include ca-margin($end: $ca-grid * 0.5);
+    @include ca-margin($end: $ca-grid * 0.25);
   }
 
-  @include title-block-medium-and-small {
-    padding: 0 ($ca-grid / 3);
+  @media (max-width: 1189px) {
+    margin: 0;
   }
 
   &:hover {
@@ -36,6 +36,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  white-space: nowrap;
 
   font-family: $kz-typography-heading-4-font-family;
   font-weight: $kz-typography-heading-4-font-weight;

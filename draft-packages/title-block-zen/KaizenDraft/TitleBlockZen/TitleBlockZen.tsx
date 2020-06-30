@@ -120,7 +120,9 @@ const renderAvatar = (image: JSX.Element) => (
 )
 
 const renderSubtitle = (subtitle: string) => (
-  <div className={styles.subtitle}>{subtitle}</div>
+  <div className={styles.subtitle}>
+    <span className={styles.subtitleText}>{subtitle}</span>
+  </div>
 )
 
 const renderSectionTitle = (
@@ -221,6 +223,14 @@ const createTabletOverflowMenuItems = (
   return flatSecondaryActionsList.concat(flatSecondaryOverflowItemsList)
 }
 
+const largeViewMinSizeInPixels = parseInt(
+  layoutTokens.kz.layout.breakpoints.large,
+  10
+)
+const smallAndMediumMediaQuery = window.matchMedia(
+  `(max-width: ${largeViewMinSizeInPixels - 1}px)`
+)
+
 /**
  * ### primaryAction
  *
@@ -261,14 +271,6 @@ const TitleBlockZen = ({
     false
   )
 
-  const largeViewMinSizeInPixels = parseInt(
-    layoutTokens.kz.layout.breakpoints.large,
-    10
-  )
-  const smallAndMediumMediaQuery = window.matchMedia(
-    `(max-width: ${largeViewMinSizeInPixels - 1}px)`
-  )
-
   const updateOnViewportChange = mediaQuery => {
     if (mediaQuery.matches && !isSmallOrMediumViewport) {
       setSmallOrMediumViewport(true)
@@ -293,6 +295,8 @@ const TitleBlockZen = ({
           [styles.hasSubtitle]: Boolean(subtitle),
           [styles.educationVariant]: variant === "education",
           [styles.adminVariant]: variant === "admin",
+          [styles.hasLongTitle]: title.length >= 30,
+          [styles.hasLongSubtitle]: subtitle && subtitle.length >= 34,
         })}
       >
         <div className={styles.titleRow}>
@@ -335,7 +339,7 @@ const TitleBlockZen = ({
                 <MainActions
                   primaryAction={primaryAction}
                   defaultAction={defaultAction}
-                  reversed={true}
+                  reversed={isReversed(variant)}
                   overflowMenuItems={createTabletOverflowMenuItems(
                     secondaryActions,
                     secondaryOverflowMenuItems

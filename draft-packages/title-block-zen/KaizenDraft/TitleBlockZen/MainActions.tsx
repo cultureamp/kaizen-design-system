@@ -33,8 +33,8 @@ const MainActions = ({
   if (primaryAction && isMenuGroupNotButton(primaryAction)) {
     const menuContent = (
       <MenuContent>
-        {primaryAction.menuItems.map(item => (
-          <MenuItem {...item} />
+        {primaryAction.menuItems.map((item, idx) => (
+          <MenuItem {...item} key={`main-action-primary-${idx}`} />
         ))}
       </MenuContent>
     )
@@ -65,7 +65,7 @@ const MainActions = ({
     ]
   }
 
-  if (overflowMenuItems && showOverflowMenu) {
+  if (overflowMenuItems && showOverflowMenu && overflowMenuItems.length > 0) {
     items = [
       <Menu
         button={
@@ -73,8 +73,8 @@ const MainActions = ({
         }
       >
         <MenuContent>
-          {overflowMenuItems.map(menuItem => (
-            <MenuItem {...menuItem} />
+          {overflowMenuItems.map((menuItem, idx) => (
+            <MenuItem {...menuItem} key={`main-action-overflow-item-${idx}`} />
           ))}
         </MenuContent>
       </Menu>,
