@@ -26,5 +26,5 @@ Run `yarn install` to add this new component to your workspace root. This is req
 Q: I get an error when I run `yo` in a terminal
 A: Yarn bin might not be added to your PATH. Add this to `~/.bash_profile` (or your equivalent): `export PATH="$PATH:$(yarn global bin)"`
 
-Q: asdf is complaining about things
-A: `asdf reshim nodejs`
+Q: I use asdf and I still get the following error `command not found: yo`
+A: Try `asdf reshim`
