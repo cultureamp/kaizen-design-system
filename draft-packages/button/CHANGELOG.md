@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.7.6...@kaizen/draft-button@1.7.7) (2020-06-29)
+
+
+### Bug Fixes
+
+* Add stylelint ignores for all preexisting usages of !important ([#568](https://github.com/cultureamp/kaizen-design-system/issues/568)) ([baa2a56](https://github.com/cultureamp/kaizen-design-system/commit/baa2a566277bdd6d2e7ff9b101ccbbcdf88718d2))
+
+
+
+
+
+## [1.7.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.7.5...@kaizen/draft-button@1.7.6) (2020-06-29)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
 ## [1.7.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.7.4...@kaizen/draft-button@1.7.5) (2020-06-26)
 
 **Note:** Version bump only for package @kaizen/draft-button

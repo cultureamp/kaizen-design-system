@@ -1,3 +1,4 @@
+import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { AsyncSelect, Select } from "@kaizen/draft-select"
 import * as React from "react"
 
@@ -7,6 +8,10 @@ const StoryContainer = ({ children }: { children: React.ReactNode }) => {
 
 const WideStoryContainer = ({ children }: { children: React.ReactNode }) => {
   return <div style={{ width: "500px", margin: "12px auto" }}>{children}</div>
+}
+
+const NarrowStoryContainer = ({ children }: { children: React.ReactNode }) => {
+  return <div style={{ width: "200px", margin: "12px auto" }}>{children}</div>
 }
 
 const options = [
@@ -69,7 +74,49 @@ export default {
 
 export const Single = () => (
   <StoryContainer>
-    <Select options={options} placeholder="Placeholder" isSearchable={false} />
+    <Select
+      options={options}
+      placeholder="Placeholder"
+      isSearchable={false}
+      isDisabled={false}
+      defaultValue={options[0]}
+    />
+  </StoryContainer>
+)
+
+export const SingleEllipsis = () => {
+  const localOptions = [
+    {
+      value: "a",
+      label:
+        "Long option where the container is 200px fixed width and the selected option should ellipsize",
+    },
+    { value: "b", label: "B" },
+  ]
+
+  return (
+    <NarrowStoryContainer>
+      <Select
+        options={localOptions}
+        isSearchable={false}
+        defaultValue={localOptions[0]}
+      />
+    </NarrowStoryContainer>
+  )
+}
+
+SingleEllipsis.story = {
+  name: "Single with ellipsizing selection",
+}
+
+export const SingleClearable = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      placeholder="Placeholder"
+      isSearchable={false}
+      isClearable={true}
+    />
   </StoryContainer>
 )
 
@@ -109,7 +156,93 @@ export const MultiAsyncSearchable = () => (
     />
   </WideStoryContainer>
 )
-
 MultiAsyncSearchable.story = {
   name: "Multi-Async Searchable",
+}
+
+export const SingleSecondaryReversed = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      isSearchable={false}
+      defaultValue={options[0]}
+      variant="secondary"
+      reversed={true}
+    />
+  </StoryContainer>
+)
+
+SingleSecondaryReversed.story = {
+  name: "Single Secondary Reversed",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
+}
+
+export const SingleSecondaryWithEllipsis = () => {
+  const localOptions = [
+    {
+      value: "a",
+      label:
+        "Long option where the container is 200px fixed width and the selected option should ellipsize",
+    },
+    { value: "b", label: "B" },
+    { value: "c", label: "Regular" },
+  ]
+  return (
+    <NarrowStoryContainer>
+      <Select
+        options={localOptions}
+        isSearchable={false}
+        defaultValue={localOptions[0]}
+        variant="secondary"
+        reversed={true}
+      />
+    </NarrowStoryContainer>
+  )
+}
+
+SingleSecondaryWithEllipsis.story = {
+  name: "Single Secondary with ellipsis",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
+}
+
+export const SingleSecondaryReversedDisabled = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      isDisabled={true}
+      isSearchable={false}
+      defaultValue={options[0]}
+      variant="secondary"
+      reversed={true}
+    />
+  </StoryContainer>
+)
+
+SingleSecondaryReversedDisabled.story = {
+  name: "Single Secondary Reversed (disabled)",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
 }

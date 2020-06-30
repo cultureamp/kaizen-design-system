@@ -12,7 +12,13 @@ interface Tab {
 }
 
 interface Props {
+  /**
+   * Support for languages that read right to left. This will flip margins and paddings on the x-axis.
+   * @default "false"
+   */
+  readonly textDirection?: "ltr" | "rtl"
   readonly tabs: Tab[]
+  readonly orientation?: "row" | "column"
   readonly renderTab?: (renderProps: {
     readonly tab: Tab
     readonly tabClassName: string
@@ -21,36 +27,81 @@ interface Props {
   }) => React.ReactNode
 }
 
-const Tabs = (props: Props) => {
-  const { tabs, renderTab } = props
+const Tabs = ({
+  orientation = "row",
+  textDirection = "ltr",
+  tabs,
+  renderTab,
+}: Props) => {
+  if (orientation === "row") {
+    return (
+      <RowTab textDirection={textDirection} tabs={tabs} renderTab={renderTab} />
+    )
+  }
 
   return (
-    <div className={styles.container}>
-      {tabs.map(t => {
-        return renderTab ? (
-          renderTab({
-            tab: t,
-            tabClassName: styles.tab,
-            activeTabClassName: styles.activeTab,
-            disabledTabClassName: styles.disabledTab,
-          })
-        ) : (
-          <a
-            key={t.label}
-            onClick={t.onClick}
-            href={t.href}
-            className={classnames({
-              [styles.tab]: !t.active && !t.disabled,
-              [styles.activeTab]: t.active,
-              [styles.disabledTab]: t.disabled,
-            })}
-          >
-            {t.label}
-          </a>
-        )
-      })}
-    </div>
+    <ColumnTab
+      textDirection={textDirection}
+      tabs={tabs}
+      renderTab={renderTab}
+    />
   )
 }
+
+const RowTab = ({ tabs, renderTab, textDirection }) => (
+  <div className={styles.container} dir={textDirection}>
+    {tabs.map(t =>
+      renderTab ? (
+        renderTab({
+          tab: t,
+          tabClassName: styles.rowTab,
+          activeTabClassName: styles.rowTabActive,
+          disabledTabClassName: styles.rowTabDisabled,
+        })
+      ) : (
+        <a
+          key={t.label}
+          onClick={t.onClick}
+          href={!t.disabled ? t.href : null}
+          className={classnames({
+            [styles.rowTab]: !t.active && !t.disabled,
+            [styles.rowTabActive]: t.active,
+            [styles.rowTabDisabled]: t.disabled,
+          })}
+        >
+          {t.label}
+        </a>
+      )
+    )}
+  </div>
+)
+
+const ColumnTab = ({ tabs, renderTab, textDirection }) => (
+  <div dir={textDirection}>
+    {tabs.map(t =>
+      renderTab ? (
+        renderTab({
+          tab: t,
+          tabClassName: styles.columnTab,
+          activeTabClassName: styles.columnTabActive,
+          disabledTabClassName: styles.columnTabDisabled,
+        })
+      ) : (
+        <a
+          key={t.label}
+          onClick={t.onClick}
+          href={!t.disabled ? t.href : null}
+          className={classnames({
+            [styles.columnTab]: !t.active && !t.disabled,
+            [styles.columnTabActive]: t.active,
+            [styles.columnTabDisabled]: t.disabled,
+          })}
+        >
+          {t.label}
+        </a>
+      )
+    )}
+  </div>
+)
 
 export default Tabs
