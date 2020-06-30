@@ -19,7 +19,11 @@ export const FilterDrawer = ({
   return (
     <div className={styles.filterDrawer}>
       <Menu button={filterButton(labelText)}>
-        <MenuContent>{children}</MenuContent>
+        <MenuContent>
+          <div className={styles.content} onClick={e => e.stopPropagation()}>
+            {children}
+          </div>
+        </MenuContent>
       </Menu>
       <Metadata items={metadata} />
     </div>
