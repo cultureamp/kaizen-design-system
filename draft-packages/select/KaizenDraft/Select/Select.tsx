@@ -9,7 +9,7 @@ import { Icon } from "@kaizen/component-library"
 
 const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
-const closeIcon = require("@kaizen/component-library/icons/close.icon.svg")
+const clearIcon = require("@kaizen/component-library/icons/clear.icon.svg")
   .default
 
 const styles = require("./styles.react.scss")
@@ -116,6 +116,6 @@ const MultiValue: typeof components.MultiValue = props => (
 
 const ClearIndicator: typeof components.ClearIndicator = props => (
   <components.ClearIndicator {...props}>
-    <Icon icon={closeIcon} role="presentation" />
+    <Icon icon={clearIcon} role="presentation" />
   </components.ClearIndicator>
 )
