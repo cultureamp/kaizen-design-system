@@ -12,11 +12,9 @@ export interface FilterDrawerProps {
 
 export const FilterDrawer = ({ labelText, children }: FilterDrawerProps) => {
   return (
-    <div style={{ display: "inline-block" }}>
-      <Menu button={filterButton(labelText)}>
-        <MenuContent>{children}</MenuContent>
-      </Menu>
-    </div>
+    <Menu button={filterButton(labelText)}>
+      <MenuContent>{children}</MenuContent>
+    </Menu>
   )
 }
 

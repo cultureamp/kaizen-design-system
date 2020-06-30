@@ -6,7 +6,7 @@ import { FilterDrawer } from "@kaizen/draft-filter-drawer"
 
 const StoryWrapper = ({ children }) => (
   <div style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}>
-    <div style={{ display: "inline-block" }}>{children}</div>
+    {children}
   </div>
 )
 
