@@ -4,6 +4,7 @@
 @import "@kaizen/deprecated-component-library-helpers/styles/type";
 
 $gap: $kz-spacing-sm;
+$menuContentPadding: 4px; // this comes from the MenuContent component, which should be using tokens
 
 .filterDrawer {
   display: flex;
@@ -15,6 +16,10 @@ $gap: $kz-spacing-sm;
   > * {
     margin: 0 ($gap / 2);
   }
+}
+
+.content {
+  padding: calc(#{$kz-spacing-sm} - #{$menuContentPadding});
 }
 
 // The button used for the Filter Drawer component is similar to the
