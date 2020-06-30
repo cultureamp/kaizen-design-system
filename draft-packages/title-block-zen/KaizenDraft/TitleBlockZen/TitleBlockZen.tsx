@@ -1,14 +1,7 @@
 import { Heading, Icon } from "@kaizen/component-library"
 import * as layoutTokens from "@kaizen/design-tokens/tokens/layout.json"
-import { Button, ButtonProps } from "@kaizen/draft-button"
-import {
-  Menu,
-  MenuContent,
-  MenuHeader,
-  MenuItem,
-  MenuItemProps,
-  MenuSeparator,
-} from "@kaizen/draft-menu"
+import { ButtonProps } from "@kaizen/draft-button"
+import { MenuItemProps } from "@kaizen/draft-menu"
 import { Tag } from "@kaizen/draft-tag"
 import classNames from "classnames"
 import * as React from "react"

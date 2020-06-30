@@ -1,5 +1,5 @@
 import { Icon } from "@kaizen/component-library"
-import { Button, ButtonProps } from "@kaizen/draft-button"
+import { ButtonProps } from "@kaizen/draft-button"
 import {
   MenuContent,
   MenuHeader,
@@ -12,13 +12,10 @@ import * as React from "react"
 import {
   ButtonWithOnClickOrHref,
   isMenuGroupNotButton,
-  isMenuItemNotButton,
   MenuGroup,
   PrimaryActionProps,
   SecondaryActionsProps,
 } from "./TitleBlockZen"
-const starIcon = require("@kaizen/component-library/icons/star-on.icon.svg")
-  .default
 const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
 const chevronUpIcon = require("@kaizen/component-library/icons/chevron-up.icon.svg")
