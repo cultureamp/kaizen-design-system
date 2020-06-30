@@ -16,7 +16,66 @@ const styles = require("./styles.react.scss")
 
 export { ValueType } from "react-select"
 
-export const Select = (props: ReactSelectProps) => {
+export type SelectProps = {
+  /**
+   * The secondary variant is a more subdued variant that takes up as little space as possible
+   * `variant="secondary" reversed="false" is not implemented and will throw a "not implemented" error
+   * @default "default"
+   */
+  variant?: VariantType
+
+  /**
+   * Use a reversed colour scheme
+   * `variant="default" reversed="true" is not implemented and will throw a "not implemented" error
+   * @default false
+   */
+  reversed?: boolean
+
+  /**
+   * Whether the "select control" (the button you click to open the menu) width fills the
+   * full width of  the container or is as wide as the selected option text.
+   * Note that the control text will ellipsize if it is wider than the parent container.
+   * `variant="default" fullWidth=false"` is not implemented and
+   * will throw a "not implemented" error
+   * @default false if variant is "secondary", otherwise true
+   */
+  fullWidth?: boolean
+}
+
+export type VariantType = "default" | "secondary"
+
+export const Select = (props: SelectProps & ReactSelectProps) => {
+  if (props.fullWidth === false && props.variant !== "secondary") {
+    throw new Error(
+      `the prop fullWidth=false is not yet implemented when variant="default"`
+    )
+  }
+  const { variant = "default", reversed = false } = props
+
+  // the default for fullWidth depends on the variant
+  const fullWidth =
+    props.fullWidth != null
+      ? props.fullWidth
+      : variant === "secondary"
+      ? false
+      : true
+
+  if (reversed === true && variant === "default") {
+    throw new Error(
+      `the combo variant="default" and reversed=true is not yet implemented for the Select component`
+    )
+  }
+  if (reversed === false && variant === "secondary") {
+    throw new Error(
+      `the combo variant="secondary" and reversed=false is not yet implemented for the Select component`
+    )
+  }
+
+  const classes = classNames(props.className, styles.specificityIncreaser, {
+    [styles.reversed]: reversed,
+    [styles.secondary]: variant === "secondary",
+    [styles.notFullWidth]: !fullWidth,
+  })
   return (
     <ReactSelect
       {...props}
@@ -29,10 +88,11 @@ export const Select = (props: ReactSelectProps) => {
         NoOptionsMessage,
         SingleValue,
         MultiValue,
+        IndicatorsContainer,
         ClearIndicator,
         IndicatorSeparator: null,
       }}
-      className={classNames(styles.container, props.className)}
+      className={classes}
     />
   )
 }
@@ -52,10 +112,11 @@ export const AsyncSelect = (props: AsyncProps) => {
         NoOptionsMessage,
         SingleValue,
         MultiValue,
+        IndicatorsContainer,
         ClearIndicator: null,
         IndicatorSeparator: null,
       }}
-      className={classNames(styles.container, props.className)}
+      className={classNames(styles.specificityIncreaser, props.className)}
     />
   )
 }
@@ -65,6 +126,7 @@ const Control: typeof components.Control = props => (
     {...props}
     className={classNames(styles.control, {
       [styles.focusedControl]: props.isFocused,
+      [styles.disabled]: props.isDisabled,
     })}
   />
 )
@@ -78,7 +140,7 @@ const Placeholder: typeof components.Placeholder = props => (
 const DropdownIndicator: typeof components.DropdownIndicator = props => (
   // Suppress typing issue - looks like the type defs are incorrect
   // @ts-ignore
-  <components.DropdownIndicator {...props}>
+  <components.DropdownIndicator {...props} className={styles.dropdownIndicator}>
     <Icon icon={chevronDownIcon} role="presentation" />
   </components.DropdownIndicator>
 )
@@ -104,16 +166,24 @@ const NoOptionsMessage: typeof components.NoOptionsMessage = props => (
   </components.NoOptionsMessage>
 )
 
-const SingleValue: typeof components.SingleValue = props => (
-  <components.SingleValue {...props}>
-    <span className={styles.singleValue}>{props.children}</span>
-  </components.SingleValue>
-)
+const SingleValue: typeof components.SingleValue = props => {
+  return (
+    <components.SingleValue {...props} className={styles.singleValueOverrides}>
+      <span className={styles.singleValue}>{props.children}</span>
+    </components.SingleValue>
+  )
+}
 
 const MultiValue: typeof components.MultiValue = props => (
   <components.MultiValue {...props} className={styles.multiValue} />
 )
 
+const IndicatorsContainer: typeof components.IndicatorsContainer = props => (
+  <components.IndicatorsContainer
+    {...props}
+    className={styles.indicatorsContainer}
+  />
+)
 const ClearIndicator: typeof components.ClearIndicator = props => (
   <components.ClearIndicator {...props}>
     <Icon icon={clearIcon} role="presentation" />
