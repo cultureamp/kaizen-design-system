@@ -32,37 +32,33 @@ export type SelectProps = {
   reversed?: boolean
 
   /**
-   * Whether the "control" (the button you click to open the menu) width fills the
-   * container or is as wide as the selected option text. Note that the control text
-   * will ellipsize if it is wider than the parent container.
-   * `variant="default" selectControlWidth="containSelection"` is not implemented and
+   * Whether the "select control" (the button you click to open the menu) width fills the
+   * full width of  the container or is as wide as the selected option text.
+   * Note that the control text will ellipsize if it is wider than the parent container.
+   * `variant="default" fullWidth=false"` is not implemented and
    * will throw a "not implemented" error
-   * @default "containSelection" if variant is "secondary", otherwise "fillContainer"
+   * @default false if variant is "secondary", otherwise true
    */
-  selectControlWidth?: SelectControlWidthType
+  fullWidth?: boolean
 }
 
 export type VariantType = "default" | "secondary"
-export type SelectControlWidthType = "fillContainer" | "containSelection"
 
 export const Select = (props: SelectProps & ReactSelectProps) => {
-  if (
-    props.selectControlWidth === "containSelection" &&
-    props.variant !== "secondary"
-  ) {
+  if (props.fullWidth === false && props.variant !== "secondary") {
     throw new Error(
-      `the prop selectControlWidth=containSelection is not yet implemented when variant="default"`
+      `the prop fullWidth=false is not yet implemented when variant="default"`
     )
   }
   const { variant = "default", reversed = false } = props
 
-  // the default for selectControlWidth depends on the variant
-  const selectControlWidth =
-    props.selectControlWidth != null
-      ? props.selectControlWidth
+  // the default for fullWidth depends on the variant
+  const fullWidth =
+    props.fullWidth != null
+      ? props.fullWidth
       : variant === "secondary"
-      ? "containSelection"
-      : "fillContainer"
+      ? false
+      : true
 
   if (reversed === true && variant === "default") {
     throw new Error(
@@ -78,8 +74,7 @@ export const Select = (props: SelectProps & ReactSelectProps) => {
   const classes = classNames(props.className, styles.specificityIncreaser, {
     [styles.reversed]: reversed,
     [styles.secondary]: variant === "secondary",
-    [styles.controlWidthContainSelection]:
-      selectControlWidth === "containSelection",
+    [styles.notFullWidth]: !fullWidth,
   })
   return (
     <ReactSelect
