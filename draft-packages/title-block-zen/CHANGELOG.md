@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.4.0...@kaizen/draft-title-block-zen@1.5.0) (2020-07-01)
+
+
+### Features
+
+* Expose TitleBlockProps from TitleBlockZen ([#602](https://github.com/cultureamp/kaizen-design-system/issues/602)) ([223fe01](https://github.com/cultureamp/kaizen-design-system/commit/223fe0173d94b8f7d1f393de663a099c9796ab10))
+
+
+
+
+
 # [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.3.2...@kaizen/draft-title-block-zen@1.4.0) (2020-06-30)
 
 
