@@ -176,7 +176,9 @@ const renderBreadcrumb = (
   )
 }
 
-const renderNavigationTabs = (navigationTabs: NavigationTabs) => {
+// We want to accept undefined here because the NavigationTabs container is
+// important for the flex-based layout (it pushes Secondary Actions over to the right)
+const renderNavigationTabs = (navigationTabs: NavigationTabs | undefined) => {
   return (
     <div className={styles.navigationTabScrollerContainer}>
       <div className={styles.navigationTabsContainer}>
@@ -359,7 +361,7 @@ const TitleBlockZen = ({
                   sectionTitleDescription,
                   variant
                 )}
-              {navigationTabs && renderNavigationTabs(navigationTabs)}
+              {renderNavigationTabs(navigationTabs)}
               <SecondaryActions
                 secondaryActions={secondaryActions}
                 secondaryOverflowMenuItems={secondaryOverflowMenuItems}
