@@ -117,6 +117,13 @@ const DemoFilterDrawer = () => {
     setVenomousCheckboxState(appliedFilters.venomous)
   }
 
+  const getNumFiltersEnabled = () =>
+    [
+      appliedFilters.furry,
+      appliedFilters.aquatic,
+      appliedFilters.venomous,
+    ].filter(status => status == "on").length
+
   return (
     <FilterDrawer
       labelText="Filter"
@@ -124,6 +131,7 @@ const DemoFilterDrawer = () => {
       isDropdownVisible={isDropdownVisible}
       toggleDropdown={toggleDropdown}
       hideDropdown={hideDropdown}
+      numFiltersEnabled={getNumFiltersEnabled()}
     >
       <>
         <CheckboxGroup labelText="Traits">
