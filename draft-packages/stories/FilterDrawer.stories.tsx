@@ -60,15 +60,15 @@ export const DefaultStory = () => (
   </StoryWrapper>
 )
 
-const DemoFilterDrawer = props => {
-  const [furryStatus, setFurryStatus] = useState("off")
-  const [aquaticStatus, setAquaticStatus] = useState("off")
-  const [venomousStatus, setVenomousStatus] = useState("off")
+const DemoFilterDrawer = () => {
+  const [furryCheckboxState, setFurryState] = useState("off")
+  const [aquaticCheckboxState, setAquaticState] = useState("off")
+  const [venomousCheckboxState, setVenomousState] = useState("off")
   const [isDropdownVisible, setIsDropdownVisible] = useState(true)
 
-  const checkedTraits: string[] = (furryStatus === "on" ? ["Furry"] : [])
-    .concat(aquaticStatus === "on" ? ["Aquatic"] : [])
-    .concat(venomousStatus === "on" ? ["Venomous"] : [])
+  const checkedTraits: string[] = (furryState === "on" ? ["Furry"] : [])
+    .concat(aquaticState === "on" ? ["Aquatic"] : [])
+    .concat(venomousState === "on" ? ["Venomous"] : [])
 
   // TODO: move inside component
   const toggleDropdown = () => {
@@ -92,26 +92,30 @@ const DemoFilterDrawer = props => {
         <CheckboxGroup labelText="Traits">
           <CheckboxField
             onCheck={() => {
-              setFurryStatus(furryStatus === "on" ? "off" : "on")
+              setFurryCheckboxState(furryCheckboxState === "on" ? "off" : "on")
             }}
             id="checkbox-1"
-            checkedStatus={furryStatus as any}
+            checkedStatus={furryCheckboxState as any}
             labelText="Furry"
           />
           <CheckboxField
             onCheck={() => {
-              setAquaticStatus(aquaticStatus === "on" ? "off" : "on")
+              setAquaticCheckboxState(
+                aquaticCheckboxState === "on" ? "off" : "on"
+              )
             }}
             id="checkbox-2"
-            checkedStatus={aquaticStatus as any}
+            checkedStatus={aquaticCheckboxState as any}
             labelText="Aquatic"
           />
           <CheckboxField
             onCheck={() => {
-              setVenomousStatus(venomousStatus === "on" ? "off" : "on")
+              setVenomousCheckboxState(
+                venomousCheckboxState === "on" ? "off" : "on"
+              )
             }}
             id="checkbox-3"
-            checkedStatus={venomousStatus as any}
+            checkedStatus={venomousCheckboxState as any}
             labelText="Venomous"
           />
         </CheckboxGroup>
