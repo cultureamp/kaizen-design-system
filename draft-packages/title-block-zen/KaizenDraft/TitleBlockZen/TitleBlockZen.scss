@@ -375,13 +375,8 @@ $tab-container-height-small: $ca-grid * 2.5;
 .rowBelowSeparatorInnerContent {
   display: flex;
   width: 100%;
-  // height: $ca-grid * 3;
   margin-top: -$title-block-separator-height;
   justify-content: space-between;
-
-  // @include title-block-small {
-  //   height: $ca-grid * 2.5;
-  // }
 }
 
 .titleAndAdjacent {
@@ -424,7 +419,6 @@ $tab-container-height-small: $ca-grid * 2.5;
 
 .navigationTabsContainer {
   display: flex;
-  // position: relative;
   height: $tab-container-height-default;
 
   @include title-block-small {
@@ -434,13 +428,19 @@ $tab-container-height-small: $ca-grid * 2.5;
 
 .navigationTabScrollerContainer {
   @include title-block-small {
-    // position: relative;
+    display: none;
     overflow-x: scroll;
     scrollbar-width: none;
     width: 100vw;
 
     &::-webkit-scrollbar {
       display: none;
+    }
+  }
+
+  .hasNavigationTabs & {
+    @include title-block-small {
+      display: block;
     }
   }
 }
@@ -557,7 +557,6 @@ $tab-container-height-small: $ca-grid * 2.5;
 }
 
 .breadcrumbText {
-  // flex: 0 0 $ca-grid * 8;
   top: 0;
   display: none;
   @include ca-margin($start: $ca-grid);

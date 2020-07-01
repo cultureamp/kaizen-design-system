@@ -301,6 +301,8 @@ const TitleBlockZen = ({
           [styles.adminVariant]: variant === "admin",
           [styles.hasLongTitle]: title.length >= 30,
           [styles.hasLongSubtitle]: subtitle && subtitle.length >= 34,
+          [styles.hasNavigationTabs]:
+            navigationTabs && navigationTabs.length > 0,
         })}
       >
         <div className={styles.titleRow}>
