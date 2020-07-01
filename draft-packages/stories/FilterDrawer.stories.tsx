@@ -64,42 +64,65 @@ const DemoFilterDrawer = props => {
   const [furryStatus, setFurryStatus] = useState("off")
   const [aquaticStatus, setAquaticStatus] = useState("off")
   const [venomousStatus, setVenomousStatus] = useState("off")
+  const [isDropdownVisible, setIsDropdownVisible] = useState(true)
 
-  const checkedTraits: string[] = [
-    furryStatus === "on" ? "Furry" : null,
-    aquaticStatus === "on" ? "Aquatic" : null,
-    venomousStatus === "on" ? "Venomous" : null,
-  ].filter(e => e != null)
+  const checkedTraits: string[] = (furryStatus === "on" ? ["Furry"] : [])
+    .concat(aquaticStatus === "on" ? ["Aquatic"] : [])
+    .concat(venomousStatus === "on" ? ["Venomous"] : [])
+
+  // TODO: move inside component
+  const toggleDropdown = () => {
+    setIsDropdownVisible(!isDropdownVisible)
+  }
+
+  // TODO: move inside component
+  const hideDropdown = () => {
+    setIsDropdownVisible(false)
+  }
 
   return (
-    <FilterDrawer labelText="Filter" metadata={checkedTraits}>
-      <CheckboxGroup labelText="Traits">
-        <CheckboxField
-          onCheck={() => {
-            setFurryStatus(furryStatus === "on" ? "off" : "on")
+    <FilterDrawer
+      labelText="Filter"
+      metadata={checkedTraits}
+      isDropdownVisible={isDropdownVisible}
+      toggleDropdown={toggleDropdown}
+      hideDropdown={hideDropdown}
+    >
+      <>
+        <CheckboxGroup labelText="Traits">
+          <CheckboxField
+            onCheck={() => {
+              setFurryStatus(furryStatus === "on" ? "off" : "on")
+            }}
+            id="checkbox-1"
+            checkedStatus={furryStatus as any}
+            labelText="Furry"
+          />
+          <CheckboxField
+            onCheck={() => {
+              setAquaticStatus(aquaticStatus === "on" ? "off" : "on")
+            }}
+            id="checkbox-2"
+            checkedStatus={aquaticStatus as any}
+            labelText="Aquatic"
+          />
+          <CheckboxField
+            onCheck={() => {
+              setVenomousStatus(venomousStatus === "on" ? "off" : "on")
+            }}
+            id="checkbox-3"
+            checkedStatus={venomousStatus as any}
+            labelText="Venomous"
+          />
+        </CheckboxGroup>
+        <Button
+          primary={true}
+          label="Apply"
+          onClick={() => {
+            toggleDropdown()
           }}
-          id="checkbox-1"
-          checkedStatus={furryStatus as any}
-          labelText="Furry"
         />
-        <CheckboxField
-          onCheck={() => {
-            setAquaticStatus(aquaticStatus === "on" ? "off" : "on")
-          }}
-          id="checkbox-2"
-          checkedStatus={aquaticStatus as any}
-          labelText="Aquatic"
-        />
-        <CheckboxField
-          onCheck={() => {
-            setVenomousStatus(venomousStatus === "on" ? "off" : "on")
-          }}
-          id="checkbox-3"
-          checkedStatus={venomousStatus as any}
-          labelText="Venomous"
-        />
-      </CheckboxGroup>
-      <Button primary={true} label="Apply" />
+      </>
     </FilterDrawer>
   )
 }
