@@ -190,12 +190,22 @@ $tab-container-height-small: $ca-grid * 2.5;
     letter-spacing: $kz-typography-heading-2-letter-spacing;
   }
   @include title-block-under-1366 {
-    font-family: $kz-typography-heading-3-font-family;
-    font-weight: $kz-typography-heading-3-font-weight;
-    font-size: $kz-typography-heading-3-font-size;
-    line-height: $kz-typography-heading-3-line-height;
-    letter-spacing: $kz-typography-heading-3-letter-spacing;
+    font-family: $kz-typography-heading-2-font-family;
+    font-weight: $kz-typography-heading-2-font-weight;
+    font-size: $kz-typography-heading-2-font-size;
+    line-height: $kz-typography-heading-2-line-height;
+    letter-spacing: $kz-typography-heading-2-letter-spacing;
     padding: 2px 0;
+  }
+  .hasLongTitle & {
+    @include title-block-under-1366 {
+      font-family: $kz-typography-heading-3-font-family;
+      font-weight: $kz-typography-heading-3-font-weight;
+      font-size: $kz-typography-heading-3-font-size;
+      line-height: $kz-typography-heading-3-line-height;
+      letter-spacing: $kz-typography-heading-3-letter-spacing;
+      padding: 2px 0;
+    }
   }
 
   @include title-block-medium-and-small {
