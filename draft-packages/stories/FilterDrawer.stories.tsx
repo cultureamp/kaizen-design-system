@@ -1,11 +1,14 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
-import * as React from "react"
+import React, { useState } from "react"
 import { CheckboxGroup } from "@kaizen/draft-checkbox-group"
 import { CheckboxField, Label } from "@kaizen/draft-form"
+import { Button } from "@kaizen/draft-button"
 import { FilterDrawer } from "@kaizen/draft-filter-drawer"
 
 const StoryWrapper = ({ children }) => (
-  <div style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}>
+  <div
+    style={{ display: "flex", justifyContent: "flex-start", margin: "1rem" }}
+  >
     {children}
   </div>
 )
@@ -13,40 +16,6 @@ const StoryWrapper = ({ children }) => (
 export default {
   title: "FilterDrawer (React)",
 }
-const DemoFilters = () => (
-  <CheckboxGroup labelText="Traits">
-    <CheckboxGroupExample
-      render={({ checkedStatus, onCheckHandler }) => (
-        <CheckboxField
-          onCheck={onCheckHandler}
-          id="checkbox-1"
-          checkedStatus={checkedStatus as any}
-          labelText="Furry"
-        />
-      )}
-    />
-    <CheckboxGroupExample
-      render={({ checkedStatus, onCheckHandler }) => (
-        <CheckboxField
-          onCheck={onCheckHandler}
-          id="checkbox-2"
-          checkedStatus={checkedStatus as any}
-          labelText="Aquatic"
-        />
-      )}
-    />
-    <CheckboxGroupExample
-      render={({ checkedStatus, onCheckHandler }) => (
-        <CheckboxField
-          onCheck={onCheckHandler}
-          id="checkbox-3"
-          checkedStatus={checkedStatus as any}
-          labelText="Venomous"
-        />
-      )}
-    />
-  </CheckboxGroup>
-)
 
 interface RenderProps {
   checkedStatus: string
@@ -58,7 +27,7 @@ interface Props {
 }
 class CheckboxGroupExample extends React.Component<Props> {
   public state = {
-    checkedStatus: "on",
+    checkedStatus: "off",
   }
   constructor(props: Props) {
     super(props)
@@ -87,11 +56,53 @@ class CheckboxGroupExample extends React.Component<Props> {
 
 export const DefaultStory = () => (
   <StoryWrapper>
-    <FilterDrawer labelText="Filter" metadata={["Furry", "Venomous"]}>
-      <DemoFilters />
-    </FilterDrawer>
+    <DemoFilterDrawer />
   </StoryWrapper>
 )
+
+const DemoFilterDrawer = props => {
+  const [furryStatus, setFurryStatus] = useState("off")
+  const [aquaticStatus, setAquaticStatus] = useState("off")
+  const [venomousStatus, setVenomousStatus] = useState("off")
+
+  const checkedTraits: string[] = [
+    furryStatus === "on" ? "Furry" : null,
+    aquaticStatus === "on" ? "Aquatic" : null,
+    venomousStatus === "on" ? "Venomous" : null,
+  ].filter(e => e != null)
+
+  return (
+    <FilterDrawer labelText="Filter" metadata={checkedTraits}>
+      <CheckboxGroup labelText="Traits">
+        <CheckboxField
+          onCheck={() => {
+            setFurryStatus(furryStatus === "on" ? "off" : "on")
+          }}
+          id="checkbox-1"
+          checkedStatus={furryStatus as any}
+          labelText="Furry"
+        />
+        <CheckboxField
+          onCheck={() => {
+            setAquaticStatus(aquaticStatus === "on" ? "off" : "on")
+          }}
+          id="checkbox-2"
+          checkedStatus={aquaticStatus as any}
+          labelText="Aquatic"
+        />
+        <CheckboxField
+          onCheck={() => {
+            setVenomousStatus(venomousStatus === "on" ? "off" : "on")
+          }}
+          id="checkbox-3"
+          checkedStatus={venomousStatus as any}
+          labelText="Venomous"
+        />
+      </CheckboxGroup>
+      <Button primary={true} label="Apply" />
+    </FilterDrawer>
+  )
+}
 
 DefaultStory.story = {
   name: "Default (Kaizen Site Demo)",
