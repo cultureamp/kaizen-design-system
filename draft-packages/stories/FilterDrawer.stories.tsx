@@ -124,6 +124,15 @@ const DemoFilterDrawer = () => {
       appliedFilters.venomous,
     ].filter(status => status == "on").length
 
+  const applyButtonEnabled = () => {
+    getNumFiltersEnabled
+  }
+
+  const haveFiltersNotChanged = () =>
+    appliedFilters.furry == furryCheckboxState &&
+    appliedFilters.aquatic == aquaticCheckboxState &&
+    appliedFilters.venomous == venomousCheckboxState
+
   return (
     <FilterDrawer
       labelText="Filter"
@@ -176,6 +185,7 @@ const DemoFilterDrawer = () => {
           <Button
             primary={true}
             label="Apply"
+            disabled={haveFiltersNotChanged()}
             onClick={() => {
               applyChanges()
               toggleDropdown()
