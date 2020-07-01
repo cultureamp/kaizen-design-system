@@ -61,7 +61,8 @@ $mobile-actions-split-select-square-width: 64px;
 }
 
 .mobileActionsPrimaryLabel {
-  @include ca-padding($start: $ca-grid / 2);
+  @include ca-padding($start: $ca-grid * 0.75);
+  text-align: left;
 
   color: $kz-color-white;
   font-family: $kz-typography-button-primary-font-family;
@@ -74,7 +75,7 @@ $mobile-actions-split-select-square-width: 64px;
 .mobileActionsPrimaryButton,
 .mobileActionsExpandButton {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   background-color: transparent;
   height: 100%;
@@ -101,6 +102,7 @@ $mobile-actions-split-select-square-width: 64px;
 .mobileActionsExpandButton {
   flex-basis: $ca-grid * 2.5;
   border-left: 2px solid $kz-color-cluny-200;
+  justify-content: center;
 }
 
 .mobileActionsExpandButtonFullWidth {
@@ -109,6 +111,7 @@ $mobile-actions-split-select-square-width: 64px;
   position: relative;
   flex-basis: 100%;
   border: none;
+  justify-content: flex-start;
 }
 
 .mobileActionsChevronSquare {
