@@ -1,0 +1,35 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/component-library/styles/type";
+
+$small: $ca-grid;
+
+.badge {
+  @include ca-inherit-baseline;
+  border-radius: $kz-spacing-sm;
+  color: $kz-color-wisteria-800;
+  display: inline-block;
+  font-family: $kz-typography-paragraph-extra-small-bold-font-family;
+  font-size: $kz-typography-paragraph-extra-small-bold-font-size;
+  font-weight: $kz-typography-paragraph-extra-small-bold-font-weight;
+  letter-spacing: $kz-typography-paragraph-extra-small-bold-letter-spacing;
+  line-height: $kz-typography-paragraph-extra-small-bold-line-height;
+  padding: 1px $kz-spacing-xs;
+}
+
+.default {
+  background-color: $kz-color-wisteria-200;
+  color: $kz-color-wisteria-800;
+}
+
+.reversed.active,
+.active {
+  background-color: $kz-color-cluny-500;
+  color: $kz-color-white;
+}
+
+.reversed {
+  background-color: add-alpha($kz-color-white, 10%);
+  color: $kz-color-white;
+}
