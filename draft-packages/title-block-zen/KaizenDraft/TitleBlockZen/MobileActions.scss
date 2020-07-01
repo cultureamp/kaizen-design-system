@@ -10,6 +10,7 @@ $mobile-actions-split-select-square-width: 64px;
 
 .mobileActionsContainer {
   display: none;
+  z-index: $ca-z-index-fixed;
   flex-direction: column;
   position: fixed;
   bottom: 0;
