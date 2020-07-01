@@ -382,10 +382,6 @@ $caButton-verticalPaddingForm: calc(
 %caButtonIconButton {
   width: $caButton-height;
 
-  &:not(:disabled) {
-    cursor: pointer;
-  }
-
   // Reset for various states and variants
   &:not(:disabled),
   &:disabled {
@@ -411,6 +407,8 @@ $caButton-verticalPaddingForm: calc(
   }
 
   &:not(:disabled) {
+    cursor: pointer;
+
     &:hover,
     &:active,
     :global(.js-focus-visible) &:global(.focus-visible) {
