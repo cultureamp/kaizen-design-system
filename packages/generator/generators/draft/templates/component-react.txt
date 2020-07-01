@@ -6,9 +6,9 @@ export interface <%= componentName %>Props {
    * Remember to annotate your props! The typehints make developers happy
    * @default ""
    */
-  example?: string
+  children?: React.ReactNode
 }
 
-export const <%= componentName %> = ({ example = "" }: <%= componentName %>Props) => {
-  return <h1 className={styles.wrapper}>This is your test component</h1>
+export const <%= componentName %> = ({ children }: <%= componentName %>Props) => {
+  return <h1 className={styles.wrapper}>Hello, {children}</h1>
 }
