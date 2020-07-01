@@ -116,6 +116,7 @@ $caButton-verticalPaddingForm: calc(
     background: $kz-color-white;
     border-color: $kz-color-wisteria-500;
     color: $kz-color-wisteria-800;
+    cursor: default;
   }
 }
 
@@ -458,10 +459,13 @@ $caButton-verticalPaddingForm: calc(
     &:hover,
     &:active {
       color: $kz-color-coral-600;
+      background-color: $kz-color-coral-100;
     }
 
     :global(.js-focus-visible) &:global(.focus-visible) {
-      border-color: $kz-color-cluny-500;
+      color: $kz-color-coral-600;
+      background-color: $kz-color-coral-100;
+      border-color: $kz-border-borderless-border-color;
     }
   }
 }
