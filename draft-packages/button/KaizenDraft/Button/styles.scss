@@ -394,7 +394,7 @@ $caButton-verticalPaddingForm: calc(
     &:active,
     &%caButtonPrimary,
     &%caButtonSecondary {
-      color: $kz-color-wisteria-800;
+      color: inherit;
       background: none;
       border-color: $kz-border-borderless-border-color;
 
