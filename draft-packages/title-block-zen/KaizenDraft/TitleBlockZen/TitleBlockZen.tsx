@@ -132,15 +132,17 @@ const renderSectionTitle = (
 ) => (
   <div className={styles.sectionTitleContainer}>
     <div className={styles.sectionTitleInner}>
-      <div className={styles.sectionTitle}>
-        <Heading
-          variant="heading-2"
-          color={isReversed(variant) ? "white" : "dark"}
-          classNameAndIHaveSpokenToDST={styles.sectionTitleOverride}
-        >
-          {sectionTitle}
-        </Heading>
-      </div>
+      {sectionTitle && (
+        <div className={styles.sectionTitle}>
+          <Heading
+            variant="heading-2"
+            color={isReversed(variant) ? "white" : "dark"}
+            classNameAndIHaveSpokenToDST={styles.sectionTitleOverride}
+          >
+            {sectionTitle}
+          </Heading>
+        </div>
+      )}
       {sectionTitleDescription && (
         <div
           className={classNames(styles.sectionTitleDescription, {

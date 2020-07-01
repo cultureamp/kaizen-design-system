@@ -314,14 +314,17 @@ $tab-container-height-small: $ca-grid * 2.5;
 .sectionTitleContainer {
   display: flex;
   align-items: center;
+  padding: ($ca-grid * 3/4) 0;
 }
 
 .sectionTitleInner {
   display: flex;
-  align-items: baseline;
+  flex-direction: column;
 }
 
 .sectionTitleOverride.sectionTitleOverride {
+  white-space: nowrap;
+
   @include ca-margin($end: $ca-grid);
 
   font-family: $kz-typography-heading-2-font-family;
@@ -330,7 +333,7 @@ $tab-container-height-small: $ca-grid * 2.5;
   line-height: $kz-typography-heading-2-line-height;
   letter-spacing: $kz-typography-heading-2-letter-spacing;
 
-  @include title-block-under-1366 {
+  @include title-block-under-1645 {
     font-family: $kz-typography-heading-3-font-family;
     font-weight: $kz-typography-heading-3-font-weight;
     font-size: $kz-typography-heading-3-font-size;
@@ -346,8 +349,17 @@ $tab-container-height-small: $ca-grid * 2.5;
   }
 }
 
+.sectionTitle {
+  display: block;
+}
+
 .sectionTitleDescription {
+  .sectionTitle + & {
+    margin-top: $ca-grid / 4;
+  }
+
   color: $kz-color-white;
+  max-width: 780px;
   font-family: $kz-typography-paragraph-small-font-family;
   font-weight: $kz-typography-paragraph-small-font-weight;
   font-size: $kz-typography-paragraph-small-font-size;
@@ -362,13 +374,13 @@ $tab-container-height-small: $ca-grid * 2.5;
 .rowBelowSeparatorInnerContent {
   display: flex;
   width: 100%;
-  height: $ca-grid * 3;
+  // height: $ca-grid * 3;
   margin-top: -$title-block-separator-height;
   justify-content: space-between;
 
-  @include title-block-small {
-    height: $ca-grid * 2.5;
-  }
+  // @include title-block-small {
+  //   height: $ca-grid * 2.5;
+  // }
 }
 
 .titleAndAdjacent {
@@ -390,7 +402,7 @@ $tab-container-height-small: $ca-grid * 2.5;
     }
 
     @include title-block-under-1366 {
-      transform: translateY(10px);
+      transform: translateY(4px);
 
       .hasSubtitle & {
         transform: translateY(-4px);
@@ -471,7 +483,10 @@ $tab-container-height-small: $ca-grid * 2.5;
 
 .secondaryActionsContainer {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding: ($ca-grid / 2) 0;
+  @include ca-margin($start: $ca-grid * 1.5);
+  flex-shrink: 0;
 
   // To be removed eventually – the Dropdown does not
   // currently set its own color, and we want it
