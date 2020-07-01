@@ -6,7 +6,7 @@ const styles = require("./styles.module.scss")
 type Variant = "default" | "active"
 
 export interface BadgeProps {
-  readonly children: React.ReactNode
+  readonly children: string
   readonly variant?: Variant
   readonly reversed?: boolean
 }
