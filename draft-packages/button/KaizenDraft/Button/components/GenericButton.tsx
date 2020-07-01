@@ -26,6 +26,7 @@ export type GenericProps = {
   ariaExpanded?: boolean
   onFocus?: (e: React.FocusEvent<HTMLElement>) => void
   onBlur?: (e: React.FocusEvent<HTMLElement>) => void
+  additionalContent?: React.ReactNode
 }
 
 export type AdditionalContentProps = {
