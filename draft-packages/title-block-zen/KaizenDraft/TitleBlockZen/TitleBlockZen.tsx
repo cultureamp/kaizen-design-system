@@ -25,7 +25,14 @@ const hamburgerIcon = require("@kaizen/component-library/icons/hamburger.icon.sv
   .default
 
 /**
- * @param TitleBlockProps  If the primary action is a menu, primaryAction must take a `label` and list of `menuItem`s.
+ * @param TitleBlockProps ### Accessing internal types of TitleBlockProps
+ * If you want access to types like `PrimaryActionProps` (for example, in the scenario
+ * where you want to create an object containing menu items to be passed in for the primary
+ * menu button), you can use the shorthand:
+ * ```
+ * const myMenu: TitleBlockProps["primaryAction"] = ...
+ * ```
+ * This will ensure that `myMenu` has a type of `PrimaryActionProps`.
  */
 export interface TitleBlockProps {
   children?: React.ReactNode
