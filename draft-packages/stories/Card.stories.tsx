@@ -1,7 +1,7 @@
-import * as React from "react"
-
 import { Box, Paragraph } from "@kaizen/component-library"
+import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { Tabs } from "@kaizen/draft-tabs"
+import * as React from "react"
 import { Card } from "../card/index"
 
 export default {
@@ -17,7 +17,7 @@ DefaultStory.story = {
 export const CardWithSpace = () => (
   <Box m={4}>
     <Card>
-      <Box p={1}>
+      <Box p={1.5}>
         <Paragraph variant="body">
           Meaningful content—such as data, images, or paragraphs (but not
           headings) — sit on cards.
@@ -29,12 +29,21 @@ export const CardWithSpace = () => (
 
 CardWithSpace.story = {
   name: "Formatting with box",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Stone",
+        value: colorTokens.kz.color.stone,
+        default: true,
+      },
+    ],
+  },
 }
 
 export const CardAsArticle = () => (
   <Box m={4}>
     <Card tag="article" data-test="test">
-      <Box p={1}>
+      <Box p={1.5}>
         <Paragraph variant="body">
           Change the tag of the card to whatever makes the most semantic sense
           for your use case
@@ -46,6 +55,15 @@ export const CardAsArticle = () => (
 
 CardAsArticle.story = {
   name: "As an article",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Stone",
+        value: colorTokens.kz.color.stone,
+        default: true,
+      },
+    ],
+  },
 }
 
 export const CardAsTabContainer = () => {
@@ -56,7 +74,7 @@ export const CardAsTabContainer = () => {
     { label: "Four" },
   ]
   return (
-    <Box m={4}>
+    <Box m={4} pt={1}>
       <Card tag="section" data-test="test">
         <Tabs tabs={tabs} />
       </Card>
@@ -66,4 +84,13 @@ export const CardAsTabContainer = () => {
 
 CardAsTabContainer.story = {
   name: "As a tab container",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Stone",
+        value: colorTokens.kz.color.stone,
+        default: true,
+      },
+    ],
+  },
 }
