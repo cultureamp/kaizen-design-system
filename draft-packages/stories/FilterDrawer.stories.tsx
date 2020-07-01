@@ -4,7 +4,7 @@ import { CheckboxGroup } from "@kaizen/draft-checkbox-group"
 import { CheckboxField, Label } from "@kaizen/draft-form"
 import { Button } from "@kaizen/draft-button"
 import { FilterDrawer } from "@kaizen/draft-filter-drawer"
-
+const styles = require("./FilterDrawer.stories.scss")
 const StoryWrapper = ({ children }) => (
   <div
     style={{ display: "flex", justifyContent: "flex-start", margin: "1rem" }}
@@ -60,15 +60,38 @@ export const DefaultStory = () => (
   </StoryWrapper>
 )
 
+type CheckboxState = "on" | "off"
+
+type AppliedFiltersState = {
+  furry: CheckboxState
+  aquatic: CheckboxState
+  venomous: CheckboxState
+}
+
 const DemoFilterDrawer = () => {
-  const [furryCheckboxState, setFurryState] = useState("off")
-  const [aquaticCheckboxState, setAquaticState] = useState("off")
-  const [venomousCheckboxState, setVenomousState] = useState("off")
+  const [furryCheckboxState, setFurryCheckboxState] = useState<CheckboxState>(
+    "off"
+  )
+  const [aquaticCheckboxState, setAquaticCheckboxState] = useState<
+    CheckboxState
+  >("off")
+  const [venomousCheckboxState, setVenomousCheckboxState] = useState<
+    CheckboxState
+  >("off")
   const [isDropdownVisible, setIsDropdownVisible] = useState(true)
 
-  const checkedTraits: string[] = (furryState === "on" ? ["Furry"] : [])
-    .concat(aquaticState === "on" ? ["Aquatic"] : [])
-    .concat(venomousState === "on" ? ["Venomous"] : [])
+  const [appliedFilters, setAppliedFilters] = useState<AppliedFiltersState>({
+    furry: "off",
+    aquatic: "off",
+    venomous: "off",
+  })
+
+  const checkedTraits: string[] = (appliedFilters.furry === "on"
+    ? ["Furry"]
+    : []
+  )
+    .concat(appliedFilters.aquatic === "on" ? ["Aquatic"] : [])
+    .concat(appliedFilters.venomous === "on" ? ["Venomous"] : [])
 
   // TODO: move inside component
   const toggleDropdown = () => {
@@ -78,6 +101,20 @@ const DemoFilterDrawer = () => {
   // TODO: move inside component
   const hideDropdown = () => {
     setIsDropdownVisible(false)
+  }
+
+  const applyChanges = () => {
+    setAppliedFilters({
+      furry: furryCheckboxState,
+      aquatic: aquaticCheckboxState,
+      venomous: venomousCheckboxState,
+    })
+  }
+
+  const clearChanges = () => {
+    setFurryCheckboxState(appliedFilters.furry)
+    setAquaticCheckboxState(appliedFilters.aquatic)
+    setVenomousCheckboxState(appliedFilters.venomous)
   }
 
   return (
@@ -119,13 +156,24 @@ const DemoFilterDrawer = () => {
             labelText="Venomous"
           />
         </CheckboxGroup>
-        <Button
-          primary={true}
-          label="Apply"
-          onClick={() => {
-            toggleDropdown()
-          }}
-        />
+        <div className={styles.buttons}>
+          <Button
+            secondary={true}
+            label="Cancel"
+            onClick={() => {
+              clearChanges()
+              toggleDropdown()
+            }}
+          />
+          <Button
+            primary={true}
+            label="Apply"
+            onClick={() => {
+              applyChanges()
+              toggleDropdown()
+            }}
+          />
+        </div>
       </>
     </FilterDrawer>
   )
