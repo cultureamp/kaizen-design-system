@@ -350,36 +350,39 @@ const TitleBlockZen = ({
             </div>
           </div>
         </div>
-      </div>
-      <div className={styles.rowBelowSeparator}>
-        <div className={styles.rowBelowSeparatorInner}>
-          <div className={styles.rowBelowSeparatorInnerContent}>
-            {(sectionTitle || sectionTitleDescription) &&
-              renderSectionTitle(
-                sectionTitle,
-                sectionTitleDescription,
-                variant
-              )}
-            {navigationTabs && renderNavigationTabs(navigationTabs)}
-            <SecondaryActions
-              secondaryActions={secondaryActions}
-              secondaryOverflowMenuItems={secondaryOverflowMenuItems}
-              reversed={isReversed(variant)}
-            />
+        <div className={styles.rowBelowSeparator}>
+          <div className={styles.rowBelowSeparatorInner}>
+            <div className={styles.rowBelowSeparatorInnerContent}>
+              {(sectionTitle || sectionTitleDescription) &&
+                renderSectionTitle(
+                  sectionTitle,
+                  sectionTitleDescription,
+                  variant
+                )}
+              {navigationTabs && renderNavigationTabs(navigationTabs)}
+              <SecondaryActions
+                secondaryActions={secondaryActions}
+                secondaryOverflowMenuItems={secondaryOverflowMenuItems}
+                reversed={isReversed(variant)}
+              />
+            </div>
           </div>
         </div>
+        <MobileActions
+          primaryAction={primaryAction}
+          defaultAction={defaultAction}
+          secondaryActions={secondaryActions}
+          secondaryOverflowMenuItems={secondaryOverflowMenuItems}
+          drawerHandleLabelIconPosition={
+            primaryAction && "iconPosition" in primaryAction
+              ? (primaryAction.iconPosition as Pick<
+                  ButtonProps,
+                  "iconPosition"
+                >)
+              : undefined
+          }
+        />
       </div>
-      <MobileActions
-        primaryAction={primaryAction}
-        defaultAction={defaultAction}
-        secondaryActions={secondaryActions}
-        secondaryOverflowMenuItems={secondaryOverflowMenuItems}
-        drawerHandleLabelIconPosition={
-          primaryAction && "iconPosition" in primaryAction
-            ? (primaryAction.iconPosition as Pick<ButtonProps, "iconPosition">)
-            : undefined
-        }
-      />
     </>
   )
 }
