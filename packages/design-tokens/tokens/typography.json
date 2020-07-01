@@ -113,9 +113,23 @@
         "lineHeight": "1.125rem",
         "letterSpacing": "normal"
       },
+      "paragraphSmallBold": {
+        "fontFamily": "\"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif;",
+        "fontWeight": "600",
+        "fontSize": "0.875rem",
+        "lineHeight": "1.125rem",
+        "letterSpacing": "normal"
+      },
       "paragraphExtraSmall": {
         "fontFamily": "\"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif;",
         "fontWeight": "400",
+        "fontSize": "0.75rem",
+        "lineHeight": "1.125rem",
+        "letterSpacing": "normal"
+      },
+      "paragraphExtraSmallBold": {
+        "fontFamily": "\"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif;",
+        "fontWeight": "600",
         "fontSize": "0.75rem",
         "lineHeight": "1.125rem",
         "letterSpacing": "normal"

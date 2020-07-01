@@ -7,8 +7,8 @@ export default {
 }
 
 export const DefaultStory = () => (
-  <<%= componentName %> example="test">
-    Render some children
+  <<%= componentName %>>
+    world!
   </<%= componentName %>>
 )
 

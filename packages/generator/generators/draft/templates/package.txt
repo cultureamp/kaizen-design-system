@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-<%= componentName %>",
-  "version": "1.4.1",
+  "version": "1.0.0",
   "description": "The draft <%= componentName %> component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
