@@ -78,7 +78,7 @@ const DemoFilterDrawer = () => {
   const [venomousCheckboxState, setVenomousCheckboxState] = useState<
     CheckboxState
   >("off")
-  const [isDropdownVisible, setIsDropdownVisible] = useState(true)
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false)
 
   const [appliedFilters, setAppliedFilters] = useState<AppliedFiltersState>({
     furry: "off",
