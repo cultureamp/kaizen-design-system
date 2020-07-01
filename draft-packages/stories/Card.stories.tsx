@@ -1,6 +1,7 @@
 import * as React from "react"
 
 import { Box, Paragraph } from "@kaizen/component-library"
+import { Tabs } from "@kaizen/draft-tabs"
 import { Card } from "../card/index"
 
 export default {
@@ -45,4 +46,24 @@ export const CardAsArticle = () => (
 
 CardAsArticle.story = {
   name: "As an article",
+}
+
+export const CardAsTabContainer = () => {
+  const tabs = [
+    { label: "One" },
+    { label: "Two", active: true },
+    { label: "Three" },
+    { label: "Four" },
+  ]
+  return (
+    <Box m={4}>
+      <Card tag="section" data-test="test">
+        <Tabs tabs={tabs} />
+      </Card>
+    </Box>
+  )
+}
+
+CardAsTabContainer.story = {
+  name: "As a tab container",
 }
