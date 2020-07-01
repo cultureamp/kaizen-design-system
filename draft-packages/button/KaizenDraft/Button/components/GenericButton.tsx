@@ -23,6 +23,7 @@ type GenericProps = {
   analytics?: Analytics
   onFocus?: (e: React.FocusEvent<HTMLElement>) => void
   onBlur?: (e: React.FocusEvent<HTMLElement>) => void
+  additionalContent?: React.ReactNode
 }
 
 type LabelProps = {
@@ -175,6 +176,7 @@ const renderContent: React.FunctionComponent<Props> = props => (
       <span className={styles.label}>{props.label}</span>
     )}
     {props.icon && props.iconPosition === "end" && renderIcon(props.icon)}
+    {props.additionalContent}
   </span>
 )
 
