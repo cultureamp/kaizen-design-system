@@ -157,8 +157,8 @@ export const AdminVariant = () => (
   <TitleBlockZen
     title="Page title"
     variant="admin"
-    sectionTitle="Section title"
-    sectionTitleDescription="Description of section can go here"
+    sectionTitle="Default questions"
+    sectionTitleDescription="Default questions are surfaced automatically for managers when requesting feedback about their teams from colleagues. Default questions are editable by managers."
     primaryAction={{ label: "Primary link", primary: true, href: "#" }}
     defaultAction={{ label: "Default link", href: "#" }}
     secondaryActions={SECONDARY_ACTIONS}
@@ -174,6 +174,34 @@ export const AdminVariant = () => (
 
 AdminVariant.story = {
   name: "Admin variant",
+}
+export const AdminVariantWithNavTabs = () => (
+  <TitleBlockZen
+    title="Page title"
+    variant="admin"
+    primaryAction={{ label: "Primary link", primary: true, href: "#" }}
+    defaultAction={{ label: "Default link", href: "#" }}
+    secondaryActions={SECONDARY_ACTIONS}
+    breadcrumb={{
+      path: "#",
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+    navigationTabs={[
+      <NavigationTab text="Label" href="#" active variant="admin" />,
+      <NavigationTab text="Label" href="#" variant="admin" />,
+      <NavigationTab text="Label" href="#" variant="admin" />,
+      <NavigationTab text="Label" href="#" variant="admin" />,
+      <NavigationTab text="Label" href="#" variant="admin" />,
+      <NavigationTab text="Label" href="#" variant="admin" />,
+    ]}
+  />
+)
+
+AdminVariantWithNavTabs.story = {
+  name: "Admin variant with Navigation Tabs",
 }
 
 export const EducationVariant = () => (

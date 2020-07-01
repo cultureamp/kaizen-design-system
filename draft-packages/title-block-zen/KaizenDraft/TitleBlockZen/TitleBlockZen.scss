@@ -15,6 +15,7 @@ $tab-container-height-default: $ca-grid * 3;
 $tab-container-height-small: $ca-grid * 2.5;
 
 .titleBlock {
+  position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $kz-color-wisteria-700;
@@ -423,7 +424,7 @@ $tab-container-height-small: $ca-grid * 2.5;
 
 .navigationTabsContainer {
   display: flex;
-  position: relative;
+  // position: relative;
   height: $tab-container-height-default;
 
   @include title-block-small {
@@ -433,8 +434,11 @@ $tab-container-height-small: $ca-grid * 2.5;
 
 .navigationTabScrollerContainer {
   @include title-block-small {
+    // position: relative;
     overflow-x: scroll;
     scrollbar-width: none;
+    width: 100vw;
+
     &::-webkit-scrollbar {
       display: none;
     }
@@ -448,6 +452,7 @@ $tab-container-height-small: $ca-grid * 2.5;
   @include title-block-small {
     display: block;
     position: absolute;
+    top: 63px;
     width: $ca-grid * 2;
     height: $tab-container-height-small;
     background: linear-gradient(
@@ -456,6 +461,22 @@ $tab-container-height-small: $ca-grid * 2.5;
       rgba($kz-color-wisteria-700, 0)
     );
     z-index: $ca-z-index-sticky;
+  }
+
+  .adminVariant & {
+    @include title-block-small {
+      background: linear-gradient(0, $kz-color-stone, rgba($kz-color-stone, 0));
+    }
+  }
+
+  .educationVariant & {
+    @include title-block-small {
+      background: linear-gradient(
+        0,
+        $kz-color-cluny-200,
+        rgba($kz-color-cluny-200, 0)
+      );
+    }
   }
 }
 

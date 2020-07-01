@@ -18,7 +18,7 @@ const rightArrow = require("@kaizen/component-library/icons/arrow-forward.icon.s
 const hamburgerIcon = require("@kaizen/component-library/icons/hamburger.icon.svg")
   .default
 
-const NON_REVERSED_VARIANTS = ["education", "admin"]
+export const NON_REVERSED_VARIANTS = ["education", "admin"]
 
 /**
  * @param TitleBlockProps ### Accessing internal types of TitleBlockProps
@@ -80,7 +80,7 @@ export const isMenuGroupNotButton = (
   return value.hasOwnProperty("menuItems")
 }
 
-type Variant = "admin" | "education" // the default is wisteria bg (AKA "reporting")
+export type Variant = "admin" | "education" // the default is wisteria bg (AKA "reporting")
 
 type NavigationTabs = Array<React.ReactElement<NavigationTabProps>>
 
