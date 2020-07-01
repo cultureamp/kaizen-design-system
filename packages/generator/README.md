@@ -5,7 +5,7 @@ Generator is a tool to quickly build new components. You have the choice of gene
 * Generate a folder structure that is consistent with other draft components
 * Generate a basic `sass` file
 
-Only generate code for the libraries you intend to write your component in. Adding support for another library in the future.
+Only generate code for the libraries you intend to write your component in. Adding support for another library in the future is straightforward.
 
 ## Install
 Install Yeoman first: 
