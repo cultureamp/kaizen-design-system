@@ -1,5 +1,5 @@
 import { ButtonProps } from "@kaizen/draft-button"
-import * as React from "react"
+import React, { useState } from "react"
 import MenuDropdown from "./MenuDropdown"
 
 const styles = require("./styles.scss")
@@ -15,70 +15,66 @@ export type MenuProps = {
   automationId?: string
 }
 
-export default class Menu extends React.Component<MenuProps, MenuState> {
-  static displayName = "Menu"
-  static defaultProps = {
-    iconPosition: "start",
-    align: "left",
+type Menu = React.FunctionComponent<MenuProps>
+
+const Menu: Menu = (props: MenuProps) => {
+  const { align = "left" } = props
+
+  const initializedProps = { ...props, align }
+
+  const dropdownButtonContainer = React.createRef<HTMLDivElement>()
+
+  const [isMenuVisible, setIsMenuVisible] = useState(
+    initializedProps.menuVisible
+  )
+
+  const toggleMenu = () => {
+    setIsMenuVisible(!isMenuVisible)
   }
 
-  dropdownButtonContainer = React.createRef<HTMLDivElement>()
-
-  constructor(props: MenuProps) {
-    super(props)
-
-    this.state = {
-      isMenuVisible: Boolean(props.menuVisible),
-    }
+  const hideMenu = () => {
+    setIsMenuVisible(false)
   }
 
-  toggleMenu = (e: MouseEvent) => {
-    e.stopPropagation()
-
-    const currentState = this.state.isMenuVisible
-    this.setState({
-      isMenuVisible: !currentState,
-    })
-  }
-
-  hideMenu = () => {
-    this.setState({
-      isMenuVisible: false,
-    })
-  }
-
-  getPosition() {
-    return this.dropdownButtonContainer && this.dropdownButtonContainer.current
-      ? this.dropdownButtonContainer.current.getBoundingClientRect()
+  const getPosition = () => {
+    return dropdownButtonContainer && dropdownButtonContainer.current
+      ? dropdownButtonContainer.current.getBoundingClientRect()
       : null
   }
 
-  renderMenuDropdown() {
+  const renderMenuDropdown = () => {
     return (
       <MenuDropdown
-        hideMenuDropdown={this.hideMenu}
-        position={this.getPosition()}
-        align={this.props.align}
+        hideMenuDropdown={hideMenu}
+        position={getPosition()}
+        align={initializedProps.align}
       >
-        {this.props.children}
+        {initializedProps.children}
       </MenuDropdown>
     )
   }
 
-  render() {
-    const { automationId, button } = this.props
+  const render = () => {
+    const { automationId, button } = initializedProps
     return (
       <div
         className={styles.dropdown}
         data-automation-id={automationId}
-        ref={this.dropdownButtonContainer}
+        ref={dropdownButtonContainer}
       >
         {React.cloneElement(button, {
-          onClick: this.toggleMenu,
+          onClick: e => {
+            e.preventDefault()
+            toggleMenu()
+          },
           onMouseDown: e => e.preventDefault(),
         })}
-        {this.state.isMenuVisible && this.renderMenuDropdown()}
+        {isMenuVisible && renderMenuDropdown()}
       </div>
     )
   }
+
+  return render()
 }
+
+export default Menu
