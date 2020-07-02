@@ -14,7 +14,7 @@ export type StatelessMenuProps = {
   }) => React.ReactElement
 }
 
-type Props = StatelessMenuProps & GenericMenuProps
+export type Props = StatelessMenuProps & GenericMenuProps
 
 export const StatelessMenu: React.FunctionComponent<Props> = (props: Props) => {
   const dropdownButtonContainer = React.createRef<HTMLDivElement>()

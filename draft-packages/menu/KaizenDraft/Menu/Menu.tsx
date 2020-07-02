@@ -15,7 +15,9 @@ type StatefulMenuProps = {
   button: React.ReactElement<ButtonProps>
 }
 
-type Menu = React.FunctionComponent<GenericMenuProps & StatefulMenuProps>
+export type MenuProps = GenericMenuProps & StatefulMenuProps
+
+type Menu = React.FunctionComponent<MenuProps>
 
 const Menu: Menu = props => {
   const { align = "left", menuVisible = false } = props
