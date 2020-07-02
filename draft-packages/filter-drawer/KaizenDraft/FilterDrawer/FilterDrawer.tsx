@@ -1,7 +1,7 @@
-import * as KaizenButton from "@kaizen/draft-button"
-import { Menu, MenuContent } from "@kaizen/draft-menu"
-import { StatelessMenu } from "@kaizen/draft-menu/KaizenDraft/Menu/StatelessMenu"
 import { Badge } from "@kaizen/draft-badge"
+import * as KaizenButton from "@kaizen/draft-button"
+import { MenuContent } from "@kaizen/draft-menu"
+import { StatelessMenu } from "@kaizen/draft-menu/KaizenDraft/Menu/StatelessMenu"
 import * as React from "react"
 const filterIcon = require("@kaizen/component-library/icons/filter.icon.svg")
   .default
