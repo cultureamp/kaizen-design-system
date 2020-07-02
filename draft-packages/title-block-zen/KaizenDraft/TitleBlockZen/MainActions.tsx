@@ -43,6 +43,7 @@ const MainActions = ({
       ...(primaryAction
         ? [
             <Menu
+              align="right"
               button={
                 <Button
                   label={primaryAction.label}
@@ -68,6 +69,7 @@ const MainActions = ({
   if (overflowMenuItems && showOverflowMenu && overflowMenuItems.length > 0) {
     items = [
       <Menu
+        align="right"
         button={
           <IconButton label="" reversed={reversed} icon={meatballsIcon} />
         }

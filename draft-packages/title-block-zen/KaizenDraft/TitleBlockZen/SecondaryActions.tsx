@@ -23,6 +23,7 @@ const renderSecondaryOverflowMenu = (
   if (!secondaryOverflowMenuItems) return null
   return (
     <Menu
+      align="right"
       button={<IconButton label="" reversed={reversed} icon={meatballsIcon} />}
     >
       <MenuContent>
@@ -47,6 +48,7 @@ const SecondaryActions = ({
       if (isMenuGroupNotButton(a)) {
         return (
           <Menu
+            align="right"
             button={
               <Button
                 secondary
