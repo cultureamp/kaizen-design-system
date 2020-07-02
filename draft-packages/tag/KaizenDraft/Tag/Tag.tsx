@@ -119,14 +119,17 @@ const Tag = (props: Props) => {
           {children}
         </span>
         {dismissible && (
-          <span
-            className={styles.dismissIcon}
-            onClick={onDismiss}
-            onMouseDown={onMouseDown}
-            onMouseLeave={onMouseLeave}
-          >
-            <Icon icon={clearIcon} inheritSize role="img" title="Dismiss" />
-          </span>
+          <>
+            <span
+              className={styles.dismissIcon}
+              onClick={onDismiss}
+              onMouseDown={onMouseDown}
+              onMouseLeave={onMouseLeave}
+            >
+              <span className={styles.background} />
+              <Icon icon={clearIcon} inheritSize role="img" title="Dismiss" />
+            </span>
+          </>
         )}
         {variant === "statusLive" && (
           <span className={styles.pulse}>

@@ -42,6 +42,8 @@ $small: $ca-grid;
 }
 
 .dismissIcon {
+  position: relative;
+  display: flex;
   padding: $kz-spacing-xs;
   margin-top: -$kz-spacing-xs;
   margin-right: -0.5375rem;
@@ -58,6 +60,24 @@ $small: $ca-grid;
   &:active {
     color: $kz-color-wisteria-800;
   }
+
+  svg {
+    position: relative;
+  }
+}
+
+.background {
+  // As our icons are only one-tone, this span places
+  // a white background under the dismissible icon to
+  // give the illusion of a background colour that is
+  // different to the rest of the tag
+  position: absolute;
+  display: inline-block;
+  width: $kz-spacing-xs;
+  height: $kz-spacing-xs;
+  background-color: white;
+  left: 10px;
+  top: 10px;
 }
 
 .truncate {
