@@ -1,6 +1,6 @@
 import { default as React, ReactElement } from "react"
 
-import { MenuProps } from "./Menu"
+import { MenuProps, renderMenuDropdown } from "./Menu"
 import MenuDropdown from "./MenuDropdown"
 const styles = require("./styles.scss")
 
@@ -49,26 +49,4 @@ export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({
   )
 }
 
-const renderMenuDropdown = ({
-  align,
-  children,
-  dropdownButtonContainer,
-  hideMenuDropdown,
-}) => {
-  return (
-    <MenuDropdown
-      position={getPosition(dropdownButtonContainer)}
-      align={align}
-      hideMenuDropdown={hideMenuDropdown}
-    >
-      {children}
-    </MenuDropdown>
-  )
-}
-
-// TODO: add types
-const getPosition = dropdownButtonContainer => {
-  return dropdownButtonContainer && dropdownButtonContainer.current
-    ? dropdownButtonContainer.current.getBoundingClientRect()
-    : null
-}
+export default StatelessMenu

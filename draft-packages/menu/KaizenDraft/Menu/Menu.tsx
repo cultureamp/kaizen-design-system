@@ -29,66 +29,15 @@ const Menu: Menu = (props: MenuProps) => {
     initializedProps.menuVisible
   )
 
-  const toggleMenu = () => {
+  const toggleMenuDropdown = () => {
     setIsMenuVisible(!isMenuVisible)
   }
 
-  const hideMenu = () => {
+  const hideMenuDropdown = () => {
     setIsMenuVisible(false)
   }
 
   const { automationId, button, children } = initializedProps
-  const menu = renderMenuDropdown({
-    align,
-    children,
-    dropdownButtonContainer,
-    hideMenuDropdown: hideMenu,
-  })
-  return (
-    <div
-      className={styles.dropdown}
-      data-automation-id={automationId}
-      ref={dropdownButtonContainer}
-    >
-      {React.cloneElement(button, {
-        onClick: e => {
-          e.preventDefault()
-          toggleMenu()
-        },
-        onMouseDown: e => e.preventDefault(),
-      })}
-      {isMenuVisible ? menu : null}
-    </div>
-  )
-}
-
-export type StatelessMenuProps = {
-  isMenuVisible: boolean
-  toggleMenuDropdown: any // TODO!
-  hideMenuDropdown: any
-  renderButton: (args: {
-    onClick: () => void
-    onMouseDown: (e: any) => void
-  }) => React.ReactElement
-} & MenuProps
-
-export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({
-  align = "left",
-  automationId,
-  renderButton,
-  isMenuVisible,
-  toggleMenuDropdown,
-  hideMenuDropdown,
-  children,
-}) => {
-  const dropdownButtonContainer = React.createRef<HTMLDivElement>()
-
-  const menuButton = renderButton({
-    onMouseDown: (e: any) => e.preventDefault(),
-    onClick: () => {
-      toggleMenuDropdown()
-    },
-  })
   const menu = renderMenuDropdown({
     align,
     children,
@@ -101,10 +50,24 @@ export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({
       data-automation-id={automationId}
       ref={dropdownButtonContainer}
     >
-      {menuButton}
+      {React.cloneElement(button, {
+        onClick: e => {
+          e.preventDefault()
+          toggleMenuDropdown()
+        },
+        onMouseDown: e => e.preventDefault(),
+      })}
       {isMenuVisible ? menu : null}
     </div>
   )
+}
+
+const toggleMenuDropdown = (isMenuVisible, setIsMenuVisible) => {
+  setIsMenuVisible(!isMenuVisible)
+}
+
+const hideMenu = setIsMenuVisible => {
+  setIsMenuVisible(false)
 }
 
 const renderMenuDropdown = ({
