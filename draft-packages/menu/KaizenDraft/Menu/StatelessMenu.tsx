@@ -12,34 +12,20 @@ export type StatelessMenuProps = {
     onClick: () => void
     onMouseDown: (e: any) => void
   }) => React.ReactElement
-} & GenericMenuProps
+}
 
-export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({
-  align = "left",
-  automationId,
-  renderButton,
-  isMenuVisible,
-  toggleMenuDropdown,
-  hideMenuDropdown,
-  children,
-}) => {
+type Props = StatelessMenuProps & GenericMenuProps
+
+export const StatelessMenu: React.FunctionComponent<Props> = (props: Props) => {
   const dropdownButtonContainer = React.createRef<HTMLDivElement>()
 
-  const menuButton = renderButton({
+  const menuButton = props.renderButton({
     onMouseDown: (e: any) => e.preventDefault(),
     onClick: () => {
-      toggleMenuDropdown()
+      props.toggleMenuDropdown()
     },
   })
-  return render({
-    menuButton,
-    isMenuVisible,
-    automationId,
-    dropdownButtonContainer,
-    align,
-    children,
-    hideMenuDropdown,
-  })
+  return render({ ...props, dropdownButtonContainer, menuButton })
 }
 
 export default StatelessMenu
