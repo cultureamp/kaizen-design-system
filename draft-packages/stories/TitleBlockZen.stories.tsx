@@ -24,6 +24,12 @@ export default {
 
 const SECONDARY_ACTIONS = [
   {
+    onClick: () => {
+      alert("test")
+    },
+    label: "Secondary action",
+  },
+  {
     label: "Secondary menu",
     menuItems: [
       {
@@ -40,12 +46,6 @@ const SECONDARY_ACTIONS = [
         icon: starIcon,
       },
     ],
-  },
-  {
-    onClick: () => {
-      alert("test")
-    },
-    label: "Secondary action",
   },
 ]
 
