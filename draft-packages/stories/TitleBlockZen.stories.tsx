@@ -327,7 +327,7 @@ export const Performance = () => (
       },
     }}
     avatar={<img alt="avatar image" src={assetUrl("site/empty-state.png")} />}
-    // subtitle="Director of People Operations and Stuff That's Important And Things"
+    subtitle="Director of Stuff and Things"
     navigationTabs={[
       <NavigationTab text="Feedback" href="#" active />,
       <NavigationTab
