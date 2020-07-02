@@ -73,8 +73,8 @@ $small: $ca-grid;
   // different to the rest of the tag
   position: absolute;
   display: inline-block;
-  width: 8px;
-  height: 8px;
+  width: $kz-spacing-xs + 0.125rem; // optical adjustment
+  height: $kz-spacing-xs + 0.125rem; // optical adjustment
   background-color: white;
   left: 10px;
   top: 10px;
