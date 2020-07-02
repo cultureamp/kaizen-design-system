@@ -29,7 +29,11 @@ export const FilterDrawer = ({
   return (
     <div className={styles.filterDrawer}>
       <StatelessMenu
-        button={filterButton(labelText, numFiltersEnabled)}
+        renderButton={({ onClick, onMouseDown }) => (
+          <FilterButton
+            {...{ labelText, numFiltersEnabled, onClick, onMouseDown }}
+          />
+        )}
         isMenuVisible={isDropdownVisible}
         toggleMenuDropdown={toggleDropdown}
         hideMenuDropdown={hideDropdown}
@@ -45,12 +49,19 @@ export const FilterDrawer = ({
   )
 }
 
-// This is intentionally a simple lower case function,
-// rather than a React Function Component,
-// as for some reason the click handler dissapears if a Component is used
-// instead (Menu uses React.cloneElement to customise the button, and appears
-// to have issues if it's a component). This works, so going with this.
-const filterButton = (labelText: string, numFiltersEnabled: number) => (
+type FilterButtonProps = {
+  labelText: string
+  numFiltersEnabled: number
+  onClick: () => void
+  onMouseDown: (e: any) => void
+}
+
+const FilterButton = ({
+  labelText,
+  numFiltersEnabled,
+  onClick,
+  onMouseDown,
+}: FilterButtonProps) => (
   <div className={styles.buttonEdgeCaseStyling}>
     <KaizenButton.Button
       secondary={true}
@@ -59,6 +70,8 @@ const filterButton = (labelText: string, numFiltersEnabled: number) => (
       icon={filterIcon}
       iconPosition="start"
       additionalContent={renderBadge(numFiltersEnabled)}
+      onClick={onClick}
+      onMouseDown={onMouseDown}
     />
   </div>
 )
