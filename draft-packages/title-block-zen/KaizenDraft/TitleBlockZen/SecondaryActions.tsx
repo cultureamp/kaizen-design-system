@@ -1,19 +1,7 @@
-import { Button, ButtonProps, IconButton } from "@kaizen/draft-button"
-import {
-  Menu,
-  MenuContent,
-  MenuItem,
-  MenuItemProps,
-  MenuProps,
-} from "@kaizen/draft-menu"
+import { Button, IconButton } from "@kaizen/draft-button"
+import { Menu, MenuContent, MenuItem, MenuItemProps } from "@kaizen/draft-menu"
 import * as React from "react"
-import {
-  ButtonWithOnClickOrHref,
-  isMenuGroupNotButton,
-  isMenuItemNotButton,
-  MenuGroup,
-  SecondaryActionsProps,
-} from "./TitleBlockZen"
+import { isMenuGroupNotButton, SecondaryActionsProps } from "./TitleBlockZen"
 import Toolbar from "./Toolbar"
 const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
@@ -35,6 +23,7 @@ const renderSecondaryOverflowMenu = (
   if (!secondaryOverflowMenuItems) return null
   return (
     <Menu
+      align="right"
       button={<IconButton label="" reversed={reversed} icon={meatballsIcon} />}
     >
       <MenuContent>
@@ -51,35 +40,38 @@ const SecondaryActions = ({
   secondaryOverflowMenuItems,
   reversed = false,
 }: Props) => {
-  if (!secondaryActions) return null
+  if (!secondaryActions && !secondaryOverflowMenuItems) return null
 
-  const stuff = secondaryActions.map(a => {
-    if (isMenuGroupNotButton(a)) {
-      return (
-        <Menu
-          button={
-            <Button
-              secondary
-              label={a.label}
-              reversed={reversed}
-              icon={chevronDownIcon}
-              iconPosition="end"
-            />
-          }
-        >
-          <MenuContent>
-            {a.menuItems.map(menuItem => (
-              <MenuItem {...menuItem} />
-            ))}
-          </MenuContent>
-        </Menu>
-      )
-    } else {
-      return <Button secondary reversed={reversed} {...a} />
-    }
-  })
+  let toolbarItems
+  if (secondaryActions) {
+    toolbarItems = secondaryActions.map(a => {
+      if (isMenuGroupNotButton(a)) {
+        return (
+          <Menu
+            align="right"
+            button={
+              <Button
+                secondary
+                label={a.label}
+                reversed={reversed}
+                icon={chevronDownIcon}
+                iconPosition="end"
+              />
+            }
+          >
+            <MenuContent>
+              {a.menuItems.map(menuItem => (
+                <MenuItem {...menuItem} />
+              ))}
+            </MenuContent>
+          </Menu>
+        )
+      } else {
+        return <Button secondary reversed={reversed} {...a} />
+      }
+    })
+  }
 
-  let toolbarItems = stuff
   const overflowMenu = renderSecondaryOverflowMenu(
     secondaryOverflowMenuItems,
     reversed
