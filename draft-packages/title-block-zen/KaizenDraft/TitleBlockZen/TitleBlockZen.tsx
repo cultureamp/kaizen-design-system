@@ -57,14 +57,53 @@ export type MenuGroup = {
   menuItems: MenuItemProps[]
 }
 
+/**
+ * ### PrimaryActionProps
+ *
+ * The primary action (the "main" button in the top right) can either be a Button,
+ * or a Button that reveals a Menu (a menu button).
+ *
+ * For a button, pass in an object containing the same props you would normally use
+ * for a Button component.
+ *
+ * For a menu button, pass in a `MenuGroup`:
+ * ```typescript
+ * {
+ *   label: string
+ *   menuItems: MenuItemProps[]
+ * }
+ * ```
+ * Using the `label`, the Title Block will render a Button with a chevron icon and your `menuItems` will appear
+ * in the dropdown menu when you click it. (`MenuItemProps` is a type imported from the `Menu` component.)
+ */
 export type PrimaryActionProps =
   | MenuGroup
   | (ButtonWithOnClickOrHref & { primary: true })
 
 /**
- * @param SecondaryActionsProps Secondary actions can only be buttons, menus, or an overflow menu,
- * which the Title Block will render as a Menu component with a "meatballs" IconButton.
- * For the menu, pass in an array of menu items.
+ * ### SecondaryActionsProps
+ *
+ * Secondary actions can only be buttons or button menus
+ * (a button that reveals a dropdown menu).
+ *
+ * **IMPORTANT:** The visual order of these from left to right should always be:
+ * ```text
+ * buttons -> menu buttons
+ * ```
+ *
+ * For a button, pass in an object containing the same props you would normally use
+ * for a Button component.
+ *
+ * For a menu button, pass in a `MenuGroup`:
+ *
+ * ```typescript
+ * {
+ *   label: string
+ *   menuItems: MenuItemProps[]
+ * }
+ * ```
+ * (`MenuItemProps` is imported from the Menu component.)
+ *
  */
 export type SecondaryActionsProps = Array<MenuGroup | ButtonWithOnClickOrHref>
 
@@ -238,22 +277,57 @@ const smallAndMediumMediaQuery = window.matchMedia(
 /**
  * ### primaryAction
  *
- * The primary action (the "main" button in the top right) can either be a Button, or a Button that reveals a Menu.
+ * The primary action (the "main" button in the top right) can either be a Button,
+ * or a Button that reveals a Menu (a menu button).
  *
  * If you want it to be a Button, you can't pass in a `<Button />`, because the Title Block needs to grab the Button's
  * props and use them to render the mobile actions drawer as well as the Button itself. Instead, you have to pass
- * in the ButtonProps as an object.
+ * in the Button's props as an object, and there must be a `primary` property set to `true`.
  *
- * If you want it to be a Menu, pass in this object as your primaryAction:
+ * ```typescript
+ * type PrimaryActionProps =
+ *  | MenuGroup
+ *  | (ButtonWithOnClickOrHref & { primary: true })
+ * ```
+ *
+ * If you want it to be a Menu, pass in this object of type `MenuGroup`:
  * ```typescript
  * {
- *    label: string
- *    menuItems: MenuItemProps[]
+ *   label: string
+ *   menuItems: MenuItemProps[]
  * }
  * ```
  * Using the `label`, the Title Block will render a Button with a chevron icon and your `menuItems` will appear
- * in the dropdown menu when you click it.
+ * in the dropdown menu when you click it. (`MenuItemProps` is a type imported from the `Menu` component.)
+ *
+ * ### secondaryActions & secondaryOverflowMenuItems
+ *
+ * Secondary Actions sit below the Primary Actions, and consist of
+ * - actions/links (just a button),
+ * - menus (a menu button), and
+ * - the overflow menu (a menu button with a "meatballs" icon).
+ *
+ * **IMPORTANT:** The visual order of these from left to right should always be:
+ * ```text
+ * buttons (far left) -> menu buttons -> overflow menu (far right)
+ * ```
+ *
+ * The overflow menu has a separate prop that accepts an array of `MenuItemProps`:
+ *
+ * ```typescript
+ * secondaryOverflowMenuItems?: MenuItemProps[]
+ * ```
+ *
+ * The `secondaryActions` prop accepts an **array** of objects.
+ * Each object can be a MenuGroup (see code snippet for `primaryAction` above) or an object containing Button props:
+ *
+ * ```typescript
+ * type SecondaryActionsProps = Array<MenuGroup | ButtonWithOnClickOrHref>
+ * ```
+ * The order of elements in the array will determine the visual order on the page, so
+ * please be aware of the intended order mentioned above.
  */
+
 const TitleBlockZen = ({
   title,
   variant,
