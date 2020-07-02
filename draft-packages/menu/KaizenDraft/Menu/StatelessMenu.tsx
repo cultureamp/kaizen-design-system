@@ -1,4 +1,4 @@
-import * as React from "react"
+import { default as React, ReactElement } from "react"
 
 import { MenuProps } from "./Menu"
 import MenuDropdown from "./MenuDropdown"
@@ -8,37 +8,43 @@ export type StatelessMenuProps = {
   isMenuVisible: boolean
   toggleMenuDropdown: any // TODO!
   hideMenuDropdown: any
+  renderButton: (args: {
+    onClick: () => void
+    onMouseDown: (e: any) => void
+  }) => React.ReactElement
 } & MenuProps
 
 export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({
   align = "left",
   automationId,
-  button,
+  renderButton,
   isMenuVisible,
   toggleMenuDropdown,
   hideMenuDropdown,
   children,
 }) => {
   const dropdownButtonContainer = React.createRef<HTMLDivElement>()
+
+  const menuButton = renderButton({
+    onMouseDown: (e: any) => e.preventDefault(),
+    onClick: () => {
+      toggleMenuDropdown()
+    },
+  })
+  const menu = renderMenuDropdown({
+    align,
+    children,
+    dropdownButtonContainer,
+    hideMenuDropdown,
+  })
   return (
     <div
       className={styles.dropdown}
       data-automation-id={automationId}
       ref={dropdownButtonContainer}
     >
-      {React.cloneElement(button, {
-        onClick: () => {
-          toggleMenuDropdown()
-        },
-        onMouseDown: (e: any) => e.preventDefault(), // TODO any
-      })}
-      {isMenuVisible &&
-        renderMenuDropdown({
-          align,
-          children,
-          dropdownButtonContainer,
-          hideMenuDropdown,
-        })}
+      {menuButton}
+      {isMenuVisible ? menu : null}
     </div>
   )
 }
