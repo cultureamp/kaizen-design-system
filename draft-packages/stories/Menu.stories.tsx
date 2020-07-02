@@ -2,6 +2,8 @@ import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { Button, IconButton } from "@kaizen/draft-button"
 const chevronDown = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
+const chevronUp = require("@kaizen/component-library/icons/chevron-up.icon.svg")
+  .default
 const duplicateIcon = require("@kaizen/component-library/icons/duplicate.icon.svg")
   .default
 const editIcon = require("@kaizen/component-library/icons/edit.icon.svg")
@@ -13,9 +15,10 @@ const kebabIcon = require("@kaizen/component-library/icons/kebab.icon.svg")
 const meatballsIcon = require("@kaizen/component-library/icons/meatballs.icon.svg")
   .default
 import { action } from "@storybook/addon-actions"
-import * as React from "react"
-
+import React, { useState } from "react"
 import { Menu, MenuContent, MenuHeader, MenuItem, MenuSeparator } from "../menu"
+import { StatelessMenu } from "../menu/KaizenDraft/Menu/StatelessMenu"
+import { Paragraph, Box } from "@kaizen/component-library"
 
 const StoryWrapper = ({ children }) => (
   <div style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}>
@@ -152,4 +155,79 @@ LabelAndIconBottom.story = {
   parameters: {
     viewport: { defaultViewport: "mobile1" },
   },
+}
+
+export const DefaultStatelessMenu = () => {
+  const StatelessMenuExample = props => {
+    const [isMenuVisible, setIsMenuVisible] = useState(false)
+
+    const toggleMenu = () => {
+      setIsMenuVisible(!isMenuVisible)
+    }
+
+    const hideMenu = () => {
+      setIsMenuVisible(false)
+    }
+
+    const label = `I'm ${isMenuVisible ? "open!" : "closed!"}`
+
+    return (
+      <div>
+        <Button
+          secondary={true}
+          onClick={() => toggleMenu()}
+          label="Toggle Menu"
+        />
+        <Button secondary={true} onClick={() => hideMenu()} label="Hide Menu" />
+        <Paragraph variant="body">
+          I'm {isMenuVisible ? "open!" : "closed!"}
+        </Paragraph>
+        <StatelessMenu
+          isMenuVisible={isMenuVisible}
+          toggleMenuDropdown={toggleMenu}
+          hideMenuDropdown={hideMenu}
+          renderButton={buttonProps => (
+            <Button
+              label="Label"
+              icon={isMenuVisible ? chevronUp : chevronDown}
+              iconPosition="end"
+              {...buttonProps}
+            />
+          )}
+        >
+          <div onClick={e => e.stopPropagation()}>
+            <MenuInstance />
+          </div>
+        </StatelessMenu>
+      </div>
+    )
+  }
+  return (
+    <StoryWrapper>
+      <Box p={1}>
+        <StatelessMenuExample />
+      </Box>
+      <Box p={1}>
+        <Paragraph variant="body">
+          Use the StatelessMenu component if you need to{" "}
+          <a href="https://reactjs.org/docs/lifting-state-up.html">
+            lift state
+          </a>{" "}
+          from the Menu component. This gives the flexibility to be able to
+          control the state of the dropdown however you like and respond to
+          state changes, but it requires more work to configure. It can be used
+          instead of `Menu` if this level of flexibility is required. This
+          component is used in the FilterDrawer component. View the source code{" "}
+          <a href="https://github.com/cultureamp/kaizen-design-system/blob/master/draft-packages/stories/Menu.stories.tsx">
+            here
+          </a>
+          .
+        </Paragraph>
+      </Box>
+    </StoryWrapper>
+  )
+}
+
+DefaultStatelessMenu.story = {
+  name: "StatelessMenu (example usage)",
 }
