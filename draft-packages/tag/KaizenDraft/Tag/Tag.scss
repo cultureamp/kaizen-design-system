@@ -1,5 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
@@ -40,7 +41,11 @@ $small: $ca-grid;
 }
 
 .dismissIcon {
-  @include ca-margin($end: -$ca-grid * 0.15, $start: $ca-grid * 0.125);
+  padding: $kz-spacing-xs;
+  margin-top: -$kz-spacing-xs;
+  margin-right: -0.5375rem;
+  margin-bottom: -$kz-spacing-xs;
+  margin-left: -0.125rem;
   color: $kz-color-wisteria-600;
   height: $ca-grid * 0.6;
   cursor: pointer;
