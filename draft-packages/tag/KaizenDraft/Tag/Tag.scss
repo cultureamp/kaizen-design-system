@@ -75,7 +75,7 @@ $small: $ca-grid;
 .default {
   background-color: $kz-color-wisteria-200;
 
-  &:hover {
+  &.dismissible:hover {
     border-color: $kz-color-wisteria-300;
   }
 }
@@ -83,7 +83,7 @@ $small: $ca-grid;
 .sentimentPositive {
   background-color: $kz-color-seedling-100;
 
-  &:hover {
+  &.dismissible:hover {
     border-color: $kz-color-seedling-200;
   }
 }
@@ -91,7 +91,7 @@ $small: $ca-grid;
 .sentimentNeutral {
   background-color: $kz-color-ash;
 
-  &:hover {
+  &.dismissible:hover {
     border-color: $kz-color-wisteria-200;
   }
 }
@@ -99,7 +99,7 @@ $small: $ca-grid;
 .sentimentNegative {
   background-color: $kz-color-coral-100;
 
-  &:hover {
+  &.dismissible:hover {
     border-color: $kz-color-coral-200;
   }
 }
@@ -116,7 +116,7 @@ $small: $ca-grid;
 .validationPositive {
   background-color: $kz-color-seedling-100;
 
-  &:hover {
+  &.dismissible:hover {
     border-color: $kz-color-seedling-200;
   }
 
@@ -128,7 +128,7 @@ $small: $ca-grid;
 .validationInformative {
   background-color: $kz-color-cluny-100;
 
-  &:hover {
+  &.dismissible:hover {
     border-color: $kz-color-cluny-300;
   }
 
@@ -140,7 +140,7 @@ $small: $ca-grid;
 .validationNegative {
   background-color: $kz-color-coral-100;
 
-  &:hover {
+  &.dismissible:hover {
     border-color: $kz-color-coral-200;
   }
 
@@ -152,7 +152,7 @@ $small: $ca-grid;
 .validationCautionary {
   background-color: $kz-color-yuzu-100;
 
-  &:hover {
+  &.dismissible:hover {
     border-color: $kz-color-yuzu-300;
   }
 
