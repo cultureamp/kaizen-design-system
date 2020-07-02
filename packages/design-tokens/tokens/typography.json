@@ -106,6 +106,13 @@
         "lineHeight": "1.5rem",
         "letterSpacing": "normal"
       },
+      "paragraphBodyBold": {
+        "fontFamily": "\"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif;",
+        "fontWeight": "600",
+        "fontSize": "1rem",
+        "lineHeight": "1.5rem",
+        "letterSpacing": "normal"
+      },
       "paragraphSmall": {
         "fontFamily": "\"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif;",
         "fontWeight": "400",
