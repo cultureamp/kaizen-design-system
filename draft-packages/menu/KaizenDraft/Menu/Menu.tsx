@@ -13,6 +13,7 @@ export type MenuProps = {
   button: React.ReactElement<ButtonProps>
   menuVisible?: boolean
   automationId?: string
+  children: React.ReactNode
 }
 
 type Menu = React.FunctionComponent<MenuProps>

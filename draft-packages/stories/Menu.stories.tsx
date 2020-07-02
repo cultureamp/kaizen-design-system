@@ -1,4 +1,5 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
+import { Box, Paragraph } from "@kaizen/component-library"
 import { Button, IconButton } from "@kaizen/draft-button"
 const chevronDown = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
@@ -24,7 +25,6 @@ import {
   MenuSeparator,
   StatelessMenu,
 } from "../menu"
-import { Paragraph, Box } from "@kaizen/component-library"
 
 const StoryWrapper = ({ children }) => (
   <div style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}>
