@@ -1,38 +1,40 @@
-import { Button, ButtonProps } from "@kaizen/draft-button"
-import { Menu, MenuContent, MenuItem } from "@kaizen/draft-menu"
+import { Button, IconButton } from "@kaizen/draft-button"
+import { Menu, MenuContent, MenuItem, MenuItemProps } from "@kaizen/draft-menu"
 import * as React from "react"
 import {
   ButtonWithOnClickOrHref,
   isMenuGroupNotButton,
-  isMenuItemNotButton,
-  MenuGroup,
   PrimaryActionProps,
-  SecondaryActionsProps,
 } from "./TitleBlockZen"
 import Toolbar from "./Toolbar"
 const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
+  .default
+const meatballsIcon = require("@kaizen/component-library/icons/meatballs.icon.svg")
   .default
 
 const styles = require("./TitleBlockZen.scss")
 
 type MainActionsProps = {
   primaryAction?: PrimaryActionProps
-  secondaryActions?: SecondaryActionsProps
   defaultAction?: ButtonWithOnClickOrHref
   reversed?: boolean
+  overflowMenuItems?: MenuItemProps[]
+  showOverflowMenu?: boolean
 }
 
 const MainActions = ({
   primaryAction,
   defaultAction,
   reversed = false,
+  overflowMenuItems,
+  showOverflowMenu = false,
 }: MainActionsProps) => {
   let items
   if (primaryAction && isMenuGroupNotButton(primaryAction)) {
     const menuContent = (
       <MenuContent>
-        {primaryAction.menuItems.map(item => (
-          <MenuItem {...item} />
+        {primaryAction.menuItems.map((item, idx) => (
+          <MenuItem {...item} key={`main-action-primary-${idx}`} />
         ))}
       </MenuContent>
     )
@@ -41,6 +43,7 @@ const MainActions = ({
       ...(primaryAction
         ? [
             <Menu
+              align="right"
               button={
                 <Button
                   label={primaryAction.label}
@@ -60,6 +63,24 @@ const MainActions = ({
     items = [
       ...(defaultAction ? [<Button {...defaultAction} />] : []),
       ...(primaryAction ? [<Button {...primaryAction} />] : []),
+    ]
+  }
+
+  if (overflowMenuItems && showOverflowMenu && overflowMenuItems.length > 0) {
+    items = [
+      <Menu
+        align="right"
+        button={
+          <IconButton label="" reversed={reversed} icon={meatballsIcon} />
+        }
+      >
+        <MenuContent>
+          {overflowMenuItems.map((menuItem, idx) => (
+            <MenuItem {...menuItem} key={`main-action-overflow-item-${idx}`} />
+          ))}
+        </MenuContent>
+      </Menu>,
+      ...items,
     ]
   }
 
