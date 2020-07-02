@@ -1,5 +1,5 @@
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { Box, Paragraph } from "@kaizen/component-library"
+import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { Button, IconButton } from "@kaizen/draft-button"
 const chevronDown = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
@@ -163,51 +163,52 @@ LabelAndIconBottom.story = {
   },
 }
 
-export const DefaultStatelessMenu = () => {
-  const StatelessMenuExample = props => {
-    const [isMenuVisible, setIsMenuVisible] = useState(false)
+const StatelessMenuExample = props => {
+  const [isMenuVisible, setIsMenuVisible] = useState(false)
 
-    const toggleMenu = () => {
-      setIsMenuVisible(!isMenuVisible)
-    }
-
-    const hideMenu = () => {
-      setIsMenuVisible(false)
-    }
-
-    const label = `I'm ${isMenuVisible ? "open!" : "closed!"}`
-
-    return (
-      <div>
-        <Button
-          secondary={true}
-          onClick={() => toggleMenu()}
-          label="Toggle Menu"
-        />
-        <Button secondary={true} onClick={() => hideMenu()} label="Hide Menu" />
-        <Paragraph variant="body">
-          I'm {isMenuVisible ? "open!" : "closed!"}
-        </Paragraph>
-        <StatelessMenu
-          isMenuVisible={isMenuVisible}
-          toggleMenuDropdown={toggleMenu}
-          hideMenuDropdown={hideMenu}
-          renderButton={buttonProps => (
-            <Button
-              label="Label"
-              icon={isMenuVisible ? chevronUp : chevronDown}
-              iconPosition="end"
-              {...buttonProps}
-            />
-          )}
-        >
-          <div onClick={e => e.stopPropagation()}>
-            <MenuInstance />
-          </div>
-        </StatelessMenu>
-      </div>
-    )
+  const toggleMenu = () => {
+    setIsMenuVisible(!isMenuVisible)
   }
+
+  const hideMenu = () => {
+    setIsMenuVisible(false)
+  }
+
+  const label = `I'm ${isMenuVisible ? "open!" : "closed!"}`
+
+  return (
+    <div>
+      <Button
+        secondary={true}
+        onClick={() => toggleMenu()}
+        label="Toggle Menu"
+      />
+      <Button secondary={true} onClick={() => hideMenu()} label="Hide Menu" />
+      <Paragraph variant="body">
+        I'm {isMenuVisible ? "open!" : "closed!"}
+      </Paragraph>
+      <StatelessMenu
+        isMenuVisible={isMenuVisible}
+        toggleMenuDropdown={toggleMenu}
+        hideMenuDropdown={hideMenu}
+        renderButton={buttonProps => (
+          <Button
+            label="Label"
+            icon={isMenuVisible ? chevronUp : chevronDown}
+            iconPosition="end"
+            {...buttonProps}
+          />
+        )}
+      >
+        <div onClick={e => e.stopPropagation()}>
+          <MenuInstance />
+        </div>
+      </StatelessMenu>
+    </div>
+  )
+}
+
+export const DefaultStatelessMenu = () => {
   return (
     <StoryWrapper>
       <Box p={1}>

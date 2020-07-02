@@ -4,30 +4,25 @@ import MenuDropdown from "./MenuDropdown"
 
 const styles = require("./styles.scss")
 
-type MenuState = {
-  isMenuVisible: boolean
-}
-
-export type MenuProps = {
+export type GenericMenuProps = {
   align?: "left" | "right"
-  button: React.ReactElement<ButtonProps>
   menuVisible?: boolean
   automationId?: string
   children: React.ReactNode
 }
 
-type Menu = React.FunctionComponent<MenuProps>
+type StatefulMenuProps = {
+  button: React.ReactElement<ButtonProps>
+}
 
-const Menu: Menu = (props: MenuProps) => {
+type Menu = React.FunctionComponent<GenericMenuProps & StatefulMenuProps>
+
+const Menu: Menu = props => {
   const { align = "left" } = props
-
-  const initializedProps = { ...props, align }
 
   const dropdownButtonContainer = React.createRef<HTMLDivElement>()
 
-  const [isMenuVisible, setIsMenuVisible] = useState(
-    initializedProps.menuVisible
-  )
+  const [isMenuVisible, setIsMenuVisible] = useState(props.menuVisible)
 
   const toggleMenuDropdown = () => {
     setIsMenuVisible(!isMenuVisible)
@@ -37,40 +32,26 @@ const Menu: Menu = (props: MenuProps) => {
     setIsMenuVisible(false)
   }
 
-  const { automationId, button, children } = initializedProps
-  const menu = renderMenuDropdown({
+  const { automationId, button, children } = props
+
+  return render({
+    menuButton: React.cloneElement(button, {
+      onClick: e => {
+        e.preventDefault()
+        toggleMenuDropdown()
+      },
+      onMouseDown: e => e.preventDefault(),
+    }),
+    isMenuVisible,
+    automationId,
+    dropdownButtonContainer,
     align,
     children,
-    dropdownButtonContainer,
     hideMenuDropdown,
   })
-  return (
-    <div
-      className={styles.dropdown}
-      data-automation-id={automationId}
-      ref={dropdownButtonContainer}
-    >
-      {React.cloneElement(button, {
-        onClick: e => {
-          e.preventDefault()
-          toggleMenuDropdown()
-        },
-        onMouseDown: e => e.preventDefault(),
-      })}
-      {isMenuVisible ? menu : null}
-    </div>
-  )
 }
 
-const toggleMenuDropdown = (isMenuVisible, setIsMenuVisible) => {
-  setIsMenuVisible(!isMenuVisible)
-}
-
-const hideMenu = setIsMenuVisible => {
-  setIsMenuVisible(false)
-}
-
-const renderMenuDropdown = ({
+export const renderMenuDropdown = ({
   align,
   children,
   dropdownButtonContainer,
@@ -84,6 +65,33 @@ const renderMenuDropdown = ({
     >
       {children}
     </MenuDropdown>
+  )
+}
+
+export const render = ({
+  menuButton,
+  isMenuVisible,
+  automationId,
+  dropdownButtonContainer,
+  align,
+  children,
+  hideMenuDropdown,
+}) => {
+  const menu = renderMenuDropdown({
+    align,
+    children,
+    dropdownButtonContainer,
+    hideMenuDropdown,
+  })
+  return (
+    <div
+      className={styles.dropdown}
+      data-automation-id={automationId}
+      ref={dropdownButtonContainer}
+    >
+      {menuButton}
+      {isMenuVisible ? menu : null}
+    </div>
   )
 }
 

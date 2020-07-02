@@ -1,6 +1,6 @@
 import { default as React, ReactElement } from "react"
 
-import { MenuProps, renderMenuDropdown } from "./Menu"
+import { GenericMenuProps, render } from "./Menu"
 import MenuDropdown from "./MenuDropdown"
 const styles = require("./styles.scss")
 
@@ -12,7 +12,7 @@ export type StatelessMenuProps = {
     onClick: () => void
     onMouseDown: (e: any) => void
   }) => React.ReactElement
-} & MenuProps
+} & GenericMenuProps
 
 export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({
   align = "left",
@@ -31,22 +31,15 @@ export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({
       toggleMenuDropdown()
     },
   })
-  const menu = renderMenuDropdown({
+  return render({
+    menuButton,
+    isMenuVisible,
+    automationId,
+    dropdownButtonContainer,
     align,
     children,
-    dropdownButtonContainer,
     hideMenuDropdown,
   })
-  return (
-    <div
-      className={styles.dropdown}
-      data-automation-id={automationId}
-      ref={dropdownButtonContainer}
-    >
-      {menuButton}
-      {isMenuVisible ? menu : null}
-    </div>
-  )
 }
 
 export default StatelessMenu
