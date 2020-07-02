@@ -9,6 +9,7 @@ type MenuState = {
 }
 
 export type MenuProps = {
+  align?: "left" | "right"
   button: React.ReactElement<ButtonProps>
   menuVisible?: boolean
   automationId?: string
@@ -18,6 +19,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
   static displayName = "Menu"
   static defaultProps = {
     iconPosition: "start",
+    align: "left",
   }
 
   dropdownButtonContainer = React.createRef<HTMLDivElement>()
@@ -56,6 +58,7 @@ export default class Menu extends React.Component<MenuProps, MenuState> {
       <MenuDropdown
         hideMenuDropdown={this.hideMenu}
         position={this.getPosition()}
+        align={this.props.align}
       >
         {this.props.children}
       </MenuDropdown>
