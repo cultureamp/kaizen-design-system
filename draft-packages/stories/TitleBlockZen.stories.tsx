@@ -159,7 +159,7 @@ export const AdminVariant = () => (
     variant="admin"
     sectionTitle="Default questions"
     sectionTitleDescription="Default questions are surfaced automatically for managers when requesting feedback about their teams from colleagues. Default questions are editable by managers."
-    primaryAction={{ label: "Primary link", primary: true, href: "#" }}
+    primaryAction={{ label: "Primary stuff", menuItems: [] }}
     defaultAction={{ label: "Default link", href: "#" }}
     secondaryActions={SECONDARY_ACTIONS}
     breadcrumb={{
@@ -291,7 +291,7 @@ Engagement.story = {
 
 export const Performance = () => (
   <TitleBlockZen
-    title="Blanca Wheeler Wheeler Wheeler Wheeler Wheeler Wheeler"
+    title="Blanca Wheeler"
     primaryAction={{
       href: "#",
       label: "Request feedback",
@@ -327,7 +327,7 @@ export const Performance = () => (
       },
     }}
     avatar={<img alt="avatar image" src={assetUrl("site/empty-state.png")} />}
-    // subtitle="Director of People Operations and Stuff That's Important And Things"
+    subtitle="Director of Stuff and Things"
     navigationTabs={[
       <NavigationTab text="Feedback" href="#" active />,
       <NavigationTab
