@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.7.8...@kaizen/draft-button@1.8.0) (2020-07-02)
+
+
+### Features
+
+* Build MVP of TitleBlock ([#603](https://github.com/cultureamp/kaizen-design-system/issues/603)) ([ff2ffac](https://github.com/cultureamp/kaizen-design-system/commit/ff2ffacd80e3f651faa435865537f25e9ccef598))
+
+
+
+
+
 ## [1.7.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.7.7...@kaizen/draft-button@1.7.8) (2020-07-01)
 
 **Note:** Version bump only for package @kaizen/draft-button
