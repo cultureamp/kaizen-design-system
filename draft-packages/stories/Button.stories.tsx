@@ -1,9 +1,12 @@
+import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { Button } from "../button"
 const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
   .default
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
+const guidanceIcon = require("@kaizen/component-library/icons/guidance.icon.svg")
+  .default
+import { Badge } from "@kaizen/draft-badge"
 import { action } from "@storybook/addon-actions"
-import * as React from "react"
+import React, { useState } from "react"
 
 export default {
   title: "Button (Zen) (React)",
@@ -310,3 +313,52 @@ export const MultipleButtons = () => (
     <Button label="Exit" automationId="demo-button-2" />
   </div>
 )
+
+export const AdditionalContent = () => {
+  const CounterButton = () => {
+    const [counter, setCounter] = useState(1)
+
+    const increaseCounter = () => setCounter(counter + 1)
+
+    return (
+      <div>
+        <Button
+          label="Count"
+          automationId="demo-button-1"
+          additionalContent={<Badge variant="active">{String(counter)}</Badge>}
+          onClick={() => increaseCounter()}
+        />
+      </div>
+    )
+  }
+  return <CounterButton />
+}
+
+AdditionalContent.story = {
+  name: "Default + Additional Content (usage example)",
+}
+
+export const IconWithAdditionalContent = () => {
+  const CounterButton = () => {
+    const [counter, setCounter] = useState(1)
+
+    const increaseCounter = () => setCounter(counter + 1)
+
+    return (
+      <div>
+        <Button
+          label="New Idea"
+          automationId="demo-button-1"
+          additionalContent={<Badge variant="active">{String(counter)}</Badge>}
+          onClick={() => increaseCounter()}
+          icon={guidanceIcon}
+        />
+      </div>
+    )
+  }
+  return <CounterButton />
+}
+
+IconWithAdditionalContent.story = {
+  name: "Default + Icon + Additional Content (usage example)",
+}
