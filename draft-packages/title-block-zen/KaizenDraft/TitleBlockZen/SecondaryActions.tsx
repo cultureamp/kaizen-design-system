@@ -41,9 +41,9 @@ const SecondaryActions = ({
 }: Props) => {
   if (!secondaryActions && !secondaryOverflowMenuItems) return null
 
-  let stuff
+  let toolbarItems
   if (secondaryActions) {
-    stuff = secondaryActions.map(a => {
+    toolbarItems = secondaryActions.map(a => {
       if (isMenuGroupNotButton(a)) {
         return (
           <Menu
@@ -70,7 +70,6 @@ const SecondaryActions = ({
     })
   }
 
-  let toolbarItems = stuff
   const overflowMenu = renderSecondaryOverflowMenu(
     secondaryOverflowMenuItems,
     reversed
