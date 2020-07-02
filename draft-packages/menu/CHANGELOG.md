@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@1.2.4...@kaizen/draft-menu@2.0.0) (2020-07-02)
+
+
+### Features
+
+* Menu is now left aligned by default ([#605](https://github.com/cultureamp/kaizen-design-system/issues/605)) ([fc29a2f](https://github.com/cultureamp/kaizen-design-system/commit/fc29a2f321a27f62273f763bc53667b67365fcc5))
+
+
+### BREAKING CHANGES
+
+* Menu is now left aligned by default
+
+adds an `align` prop to Menu and MenuDropdown with
+options `"left"` and `"right"`. Previously righ-aligned
+was the only option. Now left aligned is an option and
+it becomes the default. Consumers must add `align="right"`
+to any existing usages to retain identical functionality.
+
+* feat: further Zenify the MenuDropdown component
+
+- the dropdown is now flush to the right, and
+  apears below the button with a small gap
+
+* docs: add story for edge case where button is at bottom of screen
+
+
+
+
+
 ## [1.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@1.2.3...@kaizen/draft-menu@1.2.4) (2020-07-01)
 
 **Note:** Version bump only for package @kaizen/draft-menu
