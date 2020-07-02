@@ -16,8 +16,14 @@ const meatballsIcon = require("@kaizen/component-library/icons/meatballs.icon.sv
   .default
 import { action } from "@storybook/addon-actions"
 import React, { useState } from "react"
-import { Menu, MenuContent, MenuHeader, MenuItem, MenuSeparator } from "../menu"
-import { StatelessMenu } from "../menu/KaizenDraft/Menu/StatelessMenu"
+import {
+  Menu,
+  MenuContent,
+  MenuHeader,
+  MenuItem,
+  MenuSeparator,
+  StatelessMenu,
+} from "../menu"
 import { Paragraph, Box } from "@kaizen/component-library"
 
 const StoryWrapper = ({ children }) => (
