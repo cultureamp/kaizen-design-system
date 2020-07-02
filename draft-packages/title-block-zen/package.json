@@ -32,7 +32,6 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^7.24.1",
-    "@kaizen/draft-menu": "^2.0.0",
     "@kaizen/draft-tag": "^1.5.16",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
@@ -44,7 +43,7 @@
   "peerDependencies": {
     "@kaizen/design-tokens": "^1.13.1",
     "@kaizen/draft-button": "^1.7.4",
-    "@kaizen/draft-menu": "^1.2.1",
+    "@kaizen/draft-menu": "^2.0.0",
     "react": "^16.9.0"
   }
 }
