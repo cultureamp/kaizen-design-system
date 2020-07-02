@@ -6,8 +6,8 @@ const styles = require("./styles.scss")
 
 export type StatelessMenuProps = {
   isMenuVisible: boolean
-  toggleMenuDropdown: any // TODO!
-  hideMenuDropdown: any
+  toggleMenuDropdown: () => void
+  hideMenuDropdown: () => void
   renderButton: (args: {
     onClick: () => void
     onMouseDown: (e: any) => void
