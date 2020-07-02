@@ -135,3 +135,21 @@ export const DefaultKebab = () => (
 DefaultKebab.story = {
   name: "Default (Kebab)",
 }
+
+export const LabelAndIconBottom = () => (
+  <StoryWrapper>
+    <div style={{ marginTop: "400px" }}></div>
+    <Menu
+      button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+    >
+      <MenuInstance />
+    </Menu>
+  </StoryWrapper>
+)
+
+LabelAndIconBottom.story = {
+  name: "Label and Icon (bottom of screen)",
+  parameters: {
+    viewport: { defaultViewport: "mobile1" },
+  },
+}
