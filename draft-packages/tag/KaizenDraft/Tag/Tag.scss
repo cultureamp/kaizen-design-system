@@ -1,6 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
@@ -9,9 +8,10 @@ $medium: $ca-grid * 1.25;
 $small: $ca-grid;
 
 .root {
-  @include kz-typography-paragraph-small;
-  @include ca-inherit-baseline;
   @include ca-margin($end: $ca-grid * 0.5);
+  font-size: $kz-typography-paragraph-small-font-size;
+  font-weight: $kz-typography-paragraph-small-font-weight;
+  letter-spacing: $kz-typography-paragraph-small-letter-spacing;
   color: $kz-color-wisteria-800;
   display: inline-block;
   border: $kz-border-borderless-border-width $kz-border-borderless-border-style
