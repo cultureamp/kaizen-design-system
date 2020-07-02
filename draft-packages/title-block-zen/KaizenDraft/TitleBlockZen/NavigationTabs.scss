@@ -19,11 +19,19 @@
   color: rgba($kz-color-white, 0.7);
 
   @include title-block-under-1440 {
-    @include ca-margin($end: $ca-grid * 0.5);
+    @include ca-margin($end: $ca-grid * 0.25);
   }
 
-  @include title-block-medium-and-small {
-    padding: 0 ($ca-grid / 3);
+  @media (max-width: 1189px) {
+    margin: 0;
+  }
+
+  &.lightBackground {
+    color: rgba($kz-color-wisteria-800, 0.75);
+
+    &:hover {
+      color: $kz-color-cluny-500;
+    }
   }
 
   &:hover {
@@ -36,6 +44,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  white-space: nowrap;
 
   font-family: $kz-typography-heading-4-font-family;
   font-weight: $kz-typography-heading-4-font-weight;
@@ -62,7 +71,7 @@
       top: 0;
       left: -($ca-grid / 2);
       right: -($ca-grid / 2);
-      background-color: #ffffff;
+      background-color: $kz-color-white;
       transition: transform cubic-bezier(0.55, 0.085, 0.68, 0.53) 150ms;
       border-radius: 0 0 $kz-border-solid-border-radius
         $kz-border-solid-border-radius;
@@ -72,6 +81,22 @@
         bottom: 0;
         border-radius: $kz-border-solid-border-radius
           $kz-border-solid-border-radius 0 0;
+      }
+    }
+
+    .lightBackground & {
+      color: $kz-color-cluny-500;
+
+      &::before {
+        background-color: $kz-color-cluny-500;
+        top: 3px;
+
+        @include title-block-medium-and-small {
+          top: auto;
+          bottom: 0;
+          border-radius: $kz-border-solid-border-radius
+            $kz-border-solid-border-radius 0 0;
+        }
       }
     }
   }

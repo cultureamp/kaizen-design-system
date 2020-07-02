@@ -1,5 +1,11 @@
 @import "~@kaizen/design-tokens/sass/layout";
 
+@mixin title-block-under-1645 {
+  @media (max-width: 1644px) {
+    @content;
+  }
+}
+
 @mixin title-block-under-1440 {
   @media (max-width: 1439px) {
     @content;

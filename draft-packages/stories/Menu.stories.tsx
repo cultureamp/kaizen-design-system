@@ -114,7 +114,7 @@ LabelAndIconReversed.story = {
 
 export const DefaultMeatball = () => (
   <StoryWrapper>
-    <Menu button={<IconButton label="" icon={meatballsIcon} />}>
+    <Menu button={<IconButton label="" icon={meatballsIcon} />} align="right">
       <MenuInstance />
     </Menu>
   </StoryWrapper>
@@ -126,7 +126,7 @@ DefaultMeatball.story = {
 
 export const DefaultKebab = () => (
   <StoryWrapper>
-    <Menu button={<IconButton label="" icon={kebabIcon} />}>
+    <Menu button={<IconButton label="" icon={kebabIcon} />} align="right">
       <MenuInstance />
     </Menu>
   </StoryWrapper>
@@ -134,4 +134,22 @@ export const DefaultKebab = () => (
 
 DefaultKebab.story = {
   name: "Default (Kebab)",
+}
+
+export const LabelAndIconBottom = () => (
+  <StoryWrapper>
+    <div style={{ marginTop: "400px" }}></div>
+    <Menu
+      button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+    >
+      <MenuInstance />
+    </Menu>
+  </StoryWrapper>
+)
+
+LabelAndIconBottom.story = {
+  name: "Label and Icon (bottom of screen)",
+  parameters: {
+    viewport: { defaultViewport: "mobile1" },
+  },
 }
