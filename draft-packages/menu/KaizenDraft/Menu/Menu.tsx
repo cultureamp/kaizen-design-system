@@ -57,8 +57,8 @@ type RenderProps = {
   hideMenuDropdown: () => void
 }
 
-export const renderMenuDropdown = (props: GenericMenuProps & RenderProps) => {
-  return (
+export const render = (props: GenericMenuProps & RenderProps) => {
+  const menu = (
     <MenuDropdown
       position={getPosition(props.dropdownButtonContainer)}
       align={props.align}
@@ -67,10 +67,6 @@ export const renderMenuDropdown = (props: GenericMenuProps & RenderProps) => {
       {props.children}
     </MenuDropdown>
   )
-}
-
-export const render = (props: GenericMenuProps & RenderProps) => {
-  const menu = renderMenuDropdown(props)
   return (
     <div
       className={styles.dropdown}
