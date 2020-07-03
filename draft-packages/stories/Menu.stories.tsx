@@ -25,10 +25,6 @@ import {
   MenuSeparator,
   StatelessMenu,
 } from "../menu"
-<<<<<<< HEAD
-=======
-import { Paragraph, Box } from "@kaizen/component-library"
->>>>>>> fix: refactor so that StatelessMenu is inside Menu
 
 const StoryWrapper = ({ children }) => (
   <div style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}>
