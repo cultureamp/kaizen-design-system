@@ -175,6 +175,22 @@ SingleSecondary.story = {
   name: "Single Secondary",
 }
 
+export const SingleSecondaryDisabled = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      isDisabled={true}
+      isSearchable={false}
+      defaultValue={options[0]}
+      variant="secondary"
+    />
+  </StoryContainer>
+)
+
+SingleSecondaryDisabled.story = {
+  name: "Single Secondary, Disabled",
+}
+
 export const SingleSecondaryReversed = () => (
   <StoryContainer>
     <Select
