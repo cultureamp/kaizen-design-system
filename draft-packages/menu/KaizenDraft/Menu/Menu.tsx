@@ -6,6 +6,7 @@ const styles = require("./styles.scss")
 
 export type GenericMenuProps = {
   align?: "left" | "right"
+  dropdownWidth?: "default" | "contain"
   menuVisible?: boolean
   automationId?: string
   children: React.ReactNode
@@ -20,7 +21,11 @@ export type MenuProps = GenericMenuProps & StatefulMenuProps
 type Menu = React.FunctionComponent<MenuProps>
 
 const Menu: Menu = props => {
-  const { align = "left", menuVisible = false } = props
+  const {
+    align = "left",
+    dropdownWidth = "default",
+    menuVisible = false,
+  } = props
 
   const dropdownButtonContainer: React.RefObject<HTMLDivElement> = useRef(null)
 
@@ -65,6 +70,7 @@ export const render = (props: GenericMenuProps & RenderProps) => {
       position={getPosition(props.dropdownButtonContainer)}
       align={props.align}
       hideMenuDropdown={props.hideMenuDropdown}
+      width={props.dropdownWidth}
     >
       {props.children}
     </MenuDropdown>
