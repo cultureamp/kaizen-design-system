@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-filter-drawer",
-  "version": "1.4.1",
+  "version": "1.0.0",
   "description": "The draft filter-drawer component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
