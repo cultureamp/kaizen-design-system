@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.5.16...@kaizen/draft-tag@1.5.17) (2020-07-02)
+
+
+### Bug Fixes
+
+* Changed box-sizing in tag so the height matches Figma ([#604](https://github.com/cultureamp/kaizen-design-system/issues/604)) ([c2f38db](https://github.com/cultureamp/kaizen-design-system/commit/c2f38db130c2bb352ab633908c70186c07fd1cd2))
+
+
+
+
+
 ## [1.5.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.5.15...@kaizen/draft-tag@1.5.16) (2020-07-01)
 
 **Note:** Version bump only for package @kaizen/draft-tag

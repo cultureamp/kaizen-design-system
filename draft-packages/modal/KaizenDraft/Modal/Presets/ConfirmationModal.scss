@@ -25,7 +25,7 @@
 }
 
 .positiveHeader {
-  background-color: $kz-color-seedling-400;
+  background-color: $kz-color-seedling-500;
 
   @include ca-media-tablet-and-up {
     background-image: url("../backgrounds/brush-positive.png");
@@ -44,7 +44,7 @@
 }
 
 .negativeHeader {
-  background-color: $kz-color-coral-400;
+  background-color: $kz-color-coral-500;
 
   @include ca-media-tablet-and-up {
     background-image: url("../backgrounds/brush-negative.png");
