@@ -9,7 +9,7 @@ export type StatelessMenuProps = {
   toggleMenuDropdown: () => void
   hideMenuDropdown: () => void
   renderButton: (args: {
-    onClick: () => void
+    onClick: (e: any) => void
     onMouseDown: (e: any) => void
   }) => React.ReactElement
 }
@@ -21,7 +21,8 @@ export const StatelessMenu: React.FunctionComponent<Props> = (props: Props) => {
 
   const menuButton = props.renderButton({
     onMouseDown: (e: any) => e.preventDefault(),
-    onClick: () => {
+    onClick: (e: any) => {
+      e.stopPropagation()
       props.toggleMenuDropdown()
     },
   })

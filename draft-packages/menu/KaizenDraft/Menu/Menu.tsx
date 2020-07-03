@@ -43,8 +43,8 @@ const Menu: Menu = props => {
     dropdownButtonContainer,
     hideMenuDropdown,
     menuButton: React.cloneElement(button, {
-      onClick: e => {
-        e.preventDefault()
+      onClick: (e: any) => {
+        e.stopPropagation()
         toggleMenuDropdown()
       },
       onMouseDown: e => e.preventDefault(),
