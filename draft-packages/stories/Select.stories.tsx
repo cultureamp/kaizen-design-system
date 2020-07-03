@@ -160,6 +160,21 @@ MultiAsyncSearchable.story = {
   name: "Multi-Async Searchable",
 }
 
+export const SingleSecondary = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      isSearchable={false}
+      defaultValue={options[0]}
+      variant="secondary"
+    />
+  </StoryContainer>
+)
+
+SingleSecondary.story = {
+  name: "Single Secondary",
+}
+
 export const SingleSecondaryReversed = () => (
   <StoryContainer>
     <Select
