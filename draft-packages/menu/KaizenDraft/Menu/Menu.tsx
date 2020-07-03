@@ -1,5 +1,5 @@
 import { ButtonProps } from "@kaizen/draft-button"
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import MenuDropdown from "./MenuDropdown"
 
 const styles = require("./styles.scss")
@@ -22,7 +22,7 @@ type Menu = React.FunctionComponent<MenuProps>
 const Menu: Menu = props => {
   const { align = "left", menuVisible = false } = props
 
-  const dropdownButtonContainer = React.createRef<HTMLDivElement>()
+  const dropdownButtonContainer: React.RefObject<HTMLDivElement> = useRef(null)
 
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(menuVisible)
 

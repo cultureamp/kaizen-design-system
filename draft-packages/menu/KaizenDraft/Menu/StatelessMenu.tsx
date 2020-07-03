@@ -1,7 +1,6 @@
-import { default as React, ReactElement } from "react"
+import { default as React, ReactElement, useRef } from "react"
 
 import { GenericMenuProps, render } from "./Menu"
-import MenuDropdown from "./MenuDropdown"
 const styles = require("./styles.scss")
 
 export type StatelessMenuProps = {
@@ -17,7 +16,7 @@ export type StatelessMenuProps = {
 export type Props = StatelessMenuProps & GenericMenuProps
 
 export const StatelessMenu: React.FunctionComponent<Props> = (props: Props) => {
-  const dropdownButtonContainer = React.createRef<HTMLDivElement>()
+  const dropdownButtonContainer = useRef(null)
 
   const menuButton = props.renderButton({
     onMouseDown: (e: any) => e.preventDefault(),
