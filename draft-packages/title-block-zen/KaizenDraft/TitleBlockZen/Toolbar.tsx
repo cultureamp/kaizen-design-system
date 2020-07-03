@@ -15,7 +15,10 @@ type ToolbarProps = {
 
 const Toolbar = ({ items, noGap = false }: ToolbarProps) => {
   return (
-    <div className={styles.toolbar}>
+    <div
+      className={styles.toolbar}
+      data-testid="title-block-main-actions-toolbar"
+    >
       {items?.map((item, i) => (
         <div
           className={classNames(styles.toolbarItem, {

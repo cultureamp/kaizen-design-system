@@ -185,7 +185,12 @@ const renderDrawerHandleLabel = (
   if (drawerHandleLabelIconPosition === "end") {
     return (
       <>
-        <span className={styles.drawerHandleLabelText}>{label}</span>
+        <span
+          className={styles.drawerHandleLabelText}
+          data-testid="drawer-handle-lable-text"
+        >
+          {label}
+        </span>
         <>
           {icon && (
             <span className={styles.drawerHandleIcon}>
@@ -205,7 +210,12 @@ const renderDrawerHandleLabel = (
             </span>
           )}
         </>
-        <span className={styles.drawerHandleLabelText}>{label}</span>
+        <span
+          className={styles.drawerHandleLabelText}
+          data-testid="drawer-handle-lable-text"
+        >
+          {label}
+        </span>
       </>
     )
   }
