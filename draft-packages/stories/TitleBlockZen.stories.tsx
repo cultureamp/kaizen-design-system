@@ -80,6 +80,9 @@ export const Default = () => (
         icon: starIcon,
       },
     ]}
+    handleHamburgerClick={() => {
+      alert("Hamburger clicked")
+    }}
     breadcrumb={{
       path: "#",
       text: "Back to home",
@@ -131,6 +134,9 @@ export const DefaultWithMenuButton = () => (
       reversed: true,
     }}
     secondaryActions={SECONDARY_ACTIONS}
+    handleHamburgerClick={() => {
+      alert("Hamburger clicked")
+    }}
     breadcrumb={{
       path: "#",
       text: "Back to home",
@@ -162,6 +168,9 @@ export const AdminVariant = () => (
     primaryAction={{ label: "Primary link", primary: true, href: "#" }}
     defaultAction={{ label: "Default link", href: "#" }}
     secondaryActions={SECONDARY_ACTIONS}
+    handleHamburgerClick={() => {
+      alert("Hamburger clicked")
+    }}
     breadcrumb={{
       path: "#",
       text: "Back to home",
@@ -182,6 +191,9 @@ export const AdminVariantWithNavTabs = () => (
     primaryAction={{ label: "Primary link", primary: true, href: "#" }}
     defaultAction={{ label: "Default link", href: "#" }}
     secondaryActions={SECONDARY_ACTIONS}
+    handleHamburgerClick={() => {
+      alert("Hamburger clicked")
+    }}
     breadcrumb={{
       path: "#",
       text: "Back to home",
@@ -229,6 +241,9 @@ export const EducationVariant = () => (
         icon: starIcon,
       },
     ]}
+    handleHamburgerClick={() => {
+      alert("Hamburger clicked")
+    }}
     breadcrumb={{
       path: "#",
       text: "Back to home",
@@ -261,6 +276,9 @@ export const Engagement = () => (
       href: "#",
     }}
     secondaryActions={SECONDARY_ACTIONS}
+    handleHamburgerClick={() => {
+      alert("Hamburger clicked")
+    }}
     breadcrumb={{
       path: "#",
       text: "Back to home",
@@ -319,6 +337,9 @@ export const Performance = () => (
         icon: starIcon,
       },
     ]}
+    handleHamburgerClick={() => {
+      alert("Hamburger clicked")
+    }}
     breadcrumb={{
       path: "#",
       text: "Back to home",
@@ -381,6 +402,9 @@ export const LongLabels = () => (
         icon: starIcon,
       },
     ]}
+    handleHamburgerClick={() => {
+      alert("Hamburger clicked")
+    }}
     breadcrumb={{
       path: "#",
       text: "Drehen Sie sich um und kehren Sie zur Startseite zurück",
@@ -447,6 +471,9 @@ export const DefaultWithContent = () => (
         href: "#",
       }}
       secondaryActions={SECONDARY_ACTIONS}
+      handleHamburgerClick={() => {
+        alert("Hamburger clicked")
+      }}
       breadcrumb={{
         path: "#",
         text: "Back to home",
@@ -565,6 +592,9 @@ export const DefaultNoSecondary = () => (
       reversed: true,
       href: "#",
     }}
+    handleHamburgerClick={() => {
+      alert("Hamburger clicked")
+    }}
     breadcrumb={{
       path: "#",
       text: "Back to home",
@@ -597,6 +627,9 @@ export const DefaultOnlyPrimary = () => (
       reversed: true,
       primary: true,
       href: "#",
+    }}
+    handleHamburgerClick={() => {
+      alert("Hamburger clicked")
     }}
     breadcrumb={{
       path: "#",
