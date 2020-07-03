@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.12...@kaizen/draft-modal@2.5.13) (2020-07-03)
+
+
+### Bug Fixes
+
+* Ensure headers meet WCAG contrast ([#610](https://github.com/cultureamp/kaizen-design-system/issues/610)) ([5a8f59b](https://github.com/cultureamp/kaizen-design-system/commit/5a8f59bdd6dc7fb67c841ea257190558b5d9351b))
+
+
+
+
+
 ## [2.5.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.11...@kaizen/draft-modal@2.5.12) (2020-07-03)
 
 **Note:** Version bump only for package @kaizen/draft-modal
