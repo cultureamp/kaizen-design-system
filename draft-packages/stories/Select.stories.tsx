@@ -172,7 +172,7 @@ export const SingleSecondary = () => (
 )
 
 SingleSecondary.story = {
-  name: "Single Secondary",
+  name: "Single, Secondary",
 }
 
 export const SingleSecondaryDisabled = () => (
@@ -188,7 +188,7 @@ export const SingleSecondaryDisabled = () => (
 )
 
 SingleSecondaryDisabled.story = {
-  name: "Single Secondary, Disabled",
+  name: "Single, Secondary, Disabled",
 }
 
 export const SingleSecondaryReversed = () => (
@@ -204,7 +204,7 @@ export const SingleSecondaryReversed = () => (
 )
 
 SingleSecondaryReversed.story = {
-  name: "Single Secondary Reversed",
+  name: "Single, Secondary, Reversed",
   parameters: {
     backgrounds: [
       {
