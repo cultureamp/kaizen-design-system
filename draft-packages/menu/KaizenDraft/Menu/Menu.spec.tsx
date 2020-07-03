@@ -8,7 +8,9 @@ afterEach(cleanup)
 describe("Dropdown", () => {
   it("renders default view", () => {
     const { container } = render(
-      <Menu button={<Button label="Button"></Button>} />
+      <Menu button={<Button label="Button"></Button>}>
+        <div>Item</div>
+      </Menu>
     )
 
     expect(container.firstChild).toMatchSnapshot()
