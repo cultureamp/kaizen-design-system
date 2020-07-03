@@ -52,7 +52,7 @@ export const FilterDrawer = ({
 type FilterButtonProps = {
   labelText: string
   numFiltersEnabled: number
-  onClick: () => void
+  onClick: (e: any) => void
   onMouseDown: (e: any) => void
 }
 
@@ -82,5 +82,5 @@ const Metadata = ({ items }: { items: string[] }) => (
 
 const renderBadge = (numFiltersEnabled: number) =>
   numFiltersEnabled > 0 ? (
-    <Badge variant="active">{numFiltersEnabled}</Badge>
+    <Badge variant="active">{String(numFiltersEnabled)}</Badge>
   ) : null
