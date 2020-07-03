@@ -4,6 +4,7 @@ import { CheckboxGroup } from "@kaizen/draft-checkbox-group"
 import { FilterDrawer } from "@kaizen/draft-filter-drawer"
 import { CheckboxField } from "@kaizen/draft-form"
 import React, { useState } from "react"
+import { Box, Paragraph } from "@kaizen/component-library"
 const styles = require("./FilterDrawer.stories.scss")
 const StoryWrapper = ({ children }) => (
   <div
@@ -15,43 +16,6 @@ const StoryWrapper = ({ children }) => (
 
 export default {
   title: "FilterDrawer (React)",
-}
-
-interface RenderProps {
-  checkedStatus: string
-  onCheckHandler: (event: React.ChangeEvent<HTMLInputElement>) => any
-}
-
-interface Props {
-  render: (props: RenderProps) => JSX.Element
-}
-class CheckboxGroupExample extends React.Component<Props> {
-  public state = {
-    checkedStatus: "off",
-  }
-  constructor(props: Props) {
-    super(props)
-
-    this.onCheckHandler = this.onCheckHandler.bind(this)
-  }
-
-  public onCheckHandler(event: React.ChangeEvent<HTMLInputElement>) {
-    this.setState({
-      checkedStatus: this.state.checkedStatus === "on" ? "off" : "on",
-    })
-  }
-
-  public render() {
-    const { render } = this.props
-    return (
-      <div>
-        {render({
-          checkedStatus: this.state.checkedStatus,
-          onCheckHandler: this.onCheckHandler,
-        })}
-      </div>
-    )
-  }
 }
 
 export const DefaultStory = () => (
@@ -93,12 +57,10 @@ const DemoFilterDrawer = () => {
     .concat(appliedFilters.aquatic === "on" ? ["Aquatic"] : [])
     .concat(appliedFilters.venomous === "on" ? ["Venomous"] : [])
 
-  // TODO: move inside component
   const toggleDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible)
   }
 
-  // TODO: move inside component
   const hideDropdown = () => {
     setIsDropdownVisible(false)
   }
@@ -123,10 +85,6 @@ const DemoFilterDrawer = () => {
       appliedFilters.aquatic,
       appliedFilters.venomous,
     ].filter(status => status == "on").length
-
-  const applyButtonEnabled = () => {
-    getNumFiltersEnabled
-  }
 
   const haveFiltersNotChanged = () =>
     appliedFilters.furry == furryCheckboxState &&
@@ -199,6 +157,54 @@ const DemoFilterDrawer = () => {
 
 DefaultStory.story = {
   name: "Default (Kaizen Site Demo)",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
+}
+
+export const EmptyFilterDrawer = () => {
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false)
+
+  const toggleDropdown = () => {
+    setIsDropdownVisible(!isDropdownVisible)
+  }
+
+  const hideDropdown = () => {
+    setIsDropdownVisible(false)
+  }
+
+  return (
+    <StoryWrapper>
+      <FilterDrawer
+        labelText="Filter"
+        metadata={["example 1", "example 2"]}
+        isDropdownVisible={isDropdownVisible}
+        toggleDropdown={toggleDropdown}
+        hideDropdown={hideDropdown}
+        numFiltersEnabled={2}
+      >
+        <Box p={1}>
+          <Paragraph variant="body">
+            You can put anything inside the Dropdown.{" "}
+            <a href="https://cultureamp.design/guidelines/filtering/">
+              See Filtering Guidelines
+            </a>{" "}
+            for usage guidelines.
+          </Paragraph>
+        </Box>
+      </FilterDrawer>
+    </StoryWrapper>
+  )
+}
+
+EmptyFilterDrawer.story = {
+  name: "Default (empty)",
   parameters: {
     backgrounds: [
       {
