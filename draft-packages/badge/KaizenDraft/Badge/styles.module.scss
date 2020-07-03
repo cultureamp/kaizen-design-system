@@ -16,6 +16,8 @@ $small: $ca-grid;
   letter-spacing: $kz-typography-paragraph-extra-small-bold-letter-spacing;
   line-height: $kz-typography-paragraph-extra-small-bold-line-height;
   padding: 1px $kz-spacing-xs;
+  min-width: 8px;
+  text-align: center;
 }
 
 .default {
