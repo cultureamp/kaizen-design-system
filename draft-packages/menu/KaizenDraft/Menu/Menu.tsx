@@ -5,10 +5,33 @@ import MenuDropdown from "./MenuDropdown"
 const styles = require("./styles.scss")
 
 export type GenericMenuProps = {
+  /**
+   * Whether the menu is to be used on the left or right
+   * side of the viewport. If left, the left of the dropdown
+   * is aligned to the left of the button (and vice versa)
+   * @default "left"
+   */
   align?: "left" | "right"
+
+  /**
+   * The width of the dropdown.
+   * "default": a fixed width of 248px
+   * "contain": contain the children's width (will be same width as children)
+   * @default "default"
+   */
   dropdownWidth?: "default" | "contain"
+
+  /**
+   * The initial state of the dropdown. Once initalised, further changes to this
+   * prop will not have any affect, as the state is handled internally to the component.
+   * @default: false
+   */
   menuVisible?: boolean
   automationId?: string
+
+  /**
+   * The content to appear inside the dropdown when it is open
+   */
   children: React.ReactNode
 }
 
