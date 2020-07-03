@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.0.0...@kaizen/draft-menu@2.1.0) (2020-07-03)
+
+
+### Features
+
+* StatelessMenu ([#607](https://github.com/cultureamp/kaizen-design-system/issues/607)) ([00fe797](https://github.com/cultureamp/kaizen-design-system/commit/00fe797fc3f9fefebc8f4a0945d40c3ea1bd6ea1))
+
+
+
+
+
 # [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@1.2.4...@kaizen/draft-menu@2.0.0) (2020-07-02)
 
 
