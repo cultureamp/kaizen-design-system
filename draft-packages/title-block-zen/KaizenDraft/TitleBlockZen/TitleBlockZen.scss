@@ -255,6 +255,10 @@ $tab-container-height-small: $ca-grid * 2.5;
   @include ca-margin($end: $ca-grid * 2/3);
   color: $kz-color-white;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   .educationVariant &,
   .adminVariant & {
     color: $kz-color-wisteria-800;
