@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.1...@kaizen/draft-title-block-zen@1.6.2) (2020-07-03)
+
+
+### Bug Fixes
+
+* Use bool for TitleBlockZen "primary" btn prop ([#611](https://github.com/cultureamp/kaizen-design-system/issues/611)) ([87c4562](https://github.com/cultureamp/kaizen-design-system/commit/87c4562cc77db9d8e37e1747a8e3a84e91d034d1))
+
+
+
+
+
 ## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.0...@kaizen/draft-title-block-zen@1.6.1) (2020-07-02)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
