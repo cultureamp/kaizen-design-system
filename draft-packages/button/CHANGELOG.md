@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.8.0...@kaizen/draft-button@1.8.1) (2020-07-03)
+
+
+### Bug Fixes
+
+* Remove IconButton opacity styles ([#600](https://github.com/cultureamp/kaizen-design-system/issues/600)) ([0197fd1](https://github.com/cultureamp/kaizen-design-system/commit/0197fd19d76431a4dac6382c6f9c4a9befe776cd))
+
+
+
+
+
 # [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.7.8...@kaizen/draft-button@1.8.0) (2020-07-02)
 
 
