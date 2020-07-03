@@ -11,7 +11,8 @@
   },
   "scripts": {
     "ts-node": "TS_NODE_TRANSPILE_ONLY=true ts-node --project storybook/tsconfig.storybook.json",
-    "storybook": "yarn ts-node node_modules/.bin/start-storybook -c storybook",
+    "install-check": "sh check-install.sh",
+    "storybook": "yarn install-check && yarn ts-node node_modules/.bin/start-storybook -c storybook",
     "storybook:build": "yarn ts-node node_modules/.bin/build-storybook -c storybook -o storybook/public",
     "gatsby": "yarn workspace site gatsby",
     "tslint": "tslint --project .",
