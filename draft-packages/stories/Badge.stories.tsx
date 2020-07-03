@@ -13,7 +13,7 @@ DefaultStory.story = {
   name: "Default (Kaizen Site Demo)",
 }
 
-export const Active = () => <Badge variant="active">3</Badge>
+export const Active = () => <Badge variant="active">1</Badge>
 
 Active.story = {
   name: "Active",
