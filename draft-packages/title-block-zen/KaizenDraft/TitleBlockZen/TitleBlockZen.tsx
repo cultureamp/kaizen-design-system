@@ -78,7 +78,7 @@ export type MenuGroup = {
  */
 export type PrimaryActionProps =
   | MenuGroup
-  | (ButtonWithOnClickOrHref & { primary: true })
+  | (ButtonWithOnClickOrHref & { primary: boolean })
 
 /**
  * ### SecondaryActionsProps
