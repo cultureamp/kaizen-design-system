@@ -34,7 +34,7 @@ const Menu: Menu = props => {
     setIsMenuVisible(false)
   }
 
-  const { automationId, button, children } = props
+  const { button } = props
 
   return render({
     ...props,
@@ -47,7 +47,7 @@ const Menu: Menu = props => {
         e.stopPropagation()
         toggleMenuDropdown()
       },
-      onMouseDown: e => e.preventDefault(),
+      onMouseDown: (e: any) => e.preventDefault(),
     }),
   })
 }
@@ -81,7 +81,9 @@ export const render = (props: GenericMenuProps & RenderProps) => {
   )
 }
 
-const getPosition = dropdownButtonContainer => {
+const getPosition = (
+  dropdownButtonContainer: React.RefObject<HTMLDivElement>
+) => {
   return dropdownButtonContainer && dropdownButtonContainer.current
     ? dropdownButtonContainer.current.getBoundingClientRect()
     : null
