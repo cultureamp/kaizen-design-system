@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.2...@kaizen/draft-title-block-zen@1.6.3) (2020-07-03)
+
+
+### Bug Fixes
+
+* Make TitleBlockZen hamburger render only when handler is provided ([#614](https://github.com/cultureamp/kaizen-design-system/issues/614)) ([3df6455](https://github.com/cultureamp/kaizen-design-system/commit/3df6455ae4cf06a1d5ac01dbd99e5860a2124313))
+
+
+
+
+
 ## [1.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.1...@kaizen/draft-title-block-zen@1.6.2) (2020-07-03)
 
 
