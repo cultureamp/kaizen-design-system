@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.1.0...@kaizen/draft-menu@2.2.0) (2020-07-05)
+
+
+### Features
+
+* add dropdownWidth prop to Menu ([#613](https://github.com/cultureamp/kaizen-design-system/issues/613)) ([c782a43](https://github.com/cultureamp/kaizen-design-system/commit/c782a4359d02cb87f996b5f1448414c1ae11ac1b))
+
+
+
+
+
 # [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.0.0...@kaizen/draft-menu@2.1.0) (2020-07-03)
 
 
