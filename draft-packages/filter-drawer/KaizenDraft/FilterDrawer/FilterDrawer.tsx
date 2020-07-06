@@ -9,13 +9,44 @@ const filterIcon = require("@kaizen/component-library/icons/filter.icon.svg")
 const styles = require("./styles.module.scss")
 
 export interface FilterDrawerProps {
+  /**
+   * The text that goes inside the filter button
+   */
   labelText: string
+
+  /**
+   * Metadata shows relevant info about the content being filtered, in plain text.
+   * Text items are separated by a `・` character
+   */
   metadata: string[]
+
+  /**
+   * The content that appears in the filter dropdown.
+   */
   children: React.ReactElement
   reversed?: boolean
+
+  /**
+   * The filter drawer does not hold internall state, so you
+   * must pass in the state of whether the dropdown is open
+   * or not
+   */
   isDropdownVisible: boolean
+
+  /**
+   * You must provide a function that toggles the isDropdownVisible state
+   */
   toggleDropdown: () => void
+
+  /**
+   * You must provide a function that sets the isDropdownVisible state to `false`
+   */
   hideDropdown: () => void
+
+  /**
+   * If at least one filter is enabled, then a filter badge will show.
+   * The filter button badge shows the number of filter fields with applied filters.
+   */
   numFiltersEnabled?: number
 }
 
