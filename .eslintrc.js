@@ -175,14 +175,14 @@ module.exports = {
       },
     ],
     "import/no-internal-modules": "off",
-    "import/order": "off", // eventually this should error
+    "import/order": "off", // TODO - Change to error
     "jsdoc/check-alignment": "off",
     "jsdoc/check-indentation": "off",
     "jsdoc/newline-after-description": "off",
     "linebreak-style": "off",
-    "max-classes-per-file": ["error", 3], // eventually this should be 1
+    "max-classes-per-file": ["error", 3], // TODO - Change to ["error", 1]
     "max-len": [
-      "error",
+      "warn",
       {
         code: 120,
       },
@@ -226,7 +226,7 @@ module.exports = {
     "no-var": "error",
     "object-shorthand": "error",
     "one-var": ["error", "never"],
-    "prefer-arrow/prefer-arrow-functions": "error",
+    "prefer-arrow/prefer-arrow-functions": "warn", // TODO - Change to error
     "prefer-const": "error",
     "prefer-object-spread": "error",
     "quote-props": ["error", "as-needed"],
@@ -252,7 +252,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["*.stories.tsx", "./storybook/*.ts"],
+      files: ["*.stories.tsx", "./storybook/*.ts", "*.spec.tsx"],
       rules: {
         "import/no-extraneous-dependencies": "off",
       },

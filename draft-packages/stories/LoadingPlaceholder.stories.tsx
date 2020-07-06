@@ -4,9 +4,9 @@ import * as React from "react"
 
 const styles = require("./LoadingPlaceholder.stories.scss")
 
-const StoryContainer: React.FunctionComponent<{}> = ({ children }) => {
-  return <div className={styles.storyContainer}>{children}</div>
-}
+const StoryContainer: React.FunctionComponent = ({ children }) => (
+  <div className={styles.storyContainer}>{children}</div>
+)
 
 export default {
   title: "LoadingPlaceholder (React)",
@@ -233,115 +233,110 @@ export const HeadingLoading = () => (
   </StoryContainer>
 )
 
-export const ReversedDefault = () => {
-  return (
-    <StoryContainer>
-      <div className={styles.reversedDefault}>
-        <Paragraph variant="body" color="white">
-          Dr. Brené Brown, author of Daring Greatly, is a research professor
-          from the University of Houston who studies human emotions, including
-          shame and vulnerability. In a March 2012 TED talk, she said,
-          “Vulnerability is not weakness, and that myth is profoundly
-          dangerous.” She went on to say that after 12 years of research, she
-          has actually determined that vulnerability is “our most accurate
-          measurement of courage.”
-        </Paragraph>
-      </div>
-      <div className={styles.reversedDefault}>
-        <LoadingPlaceholder reversedDefault />
-        <LoadingPlaceholder reversedDefault />
-        <LoadingPlaceholder reversedDefault />
-        <LoadingPlaceholder reversedDefault />
-        <LoadingPlaceholder reversedDefault />
-      </div>
-    </StoryContainer>
-  )
-}
+export const ReversedDefault = () => (
+  <StoryContainer>
+    <div className={styles.reversedDefault}>
+      <Paragraph variant="body" color="white">
+        Dr. Brené Brown, author of Daring Greatly, is a research professor from
+        the University of Houston who studies human emotions, including shame
+        and vulnerability. In a March 2012 TED talk, she said, “Vulnerability is
+        not weakness, and that myth is profoundly dangerous.” She went on to say
+        that after 12 years of research, she has actually determined that
+        vulnerability is “our most accurate measurement of courage.”
+      </Paragraph>
+    </div>
+    <div className={styles.reversedDefault}>
+      <LoadingPlaceholder reversedDefault />
+      <LoadingPlaceholder reversedDefault />
+      <LoadingPlaceholder reversedDefault />
+      <LoadingPlaceholder reversedDefault />
+      <LoadingPlaceholder reversedDefault />
+    </div>
+  </StoryContainer>
+)
 
 ReversedDefault.story = {
   name: "Reversed, Default",
 }
 
-export const InTheWild = () => {
-  return (
-    <StoryContainer>
-      <div>
-        <Paragraph variant="body" tag="h1">
-          In the wild
-        </Paragraph>
-        <Paragraph variant="body">
-          This is an example of how you could use LoadingPlaceholder to
-          construct a loading state for a fictional tooltip component.
-        </Paragraph>
-        <Paragraph variant="body" tag="h2">
-          Tooltip component in a loaded state:
-        </Paragraph>
-        <div className={styles.tooltip}>
-          <div className={styles.tooltipHeader}>
-            <Paragraph tag="div" variant="intro-lede">
-              Hooli's Engagement Survey
+export const InTheWild = () => (
+  <StoryContainer>
+    <div>
+      <Paragraph variant="body" tag="h1">
+        In the wild
+      </Paragraph>
+      <Paragraph variant="body">
+        This is an example of how you could use LoadingPlaceholder to construct
+        a loading state for a fictional tooltip component.
+      </Paragraph>
+      <Paragraph variant="body" tag="h2">
+        Tooltip component in a loaded state:
+      </Paragraph>
+      <div className={styles.tooltip}>
+        <div className={styles.tooltipHeader}>
+          <Paragraph tag="div" variant="intro-lede">
+            Hooli's Engagement Survey
+          </Paragraph>
+          <Paragraph variant="body" tag="div">
+            2019
+          </Paragraph>
+        </div>
+        <div className={styles.tooltipBody}>
+          <div className={styles.tooltipRow}>
+            <Paragraph variant="body" tag="div">
+              Favorable
             </Paragraph>
             <Paragraph variant="body" tag="div">
-              2019
+              76%
             </Paragraph>
           </div>
-          <div className={styles.tooltipBody}>
-            <div className={styles.tooltipRow}>
-              <Paragraph variant="body" tag="div">
-                Favorable
-              </Paragraph>
-              <Paragraph variant="body" tag="div">
-                76%
-              </Paragraph>
-            </div>
-            <div className={styles.tooltipRow}>
-              <Paragraph variant="body" tag="div">
-                Neutral
-              </Paragraph>
-              <Paragraph variant="body" tag="div">
-                21%
-              </Paragraph>
-            </div>
-            <div className={styles.tooltipRow}>
-              <Paragraph variant="body" tag="div">
-                Unfavorable
-              </Paragraph>
-              <Paragraph variant="body" tag="div">
-                3%
-              </Paragraph>
-            </div>
+          <div className={styles.tooltipRow}>
+            <Paragraph variant="body" tag="div">
+              Neutral
+            </Paragraph>
+            <Paragraph variant="body" tag="div">
+              21%
+            </Paragraph>
           </div>
-        </div>
-        <Paragraph variant="body" tag="h2">
-          Tooltip component in a loading state:
-        </Paragraph>
-        <div className={styles.tooltip}>
-          <div className={styles.tooltipHeader}>
-            <LoadingPlaceholder reversedOcean inline width={80} />
-            <LoadingPlaceholder reversedOcean inline width={10} />
-          </div>
-          <div className={styles.tooltipBody}>
-            <div className={styles.tooltipRow}>
-              <LoadingPlaceholder inline width={10} />
-              <LoadingPlaceholder inline width={60} />
-              <LoadingPlaceholder inline width={10} />
-            </div>
-            <div className={styles.tooltipRow}>
-              <LoadingPlaceholder inline width={10} />
-              <LoadingPlaceholder inline width={60} />
-              <LoadingPlaceholder inline width={10} />
-            </div>
-            <div className={styles.tooltipRow}>
-              <LoadingPlaceholder inline width={10} />
-              <LoadingPlaceholder inline width={60} />
-              <LoadingPlaceholder inline width={10} />
-            </div>
+          <div className={styles.tooltipRow}>
+            <Paragraph variant="body" tag="div">
+              Unfavorable
+            </Paragraph>
+            <Paragraph variant="body" tag="div">
+              3%
+            </Paragraph>
           </div>
         </div>
       </div>
-    </StoryContainer>
-  )
-}
+      <Paragraph variant="body" tag="h2">
+        Tooltip component in a loading state:
+      </Paragraph>
+      <div className={styles.tooltip}>
+        <div className={styles.tooltipHeader}>
+          <LoadingPlaceholder reversedOcean inline width={80} />
+          <LoadingPlaceholder reversedOcean inline width={10} />
+        </div>
+        <div className={styles.tooltipBody}>
+          <div className={styles.tooltipRow}>
+            <LoadingPlaceholder inline width={10} />
+            <LoadingPlaceholder inline width={60} />
+            <LoadingPlaceholder inline width={10} />
+          </div>
+          <div className={styles.tooltipRow}>
+            <LoadingPlaceholder inline width={10} />
+            <LoadingPlaceholder inline width={60} />
+            <LoadingPlaceholder inline width={10} />
+          </div>
+          <div className={styles.tooltipRow}>
+            <LoadingPlaceholder inline width={10} />
+            <LoadingPlaceholder inline width={60} />
+            <LoadingPlaceholder inline width={10} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </StoryContainer>
+)
 
 InTheWild.story = {
   name: "In the wild",

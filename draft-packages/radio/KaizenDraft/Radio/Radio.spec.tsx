@@ -29,7 +29,7 @@ describe("<Radio /> ", () => {
       disabled: true,
       value: "radio-1",
     })
-    expect(container.querySelector(`[disabled]`)).toBeTruthy()
+    expect(container.querySelector("[disabled]")).toBeTruthy()
   })
 
   it("has a true .checked property when the selectedStatus is true", () => {
@@ -53,7 +53,7 @@ describe("<Radio /> ", () => {
       value: "radio-1",
     })
     expect(container.querySelector("input")!.checked).toBeTruthy()
-    expect(container.querySelector(`[disabled]`)).toBeTruthy()
+    expect(container.querySelector("[disabled]")).toBeTruthy()
   })
 
   it("doesnt have the `.checked` property if the selectedStatus prop is not present", () => {
