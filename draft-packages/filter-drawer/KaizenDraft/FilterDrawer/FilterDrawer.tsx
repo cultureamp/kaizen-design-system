@@ -2,6 +2,7 @@ import { Badge } from "@kaizen/draft-badge"
 import * as KaizenButton from "@kaizen/draft-button"
 import { MenuContent } from "@kaizen/draft-menu"
 import { StatelessMenu } from "@kaizen/draft-menu/KaizenDraft/Menu/StatelessMenu"
+import classnames from "classnames"
 import * as React from "react"
 const filterIcon = require("@kaizen/component-library/icons/filter.icon.svg")
   .default
@@ -11,6 +12,7 @@ export interface FilterDrawerProps {
   labelText: string
   metadata: string[]
   children: React.ReactElement
+  reversed?: boolean
   isDropdownVisible: boolean
   toggleDropdown: any // TODO any
   hideDropdown: any // TODO any
@@ -25,13 +27,24 @@ export const FilterDrawer = ({
   toggleDropdown,
   hideDropdown,
   numFiltersEnabled = 0,
+  reversed = false,
 }: FilterDrawerProps) => {
   return (
-    <div className={styles.filterDrawer}>
+    <div
+      className={classnames(styles.filterDrawer, {
+        [styles.reversed]: reversed,
+      })}
+    >
       <StatelessMenu
         renderButton={({ onClick, onMouseDown }) => (
           <FilterButton
-            {...{ labelText, numFiltersEnabled, onClick, onMouseDown }}
+            {...{
+              labelText,
+              numFiltersEnabled,
+              onClick,
+              onMouseDown,
+              reversed,
+            }}
           />
         )}
         isMenuVisible={isDropdownVisible}
@@ -55,6 +68,7 @@ type FilterButtonProps = {
   numFiltersEnabled: number
   onClick: (e: any) => void
   onMouseDown: (e: any) => void
+  reversed?: boolean
 }
 
 const FilterButton = ({
@@ -62,11 +76,12 @@ const FilterButton = ({
   numFiltersEnabled,
   onClick,
   onMouseDown,
+  reversed,
 }: FilterButtonProps) => (
   <div className={styles.buttonEdgeCaseStyling}>
     <KaizenButton.Button
       secondary={true}
-      reversed={true}
+      reversed={reversed}
       label={labelText}
       icon={filterIcon}
       iconPosition="start"

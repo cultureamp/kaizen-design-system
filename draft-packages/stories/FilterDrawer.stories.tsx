@@ -94,6 +94,7 @@ const DemoFilterDrawer = () => {
   return (
     <FilterDrawer
       labelText="Filter"
+      reversed={true}
       metadata={checkedTraits}
       isDropdownVisible={isDropdownVisible}
       toggleDropdown={toggleDropdown}
@@ -156,7 +157,7 @@ const DemoFilterDrawer = () => {
 }
 
 DefaultStory.story = {
-  name: "Default (Kaizen Site Demo)",
+  name: "Reversed (Kaizen Site Demo)",
   parameters: {
     backgrounds: [
       {
@@ -169,6 +170,57 @@ DefaultStory.story = {
 }
 
 export const EmptyFilterDrawer = () => {
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false)
+
+  const toggleDropdown = () => {
+    setIsDropdownVisible(!isDropdownVisible)
+  }
+
+  const hideDropdown = () => {
+    setIsDropdownVisible(false)
+  }
+
+  return (
+    <StoryWrapper>
+      <FilterDrawer
+        labelText="Filter"
+        reversed={true}
+        metadata={["example 1", "example 2"]}
+        isDropdownVisible={isDropdownVisible}
+        toggleDropdown={toggleDropdown}
+        hideDropdown={hideDropdown}
+        numFiltersEnabled={2}
+      >
+        <div style={{ width: "300px" }}>
+          <Box p={0.5}>
+            <Paragraph variant="body">
+              You can put anything inside the Dropdown.{" "}
+              <a href="https://cultureamp.design/guidelines/filtering/">
+                See Filtering Guidelines
+              </a>{" "}
+              for usage guidelines.
+            </Paragraph>
+          </Box>
+        </div>
+      </FilterDrawer>
+    </StoryWrapper>
+  )
+}
+
+EmptyFilterDrawer.story = {
+  name: "Reversed (empty)",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
+}
+
+export const EmptyFilterDrawerNotReversed = () => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
 
   const toggleDropdown = () => {
@@ -205,15 +257,6 @@ export const EmptyFilterDrawer = () => {
   )
 }
 
-EmptyFilterDrawer.story = {
+EmptyFilterDrawerNotReversed.story = {
   name: "Default (empty)",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
-  },
 }
