@@ -4,6 +4,7 @@ import * as React from "react"
 const styles = require("./styles.scss")
 
 type MenuDropdownProps = {
+  id?: string
   hideMenuDropdown: () => void
   position?: {
     top: number
@@ -72,6 +73,7 @@ export default class MenuDropdown extends React.Component<MenuDropdownProps> {
 
     return (
       <div
+        id={this.props.id}
         className={classnames(styles.menuContainer, {
           [styles.defaultWidth]: width == "default",
           [styles.alignRight]: align == "right",
