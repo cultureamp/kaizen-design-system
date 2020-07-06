@@ -392,7 +392,9 @@ export default class MobileActions extends React.Component<MobileActionsProps> {
           toggleDisplay={this.toggleDisplay}
           isOpen={this.state.isOpen}
         />
-        {(defaultAction || secondaryActions) && (
+        {(defaultAction ||
+          secondaryActions ||
+          (primaryAction && isMenuGroupNotButton(primaryAction))) && (
           <div className={styles.mobileActionsMenuContainer}>
             <MenuContent>
               <DrawerMenuContent
