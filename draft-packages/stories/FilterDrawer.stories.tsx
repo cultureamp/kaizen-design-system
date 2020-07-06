@@ -169,7 +169,7 @@ DefaultStory.story = {
   },
 }
 
-export const EmptyFilterDrawer = () => {
+export const ReversedEmpty = () => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
 
   const toggleDropdown = () => {
@@ -207,7 +207,7 @@ export const EmptyFilterDrawer = () => {
   )
 }
 
-EmptyFilterDrawer.story = {
+ReversedEmpty.story = {
   name: "Reversed (empty)",
   parameters: {
     backgrounds: [
@@ -220,7 +220,7 @@ EmptyFilterDrawer.story = {
   },
 }
 
-export const EmptyFilterDrawerNotReversed = () => {
+export const DefaultEmpty = () => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
 
   const toggleDropdown = () => {
@@ -257,6 +257,6 @@ export const EmptyFilterDrawerNotReversed = () => {
   )
 }
 
-EmptyFilterDrawerNotReversed.story = {
+DefaultEmpty.story = {
   name: "Default (empty)",
 }
