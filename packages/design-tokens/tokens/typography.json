@@ -106,23 +106,9 @@
         "lineHeight": "1.5rem",
         "letterSpacing": "normal"
       },
-      "paragraphBodyBold": {
-        "fontFamily": "\"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif;",
-        "fontWeight": "600",
-        "fontSize": "1rem",
-        "lineHeight": "1.5rem",
-        "letterSpacing": "normal"
-      },
       "paragraphSmall": {
         "fontFamily": "\"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif;",
         "fontWeight": "400",
-        "fontSize": "0.875rem",
-        "lineHeight": "1.125rem",
-        "letterSpacing": "normal"
-      },
-      "paragraphSmallBold": {
-        "fontFamily": "\"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif;",
-        "fontWeight": "600",
         "fontSize": "0.875rem",
         "lineHeight": "1.125rem",
         "letterSpacing": "normal"
@@ -134,12 +120,8 @@
         "lineHeight": "1.125rem",
         "letterSpacing": "normal"
       },
-      "paragraphExtraSmallBold": {
-        "fontFamily": "\"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif;",
-        "fontWeight": "600",
-        "fontSize": "0.75rem",
-        "lineHeight": "1.125rem",
-        "letterSpacing": "normal"
+      "paragraphBold": {
+        "fontWeight": "600"
       },
       "buttonPrimary": {
         "fontFamily": "\"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif;",
