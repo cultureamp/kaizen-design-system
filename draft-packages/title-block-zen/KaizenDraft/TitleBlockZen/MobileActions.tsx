@@ -344,6 +344,31 @@ const DrawerHandle = ({
       )
     }
   }
+  // if there are default/secondary actions but no primary action
+  if (defaultAction || secondaryActions || secondaryOverflowMenuItems) {
+    return (
+      <div
+        className={styles.mobileActionsTopRow}
+        data-testid="title-block-mobile-actions-drawer-handle"
+      >
+        <button
+          className={classnames(
+            styles.mobileActionsExpandButtonFullWidth,
+            styles.mobileActionsPrimaryLabel
+          )}
+          onClick={toggleDisplay}
+        >
+          {renderDrawerHandleLabel("Other actions")}
+          <div className={styles.mobileActionsChevronSquare}>
+            <Icon
+              icon={isOpen ? chevronDownIcon : chevronUpIcon}
+              role="presentation"
+            />
+          </div>
+        </button>
+      </div>
+    )
+  }
   return null
 }
 
