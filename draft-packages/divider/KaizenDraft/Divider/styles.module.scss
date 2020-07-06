@@ -1,9 +1,10 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
 
 .wrapper {
   width: 100%;
   border: 0;
-  border-radius: 7px;
+  border-radius: $kz-border-solid-border-radius;
 }
 
 .content {
