@@ -14,8 +14,8 @@ export interface FilterDrawerProps {
   children: React.ReactElement
   reversed?: boolean
   isDropdownVisible: boolean
-  toggleDropdown: any // TODO any
-  hideDropdown: any // TODO any
+  toggleDropdown: () => void
+  hideDropdown: () => void
   numFiltersEnabled?: number
 }
 
