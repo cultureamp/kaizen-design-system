@@ -4,7 +4,8 @@
 @import "@kaizen/deprecated-component-library-helpers/styles/type";
 
 $gap: $kz-spacing-sm;
-$menuContentPadding: 4px; // this comes from the MenuContent component, which should be using tokens
+$menuContentHorizontalPadding: 4px; // this comes from the MenuContent component, which should be using tokens
+$menuContentVerticalPadding: 6px; // this comes from the MenuContent component, which should be using tokens
 
 .filterDrawer {
   display: flex;
@@ -19,7 +20,8 @@ $menuContentPadding: 4px; // this comes from the MenuContent component, which sh
 }
 
 .content {
-  padding: calc(#{$kz-spacing-sm} - #{$menuContentPadding});
+  padding: calc(#{$kz-spacing-sm} - #{$menuContentVerticalPadding})
+    calc(#{$kz-spacing-sm} - #{$menuContentHorizontalPadding});
 }
 
 // The button used for the Filter Drawer component is similar to the
