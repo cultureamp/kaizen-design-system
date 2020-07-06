@@ -58,6 +58,7 @@ const DemoFilterDrawer = () => {
     .concat(appliedFilters.venomous === "on" ? ["Venomous"] : [])
 
   const toggleDropdown = () => {
+    clearChanges()
     setIsDropdownVisible(!isDropdownVisible)
   }
 
@@ -71,6 +72,7 @@ const DemoFilterDrawer = () => {
       aquatic: aquaticCheckboxState,
       venomous: venomousCheckboxState,
     })
+    hideDropdown()
   }
 
   const clearChanges = () => {
@@ -137,7 +139,6 @@ const DemoFilterDrawer = () => {
             secondary={true}
             label="Cancel"
             onClick={() => {
-              clearChanges()
               toggleDropdown()
             }}
           />
@@ -147,7 +148,6 @@ const DemoFilterDrawer = () => {
             disabled={haveFiltersNotChanged()}
             onClick={() => {
               applyChanges()
-              toggleDropdown()
             }}
           />
         </div>
