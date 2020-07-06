@@ -37,6 +37,7 @@ export const FilterDrawer = ({
         isMenuVisible={isDropdownVisible}
         toggleMenuDropdown={toggleDropdown}
         hideMenuDropdown={hideDropdown}
+        dropdownWidth="contain"
       >
         <MenuContent>
           <div className={styles.content} onClick={e => e.stopPropagation()}>

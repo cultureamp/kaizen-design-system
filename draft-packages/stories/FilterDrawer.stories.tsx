@@ -189,15 +189,17 @@ export const EmptyFilterDrawer = () => {
         hideDropdown={hideDropdown}
         numFiltersEnabled={2}
       >
-        <Box p={1}>
-          <Paragraph variant="body">
-            You can put anything inside the Dropdown.{" "}
-            <a href="https://cultureamp.design/guidelines/filtering/">
-              See Filtering Guidelines
-            </a>{" "}
-            for usage guidelines.
-          </Paragraph>
-        </Box>
+        <div style={{ width: "300px" }}>
+          <Box p={0.5}>
+            <Paragraph variant="body">
+              You can put anything inside the Dropdown.{" "}
+              <a href="https://cultureamp.design/guidelines/filtering/">
+                See Filtering Guidelines
+              </a>{" "}
+              for usage guidelines.
+            </Paragraph>
+          </Box>
+        </div>
       </FilterDrawer>
     </StoryWrapper>
   )
