@@ -14,14 +14,18 @@ $menu-container-width: 248px;
 .menuContainer {
   margin-top: $kz-spacing-xs;
   position: absolute;
-  width: $menu-container-width;
   z-index: $ca-z-index-dropdown;
   left: 0;
+  width: auto;
 
   [dir="rtl"] & {
     left: auto;
     right: 0;
   }
+}
+
+.defaultWidth {
+  width: $menu-container-width;
 }
 
 .alignRight {

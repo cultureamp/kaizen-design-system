@@ -238,3 +238,22 @@ export const DefaultStatelessMenu = () => {
 DefaultStatelessMenu.story = {
   name: "StatelessMenu (example usage)",
 }
+
+export const DropdownWidthContain = () => (
+  <StoryWrapper>
+    <Menu
+      button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+      dropdownWidth="contain"
+    >
+      <MenuContent>
+        <div style={{ width: "500px" }}>
+          The dropdown is as wide as this 500px div
+        </div>
+      </MenuContent>
+    </Menu>
+  </StoryWrapper>
+)
+
+DropdownWidthContain.story = {
+  name: 'Label and Icon (dropdownWidth="contain")',
+}
