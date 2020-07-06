@@ -22,8 +22,15 @@ module.exports = {
     project: "tsconfig.json",
     sourceType: "module",
   },
-  plugins: ["@typescript-eslint", "@typescript-eslint/tslint"],
+  plugins: [
+    "@typescript-eslint",
+    "@typescript-eslint/tslint",
+    "import",
+    "sort-imports-es6-autofix",
+    "prefer-arrow",
+  ],
   rules: {
+    indent: "off",
     "@typescript-eslint/adjacent-overload-signatures": "error",
     "@typescript-eslint/array-type": [
       "error",
@@ -57,8 +64,8 @@ module.exports = {
         },
       },
     ],
-    "@typescript-eslint/class-name-casing": "error",
-    "@typescript-eslint/consistent-type-assertions": "error",
+    "@typescript-eslint/class-name-casing": "off",
+    "@typescript-eslint/consistent-type-assertions": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/dot-notation": "error",
     "@typescript-eslint/explicit-member-accessibility": [
@@ -68,9 +75,10 @@ module.exports = {
       },
     ],
     "@typescript-eslint/indent": [
-      "error",
-      4,
+      "warn",
+      2,
       {
+        SwitchCase: 0, // https://github.com/typescript-eslint/typescript-eslint/issues/608
         ObjectExpression: "first",
         FunctionDeclaration: {
           parameters: "first",
@@ -136,7 +144,7 @@ module.exports = {
     ],
     "@typescript-eslint/type-annotation-spacing": "error",
     "@typescript-eslint/unified-signatures": "error",
-    "arrow-body-style": "error",
+    "arrow-body-style": "warn",
     "arrow-parens": ["off", "always"],
     "brace-style": ["error", "1tbs"],
     camelcase: "error",
@@ -161,18 +169,18 @@ module.exports = {
     ],
     "id-match": "error",
     "import/no-extraneous-dependencies": [
-      "error",
+      "warn",
       {
         devDependencies: false,
       },
     ],
     "import/no-internal-modules": "off",
-    "import/order": "error",
-    "jsdoc/check-alignment": "error",
-    "jsdoc/check-indentation": "error",
-    "jsdoc/newline-after-description": "error",
+    "import/order": "off", // eventually this should error
+    "jsdoc/check-alignment": "off",
+    "jsdoc/check-indentation": "off",
+    "jsdoc/newline-after-description": "off",
     "linebreak-style": "off",
-    "max-classes-per-file": ["error", 1],
+    "max-classes-per-file": ["error", 3], // eventually this should be 1
     "max-len": [
       "error",
       {
@@ -242,4 +250,12 @@ module.exports = {
     "use-isnan": "error",
     "valid-typeof": "off",
   },
+  overrides: [
+    {
+      files: ["*.stories.tsx", "./storybook/*.ts"],
+      rules: {
+        "import/no-extraneous-dependencies": "off",
+      },
+    },
+  ],
 }
