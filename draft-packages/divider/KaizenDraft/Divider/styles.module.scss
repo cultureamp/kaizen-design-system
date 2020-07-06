@@ -1,0 +1,22 @@
+@import "~@kaizen/design-tokens/sass/color";
+
+.wrapper {
+  width: 100%;
+  border: 0;
+  border-radius: 7px;
+}
+
+.content {
+  border-top: 1px solid rgba($kz-color-wisteria-800, 0.2);
+  &.reversed {
+    border-color: rgba($kz-color-white, 0.1);
+  }
+}
+
+.canvas {
+  border-top: 2px solid rgba($kz-color-wisteria-800, 0.2);
+  border-bottom: 1px solid rgba($kz-color-wisteria-800, 0.2);
+  &.reversed {
+    border-color: rgba($kz-color-white, 0.1);
+  }
+}
