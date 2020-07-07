@@ -14,10 +14,9 @@ export interface FilterDrawerProps {
   labelText: string
 
   /**
-   * Metadata shows relevant info about the content being filtered, in plain text.
-   * Text items are separated by a `・` character
+   * Metadata shows relevant info about the content being filtered
    */
-  metadata: string[]
+  metadata?: React.ReactNode
 
   /**
    * The content that appears in the filter dropdown.
@@ -93,11 +92,7 @@ export const FilterDrawer = ({
           </div>
         </MenuContent>
       </StatelessMenu>
-      <Metadata items={metadata} />
+      <div className={styles.metadata}>{metadata}</div>
     </div>
   )
 }
-
-const Metadata = ({ items }: { items: string[] }) => (
-  <div className={styles.metadata}>{items.join("・")}</div>
-)

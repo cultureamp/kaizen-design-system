@@ -55,13 +55,11 @@ const DemoFilterDrawer = () => {
     egglaying: "off",
   })
 
-  const checkedTraits: string[] = (appliedFilters.furry === "on"
-    ? ["Furry"]
-    : []
-  )
+  const checkedTraits: string = (appliedFilters.furry === "on" ? ["Furry"] : [])
     .concat(appliedFilters.aquatic === "on" ? ["Aquatic"] : [])
     .concat(appliedFilters.venomous === "on" ? ["Venomous"] : [])
     .concat(appliedFilters.egglaying === "on" ? ["Egg-laying"] : [])
+    .join("・")
 
   const toggleDropdown = () => {
     clearChanges()
@@ -209,7 +207,7 @@ export const ReversedEmpty = () => {
       <FilterDrawer
         labelText="Filter"
         reversed={true}
-        metadata={["example 1", "example 2"]}
+        metadata="metadata"
         isDropdownVisible={isDropdownVisible}
         toggleDropdown={toggleDropdown}
         hideDropdown={hideDropdown}
@@ -259,7 +257,7 @@ export const DefaultEmpty = () => {
     <StoryWrapper>
       <FilterDrawer
         labelText="Filter"
-        metadata={["example 1", "example 2"]}
+        metadata="metadata"
         isDropdownVisible={isDropdownVisible}
         toggleDropdown={toggleDropdown}
         hideDropdown={hideDropdown}
@@ -302,7 +300,7 @@ export const ReversedEmptyRTL = () => {
         <FilterDrawer
           reversed={true}
           labelText="Filter"
-          metadata={["example 1", "example 2"]}
+          metadata="metadata"
           isDropdownVisible={isDropdownVisible}
           toggleDropdown={toggleDropdown}
           hideDropdown={hideDropdown}
