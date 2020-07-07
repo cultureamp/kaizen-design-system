@@ -24,7 +24,6 @@ module.exports = {
   },
   plugins: [
     "@typescript-eslint",
-    "@typescript-eslint/tslint",
     "import",
     "sort-imports-es6-autofix",
     "prefer-arrow",
