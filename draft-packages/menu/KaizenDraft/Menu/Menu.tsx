@@ -43,7 +43,7 @@ export type MenuProps = GenericMenuProps & StatefulMenuProps
 
 type Menu = React.FunctionComponent<MenuProps>
 
-const Menu: Menu = (props) => {
+const Menu: Menu = props => {
   const {
     align = "left",
     dropdownWidth = "default",

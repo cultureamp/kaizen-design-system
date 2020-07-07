@@ -16,7 +16,7 @@ type Props = {
 
 const NavigationButtons = (props: Props) => (
   <React.Fragment>
-    {props.navigationButtons.map((b) => (
+    {props.navigationButtons.map(b => (
       <a
         className={classNames({
           [styles.reversed]: props.reversed,

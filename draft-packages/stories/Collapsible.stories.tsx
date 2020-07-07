@@ -79,7 +79,7 @@ export const SingleCollapsibleCustomHeader = () => (
       id="collapsible-single"
       open
       title="Custom header"
-      renderHeader={(title) => (
+      renderHeader={title => (
         <>
           <Icon icon={translationIcon} />
           <div style={{ flex: "1 0 auto", marginLeft: "1rem" }}>

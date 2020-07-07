@@ -30,7 +30,7 @@ export const CollapsibleGroup: React.FunctionComponent<Props> = ({
     className={classnames({ [styles.container]: !separated })}
     data-automation-id={automationId}
   >
-    {React.Children.map(children, (collapsible) =>
+    {React.Children.map(children, collapsible =>
       React.cloneElement(collapsible, {
         group: true,
         separated,

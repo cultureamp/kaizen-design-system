@@ -31,10 +31,10 @@ export default ({ data, pageContext, location }) => {
   const md = data.mdx
   const allPages = data.allMdx.edges
   const overviewPage = allPages.filter(
-    (el) => el.node.frontmatter.navTitle === "Overview"
+    el => el.node.frontmatter.navTitle === "Overview"
   )
   const pagesWithoutOverview = sortSidebarTabs(
-    allPages.filter((el) => el.node.frontmatter.navTitle !== "Overview")
+    allPages.filter(el => el.node.frontmatter.navTitle !== "Overview")
   )
 
   const currentPath = location.pathname

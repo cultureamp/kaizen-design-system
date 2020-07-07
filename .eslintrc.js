@@ -121,7 +121,7 @@ module.exports = {
     "@typescript-eslint/type-annotation-spacing": "error",
     "@typescript-eslint/unified-signatures": "error",
     "arrow-body-style": "warn",
-    "arrow-parens": ["off", "always"],
+    "arrow-parens": ["error", "as-needed"],
     "brace-style": ["error", "1tbs"],
     camelcase: "error",
     "comma-dangle": "off",

@@ -29,7 +29,7 @@ type OffCanvasContextProps = {
 
 export const OffCanvasContext = React.createContext<OffCanvasContextProps>({
   visibleMenus: [],
-  toggleVisibleMenu: (menuId) => undefined,
+  toggleVisibleMenu: menuId => undefined,
   resetVisibleMenus: () => undefined,
 })
 
@@ -72,7 +72,7 @@ export class ZenOffCanvas extends React.Component<Props> {
               {productSwitcher && productSwitcher}
               <nav className={styles.links}>
                 {links &&
-                  Object.keys(links).map((section) => (
+                  Object.keys(links).map(section => (
                     <Menu
                       key={section}
                       section={section}
@@ -105,7 +105,7 @@ const withContextProvider = (Component: React.ComponentType<any>) =>
     toggleMenu = (menuId: string) =>
       this.setState({
         visibleMenus: this.state.visibleMenus.includes(menuId)
-          ? this.state.visibleMenus.filter((item) => item !== menuId)
+          ? this.state.visibleMenus.filter(item => item !== menuId)
           : [...this.state.visibleMenus, menuId],
       })
 

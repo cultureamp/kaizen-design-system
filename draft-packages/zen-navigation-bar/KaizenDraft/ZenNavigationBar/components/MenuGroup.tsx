@@ -33,7 +33,7 @@ const MenuGroup = ({
     <li className={styles.container}>
       <h4 className={styles.title}>{title}</h4>
       <ul className={styles.subList}>
-        {items.map((item) => (
+        {items.map(item => (
           <MenuItem key={`${item.url}-${uuid()}`} {...item} />
         ))}
       </ul>

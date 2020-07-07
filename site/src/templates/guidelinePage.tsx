@@ -33,16 +33,16 @@ export default ({ data, pageContext, location }) => {
   const md = data.mdx
   const allPages = data.allMdx.edges
   const overviewPage = allPages.filter(
-    (el) => el.node.frontmatter.navTitle === "Overview"
+    el => el.node.frontmatter.navTitle === "Overview"
   )
   const pagesWithoutOverview = allPages.filter(
-    (el) => el.node.frontmatter.navTitle !== "Overview"
+    el => el.node.frontmatter.navTitle !== "Overview"
   )
   const guidelinePages = sortSidebarTabs(
-    pagesWithoutOverview.filter((el) => !el.node.frontmatter.inComparingSection)
+    pagesWithoutOverview.filter(el => !el.node.frontmatter.inComparingSection)
   )
   const comparingPages = sortSidebarTabs(
-    pagesWithoutOverview.filter((el) => el.node.frontmatter.inComparingSection)
+    pagesWithoutOverview.filter(el => el.node.frontmatter.inComparingSection)
   )
   const currentPath = location.pathname
 

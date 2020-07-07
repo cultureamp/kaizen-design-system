@@ -27,7 +27,7 @@ const renderPrimaryLinks = (primaryAction: PrimaryActionProps) => {
   if (!primaryAction) return null
   if (isMenuGroupNotButton(primaryAction)) {
     return primaryAction.menuItems
-      .filter((item) => typeof item.action === "string")
+      .filter(item => typeof item.action === "string")
       .map((item, idx) => (
         <MenuItem
           action={item.action}
@@ -47,7 +47,7 @@ const renderPrimaryActions = (primaryAction: PrimaryActionProps) => {
     return [
       <MenuSeparator />,
       primaryAction.menuItems
-        .filter((item) => typeof item.action !== "string")
+        .filter(item => typeof item.action !== "string")
         .map((item, idx) => (
           <MenuItem
             action={item.action}
@@ -60,7 +60,7 @@ const renderPrimaryActions = (primaryAction: PrimaryActionProps) => {
   }
 }
 
-const renderDefaultLink = (defaultAction) => {
+const renderDefaultLink = defaultAction => {
   if (defaultAction && defaultAction.hasOwnProperty("href")) {
     return (
       <MenuItem
@@ -71,7 +71,7 @@ const renderDefaultLink = (defaultAction) => {
     )
   }
 }
-const renderDefaultAction = (defaultAction) => {
+const renderDefaultAction = defaultAction => {
   if (defaultAction && defaultAction.hasOwnProperty("onClick")) {
     return (
       <MenuItem
@@ -83,9 +83,9 @@ const renderDefaultAction = (defaultAction) => {
   }
 }
 
-const renderSecondaryActions = (secondaryActions) => {
+const renderSecondaryActions = secondaryActions => {
   if (!secondaryActions) return null
-  const secondaryActionMenuItems = secondaryActions.map((a) => {
+  const secondaryActionMenuItems = secondaryActions.map(a => {
     if (isMenuGroupNotButton(a)) {
       return a.menuItems
     } else {
@@ -251,7 +251,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps) => {
   )
 }
 
-const getAction = (primaryAction) => {
+const getAction = primaryAction => {
   if (primaryAction) {
     if (primaryAction.onClick) {
       return primaryAction.onClick

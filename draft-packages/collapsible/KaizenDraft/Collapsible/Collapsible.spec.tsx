@@ -24,7 +24,7 @@ it("matches snapshot with everything enabled", () => {
       <Collapsible
         id="1"
         title="First panel w/ custom header"
-        renderHeader={(title) => <div>{title}</div>}
+        renderHeader={title => <div>{title}</div>}
       >
         First panel content
       </Collapsible>

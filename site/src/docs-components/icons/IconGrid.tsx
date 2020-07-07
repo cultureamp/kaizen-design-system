@@ -4,7 +4,7 @@ import IconTile from "./IconTile"
 
 const styles = require("./IconGrid.scss")
 
-const IconGrid: React.SFC = (props) => (
+const IconGrid: React.SFC = props => (
   <StaticQuery
     query={graphql`
       query IconQuery {
@@ -18,7 +18,7 @@ const IconGrid: React.SFC = (props) => (
         }
       }
     `}
-    render={(data) => (
+    render={data => (
       <div>
         <div className={styles.iconGrid}>
           {data.allFile.edges.map((edge: any) => (

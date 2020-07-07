@@ -183,7 +183,7 @@ class GenericModal extends React.Component<GenericModalProps> {
             <div className={styles.backdropLayer} />
             <div
               className={styles.scrollLayer}
-              ref={(scrollLayer) => (this.scrollLayer = scrollLayer)}
+              ref={scrollLayer => (this.scrollLayer = scrollLayer)}
               onClick={
                 this.props.onOutsideModalClick && this.outsideModalClickHandler
               }
@@ -193,7 +193,7 @@ class GenericModal extends React.Component<GenericModalProps> {
                 aria-labelledby={this.props.labelledByID}
                 aria-describedby={this.props.describedByID}
                 className={styles.modalLayer}
-                ref={(modalLayer) => (this.modalLayer = modalLayer)}
+                ref={modalLayer => (this.modalLayer = modalLayer)}
                 data-automation-id={automationId}
               >
                 {children}
@@ -254,7 +254,7 @@ function createAriaHider(dialogNode: HTMLElement): () => void {
 
   Array.prototype.forEach.call(
     ownerDocument.querySelectorAll("body > *"),
-    (node) => {
+    node => {
       const portalNode = dialogNode.parentNode?.parentNode?.parentNode
       if (node === portalNode) {
         return

@@ -163,7 +163,7 @@ LabelAndIconBottom.story = {
   },
 }
 
-const StatelessMenuExample = (props) => {
+const StatelessMenuExample = props => {
   const [isMenuVisible, setIsMenuVisible] = useState(false)
 
   const toggleMenu = () => {
@@ -191,7 +191,7 @@ const StatelessMenuExample = (props) => {
         isMenuVisible={isMenuVisible}
         toggleMenuDropdown={toggleMenu}
         hideMenuDropdown={hideMenu}
-        renderButton={(buttonProps) => (
+        renderButton={buttonProps => (
           <Button
             label="Label"
             icon={isMenuVisible ? chevronUp : chevronDown}
@@ -200,7 +200,7 @@ const StatelessMenuExample = (props) => {
           />
         )}
       >
-        <div onClick={(e) => e.stopPropagation()}>
+        <div onClick={e => e.stopPropagation()}>
           <MenuInstance />
         </div>
       </StatelessMenu>

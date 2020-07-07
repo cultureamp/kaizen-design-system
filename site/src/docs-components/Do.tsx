@@ -11,9 +11,9 @@ export default ({ children }) => (
     <div className={classnames(styles.doText)}>Do:</div>
     <div className={classnames(styles.card, styles.doCard)}>
       <ul className={classnames(styles.doOrDontList)}>
-        {React.Children.map(children, (ul) => {
+        {React.Children.map(children, ul => {
           if (React.Children.count(ul.props.children) > maxItems) {
-            return React.Children.map(ul.props.children, (li) => (
+            return React.Children.map(ul.props.children, li => (
               <li className={classnames(styles.doOrDontListItem)}>
                 <DoOrDontItem variant="do" />
                 {li.props.children}
@@ -29,7 +29,7 @@ export default ({ children }) => (
               </li>
             )
           } else {
-            return React.Children.map(ul.props.children, (li) => (
+            return React.Children.map(ul.props.children, li => (
               <li className={classnames(styles.doOrDontListItem)}>
                 <DoOrDontItem variant="do" />
                 {li.props.children}

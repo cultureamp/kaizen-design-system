@@ -48,12 +48,12 @@ const asyncOptions = [
 ]
 
 const filterNames = (inputValue: string) =>
-  asyncOptions.filter((i) =>
+  asyncOptions.filter(i =>
     i.label.toLowerCase().includes(inputValue.toLowerCase())
   )
 
-const promiseOptions = (inputValue) =>
-  new Promise((resolve) => {
+const promiseOptions = inputValue =>
+  new Promise(resolve => {
     setTimeout(() => {
       resolve(filterNames(inputValue))
     }, 1000)

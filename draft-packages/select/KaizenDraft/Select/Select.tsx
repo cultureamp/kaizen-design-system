@@ -119,7 +119,7 @@ export const AsyncSelect = (props: AsyncProps) => (
   />
 )
 
-const Control: typeof components.Control = (props) => (
+const Control: typeof components.Control = props => (
   <components.Control
     {...props}
     className={classNames(styles.control, {
@@ -129,13 +129,13 @@ const Control: typeof components.Control = (props) => (
   />
 )
 
-const Placeholder: typeof components.Placeholder = (props) => (
+const Placeholder: typeof components.Placeholder = props => (
   <components.Placeholder {...props}>
     <span className={styles.placeholder}>{props.children}</span>
   </components.Placeholder>
 )
 
-const DropdownIndicator: typeof components.DropdownIndicator = (props) => (
+const DropdownIndicator: typeof components.DropdownIndicator = props => (
   // Suppress typing issue - looks like the type defs are incorrect
   // @ts-ignore
   <components.DropdownIndicator {...props} className={styles.dropdownIndicator}>
@@ -143,12 +143,12 @@ const DropdownIndicator: typeof components.DropdownIndicator = (props) => (
   </components.DropdownIndicator>
 )
 
-const Menu: typeof components.Menu = (props) => (
+const Menu: typeof components.Menu = props => (
   <components.Menu {...props} className={styles.menu} />
 )
 
 // TODO - needsclick class disables fastclick on this element. Remove when fastclick is removed from consuming repos
-const Option: typeof components.Option = (props) => (
+const Option: typeof components.Option = props => (
   <components.Option
     {...props}
     className={classNames("needsclick", styles.option, {
@@ -158,29 +158,29 @@ const Option: typeof components.Option = (props) => (
   />
 )
 
-const NoOptionsMessage: typeof components.NoOptionsMessage = (props) => (
+const NoOptionsMessage: typeof components.NoOptionsMessage = props => (
   <components.NoOptionsMessage {...props}>
     <span className={styles.noOptionsMessage}>{props.children}</span>
   </components.NoOptionsMessage>
 )
 
-const SingleValue: typeof components.SingleValue = (props) => (
+const SingleValue: typeof components.SingleValue = props => (
   <components.SingleValue {...props} className={styles.singleValueOverrides}>
     <span className={styles.singleValue}>{props.children}</span>
   </components.SingleValue>
 )
 
-const MultiValue: typeof components.MultiValue = (props) => (
+const MultiValue: typeof components.MultiValue = props => (
   <components.MultiValue {...props} className={styles.multiValue} />
 )
 
-const IndicatorsContainer: typeof components.IndicatorsContainer = (props) => (
+const IndicatorsContainer: typeof components.IndicatorsContainer = props => (
   <components.IndicatorsContainer
     {...props}
     className={styles.indicatorsContainer}
   />
 )
-const ClearIndicator: typeof components.ClearIndicator = (props) => (
+const ClearIndicator: typeof components.ClearIndicator = props => (
   <components.ClearIndicator {...props}>
     <Icon icon={clearIcon} role="presentation" />
   </components.ClearIndicator>
