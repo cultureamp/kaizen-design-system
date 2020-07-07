@@ -21,7 +21,9 @@ type GenericProps = {
   fullWidth?: boolean
   disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean
   analytics?: Analytics
+  ariaControls?: string
   ariaDescribedBy?: string
+  ariaExpanded?: boolean
   onFocus?: (e: React.FocusEvent<HTMLElement>) => void
   onBlur?: (e: React.FocusEvent<HTMLElement>) => void
 }
@@ -75,6 +77,8 @@ const renderButton: React.FunctionComponent<Props> = props => {
     onMouseDown,
     type,
     ariaDescribedBy,
+    ariaExpanded,
+    ariaControls,
     disableTabFocusAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
@@ -98,8 +102,10 @@ const renderButton: React.FunctionComponent<Props> = props => {
       type={type}
       data-automation-id={props.automationId}
       title={label}
-      aria-label={label}
+      aria-controls={ariaControls}
       aria-describedby={ariaDescribedBy}
+      aria-expanded={ariaExpanded}
+      aria-label={label}
       tabIndex={
         disableTabFocusAndIUnderstandTheAccessibilityImplications
           ? -1
