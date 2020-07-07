@@ -1,12 +1,10 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { Button } from "../button"
+import { FilterDrawerButton } from "../button/KaizenDraft/Button/FilterDrawerButton"
 const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
   .default
-const guidanceIcon = require("@kaizen/component-library/icons/guidance.icon.svg")
-  .default
-import { Badge } from "@kaizen/draft-badge"
 import { action } from "@storybook/addon-actions"
-import React, { useState } from "react"
+import React from "react"
 
 export default {
   title: "Button (Zen) (React)",
@@ -314,51 +312,42 @@ export const MultipleButtons = () => (
   </div>
 )
 
-export const AdditionalContent = () => {
-  const CounterButton = () => {
-    const [counter, setCounter] = useState(1)
-
-    const increaseCounter = () => setCounter(counter + 1)
-
-    return (
-      <div>
-        <Button
-          label="Count"
-          automationId="demo-button-1"
-          additionalContent={<Badge variant="active">{String(counter)}</Badge>}
-          onClick={() => increaseCounter()}
-        />
-      </div>
-    )
-  }
-  return <CounterButton />
+export const DefaultFilterDrawerButton = () => {
+  return (
+    <FilterDrawerButton
+      labelText="Filter"
+      numFiltersEnabled={3}
+      onClick={_ => null}
+      onMouseDown={_ => null}
+    />
+  )
 }
 
-AdditionalContent.story = {
-  name: "Default + Additional Content (usage example)",
+DefaultFilterDrawerButton.story = {
+  name: "FilterDrawerButton, default",
 }
 
-export const IconWithAdditionalContent = () => {
-  const CounterButton = () => {
-    const [counter, setCounter] = useState(1)
-
-    const increaseCounter = () => setCounter(counter + 1)
-
-    return (
-      <div>
-        <Button
-          label="New Idea"
-          automationId="demo-button-1"
-          additionalContent={<Badge variant="active">{String(counter)}</Badge>}
-          onClick={() => increaseCounter()}
-          icon={guidanceIcon}
-        />
-      </div>
-    )
-  }
-  return <CounterButton />
+export const ReversedFilterDrawerButton = () => {
+  return (
+    <FilterDrawerButton
+      labelText="Filter"
+      reversed={true}
+      numFiltersEnabled={3}
+      onClick={_ => null}
+      onMouseDown={_ => null}
+    />
+  )
 }
 
-IconWithAdditionalContent.story = {
-  name: "Default + Icon + Additional Content (usage example)",
+ReversedFilterDrawerButton.story = {
+  name: "FilterDrawerButton, reversed",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
 }
