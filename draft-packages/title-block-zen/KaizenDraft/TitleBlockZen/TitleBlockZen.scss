@@ -101,7 +101,7 @@ $tab-container-height-small: $ca-grid * 2.5;
       max-width: 520px;
     }
 
-    @include title-block-medium-and-small {
+    @include title-block-under-1366 {
       max-width: 50vw;
     }
 
@@ -168,8 +168,8 @@ $tab-container-height-small: $ca-grid * 2.5;
     @include title-block-medium-and-small {
       transform: translateY($ca-grid / 2);
     }
-    }
   }
+}
 
 .titleTextOverride.titleTextOverride {
   white-space: nowrap;
@@ -497,6 +497,9 @@ $tab-container-height-small: $ca-grid * 2.5;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  flex-basis: 480px;
+  flex-grow: 1;
+  flex-shrink: 1;
 
   @include ca-margin($start: $ca-grid / 2);
 
