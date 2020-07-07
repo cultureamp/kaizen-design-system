@@ -399,6 +399,9 @@ $tab-container-height-small: $ca-grid * 2.5;
       transform: translateY(4px);
 
       .hasSubtitle & {
+        transform: translateY(-10px);
+      }
+      .hasSubtitle.hasLongTitle & {
         transform: translateY(-4px);
       }
     }
