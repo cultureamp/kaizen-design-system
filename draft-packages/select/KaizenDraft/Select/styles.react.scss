@@ -90,34 +90,80 @@
     cursor: default;
   }
 
-  &.secondary.reversed {
-    .control {
-      background: add-alpha($kz-color-white, 10%);
-      color: $kz-color-white;
-      border: $kz-border-borderless-border-width
-        $kz-border-borderless-border-style $kz-border-borderless-border-color;
-      border-radius: $kz-border-borderless-border-radius;
+  &.secondary {
+    &.default {
+      .control {
+        background: transparent;
+        border: $kz-border-borderless-border-width
+          $kz-border-borderless-border-style $kz-border-borderless-border-color;
+        border-radius: $kz-border-borderless-border-radius;
 
-      &:hover {
-        background: add-alpha($kz-color-white, 20%);
+        .singleValue {
+          color: $kz-color-cluny-500;
+        }
+
+        &:hover {
+          background: $kz-color-cluny-100;
+        }
+
+        &.disabled {
+          opacity: 0.3;
+        }
+
+        &.focusedControl {
+          background: $kz-color-cluny-100;
+
+          &::after {
+            $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px;
+            content: "";
+            position: absolute;
+            background: transparent;
+            border-radius: $kz-border-focus-ring-border-radius;
+            border-width: $kz-border-focus-ring-border-width;
+            border-style: $kz-border-focus-ring-border-style;
+            border-color: $kz-color-cluny-500;
+            top: -$focus-ring-offset;
+            left: -$focus-ring-offset;
+            right: -$focus-ring-offset;
+            bottom: -$focus-ring-offset;
+          }
+        }
       }
 
-      &.disabled {
-        opacity: 0.3;
+      .dropdownIndicator {
+        color: $kz-color-cluny-500;
       }
     }
 
-    .dropdownIndicator {
-      color: $kz-color-white;
-    }
+    &.reversed {
+      .control {
+        background: add-alpha($kz-color-white, 10%);
+        color: $kz-color-white;
+        border: $kz-border-borderless-border-width
+          $kz-border-borderless-border-style $kz-border-borderless-border-color;
+        border-radius: $kz-border-borderless-border-radius;
 
-    $secondary-reversed-focus-color: $kz-color-cluny-300;
+        &:hover {
+          background: add-alpha($kz-color-white, 20%);
+        }
 
-    .focusedControl {
-      border-color: $secondary-reversed-focus-color;
+        &.disabled {
+          opacity: 0.3;
+        }
+      }
 
-      &:hover {
+      .dropdownIndicator {
+        color: $kz-color-white;
+      }
+
+      $secondary-reversed-focus-color: $kz-color-cluny-300;
+
+      .focusedControl {
         border-color: $secondary-reversed-focus-color;
+
+        &:hover {
+          border-color: $secondary-reversed-focus-color;
+        }
       }
     }
   }
