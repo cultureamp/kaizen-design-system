@@ -373,8 +373,8 @@ const TitleBlockZen = ({
           [styles.hasSubtitle]: Boolean(subtitle),
           [styles.educationVariant]: variant === "education",
           [styles.adminVariant]: variant === "admin",
-          [styles.hasLongTitle]: title.length >= 30,
-          [styles.hasLongSubtitle]: subtitle && subtitle.length >= 34,
+          [styles.hasLongTitle]: title && title.length >= 30,
+          [styles.hasLongSubtitle]: subtitle && subtitle.length >= 18,
           [styles.hasNavigationTabs]:
             navigationTabs && navigationTabs.length > 0,
         })}
