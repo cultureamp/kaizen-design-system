@@ -39,7 +39,8 @@ module.exports = {
       },
     ],
     "@typescript-eslint/ban-types": [
-      "error",
+      // TODO - Change to error. This will be a breaking change on a lot of our Props that might be using "any non-nullish value"
+      "warn",
       {
         types: {
           Object: {
