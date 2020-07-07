@@ -284,7 +284,7 @@ $tab-container-height-small: $ca-grid * 2.5;
   font-size: $kz-typography-paragraph-small-font-size;
   line-height: $kz-typography-paragraph-small-line-height;
   letter-spacing: $kz-typography-paragraph-small-letter-spacing;
-  width: 230px;
+  max-width: 230px;
 
   @include ca-margin($start: $ca-grid / 2);
 
@@ -292,7 +292,7 @@ $tab-container-height-small: $ca-grid * 2.5;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    width: auto;
+    max-width: none;
     margin: ($ca-grid / 5) 0;
   }
 }
