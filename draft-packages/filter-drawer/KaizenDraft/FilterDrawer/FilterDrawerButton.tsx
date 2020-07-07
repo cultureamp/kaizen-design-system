@@ -1,11 +1,11 @@
 import { Badge } from "@kaizen/draft-badge"
-import classnames from "classnames"
-import * as React from "react"
 import GenericButton, {
   AdditionalContentProps,
   GenericProps,
   LabelProps,
 } from "@kaizen/draft-button/KaizenDraft/Button/components/GenericButton"
+import classnames from "classnames"
+import * as React from "react"
 const filterIcon = require("@kaizen/component-library/icons/filter.icon.svg")
   .default
 const styles = require("./FilterDrawerButton.module.scss")
@@ -16,6 +16,8 @@ type FilterButtonProps = {
   onClick: (e: any) => void
   onMouseDown: (e: any) => void
   reversed?: boolean
+  ariaExpanded: boolean
+  ariaControls: string
 }
 
 export const FilterDrawerButton = ({
@@ -24,6 +26,8 @@ export const FilterDrawerButton = ({
   onClick,
   onMouseDown,
   reversed,
+  ariaControls,
+  ariaExpanded,
 }: FilterButtonProps) => (
   <div
     className={classnames(styles.buttonEdgeCaseStyling, {
@@ -39,6 +43,8 @@ export const FilterDrawerButton = ({
       additionalContent={renderBadge(numberOfFiltersEnabled)}
       onClick={onClick}
       onMouseDown={onMouseDown}
+      ariaControls={ariaControls}
+      ariaExpanded={ariaExpanded}
     />
   </div>
 )

@@ -49,6 +49,8 @@ export interface FilterDrawerProps {
   numFiltersEnabled?: number
 }
 
+const dropdownId = "filter-drawer-dropdown"
+
 export const FilterDrawer = ({
   labelText,
   children,
@@ -74,6 +76,8 @@ export const FilterDrawer = ({
               onClick,
               onMouseDown,
               reversed,
+              ariaExpanded: isDropdownVisible,
+              ariaControls: dropdownId,
             }}
           />
         )}
@@ -81,6 +85,7 @@ export const FilterDrawer = ({
         toggleMenuDropdown={toggleDropdown}
         hideMenuDropdown={hideDropdown}
         dropdownWidth="contain"
+        dropdownId={dropdownId}
       >
         <MenuContent>
           <div className={styles.content} onClick={e => e.stopPropagation()}>
