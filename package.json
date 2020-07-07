@@ -18,7 +18,7 @@
     "prettier": "prettier --check '**/*'",
     "test": "jest",
     "compile": "tsc",
-    "lint": "elm-format --validate packages && yarn tslint && yarn prettier && stylelint '**/*.scss'",
+    "lint": "elm-format --validate packages && yarn eslint && yarn prettier && stylelint '**/*.scss'",
     "lint:fix": "elm-format --yes packages && yarn eslint --fix && yarn prettier --write",
     "clean:storybook": "rimraf 'storybook/public'",
     "clean": "lerna run clean && yarn gatsby clean && yarn clean:storybook && rimraf 'elm-stuff'",
