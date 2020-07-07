@@ -1,5 +1,3 @@
-import { Badge } from "@kaizen/draft-badge"
-import * as KaizenButton from "@kaizen/draft-button"
 import { MenuContent } from "@kaizen/draft-menu"
 import { StatelessMenu } from "@kaizen/draft-menu/KaizenDraft/Menu/StatelessMenu"
 import classnames from "classnames"
@@ -7,6 +5,7 @@ import * as React from "react"
 const filterIcon = require("@kaizen/component-library/icons/filter.icon.svg")
   .default
 const styles = require("./styles.module.scss")
+import { FilterDrawerButton } from "./FilterDrawerButton"
 
 export interface FilterDrawerProps {
   /**
@@ -68,7 +67,7 @@ export const FilterDrawer = ({
     >
       <StatelessMenu
         renderButton={({ onClick, onMouseDown }) => (
-          <FilterButton
+          <FilterDrawerButton
             {...{
               labelText,
               numFiltersEnabled,
@@ -94,40 +93,6 @@ export const FilterDrawer = ({
   )
 }
 
-type FilterButtonProps = {
-  labelText: string
-  numFiltersEnabled: number
-  onClick: (e: any) => void
-  onMouseDown: (e: any) => void
-  reversed?: boolean
-}
-
-const FilterButton = ({
-  labelText,
-  numFiltersEnabled,
-  onClick,
-  onMouseDown,
-  reversed,
-}: FilterButtonProps) => (
-  <div className={styles.buttonEdgeCaseStyling}>
-    <KaizenButton.Button
-      secondary={true}
-      reversed={reversed}
-      label={labelText}
-      icon={filterIcon}
-      iconPosition="start"
-      additionalContent={renderBadge(numFiltersEnabled)}
-      onClick={onClick}
-      onMouseDown={onMouseDown}
-    />
-  </div>
-)
-
 const Metadata = ({ items }: { items: string[] }) => (
   <div className={styles.metadata}>{items.join("・")}</div>
 )
-
-const renderBadge = (numFiltersEnabled: number) =>
-  numFiltersEnabled > 0 ? (
-    <Badge variant="active">{String(numFiltersEnabled)}</Badge>
-  ) : null
