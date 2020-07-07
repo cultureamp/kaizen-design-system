@@ -24,7 +24,7 @@ it("matches snapshot with everything enabled", () => {
       <Collapsible
         id="1"
         title="First panel w/ custom header"
-        renderHeader={title => <div>{title}</div>}
+        renderHeader={(title) => <div>{title}</div>}
       >
         First panel content
       </Collapsible>
@@ -157,7 +157,7 @@ it("gives precedence to renderHeader over title", () => {
   expect(queryByTestId(container, "collapsible-button-title-1")).toBeNull()
 })
 
-it(`doesn't render section content when lazyLoad is enabled`, () => {
+it("doesn't render section content when lazyLoad is enabled", () => {
   const { container } = render(
     <Collapsible id="1" title="Title" lazyLoad>
       <div data-automation-id="lazy-load-content">First panel content</div>
