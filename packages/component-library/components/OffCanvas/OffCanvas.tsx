@@ -25,7 +25,7 @@ type OffCanvasContextProps = {
 
 export const OffCanvasContext = React.createContext<OffCanvasContextProps>({
   visibleMenus: [],
-  toggleVisibleMenu: menuId => undefined,
+  toggleVisibleMenu: (menuId) => undefined,
   resetVisibleMenus: () => undefined,
 })
 
@@ -58,7 +58,7 @@ export class OffCanvas extends React.Component<Props> {
             />
             <nav className={styles.links}>
               {links &&
-                Object.keys(links).map(section => (
+                Object.keys(links).map((section) => (
                   <Menu section={section} links={links[section]} />
                 ))}
             </nav>
@@ -71,7 +71,7 @@ export class OffCanvas extends React.Component<Props> {
 }
 
 const withContextProvider = (Component: React.ComponentType<any>) => {
-  // tslint:disable-next-line: max-classes-per-file
+  // eslint-disable-next-line max-classes-per-file
   return class OffCanvasWithContextProvider extends React.Component<
     Props,
     State
@@ -87,7 +87,7 @@ const withContextProvider = (Component: React.ComponentType<any>) => {
     toggleMenu = (menuId: string) =>
       this.setState({
         visibleMenus: this.state.visibleMenus.includes(menuId)
-          ? this.state.visibleMenus.filter(item => item !== menuId)
+          ? this.state.visibleMenus.filter((item) => item !== menuId)
           : [...this.state.visibleMenus, menuId],
       })
 
@@ -110,7 +110,7 @@ const withContextProvider = (Component: React.ComponentType<any>) => {
 }
 
 const withTrigger = (Component: React.ComponentType<any>) => {
-  // tslint:disable-next-line: max-classes-per-file
+  // eslint-disable-next-line max-classes-per-file
   return class OffCanvasWithTrigger extends React.Component<Props> {
     render() {
       return (

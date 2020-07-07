@@ -37,15 +37,15 @@ export default ({ data, pageContext, location }) => {
   const currentPath = location.pathname
 
   const overviewPage = allPages.filter(
-    el => el.node.frontmatter.navTitle === "Overview"
+    (el) => el.node.frontmatter.navTitle === "Overview"
   )
   const pagesWithoutOverview = sortSidebarTabs(
-    allPages.filter(el => el.node.frontmatter.navTitle !== "Overview")
+    allPages.filter((el) => el.node.frontmatter.navTitle !== "Overview")
   )
 
   const renderStorybookIFrame = () => {
     if (!md.frontmatter.demoStoryId) {
-      // tslint:disable-next-line: no-console
+      // eslint-disable-next-line no-console
       console.warn(
         `Could not find a demo story ID for "${md.frontmatter.title}". Please make sure there is a frontmatter field called demoStoryId in the component docs. The ID comes from the Storybook URL for a given story.`
       )
