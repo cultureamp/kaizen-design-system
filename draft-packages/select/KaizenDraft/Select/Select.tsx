@@ -65,13 +65,9 @@ export const Select = (props: SelectProps & ReactSelectProps) => {
       'the combo variant="default" and reversed=true is not yet implemented for the Select component'
     )
   }
-  if (reversed === false && variant === "secondary") {
-    throw new Error(
-      'the combo variant="secondary" and reversed=false is not yet implemented for the Select component'
-    )
-  }
 
   const classes = classNames(props.className, styles.specificityIncreaser, {
+    [styles.default]: !reversed,
     [styles.reversed]: reversed,
     [styles.secondary]: variant === "secondary",
     [styles.notFullWidth]: !fullWidth,
