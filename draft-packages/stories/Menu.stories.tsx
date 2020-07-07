@@ -86,6 +86,7 @@ export const LabelAndIcon = () => (
   <StoryWrapper>
     <Menu
       button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+      dropdownId="dropdown"
     >
       <MenuInstance />
     </Menu>
