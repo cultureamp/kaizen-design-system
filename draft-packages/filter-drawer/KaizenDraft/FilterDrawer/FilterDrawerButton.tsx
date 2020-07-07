@@ -5,7 +5,7 @@ import GenericButton, {
   AdditionalContentProps,
   GenericProps,
   LabelProps,
-} from "./components/GenericButton"
+} from "@kaizen/draft-button/KaizenDraft/Button/components/GenericButton"
 const filterIcon = require("@kaizen/component-library/icons/filter.icon.svg")
   .default
 const styles = require("./FilterDrawerButton.module.scss")
