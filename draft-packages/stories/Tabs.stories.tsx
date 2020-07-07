@@ -17,7 +17,7 @@ export default {
   },
 }
 
-export const DefaultRow = () => {
+export const DefaultHorizontal = () => {
   const tabs = [
     { label: "One", href: "https://www.cultureamp.design/storybook" },
     { label: "Two", href: "https://www.cultureamp.design/storybook" },
@@ -27,14 +27,14 @@ export const DefaultRow = () => {
   return <Tabs tabs={tabs} />
 }
 
-export const DefaultColumn = () => {
+export const DefaultVertical = () => {
   const tabs = [
     { label: "One", href: "https://www.cultureamp.design/storybook" },
     { label: "Two", href: "https://www.cultureamp.design/storybook" },
     { label: "Three", href: "https://www.cultureamp.design/storybook" },
     { label: "Four", href: "https://www.cultureamp.design/storybook" },
   ]
-  return <Tabs orientation="column" tabs={tabs} />
+  return <Tabs orientation="vertical" tabs={tabs} />
 }
 
 // @TODO - (Kaizen site demo)
@@ -57,10 +57,10 @@ export const LongAndShortText = () => {
 }
 
 LongAndShortText.story = {
-  name: "Long and short text (row)",
+  name: "Long and short text (Horizontal)",
 }
 
-export const ColumnLongAndShortText = () => {
+export const VerticalLongAndShortText = () => {
   const tabs = [
     {
       label: "Long Text in a Tab",
@@ -74,11 +74,11 @@ export const ColumnLongAndShortText = () => {
     },
     { label: "C", href: "https://www.cultureamp.design/storybook" },
   ]
-  return <Tabs orientation="column" tabs={tabs} />
+  return <Tabs orientation="vertical" tabs={tabs} />
 }
 
-ColumnLongAndShortText.story = {
-  name: "Long and short text (column)",
+VerticalLongAndShortText.story = {
+  name: "Long and short text (Vertical)",
 }
 
 export const ActiveTab = () => {
@@ -96,10 +96,10 @@ export const ActiveTab = () => {
 }
 
 ActiveTab.story = {
-  name: "Active tab (row)",
+  name: "Active tab (Horizontal)",
 }
 
-export const ActiveColumnTabs = () => {
+export const ActiveVerticalTabs = () => {
   const tabs = [
     {
       label: "One (href here)",
@@ -110,14 +110,14 @@ export const ActiveColumnTabs = () => {
     { label: "Three", href: "https://www.cultureamp.design/storybook" },
     { label: "Four", href: "https://www.cultureamp.design/storybook" },
   ]
-  return <Tabs orientation="column" tabs={tabs} />
+  return <Tabs orientation="vertical" tabs={tabs} />
 }
 
-ActiveColumnTabs.story = {
-  name: "Active tab (column)",
+ActiveVerticalTabs.story = {
+  name: "Active tab (Vertical)",
 }
 
-export const DisabledTabRow = () => {
+export const DisabledTabHorizontal = () => {
   const tabs = [
     {
       label: "One",
@@ -131,11 +131,11 @@ export const DisabledTabRow = () => {
   return <Tabs tabs={tabs} />
 }
 
-DisabledTabRow.story = {
-  name: "Disabled tab (row)",
+DisabledTabHorizontal.story = {
+  name: "Disabled tab (Horizontal)",
 }
 
-export const DisabledTabColumn = () => {
+export const DisabledTabVertical = () => {
   const tabs = [
     {
       label: "One",
@@ -146,11 +146,11 @@ export const DisabledTabColumn = () => {
     { label: "Three", href: "https://www.cultureamp.design/storybook" },
     { label: "Four", href: "https://www.cultureamp.design/storybook" },
   ]
-  return <Tabs orientation="column" tabs={tabs} />
+  return <Tabs orientation="vertical" tabs={tabs} />
 }
 
-DisabledTabColumn.story = {
-  name: "Disabled tab (column)",
+DisabledTabVertical.story = {
+  name: "Disabled tab (Vertical)",
 }
 
 export const WithOnClick = () => {
@@ -249,10 +249,10 @@ export const WithCustomTabRenderer = () => {
 }
 
 WithCustomTabRenderer.story = {
-  name: "With custom tab renderer (row)",
+  name: "With custom tab renderer (Horizontal)",
 }
 
-export const WithCustomTabRendererColumn = () => {
+export const WithCustomTabRendererVertical = () => {
   const tabs = [
     {
       label: "One",
@@ -270,7 +270,7 @@ export const WithCustomTabRendererColumn = () => {
   return (
     <Tabs
       tabs={tabs}
-      orientation="column"
+      orientation="vertical"
       renderTab={({
         tab,
         tabClassName,
@@ -292,11 +292,11 @@ export const WithCustomTabRendererColumn = () => {
   )
 }
 
-WithCustomTabRendererColumn.story = {
-  name: "With custom tab renderer (column)",
+WithCustomTabRendererVertical.story = {
+  name: "With custom tab renderer (Vertical)",
 }
 
-export const WithLayoutColumnLTR = () => {
+export const WithLayoutVerticalLTR = () => {
   const tabs = [
     {
       label: "One (href here)",
@@ -310,7 +310,7 @@ export const WithLayoutColumnLTR = () => {
   return (
     <ExampleLayout>
       <ExampleLayout.Sidebar>
-        <Tabs orientation="column" tabs={tabs} />
+        <Tabs orientation="vertical" tabs={tabs} />
       </ExampleLayout.Sidebar>
       <ExampleLayout.Content>
         <Box p={2}>Example layout</Box>
@@ -319,8 +319,8 @@ export const WithLayoutColumnLTR = () => {
   )
 }
 
-WithLayoutColumnLTR.story = {
-  name: "Layout LTR (column)",
+WithLayoutVerticalLTR.story = {
+  name: "Layout LTR (Vertical)",
   parameters: {
     backgrounds: [
       {
@@ -332,7 +332,7 @@ WithLayoutColumnLTR.story = {
   },
 }
 
-export const WithLayoutColumnRTL = () => {
+export const WithLayoutVerticalRTL = () => {
   const tabs = [
     {
       label: "One (href here)",
@@ -346,7 +346,7 @@ export const WithLayoutColumnRTL = () => {
   return (
     <ExampleLayout rtl>
       <ExampleLayout.Sidebar>
-        <Tabs orientation="column" tabs={tabs} textDirection="rtl" />
+        <Tabs orientation="vertical" tabs={tabs} textDirection="rtl" />
       </ExampleLayout.Sidebar>
       <ExampleLayout.Content>
         <Box p={2}>Example layout</Box>
@@ -355,8 +355,8 @@ export const WithLayoutColumnRTL = () => {
   )
 }
 
-WithLayoutColumnRTL.story = {
-  name: "Layout RTL (column)",
+WithLayoutVerticalRTL.story = {
+  name: "Layout RTL (Vertical)",
   parameters: {
     backgrounds: [
       {
