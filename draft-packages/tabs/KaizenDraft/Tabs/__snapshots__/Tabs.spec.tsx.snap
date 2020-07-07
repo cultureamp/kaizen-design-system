@@ -6,12 +6,12 @@ exports[`Tabs renders a disabled tab 1`] = `
   dir="ltr"
 >
   <a
-    class="rowTabDisabled"
+    class="horizontalTabDisabled"
   >
     One
   </a>
   <a
-    class="rowTab"
+    class="horizontalTab"
   >
     Two
   </a>
@@ -24,13 +24,13 @@ exports[`Tabs renders a tab with a href 1`] = `
   dir="ltr"
 >
   <a
-    class="rowTab"
+    class="horizontalTab"
     href="//example"
   >
     One
   </a>
   <a
-    class="rowTab"
+    class="horizontalTab"
   >
     Two
   </a>
@@ -43,12 +43,12 @@ exports[`Tabs renders a tab with an onClick 1`] = `
   dir="ltr"
 >
   <a
-    class="rowTab"
+    class="horizontalTab"
   >
     One
   </a>
   <a
-    class="rowTab"
+    class="horizontalTab"
   >
     Two
   </a>
@@ -61,12 +61,12 @@ exports[`Tabs renders an active tab 1`] = `
   dir="ltr"
 >
   <a
-    class="rowTabActive"
+    class="horizontalTabActive"
   >
     One
   </a>
   <a
-    class="rowTab"
+    class="horizontalTab"
   >
     Two
   </a>
@@ -79,12 +79,12 @@ exports[`Tabs renders basic tabs 1`] = `
   dir="ltr"
 >
   <a
-    class="rowTab"
+    class="horizontalTab"
   >
     One
   </a>
   <a
-    class="rowTab"
+    class="horizontalTab"
   >
     Two
   </a>
