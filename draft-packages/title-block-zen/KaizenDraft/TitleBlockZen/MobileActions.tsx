@@ -191,7 +191,7 @@ const renderDrawerHandleLabel = (
       <>
         <span
           className={styles.drawerHandleLabelText}
-          data-testid="drawer-handle-lable-text"
+          data-automation-id="drawer-handle-lable-text"
         >
           {label}
         </span>
@@ -216,7 +216,7 @@ const renderDrawerHandleLabel = (
         </>
         <span
           className={styles.drawerHandleLabelText}
-          data-testid="drawer-handle-lable-text"
+          data-automation-id="drawer-handle-lable-text"
         >
           {label}
         </span>
@@ -239,7 +239,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps) => {
           styles.mobileActionsPrimaryLabel,
           styles.mobileActionsPrimaryButton
         )}
-        data-testid="title-block-mobile-actions-primary-button"
+        data-automation-id="title-block-mobile-actions-primary-button"
       >
         {children}
       </button>
@@ -253,7 +253,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps) => {
           styles.mobileActionsPrimaryLabel,
           styles.mobileActionsPrimaryButton
         )}
-        data-testid="title-block-mobile-actions-primary-button"
+        data-automation-id="title-block-mobile-actions-primary-button"
       >
         {children}
       </a>
@@ -266,7 +266,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps) => {
         styles.mobileActionsPrimaryLabel,
         styles.mobileActionsPrimaryButton
       )}
-      data-testid="title-block-mobile-actions-primary-button"
+      data-automation-id="title-block-mobile-actions-primary-button"
     >
       {children}
     </button>
@@ -309,7 +309,7 @@ const DrawerHandle = ({
       return (
         <div
           className={styles.mobileActionsTopRow}
-          data-testid="title-block-mobile-actions-drawer-handle"
+          data-automation-id="title-block-mobile-actions-drawer-handle"
         >
           <button
             className={classnames(
@@ -333,7 +333,7 @@ const DrawerHandle = ({
       return (
         <div
           className={styles.mobileActionsTopRow}
-          data-testid="title-block-mobile-actions-drawer-handle"
+          data-automation-id="title-block-mobile-actions-drawer-handle"
         >
           {
             <ButtonOrLink action={getAction(primaryAction)}>
@@ -368,7 +368,7 @@ const DrawerHandle = ({
     return (
       <div
         className={styles.mobileActionsTopRow}
-        data-testid="title-block-mobile-actions-drawer-handle"
+        data-automation-id="title-block-mobile-actions-drawer-handle"
       >
         <button
           className={classnames(

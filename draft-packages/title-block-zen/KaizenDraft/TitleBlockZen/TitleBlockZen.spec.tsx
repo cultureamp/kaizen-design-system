@@ -1,13 +1,13 @@
 import "./matchMedia.mock"
 
-import {
-  cleanup,
-  fireEvent,
-  queryByAttribute,
-  render,
-} from "@testing-library/react"
+import { configure } from "@testing-library/dom"
+import { cleanup, fireEvent, render } from "@testing-library/react"
 import * as React from "react"
 import { NavigationTab, TitleBlockZen } from "./index"
+
+configure({
+  testIdAttribute: "data-automation-id",
+})
 
 afterEach(() => cleanup())
 
@@ -20,16 +20,14 @@ describe("<TitleBlockZen />", () => {
     }
 
     it("renders the primary action button label and href", () => {
-      const { container } = render(
+      const { getByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsLink}>
           Example
         </TitleBlockZen>
       )
-      const btn = container.querySelector(
-        "[data-automation-id=title-block-primary-action-button]"
-      )
-      expect(btn!.textContent).toEqual("primaryActionLabel")
-      expect(btn!.getAttribute("href")).toEqual("primaryActionHref")
+      const btn = getByTestId("title-block-primary-action-button")
+      expect(btn.textContent).toEqual("primaryActionLabel")
+      expect(btn.getAttribute("href")).toEqual("primaryActionHref")
     })
 
     it("passes the href to the mobile action drawer button", () => {
@@ -52,16 +50,14 @@ describe("<TitleBlockZen />", () => {
     }
 
     it("renders the primary action button label and onClick", () => {
-      const { container } = render(
+      const { getByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsButton}>
           Example
         </TitleBlockZen>
       )
-      const btn = container.querySelector(
-        "[data-automation-id=title-block-primary-action-button]"
-      )
-      expect(btn!.textContent).toEqual("primaryActionLabel")
-      fireEvent.click(btn!)
+      const btn = getByTestId("title-block-primary-action-button")
+      expect(btn.textContent).toEqual("primaryActionLabel")
+      fireEvent.click(btn)
       expect(testOnClickFn).toHaveBeenCalled()
     })
 
@@ -95,32 +91,28 @@ describe("<TitleBlockZen />", () => {
     }
 
     it("renders the primary action menu button with label and menu items", () => {
-      const { container } = render(
+      const { getByTestId, getAllByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsMenu}>
           Example
         </TitleBlockZen>
       )
-      const btn = container.querySelector(
-        "[data-automation-id=title-block-primary-action-button]"
-      )
-      expect(btn!.textContent).toEqual("primaryActionLabel")
-      fireEvent.click(btn!)
-      const menuItems = container.querySelectorAll(
-        "[data-automation-id^=main-action-primary-menu-item-]"
-      )
-      expect(menuItems!.length).toEqual(2)
+      const btn = getByTestId("title-block-primary-action-button")
+      expect(btn.textContent).toEqual("primaryActionLabel")
+      fireEvent.click(btn)
+      const menuItems = getAllByTestId(/^main-action-primary-menu-item-/)
+      expect(menuItems.length).toEqual(2)
     })
 
     it("passes the primary menu items to the mobile actions drawer", () => {
-      const { container } = render(
+      const { getByTestId, getAllByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsMenu}>
           Example
         </TitleBlockZen>
       )
-      const menuItems = container.querySelectorAll(
-        "[data-automation-id^=title-block-mobile-actions-primary-link-]"
+      const menuItems = getAllByTestId(
+        /^title-block-mobile-actions-primary-link-/
       )
-      expect(menuItems!.length).toEqual(2)
+      expect(menuItems.length).toEqual(2)
     })
   })
 
@@ -131,30 +123,38 @@ describe("<TitleBlockZen />", () => {
     }
 
     it("renders the default action button label and href", () => {
-      const { container } = render(
+      const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsLink}>
           Example
         </TitleBlockZen>
       )
-      const btn = container.querySelector(
-        "[data-automation-id=title-block-default-action-button]"
-      )
-      expect(btn!.textContent).toEqual("defaultActionLabel")
-      expect(btn!.getAttribute("href")).toEqual("defaultActionHref")
+      const btn = getByTestId("title-block-default-action-button")
+      expect(btn.textContent).toEqual("defaultActionLabel")
+      expect(btn.getAttribute("href")).toEqual("defaultActionHref")
     })
 
     it("creates a mobile actions default action menu item", () => {
-      const { container } = render(
+      const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsLink}>
           Example
         </TitleBlockZen>
       )
 
-      const menuItem = container.querySelector(
-        "[data-automation-id=title-block-mobile-actions-default-link]"
+      const menuItem = getByTestId("title-block-mobile-actions-default-link")
+      expect(menuItem.getAttribute("href")).toEqual("defaultActionHref")
+      expect(menuItem.textContent).toEqual("defaultActionLabel")
+    })
+
+    it("renders the mobile actions menu drawer handle even with no primary action", () => {
+      const { getByTestId } = render(
+        <TitleBlockZen title="Test Title" defaultAction={defaultActionAsLink}>
+          Example
+        </TitleBlockZen>
       )
-      expect(menuItem!.getAttribute("href")).toEqual("defaultActionHref")
-      expect(menuItem!.textContent).toEqual("defaultActionLabel")
+
+      expect(
+        getByTestId("title-block-mobile-actions-drawer-handle")
+      ).toBeTruthy()
     })
   })
 
@@ -166,31 +166,27 @@ describe("<TitleBlockZen />", () => {
     }
 
     it("renders the default action button label and onClick", () => {
-      const { container } = render(
+      const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
           Example
         </TitleBlockZen>
       )
-      const btn = container.querySelector(
-        "[data-automation-id=title-block-default-action-button]"
-      )
-      expect(btn!.textContent).toEqual("defaultActionLabel")
-      fireEvent.click(btn!)
+      const btn = getByTestId("title-block-default-action-button")
+      expect(btn.textContent).toEqual("defaultActionLabel")
+      fireEvent.click(btn)
       expect(testOnClickFn).toHaveBeenCalled()
     })
 
     it("creates a mobile actions default action menu item", () => {
-      const { container } = render(
+      const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
           Example
         </TitleBlockZen>
       )
 
-      const menuItem = container.querySelector(
-        "[data-automation-id=title-block-mobile-actions-default-action]"
-      )
-      expect(menuItem!.textContent).toEqual("defaultActionLabel")
-      fireEvent.click(menuItem!)
+      const menuItem = getByTestId("title-block-mobile-actions-default-action")
+      expect(menuItem.textContent).toEqual("defaultActionLabel")
+      fireEvent.click(menuItem)
       expect(testOnClickFn).toHaveBeenCalled()
     })
 
