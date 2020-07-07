@@ -1,0 +1,18 @@
+name: Kaizen Contributor Checklist
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: cultureamp/pr-checklist-reminders@1.0.0
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          github-status-context: "Kaizen Contributor TODO"
+          checklist-item-1: "This impacts experience and I got a design review"
+          checklist-item-2: "I've considered likely risks of these changes and got someone else to QA as appropriate"
+          checklist-item-3: "I have or will communicate these changes to the front end practice"
