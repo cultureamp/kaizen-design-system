@@ -2,3 +2,10 @@
   display: flex;
   justify-content: space-between;
 }
+
+.content {
+  width: 264px;
+  & label {
+    width: auto;
+  }
+}

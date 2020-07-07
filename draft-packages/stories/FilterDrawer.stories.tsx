@@ -30,6 +30,7 @@ type AppliedFiltersState = {
   furry: CheckboxState
   aquatic: CheckboxState
   venomous: CheckboxState
+  egglaying: CheckboxState
 }
 
 const DemoFilterDrawer = () => {
@@ -42,12 +43,16 @@ const DemoFilterDrawer = () => {
   const [venomousCheckboxState, setVenomousCheckboxState] = useState<
     CheckboxState
   >("off")
+  const [egglayingCheckboxState, setEgglayingCheckboxState] = useState<
+    CheckboxState
+  >("off")
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
 
   const [appliedFilters, setAppliedFilters] = useState<AppliedFiltersState>({
     furry: "off",
     aquatic: "off",
     venomous: "off",
+    egglaying: "off",
   })
 
   const checkedTraits: string[] = (appliedFilters.furry === "on"
@@ -56,6 +61,7 @@ const DemoFilterDrawer = () => {
   )
     .concat(appliedFilters.aquatic === "on" ? ["Aquatic"] : [])
     .concat(appliedFilters.venomous === "on" ? ["Venomous"] : [])
+    .concat(appliedFilters.egglaying === "on" ? ["Egg-laying"] : [])
 
   const toggleDropdown = () => {
     clearChanges()
@@ -71,6 +77,7 @@ const DemoFilterDrawer = () => {
       furry: furryCheckboxState,
       aquatic: aquaticCheckboxState,
       venomous: venomousCheckboxState,
+      egglaying: egglayingCheckboxState,
     })
     hideDropdown()
   }
@@ -79,6 +86,7 @@ const DemoFilterDrawer = () => {
     setFurryCheckboxState(appliedFilters.furry)
     setAquaticCheckboxState(appliedFilters.aquatic)
     setVenomousCheckboxState(appliedFilters.venomous)
+    setEgglayingCheckboxState(appliedFilters.egglaying)
   }
 
   const getNumFiltersEnabled = () =>
@@ -86,12 +94,14 @@ const DemoFilterDrawer = () => {
       appliedFilters.furry,
       appliedFilters.aquatic,
       appliedFilters.venomous,
+      appliedFilters.egglaying,
     ].filter(status => status == "on").length
 
   const haveFiltersNotChanged = () =>
     appliedFilters.furry == furryCheckboxState &&
     appliedFilters.aquatic == aquaticCheckboxState &&
-    appliedFilters.venomous == venomousCheckboxState
+    appliedFilters.venomous == venomousCheckboxState &&
+    appliedFilters.egglaying == egglayingCheckboxState
 
   return (
     <FilterDrawer
@@ -104,36 +114,50 @@ const DemoFilterDrawer = () => {
       numFiltersEnabled={getNumFiltersEnabled()}
     >
       <>
-        <CheckboxGroup labelText="Traits">
-          <CheckboxField
-            onCheck={() => {
-              setFurryCheckboxState(furryCheckboxState === "on" ? "off" : "on")
-            }}
-            id="checkbox-1"
-            checkedStatus={furryCheckboxState as any}
-            labelText="Furry"
-          />
-          <CheckboxField
-            onCheck={() => {
-              setAquaticCheckboxState(
-                aquaticCheckboxState === "on" ? "off" : "on"
-              )
-            }}
-            id="checkbox-2"
-            checkedStatus={aquaticCheckboxState as any}
-            labelText="Aquatic"
-          />
-          <CheckboxField
-            onCheck={() => {
-              setVenomousCheckboxState(
-                venomousCheckboxState === "on" ? "off" : "on"
-              )
-            }}
-            id="checkbox-3"
-            checkedStatus={venomousCheckboxState as any}
-            labelText="Venomous"
-          />
-        </CheckboxGroup>
+        <div className={styles.content}>
+          <CheckboxGroup labelText="Traits">
+            <CheckboxField
+              onCheck={() => {
+                setFurryCheckboxState(
+                  furryCheckboxState === "on" ? "off" : "on"
+                )
+              }}
+              id="checkbox-1"
+              checkedStatus={furryCheckboxState as any}
+              labelText="Furry"
+            />
+            <CheckboxField
+              onCheck={() => {
+                setAquaticCheckboxState(
+                  aquaticCheckboxState === "on" ? "off" : "on"
+                )
+              }}
+              id="checkbox-2"
+              checkedStatus={aquaticCheckboxState as any}
+              labelText="Aquatic"
+            />
+            <CheckboxField
+              onCheck={() => {
+                setVenomousCheckboxState(
+                  venomousCheckboxState === "on" ? "off" : "on"
+                )
+              }}
+              id="checkbox-3"
+              checkedStatus={venomousCheckboxState as any}
+              labelText="Venomous"
+            />
+            <CheckboxField
+              onCheck={() => {
+                setEgglayingCheckboxState(
+                  egglayingCheckboxState === "on" ? "off" : "on"
+                )
+              }}
+              id="checkbox-4"
+              checkedStatus={egglayingCheckboxState as any}
+              labelText="Egg-laying"
+            />
+          </CheckboxGroup>
+        </div>
         <div className={styles.buttons}>
           <Button
             secondary={true}
@@ -244,7 +268,7 @@ export const DefaultEmpty = () => {
         <div style={{ width: "300px" }}>
           <Box p={0.5}>
             <Paragraph variant="body">
-              You can put anything inside the Dropdown.{" "}
+              You can put anything inside the dropdown.{" "}
               <a href="https://cultureamp.design/guidelines/filtering/">
                 See Filtering Guidelines
               </a>{" "}
