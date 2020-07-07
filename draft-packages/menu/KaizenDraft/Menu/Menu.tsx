@@ -5,9 +5,33 @@ import MenuDropdown from "./MenuDropdown"
 const styles = require("./styles.scss")
 
 export type GenericMenuProps = {
+  /**
+   * Whether the menu is to be used on the left or right
+   * side of the viewport. If left, the left of the dropdown
+   * is aligned to the left of the button (and vice versa)
+   * @default "left"
+   */
   align?: "left" | "right"
+
+  /**
+   * The width of the dropdown.
+   * "default": a fixed width of 248px
+   * "contain": contain the children's width (will be same width as children)
+   * @default "default"
+   */
+  dropdownWidth?: "default" | "contain"
+
+  /**
+   * The initial state of the dropdown. Once initalised, further changes to this
+   * prop will not have any affect, as the state is handled internally to the component.
+   * @default: false
+   */
   menuVisible?: boolean
   automationId?: string
+
+  /**
+   * The content to appear inside the dropdown when it is open
+   */
   children: React.ReactNode
 }
 
@@ -20,7 +44,11 @@ export type MenuProps = GenericMenuProps & StatefulMenuProps
 type Menu = React.FunctionComponent<MenuProps>
 
 const Menu: Menu = props => {
-  const { align = "left", menuVisible = false } = props
+  const {
+    align = "left",
+    dropdownWidth = "default",
+    menuVisible = false,
+  } = props
 
   const dropdownButtonContainer: React.RefObject<HTMLDivElement> = useRef(null)
 
@@ -65,6 +93,7 @@ export const render = (props: GenericMenuProps & RenderProps) => {
       position={getPosition(props.dropdownButtonContainer)}
       align={props.align}
       hideMenuDropdown={props.hideMenuDropdown}
+      width={props.dropdownWidth}
     >
       {props.children}
     </MenuDropdown>
