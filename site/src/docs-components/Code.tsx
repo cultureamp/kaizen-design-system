@@ -25,9 +25,9 @@ class Code extends React.Component<{
               }
               return (
                 <div {...getLineProps({ line, key: i })}>
-                  {line.map((token, key) => {
-                    return <span {...getTokenProps({ token, key })} />
-                  })}
+                  {line.map((token, key) => (
+                    <span {...getTokenProps({ token, key })} />
+                  ))}
                 </div>
               )
             })}

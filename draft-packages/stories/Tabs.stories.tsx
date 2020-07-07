@@ -276,20 +276,18 @@ export const WithCustomTabRendererColumn = () => {
         tabClassName,
         activeTabClassName,
         disabledTabClassName,
-      }) => {
-        return (
-          <a
-            key={tab.label}
-            href="#"
-            className={classnames(tabClassName, {
-              [activeTabClassName]: tab.active,
-              [disabledTabClassName]: tab.disabled,
-            })}
-          >
-            {tab.label}
-          </a>
-        )
-      }}
+      }) => (
+        <a
+          key={tab.label}
+          href="#"
+          className={classnames(tabClassName, {
+            [activeTabClassName]: tab.active,
+            [disabledTabClassName]: tab.disabled,
+          })}
+        >
+          {tab.label}
+        </a>
+      )}
     />
   )
 }

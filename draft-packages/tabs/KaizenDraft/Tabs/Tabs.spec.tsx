@@ -60,21 +60,19 @@ describe("Tabs", () => {
         <Tabs
           tabs={tabs}
           renderTab={({
-            // eslint-disable-next-line no-shadowed-variable
+            // eslint-disable-next-line no-shadow
             tab,
             tabClassName,
             activeTabClassName,
             disabledTabClassName,
-          }) => {
-            return (
-              <div key={tab.label}>
-                <span>{tab.label}</span>
-                <span>{tabClassName}</span>
-                <span>{activeTabClassName}</span>
-                <span>{disabledTabClassName}</span>
-              </div>
-            )
-          }}
+          }) => (
+            <div key={tab.label}>
+              <span>{tab.label}</span>
+              <span>{tabClassName}</span>
+              <span>{activeTabClassName}</span>
+              <span>{disabledTabClassName}</span>
+            </div>
+          )}
         />
       )
       const tab = baseElement.firstChild as HTMLDivElement

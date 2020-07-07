@@ -16,8 +16,8 @@ import {
 import StorybookDemo from "../components/StorybookDemo"
 import { sortSidebarTabs, stripTrailingSlash } from "./util"
 
-const renderSidebarTabs = (pages, currentPath) => {
-  return pages.map((node, i) => (
+const renderSidebarTabs = (pages, currentPath) =>
+  pages.map((node, i) => (
     <SidebarTab
       href={node!.node!.fields!.slug}
       active={
@@ -29,7 +29,6 @@ const renderSidebarTabs = (pages, currentPath) => {
       {node!.node!.frontmatter!.navTitle}
     </SidebarTab>
   ))
-}
 
 export default ({ data, pageContext, location }) => {
   const md = data.mdx

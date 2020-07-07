@@ -43,17 +43,15 @@ type Props = ButtonProps & {
   iconButton?: boolean
 }
 
-const GenericButton: React.FunctionComponent<Props> = props => {
-  return (
-    <span
-      className={classNames(styles.container, {
-        [styles.fullWidth]: props.fullWidth,
-      })}
-    >
-      {props.href ? renderLink(props) : renderButton(props)}
-    </span>
-  )
-}
+const GenericButton: React.FunctionComponent<Props> = (props) => (
+  <span
+    className={classNames(styles.container, {
+      [styles.fullWidth]: props.fullWidth,
+    })}
+  >
+    {props.href ? renderLink(props) : renderButton(props)}
+  </span>
+)
 
 GenericButton.defaultProps = {
   iconPosition: "start",
@@ -65,7 +63,7 @@ GenericButton.defaultProps = {
   type: "button",
 }
 
-const renderButton: React.FunctionComponent<Props> = props => {
+const renderButton: React.FunctionComponent<Props> = (props) => {
   const {
     id,
     disabled,
@@ -109,7 +107,7 @@ const renderButton: React.FunctionComponent<Props> = props => {
   )
 }
 
-const renderLink: React.FunctionComponent<Props> = props => {
+const renderLink: React.FunctionComponent<Props> = (props) => {
   const {
     id,
     href,
@@ -166,7 +164,7 @@ const buttonClass = (props: Props) => {
   })
 }
 
-const renderContent: React.FunctionComponent<Props> = props => (
+const renderContent: React.FunctionComponent<Props> = (props) => (
   <span className={styles.content}>
     {props.icon && props.iconPosition !== "end" && renderIcon(props.icon)}
     {(!props.icon || !props.iconButton) && (

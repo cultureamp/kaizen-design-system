@@ -63,7 +63,7 @@ CurrentStepStarted.story = {
   name: "current step started",
 }
 
-// eslint-disable-next-line variable-name
+// eslint-disable-next-line no-underscore-dangle
 export const _UpcomingStep = () => (
   <StoryContainer>
     <VerticalProgressStep.UpcomingStep name="Collaborate!" position="middle">
@@ -78,7 +78,7 @@ _UpcomingStep.story = {
   name: "upcoming step",
 }
 
-// eslint-disable-next-line variable-name
+// eslint-disable-next-line no-underscore-dangle
 export const _CompletedStep = () => (
   <StoryContainer>
     <VerticalProgressStep.CompletedStep name="Listen!" position="end">

@@ -30,7 +30,6 @@ module.exports = {
     "prefer-arrow",
   ],
   rules: {
-    indent: "off",
     "@typescript-eslint/adjacent-overload-signatures": "error",
     "@typescript-eslint/array-type": [
       "error",
@@ -75,20 +74,6 @@ module.exports = {
         accessibility: "explicit",
       },
     ],
-    "@typescript-eslint/indent": [
-      "warn",
-      2,
-      {
-        SwitchCase: 0, // https://github.com/typescript-eslint/typescript-eslint/issues/608
-        ObjectExpression: "first",
-        FunctionDeclaration: {
-          parameters: "first",
-        },
-        FunctionExpression: {
-          parameters: "first",
-        },
-      },
-    ],
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/member-delimiter-style": [
       "off",
@@ -131,16 +116,6 @@ module.exports = {
         path: "always",
         types: "prefer-import",
         lib: "always",
-      },
-    ],
-    "@typescript-eslint/tslint/config": [
-      "error",
-      {
-        rules: {
-          "import-spacing": true,
-          "prefer-conditional-expression": true,
-          whitespace: true,
-        },
       },
     ],
     "@typescript-eslint/type-annotation-spacing": "error",

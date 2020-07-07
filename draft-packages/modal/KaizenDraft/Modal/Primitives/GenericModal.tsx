@@ -92,7 +92,7 @@ class GenericModal extends React.Component<GenericModalProps> {
       document.removeEventListener("keyup", this.escapeKeyHandler)
   }
 
-  // eslint-disable-next-line no-empty
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   removeAriaHider(): void {}
 
   preventBodyScroll() {
@@ -232,7 +232,7 @@ function canUseDOM(): boolean {
   )
 }
 
-// eslint-disable-next-line no-empty
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 function noop(): void {}
 
 /**

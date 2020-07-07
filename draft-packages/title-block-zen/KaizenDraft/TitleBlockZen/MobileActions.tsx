@@ -27,7 +27,7 @@ const renderPrimaryLinks = (primaryAction: PrimaryActionProps) => {
   if (!primaryAction) return null
   if (isMenuGroupNotButton(primaryAction)) {
     return primaryAction.menuItems
-      .filter(item => typeof item.action === "string")
+      .filter((item) => typeof item.action === "string")
       .map((item, idx) => (
         <MenuItem
           action={item.action}
@@ -47,7 +47,7 @@ const renderPrimaryActions = (primaryAction: PrimaryActionProps) => {
     return [
       <MenuSeparator />,
       primaryAction.menuItems
-        .filter(item => typeof item.action !== "string")
+        .filter((item) => typeof item.action !== "string")
         .map((item, idx) => (
           <MenuItem
             action={item.action}
@@ -60,7 +60,7 @@ const renderPrimaryActions = (primaryAction: PrimaryActionProps) => {
   }
 }
 
-const renderDefaultLink = defaultAction => {
+const renderDefaultLink = (defaultAction) => {
   if (defaultAction && defaultAction.hasOwnProperty("href")) {
     return (
       <MenuItem
@@ -71,7 +71,7 @@ const renderDefaultLink = defaultAction => {
     )
   }
 }
-const renderDefaultAction = defaultAction => {
+const renderDefaultAction = (defaultAction) => {
   if (defaultAction && defaultAction.hasOwnProperty("onClick")) {
     return (
       <MenuItem
@@ -83,9 +83,9 @@ const renderDefaultAction = defaultAction => {
   }
 }
 
-const renderSecondaryActions = secondaryActions => {
+const renderSecondaryActions = (secondaryActions) => {
   if (!secondaryActions) return null
-  const secondaryActionMenuItems = secondaryActions.map(a => {
+  const secondaryActionMenuItems = secondaryActions.map((a) => {
     if (isMenuGroupNotButton(a)) {
       return a.menuItems
     } else {
@@ -106,8 +106,8 @@ const renderSecondaryActions = secondaryActions => {
 
 const rendersecondaryOverflowMenuItems = (
   secondaryOverflowMenuItems: MenuItemProps[]
-) => {
-  return secondaryOverflowMenuItems.map((item, idx) => (
+) =>
+  secondaryOverflowMenuItems.map((item, idx) => (
     <MenuItem
       action={item.action}
       label={item.label}
@@ -115,7 +115,6 @@ const rendersecondaryOverflowMenuItems = (
       key={`overflow-menu-item-${idx}`}
     />
   ))
-}
 
 type DrawerMenuContentProps = {
   primaryMenuActions?: any[]
@@ -137,19 +136,17 @@ const ConditionalOtherActionsHeading = ({
   defaultAction,
   secondaryActions,
   secondaryOverflowMenuItems,
-}: ConditionalOtherActionsHeadingProps) => {
-  return (
-    <>
-      {(defaultAction ||
-        (primaryAction && primaryAction.hasOwnProperty("menuItems"))) && (
-        <MenuSeparator />
-      )}
-      {((defaultAction && defaultAction.onClick) ||
-        secondaryActions ||
-        secondaryOverflowMenuItems) && <MenuHeader title="Other actions" />}
-    </>
-  )
-}
+}: ConditionalOtherActionsHeadingProps) => (
+  <>
+    {(defaultAction ||
+      (primaryAction && primaryAction.hasOwnProperty("menuItems"))) && (
+      <MenuSeparator />
+    )}
+    {((defaultAction && defaultAction.onClick) ||
+      secondaryActions ||
+      secondaryOverflowMenuItems) && <MenuHeader title="Other actions" />}
+  </>
+)
 
 const DrawerMenuContent = ({
   primaryMenuActions,
@@ -157,25 +154,23 @@ const DrawerMenuContent = ({
   defaultAction,
   secondaryActions,
   secondaryOverflowMenuItems,
-}: DrawerMenuContentProps) => {
-  return (
-    <>
-      {primaryAction && renderPrimaryLinks(primaryAction)}
-      {defaultAction && renderDefaultLink(defaultAction)}
-      {primaryAction && renderPrimaryActions(primaryAction)}
-      <ConditionalOtherActionsHeading
-        primaryAction={primaryAction}
-        defaultAction={defaultAction}
-        secondaryActions={secondaryActions}
-        secondaryOverflowMenuItems={secondaryOverflowMenuItems}
-      />
-      {defaultAction && renderDefaultAction(defaultAction)}
-      {secondaryActions && renderSecondaryActions(secondaryActions)}
-      {secondaryOverflowMenuItems &&
-        rendersecondaryOverflowMenuItems(secondaryOverflowMenuItems)}
-    </>
-  )
-}
+}: DrawerMenuContentProps) => (
+  <>
+    {primaryAction && renderPrimaryLinks(primaryAction)}
+    {defaultAction && renderDefaultLink(defaultAction)}
+    {primaryAction && renderPrimaryActions(primaryAction)}
+    <ConditionalOtherActionsHeading
+      primaryAction={primaryAction}
+      defaultAction={defaultAction}
+      secondaryActions={secondaryActions}
+      secondaryOverflowMenuItems={secondaryOverflowMenuItems}
+    />
+    {defaultAction && renderDefaultAction(defaultAction)}
+    {secondaryActions && renderSecondaryActions(secondaryActions)}
+    {secondaryOverflowMenuItems &&
+      rendersecondaryOverflowMenuItems(secondaryOverflowMenuItems)}
+  </>
+)
 
 const renderDrawerHandleLabel = (
   label: string,
@@ -256,7 +251,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps) => {
   )
 }
 
-const getAction = primaryAction => {
+const getAction = (primaryAction) => {
   if (primaryAction) {
     if (primaryAction.onClick) {
       return primaryAction.onClick

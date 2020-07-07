@@ -121,7 +121,7 @@ SingleCollapsibleLazyLoad.story = {
   name: "Single collapsible (lazy load)",
 }
 
-// eslint-disable-next-line variable-name
+// eslint-disable-next-line no-underscore-dangle
 export const _CollapsibleGroup = () => (
   <div style={{ margin: "1rem", width: "40rem" }}>
     <CollapsibleGroup>
