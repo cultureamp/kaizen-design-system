@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.7.0...@kaizen/draft-select@1.7.1) (2020-07-07)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.6.2...@kaizen/draft-select@1.7.0) (2020-07-07)
+
+
+### Features
+
+* add React default secondary select ([#615](https://github.com/cultureamp/kaizen-design-system/issues/615)) ([e1a3950](https://github.com/cultureamp/kaizen-design-system/commit/e1a39503c56e17707b2015f01b0859fe3c508a17))
+
+
+
+
+
+## [1.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.6.1...@kaizen/draft-select@1.6.2) (2020-07-06)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
 ## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.6.0...@kaizen/draft-select@1.6.1) (2020-07-01)
 
 **Note:** Version bump only for package @kaizen/draft-select

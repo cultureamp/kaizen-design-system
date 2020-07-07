@@ -31,7 +31,7 @@
     font-weight: $kz-typography-heading-4-font-weight;
   }
 
-  // Use JS polyfill to simulate :focus-visible, not yet supported by browsers
+  // Use JS polyfill to simulate :focus-visible, not yet supported by bhorizontalsers
   // https://github.com/WICG/focus-visible#backwards-compatibility
   :global(.js-focus-visible) & {
     // hide native focus ring when :focus but not :focus-visible
@@ -62,7 +62,7 @@
   }
 }
 
-.rowTab {
+.horizontalTab {
   composes: tab;
   font-weight: $kz-typography-heading-4-font-weight;
   border-top-left-radius: $kz-border-borderless-border-radius;
@@ -84,9 +84,9 @@
   }
 }
 
-.rowTabActive {
+.horizontalTabActive {
   composes: tab;
-  composes: rowTab;
+  composes: horizontalTab;
   font-weight: $kz-typography-heading-4-font-weight;
   color: $kz-color-cluny-500;
 
@@ -106,29 +106,29 @@
   }
 }
 
-.rowTabDisabled {
+.horizontalTabDisabled {
   composes: tab;
-  composes: rowTab;
+  composes: horizontalTab;
   cursor: inherit;
   opacity: 0.3;
   font-weight: normal;
 
-  &.rowTabActive:hover {
+  &.horizontalTabActive:hover {
     background-color: transparent;
   }
 
-  &:hover:not(.rowTabActive) {
+  &:hover:not(.horizontalTabActive) {
     color: $kz-color-wisteria-800;
     background-color: transparent;
     font-weight: normal;
   }
 }
 
-.rowTab + .rowTab {
+.horizontalTab + .horizontalTab {
   @include ca-margin($start: $ca-grid * 0.5);
 }
 
-.columnTab {
+.verticalTab {
   composes: tab;
   min-height: $kz-spacing-xl;
   display: flex;
@@ -143,24 +143,24 @@
   }
 }
 
-.columnTabActive {
+.verticalTabActive {
   composes: tab;
-  composes: columnTab;
+  composes: verticalTab;
   font-weight: $kz-typography-heading-4-font-weight;
   color: $kz-color-cluny-500;
 }
 
-.columnTabDisabled {
+.verticalTabDisabled {
   composes: tab;
-  composes: columnTab;
+  composes: verticalTab;
   cursor: inherit;
   opacity: 0.3;
 
-  &.columnTabActive:hover {
+  &.verticalTabActive:hover {
     background-color: transparent;
   }
 
-  &:hover:not(.columnTabActive) {
+  &:hover:not(.verticalTabActive) {
     color: $kz-color-wisteria-800;
     background-color: transparent;
     font-weight: normal;

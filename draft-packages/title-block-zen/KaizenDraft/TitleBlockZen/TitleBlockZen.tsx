@@ -78,7 +78,7 @@ export type MenuGroup = {
  */
 export type PrimaryActionProps =
   | MenuGroup
-  | (ButtonWithOnClickOrHref & { primary: true })
+  | (ButtonWithOnClickOrHref & { primary: boolean })
 
 /**
  * ### SecondaryActionsProps
@@ -385,16 +385,18 @@ const TitleBlockZen = ({
               <div className={styles.titleAndAdjacent}>
                 {breadcrumb && renderBreadcrumb(breadcrumb, textDirection)}
                 <div className={styles.titleAndAdjacentNotBreadcrumb}>
-                  <div
-                    className={styles.hamburger}
-                    onClick={handleHamburgerClick}
-                  >
-                    <Icon
-                      icon={hamburgerIcon}
-                      role="presentation"
-                      title="Open menu"
-                    />
-                  </div>
+                  {handleHamburgerClick && (
+                    <div
+                      className={styles.hamburger}
+                      onClick={handleHamburgerClick}
+                    >
+                      <Icon
+                        icon={hamburgerIcon}
+                        role="presentation"
+                        title="Open menu"
+                      />
+                    </div>
+                  )}
                   {avatar && renderAvatar(avatar)}
                   <div className={styles.titleAndSubtitle}>
                     <div className={styles.titleAndSubtitleInner}>

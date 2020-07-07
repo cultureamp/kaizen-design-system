@@ -4,6 +4,7 @@ import * as React from "react"
 const styles = require("./styles.scss")
 
 type MenuDropdownProps = {
+  id?: string
   hideMenuDropdown: () => void
   position?: {
     top: number
@@ -12,6 +13,7 @@ type MenuDropdownProps = {
     right: number
   } | null
   align?: "left" | "right"
+  width?: "default" | "contain"
 }
 
 export default class MenuDropdown extends React.Component<MenuDropdownProps> {
@@ -62,11 +64,18 @@ export default class MenuDropdown extends React.Component<MenuDropdownProps> {
   }
 
   render(): JSX.Element {
-    const { hideMenuDropdown, children, align = "left" } = this.props
+    const {
+      hideMenuDropdown,
+      children,
+      align = "left",
+      width = "default",
+    } = this.props
 
     return (
       <div
+        id={this.props.id}
         className={classnames(styles.menuContainer, {
+          [styles.defaultWidth]: width == "default",
           [styles.alignRight]: align == "right",
         })}
         ref={this.menu}

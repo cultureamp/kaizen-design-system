@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.3...@kaizen/draft-title-block-zen@1.6.4) (2020-07-06)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [1.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.2...@kaizen/draft-title-block-zen@1.6.3) (2020-07-03)
+
+
+### Bug Fixes
+
+* Make TitleBlockZen hamburger render only when handler is provided ([#614](https://github.com/cultureamp/kaizen-design-system/issues/614)) ([3df6455](https://github.com/cultureamp/kaizen-design-system/commit/3df6455ae4cf06a1d5ac01dbd99e5860a2124313))
+
+
+
+
+
+## [1.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.1...@kaizen/draft-title-block-zen@1.6.2) (2020-07-03)
+
+
+### Bug Fixes
+
+* Use bool for TitleBlockZen "primary" btn prop ([#611](https://github.com/cultureamp/kaizen-design-system/issues/611)) ([87c4562](https://github.com/cultureamp/kaizen-design-system/commit/87c4562cc77db9d8e37e1747a8e3a84e91d034d1))
+
+
+
+
+
 ## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.0...@kaizen/draft-title-block-zen@1.6.1) (2020-07-02)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
