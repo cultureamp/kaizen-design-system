@@ -18,7 +18,7 @@ interface Props {
    */
   readonly textDirection?: "ltr" | "rtl"
   readonly tabs: Tab[]
-  readonly orientation?: "row" | "column"
+  readonly orientation?: "horizontal" | "vertical"
   readonly renderTab?: (renderProps: {
     readonly tab: Tab
     readonly tabClassName: string
@@ -28,19 +28,19 @@ interface Props {
 }
 
 const Tabs = ({
-  orientation = "row",
+  orientation = "horizontal",
   textDirection = "ltr",
   tabs,
   renderTab,
 }: Props) => {
-  if (orientation === "row") {
+  if (orientation === "horizontal") {
     return (
       <RowTab textDirection={textDirection} tabs={tabs} renderTab={renderTab} />
     )
   }
 
   return (
-    <ColumnTab
+    <VerticalTab
       textDirection={textDirection}
       tabs={tabs}
       renderTab={renderTab}
@@ -54,9 +54,9 @@ const RowTab = ({ tabs, renderTab, textDirection }) => (
       renderTab ? (
         renderTab({
           tab: t,
-          tabClassName: styles.rowTab,
-          activeTabClassName: styles.rowTabActive,
-          disabledTabClassName: styles.rowTabDisabled,
+          tabClassName: styles.horizontalTab,
+          activeTabClassName: styles.horizontalTabActive,
+          disabledTabClassName: styles.horizontalTabDisabled,
         })
       ) : (
         <a
@@ -64,9 +64,9 @@ const RowTab = ({ tabs, renderTab, textDirection }) => (
           onClick={t.onClick}
           href={!t.disabled ? t.href : null}
           className={classnames({
-            [styles.rowTab]: !t.active && !t.disabled,
-            [styles.rowTabActive]: t.active,
-            [styles.rowTabDisabled]: t.disabled,
+            [styles.horizontalTab]: !t.active && !t.disabled,
+            [styles.horizontalTabActive]: t.active,
+            [styles.horizontalTabDisabled]: t.disabled,
           })}
         >
           {t.label}
@@ -76,15 +76,15 @@ const RowTab = ({ tabs, renderTab, textDirection }) => (
   </div>
 )
 
-const ColumnTab = ({ tabs, renderTab, textDirection }) => (
+const VerticalTab = ({ tabs, renderTab, textDirection }) => (
   <div dir={textDirection}>
     {tabs.map(t =>
       renderTab ? (
         renderTab({
           tab: t,
-          tabClassName: styles.columnTab,
-          activeTabClassName: styles.columnTabActive,
-          disabledTabClassName: styles.columnTabDisabled,
+          tabClassName: styles.verticalTab,
+          activeTabClassName: styles.verticalTabActive,
+          disabledTabClassName: styles.verticalTabDisabled,
         })
       ) : (
         <a
@@ -92,9 +92,9 @@ const ColumnTab = ({ tabs, renderTab, textDirection }) => (
           onClick={t.onClick}
           href={!t.disabled ? t.href : null}
           className={classnames({
-            [styles.columnTab]: !t.active && !t.disabled,
-            [styles.columnTabActive]: t.active,
-            [styles.columnTabDisabled]: t.disabled,
+            [styles.verticalTab]: !t.active && !t.disabled,
+            [styles.verticalTabActive]: t.active,
+            [styles.verticalTabDisabled]: t.disabled,
           })}
         >
           {t.label}
