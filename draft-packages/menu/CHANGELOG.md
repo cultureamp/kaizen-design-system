@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.2.1...@kaizen/draft-menu@2.3.0) (2020-07-07)
+
+
+### Features
+
+* add `id` prop to MenuDropdown and Menu ([#620](https://github.com/cultureamp/kaizen-design-system/issues/620)) ([7e33143](https://github.com/cultureamp/kaizen-design-system/commit/7e331433d6faf114dd85e4348edb1aaa072dd18a))
+
+
+
+
+
 ## [2.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.2.0...@kaizen/draft-menu@2.2.1) (2020-07-06)
 
 **Note:** Version bump only for package @kaizen/draft-menu
