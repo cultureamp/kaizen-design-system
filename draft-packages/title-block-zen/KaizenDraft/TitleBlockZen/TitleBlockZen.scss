@@ -499,6 +499,8 @@ $tab-container-height-small: $ca-grid * 2.5;
 .mainActionsContainer {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+
   @include ca-margin($start: $ca-grid / 2);
 
   @include title-block-small {
@@ -509,9 +511,9 @@ $tab-container-height-small: $ca-grid * 2.5;
 .secondaryActionsContainer {
   display: flex;
   align-items: flex-start;
+  justify-content: flex-end;
   padding: ($ca-grid / 2) 0;
   @include ca-margin($start: $ca-grid * 1.5);
-  flex-shrink: 0;
 
   // To be removed eventually – the Dropdown does not
   // currently set its own color, and we want it
