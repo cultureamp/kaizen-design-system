@@ -1,13 +1,5 @@
 {
   "compilerOptions": {
-    "plugins": [
-      {
-        "name": "typescript-plugin-css-modules",
-        "options": {
-          "customMatcher": "\\.s?css$"
-        }
-      }
-    ],
     "lib": ["es2018", "dom"],
     "module": "commonjs",
     "jsx": "react",
