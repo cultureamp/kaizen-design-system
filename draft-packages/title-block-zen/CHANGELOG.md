@@ -3,6 +3,74 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.3...@kaizen/draft-title-block-zen@1.6.4) (2020-07-06)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [1.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.2...@kaizen/draft-title-block-zen@1.6.3) (2020-07-03)
+
+
+### Bug Fixes
+
+* Make TitleBlockZen hamburger render only when handler is provided ([#614](https://github.com/cultureamp/kaizen-design-system/issues/614)) ([3df6455](https://github.com/cultureamp/kaizen-design-system/commit/3df6455ae4cf06a1d5ac01dbd99e5860a2124313))
+
+
+
+
+
+## [1.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.1...@kaizen/draft-title-block-zen@1.6.2) (2020-07-03)
+
+
+### Bug Fixes
+
+* Use bool for TitleBlockZen "primary" btn prop ([#611](https://github.com/cultureamp/kaizen-design-system/issues/611)) ([87c4562](https://github.com/cultureamp/kaizen-design-system/commit/87c4562cc77db9d8e37e1747a8e3a84e91d034d1))
+
+
+
+
+
+## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.0...@kaizen/draft-title-block-zen@1.6.1) (2020-07-02)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.5.1...@kaizen/draft-title-block-zen@1.6.0) (2020-07-02)
+
+
+### Features
+
+* Build MVP of TitleBlock ([#603](https://github.com/cultureamp/kaizen-design-system/issues/603)) ([ff2ffac](https://github.com/cultureamp/kaizen-design-system/commit/ff2ffacd80e3f651faa435865537f25e9ccef598))
+
+
+
+
+
+## [1.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.5.0...@kaizen/draft-title-block-zen@1.5.1) (2020-07-01)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.4.0...@kaizen/draft-title-block-zen@1.5.0) (2020-07-01)
+
+
+### Features
+
+* Expose TitleBlockProps from TitleBlockZen ([#602](https://github.com/cultureamp/kaizen-design-system/issues/602)) ([223fe01](https://github.com/cultureamp/kaizen-design-system/commit/223fe0173d94b8f7d1f393de663a099c9796ab10))
+
+
+
+
+
 # [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.3.2...@kaizen/draft-title-block-zen@1.4.0) (2020-06-30)
 
 

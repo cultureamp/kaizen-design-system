@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.61](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-checkbox-group@1.3.60...@kaizen/draft-checkbox-group@1.3.61) (2020-07-06)
+
+**Note:** Version bump only for package @kaizen/draft-checkbox-group
+
+
+
+
+
+## [1.3.60](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-checkbox-group@1.3.59...@kaizen/draft-checkbox-group@1.3.60) (2020-07-01)
+
+**Note:** Version bump only for package @kaizen/draft-checkbox-group
+
+
+
+
+
 ## [1.3.59](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-checkbox-group@1.3.58...@kaizen/draft-checkbox-group@1.3.59) (2020-06-29)
 
 **Note:** Version bump only for package @kaizen/draft-checkbox-group
