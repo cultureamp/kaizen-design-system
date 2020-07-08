@@ -5,8 +5,8 @@ const styles = require("./styles.scss")
 
 export type StatelessMenuProps = {
   isMenuVisible: boolean
-  toggleMenuDropdown: () => void
-  hideMenuDropdown: () => void
+  onToggleMenuDropdown: () => void
+  onHideMenuDropdown: () => void
   renderButton: (args: {
     onClick: (e: any) => void
     onMouseDown: (e: any) => void
@@ -22,7 +22,7 @@ export const StatelessMenu: React.FunctionComponent<Props> = (props: Props) => {
     onMouseDown: (e: any) => e.preventDefault(),
     onClick: (e: any) => {
       e.stopPropagation()
-      props.toggleMenuDropdown()
+      props.onToggleMenuDropdown()
     },
   })
   return render({ ...props, dropdownButtonContainer, menuButton })

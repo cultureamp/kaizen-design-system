@@ -45,11 +45,7 @@ export type MenuProps = GenericMenuProps & StatefulMenuProps
 type Menu = React.FunctionComponent<MenuProps>
 
 const Menu: Menu = props => {
-  const {
-    align = "left",
-    dropdownWidth = "default",
-    menuVisible = false,
-  } = props
+  const { align = "left", menuVisible = false } = props
 
   const dropdownButtonContainer: React.RefObject<HTMLDivElement> = useRef(null)
 
@@ -70,7 +66,7 @@ const Menu: Menu = props => {
     align,
     isMenuVisible,
     dropdownButtonContainer,
-    hideMenuDropdown,
+    onHideMenuDropdown: hideMenuDropdown,
     menuButton: React.cloneElement(button, {
       onClick: (e: any) => {
         e.stopPropagation()
@@ -85,7 +81,7 @@ type RenderProps = {
   menuButton: React.ReactElement
   isMenuVisible: boolean
   dropdownButtonContainer: React.RefObject<HTMLDivElement>
-  hideMenuDropdown: () => void
+  onHideMenuDropdown: () => void
 }
 
 export const render = (props: GenericMenuProps & RenderProps) => {
@@ -93,7 +89,7 @@ export const render = (props: GenericMenuProps & RenderProps) => {
     <MenuDropdown
       position={getPosition(props.dropdownButtonContainer)}
       align={props.align}
-      hideMenuDropdown={props.hideMenuDropdown}
+      onHideMenuDropdown={props.onHideMenuDropdown}
       width={props.dropdownWidth}
       id={props.dropdownId}
     >

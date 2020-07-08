@@ -190,8 +190,8 @@ const StatelessMenuExample = props => {
       </Paragraph>
       <StatelessMenu
         isMenuVisible={isMenuVisible}
-        toggleMenuDropdown={toggleMenu}
-        hideMenuDropdown={hideMenu}
+        onToggleMenuDropdown={toggleMenu}
+        onHideMenuDropdown={hideMenu}
         renderButton={buttonProps => (
           <Button
             label="Label"
