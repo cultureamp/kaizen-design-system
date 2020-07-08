@@ -12,3 +12,15 @@ RUN  apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && wget --quiet https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh -O /usr/sbin/wait-for-it.sh \
     && chmod +x /usr/sbin/wait-for-it.sh
+
+# Run everything after as non-privileged user.
+RUN adduser pptruser \
+    && adduser pptruser audio \
+    && adduser pptruser video \
+    && mkdir -p /home/pptruser/Downloads /app \
+    && chown -R pptruser:pptruser /home/pptruser \
+    && chown -R pptruser:pptruser /app
+
+USER pptruser
+
+# Instead of a volume, let's add the files
