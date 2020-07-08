@@ -3,7 +3,7 @@ import * as React from "react"
 const styles = require("./Dropdown.module.scss")
 
 type DropdownMenuProps = {
-  onHideDropdownMenu: () => void
+  hideDropdownMenu: () => void
   position?: {
     top: number
     bottom: number
@@ -56,22 +56,22 @@ export default class DropdownMenu extends React.Component<DropdownMenuProps> {
       e.target instanceof Node &&
       !this.menu.current.contains(e.target)
     ) {
-      this.props.onHideDropdownMenu()
+      this.props.hideDropdownMenu()
     }
   }
 
   handleDocumentResize = () => {
-    this.props.onHideDropdownMenu()
+    this.props.hideDropdownMenu()
   }
 
   render(): JSX.Element {
-    const { onHideDropdownMenu, children } = this.props
+    const { hideDropdownMenu, children } = this.props
 
     return (
       <div
         className={styles.menuContainer}
         ref={this.menu}
-        onClick={() => onHideDropdownMenu()}
+        onClick={() => hideDropdownMenu()}
       >
         {children}
       </div>
