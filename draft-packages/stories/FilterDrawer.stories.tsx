@@ -87,7 +87,7 @@ const DemoFilterDrawer = () => {
     setEgglayingCheckboxState(appliedFilters.egglaying)
   }
 
-  const getNumFiltersEnabled = () =>
+  const getnumberOfFiltersEnabled = () =>
     [
       appliedFilters.furry,
       appliedFilters.aquatic,
@@ -109,7 +109,7 @@ const DemoFilterDrawer = () => {
       isDropdownVisible={isDropdownVisible}
       toggleDropdown={toggleDropdown}
       hideDropdown={hideDropdown}
-      numFiltersEnabled={getNumFiltersEnabled()}
+      numberOfFiltersEnabled={getnumberOfFiltersEnabled()}
     >
       <>
         <div className={styles.content}>
@@ -211,7 +211,7 @@ export const ReversedEmpty = () => {
         isDropdownVisible={isDropdownVisible}
         toggleDropdown={toggleDropdown}
         hideDropdown={hideDropdown}
-        numFiltersEnabled={2}
+        numberOfFiltersEnabled={2}
       >
         <div style={{ width: "300px" }}>
           <Box p={0.5}>
@@ -261,7 +261,7 @@ export const DefaultEmpty = () => {
         isDropdownVisible={isDropdownVisible}
         toggleDropdown={toggleDropdown}
         hideDropdown={hideDropdown}
-        numFiltersEnabled={2}
+        numberOfFiltersEnabled={2}
       >
         <div style={{ width: "300px" }}>
           <Box p={0.5}>
@@ -304,7 +304,7 @@ export const ReversedEmptyRTL = () => {
           isDropdownVisible={isDropdownVisible}
           toggleDropdown={toggleDropdown}
           hideDropdown={hideDropdown}
-          numFiltersEnabled={2}
+          numberOfFiltersEnabled={2}
         >
           <div style={{ width: "300px" }}>
             <Box p={0.5}>

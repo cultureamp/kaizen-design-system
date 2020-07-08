@@ -45,7 +45,7 @@ export interface FilterDrawerProps {
    * If at least one filter is enabled, then a filter badge will show.
    * The filter button badge shows the number of filter fields with applied filters.
    */
-  numFiltersEnabled?: number
+  numberOfFiltersEnabled?: number
 }
 
 const dropdownId = "filter-drawer-dropdown"
@@ -57,7 +57,7 @@ export const FilterDrawer = ({
   isDropdownVisible,
   toggleDropdown,
   hideDropdown,
-  numFiltersEnabled = 0,
+  numberOfFiltersEnabled = 0,
   reversed = false,
 }: FilterDrawerProps) => {
   return (
@@ -71,7 +71,7 @@ export const FilterDrawer = ({
           <FilterDrawerButton
             {...{
               labelText,
-              numFiltersEnabled,
+              numberOfFiltersEnabled,
               onClick,
               onMouseDown,
               reversed,
