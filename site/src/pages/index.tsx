@@ -64,7 +64,6 @@ export default ({ location }) => {
       }
     }
   `)
-  const firstComponentPath = data.allMdx!.edges[0]!.node!.fields!.slug
 
   return (
     <Layout
@@ -82,7 +81,7 @@ export default ({ location }) => {
               </a>
             </div>
             <div className={styles.componentsImageContainer}>
-              <a href={withPrefix(firstComponentPath)}>
+              <a href={withPrefix("/components/overview")}>
                 <img src="https://kaizen-assets.s3-us-west-2.amazonaws.com/site/components.png" />
               </a>
             </div>
@@ -100,7 +99,7 @@ export default ({ location }) => {
             <div className={styles.componentsTextContainer}>
               <div className={styles.headingContainer}>
                 <Heading tag="div" variant="heading-2">
-                  <a href={withPrefix(firstComponentPath)}>Components</a>
+                  <a href={withPrefix("/components/overview")}>Components</a>
                 </Heading>
               </div>
               <div className={styles.body}>
