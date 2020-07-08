@@ -2,6 +2,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import "normalize.css"
 import * as React from "react"
 import { Helmet } from "react-helmet"
+const favicon = require("../favicon.favicon.png")
 
 type HeadProps = {
   pageTitle?: string
@@ -29,6 +30,7 @@ const Head: React.SFC<HeadProps> = ({ pageTitle = "" }) => {
         type="text/css"
         href="https://d1vmr11cgrgrrj.cloudfront.net/7834392/css/fonts.css"
       ></link>
+      <link rel="shortcut icon" type="image/png" href={favicon}></link>
       <title>
         {pageTitle && `${pageTitle} - `}
         {site.siteMetadata.title}
