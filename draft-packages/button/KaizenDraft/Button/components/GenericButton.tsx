@@ -4,7 +4,7 @@ import * as React from "react"
 
 const styles = require("./GenericButton.module.scss")
 
-type GenericProps = {
+export type GenericProps = {
   id?: string
   label: string
   destructive?: boolean
@@ -28,7 +28,11 @@ type GenericProps = {
   onBlur?: (e: React.FocusEvent<HTMLElement>) => void
 }
 
-type LabelProps = {
+export type AdditionalContentProps = {
+  additionalContent?: React.ReactNode
+}
+
+export type LabelProps = {
   iconPosition?: "start" | "end"
   primary?: boolean
   secondary?: boolean
@@ -45,7 +49,7 @@ export type ButtonProps = GenericProps & LabelProps
 
 type Props = ButtonProps & {
   iconButton?: boolean
-}
+} & AdditionalContentProps
 
 const GenericButton: React.FunctionComponent<Props> = props => {
   return (
@@ -183,6 +187,7 @@ const renderContent: React.FunctionComponent<Props> = props => (
       <span className={styles.label}>{props.label}</span>
     )}
     {props.icon && props.iconPosition === "end" && renderIcon(props.icon)}
+    {props.additionalContent}
   </span>
 )
 

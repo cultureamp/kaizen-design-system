@@ -28,6 +28,7 @@ export type GenericMenuProps = {
    */
   menuVisible?: boolean
   automationId?: string
+  dropdownId?: string
 
   /**
    * The content to appear inside the dropdown when it is open
@@ -94,6 +95,7 @@ export const render = (props: GenericMenuProps & RenderProps) => {
       align={props.align}
       hideMenuDropdown={props.hideMenuDropdown}
       width={props.dropdownWidth}
+      id={props.dropdownId}
     >
       {props.children}
     </MenuDropdown>
