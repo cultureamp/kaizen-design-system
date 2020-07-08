@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.4...@kaizen/draft-title-block-zen@1.6.5) (2020-07-08)
+
+
+### Bug Fixes
+
+* Fix subtitle and tag bug in Title Block ([#625](https://github.com/cultureamp/kaizen-design-system/issues/625)) ([4ba5521](https://github.com/cultureamp/kaizen-design-system/commit/4ba55219dfdbd0021daa51aa49c745cff2be5eea))
+
+
+
+
+
 ## [1.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.3...@kaizen/draft-title-block-zen@1.6.4) (2020-07-06)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
