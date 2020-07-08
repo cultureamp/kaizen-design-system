@@ -1,14 +1,10 @@
-import { ClientStoryApi } from "@storybook/addons"
-import {
-  IStorybookSection,
-  StoryFnReactReturnType,
-} from "@storybook/react/dist/client/preview/types"
+import { ClientApi, StoryStore } from "@storybook/client-api"
 import AxePuppeteer from "axe-puppeteer"
 import { JSHandle, launch, Page } from "puppeteer"
 const passableViolationCount = 2079
 
 // To avoid running ts-ignore on all log statements
-function printToConsole(...messages: string[]) {
+function printToConsole(...messages: any[]) {
   messages.forEach(message => {
     // tslint:disable-next-line:no-console
     console.log(message)
@@ -33,33 +29,50 @@ if (!args[0]) {
   process.exit(1)
 }
 
-interface StorybookClientApi extends ClientStoryApi<StoryFnReactReturnType> {
-  getStorybook(): IStorybookSection[]
-}
-
 type StoryExample = { kind: string; name: string }
 
 const baseStorybookUrl = args[0]
 
 const getExamples = async (page: Page) => {
-  const clientApiHandle: JSHandle<StorybookClientApi> = await page.evaluateHandle(
+  const clientApiHandle: JSHandle<ClientApi> = await page.evaluateHandle(
     () => (window as any).__STORYBOOK_CLIENT_API__
   )
   const storybook = await clientApiHandle.evaluate(clientApi =>
     clientApi.getStorybook()
   )
+  const storeHandle: JSHandle<StoryStore> = await clientApiHandle.evaluateHandle(
+    clientApi => clientApi.store()
+  )
 
   const storybookExamples: StoryExample[] = []
-  storybook.forEach(story => {
+
+  for (const story of storybook) {
     const { kind } = story
-    story.stories.forEach(storybookExample => {
+    for (const storybookExample of story.stories) {
       const { name } = storybookExample
-      storybookExamples.push({
+      const currentStory = await storeHandle.evaluate(
+        (store, storyKind, storyName) => {
+          return store
+            .getStoriesForKind(storyKind)
+            .find(s => s.name === storyName)
+        },
         kind,
-        name,
-      })
-    })
-  })
+        name
+      )
+
+      if (
+        currentStory &&
+        currentStory.parameters &&
+        currentStory.parameters.axe &&
+        currentStory.parameters.axe.enabled === true
+      ) {
+        storybookExamples.push({
+          kind,
+          name,
+        })
+      }
+    }
+  }
   return storybookExamples
 }
 
@@ -68,11 +81,17 @@ type ExampleWithViolations = {
   violations: Array<{}>
 }
 
-const examplesWithViolations = async (
-  storybookExampleUrls,
-  page
+const analyzeStories = async (
+  storybookExampleUrls: string[],
+  page: Page
 ): Promise<ExampleWithViolations[]> => {
-  const axePuppeteerInstance = new AxePuppeteer(page)
+  const axePuppeteerInstance = new AxePuppeteer(page).configure({
+    rules: [
+      { id: "landmark-one-main", enabled: false },
+      { id: "page-has-heading-one", enabled: false },
+      { id: "region", enabled: false },
+    ],
+  })
   const result: ExampleWithViolations[] = []
   for (const url of storybookExampleUrls) {
     await page.goto(url)
@@ -98,46 +117,29 @@ const main = async () => {
     )}&selectedStory=${encodeURIComponent(name)}`
   })
 
-  const examples: ExampleWithViolations[] = await examplesWithViolations(
+  const examples: ExampleWithViolations[] = await analyzeStories(
     storybookExampleUrls,
     page
   )
+
+  await page.close()
+  await browser.close()
 
   const violationCount = examples.reduce(
     (tally, example) => tally + example.violations.length,
     0
   )
 
-  await page.close()
-  await browser.close()
-
   if (violationCount == 0) {
     printToConsole("No accessibility violations found")
-  } else if (violationCount > passableViolationCount) {
-    printToConsole("Accessibility violations found:")
-    examples.forEach(example => {
-      printToConsole("" + example)
-    })
-    printToConsole(
-      `More accessibility violations were found than the current allowable limit of ${passableViolationCount}. This likely means that a new accessibility violation has been added to the code base.`
-    )
-    process.exit(1)
-  } else {
-    printToConsole(`${violationCount} accessibility violations found.`)
-    printToConsole(
-      `This number is below the current allowable limit of ${passableViolationCount}.`
-    )
-    printToConsole(
-      `This is good news! It means that your work has removed some accessibility violations.`
-    )
-    printToConsole(
-      `Please update the passableViolationCount value at the top of this file to the new minimum of ${violationCount}.`
-    )
-    printToConsole(
-      `This will prevent future work from regressing back to a higher violation count.`
-    )
-    process.exit(1)
+    process.exit(0)
   }
+
+  for (const example of examples) {
+    printToConsole("Violations", example.url, example.violations)
+  }
+  printToConsole("Violation count", violationCount)
+  process.exit(1)
 }
 
 main()

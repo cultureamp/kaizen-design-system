@@ -23,6 +23,9 @@ export default {
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13555%3A0"
     ),
+    axe: {
+      enabled: true,
+    },
   },
   decorators: [withDesign],
 }
