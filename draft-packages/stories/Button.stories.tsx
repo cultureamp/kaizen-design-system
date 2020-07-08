@@ -1,9 +1,10 @@
+import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { Button } from "../button"
+import { FilterDrawerButton } from "../button/KaizenDraft/Button/FilterDrawerButton"
 const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
   .default
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { action } from "@storybook/addon-actions"
-import * as React from "react"
+import React from "react"
 
 export default {
   title: "Button (Zen) (React)",
@@ -310,3 +311,43 @@ export const MultipleButtons = () => (
     <Button label="Exit" automationId="demo-button-2" />
   </div>
 )
+
+export const DefaultFilterDrawerButton = () => {
+  return (
+    <FilterDrawerButton
+      labelText="Filter"
+      numberOfFiltersEnabled={3}
+      onClick={_ => null}
+      onMouseDown={_ => null}
+    />
+  )
+}
+
+DefaultFilterDrawerButton.story = {
+  name: "FilterDrawerButton, default",
+}
+
+export const ReversedFilterDrawerButton = () => {
+  return (
+    <FilterDrawerButton
+      labelText="Filter"
+      reversed={true}
+      numberOfFiltersEnabled={3}
+      onClick={_ => null}
+      onMouseDown={_ => null}
+    />
+  )
+}
+
+ReversedFilterDrawerButton.story = {
+  name: "FilterDrawerButton, reversed",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
+}
