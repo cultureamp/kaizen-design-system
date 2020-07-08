@@ -316,7 +316,7 @@ export const DefaultFilterDrawerButton = () => {
   return (
     <FilterDrawerButton
       labelText="Filter"
-      numFiltersEnabled={3}
+      numberOfFiltersEnabled={3}
       onClick={_ => null}
       onMouseDown={_ => null}
     />
@@ -332,7 +332,7 @@ export const ReversedFilterDrawerButton = () => {
     <FilterDrawerButton
       labelText="Filter"
       reversed={true}
-      numFiltersEnabled={3}
+      numberOfFiltersEnabled={3}
       onClick={_ => null}
       onMouseDown={_ => null}
     />

@@ -12,7 +12,7 @@ const styles = require("./FilterDrawerButton.module.scss")
 
 type FilterButtonProps = {
   labelText: string
-  numFiltersEnabled: number
+  numberOfFiltersEnabled: number
   onClick: (e: any) => void
   onMouseDown: (e: any) => void
   reversed?: boolean
@@ -20,7 +20,7 @@ type FilterButtonProps = {
 
 export const FilterDrawerButton = ({
   labelText,
-  numFiltersEnabled,
+  numberOfFiltersEnabled,
   onClick,
   onMouseDown,
   reversed,
@@ -36,7 +36,7 @@ export const FilterDrawerButton = ({
       label={labelText}
       icon={filterIcon}
       iconPosition="start"
-      additionalContent={renderBadge(numFiltersEnabled)}
+      additionalContent={renderBadge(numberOfFiltersEnabled)}
       onClick={onClick}
       onMouseDown={onMouseDown}
     />
@@ -47,7 +47,7 @@ const ButtonAllowingAdditionalContent = (
   props: GenericProps & LabelProps & AdditionalContentProps
 ) => <GenericButton {...props} />
 
-const renderBadge = (numFiltersEnabled: number) =>
-  numFiltersEnabled > 0 ? (
-    <Badge variant="active">{String(numFiltersEnabled)}</Badge>
+const renderBadge = (numberOfFiltersEnabled: number) =>
+  numberOfFiltersEnabled > 0 ? (
+    <Badge variant="active">{String(numberOfFiltersEnabled)}</Badge>
   ) : null
