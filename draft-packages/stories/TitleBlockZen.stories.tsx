@@ -310,6 +310,8 @@ Engagement.story = {
 export const Performance = () => (
   <TitleBlockZen
     title="Blanca Wheeler"
+    subtitle="Director of Stuff and Things"
+    avatar={<img alt="avatar image" src={assetUrl("site/empty-state.png")} />}
     primaryAction={{
       href: "#",
       label: "Request feedback",
@@ -347,7 +349,6 @@ export const Performance = () => (
         alert("breadcrumb clicked!")
       },
     }}
-    subtitle="Director of Stuff and Things"
     navigationTabs={[
       <NavigationTab text="Feedback" href="#" active />,
       <NavigationTab
