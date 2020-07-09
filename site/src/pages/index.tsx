@@ -1,5 +1,6 @@
 import { Button } from "@kaizen/component-library"
 import { Heading } from "@kaizen/component-library/components/Heading"
+import { assetUrl } from "@kaizen/hosted-assets"
 import { graphql, useStaticQuery, withPrefix } from "gatsby"
 import * as React from "react"
 import { Content, ContentOnly } from "../components/ContentOnly"
@@ -77,12 +78,26 @@ export default ({ location }) => {
           <div className={styles.content}>
             <div className={styles.guidelinesImageContainer}>
               <a href={withPrefix("/guidelines/overview")}>
-                <img src="https://kaizen-assets.s3-us-west-2.amazonaws.com/site/guidelines.png" />
+                <img
+                  src="https://kaizen-assets.s3-us-west-2.amazonaws.com/site/guidelines.png"
+                  alt="Guidelines"
+                />
+              </a>
+            </div>
+            <div className={styles.languageImageContainer}>
+              <a href={withPrefix("/language/overview")}>
+                <img
+                  src={assetUrl("illustrations/scene/kaizen-site-language.svg")}
+                  alt="Language"
+                />
               </a>
             </div>
             <div className={styles.componentsImageContainer}>
               <a href={withPrefix("/components/overview")}>
-                <img src="https://kaizen-assets.s3-us-west-2.amazonaws.com/site/components.png" />
+                <img
+                  src="https://kaizen-assets.s3-us-west-2.amazonaws.com/site/components.png"
+                  alt="Components"
+                />
               </a>
             </div>
             <div className={styles.guidelinesTextContainer}>
@@ -94,6 +109,17 @@ export default ({ location }) => {
               <div className={styles.body}>
                 Learn how to design and build cohesive and predictable products
                 for Culture Amp.
+              </div>
+            </div>
+            <div className={styles.languageTextContainer}>
+              <div className={styles.headingContainer}>
+                <Heading tag="div" variant="heading-2">
+                  <a href={withPrefix("/language/overview")}>Language</a>
+                </Heading>
+              </div>
+              <div className={styles.body}>
+                Use the product language guide to answer all your nitty gritty
+                questions.
               </div>
             </div>
             <div className={styles.componentsTextContainer}>
