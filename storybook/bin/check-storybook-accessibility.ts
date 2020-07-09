@@ -1,7 +1,6 @@
 import { ClientApi, StoryStore } from "@storybook/client-api"
 import AxePuppeteer from "axe-puppeteer"
 import { JSHandle, launch, Page } from "puppeteer"
-const passableViolationCount = 2079
 
 // To avoid running ts-ignore on all log statements
 function printToConsole(...messages: any[]) {
@@ -85,13 +84,17 @@ const analyzeStories = async (
   storybookExampleUrls: string[],
   page: Page
 ): Promise<ExampleWithViolations[]> => {
-  const axePuppeteerInstance = new AxePuppeteer(page).configure({
-    rules: [
-      { id: "landmark-one-main", enabled: false },
-      { id: "page-has-heading-one", enabled: false },
-      { id: "region", enabled: false },
-    ],
-  })
+  const axePuppeteerInstance = new AxePuppeteer(page)
+    .configure({
+      rules: [
+        { id: "landmark-one-main", enabled: false },
+        { id: "page-has-heading-one", enabled: false },
+        { id: "region", enabled: false },
+      ],
+    })
+    .options({
+      runOnly: ["wcag2a", "wcag2aa"],
+    })
   const result: ExampleWithViolations[] = []
   for (const url of storybookExampleUrls) {
     await page.goto(url)
@@ -117,7 +120,7 @@ const main = async () => {
     )}&selectedStory=${encodeURIComponent(name)}`
   })
 
-  const examples: ExampleWithViolations[] = await analyzeStories(
+  const storyResults: ExampleWithViolations[] = await analyzeStories(
     storybookExampleUrls,
     page
   )
@@ -125,7 +128,7 @@ const main = async () => {
   await page.close()
   await browser.close()
 
-  const violationCount = examples.reduce(
+  const violationCount = storyResults.reduce(
     (tally, example) => tally + example.violations.length,
     0
   )
@@ -135,7 +138,7 @@ const main = async () => {
     process.exit(0)
   }
 
-  for (const example of examples) {
+  for (const example of storyResults) {
     printToConsole("Violations", example.url, example.violations)
   }
   printToConsole("Violation count", violationCount)
