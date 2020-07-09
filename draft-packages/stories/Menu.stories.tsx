@@ -209,32 +209,28 @@ const StatelessMenuExample = props => {
   )
 }
 
-export const DefaultStatelessMenu = () => {
-  return (
-    <StoryWrapper>
-      <Box p={1}>
-        <StatelessMenuExample />
-      </Box>
-      <Box p={1}>
-        <Paragraph variant="body">
-          Use the StatelessMenu component if you need to{" "}
-          <a href="https://reactjs.org/docs/lifting-state-up.html">
-            lift state
-          </a>{" "}
-          from the Menu component. This gives the flexibility to be able to
-          control the state of the dropdown however you like and respond to
-          state changes, but it requires more work to configure. It can be used
-          instead of `Menu` if this level of flexibility is required. This
-          component is used in the FilterDrawer component. View the source code{" "}
-          <a href="https://github.com/cultureamp/kaizen-design-system/blob/master/draft-packages/stories/Menu.stories.tsx">
-            here
-          </a>
-          .
-        </Paragraph>
-      </Box>
-    </StoryWrapper>
-  )
-}
+export const DefaultStatelessMenu = () => (
+  <StoryWrapper>
+    <Box p={1}>
+      <StatelessMenuExample />
+    </Box>
+    <Box p={1}>
+      <Paragraph variant="body">
+        Use the StatelessMenu component if you need to{" "}
+        <a href="https://reactjs.org/docs/lifting-state-up.html">lift state</a>{" "}
+        from the Menu component. This gives the flexibility to be able to
+        control the state of the dropdown however you like and respond to state
+        changes, but it requires more work to configure. It can be used instead
+        of `Menu` if this level of flexibility is required. This component is
+        used in the FilterDrawer component. View the source code{" "}
+        <a href="https://github.com/cultureamp/kaizen-design-system/blob/master/draft-packages/stories/Menu.stories.tsx">
+          here
+        </a>
+        .
+      </Paragraph>
+    </Box>
+  </StoryWrapper>
+)
 
 DefaultStatelessMenu.story = {
   name: "StatelessMenu (example usage)",

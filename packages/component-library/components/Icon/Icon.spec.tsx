@@ -43,7 +43,7 @@ describe("<Icon />", () => {
         />
       )
 
-      expect(container.querySelector(`[aria-hidden="true"]`)).toBeTruthy()
+      expect(container.querySelector('[aria-hidden="true"]')).toBeTruthy()
     })
   })
 
@@ -74,7 +74,7 @@ describe("<Icon />", () => {
         <Icon title={title} desc={description} icon={svgIcon} role="img" />
       )
 
-      expect(container.querySelector(`[aria-hidden="false"]`)).toBeTruthy()
+      expect(container.querySelector('[aria-hidden="false"]')).toBeTruthy()
     })
   })
 })

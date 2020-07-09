@@ -41,7 +41,7 @@ export type LabelProps = {
 
 type Analytics = {
   eventName: string
-  properties: object
+  properties: Record<string, unknown>
 }
 
 export type IconButtonProps = GenericProps
@@ -51,17 +51,15 @@ type Props = ButtonProps & {
   iconButton?: boolean
 } & AdditionalContentProps
 
-const GenericButton: React.FunctionComponent<Props> = props => {
-  return (
-    <span
-      className={classNames(styles.container, {
-        [styles.fullWidth]: props.fullWidth,
-      })}
-    >
-      {props.href && !props.disabled ? renderLink(props) : renderButton(props)}
-    </span>
-  )
-}
+const GenericButton: React.FunctionComponent<Props> = props => (
+  <span
+    className={classNames(styles.container, {
+      [styles.fullWidth]: props.fullWidth,
+    })}
+  >
+    {props.href && !props.disabled ? renderLink(props) : renderButton(props)}
+  </span>
+)
 
 GenericButton.defaultProps = {
   iconPosition: "start",

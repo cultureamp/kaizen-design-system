@@ -72,11 +72,11 @@ describe("padding", () => {
     })
   })
   describe("paddingClasses", () => {
-    it(`generates a single padding class`, () => {
-      expect(paddingClasses({ p: 0.25 })).toContain(`p-0-point-25`)
+    it("generates a single padding class", () => {
+      expect(paddingClasses({ p: 0.25 })).toContain("p-0-point-25")
       expect(paddingClasses({ p: 0.25 })).toHaveLength(1)
     })
-    it(`generates multiple padding classes`, () => {
+    it("generates multiple padding classes", () => {
       const classes = paddingClasses({ px: 0.25, pt: 1 })
       expect(classes).toEqual(
         expect.arrayContaining(["pl-0-point-25", "pr-0-point-25", "pt-1"])
@@ -140,11 +140,11 @@ describe("margin", () => {
     })
   })
   describe("marginClasses", () => {
-    it(`generates a single margin class`, () => {
-      expect(marginClasses({ m: 0.25 })).toContain(`m-0-point-25`)
+    it("generates a single margin class", () => {
+      expect(marginClasses({ m: 0.25 })).toContain("m-0-point-25")
       expect(marginClasses({ m: 0.25 })).toHaveLength(1)
     })
-    it(`generates multimle margin classes`, () => {
+    it("generates multimle margin classes", () => {
       const classes = marginClasses({ mx: 0.25, mt: 1 })
       expect(classes).toHaveLength(3)
       expect(classes).toEqual(

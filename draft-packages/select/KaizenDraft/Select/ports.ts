@@ -20,18 +20,16 @@ export default (ports: Ports) => {
     input: HTMLElement,
     initialWidth: number,
     data: NodeData
-  ): MutationCallback => {
-    return () => {
-      // Need to remove the initial width of the sizer to account for empty space.
-      const currentSizerWidth: number =
-        sizer.getBoundingClientRect().width - initialWidth
-      // We also need to add the default width of the input which accounts for the cursor
-      const calculatedInputWidth =
-        currentSizerWidth < data.defaultInputWidth
-          ? data.defaultInputWidth
-          : currentSizerWidth + data.defaultInputWidth
-      input.style.width = `${calculatedInputWidth.toString()}px`
-    }
+  ): MutationCallback => () => {
+    // Need to remove the initial width of the sizer to account for empty space.
+    const currentSizerWidth: number =
+      sizer.getBoundingClientRect().width - initialWidth
+    // We also need to add the default width of the input which accounts for the cursor
+    const calculatedInputWidth =
+      currentSizerWidth < data.defaultInputWidth
+        ? data.defaultInputWidth
+        : currentSizerWidth + data.defaultInputWidth
+    input.style.width = `${calculatedInputWidth.toString()}px`
   }
 
   const initObserver = (

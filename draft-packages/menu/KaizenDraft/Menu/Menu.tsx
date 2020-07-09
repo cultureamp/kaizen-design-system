@@ -114,10 +114,9 @@ export const render = (props: GenericMenuProps & RenderProps) => {
 
 const getPosition = (
   dropdownButtonContainer: React.RefObject<HTMLDivElement>
-) => {
-  return dropdownButtonContainer && dropdownButtonContainer.current
+) =>
+  dropdownButtonContainer && dropdownButtonContainer.current
     ? dropdownButtonContainer.current.getBoundingClientRect()
     : null
-}
 
 export default Menu
