@@ -13,19 +13,24 @@ type ToolbarProps = {
   noGap?: boolean
 }
 
-const Toolbar = ({ items, noGap = false }: ToolbarProps) => (
-  <div className={styles.toolbar}>
-    {items?.map((item, i) => (
-      <div
-        className={classNames(styles.toolbarItem, {
-          [styles.noGap]: noGap,
-        })}
-        key={`toolbar-item-${i}`}
-      >
-        {item}
-      </div>
-    ))}
-  </div>
-)
+const Toolbar = ({ items, noGap = false }: ToolbarProps) => {
+  return (
+    <div
+      className={styles.toolbar}
+      data-automation-id="title-block-main-actions-toolbar"
+    >
+      {items?.map((item, i) => (
+        <div
+          className={classNames(styles.toolbarItem, {
+            [styles.noGap]: noGap,
+          })}
+          key={`toolbar-item-${i}`}
+        >
+          {item}
+        </div>
+      ))}
+    </div>
+  )
+}
 
 export default Toolbar

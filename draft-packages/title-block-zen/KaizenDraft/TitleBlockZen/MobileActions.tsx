@@ -33,7 +33,8 @@ const renderPrimaryLinks = (primaryAction: PrimaryActionProps) => {
           action={item.action}
           label={item.label}
           icon={item.hasOwnProperty("icon") ? item.icon : undefined}
-          key={`primary-link-${idx}`}
+          key={`title-block-mobile-actions-primary-link-${idx}`}
+          automationId={`title-block-mobile-actions-primary-link-${idx}`}
         />
       ))
   }
@@ -45,7 +46,7 @@ const renderPrimaryActions = (primaryAction: PrimaryActionProps) => {
     primaryAction.menuItems.length > 0
   ) {
     return [
-      <MenuSeparator />,
+      <MenuSeparator key="title-block-mobile-actions-primary-menu-separator" />,
       primaryAction.menuItems
         .filter(item => typeof item.action !== "string")
         .map((item, idx) => (
@@ -53,7 +54,8 @@ const renderPrimaryActions = (primaryAction: PrimaryActionProps) => {
             action={item.action}
             label={item.label}
             icon={item.hasOwnProperty("icon") ? item.icon : undefined}
-            key={`primary-action-${idx}`}
+            key={`title-block-mobile-actions-primary-action-${idx}`}
+            automationId={`title-block-mobile-actions-primary-action-${idx}`}
           />
         )),
     ]
@@ -67,6 +69,7 @@ const renderDefaultLink = defaultAction => {
         action={defaultAction.href}
         label={defaultAction.label}
         icon={defaultAction.icon}
+        automationId="title-block-mobile-actions-default-link"
       />
     )
   }
@@ -78,6 +81,7 @@ const renderDefaultAction = defaultAction => {
         action={defaultAction.onClick}
         label={defaultAction.label}
         icon={defaultAction.icon}
+        automationId="title-block-mobile-actions-default-action"
       />
     )
   }
@@ -99,7 +103,8 @@ const renderSecondaryActions = secondaryActions => {
       action={item.action}
       label={item.label}
       icon={item.icon}
-      key={`secondary-action-${idx}`}
+      key={`title-block-mobile-actions-secondary-action-${idx}`}
+      automationId={`title-block-mobile-actions-secondary-action-${idx}`}
     />
   ))
 }
@@ -112,12 +117,12 @@ const rendersecondaryOverflowMenuItems = (
       action={item.action}
       label={item.label}
       icon={item.icon}
-      key={`overflow-menu-item-${idx}`}
+      key={`title-block-mobile-actions-overflow-menu-item-${idx}`}
+      automationId={`title-block-mobile-actions-overflow-menu-item-${idx}`}
     />
   ))
 
 type DrawerMenuContentProps = {
-  primaryMenuActions?: any[]
   primaryAction?: PrimaryActionProps
   defaultAction?: ButtonWithOnClickOrHref
   secondaryActions?: SecondaryActionsProps
@@ -149,7 +154,6 @@ const ConditionalOtherActionsHeading = ({
 )
 
 const DrawerMenuContent = ({
-  primaryMenuActions,
   primaryAction,
   defaultAction,
   secondaryActions,
@@ -180,11 +184,16 @@ const renderDrawerHandleLabel = (
   if (drawerHandleLabelIconPosition === "end") {
     return (
       <>
-        <span className={styles.drawerHandleLabelText}>{label}</span>
+        <span
+          className={styles.drawerHandleLabelText}
+          data-automation-id="drawer-handle-lable-text"
+        >
+          {label}
+        </span>
         <>
           {icon && (
             <span className={styles.drawerHandleIcon}>
-              <Icon icon={icon} />
+              <Icon icon={icon} role="presentation" />
             </span>
           )}
         </>
@@ -196,11 +205,16 @@ const renderDrawerHandleLabel = (
         <>
           {icon && (
             <span className={styles.drawerHandleIcon}>
-              <Icon icon={icon} />
+              <Icon icon={icon} role="presentation" />
             </span>
           )}
         </>
-        <span className={styles.drawerHandleLabelText}>{label}</span>
+        <span
+          className={styles.drawerHandleLabelText}
+          data-automation-id="drawer-handle-lable-text"
+        >
+          {label}
+        </span>
       </>
     )
   }
@@ -220,6 +234,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps) => {
           styles.mobileActionsPrimaryLabel,
           styles.mobileActionsPrimaryButton
         )}
+        data-automation-id="title-block-mobile-actions-primary-button"
       >
         {children}
       </button>
@@ -233,6 +248,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps) => {
           styles.mobileActionsPrimaryLabel,
           styles.mobileActionsPrimaryButton
         )}
+        data-automation-id="title-block-mobile-actions-primary-button"
       >
         {children}
       </a>
@@ -245,6 +261,7 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps) => {
         styles.mobileActionsPrimaryLabel,
         styles.mobileActionsPrimaryButton
       )}
+      data-automation-id="title-block-mobile-actions-primary-button"
     >
       {children}
     </button>
@@ -285,7 +302,10 @@ const DrawerHandle = ({
     // If the primary action is a menu
     if (isMenuGroupNotButton(primaryAction)) {
       return (
-        <div className={styles.mobileActionsTopRow}>
+        <div
+          className={styles.mobileActionsTopRow}
+          data-automation-id="title-block-mobile-actions-drawer-handle"
+        >
           <button
             className={classnames(
               styles.mobileActionsExpandButtonFullWidth,
@@ -295,7 +315,10 @@ const DrawerHandle = ({
           >
             {primaryAction.label}
             <div className={styles.mobileActionsChevronSquare}>
-              <Icon icon={isOpen ? chevronDownIcon : chevronUpIcon} />
+              <Icon
+                icon={isOpen ? chevronDownIcon : chevronUpIcon}
+                role="presentation"
+              />
             </div>
           </button>
         </div>
@@ -303,7 +326,10 @@ const DrawerHandle = ({
     } else {
       // If the primary action is a button, or has no onClick/href/action
       return (
-        <div className={styles.mobileActionsTopRow}>
+        <div
+          className={styles.mobileActionsTopRow}
+          data-automation-id="title-block-mobile-actions-drawer-handle"
+        >
           {
             <ButtonOrLink action={getAction(primaryAction)}>
               {renderDrawerHandleLabel(
@@ -322,12 +348,40 @@ const DrawerHandle = ({
               className={styles.mobileActionsExpandButton}
               onClick={toggleDisplay}
             >
-              <Icon icon={isOpen ? chevronDownIcon : chevronUpIcon} />
+              <Icon
+                icon={isOpen ? chevronDownIcon : chevronUpIcon}
+                role="presentation"
+              />
             </button>
           )}
         </div>
       )
     }
+  }
+  // if there are default/secondary actions but no primary action
+  if (defaultAction || secondaryActions || secondaryOverflowMenuItems) {
+    return (
+      <div
+        className={styles.mobileActionsTopRow}
+        data-automation-id="title-block-mobile-actions-drawer-handle"
+      >
+        <button
+          className={classnames(
+            styles.mobileActionsExpandButtonFullWidth,
+            styles.mobileActionsPrimaryLabel
+          )}
+          onClick={toggleDisplay}
+        >
+          {renderDrawerHandleLabel("Other actions")}
+          <div className={styles.mobileActionsChevronSquare}>
+            <Icon
+              icon={isOpen ? chevronDownIcon : chevronUpIcon}
+              role="presentation"
+            />
+          </div>
+        </button>
+      </div>
+    )
   }
   return null
 }
@@ -377,7 +431,9 @@ export default class MobileActions extends React.Component<MobileActionsProps> {
           toggleDisplay={this.toggleDisplay}
           isOpen={this.state.isOpen}
         />
-        {(defaultAction || secondaryActions) && (
+        {(defaultAction ||
+          secondaryActions ||
+          (primaryAction && isMenuGroupNotButton(primaryAction))) && (
           <div className={styles.mobileActionsMenuContainer}>
             <MenuContent>
               <DrawerMenuContent
