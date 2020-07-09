@@ -22,24 +22,35 @@ import TransitionPresetsExample from "docs-components/animation/TransitionPreset
 import TransitionUsageInputExample from "docs-components/animation/TransitionUsageInputExample"
 import TransitionUsageOutputExample from "docs-components/animation/TransitionUsageOutputExample"
 
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
 ## To keep in mind
 
 The "wow" factor of motion wins deals. We're hard wired to notice movement and pay attention to it.
 
-## When to use
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 * Aim for **fast time to first interaction** and consider if the stylized entrance _feels_ slower than instantly loading content.
 * Use **consistent direction and movement** in relation to local environment to reinforce context and UI metaphors.
 * For entrances, exits, and decorations, animation style is **so subtle that you can’t put your finger on it**.
 * **Avoid bounces or overshoots**. We make exceptions when the bounce or overshoot is related to the animation effect or behavior itself, such as our emphasized growing "Take action" pill.
 
-## When not to use
+</WhenToUse>
+<WhenNotToUse>
 
 * **Content rules**. Draw attention to important content and data, not to interface controls.
 * **Avoid keeping people from their content with time-consuming or showy entrances**.
 * **Avoid contradicting movement that breaks UI metaphors**, such as an element entering with a fade and slide and exiting with a scale.
 * **Avoid sharp, noticeable entrances** that draw attention away from the content to the animation itself.
 * **Avoid excessively bouncy animations** that tarnish our trustworthy brand.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ### Meaningful motion
 
