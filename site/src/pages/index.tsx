@@ -79,7 +79,7 @@ export default ({ location }) => {
             <div className={styles.guidelinesImageContainer}>
               <a href={withPrefix("/guidelines/overview")}>
                 <img
-                  src="https://kaizen-assets.s3-us-west-2.amazonaws.com/site/guidelines.png"
+                  src={assetUrl("illustrations/scene/kaizen-site-product.svg")}
                   alt="Guidelines"
                 />
               </a>
@@ -95,7 +95,9 @@ export default ({ location }) => {
             <div className={styles.componentsImageContainer}>
               <a href={withPrefix("/components/overview")}>
                 <img
-                  src="https://kaizen-assets.s3-us-west-2.amazonaws.com/site/components.png"
+                  src={assetUrl(
+                    "illustrations/scene/kaizen-site-resources.svg"
+                  )}
                   alt="Components"
                 />
               </a>
