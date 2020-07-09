@@ -9,6 +9,10 @@ needToKnow:
   - "As a general rule, we use 12px (½ Grid Unit) or 24px (1 Grid Unit) for vertical rhythm."
 ---
 
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
 ## To keep in mind
 
 Vertical rhythm relates elements together through proximity and create an aesthetically pleasing appearance. In [typography](/guidelines/typography/), vertical rhythm impacts the readability of the text and establishes visual hierarchy.
@@ -42,13 +46,20 @@ In order for visual rhythm to work, not only do elements have to take up the sam
 * That padding is there because the button and its label is shifted down onto the baseline grid, so it needs guaranteed whitespace to shift into.
 * All buttons are shifted, so that if you have icon buttons and text buttons (and even plain old text) they are well aligned
 
-## When to use
+## When to use and when not to use
 
-To control positioning of elements close together inside a container.
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
-## When not to use
+- To control positioning of elements close together inside a container.
 
-There's no need to use the baseline grid for icons that are aligned optically.
+</WhenToUse>
+<WhenNotToUse>
+
+- There's no need to use the baseline grid for icons that are aligned optically.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 
@@ -59,10 +70,10 @@ There's no need to use the baseline grid for icons that are aligned optically.
 
 Here are some references:
 
-* [Rhythm](https://betterwebtype.com/rhythm-in-web-typography).
-* [8-point grid vertical rhythm](https://builttoadapt.io/8-point-grid-vertical-rhythm-90d05ad95032).
-* [CSS Grid and viewport-relative metrics](https://twitter.com/rsms/status/1054433291393163264).
-* [Grid](https://www.atlassian.design/guidelines/product/foundations/grid).
-* [App layout](https://clarity.design/documentation/app-layout).
-* [Visualizing working with line-height](https://aresluna.org/line-height-playground/).
+* [Rhythm](https://betterwebtype.com/rhythm-in-web-typography)
+* [8-point grid vertical rhythm](https://builttoadapt.io/8-point-grid-vertical-rhythm-90d05ad95032)
+* [CSS Grid and viewport-relative metrics](https://twitter.com/rsms/status/1054433291393163264)
+* [Grid](https://www.atlassian.design/guidelines/product/foundations/grid)
+* [App layout](https://clarity.design/documentation/app-layout)
+* [Visualizing working with line-height](https://aresluna.org/line-height-playground/)
 

@@ -79,19 +79,23 @@ class Collapsible extends React.Component<Props, State> {
           aria-controls={sectionId}
           data-automation-id={`collapsible-button-${id}`}
         >
-          {// If a renderHeader prop has been provided: use that to render the header
-          renderHeader && renderHeader(title)}
-          {// Otherwise, use a prescribed structure for the title
-          !renderHeader && (
-            <div
-              className={styles.title}
-              data-automation-id={`collapsible-button-title-${id}`}
-            >
-              <Heading variant="heading-4" tag="span">
-                {title}
-              </Heading>
-            </div>
-          )}
+          {
+            // If a renderHeader prop has been provided: use that to render the header
+            renderHeader && renderHeader(title)
+          }
+          {
+            // Otherwise, use a prescribed structure for the title
+            !renderHeader && (
+              <div
+                className={styles.title}
+                data-automation-id={`collapsible-button-title-${id}`}
+              >
+                <Heading variant="heading-4" tag="span">
+                  {title}
+                </Heading>
+              </div>
+            )
+          }
           <div>
             <Icon icon={open ? chevronUp : chevronDown} role="presentation" />
           </div>
@@ -116,9 +120,8 @@ class Collapsible extends React.Component<Props, State> {
     )
   }
 
-  private getOpen = () => {
-    return this.props.controlled ? this.props.open : this.state.open
-  }
+  private getOpen = () =>
+    this.props.controlled ? this.props.open : this.state.open
 
   private handleClick = () => {
     const { onToggle, id, controlled } = this.props

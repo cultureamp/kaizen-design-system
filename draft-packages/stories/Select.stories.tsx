@@ -2,17 +2,17 @@ import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { AsyncSelect, Select } from "@kaizen/draft-select"
 import * as React from "react"
 
-const StoryContainer = ({ children }: { children: React.ReactNode }) => {
-  return <div style={{ width: "300px", margin: "12px auto" }}>{children}</div>
-}
+const StoryContainer = ({ children }: { children: React.ReactNode }) => (
+  <div style={{ width: "300px", margin: "12px auto" }}>{children}</div>
+)
 
-const WideStoryContainer = ({ children }: { children: React.ReactNode }) => {
-  return <div style={{ width: "500px", margin: "12px auto" }}>{children}</div>
-}
+const WideStoryContainer = ({ children }: { children: React.ReactNode }) => (
+  <div style={{ width: "500px", margin: "12px auto" }}>{children}</div>
+)
 
-const NarrowStoryContainer = ({ children }: { children: React.ReactNode }) => {
-  return <div style={{ width: "200px", margin: "12px auto" }}>{children}</div>
-}
+const NarrowStoryContainer = ({ children }: { children: React.ReactNode }) => (
+  <div style={{ width: "200px", margin: "12px auto" }}>{children}</div>
+)
 
 const options = [
   { value: "Mindy", label: "Mindy" },
@@ -47,11 +47,10 @@ const asyncOptions = [
   { value: "Roberto", label: "Roberto" },
 ]
 
-const filterNames = (inputValue: string) => {
-  return asyncOptions.filter(i =>
+const filterNames = (inputValue: string) =>
+  asyncOptions.filter(i =>
     i.label.toLowerCase().includes(inputValue.toLowerCase())
   )
-}
 
 const promiseOptions = inputValue =>
   new Promise(resolve => {

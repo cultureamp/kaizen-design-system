@@ -211,8 +211,8 @@ export const TableRowCell: TableRowCell = ({
   flex,
   href,
   ...otherProps
-}) => {
-  return href != null ? (
+}) =>
+  href != null ? (
     <a
       role="cell"
       style={{
@@ -238,4 +238,3 @@ export const TableRowCell: TableRowCell = ({
       {children}
     </div>
   )
-}

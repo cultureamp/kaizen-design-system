@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.4.19...@kaizen/draft-vertical-progress-step@1.4.20) (2020-07-09)
+
+
+### Bug Fixes
+
+* Switch from TSlint to ESlint ([#621](https://github.com/cultureamp/kaizen-design-system/issues/621)) ([59e64d4](https://github.com/cultureamp/kaizen-design-system/commit/59e64d4d0cd14302544ae7f41fd76a101d313aee))
+
+
+
+
+
+## [1.4.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.4.18...@kaizen/draft-vertical-progress-step@1.4.19) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-vertical-progress-step
+
+
+
+
+
 ## [1.4.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.4.17...@kaizen/draft-vertical-progress-step@1.4.18) (2020-07-09)
 
 **Note:** Version bump only for package @kaizen/draft-vertical-progress-step

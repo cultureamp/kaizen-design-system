@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.12.1...@kaizen/draft-button@1.12.2) (2020-07-09)
+
+
+### Bug Fixes
+
+* Switch from TSlint to ESlint ([#621](https://github.com/cultureamp/kaizen-design-system/issues/621)) ([59e64d4](https://github.com/cultureamp/kaizen-design-system/commit/59e64d4d0cd14302544ae7f41fd76a101d313aee))
+
+
+
+
+
+## [1.12.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.12.0...@kaizen/draft-button@1.12.1) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
 # [1.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.11.1...@kaizen/draft-button@1.12.0) (2020-07-09)
 
 
