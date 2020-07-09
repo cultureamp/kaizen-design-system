@@ -8,6 +8,11 @@ const styles = require("./styles.module.scss")
 import { FilterDrawerButton } from "./FilterDrawerButton"
 
 export interface FilterDrawerProps {
+  /* The html id attribute of the container element. This is also used
+   * to generate ids for sub elements such as the dropdown box (for
+   * accessibilty purposes)*/
+  id: string
+
   /**
    * The text that goes inside the filter button
    */
@@ -48,9 +53,8 @@ export interface FilterDrawerProps {
   numberOfFiltersEnabled?: number
 }
 
-const dropdownId = "filter-drawer-dropdown"
-
 export const FilterDrawer = ({
+  id,
   labelText,
   children,
   metadata,
@@ -60,8 +64,10 @@ export const FilterDrawer = ({
   numberOfFiltersEnabled = 0,
   reversed = false,
 }: FilterDrawerProps) => {
+  const dropdownId = `${id}-dropdown`
   return (
     <div
+      id={id}
       className={classnames(styles.filterDrawer, {
         [styles.reversed]: reversed,
       })}

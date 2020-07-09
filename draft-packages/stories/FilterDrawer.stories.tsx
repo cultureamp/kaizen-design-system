@@ -103,6 +103,7 @@ const DemoFilterDrawer = () => {
 
   return (
     <FilterDrawer
+      id="filter-drawer"
       labelText="Filter"
       reversed={true}
       metadata={checkedTraits}
@@ -205,6 +206,7 @@ export const ReversedEmpty = () => {
   return (
     <StoryWrapper>
       <FilterDrawer
+        id="filter-drawer-2"
         labelText="Filter"
         reversed={true}
         metadata="metadata"
@@ -256,6 +258,7 @@ export const DefaultEmpty = () => {
   return (
     <StoryWrapper>
       <FilterDrawer
+        id="filter-drawer-3"
         labelText="Filter"
         metadata="metadata"
         isDropdownVisible={isDropdownVisible}
@@ -298,6 +301,7 @@ export const ReversedEmptyRTL = () => {
     <div dir="rtl">
       <StoryWrapper>
         <FilterDrawer
+          id="filter-drawer-1"
           reversed={true}
           labelText="Filter"
           metadata="metadata"
