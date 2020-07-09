@@ -1,3 +1,5 @@
+@import "~@kaizen/design-tokens/sass/color";
+
 .buttons {
   display: flex;
   justify-content: space-between;
@@ -8,4 +10,10 @@
   & label {
     width: auto;
   }
+}
+
+.siteDemoWrapper {
+  background-color: $kz-color-wisteria-700;
+  height: 400px;
+  padding: 1rem;
 }
