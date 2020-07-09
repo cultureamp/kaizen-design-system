@@ -55,7 +55,9 @@ const Layout: React.SFC<LayoutProps> = ({
           )}
         </main>
       </div>
-      <div className={styles.footerContainer}>{footer}</div>
+      <footer>
+        <div className={styles.footerContainer}>{footer}</div>
+      </footer>
     </div>
   </>
 )
