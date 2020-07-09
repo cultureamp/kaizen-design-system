@@ -13,8 +13,8 @@ const styles = require("./index.scss")
 const HomePageHeader = (
   <PageHeader
     headingText="Kaizen"
-    summaryParagraph={`Kaizen is Culture Amp’s design system. It’s the single source of truth\n
-      for our UX guidelines, design assets, and front-end code to help\nCulture Amp’s teams rapidly 
+    summaryParagraph={`Kaizen is Culture Amp’s design system. It’s the single source of truth 
+      for our UX guidelines, design assets, and front-end code to help Culture Amp’s teams rapidly 
       create a world-class experience.`}
     headingOnly
   />
