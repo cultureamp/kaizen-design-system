@@ -8,7 +8,7 @@
     "guidelines-text language-text components-text";
   justify-content: space-evenly;
   align-content: center;
-  padding: calc(var(--ca-grid) * 6) 0;
+  padding: calc(var(--ca-grid) * 4.5) 0;
 
   @include ca-media-mobile() {
     grid-template-areas:
