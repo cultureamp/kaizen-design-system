@@ -75,6 +75,47 @@ describe("<TitleBlockZen />", () => {
     })
   })
 
+  describe("when the primary action is a button with both an href and an onClick", () => {
+    const testOnClickFn = jest.fn()
+    const primaryActionAsLinkAndOnClick = {
+      label: "primaryActionLabel",
+      href: "primaryActionHref",
+      onClick: testOnClickFn,
+      primary: true,
+    }
+
+    it("renders the primary action button label, href and onClick", () => {
+      const { getByTestId } = render(
+        <TitleBlockZen
+          title="Test Title"
+          primaryAction={primaryActionAsLinkAndOnClick}
+        >
+          Example
+        </TitleBlockZen>
+      )
+      const btn = getByTestId("title-block-primary-action-button")
+      expect(btn.textContent).toEqual("primaryActionLabel")
+      expect(btn.getAttribute("href")).toEqual("primaryActionHref")
+      fireEvent.click(btn)
+      expect(testOnClickFn).toHaveBeenCalled()
+    })
+
+    it("passes both the href and onClick to the mobile action drawer button", () => {
+      const { getByTestId } = render(
+        <TitleBlockZen
+          title="Test Title"
+          primaryAction={primaryActionAsLinkAndOnClick}
+        >
+          Example
+        </TitleBlockZen>
+      )
+      const btn = getByTestId("title-block-mobile-actions-primary-button")
+      expect(btn.getAttribute("href")).toEqual("primaryActionHref")
+      fireEvent.click(btn)
+      expect(testOnClickFn).toHaveBeenCalled()
+    })
+  })
+
   describe("when the primary action is a menu", () => {
     const primaryActionAsMenu = {
       label: "primaryActionLabel",
@@ -200,6 +241,53 @@ describe("<TitleBlockZen />", () => {
       expect(
         getByTestId("title-block-mobile-actions-drawer-handle")
       ).toBeTruthy()
+    })
+  })
+
+  describe("when the default action is a button with both an href and an onClick", () => {
+    const testOnClickFn = jest.fn()
+
+    const defaultActionAsLinkAndOnClick = {
+      label: "defaultActionLabel",
+      href: "defaultActionHref",
+      onClick: testOnClickFn,
+    }
+
+    it("renders the default action button label, href and onClick", () => {
+      const { getByTestId } = render(
+        <TitleBlockZen
+          title="Test Title"
+          defaultAction={defaultActionAsLinkAndOnClick}
+        >
+          Example
+        </TitleBlockZen>
+      )
+      const btn = getByTestId("title-block-default-action-button")
+      expect(btn.textContent).toEqual("defaultActionLabel")
+      expect(btn.getAttribute("href")).toEqual("defaultActionHref")
+      fireEvent.click(btn)
+      expect(testOnClickFn).toHaveBeenCalled()
+    })
+
+    it("creates a single mobile actions default link menu item with both href and onClick", () => {
+      const { getByTestId } = render(
+        <TitleBlockZen
+          title="Test Title"
+          defaultAction={defaultActionAsLinkAndOnClick}
+        >
+          Example
+        </TitleBlockZen>
+      )
+
+      const menuItem = getByTestId("title-block-mobile-actions-default-link")
+      const defaultAction = getByTestId(
+        "title-block-mobile-actions-default-action"
+      )
+      expect(defaultAction).toBeFalsy()
+      expect(menuItem.getAttribute("href")).toEqual("defaultActionHref")
+      expect(menuItem.textContent).toEqual("defaultActionLabel")
+      fireEvent.click(menuItem)
+      expect(testOnClickFn).toHaveBeenCalled()
     })
   })
 })

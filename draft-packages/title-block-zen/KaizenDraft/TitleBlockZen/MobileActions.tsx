@@ -220,12 +220,32 @@ const renderDrawerHandleLabel = (
   }
 }
 
+type HrefAndOnClick = {
+  href: ButtonProps["href"]
+  onClick: ButtonProps["onClick"]
+}
+
 type ButtonOrLinkProps = {
-  action: Pick<ButtonProps, "href" | "onClick">
+  action: ButtonProps["href"] | ButtonProps["onClick"] | HrefAndOnClick
   children: React.ReactNode
 }
 
 const ButtonOrLink = ({ action, children }: ButtonOrLinkProps) => {
+  if (typeof action === "object" && action.onClick && action.href) {
+    return (
+      <button
+        onClick={action.onClick}
+        href={action.href}
+        className={classnames(
+          styles.mobileActionsPrimaryLabel,
+          styles.mobileActionsPrimaryButton
+        )}
+        data-automation-id="title-block-mobile-actions-primary-button"
+      >
+        {children}
+      </button>
+    )
+  }
   if (typeof action === "function") {
     return (
       <button
@@ -270,6 +290,12 @@ const ButtonOrLink = ({ action, children }: ButtonOrLinkProps) => {
 
 const getAction = primaryAction => {
   if (primaryAction) {
+    if (primaryAction.onClick && primaryAction.href) {
+      return {
+        href: primaryAction.href,
+        onClick: primaryAction.onClick,
+      }
+    }
     if (primaryAction.onClick) {
       return primaryAction.onClick
     }
