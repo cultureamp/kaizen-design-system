@@ -39,19 +39,21 @@ const Layout: React.SFC<LayoutProps> = ({
           [styles.noPageHeader]: !pageHeader,
         })}
       >
-        {pageHeader}
-        {fullWidthContent ? (
-          children
-        ) : (
-          <div
-            className={classnames({
-              [styles.contentContainer]: true,
-              [styles.trimBottomOfCardToContent]: trimBottomOfCardToContent,
-            })}
-          >
-            <div className={styles.content}>{children}</div>
-          </div>
-        )}
+        <main>
+          {pageHeader}
+          {fullWidthContent ? (
+            children
+          ) : (
+            <div
+              className={classnames({
+                [styles.contentContainer]: true,
+                [styles.trimBottomOfCardToContent]: trimBottomOfCardToContent,
+              })}
+            >
+              <div className={styles.content}>{children}</div>
+            </div>
+          )}
+        </main>
       </div>
       <div className={styles.footerContainer}>{footer}</div>
     </div>
