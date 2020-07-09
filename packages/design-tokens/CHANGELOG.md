@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.0.0...@kaizen/design-tokens@2.0.1) (2020-07-09)
+
+
+### Bug Fixes
+
+* Replace the sized-bold values with the new variant ([#627](https://github.com/cultureamp/kaizen-design-system/issues/627)) ([4d98ecd](https://github.com/cultureamp/kaizen-design-system/commit/4d98ecdd022ee547ca3b24e568d09f10f34021af))
+
+
+
+
+
 # [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.15.0...@kaizen/design-tokens@2.0.0) (2020-07-06)
 
 

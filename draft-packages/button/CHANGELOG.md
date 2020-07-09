@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.11.0...@kaizen/draft-button@1.11.1) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+# [1.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.10.0...@kaizen/draft-button@1.11.0) (2020-07-08)
+
+
+### Features
+
+* abillity to add additional content to GenericButton ([#608](https://github.com/cultureamp/kaizen-design-system/issues/608)) ([bff3345](https://github.com/cultureamp/kaizen-design-system/commit/bff3345d861f23086d872bbc852c1cf112678530))
+
+
+
+
+
 # [1.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.9.1...@kaizen/draft-button@1.10.0) (2020-07-07)
 
 
