@@ -120,8 +120,8 @@ export default ({ location }) => {
                 </Heading>
               </div>
               <div className={styles.body}>
-                Use the product language guide to answer all your nitty gritty
-                questions.
+                Write consistent content in Culture Amp's voice and adhere to
+                our style&nbsp;guidelines.
               </div>
             </div>
             <div className={styles.componentsTextContainer}>
