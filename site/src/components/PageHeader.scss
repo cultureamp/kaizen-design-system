@@ -116,8 +116,8 @@
   margin-bottom: var(--content-card-top-offset);
 
   .headingOnly & {
+    max-width: 60rem;
     text-align: center;
-    white-space: pre-wrap;
 
     @media (max-width: 1080px) {
       white-space: normal;
