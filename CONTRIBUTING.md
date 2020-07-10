@@ -41,13 +41,23 @@ Once it's approved, click "Squash and merge" to publish your changes. Share the 
 
 ## Contributing code
 
+### Need to know
+
+Every contribution must be **design reviewed** and **communicated**.
+
+- **Kaizen Site** changes use `docs: ` at the start of the first commit message and PR title.
+- **Major** component changes use `feat: ` at the start of PR titles. For 1 commit, use `feat: ` in the commit message too.
+- **Minor** component changes use `fix: ` at the start of PR titles. For 1 commit, use `fix: ` in the commit message too.
+- **Breaking changes** that are not backwards compatible use feat or fix as above and include `BREAKING CHANGE: ` in the body of a commit message.
+- **Design token** changes… let's talk about that.
+
 ### Quality and reviews
 
 Every code contribution **must** have:
 
-- A design review from a designer
-- A PR summary that describes the changes and anything others should be aware of
-- Communications: share your new component or changes on Slack or at the Front End Practice meeting
+1. A design review from a designer
+2. Semantic versioning and conventional commit PR titles: see [Releasing packages](#releasing-packages)
+3. Communications: share your new component or changes on Slack and at relevant Front End Practice meetings
 
 Every code contribution **should strive to** have:
 
@@ -56,11 +66,19 @@ Every code contribution **should strive to** have:
 
 To update a component:
 
-- Ask for a review from a design systems advocate (an "advocado"), Design Systems Team, or someone in your team who is experienced with Kaizen*
+- Ask for a review from a design systems advocate (an "advocado"), Design Systems team, or someone in your team who is experienced with Kaizen*
 - Notify the front-end engineering practice (#pract_front_end_eng) of any possible breaking changes
 - Notify the QA practice of any possible breaking changes
 
-\* **If you're new to Kaizen, please ask the Design Systems Team (#team_design_systems) to set up an onboarding session to get you up to speed.** If you have an urgent PR to merge before that happens, it is safest to ask Design Systems Team to review it to catch any issues.
+\* **If you're new to Kaizen, please ask the Design Systems team to set up an onboarding session to get you up to speed.** If you have an urgent PR to merge before that happens, it is safest to ask Design Systems team to review it to catch any issues.
+
+### Design tokens
+
+See the [design tokens](https://github.com/cultureamp/kaizen-design-system/tree/master/packages/generator) package.
+
+### Building a new draft component
+
+See the [draft package generator](https://github.com/cultureamp/kaizen-design-system/tree/master/packages/generator) package.
 
 ### Browser and device support
 
@@ -70,7 +88,7 @@ To learn more about what browsers and devices we support in Kaizen Component Lib
 
 To strengthen the Kaizen Design System, we encourage engineers to take a component-first development approach. By concentrating on developing Kaizen components in Storybook, we are likely to improve the API design and achieve good separation of concerns, avoiding components tightly coupled to specific applications. If, however, you want to test a component in the context of another front-end codebase, you can [yarn link](https://yarnpkg.com/lang/en/docs/cli/link/) your local version of `@kaizen/component-library` with your other front-end codebase.
 
-#### For non-draft components
+#### For core, non-draft components
 
 **Step 1**: Make your local copy of `@kaizen/component-library` available.
 
@@ -168,7 +186,7 @@ Automated releases to the npm public registry are triggered for all pull request
 
 ### Release workflow
 
-To release a new version of a package, create a pull request which...
+To release a new version of a package, create a pull request that:
 
 - Modifies only the package(s) you wish to release ([see below](#updating-multiple-packages))
 - Has a conventional pull request title ([see below](#conventional-commit))

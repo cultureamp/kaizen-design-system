@@ -10,6 +10,7 @@ This document serves to orient you within the repository — to get you set up a
 
 ## Quick links
 
+- [Kaizen Design Tokens README](./packages/design-tokens/README.md)
 - [Kaizen Component Library README](./packages/component-library/README.md)
 - [Kaizen Site README](./site/README.md) (and <https://cultureamp.design>)
 - [Contributing guidelines](./CONTRIBUTING.md)
@@ -48,7 +49,8 @@ To run Storybook locally, run the following from the repository root:
 ```
 yarn storybook
 ```
-(Having trouble running Storybook? Try running `yarn clean` and `yarn install --force`!)
+
+(Having trouble running Storybook? Try running `yarn reset`, which includes `yarn clean` and `yarn install --force`!)
 
 To develop the site locally, please refer to the documentation in [the site package](./site/README.md).
 
@@ -75,10 +77,6 @@ Command | Summary
 
 Please open a new [GitHub Issue](https://github.com/cultureamp/kaizen-design-system/issues/new) to report bugs or suggest changes.
 
-## Maintainers
-
-The design system is maintained by Culture Amp's [Design Systems Team](https://github.com/orgs/cultureamp/teams/design-systems), with tooling and operations support from [Delivery Engineering](https://github.com/orgs/cultureamp/teams/delivery-engineering). :rocket:
-
 ## Learn more
 
-Culture Amp employees can reach out to the Design Systems Team on Slack in the `#team_design_systems` channel.
+Culture Amp employees can reach out to the Design Systems crew on Slack.
