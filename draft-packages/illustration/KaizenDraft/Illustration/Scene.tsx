@@ -202,6 +202,14 @@ export const KaizenSiteBrand = (props: SceneProps) => (
   <Base {...props} name="illustrations/scene/kaizen-site-brand.svg" />
 )
 
+export const KaizenSiteLanguageAlt = (props: SceneProps) => (
+  <Base {...props} name="illustrations/scene/kaizen-site-language-alt.svg" />
+)
+
+export const KaizenSiteLanguage = (props: SceneProps) => (
+  <Base {...props} name="illustrations/scene/kaizen-site-language.svg" />
+)
+
 export const KaizenSitePrinciples = (props: SceneProps) => (
   <Base {...props} name="illustrations/scene/kaizen-site-principles.svg" />
 )

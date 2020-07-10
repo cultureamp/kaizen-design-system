@@ -19,6 +19,8 @@ import {
   IntroductionsPerformance,
   KaizenSiteBrand,
   KaizenSiteBrandAlt,
+  KaizenSiteLanguage,
+  KaizenSiteLanguageAlt,
   KaizenSitePrinciples,
   KaizenSitePrinciplesAlt,
   KaizenSiteProduct,
@@ -373,6 +375,20 @@ export const KaizenSiteBrandStory = () => (
   </div>
 )
 KaizenSiteBrandStory.story = { name: "Kaizen Site: Brand" }
+
+export const KaizenSiteLanguageAltStory = () => (
+  <div style={{ width: "500px" }}>
+    <KaizenSiteLanguageAlt alt="" />
+  </div>
+)
+KaizenSiteLanguageAltStory.story = { name: "Kaizen Site: Language Alt" }
+
+export const KaizenSiteLanguageStory = () => (
+  <div style={{ width: "500px" }}>
+    <KaizenSiteLanguage alt="" />
+  </div>
+)
+KaizenSiteLanguageStory.story = { name: "Kaizen Site: Language" }
 
 export const KaizenSitePrinciplesStory = () => (
   <div style={{ width: "500px" }}>
