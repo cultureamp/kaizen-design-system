@@ -46,8 +46,8 @@ Once it's approved, click "Squash and merge" to publish your changes. Share the 
 Every contribution must be **design reviewed** and **communicated**.
 
 - **Kaizen Site** changes use `docs: ` at the start of the first commit message and PR title.
-- **Major** component changes use `feat: ` at the start of PR titles. For 1 commit, use `feat: ` in the commit message too.
-- **Minor** component changes use `fix: ` at the start of PR titles. For 1 commit, use `fix: ` in the commit message too.
+- **New features** in components use `feat: ` at the start of PR titles. For 1 commit, use `feat: ` in the commit message too.
+- **Fixes** in components use `fix: ` at the start of PR titles. For 1 commit, use `fix: ` in the commit message too.
 - **Breaking changes** that are not backwards compatible use feat or fix as above and include `BREAKING CHANGE: ` in the body of a commit message.
 - **Design token** changes… let's talk about that.
 
@@ -64,9 +64,9 @@ Every code contribution **should strive to** have:
 - Basic level of unit tests
 - New or updated Storybook stories
 
-To update a component:
+To update a component in code:
 
-- Ask for a review from a design systems advocate (an "advocado"), Design Systems team, or someone in your team who is experienced with Kaizen*
+- Ask for a code review from a design systems advocate (an "advocado"), Design Systems team, or someone in your team who is experienced with Kaizen*
 - Notify the front-end engineering practice (#pract_front_end_eng) of any possible breaking changes
 - Notify the QA practice of any possible breaking changes
 
