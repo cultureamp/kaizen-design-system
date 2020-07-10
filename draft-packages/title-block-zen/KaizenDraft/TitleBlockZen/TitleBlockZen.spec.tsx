@@ -12,7 +12,7 @@ configure({
 afterEach(() => cleanup())
 
 describe("<TitleBlockZen />", () => {
-  describe("when the primary action is a button with an href", () => {
+  describe("when the primary action is a button with only an href", () => {
     const primaryActionAsLink = {
       label: "primaryActionLabel",
       href: "primaryActionHref",
@@ -41,7 +41,7 @@ describe("<TitleBlockZen />", () => {
     })
   })
 
-  describe("when the primary action is a button with an onClick", () => {
+  describe("when the primary action is a button with only an onClick", () => {
     const testOnClickFn = jest.fn()
     const primaryActionAsButton = {
       label: "primaryActionLabel",
@@ -72,6 +72,79 @@ describe("<TitleBlockZen />", () => {
       expect(btn.textContent).toEqual("primaryActionLabel")
       fireEvent.click(btn)
       expect(testOnClickFn).toHaveBeenCalled()
+    })
+  })
+
+  describe("when the primary action is disabled", () => {
+    const testOnClickFn = jest.fn()
+    const primaryActionAsButton = {
+      label: "primaryActionLabel",
+      onClick: testOnClickFn,
+      disabled: true,
+      primary: true,
+    }
+    const primaryActionAsLink = {
+      label: "primaryActionLabel",
+      href: "primaryActionHref",
+      disabled: true,
+      primary: true,
+    }
+
+    it("renders a disabled primary action button", () => {
+      const { getByTestId } = render(
+        <TitleBlockZen title="Test Title" primaryAction={primaryActionAsButton}>
+          Example
+        </TitleBlockZen>
+      )
+      const btn = getByTestId(
+        "title-block-primary-action-button"
+      ) as HTMLButtonElement
+      expect(btn.textContent).toEqual("primaryActionLabel")
+      expect(btn.disabled).toBeTruthy()
+      fireEvent.click(btn)
+      expect(testOnClickFn).not.toHaveBeenCalled()
+    })
+
+    it("renders a disabled primary action link button", () => {
+      const { getByTestId } = render(
+        <TitleBlockZen title="Test Title" primaryAction={primaryActionAsLink}>
+          Example
+        </TitleBlockZen>
+      )
+      const btn = getByTestId(
+        "title-block-primary-action-button"
+      ) as HTMLButtonElement
+      expect(btn.textContent).toEqual("primaryActionLabel")
+      expect(btn.getAttribute("href")).not.toEqual("primaryActionHref")
+    })
+
+    it("creates a mobile actions primary button with disabled styles and no onClick", () => {
+      const { getByTestId } = render(
+        <TitleBlockZen title="Test Title" primaryAction={primaryActionAsButton}>
+          Example
+        </TitleBlockZen>
+      )
+
+      const btn = getByTestId(
+        "title-block-mobile-actions-primary-button"
+      ) as HTMLButtonElement
+      expect(btn.textContent).toEqual("primaryActionLabel")
+      fireEvent.click(btn)
+      expect(testOnClickFn).not.toHaveBeenCalled()
+    })
+
+    it("creates a mobile actions primary button with disabled styles and no href", () => {
+      const { getByTestId } = render(
+        <TitleBlockZen title="Test Title" primaryAction={primaryActionAsLink}>
+          Example
+        </TitleBlockZen>
+      )
+
+      const btn = getByTestId(
+        "title-block-mobile-actions-primary-button"
+      ) as HTMLButtonElement
+      expect(btn.textContent).toEqual("primaryActionLabel")
+      expect(btn.getAttribute("href")).not.toEqual("primaryActionHref")
     })
   })
 
@@ -157,7 +230,7 @@ describe("<TitleBlockZen />", () => {
     })
   })
 
-  describe("when the default action is a button with an href", () => {
+  describe("when the default action is a button with only an href", () => {
     const defaultActionAsLink = {
       label: "defaultActionLabel",
       href: "defaultActionHref",
@@ -199,7 +272,7 @@ describe("<TitleBlockZen />", () => {
     })
   })
 
-  describe("when the default action is a button with an onClick", () => {
+  describe("when the default action is a button with only an onClick", () => {
     const testOnClickFn = jest.fn()
     const defaultActionAsButton = {
       label: "defaultActionLabel",
@@ -270,7 +343,7 @@ describe("<TitleBlockZen />", () => {
     })
 
     it("creates a single mobile actions default link menu item with both href and onClick", () => {
-      const { getByTestId } = render(
+      const { getByTestId, queryByTestId } = render(
         <TitleBlockZen
           title="Test Title"
           defaultAction={defaultActionAsLinkAndOnClick}
@@ -280,7 +353,7 @@ describe("<TitleBlockZen />", () => {
       )
 
       const menuItem = getByTestId("title-block-mobile-actions-default-link")
-      const defaultAction = getByTestId(
+      const defaultAction = queryByTestId(
         "title-block-mobile-actions-default-action"
       )
       expect(defaultAction).toBeFalsy()
@@ -288,6 +361,221 @@ describe("<TitleBlockZen />", () => {
       expect(menuItem.textContent).toEqual("defaultActionLabel")
       fireEvent.click(menuItem)
       expect(testOnClickFn).toHaveBeenCalled()
+    })
+  })
+
+  describe("when the default action is disabled", () => {
+    const testOnClickFn = jest.fn()
+    const defaultActionAsButton = {
+      label: "defaultActionLabel",
+      onClick: testOnClickFn,
+      disabled: true,
+    }
+    const defaultActionAsLink = {
+      label: "defaultActionLabel",
+      href: "defaultActionHref",
+      disabled: true,
+    }
+
+    it("renders a disabled default action button", () => {
+      const { getByTestId } = render(
+        <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
+          Example
+        </TitleBlockZen>
+      )
+      const btn = getByTestId(
+        "title-block-default-action-button"
+      ) as HTMLButtonElement
+      expect(btn.textContent).toEqual("defaultActionLabel")
+      expect(btn.disabled).toBeTruthy()
+      fireEvent.click(btn)
+      expect(testOnClickFn).not.toHaveBeenCalled()
+    })
+
+    it("renders a disabled default action link button", () => {
+      const { getByTestId } = render(
+        <TitleBlockZen title="Test Title" defaultAction={defaultActionAsLink}>
+          Example
+        </TitleBlockZen>
+      )
+      const btn = getByTestId(
+        "title-block-default-action-button"
+      ) as HTMLButtonElement
+      expect(btn.textContent).toEqual("defaultActionLabel")
+      expect(btn.getAttribute("href")).not.toEqual("defaultActionHref")
+    })
+
+    it("creates a mobile actions default action menu item with disabled styles and no onClick", () => {
+      const { getByTestId } = render(
+        <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
+          Example
+        </TitleBlockZen>
+      )
+
+      const btn = getByTestId(
+        "title-block-mobile-actions-default-action"
+      ) as HTMLButtonElement
+      expect(btn.textContent).toEqual("defaultActionLabel")
+      fireEvent.click(btn)
+      expect(testOnClickFn).not.toHaveBeenCalled()
+    })
+
+    it("creates a mobile actions default link menu item with disabled styles and no href", () => {
+      const { getByTestId } = render(
+        <TitleBlockZen title="Test Title" defaultAction={defaultActionAsLink}>
+          Example
+        </TitleBlockZen>
+      )
+
+      const btn = getByTestId(
+        "title-block-mobile-actions-default-link"
+      ) as HTMLButtonElement
+      expect(btn.textContent).toEqual("defaultActionLabel")
+      expect(btn.getAttribute("href")).not.toEqual("defaultActionHref")
+    })
+  })
+
+  describe("when a secondary action is passed with both an href and an onClick", () => {
+    const testOnClickFn = jest.fn()
+
+    const secondaryActionWithLinkAndOnClick = {
+      label: "secondaryActionLabel",
+      href: "secondaryActionHref",
+      onClick: testOnClickFn,
+    }
+    jest.spyOn(global.console, "warn")
+
+    it("renders the secondary action with both the href and onClick", () => {
+      const { getByTestId } = render(
+        <TitleBlockZen
+          title="Test Title"
+          secondaryActions={[secondaryActionWithLinkAndOnClick]}
+        >
+          Example
+        </TitleBlockZen>
+      )
+      const btn = getByTestId("title-block-secondary-actions-button")
+      expect(btn).toBeTruthy()
+      // eslint-disable-next-line no-console
+      expect(console.warn).toBeCalled()
+      expect(btn.textContent).toEqual("secondaryActionLabel")
+      expect(btn.getAttribute("href")).toEqual("secondaryActionHref")
+      fireEvent.click(btn)
+      expect(testOnClickFn).toHaveBeenCalled()
+    })
+
+    it("renders the action as a single mobile actions drawer item with an onClick", () => {
+      const { getAllByTestId } = render(
+        <TitleBlockZen
+          title="Test Title"
+          secondaryActions={[secondaryActionWithLinkAndOnClick]}
+        >
+          Example
+        </TitleBlockZen>
+      )
+      const btn = getAllByTestId("title-block-mobile-actions-secondary-action")
+      expect(btn.length).toEqual(1)
+      expect(btn[0].getAttribute("href")).not.toEqual("secondaryActionHref")
+      fireEvent.click(btn[0])
+      expect(testOnClickFn).toHaveBeenCalled()
+    })
+  })
+
+  describe("when a secondary action is passed with only an href", () => {
+    const testOnClickFn = jest.fn()
+
+    const secondaryActionWithLinkAndOnClick = {
+      label: "secondaryActionLabel",
+      href: "secondaryActionHref",
+    }
+
+    it("renders the action as a single mobile actions drawer item with the correct href", () => {
+      const { getAllByTestId } = render(
+        <TitleBlockZen
+          title="Test Title"
+          secondaryActions={[secondaryActionWithLinkAndOnClick]}
+        >
+          Example
+        </TitleBlockZen>
+      )
+      const btn = getAllByTestId("title-block-mobile-actions-secondary-action")
+      expect(btn.length).toEqual(1)
+      expect(btn[0].getAttribute("href")).toEqual("secondaryActionHref")
+    })
+  })
+
+  describe("when a disabled secondary action is passed with only an href", () => {
+    const secondaryActionWithLink = {
+      label: "secondaryActionLabel",
+      href: "secondaryActionHref",
+      disabled: true,
+    }
+
+    it("renders the action as a single disabled mobile actions drawer item with no href", () => {
+      const { getAllByTestId } = render(
+        <TitleBlockZen
+          title="Test Title"
+          secondaryActions={[secondaryActionWithLink]}
+        >
+          Example
+        </TitleBlockZen>
+      )
+      const btn = getAllByTestId("title-block-mobile-actions-secondary-action")
+      expect(btn.length).toEqual(1)
+      expect(btn[0].getAttribute("href")).not.toEqual("secondaryActionHref")
+    })
+  })
+
+  describe("when a disabled secondary action is passed with only an onClick", () => {
+    const testOnClickFn = jest.fn()
+
+    const secondaryActionWithOnClick = {
+      label: "secondaryActionLabel",
+      onClick: "secondaryActionHref",
+      disabled: true,
+    }
+
+    it("renders the action as a single disabled mobile actions drawer item with no onClick", () => {
+      const { getAllByTestId } = render(
+        <TitleBlockZen
+          title="Test Title"
+          secondaryActions={[secondaryActionWithOnClick]}
+        >
+          Example
+        </TitleBlockZen>
+      )
+      const btn = getAllByTestId("title-block-mobile-actions-secondary-action")
+      expect(btn.length).toEqual(1)
+      fireEvent.click(btn[0])
+      expect(testOnClickFn).not.toHaveBeenCalled()
+    })
+  })
+
+  describe("when a disabled secondary overflow menu item is passed with only an onClick for the action", () => {
+    const testOnClickFn = jest.fn()
+
+    const secondaryOverflowMenuItemWithOnClick = {
+      label: "secondaryActionOverflowMenuItemLabel",
+      action: testOnClickFn,
+      disabled: true,
+    }
+
+    it("renders the action as a single disabled mobile actions drawer item with no onClick", () => {
+      const { getAllByTestId } = render(
+        <TitleBlockZen
+          title="Test Title"
+          secondaryActions={[]}
+          secondaryOverflowMenuItems={[secondaryOverflowMenuItemWithOnClick]}
+        >
+          Example
+        </TitleBlockZen>
+      )
+      const btn = getAllByTestId(
+        "title-block-mobile-actions-overflow-menu-item"
+      )
+      expect(btn.length).toEqual(1)
+      fireEvent.click(btn[0])
+      expect(testOnClickFn).not.toHaveBeenCalled()
     })
   })
 })

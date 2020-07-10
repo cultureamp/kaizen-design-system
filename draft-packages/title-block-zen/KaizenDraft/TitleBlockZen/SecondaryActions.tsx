@@ -1,7 +1,7 @@
 import { Button, IconButton } from "@kaizen/draft-button"
-import { Menu, MenuContent, MenuItem, MenuItemProps } from "@kaizen/draft-menu"
+import { Menu, MenuContent, MenuItem } from "@kaizen/draft-menu"
 import * as React from "react"
-import { isMenuGroupNotButton, SecondaryActionsProps } from "./TitleBlockZen"
+import { SecondaryActionsProps, TitleBlockMenuItemProps } from "./TitleBlockZen"
 import Toolbar from "./Toolbar"
 const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
@@ -12,15 +12,15 @@ const styles = require("./TitleBlockZen.scss")
 
 type Props = {
   secondaryActions?: SecondaryActionsProps
-  secondaryOverflowMenuItems?: MenuItemProps[]
+  secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
   reversed?: boolean
 }
 
 const renderSecondaryOverflowMenu = (
-  secondaryOverflowMenuItems?: MenuItemProps[],
+  secondaryOverflowMenuItems?: TitleBlockMenuItemProps[],
   reversed?: boolean
 ) => {
-  if (!secondaryOverflowMenuItems) return null
+  if (!secondaryOverflowMenuItems) return undefined
   return (
     <Menu
       align="right"
@@ -40,12 +40,12 @@ const SecondaryActions = ({
   secondaryOverflowMenuItems,
   reversed = false,
 }: Props) => {
-  if (!secondaryActions && !secondaryOverflowMenuItems) return null
+  if (!secondaryActions && !secondaryOverflowMenuItems) return <></>
 
   let toolbarItems
   if (secondaryActions) {
     toolbarItems = secondaryActions.map(a => {
-      if (isMenuGroupNotButton(a)) {
+      if ("menuItems" in a) {
         return (
           <Menu
             align="right"
@@ -67,7 +67,21 @@ const SecondaryActions = ({
           </Menu>
         )
       } else {
-        return <Button secondary reversed={reversed} {...a} />
+        if ("onClick" in a && "href" in a) {
+          // eslint-disable-next-line no-console
+          console.warn(
+            "\u001b[33m \nTITLE BLOCK WARNING:\nSecondary actions only support " +
+              "either an href or an onClick, not both simultaneously.\n"
+          )
+        }
+        return (
+          <Button
+            secondary
+            reversed={reversed}
+            {...a}
+            automationId="title-block-secondary-actions-button"
+          />
+        )
       }
     })
   }
@@ -76,7 +90,7 @@ const SecondaryActions = ({
     secondaryOverflowMenuItems,
     reversed
   )
-  if (overflowMenu !== null) {
+  if (overflowMenu) {
     toolbarItems = [...toolbarItems, overflowMenu]
   }
 
