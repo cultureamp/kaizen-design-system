@@ -32,7 +32,7 @@ const Footer: React.SFC<FooterProps> = ({
           <a href="https://cultureamp.com" className={styles.logoLink}>
             <Icon
               icon={companyLogo}
-              title="Culture Amp"
+              title="Culture Amp site"
               desc="Link to Culture Amp site"
               role="img"
             />
