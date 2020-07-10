@@ -27,6 +27,8 @@ import {
   KaizenSiteProductAlt,
   KaizenSiteResources,
   KaizenSiteResourcesAlt,
+  ManagerLabFourWeekCycle,
+  ManagerLabScheduling,
   ManagerLearningCoaching,
   ManagerLearningFeedback,
   ManagerLearningManagerHub,
@@ -283,6 +285,20 @@ export const PerformanceCompanySettingsStory = () => (
 PerformanceCompanySettingsStory.story = {
   name: "Performance: Company Settings",
 }
+
+export const ManagerLabFourWeekCycleStory = () => (
+  <div style={{ width: "500px" }}>
+    <ManagerLabFourWeekCycle alt="" />
+  </div>
+)
+ManagerLabFourWeekCycleStory.story = { name: "Manager Lab: 4 week cycle" }
+
+export const ManagerLabSchedulingStory = () => (
+  <div style={{ width: "500px" }}>
+    <ManagerLabScheduling alt="" />
+  </div>
+)
+ManagerLabSchedulingStory.story = { name: "Manager Lab: Scheduling" }
 
 export const ManagerLearningManagerHubStory = () => (
   <div style={{ width: "500px" }}>
