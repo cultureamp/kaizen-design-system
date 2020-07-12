@@ -109,15 +109,11 @@ export type SecondaryActionsProps = Array<MenuGroup | ButtonWithOnClickOrHref>
 
 export const isMenuItemNotButton = (
   value: ButtonWithOnClickOrHref | MenuItemProps
-): value is MenuItemProps => {
-  return value.hasOwnProperty("action")
-}
+): value is MenuItemProps => value.hasOwnProperty("action")
 
 export const isMenuGroupNotButton = (
   value: ButtonWithOnClickOrHref | MenuGroup
-): value is MenuGroup => {
-  return value.hasOwnProperty("menuItems")
-}
+): value is MenuGroup => value.hasOwnProperty("menuItems")
 
 export type Variant = "admin" | "education" // the default is wisteria bg (AKA "reporting")
 
@@ -219,17 +215,15 @@ const renderBreadcrumb = (
 
 // We want to accept undefined here because the NavigationTabs container is
 // important for the flex-based layout (it pushes Secondary Actions over to the right)
-const renderNavigationTabs = (navigationTabs: NavigationTabs | undefined) => {
-  return (
-    <div className={styles.navigationTabScrollerContainer}>
-      <div className={styles.navigationTabsContainer}>
-        <span className={styles.navigationTabEdgeShadowLeft} />
-        {navigationTabs}
-        <span className={styles.navigationTabEdgeShadowRight} />
-      </div>
+const renderNavigationTabs = (navigationTabs: NavigationTabs | undefined) => (
+  <div className={styles.navigationTabScrollerContainer}>
+    <div className={styles.navigationTabsContainer}>
+      <span className={styles.navigationTabEdgeShadowLeft} />
+      {navigationTabs}
+      <span className={styles.navigationTabEdgeShadowRight} />
     </div>
-  )
-}
+  </div>
+)
 
 const isReversed = (variant: Variant | undefined): boolean => {
   // The default variant (no variant prop) is reversed (dark background)
@@ -373,8 +367,9 @@ const TitleBlockZen = ({
           [styles.hasSubtitle]: Boolean(subtitle),
           [styles.educationVariant]: variant === "education",
           [styles.adminVariant]: variant === "admin",
-          [styles.hasLongTitle]: title.length >= 30,
-          [styles.hasLongSubtitle]: subtitle && subtitle.length >= 34,
+          [styles.hasAvatar]: Boolean(avatar),
+          [styles.hasLongTitle]: title && title.length >= 30,
+          [styles.hasLongSubtitle]: subtitle && subtitle.length >= 18,
           [styles.hasNavigationTabs]:
             navigationTabs && navigationTabs.length > 0,
         })}

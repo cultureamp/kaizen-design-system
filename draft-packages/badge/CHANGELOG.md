@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-badge@1.1.1...@kaizen/draft-badge@1.1.2) (2020-07-09)
+
+
+### Bug Fixes
+
+* Replace the sized-bold values with the new variant ([#627](https://github.com/cultureamp/kaizen-design-system/issues/627)) ([4d98ecd](https://github.com/cultureamp/kaizen-design-system/commit/4d98ecdd022ee547ca3b24e568d09f10f34021af))
+
+
+
+
+
 ## [1.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-badge@1.1.0...@kaizen/draft-badge@1.1.1) (2020-07-03)
 
 

@@ -309,7 +309,9 @@ Engagement.story = {
 
 export const Performance = () => (
   <TitleBlockZen
-    title="Blanca Wheeler Wheeler Wheeler Wheeler Wheeler Wheeler"
+    title="Blanca Wheeler"
+    subtitle="Director of Stuff and Things"
+    avatar={<img alt="avatar image" src={assetUrl("site/empty-state.png")} />}
     primaryAction={{
       href: "#",
       label: "Request feedback",
@@ -347,8 +349,6 @@ export const Performance = () => (
         alert("breadcrumb clicked!")
       },
     }}
-    avatar={<img alt="avatar image" src={assetUrl("site/empty-state.png")} />}
-    subtitle="Director of Stuff and Things"
     navigationTabs={[
       <NavigationTab text="Feedback" href="#" active />,
       <NavigationTab
@@ -372,6 +372,7 @@ Performance.story = {
 export const LongLabels = () => (
   <TitleBlockZen
     title="Wolfeschlegelsteino Hausenbergerdorffsch Hausenbergerdorffsch"
+    surveyStatus={{ text: "Live", status: "live" }}
     primaryAction={{
       label: "Feedback anfordern",
       reversed: true,

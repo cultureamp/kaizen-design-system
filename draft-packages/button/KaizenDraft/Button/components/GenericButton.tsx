@@ -4,7 +4,7 @@ import * as React from "react"
 
 const styles = require("./GenericButton.module.scss")
 
-type GenericProps = {
+export type GenericProps = {
   id?: string
   label: string
   destructive?: boolean
@@ -21,12 +21,18 @@ type GenericProps = {
   fullWidth?: boolean
   disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean
   analytics?: Analytics
+  ariaControls?: string
   ariaDescribedBy?: string
+  ariaExpanded?: boolean
   onFocus?: (e: React.FocusEvent<HTMLElement>) => void
   onBlur?: (e: React.FocusEvent<HTMLElement>) => void
 }
 
-type LabelProps = {
+export type AdditionalContentProps = {
+  additionalContent?: React.ReactNode
+}
+
+export type LabelProps = {
   iconPosition?: "start" | "end"
   primary?: boolean
   secondary?: boolean
@@ -35,7 +41,7 @@ type LabelProps = {
 
 type Analytics = {
   eventName: string
-  properties: object
+  properties: Record<string, unknown>
 }
 
 export type IconButtonProps = GenericProps
@@ -43,19 +49,17 @@ export type ButtonProps = GenericProps & LabelProps
 
 type Props = ButtonProps & {
   iconButton?: boolean
-}
+} & AdditionalContentProps
 
-const GenericButton: React.FunctionComponent<Props> = props => {
-  return (
-    <span
-      className={classNames(styles.container, {
-        [styles.fullWidth]: props.fullWidth,
-      })}
-    >
-      {props.href && !props.disabled ? renderLink(props) : renderButton(props)}
-    </span>
-  )
-}
+const GenericButton: React.FunctionComponent<Props> = props => (
+  <span
+    className={classNames(styles.container, {
+      [styles.fullWidth]: props.fullWidth,
+    })}
+  >
+    {props.href && !props.disabled ? renderLink(props) : renderButton(props)}
+  </span>
+)
 
 GenericButton.defaultProps = {
   iconPosition: "start",
@@ -75,6 +79,8 @@ const renderButton: React.FunctionComponent<Props> = props => {
     onMouseDown,
     type,
     ariaDescribedBy,
+    ariaExpanded,
+    ariaControls,
     disableTabFocusAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
@@ -98,8 +104,10 @@ const renderButton: React.FunctionComponent<Props> = props => {
       type={type}
       data-automation-id={props.automationId}
       title={label}
-      aria-label={label}
+      aria-controls={ariaControls}
       aria-describedby={ariaDescribedBy}
+      aria-expanded={ariaExpanded}
+      aria-label={label}
       tabIndex={
         disableTabFocusAndIUnderstandTheAccessibilityImplications
           ? -1
@@ -177,6 +185,7 @@ const renderContent: React.FunctionComponent<Props> = props => (
       <span className={styles.label}>{props.label}</span>
     )}
     {props.icon && props.iconPosition === "end" && renderIcon(props.icon)}
+    {props.additionalContent}
   </span>
 )
 

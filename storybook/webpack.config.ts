@@ -145,10 +145,7 @@ const storybookSource: Rule = {
 
 const removeSvgFromTest = (rule: Rule): Rule => {
   if (rule.test && rule.test.toString().includes("svg")) {
-    const test = rule.test
-      .toString()
-      .replace("svg|", "")
-      .replace(/\//g, "")
+    const test = rule.test.toString().replace("svg|", "").replace(/\//g, "")
     return { ...rule, test: new RegExp(test) }
   } else {
     return rule

@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.21...@kaizen/draft-modal@2.5.22) (2020-07-10)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.20...@kaizen/draft-modal@2.5.21) (2020-07-09)
+
+
+### Bug Fixes
+
+* Switch from TSlint to ESlint ([#621](https://github.com/cultureamp/kaizen-design-system/issues/621)) ([59e64d4](https://github.com/cultureamp/kaizen-design-system/commit/59e64d4d0cd14302544ae7f41fd76a101d313aee))
+
+
+
+
+
+## [2.5.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.19...@kaizen/draft-modal@2.5.20) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.18...@kaizen/draft-modal@2.5.19) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.17...@kaizen/draft-modal@2.5.18) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.16...@kaizen/draft-modal@2.5.17) (2020-07-08)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.15...@kaizen/draft-modal@2.5.16) (2020-07-07)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
 ## [2.5.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.14...@kaizen/draft-modal@2.5.15) (2020-07-06)
 
 **Note:** Version bump only for package @kaizen/draft-modal

@@ -48,7 +48,7 @@ describe("<SplitButton />", () => {
       ...defaultSplitButtonProps,
       disabled: true,
     })
-    expect(container.querySelector(`[disabled]`)).toBeTruthy()
+    expect(container.querySelector("[disabled]")).toBeTruthy()
   })
 
   it("should render a `data-automation-id` attribute", () => {
@@ -64,7 +64,7 @@ describe("<SplitButton />", () => {
     const { container } = renderSplitButton()
     expect(
       container.querySelector(
-        `button[data-automation-id="split-button-button"]`
+        'button[data-automation-id="split-button-button"]'
       )
     ).toBeTruthy()
   })
@@ -75,7 +75,7 @@ describe("<SplitButton />", () => {
       href: "//example.com",
     })
     expect(
-      container.querySelector(`a[data-automation-id="split-button-button"]`)
+      container.querySelector('a[data-automation-id="split-button-button"]')
     ).toBeTruthy()
   })
 })

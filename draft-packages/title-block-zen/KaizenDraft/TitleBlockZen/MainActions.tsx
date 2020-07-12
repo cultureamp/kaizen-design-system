@@ -34,12 +34,23 @@ const MainActions = ({
     const menuContent = (
       <MenuContent>
         {primaryAction.menuItems.map((item, idx) => (
-          <MenuItem {...item} key={`main-action-primary-${idx}`} />
+          <MenuItem
+            {...item}
+            key={`main-action-primary-menu-item-${idx}`}
+            automationId={`main-action-primary-menu-item-${idx}`}
+          />
         ))}
       </MenuContent>
     )
     items = [
-      ...(defaultAction ? [<Button {...defaultAction} />] : []),
+      ...(defaultAction
+        ? [
+            <Button
+              {...defaultAction}
+              automationId="title-block-default-action-button"
+            />,
+          ]
+        : []),
       ...(primaryAction
         ? [
             <Menu
@@ -51,6 +62,7 @@ const MainActions = ({
                   reversed={reversed}
                   icon={chevronDownIcon}
                   iconPosition="end"
+                  automationId="title-block-primary-action-button"
                 />
               }
             >
@@ -61,8 +73,22 @@ const MainActions = ({
     ]
   } else {
     items = [
-      ...(defaultAction ? [<Button {...defaultAction} />] : []),
-      ...(primaryAction ? [<Button {...primaryAction} />] : []),
+      ...(defaultAction
+        ? [
+            <Button
+              {...defaultAction}
+              automationId="title-block-default-action-button"
+            />,
+          ]
+        : []),
+      ...(primaryAction
+        ? [
+            <Button
+              {...primaryAction}
+              automationId="title-block-primary-action-button"
+            />,
+          ]
+        : []),
     ]
   }
 
@@ -76,7 +102,10 @@ const MainActions = ({
       >
         <MenuContent>
           {overflowMenuItems.map((menuItem, idx) => (
-            <MenuItem {...menuItem} key={`main-action-overflow-item-${idx}`} />
+            <MenuItem
+              {...menuItem}
+              key={`main-action-overflow-item-menu-item-${idx}`}
+            />
           ))}
         </MenuContent>
       </Menu>,

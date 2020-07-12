@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.9...@kaizen/draft-title-block-zen@1.6.10) (2020-07-10)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [1.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.8...@kaizen/draft-title-block-zen@1.6.9) (2020-07-09)
+
+
+### Bug Fixes
+
+* Switch from TSlint to ESlint ([#621](https://github.com/cultureamp/kaizen-design-system/issues/621)) ([59e64d4](https://github.com/cultureamp/kaizen-design-system/commit/59e64d4d0cd14302544ae7f41fd76a101d313aee))
+
+
+
+
+
+## [1.6.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.7...@kaizen/draft-title-block-zen@1.6.8) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [1.6.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.6...@kaizen/draft-title-block-zen@1.6.7) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [1.6.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.5...@kaizen/draft-title-block-zen@1.6.6) (2020-07-09)
+
+
+### Bug Fixes
+
+* Add basic tests for TitleBlockZen ([#631](https://github.com/cultureamp/kaizen-design-system/issues/631)) ([791871a](https://github.com/cultureamp/kaizen-design-system/commit/791871a9f73d77b2588b75db7bd8e5a577504135))
+
+
+
+
+
+## [1.6.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.4...@kaizen/draft-title-block-zen@1.6.5) (2020-07-08)
+
+
+### Bug Fixes
+
+* Fix subtitle and tag bug in Title Block ([#625](https://github.com/cultureamp/kaizen-design-system/issues/625)) ([4ba5521](https://github.com/cultureamp/kaizen-design-system/commit/4ba55219dfdbd0021daa51aa49c745cff2be5eea))
+
+
+
+
+
 ## [1.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.3...@kaizen/draft-title-block-zen@1.6.4) (2020-07-06)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen

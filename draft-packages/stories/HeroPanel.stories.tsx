@@ -39,8 +39,8 @@ export const Default = () => (
     }}
     text={{
       title: "Try out the improved navigation experience",
-      description:
-        "We’ve made it easier to navigate between the Engagement and Performance products. Learn more about this improvement.",
+      description: `We’ve made it easier to navigate between the Engagement and Performance products.
+        Learn more about this improvement.`,
     }}
   />
 )

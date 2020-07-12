@@ -101,7 +101,7 @@ $tab-container-height-small: $ca-grid * 2.5;
       max-width: 520px;
     }
 
-    @include title-block-medium-and-small {
+    @include title-block-under-1366 {
       max-width: 50vw;
     }
 
@@ -159,7 +159,6 @@ $tab-container-height-small: $ca-grid * 2.5;
       flex-direction: column;
       justify-content: space-between;
       transform: translateY($ca-grid / 3);
-      // max-width: 42vw;
 
       .hasLongTitle.hasLongSubtitle & {
         align-items: baseline;
@@ -167,12 +166,7 @@ $tab-container-height-small: $ca-grid * 2.5;
     }
 
     @include title-block-medium-and-small {
-      // max-width: 42vw;
       transform: translateY($ca-grid / 2);
-    }
-
-    @include title-block-small {
-      // max-width: 88vw;
     }
   }
 }
@@ -233,16 +227,14 @@ $tab-container-height-small: $ca-grid * 2.5;
     max-width: 100%;
   }
 
-  @include title-block-under-1366 {
+  @media (min-width: $kz-layout-breakpoints-large) {
     display: block;
   }
 
-  @include title-block-medium-and-small {
-    display: none;
-  }
-
-  .hasSubtitle & {
-    transform: translateY(10px);
+  .hasSubtitle.hasAvatar & {
+    @include title-block-under-1366 {
+      transform: translateY(10px);
+    }
   }
 
   .hasLongTitle & {
@@ -290,7 +282,7 @@ $tab-container-height-small: $ca-grid * 2.5;
   font-size: $kz-typography-paragraph-small-font-size;
   line-height: $kz-typography-paragraph-small-line-height;
   letter-spacing: $kz-typography-paragraph-small-letter-spacing;
-  width: 230px;
+  max-width: 230px;
 
   @include ca-margin($start: $ca-grid / 2);
 
@@ -298,7 +290,7 @@ $tab-container-height-small: $ca-grid * 2.5;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    width: auto;
+    max-width: none;
     margin: ($ca-grid / 5) 0;
   }
 }
@@ -395,16 +387,52 @@ $tab-container-height-small: $ca-grid * 2.5;
   .breadcrumb:focus + & {
     opacity: 0;
 
+    /* Unfortunately since the avatar, subtitle and length of the
+     * subtitle can all affect the height of the content area here,
+     * we have some fragile hacks to cover each combination.
+     * The subtitle needs to wrap if long, and is vertically centred
+     * instead of positioned along the same baseline as the title,
+     * which is what it does when short. This all adds to the complexity
+     * and we made a call to meet the design requirements under a
+     * deadline instead of exploring a less fragile solution.
+     * (A better solution might involve behaviour where this element that
+     * fades out retains its visual space à la `visibility: hidden`.)
+     */
     @include title-block-under-1645 {
       left: $breadcrumb-circle-width + 12px;
-      transform: translateY(2px);
       position: absolute;
+      transform: translateY(2px);
+
+      .hasAvatar & {
+        transform: translateY(0);
+      }
+
+      .hasSubtitle & {
+        transform: translateY(2px);
+      }
+
+      .hasAvatar.hasSubtitle & {
+        transform: translateY(0);
+      }
+
+      .hasSubtitle.hasLongTitle & {
+        transform: translateY(2px);
+      }
     }
 
     @include title-block-under-1366 {
       transform: translateY(4px);
 
+      .hasAvatar & {
+        transform: translateY(0);
+      }
       .hasSubtitle & {
+        transform: translateY(-10px);
+      }
+      .hasAvatar.hasSubtitle & {
+        transform: translateY(-10px);
+      }
+      .hasSubtitle.hasLongTitle & {
         transform: translateY(-4px);
       }
     }
@@ -499,6 +527,11 @@ $tab-container-height-small: $ca-grid * 2.5;
 .mainActionsContainer {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  flex-basis: 480px;
+  flex-grow: 1;
+  flex-shrink: 1;
+
   @include ca-margin($start: $ca-grid / 2);
 
   @include title-block-small {
@@ -509,9 +542,9 @@ $tab-container-height-small: $ca-grid * 2.5;
 .secondaryActionsContainer {
   display: flex;
   align-items: flex-start;
+  justify-content: flex-end;
   padding: ($ca-grid / 2) 0;
   @include ca-margin($start: $ca-grid * 1.5);
-  flex-shrink: 0;
 
   // To be removed eventually – the Dropdown does not
   // currently set its own color, and we want it

@@ -14,25 +14,23 @@ type Props = {
   reversed: boolean
 }
 
-const NavigationButtons = (props: Props) => {
-  return (
-    <React.Fragment>
-      {props.navigationButtons.map(b => (
-        <a
-          className={classNames({
-            [styles.reversed]: props.reversed,
-            [styles.button]: !b.active,
-            [styles.activeButton]: b.active,
-          })}
-          href={b.path}
-          key={b.buttonText}
-        >
-          {b.buttonText}
-        </a>
-      ))}
-    </React.Fragment>
-  )
-}
+const NavigationButtons = (props: Props) => (
+  <React.Fragment>
+    {props.navigationButtons.map(b => (
+      <a
+        className={classNames({
+          [styles.reversed]: props.reversed,
+          [styles.button]: !b.active,
+          [styles.activeButton]: b.active,
+        })}
+        href={b.path}
+        key={b.buttonText}
+      >
+        {b.buttonText}
+      </a>
+    ))}
+  </React.Fragment>
+)
 
 NavigationButtons.defaultProps = {
   reversed: false,

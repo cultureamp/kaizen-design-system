@@ -15,8 +15,8 @@ import {
 } from "../components/SidebarAndContent"
 import { sortSidebarTabs, stripTrailingSlash } from "./util"
 
-const renderSidebarTabs = (pages, currentPath, sectionName) => {
-  return pages.map((node, i) => (
+const renderSidebarTabs = (pages, currentPath, sectionName) =>
+  pages.map((node, i) => (
     <SidebarTab
       href={node!.node!.fields!.slug}
       active={
@@ -28,7 +28,6 @@ const renderSidebarTabs = (pages, currentPath, sectionName) => {
       {node!.node!.frontmatter!.navTitle}
     </SidebarTab>
   ))
-}
 
 export default ({ data, pageContext, location }) => {
   const md = data.mdx

@@ -11,6 +11,10 @@ needToKnow:
   - "Link content opens in a new tab only when absolutely necessary. A new tab can be disorienting. If we need to open something in a new tab, we must use an “Opens in a new tab” tooltip to set expectations and minimize disorientation."
 ---
 
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
 ## To keep in mind
 
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D258%253A2389" allowfullscreen></iframe>
@@ -54,21 +58,24 @@ See this [InVision project](https://cultureamp.invisionapp.com/share/FXNQYLFUHSJ
 - be consistent across the platform,
 - be flexible to different scenarios.
 
-### When to use
+### When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 - You’re in the middle of a Workflow or Form where opening something in the current tab would result in data loss or lost progress.
-
 - You’re currently playing media that would be interrupted.
-
 - It’s a mailto: link that will open the user’s preferred mail client.
 
-### When not to use
+</WhenToUse>
+<WhenNotToUse>
 
 - Avoid "Opens in new tab" tooltip on a link to a PDF.
-
 - Avoid "Opens in new tab" tooltip on an infinite-scrolling page.
-
 - Avoid "Opens in new tab" tooltip on a link to an ‘external’ website.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ### Keep in mind
 
@@ -90,10 +97,10 @@ For [tooltips](/components/tooltip) in general, they must appropriately respond 
 
 ### See also
 
-*   [Button](/components/button).
-*   [Typography](/guidelines/typography).
-*   [Icon Button](/components/icon-button).
-*   [Tooltips](/components/tooltip).
+*   [Button](/components/button)
+*   [Typography](/guidelines/typography)
+*   [Icon Button](/components/icon-button)
+*   [Tooltips](/components/tooltip)
 
 
 ### Research Insights
@@ -106,14 +113,14 @@ We’ve seen customers frustrated about Academy articles NOT opening in a new ta
 
 Here are some examples of other existing design systems:
 
-- [Lightning: button](https://www.lightningdesignsystem.com/components/buttons/#site-main-content).
-- [Polaris: link](https://polaris.shopify.com/components/navigation/link).
-- [Polaris: button](https://polaris.shopify.com/components/actions/button).
-- [Material: buttons](https://material.io/design/components/buttons.html#).
-- [Material: button component](https://material.io/develop/web/components/buttons/).
-- [WCAG 2.0 technique G200: Opening new windows and tabs from a link only when necessary](https://www.w3.org/TR/WCAG20-TECHS/G200.html).
-- [WCAG 2.0 techique G201: Giving users advanced warning when opening a new window](https://www.w3.org/TR/WCAG20-TECHS/G201.html).
-- [CSS Tricks: Use target="blank"](https://css-tricks.com/use-target_blank/).
-- [Why let someone know when a link opens a new window? by Scott Vinkle](https://medium.com/@svinkle/why-let-someone-know-when-a-link-opens-a-new-window-8699d20ed3b1).
+- [Lightning: button](https://www.lightningdesignsystem.com/components/buttons/#site-main-content)
+- [Polaris: link](https://polaris.shopify.com/components/navigation/link)
+- [Polaris: button](https://polaris.shopify.com/components/actions/button)
+- [Material: buttons](https://material.io/design/components/buttons.html#)
+- [Material: button component](https://material.io/develop/web/components/buttons/)
+- [WCAG 2.0 technique G200: Opening new windows and tabs from a link only when necessary](https://www.w3.org/TR/WCAG20-TECHS/G200.html)
+- [WCAG 2.0 techique G201: Giving users advanced warning when opening a new window](https://www.w3.org/TR/WCAG20-TECHS/G201.html)
+- [CSS Tricks: Use target="blank"](https://css-tricks.com/use-target_blank/)
+- [Why let someone know when a link opens a new window? by Scott Vinkle](https://medium.com/@svinkle/why-let-someone-know-when-a-link-opens-a-new-window-8699d20ed3b1)
 
 

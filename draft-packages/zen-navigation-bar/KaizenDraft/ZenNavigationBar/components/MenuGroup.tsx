@@ -17,19 +17,17 @@ const MenuGroup = ({
     <Link key={`${item.url}-${uuid()}`} text={item.label} href={item.url} />
   )
 
-  const renderOffCanvasMenuGroup = () => {
-    return (
-      <ul
-        className={classNames(styles.container, {
-          [styles.offCanvas]: true,
-          [styles.firstMenuItem]: first,
-        })}
-      >
-        <h4 className={styles.title}>{title}</h4>
-        {items.map(renderOffCanvasMenuItem)}
-      </ul>
-    )
-  }
+  const renderOffCanvasMenuGroup = () => (
+    <ul
+      className={classNames(styles.container, {
+        [styles.offCanvas]: true,
+        [styles.firstMenuItem]: first,
+      })}
+    >
+      <h4 className={styles.title}>{title}</h4>
+      {items.map(renderOffCanvasMenuItem)}
+    </ul>
+  )
 
   const renderMenuGroup = () => (
     <li className={styles.container}>

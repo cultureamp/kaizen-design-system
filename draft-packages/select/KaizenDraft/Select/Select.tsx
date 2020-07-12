@@ -47,7 +47,7 @@ export type VariantType = "default" | "secondary"
 export const Select = (props: SelectProps & ReactSelectProps) => {
   if (props.fullWidth === false && props.variant !== "secondary") {
     throw new Error(
-      `the prop fullWidth=false is not yet implemented when variant="default"`
+      'the prop fullWidth=false is not yet implemented when variant="default"'
     )
   }
   const { variant = "default", reversed = false } = props
@@ -62,16 +62,12 @@ export const Select = (props: SelectProps & ReactSelectProps) => {
 
   if (reversed === true && variant === "default") {
     throw new Error(
-      `the combo variant="default" and reversed=true is not yet implemented for the Select component`
-    )
-  }
-  if (reversed === false && variant === "secondary") {
-    throw new Error(
-      `the combo variant="secondary" and reversed=false is not yet implemented for the Select component`
+      'the combo variant="default" and reversed=true is not yet implemented for the Select component'
     )
   }
 
   const classes = classNames(props.className, styles.specificityIncreaser, {
+    [styles.default]: !reversed,
     [styles.reversed]: reversed,
     [styles.secondary]: variant === "secondary",
     [styles.notFullWidth]: !fullWidth,
@@ -99,27 +95,25 @@ export const Select = (props: SelectProps & ReactSelectProps) => {
 
 interface AsyncProps extends ReactAsyncSelectProps<any>, ReactSelectProps {}
 
-export const AsyncSelect = (props: AsyncProps) => {
-  return (
-    <Async
-      {...props}
-      components={{
-        Control,
-        Placeholder,
-        DropdownIndicator,
-        Menu,
-        Option,
-        NoOptionsMessage,
-        SingleValue,
-        MultiValue,
-        IndicatorsContainer,
-        ClearIndicator: null,
-        IndicatorSeparator: null,
-      }}
-      className={classNames(styles.specificityIncreaser, props.className)}
-    />
-  )
-}
+export const AsyncSelect = (props: AsyncProps) => (
+  <Async
+    {...props}
+    components={{
+      Control,
+      Placeholder,
+      DropdownIndicator,
+      Menu,
+      Option,
+      NoOptionsMessage,
+      SingleValue,
+      MultiValue,
+      IndicatorsContainer,
+      ClearIndicator: null,
+      IndicatorSeparator: null,
+    }}
+    className={classNames(styles.specificityIncreaser, props.className)}
+  />
+)
 
 const Control: typeof components.Control = props => (
   <components.Control
@@ -166,13 +160,11 @@ const NoOptionsMessage: typeof components.NoOptionsMessage = props => (
   </components.NoOptionsMessage>
 )
 
-const SingleValue: typeof components.SingleValue = props => {
-  return (
-    <components.SingleValue {...props} className={styles.singleValueOverrides}>
-      <span className={styles.singleValue}>{props.children}</span>
-    </components.SingleValue>
-  )
-}
+const SingleValue: typeof components.SingleValue = props => (
+  <components.SingleValue {...props} className={styles.singleValueOverrides}>
+    <span className={styles.singleValue}>{props.children}</span>
+  </components.SingleValue>
+)
 
 const MultiValue: typeof components.MultiValue = props => (
   <components.MultiValue {...props} className={styles.multiValue} />

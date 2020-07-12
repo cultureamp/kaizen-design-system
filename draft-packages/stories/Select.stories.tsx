@@ -2,17 +2,17 @@ import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { AsyncSelect, Select } from "@kaizen/draft-select"
 import * as React from "react"
 
-const StoryContainer = ({ children }: { children: React.ReactNode }) => {
-  return <div style={{ width: "300px", margin: "12px auto" }}>{children}</div>
-}
+const StoryContainer = ({ children }: { children: React.ReactNode }) => (
+  <div style={{ width: "300px", margin: "12px auto" }}>{children}</div>
+)
 
-const WideStoryContainer = ({ children }: { children: React.ReactNode }) => {
-  return <div style={{ width: "500px", margin: "12px auto" }}>{children}</div>
-}
+const WideStoryContainer = ({ children }: { children: React.ReactNode }) => (
+  <div style={{ width: "500px", margin: "12px auto" }}>{children}</div>
+)
 
-const NarrowStoryContainer = ({ children }: { children: React.ReactNode }) => {
-  return <div style={{ width: "200px", margin: "12px auto" }}>{children}</div>
-}
+const NarrowStoryContainer = ({ children }: { children: React.ReactNode }) => (
+  <div style={{ width: "200px", margin: "12px auto" }}>{children}</div>
+)
 
 const options = [
   { value: "Mindy", label: "Mindy" },
@@ -47,11 +47,10 @@ const asyncOptions = [
   { value: "Roberto", label: "Roberto" },
 ]
 
-const filterNames = (inputValue: string) => {
-  return asyncOptions.filter(i =>
+const filterNames = (inputValue: string) =>
+  asyncOptions.filter(i =>
     i.label.toLowerCase().includes(inputValue.toLowerCase())
   )
-}
 
 const promiseOptions = inputValue =>
   new Promise(resolve => {
@@ -160,6 +159,37 @@ MultiAsyncSearchable.story = {
   name: "Multi-Async Searchable",
 }
 
+export const SingleSecondary = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      isSearchable={false}
+      defaultValue={options[0]}
+      variant="secondary"
+    />
+  </StoryContainer>
+)
+
+SingleSecondary.story = {
+  name: "Single, Secondary",
+}
+
+export const SingleSecondaryDisabled = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      isDisabled={true}
+      isSearchable={false}
+      defaultValue={options[0]}
+      variant="secondary"
+    />
+  </StoryContainer>
+)
+
+SingleSecondaryDisabled.story = {
+  name: "Single, Secondary, Disabled",
+}
+
 export const SingleSecondaryReversed = () => (
   <StoryContainer>
     <Select
@@ -173,7 +203,7 @@ export const SingleSecondaryReversed = () => (
 )
 
 SingleSecondaryReversed.story = {
-  name: "Single Secondary Reversed",
+  name: "Single, Secondary, Reversed",
   parameters: {
     backgrounds: [
       {
