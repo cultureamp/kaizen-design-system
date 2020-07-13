@@ -1,12 +1,13 @@
 {
   "extends": "./tsconfig.node.json",
   "compilerOptions": {
-    "jsx": "react",
     "plugins": [
       {
         "name": "typescript-plugin-css-modules"
       }
-    ]
+    ],
+    "lib": ["es2018", "dom"],
+    "jsx": "react"
   },
-  "files": ["./types.d.ts"]
+  "files": ["./typings.d.ts"]
 }

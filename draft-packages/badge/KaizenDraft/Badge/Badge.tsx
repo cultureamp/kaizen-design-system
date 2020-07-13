@@ -1,7 +1,6 @@
 import classNames from "classnames"
 import * as React from "react"
-
-const styles = require("./styles.module.scss")
+import styles from "./styles.module.scss"
 
 type Variant = "default" | "active"
 

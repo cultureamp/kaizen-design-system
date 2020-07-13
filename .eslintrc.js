@@ -15,7 +15,7 @@ module.exports = {
   extends: ["prettier", "prettier/@typescript-eslint"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: "tsconfig.json",
+    project: ["./tsconfig.node.json", "./tsconfig.dom.json"],
     sourceType: "module",
   },
   plugins: [
@@ -24,6 +24,7 @@ module.exports = {
     "sort-imports-es6-autofix",
     "prefer-arrow",
   ],
+  root: true,
   rules: {
     "@typescript-eslint/adjacent-overload-signatures": "error",
     "@typescript-eslint/array-type": [
