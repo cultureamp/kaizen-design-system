@@ -1,9 +1,13 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { Divider } from "@kaizen/draft-divider"
+import { Card } from "@kaizen/draft-card"
+import { Box, Heading, Paragraph } from "@kaizen/component-library"
 import * as React from "react"
 
 const Container = ({ children }: { children: React.ReactNode }) => (
-  <div style={{ width: "500px", margin: "0 auto" }}>{children}</div>
+  <div style={{ width: "600px", margin: "0 auto", padding: "20px" }}>
+    {children}
+  </div>
 )
 
 export default {
@@ -66,4 +70,47 @@ CanvasDividerReversed.story = {
       },
     ],
   },
+}
+
+export const TabDivider = () => {
+  return (
+    <Container>
+      <Card>
+        <Box p={0.75}>
+          <Heading variant="heading-4" color="dark">
+            Understands people's agenda and perspectives
+          </Heading>
+          <Box pt={0.25}>
+            <Paragraph variant="small" color="dark-reduced-opacity">
+              Interpersonal
+            </Paragraph>
+          </Box>
+        </Box>
+        <Divider variant="content" />
+        <Box p={0.75}>
+          <Heading variant="heading-4">Anticipates customers needs</Heading>
+          <Box pt={0.25}>
+            <Paragraph variant="small" color="dark-reduced-opacity">
+              Self management
+            </Paragraph>
+          </Box>
+        </Box>
+        <Divider variant="content" />
+        <Box p={0.75}>
+          <Heading variant="heading-4">
+            Initiates and develops relationships
+          </Heading>
+          <Box pt={0.25}>
+            <Paragraph variant="small" color="dark-reduced-opacity">
+              Interpersonal
+            </Paragraph>
+          </Box>
+        </Box>
+      </Card>
+    </Container>
+  )
+}
+
+TabDivider.story = {
+  name: "Card Tabs",
 }
