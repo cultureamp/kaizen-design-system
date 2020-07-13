@@ -25,6 +25,7 @@ const Head: React.SFC<HeadProps> = ({ pageTitle = "" }) => {
     <Helmet>
       {/* Load Culture Amp brand fonts:
       https://cultureamp.atlassian.net/wiki/spaces/Prod/pages/700482798/CA+Font+Service */}
+      <html lang="en" />
       <link
         rel="stylesheet"
         type="text/css"
