@@ -28,10 +28,7 @@ const renderSecondaryOverflowMenu = (
     >
       <MenuContent>
         {secondaryOverflowMenuItems.map(menuItem => (
-          <MenuItem
-            {...menuItem}
-            automationId="title-block-mobile-actions-overflow-menu-item"
-          />
+          <MenuItem {...menuItem} />
         ))}
       </MenuContent>
     </Menu>
