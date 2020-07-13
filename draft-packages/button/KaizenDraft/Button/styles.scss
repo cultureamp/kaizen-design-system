@@ -53,6 +53,7 @@ $caButton-verticalPaddingForm: calc(
   text-align: center;
   cursor: pointer;
   text-align: center;
+  overflow: visible; // Required for the focus ring on IE11
 
   // looking for padding? See %caButtonContent
 
