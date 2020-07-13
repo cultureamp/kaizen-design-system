@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.dom.json",
+  "extends": "../../tsconfig.json",
   "include": ["components/**/*", "draft/**/*", "util/**/*", "index.ts"],
   "compilerOptions": {
     "allowJs": false,

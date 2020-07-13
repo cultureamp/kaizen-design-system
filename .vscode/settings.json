@@ -17,6 +17,6 @@ Happy linting! 💖
   },
   "editor.formatOnSave": true,
   "javascript.suggestionActions.enabled": false,
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.tsserver.pluginPaths": ["typescript-plugin-css-modules"]
+  "typescript.tsdk": "node_modules/typescript/lib"
+  // "typescript.tsserver.pluginPaths": ["typescript-plugin-css-modules"]
 }

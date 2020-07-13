@@ -1,9 +1,10 @@
 {
-  "extends": "../../tsconfig.dom.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "allowJs": false,
     "declaration": true,
     "noEmit": false,
     "sourceMap": true
-  }
+  },
+  "files": ["../../typings.d.ts"]
 }
