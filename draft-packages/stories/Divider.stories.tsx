@@ -112,5 +112,5 @@ export const TabDivider = () => {
 }
 
 TabDivider.story = {
-  name: "Card Tabs",
+  name: "Composing divider, card, box, and typography",
 }
