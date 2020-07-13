@@ -1,5 +1,5 @@
 {
-  "extends": "../tsconfig.dom.json",
+  "extends": "../tsconfig.json",
   "include": [
     "../packages/component-library/components/**/*",
     "../packages/component-library/stories/**/*",

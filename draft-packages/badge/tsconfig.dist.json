@@ -6,5 +6,5 @@
     "noEmit": false,
     "sourceMap": true
   },
-  "files": ["../../typings.d.ts"]
+  "files": ["./types.d.ts"]
 }
