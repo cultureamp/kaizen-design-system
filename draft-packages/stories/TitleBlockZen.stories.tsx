@@ -380,7 +380,9 @@ export const LongLabels = () => (
       reversed: true,
       primary: true,
       href: "#",
-      onClick: () => {},
+      onClick: () => {
+        alert("test")
+      },
     }}
     defaultAction={{
       label: "Feedback geben",
