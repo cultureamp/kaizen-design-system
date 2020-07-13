@@ -4254,14 +4254,6 @@
   resolved "https://registry.yarnpkg.com/@types/yoga-layout/-/yoga-layout-1.9.2.tgz#efaf9e991a7390dc081a0b679185979a83a9639a"
   integrity sha512-S9q47ByT2pPvD65IvrWp7qppVMpk9WGMbVq9wbWZOHg6tnXSD4vyhao6nOSBwwfDdV2p3Kx9evA9vI+XWTfDvw==
 
-"@typescript-eslint/eslint-plugin-tslint@^3.5.0":
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin-tslint/-/eslint-plugin-tslint-3.5.0.tgz#1f13d6f6764671a896dde98f2b9690ebf3b86130"
-  integrity sha512-S5u4NlLdTX49oCqjjkcWDQZLIaOukn11mDs1IPwuF5k3UVOclQW6HlwyFX8cMd8zfCdNe/gaB42HX8oOHuI/tA==
-  dependencies:
-    "@typescript-eslint/experimental-utils" "3.5.0"
-    lodash "^4.17.15"
-
 "@typescript-eslint/eslint-plugin@^2.24.0", "@typescript-eslint/eslint-plugin@^2.28.0":
   version "2.34.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-2.34.0.tgz#6f8ce8a46c7dea4a6f1d171d2bb8fbae6dac2be9"
