@@ -24,6 +24,16 @@ DefaultStory.story = {
   name: "Default (Kaizen Site Demo)",
 }
 
+export const CanvasStory = () => (
+  <Container>
+    <Divider variant="canvas" />
+  </Container>
+)
+
+CanvasStory.story = {
+  name: "Canvas Divider",
+}
+
 export const ContentDivider = () => (
   <Container>
     <Divider variant="content" />
