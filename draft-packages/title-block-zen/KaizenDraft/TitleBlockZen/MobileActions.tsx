@@ -31,9 +31,7 @@ const renderPrimaryLinks = (primaryAction: PrimaryActionProps) => {
       .filter(item => typeof item.action === "string")
       .map((item, idx) => (
         <MenuItem
-          action={item.action}
-          label={item.label}
-          icon={item.hasOwnProperty("icon") ? item.icon : undefined}
+          {...item}
           key={`title-block-mobile-actions-primary-link-${idx}`}
           automationId={`title-block-mobile-actions-primary-link-${idx}`}
         />
@@ -52,9 +50,7 @@ const renderPrimaryActions = (primaryAction: PrimaryActionProps) => {
         .filter(item => typeof item.action !== "string")
         .map((item, idx) => (
           <MenuItem
-            action={item.action}
-            label={item.label}
-            icon={item.hasOwnProperty("icon") ? item.icon : undefined}
+            {...item}
             key={`title-block-mobile-actions-primary-action-${idx}`}
             automationId={`title-block-mobile-actions-primary-action-${idx}`}
           />
@@ -116,9 +112,7 @@ const renderSecondaryOverflowMenuItems = (
 ) =>
   secondaryOverflowMenuItems.map((item, idx) => (
     <MenuItem
-      action={item.action}
-      label={item.label}
-      icon={item.icon}
+      {...item}
       key={`title-block-mobile-actions-overflow-menu-item-${idx}`}
       automationId={"title-block-mobile-actions-overflow-menu-item"}
     />
@@ -474,6 +468,7 @@ export default class MobileActions extends React.Component<MobileActionsProps> {
         />
         {(defaultAction ||
           secondaryActions ||
+          secondaryOverflowMenuItems ||
           (primaryAction && isMenuGroupNotButton(primaryAction))) && (
           <div className={styles.mobileActionsMenuContainer}>
             <MenuContent>

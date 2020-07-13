@@ -28,7 +28,10 @@ const renderSecondaryOverflowMenu = (
     >
       <MenuContent>
         {secondaryOverflowMenuItems.map(menuItem => (
-          <MenuItem {...menuItem} />
+          <MenuItem
+            {...menuItem}
+            automationId="title-block-mobile-actions-overflow-menu-item"
+          />
         ))}
       </MenuContent>
     </Menu>
@@ -40,59 +43,60 @@ const SecondaryActions = ({
   secondaryOverflowMenuItems,
   reversed = false,
 }: Props) => {
-  if (!secondaryActions && !secondaryOverflowMenuItems) return <></>
+  if (!secondaryActions && !secondaryOverflowMenuItems) return null
 
-  let toolbarItems
-  if (secondaryActions) {
-    toolbarItems = secondaryActions.map(a => {
-      if ("menuItems" in a) {
-        return (
-          <Menu
-            align="right"
-            button={
-              <Button
-                secondary
-                label={a.label}
-                reversed={reversed}
-                icon={chevronDownIcon}
-                iconPosition="end"
-              />
-            }
-          >
-            <MenuContent>
-              {a.menuItems.map(menuItem => (
-                <MenuItem {...menuItem} />
-              ))}
-            </MenuContent>
-          </Menu>
-        )
-      } else {
-        if ("onClick" in a && "href" in a) {
-          // eslint-disable-next-line no-console
-          console.warn(
-            "\u001b[33m \nTITLE BLOCK WARNING:\nSecondary actions only support " +
-              "either an href or an onClick, not both simultaneously.\n"
+  const secondaryActionsAsToolbarItems = secondaryActions
+    ? secondaryActions.map(a => {
+        if ("menuItems" in a) {
+          return (
+            <Menu
+              align="right"
+              button={
+                <Button
+                  secondary
+                  label={a.label}
+                  reversed={reversed}
+                  icon={chevronDownIcon}
+                  iconPosition="end"
+                />
+              }
+            >
+              <MenuContent>
+                {a.menuItems.map(menuItem => (
+                  <MenuItem {...menuItem} />
+                ))}
+              </MenuContent>
+            </Menu>
+          )
+        } else {
+          if ("onClick" in a && "href" in a) {
+            // eslint-disable-next-line no-console
+            console.warn(
+              "\u001b[33m \nTITLE BLOCK WARNING:\nSecondary actions only support " +
+                "either an href or an onClick, not both simultaneously.\n"
+            )
+          }
+          return (
+            <Button
+              secondary
+              reversed={reversed}
+              {...a}
+              automationId="title-block-secondary-actions-button"
+            />
           )
         }
-        return (
-          <Button
-            secondary
-            reversed={reversed}
-            {...a}
-            automationId="title-block-secondary-actions-button"
-          />
-        )
-      }
-    })
-  }
+      })
+    : []
 
   const overflowMenu = renderSecondaryOverflowMenu(
     secondaryOverflowMenuItems,
     reversed
   )
-  if (overflowMenu) {
-    toolbarItems = [...toolbarItems, overflowMenu]
-  }
+
+  const toolbarItems = [
+    ...secondaryActionsAsToolbarItems,
+    ...(overflowMenu ? [overflowMenu] : []),
+  ]
 
   return (
     <div className={styles.secondaryActionsContainer}>
