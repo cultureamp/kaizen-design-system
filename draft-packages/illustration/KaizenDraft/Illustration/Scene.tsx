@@ -145,6 +145,14 @@ export const PerformanceCompanySettings = (props: SceneProps) => (
   />
 )
 
+export const ManagerLabFourWeekCycle = (props: SceneProps) => (
+  <Base {...props} name="illustrations/scene/manager-lab-4-week-cycle.svg" />
+)
+
+export const ManagerLabScheduling = (props: SceneProps) => (
+  <Base {...props} name="illustrations/scene/manager-lab-scheduling.svg" />
+)
+
 export const ManagerLearningManagerHub = (props: SceneProps) => (
   <Base
     {...props}
@@ -192,6 +200,14 @@ export const KaizenSiteBrandAlt = (props: SceneProps) => (
 
 export const KaizenSiteBrand = (props: SceneProps) => (
   <Base {...props} name="illustrations/scene/kaizen-site-brand.svg" />
+)
+
+export const KaizenSiteLanguageAlt = (props: SceneProps) => (
+  <Base {...props} name="illustrations/scene/kaizen-site-language-alt.svg" />
+)
+
+export const KaizenSiteLanguage = (props: SceneProps) => (
+  <Base {...props} name="illustrations/scene/kaizen-site-language.svg" />
 )
 
 export const KaizenSitePrinciples = (props: SceneProps) => (

@@ -11,7 +11,7 @@
   border-radius: $kz-border-borderless-border-radius;
   background-color: rgba($kz-color-cluny-400, 0.1);
 
-  .reversed & {
+  &.reversed {
     background-color: rgba($kz-color-white, 0.1);
   }
 }
