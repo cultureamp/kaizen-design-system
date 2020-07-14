@@ -24,6 +24,11 @@ const chevronUpIcon = require("@kaizen/component-library/icons/chevron-up.icon.s
 
 const styles = require("./MobileActions.scss")
 
+const buttonIsLink: (action: TitleBlockButtonProps) => boolean = action =>
+  "href" in action
+const buttonIsAction: (action: TitleBlockButtonProps) => boolean = action =>
+  !("href" in action) && "onClick" in action
+
 const renderPrimaryLinks = (primaryAction: PrimaryActionProps) => {
   if (!primaryAction) return null
   if (isMenuGroupNotButton(primaryAction)) {
@@ -59,33 +64,34 @@ const renderPrimaryActions = (primaryAction: PrimaryActionProps) => {
   }
 }
 
-const renderDefaultLink = defaultAction => {
-  if (defaultAction && defaultAction.hasOwnProperty("href")) {
+const renderDefaultLinkOrAction = (
+  defaultAction: TitleBlockButtonProps,
+  kind: "action" | "link"
+) => {
+  if (kind === "action" && buttonIsAction(defaultAction)) {
     return (
-      <MenuItem
-        action={defaultAction.href}
-        label={defaultAction.label}
-        icon={defaultAction.icon}
-        disabled={defaultAction.disabled}
-        automationId="title-block-mobile-actions-default-link"
-      />
+      defaultAction.onClick && (
+        <MenuItem
+          action={defaultAction.onClick}
+          label={defaultAction.label}
+          icon={defaultAction.icon}
+          disabled={defaultAction.disabled}
+          automationId="title-block-mobile-actions-default-action"
+        />
+      )
     )
   }
-}
-const renderDefaultAction = defaultAction => {
-  if (
-    defaultAction &&
-    !defaultAction.hasOwnProperty("href") &&
-    defaultAction.hasOwnProperty("onClick")
-  ) {
+  if (kind === "link" && buttonIsLink(defaultAction)) {
     return (
-      <MenuItem
-        action={defaultAction.onClick}
-        label={defaultAction.label}
-        icon={defaultAction.icon}
-        disabled={defaultAction.disabled}
-        automationId="title-block-mobile-actions-default-action"
-      />
+      defaultAction.href && (
+        <MenuItem
+          action={defaultAction.href}
+          label={defaultAction.label}
+          icon={defaultAction.icon}
+          disabled={defaultAction.disabled}
+          automationId="title-block-mobile-actions-default-link"
+        />
+      )
     )
   }
 }
@@ -143,7 +149,7 @@ const ConditionalOtherActionsHeading = ({
       (primaryAction && primaryAction.hasOwnProperty("menuItems"))) && (
       <MenuSeparator />
     )}
-    {((defaultAction && defaultAction.onClick) ||
+    {((defaultAction && buttonIsAction(defaultAction)) ||
       secondaryActions ||
       secondaryOverflowMenuItems) && <MenuHeader title="Other actions" />}
   </>
@@ -157,7 +163,7 @@ const DrawerMenuContent = ({
 }: DrawerMenuContentProps) => (
   <>
     {primaryAction && renderPrimaryLinks(primaryAction)}
-    {defaultAction && renderDefaultLink(defaultAction)}
+    {defaultAction && renderDefaultLinkOrAction(defaultAction, "link")}
     {primaryAction && renderPrimaryActions(primaryAction)}
     <ConditionalOtherActionsHeading
       primaryAction={primaryAction}
@@ -165,7 +171,7 @@ const DrawerMenuContent = ({
       secondaryActions={secondaryActions}
       secondaryOverflowMenuItems={secondaryOverflowMenuItems}
     />
-    {defaultAction && renderDefaultAction(defaultAction)}
+    {defaultAction && renderDefaultLinkOrAction(defaultAction, "action")}
     {secondaryActions && renderSecondaryActions(secondaryActions)}
     {secondaryOverflowMenuItems &&
       renderSecondaryOverflowMenuItems(secondaryOverflowMenuItems)}
