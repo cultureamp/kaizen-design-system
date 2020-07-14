@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.10...@kaizen/draft-title-block-zen@1.6.11) (2020-07-14)
+
+
+### Bug Fixes
+
+* Fix mobile actions menu item bug (WIP) ([#638](https://github.com/cultureamp/kaizen-design-system/issues/638)) ([eebf974](https://github.com/cultureamp/kaizen-design-system/commit/eebf974e23c96049a7348ea54800a48ada76a531))
+
+
+
+
+
 ## [1.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.9...@kaizen/draft-title-block-zen@1.6.10) (2020-07-10)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
