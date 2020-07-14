@@ -23,4 +23,6 @@ RUN adduser pptruser \
 
 USER pptruser
 
+WORKDIR /app
+
 # Instead of a volume, let's add the files
