@@ -2,7 +2,7 @@ import { Button, IconButton } from "@kaizen/draft-button"
 import { Menu, MenuContent, MenuItem, MenuItemProps } from "@kaizen/draft-menu"
 import * as React from "react"
 import {
-  ButtonWithOnClickOrHref,
+  TitleBlockButtonProps,
   isMenuGroupNotButton,
   PrimaryActionProps,
 } from "./TitleBlockZen"
@@ -16,7 +16,7 @@ const styles = require("./TitleBlockZen.scss")
 
 type MainActionsProps = {
   primaryAction?: PrimaryActionProps
-  defaultAction?: ButtonWithOnClickOrHref
+  defaultAction?: TitleBlockButtonProps
   reversed?: boolean
   overflowMenuItems?: MenuItemProps[]
   showOverflowMenu?: boolean
