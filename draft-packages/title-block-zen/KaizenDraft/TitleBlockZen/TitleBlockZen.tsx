@@ -41,20 +41,28 @@ export interface TitleBlockProps {
   sectionTitleDescription?: string
   handleHamburgerClick?: (event: React.MouseEvent) => void
   primaryAction?: PrimaryActionProps
-  defaultAction?: ButtonWithOnClickOrHref
+  defaultAction?: TitleBlockButtonProps
   secondaryActions?: SecondaryActionsProps
-  secondaryOverflowMenuItems?: MenuItemProps[]
+  secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
   navigationTabs?: NavigationTabs
   textDirection?: TextDirection
   surveyStatus?: SurveyStatus
 }
 
-export type ButtonWithOnClickOrHref = ButtonProps &
-  Pick<ButtonProps, "href" | "onClick">
+export type TitleBlockButtonProps = Omit<ButtonProps, "onClick"> & {
+  onClick?: (e: any) => void
+}
+
+export type TitleBlockMenuItemProps = Omit<MenuItemProps, "action"> & {
+  action: ((e: any) => void) | string
+}
+
+export type ButtonWithHrefNotOnClick = Omit<ButtonProps, "onClick">
+export type ButtonWithOnClickNotHref = Omit<TitleBlockButtonProps, "href">
 
 export type MenuGroup = {
   label: string
-  menuItems: MenuItemProps[]
+  menuItems: TitleBlockMenuItemProps[]
 }
 
 /**
@@ -78,7 +86,7 @@ export type MenuGroup = {
  */
 export type PrimaryActionProps =
   | MenuGroup
-  | (ButtonWithOnClickOrHref & { primary: boolean })
+  | (TitleBlockButtonProps & { primary: boolean })
 
 /**
  * ### SecondaryActionsProps
@@ -105,15 +113,19 @@ export type PrimaryActionProps =
  * (`MenuItemProps` is imported from the Menu component.)
  *
  */
-export type SecondaryActionsProps = Array<MenuGroup | ButtonWithOnClickOrHref>
+export type SecondaryActionsProps = SecondaryActionItemProps[]
+
+export type SecondaryActionItemProps =
+  | MenuGroup
+  | (ButtonWithHrefNotOnClick | ButtonWithOnClickNotHref)
 
 export const isMenuItemNotButton = (
-  value: ButtonWithOnClickOrHref | MenuItemProps
-): value is MenuItemProps => value.hasOwnProperty("action")
+  value: TitleBlockButtonProps | MenuItemProps
+): value is MenuItemProps => "action" in value
 
 export const isMenuGroupNotButton = (
-  value: ButtonWithOnClickOrHref | MenuGroup
-): value is MenuGroup => value.hasOwnProperty("menuItems")
+  value: TitleBlockButtonProps | MenuGroup
+): value is MenuGroup => "menuItems" in value
 
 export type Variant = "admin" | "education" // the default is wisteria bg (AKA "reporting")
 
@@ -231,33 +243,55 @@ const isReversed = (variant: Variant | undefined): boolean => {
   return !NON_REVERSED_VARIANTS.includes(variant)
 }
 
+export const convertSecondaryActionsToMenuItems = (
+  secondaryActions: SecondaryActionsProps
+): TitleBlockMenuItemProps[] =>
+  secondaryActions.reduce((acc, cur) => {
+    if ("menuItems" in cur) {
+      return [...acc, ...cur.menuItems]
+    }
+    const out = {
+      label: cur.label,
+      icon: cur.icon,
+      destructive: cur.destructive,
+      disabled: cur.disabled,
+    }
+
+    if ("onClick" in cur || ("onClick" in cur && "href" in cur)) {
+      return [
+        ...acc,
+        {
+          ...out,
+          action: cur.onClick,
+        },
+      ]
+    }
+    if ("href" in cur) {
+      return [
+        ...acc,
+        {
+          ...out,
+          action: cur.href,
+        },
+      ]
+    }
+    return acc
+  }, new Array())
+
 const createTabletOverflowMenuItems = (
   secondaryActions?: SecondaryActionsProps,
-  secondaryOverflowMenuItems?: MenuItemProps[]
-): MenuItemProps[] => {
-  let secondaryActionsList = new Array()
+  secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
+): TitleBlockMenuItemProps[] => {
+  let secondaryActionsList
   if (secondaryActions) {
-    secondaryActionsList = secondaryActions.map(
-      (el: MenuGroup | ButtonWithOnClickOrHref) => {
-        if (isMenuGroupNotButton(el)) {
-          return el.menuItems
-        } else {
-          return [
-            {
-              ...el,
-              action: el.onClick || el.href,
-            },
-          ]
-        }
-      }
-    )
+    secondaryActionsList = secondaryActions
+      ? convertSecondaryActionsToMenuItems(secondaryActions)
+      : []
+  } else {
+    secondaryActionsList = []
   }
-  const flatSecondaryActionsList = Array.prototype.concat.apply(
-    [],
-    secondaryActionsList
-  )
   const flatSecondaryOverflowItemsList = secondaryOverflowMenuItems || []
-  return flatSecondaryActionsList.concat(flatSecondaryOverflowItemsList)
+  return secondaryActionsList.concat(flatSecondaryOverflowItemsList)
 }
 
 const largeViewMinSizeInPixels = parseInt(
@@ -281,7 +315,7 @@ const smallAndMediumMediaQuery = window.matchMedia(
  * ```typescript
  * type PrimaryActionProps =
  *  | MenuGroup
- *  | (ButtonWithOnClickOrHref & { primary: true })
+ *  | (TitleBlockButtonProps & { primary: true })
  * ```
  *
  * If you want it to be a Menu, pass in this object of type `MenuGroup`:
@@ -316,7 +350,7 @@ const smallAndMediumMediaQuery = window.matchMedia(
  * Each object can be a MenuGroup (see code snippet for `primaryAction` above) or an object containing Button props:
  *
  * ```typescript
- * type SecondaryActionsProps = Array<MenuGroup | ButtonWithOnClickOrHref>
+ * type SecondaryActionsProps = Array<MenuGroup | TitleBlockButtonProps>
  * ```
  * The order of elements in the array will determine the visual order on the page, so
  * please be aware of the intended order mentioned above.
@@ -437,11 +471,13 @@ const TitleBlockZen = ({
                   variant
                 )}
               {renderNavigationTabs(navigationTabs)}
-              <SecondaryActions
-                secondaryActions={secondaryActions}
-                secondaryOverflowMenuItems={secondaryOverflowMenuItems}
-                reversed={isReversed(variant)}
-              />
+              {(secondaryActions || secondaryOverflowMenuItems) && (
+                <SecondaryActions
+                  secondaryActions={secondaryActions}
+                  secondaryOverflowMenuItems={secondaryOverflowMenuItems}
+                  reversed={isReversed(variant)}
+                />
+              )}
             </div>
           </div>
         </div>
@@ -452,10 +488,7 @@ const TitleBlockZen = ({
           secondaryOverflowMenuItems={secondaryOverflowMenuItems}
           drawerHandleLabelIconPosition={
             primaryAction && "iconPosition" in primaryAction
-              ? (primaryAction.iconPosition as Pick<
-                  ButtonProps,
-                  "iconPosition"
-                >)
+              ? primaryAction.iconPosition
               : undefined
           }
         />
