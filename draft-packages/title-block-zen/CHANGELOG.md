@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.11...@kaizen/draft-title-block-zen@1.6.12) (2020-07-14)
+
+
+### Bug Fixes
+
+* removed other actions header when default action is link ([#649](https://github.com/cultureamp/kaizen-design-system/issues/649)) ([41203f5](https://github.com/cultureamp/kaizen-design-system/commit/41203f54c505b68fbaeaffc495ef31730451a088))
+
+
+
+
+
 ## [1.6.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.10...@kaizen/draft-title-block-zen@1.6.11) (2020-07-14)
 
 
