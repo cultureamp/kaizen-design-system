@@ -5,7 +5,9 @@
     "../packages/component-library/stories/**/*",
     "../packages/component-library/util/**/*",
     "../packages/component-library/index.ts",
-    "../draft-packages/**/*"
+    "../draft-packages/**/*",
+    "./header-preset/**/*",
+    "./*.ts"
   ],
   "compilerOptions": {
     "noEmit": false
