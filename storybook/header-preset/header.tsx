@@ -5,18 +5,22 @@ import {
   NavigationBar,
 } from "../../packages/component-library/components/NavigationBar"
 
+const styles = require("./header.module.scss")
+
 export const SiteHeader = () => (
-  <NavigationBar>
-    {{
-      primary: [
-        <NavLink text="Home" href="/" />,
-        <NavLink text="Guidelines" href="/guidelines/overview/" />,
-        <NavLink text="Language" href="/language/overview/" />,
-        <NavLink text="Components" href="/components/overview/" />,
-        <NavLink text="Storybook" href="/storybook-static" />,
-      ],
-    }}
-  </NavigationBar>
+  <div className={styles.wrapper}>
+    <NavigationBar>
+      {{
+        primary: [
+          <NavLink text="Home" href="/" />,
+          <NavLink text="Guidelines" href="/guidelines/overview/" />,
+          <NavLink text="Language" href="/language/overview/" />,
+          <NavLink text="Components" href="/components/overview/" />,
+          <NavLink text="Storybook" href="/storybook-static" active={true} />,
+        ],
+      }}
+    </NavigationBar>
+  </div>
 )
 
 /**

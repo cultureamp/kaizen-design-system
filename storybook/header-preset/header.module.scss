@@ -1,0 +1,10 @@
+$navHeight: 60px;
+
+:global(#root) {
+  // push storybook down to make way for the navigation
+  padding-top: $navHeight;
+}
+
+.wrapper {
+  width: 100%;
+}
