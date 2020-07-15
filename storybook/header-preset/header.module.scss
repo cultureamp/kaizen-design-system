@@ -1,8 +1,14 @@
 $navHeight: 60px;
+$footerHeight: 72px;
 
 :global(#root) {
   // push storybook down to make way for the navigation
   padding-top: $navHeight;
+}
+
+:global(#root) > div {
+  height: calc(100vh - #{$navHeight} - #{$footerHeight});
+  position: relative;
 }
 
 .wrapper {

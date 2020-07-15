@@ -5,6 +5,8 @@ import {
   NavigationBar,
 } from "../../packages/component-library/components/NavigationBar"
 
+import Footer from "../../site/src/components/Footer"
+
 const styles = require("./header.module.scss")
 
 export const SiteHeader = () => {
@@ -46,10 +48,15 @@ export const SiteHeader = () => {
     </div>
   )
 }
+
 /**
  * Inject the nav header before the root node that storybook
  * uses to mount
  */
-const node = document.createElement("div")
-render(<SiteHeader />, node)
-document.body.insertAdjacentElement("afterbegin", node)
+const headerNode = document.createElement("div")
+render(<SiteHeader />, headerNode)
+document.body.insertAdjacentElement("afterbegin", headerNode)
+
+const footerNode = document.createElement("div")
+render(<Footer />, footerNode)
+document.getElementById("root")?.insertAdjacentElement("afterend", footerNode)

@@ -5,8 +5,10 @@ import {
   NormalModuleReplacementPlugin,
 } from "webpack"
 
+const webpackConfig = require("../webpack.config")
+
 module.exports = {
-  managerWebpack: async (config, options) => {
+  managerWebpack: async config => {
     const replaceLayoutPlugin = new NormalModuleReplacementPlugin(
       /^\.\/layout$/,
       "custom-layout"
@@ -111,6 +113,4 @@ module.exports = {
       },
     }
   },
-  webpackFinal: async (config, options) => config,
-  addons: [],
 }
