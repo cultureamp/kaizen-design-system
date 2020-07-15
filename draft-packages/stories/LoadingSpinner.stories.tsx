@@ -14,7 +14,10 @@ export const DefaultStory = () => (
       justifyContent: "center",
     }}
   >
-    <LoadingSpinner></LoadingSpinner>
+    <LoadingSpinner
+      accessibilityLabel="Loading comments"
+      size="lg"
+    ></LoadingSpinner>
   </div>
 )
 
