@@ -1,5 +1,16 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/animation";
 
 .wrapper {
-  color: $kz-color-coral-600; // Use design tokens where possible
+  display: flex;
+}
+
+.spinner {
+  animation: spinner $ca-duration-deliberate $ca-ease-in-out infinite;
+}
+
+@keyframes spinner {
+  100% {
+    transform: rotate(360deg);
+  }
 }
