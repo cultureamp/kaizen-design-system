@@ -49,6 +49,13 @@ export const SiteHeader = () => {
   )
 }
 
+const analytics = document.createElement("noscript")
+analytics.innerHTML = `<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KS4VWLT"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->`
+document.body.insertAdjacentElement("afterbegin", analytics)
+
 /**
  * Inject the nav header before the root node that storybook
  * uses to mount

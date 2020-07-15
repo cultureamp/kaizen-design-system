@@ -1,9 +1,5 @@
 import path from "path"
-import {
-  RuleSetRule as Rule,
-  Loader,
-  NormalModuleReplacementPlugin,
-} from "webpack"
+import { NormalModuleReplacementPlugin } from "webpack"
 const webpackConfig = require("../webpack.config")
 
 module.exports = {
