@@ -4,13 +4,13 @@ import "./pre-build"
 import { resolve } from "path"
 import { Loader, RuleSetRule as Rule } from "webpack"
 
-const babel: Rule = {
+export const babel: Rule = {
   test: /\.(j|t)sx?$/,
   loader: require.resolve("babel-loader"),
   options: require("../package.json").babel,
 }
 
-const stylePreprocessors: Loader[] = [
+export const stylePreprocessors: Loader[] = [
   {
     loader: "postcss-loader",
     options: {
@@ -32,7 +32,7 @@ const stylePreprocessors: Loader[] = [
   },
 ]
 
-const styles: Rule = {
+export const styles: Rule = {
   test: /\.s?css$/,
   use: [
     {
@@ -52,7 +52,7 @@ const styles: Rule = {
   ],
 }
 
-const svgs: Rule = {
+export const svgs: Rule = {
   test: /\.svg$/,
   use: [
     {
@@ -64,7 +64,7 @@ const svgs: Rule = {
   ],
 }
 
-const svgIcons: Rule = {
+export const svgIcons: Rule = {
   test: /\.icon\.svg$/,
   use: {
     loader: "svgo-loader",
@@ -81,7 +81,7 @@ const svgIcons: Rule = {
   },
 }
 
-const elm: Rule = {
+export const elm: Rule = {
   test: /\.elm$/,
   exclude: [/elm-stuff/, /node_modules/],
   use: [
@@ -121,7 +121,7 @@ const elm: Rule = {
   ],
 }
 
-const storybookSource: Rule = {
+export const storybookSource: Rule = {
   test: /\.tsx?$/,
   include: [
     resolve(__dirname, "../packages/component-library"),
@@ -143,7 +143,7 @@ const storybookSource: Rule = {
   ],
 }
 
-const removeSvgFromTest = (rule: Rule): Rule => {
+export const removeSvgFromTest = (rule: Rule): Rule => {
   if (rule.test && rule.test.toString().includes("svg")) {
     const test = rule.test.toString().replace("svg|", "").replace(/\//g, "")
     return { ...rule, test: new RegExp(test) }
@@ -152,7 +152,7 @@ const removeSvgFromTest = (rule: Rule): Rule => {
   }
 }
 
-const excludeExternalModules = (rule: Rule): Rule => ({
+export const excludeExternalModules = (rule: Rule): Rule => ({
   exclude: /node_modules\/(?!(\@kaizen|\@cultureamp)).*/,
   ...rule,
 })
