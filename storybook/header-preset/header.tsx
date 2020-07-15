@@ -18,7 +18,7 @@ export const SiteHeader = () => {
       .filter(curr => curr !== "" && curr !== "storybook-static")
       .join("/")
   }
-  const baseUrl = `${window.location.origin}/${branch}/`
+  const baseUrl = `${window.location.origin}/${branch}`
 
   return (
     <div className={styles.wrapper}>
