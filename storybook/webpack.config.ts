@@ -2,11 +2,7 @@
 import "./pre-build"
 
 import { resolve } from "path"
-import {
-  Loader,
-  RuleSetRule as Rule,
-  NormalModuleReplacementPlugin,
-} from "webpack"
+import { Loader, RuleSetRule as Rule } from "webpack"
 
 const babel: Rule = {
   test: /\.(j|t)sx?$/,

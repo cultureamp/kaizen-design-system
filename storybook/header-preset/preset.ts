@@ -60,12 +60,46 @@ module.exports = {
       ],
     }
 
+    const svgs: Rule = {
+      test: /\.svg$/,
+      use: [
+        {
+          loader: "svg-sprite-loader",
+          options: {
+            symbolId: "ca-icon-[name]",
+          },
+        },
+      ],
+    }
+
+    const svgIcons: Rule = {
+      test: /\.icon\.svg$/,
+      use: {
+        loader: "svgo-loader",
+        options: {
+          plugins: [
+            { removeTitle: true },
+            {
+              convertColors: {
+                currentColor: /black|#000|#000000/,
+              },
+            },
+          ],
+        },
+      },
+    }
+
+    const excludeExternalModules = (rule: Rule): Rule => ({
+      exclude: /node_modules\/(?!(\@kaizen|\@cultureamp)).*/,
+      ...rule,
+    })
+
     return {
       ...config,
       plugins: [...config.plugins, replaceLayoutPlugin],
       module: {
         ...config.module,
-        rules: [...config.module.rules, babel, styles],
+        rules: [babel, styles, svgs, svgIcons].map(excludeExternalModules),
       },
       resolve: {
         ...config.resolve,
@@ -73,6 +107,7 @@ module.exports = {
           ...config.resolve.alias,
           "custom-layout": path.resolve("./storybook/header-preset/header.tsx"),
         },
+        extensions: [...config.resolve.extensions, ".ts", ".tsx"],
       },
     }
   },

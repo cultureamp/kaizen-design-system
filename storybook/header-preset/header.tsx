@@ -1,18 +1,22 @@
 import React from "react"
 import { render } from "react-dom"
-// import { Link as NavLink, NavigationBar } from "@kaizen/component-library"
+import {
+  Link as NavLink,
+  NavigationBar,
+} from "../../packages/component-library/components/NavigationBar"
 
 export const SiteHeader = () => (
-  <div
-    style={{
-      width: "100%",
-      height: "60px",
-      backgroundColor: "#4B4D68",
-      color: "white",
+  <NavigationBar>
+    {{
+      primary: [
+        <NavLink text="Home" href="" />,
+        <NavLink text="Guidelines" href="" />,
+        <NavLink text="Language" href="" />,
+        <NavLink text="Components" href="" />,
+        <NavLink text="Storybook" href="" />,
+      ],
     }}
-  >
-    This is being generated from within storybook
-  </div>
+  </NavigationBar>
 )
 
 const node = document.createElement("div")
