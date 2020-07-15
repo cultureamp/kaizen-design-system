@@ -61,6 +61,7 @@
     "@storybook/addon-viewport": "^5.3.9",
     "@storybook/addons": "^5.3.19",
     "@storybook/react": "^5.3.9",
+    "@storybook/theming": "^5.3.19",
     "@testing-library/react": "^8.0.1",
     "@types/chalk": "^2.2.0",
     "@types/jest": "^24.0.18",

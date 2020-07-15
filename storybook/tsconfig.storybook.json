@@ -6,8 +6,7 @@
     "../packages/component-library/util/**/*",
     "../packages/component-library/index.ts",
     "../draft-packages/**/*",
-    "./header-preset/**/*",
-    "./*.ts"
+    "./header-preset/**/*"
   ],
   "compilerOptions": {
     "noEmit": false
