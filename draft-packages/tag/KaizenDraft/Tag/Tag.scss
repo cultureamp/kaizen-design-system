@@ -1,6 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
@@ -9,9 +9,10 @@ $medium: $ca-grid * 1.25;
 $small: $ca-grid;
 
 .root {
-  @include kz-typography-paragraph-small;
-  @include ca-inherit-baseline;
   @include ca-margin($end: $ca-grid * 0.5);
+  font-size: $kz-typography-paragraph-small-font-size;
+  font-weight: $kz-typography-paragraph-small-font-weight;
+  letter-spacing: $kz-typography-paragraph-small-letter-spacing;
   color: $kz-color-wisteria-800;
   display: inline-block;
   border: $kz-border-borderless-border-width $kz-border-borderless-border-style
@@ -19,6 +20,7 @@ $small: $ca-grid;
   border-radius: $ca-grid * 0.75;
   padding: 0 $ca-grid * 0.4;
   cursor: default;
+  box-sizing: border-box;
 }
 
 .layoutContainer {
@@ -36,12 +38,19 @@ $small: $ca-grid;
 .textContent {
   @include kz-typography-paragraph-small;
   @include ca-inherit-baseline;
+  margin-top: -1px;
 }
 
 .dismissIcon {
-  @include ca-margin($end: -$ca-grid * 0.15, $start: $ca-grid * 0.125);
+  position: relative;
+  display: flex;
+  padding: $kz-spacing-xs;
+  margin-top: -$kz-spacing-xs;
+  margin-right: -0.6625rem;
+  margin-bottom: -$kz-spacing-xs;
+  margin-left: -0.225rem;
   color: $kz-color-wisteria-600;
-  height: $ca-grid * 0.6;
+  height: 16px;
   cursor: pointer;
 
   &:hover {
@@ -51,6 +60,24 @@ $small: $ca-grid;
   &:active {
     color: $kz-color-wisteria-800;
   }
+
+  svg {
+    position: relative;
+  }
+}
+
+.background {
+  // As our icons are only one-tone, this span places
+  // a white background under the dismissible icon to
+  // give the illusion of a background colour that is
+  // different to the rest of the tag
+  position: absolute;
+  display: inline-block;
+  width: $kz-spacing-xs + 0.125rem; // optical adjustment
+  height: $kz-spacing-xs + 0.125rem; // optical adjustment
+  background-color: white;
+  left: 10px;
+  top: 10px;
 }
 
 .truncate {
@@ -74,7 +101,7 @@ $small: $ca-grid;
 .default {
   background-color: $kz-color-wisteria-200;
 
-  &:hover {
+  &.dismissible:hover {
     border-color: $kz-color-wisteria-300;
   }
 }
@@ -82,7 +109,7 @@ $small: $ca-grid;
 .sentimentPositive {
   background-color: $kz-color-seedling-100;
 
-  &:hover {
+  &.dismissible:hover {
     border-color: $kz-color-seedling-200;
   }
 }
@@ -90,7 +117,7 @@ $small: $ca-grid;
 .sentimentNeutral {
   background-color: $kz-color-ash;
 
-  &:hover {
+  &.dismissible:hover {
     border-color: $kz-color-wisteria-200;
   }
 }
@@ -98,7 +125,7 @@ $small: $ca-grid;
 .sentimentNegative {
   background-color: $kz-color-coral-100;
 
-  &:hover {
+  &.dismissible:hover {
     border-color: $kz-color-coral-200;
   }
 }
@@ -115,7 +142,7 @@ $small: $ca-grid;
 .validationPositive {
   background-color: $kz-color-seedling-100;
 
-  &:hover {
+  &.dismissible:hover {
     border-color: $kz-color-seedling-200;
   }
 
@@ -127,7 +154,7 @@ $small: $ca-grid;
 .validationInformative {
   background-color: $kz-color-cluny-100;
 
-  &:hover {
+  &.dismissible:hover {
     border-color: $kz-color-cluny-300;
   }
 
@@ -139,7 +166,7 @@ $small: $ca-grid;
 .validationNegative {
   background-color: $kz-color-coral-100;
 
-  &:hover {
+  &.dismissible:hover {
     border-color: $kz-color-coral-200;
   }
 
@@ -151,7 +178,7 @@ $small: $ca-grid;
 .validationCautionary {
   background-color: $kz-color-yuzu-100;
 
-  &:hover {
+  &.dismissible:hover {
     border-color: $kz-color-yuzu-300;
   }
 

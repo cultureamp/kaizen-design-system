@@ -1,16 +1,11 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
-
-%tabHover {
-  color: $kz-color-cluny-500;
-  text-decoration: none;
-  background-color: $kz-color-cluny-100;
-}
 
 .container {
   @include ca-margin($bottom: $ca-grid);
@@ -18,30 +13,25 @@
 }
 
 .tab {
-  $underline-height: 4px;
   @include ca-inherit-baseline;
   font-family: $kz-typography-heading-4-font-family;
-  font-weight: $kz-typography-heading-4-font-weight;
   font-size: $kz-typography-heading-4-font-size;
   line-height: $kz-typography-heading-4-line-height;
   letter-spacing: $kz-typography-heading-4-letter-spacing;
-  padding: 0 $ca-grid * 0.75;
-  position: relative;
-  top: 0; // this overrides baseline shift. @include ca-inherit-baseline does not work because
-  // we need to make this position: relative, for the absolutely positioned underline.
-  height: 3 * $ca-grid;
-  min-width: 4.5rem - ($ca-grid * 0.75) * 2; // give tabs with short text some breathing room
   text-decoration: none;
   color: $kz-color-wisteria-800;
   cursor: pointer;
+  position: relative;
+  transition: background-color 0.1s;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-top-left-radius: $kz-border-borderless-border-radius;
-  border-top-right-radius: $kz-border-borderless-border-radius;
+  &:hover {
+    color: $kz-color-cluny-500;
+    text-decoration: none;
+    background-color: $kz-color-cluny-100;
+    font-weight: $kz-typography-heading-4-font-weight;
+  }
 
-  // Use JS polyfill to simulate :focus-visible, not yet supported by browsers
+  // Use JS polyfill to simulate :focus-visible, not yet supported by bhorizontalsers
   // https://github.com/WICG/focus-visible#backwards-compatibility
   :global(.js-focus-visible) & {
     // hide native focus ring when :focus but not :focus-visible
@@ -50,15 +40,16 @@
     }
 
     &:global(.focus-visible) {
-      @extend %tabHover;
-      // show custom focus ring when :focus-visible
+      color: $kz-color-cluny-500;
+      text-decoration: none;
+      background-color: $kz-color-cluny-100;
+      font-weight: $kz-typography-heading-4-font-weight;
+
       &:after {
-        $focus-ring-offset: $kz-border-focus-ring-border-width - 1;
         content: "";
         position: absolute;
         background: transparent;
-        border-radius: $kz-border-borderless-border-radius
-          $kz-border-borderless-border-radius 0 0;
+        $focus-ring-offset: $kz-border-focus-ring-border-width - 1;
         border-width: $kz-border-focus-ring-border-width;
         border-style: $kz-border-focus-ring-border-style;
         border-color: $kz-color-cluny-500;
@@ -69,18 +60,34 @@
       }
     }
   }
+}
 
-  &:hover {
-    @extend %tabHover;
+.horizontalTab {
+  composes: tab;
+  font-weight: $kz-typography-heading-4-font-weight;
+  border-top-left-radius: $kz-border-borderless-border-radius;
+  border-top-right-radius: $kz-border-borderless-border-radius;
+  padding: 0 $ca-grid * 0.75;
+  height: 3 * $ca-grid;
+
+  top: 0; // this overrides baseline shift. @include ca-inherit-baseline does not work because
+  // we need to make this position: relative, for the absolutely positioned underline.
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.5rem - ($ca-grid * 0.75) * 2; // give tabs with short text some breathing room
+
+  :global(.js-focus-visible) &:global(.focus-visible):after {
+    border-radius: $kz-border-borderless-border-radius
+      $kz-border-borderless-border-radius 0 0;
   }
 }
 
-.tab + .tab {
-  @include ca-margin($start: $ca-grid * 0.5);
-}
-
-.activeTab {
+.horizontalTabActive {
   composes: tab;
+  composes: horizontalTab;
+  font-weight: $kz-typography-heading-4-font-weight;
   color: $kz-color-cluny-500;
 
   &::before {
@@ -99,17 +106,63 @@
   }
 }
 
-.disabledTab {
+.horizontalTabDisabled {
   composes: tab;
+  composes: horizontalTab;
   cursor: inherit;
   opacity: 0.3;
+  font-weight: normal;
 
-  &:hover:not(.activeTab) {
-    color: $kz-color-wisteria-800;
+  &.horizontalTabActive:hover {
     background-color: transparent;
   }
 
-  &.activeTab:hover {
+  &:hover:not(.horizontalTabActive) {
+    color: $kz-color-wisteria-800;
     background-color: transparent;
+    font-weight: normal;
+  }
+}
+
+.horizontalTab + .horizontalTab {
+  @include ca-margin($start: $ca-grid * 0.5);
+}
+
+.verticalTab {
+  composes: tab;
+  min-height: $kz-spacing-xl;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: $kz-spacing-sm;
+  border-radius: $kz-border-solid-border-radius;
+
+  :global(.js-focus-visible) &:global(.focus-visible):after {
+    border-radius: $kz-border-borderless-border-radius;
+    z-index: 1; // pop the border out so sibling tabs don't overlap
+  }
+}
+
+.verticalTabActive {
+  composes: tab;
+  composes: verticalTab;
+  font-weight: $kz-typography-heading-4-font-weight;
+  color: $kz-color-cluny-500;
+}
+
+.verticalTabDisabled {
+  composes: tab;
+  composes: verticalTab;
+  cursor: inherit;
+  opacity: 0.3;
+
+  &.verticalTabActive:hover {
+    background-color: transparent;
+  }
+
+  &:hover:not(.verticalTabActive) {
+    color: $kz-color-wisteria-800;
+    background-color: transparent;
+    font-weight: normal;
   }
 }

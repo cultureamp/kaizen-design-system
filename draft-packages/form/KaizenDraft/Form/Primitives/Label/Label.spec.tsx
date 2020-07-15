@@ -1,8 +1,8 @@
 import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
 
-import { Label } from "."
 import { LabelProps } from "./Label"
+import { Label } from "."
 
 afterEach(cleanup)
 

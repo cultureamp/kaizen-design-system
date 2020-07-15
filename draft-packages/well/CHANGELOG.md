@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.41](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.5.40...@kaizen/draft-well@2.5.41) (2020-07-10)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [2.5.40](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.5.39...@kaizen/draft-well@2.5.40) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [2.5.39](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.5.38...@kaizen/draft-well@2.5.39) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [2.5.38](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.5.37...@kaizen/draft-well@2.5.38) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [2.5.37](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.5.36...@kaizen/draft-well@2.5.37) (2020-07-06)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [2.5.36](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.5.35...@kaizen/draft-well@2.5.36) (2020-07-01)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [2.5.35](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.5.34...@kaizen/draft-well@2.5.35) (2020-06-29)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
+## [2.5.34](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.5.33...@kaizen/draft-well@2.5.34) (2020-06-26)
+
+**Note:** Version bump only for package @kaizen/draft-well
+
+
+
+
+
 ## [2.5.33](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@2.5.32...@kaizen/draft-well@2.5.33) (2020-06-22)
 
 **Note:** Version bump only for package @kaizen/draft-well

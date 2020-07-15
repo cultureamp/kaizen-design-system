@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.0.1...@kaizen/design-tokens@2.0.2) (2020-07-10)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.0.0...@kaizen/design-tokens@2.0.1) (2020-07-09)
+
+
+### Bug Fixes
+
+* Replace the sized-bold values with the new variant ([#627](https://github.com/cultureamp/kaizen-design-system/issues/627)) ([4d98ecd](https://github.com/cultureamp/kaizen-design-system/commit/4d98ecdd022ee547ca3b24e568d09f10f34021af))
+
+
+
+
+
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.15.0...@kaizen/design-tokens@2.0.0) (2020-07-06)
+
+
+### Features
+
+* Add missing paragraphBodyBold typography token ([#606](https://github.com/cultureamp/kaizen-design-system/issues/606)) ([e142fa2](https://github.com/cultureamp/kaizen-design-system/commit/e142fa2cbbccc8473c803ee5c9859bad14674db9))
+
+
+### BREAKING CHANGES
+
+* Replace paragraph*Bold with single variant
+
+
+
+
+
+# [1.15.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.14.0...@kaizen/design-tokens@1.15.0) (2020-07-01)
+
+
+### Features
+
+* add Badge component ([#601](https://github.com/cultureamp/kaizen-design-system/issues/601)) ([7c42a5f](https://github.com/cultureamp/kaizen-design-system/commit/7c42a5fef271ae1100acbd3b05a000ff82f51acb))
+
+
+
+
+
+# [1.14.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.13.1...@kaizen/design-tokens@1.14.0) (2020-06-26)
+
+
+### Features
+
+* Add layout token for nav bar height ([#582](https://github.com/cultureamp/kaizen-design-system/issues/582)) ([1be3bcb](https://github.com/cultureamp/kaizen-design-system/commit/1be3bcb8464f18ffe7ca5c586aa57c00f4f60764))
+
+
+
+
+
 ## [1.13.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@1.13.0...@kaizen/design-tokens@1.13.1) (2020-06-22)
 
 

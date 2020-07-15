@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/generator-create@1.1.1...@kaizen/generator-create@1.1.2) (2020-07-01)
+
+
+### Bug Fixes
+
+* Added a better README, updated the generated React component ([#599](https://github.com/cultureamp/kaizen-design-system/issues/599)) ([6b60fcb](https://github.com/cultureamp/kaizen-design-system/commit/6b60fcbea6519f4a9cfbcd2aa2d205556b719c11))
+
+
+
+
+
 ## [1.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/generator-create@1.1.0...@kaizen/generator-create@1.1.1) (2020-06-18)
 
 

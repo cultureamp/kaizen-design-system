@@ -4,11 +4,14 @@ navTitle: Color
 summaryParagraph: Our color palette is built with our core principles and guidelines as its foundation. We are committed to complying with WCAG AA standard contrast ratios.
 tags: ["Palette"]
 needToKnow:
-  - Use official color palette colors, variables and helpers (add-alpha) for all color CSS declarations. Never hard-code a color without a variable.
-  - Use add-alpha (to add transparency) when the color needs to blend with different backgrounds.
+  - Use official color palette colors and variables for all color CSS declarations. Never hard-code a color without a variable.
+  - Use rgba() to add transparency when the color needs to blend with different backgrounds.
 ---
 
-import ColorShowcase from "docs-components/color/legacy/ColorShowcase"
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
 import ZenWisteria from "docs-components/color/ZenWisteria"
 import ZenNeutrals from "docs-components/color/ZenNeutrals"
 import ZenCluny from "docs-components/color/ZenCluny"
@@ -65,17 +68,13 @@ Used for destructive actions and negative moods (e.g. error messages, status, pr
 
 To learn more, Culture Amp employees can visit the [Color page in Figma](https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/Zen-UI-Kit?node-id=1929%3A81).
 
-## Legacy palette
-
-We no longer use these colors, but they'll stay here for reference for a short time.
-
-<ColorShowcase />
-
 ## To keep in mind
 
-- Contrast and accessibility is crucial. To [consider everyone](../language#culture-amp-brand-tone-and-design-principles), we use color contrast ratios that adhered to [WCAG 2.0 AA](https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast) guidelines.
-- Use our official color palette variables and helpers (`add-alpha`) for all color CSS declarations.
-- Be mindful of color psychology associations and cultural values (such as Red symbolizing danger versus good luck).
+- Contrast and accessibility is crucial. To [consider everyone](/language/voiceandtone/), we use color contrast ratios that adhered to [WCAG 2.0 AA](https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast) guidelines.
+- Use our official color palette variables for all color CSS declarations.
+- Use `rgba()` to add transparency to a color, e.g. `rgba($kz-color-wisteria-800, 0.8)`.
+- Please avoid using the deprecated custom helper `add-alpha()`, as it requires importing a deprecated module and will not break the build when it is missing.
+- Be mindful of color psychology associations and cultural values (such as red symbolizing danger versus good luck).
 
 ### Links
 
@@ -83,7 +82,7 @@ To indicate links and on-page actions, use Cluny.
 
 ### Primary action
 
-For the most important action on a page, use Wisteria.
+For the most important action on a page, use Cluny (or Seedling on dark backgrounds).
 
 ### Data visualization
 
@@ -93,9 +92,10 @@ To indicate Sentiment, use:
 - Ash for Neutral sentiment.
 - Coral 300 for Negative sentiment.
 
+## When to use and when not to use
 
-
-## When to use
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 - Colors can help to create visual patterns that the user can recall (for example, links are always Cluny colored or negative favorability scores, errors, and destructive actions are always Coral).
 - Use colors to create visual hierarchy.
@@ -103,26 +103,26 @@ To indicate Sentiment, use:
 - Add tone and contrast to define areas and guide or call out certain information.
 - Use color for aesthetics or visual stimulation when it adds value to the page.
 
-
-
-## When not to use
+</WhenToUse>
+<WhenNotToUse>
 
 - Use more than color alone to convey information. Test with with a gray scale filter and color blindness simulators.
 - Avoid using color when you can use contrast (such as levels of Wisteria or Neutrals), spacing, or typography to create hierarchy or groupings.
 - Avoid color when there’s a risk of overuse or a ‘candy shop’ effect.
 - Avoid color when it might overload the user and create confusion.
 
-
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## External links
 
 Here are some examples of existing design system colors:
 
-- [Ant design: colors](https://ant.design/docs/spec/colors).
-- [Atlassian: color](https://www.atlassian.design/guidelines/product/foundations/color).
-- [Polaris: colors](https://polaris.shopify.com/design/colors).
-- [Carbon: color](https://www.carbondesignsystem.com/guidelines/color/overview).
-- [Bootstrap: colors](https://getbootstrap.com/docs/4.3/utilities/colors/).
-- [Element: color](https://element.eleme.io/#/en-US/component/color).
-- [Spectre: color](https://picturepan2.github.io/spectre/utilities/colors.html).
+- [Ant design: colors](https://ant.design/docs/spec/colors)
+- [Atlassian: color](https://www.atlassian.design/guidelines/product/foundations/color)
+- [Polaris: colors](https://polaris.shopify.com/design/colors)
+- [Carbon: color](https://www.carbondesignsystem.com/guidelines/color/overview)
+- [Bootstrap: colors](https://getbootstrap.com/docs/4.3/utilities/colors/)
+- [Element: color](https://element.eleme.io/#/en-US/component/color)
+- [Spectre: color](https://picturepan2.github.io/spectre/utilities/colors.html)
 

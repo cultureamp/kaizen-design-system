@@ -110,14 +110,14 @@
 }
 
 .summaryParagraph {
-  font-size: 1.625rem;
+  font-size: 1.5rem;
   line-height: 1.4;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: var(--content-card-top-offset);
 
   .headingOnly & {
+    max-width: 60rem;
     text-align: center;
-    white-space: pre-wrap;
 
     @media (max-width: 1080px) {
       white-space: normal;

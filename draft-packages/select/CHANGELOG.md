@@ -3,6 +3,133 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.7.4...@kaizen/draft-select@1.7.5) (2020-07-10)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.7.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.7.3...@kaizen/draft-select@1.7.4) (2020-07-09)
+
+
+### Bug Fixes
+
+* Switch from TSlint to ESlint ([#621](https://github.com/cultureamp/kaizen-design-system/issues/621)) ([59e64d4](https://github.com/cultureamp/kaizen-design-system/commit/59e64d4d0cd14302544ae7f41fd76a101d313aee))
+
+
+
+
+
+## [1.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.7.2...@kaizen/draft-select@1.7.3) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.7.1...@kaizen/draft-select@1.7.2) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.7.0...@kaizen/draft-select@1.7.1) (2020-07-07)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.6.2...@kaizen/draft-select@1.7.0) (2020-07-07)
+
+
+### Features
+
+* add React default secondary select ([#615](https://github.com/cultureamp/kaizen-design-system/issues/615)) ([e1a3950](https://github.com/cultureamp/kaizen-design-system/commit/e1a39503c56e17707b2015f01b0859fe3c508a17))
+
+
+
+
+
+## [1.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.6.1...@kaizen/draft-select@1.6.2) (2020-07-06)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.6.0...@kaizen/draft-select@1.6.1) (2020-07-01)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.5.25...@kaizen/draft-select@1.6.0) (2020-06-30)
+
+
+### Features
+
+* Secondary Single Select Reversed (React) ([#548](https://github.com/cultureamp/kaizen-design-system/issues/548)) ([dfe963c](https://github.com/cultureamp/kaizen-design-system/commit/dfe963c0220d03b6457058c0872e4b45c4313f92))
+
+
+
+
+
+## [1.5.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.5.24...@kaizen/draft-select@1.5.25) (2020-06-30)
+
+
+### Bug Fixes
+
+* Add clear button to React Select implementation ([#595](https://github.com/cultureamp/kaizen-design-system/issues/595)) ([0ec19b9](https://github.com/cultureamp/kaizen-design-system/commit/0ec19b9723280c7299aea357757cd0804cccdb5b))
+
+
+
+
+
+## [1.5.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.5.23...@kaizen/draft-select@1.5.24) (2020-06-29)
+
+
+### Bug Fixes
+
+* Add stylelint ignores for all preexisting usages of !important ([#568](https://github.com/cultureamp/kaizen-design-system/issues/568)) ([baa2a56](https://github.com/cultureamp/kaizen-design-system/commit/baa2a566277bdd6d2e7ff9b101ccbbcdf88718d2))
+
+
+
+
+
+## [1.5.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.5.22...@kaizen/draft-select@1.5.23) (2020-06-29)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.5.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.5.21...@kaizen/draft-select@1.5.22) (2020-06-26)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.5.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.5.20...@kaizen/draft-select@1.5.21) (2020-06-26)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
 ## [1.5.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.5.19...@kaizen/draft-select@1.5.20) (2020-06-23)
 
 **Note:** Version bump only for package @kaizen/draft-select

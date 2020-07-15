@@ -3,6 +3,101 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@2.0.3...@kaizen/draft-tabs@2.0.4) (2020-07-10)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [2.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@2.0.2...@kaizen/draft-tabs@2.0.3) (2020-07-09)
+
+
+### Bug Fixes
+
+* Switch from TSlint to ESlint ([#621](https://github.com/cultureamp/kaizen-design-system/issues/621)) ([59e64d4](https://github.com/cultureamp/kaizen-design-system/commit/59e64d4d0cd14302544ae7f41fd76a101d313aee))
+
+
+
+
+
+## [2.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@2.0.1...@kaizen/draft-tabs@2.0.2) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@2.0.0...@kaizen/draft-tabs@2.0.1) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@1.5.2...@kaizen/draft-tabs@2.0.0) (2020-07-07)
+
+
+### Features
+
+* Changed props from row/column to horizontal/vertical ([#624](https://github.com/cultureamp/kaizen-design-system/issues/624)) ([e1a38c1](https://github.com/cultureamp/kaizen-design-system/commit/e1a38c1bcc0c6344a54c87a2a1032a40d5430fb1))
+
+
+### BREAKING CHANGES
+
+* Changed props from column/row to vertical/horizontal. 
+Consumers will need to update their props when updating this package if they're coming from @kaizen/draft-tabs^1.5.0 or above
+
+
+
+
+
+## [1.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@1.5.1...@kaizen/draft-tabs@1.5.2) (2020-07-06)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [1.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@1.5.0...@kaizen/draft-tabs@1.5.1) (2020-07-01)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@1.4.2...@kaizen/draft-tabs@1.5.0) (2020-06-30)
+
+
+### Features
+
+* Added support for vertical tabs ([#579](https://github.com/cultureamp/kaizen-design-system/issues/579)) ([54bfc32](https://github.com/cultureamp/kaizen-design-system/commit/54bfc328106be320e313e6df828266052e147316))
+
+
+
+
+
+## [1.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@1.4.1...@kaizen/draft-tabs@1.4.2) (2020-06-29)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@1.4.0...@kaizen/draft-tabs@1.4.1) (2020-06-26)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
 # [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@1.3.13...@kaizen/draft-tabs@1.4.0) (2020-06-23)
 
 
