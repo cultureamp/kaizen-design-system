@@ -1,4 +1,4 @@
-import { Icon } from "@kaizen/component-library"
+import { Icon, Paragraph } from "@kaizen/component-library"
 import classnames from "classnames"
 import * as React from "react"
 
@@ -27,7 +27,7 @@ const Footer: React.SFC<FooterProps> = ({
 
     <div className={styles.footer}>
       <div className={styles.footerInner}>
-        <span>&copy; Culture Amp Pty Ltd</span>
+        <Paragraph variant="body">&copy; Culture Amp Pty Ltd</Paragraph>
         <span className={styles.logo}>
           <a href="https://cultureamp.com" className={styles.logoLink}>
             <Icon
@@ -38,14 +38,14 @@ const Footer: React.SFC<FooterProps> = ({
             />
           </a>
         </span>
-        <span className={styles.privacy}>
+        <Paragraph variant="body" classNameAndIHaveSpokenToDST={styles.privacy}>
           <a href="https://www.cultureamp.com/privacy-policy/">Privacy</a>
-        </span>
-        <span className={styles.github}>
+        </Paragraph>
+        <Paragraph variant="body" classNameAndIHaveSpokenToDST={styles.github}>
           <a href="https://github.com/cultureamp/kaizen-design-system">
             GitHub
           </a>
-        </span>
+        </Paragraph>
       </div>
     </div>
   </div>
