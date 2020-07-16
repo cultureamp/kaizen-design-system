@@ -101,7 +101,9 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
       role="columnheader"
       {...otherProps}
     >
-      {label}
+      <Heading tag="div" variant="heading-6">
+        {label}
+      </Heading>
       {active && <Icon icon={sortDescendingIcon} role="presentation" />}
     </button>
   ) : (
@@ -111,7 +113,9 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
       role="columnheader"
       {...otherProps}
     >
-      {label}
+      <Heading tag="div" variant="heading-6">
+        {label}
+      </Heading>
     </div>
   )
 }
