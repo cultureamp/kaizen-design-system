@@ -23,7 +23,7 @@ class MainNav extends React.Component<MainNavProps, MainPropsState> {
       // strip that from the path.
       branch = window.location.pathname
         .split("/")
-        .filter(curr => curr !== "" && curr !== "storybook-static")
+        .filter(curr => curr !== "" && curr !== "storybook")
         .join("/")
     }
     // storybook is hosted outside of Gatsby, so we cannot use `withPrefix`
