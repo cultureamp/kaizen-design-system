@@ -39,7 +39,7 @@ export const SiteHeader = () => {
             />,
             <NavLink
               text="Storybook"
-              href={`${baseUrl}storybook-static`}
+              href={`${baseUrl}/storybook`}
               active={true}
             />,
           ],
