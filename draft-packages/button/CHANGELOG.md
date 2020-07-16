@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.12.5...@kaizen/draft-button@1.12.6) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.12.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.12.4...@kaizen/draft-button@1.12.5) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.12.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.12.3...@kaizen/draft-button@1.12.4) (2020-07-13)
+
+
+### Bug Fixes
+
+* Adds overflow:visible to buttons to fix IE11 clipping issue ([#647](https://github.com/cultureamp/kaizen-design-system/issues/647)) ([e737fc3](https://github.com/cultureamp/kaizen-design-system/commit/e737fc33c8888fb00a3cb21c20c90e65a9db3653))
+
+
+
+
+
+## [1.12.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.12.2...@kaizen/draft-button@1.12.3) (2020-07-10)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
 ## [1.12.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.12.1...@kaizen/draft-button@1.12.2) (2020-07-09)
 
 

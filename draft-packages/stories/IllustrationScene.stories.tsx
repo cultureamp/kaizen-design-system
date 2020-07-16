@@ -19,12 +19,16 @@ import {
   IntroductionsPerformance,
   KaizenSiteBrand,
   KaizenSiteBrandAlt,
+  KaizenSiteLanguage,
+  KaizenSiteLanguageAlt,
   KaizenSitePrinciples,
   KaizenSitePrinciplesAlt,
   KaizenSiteProduct,
   KaizenSiteProductAlt,
   KaizenSiteResources,
   KaizenSiteResourcesAlt,
+  ManagerLabFourWeekCycle,
+  ManagerLabScheduling,
   ManagerLearningCoaching,
   ManagerLearningFeedback,
   ManagerLearningManagerHub,
@@ -282,6 +286,20 @@ PerformanceCompanySettingsStory.story = {
   name: "Performance: Company Settings",
 }
 
+export const ManagerLabFourWeekCycleStory = () => (
+  <div style={{ width: "500px" }}>
+    <ManagerLabFourWeekCycle alt="" />
+  </div>
+)
+ManagerLabFourWeekCycleStory.story = { name: "Manager Lab: 4 week cycle" }
+
+export const ManagerLabSchedulingStory = () => (
+  <div style={{ width: "500px" }}>
+    <ManagerLabScheduling alt="" />
+  </div>
+)
+ManagerLabSchedulingStory.story = { name: "Manager Lab: Scheduling" }
+
 export const ManagerLearningManagerHubStory = () => (
   <div style={{ width: "500px" }}>
     <ManagerLearningManagerHub alt="" />
@@ -357,6 +375,20 @@ export const KaizenSiteBrandStory = () => (
   </div>
 )
 KaizenSiteBrandStory.story = { name: "Kaizen Site: Brand" }
+
+export const KaizenSiteLanguageAltStory = () => (
+  <div style={{ width: "500px" }}>
+    <KaizenSiteLanguageAlt alt="" />
+  </div>
+)
+KaizenSiteLanguageAltStory.story = { name: "Kaizen Site: Language Alt" }
+
+export const KaizenSiteLanguageStory = () => (
+  <div style={{ width: "500px" }}>
+    <KaizenSiteLanguage alt="" />
+  </div>
+)
+KaizenSiteLanguageStory.story = { name: "Kaizen Site: Language" }
 
 export const KaizenSitePrinciplesStory = () => (
   <div style={{ width: "500px" }}>

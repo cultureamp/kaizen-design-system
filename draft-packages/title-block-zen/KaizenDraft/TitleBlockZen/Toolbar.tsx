@@ -14,12 +14,15 @@ type ToolbarProps = {
 }
 
 const Toolbar = ({ items, noGap = false }: ToolbarProps) => {
+  if (!items || (items && items.length === 0)) {
+    return <></>
+  }
   return (
     <div
       className={styles.toolbar}
       data-automation-id="title-block-main-actions-toolbar"
     >
-      {items?.map((item, i) => (
+      {items.map((item, i) => (
         <div
           className={classNames(styles.toolbarItem, {
             [styles.noGap]: noGap,

@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.1.0...@kaizen/design-tokens@2.1.1) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.0.2...@kaizen/design-tokens@2.1.0) (2020-07-15)
+
+
+### Features
+
+* add animation tokens ([#653](https://github.com/cultureamp/kaizen-design-system/issues/653)) ([fe678f2](https://github.com/cultureamp/kaizen-design-system/commit/fe678f20e3dfd9d095a9873bd1448a48cdf56de1))
+
+
+
+
+
+## [2.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.0.1...@kaizen/design-tokens@2.0.2) (2020-07-10)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
 ## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.0.0...@kaizen/design-tokens@2.0.1) (2020-07-09)
 
 

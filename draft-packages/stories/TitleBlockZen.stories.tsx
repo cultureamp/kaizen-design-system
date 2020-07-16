@@ -45,6 +45,7 @@ const SECONDARY_ACTIONS = [
     onClick: () => {
       alert("test")
     },
+    href: "foo",
     label: "Secondary action",
   },
 ]
@@ -58,6 +59,7 @@ export const Default = () => (
       icon: addIcon,
       reversed: true,
       primary: true,
+      disabled: true,
       href: "#",
     }}
     defaultAction={{
@@ -377,6 +379,10 @@ export const LongLabels = () => (
       label: "Feedback anfordern",
       reversed: true,
       primary: true,
+      href: "#",
+      onClick: () => {
+        alert("test")
+      },
     }}
     defaultAction={{
       label: "Feedback geben",
