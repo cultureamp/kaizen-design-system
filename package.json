@@ -61,7 +61,7 @@
     "@storybook/addon-viewport": "^5.3.9",
     "@storybook/react": "^5.3.9",
     "@storybook/theming": "^5.3.9",
-    "@testing-library/react": "^8.0.1",
+    "@testing-library/react": "^10.4.3",
     "@types/chalk": "^2.2.0",
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.5",
