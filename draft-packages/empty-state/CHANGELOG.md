@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@1.6.21...@kaizen/draft-empty-state@1.7.0) (2020-07-16)
+
+
+### Features
+
+* update empty state to use zen max-width content ([#593](https://github.com/cultureamp/kaizen-design-system/issues/593)) ([12ac0da](https://github.com/cultureamp/kaizen-design-system/commit/12ac0daba6e6d20d1ded781b852b4e80632a88af))
+
+
+
+
+
 ## [1.6.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@1.6.20...@kaizen/draft-empty-state@1.6.21) (2020-07-15)
 
 **Note:** Version bump only for package @kaizen/draft-empty-state
