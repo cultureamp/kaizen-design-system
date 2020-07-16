@@ -4,7 +4,7 @@ const chevronRight = require("@kaizen/component-library/icons/chevron-right.icon
   .default
 import * as React from "react"
 
-import { Button } from "@kaizen/component-library"
+import { Button } from "@kaizen/draft-button"
 import { EmptyState } from "../empty-state"
 
 const styles = require("./EmptyState.stories.scss")
@@ -233,7 +233,7 @@ export const StraightCorners = () => (
       useZenStyles
     >
       <div className={styles.buttonContainer}>
-        <Button label="Label" icon={chevronLeft} iconPosition="end" />
+        <Button label="Label" icon={chevronRight} iconPosition="end" />
       </div>
     </EmptyState>
   </SidebarAndContentLayout>
