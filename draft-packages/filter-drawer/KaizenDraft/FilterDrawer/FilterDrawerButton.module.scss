@@ -1,0 +1,17 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+
+// The button used for the Filter Drawer component is similar to the
+// standard secondary reversed button, but has a background when
+// no hovering as it needs to look more like a button. Rather than adding this
+// snowflake button style to the core Button component, this is achieved by
+// faking it with a surrounding div.
+.buttonEdgeCaseStyling {
+  display: inline-block;
+  border-radius: $kz-border-borderless-border-radius;
+  background-color: rgba($kz-color-cluny-400, 0.1);
+
+  &.reversed {
+    background-color: rgba($kz-color-white, 0.1);
+  }
+}

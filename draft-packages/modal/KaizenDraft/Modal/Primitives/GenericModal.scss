@@ -112,11 +112,13 @@
 }
 
 .unscrollable {
-  overflow: hidden !important;
+  /* Tech debt - this !important existed before Stylelint rules */
+  overflow: hidden !important; /* stylelint-disable-line declaration-no-important */
 }
 
 .pseudoScrollbar {
-  padding-right: 15px !important;
+  /* Tech debt - this !important existed before Stylelint rules */
+  padding-right: 15px !important; /* stylelint-disable-line declaration-no-important */
 }
 
 .hide {

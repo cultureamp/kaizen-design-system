@@ -108,7 +108,7 @@ const Popover: Popover = React.forwardRef<HTMLDivElement, Props>(
 const getRootStyle = (boxOffset: number | undefined) => ({
   transform:
     boxOffset == null
-      ? `translateX(-50%)`
+      ? "translateX(-50%)"
       : `translateX(calc(-50% + ${boxOffset}px)`,
 })
 

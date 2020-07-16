@@ -55,11 +55,10 @@ const SplitButton: React.FunctionComponent<SplitButtonProps> = ({
     setIsMenuVisible(!isMenuVisible)
   }
 
-  const getButtonsBoundingRect = () => {
-    return dropdownButtonsContainerRef.current
+  const getButtonsBoundingRect = () =>
+    dropdownButtonsContainerRef.current
       ? dropdownButtonsContainerRef.current.getBoundingClientRect()
       : null
-  }
 
   return (
     <div className={styles.root} dir={dir} data-automation-id={automationId}>

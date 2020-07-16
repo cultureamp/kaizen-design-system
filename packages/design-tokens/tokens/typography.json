@@ -120,6 +120,9 @@
         "lineHeight": "1.125rem",
         "letterSpacing": "normal"
       },
+      "paragraphBold": {
+        "fontWeight": "600"
+      },
       "buttonPrimary": {
         "fontFamily": "\"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif;",
         "fontWeight": "700",

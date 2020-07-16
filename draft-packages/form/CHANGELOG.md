@@ -3,6 +3,100 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.2.9...@kaizen/draft-form@2.2.10) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.2.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.2.8...@kaizen/draft-form@2.2.9) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.2.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.2.7...@kaizen/draft-form@2.2.8) (2020-07-10)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.2.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.2.6...@kaizen/draft-form@2.2.7) (2020-07-09)
+
+
+### Bug Fixes
+
+* Switch from TSlint to ESlint ([#621](https://github.com/cultureamp/kaizen-design-system/issues/621)) ([59e64d4](https://github.com/cultureamp/kaizen-design-system/commit/59e64d4d0cd14302544ae7f41fd76a101d313aee))
+
+
+
+
+
+## [2.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.2.5...@kaizen/draft-form@2.2.6) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.2.4...@kaizen/draft-form@2.2.5) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.2.3...@kaizen/draft-form@2.2.4) (2020-07-06)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.2.2...@kaizen/draft-form@2.2.3) (2020-07-01)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.2.1...@kaizen/draft-form@2.2.2) (2020-06-29)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.2.0...@kaizen/draft-form@2.2.1) (2020-06-26)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.1.4...@kaizen/draft-form@2.2.0) (2020-06-26)
+
+
+### Features
+
+* add radio styles to label ([#585](https://github.com/cultureamp/kaizen-design-system/issues/585)) ([68f428f](https://github.com/cultureamp/kaizen-design-system/commit/68f428f330b76762aec4650d48df63228a01cb9c))
+
+
+
+
+
 ## [2.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.1.3...@kaizen/draft-form@2.1.4) (2020-06-23)
 
 

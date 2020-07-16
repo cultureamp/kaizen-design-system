@@ -20,7 +20,9 @@ describe("Tabs", () => {
     const { container, getByText } = render(<Tabs tabs={tabs} />)
 
     expect(container.firstChild).toMatchSnapshot()
-    expect(getByText("One").classList.contains(styles.activeTab)).toBe(true)
+    expect(
+      getByText("One").classList.contains(styles.horizontalTabActive)
+    ).toBe(true)
   })
 
   it("renders a disabled tab", () => {
@@ -28,7 +30,9 @@ describe("Tabs", () => {
     const { container, getByText } = render(<Tabs tabs={tabs} />)
 
     expect(container.firstChild).toMatchSnapshot()
-    expect(getByText("One").classList.contains(styles.disabledTab)).toBe(true)
+    expect(
+      getByText("One").classList.contains(styles.horizontalTabDisabled)
+    ).toBe(true)
   })
 
   it("renders a tab with an onClick", () => {
@@ -58,30 +62,28 @@ describe("Tabs", () => {
         <Tabs
           tabs={tabs}
           renderTab={({
-            // tslint:disable-next-line: no-shadowed-variable
+            // eslint-disable-next-line no-shadow
             tab,
             tabClassName,
             activeTabClassName,
             disabledTabClassName,
-          }) => {
-            return (
-              <div key={tab.label}>
-                <span>{tab.label}</span>
-                <span>{tabClassName}</span>
-                <span>{activeTabClassName}</span>
-                <span>{disabledTabClassName}</span>
-              </div>
-            )
-          }}
+          }) => (
+            <div key={tab.label}>
+              <span>{tab.label}</span>
+              <span>{tabClassName}</span>
+              <span>{activeTabClassName}</span>
+              <span>{disabledTabClassName}</span>
+            </div>
+          )}
         />
       )
       const tab = baseElement.firstChild as HTMLDivElement
       const spans = tab.querySelectorAll("span")
 
       expect(spans[0].innerHTML).toBe("One")
-      expect(spans[1].innerHTML).toBe(styles.tab)
-      expect(spans[2].innerHTML).toBe(styles.activeTab)
-      expect(spans[3].innerHTML).toBe(styles.disabledTab)
+      expect(spans[1].innerHTML).toBe(styles.horizontalTab)
+      expect(spans[2].innerHTML).toBe(styles.horizontalTabActive)
+      expect(spans[3].innerHTML).toBe(styles.horizontalTabDisabled)
     })
   })
 })

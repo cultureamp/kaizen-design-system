@@ -61,7 +61,6 @@ view (Config config) label =
                 , ( .primary, config.variant == Primary )
                 , ( .secondary, config.variant == Secondary )
                 , ( .iconButton, config.iconButton )
-                , ( .reversedIconButton, config.iconButton && config.reversed )
                 , ( .destructive, config.variant == Destructive )
                 , ( .form, config.form )
                 , ( .reversed, config.reversed )
@@ -273,7 +272,6 @@ styles =
         , primary = "primary"
         , secondary = "secondary"
         , iconButton = "iconButton"
-        , reversedIconButton = "reversedIconButton"
         , destructive = "destructive"
         , secondaryDestructive = "secondaryDestructive"
         , form = "form"

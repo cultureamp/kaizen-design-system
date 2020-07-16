@@ -50,6 +50,10 @@ $caButton-verticalPaddingForm: calc(
   border: $kz-border-solid-border-width $kz-border-solid-border-style;
   border-radius: $kz-border-solid-border-radius;
   position: relative;
+  text-align: center;
+  cursor: pointer;
+  text-align: center;
+  overflow: visible; // Required for the focus ring on IE11
 
   // looking for padding? See %caButtonContent
 
@@ -114,6 +118,7 @@ $caButton-verticalPaddingForm: calc(
     background: $kz-color-white;
     border-color: $kz-color-wisteria-500;
     color: $kz-color-wisteria-800;
+    cursor: default;
   }
 }
 
@@ -296,7 +301,7 @@ $caButton-verticalPaddingForm: calc(
       }
 
       :global(.js-focus-visible) &:global(.focus-visible) {
-        border-color: $kz-color-cluny-300;
+        border-color: $kz-border-borderless-border-color;
         color: $kz-color-white;
       }
     }
@@ -364,11 +369,11 @@ $caButton-verticalPaddingForm: calc(
   }
 
   &:not(:first-child) {
-    @include ca-margin($start: 0.5em);
+    @include ca-margin($start: 0.5em, $end: null);
   }
 
   &:not(:last-child) {
-    @include ca-margin($end: 0.5em);
+    @include ca-margin($end: 0.5em, $start: null);
   }
 }
 
@@ -388,7 +393,7 @@ $caButton-verticalPaddingForm: calc(
     &:active,
     &%caButtonPrimary,
     &%caButtonSecondary {
-      color: $kz-color-wisteria-800;
+      color: inherit;
       background: none;
       border-color: $kz-border-borderless-border-color;
 
@@ -403,6 +408,33 @@ $caButton-verticalPaddingForm: calc(
       }
     }
   }
+
+  &:not(:disabled) {
+    cursor: pointer;
+
+    &:hover,
+    &:active,
+    :global(.js-focus-visible) &:global(.focus-visible) {
+      color: $kz-color-cluny-500;
+      background: $kz-color-cluny-100;
+      border-color: $kz-border-borderless-border-color;
+    }
+  }
+
+  &%caButtonReversed {
+    &:not(:disabled) {
+      color: $kz-color-white;
+
+      &:hover,
+      &:active,
+      :global(.js-focus-visible) &:global(.focus-visible) {
+        color: $kz-color-white;
+        background: rgba($kz-color-white, 0.1);
+        border-color: $kz-border-borderless-border-color;
+      }
+    }
+  }
+
   &%caButtonReversed,
   :global(.js-focus-visible) &:global(.focus-visible) {
     %caButtonContent {
@@ -429,10 +461,13 @@ $caButton-verticalPaddingForm: calc(
     &:hover,
     &:active {
       color: $kz-color-coral-600;
+      background-color: $kz-color-coral-100;
     }
 
     :global(.js-focus-visible) &:global(.focus-visible) {
-      border-color: $kz-color-cluny-500;
+      color: $kz-color-coral-600;
+      background-color: $kz-color-coral-100;
+      border-color: $kz-border-borderless-border-color;
     }
   }
 }
@@ -460,7 +495,7 @@ $caButton-verticalPaddingForm: calc(
     // and these !importants are here to protect against consumers
     // overriding the colours if they depending on the
     // Elm Button's internal structure.
-    color: $kz-color-coral-600 !important;
-    background: $kz-color-coral-100 !important;
+    color: $kz-color-coral-600 !important; /* stylelint-disable-line declaration-no-important */
+    background: $kz-color-coral-100 !important; /* stylelint-disable-line declaration-no-important */
   }
 }

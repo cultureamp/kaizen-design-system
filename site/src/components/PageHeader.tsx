@@ -101,7 +101,7 @@ const PageHeader: React.SFC<PageHeaderProps> = ({
                 </Heading>
               </div>
               {summaryParagraph && (
-                <h3 className={styles.summaryParagraph}>{summaryParagraph}</h3>
+                <h2 className={styles.summaryParagraph}>{summaryParagraph}</h2>
               )}
               {children}
             </div>

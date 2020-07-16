@@ -1,9 +1,9 @@
+import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { Button } from "../button"
 const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
   .default
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { action } from "@storybook/addon-actions"
-import * as React from "react"
+import React from "react"
 
 export default {
   title: "Button (Zen) (React)",

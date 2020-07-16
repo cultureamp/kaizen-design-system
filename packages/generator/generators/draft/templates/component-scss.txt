@@ -1,9 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
 
 .wrapper {
-  color: $kz-color-wisteria-800;
+  color: $kz-color-coral-600; // Use design tokens where possible
 }
-
-
-
-

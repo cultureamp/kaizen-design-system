@@ -3,6 +3,86 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@1.6.20...@kaizen/draft-empty-state@1.6.21) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [1.6.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@1.6.19...@kaizen/draft-empty-state@1.6.20) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [1.6.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@1.6.18...@kaizen/draft-empty-state@1.6.19) (2020-07-10)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [1.6.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@1.6.17...@kaizen/draft-empty-state@1.6.18) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [1.6.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@1.6.16...@kaizen/draft-empty-state@1.6.17) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [1.6.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@1.6.15...@kaizen/draft-empty-state@1.6.16) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [1.6.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@1.6.14...@kaizen/draft-empty-state@1.6.15) (2020-07-06)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [1.6.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@1.6.13...@kaizen/draft-empty-state@1.6.14) (2020-07-01)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [1.6.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@1.6.12...@kaizen/draft-empty-state@1.6.13) (2020-06-29)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [1.6.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@1.6.11...@kaizen/draft-empty-state@1.6.12) (2020-06-26)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
 ## [1.6.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@1.6.10...@kaizen/draft-empty-state@1.6.11) (2020-06-22)
 
 **Note:** Version bump only for package @kaizen/draft-empty-state

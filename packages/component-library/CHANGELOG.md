@@ -3,6 +3,92 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.24.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.24.7...@kaizen/component-library@7.24.8) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.24.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.24.6...@kaizen/component-library@7.24.7) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.24.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.24.5...@kaizen/component-library@7.24.6) (2020-07-10)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.24.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.24.4...@kaizen/component-library@7.24.5) (2020-07-09)
+
+
+### Bug Fixes
+
+* Switch from TSlint to ESlint ([#621](https://github.com/cultureamp/kaizen-design-system/issues/621)) ([59e64d4](https://github.com/cultureamp/kaizen-design-system/commit/59e64d4d0cd14302544ae7f41fd76a101d313aee))
+
+
+
+
+
+## [7.24.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.24.3...@kaizen/component-library@7.24.4) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.24.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.24.2...@kaizen/component-library@7.24.3) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.24.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.24.1...@kaizen/component-library@7.24.2) (2020-07-06)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.24.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.24.0...@kaizen/component-library@7.24.1) (2020-07-01)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [7.24.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.23.7...@kaizen/component-library@7.24.0) (2020-06-29)
+
+
+### Features
+
+* update filter icon ([#588](https://github.com/cultureamp/kaizen-design-system/issues/588)) ([2051f0b](https://github.com/cultureamp/kaizen-design-system/commit/2051f0b7c0798e0d6b62fcd8c2c17b141eaa93f7))
+
+
+
+
+
+## [7.23.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.23.6...@kaizen/component-library@7.23.7) (2020-06-26)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [7.23.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.23.5...@kaizen/component-library@7.23.6) (2020-06-22)
 
 **Note:** Version bump only for package @kaizen/component-library

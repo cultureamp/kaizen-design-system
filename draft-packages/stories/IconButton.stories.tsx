@@ -1,3 +1,4 @@
+import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { IconButton } from "../button"
 const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
   .default
@@ -8,8 +9,14 @@ export default {
   title: "IconButton (React)",
 }
 
+const StoryWrapper = ({ children }) => (
+  <div style={{ color: colorTokens.kz.color.wisteria[800] }}>{children}</div>
+)
+
 export const DefaultKaizenSiteDemo = () => (
-  <IconButton icon={configureIcon} label="Label" automationId="demo-button" />
+  <StoryWrapper>
+    <IconButton icon={configureIcon} label="Label" automationId="demo-button" />
+  </StoryWrapper>
 )
 
 DefaultKaizenSiteDemo.story = {
@@ -17,16 +24,20 @@ DefaultKaizenSiteDemo.story = {
 }
 
 export const Hyperlink = () => (
-  <IconButton icon={configureIcon} label="Label" href="//example.com" />
+  <StoryWrapper>
+    <IconButton icon={configureIcon} label="Label" href="//example.com" />
+  </StoryWrapper>
 )
 
 export const HyperlinkWOnClick = () => (
-  <IconButton
-    icon={configureIcon}
-    label="Label"
-    href="//example.com"
-    onClick={action("I am an onClick handler")}
-  />
+  <StoryWrapper>
+    <IconButton
+      icon={configureIcon}
+      label="Label"
+      href="//example.com"
+      onClick={action("I am an onClick handler")}
+    />
+  </StoryWrapper>
 )
 
 HyperlinkWOnClick.story = {
@@ -34,20 +45,26 @@ HyperlinkWOnClick.story = {
 }
 
 export const Disabled = () => (
-  <IconButton icon={configureIcon} label="Label" disabled={true} />
+  <StoryWrapper>
+    <IconButton icon={configureIcon} label="Label" disabled={true} />
+  </StoryWrapper>
 )
 
 export const Destructive = () => (
-  <IconButton icon={configureIcon} label="Label" destructive={true} />
+  <StoryWrapper>
+    <IconButton icon={configureIcon} label="Label" destructive={true} />
+  </StoryWrapper>
 )
 
 export const DestructiveDisabled = () => (
-  <IconButton
-    icon={configureIcon}
-    label="Label"
-    destructive={true}
-    disabled={true}
-  />
+  <StoryWrapper>
+    <IconButton
+      icon={configureIcon}
+      label="Label"
+      destructive={true}
+      disabled={true}
+    />
+  </StoryWrapper>
 )
 
 DestructiveDisabled.story = {
@@ -55,16 +72,20 @@ DestructiveDisabled.story = {
 }
 
 export const Reversed = () => (
-  <IconButton icon={configureIcon} label="Label" reversed />
+  <StoryWrapper>
+    <IconButton icon={configureIcon} label="Label" reversed />
+  </StoryWrapper>
 )
 
 export const ReversedDisabled = () => (
-  <IconButton
-    icon={configureIcon}
-    label="Label"
-    reversed={true}
-    disabled={true}
-  />
+  <StoryWrapper>
+    <IconButton
+      icon={configureIcon}
+      label="Label"
+      reversed={true}
+      disabled={true}
+    />
+  </StoryWrapper>
 )
 
 ReversedDisabled.story = {
@@ -72,7 +93,9 @@ ReversedDisabled.story = {
 }
 
 export const FormDiscouraged = () => (
-  <IconButton icon={configureIcon} label="Label" form={true} />
+  <StoryWrapper>
+    <IconButton icon={configureIcon} label="Label" form={true} />
+  </StoryWrapper>
 )
 
 FormDiscouraged.story = {

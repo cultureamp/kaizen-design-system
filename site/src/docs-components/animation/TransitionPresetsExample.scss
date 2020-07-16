@@ -32,31 +32,37 @@
 // TIMING PRESET CLASSES                     //
 ///////////////////////////////////////////////
 :global(.ca-duration-instant) {
-  animation-duration: $ca-duration-instant !important;
-  transition-duration: $ca-duration-instant !important;
+  /* Tech debt - this !important existed before Stylelint rules */
+  animation-duration: $ca-duration-instant !important; /* stylelint-disable-line declaration-no-important */
+  transition-duration: $ca-duration-instant !important; /* stylelint-disable-line declaration-no-important */
 }
 
 :global(.ca-duration-immediate) {
-  animation-duration: $ca-duration-immediate !important;
-  transition-duration: $ca-duration-immediate !important;
+  /* Tech debt - this !important existed before Stylelint rules */
+  animation-duration: $ca-duration-immediate !important; /* stylelint-disable-line declaration-no-important */
+  transition-duration: $ca-duration-immediate !important; /* stylelint-disable-line declaration-no-important */
 }
 
 :global(.ca-duration-rapid) {
-  animation-duration: $ca-duration-rapid !important;
-  transition-duration: $ca-duration-rapid !important;
+  /* Tech debt - this !important existed before Stylelint rules */
+  animation-duration: $ca-duration-rapid !important; /* stylelint-disable-line declaration-no-important */
+  transition-duration: $ca-duration-rapid !important; /* stylelint-disable-line declaration-no-important */
 }
 
 :global(.ca-duration-fast) {
-  animation-duration: $ca-duration-fast !important;
-  transition-duration: $ca-duration-fast !important;
+  /* Tech debt - this !important existed before Stylelint rules */
+  animation-duration: $ca-duration-fast !important; /* stylelint-disable-line declaration-no-important */
+  transition-duration: $ca-duration-fast !important; /* stylelint-disable-line declaration-no-important */
 }
 
 :global(.ca-duration-slow) {
-  animation-duration: $ca-duration-slow !important;
-  transition-duration: $ca-duration-slow !important;
+  /* Tech debt - this !important existed before Stylelint rules */
+  animation-duration: $ca-duration-slow !important; /* stylelint-disable-line declaration-no-important */
+  transition-duration: $ca-duration-slow !important; /* stylelint-disable-line declaration-no-important */
 }
 
 :global(.ca-duration-deliberate) {
-  animation-duration: $ca-duration-deliberate !important;
-  transition-duration: $ca-duration-deliberate !important;
+  /* Tech debt - this !important existed before Stylelint rules */
+  animation-duration: $ca-duration-deliberate !important; /* stylelint-disable-line declaration-no-important */
+  transition-duration: $ca-duration-deliberate !important; /* stylelint-disable-line declaration-no-important */
 }

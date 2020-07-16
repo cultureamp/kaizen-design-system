@@ -121,7 +121,7 @@ SingleCollapsibleLazyLoad.story = {
   name: "Single collapsible (lazy load)",
 }
 
-// tslint:disable-next-line: variable-name
+// eslint-disable-next-line no-underscore-dangle
 export const _CollapsibleGroup = () => (
   <div style={{ margin: "1rem", width: "40rem" }}>
     <CollapsibleGroup>
@@ -197,23 +197,21 @@ CollapsibleGroupStickyHeaders.story = {
   name: "Collapsible group (sticky headers)",
 }
 
-export const CollapsibleGroupCallbackOnOpenClose = () => {
-  return (
-    <div style={{ margin: "1rem", width: "40rem" }}>
-      <CollapsibleGroup onToggle={action("Collapsible toggled")}>
-        <Collapsible id="collapsible-separate-1" open title="First panel">
-          <Paragraph variant="body">{lipsum}</Paragraph>
-        </Collapsible>
-        <Collapsible id="collapsible-separate-2" title="Second panel">
-          <Paragraph variant="body">{lipsum}</Paragraph>
-        </Collapsible>
-        <Collapsible id="collapsible-separate-3" title="Third panel">
-          <Paragraph variant="body">{lipsum}</Paragraph>
-        </Collapsible>
-      </CollapsibleGroup>
-    </div>
-  )
-}
+export const CollapsibleGroupCallbackOnOpenClose = () => (
+  <div style={{ margin: "1rem", width: "40rem" }}>
+    <CollapsibleGroup onToggle={action("Collapsible toggled")}>
+      <Collapsible id="collapsible-separate-1" open title="First panel">
+        <Paragraph variant="body">{lipsum}</Paragraph>
+      </Collapsible>
+      <Collapsible id="collapsible-separate-2" title="Second panel">
+        <Paragraph variant="body">{lipsum}</Paragraph>
+      </Collapsible>
+      <Collapsible id="collapsible-separate-3" title="Third panel">
+        <Paragraph variant="body">{lipsum}</Paragraph>
+      </Collapsible>
+    </CollapsibleGroup>
+  </div>
+)
 
 CollapsibleGroupCallbackOnOpenClose.story = {
   name: "Collapsible group (callback on open/close)",

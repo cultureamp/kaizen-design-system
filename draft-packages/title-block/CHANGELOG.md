@@ -3,6 +3,108 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.25...@kaizen/draft-title-block@1.5.26) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [1.5.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.24...@kaizen/draft-title-block@1.5.25) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [1.5.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.23...@kaizen/draft-title-block@1.5.24) (2020-07-10)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [1.5.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.22...@kaizen/draft-title-block@1.5.23) (2020-07-09)
+
+
+### Bug Fixes
+
+* Switch from TSlint to ESlint ([#621](https://github.com/cultureamp/kaizen-design-system/issues/621)) ([59e64d4](https://github.com/cultureamp/kaizen-design-system/commit/59e64d4d0cd14302544ae7f41fd76a101d313aee))
+
+
+
+
+
+## [1.5.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.21...@kaizen/draft-title-block@1.5.22) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [1.5.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.20...@kaizen/draft-title-block@1.5.21) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [1.5.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.19...@kaizen/draft-title-block@1.5.20) (2020-07-06)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [1.5.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.18...@kaizen/draft-title-block@1.5.19) (2020-07-02)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [1.5.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.17...@kaizen/draft-title-block@1.5.18) (2020-07-01)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [1.5.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.16...@kaizen/draft-title-block@1.5.17) (2020-06-29)
+
+
+### Bug Fixes
+
+* Add stylelint ignores for all preexisting usages of !important ([#568](https://github.com/cultureamp/kaizen-design-system/issues/568)) ([baa2a56](https://github.com/cultureamp/kaizen-design-system/commit/baa2a566277bdd6d2e7ff9b101ccbbcdf88718d2))
+
+
+
+
+
+## [1.5.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.15...@kaizen/draft-title-block@1.5.16) (2020-06-29)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [1.5.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.14...@kaizen/draft-title-block@1.5.15) (2020-06-26)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
 ## [1.5.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.13...@kaizen/draft-title-block@1.5.14) (2020-06-22)
 
 **Note:** Version bump only for package @kaizen/draft-title-block

@@ -12,7 +12,7 @@
   color: $kz-color-wisteria-800;
 }
 
-.container {
+.specificityIncreaser {
   .control {
     min-height: $input-height;
     border: $kz-border-solid-border-width $kz-border-solid-border-style
@@ -72,6 +72,15 @@
     @include base-font-style();
   }
 
+  &.reversed {
+    .singleValue {
+      color: $kz-color-white;
+    }
+    .singleValueOverrides {
+      color: $kz-color-white;
+    }
+  }
+
   .multiValue {
     @include kz-typography-paragraph-body;
     @include ca-inherit-baseline;
@@ -79,5 +88,124 @@
     border-radius: 15px;
     padding: $ca-grid * 0.075 $ca-grid * 0.25;
     cursor: default;
+  }
+
+  &.secondary {
+    &.default {
+      .control {
+        background: transparent;
+        border: $kz-border-borderless-border-width
+          $kz-border-borderless-border-style $kz-border-borderless-border-color;
+        border-radius: $kz-border-borderless-border-radius;
+
+        .singleValue {
+          color: $kz-color-cluny-500;
+        }
+
+        &:hover {
+          background: $kz-color-cluny-100;
+        }
+
+        &.disabled {
+          opacity: 0.3;
+        }
+
+        &.focusedControl {
+          background: $kz-color-cluny-100;
+
+          &::after {
+            $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px;
+            content: "";
+            position: absolute;
+            background: transparent;
+            border-radius: $kz-border-focus-ring-border-radius;
+            border-width: $kz-border-focus-ring-border-width;
+            border-style: $kz-border-focus-ring-border-style;
+            border-color: $kz-color-cluny-500;
+            top: -$focus-ring-offset;
+            left: -$focus-ring-offset;
+            right: -$focus-ring-offset;
+            bottom: -$focus-ring-offset;
+          }
+        }
+      }
+
+      .dropdownIndicator {
+        color: $kz-color-cluny-500;
+      }
+    }
+
+    &.reversed {
+      .control {
+        background: add-alpha($kz-color-white, 10%);
+        color: $kz-color-white;
+        border: $kz-border-borderless-border-width
+          $kz-border-borderless-border-style $kz-border-borderless-border-color;
+        border-radius: $kz-border-borderless-border-radius;
+
+        &:hover {
+          background: add-alpha($kz-color-white, 20%);
+        }
+
+        &.disabled {
+          opacity: 0.3;
+        }
+      }
+
+      .dropdownIndicator {
+        color: $kz-color-white;
+      }
+
+      $secondary-reversed-focus-color: $kz-color-cluny-300;
+
+      .focusedControl {
+        border-color: $secondary-reversed-focus-color;
+
+        &:hover {
+          border-color: $secondary-reversed-focus-color;
+        }
+      }
+    }
+  }
+
+  &.notFullWidth {
+    .control {
+      display: inline-block;
+      // ideally this would be inline-flex, but that causes problems in IE11
+      max-width: 100%;
+
+      > div {
+        // If this CSS is removed, then the control becomes too tall when
+        // it ellipsizes. It's strange, as the parent element is
+        // display: inline-block, so you wouldn't expect it to have any affect,
+        // but it works and was honesty a fluke from some unintentionally
+        // leftover code when refactoring to support IE11 :shrug
+        // I don't like the descendent selector, but there doesn't seem to be
+        // a way to customise this element in react-select.
+        height: 44px; // fixed height required for vertical centering, due to IE11 hack
+        flex-wrap: nowrap;
+      }
+    }
+
+    .indicatorsContainer {
+      position: absolute; // absolute positioning is required due to IE11 and not
+      // being able to use inline-flex
+      right: 0;
+      top: 0;
+    }
+
+    .singleValueOverrides {
+      overflow: hidden;
+      position: static;
+      white-space: nowrap;
+      top: 0px;
+      transform: none;
+      max-width: 100%;
+      padding-right: 30px;
+    }
+
+    .singleValue {
+      max-width: 100%;
+    }
   }
 }

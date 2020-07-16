@@ -8,6 +8,10 @@ needToKnow:
   - "As a general rule, we use 12px (½ Grid Unit) or 24px (1 Grid Unit) for most spacing requirements."
 ---
 
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
 ## To keep in mind
 
 ### Grid Units
@@ -18,15 +22,15 @@ Spacing throughout our design system utilizes ‘Grid Units’ to inform spacing
 
 | Grid Units | Pixels | Rem | Code |
 | ---------- | ------ | --- | ---- |
-| 0.25 (Minimum spacing) | 6px | 0.375rem | $ca-grid / 4 |
-| 0.5 | 12px | 0.75rem | $ca-grid / 2 |
-| 1 | 24px | 1.5rem | $ca-grid |
-| 1.5 | 36px | 2.25rem | $ca-grid * 1.5 |
-| 2 | 48px | 3rem | $ca-grid * 2 |
-| 2.5 | 60px | 3.75rem | $ca-grid * 2.5 |
-| 3 | 72px | 4.5rem | $ca-grid * 3 |
-| 3.5 | 84px | 5.25rem | $ca-grid * 3.5 |
-| 4 | 96px | 6rem | $ca-grid * 4 |
+| 0.25 (Minimum spacing) | 6px | 0.375rem | $kz-spacing-xs | 
+| 0.5 | 12px | 0.75rem | $kz-spacing-sm | 
+| 1 | 24px | 1.5rem | $kz-spacing-md |
+| 1.5 | 36px | 2.25rem | $kz-spacing-lg | 
+| 2 | 48px | 3rem | $kz-spacing-xl | 
+| 2.5 | 60px | 3.75rem | $kz-spacing-xxl | 
+| 3 | 72px | 4.5rem | $kz-spacing-xxxl | 
+| 3.5 | 84px | 5.25rem | $kz-spacing-xxxxl | 
+| 4 | 96px | 6rem | $kz-spacing-xxxxxl | 
 
 
 
@@ -40,9 +44,20 @@ Spacing helps to relate elements together through proximity. Grid units give us 
 
 - As a general rule, we use 12px (½ Grid Unit) or 24px (1 Grid Unit) to separate elements within a container.
 
-## When to use
+## When to use and when not to use
 
-- To control the positioning of elements that are close together inside a container.
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
+
+- Use spacing tokens to control the positioning of elements that are close together inside a container.
+
+</WhenToUse>
+<WhenNotToUse>
+
+- For optical [alignment](/guidelines/alignment), you might use custom adjustments or pair spacing tokens with custom adjustments.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 

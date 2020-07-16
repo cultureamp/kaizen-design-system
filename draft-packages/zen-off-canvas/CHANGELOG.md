@@ -3,6 +3,108 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-off-canvas@1.7.10...@kaizen/draft-zen-off-canvas@1.7.11) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/draft-zen-off-canvas
+
+
+
+
+
+## [1.7.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-off-canvas@1.7.9...@kaizen/draft-zen-off-canvas@1.7.10) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/draft-zen-off-canvas
+
+
+
+
+
+## [1.7.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-off-canvas@1.7.8...@kaizen/draft-zen-off-canvas@1.7.9) (2020-07-10)
+
+**Note:** Version bump only for package @kaizen/draft-zen-off-canvas
+
+
+
+
+
+## [1.7.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-off-canvas@1.7.7...@kaizen/draft-zen-off-canvas@1.7.8) (2020-07-09)
+
+
+### Bug Fixes
+
+* Switch from TSlint to ESlint ([#621](https://github.com/cultureamp/kaizen-design-system/issues/621)) ([59e64d4](https://github.com/cultureamp/kaizen-design-system/commit/59e64d4d0cd14302544ae7f41fd76a101d313aee))
+
+
+
+
+
+## [1.7.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-off-canvas@1.7.6...@kaizen/draft-zen-off-canvas@1.7.7) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-zen-off-canvas
+
+
+
+
+
+## [1.7.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-off-canvas@1.7.5...@kaizen/draft-zen-off-canvas@1.7.6) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-zen-off-canvas
+
+
+
+
+
+## [1.7.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-off-canvas@1.7.4...@kaizen/draft-zen-off-canvas@1.7.5) (2020-07-06)
+
+**Note:** Version bump only for package @kaizen/draft-zen-off-canvas
+
+
+
+
+
+## [1.7.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-off-canvas@1.7.3...@kaizen/draft-zen-off-canvas@1.7.4) (2020-07-01)
+
+**Note:** Version bump only for package @kaizen/draft-zen-off-canvas
+
+
+
+
+
+## [1.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-off-canvas@1.7.2...@kaizen/draft-zen-off-canvas@1.7.3) (2020-06-29)
+
+**Note:** Version bump only for package @kaizen/draft-zen-off-canvas
+
+
+
+
+
+## [1.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-off-canvas@1.7.1...@kaizen/draft-zen-off-canvas@1.7.2) (2020-06-29)
+
+**Note:** Version bump only for package @kaizen/draft-zen-off-canvas
+
+
+
+
+
+## [1.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-off-canvas@1.7.0...@kaizen/draft-zen-off-canvas@1.7.1) (2020-06-26)
+
+**Note:** Version bump only for package @kaizen/draft-zen-off-canvas
+
+
+
+
+
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-off-canvas@1.6.25...@kaizen/draft-zen-off-canvas@1.7.0) (2020-06-26)
+
+
+### Features
+
+* add colour scheme to navigation bar ([#583](https://github.com/cultureamp/kaizen-design-system/issues/583)) ([8948e41](https://github.com/cultureamp/kaizen-design-system/commit/8948e412064ef5df00425607013c8f457d805e7a))
+
+
+
+
+
 ## [1.6.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-off-canvas@1.6.24...@kaizen/draft-zen-off-canvas@1.6.25) (2020-06-22)
 
 **Note:** Version bump only for package @kaizen/draft-zen-off-canvas

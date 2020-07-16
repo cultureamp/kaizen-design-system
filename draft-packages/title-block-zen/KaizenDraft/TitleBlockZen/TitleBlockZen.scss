@@ -15,6 +15,7 @@ $tab-container-height-default: $ca-grid * 3;
 $tab-container-height-small: $ca-grid * 2.5;
 
 .titleBlock {
+  position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $kz-color-wisteria-700;
@@ -74,7 +75,6 @@ $tab-container-height-small: $ca-grid * 2.5;
   align-items: center;
   height: $ca-grid * 3.5;
   justify-content: space-between;
-
   border-bottom: $title-block-separator-height solid rgba($kz-color-white, 0.1);
 
   .educationVariant & {
@@ -94,54 +94,127 @@ $tab-container-height-small: $ca-grid * 2.5;
 .title {
   display: flex;
   align-items: center;
+  max-width: 724px;
+
+  .hasLongTitle.hasLongSubtitle & {
+    @include title-block-under-1645 {
+      max-width: 520px;
+    }
+
+    @include title-block-under-1366 {
+      max-width: 50vw;
+    }
+
+    @media (max-width: 899px) {
+      max-width: 44vw;
+    }
+
+    @include title-block-small {
+      max-width: 83vw;
+    }
+  }
+
+  @include title-block-under-1645 {
+    max-width: 44vw;
+  }
+
+  @include title-block-under-1366 {
+    max-width: 42vw;
+  }
+
+  @include title-block-small {
+    max-width: 83vw;
+  }
 }
 
 .titleAndSubtitle {
   display: flex;
   align-items: center;
+
+  .hasSubtitle & {
+    @include title-block-under-1366 {
+      transform: translateY(-0.38333em);
+    }
+  }
   transform: translateY(-0.0833333em);
 }
 
 .titleAndSubtitleInner {
   display: flex;
 
+  .hasSubtitle.hasLongTitle.hasLongSubtitle & {
+    align-items: center;
+
+    @include title-block-under-1366 {
+      align-items: baseline;
+    }
+  }
+
   .hasSubtitle & {
     align-items: baseline;
+    overflow: hidden;
 
-    @include title-block-small {
+    @include title-block-under-1366 {
       align-items: normal;
       flex-direction: column;
       justify-content: space-between;
+      transform: translateY($ca-grid / 3);
+
+      .hasLongTitle.hasLongSubtitle & {
+        align-items: baseline;
+      }
+    }
+
+    @include title-block-medium-and-small {
       transform: translateY($ca-grid / 2);
     }
   }
 }
 
 .titleTextOverride.titleTextOverride {
-  @include title-block-under-1366 {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding: 4px 0;
+
+  @media (max-width: $breadcrumb-breakpoint-width) {
     font-family: $kz-typography-heading-2-font-family;
     font-weight: $kz-typography-heading-2-font-weight;
     font-size: $kz-typography-heading-2-font-size;
     line-height: $kz-typography-heading-2-line-height;
     letter-spacing: $kz-typography-heading-2-letter-spacing;
   }
-  @include title-block-medium-and-small {
-    font-family: $kz-typography-heading-3-font-family;
-    font-weight: $kz-typography-heading-3-font-weight;
-    font-size: $kz-typography-heading-3-font-size;
-    line-height: $kz-typography-heading-3-line-height;
-    letter-spacing: $kz-typography-heading-3-letter-spacing;
+  @include title-block-under-1366 {
+    font-family: $kz-typography-heading-2-font-family;
+    font-weight: $kz-typography-heading-2-font-weight;
+    font-size: $kz-typography-heading-2-font-size;
+    line-height: $kz-typography-heading-2-line-height;
+    letter-spacing: $kz-typography-heading-2-letter-spacing;
+    padding: 2px 0;
   }
-  @include title-block-under-1024 {
+  .hasLongTitle & {
+    @include title-block-under-1366 {
+      font-family: $kz-typography-heading-3-font-family;
+      font-weight: $kz-typography-heading-3-font-weight;
+      font-size: $kz-typography-heading-3-font-size;
+      line-height: $kz-typography-heading-3-line-height;
+      letter-spacing: $kz-typography-heading-3-letter-spacing;
+      padding: 2px 0;
+    }
+  }
+
+  @include title-block-medium-and-small {
     font-family: $kz-typography-heading-4-font-family;
     font-weight: $kz-typography-heading-4-font-weight;
     font-size: $kz-typography-heading-4-font-size;
     line-height: $kz-typography-heading-4-line-height;
     letter-spacing: $kz-typography-heading-4-letter-spacing;
+    padding: 0;
   }
 }
 
 .avatar {
+  display: none;
   box-sizing: border-box;
   border: 3px solid $kz-color-white;
   border-radius: 50%;
@@ -154,8 +227,49 @@ $tab-container-height-small: $ca-grid * 2.5;
     max-width: 100%;
   }
 
-  @include title-block-medium-and-small {
+  @media (min-width: $kz-layout-breakpoints-large) {
+    display: block;
+  }
+
+  .hasSubtitle.hasAvatar & {
+    @include title-block-under-1366 {
+      transform: translateY(10px);
+    }
+  }
+
+  .hasLongTitle & {
     display: none;
+  }
+}
+
+.hamburger {
+  display: none;
+  @include ca-margin($end: $ca-grid * 2/3);
+  color: $kz-color-white;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .educationVariant &,
+  .adminVariant & {
+    color: $kz-color-wisteria-800;
+  }
+
+  @include title-block-medium-and-small {
+    display: flex;
+    align-items: center;
+    transform: translateY(-1px);
+  }
+
+  .hasSubtitle & {
+    @include title-block-under-1366 {
+      transform: translateY(-6px);
+    }
+
+    @include title-block-medium-and-small {
+      transform: translateY(-8px);
+    }
   }
 }
 
@@ -168,31 +282,55 @@ $tab-container-height-small: $ca-grid * 2.5;
   font-size: $kz-typography-paragraph-small-font-size;
   line-height: $kz-typography-paragraph-small-line-height;
   letter-spacing: $kz-typography-paragraph-small-letter-spacing;
+  max-width: 230px;
+
   @include ca-margin($start: $ca-grid / 2);
 
+  @include title-block-under-1366 {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: none;
+    margin: ($ca-grid / 5) 0;
+  }
+}
+
+.subtitleText {
+  @include title-block-under-1366 {
+    max-width: 42vw;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
   @include title-block-small {
-    margin: $ca-grid / 3 0;
+    max-width: 88vw;
   }
 }
 
 .sectionTitleContainer {
   display: flex;
   align-items: center;
+  padding: ($ca-grid * 3/4) 0;
 }
 
 .sectionTitleInner {
   display: flex;
-  align-items: baseline;
+  flex-direction: column;
 }
 
 .sectionTitleOverride.sectionTitleOverride {
+  white-space: nowrap;
+
+  @include ca-margin($end: $ca-grid);
+
   font-family: $kz-typography-heading-2-font-family;
   font-weight: $kz-typography-heading-2-font-weight;
   font-size: $kz-typography-heading-2-font-size;
   line-height: $kz-typography-heading-2-line-height;
   letter-spacing: $kz-typography-heading-2-letter-spacing;
 
-  @include title-block-under-1366 {
+  @include title-block-under-1645 {
     font-family: $kz-typography-heading-3-font-family;
     font-weight: $kz-typography-heading-3-font-weight;
     font-size: $kz-typography-heading-3-font-size;
@@ -208,9 +346,17 @@ $tab-container-height-small: $ca-grid * 2.5;
   }
 }
 
+.sectionTitle {
+  display: block;
+}
+
 .sectionTitleDescription {
-  @include ca-margin($start: $ca-grid);
+  .sectionTitle + & {
+    margin-top: $ca-grid / 4;
+  }
+
   color: $kz-color-white;
+  max-width: 780px;
   font-family: $kz-typography-paragraph-small-font-family;
   font-weight: $kz-typography-paragraph-small-font-weight;
   font-size: $kz-typography-paragraph-small-font-size;
@@ -222,43 +368,11 @@ $tab-container-height-small: $ca-grid * 2.5;
   }
 }
 
-.hamburger {
-  display: none;
-  @include ca-margin($end: $ca-grid * 2/3);
-  color: $kz-color-white;
-
-  .educationVariant &,
-  .adminVariant & {
-    color: $kz-color-wisteria-800;
-  }
-
-  @include title-block-medium-and-small {
-    display: flex;
-    align-items: center;
-    transform: translateY(-1px);
-  }
-
-  @include title-block-under-1024 {
-    transform: translateY(-2px);
-  }
-
-  .hasSubtitle & {
-    @include title-block-small {
-      transform: translateY(-7px);
-    }
-  }
-}
-
 .rowBelowSeparatorInnerContent {
   display: flex;
   width: 100%;
-  height: $ca-grid * 3;
   margin-top: -$title-block-separator-height;
   justify-content: space-between;
-
-  @include title-block-small {
-    height: $ca-grid * 2.5;
-  }
 }
 
 .titleAndAdjacent {
@@ -272,21 +386,54 @@ $tab-container-height-small: $ca-grid * 2.5;
   .breadcrumb:hover + &,
   .breadcrumb:focus + & {
     opacity: 0;
-  }
 
-  // This is a hack. Without this block,
-  // the non-breadcrumb stuff will jump to the right
-  // as it fades out.
-  @media only screen and (max-width: $breadcrumb-breakpoint-width) {
-    .breadcrumb:hover + &,
-    .breadcrumb:focus + & {
-      position: absolute;
-      opacity: 0;
+    /* Unfortunately since the avatar, subtitle and length of the
+     * subtitle can all affect the height of the content area here,
+     * we have some fragile hacks to cover each combination.
+     * The subtitle needs to wrap if long, and is vertically centred
+     * instead of positioned along the same baseline as the title,
+     * which is what it does when short. This all adds to the complexity
+     * and we made a call to meet the design requirements under a
+     * deadline instead of exploring a less fragile solution.
+     * (A better solution might involve behaviour where this element that
+     * fades out retains its visual space à la `visibility: hidden`.)
+     */
+    @include title-block-under-1645 {
       left: $breadcrumb-circle-width + 12px;
-      transform: translateY(6px);
+      position: absolute;
+      transform: translateY(2px);
+
+      .hasAvatar & {
+        transform: translateY(0);
+      }
 
       .hasSubtitle & {
-        transform: translateY(0px);
+        transform: translateY(2px);
+      }
+
+      .hasAvatar.hasSubtitle & {
+        transform: translateY(0);
+      }
+
+      .hasSubtitle.hasLongTitle & {
+        transform: translateY(2px);
+      }
+    }
+
+    @include title-block-under-1366 {
+      transform: translateY(4px);
+
+      .hasAvatar & {
+        transform: translateY(0);
+      }
+      .hasSubtitle & {
+        transform: translateY(-10px);
+      }
+      .hasAvatar.hasSubtitle & {
+        transform: translateY(-10px);
+      }
+      .hasSubtitle.hasLongTitle & {
+        transform: translateY(-4px);
       }
     }
   }
@@ -304,7 +451,6 @@ $tab-container-height-small: $ca-grid * 2.5;
 
 .navigationTabsContainer {
   display: flex;
-  position: relative;
   height: $tab-container-height-default;
 
   @include title-block-small {
@@ -314,20 +460,31 @@ $tab-container-height-small: $ca-grid * 2.5;
 
 .navigationTabScrollerContainer {
   @include title-block-small {
+    display: none;
     overflow-x: scroll;
     scrollbar-width: none;
+    width: 100vw;
+
     &::-webkit-scrollbar {
       display: none;
+    }
+  }
+
+  .hasNavigationTabs & {
+    @include title-block-small {
+      display: block;
     }
   }
 }
 
 .navigationTabEdgeShadow {
   display: none;
+  pointer-events: none;
 
   @include title-block-small {
     display: block;
-    position: fixed;
+    position: absolute;
+    top: 63px;
     width: $ca-grid * 2;
     height: $tab-container-height-small;
     background: linear-gradient(
@@ -336,6 +493,22 @@ $tab-container-height-small: $ca-grid * 2.5;
       rgba($kz-color-wisteria-700, 0)
     );
     z-index: $ca-z-index-sticky;
+  }
+
+  .adminVariant & {
+    @include title-block-small {
+      background: linear-gradient(0, $kz-color-stone, rgba($kz-color-stone, 0));
+    }
+  }
+
+  .educationVariant & {
+    @include title-block-small {
+      background: linear-gradient(
+        0,
+        $kz-color-cluny-200,
+        rgba($kz-color-cluny-200, 0)
+      );
+    }
   }
 }
 
@@ -354,6 +527,12 @@ $tab-container-height-small: $ca-grid * 2.5;
 .mainActionsContainer {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  flex-basis: 480px;
+  flex-grow: 1;
+  flex-shrink: 1;
+
+  @include ca-margin($start: $ca-grid / 2);
 
   @include title-block-small {
     display: none;
@@ -362,7 +541,10 @@ $tab-container-height-small: $ca-grid * 2.5;
 
 .secondaryActionsContainer {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: ($ca-grid / 2) 0;
+  @include ca-margin($start: $ca-grid * 1.5);
 
   // To be removed eventually – the Dropdown does not
   // currently set its own color, and we want it
@@ -412,7 +594,6 @@ $tab-container-height-small: $ca-grid * 2.5;
 }
 
 .breadcrumbText {
-  flex: 0 0 $ca-grid * 8;
   top: 0;
   display: none;
   @include ca-margin($start: $ca-grid);
@@ -426,6 +607,7 @@ $tab-container-height-small: $ca-grid * 2.5;
   .breadcrumb:hover &,
   .breadcrumb:focus & {
     display: inline-block;
+    max-width: 200px;
     animation: slide-fade 0.4s;
 
     [dir="rtl"] & {

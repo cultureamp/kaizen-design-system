@@ -3,6 +3,175 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.24...@kaizen/draft-modal@2.5.25) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.23...@kaizen/draft-modal@2.5.24) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.22...@kaizen/draft-modal@2.5.23) (2020-07-13)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.21...@kaizen/draft-modal@2.5.22) (2020-07-10)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.20...@kaizen/draft-modal@2.5.21) (2020-07-09)
+
+
+### Bug Fixes
+
+* Switch from TSlint to ESlint ([#621](https://github.com/cultureamp/kaizen-design-system/issues/621)) ([59e64d4](https://github.com/cultureamp/kaizen-design-system/commit/59e64d4d0cd14302544ae7f41fd76a101d313aee))
+
+
+
+
+
+## [2.5.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.19...@kaizen/draft-modal@2.5.20) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.18...@kaizen/draft-modal@2.5.19) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.17...@kaizen/draft-modal@2.5.18) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.16...@kaizen/draft-modal@2.5.17) (2020-07-08)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.15...@kaizen/draft-modal@2.5.16) (2020-07-07)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.14...@kaizen/draft-modal@2.5.15) (2020-07-06)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.13...@kaizen/draft-modal@2.5.14) (2020-07-05)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.12...@kaizen/draft-modal@2.5.13) (2020-07-03)
+
+
+### Bug Fixes
+
+* Ensure headers meet WCAG contrast ([#610](https://github.com/cultureamp/kaizen-design-system/issues/610)) ([5a8f59b](https://github.com/cultureamp/kaizen-design-system/commit/5a8f59bdd6dc7fb67c841ea257190558b5d9351b))
+
+
+
+
+
+## [2.5.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.11...@kaizen/draft-modal@2.5.12) (2020-07-03)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.10...@kaizen/draft-modal@2.5.11) (2020-07-02)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.9...@kaizen/draft-modal@2.5.10) (2020-07-01)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.8...@kaizen/draft-modal@2.5.9) (2020-06-29)
+
+
+### Bug Fixes
+
+* Add stylelint ignores for all preexisting usages of !important ([#568](https://github.com/cultureamp/kaizen-design-system/issues/568)) ([baa2a56](https://github.com/cultureamp/kaizen-design-system/commit/baa2a566277bdd6d2e7ff9b101ccbbcdf88718d2))
+
+
+
+
+
+## [2.5.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.7...@kaizen/draft-modal@2.5.8) (2020-06-29)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.6...@kaizen/draft-modal@2.5.7) (2020-06-26)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.5...@kaizen/draft-modal@2.5.6) (2020-06-26)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
 ## [2.5.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.4...@kaizen/draft-modal@2.5.5) (2020-06-23)
 
 **Note:** Version bump only for package @kaizen/draft-modal
