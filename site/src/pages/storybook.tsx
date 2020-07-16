@@ -11,7 +11,7 @@ export default ({ location }) => (
     footer={<Footer />}
   >
     <iframe
-      src={withPrefix("/storybook-static")}
+      src={withPrefix("/storybook")}
       style={{ width: "100%", border: "0", height: "100%" }}
     ></iframe>
   </Layout>
