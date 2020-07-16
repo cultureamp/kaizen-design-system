@@ -99,7 +99,6 @@ export const Positive = () => (
           label="Label"
           icon={chevronRight}
           iconPosition="end"
-          fullWidth
         />
       </div>
     </EmptyState>
@@ -132,7 +131,7 @@ export const Action = () => (
           label="Label"
           icon={chevronRight}
           iconPosition="end"
-          fullWidth
+
         />
       </div>
     </EmptyState>
@@ -152,7 +151,6 @@ export const ActionButNotZen = () => (
           label="Label"
           icon={chevronRight}
           iconPosition="end"
-          fullWidth
         />
       </div>
     </EmptyState>
@@ -181,7 +179,6 @@ export const ActionButton = () => (
           label="Label"
           icon={chevronRight}
           iconPosition="end"
-          fullWidth
         />
       </div>
     </EmptyState>
@@ -218,7 +215,6 @@ export const Negative = () => (
           label="Label"
           icon={chevronRight}
           iconPosition="end"
-          fullWidth
         />
       </div>
     </EmptyState>
@@ -240,7 +236,6 @@ export const RtlAction = () => (
             label="Label"
             icon={chevronLeft}
             iconPosition="end"
-            fullWidth
           />
         </div>
       </EmptyState>
@@ -263,7 +258,7 @@ export const StraightCorners = () => (
       useZenStyles
     >
       <div className={styles.buttonContainer}>
-        <Button label="Label" icon={chevronLeft} iconPosition="end" fullWidth />
+        <Button label="Label" icon={chevronLeft} iconPosition="end" />
       </div>
     </EmptyState>
   </SidebarAndContentLayout>
