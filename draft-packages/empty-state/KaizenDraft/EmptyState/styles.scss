@@ -7,7 +7,7 @@
 
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100%;
   padding-top: 2%;
   padding-bottom: 2%;
@@ -33,7 +33,6 @@
   // These class names must match the possible values of the component's layoutContext prop
   &.sidebarAndContent {
     @include large-sidebar-and-content {
-      max-width: $large;
       padding-top: $ca-grid;
       padding-bottom: $ca-grid;
     }
@@ -41,7 +40,6 @@
 
   &.contentOnly {
     @include large-content-only {
-      max-width: $large;
       padding-top: $ca-grid;
       padding-bottom: $ca-grid;
     }
@@ -67,13 +65,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-end;
     margin-bottom: 0;
     min-width: 40%;
     max-width: 50%;
     flex-grow: 1;
-    flex-basis: 50%;
-    padding-left: 7%;
-    padding-right: 8%;
+    box-sizing: border-box;
+    padding-right: $ca-grid * 2;
   }
 
   .sidebarAndContent & {
@@ -93,12 +91,13 @@
 
 .illustration {
   max-width: 100%;
+  max-height: 366px;
 
   // Fixes for IE11 Flexbox issues
-  min-height: 224px;
+  min-height: 196px;
 
   @include small {
-    max-height: 224px;
+    max-height: 196px;
   }
 }
 
@@ -108,15 +107,19 @@
   flex-shrink: 1;
   align-items: center;
   -webkit-font-smoothing: antialiased;
+
+  @include medium {
+    flex-basis: 50%;
+    flex-grow: 0;
+  }
 }
 
 .textSideInner {
   flex-grow: 0;
   height: auto;
-  margin: $ca-grid / 2;
+  margin: 0 ($ca-grid / 2);
 
   @include small {
-    text-align: center;
     margin-bottom: 0;
   }
 
