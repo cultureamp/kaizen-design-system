@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.25...@kaizen/draft-title-block@1.5.26) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [1.5.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.24...@kaizen/draft-title-block@1.5.25) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
 ## [1.5.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.23...@kaizen/draft-title-block@1.5.24) (2020-07-10)
 
 **Note:** Version bump only for package @kaizen/draft-title-block
