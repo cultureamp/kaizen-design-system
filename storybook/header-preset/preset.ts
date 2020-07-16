@@ -25,7 +25,7 @@ module.exports = {
         ...config.resolve,
         alias: {
           ...config.resolve.alias,
-          "custom-layout": path.resolve("./storybook/header-preset/header.tsx"),
+          "custom-layout": path.resolve("./storybook/header-preset/index.tsx"),
         },
         extensions: [...config.resolve.extensions, ".ts", ".tsx"],
       },

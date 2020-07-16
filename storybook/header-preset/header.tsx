@@ -1,15 +1,8 @@
 import React from "react"
-import { render } from "react-dom"
-import {
-  Link as NavLink,
-  NavigationBar,
-} from "../../packages/component-library/components/NavigationBar"
-
-import Footer from "../../site/src/components/Footer"
-
+import { Link as NavLink, NavigationBar } from "@kaizen/component-library"
 const styles = require("./header.module.scss")
 
-export const SiteHeader = () => {
+const SiteHeader = () => {
   let branch = ""
   if (window.location.hostname.includes("dev")) {
     // the dev branch is appended before the rest of the pathname
@@ -17,7 +10,7 @@ export const SiteHeader = () => {
     // strip that from the path
     branch = window.location.pathname
       .split("/")
-      .filter(curr => curr !== "" && curr !== "storybook-static")
+      .filter(curr => curr !== "" && curr !== "storybook")
       .join("/")
   }
   const baseUrl = `${window.location.origin}/${branch}`
@@ -49,21 +42,4 @@ export const SiteHeader = () => {
   )
 }
 
-const analytics = document.createElement("noscript")
-analytics.innerHTML = `<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KS4VWLT"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->`
-document.body.insertAdjacentElement("afterbegin", analytics)
-
-/**
- * Inject the nav header before the root node that storybook
- * uses to mount
- */
-const headerNode = document.createElement("div")
-render(<SiteHeader />, headerNode)
-document.body.insertAdjacentElement("afterbegin", headerNode)
-
-const footerNode = document.createElement("div")
-render(<Footer />, footerNode)
-document.getElementById("root")?.insertAdjacentElement("afterend", footerNode)
+export default SiteHeader

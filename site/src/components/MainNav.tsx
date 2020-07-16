@@ -7,10 +7,10 @@ type MainNavProps = {
 }
 
 type MainPropsState = {
-  externalUrl?: string
+  externalUrl: string
 }
 
-class MainNav extends React.Component<MainNavProps> {
+class MainNav extends React.Component<MainNavProps, MainPropsState> {
   public state = {
     externalUrl: "",
   }
@@ -27,9 +27,7 @@ class MainNav extends React.Component<MainNavProps> {
         .join("/")
     }
     // storybook is hosted outside of Gatsby, so we cannot use `withPrefix`
-    const baseUrl = `${window.location.origin}/${branch}`
-
-    this.state = { externalUrl: baseUrl }
+    this.state = { externalUrl: `${window.location.origin}/${branch}` }
   }
 
   render() {
