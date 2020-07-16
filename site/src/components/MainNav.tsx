@@ -27,7 +27,7 @@ class MainNav extends React.Component<MainNavProps, MainPropsState> {
         .join("/")
     }
     // storybook is hosted outside of Gatsby, so we cannot use `withPrefix`
-    this.state = { externalUrl: `${window.location.origin}/${branch}` }
+    this.setState({ externalUrl: `${window.location.origin}/${branch}` })
   }
 
   render() {
