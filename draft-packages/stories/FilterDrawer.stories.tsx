@@ -19,9 +19,9 @@ export default {
 }
 
 export const DefaultStory = () => (
-  <StoryWrapper>
+  <div className={styles.siteDemoWrapper}>
     <DemoFilterDrawer />
-  </StoryWrapper>
+  </div>
 )
 
 type CheckboxState = "on" | "off"
