@@ -95,11 +95,7 @@ export const Positive = () => (
       useZenStyles
     >
       <div className={styles.buttonContainer}>
-        <Button
-          label="Label"
-          icon={chevronRight}
-          iconPosition="end"
-        />
+        <Button label="Label" icon={chevronRight} iconPosition="end" />
       </div>
     </EmptyState>
   </SidebarAndContentLayout>
@@ -127,12 +123,7 @@ export const Action = () => (
       useZenStyles
     >
       <div className={styles.buttonContainer}>
-        <Button
-          label="Label"
-          icon={chevronRight}
-          iconPosition="end"
-
-        />
+        <Button label="Label" icon={chevronRight} iconPosition="end" />
       </div>
     </EmptyState>
   </SidebarAndContentLayout>
@@ -147,11 +138,7 @@ export const ActionButNotZen = () => (
       illustrationType="action"
     >
       <div className={styles.buttonContainer}>
-        <Button
-          label="Label"
-          icon={chevronRight}
-          iconPosition="end"
-        />
+        <Button label="Label" icon={chevronRight} iconPosition="end" />
       </div>
     </EmptyState>
   </SidebarAndContentLayout>
@@ -175,11 +162,7 @@ export const ActionButton = () => (
       useZenStyles
     >
       <div className={styles.buttonContainer}>
-        <Button
-          label="Label"
-          icon={chevronRight}
-          iconPosition="end"
-        />
+        <Button label="Label" icon={chevronRight} iconPosition="end" />
       </div>
     </EmptyState>
   </SidebarAndContentLayout>
@@ -211,11 +194,7 @@ export const Negative = () => (
       useZenStyles
     >
       <div className={styles.buttonContainer}>
-        <Button
-          label="Label"
-          icon={chevronRight}
-          iconPosition="end"
-        />
+        <Button label="Label" icon={chevronRight} iconPosition="end" />
       </div>
     </EmptyState>
   </SidebarAndContentLayout>
@@ -232,11 +211,7 @@ export const RtlAction = () => (
         useZenStyles
       >
         <div className={styles.buttonContainer}>
-          <Button
-            label="Label"
-            icon={chevronLeft}
-            iconPosition="end"
-          />
+          <Button label="Label" icon={chevronLeft} iconPosition="end" />
         </div>
       </EmptyState>
     </SidebarAndContentLayout>
