@@ -12,7 +12,7 @@
   "scripts": {
     "ts-node": "TS_NODE_TRANSPILE_ONLY=true ts-node --project storybook/tsconfig.storybook.json",
     "storybook": "yarn install && yarn ts-node node_modules/.bin/start-storybook -c storybook",
-    "storybook:build": "yarn ts-node node_modules/.bin/build-storybook -c storybook -o storybook/public",
+    "storybook:build": "NODE_ENV=production yarn ts-node node_modules/.bin/build-storybook -c storybook -o storybook/public",
     "gatsby": "yarn workspace site gatsby",
     "eslint": "eslint . -c .eslintrc.js --ext .ts,.tsx",
     "prettier": "prettier --check '**/*'",

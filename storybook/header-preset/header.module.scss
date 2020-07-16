@@ -10,11 +10,11 @@ $footerHeight: 72px;
   a {
     color: #0168b3;
   }
-}
 
-:global(#root) > div {
-  height: calc(100vh - #{$navHeight} - #{$footerHeight});
-  position: relative;
+  > div {
+    height: calc(100vh - #{$navHeight} - #{$footerHeight});
+    position: relative;
+  }
 }
 
 .wrapper {

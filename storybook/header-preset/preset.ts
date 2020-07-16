@@ -4,6 +4,9 @@ const webpackConfig = require("../webpack.config")
 
 module.exports = {
   managerWebpack: async config => {
+    // don't add header and footer for local builds
+    if (process.env.NODE_ENV !== "production") return config
+
     const replaceLayoutPlugin = new NormalModuleReplacementPlugin(
       /^\.\/layout$/,
       "custom-layout"
