@@ -1,15 +1,18 @@
 $navHeight: 60px;
 $footerHeight: 72px;
 
-:global(#root) {
-  // push storybook down to make way for the navigation
-  padding-top: $navHeight;
+:global(body) {
   color: #35374a;
   font-family: Inter, Open Sans, Helvetica, Arial, sans-serif;
 
   a {
     color: #0168b3;
   }
+}
+
+:global(#root) {
+  // push storybook down to make way for the navigation
+  padding-top: $navHeight;
 
   > div {
     height: calc(100vh - #{$navHeight} - #{$footerHeight});
