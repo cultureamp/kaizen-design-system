@@ -1,0 +1,159 @@
+---
+title: Data Visualization
+navTitle: Data Visualization
+summaryParagraph: Data visualization is the graphical representation of information. Data visualizations surface insights from datasets to tell a story.
+tags: ["Data viz", "Data", "Charts", "Graphics", "Business intelligence", "Infographics", "Graphs", "Diagrams", "Hero data"]
+needToKnow:
+  - "Provide an overview first, zoom and filter, then details on demand."
+  - "Test visualizations with real data."
+  - "Let people explore data themselves to discover their own insights."
+---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
+## To keep in mind
+
+Charts, diagrams, and hero data draw attention to insights and help people make sense of complex information. They provide answers to questions that people can act on.
+
+- Test with real data. For example, test with one or two data points as well as hundreds and test low and high numbers.
+- Answer one question at a time. Avoid overloading charts with information to solve multiple problems.
+- Provide "Overview first, zoom and filter, then details-on-demand". Read more in [3 rules for Interactive data visualization by Vlad Kozhevnikov](https://towardsdatascience.com/3-rules-for-interactive-data-visualizations-a-showcase-with-r-and-highcharts-e452f5c37f44).
+
+## Line charts
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D40863%253A459&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+We primarily use line charts to show trend over time. They can be used to show distribution and comparisons too. A line chart shows the evolution of one or several variables, such as favorability, with quantitative values, such as 75%, over a continuous interval or time period, such as 3 years.
+
+- **Avoid overplotting**, which can lead to a crowded [spaghetti plot](https://www.data-to-viz.com/caveat/spaghetti.html).
+- **Avoid misleading curves** between points, as described in [Let’s Chart: stop those lying line charts by Noah Lorang](https://m.signalvnoise.com/lets-chart-stop-those-lying-line-charts/).
+- **Show visible dots** for each data point to clarify when data was measured on a line. You may need to avoid showing the individual dots if there are so many that it becomes crowded.
+- **Use solid lines for primary data** and dotted lines for reference lines, such as predictions or benchmarks.
+
+Learn more about line charts:
+
+- [Data Viz Project: Line Graph](https://datavizproject.com/data-type/line-chart/)
+- [The Data Viz Catalogue: Line Graph](https://datavizcatalogue.com/methods/line_graph.html)
+- [Data to viz: Line chart](https://www.data-to-viz.com/graph/line.html)
+- [Data to viz: To Cut Or Not To Cut (the Y Axis)](https://www.data-to-viz.com/caveat/cut_y_axis.html)
+- [Lines in the Gallery notebook by Mike Bostock on Observable](https://observablehq.com/@d3/gallery#lines)
+- [Shopify Polaris: line charts](https://polaris.shopify.com/design/data-visualizations#section-line-charts)
+- [Morningstar: line chart](https://designsystem.morningstar.com/charts/line.html)
+- [Government of Canada, Aurora: Line graphs](https://design.gccollab.ca/data/line-graphs)
+
+## Scatterplots and bubble charts
+
+A scatterplot shows points on X and Y axes representing two quantitative variables while a bubble chart shows a third numeric variable using bubble size. They are used to show correlation and distribution. Sometimes color is used to show an additional variable, such as sentiment.
+
+- For the size of bubbles, **scale the bubble area** and not its radius or diameter to the data.
+- Use **transparent** points or bubbles if they overlap.
+- **Readability** of point or bubble labels can be a challenge:
+    - Label only the bubbles that tell the story. You might show the rest of the bubbles' labels on hover.
+    - Truncate long labels e.g. with an ellipsis. You might show the rest of the label on hover.
+    - Place the label in the center of the bubble.
+    - Adjust font size according to bubble size. Again, you might show large text only on the bubbles that tell the story.
+- Use a "line of best fit" or a "trend line" to **surface trends** in the data.
+
+Learn more about scatterplots:
+
+- [Data Viz Catalogue: Scatterplot](https://datavizcatalogue.com/methods/scatterplot.html)
+- [Data Viz Project: Scatterplot](https://datavizproject.com/data-type/scatter-plot/)
+- [Morningstar: scatter plot](https://designsystem.morningstar.com/charts/scatter-plot.html)
+- [Government of Canada, Aurora: Scatterplots](https://design.gccollab.ca/data/scatterplots)
+- [Spectrum: scatter plot](https://spectrum.adobe.com/page/scatter-plot/)
+- [Predix: scatter](https://www.predix-ui.com/#/elements/vis/px-vis-framework/px-vis-scatter)
+
+Learn more about bubble charts:
+
+- [The Data Viz Project: Bubble Chart](https://datavizproject.com/data-type/bubble-chart/)
+- [The Data Visualisation Catalogue: Bubble Chart](https://datavizcatalogue.com/methods/bubble_chart.html)
+- [Carbon: Bubble Chart](https://www.carbondesignsystem.com/data-visualization/basic-charts#bubble)
+- [Morningstar bubble chart](https://designsystem.morningstar.com/legacy/charts/bubble.html)
+- [IBM: Bubble chart](https://www.ibm.com/design/v1/language/experience/data-visualization/chart-models/bubblechart/)
+- [US Gov: Bubble Chart](https://xdgov.github.io/data-design-standards/visualizations/bubble-chart)
+- [AntV: G2: Bubble](https://g2.antv.vision/en/examples/point/bubble#bubble)
+
+## Bar charts
+
+Bar charts are used to compare discrete, numeric data across categories.
+
+- Order the bars. For example, you might use natural data order, such as months of the year, or rank them, ordering the bars from shortest to longest.
+- For long bar labels, consider using a horizontal bar chart or presenting the label on the bar.
+
+We often used a stacked bar to represent likert scales. Learn more in [Visualizing Likert Scale Data: Same data, displayed seven different ways by Alana Pirrone](https://medium.com/nightingale/seven-different-ways-to-display-likert-scale-data-d0c1c9a9ad59?source=friends_link&sk=60cb93604b71ecc8820cc785ed1afd1a).
+
+Learn more about bar charts:
+
+- [Data viz project: Bar Chart (Horizontal)](https://datavizproject.com/data-type/bar-chart-horizontal/)
+- [Data viz project: Stacked Bar Chart](https://datavizproject.com/data-type/stacked-bar-chart/)
+- [The Data Visualisation Catalogue: Bar Chart](https://datavizcatalogue.com/methods/bar_chart.html)
+- [Shopify Polaris: horizontal bar charts](https://polaris.shopify.com/design/data-visualizations#section-horizontal-bar-charts)
+- [Shopify Polaris: vertical column charts](https://polaris.shopify.com/design/data-visualizations#section-vertical-column-charts)
+- [Morningstar: horizontal bar chart](https://designsystem.morningstar.com/charts/horizontal-bar.html)
+- [Government of Canada, Aurora: Bar charts](https://design.gccollab.ca/data/column-and-bar-graphs)
+
+## Hero data
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D41211%253A0&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+Hero data refers to prominent figures on a page that draw attention to individual values using proportionally larger type sizes. Use hero data to highlight a single value when it does not need context or comparisons.
+
+- Show a number and unit label
+- If you show an accompanying comparison indicator (such as an arrow) to indicate the direction the number is trending, provide further context elsewhere to describe the baseline it's compared to
+- See [typography guidelines](/guidelines/typography) to learn more
+
+Learn more about hero data:
+
+- [Scaled up number](https://datavizproject.com/data-type/number/)
+- [Government of Canada, Aurora: stylized numbers](https://design.gccollab.ca/data/stylized-numbers)
+- [Polaris: display metrics](https://polaris.shopify.com/design/data-visualizations#section-display-metrics)
+
+## Color
+
+To indicate Sentiment, use:
+
+- Seedling 400 for Positive sentiment.
+- Ash for Neutral sentiment.
+- Coral 300 for Negative sentiment.
+
+To learn more about using color, see [color guidelines](/guidelines/color).
+
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
+
+- Use a data visualization to highlight interesting values.
+- Use a data visualization to summarize data.
+- Use a data visualization to solve valuable problems. Avoid using data visualization only for visual impact.
+
+</WhenToUse>
+<WhenNotToUse>
+
+- Use a data [table](/components/table) when a summary or data visualization will be insufficient. For example, where every value needs to be seen.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
+
+## External links
+
+Here are some examples from elsewhere:
+
+- [Carbon: Data visualization chart types](https://www.carbondesignsystem.com/data-visualization/chart-types)
+- [Ant Design: Visualization](https://ant.design/docs/spec/visual)
+- [Morningstar: Charts](https://designsystem.morningstar.com/legacy/charts/getting-started.html)
+- [Polaris: Data visualizations](https://polaris.shopify.com/design/data-visualizations#navigation)
+- [Government of Canada Aurora: Data Overview](https://design.gccollab.ca/data/data-overview/)
+- [United States government: Data Visualization Standards](https://xdgov.github.io/data-design-standards/visualizations/)
+- [Material: Data visualization](https://material.io/design/communication/data-visualization.html#principles)
+- [Consumer Financial Protection Bureau: Data visualization guidelines](https://cfpb.github.io/design-system/guidelines/data-visualization-guidelines)
+- [Spectrum: Data visualization bar chart](https://spectrum.adobe.com/page/bar-chart/)
+- [Liferay: Charts](https://liferay.design/lexicon/core-components/charts/)
+- [GitLab: Charts](https://design.gitlab.com/data-visualization/charts/)
+- [Opattern: how to use charts](https://ux.opower.com/opattern/how-to-charts.html)
+- [QuickBooks: Data visualization](https://designsystem.quickbooks.com/data-viz/)
+- [Predix: Data Visualization: bar chart](https://www.predix-ui.com/#/elements/vis/px-vis-bar-chart)
+- [IBM: Data visualization](https://www.ibm.com/design/v1/language/experience/data-visualization/)
+
