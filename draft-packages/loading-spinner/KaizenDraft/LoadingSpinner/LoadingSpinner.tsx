@@ -19,9 +19,9 @@ export const LoadingSpinner = ({
   <div
     data-automation-id="loading-spinner"
     className={styles.wrapper}
-    aria-label={accessibilityLabel}
     role="status"
   >
+    <span className={styles.visuallyHidden}>{accessibilityLabel}</span>
     <svg
       className={styles.spinner}
       aria-hidden="true"

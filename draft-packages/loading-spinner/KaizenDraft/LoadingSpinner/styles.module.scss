@@ -1,8 +1,13 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/component-library/styles/utils";
 
 .wrapper {
   display: flex;
+}
+
+.visuallyHidden {
+  @include sr-only();
 }
 
 .spinner {
