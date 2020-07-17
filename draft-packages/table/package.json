@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-table",
-  "version": "1.6.31",
+  "version": "1.6.32",
   "description": "The draft Table component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
