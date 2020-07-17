@@ -12,31 +12,29 @@ const SiteHeader = () => {
     // the dev branch is appended before the rest of the pathname
     // given this component will only ever mount on storybook-static
     // strip that from the path
-    branch = window.location.pathname
-      .split("/")
-      .filter(curr => curr !== "" && curr !== "storybook")
-      .join("/")
+    const branchName = window.location.pathname.match(/(.+)storybook/)
+    branch = branchName && branchName.length > 1 ? branchName[1] : ""
   }
-  const baseUrl = `${window.location.origin}/${branch}`
+  const baseUrl = `${window.location.origin}${branch}`
 
   return (
     <div className={styles.wrapper}>
       <NavigationBar>
         {{
           primary: [
-            <NavLink text="Home" href="${baseUrl}/" />,
+            <NavLink text="Home" href={`${baseUrl}`} />,
             <NavLink
               text="Guidelines"
-              href={`${baseUrl}/guidelines/overview/`}
+              href={`${baseUrl}guidelines/overview/`}
             />,
-            <NavLink text="Language" href={`${baseUrl}/language/overview/`} />,
+            <NavLink text="Language" href={`${baseUrl}language/overview/`} />,
             <NavLink
               text="Components"
-              href={`${baseUrl}/components/overview/`}
+              href={`${baseUrl}components/overview/`}
             />,
             <NavLink
               text="Storybook"
-              href={`${baseUrl}/storybook`}
+              href={`${baseUrl}storybook`}
               active={true}
             />,
           ],
