@@ -1,5 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/design-tokens/sass/animation";
 @import "~@kaizen/component-library/styles/utils";
 
 .wrapper {
@@ -11,7 +11,8 @@
 }
 
 .spinner {
-  animation: spinner $ca-duration-deliberate $ca-ease-in-out infinite;
+  animation: spinner $kz-animation-duration-deliberate
+    $kz-animation-easing-function-ease-in-out infinite;
 }
 
 @keyframes spinner {
