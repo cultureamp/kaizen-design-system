@@ -7,15 +7,24 @@ import { Link as NavLink, NavigationBar } from "@kaizen/component-library"
 const styles = require("./header.module.scss")
 
 const SiteHeader = () => {
-  let branch = ""
-  if (window.location.hostname.match(/^dev/)) {
-    // the dev branch is appended before the rest of the pathname
-    // given this component will only ever mount on storybook-static
-    // strip that from the path
-    const branchName = window.location.pathname.match(/(.+)storybook/)
-    branch = branchName && branchName.length > 1 ? branchName[1] : ""
+  const getBaseUrl = (pathname, origin, hostname) => {
+    let branch = ""
+    if (hostname.match(/^dev/)) {
+      // the dev branch is appended before the rest of the pathname
+      // given this component will only ever mount on storybook-static
+      // strip that from the path
+      const branchName = pathname.match(/(.+)?\/storybook/)
+      branch = branchName && branchName.length > 1 ? String(branchName[1]) : ""
+    }
+
+    return `${origin}${branch}`
   }
-  const baseUrl = `${window.location.origin}${branch}`
+
+  const baseUrl = getBaseUrl(
+    window.location.pathname,
+    window.location.origin,
+    window.location.hostname
+  )
 
   return (
     <div className={styles.wrapper}>
@@ -25,16 +34,16 @@ const SiteHeader = () => {
             <NavLink text="Home" href={`${baseUrl}`} />,
             <NavLink
               text="Guidelines"
-              href={`${baseUrl}guidelines/overview/`}
+              href={`${baseUrl}/guidelines/overview/`}
             />,
-            <NavLink text="Language" href={`${baseUrl}language/overview/`} />,
+            <NavLink text="Language" href={`${baseUrl}/language/overview/`} />,
             <NavLink
               text="Components"
-              href={`${baseUrl}components/overview/`}
+              href={`${baseUrl}/components/overview/`}
             />,
             <NavLink
               text="Storybook"
-              href={`${baseUrl}storybook`}
+              href={`${baseUrl}/storybook`}
               active={true}
             />,
           ],
