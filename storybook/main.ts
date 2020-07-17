@@ -1,3 +1,5 @@
+import path from "path"
+
 module.exports = {
   stories: [
     "../packages/component-library/stories/*.stories.tsx",
@@ -9,4 +11,5 @@ module.exports = {
     "../draft-packages/stories/*.stories.tsx",
     "../legacy-packages/**/*.stories.tsx",
   ],
+  presets: [path.resolve("./storybook/header-preset/preset")],
 }

@@ -1,3 +1,7 @@
+/**
+ * This file is the Gatsby-specific header. The Storybook header is
+ * located storybook/header-preset/header
+ */
 import { Link as NavLink, NavigationBar } from "@kaizen/component-library"
 import { withPrefix } from "gatsby"
 import * as React from "react"
