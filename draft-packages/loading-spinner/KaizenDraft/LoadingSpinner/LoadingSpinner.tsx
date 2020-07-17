@@ -11,7 +11,7 @@ export interface LoadingSpinnerProps {
    * Generally use "md" unless spinner is inside a form field
    * @default "md"
    */
-  size: size
+  size?: size
   children?: React.ReactNode
 }
 
