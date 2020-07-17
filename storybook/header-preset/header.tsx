@@ -8,7 +8,7 @@ const styles = require("./header.module.scss")
 
 const SiteHeader = () => {
   let branch = ""
-  if (window.location.hostname.includes("dev")) {
+  if (window.location.hostname.match(/^dev/)) {
     // the dev branch is appended before the rest of the pathname
     // given this component will only ever mount on storybook-static
     // strip that from the path
