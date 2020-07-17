@@ -3,7 +3,7 @@ import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import spacingTokens from "@kaizen/design-tokens/tokens/spacing.json"
 const styles = require("./styles.module.scss")
 
-type size = "md" | "lg"
+type size = "md" | "xl"
 
 export interface LoadingSpinnerProps {
   accessibilityLabel: string
@@ -13,7 +13,7 @@ export interface LoadingSpinnerProps {
 
 export const LoadingSpinner = ({
   accessibilityLabel = "Loading",
-  size = "lg",
+  size = "xl",
   children,
 }: LoadingSpinnerProps) => (
   <div
@@ -26,7 +26,7 @@ export const LoadingSpinner = ({
       className={styles.spinner}
       aria-hidden="true"
       viewBox="0 0 48 48"
-      width={size === "lg" ? 48 : 36}
+      width={size === "xl" ? 48 : 24} // Ideally we'd use spacing tokens converted to unitless values
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

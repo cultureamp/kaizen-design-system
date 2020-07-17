@@ -16,11 +16,30 @@ export const DefaultStory = () => (
   >
     <LoadingSpinner
       accessibilityLabel="Loading comments"
-      size="lg"
+      size="xl"
     ></LoadingSpinner>
   </div>
 )
 
 DefaultStory.story = {
   name: "Default (Kaizen Site Demo)",
+}
+
+export const SizeStory = () => (
+  <div
+    style={{
+      alignItems: "center",
+      display: "flex",
+      justifyContent: "center",
+    }}
+  >
+    <LoadingSpinner
+      accessibilityLabel="Loading comments"
+      size="md"
+    ></LoadingSpinner>
+  </div>
+)
+
+SizeStory.story = {
+  name: "Medium",
 }
