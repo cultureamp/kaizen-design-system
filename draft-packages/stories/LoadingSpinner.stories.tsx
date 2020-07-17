@@ -16,7 +16,7 @@ export const DefaultStory = () => (
   >
     <LoadingSpinner
       accessibilityLabel="Loading comments"
-      size="xl"
+      size="md"
     ></LoadingSpinner>
   </div>
 )
@@ -35,11 +35,11 @@ export const SizeStory = () => (
   >
     <LoadingSpinner
       accessibilityLabel="Loading comments"
-      size="md"
+      size="sm"
     ></LoadingSpinner>
   </div>
 )
 
 SizeStory.story = {
-  name: "Medium",
+  name: "Small",
 }
