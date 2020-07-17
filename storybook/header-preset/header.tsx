@@ -24,7 +24,7 @@ const SiteHeader = () => {
       <NavigationBar>
         {{
           primary: [
-            <NavLink text="Home" href="/" />,
+            <NavLink text="Home" href="${baseUrl}/" />,
             <NavLink
               text="Guidelines"
               href={`${baseUrl}/guidelines/overview/`}
