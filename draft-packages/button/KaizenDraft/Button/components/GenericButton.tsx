@@ -53,6 +53,14 @@ type Props = ButtonProps & {
 
 export type ButtonFunctions = { focus: () => void }
 
+const getAriaProps = (props: object) => {
+  const keys = Object.keys(props).filter(k => k.startsWith("aria-"))
+  return keys.reduce((acc, val) => {
+    acc[val] = props[val]
+    return acc
+  }, {})
+}
+
 const GenericButton = forwardRef((props: Props, ref: Ref<ButtonFunctions>) => {
   const buttonRef = useRef<HTMLButtonElement | HTMLLinkElement>()
   useImperativeHandle(ref, () => ({
@@ -97,8 +105,10 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
     disableTabFocusAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
+    ...rest
   } = props
   const label = props.icon && props.iconButton ? props.label : undefined
+  const ariaProps = getAriaProps(rest)
 
   return (
     <button
@@ -131,6 +141,7 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
         props.analytics && JSON.stringify(props.analytics.properties)
       }
       ref={ref}
+      {...ariaProps}
     >
       {renderContent(props)}
     </button>
@@ -145,7 +156,9 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
     newTabAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
+    ...rest
   } = props
+  const ariaProps = getAriaProps(rest)
 
   return (
     <a
@@ -169,6 +182,7 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
         props.analytics && JSON.stringify(props.analytics.properties)
       }
       ref={ref}
+      {...ariaProps}
     >
       {renderContent(props)}
     </a>
