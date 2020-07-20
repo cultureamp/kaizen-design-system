@@ -1,9 +1,13 @@
 import * as React from "react"
-import GenericButton, { ButtonProps } from "./components/GenericButton"
+import GenericButton, {
+  ButtonProps,
+  ButtonFunctions,
+} from "./components/GenericButton"
+import { forwardRef, Ref } from "react"
 
-const Button: React.FunctionComponent<ButtonProps> = props => (
-  <GenericButton {...props} />
-)
+const Button = forwardRef((props: ButtonProps, ref: Ref<ButtonFunctions>) => (
+  <GenericButton {...props} ref={ref} />
+))
 
 Button.defaultProps = {
   fullWidth: false,

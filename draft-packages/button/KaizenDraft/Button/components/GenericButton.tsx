@@ -1,6 +1,7 @@
 import { Icon } from "@kaizen/component-library"
 import classNames from "classnames"
 import * as React from "react"
+import { forwardRef, Ref, useImperativeHandle, useRef } from "react"
 
 const styles = require("./GenericButton.module.scss")
 
@@ -51,15 +52,28 @@ type Props = ButtonProps & {
   iconButton?: boolean
 } & AdditionalContentProps
 
-const GenericButton: React.FunctionComponent<Props> = props => (
-  <span
-    className={classNames(styles.container, {
-      [styles.fullWidth]: props.fullWidth,
-    })}
-  >
-    {props.href && !props.disabled ? renderLink(props) : renderButton(props)}
-  </span>
-)
+export type ButtonFunctions = { focus: () => void }
+
+const GenericButton = forwardRef((props: Props, ref: Ref<ButtonFunctions>) => {
+  const buttonRef = useRef<HTMLButtonElement | HTMLLinkElement>()
+  useImperativeHandle(ref, () => ({
+    focus: () => {
+      buttonRef.current?.focus()
+    },
+  }))
+
+  return (
+    <span
+      className={classNames(styles.container, {
+        [styles.fullWidth]: props.fullWidth,
+      })}
+    >
+      {props.href && !props.disabled
+        ? renderLink(props, buttonRef)
+        : renderButton(props, buttonRef)}
+    </span>
+  )
+})
 
 GenericButton.defaultProps = {
   iconPosition: "start",
@@ -71,7 +85,7 @@ GenericButton.defaultProps = {
   type: "button",
 }
 
-const renderButton: React.FunctionComponent<Props> = props => {
+const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
   const {
     id,
     disabled,
@@ -117,13 +131,14 @@ const renderButton: React.FunctionComponent<Props> = props => {
       data-analytics-properties={
         props.analytics && JSON.stringify(props.analytics.properties)
       }
+      ref={ref}
     >
       {renderContent(props)}
     </button>
   )
 }
 
-const renderLink: React.FunctionComponent<Props> = props => {
+const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
   const {
     id,
     href,
@@ -154,6 +169,7 @@ const renderLink: React.FunctionComponent<Props> = props => {
       data-analytics-properties={
         props.analytics && JSON.stringify(props.analytics.properties)
       }
+      ref={ref}
     >
       {renderContent(props)}
     </a>
