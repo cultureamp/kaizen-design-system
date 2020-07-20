@@ -2,8 +2,7 @@ import { Button } from "@kaizen/component-library"
 const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
   .default
 import { action } from "@storybook/addon-actions"
-import * as React from "react"
-import { useCallback, useRef } from "react"
+import React, { useCallback, useRef } from "react"
 import { ButtonFunctions } from "../components/Button/components/GenericButton"
 
 export default {

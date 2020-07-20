@@ -1,9 +1,8 @@
-import * as React from "react"
+import React, { forwardRef, Ref } from "react"
 import GenericButton, {
   ButtonProps,
   ButtonFunctions,
 } from "./components/GenericButton"
-import { forwardRef, Ref } from "react"
 
 const Button = forwardRef((props: ButtonProps, ref: Ref<ButtonFunctions>) => (
   <GenericButton {...props} ref={ref} />

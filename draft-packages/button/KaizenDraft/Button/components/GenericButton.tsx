@@ -1,7 +1,6 @@
 import { Icon } from "@kaizen/component-library"
 import classNames from "classnames"
-import * as React from "react"
-import { forwardRef, Ref, useImperativeHandle, useRef } from "react"
+import React, { forwardRef, Ref, useImperativeHandle, useRef } from "react"
 
 const styles = require("./GenericButton.module.scss")
 

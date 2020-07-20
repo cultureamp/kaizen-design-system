@@ -1,7 +1,6 @@
 import classNames from "classnames"
-import * as React from "react"
+import React, { forwardRef, Ref, useImperativeHandle, useRef } from "react"
 import Icon from "../../Icon/Icon"
-import { forwardRef, Ref, useImperativeHandle, useRef } from "react"
 
 const styles = require("./GenericButton.module.scss")
 
