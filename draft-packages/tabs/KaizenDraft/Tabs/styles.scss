@@ -136,6 +136,7 @@
   justify-content: flex-start;
   padding-left: $kz-spacing-sm;
   border-radius: $kz-border-solid-border-radius;
+  font-weight: $kz-typography-heading-4-font-weight;
 
   :global(.js-focus-visible) &:global(.focus-visible):after {
     border-radius: $kz-border-borderless-border-radius;
@@ -146,7 +147,6 @@
 .verticalTabActive {
   composes: tab;
   composes: verticalTab;
-  font-weight: $kz-typography-heading-4-font-weight;
   color: $kz-color-cluny-500;
 }
 
