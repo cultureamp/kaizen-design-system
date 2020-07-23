@@ -134,9 +134,16 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding-left: $kz-spacing-sm;
   border-radius: $kz-border-solid-border-radius;
   font-weight: $kz-typography-heading-4-font-weight;
+
+  [dir="rtl"] & {
+    padding-right: $kz-spacing-sm;
+  }
+
+  [dir="ltr"] & {
+    padding-left: $kz-spacing-sm;
+  }
 
   :global(.js-focus-visible) &:global(.focus-visible):after {
     border-radius: $kz-border-borderless-border-radius;
