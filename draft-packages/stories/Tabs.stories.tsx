@@ -4,6 +4,7 @@ import { Tabs } from "@kaizen/draft-tabs"
 import classnames from "classnames"
 import * as React from "react"
 import { ExampleLayout } from "./ExampleLayout"
+import { Divider } from "@kaizen/draft-divider"
 
 export default {
   title: "Tabs (React)",
@@ -249,7 +250,7 @@ export const WithCustomTabRenderer = () => {
 }
 
 WithCustomTabRenderer.story = {
-  name: "With custom tab renderer (Horizontal)",
+  name: "(Example) With custom tab renderer (Horizontal)",
 }
 
 export const WithCustomTabRendererVertical = () => {
@@ -293,7 +294,7 @@ export const WithCustomTabRendererVertical = () => {
 }
 
 WithCustomTabRendererVertical.story = {
-  name: "With custom tab renderer (Vertical)",
+  name: "(Example) With custom tab renderer (Vertical)",
 }
 
 export const WithLayoutVerticalLTR = () => {
@@ -320,7 +321,7 @@ export const WithLayoutVerticalLTR = () => {
 }
 
 WithLayoutVerticalLTR.story = {
-  name: "Layout LTR (Vertical)",
+  name: "(Example) Layout LTR (Vertical)",
   parameters: {
     backgrounds: [
       {
@@ -356,7 +357,51 @@ export const WithLayoutVerticalRTL = () => {
 }
 
 WithLayoutVerticalRTL.story = {
-  name: "Layout RTL (Vertical)",
+  name: "(Example) Layout RTL (Vertical)",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Stone",
+        value: colorTokens.kz.color.stone,
+        default: true,
+      },
+    ],
+  },
+}
+
+export const WithHeading = () => {
+  const tabs = [
+    {
+      label: "One (href here)",
+      href: "//www.example.com",
+      active: true,
+    },
+    { label: "Two", href: "https://www.cultureamp.design/storybook" },
+    { label: "Three", href: "https://www.cultureamp.design/storybook" },
+    { label: "Four", href: "https://www.cultureamp.design/storybook" },
+  ]
+  return (
+    <ExampleLayout>
+      <ExampleLayout.Sidebar>
+        <Box pr={1}>
+          <Heading variant="heading-6">Some Heading</Heading>
+          <Tabs orientation="vertical" tabs={tabs} textDirection="ltr" />
+          <Box py={1}>
+            <Divider variant="content" />
+          </Box>
+          <Heading variant="heading-6">Another Heading</Heading>
+          <Tabs orientation="vertical" tabs={tabs} textDirection="ltr" />
+        </Box>
+      </ExampleLayout.Sidebar>
+      <ExampleLayout.Content>
+        <Box p={2}>Example layout</Box>
+      </ExampleLayout.Content>
+    </ExampleLayout>
+  )
+}
+
+WithHeading.story = {
+  name: "(Example) Layout With heading",
   parameters: {
     backgrounds: [
       {
