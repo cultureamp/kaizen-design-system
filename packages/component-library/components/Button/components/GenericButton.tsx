@@ -45,8 +45,10 @@ type Props = ButtonProps & {
 
 export type ButtonFunctions = { focus: () => void }
 
-const getAriaProps = (props: object) => {
-  const keys = Object.keys(props).filter(k => k.startsWith("aria-"))
+// We're treating custom props as anything that is kebab cased.
+// This is so we can support properties like aria-* or data-*
+const getCustomProps = (props: object) => {
+  const keys = Object.keys(props).filter(k => k.indexOf("-") !== -1)
   return keys.reduce((acc, val) => {
     acc[val] = props[val]
     return acc
@@ -96,7 +98,7 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
     ...rest
   } = props
   const label = props.icon && props.iconButton ? props.label : undefined
-  const ariaProps = getAriaProps(rest)
+  const customProps = getCustomProps(rest)
 
   return (
     <button
@@ -125,7 +127,7 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
         props.analytics && JSON.stringify(props.analytics.properties)
       }
       ref={ref}
-      {...ariaProps}
+      {...customProps}
     >
       {renderContent(props)}
     </button>
@@ -142,7 +144,7 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
     onBlur,
     ...rest
   } = props
-  const ariaProps = getAriaProps(rest)
+  const customProps = getCustomProps(rest)
 
   return (
     <a
@@ -166,7 +168,7 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
         props.analytics && JSON.stringify(props.analytics.properties)
       }
       ref={ref}
-      {...ariaProps}
+      {...customProps}
     >
       {renderContent(props)}
     </a>
