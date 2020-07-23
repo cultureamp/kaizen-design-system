@@ -3,7 +3,7 @@ const configureIcon = require("@kaizen/component-library/icons/configure.icon.sv
   .default
 import { action } from "@storybook/addon-actions"
 import React, { useCallback, useRef } from "react"
-import { ButtonFunctions } from "../components/Button/components/GenericButton"
+import { ButtonFunctions } from "../components/Button"
 
 export default {
   title: "Button (deprecated) (React)",

@@ -55,26 +55,28 @@ const getCustomProps = (props: object) => {
   }, {})
 }
 
-const GenericButton = forwardRef((props: Props, ref: Ref<ButtonFunctions>) => {
-  const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>()
-  useImperativeHandle(ref, () => ({
-    focus: () => {
-      buttonRef.current?.focus()
-    },
-  }))
+const GenericButton = forwardRef(
+  (props: Props, ref: Ref<ButtonFunctions | undefined>) => {
+    const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>()
+    useImperativeHandle(ref, () => ({
+      focus: () => {
+        buttonRef.current?.focus()
+      },
+    }))
 
-  return (
-    <span
-      className={classNames(styles.container, {
-        [styles.fullWidth]: props.fullWidth,
-      })}
-    >
-      {props.href
-        ? renderLink(props, buttonRef)
-        : renderButton(props, buttonRef)}
-    </span>
-  )
-})
+    return (
+      <span
+        className={classNames(styles.container, {
+          [styles.fullWidth]: props.fullWidth,
+        })}
+      >
+        {props.href
+          ? renderLink(props, buttonRef as Ref<HTMLAnchorElement>)
+          : renderButton(props, buttonRef as Ref<HTMLButtonElement>)}
+      </span>
+    )
+  }
+)
 
 GenericButton.defaultProps = {
   iconPosition: "start",

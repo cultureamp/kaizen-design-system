@@ -4,9 +4,11 @@ import GenericButton, {
   ButtonFunctions,
 } from "./components/GenericButton"
 
-const Button = forwardRef((props: ButtonProps, ref: Ref<ButtonFunctions>) => (
-  <GenericButton {...props} ref={ref} />
-))
+const Button = forwardRef(
+  (props: ButtonProps, ref: Ref<ButtonFunctions | undefined>) => (
+    <GenericButton {...props} ref={ref} />
+  )
+)
 
 Button.defaultProps = {
   fullWidth: false,

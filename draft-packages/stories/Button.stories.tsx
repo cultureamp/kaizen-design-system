@@ -4,7 +4,7 @@ const configureIcon = require("@kaizen/component-library/icons/configure.icon.sv
   .default
 import { action } from "@storybook/addon-actions"
 import React, { useCallback, useLayoutEffect, useRef } from "react"
-import { ButtonFunctions } from "@kaizen/draft-button/KaizenDraft/Button/components/GenericButton"
+import { ButtonFunctions } from "@kaizen/draft-button"
 
 export default {
   title: "Button (Zen) (React)",
