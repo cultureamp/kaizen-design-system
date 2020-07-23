@@ -1,10 +1,11 @@
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
+import { Card } from "@kaizen/draft-card"
 import { Tabs } from "@kaizen/draft-tabs"
+import { Divider } from "@kaizen/draft-divider"
+import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import classnames from "classnames"
 import * as React from "react"
 import { ExampleLayout } from "./ExampleLayout"
-import { Divider } from "@kaizen/draft-divider"
 
 export default {
   title: "Tabs (React)",
@@ -250,7 +251,7 @@ export const WithCustomTabRenderer = () => {
 }
 
 WithCustomTabRenderer.story = {
-  name: "(Example) With custom tab renderer (Horizontal)",
+  name: "With custom tab renderer (Horizontal)",
 }
 
 export const WithCustomTabRendererVertical = () => {
@@ -294,7 +295,7 @@ export const WithCustomTabRendererVertical = () => {
 }
 
 WithCustomTabRendererVertical.story = {
-  name: "(Example) With custom tab renderer (Vertical)",
+  name: "With custom tab renderer (Vertical)",
 }
 
 export const WithLayoutVerticalLTR = () => {
@@ -402,6 +403,47 @@ export const WithHeading = () => {
 
 WithHeading.story = {
   name: "(Example) Layout With heading",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Stone",
+        value: colorTokens.kz.color.stone,
+        default: true,
+      },
+    ],
+  },
+}
+
+export const ExampleContentTab = () => {
+  const tabs = [
+    {
+      label: "One (href here)",
+      href: "//www.example.com",
+    },
+    {
+      label: "Two",
+      href: "https://www.cultureamp.design/storybook",
+      active: true,
+    },
+    { label: "Three", href: "https://www.cultureamp.design/storybook" },
+    { label: "Four", href: "https://www.cultureamp.design/storybook" },
+  ]
+  return (
+    <ExampleLayout>
+      <ExampleLayout.Content>
+        <Card>
+          <Box pb={2}>
+            <Tabs orientation="horizontal" tabs={tabs} textDirection="ltr" />
+            <Divider variant="content" />
+          </Box>
+        </Card>
+      </ExampleLayout.Content>
+    </ExampleLayout>
+  )
+}
+
+ExampleContentTab.story = {
+  name: "(Example) Content Tab in Content Area",
   parameters: {
     backgrounds: [
       {

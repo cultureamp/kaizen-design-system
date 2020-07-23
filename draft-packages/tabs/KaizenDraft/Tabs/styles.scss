@@ -8,7 +8,6 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 .container {
-  @include ca-margin($bottom: $ca-grid);
   display: flex;
 }
 
