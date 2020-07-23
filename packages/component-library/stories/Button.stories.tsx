@@ -3,7 +3,7 @@ const configureIcon = require("@kaizen/component-library/icons/configure.icon.sv
   .default
 import { action } from "@storybook/addon-actions"
 import React, { useCallback, useRef } from "react"
-import { ButtonFunctions } from "../components/Button"
+import { ButtonRef } from "../components/Button"
 
 export default {
   title: "Button (deprecated) (React)",
@@ -436,7 +436,7 @@ export const MultipleButtons = () => (
 )
 
 export const FocusExample = () => {
-  const ref = useRef<ButtonFunctions>()
+  const ref = useRef<ButtonRef>()
   const handleClick = useCallback(() => {
     ref.current?.focus()
   }, [])

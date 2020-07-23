@@ -1,11 +1,11 @@
 import React, { forwardRef, Ref } from "react"
 import GenericButton, {
   ButtonProps,
-  ButtonFunctions,
+  ButtonRef,
 } from "./components/GenericButton"
 
 const Button = forwardRef(
-  (props: ButtonProps, ref: Ref<ButtonFunctions | undefined>) => (
+  (props: ButtonProps, ref: Ref<ButtonRef | undefined>) => (
     <GenericButton {...props} ref={ref} />
   )
 )

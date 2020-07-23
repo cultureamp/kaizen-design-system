@@ -4,7 +4,7 @@ const configureIcon = require("@kaizen/component-library/icons/configure.icon.sv
   .default
 import { action } from "@storybook/addon-actions"
 import React, { useCallback, useLayoutEffect, useRef } from "react"
-import { ButtonFunctions } from "@kaizen/draft-button"
+import { ButtonRef } from "@kaizen/draft-button"
 
 export default {
   title: "Button (Zen) (React)",
@@ -302,7 +302,7 @@ export const OverflowingTextFormTestCase = () => (
 )
 
 export const FocusExample = () => {
-  const ref = useRef<ButtonFunctions>()
+  const ref = useRef<ButtonRef>()
   const handleClick = useCallback(() => {
     ref.current?.focus()
   }, [])

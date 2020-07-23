@@ -3,5 +3,5 @@ export { default as IconButton } from "./KaizenDraft/Button/IconButton"
 export { ButtonProps } from "./KaizenDraft/Button/components/GenericButton"
 export {
   IconButtonProps,
-  ButtonFunctions,
+  ButtonRef,
 } from "./KaizenDraft/Button/components/GenericButton"

@@ -43,7 +43,7 @@ type Props = ButtonProps & {
   iconButton?: boolean
 }
 
-export type ButtonFunctions = { focus: () => void }
+export type ButtonRef = { focus: () => void }
 
 // We're treating custom props as anything that is kebab cased.
 // This is so we can support properties like aria-* or data-*
@@ -56,7 +56,7 @@ const getCustomProps = (props: object) => {
 }
 
 const GenericButton = forwardRef(
-  (props: Props, ref: Ref<ButtonFunctions | undefined>) => {
+  (props: Props, ref: Ref<ButtonRef | undefined>) => {
     const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>()
     useImperativeHandle(ref, () => ({
       focus: () => {
