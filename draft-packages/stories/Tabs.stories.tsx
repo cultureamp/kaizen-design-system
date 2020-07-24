@@ -371,7 +371,7 @@ WithLayoutVerticalRTL.story = {
 }
 
 export const WithHeading = () => {
-  const tabs = [
+  const firstTabs = [
     {
       label: "One (href here)",
       href: "//www.example.com",
@@ -381,17 +381,24 @@ export const WithHeading = () => {
     { label: "Three", href: "https://www.cultureamp.design/storybook" },
     { label: "Four", href: "https://www.cultureamp.design/storybook" },
   ]
+  const secondTabs = [
+    {
+      label: "Five",
+      href: "//www.example.com",
+    },
+    { label: "Six", href: "https://www.cultureamp.design/storybook" },
+  ]
   return (
     <ExampleLayout>
       <ExampleLayout.Sidebar>
         <Box pr={1}>
           <Heading variant="heading-6">Some Heading</Heading>
-          <Tabs orientation="vertical" tabs={tabs} textDirection="ltr" />
+          <Tabs orientation="vertical" tabs={firstTabs} textDirection="ltr" />
           <Box py={1}>
             <Divider variant="content" />
           </Box>
           <Heading variant="heading-6">Another Heading</Heading>
-          <Tabs orientation="vertical" tabs={tabs} textDirection="ltr" />
+          <Tabs orientation="vertical" tabs={secondTabs} textDirection="ltr" />
         </Box>
       </ExampleLayout.Sidebar>
       <ExampleLayout.Content>
