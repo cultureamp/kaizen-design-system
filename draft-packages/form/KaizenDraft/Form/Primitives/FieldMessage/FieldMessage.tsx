@@ -7,7 +7,7 @@ export type FieldMessageStatus = "default" | "success" | "error"
 export type FieldMessageProps = {
   id?: string
   automationId?: string
-  message?: string
+  message?: React.ReactNode
   status?: FieldMessageStatus
   reversed?: boolean
 }
