@@ -13,6 +13,10 @@ import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
 import WhenToUse from "docs-components/WhenToUse"
 import WhenNotToUse from "docs-components/WhenNotToUse"
 
+import DoAndDontContainer from "docs-components/DoAndDontContainer"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
 ## Visuals
 
 ### UI Kit
@@ -25,6 +29,73 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D1412%253A373" allowfullscreen></iframe>
 
+## Copy guidelines
+
+To be scannable and fully helpful, an individual select must have a **visible label** that describes what it is selecting.
+
+For a **row of selects** that you may use in a filter bar, you may use visually hidden labels for each individual select to be read by screen readers and other assistive devices, as well as a shared, visible label for the group (likely a `legend` for the `fieldset`), such as "Filters". When using visually hidden labels, use a good default for the pre-selected option to illustrate its use.
+
+For an individual select, here's what you need to know:
+
+### Give it a clear, short label
+
+Make sure your select has a short, descriptive label above it that describes what the user is changing by selecting an option. Keep in mind that your label shouldn’t contain instructions. Reserve those for the helper text.
+
+<DoAndDontContainer>
+<Do>
+
+- Email address
+- Full name
+
+</Do>
+
+<Dont>
+
+- Your email address
+- Full name of employee
+
+</Dont>
+</DoAndDontContainer>
+
+### Use minimal punctuation
+
+Don't use trailing colons and avoid phrasing your labels as questions.
+
+<DoAndDontContainer>
+<Do>
+
+- Viewed by
+- Start date
+
+</Do>
+
+<Dont>
+
+- Viewed by:
+- When did this person start?
+
+</Dont>
+</DoAndDontContainer>
+
+### For filters, be explicit
+
+To avoid ambiguity, use "by" and "to" where appropriate:
+
+<DoAndDontContainer>
+<Do>
+
+- Viewed by
+- Compared to
+
+</Do>
+
+<Dont>
+
+- Viewed
+- Comparison
+
+</Dont>
+</DoAndDontContainer>
 
 ## Options
 
