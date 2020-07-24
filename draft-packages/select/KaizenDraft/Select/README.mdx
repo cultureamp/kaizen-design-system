@@ -109,35 +109,42 @@ To avoid ambiguity, use "by" and "to" where appropriate:
 
 A single-select lets the user choose one option from 4 or more items. A multi-select lets the user choose multiple options from 4 or more items.
 
-*   Label:
-    *   Show a label for the select that describes what the options control.
-        *   Where appropriate you might instead use a label for a group of controls that includes the select.
-        *   Where appropriate you might use a good default value that is self-evident, explaining what the options control.
-*   Anatomy:
-    *   Select input: shows the currently selected option.
-    *   Select dropdown menu: shows the available options. It is always shown above other elements, including the edges of modals.
-*   5+ or 10+ options:
-    *   If there's more than 10 options, provide another method of accessing the options such as an autocomplete search or using smart defaults by surfacing recommended options.
-    *   If there's more than 5 options, consider showing options in alphabetical order or other predictable ordering for easy scanning.
-*   Style option:
-    *   Use a secondary select for less prominence and where there's limited space.
-*   Search:
-    *   There’s an option to turn on or off search in the input part.
-*   Good defaults:
-    *   Use a pre-selected good default where possible. In some cases, it cuts down on user decisions and validations if there is “always” a value selected. Sometimes that means including an “All” option as the first available option.
-*   Interaction:
-    *   Selected options:
-        *   Single-select options appear highlighted and are always shown in the dropdown part (that is, they are not removed as they are selected).
-        *   The multi-select shows selected items as tags and removes selected items from the dropdown part so that you cannot accidentally select an item twice.
-    *   De-selecting:
-        *   Single-select: where necessary, the user can de-select the selected item by clicking or tapping on a clear icon. Once removed, show placeholder text, such as “Select or search…”. Alternatively, you might require that a value is always selected so de-selecting is achieved by choosing a different option.
-        *   Multi-select: the multi-select shows selected items as tags and removes selected items from the dropdown part so that you cannot accidentally select an item twice. The user can de-select selected items using by clicking or tapping the clear icon shown in the dismissible [Tags](/components/tag).
-*   Loading state:
+### Anatomy
+
+*   **Select control:** shows the currently selected option.
+*   **Select dropdown container:** contains the available options. It is always shown above other elements, including the edges of modals.
+
+### Number of options
+
+*   If there's more than 10 options, provide another method of accessing the options such as an autocomplete search or using smart defaults by surfacing recommended options.
+*   If there's more than 5 options, consider showing options in alphabetical order or other predictable ordering for easy scanning.
+
+### Styling
+
+Use a secondary select for less prominence and where there's limited space.
+
+### Search
+
+There’s an option to turn on or off search in the input part. When the options are likely known and there are more than 10, use search.
+
+### Good defaults
+
+Use a pre-selected good default where possible. In some cases, it cuts down on user decisions and validations if there is “always” a value selected. Sometimes that means including an “All” option as the first available option.
+
+### Interaction
+
+*   **Selected options:**
+    *   Single-select options appear highlighted and are always shown in the dropdown part (that is, they are not removed as they are selected).
+    *   The multi-select shows selected items as tags and removes selected items from the dropdown part so that you cannot accidentally select an item twice.
+*   **De-selecting:**
+    *   Single-select: where necessary, the user can de-select the selected item by clicking or tapping on a clear icon. Once removed, show placeholder text, such as “Select or search…”. Alternatively, you might require that a value is always selected so de-selecting is achieved by choosing a different option.
+    *   Multi-select: the multi-select shows selected items as tags and removes selected items from the dropdown part so that you cannot accidentally select an item twice. The user can de-select selected items using by clicking or tapping the clear icon shown in the dismissible [Tags](/components/tag).
+*   **Loading state:**
     *   We can lazy load items to be shown in the single-select on search
     *   Shows loading spinner
-*   Disabled state:
+*   **Disabled state:**
     *   See [Interaction states guidelines for disabled elements](/guidelines/interaction-states#disabled-state).
-*   Keyboard accessibility is tricky in Selects and need regular testing.
+*   **Keyboard accessibility** is tricky in Selects and needs regular testing.
 
 ## When to use and when not to use
 
