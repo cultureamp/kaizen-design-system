@@ -77,6 +77,7 @@ type alias ConfigValue msg =
     , placeholder : String
     , validationMessage : Maybe String
     , description : Maybe String
+    , descriptionHtml : Maybe (Html msg)
     , disabled : Bool
     , inputValue : String
     , controlled : Bool
@@ -100,6 +101,7 @@ defaults =
     , placeholder = ""
     , validationMessage = Nothing
     , description = Nothing
+    , descriptionHtml = Nothing
     , disabled = False
     , inputValue = ""
     , controlled = True
@@ -357,8 +359,11 @@ view (Config config) =
                     FieldMessage.Default
 
         fieldDescriptionHtml =
-            case config.description of
-                Just descriptionString ->
+            case ( config.description, config.descriptionHtml ) of
+                ( Nothing, Nothing ) ->
+                    text ""
+
+                _ ->
                     div
                         [ styles.classList
                             [ ( .description, True )
@@ -368,14 +373,13 @@ view (Config config) =
                             (FieldMessage.default
                                 |> FieldMessage.id (idProp ++ "-field-description")
                                 |> FieldMessage.automationId (idProp ++ "-field-description")
-                                |> FieldMessage.message descriptionString
+                                |> FieldMessage.message
+                                    (config.description |> Maybe.withDefault "")
+                                |> FieldMessage.messageHtml config.descriptionHtml
                                 |> FieldMessage.status FieldMessage.Default
                                 |> FieldMessage.reversed config.reversed
                             )
                         ]
-
-                Nothing ->
-                    text ""
 
         fieldValidationMessageHtml =
             case config.validationMessage of
