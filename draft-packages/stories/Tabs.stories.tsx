@@ -312,7 +312,9 @@ export const WithLayoutVerticalLTR = () => {
   return (
     <ExampleLayout>
       <ExampleLayout.Sidebar>
-        <Tabs orientation="vertical" tabs={tabs} />
+        <Box pr={1}>
+          <Tabs orientation="vertical" tabs={tabs} />
+        </Box>
       </ExampleLayout.Sidebar>
       <ExampleLayout.Content>
         <Box p={2}>Example layout</Box>
@@ -348,7 +350,9 @@ export const WithLayoutVerticalRTL = () => {
   return (
     <ExampleLayout rtl>
       <ExampleLayout.Sidebar>
-        <Tabs orientation="vertical" tabs={tabs} textDirection="rtl" />
+        <Box pl={1}>
+          <Tabs orientation="vertical" tabs={tabs} textDirection="rtl" />
+        </Box>
       </ExampleLayout.Sidebar>
       <ExampleLayout.Content>
         <Box p={2}>Example layout</Box>
@@ -392,12 +396,12 @@ export const WithHeading = () => {
     <ExampleLayout>
       <ExampleLayout.Sidebar>
         <Box pr={1}>
-          <Heading variant="heading-6">Some Heading</Heading>
+          <Heading variant="heading-6">Some heading</Heading>
           <Tabs orientation="vertical" tabs={firstTabs} textDirection="ltr" />
           <Box py={1}>
-            <Divider variant="content" />
+            <Divider variant="canvas" />
           </Box>
-          <Heading variant="heading-6">Another Heading</Heading>
+          <Heading variant="heading-6">Another heading</Heading>
           <Tabs orientation="vertical" tabs={secondTabs} textDirection="ltr" />
         </Box>
       </ExampleLayout.Sidebar>
