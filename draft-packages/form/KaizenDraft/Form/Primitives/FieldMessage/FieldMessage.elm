@@ -33,7 +33,7 @@ type alias ConfigValue msg =
     , automationId : Maybe String
     , reversed : Bool
     , message : String
-    , messageHtml : Maybe (Html msg)
+    , messageHtml : Maybe (List (Html msg))
     , status : FieldMessageStatus
     }
 
@@ -82,7 +82,7 @@ message value (Config config) =
     Config { config | message = value }
 
 
-messageHtml : Maybe (Html msg) -> Config msg -> Config msg
+messageHtml : Maybe (List (Html msg)) -> Config msg -> Config msg
 messageHtml value (Config config) =
     Config { config | messageHtml = value }
 
@@ -125,7 +125,7 @@ view (Config config) =
                     ]
                ]
         )
-        [ case ( config.message, config.messageHtml ) of
+        (case ( config.message, config.messageHtml ) of
             ( _, Just html ) ->
                 -- ideally we'd only allow either a string or html, not both, but
                 -- we wanted to avoid a breaking change, so we need to deal with
@@ -134,5 +134,5 @@ view (Config config) =
                 html
 
             ( messageString, Nothing ) ->
-                text messageString
-        ]
+                [ text messageString ]
+        )

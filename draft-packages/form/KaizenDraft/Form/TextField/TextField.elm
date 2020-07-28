@@ -6,6 +6,7 @@ module KaizenDraft.Form.TextField.TextField exposing
     , controlled
     , default
     , description
+    , descriptionHtml
     , disabled
     , icon
     , id
@@ -77,7 +78,7 @@ type alias ConfigValue msg =
     , placeholder : String
     , validationMessage : Maybe String
     , description : Maybe String
-    , descriptionHtml : Maybe (Html msg)
+    , descriptionHtml : Maybe (List (Html msg))
     , disabled : Bool
     , inputValue : String
     , controlled : Bool
@@ -163,6 +164,11 @@ validationMessage value (Config config) =
 description : String -> Config msg -> Config msg
 description value (Config config) =
     Config { config | description = Just value }
+
+
+descriptionHtml : List (Html msg) -> Config msg -> Config msg
+descriptionHtml value (Config config) =
+    Config { config | descriptionHtml = Just value }
 
 
 disabled : Bool -> Config msg -> Config msg
