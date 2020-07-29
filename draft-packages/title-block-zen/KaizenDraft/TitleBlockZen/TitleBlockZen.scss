@@ -560,6 +560,7 @@ $tab-container-height-small: $ca-grid * 2.5;
 }
 
 .breadcrumb {
+  cursor: pointer;
   display: flex;
   position: absolute;
   z-index: $ca-z-index-sticky;
