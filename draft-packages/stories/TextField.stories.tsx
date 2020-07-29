@@ -1,6 +1,7 @@
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { action } from "@storybook/addon-actions"
 import React, { useCallback, useRef } from "react"
+import { Tooltip } from "@kaizen/draft-tooltip"
 
 import { TextField } from "@kaizen/draft-form"
 const lockIcon = require("@kaizen/component-library/icons/lock.icon.svg")
@@ -582,4 +583,37 @@ export const DefaultUncontrolled = () => {
 
 DefaultUncontrolled.story = {
   name: "Default, Uncontrolled",
+}
+
+export const DefaultWithHtmlDescription = () => {
+  const description = (
+    <>
+      The description may contain a link to further details - we recommended
+      opening the link in a new tab with an
+      <span style={{ position: "relative" }}>
+        <Tooltip position="above" text="opens in new tab">
+          <a
+            href="https://cultureamp.design/guidelines/link-vs-button/#opens-in-new-tab-tooltip"
+            target="_blank"
+          >
+            "opens in new tab" tooltip{" "}
+          </a>
+        </Tooltip>
+      </span>
+    </>
+  )
+
+  return (
+    <ExampleContainer>
+      <TextField
+        id="default-with-html-description"
+        labelText="This a text field with a HTML description"
+        description={description}
+      />
+    </ExampleContainer>
+  )
+}
+
+DefaultWithHtmlDescription.story = {
+  name: "Default w HTML description",
 }

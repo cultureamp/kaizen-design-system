@@ -1,6 +1,8 @@
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
+import { Card } from "@kaizen/draft-card"
 import { Tabs } from "@kaizen/draft-tabs"
+import { Divider } from "@kaizen/draft-divider"
+import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import classnames from "classnames"
 import * as React from "react"
 import { ExampleLayout } from "./ExampleLayout"
@@ -310,7 +312,9 @@ export const WithLayoutVerticalLTR = () => {
   return (
     <ExampleLayout>
       <ExampleLayout.Sidebar>
-        <Tabs orientation="vertical" tabs={tabs} />
+        <Box pr={1}>
+          <Tabs orientation="vertical" tabs={tabs} />
+        </Box>
       </ExampleLayout.Sidebar>
       <ExampleLayout.Content>
         <Box p={2}>Example layout</Box>
@@ -320,7 +324,7 @@ export const WithLayoutVerticalLTR = () => {
 }
 
 WithLayoutVerticalLTR.story = {
-  name: "Layout LTR (Vertical)",
+  name: "(Example) Layout LTR (Vertical)",
   parameters: {
     backgrounds: [
       {
@@ -346,7 +350,9 @@ export const WithLayoutVerticalRTL = () => {
   return (
     <ExampleLayout rtl>
       <ExampleLayout.Sidebar>
-        <Tabs orientation="vertical" tabs={tabs} textDirection="rtl" />
+        <Box pl={1}>
+          <Tabs orientation="vertical" tabs={tabs} textDirection="rtl" />
+        </Box>
       </ExampleLayout.Sidebar>
       <ExampleLayout.Content>
         <Box p={2}>Example layout</Box>
@@ -356,7 +362,99 @@ export const WithLayoutVerticalRTL = () => {
 }
 
 WithLayoutVerticalRTL.story = {
-  name: "Layout RTL (Vertical)",
+  name: "(Example) Layout RTL (Vertical)",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Stone",
+        value: colorTokens.kz.color.stone,
+        default: true,
+      },
+    ],
+  },
+}
+
+export const WithHeading = () => {
+  const firstTabs = [
+    {
+      label: "One (href here)",
+      href: "//www.example.com",
+      active: true,
+    },
+    { label: "Two", href: "https://www.cultureamp.design/storybook" },
+    { label: "Three", href: "https://www.cultureamp.design/storybook" },
+    { label: "Four", href: "https://www.cultureamp.design/storybook" },
+  ]
+  const secondTabs = [
+    {
+      label: "Five",
+      href: "//www.example.com",
+    },
+    { label: "Six", href: "https://www.cultureamp.design/storybook" },
+  ]
+  return (
+    <ExampleLayout>
+      <ExampleLayout.Sidebar>
+        <Box pr={1}>
+          <Heading variant="heading-6">Some heading</Heading>
+          <Tabs orientation="vertical" tabs={firstTabs} textDirection="ltr" />
+          <Box py={1}>
+            <Divider variant="canvas" />
+          </Box>
+          <Heading variant="heading-6">Another heading</Heading>
+          <Tabs orientation="vertical" tabs={secondTabs} textDirection="ltr" />
+        </Box>
+      </ExampleLayout.Sidebar>
+      <ExampleLayout.Content>
+        <Box p={2}>Example layout</Box>
+      </ExampleLayout.Content>
+    </ExampleLayout>
+  )
+}
+
+WithHeading.story = {
+  name: "(Example) Layout With heading",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Stone",
+        value: colorTokens.kz.color.stone,
+        default: true,
+      },
+    ],
+  },
+}
+
+export const ExampleContentTab = () => {
+  const tabs = [
+    {
+      label: "One (href here)",
+      href: "//www.example.com",
+    },
+    {
+      label: "Two",
+      href: "https://www.cultureamp.design/storybook",
+      active: true,
+    },
+    { label: "Three", href: "https://www.cultureamp.design/storybook" },
+    { label: "Four", href: "https://www.cultureamp.design/storybook" },
+  ]
+  return (
+    <ExampleLayout>
+      <ExampleLayout.Content>
+        <Card>
+          <Box pb={2}>
+            <Tabs orientation="horizontal" tabs={tabs} textDirection="ltr" />
+            <Divider variant="content" />
+          </Box>
+        </Card>
+      </ExampleLayout.Content>
+    </ExampleLayout>
+  )
+}
+
+ExampleContentTab.story = {
+  name: "(Example) Content Tab in Content Area",
   parameters: {
     backgrounds: [
       {
