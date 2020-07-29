@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.15...@kaizen/draft-title-block-zen@1.6.16) (2020-07-29)
+
+
+### Bug Fixes
+
+* title block explicitly sets color of breadcrumb text ([#680](https://github.com/cultureamp/kaizen-design-system/issues/680)) ([e8cea04](https://github.com/cultureamp/kaizen-design-system/commit/e8cea049b0dc17e5d2f9a15d780bf311ffe05ace))
+
+
+
+
+
 ## [1.6.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.14...@kaizen/draft-title-block-zen@1.6.15) (2020-07-21)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
