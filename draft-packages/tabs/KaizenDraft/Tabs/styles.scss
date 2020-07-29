@@ -8,7 +8,6 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 .container {
-  @include ca-margin($bottom: $ca-grid);
   display: flex;
 }
 
@@ -120,7 +119,6 @@
   &:hover:not(.horizontalTabActive) {
     color: $kz-color-wisteria-800;
     background-color: transparent;
-    font-weight: normal;
   }
 }
 
@@ -134,8 +132,16 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding-left: $kz-spacing-sm;
   border-radius: $kz-border-solid-border-radius;
+  font-weight: $kz-typography-heading-4-font-weight;
+
+  [dir="rtl"] & {
+    padding-right: $kz-spacing-sm;
+  }
+
+  [dir="ltr"] & {
+    padding-left: $kz-spacing-sm;
+  }
 
   :global(.js-focus-visible) &:global(.focus-visible):after {
     border-radius: $kz-border-borderless-border-radius;
@@ -146,7 +152,6 @@
 .verticalTabActive {
   composes: tab;
   composes: verticalTab;
-  font-weight: $kz-typography-heading-4-font-weight;
   color: $kz-color-cluny-500;
 }
 
@@ -163,6 +168,5 @@
   &:hover:not(.verticalTabActive) {
     color: $kz-color-wisteria-800;
     background-color: transparent;
-    font-weight: normal;
   }
 }
