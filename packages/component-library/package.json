@@ -43,7 +43,7 @@
     "react-animate-height": "^2.0.15",
     "react-focus-lock": "^1.19.1",
     "react-media": "^1.9.2",
-    "react-select": "^3.0.8",
+    "react-select": "^3.1.0",
     "react-tooltip": "^4.2.6",
     "react-transition-group": "^2.9.0",
     "uuid": "^3.3.2"
