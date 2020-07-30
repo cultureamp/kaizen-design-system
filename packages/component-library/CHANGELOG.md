@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.24.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.24.8...@kaizen/component-library@7.24.9) (2020-07-30)
+
+
+### Bug Fixes
+
+* Update react select version to fix scroll bug ([#683](https://github.com/cultureamp/kaizen-design-system/issues/683)) ([1a0805e](https://github.com/cultureamp/kaizen-design-system/commit/1a0805edc32858c7cf191eec9c38383bfd95c637))
+
+
+
+
+
 ## [7.24.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.24.7...@kaizen/component-library@7.24.8) (2020-07-15)
 
 **Note:** Version bump only for package @kaizen/component-library
