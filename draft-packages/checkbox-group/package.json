@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-checkbox-group",
-  "version": "1.3.68",
+  "version": "1.3.69",
   "description": "The draft Checkbox group component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -31,8 +31,8 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^7.24.8",
-    "@kaizen/draft-form": "^2.3.0",
+    "@kaizen/component-library": "^7.24.9",
+    "@kaizen/draft-form": "^2.3.1",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },
