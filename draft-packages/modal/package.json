@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-modal",
-  "version": "2.5.26",
+  "version": "2.5.28",
   "description": "The draft Modal component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -31,10 +31,10 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^7.24.8",
+    "@kaizen/component-library": "^7.25.0",
     "@kaizen/deprecated-component-library-helpers": "^1.6.13",
-    "@kaizen/draft-button": "^1.12.6",
-    "@kaizen/draft-form": "^2.3.0",
+    "@kaizen/draft-button": "^1.13.0",
+    "@kaizen/draft-form": "^2.3.2",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",
     "react-focus-lock": "1.19.1",

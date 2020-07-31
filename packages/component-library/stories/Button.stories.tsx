@@ -2,7 +2,8 @@ import { Button } from "@kaizen/component-library"
 const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
   .default
 import { action } from "@storybook/addon-actions"
-import * as React from "react"
+import React, { useCallback, useRef } from "react"
+import { ButtonRef } from "../components/Button"
 
 export default {
   title: "Button (deprecated) (React)",
@@ -433,3 +434,23 @@ export const MultipleButtons = () => (
     <Button label="Exit" automationId="demo-button-2" />
   </div>
 )
+
+export const FocusExample = () => {
+  const ref = useRef<ButtonRef>()
+  const handleClick = useCallback(() => {
+    ref.current?.focus()
+  }, [])
+  return (
+    <>
+      <Button label="Label" ref={ref} />
+      <hr />
+      <p>
+        This story is to test the ability to imperatively call the `focus`
+        function.
+      </p>
+      <button onClick={handleClick}>
+        Click here to focus the button above
+      </button>
+    </>
+  )
+}
