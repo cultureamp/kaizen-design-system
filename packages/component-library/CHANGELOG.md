@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.25.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.24.9...@kaizen/component-library@7.25.0) (2020-07-31)
+
+
+### Features
+
+* Add focus support to the Button components ([#662](https://github.com/cultureamp/kaizen-design-system/issues/662)) ([55a862d](https://github.com/cultureamp/kaizen-design-system/commit/55a862da6f198f2b48a4ee4af6f2dd685809fb9c))
+
+
+
+
+
 ## [7.24.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.24.8...@kaizen/component-library@7.24.9) (2020-07-30)
 
 
