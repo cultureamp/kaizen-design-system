@@ -3,7 +3,8 @@ import { Button } from "../button"
 const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
   .default
 import { action } from "@storybook/addon-actions"
-import React from "react"
+import React, { useCallback, useLayoutEffect, useRef } from "react"
+import { ButtonRef } from "@kaizen/draft-button"
 
 export default {
   title: "Button (Zen) (React)",
@@ -299,6 +300,26 @@ export const OverflowingTextFormTestCase = () => (
     />
   </div>
 )
+
+export const FocusExample = () => {
+  const ref = useRef<ButtonRef>()
+  const handleClick = useCallback(() => {
+    ref.current?.focus()
+  }, [])
+  return (
+    <>
+      <Button label="Label" ref={ref} />
+      <hr />
+      <p>
+        This story is to test the ability to imperatively call the `focus`
+        function.
+      </p>
+      <button onClick={handleClick}>
+        Click here to focus the button above
+      </button>
+    </>
+  )
+}
 
 OverflowingTextFormTestCase.story = {
   name: "Overflowing text, Form (test case)",
