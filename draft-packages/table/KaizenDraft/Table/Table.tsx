@@ -52,7 +52,6 @@ const ratioToPercent = (width?: number) =>
 type TableHeaderRowCell = React.FunctionComponent<{
   labelText: string
   automationId?: string
-  checkboxAutomationId?: string
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => any
   width?: number
   flex?: string
@@ -73,7 +72,6 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   onCheck,
   active,
   automationId,
-  checkboxAutomationId,
   ...otherProps
 }) => {
   const label = icon ? (
@@ -85,7 +83,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
       {checkable && (
         <div className={styles.headerRowCellCheckbox}>
           <Checkbox
-            automationId={checkboxAutomationId}
+            automationId={`${automationId}-checkbox`}
             checkedStatus={checkedStatus}
             onCheck={onCheck}
           />
