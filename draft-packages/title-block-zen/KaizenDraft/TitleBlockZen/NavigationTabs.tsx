@@ -4,17 +4,14 @@ import { NON_REVERSED_VARIANTS, Variant } from "./TitleBlockZen"
 
 const styles = require("./NavigationTabs.scss")
 
-export type NavigationTabsProps = {
-  id?: string
-  automationId?: string
-}
-
 export type NavigationTabProps = {
   text: string
   href: string
   active?: boolean
   handleClick?: (event: React.MouseEvent) => void
   variant?: Variant
+  id?: string
+  automationId?: string
 }
 
 const isLight = (variant: Variant | undefined): boolean =>
@@ -27,6 +24,8 @@ const NavigationTab = (props: NavigationTabProps) => (
     })}
     href={props.href}
     onClick={props.handleClick}
+    id={props.id}
+    data-automation-id={props.automationId}
   >
     <div
       className={classnames(styles.linkLabel, {
