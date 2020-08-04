@@ -19,7 +19,7 @@ const supportIcon = require("@kaizen/component-library/icons/support.icon.svg")
 import { TitleBlock } from "@kaizen/draft-title-block"
 
 export default {
-  title: "Layout (React, DEPRECATED)",
+  title: "Layout (deprecated) (React)",
   component: Layout,
   parameters: {
     info: {
