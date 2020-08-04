@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react"
+import { Icon, Text } from "@kaizen/component-library"
+import classNames from "classnames"
+
+const chevronLeft = require("@kaizen/component-library/icons/chevron-left.icon.svg")
+  .default
+const chevronRight = require("@kaizen/component-library/icons/chevron-right.icon.svg")
+  .default
 const styles = require("./styles.module.scss")
 
 export interface HierarchicalMenuProps {
   initialHierarchy: Hierarchy
   loadHierarchy: (node: HierarchyNode) => Hierarchy
+  menuWidth?: "default" | "contain"
 }
 
 export type HierarchyNode = {
@@ -22,7 +30,7 @@ export type Hierarchy = {
 export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
   const [hierarchy, setHierarchy] = useState<Hierarchy | null>(null)
 
-  const { initialHierarchy, loadHierarchy } = props
+  const { initialHierarchy, loadHierarchy, menuWidth = "default" } = props
 
   if (!hierarchy && initialHierarchy) {
     setHierarchy(initialHierarchy)
@@ -38,29 +46,62 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
   }
 
   return (
-    <div className={styles.container}>
+    <div
+      className={classNames(styles.container, {
+        [styles.defaultWidth]: menuWidth === "default",
+      })}
+    >
       <div className={styles.menu}>
         <div className={styles.header}>
           <div className={styles.parent}>
-            Parent: {hierarchy.parent?.label}
-            {hierarchy.parent && (
-              <button
-                onClick={() => hierarchy.parent && onClick(hierarchy.parent)}
-              >
-                &lsaquo;
-              </button>
-            )}
+            <button
+              className={
+                hierarchy.parent
+                  ? styles.parentButton
+                  : styles.disabledParentButton
+              }
+              disabled={!hierarchy.parent}
+              onClick={() => hierarchy.parent && onClick(hierarchy.parent)}
+            >
+              <div className={styles.parentButtonIcon}>
+                <Icon icon={chevronLeft} role="presentation" inheritSize />
+              </div>
+              <Text style="small" tag="p" inheritBaseline>
+                {hierarchy.parent?.label}
+              </Text>
+            </button>
           </div>
           <div className={styles.current}>
-            Current: {hierarchy.current.label}
+            <Text style="body-bold" tag="p" inheritBaseline>
+              {hierarchy.current.label}
+            </Text>
+            <Text style="small" tag="p" inheritBaseline>
+              Level {hierarchy.current.level}
+            </Text>
           </div>
         </div>
         <div className={styles.body}>
           {hierarchy.children.map(c => (
-            <div className={styles.children} key={c.value}>
-              Child: {c.label}
+            <div className={styles.child} key={c.value}>
+              <button className={styles.childLabelButton}>
+                <Text style="body" tag="p" inheritBaseline>
+                  {c.label}
+                </Text>
+              </button>
               {c.hasChildren && (
-                <button onClick={() => onClick(c)}>&rsaquo;</button>
+                <button
+                  className={styles.childDrilldownButton}
+                  onClick={() => onClick(c)}
+                >
+                  <div className={styles.childDrilldownButtonIcon}>
+                    <Icon
+                      icon={chevronRight}
+                      role="img"
+                      title={`Drill down on ${c.label}`}
+                      inheritSize
+                    />
+                  </div>
+                </button>
               )}
             </div>
           ))}

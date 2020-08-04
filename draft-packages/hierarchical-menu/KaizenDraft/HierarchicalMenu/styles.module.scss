@@ -1,5 +1,104 @@
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/draft-button/KaizenDraft/Button/styles";
+
+$default-width: 385px;
 
 .container {
-  color: $kz-color-wisteria-800;
+  -webkit-font-smoothing: antialiased;
+}
+
+.defaultWidth {
+  width: $default-width;
+}
+
+.menu {
+  border: $kz-border-solid-border-width $kz-border-solid-border-style
+    $ca-border-color;
+  border-radius: $kz-border-solid-border-radius;
+}
+
+.header {
+  background-color: $kz-color-wisteria-700;
+  color: $kz-color-wisteria-200;
+  border-top-left-radius: $kz-border-solid-border-radius;
+  border-top-right-radius: $kz-border-solid-border-radius;
+}
+
+.parent {
+  margin: 0 $kz-spacing-md;
+  border-bottom: 1px $kz-border-solid-border-style $kz-color-wisteria-500;
+  height: $kz-spacing-xl;
+  display: flex;
+  align-items: center;
+}
+
+.parentButton {
+  @include button-reset;
+  color: inherit;
+  display: flex;
+  align-items: center;
+}
+
+.disabledParentButton {
+  composes: parentButton;
+  opacity: 0.3;
+}
+
+.parentButtonIcon {
+  @include ca-margin($start: -8px, $end: $kz-spacing-xs);
+  height: $kz-spacing-md;
+  width: $kz-spacing-md;
+}
+
+.parentButtonIcon > svg {
+  display: block;
+}
+
+.current {
+  margin: 0 $kz-spacing-md;
+  height: $kz-spacing-xl;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.body {
+  background-color: $kz-color-white;
+  border-bottom-left-radius: $kz-border-solid-border-radius;
+  border-bottom-right-radius: $kz-border-solid-border-radius;
+}
+
+.child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.child:hover {
+  background-color: $kz-color-wisteria-100;
+}
+
+.childLabelButton {
+  @include button-reset;
+  @include ca-type-align-start;
+  flex: 1 0;
+  height: $kz-spacing-xl;
+  padding: 0 $kz-spacing-md;
+}
+
+.childDrilldownButton {
+  @include button-reset;
+  height: $kz-spacing-xl;
+  padding: 0 $kz-spacing-md;
+  display: flex;
+  align-items: center;
+}
+
+.childDrilldownButtonIcon {
+  height: $kz-spacing-md;
+  width: $kz-spacing-md;
 }
