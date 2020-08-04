@@ -10,6 +10,8 @@ const levelZero: Hierarchy = {
   parent: null,
   current: { value: "id_didier", label: "Didier Elzinga", level: 0 },
   children: [
+    { value: "id_rich", label: "Rich Anstett", level: 1, hasChildren: false },
+    { value: "id_josh", label: "Josh Berman", level: 1, hasChildren: false },
     {
       value: "id_aubrey",
       label: "Aubrey Blanche",
@@ -17,7 +19,14 @@ const levelZero: Hierarchy = {
       hasChildren: false,
     },
     { value: "id_doug", label: "Doug English", level: 1, hasChildren: false },
+    { value: "id_peter", label: "Peter Haasz", level: 1, hasChildren: false },
     { value: "id_rod", label: "Rod Hamilton", level: 1, hasChildren: true },
+    { value: "id_adin", label: "Adin Martin", level: 1, hasChildren: false },
+    { value: "id_jd", label: "JD Peterson", level: 1, hasChildren: false },
+    { value: "id_kath", label: "Kath Rau", level: 1, hasChildren: false },
+    { value: "id_cathy", label: "Cathy Stansen", level: 1, hasChildren: false },
+    { value: "id_sarah", label: "Sarah Tinsley", level: 1, hasChildren: false },
+    { value: "id_jack", label: "Jack Van Wyk", level: 1, hasChildren: false },
   ],
 }
 

@@ -6,6 +6,7 @@
 @import "~@kaizen/draft-button/KaizenDraft/Button/styles";
 
 $default-width: 385px;
+$option-height: $kz-spacing-xl;
 
 .container {
   -webkit-font-smoothing: antialiased;
@@ -31,7 +32,7 @@ $default-width: 385px;
 .parent {
   margin: 0 $kz-spacing-md;
   border-bottom: 1px $kz-border-solid-border-style $kz-color-wisteria-500;
-  height: $kz-spacing-xl;
+  height: $option-height;
   display: flex;
   align-items: center;
 }
@@ -60,7 +61,7 @@ $default-width: 385px;
 
 .current {
   margin: 0 $kz-spacing-md;
-  height: $kz-spacing-xl;
+  height: $option-height;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -70,6 +71,8 @@ $default-width: 385px;
   background-color: $kz-color-white;
   border-bottom-left-radius: $kz-border-solid-border-radius;
   border-bottom-right-radius: $kz-border-solid-border-radius;
+  max-height: $option-height * 6;
+  overflow-y: auto;
 }
 
 .child {
@@ -86,13 +89,13 @@ $default-width: 385px;
   @include button-reset;
   @include ca-type-align-start;
   flex: 1 0;
-  height: $kz-spacing-xl;
+  height: $option-height;
   padding: 0 $kz-spacing-md;
 }
 
 .childDrilldownButton {
   @include button-reset;
-  height: $kz-spacing-xl;
+  height: $option-height;
   padding: 0 $kz-spacing-md;
   display: flex;
   align-items: center;
