@@ -12,6 +12,7 @@ export interface HierarchicalMenuProps {
   initialHierarchy: Hierarchy
   loadHierarchy: (node: HierarchyNode) => Hierarchy
   menuWidth?: "default" | "contain"
+  onSelect: (node: HierarchyNode) => any
 }
 
 export type HierarchyNode = {
@@ -30,7 +31,12 @@ export type Hierarchy = {
 export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
   const [hierarchy, setHierarchy] = useState<Hierarchy | null>(null)
 
-  const { initialHierarchy, loadHierarchy, menuWidth = "default" } = props
+  const {
+    initialHierarchy,
+    loadHierarchy,
+    menuWidth = "default",
+    onSelect,
+  } = props
 
   if (!hierarchy && initialHierarchy) {
     setHierarchy(initialHierarchy)
@@ -83,7 +89,10 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
         <div className={styles.body}>
           {hierarchy.children.map(c => (
             <div className={styles.child} key={c.value}>
-              <button className={styles.childLabelButton}>
+              <button
+                className={styles.childLabelButton}
+                onClick={() => onSelect(c)}
+              >
                 <Text style="body" tag="p" inheritBaseline>
                   {c.label}
                 </Text>

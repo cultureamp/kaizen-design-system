@@ -67,7 +67,11 @@ export default {
 }
 
 export const DefaultStory = () => (
-  <HierarchicalMenu initialHierarchy={levelOne} loadHierarchy={loadHierarchy} />
+  <HierarchicalMenu
+    initialHierarchy={levelOne}
+    loadHierarchy={loadHierarchy}
+    onSelect={selected => alert(`Selected ${selected.label}!`)}
+  />
 )
 
 DefaultStory.story = {
