@@ -92,11 +92,12 @@ A popover **lifts up** from the **trigger point**, by “slide fading” towards
 
  *   Use sparingly. If you’re building something that requires a lot of popovers, work on clarifying the design and the language in the experience.
  *   Only show 1 popover at a time.
-*   Accessibility:
+
+### Accessibility:
  *   A user might interact with a Popover, requiring focus, and it might contain rich content such as a link, so we need to move focus to the Popover when it’s triggered and support keyboard navigation to dismiss a dismissible Popover, allowing people using screen readers to fully perceive and operate the Popover content.
  *   In contrast, Tooltips contain limited content so we can use an ‘announcer’ to announce tooltip content to people using screen readers e.g. using an ARIA live region.
  
- ### Mood icons with popovers
+### Mood icons with popovers
  
  * Make sure the mood of the icon matches mood of the popover (e.g. information icon would use informative popover, the warning icon would use the cautionary popover)
  * When to use it:
