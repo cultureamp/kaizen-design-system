@@ -8,6 +8,7 @@
         "./draft-packages/checkbox-group",
         "./draft-packages/collapsible",
         "./draft-packages/dropdown",
+        "./draft-packages/divider",
         "./draft-packages/empty-state",
         "./draft-packages/events",
         "./draft-packages/form",
