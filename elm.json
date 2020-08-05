@@ -5,6 +5,7 @@
         "./node_modules/@kaizen/component-library/components",
         "./node_modules/@kaizen/component-library/stories",
         "./draft-packages/button",
+        "./draft-packages/card",
         "./draft-packages/checkbox-group",
         "./draft-packages/collapsible",
         "./draft-packages/dropdown",
