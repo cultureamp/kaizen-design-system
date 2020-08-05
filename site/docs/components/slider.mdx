@@ -21,16 +21,20 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 Sliders are helpful for choosing subjective values.
 
-- Always show the current, selected value.
+- Always indicate the current, selected value. Ideally with visible text associated with the handle, but at a minimum provide a text alternative for screen readers.
 - Provide a visible label describing what the slider changes, such as "Brightness".
 - Show the minimum value on the left and maximum value on the right, where these are reversed in Right-To-Left (RTL) languages.
+- We generally use sliders with no fill. You might use a fill when it's useful to give the impression of building towards the maximum value.
 - We only use horizontal sliders. We're yet to need a vertical slider.
-- We only use sliders with no fill so far.
 - We only use sliders with a single handle. We're unlikely to need a slider with more than one handle.
 
 ### Style
 
-- There's rarely a need to apply labels to every tick mark. Consider only showing a label for min, max, and middle ticks, such as 0%, 100%, and 50%.
+- Tick marks:
+    - For a fine-grained range, you might consider hiding tick marks to minimize visual clutter. For example, a range of 0%–100% with 1% steps would have too many ticks and be incredibly crowded.
+    - For a coarse range, where the slider may snap to widely spaced intervals, you might show a tick mark for every step so it is clear where the slider will snap to.
+- Tick labels:
+    - There's rarely a need to apply labels to every tick mark. Consider only showing a label for min, max, and middle ticks, such as 0%, 100%, and maybe 50%.
 
 ### Behavior
 
