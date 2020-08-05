@@ -1,5 +1,6 @@
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/design-tokens/sass/animation";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/spacing";
@@ -10,6 +11,11 @@ $option-height: $kz-spacing-xl;
 
 .container {
   -webkit-font-smoothing: antialiased;
+  border: $kz-border-solid-border-width $kz-border-solid-border-style
+    $ca-border-color;
+  border-radius: $kz-border-solid-border-radius;
+  display: flex;
+  overflow: hidden;
 }
 
 .defaultWidth {
@@ -17,9 +23,7 @@ $option-height: $kz-spacing-xl;
 }
 
 .menu {
-  border: $kz-border-solid-border-width $kz-border-solid-border-style
-    $ca-border-color;
-  border-radius: $kz-border-solid-border-radius;
+  flex-shrink: 0;
 }
 
 .header {
@@ -42,6 +46,7 @@ $option-height: $kz-spacing-xl;
   color: inherit;
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .disabledParentButton {
@@ -71,7 +76,7 @@ $option-height: $kz-spacing-xl;
   background-color: $kz-color-white;
   border-bottom-left-radius: $kz-border-solid-border-radius;
   border-bottom-right-radius: $kz-border-solid-border-radius;
-  max-height: $option-height * 6;
+  height: $option-height * 6;
   overflow-y: auto;
 }
 
@@ -104,4 +109,32 @@ $option-height: $kz-spacing-xl;
 .childDrilldownButtonIcon {
   height: $kz-spacing-md;
   width: $kz-spacing-md;
+}
+
+:global(.animating-enter) {
+  &.childMenu {
+    transition: transform $kz-animation-duration-rapid
+      $kz-animation-easing-function-ease-in-out;
+    transform: translateX(-100%);
+  }
+}
+
+:global(.animating-enter-done) {
+  &.currentMenu {
+    transform: translateX(0);
+  }
+}
+
+:global(.animating-exit) {
+  &.currentMenu {
+    transition: transform $kz-animation-duration-rapid
+      $kz-animation-easing-function-ease-in-out;
+    transform: translateX(-100%);
+  }
+}
+
+:global(.animating-exit-done) {
+  &.currentMenu {
+    transform: translateX(-100%);
+  }
 }

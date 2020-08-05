@@ -63,13 +63,14 @@ const levelThree: Hierarchy = {
   ],
 }
 
-const loadHierarchy = (node: HierarchyNode) => {
-  if (node.value === "id_didier") return levelZero
-  if (node.value === "id_rod") return levelOne
-  if (node.value === "id_virginia") return levelTwo
-  if (node.value === "id_kavi") return levelThree
-  return levelZero
-}
+const loadHierarchy = (node: HierarchyNode): Promise<Hierarchy> =>
+  new Promise(resolve => {
+    if (node.value === "id_didier") return resolve(levelZero)
+    if (node.value === "id_rod") return resolve(levelOne)
+    if (node.value === "id_virginia") return resolve(levelTwo)
+    if (node.value === "id_kavi") return resolve(levelThree)
+    resolve(levelZero)
+  })
 
 export default {
   title: "HierarchicalMenu (React)",

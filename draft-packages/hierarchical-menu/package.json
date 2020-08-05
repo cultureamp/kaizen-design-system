@@ -33,7 +33,9 @@
   "dependencies": {
     "@kaizen/component-library": "^7.25.0",
     "@kaizen/draft-button": "^1.13.0",
-    "classnames": "^2.2.6"
+    "@kaizen/draft-loading-placeholder": "^1.3.38",
+    "classnames": "^2.2.6",
+    "react-transition-group": "^4.4.1"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^1.6.0",
