@@ -12,14 +12,13 @@ const chevronRight = require("@kaizen/component-library/icons/chevron-right.icon
   .default
 const styles = require("./styles.module.scss")
 
-type MenuLevel = "parent" | "current" | "child"
 type MenuWidth = "default" | "contain"
 type MenuDirection = "ltr" | "rtl"
 
 export interface HierarchicalMenuProps {
   initialHierarchy: Hierarchy
   loadHierarchy: (node: HierarchyNode) => Promise<Hierarchy>
-  onSelect: (node: HierarchyNode) => any
+  onSelect: (node: HierarchyNode) => void
   width?: MenuWidth
   dir?: MenuDirection
 }
@@ -98,7 +97,7 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
       })}
       style={{
         height: `${
-          (hierarchy.children.length + 2) *
+          (hierarchy.children.length + 2) * // header height
           Number(optionHeight.replace("rem", ""))
         }rem`,
       }}
@@ -122,7 +121,6 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
         classNames="animating"
       >
         <Menu
-          level="current"
           hierarchy={hierarchy}
           width={width}
           dir={dir}
@@ -150,19 +148,17 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
 }
 
 interface MenuProps {
-  level: MenuLevel
   hierarchy: Hierarchy
   width: MenuWidth
   dir: MenuDirection
   isNavigating: NavigatingState
-  onSelect: (node: HierarchyNode) => any
+  onSelect: (node: HierarchyNode) => void
   onNavigateToParent: (node: HierarchyNode) => void
   onNavigateToChild: (node: HierarchyNode) => void
 }
 
 const Menu = (props: MenuProps) => {
   const {
-    level,
     hierarchy,
     width,
     dir,
@@ -174,11 +170,8 @@ const Menu = (props: MenuProps) => {
 
   return (
     <div
-      className={classNames(styles.menu, {
+      className={classNames(styles.menu, styles.currentMenu, {
         [styles.defaultWidth]: width === "default",
-        [styles.parentMenu]: level === "parent",
-        [styles.currentMenu]: level === "current",
-        [styles.childMenu]: level === "child",
         [styles.toParent]: isNavigating === "toParent",
         [styles.toChild]: isNavigating === "toChild",
       })}
@@ -251,7 +244,7 @@ const Menu = (props: MenuProps) => {
 }
 
 interface LoadingMenuProps {
-  level: MenuLevel
+  level: "parent" | "child"
   width: MenuWidth
   dir: MenuDirection
   options: number
@@ -267,7 +260,6 @@ const LoadingMenu = (props: LoadingMenuProps) => {
         [styles.shouldAnimate]: shouldAnimate,
         [styles.defaultWidth]: width === "default",
         [styles.parentMenu]: level === "parent",
-        [styles.currentMenu]: level === "current",
         [styles.childMenu]: level === "child",
       })}
     >
