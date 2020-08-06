@@ -25,7 +25,7 @@ export type HierarchyNode = {
   value: string
   label: string
   level: number
-  hasChildren?: boolean
+  numberOfChildren?: number
 }
 
 export type Hierarchy = {
@@ -34,34 +34,33 @@ export type Hierarchy = {
   children: HierarchyNode[]
 }
 
-const animationTimeout = Number(
-  animationTokens.kz.animation.duration.rapid.replace("ms", "")
-)
+const animationTimeout = 5000
+
+type NavigatingState = "toParent" | "toChild" | false
 
 export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
-  const [currentHierarchy, setCurrentHierarchy] = useState<Hierarchy | null>(
-    null
-  )
-  // const [nextHierarchy, setNextHierarchy] = useState<Hierarchy | null>(null)
-  const [isNavigating, setIsNavigating] = useState<
-    "toParent" | "toChild" | false
-  >(false)
+  const [hierarchy, setHierarchy] = useState<Hierarchy | null>(null)
+  const [isNavigating, setIsNavigating] = useState<NavigatingState>(false)
+  const [incomingNumberOfChildren, setIncomingNumberOfChildren] = useState(0)
 
   const { initialHierarchy, loadHierarchy, onSelect, width = "default" } = props
 
-  if (!currentHierarchy && initialHierarchy) {
-    setCurrentHierarchy(initialHierarchy)
+  if (!hierarchy && initialHierarchy) {
+    setHierarchy(initialHierarchy)
   }
 
-  if (!currentHierarchy) {
+  if (!hierarchy) {
     return <div className={styles.container}>Empty</div>
   }
 
   const onNavigate = async (node: HierarchyNode) => {
     setIsNavigating("toChild")
+    setIncomingNumberOfChildren(
+      node.numberOfChildren || hierarchy.current.numberOfChildren || 0
+    )
     const newHierarchy = await loadHierarchy(node)
-    setCurrentHierarchy(newHierarchy)
-    // setNextHierarchy(loadHierarchy(node))
+    setHierarchy(newHierarchy)
+    setIsNavigating(false)
   }
 
   return (
@@ -77,7 +76,7 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
       >
         <Menu
           level="current"
-          hierarchy={currentHierarchy}
+          hierarchy={hierarchy}
           width={width}
           onSelect={onSelect}
           onNavigate={onNavigate}
@@ -87,12 +86,13 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
         in={isNavigating === "toChild"}
         timeout={animationTimeout}
         classNames="animating"
-        onEntered={() => {
-          console.log("navigated to child")
-          setIsNavigating(false)
-        }}
       >
-        <LoadingMenu level="child" width={width} />
+        <LoadingMenu
+          level="child"
+          width={width}
+          numberOfChildren={incomingNumberOfChildren}
+          shouldAnimate={isNavigating === "toChild"}
+        />
       </CSSTransition>
     </div>
   )
@@ -157,7 +157,7 @@ const Menu = (props: MenuProps) => {
                 {c.label}
               </Text>
             </button>
-            {c.hasChildren && (
+            {c.numberOfChildren != null && c.numberOfChildren > 0 && (
               <button
                 className={styles.childDrilldownButton}
                 onClick={() => onNavigate(c)}
@@ -182,14 +182,17 @@ const Menu = (props: MenuProps) => {
 interface LoadingMenuProps {
   level: MenuLevel
   width: MenuWidth
+  numberOfChildren: number
+  shouldAnimate: boolean
 }
 
 const LoadingMenu = (props: LoadingMenuProps) => {
-  const { level, width } = props
+  const { level, width, numberOfChildren, shouldAnimate } = props
 
   return (
     <div
-      className={classNames(styles.menu, {
+      className={classNames(styles.loadingMenu, {
+        [styles.shouldAnimate]: shouldAnimate,
         [styles.defaultWidth]: width === "default",
         [styles.parentMenu]: level === "parent",
         [styles.currentMenu]: level === "current",
@@ -198,26 +201,33 @@ const LoadingMenu = (props: LoadingMenuProps) => {
     >
       <div className={styles.header}>
         <div className={styles.parent}>
-          <button className={styles.disabledParentButton} disabled>
+          <button className={styles.parentButton} disabled>
             <div className={styles.parentButtonIcon}>
               <Icon icon={chevronLeft} role="presentation" inheritSize />
             </div>
-            <LoadingPlaceholder inline width={60} />
+            <LoadingPlaceholder inline width={60} animated={false} />
           </button>
         </div>
         <div className={styles.current}>
-          <LoadingPlaceholder inline width={40} />
-          <LoadingPlaceholder inline width={20} />
+          <LoadingPlaceholder inline width={40} animated={false} />
+          <LoadingPlaceholder inline width={20} animated={false} />
         </div>
       </div>
       <div className={styles.body}>
-        {[50, 40, 50, 40, 50, 40].map((c, index) => (
-          <div className={styles.child} key={index}>
-            <button className={styles.childLabelButton} disabled>
-              <LoadingPlaceholder noBottomMargin inheritBaseline width={c} />
-            </button>
-          </div>
-        ))}
+        {Array(numberOfChildren)
+          .fill(0)
+          .map((c, index) => (
+            <div className={styles.child} key={index}>
+              <button className={styles.childLabelButton} disabled>
+                <LoadingPlaceholder
+                  noBottomMargin
+                  inheritBaseline
+                  width={40}
+                  animated={false}
+                />
+              </button>
+            </div>
+          ))}
       </div>
     </div>
   )
