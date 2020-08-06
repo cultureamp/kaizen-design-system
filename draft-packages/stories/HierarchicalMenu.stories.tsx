@@ -118,7 +118,9 @@ const levelThree: Hierarchy = {
   ],
 }
 
-const loadHierarchy = (node: HierarchyNode): Promise<Hierarchy> =>
+const loadHierarchy = (simulatedResponseTime: number) => (
+  node: HierarchyNode
+): Promise<Hierarchy> =>
   new Promise(resolve => {
     setTimeout(() => {
       if (node.value === "id_didier") return resolve(levelZero)
@@ -126,8 +128,11 @@ const loadHierarchy = (node: HierarchyNode): Promise<Hierarchy> =>
       if (node.value === "id_virginia") return resolve(levelTwo)
       if (node.value === "id_kavi") return resolve(levelThree)
       resolve(levelZero)
-    }, 1000)
+    }, simulatedResponseTime)
   })
+
+const onSelect = (selected: HierarchyNode) =>
+  alert(`Selected ${selected.label}!`)
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => (
   <div
@@ -150,8 +155,8 @@ export const DefaultStory = () => (
   <StoryContainer>
     <HierarchicalMenu
       initialHierarchy={levelOne}
-      loadHierarchy={loadHierarchy}
-      onSelect={selected => alert(`Selected ${selected.label}!`)}
+      loadHierarchy={loadHierarchy(0)}
+      onSelect={onSelect}
     />
   </StoryContainer>
 )
@@ -165,8 +170,8 @@ export const RtlStory = () => (
     <div dir="rtl">
       <HierarchicalMenu
         initialHierarchy={levelOne}
-        loadHierarchy={loadHierarchy}
-        onSelect={selected => alert(`Selected ${selected.label}!`)}
+        loadHierarchy={loadHierarchy(0)}
+        onSelect={onSelect}
         dir="rtl"
       />
     </div>
@@ -175,4 +180,46 @@ export const RtlStory = () => (
 
 RtlStory.story = {
   name: "Default (RTL)",
+}
+
+export const LoadingStateFastStory = () => (
+  <StoryContainer>
+    <HierarchicalMenu
+      initialHierarchy={levelOne}
+      loadHierarchy={loadHierarchy(500)}
+      onSelect={onSelect}
+    />
+  </StoryContainer>
+)
+
+LoadingStateFastStory.story = {
+  name: "Loading state (fast)",
+}
+
+export const LoadingStateMediumStory = () => (
+  <StoryContainer>
+    <HierarchicalMenu
+      initialHierarchy={levelOne}
+      loadHierarchy={loadHierarchy(1500)}
+      onSelect={onSelect}
+    />
+  </StoryContainer>
+)
+
+LoadingStateMediumStory.story = {
+  name: "Loading state (medium)",
+}
+
+export const LoadingStateSlowStory = () => (
+  <StoryContainer>
+    <HierarchicalMenu
+      initialHierarchy={levelOne}
+      loadHierarchy={loadHierarchy(2500)}
+      onSelect={onSelect}
+    />
+  </StoryContainer>
+)
+
+LoadingStateSlowStory.story = {
+  name: "Loading state (slow)",
 }
