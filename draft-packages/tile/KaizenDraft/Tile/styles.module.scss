@@ -1,0 +1,25 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.content {
+  padding: $kz-spacing-lg $kz-spacing-md $kz-spacing-md;
+  box-sizing: border-box;
+  min-height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  padding-bottom: $kz-spacing-sm;
+}
+
+.footerItems {
+  padding-top: $kz-spacing-sm;
+  display: flex;
+}
+
+.children {
+}
