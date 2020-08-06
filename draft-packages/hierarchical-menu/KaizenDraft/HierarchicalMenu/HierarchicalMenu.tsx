@@ -101,6 +101,7 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
         <LoadingMenu
           level="parent"
           width={width}
+          dir={dir}
           numberOfChildren={incomingNumberOfChildren}
           shouldAnimate={isNavigating === "toParent"}
         />
@@ -129,6 +130,7 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
         <LoadingMenu
           level="child"
           width={width}
+          dir={dir}
           numberOfChildren={incomingNumberOfChildren}
           shouldAnimate={isNavigating === "toChild"}
         />
@@ -241,12 +243,13 @@ const Menu = (props: MenuProps) => {
 interface LoadingMenuProps {
   level: MenuLevel
   width: MenuWidth
+  dir: MenuDirection
   numberOfChildren: number
   shouldAnimate: boolean
 }
 
 const LoadingMenu = (props: LoadingMenuProps) => {
-  const { level, width, numberOfChildren, shouldAnimate } = props
+  const { level, width, dir, numberOfChildren, shouldAnimate } = props
 
   return (
     <div
@@ -262,7 +265,11 @@ const LoadingMenu = (props: LoadingMenuProps) => {
         <div className={styles.parent}>
           <button className={styles.parentButton} disabled>
             <div className={styles.parentButtonIcon}>
-              <Icon icon={chevronLeft} role="presentation" inheritSize />
+              <Icon
+                icon={dir === "ltr" ? chevronLeft : chevronRight}
+                role="presentation"
+                inheritSize
+              />
             </div>
             <LoadingPlaceholder inline width={60} animated={false} />
           </button>
