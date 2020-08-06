@@ -77,6 +77,7 @@ $delay-before-showing-loading-placeholders: 500ms;
 
 .body {
   background-color: $kz-color-white;
+  color: $kz-color-wisteria-800;
   border-bottom-left-radius: $kz-border-solid-border-radius;
   border-bottom-right-radius: $kz-border-solid-border-radius;
   max-height: $option-height * 6;
@@ -96,6 +97,7 @@ $delay-before-showing-loading-placeholders: 500ms;
 .childLabelButton {
   @include button-reset;
   @include ca-type-align-start;
+  color: inherit;
   flex: 1 0;
   height: $option-height;
   padding: 0 $kz-spacing-md;
@@ -103,6 +105,7 @@ $delay-before-showing-loading-placeholders: 500ms;
 
 .childDrilldownButton {
   @include button-reset;
+  color: inherit;
   height: $option-height;
   padding: 0 $kz-spacing-md;
   display: flex;
