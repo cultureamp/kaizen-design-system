@@ -4,6 +4,7 @@ import classNames from "classnames"
 import { Icon, Text } from "@kaizen/component-library"
 import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
 import animationTokens from "@kaizen/design-tokens/tokens/animation.json"
+import spacingTokens from "@kaizen/design-tokens/tokens/spacing.json"
 
 const chevronLeft = require("@kaizen/component-library/icons/chevron-left.icon.svg")
   .default
@@ -37,6 +38,7 @@ export type Hierarchy = {
 }
 
 const animationTimeout = 5000
+const optionHeight = spacingTokens.kz.spacing.xl
 
 type NavigatingState = "toParent" | "toChild" | null
 
@@ -94,6 +96,12 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
       className={classNames(styles.container, {
         [styles.defaultWidth]: width === "default",
       })}
+      style={{
+        height: `${
+          (hierarchy.children.length + 2) *
+          Number(optionHeight.replace("rem", ""))
+        }rem`,
+      }}
     >
       <CSSTransition
         in={isNavigating === "toParent"}

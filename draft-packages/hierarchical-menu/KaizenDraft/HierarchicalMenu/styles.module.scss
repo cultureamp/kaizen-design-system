@@ -8,6 +8,7 @@
 
 $default-width: 385px;
 $option-height: $kz-spacing-xl;
+$max-visible-options: 6;
 $navigation-transition-speed: $kz-animation-duration-rapid;
 $navigation-transition-easing: $kz-animation-easing-function-ease-in-out;
 $delay-before-showing-loading-placeholders: 500ms;
@@ -19,6 +20,8 @@ $delay-before-showing-loading-placeholders: 500ms;
   border-radius: $kz-border-solid-border-radius;
   display: flex;
   overflow: hidden;
+  transition: height $navigation-transition-speed $navigation-transition-easing;
+  max-height: $option-height * (2 + $max-visible-options);
 }
 
 .defaultWidth {
@@ -80,7 +83,7 @@ $delay-before-showing-loading-placeholders: 500ms;
   color: $kz-color-wisteria-800;
   border-bottom-left-radius: $kz-border-solid-border-radius;
   border-bottom-right-radius: $kz-border-solid-border-radius;
-  max-height: $option-height * 6;
+  max-height: $option-height * $max-visible-options;
   overflow-y: auto;
 }
 
