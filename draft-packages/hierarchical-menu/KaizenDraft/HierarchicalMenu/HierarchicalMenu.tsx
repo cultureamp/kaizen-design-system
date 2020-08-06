@@ -27,7 +27,7 @@ export type HierarchyNode = {
   value: string
   label: string
   level: number
-  numberOfChildren?: number
+  numberOfChildren: number
 }
 
 export type Hierarchy = {
@@ -38,12 +38,12 @@ export type Hierarchy = {
 
 const animationTimeout = 5000
 
-type NavigatingState = "toParent" | "toChild" | false
+type NavigatingState = "toParent" | "toChild" | null
 
 export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
   const [hierarchy, setHierarchy] = useState<Hierarchy | null>(null)
-  const [isNavigating, setIsNavigating] = useState<NavigatingState>(false)
-  const [incomingNumberOfChildren, setIncomingNumberOfChildren] = useState(0)
+  const [isNavigating, setIsNavigating] = useState<NavigatingState>(null)
+  const [incomingNumberOfOptions, setIncomingNumberOfOptions] = useState(0)
 
   const {
     initialHierarchy,
@@ -66,8 +66,10 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
     navigatingState: NavigatingState
   ) => {
     setIsNavigating(navigatingState)
-    setIncomingNumberOfChildren(
-      node.numberOfChildren || hierarchy.current.numberOfChildren || 0
+    setIncomingNumberOfOptions(
+      navigatingState === "toParent"
+        ? hierarchy.parent?.numberOfChildren || 0
+        : node.numberOfChildren
     )
 
     const requestSentAt = new Date().getTime()
@@ -83,7 +85,7 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
     // immediately available
     setTimeout(() => {
       setHierarchy(newHierarchy)
-      setIsNavigating(false)
+      setIsNavigating(null)
     }, minimumTransitionTime - timeElapsed)
   }
 
@@ -102,7 +104,7 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
           level="parent"
           width={width}
           dir={dir}
-          numberOfChildren={incomingNumberOfChildren}
+          options={incomingNumberOfOptions}
           shouldAnimate={isNavigating === "toParent"}
         />
       </CSSTransition>
@@ -131,7 +133,7 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
           level="child"
           width={width}
           dir={dir}
-          numberOfChildren={incomingNumberOfChildren}
+          options={incomingNumberOfOptions}
           shouldAnimate={isNavigating === "toChild"}
         />
       </CSSTransition>
@@ -218,7 +220,7 @@ const Menu = (props: MenuProps) => {
                 {c.label}
               </Text>
             </button>
-            {c.numberOfChildren != null && c.numberOfChildren > 0 && (
+            {c.numberOfChildren > 0 && (
               <button
                 className={styles.childDrilldownButton}
                 onClick={() => onNavigateToChild(c)}
@@ -244,12 +246,12 @@ interface LoadingMenuProps {
   level: MenuLevel
   width: MenuWidth
   dir: MenuDirection
-  numberOfChildren: number
+  options: number
   shouldAnimate: boolean
 }
 
 const LoadingMenu = (props: LoadingMenuProps) => {
-  const { level, width, dir, numberOfChildren, shouldAnimate } = props
+  const { level, width, dir, options, shouldAnimate } = props
 
   return (
     <div
@@ -280,7 +282,7 @@ const LoadingMenu = (props: LoadingMenuProps) => {
         </div>
       </div>
       <div className={styles.body}>
-        {Array(numberOfChildren)
+        {Array(options)
           .fill(0)
           .map((c, index) => (
             <div className={styles.child} key={index}>

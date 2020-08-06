@@ -8,7 +8,12 @@ import {
 
 const levelZero: Hierarchy = {
   parent: null,
-  current: { value: "id_didier", label: "Didier Elzinga", level: 0 },
+  current: {
+    value: "id_didier",
+    label: "Didier Elzinga",
+    level: 0,
+    numberOfChildren: 12,
+  },
   children: [
     { value: "id_rich", label: "Rich Anstett", level: 1, numberOfChildren: 0 },
     { value: "id_josh", label: "Josh Berman", level: 1, numberOfChildren: 0 },
@@ -41,8 +46,18 @@ const levelZero: Hierarchy = {
 }
 
 const levelOne: Hierarchy = {
-  parent: { value: "id_didier", label: "Didier Elzinga", level: 0 },
-  current: { value: "id_rod", label: "Rod Hamilton", level: 1 },
+  parent: {
+    value: "id_didier",
+    label: "Didier Elzinga",
+    level: 0,
+    numberOfChildren: 12,
+  },
+  current: {
+    value: "id_rod",
+    label: "Rod Hamilton",
+    level: 1,
+    numberOfChildren: 2,
+  },
   children: [
     {
       value: "id_virginia",
@@ -55,8 +70,18 @@ const levelOne: Hierarchy = {
 }
 
 const levelTwo: Hierarchy = {
-  parent: { value: "id_rod", label: "Rod Hamilton", level: 1 },
-  current: { value: "id_virginia", label: "Virginia Murdoch", level: 2 },
+  parent: {
+    value: "id_rod",
+    label: "Rod Hamilton",
+    level: 1,
+    numberOfChildren: 2,
+  },
+  current: {
+    value: "id_virginia",
+    label: "Virginia Murdoch",
+    level: 2,
+    numberOfChildren: 4,
+  },
   children: [
     {
       value: "id_jordan",
@@ -76,8 +101,18 @@ const levelTwo: Hierarchy = {
 }
 
 const levelThree: Hierarchy = {
-  parent: { value: "id_virginia", label: "Virginia Murdoch", level: 2 },
-  current: { value: "id_kavi", label: "Kavi Lal", level: 3 },
+  parent: {
+    value: "id_virginia",
+    label: "Virginia Murdoch",
+    level: 2,
+    numberOfChildren: 4,
+  },
+  current: {
+    value: "id_kavi",
+    label: "Kavi Lal",
+    level: 3,
+    numberOfChildren: 1,
+  },
   children: [
     { value: "id_dean", label: "Dean Wan", level: 4, numberOfChildren: 0 },
   ],
