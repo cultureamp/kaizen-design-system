@@ -3,6 +3,7 @@ import { CSSTransition } from "react-transition-group"
 import classNames from "classnames"
 import { Icon, Text } from "@kaizen/component-library"
 import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
+import animationTokens from "@kaizen/design-tokens/tokens/animation.json"
 
 const chevronLeft = require("@kaizen/component-library/icons/chevron-left.icon.svg")
   .default
@@ -68,9 +69,22 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
     setIncomingNumberOfChildren(
       node.numberOfChildren || hierarchy.current.numberOfChildren || 0
     )
+
+    const requestSentAt = new Date().getTime()
     const newHierarchy = await loadHierarchy(node)
-    setHierarchy(newHierarchy)
-    setIsNavigating(false)
+    const responseReceivedAt = new Date().getTime()
+    const timeElapsed = responseReceivedAt - requestSentAt
+
+    const minimumTransitionTime = Number(
+      animationTokens.kz.animation.duration.rapid.replace("ms", "")
+    )
+
+    // allow the transition animation to play even if the new options are
+    // immediately available
+    setTimeout(() => {
+      setHierarchy(newHierarchy)
+      setIsNavigating(false)
+    }, minimumTransitionTime - timeElapsed)
   }
 
   return (
