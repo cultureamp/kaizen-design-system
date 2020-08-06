@@ -94,7 +94,8 @@ $tab-container-height-small: $ca-grid * 2.5;
 .title {
   display: flex;
   align-items: center;
-  max-width: 724px;
+  min-width: 0; // this is an important trick to prevent flexbox items from overflowing
+  width: 100%;
 
   .hasLongTitle.hasLongSubtitle & {
     @include title-block-under-1645 {
@@ -125,15 +126,12 @@ $tab-container-height-small: $ca-grid * 2.5;
   @include title-block-small {
     max-width: 83vw;
   }
-
-  .hasLongTitle.hasNoPrimaryOrDefaultAction & {
-    max-width: 99%;
-  }
 }
 
 .titleAndSubtitle {
   display: flex;
   align-items: center;
+  min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 
   .hasSubtitle & {
     @include title-block-under-1366 {
@@ -145,6 +143,7 @@ $tab-container-height-small: $ca-grid * 2.5;
 
 .titleAndSubtitleInner {
   display: flex;
+  min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 
   .hasSubtitle.hasLongTitle.hasLongSubtitle & {
     align-items: center;
@@ -381,11 +380,13 @@ $tab-container-height-small: $ca-grid * 2.5;
 
 .titleAndAdjacent {
   display: flex;
+  min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 }
 
 .titleAndAdjacentNotBreadcrumb {
   display: flex;
   transition: opacity 0.3s ease;
+  min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 
   .breadcrumb:hover + &,
   .breadcrumb:focus + & {
@@ -532,9 +533,8 @@ $tab-container-height-small: $ca-grid * 2.5;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  flex-basis: 480px;
   flex-grow: 1;
-  flex-shrink: 1;
+  flex-shrink: 0;
 
   @include ca-margin($start: $ca-grid / 2);
 

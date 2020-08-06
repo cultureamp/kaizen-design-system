@@ -404,8 +404,6 @@ const TitleBlockZen = ({
           [styles.hasAvatar]: Boolean(avatar),
           [styles.hasLongTitle]: title && title.length >= 30,
           [styles.hasLongSubtitle]: subtitle && subtitle.length >= 18,
-          [styles.hasNoPrimaryOrDefaultAction]:
-            !primaryAction && !defaultAction,
           [styles.hasNavigationTabs]:
             navigationTabs && navigationTabs.length > 0,
         })}
