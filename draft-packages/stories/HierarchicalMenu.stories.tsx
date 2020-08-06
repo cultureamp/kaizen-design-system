@@ -94,16 +94,31 @@ const loadHierarchy = (node: HierarchyNode): Promise<Hierarchy> =>
     }, 1000)
   })
 
+const StoryContainer = ({ children }: { children: React.ReactNode }) => (
+  <div
+    style={{
+      width: "400px",
+      margin: "12px auto",
+      display: "flex",
+      justifyContent: "center",
+    }}
+  >
+    {children}
+  </div>
+)
+
 export default {
   title: "HierarchicalMenu (React)",
 }
 
 export const DefaultStory = () => (
-  <HierarchicalMenu
-    initialHierarchy={levelOne}
-    loadHierarchy={loadHierarchy}
-    onSelect={selected => alert(`Selected ${selected.label}!`)}
-  />
+  <StoryContainer>
+    <HierarchicalMenu
+      initialHierarchy={levelOne}
+      loadHierarchy={loadHierarchy}
+      onSelect={selected => alert(`Selected ${selected.label}!`)}
+    />
+  </StoryContainer>
 )
 
 DefaultStory.story = {
@@ -111,14 +126,16 @@ DefaultStory.story = {
 }
 
 export const RtlStory = () => (
-  <div dir="rtl">
-    <HierarchicalMenu
-      initialHierarchy={levelOne}
-      loadHierarchy={loadHierarchy}
-      onSelect={selected => alert(`Selected ${selected.label}!`)}
-      dir="rtl"
-    />
-  </div>
+  <StoryContainer>
+    <div dir="rtl">
+      <HierarchicalMenu
+        initialHierarchy={levelOne}
+        loadHierarchy={loadHierarchy}
+        onSelect={selected => alert(`Selected ${selected.label}!`)}
+        dir="rtl"
+      />
+    </div>
+  </StoryContainer>
 )
 
 RtlStory.story = {

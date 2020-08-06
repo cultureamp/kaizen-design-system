@@ -60,8 +60,11 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
     return <div className={styles.container}>Empty</div>
   }
 
-  const onNavigate = async (node: HierarchyNode) => {
-    setIsNavigating("toChild")
+  const onNavigate = async (
+    node: HierarchyNode,
+    navigatingState: NavigatingState
+  ) => {
+    setIsNavigating(navigatingState)
     setIncomingNumberOfChildren(
       node.numberOfChildren || hierarchy.current.numberOfChildren || 0
     )
@@ -77,6 +80,18 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
       })}
     >
       <CSSTransition
+        in={isNavigating === "toParent"}
+        timeout={animationTimeout}
+        classNames="animating"
+      >
+        <LoadingMenu
+          level="parent"
+          width={width}
+          numberOfChildren={incomingNumberOfChildren}
+          shouldAnimate={isNavigating === "toParent"}
+        />
+      </CSSTransition>
+      <CSSTransition
         in={!isNavigating}
         timeout={animationTimeout}
         classNames="animating"
@@ -86,8 +101,10 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
           hierarchy={hierarchy}
           width={width}
           dir={dir}
+          isNavigating={isNavigating}
           onSelect={onSelect}
-          onNavigate={onNavigate}
+          onNavigateToParent={node => onNavigate(node, "toParent")}
+          onNavigateToChild={node => onNavigate(node, "toChild")}
         />
       </CSSTransition>
       <CSSTransition
@@ -111,12 +128,23 @@ interface MenuProps {
   hierarchy: Hierarchy
   width: MenuWidth
   dir: MenuDirection
+  isNavigating: NavigatingState
   onSelect: (node: HierarchyNode) => any
-  onNavigate: (node: HierarchyNode) => void
+  onNavigateToParent: (node: HierarchyNode) => void
+  onNavigateToChild: (node: HierarchyNode) => void
 }
 
 const Menu = (props: MenuProps) => {
-  const { level, hierarchy, width, dir, onSelect, onNavigate } = props
+  const {
+    level,
+    hierarchy,
+    width,
+    dir,
+    isNavigating,
+    onSelect,
+    onNavigateToParent,
+    onNavigateToChild,
+  } = props
 
   return (
     <div
@@ -125,6 +153,8 @@ const Menu = (props: MenuProps) => {
         [styles.parentMenu]: level === "parent",
         [styles.currentMenu]: level === "current",
         [styles.childMenu]: level === "child",
+        [styles.toParent]: isNavigating === "toParent",
+        [styles.toChild]: isNavigating === "toChild",
       })}
     >
       <div className={styles.header}>
@@ -136,7 +166,9 @@ const Menu = (props: MenuProps) => {
                 : styles.disabledParentButton
             }
             disabled={!hierarchy.parent}
-            onClick={() => hierarchy.parent && onNavigate(hierarchy.parent)}
+            onClick={() =>
+              hierarchy.parent && onNavigateToParent(hierarchy.parent)
+            }
           >
             <div className={styles.parentButtonIcon}>
               <Icon
@@ -173,7 +205,7 @@ const Menu = (props: MenuProps) => {
             {c.numberOfChildren != null && c.numberOfChildren > 0 && (
               <button
                 className={styles.childDrilldownButton}
-                onClick={() => onNavigate(c)}
+                onClick={() => onNavigateToChild(c)}
               >
                 <div className={styles.childDrilldownButtonIcon}>
                   <Icon

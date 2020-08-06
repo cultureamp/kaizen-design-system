@@ -114,21 +114,31 @@ $delay-before-showing-loading-placeholders: 500ms;
   width: $kz-spacing-md;
 }
 
-:global(.animating-enter) {
-  &.childMenu {
-    transition: transform $navigation-transition-speed
-      $navigation-transition-easing;
-    transform: translateX(-100%);
+.parentMenu,
+.currentMenu,
+.childMenu {
+  transform: translateX(-100%);
 
-    [dir="rtl"] & {
-      transform: translateX(100%);
-    }
+  [dir="rtl"] & {
+    transform: translateX(100%);
   }
 }
 
-:global(.animating-enter-done) {
-  &.currentMenu {
+:global(.animating-enter) {
+  &.parentMenu {
+    transition: transform $navigation-transition-speed
+      $navigation-transition-easing;
     transform: translateX(0);
+  }
+
+  &.childMenu {
+    transition: transform $navigation-transition-speed
+      $navigation-transition-easing;
+    transform: translateX(-200%);
+
+    [dir="rtl"] & {
+      transform: translateX(200%);
+    }
   }
 }
 
@@ -136,21 +146,18 @@ $delay-before-showing-loading-placeholders: 500ms;
   &.currentMenu {
     transition: transform $navigation-transition-speed
       $navigation-transition-easing;
-    transform: translateX(-100%);
+  }
+
+  &.currentMenu.toChild {
+    transform: translateX(-200%);
 
     [dir="rtl"] & {
-      transform: translateX(100%);
+      transform: translateX(200%);
     }
   }
-}
 
-:global(.animating-exit-done) {
-  &.currentMenu {
-    transform: translateX(-100%);
-
-    [dir="rtl"] & {
-      transform: translateX(100%);
-    }
+  &.currentMenu.toParent {
+    transform: translateX(0);
   }
 }
 
