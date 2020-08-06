@@ -90,10 +90,6 @@ $delay-before-showing-loading-placeholders: 500ms;
   justify-content: space-between;
 }
 
-.child:hover {
-  background-color: $kz-color-wisteria-100;
-}
-
 .childLabelButton {
   @include button-reset;
   @include ca-type-align-start;
@@ -110,6 +106,11 @@ $delay-before-showing-loading-placeholders: 500ms;
   padding: 0 $kz-spacing-md;
   display: flex;
   align-items: center;
+}
+
+.childLabelButton:hover,
+.childDrilldownButton:hover {
+  background-color: $kz-color-wisteria-100;
 }
 
 .childDrilldownButtonIcon {
