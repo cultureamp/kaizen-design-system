@@ -6,6 +6,7 @@ module KaizenDraft.Select.Select exposing
     , Style(..)
     , initState
     , isLoading
+    , label
     , menuItems
     , multi
     , placeholder
@@ -21,7 +22,7 @@ module KaizenDraft.Select.Select exposing
 
 import Browser.Dom as Dom
 import CssModules exposing (css)
-import Html exposing (Html, div, input, span, text)
+import Html exposing (..)
 import Html.Attributes exposing (id, readonly, style, tabindex, value)
 import Html.Attributes.Aria exposing (role)
 import Html.Events exposing (on, onBlur, onFocus, preventDefaultOn)
@@ -33,6 +34,7 @@ import Icon.SvgAsset exposing (svgAsset)
 import Json.Decode as Decode
 import Json.Encode as Encode
 import KaizenDraft.Events.Events as Events
+import KaizenDraft.Form.Primitives.Label.Label as Label
 import KaizenDraft.Select.Ports as Ports
 import KaizenDraft.Select.SelectInput as SelectInput
 import KaizenDraft.Tag.Tag as Tag
@@ -176,6 +178,7 @@ type alias Configuration item =
     , placeholder : ( String, Style )
     , menuItems : List (MenuItem item)
     , searchable : Bool
+    , labelText : String
     }
 
 
@@ -259,6 +262,7 @@ defaults =
     , placeholder = ( "Select...", Faded )
     , menuItems = []
     , searchable = True
+    , labelText = ""
     }
 
 
@@ -295,7 +299,7 @@ state state_ (Config config) =
     Config { config | state = state_ }
 
 
-selectType : SelectType -> Config msg -> Config msg
+selectType : SelectType -> Config item -> Config item
 selectType value (Config config) =
     Config { config | selectType = value }
 
@@ -303,6 +307,11 @@ selectType value (Config config) =
 searchable : Bool -> Config item -> Config item
 searchable predicate (Config config) =
     Config { config | searchable = predicate }
+
+
+label : String -> Config item -> Config item
+label value (Config config) =
+    Config { config | labelText = value }
 
 
 
@@ -724,9 +733,24 @@ view (Config config) selectId =
 
             else
                 True
+
+        resolveLabelText =
+            case config.labelText of
+                s ->
+                    Label.LabelString s
+
+        selectLabelId =
+            config.labelText |> String.toLower |> String.replace " " "-"
     in
     div [ styles.class .container ]
-        [ div
+        [ Label.view
+            (Label.default
+                |> Label.id (selectLabelId ++ "-field-id")
+                |> Label.automationId (selectLabelId ++ "-field-label")
+                |> Label.htmlFor (dummyInputId selectId)
+                |> Label.labelText resolveLabelText
+            )
+        , div
             [ styles.classList
                 [ ( .control, True )
                 , ( .isFocused, state_.controlFocused )

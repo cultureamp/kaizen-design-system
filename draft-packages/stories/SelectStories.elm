@@ -112,4 +112,18 @@ main =
                             )
                             (Select.selectIdentifier "Multi Select")
                         ]
+        , storyOf "With label" config <|
+            \m ->
+                Html.map SelectMsg <|
+                    div [ style "width" "300px", style "margin-top" "12px" ]
+                        [ Select.view
+                            (Select.single (buildSelected m)
+                                |> Select.state m.selectState
+                                |> Select.menuItems (List.map buildMenuItems m.members)
+                                |> Select.searchable False
+                                |> Select.placeholder ( "Placeholder", Select.Bold )
+                                |> Select.label "Contact email address"
+                            )
+                            (Select.selectIdentifier "Single Select")
+                        ]
         ]

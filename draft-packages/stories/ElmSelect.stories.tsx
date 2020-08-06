@@ -5,6 +5,6 @@ loadElmStories(
   "Select (Elm)",
   module,
   require("./SelectStories.elm"),
-  ["Single (Kaizen Site Demo)", "Single Searchable", "Multi-Select Searchable"],
+  ["Single (Kaizen Site Demo)", "Single Searchable", "Multi-Select Searchable", "With label"],
   Ports
 )
