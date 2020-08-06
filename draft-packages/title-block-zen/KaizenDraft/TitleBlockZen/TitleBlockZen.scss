@@ -560,6 +560,7 @@ $tab-container-height-small: $ca-grid * 2.5;
 }
 
 .breadcrumb {
+  cursor: pointer;
   display: flex;
   position: absolute;
   z-index: $ca-z-index-sticky;
@@ -570,12 +571,6 @@ $tab-container-height-small: $ca-grid * 2.5;
     $start: calc(-#{$breadcrumb-circle-width} - #{$ca-grid})
   );
   align-self: normal;
-  color: $kz-color-white;
-
-  .educationVariant &,
-  .adminVariant & {
-    color: $kz-color-wisteria-800;
-  }
 
   &:hover {
     text-decoration: none;
@@ -617,6 +612,15 @@ $tab-container-height-small: $ca-grid * 2.5;
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+.breadcrumb,
+.breadcrumbText {
+  color: $kz-color-white;
+  .educationVariant &,
+  .adminVariant & {
+    color: $kz-color-wisteria-800;
   }
 }
 

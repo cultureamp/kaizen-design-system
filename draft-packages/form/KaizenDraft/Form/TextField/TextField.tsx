@@ -31,7 +31,7 @@ type TextField = React.FunctionComponent<{
   icon?: React.SVGAttributes<SVGSymbolElement>
   status?: InputStatus
   validationMessage?: string
-  description?: string
+  description?: React.ReactNode
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any
