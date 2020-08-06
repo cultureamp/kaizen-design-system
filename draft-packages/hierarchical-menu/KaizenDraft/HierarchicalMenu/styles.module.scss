@@ -183,7 +183,10 @@ $delay-before-showing-loading-placeholders: 500ms;
   }
 
   &.shouldAnimate .parent,
-  &.shouldAnimate .current,
+  &.shouldAnimate .current {
+    opacity: 0.1;
+  }
+
   &.shouldAnimate .body {
     opacity: 1;
   }
