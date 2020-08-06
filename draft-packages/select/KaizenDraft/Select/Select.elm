@@ -22,7 +22,7 @@ module KaizenDraft.Select.Select exposing
 
 import Browser.Dom as Dom
 import CssModules exposing (css)
-import Html exposing (..)
+import Html exposing (Html, div, input, span, text)
 import Html.Attributes exposing (id, readonly, style, tabindex, value)
 import Html.Attributes.Aria exposing (role)
 import Html.Events exposing (on, onBlur, onFocus, preventDefaultOn)
@@ -299,7 +299,7 @@ state state_ (Config config) =
     Config { config | state = state_ }
 
 
-selectType : SelectType -> Config item -> Config item
+selectType : SelectType -> Config msg -> Config msg
 selectType value (Config config) =
     Config { config | selectType = value }
 
