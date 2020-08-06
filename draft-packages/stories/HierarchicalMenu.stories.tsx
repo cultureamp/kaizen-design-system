@@ -109,3 +109,18 @@ export const DefaultStory = () => (
 DefaultStory.story = {
   name: "Default (Kaizen Site Demo)",
 }
+
+export const RtlStory = () => (
+  <div dir="rtl">
+    <HierarchicalMenu
+      initialHierarchy={levelOne}
+      loadHierarchy={loadHierarchy}
+      onSelect={selected => alert(`Selected ${selected.label}!`)}
+      dir="rtl"
+    />
+  </div>
+)
+
+RtlStory.story = {
+  name: "Default (RTL)",
+}

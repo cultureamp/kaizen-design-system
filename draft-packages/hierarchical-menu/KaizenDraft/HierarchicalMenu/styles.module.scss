@@ -119,6 +119,10 @@ $delay-before-showing-loading-placeholders: 500ms;
     transition: transform $navigation-transition-speed
       $navigation-transition-easing;
     transform: translateX(-100%);
+
+    [dir="rtl"] & {
+      transform: translateX(100%);
+    }
   }
 }
 
@@ -133,12 +137,20 @@ $delay-before-showing-loading-placeholders: 500ms;
     transition: transform $navigation-transition-speed
       $navigation-transition-easing;
     transform: translateX(-100%);
+
+    [dir="rtl"] & {
+      transform: translateX(100%);
+    }
   }
 }
 
 :global(.animating-exit-done) {
   &.currentMenu {
     transform: translateX(-100%);
+
+    [dir="rtl"] & {
+      transform: translateX(100%);
+    }
   }
 }
 

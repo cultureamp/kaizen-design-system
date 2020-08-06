@@ -3,7 +3,6 @@ import { CSSTransition } from "react-transition-group"
 import classNames from "classnames"
 import { Icon, Text } from "@kaizen/component-library"
 import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
-import animationTokens from "@kaizen/design-tokens/tokens/animation.json"
 
 const chevronLeft = require("@kaizen/component-library/icons/chevron-left.icon.svg")
   .default
@@ -13,12 +12,14 @@ const styles = require("./styles.module.scss")
 
 type MenuLevel = "parent" | "current" | "child"
 type MenuWidth = "default" | "contain"
+type MenuDirection = "ltr" | "rtl"
 
 export interface HierarchicalMenuProps {
   initialHierarchy: Hierarchy
   loadHierarchy: (node: HierarchyNode) => Promise<Hierarchy>
   onSelect: (node: HierarchyNode) => any
   width?: MenuWidth
+  dir?: MenuDirection
 }
 
 export type HierarchyNode = {
@@ -43,7 +44,13 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
   const [isNavigating, setIsNavigating] = useState<NavigatingState>(false)
   const [incomingNumberOfChildren, setIncomingNumberOfChildren] = useState(0)
 
-  const { initialHierarchy, loadHierarchy, onSelect, width = "default" } = props
+  const {
+    initialHierarchy,
+    loadHierarchy,
+    onSelect,
+    width = "default",
+    dir = "ltr",
+  } = props
 
   if (!hierarchy && initialHierarchy) {
     setHierarchy(initialHierarchy)
@@ -78,6 +85,7 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
           level="current"
           hierarchy={hierarchy}
           width={width}
+          dir={dir}
           onSelect={onSelect}
           onNavigate={onNavigate}
         />
@@ -102,12 +110,13 @@ interface MenuProps {
   level: MenuLevel
   hierarchy: Hierarchy
   width: MenuWidth
+  dir: MenuDirection
   onSelect: (node: HierarchyNode) => any
   onNavigate: (node: HierarchyNode) => void
 }
 
 const Menu = (props: MenuProps) => {
-  const { level, hierarchy, width, onSelect, onNavigate } = props
+  const { level, hierarchy, width, dir, onSelect, onNavigate } = props
 
   return (
     <div
@@ -130,7 +139,11 @@ const Menu = (props: MenuProps) => {
             onClick={() => hierarchy.parent && onNavigate(hierarchy.parent)}
           >
             <div className={styles.parentButtonIcon}>
-              <Icon icon={chevronLeft} role="presentation" inheritSize />
+              <Icon
+                icon={dir === "ltr" ? chevronLeft : chevronRight}
+                role="presentation"
+                inheritSize
+              />
             </div>
             <Text style="small" tag="p" inheritBaseline>
               {hierarchy.parent?.label}
@@ -164,7 +177,7 @@ const Menu = (props: MenuProps) => {
               >
                 <div className={styles.childDrilldownButtonIcon}>
                   <Icon
-                    icon={chevronRight}
+                    icon={dir === "ltr" ? chevronRight : chevronLeft}
                     role="img"
                     title={`Drill down on ${c.label}`}
                     inheritSize
