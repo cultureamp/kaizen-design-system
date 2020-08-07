@@ -23,11 +23,26 @@
   display: flex;
 }
 
-.infoBtn {
-  @include ca-position($top: 16px, $end: 16px);
+.informationBtn {
+  @include ca-position($top: 0, $end: 0);
   position: absolute;
-  width: 18px;
   color: rgba($kz-color-wisteria-800, 0.5);
-  //color: $kz-color-cluny-500;
-  //background-color: $kz-color-wisteria-100;
+}
+
+.information {
+  @include ca-padding(
+    $top: 18px,
+    $bottom: $kz-spacing-md,
+    $start: $kz-spacing-md,
+    $end: $kz-spacing-md
+  );
+  @include ca-position($bottom: 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: $kz-color-cluny-100;
+  position: absolute;
+  width: 100%;
+  text-align: center;
 }

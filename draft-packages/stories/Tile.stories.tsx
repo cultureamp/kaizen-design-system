@@ -1,6 +1,10 @@
 import * as React from "react"
 
-import { MultiActionTile } from "@kaizen/draft-tile"
+import {
+  MultiActionTile,
+  TileInformation,
+  TileAction,
+} from "@kaizen/draft-tile"
 import { Coaching } from "@kaizen/draft-illustration"
 
 const bookmarkIcon = require("@kaizen/component-library/icons/bookmark-off.icon.svg")
@@ -12,15 +16,31 @@ export default {
 
 const containerStyles = { padding: "24px", width: "300px" }
 
-const primaryAction = {
+const primaryAction: TileAction = {
   label: "View",
   href: "",
 }
 
-const secondaryAction = {
+const secondaryAction: TileAction = {
   label: "Bookmark",
   href: "",
   icon: bookmarkIcon,
+}
+
+const children = (
+  <div style={{ width: "160px" }}>
+    <Coaching alt="" />
+  </div>
+)
+
+const information: TileInformation = {
+  text:
+    "Additional information can be included on the underside of the tile and viewed on click of the information" +
+    " icon.",
+  secondaryAction: {
+    label: "Learn more",
+    href: "",
+  },
 }
 
 export const MultiAction = () => (
@@ -34,7 +54,7 @@ export const MultiAction = () => (
 )
 
 MultiAction.story = {
-  name: "Multi action",
+  name: "Multi action tile",
 }
 
 export const MultiActionWithSecondary = () => (
@@ -49,7 +69,7 @@ export const MultiActionWithSecondary = () => (
 )
 
 MultiActionWithSecondary.story = {
-  name: "Multi action with secondary action",
+  name: "Multi action tile with secondary action",
 }
 
 export const MultiActionWithChildren = () => (
@@ -59,13 +79,26 @@ export const MultiActionWithChildren = () => (
       metadata="Metadata"
       primaryAction={primaryAction}
     >
-      <div style={{ width: "160px" }}>
-        <Coaching alt="" />
-      </div>
+      {children}
     </MultiActionTile>
   </div>
 )
 
 MultiActionWithChildren.story = {
-  name: "Multi action with children",
+  name: "Multi action tile with children",
+}
+
+export const MultiActionWithInformation = () => (
+  <div style={containerStyles}>
+    <MultiActionTile
+      title="Tile heading"
+      metadata="Metadata"
+      primaryAction={primaryAction}
+      information={information}
+    />
+  </div>
+)
+
+MultiActionWithInformation.story = {
+  name: "Multi action tile with information",
 }
