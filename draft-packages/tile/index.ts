@@ -1,5 +1,7 @@
+export { default as MultiActionTile } from "./KaizenDraft/Tile/MultiActionTile"
+export { default as InformationTile } from "./KaizenDraft/Tile/InformationTile"
+
 export {
-  default as MultiActionTile,
   TileAction,
   TileInformation,
-} from "./KaizenDraft/Tile/MultiActionTile"
+} from "./KaizenDraft/Tile/components/GenericTile"

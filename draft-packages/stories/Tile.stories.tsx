@@ -4,8 +4,10 @@ import {
   MultiActionTile,
   TileInformation,
   TileAction,
+  InformationTile,
 } from "@kaizen/draft-tile"
 import { Coaching } from "@kaizen/draft-illustration"
+import { Tag } from "@kaizen/draft-tag"
 
 const bookmarkIcon = require("@kaizen/component-library/icons/bookmark-off.icon.svg")
   .default
@@ -101,4 +103,19 @@ export const MultiActionWithInformation = () => (
 
 MultiActionWithInformation.story = {
   name: "Multi action tile with information",
+}
+
+export const Information = () => (
+  <div style={containerStyles}>
+    <InformationTile
+      title="Tile heading"
+      metadata="Metadata"
+      information={information}
+      footer={<Tag variant="statusLive">Live</Tag>}
+    />
+  </div>
+)
+
+Information.story = {
+  name: "Information tile",
 }
