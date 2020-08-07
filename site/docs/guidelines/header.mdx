@@ -28,19 +28,27 @@ Contains product switcher (between Engagement and Performance) or Culture Amp lo
 
 ### Title Block
 
-Every Title Block includes:
+Every Title Block must include:
 
-- Page Title
-- Breadcrumb
-- Primary Action
+- Page Title: This is the page's H1 which represents the parent object (E.g Survey section, or Survey Title)
+- Canvas Divider: Canvas dividers are used in the header to visually separate the top half from the bottom half.
 
-A Title Block may include:
+A Title Block may also include these optional components:
 
-- Secondary navigation:
-- Section title: 
-- Primary action:
-- Default action:
-- Secondary actions:
+- Breadcrumb: Breadcrumb navigation helps the user to understand their location in the website by providing a breadcrumb trail back to the start page.
+- [Tag](/components/tag/): Tags help users quickly recognize important information about items that organize and categorize them (E.g. Status of a Survey, or Topic of a skills development module)
+- [Avatar](/components/avatar/): An avatar represents an individual or group visually.
+- [Select](/components/select/): A select lets you choose options from an option menu. Used only to allow switching between report types (i.e. 'Administrator Report' in survey reporting)
+- [Buttons](/components/button/):
+    - Primary action: The most important next step that a user should take. 
+    - Default action: Use sparingly. Only apply if you have more than one action that requires similar prominence to the Primary action.
+
+- Secondary navigation: Links to relative pages of the parent object (E.g. Summary, Insights, Participation, Questions, etc.) are all subsections of the parent object, Report [Survey name])
+- Secondary actions: Are actions which are useful and relevant to the parent object, but hold less importance than a Primary/Default action.
+    - To minimize visual noise in the Header, we recommend limiting the number of Secondary actions to 3 at most. Any more, would need to fall into an [Overflow menu](/components/menu/) or [Secondary Select](/components/select/)
+    - We show the most important action on the right through to least important action on the left. One exceptio to this is if an overflow menu or secondary select is available. This ensure that the dropdown menu is aligned to the edge of the content area.
+    - Hierarchy of actions must consider the importance of each action or frequency of use. For example, 'Export' is a common action and giving it a consistent position will help users to discover it quickly.
+- Section title: Typically an H2, the Section Title helps to introduce the content below. It should directly reflect the selected Secondary Navigation item.
 
 If you need both section title and filter drawer, the filter drawer trumps the section title. The section title then lives inside the content area.
 
