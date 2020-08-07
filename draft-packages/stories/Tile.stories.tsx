@@ -1,9 +1,10 @@
 import * as React from "react"
 
-import { Tile } from "@kaizen/draft-tile"
+import { MultiActionTile } from "@kaizen/draft-tile"
 import { Coaching } from "@kaizen/draft-illustration"
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
-import { Button } from "@kaizen/draft-button"
+
+const bookmarkIcon = require("@kaizen/component-library/icons/bookmark-off.icon.svg")
+  .default
 
 export default {
   title: "Tile (React)",
@@ -11,28 +12,57 @@ export default {
 
 const containerStyles = { padding: "24px", width: "300px" }
 
-const footerItems = [
-  <Button label="Preview" secondary />,
-  <Button label="Start" />,
-]
+const primaryAction = {
+  label: "View",
+  href: "",
+}
 
-export const DefaultStory = () => (
+const secondaryAction = {
+  label: "Bookmark",
+  href: "",
+  icon: bookmarkIcon,
+}
+
+export const MultiAction = () => (
   <div style={containerStyles}>
-    <Tile title="Tile heading" metadata="Metadata" footerItems={footerItems} />
+    <MultiActionTile
+      title="Tile heading"
+      metadata="Metadata"
+      primaryAction={primaryAction}
+    />
   </div>
 )
 
-DefaultStory.story = {
+MultiAction.story = {
   name: "Multi action",
+}
+
+export const MultiActionWithSecondary = () => (
+  <div style={containerStyles}>
+    <MultiActionTile
+      title="Tile heading"
+      metadata="Metadata"
+      primaryAction={primaryAction}
+      secondaryAction={secondaryAction}
+    />
+  </div>
+)
+
+MultiActionWithSecondary.story = {
+  name: "Multi action with secondary action",
 }
 
 export const MultiActionWithChildren = () => (
   <div style={containerStyles}>
-    <Tile title="Tile heading" metadata="Metadata" footerItems={footerItems}>
+    <MultiActionTile
+      title="Tile heading"
+      metadata="Metadata"
+      primaryAction={primaryAction}
+    >
       <div style={{ width: "160px" }}>
         <Coaching alt="" />
       </div>
-    </Tile>
+    </MultiActionTile>
   </div>
 )
 

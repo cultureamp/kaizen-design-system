@@ -1,1 +1,1 @@
-export * from "./KaizenDraft/Tile/Tile"
+export { default as MultiActionTile } from "./KaizenDraft/Tile/MultiActionTile"

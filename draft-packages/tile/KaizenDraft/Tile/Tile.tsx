@@ -1,13 +1,12 @@
 import * as React from "react"
-const styles = require("./styles.module.scss")
 import { Card } from "@kaizen/draft-card"
-import { Heading, Paragraph } from "@kaizen/component-library"
+import { Heading, Icon, Paragraph } from "@kaizen/component-library"
+
+const informationIcon = require("@kaizen/component-library/icons/information.icon.svg")
+  .default
+const styles = require("./Tile.scss")
 
 export interface TileProps {
-  /**
-   * Remember to annotate your props! The typehints make developers happy
-   * @default ""
-   */
   title: string
   metadata?: string
   children?: React.ReactNode
@@ -19,6 +18,9 @@ export const Tile = ({ children, title, metadata, footerItems }: TileProps) => (
   <div className={styles.wrapper}>
     <Card>
       <div className={styles.content}>
+        <div className={styles.infoBtn}>
+          <Icon icon={informationIcon} inheritSize />
+        </div>
         <div className={styles.title}>
           <Heading variant="heading-4">{title}</Heading>
           {metadata && (
