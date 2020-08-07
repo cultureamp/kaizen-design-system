@@ -80,7 +80,7 @@ main =
                             |> TextAreaField.controlled True
                             |> TextAreaField.autoComplete False
                             |> TextAreaField.onBlurWithValue TextFieldMsg
-                            |> TextAreaField.textAreaValue "A prefilled value in uncontrolled mode"
+                            |> TextAreaField.textAreaValue "A prefilled value in controlled mode"
                             |> TextAreaField.onEnter TextFieldEnter
                             |> TextAreaField.rows 4
                         )
