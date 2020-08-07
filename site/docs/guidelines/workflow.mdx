@@ -1,0 +1,70 @@
+---
+title: Workflow
+navTitle: Workflow
+summaryParagraph: A workflow is a long task broken up into a series of smaller, linked steps.
+tags: ["Wizard", "Multi-step workflow", "Onboarding"]
+needToKnow:
+  - "Use good defaults everywhere possible."
+---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
+## To keep in mind
+
+Breaking the long task into a series of smaller, linked steps, lets you:
+
+- Distribute the overall cognitive load
+- Help the user understand the process by breaking it into more understandable chunks
+- Guide the user through the process with minimal friction.
+- Allow decisions made in preceding steps to vary the workflow of subsequent steps 
+
+### Behavior
+
+Workflows include:
+
+- Steps that are completed. May be gated/ungated and/or mandatory/optional.
+- Front-end validation of supplied data and selected options. Some of this may be achieved via affordances (such as preventing forward navigation until necessary information has been entered). Form validation will be expressed via Kaizen styles.
+- Indications of steps and progress (max 5–6 steps, each labeled by a single word taken from the step title)
+- Isolation (New full page outside of the application’s usual navigational context. User can’t exit workflow without taking an explicit action to do so.)
+- Context/purpose of the flow
+- Current step title
+- Current step description
+- Review/summary of changes effected by workflow
+- Sensible defaults (so there’s an ease on frictionless path through the workflow), e.g. Effectiveness survey – All participants by default
+
+
+
+
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
+
+- Use workflows when there is more than 1 "step" required to complete the task.
+- Use workflows when a task is long or complicated, particularly if there is conditional branching.
+
+</WhenToUse>
+<WhenNotToUse>
+
+- When breaking up a task makes it harder to understand
+- When working through steps is more of an impediment than a benefit (for instance if a task is performed frequently, or by an expert user)
+- When a task is too small or too simple to be meaningfully broken up
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
+
+
+
+## External links
+
+Here are some examples of existing design systems or references:
+
+- [Clarity: Wizards](https://clarity.design/documentation/wizards)
+- [VA.gov: Wizards](https://design.va.gov/patterns/wizards)
+- [NNGroup: Wizards](https://www.nngroup.com/articles/wizards/)
+- [Patternfly: Wizard](https://www.patternfly.org/v4/design-guidelines/usage-and-behavior/wizard)
+- [Human Interface Guidelines: Onboarding](https://developer.apple.com/design/human-interface-guidelines/macos/app-architecture/onboarding/)
+- [Lightning: Welcome Mat](https://www.lightningdesignsystem.com/components/welcome-mat/)
+
