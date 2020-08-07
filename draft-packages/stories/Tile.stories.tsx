@@ -28,7 +28,7 @@ const secondaryAction: TileAction = {
 }
 
 const children = (
-  <div style={{ width: "160px" }}>
+  <div style={{ width: "170px" }}>
     <Coaching alt="" />
   </div>
 )

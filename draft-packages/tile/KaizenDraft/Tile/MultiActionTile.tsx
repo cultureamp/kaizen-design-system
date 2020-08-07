@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 
-import { Card } from "@kaizen/draft-card"
-import { Box, Heading, Icon, Paragraph } from "@kaizen/component-library"
+import classNames from "classnames"
 import { Button, IconButton } from "@kaizen/draft-button"
+import { Box, Heading, Paragraph } from "@kaizen/component-library"
 
 const informationIcon = require("@kaizen/component-library/icons/information.icon.svg")
   .default
@@ -43,7 +43,7 @@ const MultiActionTile: MultiActionTile = ({
   secondaryAction,
   information,
 }) => {
-  const [flipped, setFlipped] = useState<boolean>(false)
+  const [isFlipped, setIsFlipped] = useState<boolean>(false)
 
   const renderAction = (action: TileAction, secondary: boolean) => {
     const { label, href, onClick, icon, automationId } = action
@@ -71,9 +71,11 @@ const MultiActionTile: MultiActionTile = ({
     <div className={styles.title}>
       <Heading variant="heading-4">{title}</Heading>
       {metadata && (
-        <Paragraph variant="small" color="dark-reduced-opacity">
-          {metadata}
-        </Paragraph>
+        <Box pt={0.25}>
+          <Paragraph variant="small" color="dark-reduced-opacity">
+            {metadata}
+          </Paragraph>
+        </Box>
       )}
     </div>
   )
@@ -89,20 +91,20 @@ const MultiActionTile: MultiActionTile = ({
   )
 
   const renderFront = () => (
-    <>
+    <div className={styles.face}>
       {information && (
         <div className={styles.informationBtn}>
           <IconButton
             label="Information"
             icon={informationIcon}
-            onClick={() => setFlipped(true)}
+            onClick={() => setIsFlipped(true)}
           />
         </div>
       )}
       {renderTitle()}
       <div className={styles.children}>{children && children}</div>
       {renderActions(primaryAction, secondaryAction)}
-    </>
+    </div>
   )
 
   const renderBack = () => {
@@ -111,12 +113,12 @@ const MultiActionTile: MultiActionTile = ({
     const { text, primaryAction, secondaryAction } = information
 
     return (
-      <>
+      <div className={classNames(styles.face, styles.faceBack)}>
         <div className={styles.informationBtn}>
           <IconButton
             label="Information"
             icon={arrowBackwardIcon}
-            onClick={() => setFlipped(false)}
+            onClick={() => setIsFlipped(false)}
           />
         </div>
         {renderTitle()}
@@ -124,17 +126,20 @@ const MultiActionTile: MultiActionTile = ({
           <Paragraph variant="body">{text}</Paragraph>
           <Box pt={0.5}>{renderActions(primaryAction, secondaryAction)}</Box>
         </div>
-      </>
+      </div>
     )
   }
 
   return (
-    <div className={styles.wrapper}>
-      <Card>
-        <div className={styles.content}>
-          {flipped ? renderBack() : renderFront()}
-        </div>
-      </Card>
+    <div className={styles.root}>
+      <div
+        className={classNames(styles.tile, {
+          [styles.isFlipped]: isFlipped,
+        })}
+      >
+        {renderFront()}
+        {renderBack()}
+      </div>
     </div>
   )
 }
