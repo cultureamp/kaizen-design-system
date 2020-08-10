@@ -54,6 +54,7 @@ $tab-container-height-small: $ca-grid * 2.5;
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 
   @include title-block-medium-and-small {
     margin: 0 $title-block-margin-width-on-medium-and-small;
