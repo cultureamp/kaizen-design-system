@@ -97,36 +97,6 @@ $tab-container-height-small: $ca-grid * 2.5;
   align-items: center;
   min-width: 0; // this is an important trick to prevent flexbox items from overflowing
   width: 100%;
-
-  .hasLongTitle.hasLongSubtitle & {
-    @include title-block-under-1645 {
-      max-width: 520px;
-    }
-
-    @include title-block-under-1366 {
-      max-width: 50vw;
-    }
-
-    @media (max-width: 899px) {
-      max-width: 44vw;
-    }
-
-    @include title-block-small {
-      max-width: 83vw;
-    }
-  }
-
-  @include title-block-under-1645 {
-    max-width: 44vw;
-  }
-
-  @include title-block-under-1366 {
-    max-width: 42vw;
-  }
-
-  @include title-block-small {
-    max-width: 83vw;
-  }
 }
 
 .titleAndSubtitle {
@@ -146,6 +116,7 @@ $tab-container-height-small: $ca-grid * 2.5;
   display: flex;
   min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 
+  // TODO: removing .hasLongTitle here fixes the alignment on Performance story, but we should be able to not wrap subtitle.
   .hasSubtitle.hasLongTitle.hasLongSubtitle & {
     align-items: center;
 
