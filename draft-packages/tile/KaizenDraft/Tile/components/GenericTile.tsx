@@ -61,11 +61,14 @@ const GenericTile: GenericTile = ({
 
   const renderActions = (
     primaryAction?: TileAction,
-    secondaryAction?: TileAction
+    secondaryAction?: TileAction,
+    disabled?: boolean
   ) => (
     <div className={styles.actions}>
-      {secondaryAction && <Action action={secondaryAction} secondary />}
-      {primaryAction && <Action action={primaryAction} />}
+      {secondaryAction && (
+        <Action action={secondaryAction} secondary disabled={disabled} />
+      )}
+      {primaryAction && <Action action={primaryAction} disabled={disabled} />}
     </div>
   )
 
@@ -77,6 +80,7 @@ const GenericTile: GenericTile = ({
             label="Information"
             icon={informationIcon}
             onClick={() => setIsFlipped(true)}
+            disabled={isFlipped}
           />
         </div>
       )}
@@ -98,12 +102,15 @@ const GenericTile: GenericTile = ({
             label="Information"
             icon={arrowBackwardIcon}
             onClick={() => setIsFlipped(false)}
+            disabled={!isFlipped}
           />
         </div>
         {renderTitle()}
         <div className={styles.information}>
           <Paragraph variant="body">{text}</Paragraph>
-          <Box pt={0.5}>{renderActions(primaryAction, secondaryAction)}</Box>
+          <Box pt={0.5}>
+            {renderActions(primaryAction, secondaryAction, !isFlipped)}
+          </Box>
         </div>
       </div>
     )
