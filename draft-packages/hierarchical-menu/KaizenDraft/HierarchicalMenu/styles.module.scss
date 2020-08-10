@@ -35,8 +35,6 @@ $delay-before-showing-loading-placeholders: 500ms;
 .header {
   background-color: $kz-color-wisteria-700;
   color: $kz-color-wisteria-200;
-  border-top-left-radius: $kz-border-solid-border-radius;
-  border-top-right-radius: $kz-border-solid-border-radius;
 }
 
 .parent {
@@ -81,8 +79,6 @@ $delay-before-showing-loading-placeholders: 500ms;
 .body {
   background-color: $kz-color-white;
   color: $kz-color-wisteria-800;
-  border-bottom-left-radius: $kz-border-solid-border-radius;
-  border-bottom-right-radius: $kz-border-solid-border-radius;
   max-height: $option-height * $max-visible-options;
   overflow-y: auto;
 }
