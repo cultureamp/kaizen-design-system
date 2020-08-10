@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.3.2...@kaizen/draft-form@2.4.0) (2020-08-07)
+
+
+### Features
+
+* add textarea for Elm ([#698](https://github.com/cultureamp/kaizen-design-system/issues/698)) ([cfd366f](https://github.com/cultureamp/kaizen-design-system/commit/cfd366f4682709b10c57eeb2951b7cb7d3424ee4))
+
+
+
+
+
 ## [2.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.3.1...@kaizen/draft-form@2.3.2) (2020-07-31)
 
 **Note:** Version bump only for package @kaizen/draft-form
