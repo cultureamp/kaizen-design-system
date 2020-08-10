@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/responsive";
 
 .grid {
   max-width: $kz-layout-content-max-width;
@@ -9,4 +10,18 @@
   grid-gap: $kz-spacing-md;
   justify-content: start;
   justify-items: start;
+
+  @include ca-media-mobile {
+    display: block;
+  }
+}
+
+.tile {
+  @include ca-media-mobile {
+    @include ca-margin($bottom: $kz-spacing-md);
+
+    &:last-child {
+      margin: 0;
+    }
+  }
 }

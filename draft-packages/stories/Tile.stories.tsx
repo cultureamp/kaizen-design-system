@@ -17,8 +17,6 @@ export default {
   title: "Tile (React)",
 }
 
-const containerStyles = { padding: "24px", width: "300px" }
-
 const primaryAction: TileAction = {
   label: "View",
   href: "",
@@ -47,13 +45,11 @@ const information: TileInformation = {
 }
 
 export const MultiAction = () => (
-  <div style={containerStyles}>
-    <MultiActionTile
-      title="Tile heading"
-      metadata="Metadata"
-      primaryAction={primaryAction}
-    />
-  </div>
+  <MultiActionTile
+    title="Tile heading"
+    metadata="Metadata"
+    primaryAction={primaryAction}
+  />
 )
 
 MultiAction.story = {
@@ -61,14 +57,12 @@ MultiAction.story = {
 }
 
 export const MultiActionWithSecondary = () => (
-  <div style={containerStyles}>
-    <MultiActionTile
-      title="Tile heading"
-      metadata="Metadata"
-      primaryAction={primaryAction}
-      secondaryAction={secondaryAction}
-    />
-  </div>
+  <MultiActionTile
+    title="Tile heading"
+    metadata="Metadata"
+    primaryAction={primaryAction}
+    secondaryAction={secondaryAction}
+  />
 )
 
 MultiActionWithSecondary.story = {
@@ -76,15 +70,13 @@ MultiActionWithSecondary.story = {
 }
 
 export const MultiActionWithChildren = () => (
-  <div style={containerStyles}>
-    <MultiActionTile
-      title="Tile heading"
-      metadata="Metadata"
-      primaryAction={primaryAction}
-    >
-      {children}
-    </MultiActionTile>
-  </div>
+  <MultiActionTile
+    title="Tile heading"
+    metadata="Metadata"
+    primaryAction={primaryAction}
+  >
+    {children}
+  </MultiActionTile>
 )
 
 MultiActionWithChildren.story = {
@@ -92,14 +84,12 @@ MultiActionWithChildren.story = {
 }
 
 export const MultiActionWithInformation = () => (
-  <div style={containerStyles}>
-    <MultiActionTile
-      title="Tile heading"
-      metadata="Metadata"
-      primaryAction={primaryAction}
-      information={information}
-    />
-  </div>
+  <MultiActionTile
+    title="Tile heading"
+    metadata="Metadata"
+    primaryAction={primaryAction}
+    information={information}
+  />
 )
 
 MultiActionWithInformation.story = {
@@ -107,14 +97,12 @@ MultiActionWithInformation.story = {
 }
 
 export const Information = () => (
-  <div style={containerStyles}>
-    <InformationTile
-      title="Tile heading"
-      metadata="Metadata"
-      information={information}
-      footer={<Tag variant="statusLive">Live</Tag>}
-    />
-  </div>
+  <InformationTile
+    title="Tile heading"
+    metadata="Metadata"
+    information={information}
+    footer={<Tag variant="statusLive">Live</Tag>}
+  />
 )
 
 Information.story = {
