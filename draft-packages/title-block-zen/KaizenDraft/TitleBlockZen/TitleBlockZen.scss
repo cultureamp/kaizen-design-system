@@ -96,7 +96,12 @@ $tab-container-height-small: $ca-grid * 2.5;
   display: flex;
   align-items: center;
   min-width: 0; // this is an important trick to prevent flexbox items from overflowing
-  width: 100%;
+
+  // Applying width 100% when the title is *not* long and is followed by a subtitle
+  // causes misalignment of both.
+  @include title-block-under-1366 {
+    width: 100%;
+  }
 }
 
 .titleAndSubtitle {
