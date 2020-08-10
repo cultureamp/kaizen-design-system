@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.25.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.25.0...@kaizen/component-library@7.25.1) (2020-08-10)
+
+
+### Bug Fixes
+
+* add comments that Layout, Text and MenuList are deprecated ([#692](https://github.com/cultureamp/kaizen-design-system/issues/692)) ([c460f92](https://github.com/cultureamp/kaizen-design-system/commit/c460f92c976ef557bee1b88deca8710969de1576))
+
+
+
+
+
 # [7.25.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.24.9...@kaizen/component-library@7.25.0) (2020-07-31)
 
 
