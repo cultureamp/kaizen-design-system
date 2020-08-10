@@ -2,11 +2,11 @@ import React from "react"
 
 import GenericTile, { GenericTileProps } from "./components/GenericTile"
 
-interface Props extends GenericTileProps {
+export interface InformationTileProps extends GenericTileProps {
   readonly footer?: React.ReactNode
 }
 
-type InformationTile = React.FunctionComponent<Props>
+type InformationTile = React.FunctionComponent<InformationTileProps>
 
 const InformationTile: InformationTile = ({
   title,

@@ -5,6 +5,7 @@ import {
   TileInformation,
   TileAction,
   InformationTile,
+  TileGrid,
 } from "@kaizen/draft-tile"
 import { Coaching } from "@kaizen/draft-illustration"
 import { Tag } from "@kaizen/draft-tag"
@@ -118,4 +119,49 @@ export const Information = () => (
 
 Information.story = {
   name: "Information tile",
+}
+
+export const TileGridWithTiles = () => (
+  <TileGrid>
+    <InformationTile
+      title="Tile heading"
+      metadata="Metadata"
+      information={information}
+      footer={<Tag variant="statusLive">Live</Tag>}
+    />
+    <InformationTile
+      title="Tile heading"
+      metadata="Metadata"
+      information={information}
+      footer={<Tag variant="statusLive">Live</Tag>}
+    />
+    <InformationTile
+      title="Tile heading"
+      metadata="Metadata"
+      information={information}
+      footer={<Tag variant="statusLive">Live</Tag>}
+    />
+    <InformationTile
+      title="Tile heading"
+      metadata="Metadata"
+      information={information}
+      footer={<Tag variant="statusLive">Live</Tag>}
+    />
+    <InformationTile
+      title="Tile heading"
+      metadata="Metadata"
+      information={information}
+      footer={<Tag variant="statusLive">Live</Tag>}
+    />
+    <InformationTile
+      title="Tile heading"
+      metadata="Metadata"
+      information={information}
+      footer={<Tag variant="statusLive">Live</Tag>}
+    />
+  </TileGrid>
+)
+
+TileGridWithTiles.story = {
+  name: "Tile Grid",
 }

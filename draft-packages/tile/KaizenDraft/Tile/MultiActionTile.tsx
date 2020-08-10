@@ -8,12 +8,12 @@ import Action from "./components/Action"
 
 const styles = require("./MultiActionTile.scss")
 
-interface Props extends GenericTileProps {
+export interface MultiActionTileProps extends GenericTileProps {
   readonly primaryAction: TileAction
   readonly secondaryAction?: TileAction
 }
 
-type MultiActionTile = React.FunctionComponent<Props>
+type MultiActionTile = React.FunctionComponent<MultiActionTileProps>
 
 const renderActions = (
   primaryAction: TileAction,
