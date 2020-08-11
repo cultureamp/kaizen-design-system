@@ -67,6 +67,12 @@ export const KeyboardNavigableList = (props: Props) => {
 
   const select = useCallback(
     evt => {
+      // don't interfere with keyboard SPACE and ENTER events on native
+      // interactive elements like <a>, <button>
+      if (evt.target !== document.body) {
+        return
+      }
+
       evt.preventDefault()
       onSelect({ index })
     },

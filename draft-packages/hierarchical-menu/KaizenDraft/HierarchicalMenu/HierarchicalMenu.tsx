@@ -208,9 +208,9 @@ const Menu = (props: MenuProps) => {
   }
 
   const keyboardHighlightedChildRef = useCallback(
-    (node: HTMLDivElement | null) => {
-      if (node && !isNavigating) {
-        node.scrollIntoView({ behavior: "smooth", block: "nearest" })
+    (element: HTMLDivElement | null) => {
+      if (element && !isNavigating) {
+        element.scrollIntoView({ behavior: "smooth", block: "nearest" })
       }
     },
     [isNavigating]
