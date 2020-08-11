@@ -188,6 +188,25 @@ const Menu = (props: MenuProps) => {
     onNavigateToChild,
   } = props
 
+  const onKeyboardForward = (index: number) => {
+    const child = hierarchy.children[index]
+    if (isNavigating || child.numberOfChildren === 0) {
+      return false
+    }
+    onNavigateToChild(child)
+  }
+
+  const onKeyboardBack = () => {
+    if (isNavigating || !hierarchy.parent) {
+      return false
+    }
+    onNavigateToParent(hierarchy.parent)
+  }
+
+  const onKeyboardSelect = (index: number) => {
+    onSelect(hierarchy.children[index])
+  }
+
   return (
     <div
       className={classNames(styles.menu, styles.currentMenu, {
@@ -234,20 +253,9 @@ const Menu = (props: MenuProps) => {
         <KeyboardNavigableList
           dir={dir}
           items={hierarchy.children}
-          onForward={({ index }) => {
-            const child = hierarchy.children[index]
-            if (isNavigating || child.numberOfChildren === 0) {
-              return false
-            }
-            onNavigateToChild(child)
-          }}
-          onBack={({ index }) => {
-            if (isNavigating || !hierarchy.parent) {
-              return false
-            }
-            onNavigateToParent(hierarchy.parent)
-          }}
-          onSelect={({ index }) => onSelect(hierarchy.children[index])}
+          onForward={({ index }) => onKeyboardForward(index)}
+          onBack={() => onKeyboardBack()}
+          onSelect={({ index }) => onKeyboardSelect(index)}
         >
           {({ index: keyboardIndex }) => (
             <>
