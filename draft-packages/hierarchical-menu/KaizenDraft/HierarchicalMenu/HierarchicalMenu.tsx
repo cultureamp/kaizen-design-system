@@ -16,7 +16,7 @@ type MenuWidth = "default" | "contain"
 type MenuDirection = "ltr" | "rtl"
 
 export interface HierarchicalMenuProps {
-  initialHierarchy: Hierarchy
+  loadInitialHierarchy: () => Promise<Hierarchy>
   loadHierarchy: (node: HierarchyNode) => Promise<Hierarchy>
   onSelect: (node: HierarchyNode) => void
   width?: MenuWidth
@@ -47,19 +47,38 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
   const [incomingNumberOfOptions, setIncomingNumberOfOptions] = useState(0)
 
   const {
-    initialHierarchy,
+    loadInitialHierarchy,
     loadHierarchy,
     onSelect,
     width = "default",
     dir = "ltr",
   } = props
 
-  if (!hierarchy && initialHierarchy) {
-    setHierarchy(initialHierarchy)
-  }
+  useEffect(() => {
+    if (hierarchy || !loadInitialHierarchy) return
+    const loadInitial = async () => {
+      const newHierarchy = await loadInitialHierarchy()
+      setHierarchy(newHierarchy)
+    }
+    loadInitial()
+  }, [hierarchy, loadInitialHierarchy])
 
   if (!hierarchy) {
-    return <div className={styles.container}>Empty</div>
+    return (
+      <div
+        className={classNames(styles.container, {
+          [styles.defaultWidth]: width === "default",
+        })}
+      >
+        <LoadingMenu
+          transitionLevel={null}
+          width={width}
+          dir={dir}
+          options={6}
+          shouldAnimate={true}
+        />
+      </div>
+    )
   }
 
   const onNavigate = async (
@@ -108,7 +127,7 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
         classNames="animating"
       >
         <LoadingMenu
-          level="parent"
+          transitionLevel="parent"
           width={width}
           dir={dir}
           options={incomingNumberOfOptions}
@@ -136,7 +155,7 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
         classNames="animating"
       >
         <LoadingMenu
-          level="child"
+          transitionLevel="child"
           width={width}
           dir={dir}
           options={incomingNumberOfOptions}
@@ -244,7 +263,7 @@ const Menu = (props: MenuProps) => {
 }
 
 interface LoadingMenuProps {
-  level: "parent" | "child"
+  transitionLevel: "parent" | "child" | null
   width: MenuWidth
   dir: MenuDirection
   options: number
@@ -252,15 +271,15 @@ interface LoadingMenuProps {
 }
 
 const LoadingMenu = (props: LoadingMenuProps) => {
-  const { level, width, dir, options, shouldAnimate } = props
+  const { transitionLevel, width, dir, options, shouldAnimate } = props
 
   return (
     <div
       className={classNames(styles.loadingMenu, {
         [styles.shouldAnimate]: shouldAnimate,
         [styles.defaultWidth]: width === "default",
-        [styles.parentMenu]: level === "parent",
-        [styles.childMenu]: level === "child",
+        [styles.parentMenu]: transitionLevel === "parent",
+        [styles.childMenu]: transitionLevel === "child",
       })}
     >
       <div className={styles.header}>

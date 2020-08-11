@@ -118,6 +118,11 @@ const levelThree: Hierarchy = {
   ],
 }
 
+const loadInitialHierarchy = (): Promise<Hierarchy> =>
+  new Promise(resolve => {
+    resolve(levelOne)
+  })
+
 const loadHierarchy = (simulatedResponseTime: number) => (
   node: HierarchyNode
 ): Promise<Hierarchy> =>
@@ -154,7 +159,7 @@ export default {
 export const DefaultStory = () => (
   <StoryContainer>
     <HierarchicalMenu
-      initialHierarchy={levelOne}
+      loadInitialHierarchy={loadInitialHierarchy}
       loadHierarchy={loadHierarchy(0)}
       onSelect={onSelect}
     />
@@ -169,7 +174,7 @@ export const RtlStory = () => (
   <StoryContainer>
     <div dir="rtl">
       <HierarchicalMenu
-        initialHierarchy={levelOne}
+        loadInitialHierarchy={loadInitialHierarchy}
         loadHierarchy={loadHierarchy(0)}
         onSelect={onSelect}
         dir="rtl"
@@ -185,7 +190,7 @@ RtlStory.story = {
 export const LoadingStateFastStory = () => (
   <StoryContainer>
     <HierarchicalMenu
-      initialHierarchy={levelOne}
+      loadInitialHierarchy={loadInitialHierarchy}
       loadHierarchy={loadHierarchy(500)}
       onSelect={onSelect}
     />
@@ -199,7 +204,7 @@ LoadingStateFastStory.story = {
 export const LoadingStateMediumStory = () => (
   <StoryContainer>
     <HierarchicalMenu
-      initialHierarchy={levelOne}
+      loadInitialHierarchy={loadInitialHierarchy}
       loadHierarchy={loadHierarchy(1500)}
       onSelect={onSelect}
     />
@@ -213,7 +218,7 @@ LoadingStateMediumStory.story = {
 export const LoadingStateSlowStory = () => (
   <StoryContainer>
     <HierarchicalMenu
-      initialHierarchy={levelOne}
+      loadInitialHierarchy={loadInitialHierarchy}
       loadHierarchy={loadHierarchy(2500)}
       onSelect={onSelect}
     />
