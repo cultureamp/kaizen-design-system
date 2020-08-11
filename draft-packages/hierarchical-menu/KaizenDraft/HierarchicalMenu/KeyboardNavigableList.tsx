@@ -1,9 +1,13 @@
 import { useCallback, useEffect, useState } from "react"
-import keyboardShortcutEmitter, {
-  Keys,
-  start,
-  stop,
-} from "./keyboardShortcutEmitter"
+
+enum Keys {
+  ARROW_DOWN = "ArrowDown",
+  ARROW_UP = "ArrowUp",
+  ARROW_RIGHT = "ArrowRight",
+  ARROW_LEFT = "ArrowLeft",
+  SPACE = " ",
+  ENTER = "Enter",
+}
 
 type Direction = "ltr" | "rtl"
 
@@ -79,31 +83,33 @@ export const KeyboardNavigableList = (props: Props) => {
     [onSelect, index]
   )
 
-  useEffect(() => {
-    keyboardShortcutEmitter.on(Keys.ARROW_UP, up)
-    keyboardShortcutEmitter.on(Keys.ARROW_DOWN, down)
-    keyboardShortcutEmitter.on(Keys.ARROW_RIGHT, dir === "ltr" ? forward : back)
-    keyboardShortcutEmitter.on(Keys.ARROW_LEFT, dir === "ltr" ? back : forward)
-    keyboardShortcutEmitter.on(Keys.SPACE, select)
-    keyboardShortcutEmitter.on(Keys.ENTER, select)
-    return () => {
-      keyboardShortcutEmitter.off(Keys.ARROW_UP, up)
-      keyboardShortcutEmitter.off(Keys.ARROW_DOWN, down)
-      keyboardShortcutEmitter.off(Keys.ARROW_RIGHT, forward)
-      keyboardShortcutEmitter.off(Keys.ARROW_RIGHT, back)
-      keyboardShortcutEmitter.off(Keys.ARROW_LEFT, forward)
-      keyboardShortcutEmitter.off(Keys.ARROW_LEFT, back)
-      keyboardShortcutEmitter.off(Keys.SPACE, select)
-      keyboardShortcutEmitter.off(Keys.ENTER, select)
-    }
-  }, [up, down, forward, back, select, dir])
+  const handleKeys = useCallback(
+    (evt: KeyboardEvent) => {
+      switch (evt.key) {
+        case Keys.ARROW_UP:
+          return up(evt)
+        case Keys.ARROW_DOWN:
+          return down(evt)
+        case Keys.ARROW_LEFT:
+          return dir === "ltr" ? back(evt) : forward(evt)
+        case Keys.ARROW_RIGHT:
+          return dir === "ltr" ? forward(evt) : back(evt)
+        case Keys.SPACE:
+        case Keys.ENTER:
+          return select(evt)
+        default:
+          return
+      }
+    },
+    [up, down, forward, back, select]
+  )
 
   useEffect(() => {
-    start()
+    document.addEventListener("keydown", handleKeys)
     return () => {
-      stop()
+      document.removeEventListener("keydown", handleKeys)
     }
-  }, [])
+  }, [handleKeys])
 
   return children({ index })
 }
