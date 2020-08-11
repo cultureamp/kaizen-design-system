@@ -107,6 +107,11 @@ $delay-before-showing-loading-placeholders: 500ms;
   align-items: center;
 }
 
+.keyboardHighlightedChild {
+  composes: child;
+  background-color: $kz-color-wisteria-100;
+}
+
 .childLabelButton:hover,
 .childDrilldownButton:hover {
   background-color: $kz-color-wisteria-100;

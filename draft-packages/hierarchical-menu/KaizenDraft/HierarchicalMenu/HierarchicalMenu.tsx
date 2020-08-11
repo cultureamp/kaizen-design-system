@@ -5,6 +5,7 @@ import { Icon, Text } from "@kaizen/component-library"
 import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
 import animationTokens from "@kaizen/design-tokens/tokens/animation.json"
 import spacingTokens from "@kaizen/design-tokens/tokens/spacing.json"
+import { KeyboardNavigableList } from "./KeyboardNavigableList"
 
 const chevronLeft = require("@kaizen/component-library/icons/chevron-left.icon.svg")
   .default
@@ -230,33 +231,63 @@ const Menu = (props: MenuProps) => {
         </div>
       </div>
       <div className={styles.body}>
-        {hierarchy.children.map(c => (
-          <div className={styles.child} key={c.value}>
-            <button
-              className={styles.childLabelButton}
-              onClick={() => onSelect(c)}
-            >
-              <Text style="body" tag="p" inheritBaseline>
-                {c.label}
-              </Text>
-            </button>
-            {c.numberOfChildren > 0 && (
-              <button
-                className={styles.childDrilldownButton}
-                onClick={() => onNavigateToChild(c)}
-              >
-                <div className={styles.childDrilldownButtonIcon}>
-                  <Icon
-                    icon={dir === "ltr" ? chevronRight : chevronLeft}
-                    role="img"
-                    title={`Drill down on ${c.label}`}
-                    inheritSize
-                  />
+        <KeyboardNavigableList
+          dir={dir}
+          items={hierarchy.children}
+          onForward={({ index }) => {
+            const child = hierarchy.children[index]
+            if (isNavigating || child.numberOfChildren === 0) {
+              return false
+            }
+            onNavigateToChild(child)
+          }}
+          onBack={({ index }) => {
+            if (isNavigating || !hierarchy.parent) {
+              return false
+            }
+            onNavigateToParent(hierarchy.parent)
+          }}
+          onSelect={({ index }) => onSelect(hierarchy.children[index])}
+        >
+          {({ index: keyboardIndex }) => (
+            <>
+              {hierarchy.children.map((c, index) => (
+                <div
+                  className={
+                    keyboardIndex === index
+                      ? styles.keyboardHighlightedChild
+                      : styles.child
+                  }
+                  key={c.value}
+                >
+                  <button
+                    className={styles.childLabelButton}
+                    onClick={() => onSelect(c)}
+                  >
+                    <Text style="body" tag="p" inheritBaseline>
+                      {c.label}
+                    </Text>
+                  </button>
+                  {c.numberOfChildren > 0 && (
+                    <button
+                      className={styles.childDrilldownButton}
+                      onClick={() => onNavigateToChild(c)}
+                    >
+                      <div className={styles.childDrilldownButtonIcon}>
+                        <Icon
+                          icon={dir === "ltr" ? chevronRight : chevronLeft}
+                          role="img"
+                          title={`Drill down on ${c.label}`}
+                          inheritSize
+                        />
+                      </div>
+                    </button>
+                  )}
                 </div>
-              </button>
-            )}
-          </div>
-        ))}
+              ))}
+            </>
+          )}
+        </KeyboardNavigableList>
       </div>
     </div>
   )
