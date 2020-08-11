@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@3.0.2...@kaizen/draft-tabs@3.0.3) (2020-08-10)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [3.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@3.0.1...@kaizen/draft-tabs@3.0.2) (2020-07-31)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [3.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@3.0.0...@kaizen/draft-tabs@3.0.1) (2020-07-30)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+# [3.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@2.0.6...@kaizen/draft-tabs@3.0.0) (2020-07-28)
+
+
+### Bug Fixes
+
+* Vertical tabs are bold in both active and inactive states ([#663](https://github.com/cultureamp/kaizen-design-system/issues/663)) ([4d51190](https://github.com/cultureamp/kaizen-design-system/commit/4d511904772b97d8b3e02c09410cb20446dcbf0f))
+
+
+### BREAKING CHANGES
+
+* Removed bottom margin from Tab container
+
+
+
+
+
 ## [2.0.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@2.0.5...@kaizen/draft-tabs@2.0.6) (2020-07-15)
 
 **Note:** Version bump only for package @kaizen/draft-tabs

@@ -7,6 +7,7 @@ needToKnow:
   - "Provide an overview first, zoom and filter, then details on demand."
   - "Test visualizations with real data."
   - "Let people explore data themselves to discover their own insights."
+  - "Provide text alternatives to charts, such as a data table."
 ---
 
 import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
@@ -20,6 +21,34 @@ Charts, diagrams, and hero data draw attention to insights and help people make 
 - Test with real data. For example, test with one or two data points as well as hundreds and test low and high numbers.
 - Answer one question at a time. Avoid overloading charts with information to solve multiple problems.
 - Provide "Overview first, zoom and filter, then details-on-demand". Read more in [3 rules for Interactive data visualization by Vlad Kozhevnikov](https://towardsdatascience.com/3-rules-for-interactive-data-visualizations-a-showcase-with-r-and-highcharts-e452f5c37f44).
+- Provide text alternatives, such as a data [table](/components/table), for any non-text content. This ensures it can be changed into other forms people need, such as large print, braille, speech, symbols or simpler language.
+
+### Accessibility
+
+For nearly all charts, you must consider the following:
+
+- Provide a text alternative, such as a data [table](/components/table). To link a chart with its text alternative, you might wrap them both in a `<figure>` element or provide a text link to an adjacent long description. To learn more, read [Web Accessibility initiative: Complex Images](https://www.w3.org/WAI/tutorials/images/complex/#a-text-link-to-the-long-description-adjacent-to-the-image).
+- Shapes such as bars in a bar chart that are required to understand the content must have sufficient contrast with the background for "graphical objects" (e.g. greater than 3:1 contrast ratio). See our [color guidelines](/guidelines/color) for details.
+- Text color must have sufficient contrast with the background. See our [color guidelines](/guidelines/color) for details.
+- Color must not used as the only visual means of conveying information. Consider using changes in contrast and patterns in bars or lines.
+- Ensure SVG elements have a `<title>` element that provides an accessible, short-text description.
+
+Where applicable, you might consider the following:
+
+- If you're visually hiding a legend's title, add `aria-label="Legend"`.
+- Check the reading order of ticks and data points for people using screen readers. For example, ensure they read as "Saturday: 42, Sunday: 31…" instead of "Saturday, Sunday, … 42, 31, …".
+- Use `role="presentation"` on shapes such as an SVG `rect` element to hide them from assistive technology where appropriate.
+
+Learn more about accessible data visualization:
+
+- [An intro to designing accessible data visualizations by Sarah L. Fossheim](https://fossheim.io/writing/posts/accessible-dataviz-design/)
+- [An introduction to accessible data visualizations with D3.js by Sarah L. Fossheim](https://fossheim.io/writing/posts/accessible-dataviz-d3-intro/)
+- [Accessibility at Penn State | Charts & Accessibility](https://accessibility.psu.edu/images/charts/)
+- [Accessible SVGs by Heather Migliorisi](https://css-tricks.com/accessible-svgs/)
+- [Web Accessibility initiative: Complex Images](https://www.w3.org/WAI/tutorials/images/complex/)
+- [Functional Accessibility Evaluator 2.1: Long description for complex images](https://fae.disability.illinois.edu/rulesets/IMAGE_6/)
+- [Data Visualization Accessibility: Where Are We Now, and What’s Next? by Melanie Mazanec](https://medium.com/nightingale/data-visualization-accessibility-where-are-we-now-and-whats-next-b2c9eeac4e8b)
+- [Writing Alt Text for Data Visualization by Amy Cesal](https://medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81)
 
 ## Line charts
 
@@ -79,7 +108,7 @@ Learn more about bubble charts:
 
 Bar charts are used to compare discrete, numeric data across categories.
 
-- Order the bars. For example, you might use natural data order, such as months of the year, or rank them, ordering the bars from shortest to longest.
+- **Order the bars.** For example, you might use natural data order, such as months of the year, or rank them, ordering the bars from shortest to longest.
 - For long bar labels, consider using a horizontal bar chart or presenting the label on the bar.
 
 We often used a stacked bar to represent likert scales. Learn more in [Visualizing Likert Scale Data: Same data, displayed seven different ways by Alana Pirrone](https://medium.com/nightingale/seven-different-ways-to-display-likert-scale-data-d0c1c9a9ad59?source=friends_link&sk=60cb93604b71ecc8820cc785ed1afd1a).

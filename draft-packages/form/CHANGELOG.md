@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.4.0...@kaizen/draft-form@2.4.1) (2020-08-10)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [2.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.3.2...@kaizen/draft-form@2.4.0) (2020-08-07)
+
+
+### Features
+
+* add textarea for Elm ([#698](https://github.com/cultureamp/kaizen-design-system/issues/698)) ([cfd366f](https://github.com/cultureamp/kaizen-design-system/commit/cfd366f4682709b10c57eeb2951b7cb7d3424ee4))
+
+
+
+
+
+## [2.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.3.1...@kaizen/draft-form@2.3.2) (2020-07-31)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.3.0...@kaizen/draft-form@2.3.1) (2020-07-30)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.2.10...@kaizen/draft-form@2.3.0) (2020-07-29)
+
+
+### Features
+
+* allow arbitrary Html in TextField description fields (Elm & React) ([#671](https://github.com/cultureamp/kaizen-design-system/issues/671)) ([6c39181](https://github.com/cultureamp/kaizen-design-system/commit/6c391811410e1fc76b515e1f19be916d681c791c))
+
+
+
+
+
 ## [2.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.2.9...@kaizen/draft-form@2.2.10) (2020-07-15)
 
 **Note:** Version bump only for package @kaizen/draft-form

@@ -19,7 +19,7 @@ type Props = {
   defaultValue?: string
   validationMessage?: string
   status?: InputStatus
-  description?: string
+  description?: React.ReactNode
   textAreaRef?: React.RefObject<HTMLTextAreaElement>
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => any
   onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
