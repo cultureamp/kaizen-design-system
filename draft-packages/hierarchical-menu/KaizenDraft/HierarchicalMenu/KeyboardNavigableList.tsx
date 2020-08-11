@@ -111,5 +111,9 @@ export const KeyboardNavigableList = (props: Props) => {
     }
   }, [handleKeys])
 
+  useEffect(() => {
+    setCurrentIndex(0)
+  }, [items])
+
   return children({ index })
 }
