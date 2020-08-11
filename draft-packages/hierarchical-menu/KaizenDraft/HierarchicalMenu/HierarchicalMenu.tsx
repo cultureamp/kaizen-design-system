@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react"
 import { CSSTransition } from "react-transition-group"
+import FocusLock from "react-focus-lock"
 import classNames from "classnames"
 import { Icon, Text } from "@kaizen/component-library"
 import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
@@ -224,94 +225,98 @@ const Menu = (props: MenuProps) => {
         [styles.toChild]: isNavigating === "toChild",
       })}
     >
-      <div className={styles.header}>
-        <div className={styles.parent}>
-          <button
-            className={
-              hierarchy.parent
-                ? styles.parentButton
-                : styles.disabledParentButton
-            }
-            disabled={!hierarchy.parent}
-            onClick={() =>
-              hierarchy.parent && onNavigateToParent(hierarchy.parent)
-            }
-          >
-            <div className={styles.parentButtonIcon}>
-              <Icon
-                icon={dir === "ltr" ? chevronLeft : chevronRight}
-                role="presentation"
-                inheritSize
-              />
-            </div>
-            <Text style="small" tag="p" inheritBaseline>
-              {hierarchy.parent?.label}
+      <FocusLock returnFocus={true} autoFocus={false}>
+        <div className={styles.header}>
+          <div className={styles.parent}>
+            <button
+              className={
+                hierarchy.parent
+                  ? styles.parentButton
+                  : styles.disabledParentButton
+              }
+              disabled={!hierarchy.parent}
+              onClick={() =>
+                hierarchy.parent && onNavigateToParent(hierarchy.parent)
+              }
+            >
+              <div className={styles.parentButtonIcon}>
+                <Icon
+                  icon={dir === "ltr" ? chevronLeft : chevronRight}
+                  role="presentation"
+                  inheritSize
+                />
+              </div>
+              <Text style="small" tag="p" inheritBaseline>
+                {hierarchy.parent?.label}
+              </Text>
+            </button>
+          </div>
+          <div className={styles.current}>
+            <Text style="body-bold" tag="p" inheritBaseline>
+              {hierarchy.current.label}
             </Text>
-          </button>
+            <Text style="small" tag="p" inheritBaseline>
+              Level {hierarchy.current.level}
+            </Text>
+          </div>
         </div>
-        <div className={styles.current}>
-          <Text style="body-bold" tag="p" inheritBaseline>
-            {hierarchy.current.label}
-          </Text>
-          <Text style="small" tag="p" inheritBaseline>
-            Level {hierarchy.current.level}
-          </Text>
-        </div>
-      </div>
-      <div className={styles.body}>
-        <KeyboardNavigableList
-          dir={dir}
-          items={hierarchy.children}
-          onForward={({ index }) => onKeyboardForward(index)}
-          onBack={() => onKeyboardBack()}
-          onSelect={({ index }) => onKeyboardSelect(index)}
-        >
-          {({ index: keyboardIndex }) => (
-            <>
-              {hierarchy.children.map((c, index) => {
-                const isKeyboardHighlighted = keyboardIndex === index
-                return (
-                  <div
-                    className={
-                      isKeyboardHighlighted
-                        ? styles.keyboardHighlightedChild
-                        : styles.child
-                    }
-                    key={c.value}
-                    ref={
-                      isKeyboardHighlighted ? keyboardHighlightedChildRef : null
-                    }
-                  >
-                    <button
-                      className={styles.childLabelButton}
-                      onClick={() => onSelect(c)}
+        <div className={styles.body}>
+          <KeyboardNavigableList
+            dir={dir}
+            items={hierarchy.children}
+            onForward={({ index }) => onKeyboardForward(index)}
+            onBack={() => onKeyboardBack()}
+            onSelect={({ index }) => onKeyboardSelect(index)}
+          >
+            {({ index: keyboardIndex }) => (
+              <>
+                {hierarchy.children.map((c, index) => {
+                  const isKeyboardHighlighted = keyboardIndex === index
+                  return (
+                    <div
+                      className={
+                        isKeyboardHighlighted
+                          ? styles.keyboardHighlightedChild
+                          : styles.child
+                      }
+                      key={c.value}
+                      ref={
+                        isKeyboardHighlighted
+                          ? keyboardHighlightedChildRef
+                          : null
+                      }
                     >
-                      <Text style="body" tag="p" inheritBaseline>
-                        {c.label}
-                      </Text>
-                    </button>
-                    {c.numberOfChildren > 0 && (
                       <button
-                        className={styles.childDrilldownButton}
-                        onClick={() => onNavigateToChild(c)}
+                        className={styles.childLabelButton}
+                        onClick={() => onSelect(c)}
                       >
-                        <div className={styles.childDrilldownButtonIcon}>
-                          <Icon
-                            icon={dir === "ltr" ? chevronRight : chevronLeft}
-                            role="img"
-                            title={`Drill down on ${c.label}`}
-                            inheritSize
-                          />
-                        </div>
+                        <Text style="body" tag="p" inheritBaseline>
+                          {c.label}
+                        </Text>
                       </button>
-                    )}
-                  </div>
-                )
-              })}
-            </>
-          )}
-        </KeyboardNavigableList>
-      </div>
+                      {c.numberOfChildren > 0 && (
+                        <button
+                          className={styles.childDrilldownButton}
+                          onClick={() => onNavigateToChild(c)}
+                        >
+                          <div className={styles.childDrilldownButtonIcon}>
+                            <Icon
+                              icon={dir === "ltr" ? chevronRight : chevronLeft}
+                              role="img"
+                              title={`Drill down on ${c.label}`}
+                              inheritSize
+                            />
+                          </div>
+                        </button>
+                      )}
+                    </div>
+                  )
+                })}
+              </>
+            )}
+          </KeyboardNavigableList>
+        </div>
+      </FocusLock>
     </div>
   )
 }
