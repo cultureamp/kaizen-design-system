@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback } from "react"
 import { CSSTransition } from "react-transition-group"
 import classNames from "classnames"
 import { Icon, Text } from "@kaizen/component-library"
@@ -207,6 +207,15 @@ const Menu = (props: MenuProps) => {
     onSelect(hierarchy.children[index])
   }
 
+  const keyboardHighlightedChildRef = useCallback(
+    (node: HTMLDivElement | null) => {
+      if (node && !isNavigating) {
+        node.scrollIntoView({ behavior: "smooth", block: "nearest" })
+      }
+    },
+    [isNavigating]
+  )
+
   return (
     <div
       className={classNames(styles.menu, styles.currentMenu, {
@@ -259,40 +268,46 @@ const Menu = (props: MenuProps) => {
         >
           {({ index: keyboardIndex }) => (
             <>
-              {hierarchy.children.map((c, index) => (
-                <div
-                  className={
-                    keyboardIndex === index
-                      ? styles.keyboardHighlightedChild
-                      : styles.child
-                  }
-                  key={c.value}
-                >
-                  <button
-                    className={styles.childLabelButton}
-                    onClick={() => onSelect(c)}
+              {hierarchy.children.map((c, index) => {
+                const isKeyboardHighlighted = keyboardIndex === index
+                return (
+                  <div
+                    className={
+                      isKeyboardHighlighted
+                        ? styles.keyboardHighlightedChild
+                        : styles.child
+                    }
+                    key={c.value}
+                    ref={
+                      isKeyboardHighlighted ? keyboardHighlightedChildRef : null
+                    }
                   >
-                    <Text style="body" tag="p" inheritBaseline>
-                      {c.label}
-                    </Text>
-                  </button>
-                  {c.numberOfChildren > 0 && (
                     <button
-                      className={styles.childDrilldownButton}
-                      onClick={() => onNavigateToChild(c)}
+                      className={styles.childLabelButton}
+                      onClick={() => onSelect(c)}
                     >
-                      <div className={styles.childDrilldownButtonIcon}>
-                        <Icon
-                          icon={dir === "ltr" ? chevronRight : chevronLeft}
-                          role="img"
-                          title={`Drill down on ${c.label}`}
-                          inheritSize
-                        />
-                      </div>
+                      <Text style="body" tag="p" inheritBaseline>
+                        {c.label}
+                      </Text>
                     </button>
-                  )}
-                </div>
-              ))}
+                    {c.numberOfChildren > 0 && (
+                      <button
+                        className={styles.childDrilldownButton}
+                        onClick={() => onNavigateToChild(c)}
+                      >
+                        <div className={styles.childDrilldownButtonIcon}>
+                          <Icon
+                            icon={dir === "ltr" ? chevronRight : chevronLeft}
+                            role="img"
+                            title={`Drill down on ${c.label}`}
+                            inheritSize
+                          />
+                        </div>
+                      </button>
+                    )}
+                  </div>
+                )
+              })}
             </>
           )}
         </KeyboardNavigableList>
