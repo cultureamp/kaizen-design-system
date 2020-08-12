@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.26.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.25.1...@kaizen/component-library@7.26.0) (2020-08-12)
+
+
+### Features
+
+* Add data-automation-class to generic notification ([#704](https://github.com/cultureamp/kaizen-design-system/issues/704)) ([07b647b](https://github.com/cultureamp/kaizen-design-system/commit/07b647bbc6eecdff0d80c7f56c24c0acd0b5e02e))
+
+
+
+
+
 ## [7.25.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.25.0...@kaizen/component-library@7.25.1) (2020-08-10)
 
 
