@@ -23,6 +23,7 @@ export interface HierarchicalMenuProps {
   onSelect: (node: HierarchyNode) => void
   width?: MenuWidth
   dir?: MenuDirection
+  focusLockDisabled?: boolean
 }
 
 export type HierarchyNode = {
@@ -54,6 +55,7 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
     onSelect,
     width = "default",
     dir = "ltr",
+    focusLockDisabled = false,
   } = props
 
   useEffect(() => {
@@ -142,6 +144,7 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
         classNames="animating"
       >
         <Menu
+          focusLockDisabled={focusLockDisabled}
           hierarchy={hierarchy}
           width={width}
           dir={dir}
@@ -169,6 +172,7 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
 }
 
 interface MenuProps {
+  focusLockDisabled: boolean
   hierarchy: Hierarchy
   width: MenuWidth
   dir: MenuDirection
@@ -180,6 +184,7 @@ interface MenuProps {
 
 const Menu = (props: MenuProps) => {
   const {
+    focusLockDisabled,
     hierarchy,
     width,
     dir,
@@ -225,7 +230,11 @@ const Menu = (props: MenuProps) => {
         [styles.toChild]: isNavigating === "toChild",
       })}
     >
-      <FocusLock returnFocus={true} autoFocus={false}>
+      <FocusLock
+        disabled={focusLockDisabled}
+        returnFocus={true}
+        autoFocus={false}
+      >
         <div className={styles.header}>
           <div className={styles.parent}>
             <button
