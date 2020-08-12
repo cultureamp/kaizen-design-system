@@ -84,6 +84,7 @@ class GenericNotification extends React.Component<Props, State> {
         ref={this.containerRef}
         onTransitionEnd={this.onTransitionEnd}
         data-automation-id={this.props.automationId}
+        data-automation-class={`${this.props.type} ${this.props.style}`}
       >
         <div className={styles.icon}>
           <Icon icon={this.iconType()} role="presentation" inheritSize />
