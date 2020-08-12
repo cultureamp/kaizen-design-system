@@ -1,7 +1,8 @@
 import * as React from "react"
-import GenericNotification, {
-  NotificationType,
-} from "./components/GenericNotification"
+import uuid from "uuid/v4"
+import createNotificationManager from "./NotificationManager"
+
+const notificationManager = createNotificationManager()
 
 type Props = {
   type: NotificationType
@@ -15,15 +16,29 @@ type Props = {
 }
 
 const ToastNotification = ({ hideCloseIcon, ...otherProps }: Props) => {
+  const [id] = React.useState(uuid())
   const persistent = otherProps.autohide && hideCloseIcon
+  notificationManager.add({
+    id,
+    type: otherProps.type,
+    title: otherProps.title,
+    automationId: otherProps.automationId,
+    autohide: otherProps.autohide,
+    children: otherProps.children,
+    persistent,
+  })
 
-  return (
-    <GenericNotification
-      style="toast"
-      persistent={persistent}
-      {...otherProps}
-    />
+  React.useEffect(
+    () =>
+      // On mount
+      () => {
+        // On unmount
+        notificationManager.remove(id)
+      },
+    []
   )
+
+  return null
 }
 
 ToastNotification.defaultProps = {

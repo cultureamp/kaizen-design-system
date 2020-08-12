@@ -94,43 +94,55 @@ export const Negative = () => (
   </ToastNotification>
 )
 
-export const MultipleNotifications = () => (
-  <div>
-    <ToastNotification
-      type="affirmative"
-      title="Success"
-      automationId="notification1"
-    >
-      New user data, imported by mackenzie@hooli.com has successfully uploaded.{" "}
-      <a href="/">Manage users is now available</a>
-    </ToastNotification>
-    <ToastNotification
-      type="informative"
-      title="Informative"
-      automationId="notification2"
-      autohide
-      hideCloseIcon
-    >
-      New user data is currently being processed. We'll let you know when the
-      process is completed. <a href="/">Manage users</a>
-    </ToastNotification>
-    <ToastNotification
-      type="cautionary"
-      title="Warning"
-      automationId="notification3"
-      autohide
-    >
-      New user data, imported by mackenzie@hooli.com has uploaded with some
-      minor issues. <a href="/">View issues</a>
-    </ToastNotification>
-    <ToastNotification
-      type="negative"
-      title="No network connection"
-      automationId="notification4"
-    >
-      Check your connection and try again. <a href="/">Refresh</a>.
-    </ToastNotification>
-  </div>
-)
+export const MultipleNotifications = () => {
+  const [show, setShow] = React.useState(true)
+
+  React.useEffect(() => {
+    window.setTimeout(() => {
+      setShow(false)
+    }, 5000)
+  }, [])
+
+  return (
+    <div>
+      {show && (
+        <ToastNotification
+          type="affirmative"
+          title="Success"
+          automationId="notification1"
+        >
+          New user data, imported by mackenzie@hooli.com has successfully
+          uploaded. <a href="/">Manage users is now available</a>
+        </ToastNotification>
+      )}
+      <ToastNotification
+        type="informative"
+        title="Informative"
+        automationId="notification2"
+        autohide
+        hideCloseIcon
+      >
+        New user data is currently being processed. We'll let you know when the
+        process is completed. <a href="/">Manage users</a>
+      </ToastNotification>
+      <ToastNotification
+        type="cautionary"
+        title="Warning"
+        automationId="notification3"
+        autohide
+      >
+        New user data, imported by mackenzie@hooli.com has uploaded with some
+        minor issues. <a href="/">View issues</a>
+      </ToastNotification>
+      <ToastNotification
+        type="negative"
+        title="No network connection"
+        automationId="notification4"
+      >
+        Check your connection and try again. <a href="/">Refresh</a>.
+      </ToastNotification>
+    </div>
+  )
+}
 
 MultipleNotifications.storyName = "Multiple notifications"
