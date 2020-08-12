@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { Icon } from "@kaizen/component-library"
 import {
   HierarchicalMenuProps,
@@ -14,6 +14,7 @@ const styles = require("./styles.module.scss")
 export type HierarchicalSelectProps = HierarchicalMenuProps
 
 export const HierarchicalSelect = (props: HierarchicalSelectProps) => {
+  const containerRef = useRef<HTMLDivElement>(null)
   const [isOpen, setIsOpen] = useState(true)
 
   const {
@@ -25,8 +26,26 @@ export const HierarchicalSelect = (props: HierarchicalSelectProps) => {
     focusLockDisabled = false,
   } = props
 
+  useEffect(() => {
+    const handleDocumentClick = (evt: MouseEvent) => {
+      if (
+        containerRef.current &&
+        evt.target instanceof Node &&
+        !containerRef.current.contains(evt.target)
+      ) {
+        setIsOpen(false)
+      }
+    }
+
+    document.addEventListener("click", handleDocumentClick)
+
+    return () => {
+      document.removeEventListener("click", handleDocumentClick)
+    }
+  }, [])
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={containerRef}>
       <button
         className={styles.button}
         type="button"

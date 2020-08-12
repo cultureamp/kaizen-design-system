@@ -11,7 +11,7 @@ import {
 const StoryContainer = ({ children }: { children: React.ReactNode }) => (
   <div
     style={{
-      width: "400px",
+      width: "250px",
       margin: "12px auto",
       display: "flex",
       justifyContent: "center",
