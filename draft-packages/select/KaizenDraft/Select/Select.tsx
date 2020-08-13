@@ -116,13 +116,15 @@ export const AsyncSelect = (props: AsyncProps) => (
 )
 
 const Control: typeof components.Control = props => (
-  <components.Control
-    {...props}
-    className={classNames(styles.control, {
-      [styles.focusedControl]: props.isFocused,
-      [styles.disabled]: props.isDisabled,
-    })}
-  />
+  <div data-automation-id="Select__Control">
+    <components.Control
+      {...props}
+      className={classNames(styles.control, {
+        [styles.focusedControl]: props.isFocused,
+        [styles.disabled]: props.isDisabled,
+      })}
+    />
+  </div>
 )
 
 const Placeholder: typeof components.Placeholder = props => (
@@ -145,13 +147,15 @@ const Menu: typeof components.Menu = props => (
 
 // TODO - needsclick class disables fastclick on this element. Remove when fastclick is removed from consuming repos
 const Option: typeof components.Option = props => (
-  <components.Option
-    {...props}
-    className={classNames("needsclick", styles.option, {
-      [styles.focusedOption]: props.isFocused,
-      [styles.selectedOption]: props.isSelected,
-    })}
-  />
+  <div data-automation-id="Select__Option">
+    <components.Option
+      {...props}
+      className={classNames("needsclick", styles.option, {
+        [styles.focusedOption]: props.isFocused,
+        [styles.selectedOption]: props.isSelected,
+      })}
+    />
+  </div>
 )
 
 const NoOptionsMessage: typeof components.NoOptionsMessage = props => (
