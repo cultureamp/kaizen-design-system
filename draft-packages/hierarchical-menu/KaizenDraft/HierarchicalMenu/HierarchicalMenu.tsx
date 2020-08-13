@@ -200,7 +200,10 @@ const Menu = (props: MenuProps) => {
     onNavigateToChild,
   } = props
 
-  const onKeyboardForward = (index: number) => {
+  const onKeyboardForward = (index: number | null) => {
+    if (index == null) {
+      return false
+    }
     const child = hierarchy.children[index]
     if (isNavigating || child.numberOfChildren === 0) {
       return false
@@ -215,7 +218,10 @@ const Menu = (props: MenuProps) => {
     onNavigateToParent(hierarchy.parent)
   }
 
-  const onKeyboardSelect = (index: number) => {
+  const onKeyboardSelect = (index: number | null) => {
+    if (index == null) {
+      return
+    }
     onSelect(hierarchy.children[index])
   }
 

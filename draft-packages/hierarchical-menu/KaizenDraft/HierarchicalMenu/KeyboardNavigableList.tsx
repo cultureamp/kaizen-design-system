@@ -12,7 +12,7 @@ enum Keys {
 type Direction = "ltr" | "rtl"
 
 interface RenderProps {
-  index: number
+  index: number | null
 }
 
 interface Props {
@@ -26,13 +26,15 @@ interface Props {
 
 export const KeyboardNavigableList = (props: Props) => {
   const { items, children, onForward, onBack, onSelect, dir = "ltr" } = props
-  const [index, setCurrentIndex] = useState(0)
+  const [index, setCurrentIndex] = useState<number | null>(null)
   const limit = items.length - 1
 
   const up = useCallback(
     evt => {
       evt.preventDefault()
       setCurrentIndex(prev => {
+        if (prev == null) return limit
+
         const isAtStart = prev === 0
         return isAtStart ? limit : prev - 1
       })
@@ -44,6 +46,8 @@ export const KeyboardNavigableList = (props: Props) => {
     evt => {
       evt.preventDefault()
       setCurrentIndex(prev => {
+        if (prev == null) return 0
+
         const isAtLimit = prev === limit
         return isAtLimit ? 0 : prev + 1
       })
@@ -110,10 +114,6 @@ export const KeyboardNavigableList = (props: Props) => {
       document.removeEventListener("keydown", handleKeys)
     }
   }, [handleKeys])
-
-  useEffect(() => {
-    setCurrentIndex(0)
-  }, [items])
 
   return children({ index })
 }
