@@ -21,7 +21,15 @@ $delay-before-showing-loading-placeholders: 500ms;
   display: flex;
   overflow: hidden;
   transition: height $navigation-transition-speed $navigation-transition-easing;
-  max-height: $option-height * (2 + $max-visible-options);
+  max-height: calc(
+    ((2 + #{$max-visible-options}) * #{$option-height}) +
+      (2 * #{$kz-border-solid-border-width})
+  );
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
 }
 
 .defaultWidth {

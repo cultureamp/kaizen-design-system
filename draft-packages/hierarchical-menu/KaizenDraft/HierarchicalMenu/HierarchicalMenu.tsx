@@ -5,6 +5,7 @@ import classNames from "classnames"
 import { Icon, Text } from "@kaizen/component-library"
 import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
 import animationTokens from "@kaizen/design-tokens/tokens/animation.json"
+import borderTokens from "@kaizen/design-tokens/tokens/border.json"
 import spacingTokens from "@kaizen/design-tokens/tokens/spacing.json"
 import { KeyboardNavigableList } from "./KeyboardNavigableList"
 
@@ -42,11 +43,12 @@ export type Hierarchy = {
 const animationTimeout = 5000
 const optionHeight = spacingTokens.kz.spacing.xl
 
-const getContainerHeight = (numberOfOptions: number) =>
-  `${
-    (numberOfOptions + 2) /* header height */ *
-    Number(optionHeight.replace("rem", ""))
-  }rem`
+const getContainerHeight = (numberOfOptions: number) => {
+  const headerHeight = `(2 * ${optionHeight})`
+  const bodyHeight = `(${numberOfOptions} * ${optionHeight})`
+  const borderHeight = `(2 * ${borderTokens.kz.border.solid.borderWidth})`
+  return `calc(${headerHeight} + ${bodyHeight} + ${borderHeight})`
+}
 
 type NavigatingState = "toParent" | "toChild" | null
 
