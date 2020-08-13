@@ -112,9 +112,13 @@ export const levelThree: Hierarchy = {
   ],
 }
 
-export const loadInitialHierarchy = (): Promise<Hierarchy> =>
+export const loadInitialHierarchy = (
+  simulatedResponseTime: number
+) => (): Promise<Hierarchy> =>
   new Promise(resolve => {
-    resolve(levelOne)
+    setTimeout(() => {
+      resolve(levelOne)
+    }, simulatedResponseTime)
   })
 
 export const loadHierarchy = (simulatedResponseTime: number) => (

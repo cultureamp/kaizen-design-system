@@ -27,7 +27,7 @@ export default {
 export const DefaultStory = () => (
   <StoryContainer>
     <HierarchicalMenu
-      loadInitialHierarchy={loadInitialHierarchy}
+      loadInitialHierarchy={loadInitialHierarchy(0)}
       loadHierarchy={loadHierarchy(0)}
       onSelect={onSelect}
     />
@@ -42,7 +42,7 @@ export const RtlStory = () => (
   <div dir="rtl">
     <StoryContainer>
       <HierarchicalMenu
-        loadInitialHierarchy={loadInitialHierarchy}
+        loadInitialHierarchy={loadInitialHierarchy(0)}
         loadHierarchy={loadHierarchy(0)}
         onSelect={onSelect}
         dir="rtl"
@@ -58,7 +58,7 @@ RtlStory.story = {
 export const LoadingStateFastStory = () => (
   <StoryContainer>
     <HierarchicalMenu
-      loadInitialHierarchy={loadInitialHierarchy}
+      loadInitialHierarchy={loadInitialHierarchy(500)}
       loadHierarchy={loadHierarchy(500)}
       onSelect={onSelect}
     />
@@ -72,7 +72,7 @@ LoadingStateFastStory.story = {
 export const LoadingStateMediumStory = () => (
   <StoryContainer>
     <HierarchicalMenu
-      loadInitialHierarchy={loadInitialHierarchy}
+      loadInitialHierarchy={loadInitialHierarchy(1500)}
       loadHierarchy={loadHierarchy(1500)}
       onSelect={onSelect}
     />
@@ -86,7 +86,7 @@ LoadingStateMediumStory.story = {
 export const LoadingStateSlowStory = () => (
   <StoryContainer>
     <HierarchicalMenu
-      loadInitialHierarchy={loadInitialHierarchy}
+      loadInitialHierarchy={loadInitialHierarchy(2500)}
       loadHierarchy={loadHierarchy(2500)}
       onSelect={onSelect}
     />

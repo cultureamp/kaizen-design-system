@@ -28,7 +28,7 @@ export default {
 export const DefaultStory = () => (
   <StoryContainer>
     <HierarchicalSelect
-      loadInitialHierarchy={loadInitialHierarchy}
+      loadInitialHierarchy={loadInitialHierarchy(0)}
       loadHierarchy={loadHierarchy(0)}
       onSelect={onSelect}
     />
@@ -43,7 +43,7 @@ export const RtlStory = () => (
   <div dir="rtl">
     <StoryContainer>
       <HierarchicalSelect
-        loadInitialHierarchy={loadInitialHierarchy}
+        loadInitialHierarchy={loadInitialHierarchy(0)}
         loadHierarchy={loadHierarchy(0)}
         onSelect={onSelect}
         dir="rtl"

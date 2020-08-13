@@ -42,6 +42,12 @@ export type Hierarchy = {
 const animationTimeout = 5000
 const optionHeight = spacingTokens.kz.spacing.xl
 
+const getContainerHeight = (numberOfOptions: number) =>
+  `${
+    (numberOfOptions + 2) /* header height */ *
+    Number(optionHeight.replace("rem", ""))
+  }rem`
+
 type NavigatingState = "toParent" | "toChild" | null
 
 export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
@@ -68,17 +74,20 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
   }, [hierarchy, loadInitialHierarchy])
 
   if (!hierarchy) {
+    const numberOfOptions = 1
+
     return (
       <div
         className={classNames(styles.container, {
           [styles.defaultWidth]: width === "default",
         })}
+        style={{ height: getContainerHeight(numberOfOptions) }}
       >
         <LoadingMenu
           transitionLevel={null}
           width={width}
           dir={dir}
-          options={6}
+          options={numberOfOptions}
           shouldAnimate={true}
         />
       </div>
@@ -118,12 +127,7 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
       className={classNames(styles.container, {
         [styles.defaultWidth]: width === "default",
       })}
-      style={{
-        height: `${
-          (hierarchy.children.length + 2) * // header height
-          Number(optionHeight.replace("rem", ""))
-        }rem`,
-      }}
+      style={{ height: getContainerHeight(hierarchy.children.length) }}
     >
       <CSSTransition
         in={isNavigating === "toParent"}
