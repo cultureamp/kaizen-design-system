@@ -25,6 +25,12 @@ $tilePaddingTop: $kz-spacing-xl;
 
   @include ca-media-mobile {
     width: 100%;
+    min-width: 226px;
+    max-width: $tileHeight;
+  }
+
+  @media (max-width: 480px) {
+    max-width: 100%;
   }
 }
 
@@ -36,13 +42,9 @@ $tilePaddingTop: $kz-spacing-xl;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: $tileWidth;
-  height: $tileHeight;
+  width: 100%;
+  height: 100%;
   backface-visibility: hidden;
-
-  @include ca-media-mobile {
-    width: 100%;
-  }
 }
 
 .faceFront {

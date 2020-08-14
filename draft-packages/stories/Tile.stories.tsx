@@ -114,7 +114,6 @@ export const TileGridWithTiles = () => (
     <InformationTile
       title="Tile heading"
       metadata="Metadata"
-      information={information}
       footer={<Tag variant="statusLive">Live</Tag>}
     />
     <MultiActionTile
