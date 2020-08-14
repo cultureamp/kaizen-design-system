@@ -117,6 +117,7 @@ export const elm: Rule = {
         debug: false,
         cwd: resolve(__dirname, ".."),
         pathToElm: resolve(__dirname, "../node_modules/.bin/elm"),
+        forceWatch: true,
       },
     },
   ],
