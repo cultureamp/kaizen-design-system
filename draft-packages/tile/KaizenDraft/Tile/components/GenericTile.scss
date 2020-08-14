@@ -83,10 +83,12 @@ $tileHeight: 370px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   box-sizing: border-box;
   background-color: $kz-color-cluny-100;
   position: absolute;
   width: 100%;
+  height: 244px;
   text-align: center;
   border-radius: 0 0 7px 7px;
 }
