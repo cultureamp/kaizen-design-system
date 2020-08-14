@@ -48,7 +48,7 @@ const GenericTile: GenericTile = ({
 
   const renderTitle = () => (
     <div className={styles.title}>
-      <Heading variant="heading-4">{title}</Heading>
+      <Heading variant="heading-3">{title}</Heading>
       {metadata && (
         <Box pt={0.25}>
           <Paragraph variant="small" color="dark-reduced-opacity">

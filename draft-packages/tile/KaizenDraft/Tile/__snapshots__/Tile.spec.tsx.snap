@@ -13,11 +13,11 @@ exports[`<InformationTile /> snapshots renders InformationTile 1`] = `
       <div
         class="title"
       >
-        <h4
-          class="heading heading-4 dark small"
+        <h3
+          class="heading heading-3 dark small"
         >
           Title
-        </h4>
+        </h3>
         <div
           class="pt-0-point-25 m-0"
         >
@@ -56,11 +56,11 @@ exports[`<InformationTile /> snapshots renders InformationTile with children 1`]
       <div
         class="title"
       >
-        <h4
-          class="heading heading-4 dark small"
+        <h3
+          class="heading heading-3 dark small"
         >
           Title
-        </h4>
+        </h3>
         <div
           class="pt-0-point-25 m-0"
         >
@@ -138,11 +138,11 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
       <div
         class="title"
       >
-        <h4
-          class="heading heading-4 dark small"
+        <h3
+          class="heading heading-3 dark small"
         >
           Title
-        </h4>
+        </h3>
         <div
           class="pt-0-point-25 m-0"
         >
@@ -210,11 +210,11 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
       <div
         class="title"
       >
-        <h4
-          class="heading heading-4 dark small"
+        <h3
+          class="heading heading-3 dark small"
         >
           Title
-        </h4>
+        </h3>
         <div
           class="pt-0-point-25 m-0"
         >
@@ -279,11 +279,11 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile 1`] = `
       <div
         class="title"
       >
-        <h4
-          class="heading heading-4 dark small"
+        <h3
+          class="heading heading-3 dark small"
         >
           Title
-        </h4>
+        </h3>
         <div
           class="pt-0-point-25 m-0"
         >
@@ -342,11 +342,11 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with secondary ac
       <div
         class="title"
       >
-        <h4
-          class="heading heading-4 dark small"
+        <h3
+          class="heading heading-3 dark small"
         >
           Title
-        </h4>
+        </h3>
         <div
           class="pt-0-point-25 m-0"
         >
