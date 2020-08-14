@@ -15,8 +15,8 @@ const chevronRight = require("@kaizen/component-library/icons/chevron-right.icon
   .default
 const styles = require("./styles.module.scss")
 
-type MenuWidth = "default" | "contain"
-type MenuDirection = "ltr" | "rtl"
+export type MenuWidth = "default" | "contain"
+export type MenuDirection = "ltr" | "rtl"
 
 export type HierarchyNode = {
   value: string

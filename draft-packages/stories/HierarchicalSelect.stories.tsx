@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 
+import { Paragraph } from "@kaizen/component-library"
 import { HierarchicalSelect } from "@kaizen/draft-hierarchical-select"
 import { Hierarchy, HierarchyNode } from "@kaizen/draft-hierarchical-menu"
 import {
@@ -23,12 +24,12 @@ interface StoryContainerProps {
 const StoryContainer = ({ children }: StoryContainerProps) => {
   const [hierarchy, setHierarchy] = useState<Hierarchy | null>(null)
   const [value, setValue] = useState<HierarchyNode | null>(null)
+
   return (
     <div
       style={{
         width: "250px",
         margin: "12px auto",
-        display: "flex",
         justifyContent: "center",
       }}
     >
@@ -37,6 +38,20 @@ const StoryContainer = ({ children }: StoryContainerProps) => {
   )
 }
 
+const SelectionSummary = (props: {
+  node: HierarchyNode | null
+  hierarchy: Hierarchy | null
+}) => (
+  <div style={{ marginTop: "12px" }}>
+    {props.node && props.hierarchy ? (
+      <Paragraph variant="body">
+        Selected <strong>{props.node.label}</strong> from{" "}
+        <strong>{props.hierarchy.current.label}'s</strong> hierarchy.
+      </Paragraph>
+    ) : null}
+  </div>
+)
+
 export default {
   title: "HierarchicalSelect (React)",
 }
@@ -44,16 +59,19 @@ export default {
 export const DefaultStory = () => (
   <StoryContainer>
     {({ hierarchy, setHierarchy, value, setValue }) => (
-      <HierarchicalSelect
-        loadInitialHierarchy={() => loadInitialHierarchy(hierarchy)}
-        loadHierarchy={loadHierarchy(0)}
-        onSelect={(currentHierarchy, toNode) => {
-          setHierarchy(currentHierarchy)
-          setValue(toNode)
-        }}
-        placeholder="Select..."
-        value={value}
-      />
+      <>
+        <HierarchicalSelect
+          loadInitialHierarchy={() => loadInitialHierarchy(hierarchy)}
+          loadHierarchy={node => loadHierarchy(node)}
+          onSelect={(currentHierarchy, toNode) => {
+            setHierarchy(currentHierarchy)
+            setValue(toNode)
+          }}
+          placeholder="Select..."
+          value={value}
+        />
+        <SelectionSummary node={value} hierarchy={hierarchy} />
+      </>
     )}
   </StoryContainer>
 )
@@ -66,17 +84,20 @@ export const RtlStory = () => (
   <div dir="rtl">
     <StoryContainer>
       {({ hierarchy, setHierarchy, value, setValue }) => (
-        <HierarchicalSelect
-          loadInitialHierarchy={() => loadInitialHierarchy(hierarchy)}
-          loadHierarchy={loadHierarchy(0)}
-          onSelect={(currentHierarchy, toNode) => {
-            setHierarchy(currentHierarchy)
-            setValue(toNode)
-          }}
-          placeholder="Select RTL..."
-          value={value}
-          dir="rtl"
-        />
+        <>
+          <HierarchicalSelect
+            loadInitialHierarchy={() => loadInitialHierarchy(hierarchy)}
+            loadHierarchy={node => loadHierarchy(node)}
+            onSelect={(currentHierarchy, toNode) => {
+              setHierarchy(currentHierarchy)
+              setValue(toNode)
+            }}
+            placeholder="Select RTL..."
+            value={value}
+            dir="rtl"
+          />
+          <SelectionSummary node={value} hierarchy={hierarchy} />
+        </>
       )}
     </StoryContainer>
   </div>
@@ -93,15 +114,11 @@ const loadInitialHierarchy = (
     resolve(currentHierarchy ? currentHierarchy : levelOne)
   })
 
-const loadHierarchy = (simulatedResponseTime: number) => (
-  node: HierarchyNode
-): Promise<Hierarchy> =>
+const loadHierarchy = (node: HierarchyNode): Promise<Hierarchy> =>
   new Promise(resolve => {
-    setTimeout(() => {
-      if (node.value === "id_didier") return resolve(levelZero)
-      if (node.value === "id_rod") return resolve(levelOne)
-      if (node.value === "id_virginia") return resolve(levelTwo)
-      if (node.value === "id_kavi") return resolve(levelThree)
-      resolve(levelZero)
-    }, simulatedResponseTime)
+    if (node.value === "id_didier") return resolve(levelZero)
+    if (node.value === "id_rod") return resolve(levelOne)
+    if (node.value === "id_virginia") return resolve(levelTwo)
+    if (node.value === "id_kavi") return resolve(levelThree)
+    resolve(levelZero)
   })
