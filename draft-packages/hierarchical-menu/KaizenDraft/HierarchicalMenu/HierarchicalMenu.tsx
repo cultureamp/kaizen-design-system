@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react"
+import React, { useState, useEffect } from "react"
 import { CSSTransition } from "react-transition-group"
 import FocusLock from "react-focus-lock"
 import classNames from "classnames"
@@ -40,7 +40,9 @@ export type Hierarchy = {
   children: HierarchyNode[]
 }
 
-const animationTimeout = 5000
+const animationTimeout = Number(
+  animationTokens.kz.animation.duration.rapid.replace("ms", "")
+)
 const optionHeight = spacingTokens.kz.spacing.xl
 
 const getContainerHeight = (numberOfOptions: number) => {
@@ -50,11 +52,16 @@ const getContainerHeight = (numberOfOptions: number) => {
   return `calc(${headerHeight} + ${bodyHeight} + ${borderHeight})`
 }
 
-type NavigatingState = "toParent" | "toChild" | null
+type NavigatingAnimationState = "toParent" | "toChild" | null
 
 export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
   const [hierarchy, setHierarchy] = useState<Hierarchy | null>(null)
-  const [isNavigating, setIsNavigating] = useState<NavigatingState>(null)
+  const [previousHierarchy, setPreviousHierarchy] = useState<Hierarchy | null>(
+    null
+  )
+  const [isNavigating, setIsNavigating] = useState<NavigatingAnimationState>(
+    null
+  )
   const [incomingNumberOfOptions, setIncomingNumberOfOptions] = useState(0)
 
   const {
@@ -97,31 +104,30 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
   }
 
   const onNavigate = async (
-    node: HierarchyNode,
-    navigatingState: NavigatingState
+    to: HierarchyNode,
+    navigatingState: NavigatingAnimationState
   ) => {
     setIsNavigating(navigatingState)
     setIncomingNumberOfOptions(
       navigatingState === "toParent"
         ? hierarchy.parent?.numberOfChildren || 0
-        : node.numberOfChildren
+        : to.numberOfChildren
     )
 
     const requestSentAt = new Date().getTime()
-    const newHierarchy = await loadHierarchy(node)
+    const newHierarchy = await loadHierarchy(to)
     const responseReceivedAt = new Date().getTime()
     const timeElapsed = responseReceivedAt - requestSentAt
 
-    const minimumTransitionTime = Number(
-      animationTokens.kz.animation.duration.rapid.replace("ms", "")
-    )
+    const minimumTransitionTime = animationTimeout - timeElapsed
 
     // allow the transition animation to play even if the new options are
     // immediately available
     setTimeout(() => {
+      setPreviousHierarchy(hierarchy)
       setHierarchy(newHierarchy)
       setIsNavigating(null)
-    }, minimumTransitionTime - timeElapsed)
+    }, minimumTransitionTime)
   }
 
   return (
@@ -152,6 +158,7 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
         <Menu
           focusLockDisabled={focusLockDisabled}
           hierarchy={hierarchy}
+          previousHierarchy={previousHierarchy}
           width={width}
           dir={dir}
           isNavigating={isNavigating}
@@ -180,9 +187,10 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
 interface MenuProps {
   focusLockDisabled: boolean
   hierarchy: Hierarchy
+  previousHierarchy: Hierarchy | null
   width: MenuWidth
   dir: MenuDirection
-  isNavigating: NavigatingState
+  isNavigating: NavigatingAnimationState
   onSelect: (node: HierarchyNode) => void
   onNavigateToParent: (node: HierarchyNode) => void
   onNavigateToChild: (node: HierarchyNode) => void
@@ -192,6 +200,7 @@ const Menu = (props: MenuProps) => {
   const {
     focusLockDisabled,
     hierarchy,
+    previousHierarchy,
     width,
     dir,
     isNavigating,
@@ -225,14 +234,31 @@ const Menu = (props: MenuProps) => {
     onSelect(hierarchy.children[index])
   }
 
-  const keyboardHighlightedChildRef = useCallback(
-    (element: HTMLDivElement | null) => {
-      if (element && !isNavigating) {
-        element.scrollIntoView({ behavior: "smooth", block: "nearest" })
-      }
-    },
-    [isNavigating]
-  )
+  // const keyboardHighlightedChildRef = (element: HTMLDivElement | null) => {
+  //   console.log("isNavigating", isNavigating)
+  //   if (element && !isNavigating) {
+  //     setTimeout(() => {
+  //       element.scrollIntoView({ behavior: "smooth", block: "nearest" })
+  //     })
+  //   }
+  // }
+  // const keyboardHighlightedChildRef = useCallback(
+  //   (element: HTMLDivElement | null) => {
+  //     console.log("isNavigating", isNavigating)
+  //     if (element && !isNavigating) {
+  //       requestAnimationFrame(() => {
+  //         element.scrollIntoView({ behavior: "smooth", block: "nearest" })
+  //       })
+  //     }
+  //   },
+  //   [isNavigating]
+  // )
+
+  const previousIndex = previousHierarchy
+    ? hierarchy.children.findIndex(
+        c => c.value === previousHierarchy.current.value
+      )
+    : null
 
   return (
     <div
@@ -283,11 +309,12 @@ const Menu = (props: MenuProps) => {
         </div>
         <div className={styles.body}>
           <KeyboardNavigableList
-            dir={dir}
             items={hierarchy.children}
             onForward={({ index }) => onKeyboardForward(index)}
             onBack={() => onKeyboardBack()}
             onSelect={({ index }) => onKeyboardSelect(index)}
+            dir={dir}
+            initialIndex={previousIndex}
           >
             {({ index: keyboardIndex }) => (
               <>

@@ -22,12 +22,23 @@ interface Props {
   onBack: (renderProps: RenderProps) => boolean | void
   onSelect: (renderProps: RenderProps) => void
   dir?: Direction
+  initialIndex: number | null
 }
 
 export const KeyboardNavigableList = (props: Props) => {
-  const { items, children, onForward, onBack, onSelect, dir = "ltr" } = props
+  const {
+    items,
+    children,
+    onForward,
+    onBack,
+    onSelect,
+    dir = "ltr",
+    initialIndex = 0,
+  } = props
   const [index, setCurrentIndex] = useState<number | null>(null)
   const limit = items.length - 1
+
+  console.log(initialIndex)
 
   const up = useCallback(
     evt => {
@@ -114,6 +125,12 @@ export const KeyboardNavigableList = (props: Props) => {
       document.removeEventListener("keydown", handleKeys)
     }
   }, [handleKeys])
+
+  useEffect(() => {
+    if (initialIndex != null && initialIndex !== -1) {
+      setCurrentIndex(initialIndex)
+    }
+  }, [initialIndex])
 
   return children({ index })
 }
