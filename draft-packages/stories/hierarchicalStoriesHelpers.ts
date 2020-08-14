@@ -1,5 +1,12 @@
 import { HierarchyNode, Hierarchy } from "@kaizen/draft-hierarchical-menu"
 
+export enum ResponseTime {
+  INSTANT = 0,
+  FAST = 500,
+  MEDIUM = 1500,
+  SLOW = 2500,
+}
+
 export const levelZero: Hierarchy = {
   parent: null,
   current: {

@@ -32,11 +32,20 @@ export type Hierarchy = {
 }
 
 export interface HierarchicalMenuProps {
-  loadInitialHierarchy: () => Promise<Hierarchy>
-  loadHierarchy: (toNode: HierarchyNode) => Promise<Hierarchy>
+  hierarchy: Hierarchy | null
+  onLoad: () => void
+  onNavigateToParent: (
+    currentHierarchy: Hierarchy,
+    selectedNode: HierarchyNode
+  ) => void
+  onNavigateToChild: (
+    currentHierarchy: Hierarchy,
+    selectedNode: HierarchyNode
+  ) => void
   onSelect: (currentHierarchy: Hierarchy, selectedNode: HierarchyNode) => void
   width?: MenuWidth
   dir?: MenuDirection
+  initialFocusIndex?: number | null
   focusLockDisabled?: boolean
 }
 
@@ -52,35 +61,35 @@ const getContainerHeight = (numberOfOptions: number) => {
   return `calc(${headerHeight} + ${bodyHeight} + ${borderHeight})`
 }
 
-type NavigatingAnimationState = "toParent" | "toChild" | null
+type NavigatingState = "toParent" | "toChild" | null
 
 export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
-  const [hierarchy, setHierarchy] = useState<Hierarchy | null>(null)
-  const [previousHierarchy, setPreviousHierarchy] = useState<Hierarchy | null>(
-    null
-  )
-  const [isNavigating, setIsNavigating] = useState<NavigatingAnimationState>(
-    null
-  )
+  const [isNavigating, setIsNavigating] = useState<NavigatingState>(null)
   const [incomingNumberOfOptions, setIncomingNumberOfOptions] = useState(0)
 
   const {
-    loadInitialHierarchy,
-    loadHierarchy,
+    hierarchy,
+    onLoad,
+    onNavigateToParent,
+    onNavigateToChild,
     onSelect,
     width = "default",
     dir = "ltr",
+    initialFocusIndex = null,
     focusLockDisabled = false,
   } = props
 
   useEffect(() => {
-    if (hierarchy || !loadInitialHierarchy) return
-    const loadInitial = async () => {
-      const newHierarchy = await loadInitialHierarchy()
-      setHierarchy(newHierarchy)
+    onLoad()
+  }, [])
+
+  useEffect(() => {
+    if (hierarchy) {
+      setTimeout(() => {
+        setIsNavigating(null)
+      }, animationTimeout)
     }
-    loadInitial()
-  }, [hierarchy, loadInitialHierarchy])
+  }, [hierarchy])
 
   if (!hierarchy) {
     const numberOfOptions = 1
@@ -103,31 +112,16 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
     )
   }
 
-  const onNavigate = async (
-    toNode: HierarchyNode,
-    navigatingState: NavigatingAnimationState
-  ) => {
-    setIsNavigating(navigatingState)
-    setIncomingNumberOfOptions(
-      navigatingState === "toParent"
-        ? hierarchy.parent?.numberOfChildren || 0
-        : toNode.numberOfChildren
-    )
+  const navigateToParent = (toNode: HierarchyNode) => {
+    setIsNavigating("toParent")
+    setIncomingNumberOfOptions(toNode.numberOfChildren)
+    onNavigateToParent(hierarchy, toNode)
+  }
 
-    const requestSentAt = new Date().getTime()
-    const newHierarchy = await loadHierarchy(toNode)
-    const responseReceivedAt = new Date().getTime()
-    const timeElapsed = responseReceivedAt - requestSentAt
-
-    const minimumTransitionTime = animationTimeout - timeElapsed
-
-    // allow the transition animation to play even if the new options are
-    // immediately available
-    setTimeout(() => {
-      setPreviousHierarchy(hierarchy)
-      setHierarchy(newHierarchy)
-      setIsNavigating(null)
-    }, minimumTransitionTime)
+  const navigateToChild = (toNode: HierarchyNode) => {
+    setIsNavigating("toChild")
+    setIncomingNumberOfOptions(toNode.numberOfChildren)
+    onNavigateToChild(hierarchy, toNode)
   }
 
   return (
@@ -156,15 +150,15 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
         classNames="animating"
       >
         <Menu
-          focusLockDisabled={focusLockDisabled}
           hierarchy={hierarchy}
-          previousHierarchy={previousHierarchy}
+          onNavigateToParent={toNode => navigateToParent(toNode)}
+          onNavigateToChild={toNode => navigateToChild(toNode)}
+          onSelect={onSelect}
           width={width}
           dir={dir}
           isNavigating={isNavigating}
-          onSelect={onSelect}
-          onNavigateToParent={node => onNavigate(node, "toParent")}
-          onNavigateToChild={node => onNavigate(node, "toChild")}
+          initialFocusIndex={initialFocusIndex}
+          focusLockDisabled={focusLockDisabled}
         />
       </CSSTransition>
       <CSSTransition
@@ -185,28 +179,28 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
 }
 
 interface MenuProps {
-  focusLockDisabled: boolean
   hierarchy: Hierarchy
-  previousHierarchy: Hierarchy | null
-  width: MenuWidth
-  dir: MenuDirection
-  isNavigating: NavigatingAnimationState
-  onSelect: (currentHierarchy: Hierarchy, selectedNode: HierarchyNode) => void
   onNavigateToParent: (toNode: HierarchyNode) => void
   onNavigateToChild: (toNode: HierarchyNode) => void
+  onSelect: (currentHierarchy: Hierarchy, selectedNode: HierarchyNode) => void
+  isNavigating: NavigatingState
+  width: MenuWidth
+  dir: MenuDirection
+  initialFocusIndex: number | null
+  focusLockDisabled: boolean
 }
 
 const Menu = (props: MenuProps) => {
   const {
-    focusLockDisabled,
     hierarchy,
-    previousHierarchy,
+    onNavigateToParent,
+    onNavigateToChild,
+    onSelect,
     width,
     dir,
     isNavigating,
-    onSelect,
-    onNavigateToParent,
-    onNavigateToChild,
+    initialFocusIndex,
+    focusLockDisabled,
   } = props
 
   const onKeyboardForward = (index: number | null) => {
@@ -241,12 +235,6 @@ const Menu = (props: MenuProps) => {
       }, 100)
     }
   }
-
-  const previousIndex = previousHierarchy
-    ? hierarchy.children.findIndex(
-        c => c.value === previousHierarchy.current.value
-      )
-    : null
 
   return (
     <div
@@ -301,7 +289,7 @@ const Menu = (props: MenuProps) => {
             onForward={({ index }) => onKeyboardForward(index)}
             onBack={() => onKeyboardBack()}
             onSelect={({ index }) => onKeyboardSelect(index)}
-            initialIndex={previousIndex}
+            initialIndex={initialFocusIndex}
             dir={dir}
           >
             {({ index: keyboardIndex }) => (

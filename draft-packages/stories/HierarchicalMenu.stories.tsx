@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useState } from "react"
 
 import {
   HierarchicalMenu,
@@ -6,24 +6,46 @@ import {
   HierarchyNode,
 } from "@kaizen/draft-hierarchical-menu"
 import {
+  ResponseTime,
   levelZero,
   levelOne,
   levelTwo,
   levelThree,
 } from "./hierarchicalStoriesHelpers"
 
-const StoryContainer = ({ children }: { children: React.ReactNode }) => (
-  <div
-    style={{
-      width: "400px",
-      margin: "12px auto",
-      display: "flex",
-      justifyContent: "center",
-    }}
-  >
-    {children}
-  </div>
-)
+interface StoryContainerRenderProps {
+  hierarchy: Hierarchy | null
+  setHierarchy: (hierarchy: Hierarchy) => void
+  navigatedFrom: HierarchyNode | null
+  setNavigatedFrom: (node: HierarchyNode) => void
+}
+
+interface StoryContainerProps {
+  children: (renderProps: StoryContainerRenderProps) => React.ReactNode
+}
+
+const StoryContainer = ({ children }: StoryContainerProps) => {
+  const [hierarchy, setHierarchy] = useState<Hierarchy | null>(null)
+  const [navigatedFrom, setNavigatedFrom] = useState<HierarchyNode | null>(null)
+
+  return (
+    <div
+      style={{
+        width: "400px",
+        margin: "12px auto",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      {children({
+        hierarchy,
+        setHierarchy,
+        navigatedFrom,
+        setNavigatedFrom,
+      })}
+    </div>
+  )
+}
 
 export default {
   title: "HierarchicalMenu (React)",
@@ -31,11 +53,28 @@ export default {
 
 export const DefaultStory = () => (
   <StoryContainer>
-    <HierarchicalMenu
-      loadInitialHierarchy={loadInitialHierarchy(0)}
-      loadHierarchy={loadHierarchy(0)}
-      onSelect={onSelect}
-    />
+    {({ hierarchy, setHierarchy, navigatedFrom, setNavigatedFrom }) => (
+      <HierarchicalMenu
+        hierarchy={hierarchy}
+        onLoad={async () => {
+          const data = await instantLoadInitialHierarchy()
+          setHierarchy(data)
+        }}
+        onNavigateToParent={async (currentHierarchy, toNode) => {
+          const data = await instantLoadHierarchy(toNode)
+          setHierarchy(data)
+          setNavigatedFrom(currentHierarchy.current)
+        }}
+        onNavigateToChild={async (currentHierarchy, toNode) => {
+          const data = await instantLoadHierarchy(toNode)
+          setHierarchy(data)
+        }}
+        onSelect={onSelect}
+        initialFocusIndex={hierarchy?.children.findIndex(
+          c => c.value === navigatedFrom?.value
+        )}
+      />
+    )}
   </StoryContainer>
 )
 
@@ -46,12 +85,29 @@ DefaultStory.story = {
 export const RtlStory = () => (
   <div dir="rtl">
     <StoryContainer>
-      <HierarchicalMenu
-        loadInitialHierarchy={loadInitialHierarchy(0)}
-        loadHierarchy={loadHierarchy(0)}
-        onSelect={onSelect}
-        dir="rtl"
-      />
+      {({ hierarchy, setHierarchy, navigatedFrom, setNavigatedFrom }) => (
+        <HierarchicalMenu
+          hierarchy={hierarchy}
+          onLoad={async () => {
+            const data = await instantLoadInitialHierarchy()
+            setHierarchy(data)
+          }}
+          onNavigateToParent={async (currentHierarchy, toNode) => {
+            const data = await instantLoadHierarchy(toNode)
+            setHierarchy(data)
+            setNavigatedFrom(currentHierarchy.current)
+          }}
+          onNavigateToChild={async (currentHierarchy, toNode) => {
+            const data = await instantLoadHierarchy(toNode)
+            setHierarchy(data)
+          }}
+          onSelect={onSelect}
+          initialFocusIndex={hierarchy?.children.findIndex(
+            c => c.value === navigatedFrom?.value
+          )}
+          dir="rtl"
+        />
+      )}
     </StoryContainer>
   </div>
 )
@@ -62,11 +118,28 @@ RtlStory.story = {
 
 export const LoadingStateFastStory = () => (
   <StoryContainer>
-    <HierarchicalMenu
-      loadInitialHierarchy={loadInitialHierarchy(500)}
-      loadHierarchy={loadHierarchy(500)}
-      onSelect={onSelect}
-    />
+    {({ hierarchy, setHierarchy, navigatedFrom, setNavigatedFrom }) => (
+      <HierarchicalMenu
+        hierarchy={hierarchy}
+        onLoad={async () => {
+          const data = await fastLoadInitialHierarchy()
+          setHierarchy(data)
+        }}
+        onNavigateToParent={async (currentHierarchy, toNode) => {
+          const data = await fastLoadHierarchy(toNode)
+          setHierarchy(data)
+          setNavigatedFrom(currentHierarchy.current)
+        }}
+        onNavigateToChild={async (currentHierarchy, toNode) => {
+          const data = await fastLoadHierarchy(toNode)
+          setHierarchy(data)
+        }}
+        onSelect={onSelect}
+        initialFocusIndex={hierarchy?.children.findIndex(
+          c => c.value === navigatedFrom?.value
+        )}
+      />
+    )}
   </StoryContainer>
 )
 
@@ -76,11 +149,28 @@ LoadingStateFastStory.story = {
 
 export const LoadingStateMediumStory = () => (
   <StoryContainer>
-    <HierarchicalMenu
-      loadInitialHierarchy={loadInitialHierarchy(1500)}
-      loadHierarchy={loadHierarchy(1500)}
-      onSelect={onSelect}
-    />
+    {({ hierarchy, setHierarchy, navigatedFrom, setNavigatedFrom }) => (
+      <HierarchicalMenu
+        hierarchy={hierarchy}
+        onLoad={async () => {
+          const data = await mediumLoadInitialHierarchy()
+          setHierarchy(data)
+        }}
+        onNavigateToParent={async (currentHierarchy, toNode) => {
+          const data = await mediumLoadHierarchy(toNode)
+          setHierarchy(data)
+          setNavigatedFrom(currentHierarchy.current)
+        }}
+        onNavigateToChild={async (currentHierarchy, toNode) => {
+          const data = await mediumLoadHierarchy(toNode)
+          setHierarchy(data)
+        }}
+        onSelect={onSelect}
+        initialFocusIndex={hierarchy?.children.findIndex(
+          c => c.value === navigatedFrom?.value
+        )}
+      />
+    )}
   </StoryContainer>
 )
 
@@ -90,11 +180,28 @@ LoadingStateMediumStory.story = {
 
 export const LoadingStateSlowStory = () => (
   <StoryContainer>
-    <HierarchicalMenu
-      loadInitialHierarchy={loadInitialHierarchy(2500)}
-      loadHierarchy={loadHierarchy(2500)}
-      onSelect={onSelect}
-    />
+    {({ hierarchy, setHierarchy, navigatedFrom, setNavigatedFrom }) => (
+      <HierarchicalMenu
+        hierarchy={hierarchy}
+        onLoad={async () => {
+          const data = await slowLoadInitialHierarchy()
+          setHierarchy(data)
+        }}
+        onNavigateToParent={async (currentHierarchy, toNode) => {
+          const data = await slowLoadHierarchy(toNode)
+          setHierarchy(data)
+          setNavigatedFrom(currentHierarchy.current)
+        }}
+        onNavigateToChild={async (currentHierarchy, toNode) => {
+          const data = await slowLoadHierarchy(toNode)
+          setHierarchy(data)
+        }}
+        onSelect={onSelect}
+        initialFocusIndex={hierarchy?.children.findIndex(
+          c => c.value === navigatedFrom?.value
+        )}
+      />
+    )}
   </StoryContainer>
 )
 
@@ -102,16 +209,21 @@ LoadingStateSlowStory.story = {
   name: "Loading state (slow)",
 }
 
-const loadInitialHierarchy = (simulatedResponseTime: number) => (): Promise<
-  Hierarchy
-> =>
+const loadInitialHierarchy = (
+  simulatedResponseTime: ResponseTime
+) => (): Promise<Hierarchy> =>
   new Promise(resolve => {
     setTimeout(() => {
       resolve(levelOne)
     }, simulatedResponseTime)
   })
 
-const loadHierarchy = (simulatedResponseTime: number) => (
+const instantLoadInitialHierarchy = loadInitialHierarchy(ResponseTime.INSTANT)
+const fastLoadInitialHierarchy = loadInitialHierarchy(ResponseTime.FAST)
+const mediumLoadInitialHierarchy = loadInitialHierarchy(ResponseTime.MEDIUM)
+const slowLoadInitialHierarchy = loadInitialHierarchy(ResponseTime.SLOW)
+
+const loadHierarchy = (simulatedResponseTime: ResponseTime) => (
   node: HierarchyNode
 ): Promise<Hierarchy> =>
   new Promise(resolve => {
@@ -123,6 +235,11 @@ const loadHierarchy = (simulatedResponseTime: number) => (
       resolve(levelZero)
     }, simulatedResponseTime)
   })
+
+const instantLoadHierarchy = loadHierarchy(ResponseTime.INSTANT)
+const fastLoadHierarchy = loadHierarchy(ResponseTime.FAST)
+const mediumLoadHierarchy = loadHierarchy(ResponseTime.MEDIUM)
+const slowLoadHierarchy = loadHierarchy(ResponseTime.SLOW)
 
 const onSelect = (currentHierarchy: Hierarchy, selectedNode: HierarchyNode) =>
   alert(
