@@ -6,18 +6,26 @@ const styles = require("./TileGrid.scss")
 
 type TileProps = InformationTileProps | MultiActionTileProps
 
+type TileElement = ReactElement<TileProps>
+
 interface TileGrid {
-  children: Array<ReactElement<TileProps>>
+  children: TileElement[] | TileElement
 }
 
-const TileGrid: React.FunctionComponent<TileGrid> = ({ children }) => (
-  <div className={styles.grid}>
-    {children.map((child, idx) => (
-      <div key={idx} className={styles.tile}>
-        {child}
-      </div>
-    ))}
-  </div>
-)
+const TileGrid: React.FunctionComponent<TileGrid> = ({ children }) => {
+  const renderChildren = () => {
+    if (children.length > 1) {
+      return children.map((child, idx) => (
+        <div key={idx} className={styles.tile}>
+          {child}
+        </div>
+      ))
+    } else {
+      return children
+    }
+  }
+
+  return <div className={styles.grid}>{renderChildren()}</div>
+}
 
 export default TileGrid
