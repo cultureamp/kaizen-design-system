@@ -1839,47 +1839,6 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@kaizen/component-library@^7.25.1":
-  version "7.25.1"
-  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-7.25.1.tgz#dac155a55375f0237addbdb5a41c12cc107eb5ad"
-  integrity sha512-M5PxovPghWs4eOOe8I71UaEiAvELaDJZafOys2ZJiA7/NfP9lECPvEnLi940ONbjEmkxvLv8kiGLFLVtstx5Vw==
-  dependencies:
-    "@kaizen/deprecated-component-library-helpers" "^1.6.13"
-    "@kaizen/hosted-assets" "^1.0.1"
-    "@types/classnames" "^2.2.6"
-    "@types/lodash" "^4.14.132"
-    "@types/react-select" "^3.0.5"
-    "@types/uuid" "^3.4.4"
-    classnames "^2.2.6"
-    lodash "^4.17.11"
-    motion-ui cultureamp/motion-ui
-    react-animate-height "^2.0.15"
-    react-focus-lock "^1.19.1"
-    react-media "^1.9.2"
-    react-select "^3.1.0"
-    react-tooltip "^4.2.6"
-    react-transition-group "^2.9.0"
-    uuid "^3.3.2"
-
-"@kaizen/draft-button@^1.13.1":
-  version "1.13.1"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-button/-/draft-button-1.13.1.tgz#65a2259622912e74d9148e7e7bf634be486ed8f3"
-  integrity sha512-5NVSzwg60oIm4tRr4R1LXGzr176ZorXauLjrK/Een2Vacv4mL1rHSJBHk7R4mdtrAZP9wzS44aCsSPJ04hV/oA==
-  dependencies:
-    "@kaizen/component-library" "^7.25.1"
-    "@types/classnames" "^2.2.10"
-    classnames "^2.2.6"
-
-"@kaizen/draft-form@^2.4.1":
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-form/-/draft-form-2.4.1.tgz#781329e33d4db5b07cae736446e477c9d136dd8e"
-  integrity sha512-3jHuS6eGWpF7OU77iBxZYf42Qdr5nELvl2HDGH1zGn8RrjMwdcDUtXdIs9QJ7ZNr7V+xKRzgomQF4p80HwcXOA==
-  dependencies:
-    "@kaizen/component-library" "^7.25.1"
-    "@kaizen/deprecated-component-library-helpers" "^1.6.13"
-    "@types/classnames" "^2.2.10"
-    classnames "^2.2.6"
-
 "@lerna/add@3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.21.0.tgz#27007bde71cc7b0a2969ab3c2f0ae41578b4577b"
