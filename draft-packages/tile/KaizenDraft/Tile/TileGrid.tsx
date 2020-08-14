@@ -17,11 +17,7 @@ const TileGrid: React.FunctionComponent<TileGrid> = ({ children }) => {
     const childrenArray = React.Children.toArray(children)
 
     if (childrenArray.length > 1) {
-      return childrenArray.map((child, idx) => (
-        <div key={idx} className={styles.tile}>
-          {child}
-        </div>
-      ))
+      return childrenArray.map((child, idx) => <div key={idx}>{child}</div>)
     } else {
       return children
     }
