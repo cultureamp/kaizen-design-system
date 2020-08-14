@@ -31,11 +31,9 @@ $tileHeight: 370px;
   position: absolute;
   background-color: $kz-color-white;
   border-radius: 7px;
-  padding: $kz-spacing-lg $kz-spacing-md $kz-spacing-md;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   width: $tileWidth;
   height: $tileHeight;
@@ -46,7 +44,13 @@ $tileHeight: 370px;
   }
 }
 
+.faceFront {
+  justify-content: space-between;
+  padding: $kz-spacing-lg $kz-spacing-md $kz-spacing-md;
+}
+
 .faceBack {
+  padding-top: $kz-spacing-lg;
   transform: rotateY(180deg);
 }
 
@@ -79,16 +83,15 @@ $tileHeight: 370px;
     $start: $kz-spacing-md,
     $end: $kz-spacing-md
   );
-  @include ca-position($bottom: 0);
+  margin-top: $kz-spacing-sm;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
   background-color: $kz-color-cluny-100;
-  position: absolute;
   width: 100%;
-  height: 244px;
+  height: 100%;
   text-align: center;
   border-radius: 0 0 7px 7px;
 }

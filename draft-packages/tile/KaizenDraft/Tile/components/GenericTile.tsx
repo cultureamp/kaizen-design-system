@@ -73,7 +73,7 @@ const GenericTile: GenericTile = ({
   )
 
   const renderFront = () => (
-    <div className={styles.face}>
+    <div className={classNames(styles.face, styles.faceFront)}>
       {information && (
         <div className={styles.informationBtn}>
           <IconButton
@@ -108,9 +108,11 @@ const GenericTile: GenericTile = ({
         {renderTitle()}
         <div className={styles.information}>
           <Paragraph variant="body">{text}</Paragraph>
-          <Box pt={0.5}>
-            {renderActions(primaryAction, secondaryAction, !isFlipped)}
-          </Box>
+          {(primaryAction || secondaryAction) && (
+            <Box pt={0.5}>
+              {renderActions(primaryAction, secondaryAction, !isFlipped)}
+            </Box>
+          )}
         </div>
       </div>
     )
