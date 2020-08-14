@@ -1,10 +1,15 @@
 import * as React from "react"
 
-import { HierarchicalMenu } from "@kaizen/draft-hierarchical-menu"
 import {
-  loadInitialHierarchy,
-  loadHierarchy,
-  onSelect,
+  HierarchicalMenu,
+  Hierarchy,
+  HierarchyNode,
+} from "@kaizen/draft-hierarchical-menu"
+import {
+  levelZero,
+  levelOne,
+  levelTwo,
+  levelThree,
 } from "./hierarchicalStoriesHelpers"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => (
@@ -96,3 +101,30 @@ export const LoadingStateSlowStory = () => (
 LoadingStateSlowStory.story = {
   name: "Loading state (slow)",
 }
+
+export const loadInitialHierarchy = (
+  simulatedResponseTime: number
+) => (): Promise<Hierarchy> =>
+  new Promise(resolve => {
+    setTimeout(() => {
+      resolve(levelOne)
+    }, simulatedResponseTime)
+  })
+
+export const loadHierarchy = (simulatedResponseTime: number) => (
+  node: HierarchyNode
+): Promise<Hierarchy> =>
+  new Promise(resolve => {
+    setTimeout(() => {
+      if (node.value === "id_didier") return resolve(levelZero)
+      if (node.value === "id_rod") return resolve(levelOne)
+      if (node.value === "id_virginia") return resolve(levelTwo)
+      if (node.value === "id_kavi") return resolve(levelThree)
+      resolve(levelZero)
+    }, simulatedResponseTime)
+  })
+
+export const onSelect = (currentHierarchy: Hierarchy, toNode: HierarchyNode) =>
+  alert(
+    `You are currently viewing ${currentHierarchy.current.label}'s hierarchy and have selected ${toNode.label}!`
+  )

@@ -20,8 +20,8 @@ type MenuDirection = "ltr" | "rtl"
 
 export interface HierarchicalMenuProps {
   loadInitialHierarchy: () => Promise<Hierarchy>
-  loadHierarchy: (node: HierarchyNode) => Promise<Hierarchy>
-  onSelect: (node: HierarchyNode) => void
+  loadHierarchy: (toNode: HierarchyNode) => Promise<Hierarchy>
+  onSelect: (currentHierarchy: Hierarchy, toNode: HierarchyNode) => void
   width?: MenuWidth
   dir?: MenuDirection
   focusLockDisabled?: boolean
@@ -191,9 +191,9 @@ interface MenuProps {
   width: MenuWidth
   dir: MenuDirection
   isNavigating: NavigatingAnimationState
-  onSelect: (node: HierarchyNode) => void
-  onNavigateToParent: (node: HierarchyNode) => void
-  onNavigateToChild: (node: HierarchyNode) => void
+  onSelect: (currentHierarchy: Hierarchy, toNode: HierarchyNode) => void
+  onNavigateToParent: (toNode: HierarchyNode) => void
+  onNavigateToChild: (toNode: HierarchyNode) => void
 }
 
 const Menu = (props: MenuProps) => {
@@ -231,7 +231,7 @@ const Menu = (props: MenuProps) => {
     if (index == null) {
       return
     }
-    onSelect(hierarchy.children[index])
+    onSelect(hierarchy, hierarchy.children[index])
   }
 
   const keyboardHighlightedChildRef = (element: HTMLDivElement | null) => {
@@ -324,7 +324,7 @@ const Menu = (props: MenuProps) => {
                     >
                       <button
                         className={styles.childLabelButton}
-                        onClick={() => onSelect(c)}
+                        onClick={() => onSelect(hierarchy, c)}
                       >
                         <Text style="body" tag="p" inheritBaseline>
                           {c.label}

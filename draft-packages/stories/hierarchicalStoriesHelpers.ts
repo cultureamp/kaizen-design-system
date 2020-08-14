@@ -111,28 +111,3 @@ export const levelThree: Hierarchy = {
     { value: "id_dean", label: "Dean Wan", level: 4, numberOfChildren: 0 },
   ],
 }
-
-export const loadInitialHierarchy = (
-  simulatedResponseTime: number
-) => (): Promise<Hierarchy> =>
-  new Promise(resolve => {
-    setTimeout(() => {
-      resolve(levelOne)
-    }, simulatedResponseTime)
-  })
-
-export const loadHierarchy = (simulatedResponseTime: number) => (
-  node: HierarchyNode
-): Promise<Hierarchy> =>
-  new Promise(resolve => {
-    setTimeout(() => {
-      if (node.value === "id_didier") return resolve(levelZero)
-      if (node.value === "id_rod") return resolve(levelOne)
-      if (node.value === "id_virginia") return resolve(levelTwo)
-      if (node.value === "id_kavi") return resolve(levelThree)
-      resolve(levelZero)
-    }, simulatedResponseTime)
-  })
-
-export const onSelect = (selected: HierarchyNode) =>
-  alert(`Selected ${selected.label}!`)
