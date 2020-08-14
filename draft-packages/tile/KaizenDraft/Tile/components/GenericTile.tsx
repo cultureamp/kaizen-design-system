@@ -86,7 +86,7 @@ const GenericTile: GenericTile = ({
       )}
       {renderTitle()}
       <div className={styles.children}>{children && children}</div>
-      {footer && footer}
+      {footer && <div className={styles.footer}>{footer}</div>}
     </div>
   )
 
@@ -109,9 +109,9 @@ const GenericTile: GenericTile = ({
         <div className={styles.information}>
           <Paragraph variant="body">{text}</Paragraph>
           {(primaryAction || secondaryAction) && (
-            <Box pt={0.5}>
+            <div className={styles.footer}>
               {renderActions(primaryAction, secondaryAction, !isFlipped)}
-            </Box>
+            </div>
           )}
         </div>
       </div>

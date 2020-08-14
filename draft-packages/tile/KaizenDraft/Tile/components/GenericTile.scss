@@ -67,7 +67,6 @@ $tilePaddingTop: $kz-spacing-xl;
 }
 
 .actions {
-  padding-top: $kz-spacing-sm;
   display: flex;
 }
 
@@ -95,4 +94,12 @@ $tilePaddingTop: $kz-spacing-xl;
   height: 100%;
   text-align: center;
   border-radius: 0 0 7px 7px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: $kz-spacing-sm;
+  height: $kz-spacing-xl;
 }
