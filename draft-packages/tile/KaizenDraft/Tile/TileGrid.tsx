@@ -6,7 +6,7 @@ const styles = require("./TileGrid.scss")
 
 type TileProps = InformationTileProps | MultiActionTileProps
 
-type TileElement = ReactElement<TileProps>
+export type TileElement = ReactElement<TileProps>
 
 interface TileGrid {
   children: TileElement[] | TileElement
