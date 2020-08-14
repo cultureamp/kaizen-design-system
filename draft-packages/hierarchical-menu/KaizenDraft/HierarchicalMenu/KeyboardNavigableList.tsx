@@ -21,8 +21,8 @@ interface Props {
   onForward: (renderProps: RenderProps) => boolean | void
   onBack: (renderProps: RenderProps) => boolean | void
   onSelect: (renderProps: RenderProps) => void
-  dir?: Direction
   initialIndex: number | null
+  dir?: Direction
 }
 
 export const KeyboardNavigableList = (props: Props) => {
@@ -32,13 +32,11 @@ export const KeyboardNavigableList = (props: Props) => {
     onForward,
     onBack,
     onSelect,
-    dir = "ltr",
     initialIndex = 0,
+    dir = "ltr",
   } = props
   const [index, setCurrentIndex] = useState<number | null>(null)
   const limit = items.length - 1
-
-  console.log(initialIndex)
 
   const up = useCallback(
     evt => {

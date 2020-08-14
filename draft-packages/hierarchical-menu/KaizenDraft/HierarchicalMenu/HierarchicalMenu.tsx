@@ -234,25 +234,13 @@ const Menu = (props: MenuProps) => {
     onSelect(hierarchy.children[index])
   }
 
-  // const keyboardHighlightedChildRef = (element: HTMLDivElement | null) => {
-  //   console.log("isNavigating", isNavigating)
-  //   if (element && !isNavigating) {
-  //     setTimeout(() => {
-  //       element.scrollIntoView({ behavior: "smooth", block: "nearest" })
-  //     })
-  //   }
-  // }
-  // const keyboardHighlightedChildRef = useCallback(
-  //   (element: HTMLDivElement | null) => {
-  //     console.log("isNavigating", isNavigating)
-  //     if (element && !isNavigating) {
-  //       requestAnimationFrame(() => {
-  //         element.scrollIntoView({ behavior: "smooth", block: "nearest" })
-  //       })
-  //     }
-  //   },
-  //   [isNavigating]
-  // )
+  const keyboardHighlightedChildRef = (element: HTMLDivElement | null) => {
+    if (element && !isNavigating) {
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: "smooth", block: "nearest" })
+      }, 100)
+    }
+  }
 
   const previousIndex = previousHierarchy
     ? hierarchy.children.findIndex(
@@ -313,8 +301,8 @@ const Menu = (props: MenuProps) => {
             onForward={({ index }) => onKeyboardForward(index)}
             onBack={() => onKeyboardBack()}
             onSelect={({ index }) => onKeyboardSelect(index)}
-            dir={dir}
             initialIndex={previousIndex}
+            dir={dir}
           >
             {({ index: keyboardIndex }) => (
               <>
