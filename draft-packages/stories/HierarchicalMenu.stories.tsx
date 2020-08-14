@@ -102,16 +102,16 @@ LoadingStateSlowStory.story = {
   name: "Loading state (slow)",
 }
 
-export const loadInitialHierarchy = (
-  simulatedResponseTime: number
-) => (): Promise<Hierarchy> =>
+const loadInitialHierarchy = (simulatedResponseTime: number) => (): Promise<
+  Hierarchy
+> =>
   new Promise(resolve => {
     setTimeout(() => {
       resolve(levelOne)
     }, simulatedResponseTime)
   })
 
-export const loadHierarchy = (simulatedResponseTime: number) => (
+const loadHierarchy = (simulatedResponseTime: number) => (
   node: HierarchyNode
 ): Promise<Hierarchy> =>
   new Promise(resolve => {
@@ -124,10 +124,7 @@ export const loadHierarchy = (simulatedResponseTime: number) => (
     }, simulatedResponseTime)
   })
 
-export const onSelect = (
-  currentHierarchy: Hierarchy,
-  selectedNode: HierarchyNode
-) =>
+const onSelect = (currentHierarchy: Hierarchy, selectedNode: HierarchyNode) =>
   alert(
     `You are currently viewing ${currentHierarchy.current.label}'s hierarchy and have selected ${selectedNode.label}!`
   )
