@@ -25,6 +25,13 @@
     $ca-border-color;
   border-radius: $kz-border-solid-border-radius;
 
+  &:hover,
+  &:focus {
+    .chevron {
+      color: $kz-color-wisteria-800;
+    }
+  }
+
   &:hover {
     border-color: $ca-border-color-hover;
   }
@@ -32,17 +39,18 @@
   &:focus {
     border-color: $ca-border-color-focus;
     outline: none;
-
-    .chevron {
-      color: $kz-color-wisteria-800;
-    }
   }
 }
 
-.placeholder {
+.value {
   @include kz-typography-paragraph-body;
   @include ca-inherit-baseline;
   pointer-events: none;
+}
+
+.placeholder {
+  composes: value;
+  opacity: $input-placeholder-opacity;
 }
 
 .chevron {

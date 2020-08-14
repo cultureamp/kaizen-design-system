@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import { Icon } from "@kaizen/component-library"
 import {
+  HierarchyNode,
   HierarchicalMenuProps,
   HierarchicalMenu,
 } from "@kaizen/draft-hierarchical-menu"
@@ -11,7 +12,10 @@ const chevronDown = require("@kaizen/component-library/icons/chevron-down.icon.s
   .default
 const styles = require("./styles.module.scss")
 
-export type HierarchicalSelectProps = HierarchicalMenuProps
+export interface HierarchicalSelectProps extends HierarchicalMenuProps {
+  placeholder?: string
+  value: HierarchyNode | null
+}
 
 export const HierarchicalSelect = (props: HierarchicalSelectProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -24,6 +28,8 @@ export const HierarchicalSelect = (props: HierarchicalSelectProps) => {
     width = "default",
     dir = "ltr",
     focusLockDisabled = false,
+    placeholder,
+    value,
   } = props
 
   useEffect(() => {
@@ -51,7 +57,11 @@ export const HierarchicalSelect = (props: HierarchicalSelectProps) => {
         type="button"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <div className={styles.placeholder}>hello</div>
+        {value ? (
+          <div className={styles.value}>{value.label}</div>
+        ) : (
+          <div className={styles.placeholder}>{placeholder}</div>
+        )}
         <div className={styles.chevron}>
           <Icon icon={isOpen ? chevronUp : chevronDown} role="presentation" />
         </div>
@@ -61,7 +71,10 @@ export const HierarchicalSelect = (props: HierarchicalSelectProps) => {
           <HierarchicalMenu
             loadInitialHierarchy={loadInitialHierarchy}
             loadHierarchy={loadHierarchy}
-            onSelect={onSelect}
+            onSelect={(currentHierarchy, selectedNode) => {
+              onSelect(currentHierarchy, selectedNode)
+              setIsOpen(false)
+            }}
             width={width}
             dir={dir}
             focusLockDisabled={focusLockDisabled}

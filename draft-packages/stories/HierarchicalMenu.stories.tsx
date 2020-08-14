@@ -124,7 +124,10 @@ export const loadHierarchy = (simulatedResponseTime: number) => (
     }, simulatedResponseTime)
   })
 
-export const onSelect = (currentHierarchy: Hierarchy, toNode: HierarchyNode) =>
+export const onSelect = (
+  currentHierarchy: Hierarchy,
+  selectedNode: HierarchyNode
+) =>
   alert(
-    `You are currently viewing ${currentHierarchy.current.label}'s hierarchy and have selected ${toNode.label}!`
+    `You are currently viewing ${currentHierarchy.current.label}'s hierarchy and have selected ${selectedNode.label}!`
   )

@@ -18,15 +18,6 @@ const styles = require("./styles.module.scss")
 type MenuWidth = "default" | "contain"
 type MenuDirection = "ltr" | "rtl"
 
-export interface HierarchicalMenuProps {
-  loadInitialHierarchy: () => Promise<Hierarchy>
-  loadHierarchy: (toNode: HierarchyNode) => Promise<Hierarchy>
-  onSelect: (currentHierarchy: Hierarchy, toNode: HierarchyNode) => void
-  width?: MenuWidth
-  dir?: MenuDirection
-  focusLockDisabled?: boolean
-}
-
 export type HierarchyNode = {
   value: string
   label: string
@@ -38,6 +29,15 @@ export type Hierarchy = {
   parent: HierarchyNode | null
   current: HierarchyNode
   children: HierarchyNode[]
+}
+
+export interface HierarchicalMenuProps {
+  loadInitialHierarchy: () => Promise<Hierarchy>
+  loadHierarchy: (toNode: HierarchyNode) => Promise<Hierarchy>
+  onSelect: (currentHierarchy: Hierarchy, selectedNode: HierarchyNode) => void
+  width?: MenuWidth
+  dir?: MenuDirection
+  focusLockDisabled?: boolean
 }
 
 const animationTimeout = Number(
@@ -104,18 +104,18 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
   }
 
   const onNavigate = async (
-    to: HierarchyNode,
+    toNode: HierarchyNode,
     navigatingState: NavigatingAnimationState
   ) => {
     setIsNavigating(navigatingState)
     setIncomingNumberOfOptions(
       navigatingState === "toParent"
         ? hierarchy.parent?.numberOfChildren || 0
-        : to.numberOfChildren
+        : toNode.numberOfChildren
     )
 
     const requestSentAt = new Date().getTime()
-    const newHierarchy = await loadHierarchy(to)
+    const newHierarchy = await loadHierarchy(toNode)
     const responseReceivedAt = new Date().getTime()
     const timeElapsed = responseReceivedAt - requestSentAt
 
@@ -191,7 +191,7 @@ interface MenuProps {
   width: MenuWidth
   dir: MenuDirection
   isNavigating: NavigatingAnimationState
-  onSelect: (currentHierarchy: Hierarchy, toNode: HierarchyNode) => void
+  onSelect: (currentHierarchy: Hierarchy, selectedNode: HierarchyNode) => void
   onNavigateToParent: (toNode: HierarchyNode) => void
   onNavigateToChild: (toNode: HierarchyNode) => void
 }
