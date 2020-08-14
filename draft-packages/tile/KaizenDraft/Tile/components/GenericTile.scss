@@ -7,6 +7,7 @@
 
 $tileWidth: 330px;
 $tileHeight: 370px;
+$tilePaddingTop: $kz-spacing-xl;
 
 .root {
   perspective: 800px;
@@ -46,11 +47,11 @@ $tileHeight: 370px;
 
 .faceFront {
   justify-content: space-between;
-  padding: $kz-spacing-lg $kz-spacing-md $kz-spacing-md;
+  padding: $tilePaddingTop $kz-spacing-md $kz-spacing-md;
 }
 
 .faceBack {
-  padding-top: $kz-spacing-lg;
+  padding-top: $tilePaddingTop;
   transform: rotateY(180deg);
 }
 
