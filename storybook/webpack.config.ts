@@ -112,7 +112,7 @@ export const elm: Rule = {
       loader: "elm-hot-webpack-loader",
     },
     {
-      loader: "elm-webpack-loader",
+      loader: "@cultureamp/elm-webpack-loader-fix",
       options: {
         debug: false,
         cwd: resolve(__dirname, ".."),
