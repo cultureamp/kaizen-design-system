@@ -184,17 +184,15 @@ $delay-before-showing-loading-placeholders: 500ms;
   background-color: $kz-color-white;
 
   .parent,
-  .current,
+  .current {
+    opacity: 0.1;
+  }
+
   .body {
     transition: opacity $kz-animation-duration-deliberate
       $navigation-transition-easing;
     transition-delay: $delay-before-showing-loading-placeholders;
     opacity: 0;
-  }
-
-  &.shouldAnimate .parent,
-  &.shouldAnimate .current {
-    opacity: 0.1;
   }
 
   &.shouldAnimate .body {
