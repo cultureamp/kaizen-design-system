@@ -7,6 +7,7 @@
 
 $tileWidth: 330px;
 $tileHeight: 370px;
+$tilePaddingTop: $kz-spacing-xl;
 
 .root {
   perspective: 800px;
@@ -24,6 +25,12 @@ $tileHeight: 370px;
 
   @include ca-media-mobile {
     width: 100%;
+    min-width: 226px;
+    max-width: $tileHeight;
+  }
+
+  @media (max-width: 480px) {
+    max-width: 100%;
   }
 }
 
@@ -31,22 +38,26 @@ $tileHeight: 370px;
   position: absolute;
   background-color: $kz-color-white;
   border-radius: 7px;
-  padding: $kz-spacing-lg $kz-spacing-md $kz-spacing-md;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  width: $tileWidth;
-  height: $tileHeight;
+  width: 100%;
+  height: 100%;
   backface-visibility: hidden;
 
-  @include ca-media-mobile {
-    width: 100%;
+  * {
+    backface-visibility: hidden;
   }
 }
 
+.faceFront {
+  justify-content: space-between;
+  padding: $tilePaddingTop $kz-spacing-md $kz-spacing-md;
+}
+
 .faceBack {
+  padding-top: $tilePaddingTop;
   transform: rotateY(180deg);
 }
 
@@ -62,7 +73,6 @@ $tileHeight: 370px;
 }
 
 .actions {
-  padding-top: $kz-spacing-sm;
   display: flex;
 }
 
@@ -79,14 +89,23 @@ $tileHeight: 370px;
     $start: $kz-spacing-md,
     $end: $kz-spacing-md
   );
-  @include ca-position($bottom: 0);
+  margin-top: $kz-spacing-sm;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   box-sizing: border-box;
   background-color: $kz-color-cluny-100;
-  position: absolute;
   width: 100%;
+  height: 100%;
   text-align: center;
   border-radius: 0 0 7px 7px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: $kz-spacing-sm;
+  height: $kz-spacing-xl;
 }
