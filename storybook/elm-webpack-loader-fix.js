@@ -1,3 +1,10 @@
+// This is fork of https://github.com/elm-community/elm-webpack-loader
+//
+// relevant issues and rejected PRs before background:
+// - https://github.com/elm-community/elm-webpack-loader/issues/132
+// - https://github.com/rtfeldman/node-elm-compiler/pull/38
+// - https://github.com/elm-community/elm-webpack-loader/pull/65
+
 "use strict"
 
 var fs = require("fs")
