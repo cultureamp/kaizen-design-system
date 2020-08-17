@@ -181,6 +181,7 @@ $delay-before-showing-loading-placeholders: 500ms;
 
 .loadingMenu {
   composes: menu;
+  background-color: $kz-color-white;
 
   .parent,
   .current,
