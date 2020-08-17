@@ -14,6 +14,8 @@ const chevronDown = require("@kaizen/component-library/icons/chevron-down.icon.s
   .default
 const styles = require("./styles.module.scss")
 
+export { MenuWidth, MenuDirection, Hierarchy, HierarchyNode }
+
 export interface HierarchicalSelectProps {
   loadInitialHierarchy: () => Promise<Hierarchy>
   loadHierarchy: (node: HierarchyNode) => Promise<Hierarchy>
