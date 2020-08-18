@@ -232,6 +232,7 @@ const renderBreadcrumb = (
         data-automation-id="TitleBlock__BreadcrumbText"
         onClick={breadcrumb.handleClick}
         aria-label="Back to previous page"
+        tabIndex={-1}
       >
         <span className={styles.breadcrumbText}>{breadcrumb.text}</span>
       </a>
