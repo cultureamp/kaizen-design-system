@@ -10,12 +10,16 @@ import styles from "./styles.module.scss"
 
 type AvatarSizes = "small" | "medium" | "large"
 
-const getInitials: (fullName: string) => string = fullName =>
+const getInitials: (fullName: string, max2Characters?: boolean) => string = (
+  fullName,
+  max2Characters = false
+) =>
   fullName
     .split(/\s/)
     .reduce((acc, name) => `${acc}${name.slice(0, 1)}`, "")
     .toUpperCase()
-const maxFontSizePixels: number = 22
+    .substring(0, max2Characters ? 2 : 8)
+
 const getMaxFontSizePixels: (size: AvatarSizes) => number = size => {
   if (size === "small") return 8
   if (size === "medium") return 16
@@ -82,13 +86,13 @@ export const Avatar = ({
         )}
         {avatarState === "none" && (
           <div className={styles.initials}>
-            {getInitials(fullName).length > 2 ? (
+            {getInitials(fullName).length > 2 && size !== "small" ? (
               // Only called if 3 or more initials, fits text width for long names
               <Textfit mode="single" max={getMaxFontSizePixels(size)}>
                 {getInitials(fullName)}
               </Textfit>
             ) : (
-              getInitials(fullName)
+              getInitials(fullName, size === "small")
             )}
           </div>
         )}

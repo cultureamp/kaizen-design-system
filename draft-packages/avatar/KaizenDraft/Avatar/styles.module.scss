@@ -5,11 +5,12 @@
 .wrapper {
   background: $kz-color-stone;
   border-radius: 100%;
-  border: 3px solid $kz-color-white;
-  box-shadow: $kz-shadow-small-box-shadow;
   overflow: hidden;
   position: relative;
-
+  &:not(.small) {
+    box-shadow: $kz-shadow-small-box-shadow;
+    border: 3px solid $kz-color-white;
+  }
   // Themes
 
   &.personal {
