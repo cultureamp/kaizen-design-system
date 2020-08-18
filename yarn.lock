@@ -18946,6 +18946,11 @@ react-focus-lock@^2.4.1:
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
 
+react-gtm-module@^2.0.10:
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/react-gtm-module/-/react-gtm-module-2.0.10.tgz#462296c3d622b82413d0917d430bec557a586237"
+  integrity sha512-7fRxphVxbJVCNWDQyegugZOrOw97vqwzbTSZlHM2n+otg2iBQvKa0SzFxwcLi9monXADjWGX6xQER6IOl75FPw==
+
 react-helmet-async@^1.0.2:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/react-helmet-async/-/react-helmet-async-1.0.6.tgz#11c15c74e79b3f66670c73779bef3e0e352b1d4e"
