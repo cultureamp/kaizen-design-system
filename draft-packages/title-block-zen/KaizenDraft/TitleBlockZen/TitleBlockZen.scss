@@ -221,12 +221,6 @@ $tab-container-height-small: $ca-grid * 2.5;
     display: block;
   }
 
-  .hasSubtitle.hasAvatar & {
-    @include title-block-under-1366 {
-      transform: translateY(10px);
-    }
-  }
-
   .hasLongTitle & {
     display: none;
   }
@@ -382,59 +376,11 @@ $tab-container-height-small: $ca-grid * 2.5;
   min-width: 0; // this is an important trick to prevent flexbox items from overflowing
   align-items: center;
 
-  .breadcrumb:hover + &,
-  .breadcrumb:focus + & {
+  .breadcrumb:hover ~ &,
+  .breadcrumb:focus ~ &,
+  .breadcrumbTextLink:hover ~ &,
+  .breadcrumbTextLink:focus ~ & {
     opacity: 0;
-
-    /* Unfortunately since the avatar, subtitle and length of the
-     * subtitle can all affect the height of the content area here,
-     * we have some fragile hacks to cover each combination.
-     * The subtitle needs to wrap if long, and is vertically centred
-     * instead of positioned along the same baseline as the title,
-     * which is what it does when short. This all adds to the complexity
-     * and we made a call to meet the design requirements under a
-     * deadline instead of exploring a less fragile solution.
-     * (A better solution might involve behaviour where this element that
-     * fades out retains its visual space à la `visibility: hidden`.)
-     */
-    @include title-block-under-1645 {
-      left: $breadcrumb-circle-width + 12px;
-      position: absolute;
-      transform: translateY(2px);
-
-      .hasAvatar & {
-        transform: translateY(0);
-      }
-
-      .hasSubtitle & {
-        transform: translateY(2px);
-      }
-
-      .hasAvatar.hasSubtitle & {
-        transform: translateY(0);
-      }
-
-      .hasSubtitle.hasLongTitle & {
-        transform: translateY(2px);
-      }
-    }
-
-    @include title-block-under-1366 {
-      transform: translateY(4px);
-
-      .hasAvatar & {
-        transform: translateY(0);
-      }
-      .hasSubtitle & {
-        transform: translateY(-10px);
-      }
-      .hasAvatar.hasSubtitle & {
-        transform: translateY(-10px);
-      }
-      .hasSubtitle.hasLongTitle & {
-        transform: translateY(-4px);
-      }
-    }
   }
 }
 
@@ -596,27 +542,40 @@ $tab-container-height-small: $ca-grid * 2.5;
   }
 }
 
-.breadcrumbText {
-  top: 0;
+.breadcrumbTextLink {
   display: none;
-  @include ca-margin($start: $ca-grid);
-  white-space: nowrap;
-  font-family: $kz-typography-heading-5-font-family;
-  font-weight: $kz-typography-heading-5-font-weight;
-  font-size: $kz-typography-heading-5-font-size;
-  line-height: $kz-typography-heading-5-line-height;
-  letter-spacing: $kz-typography-heading-5-letter-spacing;
+  position: absolute;
+  z-index: $ca-z-index-sticky - 1;
+  height: $breadcrumb-circle-width;
+  @include ca-position($start: -2 * $ca-grid);
+  top: $ca-grid * 3/4;
+  align-items: center;
 
-  .breadcrumb:hover &,
-  .breadcrumb:focus & {
-    display: inline-block;
-    max-width: 200px;
+  @include title-block-under-1645 {
+    @include ca-position($start: $ca-grid);
+  }
+
+  &:hover,
+  &:focus,
+  .breadcrumb:hover + &,
+  .breadcrumb:focus + & {
+    display: flex;
     animation: slide-fade 0.4s;
 
     [dir="rtl"] & {
       animation: reverse-slide-fade 0.4s;
     }
   }
+}
+
+.breadcrumbText {
+  @include ca-margin($start: $ca-grid * 2);
+  white-space: nowrap;
+  font-family: $kz-typography-heading-5-font-family;
+  font-weight: $kz-typography-heading-5-font-weight;
+  font-size: $kz-typography-heading-5-font-size;
+  line-height: $kz-typography-heading-5-line-height;
+  letter-spacing: $kz-typography-heading-5-letter-spacing;
 
   &:hover {
     text-decoration: underline;

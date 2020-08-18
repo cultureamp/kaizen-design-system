@@ -214,18 +214,28 @@ const renderBreadcrumb = (
   const icon = textDirection === "rtl" ? rightArrow : leftArrow
 
   return (
-    <a
-      href={breadcrumb.path}
-      className={styles.breadcrumb}
-      data-automation-id="TitleBlock__Breadcrumb"
-      onClick={breadcrumb.handleClick}
-      aria-label="Back to previous page"
-    >
-      <div className={styles.circle}>
-        <Icon icon={icon} role="presentation" />
-      </div>
-      <span className={styles.breadcrumbText}>{breadcrumb.text}</span>
-    </a>
+    <>
+      <a
+        href={breadcrumb.path}
+        className={styles.breadcrumb}
+        data-automation-id="TitleBlock__Breadcrumb"
+        onClick={breadcrumb.handleClick}
+        aria-label="Back to previous page"
+      >
+        <div className={styles.circle}>
+          <Icon icon={icon} role="presentation" />
+        </div>
+      </a>
+      <a
+        href={breadcrumb.path}
+        className={styles.breadcrumbTextLink}
+        data-automation-id="TitleBlock__BreadcrumbText"
+        onClick={breadcrumb.handleClick}
+        aria-label="Back to previous page"
+      >
+        <span className={styles.breadcrumbText}>{breadcrumb.text}</span>
+      </a>
+    </>
   )
 }
 
@@ -407,7 +417,6 @@ const TitleBlockZen = ({
           [styles.hasPageSwitcherSelect]: Boolean(pageSwitcherSelect),
           [styles.educationVariant]: variant === "education",
           [styles.adminVariant]: variant === "admin",
-          [styles.hasAvatar]: Boolean(avatar),
           [styles.hasLongTitle]: title && title.length >= 30,
           [styles.hasLongSubtitle]: subtitle && subtitle.length >= 18,
           [styles.hasNavigationTabs]:
