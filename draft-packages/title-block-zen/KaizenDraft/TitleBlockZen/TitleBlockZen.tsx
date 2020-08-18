@@ -2,6 +2,7 @@ import { Heading, Icon } from "@kaizen/component-library"
 import * as layoutTokens from "@kaizen/design-tokens/tokens/layout.json"
 import { ButtonProps } from "@kaizen/draft-button"
 import { MenuItemProps } from "@kaizen/draft-menu"
+import { Select } from "@kaizen/draft-select"
 import { Tag } from "@kaizen/draft-tag"
 import classNames from "classnames"
 import * as React from "react"
@@ -39,6 +40,7 @@ export interface TitleBlockProps {
   subtitle?: string
   sectionTitle?: string
   sectionTitleDescription?: string
+  pageSwitcherSelect?: SelectProps
   handleHamburgerClick?: (event: React.MouseEvent) => void
   primaryAction?: PrimaryActionProps
   defaultAction?: TitleBlockButtonProps
@@ -64,6 +66,8 @@ export type MenuGroup = {
   label: string
   menuItems: TitleBlockMenuItemProps[]
 }
+
+export type SelectProps = React.ComponentProps<typeof Select>
 
 /**
  * ### PrimaryActionProps
@@ -364,6 +368,7 @@ const TitleBlockZen = ({
   subtitle,
   sectionTitle,
   sectionTitleDescription,
+  pageSwitcherSelect,
   handleHamburgerClick,
   primaryAction,
   defaultAction,
@@ -399,6 +404,7 @@ const TitleBlockZen = ({
       <div
         className={classNames(styles.titleBlock, {
           [styles.hasSubtitle]: Boolean(subtitle),
+          [styles.hasPageSwitcherSelect]: Boolean(pageSwitcherSelect),
           [styles.educationVariant]: variant === "education",
           [styles.adminVariant]: variant === "admin",
           [styles.hasAvatar]: Boolean(avatar),
@@ -440,10 +446,30 @@ const TitleBlockZen = ({
                           {title}
                         </Heading>
                       </div>
+                      {isSmallOrMediumViewport && pageSwitcherSelect && (
+                        <div
+                          className={styles.pageSwitcherSelectUnderneathTitle}
+                        >
+                          <Select
+                            {...pageSwitcherSelect}
+                            variant="secondary-small"
+                            reversed
+                          />
+                        </div>
+                      )}
                       {subtitle && renderSubtitle(subtitle)}
                     </div>
                   </div>
                   {surveyStatus && renderTag(surveyStatus)}
+                  {!isSmallOrMediumViewport && pageSwitcherSelect && (
+                    <div className={styles.pageSwitcherSelectNextToTitle}>
+                      <Select
+                        {...pageSwitcherSelect}
+                        variant="secondary"
+                        reversed
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
               {(primaryAction || defaultAction) && (
