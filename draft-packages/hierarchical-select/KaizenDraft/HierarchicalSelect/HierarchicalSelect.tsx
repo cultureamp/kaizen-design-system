@@ -20,6 +20,7 @@ export interface HierarchicalSelectProps {
   loadInitialHierarchy: () => Promise<Hierarchy>
   loadHierarchy: (node: HierarchyNode) => Promise<Hierarchy>
   onSelect: (currentHierarchy: Hierarchy, selectedNode: HierarchyNode) => void
+  onClear: () => void
   value: HierarchyNode | null
   width?: MenuWidth
   dir?: MenuDirection
@@ -37,6 +38,7 @@ export const HierarchicalSelect = (props: HierarchicalSelectProps) => {
     loadInitialHierarchy,
     loadHierarchy,
     onSelect,
+    onClear,
     value,
     width = "default",
     dir = "ltr",
@@ -44,32 +46,42 @@ export const HierarchicalSelect = (props: HierarchicalSelectProps) => {
     focusLockDisabled = false,
   } = props
 
+  const hasOriginatedFromChildElement = (evt: KeyboardEvent | MouseEvent) => {
+    if (!containerRef.current) return false
+    if (!(evt.target instanceof Node)) return false
+    return containerRef.current.contains(evt.target)
+  }
+
   useEffect(() => {
-    const handleDocumentClick = (evt: MouseEvent) => {
-      if (
-        containerRef.current &&
-        evt.target instanceof Node &&
-        !containerRef.current.contains(evt.target)
-      ) {
+    const handleClick = (evt: MouseEvent) => {
+      if (!hasOriginatedFromChildElement(evt)) {
         setIsOpen(false)
       }
     }
 
-    const handleDocumentEscape = (evt: KeyboardEvent) => {
-      if (
-        evt.key === "Escape" ||
-        evt.key === "Esc" // IE/Edge specific value
-      ) {
-        setIsOpen(false)
+    const handleKeys = (evt: KeyboardEvent) => {
+      switch (evt.key) {
+        case "Escape":
+        case "Esc": // IE/Edge specific value
+          setIsOpen(false)
+          return
+        case "Backspace":
+        case "Delete":
+          if (hasOriginatedFromChildElement(evt)) {
+            onClear()
+            return
+          }
+        default:
+          return
       }
     }
 
-    document.addEventListener("click", handleDocumentClick)
-    document.addEventListener("keydown", handleDocumentEscape)
+    document.addEventListener("click", handleClick)
+    document.addEventListener("keydown", handleKeys)
 
     return () => {
-      document.removeEventListener("click", handleDocumentClick)
-      document.removeEventListener("keydown", handleDocumentEscape)
+      document.removeEventListener("click", handleClick)
+      document.removeEventListener("keydown", handleKeys)
     }
   }, [])
 
