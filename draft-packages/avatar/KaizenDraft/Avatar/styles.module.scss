@@ -1,5 +1,85 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/typography";
 
 .wrapper {
-  color: $kz-color-coral-600; // Use design tokens where possible
+  border: 3px solid $kz-color-white;
+  box-shadow: $kz-shadow-small-box-shadow;
+  background: $kz-color-stone;
+  border-radius: 100%;
+  overflow: hidden;
+  position: relative;
+
+  &.personal {
+    background: $kz-color-peach-200;
+  }
+  &.otherUser {
+    background: $kz-color-wisteria-200;
+  }
+
+  &.inherit {
+    width: 100%;
+    padding-bottom: 100%;
+  }
+
+  &.medium {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  &.large {
+    width: 3.75rem;
+    height: 3.75rem;
+  }
+}
+
+.wrapperInner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatarImage {
+  .loading & {
+    display: none;
+  }
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fallbackIcon {
+  color: rgba($kz-color-wisteria-800, 0.3);
+  width: 28px;
+  .medium & {
+    width: 20px;
+  }
+}
+
+.initials {
+  font-family: $kz-typography-heading-3-font-family;
+  font-weight: $kz-typography-heading-3-font-weight;
+  font-size: $kz-typography-heading-3-font-size;
+  line-height: $kz-typography-heading-3-line-height;
+  letter-spacing: $kz-typography-heading-3-letter-spacing;
+  box-sizing: border-box;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-align: center;
+  color: $kz-color-wisteria-800;
+  width: 100%;
+
+  .medium & {
+    font-family: $kz-typography-heading-5-font-family;
+    font-weight: $kz-typography-heading-5-font-weight;
+    font-size: $kz-typography-heading-5-font-size;
+    line-height: $kz-typography-heading-5-line-height;
+    letter-spacing: $kz-typography-heading-5-letter-spacing;
+  }
 }
