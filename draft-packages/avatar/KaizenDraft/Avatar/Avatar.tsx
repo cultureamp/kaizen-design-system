@@ -8,9 +8,19 @@ import userIcon from "@kaizen/component-library/icons/user.icon.svg"
 // @ts-ignore
 import styles from "./styles.module.scss"
 
+type AvatarSizes = "small" | "medium" | "large"
+
 const getInitials: (fullName: string) => string = fullName =>
-  fullName.split(/\s/).reduce((acc, name) => `${acc}${name.slice(0, 1)}`, "")
+  fullName
+    .split(/\s/)
+    .reduce((acc, name) => `${acc}${name.slice(0, 1)}`, "")
+    .toUpperCase()
 const maxFontSizePixels: number = 22
+const getMaxFontSizePixels: (size: AvatarSizes) => number = size => {
+  if (size === "small") return 8
+  if (size === "medium") return 16
+  return 22
+}
 
 export interface AvatarProps {
   /**
@@ -27,10 +37,15 @@ export interface AvatarProps {
    */
   isCurrentUser?: boolean
   /**
-   * There are 2 fixed avatar sizes, pass "inherit" to allow for a flexible size which keeps aspect ratio.
+   * There are 2 fixed avatar sizes.
    * @default "medium"
    */
-  size?: "inherit" | "medium" | "large"
+  size?: AvatarSizes
+  /**
+   * Pass true to stretch the container to the parent.
+   * @default "false"
+   */
+  inheritSize?: boolean
 }
 
 export const Avatar = ({
@@ -38,6 +53,7 @@ export const Avatar = ({
   avatarSrc,
   size = "medium",
   isCurrentUser = true,
+  inheritSize = false,
 }: AvatarProps) => {
   const [avatarState, setAvatarState] = useState<
     "none" | "error" | "loading" | "success"
@@ -51,6 +67,7 @@ export const Avatar = ({
         [styles.personal]: isCurrentUser && avatarState === "none",
         [styles.otherUser]: !isCurrentUser && avatarState === "none",
         [styles.loading]: avatarState === "loading" || avatarState === "error",
+        [styles.inherit]: inheritSize,
       })}
     >
       <div className={styles.wrapperInner}>
@@ -67,7 +84,7 @@ export const Avatar = ({
           <div className={styles.initials}>
             {getInitials(fullName).length > 2 ? (
               // Only called if 3 or more initials, fits text width for long names
-              <Textfit mode="single" max={maxFontSizePixels}>
+              <Textfit mode="single" max={getMaxFontSizePixels(size)}>
                 {getInitials(fullName)}
               </Textfit>
             ) : (
