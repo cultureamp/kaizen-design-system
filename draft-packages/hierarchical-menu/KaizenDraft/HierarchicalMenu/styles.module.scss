@@ -59,6 +59,17 @@ $delay-before-showing-loading-placeholders: 500ms;
   display: flex;
   align-items: center;
   width: 100%;
+
+  :global(.js-focus-visible) & {
+    &:focus {
+      outline: none;
+    }
+
+    &:global(.focus-visible) {
+      outline: $kz-border-focus-ring-border-width
+        $kz-border-focus-ring-border-style $kz-color-cluny-300;
+    }
+  }
 }
 
 .disabledParentButton {
@@ -85,6 +96,7 @@ $delay-before-showing-loading-placeholders: 500ms;
 }
 
 .body {
+  @include ca-margin($end: 4px);
   background-color: $kz-color-white;
   color: $kz-color-wisteria-800;
   max-height: $option-height * $max-visible-options;
@@ -104,6 +116,18 @@ $delay-before-showing-loading-placeholders: 500ms;
   flex: 1 0;
   height: $option-height;
   padding: 0 $kz-spacing-md;
+  border: $kz-border-focus-ring-border-width $kz-border-focus-ring-border-style
+    $kz-border-borderless-border-color;
+
+  :global(.js-focus-visible) & {
+    &:focus {
+      outline: none;
+    }
+
+    &:global(.focus-visible) {
+      border-color: $kz-color-cluny-500;
+    }
+  }
 }
 
 .childDrilldownButton {
@@ -113,6 +137,18 @@ $delay-before-showing-loading-placeholders: 500ms;
   padding: 0 $kz-spacing-md;
   display: flex;
   align-items: center;
+  border: $kz-border-focus-ring-border-width $kz-border-focus-ring-border-style
+    $kz-border-borderless-border-color;
+
+  :global(.js-focus-visible) & {
+    &:focus {
+      outline: none;
+    }
+
+    &:global(.focus-visible) {
+      border-color: $kz-color-cluny-500;
+    }
+  }
 }
 
 .keyboardHighlightedChild {
