@@ -41,7 +41,7 @@ export interface AvatarProps {
    */
   isCurrentUser?: boolean
   /**
-   * There are 2 fixed avatar sizes.
+   * There are 3 fixed avatar sizes. "small" will remove border and box shadow to save space.
    * @default "medium"
    */
   size?: AvatarSizes
@@ -57,7 +57,6 @@ export const Avatar = ({
   avatarSrc,
   size = "medium",
   isCurrentUser = true,
-  inheritSize = false,
 }: AvatarProps) => {
   const [avatarState, setAvatarState] = useState<
     "none" | "error" | "loading" | "success"
@@ -71,37 +70,34 @@ export const Avatar = ({
         [styles.personal]: isCurrentUser && avatarState === "none",
         [styles.otherUser]: !isCurrentUser && avatarState === "none",
         [styles.loading]: avatarState === "loading" || avatarState === "error",
-        [styles.inherit]: inheritSize,
       })}
     >
-      <div className={styles.wrapperInner}>
-        {avatarState !== "none" && (
-          <img
-            className={styles.avatarImage}
-            src={avatarSrc}
-            onError={onImageFailure}
-            onLoad={onImageSuccess}
-            alt={fullName}
-          />
-        )}
-        {avatarState === "none" && (
-          <div className={styles.initials}>
-            {getInitials(fullName).length > 2 && size !== "small" ? (
-              // Only called if 3 or more initials, fits text width for long names
-              <Textfit mode="single" max={getMaxFontSizePixels(size)}>
-                {getInitials(fullName)}
-              </Textfit>
-            ) : (
-              getInitials(fullName, size === "small")
-            )}
-          </div>
-        )}
-        {avatarState === "error" && (
-          <span className={styles.fallbackIcon}>
-            <Icon inheritSize role="presentation" icon={userIcon} />
-          </span>
-        )}
-      </div>
+      {avatarState !== "none" && (
+        <img
+          className={styles.avatarImage}
+          src={avatarSrc}
+          onError={onImageFailure}
+          onLoad={onImageSuccess}
+          alt={fullName}
+        />
+      )}
+      {avatarState === "none" && (
+        <div className={styles.initials}>
+          {getInitials(fullName).length > 2 && size !== "small" ? (
+            // Only called if 3 or more initials, fits text width for long names
+            <Textfit mode="single" max={getMaxFontSizePixels(size)}>
+              {getInitials(fullName)}
+            </Textfit>
+          ) : (
+            getInitials(fullName, size === "small")
+          )}
+        </div>
+      )}
+      {avatarState === "error" && (
+        <span className={styles.fallbackIcon}>
+          <Icon inheritSize role="presentation" icon={userIcon} />
+        </span>
+      )}
     </div>
   )
 }

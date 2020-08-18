@@ -66,32 +66,6 @@ export const WithLongInitials = () => (
   </>
 )
 
-export const InheritContainerSize = () => (
-  <>
-    <div
-      style={{
-        width: "100px",
-      }}
-    >
-      <Avatar inheritSize={true} size="large" fullName="Jane Doe Me" />
-    </div>
-    <div
-      style={{
-        width: "100px",
-      }}
-    >
-      <Avatar inheritSize={true} size="medium" fullName="Jane Doe Me" />
-    </div>
-    <div
-      style={{
-        width: "100px",
-      }}
-    >
-      <Avatar inheritSize={true} size="small" fullName="Jane Doe Me" />
-    </div>
-  </>
-)
-
 DefaultUser.story = {
   name: "Default User (Shows when image fails to load)",
 }
