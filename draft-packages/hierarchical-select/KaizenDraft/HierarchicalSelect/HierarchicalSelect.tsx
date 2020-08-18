@@ -12,6 +12,7 @@ const chevronUp = require("@kaizen/component-library/icons/chevron-up.icon.svg")
   .default
 const chevronDown = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
+const clear = require("@kaizen/component-library/icons/clear.icon.svg").default
 const styles = require("./styles.module.scss")
 
 export { MenuWidth, MenuDirection, Hierarchy, HierarchyNode }
@@ -98,8 +99,28 @@ export const HierarchicalSelect = (props: HierarchicalSelectProps) => {
         ) : (
           <div className={styles.placeholder}>{placeholder}</div>
         )}
-        <div className={styles.chevron}>
-          <Icon icon={isOpen ? chevronUp : chevronDown} role="presentation" />
+        <div className={styles.indicators}>
+          {value && (
+            <>
+              <div
+                className={styles.clear}
+                // since we can't nest buttons in buttons, make this an aria
+                // accessible button with onClick, role="button" and tabindex
+                role="button"
+                tabIndex={0}
+                onClick={evt => {
+                  onClear()
+                  evt.stopPropagation()
+                }}
+              >
+                <Icon icon={clear} role="img" title="Clear value" />
+              </div>
+              <div className={styles.separator} />
+            </>
+          )}
+          <div className={styles.chevron}>
+            <Icon icon={isOpen ? chevronUp : chevronDown} role="presentation" />
+          </div>
         </div>
       </button>
       {isOpen && (
