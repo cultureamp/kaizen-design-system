@@ -58,8 +58,24 @@ export const InheritContainer = () => (
       width: "100px",
     }}
   >
-    <Avatar size="inherit" fullName="Very Long Name Which Shows Initials" />
+    <Avatar size="inherit" fullName="Jane Doe Me" />
   </div>
+)
+
+export const JapaneseTest = () => (
+  <>
+    <Avatar size="medium" fullName="あなた" />
+    <br />
+    <Avatar size="large" fullName="キム タク" />
+  </>
+)
+
+export const ChineseSimplifiedTest = () => (
+  <>
+    <Avatar size="medium" fullName="莫愁 芷若 莫愁" />
+    <br />
+    <Avatar size="large" fullName="飞莫愁鸿 莫愁 莫愁" />
+  </>
 )
 
 DefaultStory.story = {

@@ -10,6 +10,7 @@ import styles from "./styles.module.scss"
 
 const getInitials: (fullName: string) => string = fullName =>
   fullName.split(/\s/).reduce((acc, name) => `${acc}${name.slice(0, 1)}`, "")
+const maxFontSizePixels: number = 22
 
 export interface AvatarProps {
   /**
@@ -64,9 +65,11 @@ export const Avatar = ({
         )}
         {avatarState === "none" && (
           <div className={styles.initials}>
-            {getInitials(fullName).length > 3 ? (
-              // Only called if 4 or more initials, fits text width for long names
-              <Textfit mode="single">{getInitials(fullName)}</Textfit>
+            {getInitials(fullName).length > 2 ? (
+              // Only called if 3 or more initials, fits text width for long names
+              <Textfit mode="single" max={maxFontSizePixels}>
+                {getInitials(fullName)}
+              </Textfit>
             ) : (
               getInitials(fullName)
             )}
