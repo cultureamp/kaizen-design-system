@@ -6,22 +6,26 @@ export default {
   title: "Avatar (React)",
 }
 
-export const DefaultStory = () => (
+export const InitialsPersonal = () => (
   <>
     <Avatar size="large" fullName="John Smith" />
     <br />
     <Avatar size="medium" fullName="John Smith" />
+    <br />
+    <Avatar size="small" fullName="John Smith" />
   </>
 )
 
-export const WithCurrentUserFalse = () => (
+export const InitialsOthers = () => (
   <>
-    <Avatar isCurrentUser={false} size="large" fullName="John Smith" />
+    <Avatar isCurrentUser={false} size="large" fullName="Jane Doe" />
     <br />
-    <Avatar isCurrentUser={false} size="medium" fullName="John Smith" />
+    <Avatar isCurrentUser={false} size="medium" fullName="Jane Doe" />
+    <br />
+    <Avatar isCurrentUser={false} size="small" fullName="Jane Doe" />
   </>
 )
-export const WithAvatarPath = () => (
+export const PhotoPersonal = () => (
   <>
     <Avatar
       size="large"
@@ -34,9 +38,15 @@ export const WithAvatarPath = () => (
       avatarSrc="https://www.fillmurray.com/200/300"
       fullName="John Smith"
     />
+    <br />
+    <Avatar
+      size="small"
+      avatarSrc="https://www.fillmurray.com/200/300"
+      fullName="John Smith"
+    />
   </>
 )
-export const WithBrokenAvatarSrc = () => (
+export const DefaultUser = () => (
   <>
     <Avatar size="large" avatarSrc="broekn" fullName="Jane Doe" />
     <br />
@@ -44,40 +54,42 @@ export const WithBrokenAvatarSrc = () => (
   </>
 )
 
-export const WithLongInitialFallback = () => (
+export const WithLongInitials = () => (
   <>
     <Avatar size="large" fullName="Very Long Name Which Shows Initials" />
     <br />
     <Avatar size="medium" fullName="Very Long Name Which Shows Initials" />
-  </>
-)
-
-export const InheritContainer = () => (
-  <div
-    style={{
-      width: "100px",
-    }}
-  >
-    <Avatar size="inherit" fullName="Jane Doe Me" />
-  </div>
-)
-
-export const JapaneseTest = () => (
-  <>
-    <Avatar size="medium" fullName="あなた" />
     <br />
-    <Avatar size="large" fullName="キム タク" />
+    <Avatar size="small" fullName="Very Long Name Which Shows Initials" />
   </>
 )
 
-export const ChineseSimplifiedTest = () => (
+export const InheritContainerSize = () => (
   <>
-    <Avatar size="medium" fullName="莫愁 芷若 莫愁" />
-    <br />
-    <Avatar size="large" fullName="飞莫愁鸿 莫愁 莫愁" />
+    <div
+      style={{
+        width: "100px",
+      }}
+    >
+      <Avatar inheritSize={true} size="large" fullName="Jane Doe Me" />
+    </div>
+    <div
+      style={{
+        width: "100px",
+      }}
+    >
+      <Avatar inheritSize={true} size="medium" fullName="Jane Doe Me" />
+    </div>
+    <div
+      style={{
+        width: "100px",
+      }}
+    >
+      <Avatar inheritSize={true} size="small" fullName="Jane Doe Me" />
+    </div>
   </>
 )
 
-DefaultStory.story = {
-  name: "Default (Kaizen Site Demo)",
+DefaultUser.story = {
+  name: "Default User (Shows when image fails to load)",
 }
