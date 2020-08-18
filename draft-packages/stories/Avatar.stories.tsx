@@ -48,9 +48,11 @@ export const PhotoPersonal = () => (
 )
 export const DefaultUser = () => (
   <>
-    <Avatar size="large" avatarSrc="broekn" fullName="Jane Doe" />
+    <Avatar size="large" avatarSrc="broken" fullName="Jane Doe" />
     <br />
-    <Avatar size="medium" avatarSrc="broekn" fullName="Jane Doe" />
+    <Avatar size="medium" avatarSrc="broken" fullName="Jane Doe" />
+    <br />
+    <Avatar size="small" avatarSrc="broken" fullName="Jane Doe" />
   </>
 )
 
