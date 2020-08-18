@@ -55,10 +55,21 @@ export const HierarchicalSelect = (props: HierarchicalSelectProps) => {
       }
     }
 
+    const handleDocumentEscape = (evt: KeyboardEvent) => {
+      if (
+        evt.key === "Escape" ||
+        evt.key === "Esc" // IE/Edge specific value
+      ) {
+        setIsOpen(false)
+      }
+    }
+
     document.addEventListener("click", handleDocumentClick)
+    document.addEventListener("keydown", handleDocumentEscape)
 
     return () => {
       document.removeEventListener("click", handleDocumentClick)
+      document.removeEventListener("keydown", handleDocumentEscape)
     }
   }, [])
 
