@@ -45,11 +45,6 @@ export interface AvatarProps {
    * @default "medium"
    */
   size?: AvatarSizes
-  /**
-   * Pass true to stretch the container to the parent.
-   * @default "false"
-   */
-  inheritSize?: boolean
 }
 
 export const Avatar = ({
