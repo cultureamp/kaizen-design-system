@@ -1,6 +1,5 @@
-import { Box, Dropdown, Heading, Paragraph } from "@kaizen/component-library"
+import { Box, Heading, Paragraph } from "@kaizen/component-library"
 import * as React from "react"
-import { Button } from "../button"
 import {
   NavigationTab,
   TitleBlockZen,
@@ -658,6 +657,65 @@ export const DefaultOnlyPrimary = () => (
 
 DefaultOnlyPrimary.story = {
   name: "Default (only primary action)",
+}
+
+export const DefaultWithReportSwitcher = () => (
+  <TitleBlockZen
+    title="Baseline Engagement Survey"
+    surveyStatus={{ text: "Live", status: "live" }}
+    pageSwitcherSelect={{
+      placeholder: "Placeholder",
+      isSearchable: false,
+      isDisabled: false,
+      options: [
+        {
+          value: "survey3",
+          label: "Engagement Survey Mid-2020 (Page Switcher edition)",
+        },
+        {
+          value: "survey1",
+          label: "Engagement Survey 2019 (Some details here)",
+        },
+        {
+          value: "survey2",
+          label: "Engagement Survey 2020 (Some details here)",
+        },
+      ],
+      defaultValue: {
+        value: "survey3",
+        label: "Administrator Report",
+      },
+    }}
+    primaryAction={{
+      label: "Primary link",
+      icon: addIcon,
+      reversed: true,
+      primary: true,
+      href: "#",
+    }}
+    handleHamburgerClick={() => {
+      alert("Hamburger clicked")
+    }}
+    breadcrumb={{
+      path: "#",
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+    navigationTabs={[
+      <NavigationTab text="Label" href="#" active />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+    ]}
+  />
+)
+
+DefaultWithReportSwitcher.story = {
+  name: "Default with report switcher",
 }
 
 export const DefaultOnlyLongTitle = () => (
