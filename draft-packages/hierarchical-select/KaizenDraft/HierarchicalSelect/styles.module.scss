@@ -1,0 +1,74 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/Input/styles.scss";
+@import "~@kaizen/draft-button/KaizenDraft/Button/styles";
+@import "~@kaizen/component-library/styles/layers";
+@import "~@kaizen/component-library/styles/layout";
+
+.container {
+  -webkit-font-smoothing: antialiased;
+  color: $kz-color-wisteria-800;
+  background-color: $kz-color-white;
+  width: 100%;
+  position: relative;
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.button {
+  @include button-reset;
+  @include ca-padding($start: $kz-spacing-sm, $end: $kz-spacing-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: $input-height;
+  border: $kz-border-solid-border-width $kz-border-solid-border-style
+    $ca-border-color;
+  border-radius: $kz-border-solid-border-radius;
+
+  &:hover,
+  &:focus {
+    .chevron {
+      color: $kz-color-wisteria-800;
+    }
+  }
+
+  &:hover {
+    border-color: $ca-border-color-hover;
+  }
+
+  &:focus {
+    border-color: $ca-border-color-focus;
+    outline: none;
+  }
+}
+
+.value {
+  @include kz-typography-paragraph-body;
+  @include ca-inherit-baseline;
+  pointer-events: none;
+}
+
+.placeholder {
+  composes: value;
+  opacity: $input-placeholder-opacity;
+}
+
+.chevron {
+  color: $kz-color-wisteria-300;
+}
+
+.chevron > svg {
+  display: block;
+}
+
+.menu {
+  position: absolute;
+  z-index: $ca-z-index-dropdown;
+}
