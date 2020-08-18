@@ -42,7 +42,7 @@ export type SelectProps = {
   fullWidth?: boolean
 }
 
-export type VariantType = "default" | "secondary"
+export type VariantType = "default" | "secondary" | "secondary-small"
 
 export const Select = (props: SelectProps & ReactSelectProps) => {
   if (props.fullWidth === false && props.variant !== "secondary") {
@@ -56,7 +56,7 @@ export const Select = (props: SelectProps & ReactSelectProps) => {
   const fullWidth =
     props.fullWidth != null
       ? props.fullWidth
-      : variant === "secondary"
+      : variant === "secondary" || variant === "secondary-small"
       ? false
       : true
 
@@ -70,6 +70,7 @@ export const Select = (props: SelectProps & ReactSelectProps) => {
     [styles.default]: !reversed,
     [styles.reversed]: reversed,
     [styles.secondary]: variant === "secondary",
+    [styles.secondarySmall]: variant === "secondary-small",
     [styles.notFullWidth]: !fullWidth,
   })
   return (
