@@ -57,6 +57,8 @@ export const Avatar = ({
     "none" | "error" | "loading" | "success"
   >(avatarSrc ? "loading" : "none")
 
+  const isLongName = getInitials(fullName).length > 2 && size !== "small"
+
   const onImageFailure = () => setAvatarState("error")
   const onImageSuccess = () => setAvatarState("success")
   return (
@@ -77,8 +79,12 @@ export const Avatar = ({
         />
       )}
       {avatarState === "none" && (
-        <div className={styles.initials}>
-          {getInitials(fullName).length > 2 && size !== "small" ? (
+        <div
+          className={cx(styles.initials, {
+            [styles.longName]: isLongName,
+          })}
+        >
+          {isLongName ? (
             // Only called if 3 or more initials, fits text width for long names
             <Textfit mode="single" max={getMaxFontSizePixels(size)}>
               {getInitials(fullName)}
