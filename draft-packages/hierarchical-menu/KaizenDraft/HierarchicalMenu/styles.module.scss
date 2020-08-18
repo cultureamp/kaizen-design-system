@@ -163,6 +163,11 @@ $delay-before-showing-loading-placeholders: 500ms;
   }
 }
 
+.disabledChildDrilldownButton {
+  composes: childDrilldownButton;
+  opacity: 0.3;
+}
+
 .keyboardHighlightedChild {
   composes: child;
   background-color: $kz-color-wisteria-100;
