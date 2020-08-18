@@ -68,6 +68,7 @@ export const HierarchicalSelect = (props: HierarchicalSelectProps) => {
         className={styles.button}
         type="button"
         onClick={() => setIsOpen(!isOpen)}
+        title={value ? value.label : placeholder}
       >
         {value ? (
           <div className={styles.value}>{value.label}</div>

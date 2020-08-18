@@ -52,7 +52,11 @@
 .value {
   @include kz-typography-paragraph-body;
   @include ca-inherit-baseline;
+  @include ca-margin($end: $kz-spacing-xs);
   pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .placeholder {

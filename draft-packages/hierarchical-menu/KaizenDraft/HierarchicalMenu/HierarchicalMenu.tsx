@@ -313,10 +313,9 @@ const Menu = (props: MenuProps) => {
                       <button
                         className={styles.childLabelButton}
                         onClick={() => onSelect(hierarchy, c)}
+                        title={c.label}
                       >
-                        <Text style="body" tag="p" inheritBaseline>
-                          {c.label}
-                        </Text>
+                        <div className={styles.childLabelText}>{c.label}</div>
                       </button>
                       {c.numberOfChildren > 0 && (
                         <button

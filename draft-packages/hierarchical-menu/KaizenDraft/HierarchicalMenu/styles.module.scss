@@ -119,6 +119,10 @@ $delay-before-showing-loading-placeholders: 500ms;
   border: $kz-border-focus-ring-border-width $kz-border-focus-ring-border-style
     $kz-border-borderless-border-color;
 
+  // allows the .childLabelText to be truncated with white-space: nowrap
+  // and not break the flexbox layout
+  min-width: 0;
+
   :global(.js-focus-visible) & {
     &:focus {
       outline: none;
@@ -128,6 +132,14 @@ $delay-before-showing-loading-placeholders: 500ms;
       border-color: $kz-color-cluny-500;
     }
   }
+}
+
+.childLabelText {
+  @include kz-typography-paragraph-body;
+  @include ca-inherit-baseline;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .childDrilldownButton {
