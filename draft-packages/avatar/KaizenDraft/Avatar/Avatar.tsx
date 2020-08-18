@@ -1,7 +1,8 @@
 import React, { useState } from "react"
 import cx from "classnames"
-import { Textfit } from "react-textfit"
 import { Icon } from "@kaizen/component-library"
+// @ts-ignore
+import { Textfit } from "react-textfit"
 // @ts-ignore
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
 // @ts-ignore
@@ -40,12 +41,9 @@ export const Avatar = ({
   const [avatarState, setAvatarState] = useState<
     "none" | "error" | "loading" | "success"
   >(avatarSrc ? "loading" : "none")
-  const onImageFailure = () => {
-    setAvatarState("error")
-  }
-  const onImageSuccess = () => {
-    setAvatarState("success")
-  }
+
+  const onImageFailure = () => setAvatarState("error")
+  const onImageSuccess = () => setAvatarState("success")
   return (
     <div
       className={cx(styles.wrapper, styles[size], {
@@ -67,7 +65,7 @@ export const Avatar = ({
         {avatarState === "none" && (
           <div className={styles.initials}>
             {getInitials(fullName).length > 3 ? (
-              // Only called if 4 or more initials, fits text width ways for long names
+              // Only called if 4 or more initials, fits text width for long names
               <Textfit mode="single">{getInitials(fullName)}</Textfit>
             ) : (
               getInitials(fullName)

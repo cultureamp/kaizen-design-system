@@ -3,23 +3,28 @@
 @import "~@kaizen/design-tokens/sass/typography";
 
 .wrapper {
-  border: 3px solid $kz-color-white;
-  box-shadow: $kz-shadow-small-box-shadow;
   background: $kz-color-stone;
   border-radius: 100%;
+  border: 3px solid $kz-color-white;
+  box-shadow: $kz-shadow-small-box-shadow;
   overflow: hidden;
   position: relative;
+
+  // Themes
 
   &.personal {
     background: $kz-color-peach-200;
   }
+
   &.otherUser {
     background: $kz-color-wisteria-200;
   }
 
+  // Sizes
+
   &.inherit {
     width: 100%;
-    padding-bottom: 100%;
+    padding-bottom: 100%; // For aspect ratio control
   }
 
   &.medium {
@@ -34,15 +39,15 @@
 }
 
 .wrapperInner {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  overflow: hidden;
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .avatarImage {
@@ -63,23 +68,24 @@
 }
 
 .initials {
-  font-family: $kz-typography-heading-3-font-family;
-  font-weight: $kz-typography-heading-3-font-weight;
-  font-size: $kz-typography-heading-3-font-size;
-  line-height: $kz-typography-heading-3-line-height;
-  letter-spacing: $kz-typography-heading-3-letter-spacing;
   box-sizing: border-box;
+  color: $kz-color-wisteria-800;
   padding-left: 5px;
   padding-right: 5px;
   text-align: center;
-  color: $kz-color-wisteria-800;
   width: 100%;
+
+  font-family: $kz-typography-heading-3-font-family;
+  font-size: $kz-typography-heading-3-font-size;
+  font-weight: $kz-typography-heading-3-font-weight;
+  letter-spacing: $kz-typography-heading-3-letter-spacing;
+  line-height: $kz-typography-heading-3-line-height;
 
   .medium & {
     font-family: $kz-typography-heading-5-font-family;
-    font-weight: $kz-typography-heading-5-font-weight;
     font-size: $kz-typography-heading-5-font-size;
-    line-height: $kz-typography-heading-5-line-height;
+    font-weight: $kz-typography-heading-5-font-weight;
     letter-spacing: $kz-typography-heading-5-letter-spacing;
+    line-height: $kz-typography-heading-5-line-height;
   }
 }

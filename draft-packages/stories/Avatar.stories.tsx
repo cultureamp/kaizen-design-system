@@ -13,34 +13,34 @@ export const DefaultStory = () => (
     <Avatar size="medium" fullName="John Smith" />
   </>
 )
+
+export const WithCurrentUserFalse = () => (
+  <>
+    <Avatar isCurrentUser={false} size="large" fullName="John Smith" />
+    <br />
+    <Avatar isCurrentUser={false} size="medium" fullName="John Smith" />
+  </>
+)
 export const WithAvatarPath = () => (
   <>
     <Avatar
       size="large"
-      avatarPath="https://www.fillmurray.com/200/300"
+      avatarSrc="https://www.fillmurray.com/200/300"
       fullName="John Smith"
     />
     <br />
     <Avatar
       size="medium"
-      avatarPath="https://www.fillmurray.com/200/300"
+      avatarSrc="https://www.fillmurray.com/200/300"
       fullName="John Smith"
     />
   </>
 )
-export const WithBrokenAvatarPath = () => (
+export const WithBrokenAvatarSrc = () => (
   <>
-    <Avatar
-      size="large"
-      avatarPath="https://broke.fillmurray.com/200/300"
-      fullName="Jane Doe"
-    />
+    <Avatar size="large" avatarSrc="broekn" fullName="Jane Doe" />
     <br />
-    <Avatar
-      size="medium"
-      avatarPath="https://broke.fillmurray.com/200/300"
-      fullName="Jane Doe"
-    />
+    <Avatar size="medium" avatarSrc="broekn" fullName="Jane Doe" />
   </>
 )
 
@@ -50,6 +50,16 @@ export const WithLongInitialFallback = () => (
     <br />
     <Avatar size="medium" fullName="Very Long Name Which Shows Initials" />
   </>
+)
+
+export const InheritContainer = () => (
+  <div
+    style={{
+      width: "100px",
+    }}
+  >
+    <Avatar size="inherit" fullName="Very Long Name Which Shows Initials" />
+  </div>
 )
 
 DefaultStory.story = {
