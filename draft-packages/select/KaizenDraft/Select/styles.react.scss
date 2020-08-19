@@ -226,6 +226,15 @@
       padding-top: 0;
       padding-bottom: 0;
       transform: translateY(1px);
+
+      // Usually reaching into the Icon component like this is a no-no, but
+      // in this case we don't have access to the component in the middle which is
+      // part of react-select. I thought this would be better than hacking the
+      // structure of that component to allow one custom prop to trickle through.
+      > svg {
+        height: 14px;
+        width: 14px;
+      }
     }
   }
 
