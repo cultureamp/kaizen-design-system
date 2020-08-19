@@ -22,7 +22,7 @@ module KaizenDraft.Select.Select exposing
 import Browser.Dom as Dom
 import CssModules exposing (css)
 import Html exposing (Html, div, input, span, text)
-import Html.Attributes exposing (id, readonly, style, tabindex, value)
+import Html.Attributes exposing (attribute, id, readonly, style, tabindex, value)
 import Html.Attributes.Aria exposing (role)
 import Html.Events exposing (on, onBlur, onFocus, preventDefaultOn)
 import Html.Extra exposing (viewIf)
@@ -733,6 +733,7 @@ view (Config config) selectId =
                 , ( .cautionary, config.selectType == Cautionary && state_.controlFocused == False )
                 , ( .error, config.selectType == Error && state_.controlFocused == False )
                 ]
+            , attribute "data-automation-id" "Select__Control"
             , preventDefaultOn "mousedown" <|
                 Decode.map
                     (\msg ->
@@ -847,6 +848,7 @@ viewMenuItem viewMenuItemData =
                     , ( .isTarget, data.menuItemIsTarget )
                     , ( .preventPointer, data.menuNavigation == Keyboard )
                     ]
+                 , attribute "data-automation-id" "Select__Option"
                  ]
                     ++ resolveMouseLeave
                     ++ resolveMouseUp

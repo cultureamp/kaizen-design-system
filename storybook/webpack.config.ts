@@ -112,11 +112,12 @@ export const elm: Rule = {
       loader: "elm-hot-webpack-loader",
     },
     {
-      loader: "elm-webpack-loader",
+      loader: resolve(__dirname, "elm-webpack-loader-fix.js"),
       options: {
         debug: false,
         cwd: resolve(__dirname, ".."),
         pathToElm: resolve(__dirname, "../node_modules/.bin/elm"),
+        forceWatch: true,
       },
     },
   ],

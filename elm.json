@@ -1,9 +1,9 @@
 {
     "type": "application",
     "source-directories": [
-        ".",
-        "./node_modules/@kaizen/component-library/components",
-        "./node_modules/@kaizen/component-library/stories",
+        "./packages/component-library/components",
+        "./packages/component-library/stories",
+        "./draft-packages/stories",
         "./draft-packages/button",
         "./draft-packages/card",
         "./draft-packages/checkbox-group",
