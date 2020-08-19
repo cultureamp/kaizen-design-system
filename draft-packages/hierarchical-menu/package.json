@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-hierarchical-menu",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "The draft hierarchical-menu component",
   "scripts": {
     "prepublish": "yarn tsc --project tsconfig.dist.json",
