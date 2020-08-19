@@ -4,12 +4,12 @@ import * as React from "react"
 const styles = require("./styles.scss")
 
 interface Tab {
-  readonly automationId: string
   readonly label: string
   readonly active?: boolean
   readonly disabled?: boolean
   readonly onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => any
   readonly href?: string
+  readonly automationId?: string
 }
 
 interface Props {
