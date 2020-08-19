@@ -46,8 +46,11 @@ $delay-before-showing-loading-placeholders: 500ms;
 }
 
 .parent {
-  margin: 0 $kz-spacing-md;
-  border-bottom: 1px $kz-border-solid-border-style $kz-color-wisteria-500;
+  margin: 0 $kz-spacing-sm;
+  border: $kz-border-borderless-border-width $kz-border-borderless-border-style
+    $kz-border-borderless-border-color;
+  border-bottom-width: 1px;
+  border-bottom-color: $kz-color-wisteria-500;
   height: $option-height;
   display: flex;
   align-items: center;
@@ -89,7 +92,9 @@ $delay-before-showing-loading-placeholders: 500ms;
 }
 
 .current {
-  margin: 0 $kz-spacing-md;
+  margin: 0 $kz-spacing-sm;
+  border: $kz-border-borderless-border-width $kz-border-borderless-border-style
+    $kz-border-borderless-border-color;
   height: $option-height;
   display: flex;
   align-items: center;
@@ -136,7 +141,7 @@ $delay-before-showing-loading-placeholders: 500ms;
   color: inherit;
   flex: 1 0;
   height: $option-height;
-  padding: 0 $kz-spacing-md;
+  padding: 0 $kz-spacing-sm;
   border: $kz-border-focus-ring-border-width $kz-border-focus-ring-border-style
     $kz-border-borderless-border-color;
   cursor: default;
@@ -168,7 +173,7 @@ $delay-before-showing-loading-placeholders: 500ms;
   @include button-reset;
   color: inherit;
   height: $option-height;
-  padding: 0 $kz-spacing-md;
+  padding: 0 $kz-spacing-sm;
   display: flex;
   align-items: center;
   border: $kz-border-focus-ring-border-width $kz-border-focus-ring-border-style
