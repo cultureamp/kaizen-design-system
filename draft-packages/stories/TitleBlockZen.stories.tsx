@@ -670,15 +670,15 @@ export const DefaultWithReportSwitcher = () => (
       options: [
         {
           value: "survey3",
-          label: "Engagement Survey Mid-2020 (Page Switcher edition)",
+          label: "Administrator Report",
         },
         {
           value: "survey1",
-          label: "Engagement Survey 2019 (Some details here)",
+          label: "Other Report",
         },
         {
           value: "survey2",
-          label: "Engagement Survey 2020 (Some details here)",
+          label: "Other Report: Redux",
         },
       ],
       defaultValue: {
