@@ -105,9 +105,8 @@ export const HierarchicalSelect = (props: HierarchicalSelectProps) => {
               <div
                 className={styles.clear}
                 // since we can't nest buttons in buttons, make this an aria
-                // accessible button with onClick, role="button" and tabindex
+                // accessible button with onClick and role="button"
                 role="button"
-                tabIndex={0}
                 onClick={evt => {
                   onClear()
                   evt.stopPropagation()
