@@ -22,7 +22,7 @@ export type HierarchyNode = {
   value: string
   label: string
   level: number
-  numberOfChildren: number
+  numberOfChildren: number | null
 }
 
 export type Hierarchy = {
@@ -114,13 +114,13 @@ export const HierarchicalMenu = (props: HierarchicalMenuProps) => {
 
   const navigateToParent = (toNode: HierarchyNode) => {
     setIsNavigating("toParent")
-    setIncomingNumberOfOptions(toNode.numberOfChildren)
+    setIncomingNumberOfOptions(toNode.numberOfChildren || 1)
     onNavigateToParent(hierarchy, toNode)
   }
 
   const navigateToChild = (toNode: HierarchyNode) => {
     setIsNavigating("toChild")
-    setIncomingNumberOfOptions(toNode.numberOfChildren)
+    setIncomingNumberOfOptions(toNode.numberOfChildren || 1)
     onNavigateToChild(hierarchy, toNode)
   }
 
@@ -275,9 +275,14 @@ const Menu = (props: MenuProps) => {
             </button>
           </div>
           <div className={styles.current}>
-            <Text style="body-bold" tag="p" inheritBaseline>
-              {hierarchy.current.label}
-            </Text>
+            <button
+              className={styles.currentButton}
+              onClick={() => onSelect(hierarchy, hierarchy.current)}
+            >
+              <Text style="body-bold" tag="p" inheritBaseline>
+                {hierarchy.current.label}
+              </Text>
+            </button>
             <Text style="small" tag="p" inheritBaseline>
               Level {hierarchy.current.level}
             </Text>
@@ -313,24 +318,24 @@ const Menu = (props: MenuProps) => {
                       <button
                         className={styles.childLabelButton}
                         onClick={() => onSelect(hierarchy, c)}
+                        title={c.label}
                       >
-                        <Text style="body" tag="p" inheritBaseline>
-                          {c.label}
-                        </Text>
+                        <div className={styles.childLabelText}>{c.label}</div>
                       </button>
-                      {c.numberOfChildren > 0 && (
+                      {c.numberOfChildren == null && (
+                        <button
+                          className={styles.disabledChildDrilldownButton}
+                          disabled
+                        >
+                          <DrilldownChevron label={c.label} dir={dir} />
+                        </button>
+                      )}
+                      {c.numberOfChildren != null && c.numberOfChildren > 0 && (
                         <button
                           className={styles.childDrilldownButton}
                           onClick={() => onNavigateToChild(c)}
                         >
-                          <div className={styles.childDrilldownButtonIcon}>
-                            <Icon
-                              icon={dir === "ltr" ? chevronRight : chevronLeft}
-                              role="img"
-                              title={`Drill down on ${c.label}`}
-                              inheritSize
-                            />
-                          </div>
+                          <DrilldownChevron label={c.label} dir={dir} />
                         </button>
                       )}
                     </div>
@@ -344,6 +349,23 @@ const Menu = (props: MenuProps) => {
     </div>
   )
 }
+
+const DrilldownChevron = ({
+  label,
+  dir,
+}: {
+  label: string
+  dir: MenuDirection
+}) => (
+  <div className={styles.childDrilldownButtonIcon}>
+    <Icon
+      icon={dir === "ltr" ? chevronRight : chevronLeft}
+      role="img"
+      title={`Drill down on ${label}`}
+      inheritSize
+    />
+  </div>
+)
 
 interface LoadingMenuProps {
   transitionLevel: "parent" | "child" | null

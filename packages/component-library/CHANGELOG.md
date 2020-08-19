@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.27.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.26.0...@kaizen/component-library@7.27.0) (2020-08-19)
+
+
+### Features
+
+* Elm Box component ([#713](https://github.com/cultureamp/kaizen-design-system/issues/713)) ([74fc272](https://github.com/cultureamp/kaizen-design-system/commit/74fc27286bc9e7ccdf9ee9766617a7a72890aa67))
+
+
+
+
+
 # [7.26.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.25.1...@kaizen/component-library@7.26.0) (2020-08-12)
 
 
