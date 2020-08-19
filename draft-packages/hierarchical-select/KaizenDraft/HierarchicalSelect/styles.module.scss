@@ -27,7 +27,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  min-height: $input-height;
+  height: $input-height;
   border: $kz-border-solid-border-width $kz-border-solid-border-style
     $ca-border-color;
   border-radius: $kz-border-solid-border-radius;
@@ -35,7 +35,7 @@
   &:hover,
   &:focus {
     .chevron {
-      color: $kz-color-wisteria-800;
+      color: $kz-color-wisteria-500;
     }
   }
 
@@ -52,7 +52,11 @@
 .value {
   @include kz-typography-paragraph-body;
   @include ca-inherit-baseline;
+  @include ca-margin($end: $kz-spacing-xs);
   pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .placeholder {
@@ -60,10 +64,34 @@
   opacity: $input-placeholder-opacity;
 }
 
-.chevron {
+.indicators {
   color: $kz-color-wisteria-300;
+  display: flex;
 }
 
+.separator {
+  @include ca-margin($start: $kz-spacing-sm, $end: $kz-spacing-sm);
+  border-left: 1px solid currentColor;
+}
+
+.clear {
+  &:hover {
+    color: $kz-color-wisteria-500;
+  }
+
+  :global(.js-focus-visible) & {
+    &:focus {
+      outline: none;
+    }
+
+    &:global(.focus-visible) {
+      outline: $kz-border-focus-ring-border-width
+        $kz-border-focus-ring-border-style $kz-color-cluny-500;
+    }
+  }
+}
+
+.clear > svg,
 .chevron > svg {
   display: block;
 }

@@ -14,7 +14,7 @@ interface StoryContainerRenderProps {
   hierarchy: Hierarchy | null
   setHierarchy: (hierarchy: Hierarchy) => void
   value: HierarchyNode | null
-  setValue: (value: HierarchyNode) => void
+  setValue: (value: HierarchyNode | null) => void
 }
 
 interface StoryContainerProps {
@@ -67,6 +67,7 @@ export const DefaultStory = () => (
             setHierarchy(currentHierarchy)
             setValue(toNode)
           }}
+          onClear={() => setValue(null)}
           placeholder="Select..."
           value={value}
         />
@@ -92,6 +93,7 @@ export const RtlStory = () => (
               setHierarchy(currentHierarchy)
               setValue(toNode)
             }}
+            onClear={() => setValue(null)}
             placeholder="Select RTL..."
             value={value}
             dir="rtl"
