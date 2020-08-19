@@ -59,6 +59,7 @@ $delay-before-showing-loading-placeholders: 500ms;
   display: flex;
   align-items: center;
   width: 100%;
+  cursor: default;
 
   :global(.js-focus-visible) & {
     &:focus {
@@ -101,6 +102,7 @@ $delay-before-showing-loading-placeholders: 500ms;
   @include ca-margin($end: $kz-spacing-md);
   color: inherit;
   flex: 1;
+  cursor: default;
 
   :global(.js-focus-visible) & {
     &:focus {
@@ -137,6 +139,7 @@ $delay-before-showing-loading-placeholders: 500ms;
   padding: 0 $kz-spacing-md;
   border: $kz-border-focus-ring-border-width $kz-border-focus-ring-border-style
     $kz-border-borderless-border-color;
+  cursor: default;
 
   // allows the .childLabelText to be truncated with white-space: nowrap
   // and not break the flexbox layout
@@ -170,6 +173,7 @@ $delay-before-showing-loading-placeholders: 500ms;
   align-items: center;
   border: $kz-border-focus-ring-border-width $kz-border-focus-ring-border-style
     $kz-border-borderless-border-color;
+  cursor: default;
 
   :global(.js-focus-visible) & {
     &:focus {
