@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@3.0.5...@kaizen/draft-tabs@3.1.0) (2020-08-19)
+
+
+### Features
+
+* Add automation IDs to Tabs ([#719](https://github.com/cultureamp/kaizen-design-system/issues/719)) ([c97603c](https://github.com/cultureamp/kaizen-design-system/commit/c97603c2ec2bc710a772d76209d409309c2219a8))
+
+
+
+
+
 ## [3.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@3.0.4...@kaizen/draft-tabs@3.0.5) (2020-08-19)
 
 **Note:** Version bump only for package @kaizen/draft-tabs
