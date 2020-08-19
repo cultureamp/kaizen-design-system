@@ -10,18 +10,17 @@
   grid-gap: $kz-spacing-md;
   justify-content: start;
   justify-items: start;
+  align-items: center;
 
   @include ca-media-mobile {
-    display: block;
-  }
-}
+    grid-template-columns: repeat(2, minmax(226px, 370px));
 
-.tile {
-  @include ca-media-mobile {
-    @include ca-margin($bottom: $kz-spacing-md);
-
-    &:last-child {
-      margin: 0;
+    > * {
+      width: 100%;
     }
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(1, 100%);
   }
 }

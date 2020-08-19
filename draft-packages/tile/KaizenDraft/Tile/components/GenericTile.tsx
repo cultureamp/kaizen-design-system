@@ -48,7 +48,7 @@ const GenericTile: GenericTile = ({
 
   const renderTitle = () => (
     <div className={styles.title}>
-      <Heading variant="heading-4">{title}</Heading>
+      <Heading variant="heading-3">{title}</Heading>
       {metadata && (
         <Box pt={0.25}>
           <Paragraph variant="small" color="dark-reduced-opacity">
@@ -73,7 +73,7 @@ const GenericTile: GenericTile = ({
   )
 
   const renderFront = () => (
-    <div className={styles.face}>
+    <div className={classNames(styles.face, styles.faceFront)}>
       {information && (
         <div className={styles.informationBtn}>
           <IconButton
@@ -86,7 +86,7 @@ const GenericTile: GenericTile = ({
       )}
       {renderTitle()}
       <div className={styles.children}>{children && children}</div>
-      {footer && footer}
+      {footer && <div className={styles.footer}>{footer}</div>}
     </div>
   )
 
@@ -108,9 +108,11 @@ const GenericTile: GenericTile = ({
         {renderTitle()}
         <div className={styles.information}>
           <Paragraph variant="body">{text}</Paragraph>
-          <Box pt={0.5}>
-            {renderActions(primaryAction, secondaryAction, !isFlipped)}
-          </Box>
+          {(primaryAction || secondaryAction) && (
+            <div className={styles.footer}>
+              {renderActions(primaryAction, secondaryAction, !isFlipped)}
+            </div>
+          )}
         </div>
       </div>
     )
