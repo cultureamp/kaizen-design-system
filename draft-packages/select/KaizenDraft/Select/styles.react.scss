@@ -46,6 +46,13 @@
     border: 6px $kz-border-solid-border-style transparent;
     border-radius: $kz-border-solid-border-radius;
     box-shadow: $kz-shadow-large-box-shadow;
+
+    // built-in class of React Select that is not easily styled any other way in CSS
+    // (This is the "MenuList" div that wraps all the options)
+    > div {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   }
 
   .option {
