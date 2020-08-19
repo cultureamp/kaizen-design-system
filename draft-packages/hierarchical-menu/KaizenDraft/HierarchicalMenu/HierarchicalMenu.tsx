@@ -275,9 +275,14 @@ const Menu = (props: MenuProps) => {
             </button>
           </div>
           <div className={styles.current}>
-            <Text style="body-bold" tag="p" inheritBaseline>
-              {hierarchy.current.label}
-            </Text>
+            <button
+              className={styles.currentButton}
+              onClick={() => onSelect(hierarchy, hierarchy.current)}
+            >
+              <Text style="body-bold" tag="p" inheritBaseline>
+                {hierarchy.current.label}
+              </Text>
+            </button>
             <Text style="small" tag="p" inheritBaseline>
               Level {hierarchy.current.level}
             </Text>

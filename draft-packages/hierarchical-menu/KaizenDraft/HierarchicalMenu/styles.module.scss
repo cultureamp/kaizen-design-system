@@ -95,6 +95,25 @@ $delay-before-showing-loading-placeholders: 500ms;
   justify-content: space-between;
 }
 
+.currentButton {
+  @include button-reset;
+  @include ca-type-align-start;
+  @include ca-margin($end: $kz-spacing-md);
+  color: inherit;
+  flex: 1;
+
+  :global(.js-focus-visible) & {
+    &:focus {
+      outline: none;
+    }
+
+    &:global(.focus-visible) {
+      outline: $kz-border-focus-ring-border-width
+        $kz-border-focus-ring-border-style $kz-color-cluny-300;
+    }
+  }
+}
+
 .body {
   @include ca-margin($end: 4px);
   background-color: $kz-color-white;
