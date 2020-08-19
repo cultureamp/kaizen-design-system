@@ -33,10 +33,11 @@
   "dependencies": {
     "@kaizen/component-library": "^7.27.0",
     "@kaizen/draft-button": "^1.13.3",
-    "@kaizen/draft-form": "^2.4.3"
+    "@kaizen/draft-form": "^2.4.3",
+    "@kaizen/draft-hierarchical-menu": "^1.1.0"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^1.6.0",
-    "react": "^16.9.0"
+    "@kaizen/design-tokens": "^2.1.1",
+    "react": "^16.13.1"
   }
 }

@@ -2,10 +2,15 @@ import { useCallback, useEffect, useState } from "react"
 
 enum Keys {
   ARROW_DOWN = "ArrowDown",
+  ARROW_DOWN_IE = "Down", // IE/Edge specific value
   ARROW_UP = "ArrowUp",
+  ARROW_UP_IE = "Up", // IE/Edge specific value
   ARROW_RIGHT = "ArrowRight",
+  ARROW_RIGHT_IE = "Right", // IE/Edge specific value
   ARROW_LEFT = "ArrowLeft",
+  ARROW_LEFT_IE = "Left", // IE/Edge specific value
   SPACE = " ",
+  SPACE_IE = "Spacebar", // IE/Edge specific value
   ENTER = "Enter",
 }
 
@@ -86,7 +91,10 @@ export const KeyboardNavigableList = (props: Props) => {
     evt => {
       // don't interfere with keyboard SPACE and ENTER events on native
       // interactive elements like <a>, <button>
-      if (evt.target !== document.body) {
+      if (
+        evt.target !== document.body &&
+        evt.target !== document.documentElement // IE/Edge specific value
+      ) {
         return
       }
 
@@ -100,14 +108,23 @@ export const KeyboardNavigableList = (props: Props) => {
     (evt: KeyboardEvent) => {
       switch (evt.key) {
         case Keys.ARROW_UP:
+        case Keys.ARROW_UP_IE:
           return up(evt)
+
         case Keys.ARROW_DOWN:
+        case Keys.ARROW_DOWN_IE:
           return down(evt)
+
         case Keys.ARROW_LEFT:
+        case Keys.ARROW_LEFT_IE:
           return dir === "ltr" ? back(evt) : forward(evt)
+
         case Keys.ARROW_RIGHT:
+        case Keys.ARROW_RIGHT_IE:
           return dir === "ltr" ? forward(evt) : back(evt)
+
         case Keys.SPACE:
+        case Keys.SPACE_IE:
         case Keys.ENTER:
           return select(evt)
         default:

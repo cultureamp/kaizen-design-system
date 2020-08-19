@@ -39,7 +39,7 @@
     "react-transition-group": "^4.4.1"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^1.6.0",
-    "react": "^16.9.0"
+    "@kaizen/design-tokens": "^2.1.1",
+    "react": "^16.13.1"
   }
 }
