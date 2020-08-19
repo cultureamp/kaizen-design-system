@@ -69,6 +69,7 @@ export const HierarchicalSelect = (props: HierarchicalSelectProps) => {
         case "Backspace":
         case "Delete":
           if (hasOriginatedFromChildElement(evt)) {
+            evt.preventDefault()
             onClear()
             return
           }
