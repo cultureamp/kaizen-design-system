@@ -4,6 +4,7 @@ import * as React from "react"
 const styles = require("./styles.scss")
 
 interface Tab {
+  readonly automationId: string
   readonly label: string
   readonly active?: boolean
   readonly disabled?: boolean
@@ -60,6 +61,7 @@ const RowTab = ({ tabs, renderTab, textDirection }) => (
         })
       ) : (
         <a
+          data-automation-id={t.automationId}
           key={t.label}
           onClick={t.onClick}
           href={!t.disabled ? t.href : null}
@@ -88,6 +90,7 @@ const VerticalTab = ({ tabs, renderTab, textDirection }) => (
         })
       ) : (
         <a
+          data-automation-id={t.automationId}
           key={t.label}
           onClick={t.onClick}
           href={!t.disabled ? t.href : null}
