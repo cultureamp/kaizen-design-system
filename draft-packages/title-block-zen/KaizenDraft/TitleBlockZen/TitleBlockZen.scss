@@ -396,7 +396,7 @@ $tab-container-height-small: $ca-grid * 2.5;
 
 .pageSwitcherSelectNextToTitle {
   flex-shrink: 0;
-  max-width: 10 * $ca-grid;
+  width: 10 * $ca-grid;
 }
 
 .pageSwitcherSelectUnderneathTitle {

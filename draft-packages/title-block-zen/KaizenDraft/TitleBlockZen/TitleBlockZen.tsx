@@ -477,6 +477,7 @@ const TitleBlockZen = ({
                         {...pageSwitcherSelect}
                         variant="secondary"
                         reversed
+                        fullWidth
                       />
                     </div>
                   )}
