@@ -8,16 +8,16 @@ exports[`<InformationTile /> snapshots renders InformationTile 1`] = `
     class="tile"
   >
     <div
-      class="face"
+      class="face faceFront"
     >
       <div
         class="title"
       >
-        <h4
-          class="heading heading-4 dark small"
+        <h3
+          class="heading heading-3 dark small"
         >
           Title
-        </h4>
+        </h3>
         <div
           class="pt-0-point-25 m-0"
         >
@@ -31,8 +31,12 @@ exports[`<InformationTile /> snapshots renders InformationTile 1`] = `
       <div
         class="children"
       />
-      <div>
-        Hello world
+      <div
+        class="footer"
+      >
+        <div>
+          Hello world
+        </div>
       </div>
     </div>
   </div>
@@ -47,16 +51,16 @@ exports[`<InformationTile /> snapshots renders InformationTile with children 1`]
     class="tile"
   >
     <div
-      class="face"
+      class="face faceFront"
     >
       <div
         class="title"
       >
-        <h4
-          class="heading heading-4 dark small"
+        <h3
+          class="heading heading-3 dark small"
         >
           Title
-        </h4>
+        </h3>
         <div
           class="pt-0-point-25 m-0"
         >
@@ -74,8 +78,12 @@ exports[`<InformationTile /> snapshots renders InformationTile with children 1`]
           Child content
         </div>
       </div>
-      <div>
-        Hello world
+      <div
+        class="footer"
+      >
+        <div>
+          Hello world
+        </div>
       </div>
     </div>
   </div>
@@ -90,7 +98,7 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
     class="tile"
   >
     <div
-      class="face"
+      class="face faceFront"
     >
       <div
         class="informationBtn"
@@ -130,11 +138,11 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
       <div
         class="title"
       >
-        <h4
-          class="heading heading-4 dark small"
+        <h3
+          class="heading heading-3 dark small"
         >
           Title
-        </h4>
+        </h3>
         <div
           class="pt-0-point-25 m-0"
         >
@@ -152,8 +160,12 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
           Child content
         </div>
       </div>
-      <div>
-        Hello world
+      <div
+        class="footer"
+      >
+        <div>
+          Hello world
+        </div>
       </div>
     </div>
     <div
@@ -198,11 +210,11 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
       <div
         class="title"
       >
-        <h4
-          class="heading heading-4 dark small"
+        <h3
+          class="heading heading-3 dark small"
         >
           Title
-        </h4>
+        </h3>
         <div
           class="pt-0-point-25 m-0"
         >
@@ -222,7 +234,7 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
           Additional information can be included on the underside of the tile and viewed on click of the information icon.
         </p>
         <div
-          class="pt-0-point-5 m-0"
+          class="footer"
         >
           <div
             class="actions"
@@ -262,16 +274,16 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile 1`] = `
     class="tile"
   >
     <div
-      class="face"
+      class="face faceFront"
     >
       <div
         class="title"
       >
-        <h4
-          class="heading heading-4 dark small"
+        <h3
+          class="heading heading-3 dark small"
         >
           Title
-        </h4>
+        </h3>
         <div
           class="pt-0-point-25 m-0"
         >
@@ -286,27 +298,31 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile 1`] = `
         class="children"
       />
       <div
-        class="actions"
+        class="footer"
       >
-        <span
-          class="container"
+        <div
+          class="actions"
         >
-          <a
-            class="button"
-            href="href"
-            target="_self"
+          <span
+            class="container"
           >
-            <span
-              class="content"
+            <a
+              class="button"
+              href="href"
+              target="_self"
             >
               <span
-                class="label"
+                class="content"
               >
-                View
+                <span
+                  class="label"
+                >
+                  View
+                </span>
               </span>
-            </span>
-          </a>
-        </span>
+            </a>
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -321,16 +337,16 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with secondary ac
     class="tile"
   >
     <div
-      class="face"
+      class="face faceFront"
     >
       <div
         class="title"
       >
-        <h4
-          class="heading heading-4 dark small"
+        <h3
+          class="heading heading-3 dark small"
         >
           Title
-        </h4>
+        </h3>
         <div
           class="pt-0-point-25 m-0"
         >
@@ -345,46 +361,50 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with secondary ac
         class="children"
       />
       <div
-        class="actions"
+        class="footer"
       >
-        <span
-          class="container"
+        <div
+          class="actions"
         >
-          <a
-            class="button secondary"
-            href="href2"
-            target="_self"
+          <span
+            class="container"
           >
-            <span
-              class="content"
+            <a
+              class="button secondary"
+              href="href2"
+              target="_self"
             >
               <span
-                class="label"
+                class="content"
               >
-                Preview
+                <span
+                  class="label"
+                >
+                  Preview
+                </span>
               </span>
-            </span>
-          </a>
-        </span>
-        <span
-          class="container"
-        >
-          <a
-            class="button"
-            href="href"
-            target="_self"
+            </a>
+          </span>
+          <span
+            class="container"
           >
-            <span
-              class="content"
+            <a
+              class="button"
+              href="href"
+              target="_self"
             >
               <span
-                class="label"
+                class="content"
               >
-                View
+                <span
+                  class="label"
+                >
+                  View
+                </span>
               </span>
-            </span>
-          </a>
-        </span>
+            </a>
+          </span>
+        </div>
       </div>
     </div>
   </div>

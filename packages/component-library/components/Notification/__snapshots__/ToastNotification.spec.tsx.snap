@@ -3,6 +3,7 @@
 exports[`The basic notification renders correctly 1`] = `
 <div
   class="notification affirmative toast hidden"
+  data-automation-class="generic-notification affirmative toast"
   style="margin-top: 0px;"
 >
   <div
