@@ -1,27 +1,41 @@
 ---
 title: "<%= componentName %>"
 navTitle: "<%= componentName %>"
-summaryParagraph: <%= componentName %>s are a neat component
-tags: [""]
+summaryParagraph: <%= componentName %> lets the user...
+tags: ["Common alternative name", "Another example"]
 demoStoryId:  <%= componentName %>-react--default-kaizen-site-demo
 ---
 
 import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
 import WhenToUse from "docs-components/WhenToUse"
 import WhenNotToUse from "docs-components/WhenNotToUse"
+import DoAndDontContainer from "docs-components/DoAndDontContainer"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
 
 <WhenToUseAndWhenNotToUse>
 
 <WhenToUse>
-* Use this for the thing
+
+* Use <%= componentName %> when...
+
 </WhenToUse>
 
 <WhenNotToUse>
-* Don't use this for the other thing though! 
+
+* When X, use Y component instead.
+
 </WhenNotToUse>
+
 </WhenToUseAndWhenNotToUse>
 
 ## See also
+- TODO - Is there a relevant or related component? Add it here.
+* [Button](/components/button/)
 
 ## External links
+- TODO - find relevant examples from other systems and add them here.
+- [Polaris: button](https://polaris.shopify.com/components/actions/button)
+- [Atlassian: button](https://www.atlassian.design/components/button/examples)
+
 
