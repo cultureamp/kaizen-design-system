@@ -46,7 +46,7 @@ module.exports = class extends Generator {
     )
 
     this.fs.copyTpl(
-      this.templatePath("README.txt"),
+      this.templatePath("README.mdx"),
       this.destinationPath(`${packageLocation}README.mdx`),
       { componentName }
     )
