@@ -54,6 +54,7 @@ $tab-container-height-small: $ca-grid * 2.5;
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 
   @include title-block-medium-and-small {
     margin: 0 $title-block-margin-width-on-medium-and-small;
@@ -94,42 +95,19 @@ $tab-container-height-small: $ca-grid * 2.5;
 .title {
   display: flex;
   align-items: center;
-  max-width: 724px;
+  min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 
-  .hasLongTitle.hasLongSubtitle & {
-    @include title-block-under-1645 {
-      max-width: 520px;
-    }
-
-    @include title-block-under-1366 {
-      max-width: 50vw;
-    }
-
-    @media (max-width: 899px) {
-      max-width: 44vw;
-    }
-
-    @include title-block-small {
-      max-width: 83vw;
-    }
-  }
-
-  @include title-block-under-1645 {
-    max-width: 44vw;
-  }
-
+  // Applying width 100% when the title is *not* long and is followed by a subtitle
+  // causes misalignment of both.
   @include title-block-under-1366 {
-    max-width: 42vw;
-  }
-
-  @include title-block-small {
-    max-width: 83vw;
+    width: 100%;
   }
 }
 
 .titleAndSubtitle {
   display: flex;
   align-items: center;
+  min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 
   .hasSubtitle & {
     @include title-block-under-1366 {
@@ -141,7 +119,9 @@ $tab-container-height-small: $ca-grid * 2.5;
 
 .titleAndSubtitleInner {
   display: flex;
+  min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 
+  // TODO: removing .hasLongTitle here fixes the alignment on Performance story, but we should be able to not wrap subtitle.
   .hasSubtitle.hasLongTitle.hasLongSubtitle & {
     align-items: center;
 
@@ -377,11 +357,13 @@ $tab-container-height-small: $ca-grid * 2.5;
 
 .titleAndAdjacent {
   display: flex;
+  min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 }
 
 .titleAndAdjacentNotBreadcrumb {
   display: flex;
   transition: opacity 0.3s ease;
+  min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 
   .breadcrumb:hover + &,
   .breadcrumb:focus + & {
@@ -528,9 +510,8 @@ $tab-container-height-small: $ca-grid * 2.5;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  flex-basis: 480px;
   flex-grow: 1;
-  flex-shrink: 1;
+  flex-shrink: 0;
 
   @include ca-margin($start: $ca-grid / 2);
 

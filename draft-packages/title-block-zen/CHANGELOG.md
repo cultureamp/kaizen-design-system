@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.22...@kaizen/draft-title-block-zen@1.6.23) (2020-08-19)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [1.6.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.21...@kaizen/draft-title-block-zen@1.6.22) (2020-08-12)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [1.6.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.20...@kaizen/draft-title-block-zen@1.6.21) (2020-08-11)
+
+
+### Bug Fixes
+
+* Make TitleBlockZen title extend full width when no buttons ([#660](https://github.com/cultureamp/kaizen-design-system/issues/660)) ([8c31427](https://github.com/cultureamp/kaizen-design-system/commit/8c3142771638d18fffb5a4c015f28cebe6fbb9ec))
+
+
+
+
+
+## [1.6.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.19...@kaizen/draft-title-block-zen@1.6.20) (2020-08-10)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
 ## [1.6.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.18...@kaizen/draft-title-block-zen@1.6.19) (2020-08-04)
 
 

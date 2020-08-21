@@ -1,3 +1,5 @@
+/* !!! This component is deprecated. Please do not use for new code  !!! */
+
 import classNames from "classnames"
 import * as React from "react"
 import { Icon } from "../Icon"

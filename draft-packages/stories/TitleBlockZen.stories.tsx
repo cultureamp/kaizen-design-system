@@ -659,3 +659,24 @@ export const DefaultOnlyPrimary = () => (
 DefaultOnlyPrimary.story = {
   name: "Default (only primary action)",
 }
+
+export const DefaultOnlyLongTitle = () => (
+  <TitleBlockZen
+    title='Page title that is over the "long title" character threshold and goes way longer than usual'
+    subtitle="Subtitle goes here"
+    handleHamburgerClick={() => {
+      alert("Hamburger clicked")
+    }}
+    breadcrumb={{
+      path: "#",
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+  />
+)
+
+DefaultOnlyLongTitle.story = {
+  name: "Default (only long title)",
+}
