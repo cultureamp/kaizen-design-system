@@ -22,7 +22,7 @@ setup_github() {
   echo "$GH_SSH_KEY" | ssh-add -
 
   echo "Adding GitHub host key to known hosts..."
-  echo "$GITHUB_SSH_HOST_KEY" | tr -d "\\n" >> /etc/ssh/ssh_known_hosts
+  echo "$GITHUB_SSH_HOST_KEY" | tr -d "\\n" >>/etc/ssh/ssh_known_hosts
 
   echo "Checking GitHub authentication..."
   ssh -T git@github.com || true # exits non-zero
@@ -47,24 +47,49 @@ release() {
 
   # Bump packages, push and tag a release commit, and update release notes
   yarn lerna version --conventional-commits --create-release=github --yes \
-    --message "chore: release [skip ci]" 
-  
+    --message "chore: release [skip ci]"
+
   # Publish any package versions which are not already present on npm
   yarn lerna publish from-package --yes
+}
+
+release_canary() {
+  yarn install --frozen-lockfile
+
+  CANARY_LABEL=$(echo "$BUILDKITE_BRANCH" | sed 's/[^0-9A-Za-z-]/-/g')
+
+  yarn lerna publish --canary --preid "$CANARY_LABEL" --yes
 }
 
 main() {
   export GH_SSH_KEY GH_TOKEN NPM_TOKEN
 
-  printf "Fetching secrets... "
-  GH_SSH_KEY=$(get_secret "github-ssh-key") || exit $?
-  GH_TOKEN=$(get_secret "github-api-token") || exit $?
-  NPM_TOKEN=$(get_secret "npm-token") || exit $?
-  echo "(done)"
+  if [ "$BUILDKITE_BRANCH" = master ]; then
 
-  setup_github
-  setup_npm
-  release
+    echo "Branch: master"
+
+    printf "Fetching secrets... "
+    GH_SSH_KEY=$(get_secret "github-ssh-key") || exit $?
+    GH_TOKEN=$(get_secret "github-api-token") || exit $?
+    NPM_TOKEN=$(get_secret "npm-token") || exit $?
+    echo "(done)"
+
+    setup_github
+    setup_npm
+    release
+
+  else
+
+    echo "Branch: non-master (canary release)"
+
+    printf "Fetching secrets... "
+    NPM_TOKEN=$(get_secret "npm-token") || exit $?
+    echo "(done)"
+
+    setup_npm
+    release_canary
+
+  fi
 
   unset GH_SSH_KEY GH_TOKEN NPM_TOKEN
 }
