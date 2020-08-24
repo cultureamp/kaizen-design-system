@@ -48,6 +48,7 @@ export type MenuProps = {
   opaque?: boolean
   small?: boolean
   colorScheme?: ColorScheme
+  showIndicator?: boolean
 }
 
 export type MenuItemProps = {

@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/layout";
 @import "../styles";
@@ -60,4 +61,10 @@
     width: auto;
     margin-left: 0;
   }
+}
+
+.indicatorIcon {
+  @include ca-margin($end: 4px);
+  width: $kz-spacing-sm;
+  color: $kz-color-seedling-400;
 }

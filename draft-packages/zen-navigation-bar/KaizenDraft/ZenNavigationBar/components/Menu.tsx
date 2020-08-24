@@ -7,7 +7,7 @@ import { OffCanvasContext, ZenOffCanvas } from "@kaizen/draft-zen-off-canvas"
 import classNames from "classnames"
 import Media from "react-media"
 import { NavBarContext } from "../context"
-import { ColorScheme, MenuProps, NavigationItem } from "../types"
+import { MenuProps, NavigationItem } from "../types"
 import Dropdown from "./Dropdown"
 import Link from "./Link"
 import MenuGroup from "./MenuGroup"
@@ -15,6 +15,8 @@ import MenuGroup from "./MenuGroup"
 const arrowLeftIcon = require("@kaizen/component-library/icons/arrow-left.icon.svg")
   .default
 const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
+  .default
+const fullIcon = require("@kaizen/component-library/icons/full.icon.svg")
   .default
 
 const styles = require("./Menu.module.scss")
@@ -32,6 +34,7 @@ export default class Menu extends React.Component<MenuProps, State> {
     mobileEnabled: true,
     small: false,
     opaque: false,
+    showIndicator: false,
   }
   rootRef = React.createRef<any>()
 
@@ -52,6 +55,7 @@ export default class Menu extends React.Component<MenuProps, State> {
       items,
       header,
       colorScheme,
+      showIndicator,
     } = this.props
 
     return (
@@ -103,6 +107,16 @@ export default class Menu extends React.Component<MenuProps, State> {
                           icon={icon}
                           role="presentation"
                           title={`${heading} icon`}
+                        />
+                      </span>
+                    )}
+                    {showIndicator && (
+                      <span className={styles.indicatorIcon}>
+                        <Icon
+                          icon={fullIcon}
+                          role="presentation"
+                          title={`${heading} indicator`}
+                          inheritSize
                         />
                       </span>
                     )}

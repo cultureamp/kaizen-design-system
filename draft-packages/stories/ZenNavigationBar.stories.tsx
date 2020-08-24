@@ -419,6 +419,7 @@ export const WithFooterAndHeaderComponents = () => (
       secondary: [
         <Menu
           heading="Admin"
+          showIndicator
           items={[
             {
               label: "Skills",
