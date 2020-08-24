@@ -14,6 +14,11 @@ export type NavigationChange = (
 
 export type NavigationItem = ReactElement<LinkProps> | ReactElement<MenuProps>
 
+export type Badge = {
+  kind: "new" | "notification"
+  text: string
+}
+
 export type LinkProps = {
   icon?: React.SVGAttributes<SVGSymbolElement>
   text?: string
@@ -25,10 +30,7 @@ export type LinkProps = {
   hasMenu?: boolean
   onClick?: NavigationChange
   menuOpen?: boolean
-  badge?: {
-    kind: "new" | "notification"
-    text: string
-  }
+  badge?: Badge
   opaque?: boolean
   small?: boolean
   colorScheme?: ColorScheme
@@ -55,6 +57,7 @@ export type MenuItemProps = {
   showArrowIcon?: boolean
   active?: boolean
   onClick?: NavigationChange
+  badge?: Badge
 }
 
 export type MenuGroupProps = {

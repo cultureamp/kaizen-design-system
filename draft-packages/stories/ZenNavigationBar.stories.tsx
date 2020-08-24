@@ -451,6 +451,10 @@ export const WithFooterAndHeaderComponents = () => (
                 {
                   label: "Feedback stats",
                   url: "/",
+                  badge: {
+                    kind: "new",
+                    text: "New",
+                  },
                 },
               ],
             },
