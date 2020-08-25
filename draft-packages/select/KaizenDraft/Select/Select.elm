@@ -1,9 +1,13 @@
 module KaizenDraft.Select.Select exposing
     ( Action(..)
+    , Config
+    , MenuItem
     , Msg
     , SelectType(..)
     , State
     , Style(..)
+    , Variant(..)
+    , defaults
     , initState
     , isLoading
     , menuItems
@@ -334,7 +338,7 @@ usePorts predicate (State state_) =
 -- UPDATE
 
 
-update : Msg value -> State -> ( Action value, State, Cmd (Msg value) )
+update : Msg item -> State -> ( Action item, State, Cmd (Msg item) )
 update msg (State state_) =
     case msg of
         EnterSelect item ->
@@ -634,7 +638,7 @@ update msg (State state_) =
 -- The id value needs to be a unique id
 
 
-view : Config value -> SelectId -> Html (Msg value)
+view : Config item -> SelectId -> Html (Msg item)
 view (Config config) selectId =
     let
         (State state_) =
@@ -1296,7 +1300,7 @@ queryActiveTargetElement selectId index =
     Dom.getElement (menuItemId selectId index)
 
 
-queryNodesForViewportFocus : SelectId -> Int -> Cmd (Msg value)
+queryNodesForViewportFocus : SelectId -> Int -> Cmd (Msg item)
 queryNodesForViewportFocus selectId menuItemIndex =
     Task.attempt (FocusMenuViewport selectId) <|
         Task.map2 (\menuListElem menuItemElem -> ( MenuListElement menuListElem, MenuItemElement menuItemElem ))
