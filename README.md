@@ -60,6 +60,13 @@ While the main site is located at <https://cultureamp.design>, all branches in t
 
 For example, pushing the branch `louis/more-glitter` would make its documentation and Storybook build available at `dev.cultureamp.design/louis/more-glitter`.
 
+## Canary Releases 
+Canary releases are a great way to reduce the risk of your changes. Use canary releases when you're working on a significant refactor, experimenting with new technology, or making other large scale changes. 
+
+Canary branches are protected, and can only be created by the admins of this repo. Once you have a canary branch set up, any subsequent PR + merge into that branch will release a package. As an example, a repo admin 
+might set up `canary/pink-button` for your experimental visual changes. When you're happy with the state of your current branch, say `ally/even-more-glitter`, you would open a PR from `ally/even-more-glitter` into 
+`canary/pink-button`, receive the expected amount of reviews, then merge your changes into `canary/pink-button`. This will trigger the canary release pipeline and release `<new_version>-canary-pink-button.<hash>`.
+
 ## Package scripts
 
 It's dangerous to go alone! Take these:
