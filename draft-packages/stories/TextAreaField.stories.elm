@@ -116,7 +116,7 @@ main =
                             |> TextAreaField.onEnter TextFieldEnter
                             |> TextAreaField.rows 4
                             |> TextAreaField.validationMessage "Enter a reply"
-                            |> TextAreaField.status TextAreaField.Success
+                            |> TextAreaField.status TextAreaField.Error
                         )
                     ]
                     False
