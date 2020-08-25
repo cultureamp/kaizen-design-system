@@ -6,9 +6,17 @@ export interface <%= componentName %>Props {
    * Remember to annotate your props! The typehints make developers happy
    * @default ""
    */
-  children?: React.ReactNode
+  children?: React.ReactNode,
+
+  /**
+   * Uniquely identify this component for testing purposes
+   * @default ""
+   */
+  automationId?: string
 }
 
-export const <%= componentName %> = ({ children }: <%= componentName %>Props) => {
-  return <h1 className={styles.wrapper}>Hello, {children}</h1>
-}
+export const <%= componentName %> = ({ children, automationId }: <%= componentName %>Props) => (
+  <h1 data-automation-id={automationId} className={styles.wrapper}>
+    Hello, {children}
+  </h1>
+)
