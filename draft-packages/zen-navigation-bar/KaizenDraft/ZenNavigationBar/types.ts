@@ -35,6 +35,7 @@ export type LinkProps = {
   small?: boolean
   colorScheme?: ColorScheme
   tooltip?: string
+  showIndicator?: boolean
 }
 
 export type MenuProps = {

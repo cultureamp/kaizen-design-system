@@ -62,9 +62,3 @@
     margin-left: 0;
   }
 }
-
-.indicatorIcon {
-  @include ca-margin($end: 4px);
-  width: $kz-spacing-sm;
-  color: $kz-color-seedling-400;
-}
