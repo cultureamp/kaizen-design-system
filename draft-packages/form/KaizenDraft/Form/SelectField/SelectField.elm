@@ -40,7 +40,7 @@ type Config msg item
 
 
 type alias ConfigValue msg item =
-    { id : Maybe String
+    { id : String
     , variant : Select.Variant item
     , status : Status
     , isLoading : Bool
@@ -63,7 +63,7 @@ type alias ToMsg msg item =
 
 defaults : ToMsg msg item -> ConfigValue msg item
 defaults toMsg =
-    { id = Nothing
+    { id = ""
     , variant = Select.defaults.variant
     , status = Default
     , isLoading = Select.defaults.isLoading
@@ -80,26 +80,44 @@ defaults toMsg =
     }
 
 
-single : Maybe (Select.MenuItem item) -> ToMsg msg item -> Config msg item
-single maybeSelectedItem toMsg =
+single :
+    { maybeSelectedItem : Maybe (Select.MenuItem item)
+    , toMsg : ToMsg msg item
+    , id : String
+    }
+    -> Config msg item
+single required =
     let
         config =
-            defaults toMsg
+            defaults required.toMsg
     in
-    Config { config | variant = Select.Single maybeSelectedItem }
+    Config
+        { config
+            | variant = Select.Single required.maybeSelectedItem
+            , id = required.id
+        }
 
 
 multi :
-    { truncationWidth : Maybe Float }
-    -> List (Select.MenuItem item)
-    -> ToMsg msg item
+    { truncationWidth : Maybe Float
+    , selectedItems : List (Select.MenuItem item)
+    , toMsg : ToMsg msg item
+    , id : String
+    }
     -> Config msg item
-multi multiSelectTagConfig selectedItems toMsg =
+multi required =
     let
         config =
-            defaults toMsg
+            defaults required.toMsg
     in
-    Config { config | variant = Select.Multi multiSelectTagConfig selectedItems }
+    Config
+        { config
+            | variant =
+                Select.Multi
+                    { truncationWidth = required.truncationWidth }
+                    required.selectedItems
+            , id = required.id
+        }
 
 
 isLoading : Bool -> Config msg item -> Config msg item
@@ -133,7 +151,7 @@ searchable searchable_ (Config config) =
 
 id : String -> Config msg item -> Config msg item
 id value (Config config) =
-    Config { config | id = Just value }
+    Config { config | id = value }
 
 
 labelText : String -> Config msg item -> Config msg item
@@ -174,18 +192,10 @@ status value (Config config) =
 view : Config msg item -> Html msg
 view (Config config) =
     let
-        idProp =
-            case config.id of
-                Just idString ->
-                    idString
-
-                Nothing ->
-                    ""
-
         maybeWithDescriptionAria =
             case config.description of
                 Just msg ->
-                    idProp ++ "-field-description"
+                    config.id ++ "-field-description"
 
                 Nothing ->
                     ""
@@ -193,7 +203,7 @@ view (Config config) =
         maybeWithValidationMessageAria =
             case config.validationMessage of
                 Just msg ->
-                    idProp ++ "-field-validation-message"
+                    config.id ++ "-field-validation-message"
 
                 Nothing ->
                     ""
@@ -237,8 +247,8 @@ view (Config config) =
                 []
                 [ FieldMessage.view
                     (FieldMessage.default
-                        |> FieldMessage.id (idProp ++ "-field-description")
-                        |> FieldMessage.automationId (idProp ++ "-field-description")
+                        |> FieldMessage.id (config.id ++ "-field-description")
+                        |> FieldMessage.automationId (config.id ++ "-field-description")
                         -- FieldMessage.message will be deprecated and replaced with messageHtml
                         |> FieldMessage.message ""
                         |> FieldMessage.messageHtml config.description
@@ -252,8 +262,8 @@ view (Config config) =
                 Just validationMessageString ->
                     FieldMessage.view
                         (FieldMessage.default
-                            |> FieldMessage.id (idProp ++ "-field-validation-message")
-                            |> FieldMessage.automationId (idProp ++ "-field-validation-message")
+                            |> FieldMessage.id (config.id ++ "-field-validation-message")
+                            |> FieldMessage.automationId (config.id ++ "-field-validation-message")
                             |> FieldMessage.message validationMessageString
                             |> FieldMessage.status fieldValidationMessageStatusProp
                             |> FieldMessage.reversed config.reversed
@@ -288,23 +298,29 @@ view (Config config) =
                 |> Select.menuItems config.menuItems
                 |> Select.searchable config.searchable
 
+        selectInputId =
+            config.id ++ "-field-input"
+
+        dummySelectInputId =
+            Select.dummyInputIdPrefix ++ selectInputId
+
         selectInputView : Html msg
         selectInputView =
             Select.view
                 selectInputViewConfig
-                (Select.selectIdentifier (idProp ++ "-field-input"))
+                (Select.selectIdentifier selectInputId)
                 |> Html.map config.toMsg
     in
     FieldGroup.view
         (FieldGroup.default
-            |> FieldGroup.id (idProp ++ "-field-group")
-            |> FieldGroup.automationId (idProp ++ "-field-group")
+            |> FieldGroup.id (config.id ++ "-field-group")
+            |> FieldGroup.automationId (config.id ++ "-field-group")
         )
         [ Label.view
             (Label.default
-                |> Label.id (idProp ++ "-field-label")
-                |> Label.automationId (idProp ++ "-field-label")
-                |> Label.htmlFor (idProp ++ "-field-input")
+                |> Label.id (config.id ++ "-field-label")
+                |> Label.automationId (config.id ++ "-field-label")
+                |> Label.htmlFor dummySelectInputId
                 |> Label.labelText config.labelText
                 |> Label.reversed config.reversed
             )

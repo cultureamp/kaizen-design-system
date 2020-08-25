@@ -86,7 +86,11 @@ main =
                 in
                 div [ style "width" "300px", style "margin-top" "12px" ]
                     [ SelectField.view
-                        (SelectField.single (buildSelected state) SelectMsg
+                        (SelectField.single
+                            { maybeSelectedItem = buildSelected state
+                            , toMsg = SelectMsg
+                            , id = "single-select-demo"
+                            }
                             |> SelectField.state state.selectState
                             |> SelectField.menuItems (List.map buildMenuItem state.items)
                             |> SelectField.searchable False
@@ -113,7 +117,12 @@ main =
             \state ->
                 div [ style "width" "500px", style "margin-top" "12px" ]
                     [ SelectField.view
-                        (SelectField.multi { truncationWidth = Just 300 } (List.map buildMenuItem state.selectedItems) SelectMsg
+                        (SelectField.multi
+                            { truncationWidth = Just 300
+                            , selectedItems = List.map buildMenuItem state.selectedItems
+                            , toMsg = SelectMsg
+                            , id = "multi-select-searchable-demo"
+                            }
                             |> SelectField.state state.selectState
                             |> SelectField.menuItems (List.map buildMenuItem state.items)
                             |> SelectField.searchable True

@@ -8,6 +8,7 @@ module KaizenDraft.Select.Select exposing
     , Style(..)
     , Variant(..)
     , defaults
+    , dummyInputIdPrefix
     , initState
     , isLoading
     , menuItems
@@ -1081,7 +1082,11 @@ menuItemId selectId index =
 
 dummyInputId : SelectId -> String
 dummyInputId selectId =
-    "dummy-input-" ++ getSelectId selectId
+    dummyInputIdPrefix ++ getSelectId selectId
+
+
+dummyInputIdPrefix =
+    "dummy-input-"
 
 
 
