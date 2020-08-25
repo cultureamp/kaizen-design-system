@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.8.4...@kaizen/draft-select@1.9.0) (2020-08-25)
+
+
+### Features
+
+* Add report switcher to Title Block ([#716](https://github.com/cultureamp/kaizen-design-system/issues/716)) ([4fa08cb](https://github.com/cultureamp/kaizen-design-system/commit/4fa08cb3f807fc0f1e47d1970f5426c34a167a99))
+
+
+
+
+
+## [1.8.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.8.3...@kaizen/draft-select@1.8.4) (2020-08-25)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.8.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.8.2...@kaizen/draft-select@1.8.3) (2020-08-24)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.8.1...@kaizen/draft-select@1.8.2) (2020-08-21)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
 ## [1.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.8.0...@kaizen/draft-select@1.8.1) (2020-08-19)
 
 **Note:** Version bump only for package @kaizen/draft-select
