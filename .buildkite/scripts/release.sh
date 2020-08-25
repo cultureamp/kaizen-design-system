@@ -56,6 +56,8 @@ release() {
 release_canary() {
   yarn install --frozen-lockfile
 
+  # Replace illegal characters according to semver prerelease versioning
+  # https://semver.org/#spec-item-9
   CANARY_LABEL=$(echo "$BUILDKITE_BRANCH" | sed 's/[^0-9A-Za-z-]/-/g')
 
   yarn lerna publish --canary --preid "$CANARY_LABEL" --yes
