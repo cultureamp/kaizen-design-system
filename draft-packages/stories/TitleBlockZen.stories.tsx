@@ -5,8 +5,6 @@ import {
   TitleBlockZen,
 } from "../title-block-zen/KaizenDraft/TitleBlockZen"
 const addIcon = require("@kaizen/component-library/icons/add.icon.svg").default
-const visibleIcon = require("@kaizen/component-library/icons/visible.icon.svg")
-  .default
 const commentIcon = require("@kaizen/component-library/icons/comment.icon.svg")
   .default
 const starIcon = require("@kaizen/component-library/icons/star-on.icon.svg")
