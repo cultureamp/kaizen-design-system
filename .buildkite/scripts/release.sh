@@ -64,31 +64,28 @@ release_canary() {
 main() {
   export GH_SSH_KEY GH_TOKEN NPM_TOKEN
 
+  printf "Fetching secrets... "
+  GH_SSH_KEY=$(get_secret "github-ssh-key") || exit $?
+  GH_TOKEN=$(get_secret "github-api-token") || exit $?
+  NPM_TOKEN=$(get_secret "npm-token") || exit $?
+  echo "(done)"
+
+  echo "Setting up git and npm credentials..."
+  setup_github
+  setup_npm
+
   if [ "$BUILDKITE_BRANCH" = master ]; then
 
     echo "Branch: master"
 
-    printf "Fetching secrets... "
-    GH_SSH_KEY=$(get_secret "github-ssh-key") || exit $?
-    GH_TOKEN=$(get_secret "github-api-token") || exit $?
-    NPM_TOKEN=$(get_secret "npm-token") || exit $?
-    echo "(done)"
-
     echo "Releasing packages..."
-    setup_github
-    setup_npm
     release
 
   else
 
     echo "Branch: non-master (canary release)"
 
-    printf "Fetching secrets... "
-    NPM_TOKEN=$(get_secret "npm-token") || exit $?
-    echo "(done)"
-
     echo "Releasing packages..."
-    setup_npm
     release_canary
 
     echo "Resetting canary branch..."
