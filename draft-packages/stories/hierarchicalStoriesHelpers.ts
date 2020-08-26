@@ -1,4 +1,4 @@
-import { HierarchyNode, Hierarchy } from "@kaizen/draft-hierarchical-menu"
+import { Hierarchy } from "@kaizen/draft-hierarchical-menu"
 
 export enum ResponseTime {
   INSTANT = 0,
@@ -43,6 +43,18 @@ export const levelZero: Hierarchy = {
       numberOfChildren: 0,
     },
     { value: "id_jack", label: "Jack Van Wyk", level: 1, numberOfChildren: 0 },
+    {
+      value: "id_long_example_1",
+      label: "Example of a long name to show truncation with ellipses",
+      level: 1,
+      numberOfChildren: 0,
+    },
+    {
+      value: "id_long_example_2",
+      label: "Example of a long name to show truncation with ellipses",
+      level: 1,
+      numberOfChildren: null,
+    },
   ],
 }
 

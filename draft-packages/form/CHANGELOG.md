@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.4.4...@kaizen/draft-form@2.4.5) (2020-08-25)
+
+
+### Bug Fixes
+
+* ensure validation message is only shown when the actual status i… ([#730](https://github.com/cultureamp/kaizen-design-system/issues/730)) ([a3757bc](https://github.com/cultureamp/kaizen-design-system/commit/a3757bcf333f3f90802b70bda153590405a89fd7))
+
+
+
+
+
+## [2.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.4.3...@kaizen/draft-form@2.4.4) (2020-08-24)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
 ## [2.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.4.2...@kaizen/draft-form@2.4.3) (2020-08-19)
 
 **Note:** Version bump only for package @kaizen/draft-form

@@ -46,8 +46,11 @@ $delay-before-showing-loading-placeholders: 500ms;
 }
 
 .parent {
-  margin: 0 $kz-spacing-md;
-  border-bottom: 1px $kz-border-solid-border-style $kz-color-wisteria-500;
+  margin: 0 $kz-spacing-sm;
+  border: $kz-border-borderless-border-width $kz-border-borderless-border-style
+    $kz-border-borderless-border-color;
+  border-bottom-width: 1px;
+  border-bottom-color: $kz-color-wisteria-500;
   height: $option-height;
   display: flex;
   align-items: center;
@@ -59,6 +62,18 @@ $delay-before-showing-loading-placeholders: 500ms;
   display: flex;
   align-items: center;
   width: 100%;
+  cursor: default;
+
+  :global(.js-focus-visible) & {
+    &:focus {
+      outline: none;
+    }
+
+    &:global(.focus-visible) {
+      outline: $kz-border-focus-ring-border-width
+        $kz-border-focus-ring-border-style $kz-color-cluny-300;
+    }
+  }
 }
 
 .disabledParentButton {
@@ -77,14 +92,37 @@ $delay-before-showing-loading-placeholders: 500ms;
 }
 
 .current {
-  margin: 0 $kz-spacing-md;
+  margin: 0 $kz-spacing-sm;
+  border: $kz-border-borderless-border-width $kz-border-borderless-border-style
+    $kz-border-borderless-border-color;
   height: $option-height;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+.currentButton {
+  @include button-reset;
+  @include ca-type-align-start;
+  @include ca-margin($end: $kz-spacing-md);
+  color: inherit;
+  flex: 1;
+  cursor: default;
+
+  :global(.js-focus-visible) & {
+    &:focus {
+      outline: none;
+    }
+
+    &:global(.focus-visible) {
+      outline: $kz-border-focus-ring-border-width
+        $kz-border-focus-ring-border-style $kz-color-cluny-300;
+    }
+  }
+}
+
 .body {
+  @include ca-margin($end: 4px);
   background-color: $kz-color-white;
   color: $kz-color-wisteria-800;
   max-height: $option-height * $max-visible-options;
@@ -103,16 +141,59 @@ $delay-before-showing-loading-placeholders: 500ms;
   color: inherit;
   flex: 1 0;
   height: $option-height;
-  padding: 0 $kz-spacing-md;
+  padding: 0 $kz-spacing-sm;
+  border: $kz-border-focus-ring-border-width $kz-border-focus-ring-border-style
+    $kz-border-borderless-border-color;
+  cursor: default;
+
+  // allows the .childLabelText to be truncated with white-space: nowrap
+  // and not break the flexbox layout
+  min-width: 0;
+
+  :global(.js-focus-visible) & {
+    &:focus {
+      outline: none;
+    }
+
+    &:global(.focus-visible) {
+      border-color: $kz-color-cluny-500;
+    }
+  }
+}
+
+.childLabelText {
+  @include kz-typography-paragraph-body;
+  @include ca-inherit-baseline;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .childDrilldownButton {
   @include button-reset;
   color: inherit;
   height: $option-height;
-  padding: 0 $kz-spacing-md;
+  padding: 0 $kz-spacing-sm;
   display: flex;
   align-items: center;
+  border: $kz-border-focus-ring-border-width $kz-border-focus-ring-border-style
+    $kz-border-borderless-border-color;
+  cursor: default;
+
+  :global(.js-focus-visible) & {
+    &:focus {
+      outline: none;
+    }
+
+    &:global(.focus-visible) {
+      border-color: $kz-color-cluny-500;
+    }
+  }
+}
+
+.disabledChildDrilldownButton {
+  composes: childDrilldownButton;
+  opacity: 0.3;
 }
 
 .keyboardHighlightedChild {

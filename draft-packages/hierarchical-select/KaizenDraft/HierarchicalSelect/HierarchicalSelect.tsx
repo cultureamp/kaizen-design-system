@@ -12,6 +12,7 @@ const chevronUp = require("@kaizen/component-library/icons/chevron-up.icon.svg")
   .default
 const chevronDown = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
+const clear = require("@kaizen/component-library/icons/clear.icon.svg").default
 const styles = require("./styles.module.scss")
 
 export { MenuWidth, MenuDirection, Hierarchy, HierarchyNode }
@@ -20,6 +21,7 @@ export interface HierarchicalSelectProps {
   loadInitialHierarchy: () => Promise<Hierarchy>
   loadHierarchy: (node: HierarchyNode) => Promise<Hierarchy>
   onSelect: (currentHierarchy: Hierarchy, selectedNode: HierarchyNode) => void
+  onClear: () => void
   value: HierarchyNode | null
   width?: MenuWidth
   dir?: MenuDirection
@@ -37,6 +39,7 @@ export const HierarchicalSelect = (props: HierarchicalSelectProps) => {
     loadInitialHierarchy,
     loadHierarchy,
     onSelect,
+    onClear,
     value,
     width = "default",
     dir = "ltr",
@@ -44,21 +47,43 @@ export const HierarchicalSelect = (props: HierarchicalSelectProps) => {
     focusLockDisabled = false,
   } = props
 
+  const hasOriginatedFromChildElement = (evt: KeyboardEvent | MouseEvent) => {
+    if (!containerRef.current) return false
+    if (!(evt.target instanceof Node)) return false
+    return containerRef.current.contains(evt.target)
+  }
+
   useEffect(() => {
-    const handleDocumentClick = (evt: MouseEvent) => {
-      if (
-        containerRef.current &&
-        evt.target instanceof Node &&
-        !containerRef.current.contains(evt.target)
-      ) {
+    const handleClick = (evt: MouseEvent) => {
+      if (!hasOriginatedFromChildElement(evt)) {
         setIsOpen(false)
       }
     }
 
-    document.addEventListener("click", handleDocumentClick)
+    const handleKeys = (evt: KeyboardEvent) => {
+      switch (evt.key) {
+        case "Escape":
+        case "Esc": // IE/Edge specific value
+          setIsOpen(false)
+          return
+        case "Backspace":
+        case "Delete":
+          if (hasOriginatedFromChildElement(evt)) {
+            evt.preventDefault()
+            onClear()
+            return
+          }
+        default:
+          return
+      }
+    }
+
+    document.addEventListener("click", handleClick)
+    document.addEventListener("keydown", handleKeys)
 
     return () => {
-      document.removeEventListener("click", handleDocumentClick)
+      document.removeEventListener("click", handleClick)
+      document.removeEventListener("keydown", handleKeys)
     }
   }, [])
 
@@ -68,14 +93,34 @@ export const HierarchicalSelect = (props: HierarchicalSelectProps) => {
         className={styles.button}
         type="button"
         onClick={() => setIsOpen(!isOpen)}
+        title={value ? value.label : placeholder}
       >
         {value ? (
           <div className={styles.value}>{value.label}</div>
         ) : (
           <div className={styles.placeholder}>{placeholder}</div>
         )}
-        <div className={styles.chevron}>
-          <Icon icon={isOpen ? chevronUp : chevronDown} role="presentation" />
+        <div className={styles.indicators}>
+          {value && (
+            <>
+              <div
+                className={styles.clear}
+                // since we can't nest buttons in buttons, make this an aria
+                // accessible button with onClick and role="button"
+                role="button"
+                onClick={evt => {
+                  onClear()
+                  evt.stopPropagation()
+                }}
+              >
+                <Icon icon={clear} role="img" title="Clear value" />
+              </div>
+              <div className={styles.separator} />
+            </>
+          )}
+          <div className={styles.chevron}>
+            <Icon icon={isOpen ? chevronUp : chevronDown} role="presentation" />
+          </div>
         </div>
       </button>
       {isOpen && (
