@@ -10,3 +10,11 @@ import "@storybook/addon-actions/register"
 // The following do not use the addons panel:
 import "@storybook/addon-backgrounds/register"
 import "@storybook/addon-viewport/register"
+
+import { addons } from "@storybook/addons"
+
+addons.setConfig({
+  analyticsGTM: {
+    gtmId: "GTM-KS4VWLT",
+  },
+})

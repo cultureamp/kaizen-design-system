@@ -42,7 +42,7 @@ export type SelectProps = {
   fullWidth?: boolean
 }
 
-export type VariantType = "default" | "secondary"
+export type VariantType = "default" | "secondary" | "secondary-small"
 
 export const Select = (props: SelectProps & ReactSelectProps) => {
   if (props.fullWidth === false && props.variant !== "secondary") {
@@ -56,7 +56,7 @@ export const Select = (props: SelectProps & ReactSelectProps) => {
   const fullWidth =
     props.fullWidth != null
       ? props.fullWidth
-      : variant === "secondary"
+      : variant === "secondary" || variant === "secondary-small"
       ? false
       : true
 
@@ -70,6 +70,7 @@ export const Select = (props: SelectProps & ReactSelectProps) => {
     [styles.default]: !reversed,
     [styles.reversed]: reversed,
     [styles.secondary]: variant === "secondary",
+    [styles.secondarySmall]: variant === "secondary-small",
     [styles.notFullWidth]: !fullWidth,
   })
   return (
@@ -116,13 +117,15 @@ export const AsyncSelect = (props: AsyncProps) => (
 )
 
 const Control: typeof components.Control = props => (
-  <components.Control
-    {...props}
-    className={classNames(styles.control, {
-      [styles.focusedControl]: props.isFocused,
-      [styles.disabled]: props.isDisabled,
-    })}
-  />
+  <div data-automation-id="Select__Control">
+    <components.Control
+      {...props}
+      className={classNames(styles.control, {
+        [styles.focusedControl]: props.isFocused,
+        [styles.disabled]: props.isDisabled,
+      })}
+    />
+  </div>
 )
 
 const Placeholder: typeof components.Placeholder = props => (
@@ -145,13 +148,15 @@ const Menu: typeof components.Menu = props => (
 
 // TODO - needsclick class disables fastclick on this element. Remove when fastclick is removed from consuming repos
 const Option: typeof components.Option = props => (
-  <components.Option
-    {...props}
-    className={classNames("needsclick", styles.option, {
-      [styles.focusedOption]: props.isFocused,
-      [styles.selectedOption]: props.isSelected,
-    })}
-  />
+  <div data-automation-id="Select__Option">
+    <components.Option
+      {...props}
+      className={classNames("needsclick", styles.option, {
+        [styles.focusedOption]: props.isFocused,
+        [styles.selectedOption]: props.isSelected,
+      })}
+    />
+  </div>
 )
 
 const NoOptionsMessage: typeof components.NoOptionsMessage = props => (

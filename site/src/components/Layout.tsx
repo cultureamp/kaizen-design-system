@@ -1,3 +1,5 @@
+/* !!! This component is deprecated. Please do not use for new code  !!! */
+
 import classnames from "classnames"
 import * as React from "react"
 import "../styles/global.scss"

@@ -3,6 +3,98 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.7.0...@kaizen/draft-title-block-zen@1.7.1) (2020-08-25)
+
+
+### Bug Fixes
+
+* title block secondary actions tablet view bugfix ([#733](https://github.com/cultureamp/kaizen-design-system/issues/733)) ([98bff23](https://github.com/cultureamp/kaizen-design-system/commit/98bff23ea8dc4c41985a3a850a14de41469600fb))
+
+
+
+
+
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.24...@kaizen/draft-title-block-zen@1.7.0) (2020-08-25)
+
+
+### Features
+
+* Add report switcher to Title Block ([#716](https://github.com/cultureamp/kaizen-design-system/issues/716)) ([4fa08cb](https://github.com/cultureamp/kaizen-design-system/commit/4fa08cb3f807fc0f1e47d1970f5426c34a167a99))
+
+
+
+
+
+## [1.6.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.23...@kaizen/draft-title-block-zen@1.6.24) (2020-08-24)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [1.6.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.22...@kaizen/draft-title-block-zen@1.6.23) (2020-08-19)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [1.6.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.21...@kaizen/draft-title-block-zen@1.6.22) (2020-08-12)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [1.6.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.20...@kaizen/draft-title-block-zen@1.6.21) (2020-08-11)
+
+
+### Bug Fixes
+
+* Make TitleBlockZen title extend full width when no buttons ([#660](https://github.com/cultureamp/kaizen-design-system/issues/660)) ([8c31427](https://github.com/cultureamp/kaizen-design-system/commit/8c3142771638d18fffb5a4c015f28cebe6fbb9ec))
+
+
+
+
+
+## [1.6.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.19...@kaizen/draft-title-block-zen@1.6.20) (2020-08-10)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [1.6.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.18...@kaizen/draft-title-block-zen@1.6.19) (2020-08-04)
+
+
+### Bug Fixes
+
+* Extend TitleBlockZen API so NavigationTabs can take an automation ID ([#689](https://github.com/cultureamp/kaizen-design-system/issues/689)) ([e44faf2](https://github.com/cultureamp/kaizen-design-system/commit/e44faf2a4d3e4b3601f6759a1c44d691ff97e55c))
+
+
+
+
+
+## [1.6.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.17...@kaizen/draft-title-block-zen@1.6.18) (2020-07-31)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [1.6.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.16...@kaizen/draft-title-block-zen@1.6.17) (2020-07-30)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
 ## [1.6.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.15...@kaizen/draft-title-block-zen@1.6.16) (2020-07-29)
 
 

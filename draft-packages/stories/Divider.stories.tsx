@@ -82,44 +82,42 @@ CanvasDividerReversed.story = {
   },
 }
 
-export const TabDivider = () => {
-  return (
-    <Container>
-      <Card>
-        <Box p={0.75}>
-          <Heading variant="heading-4" color="dark">
-            Understands people's agenda and perspectives
-          </Heading>
-          <Box pt={0.25}>
-            <Paragraph variant="small" color="dark-reduced-opacity">
-              Interpersonal
-            </Paragraph>
-          </Box>
+export const TabDivider = () => (
+  <Container>
+    <Card>
+      <Box p={0.75}>
+        <Heading variant="heading-4" color="dark">
+          Understands people's agenda and perspectives
+        </Heading>
+        <Box pt={0.25}>
+          <Paragraph variant="small" color="dark-reduced-opacity">
+            Interpersonal
+          </Paragraph>
         </Box>
-        <Divider variant="content" />
-        <Box p={0.75}>
-          <Heading variant="heading-4">Anticipates customers needs</Heading>
-          <Box pt={0.25}>
-            <Paragraph variant="small" color="dark-reduced-opacity">
-              Self management
-            </Paragraph>
-          </Box>
+      </Box>
+      <Divider variant="content" />
+      <Box p={0.75}>
+        <Heading variant="heading-4">Anticipates customers needs</Heading>
+        <Box pt={0.25}>
+          <Paragraph variant="small" color="dark-reduced-opacity">
+            Self management
+          </Paragraph>
         </Box>
-        <Divider variant="content" />
-        <Box p={0.75}>
-          <Heading variant="heading-4">
-            Initiates and develops relationships
-          </Heading>
-          <Box pt={0.25}>
-            <Paragraph variant="small" color="dark-reduced-opacity">
-              Interpersonal
-            </Paragraph>
-          </Box>
+      </Box>
+      <Divider variant="content" />
+      <Box p={0.75}>
+        <Heading variant="heading-4">
+          Initiates and develops relationships
+        </Heading>
+        <Box pt={0.25}>
+          <Paragraph variant="small" color="dark-reduced-opacity">
+            Interpersonal
+          </Paragraph>
         </Box>
-      </Card>
-    </Container>
-  )
-}
+      </Box>
+    </Card>
+  </Container>
+)
 
 TabDivider.story = {
   name: "Composing divider, card, box, and typography",

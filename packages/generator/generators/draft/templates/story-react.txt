@@ -4,6 +4,14 @@ import { <%= componentName %> } from "<%= npmPackageName %>"
 
 export default {
   title: "<%= componentName %> (React)",
+  component: <%= componentName %>,
+  parameters: {
+    info: {
+      text: `
+        import { <%= componentName %> } from "@kaizen/draft-<%= componentName %>";
+      `,
+    },
+  },
 }
 
 export const DefaultStory = () => (
