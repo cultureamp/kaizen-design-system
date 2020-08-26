@@ -18,7 +18,11 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 Charts, diagrams, and hero data draw attention to insights and help people make sense of complex information. They provide answers to questions that people can act on.
 
-- Test with real data. For example, test with one or two data points as well as hundreds and test low and high numbers.
+- Test with real data:
+    - Where possible, use observed data to test designs.
+    - Test designs that need to represent zero or have absent data.
+    - Test designs with one or two data points as well as hundreds.
+    - Test designs with extremes, such as very low and very high numbers.
 - Answer one question at a time. Avoid overloading charts with information to solve multiple problems.
 - Provide "Overview first, zoom and filter, then details-on-demand". Read more in [3 rules for Interactive data visualization by Vlad Kozhevnikov](https://towardsdatascience.com/3-rules-for-interactive-data-visualizations-a-showcase-with-r-and-highcharts-e452f5c37f44).
 - Provide text alternatives, such as a data [table](/components/table), for any non-text content. This ensures it can be changed into other forms people need, such as large print, braille, speech, symbols or simpler language.
@@ -123,6 +127,28 @@ Learn more about bar charts:
 - [Morningstar: horizontal bar chart](https://designsystem.morningstar.com/charts/horizontal-bar.html)
 - [Government of Canada, Aurora: Bar charts](https://design.gccollab.ca/data/column-and-bar-graphs)
 
+## Sparklines
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D54258%253A0&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+A sparkline is a condensed, word-sized chart showing trend over time. It can be presented anywhere a word or number can, such as in a sentence, table, heading, graphic, or spreadsheet.
+
+Sparklines are usually shown without axes or labels to focus on the shape of data. Multiple sparklines are often presented together as elements of a small multiple. They're also often presented alongside hero data, showing the last value in the sparkline.
+
+- When including accompanying hero data, use a dot on the sparkline to show which data value is highlighted.
+- Consider labeling one or two data points, such as peaks.
+- Consider including a reference line to give context to the sparkline data and its shape.
+
+Learn more about sparklines:
+
+- [Data Viz Project: Sparkline](https://datavizproject.com/data-type/sparkline/)
+- [Visualization Universe: Sparkline](http://visualizationuniverse.com/charts/sparkline)
+- [AntV: G2Plot: Sparkline](https://g2plot.antv.vision/en/examples/sparkline/multiple/#gatsby-focus-wrapper)
+- [Predix UI: Spark](https://www.predix-ui.com/#/elements/vis/px-vis-spark)
+- [Spectrum: Sparkline](https://spectrum.adobe.com/page/line-chart/#Sparkline)
+- [US Government Data Visualization Standards: Small multiples](https://xdgov.github.io/data-design-standards/components/small-multiples)
+- [Semiotic: Sparklines](https://semiotic.nteract.io/guides/sparklines)
+
 ## Hero data
 
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D41211%253A0&chrome=DOCUMENTATION" allowfullscreen></iframe>
@@ -185,4 +211,5 @@ Here are some examples from elsewhere:
 - [QuickBooks: Data visualization](https://designsystem.quickbooks.com/data-viz/)
 - [Predix: Data Visualization: bar chart](https://www.predix-ui.com/#/elements/vis/px-vis-bar-chart)
 - [IBM: Data visualization](https://www.ibm.com/design/v1/language/experience/data-visualization/)
+- [Visualizing Zero: How to Show Something with Nothing by Andy Kirk](https://hbr.org/2014/05/visualizing-zero-how-to-show-something-with-nothing)
 
