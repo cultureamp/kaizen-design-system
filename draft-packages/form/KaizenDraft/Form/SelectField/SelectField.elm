@@ -192,34 +192,6 @@ status value (Config config) =
 view : Config msg item -> Html msg
 view (Config config) =
     let
-        maybeWithDescriptionAria =
-            case config.description of
-                Just msg ->
-                    config.id ++ "-field-description"
-
-                Nothing ->
-                    ""
-
-        maybeWithValidationMessageAria =
-            case config.validationMessage of
-                Just msg ->
-                    config.id ++ "-field-validation-message"
-
-                Nothing ->
-                    ""
-
-        createAriaDescribedBy a b =
-            String.trim (String.join " " [ a, b ])
-
-        --maybeWithAriaDescribedByProp inputConfig =
-        --    Select.ariaDescribedBy (createAriaDescribedBy maybeWithValidationMessageAria maybeWithDescriptionAria) inputConfig
-        --maybeWithOnFocusProp inputConfig =
-        --    case config.onFocus of
-        --        Just msg ->
-        --            Select.onFocusMsg msg inputConfig
-        --
-        --        Nothing ->
-        --            inputConfig
         selectStatusProp =
             case config.status of
                 Success ->
