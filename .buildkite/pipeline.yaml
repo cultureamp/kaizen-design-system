@@ -22,7 +22,7 @@ steps:
 
   - name: ":hatched_chick: Release (canary)"
     command: ".buildkite/scripts/release.sh"
-    branches: "canary/*"
+    branches: "canary"
     <<: *defaults
     plugins:
       - cultureamp/aws-assume-role#v0.1.0:
@@ -61,8 +61,8 @@ steps:
 
   - name: ":seedling: Publish: ${KAIZEN_DOMAIN_NAME}${KAIZEN_BASE_PATH}"
     command: ".buildkite/scripts/publish.sh"
-    # canary release branches are not able to update dev.cultureamp.design
-    branches: "!canary/*"
+    # The canary branch is not able to update dev.cultureamp.design
+    branches: "!canary"
     env:
       KAIZEN_EXTRACT_ARTIFACTS: true
     <<: *defaults
