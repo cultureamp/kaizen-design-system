@@ -54,6 +54,8 @@ release() {
 }
 
 release_canary() {
+  git checkout canary && git pull
+
   yarn install --frozen-lockfile
 
   yarn lerna publish --canary --preid canary --yes
@@ -72,6 +74,7 @@ main() {
     NPM_TOKEN=$(get_secret "npm-token") || exit $?
     echo "(done)"
 
+    echo "Releasing packages..."
     setup_github
     setup_npm
     release
@@ -84,10 +87,17 @@ main() {
     NPM_TOKEN=$(get_secret "npm-token") || exit $?
     echo "(done)"
 
+    echo "Releasing packages..."
     setup_npm
     release_canary
 
+    echo "Resetting canary branch..."
+    git reset --hard master
+    git push --force
+
   fi
+
+  echo "All done!"
 
   unset GH_SSH_KEY GH_TOKEN NPM_TOKEN
 }
