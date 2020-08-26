@@ -483,7 +483,10 @@ const TitleBlockZen = ({
                   )}
                 </div>
               </div>
-              {(primaryAction || defaultAction) && (
+              {(primaryAction ||
+                defaultAction ||
+                secondaryActions ||
+                secondaryOverflowMenuItems) && (
                 <MainActions
                   primaryAction={primaryAction}
                   defaultAction={defaultAction}
