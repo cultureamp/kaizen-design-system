@@ -5,6 +5,6 @@ loadElmStories(
   "SelectField (Elm)",
   module,
   require("./SelectFieldStories.elm"),
-  ["Single", "Multi-Select Searchable"],
+  ["Single", "Multi-Select"],
   Ports
 )

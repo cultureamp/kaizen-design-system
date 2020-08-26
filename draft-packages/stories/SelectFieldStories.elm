@@ -93,7 +93,7 @@ main =
                             }
                             |> SelectField.state state.selectState
                             |> SelectField.menuItems (List.map buildMenuItem state.items)
-                            |> SelectField.searchable False
+                            |> SelectField.searchable True
                             |> SelectField.placeholder ( "Placeholder", Select.Bold )
                             |> SelectField.description [ Html.text "A description goes here" ]
                             |> SelectField.labelHtml [ Html.text "Label" ]
@@ -113,7 +113,7 @@ main =
                                 )
                         )
                     ]
-        , storyOf "Multi-Select Searchable" storyConfig <|
+        , storyOf "Multi-Select" storyConfig <|
             \state ->
                 div [ style "width" "500px", style "margin-top" "12px" ]
                     [ SelectField.view
