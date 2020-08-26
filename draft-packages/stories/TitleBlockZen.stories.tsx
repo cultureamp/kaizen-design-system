@@ -1,13 +1,10 @@
-import { Box, Dropdown, Heading, Paragraph } from "@kaizen/component-library"
+import { Box, Heading, Paragraph } from "@kaizen/component-library"
 import * as React from "react"
-import { Button } from "../button"
 import {
   NavigationTab,
   TitleBlockZen,
 } from "../title-block-zen/KaizenDraft/TitleBlockZen"
 const addIcon = require("@kaizen/component-library/icons/add.icon.svg").default
-const visibleIcon = require("@kaizen/component-library/icons/visible.icon.svg")
-  .default
 const commentIcon = require("@kaizen/component-library/icons/comment.icon.svg")
   .default
 const starIcon = require("@kaizen/component-library/icons/star-on.icon.svg")
@@ -658,6 +655,65 @@ export const DefaultOnlyPrimary = () => (
 
 DefaultOnlyPrimary.story = {
   name: "Default (only primary action)",
+}
+
+export const DefaultWithReportSwitcher = () => (
+  <TitleBlockZen
+    title="Baseline Engagement Survey"
+    surveyStatus={{ text: "Live", status: "live" }}
+    pageSwitcherSelect={{
+      placeholder: "Placeholder",
+      isSearchable: false,
+      isDisabled: false,
+      options: [
+        {
+          value: "survey3",
+          label: "Administrator Report",
+        },
+        {
+          value: "survey1",
+          label: "Other Report",
+        },
+        {
+          value: "survey2",
+          label: "Other Report: Redux",
+        },
+      ],
+      defaultValue: {
+        value: "survey3",
+        label: "Administrator Report",
+      },
+    }}
+    primaryAction={{
+      label: "Primary link",
+      icon: addIcon,
+      reversed: true,
+      primary: true,
+      href: "#",
+    }}
+    handleHamburgerClick={() => {
+      alert("Hamburger clicked")
+    }}
+    breadcrumb={{
+      path: "#",
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+    navigationTabs={[
+      <NavigationTab text="Label" href="#" active />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+    ]}
+  />
+)
+
+DefaultWithReportSwitcher.story = {
+  name: "Default with report switcher",
 }
 
 export const DefaultOnlyLongTitle = () => (
