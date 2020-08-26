@@ -134,7 +134,7 @@ export default class Menu extends React.Component<MenuProps, State> {
   }
 
   renderOffCanvas() {
-    const { items, heading, badge } = this.props
+    const { items, heading } = this.props
     const links: Array<NavigationItem | undefined> = items.map(
       (item, index) => {
         if ("url" in item) {
@@ -143,7 +143,7 @@ export default class Menu extends React.Component<MenuProps, State> {
               key={`${item.url}-${uuid()}`}
               text={item.label}
               href={item.url}
-              badge={badge}
+              badge={item.badge}
             />
           )
         } else if ("title" in item) {
