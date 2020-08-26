@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.7.0...@kaizen/draft-title-block-zen@1.7.1) (2020-08-25)
+
+
+### Bug Fixes
+
+* title block secondary actions tablet view bugfix ([#733](https://github.com/cultureamp/kaizen-design-system/issues/733)) ([98bff23](https://github.com/cultureamp/kaizen-design-system/commit/98bff23ea8dc4c41985a3a850a14de41469600fb))
+
+
+
+
+
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.24...@kaizen/draft-title-block-zen@1.7.0) (2020-08-25)
+
+
+### Features
+
+* Add report switcher to Title Block ([#716](https://github.com/cultureamp/kaizen-design-system/issues/716)) ([4fa08cb](https://github.com/cultureamp/kaizen-design-system/commit/4fa08cb3f807fc0f1e47d1970f5426c34a167a99))
+
+
+
+
+
 ## [1.6.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.23...@kaizen/draft-title-block-zen@1.6.24) (2020-08-24)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen

@@ -174,6 +174,31 @@ SingleSecondary.story = {
   name: "Single, Secondary",
 }
 
+export const SingleSecondarySmall = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      isSearchable={false}
+      defaultValue={options[0]}
+      variant="secondary-small"
+      reversed={true}
+    />
+  </StoryContainer>
+)
+
+SingleSecondarySmall.story = {
+  name: "Single, Secondary-Small, Reversed",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
+}
+
 export const SingleSecondaryDisabled = () => (
   <StoryContainer>
     <Select

@@ -354,6 +354,10 @@ view (Config config) =
                 |> maybeWithOnEnterProp
                 |> maybeWithOnFocusProp
             )
-        , fieldValidationMessageHtml
+        , if config.status == Error then
+            fieldValidationMessageHtml
+
+          else
+            text ""
         , fieldDescriptionHtml
         ]
