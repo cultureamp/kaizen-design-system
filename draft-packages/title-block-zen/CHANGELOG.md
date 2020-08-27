@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.7.0...@kaizen/draft-title-block-zen@1.7.1) (2020-08-25)
+
+
+### Bug Fixes
+
+* title block secondary actions tablet view bugfix ([#733](https://github.com/cultureamp/kaizen-design-system/issues/733)) ([98bff23](https://github.com/cultureamp/kaizen-design-system/commit/98bff23ea8dc4c41985a3a850a14de41469600fb))
+
+
+
+
+
 # [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.6.24...@kaizen/draft-title-block-zen@1.7.0) (2020-08-25)
 
 

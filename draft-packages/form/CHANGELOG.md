@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.4.5...@kaizen/draft-form@2.5.0) (2020-08-26)
+
+
+### Features
+
+* Elm SelectField component ([#731](https://github.com/cultureamp/kaizen-design-system/issues/731)) ([f0775dc](https://github.com/cultureamp/kaizen-design-system/commit/f0775dc253d5d44d3f53084deeebd60fbd9073cf))
+
+
+
+
+
 ## [2.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.4.4...@kaizen/draft-form@2.4.5) (2020-08-25)
 
 
