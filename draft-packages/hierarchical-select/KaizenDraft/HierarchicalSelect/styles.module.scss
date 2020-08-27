@@ -10,7 +10,6 @@
 .container {
   -webkit-font-smoothing: antialiased;
   color: $kz-color-wisteria-800;
-  background-color: $kz-color-white;
   width: 100%;
   position: relative;
 
@@ -23,6 +22,8 @@
 .button {
   @include button-reset;
   @include ca-padding($start: $kz-spacing-sm, $end: $kz-spacing-sm);
+  background-color: $kz-color-white;
+  color: $kz-color-wisteria-800;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,20 +33,24 @@
     $ca-border-color;
   border-radius: $kz-border-solid-border-radius;
 
-  &:hover,
-  &:focus {
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
     .chevron {
       color: $kz-color-wisteria-500;
     }
   }
 
-  &:hover {
+  &:hover:not(:disabled) {
     border-color: $ca-border-color-hover;
   }
 
-  &:focus {
+  &:focus:not(:disabled) {
     border-color: $ca-border-color-focus;
     outline: none;
+  }
+
+  &:disabled {
+    background-color: $input-disabled-background;
   }
 }
 
