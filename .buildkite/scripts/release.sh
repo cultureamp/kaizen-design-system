@@ -81,9 +81,9 @@ main() {
     echo "Releasing packages..."
     release
 
-  else
+  elif [ "$BUILDKITE_BRANCH" = canary ]; then
 
-    echo "Branch: non-master (canary release)"
+    echo "Branch: canary"
 
     echo "Releasing packages..."
     release_canary
