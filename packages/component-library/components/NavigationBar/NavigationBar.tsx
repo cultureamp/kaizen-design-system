@@ -26,7 +26,7 @@ type Props = {
   children?: Navigation
 }
 
-export default class NavigationBar extends React.Component<Props> {
+export default class NavigationBar extends React.Component<Props, {}> {
   static displayName = "NavigationBar"
   static Link = Link
   static Menu = Menu

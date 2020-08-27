@@ -15,6 +15,7 @@ import Media from "react-media"
 import { MOBILE_QUERY } from "../constants"
 import { MenuGroup, MenuItem, MenuProps } from "../types"
 import Link from "./Link"
+import Indicator from "./Indicator"
 
 const styles = require("./Menu.module.scss")
 
@@ -41,6 +42,7 @@ export default class Menu extends React.Component<MenuProps, State> {
       heading,
       mobileEnabled,
       section,
+      showIndicator,
     } = this.props
 
     return (
@@ -56,6 +58,7 @@ export default class Menu extends React.Component<MenuProps, State> {
                     onClick={() => toggleVisibleMenu(heading)}
                     hasMenu
                     section={section}
+                    showIndicator={showIndicator}
                   />
                 )}
               </OffCanvasContext.Consumer>
@@ -78,6 +81,7 @@ export default class Menu extends React.Component<MenuProps, State> {
                   children
                 ) : (
                   <React.Fragment>
+                    {showIndicator && <Indicator />}
                     <span className={styles.linkText}>{heading}</span>
                     <Icon icon={chevronDownIcon} role="presentation" />
                   </React.Fragment>
@@ -160,9 +164,11 @@ export default class Menu extends React.Component<MenuProps, State> {
         text={item.label}
         href={item.url}
         onClick={onLinkClick}
+        badge={item.badge}
       />
     )
   }
+
   renderOffCanvasMenuGroup = (menuGroup: MenuGroup) => {
     const { title, items } = menuGroup
 
@@ -176,7 +182,7 @@ export default class Menu extends React.Component<MenuProps, State> {
 
   renderMenuItem = (item: MenuItem) => {
     const { onLinkClick } = this.props
-    const { label, url, method, active = false } = item
+    const { label, url, method, active = false, badge } = item
 
     if (method && method !== "get") {
       return (
@@ -192,6 +198,16 @@ export default class Menu extends React.Component<MenuProps, State> {
             })}
           >
             {label}
+            {badge && (
+              <span
+                className={classNames(styles.badge, {
+                  [styles.badgeNotification]: badge.kind === "notification",
+                  [styles.badgeNew]: badge.kind === "new",
+                })}
+              >
+                {badge.text}
+              </span>
+            )}
           </button>
         </form>
       )
@@ -207,6 +223,16 @@ export default class Menu extends React.Component<MenuProps, State> {
         onClick={onLinkClick}
       >
         {label}
+        {badge && (
+          <span
+            className={classNames(styles.badge, {
+              [styles.badgeNotification]: badge.kind === "notification",
+              [styles.badgeNew]: badge.kind === "new",
+            })}
+          >
+            {badge.text}
+          </span>
+        )}
       </a>
     )
   }
