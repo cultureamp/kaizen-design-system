@@ -10,6 +10,11 @@ export type NavigationItem = ReactElement<LinkProps> | ReactElement<MenuProps>
 
 export type LinkClick = (event: React.MouseEvent<HTMLAnchorElement>) => void
 
+type Badge = {
+  kind: "new" | "notification"
+  text: string
+}
+
 export type LinkProps = {
   icon?: React.SVGAttributes<SVGSymbolElement>
   text?: string
@@ -20,11 +25,9 @@ export type LinkProps = {
   onClick?: LinkClick
   target?: "_self" | "_blank"
   hasMenu?: boolean
-  badge?: {
-    kind: "new" | "notification"
-    text: string
-  }
+  badge?: Badge
   section?: string
+  showIndicator?: boolean
 }
 
 export type MenuProps = {
@@ -36,6 +39,8 @@ export type MenuProps = {
   mobileEnabled?: boolean
   section?: string
   onLinkClick?: LinkClick
+  showIndicator?: boolean
+  badge?: Badge
 }
 
 export type MenuItem = {
@@ -43,6 +48,7 @@ export type MenuItem = {
   url: string
   active?: boolean
   method?: "get" | "post" | "put" | "delete"
+  badge?: Badge
 }
 
 export type MenuGroup = {

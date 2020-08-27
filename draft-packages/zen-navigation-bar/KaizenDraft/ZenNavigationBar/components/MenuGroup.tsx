@@ -14,7 +14,12 @@ const MenuGroup = ({
   offCanvas,
 }: MenuGroupProps) => {
   const renderOffCanvasMenuItem = (item: MenuItemProps) => (
-    <Link key={`${item.url}-${uuid()}`} text={item.label} href={item.url} />
+    <Link
+      key={`${item.url}-${uuid()}`}
+      text={item.label}
+      href={item.url}
+      badge={item.badge}
+    />
   )
 
   const renderOffCanvasMenuGroup = () => (

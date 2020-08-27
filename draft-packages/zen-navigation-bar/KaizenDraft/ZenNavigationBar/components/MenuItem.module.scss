@@ -3,9 +3,10 @@
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "../styles";
 
-$menuItem__padding: $ca-grid / 2;
+$menuItem__padding: $kz-spacing-md / 2;
 $menuItem__margin: 4px;
 
 .buttonReset {
@@ -30,7 +31,7 @@ $menuItem__margin: 4px;
 }
 
 .arrowIcon {
-  @include ca-margin($start: $ca-grid / 2);
+  @include ca-margin($start: $kz-spacing-md / 2);
 
   display: flex;
   color: rgba($kz-color-wisteria-800, 0.5);
@@ -79,4 +80,36 @@ $menuItem__margin: 4px;
 
   composes: buttonReset;
   width: calc(100% - #{$menuItem__margin * 2});
+}
+
+.linkLabel {
+  display: flex;
+  align-items: center;
+}
+
+.badge {
+  @include ca-margin($start: $kz-spacing-md * 0.25);
+  min-height: $kz-spacing-md;
+  border-radius: $kz-spacing-md;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.badgeNew {
+    @include ca-padding(
+      $start: $kz-spacing-md * 0.5,
+      $end: $kz-spacing-md * 0.5
+    );
+    background-color: $kz-color-seedling-200;
+  }
+
+  &.badgeNotification {
+    @include ca-padding($start: $kz-spacing-md / 3, $end: $kz-spacing-md / 3);
+    background-color: $kz-color-wisteria-800;
+
+    @include navbar-mobile-only {
+      background-color: $kz-color-coral-500;
+      color: $kz-color-white;
+    }
+  }
 }
