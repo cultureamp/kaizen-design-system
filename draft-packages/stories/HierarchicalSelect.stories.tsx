@@ -109,6 +109,32 @@ RtlStory.story = {
   name: "Default (RTL)",
 }
 
+export const DisabledStory = () => (
+  <StoryContainer>
+    {({ hierarchy, setHierarchy, value, setValue }) => (
+      <>
+        <HierarchicalSelect
+          loadInitialHierarchy={() => loadInitialHierarchy(hierarchy)}
+          loadHierarchy={node => loadHierarchy(node)}
+          onSelect={(currentHierarchy, toNode) => {
+            setHierarchy(currentHierarchy)
+            setValue(toNode)
+          }}
+          onClear={() => setValue(null)}
+          placeholder="Select..."
+          value={value}
+          disabled
+        />
+        <SelectionSummary node={value} hierarchy={hierarchy} />
+      </>
+    )}
+  </StoryContainer>
+)
+
+DisabledStory.story = {
+  name: "Disabled",
+}
+
 const loadInitialHierarchy = (
   currentHierarchy: Hierarchy | null
 ): Promise<Hierarchy> =>
