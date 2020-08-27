@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.29.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.28.0...@kaizen/component-library@7.29.0) (2020-08-27)
+
+
+### Features
+
+* Add new badge to menu items ([#729](https://github.com/cultureamp/kaizen-design-system/issues/729)) ([3f81349](https://github.com/cultureamp/kaizen-design-system/commit/3f81349f086c1e356f8b34c3129accdcc6958e02))
+
+
+
+
+
 # [7.28.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.27.0...@kaizen/component-library@7.28.0) (2020-08-24)
 
 
