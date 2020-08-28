@@ -23,6 +23,7 @@ export interface HierarchicalSelectProps {
   onSelect: (currentHierarchy: Hierarchy, selectedNode: HierarchyNode) => void
   onClear: () => void
   value: HierarchyNode | null
+  disabled?: boolean
   width?: MenuWidth
   dir?: MenuDirection
   placeholder?: string
@@ -41,6 +42,7 @@ export const HierarchicalSelect = (props: HierarchicalSelectProps) => {
     onSelect,
     onClear,
     value,
+    disabled = false,
     width = "default",
     dir = "ltr",
     placeholder = "",
@@ -94,6 +96,7 @@ export const HierarchicalSelect = (props: HierarchicalSelectProps) => {
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         title={value ? value.label : placeholder}
+        disabled={disabled}
       >
         {value ? (
           <div className={styles.value}>{value.label}</div>
@@ -108,7 +111,9 @@ export const HierarchicalSelect = (props: HierarchicalSelectProps) => {
                 // since we can't nest buttons in buttons, make this an aria
                 // accessible button with onClick and role="button"
                 role="button"
+                aria-disabled={disabled}
                 onClick={evt => {
+                  if (disabled) return
                   onClear()
                   evt.stopPropagation()
                 }}

@@ -2,6 +2,7 @@ module Main exposing (main)
 
 import ElmStorybook exposing (storyOf, storybook)
 import Html exposing (..)
+import KaizenDraft.Form.Primitives.Label.Label as Label
 import KaizenDraft.Form.ToggleSwitchField.ToggleSwitchField as ToggleSwitchField
 
 
@@ -82,5 +83,15 @@ main =
                         |> ToggleSwitchField.toggledStatus ToggleSwitchField.On
                         |> ToggleSwitchField.theme ToggleSwitchField.Default
                         |> ToggleSwitchField.disabled True
+                    )
+        , storyOf "Label at end" config <|
+            \m ->
+                ToggleSwitchField.view
+                    (ToggleSwitchField.default
+                        |> ToggleSwitchField.labelText "Label"
+                        |> ToggleSwitchField.toggledStatus m.toggledStatus
+                        |> ToggleSwitchField.labelPosition Label.End
+                        |> ToggleSwitchField.onToggle
+                            (\val -> ToggleSwitchMsg val)
                     )
         ]

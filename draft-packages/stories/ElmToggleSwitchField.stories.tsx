@@ -4,5 +4,11 @@ loadElmStories(
   "ToggleSwitchField (Elm)",
   module,
   require("./ToggleSwitchField.stories.elm"),
-  ["Default theme", "Freemium theme", "Disabled Off", "Disabled On"]
+  [
+    "Default theme",
+    "Freemium theme",
+    "Disabled Off",
+    "Disabled On",
+    "Label at end",
+  ]
 )
