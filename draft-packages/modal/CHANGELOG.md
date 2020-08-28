@@ -3,6 +3,113 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.42](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.41...@kaizen/draft-modal@2.5.42) (2020-08-28)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.41](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.40...@kaizen/draft-modal@2.5.41) (2020-08-28)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.40](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.39...@kaizen/draft-modal@2.5.40) (2020-08-28)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.39](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.38...@kaizen/draft-modal@2.5.39) (2020-08-27)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.38](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.37...@kaizen/draft-modal@2.5.38) (2020-08-27)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.37](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.36...@kaizen/draft-modal@2.5.37) (2020-08-26)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.36](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.35...@kaizen/draft-modal@2.5.36) (2020-08-26)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.35](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.34...@kaizen/draft-modal@2.5.35) (2020-08-25)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.34](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.33...@kaizen/draft-modal@2.5.34) (2020-08-24)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.33](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.32...@kaizen/draft-modal@2.5.33) (2020-08-19)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.32](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.31...@kaizen/draft-modal@2.5.32) (2020-08-17)
+
+
+### Bug Fixes
+
+* Fix dismiss button overflow ([#712](https://github.com/cultureamp/kaizen-design-system/issues/712)) ([ef94a06](https://github.com/cultureamp/kaizen-design-system/commit/ef94a068a6cb86168e25a323523c8c85a07a5660))
+
+
+
+
+
+## [2.5.31](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.30...@kaizen/draft-modal@2.5.31) (2020-08-12)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.30](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.29...@kaizen/draft-modal@2.5.30) (2020-08-10)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
 ## [2.5.29](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.28...@kaizen/draft-modal@2.5.29) (2020-08-07)
 
 **Note:** Version bump only for package @kaizen/draft-modal

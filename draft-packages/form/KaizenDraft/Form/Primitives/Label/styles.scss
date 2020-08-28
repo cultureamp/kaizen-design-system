@@ -60,8 +60,12 @@ $label-start-margin: 10px;
   justify-content: space-between;
   align-items: center;
 
-  .labelText {
+  .prependedLabel {
     @include ca-margin($end: $label-start-margin);
     order: -1; // place label before the control
+  }
+
+  .appendedLabel {
+    @include ca-margin($start: $label-start-margin);
   }
 }

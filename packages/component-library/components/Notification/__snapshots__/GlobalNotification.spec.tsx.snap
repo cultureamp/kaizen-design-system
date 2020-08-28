@@ -3,6 +3,7 @@
 exports[`The basic notification renders correctly 1`] = `
 <div
   class="notification affirmative global hidden"
+  data-automation-class="generic-notification affirmative global"
   style="margin-top: 0px;"
 >
   <div
@@ -62,6 +63,7 @@ exports[`The basic notification renders correctly 1`] = `
 exports[`You can change the type 1`] = `
 <div
   class="notification informative global hidden"
+  data-automation-class="generic-notification informative global"
   style="margin-top: 0px;"
 >
   <div

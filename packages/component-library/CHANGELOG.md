@@ -3,6 +3,72 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.30.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.29.0...@kaizen/component-library@7.30.0) (2020-08-28)
+
+
+### Features
+
+* added repeats icon ([#717](https://github.com/cultureamp/kaizen-design-system/issues/717)) ([b706bdf](https://github.com/cultureamp/kaizen-design-system/commit/b706bdfeeda97c4fcf0c66c0cda2336ceab4c609))
+
+
+
+
+
+# [7.29.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.28.0...@kaizen/component-library@7.29.0) (2020-08-27)
+
+
+### Features
+
+* Add new badge to menu items ([#729](https://github.com/cultureamp/kaizen-design-system/issues/729)) ([3f81349](https://github.com/cultureamp/kaizen-design-system/commit/3f81349f086c1e356f8b34c3129accdcc6958e02))
+
+
+
+
+
+# [7.28.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.27.0...@kaizen/component-library@7.28.0) (2020-08-24)
+
+
+### Features
+
+* Add security-tip icon ([#725](https://github.com/cultureamp/kaizen-design-system/issues/725)) ([987147d](https://github.com/cultureamp/kaizen-design-system/commit/987147dcad3581c62dd276e62f9cdf84898a86ce))
+
+
+
+
+
+# [7.27.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.26.0...@kaizen/component-library@7.27.0) (2020-08-19)
+
+
+### Features
+
+* Elm Box component ([#713](https://github.com/cultureamp/kaizen-design-system/issues/713)) ([74fc272](https://github.com/cultureamp/kaizen-design-system/commit/74fc27286bc9e7ccdf9ee9766617a7a72890aa67))
+
+
+
+
+
+# [7.26.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.25.1...@kaizen/component-library@7.26.0) (2020-08-12)
+
+
+### Features
+
+* Add data-automation-class to generic notification ([#704](https://github.com/cultureamp/kaizen-design-system/issues/704)) ([07b647b](https://github.com/cultureamp/kaizen-design-system/commit/07b647bbc6eecdff0d80c7f56c24c0acd0b5e02e))
+
+
+
+
+
+## [7.25.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.25.0...@kaizen/component-library@7.25.1) (2020-08-10)
+
+
+### Bug Fixes
+
+* add comments that Layout, Text and MenuList are deprecated ([#692](https://github.com/cultureamp/kaizen-design-system/issues/692)) ([c460f92](https://github.com/cultureamp/kaizen-design-system/commit/c460f92c976ef557bee1b88deca8710969de1576))
+
+
+
+
+
 # [7.25.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.24.9...@kaizen/component-library@7.25.0) (2020-07-31)
 
 

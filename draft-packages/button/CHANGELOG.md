@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.6...@kaizen/draft-button@1.13.7) (2020-08-28)
+
+
+### Bug Fixes
+
+* consider icon position end when additional content is used on generic button ([#741](https://github.com/cultureamp/kaizen-design-system/issues/741)) ([e985948](https://github.com/cultureamp/kaizen-design-system/commit/e985948db86ae972732bbbe049914c1fb608e4b8))
+
+
+
+
+
+## [1.13.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.5...@kaizen/draft-button@1.13.6) (2020-08-28)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.13.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.4...@kaizen/draft-button@1.13.5) (2020-08-27)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.13.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.3...@kaizen/draft-button@1.13.4) (2020-08-24)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.13.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.2...@kaizen/draft-button@1.13.3) (2020-08-19)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.13.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.1...@kaizen/draft-button@1.13.2) (2020-08-12)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.13.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.0...@kaizen/draft-button@1.13.1) (2020-08-10)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
 # [1.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.12.7...@kaizen/draft-button@1.13.0) (2020-07-31)
 
 

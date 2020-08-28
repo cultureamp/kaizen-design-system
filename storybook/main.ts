@@ -12,4 +12,5 @@ module.exports = {
     "../legacy-packages/**/*.stories.tsx",
   ],
   presets: [path.resolve("./storybook/header-preset/preset")],
+  addons: ["./storybook/gtm-addon/register.js"],
 }

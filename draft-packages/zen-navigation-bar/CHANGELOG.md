@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.9.0...@kaizen/draft-zen-navigation-bar@1.9.1) (2020-08-28)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+# [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.8.16...@kaizen/draft-zen-navigation-bar@1.9.0) (2020-08-27)
+
+
+### Features
+
+* Add new badge to menu items ([#729](https://github.com/cultureamp/kaizen-design-system/issues/729)) ([3f81349](https://github.com/cultureamp/kaizen-design-system/commit/3f81349f086c1e356f8b34c3129accdcc6958e02))
+
+
+
+
+
+## [1.8.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.8.15...@kaizen/draft-zen-navigation-bar@1.8.16) (2020-08-24)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+## [1.8.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.8.14...@kaizen/draft-zen-navigation-bar@1.8.15) (2020-08-19)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+## [1.8.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.8.13...@kaizen/draft-zen-navigation-bar@1.8.14) (2020-08-12)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
+## [1.8.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.8.12...@kaizen/draft-zen-navigation-bar@1.8.13) (2020-08-10)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
 ## [1.8.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@1.8.11...@kaizen/draft-zen-navigation-bar@1.8.12) (2020-07-31)
 
 **Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
