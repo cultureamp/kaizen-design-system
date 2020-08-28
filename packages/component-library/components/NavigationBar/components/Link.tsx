@@ -6,6 +6,7 @@ import * as React from "react"
 
 const styles = require("./Link.module.scss")
 import { LinkProps } from "../types"
+import Indicator from "./Indicator"
 
 export default class Link extends React.PureComponent<LinkProps> {
   static displayName = "Link"
@@ -30,6 +31,7 @@ export default class Link extends React.PureComponent<LinkProps> {
       target,
       hasMenu,
       section,
+      showIndicator,
     } = this.props
 
     return (
@@ -53,6 +55,7 @@ export default class Link extends React.PureComponent<LinkProps> {
         )}
         {text && !(icon && iconOnly) && (
           <span className={styles.linkText}>
+            {showIndicator && hasMenu && <Indicator />}
             {text}
             {badge && (
               <span

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/generator-create@1.1.2...@kaizen/generator-create@1.1.3) (2020-08-24)
+
+
+### Bug Fixes
+
+* Added Readme and automation id to generator ([#720](https://github.com/cultureamp/kaizen-design-system/issues/720)) ([74108b4](https://github.com/cultureamp/kaizen-design-system/commit/74108b462214c9539ad79979eaef7d3a1cccc466))
+
+
+
+
+
 ## [1.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/generator-create@1.1.1...@kaizen/generator-create@1.1.2) (2020-07-01)
 
 

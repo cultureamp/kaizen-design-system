@@ -3,6 +3,95 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.10.2...@kaizen/draft-select@1.10.3) (2020-08-28)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.10.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.10.1...@kaizen/draft-select@1.10.2) (2020-08-27)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.10.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.10.0...@kaizen/draft-select@1.10.1) (2020-08-27)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+# [1.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.9.0...@kaizen/draft-select@1.10.0) (2020-08-26)
+
+
+### Features
+
+* Elm SelectField component ([#731](https://github.com/cultureamp/kaizen-design-system/issues/731)) ([f0775dc](https://github.com/cultureamp/kaizen-design-system/commit/f0775dc253d5d44d3f53084deeebd60fbd9073cf))
+
+
+
+
+
+# [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.8.4...@kaizen/draft-select@1.9.0) (2020-08-25)
+
+
+### Features
+
+* Add report switcher to Title Block ([#716](https://github.com/cultureamp/kaizen-design-system/issues/716)) ([4fa08cb](https://github.com/cultureamp/kaizen-design-system/commit/4fa08cb3f807fc0f1e47d1970f5426c34a167a99))
+
+
+
+
+
+## [1.8.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.8.3...@kaizen/draft-select@1.8.4) (2020-08-25)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.8.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.8.2...@kaizen/draft-select@1.8.3) (2020-08-24)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.8.1...@kaizen/draft-select@1.8.2) (2020-08-21)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.8.0...@kaizen/draft-select@1.8.1) (2020-08-19)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+# [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.7.13...@kaizen/draft-select@1.8.0) (2020-08-13)
+
+
+### Features
+
+* add basic automation-ids to Select ([#707](https://github.com/cultureamp/kaizen-design-system/issues/707)) ([39aa768](https://github.com/cultureamp/kaizen-design-system/commit/39aa7684717ee33780432d8092776f7a762b10f3))
+
+
+
+
+
 ## [1.7.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.7.12...@kaizen/draft-select@1.7.13) (2020-08-12)
 
 **Note:** Version bump only for package @kaizen/draft-select

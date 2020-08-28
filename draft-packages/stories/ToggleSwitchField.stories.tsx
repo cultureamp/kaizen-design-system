@@ -243,3 +243,39 @@ export const FreemiumTheme = () => (
 FreemiumTheme.story = {
   name: "Freemium theme",
 }
+
+export const LabelAtEnd = () => (
+  <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+    {({ toggledStatus, toggle }) => (
+      <ToggleSwitchField
+        labelText="Label"
+        toggledStatus={toggledStatus}
+        onToggle={toggle}
+        labelPosition="end"
+      />
+    )}
+  </ToggleStateContainer>
+)
+
+LabelAtEnd.story = {
+  name: "Label at end",
+}
+
+export const LabelAtEndRtl = () => (
+  <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+    {({ toggledStatus, toggle }) => (
+      <RtlContainer>
+        <ToggleSwitchField
+          labelText="Label"
+          toggledStatus={toggledStatus}
+          onToggle={toggle}
+          labelPosition="end"
+        />
+      </RtlContainer>
+    )}
+  </ToggleStateContainer>
+)
+
+LabelAtEndRtl.story = {
+  name: "Label at end (RTL)",
+}

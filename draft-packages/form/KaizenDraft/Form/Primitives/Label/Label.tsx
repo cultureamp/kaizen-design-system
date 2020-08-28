@@ -10,6 +10,7 @@ export type LabelProps = {
   automationId?: string
   htmlFor?: string
   labelText?: string | React.ReactNode
+  labelPosition?: "start" | "end"
   labelType?: LabelType
   reversed?: boolean
 }
@@ -22,6 +23,7 @@ const Label: Label = ({
   htmlFor,
   labelText = "",
   labelType = "text",
+  labelPosition = "start",
   reversed = false,
   children,
 }) => (
@@ -38,7 +40,14 @@ const Label: Label = ({
     })}
   >
     {children}
-    <span className={styles.labelText}>{labelText}</span>
+    <span
+      className={classnames({
+        [styles.prependedLabel]: labelPosition === "start",
+        [styles.appendedLabel]: labelPosition === "end",
+      })}
+    >
+      {labelText}
+    </span>
   </label>
 )
 
