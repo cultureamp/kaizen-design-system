@@ -41,9 +41,13 @@ $label-start-margin: 10px;
 
   display: flex;
 
-  .labelText {
+  .prependedLabel {
+    @include ca-margin($end: $label-start-margin);
+    order: -1; // place label before the control
+  }
+
+  .appendedLabel {
     @include ca-margin($start: $label-start-margin);
-    // transform: translateY(-0.11em); // optically centre label
   }
 }
 .checkbox {
