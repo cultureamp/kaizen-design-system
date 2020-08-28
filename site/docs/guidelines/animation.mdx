@@ -4,23 +4,17 @@ navTitle: Animation
 summaryParagraph: Meaningful motion helps make our product easy for everyone and tells our brand's story. It helps people make sense of space and navigate digital interfaces.
 tags: ["Motion design", "Transitions"]
 needToKnow:
-  - "Use our palette of animation styles, easing functions, and timing variables."
-  - "Test 100 animated instances shown at once. Test an animation repeated 100 times."
   - "Aim for a fast time to first interaction of 300ms or less with primary content or data."
-  - "Use 1 primary call to action."
+  - "Test designs with 100 animated instances shown at once. Test designs with one animation repeated 100 times."
+  - "Use animation on the 1 primary call to action."
   - "Use more user-initiated than system-initiated animation."
+  - "Use our palette of animation styles, easing functions, and timing variables."
 ---
 
 import AnimationPresetsExample from "docs-components/animation/AnimationPresetsExample"
 import AnimationSequencesExample from "docs-components/animation/AnimationSequencesExample"
-import AnimationUsageInputExample from "docs-components/animation/AnimationUsageInputExample"
-import AnimationUsageOutputExample from "docs-components/animation/AnimationUsageOutputExample"
-import AnimationImportExample from "docs-components/animation/AnimationImportExample"
-import DurationPresetsExample from "docs-components/animation/DurationPresetsExample"
-import EasingPresetsExample from "docs-components/animation/EasingPresetsExample"
+import AnimationTokensList from "docs-components/animation/AnimationTokensList"
 import TransitionPresetsExample from "docs-components/animation/TransitionPresetsExample"
-import TransitionUsageInputExample from "docs-components/animation/TransitionUsageInputExample"
-import TransitionUsageOutputExample from "docs-components/animation/TransitionUsageOutputExample"
 
 import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
 import WhenToUse from "docs-components/WhenToUse"
@@ -29,6 +23,12 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 ## To keep in mind
 
 The "wow" factor of motion wins deals. We're hard wired to notice movement and pay attention to it.
+
+## Animation Design Tokens
+
+Use our animation design tokens to ensure consistency for animation durations and easing timing functions:
+
+<AnimationTokensList />
 
 ## When to use and when not to use
 
@@ -154,46 +154,15 @@ Animations are *not* transitions. Although they can appear visually the same, th
 
 ## Sass mixins
 
-We have [Sass](https://sass-lang.com/) mixins and animation presets. To use them, import the animation styles into your Sass file:
+We have [Sass](https://sass-lang.com/) mixins and animation presets. To use them, import the animation styles into your Sass file.
 
 Our animation helpers have been heavily built upon [Zurb’s Motion UI](https://github.com/zurb/motion-ui). Most of the mixins are aliased versions from the motion-ui library. This lets us expand upon them and potentially remove this dependency without breaking our animation API.
-
-<AnimationImportExample />
-
-### Variables
-
-The Sass animation variables are designed to provide consistency across all Culture Amp animations.
-
-**Easings**
-
-Prefix: `$ca-timing`
-
-<EasingPresetsExample />
-
-**Durations**
-
-Prefix: `$ca-duration`
-
-<DurationPresetsExample />
 
 ### Mixins
 
 #### Animations
 
 To use any of the animation presets, define a class and include the mixin. All preset animation mixins are prefixed with `ca-animation-`.
-
-##### Animation Presets
-
-##### Example
-
-##### SASS Input
-
-<AnimationUsageInputExample />
-
-##### CSS Output
-
-<AnimationUsageOutputExample />
-
 
 | Type       | Mixin                              |
 | ---------- | ---------------------------------- |
@@ -216,14 +185,6 @@ To use any of the transition presets, define a class and include the mixin. All 
 ##### Transition Presets
 
 **Note:** Transitions need to be “triggered” by adding `.ca-enter-active` or `.ca-exit-active` classes.
-
-##### SASS Input
-
-<TransitionUsageInputExample />
-
-##### CSS Output
-
-<TransitionUsageOutputExample />
 
 | Type       | Mixin                               |
 | ---------- | ----------------------------------- |
@@ -281,7 +242,7 @@ Animation can cause accessibility issues, such as motion sickness in people with
 
 ```
 .animation {
-  animation: pulsate 0.3s $ca-ease-in-out infinite both;
+  animation: pulsate $kz-animation-duration-fast $kz-animation-easing-function-ease-in-out infinite both;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -297,3 +258,4 @@ Here are some examples of existing design systems that use motion:
 
 - [Material: motion](https://material.io/design/motion/understanding-motion.html)
 - [Lightning: time design tokens](https://www.lightningdesignsystem.com/design-tokens/#category-time)
+
