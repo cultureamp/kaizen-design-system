@@ -382,6 +382,12 @@ $caButton-verticalPaddingForm: calc(
   align-self: flex-start;
 }
 
+%caButtonAdditionalContentWrapper {
+  display: inherit;
+  &:not(:last-child) {
+    @include ca-margin($end: 0.5em, $start: null);
+  }
+}
 %caButtonIconButton {
   width: $caButton-height;
 
