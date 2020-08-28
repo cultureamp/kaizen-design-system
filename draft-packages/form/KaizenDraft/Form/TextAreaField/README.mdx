@@ -26,15 +26,19 @@ import Dont from "docs-components/Dont"
 
 * **Optional vs required:**
     * As a rule of thumb, generally use “ (optional)” to indicate optional fields instead of “`*`” to indicate required fields.
-* **Placeholder text** is temporary and vanishes once a user enters text. Avoid placeholder text that must be deleted by the user. Avoid using placeholder text as a label as the user will lose the context of what field they're filling out as soon as it disappears.
-* For **sizing**, consider likely text input and use existing data where possible.
+* **Don't use placeholder text** as it's temporary and vanishes once a user enters text, losing any valuable context. Placeholder text is also notoriously difficult to provide accessibly.
+* For **sizing**, consider likely text input and use existing data where possible:
+    * By default, start with 4 rows and auto-resize as the user enters more text.
+    * Where spaced is limited such as inside a modal, do not auto-resize and limit manual resizing.
+    * On page load, if the text area already contains lots of text, consider auto-resizing to reveal the full text.
 * For **right-to-left (RTL)** languages, the layout of a text area is swapped. The validation icons are left-aligned.
+* Consider if spell-check or autocorrect needs to be enabled or disabled. Usually in a text area field, enabled is suitable. Conversely, autocorrect on an email address in a [Text Field](/components/text-field) could introduce errors.
 
 ### Validation
 
-Most of the time, we validate text areas on “blur” (when leaving the text area) or on form submission as needed. We don’t validate on key strokes.
+Sometimes we validate text areas on “blur” (when leaving the text area) or on form submission as needed. We don’t validate on key strokes. See [Forms validation and feedback](/guidelines/forms/#validation-and-feedback) to learn more.
 
-When displaying a validation messages, such as an error, use a `aria-describedby` attribute to associate the text field with the element containing the validation message.
+When displaying a validation messages, such as an error, use a `aria-describedby` attribute to associate the text area field with the element containing the validation message.
 
 ### Interaction
 
@@ -46,7 +50,7 @@ To be scannable and fully helpful, a text area must have an associated label. He
 
 ### Give it a clear, short label
 
-Make sure your text area has a short, descriptive label above it that describes what the user should type into the box below. Avoid phrasing your labels as questions. Keep in mind that your label shouldn’t contain instructions. Reserve those for the helper text.
+Make sure your text area has a short, descriptive label above it that describes what the user should type into the box below. Avoid phrasing your labels as questions that are unnecessarily wordy. Keep in mind that your label shouldn’t contain instructions. Reserve those for the helper text.
 
 <DoAndDontContainer>
 <Do>
@@ -61,26 +65,6 @@ Make sure your text area has a short, descriptive label above it that describes 
 
 </Dont>
 </DoAndDontContainer>
-
-### Placeholder text should be examples and not instructions
-
-Make sure that any text inside the field box serves as an example of what the user should type into the box. Don’t put any instructions inside the box. 
-
-<DoAndDontContainer>
-<Do>
-
-- e.g. Thanks for everything!
-
-</Do>
-
-<Dont>
-
-- Thanks for everything!
-
-</Dont>
-</DoAndDontContainer>
-
-Keep in mind that examples aren’t always required. For example, a text area asking for someone’s opinion doesn’t need an example in it if it will be misleading. Only use placeholder text when required. More often than not, blank text fields are easier to spot and scan.
 
 ### Error text should be succinct
 
@@ -100,9 +84,11 @@ Keep all error text short, useful and to the point.
 </Dont>
 </DoAndDontContainer>
 
+Don’t use trailing full stops or periods unless the error message contains more than 1 sentence.
+
 ### Helper text should provide extra guidance
 
-Helper text placed below the field can include further instructions or information on how to fill out the text area. It can also include details on what will happen with the filled out information. Don’t put placeholders here.
+Helper text placed below the field can include further instructions or information on how to fill out the text area. It can also include details on what will happen with the filled out information.
 
 <DoAndDontContainer>
 <Do>
@@ -118,6 +104,8 @@ Helper text placed below the field can include further instructions or informati
 </Dont>
 </DoAndDontContainer>
 
+Keep in mind that helper text and examples aren’t always required. For example, a text area asking for someone’s opinion doesn’t need an example in it if it will be misleading.
+
 ### Write in sentence case with minimal punctuation
 
 All text area copy should be in sentence case i.e. the first letter of the first word is capitalized and everything else is in lower case unless it’s a proper noun or feature name. Always err on the side of minimal punctuation, so leave out full stops and commas where possible.
@@ -132,6 +120,7 @@ All text area copy should be in sentence case i.e. the first letter of the first
 </WhenToUse>
 <WhenNotToUse>
 
+* If the user needs to format some of the text, such as applying bold or adding links, use a rich text editor instead.
 * Avoid gathering input from users that isn't absolutely necessary.
 * For shorter text input, use a [Text Field](/components/text-field) instead.
 
