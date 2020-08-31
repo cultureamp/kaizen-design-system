@@ -392,9 +392,14 @@ $tab-container-height-small: $ca-grid * 2.5;
   @include title-block-medium-and-small {
     display: none;
   }
+
+  + .pageSwitcherSelectNextToTitle {
+    @include ca-margin($start: 0);
+  }
 }
 
 .pageSwitcherSelectNextToTitle {
+  @include ca-margin($start: $ca-grid / 2);
   flex-shrink: 0;
   width: 10 * $ca-grid;
 }
