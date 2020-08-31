@@ -6,7 +6,7 @@ export interface <%= componentName %>Props {
    * Remember to annotate your props! The typehints make developers happy
    * @default ""
    */
-  children?: React.ReactNode,
+  children?: React.ReactNode
 
   /**
    * Uniquely identify this component for testing purposes

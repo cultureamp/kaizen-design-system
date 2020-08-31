@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.7.3...@kaizen/draft-title-block-zen@1.7.4) (2020-08-31)
+
+
+### Bug Fixes
+
+* fixes margin when a status tag and page switcher are used together ([#747](https://github.com/cultureamp/kaizen-design-system/issues/747)) ([1adb11d](https://github.com/cultureamp/kaizen-design-system/commit/1adb11d6db9677d06c9ebed9be5def6c97344359))
+
+
+
+
+
+## [1.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.7.2...@kaizen/draft-title-block-zen@1.7.3) (2020-08-28)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
 ## [1.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.7.1...@kaizen/draft-title-block-zen@1.7.2) (2020-08-27)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
