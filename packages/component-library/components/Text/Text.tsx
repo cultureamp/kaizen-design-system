@@ -37,6 +37,9 @@ type TextProps = {
   inline?: boolean
 }
 
+/**
+ * @deprecated Text is deprecated. Use Paragraph or Heading instead.
+ */
 const Text: React.FunctionComponent<TextProps> = ({
   tag,
   children,

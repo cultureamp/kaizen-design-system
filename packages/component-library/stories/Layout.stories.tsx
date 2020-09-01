@@ -24,7 +24,8 @@ export default {
   parameters: {
     info: {
       text: `
-        import { Layout } from "@kaizen/component-library";
+        # Deprecated
+        Layout is deprecated.
       `,
     },
   },

@@ -7,10 +7,8 @@ export default {
   parameters: {
     info: {
       text: `
-        import { Text } from "@kaizen/component-library";
-
-        ## Deprecated
-        This component is now deprecated. Please use Heading or Paragraph instead
+        # Deprecated
+        This component is now deprecated. Please use Heading or Paragraph instead.
       `,
     },
   },
