@@ -34,6 +34,7 @@ export default ({ data, pageContext, location }) => {
   const md = data.mdx
   const allPages = data.allMdx.edges
   const currentPath = location.pathname
+  const toc = data.mdx.tableOfContents.items // table of contents
 
   const overviewPage = allPages.filter(
     el => el.node.frontmatter.navTitle === "Overview"
@@ -67,6 +68,18 @@ export default ({ data, pageContext, location }) => {
     />
   )
 
+  const ToC = (items, depth) => {
+    if (depth === 0) {
+      return
+    }
+
+    return items.map(item => {
+      return <li key={item.url}><a href={item.url}>{item.title}</a>
+        { item.items ? <ol>{ToC(item.items || [], depth - 1)}</ol> : null }
+      </li>
+    })
+  }
+
   return (
     <Layout
       pageTitle={md.frontmatter.title}
@@ -82,6 +95,9 @@ export default ({ data, pageContext, location }) => {
           </SidebarSection>
         </Sidebar>
         <Content>
+          <ol>
+            {ToC(toc, 4)}
+          </ol>
           <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
           {md.frontmatter.title !== "Overview" && renderStorybookIFrame()}
           <ContentMarkdownSection>
@@ -122,6 +138,7 @@ export const query = graphql`
         demoStoryId
         demoStoryHeight
       }
+      tableOfContents
     }
   }
 `
