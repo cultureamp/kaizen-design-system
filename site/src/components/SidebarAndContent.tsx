@@ -108,9 +108,13 @@ const TableOfContentsBody = (items, depth) => {
   }
 
   return items.map(item => (
-    <li key={item.url}><a href={item.url}>{item.title}</a>
-      { item.items ? <ol>{TableOfContentsBody(item.items || [], depth - 1)}</ol> : null }
-    </li>)
+    item.url ?
+      <li key={item.url}><a href={item.url}>{item.title}</a>
+        { item.items ? <ol>{TableOfContentsBody(item.items || [], depth - 1)}</ol> : null }
+      </li>
+      :
+      TableOfContentsBody(item.items || [], depth - 1)
+    )
   )
 }
 
