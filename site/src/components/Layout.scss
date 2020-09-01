@@ -48,13 +48,15 @@
   &.trimBottomOfCardToContent {
     grid-template-rows: min-content;
   }
+
+  @media (min-width: 768px) and (max-width: 1439px) {
+    justify-items: left;
+  }
 }
 
 .content {
   display: grid;
   grid-column: content;
-  max-width: var(--content-max-width);
-  width: 100%;
   padding: 0 0 $ca-grid;
   box-sizing: border-box;
 }
@@ -62,3 +64,8 @@
 .footerContainer {
   grid-area: footer;
 }
+
+.fullWidthContent {
+  width: 100%;
+}
+

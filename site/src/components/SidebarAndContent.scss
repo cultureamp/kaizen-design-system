@@ -11,9 +11,15 @@ $tableOfContents-width: $ca-grid * 10;
 .sidebarAndContent {
   display: grid;
   grid-template-areas: "sidebar content tableOfContents";
-  grid-template-columns: $sidebar-width 1fr $tableOfContents-width;
+  grid-template-columns: $sidebar-width minmax(840px, 936px) $tableOfContents-width;
   grid-template-rows: 1fr;
   grid-gap: var(--sidebar-content-gap);
+
+  @media (min-width: 768px) and (max-width: 1439px) {
+    grid-template-areas: "tableOfContents sidebar content";
+    grid-template-columns: max($tableOfContents-width, $sidebar-width) auto;
+    grid-template-rows: auto 1fr;
+  }
 
   @include ca-media-mobile() {
     grid-template-areas:
@@ -33,7 +39,13 @@ $tableOfContents-width: $ca-grid * 10;
   box-shadow: var(--card-box-shadow);
   padding: 0;
   margin-top: calc(-1 * var(--content-card-top-offset));
-  max-width: var(--page-content-width);
+  max-width: 1080px;
+
+  @media (min-width: 768px) and (max-width: 1439px) {
+    grid-row-start: 1;
+    grid-row-end: span 2;
+    max-width: 768px;
+  }
 
   @include ca-media-mobile() {
     border: 0;
@@ -59,6 +71,11 @@ $tableOfContents-width: $ca-grid * 10;
 .sidebar {
   grid-area: sidebar;
   margin-top: $ca-grid * 1.5;
+
+  @media (min-width: 768px) and (max-width: 1439px) {
+    grid-row-start: 2;
+    grid-column-start: 1;
+  }
 }
 
 .sidebarSectionTitle {
@@ -118,8 +135,11 @@ $tableOfContents-width: $ca-grid * 10;
 .tableOfContentsList {
   margin-left: -$ca-grid * 0.5;
   padding-left: 0;
-  width: 240px;
   margin-bottom: var(--content-card-top-offset);
+
+  @media (min-width: 768px) and (max-width: 1440px) {
+    margin-left: 0;
+  }
 
   li {
     list-style-type: none;
@@ -131,7 +151,6 @@ $tableOfContents-width: $ca-grid * 10;
     color: inherit;
     display: inline-block;
     padding: $ca-grid * 0.25 $ca-grid / 2;
-    width: 100%;
     text-decoration: none;
     border-radius: 7px;
   }

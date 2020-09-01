@@ -19,7 +19,11 @@
 .pageHeaderInner {
   display: grid;
   grid-template-columns: [side] (12 * $ca-grid) [main] 1fr;
-  width: var(--content-max-width);
+  width: calc(var(--content-max-width) - (#{$ca-grid} * 2));
+
+  @media (min-width: 768px) and (max-width: 1439px) {
+    width: 100%;
+  }
 
   @include ca-media-mobile() {
     grid-template-columns: 1fr;
