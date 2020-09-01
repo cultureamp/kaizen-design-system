@@ -10,6 +10,7 @@ import {
   Sidebar,
   SidebarAndContent,
   SidebarTab,
+  TableOfContents
 } from "../components/SidebarAndContent"
 import { sortSidebarTabs, stripTrailingSlash } from "./util"
 
@@ -60,6 +61,7 @@ export default ({ data, pageContext, location }) => {
           {renderSidebarTabs(pagesWithoutOverview, currentPath, "language")}
         </Sidebar>
         <Content>
+          <TableOfContents items={md.tableOfContents.items} />
           <ContentMarkdownSection>
             {/*
             // @ts-ignore */}
@@ -93,6 +95,7 @@ export const query = graphql`
         summaryParagraph
         tags
       }
+      tableOfContents
     }
   }
 `

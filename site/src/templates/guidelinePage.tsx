@@ -12,6 +12,7 @@ import {
   SidebarAndContent,
   SidebarSection,
   SidebarTab,
+  TableOfContents
 } from "../components/SidebarAndContent"
 import { sortSidebarTabs, stripTrailingSlash } from "./util"
 
@@ -79,6 +80,7 @@ export default ({ data, pageContext, location }) => {
           </SidebarSection>
         </Sidebar>
         <Content>
+          <TableOfContents items={md.tableOfContents.items} />
           <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
           <ContentMarkdownSection>
             {/*
@@ -116,6 +118,7 @@ export const query = graphql`
         needToKnow
         headerImage
       }
+      tableOfContents
     }
   }
 `
