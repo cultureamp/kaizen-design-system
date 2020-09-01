@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio-group@1.4.0...@kaizen/draft-radio-group@1.4.1) (2020-08-28)
+
+**Note:** Version bump only for package @kaizen/draft-radio-group
+
+
+
+
+
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio-group@1.3.45...@kaizen/draft-radio-group@1.4.0) (2020-08-27)
+
+
+### Features
+
+* Add toggle switch with label after the toggle control ([#665](https://github.com/cultureamp/kaizen-design-system/issues/665)) ([e05bd5a](https://github.com/cultureamp/kaizen-design-system/commit/e05bd5a50644ae0b0a7b798c89047e4a02f2b1be))
+
+
+
+
+
+## [1.3.45](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio-group@1.3.44...@kaizen/draft-radio-group@1.3.45) (2020-08-27)
+
+**Note:** Version bump only for package @kaizen/draft-radio-group
+
+
+
+
+
 ## [1.3.44](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio-group@1.3.43...@kaizen/draft-radio-group@1.3.44) (2020-08-24)
 
 **Note:** Version bump only for package @kaizen/draft-radio-group

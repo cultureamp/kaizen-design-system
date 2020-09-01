@@ -5,6 +5,7 @@ import ReactTooltip from "react-tooltip"
 import uuid from "uuid/v4"
 import { NavBarContext } from "../context"
 import { LinkProps } from "../types"
+import Indicator from "./Indicator"
 
 const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
   .default
@@ -21,6 +22,7 @@ export default class Link extends React.PureComponent<LinkProps> {
     new: false,
     content: false,
     target: "_self",
+    showIndicator: false,
   }
 
   render = () => {
@@ -41,6 +43,7 @@ export default class Link extends React.PureComponent<LinkProps> {
       menuOpen,
       colorScheme,
       tooltip,
+      showIndicator,
     } = this.props
 
     const toolId = uuid()
@@ -98,6 +101,7 @@ export default class Link extends React.PureComponent<LinkProps> {
                 />
               </span>
             )}
+            {showIndicator && !icon && <Indicator />}
             {text && !(icon && iconOnly) && (
               <span className={classNames(styles.linkText)}>
                 {text}

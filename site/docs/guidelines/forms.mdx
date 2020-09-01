@@ -24,13 +24,19 @@ Our preferred layout is with individual form elements stacked vertically, groupe
 
 We require a single primary action to submit, with a secondary action to cancel and discard edits.
 
-### Accessibility
-
-All form elements must have a label associated with the input. There are reasons you might make it visible to sighted users or not, see individual component pages for details.
+For accessibility reasons, you should allow users to press the primary action button at all times. Do not make the button inactive, even when required fields are empty. Instead, trigger client-side validation to highlight the empty fields.
 
 ### Validation and feedback
 
-Where possible use client side validation where the user is presented feedback before submitting the form.
+Where possible, use client-side validation to present the user with feedback before submitting the form.
+
+Validate on press of the submit button. Do not validate on field selection or 'blur' (clicking out of the field). 
+
+If errors are present, reveal all relevant error messages and focus the user on the first invalid field on the page. You may also want to show a [negative confirmation modal](/components/modal/), then allow the user to navigate to the first error (or cancel to do nothing). 
+
+### Accessibility
+
+All form elements must have a label associated with the input. There are reasons you might make it visible to sighted users or not, see individual component pages for details.
 
 ## When to use and when not to use
 
