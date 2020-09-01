@@ -121,9 +121,12 @@ const TableOfContentsBody = (items, depth) => {
 export const TableOfContents: React.SFC<TableOfContentsProps> = ({
   items,
 }) => (items ?
-  <ol className={styles.tableOfContents}>
-    {TableOfContentsBody(items, 2)}
-  </ol>
+  <div className={styles.tableOfContents} role="navigation" aria-labelledby="table-of-contents-label">
+    <p id="table-of-contents-label" className={styles.tableOfContentsLabel}>On this page</p>
+    <ol className={styles.tableOfContentsList}>
+      {TableOfContentsBody(items, 2)}
+    </ol>
+  </div>
   :
     null
 )

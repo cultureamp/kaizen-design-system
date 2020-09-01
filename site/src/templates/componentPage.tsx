@@ -83,7 +83,6 @@ export default ({ data, pageContext, location }) => {
           </SidebarSection>
         </Sidebar>
         <Content>
-          <TableOfContents items={md.tableOfContents.items} />
           <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
           {md.frontmatter.title !== "Overview" && renderStorybookIFrame()}
           <ContentMarkdownSection>
@@ -93,6 +92,7 @@ export default ({ data, pageContext, location }) => {
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
           </ContentMarkdownSection>
         </Content>
+        <TableOfContents items={md.tableOfContents.items} />
       </SidebarAndContent>
     </Layout>
   )

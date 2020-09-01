@@ -18,12 +18,13 @@ $link-icon-margin: 12px;
 
   :global(.md-p),
   :global(.md-li) {
-    font-size: 1.25rem;
-    line-height: 1.8;
+    font-size: 1.0rem;
+    line-height: 1.5;
   }
 
   :global(.md-li) {
     margin: 0;
+    margin-bottom: 0.5em;
     font-weight: $kz-typography-paragraph-body-font-weight;
 
     :global(.md-p) {
@@ -103,8 +104,7 @@ $link-icon-margin: 12px;
   }
 
   :global(.md-h4) {
-    font-size: 1.375rem;
-    line-height: 1.0909090909;
+    @include kz-typography-heading-4;
     margin-top: $ca-grid * 2;
     margin-bottom: $ca-grid;
   }
@@ -114,15 +114,13 @@ $link-icon-margin: 12px;
   }
 
   :global(.md-h5) {
-    font-size: 1rem;
-    line-height: 1.5;
-    font-weight: $ca-weight-medium;
+    @include kz-typography-heading-4;
   }
 
   :global(.md-em),
   :global(.md-i) {
     font-style: normal;
-    font-weight: $ca-weight-book;
+    font-weight: $kz-typography-paragraph-bold-font-weight;
   }
 
   :global(.md-strong) {

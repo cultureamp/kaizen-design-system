@@ -1,22 +1,26 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/responsive";
 
 $sidebar-width: $ca-grid * 10;
+$tableOfContents-width: $ca-grid * 10;
 
 .sidebarAndContent {
   display: grid;
-  grid-template-areas: "sidebar content";
-  grid-template-columns: $sidebar-width 1fr;
+  grid-template-areas: "sidebar content tableOfContents";
+  grid-template-columns: $sidebar-width 1fr $tableOfContents-width;
   grid-template-rows: 1fr;
   grid-gap: var(--sidebar-content-gap);
 
   @include ca-media-mobile() {
     grid-template-areas:
+      "tableOfContents"
       "content"
-      "sidebar";
+      "sidebar"
+      ;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr auto;
   }
@@ -72,14 +76,16 @@ $sidebar-width: $ca-grid * 10;
 }
 
 .tab {
+  border-radius: 7px;
   list-style: none;
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 24px;
 
   a {
+    border-radius: 7px;
     padding: $ca-grid * 0.25 $ca-grid / 2;
     width: 100%;
     text-decoration: none;
@@ -93,5 +99,46 @@ $sidebar-width: $ca-grid * 10;
   &.active {
     background-color: $kz-color-ash;
     color: $kz-color-cluny-500;
+  }
+}
+
+.tableOfContents {
+  grid-area: tableOfContents;
+  margin-top: $ca-grid * 1.5;
+  margin-left: $ca-grid * 0.5;
+}
+
+.tableOfContentsLabel {
+  font-size: $kz-typography-heading-5-font-size;
+  font-weight: $kz-typography-paragraph-bold-font-weight;
+  opacity: 0.75;
+}
+
+.tableOfContentsList {
+  margin-left: -$ca-grid * 0.5;
+  padding-left: 0;
+  width: 240px;
+  margin-bottom: var(--content-card-top-offset);
+
+  li {
+    list-style-type: none;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  a {
+    color: inherit;
+    display: inline-block;
+    padding: $ca-grid * 0.25 $ca-grid / 2;
+    width: 100%;
+    text-decoration: none;
+    border-radius: 7px;
+  }
+  a:hover {
+    color: $kz-color-cluny-500;
+  }
+  ol {
+    list-style-type: none;
+    padding-inline-start: 12px;
   }
 }

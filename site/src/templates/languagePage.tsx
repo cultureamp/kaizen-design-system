@@ -61,13 +61,13 @@ export default ({ data, pageContext, location }) => {
           {renderSidebarTabs(pagesWithoutOverview, currentPath, "language")}
         </Sidebar>
         <Content>
-          <TableOfContents items={md.tableOfContents.items} />
           <ContentMarkdownSection>
             {/*
             // @ts-ignore */}
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
           </ContentMarkdownSection>
         </Content>
+        <TableOfContents items={md.tableOfContents.items} />
       </SidebarAndContent>
     </Layout>
   )

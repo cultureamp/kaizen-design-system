@@ -88,7 +88,8 @@
 
 .mainSection {
   grid-area: main;
-  padding: 0 $ca-grid * 6;
+  padding: 0 $ca-grid * 3;
+  max-width: calc(780px - $ca-grid);
 
   @include ca-media-mobile() {
     padding: 0;
@@ -110,8 +111,8 @@
 }
 
 .summaryParagraph {
-  font-size: 1.5rem;
-  line-height: 1.4;
+  font-size: 1.25rem;
+  line-height: 1.5;
   font-weight: 400;
   margin-bottom: var(--content-card-top-offset);
 
