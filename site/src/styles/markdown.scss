@@ -22,6 +22,11 @@ $link-icon-margin: 12px;
     line-height: 1.5;
   }
 
+  :global(.md-ol) ,
+  :global(.md-ul) {
+    padding-inline-start: 30px;
+  }
+
   :global(.md-li) {
     margin: 0;
     margin-bottom: 0.5em;
@@ -83,14 +88,14 @@ $link-icon-margin: 12px;
 
   :global(.md-h2) {
     @include kz-typography-heading-2;
-    margin-top: $ca-grid * 3.5;
+    margin-top: $ca-grid * 3.25;
     margin-bottom: 0;
   }
 
   :global(.md-h2) + :global(.md-p),
   :global(.md-h2) + :global(.md-ul),
   :global(.md-h2) + :global(.md-ol) {
-    margin-top: $ca-grid * 2.5;
+    margin-top: $ca-grid * 1.5;
   }
 
   :global(.md-h3) {

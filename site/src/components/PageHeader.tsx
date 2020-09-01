@@ -76,18 +76,6 @@ const PageHeader: React.SFC<PageHeaderProps> = ({
                     alt=""
                   />
                 </div>
-                <div className={styles.tagsContainer}>
-                  {tags && (
-                    <>
-                      <div className={styles.tagsLabel}>Also known as:</div>
-                      <div className={styles.tags}>
-                        {tags.map((tagText, i) => (
-                          <Tag text={tagText} key={`tag-${i}`} />
-                        ))}
-                      </div>
-                    </>
-                  )}
-                </div>
               </div>
             )}
             <div className={styles.mainSection}>
@@ -103,6 +91,18 @@ const PageHeader: React.SFC<PageHeaderProps> = ({
               {summaryParagraph && (
                 <h2 className={styles.summaryParagraph}>{summaryParagraph}</h2>
               )}
+              <div className={styles.tagsContainer}>
+                {tags && (
+                  <>
+                    <div className={styles.tagsLabel}>Also known as:</div>
+                    <div className={styles.tags}>
+                      {tags.map((tagText, i) => (
+                        <Tag text={tagText} key={`tag-${i}`} />
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
               {children}
             </div>
           </div>

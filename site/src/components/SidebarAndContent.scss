@@ -111,6 +111,7 @@ $tableOfContents-width: $ca-grid * 10;
 .tableOfContentsLabel {
   font-size: $kz-typography-heading-5-font-size;
   font-weight: $kz-typography-paragraph-bold-font-weight;
+  margin: 0.5rem 0;
   opacity: 0.75;
 }
 
@@ -139,6 +140,6 @@ $tableOfContents-width: $ca-grid * 10;
   }
   ol {
     list-style-type: none;
-    padding-inline-start: 12px;
+    padding-inline-start: $ca-grid;
   }
 }

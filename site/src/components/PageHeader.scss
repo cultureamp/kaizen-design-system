@@ -37,7 +37,7 @@
 .sideSection {
   grid-area: side;
   display: grid;
-  grid-template-rows: ($ca-grid * 9.5) auto;
+  grid-template-rows: ($ca-grid * 7.5) auto;
   row-gap: $ca-grid;
 
   @include ca-media-mobile() {
@@ -69,6 +69,8 @@
 
 .tagsContainer {
   color: $kz-color-white;
+  margin-bottom: 2rem;
+  opacity: 0.8;
 }
 
 .tagsLabel {
@@ -76,20 +78,19 @@
   line-height: 1.5;
   text-transform: uppercase;
   font-weight: 500;
-  margin-left: $ca-grid / 2;
   margin-bottom: $ca-grid / 2;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -0.25em;
+  margin-left: -0.5em;
 }
 
 .mainSection {
   grid-area: main;
   padding: 0 $ca-grid * 3;
-  max-width: calc(780px - $ca-grid);
+  max-width: $ca-grid * 27;
 
   @include ca-media-mobile() {
     padding: 0;
@@ -114,7 +115,7 @@
   font-size: 1.25rem;
   line-height: 1.5;
   font-weight: 400;
-  margin-bottom: var(--content-card-top-offset);
+  margin-bottom: calc(var(--content-card-top-offset) * 0.75);
 
   .headingOnly & {
     max-width: 60rem;
