@@ -27,6 +27,14 @@ type SidebarTabProps = {
   children: React.ReactNode
 }
 
+type TableOfContentsProps = {
+  items: Array<{
+    title: string,
+    url: string
+    items?: {}
+  }>
+}
+
 type ContentNeedToKnowProps = {
   listOfTips: string[]
 }
@@ -92,3 +100,23 @@ export const ContentNeedToKnowSection: React.SFC<ContentNeedToKnowProps> = ({
 export const SidebarAndContent: React.SFC<SidebarAndContentProps> = ({
   children,
 }) => <div className={styles.sidebarAndContent}>{children}</div>
+
+const TableOfContentsBody = (items, depth) => {
+  if (depth === 0) {
+    return
+  }
+
+  return items.map(item => (
+    <li key={item.url}><a href={item.url}>{item.title}</a>
+      { item.items ? <ol>{TableOfContentsBody(item.items || [], depth - 1)}</ol> : null }
+    </li>)
+  )
+}
+
+export const TableOfContents: React.SFC<TableOfContentsProps> = ({
+  items,
+}) => (
+  <ol className={styles.tableOfContents}>
+    {TableOfContentsBody(items, 4)}
+  </ol>
+)
