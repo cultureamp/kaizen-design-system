@@ -122,7 +122,7 @@ export const TableOfContents: React.SFC<TableOfContentsProps> = ({
   items,
 }) => (items ?
   <ol className={styles.tableOfContents}>
-    {TableOfContentsBody(items, 4)}
+    {TableOfContentsBody(items, 2)}
   </ol>
   :
     null
