@@ -25,7 +25,6 @@
         "./draft-packages/table",
         "./draft-packages/tabs",
         "./draft-packages/tag",
-        "./draft-packages/title-block",
         "./draft-packages/tooltip",
         "./draft-packages/user-interactions",
         "./draft-packages/vertical-progress-step",
@@ -33,6 +32,7 @@
         "./draft-packages/zen-off-canvas",
         "./draft-packages/well",
         "./legacy-packages/menu-list",
+        "./legacy-packages/title-block",
         "./legacy-packages/stories",
         "./node_modules/@cultureamp/elm-storybook/src",
         "./node_modules/elm-upgrade-shims/lib-0.19"
