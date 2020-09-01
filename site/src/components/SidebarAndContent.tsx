@@ -27,12 +27,13 @@ type SidebarTabProps = {
   children: React.ReactNode
 }
 
+type ItemOrArray<T> = T | Array<ItemOrArray<T>>;
+type Item = {
+  title: string,
+  url: string
+}
 type TableOfContentsProps = {
-  items: Array<{
-    title: string,
-    url: string
-    items?: {}
-  }>
+  items: ItemOrArray<Item>
 }
 
 type ContentNeedToKnowProps = {
