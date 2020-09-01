@@ -262,6 +262,16 @@ As well as triggering a major version update, this will make breaking changes cl
 
 Note that in the case that a pull request touches files from more than one package, all of those packages will be released to the npm registry with the specified update. Sometimes this might be desirable (e.g. when performing a bulk update to package docs), but in general, **be on the lookout for pull requests which touch more than one package**, and break those changes up into separate pull requests!
 
+## Canary releases 
+
+Canary releases create a way to test changes in production-like environments, and are a great way to reduce the risk of proposed changes to a package. Use canary releases when you're working on a significant refactor, experimenting with new technology, or making other large scale changes. 
+
+Any merged pull request into the (protected) `canary` branch will create a canary release, publishing a [pre-release version](https://semver.org/#spec-item-9) of any packages touched by that branch. Only repo admins are able to directly push to the `canary` branch without a pull request.
+
+For example, opening a pull request to merge a branch containing `feat: Even more glitter` into the branch `canary` will release e.g. `@kaizen/some-package@1.1.0-canary.0` to npm. This pre-release package version will then be available elsewhere for testing those changes prior to a full release.
+
+:warning: **Note that canary releases should not be used in production.**
+
 ## Using new package releases
 
 To use a newly released version of the Kaizen Component Library (or any other package) in a front-end codebase, run `yarn upgrade --latest <scoped package name>` (e.g. `yarn upgrade --latest @kaizen/component-library`).
