@@ -3,6 +3,7 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/design-tokens/sass/animation";
+@import "~@kaizen/component-library/styles/animation";
 
 $small: $ca-grid;
 
@@ -21,61 +22,57 @@ $small: $ca-grid;
   min-width: 8px;
   text-align: center;
   z-index: 2;
+
+  &.exit,
+  &.enter {
+    transform-origin: center;
+  }
+
+  &.enterActive {
+    animation: pop $kz-animation-duration-deliberate
+      $kz-animation-easing-function-ease-in;
+  }
+
+  &.exit,
+  &.exitActive {
+    animation: none;
+  }
 }
 
-.default .animate,
 .default {
   background-color: $kz-color-wisteria-200;
   color: $kz-color-wisteria-800;
 }
 
-.reversed.active .animate,
 .reversed.active,
-.active .animate,
 .active {
   background-color: $kz-color-cluny-500;
   color: $kz-color-white;
 }
 
-.dark .animate,
 .dark {
   background-color: rgba($kz-color-wisteria-700, 0.1);
   color: $kz-color-wisteria-800;
 }
 
-.reversed.dark .animate,
 .reversed.dark {
   background-color: $kz-color-wisteria-700;
   color: $kz-color-white;
 }
 
-.reversed .animate,
 .reversed {
   background-color: rgba($kz-color-white, 0.1);
   color: $kz-color-white;
 }
 
-.animate {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: $kz-spacing-sm;
-  background: inherit;
-  z-index: -1;
-  transform-origin: center;
-  transform: scale(1);
-  &.enter {
-    display: inline-block;
-    transition: transform $kz-animation-duration-deliberate
-        $kz-animation-easing-function-ease-in,
-      opacity $kz-animation-duration-deliberate
-        $kz-animation-easing-function-ease-in;
+@keyframes pop {
+  0% {
+    transform: scale3d(1, 1, 1);
   }
-  &.enterActive {
-    opacity: 0;
-    transform: scale(1.5);
+  50% {
+    transform: scale3d(1.2, 1.2, 1.2);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
   }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, Children } from "react"
 import classNames from "classnames"
 import { CSSTransition } from "react-transition-group"
 
@@ -17,6 +17,38 @@ export interface BadgeProps {
   readonly animateChange?: boolean
 }
 
+const UseAnimation: React.FunctionComponent<{
+  isEnabled: boolean
+  children: any
+}> = ({ isEnabled, children }) => {
+  const [isAnimating, setIsAnimating] = useState(false)
+
+  useEffect(() => {
+    setIsAnimating(true)
+  }, [children])
+
+  return isEnabled ? (
+    <CSSTransition
+      in={isAnimating}
+      timeout={{
+        enter: 700,
+        exit: 2,
+      }}
+      classNames={{
+        enter: styles.enter,
+        enterActive: styles.enterActive,
+        exit: styles.exit,
+        exitActive: styles.exitActive,
+      }}
+      onEntered={() => setIsAnimating(false)}
+    >
+      {children}
+    </CSSTransition>
+  ) : (
+    children
+  )
+}
+
 export const Badge = (props: BadgeProps) => {
   const {
     children,
@@ -25,41 +57,18 @@ export const Badge = (props: BadgeProps) => {
     animateChange = false,
   } = props
 
-  const [isAnimating, setIsAnimating] = useState(false)
-
-  useEffect(() => {
-    setIsAnimating(true)
-  }, [children])
-
   return (
-    <span
-      className={classNames(styles.badge, {
-        [styles.default]: variant === "default",
-        [styles.active]: variant === "active",
-        [styles.dark]: variant === "dark",
-        [styles.reversed]: reversed,
-      })}
-    >
-      <>
-        {animateChange && (
-          <CSSTransition
-            in={isAnimating}
-            timeout={{
-              enter: 700,
-              exit: 0,
-            }}
-            classNames={{
-              enter: styles.enter,
-              enterActive: styles.enterActive,
-            }}
-            onEntered={() => setIsAnimating(false)}
-          >
-            <span className={styles.animate} />
-          </CSSTransition>
-        )}
-
+    <UseAnimation isEnabled={animateChange}>
+      <span
+        className={classNames(styles.badge, {
+          [styles.default]: variant === "default",
+          [styles.active]: variant === "active",
+          [styles.dark]: variant === "dark",
+          [styles.reversed]: reversed,
+        })}
+      >
         {children}
-      </>
-    </span>
+      </span>
+    </UseAnimation>
   )
 }
