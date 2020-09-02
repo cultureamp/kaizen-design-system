@@ -29,7 +29,7 @@ $small: $ca-grid;
   }
 
   &.enterActive {
-    animation: pop $kz-animation-duration-deliberate
+    animation: pop $kz-animation-duration-slow
       $kz-animation-easing-function-ease-in;
   }
 
@@ -53,6 +53,11 @@ $small: $ca-grid;
 .dark {
   background-color: rgba($kz-color-wisteria-700, 0.1);
   color: $kz-color-wisteria-800;
+  &.enterActive {
+    animation: pop $kz-animation-duration-slow
+        $kz-animation-easing-function-ease-in,
+      bg $kz-animation-duration-slow $kz-animation-easing-function-ease-in;
+  }
 }
 
 .reversed.dark {
@@ -70,9 +75,21 @@ $small: $ca-grid;
     transform: scale3d(1, 1, 1);
   }
   50% {
-    transform: scale3d(1.2, 1.2, 1.2);
+    transform: scale3d(1.35, 1.35, 1.35);
   }
   100% {
     transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes bg {
+  0% {
+    background-color: rgba($kz-color-wisteria-700, 0.1);
+  }
+  50% {
+    background-color: rgba($kz-color-wisteria-700, 0.2);
+  }
+  100% {
+    background-color: rgba($kz-color-wisteria-700, 0.1);
   }
 }
