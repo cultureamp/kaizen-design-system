@@ -11,6 +11,8 @@ const starIcon = require("@kaizen/component-library/icons/star-on.icon.svg")
   .default
 const reportSharingIcon = require("@kaizen/component-library/icons/report-sharing.icon.svg")
   .default
+const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
+  .default
 import { assetUrl } from "@kaizen/hosted-assets"
 
 const styles = require("./TitleBlockZen.stories.scss")
@@ -102,6 +104,46 @@ export const Default = () => (
 
 Default.story = {
   name: "Default",
+}
+
+export const WithBadge = () => {
+  const [badgeCount, setBadgeCount] = React.useState(1)
+  return (
+    <TitleBlockZen
+      title="Page title"
+      surveyStatus={{ text: "Live", status: "live" }}
+      primaryAction={{
+        label: "Click Me",
+        icon: arrowForwardIcon,
+        iconPosition: "end",
+        reversed: true,
+        primary: true,
+        href: "#",
+        onClick: () => setBadgeCount(b => b + 1),
+        badge: {
+          text: String(badgeCount),
+          animateChange: true,
+        },
+      }}
+      defaultAction={{
+        label: "Default link",
+        reversed: true,
+        onClick: () => setBadgeCount(b => b + 1),
+        href: "#",
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+    />
+  )
+}
+
+WithBadge.story = {
+  name: "With Primary Action Badge",
 }
 
 export const DefaultWithMenuButton = () => (
