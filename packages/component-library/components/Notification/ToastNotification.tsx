@@ -1,6 +1,7 @@
 import * as React from "react"
 import uuid from "uuid/v4"
 import createNotificationManager from "./NotificationManager"
+import { NotificationType } from "./components/GenericNotification"
 
 const notificationManager = createNotificationManager()
 
@@ -27,16 +28,6 @@ const ToastNotification = ({ hideCloseIcon, ...otherProps }: Props) => {
     children: otherProps.children,
     persistent,
   })
-
-  React.useEffect(
-    () =>
-      // On mount
-      () => {
-        // On unmount
-        notificationManager.remove(id)
-      },
-    []
-  )
 
   return null
 }
