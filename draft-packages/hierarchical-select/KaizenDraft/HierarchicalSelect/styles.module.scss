@@ -80,7 +80,7 @@
 }
 
 .clear {
-  &:hover {
+  &:hover:not([aria-disabled="true"]) {
     color: $kz-color-wisteria-500;
   }
 
