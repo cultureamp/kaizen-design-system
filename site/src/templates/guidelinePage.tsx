@@ -68,15 +68,15 @@ export default ({ data, pageContext, location }) => {
           <SidebarSection>
             {renderSidebarTabs(overviewPage, currentPath, "Overview")}
           </SidebarSection>
+          <SidebarSection title="Guidelines">
+            {renderSidebarTabs(guidelinePages, currentPath, "Guidelines")}
+          </SidebarSection>
           <SidebarSection title="Comparing components">
             {renderSidebarTabs(
               comparingPages,
               currentPath,
               "Comparing components"
             )}
-          </SidebarSection>
-          <SidebarSection title="Guidelines">
-            {renderSidebarTabs(guidelinePages, currentPath, "Guidelines")}
           </SidebarSection>
         </Sidebar>
         <Content>
