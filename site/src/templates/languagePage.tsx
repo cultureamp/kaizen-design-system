@@ -10,7 +10,7 @@ import {
   Sidebar,
   SidebarAndContent,
   SidebarTab,
-  TableOfContents
+  TableOfContents,
 } from "../components/SidebarAndContent"
 import { sortSidebarTabs, stripTrailingSlash } from "./util"
 

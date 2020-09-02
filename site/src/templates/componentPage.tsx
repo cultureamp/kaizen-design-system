@@ -12,7 +12,7 @@ import {
   SidebarAndContent,
   SidebarSection,
   SidebarTab,
-  TableOfContents
+  TableOfContents,
 } from "../components/SidebarAndContent"
 import StorybookDemo from "../components/StorybookDemo"
 import { sortSidebarTabs, stripTrailingSlash } from "./util"
