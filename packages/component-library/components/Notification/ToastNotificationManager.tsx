@@ -1,38 +1,38 @@
 import React, { useEffect, useState } from "react"
 import ReactDOM from "react-dom"
+import styles from "./ToastNotificationManager.scss"
 
 import GenericNotification, {
   NotificationType,
 } from "./components/GenericNotification"
 
-function Notifications({ notifications, onHide }) {
-  return (
-    <div>
-      {notifications.map(notification => (
-        <GenericNotification
-          key={notification.id}
-          style={"toast"}
-          {...notification}
-          onHide={() => onHide(notification.id)}
-        />
-      ))}
-    </div>
-  )
-}
+const ToastNotificationsList = ({ notifications, onHide }) => (
+  <div className={styles.list}>
+    {notifications.map(notification => (
+      <GenericNotification
+        key={notification.id}
+        style="toast"
+        {...notification}
+        onHide={() => onHide(notification.id)}
+      />
+    ))}
+  </div>
+)
 
-export function NotificationManager({ remove, registerCallback }) {
+const ToastNotificationManager = ({ remove, registerCallback }) => {
   const [notifications, setNotifications] = useState([])
 
-  // Update the React state whenever the store changes to trigger rendering
-  // updates
+  // Pass the setter upwards
   useEffect(() => {
     registerCallback(setNotifications)
   }, [setNotifications])
 
-  return <Notifications notifications={notifications} onHide={remove} />
+  return (
+    <ToastNotificationsList notifications={notifications} onHide={remove} />
+  )
 }
 
-type ToastNotification = {
+export type ToastNotification = {
   type: NotificationType
   title: string
   children: React.ReactNode
@@ -43,27 +43,25 @@ type ToastNotification = {
   automationId?: string
 }
 
-type ToastNotificationWithID = ToastNotification & { id?: string }
+export type ToastNotificationWithID = ToastNotification & { id?: string }
 
 type State = {
   notifications: ToastNotificationWithID[]
 }
 
-type AddNotification = (notification: ToastNotificationWithID) => void
-type RemoveNotification = (id: string) => void
-type ClearNotifications = () => void
-
-type API = {
-  add: AddNotification
-  remove: RemoveNotification
-  clear: ClearNotifications
-}
+type AddToastNotification = (notification: ToastNotificationWithID) => void
+type RemoveToastNotification = (notificationID: string) => void
+type ClearToastNotifications = () => void
 
 type Callback = ((notifications: ToastNotificationWithID[]) => void) | null
 
 let portal: HTMLDivElement | null = null
 
-export default function createNotificationManager(): API {
+const createNotificationManager = (): {
+  add: AddToastNotification
+  remove: RemoveToastNotification
+  clear: ClearToastNotifications
+} => {
   let callback: Callback = null
   if (portal === null) {
     portal = document.createElement("div")
@@ -74,7 +72,7 @@ export default function createNotificationManager(): API {
     notifications: [],
   }
 
-  function add(notification) {
+  const add = notification => {
     const notificationIndex = state.notifications.findIndex(
       n => n.id === notification.id
     )
@@ -89,9 +87,9 @@ export default function createNotificationManager(): API {
     render()
   }
 
-  function remove(notificationId) {
+  const remove = (notificationID: string) => {
     const notificationIndex = state.notifications.findIndex(
-      notification => notification.id === notificationId
+      notification => notification.id === notificationID
     )
     const copy = state.notifications.slice()
     copy.splice(notificationIndex, 1) // Mutation
@@ -99,25 +97,28 @@ export default function createNotificationManager(): API {
     render()
   }
 
-  function clear() {
+  const clear = () => {
     state.notifications = []
     render()
   }
 
-  function registerCallback(
+  const registerCallback = (
     cb: (notifications: ToastNotificationWithID[]) => void
-  ) {
+  ) => {
     callback = cb
   }
 
-  function render() {
+  const render = () => {
     if (callback !== null) {
       callback(state.notifications)
     }
   }
 
   ReactDOM.render(
-    <NotificationManager remove={remove} registerCallback={registerCallback} />,
+    <ToastNotificationManager
+      remove={remove}
+      registerCallback={registerCallback}
+    />,
     portal
   )
 
@@ -127,3 +128,5 @@ export default function createNotificationManager(): API {
     remove,
   }
 }
+
+export default createNotificationManager

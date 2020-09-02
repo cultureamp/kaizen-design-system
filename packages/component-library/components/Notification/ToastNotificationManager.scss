@@ -1,0 +1,9 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/component-library/styles/layers";
+
+.list {
+  position: fixed;
+  right: $kz-spacing-md;
+  top: $kz-spacing-md * 4;
+  z-index: $ca-z-index-fixed;
+}

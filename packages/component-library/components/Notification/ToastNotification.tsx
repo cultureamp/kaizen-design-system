@@ -1,6 +1,6 @@
 import * as React from "react"
 import uuid from "uuid/v4"
-import createNotificationManager from "./NotificationManager"
+import createNotificationManager from "./ToastNotificationManager"
 import { NotificationType } from "./components/GenericNotification"
 
 const notificationManager = createNotificationManager()
