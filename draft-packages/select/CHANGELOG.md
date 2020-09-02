@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.10.4...@kaizen/draft-select@1.10.5) (2020-09-01)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.10.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.10.3...@kaizen/draft-select@1.10.4) (2020-08-28)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.10.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.10.2...@kaizen/draft-select@1.10.3) (2020-08-28)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.10.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.10.1...@kaizen/draft-select@1.10.2) (2020-08-27)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.10.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.10.0...@kaizen/draft-select@1.10.1) (2020-08-27)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+# [1.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.9.0...@kaizen/draft-select@1.10.0) (2020-08-26)
+
+
+### Features
+
+* Elm SelectField component ([#731](https://github.com/cultureamp/kaizen-design-system/issues/731)) ([f0775dc](https://github.com/cultureamp/kaizen-design-system/commit/f0775dc253d5d44d3f53084deeebd60fbd9073cf))
+
+
+
+
+
 # [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.8.4...@kaizen/draft-select@1.9.0) (2020-08-25)
 
 

@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.6.2...@kaizen/draft-form@2.6.3) (2020-09-01)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.6.1...@kaizen/draft-form@2.6.2) (2020-08-28)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.6.0...@kaizen/draft-form@2.6.1) (2020-08-28)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [2.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.5.1...@kaizen/draft-form@2.6.0) (2020-08-27)
+
+
+### Features
+
+* Add toggle switch with label after the toggle control ([#665](https://github.com/cultureamp/kaizen-design-system/issues/665)) ([e05bd5a](https://github.com/cultureamp/kaizen-design-system/commit/e05bd5a50644ae0b0a7b798c89047e4a02f2b1be))
+
+
+
+
+
+## [2.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.5.0...@kaizen/draft-form@2.5.1) (2020-08-27)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [2.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.4.5...@kaizen/draft-form@2.5.0) (2020-08-26)
+
+
+### Features
+
+* Elm SelectField component ([#731](https://github.com/cultureamp/kaizen-design-system/issues/731)) ([f0775dc](https://github.com/cultureamp/kaizen-design-system/commit/f0775dc253d5d44d3f53084deeebd60fbd9073cf))
+
+
+
+
+
 ## [2.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.4.4...@kaizen/draft-form@2.4.5) (2020-08-25)
 
 

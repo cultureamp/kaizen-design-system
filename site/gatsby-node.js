@@ -51,33 +51,28 @@ exports.onCreateBabelConfig = ({ actions }, options) => {
   })
 }
 
-const path = require(`path`)
-const { createFilePath } = require(`gatsby-source-filesystem`)
+const path = require("path")
+const { createFilePath } = require("gatsby-source-filesystem")
 const componentReadmeRegex = /\/(?:components|draft-packages).*\W(\w+)\/README.mdx?$/i
 
-const camelToKebab = string => {
-  return string
-    .replace(/[\w]([A-Z])/g, char => {
-      return char[0] + `-` + char[1]
-    })
-    .toLowerCase()
-}
+const camelToKebab = input =>
+  input.replace(/[\w]([A-Z])/g, char => char[0] + "-" + char[1]).toLowerCase()
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  if (node.internal.type === `Mdx`) {
-    let slug = ``
+  if (node.internal.type === "Mdx") {
+    let slug = ""
     if (componentReadmeRegex.test(node.fileAbsolutePath) === true) {
       const componentName = camelToKebab(
         node.fileAbsolutePath.match(componentReadmeRegex)[1]
       )
       slug = `/components/${componentName}/`
     } else {
-      slug = createFilePath({ node, getNode, basePath: `.` })
+      slug = createFilePath({ node, getNode, basePath: "." })
     }
     createNodeField({
       node,
-      name: `slug`,
+      name: "slug",
       value: slug,
     })
   }
@@ -85,12 +80,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 const mapSlugToPage = slug => {
   if (/^\/language/.test(slug))
-    return path.resolve(`./src/templates/languagePage.tsx`)
+    return path.resolve("./src/templates/languagePage.tsx")
   if (/^\/guidelines/.test(slug))
-    return path.resolve(`./src/templates/guidelinePage.tsx`)
+    return path.resolve("./src/templates/guidelinePage.tsx")
   if (/^\/components/.test(slug))
-    return path.resolve(`./src/templates/componentPage.tsx`)
-  return path.resolve(`./src/templates/genericPage.tsx`)
+    return path.resolve("./src/templates/componentPage.tsx")
+  return path.resolve("./src/templates/genericPage.tsx")
 }
 
 exports.createPages = ({ graphql, actions }) => {

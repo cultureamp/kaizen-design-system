@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-checkbox-group@1.4.2...@kaizen/draft-checkbox-group@1.4.3) (2020-09-01)
+
+**Note:** Version bump only for package @kaizen/draft-checkbox-group
+
+
+
+
+
+## [1.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-checkbox-group@1.4.1...@kaizen/draft-checkbox-group@1.4.2) (2020-08-28)
+
+**Note:** Version bump only for package @kaizen/draft-checkbox-group
+
+
+
+
+
+## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-checkbox-group@1.4.0...@kaizen/draft-checkbox-group@1.4.1) (2020-08-28)
+
+**Note:** Version bump only for package @kaizen/draft-checkbox-group
+
+
+
+
+
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-checkbox-group@1.3.78...@kaizen/draft-checkbox-group@1.4.0) (2020-08-27)
+
+
+### Features
+
+* Add toggle switch with label after the toggle control ([#665](https://github.com/cultureamp/kaizen-design-system/issues/665)) ([e05bd5a](https://github.com/cultureamp/kaizen-design-system/commit/e05bd5a50644ae0b0a7b798c89047e4a02f2b1be))
+
+
+
+
+
+## [1.3.78](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-checkbox-group@1.3.77...@kaizen/draft-checkbox-group@1.3.78) (2020-08-27)
+
+**Note:** Version bump only for package @kaizen/draft-checkbox-group
+
+
+
+
+
+## [1.3.77](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-checkbox-group@1.3.76...@kaizen/draft-checkbox-group@1.3.77) (2020-08-26)
+
+**Note:** Version bump only for package @kaizen/draft-checkbox-group
+
+
+
+
+
 ## [1.3.76](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-checkbox-group@1.3.75...@kaizen/draft-checkbox-group@1.3.76) (2020-08-25)
 
 **Note:** Version bump only for package @kaizen/draft-checkbox-group

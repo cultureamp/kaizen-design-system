@@ -1,5 +1,9 @@
 @import "~@kaizen/design-tokens/sass/color";
 
 .wrapper {
+  // explicitly setting the box-sizing on your component avoids
+  // unexpected overrides from the consuming repo
+  box-sizing: border-box;
+
   color: $kz-color-coral-600; // Use design tokens where possible
 }

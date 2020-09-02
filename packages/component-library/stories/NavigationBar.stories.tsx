@@ -242,6 +242,7 @@ export const MenuGroup = () => (
         />,
         <Menu
           heading="Admin"
+          showIndicator
           items={[
             {
               label: "Skills",
@@ -274,6 +275,7 @@ export const MenuGroup = () => (
                 {
                   label: "Feedback stats",
                   url: "meh",
+                  badge: { kind: "new", text: "New" },
                 },
               ],
             },
