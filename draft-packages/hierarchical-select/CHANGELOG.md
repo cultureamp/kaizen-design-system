@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-select@1.3.6...@kaizen/draft-hierarchical-select@1.3.7) (2020-09-03)
+
+
+### Bug Fixes
+
+* Ensure clear icon indicates disabled state ([#754](https://github.com/cultureamp/kaizen-design-system/issues/754)) ([3426f5d](https://github.com/cultureamp/kaizen-design-system/commit/3426f5de2f87716747e1936234842ad08d9308c6))
+
+
+
+
+
 ## [1.3.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-select@1.3.5...@kaizen/draft-hierarchical-select@1.3.6) (2020-09-01)
 
 **Note:** Version bump only for package @kaizen/draft-hierarchical-select
