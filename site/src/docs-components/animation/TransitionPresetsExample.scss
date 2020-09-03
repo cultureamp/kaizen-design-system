@@ -1,4 +1,5 @@
 @import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/design-tokens/sass/animation";
 
 ///////////////////////////////////////////////
 // TRANSITION PRESET CLASSES                  //
@@ -33,36 +34,36 @@
 ///////////////////////////////////////////////
 :global(.ca-duration-instant) {
   /* Tech debt - this !important existed before Stylelint rules */
-  animation-duration: $ca-duration-instant !important; /* stylelint-disable-line declaration-no-important */
-  transition-duration: $ca-duration-instant !important; /* stylelint-disable-line declaration-no-important */
+  animation-duration: $kz-animation-duration-instant !important; /* stylelint-disable-line declaration-no-important */
+  transition-duration: $kz-animation-duration-instant !important; /* stylelint-disable-line declaration-no-important */
 }
 
 :global(.ca-duration-immediate) {
   /* Tech debt - this !important existed before Stylelint rules */
-  animation-duration: $ca-duration-immediate !important; /* stylelint-disable-line declaration-no-important */
-  transition-duration: $ca-duration-immediate !important; /* stylelint-disable-line declaration-no-important */
+  animation-duration: $kz-animation-duration-immediate !important; /* stylelint-disable-line declaration-no-important */
+  transition-duration: $kz-animation-duration-immediate !important; /* stylelint-disable-line declaration-no-important */
 }
 
 :global(.ca-duration-rapid) {
   /* Tech debt - this !important existed before Stylelint rules */
-  animation-duration: $ca-duration-rapid !important; /* stylelint-disable-line declaration-no-important */
-  transition-duration: $ca-duration-rapid !important; /* stylelint-disable-line declaration-no-important */
+  animation-duration: $kz-animation-duration-rapid !important; /* stylelint-disable-line declaration-no-important */
+  transition-duration: $kz-animation-duration-rapid !important; /* stylelint-disable-line declaration-no-important */
 }
 
 :global(.ca-duration-fast) {
   /* Tech debt - this !important existed before Stylelint rules */
-  animation-duration: $ca-duration-fast !important; /* stylelint-disable-line declaration-no-important */
-  transition-duration: $ca-duration-fast !important; /* stylelint-disable-line declaration-no-important */
+  animation-duration: $kz-animation-duration-fast !important; /* stylelint-disable-line declaration-no-important */
+  transition-duration: $kz-animation-duration-fast !important; /* stylelint-disable-line declaration-no-important */
 }
 
 :global(.ca-duration-slow) {
   /* Tech debt - this !important existed before Stylelint rules */
-  animation-duration: $ca-duration-slow !important; /* stylelint-disable-line declaration-no-important */
-  transition-duration: $ca-duration-slow !important; /* stylelint-disable-line declaration-no-important */
+  animation-duration: $kz-animation-duration-slow !important; /* stylelint-disable-line declaration-no-important */
+  transition-duration: $kz-animation-duration-slow !important; /* stylelint-disable-line declaration-no-important */
 }
 
 :global(.ca-duration-deliberate) {
   /* Tech debt - this !important existed before Stylelint rules */
-  animation-duration: $ca-duration-deliberate !important; /* stylelint-disable-line declaration-no-important */
-  transition-duration: $ca-duration-deliberate !important; /* stylelint-disable-line declaration-no-important */
+  animation-duration: $kz-animation-duration-deliberate !important; /* stylelint-disable-line declaration-no-important */
+  transition-duration: $kz-animation-duration-deliberate !important; /* stylelint-disable-line declaration-no-important */
 }

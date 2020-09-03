@@ -217,8 +217,12 @@ const renderContent: React.FunctionComponent<Props> = props => (
     {(!props.icon || !props.iconButton) && (
       <span className={styles.label}>{props.label}</span>
     )}
+    {props.additionalContent && (
+      <span className={styles.additionalContentWrapper}>
+        {props.additionalContent}
+      </span>
+    )}
     {props.icon && props.iconPosition === "end" && renderIcon(props.icon)}
-    {props.additionalContent}
   </span>
 )
 
