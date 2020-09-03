@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import ReactDOM from "react-dom"
-import styles from "./ToastNotificationManager.scss"
+const styles = require("./ToastNotificationManager.module.scss")
 
 import GenericNotification, {
   NotificationType,
@@ -38,9 +38,9 @@ export type ToastNotification = {
   children: React.ReactNode
   autohide: boolean
   autohideDelay?: "short" | "long"
-  hideCloseIcon: boolean
   onHide?: () => void
   automationId?: string
+  persistent?: boolean
 }
 
 export type ToastNotificationWithID = ToastNotification & { id?: string }

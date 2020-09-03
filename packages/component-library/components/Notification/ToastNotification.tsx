@@ -6,6 +6,7 @@ import { NotificationType } from "./components/GenericNotification"
 const notificationManager = createNotificationManager()
 
 type Props = {
+  id?: string
   type: NotificationType
   title: string
   children: React.ReactNode
@@ -16,15 +17,16 @@ type Props = {
   automationId?: string
 }
 
-const ToastNotification = ({ hideCloseIcon, ...otherProps }: Props) => {
-  const [id] = React.useState(uuid())
+const ToastNotification = ({ id, hideCloseIcon, ...otherProps }: Props) => {
+  const [localID] = React.useState(id || uuid())
   const persistent = otherProps.autohide && hideCloseIcon
   notificationManager.add({
-    id,
+    id: localID,
     type: otherProps.type,
     title: otherProps.title,
     automationId: otherProps.automationId,
     autohide: otherProps.autohide,
+    autohideDelay: otherProps.autohideDelay,
     children: otherProps.children,
     persistent,
   })
