@@ -38,24 +38,17 @@ $label-start-margin: 10px;
 :global(.ideal-sans) %checkboxOrRadio {
   @include kz-typography-paragraph-body;
   @include ca-inherit-baseline;
-
   display: flex;
-
-  .prependedLabel {
-    @include ca-margin($end: $label-start-margin);
-    order: -1; // place label before the control
-  }
-
-  .appendedLabel {
-    @include ca-margin($start: $label-start-margin);
-  }
 }
+
 .checkbox {
   @extend %checkboxOrRadio;
 }
+
 .radio {
   @extend %checkboxOrRadio;
 }
+
 .toggle {
   @include kz-typography-paragraph-body;
   @include ca-inherit-baseline;
@@ -63,13 +56,13 @@ $label-start-margin: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
 
-  .prependedLabel {
-    @include ca-margin($end: $label-start-margin);
-    order: -1; // place label before the control
-  }
+.prependedLabel {
+  @include ca-margin($end: $label-start-margin);
+  order: -1; // place label before the control
+}
 
-  .appendedLabel {
-    @include ca-margin($start: $label-start-margin);
-  }
+.appendedLabel {
+  @include ca-margin($start: $label-start-margin);
 }
