@@ -5,6 +5,7 @@
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/component-library/components/NavigationBar/styles";
 @import "~@kaizen/component-library/components/Icon/styles";
 
@@ -90,18 +91,30 @@ $link-icon-margin: 12px;
     @include kz-typography-heading-2;
     margin-top: $ca-grid * 3.25;
     margin-bottom: 0;
+
+    @include ca-media-mobile() {
+      margin-top: $ca-grid * 2;
+    }
   }
 
   :global(.md-h2) + :global(.md-p),
   :global(.md-h2) + :global(.md-ul),
   :global(.md-h2) + :global(.md-ol) {
     margin-top: $ca-grid * 1.5;
+
+    @include ca-media-mobile() {
+      margin-top: $ca-grid;
+    }
   }
 
   :global(.md-h3) {
     @include kz-typography-heading-3;
     margin-top: $ca-grid * 2;
     margin-bottom: $ca-grid;
+
+    @include ca-media-mobile() {
+      margin-top: $ca-grid;
+    }
   }
 
   :global(.md-h2) + :global(.md-h3) {
@@ -112,6 +125,10 @@ $link-icon-margin: 12px;
     @include kz-typography-heading-4;
     margin-top: $ca-grid * 2;
     margin-bottom: $ca-grid;
+
+    @include ca-media-mobile() {
+      margin-top: $ca-grid;
+    }
   }
 
   :global(.md-h3) + :global(.md-h4) {
