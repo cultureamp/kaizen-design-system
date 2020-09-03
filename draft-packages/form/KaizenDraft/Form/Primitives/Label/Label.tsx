@@ -23,7 +23,7 @@ const Label: Label = ({
   htmlFor,
   labelText = "",
   labelType = "text",
-  labelPosition = "start",
+  labelPosition = "end",
   reversed = false,
   children,
 }) => (

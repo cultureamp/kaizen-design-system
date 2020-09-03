@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-checkbox-group@1.4.3...@kaizen/draft-checkbox-group@1.4.4) (2020-09-03)
+
+
+### Bug Fixes
+
+* Realign label margins for Checkbox and Radio ([#740](https://github.com/cultureamp/kaizen-design-system/issues/740)) ([918cf94](https://github.com/cultureamp/kaizen-design-system/commit/918cf94351156598a6a2f69169e1f3877ecb0220))
+
+
+
+
+
 ## [1.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-checkbox-group@1.4.2...@kaizen/draft-checkbox-group@1.4.3) (2020-09-01)
 
 **Note:** Version bump only for package @kaizen/draft-checkbox-group
