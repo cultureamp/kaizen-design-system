@@ -194,6 +194,10 @@ export const ManagerLearningRemoteManager = (props: SceneProps) => (
   />
 )
 
+export const Programs = (props: SceneProps) => (
+  <Base {...props} name="illustrations/scene/programs.svg" />
+)
+
 export const KaizenSiteBrandAlt = (props: SceneProps) => (
   <Base {...props} name="illustrations/scene/kaizen-site-brand-alt.svg" />
 )

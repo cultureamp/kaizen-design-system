@@ -10,6 +10,7 @@ import {
   Sidebar,
   SidebarAndContent,
   SidebarTab,
+  TableOfContents,
 } from "../components/SidebarAndContent"
 import { sortSidebarTabs, stripTrailingSlash } from "./util"
 
@@ -66,6 +67,7 @@ export default ({ data, pageContext, location }) => {
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
           </ContentMarkdownSection>
         </Content>
+        <TableOfContents items={md.tableOfContents.items} />
       </SidebarAndContent>
     </Layout>
   )
@@ -93,6 +95,7 @@ export const query = graphql`
         summaryParagraph
         tags
       }
+      tableOfContents
     }
   }
 `

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.3.0...@kaizen/draft-illustration@1.4.0) (2020-09-03)
+
+
+### Features
+
+* Add programs illustration ([#759](https://github.com/cultureamp/kaizen-design-system/issues/759)) ([a795e3c](https://github.com/cultureamp/kaizen-design-system/commit/a795e3c5bba28fb493b5a5c8e939f1f20ef8a65d))
+
+
+
+
+
 # [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.2.0...@kaizen/draft-illustration@1.3.0) (2020-07-10)
 
 

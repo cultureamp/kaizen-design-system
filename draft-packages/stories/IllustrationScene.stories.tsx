@@ -48,6 +48,7 @@ import {
   PerformanceSelfReflections,
   PerformanceSupport,
   PerformanceTeamSummary,
+  Programs,
 } from "../illustration"
 
 export default {
@@ -361,6 +362,13 @@ export const ManagerLearningRemoteManagerStory = () => (
 ManagerLearningRemoteManagerStory.story = {
   name: "Manager Learning: Remote Manager",
 }
+
+export const ProgramsStory = () => (
+  <div style={{ width: "500px" }}>
+    <Programs alt="" />
+  </div>
+)
+ProgramsStory.story = { name: "Programs" }
 
 export const KaizenSiteBrandAltStory = () => (
   <div style={{ width: "500px" }}>

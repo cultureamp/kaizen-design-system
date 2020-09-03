@@ -27,6 +27,15 @@ type SidebarTabProps = {
   children: React.ReactNode
 }
 
+type ItemOrArray<T> = T | Array<ItemOrArray<T>>
+type Item = {
+  title: string
+  url: string
+}
+type TableOfContentsProps = {
+  items: ItemOrArray<Item>
+}
+
 type ContentNeedToKnowProps = {
   listOfTips: string[]
 }
@@ -92,3 +101,38 @@ export const ContentNeedToKnowSection: React.SFC<ContentNeedToKnowProps> = ({
 export const SidebarAndContent: React.SFC<SidebarAndContentProps> = ({
   children,
 }) => <div className={styles.sidebarAndContent}>{children}</div>
+
+const TableOfContentsBody = (items, depth) => {
+  if (depth === 0) {
+    return
+  }
+
+  return items.map(item =>
+    item.url ? (
+      <li key={item.url}>
+        <a href={item.url}>{item.title}</a>
+        {item.items ? (
+          <ol>{TableOfContentsBody(item.items || [], depth - 1)}</ol>
+        ) : null}
+      </li>
+    ) : (
+      TableOfContentsBody(item.items || [], depth - 1)
+    )
+  )
+}
+
+export const TableOfContents: React.SFC<TableOfContentsProps> = ({ items }) =>
+  items ? (
+    <div
+      className={styles.tableOfContents}
+      role="navigation"
+      aria-labelledby="table-of-contents-label"
+    >
+      <p id="table-of-contents-label" className={styles.tableOfContentsLabel}>
+        On this page
+      </p>
+      <ol className={styles.tableOfContentsList}>
+        {TableOfContentsBody(items, 2)}
+      </ol>
+    </div>
+  ) : null

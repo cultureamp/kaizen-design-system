@@ -48,6 +48,7 @@ const Layout: React.SFC<LayoutProps> = ({
           ) : (
             <div
               className={classnames({
+                [styles.fullWidthContent]: true,
                 [styles.contentContainer]: true,
                 [styles.trimBottomOfCardToContent]: trimBottomOfCardToContent,
               })}

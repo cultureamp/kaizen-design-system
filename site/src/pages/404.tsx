@@ -38,6 +38,7 @@ export default props => (
     pageHeader={FourOhFourPageHeader}
     footer={<Footer />}
     trimBottomOfCardToContent
+    fullWidthContent={true}
   >
     <ContentOnly>
       <Content>
