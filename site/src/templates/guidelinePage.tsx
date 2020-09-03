@@ -12,6 +12,7 @@ import {
   SidebarAndContent,
   SidebarSection,
   SidebarTab,
+  TableOfContents,
 } from "../components/SidebarAndContent"
 import { sortSidebarTabs, stripTrailingSlash } from "./util"
 
@@ -67,15 +68,15 @@ export default ({ data, pageContext, location }) => {
           <SidebarSection>
             {renderSidebarTabs(overviewPage, currentPath, "Overview")}
           </SidebarSection>
+          <SidebarSection title="Guidelines">
+            {renderSidebarTabs(guidelinePages, currentPath, "Guidelines")}
+          </SidebarSection>
           <SidebarSection title="Comparing components">
             {renderSidebarTabs(
               comparingPages,
               currentPath,
               "Comparing components"
             )}
-          </SidebarSection>
-          <SidebarSection title="Guidelines">
-            {renderSidebarTabs(guidelinePages, currentPath, "Guidelines")}
           </SidebarSection>
         </Sidebar>
         <Content>
@@ -86,6 +87,7 @@ export default ({ data, pageContext, location }) => {
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
           </ContentMarkdownSection>
         </Content>
+        <TableOfContents items={md.tableOfContents.items} />
       </SidebarAndContent>
     </Layout>
   )
@@ -116,6 +118,7 @@ export const query = graphql`
         needToKnow
         headerImage
       }
+      tableOfContents
     }
   }
 `

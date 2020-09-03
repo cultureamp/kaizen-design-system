@@ -72,6 +72,7 @@ export default ({ location }) => {
       currentPath={location.pathname}
       pageHeader={HomePageHeader}
       footer={<Footer reverseVariant extraContent={<FooterExtraContent />} />}
+      fullWidthContent={true}
     >
       <ContentOnly>
         <Content>
