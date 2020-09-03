@@ -70,6 +70,7 @@ $tableOfContents-width: $ca-grid * 10;
 .sidebar {
   grid-area: sidebar;
   margin-top: $ca-grid * 1.5;
+  max-width: $sidebar-width;
 
   @media (min-width: 768px) and (max-width: 1439px) {
     grid-row-start: 2;
@@ -122,6 +123,7 @@ $tableOfContents-width: $ca-grid * 10;
   grid-area: tableOfContents;
   margin-top: $ca-grid * 1.5;
   margin-left: $ca-grid * 0.5;
+  max-width: $tableOfContents-width;
 }
 
 .tableOfContentsLabel {
