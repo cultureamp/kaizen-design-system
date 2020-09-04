@@ -38,13 +38,6 @@ $small: $ca-grid;
 .dark {
   background-color: rgba($kz-color-wisteria-700, 0.1);
   color: $kz-color-wisteria-800;
-  .animation & {
-    transition: background-color ($kz-animation-duration-slow / 2)
-      $kz-animation-easing-function-ease-in;
-    &.animationOn {
-      background-color: rgba($kz-color-wisteria-700, 0.2);
-    }
-  }
 }
 
 .reversed.dark {
@@ -57,14 +50,23 @@ $small: $ca-grid;
   color: $kz-color-white;
 }
 
+$badge-duration-timing: ($kz-animation-duration-slow / 2)
+  $kz-animation-easing-function-ease-in;
+
+$badge-transition: transform $badge-duration-timing,
+  background-color $badge-duration-timing;
+
 .animation {
+  display: inherit;
   .badge {
-    transition: transform ($kz-animation-duration-slow / 2)
-      $kz-animation-easing-function-ease-in;
+    transition: $badge-transition;
     transform-origin: center;
     transform: scale3d(1, 1, 1);
   }
   &.animationOn .badge {
     transform: scale3d(1.35, 1.35, 1.35);
+    &.dark {
+      background-color: rgba($kz-color-wisteria-700, 0.2);
+    }
   }
 }

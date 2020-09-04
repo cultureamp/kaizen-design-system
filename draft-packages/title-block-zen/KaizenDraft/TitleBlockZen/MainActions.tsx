@@ -13,7 +13,7 @@ import {
   BadgeProps,
 } from "./TitleBlockZen"
 import Toolbar from "./Toolbar"
-import { Badge } from "@kaizen/draft-badge"
+import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
 const meatballsIcon = require("@kaizen/component-library/icons/meatballs.icon.svg")
@@ -29,12 +29,14 @@ type MainActionsProps = {
   showOverflowMenu?: boolean
 }
 
-const renderBadge = (badge?: BadgeProps) =>
-  badge ? (
-    <Badge variant="dark" animateChange={badge.animateChange}>
-      {badge.text}
-    </Badge>
-  ) : null
+const renderBadge = (badge?: BadgeProps) => {
+  if (!badge) return null
+  return badge.animateChange ? (
+    <BadgeAnimated variant="dark">{badge.text}</BadgeAnimated>
+  ) : (
+    <Badge variant="dark">{badge.text}</Badge>
+  )
+}
 
 const ButtonAllowingAdditionalContent = (
   props: GenericProps & LabelProps & AdditionalContentProps
