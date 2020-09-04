@@ -5,6 +5,7 @@ const configureIcon = require("@kaizen/component-library/icons/configure.icon.sv
 import { action } from "@storybook/addon-actions"
 import React, { useCallback, useLayoutEffect, useRef } from "react"
 import { ButtonRef } from "@kaizen/draft-button"
+import { Icon } from "@kaizen/component-library"
 
 export default {
   title: "Button (Zen) (React)",
@@ -330,4 +331,20 @@ export const MultipleButtons = () => (
     <Button label="Save" primary automationId="demo-button-1" />
     <Button label="Exit" automationId="demo-button-2" />
   </div>
+)
+
+export const CustomRender = () => (
+  <Button
+    label=""
+    renderButton={buttonClasses => (
+      <a href="#" className={buttonClasses.button}>
+        <span className={buttonClasses.content}>
+          <span className={buttonClasses.iconWrapper}>
+            <Icon icon={configureIcon} role="presentation" />
+          </span>
+          <span className={buttonClasses.label}>Custom rendered link</span>
+        </span>
+      </a>
+    )}
+  />
 )

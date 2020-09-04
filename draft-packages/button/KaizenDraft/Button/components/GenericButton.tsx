@@ -1,6 +1,12 @@
 import { Icon } from "@kaizen/component-library"
 import classNames from "classnames"
-import React, { forwardRef, Ref, useImperativeHandle, useRef } from "react"
+import React, {
+  forwardRef,
+  Ref,
+  useImperativeHandle,
+  useRef,
+  ReactNode,
+} from "react"
 
 const styles = require("./GenericButton.module.scss")
 
@@ -26,6 +32,12 @@ export type GenericProps = {
   ariaExpanded?: boolean
   onFocus?: (e: React.FocusEvent<HTMLElement>) => void
   onBlur?: (e: React.FocusEvent<HTMLElement>) => void
+  renderButton?: (classes: {
+    button: string
+    label: string
+    content: string
+    iconWrapper: string
+  }) => ReactNode
 }
 
 export type AdditionalContentProps = {
@@ -72,15 +84,30 @@ const GenericButton = forwardRef(
       },
     }))
 
+    const determineButtonRenderer = () => {
+      if (props.renderButton) {
+        return props.renderButton({
+          button: buttonClass(props),
+          content: styles.content,
+          label: styles.label,
+          iconWrapper: styles.iconWrapper,
+        })
+      }
+
+      if (props.href && !props.disabled) {
+        return renderLink(props, buttonRef as Ref<HTMLAnchorElement>)
+      }
+
+      return renderButton(props, buttonRef as Ref<HTMLButtonElement>)
+    }
+
     return (
       <span
         className={classNames(styles.container, {
           [styles.fullWidth]: props.fullWidth,
         })}
       >
-        {props.href && !props.disabled
-          ? renderLink(props, buttonRef as Ref<HTMLAnchorElement>)
-          : renderButton(props, buttonRef as Ref<HTMLButtonElement>)}
+        {determineButtonRenderer()}
       </span>
     )
   }
