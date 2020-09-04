@@ -29,12 +29,12 @@ export const Badge = (props: BadgeProps) => {
 }
 
 export const BadgeAnimated: React.FunctionComponent<BadgeProps> = props => {
-  const [isFocussed, setIsFocussed] = useState(false)
+  const [isFocussed, setIsFocused] = useState(false)
 
   useLayoutEffect(() => {
-    setIsFocussed(true)
+    setIsFocused(true)
     setTimeout(() => {
-      setIsFocussed(false)
+      setIsFocused(false)
     }, 150)
   }, [props.children])
 
