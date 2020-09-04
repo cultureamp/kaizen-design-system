@@ -37,7 +37,7 @@
     "react-textfit": "^1.1.0"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^1.6.0",
+    "@kaizen/design-tokens": "^1.6.0 || ^2",
     "react": "^16.9.0"
   }
 }
