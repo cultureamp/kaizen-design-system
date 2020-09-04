@@ -41,7 +41,7 @@ export const BadgeAnimated: React.FunctionComponent<BadgeProps> = props => {
   return (
     <span
       className={classNames(styles.animation, {
-        [styles.animationOn]: isFocussed,
+        [styles.animationOn]: isFocused,
       })}
     >
       <Badge {...props} />
