@@ -25,42 +25,58 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## To keep in mind
 
-*   Anatomy:
-    *   The anatomy of a tooltip is made up of a **container**, **description** and **tip** (i.e. arrow).
-    *   A tooltip is connected to a **trigger** element, such as a button or icon, that shows the tooltip when the interactive trigger element is hovered, focused, or clicked. (More details below.)
-*   Visual details:
-    *   Text and tips within tooltips can be left, centered and right aligned, as appropriate within its environmental context.
-    *   Use strong signifiers for trigger elements to ensure the tooltip is discoverable.
-    *   The proximity of tooltips is always paired nearby the element with which they are associated.
-    *   Don’t crop tooltips e.g. at the edge of modals.
-*   Trigger:
-    *   Needs to be discoverable:
-        *   E.g. something like an icon to tell you there’s a tooltip
-        *   E.g. show the first tooltip/popover immediately on page load so people know they’re there
-        *   Avoid triggering tooltips from text without indicators that the text has behaviour
-    *   Needs to not be noisy (e.g. we don’t litter UI with icons all the time)
-    *   Only trigger tooltips from:
-        *   Interactive elements:
-            *   Buttons
-            *   Links
-            *   Icon buttons
-        *   Non-interactive elements (be mindful of keyboard accessibility):
-            *   Icons
-            *   Abbreviations (e.g. dashed underlined text for HRIS that shows a tooltip that says Human Resource Information System)
-            *   Truncated text
-    *   For interactive elements that trigger tooltips, only have optional information in the tooltip because it could be missed when the user clicks.
-*   Moods:
-    *   When combined with an icon, use the matching icon and mood (Positive, Informative, Cautionary, Negative). For example, when using a Lapis (blue) colored information icon, show an informative tooltip.
-    *   When used without an icon, use the Default tooltip (white).
-*   Animation details:
-    *   A Tooltip **lifts up** from the **trigger point**, by “slide fading” towards the top of the screen away from the trigger point. Related: Tooltip arrows always point down and “slide fade” upwards unless they're at a viewport edge, then the tooltip should move in the opposite (and most logical) direction.
-*   Amount:
-    *   Use sparingly. If you’re building something that requires a lot of tooltips, work on clarifying the design and the language in the experience.
-    *   Only show 1 tooltip at a time.
-*   Accessibility:
-    *   Tooltips contain limited content so we can use an ‘announcer’ to announce tooltip content to people using screen readers e.g. using an ARIA live region.
-    *   In contrast, a user might interact with a Popover, requiring focus, so we need to move focus to the Popover when it’s triggered and support keyboard navigation to dismiss a dismissible Popover.
-*   Use sparingly. Tooltips innately hide information. Consider exposing it immediately without a tooltip or removing it completely.
+Use sparingly. Tooltips innately hide information. Consider exposing the information immediately without a tooltip or removing it completely.
+
+### Anatomy
+
+*   The anatomy of a tooltip is made up of a **container**, **description** and **tip** (i.e. arrow).
+*   A tooltip is connected to a **trigger** element, such as a button or icon, that shows the tooltip when the interactive trigger element is hovered, focused, or clicked. (More details below.)
+
+### Visual details
+
+*   Text and tips within tooltips can be left, centered and right aligned, as appropriate within its environmental context.
+*   Use strong signifiers for trigger elements to ensure the tooltip is discoverable.
+*   The proximity of tooltips is always paired nearby the element with which they are associated.
+*   Don’t crop tooltips e.g. at the edge of modals.
+
+### Trigger
+
+*   Needs to be discoverable:
+    *   E.g. something like an icon to tell you there’s a tooltip
+    *   E.g. show the first tooltip/popover immediately on page load so people know they’re there
+    *   Avoid triggering tooltips from text without indicators that the text has behaviour
+*   Needs to not be noisy (e.g. we don’t litter UI with icons all the time)
+*   Only trigger tooltips from:
+    *   Interactive elements:
+        *   Buttons
+        *   Links
+        *   Icon buttons
+    *   Non-interactive elements (be mindful of keyboard accessibility):
+        *   Icons
+        *   Abbreviations (e.g. dashed underlined text for HRIS that shows a tooltip that says Human Resource Information System)
+        *   Truncated text
+*   For interactive elements that trigger tooltips, only have optional information in the tooltip because it could be missed when the user clicks.
+
+### Moods
+
+For context, see [Moods](/guidelines/moods).
+
+*   When combined with an icon, use the matching icon and mood (Positive, Informative, Cautionary, Negative). For example, when using a Cluny (blue) colored information icon, show an informative tooltip.
+*   When used without an icon, use the Default tooltip (white).
+
+### Animation details
+
+*   A Tooltip **lifts up** from the **trigger point**, by “slide fading” towards the top of the screen away from the trigger point. Related: Tooltip arrows always point down and “slide fade” upwards unless they're at a viewport edge, then the tooltip should move in the opposite (and most logical) direction.
+
+### Amount
+
+*   Use sparingly. If you’re building something that requires a lot of tooltips, work on clarifying the design and the language in the experience.
+*   Only show 1 tooltip at a time.
+
+### Accessibility
+
+*   Tooltips contain limited content so we can use an ‘announcer’ to announce tooltip content to people using screen readers e.g. using an ARIA live region.
+*   In contrast, a user might interact with a Popover, requiring focus, so we need to move focus to the Popover when it’s triggered and support keyboard navigation to dismiss a dismissible Popover.
 
 ## Copy guidelines
 
