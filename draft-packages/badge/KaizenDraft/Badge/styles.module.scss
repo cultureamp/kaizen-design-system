@@ -2,6 +2,8 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/design-tokens/sass/animation";
+@import "~@kaizen/component-library/styles/animation";
 
 $small: $ca-grid;
 
@@ -10,6 +12,7 @@ $small: $ca-grid;
   border-radius: $kz-spacing-sm;
   color: $kz-color-wisteria-800;
   display: inline-block;
+  position: relative;
   font-family: $kz-typography-paragraph-extra-small-font-family;
   font-size: $kz-typography-paragraph-extra-small-font-size;
   font-weight: $kz-typography-paragraph-bold-font-weight;
@@ -18,6 +21,7 @@ $small: $ca-grid;
   padding: 1px $kz-spacing-xs;
   min-width: 8px;
   text-align: center;
+  z-index: 2;
 }
 
 .default {
@@ -31,7 +35,36 @@ $small: $ca-grid;
   color: $kz-color-white;
 }
 
-.reversed {
-  background-color: add-alpha($kz-color-white, 10%);
+.dark {
+  background-color: rgba($kz-color-wisteria-700, 0.1);
+  color: $kz-color-wisteria-800;
+  .animation & {
+    transition: background-color ($kz-animation-duration-slow / 2)
+      $kz-animation-easing-function-ease-in;
+    &.animationOn {
+      background-color: rgba($kz-color-wisteria-700, 0.2);
+    }
+  }
+}
+
+.reversed.dark {
+  background-color: $kz-color-wisteria-700;
   color: $kz-color-white;
+}
+
+.reversed {
+  background-color: rgba($kz-color-white, 0.1);
+  color: $kz-color-white;
+}
+
+.animation {
+  .badge {
+    transition: transform ($kz-animation-duration-slow / 2)
+      $kz-animation-easing-function-ease-in;
+    transform-origin: center;
+    transform: scale3d(1, 1, 1);
+  }
+  &.animationOn .badge {
+    transform: scale3d(1.35, 1.35, 1.35);
+  }
 }
