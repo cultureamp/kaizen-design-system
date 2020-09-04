@@ -25,6 +25,28 @@ import Dont from "docs-components/Dont"
 
 To ensure the Guidance Block is distinct from other page content, you might use a different visual treatment for the card container.
 
+## To keep in mind
+
+The Guidance Block is a modular design element with a consistent structure and a clear call to action. It is commonly used to:
+
+* Prompt a user action (e.g. Select a focus area, create an action, redact comments, start onboarding).
+* Provide a summary view of longer form content contained on another page. This is similar to a content application of [tile](/components/tile) but with more prominence/hierarchy (e.g Manager learning).
+* Cross promote relevant content or functionality in a different part of the platform.
+* Avoid showing more than one Guidance Block at a time because they would compete for the user's attention instead of guiding the user. Instead, you might conditionally show only whichever Guidance Block is most important to the user at that moment.
+
+### Anatomy
+
+* **Card container:** The Guidance Block content appears inside a card.
+* **Spot illustration:** Provide an illustration that assist the user in the task the Guidance Block describes.
+* **Title and description:** Use the guidelines above to guide the user with appropriate copy.
+* **Action button:** Use a link styled as a primary action button (if there are no others on the page) or a default action button to navigate to the page with the action that the Guidance Block describes. For immediate actions, show a [confirmation modal](/components/modal) instead of navigating.
+* **Optional dismiss button:** If it's possible a user will never want to take this action, consider providing a secondary dismiss button to remove the Guidance Block.
+
+### Behavior
+
+* The Guidance Block may appear conditionally, depending on the state of the action we want the user to take. For example, if they've been through onboarding before, we might remove the Guidance Block from the page.
+* If the use case action is optional or not relevant to all users, the Guidance Block may also be made dismissible.
+
 ## Copy guidelines
 
 Guidance blocks are a chance to flex those marketing writing muscles. Grab the users attention but don’t go overboard into the ad world. Avoid superlatives, flowery or overly sales and marketing heavy language. Instead speak to the user’s objective, describe the action they need to take and highlight the benefit. Remain calm and clear. Don’t use urgent language in an attempt to drive engagement and clicks. It could lead to a negative and disappointing experience if the urgency is misplaced or unwarranted. If the guidance block has to perform an immediate action, consider showing a [confirmation modal](/components/modal).
@@ -89,28 +111,6 @@ Your CTA button should be short and clear. Give it a strong verb. A user should 
 ### Write in sentence case with minimal punctuation
 
 All guidance block copy should be in sentence case i.e. the first letter of the first word is capitalized and everything else is in lower case unless it’s a proper noun or feature name. Always err on the side of minimal punctuation, so leave out full stops and commas where possible.
-
-## To keep in mind
-
-The Guidance Block is a modular design element with a consistent structure and a clear call to action. It is commonly used to:
-
-* Prompt a user action (e.g. Select a focus area, create an action, redact comments, start onboarding).
-* Provide a summary view of longer form content contained on another page. This is similar to a content application of [tile](/components/tile) but with more prominence/hierarchy (e.g Manager learning).
-* Cross promote relevant content or functionality in a different part of the platform.
-* Avoid showing more than one Guidance Block at a time because they would compete for the user's attention instead of guiding the user. Instead, you might conditionally show only whichever Guidance Block is most important to the user at that moment.
-
-### Anatomy
-
-* **Card container:** The Guidance Block content appears inside a card.
-* **Spot illustration:** Provide an illustration that assist the user in the task the Guidance Block describes.
-* **Title and description:** Use the guidelines above to guide the user with appropriate copy.
-* **Action button:** Use a link styled as a primary action button (if there are no others on the page) or a default action button to navigate to the page with the action that the Guidance Block describes. For immediate actions, show a [confirmation modal](/components/modal) instead of navigating.
-* **Optional dismiss button:** If it's possible a user will never want to take this action, consider providing a secondary dismiss button to remove the Guidance Block.
-
-### Behavior
-
-* The Guidance Block may appear conditionally, depending on the state of the action we want the user to take. For example, if they've been through onboarding before, we might remove the Guidance Block from the page.
-* If the use case action is optional or not relevant to all users, the Guidance Block may also be made dismissible.
 
 ## When to use and when not to use
 
