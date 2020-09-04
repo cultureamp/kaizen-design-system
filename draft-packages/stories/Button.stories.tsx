@@ -1,11 +1,10 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
-import { Button } from "../button"
+import { Button, ButtonProps } from "../button"
 const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
   .default
 import { action } from "@storybook/addon-actions"
-import React, { useCallback, useLayoutEffect, useRef } from "react"
+import React, { useCallback, useRef } from "react"
 import { ButtonRef } from "@kaizen/draft-button"
-import { Icon } from "@kaizen/component-library"
 
 export default {
   title: "Button (Zen) (React)",
@@ -333,18 +332,15 @@ export const MultipleButtons = () => (
   </div>
 )
 
-export const CustomRender = () => (
-  <Button
-    label=""
-    renderButton={buttonClasses => (
-      <a href="#" className={buttonClasses.button}>
-        <span className={buttonClasses.content}>
-          <span className={buttonClasses.iconWrapper}>
-            <Icon icon={configureIcon} role="presentation" />
-          </span>
-          <span className={buttonClasses.label}>Custom rendered link</span>
-        </span>
-      </a>
-    )}
-  />
-)
+export const CustomComponent = () => {
+  const customComponent = (props: any) => <a {...props} />
+  // ^ In actual usage - this would be a react-router <Link> component or similar, using <Link to={props.href}>
+
+  return (
+    <Button
+      label="Custom component button"
+      href="#"
+      component={customComponent}
+    />
+  )
+}

@@ -5,7 +5,7 @@ import React, {
   Ref,
   useImperativeHandle,
   useRef,
-  ReactNode,
+  ComponentType,
 } from "react"
 
 const styles = require("./GenericButton.module.scss")
@@ -32,12 +32,7 @@ export type GenericProps = {
   ariaExpanded?: boolean
   onFocus?: (e: React.FocusEvent<HTMLElement>) => void
   onBlur?: (e: React.FocusEvent<HTMLElement>) => void
-  renderButton?: (classes: {
-    button: string
-    label: string
-    content: string
-    iconWrapper: string
-  }) => ReactNode
+  component?: ComponentType
 }
 
 export type AdditionalContentProps = {
@@ -85,19 +80,9 @@ const GenericButton = forwardRef(
     }))
 
     const determineButtonRenderer = () => {
-      if (props.renderButton) {
-        return props.renderButton({
-          button: buttonClass(props),
-          content: styles.content,
-          label: styles.label,
-          iconWrapper: styles.iconWrapper,
-        })
-      }
-
       if (props.href && !props.disabled) {
         return renderLink(props, buttonRef as Ref<HTMLAnchorElement>)
       }
-
       return renderButton(props, buttonRef as Ref<HTMLButtonElement>)
     }
 
@@ -136,13 +121,15 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
     disableTabFocusAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
+    component,
     ...rest
   } = props
   const label = props.icon && props.iconButton ? props.label : undefined
   const customProps = getCustomProps(rest)
+  const Element = component || "button"
 
   return (
-    <button
+    <Element
       id={id}
       disabled={disabled}
       className={buttonClass(props)}
@@ -175,7 +162,7 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
       {...customProps}
     >
       {renderContent(props)}
-    </button>
+    </Element>
   )
 }
 
@@ -187,12 +174,14 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
     newTabAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
+    component,
     ...rest
   } = props
   const customProps = getCustomProps(rest)
+  const Element = component || "a"
 
   return (
-    <a
+    <Element
       id={id}
       href={href}
       target={
@@ -216,7 +205,7 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
       {...customProps}
     >
       {renderContent(props)}
-    </a>
+    </Element>
   )
 }
 
