@@ -51,6 +51,11 @@ export interface TitleBlockProps {
   surveyStatus?: SurveyStatus
 }
 
+export type BadgeProps = {
+  text: string
+  animateChange?: boolean
+}
+
 export type TitleBlockButtonProps = Omit<ButtonProps, "onClick"> & {
   onClick?: (e: any) => void
 }
@@ -89,8 +94,8 @@ export type SelectProps = React.ComponentProps<typeof Select>
  * in the dropdown menu when you click it. (`MenuItemProps` is a type imported from the `Menu` component.)
  */
 export type PrimaryActionProps =
-  | MenuGroup
-  | (TitleBlockButtonProps & { primary: boolean })
+  | (MenuGroup & { badge?: BadgeProps })
+  | (TitleBlockButtonProps & { primary: boolean; badge?: BadgeProps })
 
 /**
  * ### SecondaryActionsProps
