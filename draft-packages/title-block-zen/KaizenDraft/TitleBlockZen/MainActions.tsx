@@ -1,12 +1,19 @@
 import { Button, IconButton } from "@kaizen/draft-button"
+import GenericButton, {
+  AdditionalContentProps,
+  GenericProps,
+  LabelProps,
+} from "@kaizen/draft-button/KaizenDraft/Button/components/GenericButton"
 import { Menu, MenuContent, MenuItem, MenuItemProps } from "@kaizen/draft-menu"
 import * as React from "react"
 import {
   TitleBlockButtonProps,
   isMenuGroupNotButton,
   PrimaryActionProps,
+  BadgeProps,
 } from "./TitleBlockZen"
 import Toolbar from "./Toolbar"
+import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
 const meatballsIcon = require("@kaizen/component-library/icons/meatballs.icon.svg")
@@ -21,6 +28,19 @@ type MainActionsProps = {
   overflowMenuItems?: MenuItemProps[]
   showOverflowMenu?: boolean
 }
+
+const renderBadge = (badge?: BadgeProps) => {
+  if (!badge) return null
+  return badge.animateChange ? (
+    <BadgeAnimated variant="dark">{badge.text}</BadgeAnimated>
+  ) : (
+    <Badge variant="dark">{badge.text}</Badge>
+  )
+}
+
+const ButtonAllowingAdditionalContent = (
+  props: GenericProps & LabelProps & AdditionalContentProps
+) => <GenericButton {...props} />
 
 const MainActions = ({
   primaryAction,
@@ -56,13 +76,14 @@ const MainActions = ({
             <Menu
               align="right"
               button={
-                <Button
+                <ButtonAllowingAdditionalContent
                   label={primaryAction.label}
                   primary
                   reversed={reversed}
                   icon={chevronDownIcon}
                   iconPosition="end"
                   automationId="title-block-primary-action-button"
+                  additionalContent={renderBadge(primaryAction.badge)}
                 />
               }
             >
@@ -83,9 +104,10 @@ const MainActions = ({
         : []),
       ...(primaryAction
         ? [
-            <Button
+            <ButtonAllowingAdditionalContent
               {...primaryAction}
               automationId="title-block-primary-action-button"
+              additionalContent={renderBadge(primaryAction.badge)}
             />,
           ]
         : []),
