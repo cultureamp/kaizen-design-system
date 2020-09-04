@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.7.4...@kaizen/draft-title-block-zen@1.8.0) (2020-09-04)
+
+
+### Features
+
+* add animated badge component ([#762](https://github.com/cultureamp/kaizen-design-system/issues/762)) ([30307b2](https://github.com/cultureamp/kaizen-design-system/commit/30307b28e1629b25c537ad952c8141966454a1f8))
+
+
+
+
+
 ## [1.7.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.7.3...@kaizen/draft-title-block-zen@1.7.4) (2020-08-31)
 
 
