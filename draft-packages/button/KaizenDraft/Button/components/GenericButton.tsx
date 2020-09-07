@@ -38,9 +38,6 @@ export type GenericProps = {
   automationId?: string
   fullWidth?: boolean
   disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean
-  ariaControls?: string
-  ariaDescribedBy?: string
-  ariaExpanded?: boolean
   onFocus?: (e: FocusEvent<HTMLElement>) => void
   onBlur?: (e: FocusEvent<HTMLElement>) => void
   component?: ComponentType<CustomButtonProps>
@@ -147,9 +144,6 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
     onClick,
     onMouseDown,
     type,
-    ariaDescribedBy,
-    ariaExpanded,
-    ariaControls,
     disableTabFocusAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
@@ -171,9 +165,6 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
       type={type}
       data-automation-id={props.automationId}
       title={label}
-      aria-controls={ariaControls}
-      aria-describedby={ariaDescribedBy}
-      aria-expanded={ariaExpanded}
       aria-label={label}
       tabIndex={
         disableTabFocusAndIUnderstandTheAccessibilityImplications

@@ -43,8 +43,8 @@ export const FilterDrawerButton = ({
       additionalContent={renderBadge(numberOfFiltersEnabled)}
       onClick={onClick}
       onMouseDown={onMouseDown}
-      ariaControls={ariaControls}
-      ariaExpanded={ariaExpanded}
+      aria-controls={ariaControls}
+      aria-expanded={ariaExpanded}
     />
   </div>
 )
