@@ -38,7 +38,6 @@ export type GenericProps = {
   automationId?: string
   fullWidth?: boolean
   disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean
-  analytics?: Analytics
   ariaControls?: string
   ariaDescribedBy?: string
   ariaExpanded?: boolean
@@ -56,11 +55,6 @@ export type LabelProps = {
   primary?: boolean
   secondary?: boolean
   reverseColor?: "cluny" | "peach" | "seedling" | "wisteria" | "yuzu"
-}
-
-type Analytics = {
-  eventName: string
-  properties: Record<string, unknown>
 }
 
 export type IconButtonProps = GenericProps
@@ -186,10 +180,6 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
           ? -1
           : undefined
       }
-      data-analytics-click={props.analytics && props.analytics.eventName}
-      data-analytics-properties={
-        props.analytics && JSON.stringify(props.analytics.properties)
-      }
       ref={ref}
       {...customProps}
     >
@@ -223,10 +213,6 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
       onFocus={onFocus}
       onBlur={onBlur}
       data-automation-id={props.automationId}
-      data-analytics-click={props.analytics && props.analytics.eventName}
-      data-analytics-properties={
-        props.analytics && JSON.stringify(props.analytics.properties)
-      }
       ref={ref}
       {...customProps}
     >
