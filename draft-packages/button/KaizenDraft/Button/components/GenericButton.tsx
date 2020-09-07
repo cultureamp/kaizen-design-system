@@ -170,12 +170,7 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
       id={id}
       disabled={disabled}
       className={buttonClass(props)}
-      onClick={(e: MouseEvent) => {
-        if (onClick) {
-          e.preventDefault()
-          onClick && onClick(e)
-        }
-      }}
+      onClick={onClick}
       onFocus={onFocus}
       onBlur={onBlur}
       onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
@@ -224,12 +219,7 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
         newTabAndIUnderstandTheAccessibilityImplications ? "_blank" : "_self"
       }
       className={buttonClass(props)}
-      onClick={(e: any) => {
-        if (onClick) {
-          e.preventDefault()
-          onClick && onClick(e)
-        }
-      }}
+      onClick={onClick}
       onFocus={onFocus}
       onBlur={onBlur}
       data-automation-id={props.automationId}
