@@ -6,9 +6,20 @@ import React, {
   useImperativeHandle,
   useRef,
   ComponentType,
+  FocusEvent,
 } from "react"
 
 const styles = require("./GenericButton.module.scss")
+
+export type CustomButtonProps = {
+  id?: string
+  className: string
+  ref: Ref<any>
+  disabled?: boolean
+  onClick?: (e: MouseEvent) => void
+  onFocus?: (e: FocusEvent<HTMLElement>) => void
+  onBlur?: (e: FocusEvent<HTMLElement>) => void
+}
 
 export type GenericProps = {
   id?: string
@@ -30,9 +41,9 @@ export type GenericProps = {
   ariaControls?: string
   ariaDescribedBy?: string
   ariaExpanded?: boolean
-  onFocus?: (e: React.FocusEvent<HTMLElement>) => void
-  onBlur?: (e: React.FocusEvent<HTMLElement>) => void
-  component?: ComponentType
+  onFocus?: (e: FocusEvent<HTMLElement>) => void
+  onBlur?: (e: FocusEvent<HTMLElement>) => void
+  component?: ComponentType<CustomButtonProps>
 }
 
 export type AdditionalContentProps = {
@@ -80,9 +91,14 @@ const GenericButton = forwardRef(
     }))
 
     const determineButtonRenderer = () => {
+      if (props.component) {
+        return renderCustomComponent(props, buttonRef as Ref<HTMLElement>)
+      }
+
       if (props.href && !props.disabled) {
         return renderLink(props, buttonRef as Ref<HTMLAnchorElement>)
       }
+
       return renderButton(props, buttonRef as Ref<HTMLButtonElement>)
     }
 
@@ -108,6 +124,27 @@ GenericButton.defaultProps = {
   type: "button",
 }
 
+const renderCustomComponent = (props: Props, ref: Ref<any>) => {
+  if (!props.component) {
+    return null
+  }
+
+  const Element = props.component
+  return (
+    <Element
+      id={props.id}
+      className={buttonClass(props)}
+      disabled={props.disabled}
+      ref={ref}
+      onClick={props.onClick}
+      onFocus={props.onFocus}
+      onBlur={props.onBlur}
+    >
+      {renderContent(props)}
+    </Element>
+  )
+}
+
 const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
   const {
     id,
@@ -126,10 +163,9 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
   } = props
   const label = props.icon && props.iconButton ? props.label : undefined
   const customProps = getCustomProps(rest)
-  const Element = component || "button"
 
   return (
-    <Element
+    <button
       id={id}
       disabled={disabled}
       className={buttonClass(props)}
@@ -162,7 +198,7 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
       {...customProps}
     >
       {renderContent(props)}
-    </Element>
+    </button>
   )
 }
 
@@ -178,10 +214,9 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
     ...rest
   } = props
   const customProps = getCustomProps(rest)
-  const Element = component || "a"
 
   return (
-    <Element
+    <a
       id={id}
       href={href}
       target={
@@ -205,7 +240,7 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
       {...customProps}
     >
       {renderContent(props)}
-    </Element>
+    </a>
   )
 }
 
