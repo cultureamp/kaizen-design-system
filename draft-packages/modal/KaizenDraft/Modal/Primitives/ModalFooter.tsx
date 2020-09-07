@@ -9,7 +9,7 @@ interface Props {
   readonly unpadded?: boolean
   readonly actions: Array<{
     label: string
-    action: (event: MouseEvent) => any
+    action: (event: React.MouseEvent) => any
     icon?: React.SVGAttributes<SVGSymbolElement>
     disabled?: boolean
   }>

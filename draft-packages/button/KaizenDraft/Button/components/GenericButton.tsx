@@ -7,6 +7,7 @@ import React, {
   useRef,
   ComponentType,
   FocusEvent,
+  MouseEvent,
 } from "react"
 
 const styles = require("./GenericButton.module.scss")
@@ -169,7 +170,7 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
       id={id}
       disabled={disabled}
       className={buttonClass(props)}
-      onClick={(e: any) => {
+      onClick={(e: MouseEvent) => {
         if (onClick) {
           e.preventDefault()
           onClick && onClick(e)

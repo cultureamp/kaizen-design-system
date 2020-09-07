@@ -9,7 +9,7 @@ const styles = require("./ModalHeader.scss")
 interface Props {
   readonly unpadded?: boolean
   readonly reversed?: boolean
-  readonly onDismiss: (evt: MouseEvent) => void
+  readonly onDismiss: (evt: React.MouseEvent) => void
   readonly children: React.ReactNode
 }
 
