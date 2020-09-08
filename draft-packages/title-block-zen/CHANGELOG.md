@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.8.1...@kaizen/draft-title-block-zen@1.8.2) (2020-09-08)
+
+
+### Bug Fixes
+
+* Add explicit rule for underline on nav tabs ([#768](https://github.com/cultureamp/kaizen-design-system/issues/768)) ([6571803](https://github.com/cultureamp/kaizen-design-system/commit/657180399df9ae5987c2a04dba20e880e2a9bcf9))
+
+
+
+
+
 ## [1.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.8.0...@kaizen/draft-title-block-zen@1.8.1) (2020-09-07)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
