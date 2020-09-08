@@ -18,7 +18,7 @@ export type CustomButtonProps = {
   ref: Ref<any>
   href?: string
   disabled?: boolean
-  onClick?: (e: MouseEvent) => void
+  onClick?: (e: MouseEvent<any>) => void
   onFocus?: (e: FocusEvent<HTMLElement>) => void
   onBlur?: (e: FocusEvent<HTMLElement>) => void
 }
