@@ -16,6 +16,7 @@ export type CustomButtonProps = {
   id?: string
   className: string
   ref: Ref<any>
+  href?: string
   disabled?: boolean
   onClick?: (e: MouseEvent) => void
   onFocus?: (e: FocusEvent<HTMLElement>) => void
@@ -128,6 +129,7 @@ const renderCustomComponent = (props: Props, ref: Ref<any>) => {
       className={buttonClass(props)}
       disabled={props.disabled}
       ref={ref}
+      href={props.href}
       onClick={props.onClick}
       onFocus={props.onFocus}
       onBlur={props.onBlur}

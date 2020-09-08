@@ -332,10 +332,10 @@ export const MultipleButtons = () => (
 )
 
 export const CustomComponent = () => {
-  const customComponent = (props: CustomButtonProps) => (
-    <a href="#" {...props} />
+  const CustomLink = (buttonProps: CustomButtonProps) => (
+    <a href={buttonProps.href} {...buttonProps} />
   )
   // ^ In actual usage - this would be a react-router <Link> component or similar
 
-  return <Button label="Custom component button" component={customComponent} />
+  return <Button label="Custom component button" component={CustomLink} />
 }
