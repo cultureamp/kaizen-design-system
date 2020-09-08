@@ -85,7 +85,11 @@ const GenericButton = forwardRef(
 
     const determineButtonRenderer = () => {
       if (props.component) {
-        return renderCustomComponent(props, buttonRef as Ref<HTMLElement>)
+        return renderCustomComponent(
+          props.component,
+          props,
+          buttonRef as Ref<HTMLElement>
+        )
       }
 
       if (props.href && !props.disabled) {
@@ -117,27 +121,24 @@ GenericButton.defaultProps = {
   type: "button",
 }
 
-const renderCustomComponent = (props: Props, ref: Ref<any>) => {
-  if (!props.component) {
-    return null
-  }
-
-  const Element = props.component
-  return (
-    <Element
-      id={props.id}
-      className={buttonClass(props)}
-      disabled={props.disabled}
-      ref={ref}
-      href={props.href}
-      onClick={props.onClick}
-      onFocus={props.onFocus}
-      onBlur={props.onBlur}
-    >
-      {renderContent(props)}
-    </Element>
-  )
-}
+const renderCustomComponent = (
+  CustomComponent: ComponentType<CustomButtonProps>,
+  props: Props,
+  ref: Ref<any>
+) => (
+  <CustomComponent
+    id={props.id}
+    className={buttonClass(props)}
+    disabled={props.disabled}
+    ref={ref}
+    href={props.href}
+    onClick={props.onClick}
+    onFocus={props.onFocus}
+    onBlur={props.onBlur}
+  >
+    {renderContent(props)}
+  </CustomComponent>
+)
 
 const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
   const {
