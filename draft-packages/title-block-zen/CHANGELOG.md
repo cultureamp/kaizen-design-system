@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.8.2...@kaizen/draft-title-block-zen@1.8.3) (2020-09-08)
+
+
+### Bug Fixes
+
+* added missing dependency ([#767](https://github.com/cultureamp/kaizen-design-system/issues/767)) ([73417da](https://github.com/cultureamp/kaizen-design-system/commit/73417da8f30b0a33ed55275d32da2c95de80778d))
+
+
+
+
+
 ## [1.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.8.1...@kaizen/draft-title-block-zen@1.8.2) (2020-09-08)
 
 
