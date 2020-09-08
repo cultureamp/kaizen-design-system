@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.8.3...@kaizen/draft-title-block-zen@1.8.4) (2020-09-08)
+
+
+### Bug Fixes
+
+* admin theme subtitle fix ([#769](https://github.com/cultureamp/kaizen-design-system/issues/769)) ([507e981](https://github.com/cultureamp/kaizen-design-system/commit/507e981e125fc2137441a9c6d7e7d65716c82e83))
+
+
+
+
+
 ## [1.8.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.8.2...@kaizen/draft-title-block-zen@1.8.3) (2020-09-08)
 
 
