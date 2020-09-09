@@ -1,4 +1,10 @@
 import { Icon } from "@kaizen/component-library"
+/**
+ * Eslint throws a false negative for modules that use require. Ensure you
+ * are importing @kaizen/component-library into your package before turning
+ * this rule off.
+ */
+// eslint-disable-next-line import/no-extraneous-dependencies
 const chevronRightIcon = require("@kaizen/component-library/icons/chevron-right.icon.svg")
   .default
 import classNames from "classnames"
