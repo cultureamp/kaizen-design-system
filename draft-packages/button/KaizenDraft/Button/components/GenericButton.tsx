@@ -150,7 +150,6 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
     disableTabFocusAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
-    component,
     ...rest
   } = props
   const label = props.icon && props.iconButton ? props.label : undefined
@@ -190,7 +189,6 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
     newTabAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
-    component,
     ...rest
   } = props
   const customProps = getCustomProps(rest)
