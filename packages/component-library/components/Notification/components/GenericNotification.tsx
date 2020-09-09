@@ -1,10 +1,19 @@
 import { Icon } from "@kaizen/component-library"
+/**
+ * Eslint throws a false positive for modules that use require. Ensure you
+ * are importing @kaizen/component-library into your package before turning
+ * this rule off.
+ */
+// eslint-disable-next-line import/no-extraneous-dependencies
 const closeIcon = require("@kaizen/component-library/icons/close.icon.svg")
   .default
+// eslint-disable-next-line import/no-extraneous-dependencies
 const exclamationIcon = require("@kaizen/component-library/icons/exclamation.icon.svg")
   .default
+// eslint-disable-next-line import/no-extraneous-dependencies
 const informationIcon = require("@kaizen/component-library/icons/information.icon.svg")
   .default
+// eslint-disable-next-line import/no-extraneous-dependencies
 const successIcon = require("@kaizen/component-library/icons/success.icon.svg")
   .default
 import classnames from "classnames"

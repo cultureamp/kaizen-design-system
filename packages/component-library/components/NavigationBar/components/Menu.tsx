@@ -4,9 +4,16 @@ import {
   OffCanvas,
   OffCanvasContext,
 } from "@kaizen/component-library"
+/**
+ * Eslint throws a false positive for modules that use require. Ensure you
+ * are importing @kaizen/component-library into your package before turning
+ * this rule off.
+ */
+// eslint-disable-next-line import/no-extraneous-dependencies
 const arrowLeftIcon = require("@kaizen/component-library/icons/arrow-left.icon.svg")
   .default
 
+// eslint-disable-next-line import/no-extraneous-dependencies
 const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
   .default
 import classNames from "classnames"
