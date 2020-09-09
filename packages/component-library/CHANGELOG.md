@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.30.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.30.1...@kaizen/component-library@7.30.2) (2020-09-09)
+
+
+### Bug Fixes
+
+* Silence false-positive warnings for no-extraneous-dependencies rule for modules using require ([#772](https://github.com/cultureamp/kaizen-design-system/issues/772)) ([48da126](https://github.com/cultureamp/kaizen-design-system/commit/48da1262f0139f1211d16e690d56c8d4fcaa446f))
+
+
+
+
+
 ## [7.30.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.30.0...@kaizen/component-library@7.30.1) (2020-09-07)
 
 
