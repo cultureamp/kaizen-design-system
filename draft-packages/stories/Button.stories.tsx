@@ -280,7 +280,7 @@ export const OverflowingTextIconLabelTestCase = () => (
     <Button
       icon={configureIcon}
       label="Passez au rapport de synthèse"
-      automationId="demo-button"
+      data-automation-id="demo-button"
     />
   </div>
 )
@@ -295,7 +295,7 @@ export const OverflowingTextFormTestCase = () => (
       form
       icon={configureIcon}
       label="Passez au rapport de synthèse"
-      automationId="demo-button"
+      data-automation-id="demo-button"
     />
   </div>
 )
@@ -326,8 +326,8 @@ OverflowingTextFormTestCase.story = {
 
 export const MultipleButtons = () => (
   <div>
-    <Button label="Save" primary automationId="demo-button-1" />
-    <Button label="Exit" automationId="demo-button-2" />
+    <Button label="Save" primary data-automation-id="demo-button-1" />
+    <Button label="Exit" data-automation-id="demo-button-2" />
   </div>
 )
 

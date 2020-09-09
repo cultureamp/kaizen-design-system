@@ -36,7 +36,6 @@ export type GenericProps = {
   href?: string
   newTabAndIUnderstandTheAccessibilityImplications?: boolean
   type?: "submit" | "reset" | "button"
-  automationId?: string
   fullWidth?: boolean
   disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean
   onFocus?: (e: FocusEvent<HTMLElement>) => void
@@ -165,7 +164,6 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
       onBlur={onBlur}
       onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
       type={type}
-      data-automation-id={props.automationId}
       title={label}
       aria-label={label}
       tabIndex={
@@ -204,7 +202,6 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
       onClick={onClick}
       onFocus={onFocus}
       onBlur={onBlur}
-      data-automation-id={props.automationId}
       ref={ref}
       {...customProps}
     >

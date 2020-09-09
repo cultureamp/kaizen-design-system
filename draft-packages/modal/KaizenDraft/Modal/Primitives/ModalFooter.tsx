@@ -36,7 +36,7 @@ const ModalFooter: ModalFooter = props => {
               destructive={index === 0 && appearance === "destructive"}
               secondary={index > 0}
               disabled={a.disabled}
-              automationId={`${automationId}-action-${index}`}
+              data-automation-id={`${automationId}-action-${index}`}
             />
           </div>
         ))}
