@@ -30,9 +30,7 @@
   "author": "",
   "private": false,
   "license": "MIT",
-  "dependencies": {
-    "depd": "^2.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "rimraf": "^3.0.2"
   },
