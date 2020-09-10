@@ -63,7 +63,7 @@
     "@storybook/react": "^5.3.9",
     "@storybook/theming": "^5.3.19",
     "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "10.4.9",
+    "@testing-library/react": "11.0.2",
     "@types/chalk": "^2.2.0",
     "@types/jest": "^24.0.18",
     "@types/node": "^12.7.5",
