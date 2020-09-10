@@ -1,5 +1,5 @@
 {
-  "name": "@kaizen/component-life-span",
+  "name": "@kaizen/react-deprecate-warning",
   "version": "1.0.0",
   "description": "",
   "scripts": {
