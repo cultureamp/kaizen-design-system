@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.9...@kaizen/draft-button@1.13.10) (2020-09-09)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.13.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.8...@kaizen/draft-button@1.13.9) (2020-09-07)
+
+
+### Bug Fixes
+
+* Bump design-tokens peer dependency to the latest version ([#760](https://github.com/cultureamp/kaizen-design-system/issues/760)) ([37e5414](https://github.com/cultureamp/kaizen-design-system/commit/37e5414b2e2c0befb4127c588120eb2e8bdc4d39))
+
+
+
+
+
 ## [1.13.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.7...@kaizen/draft-button@1.13.8) (2020-09-04)
 
 **Note:** Version bump only for package @kaizen/draft-button

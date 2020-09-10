@@ -22,11 +22,11 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "7.30.0",
+  "version": "7.30.2",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
-    "@kaizen/design-tokens": "^1.4.0",
+    "@kaizen/design-tokens": "^1.4.0 || ^2",
     "focus-visible": "4.x || 5.x",
     "react": "^16.9.0"
   },

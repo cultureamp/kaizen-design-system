@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.48](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.47...@kaizen/draft-modal@2.5.48) (2020-09-09)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [2.5.47](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.46...@kaizen/draft-modal@2.5.47) (2020-09-09)
+
+
+### Bug Fixes
+
+* Added missing dependencies for Modal, FilterDrawer, and Tile ([#773](https://github.com/cultureamp/kaizen-design-system/issues/773)) ([60fc136](https://github.com/cultureamp/kaizen-design-system/commit/60fc136e131cca15fbc5b6dcbc8953c567d8e23c))
+
+
+
+
+
+## [2.5.46](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.45...@kaizen/draft-modal@2.5.46) (2020-09-07)
+
+
+### Bug Fixes
+
+* Bump design-tokens peer dependency to the latest version ([#760](https://github.com/cultureamp/kaizen-design-system/issues/760)) ([37e5414](https://github.com/cultureamp/kaizen-design-system/commit/37e5414b2e2c0befb4127c588120eb2e8bdc4d39))
+
+
+
+
+
 ## [2.5.45](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@2.5.44...@kaizen/draft-modal@2.5.45) (2020-09-04)
 
 **Note:** Version bump only for package @kaizen/draft-modal

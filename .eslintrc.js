@@ -140,7 +140,7 @@ module.exports = {
     ],
     "id-match": "error",
     "import/no-extraneous-dependencies": [
-      "warn",
+      "error",
       {
         devDependencies: false,
       },
