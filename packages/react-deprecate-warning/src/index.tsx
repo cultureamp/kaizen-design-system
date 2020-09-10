@@ -3,6 +3,17 @@ import * as React from "react"
 const shouldWarn =
   process.env?.NODE_ENV !== undefined && process.env?.NODE_ENV !== "production"
 
+const logWarning = (
+  name: string,
+  deprecatedType: "component" | "prop",
+  message: string
+) => {
+  // eslint-disable-next-line no-console
+  console.warn(
+    `DEPRECATED ${deprecatedType.toUpperCase()} WARNING (${name})\n${message}`
+  )
+}
+
 export const Counter = (() => {
   let countComponents: string[] = []
 
@@ -24,28 +35,30 @@ export const Counter = (() => {
 })()
 
 type deprecatedWarning = string
+type deprecatedPropVal = {
+  warning: deprecatedWarning
+  key: string
+}
 export interface withDeprecatedWarningProps {
+  name: string
   deprecatedComponent?: deprecatedWarning
   deprecatedProps?: {
-    [key: string]: deprecatedWarning
+    [key: string]: deprecatedWarning | deprecatedPropVal[]
   }
 }
 
 export const withDeprecatedWarning = <P extends object>(
   WrappedComponent: React.ComponentType<P>,
-  { deprecatedComponent, deprecatedProps }: withDeprecatedWarningProps
+  { deprecatedComponent, deprecatedProps, name }: withDeprecatedWarningProps
 ): React.ComponentType<P> =>
   class extends React.Component<P> {
     constructor(props) {
       super(props)
 
       if (shouldWarn) {
-        if (deprecatedComponent && !Counter.includes(WrappedComponent.name)) {
-          // eslint-disable-next-line no-console
-          console.warn(
-            `DEPRECATED COMPONENT WARNING (${WrappedComponent.name})\n${deprecatedComponent}`
-          )
-          Counter.add(WrappedComponent.name)
+        if (deprecatedComponent && !Counter.includes(name)) {
+          Counter.add(name)
+          logWarning(name, "component", deprecatedComponent)
         }
         if (deprecatedProps) {
           const deprecatedPropsUsed = Object.keys(
@@ -53,10 +66,17 @@ export const withDeprecatedWarning = <P extends object>(
           ).filter(curr => Object.keys(props).includes(curr))
 
           deprecatedPropsUsed.forEach(curr => {
-            // eslint-disable-next-line no-console
-            console.warn(
-              `DEPRECATED PROPS WARNING (${WrappedComponent.name})\n${deprecatedProps[curr]}`
-            )
+            if (typeof deprecatedProps[curr] === "string") {
+              logWarning(name, "prop", deprecatedProps[curr] as string)
+            } else if (Array.isArray(deprecatedProps[curr])) {
+              const deprecatedPropMessage = (deprecatedProps[
+                curr
+              ] as deprecatedPropVal[]).find(obj => obj.key === props[curr])
+
+              if (deprecatedPropMessage !== undefined) {
+                logWarning(name, "prop", deprecatedPropMessage.warning)
+              }
+            }
           })
         }
       }
