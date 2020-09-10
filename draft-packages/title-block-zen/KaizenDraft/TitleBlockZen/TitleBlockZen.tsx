@@ -148,8 +148,8 @@ type SurveyStatus = {
 }
 
 type Breadcrumb = {
-  path: string
   text: string
+  path?: string
   handleClick?: (event: React.MouseEvent) => void
 }
 
@@ -216,31 +216,34 @@ const renderBreadcrumb = (
   breadcrumb: Breadcrumb,
   textDirection?: TextDirection
 ) => {
+  const { path, handleClick, text } = breadcrumb
   const icon = textDirection === "rtl" ? rightArrow : leftArrow
+
+  const TagName = path ? "a" : "div"
 
   return (
     <>
-      <a
-        href={breadcrumb.path}
+      <TagName
+        {...(path && { href: path })}
         className={styles.breadcrumb}
         data-automation-id="TitleBlock__Breadcrumb"
-        onClick={breadcrumb.handleClick}
+        onClick={handleClick}
         aria-label="Back to previous page"
       >
         <div className={styles.circle}>
           <Icon icon={icon} role="presentation" />
         </div>
-      </a>
-      <a
-        href={breadcrumb.path}
+      </TagName>
+      <TagName
+        {...(path && { href: path })}
         className={styles.breadcrumbTextLink}
         data-automation-id="TitleBlock__BreadcrumbText"
-        onClick={breadcrumb.handleClick}
+        onClick={handleClick}
         aria-label="Back to previous page"
         tabIndex={-1}
       >
-        <span className={styles.breadcrumbText}>{breadcrumb.text}</span>
-      </a>
+        <span className={styles.breadcrumbText}>{text}</span>
+      </TagName>
     </>
   )
 }
