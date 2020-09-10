@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-tile",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "The draft tile component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -33,5 +33,8 @@
   "peerDependencies": {
     "@kaizen/design-tokens": "^1.6.0 || ^2",
     "react": "^16.9.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6"
   }
 }

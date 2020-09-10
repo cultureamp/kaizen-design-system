@@ -274,6 +274,10 @@ $tab-container-height-small: $ca-grid * 2.5;
   letter-spacing: $kz-typography-paragraph-small-letter-spacing;
   max-width: 230px;
 
+  .adminVariant & {
+    color: $kz-color-wisteria-800;
+  }
+
   @include ca-margin($start: $ca-grid / 2);
 
   @include title-block-under-1366 {
