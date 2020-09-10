@@ -1,4 +1,5 @@
-import { cleanup, fireEvent, render, wait } from "@testing-library/react"
+import { cleanup, render } from "@testing-library/react"
+import { fireEvent, wait } from "@testing-library/dom"
 import * as React from "react"
 import * as ReactTestUtils from "react-dom/test-utils"
 import GenericNotification from "./GenericNotification"
