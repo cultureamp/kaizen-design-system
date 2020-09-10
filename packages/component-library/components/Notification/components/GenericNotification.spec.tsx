@@ -4,7 +4,10 @@ import * as React from "react"
 import * as ReactTestUtils from "react-dom/test-utils"
 import GenericNotification from "./GenericNotification"
 
-afterEach(cleanup)
+afterEach(() => {
+  cleanup()
+  jest.runAllTimers()
+})
 
 beforeEach(() => {
   jest.useFakeTimers()
@@ -71,13 +74,13 @@ test("If autohide is specified, we should start hiding after 5s", async () => {
   )
 
   // After 4s, it should still be visible
-  Promise.resolve().then(() => jest.advanceTimersByTime(4000))
+  Promise.resolve().then(() => jest.advanceTimersByTime(3900))
   await waitFor(() => {
     expect(container.querySelector(".hidden")).toBeFalsy()
   })
 
   // By the 5th second, it will become hidden
-  Promise.resolve().then(() => jest.advanceTimersByTime(1000))
+  Promise.resolve().then(() => jest.advanceTimersByTime(100))
   await waitFor(() => {
     expect(container.querySelector(".hidden")).toBeTruthy()
   })
