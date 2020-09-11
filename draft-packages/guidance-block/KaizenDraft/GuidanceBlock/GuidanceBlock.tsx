@@ -1,4 +1,5 @@
-import { Button, Heading, Icon, Paragraph } from "@kaizen/component-library"
+import { Heading, Icon, Paragraph } from "@kaizen/component-library"
+import { Button } from "@kaizen/draft-button"
 const configureIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
   .default
 
