@@ -1,7 +1,7 @@
 import "./matchMedia.mock"
 
-import { configure } from "@testing-library/dom"
-import { cleanup, fireEvent, render } from "@testing-library/react"
+import { configure, fireEvent } from "@testing-library/dom"
+import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
 import { NavigationTab, TitleBlockZen } from "./index"
 
