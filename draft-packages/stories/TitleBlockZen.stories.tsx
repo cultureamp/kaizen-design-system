@@ -758,6 +758,62 @@ DefaultWithReportSwitcher.story = {
   name: "Default with report switcher",
 }
 
+export const DefaultNoLink = () => (
+  <TitleBlockZen
+    title="Page title"
+    surveyStatus={{ text: "Live", status: "live" }}
+    primaryAction={{
+      label: "Primary link",
+      icon: addIcon,
+      reversed: true,
+      primary: true,
+      disabled: true,
+      href: "#",
+    }}
+    defaultAction={{
+      label: "Default link",
+      reversed: true,
+      href: "#",
+    }}
+    secondaryActions={SECONDARY_ACTIONS}
+    secondaryOverflowMenuItems={[
+      {
+        action: () => {
+          alert("test")
+        },
+        label: "Overflow action 1",
+        icon: starIcon,
+      },
+      {
+        action: "#",
+        label: "Overflow link 1",
+        icon: starIcon,
+      },
+    ]}
+    handleHamburgerClick={() => {
+      alert("Hamburger clicked")
+    }}
+    breadcrumb={{
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+    navigationTabs={[
+      <NavigationTab text="Label" href="#" active />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+    ]}
+  />
+)
+
+DefaultNoLink.story = {
+  name: "Default (no link in breadcrumb)",
+}
+
 export const DefaultOnlyLongTitle = () => (
   <TitleBlockZen
     title='Page title that is over the "long title" character threshold and goes way longer than usual'
