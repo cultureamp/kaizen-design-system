@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/title-block"
+    "directory": "legacy-packages/title-block"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"

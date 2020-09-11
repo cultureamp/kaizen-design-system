@@ -7,6 +7,9 @@ interface Props {
   readonly animated?: boolean
   readonly centred?: boolean
   readonly reversedDefault?: boolean
+  /**
+   * @deprecated reversedOcean is deprecated.
+   */
   readonly reversedOcean?: boolean
   readonly tall?: boolean
   readonly inheritBaseline?: boolean

@@ -28,6 +28,9 @@ type LabelProps = {
   iconPosition?: "start" | "end"
   primary?: boolean
   secondary?: boolean
+  /**
+   * @deprecated lapis and ocean are deprecated values
+   */
   reverseColor?: "lapis" | "ocean" | "peach" | "seedling" | "wisteria" | "yuzu"
 }
 
