@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.9.0...@kaizen/draft-title-block-zen@1.9.1) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+# [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.8.5...@kaizen/draft-title-block-zen@1.9.0) (2020-09-11)
+
+
+### Features
+
+* Make path in titleblockzen breadcrumb optional ([#774](https://github.com/cultureamp/kaizen-design-system/issues/774)) ([79e0d27](https://github.com/cultureamp/kaizen-design-system/commit/79e0d271dcbd2c00ea1bc6c00bfbdb4ad52975c0))
+
+
+
+
+
 ## [1.8.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.8.4...@kaizen/draft-title-block-zen@1.8.5) (2020-09-09)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
