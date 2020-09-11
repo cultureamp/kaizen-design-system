@@ -219,7 +219,7 @@ const renderBreadcrumb = (
   const { path, handleClick, text } = breadcrumb
   const icon = textDirection === "rtl" ? rightArrow : leftArrow
 
-  const TagName = path ? "a" : "div"
+  const TagName = path ? "a" : "button"
 
   return (
     <>

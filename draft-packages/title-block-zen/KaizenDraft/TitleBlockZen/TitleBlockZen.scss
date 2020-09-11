@@ -522,7 +522,20 @@ $tab-container-height-small: $ca-grid * 2.5;
   }
 }
 
+.buttonReset {
+  appearance: none;
+  display: inline;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
 .breadcrumb {
+  composes: buttonReset;
   cursor: pointer;
   display: flex;
   position: absolute;
@@ -552,6 +565,7 @@ $tab-container-height-small: $ca-grid * 2.5;
 }
 
 .breadcrumbTextLink {
+  composes: buttonReset;
   display: none;
   position: absolute;
   z-index: $ca-z-index-sticky - 1;
