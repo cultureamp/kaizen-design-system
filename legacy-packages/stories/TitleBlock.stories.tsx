@@ -30,12 +30,13 @@ const stickyContainerStyle = {
 }
 
 export default {
-  title: "TitleBlock (React)",
+  title: "TitleBlock (React) (deprecated)",
   component: TitleBlock,
   parameters: {
     info: {
       text: `
-      import { TitleBlock } from "@kaizen/draft-title-block"
+      # Deprecated
+      This component is now deprecated. Please use @kaizen/draft-zen-title-block instead.
       `,
     },
   },

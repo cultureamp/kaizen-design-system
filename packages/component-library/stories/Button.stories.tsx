@@ -11,7 +11,8 @@ export default {
   parameters: {
     info: {
       text: `
-        import { Button } from "@kaizen/component-library";
+        # Deprecated
+        Button is deprecated. Please use @kaizen/draft-button instead. 
       `,
     },
   },

@@ -9,7 +9,7 @@ module.exports = {
      * made storybook unhappy
      */
     "../draft-packages/stories/*.stories.tsx",
-    "../legacy-packages/**/*.stories.tsx",
+    "../legacy-packages/stories/*.stories.tsx",
   ],
   presets: [path.resolve("./storybook/header-preset/preset")],
   addons: ["./storybook/gtm-addon/register.js"],

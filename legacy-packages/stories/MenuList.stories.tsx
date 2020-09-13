@@ -12,6 +12,14 @@ const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon
 
 export default {
   title: "MenuList (React, deprecated)",
+  parameters: {
+    info: {
+      text: `
+        # Deprecated
+        MenuList is deprecated. Please use @kaizen/draft-menu instead. 
+      `,
+    },
+  },
 }
 
 export const Default = () => (

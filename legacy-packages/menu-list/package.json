@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-menu-list",
-  "version": "1.5.31",
+  "version": "1.5.33",
   "description": "The draft Menu list component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/menu-list"
+    "directory": "legacy-packages/menu-list"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
@@ -31,7 +31,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^7.30.2",
+    "@kaizen/component-library": "^7.30.4",
     "@kaizen/deprecated-component-library-helpers": "^1.6.13",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
