@@ -1,8 +1,27 @@
 import { Icon } from "@kaizen/component-library"
 import classNames from "classnames"
-import React, { forwardRef, Ref, useImperativeHandle, useRef } from "react"
+import React, {
+  forwardRef,
+  Ref,
+  useImperativeHandle,
+  useRef,
+  ComponentType,
+  FocusEvent,
+  MouseEvent,
+} from "react"
 
 const styles = require("./GenericButton.module.scss")
+
+export type CustomButtonProps = {
+  id?: string
+  className: string
+  ref: Ref<any>
+  href?: string
+  disabled?: boolean
+  onClick?: (e: MouseEvent<any>) => void
+  onFocus?: (e: FocusEvent<HTMLElement>) => void
+  onBlur?: (e: FocusEvent<HTMLElement>) => void
+}
 
 export type GenericProps = {
   id?: string
@@ -17,15 +36,11 @@ export type GenericProps = {
   href?: string
   newTabAndIUnderstandTheAccessibilityImplications?: boolean
   type?: "submit" | "reset" | "button"
-  automationId?: string
   fullWidth?: boolean
   disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean
-  analytics?: Analytics
-  ariaControls?: string
-  ariaDescribedBy?: string
-  ariaExpanded?: boolean
-  onFocus?: (e: React.FocusEvent<HTMLElement>) => void
-  onBlur?: (e: React.FocusEvent<HTMLElement>) => void
+  onFocus?: (e: FocusEvent<HTMLElement>) => void
+  onBlur?: (e: FocusEvent<HTMLElement>) => void
+  component?: ComponentType<CustomButtonProps>
 }
 
 export type AdditionalContentProps = {
@@ -37,11 +52,6 @@ export type LabelProps = {
   primary?: boolean
   secondary?: boolean
   reverseColor?: "cluny" | "peach" | "seedling" | "wisteria" | "yuzu"
-}
-
-type Analytics = {
-  eventName: string
-  properties: Record<string, unknown>
 }
 
 export type IconButtonProps = GenericProps
@@ -72,15 +82,29 @@ const GenericButton = forwardRef(
       },
     }))
 
+    const determineButtonRenderer = () => {
+      if (props.component) {
+        return renderCustomComponent(
+          props.component,
+          props,
+          buttonRef as Ref<HTMLElement>
+        )
+      }
+
+      if (props.href && !props.disabled) {
+        return renderLink(props, buttonRef as Ref<HTMLAnchorElement>)
+      }
+
+      return renderButton(props, buttonRef as Ref<HTMLButtonElement>)
+    }
+
     return (
       <span
         className={classNames(styles.container, {
           [styles.fullWidth]: props.fullWidth,
         })}
       >
-        {props.href && !props.disabled
-          ? renderLink(props, buttonRef as Ref<HTMLAnchorElement>)
-          : renderButton(props, buttonRef as Ref<HTMLButtonElement>)}
+        {determineButtonRenderer()}
       </span>
     )
   }
@@ -96,6 +120,25 @@ GenericButton.defaultProps = {
   type: "button",
 }
 
+const renderCustomComponent = (
+  CustomComponent: ComponentType<CustomButtonProps>,
+  props: Props,
+  ref: Ref<any>
+) => (
+  <CustomComponent
+    id={props.id}
+    className={buttonClass(props)}
+    disabled={props.disabled}
+    ref={ref}
+    href={props.href}
+    onClick={props.onClick}
+    onFocus={props.onFocus}
+    onBlur={props.onBlur}
+  >
+    {renderContent(props)}
+  </CustomComponent>
+)
+
 const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
   const {
     id,
@@ -103,9 +146,6 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
     onClick,
     onMouseDown,
     type,
-    ariaDescribedBy,
-    ariaExpanded,
-    ariaControls,
     disableTabFocusAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
@@ -119,30 +159,17 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
       id={id}
       disabled={disabled}
       className={buttonClass(props)}
-      onClick={(e: any) => {
-        if (onClick) {
-          e.preventDefault()
-          onClick && onClick(e)
-        }
-      }}
+      onClick={onClick}
       onFocus={onFocus}
       onBlur={onBlur}
       onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
       type={type}
-      data-automation-id={props.automationId}
       title={label}
-      aria-controls={ariaControls}
-      aria-describedby={ariaDescribedBy}
-      aria-expanded={ariaExpanded}
       aria-label={label}
       tabIndex={
         disableTabFocusAndIUnderstandTheAccessibilityImplications
           ? -1
           : undefined
-      }
-      data-analytics-click={props.analytics && props.analytics.eventName}
-      data-analytics-properties={
-        props.analytics && JSON.stringify(props.analytics.properties)
       }
       ref={ref}
       {...customProps}
@@ -172,19 +199,9 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
         newTabAndIUnderstandTheAccessibilityImplications ? "_blank" : "_self"
       }
       className={buttonClass(props)}
-      onClick={(e: any) => {
-        if (onClick) {
-          e.preventDefault()
-          onClick && onClick(e)
-        }
-      }}
+      onClick={onClick}
       onFocus={onFocus}
       onBlur={onBlur}
-      data-automation-id={props.automationId}
-      data-analytics-click={props.analytics && props.analytics.eventName}
-      data-analytics-properties={
-        props.analytics && JSON.stringify(props.analytics.properties)
-      }
       ref={ref}
       {...customProps}
     >

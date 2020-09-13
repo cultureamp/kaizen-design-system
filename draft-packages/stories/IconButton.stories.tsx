@@ -15,7 +15,11 @@ const StoryWrapper = ({ children }) => (
 
 export const DefaultKaizenSiteDemo = () => (
   <StoryWrapper>
-    <IconButton icon={configureIcon} label="Label" automationId="demo-button" />
+    <IconButton
+      icon={configureIcon}
+      label="Label"
+      data-automation-id="demo-button"
+    />
   </StoryWrapper>
 )
 

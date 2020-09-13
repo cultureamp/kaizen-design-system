@@ -19,7 +19,7 @@ const Action: Action = ({ action, secondary = false, disabled = false }) => {
       href={href}
       secondary={secondary}
       icon={icon}
-      automationId={automationId}
+      data-automation-id={automationId}
       disabled={disabled}
     />
   ) : (
@@ -28,7 +28,7 @@ const Action: Action = ({ action, secondary = false, disabled = false }) => {
       onClick={onClick}
       secondary={secondary}
       icon={icon}
-      automationId={automationId}
+      data-automation-id={automationId}
       disabled={disabled}
     />
   )
