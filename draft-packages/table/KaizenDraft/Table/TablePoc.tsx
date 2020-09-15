@@ -4,13 +4,13 @@ import classNames from "classnames"
 const styles = require("./table-poc.scss")
 
 interface TablePocProps {
-  columns: {
+  columns: Array<{
     Header: string
     accessor: string
-  }[]
-  data: {
+  }>
+  data: Array<{
     [key: string]: string
-  }[]
+  }>
 }
 
 type BaseProps = {
@@ -153,9 +153,9 @@ export const TablePoc = ({ columns, data }: TablePocProps) => {
 
           return (
             <Tr {...row.getRowProps()}>
-              {row.cells.map(cell => {
-                return <Td {...cell.getCellProps()}>{cell.render("Cell")}</Td>
-              })}
+              {row.cells.map(cell => (
+                <Td {...cell.getCellProps()}>{cell.render("Cell")}</Td>
+              ))}
             </Tr>
           )
         })}
