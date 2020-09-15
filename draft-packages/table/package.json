@@ -34,7 +34,9 @@
     "@kaizen/component-library": "^7.30.4",
     "@kaizen/draft-form": "^2.6.9",
     "@types/classnames": "^2.2.10",
-    "classnames": "^2.2.6"
+    "@types/react-table": "^7.0.23",
+    "classnames": "^2.2.6",
+    "react-table": "^7.5.0"
   },
   "devDependencies": {
     "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.2.1",

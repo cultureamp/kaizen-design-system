@@ -1,0 +1,50 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/spacing";
+
+.table {
+  box-sizing: border-box;
+  border-collapse: collapse;
+
+  td,
+  th {
+    text-align: left;
+  }
+
+  th:first-child,
+  td:first-child {
+    padding-left: $kz-spacing-md;
+  }
+
+  th:last-child,
+  td:last-child {
+    padding-right: $kz-spacing-md;
+  }
+}
+
+.thead {
+  font-family: $kz-typography-heading-6-font-family;
+  font-weight: $kz-typography-heading-6-font-weight;
+  font-size: $kz-typography-heading-6-font-size;
+  line-height: $kz-typography-heading-6-line-height;
+  letter-spacing: $kz-typography-heading-6-letter-spacing;
+  color: $kz-color-wisteria-800;
+}
+
+.tbody {
+  box-shadow: $kz-shadow-small-box-shadow;
+  border-radius: 7px; // @todo - use token
+  font-family: $kz-typography-paragraph-body-font-family;
+  font-weight: $kz-typography-paragraph-body-font-weight;
+  font-size: $kz-typography-paragraph-body-font-size;
+  line-height: $kz-typography-paragraph-body-line-height;
+  letter-spacing: $kz-typography-paragraph-body-letter-spacing;
+}
+
+.tr {
+}
+
+.td {
+  padding: $kz-spacing-sm 0;
+}

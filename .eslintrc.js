@@ -24,6 +24,11 @@ module.exports = {
     "sort-imports-es6-autofix",
     "prefer-arrow",
   ],
+  settings: {
+    "import/resolver": {
+      foo: { someConfig: value },
+    },
+  },
   rules: {
     "@typescript-eslint/adjacent-overload-signatures": "error",
     "@typescript-eslint/array-type": [

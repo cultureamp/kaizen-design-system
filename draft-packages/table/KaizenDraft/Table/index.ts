@@ -8,3 +8,5 @@ export {
   TableRow,
   TableRowCell,
 } from "./Table"
+
+export * from "./TablePoc"
