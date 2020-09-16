@@ -1,10 +1,14 @@
 import React, { useState } from "react"
 
-import { RatingScale, Scale, ScaleItem } from "@kaizen/draft-rating-scale"
+import {
+  RatingScaleLegacy,
+  Scale,
+  ScaleItem,
+} from "@kaizen/draft-rating-scale-legacy"
 
 export default {
-  title: "RatingScale (React)",
-  component: RatingScale,
+  title: "RatingScaleLegacy (React)",
+  component: RatingScaleLegacy,
   parameters: {
     info: {
       text: `
@@ -42,7 +46,7 @@ export const DefaultStory = () => {
 
   return (
     <div style={{ margin: "48px 24px" }}>
-      <RatingScale
+      <RatingScaleLegacy
         scale={scale}
         questionId="123"
         selectedItem={selectedItem}
@@ -68,7 +72,7 @@ export const Reversed = () => {
         background: "#6B6E94",
       }}
     >
-      <RatingScale
+      <RatingScaleLegacy
         scale={scale}
         questionId="123"
         selectedItem={selectedItem}

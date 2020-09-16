@@ -1,5 +1,5 @@
 {
-  "name": "@kaizen/draft-rating-scale",
+  "name": "@kaizen/draft-rating-scale-legacy",
   "version": "1.0.0",
   "description": "The draft rating-scale component",
   "scripts": {

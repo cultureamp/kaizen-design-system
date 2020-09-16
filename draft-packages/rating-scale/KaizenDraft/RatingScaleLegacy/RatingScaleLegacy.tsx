@@ -20,7 +20,7 @@ export interface RatingScaleProps {
   onSelect: (value: ScaleItem | null) => void
 }
 
-export const RatingScale = ({
+export const RatingScaleLegacy = ({
   scale,
   questionId,
   selectedItem,
