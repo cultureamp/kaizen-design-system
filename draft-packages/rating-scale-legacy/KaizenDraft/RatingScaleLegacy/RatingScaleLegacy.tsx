@@ -151,7 +151,6 @@ export const RatingScaleLegacy = ({
               })}
               onClick={() => handleRadioClick(item)}
               key={item.value}
-              id={item.value}
               data-automation-id={`rating-scale-item-${item.value}-${questionId}`}
               onMouseEnter={() => handleRadioMouseEnter(item)}
               onMouseLeave={handleRadioMouseLeave}

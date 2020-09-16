@@ -42,7 +42,7 @@ const scale: Scale = [
 ]
 
 export const DefaultStory = () => {
-  const [selectedItem, setSelectedItem] = useState<ScaleItem | null>()
+  const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
 
   return (
     <div style={{ margin: "48px 24px" }}>
@@ -62,7 +62,7 @@ DefaultStory.story = {
 }
 
 export const Reversed = () => {
-  const [selectedItem, setSelectedItem] = useState<ScaleItem | null>()
+  const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
 
   return (
     <div
@@ -76,6 +76,7 @@ export const Reversed = () => {
       <RatingScaleLegacy
         scale={scale}
         questionId="123"
+        labelId="456"
         selectedItem={selectedItem}
         onSelect={item => setSelectedItem(item)}
         reversed

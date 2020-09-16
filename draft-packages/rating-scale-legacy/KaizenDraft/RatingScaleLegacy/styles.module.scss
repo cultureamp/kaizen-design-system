@@ -122,6 +122,8 @@ $fifth: mix($start, $end, 0%);
 }
 
 :global(.js-focus-visible) {
+  $focus-ring-offset: 3px;
+
   .container {
     &:focus {
       outline: none;
@@ -141,6 +143,37 @@ $fifth: mix($start, $end, 0%);
       right: -$focus-ring-offset;
       bottom: -$focus-ring-offset;
     }
+  }
+
+  .ratingItem:focus {
+    outline: none;
+  }
+
+  .reversed:not(.rated)
+    :global([data-focus-visible-added]).ratingItem:focus
+    .ratingItemFill {
+    border-color: $kz-color-white;
+  }
+
+  // React seems to be causing the .focus-visible class to only be added sometimes,
+  // so we need to use [data-focus-visible-added] here instead.
+  // See https://github.com/WICG/focus-visible#2-update-your-css
+  :global([data-focus-visible-added]).ratingItem::after {
+    content: "";
+    position: absolute;
+    background: transparent;
+    border-radius: $kz-border-focus-ring-border-radius;
+    border-width: $kz-border-focus-ring-border-width;
+    border-style: $kz-border-focus-ring-border-style;
+    border-color: $kz-color-cluny-500;
+    top: -$focus-ring-offset;
+    left: -$focus-ring-offset;
+    right: -$focus-ring-offset;
+    bottom: -$focus-ring-offset;
+  }
+
+  .reversed :global([data-focus-visible-added]).ratingItem::after {
+    border-color: $kz-color-cluny-300;
   }
 }
 
@@ -217,43 +250,6 @@ $fifth: mix($start, $end, 0%);
   }
 }
 
-// Use JS polyfill to simulate :focus-visible, not yet supported by browsers
-// https://github.com/WICG/focus-visible#backwards-compatibility
-:global(.js-focus-visible) {
-  $focus-ring-offset: 3px;
-
-  .ratingItem:focus {
-    outline: none;
-  }
-
-  .reversed:not(.rated)
-    :global([data-focus-visible-added]).ratingItem:focus
-    .ratingItemFill {
-    border-color: $kz-color-white;
-  }
-
-  // React seems to be causing the .focus-visible class to only be added sometimes,
-  // so we need to use [data-focus-visible-added] here instead.
-  // See https://github.com/WICG/focus-visible#2-update-your-css
-  :global([data-focus-visible-added]).ratingItem::after {
-    content: "";
-    position: absolute;
-    background: transparent;
-    border-radius: $kz-border-focus-ring-border-radius;
-    border-width: $kz-border-focus-ring-border-width;
-    border-style: $kz-border-focus-ring-border-style;
-    border-color: $kz-color-cluny-500;
-    top: -$focus-ring-offset;
-    left: -$focus-ring-offset;
-    right: -$focus-ring-offset;
-    bottom: -$focus-ring-offset;
-  }
-
-  .reversed :global([data-focus-visible-added]).ratingItem::after {
-    border-color: $kz-color-cluny-300;
-  }
-}
-
 .ratingItemFill {
   transition: background 0.1s, border-color 0.1s;
   width: 90%;
@@ -312,7 +308,7 @@ $fifth: mix($start, $end, 0%);
       .ratingItemFill {
         height: 25px;
         background: #fff;
-        border: 1px solid #d7d8d8 !important;
+        border: 1px solid #d7d8d8;
       }
 
       &:first-child,
