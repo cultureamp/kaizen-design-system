@@ -31,9 +31,7 @@ const columns = [
   },
 ]
 
-export const Default = () => {
-  return <TablePoc columns={columns} data={data} />
-}
+export const Default = () => <TablePoc columns={columns} data={data} />
 
 Default.story = {
   name: "Table POC",
@@ -73,36 +71,34 @@ export const UseReactTable = () => {
   ]
 
   return (
-    <Table {...getTableProps()}>
+    <Table {...getTableProps()} data-testid="example-id">
       <Tbody {...getTableBodyProps()}>
-        {employees.map(({ name, role, manager, status }) => {
-          return (
-            <Tr>
-              <Td>
-                <Avatar size="medium" fullName={name} />
-              </Td>
-              <Td>
-                <>
-                  <Heading variant="heading-4">{name}</Heading>
-                  <Paragraph variant="small" color="dark-reduced-opacity">
-                    {role} - {manager}
-                  </Paragraph>
-                </>
-              </Td>
-              <Td>
-                <>
-                  {status === "Complete" && (
-                    <Tag variant="sentimentPositive">Complete</Tag>
-                  )}
-                  {status === "Incomplete" && (
-                    <Tag variant="sentimentNegative">Incomplete</Tag>
-                  )}
-                </>
-              </Td>
-              <Td>buttons</Td>
-            </Tr>
-          )
-        })}
+        {employees.map(({ name, role, manager, status }) => (
+          <Tr>
+            <Td>
+              <Avatar size="medium" fullName={name} />
+            </Td>
+            <Td>
+              <>
+                <Heading variant="heading-4">{name}</Heading>
+                <Paragraph variant="small" color="dark-reduced-opacity">
+                  {role} - {manager}
+                </Paragraph>
+              </>
+            </Td>
+            <Td>
+              <>
+                {status === "Complete" && (
+                  <Tag variant="sentimentPositive">Complete</Tag>
+                )}
+                {status === "Incomplete" && (
+                  <Tag variant="sentimentNegative">Incomplete</Tag>
+                )}
+              </>
+            </Td>
+            <Td>buttons</Td>
+          </Tr>
+        ))}
       </Tbody>
     </Table>
   )
