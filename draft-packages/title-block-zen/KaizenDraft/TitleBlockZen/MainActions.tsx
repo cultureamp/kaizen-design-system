@@ -67,7 +67,7 @@ const MainActions = ({
         ? [
             <Button
               {...defaultAction}
-              automationId="title-block-default-action-button"
+              data-automation-id="title-block-default-action-button"
             />,
           ]
         : []),
@@ -82,7 +82,7 @@ const MainActions = ({
                   reversed={reversed}
                   icon={chevronDownIcon}
                   iconPosition="end"
-                  automationId="title-block-primary-action-button"
+                  data-automation-id="title-block-primary-action-button"
                   additionalContent={renderBadge(primaryAction.badge)}
                 />
               }
@@ -98,7 +98,7 @@ const MainActions = ({
         ? [
             <Button
               {...defaultAction}
-              automationId="title-block-default-action-button"
+              data-automation-id="title-block-default-action-button"
             />,
           ]
         : []),
@@ -106,7 +106,7 @@ const MainActions = ({
         ? [
             <ButtonAllowingAdditionalContent
               {...primaryAction}
-              automationId="title-block-primary-action-button"
+              data-automation-id="title-block-primary-action-button"
               additionalContent={renderBadge(primaryAction.badge)}
             />,
           ]
