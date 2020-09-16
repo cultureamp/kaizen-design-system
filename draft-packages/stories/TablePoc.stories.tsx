@@ -4,6 +4,7 @@ import { useTable } from "react-table"
 import { Heading, Paragraph } from "@kaizen/component-library"
 import { Tag } from "@kaizen/draft-tag"
 import { TablePoc, Table, Tbody, Thead, Tr, Td, Th } from "../table"
+const styles = require("./TablePoc.scss")
 
 const data = [
   {
@@ -106,6 +107,47 @@ export const UseReactTable = () => {
 
 UseReactTable.story = {
   name: "Table UseReactTable",
+}
+
+export const ConnectingCells = () => {
+  const { getTableProps, getTableBodyProps } = useTable<any>({
+    columns,
+    data,
+  })
+
+  return (
+    <Table
+      {...getTableProps()}
+      data-testid="example-id"
+      classNameAndIHaveSpokenToDST={styles.cell}
+    >
+      <Tbody {...getTableBodyProps()}>
+        <Tr>
+          <Td colspan="2">1</Td>
+          <Td>2</Td>
+          <Td>3</Td>
+        </Tr>
+        <Tr>
+          <Td>4</Td>
+          <Td>5</Td>
+          <Td>6</Td>
+          <Td rowspan="2">7</Td>
+        </Tr>
+        <Tr>
+          <Td>8</Td>
+          <Td>9</Td>
+          <Td>10</Td>
+        </Tr>
+        <Tr>
+          <Td colspan="4">12</Td>
+        </Tr>
+      </Tbody>
+    </Table>
+  )
+}
+
+ConnectingCells.story = {
+  name: "Table ConnectingCells",
 }
 
 export default {

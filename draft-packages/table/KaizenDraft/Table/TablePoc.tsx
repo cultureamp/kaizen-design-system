@@ -19,7 +19,15 @@ type BaseProps = {
    * @default ""
    */
   classNameAndIHaveSpokenToDST?: string
+  /**
+   *
+   */
   tag?: keyof HTMLElementTagNameMap
+}
+
+type TableCellProps = {
+  colspan?: string
+  rowspan?: string
 }
 
 export const Table = ({
@@ -73,7 +81,7 @@ export const Tbody = ({
   )
 
 export interface TrProps {
-  children: React.ReactChild[]
+  children: React.ReactChild[] | React.ReactChild
 }
 export const Tr = ({
   children,
@@ -91,14 +99,14 @@ export const Tr = ({
   )
 
 export interface ThProps {
-  children: React.ReactChild[]
+  children: React.ReactNode
 }
 export const Th = ({
   children,
   tag,
   classNameAndIHaveSpokenToDST,
   ...otherProps
-}: TrProps & BaseProps) =>
+}: ThProps & TableCellProps & BaseProps) =>
   React.createElement(
     tag === undefined ? "th" : tag,
     {
@@ -109,14 +117,14 @@ export const Th = ({
   )
 
 export interface TdProps {
-  children: React.ReactChild
+  children: React.ReactNode
 }
 export const Td = ({
   children,
   tag,
   classNameAndIHaveSpokenToDST,
   ...otherProps
-}: TdProps & BaseProps) =>
+}: TdProps & TableCellProps & BaseProps) =>
   React.createElement(
     tag === undefined ? "td" : tag,
     {
