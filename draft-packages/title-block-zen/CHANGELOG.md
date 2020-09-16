@@ -3,6 +3,45 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.9.2...@kaizen/draft-title-block-zen@2.0.0) (2020-09-13)
+
+
+### Features
+
+* Allow routing libraries to be used with Button ([#763](https://github.com/cultureamp/kaizen-design-system/issues/763)) ([f6f55be](https://github.com/cultureamp/kaizen-design-system/commit/f6f55becff90bcce3aed8c4ccf62a6a393696857))
+
+
+### BREAKING CHANGES
+
+* This will cause TS to error for usages of the Zen Button with an onClick prop using the event param
+
+* fix: Remove preventDefault when specifying an onClick prop
+* There may be usages relying on this preventDefault, so we'll need to do a sweep of all usages to check
+
+* chore: Remove analytics related code on Button
+* I don't imagine there are any places where this is used on the new button, but we'll need to make sure.
+These attributes were used for the old system (Treasure Data) and should no longer be required. In the off change that they are - onClick can still be used, or data properties can still be sent to buttons
+
+* chore: Remove specific aria props on button
+* Any usages of ariaControls, ariaDescribedby, and ariaExpanded will need to be replaced with kebab case equivalents
+These specific props are no longer required since the work done to allow any kebab case props to be sent to buttons.
+
+* Send href to custom component
+
+* Allow any type of MouseEvent onClick
+
+* Pass component as an arg to renderCustomComponent rather than having to null check props.component
+
+* Remove component var declarations in renderLink and renderButton
+
+* Remove automationId prop
+The kebab case 'data-automation-id' prop can be used directly instead
+* Any usages of the automationId prop will need to be replaced with data-automation-id
+
+
+
+
+
 ## [1.9.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@1.9.1...@kaizen/draft-title-block-zen@1.9.2) (2020-09-11)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen

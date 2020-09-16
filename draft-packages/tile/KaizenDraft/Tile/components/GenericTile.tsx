@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, MouseEvent } from "react"
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
 import Action from "./Action"
 import { IconButton } from "@kaizen/draft-button"
