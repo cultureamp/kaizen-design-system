@@ -12,7 +12,7 @@ export default {
   parameters: {
     info: {
       text: `
-        import { RatingScale } from "@kaizen/draft-RatingScale";
+        import { RatingScale } from "@kaizen/draft-rating-scale-legacy";
       `,
     },
   },
