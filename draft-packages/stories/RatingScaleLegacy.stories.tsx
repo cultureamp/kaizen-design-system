@@ -49,6 +49,7 @@ export const DefaultStory = () => {
       <RatingScaleLegacy
         scale={scale}
         questionId="123"
+        labelId="456"
         selectedItem={selectedItem}
         onSelect={item => setSelectedItem(item)}
       />

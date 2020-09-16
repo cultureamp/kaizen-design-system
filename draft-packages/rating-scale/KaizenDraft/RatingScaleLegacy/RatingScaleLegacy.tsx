@@ -13,10 +13,13 @@ type ItemRefs = Array<{
 }>
 
 export interface RatingScaleProps {
+  labelId: string
   scale: Scale
   selectedItem: ScaleItem | null
   questionId: string
   reversed?: boolean
+  validationError?: boolean
+  validationErrorId?: string
   onSelect: (value: ScaleItem | null) => void
 }
 
@@ -26,6 +29,9 @@ export const RatingScaleLegacy = ({
   selectedItem,
   reversed,
   onSelect,
+  validationError,
+  validationErrorId,
+  labelId,
 }: RatingScaleProps) => {
   const [hoveredItem, setHoveredItem] = useState<ScaleItem | null>(null)
   const itemRefs: ItemRefs = scale.map(s => ({
@@ -95,10 +101,11 @@ export const RatingScaleLegacy = ({
         [styles.rated]: selectedItem && selectedItem.value > 0,
         [styles.reversed]: reversed,
       })}
-      aria-labelledby={"1"}
+      aria-labelledby={labelId}
       role="radiogroup"
       data-focus-to-on-navigate="true"
       tabIndex={-1}
+      aria-describedby={(validationError && validationErrorId) || undefined}
     >
       <div
         className={styles.legend}
