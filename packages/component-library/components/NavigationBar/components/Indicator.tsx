@@ -8,8 +8,7 @@ const styles = require("./Indicator.module.scss")
  * this rule off.
  */
 // eslint-disable-next-line import/no-extraneous-dependencies
-const fullIcon = require("@kaizen/component-library/icons/full.icon.svg")
-  .default
+import fullIcon from "@kaizen/component-library/icons/full.icon.svg"
 
 const Indicator = () => (
   <span className={styles.container}>

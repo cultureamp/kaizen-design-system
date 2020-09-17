@@ -8,8 +8,8 @@ import * as React from "react"
  * this rule off.
  */
 // eslint-disable-next-line import/no-extraneous-dependencies
-const filterIcon = require("@kaizen/component-library/icons/filter.icon.svg")
-  .default
+import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
+
 const styles = require("./styles.module.scss")
 import { FilterDrawerButton } from "./FilterDrawerButton"
 

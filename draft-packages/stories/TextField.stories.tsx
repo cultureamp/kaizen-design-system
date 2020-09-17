@@ -4,10 +4,9 @@ import React, { useCallback, useRef } from "react"
 import { Tooltip } from "@kaizen/draft-tooltip"
 
 import { TextField } from "@kaizen/draft-form"
-const lockIcon = require("@kaizen/component-library/icons/lock.icon.svg")
-  .default
-const userIcon = require("@kaizen/component-library/icons/user.icon.svg")
-  .default
+import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
+
+import userIcon from "@kaizen/component-library/icons/user.icon.svg"
 
 const ExampleContainer: React.FunctionComponent = ({ children }) => (
   <div style={{ width: "98%", margin: "1%" }}>{children}</div>

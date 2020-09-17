@@ -13,12 +13,11 @@ import {
 } from "../table"
 const styles = require("./Table.stories.scss")
 
-const commentIcon = require("@kaizen/component-library/icons/comment.icon.svg")
-  .default
-const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
-  .default
-const chevronUpIcon = require("@kaizen/component-library/icons/chevron-up.icon.svg")
-  .default
+import commentIcon from "@kaizen/component-library/icons/comment.icon.svg"
+
+import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
+
+import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
 
 const Container: React.FunctionComponent = ({ children }) => (
   <div style={{ margin: "1rem auto", width: "100%", maxWidth: "60rem" }}>

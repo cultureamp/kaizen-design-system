@@ -1,8 +1,7 @@
 import * as React from "react"
 
 import { Icon } from "@kaizen/component-library"
-const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
-  .default
+import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 
 export default {
   title: "Icon (React)",

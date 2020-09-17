@@ -5,11 +5,11 @@ import { Icon } from "@kaizen/component-library"
  * this rule off.
  */
 // eslint-disable-next-line import/no-extraneous-dependencies
-const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
-  .default
+import caMonogramIcon from "@kaizen/component-library/icons/ca-monogram.icon.svg"
+
 // eslint-disable-next-line import/no-extraneous-dependencies
-const spinnerIcon = require("@kaizen/component-library/icons/spinner.icon.svg")
-  .default
+import spinnerIcon from "@kaizen/component-library/icons/spinner.icon.svg"
+
 import classNames from "classnames"
 import * as React from "react"
 

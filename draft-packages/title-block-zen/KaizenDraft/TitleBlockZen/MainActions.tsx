@@ -14,10 +14,9 @@ import {
 } from "./TitleBlockZen"
 import Toolbar from "./Toolbar"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
-const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
-  .default
-const meatballsIcon = require("@kaizen/component-library/icons/meatballs.icon.svg")
-  .default
+import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
+
+import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 
 const styles = require("./TitleBlockZen.scss")
 

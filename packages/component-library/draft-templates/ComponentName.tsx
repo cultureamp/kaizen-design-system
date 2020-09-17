@@ -1,7 +1,7 @@
 import * as React from "react"
 
 // import { Icon } from "@kaizen/component-library"
-// const minusIcon = require("@kaizen/component-library/icons/minus.icon.svg").default
+// import minusIcon from "@kaizen/component-library/icons/minus.icon.svg"
 
 const styles = require("./styles.scss")
 

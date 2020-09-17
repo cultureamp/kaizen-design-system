@@ -8,8 +8,7 @@ import Layout from "../components/Layout"
 import md from "../components/markdownComponents"
 import PageHeader from "../components/PageHeader"
 
-const exclamationIcon = require("@kaizen/component-library/icons/exclamation.icon.svg")
-  .default
+import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 
 const FourOhFourPageHeader = (
   <PageHeader

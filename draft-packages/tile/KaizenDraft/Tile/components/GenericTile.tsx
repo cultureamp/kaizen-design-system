@@ -10,11 +10,11 @@ import classNames from "classnames"
  * this rule off.
  */
 // eslint-disable-next-line import/no-extraneous-dependencies
-const informationIcon = require("@kaizen/component-library/icons/information.icon.svg")
-  .default
+import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
+
 // eslint-disable-next-line import/no-extraneous-dependencies
-const arrowBackwardIcon = require("@kaizen/component-library/icons/arrow-backward.icon.svg")
-  .default
+import arrowBackwardIcon from "@kaizen/component-library/icons/arrow-backward.icon.svg"
+
 const styles = require("./GenericTile.scss")
 
 export interface TileAction {

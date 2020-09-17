@@ -6,11 +6,11 @@ import { Icon } from "@kaizen/component-library"
  * this rule off.
  */
 // eslint-disable-next-line import/no-extraneous-dependencies
-const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
-  .default
+import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
+
 // eslint-disable-next-line import/no-extraneous-dependencies
-const ellipsisIcon = require("@kaizen/component-library/icons/ellipsis.icon.svg")
-  .default
+import ellipsisIcon from "@kaizen/component-library/icons/ellipsis.icon.svg"
+
 import classNames from "classnames"
 import * as React from "react"
 import DropdownMenu from "./DropdownMenu"

@@ -4,8 +4,8 @@
  * this rule off.
  */
 // eslint-disable-next-line import/no-extraneous-dependencies
-const closeIcon = require("@kaizen/component-library/icons/close.icon.svg")
-  .default
+import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
+
 import * as React from "react"
 import IconButton from "../../Button/IconButton"
 

@@ -4,8 +4,7 @@ import * as React from "react"
 import Card from "../Card"
 
 const iconStyles = require("@kaizen/component-library/components/Icon/Icon.module.scss")
-const enso = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
-  .default
+import enso from "@kaizen/component-library/icons/ca-monogram.icon.svg"
 
 const styles = require("./IconsPage.scss")
 

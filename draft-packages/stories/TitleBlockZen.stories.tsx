@@ -4,15 +4,15 @@ import {
   NavigationTab,
   TitleBlockZen,
 } from "../title-block-zen/KaizenDraft/TitleBlockZen"
-const addIcon = require("@kaizen/component-library/icons/add.icon.svg").default
-const commentIcon = require("@kaizen/component-library/icons/comment.icon.svg")
-  .default
-const starIcon = require("@kaizen/component-library/icons/star-on.icon.svg")
-  .default
-const reportSharingIcon = require("@kaizen/component-library/icons/report-sharing.icon.svg")
-  .default
-const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
-  .default
+import addIcon from "@kaizen/component-library/icons/add.icon.svg"
+import commentIcon from "@kaizen/component-library/icons/comment.icon.svg"
+
+import starIcon from "@kaizen/component-library/icons/star-on.icon.svg"
+
+import reportSharingIcon from "@kaizen/component-library/icons/report-sharing.icon.svg"
+
+import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
+
 import { assetUrl } from "@kaizen/hosted-assets"
 
 const styles = require("./TitleBlockZen.stories.scss")

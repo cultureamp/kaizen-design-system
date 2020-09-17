@@ -4,8 +4,7 @@ import { action } from "@storybook/addon-actions"
 import * as React from "react"
 
 const styles = require("./Collapsible.stories.scss")
-const translationIcon = require("@kaizen/component-library/icons/translation.icon.svg")
-  .default
+import translationIcon from "@kaizen/component-library/icons/translation.icon.svg"
 
 const ListItem = ({ children }: { children: JSX.Element }) => (
   <div className={styles.listItem}>{children}</div>

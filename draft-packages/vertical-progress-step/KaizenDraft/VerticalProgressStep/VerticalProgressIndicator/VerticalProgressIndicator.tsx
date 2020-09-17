@@ -1,11 +1,10 @@
 import * as React from "react"
 
-const emptyIcon = require("@kaizen/component-library/icons/empty.icon.svg")
-  .default
-const printIcon = require("@kaizen/component-library/icons/print.icon.svg")
-  .default
-const successIcon = require("@kaizen/component-library/icons/success.icon.svg")
-  .default
+import emptyIcon from "@kaizen/component-library/icons/empty.icon.svg"
+
+import printIcon from "@kaizen/component-library/icons/print.icon.svg"
+
+import successIcon from "@kaizen/component-library/icons/success.icon.svg"
 
 import { Icon } from "@kaizen/component-library"
 

@@ -4,8 +4,7 @@ import classNames from "classnames"
 import * as React from "react"
 
 const styles = require("./styles.scss")
-const sortDescendingIcon = require("@kaizen/component-library/icons/sort-descending.icon.svg")
-  .default
+import sortDescendingIcon from "@kaizen/component-library/icons/sort-descending.icon.svg"
 
 type TableContainer = React.FunctionComponent
 export const TableContainer: TableContainer = ({ children, ...otherProps }) => (

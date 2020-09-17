@@ -2,12 +2,11 @@ import classnames from "classnames"
 import * as React from "react"
 
 import { Heading, Icon } from "@kaizen/component-library"
-const information = require("@kaizen/component-library/icons/information.icon.svg")
-  .default
-const success = require("@kaizen/component-library/icons/success.icon.svg")
-  .default
-const exclamation = require("@kaizen/component-library/icons/exclamation.icon.svg")
-  .default
+import information from "@kaizen/component-library/icons/information.icon.svg"
+
+import success from "@kaizen/component-library/icons/success.icon.svg"
+
+import exclamation from "@kaizen/component-library/icons/exclamation.icon.svg"
 
 import {
   GenericModal,
