@@ -103,8 +103,6 @@ $fifth: mix($start, $end, 0%);
 
   @include respond-to(iphone) {
     margin: 0 auto;
-    width: auto;
-    height: auto;
     max-width: 258px;
     position: static;
   }
