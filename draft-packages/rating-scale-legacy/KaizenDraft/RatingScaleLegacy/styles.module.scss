@@ -177,17 +177,15 @@ $fifth: mix($start, $end, 0%);
 
 .itemContainer {
   width: 100%;
-  white-space: nowrap;
-  display: inline-block;
+  display: flex;
   height: $block-height + 2px;
-  font-size: 0;
 }
 
 .legend {
   margin-bottom: $ca-grid * 0.1;
   text-align: center;
   position: absolute;
-  top: -$ca-grid * 1.15;
+  top: -$ca-grid;
   left: 0;
   right: 0;
 
@@ -201,7 +199,7 @@ $fifth: mix($start, $end, 0%);
   @include fill($block-height);
   font-size: 1px;
   line-height: 1;
-  margin: 0;
+  margin: 0 3px;
   padding: 0;
   overflow-x: visible;
   display: inline-block;
@@ -246,13 +244,16 @@ $fifth: mix($start, $end, 0%);
       }
     }
   }
+
+  .reversed & {
+    margin: 0 4px;
+  }
 }
 
 .ratingItemFill {
   transition: background 0.1s, border-color 0.1s;
-  width: 90%;
+  width: 100%;
   height: $block-height;
-  margin-left: 2px;
   border: 1px solid #d7d8d8;
 
   &:hover {
@@ -279,12 +280,17 @@ $fifth: mix($start, $end, 0%);
 @media only screen and (max-width: 767px) {
   $block-height: 48px;
 
+  .container {
+    min-width: 258px;
+  }
+
   .itemContainer {
     height: $block-height + 2px;
   }
 
   .ratingItem {
     @include fill($block-height);
+    margin: 0 3.5px;
   }
 
   .ratingItemFill {

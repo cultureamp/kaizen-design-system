@@ -1,6 +1,6 @@
 import React, { useState, createRef } from "react"
 
-import classNames from "classnames"
+import classnames from "classnames"
 import { Paragraph } from "@kaizen/component-library"
 import determineSelectionFromKeyPress from "./helpers/determineSelectionFromKeyPress"
 import { Scale, ScaleItem, ScaleValueResponse } from "./types"
@@ -97,7 +97,7 @@ export const RatingScaleLegacy = ({
 
   return (
     <div
-      className={classNames(styles.container, {
+      className={classnames(styles.container, {
         [styles.rated]: selectedItem && selectedItem.value > 0,
         [styles.reversed]: reversed,
       })}
@@ -116,7 +116,7 @@ export const RatingScaleLegacy = ({
         </Paragraph>
       </div>
       <div
-        className={classNames(styles.container, {
+        className={classnames(styles.itemContainer, {
           [styles.rated]: selectedItem && selectedItem.value > 0,
           [styles.reversed]: reversed,
         })}
@@ -141,7 +141,7 @@ export const RatingScaleLegacy = ({
 
           return (
             <div
-              className={classNames(styles.ratingItem, {
+              className={classnames(styles.ratingItem, {
                 [styles.selected]:
                   selectedItem && item.value <= selectedItem.value,
                 [styles.suggested]:
@@ -166,7 +166,7 @@ export const RatingScaleLegacy = ({
               onKeyDown={event => handleKeyDown(event, item)}
             >
               <div
-                className={classNames(
+                className={classnames(
                   styles.ratingItemFill,
                   styles[`field${item.value}`],
                   {
