@@ -2,5 +2,5 @@ export * from "./KaizenDraft/RatingScaleLegacy/RatingScaleLegacy"
 export {
   Scale,
   ScaleItem,
-  ScaleValueResponse,
+  ScaleValue,
 } from "./KaizenDraft/RatingScaleLegacy/types"

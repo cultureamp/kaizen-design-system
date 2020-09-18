@@ -3,12 +3,12 @@ import React, { useState, createRef } from "react"
 import classnames from "classnames"
 import { Paragraph } from "@kaizen/component-library"
 import determineSelectionFromKeyPress from "./helpers/determineSelectionFromKeyPress"
-import { Scale, ScaleItem, ScaleValueResponse } from "./types"
+import { Scale, ScaleItem, ScaleValue } from "./types"
 
 const styles = require("./styles.module.scss")
 
 type ItemRefs = Array<{
-  value: ScaleValueResponse
+  value: ScaleValue
   ref: { current: null | HTMLDivElement }
 }>
 

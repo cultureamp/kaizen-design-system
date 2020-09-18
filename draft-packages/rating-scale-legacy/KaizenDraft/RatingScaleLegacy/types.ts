@@ -1,7 +1,7 @@
-export type ScaleValueResponse = -1 | 1 | 2 | 3 | 4 | 5
+export type ScaleValue = -1 | 1 | 2 | 3 | 4 | 5
 
 export type ScaleItem = {
-  value: ScaleValueResponse
+  value: ScaleValue
   label: string
 }
 

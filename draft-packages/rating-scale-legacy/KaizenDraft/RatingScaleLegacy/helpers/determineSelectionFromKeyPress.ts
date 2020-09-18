@@ -1,4 +1,4 @@
-import { ScaleValueResponse, ScaleItem } from "../types"
+import { ScaleValue, ScaleItem } from "../types"
 
 /**
  * Takes a keypress on a div that's imitating a radio and determines where the selection should go.
@@ -6,7 +6,7 @@ import { ScaleValueResponse, ScaleItem } from "../types"
  * https://www.w3.org/TR/wai-aria-practices/examples/radio/radio-1/radio-1.html
  */
 
-const SCALE_VALUE_RESPONSE = new Map<number, ScaleValueResponse>([
+const SCALE_VALUE_RESPONSE = new Map<number, ScaleValue>([
   [-1, -1],
   [1, 1],
   [2, 2],
@@ -19,7 +19,7 @@ const determineSelectionFromKeyPress = (
   keyCode: number,
   currentSelection: ScaleItem | null,
   focusedItem: ScaleItem
-): null | ScaleValueResponse => {
+): null | ScaleValue => {
   const supportedKeyCodes = [32, 37, 38, 39, 40]
   if (supportedKeyCodes.indexOf(keyCode) === -1) {
     return null
@@ -52,7 +52,7 @@ const determineSelectionFromKeyPress = (
   return null
 }
 
-const oneSelectionForward = (value: ScaleValueResponse) => {
+const oneSelectionForward = (value: ScaleValue) => {
   if (value === 5) {
     return 1
   }
@@ -60,7 +60,7 @@ const oneSelectionForward = (value: ScaleValueResponse) => {
   return calculatedPosition || null
 }
 
-const oneSelectionBackward = (value: ScaleValueResponse) => {
+const oneSelectionBackward = (value: ScaleValue) => {
   if (value === 1) {
     return 5
   }
