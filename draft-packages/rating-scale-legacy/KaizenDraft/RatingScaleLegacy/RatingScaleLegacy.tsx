@@ -16,7 +16,7 @@ export interface RatingScaleProps {
   labelId: string
   scale: Scale
   selectedItem: ScaleItem | null
-  questionId: string
+  automationId: string
   reversed?: boolean
   validationError?: boolean
   validationErrorId?: string
@@ -25,9 +25,9 @@ export interface RatingScaleProps {
 
 export const RatingScaleLegacy = ({
   scale,
-  questionId,
   selectedItem,
   reversed,
+  automationId,
   onSelect,
   validationError,
   validationErrorId,
@@ -109,7 +109,7 @@ export const RatingScaleLegacy = ({
     >
       <div
         className={styles.legend}
-        data-automation-id={`rating-scale-legend-${questionId}`}
+        data-automation-id={`${automationId}-legend`}
       >
         <Paragraph variant="small" color={reversed ? "white" : "dark"}>
           {legend}
@@ -151,7 +151,7 @@ export const RatingScaleLegacy = ({
               })}
               onClick={() => handleRadioClick(item)}
               key={item.value}
-              data-automation-id={`rating-scale-item-${item.value}-${questionId}`}
+              data-automation-id={`${automationId}-item-${item.value}`}
               onMouseEnter={() => handleRadioMouseEnter(item)}
               onMouseLeave={handleRadioMouseLeave}
               role="radio"
