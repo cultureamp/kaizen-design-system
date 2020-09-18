@@ -79,7 +79,6 @@ export const RatingScaleLegacy = ({
     if (newPosition) {
       event.preventDefault()
 
-      // XHR
       onSelect(scale.find(s => s.value === newPosition) || null)
 
       // Update focus
@@ -103,7 +102,6 @@ export const RatingScaleLegacy = ({
       })}
       aria-labelledby={labelId}
       role="radiogroup"
-      data-focus-to-on-navigate="true"
       tabIndex={-1}
       aria-describedby={(validationError && validationErrorId) || undefined}
     >

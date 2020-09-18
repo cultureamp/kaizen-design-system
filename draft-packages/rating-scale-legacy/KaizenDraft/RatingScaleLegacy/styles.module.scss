@@ -1,5 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/component-library/styles/layout";
 
 @mixin respond-to($media) {
@@ -102,8 +103,7 @@ $fifth: mix($start, $end, 0%);
   box-sizing: border-box;
 
   @include respond-to(iphone) {
-    margin: 0 auto;
-    max-width: 258px;
+    width: 258px;
     position: static;
   }
 
@@ -177,8 +177,10 @@ $fifth: mix($start, $end, 0%);
 
 .itemContainer {
   width: 100%;
-  display: flex;
+  white-space: nowrap;
+  display: inline-block;
   height: $block-height + 2px;
+  font-size: 0;
 }
 
 .legend {
@@ -196,15 +198,19 @@ $fifth: mix($start, $end, 0%);
 }
 
 .ratingItem {
+  @include ca-margin($start: 1px);
   @include fill($block-height);
   font-size: 1px;
   line-height: 1;
-  margin: 0 3px;
   padding: 0;
   overflow-x: visible;
   display: inline-block;
   width: 20%; // 5 columns
   position: relative;
+
+  &:first-child {
+    margin: 0;
+  }
 
   &.suggested,
   &.selected {
@@ -244,15 +250,11 @@ $fifth: mix($start, $end, 0%);
       }
     }
   }
-
-  .reversed & {
-    margin: 0 4px;
-  }
 }
 
 .ratingItemFill {
   transition: background 0.1s, border-color 0.1s;
-  width: 100%;
+  width: 90%;
   height: $block-height;
   border: 1px solid #d7d8d8;
 
@@ -275,6 +277,7 @@ $fifth: mix($start, $end, 0%);
 .reversed .ratingItemFill {
   border-width: 2px;
   border-color: rgba($kz-color-white, 0.65);
+  width: 85%;
 }
 
 @media only screen and (max-width: 767px) {
@@ -290,7 +293,6 @@ $fifth: mix($start, $end, 0%);
 
   .ratingItem {
     @include fill($block-height);
-    margin: 0 3.5px;
   }
 
   .ratingItemFill {
