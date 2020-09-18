@@ -1,4 +1,4 @@
-import { Icon } from "@kaizen/component-library"
+import { Icon } from "../Icon"
 import chevronDownIcon from "../../icons/chevron-down.icon.svg"
 import ellipsisIcon from "../../icons/ellipsis.icon.svg"
 import classNames from "classnames"

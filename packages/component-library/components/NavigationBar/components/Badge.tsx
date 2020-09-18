@@ -1,7 +1,7 @@
 import { Icon } from "../../Icon"
 
-import caMonogramIcon from "../../icons/ca-monogram.icon.svg"
-import spinnerIcon from "../../icons/spinner.icon.svg"
+import caMonogramIcon from "../../../icons/ca-monogram.icon.svg"
+import spinnerIcon from "../../../icons/spinner.icon.svg"
 
 import classNames from "classnames"
 import * as React from "react"
