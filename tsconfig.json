@@ -11,5 +11,6 @@
     "allowJs": false,
     "noEmit": true
   },
-  "files": ["./types.d.ts"]
+  "include": ["./types.d.ts", "./packages/**/*", "./draft-packages/**/*"],
+  "exclude": ["**/node_modules"]
 }
