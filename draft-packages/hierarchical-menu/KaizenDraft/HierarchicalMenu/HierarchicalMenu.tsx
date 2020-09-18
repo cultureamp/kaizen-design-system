@@ -10,7 +10,6 @@ import spacingTokens from "@kaizen/design-tokens/tokens/spacing.json"
 import { KeyboardNavigableList } from "./KeyboardNavigableList"
 
 import chevronLeft from "@kaizen/component-library/icons/chevron-left.icon.svg"
-
 import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
 
 const styles = require("./styles.module.scss")

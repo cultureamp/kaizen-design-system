@@ -1,13 +1,6 @@
-import { Icon } from "@kaizen/component-library"
-/**
- * Eslint throws a false negative for modules that use require. Ensure you
- * are importing @kaizen/component-library into your package before turning
- * this rule off.
- */
-// eslint-disable-next-line import/no-extraneous-dependencies
-import caMonogramIcon from "@kaizen/component-library/icons/ca-monogram.icon.svg"
+import { Icon } from "../../Icon"
 
-// eslint-disable-next-line import/no-extraneous-dependencies
+import caMonogramIcon from "@kaizen/component-library/icons/ca-monogram.icon.svg"
 import spinnerIcon from "@kaizen/component-library/icons/spinner.icon.svg"
 
 import classNames from "classnames"

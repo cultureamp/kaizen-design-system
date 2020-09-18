@@ -6,13 +6,9 @@ import {
 } from "../title-block-zen/KaizenDraft/TitleBlockZen"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
 import commentIcon from "@kaizen/component-library/icons/comment.icon.svg"
-
 import starIcon from "@kaizen/component-library/icons/star-on.icon.svg"
-
 import reportSharingIcon from "@kaizen/component-library/icons/report-sharing.icon.svg"
-
 import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
-
 import { assetUrl } from "@kaizen/hosted-assets"
 
 const styles = require("./TitleBlockZen.stories.scss")

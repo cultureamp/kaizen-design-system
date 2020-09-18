@@ -15,7 +15,6 @@ import {
 import { action } from "@storybook/addon-actions"
 import * as React from "react"
 import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
-
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
 
 const styles = require("./Modal.stories.scss")

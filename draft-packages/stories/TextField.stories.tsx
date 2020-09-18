@@ -5,7 +5,6 @@ import { Tooltip } from "@kaizen/draft-tooltip"
 
 import { TextField } from "@kaizen/draft-form"
 import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
-
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
 
 const ExampleContainer: React.FunctionComponent = ({ children }) => (

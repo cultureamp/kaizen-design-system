@@ -14,9 +14,7 @@ import {
 const styles = require("./Table.stories.scss")
 
 import commentIcon from "@kaizen/component-library/icons/comment.icon.svg"
-
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
-
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
 
 const Container: React.FunctionComponent = ({ children }) => (

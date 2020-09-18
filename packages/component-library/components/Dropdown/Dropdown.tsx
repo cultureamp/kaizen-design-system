@@ -1,16 +1,6 @@
 import { Icon } from "@kaizen/component-library"
-
-/**
- * Eslint throws a false negative for modules that use require. Ensure you
- * are importing @kaizen/component-library into your package before turning
- * this rule off.
- */
-// eslint-disable-next-line import/no-extraneous-dependencies
-import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
-
-// eslint-disable-next-line import/no-extraneous-dependencies
-import ellipsisIcon from "@kaizen/component-library/icons/ellipsis.icon.svg"
-
+import chevronDownIcon from "../../icons/chevron-down.icon.svg"
+import ellipsisIcon from "../../icons/ellipsis.icon.svg"
 import classNames from "classnames"
 import * as React from "react"
 import DropdownMenu from "./DropdownMenu"

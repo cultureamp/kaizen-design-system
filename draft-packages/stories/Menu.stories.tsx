@@ -2,17 +2,11 @@ import { Box, Paragraph } from "@kaizen/component-library"
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { Button, IconButton } from "@kaizen/draft-button"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
-
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
-
 import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
-
 import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
-
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
-
 import kebabIcon from "@kaizen/component-library/icons/kebab.icon.svg"
-
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 
 import { action } from "@storybook/addon-actions"

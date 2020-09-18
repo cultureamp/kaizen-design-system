@@ -3,9 +3,7 @@ import * as React from "react"
 
 import { Heading, Icon } from "@kaizen/component-library"
 import information from "@kaizen/component-library/icons/information.icon.svg"
-
 import success from "@kaizen/component-library/icons/success.icon.svg"
-
 import exclamation from "@kaizen/component-library/icons/exclamation.icon.svg"
 
 import {

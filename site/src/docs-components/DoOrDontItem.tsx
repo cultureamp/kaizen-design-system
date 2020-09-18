@@ -2,9 +2,7 @@ import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 
 import * as React from "react"
-
 import success from "@kaizen/component-library/icons/success-white.icon.svg"
-
 import exclamation from "@kaizen/component-library/icons/exclamation-white.icon.svg"
 
 const styles = require("./DoOrDontTag.scss")

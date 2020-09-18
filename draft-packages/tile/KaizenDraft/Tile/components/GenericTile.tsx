@@ -4,15 +4,7 @@ import Action from "./Action"
 import { IconButton } from "@kaizen/draft-button"
 import classNames from "classnames"
 
-/**
- * Eslint throws a false negative for modules that use require. Ensure you
- * are importing @kaizen/component-library into your package before turning
- * this rule off.
- */
-// eslint-disable-next-line import/no-extraneous-dependencies
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
-
-// eslint-disable-next-line import/no-extraneous-dependencies
 import arrowBackwardIcon from "@kaizen/component-library/icons/arrow-backward.icon.svg"
 
 const styles = require("./GenericTile.scss")

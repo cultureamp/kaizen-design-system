@@ -4,7 +4,6 @@ import * as React from "react"
 import { SecondaryActionsProps, TitleBlockMenuItemProps } from "./TitleBlockZen"
 import Toolbar from "./Toolbar"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
-
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 
 const styles = require("./TitleBlockZen.scss")

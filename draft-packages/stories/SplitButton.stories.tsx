@@ -4,7 +4,6 @@ import { action } from "@storybook/addon-actions"
 import * as React from "react"
 
 import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
-
 import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 
 export default {

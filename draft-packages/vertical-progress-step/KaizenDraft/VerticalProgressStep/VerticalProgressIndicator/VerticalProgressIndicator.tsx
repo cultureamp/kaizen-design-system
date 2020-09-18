@@ -1,11 +1,8 @@
 import * as React from "react"
 
 import emptyIcon from "@kaizen/component-library/icons/empty.icon.svg"
-
 import printIcon from "@kaizen/component-library/icons/print.icon.svg"
-
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
-
 import { Icon } from "@kaizen/component-library"
 
 const styles = require("./VerticalProgressIndicator.module.scss")

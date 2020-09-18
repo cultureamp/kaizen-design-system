@@ -2,11 +2,8 @@ import { Icon } from "@kaizen/component-library"
 import classNames from "classnames"
 import * as React from "react"
 import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
-
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
-
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
-
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
 
 const styles = require("./Tag.scss")

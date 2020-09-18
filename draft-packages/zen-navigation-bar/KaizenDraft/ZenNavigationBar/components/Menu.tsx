@@ -14,7 +14,6 @@ import MenuGroup from "./MenuGroup"
 import Indicator from "./Indicator"
 
 import arrowLeftIcon from "@kaizen/component-library/icons/arrow-left.icon.svg"
-
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 
 const styles = require("./Menu.module.scss")

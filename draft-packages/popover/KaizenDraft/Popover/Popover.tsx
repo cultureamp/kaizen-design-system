@@ -1,10 +1,7 @@
 import { Icon } from "@kaizen/component-library"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
-
 import negativeIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
-
 import informativeIcon from "@kaizen/component-library/icons/information.icon.svg"
-
 import positiveIcon from "@kaizen/component-library/icons/success.icon.svg"
 
 import classNames from "classnames"

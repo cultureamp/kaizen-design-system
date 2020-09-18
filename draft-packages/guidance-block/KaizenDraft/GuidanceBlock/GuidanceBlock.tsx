@@ -1,12 +1,11 @@
 import { Button, Heading, Icon, Paragraph } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
+import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 
 import classnames from "classnames"
 import * as React from "react"
 
 const styles = require("./GuidanceBlock.scss")
-
-import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 
 type Props = {
   img: {

@@ -6,9 +6,7 @@ import { AsyncProps as ReactAsyncSelectProps } from "react-select/src/Async"
 import { Props as ReactSelectProps } from "react-select/src/Select"
 
 import { Icon } from "@kaizen/component-library"
-
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
-
 import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
 
 const styles = require("./styles.react.scss")

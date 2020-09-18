@@ -1,6 +1,5 @@
 import { Icon } from "@kaizen/component-library"
 import caMonogramIcon from "@kaizen/component-library/icons/ca-monogram.icon.svg"
-
 import spinnerIcon from "@kaizen/component-library/icons/spinner.icon.svg"
 
 import classNames from "classnames"

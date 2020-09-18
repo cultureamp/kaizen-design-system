@@ -8,9 +8,7 @@ import {
   Label,
 } from "@kaizen/draft-form"
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
-
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
-
 import classnames from "classnames"
 import * as React from "react"
 
