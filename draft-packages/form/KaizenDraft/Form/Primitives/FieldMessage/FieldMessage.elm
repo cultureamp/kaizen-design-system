@@ -8,6 +8,7 @@ import Html.Attributes
 styles =
     css "@kaizen/draft-form/KaizenDraft/Form/Primitives/FieldMessage/styles.scss"
         { error = "error"
+        , caution = "caution"
         , default = "default"
         , reversed = "reversed"
         , message = "message"
@@ -17,6 +18,7 @@ styles =
 type FieldMessageStatus
     = Default
     | Success
+    | Caution
     | Error
 
 
@@ -121,6 +123,7 @@ view (Config config) =
                     [ ( .message, True )
                     , ( .default, config.status == Default )
                     , ( .error, config.status == Error )
+                    , ( .caution, config.status == Caution )
                     , ( .reversed, config.reversed )
                     ]
                ]

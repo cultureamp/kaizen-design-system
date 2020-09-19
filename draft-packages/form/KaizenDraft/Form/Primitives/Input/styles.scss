@@ -229,6 +229,10 @@ $input-disabled-border-alpha: 50%;
   &.error:not(:focus) {
     border-color: $ca-palette-input-validation-negative;
   }
+
+  &.caution:not(:focus) {
+    border-color: $kz-color-yuzu-500;
+  }
 }
 
 // Reversed (Dark Backgrounds)

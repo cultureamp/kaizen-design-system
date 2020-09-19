@@ -3,6 +3,7 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 $message-error-color: $kz-color-wisteria-800;
+$message-caution-color: $kz-color-yuzu-300;
 $message-border-radius: $kz-border-solid-border-radius;
 
 // @TODO - taken from ~@kaizen/component-library/styles/color
@@ -22,6 +23,13 @@ $ca-palette-input-validation-negative: $kz-color-coral-600;
   &.reversed {
     color: $kz-color-white;
   }
+}
+
+.caution {
+  padding: $ca-grid / 2;
+  color: $kz-color-wisteria-800;
+  border-radius: $message-border-radius;
+  background: $kz-color-yuzu-300;
 }
 
 .error {

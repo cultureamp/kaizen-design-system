@@ -107,6 +107,27 @@ main =
                                     ]
                                 ]
                         )
+        , storyOf "Caution /w html description" config <|
+            \m ->
+                maxWidthContainer <|
+                    TextField.view
+                        (TextField.default
+                            |> TextField.status TextField.Caution
+                            |> TextField.labelText "Caution TextField with HTML description"
+                            |> TextField.validationMessage "This is not very valid"
+                            |> TextField.descriptionHtml
+                                [ text "The description may contain a link to further details - we recommended opening the link in a new tab with an "
+                                , span [ style "position" "relative" ]
+                                    [ Tooltip.view
+                                        (Tooltip.default "opens in a new tab"
+                                            |> Tooltip.position Tooltip.Above
+                                        )
+                                        (a [ href "https://cultureamp.design/guidelines/link-vs-button/#opens-in-new-tab-tooltip", target "_blank", style "position" "relative" ]
+                                            [ text "\"opens in a new tab\" tooltip" ]
+                                        )
+                                    ]
+                                ]
+                        )
         ]
 
 

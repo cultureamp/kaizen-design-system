@@ -42,8 +42,10 @@ styles =
         { withLabel = "withLabel"
         , withDisabled = "withDisabled"
         , withReversed = "withReversed"
+        , withCaution = "withCaution"
         , withError = "withError"
         , success = "success"
+        , caution = "caution"
         , error = "error"
         , icon = "icon"
         , inline = "inline"
@@ -54,6 +56,7 @@ styles =
 type TextFieldStatus
     = Default
     | Success
+    | Caution
     | Error
 
 
@@ -265,6 +268,15 @@ view (Config config) =
                         [ Icon.view Icon.presentation (svgAsset "@kaizen/component-library/icons/success.icon.svg") |> static ]
                     ]
 
+                Caution ->
+                    [ div
+                        [ styles.classList
+                            [ ( .caution, True )
+                            ]
+                        ]
+                        [ Icon.view Icon.presentation (svgAsset "@kaizen/component-library/icons/exclamation.icon.svg") |> static ]
+                    ]
+
                 Error ->
                     [ div
                         [ styles.classList
@@ -347,6 +359,9 @@ view (Config config) =
                 Success ->
                     Input.Success
 
+                Caution ->
+                    Input.Caution
+
                 Error ->
                     Input.Error
 
@@ -357,6 +372,9 @@ view (Config config) =
             case config.status of
                 Success ->
                     FieldMessage.Success
+
+                Caution ->
+                    FieldMessage.Caution
 
                 Error ->
                     FieldMessage.Error
@@ -410,6 +428,7 @@ view (Config config) =
             |> FieldGroup.className
                 [ styles.classList
                     [ ( .withLabel, True )
+                    , ( .withCaution, config.status == Caution )
                     , ( .withError, config.status == Error )
                     , ( .withDisabled, config.disabled )
                     , ( .withReversed, config.reversed )

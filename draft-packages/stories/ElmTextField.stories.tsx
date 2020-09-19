@@ -5,4 +5,5 @@ loadElmStories("TextField (Elm)", module, require("./TextFieldStories.elm"), [
   "Default /w icon",
   "Default /w string description",
   "Default /w html description",
+  "Caution /w html description",
 ])
