@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-guidance-block",
-  "version": "2.2.37",
+  "version": "2.3.0",
   "description": "The draft Guidance block component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
