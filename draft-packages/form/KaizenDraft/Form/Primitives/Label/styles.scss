@@ -58,11 +58,16 @@ $label-start-margin: 10px;
   align-items: center;
 }
 
-.prependedLabel {
-  @include ca-margin($end: $label-start-margin);
-  order: -1; // place label before the control
-}
+.checkbox,
+.radio,
+.toggle {
+  // apply padding when label is inline with form control
+  .prependedLabel {
+    @include ca-margin($end: $label-start-margin);
+    order: -1; // place label before the control
+  }
 
-.appendedLabel {
-  @include ca-margin($start: $label-start-margin);
+  .appendedLabel {
+    @include ca-margin($start: $label-start-margin);
+  }
 }
