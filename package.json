@@ -21,9 +21,7 @@
     "lint": "elm-format --validate packages && yarn eslint && yarn prettier && stylelint '**/*.scss'",
     "lint:fix": "elm-format --yes packages && yarn eslint --fix && yarn prettier --write",
     "clean:storybook": "rimraf 'storybook/public'",
-    "clean:stories": "rimraf './packages/component-library/stories/*.d.ts' './packages/component-library/stories/*.js.map' './packages/component-library/stories/*.js'",
-    "clean:draft-stories": "rimraf './draft-packages/stories/*.d.ts' './draft-packages/stories/*.js.map' './draft-packages/stories/*.js'",
-    "clean": "lerna run clean && yarn gatsby clean && yarn clean:storybook && yarn clean:stories && yarn clean:draft-stories && rimraf 'elm-stuff'",
+    "clean": "lerna run clean && yarn gatsby clean && yarn clean:storybook && rimraf 'elm-stuff'",
     "reset": "yarn clean && yarn install --force",
     "chromatic": "chromatic"
   },
