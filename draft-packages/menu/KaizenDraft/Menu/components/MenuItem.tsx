@@ -57,10 +57,15 @@ const MenuItem = (props: MenuItemProps) => {
 
   if (disabled) {
     return (
-      <div className={className} data-automation-id={automationId}>
+      <button
+        type="button"
+        disabled={true}
+        className={className}
+        data-automation-id={automationId}
+      >
         {iconNode}
         {wrappedLabel}
-      </div>
+      </button>
     )
   }
 
