@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.2.37...@kaizen/draft-guidance-block@2.3.0) (2020-09-21)
+
+
+### Features
+
+* Allow any Button props to be sent to GuidanceBlock actions ([#778](https://github.com/cultureamp/kaizen-design-system/issues/778)) ([fc3cc14](https://github.com/cultureamp/kaizen-design-system/commit/fc3cc14a6ff82a56634a23c5ef42e8996c26b576))
+
+
+
+
+
 ## [2.2.37](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.2.36...@kaizen/draft-guidance-block@2.2.37) (2020-09-11)
 
 **Note:** Version bump only for package @kaizen/draft-guidance-block

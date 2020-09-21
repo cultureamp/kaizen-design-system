@@ -96,7 +96,7 @@ const SecondaryAction = () => (
         },
         secondary: {
           label: "Secondary action",
-          onClick: () => alert("tada: 🎉"),
+          href: "#",
         },
       }}
       persistent
