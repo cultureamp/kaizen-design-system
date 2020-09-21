@@ -69,7 +69,7 @@ const MenuItem = (props: MenuItemProps) => {
     )
   }
 
-  if (typeof action === "string") {
+  if (hrefCombined) {
     return (
       <a
         href={hrefCombined}
