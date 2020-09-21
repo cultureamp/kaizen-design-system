@@ -1,5 +1,5 @@
 import React from "react"
-import { Icon } from "../../../Icon"
+import { Icon } from "../../Icon"
 
 const styles = require("./Indicator.module.scss")
 /**
