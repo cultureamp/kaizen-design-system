@@ -14,9 +14,6 @@ export const calculateMenuTop = (
   menuBoundingRect: ClientRect,
   viewportHeight
 ): number => {
-  // Used to hide the border of the buttonsContainer class
-  const borderRadiusBuffer = 2
-
   // If there's not enough room to show the menu below the split buttons,
   // but enough room to show it above...
   if (
@@ -24,11 +21,11 @@ export const calculateMenuTop = (
     menuBoundingRect.height <= buttonsBoundingRect.top
   ) {
     // Show menu above the split buttons
-    return -menuBoundingRect.height + borderRadiusBuffer
+    return -menuBoundingRect.height
   }
 
   // Regular behaviour, show menu below the split buttons
-  return buttonsBoundingRect.height - borderRadiusBuffer
+  return buttonsBoundingRect.height
 }
 
 export default class DropdownMenu extends React.Component<Props> {
