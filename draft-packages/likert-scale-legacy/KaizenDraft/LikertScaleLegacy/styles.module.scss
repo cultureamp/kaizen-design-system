@@ -37,7 +37,7 @@ $fifth: mix($start, $end, 0%);
 }
 
 @mixin fill($height) {
-  &:first-child .ratingItemFill {
+  &:first-child .likertItemFill {
     border-top-left-radius: $height;
     border-bottom-left-radius: $height;
 
@@ -61,7 +61,7 @@ $fifth: mix($start, $end, 0%);
     }
   }
 
-  &:last-child .ratingItemFill {
+  &:last-child .likertItemFill {
     border-top-right-radius: $height;
     border-bottom-right-radius: $height;
 
@@ -107,13 +107,13 @@ $fifth: mix($start, $end, 0%);
     position: static;
   }
 
-  &.rated .ratingItem.unselected .ratingItemFill {
+  &.rated .likertItem.unselected .likertItemFill {
     background-color: $kz-color-wisteria-100;
     border-color: $kz-color-wisteria-100;
     transition: background 0.1s;
   }
 
-  &.reversed.rated .ratingItem.unselected .ratingItemFill {
+  &.reversed.rated .likertItem.unselected .likertItemFill {
     background-color: transparent;
     border-color: rgba($kz-color-white, 0.65);
   }
@@ -143,20 +143,20 @@ $fifth: mix($start, $end, 0%);
     }
   }
 
-  .ratingItem:focus {
+  .likertItem:focus {
     outline: none;
   }
 
   .reversed:not(.rated)
-    :global([data-focus-visible-added]).ratingItem:focus
-    .ratingItemFill {
+    :global([data-focus-visible-added]).likertItem:focus
+    .likertItemFill {
     border-color: $kz-color-white;
   }
 
   // React seems to be causing the .focus-visible class to only be added sometimes,
   // so we need to use [data-focus-visible-added] here instead.
   // See https://github.com/WICG/focus-visible#2-update-your-css
-  :global([data-focus-visible-added]).ratingItem::after {
+  :global([data-focus-visible-added]).likertItem::after {
     content: "";
     position: absolute;
     background: transparent;
@@ -170,7 +170,7 @@ $fifth: mix($start, $end, 0%);
     bottom: -$focus-ring-offset;
   }
 
-  .reversed :global([data-focus-visible-added]).ratingItem::after {
+  .reversed :global([data-focus-visible-added]).likertItem::after {
     border-color: $kz-color-cluny-300;
   }
 }
@@ -197,7 +197,7 @@ $fifth: mix($start, $end, 0%);
   }
 }
 
-.ratingItem {
+.likertItem {
   @include ca-margin($start: 1px);
   @include fill($block-height);
   font-size: 1px;
@@ -252,7 +252,7 @@ $fifth: mix($start, $end, 0%);
   }
 }
 
-.ratingItemFill {
+.likertItemFill {
   transition: background 0.1s, border-color 0.1s;
   width: 90%;
   height: $block-height;
@@ -274,7 +274,7 @@ $fifth: mix($start, $end, 0%);
   }
 }
 
-.reversed .ratingItemFill {
+.reversed .likertItemFill {
   border-width: 2px;
   border-color: rgba($kz-color-white, 0.65);
   width: 85%;
@@ -291,11 +291,11 @@ $fifth: mix($start, $end, 0%);
     height: $block-height + 2px;
   }
 
-  .ratingItem {
+  .likertItem {
     @include fill($block-height);
   }
 
-  .ratingItemFill {
+  .likertItemFill {
     height: $block-height;
   }
 }
@@ -310,8 +310,8 @@ $fifth: mix($start, $end, 0%);
     right: 2em;
     width: 150px;
 
-    .ratingItem {
-      .ratingItemFill {
+    .likertItem {
+      .likertItemFill {
         height: 25px;
         background: #fff;
         border: 1px solid #d7d8d8;
@@ -319,7 +319,7 @@ $fifth: mix($start, $end, 0%);
 
       &:first-child,
       &:last-child {
-        .ratingItemFill {
+        .likertItemFill {
           background: #fff;
           border-width: 2px;
         }

@@ -1,19 +1,19 @@
 import React, { useState } from "react"
 
 import {
-  RatingScaleLegacy,
+  LikertScaleLegacy,
   Scale,
   ScaleItem,
-} from "@kaizen/draft-rating-scale-legacy"
+} from "@kaizen/draft-likert-scale-legacy"
 import { Heading } from "@kaizen/component-library"
 
 export default {
-  title: "RatingScaleLegacy (React)",
-  component: RatingScaleLegacy,
+  title: "LikertScaleLegacy (React)",
+  component: LikertScaleLegacy,
   parameters: {
     info: {
       text: `
-        import { RatingScale } from "@kaizen/draft-rating-scale-legacy";
+        import { LikertScale } from "@kaizen/draft-likert-scale-legacy";
       `,
     },
   },
@@ -63,7 +63,7 @@ export const DefaultStory = () => {
           How would you rate this survey?
         </Heading>
       </div>
-      <RatingScaleLegacy
+      <LikertScaleLegacy
         scale={scale}
         automationId="123"
         labelId={labelId} // Intended to match the id of the label
@@ -93,7 +93,7 @@ export const Reversed = () => {
           How would you rate this survey?
         </Heading>
       </div>
-      <RatingScaleLegacy
+      <LikertScaleLegacy
         scale={scale}
         automationId="123"
         labelId={labelId} // Intended to match the id of the label

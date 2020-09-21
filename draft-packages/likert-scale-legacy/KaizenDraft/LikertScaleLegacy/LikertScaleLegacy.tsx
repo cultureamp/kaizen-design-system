@@ -12,7 +12,7 @@ type ItemRefs = Array<{
   ref: { current: null | HTMLDivElement }
 }>
 
-export interface RatingScaleProps {
+export interface LikertScaleProps {
   labelId: string
   scale: Scale
   selectedItem: ScaleItem | null
@@ -23,7 +23,7 @@ export interface RatingScaleProps {
   onSelect: (value: ScaleItem | null) => void
 }
 
-export const RatingScaleLegacy = ({
+export const LikertScaleLegacy = ({
   scale,
   selectedItem,
   reversed,
@@ -32,7 +32,7 @@ export const RatingScaleLegacy = ({
   validationError,
   validationErrorId,
   labelId,
-}: RatingScaleProps) => {
+}: LikertScaleProps) => {
   const [hoveredItem, setHoveredItem] = useState<ScaleItem | null>(null)
   const itemRefs: ItemRefs = scale.map(s => ({
     value: s.value,
@@ -139,7 +139,7 @@ export const RatingScaleLegacy = ({
 
           return (
             <div
-              className={classnames(styles.ratingItem, {
+              className={classnames(styles.likertItem, {
                 [styles.selected]:
                   selectedItem && item.value <= selectedItem.value,
                 [styles.suggested]:
@@ -165,7 +165,7 @@ export const RatingScaleLegacy = ({
             >
               <div
                 className={classnames(
-                  styles.ratingItemFill,
+                  styles.likertItemFill,
                   styles[`field${item.value}`],
                   {
                     [styles.pop]:
