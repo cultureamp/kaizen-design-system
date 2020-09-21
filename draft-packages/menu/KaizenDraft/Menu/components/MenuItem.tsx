@@ -49,7 +49,7 @@ const MenuItem = (props: MenuItemProps) => {
     [styles["menuItem--disabled"]]: disabled,
   })
 
-  // Use the legacy `action` property, if it's
+  // Use the legacy `action` property, if the new onClick or href as not supplied
   const onClickCombined =
     onClick != null ? onClick : typeof action !== "string" ? action : undefined
   const hrefCombined =
