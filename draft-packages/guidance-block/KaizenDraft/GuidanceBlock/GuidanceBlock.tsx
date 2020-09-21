@@ -112,7 +112,7 @@ class GuidanceBlock extends React.Component<Props, State> {
           <Button
             label={primary.label}
             onClick={primary.onClick}
-            icon={withActionButtonArrow ? configureIcon : null}
+            icon={withActionButtonArrow ? configureIcon : undefined}
             iconPosition="end"
             disabled={primary.disabled}
           />
