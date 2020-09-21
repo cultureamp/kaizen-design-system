@@ -3,7 +3,7 @@ import classnames from "classnames"
 import * as React from "react"
 
 const iconStyles = require("@kaizen/component-library/components/Icon/Icon.module.scss")
-const tick = require("@kaizen/component-library/icons/check.icon.svg").default
+import tick from "@kaizen/component-library/icons/check.icon.svg"
 
 const styles = require("./IconGrid.scss")
 

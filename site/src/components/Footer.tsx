@@ -2,8 +2,7 @@ import { Icon, Paragraph } from "@kaizen/component-library"
 import classnames from "classnames"
 import * as React from "react"
 
-const companyLogo = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
-  .default
+import companyLogo from "@kaizen/component-library/icons/ca-monogram.icon.svg"
 
 const styles = require("./Footer.scss")
 

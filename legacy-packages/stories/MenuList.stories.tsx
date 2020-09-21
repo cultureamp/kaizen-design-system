@@ -7,8 +7,7 @@ import {
   MenuList,
   MenuSeparator,
 } from "@kaizen/component-library"
-const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
-  .default
+import caMonogramIcon from "@kaizen/component-library/icons/ca-monogram.icon.svg"
 
 export default {
   title: "MenuList (React, deprecated)",

@@ -3,10 +3,9 @@ import classnames from "classnames"
 
 import * as React from "react"
 
-const success = require("@kaizen/component-library/icons/success-white.icon.svg")
-  .default
-const exclamation = require("@kaizen/component-library/icons/exclamation-white.icon.svg")
-  .default
+import success from "@kaizen/component-library/icons/success-white.icon.svg"
+import exclamation from "@kaizen/component-library/icons/exclamation-white.icon.svg"
+
 const styles = require("./WhenOrWhenNotToUse.scss")
 
 type Variant = "whenToUse" | "whenNotToUse"
