@@ -6,7 +6,19 @@ const styles = require("./MenuContent.module.scss")
 
 export type MenuItemProps = {
   label: string
-  action: string | ((e: React.MouseEvent<HTMLAnchorElement>) => void)
+  /**
+   * Historically, we only had `action`, which would accept either a string for
+   * the href, or a function for an onClick callback.
+   * The limitation here was that it prevented us from having
+   * both a href and an onClick callback at the same time.
+   * This field has been deprecated in favour of `onClick` and `href`.
+   * @deprecated
+   */
+  action?: string | ((e: React.MouseEvent<HTMLButtonElement>) => void)
+  href?: string
+  onClick?:
+    | ((e: React.MouseEvent<HTMLButtonElement>) => void)
+    | ((e: React.MouseEvent<HTMLAnchorElement>) => void)
   icon?: React.SVGAttributes<SVGSymbolElement>
   destructive?: boolean
   disabled?: boolean
@@ -14,7 +26,16 @@ export type MenuItemProps = {
 }
 
 const MenuItem = (props: MenuItemProps) => {
-  const { label, icon, action, destructive, disabled, automationId } = props
+  const {
+    label,
+    icon,
+    action,
+    destructive,
+    disabled,
+    automationId,
+    onClick,
+    href,
+  } = props
 
   const wrappedLabel = <span className={styles.menuItem__Label}>{label}</span>
   const iconNode = icon && (
@@ -28,6 +49,12 @@ const MenuItem = (props: MenuItemProps) => {
     [styles["menuItem--disabled"]]: disabled,
   })
 
+  // Use the legacy `action` property, if it's
+  const onClickCombined =
+    onClick != null ? onClick : typeof action !== "string" ? action : undefined
+  const hrefCombined =
+    href != null ? href : typeof action === "string" ? action : undefined
+
   if (disabled) {
     return (
       <div className={className} data-automation-id={automationId}>
@@ -39,7 +66,14 @@ const MenuItem = (props: MenuItemProps) => {
 
   if (typeof action === "string") {
     return (
-      <a href={action} className={className} data-automation-id={automationId}>
+      <a
+        href={hrefCombined}
+        onClick={
+          onClickCombined as (e: React.MouseEvent<HTMLAnchorElement>) => void
+        }
+        className={className}
+        data-automation-id={automationId}
+      >
         {iconNode}
         {wrappedLabel}
       </a>
@@ -47,15 +81,17 @@ const MenuItem = (props: MenuItemProps) => {
   }
 
   return (
-    <a
-      href="#"
-      onClick={action}
+    <button
+      type="button"
+      onClick={
+        onClickCombined as (e: React.MouseEvent<HTMLButtonElement>) => void
+      }
       className={className}
       data-automation-id={automationId}
     >
       {iconNode}
       {wrappedLabel}
-    </a>
+    </button>
   )
 }
 
