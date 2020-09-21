@@ -5,6 +5,7 @@ import {
   Scale,
   ScaleItem,
 } from "@kaizen/draft-rating-scale-legacy"
+import { Heading } from "@kaizen/component-library"
 
 export default {
   title: "RatingScaleLegacy (React)",
@@ -41,15 +42,31 @@ const scale: Scale = [
   },
 ]
 
+const labelId = "456"
+
+const pageStyles = {
+  padding: "24px 24px",
+  width: "100%",
+  boxSizing: "border-box",
+  height: "100vh",
+  display: "flex",
+  flexDirection: "column",
+}
+
 export const DefaultStory = () => {
   const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
 
   return (
-    <div style={{ margin: "48px 24px" }}>
+    <div style={pageStyles}>
+      <div style={{ marginBottom: "40px" }}>
+        <Heading variant="heading-4" id={labelId}>
+          How would you rate this survey?
+        </Heading>
+      </div>
       <RatingScaleLegacy
         scale={scale}
-        questionId="123"
-        labelId="456"
+        automationId="123"
+        labelId={labelId} // Intended to match the id of the label
         selectedItem={selectedItem}
         onSelect={item => setSelectedItem(item)}
       />
@@ -67,16 +84,19 @@ export const Reversed = () => {
   return (
     <div
       style={{
-        padding: "48px 24px",
-        width: "100%",
-        height: "100vh",
+        ...pageStyles,
         background: "#6B6E94",
       }}
     >
+      <div style={{ marginBottom: "40px" }}>
+        <Heading variant="heading-4" color="white" id={labelId}>
+          How would you rate this survey?
+        </Heading>
+      </div>
       <RatingScaleLegacy
         scale={scale}
-        questionId="123"
-        labelId="456"
+        automationId="123"
+        labelId={labelId} // Intended to match the id of the label
         selectedItem={selectedItem}
         onSelect={item => setSelectedItem(item)}
         reversed
