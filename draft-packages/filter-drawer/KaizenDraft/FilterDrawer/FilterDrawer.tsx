@@ -4,7 +4,7 @@ import classnames from "classnames"
 import * as React from "react"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
 
-const styles = require("./styles.module.scss")
+import styles from "./styles.module.scss"
 import { FilterDrawerButton } from "./FilterDrawerButton"
 
 export interface FilterDrawerProps {

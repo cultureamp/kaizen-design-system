@@ -3,7 +3,7 @@ import classNames from "classnames"
 import * as React from "react"
 import uuidv4 from "uuid/v4"
 
-const styles = require("./Menu.module.scss")
+import styles from "./Menu.module.scss"
 
 type Props = {
   section: string

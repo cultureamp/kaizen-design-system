@@ -5,7 +5,7 @@ import * as React from "react"
 import markdownComponents from "./markdownComponents"
 
 const markdownStyles = require("../styles/markdown.scss")
-const styles = require("./SidebarAndContent.scss")
+import styles from "./SidebarAndContent.scss"
 const linkIcon = require("./images/link.svg").default
 
 type SidebarAndContentProps = {

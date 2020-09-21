@@ -1,5 +1,5 @@
 import * as React from "react"
-const styles = require("./NavigationButton.scss")
+import styles from "./NavigationButton.scss"
 const titleblockStyles = require("./TitleBlock.scss")
 import classNames from "classnames"
 

@@ -5,7 +5,7 @@ import { CheckboxGroup } from "@kaizen/draft-checkbox-group"
 import { FilterDrawer } from "@kaizen/draft-filter-drawer"
 import { CheckboxField } from "@kaizen/draft-form"
 import React, { useState } from "react"
-const styles = require("./FilterDrawer.stories.scss")
+import styles from "./FilterDrawer.stories.scss"
 const StoryWrapper = ({ children }) => (
   <div
     style={{ display: "flex", justifyContent: "flex-start", margin: "1rem" }}

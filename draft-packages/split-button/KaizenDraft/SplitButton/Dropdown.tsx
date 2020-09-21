@@ -5,7 +5,7 @@ import { Dir } from "./types"
 
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 type Variant = "default" | "primary"
 

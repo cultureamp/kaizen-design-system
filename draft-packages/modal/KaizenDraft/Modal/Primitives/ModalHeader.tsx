@@ -4,7 +4,7 @@ import { IconButton } from "@kaizen/draft-button"
 import close from "@kaizen/component-library/icons/close.icon.svg"
 import GenericModalSection from "./GenericModalSection"
 
-const styles = require("./ModalHeader.scss")
+import styles from "./ModalHeader.scss"
 
 interface Props {
   readonly unpadded?: boolean

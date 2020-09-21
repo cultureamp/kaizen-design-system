@@ -10,7 +10,7 @@ import {
 
 import { warn } from "@kaizen/component-library/util/console"
 
-const styles = require("./GenericModal.scss")
+import styles from "./GenericModal.scss"
 
 interface GenericModalContainerProps {
   readonly isOpen: boolean

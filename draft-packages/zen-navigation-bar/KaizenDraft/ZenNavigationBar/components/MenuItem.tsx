@@ -6,7 +6,7 @@ import { Badge, MenuItemProps } from "../types"
 
 import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 
-const styles = require("./MenuItem.module.scss")
+import styles from "./MenuItem.module.scss"
 
 const MenuItem = ({
   label,

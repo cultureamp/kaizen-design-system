@@ -2,7 +2,7 @@ import classNames from "classnames"
 import React, { forwardRef, Ref, useImperativeHandle, useRef } from "react"
 import Icon from "../../Icon/Icon"
 
-const styles = require("./GenericButton.module.scss")
+import styles from "./GenericButton.module.scss"
 
 type GenericProps = {
   id?: string

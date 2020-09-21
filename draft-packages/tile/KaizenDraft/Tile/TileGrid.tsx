@@ -2,7 +2,7 @@ import React, { ReactElement } from "react"
 import { InformationTileProps } from "./InformationTile"
 import { MultiActionTileProps } from "./MultiActionTile"
 
-const styles = require("./TileGrid.scss")
+import styles from "./TileGrid.scss"
 
 type TileProps = InformationTileProps | MultiActionTileProps
 

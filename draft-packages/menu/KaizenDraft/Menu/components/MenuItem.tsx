@@ -2,7 +2,7 @@ import { Icon } from "@kaizen/component-library"
 import classNames from "classnames"
 import * as React from "react"
 
-const styles = require("./MenuContent.module.scss")
+import styles from "./MenuContent.module.scss"
 
 export type MenuItemProps = {
   label: string

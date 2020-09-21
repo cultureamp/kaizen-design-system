@@ -4,7 +4,7 @@
  */
 import React from "react"
 import { Link as NavLink, NavigationBar } from "@kaizen/component-library"
-const styles = require("./header.module.scss")
+import styles from "./header.module.scss"
 
 const SiteHeader = () => {
   const getBaseUrl = (pathname, origin, hostname) => {

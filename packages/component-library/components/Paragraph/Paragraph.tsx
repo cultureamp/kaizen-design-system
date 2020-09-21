@@ -1,7 +1,7 @@
 import classNames from "classnames"
 import { createElement } from "react"
 
-const styles = require("./Paragraph.module.scss")
+import styles from "./Paragraph.module.scss"
 
 export type ParagraphVariants = "intro-lede" | "body" | "small" | "extra-small"
 

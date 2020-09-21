@@ -1,7 +1,7 @@
 import classNames from "classnames"
 import { createElement } from "react"
 
-const styles = require("./Heading.module.scss")
+import styles from "./Heading.module.scss"
 
 const VARIANTS_24PX_OR_GREATER = ["display-0", "heading-1", "heading-2"]
 

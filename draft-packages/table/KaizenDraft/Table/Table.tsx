@@ -3,7 +3,7 @@ import { Checkbox, CheckedStatus } from "@kaizen/draft-form"
 import classNames from "classnames"
 import * as React from "react"
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 import sortDescendingIcon from "@kaizen/component-library/icons/sort-descending.icon.svg"
 
 type TableContainer = React.FunctionComponent

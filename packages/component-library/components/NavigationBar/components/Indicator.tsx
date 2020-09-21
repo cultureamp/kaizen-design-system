@@ -1,7 +1,7 @@
 import React from "react"
-import { Icon } from "../../../Icon"
+import { Icon } from "../../Icon"
 
-const styles = require("./Indicator.module.scss")
+import styles from "./Indicator.module.scss"
 /**
  * Eslint throws a false negative for modules that use require. Ensure you
  * are importing @kaizen/component-library into your package before turning

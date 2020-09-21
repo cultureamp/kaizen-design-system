@@ -12,7 +12,7 @@ import forwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 
 import NavigationButtons, { NavigationButton } from "./NavigationButtons"
 
-const styles = require("./TitleBlock.scss")
+import styles from "./TitleBlock.scss"
 
 type Color =
   | "Lapis"

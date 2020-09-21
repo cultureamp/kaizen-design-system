@@ -2,7 +2,7 @@ import { Label } from "@kaizen/draft-form"
 import { Radio } from "@kaizen/draft-radio"
 import { RadioGroup } from "@kaizen/draft-radio-group"
 import * as React from "react"
-const styles = require("./RadioGroup.stories.scss")
+import styles from "./RadioGroup.stories.scss"
 
 type RenderProps = {
   selectedOption: string

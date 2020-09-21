@@ -11,7 +11,7 @@ import MobileActions from "./MobileActions"
 import NavigationTab, { NavigationTabProps } from "./NavigationTabs"
 import SecondaryActions from "./SecondaryActions"
 
-const styles = require("./TitleBlockZen.scss")
+import styles from "./TitleBlockZen.scss"
 import leftArrow from "@kaizen/component-library/icons/arrow-backward.icon.svg"
 import rightArrow from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import hamburgerIcon from "@kaizen/component-library/icons/hamburger.icon.svg"

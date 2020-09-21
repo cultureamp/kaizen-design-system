@@ -15,7 +15,7 @@ import Menu from "./components/Menu"
 import { MOBILE_QUERY } from "./constants"
 import { Navigation, NavigationItem } from "./types"
 
-const styles = require("./NavigationBar.module.scss")
+import styles from "./NavigationBar.module.scss"
 
 type Props = {
   environment?: "production" | "staging" | "test" | "local"

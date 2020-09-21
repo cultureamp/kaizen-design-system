@@ -9,7 +9,7 @@ import {
   ToggleTheme,
 } from "@kaizen/draft-form"
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 interface Props {
   id?: string

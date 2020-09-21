@@ -1,7 +1,7 @@
 import { GridFractions, Spacing } from "./types"
 import { convertFractionToString } from "./util"
 
-const styles = require("./Margin.module.scss")
+import styles from "./Margin.module.scss"
 
 export const mt = (unit: GridFractions): string[] => [
   styles[`mt-${convertFractionToString(unit)}`],

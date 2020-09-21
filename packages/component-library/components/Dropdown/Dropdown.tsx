@@ -5,7 +5,7 @@ import classNames from "classnames"
 import * as React from "react"
 import DropdownMenu from "./DropdownMenu"
 
-const styles = require("./Dropdown.module.scss")
+import styles from "./Dropdown.module.scss"
 
 type DropdownState = {
   isMenuVisible: boolean

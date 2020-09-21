@@ -7,7 +7,7 @@ import * as React from "react"
 import { Button } from "@kaizen/draft-button"
 import { EmptyState } from "../empty-state"
 
-const styles = require("./EmptyState.stories.scss")
+import styles from "./EmptyState.stories.scss"
 
 const SidebarAndContentLayout = ({
   children,

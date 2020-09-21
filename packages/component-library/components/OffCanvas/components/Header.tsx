@@ -2,7 +2,7 @@ import * as React from "react"
 import closeIcon from "../../../icons/close.icon.svg"
 import IconButton from "../../Button/IconButton"
 
-const styles = require("./Header.module.scss")
+import styles from "./Header.module.scss"
 
 type Props = {
   leftComponent: React.ReactNode
