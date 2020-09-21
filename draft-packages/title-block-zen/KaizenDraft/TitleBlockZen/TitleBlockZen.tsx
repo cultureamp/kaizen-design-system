@@ -10,7 +10,6 @@ import MainActions from "./MainActions"
 import MobileActions from "./MobileActions"
 import NavigationTab, { NavigationTabProps } from "./NavigationTabs"
 import SecondaryActions from "./SecondaryActions"
-
 import styles from "./TitleBlockZen.scss"
 import leftArrow from "@kaizen/component-library/icons/arrow-backward.icon.svg"
 import rightArrow from "@kaizen/component-library/icons/arrow-forward.icon.svg"

@@ -4,7 +4,6 @@ import * as React from "react"
 import { Dir } from "./types"
 
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
-
 import styles from "./styles.scss"
 
 type Variant = "default" | "primary"

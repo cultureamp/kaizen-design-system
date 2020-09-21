@@ -7,7 +7,6 @@ import GenericButton, {
 import classnames from "classnames"
 import * as React from "react"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
-
 import styles from "./FilterDrawerButton.module.scss"
 
 type FilterButtonProps = {

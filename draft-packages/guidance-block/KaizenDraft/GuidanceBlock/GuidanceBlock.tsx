@@ -1,10 +1,14 @@
-import { Button, Heading, Icon, Paragraph } from "@kaizen/component-library"
+import {
+  Button,
+  ButtonProps,
+  Heading,
+  Icon,
+  Paragraph,
+} from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
-
 import classnames from "classnames"
 import * as React from "react"
-
 import styles from "./GuidanceBlock.scss"
 
 type Props = {
@@ -17,16 +21,8 @@ type Props = {
     description: string | React.ReactNode
   }
   actions: {
-    primary: {
-      label: string
-      onClick: () => void
-      disabled?: boolean
-    }
-    secondary?: {
-      label: string
-      onClick: () => void
-      disabled?: boolean
-    }
+    primary: ButtonProps
+    secondary?: ButtonProps
     dismiss?: {
       onClick: () => void
     }
@@ -110,21 +106,14 @@ class GuidanceBlock extends React.Component<Props, State> {
           })}
         >
           <Button
-            label={primary.label}
-            onClick={primary.onClick}
-            icon={withActionButtonArrow ? configureIcon : null}
+            icon={withActionButtonArrow ? configureIcon : undefined}
             iconPosition="end"
-            disabled={primary.disabled}
+            {...primary}
           />
 
           {secondary && (
             <div className={styles.secondaryAction}>
-              <Button
-                label={secondary.label}
-                onClick={secondary.onClick}
-                secondary
-                disabled={secondary.disabled}
-              />
+              <Button secondary {...secondary} />
             </div>
           )}
         </div>

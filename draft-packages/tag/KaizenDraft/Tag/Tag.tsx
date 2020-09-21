@@ -5,7 +5,6 @@ import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
-
 import styles from "./Tag.scss"
 
 type Variant =
