@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { CSSProperties, useState } from "react"
 
 import {
   LikertScaleLegacy,
@@ -44,7 +44,7 @@ const scale: Scale = [
 
 const labelId = "456"
 
-const pageStyles = {
+const pageStyles: CSSProperties = {
   padding: "24px 24px",
   width: "100%",
   boxSizing: "border-box",
@@ -58,10 +58,8 @@ export const DefaultStory = () => {
 
   return (
     <div style={pageStyles}>
-      <div style={{ marginBottom: "40px" }}>
-        <Heading variant="heading-4" id={labelId}>
-          How would you rate this survey?
-        </Heading>
+      <div style={{ marginBottom: "40px" }} id={labelId}>
+        <Heading variant="heading-4">How would you rate this survey?</Heading>
       </div>
       <LikertScaleLegacy
         scale={scale}
@@ -88,8 +86,8 @@ export const Reversed = () => {
         background: "#6B6E94",
       }}
     >
-      <div style={{ marginBottom: "40px" }}>
-        <Heading variant="heading-4" color="white" id={labelId}>
+      <div style={{ marginBottom: "40px" }} id={labelId}>
+        <Heading variant="heading-4" color="white">
           How would you rate this survey?
         </Heading>
       </div>
