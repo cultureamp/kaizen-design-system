@@ -16,7 +16,7 @@ export interface LikertScaleProps {
   labelId: string
   scale: Scale
   selectedItem: ScaleItem | null
-  automationId: string
+  automationId?: string
   reversed?: boolean
   validationError?: boolean
   validationErrorId?: string
@@ -104,10 +104,11 @@ export const LikertScaleLegacy = ({
       role="radiogroup"
       tabIndex={-1}
       aria-describedby={(validationError && validationErrorId) || undefined}
+      data-automation-id={automationId}
     >
       <div
         className={styles.legend}
-        data-automation-id={`${automationId}-legend`}
+        data-automation-id={automationId && `${automationId}-legend`}
       >
         <Paragraph variant="small" color={reversed ? "white" : "dark"}>
           {legend}
@@ -149,7 +150,9 @@ export const LikertScaleLegacy = ({
               })}
               onClick={() => handleRadioClick(item)}
               key={item.value}
-              data-automation-id={`${automationId}-item-${item.value}`}
+              data-automation-id={
+                automationId && `${automationId}-item-${item.value}`
+              }
               onMouseEnter={() => handleRadioMouseEnter(item)}
               onMouseLeave={handleRadioMouseLeave}
               role="radio"
