@@ -26,6 +26,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
 
 :export {
   caBreakpointMobileMax: #{$ca-breakpoint-tablet - 1};
+  navbarBreakpointExtendedMin: $navbar-breakpoint-extended-large-up;
 }
 
 @mixin navbar-mobile-only {
@@ -175,7 +176,6 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   .linkIcon + .linkText {
     padding: 0;
     @include ca-margin($start: 8px);
-
     @include navbar-mobile-only {
       @include ca-margin($start: 0);
     }
@@ -229,6 +229,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
       .linkText {
         @include font-heading-5;
         @include ca-inherit-baseline;
+        font-weight: $kz-typography-button-secondary-font-weight;
         display: none;
       }
     }
