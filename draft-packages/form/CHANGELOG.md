@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.6.9...@kaizen/draft-form@2.6.10) (2020-09-21)
+
+
+### Bug Fixes
+
+* Apply spacing to labels when inline with form controls ([#784](https://github.com/cultureamp/kaizen-design-system/issues/784)) ([6874853](https://github.com/cultureamp/kaizen-design-system/commit/687485399bf8103096e44eed5c3465582cc56a01))
+
+
+
+
+
 ## [2.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.6.8...@kaizen/draft-form@2.6.9) (2020-09-11)
 
 **Note:** Version bump only for package @kaizen/draft-form
