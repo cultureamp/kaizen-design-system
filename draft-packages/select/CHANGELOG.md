@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.10.13...@kaizen/draft-select@1.11.0) (2020-09-22)
+
+
+### Features
+
+* basic Zen uplift for Select border and hover state ([#786](https://github.com/cultureamp/kaizen-design-system/issues/786)) ([6a92604](https://github.com/cultureamp/kaizen-design-system/commit/6a926044478c5c42c62f4312e60ec6eb1a941140))
+
+
+
+
+
+## [1.10.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.10.12...@kaizen/draft-select@1.10.13) (2020-09-22)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.10.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.10.11...@kaizen/draft-select@1.10.12) (2020-09-21)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
 ## [1.10.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.10.10...@kaizen/draft-select@1.10.11) (2020-09-11)
 
 **Note:** Version bump only for package @kaizen/draft-select
