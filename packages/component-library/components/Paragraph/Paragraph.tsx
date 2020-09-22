@@ -52,16 +52,16 @@ export const Paragraph = ({
   color = "dark",
   ...otherProps
 }: ParagraphProps) => {
-  const classes: string[] = [
+  const className = classNames([
     styles.paragraph,
     styles[variant],
     styles[color],
     classNameAndIHaveSpokenToDST,
-  ]
+  ])
 
   return createElement(
     tag === undefined ? "p" : tag,
-    { ...otherProps, className: classNames(classes) },
+    { ...otherProps, className },
     children
   )
 }

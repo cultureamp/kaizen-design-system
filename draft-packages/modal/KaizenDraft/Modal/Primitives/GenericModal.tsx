@@ -98,9 +98,11 @@ class GenericModal extends React.Component<GenericModalProps> {
   preventBodyScroll() {
     const hasScrollbar =
       window.innerWidth > document.documentElement.clientWidth
-    document.documentElement.classList.add(
-      ...[styles.unscrollable, hasScrollbar && styles.pseudoScrollbar]
-    )
+    const scrollStyles = [styles.unscrollable]
+    if (hasScrollbar) {
+      scrollStyles.push(styles.pseudoScrollbar)
+    }
+    document.documentElement.classList.add(...scrollStyles)
   }
 
   restoreBodyScroll() {
