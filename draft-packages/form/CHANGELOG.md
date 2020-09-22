@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.6.10...@kaizen/draft-form@2.7.0) (2020-09-22)
+
+
+### Features
+
+* allow uncontrolled Elm TextArea to be pre-fillable ([#783](https://github.com/cultureamp/kaizen-design-system/issues/783)) ([25ab00a](https://github.com/cultureamp/kaizen-design-system/commit/25ab00a1304b4b687e01c3cf612989ab6dcc0c6a))
+
+
+
+
+
 ## [2.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.6.9...@kaizen/draft-form@2.6.10) (2020-09-21)
 
 
