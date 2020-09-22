@@ -24,6 +24,7 @@ import CssModules exposing (css)
 import Html exposing (..)
 import Html.Attributes
 import Html.Events exposing (onFocus, onInput)
+import Json.Encode
 import KaizenDraft.Events.Events as Events
 
 
@@ -222,7 +223,9 @@ view (Config config) =
                 [ Html.Attributes.value config.textAreaValue ]
 
             else
-                []
+                [ Html.Attributes.property "defaultValue"
+                    (Json.Encode.string config.textAreaValue)
+                ]
 
         placeholderAttr =
             [ Html.Attributes.placeholder config.placeholder ]
