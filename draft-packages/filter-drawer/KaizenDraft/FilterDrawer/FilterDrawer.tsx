@@ -2,14 +2,8 @@ import { MenuContent } from "@kaizen/draft-menu"
 import { StatelessMenu } from "@kaizen/draft-menu/KaizenDraft/Menu/StatelessMenu"
 import classnames from "classnames"
 import * as React from "react"
-/**
- * Eslint throws a false negative for modules that use require. Ensure you
- * are importing @kaizen/component-library into your package before turning
- * this rule off.
- */
-// eslint-disable-next-line import/no-extraneous-dependencies
-const filterIcon = require("@kaizen/component-library/icons/filter.icon.svg")
-  .default
+import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
+
 const styles = require("./styles.module.scss")
 import { FilterDrawerButton } from "./FilterDrawerButton"
 

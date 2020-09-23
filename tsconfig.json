@@ -10,5 +10,7 @@
     "strict": true,
     "allowJs": false,
     "noEmit": true
-  }
+  },
+  "include": ["./types.d.ts", "./packages/**/*", "./draft-packages/**/*"],
+  "exclude": ["**/node_modules"]
 }

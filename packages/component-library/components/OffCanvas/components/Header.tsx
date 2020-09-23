@@ -1,12 +1,5 @@
-/**
- * Eslint throws a false negative for modules that use require. Ensure you
- * are importing @kaizen/component-library into your package before turning
- * this rule off.
- */
-// eslint-disable-next-line import/no-extraneous-dependencies
-const closeIcon = require("@kaizen/component-library/icons/close.icon.svg")
-  .default
 import * as React from "react"
+import closeIcon from "../../../icons/close.icon.svg"
 import IconButton from "../../Button/IconButton"
 
 const styles = require("./Header.module.scss")

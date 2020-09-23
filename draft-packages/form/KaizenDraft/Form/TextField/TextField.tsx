@@ -7,10 +7,8 @@ import {
   InputType,
   Label,
 } from "@kaizen/draft-form"
-const exclamationIcon = require("@kaizen/component-library/icons/exclamation.icon.svg")
-  .default
-const successIcon = require("@kaizen/component-library/icons/success.icon.svg")
-  .default
+import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
+import successIcon from "@kaizen/component-library/icons/success.icon.svg"
 import classnames from "classnames"
 import * as React from "react"
 

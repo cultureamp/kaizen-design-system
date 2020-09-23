@@ -11,6 +11,7 @@
     "@babel/preset-typescript": "^7.6.0",
     "@kaizen/component-library": "*",
     "@kaizen/design-tokens": "*",
+    "@kaizen/hosted-assets": "^1.0.1",
     "@mdx-js/mdx": "^1.4.5",
     "@mdx-js/react": "^1.4.5",
     "classnames": "^2.2.6",

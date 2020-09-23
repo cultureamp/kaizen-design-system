@@ -1,7 +1,7 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { IconButton } from "../button"
-const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
-  .default
+import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
+
 import { action } from "@storybook/addon-actions"
 import * as React from "react"
 

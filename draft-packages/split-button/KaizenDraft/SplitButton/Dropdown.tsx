@@ -3,8 +3,8 @@ import classnames from "classnames"
 import * as React from "react"
 import { Dir } from "./types"
 
-const chevronDown = require("@kaizen/component-library/icons/chevron-down.icon.svg")
-  .default
+import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
+
 const styles = require("./styles.scss")
 
 type Variant = "default" | "primary"

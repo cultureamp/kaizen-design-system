@@ -8,8 +8,7 @@ import {
   Text,
 } from "@kaizen/component-library"
 const styles = require("./HeroPanel.scss")
-const crossIcon = require("@kaizen/component-library/icons/close.icon.svg")
-  .default
+import crossIcon from "@kaizen/component-library/icons/close.icon.svg"
 
 interface Props {
   readonly id?: string

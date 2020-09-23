@@ -8,8 +8,8 @@ import { NavBarContext } from "../context"
 import { LinkProps } from "../types"
 import Indicator from "./Indicator"
 
-const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
-  .default
+import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
+
 const styles = require("./Link.module.scss")
 
 export default class Link extends React.PureComponent<LinkProps> {

@@ -1,15 +1,16 @@
-import { Heading, Icon, Paragraph } from "@kaizen/component-library"
-import { Button, ButtonProps } from "@kaizen/draft-button"
-const configureIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
-  .default
-
+import {
+  Button,
+  ButtonProps,
+  Heading,
+  Icon,
+  Paragraph,
+} from "@kaizen/component-library"
+import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
+import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import classnames from "classnames"
 import * as React from "react"
 
 const styles = require("./GuidanceBlock.scss")
-
-const closeIcon = require("@kaizen/component-library/icons/close.icon.svg")
-  .default
 
 type Props = {
   img: {
@@ -106,7 +107,7 @@ class GuidanceBlock extends React.Component<Props, State> {
           })}
         >
           <Button
-            icon={withActionButtonArrow ? configureIcon : null}
+            icon={withActionButtonArrow ? configureIcon : undefined}
             iconPosition="end"
             {...primary}
           />

@@ -1,7 +1,7 @@
-const chevronLeft = require("@kaizen/component-library/icons/chevron-left.icon.svg")
-  .default
-const chevronRight = require("@kaizen/component-library/icons/chevron-right.icon.svg")
-  .default
+import chevronLeft from "@kaizen/component-library/icons/chevron-left.icon.svg"
+
+import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
+
 import * as React from "react"
 
 import { Button } from "@kaizen/draft-button"
