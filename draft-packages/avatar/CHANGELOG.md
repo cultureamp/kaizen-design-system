@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.1.7...@kaizen/draft-avatar@1.1.8) (2020-09-23)
+
+
+### Bug Fixes
+
+* Changed icons to use import, added types for icons ([#781](https://github.com/cultureamp/kaizen-design-system/issues/781)) ([e0856a8](https://github.com/cultureamp/kaizen-design-system/commit/e0856a84e3b39d3dc1bfa910b0b973bd65e170c9))
+
+
+
+
+
 ## [1.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.1.6...@kaizen/draft-avatar@1.1.7) (2020-09-11)
 
 **Note:** Version bump only for package @kaizen/draft-avatar

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.30.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.30.4...@kaizen/component-library@7.30.5) (2020-09-23)
+
+
+### Bug Fixes
+
+* Changed icons to use import, added types for icons ([#781](https://github.com/cultureamp/kaizen-design-system/issues/781)) ([e0856a8](https://github.com/cultureamp/kaizen-design-system/commit/e0856a84e3b39d3dc1bfa910b0b973bd65e170c9))
+
+
+
+
+
 ## [7.30.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.30.3...@kaizen/component-library@7.30.4) (2020-09-11)
 
 **Note:** Version bump only for package @kaizen/component-library
