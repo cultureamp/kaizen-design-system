@@ -11,8 +11,7 @@ import { KeyboardNavigableList } from "./KeyboardNavigableList"
 
 import chevronLeft from "@kaizen/component-library/icons/chevron-left.icon.svg"
 import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
-
-const styles = require("./styles.module.scss")
+import styles from "./styles.module.scss"
 
 export type MenuWidth = "default" | "contain"
 export type MenuDirection = "ltr" | "rtl"

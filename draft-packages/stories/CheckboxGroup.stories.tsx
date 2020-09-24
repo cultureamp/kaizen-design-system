@@ -1,7 +1,7 @@
 import { CheckboxGroup } from "@kaizen/draft-checkbox-group"
 import { CheckboxField, Label } from "@kaizen/draft-form"
 import * as React from "react"
-const styles = require("./CheckboxGroup.stories.scss")
+import styles from "./CheckboxGroup.stories.scss"
 
 interface RenderProps {
   checkedStatus: string

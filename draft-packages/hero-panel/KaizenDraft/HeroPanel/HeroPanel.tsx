@@ -7,7 +7,7 @@ import {
   Paragraph,
   Text,
 } from "@kaizen/component-library"
-const styles = require("./HeroPanel.scss")
+import styles from "./HeroPanel.scss"
 import crossIcon from "@kaizen/component-library/icons/close.icon.svg"
 
 interface Props {

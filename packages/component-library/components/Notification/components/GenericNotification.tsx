@@ -8,7 +8,7 @@ import successIcon from "../../../icons/success.icon.svg"
 import classnames from "classnames"
 import * as React from "react"
 
-const styles = require("./GenericNotification.module.scss")
+import styles from "./GenericNotification.module.scss"
 
 export type NotificationType =
   | "affirmative"

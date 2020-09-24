@@ -1,7 +1,7 @@
 import { withPrefix } from "gatsby"
 import * as React from "react"
 
-const styles = require("./StorybookDemo.scss")
+import styles from "./StorybookDemo.scss"
 
 type StorybookDemoProps = {
   demoId: string

@@ -6,7 +6,7 @@ import { ButtonProps } from "@kaizen/draft-button"
 import { MenuProps } from "@kaizen/draft-menu"
 import classNames from "classnames"
 import * as React from "react"
-const styles = require("./Toolbar.scss")
+import styles from "./Toolbar.scss"
 
 type ToolbarProps = {
   items?: Array<React.ReactElement<ButtonProps> | React.ReactElement<MenuProps>>

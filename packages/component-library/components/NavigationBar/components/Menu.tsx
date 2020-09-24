@@ -23,7 +23,7 @@ import { MenuGroup, MenuItem, MenuProps } from "../types"
 import Link from "./Link"
 import Indicator from "./Indicator"
 
-const styles = require("./Menu.module.scss")
+import styles from "./Menu.module.scss"
 
 type State = {
   open: boolean

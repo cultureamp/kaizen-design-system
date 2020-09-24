@@ -5,7 +5,7 @@ import classNames from "classnames"
 import Header from "./components/Header"
 import Menu from "./components/Menu"
 
-const styles = require("./OffCanvas.module.scss")
+import styles from "./OffCanvas.module.scss"
 
 type Props = {
   links?: any

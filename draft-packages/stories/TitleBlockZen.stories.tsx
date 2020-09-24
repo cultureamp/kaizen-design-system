@@ -11,7 +11,7 @@ import reportSharingIcon from "@kaizen/component-library/icons/report-sharing.ic
 import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import { assetUrl } from "@kaizen/hosted-assets"
 
-const styles = require("./TitleBlockZen.stories.scss")
+import styles from "./TitleBlockZen.stories.scss"
 
 export default {
   title: "TitleBlockZen (React)",

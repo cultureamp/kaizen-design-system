@@ -4,7 +4,7 @@ import * as React from "react"
 
 import companyLogo from "@kaizen/component-library/icons/ca-monogram.icon.svg"
 
-const styles = require("./Footer.scss")
+import styles from "./Footer.scss"
 
 type FooterProps = {
   reverseVariant?: boolean

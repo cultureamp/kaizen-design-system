@@ -2,7 +2,7 @@ import classnames from "classnames"
 import * as React from "react"
 import DoOrDontItem from "./DoOrDontItem"
 
-const styles = require("./DoAndDontContainer.scss")
+import styles from "./DoAndDontContainer.scss"
 
 const maxItems = 3
 

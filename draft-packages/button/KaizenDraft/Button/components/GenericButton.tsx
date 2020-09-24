@@ -10,7 +10,7 @@ import React, {
   MouseEvent,
 } from "react"
 
-const styles = require("./GenericButton.module.scss")
+import styles from "./GenericButton.module.scss"
 
 export type CustomButtonProps = {
   id?: string

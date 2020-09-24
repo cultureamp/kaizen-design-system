@@ -4,7 +4,7 @@ import minusIcon from "@kaizen/component-library/icons/minus.icon.svg"
 import classnames from "classnames"
 import * as React from "react"
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 export type CheckedStatus = "on" | "off" | "mixed"
 

@@ -3,7 +3,7 @@ import * as React from "react"
 import { Button } from "@kaizen/draft-button"
 import GenericModalSection from "./GenericModalSection"
 
-const styles = require("./ModalFooter.scss")
+import styles from "./ModalFooter.scss"
 
 interface Props {
   readonly unpadded?: boolean

@@ -7,7 +7,7 @@ import positiveIcon from "@kaizen/component-library/icons/success.icon.svg"
 import classNames from "classnames"
 import * as React from "react"
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 export interface Props {
   readonly id?: string

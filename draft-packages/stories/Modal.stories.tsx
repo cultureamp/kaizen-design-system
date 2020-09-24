@@ -17,7 +17,7 @@ import * as React from "react"
 import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
 
-const styles = require("./Modal.stories.scss")
+import styles from "./Modal.stories.scss"
 
 class ModalStateContainer extends React.Component<
   {

@@ -11,7 +11,7 @@ import {
   ModalHeader,
 } from "../"
 
-const styles = require("./InputEditModal.scss")
+import styles from "./InputEditModal.scss"
 
 interface Props {
   readonly isOpen: boolean

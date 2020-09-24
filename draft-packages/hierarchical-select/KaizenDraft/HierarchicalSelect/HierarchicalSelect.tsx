@@ -11,7 +11,7 @@ import {
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import clear from "@kaizen/component-library/icons/clear.icon.svg"
-const styles = require("./styles.module.scss")
+import styles from "./styles.module.scss"
 
 export { MenuWidth, MenuDirection, Hierarchy, HierarchyNode }
 

@@ -6,7 +6,7 @@ import Toolbar from "./Toolbar"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 
-const styles = require("./TitleBlockZen.scss")
+import styles from "./TitleBlockZen.scss"
 
 type Props = {
   secondaryActions?: SecondaryActionsProps

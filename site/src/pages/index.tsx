@@ -7,7 +7,7 @@ import Footer from "../components/Footer"
 import Layout from "../components/Layout"
 import PageHeader from "../components/PageHeader"
 
-const styles = require("./index.scss")
+import styles from "./index.scss"
 
 const HomePageHeader = (
   <PageHeader

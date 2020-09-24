@@ -5,7 +5,7 @@ import AnimateHeight from "react-animate-height"
 
 import { Sticky } from "./CollapsibleGroup"
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 

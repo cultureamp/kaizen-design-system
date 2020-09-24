@@ -1,7 +1,7 @@
 import React from "react"
 import { Icon } from "@kaizen/component-library"
 
-const styles = require("./Indicator.module.scss")
+import styles from "./Indicator.module.scss"
 
 import fullIcon from "@kaizen/component-library/icons/full.icon.svg"
 

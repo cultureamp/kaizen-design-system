@@ -11,7 +11,7 @@ import {
   TableRow,
   TableRowCell,
 } from "../table"
-const styles = require("./Table.stories.scss")
+import styles from "./Table.stories.scss"
 
 import commentIcon from "@kaizen/component-library/icons/comment.icon.svg"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"

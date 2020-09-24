@@ -1,5 +1,5 @@
 import * as React from "react"
-const styles = require("./IconsPage.scss")
+import styles from "./IconsPage.scss"
 const minimumSize = require("./images/minimum-size.svg").default
 const neighbouringIcons = require("./images/neighbouring-icons.svg").default
 const spacing = require("./images/spacing.svg").default

@@ -15,7 +15,7 @@ import {
   ModalHeader,
 } from "../"
 
-const styles = require("./ConfirmationModal.scss")
+import styles from "./ConfirmationModal.scss"
 
 interface Props {
   readonly isOpen: boolean

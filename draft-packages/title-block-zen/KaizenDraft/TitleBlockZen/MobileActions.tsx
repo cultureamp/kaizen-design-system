@@ -18,10 +18,8 @@ import {
   convertSecondaryActionsToMenuItems,
 } from "./TitleBlockZen"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
-
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
-
-const styles = require("./MobileActions.scss")
+import styles from "./MobileActions.scss"
 
 const buttonIsLink: (action: TitleBlockButtonProps) => boolean = action =>
   "href" in action

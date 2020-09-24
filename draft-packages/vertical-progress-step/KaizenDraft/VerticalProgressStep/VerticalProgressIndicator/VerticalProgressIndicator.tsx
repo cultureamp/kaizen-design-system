@@ -5,7 +5,7 @@ import printIcon from "@kaizen/component-library/icons/print.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
 import { Icon } from "@kaizen/component-library"
 
-const styles = require("./VerticalProgressIndicator.module.scss")
+import styles from "./VerticalProgressIndicator.module.scss"
 
 type Props = {
   position: Position

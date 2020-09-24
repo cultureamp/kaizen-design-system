@@ -10,7 +10,7 @@ import chevronRightIcon from "@kaizen/component-library/icons/chevron-right.icon
 import classNames from "classnames"
 import * as React from "react"
 
-const styles = require("./Link.module.scss")
+import styles from "./Link.module.scss"
 import { LinkProps } from "../types"
 import Indicator from "./Indicator"
 
