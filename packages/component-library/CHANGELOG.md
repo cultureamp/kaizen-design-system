@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.31.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.30.7...@kaizen/component-library@7.31.0) (2020-09-28)
+
+
+### Features
+
+* add positive, negative and neutral delta icons ([#793](https://github.com/cultureamp/kaizen-design-system/issues/793)) ([7f31fda](https://github.com/cultureamp/kaizen-design-system/commit/7f31fda68f2d128b71bf097b84855ac5ea6c9228))
+
+
+
+
+
 ## [7.30.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.30.6...@kaizen/component-library@7.30.7) (2020-09-28)
 
 **Note:** Version bump only for package @kaizen/component-library
