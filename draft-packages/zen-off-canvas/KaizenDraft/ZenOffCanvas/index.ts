@@ -1,5 +1,7 @@
 export {
-  default as ZenControlledOffCanvas,
+  ZenControlledOffCanvas,
   ZenOffCanvas,
+  ZenOffCanvasProvider,
   OffCanvasContext,
+  toggleZenOffCanvas,
 } from "./ZenOffCanvas"

@@ -1,5 +1,5 @@
-import * as React from "react"
-
+import React, { useState, useContext, useEffect } from "react"
+import { EventBus, defineEvent } from "ts-bus"
 import { ColorScheme } from "@kaizen/draft-zen-navigation-bar/KaizenDraft/ZenNavigationBar/types"
 import classNames from "classnames"
 import Header from "./components/Header"
@@ -7,7 +7,7 @@ import Menu from "./components/Menu"
 
 import styles from "./OffCanvas.module.scss"
 
-type Props = {
+type ZenOffCanvasProps = {
   links?: any
   heading: string
   headerComponent: React.ReactNode
@@ -17,135 +17,126 @@ type Props = {
   colorScheme?: ColorScheme
 }
 
-type State = {
-  visibleMenus: string[]
+type ToggleMobileNavEvent = {
+  type: "TOGGLE_MOBILE_NAV"
+  payload: {
+    id: string
+    state: "open" | "close"
+  }
 }
 
-type OffCanvasContextProps = {
+type OffCanvasContext = {
   visibleMenus: string[]
   toggleVisibleMenu: (menuId: string) => void
   resetVisibleMenus: () => void
 }
 
-export const OffCanvasContext = React.createContext<OffCanvasContextProps>({
+const bus = new EventBus()
+
+const toggleZenOffCanvasEvent = defineEvent<ToggleMobileNavEvent>(
+  "TOGGLE_MOBILE_NAV"
+)
+
+export const toggleZenOffCanvas = (params: ToggleMobileNavEvent["payload"]) => {
+  bus.publish(toggleZenOffCanvasEvent(params))
+}
+
+export const OffCanvasContext = React.createContext<OffCanvasContext>({
   visibleMenus: [],
-  toggleVisibleMenu: menuId => undefined,
+  toggleVisibleMenu: () => undefined,
   resetVisibleMenus: () => undefined,
 })
 
-export class ZenOffCanvas extends React.Component<Props> {
-  static defaultProps = {
-    withTrigger: false,
-    colorScheme: "cultureamp",
-  }
+export const ZenOffCanvasProvider: React.FunctionComponent = ({ children }) => {
+  const [visibleMenus, setVisibleMenus] = useState<string[]>([])
 
-  render() {
-    const {
-      menuId,
-      headerComponent,
-      heading,
-      links,
-      footerComponent,
-      productSwitcher,
-      colorScheme,
-    } = this.props
+  useEffect(() => {
+    const unsubscribe = bus.subscribe(toggleZenOffCanvasEvent, event => {
+      const { id, state } = event.payload
+      if (state === "open") {
+        setVisibleMenus([id])
+      }
+      if (state === "close") {
+        resetVisibleMenus()
+      }
+    })
+    return () => unsubscribe()
+  }, [])
 
-    return (
-      <OffCanvasContext.Consumer>
-        {({ visibleMenus, resetVisibleMenus }) => (
-          <div
-            className={classNames(styles.root, {
-              [styles.active]: visibleMenus.includes(menuId),
-            })}
-          >
-            <Header
-              onClose={resetVisibleMenus}
-              leftComponent={headerComponent}
-              heading={heading}
-              colorScheme={colorScheme}
-            />
-            <div
-              className={classNames(styles.contentContainer, {
-                [styles.hasFooter]: !!footerComponent,
-              })}
-            >
-              {productSwitcher && productSwitcher}
-              <nav className={styles.links}>
-                {links &&
-                  Object.keys(links).map(section => (
-                    <Menu
-                      key={section}
-                      section={section}
-                      link={links[section]}
-                    />
-                  ))}
-              </nav>
-            </div>
-            {footerComponent && (
-              <div className={styles.footerComponent}>{footerComponent}</div>
-            )}
-          </div>
-        )}
-      </OffCanvasContext.Consumer>
+  const toggleVisibleMenu = (menuId: string) => {
+    setVisibleMenus(vm =>
+      vm.includes(menuId) ? vm.filter(m => m !== menuId) : [...vm, menuId]
     )
   }
+
+  const resetVisibleMenus = () => setVisibleMenus([])
+
+  return (
+    <OffCanvasContext.Provider
+      value={{
+        visibleMenus,
+        toggleVisibleMenu,
+        resetVisibleMenus,
+      }}
+      children={children}
+    />
+  )
 }
 
-const withContextProvider = (Component: React.ComponentType<any>) =>
-  // eslint-disable-next-line max-classes-per-file
-  class OffCanvasWithContextProvider extends React.Component<Props, State> {
-    constructor(props: Props) {
-      super(props)
+export const ZenOffCanvas: React.FunctionComponent<ZenOffCanvasProps> = ({
+  menuId,
+  headerComponent,
+  heading,
+  links,
+  footerComponent,
+  productSwitcher,
+  colorScheme,
+}) => {
+  const { visibleMenus, resetVisibleMenus } = useContext(OffCanvasContext)
+  return (
+    <div
+      className={classNames(styles.root, {
+        [styles.active]: visibleMenus.includes(menuId),
+      })}
+    >
+      <Header
+        onClose={resetVisibleMenus}
+        leftComponent={headerComponent}
+        heading={heading}
+        colorScheme={colorScheme}
+      />
+      <div
+        className={classNames(styles.contentContainer, {
+          [styles.hasFooter]: !!footerComponent,
+        })}
+      >
+        {productSwitcher && productSwitcher}
+        <nav className={styles.links}>
+          {links &&
+            Object.keys(links).map(section => (
+              <Menu key={section} section={section} link={links[section]} />
+            ))}
+        </nav>
+      </div>
+      {footerComponent && (
+        <div className={styles.footerComponent}>{footerComponent}</div>
+      )}
+    </div>
+  )
+}
 
-      this.state = {
-        visibleMenus: [],
-      }
-    }
-
-    toggleMenu = (menuId: string) =>
-      this.setState({
-        visibleMenus: this.state.visibleMenus.includes(menuId)
-          ? this.state.visibleMenus.filter(item => item !== menuId)
-          : [...this.state.visibleMenus, menuId],
-      })
-
-    resetMenu = () => this.setState({ visibleMenus: [] })
-
-    render() {
-      return (
-        <OffCanvasContext.Provider
-          value={{
-            ...this.state,
-            toggleVisibleMenu: this.toggleMenu,
-            resetVisibleMenus: this.resetMenu,
-          }}
+export const ZenControlledOffCanvas: React.FunctionComponent<ZenOffCanvasProps> = props => (
+  <ZenOffCanvasProvider>
+    <OffCanvasContext.Consumer>
+      {({ toggleVisibleMenu }) => (
+        <button
+          className={styles.trigger}
+          onClick={() => toggleVisibleMenu(props.menuId)}
         >
-          <Component {...this.props} />
-        </OffCanvasContext.Provider>
-      )
-    }
-  }
-
-const withTrigger = (Component: React.ComponentType<any>) =>
-  // eslint-disable-next-line max-classes-per-file
-  class OffCanvasWithTrigger extends React.Component<Props> {
-    render() {
-      return (
-        <OffCanvasContext.Consumer>
-          {({ toggleVisibleMenu }) => (
-            <React.Fragment>
-              <button
-                className={styles.trigger}
-                onClick={() => toggleVisibleMenu(this.props.menuId)}
-              >
-                <span className={styles.hamburger} />
-              </button>
-              <Component {...this.props} />
-            </React.Fragment>
-          )}
-        </OffCanvasContext.Consumer>
-      )
-    }
-  }
-
-export default withContextProvider(withTrigger(ZenOffCanvas))
+          <span className={styles.hamburger} />
+        </button>
+      )}
+    </OffCanvasContext.Consumer>
+    <ZenOffCanvas {...props} />
+  </ZenOffCanvasProvider>
+)
