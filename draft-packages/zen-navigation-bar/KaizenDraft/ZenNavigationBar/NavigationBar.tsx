@@ -1,6 +1,9 @@
 import * as React from "react"
 
-import { ZenControlledOffCanvas } from "@kaizen/draft-zen-off-canvas"
+import {
+  ZenControlledOffCanvas,
+  toggleMobileNavigation,
+} from "@kaizen/draft-zen-off-canvas"
 import classNames from "classnames"
 import Media from "react-media"
 import uuid from "uuid/v4"
@@ -30,10 +33,22 @@ type Props = {
   footerComponent?: React.ReactNode
   children?: Navigation
 }
+const ROOT_MENU_ID = "mobile-navigation"
 
 type State = {
   mobileKey: number
 }
+export const openMobileNavigation = () =>
+  toggleMobileNavigation({
+    id: ROOT_MENU_ID,
+    state: "open",
+  })
+
+export const closeMobileNavigation = () =>
+  toggleMobileNavigation({
+    id: ROOT_MENU_ID,
+    state: "close",
+  })
 
 export default class NavigationBar extends React.Component<Props, State> {
   static displayName = "NavigationBar"
@@ -85,7 +100,7 @@ export default class NavigationBar extends React.Component<Props, State> {
                 productSwitcher={headerComponent && headerComponent.mobile}
                 links={children}
                 heading="Menu"
-                menuId="menu"
+                menuId={ROOT_MENU_ID}
                 colorScheme={colorScheme}
               />
             ) : (
