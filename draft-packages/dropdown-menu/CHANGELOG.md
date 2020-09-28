@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.36](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown-menu@1.5.35...@kaizen/draft-dropdown-menu@1.5.36) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown-menu
+
+
+
+
+
 ## [1.5.35](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown-menu@1.5.34...@kaizen/draft-dropdown-menu@1.5.35) (2020-09-24)
 
 **Note:** Version bump only for package @kaizen/draft-dropdown-menu
