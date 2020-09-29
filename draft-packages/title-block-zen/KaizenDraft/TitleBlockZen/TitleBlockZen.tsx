@@ -45,6 +45,13 @@ export interface TitleBlockProps {
   navigationTabs?: NavigationTabs
   textDirection?: TextDirection
   surveyStatus?: SurveyStatus
+  titleAutomationId?: string
+  breadcrumbAutomationId?: string
+  breadcrumbTextAutomationId?: string
+  avatarAutomationId?: string
+  subtitleAutomationId?: string
+  sectionTitleAutomationId?: string
+  sectionTitleDescriptionAutomationId?: string
 }
 
 export type BadgeProps = {
@@ -167,20 +174,29 @@ const renderTag = (surveyStatus: SurveyStatus) => {
   )
 }
 
-const renderAvatar = (image: JSX.Element) => (
-  <div className={styles.avatar}>{image}</div>
+const renderAvatar = (image: JSX.Element, avatarAutomationId: string) => (
+  <div data-automation-id={avatarAutomationId} className={styles.avatar}>
+    {image}
+  </div>
 )
 
-const renderSubtitle = (subtitle: string) => (
+const renderSubtitle = (subtitle: string, subtitleAutomationId: string) => (
   <div className={styles.subtitle}>
-    <span className={styles.subtitleText}>{subtitle}</span>
+    <span
+      data-automation-id={subtitleAutomationId}
+      className={styles.subtitleText}
+    >
+      {subtitle}
+    </span>
   </div>
 )
 
 const renderSectionTitle = (
   sectionTitle?: string,
   sectionTitleDescription?: string,
-  variant?: Variant
+  variant?: Variant,
+  sectionTitleAutomationId?: string,
+  sectionTitleDescriptionAutomationId?: string
 ) => (
   <div className={styles.sectionTitleContainer}>
     <div className={styles.sectionTitleInner}>
@@ -190,6 +206,7 @@ const renderSectionTitle = (
             variant="heading-2"
             color={isReversed(variant) ? "white" : "dark"}
             classNameAndIHaveSpokenToDST={styles.sectionTitleOverride}
+            data-automation-id={sectionTitleAutomationId}
           >
             {sectionTitle}
           </Heading>
@@ -197,6 +214,7 @@ const renderSectionTitle = (
       )}
       {sectionTitleDescription && (
         <div
+          data-automation-id={sectionTitleDescriptionAutomationId}
           className={classNames(styles.sectionTitleDescription, {
             [styles.dark]: !isReversed(variant),
           })}
@@ -210,6 +228,8 @@ const renderSectionTitle = (
 
 const renderBreadcrumb = (
   breadcrumb: Breadcrumb,
+  breadcrumbAutomationId: string,
+  breadcrumbTextAutomationId: string,
   textDirection?: TextDirection
 ) => {
   const { path, handleClick, text } = breadcrumb
@@ -222,7 +242,7 @@ const renderBreadcrumb = (
       <TagName
         {...(path && { href: path })}
         className={styles.breadcrumb}
-        data-automation-id="TitleBlock__Breadcrumb"
+        data-automation-id={breadcrumbAutomationId}
         onClick={handleClick}
         aria-label="Back to previous page"
       >
@@ -233,7 +253,7 @@ const renderBreadcrumb = (
       <TagName
         {...(path && { href: path })}
         className={styles.breadcrumbTextLink}
-        data-automation-id="TitleBlock__BreadcrumbText"
+        data-automation-id={breadcrumbTextAutomationId}
         onClick={handleClick}
         aria-label="Back to previous page"
         tabIndex={-1}
@@ -392,6 +412,13 @@ const TitleBlockZen = ({
   navigationTabs,
   textDirection,
   surveyStatus,
+  titleAutomationId = "TitleBlock__Title",
+  avatarAutomationId = "TitleBlock__Avatar",
+  subtitleAutomationId = "TitleBlock__Subtitle",
+  sectionTitleAutomationId = "TitleBlock__SectionTitle",
+  sectionTitleDescriptionAutomationId = "TitleBlock__SectionTitleDescription",
+  breadcrumbAutomationId = "TitleBlock__Breadcrumb",
+  breadcrumbTextAutomationId = "TitleBlock__BreadcrumbText",
 }: TitleBlockProps) => {
   const [isSmallOrMediumViewport, setSmallOrMediumViewport] = React.useState(
     false
@@ -432,7 +459,13 @@ const TitleBlockZen = ({
           <div className={styles.titleRowInner}>
             <div className={styles.titleRowInnerContent}>
               <div className={styles.titleAndAdjacent}>
-                {breadcrumb && renderBreadcrumb(breadcrumb, textDirection)}
+                {breadcrumb &&
+                  renderBreadcrumb(
+                    breadcrumb,
+                    breadcrumbAutomationId,
+                    breadcrumbTextAutomationId,
+                    textDirection
+                  )}
                 <div className={styles.titleAndAdjacentNotBreadcrumb}>
                   {handleHamburgerClick && (
                     <div
@@ -446,7 +479,7 @@ const TitleBlockZen = ({
                       />
                     </div>
                   )}
-                  {avatar && renderAvatar(avatar)}
+                  {avatar && renderAvatar(avatar, avatarAutomationId)}
                   <div className={styles.titleAndSubtitle}>
                     <div className={styles.titleAndSubtitleInner}>
                       <div className={styles.title}>
@@ -456,6 +489,7 @@ const TitleBlockZen = ({
                           classNameAndIHaveSpokenToDST={
                             styles.titleTextOverride
                           }
+                          data-automation-id={titleAutomationId}
                         >
                           {title}
                         </Heading>
@@ -471,7 +505,8 @@ const TitleBlockZen = ({
                           />
                         </div>
                       )}
-                      {subtitle && renderSubtitle(subtitle)}
+                      {subtitle &&
+                        renderSubtitle(subtitle, subtitleAutomationId)}
                     </div>
                   </div>
                   {surveyStatus && renderTag(surveyStatus)}
@@ -512,7 +547,9 @@ const TitleBlockZen = ({
                 renderSectionTitle(
                   sectionTitle,
                   sectionTitleDescription,
-                  variant
+                  variant,
+                  sectionTitleAutomationId,
+                  sectionTitleDescriptionAutomationId
                 )}
               {renderNavigationTabs(navigationTabs)}
               {(secondaryActions || secondaryOverflowMenuItems) && (
