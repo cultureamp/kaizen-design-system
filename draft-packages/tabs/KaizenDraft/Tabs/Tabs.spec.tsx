@@ -4,7 +4,7 @@ import * as React from "react"
 
 import { Tabs } from "."
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 afterEach(cleanup)
 

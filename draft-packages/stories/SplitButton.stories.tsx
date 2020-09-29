@@ -3,10 +3,8 @@ import { SplitButton } from "@kaizen/draft-split-button"
 import { action } from "@storybook/addon-actions"
 import * as React from "react"
 
-const duplicateIcon = require("@kaizen/component-library/icons/duplicate.icon.svg")
-  .default
-const editIcon = require("@kaizen/component-library/icons/edit.icon.svg")
-  .default
+import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
+import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 
 export default {
   title: "SplitButton (React)",

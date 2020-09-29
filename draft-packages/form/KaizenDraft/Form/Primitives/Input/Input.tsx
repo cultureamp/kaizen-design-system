@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import * as React from "react"
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 export type InputType = "text" | "email" | "password"
 export type InputStatus = "default" | "success" | "error"

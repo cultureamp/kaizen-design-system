@@ -1,15 +1,11 @@
 import { Icon } from "@kaizen/component-library"
 import classNames from "classnames"
 import * as React from "react"
-const clearIcon = require("@kaizen/component-library/icons/clear.icon.svg")
-  .default
-const exclamationIcon = require("@kaizen/component-library/icons/exclamation.icon.svg")
-  .default
-const informationIcon = require("@kaizen/component-library/icons/information.icon.svg")
-  .default
-const successIcon = require("@kaizen/component-library/icons/success.icon.svg")
-  .default
-const styles = require("./Tag.scss")
+import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
+import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
+import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
+import successIcon from "@kaizen/component-library/icons/success.icon.svg"
+import styles from "./Tag.scss"
 
 type Variant =
   | "default"

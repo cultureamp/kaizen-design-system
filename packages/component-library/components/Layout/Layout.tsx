@@ -1,6 +1,6 @@
 import * as React from "react"
 
-const styles = require("./Layout.module.scss")
+import styles from "./Layout.module.scss"
 
 const NavigationBar: React.FunctionComponent = ({ children }) => (
   <div className={styles.navigationBar}>{children}</div>

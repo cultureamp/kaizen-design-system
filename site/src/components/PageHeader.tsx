@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { graphql, StaticQuery } from "gatsby"
 import * as React from "react"
 import Tag from "./Tag"
-const styles = require("./PageHeader.scss")
+import styles from "./PageHeader.scss"
 
 type PageHeaderProps = {
   children?: React.ReactNode

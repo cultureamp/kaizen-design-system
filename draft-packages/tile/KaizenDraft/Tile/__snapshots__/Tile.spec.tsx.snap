@@ -124,10 +124,9 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
                   class="icon"
                   focusable="false"
                   role="presentation"
-                  viewBox="0 0 0 0"
                 >
                   <use
-                    xlink:href="#my-svg"
+                    xlink:href="#undefined"
                   />
                 </svg>
               </span>
@@ -196,10 +195,9 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
                   class="icon"
                   focusable="false"
                   role="presentation"
-                  viewBox="0 0 0 0"
                 >
                   <use
-                    xlink:href="#my-svg"
+                    xlink:href="#undefined"
                   />
                 </svg>
               </span>

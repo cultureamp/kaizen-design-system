@@ -1,5 +1,5 @@
 import * as React from "react"
-const styles = require("./Tooltip.scss")
+import styles from "./Tooltip.scss"
 import classnames from "classnames"
 
 type Position = "above" | "below"

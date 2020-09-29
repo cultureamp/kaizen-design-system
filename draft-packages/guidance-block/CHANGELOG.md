@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.3.3...@kaizen/draft-guidance-block@2.3.4) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [2.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.3.2...@kaizen/draft-guidance-block@2.3.3) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [2.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.3.1...@kaizen/draft-guidance-block@2.3.2) (2020-09-24)
+
+
+### Bug Fixes
+
+* Change styles from require to use import ([#782](https://github.com/cultureamp/kaizen-design-system/issues/782)) ([defd448](https://github.com/cultureamp/kaizen-design-system/commit/defd4483faa3459d9af48e272c63656798008a28))
+
+
+
+
+
+## [2.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.3.0...@kaizen/draft-guidance-block@2.3.1) (2020-09-23)
+
+
+### Bug Fixes
+
+* Changed icons to use import, added types for icons ([#781](https://github.com/cultureamp/kaizen-design-system/issues/781)) ([e0856a8](https://github.com/cultureamp/kaizen-design-system/commit/e0856a84e3b39d3dc1bfa910b0b973bd65e170c9))
+
+
+
+
+
 # [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.2.37...@kaizen/draft-guidance-block@2.3.0) (2020-09-21)
 
 

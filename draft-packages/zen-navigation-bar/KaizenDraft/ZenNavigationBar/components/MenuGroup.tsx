@@ -5,7 +5,7 @@ import { MenuGroupProps, MenuItemProps } from "../types"
 import Link from "./Link"
 import MenuItem from "./MenuItem"
 
-const styles = require("./MenuGroup.module.scss")
+import styles from "./MenuGroup.module.scss"
 
 const MenuGroup = ({
   title,

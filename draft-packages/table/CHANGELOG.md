@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.60](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.59...@kaizen/draft-table@1.6.60) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [1.6.59](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.58...@kaizen/draft-table@1.6.59) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [1.6.58](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.57...@kaizen/draft-table@1.6.58) (2020-09-24)
+
+
+### Bug Fixes
+
+* Change styles from require to use import ([#782](https://github.com/cultureamp/kaizen-design-system/issues/782)) ([defd448](https://github.com/cultureamp/kaizen-design-system/commit/defd4483faa3459d9af48e272c63656798008a28))
+
+
+
+
+
+## [1.6.57](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.56...@kaizen/draft-table@1.6.57) (2020-09-23)
+
+
+### Bug Fixes
+
+* Changed icons to use import, added types for icons ([#781](https://github.com/cultureamp/kaizen-design-system/issues/781)) ([e0856a8](https://github.com/cultureamp/kaizen-design-system/commit/e0856a84e3b39d3dc1bfa910b0b973bd65e170c9))
+
+
+
+
+
+## [1.6.56](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.55...@kaizen/draft-table@1.6.56) (2020-09-22)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [1.6.55](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.54...@kaizen/draft-table@1.6.55) (2020-09-21)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
 ## [1.6.54](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.53...@kaizen/draft-table@1.6.54) (2020-09-11)
 
 **Note:** Version bump only for package @kaizen/draft-table

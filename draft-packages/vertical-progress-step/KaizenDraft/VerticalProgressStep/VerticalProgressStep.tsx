@@ -1,7 +1,7 @@
 import { Heading } from "@kaizen/component-library"
 import * as React from "react"
 
-const styles = require("./VerticalProgressStep.module.scss")
+import styles from "./VerticalProgressStep.module.scss"
 
 import {
   Completion,

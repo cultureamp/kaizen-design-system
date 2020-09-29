@@ -1,6 +1,6 @@
 import * as React from "react"
 
-const styles = require("./Dropdown.module.scss")
+import styles from "./Dropdown.module.scss"
 
 type DropdownMenuProps = {
   hideDropdownMenu: () => void

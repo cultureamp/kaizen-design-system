@@ -9,11 +9,9 @@ import borderTokens from "@kaizen/design-tokens/tokens/border.json"
 import spacingTokens from "@kaizen/design-tokens/tokens/spacing.json"
 import { KeyboardNavigableList } from "./KeyboardNavigableList"
 
-const chevronLeft = require("@kaizen/component-library/icons/chevron-left.icon.svg")
-  .default
-const chevronRight = require("@kaizen/component-library/icons/chevron-right.icon.svg")
-  .default
-const styles = require("./styles.module.scss")
+import chevronLeft from "@kaizen/component-library/icons/chevron-left.icon.svg"
+import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
+import styles from "./styles.module.scss"
 
 export type MenuWidth = "default" | "contain"
 export type MenuDirection = "ltr" | "rtl"

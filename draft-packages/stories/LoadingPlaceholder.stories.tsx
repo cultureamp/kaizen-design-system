@@ -2,7 +2,7 @@ import { Heading, Paragraph } from "@kaizen/component-library"
 import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
 import * as React from "react"
 
-const styles = require("./LoadingPlaceholder.stories.scss")
+import styles from "./LoadingPlaceholder.stories.scss"
 
 const StoryContainer: React.FunctionComponent = ({ children }) => (
   <div className={styles.storyContainer}>{children}</div>

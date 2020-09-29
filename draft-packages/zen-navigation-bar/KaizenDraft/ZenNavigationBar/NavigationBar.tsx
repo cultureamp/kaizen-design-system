@@ -15,7 +15,7 @@ import {
   NavigationItem,
 } from "./types"
 
-const styles = require("./NavigationBar.module.scss")
+import styles from "./NavigationBar.module.scss"
 
 type Props = {
   environment?: "production" | "staging" | "test" | "local"

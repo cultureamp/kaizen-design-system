@@ -13,12 +13,10 @@ import Link from "./Link"
 import MenuGroup from "./MenuGroup"
 import Indicator from "./Indicator"
 
-const arrowLeftIcon = require("@kaizen/component-library/icons/arrow-left.icon.svg")
-  .default
-const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
-  .default
+import arrowLeftIcon from "@kaizen/component-library/icons/arrow-left.icon.svg"
+import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 
-const styles = require("./Menu.module.scss")
+import styles from "./Menu.module.scss"
 
 type State = {
   open: boolean

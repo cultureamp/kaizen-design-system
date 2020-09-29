@@ -70,7 +70,7 @@ main =
                         )
                     ]
                     False
-        , storyOf "Default, Prefilled Value" config <|
+        , storyOf "Default, Controlled, Prefilled Value" config <|
             \m ->
                 storyContainer
                     [ TextAreaField.view
@@ -81,6 +81,22 @@ main =
                             |> TextAreaField.autoComplete False
                             |> TextAreaField.onBlurWithValue TextFieldMsg
                             |> TextAreaField.textAreaValue "A prefilled value in controlled mode"
+                            |> TextAreaField.onEnter TextFieldEnter
+                            |> TextAreaField.rows 4
+                        )
+                    ]
+                    False
+        , storyOf "Default, Uncontrolled, Prefilled Value" config <|
+            \m ->
+                storyContainer
+                    [ TextAreaField.view
+                        (TextAreaField.default
+                            |> TextAreaField.id "the-id"
+                            |> TextAreaField.labelText "Your reply"
+                            |> TextAreaField.controlled False
+                            |> TextAreaField.autoComplete False
+                            |> TextAreaField.onBlurWithValue TextFieldMsg
+                            |> TextAreaField.textAreaValue "A prefilled value in uncontrolled mode"
                             |> TextAreaField.onEnter TextFieldEnter
                             |> TextAreaField.rows 4
                         )

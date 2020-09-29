@@ -14,12 +14,10 @@ import {
 } from "@kaizen/draft-modal"
 import { action } from "@storybook/addon-actions"
 import * as React from "react"
-const lockIcon = require("@kaizen/component-library/icons/lock.icon.svg")
-  .default
-const userIcon = require("@kaizen/component-library/icons/user.icon.svg")
-  .default
+import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
+import userIcon from "@kaizen/component-library/icons/user.icon.svg"
 
-const styles = require("./Modal.stories.scss")
+import styles from "./Modal.stories.scss"
 
 class ModalStateContainer extends React.Component<
   {

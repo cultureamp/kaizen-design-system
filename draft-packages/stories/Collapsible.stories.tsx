@@ -2,10 +2,8 @@ import { Icon, Paragraph } from "@kaizen/component-library"
 import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible"
 import { action } from "@storybook/addon-actions"
 import * as React from "react"
-
-const styles = require("./Collapsible.stories.scss")
-const translationIcon = require("@kaizen/component-library/icons/translation.icon.svg")
-  .default
+import styles from "./Collapsible.stories.scss"
+import translationIcon from "@kaizen/component-library/icons/translation.icon.svg"
 
 const ListItem = ({ children }: { children: JSX.Element }) => (
   <div className={styles.listItem}>{children}</div>

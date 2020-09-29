@@ -2,7 +2,7 @@ import { Checkbox, CheckedStatus, Label } from "@kaizen/draft-form"
 import classnames from "classnames"
 import * as React from "react"
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 export type CheckboxFieldProps = {
   id?: string

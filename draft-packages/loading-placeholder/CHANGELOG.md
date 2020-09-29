@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.52](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.3.51...@kaizen/draft-loading-placeholder@1.3.52) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-loading-placeholder
+
+
+
+
+
+## [1.3.51](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.3.50...@kaizen/draft-loading-placeholder@1.3.51) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-loading-placeholder
+
+
+
+
+
+## [1.3.50](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.3.49...@kaizen/draft-loading-placeholder@1.3.50) (2020-09-24)
+
+
+### Bug Fixes
+
+* Change styles from require to use import ([#782](https://github.com/cultureamp/kaizen-design-system/issues/782)) ([defd448](https://github.com/cultureamp/kaizen-design-system/commit/defd4483faa3459d9af48e272c63656798008a28))
+
+
+
+
+
+## [1.3.49](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.3.48...@kaizen/draft-loading-placeholder@1.3.49) (2020-09-23)
+
+**Note:** Version bump only for package @kaizen/draft-loading-placeholder
+
+
+
+
+
 ## [1.3.48](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.3.47...@kaizen/draft-loading-placeholder@1.3.48) (2020-09-11)
 
 **Note:** Version bump only for package @kaizen/draft-loading-placeholder

@@ -1,12 +1,10 @@
 import { Icon } from "@kaizen/component-library"
-const checkIcon = require("@kaizen/component-library/icons/check.icon.svg")
-  .default
-const minusIcon = require("@kaizen/component-library/icons/minus.icon.svg")
-  .default
+import checkIcon from "@kaizen/component-library/icons/check.icon.svg"
+import minusIcon from "@kaizen/component-library/icons/minus.icon.svg"
 import classnames from "classnames"
 import * as React from "react"
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 export type CheckedStatus = "on" | "off" | "mixed"
 

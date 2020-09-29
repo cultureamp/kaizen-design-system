@@ -10,12 +10,11 @@ import {
  * this rule off.
  */
 // eslint-disable-next-line import/no-extraneous-dependencies
-const arrowLeftIcon = require("@kaizen/component-library/icons/arrow-left.icon.svg")
-  .default
+import arrowLeftIcon from "@kaizen/component-library/icons/arrow-left.icon.svg"
 
 // eslint-disable-next-line import/no-extraneous-dependencies
-const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
-  .default
+import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
+
 import classNames from "classnames"
 import * as React from "react"
 import Media from "react-media"
@@ -24,7 +23,7 @@ import { MenuGroup, MenuItem, MenuProps } from "../types"
 import Link from "./Link"
 import Indicator from "./Indicator"
 
-const styles = require("./Menu.module.scss")
+import styles from "./Menu.module.scss"
 
 type State = {
   open: boolean

@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [7.31.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.30.7...@kaizen/component-library@7.31.0) (2020-09-28)
+
+
+### Features
+
+* add positive, negative and neutral delta icons ([#793](https://github.com/cultureamp/kaizen-design-system/issues/793)) ([7f31fda](https://github.com/cultureamp/kaizen-design-system/commit/7f31fda68f2d128b71bf097b84855ac5ea6c9228))
+
+
+
+
+
+## [7.30.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.30.6...@kaizen/component-library@7.30.7) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.30.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.30.5...@kaizen/component-library@7.30.6) (2020-09-24)
+
+
+### Bug Fixes
+
+* Change styles from require to use import ([#782](https://github.com/cultureamp/kaizen-design-system/issues/782)) ([defd448](https://github.com/cultureamp/kaizen-design-system/commit/defd4483faa3459d9af48e272c63656798008a28))
+
+
+
+
+
+## [7.30.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.30.4...@kaizen/component-library@7.30.5) (2020-09-23)
+
+
+### Bug Fixes
+
+* Changed icons to use import, added types for icons ([#781](https://github.com/cultureamp/kaizen-design-system/issues/781)) ([e0856a8](https://github.com/cultureamp/kaizen-design-system/commit/e0856a84e3b39d3dc1bfa910b0b973bd65e170c9))
+
+
+
+
+
 ## [7.30.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.30.3...@kaizen/component-library@7.30.4) (2020-09-11)
 
 **Note:** Version bump only for package @kaizen/component-library
