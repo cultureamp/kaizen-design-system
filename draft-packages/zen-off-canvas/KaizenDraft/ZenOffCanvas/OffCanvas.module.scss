@@ -34,45 +34,12 @@ $menu-footer-height: 80px;
 }
 
 .trigger {
-  @include button-reset;
   position: absolute;
-  top: $ca-grid / 2;
-  left: $ca-grid / 2;
+  top: 0;
+  left: 0;
   color: $kz-color-cluny-500;
-  height: $hamburger-width;
-  width: $hamburger-width;
-  padding-bottom: $hamburger-layer-height;
-
   &:hover {
     cursor: pointer;
-  }
-}
-
-.hamburger {
-  width: $hamburger-width;
-  height: $hamburger-layer-height;
-  background-color: $kz-color-cluny-500;
-  position: relative;
-  display: block;
-
-  &::before {
-    content: "";
-    width: $hamburger-width;
-    height: $hamburger-layer-height;
-    position: absolute;
-    top: $hamburger-layer-height + $hamburger-layer-spacing;
-    left: 0;
-    background-color: $kz-color-cluny-500;
-  }
-
-  &::after {
-    content: "";
-    width: $hamburger-width;
-    height: $hamburger-layer-height;
-    position: absolute;
-    top: ($hamburger-layer-height + $hamburger-layer-spacing) * 2;
-    left: 0;
-    background-color: $kz-color-cluny-500;
   }
 }
 

@@ -6,6 +6,8 @@ import Header from "./components/Header"
 import Menu from "./components/Menu"
 
 import styles from "./OffCanvas.module.scss"
+import { IconButton } from "@kaizen/draft-button"
+import hamburgerIcon from "@kaizen/component-library/icons/hamburger.icon.svg"
 
 type ZenOffCanvasProps = {
   links?: any
@@ -125,18 +127,23 @@ export const ZenOffCanvas: React.FunctionComponent<ZenOffCanvasProps> = ({
   )
 }
 
-export const ZenControlledOffCanvas: React.FunctionComponent<ZenOffCanvasProps> = props => (
+export const ZenControlledOffCanvas: React.FunctionComponent<
+  ZenOffCanvasProps & { withTrigger: boolean }
+> = props => (
   <ZenOffCanvasProvider>
-    <OffCanvasContext.Consumer>
-      {({ toggleVisibleMenu }) => (
-        <button
-          className={styles.trigger}
-          onClick={() => toggleVisibleMenu(props.menuId)}
-        >
-          <span className={styles.hamburger} />
-        </button>
-      )}
-    </OffCanvasContext.Consumer>
+    {props.withTrigger && (
+      <OffCanvasContext.Consumer>
+        {({ toggleVisibleMenu }) => (
+          <span className={styles.trigger}>
+            <IconButton
+              label="Open Navigation"
+              icon={hamburgerIcon}
+              onClick={() => toggleVisibleMenu(props.menuId)}
+            />
+          </span>
+        )}
+      </OffCanvasContext.Consumer>
+    )}
     <ZenOffCanvas {...props} />
   </ZenOffCanvasProvider>
 )

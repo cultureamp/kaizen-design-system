@@ -2,7 +2,7 @@ import * as React from "react"
 
 import {
   ZenControlledOffCanvas,
-  toggleMobileNavigation,
+  toggleZenOffCanvas,
 } from "@kaizen/draft-zen-off-canvas"
 import classNames from "classnames"
 import Media from "react-media"
@@ -31,6 +31,7 @@ type Props = {
     mobile: React.ReactElement
   }
   footerComponent?: React.ReactNode
+  showMobileTrigger?: boolean
   children?: Navigation
 }
 const ROOT_MENU_ID = "mobile-navigation"
@@ -38,14 +39,15 @@ const ROOT_MENU_ID = "mobile-navigation"
 type State = {
   mobileKey: number
 }
+
 export const openMobileNavigation = () =>
-  toggleMobileNavigation({
+  toggleZenOffCanvas({
     id: ROOT_MENU_ID,
     state: "open",
   })
 
 export const closeMobileNavigation = () =>
-  toggleMobileNavigation({
+  toggleZenOffCanvas({
     id: ROOT_MENU_ID,
     state: "close",
   })
@@ -73,6 +75,7 @@ export default class NavigationBar extends React.Component<Props, State> {
       colorScheme = "cultureamp",
       headerComponent,
       onNavigationChange,
+      showMobileTrigger = true,
     } = this.props
 
     return (
@@ -87,6 +90,7 @@ export default class NavigationBar extends React.Component<Props, State> {
               onNavigationChange(event)
             }
           },
+          colorScheme,
           hasExtendedNavigation: !!children?.secondary?.length,
         }}
       >
@@ -102,6 +106,7 @@ export default class NavigationBar extends React.Component<Props, State> {
                 heading="Menu"
                 menuId={ROOT_MENU_ID}
                 colorScheme={colorScheme}
+                withTrigger={showMobileTrigger}
               />
             ) : (
               <header
