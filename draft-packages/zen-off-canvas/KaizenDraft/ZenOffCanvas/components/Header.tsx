@@ -27,12 +27,14 @@ const Header = ({
   >
     {leftComponent}
     <span className={styles.heading}>{heading}</span>
-    <IconButton
-      label="Close"
-      icon={closeIcon}
-      onClick={onClose}
-      reversed={colorScheme !== "content"}
-    />
+    <span className={styles.close}>
+      <IconButton
+        label="Close"
+        icon={closeIcon}
+        onClick={onClose}
+        reversed={colorScheme !== "content"}
+      />
+    </span>
   </div>
 )
 
