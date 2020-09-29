@@ -8,6 +8,7 @@ import Menu from "./components/Menu"
 import styles from "./OffCanvas.module.scss"
 import { IconButton } from "@kaizen/draft-button"
 import hamburgerIcon from "@kaizen/component-library/icons/hamburger.icon.svg"
+import { GenericModal, ModalBody } from "@kaizen/draft-modal"
 
 type ZenOffCanvasProps = {
   links?: any
@@ -49,7 +50,15 @@ export const OffCanvasContext = React.createContext<OffCanvasContext>({
   resetVisibleMenus: () => undefined,
 })
 
-export const ZenOffCanvasProvider: React.FunctionComponent = ({ children }) => {
+type ZenOffCanvasProvider = {
+  children: React.ReactNode
+  outside?: React.ReactNode
+}
+
+export const ZenOffCanvasProvider: React.FunctionComponent<ZenOffCanvasProvider> = ({
+  children,
+  outside,
+}) => {
   const [visibleMenus, setVisibleMenus] = useState<string[]>([])
 
   useEffect(() => {
@@ -80,8 +89,16 @@ export const ZenOffCanvasProvider: React.FunctionComponent = ({ children }) => {
         toggleVisibleMenu,
         resetVisibleMenus,
       }}
-      children={children}
-    />
+    >
+      {outside}
+      <GenericModal
+        isOpen={visibleMenus.length > 0}
+        onEscapeKeyup={resetVisibleMenus}
+        onOutsideModalClick={resetVisibleMenus}
+      >
+        <ModalBody>{children}</ModalBody>
+      </GenericModal>
+    </OffCanvasContext.Provider>
   )
 }
 
@@ -130,20 +147,23 @@ export const ZenOffCanvas: React.FunctionComponent<ZenOffCanvasProps> = ({
 export const ZenControlledOffCanvas: React.FunctionComponent<
   ZenOffCanvasProps & { withTrigger: boolean }
 > = props => (
-  <ZenOffCanvasProvider>
-    {props.withTrigger && (
-      <OffCanvasContext.Consumer>
-        {({ toggleVisibleMenu }) => (
-          <span className={styles.trigger}>
-            <IconButton
-              label="Open Navigation"
-              icon={hamburgerIcon}
-              onClick={() => toggleVisibleMenu(props.menuId)}
-            />
-          </span>
-        )}
-      </OffCanvasContext.Consumer>
-    )}
+  <ZenOffCanvasProvider
+    outside={
+      props.withTrigger && (
+        <OffCanvasContext.Consumer>
+          {({ toggleVisibleMenu }) => (
+            <span className={styles.trigger}>
+              <IconButton
+                label="Open Navigation"
+                icon={hamburgerIcon}
+                onClick={() => toggleVisibleMenu(props.menuId)}
+              />
+            </span>
+          )}
+        </OffCanvasContext.Consumer>
+      )
+    }
+  >
     <ZenOffCanvas {...props} />
   </ZenOffCanvasProvider>
 )
