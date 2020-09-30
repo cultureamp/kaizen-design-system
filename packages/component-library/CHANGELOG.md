@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.31.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.31.0...@kaizen/component-library@7.31.1) (2020-09-30)
+
+
+### Bug Fixes
+
+* rename delta icons to follow naming convention '.icon.svg' ([#797](https://github.com/cultureamp/kaizen-design-system/issues/797)) ([b4a6da8](https://github.com/cultureamp/kaizen-design-system/commit/b4a6da83120a284d5d6b25a553466b86017fe719))
+
+
+
+
+
 # [7.31.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.30.7...@kaizen/component-library@7.31.0) (2020-09-28)
 
 
