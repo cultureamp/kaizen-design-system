@@ -11,4 +11,7 @@
 <!--- What types of changes does your code introduce? Put an `x` in all the boxes that apply: -->
 - [ ] If this contains visual changes, has it been reviewed by a designer? 
 - [ ] Does there need to be right-to-left (RTL) options for localization and internationalization?
-- [ ] Have you built this component with Culture Amp's Web Accessibility guide in mind - [Current Compliance, Going Forward, Statement and Answers for Customers](https://cultureamp.atlassian.net/wiki/spaces/Prod/pages/428572998/Web+Accessibility).
+- [ ] Has the test suite been updated?
+- [ ] Have you done cross-browser testing for our [supported browsers](https://academy.cultureamp.com/hc/en-us/articles/204539569-Supported-browsers-for-Participants)?
+- [ ] Have you updated any relevant documentation or left useful comments in the code?
+- [ ] Have you reviewed Culture Amp's Web Accessibility guide [Current Compliance, Going Forward, Statement and Answers for Customers](https://cultureamp.atlassian.net/wiki/spaces/Prod/pages/428572998/Web+Accessibility)?
