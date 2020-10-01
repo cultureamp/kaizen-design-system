@@ -5,6 +5,7 @@ import {
   ConfirmationModal,
   GenericModal,
   InformationModal,
+  RoadblockModal,
   InputEditModal,
   ModalAccessibleDescription,
   ModalAccessibleLabel,
@@ -681,4 +682,30 @@ export const NestedModal = () => (
 
 NestedModal.story = {
   name: "Nested confirmation modal",
+}
+
+export const Roadblock = () => (
+  <ModalStateContainer isInitiallyOpen={false}>
+    {({ open, close, isOpen }) => (
+      <div>
+        <Button label="Open modal" onClick={open} />
+        <RoadblockModal
+          isOpen={isOpen}
+          title="Roadblock title"
+          onDismiss={close}
+        >
+          <div style={{ textAlign: "center" }}>
+            <Paragraph variant="body">
+              Tell users why they're unable to proceed and what needs to happen
+              first.
+            </Paragraph>
+          </div>
+        </RoadblockModal>
+      </div>
+    )}
+  </ModalStateContainer>
+)
+
+Roadblock.story = {
+  name: "Roadblock",
 }
