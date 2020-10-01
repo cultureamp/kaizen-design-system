@@ -1,13 +1,9 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
-
-// override Murmur global styles :(
-.header h1 {
-  color: $kz-color-white;
-}
 
 .modal {
   composes: genericModal from "../Primitives/GenericModal.scss";
@@ -17,11 +13,16 @@
 
 .header {
   color: $kz-color-white;
-  padding: $ca-grid $ca-grid $ca-grid * 1.5;
+  padding: $kz-spacing-lg $kz-spacing-md $kz-spacing-lg;
   text-align: center;
   background-repeat: no-repeat;
   border-radius: $kz-border-solid-border-radius $kz-border-solid-border-radius 0
     0;
+
+  // override Murmur global styles :(
+  h1 {
+    color: $kz-color-white;
+  }
 }
 
 .positiveHeader {
@@ -45,26 +46,13 @@
 }
 
 .iconContainer {
-  height: 150px;
-  width: 150px;
   position: relative;
-  margin: 0 auto $ca-grid * 0.5;
-}
-
-.iconBackground {
-  width: 150px;
-
-  > circle {
-    fill: rgba($kz-color-white, 0.1);
-  }
+  margin: 0 auto $kz-spacing-sm;
 }
 
 .icon {
-  @include ca-position($top: 30px, $start: 30px);
-  position: absolute;
-
   > svg {
-    width: 90px;
-    height: 90px;
+    width: 155px;
+    height: 155px;
   }
 }

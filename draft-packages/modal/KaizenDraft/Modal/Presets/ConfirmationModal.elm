@@ -207,24 +207,29 @@ header config =
     let
         resolveIcon =
             case config.variant of
-                Positive ->
-                    svgAsset "@kaizen/component-library/icons/success.icon.svg"
+                Cautionary ->
+                    svgAsset "@kaizen/draft-modal/KaizenDraft/Modal/illustrations/cautionary.icon.svg"
 
-                _ ->
-                    svgAsset "@kaizen/component-library/icons/information.icon.svg"
+                Informative ->
+                    svgAsset "@kaizen/draft-modal/KaizenDraft/Modal/illustrations/informative.icon.svg"
+
+                Negative ->
+                    svgAsset "@kaizen/draft-modal/KaizenDraft/Modal/illustrations/negative.icon.svg"
+
+                Positive ->
+                    svgAsset "@kaizen/draft-modal/KaizenDraft/Modal/illustrations/positive.icon.svg"
     in
     div
         [ styles.classList
             [ ( .header, True )
-            , ( .informativeHeader, config.variant == Informative )
-            , ( .positiveHeader, config.variant == Positive )
-            , ( .negativeHeader, config.variant == Negative )
             , ( .cautionaryHeader, config.variant == Cautionary )
+            , ( .informativeHeader, config.variant == Informative )
+            , ( .negativeHeader, config.variant == Negative )
+            , ( .positiveHeader, config.variant == Positive )
             ]
         ]
         [ div [ styles.class .iconContainer ]
-            [ svg [ class <| styles.toString .iconBackground ] [ circle [ cx "75", cy "75", r "75" ] [] ]
-            , div [ styles.class .icon ]
+            [ div [ styles.class .icon ]
                 [ Icon.view Icon.presentation
                     resolveIcon
                     |> Html.map never
@@ -423,12 +428,11 @@ confirmId id_ (Config config) =
 styles =
     css "@kaizen/draft-modal/KaizenDraft/Modal/Presets/ConfirmationModal.scss"
         { header = "header"
+        , cautionaryHeader = "cautionaryHeader"
         , informativeHeader = "informativeHeader"
         , negativeHeader = "negativeHeader"
         , positiveHeader = "positiveHeader"
-        , cautionaryHeader = "cautionaryHeader"
         , iconContainer = "iconContainer"
-        , iconBackground = "iconBackground"
         , icon = "icon"
         }
 

@@ -2,9 +2,10 @@ import classnames from "classnames"
 import * as React from "react"
 
 import { Heading, Icon } from "@kaizen/component-library"
-import information from "@kaizen/component-library/icons/information.icon.svg"
-import success from "@kaizen/component-library/icons/success.icon.svg"
-import exclamation from "@kaizen/component-library/icons/exclamation.icon.svg"
+import cautionary from "../illustrations/cautionary.icon.svg"
+import informative from "../illustrations/informative.icon.svg"
+import negative from "../illustrations/negative.icon.svg"
+import positive from "../illustrations/positive.icon.svg"
 
 import {
   GenericModal,
@@ -34,12 +35,14 @@ type ModalType = "positive" | "informative" | "negative" | "cautionary"
 
 const getIcon = (type: ModalType) => {
   switch (type) {
-    case "positive":
-      return success
     case "cautionary":
-      return exclamation
-    default:
-      return information
+      return cautionary
+    case "informative":
+      return informative
+    case "negative":
+      return negative
+    case "positive":
+      return positive
   }
 }
 
@@ -64,16 +67,13 @@ const ConfirmationModal = ({
       <ModalHeader unpadded reversed onDismiss={onDismiss}>
         <div
           className={classnames(styles.header, {
-            [styles.positiveHeader]: type === "positive",
+            [styles.cautionaryHeader]: type === "cautionary",
             [styles.informativeHeader]: type === "informative",
             [styles.negativeHeader]: type === "negative",
-            [styles.cautionaryHeader]: type === "cautionary",
+            [styles.positiveHeader]: type === "positive",
           })}
         >
           <div className={styles.iconContainer}>
-            <svg className={styles.iconBackground}>
-              <circle cx="75" cy="75" r="75" />
-            </svg>
             <div className={styles.icon}>
               <Icon icon={getIcon(type)} role="presentation" />
             </div>
