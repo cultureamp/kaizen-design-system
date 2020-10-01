@@ -578,4 +578,93 @@ describe("<TitleBlockZen />", () => {
       expect(testOnClickFn).not.toHaveBeenCalled()
     })
   })
+
+  describe("automation ID behaviour", () => {
+    describe("when default automation IDs are not provided alongside required conditional renders", () => {
+      it("renders the default automation IDs", () => {
+        const automationdIds = {
+          titleAutomationId: "TitleBlock__Title",
+          avatarAutomationId: "TitleBlock__Avatar",
+          subtitleAutomationId: "TitleBlock__Subtitle",
+          sectionTitleAutomationId: "TitleBlock__SectionTitle",
+          sectionTitleDescriptionAutomationId:
+            "TitleBlock__SectionTitleDescription",
+          breadcrumbAutomationId: "TitleBlock__Breadcrumb",
+          breadcrumbTextAutomationId: "TitleBlock__BreadcrumbText",
+        }
+
+        const { container } = render(
+          <TitleBlockZen
+            title="Test Title"
+            subtitle="Test Subtitle"
+            avatar={<div>Test JSX Avatar Component</div>}
+            breadcrumb={{
+              text: "Test Breadcrumb",
+              path: "/",
+              handleClick: () => jest.fn(),
+            }}
+            sectionTitle="Test Section Title"
+            sectionTitleDescription="Test Section Title Description"
+          >
+            Example
+          </TitleBlockZen>
+        )
+
+        for (const automationId of Object.values(automationdIds)) {
+          expect(
+            container.querySelector(`[data-automation-id="${automationId}"]`)
+          ).toBeTruthy
+        }
+      })
+    })
+
+    describe("when default automation IDs are provided alongside required conditional renders", () => {
+      it("renders the provided automation IDs", () => {
+        const automationdIds = {
+          titleAutomationId: "titleBlockTitle",
+          avatarAutomationId: "titleBlockAvatar",
+          subtitleAutomationId: "titleBlockSubtitle",
+          sectionTitleAutomationId: "titleBlockSectionTitle",
+          sectionTitleDescriptionAutomationId:
+            "titleBlockSectionTitleDescription",
+          breadcrumbAutomationId: "breadcrumbAutomationId",
+          breadcrumbTextAutomationId: "breadcrumbTextAutomationId",
+        }
+
+        const { container } = render(
+          <TitleBlockZen
+            title="Test Title"
+            subtitle="Test Subtitle"
+            avatar={<div>Test JSX Avatar Component</div>}
+            breadcrumb={{
+              text: "Test Breadcrumb",
+              path: "/",
+              handleClick: () => jest.fn(),
+            }}
+            sectionTitle="Test Section Title"
+            sectionTitleDescription="Test Section Title Description"
+            titleAutomationId={automationdIds.titleAutomationId}
+            avatarAutomationId={automationdIds.avatarAutomationId}
+            subtitleAutomationId={automationdIds.subtitleAutomationId}
+            sectionTitleAutomationId={automationdIds.sectionTitleAutomationId}
+            sectionTitleDescriptionAutomationId={
+              automationdIds.sectionTitleDescriptionAutomationId
+            }
+            breadcrumbAutomationId={automationdIds.breadcrumbAutomationId}
+            breadcrumbTextAutomationId={
+              automationdIds.breadcrumbTextAutomationId
+            }
+          >
+            Example
+          </TitleBlockZen>
+        )
+
+        for (const automationId of Object.values(automationdIds)) {
+          expect(
+            container.querySelector(`[data-automation-id="${automationId}"]`)
+          ).toBeTruthy()
+        }
+      })
+    })
+  })
 })

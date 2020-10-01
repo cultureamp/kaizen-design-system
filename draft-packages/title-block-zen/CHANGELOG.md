@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@2.1.1...@kaizen/draft-title-block-zen@2.2.0) (2020-10-01)
+
+
+### Features
+
+* Remove need to specify primary & reversed ([#801](https://github.com/cultureamp/kaizen-design-system/issues/801)) ([f2a926d](https://github.com/cultureamp/kaizen-design-system/commit/f2a926d8ebeaa5116941e9a6cece2a4b2f1cd047))
+
+
+
+
+
+## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@2.1.0...@kaizen/draft-title-block-zen@2.1.1) (2020-09-30)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@2.0.4...@kaizen/draft-title-block-zen@2.1.0) (2020-09-29)
+
+
+### Features
+
+* extend TitleBlockZen API for automation IDs ([#796](https://github.com/cultureamp/kaizen-design-system/issues/796)) ([26a1c4c](https://github.com/cultureamp/kaizen-design-system/commit/26a1c4cb8289399d488b86253c4848a1adcd7aeb))
+
+
+
+
+
 ## [2.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@2.0.3...@kaizen/draft-title-block-zen@2.0.4) (2020-09-28)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
