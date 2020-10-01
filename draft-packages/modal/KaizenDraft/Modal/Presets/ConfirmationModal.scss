@@ -26,31 +26,14 @@
 
 .positiveHeader {
   background-color: $kz-color-seedling-500;
-
-  @include ca-media-tablet-and-up {
-    background-image: url("../backgrounds/brush-positive.png");
-    background-position: -60% 70%;
-  }
 }
 
 .informativeHeader {
   background-color: $kz-color-cluny-500;
-
-  @include ca-media-tablet-and-up {
-    background-image: url("../backgrounds/brush-informative.png");
-    background-size: 65%;
-    background-position: bottom right;
-  }
 }
 
 .negativeHeader {
   background-color: $kz-color-coral-500;
-
-  @include ca-media-tablet-and-up {
-    background-image: url("../backgrounds/brush-negative.png");
-    background-size: 64%;
-    background-position: top right;
-  }
 }
 
 .cautionaryHeader {
