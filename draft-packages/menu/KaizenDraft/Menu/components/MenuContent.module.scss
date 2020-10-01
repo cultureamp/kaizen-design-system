@@ -42,6 +42,10 @@ $side-padding: 1/2 * $ca-grid;
   align-items: center;
   flex: 0 0 100%;
   box-sizing: border-box;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
   padding: 8px $side-padding;
   min-height: 1.75 * $ca-grid;
   border-radius: 4px;
@@ -80,6 +84,10 @@ $side-padding: 1/2 * $ca-grid;
         color: $kz-color-coral-600;
       }
     }
+  }
+
+  [dir="rtl"] & {
+    text-align: right;
   }
 }
 

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@3.1.13...@kaizen/draft-tabs@3.1.14) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
+## [3.1.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@3.1.12...@kaizen/draft-tabs@3.1.13) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
 ## [3.1.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@3.1.11...@kaizen/draft-tabs@3.1.12) (2020-09-30)
 
 **Note:** Version bump only for package @kaizen/draft-tabs
