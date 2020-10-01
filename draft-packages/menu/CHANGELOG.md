@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.3.25...@kaizen/draft-menu@2.4.0) (2020-10-01)
+
+
+### Features
+
+* SplitButton and Menu updates ([#785](https://github.com/cultureamp/kaizen-design-system/issues/785)) ([64f7f43](https://github.com/cultureamp/kaizen-design-system/commit/64f7f4303c272c9b6778105392810fb21ab66b5c))
+
+
+
+
+
 ## [2.3.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.3.24...@kaizen/draft-menu@2.3.25) (2020-09-30)
 
 **Note:** Version bump only for package @kaizen/draft-menu
