@@ -68,7 +68,8 @@ export const ConfirmationPositiveKaizenSiteDemo = () => (
         >
           <div style={{ textAlign: "center" }}>
             <Paragraph variant="body">
-              Additional subtext to aid the user can be added here.
+              Modals contain smaller pieces of content and can provide
+              additional information to aid the user.
             </Paragraph>
           </div>
         </ConfirmationModal>
@@ -95,7 +96,8 @@ export const ConfirmationInformative = () => (
         >
           <div style={{ textAlign: "center" }}>
             <Paragraph variant="body">
-              Additional subtext to aid the user can be added here.
+              Modals contain smaller pieces of content and can provide
+              additional information to aid the user.
             </Paragraph>
           </div>
         </ConfirmationModal>
@@ -122,7 +124,8 @@ export const ConfirmationCautionary = () => (
         >
           <div style={{ textAlign: "center" }}>
             <Paragraph variant="body">
-              Additional subtext to aid the user can be added here.
+              Modals contain smaller pieces of content and can provide
+              additional information to aid the user.
             </Paragraph>
           </div>
         </ConfirmationModal>
@@ -149,7 +152,8 @@ export const ConfirmationNegative = () => (
         >
           <div style={{ textAlign: "center" }}>
             <Paragraph tag="p" variant="body">
-              Additional subtext to aid the user can be added here.
+              Modals contain smaller pieces of content and can provide
+              additional information to aid the user.
             </Paragraph>
           </div>
         </ConfirmationModal>
@@ -649,7 +653,8 @@ export const NestedModal = () => (
               >
                 <div style={{ textAlign: "center" }}>
                   <Paragraph variant="body">
-                    Additional subtext to aid the user can be added here.
+                    Modals contain smaller pieces of content and can provide
+                    additional information to aid the user.
                   </Paragraph>
                 </div>
               </ConfirmationModal>
