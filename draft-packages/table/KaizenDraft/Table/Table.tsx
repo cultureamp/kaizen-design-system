@@ -12,6 +12,9 @@ export const TableContainer: TableContainer = ({ children, ...otherProps }) => (
   </div>
 )
 
+/**
+ * @deprecated backgroundColor is deprecated. Header props have transparet backgrounds
+ */
 export type AllowedTableHeaderBackgroundColors = "ash" | "white"
 
 type TableHeader = React.FunctionComponent<{
@@ -21,15 +24,20 @@ export const TableHeader: TableHeader = ({
   children,
   backgroundColor = "ash",
   ...otherProps
-}) => (
-  <div
-    className={classNames(styles.header, styles[backgroundColor])}
-    role="rowgroup"
-    {...otherProps}
-  >
-    {children}
-  </div>
-)
+}) => {
+  if (backgroundColor) {
+    // eslint-disable-next-line no-console
+    console.log(
+      "DEPRECATED: backgroundColor is deprecated - this prop has no effect"
+    )
+  }
+
+  return (
+    <div role="rowgroup" {...otherProps}>
+      {children}
+    </div>
+  )
+}
 
 type TableHeaderRow = React.FunctionComponent
 export const TableHeaderRow: TableHeaderRow = ({ children, ...otherProps }) => (
@@ -101,7 +109,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
     <button
       data-automation-id={automationId}
       style={style}
-      className={classNames(styles.headerRowCell, { [styles.active]: active })}
+      className={classNames(styles.headerRowCell)}
       onClick={onClick}
       role="columnheader"
       {...otherProps}
