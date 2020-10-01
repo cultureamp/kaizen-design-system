@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.32.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.32.0...@kaizen/component-library@7.32.1) (2020-10-01)
+
+
+### Bug Fixes
+
+* Revert z-index update to dropdown menu ([#802](https://github.com/cultureamp/kaizen-design-system/issues/802)) ([1630201](https://github.com/cultureamp/kaizen-design-system/commit/163020101b6809bf1110d52403e5a38892598f77))
+
+
+
+
+
 # [7.32.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.31.1...@kaizen/component-library@7.32.0) (2020-10-01)
 
 
