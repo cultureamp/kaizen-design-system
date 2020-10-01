@@ -63,6 +63,12 @@ $row-height: 60px;
   }
 }
 
+.active {
+  .header & {
+    background-color: $kz-color-wisteria-100;
+  }
+}
+
 .card {
   @include button-reset;
   background: $kz-color-white;

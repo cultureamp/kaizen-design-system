@@ -297,5 +297,5 @@ export const ExtraSpacing = () => (
 )
 
 ExtraSpacing.story = {
-  name: "Default variant",
+  name: "Default variant (extra spacing)",
 }

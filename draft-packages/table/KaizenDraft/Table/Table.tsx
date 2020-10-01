@@ -54,7 +54,11 @@ export const TableHeader: TableHeader = ({
 
 type TableHeaderRow = React.FunctionComponent
 export const TableHeaderRow: TableHeaderRow = ({ children, ...otherProps }) => (
-  <div className={styles.headerRow} role="rowheader" {...otherProps}>
+  <div
+    className={classNames(styles.headerRowCell)}
+    role="rowheader"
+    {...otherProps}
+  >
     {children}
   </div>
 )
@@ -122,7 +126,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
     <button
       data-automation-id={automationId}
       style={style}
-      className={classNames(styles.headerRowCell)}
+      className={classNames(styles.headerRowCell, { [styles.active]: active })}
       onClick={onClick}
       role="columnheader"
       {...otherProps}
