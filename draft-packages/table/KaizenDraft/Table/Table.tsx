@@ -5,15 +5,28 @@ import * as React from "react"
 import styles from "./styles.scss"
 import sortDescendingIcon from "@kaizen/component-library/icons/sort-descending.icon.svg"
 
-type TableContainer = React.FunctionComponent
-export const TableContainer: TableContainer = ({ children, ...otherProps }) => (
-  <div className={styles.container} role="table" {...otherProps}>
+type TableContainer = React.FunctionComponent<TableContainerProps>
+type TableContainerProps = {
+  variant?: "compact" | "default"
+}
+export const TableContainer: TableContainer = ({
+  variant = "compact",
+  children,
+  ...otherProps
+}) => (
+  <div
+    role="table"
+    className={classNames(styles.container, {
+      [styles.defaultSpacing]: variant === "default",
+    })}
+    {...otherProps}
+  >
     {children}
   </div>
 )
 
 /**
- * @deprecated backgroundColor is deprecated. Header props have transparet backgrounds
+ * @deprecated backgroundColor is deprecated. Header props now have transparet backgrounds
  */
 export type AllowedTableHeaderBackgroundColors = "ash" | "white"
 
@@ -21,8 +34,8 @@ type TableHeader = React.FunctionComponent<{
   backgroundColor?: AllowedTableHeaderBackgroundColors
 }>
 export const TableHeader: TableHeader = ({
+  backgroundColor,
   children,
-  backgroundColor = "ash",
   ...otherProps
 }) => {
   if (backgroundColor) {

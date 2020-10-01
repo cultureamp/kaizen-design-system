@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/color";
@@ -146,9 +147,13 @@ $row-height: 60px;
 
 .rowCell {
   min-height: $row-height;
-  padding: 0 $ca-grid * 0.8;
+  padding: 0 $kz-spacing-md;
   display: flex;
   align-items: center;
   // These css properties are required for when the cells are anchor elements
   composes: anchorReset;
+
+  .defaultSpacing & {
+    padding: $kz-spacing-md * 0.5 $kz-spacing-md;
+  }
 }
