@@ -1,5 +1,5 @@
 # Objective
-<!--- Describe what this change achieves -->
+<!-- Describe what this change achieves, and the details of how it works. -->
 
 # Motivation and Context 
 <!--- Why is this change required? What problem does it solve? -->
