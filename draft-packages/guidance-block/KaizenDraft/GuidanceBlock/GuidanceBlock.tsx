@@ -7,6 +7,7 @@ import {
 } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
+import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import classnames from "classnames"
 import * as React from "react"
 import styles from "./GuidanceBlock.scss"
@@ -28,6 +29,7 @@ type Props = {
     }
   }
   persistent?: boolean
+  prominent?: boolean
   withActionButtonArrow?: boolean
 }
 
@@ -76,13 +78,19 @@ class GuidanceBlock extends React.Component<Props, State> {
       img,
       text,
       persistent,
+      prominent,
       withActionButtonArrow,
     } = this.props
 
     return (
       <div
         className={this.bannerClassName()}
-        style={{ marginTop: this.marginTop() }}
+        style={{
+          marginTop: this.marginTop(),
+          backgroundColor: prominent
+            ? colorTokens.kz.color.cluny[100]
+            : colorTokens.kz.color.white,
+        }}
         ref={this.containerRef}
         onTransitionEnd={this.onTransitionEnd}
       >
