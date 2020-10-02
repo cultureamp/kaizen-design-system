@@ -40,8 +40,8 @@ export const TableHeader: TableHeader = ({
 }) => {
   if (backgroundColor) {
     // eslint-disable-next-line no-console
-    console.log(
-      "DEPRECATED: backgroundColor is deprecated - this prop has no effect"
+    console.warn(
+      "DEPRECATED(table): backgroundColor is deprecated - this prop has no effect"
     )
   }
 
