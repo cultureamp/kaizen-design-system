@@ -99,7 +99,7 @@ $row-height: 60px;
   }
 }
 
-// // target the first child card when there is a heading present
+// target the first child card when there is a heading present
 [role="rowgroup"] + .card {
   border-top-left-radius: $kz-border-solid-border-radius;
   border-top-right-radius: $kz-border-solid-border-radius;
