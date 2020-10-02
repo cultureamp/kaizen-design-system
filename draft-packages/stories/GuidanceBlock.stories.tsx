@@ -118,7 +118,7 @@ const Prominent = () => (
           },
         },
       }}
-      prominent
+      variant="prominent"
     />
   </div>
 )

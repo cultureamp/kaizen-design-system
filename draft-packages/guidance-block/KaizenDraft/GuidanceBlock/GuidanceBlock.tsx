@@ -7,7 +7,6 @@ import {
 } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import classnames from "classnames"
 import * as React from "react"
 import styles from "./GuidanceBlock.scss"
@@ -29,7 +28,7 @@ type Props = {
     }
   }
   persistent?: boolean
-  prominent?: boolean
+  variant?: "default" | "prominent"
   withActionButtonArrow?: boolean
 }
 
@@ -39,6 +38,7 @@ type State = {
 }
 class GuidanceBlock extends React.Component<Props, State> {
   static defaultProps = {
+    variant: "default",
     withActionButtonArrow: true,
   }
 
@@ -78,7 +78,6 @@ class GuidanceBlock extends React.Component<Props, State> {
       img,
       text,
       persistent,
-      prominent,
       withActionButtonArrow,
     } = this.props
 
@@ -87,9 +86,6 @@ class GuidanceBlock extends React.Component<Props, State> {
         className={this.bannerClassName()}
         style={{
           marginTop: this.marginTop(),
-          backgroundColor: prominent
-            ? colorTokens.kz.color.cluny[100]
-            : colorTokens.kz.color.white,
         }}
         ref={this.containerRef}
         onTransitionEnd={this.onTransitionEnd}
@@ -133,6 +129,7 @@ class GuidanceBlock extends React.Component<Props, State> {
   bannerClassName(): string {
     return classnames(styles.banner, {
       [styles.hidden]: this.state.hidden,
+      [styles.prominent]: this.props.variant === "prominent",
     })
   }
 
