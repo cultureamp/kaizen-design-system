@@ -30,16 +30,12 @@ $row-height: 60px;
   margin-bottom: $ca-grid * 0.5;
 }
 
-.headerRow {
-  display: flex;
-}
-
 .headerRowCell {
   @include button-reset;
   text-overflow: ellipsis;
   overflow-x: hidden;
   white-space: nowrap;
-  padding: 0 $ca-grid * 0.8;
+  padding: 0 $ca-grid;
   height: $ca-grid * 1.5;
   display: flex;
   align-items: center;

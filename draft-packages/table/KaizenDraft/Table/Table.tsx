@@ -54,11 +54,7 @@ export const TableHeader: TableHeader = ({
 
 type TableHeaderRow = React.FunctionComponent
 export const TableHeaderRow: TableHeaderRow = ({ children, ...otherProps }) => (
-  <div
-    className={classNames(styles.headerRowCell)}
-    role="rowheader"
-    {...otherProps}
-  >
+  <div className={classNames(styles.row)} role="rowheader" {...otherProps}>
     {children}
   </div>
 )
