@@ -241,7 +241,10 @@ header config =
 
 body : List (Html msg) -> Html msg
 body content =
-    ModalBody.view <| ModalBody.layout content
+    ModalBody.view <|
+        (ModalBody.layout [ div [ styles.class .body ] content ]
+            |> ModalBody.padded False
+        )
 
 
 footer : Configuration msg -> List (Html msg)
@@ -432,6 +435,7 @@ styles =
         , informativeHeader = "informativeHeader"
         , negativeHeader = "negativeHeader"
         , positiveHeader = "positiveHeader"
+        , body = "body"
         , iconContainer = "iconContainer"
         , svgIcon = "svgIcon"
         }

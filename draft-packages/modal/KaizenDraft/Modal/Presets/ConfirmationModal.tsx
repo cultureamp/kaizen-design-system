@@ -85,8 +85,10 @@ const ConfirmationModal = ({
           </ModalAccessibleLabel>
         </div>
       </ModalHeader>
-      <ModalBody>
-        <ModalAccessibleDescription>{children}</ModalAccessibleDescription>
+      <ModalBody unpadded>
+        <div className={styles.body}>
+          <ModalAccessibleDescription>{children}</ModalAccessibleDescription>
+        </div>
       </ModalBody>
       <ModalFooter
         actions={[

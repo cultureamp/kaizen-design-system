@@ -44,6 +44,10 @@
   }
 }
 
+.body {
+  padding: $kz-spacing-md $kz-spacing-xxxxl $kz-spacing-sm;
+}
+
 .iconContainer {
   position: relative;
   margin-bottom: $kz-spacing-sm;
