@@ -1,10 +1,13 @@
 import classnames from "classnames"
 import * as React from "react"
 
-import { Heading, Icon } from "@kaizen/component-library"
-import information from "@kaizen/component-library/icons/information.icon.svg"
-import success from "@kaizen/component-library/icons/success.icon.svg"
-import exclamation from "@kaizen/component-library/icons/exclamation.icon.svg"
+import { Heading } from "@kaizen/component-library"
+import {
+  Cautionary,
+  Informative,
+  Negative,
+  PositiveFemale,
+} from "@kaizen/draft-illustration"
 
 import {
   GenericModal,
@@ -34,12 +37,14 @@ type ModalType = "positive" | "informative" | "negative" | "cautionary"
 
 const getIcon = (type: ModalType) => {
   switch (type) {
-    case "positive":
-      return success
     case "cautionary":
-      return exclamation
-    default:
-      return information
+      return <Cautionary alt="" />
+    case "informative":
+      return <Informative alt="" />
+    case "negative":
+      return <Negative alt="" />
+    case "positive":
+      return <PositiveFemale alt="" />
   }
 }
 
@@ -64,19 +69,14 @@ const ConfirmationModal = ({
       <ModalHeader unpadded reversed onDismiss={onDismiss}>
         <div
           className={classnames(styles.header, {
-            [styles.positiveHeader]: type === "positive",
+            [styles.cautionaryHeader]: type === "cautionary",
             [styles.informativeHeader]: type === "informative",
             [styles.negativeHeader]: type === "negative",
-            [styles.cautionaryHeader]: type === "cautionary",
+            [styles.positiveHeader]: type === "positive",
           })}
         >
           <div className={styles.iconContainer}>
-            <svg className={styles.iconBackground}>
-              <circle cx="75" cy="75" r="75" />
-            </svg>
-            <div className={styles.icon}>
-              <Icon icon={getIcon(type)} role="presentation" />
-            </div>
+            <div className={styles.spotIcon}>{getIcon(type)}</div>
           </div>
           <ModalAccessibleLabel>
             <Heading tag="h1" variant="heading-1">
@@ -85,8 +85,10 @@ const ConfirmationModal = ({
           </ModalAccessibleLabel>
         </div>
       </ModalHeader>
-      <ModalBody>
-        <ModalAccessibleDescription>{children}</ModalAccessibleDescription>
+      <ModalBody unpadded>
+        <div className={styles.body}>
+          <ModalAccessibleDescription>{children}</ModalAccessibleDescription>
+        </div>
       </ModalBody>
       <ModalFooter
         actions={[
