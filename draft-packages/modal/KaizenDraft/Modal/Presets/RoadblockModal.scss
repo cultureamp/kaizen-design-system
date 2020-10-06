@@ -19,7 +19,7 @@
 
 .headerBackground {
   background-color: $kz-color-peach-500;
-  height: 125px;
+  height: 120px;
   position: absolute;
   top: 0;
   left: 0;
@@ -28,16 +28,17 @@
     0;
 }
 
-.iconContainer {
-  position: relative;
-  margin: 0 auto $kz-spacing-sm;
+.body {
+  padding: $kz-spacing-md $kz-spacing-xxxxl $kz-spacing-sm;
 }
 
-.icon {
-  margin-top: $kz-spacing-xs;
+.iconContainer {
+  position: relative;
+  margin-bottom: $kz-spacing-sm;
+}
 
-  > svg {
-    width: 155px;
-    height: 155px;
-  }
+.spotIcon {
+  width: 155px;
+  height: 155px;
+  margin: 0 auto;
 }

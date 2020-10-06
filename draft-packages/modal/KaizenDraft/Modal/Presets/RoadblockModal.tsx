@@ -1,8 +1,8 @@
 import classnames from "classnames"
 import * as React from "react"
 
-import { Heading, Icon } from "@kaizen/component-library"
-import roadblock from "../illustrations/roadblock.icon.svg"
+import { Heading } from "@kaizen/component-library"
+import { Negative } from "@kaizen/draft-illustration"
 
 import {
   GenericModal,
@@ -45,8 +45,8 @@ const RoadblockModal = ({
         <div className={styles.header}>
           <div className={styles.headerBackground}></div>
           <div className={styles.iconContainer}>
-            <div className={styles.icon}>
-              <Icon icon={roadblock} role="presentation" />
+            <div className={styles.spotIcon}>
+              <Negative alt="" />
             </div>
           </div>
           <ModalAccessibleLabel>
@@ -56,8 +56,10 @@ const RoadblockModal = ({
           </ModalAccessibleLabel>
         </div>
       </ModalHeader>
-      <ModalBody>
-        <ModalAccessibleDescription>{children}</ModalAccessibleDescription>
+      <ModalBody unpadded>
+        <div className={styles.body}>
+          <ModalAccessibleDescription>{children}</ModalAccessibleDescription>
+        </div>
       </ModalBody>
       <ModalFooter
         actions={[{ label: dismissLabel, action: onDismiss }]}
