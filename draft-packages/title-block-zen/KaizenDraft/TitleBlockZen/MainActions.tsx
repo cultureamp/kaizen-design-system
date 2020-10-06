@@ -64,7 +64,13 @@ const MainActions = ({
       ...(defaultAction
         ? [
             <Button
-              {...defaultAction}
+              {...{
+                ...defaultAction,
+                reversed:
+                  defaultAction.reversed !== undefined
+                    ? defaultAction.reversed
+                    : reversed,
+              }}
               data-automation-id="title-block-default-action-button"
             />,
           ]
@@ -95,7 +101,13 @@ const MainActions = ({
       ...(defaultAction
         ? [
             <Button
-              {...defaultAction}
+              {...{
+                ...defaultAction,
+                reversed:
+                  defaultAction.reversed !== undefined
+                    ? defaultAction.reversed
+                    : reversed,
+              }}
               data-automation-id="title-block-default-action-button"
             />,
           ]
@@ -103,7 +115,19 @@ const MainActions = ({
       ...(primaryAction
         ? [
             <ButtonAllowingAdditionalContent
-              {...primaryAction}
+              // Temporary grossness before we deprecate a mandatory
+              // optional field for primary in PrimaryActionProps
+              {...{
+                ...primaryAction,
+                primary:
+                  primaryAction.primary !== undefined
+                    ? primaryAction.primary
+                    : true,
+                reversed:
+                  primaryAction.reversed !== undefined
+                    ? primaryAction.reversed
+                    : reversed,
+              }}
               data-automation-id="title-block-primary-action-button"
               additionalContent={renderBadge(primaryAction.badge)}
             />,

@@ -52,14 +52,11 @@ export const Default = () => (
     primaryAction={{
       label: "Primary link",
       icon: addIcon,
-      reversed: true,
-      primary: true,
       disabled: true,
       href: "#",
     }}
     defaultAction={{
       label: "Default link",
-      reversed: true,
       href: "#",
     }}
     secondaryActions={SECONDARY_ACTIONS}
@@ -112,8 +109,6 @@ export const WithBadge = () => {
         label: "Click Me",
         icon: arrowForwardIcon,
         iconPosition: "end",
-        reversed: true,
-        primary: true,
         href: "#",
         onClick: () => setBadgeCount(b => b + 1),
         badge: {
@@ -123,7 +118,6 @@ export const WithBadge = () => {
       }}
       defaultAction={{
         label: "Default link",
-        reversed: true,
         onClick: () => setBadgeCount(b => b + 1),
         href: "#",
       }}
@@ -168,7 +162,6 @@ export const DefaultWithMenuButton = () => (
     defaultAction={{
       label: "Label",
       icon: addIcon,
-      reversed: true,
     }}
     secondaryActions={SECONDARY_ACTIONS}
     handleHamburgerClick={() => {
@@ -202,7 +195,10 @@ export const AdminVariant = () => (
     variant="admin"
     sectionTitle="Default questions"
     sectionTitleDescription="Default questions are surfaced automatically for managers when requesting feedback about their teams from colleagues. Default questions are editable by managers."
-    primaryAction={{ label: "Primary link", primary: true, href: "#" }}
+    primaryAction={{
+      label: "Primary link",
+      href: "#",
+    }}
     defaultAction={{ label: "Default link", href: "#" }}
     secondaryActions={SECONDARY_ACTIONS}
     handleHamburgerClick={() => {
@@ -225,7 +221,7 @@ export const AdminVariantWithNavTabs = () => (
   <TitleBlockZen
     title="Page title"
     variant="admin"
-    primaryAction={{ label: "Primary link", primary: true, href: "#" }}
+    primaryAction={{ label: "Primary link", href: "#" }}
     defaultAction={{ label: "Default link", href: "#" }}
     secondaryActions={SECONDARY_ACTIONS}
     handleHamburgerClick={() => {
@@ -261,7 +257,6 @@ export const EducationVariant = () => (
     sectionTitleDescription="Description of section can go here"
     primaryAction={{
       label: "Label",
-      primary: true,
     }}
     secondaryActions={SECONDARY_ACTIONS}
     secondaryOverflowMenuItems={[
@@ -302,14 +297,11 @@ export const Engagement = () => (
     primaryAction={{
       label: "Label",
       icon: addIcon,
-      reversed: true,
-      primary: true,
       href: "#",
     }}
     defaultAction={{
       label: "Label",
       icon: addIcon,
-      reversed: true,
       href: "#",
     }}
     secondaryActions={SECONDARY_ACTIONS}
@@ -352,13 +344,10 @@ export const Performance = () => (
     primaryAction={{
       href: "#",
       label: "Request feedback",
-      primary: true,
-      reversed: true,
     }}
     defaultAction={{
       href: "#",
       label: "Give feedback",
-      reversed: true,
     }}
     secondaryActions={[
       {
@@ -412,8 +401,6 @@ export const LongLabels = () => (
     surveyStatus={{ text: "Live", status: "live" }}
     primaryAction={{
       label: "Feedback anfordern",
-      reversed: true,
-      primary: true,
       href: "#",
       onClick: () => {
         alert("test")
@@ -421,7 +408,6 @@ export const LongLabels = () => (
     }}
     defaultAction={{
       label: "Feedback geben",
-      reversed: true,
       href: "#",
     }}
     secondaryActions={[
@@ -430,8 +416,6 @@ export const LongLabels = () => (
         onClick: () => {
           alert("test")
         },
-        secondary: true,
-        reversed: true,
         icon: commentIcon,
       },
       {
@@ -439,8 +423,6 @@ export const LongLabels = () => (
         onClick: () => {
           alert("test")
         },
-        secondary: true,
-        reversed: true,
         icon: starIcon,
       },
     ]}
@@ -509,7 +491,6 @@ export const DefaultWithContent = () => (
       defaultAction={{
         label: "Default link",
         icon: addIcon,
-        reversed: true,
         href: "#",
       }}
       secondaryActions={SECONDARY_ACTIONS}
@@ -625,13 +606,10 @@ export const DefaultNoSecondary = () => (
     primaryAction={{
       label: "Primary link",
       icon: addIcon,
-      reversed: true,
-      primary: true,
       href: "#",
     }}
     defaultAction={{
       label: "Default link",
-      reversed: true,
       href: "#",
     }}
     handleHamburgerClick={() => {
@@ -666,8 +644,6 @@ export const DefaultOnlyPrimary = () => (
     primaryAction={{
       label: "Primary link",
       icon: addIcon,
-      reversed: true,
-      primary: true,
       href: "#",
     }}
     handleHamburgerClick={() => {
@@ -725,8 +701,6 @@ export const DefaultWithReportSwitcher = () => (
     primaryAction={{
       label: "Primary link",
       icon: addIcon,
-      reversed: true,
-      primary: true,
       href: "#",
     }}
     handleHamburgerClick={() => {
@@ -761,14 +735,11 @@ export const DefaultNoLink = () => (
     primaryAction={{
       label: "Primary link",
       icon: addIcon,
-      reversed: true,
-      primary: true,
       disabled: true,
       href: "#",
     }}
     defaultAction={{
       label: "Default link",
-      reversed: true,
       href: "#",
     }}
     secondaryActions={SECONDARY_ACTIONS}

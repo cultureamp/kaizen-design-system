@@ -98,7 +98,9 @@ export type SelectProps = React.ComponentProps<typeof Select>
  */
 export type PrimaryActionProps =
   | (MenuGroup & { badge?: BadgeProps })
-  | (TitleBlockButtonProps & { primary: boolean; badge?: BadgeProps })
+  | (TitleBlockButtonProps & {
+      badge?: BadgeProps
+    })
 
 /**
  * ### SecondaryActionsProps
