@@ -2,10 +2,12 @@ import classnames from "classnames"
 import * as React from "react"
 
 import { Heading, Icon } from "@kaizen/component-library"
-import cautionary from "../illustrations/cautionary.icon.svg"
-import informative from "../illustrations/informative.icon.svg"
-import negative from "../illustrations/negative.icon.svg"
-import positive from "../illustrations/positive.icon.svg"
+import {
+  Cautionary,
+  Informative,
+  Negative,
+  PositiveFemale,
+} from "@kaizen/draft-illustration"
 
 import {
   GenericModal,
@@ -36,13 +38,13 @@ type ModalType = "positive" | "informative" | "negative" | "cautionary"
 const getIcon = (type: ModalType) => {
   switch (type) {
     case "cautionary":
-      return cautionary
+      return <Cautionary alt="" />
     case "informative":
-      return informative
+      return <Informative alt="" />
     case "negative":
-      return negative
+      return <Negative alt="" />
     case "positive":
-      return positive
+      return <PositiveFemale alt="" />
   }
 }
 
@@ -74,9 +76,7 @@ const ConfirmationModal = ({
           })}
         >
           <div className={styles.iconContainer}>
-            <div className={styles.icon}>
-              <Icon icon={getIcon(type)} role="presentation" />
-            </div>
+            <div className={styles.spotIcon}>{getIcon(type)}</div>
           </div>
           <ModalAccessibleLabel>
             <Heading tag="h1" variant="heading-1">

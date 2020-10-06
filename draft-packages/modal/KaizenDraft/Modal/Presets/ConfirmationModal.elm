@@ -229,7 +229,7 @@ header config =
             ]
         ]
         [ div [ styles.class .iconContainer ]
-            [ div [ styles.class .icon ]
+            [ div [ styles.class .svgIcon ]
                 [ Icon.view Icon.presentation
                     resolveIcon
                     |> Html.map never
@@ -433,7 +433,7 @@ styles =
         , negativeHeader = "negativeHeader"
         , positiveHeader = "positiveHeader"
         , iconContainer = "iconContainer"
-        , icon = "icon"
+        , svgIcon = "svgIcon"
         }
 
 

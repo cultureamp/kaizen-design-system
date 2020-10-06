@@ -46,12 +46,12 @@
 
 .iconContainer {
   position: relative;
-  margin: 0 auto $kz-spacing-sm;
+  margin-bottom: $kz-spacing-sm;
 }
 
-.icon {
-  > svg {
-    width: 155px;
-    height: 155px;
-  }
+.spotIcon,
+.svgIcon > svg {
+  width: 155px;
+  height: 155px;
+  margin: 0 auto;
 }
