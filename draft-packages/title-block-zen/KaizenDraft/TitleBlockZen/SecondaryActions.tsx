@@ -41,28 +41,31 @@ const SecondaryActions = ({
   if (!secondaryActions && !secondaryOverflowMenuItems) return null
 
   const secondaryActionsAsToolbarItems = secondaryActions
-    ? secondaryActions.map(a => {
+    ? secondaryActions.map((a, i) => {
         if ("menuItems" in a) {
-          return (
-            <Menu
-              align="right"
-              button={
-                <Button
-                  secondary
-                  label={a.label}
-                  reversed={reversed}
-                  icon={chevronDownIcon}
-                  iconPosition="end"
-                />
-              }
-            >
-              <MenuContent>
-                {a.menuItems.map(menuItem => (
-                  <MenuItem {...menuItem} />
-                ))}
-              </MenuContent>
-            </Menu>
-          )
+          return {
+            key: `${i}`, // We shouldn't use an index here
+            node: (
+              <Menu
+                align="right"
+                button={
+                  <Button
+                    secondary
+                    label={a.label}
+                    reversed={reversed}
+                    icon={chevronDownIcon}
+                    iconPosition="end"
+                  />
+                }
+              >
+                <MenuContent>
+                  {a.menuItems.map(menuItem => (
+                    <MenuItem {...menuItem} />
+                  ))}
+                </MenuContent>
+              </Menu>
+            ),
+          }
         } else {
           if ("onClick" in a && "href" in a) {
             // eslint-disable-next-line no-console
@@ -71,14 +74,17 @@ const SecondaryActions = ({
                 "either an href or an onClick, not both simultaneously.\n"
             )
           }
-          return (
-            <Button
-              secondary
-              reversed={reversed}
-              {...a}
-              data-automation-id="title-block-secondary-actions-button"
-            />
-          )
+          return {
+            key: `${i}`, // We shouldn't use an index here
+            node: (
+              <Button
+                secondary
+                reversed={reversed}
+                {...a}
+                data-automation-id="title-block-secondary-actions-button"
+              />
+            ),
+          }
         }
       })
     : []
@@ -90,7 +96,14 @@ const SecondaryActions = ({
 
   const toolbarItems = [
     ...secondaryActionsAsToolbarItems,
-    ...(overflowMenu ? [overflowMenu] : []),
+    ...(overflowMenu
+      ? [
+          {
+            key: "overflowMenu",
+            node: overflowMenu,
+          },
+        ]
+      : []),
   ]
 
   return (
