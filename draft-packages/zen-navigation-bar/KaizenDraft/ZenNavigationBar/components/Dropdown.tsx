@@ -43,11 +43,13 @@ const Dropdown = ({ items, header }: Props) => {
       <ul className={styles.menuItems}>
         {items.map((item, index) => {
           if ("url" in item) {
-            return <MenuItem key={`${item.url}-${uuid()}`} {...item} />
+            // This key should not be derived from the array index
+            return <MenuItem key={`${item.url}-${index}`} {...item} />
           } else if ("title" in item) {
             return (
               <MenuGroup
-                key={`${item.title}-${uuid()}`}
+                // This key should not be derived from the array index
+                key={`${item.title}-${index}`}
                 {...item}
                 first={index === 0}
               />

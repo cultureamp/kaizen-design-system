@@ -13,9 +13,10 @@ const MenuGroup = ({
   first = false,
   offCanvas,
 }: MenuGroupProps) => {
-  const renderOffCanvasMenuItem = (item: MenuItemProps) => (
+  const renderOffCanvasMenuItem = (item: MenuItemProps, index: number) => (
     <Link
-      key={`${item.url}-${uuid()}`}
+      // This key should not be derived from the array index
+      key={`${item.url}-${index}`}
       text={item.label}
       href={item.url}
       badge={item.badge}
