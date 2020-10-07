@@ -14,10 +14,6 @@ export default {
 
         Use VisuallyHidden when you want to visually hide an element, but still 
         make it available to screen reader users.
-
-        If the hidden element is focusable (e.g. a Link or Button), then when this element 
-        receives focus it will be visible. For more information, read 
-        [Hide Content](https://www.a11yproject.com/posts/2013-01-11-how-to-hide-content/).
       `,
     },
   },
