@@ -3,6 +3,144 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.7.6...@kaizen/draft-form@2.7.7) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.7.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.7.5...@kaizen/draft-form@2.7.6) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.7.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.7.4...@kaizen/draft-form@2.7.5) (2020-09-30)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.7.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.7.3...@kaizen/draft-form@2.7.4) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.7.2...@kaizen/draft-form@2.7.3) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.7.1...@kaizen/draft-form@2.7.2) (2020-09-24)
+
+
+### Bug Fixes
+
+* Change styles from require to use import ([#782](https://github.com/cultureamp/kaizen-design-system/issues/782)) ([defd448](https://github.com/cultureamp/kaizen-design-system/commit/defd4483faa3459d9af48e272c63656798008a28))
+
+
+
+
+
+## [2.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.7.0...@kaizen/draft-form@2.7.1) (2020-09-23)
+
+
+### Bug Fixes
+
+* Changed icons to use import, added types for icons ([#781](https://github.com/cultureamp/kaizen-design-system/issues/781)) ([e0856a8](https://github.com/cultureamp/kaizen-design-system/commit/e0856a84e3b39d3dc1bfa910b0b973bd65e170c9))
+
+
+
+
+
+# [2.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.6.10...@kaizen/draft-form@2.7.0) (2020-09-22)
+
+
+### Features
+
+* allow uncontrolled Elm TextArea to be pre-fillable ([#783](https://github.com/cultureamp/kaizen-design-system/issues/783)) ([25ab00a](https://github.com/cultureamp/kaizen-design-system/commit/25ab00a1304b4b687e01c3cf612989ab6dcc0c6a))
+
+
+
+
+
+## [2.6.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.6.9...@kaizen/draft-form@2.6.10) (2020-09-21)
+
+
+### Bug Fixes
+
+* Apply spacing to labels when inline with form controls ([#784](https://github.com/cultureamp/kaizen-design-system/issues/784)) ([6874853](https://github.com/cultureamp/kaizen-design-system/commit/687485399bf8103096e44eed5c3465582cc56a01))
+
+
+
+
+
+## [2.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.6.8...@kaizen/draft-form@2.6.9) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.6.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.6.7...@kaizen/draft-form@2.6.8) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.6.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.6.6...@kaizen/draft-form@2.6.7) (2020-09-09)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.6.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.6.5...@kaizen/draft-form@2.6.6) (2020-09-07)
+
+
+### Bug Fixes
+
+* Bump design-tokens peer dependency to the latest version ([#760](https://github.com/cultureamp/kaizen-design-system/issues/760)) ([37e5414](https://github.com/cultureamp/kaizen-design-system/commit/37e5414b2e2c0befb4127c588120eb2e8bdc4d39))
+
+
+
+
+
+## [2.6.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.6.4...@kaizen/draft-form@2.6.5) (2020-09-04)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.6.3...@kaizen/draft-form@2.6.4) (2020-09-03)
+
+
+### Bug Fixes
+
+* Realign label margins for Checkbox and Radio ([#740](https://github.com/cultureamp/kaizen-design-system/issues/740)) ([918cf94](https://github.com/cultureamp/kaizen-design-system/commit/918cf94351156598a6a2f69169e1f3877ecb0220))
+
+
+
+
+
 ## [2.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.6.2...@kaizen/draft-form@2.6.3) (2020-09-01)
 
 **Note:** Version bump only for package @kaizen/draft-form

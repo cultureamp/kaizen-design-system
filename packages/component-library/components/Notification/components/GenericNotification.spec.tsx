@@ -1,9 +1,13 @@
-import { cleanup, fireEvent, render, wait } from "@testing-library/react"
+import { cleanup, render } from "@testing-library/react"
+import { fireEvent, waitFor } from "@testing-library/dom"
 import * as React from "react"
 import * as ReactTestUtils from "react-dom/test-utils"
 import GenericNotification from "./GenericNotification"
 
-afterEach(cleanup)
+afterEach(() => {
+  cleanup()
+  jest.runAllTimers()
+})
 
 beforeEach(() => {
   jest.useFakeTimers()
@@ -18,7 +22,7 @@ test('Begins "hidden" but transitions out of it immediately', async () => {
 
   expect(container.querySelector(".hidden")).toBeTruthy()
 
-  await wait(() => expect(container.querySelector(".hidden")).toBeFalsy())
+  await waitFor(() => expect(container.querySelector(".hidden")).toBeFalsy())
 })
 
 test("The cancel button hides the notification and triggers the onHide callback", async () => {
@@ -43,7 +47,7 @@ test("The cancel button hides the notification and triggers the onHide callback"
 
   const notification = container.querySelector(".notification")
 
-  await wait(() => expect(onHide).toHaveBeenCalledTimes(0))
+  await waitFor(() => expect(onHide).toHaveBeenCalledTimes(0))
 
   // Cannot use @testing-library/react `fireEvent` as it relies on jsdom events
   // TransitionEvent has not been implemented yet, using `ReactTestUtils.Simulate` is a workaround
@@ -54,11 +58,11 @@ test("The cancel button hides the notification and triggers the onHide callback"
 
   // TODO - This test is really flakey. Needs to be fixed or re-written
   // After the fade out animation has finished, the onHide handler should trigger.
-  // await wait(() => expect(onHide).toHaveBeenCalledTimes(1))
+  // await waitFor(() => expect(onHide).toHaveBeenCalledTimes(1))
 })
 
 test("If autohide is specified, we should start hiding after 5s", async () => {
-  const { container } = render(
+  const { container, queryByText } = render(
     <GenericNotification
       type="affirmative"
       style="toast"
@@ -70,10 +74,14 @@ test("If autohide is specified, we should start hiding after 5s", async () => {
   )
 
   // After 4s, it should still be visible
-  jest.advanceTimersByTime(4999)
-  await wait(() => expect(container.querySelector(".hidden")).toBeFalsy())
+  Promise.resolve().then(() => jest.advanceTimersByTime(3900))
+  await waitFor(() => {
+    expect(container.querySelector(".hidden")).toBeFalsy()
+  })
 
-  // After 5s, it should be fading out to "hidden"
-  jest.advanceTimersByTime(1)
-  await wait(() => expect(container.querySelector(".hidden")).toBeTruthy())
+  // By the 5th second, it will become hidden
+  Promise.resolve().then(() => jest.advanceTimersByTime(100))
+  await waitFor(() => {
+    expect(container.querySelector(".hidden")).toBeTruthy()
+  })
 })

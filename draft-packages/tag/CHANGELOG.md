@@ -3,6 +3,103 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.44](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.5.43...@kaizen/draft-tag@1.5.44) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.5.43](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.5.42...@kaizen/draft-tag@1.5.43) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.5.42](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.5.41...@kaizen/draft-tag@1.5.42) (2020-09-30)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.5.41](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.5.40...@kaizen/draft-tag@1.5.41) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.5.40](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.5.39...@kaizen/draft-tag@1.5.40) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.5.39](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.5.38...@kaizen/draft-tag@1.5.39) (2020-09-24)
+
+
+### Bug Fixes
+
+* Change styles from require to use import ([#782](https://github.com/cultureamp/kaizen-design-system/issues/782)) ([defd448](https://github.com/cultureamp/kaizen-design-system/commit/defd4483faa3459d9af48e272c63656798008a28))
+
+
+
+
+
+## [1.5.38](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.5.37...@kaizen/draft-tag@1.5.38) (2020-09-23)
+
+
+### Bug Fixes
+
+* Changed icons to use import, added types for icons ([#781](https://github.com/cultureamp/kaizen-design-system/issues/781)) ([e0856a8](https://github.com/cultureamp/kaizen-design-system/commit/e0856a84e3b39d3dc1bfa910b0b973bd65e170c9))
+
+
+
+
+
+## [1.5.37](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.5.36...@kaizen/draft-tag@1.5.37) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.5.36](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.5.35...@kaizen/draft-tag@1.5.36) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.5.35](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.5.34...@kaizen/draft-tag@1.5.35) (2020-09-09)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.5.34](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.5.33...@kaizen/draft-tag@1.5.34) (2020-09-07)
+
+
+### Bug Fixes
+
+* Bump design-tokens peer dependency to the latest version ([#760](https://github.com/cultureamp/kaizen-design-system/issues/760)) ([37e5414](https://github.com/cultureamp/kaizen-design-system/commit/37e5414b2e2c0befb4127c588120eb2e8bdc4d39))
+
+
+
+
+
 ## [1.5.33](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.5.32...@kaizen/draft-tag@1.5.33) (2020-08-28)
 
 **Note:** Version bump only for package @kaizen/draft-tag

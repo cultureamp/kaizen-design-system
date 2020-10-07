@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-import { Paragraph } from "@kaizen/component-library"
+import { Paragraph, Button } from "@kaizen/component-library"
 import { HierarchicalSelect } from "@kaizen/draft-hierarchical-select"
 import { Hierarchy, HierarchyNode } from "@kaizen/draft-hierarchical-menu"
 import {
@@ -15,6 +15,8 @@ interface StoryContainerRenderProps {
   setHierarchy: (hierarchy: Hierarchy) => void
   value: HierarchyNode | null
   setValue: (value: HierarchyNode | null) => void
+  disabled: boolean
+  setDisabled: (value: boolean) => void
 }
 
 interface StoryContainerProps {
@@ -24,6 +26,7 @@ interface StoryContainerProps {
 const StoryContainer = ({ children }: StoryContainerProps) => {
   const [hierarchy, setHierarchy] = useState<Hierarchy | null>(null)
   const [value, setValue] = useState<HierarchyNode | null>(null)
+  const [disabled, setDisabled] = useState<boolean>(false)
 
   return (
     <div
@@ -33,7 +36,14 @@ const StoryContainer = ({ children }: StoryContainerProps) => {
         justifyContent: "center",
       }}
     >
-      {children({ hierarchy, setHierarchy, value, setValue })}
+      {children({
+        hierarchy,
+        setHierarchy,
+        value,
+        setValue,
+        disabled,
+        setDisabled,
+      })}
     </div>
   )
 }
@@ -58,7 +68,7 @@ export default {
 
 export const DefaultStory = () => (
   <StoryContainer>
-    {({ hierarchy, setHierarchy, value, setValue }) => (
+    {({ hierarchy, setHierarchy, value, setValue, disabled, setDisabled }) => (
       <>
         <HierarchicalSelect
           loadInitialHierarchy={() => loadInitialHierarchy(hierarchy)}
@@ -70,8 +80,17 @@ export const DefaultStory = () => (
           onClear={() => setValue(null)}
           placeholder="Select..."
           value={value}
+          disabled={disabled}
         />
         <SelectionSummary node={value} hierarchy={hierarchy} />
+        <Button
+          label="Toggle disabled"
+          onClick={e => {
+            e.preventDefault()
+            setDisabled(!disabled)
+          }}
+          secondary
+        />
       </>
     )}
   </StoryContainer>

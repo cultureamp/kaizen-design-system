@@ -1,6 +1,6 @@
 import * as React from "react"
 
-const styles = require("./MenuContent.module.scss")
+import styles from "./MenuContent.module.scss"
 
 const MenuSeparator = () => <hr className={styles.separator} />
 MenuSeparator.displayName = "MenuSeparator"

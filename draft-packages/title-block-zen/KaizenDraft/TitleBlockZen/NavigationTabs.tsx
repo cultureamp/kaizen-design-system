@@ -2,7 +2,7 @@ import classnames from "classnames"
 import * as React from "react"
 import { NON_REVERSED_VARIANTS, Variant } from "./TitleBlockZen"
 
-const styles = require("./NavigationTabs.scss")
+import styles from "./NavigationTabs.scss"
 
 export type NavigationTabProps = {
   text: string

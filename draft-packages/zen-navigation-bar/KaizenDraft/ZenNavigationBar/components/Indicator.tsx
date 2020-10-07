@@ -1,10 +1,9 @@
 import React from "react"
 import { Icon } from "@kaizen/component-library"
 
-const styles = require("./Indicator.module.scss")
+import styles from "./Indicator.module.scss"
 
-const fullIcon = require("@kaizen/component-library/icons/full.icon.svg")
-  .default
+import fullIcon from "@kaizen/component-library/icons/full.icon.svg"
 
 const Indicator = () => (
   <span className={styles.container}>

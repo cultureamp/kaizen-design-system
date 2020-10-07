@@ -17,12 +17,9 @@ import {
   TitleBlockMenuItemProps,
   convertSecondaryActionsToMenuItems,
 } from "./TitleBlockZen"
-const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
-  .default
-const chevronUpIcon = require("@kaizen/component-library/icons/chevron-up.icon.svg")
-  .default
-
-const styles = require("./MobileActions.scss")
+import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
+import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
+import styles from "./MobileActions.scss"
 
 const buttonIsLink: (action: TitleBlockButtonProps) => boolean = action =>
   "href" in action

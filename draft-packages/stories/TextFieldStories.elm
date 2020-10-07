@@ -67,6 +67,30 @@ main =
                         |> TextField.placeholder "Placeholder"
                         |> TextField.onEnter TextFieldEnter
                     )
+        , storyOf "Default, Controlled, Prefilled Value" config <|
+            \m ->
+                TextField.view
+                    (TextField.default
+                        |> TextField.id "the-id"
+                        |> TextField.labelText "Default TextField"
+                        |> TextField.controlled True
+                        |> TextField.autoComplete False
+                        |> TextField.onBlurWithValue TextFieldMsg
+                        |> TextField.inputValue "A prefilled value in controlled mode"
+                        |> TextField.onEnter TextFieldEnter
+                    )
+        , storyOf "Default, Uncontrolled, Prefilled Value" config <|
+            \m ->
+                TextField.view
+                    (TextField.default
+                        |> TextField.id "the-id"
+                        |> TextField.labelText "Default TextField"
+                        |> TextField.controlled False
+                        |> TextField.autoComplete False
+                        |> TextField.onBlurWithValue TextFieldMsg
+                        |> TextField.inputValue "A prefilled value in controlled mode"
+                        |> TextField.onEnter TextFieldEnter
+                    )
         , storyOf "Default /w icon" config <|
             \m ->
                 TextField.view

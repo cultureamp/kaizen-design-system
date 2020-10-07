@@ -5,7 +5,7 @@ import { MenuGroupProps, MenuItemProps } from "../types"
 import MenuGroup from "./MenuGroup"
 import MenuItem from "./MenuItem"
 
-const styles = require("./Dropdown.module.scss")
+import styles from "./Dropdown.module.scss"
 
 type Props = {
   header?: React.ReactElement<any>

@@ -3,12 +3,10 @@ import { Menu, MenuContent, MenuItem } from "@kaizen/draft-menu"
 import * as React from "react"
 import { SecondaryActionsProps, TitleBlockMenuItemProps } from "./TitleBlockZen"
 import Toolbar from "./Toolbar"
-const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
-  .default
-const meatballsIcon = require("@kaizen/component-library/icons/meatballs.icon.svg")
-  .default
+import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
+import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 
-const styles = require("./TitleBlockZen.scss")
+import styles from "./TitleBlockZen.scss"
 
 type Props = {
   secondaryActions?: SecondaryActionsProps
@@ -78,7 +76,7 @@ const SecondaryActions = ({
               secondary
               reversed={reversed}
               {...a}
-              automationId="title-block-secondary-actions-button"
+              data-automation-id="title-block-secondary-actions-button"
             />
           )
         }

@@ -3,6 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.71](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.2.70...@kaizen/draft-user-interactions@1.2.71) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-user-interactions
+
+
+
+
+
+## [1.2.70](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.2.69...@kaizen/draft-user-interactions@1.2.70) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-user-interactions
+
+
+
+
+
+## [1.2.69](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.2.68...@kaizen/draft-user-interactions@1.2.69) (2020-09-30)
+
+**Note:** Version bump only for package @kaizen/draft-user-interactions
+
+
+
+
+
+## [1.2.68](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.2.67...@kaizen/draft-user-interactions@1.2.68) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-user-interactions
+
+
+
+
+
+## [1.2.67](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.2.66...@kaizen/draft-user-interactions@1.2.67) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-user-interactions
+
+
+
+
+
+## [1.2.66](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.2.65...@kaizen/draft-user-interactions@1.2.66) (2020-09-24)
+
+**Note:** Version bump only for package @kaizen/draft-user-interactions
+
+
+
+
+
+## [1.2.65](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.2.64...@kaizen/draft-user-interactions@1.2.65) (2020-09-23)
+
+**Note:** Version bump only for package @kaizen/draft-user-interactions
+
+
+
+
+
+## [1.2.64](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.2.63...@kaizen/draft-user-interactions@1.2.64) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/draft-user-interactions
+
+
+
+
+
+## [1.2.63](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.2.62...@kaizen/draft-user-interactions@1.2.63) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/draft-user-interactions
+
+
+
+
+
+## [1.2.62](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.2.61...@kaizen/draft-user-interactions@1.2.62) (2020-09-09)
+
+**Note:** Version bump only for package @kaizen/draft-user-interactions
+
+
+
+
+
+## [1.2.61](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.2.60...@kaizen/draft-user-interactions@1.2.61) (2020-09-07)
+
+
+### Bug Fixes
+
+* Bump design-tokens peer dependency to the latest version ([#760](https://github.com/cultureamp/kaizen-design-system/issues/760)) ([37e5414](https://github.com/cultureamp/kaizen-design-system/commit/37e5414b2e2c0befb4127c588120eb2e8bdc4d39))
+
+
+
+
+
 ## [1.2.60](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.2.59...@kaizen/draft-user-interactions@1.2.60) (2020-08-28)
 
 **Note:** Version bump only for package @kaizen/draft-user-interactions

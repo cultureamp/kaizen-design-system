@@ -11,10 +11,4 @@
 
 :global(.__react_component_tooltip) {
   @include font-extra-small;
-  @include navbar-extended-large-up {
-    display: none;
-  }
-  @include navbar-mobile-only {
-    display: none;
-  }
 }

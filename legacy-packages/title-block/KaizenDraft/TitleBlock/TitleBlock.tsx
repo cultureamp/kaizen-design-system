@@ -6,13 +6,13 @@ import Media from "react-media"
 import Icon from "@kaizen/component-library/components/Icon/Icon"
 import { MOBILE_QUERY } from "@kaizen/component-library/components/NavigationBar/constants"
 import { Tag } from "@kaizen/draft-tag"
-const backIcon = require("@kaizen/component-library/icons/arrow-backward.icon.svg")
-  .default
-const forwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
-  .default
+import backIcon from "@kaizen/component-library/icons/arrow-backward.icon.svg"
+
+import forwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
+
 import NavigationButtons, { NavigationButton } from "./NavigationButtons"
 
-const styles = require("./TitleBlock.scss")
+import styles from "./TitleBlock.scss"
 
 type Color =
   | "Lapis"

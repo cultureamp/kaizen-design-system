@@ -1,10 +1,9 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
-import { Button } from "../button"
-const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
-  .default
+import { Button, CustomButtonProps, ButtonRef } from "../button"
+import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
+
 import { action } from "@storybook/addon-actions"
-import React, { useCallback, useLayoutEffect, useRef } from "react"
-import { ButtonRef } from "@kaizen/draft-button"
+import React, { useCallback, useRef } from "react"
 
 export default {
   title: "Button (Zen) (React)",
@@ -281,7 +280,7 @@ export const OverflowingTextIconLabelTestCase = () => (
     <Button
       icon={configureIcon}
       label="Passez au rapport de synthèse"
-      automationId="demo-button"
+      data-automation-id="demo-button"
     />
   </div>
 )
@@ -296,7 +295,7 @@ export const OverflowingTextFormTestCase = () => (
       form
       icon={configureIcon}
       label="Passez au rapport de synthèse"
-      automationId="demo-button"
+      data-automation-id="demo-button"
     />
   </div>
 )
@@ -327,7 +326,16 @@ OverflowingTextFormTestCase.story = {
 
 export const MultipleButtons = () => (
   <div>
-    <Button label="Save" primary automationId="demo-button-1" />
-    <Button label="Exit" automationId="demo-button-2" />
+    <Button label="Save" primary data-automation-id="demo-button-1" />
+    <Button label="Exit" data-automation-id="demo-button-2" />
   </div>
 )
+
+export const CustomComponent = () => {
+  const CustomLink = (buttonProps: CustomButtonProps) => (
+    <a href={buttonProps.href} {...buttonProps} />
+  )
+  // ^ In actual usage - this would be a react-router <Link> component or similar
+
+  return <Button label="Custom component button" component={CustomLink} />
+}

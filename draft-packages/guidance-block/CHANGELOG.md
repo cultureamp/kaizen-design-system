@@ -3,6 +3,122 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.3.6...@kaizen/draft-guidance-block@2.3.7) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [2.3.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.3.5...@kaizen/draft-guidance-block@2.3.6) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [2.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.3.4...@kaizen/draft-guidance-block@2.3.5) (2020-09-30)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [2.3.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.3.3...@kaizen/draft-guidance-block@2.3.4) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [2.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.3.2...@kaizen/draft-guidance-block@2.3.3) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [2.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.3.1...@kaizen/draft-guidance-block@2.3.2) (2020-09-24)
+
+
+### Bug Fixes
+
+* Change styles from require to use import ([#782](https://github.com/cultureamp/kaizen-design-system/issues/782)) ([defd448](https://github.com/cultureamp/kaizen-design-system/commit/defd4483faa3459d9af48e272c63656798008a28))
+
+
+
+
+
+## [2.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.3.0...@kaizen/draft-guidance-block@2.3.1) (2020-09-23)
+
+
+### Bug Fixes
+
+* Changed icons to use import, added types for icons ([#781](https://github.com/cultureamp/kaizen-design-system/issues/781)) ([e0856a8](https://github.com/cultureamp/kaizen-design-system/commit/e0856a84e3b39d3dc1bfa910b0b973bd65e170c9))
+
+
+
+
+
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.2.37...@kaizen/draft-guidance-block@2.3.0) (2020-09-21)
+
+
+### Features
+
+* Allow any Button props to be sent to GuidanceBlock actions ([#778](https://github.com/cultureamp/kaizen-design-system/issues/778)) ([fc3cc14](https://github.com/cultureamp/kaizen-design-system/commit/fc3cc14a6ff82a56634a23c5ef42e8996c26b576))
+
+
+
+
+
+## [2.2.37](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.2.36...@kaizen/draft-guidance-block@2.2.37) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [2.2.36](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.2.35...@kaizen/draft-guidance-block@2.2.36) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [2.2.35](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.2.34...@kaizen/draft-guidance-block@2.2.35) (2020-09-09)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [2.2.34](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.2.33...@kaizen/draft-guidance-block@2.2.34) (2020-09-07)
+
+
+### Bug Fixes
+
+* Bump design-tokens peer dependency to the latest version ([#760](https://github.com/cultureamp/kaizen-design-system/issues/760)) ([37e5414](https://github.com/cultureamp/kaizen-design-system/commit/37e5414b2e2c0befb4127c588120eb2e8bdc4d39))
+
+
+
+
+
+## [2.2.33](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.2.32...@kaizen/draft-guidance-block@2.2.33) (2020-09-04)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
 ## [2.2.32](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.2.31...@kaizen/draft-guidance-block@2.2.32) (2020-08-28)
 
 **Note:** Version bump only for package @kaizen/draft-guidance-block

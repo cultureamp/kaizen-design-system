@@ -2,9 +2,9 @@ import { MenuContent } from "@kaizen/draft-menu"
 import { StatelessMenu } from "@kaizen/draft-menu/KaizenDraft/Menu/StatelessMenu"
 import classnames from "classnames"
 import * as React from "react"
-const filterIcon = require("@kaizen/component-library/icons/filter.icon.svg")
-  .default
-const styles = require("./styles.module.scss")
+import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
+
+import styles from "./styles.module.scss"
 import { FilterDrawerButton } from "./FilterDrawerButton"
 
 export interface FilterDrawerProps {
