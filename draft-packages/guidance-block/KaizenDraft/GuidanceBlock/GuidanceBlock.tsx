@@ -28,6 +28,7 @@ type Props = {
     }
   }
   persistent?: boolean
+  variant?: "default" | "prominent"
   withActionButtonArrow?: boolean
 }
 
@@ -37,6 +38,7 @@ type State = {
 }
 class GuidanceBlock extends React.Component<Props, State> {
   static defaultProps = {
+    variant: "default",
     withActionButtonArrow: true,
   }
 
@@ -82,7 +84,9 @@ class GuidanceBlock extends React.Component<Props, State> {
     return (
       <div
         className={this.bannerClassName()}
-        style={{ marginTop: this.marginTop() }}
+        style={{
+          marginTop: this.marginTop(),
+        }}
         ref={this.containerRef}
         onTransitionEnd={this.onTransitionEnd}
       >
@@ -125,6 +129,7 @@ class GuidanceBlock extends React.Component<Props, State> {
   bannerClassName(): string {
     return classnames(styles.banner, {
       [styles.hidden]: this.state.hidden,
+      [styles.prominent]: this.props.variant === "prominent",
     })
   }
 
