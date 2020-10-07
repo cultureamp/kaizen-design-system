@@ -12,36 +12,20 @@
 }
 
 .header {
-  color: $kz-color-white;
-  padding: $kz-spacing-lg $kz-spacing-md $kz-spacing-lg;
+  padding: $kz-spacing-lg $kz-spacing-md $kz-spacing-sm;
   text-align: center;
+  position: relative;
+}
+
+.headerBackground {
+  background-color: $kz-color-peach-500;
+  height: 120px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   border-radius: $kz-border-solid-border-radius $kz-border-solid-border-radius 0
     0;
-
-  // override Murmur global styles :(
-  h1 {
-    color: $kz-color-white;
-  }
-}
-
-.positiveHeader {
-  background-color: $kz-color-seedling-500;
-}
-
-.informativeHeader {
-  background-color: $kz-color-cluny-500;
-}
-
-.negativeHeader {
-  background-color: $kz-color-coral-500;
-}
-
-.cautionaryHeader {
-  background-color: $kz-color-yuzu-500;
-
-  &.header h1 {
-    color: $kz-color-wisteria-800;
-  }
 }
 
 .body {
@@ -53,8 +37,7 @@
   margin-bottom: $kz-spacing-sm;
 }
 
-.spotIcon,
-.svgIcon > svg {
+.spotIcon {
   width: 155px;
   height: 155px;
   margin: 0 auto;
