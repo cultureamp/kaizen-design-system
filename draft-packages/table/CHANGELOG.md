@@ -3,6 +3,135 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.63](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.62...@kaizen/draft-table@1.6.63) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [1.6.62](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.61...@kaizen/draft-table@1.6.62) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [1.6.61](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.60...@kaizen/draft-table@1.6.61) (2020-09-30)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [1.6.60](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.59...@kaizen/draft-table@1.6.60) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [1.6.59](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.58...@kaizen/draft-table@1.6.59) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [1.6.58](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.57...@kaizen/draft-table@1.6.58) (2020-09-24)
+
+
+### Bug Fixes
+
+* Change styles from require to use import ([#782](https://github.com/cultureamp/kaizen-design-system/issues/782)) ([defd448](https://github.com/cultureamp/kaizen-design-system/commit/defd4483faa3459d9af48e272c63656798008a28))
+
+
+
+
+
+## [1.6.57](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.56...@kaizen/draft-table@1.6.57) (2020-09-23)
+
+
+### Bug Fixes
+
+* Changed icons to use import, added types for icons ([#781](https://github.com/cultureamp/kaizen-design-system/issues/781)) ([e0856a8](https://github.com/cultureamp/kaizen-design-system/commit/e0856a84e3b39d3dc1bfa910b0b973bd65e170c9))
+
+
+
+
+
+## [1.6.56](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.55...@kaizen/draft-table@1.6.56) (2020-09-22)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [1.6.55](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.54...@kaizen/draft-table@1.6.55) (2020-09-21)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [1.6.54](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.53...@kaizen/draft-table@1.6.54) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [1.6.53](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.52...@kaizen/draft-table@1.6.53) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [1.6.52](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.51...@kaizen/draft-table@1.6.52) (2020-09-09)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [1.6.51](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.50...@kaizen/draft-table@1.6.51) (2020-09-07)
+
+
+### Bug Fixes
+
+* Bump design-tokens peer dependency to the latest version ([#760](https://github.com/cultureamp/kaizen-design-system/issues/760)) ([37e5414](https://github.com/cultureamp/kaizen-design-system/commit/37e5414b2e2c0befb4127c588120eb2e8bdc4d39))
+
+
+
+
+
+## [1.6.50](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.49...@kaizen/draft-table@1.6.50) (2020-09-04)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [1.6.49](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.48...@kaizen/draft-table@1.6.49) (2020-09-03)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
 ## [1.6.48](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.47...@kaizen/draft-table@1.6.48) (2020-09-01)
 
 **Note:** Version bump only for package @kaizen/draft-table

@@ -76,7 +76,7 @@ defaults =
     , reversed = False
     , labelText = LabelString ""
     , labelType = Text
-    , labelPosition = Start
+    , labelPosition = End
     , htmlFor = Nothing
     , children = []
     }

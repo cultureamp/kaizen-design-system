@@ -1,4 +1,4 @@
-module KaizenDraft.Card.Card exposing (Tag, default, view)
+module KaizenDraft.Card.Card exposing (Tag(..), default, tag, view)
 
 import CssModules exposing (css)
 import Html exposing (Html, article, div, header, li, main_, section)

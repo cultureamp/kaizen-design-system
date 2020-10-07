@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.4.1...@kaizen/draft-illustration@1.4.2) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.4.0...@kaizen/draft-illustration@1.4.1) (2020-09-24)
+
+
+### Bug Fixes
+
+* Change styles from require to use import ([#782](https://github.com/cultureamp/kaizen-design-system/issues/782)) ([defd448](https://github.com/cultureamp/kaizen-design-system/commit/defd4483faa3459d9af48e272c63656798008a28))
+
+
+
+
+
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.3.0...@kaizen/draft-illustration@1.4.0) (2020-09-03)
+
+
+### Features
+
+* Add programs illustration ([#759](https://github.com/cultureamp/kaizen-design-system/issues/759)) ([a795e3c](https://github.com/cultureamp/kaizen-design-system/commit/a795e3c5bba28fb493b5a5c8e939f1f20ef8a65d))
+
+
+
+
+
 # [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.2.0...@kaizen/draft-illustration@1.3.0) (2020-07-10)
 
 

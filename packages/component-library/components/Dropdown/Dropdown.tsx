@@ -1,13 +1,11 @@
-import { Icon } from "@kaizen/component-library"
-const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
-  .default
-const ellipsisIcon = require("@kaizen/component-library/icons/ellipsis.icon.svg")
-  .default
+import { Icon } from "../Icon"
+import chevronDownIcon from "../../icons/chevron-down.icon.svg"
+import ellipsisIcon from "../../icons/ellipsis.icon.svg"
 import classNames from "classnames"
 import * as React from "react"
 import DropdownMenu from "./DropdownMenu"
 
-const styles = require("./Dropdown.module.scss")
+import styles from "./Dropdown.module.scss"
 
 type DropdownState = {
   isMenuVisible: boolean

@@ -3,6 +3,118 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.32.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.32.0...@kaizen/component-library@7.32.1) (2020-10-01)
+
+
+### Bug Fixes
+
+* Revert z-index update to dropdown menu ([#802](https://github.com/cultureamp/kaizen-design-system/issues/802)) ([1630201](https://github.com/cultureamp/kaizen-design-system/commit/163020101b6809bf1110d52403e5a38892598f77))
+
+
+
+
+
+# [7.32.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.31.1...@kaizen/component-library@7.32.0) (2020-10-01)
+
+
+### Features
+
+* SplitButton and Menu updates ([#785](https://github.com/cultureamp/kaizen-design-system/issues/785)) ([64f7f43](https://github.com/cultureamp/kaizen-design-system/commit/64f7f4303c272c9b6778105392810fb21ab66b5c))
+
+
+
+
+
+## [7.31.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.31.0...@kaizen/component-library@7.31.1) (2020-09-30)
+
+
+### Bug Fixes
+
+* rename delta icons to follow naming convention '.icon.svg' ([#797](https://github.com/cultureamp/kaizen-design-system/issues/797)) ([b4a6da8](https://github.com/cultureamp/kaizen-design-system/commit/b4a6da83120a284d5d6b25a553466b86017fe719))
+
+
+
+
+
+# [7.31.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.30.7...@kaizen/component-library@7.31.0) (2020-09-28)
+
+
+### Features
+
+* add positive, negative and neutral delta icons ([#793](https://github.com/cultureamp/kaizen-design-system/issues/793)) ([7f31fda](https://github.com/cultureamp/kaizen-design-system/commit/7f31fda68f2d128b71bf097b84855ac5ea6c9228))
+
+
+
+
+
+## [7.30.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.30.6...@kaizen/component-library@7.30.7) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.30.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.30.5...@kaizen/component-library@7.30.6) (2020-09-24)
+
+
+### Bug Fixes
+
+* Change styles from require to use import ([#782](https://github.com/cultureamp/kaizen-design-system/issues/782)) ([defd448](https://github.com/cultureamp/kaizen-design-system/commit/defd4483faa3459d9af48e272c63656798008a28))
+
+
+
+
+
+## [7.30.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.30.4...@kaizen/component-library@7.30.5) (2020-09-23)
+
+
+### Bug Fixes
+
+* Changed icons to use import, added types for icons ([#781](https://github.com/cultureamp/kaizen-design-system/issues/781)) ([e0856a8](https://github.com/cultureamp/kaizen-design-system/commit/e0856a84e3b39d3dc1bfa910b0b973bd65e170c9))
+
+
+
+
+
+## [7.30.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.30.3...@kaizen/component-library@7.30.4) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.30.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.30.2...@kaizen/component-library@7.30.3) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.30.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.30.1...@kaizen/component-library@7.30.2) (2020-09-09)
+
+
+### Bug Fixes
+
+* Silence false-positive warnings for no-extraneous-dependencies rule for modules using require ([#772](https://github.com/cultureamp/kaizen-design-system/issues/772)) ([48da126](https://github.com/cultureamp/kaizen-design-system/commit/48da1262f0139f1211d16e690d56c8d4fcaa446f))
+
+
+
+
+
+## [7.30.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.30.0...@kaizen/component-library@7.30.1) (2020-09-07)
+
+
+### Bug Fixes
+
+* Bump design-tokens peer dependency to the latest version ([#760](https://github.com/cultureamp/kaizen-design-system/issues/760)) ([37e5414](https://github.com/cultureamp/kaizen-design-system/commit/37e5414b2e2c0befb4127c588120eb2e8bdc4d39))
+
+
+
+
+
 # [7.30.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.29.0...@kaizen/component-library@7.30.0) (2020-08-28)
 
 

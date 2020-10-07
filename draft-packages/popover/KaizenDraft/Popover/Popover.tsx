@@ -1,16 +1,13 @@
 import { Icon } from "@kaizen/component-library"
-const closeIcon = require("@kaizen/component-library/icons/close.icon.svg")
-  .default
-const negativeIcon = require("@kaizen/component-library/icons/exclamation.icon.svg")
-  .default
-const informativeIcon = require("@kaizen/component-library/icons/information.icon.svg")
-  .default
-const positiveIcon = require("@kaizen/component-library/icons/success.icon.svg")
-  .default
+import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
+import negativeIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
+import informativeIcon from "@kaizen/component-library/icons/information.icon.svg"
+import positiveIcon from "@kaizen/component-library/icons/success.icon.svg"
+
 import classNames from "classnames"
 import * as React from "react"
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 export interface Props {
   readonly id?: string

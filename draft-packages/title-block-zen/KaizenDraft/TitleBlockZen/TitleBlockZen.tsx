@@ -10,14 +10,10 @@ import MainActions from "./MainActions"
 import MobileActions from "./MobileActions"
 import NavigationTab, { NavigationTabProps } from "./NavigationTabs"
 import SecondaryActions from "./SecondaryActions"
-
-const styles = require("./TitleBlockZen.scss")
-const leftArrow = require("@kaizen/component-library/icons/arrow-backward.icon.svg")
-  .default
-const rightArrow = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
-  .default
-const hamburgerIcon = require("@kaizen/component-library/icons/hamburger.icon.svg")
-  .default
+import styles from "./TitleBlockZen.scss"
+import leftArrow from "@kaizen/component-library/icons/arrow-backward.icon.svg"
+import rightArrow from "@kaizen/component-library/icons/arrow-forward.icon.svg"
+import hamburgerIcon from "@kaizen/component-library/icons/hamburger.icon.svg"
 
 export const NON_REVERSED_VARIANTS = ["education", "admin"]
 
@@ -49,6 +45,18 @@ export interface TitleBlockProps {
   navigationTabs?: NavigationTabs
   textDirection?: TextDirection
   surveyStatus?: SurveyStatus
+  titleAutomationId?: string
+  breadcrumbAutomationId?: string
+  breadcrumbTextAutomationId?: string
+  avatarAutomationId?: string
+  subtitleAutomationId?: string
+  sectionTitleAutomationId?: string
+  sectionTitleDescriptionAutomationId?: string
+}
+
+export type BadgeProps = {
+  text: string
+  animateChange?: boolean
 }
 
 export type TitleBlockButtonProps = Omit<ButtonProps, "onClick"> & {
@@ -89,8 +97,10 @@ export type SelectProps = React.ComponentProps<typeof Select>
  * in the dropdown menu when you click it. (`MenuItemProps` is a type imported from the `Menu` component.)
  */
 export type PrimaryActionProps =
-  | MenuGroup
-  | (TitleBlockButtonProps & { primary: boolean })
+  | (MenuGroup & { badge?: BadgeProps })
+  | (TitleBlockButtonProps & {
+      badge?: BadgeProps
+    })
 
 /**
  * ### SecondaryActionsProps
@@ -143,8 +153,8 @@ type SurveyStatus = {
 }
 
 type Breadcrumb = {
-  path: string
   text: string
+  path?: string
   handleClick?: (event: React.MouseEvent) => void
 }
 
@@ -166,20 +176,29 @@ const renderTag = (surveyStatus: SurveyStatus) => {
   )
 }
 
-const renderAvatar = (image: JSX.Element) => (
-  <div className={styles.avatar}>{image}</div>
+const renderAvatar = (image: JSX.Element, avatarAutomationId: string) => (
+  <div data-automation-id={avatarAutomationId} className={styles.avatar}>
+    {image}
+  </div>
 )
 
-const renderSubtitle = (subtitle: string) => (
+const renderSubtitle = (subtitle: string, subtitleAutomationId: string) => (
   <div className={styles.subtitle}>
-    <span className={styles.subtitleText}>{subtitle}</span>
+    <span
+      data-automation-id={subtitleAutomationId}
+      className={styles.subtitleText}
+    >
+      {subtitle}
+    </span>
   </div>
 )
 
 const renderSectionTitle = (
   sectionTitle?: string,
   sectionTitleDescription?: string,
-  variant?: Variant
+  variant?: Variant,
+  sectionTitleAutomationId?: string,
+  sectionTitleDescriptionAutomationId?: string
 ) => (
   <div className={styles.sectionTitleContainer}>
     <div className={styles.sectionTitleInner}>
@@ -189,6 +208,7 @@ const renderSectionTitle = (
             variant="heading-2"
             color={isReversed(variant) ? "white" : "dark"}
             classNameAndIHaveSpokenToDST={styles.sectionTitleOverride}
+            data-automation-id={sectionTitleAutomationId}
           >
             {sectionTitle}
           </Heading>
@@ -196,6 +216,7 @@ const renderSectionTitle = (
       )}
       {sectionTitleDescription && (
         <div
+          data-automation-id={sectionTitleDescriptionAutomationId}
           className={classNames(styles.sectionTitleDescription, {
             [styles.dark]: !isReversed(variant),
           })}
@@ -209,33 +230,38 @@ const renderSectionTitle = (
 
 const renderBreadcrumb = (
   breadcrumb: Breadcrumb,
+  breadcrumbAutomationId: string,
+  breadcrumbTextAutomationId: string,
   textDirection?: TextDirection
 ) => {
+  const { path, handleClick, text } = breadcrumb
   const icon = textDirection === "rtl" ? rightArrow : leftArrow
+
+  const TagName = path ? "a" : "button"
 
   return (
     <>
-      <a
-        href={breadcrumb.path}
+      <TagName
+        {...(path && { href: path })}
         className={styles.breadcrumb}
-        data-automation-id="TitleBlock__Breadcrumb"
-        onClick={breadcrumb.handleClick}
+        data-automation-id={breadcrumbAutomationId}
+        onClick={handleClick}
         aria-label="Back to previous page"
       >
         <div className={styles.circle}>
           <Icon icon={icon} role="presentation" />
         </div>
-      </a>
-      <a
-        href={breadcrumb.path}
+      </TagName>
+      <TagName
+        {...(path && { href: path })}
         className={styles.breadcrumbTextLink}
-        data-automation-id="TitleBlock__BreadcrumbText"
-        onClick={breadcrumb.handleClick}
+        data-automation-id={breadcrumbTextAutomationId}
+        onClick={handleClick}
         aria-label="Back to previous page"
         tabIndex={-1}
       >
-        <span className={styles.breadcrumbText}>{breadcrumb.text}</span>
-      </a>
+        <span className={styles.breadcrumbText}>{text}</span>
+      </TagName>
     </>
   )
 }
@@ -388,6 +414,13 @@ const TitleBlockZen = ({
   navigationTabs,
   textDirection,
   surveyStatus,
+  titleAutomationId = "TitleBlock__Title",
+  avatarAutomationId = "TitleBlock__Avatar",
+  subtitleAutomationId = "TitleBlock__Subtitle",
+  sectionTitleAutomationId = "TitleBlock__SectionTitle",
+  sectionTitleDescriptionAutomationId = "TitleBlock__SectionTitleDescription",
+  breadcrumbAutomationId = "TitleBlock__Breadcrumb",
+  breadcrumbTextAutomationId = "TitleBlock__BreadcrumbText",
 }: TitleBlockProps) => {
   const [isSmallOrMediumViewport, setSmallOrMediumViewport] = React.useState(
     false
@@ -428,7 +461,13 @@ const TitleBlockZen = ({
           <div className={styles.titleRowInner}>
             <div className={styles.titleRowInnerContent}>
               <div className={styles.titleAndAdjacent}>
-                {breadcrumb && renderBreadcrumb(breadcrumb, textDirection)}
+                {breadcrumb &&
+                  renderBreadcrumb(
+                    breadcrumb,
+                    breadcrumbAutomationId,
+                    breadcrumbTextAutomationId,
+                    textDirection
+                  )}
                 <div className={styles.titleAndAdjacentNotBreadcrumb}>
                   {handleHamburgerClick && (
                     <div
@@ -442,7 +481,7 @@ const TitleBlockZen = ({
                       />
                     </div>
                   )}
-                  {avatar && renderAvatar(avatar)}
+                  {avatar && renderAvatar(avatar, avatarAutomationId)}
                   <div className={styles.titleAndSubtitle}>
                     <div className={styles.titleAndSubtitleInner}>
                       <div className={styles.title}>
@@ -452,6 +491,7 @@ const TitleBlockZen = ({
                           classNameAndIHaveSpokenToDST={
                             styles.titleTextOverride
                           }
+                          data-automation-id={titleAutomationId}
                         >
                           {title}
                         </Heading>
@@ -467,7 +507,8 @@ const TitleBlockZen = ({
                           />
                         </div>
                       )}
-                      {subtitle && renderSubtitle(subtitle)}
+                      {subtitle &&
+                        renderSubtitle(subtitle, subtitleAutomationId)}
                     </div>
                   </div>
                   {surveyStatus && renderTag(surveyStatus)}
@@ -508,7 +549,9 @@ const TitleBlockZen = ({
                 renderSectionTitle(
                   sectionTitle,
                   sectionTitleDescription,
-                  variant
+                  variant,
+                  sectionTitleAutomationId,
+                  sectionTitleDescriptionAutomationId
                 )}
               {renderNavigationTabs(navigationTabs)}
               {(secondaryActions || secondaryOverflowMenuItems) && (

@@ -2,11 +2,10 @@ import * as React from "react"
 
 import { ColorScheme } from "@kaizen/draft-zen-navigation-bar/KaizenDraft/ZenNavigationBar/types"
 import classNames from "classnames"
-const closeIcon = require("@kaizen/component-library/icons/close.icon.svg")
-  .default
+import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import IconButton from "@kaizen/component-library/components/Button/IconButton"
 
-const styles = require("./Header.module.scss")
+import styles from "./Header.module.scss"
 
 type Props = {
   leftComponent: React.ReactNode

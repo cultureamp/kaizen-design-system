@@ -6,7 +6,8 @@ loadElmStories(
   require("./TextAreaField.stories.elm"),
   [
     "Default",
-    "Default, Prefilled Value",
+    "Default, Controlled, Prefilled Value",
+    "Default, Uncontrolled, Prefilled Value",
     "Default, Description",
     "Default, Error",
     "Default, Error & Description",

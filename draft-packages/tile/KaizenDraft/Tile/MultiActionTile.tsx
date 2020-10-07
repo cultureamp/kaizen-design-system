@@ -6,7 +6,7 @@ import GenericTile, {
 } from "./components/GenericTile"
 import Action from "./components/Action"
 
-const styles = require("./MultiActionTile.scss")
+import styles from "./MultiActionTile.scss"
 
 export interface MultiActionTileProps extends GenericTileProps {
   readonly primaryAction: TileAction

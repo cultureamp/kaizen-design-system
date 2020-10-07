@@ -1,11 +1,8 @@
 import React, { useState } from "react"
 import cx from "classnames"
 import { Icon } from "@kaizen/component-library"
-// @ts-ignore
 import { Textfit } from "react-textfit"
-// @ts-ignore
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
-// @ts-ignore
 import styles from "./styles.module.scss"
 
 type AvatarSizes = "small" | "medium" | "large"

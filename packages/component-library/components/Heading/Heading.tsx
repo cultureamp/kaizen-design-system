@@ -1,7 +1,7 @@
 import classNames from "classnames"
 import { createElement } from "react"
 
-const styles = require("./Heading.module.scss")
+import styles from "./Heading.module.scss"
 
 const VARIANTS_24PX_OR_GREATER = ["display-0", "heading-1", "heading-2"]
 
@@ -64,19 +64,15 @@ export const Heading = ({
   const inferredTag =
     tag === undefined ? translateHeadingLevelToTag(variant) : tag
 
-  const classes: string[] = [
+  const className = classNames([
     styles.heading,
     styles[variant],
     classNameAndIHaveSpokenToDST,
     styles[color],
     VARIANTS_24PX_OR_GREATER.includes(variant) ? styles.large : styles.small,
-  ]
+  ])
 
-  return createElement(
-    inferredTag,
-    { ...otherProps, className: classNames(classes) },
-    children
-  )
+  return createElement(inferredTag, { ...otherProps, className }, children)
 }
 
 /**

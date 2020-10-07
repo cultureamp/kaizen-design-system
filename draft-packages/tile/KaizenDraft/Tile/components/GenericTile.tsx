@@ -1,14 +1,12 @@
-import React, { useState } from "react"
+import React, { useState, MouseEvent } from "react"
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
 import Action from "./Action"
 import { IconButton } from "@kaizen/draft-button"
 import classNames from "classnames"
 
-const informationIcon = require("@kaizen/component-library/icons/information.icon.svg")
-  .default
-const arrowBackwardIcon = require("@kaizen/component-library/icons/arrow-backward.icon.svg")
-  .default
-const styles = require("./GenericTile.scss")
+import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
+import arrowBackwardIcon from "@kaizen/component-library/icons/arrow-backward.icon.svg"
+import styles from "./GenericTile.scss"
 
 export interface TileAction {
   readonly label: string

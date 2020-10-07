@@ -3,6 +3,97 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.42](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.41...@kaizen/draft-dropdown@1.3.42) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
+## [1.3.41](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.40...@kaizen/draft-dropdown@1.3.41) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
+## [1.3.40](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.39...@kaizen/draft-dropdown@1.3.40) (2020-09-30)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
+## [1.3.39](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.38...@kaizen/draft-dropdown@1.3.39) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
+## [1.3.38](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.37...@kaizen/draft-dropdown@1.3.38) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
+## [1.3.37](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.36...@kaizen/draft-dropdown@1.3.37) (2020-09-24)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
+## [1.3.36](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.35...@kaizen/draft-dropdown@1.3.36) (2020-09-23)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
+## [1.3.35](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.34...@kaizen/draft-dropdown@1.3.35) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
+## [1.3.34](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.33...@kaizen/draft-dropdown@1.3.34) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
+## [1.3.33](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.32...@kaizen/draft-dropdown@1.3.33) (2020-09-09)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
+## [1.3.32](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.31...@kaizen/draft-dropdown@1.3.32) (2020-09-07)
+
+
+### Bug Fixes
+
+* Bump design-tokens peer dependency to the latest version ([#760](https://github.com/cultureamp/kaizen-design-system/issues/760)) ([37e5414](https://github.com/cultureamp/kaizen-design-system/commit/37e5414b2e2c0befb4127c588120eb2e8bdc4d39))
+
+
+
+
+
 ## [1.3.31](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.30...@kaizen/draft-dropdown@1.3.31) (2020-08-28)
 
 **Note:** Version bump only for package @kaizen/draft-dropdown

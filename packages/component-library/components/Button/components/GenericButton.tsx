@@ -2,7 +2,7 @@ import classNames from "classnames"
 import React, { forwardRef, Ref, useImperativeHandle, useRef } from "react"
 import Icon from "../../Icon/Icon"
 
-const styles = require("./GenericButton.module.scss")
+import styles from "./GenericButton.module.scss"
 
 type GenericProps = {
   id?: string
@@ -28,6 +28,9 @@ type LabelProps = {
   iconPosition?: "start" | "end"
   primary?: boolean
   secondary?: boolean
+  /**
+   * @deprecated lapis and ocean are deprecated values
+   */
   reverseColor?: "lapis" | "ocean" | "peach" | "seedling" | "wisteria" | "yuzu"
 }
 

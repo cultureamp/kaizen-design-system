@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-badge@1.2.1...@kaizen/draft-badge@1.2.2) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-badge
+
+
+
+
+
+## [1.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-badge@1.2.0...@kaizen/draft-badge@1.2.1) (2020-09-24)
+
+
+### Bug Fixes
+
+* Change styles from require to use import ([#782](https://github.com/cultureamp/kaizen-design-system/issues/782)) ([defd448](https://github.com/cultureamp/kaizen-design-system/commit/defd4483faa3459d9af48e272c63656798008a28))
+
+
+
+
+
+# [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-badge@1.1.2...@kaizen/draft-badge@1.2.0) (2020-09-04)
+
+
+### Features
+
+* add animated badge component ([#762](https://github.com/cultureamp/kaizen-design-system/issues/762)) ([30307b2](https://github.com/cultureamp/kaizen-design-system/commit/30307b28e1629b25c537ad952c8141966454a1f8))
+
+
+
+
+
 ## [1.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-badge@1.1.1...@kaizen/draft-badge@1.1.2) (2020-07-09)
 
 

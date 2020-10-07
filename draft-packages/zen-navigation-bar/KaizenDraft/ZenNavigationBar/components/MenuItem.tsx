@@ -4,9 +4,8 @@ import React from "react"
 import { NavBarContext } from "../context"
 import { Badge, MenuItemProps } from "../types"
 
-const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
-  .default
-const styles = require("./MenuItem.module.scss")
+import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
+import styles from "./MenuItem.module.scss"
 
 const MenuItem = ({
   label,

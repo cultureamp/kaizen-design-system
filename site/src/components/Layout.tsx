@@ -7,7 +7,7 @@ import Footer from "./Footer"
 import Head from "./Head"
 import MainNav from "./MainNav"
 
-const styles = require("./Layout.scss")
+import styles from "./Layout.scss"
 
 type LayoutProps = {
   currentPath?: string
@@ -48,6 +48,7 @@ const Layout: React.SFC<LayoutProps> = ({
           ) : (
             <div
               className={classnames({
+                [styles.fullWidthContent]: true,
                 [styles.contentContainer]: true,
                 [styles.trimBottomOfCardToContent]: trimBottomOfCardToContent,
               })}

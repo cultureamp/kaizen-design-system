@@ -12,6 +12,7 @@ import {
   SidebarAndContent,
   SidebarSection,
   SidebarTab,
+  TableOfContents,
 } from "../components/SidebarAndContent"
 import StorybookDemo from "../components/StorybookDemo"
 import { sortSidebarTabs, stripTrailingSlash } from "./util"
@@ -91,6 +92,7 @@ export default ({ data, pageContext, location }) => {
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
           </ContentMarkdownSection>
         </Content>
+        <TableOfContents items={md.tableOfContents.items} />
       </SidebarAndContent>
     </Layout>
   )
@@ -122,6 +124,7 @@ export const query = graphql`
         demoStoryId
         demoStoryHeight
       }
+      tableOfContents
     }
   }
 `

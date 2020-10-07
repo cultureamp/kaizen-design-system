@@ -1,5 +1,4 @@
-import { Button } from "@kaizen/component-library"
-import { Heading } from "@kaizen/component-library/components/Heading"
+import { Button, Heading } from "@kaizen/component-library"
 import { assetUrl } from "@kaizen/hosted-assets"
 import { graphql, useStaticQuery, withPrefix } from "gatsby"
 import * as React from "react"
@@ -8,7 +7,7 @@ import Footer from "../components/Footer"
 import Layout from "../components/Layout"
 import PageHeader from "../components/PageHeader"
 
-const styles = require("./index.scss")
+import styles from "./index.scss"
 
 const HomePageHeader = (
   <PageHeader
@@ -72,6 +71,7 @@ export default ({ location }) => {
       currentPath={location.pathname}
       pageHeader={HomePageHeader}
       footer={<Footer reverseVariant extraContent={<FooterExtraContent />} />}
+      fullWidthContent={true}
     >
       <ContentOnly>
         <Content>
