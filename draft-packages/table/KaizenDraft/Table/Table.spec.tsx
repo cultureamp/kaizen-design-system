@@ -1,7 +1,6 @@
 import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
 import {
-  AllowedTableHeaderBackgroundColors,
   TableCard,
   TableContainer,
   TableHeader,

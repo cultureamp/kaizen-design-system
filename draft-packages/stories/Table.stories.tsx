@@ -13,7 +13,6 @@ import {
 } from "../table"
 import styles from "./Table.stories.scss"
 
-import commentIcon from "@kaizen/component-library/icons/comment.icon.svg"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
 
@@ -48,7 +47,6 @@ const ExampleTableHeaderRow = ({ checkable = false }) => (
     />
     <TableHeaderRowCell
       labelText="Comments"
-      icon={commentIcon}
       width={2 / 12}
       onClick={() => alert("Sort!")}
     />

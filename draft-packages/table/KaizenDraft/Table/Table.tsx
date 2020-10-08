@@ -108,7 +108,11 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
           />
         </div>
       )}
-      <Heading tag="div" variant="heading-6">
+      <Heading
+        tag="div"
+        variant="heading-6"
+        color={active ? "dark" : "dark-reduced-opacity"}
+      >
         {labelText}
       </Heading>
     </div>
