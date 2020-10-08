@@ -7,14 +7,14 @@ type deprecatedPropVal = {
 }
 export interface withDeprecatedPropsProps {
   name: string
-  deprecatedProps: {
+  warning: {
     [key: string]: string | deprecatedPropVal[]
   }
 }
 
 export const withDeprecatedProps = <P extends object>(
   WrappedComponent: React.ComponentType<P>,
-  { deprecatedProps, name }: withDeprecatedPropsProps
+  { warning, name }: withDeprecatedPropsProps
 ): React.ComponentType<P> =>
   class extends React.Component<P> {
     constructor(props) {
@@ -22,15 +22,15 @@ export const withDeprecatedProps = <P extends object>(
       if (!Counter.includes(name)) {
         Counter.add(name)
       }
-      const deprecatedPropsUsed = Object.keys(deprecatedProps).filter(curr =>
+      const deprecatedPropsUsed = Object.keys(warning).filter(curr =>
         Object.keys(props).includes(curr)
       )
 
       deprecatedPropsUsed.forEach(curr => {
-        if (typeof deprecatedProps[curr] === "string") {
-          log(name, deprecatedProps[curr] as string)
-        } else if (Array.isArray(deprecatedProps[curr])) {
-          const deprecatedPropMessage = (deprecatedProps[
+        if (typeof warning[curr] === "string") {
+          log(name, warning[curr] as string)
+        } else if (Array.isArray(warning[curr])) {
+          const deprecatedPropMessage = (warning[
             curr
           ] as deprecatedPropVal[]).find(obj => obj.key === props[curr])
 

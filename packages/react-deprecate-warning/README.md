@@ -8,17 +8,17 @@ React Deprecated Warning is a higher order component that warns that a component
 
 ### Deprecate a component
 ```
-withDeprecatedWarning(YourComponent, {
+withDeprecatedComponent(YourComponent, {
   name: "YourComponent",
-  deprecatedComponent: 'This component is deprecated, use ComponentB instead',
+  warning: 'This component is deprecated, use ComponentB instead',
 })
 ```
 
 ### Deprecate a prop
 ```
-withDeprecatedWarning(YourComponent, {
+withDeprecatedProps(YourComponent, {
   name: "YourComponent",
-  deprecatedProps: {
+  warning: {
     test: "test is deprecated, use anotherProp instead",
   },
 })
