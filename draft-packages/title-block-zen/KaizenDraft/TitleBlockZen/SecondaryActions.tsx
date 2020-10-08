@@ -59,8 +59,9 @@ const SecondaryActions = ({
                 }
               >
                 <MenuContent>
-                  {a.menuItems.map(menuItem => (
-                    <MenuItem {...menuItem} />
+                  {a.menuItems.map((menuItem, i2) => (
+                    // This key should not be the array index
+                    <MenuItem key={i2} {...menuItem} />
                   ))}
                 </MenuContent>
               </Menu>
