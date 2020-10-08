@@ -6,9 +6,8 @@ import GenericButton, {
 } from "@kaizen/draft-button/KaizenDraft/Button/components/GenericButton"
 import classnames from "classnames"
 import * as React from "react"
-const filterIcon = require("@kaizen/component-library/icons/filter.icon.svg")
-  .default
-const styles = require("./FilterDrawerButton.module.scss")
+import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
+import styles from "./FilterDrawerButton.module.scss"
 
 type FilterButtonProps = {
   labelText: string
@@ -43,8 +42,8 @@ export const FilterDrawerButton = ({
       additionalContent={renderBadge(numberOfFiltersEnabled)}
       onClick={onClick}
       onMouseDown={onMouseDown}
-      ariaControls={ariaControls}
-      ariaExpanded={ariaExpanded}
+      aria-controls={ariaControls}
+      aria-expanded={ariaExpanded}
     />
   </div>
 )

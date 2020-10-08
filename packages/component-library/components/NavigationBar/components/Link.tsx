@@ -5,12 +5,12 @@ import { Icon } from "@kaizen/component-library"
  * this rule off.
  */
 // eslint-disable-next-line import/no-extraneous-dependencies
-const chevronRightIcon = require("@kaizen/component-library/icons/chevron-right.icon.svg")
-  .default
+import chevronRightIcon from "@kaizen/component-library/icons/chevron-right.icon.svg"
+
 import classNames from "classnames"
 import * as React from "react"
 
-const styles = require("./Link.module.scss")
+import styles from "./Link.module.scss"
 import { LinkProps } from "../types"
 import Indicator from "./Indicator"
 

@@ -3,6 +3,92 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.47](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.46...@kaizen/draft-title-block@1.5.47) (2020-10-08)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [1.5.46](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.45...@kaizen/draft-title-block@1.5.46) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [1.5.45](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.44...@kaizen/draft-title-block@1.5.45) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [1.5.44](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.43...@kaizen/draft-title-block@1.5.44) (2020-09-30)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [1.5.43](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.42...@kaizen/draft-title-block@1.5.43) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [1.5.42](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.41...@kaizen/draft-title-block@1.5.42) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [1.5.41](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.40...@kaizen/draft-title-block@1.5.41) (2020-09-24)
+
+
+### Bug Fixes
+
+* Change styles from require to use import ([#782](https://github.com/cultureamp/kaizen-design-system/issues/782)) ([defd448](https://github.com/cultureamp/kaizen-design-system/commit/defd4483faa3459d9af48e272c63656798008a28))
+
+
+
+
+
+## [1.5.40](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.39...@kaizen/draft-title-block@1.5.40) (2020-09-23)
+
+
+### Bug Fixes
+
+* Changed icons to use import, added types for icons ([#781](https://github.com/cultureamp/kaizen-design-system/issues/781)) ([e0856a8](https://github.com/cultureamp/kaizen-design-system/commit/e0856a84e3b39d3dc1bfa910b0b973bd65e170c9))
+
+
+
+
+
+## [1.5.39](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.38...@kaizen/draft-title-block@1.5.39) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [1.5.38](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.37...@kaizen/draft-title-block@1.5.38) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
 ## [1.5.37](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@1.5.36...@kaizen/draft-title-block@1.5.37) (2020-09-09)
 
 **Note:** Version bump only for package @kaizen/draft-title-block

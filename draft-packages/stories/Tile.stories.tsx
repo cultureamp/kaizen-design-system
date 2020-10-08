@@ -10,8 +10,7 @@ import {
 import { Coaching } from "@kaizen/draft-illustration"
 import { Tag } from "@kaizen/draft-tag"
 
-const bookmarkIcon = require("@kaizen/component-library/icons/bookmark-off.icon.svg")
-  .default
+import bookmarkIcon from "@kaizen/component-library/icons/bookmark-off.icon.svg"
 
 export default {
   title: "Tile (React)",

@@ -1,6 +1,6 @@
 import classNames from "classnames"
 import * as React from "react"
-const styles = require("./Card.scss")
+import styles from "./Card.scss"
 
 type CardProps = {
   children: React.ReactNode

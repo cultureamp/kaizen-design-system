@@ -14,12 +14,10 @@ import {
 } from "./TitleBlockZen"
 import Toolbar from "./Toolbar"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
-const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
-  .default
-const meatballsIcon = require("@kaizen/component-library/icons/meatballs.icon.svg")
-  .default
+import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
+import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 
-const styles = require("./TitleBlockZen.scss")
+import styles from "./TitleBlockZen.scss"
 
 type MainActionsProps = {
   primaryAction?: PrimaryActionProps
@@ -66,8 +64,14 @@ const MainActions = ({
       ...(defaultAction
         ? [
             <Button
-              {...defaultAction}
-              automationId="title-block-default-action-button"
+              {...{
+                ...defaultAction,
+                reversed:
+                  defaultAction.reversed !== undefined
+                    ? defaultAction.reversed
+                    : reversed,
+              }}
+              data-automation-id="title-block-default-action-button"
             />,
           ]
         : []),
@@ -82,7 +86,7 @@ const MainActions = ({
                   reversed={reversed}
                   icon={chevronDownIcon}
                   iconPosition="end"
-                  automationId="title-block-primary-action-button"
+                  data-automation-id="title-block-primary-action-button"
                   additionalContent={renderBadge(primaryAction.badge)}
                 />
               }
@@ -97,16 +101,34 @@ const MainActions = ({
       ...(defaultAction
         ? [
             <Button
-              {...defaultAction}
-              automationId="title-block-default-action-button"
+              {...{
+                ...defaultAction,
+                reversed:
+                  defaultAction.reversed !== undefined
+                    ? defaultAction.reversed
+                    : reversed,
+              }}
+              data-automation-id="title-block-default-action-button"
             />,
           ]
         : []),
       ...(primaryAction
         ? [
             <ButtonAllowingAdditionalContent
-              {...primaryAction}
-              automationId="title-block-primary-action-button"
+              // Temporary grossness before we deprecate a mandatory
+              // optional field for primary in PrimaryActionProps
+              {...{
+                ...primaryAction,
+                primary:
+                  primaryAction.primary !== undefined
+                    ? primaryAction.primary
+                    : true,
+                reversed:
+                  primaryAction.reversed !== undefined
+                    ? primaryAction.reversed
+                    : reversed,
+              }}
+              data-automation-id="title-block-primary-action-button"
               additionalContent={renderBadge(primaryAction.badge)}
             />,
           ]

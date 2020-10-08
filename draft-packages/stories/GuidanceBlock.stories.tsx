@@ -96,11 +96,29 @@ const SecondaryAction = () => (
         },
         secondary: {
           label: "Secondary action",
-          onClick: () => alert("tada: 🎉"),
+          href: "#",
         },
       }}
       persistent
       withActionButtonArrow={false}
+    />
+  </div>
+)
+
+const Prominent = () => (
+  <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
+    <GuidanceBlock
+      img={{ src: guidanceBlockImg, alt: "Information illustration" }}
+      text={guidanceBlockText}
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+        },
+      }}
+      variant="prominent"
     />
   </div>
 )
@@ -157,4 +175,23 @@ SecondaryAction.story = {
   },
 }
 
-export { Default, WithoutActionArrowButton, Persistent, SecondaryAction }
+Prominent.story = {
+  name: "Prominent",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Stone",
+        value: colorTokens.kz.color.stone,
+        default: true,
+      },
+    ],
+  },
+}
+
+export {
+  Default,
+  WithoutActionArrowButton,
+  Persistent,
+  SecondaryAction,
+  Prominent,
+}

@@ -8,12 +8,10 @@ import {
   HierarchicalMenu,
 } from "@kaizen/draft-hierarchical-menu"
 
-const chevronUp = require("@kaizen/component-library/icons/chevron-up.icon.svg")
-  .default
-const chevronDown = require("@kaizen/component-library/icons/chevron-down.icon.svg")
-  .default
-const clear = require("@kaizen/component-library/icons/clear.icon.svg").default
-const styles = require("./styles.module.scss")
+import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
+import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
+import clear from "@kaizen/component-library/icons/clear.icon.svg"
+import styles from "./styles.module.scss"
 
 export { MenuWidth, MenuDirection, Hierarchy, HierarchyNode }
 

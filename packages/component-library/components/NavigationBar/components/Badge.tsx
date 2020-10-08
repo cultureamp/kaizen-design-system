@@ -1,19 +1,12 @@
-import { Icon } from "@kaizen/component-library"
-/**
- * Eslint throws a false negative for modules that use require. Ensure you
- * are importing @kaizen/component-library into your package before turning
- * this rule off.
- */
-// eslint-disable-next-line import/no-extraneous-dependencies
-const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
-  .default
-// eslint-disable-next-line import/no-extraneous-dependencies
-const spinnerIcon = require("@kaizen/component-library/icons/spinner.icon.svg")
-  .default
+import { Icon } from "../../Icon"
+
+import caMonogramIcon from "../../../icons/ca-monogram.icon.svg"
+import spinnerIcon from "../../../icons/spinner.icon.svg"
+
 import classNames from "classnames"
 import * as React from "react"
 
-const styles = require("./Badge.module.scss")
+import styles from "./Badge.module.scss"
 
 type BadgeProps = {
   loading: boolean

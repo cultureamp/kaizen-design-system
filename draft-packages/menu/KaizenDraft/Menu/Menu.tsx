@@ -2,7 +2,7 @@ import { ButtonProps } from "@kaizen/draft-button"
 import React, { useRef, useState } from "react"
 import MenuDropdown from "./MenuDropdown"
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 export type GenericMenuProps = {
   /**

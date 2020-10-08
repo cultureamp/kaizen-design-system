@@ -2,7 +2,7 @@ import classnames from "classnames"
 import { Link } from "gatsby"
 import * as React from "react"
 
-const styles = require("./ContentOnly.scss")
+import styles from "./ContentOnly.scss"
 
 type ContentOnlyProps = {}
 

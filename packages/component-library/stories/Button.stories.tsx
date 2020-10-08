@@ -1,6 +1,6 @@
 import { Button } from "@kaizen/component-library"
-const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
-  .default
+import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
+
 import { action } from "@storybook/addon-actions"
 import React, { useCallback, useRef } from "react"
 import { ButtonRef } from "../components/Button"
@@ -11,7 +11,8 @@ export default {
   parameters: {
     info: {
       text: `
-        import { Button } from "@kaizen/component-library";
+        # Deprecated
+        Button is deprecated. Please use @kaizen/draft-button instead. 
       `,
     },
   },
