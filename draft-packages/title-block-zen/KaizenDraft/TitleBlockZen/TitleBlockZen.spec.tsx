@@ -482,8 +482,6 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when a secondary action is passed with only an href", () => {
-    const testOnClickFn = jest.fn()
-
     const secondaryActionWithLinkAndOnClick = {
       label: "secondaryActionLabel",
       href: "secondaryActionHref",
