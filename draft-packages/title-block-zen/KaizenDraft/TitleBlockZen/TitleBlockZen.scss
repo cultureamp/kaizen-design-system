@@ -13,6 +13,8 @@ $breadcrumb-breakpoint-width: $kz-layout-content-max-width +
 $title-block-separator-height: 3px;
 $tab-container-height-default: $ca-grid * 3;
 $tab-container-height-small: $ca-grid * 2.5;
+$tab-container-height-default-collapsed: $ca-grid + 0.1875rem;
+$tab-container-height-small-collapsed: $ca-grid + 0.1875rem;
 
 .titleBlock {
   position: relative;
@@ -420,6 +422,10 @@ $tab-container-height-small: $ca-grid * 2.5;
   @include title-block-small {
     height: $tab-container-height-small;
   }
+}
+
+.navigationTabsContainerCollapsed {
+  height: $tab-container-height-default-collapsed;
 }
 
 .navigationTabScrollerContainer {

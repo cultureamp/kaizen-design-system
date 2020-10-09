@@ -818,3 +818,62 @@ export const DefaultOnlyLongTitle = () => (
 )
 
 DefaultOnlyLongTitle.storyName = "Default (only long title)"
+
+export const DefaultCollapsedNavigation = () => (
+  <>
+    <TitleBlockZen
+      title="Page title"
+      subtitle="Subtitle goes here"
+      handleHamburgerClick={() => {
+        alert("Hamburger clicked")
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+      collapseNavigationAreaWhenPossible
+    />
+    <div style={{ backgroundColor: "#4b4d68", height: "4rem" }}>
+      <div style={{ maxWidth: "1392px", margin: "0 auto" }}>
+        <Paragraph variant="body" color="white-reduced-opacity">
+          I am some text that should feel nicely butted up on wide screens
+        </Paragraph>
+      </div>
+    </div>
+  </>
+)
+
+DefaultCollapsedNavigation.storyName = "Default (collapsed navigation)"
+
+export const AdminVariantNavigation = () => (
+  <>
+    <TitleBlockZen
+      variant="admin"
+      title="Page title"
+      subtitle="Subtitle goes here"
+      handleHamburgerClick={() => {
+        alert("Hamburger clicked")
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+      collapseNavigationAreaWhenPossible
+    />
+    <div style={{ backgroundColor: "#f6f6f6", height: "4rem" }}>
+      <div style={{ maxWidth: "1392px", margin: "0 auto" }}>
+        <Paragraph variant="body">
+          I am some text that should feel nicely butted up on wide screens
+        </Paragraph>
+      </div>
+    </div>
+  </>
+)
+
+AdminVariantNavigation.storyName = "Admin (collapsed navigation)"
