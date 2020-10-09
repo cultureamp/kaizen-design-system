@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.64...@kaizen/draft-table@1.7.0) (2020-10-09)
+
+
+### Features
+
+* Uplift the table to the new Zen designs  ([#803](https://github.com/cultureamp/kaizen-design-system/issues/803)) ([c279420](https://github.com/cultureamp/kaizen-design-system/commit/c279420254fb534adad6cce7ffad8328bbbb18ec))
+
+
+
+
+
 ## [1.6.64](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.63...@kaizen/draft-table@1.6.64) (2020-10-08)
 
 **Note:** Version bump only for package @kaizen/draft-table
