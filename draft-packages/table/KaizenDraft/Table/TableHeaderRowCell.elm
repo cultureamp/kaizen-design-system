@@ -9,6 +9,7 @@ module KaizenDraft.Table.TableHeaderRowCell exposing
     )
 
 import CssModules exposing (css)
+import Heading.Heading as Heading exposing (TypeVariant(..), view)
 import Html exposing (Attribute, Html, button, div, text)
 import Html.Attributes exposing (style)
 import Html.Attributes.Aria exposing (role)
@@ -94,7 +95,10 @@ view (Config config) =
         , styles.class .headerRowCell
         , role "columnheader"
         ]
-        [ text config.labelText ]
+        [ Heading.view
+            (Heading.h1 |> Heading.variant Heading6)
+            [ Html.text config.labelText ]
+        ]
 
 
 styles =
