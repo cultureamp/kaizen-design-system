@@ -1,10 +1,5 @@
-import {
-  Button,
-  ButtonProps,
-  Heading,
-  Icon,
-  Paragraph,
-} from "@kaizen/component-library"
+import { Button, ButtonProps } from "@kaizen/draft-button"
+import { Heading, Icon, Paragraph } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import classnames from "classnames"
