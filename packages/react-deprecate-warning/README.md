@@ -23,3 +23,27 @@ withDeprecatedProp(YourComponent, {
   },
 })
 ```
+
+### Deprecate values within a prop
+```
+withDeprecatedProp(YourComponent, {
+  name: "YourComponent",
+  warning: {
+    variant: [
+      {
+        key: "original",
+        warning: "original is deprecated, use prominent instead",
+      },
+      {
+        key: "zen",
+        warning: "zen is deprecated, use default instead",
+      },
+    ],
+  },
+})
+
+<YourComponent variant="default"> // fine, no warning
+<YourComponent variant="original"> // warning, logs "original is deprecated, use prominent instead"
+```
+
+
