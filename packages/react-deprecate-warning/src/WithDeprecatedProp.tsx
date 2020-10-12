@@ -19,21 +19,26 @@ export const withDeprecatedProp = <P extends object>(
   class extends React.Component<P> {
     constructor(props) {
       super(props)
-      const deprecatedPropsUsed = Object.keys(warning).filter(curr =>
-        Object.keys(props).includes(curr)
-      )
 
-      deprecatedPropsUsed.forEach(curr => {
-        if (typeof warning[curr] === "string") {
-          log(name, warning[curr] as string)
-        } else if (Array.isArray(warning[curr])) {
-          const deprecatedPropMessage = (warning[
-            curr
-          ] as deprecatedPropVal[]).find(obj => obj.key === props[curr])
+      Object.keys(warning).forEach(deprecatedPropName => {
+        if (!props[deprecatedPropName]) {
+          // prop not being used
+          return
+        }
+        const propWarning = warning[deprecatedPropName]
+        if (typeof propWarning === "string") {
+          // the entire prop is deprecated
 
-          if (deprecatedPropMessage !== undefined) {
-            log(name, deprecatedPropMessage.warning)
-          }
+          log(name, propWarning)
+        } else {
+          // only _some values_ of the prop are deprecated, match against incoming props
+          propWarning.forEach(
+            ({ key: deprecatedKey, warning: deprecatedWarning }) => {
+              if (deprecatedKey === props[deprecatedPropName]) {
+                log(name, deprecatedWarning)
+              }
+            }
+          )
         }
       })
     }

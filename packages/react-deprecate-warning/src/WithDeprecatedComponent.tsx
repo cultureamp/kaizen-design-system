@@ -1,5 +1,5 @@
 import * as React from "react"
-import { logComponent as log, Counter } from "./util"
+import { logComponent as log } from "./util"
 
 export interface withDeprecatedComponentProps {
   name: string
@@ -14,10 +14,7 @@ export const withDeprecatedComponent = <P extends object>(
     constructor(props) {
       super(props)
 
-      if (!Counter.includes(name)) {
-        Counter.add(name)
-        log(name, warning)
-      }
+      log(name, warning)
     }
 
     render() {
