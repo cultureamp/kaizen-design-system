@@ -43,7 +43,7 @@ export type GenericProps = {
   onBlur?: (e: FocusEvent<HTMLElement>) => void
   component?: ComponentType<CustomButtonProps>
   working?: boolean
-  workingLabel?: string
+  ariaWorkingLabel?: string
 }
 
 export type AdditionalContentProps = {
@@ -85,9 +85,9 @@ const GenericButton = forwardRef(
       },
     }))
 
-    if (props.working && !props.workingLabel) {
+    if (props.working && !props.ariaWorkingLabel) {
       throw new Error(
-        "If a Zen Button has 'working' set to true, it needs a 'workingLabel'. Please check your props."
+        "If a Zen Button has a 'working' prop, it needs an 'ariaWorkingLabel'. Please check your props."
       )
     }
 
@@ -159,7 +159,7 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
     onFocus,
     onBlur,
     working,
-    workingLabel,
+    ariaWorkingLabel,
     ...rest
   } = props
   const label = props.icon && props.iconButton ? props.label : undefined
@@ -176,7 +176,7 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
       onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
       type={type}
       title={label}
-      aria-label={working && workingLabel ? workingLabel : label}
+      aria-label={working && ariaWorkingLabel ? ariaWorkingLabel : label}
       tabIndex={
         disableTabFocusAndIUnderstandTheAccessibilityImplications
           ? -1

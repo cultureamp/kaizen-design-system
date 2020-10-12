@@ -36,7 +36,7 @@ export const DefaultWorking = () => (
     label="Label"
     onClick={handleClick}
     working
-    workingLabel="Submitting"
+    ariaWorkingLabel="Submitting"
   />
 )
 
@@ -55,7 +55,7 @@ PrimaryDisabled.story = {
 }
 
 export const PrimaryWorking = () => (
-  <Button label="Label" primary={true} working workingLabel="Submitting" />
+  <Button label="Label" primary={true} working ariaWorkingLabel="Submitting" />
 )
 
 PrimaryWorking.story = {
@@ -73,7 +73,12 @@ DestructiveDisabled.story = {
 }
 
 export const DestructiveWorking = () => (
-  <Button label="Label" destructive={true} working workingLabel="Submitting" />
+  <Button
+    label="Label"
+    destructive={true}
+    working
+    ariaWorkingLabel="Submitting"
+  />
 )
 
 DestructiveWorking.story = {
@@ -95,7 +100,7 @@ export const SecondaryWorking = () => (
     label="Label"
     secondary={true}
     working={true}
-    workingLabel="Submitting"
+    ariaWorkingLabel="Submitting"
   />
 )
 
@@ -145,7 +150,12 @@ export const FullWidthIcon = () => (
 )
 
 export const FullWidthWorking = () => (
-  <Button label="Label" fullWidth={true} working workingLabel="Submitting" />
+  <Button
+    label="Label"
+    fullWidth={true}
+    working
+    ariaWorkingLabel="Submitting"
+  />
 )
 
 FullWidthIcon.story = {
@@ -203,7 +213,7 @@ export const ReversedDefaultWorking = () => (
     label="Label"
     reversed={true}
     working={true}
-    workingLabel="Submitting"
+    ariaWorkingLabel="Submitting"
   />
 )
 
@@ -260,7 +270,7 @@ export const ReversedPrimaryWorking = () => (
     primary={true}
     reversed={true}
     working={true}
-    workingLabel="Submitting"
+    ariaWorkingLabel="Submitting"
   />
 )
 
@@ -317,7 +327,7 @@ export const ReversedSecondaryWorking = () => (
     secondary={true}
     reversed={true}
     working={true}
-    workingLabel="Submitting"
+    ariaWorkingLabel="Submitting"
   />
 )
 
