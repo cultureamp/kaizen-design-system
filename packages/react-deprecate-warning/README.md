@@ -16,7 +16,7 @@ withDeprecatedComponent(YourComponent, {
 
 ### Deprecate a prop
 ```
-withDeprecatedProps(YourComponent, {
+withDeprecatedProp(YourComponent, {
   name: "YourComponent",
   warning: {
     test: "test is deprecated, use anotherProp instead",

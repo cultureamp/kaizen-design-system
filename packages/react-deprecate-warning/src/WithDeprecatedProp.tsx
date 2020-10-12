@@ -5,16 +5,16 @@ type deprecatedPropVal = {
   warning: string
   key: string
 }
-export interface withDeprecatedPropsProps {
+export interface withDeprecatedPropProps {
   name: string
   warning: {
     [key: string]: string | deprecatedPropVal[]
   }
 }
 
-export const withDeprecatedProps = <P extends object>(
+export const withDeprecatedProp = <P extends object>(
   WrappedComponent: React.ComponentType<P>,
-  { warning, name }: withDeprecatedPropsProps
+  { warning, name }: withDeprecatedPropProps
 ): React.ComponentType<P> =>
   class extends React.Component<P> {
     constructor(props) {

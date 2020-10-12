@@ -1,2 +1,2 @@
 export * from "./withDeprecatedComponent"
-export * from "./withDeprecatedProps"
+export * from "./WithDeprecatedProp"

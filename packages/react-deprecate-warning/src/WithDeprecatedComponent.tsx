@@ -1,14 +1,14 @@
 import * as React from "react"
 import { logComponent as log, Counter } from "./util"
 
-export interface withDeprecatedWarningProps {
+export interface withDeprecatedComponentProps {
   name: string
   warning: string
 }
 
 export const withDeprecatedComponent = <P extends object>(
   WrappedComponent: React.ComponentType<P>,
-  { warning, name }: withDeprecatedWarningProps
+  { warning, name }: withDeprecatedComponentProps
 ): React.ComponentType<P> =>
   class extends React.Component<P> {
     constructor(props) {

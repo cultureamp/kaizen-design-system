@@ -3,7 +3,7 @@
 import { cleanup, render } from "@testing-library/react"
 import { screen } from "@testing-library/dom"
 import * as React from "react"
-import { withDeprecatedComponent, withDeprecatedProps } from "./index"
+import { withDeprecatedComponent, withDeprecatedProp } from "./index"
 import { Counter } from "./util"
 
 const logger = global.console
@@ -84,10 +84,10 @@ describe("Deprecation helpers", () => {
     })
   })
 
-  describe("<withDeprecatedProps />", () => {
+  describe("<withDeprecatedProp />", () => {
     it("should raise a warning when a deprecated prop is used", () => {
       const spy = jest.spyOn(logger, "warn")
-      const MockWithHOC = withDeprecatedProps(MockAppClass, {
+      const MockWithHOC = withDeprecatedProp(MockAppClass, {
         name: "MockWithHOC",
         warning: {
           test: "test is deprecated, use blah instead",
@@ -100,7 +100,7 @@ describe("Deprecation helpers", () => {
 
     it("should raise a warning when a deprecated prop _value_ is used", () => {
       const spy = jest.spyOn(logger, "warn")
-      const MockWithHOC = withDeprecatedProps(MockAppClass, {
+      const MockWithHOC = withDeprecatedProp(MockAppClass, {
         name: "MockWithHOC",
         warning: {
           variant: [
@@ -124,7 +124,7 @@ describe("Deprecation helpers", () => {
 
     it("should not raise a warning when using non-deprecated props", () => {
       const spy = jest.spyOn(logger, "warn")
-      const MockWithHOC = withDeprecatedProps(MockAppClass, {
+      const MockWithHOC = withDeprecatedProp(MockAppClass, {
         name: "MockWithHOC",
         warning: {
           variant: [
@@ -152,7 +152,7 @@ describe("Deprecation helpers", () => {
         "The variant prop value 'original' is deprecated, use 'default' instead"
       const errorMessageZen =
         "The variant prop value 'zen' is deprecated, use 'default' instead"
-      const MockWithHOC = withDeprecatedProps(MockAppFunc, {
+      const MockWithHOC = withDeprecatedProp(MockAppFunc, {
         name: "MockAppFunc",
         warning: {
           variant: [
