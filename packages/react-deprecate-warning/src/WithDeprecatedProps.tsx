@@ -1,5 +1,5 @@
 import * as React from "react"
-import { logProp as log, Counter } from "./util"
+import { logProp as log } from "./util"
 
 type deprecatedPropVal = {
   warning: string
@@ -19,9 +19,6 @@ export const withDeprecatedProps = <P extends object>(
   class extends React.Component<P> {
     constructor(props) {
       super(props)
-      if (!Counter.includes(name)) {
-        Counter.add(name)
-      }
       const deprecatedPropsUsed = Object.keys(warning).filter(curr =>
         Object.keys(props).includes(curr)
       )

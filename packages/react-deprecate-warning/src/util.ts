@@ -29,9 +29,13 @@ export const Counter = (() => {
 
   const includes = (value: string) => !!countComponents.includes(value)
 
+  // eslint-disable-next-line no-console
+  const debug = () => console.log(countComponents)
+
   return {
     reset,
     add,
     includes,
+    debug,
   }
 })()
