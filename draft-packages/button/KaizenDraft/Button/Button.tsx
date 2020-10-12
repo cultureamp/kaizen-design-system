@@ -18,7 +18,7 @@ Button.defaultProps = {
   destructive: false,
   disabled: false,
   reversed: false,
-  working: false,
+  working: null,
   iconPosition: "start",
   newTabAndIUnderstandTheAccessibilityImplications: false,
 }

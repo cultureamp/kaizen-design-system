@@ -42,7 +42,7 @@ export type GenericProps = {
   onFocus?: (e: FocusEvent<HTMLElement>) => void
   onBlur?: (e: FocusEvent<HTMLElement>) => void
   component?: ComponentType<CustomButtonProps>
-  working?: boolean
+  working?: boolean | null
   ariaWorkingLabel?: string
 }
 
@@ -85,7 +85,7 @@ const GenericButton = forwardRef(
       },
     }))
 
-    if (props.working && !props.ariaWorkingLabel) {
+    if (props.working !== null && !props.ariaWorkingLabel) {
       throw new Error(
         "If a Zen Button has a 'working' prop, it needs an 'ariaWorkingLabel'. Please check your props."
       )
