@@ -1,4 +1,5 @@
 import { Icon } from "@kaizen/component-library"
+import { LoadingSpinner } from "@kaizen/draft-loading-spinner"
 import classNames from "classnames"
 import React, {
   forwardRef,
@@ -41,6 +42,8 @@ export type GenericProps = {
   onFocus?: (e: FocusEvent<HTMLElement>) => void
   onBlur?: (e: FocusEvent<HTMLElement>) => void
   component?: ComponentType<CustomButtonProps>
+  working?: boolean
+  workingLabel?: string
 }
 
 export type AdditionalContentProps = {
@@ -82,6 +85,12 @@ const GenericButton = forwardRef(
       },
     }))
 
+    if (props.working && !props.workingLabel) {
+      throw new Error(
+        "If a Zen Button has 'working' set to true, it needs a 'workingLabel'. Please check your props."
+      )
+    }
+
     const determineButtonRenderer = () => {
       if (props.component) {
         return renderCustomComponent(
@@ -91,7 +100,7 @@ const GenericButton = forwardRef(
         )
       }
 
-      if (props.href && !props.disabled) {
+      if (props.href && !props.disabled && !props.working) {
         return renderLink(props, buttonRef as Ref<HTMLAnchorElement>)
       }
 
@@ -149,6 +158,8 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
     disableTabFocusAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
+    working,
+    workingLabel,
     ...rest
   } = props
   const label = props.icon && props.iconButton ? props.label : undefined
@@ -159,13 +170,13 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
       id={id}
       disabled={disabled}
       className={buttonClass(props)}
-      onClick={onClick}
+      onClick={!working && onClick}
       onFocus={onFocus}
       onBlur={onBlur}
       onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
       type={type}
       title={label}
-      aria-label={label}
+      aria-label={working && workingLabel ? workingLabel : label}
       tabIndex={
         disableTabFocusAndIUnderstandTheAccessibilityImplications
           ? -1
@@ -225,21 +236,29 @@ const buttonClass = (props: Props) => {
     [styles.reverseColorSeedling]: props.reverseColor === "seedling",
     [styles.reverseColorWisteria]: props.reverseColor === "wisteria",
     [styles.reverseColorYuzu]: props.reverseColor === "yuzu",
+    [styles.working]: props.working,
   })
 }
 
 const renderContent: React.FunctionComponent<Props> = props => (
   <span className={styles.content}>
-    {props.icon && props.iconPosition !== "end" && renderIcon(props.icon)}
-    {(!props.icon || !props.iconButton) && (
-      <span className={styles.label}>{props.label}</span>
-    )}
-    {props.additionalContent && (
-      <span className={styles.additionalContentWrapper}>
-        {props.additionalContent}
+    {props.working && (
+      <span className={styles.loadingSpinner}>
+        <LoadingSpinner accessibilityLabel="Working..." size="sm" />
       </span>
     )}
-    {props.icon && props.iconPosition === "end" && renderIcon(props.icon)}
+    <span className={styles.innerContent}>
+      {props.icon && props.iconPosition !== "end" && renderIcon(props.icon)}
+      {(!props.icon || !props.iconButton) && (
+        <span className={styles.label}>{props.label}</span>
+      )}
+      {props.additionalContent && (
+        <span className={styles.additionalContentWrapper}>
+          {props.additionalContent}
+        </span>
+      )}
+      {props.icon && props.iconPosition === "end" && renderIcon(props.icon)}
+    </span>
   </span>
 )
 

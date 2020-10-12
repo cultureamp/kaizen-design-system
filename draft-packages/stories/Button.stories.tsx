@@ -17,6 +17,8 @@ export default {
   },
 }
 
+const handleClick = () => alert("This shouldn't fire")
+
 export const DefaultKaizenSiteDemo = () => <Button label="Label" />
 
 DefaultKaizenSiteDemo.story = {
@@ -29,6 +31,19 @@ DefaultDisabled.story = {
   name: "Default, Disabled",
 }
 
+export const DefaultWorking = () => (
+  <Button
+    label="Label"
+    onClick={handleClick}
+    working
+    workingLabel="Submitting"
+  />
+)
+
+DefaultWorking.story = {
+  name: "Default, Working",
+}
+
 export const Primary = () => <Button label="Label" primary={true} />
 
 export const PrimaryDisabled = () => (
@@ -37,6 +52,14 @@ export const PrimaryDisabled = () => (
 
 PrimaryDisabled.story = {
   name: "Primary, Disabled",
+}
+
+export const PrimaryWorking = () => (
+  <Button label="Label" primary={true} working workingLabel="Submitting" />
+)
+
+PrimaryWorking.story = {
+  name: "Primary, Working",
 }
 
 export const Destructive = () => <Button label="Label" destructive={true} />
@@ -49,6 +72,14 @@ DestructiveDisabled.story = {
   name: "Destructive, Disabled",
 }
 
+export const DestructiveWorking = () => (
+  <Button label="Label" destructive={true} working workingLabel="Submitting" />
+)
+
+DestructiveWorking.story = {
+  name: "Destructive, Working",
+}
+
 export const Secondary = () => <Button label="Label" secondary={true} />
 
 export const SecondaryDisabled = () => (
@@ -57,6 +88,19 @@ export const SecondaryDisabled = () => (
 
 SecondaryDisabled.story = {
   name: "Secondary, Disabled",
+}
+
+export const SecondaryWorking = () => (
+  <Button
+    label="Label"
+    secondary={true}
+    working={true}
+    workingLabel="Submitting"
+  />
+)
+
+SecondaryWorking.story = {
+  name: "Secondary, Working",
 }
 
 export const SecondaryWIcon = () => (
@@ -98,6 +142,10 @@ export const FullWidth = () => <Button label="Label" fullWidth={true} />
 
 export const FullWidthIcon = () => (
   <Button label="Label" fullWidth={true} icon={configureIcon} />
+)
+
+export const FullWidthWorking = () => (
+  <Button label="Label" fullWidth={true} working workingLabel="Submitting" />
 )
 
 FullWidthIcon.story = {
@@ -150,6 +198,28 @@ ReversedDefaultDisabled.story = {
   },
 }
 
+export const ReversedDefaultWorking = () => (
+  <Button
+    label="Label"
+    reversed={true}
+    working={true}
+    workingLabel="Submitting"
+  />
+)
+
+ReversedDefaultWorking.story = {
+  name: "Reversed, Default, Working",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
+}
+
 export const ReversedPrimary = () => (
   <Button label="Label" primary={true} disabled={false} reversed={true} />
 )
@@ -184,6 +254,29 @@ ReversedPrimaryDisabled.story = {
   },
 }
 
+export const ReversedPrimaryWorking = () => (
+  <Button
+    label="Label"
+    primary={true}
+    reversed={true}
+    working={true}
+    workingLabel="Submitting"
+  />
+)
+
+ReversedPrimaryWorking.story = {
+  name: "Reversed, Primary, Working",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
+}
+
 export const ReversedSecondary = () => (
   <Button label="Label" secondary={true} reversed={true} />
 )
@@ -207,6 +300,29 @@ export const ReversedSecondaryDisabled = () => (
 
 ReversedSecondaryDisabled.story = {
   name: "Reversed, Secondary, Disabled",
+  parameters: {
+    backgrounds: [
+      {
+        name: "Wisteria 700",
+        value: colorTokens.kz.color.wisteria[700],
+        default: true,
+      },
+    ],
+  },
+}
+
+export const ReversedSecondaryWorking = () => (
+  <Button
+    label="Label"
+    secondary={true}
+    reversed={true}
+    working={true}
+    workingLabel="Submitting"
+  />
+)
+
+ReversedSecondaryWorking.story = {
+  name: "Reversed, Secondary, Working",
   parameters: {
     backgrounds: [
       {

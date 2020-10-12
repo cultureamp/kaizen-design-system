@@ -84,3 +84,17 @@
 .destructiveModifier.destructiveModifier {
   @extend %caButtonDestructiveModifier;
 }
+
+.working {
+  .innerContent {
+    visibility: hidden;
+  }
+
+  .loadingSpinner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+  }
+}
