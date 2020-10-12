@@ -5,6 +5,7 @@ import {
   ConfirmationModal,
   GenericModal,
   InformationModal,
+  RoadblockModal,
   InputEditModal,
   ModalAccessibleDescription,
   ModalAccessibleLabel,
@@ -68,7 +69,8 @@ export const ConfirmationPositiveKaizenSiteDemo = () => (
         >
           <div style={{ textAlign: "center" }}>
             <Paragraph variant="body">
-              Additional subtext to aid the user can be added here.
+              Modals contain smaller pieces of content and can provide
+              additional information to aid the user.
             </Paragraph>
           </div>
         </ConfirmationModal>
@@ -95,7 +97,8 @@ export const ConfirmationInformative = () => (
         >
           <div style={{ textAlign: "center" }}>
             <Paragraph variant="body">
-              Additional subtext to aid the user can be added here.
+              Modals contain smaller pieces of content and can provide
+              additional information to aid the user.
             </Paragraph>
           </div>
         </ConfirmationModal>
@@ -122,7 +125,8 @@ export const ConfirmationCautionary = () => (
         >
           <div style={{ textAlign: "center" }}>
             <Paragraph variant="body">
-              Additional subtext to aid the user can be added here.
+              Modals contain smaller pieces of content and can provide
+              additional information to aid the user.
             </Paragraph>
           </div>
         </ConfirmationModal>
@@ -149,7 +153,8 @@ export const ConfirmationNegative = () => (
         >
           <div style={{ textAlign: "center" }}>
             <Paragraph tag="p" variant="body">
-              Additional subtext to aid the user can be added here.
+              Modals contain smaller pieces of content and can provide
+              additional information to aid the user.
             </Paragraph>
           </div>
         </ConfirmationModal>
@@ -649,7 +654,8 @@ export const NestedModal = () => (
               >
                 <div style={{ textAlign: "center" }}>
                   <Paragraph variant="body">
-                    Additional subtext to aid the user can be added here.
+                    Modals contain smaller pieces of content and can provide
+                    additional information to aid the user.
                   </Paragraph>
                 </div>
               </ConfirmationModal>
@@ -676,4 +682,30 @@ export const NestedModal = () => (
 
 NestedModal.story = {
   name: "Nested confirmation modal",
+}
+
+export const Roadblock = () => (
+  <ModalStateContainer isInitiallyOpen={false}>
+    {({ open, close, isOpen }) => (
+      <div>
+        <Button label="Open modal" onClick={open} />
+        <RoadblockModal
+          isOpen={isOpen}
+          title="Roadblock title"
+          onDismiss={close}
+        >
+          <div style={{ textAlign: "center" }}>
+            <Paragraph variant="body">
+              Tell users why they're unable to proceed and what needs to happen
+              first.
+            </Paragraph>
+          </div>
+        </RoadblockModal>
+      </div>
+    )}
+  </ModalStateContainer>
+)
+
+Roadblock.story = {
+  name: "Roadblock",
 }

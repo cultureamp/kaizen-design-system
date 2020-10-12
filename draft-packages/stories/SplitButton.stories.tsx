@@ -18,6 +18,44 @@ export default {
   },
 }
 
+export const DefaultItemsAbove = () => (
+  <div
+    style={{
+      height: "100vh",
+      display: "flex",
+      alignItems: "flex-end",
+    }}
+  >
+    <SplitButton
+      label="Edit"
+      onClick={() => action("Button clicked")}
+      dropdownContent={
+        <MenuContent>
+          <MenuItem
+            onClick={e => {
+              action("Menu item 1 pressed")()
+            }}
+            icon={editIcon}
+            label="Menu Item 1"
+          />
+          <MenuItem
+            onClick={e => {
+              action("Menu item 2 pressed")()
+            }}
+            icon={duplicateIcon}
+            label="Menu Item 2"
+          />
+        </MenuContent>
+      }
+      dropdownAltText="Open menu"
+    />
+  </div>
+)
+
+DefaultItemsAbove.story = {
+  name: "Default, Items above",
+}
+
 export const DefaultKaizenSiteDemo = () => (
   <SplitButton
     label="Edit"
@@ -25,16 +63,14 @@ export const DefaultKaizenSiteDemo = () => (
     dropdownContent={
       <MenuContent>
         <MenuItem
-          action={(e: any) => {
-            e.preventDefault()
+          onClick={e => {
             action("Menu item 1 pressed")()
           }}
           icon={editIcon}
           label="Menu Item 1"
         />
         <MenuItem
-          action={(e: any) => {
-            e.preventDefault()
+          onClick={e => {
             action("Menu item 2 pressed")()
           }}
           icon={duplicateIcon}
@@ -58,8 +94,7 @@ export const Disabled = () => (
     dropdownContent={
       <MenuContent>
         <MenuItem
-          action={(e: any) => {
-            e.preventDefault()
+          onClick={e => {
             action("Menu item 1 pressed")()
           }}
           icon={editIcon}
@@ -83,16 +118,14 @@ export const Primary = () => (
     dropdownContent={
       <MenuContent>
         <MenuItem
-          action={(e: any) => {
-            e.preventDefault()
+          onClick={e => {
             action("Menu item 1 pressed")()
           }}
           icon={editIcon}
           label="Menu Item 1"
         />
         <MenuItem
-          action={(e: any) => {
-            e.preventDefault()
+          onClick={e => {
             action("Menu item 2 pressed")()
           }}
           icon={duplicateIcon}
@@ -117,16 +150,14 @@ export const PrimaryDisabled = () => (
     dropdownContent={
       <MenuContent>
         <MenuItem
-          action={(e: any) => {
-            e.preventDefault()
+          onClick={e => {
             action("Menu item 1 pressed")()
           }}
           icon={editIcon}
           label="Menu Item 1"
         />
         <MenuItem
-          action={(e: any) => {
-            e.preventDefault()
+          onClick={e => {
             action("Menu item 2 pressed")()
           }}
           icon={duplicateIcon}
@@ -149,8 +180,7 @@ export const AnchorLink = () => (
     dropdownContent={
       <MenuContent>
         <MenuItem
-          action={(e: any) => {
-            e.preventDefault()
+          onClick={e => {
             action("Menu item 1 pressed")()
           }}
           icon={editIcon}
@@ -173,16 +203,14 @@ export const Rtl = () => (
     dropdownContent={
       <MenuContent>
         <MenuItem
-          action={(e: any) => {
-            e.preventDefault()
+          onClick={e => {
             action("Menu item 1 pressed")()
           }}
           icon={editIcon}
           label="Menu Item 1"
         />
         <MenuItem
-          action={(e: any) => {
-            e.preventDefault()
+          onClick={e => {
             action("Menu item 2 pressed")()
           }}
           icon={duplicateIcon}
@@ -207,8 +235,7 @@ export const PrimaryRtl = () => (
     dropdownContent={
       <MenuContent>
         <MenuItem
-          action={(e: any) => {
-            e.preventDefault()
+          onClick={e => {
             action("Menu item 1 pressed")()
           }}
           icon={editIcon}
@@ -217,8 +244,7 @@ export const PrimaryRtl = () => (
         "
         />
         <MenuItem
-          action={(e: any) => {
-            e.preventDefault()
+          onClick={e => {
             action("Menu item 2 pressed")()
           }}
           icon={duplicateIcon}

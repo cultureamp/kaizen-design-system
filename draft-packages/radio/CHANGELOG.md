@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.29](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.2.28...@kaizen/draft-radio@2.2.29) (2020-10-08)
+
+**Note:** Version bump only for package @kaizen/draft-radio
+
+
+
+
+
+## [2.2.28](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.2.27...@kaizen/draft-radio@2.2.28) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-radio
+
+
+
+
+
+## [2.2.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.2.26...@kaizen/draft-radio@2.2.27) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-radio
+
+
+
+
+
 ## [2.2.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.2.25...@kaizen/draft-radio@2.2.26) (2020-09-30)
 
 **Note:** Version bump only for package @kaizen/draft-radio

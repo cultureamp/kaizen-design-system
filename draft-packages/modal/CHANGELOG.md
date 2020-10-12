@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@3.1.0...@kaizen/draft-modal@3.1.1) (2020-10-08)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+# [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@3.0.9...@kaizen/draft-modal@3.1.0) (2020-10-06)
+
+
+### Features
+
+* Add Roadblock modal (React), update confirmation modals to Zen designs ([#800](https://github.com/cultureamp/kaizen-design-system/issues/800)) ([b38dedc](https://github.com/cultureamp/kaizen-design-system/commit/b38dedc84566e337e3b07233889107c51ebf4bd0))
+
+
+
+
+
+## [3.0.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@3.0.8...@kaizen/draft-modal@3.0.9) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [3.0.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@3.0.7...@kaizen/draft-modal@3.0.8) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
 ## [3.0.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@3.0.6...@kaizen/draft-modal@3.0.7) (2020-09-30)
 
 **Note:** Version bump only for package @kaizen/draft-modal
