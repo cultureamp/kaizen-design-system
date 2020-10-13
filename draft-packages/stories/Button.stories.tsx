@@ -50,7 +50,6 @@ export const DefaultWorkingWithWorkingLabel = () => (
     onClick={clickAction}
     working
     workingLabel="Submitting"
-    iconPosition="end"
   />
 )
 
@@ -58,21 +57,18 @@ DefaultWorkingWithWorkingLabel.story = {
   name: "Default, Working with working label",
 }
 
-export const DefaultWorkingWithAriaWorkingLabel = () => (
+export const DefaultWorkingOnEnd = () => (
   <Button
     label="Label"
     onClick={clickAction}
     working
-    ariaWorkingLabel="Something else"
     workingLabel="Submitting"
-    iconPosition="end"
+    iconPosition="end" // Loading spinner sits in same spot as icon
   />
 )
 
-DefaultWorkingWithAriaWorkingLabel.story = {
-  name: "Default, Working with aria working label",
-  description:
-    "ariaWorkingLabel takes priority over workingLabel when applied to aria-label",
+DefaultWorkingOnEnd.story = {
+  name: "Default, Working with working label and spinner on right side",
 }
 
 export const Primary = () => <Button label="Label" primary={true} />
