@@ -1,5 +1,3 @@
-// import "@testing-library/jest-dom/extend-expect"
-
 import { cleanup, render } from "@testing-library/react"
 import { screen } from "@testing-library/dom"
 import * as React from "react"
@@ -29,7 +27,6 @@ describe("Deprecation helpers", () => {
   describe("<withDeprecatedComponent>", () => {
     it("should passthrough a component's props", () => {
       const MockWithHOC = withDeprecatedComponent(MockAppFunc, {
-        name: "MockWithHOC",
         warning: ERROR_MESSAGE,
       })
       render(<MockWithHOC test="hello" />)
@@ -40,14 +37,13 @@ describe("Deprecation helpers", () => {
     it("should log a warning to the console", () => {
       const spy = jest.spyOn(logger, "warn")
       const MockWithHOC = withDeprecatedComponent(MockAppFunc, {
-        name: "MockWithHOC",
         warning: ERROR_MESSAGE,
       })
       render(<MockWithHOC test="hello" />)
 
       expect(spy).toHaveBeenCalledTimes(1)
       expect(spy).toHaveBeenCalledWith(
-        `DEPRECATED COMPONENT WARNING (MockWithHOC)\n${ERROR_MESSAGE}`
+        `DEPRECATED COMPONENT WARNING (MockAppFunc)\n${ERROR_MESSAGE}`
       )
       spy.mockRestore()
     })
@@ -55,7 +51,6 @@ describe("Deprecation helpers", () => {
     it("should accepts class components", () => {
       const spy = jest.spyOn(logger, "warn")
       const MockWithHOC = withDeprecatedComponent(MockAppClass, {
-        name: "MockWithHOC",
         warning: ERROR_MESSAGE,
       })
       render(<MockWithHOC test="hello" />)
@@ -69,7 +64,6 @@ describe("Deprecation helpers", () => {
       it("should raise a warning when a deprecated prop is used", () => {
         const spy = jest.spyOn(logger, "warn")
         const MockWithHOC = withDeprecatedProp(MockAppClass, {
-          name: "MockWithHOC",
           warning: {
             test: "test is deprecated, use blah instead",
             variant: [
@@ -94,7 +88,6 @@ describe("Deprecation helpers", () => {
       it("should not raise multiple warnings when a deprecated prop is used", () => {
         const spy = jest.spyOn(logger, "warn")
         const MockWithHOC = withDeprecatedProp(MockAppClass, {
-          name: "MockWithHOC",
           warning: {
             test: "test is deprecated, use blah instead",
             variant: [
@@ -119,7 +112,6 @@ describe("Deprecation helpers", () => {
       it("should not raise a warning when using non-deprecated props", () => {
         const spy = jest.spyOn(logger, "warn")
         const MockWithHOC = withDeprecatedProp(MockAppClass, {
-          name: "MockWithHOC",
           warning: {
             variant: [
               {
@@ -147,7 +139,6 @@ describe("Deprecation helpers", () => {
         const errorMessageZen =
           "The variant prop value 'zen' is deprecated, use 'default' instead"
         const MockWithHOC = withDeprecatedProp(MockAppFunc, {
-          name: "MockAppFunc",
           warning: {
             variant: [
               {
@@ -178,7 +169,6 @@ describe("Deprecation helpers", () => {
       it("should raise a warning when a deprecated prop _value_ is used", () => {
         const spy = jest.spyOn(logger, "warn")
         const MockWithHOC = withDeprecatedProp(MockAppClass, {
-          name: "MockWithHOC",
           warning: {
             variant: [
               {
@@ -197,7 +187,6 @@ describe("Deprecation helpers", () => {
       it("should _not_ raise a warning when a deprecated prop _value_ is not used", () => {
         const spy = jest.spyOn(logger, "warn")
         const MockWithHOC = withDeprecatedProp(MockAppClass, {
-          name: "MockWithHOC",
           warning: {
             variant: [
               {

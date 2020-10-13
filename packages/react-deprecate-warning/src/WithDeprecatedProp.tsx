@@ -1,12 +1,11 @@
 import * as React from "react"
-import { logProp as log } from "./util"
+import { logProp as log, getDisplayName } from "./util"
 
 type deprecatedPropVal = {
   warning: string
   key: string
 }
 export interface withDeprecatedPropProps {
-  name: string
   warning: {
     [key: string]: string | deprecatedPropVal[]
   }
@@ -14,12 +13,12 @@ export interface withDeprecatedPropProps {
 
 export const withDeprecatedProp = <P extends object>(
   WrappedComponent: React.ComponentType<P>,
-  { warning, name }: withDeprecatedPropProps
+  { warning }: withDeprecatedPropProps
 ): React.ComponentType<P> =>
   class extends React.Component<P> {
     constructor(props) {
       super(props)
-
+      const name = getDisplayName(WrappedComponent)
       Object.keys(warning).forEach(deprecatedPropName => {
         if (!props[deprecatedPropName]) {
           // prop not being used

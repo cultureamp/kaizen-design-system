@@ -15,3 +15,5 @@ const log = (deprecatedType: "component" | "prop") => (
 
 export const logComponent = log("component")
 export const logProp = log("prop")
+export const getDisplayName = WrappedComponent =>
+  WrappedComponent.displayName || WrappedComponent.name || "Component"
