@@ -150,6 +150,7 @@ const Option: typeof components.Option = props => (
       className={classNames("needsclick", styles.option, {
         [styles.focusedOption]: props.isFocused,
         [styles.selectedOption]: props.isSelected,
+        [styles.disabledOption]: props.isDisabled,
       })}
     />
   </div>

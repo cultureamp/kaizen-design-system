@@ -16,7 +16,7 @@ const NarrowStoryContainer = ({ children }: { children: React.ReactNode }) => (
 
 const options = [
   { value: "Mindy", label: "Mindy" },
-  { value: "Jaime", label: "Jaime" },
+  { value: "Jaime", label: "Jaime", isDisabled: true },
   { value: "Rafa", label: "Rafa" },
   { value: "Elaine", label: "Elaine" },
   { value: "Julio", label: "Julio" },
