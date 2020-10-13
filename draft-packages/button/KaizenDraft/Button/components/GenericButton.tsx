@@ -53,7 +53,7 @@ export type LabelProps = {
   primary?: boolean
   secondary?: boolean
   reverseColor?: "cluny" | "peach" | "seedling" | "wisteria" | "yuzu"
-  working?: boolean | null
+  working?: boolean
   workingLabel?: string
   ariaWorkingLabel?: string
 }
@@ -92,7 +92,6 @@ const GenericButton = forwardRef(
     if (
       !props.iconButton &&
       props.working !== undefined &&
-      props.working !== null &&
       !getWorkingLabel(props)
     ) {
       throw new Error(
