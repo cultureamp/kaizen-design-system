@@ -43,6 +43,7 @@ export type GenericProps = {
   onBlur?: (e: FocusEvent<HTMLElement>) => void
   component?: ComponentType<CustomButtonProps>
   working?: boolean | null
+  workingLabel?: string
   ariaWorkingLabel?: string
 }
 
@@ -66,6 +67,9 @@ type Props = ButtonProps & {
 
 export type ButtonRef = { focus: () => void }
 
+const getWorkingLabel = ({ workingLabel, ariaWorkingLabel }: Props) =>
+  ariaWorkingLabel || workingLabel
+
 // We're treating custom props as anything that is kebab cased.
 // This is so we can support properties like aria-* or data-*
 const getCustomProps = (props: object) => {
@@ -85,9 +89,10 @@ const GenericButton = forwardRef(
       },
     }))
 
-    if (props.working !== null && !props.ariaWorkingLabel) {
+    if (props.working !== null && !getWorkingLabel(props)) {
       throw new Error(
-        "If a Zen Button has a 'working' prop, it needs an 'ariaWorkingLabel'. Please check your props."
+        "If a Zen Button has a 'working' prop, it needs an 'ariaWorkingLabel' or a 'workingLabel'. Please check your" +
+          " props."
       )
     }
 
@@ -159,11 +164,13 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
     onFocus,
     onBlur,
     working,
+    workingLabel,
     ariaWorkingLabel,
     ...rest
   } = props
   const label = props.icon && props.iconButton ? props.label : undefined
   const customProps = getCustomProps(rest)
+  const btnWorkingLabel = getWorkingLabel(props)
 
   return (
     <button
@@ -176,7 +183,7 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
       onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
       type={type}
       title={label}
-      aria-label={working && ariaWorkingLabel ? ariaWorkingLabel : label}
+      aria-label={working && btnWorkingLabel ? btnWorkingLabel : label}
       tabIndex={
         disableTabFocusAndIUnderstandTheAccessibilityImplications
           ? -1
@@ -198,9 +205,14 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
     newTabAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
+    working,
+    workingLabel,
+    ariaWorkingLabel,
     ...rest
   } = props
   const customProps = getCustomProps(rest)
+
+  const linkWorkingLabel = getWorkingLabel(props)
 
   return (
     <a
@@ -214,6 +226,7 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
       onFocus={onFocus}
       onBlur={onBlur}
       ref={ref}
+      aria-label={working && linkWorkingLabel ? linkWorkingLabel : undefined}
       {...customProps}
     >
       {renderContent(props)}
@@ -240,25 +253,59 @@ const buttonClass = (props: Props) => {
   })
 }
 
-const renderContent: React.FunctionComponent<Props> = props => (
-  <span className={styles.content}>
-    {props.working && (
-      <span className={styles.loadingSpinner}>
-        <LoadingSpinner accessibilityLabel="Working..." size="sm" />
-      </span>
-    )}
-    <span className={styles.innerContent}>
-      {props.icon && props.iconPosition !== "end" && renderIcon(props.icon)}
+const renderLoadingSpinner = () => (
+  <LoadingSpinner accessibilityLabel="Working" size="sm" />
+)
+
+const renderWorkingContent = props => {
+  if (!props.workingLabel) {
+    return (
+      <>
+        {/* This is to ensure the button stays at the correct width */}
+        <span className={styles.hidden} aria-hidden="true">
+          {renderDefaultContent(props)}
+        </span>
+        <span className={styles.centeredLoadingSpinner}>
+          {renderLoadingSpinner()}
+        </span>
+      </>
+    )
+  }
+
+  return (
+    <>
+      {props.iconPosition !== "end" && renderLoadingSpinner()}
       {(!props.icon || !props.iconButton) && (
-        <span className={styles.label}>{props.label}</span>
+        <span className={styles.label}>{props.workingLabel}</span>
       )}
       {props.additionalContent && (
         <span className={styles.additionalContentWrapper}>
           {props.additionalContent}
         </span>
       )}
-      {props.icon && props.iconPosition === "end" && renderIcon(props.icon)}
-    </span>
+      {props.iconPosition === "end" && renderLoadingSpinner()}
+    </>
+  )
+}
+
+const renderDefaultContent = props => (
+  <>
+    {props.icon && props.iconPosition !== "end" && renderIcon(props.icon)}
+    {(!props.icon || !props.iconButton) && (
+      <span className={styles.label}>{props.label}</span>
+    )}
+    {props.additionalContent && (
+      <span className={styles.additionalContentWrapper}>
+        {props.additionalContent}
+      </span>
+    )}
+    {props.icon && props.iconPosition === "end" && renderIcon(props.icon)}
+  </>
+)
+
+const renderContent: React.FunctionComponent<Props> = props => (
+  <span className={styles.content}>
+    {props.working ? renderWorkingContent(props) : renderDefaultContent(props)}
   </span>
 )
 

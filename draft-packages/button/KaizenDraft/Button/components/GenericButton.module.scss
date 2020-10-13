@@ -85,16 +85,14 @@
   @extend %caButtonDestructiveModifier;
 }
 
-.working {
-  .innerContent {
-    visibility: hidden;
-  }
+.centeredLoadingSpinner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+}
 
-  .loadingSpinner {
-    position: absolute;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-  }
+.hidden {
+  visibility: hidden;
 }

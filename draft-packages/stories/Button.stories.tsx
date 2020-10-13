@@ -44,6 +44,37 @@ DefaultWorking.story = {
   name: "Default, Working",
 }
 
+export const DefaultWorkingWithWorkingLabel = () => (
+  <Button
+    label="Label"
+    onClick={handleClick}
+    working
+    workingLabel="Submitting"
+    iconPosition="end"
+  />
+)
+
+DefaultWorkingWithWorkingLabel.story = {
+  name: "Default, Working with working label",
+}
+
+export const DefaultWorkingWithAriaWorkingLabel = () => (
+  <Button
+    label="Label"
+    onClick={handleClick}
+    working
+    ariaWorkingLabel="Something else"
+    workingLabel="Submitting"
+    iconPosition="end"
+  />
+)
+
+DefaultWorkingWithAriaWorkingLabel.story = {
+  name: "Default, Working with aria working label",
+  description:
+    "ariaWorkingLabel takes priority over workingLabel when applied to aria-label",
+}
+
 export const Primary = () => <Button label="Label" primary={true} />
 
 export const PrimaryDisabled = () => (
