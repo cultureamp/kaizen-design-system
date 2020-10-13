@@ -42,9 +42,6 @@ export type GenericProps = {
   onFocus?: (e: FocusEvent<HTMLElement>) => void
   onBlur?: (e: FocusEvent<HTMLElement>) => void
   component?: ComponentType<CustomButtonProps>
-  working?: boolean | null
-  workingLabel?: string
-  ariaWorkingLabel?: string
 }
 
 export type AdditionalContentProps = {
@@ -56,6 +53,9 @@ export type LabelProps = {
   primary?: boolean
   secondary?: boolean
   reverseColor?: "cluny" | "peach" | "seedling" | "wisteria" | "yuzu"
+  working?: boolean | null
+  workingLabel?: string
+  ariaWorkingLabel?: string
 }
 
 export type IconButtonProps = GenericProps
@@ -90,6 +90,7 @@ const GenericButton = forwardRef(
     }))
 
     if (
+      !props.iconButton &&
       props.working !== undefined &&
       props.working !== null &&
       !getWorkingLabel(props)
@@ -170,12 +171,13 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
     working,
     workingLabel,
     ariaWorkingLabel,
+    iconButton,
     ...rest
   } = props
   const label = props.icon && props.iconButton ? props.label : undefined
   const customProps = getCustomProps(rest)
   const btnWorkingLabel = getWorkingLabel(props)
-  const btnOnClick = working ? undefined : onClick
+  const btnOnClick = !iconButton && working ? undefined : onClick
 
   return (
     <button
@@ -213,10 +215,11 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
     working,
     workingLabel,
     ariaWorkingLabel,
+    iconButton,
     ...rest
   } = props
   const customProps = getCustomProps(rest)
-  const btnOnClick = working ? undefined : onClick
+  const btnOnClick = !iconButton && working ? undefined : onClick
   const linkWorkingLabel = getWorkingLabel(props)
 
   return (
@@ -254,7 +257,7 @@ const buttonClass = (props: Props) => {
     [styles.reverseColorSeedling]: props.reverseColor === "seedling",
     [styles.reverseColorWisteria]: props.reverseColor === "wisteria",
     [styles.reverseColorYuzu]: props.reverseColor === "yuzu",
-    [styles.working]: props.working,
+    [styles.working]: !props.iconButton && props.working,
   })
 }
 
@@ -310,7 +313,9 @@ const renderDefaultContent = props => (
 
 const renderContent: React.FunctionComponent<Props> = props => (
   <span className={styles.content}>
-    {props.working ? renderWorkingContent(props) : renderDefaultContent(props)}
+    {props.working && !props.iconButton
+      ? renderWorkingContent(props)
+      : renderDefaultContent(props)}
   </span>
 )
 

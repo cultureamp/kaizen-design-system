@@ -10,7 +10,6 @@ IconButton.defaultProps = {
   destructive: false,
   disabled: false,
   reversed: false,
-  working: null,
 }
 
 IconButton.displayName = "IconButton"
