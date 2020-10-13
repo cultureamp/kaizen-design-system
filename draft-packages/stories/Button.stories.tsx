@@ -17,7 +17,7 @@ export default {
   },
 }
 
-const handleClick = () => alert("This shouldn't fire")
+const clickAction = () => alert("This shouldn't fire")
 
 export const DefaultKaizenSiteDemo = () => <Button label="Label" />
 
@@ -34,7 +34,7 @@ DefaultDisabled.story = {
 export const DefaultWorking = () => (
   <Button
     label="Label"
-    onClick={handleClick}
+    onClick={clickAction}
     working
     ariaWorkingLabel="Submitting"
   />
@@ -47,7 +47,7 @@ DefaultWorking.story = {
 export const DefaultWorkingWithWorkingLabel = () => (
   <Button
     label="Label"
-    onClick={handleClick}
+    onClick={clickAction}
     working
     workingLabel="Submitting"
     iconPosition="end"
@@ -61,7 +61,7 @@ DefaultWorkingWithWorkingLabel.story = {
 export const DefaultWorkingWithAriaWorkingLabel = () => (
   <Button
     label="Label"
-    onClick={handleClick}
+    onClick={clickAction}
     working
     ariaWorkingLabel="Something else"
     workingLabel="Submitting"

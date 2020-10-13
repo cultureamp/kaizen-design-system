@@ -89,7 +89,11 @@ const GenericButton = forwardRef(
       },
     }))
 
-    if (props.working !== null && !getWorkingLabel(props)) {
+    if (
+      props.working !== undefined &&
+      props.working !== null &&
+      !getWorkingLabel(props)
+    ) {
       throw new Error(
         "If a Zen Button has a 'working' prop, it needs an 'ariaWorkingLabel' or a 'workingLabel'. Please check your" +
           " props."
@@ -171,13 +175,14 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
   const label = props.icon && props.iconButton ? props.label : undefined
   const customProps = getCustomProps(rest)
   const btnWorkingLabel = getWorkingLabel(props)
+  const btnOnClick = working ? undefined : onClick
 
   return (
     <button
       id={id}
       disabled={disabled}
       className={buttonClass(props)}
-      onClick={!working && onClick}
+      onClick={btnOnClick}
       onFocus={onFocus}
       onBlur={onBlur}
       onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
@@ -211,7 +216,7 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
     ...rest
   } = props
   const customProps = getCustomProps(rest)
-
+  const btnOnClick = working ? undefined : onClick
   const linkWorkingLabel = getWorkingLabel(props)
 
   return (
@@ -222,7 +227,7 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
         newTabAndIUnderstandTheAccessibilityImplications ? "_blank" : "_self"
       }
       className={buttonClass(props)}
-      onClick={onClick}
+      onClick={btnOnClick}
       onFocus={onFocus}
       onBlur={onBlur}
       ref={ref}
