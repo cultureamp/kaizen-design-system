@@ -191,6 +191,7 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
       type={type}
       title={label}
       aria-label={working && btnWorkingLabel ? btnWorkingLabel : label}
+      aria-disabled={!!working}
       tabIndex={
         disableTabFocusAndIUnderstandTheAccessibilityImplications
           ? -1
@@ -235,6 +236,7 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
       onBlur={onBlur}
       ref={ref}
       aria-label={working && linkWorkingLabel ? linkWorkingLabel : undefined}
+      aria-disabled={!!working}
       {...customProps}
     >
       {renderContent(props)}
