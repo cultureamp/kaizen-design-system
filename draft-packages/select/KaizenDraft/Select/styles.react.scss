@@ -74,6 +74,11 @@
     background-color: $kz-color-cluny-100;
   }
 
+  .disabledOption {
+    cursor: not-allowed;
+    opacity: 0.3;
+  }
+
   .noOptionsMessage {
     @include base-font-style();
   }
