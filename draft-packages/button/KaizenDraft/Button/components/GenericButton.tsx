@@ -94,7 +94,7 @@ const GenericButton = forwardRef(
       props.working !== undefined &&
       !getWorkingLabel(props)
     ) {
-      throw new Error(
+      console.error(
         "If a Zen Button has a 'working' prop, it needs an 'ariaWorkingLabel' or a 'workingLabel'. Please check your" +
           " props."
       )
