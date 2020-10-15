@@ -5,13 +5,18 @@ import classnames from "classnames"
 type Position = "above" | "below"
 
 type Props = {
+  inline?: boolean
   position?: Position
   text: string
   children?: React.ReactNode
 }
 
 const Tooltip = (props: Props) => (
-  <span className={styles.tooltipWrap}>
+  <span
+    className={classnames(styles.tooltipWrap, {
+      [styles.inline]: props.inline === true,
+    })}
+  >
     {props.children}
     <span
       className={classnames(styles.contentWrap, {
