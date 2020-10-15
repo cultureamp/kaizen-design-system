@@ -195,7 +195,7 @@ export const HyperlinkWOnClick = () => (
   <Button
     label="Label"
     href="//example.com"
-    onClick={action("I am an onClick handler")}
+    onClick={() => action("I am an onClick handler")}
   />
 )
 
