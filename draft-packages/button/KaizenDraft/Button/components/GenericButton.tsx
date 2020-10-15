@@ -287,9 +287,7 @@ const renderWorkingContent = props => {
   return (
     <>
       {props.iconPosition !== "end" && renderLoadingSpinner()}
-      {(!props.icon || !props.iconButton) && (
-        <span className={styles.label}>{props.workingLabel}</span>
-      )}
+      <span className={styles.label}>{props.workingLabel}</span>
       {props.additionalContent && (
         <span className={styles.additionalContentWrapper}>
           {props.additionalContent}
