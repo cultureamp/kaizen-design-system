@@ -28,6 +28,14 @@ $caButton-verticalPaddingForm: calc(
   transition: none; // override Murmur global styles :(
 }
 
+@mixin working-state {
+  pointer-events: none;
+
+  &:hover {
+    cursor: default;
+  }
+}
+
 %caButtonContainer {
   display: inline-block;
 }
@@ -115,11 +123,11 @@ $caButton-verticalPaddingForm: calc(
 
   &:disabled,
   &.working {
+    @include working-state;
     opacity: 0.3;
     background: $kz-color-white;
     border-color: $kz-color-wisteria-500;
     color: $kz-color-wisteria-800;
-    cursor: default;
 
     &:hover {
       background: $kz-color-white;
@@ -156,6 +164,7 @@ $caButton-verticalPaddingForm: calc(
 
   &:disabled,
   &.working {
+    @include working-state;
     background: $kz-color-cluny-500;
     color: $kz-color-white;
     border-color: $kz-border-borderless-border-color;
@@ -191,6 +200,7 @@ $caButton-verticalPaddingForm: calc(
 
   &:disabled,
   &.working {
+    @include working-state;
     color: $kz-color-white;
     background: $kz-color-coral-500;
     border-color: $kz-color-coral-500;
@@ -229,6 +239,7 @@ $caButton-verticalPaddingForm: calc(
 
   &:disabled,
   &.working {
+    @include working-state;
     background: transparent;
     border-color: $kz-border-borderless-border-color;
     color: $kz-color-cluny-500;
@@ -264,6 +275,7 @@ $caButton-verticalPaddingForm: calc(
 
   &:disabled,
   &.working {
+    @include working-state;
     opacity: 0.3;
     border-color: rgba($kz-color-white, 0.5);
     color: $kz-color-white;
@@ -313,6 +325,7 @@ $caButton-verticalPaddingForm: calc(
 
     &:disabled,
     &.working {
+      @include working-state;
       background: $kz-color-seedling-300;
       border-color: $kz-border-borderless-border-color;
       color: $kz-color-wisteria-800;
@@ -346,6 +359,7 @@ $caButton-verticalPaddingForm: calc(
 
     &:disabled,
     &.working {
+      @include working-state;
       background: transparent;
       border-color: $kz-border-borderless-border-color;
       color: $kz-color-white;
