@@ -35,7 +35,7 @@
 .tooltipContent {
   @include kz-typography-paragraph-body($size: 14);
   color: $kz-color-wisteria-800;
-  top: initial;
+  top: 0;
 }
 
 .default {
