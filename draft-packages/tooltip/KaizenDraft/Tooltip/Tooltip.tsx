@@ -11,14 +11,14 @@ type Props = {
 }
 
 const Tooltip = (props: Props) => (
-  <div className={styles.tooltipWrap}>
+  <span className={styles.tooltipWrap}>
     {props.children}
-    <div
+    <span
       className={classnames(styles.contentWrap, {
         [styles.above]: props.position == "above",
       })}
     >
-      <div
+      <span
         className={classnames(
           styles.root,
           {
@@ -29,9 +29,9 @@ const Tooltip = (props: Props) => (
         )}
       >
         <span className={styles.tooltipContent}>{props.text}</span>
-      </div>
+      </span>
 
-      <div
+      <span
         className={classnames(
           styles.root,
           styles.shadow,
@@ -43,9 +43,9 @@ const Tooltip = (props: Props) => (
         )}
       >
         <span className={styles.tooltipContent}>{props.text}</span>
-      </div>
-    </div>
-  </div>
+      </span>
+    </span>
+  </span>
 )
 
 Tooltip.defaultProps = {
