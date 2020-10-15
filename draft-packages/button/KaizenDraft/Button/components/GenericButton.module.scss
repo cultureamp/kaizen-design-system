@@ -85,6 +85,13 @@
   @extend %caButtonDestructiveModifier;
 }
 
+.loadingSpinner {
+  // This is to fix a problem in safari where the svg stretched too high
+  svg {
+    height: 100%;
+  }
+}
+
 .centeredLoadingSpinner {
   position: absolute;
   left: 0;
