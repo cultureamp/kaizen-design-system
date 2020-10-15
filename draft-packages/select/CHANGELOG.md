@@ -8,7 +8,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-* Add style disabled options in <Select> ([#816](https://github.com/cultureamp/kaizen-design-system/issues/816)) ([ff16b51](https://github.com/cultureamp/kaizen-design-system/commit/ff16b51786f24886f3c8465c2374c60f2ad93461))
+* Add style disabled options in Select ([#816](https://github.com/cultureamp/kaizen-design-system/issues/816)) ([ff16b51](https://github.com/cultureamp/kaizen-design-system/commit/ff16b51786f24886f3c8465c2374c60f2ad93461))
 
 
 
