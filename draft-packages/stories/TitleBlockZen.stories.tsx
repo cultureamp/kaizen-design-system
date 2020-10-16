@@ -136,6 +136,43 @@ WithBadge.story = {
   name: "With Primary Action Badge",
 }
 
+export const WithCustomBadge = () => {
+  const [badgeCount, setBadgeCount] = React.useState(1)
+  return (
+    <TitleBlockZen
+      title="Page title"
+      surveyStatus={{ text: "Due July 8, 2030", status: "custom" }}
+      primaryAction={{
+        label: "Click Me",
+        icon: arrowForwardIcon,
+        iconPosition: "end",
+        href: "#",
+        onClick: () => setBadgeCount(b => b + 1),
+        badge: {
+          text: String(badgeCount),
+          animateChange: true,
+        },
+      }}
+      defaultAction={{
+        label: "Default link",
+        onClick: () => setBadgeCount(b => b + 1),
+        href: "#",
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+    />
+  )
+}
+
+WithCustomBadge.story = {
+  name: "With Default Action Badge",
+}
+
 export const DefaultWithMenuButton = () => (
   <TitleBlockZen
     title="Page title"

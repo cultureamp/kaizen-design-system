@@ -149,7 +149,7 @@ type TextDirection = "ltr" | "rtl"
 
 type SurveyStatus = {
   text: string
-  status: "draft" | "live"
+  status: "draft" | "live" | "custom"
 }
 
 type Breadcrumb = {
@@ -165,6 +165,10 @@ const renderTag = (surveyStatus: SurveyStatus) => {
   }
   if (surveyStatus.status === "live") {
     tagVariant = "statusLive"
+  }
+
+  if (surveyStatus.status === "custom") {
+    tagVariant = "default"
   }
 
   return (
