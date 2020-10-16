@@ -72,9 +72,9 @@ export const VerticalProgressIndicator = ({ position, completion }: Props) => {
   }
 
   const renderLines = ({
-    // eslint-disable-next-line no-shadow
+    // eslint-disable-next-line @typescript-eslint/no-shadow
     completion,
-    // eslint-disable-next-line no-shadow
+    // eslint-disable-next-line @typescript-eslint/no-shadow
     position,
   }: {
     completion: Completion
