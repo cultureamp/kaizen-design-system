@@ -33,6 +33,10 @@
   top: 0;
 }
 
+.contentWrap.below {
+  bottom: 0;
+}
+
 .tooltipContent {
   @include kz-typography-paragraph-body($size: 14);
   color: $kz-color-wisteria-800;
@@ -48,7 +52,7 @@
 }
 
 .below {
-  bottom: -6px;
+  bottom: -4px;
   transform: translateX(-50%) translateY(70%);
 }
 

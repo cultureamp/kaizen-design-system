@@ -69,7 +69,10 @@ export const Inline = () => (
           </a>
         </Tooltip>
         . Magni perspiciatis assumenda in adipisci, eaque commodi quidem dolore,
-        tempore provident animi fuga quae dicta voluptatum.
+        tempore provident animi{" "}
+        <Tooltip inline text="This is below the tooltip" position="below">
+          <Tag>veniam sapiente ad</Tag>
+        </Tooltip>{" "}
       </Paragraph>
     </div>
   </div>
