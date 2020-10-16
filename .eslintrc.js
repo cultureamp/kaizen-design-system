@@ -176,13 +176,14 @@ module.exports = {
     "no-multiple-empty-lines": "error",
     "no-new-func": "error",
     "no-new-wrappers": "error",
-    "no-redeclare": "warn", // types and variables are suddenly causing collisions
     "no-return-await": "error",
     "no-sequences": "error",
 
-    // The base no-shadow rule reports incorrect errors in typescript
+    // The base no-shadow and no-redeclare rules reports incorrect errors in typescript
     "no-shadow": "off",
+    "no-redeclare": "off",
     "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/no-redeclare": "off",
 
     "no-sparse-arrays": "error",
     "no-template-curly-in-string": "error",
