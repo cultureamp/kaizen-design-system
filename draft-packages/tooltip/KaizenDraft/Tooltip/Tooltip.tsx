@@ -47,7 +47,9 @@ const Tooltip = (props: Props) => (
           styles.default
         )}
       >
-        <span className={styles.tooltipContent}>{props.text}</span>
+        <span className={styles.tooltipContent} aria-hidden>
+          {props.text}
+        </span>
       </span>
     </span>
   </span>
