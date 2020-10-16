@@ -9289,7 +9289,7 @@ elm-css-modules-plugin@^1.0.1:
   dependencies:
     "@babel/core" "^7.0.0"
 
-elm-format@^0.8.2:
+elm-format@^0.8.4:
   version "0.8.4"
   resolved "https://registry.yarnpkg.com/elm-format/-/elm-format-0.8.4.tgz#8243b6d9eba66708232247e079190a3cdf339dcf"
   integrity sha512-0KurHC4MBUljdA2Sr+yzcoyAVqCku0LuNpvq5B3UIAlCPZ9PnOW2tUhVnQOCvp9RXngwbnsf18dE48tQ+s8r7g==
