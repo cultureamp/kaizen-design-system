@@ -8,8 +8,7 @@ import {
   svgs,
   svgIcons,
   removeSvgFromTest,
-  storybookSource,
-} from "./webpack.config"
+} from "./rules"
 
 module.exports = {
   stories: [
@@ -39,9 +38,6 @@ module.exports = {
 
     // Storybook's base config applies file-loader to svgs
     config.module.rules = config.module.rules.map(removeSvgFromTest)
-
-    // Required for the storysource storybook addon
-    config.module.rules.push(storybookSource())
 
     config.module.rules.push(
       ...[babel, styles, svgs, svgIcons, elm].map(excludeExternalModules)

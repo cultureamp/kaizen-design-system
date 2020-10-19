@@ -2,7 +2,6 @@
 import "./pre-build"
 
 import { resolve } from "path"
-import { readdirSync } from "fs"
 import { Loader, RuleSetRule as Rule } from "webpack"
 const isEnabled = require("./isEnabled")
 
@@ -124,38 +123,6 @@ export const elm: Rule = {
   ],
 }
 
-export const storybookSource = (): Rule => {
-  const draftDirectories = readdirSync(
-    resolve(__dirname, "../draft-packages"),
-    { withFileTypes: true }
-  )
-    .filter(dirent => dirent.isDirectory())
-    .map(dirent => dirent.name)
-    .map(dirent => resolve(__dirname, `../draft-packages/${dirent}`))
-
-  return {
-    test: /\.tsx?$/,
-    include: [
-      /**
-       * Ensure there are no compiled js (even in node modules!)
-       * in these packages
-       */
-      resolve(__dirname, "../packages/component-library"),
-      resolve(__dirname, "../legacy-packages"),
-      ...draftDirectories,
-    ],
-    use: [
-      {
-        loader: require.resolve("react-docgen-typescript-loader"),
-        options: {
-          compilerOptions: { noEmit: false },
-          skipPropsWithoutDoc: false,
-        },
-      },
-    ],
-  }
-}
-
 export const removeSvgFromTest = (rule: Rule): Rule => {
   if (rule.test && rule.test.toString().includes("svg")) {
     const test = rule.test.toString().replace("svg|", "").replace(/\//g, "")
@@ -169,18 +136,3 @@ export const excludeExternalModules = (rule: Rule): Rule => ({
   exclude: /node_modules\/(?!(\@kaizen|\@cultureamp)).*/,
   ...rule,
 })
-
-export default ({ config }) => {
-  // Storybook's base config applies file-loader to svgs
-  config.module.rules = config.module.rules.map(removeSvgFromTest)
-
-  // Required for the storysource storybook addon
-  config.module.rules.push(storybookSource())
-
-  config.module.rules.push(
-    ...[babel, styles, svgs, svgIcons, elm].map(excludeExternalModules)
-  )
-
-  config.resolve.extensions.push(".ts", ".tsx")
-  return config
-}
