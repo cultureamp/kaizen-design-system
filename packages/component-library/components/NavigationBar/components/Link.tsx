@@ -14,7 +14,7 @@ import styles from "./Link.module.scss"
 import { LinkProps } from "../types"
 import Indicator from "./Indicator"
 
-export default class Link extends React.PureComponent<LinkProps> {
+class Link extends React.PureComponent<LinkProps> {
   static displayName = "Link"
   static defaultProps = {
     iconOnly: false,
@@ -84,3 +84,5 @@ export default class Link extends React.PureComponent<LinkProps> {
     )
   }
 }
+
+export default Link
