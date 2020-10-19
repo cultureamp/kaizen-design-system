@@ -1,6 +1,6 @@
 import { Icon, Paragraph } from "@kaizen/component-library"
 import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible"
-import { action } from "@storybook/addon-actions"
+// import { action } from "@storybook/addon-actions"
 import * as React from "react"
 import styles from "./Collapsible.stories.scss"
 import translationIcon from "@kaizen/component-library/icons/translation.icon.svg"
@@ -197,7 +197,7 @@ CollapsibleGroupStickyHeaders.story = {
 
 export const CollapsibleGroupCallbackOnOpenClose = () => (
   <div style={{ margin: "1rem", width: "40rem" }}>
-    <CollapsibleGroup onToggle={action("Collapsible toggled")}>
+    <CollapsibleGroup onToggle={() => undefined}>
       <Collapsible id="collapsible-separate-1" open title="First panel">
         <Paragraph variant="body">{lipsum}</Paragraph>
       </Collapsible>

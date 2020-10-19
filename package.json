@@ -120,7 +120,6 @@
     "webpack": "^4.40.2"
   },
   "devDependencies": {
-    "@storybook/addon-docs": "^6.0.26",
     "@storybook/codemod": "^6.0.26",
     "@storybook/csf": "^0.0.1",
     "@storybook/node-logger": "^6.0.26",

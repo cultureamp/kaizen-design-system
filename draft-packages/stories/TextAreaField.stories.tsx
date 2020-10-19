@@ -1,6 +1,6 @@
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { TextAreaField } from "@kaizen/draft-form"
-import { action } from "@storybook/addon-actions"
+// import { action } from "@storybook/addon-actions"
 import React from "react"
 
 interface RenderProps {
@@ -69,7 +69,7 @@ export const DefaultKaizenSiteDemo = () => (
       id="reply"
       labelText="Your reply"
       placeholder="Write your reply..."
-      onChange={action("user input")}
+      onChange={() => undefined}
     />
   </ExampleContainer>
 )
@@ -84,7 +84,7 @@ export const DefaultLarge = () => (
       id="reply"
       labelText="Your reply"
       placeholder="Write your reply..."
-      onChange={action("user input")}
+      onChange={() => undefined}
       rows={7}
     />
   </ExampleContainer>
@@ -100,7 +100,7 @@ export const DefaultError = () => (
       id="reply"
       labelText="Your reply"
       placeholder="Write your reply..."
-      onChange={action("user input")}
+      onChange={() => undefined}
       status="error"
       validationMessage="Enter a reply"
     />
@@ -116,7 +116,7 @@ export const DefaultPrefilled = () => (
     <TextAreaField
       id="reply"
       labelText="Your reply"
-      onChange={action("user input")}
+      onChange={() => undefined}
       defaultValue="A prefilled value in uncontrolled mode"
     />
   </ExampleContainer>
@@ -151,7 +151,7 @@ export const DefaultWithDesc = () => (
       id="reply"
       labelText="Your reply"
       placeholder="Write your reply..."
-      onChange={action("user input")}
+      onChange={() => undefined}
       description="Your reply will only be seen by you"
     />
   </ExampleContainer>
@@ -167,7 +167,7 @@ export const DefaultInline = () => (
       id="reply"
       labelText="Your reply"
       placeholder="Write your reply..."
-      onChange={action("user input")}
+      onChange={() => undefined}
       inline={true}
     />
   </ExampleContainer>
@@ -183,7 +183,7 @@ export const DefaultErrorAndDesc = () => (
       id="reply"
       labelText="Your reply"
       placeholder="Write your reply..."
-      onChange={action("user input")}
+      onChange={() => undefined}
       status="error"
       validationMessage="Enter a reply"
       description="Your reply will only be seen by you"
@@ -201,7 +201,7 @@ export const Reversed = () => (
       id="reply"
       labelText="Your reply"
       placeholder="Write your reply..."
-      onChange={action("user input")}
+      onChange={() => undefined}
       reversed
     />
   </ExampleContainer>
@@ -218,7 +218,7 @@ export const ReversedErrorAndDesc = () => (
       id="reply"
       labelText="Your reply"
       placeholder="Write your reply..."
-      onChange={action("user input")}
+      onChange={() => undefined}
       status="error"
       validationMessage="Enter a reply"
       description="Your reply will only be seen by you"

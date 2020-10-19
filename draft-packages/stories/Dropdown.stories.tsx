@@ -2,7 +2,7 @@ import caMonogramIcon from "@kaizen/component-library/icons/ca-monogram.icon.svg
 import kebabIcon from "@kaizen/component-library/icons/kebab.icon.svg"
 import printIcon from "@kaizen/component-library/icons/print.icon.svg"
 
-import { action } from "@storybook/addon-actions"
+// import { action } from "@storybook/addon-actions"
 import * as React from "react"
 
 import {
@@ -19,7 +19,7 @@ const Menu: React.FunctionComponent = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        action("I am an onClick handler")()
+        // action("I am an onClick handler")()
       }}
       icon={caMonogramIcon}
     >
@@ -28,7 +28,7 @@ const Menu: React.FunctionComponent = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        action("I am an onClick handler")()
+        // action("I am an onClick handler")()
       }}
       icon={caMonogramIcon}
       hoverIcon
@@ -38,7 +38,7 @@ const Menu: React.FunctionComponent = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        action("I am an onClick handler")()
+        // action("I am an onClick handler")()
       }}
     >
       Action label

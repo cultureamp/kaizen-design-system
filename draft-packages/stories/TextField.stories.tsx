@@ -1,5 +1,5 @@
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
-import { action } from "@storybook/addon-actions"
+// import { action } from "@storybook/addon-actions"
 import React, { useCallback, useRef } from "react"
 import { Tooltip } from "@kaizen/draft-tooltip"
 
@@ -44,7 +44,7 @@ export const DefaultKaizenSiteDemo = () => (
         </div>
       }
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       description="Valid email addresses must have an @ and a suffix"
     />
   </ExampleContainer>
@@ -62,7 +62,7 @@ export const DefaultInline = () => (
       inputValue=""
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       inline={true}
       description="Valid email addresses must have an @ and a suffix"
     />
@@ -81,7 +81,7 @@ export const DefaultIcon = () => (
       inputValue=""
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={userIcon}
     />
   </ExampleContainer>
@@ -99,7 +99,7 @@ export const DefaultDisabled = () => (
       inputValue=""
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       disabled={true}
     />
   </ExampleContainer>
@@ -117,7 +117,7 @@ export const DefaultDisabledWValue = () => (
       inputValue="craig@cultureamp.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       disabled={true}
     />
   </ExampleContainer>
@@ -135,7 +135,7 @@ export const DefaultDisabledIcon = () => (
       inputValue=""
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={userIcon}
       disabled={true}
     />
@@ -154,7 +154,7 @@ export const DefaultSuccess = () => (
       inputValue="rod@cultureamp.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       status="success"
     />
   </ExampleContainer>
@@ -172,7 +172,7 @@ export const DefaultSuccessIcon = () => (
       inputValue="marc@cultureamp.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={userIcon}
       status="success"
     />
@@ -191,7 +191,7 @@ export const DefaultError = () => (
       inputValue="super_cool999@hotmail.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       status="error"
       validationMessage="Your email address looks like it’s from 1996"
     />
@@ -210,7 +210,7 @@ export const DefaultErrorIcon = () => (
       inputValue="hello@oops"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={userIcon}
       status="error"
     />
@@ -229,7 +229,7 @@ export const DefaultMultipleFields = () => (
       inputValue="mackenzie@example.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={userIcon}
     />
     <TextField
@@ -238,7 +238,7 @@ export const DefaultMultipleFields = () => (
       inputValue="123445555"
       labelText="Password"
       placeholder="Please enter your password"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={lockIcon}
     />
   </ExampleContainer>
@@ -257,7 +257,7 @@ export const DefaultMultipleFieldsError = () => (
       inputValue="mackenzie@example.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={userIcon}
       validationMessage="Please enter a valid email address"
     />
@@ -268,7 +268,7 @@ export const DefaultMultipleFieldsError = () => (
       inputValue="123445555"
       labelText="Password"
       placeholder="Please enter your password"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={lockIcon}
       validationMessage="The password entered does not correctly match the provided email address"
     />
@@ -287,7 +287,7 @@ export const Reversed = () => (
       inputValue=""
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       reversed={true}
     />
   </ExampleContainer>
@@ -305,7 +305,7 @@ export const ReversedIcon = () => (
       inputValue=""
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       reversed={true}
       icon={userIcon}
     />
@@ -325,7 +325,7 @@ export const ReversedDisabled = () => (
       inputValue=""
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       reversed={true}
       disabled={true}
     />
@@ -345,7 +345,7 @@ export const ReversedDisabledWValue = () => (
       inputValue="craig@cultureamp.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       reversed={true}
       disabled={true}
     />
@@ -365,7 +365,7 @@ export const ReversedDisabledIcon = () => (
       inputValue=""
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       reversed={true}
       icon={userIcon}
       disabled={true}
@@ -386,7 +386,7 @@ export const ReversedSuccess = () => (
       inputValue="seb@cultureamp.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       reversed={true}
       status="success"
     />
@@ -406,7 +406,7 @@ export const ReversedSuccessIcon = () => (
       inputValue="rod@cultureamp.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={userIcon}
       reversed={true}
       status="success"
@@ -427,7 +427,7 @@ export const ReversedError = () => (
       inputValue="hello@oops"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       reversed={true}
       status="error"
       validationMessage="Your email address looks like it’s from 1996"
@@ -448,7 +448,7 @@ export const ReversedErrorIcon = () => (
       inputValue="hello@oops"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={userIcon}
       reversed={true}
       status="error"
@@ -470,7 +470,7 @@ export const ReversedMultipleFields = () => (
       inputValue="mackenzie@example.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={userIcon}
       reversed={true}
     />
@@ -480,7 +480,7 @@ export const ReversedMultipleFields = () => (
       inputValue="123445555"
       labelText="Password"
       placeholder="Please enter your password"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={lockIcon}
       reversed={true}
     />
@@ -501,7 +501,7 @@ export const ReversedMultipleFieldsWError = () => (
       inputValue="mackenzie@example.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={userIcon}
       validationMessage="Please enter a valid email address"
       reversed={true}
@@ -513,7 +513,7 @@ export const ReversedMultipleFieldsWError = () => (
       inputValue="123445555"
       labelText="Password"
       placeholder="Please enter your password"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={lockIcon}
       validationMessage="The password entered does not correctly match the provided email addrress"
       reversed={true}
@@ -543,7 +543,7 @@ export const DefaultFocusBlurEvents = () => (
       placeholder="Please enter your email"
       onFocus={action("onFocus fired")}
       onBlur={action("onBlur fired")}
-      onChange={action("user input")}
+      onChange={() => undefined}
       description="Valid email addresses must have an @ and a suffix"
     />
   </ExampleContainer>

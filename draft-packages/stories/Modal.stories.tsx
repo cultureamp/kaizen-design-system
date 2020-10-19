@@ -13,7 +13,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from "@kaizen/draft-modal"
-import { action } from "@storybook/addon-actions"
+// import { action } from "@storybook/addon-actions"
 import * as React from "react"
 import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
@@ -197,7 +197,7 @@ export const InputEditPositive = () => (
                 inputValue="mackenzie@example.com"
                 labelText="Email"
                 placeholder="Please enter your email"
-                onChange={action("user input")}
+                onChange={() => undefined}
                 icon={userIcon}
               />
               <TextField
@@ -206,7 +206,7 @@ export const InputEditPositive = () => (
                 inputValue="123445555"
                 labelText="Password"
                 placeholder="Please enter your password"
-                onChange={action("user input")}
+                onChange={() => undefined}
                 icon={lockIcon}
                 inline
               />
@@ -253,7 +253,7 @@ export const InputEditPositiveRtlLocale = () => (
                 inputValue="mackenzie@example.com"
                 labelText="Email"
                 placeholder="Please enter your email"
-                onChange={action("user input")}
+                onChange={() => undefined}
                 icon={userIcon}
               />
               <TextField
@@ -262,7 +262,7 @@ export const InputEditPositiveRtlLocale = () => (
                 inputValue="123445555"
                 labelText="Password"
                 placeholder="Please enter your password"
-                onChange={action("user input")}
+                onChange={() => undefined}
                 icon={lockIcon}
                 inline
               />
@@ -308,7 +308,7 @@ export const InputEditNegative = () => (
                 inputValue="mackenzie@example.com"
                 labelText="Email"
                 placeholder="Please enter your email"
-                onChange={action("user input")}
+                onChange={() => undefined}
                 icon={userIcon}
               />
               <TextField
@@ -317,7 +317,7 @@ export const InputEditNegative = () => (
                 inputValue="123445555"
                 labelText="Password"
                 placeholder="Please enter your password"
-                onChange={action("user input")}
+                onChange={() => undefined}
                 icon={lockIcon}
                 inline
               />

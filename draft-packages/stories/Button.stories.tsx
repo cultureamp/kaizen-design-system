@@ -2,7 +2,7 @@ import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { Button, CustomButtonProps, ButtonRef } from "../button"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 
-import { action } from "@storybook/addon-actions"
+// import { action } from "@storybook/addon-actions"
 import React, { useCallback, useRef } from "react"
 
 export default {
@@ -107,11 +107,7 @@ FullWidthIcon.story = {
 export const Hyperlink = () => <Button label="Label" href="//example.com" />
 
 export const HyperlinkWOnClick = () => (
-  <Button
-    label="Label"
-    href="//example.com"
-    onClick={action("I am an onClick handler")}
-  />
+  <Button label="Label" href="//example.com" onClick={() => undefined} />
 )
 
 HyperlinkWOnClick.story = {

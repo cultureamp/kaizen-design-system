@@ -9,7 +9,7 @@ import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import kebabIcon from "@kaizen/component-library/icons/kebab.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 
-import { action } from "@storybook/addon-actions"
+// import { action } from "@storybook/addon-actions"
 import React, { useState } from "react"
 import {
   Menu,
@@ -36,7 +36,7 @@ const MenuInstance: React.FunctionComponent = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        action("I am an onClick handler")()
+        // action("I am an onClick handler")()
       }}
       icon={duplicateIcon}
       label="Menu button but the label is too long"
@@ -44,7 +44,7 @@ const MenuInstance: React.FunctionComponent = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        action("I am an onClick handler")()
+        // action("I am an onClick handler")()
       }}
       icon={editIcon}
       label="Menu button"
