@@ -19,7 +19,10 @@ require("@kaizen/component-library/styles/fonts.scss")
 // addDecorator(withA11y)
 
 addParameters({
-  backgrounds,
+  backgrounds: {
+    default: "White",
+    values: backgrounds,
+  },
   options: {
     theme: create({ brandTitle: "🌱 Storybook", base: "light" }),
     storySort: (a, b) => a[1].id.localeCompare(b[1].id),

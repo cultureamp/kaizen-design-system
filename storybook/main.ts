@@ -1,5 +1,7 @@
 const path = require("path")
 
+// import { excludeExternalModules, babel, styles, svgs, svgIcons } from "./webpack.config"
+
 module.exports = {
   stories: [
     "../packages/component-library/stories/*.stories.tsx",
@@ -12,14 +14,23 @@ module.exports = {
     // "../draft-packages/stories/*.stories.tsx",
     // "../legacy-packages/stories/*.stories.tsx",
   ],
-  addons: ["./storybook/gtm-addon/register.js"],
+  addons: [
+    {
+      name: "@storybook/preset-typescript",
+      options: {},
+    },
+    "./gtm-addon/register",
+    "@storybook/addon-actions",
+    "@storybook/addon-essentials",
+    "@storybook/addon-controls",
+  ],
   presets: [path.resolve("./storybook/header-preset/preset")],
   webpackFinal: async (config, { configType }) => {
-    // `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
-    // You can change the configuration based on that.
-    // 'PRODUCTION' is used when building the static version of storybook.
+    // eslint-disable-next-line no-console
+    console.log(`Using configuration for: ${configType}`)
 
-    // Make whatever fine-grained changes you need
+    // @TODO - This is from the example docs.
+    // To complete, pinch the configs from webpack.config.json
     config.module.rules.push({
       test: /\.scss$/,
       use: ["style-loader", "css-loader", "sass-loader"],

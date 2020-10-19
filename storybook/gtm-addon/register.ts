@@ -10,6 +10,7 @@ addons.register("kaizen/gtm-addon", () => {
   const { analyticsGTM = {} } = addons.getConfig()
 
   if (isEmpty(analyticsGTM)) {
+    // eslint-disable-next-line no-console
     console.warn("kaizen/gtm-addon - Analytics not set. Check manager.js")
     return
   }
