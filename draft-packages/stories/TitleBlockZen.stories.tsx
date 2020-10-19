@@ -136,79 +136,53 @@ WithBadge.story = {
   name: "With Primary Action Badge",
 }
 
-export const WithDefaultBadge = () => {
-  const [badgeCount, setBadgeCount] = React.useState(1)
-  return (
-    <TitleBlockZen
-      title="Page title"
-      surveyStatus={{ text: "Due July 8, 2030", status: "default" }}
-      primaryAction={{
-        label: "Click Me",
-        icon: arrowForwardIcon,
-        iconPosition: "end",
-        href: "#",
-        onClick: () => setBadgeCount(b => b + 1),
-        badge: {
-          text: String(badgeCount),
-          animateChange: true,
-        },
-      }}
-      defaultAction={{
-        label: "Default link",
-        onClick: () => setBadgeCount(b => b + 1),
-        href: "#",
-      }}
-      breadcrumb={{
-        path: "#",
-        text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
-      }}
-    />
-  )
+export const WithDefaultTag = () => (
+  <TitleBlockZen
+    title="Page title"
+    surveyStatus={{ text: "Due July 8, 2030", status: "default" }}
+    primaryAction={{
+      label: "Click Me",
+      icon: arrowForwardIcon,
+      iconPosition: "end",
+      href: "#",
+    }}
+    breadcrumb={{
+      path: "#",
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+  />
+)
+
+WithDefaultTag.story = {
+  name: "With Default Survey Status (Tag)",
 }
 
-WithDefaultBadge.story = {
-  name: "With Default Action Badge",
-}
+export const AdminWithDefaultTag = () => (
+  <TitleBlockZen
+    variant="admin"
+    title="Page title"
+    surveyStatus={{ text: "Due July 8, 2030", status: "default" }}
+    primaryAction={{
+      label: "Click Me",
+      icon: arrowForwardIcon,
+      iconPosition: "end",
+      href: "#",
+    }}
+    breadcrumb={{
+      path: "#",
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+  />
+)
 
-export const AdminWithDefaultBadge = () => {
-  const [badgeCount, setBadgeCount] = React.useState(1)
-  return (
-    <TitleBlockZen
-      variant="admin"
-      title="Page title"
-      surveyStatus={{ text: "Due July 8, 2030", status: "default" }}
-      primaryAction={{
-        label: "Click Me",
-        icon: arrowForwardIcon,
-        iconPosition: "end",
-        href: "#",
-        onClick: () => setBadgeCount(b => b + 1),
-        badge: {
-          text: String(badgeCount),
-          animateChange: true,
-        },
-      }}
-      defaultAction={{
-        label: "Default link",
-        onClick: () => setBadgeCount(b => b + 1),
-        href: "#",
-      }}
-      breadcrumb={{
-        path: "#",
-        text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
-      }}
-    />
-  )
-}
-
-AdminWithDefaultBadge.story = {
-  name: "Admin With Default Action Badge",
+AdminWithDefaultTag.story = {
+  name: "Admin With Default Survey Status (Tag)",
 }
 
 export const DefaultWithMenuButton = () => (
