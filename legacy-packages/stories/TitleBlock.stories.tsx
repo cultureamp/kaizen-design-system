@@ -44,17 +44,13 @@ export default {
 
 export const WithTitle = () => <TitleBlock title="Reports" />
 
-WithTitle.story = {
-  name: "with Title",
-}
+WithTitle.storyName = "with Title"
 
 export const WithSubtitle = () => (
   <TitleBlock title="Home" subtitle="Subtitle goes here" />
 )
 
-WithSubtitle.story = {
-  name: "with subtitle",
-}
+WithSubtitle.storyName = "with subtitle"
 
 export const WithBreadcrumb = () => (
   <TitleBlock
@@ -64,9 +60,7 @@ export const WithBreadcrumb = () => (
   />
 )
 
-WithBreadcrumb.story = {
-  name: "with breadcrumb",
-}
+WithBreadcrumb.storyName = "with breadcrumb"
 
 export const WithActionButtons = () => (
   <TitleBlock title="Home">
@@ -75,17 +69,13 @@ export const WithActionButtons = () => (
   </TitleBlock>
 )
 
-WithActionButtons.story = {
-  name: "with action buttons",
-}
+WithActionButtons.storyName = "with action buttons"
 
 export const WithNavigationButtons = () => (
   <TitleBlock title="Home" navigationButtons={navigationButtons} />
 )
 
-WithNavigationButtons.story = {
-  name: "with navigation buttons",
-}
+WithNavigationButtons.storyName = "with navigation buttons"
 
 export const WithTag = () => (
   <TitleBlock
@@ -95,9 +85,7 @@ export const WithTag = () => (
   />
 )
 
-WithTag.story = {
-  name: "with tag",
-}
+WithTag.storyName = "with tag"
 
 export const Reversed = () => (
   <div style={reversedContainerStyle}>
@@ -111,9 +99,7 @@ export const Reversed = () => (
   </div>
 )
 
-Reversed.story = {
-  name: "reversed",
-}
+Reversed.storyName = "reversed"
 
 export const Sticky = () => (
   <div style={stickyContainerStyle}>
@@ -124,9 +110,7 @@ export const Sticky = () => (
   </div>
 )
 
-Sticky.story = {
-  name: "sticky",
-}
+Sticky.storyName = "sticky"
 
 export const StickyReversed = () => (
   <div style={stickyContainerStyle}>
@@ -143,9 +127,7 @@ export const StickyReversed = () => (
   </div>
 )
 
-StickyReversed.story = {
-  name: "sticky reversed",
-}
+StickyReversed.storyName = "sticky reversed"
 
 export const StickyTransparent = () => (
   <div style={stickyContainerStyle}>
@@ -162,9 +144,7 @@ export const StickyTransparent = () => (
   </div>
 )
 
-StickyTransparent.story = {
-  name: "sticky transparent",
-}
+StickyTransparent.storyName = "sticky transparent"
 
 export const StickyTransparentInitially = () => (
   <div style={stickyContainerStyle}>
@@ -182,6 +162,4 @@ export const StickyTransparentInitially = () => (
   </div>
 )
 
-StickyTransparentInitially.story = {
-  name: "sticky transparent initially",
-}
+StickyTransparentInitially.storyName = "sticky transparent initially"

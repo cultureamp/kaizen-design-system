@@ -21,9 +21,7 @@ export const DefaultStory = () => (
   </div>
 )
 
-DefaultStory.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultStory.storyName = "Default (Kaizen Site Demo)"
 
 export const SizeStory = () => (
   <div
@@ -40,6 +38,4 @@ export const SizeStory = () => (
   </div>
 )
 
-SizeStory.story = {
-  name: "Small",
-}
+SizeStory.storyName = "Small"

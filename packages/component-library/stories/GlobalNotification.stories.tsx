@@ -21,9 +21,7 @@ export const PositiveKaizenSiteDemo = () => (
   </GlobalNotification>
 )
 
-PositiveKaizenSiteDemo.story = {
-  name: "Positive (Kaizen Site Demo)",
-}
+PositiveKaizenSiteDemo.storyName = "Positive (Kaizen Site Demo)"
 
 export const Informative = () => (
   <GlobalNotification type="informative" automationId="notification1">
@@ -71,6 +69,4 @@ export const MultipleNotifications = () => (
   </div>
 )
 
-MultipleNotifications.story = {
-  name: "Multiple notifications",
-}
+MultipleNotifications.storyName = "Multiple notifications"

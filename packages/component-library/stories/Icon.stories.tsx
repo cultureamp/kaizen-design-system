@@ -28,9 +28,7 @@ export const MeaningfulKaizenSiteDemo = () => (
   </div>
 )
 
-MeaningfulKaizenSiteDemo.story = {
-  name: "Meaningful (Kaizen Site Demo)",
-}
+MeaningfulKaizenSiteDemo.storyName = "Meaningful (Kaizen Site Demo)"
 
 export const Presentational = () => (
   <Icon icon={configureIcon} role="presentation" />

@@ -66,6 +66,4 @@ export const WithLongInitials = () => (
   </>
 )
 
-DefaultUser.story = {
-  name: "Default User (Shows when image fails to load)",
-}
+DefaultUser.storyName = "Default User (Shows when image fails to load)"

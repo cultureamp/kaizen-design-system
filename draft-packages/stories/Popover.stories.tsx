@@ -20,9 +20,7 @@ export const DefaultKaizenSiteDemo = () => (
   </Popover>
 )
 
-DefaultKaizenSiteDemo.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const DefaultWithoutHeading = () => (
   <Popover>
@@ -31,9 +29,7 @@ export const DefaultWithoutHeading = () => (
   </Popover>
 )
 
-DefaultWithoutHeading.story = {
-  name: "Default without heading",
-}
+DefaultWithoutHeading.storyName = "Default without heading"
 
 export const Informative = () => (
   <Popover heading="Informative" variant="informative">
@@ -52,9 +48,7 @@ export const InformativeWithSingleLine = () => (
   </Popover>
 )
 
-InformativeWithSingleLine.story = {
-  name: "Informative with singleLine",
-}
+InformativeWithSingleLine.storyName = "Informative with singleLine"
 
 export const InformativeLarge = () => (
   <Popover
@@ -78,9 +72,7 @@ export const InformativeLargeWithSingleLine = () => (
   </Popover>
 )
 
-InformativeLargeWithSingleLine.story = {
-  name: "Informative Large with singleLine",
-}
+InformativeLargeWithSingleLine.storyName = "Informative Large with singleLine"
 
 export const Positive = () => (
   <Popover heading="Positive" variant="positive">
@@ -119,9 +111,7 @@ export const ArrowAbove = () => (
   </div>
 )
 
-ArrowAbove.story = {
-  name: "Arrow above",
-}
+ArrowAbove.storyName = "Arrow above"
 
 export const ArrowStart = () => (
   <div style={{ marginTop: "1.5rem" }}>
@@ -132,9 +122,7 @@ export const ArrowStart = () => (
   </div>
 )
 
-ArrowStart.story = {
-  name: "Arrow start",
-}
+ArrowStart.storyName = "Arrow start"
 
 export const ArrowEnd = () => (
   <div style={{ marginTop: "1.5rem" }}>
@@ -145,9 +133,7 @@ export const ArrowEnd = () => (
   </div>
 )
 
-ArrowEnd.story = {
-  name: "Arrow end",
-}
+ArrowEnd.storyName = "Arrow end"
 
 export const BoxOffset = () => (
   <>
@@ -176,6 +162,4 @@ export const BoxOffset = () => (
   </>
 )
 
-BoxOffset.story = {
-  name: "Box offset",
-}
+BoxOffset.storyName = "Box offset"

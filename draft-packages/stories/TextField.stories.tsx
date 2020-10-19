@@ -541,8 +541,8 @@ export const DefaultFocusBlurEvents = () => (
         </div>
       }
       placeholder="Please enter your email"
-      onFocus={action("onFocus fired")}
-      onBlur={action("onBlur fired")}
+      onFocus={() => undefined}
+      onBlur={() => undefined}
       onChange={() => undefined}
       description="Valid email addresses must have an @ and a suffix"
     />

@@ -23,9 +23,7 @@ export const DefaultKaizenSiteDemo = () => (
   </StoryWrapper>
 )
 
-DefaultKaizenSiteDemo.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const Hyperlink = () => (
   <StoryWrapper>
@@ -44,9 +42,7 @@ export const HyperlinkWOnClick = () => (
   </StoryWrapper>
 )
 
-HyperlinkWOnClick.story = {
-  name: "Hyperlink w/ onClick",
-}
+HyperlinkWOnClick.storyName = "Hyperlink w/ onClick"
 
 export const Disabled = () => (
   <StoryWrapper>
@@ -71,9 +67,7 @@ export const DestructiveDisabled = () => (
   </StoryWrapper>
 )
 
-DestructiveDisabled.story = {
-  name: "Destructive, Disabled",
-}
+DestructiveDisabled.storyName = "Destructive, Disabled"
 
 export const Reversed = () => (
   <StoryWrapper>
@@ -92,9 +86,7 @@ export const ReversedDisabled = () => (
   </StoryWrapper>
 )
 
-ReversedDisabled.story = {
-  name: "Reversed, Disabled",
-}
+ReversedDisabled.storyName = "Reversed, Disabled"
 
 export const FormDiscouraged = () => (
   <StoryWrapper>
@@ -102,6 +94,4 @@ export const FormDiscouraged = () => (
   </StoryWrapper>
 )
 
-FormDiscouraged.story = {
-  name: "Form (discouraged)",
-}
+FormDiscouraged.storyName = "Form (discouraged)"

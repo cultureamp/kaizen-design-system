@@ -9,9 +9,7 @@ export default {
 
 export const DefaultStory = () => <Card>This is a default card</Card>
 
-DefaultStory.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultStory.storyName = "Default (Kaizen Site Demo)"
 
 export const CardWithSpace = () => (
   <Box m={4}>
@@ -26,15 +24,14 @@ export const CardWithSpace = () => (
   </Box>
 )
 
-CardWithSpace.story = {
-  name: "Card, custom spacing with Box",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Stone",
-        value: colorTokens.kz.color.stone,
-        default: true,
-      },
-    ],
-  },
+CardWithSpace.storyName = "Card, custom spacing with Box"
+
+CardWithSpace.parameters = {
+  backgrounds: [
+    {
+      name: "Stone",
+      value: colorTokens.kz.color.stone,
+      default: true,
+    },
+  ],
 }

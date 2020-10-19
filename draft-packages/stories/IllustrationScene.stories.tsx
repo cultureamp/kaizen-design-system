@@ -68,154 +68,145 @@ export const DefaultSiteDemo = () => (
     <ManagerLearningResilience alt="" />
   </div>
 )
-DefaultSiteDemo.story = {
-  name: "Scene (Kaizen Site Demo)",
-}
+DefaultSiteDemo.storyName = "Scene (Kaizen Site Demo)"
 
 export const EmptyStatesActionStory = () => (
   <div style={{ width: "500px" }}>
     <EmptyStatesAction alt="" />
   </div>
 )
-EmptyStatesActionStory.story = { name: "Empty States: Action" }
+EmptyStatesActionStory.storyName = "Empty States: Action"
 
 export const EmptyStatesInformativeStory = () => (
   <div style={{ width: "500px" }}>
     <EmptyStatesInformative alt="" />
   </div>
 )
-EmptyStatesInformativeStory.story = { name: "Empty States: Informative" }
+EmptyStatesInformativeStory.storyName = "Empty States: Informative"
 
 export const EmptyStatesNegativeStory = () => (
   <div style={{ width: "500px" }}>
     <EmptyStatesNegative alt="" />
   </div>
 )
-EmptyStatesNegativeStory.story = { name: "Empty States: Negative" }
+EmptyStatesNegativeStory.storyName = "Empty States: Negative"
 
 export const EmptyStatesPositiveStory = () => (
   <div style={{ width: "500px" }}>
     <EmptyStatesPositive alt="" />
   </div>
 )
-EmptyStatesPositiveStory.story = { name: "Empty States: Positive" }
+EmptyStatesPositiveStory.storyName = "Empty States: Positive"
 
 export const EmptyStatesNeutralStory = () => (
   <div style={{ width: "500px" }}>
     <EmptyStatesNeutral alt="" />
   </div>
 )
-EmptyStatesNeutralStory.story = { name: "Empty States: Neutral" }
+EmptyStatesNeutralStory.storyName = "Empty States: Neutral"
 
 export const IntroductionsNewAccountStory = () => (
   <div style={{ width: "500px" }}>
     <IntroductionsNewAccount alt="" />
   </div>
 )
-IntroductionsNewAccountStory.story = { name: "Introductions: New Account" }
+IntroductionsNewAccountStory.storyName = "Introductions: New Account"
 
 export const IntroductionsCaptureIntroStory = () => (
   <div style={{ width: "500px" }}>
     <IntroductionsCaptureIntro alt="" />
   </div>
 )
-IntroductionsCaptureIntroStory.story = { name: "Introductions: Capture Intro" }
+IntroductionsCaptureIntroStory.storyName = "Introductions: Capture Intro"
 
 export const IntroductionsPerformanceStory = () => (
   <div style={{ width: "500px" }}>
     <IntroductionsPerformance alt="" />
   </div>
 )
-IntroductionsPerformanceStory.story = { name: "Introductions: Performance" }
+IntroductionsPerformanceStory.storyName = "Introductions: Performance"
 
 export const IntroductionsNewAdminStory = () => (
   <div style={{ width: "500px" }}>
     <IntroductionsNewAdmin alt="" />
   </div>
 )
-IntroductionsNewAdminStory.story = { name: "Introductions: New Admin" }
+IntroductionsNewAdminStory.storyName = "Introductions: New Admin"
 
 export const Information360UpgradeStory = () => (
   <div style={{ width: "500px" }}>
     <Information360Upgrade alt="" />
   </div>
 )
-Information360UpgradeStory.story = { name: "Information Modals: 360 Upgrade" }
+Information360UpgradeStory.storyName = "Information Modals: 360 Upgrade"
 
 export const InformationDemographicFocusStory = () => (
   <div style={{ width: "500px" }}>
     <InformationDemographicFocus alt="" />
   </div>
 )
-InformationDemographicFocusStory.story = {
-  name: "Information Modals: Demographic Focus",
-}
+InformationDemographicFocusStory.storyName =
+  "Information Modals: Demographic Focus"
 
 export const InformationTurnoverCalculatorStory = () => (
   <div style={{ width: "500px" }}>
     <InformationTurnoverCalculator alt="" />
   </div>
 )
-InformationTurnoverCalculatorStory.story = {
-  name: "Information Modals: Turnover Calculator",
-}
+InformationTurnoverCalculatorStory.storyName =
+  "Information Modals: Turnover Calculator"
 
 export const InformationTurnoverForecastStory = () => (
   <div style={{ width: "500px" }}>
     <InformationTurnoverForecast alt="" />
   </div>
 )
-InformationTurnoverForecastStory.story = {
-  name: "Information Modals: Turnover Forecast",
-}
+InformationTurnoverForecastStory.storyName =
+  "Information Modals: Turnover Forecast"
 
 export const InformationEmergingTrendsStory = () => (
   <div style={{ width: "500px" }}>
     <InformationEmergingTrends alt="" />
   </div>
 )
-InformationEmergingTrendsStory.story = {
-  name: "Information Modals: Emerging Trends",
-}
+InformationEmergingTrendsStory.storyName = "Information Modals: Emerging Trends"
 
 export const InformationEmployeeLifecycleStory = () => (
   <div style={{ width: "500px" }}>
     <InformationEmployeeLifecycle alt="" />
   </div>
 )
-InformationEmployeeLifecycleStory.story = {
-  name: "Information Modals: Employee Lifecycle",
-}
+InformationEmployeeLifecycleStory.storyName =
+  "Information Modals: Employee Lifecycle"
 
 export const InformationReportOwnerStory = () => (
   <div style={{ width: "500px" }}>
     <InformationReportOwner alt="" />
   </div>
 )
-InformationReportOwnerStory.story = { name: "Information Modals: ReportOwner" }
+InformationReportOwnerStory.storyName = "Information Modals: ReportOwner"
 
 export const InformationReportOwnerByRuleStory = () => (
   <div style={{ width: "500px" }}>
     <InformationReportOwnerByRule alt="" />
   </div>
 )
-InformationReportOwnerByRuleStory.story = {
-  name: "Information Modals: Report Owner By Rule",
-}
+InformationReportOwnerByRuleStory.storyName =
+  "Information Modals: Report Owner By Rule"
 
 export const PerformanceEvaluationsStory = () => (
   <div style={{ width: "500px" }}>
     <PerformanceEvaluations alt="" />
   </div>
 )
-PerformanceEvaluationsStory.story = { name: "Performance: Evaluations" }
+PerformanceEvaluationsStory.storyName = "Performance: Evaluations"
 
 export const PerformanceCalibrationStory = () => (
   <div style={{ width: "500px" }}>
     <PerformanceCalibration alt="" />
   </div>
 )
-PerformanceCalibrationStory.story = { name: "Performance: Calibration" }
+PerformanceCalibrationStory.storyName = "Performance: Calibration"
 
 export const PerformanceFaqStory = () => (
   <div style={{ width: "500px" }}>
@@ -223,180 +214,170 @@ export const PerformanceFaqStory = () => (
     <PerformanceFaq alt="" />
   </div>
 )
-PerformanceFaqStory.story = { name: "Performance: Faq" }
+PerformanceFaqStory.storyName = "Performance: Faq"
 
 export const PerformancePerformanceFeedbackStory = () => (
   <div style={{ width: "500px" }}>
     <PerformancePerformanceFeedback alt="" />
   </div>
 )
-PerformancePerformanceFeedbackStory.story = {
-  name: "Performance: Performance Feedback",
-}
+PerformancePerformanceFeedbackStory.storyName =
+  "Performance: Performance Feedback"
 
 export const PerformanceGoalStatsStory = () => (
   <div style={{ width: "500px" }}>
     <PerformanceGoalStats alt="" />
   </div>
 )
-PerformanceGoalStatsStory.story = { name: "Performance: Goal Stats" }
+PerformanceGoalStatsStory.storyName = "Performance: Goal Stats"
 
 export const PerformanceGoalsStory = () => (
   <div style={{ width: "500px" }}>
     <PerformanceGoals alt="" />
   </div>
 )
-PerformanceGoalsStory.story = { name: "Performance: Goals" }
+PerformanceGoalsStory.storyName = "Performance: Goals"
 
 export const PerformancePeopleNetworkStory = () => (
   <div style={{ width: "500px" }}>
     <PerformancePeopleNetwork alt="" />
   </div>
 )
-PerformancePeopleNetworkStory.story = { name: "Performance: People Network" }
+PerformancePeopleNetworkStory.storyName = "Performance: People Network"
 
 export const PerformanceSelfReflectionsStory = () => (
   <div style={{ width: "500px" }}>
     <PerformanceSelfReflections alt="" />
   </div>
 )
-PerformanceSelfReflectionsStory.story = {
-  name: "Performance: Self Reflections",
-}
+PerformanceSelfReflectionsStory.storyName = "Performance: Self Reflections"
 
 export const PerformanceSupportStory = () => (
   <div style={{ width: "500px" }}>
     <PerformanceSupport alt="" />
   </div>
 )
-PerformanceSupportStory.story = { name: "Performance: Support" }
+PerformanceSupportStory.storyName = "Performance: Support"
 
 export const PerformanceTeamSummaryStory = () => (
   <div style={{ width: "500px" }}>
     <PerformanceTeamSummary alt="" />
   </div>
 )
-PerformanceTeamSummaryStory.story = { name: "Performance: Team Summary" }
+PerformanceTeamSummaryStory.storyName = "Performance: Team Summary"
 
 export const PerformanceCompanySettingsStory = () => (
   <div style={{ width: "500px" }}>
     <PerformanceCompanySettings alt="" />
   </div>
 )
-PerformanceCompanySettingsStory.story = {
-  name: "Performance: Company Settings",
-}
+PerformanceCompanySettingsStory.storyName = "Performance: Company Settings"
 
 export const ManagerLabFourWeekCycleStory = () => (
   <div style={{ width: "500px" }}>
     <ManagerLabFourWeekCycle alt="" />
   </div>
 )
-ManagerLabFourWeekCycleStory.story = { name: "Manager Lab: 4 week cycle" }
+ManagerLabFourWeekCycleStory.storyName = "Manager Lab: 4 week cycle"
 
 export const ManagerLabSchedulingStory = () => (
   <div style={{ width: "500px" }}>
     <ManagerLabScheduling alt="" />
   </div>
 )
-ManagerLabSchedulingStory.story = { name: "Manager Lab: Scheduling" }
+ManagerLabSchedulingStory.storyName = "Manager Lab: Scheduling"
 
 export const ManagerLearningManagerHubStory = () => (
   <div style={{ width: "500px" }}>
     <ManagerLearningManagerHub alt="" />
   </div>
 )
-ManagerLearningManagerHubStory.story = { name: "Manager Learning: Manager Hub" }
+ManagerLearningManagerHubStory.storyName = "Manager Learning: Manager Hub"
 
 export const ManagerLearningCoachingStory = () => (
   <div style={{ width: "500px" }}>
     <ManagerLearningCoaching alt="" />
   </div>
 )
-ManagerLearningCoachingStory.story = { name: "Manager Learning: Coaching" }
+ManagerLearningCoachingStory.storyName = "Manager Learning: Coaching"
 
 export const ManagerLearningFeedbackStory = () => (
   <div style={{ width: "500px" }}>
     <ManagerLearningFeedback alt="" />
   </div>
 )
-ManagerLearningFeedbackStory.story = { name: "Manager Learning: Feedback" }
+ManagerLearningFeedbackStory.storyName = "Manager Learning: Feedback"
 
 export const ManagerLearningProductivityStory = () => (
   <div style={{ width: "500px" }}>
     <ManagerLearningProductivity alt="" />
   </div>
 )
-ManagerLearningProductivityStory.story = {
-  name: "Manager Learning: Productivity",
-}
+ManagerLearningProductivityStory.storyName = "Manager Learning: Productivity"
 
 export const ManagerLearningResilienceStory = () => (
   <div style={{ width: "500px" }}>
     <ManagerLearningResilience alt="" />
   </div>
 )
-ManagerLearningResilienceStory.story = { name: "Manager Learning: Resilience" }
+ManagerLearningResilienceStory.storyName = "Manager Learning: Resilience"
 
 export const ManagerLearningOneOnOneMeetingsStory = () => (
   <div style={{ width: "500px" }}>
     <ManagerLearningOneOnOneMeetings alt="" />
   </div>
 )
-ManagerLearningOneOnOneMeetingsStory.story = {
-  name: "Manager Learning: 1 On 1 Meetings",
-}
+ManagerLearningOneOnOneMeetingsStory.storyName =
+  "Manager Learning: 1 On 1 Meetings"
 
 export const ManagerLearningStrategyStory = () => (
   <div style={{ width: "500px" }}>
     <ManagerLearningStrategy alt="" />
   </div>
 )
-ManagerLearningStrategyStory.story = { name: "Manager Learning: Strategy" }
+ManagerLearningStrategyStory.storyName = "Manager Learning: Strategy"
 
 export const ManagerLearningRemoteManagerStory = () => (
   <div style={{ width: "500px" }}>
     <ManagerLearningRemoteManager alt="" />
   </div>
 )
-ManagerLearningRemoteManagerStory.story = {
-  name: "Manager Learning: Remote Manager",
-}
+ManagerLearningRemoteManagerStory.storyName = "Manager Learning: Remote Manager"
 
 export const ProgramsStory = () => (
   <div style={{ width: "500px" }}>
     <Programs alt="" />
   </div>
 )
-ProgramsStory.story = { name: "Programs" }
+ProgramsStory.storyName = "Programs"
 
 export const KaizenSiteBrandAltStory = () => (
   <div style={{ width: "500px" }}>
     <KaizenSiteBrandAlt alt="" />
   </div>
 )
-KaizenSiteBrandAltStory.story = { name: "Kaizen Site: Brand Alt" }
+KaizenSiteBrandAltStory.storyName = "Kaizen Site: Brand Alt"
 
 export const KaizenSiteBrandStory = () => (
   <div style={{ width: "500px" }}>
     <KaizenSiteBrand alt="" />
   </div>
 )
-KaizenSiteBrandStory.story = { name: "Kaizen Site: Brand" }
+KaizenSiteBrandStory.storyName = "Kaizen Site: Brand"
 
 export const KaizenSiteLanguageAltStory = () => (
   <div style={{ width: "500px" }}>
     <KaizenSiteLanguageAlt alt="" />
   </div>
 )
-KaizenSiteLanguageAltStory.story = { name: "Kaizen Site: Language Alt" }
+KaizenSiteLanguageAltStory.storyName = "Kaizen Site: Language Alt"
 
 export const KaizenSiteLanguageStory = () => (
   <div style={{ width: "500px" }}>
     <KaizenSiteLanguage alt="" />
   </div>
 )
-KaizenSiteLanguageStory.story = { name: "Kaizen Site: Language" }
+KaizenSiteLanguageStory.storyName = "Kaizen Site: Language"
 
 export const KaizenSitePrinciplesStory = () => (
   <div style={{ width: "500px" }}>
@@ -404,38 +385,38 @@ export const KaizenSitePrinciplesStory = () => (
     <KaizenSitePrinciples alt="" />
   </div>
 )
-KaizenSitePrinciplesStory.story = { name: "Kaizen Site: Principles" }
+KaizenSitePrinciplesStory.storyName = "Kaizen Site: Principles"
 
 export const KaizenSitePrinciplesAltStory = () => (
   <div style={{ width: "500px" }}>
     <KaizenSitePrinciplesAlt alt="" />
   </div>
 )
-KaizenSitePrinciplesAltStory.story = { name: "Kaizen Site: Principles Alt" }
+KaizenSitePrinciplesAltStory.storyName = "Kaizen Site: Principles Alt"
 export const KaizenSiteProductStory = () => (
   <div style={{ width: "500px" }}>
     <KaizenSiteProduct alt="" />
   </div>
 )
-KaizenSiteProductStory.story = { name: "Kaizen Site: Product" }
+KaizenSiteProductStory.storyName = "Kaizen Site: Product"
 
 export const KaizenSiteProductAltStory = () => (
   <div style={{ width: "500px" }}>
     <KaizenSiteProductAlt alt="" />
   </div>
 )
-KaizenSiteProductAltStory.story = { name: "Kaizen Site: Product Alt" }
+KaizenSiteProductAltStory.storyName = "Kaizen Site: Product Alt"
 
 export const KaizenSiteResourcesStory = () => (
   <div style={{ width: "500px" }}>
     <KaizenSiteResources alt="" />
   </div>
 )
-KaizenSiteResourcesStory.story = { name: "Kaizen Site: Resources" }
+KaizenSiteResourcesStory.storyName = "Kaizen Site: Resources"
 
 export const KaizenSiteResourcesAltStory = () => (
   <div style={{ width: "500px" }}>
     <KaizenSiteResourcesAlt alt="" />
   </div>
 )
-KaizenSiteResourcesAltStory.story = { name: "Kaizen Site: Resources Alt" }
+KaizenSiteResourcesAltStory.storyName = "Kaizen Site: Resources Alt"
