@@ -51,9 +51,7 @@ export const MultiAction = () => (
   />
 )
 
-MultiAction.story = {
-  name: "Multi action tile",
-}
+MultiAction.storyName = "Multi action tile"
 
 export const MultiActionWithSecondary = () => (
   <MultiActionTile
@@ -64,9 +62,7 @@ export const MultiActionWithSecondary = () => (
   />
 )
 
-MultiActionWithSecondary.story = {
-  name: "Multi action tile with secondary action",
-}
+MultiActionWithSecondary.storyName = "Multi action tile with secondary action"
 
 export const MultiActionWithChildren = () => (
   <MultiActionTile
@@ -78,9 +74,7 @@ export const MultiActionWithChildren = () => (
   </MultiActionTile>
 )
 
-MultiActionWithChildren.story = {
-  name: "Multi action tile with children",
-}
+MultiActionWithChildren.storyName = "Multi action tile with children"
 
 export const MultiActionWithInformation = () => (
   <MultiActionTile
@@ -91,9 +85,7 @@ export const MultiActionWithInformation = () => (
   />
 )
 
-MultiActionWithInformation.story = {
-  name: "Multi action tile with information",
-}
+MultiActionWithInformation.storyName = "Multi action tile with information"
 
 export const Information = () => (
   <InformationTile
@@ -104,9 +96,7 @@ export const Information = () => (
   />
 )
 
-Information.story = {
-  name: "Information tile",
-}
+Information.storyName = "Information tile"
 
 export const TileGridWithTiles = () => (
   <TileGrid>
@@ -149,6 +139,4 @@ export const TileGridWithTiles = () => (
   </TileGrid>
 )
 
-TileGridWithTiles.story = {
-  name: "Tile Grid",
-}
+TileGridWithTiles.storyName = "Tile Grid"

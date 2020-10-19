@@ -1,6 +1,6 @@
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { TextAreaField } from "@kaizen/draft-form"
-// import { action } from "@storybook/addon-actions"
+
 import React from "react"
 
 interface RenderProps {
@@ -46,9 +46,7 @@ const ExampleContainer: React.FunctionComponent = ({ children }) => (
 )
 
 const ReversedBg = {
-  parameters: {
-    backgrounds: [{ value: colorTokens.kz.color.wisteria[700], default: true }],
-  },
+  backgrounds: [{ value: colorTokens.kz.color.wisteria[700], default: true }],
 }
 
 export default {
@@ -74,9 +72,7 @@ export const DefaultKaizenSiteDemo = () => (
   </ExampleContainer>
 )
 
-DefaultKaizenSiteDemo.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const DefaultLarge = () => (
   <ExampleContainer>
@@ -90,9 +86,7 @@ export const DefaultLarge = () => (
   </ExampleContainer>
 )
 
-DefaultLarge.story = {
-  name: "Default, Large",
-}
+DefaultLarge.storyName = "Default, Large"
 
 export const DefaultError = () => (
   <ExampleContainer>
@@ -107,9 +101,7 @@ export const DefaultError = () => (
   </ExampleContainer>
 )
 
-DefaultError.story = {
-  name: "Default, Error",
-}
+DefaultError.storyName = "Default, Error"
 
 export const DefaultPrefilled = () => (
   <ExampleContainer>
@@ -122,9 +114,7 @@ export const DefaultPrefilled = () => (
   </ExampleContainer>
 )
 
-DefaultPrefilled.story = {
-  name: "Default, Prefilled & uncontrolled",
-}
+DefaultPrefilled.storyName = "Default, Prefilled & uncontrolled"
 
 export const DefaultControlled = () => (
   <ExampleContainer>
@@ -141,9 +131,7 @@ export const DefaultControlled = () => (
   </ExampleContainer>
 )
 
-DefaultControlled.story = {
-  name: "Default, Controlled",
-}
+DefaultControlled.storyName = "Default, Controlled"
 
 export const DefaultWithDesc = () => (
   <ExampleContainer>
@@ -157,9 +145,7 @@ export const DefaultWithDesc = () => (
   </ExampleContainer>
 )
 
-DefaultWithDesc.story = {
-  name: "Default, With description",
-}
+DefaultWithDesc.storyName = "Default, With description"
 
 export const DefaultInline = () => (
   <ExampleContainer>
@@ -173,9 +159,7 @@ export const DefaultInline = () => (
   </ExampleContainer>
 )
 
-DefaultInline.story = {
-  name: "Default, Inline",
-}
+DefaultInline.storyName = "Default, Inline"
 
 export const DefaultErrorAndDesc = () => (
   <ExampleContainer>
@@ -191,9 +175,7 @@ export const DefaultErrorAndDesc = () => (
   </ExampleContainer>
 )
 
-DefaultErrorAndDesc.story = {
-  name: "Default, Error & Description",
-}
+DefaultErrorAndDesc.storyName = "Default, Error & Description"
 
 export const Reversed = () => (
   <ExampleContainer>
@@ -207,10 +189,8 @@ export const Reversed = () => (
   </ExampleContainer>
 )
 
-Reversed.story = {
-  name: "Reversed",
-  ...ReversedBg,
-}
+Reversed.storyName = "Reversed"
+Reversed.parameters = { ...ReversedBg }
 
 export const ReversedErrorAndDesc = () => (
   <ExampleContainer>
@@ -227,7 +207,5 @@ export const ReversedErrorAndDesc = () => (
   </ExampleContainer>
 )
 
-ReversedErrorAndDesc.story = {
-  name: "Reversed, Error & Description",
-  ...ReversedBg,
-}
+ReversedErrorAndDesc.storyName = "Reversed, Error & Description"
+ReversedErrorAndDesc.parameters = { ...ReversedBg }

@@ -20,9 +20,7 @@ export const DefaultStory = () => (
   </Container>
 )
 
-DefaultStory.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultStory.storyName = "Default (Kaizen Site Demo)"
 
 export const CanvasStory = () => (
   <Container>
@@ -30,9 +28,7 @@ export const CanvasStory = () => (
   </Container>
 )
 
-CanvasStory.story = {
-  name: "Canvas Divider",
-}
+CanvasStory.storyName = "Canvas Divider"
 
 export const ContentDivider = () => (
   <Container>
@@ -40,9 +36,7 @@ export const ContentDivider = () => (
   </Container>
 )
 
-ContentDivider.story = {
-  name: "Content Divider",
-}
+ContentDivider.storyName = "Content Divider"
 
 export const ContentDividerReversed = () => (
   <Container>
@@ -50,17 +44,15 @@ export const ContentDividerReversed = () => (
   </Container>
 )
 
-ContentDividerReversed.story = {
-  name: "Content Divider Reversed",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[600],
-        default: true,
-      },
-    ],
-  },
+ContentDividerReversed.storyName = "Content Divider Reversed"
+ContentDividerReversed.parameters = {
+  backgrounds: [
+    {
+      name: "Wisteria 700",
+      value: colorTokens.kz.color.wisteria[600],
+      default: true,
+    },
+  ],
 }
 
 export const CanvasDividerReversed = () => (
@@ -69,17 +61,15 @@ export const CanvasDividerReversed = () => (
   </Container>
 )
 
-CanvasDividerReversed.story = {
-  name: "Canvas Divider Reversed",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
-  },
+CanvasDividerReversed.storyName = "Canvas Divider Reversed"
+CanvasDividerReversed.parameters = {
+  backgrounds: [
+    {
+      name: "Wisteria 700",
+      value: colorTokens.kz.color.wisteria[700],
+      default: true,
+    },
+  ],
 }
 
 export const TabDivider = () => (
@@ -119,6 +109,4 @@ export const TabDivider = () => (
   </Container>
 )
 
-TabDivider.story = {
-  name: "Composing divider, card, box, and typography",
-}
+TabDivider.storyName = "Composing divider, card, box, and typography"

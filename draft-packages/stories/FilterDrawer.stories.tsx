@@ -179,17 +179,15 @@ const DemoFilterDrawer = () => {
   )
 }
 
-DefaultStory.story = {
-  name: "Reversed (Kaizen Site Demo)",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
-  },
+DefaultStory.storyName = "Reversed (Kaizen Site Demo)"
+DefaultStory.parameters = {
+  backgrounds: [
+    {
+      name: "Wisteria 700",
+      value: colorTokens.kz.color.wisteria[700],
+      default: true,
+    },
+  ],
 }
 
 export const ReversedEmpty = () => {
@@ -231,19 +229,16 @@ export const ReversedEmpty = () => {
   )
 }
 
-ReversedEmpty.story = {
-  name: "Reversed (empty)",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
-  },
+ReversedEmpty.storyName = "Reversed (empty)"
+ReversedEmpty.parameters = {
+  backgrounds: [
+    {
+      name: "Wisteria 700",
+      value: colorTokens.kz.color.wisteria[700],
+      default: true,
+    },
+  ],
 }
-
 export const DefaultEmpty = () => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
 
@@ -282,9 +277,7 @@ export const DefaultEmpty = () => {
   )
 }
 
-DefaultEmpty.story = {
-  name: "Default (empty)",
-}
+DefaultEmpty.storyName = "Default (empty)"
 
 export const ReversedEmptyRTL = () => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
@@ -327,15 +320,13 @@ export const ReversedEmptyRTL = () => {
   )
 }
 
-ReversedEmptyRTL.story = {
-  name: "Reversed RTL (empty)",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
-  },
+ReversedEmptyRTL.storyName = "Reversed RTL (empty)"
+ReversedEmptyRTL.parameters = {
+  backgrounds: [
+    {
+      name: "Wisteria 700",
+      value: colorTokens.kz.color.wisteria[700],
+      default: true,
+    },
+  ],
 }

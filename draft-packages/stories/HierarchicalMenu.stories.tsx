@@ -78,9 +78,7 @@ export const DefaultStory = () => (
   </StoryContainer>
 )
 
-DefaultStory.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultStory.storyName = "Default (Kaizen Site Demo)"
 
 export const RtlStory = () => (
   <div dir="rtl">
@@ -112,9 +110,7 @@ export const RtlStory = () => (
   </div>
 )
 
-RtlStory.story = {
-  name: "Default (RTL)",
-}
+RtlStory.storyName = "Default (RTL)"
 
 export const LoadingStateFastStory = () => (
   <StoryContainer>
@@ -143,9 +139,7 @@ export const LoadingStateFastStory = () => (
   </StoryContainer>
 )
 
-LoadingStateFastStory.story = {
-  name: "Loading state (fast)",
-}
+LoadingStateFastStory.storyName = "Loading state (fast)"
 
 export const LoadingStateMediumStory = () => (
   <StoryContainer>
@@ -174,9 +168,7 @@ export const LoadingStateMediumStory = () => (
   </StoryContainer>
 )
 
-LoadingStateMediumStory.story = {
-  name: "Loading state (medium)",
-}
+LoadingStateMediumStory.storyName = "Loading state (medium)"
 
 export const LoadingStateSlowStory = () => (
   <StoryContainer>
@@ -205,9 +197,7 @@ export const LoadingStateSlowStory = () => (
   </StoryContainer>
 )
 
-LoadingStateSlowStory.story = {
-  name: "Loading state (slow)",
-}
+LoadingStateSlowStory.storyName = "Loading state (slow)"
 
 const loadInitialHierarchy = (
   simulatedResponseTime: ResponseTime

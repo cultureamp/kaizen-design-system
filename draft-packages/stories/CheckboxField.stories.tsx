@@ -77,9 +77,7 @@ export const InteractiveKaizenSiteDemo = () => (
   />
 )
 
-InteractiveKaizenSiteDemo.story = {
-  name: "Interactive (Kaizen Site Demo)",
-}
+InteractiveKaizenSiteDemo.storyName = "Interactive (Kaizen Site Demo)"
 
 export const On = () => (
   <CheckboxField
@@ -117,9 +115,7 @@ export const DisabledOn = () => (
   />
 )
 
-DisabledOn.story = {
-  name: "Disabled + on",
-}
+DisabledOn.storyName = "Disabled + on"
 
 export const DisabledMixed = () => (
   <CheckboxField
@@ -130,9 +126,7 @@ export const DisabledMixed = () => (
   />
 )
 
-DisabledMixed.story = {
-  name: "Disabled + mixed",
-}
+DisabledMixed.storyName = "Disabled + mixed"
 
 export const DisabledOff = () => (
   <CheckboxField
@@ -143,9 +137,7 @@ export const DisabledOff = () => (
   />
 )
 
-DisabledOff.story = {
-  name: "Disabled + off",
-}
+DisabledOff.storyName = "Disabled + off"
 
 export const WithBottomMargin = () => (
   <div>
@@ -164,9 +156,7 @@ export const WithBottomMargin = () => (
   </div>
 )
 
-WithBottomMargin.story = {
-  name: "with bottom margin",
-}
+WithBottomMargin.storyName = "with bottom margin"
 
 export const WithoutBottomMargin = () => (
   <div>
@@ -187,6 +177,4 @@ export const WithoutBottomMargin = () => (
   </div>
 )
 
-WithoutBottomMargin.story = {
-  name: "without bottom margin",
-}
+WithoutBottomMargin.storyName = "without bottom margin"

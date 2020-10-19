@@ -28,9 +28,7 @@ export const DefaultMediumKaizenSiteDemo = () => (
   </StoryContainer>
 )
 
-DefaultMediumKaizenSiteDemo.story = {
-  name: "Default - Medium (Kaizen Site Demo)",
-}
+DefaultMediumKaizenSiteDemo.storyName = "Default - Medium (Kaizen Site Demo)"
 
 export const DefaultSmall = () => (
   <StoryContainer>
@@ -43,9 +41,7 @@ export const DefaultSmall = () => (
   </StoryContainer>
 )
 
-DefaultSmall.story = {
-  name: "Default - Small",
-}
+DefaultSmall.storyName = "Default - Small"
 
 export const SentimentPositive = () => (
   <StoryContainer>
@@ -56,9 +52,7 @@ export const SentimentPositive = () => (
   </StoryContainer>
 )
 
-SentimentPositive.story = {
-  name: "Sentiment - Positive",
-}
+SentimentPositive.storyName = "Sentiment - Positive"
 
 export const SentimentNeutral = () => (
   <StoryContainer>
@@ -69,9 +63,7 @@ export const SentimentNeutral = () => (
   </StoryContainer>
 )
 
-SentimentNeutral.story = {
-  name: "Sentiment - Neutral",
-}
+SentimentNeutral.storyName = "Sentiment - Neutral"
 
 export const SentimentNegative = () => (
   <StoryContainer>
@@ -82,9 +74,7 @@ export const SentimentNegative = () => (
   </StoryContainer>
 )
 
-SentimentNegative.story = {
-  name: "Sentiment - Negative",
-}
+SentimentNegative.storyName = "Sentiment - Negative"
 
 export const SentimentNone = () => (
   <StoryContainer>
@@ -95,9 +85,7 @@ export const SentimentNone = () => (
   </StoryContainer>
 )
 
-SentimentNone.story = {
-  name: "Sentiment - None",
-}
+SentimentNone.storyName = "Sentiment - None"
 
 export const ValidationPositive = () => (
   <StoryContainer>
@@ -108,9 +96,7 @@ export const ValidationPositive = () => (
   </StoryContainer>
 )
 
-ValidationPositive.story = {
-  name: "Validation - Positive",
-}
+ValidationPositive.storyName = "Validation - Positive"
 
 export const ValidationInformative = () => (
   <StoryContainer>
@@ -121,9 +107,7 @@ export const ValidationInformative = () => (
   </StoryContainer>
 )
 
-ValidationInformative.story = {
-  name: "Validation - Informative",
-}
+ValidationInformative.storyName = "Validation - Informative"
 
 export const ValidationNegative = () => (
   <StoryContainer>
@@ -134,9 +118,7 @@ export const ValidationNegative = () => (
   </StoryContainer>
 )
 
-ValidationNegative.story = {
-  name: "Validation - Negative",
-}
+ValidationNegative.storyName = "Validation - Negative"
 
 export const ValidationCautionary = () => (
   <StoryContainer>
@@ -147,9 +129,7 @@ export const ValidationCautionary = () => (
   </StoryContainer>
 )
 
-ValidationCautionary.story = {
-  name: "Validation - Cautionary",
-}
+ValidationCautionary.storyName = "Validation - Cautionary"
 
 export const StatusLive = () => (
   <StoryContainer>
@@ -157,9 +137,7 @@ export const StatusLive = () => (
   </StoryContainer>
 )
 
-StatusLive.story = {
-  name: "Status - Live",
-}
+StatusLive.storyName = "Status - Live"
 
 export const StatusDraft = () => (
   <StoryContainer>
@@ -167,9 +145,7 @@ export const StatusDraft = () => (
   </StoryContainer>
 )
 
-StatusDraft.story = {
-  name: "Status - Draft",
-}
+StatusDraft.storyName = "Status - Draft"
 
 export const StatusClosed = () => (
   <StoryContainer>
@@ -177,9 +153,7 @@ export const StatusClosed = () => (
   </StoryContainer>
 )
 
-StatusClosed.story = {
-  name: "Status - Closed",
-}
+StatusClosed.storyName = "Status - Closed"
 
 export const StatusAction = () => (
   <StoryContainer>
@@ -187,9 +161,7 @@ export const StatusAction = () => (
   </StoryContainer>
 )
 
-StatusAction.story = {
-  name: "Status - Action",
-}
+StatusAction.storyName = "Status - Action"
 
 export const Truncated = () => (
   <StoryContainer>
@@ -219,9 +191,7 @@ export const TruncatedDismissible = () => (
   </StoryContainer>
 )
 
-TruncatedDismissible.story = {
-  name: "Truncated - Dismissible",
-}
+TruncatedDismissible.storyName = "Truncated - Dismissible"
 
 export const Inline = () => (
   <StoryContainer>
@@ -251,6 +221,4 @@ export const InlineDismissible = () => (
   </StoryContainer>
 )
 
-InlineDismissible.story = {
-  name: "Inline - Dismissible",
-}
+InlineDismissible.storyName = "Inline - Dismissible"

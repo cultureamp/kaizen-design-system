@@ -42,9 +42,7 @@ export const DefaultKaizenSiteDemo = () => (
   </Container>
 )
 
-DefaultKaizenSiteDemo.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const Title = () => (
   <Container>
@@ -99,9 +97,7 @@ export const CustomLeftContent = () => (
   </Container>
 )
 
-CustomLeftContent.story = {
-  name: "Custom left content",
-}
+CustomLeftContent.storyName = "Custom left content"
 
 export const CustomLeftContentAndBadge = () => (
   <Container>
@@ -115,9 +111,7 @@ export const CustomLeftContentAndBadge = () => (
   </Container>
 )
 
-CustomLeftContentAndBadge.story = {
-  name: "Custom left content and badge",
-}
+CustomLeftContentAndBadge.storyName = "Custom left content and badge"
 
 export const FullWidth = () => (
   <Container>
@@ -131,6 +125,4 @@ export const FullWidth = () => (
   </Container>
 )
 
-FullWidth.story = {
-  name: "Full width",
-}
+FullWidth.storyName = "Full width"

@@ -9,7 +9,6 @@ import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import kebabIcon from "@kaizen/component-library/icons/kebab.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 
-// import { action } from "@storybook/addon-actions"
 import React, { useState } from "react"
 import {
   Menu,
@@ -87,9 +86,7 @@ export const LabelAndIcon = () => (
   </StoryWrapper>
 )
 
-LabelAndIcon.story = {
-  name: "Label and Icon (Kaizen Site Demo)",
-}
+LabelAndIcon.storyName = "Label and Icon (Kaizen Site Demo)"
 
 export const LabelAndIconReversed = () => (
   <StoryWrapper>
@@ -103,17 +100,15 @@ export const LabelAndIconReversed = () => (
   </StoryWrapper>
 )
 
-LabelAndIconReversed.story = {
-  name: "Label and Icon (reversed)",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
-  },
+LabelAndIconReversed.storyName = "Label and Icon (reversed)"
+LabelAndIconReversed.parameters = {
+  backgrounds: [
+    {
+      name: "Wisteria 700",
+      value: colorTokens.kz.color.wisteria[700],
+      default: true,
+    },
+  ],
 }
 
 export const DefaultMeatball = () => (
@@ -124,9 +119,7 @@ export const DefaultMeatball = () => (
   </StoryWrapper>
 )
 
-DefaultMeatball.story = {
-  name: "Default (Meatball)",
-}
+DefaultMeatball.storyName = "Default (Meatball)"
 
 export const DefaultKebab = () => (
   <StoryWrapper>
@@ -136,9 +129,7 @@ export const DefaultKebab = () => (
   </StoryWrapper>
 )
 
-DefaultKebab.story = {
-  name: "Default (Kebab)",
-}
+DefaultKebab.storyName = "Default (Kebab)"
 
 export const LabelAndIconBottom = () => (
   <StoryWrapper>
@@ -151,11 +142,9 @@ export const LabelAndIconBottom = () => (
   </StoryWrapper>
 )
 
-LabelAndIconBottom.story = {
-  name: "Label and Icon (bottom of screen)",
-  parameters: {
-    viewport: { defaultViewport: "mobile1" },
-  },
+LabelAndIconBottom.storyName = "Label and Icon (bottom of screen)"
+LabelAndIconBottom.parameters = {
+  viewport: { defaultViewport: "mobile1" },
 }
 
 const StatelessMenuExample = props => {
@@ -226,9 +215,7 @@ export const DefaultStatelessMenu = () => (
   </StoryWrapper>
 )
 
-DefaultStatelessMenu.story = {
-  name: "StatelessMenu (example usage)",
-}
+DefaultStatelessMenu.storyName = "StatelessMenu (example usage)"
 
 export const DropdownWidthContain = () => (
   <StoryWrapper>

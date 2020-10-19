@@ -1,5 +1,5 @@
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
-// import { action } from "@storybook/addon-actions"
+
 import React, { useCallback, useRef } from "react"
 import { Tooltip } from "@kaizen/draft-tooltip"
 
@@ -12,9 +12,7 @@ const ExampleContainer: React.FunctionComponent = ({ children }) => (
 )
 
 const ReversedBg = {
-  parameters: {
-    backgrounds: [{ value: colorTokens.kz.color.wisteria[700], default: true }],
-  },
+  backgrounds: [{ value: colorTokens.kz.color.wisteria[700], default: true }],
 }
 
 export default {
@@ -50,9 +48,7 @@ export const DefaultKaizenSiteDemo = () => (
   </ExampleContainer>
 )
 
-DefaultKaizenSiteDemo.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const DefaultInline = () => (
   <ExampleContainer>
@@ -69,9 +65,7 @@ export const DefaultInline = () => (
   </ExampleContainer>
 )
 
-DefaultInline.story = {
-  name: "Default, Inline",
-}
+DefaultInline.storyName = "Default, Inline"
 
 export const DefaultIcon = () => (
   <ExampleContainer>
@@ -87,9 +81,7 @@ export const DefaultIcon = () => (
   </ExampleContainer>
 )
 
-DefaultIcon.story = {
-  name: "Default, Icon",
-}
+DefaultIcon.storyName = "Default, Icon"
 
 export const DefaultDisabled = () => (
   <ExampleContainer>
@@ -105,9 +97,7 @@ export const DefaultDisabled = () => (
   </ExampleContainer>
 )
 
-DefaultDisabled.story = {
-  name: "Default, Disabled",
-}
+DefaultDisabled.storyName = "Default, Disabled"
 
 export const DefaultDisabledWValue = () => (
   <ExampleContainer>
@@ -123,9 +113,7 @@ export const DefaultDisabledWValue = () => (
   </ExampleContainer>
 )
 
-DefaultDisabledWValue.story = {
-  name: "Default, Disabled w/ value",
-}
+DefaultDisabledWValue.storyName = "Default, Disabled w/ value"
 
 export const DefaultDisabledIcon = () => (
   <ExampleContainer>
@@ -142,9 +130,7 @@ export const DefaultDisabledIcon = () => (
   </ExampleContainer>
 )
 
-DefaultDisabledIcon.story = {
-  name: "Default, Disabled + Icon",
-}
+DefaultDisabledIcon.storyName = "Default, Disabled + Icon"
 
 export const DefaultSuccess = () => (
   <ExampleContainer>
@@ -160,9 +146,7 @@ export const DefaultSuccess = () => (
   </ExampleContainer>
 )
 
-DefaultSuccess.story = {
-  name: "Default, Success",
-}
+DefaultSuccess.storyName = "Default, Success"
 
 export const DefaultSuccessIcon = () => (
   <ExampleContainer>
@@ -179,9 +163,7 @@ export const DefaultSuccessIcon = () => (
   </ExampleContainer>
 )
 
-DefaultSuccessIcon.story = {
-  name: "Default, Success + Icon",
-}
+DefaultSuccessIcon.storyName = "Default, Success + Icon"
 
 export const DefaultError = () => (
   <ExampleContainer>
@@ -198,9 +180,7 @@ export const DefaultError = () => (
   </ExampleContainer>
 )
 
-DefaultError.story = {
-  name: "Default, Error",
-}
+DefaultError.storyName = "Default, Error"
 
 export const DefaultErrorIcon = () => (
   <ExampleContainer>
@@ -217,9 +197,7 @@ export const DefaultErrorIcon = () => (
   </ExampleContainer>
 )
 
-DefaultErrorIcon.story = {
-  name: "Default, Error + Icon",
-}
+DefaultErrorIcon.storyName = "Default, Error + Icon"
 
 export const DefaultMultipleFields = () => (
   <ExampleContainer>
@@ -244,9 +222,7 @@ export const DefaultMultipleFields = () => (
   </ExampleContainer>
 )
 
-DefaultMultipleFields.story = {
-  name: "Default, Multiple Fields",
-}
+DefaultMultipleFields.storyName = "Default, Multiple Fields"
 
 export const DefaultMultipleFieldsError = () => (
   <ExampleContainer>
@@ -275,9 +251,7 @@ export const DefaultMultipleFieldsError = () => (
   </ExampleContainer>
 )
 
-DefaultMultipleFieldsError.story = {
-  name: "Default, Multiple Fields, Error",
-}
+DefaultMultipleFieldsError.storyName = "Default, Multiple Fields, Error"
 
 export const Reversed = () => (
   <ExampleContainer>
@@ -312,10 +286,8 @@ export const ReversedIcon = () => (
   </ExampleContainer>
 )
 
-ReversedIcon.story = {
-  name: "Reversed, Icon",
-  ...ReversedBg,
-}
+ReversedIcon.storyName = "Reversed, Icon"
+ReversedIcon.parameters = { ...ReversedBg }
 
 export const ReversedDisabled = () => (
   <ExampleContainer>
@@ -332,10 +304,8 @@ export const ReversedDisabled = () => (
   </ExampleContainer>
 )
 
-ReversedDisabled.story = {
-  name: "Reversed, Disabled",
-  ...ReversedBg,
-}
+ReversedDisabled.storyName = "Reversed, Disabled"
+ReversedDisabled.parameters = { ...ReversedBg }
 
 export const ReversedDisabledWValue = () => (
   <ExampleContainer>
@@ -352,10 +322,8 @@ export const ReversedDisabledWValue = () => (
   </ExampleContainer>
 )
 
-ReversedDisabledWValue.story = {
-  name: "Reversed, Disabled w/ value",
-  ...ReversedBg,
-}
+ReversedDisabledWValue.storyName = "Reversed, Disabled w/ value"
+ReversedDisabledWValue.parameters = { ...ReversedBg }
 
 export const ReversedDisabledIcon = () => (
   <ExampleContainer>
@@ -373,10 +341,8 @@ export const ReversedDisabledIcon = () => (
   </ExampleContainer>
 )
 
-ReversedDisabledIcon.story = {
-  name: "Reversed, Disabled + Icon",
-  ...ReversedBg,
-}
+ReversedDisabledIcon.storyName = "Reversed, Disabled + Icon"
+ReversedDisabledIcon.parameters = { ...ReversedBg }
 
 export const ReversedSuccess = () => (
   <ExampleContainer>
@@ -393,10 +359,8 @@ export const ReversedSuccess = () => (
   </ExampleContainer>
 )
 
-ReversedSuccess.story = {
-  name: "Reversed,  Success",
-  ...ReversedBg,
-}
+ReversedSuccess.storyName = "Reversed,  Success"
+ReversedSuccess.parameters = { ...ReversedBg }
 
 export const ReversedSuccessIcon = () => (
   <ExampleContainer>
@@ -414,10 +378,8 @@ export const ReversedSuccessIcon = () => (
   </ExampleContainer>
 )
 
-ReversedSuccessIcon.story = {
-  name: "Reversed, Success + Icon",
-  ...ReversedBg,
-}
+ReversedSuccessIcon.storyName = "Reversed, Success + Icon"
+ReversedSuccessIcon.parameters = { ...ReversedBg }
 
 export const ReversedError = () => (
   <ExampleContainer>
@@ -435,10 +397,8 @@ export const ReversedError = () => (
   </ExampleContainer>
 )
 
-ReversedError.story = {
-  name: "Reversed, Error",
-  ...ReversedBg,
-}
+ReversedError.storyName = "Reversed, Error"
+ReversedError.parameters = { ...ReversedBg }
 
 export const ReversedErrorIcon = () => (
   <ExampleContainer>
@@ -457,10 +417,8 @@ export const ReversedErrorIcon = () => (
   </ExampleContainer>
 )
 
-ReversedErrorIcon.story = {
-  name: "Reversed, Error + Icon",
-  ...ReversedBg,
-}
+ReversedErrorIcon.storyName = "Reversed, Error + Icon"
+ReversedErrorIcon.parameters = { ...ReversedBg }
 
 export const ReversedMultipleFields = () => (
   <ExampleContainer>
@@ -487,10 +445,8 @@ export const ReversedMultipleFields = () => (
   </ExampleContainer>
 )
 
-ReversedMultipleFields.story = {
-  name: "Reversed, Multiple Fields",
-  ...ReversedBg,
-}
+ReversedMultipleFields.storyName = "Reversed, Multiple Fields"
+ReversedMultipleFields.parameters = { ...ReversedBg }
 
 export const ReversedMultipleFieldsWError = () => (
   <ExampleContainer>
@@ -521,10 +477,8 @@ export const ReversedMultipleFieldsWError = () => (
   </ExampleContainer>
 )
 
-ReversedMultipleFieldsWError.story = {
-  name: "Reversed, Multiple Fields w/ Error",
-  ...ReversedBg,
-}
+ReversedMultipleFieldsWError.storyName = "Reversed, Multiple Fields w/ Error"
+ReversedMultipleFieldsWError.parameters = { ...ReversedBg }
 
 export const DefaultFocusBlurEvents = () => (
   <ExampleContainer>
@@ -549,9 +503,7 @@ export const DefaultFocusBlurEvents = () => (
   </ExampleContainer>
 )
 
-DefaultFocusBlurEvents.story = {
-  name: "Default, Focus/Blur events",
-}
+DefaultFocusBlurEvents.storyName = "Default, Focus/Blur events"
 
 // More info about uncontrolled components:
 //   https://reactjs.org/docs/uncontrolled-components.html
@@ -579,9 +531,7 @@ export const DefaultUncontrolled = () => {
   )
 }
 
-DefaultUncontrolled.story = {
-  name: "Default, Uncontrolled",
-}
+DefaultUncontrolled.storyName = "Default, Uncontrolled"
 
 export const DefaultWithHtmlDescription = () => {
   const description = (
@@ -612,6 +562,4 @@ export const DefaultWithHtmlDescription = () => {
   )
 }
 
-DefaultWithHtmlDescription.story = {
-  name: "Default w HTML description",
-}
+DefaultWithHtmlDescription.storyName = "Default w HTML description"

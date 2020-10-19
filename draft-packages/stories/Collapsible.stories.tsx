@@ -1,6 +1,6 @@
 import { Icon, Paragraph } from "@kaizen/component-library"
 import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible"
-// import { action } from "@storybook/addon-actions"
+
 import * as React from "react"
 import styles from "./Collapsible.stories.scss"
 import translationIcon from "@kaizen/component-library/icons/translation.icon.svg"
@@ -67,9 +67,7 @@ export const SingleCollapsibleNoPadding = () => (
   </div>
 )
 
-SingleCollapsibleNoPadding.story = {
-  name: "Single collapsible (no padding)",
-}
+SingleCollapsibleNoPadding.storyName = "Single collapsible (no padding)"
 
 export const SingleCollapsibleCustomHeader = () => (
   <div style={{ margin: "1rem", width: "40rem" }}>
@@ -95,9 +93,7 @@ export const SingleCollapsibleCustomHeader = () => (
   </div>
 )
 
-SingleCollapsibleCustomHeader.story = {
-  name: "Single collapsible (custom header)",
-}
+SingleCollapsibleCustomHeader.storyName = "Single collapsible (custom header)"
 
 export const SingleCollapsibleLazyLoad = () => (
   <div style={{ margin: "1rem", width: "40rem" }}>
@@ -115,9 +111,7 @@ export const SingleCollapsibleLazyLoad = () => (
   </div>
 )
 
-SingleCollapsibleLazyLoad.story = {
-  name: "Single collapsible (lazy load)",
-}
+SingleCollapsibleLazyLoad.storyName = "Single collapsible (lazy load)"
 
 // eslint-disable-next-line no-underscore-dangle
 export const _CollapsibleGroup = () => (
@@ -136,9 +130,7 @@ export const _CollapsibleGroup = () => (
   </div>
 )
 
-_CollapsibleGroup.story = {
-  name: "Collapsible group",
-}
+_CollapsibleGroup.storyName = "Collapsible group"
 
 export const CollapsibleGroupSeparated = () => (
   <div style={{ margin: "1rem", width: "40rem" }}>
@@ -156,9 +148,7 @@ export const CollapsibleGroupSeparated = () => (
   </div>
 )
 
-CollapsibleGroupSeparated.story = {
-  name: "Collapsible group (separated)",
-}
+CollapsibleGroupSeparated.storyName = "Collapsible group (separated)"
 
 export const CollapsibleGroupStickyHeaders = () => (
   <div style={{ margin: "4rem", width: "40rem" }}>
@@ -191,9 +181,7 @@ export const CollapsibleGroupStickyHeaders = () => (
   </div>
 )
 
-CollapsibleGroupStickyHeaders.story = {
-  name: "Collapsible group (sticky headers)",
-}
+CollapsibleGroupStickyHeaders.storyName = "Collapsible group (sticky headers)"
 
 export const CollapsibleGroupCallbackOnOpenClose = () => (
   <div style={{ margin: "1rem", width: "40rem" }}>
@@ -211,6 +199,5 @@ export const CollapsibleGroupCallbackOnOpenClose = () => (
   </div>
 )
 
-CollapsibleGroupCallbackOnOpenClose.story = {
-  name: "Collapsible group (callback on open/close)",
-}
+CollapsibleGroupCallbackOnOpenClose.storyName =
+  "Collapsible group (callback on open/close)"

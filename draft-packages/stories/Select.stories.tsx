@@ -104,9 +104,7 @@ export const SingleEllipsis = () => {
   )
 }
 
-SingleEllipsis.story = {
-  name: "Single with ellipsizing selection",
-}
+SingleEllipsis.storyName = "Single with ellipsizing selection"
 
 export const SingleClearable = () => (
   <StoryContainer>
@@ -131,9 +129,7 @@ export const MultiSelectSearchable = () => (
   </WideStoryContainer>
 )
 
-MultiSelectSearchable.story = {
-  name: "Multi-Select Searchable",
-}
+MultiSelectSearchable.storyName = "Multi-Select Searchable"
 
 export const AsyncSearchable = () => (
   <WideStoryContainer>
@@ -155,9 +151,7 @@ export const MultiAsyncSearchable = () => (
     />
   </WideStoryContainer>
 )
-MultiAsyncSearchable.story = {
-  name: "Multi-Async Searchable",
-}
+MultiAsyncSearchable.storyName = "Multi-Async Searchable"
 
 export const SingleSecondary = () => (
   <StoryContainer>
@@ -170,9 +164,7 @@ export const SingleSecondary = () => (
   </StoryContainer>
 )
 
-SingleSecondary.story = {
-  name: "Single, Secondary",
-}
+SingleSecondary.storyName = "Single, Secondary"
 
 export const SingleSecondarySmall = () => (
   <StoryContainer>
@@ -186,17 +178,15 @@ export const SingleSecondarySmall = () => (
   </StoryContainer>
 )
 
-SingleSecondarySmall.story = {
-  name: "Single, Secondary-Small, Reversed",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
-  },
+SingleSecondarySmall.storyName = "Single, Secondary-Small, Reversed"
+SingleSecondarySmall.parameters = {
+  backgrounds: [
+    {
+      name: "Wisteria 700",
+      value: colorTokens.kz.color.wisteria[700],
+      default: true,
+    },
+  ],
 }
 
 export const SingleSecondaryDisabled = () => (
@@ -211,9 +201,7 @@ export const SingleSecondaryDisabled = () => (
   </StoryContainer>
 )
 
-SingleSecondaryDisabled.story = {
-  name: "Single, Secondary, Disabled",
-}
+SingleSecondaryDisabled.storyName = "Single, Secondary, Disabled"
 
 export const SingleSecondaryReversed = () => (
   <StoryContainer>
@@ -227,17 +215,15 @@ export const SingleSecondaryReversed = () => (
   </StoryContainer>
 )
 
-SingleSecondaryReversed.story = {
-  name: "Single, Secondary, Reversed",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
-  },
+SingleSecondaryReversed.storyName = "Single, Secondary, Reversed"
+SingleSecondaryReversed.parameters = {
+  backgrounds: [
+    {
+      name: "Wisteria 700",
+      value: colorTokens.kz.color.wisteria[700],
+      default: true,
+    },
+  ],
 }
 
 export const SingleSecondaryWithEllipsis = () => {
@@ -263,17 +249,15 @@ export const SingleSecondaryWithEllipsis = () => {
   )
 }
 
-SingleSecondaryWithEllipsis.story = {
-  name: "Single Secondary with ellipsis",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
-  },
+SingleSecondaryWithEllipsis.storyName = "Single Secondary with ellipsis"
+SingleSecondaryWithEllipsis.parameters = {
+  backgrounds: [
+    {
+      name: "Wisteria 700",
+      value: colorTokens.kz.color.wisteria[700],
+      default: true,
+    },
+  ],
 }
 
 export const SingleSecondaryReversedDisabled = () => (
@@ -289,15 +273,14 @@ export const SingleSecondaryReversedDisabled = () => (
   </StoryContainer>
 )
 
-SingleSecondaryReversedDisabled.story = {
-  name: "Single Secondary Reversed (disabled)",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
-  },
+SingleSecondaryReversedDisabled.storyName =
+  "Single Secondary Reversed (disabled)"
+SingleSecondaryReversedDisabled.parameters = {
+  backgrounds: [
+    {
+      name: "Wisteria 700",
+      value: colorTokens.kz.color.wisteria[700],
+      default: true,
+    },
+  ],
 }

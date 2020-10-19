@@ -2,7 +2,6 @@ import caMonogramIcon from "@kaizen/component-library/icons/ca-monogram.icon.svg
 import kebabIcon from "@kaizen/component-library/icons/kebab.icon.svg"
 import printIcon from "@kaizen/component-library/icons/print.icon.svg"
 
-// import { action } from "@storybook/addon-actions"
 import * as React from "react"
 
 import {
@@ -76,9 +75,7 @@ export const DefaultMeatball = () => (
   </Dropdown>
 )
 
-DefaultMeatball.story = {
-  name: "Default (Meatball)",
-}
+DefaultMeatball.storyName = "Default (Meatball)"
 
 export const DefaultKebab = () => (
   <Dropdown icon={kebabIcon}>
@@ -86,9 +83,7 @@ export const DefaultKebab = () => (
   </Dropdown>
 )
 
-DefaultKebab.story = {
-  name: "Default (Kebab)",
-}
+DefaultKebab.storyName = "Default (Kebab)"
 
 export const LabelAndIcon = () => (
   <Dropdown label="Print" icon={kebabIcon}>
@@ -96,9 +91,7 @@ export const LabelAndIcon = () => (
   </Dropdown>
 )
 
-LabelAndIcon.story = {
-  name: "Label and Icon",
-}
+LabelAndIcon.storyName = "Label and Icon"
 
 export const TextOnly = () => (
   <Dropdown label="Print">
@@ -112,9 +105,7 @@ export const ControlAction = () => (
   </Dropdown>
 )
 
-ControlAction.story = {
-  name: "Control action",
-}
+ControlAction.storyName = "Control action"
 
 export const ReversedControlAction = () => (
   <Dropdown label="Print" icon={printIcon} controlAction reversedColor>
@@ -122,6 +113,4 @@ export const ReversedControlAction = () => (
   </Dropdown>
 )
 
-ReversedControlAction.story = {
-  name: "Reversed Control action",
-}
+ReversedControlAction.storyName = "Reversed Control action"

@@ -129,9 +129,7 @@ export const DefaultKaizenSiteDemo = () => (
   </Container>
 )
 
-DefaultKaizenSiteDemo.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const Multiline = () => (
   <Container>
@@ -254,9 +252,7 @@ export const ExpandedPopout = () => {
   )
 }
 
-ExpandedPopout.story = {
-  name: "Expanded popout",
-}
+ExpandedPopout.storyName = "Expanded popout"
 
 export const NoHeader = () => (
   <Container>
@@ -274,9 +270,7 @@ export const NoHeader = () => (
   </Container>
 )
 
-NoHeader.story = {
-  name: "No header",
-}
+NoHeader.storyName = "No header"
 
 export const ExtraSpacing = () => (
   <Container>
@@ -294,6 +288,4 @@ export const ExtraSpacing = () => (
   </Container>
 )
 
-ExtraSpacing.story = {
-  name: "Default variant (extra spacing)",
-}
+ExtraSpacing.storyName = "Default variant (extra spacing)"

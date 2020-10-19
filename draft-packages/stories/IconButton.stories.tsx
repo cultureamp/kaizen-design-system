@@ -2,7 +2,6 @@ import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { IconButton } from "../button"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 
-// import { action } from "@storybook/addon-actions"
 import * as React from "react"
 
 export default {
