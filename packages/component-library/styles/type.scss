@@ -11,9 +11,14 @@ $ca-weight-medium: 500;
 $ca-weight-semibold: 500; // Note: in Sketch, semibold is 600. But murmur has an existing value of semibold=500 that is heavily used.
 
 // Combine these into a Sass map ($ca-default-font) once node-sass includes libsass 3.5.0.beta.3 with this bug fix: https://github.com/sass/libsass/issues/2309
-$ca-default-font-family: "Open Sans", Helvetica, Arial, sans-serif;
-$ca-default-font-base-size: 0.875rem; /* 14px */
-$ca-default-font-descender-height: 0.115;
+$ca-inter-font-family: "Inter";
+$ca-inter-font-base-size: 1rem; /* 16px */
+$ca-inter-font-descender-height: 0.14;
+
+// Combine these into a Sass map ($ca-default-font) once node-sass includes libsass 3.5.0.beta.3 with this bug fix: https://github.com/sass/libsass/issues/2309
+$ca-default-font-family: $ca-inter-font-family;
+$ca-default-font-base-size: $ca-inter-font-base-size;
+$ca-default-font-descender-height: $ca-inter-font-descender-height;
 
 // Combine these into a Sass map ($ca-default-font) once node-sass includes libsass 3.5.0.beta.3 with this bug fix: https://github.com/sass/libsass/issues/2309
 $ca-ideal-sans-font-family: "Ideal Sans A", "Ideal Sans B",
@@ -21,20 +26,15 @@ $ca-ideal-sans-font-family: "Ideal Sans A", "Ideal Sans B",
 $ca-ideal-sans-font-base-size: 1rem; /* 16px */
 $ca-ideal-sans-font-descender-height: 0.14;
 
-// Combine these into a Sass map ($ca-default-font) once node-sass includes libsass 3.5.0.beta.3 with this bug fix: https://github.com/sass/libsass/issues/2309
-$ca-inter-font-family: "Inter", $ca-default-font-family;
-$ca-inter-font-base-size: 1rem; /* 16px */
-$ca-inter-font-descender-height: 0.14;
-
 // Locale-specific fonts
-$ca-locale-he-font-family: "Open Sans", Tahoma, sans-serif;
-$ca-locale-ar-font-family: "Open Sans", Tahoma, sans-serif;
 $ca-ideal-locale-ar-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
   sans-serif;
 $ca-ideal-locale-he-font-family: "Ideal Sans A", "Ideal Sans B", Tahoma,
   sans-serif;
 $ca-inter-locale-ar-font-family: "Inter", Tahoma, sans-serif;
 $ca-inter-locale-he-font-family: "Inter", Tahoma, sans-serif;
+$ca-locale-he-font-family: $ca-inter-locale-ar-font-family;
+$ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 // Inspired by Basekick from SEEK: https://github.com/michaeltaranto/basekick
 @mixin ca-type(
