@@ -1,6 +1,15 @@
 const path = require("path")
 
-// import { excludeExternalModules, babel, styles, svgs, svgIcons } from "./webpack.config"
+import {
+  elm,
+  excludeExternalModules,
+  babel,
+  styles,
+  svgs,
+  svgIcons,
+  removeSvgFromTest,
+  storybookSource,
+} from "./webpack.config"
 
 module.exports = {
   stories: [
@@ -10,32 +19,35 @@ module.exports = {
      * the packages contained compiled js in their node_modules and that
      * made storybook unhappy
      */
-    // @TODO - restore
-    // "../draft-packages/stories/*.stories.tsx",
-    // "../legacy-packages/stories/*.stories.tsx",
+    "../draft-packages/stories/*.stories.tsx",
+    "../legacy-packages/stories/*.stories.tsx",
   ],
   addons: [
+    "./gtm-addon/register",
     {
       name: "@storybook/preset-typescript",
       options: {},
     },
-    "./gtm-addon/register",
-    "@storybook/addon-actions",
     "@storybook/addon-essentials",
     "@storybook/addon-controls",
+    "@storybook/addon-a11y",
   ],
   presets: [path.resolve("./storybook/header-preset/preset")],
   webpackFinal: async (config, { configType }) => {
     // eslint-disable-next-line no-console
     console.log(`Using configuration for: ${configType}`)
 
-    // @TODO - This is from the example docs.
-    // To complete, pinch the configs from webpack.config.json
-    config.module.rules.push({
-      test: /\.scss$/,
-      use: ["style-loader", "css-loader", "sass-loader"],
-      include: path.resolve(__dirname, "../"),
-    })
+    // Storybook's base config applies file-loader to svgs
+    config.module.rules = config.module.rules.map(removeSvgFromTest)
+
+    // Required for the storysource storybook addon
+    config.module.rules.push(storybookSource())
+
+    config.module.rules.push(
+      ...[babel, styles, svgs, svgIcons, elm].map(excludeExternalModules)
+    )
+
+    config.resolve.extensions.push(".ts", ".tsx")
 
     // Return the altered config
     return config

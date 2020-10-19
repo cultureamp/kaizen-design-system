@@ -31,7 +31,7 @@ export const calculateMenuTop = (
   return buttonsBoundingRect.height + gapSize
 }
 
-export default class DropdownMenu extends React.Component<Props> {
+class DropdownMenu extends React.Component<Props> {
   static displayName = "DropdownMenu"
   static defaultProps = {
     dir: "ltr",
@@ -98,3 +98,4 @@ export default class DropdownMenu extends React.Component<Props> {
     )
   }
 }
+export default DropdownMenu

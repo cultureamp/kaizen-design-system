@@ -16,7 +16,7 @@ type Props = {
   onOpenDropdown: () => void
 }
 
-export default class Dropdown extends React.Component<Props> {
+class Dropdown extends React.Component<Props> {
   static displayName = "Dropdown"
   static defaultProps = {
     dir: "ltr",
@@ -54,3 +54,4 @@ export default class Dropdown extends React.Component<Props> {
     )
   }
 }
+export default Dropdown
