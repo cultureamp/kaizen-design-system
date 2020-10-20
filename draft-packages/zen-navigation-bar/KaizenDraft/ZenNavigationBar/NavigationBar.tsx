@@ -49,7 +49,7 @@ export const openMobileNavigation = () =>
 export const closeMobileNavigation = () =>
   toggleZenOffCanvas({
     id: ROOT_MENU_ID,
-    state: "close",
+    state: "closed",
   })
 
 export default class NavigationBar extends React.Component<Props, State> {

@@ -24,7 +24,7 @@ type ToggleMobileNavEvent = {
   type: "TOGGLE_MOBILE_NAV"
   payload: {
     id: string
-    state: "open" | "close"
+    state: "open" | "closed"
   }
 }
 
@@ -67,7 +67,7 @@ export const ZenOffCanvasProvider: React.FunctionComponent<ZenOffCanvasProvider>
       if (state === "open") {
         setVisibleMenus([id])
       }
-      if (state === "close") {
+      if (state === "closed") {
         resetVisibleMenus()
       }
     })

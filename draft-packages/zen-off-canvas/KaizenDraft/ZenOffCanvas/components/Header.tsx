@@ -27,7 +27,7 @@ const Header = ({
   >
     {leftComponent}
     <span className={styles.heading}>{heading}</span>
-    <span className={styles.close}>
+    <span className={styles.closed}>
       <IconButton
         label="Close"
         icon={closeIcon}
