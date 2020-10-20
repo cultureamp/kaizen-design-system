@@ -172,14 +172,13 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
   } = props
   const label = props.icon && props.iconButton ? props.label : undefined
   const customProps = getCustomProps(rest)
-  const btnOnClick = !iconButton ? undefined : onClick
 
   return (
     <button
       id={id}
       disabled={disabled}
       className={buttonClass(props)}
-      onClick={btnOnClick}
+      onClick={onClick}
       onFocus={onFocus}
       onBlur={onBlur}
       onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
@@ -214,7 +213,6 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
     ...rest
   } = props
   const customProps = getCustomProps(rest)
-  const btnOnClick = !iconButton ? undefined : onClick
 
   return (
     <a
@@ -224,7 +222,7 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
         newTabAndIUnderstandTheAccessibilityImplications ? "_blank" : "_self"
       }
       className={buttonClass(props)}
-      onClick={btnOnClick}
+      onClick={onClick}
       onFocus={onFocus}
       onBlur={onBlur}
       ref={ref}
