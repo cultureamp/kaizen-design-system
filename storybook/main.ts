@@ -13,20 +13,11 @@ import {
 module.exports = {
   stories: [
     "../packages/component-library/stories/*.stories.tsx",
-    /**
-     * These stories are separated from their corresponding packages as
-     * the packages contained compiled js in their node_modules and that
-     * made storybook unhappy
-     */
     "../draft-packages/stories/*.stories.tsx",
     "../legacy-packages/stories/*.stories.tsx",
   ],
   addons: [
-    "./gtm-addon/register",
-    {
-      name: "@storybook/preset-typescript",
-      options: {},
-    },
+    path.resolve("./storybook/gtm-addon/register"),
     "@storybook/addon-essentials",
     "@storybook/addon-controls",
     "@storybook/addon-a11y",

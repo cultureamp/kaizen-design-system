@@ -1,6 +1,6 @@
 import path from "path"
 import { NormalModuleReplacementPlugin } from "webpack"
-const webpackConfig = require("../webpack.config")
+const webpackConfig = require("../rules")
 
 module.exports = {
   managerWebpack: async config => {

@@ -1,6 +1,6 @@
 import { addons } from "@storybook/addons"
-import TagManager from "react-gtm-module"
 import { isEmpty } from "lodash"
+import TagManager from "react-gtm-module"
 
 /**
  * This is inspired by the GA addon, but replacing GA for GTM and dropping custom events
