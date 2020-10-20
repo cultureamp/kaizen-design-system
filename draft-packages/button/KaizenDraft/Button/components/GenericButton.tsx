@@ -185,8 +185,8 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
       onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
       type={type}
       title={label}
-      aria-label={workingLabel}
-      aria-disabled={working}
+      aria-label={workingLabel || label}
+      aria-disabled={disabled || working}
       tabIndex={
         disableTabFocusAndIUnderstandTheAccessibilityImplications
           ? -1
