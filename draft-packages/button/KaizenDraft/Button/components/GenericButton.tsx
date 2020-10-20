@@ -256,7 +256,7 @@ const buttonClass = (props: Props) => {
 
 const renderLoadingSpinner = () => (
   <div className={styles.loadingSpinner}>
-    <LoadingSpinner accessibilityLabel="Working" size="sm" />
+    <LoadingSpinner accessibilityLabel="" size="sm" />
   </div>
 )
 
