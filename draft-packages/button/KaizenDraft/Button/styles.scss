@@ -30,10 +30,6 @@ $caButton-verticalPaddingForm: calc(
 
 @mixin working-state {
   pointer-events: none;
-
-  &:hover {
-    cursor: default;
-  }
 }
 
 %caButtonContainer {
@@ -128,11 +124,6 @@ $caButton-verticalPaddingForm: calc(
     background: $kz-color-white;
     border-color: $kz-color-wisteria-500;
     color: $kz-color-wisteria-800;
-
-    &:hover {
-      background: $kz-color-white;
-      border-color: $kz-color-wisteria-500;
-    }
   }
 }
 
@@ -168,11 +159,6 @@ $caButton-verticalPaddingForm: calc(
     background: $kz-color-cluny-500;
     color: $kz-color-white;
     border-color: $kz-border-borderless-border-color;
-
-    &:hover {
-      background: $kz-color-cluny-500;
-      border-color: $kz-border-borderless-border-color;
-    }
   }
 }
 
@@ -204,11 +190,6 @@ $caButton-verticalPaddingForm: calc(
     color: $kz-color-white;
     background: $kz-color-coral-500;
     border-color: $kz-color-coral-500;
-
-    &:hover {
-      background: $kz-color-coral-500;
-      border-color: $kz-color-coral-500;
-    }
   }
 }
 
@@ -243,11 +224,6 @@ $caButton-verticalPaddingForm: calc(
     background: transparent;
     border-color: $kz-border-borderless-border-color;
     color: $kz-color-cluny-500;
-
-    &:hover {
-      border-color: $kz-border-borderless-border-color;
-      background: transparent;
-    }
   }
 }
 
@@ -280,11 +256,6 @@ $caButton-verticalPaddingForm: calc(
     border-color: rgba($kz-color-white, 0.5);
     color: $kz-color-white;
     background: transparent;
-
-    &:hover {
-      border-color: rgba($kz-color-white, 0.5);
-      background: transparent;
-    }
   }
 
   &%caButtonPrimary {
@@ -329,11 +300,6 @@ $caButton-verticalPaddingForm: calc(
       background: $kz-color-seedling-300;
       border-color: $kz-border-borderless-border-color;
       color: $kz-color-wisteria-800;
-
-      &:hover {
-        background: $kz-color-seedling-300;
-        border-color: $kz-border-borderless-border-color;
-      }
     }
   }
 
@@ -363,10 +329,6 @@ $caButton-verticalPaddingForm: calc(
       background: transparent;
       border-color: $kz-border-borderless-border-color;
       color: $kz-color-white;
-
-      &:hover {
-        background: transparent;
-      }
     }
   }
 }
