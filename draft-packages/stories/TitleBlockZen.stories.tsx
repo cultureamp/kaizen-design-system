@@ -135,7 +135,7 @@ WithBadge.storyName = "With Primary Action Badge"
 export const WithDefaultTag = () => (
   <TitleBlockZen
     title="Page title"
-    surveyStatus={{ text: "Due July 8, 2030", status: "default" }}
+    surveyStatus={{ text: "Due July 8, 2030", status: "draft" }}
     primaryAction={{
       label: "Click Me",
       icon: arrowForwardIcon,
@@ -152,15 +152,13 @@ export const WithDefaultTag = () => (
   />
 )
 
-WithDefaultTag.story = {
-  name: "With Default Survey Status (Tag)",
-}
+WithDefaultTag.storyName = "With Default Survey Status (Tag)"
 
 export const AdminWithDefaultTag = () => (
   <TitleBlockZen
     variant="admin"
     title="Page title"
-    surveyStatus={{ text: "Due July 8, 2030", status: "default" }}
+    surveyStatus={{ text: "Due July 8, 2030", status: "draft" }}
     primaryAction={{
       label: "Click Me",
       icon: arrowForwardIcon,
@@ -177,9 +175,7 @@ export const AdminWithDefaultTag = () => (
   />
 )
 
-AdminWithDefaultTag.story = {
-  name: "Admin With Default Survey Status (Tag)",
-}
+AdminWithDefaultTag.storyName = "Admin With Default Survey Status (Tag)"
 
 export const DefaultWithMenuButton = () => (
   <TitleBlockZen

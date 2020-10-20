@@ -20,18 +20,6 @@ arcu quam a sapien. Donec in viverra urna.`
 
 export default {
   title: "Collapsible (React)",
-}
-
-export const SingleCollapsibleKaizenSiteDemo = () => (
-  <div style={{ margin: "1rem", width: "40rem" }}>
-    <Collapsible id="collapsible-single" open title="Single collapsible">
-      <Paragraph variant="body">{lipsum}</Paragraph>
-    </Collapsible>
-  </div>
-)
-
-SingleCollapsibleKaizenSiteDemo.story = {
-  name: "Single collapsible (Kaizen Site Demo)",
   component: Collapsible,
   parameters: {
     info: {
@@ -41,6 +29,16 @@ SingleCollapsibleKaizenSiteDemo.story = {
     },
   },
 }
+
+export const SingleCollapsibleKaizenSiteDemo = () => (
+  <div style={{ margin: "1rem", width: "40rem" }}>
+    <Collapsible id="collapsible-single" open title="Single collapsible">
+      <Paragraph variant="body">{lipsum}</Paragraph>
+    </Collapsible>
+  </div>
+)
+SingleCollapsibleKaizenSiteDemo.storyName =
+  "Single collapsible (Kaizen Site Demo)"
 
 export const SingleCollapsibleNoPadding = () => (
   <div style={{ margin: "1rem", width: "40rem" }}>

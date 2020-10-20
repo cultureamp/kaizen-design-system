@@ -232,6 +232,4 @@ export const DropdownWidthContain = () => (
   </StoryWrapper>
 )
 
-DropdownWidthContain.story = {
-  name: 'Label and Icon (dropdownWidth="contain")',
-}
+DropdownWidthContain.storyName = 'Label and Icon (dropdownWidth="contain")'
