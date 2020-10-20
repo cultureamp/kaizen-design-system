@@ -1,7 +1,6 @@
 import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
 import {
-  AllowedTableHeaderBackgroundColors,
   TableCard,
   TableContainer,
   TableHeader,
@@ -68,27 +67,6 @@ const Wrapper: React.FunctionComponent = () => (
 )
 
 describe("Table", () => {
-  describe("Table props", () => {
-    const testCases: AllowedTableHeaderBackgroundColors[] = ["ash", "white"]
-
-    testCases.forEach(variant => {
-      it(`renders the correct element for <TableHeader backgroundColor={${variant}} />`, () => {
-        const paragraphMock = render(
-          <TableHeader
-            backgroundColor={variant}
-            data-testid={TestId.tableHeader}
-          >
-            Example
-          </TableHeader>
-        )
-        const paragraphClasslist = paragraphMock.getByTestId(TestId.tableHeader)
-          .classList
-        expect(paragraphClasslist).toContain("header")
-        expect(paragraphClasslist).toContain(variant)
-      })
-    })
-  })
-
   describe("Custom HTML props", () => {
     for (const [key, value] of Object.entries(TestId)) {
       it(`${key} accepts custom data-* attributes`, () => {

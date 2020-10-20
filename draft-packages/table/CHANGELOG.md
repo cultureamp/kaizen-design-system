@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.6.65...@kaizen/draft-table@2.0.0) (2020-10-12)
+
+
+### Features
+
+* Uplift the table to the new Zen designs ([#813](https://github.com/cultureamp/kaizen-design-system/issues/813)) ([90adce4](https://github.com/cultureamp/kaizen-design-system/commit/90adce46161b0cc04efdde75199da8293bdcd521))
+
+
+### BREAKING CHANGES
+
+* Table headers now have a transparent background. Inactive table headers use dark-reduced-opacity, and active sort headers are wisteria-800 for text colour.
+
+Throw a warning in the console when using deprecated backgroundColor prop
+
+
+
+
+
 ## [1.6.65](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@1.7.0...@kaizen/draft-table@1.6.65) (2020-10-11)
 
 
