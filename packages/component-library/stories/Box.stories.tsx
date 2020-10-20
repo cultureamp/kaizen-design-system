@@ -1,14 +1,31 @@
 import * as React from "react"
 import { Box } from "../components/Box"
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  ArgsTable,
+  Stories,
+  PRIMARY_STORY,
+} from "@storybook/addon-docs/blocks"
 
 export default {
   title: "Box (React)",
   component: Box,
   parameters: {
-    info: {
-      text: `
-        import { Box } from "@kaizen/component-library";
-      `,
+    docs: {
+      page: () => (
+        <>
+          <Title />
+          <code>{'import { Box } from "@kaizen/component-library";'}</code>
+          <Subtitle />
+          <Description />
+          <Primary />
+          <ArgsTable story={PRIMARY_STORY} />
+          <Stories />
+        </>
+      ),
     },
   },
 }

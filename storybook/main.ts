@@ -23,7 +23,7 @@ module.exports = {
     "@storybook/addon-a11y",
   ],
   presets: [path.resolve("./storybook/header-preset/preset")],
-  webpackFinal: async (config, { configType }) => {
+  webpackFinal: (config, { configType }) => {
     // eslint-disable-next-line no-console
     console.log(`Using configuration for: ${configType}`)
 

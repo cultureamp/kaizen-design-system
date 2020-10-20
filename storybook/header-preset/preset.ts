@@ -3,7 +3,7 @@ import { NormalModuleReplacementPlugin } from "webpack"
 const webpackConfig = require("../rules")
 
 module.exports = {
-  managerWebpack: async (config, { configType }) => {
+  managerWebpack: (config, { configType }) => {
     // don't add header and footer for local builds
     if (configType !== "PRODUCTION") return config
 

@@ -1975,6 +1975,15 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@kaizen/draft-button@^1.7.4":
+  version "1.13.12"
+  resolved "https://registry.yarnpkg.com/@kaizen/draft-button/-/draft-button-1.13.12.tgz#b6478a3e1922101d7eb2591250395d146f2bc1a6"
+  integrity sha512-aUIGmoUKKkZdvLSzWywvnksB9MWP7P7SBO2OJZ/cnUSr9Wmt8yHkrhBh+QkAZXAw+Pt7VT5wtHyfnXsAPwoIww==
+  dependencies:
+    "@kaizen/component-library" "^7.30.4"
+    "@types/classnames" "^2.2.10"
+    classnames "^2.2.6"
+
 "@lerna/add@3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.21.0.tgz#27007bde71cc7b0a2969ab3c2f0ae41578b4577b"
