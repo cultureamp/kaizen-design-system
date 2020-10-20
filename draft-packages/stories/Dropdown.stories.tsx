@@ -18,7 +18,6 @@ const Menu: React.FunctionComponent = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        // action("I am an onClick handler")()
       }}
       icon={caMonogramIcon}
     >
@@ -27,7 +26,6 @@ const Menu: React.FunctionComponent = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        // action("I am an onClick handler")()
       }}
       icon={caMonogramIcon}
       hoverIcon
@@ -37,7 +35,6 @@ const Menu: React.FunctionComponent = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        // action("I am an onClick handler")()
       }}
     >
       Action label

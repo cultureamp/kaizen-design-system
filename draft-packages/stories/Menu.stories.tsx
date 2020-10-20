@@ -35,7 +35,6 @@ const MenuInstance: React.FunctionComponent = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        // action("I am an onClick handler")()
       }}
       icon={duplicateIcon}
       label="Menu button but the label is too long"
@@ -43,7 +42,6 @@ const MenuInstance: React.FunctionComponent = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        // action("I am an onClick handler")()
       }}
       icon={editIcon}
       label="Menu button"

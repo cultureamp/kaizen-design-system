@@ -17,7 +17,6 @@ const defaultSplitButtonProps: SplitButtonProps = {
       <MenuItem
         action={(e: any) => {
           e.preventDefault()
-          // action("Menu item 1 pressed")()
         }}
         icon={editIcon}
       >
@@ -26,7 +25,6 @@ const defaultSplitButtonProps: SplitButtonProps = {
       <MenuItem
         action={(e: any) => {
           e.preventDefault()
-          // action("Menu item 2 pressed")()
         }}
         icon={duplicateIcon}
       >
