@@ -10,9 +10,8 @@
     "node": "^12.16.3"
   },
   "scripts": {
-    "ts-node": "TS_NODE_TRANSPILE_ONLY=true ts-node --project storybook/tsconfig.storybook.json",
     "storybook": "start-storybook -p 6006 -c storybook",
-    "storybook:build": "NODE_ENV=production yarn ts-node node_modules/.bin/build-storybook -c storybook -o storybook/public",
+    "storybook:build": "build-storybook -c storybook -o storybook/public",
     "gatsby": "yarn workspace site gatsby",
     "eslint": "eslint . -c .eslintrc.js --ext .ts,.tsx",
     "prettier": "prettier --check '**/*'",

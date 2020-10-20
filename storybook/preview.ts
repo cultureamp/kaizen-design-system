@@ -1,4 +1,3 @@
-// import { withA11y } from "@storybook/addon-a11y"
 import { addParameters } from "@storybook/react"
 import { create } from "@storybook/theming"
 import { backgrounds } from "./backgrounds"
@@ -15,8 +14,6 @@ require("focus-visible")
 require("normalize.css")
 
 require("@kaizen/component-library/styles/fonts.scss")
-
-// addDecorator(withA11y)
 
 addParameters({
   backgrounds: {
