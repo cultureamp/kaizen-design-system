@@ -53,13 +53,22 @@ export type LabelProps = {
   primary?: boolean
   secondary?: boolean
   reverseColor?: "cluny" | "peach" | "seedling" | "wisteria" | "yuzu"
-  working?: boolean
-  workingLabel?: string
+}
+
+type WorkingUndefinedProps = {
+  working?: undefined
+}
+
+type WorkingDefinedProps = {
+  working: boolean
+  workingLabel: string
   workingLabelHidden?: boolean
 }
 
 export type IconButtonProps = GenericProps
-export type ButtonProps = GenericProps & LabelProps
+export type ButtonProps = GenericProps &
+  LabelProps &
+  (WorkingUndefinedProps | WorkingDefinedProps)
 
 type Props = ButtonProps & {
   iconButton?: boolean
@@ -85,18 +94,6 @@ const GenericButton = forwardRef(
         buttonRef.current?.focus()
       },
     }))
-
-    if (
-      !props.iconButton &&
-      props.working !== undefined &&
-      !props.workingLabel
-    ) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        "If a Zen Button has a 'working' prop, it needs a 'workingLabel'. Please check your" +
-          " props."
-      )
-    }
 
     const determineButtonRenderer = () => {
       if (props.component) {
@@ -165,8 +162,6 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
     disableTabFocusAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
-    working,
-    workingLabel,
     iconButton,
     ...rest
   } = props
@@ -184,8 +179,8 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
       onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
       type={type}
       title={label}
-      aria-label={workingLabel || label}
-      aria-disabled={disabled || working}
+      aria-label={(props.working && props.workingLabel) || label}
+      aria-disabled={disabled || props.working}
       tabIndex={
         disableTabFocusAndIUnderstandTheAccessibilityImplications
           ? -1
@@ -208,7 +203,6 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
     onFocus,
     onBlur,
     working,
-    workingLabel,
     iconButton,
     ...rest
   } = props
