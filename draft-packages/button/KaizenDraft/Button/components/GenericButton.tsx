@@ -55,7 +55,7 @@ export type LabelProps = {
   reverseColor?: "cluny" | "peach" | "seedling" | "wisteria" | "yuzu"
   working?: boolean
   workingLabel?: string
-  ariaWorkingLabel?: string
+  workingLabelHidden?: boolean
 }
 
 export type IconButtonProps = GenericProps
@@ -66,9 +66,6 @@ type Props = ButtonProps & {
 } & AdditionalContentProps
 
 export type ButtonRef = { focus: () => void }
-
-const getWorkingLabel = ({ workingLabel, ariaWorkingLabel }: Props) =>
-  ariaWorkingLabel || workingLabel
 
 // We're treating custom props as anything that is kebab cased.
 // This is so we can support properties like aria-* or data-*
@@ -92,11 +89,11 @@ const GenericButton = forwardRef(
     if (
       !props.iconButton &&
       props.working !== undefined &&
-      !getWorkingLabel(props)
+      !props.workingLabel
     ) {
       // eslint-disable-next-line no-console
       console.warn(
-        "If a Zen Button has a 'working' prop, it needs an 'ariaWorkingLabel' or a 'workingLabel'. Please check your" +
+        "If a Zen Button has a 'working' prop, it needs a 'workingLabel'. Please check your" +
           " props."
       )
     }
@@ -170,13 +167,11 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
     onBlur,
     working,
     workingLabel,
-    ariaWorkingLabel,
     iconButton,
     ...rest
   } = props
   const label = props.icon && props.iconButton ? props.label : undefined
   const customProps = getCustomProps(rest)
-  const btnWorkingLabel = getWorkingLabel(props)
   const btnOnClick = !iconButton && working ? undefined : onClick
 
   return (
@@ -190,7 +185,7 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
       onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
       type={type}
       title={label}
-      aria-label={working && btnWorkingLabel ? btnWorkingLabel : label}
+      aria-label={working && workingLabel}
       aria-disabled={!!working}
       tabIndex={
         disableTabFocusAndIUnderstandTheAccessibilityImplications
@@ -215,13 +210,11 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
     onBlur,
     working,
     workingLabel,
-    ariaWorkingLabel,
     iconButton,
     ...rest
   } = props
   const customProps = getCustomProps(rest)
   const btnOnClick = !iconButton && working ? undefined : onClick
-  const linkWorkingLabel = getWorkingLabel(props)
 
   return (
     <a
@@ -235,7 +228,7 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
       onFocus={onFocus}
       onBlur={onBlur}
       ref={ref}
-      aria-label={working && linkWorkingLabel ? linkWorkingLabel : undefined}
+      aria-label={working && workingLabel}
       aria-disabled={!!working}
       {...customProps}
     >
@@ -270,7 +263,7 @@ const renderLoadingSpinner = () => (
 )
 
 const renderWorkingContent = props => {
-  if (!props.workingLabel) {
+  if (props.workingLabelHidden) {
     return (
       <>
         {/* This is to ensure the button stays at the correct width */}

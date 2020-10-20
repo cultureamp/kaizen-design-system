@@ -36,7 +36,8 @@ export const DefaultWorking = () => (
     label="Label"
     onClick={clickAction}
     working
-    ariaWorkingLabel="Submitting"
+    workingLabel="Submitting"
+    workingLabelHidden
   />
 )
 
@@ -44,7 +45,7 @@ DefaultWorking.story = {
   name: "Default, Working",
 }
 
-export const DefaultWorkingWithWorkingLabel = () => (
+export const DefaultWorkingWithWorkingLabelVisible = () => (
   <Button
     label="Label"
     onClick={clickAction}
@@ -53,8 +54,8 @@ export const DefaultWorkingWithWorkingLabel = () => (
   />
 )
 
-DefaultWorkingWithWorkingLabel.story = {
-  name: "Default, Working with working label",
+DefaultWorkingWithWorkingLabelVisible.story = {
+  name: "Default, Working with working label visible",
 }
 
 export const DefaultWorkingOnEnd = () => (
@@ -82,7 +83,13 @@ PrimaryDisabled.story = {
 }
 
 export const PrimaryWorking = () => (
-  <Button label="Label" primary={true} working ariaWorkingLabel="Submitting" />
+  <Button
+    label="Label"
+    primary={true}
+    working
+    workingLabel="Submitting"
+    workingLabelHidden
+  />
 )
 
 PrimaryWorking.story = {
@@ -104,7 +111,8 @@ export const DestructiveWorking = () => (
     label="Label"
     destructive={true}
     working
-    ariaWorkingLabel="Submitting"
+    workingLabel="Submitting"
+    workingLabelHidden
   />
 )
 
@@ -127,7 +135,8 @@ export const SecondaryWorking = () => (
     label="Label"
     secondary={true}
     working={true}
-    ariaWorkingLabel="Submitting"
+    workingLabel="Submitting"
+    workingLabelHidden
   />
 )
 
@@ -176,17 +185,22 @@ export const FullWidthIcon = () => (
   <Button label="Label" fullWidth={true} icon={configureIcon} />
 )
 
+FullWidthIcon.story = {
+  name: "Full Width + Icon",
+}
+
 export const FullWidthWorking = () => (
   <Button
     label="Label"
     fullWidth={true}
     working
-    ariaWorkingLabel="Submitting"
+    workingLabel="Submitting"
+    workingLabelHidden
   />
 )
 
-FullWidthIcon.story = {
-  name: "Full Width + Icon",
+FullWidthWorking.story = {
+  name: "Full Width Working",
 }
 
 export const Hyperlink = () => <Button label="Label" href="//example.com" />
@@ -240,7 +254,8 @@ export const ReversedDefaultWorking = () => (
     label="Label"
     reversed={true}
     working={true}
-    ariaWorkingLabel="Submitting"
+    workingLabel="Submitting"
+    workingLabelHidden
   />
 )
 
@@ -297,7 +312,8 @@ export const ReversedPrimaryWorking = () => (
     primary={true}
     reversed={true}
     working={true}
-    ariaWorkingLabel="Submitting"
+    workingLabel="Submitting"
+    workingLabelHidden
   />
 )
 
@@ -354,7 +370,8 @@ export const ReversedSecondaryWorking = () => (
     secondary={true}
     reversed={true}
     working={true}
-    ariaWorkingLabel="Submitting"
+    workingLabel="Submitting"
+    workingLabelHidden
   />
 )
 
