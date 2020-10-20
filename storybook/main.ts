@@ -19,7 +19,6 @@ module.exports = {
   addons: [
     path.resolve("./storybook/gtm-addon/register"),
     "@storybook/addon-essentials",
-    "@storybook/addon-controls",
     "@storybook/addon-a11y",
   ],
   presets: [path.resolve("./storybook/header-preset/preset")],

@@ -1,9 +1,5 @@
 import { addParameters } from "@storybook/react"
-import { create } from "@storybook/theming"
 import { backgrounds } from "./backgrounds"
-
-// Log to the browser console and actions panel (e.g. from Elm's Debug.log)
-import "@storybook/addon-console"
 
 // Polyfill for :focus-visible pseudo-selector
 // See: https://github.com/WICG/focus-visible
@@ -21,7 +17,6 @@ addParameters({
     values: backgrounds,
   },
   options: {
-    theme: create({ brandTitle: "🌱 Storybook", base: "light" }),
     storySort: (a, b) => a[1].id.localeCompare(b[1].id),
   },
   docs: {
