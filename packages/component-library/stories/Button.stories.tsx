@@ -7,7 +7,6 @@ import { ButtonRef } from "../components/Button"
 export default {
   title: "Button (deprecated) (React)",
   component: Button,
-  argTypes: { onClick: { action: "clicked" } },
   parameters: {
     info: {
       text: `
@@ -19,10 +18,10 @@ export default {
 }
 
 export const DefaultKaizenSiteDemo = () => <Button label="Label" />
-DefaultKaizenSiteDemo.story = "Default (Kaizen Site Demo)"
+DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const DefaultDisabled = () => <Button label="Label" disabled={true} />
-DefaultDisabled.story = "Default, Disabled"
+DefaultDisabled.storyName = "Default, Disabled"
 
 export const Primary = () => <Button label="Label" primary={true} />
 
@@ -30,7 +29,7 @@ export const PrimaryDisabled = () => (
   <Button label="Label" primary={true} disabled={true} />
 )
 
-PrimaryDisabled.story = "Primary, Disabled"
+PrimaryDisabled.storyName = "Primary, Disabled"
 
 export const Destructive = () => <Button label="Label" destructive={true} />
 
@@ -38,7 +37,7 @@ export const DestructiveDisabled = () => (
   <Button label="Label" destructive={true} disabled={true} />
 )
 
-DestructiveDisabled.story = "Destructive, Disabled"
+DestructiveDisabled.storyName = "Destructive, Disabled"
 
 export const Secondary = () => <Button label="Label" secondary={true} />
 
@@ -46,13 +45,13 @@ export const SecondaryDisabled = () => (
   <Button label="Label" secondary={true} disabled={true} />
 )
 
-SecondaryDisabled.story = "Secondary, Disabled"
+SecondaryDisabled.storyName = "Secondary, Disabled"
 
 export const SecondaryWIcon = () => (
   <Button label="Configure" icon={configureIcon} secondary={true} />
 )
 
-SecondaryWIcon.story = "Secondary w/ Icon"
+SecondaryWIcon.storyName = "Secondary w/ Icon"
 
 export const SecondaryWIconDisabled = () => (
   <Button
@@ -63,7 +62,7 @@ export const SecondaryWIconDisabled = () => (
   />
 )
 
-SecondaryWIconDisabled.story = "Secondary w/ Icon, Disabled"
+SecondaryWIconDisabled.storyName = "Secondary w/ Icon, Disabled"
 
 export const SecondaryDestructiveNotYetImplemented = () => (
   <Button label="Delete" secondary={true} disabled={false} destructive={true} />
@@ -87,13 +86,13 @@ SecondaryWIconDestructiveNotYetImplemented.story =
 
 export const IconLabel = () => <Button label="Configure" icon={configureIcon} />
 
-IconLabel.story = "Icon + Label"
+IconLabel.storyName = "Icon + Label"
 
 export const LabelIcon = () => (
   <Button label="Configure" icon={configureIcon} iconPosition="end" />
 )
 
-LabelIcon.story = "Label + Icon"
+LabelIcon.storyName = "Label + Icon"
 
 export const FullWidth = () => <Button label="Label" fullWidth={true} />
 
@@ -101,7 +100,7 @@ export const FullWidthIcon = () => (
   <Button label="Label" fullWidth={true} icon={configureIcon} />
 )
 
-FullWidthIcon.story = "Full Width + Icon"
+FullWidthIcon.storyName = "Full Width + Icon"
 
 export const Hyperlink = () => <Button label="Label" href="//example.com" />
 
@@ -109,29 +108,29 @@ export const HyperlinkWOnClick = () => (
   <Button label="Label" href="//example.com" onClick={() => undefined} />
 )
 
-HyperlinkWOnClick.story = "Hyperlink w/ onClick"
+HyperlinkWOnClick.storyName = "Hyperlink w/ onClick"
 
 export const ReversedDefault = () => <Button label="Label" reversed={true} />
 
-ReversedDefault.story = "Reversed, Default"
+ReversedDefault.storyName = "Reversed, Default"
 
 export const ReversedDefaultDisabled = () => (
   <Button label="Label" reversed={true} disabled={true} />
 )
 
-ReversedDefaultDisabled.story = "Reversed, Default, Disabled"
+ReversedDefaultDisabled.storyName = "Reversed, Default, Disabled"
 
 export const ReversedPrimary = () => (
   <Button label="Label" primary={true} disabled={false} reversed={true} />
 )
 
-ReversedPrimary.story = "Reversed, Primary"
+ReversedPrimary.storyName = "Reversed, Primary"
 
 export const ReversedPrimaryDisabled = () => (
   <Button label="Label" primary={true} reversed={true} disabled={true} />
 )
 
-ReversedPrimaryDisabled.story = "Reversed, Primary, Disabled"
+ReversedPrimaryDisabled.storyName = "Reversed, Primary, Disabled"
 
 export const ReversedColorLapisDiscouraged = () => (
   <Button
@@ -143,7 +142,7 @@ export const ReversedColorLapisDiscouraged = () => (
   />
 )
 
-ReversedColorLapisDiscouraged.story = "Reversed, Color, Lapis (discouraged)"
+ReversedColorLapisDiscouraged.storyName = "Reversed, Color, Lapis (discouraged)"
 
 export const ReversedPrimaryDisabledColorLapisDiscouraged = () => (
   <Button
@@ -292,13 +291,13 @@ export const ReversedSecondary = () => (
   <Button label="Label" secondary={true} reversed={true} />
 )
 
-ReversedSecondary.story = "Reversed, Secondary"
+ReversedSecondary.storyName = "Reversed, Secondary"
 
 export const ReversedSecondaryDisabled = () => (
   <Button label="Label" secondary={true} reversed={true} disabled={true} />
 )
 
-ReversedSecondaryDisabled.story = "Reversed, Secondary, Disabled"
+ReversedSecondaryDisabled.storyName = "Reversed, Secondary, Disabled"
 
 export const ReversedSecondaryWIcon = () => (
   <Button
@@ -309,7 +308,7 @@ export const ReversedSecondaryWIcon = () => (
   />
 )
 
-ReversedSecondaryWIcon.story = "Reversed, Secondary w/ Icon"
+ReversedSecondaryWIcon.storyName = "Reversed, Secondary w/ Icon"
 
 export const ReversedSecondaryWIconDisabled = () => (
   <Button
@@ -321,19 +320,20 @@ export const ReversedSecondaryWIconDisabled = () => (
   />
 )
 
-ReversedSecondaryWIconDisabled.story = "Reversed, Secondary w/ Icon, Disabled"
+ReversedSecondaryWIconDisabled.storyName =
+  "Reversed, Secondary w/ Icon, Disabled"
 
 export const TypeSubmit = () => <Button label="Label" type="submit" />
 
-TypeSubmit.story = "Type, Submit"
+TypeSubmit.storyName = "Type, Submit"
 
 export const TypeReset = () => <Button label="Label" type="reset" />
 
-TypeReset.story = "Type, Reset"
+TypeReset.storyName = "Type, Reset"
 
 export const FormDiscouraged = () => <Button label="Label" form={true} />
 
-FormDiscouraged.story = "Form (discouraged)"
+FormDiscouraged.storyName = "Form (discouraged)"
 
 export const OverflowingTextIconLabelTestCase = () => (
   <div style={{ width: 120 }}>
@@ -359,7 +359,7 @@ export const OverflowingTextFormTestCase = () => (
   </div>
 )
 
-OverflowingTextFormTestCase.story = "Overflowing text, Form (test case)"
+OverflowingTextFormTestCase.storyName = "Overflowing text, Form (test case)"
 
 export const MultipleButtons = () => (
   <div>
