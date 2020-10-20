@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@2.2.4...@kaizen/draft-title-block-zen@2.3.0) (2020-10-20)
+
+
+### Features
+
+* TitleBlockZen. Add a  variant for the badge ([#826](https://github.com/cultureamp/kaizen-design-system/issues/826)) ([e61961b](https://github.com/cultureamp/kaizen-design-system/commit/e61961b546ff0bcc5bd16c914d6147cf9fecca4c))
+
+
+
+
+
 ## [2.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@2.2.3...@kaizen/draft-title-block-zen@2.2.4) (2020-10-19)
 
 
