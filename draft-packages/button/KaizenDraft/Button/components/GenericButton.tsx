@@ -172,7 +172,7 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
   } = props
   const label = props.icon && props.iconButton ? props.label : undefined
   const customProps = getCustomProps(rest)
-  const btnOnClick = !iconButton && working ? undefined : onClick
+  const btnOnClick = !iconButton ? undefined : onClick
 
   return (
     <button
@@ -214,7 +214,7 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
     ...rest
   } = props
   const customProps = getCustomProps(rest)
-  const btnOnClick = !iconButton && working ? undefined : onClick
+  const btnOnClick = !iconButton ? undefined : onClick
 
   return (
     <a
@@ -228,8 +228,6 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
       onFocus={onFocus}
       onBlur={onBlur}
       ref={ref}
-      aria-label={working && workingLabel}
-      aria-disabled={!!working}
       {...customProps}
     >
       {renderContent(props)}
