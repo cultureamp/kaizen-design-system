@@ -107,7 +107,6 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
           class="container"
         >
           <button
-            aria-disabled="false"
             aria-label="Information"
             class="button iconButton"
             title="Information"
@@ -178,7 +177,7 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
           class="container"
         >
           <button
-            aria-disabled="false"
+            aria-disabled="true"
             aria-label="Information"
             class="button iconButton"
             disabled=""
@@ -243,7 +242,7 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
               class="container"
             >
               <button
-                aria-disabled="false"
+                aria-disabled="true"
                 class="button secondary"
                 disabled=""
                 type="button"
@@ -308,7 +307,6 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile 1`] = `
             class="container"
           >
             <a
-              aria-disabled="false"
               class="button"
               href="href"
               target="_self"
@@ -372,7 +370,6 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with secondary ac
             class="container"
           >
             <a
-              aria-disabled="false"
               class="button secondary"
               href="href2"
               target="_self"
@@ -392,7 +389,6 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with secondary ac
             class="container"
           >
             <a
-              aria-disabled="false"
               class="button"
               href="href"
               target="_self"
