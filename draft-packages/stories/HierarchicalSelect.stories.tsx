@@ -96,9 +96,7 @@ export const DefaultStory = () => (
   </StoryContainer>
 )
 
-DefaultStory.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultStory.storyName = "Default (Kaizen Site Demo)"
 
 export const RtlStory = () => (
   <div dir="rtl">
@@ -124,9 +122,7 @@ export const RtlStory = () => (
   </div>
 )
 
-RtlStory.story = {
-  name: "Default (RTL)",
-}
+RtlStory.storyName = "Default (RTL)"
 
 export const DisabledStory = () => (
   <StoryContainer>
@@ -150,9 +146,7 @@ export const DisabledStory = () => (
   </StoryContainer>
 )
 
-DisabledStory.story = {
-  name: "Disabled",
-}
+DisabledStory.storyName = "Disabled"
 
 const loadInitialHierarchy = (
   currentHierarchy: Hierarchy | null

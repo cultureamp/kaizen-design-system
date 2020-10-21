@@ -72,9 +72,7 @@ export const DefaultStory = () => {
   )
 }
 
-DefaultStory.story = {
-  name: "Default",
-}
+DefaultStory.storyName = "Default"
 
 export const Reversed = () => {
   const [selectedItem, setSelectedItem] = useState<ScaleItem | null>(null)
@@ -103,6 +101,4 @@ export const Reversed = () => {
   )
 }
 
-Reversed.story = {
-  name: "Reversed",
-}
+Reversed.storyName = "Reversed"

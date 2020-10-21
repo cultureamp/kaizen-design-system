@@ -82,9 +82,7 @@ export const DefaultKaizenSiteDemo = () => (
   />
 )
 
-DefaultKaizenSiteDemo.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const WithDisabledRadios = () => (
   <RadioGroupExample
@@ -120,9 +118,7 @@ export const WithDisabledRadios = () => (
   />
 )
 
-WithDisabledRadios.story = {
-  name: "With disabled radios",
-}
+WithDisabledRadios.storyName = "With disabled radios"
 
 export const Rtl = () => (
   <div dir="rtl">
@@ -159,9 +155,7 @@ export const Rtl = () => (
   </div>
 )
 
-Rtl.story = {
-  name: "RTL",
-}
+Rtl.storyName = "RTL"
 
 export const RtlWithDisabledRadios = () => (
   <div dir="rtl">
@@ -200,9 +194,7 @@ export const RtlWithDisabledRadios = () => (
   </div>
 )
 
-RtlWithDisabledRadios.story = {
-  name: "RTL with disabled radios",
-}
+RtlWithDisabledRadios.storyName = "RTL with disabled radios"
 
 export const WithLinks = () => (
   <RadioGroupExample
@@ -253,9 +245,7 @@ export const WithLinks = () => (
   />
 )
 
-WithLinks.story = {
-  name: "With links",
-}
+WithLinks.storyName = "With links"
 
 export const WithoutBottomMargin = () => (
   <RadioGroupExample
@@ -300,9 +290,7 @@ export const WithoutBottomMargin = () => (
   />
 )
 
-WithoutBottomMargin.story = {
-  name: "Without bottom margin",
-}
+WithoutBottomMargin.storyName = "Without bottom margin"
 
 export const WithBottomMargin = () => (
   <RadioGroupExample
@@ -347,6 +335,4 @@ export const WithBottomMargin = () => (
   />
 )
 
-WithBottomMargin.story = {
-  name: "With bottom margin",
-}
+WithBottomMargin.storyName = "With bottom margin"

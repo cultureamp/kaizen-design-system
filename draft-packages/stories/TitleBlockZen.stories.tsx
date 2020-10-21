@@ -95,9 +95,7 @@ export const Default = () => (
   />
 )
 
-Default.story = {
-  name: "Default",
-}
+Default.storyName = "Default"
 
 export const WithBadge = () => {
   const [badgeCount, setBadgeCount] = React.useState(1)
@@ -132,9 +130,7 @@ export const WithBadge = () => {
   )
 }
 
-WithBadge.story = {
-  name: "With Primary Action Badge",
-}
+WithBadge.storyName = "With Primary Action Badge"
 
 export const WithDefaultTag = () => (
   <TitleBlockZen
@@ -156,9 +152,7 @@ export const WithDefaultTag = () => (
   />
 )
 
-WithDefaultTag.story = {
-  name: "With Default Survey Status (Tag)",
-}
+WithDefaultTag.storyName = "With Default Survey Status (Tag)"
 
 export const AdminWithDefaultTag = () => (
   <TitleBlockZen
@@ -181,9 +175,7 @@ export const AdminWithDefaultTag = () => (
   />
 )
 
-AdminWithDefaultTag.story = {
-  name: "Admin With Default Survey Status (Tag)",
-}
+AdminWithDefaultTag.storyName = "Admin With Default Survey Status (Tag)"
 
 export const DefaultWithMenuButton = () => (
   <TitleBlockZen
@@ -234,9 +226,7 @@ export const DefaultWithMenuButton = () => (
   />
 )
 
-DefaultWithMenuButton.story = {
-  name: "Default (Menu Button)",
-}
+DefaultWithMenuButton.storyName = "Default (Menu Button)"
 
 export const AdminVariant = () => (
   <TitleBlockZen
@@ -263,9 +253,7 @@ export const AdminVariant = () => (
   />
 )
 
-AdminVariant.story = {
-  name: "Admin variant",
-}
+AdminVariant.storyName = "Admin variant"
 export const AdminVariantWithNavTabs = () => (
   <TitleBlockZen
     title="Page title"
@@ -294,9 +282,7 @@ export const AdminVariantWithNavTabs = () => (
   />
 )
 
-AdminVariantWithNavTabs.story = {
-  name: "Admin variant with Navigation Tabs",
-}
+AdminVariantWithNavTabs.storyName = "Admin variant with Navigation Tabs"
 
 export const EducationVariant = () => (
   <TitleBlockZen
@@ -335,9 +321,7 @@ export const EducationVariant = () => (
   />
 )
 
-EducationVariant.story = {
-  name: "Education variant",
-}
+EducationVariant.storyName = "Education variant"
 
 export const Engagement = () => (
   <TitleBlockZen
@@ -381,9 +365,7 @@ export const Engagement = () => (
   />
 )
 
-Engagement.story = {
-  name: "Engagement",
-}
+Engagement.storyName = "Engagement"
 
 export const Performance = () => (
   <TitleBlockZen
@@ -440,9 +422,7 @@ export const Performance = () => (
   />
 )
 
-Performance.story = {
-  name: "Performance",
-}
+Performance.storyName = "Performance"
 
 export const LongLabels = () => (
   <TitleBlockZen
@@ -644,9 +624,7 @@ export const DefaultWithContent = () => (
   </div>
 )
 
-DefaultWithContent.story = {
-  name: "Default with content",
-}
+DefaultWithContent.storyName = "Default with content"
 
 export const DefaultNoSecondary = () => (
   <TitleBlockZen
@@ -682,9 +660,7 @@ export const DefaultNoSecondary = () => (
   />
 )
 
-DefaultNoSecondary.story = {
-  name: "Default (no secondary actions)",
-}
+DefaultNoSecondary.storyName = "Default (no secondary actions)"
 
 export const DefaultOnlyPrimary = () => (
   <TitleBlockZen
@@ -716,9 +692,7 @@ export const DefaultOnlyPrimary = () => (
   />
 )
 
-DefaultOnlyPrimary.story = {
-  name: "Default (only primary action)",
-}
+DefaultOnlyPrimary.storyName = "Default (only primary action)"
 
 export const DefaultWithReportSwitcher = () => (
   <TitleBlockZen
@@ -773,9 +747,7 @@ export const DefaultWithReportSwitcher = () => (
   />
 )
 
-DefaultWithReportSwitcher.story = {
-  name: "Default with report switcher",
-}
+DefaultWithReportSwitcher.storyName = "Default with report switcher"
 
 export const DefaultNoLink = () => (
   <TitleBlockZen
@@ -826,9 +798,7 @@ export const DefaultNoLink = () => (
   />
 )
 
-DefaultNoLink.story = {
-  name: "Default (no link in breadcrumb)",
-}
+DefaultNoLink.storyName = "Default (no link in breadcrumb)"
 
 export const DefaultOnlyLongTitle = () => (
   <TitleBlockZen
@@ -847,6 +817,4 @@ export const DefaultOnlyLongTitle = () => (
   />
 )
 
-DefaultOnlyLongTitle.story = {
-  name: "Default (only long title)",
-}
+DefaultOnlyLongTitle.storyName = "Default (only long title)"

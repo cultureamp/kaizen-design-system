@@ -22,7 +22,7 @@ type State = {
   open: boolean
 }
 
-export default class Menu extends React.Component<MenuProps, State> {
+class Menu extends React.Component<MenuProps, State> {
   static displayName = "Menu"
   static contextType = NavBarContext
   static defaultProps = {
@@ -202,3 +202,4 @@ export default class Menu extends React.Component<MenuProps, State> {
     }
   }
 }
+export default Menu
