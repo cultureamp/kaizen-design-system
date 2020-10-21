@@ -818,3 +818,97 @@ export const DefaultOnlyLongTitle = () => (
 )
 
 DefaultOnlyLongTitle.storyName = "Default (only long title)"
+
+export const DefaultCollapsedNavigation = () => (
+  <>
+    <TitleBlockZen
+      title="Page title"
+      subtitle="Subtitle goes here"
+      handleHamburgerClick={() => {
+        alert("Hamburger clicked")
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+      collapseNavigationAreaWhenPossible
+    />
+    <div className={styles.fakeSkirtContainerWithBackground}>
+      <div className={styles.fakeSkirtContent}>
+        <Paragraph variant="body" color="white-reduced-opacity">
+          I am some text that should feel nicely butted up
+        </Paragraph>
+      </div>
+    </div>
+  </>
+)
+
+DefaultCollapsedNavigation.storyName = "Default (collapsed navigation)"
+
+export const DefaultCollapsedNavigationCard = () => (
+  <>
+    <TitleBlockZen
+      title="Page title"
+      subtitle="Subtitle goes here"
+      handleHamburgerClick={() => {
+        alert("Hamburger clicked")
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+      collapseNavigationAreaWhenPossible
+    />
+    <div className={styles.fakeSkirtContainerWithBackground}>
+      <div className={styles.fakeSkirtContent}>
+        <div className={styles.fakeSkirtCard}>
+          <Paragraph variant="body">
+            I am a card that should feel nicely butted up
+          </Paragraph>
+        </div>
+      </div>
+    </div>
+  </>
+)
+
+DefaultCollapsedNavigationCard.story = {
+  name: "Default (collapsed navigation with card)",
+}
+
+export const AdminVariantNavigation = () => (
+  <>
+    <TitleBlockZen
+      variant="admin"
+      title="Page title"
+      subtitle="Subtitle goes here"
+      handleHamburgerClick={() => {
+        alert("Hamburger clicked")
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+      collapseNavigationAreaWhenPossible
+    />
+    <div className={styles.fakeSkirtContainer}>
+      <div className={styles.fakeSkirtContent}>
+        <Paragraph variant="body">
+          I am some text that should feel tightly butted up to the nav space.
+          The responsibility for the admin variant is to move things down
+          yourself if you need to.
+        </Paragraph>
+      </div>
+    </div>
+  </>
+)
+
+AdminVariantNavigation.storyName = "Admin (collapsed navigation)"
