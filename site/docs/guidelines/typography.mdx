@@ -32,70 +32,57 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ### Headings
 
-- **Display 0:** Used for brand moments including, introductory screens (Onboarding, Success pages etc.) or landing pages (Log In and Capture Intro etc.).
+- **Display 0:** Used *only* for brand moments including introductory screens (Log In, Onboarding, Capture Intro etc) or outro pages (Positive, Negative etc.).
 
-- **Heading 1:** Used for page titles in the [Title Block](/guidelines/header/#title-block) of the page [Header](/guidelines/header/)
+- **Heading 1:** Used only for page titles in the [Title Block](/guidelines/header/#title-block) of the page [Header](/guidelines/header/) or Workflow Header.
 
-- **Heading 2:** Used for headings that introduce a major section of content. Generally outside of a card. Generally at the top of a content area, below the Title Block.
+- **Heading 2:** Also referred to as a Section Heading. Used to introduce major sections of content on a page, and in containers independent of the page hierarchy, such as [Modals](/components/modal/) or Drawers.
 
-- **Heading 3:** Used within a card as a heading.
+Generally positioned outside of cards in most layouts, it can also be used inside if more appropriate to the surrounding context.
 
-- **Heading 4:** Used to define the name/title of a survey, report or other primary information within a card.
+- **Heading 3:** Use to label subsets or groupings of information within a section, or as a title in individual objects, such as a [Tile](/components/tile/) or [Guidance Block](/components/guidance-block/). Generally used within a card container. 
 
-- **Heading 5:** Used in long form content when you have 5 heading levels. Consider breaking this level of detail into its own page with larger headings.
+- **Heading 4:** Used for the primary piece of information in a list item, such as the title of a survey/report or an employee name.
 
-- **Heading 6:** Used for table headers, or small headings above content, such as form inputs or defining categories of content.
+- **Heading 5:** Primarily for long form content where an extra level of hierarchy is needed (such as Skills Coach, and educational content). Stylistically identical to Body Bold. **Avoid using Heading 5 with short form content in product screens.**
+
+- **Heading 6:** Used for small headings on interactive elements, such as table headers, form inputs labels and in popovers and notifications.
 
 
 ### Paragraphs
 
-- **Intro Lede:** Used for the introductory text on introductory screens (Onboarding, Log In, Success pages etc.) or landing pages, paired with Display 0.
+- **Intro Lede:** (Max width: 975px) Used only for brand moments including introductory screens (Log In, Onboarding, Capture Intro etc) or Positive and Negative Outro screens when paired with Display 0.
 
-- **Body:** Used for paragraph text for most body copy.
+- **Body:** (Max width: 780px) Primarily used for all paragraph text and most body copy.
 
-- **Small:** Avoid small paragraphs. Only used for rare exceptions.
+- **Small:** (Max width: 680px) Used primarily for content that is less important such as helper text for a form input or metadata.
 
-- **Extra Small:** Avoid extra small paragraphs. Only used for rare exceptions.
+- **Extra Small:** (Max width: 600px) This type style does not meet the minimum accesibility requirements for text legiility (14px). 12px is considered acceptable by our auditors, but should only be used in rare exceptions, such as legal fine print, terms & conditions, etc. **Avoid using extra small paragraphs within key product pages.**
 
 - **Preformatted:** Used for code snippets or spreadsheet data.
 
 ### Data
 
-- **123 Large:** Used for large hero data that's the primary information of a section.
+- **123 Large:** Use this type style to present the most important data (also referred to as hero data) on reporting pages.
 
-- **$% Large:** Used for percent, dollar, "+", "-" "x" when paired with large hero data numbers.
+- **$% Large:** Currencies ($), Percentages (%) and Mathematical symbols (+,-,x) are stylistically smaller than numeric data and must use this specific type style when paired with the Data 123 Large.
 
-- **123 Medium:** Used for medium sized Data in lists.
+- **123 Medium:** Use this type style to present data that is not considered ‘hero data’ but has importance within a report or summary.
 
-- **$% Medium:** Used for percent, dollar, "+", "-" "x" when paired with medium data in lists.
+- **$% Medium:** Currencies ($), Percentages (%) and Mathematical symbols (+,-,x) are stylistically smaller than numeric data and must use this specific type style when paired with the Data 123 Medium.
 
-- **123 Small:** Used for small, standalone data in lists. There is no separate small style for percent, dollar, "+", "-", or "x" because it needs to remain legible.
+- **123 Small:** Use this type style to present data that doesn’t need to be prominent. There is no separate small style for Currencies ($), Percentages (%) and Mathematical symbols (+,-,x) because the symbols need to remain legible at this size.
 
 
 ### Links
 
-- **Paragraph links:** Use underlines to represent a link within a paragraph of text to help it stand out. Do not rely on the color alone as it may not be visible for vision impaired users. On hover, hide paragraph link underlines.
-- **Standalone links:** For standalone links, you may use spacing and context (such as navigation bars or a privacy links at the bottom of a page) to identify the link. Show no underline by default on a standalone link and show an underline on the hover.
+- **Paragraph links:** Use when a link is located amongst a body of text (i.e. is within a sentence or paragraph) and cannot be clearly distinguished as a link by its color alone. In its default state, it shows an underline. In its hover state, the underline disappears.
+
+- **Standalone links:** Use when a link is isolated from a body of text (i.e. is not within a sentence or paragraph) and can be clearly distinguished as a link by its color alone. In its default state, it does not show an underline. In its hover state the underline appears.
 
 ### Abbreviations
 
 For abbreviations, such as <abbr title="human resource information system">HRIS</abbr>, show the expanded text after the first use, such as "HRIS (human resource information system)" and abbreviations thereafter. If there's not enough space or only one use, you might instead show an abbreviation using a dotted underline and use a tooltip to expand the abbreviation on hover/focus.
-
-### Numbers
-
-Some font families, such as Ideal Sans, include numeric font variants for alternate figures. That might include "proportional old style", "proportional lining", "tabular old style", or "tabular lining" numbers:
-
-- Use tabular lining numbers for fixed width numbers in tables and anywhere that columns of numbers need to line up, e.g. to make it easy to add up numbers in a column.
-- Use proportional lining numbers for numbers used within an uppercase string or a sentence.
-- Use proportional old-style numbers for body copy or standalone figures, such as hero data, where it doesn't need to line up with any other figures.
-
-Note: Ideal Sans does not include tabular old style numbers.
-
-In Figma, you can set these in the Design panel > under Text > 3 dots icon > under Numbers > Style.
-
-In Sketch, you can set these in Fonts > cog icon > Typography > Number spacing (monospace), Number case (Lining Figures).
-
-In code, you can set the `font-variant-numeric` and different type face.
 
 ## When to use and when not to use
 
