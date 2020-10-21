@@ -135,7 +135,7 @@ WithBadge.storyName = "With Primary Action Badge"
 export const WithDefaultTag = () => (
   <TitleBlockZen
     title="Page title"
-    surveyStatus={{ text: "Due July 8, 2030", status: "draft" }}
+    surveyStatus={{ text: "Due July 8, 2030", status: "default" }}
     primaryAction={{
       label: "Click Me",
       icon: arrowForwardIcon,
