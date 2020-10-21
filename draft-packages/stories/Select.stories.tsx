@@ -180,13 +180,9 @@ export const SingleSecondarySmall = () => (
 
 SingleSecondarySmall.storyName = "Single, Secondary-Small, Reversed"
 SingleSecondarySmall.parameters = {
-  backgrounds: [
-    {
-      name: "Wisteria 700",
-      value: colorTokens.kz.color.wisteria[700],
-      default: true,
-    },
-  ],
+  backgrounds: {
+    default: "Wisteria 700",
+  },
 }
 
 export const SingleSecondaryDisabled = () => (
@@ -217,13 +213,9 @@ export const SingleSecondaryReversed = () => (
 
 SingleSecondaryReversed.storyName = "Single, Secondary, Reversed"
 SingleSecondaryReversed.parameters = {
-  backgrounds: [
-    {
-      name: "Wisteria 700",
-      value: colorTokens.kz.color.wisteria[700],
-      default: true,
-    },
-  ],
+  backgrounds: {
+    default: "Wisteria 700",
+  },
 }
 
 export const SingleSecondaryWithEllipsis = () => {
@@ -251,13 +243,9 @@ export const SingleSecondaryWithEllipsis = () => {
 
 SingleSecondaryWithEllipsis.storyName = "Single Secondary with ellipsis"
 SingleSecondaryWithEllipsis.parameters = {
-  backgrounds: [
-    {
-      name: "Wisteria 700",
-      value: colorTokens.kz.color.wisteria[700],
-      default: true,
-    },
-  ],
+  backgrounds: {
+    default: "Wisteria 700",
+  },
 }
 
 export const SingleSecondaryReversedDisabled = () => (
@@ -276,11 +264,7 @@ export const SingleSecondaryReversedDisabled = () => (
 SingleSecondaryReversedDisabled.storyName =
   "Single Secondary Reversed (disabled)"
 SingleSecondaryReversedDisabled.parameters = {
-  backgrounds: [
-    {
-      name: "Wisteria 700",
-      value: colorTokens.kz.color.wisteria[700],
-      default: true,
-    },
-  ],
+  backgrounds: {
+    default: "Wisteria 700",
+  },
 }

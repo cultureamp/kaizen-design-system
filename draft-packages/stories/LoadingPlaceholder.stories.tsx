@@ -242,8 +242,12 @@ export const ReversedDefault = () => (
     </div>
   </StoryContainer>
 )
-
 ReversedDefault.storyName = "Reversed, Default"
+ReversedDefault.parameters = {
+  backgrounds: {
+    default: "Wisteria 700",
+  },
+}
 
 export const InTheWild = () => (
   <StoryContainer>

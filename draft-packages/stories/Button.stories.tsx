@@ -21,6 +21,12 @@ export default {
   },
 }
 
+const reversedBg = {
+  backgrounds: {
+    default: "Wisteria 700",
+  },
+}
+
 export const DefaultKaizenSiteDemo = args => <Button {...args} />
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
@@ -107,29 +113,13 @@ export const ReversedDefault = args => (
   <Button label="Label" reversed={true} {...args} />
 )
 ReversedDefault.storyName = "Reversed, Default"
-ReversedDefault.parameters = {
-  backgrounds: [
-    {
-      name: "Wisteria 700",
-      value: colorTokens.kz.color.wisteria[700],
-      default: true,
-    },
-  ],
-}
+ReversedDefault.parameters = { ...reversedBg }
 
 export const ReversedDefaultDisabled = args => (
   <Button label="Label" reversed={true} disabled={true} {...args} />
 )
 ReversedDefaultDisabled.storyName = "Reversed, Default, Disabled"
-ReversedDefaultDisabled.parameters = {
-  backgrounds: [
-    {
-      name: "Wisteria 700",
-      value: colorTokens.kz.color.wisteria[700],
-      default: true,
-    },
-  ],
-}
+ReversedDefaultDisabled.parameters = { ...reversedBg }
 
 export const ReversedPrimary = args => (
   <Button
@@ -141,15 +131,7 @@ export const ReversedPrimary = args => (
   />
 )
 ReversedPrimary.storyName = "Reversed, Primary"
-ReversedPrimary.parameters = {
-  backgrounds: [
-    {
-      name: "Wisteria 700",
-      value: colorTokens.kz.color.wisteria[700],
-      default: true,
-    },
-  ],
-}
+ReversedPrimary.parameters = { ...reversedBg }
 
 export const ReversedPrimaryDisabled = args => (
   <Button
@@ -161,29 +143,13 @@ export const ReversedPrimaryDisabled = args => (
   />
 )
 ReversedPrimaryDisabled.storyName = "Reversed, Primary, Disabled"
-ReversedPrimaryDisabled.parameters = {
-  backgrounds: [
-    {
-      name: "Wisteria 700",
-      value: colorTokens.kz.color.wisteria[700],
-      default: true,
-    },
-  ],
-}
+ReversedPrimaryDisabled.parameters = { ...reversedBg }
 
 export const ReversedSecondary = args => (
   <Button label="Label" secondary={true} reversed={true} {...args} />
 )
 ReversedSecondary.storyName = "Reversed, Secondary"
-ReversedSecondary.parameters = {
-  backgrounds: [
-    {
-      name: "Wisteria 700",
-      value: colorTokens.kz.color.wisteria[700],
-      default: true,
-    },
-  ],
-}
+ReversedSecondary.parameters = { ...reversedBg }
 
 export const ReversedSecondaryDisabled = args => (
   <Button
@@ -195,15 +161,7 @@ export const ReversedSecondaryDisabled = args => (
   />
 )
 ReversedSecondaryDisabled.storyName = "Reversed, Secondary, Disabled"
-ReversedSecondaryDisabled.parameters = {
-  backgrounds: [
-    {
-      name: "Wisteria 700",
-      value: colorTokens.kz.color.wisteria[700],
-      default: true,
-    },
-  ],
-}
+ReversedSecondaryDisabled.parameters = { ...reversedBg }
 
 export const ReversedSecondaryWIcon = args => (
   <Button
@@ -215,15 +173,7 @@ export const ReversedSecondaryWIcon = args => (
   />
 )
 ReversedSecondaryWIcon.storyName = "Reversed, Secondary w/ Icon"
-ReversedSecondaryWIcon.parameters = {
-  backgrounds: [
-    {
-      name: "Wisteria 700",
-      value: colorTokens.kz.color.wisteria[700],
-      default: true,
-    },
-  ],
-}
+ReversedSecondaryWIcon.parameters = { ...reversedBg }
 
 export const ReversedSecondaryWIconDisabled = args => (
   <Button
@@ -237,15 +187,7 @@ export const ReversedSecondaryWIconDisabled = args => (
 )
 ReversedSecondaryWIconDisabled.storyName =
   "Reversed, Secondary w/ Icon, Disabled"
-ReversedSecondaryWIconDisabled.parameters = {
-  backgrounds: [
-    {
-      name: "Wisteria 700",
-      value: colorTokens.kz.color.wisteria[700],
-      default: true,
-    },
-  ],
-}
+ReversedSecondaryWIconDisabled.parameters = { ...reversedBg }
 
 export const TypeSubmit = args => (
   <Button label="Label" type="submit" {...args} />

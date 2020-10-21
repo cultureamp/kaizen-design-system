@@ -12,7 +12,9 @@ const ExampleContainer: React.FunctionComponent = ({ children }) => (
 )
 
 const ReversedBg = {
-  backgrounds: [{ value: colorTokens.kz.color.wisteria[700], default: true }],
+  backgrounds: {
+    default: "Wisteria 700",
+  },
 }
 
 export default {
@@ -267,7 +269,7 @@ export const Reversed = () => (
   </ExampleContainer>
 )
 
-Reversed.story = {
+Reversed.parameters = {
   ...ReversedBg,
 }
 

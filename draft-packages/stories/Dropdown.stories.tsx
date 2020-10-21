@@ -71,7 +71,6 @@ export const DefaultMeatball = () => (
     <Menu />
   </Dropdown>
 )
-
 DefaultMeatball.storyName = "Default (Meatball)"
 
 export const DefaultKebab = () => (
@@ -79,7 +78,6 @@ export const DefaultKebab = () => (
     <Menu />
   </Dropdown>
 )
-
 DefaultKebab.storyName = "Default (Kebab)"
 
 export const LabelAndIcon = () => (
@@ -87,7 +85,6 @@ export const LabelAndIcon = () => (
     <Menu />
   </Dropdown>
 )
-
 LabelAndIcon.storyName = "Label and Icon"
 
 export const TextOnly = () => (
@@ -101,7 +98,6 @@ export const ControlAction = () => (
     <Menu />
   </Dropdown>
 )
-
 ControlAction.storyName = "Control action"
 
 export const ReversedControlAction = () => (
@@ -109,5 +105,9 @@ export const ReversedControlAction = () => (
     <Menu />
   </Dropdown>
 )
-
 ReversedControlAction.storyName = "Reversed Control action"
+ReversedControlAction.parameters = {
+  backgrounds: {
+    default: "Wisteria 700",
+  },
+}

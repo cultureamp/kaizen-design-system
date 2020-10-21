@@ -73,6 +73,11 @@ export const Reversed = () => (
     <IconButton icon={configureIcon} label="Label" reversed />
   </StoryWrapper>
 )
+Reversed.parameters = {
+  backgrounds: {
+    default: "Wisteria 700",
+  },
+}
 
 export const ReversedDisabled = () => (
   <StoryWrapper>
@@ -86,6 +91,11 @@ export const ReversedDisabled = () => (
 )
 
 ReversedDisabled.storyName = "Reversed, Disabled"
+ReversedDisabled.parameters = {
+  backgrounds: {
+    default: "Wisteria 700",
+  },
+}
 
 export const FormDiscouraged = () => (
   <StoryWrapper>

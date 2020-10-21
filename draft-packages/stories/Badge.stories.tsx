@@ -98,13 +98,9 @@ export const Reversed = () => (
 
 Reversed.storyName = "Reversed"
 Reversed.parameters = {
-  backgrounds: [
-    {
-      name: "Wisteria 700",
-      value: colorTokens.kz.color.wisteria[700],
-      default: true,
-    },
-  ],
+  backgrounds: {
+    default: "Wisteria 700",
+  },
 }
 
 export const ReversedActive = () => (
@@ -125,13 +121,9 @@ export const ReversedActive = () => (
 
 ReversedActive.storyName = "Reversed, Active"
 ReversedActive.parameters = {
-  backgrounds: [
-    {
-      name: "Wisteria 700",
-      value: colorTokens.kz.color.wisteria[700],
-      default: true,
-    },
-  ],
+  backgrounds: {
+    default: "Wisteria 700",
+  },
 }
 
 export const LongerText = () => <Badge variant="default">2x</Badge>

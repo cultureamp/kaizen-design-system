@@ -100,13 +100,9 @@ export const LabelAndIconReversed = () => (
 
 LabelAndIconReversed.storyName = "Label and Icon (reversed)"
 LabelAndIconReversed.parameters = {
-  backgrounds: [
-    {
-      name: "Wisteria 700",
-      value: colorTokens.kz.color.wisteria[700],
-      default: true,
-    },
-  ],
+  backgrounds: {
+    default: "Wisteria 700",
+  },
 }
 
 export const DefaultMeatball = () => (
