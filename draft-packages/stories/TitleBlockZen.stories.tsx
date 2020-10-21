@@ -836,10 +836,10 @@ export const DefaultCollapsedNavigation = () => (
       }}
       collapseNavigationAreaWhenPossible
     />
-    <div style={{ backgroundColor: "#4b4d68", height: "4rem" }}>
-      <div style={{ maxWidth: "1392px", margin: "0 auto" }}>
+    <div className={styles.fakeSkirtContainerWithBackground}>
+      <div className={styles.fakeSkirtContent}>
         <Paragraph variant="body" color="white-reduced-opacity">
-          I am some text that should feel nicely butted up on wide screens
+          I am some text that should feel nicely butted up
         </Paragraph>
       </div>
     </div>
@@ -847,6 +847,39 @@ export const DefaultCollapsedNavigation = () => (
 )
 
 DefaultCollapsedNavigation.storyName = "Default (collapsed navigation)"
+
+export const DefaultCollapsedNavigationCard = () => (
+  <>
+    <TitleBlockZen
+      title="Page title"
+      subtitle="Subtitle goes here"
+      handleHamburgerClick={() => {
+        alert("Hamburger clicked")
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+      collapseNavigationAreaWhenPossible
+    />
+    <div className={styles.fakeSkirtContainerWithBackground}>
+      <div className={styles.fakeSkirtContent}>
+        <div className={styles.fakeSkirtCard}>
+          <Paragraph variant="body">
+            I am a card that should feel nicely butted up
+          </Paragraph>
+        </div>
+      </div>
+    </div>
+  </>
+)
+
+DefaultCollapsedNavigationCard.story = {
+  name: "Default (collapsed navigation with card)",
+}
 
 export const AdminVariantNavigation = () => (
   <>
@@ -866,10 +899,12 @@ export const AdminVariantNavigation = () => (
       }}
       collapseNavigationAreaWhenPossible
     />
-    <div style={{ backgroundColor: "#f6f6f6", height: "4rem" }}>
-      <div style={{ maxWidth: "1392px", margin: "0 auto" }}>
+    <div className={styles.fakeSkirtContainer}>
+      <div className={styles.fakeSkirtContent}>
         <Paragraph variant="body">
-          I am some text that should feel nicely butted up on wide screens
+          I am some text that should feel tightly butted up to the nav space.
+          The responsibility for the admin variant is to move things down
+          yourself if you need to.
         </Paragraph>
       </div>
     </div>
