@@ -33,6 +33,7 @@ export type AllowedColors =
   | "white-reduced-opacity"
   | "positive"
   | "negative"
+  | "danger"
 
 export interface HeadingProps {
   /**
