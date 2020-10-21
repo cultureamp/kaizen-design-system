@@ -1,8 +1,10 @@
+/* !!! This component is deprecated. Please do not use for new code  !!! */
+
 import classNames from "classnames"
 import * as React from "react"
 import { Icon } from "../Icon"
 
-const styles = require("./Menu.module.scss")
+import styles from "./Menu.module.scss"
 
 const MenuItem = (props: {
   icon?: React.SVGAttributes<SVGSymbolElement>

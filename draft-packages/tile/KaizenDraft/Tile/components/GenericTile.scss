@@ -1,0 +1,111 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/component-library/styles/responsive";
+
+$tileWidth: 330px;
+$tileHeight: 370px;
+$tilePaddingTop: $kz-spacing-xl;
+
+.root {
+  perspective: 800px;
+}
+
+.tile {
+  width: $tileWidth;
+  height: $tileHeight;
+  position: relative;
+  box-shadow: $kz-shadow-small-box-shadow;
+  background-color: $kz-color-white;
+  transition: transform $ca-duration-slow $ca-default;
+  transform-style: preserve-3d;
+  border-radius: 7px;
+
+  @include ca-media-mobile {
+    width: 100%;
+    min-width: 226px;
+    max-width: $tileHeight;
+  }
+
+  @media (max-width: 480px) {
+    max-width: 100%;
+  }
+}
+
+.face {
+  position: absolute;
+  background-color: $kz-color-white;
+  border-radius: 7px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+  * {
+    backface-visibility: hidden;
+  }
+}
+
+.faceFront {
+  justify-content: space-between;
+  padding: $tilePaddingTop $kz-spacing-md $kz-spacing-md;
+}
+
+.faceBack {
+  padding-top: $tilePaddingTop;
+  transform: rotateY(180deg);
+}
+
+.isFlipped {
+  transform: rotateY(179deg);
+}
+
+.title {
+  text-align: center;
+  padding-bottom: $kz-spacing-sm;
+  background-color: $kz-color-white;
+  backface-visibility: hidden;
+}
+
+.actions {
+  display: flex;
+}
+
+.informationBtn {
+  @include ca-position($top: 0, $end: 0);
+  position: absolute;
+  color: rgba($kz-color-wisteria-800, 0.5);
+}
+
+.information {
+  @include ca-padding(
+    $top: 18px,
+    $bottom: $kz-spacing-md,
+    $start: $kz-spacing-md,
+    $end: $kz-spacing-md
+  );
+  margin-top: $kz-spacing-sm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  background-color: $kz-color-cluny-100;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-radius: 0 0 7px 7px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: $kz-spacing-sm;
+  height: $kz-spacing-xl;
+}

@@ -1,7 +1,9 @@
+/* !!! This component is deprecated. Please do not use for new code  !!! */
+
 import classNames from "classnames"
 import * as React from "react"
 
-const styles = require("./Text.module.scss")
+import styles from "./Text.module.scss"
 
 type TextProps = {
   tag: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "div" | "span" | "label"
@@ -35,6 +37,9 @@ type TextProps = {
   inline?: boolean
 }
 
+/**
+ * @deprecated Text is deprecated. Use Paragraph or Heading instead.
+ */
 const Text: React.FunctionComponent<TextProps> = ({
   tag,
   children,

@@ -6,7 +6,7 @@ import { dirname } from "path"
 
 /** Print a conspicuous red error message and exit non-zero. */
 const exitWithError = (...message: string[]) => {
-  // tslint:disable-next-line: no-console
+  // eslint-disable-next-line no-console
   console.error(chalk.red(`\n${message.join("\n")}\n`))
   process.exit(1)
 }

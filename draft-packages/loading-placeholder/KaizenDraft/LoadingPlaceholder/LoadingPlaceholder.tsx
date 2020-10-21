@@ -1,12 +1,15 @@
 import classnames from "classnames"
 import * as React from "react"
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 interface Props {
   readonly animated?: boolean
   readonly centred?: boolean
   readonly reversedDefault?: boolean
+  /**
+   * @deprecated reversedOcean is deprecated.
+   */
   readonly reversedOcean?: boolean
   readonly tall?: boolean
   readonly inheritBaseline?: boolean

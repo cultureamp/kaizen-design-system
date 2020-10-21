@@ -177,7 +177,7 @@ main =
                                     , bodySubtext =
                                         Just
                                             [ div [ style "text-align" "center" ]
-                                                [ Paragraph.view (Paragraph.p |> Paragraph.variant Paragraph.Body) [ text "Additional subtext to aid the user can be added here." ] ]
+                                                [ Paragraph.view (Paragraph.p |> Paragraph.variant Paragraph.Body) [ text "Modals contain smaller pieces of content and can provide additional information to aid the user." ] ]
                                             ]
                                     , onDismiss = Just ModalDismissed
                                     , onConfirm = Just ModalConfirmed
@@ -232,7 +232,7 @@ main =
                                     , bodySubtext =
                                         Just
                                             [ div [ style "text-align" "center" ]
-                                                [ Paragraph.view (Paragraph.p |> Paragraph.variant Paragraph.Body) [ text "Additional subtext to aid the user can be added here." ] ]
+                                                [ Paragraph.view (Paragraph.p |> Paragraph.variant Paragraph.Body) [ text "Modals contain smaller pieces of content and can provide additional information to aid the user." ] ]
                                             ]
                                     , onDismiss = Just ModalDismissed
                                     , onConfirm = Just ModalConfirmed
@@ -259,7 +259,7 @@ main =
                                     , bodySubtext =
                                         Just
                                             [ div [ style "text-align" "center" ]
-                                                [ Paragraph.view (Paragraph.p |> Paragraph.variant Paragraph.Body) [ text "Additional subtext to aid the user can be added here." ] ]
+                                                [ Paragraph.view (Paragraph.p |> Paragraph.variant Paragraph.Body) [ text "Modals contain smaller pieces of content and can provide additional information to aid the user." ] ]
                                             ]
                                     , onDismiss = Just ModalDismissed
                                     , onConfirm = Just ModalConfirmed
@@ -286,7 +286,7 @@ main =
                                     , bodySubtext =
                                         Just
                                             [ div [ style "text-align" "center" ]
-                                                [ Paragraph.view (Paragraph.p |> Paragraph.variant Paragraph.Body) [ text "Additional subtext to aid the user can be added here." ] ]
+                                                [ Paragraph.view (Paragraph.p |> Paragraph.variant Paragraph.Body) [ text "Modals contain smaller pieces of content and can provide additional information to aid the user." ] ]
                                             ]
                                     , onDismiss = Just ModalDismissed
                                     , onConfirm = Just ModalConfirmed
@@ -313,7 +313,7 @@ main =
                                     , bodySubtext =
                                         Just
                                             [ div [ style "text-align" "center" ]
-                                                [ Paragraph.view (Paragraph.p |> Paragraph.variant Paragraph.Body) [ text "Additional subtext to aid the user can be added here." ] ]
+                                                [ Paragraph.view (Paragraph.p |> Paragraph.variant Paragraph.Body) [ text "Modals contain smaller pieces of content and can provide additional information to aid the user." ] ]
                                             ]
                                     , onDismiss = Just ModalDismissed
                                     , onConfirm = Nothing
@@ -342,7 +342,7 @@ main =
                                         , bodySubtext =
                                             Just
                                                 [ div [ style "text-align" "center" ]
-                                                    [ Paragraph.view (Paragraph.p |> Paragraph.variant Paragraph.Body) [ text "Additional subtext to aid the user can be added here." ] ]
+                                                    [ Paragraph.view (Paragraph.p |> Paragraph.variant Paragraph.Body) [ text "Modals contain smaller pieces of content and can provide additional information to aid the user." ] ]
                                                 ]
                                         , onDismiss = Just ModalDismissed
                                         , onConfirm = Just ModalConfirmed

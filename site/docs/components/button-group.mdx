@@ -15,7 +15,13 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Visuals
 
+### UI Kit
+
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D1292%253A0" allowfullscreen></iframe>
+
+### Examples
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D47508%253A35877&chrome=DOCUMENTATION" allowfullscreen></iframe>
 
 ## To keep in mind
 
@@ -29,9 +35,11 @@ A button group contains buttons that indicate to a user that they can perform ac
     *   Follow [button](/components/button) principles.
     *   These use extremely closely related actions on a single object.
 *   Toggle button groups
+    *   For an example of a toggle button group, consider Bold/Italic/Underline in a text editor.
     *   Follow [button](/components/button) principles.
     *   If using icon buttons, follow [icon button](/components/icon-button) principles too.
     *   Mutually exclusive settings, such as choosing left, centered, or right aligned text.
+    
 
 ## When to use and when not to use
 
@@ -39,6 +47,8 @@ A button group contains buttons that indicate to a user that they can perform ac
 <WhenToUse>
 
 - Use when there’s not enough space for separate buttons or they control the one setting.
+- Use when all the actions in the group take place immediately on click. For example, if one or more actions does not immediately apply on click, then either use a different component, or remove that action from the group. If a subsequent button press is required, consider using a [radio group](/components/radio-group) instead.
+- Use when the buttons can all be described by one related action. For example, in options to add to calendar, ICS and Google Cal are both options to add to calendar.
 
 </WhenToUse>
 <WhenNotToUse>
@@ -49,7 +59,7 @@ A button group contains buttons that indicate to a user that they can perform ac
 </WhenNotToUse>
 </WhenToUseAndWhenNotToUse>
 
-## External Links
+## External links
 
 Here are some examples of other existing design systems:
 

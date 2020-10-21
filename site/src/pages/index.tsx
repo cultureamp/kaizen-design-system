@@ -1,5 +1,5 @@
-import { Button } from "@kaizen/component-library"
-import { Heading } from "@kaizen/component-library/components/Heading"
+import { Button, Heading } from "@kaizen/component-library"
+import { assetUrl } from "@kaizen/hosted-assets"
 import { graphql, useStaticQuery, withPrefix } from "gatsby"
 import * as React from "react"
 import { Content, ContentOnly } from "../components/ContentOnly"
@@ -7,14 +7,14 @@ import Footer from "../components/Footer"
 import Layout from "../components/Layout"
 import PageHeader from "../components/PageHeader"
 
-const styles = require("./index.scss")
+import styles from "./index.scss"
 
 const HomePageHeader = (
   <PageHeader
     headingText="Kaizen"
-    summaryParagraph={
-      "Kaizen is Culture Amp’s design system. It’s the single source of truth\nfor our UX guidelines, design assets, and front-end code to help\nCulture Amp’s teams rapidly create a world-class experience."
-    }
+    summaryParagraph={`Kaizen is Culture Amp’s design system. It’s the single source of truth 
+      for our UX guidelines, design assets, and front-end code to help Culture Amp’s teams rapidly 
+      create a world-class experience.`}
     headingOnly
   />
 )
@@ -71,18 +71,35 @@ export default ({ location }) => {
       currentPath={location.pathname}
       pageHeader={HomePageHeader}
       footer={<Footer reverseVariant extraContent={<FooterExtraContent />} />}
+      fullWidthContent={true}
     >
       <ContentOnly>
         <Content>
           <div className={styles.content}>
             <div className={styles.guidelinesImageContainer}>
               <a href={withPrefix("/guidelines/overview")}>
-                <img src="https://kaizen-assets.s3-us-west-2.amazonaws.com/site/guidelines.png" />
+                <img
+                  src={assetUrl("illustrations/scene/kaizen-site-product.svg")}
+                  alt="Guidelines"
+                />
+              </a>
+            </div>
+            <div className={styles.languageImageContainer}>
+              <a href={withPrefix("/language/overview")}>
+                <img
+                  src={assetUrl("illustrations/scene/kaizen-site-language.svg")}
+                  alt="Language"
+                />
               </a>
             </div>
             <div className={styles.componentsImageContainer}>
               <a href={withPrefix("/components/overview")}>
-                <img src="https://kaizen-assets.s3-us-west-2.amazonaws.com/site/components.png" />
+                <img
+                  src={assetUrl(
+                    "illustrations/scene/kaizen-site-resources.svg"
+                  )}
+                  alt="Components"
+                />
               </a>
             </div>
             <div className={styles.guidelinesTextContainer}>
@@ -94,6 +111,17 @@ export default ({ location }) => {
               <div className={styles.body}>
                 Learn how to design and build cohesive and predictable products
                 for Culture Amp.
+              </div>
+            </div>
+            <div className={styles.languageTextContainer}>
+              <div className={styles.headingContainer}>
+                <Heading tag="div" variant="heading-2">
+                  <a href={withPrefix("/language/overview")}>Language</a>
+                </Heading>
+              </div>
+              <div className={styles.body}>
+                Write consistent content in Culture Amp's voice and adhere to
+                our style&nbsp;guidelines.
               </div>
             </div>
             <div className={styles.componentsTextContainer}>

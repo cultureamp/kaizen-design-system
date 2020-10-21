@@ -27,6 +27,22 @@ import Dont from "docs-components/Dont"
 
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D1412%253A277" allowfullscreen></iframe>
 
+## To keep in mind
+
+*   There must always be more than one radio field used together in a group.
+*   Radio Group contains a set of Radios and a Radio Group Label.
+*   Show options in a sensible order, such as alphabetical, numeric.
+*   Avoid long lists. Chunk long lists and group related options together.
+*   The setting only applies when the user takes an action, such as clicking a save button.
+*   Prefer vertical (stacked) radios to easily scan and compare options.
+*   Use a fieldset to group related radio fields together in a set.
+*   Offer a default option.
+*   Prefer to use a default selected option.
+*   Avoid nesting.
+*   For Right-To-Left languages, add `dir=”rtl”` to a `div` wrapping the Radios
+*   Disabled state:
+    *   See [Interaction states guidelines for disabled elements](/guidelines/interaction-states#disabled-state).
+
 ## Copy guidelines
 
 Radios are helpful when presenting a set of mutually exclusive options out of which a user must make one selection. Keep these points in mind:
@@ -68,22 +84,6 @@ If your options are single sentences, words or fragments, don’t place a period
 ### Write in sentence case
 All radio copy should be in sentence case i.e. the first letter of the first word is capitalized and everything else is in lower case unless it’s a proper noun or feature name.
 
-## To keep in mind
-
-*   There must always be more than one radio field used together in a group.
-*   Radio Group contains a set of Radios and a Radio Group Label.
-*   Show options in a sensible order, such as alphabetical, numeric.
-*   Avoid long lists. Chunk long lists and group related options together.
-*   The setting only applies when the user takes an action, such as clicking a save button.
-*   Prefer vertical (stacked) radios to easily scan and compare options.
-*   Use a fieldset to group related radio fields together in a set.
-*   Offer a default option.
-*   Prefer to use a default selected option.
-*   Avoid nesting.
-*   For Right-To-Left languages, add `dir=”rtl”` to a `div` wrapping the Radios
-*   Disabled state:
-    *   See [Interaction states guidelines for disabled elements](/guidelines/interaction-states#disabled-state).
-
 ## When to use and when not to use
 
 <WhenToUseAndWhenNotToUse>
@@ -109,7 +109,7 @@ All radio copy should be in sentence case i.e. the first letter of the first wor
 
 Some websites have a “radio button group” concept where radio options are styled like buttons and you can only select one in the group. That’s a different thing to this.
 
-## External Links
+## External links
 
 Here are some examples of other existing design systems:
 

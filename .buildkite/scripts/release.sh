@@ -22,7 +22,7 @@ setup_github() {
   echo "$GH_SSH_KEY" | ssh-add -
 
   echo "Adding GitHub host key to known hosts..."
-  echo "$GITHUB_SSH_HOST_KEY" | tr -d "\\n" >> /etc/ssh/ssh_known_hosts
+  echo "$GITHUB_SSH_HOST_KEY" | tr -d "\\n" >>/etc/ssh/ssh_known_hosts
 
   echo "Checking GitHub authentication..."
   ssh -T git@github.com || true # exits non-zero
@@ -47,10 +47,18 @@ release() {
 
   # Bump packages, push and tag a release commit, and update release notes
   yarn lerna version --conventional-commits --create-release=github --yes \
-    --message "chore: release [skip ci]" 
-  
+    --message "chore: release [skip ci]"
+
   # Publish any package versions which are not already present on npm
   yarn lerna publish from-package --yes
+}
+
+release_canary() {
+  git checkout canary && git pull
+
+  yarn install --frozen-lockfile
+
+  yarn lerna publish --canary --preid canary --yes
 }
 
 main() {
@@ -62,9 +70,31 @@ main() {
   NPM_TOKEN=$(get_secret "npm-token") || exit $?
   echo "(done)"
 
+  echo "Setting up git and npm credentials..."
   setup_github
   setup_npm
-  release
+
+  if [ "$BUILDKITE_BRANCH" = master ]; then
+
+    echo "Branch: master"
+
+    echo "Releasing packages..."
+    release
+
+  elif [ "$BUILDKITE_BRANCH" = canary ]; then
+
+    echo "Branch: canary"
+
+    echo "Releasing packages..."
+    release_canary
+
+    echo "Resetting canary branch..."
+    git reset --hard master
+    git push --force
+
+  fi
+
+  echo "All done!"
 
   unset GH_SSH_KEY GH_TOKEN NPM_TOKEN
 }

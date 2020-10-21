@@ -1,8 +1,16 @@
-import * as React from "react"
-import GenericButton, { ButtonProps } from "./components/GenericButton"
+import React, { forwardRef, Ref } from "react"
+import GenericButton, {
+  ButtonProps,
+  ButtonRef,
+} from "./components/GenericButton"
 
-const Button: React.FunctionComponent<ButtonProps> = props => (
-  <GenericButton {...props} />
+/**
+ * @deprecated Button is deprecated. Please use draft-button instead.
+ */
+const Button = forwardRef(
+  (props: ButtonProps, ref: Ref<ButtonRef | undefined>) => (
+    <GenericButton {...props} ref={ref} />
+  )
 )
 
 Button.defaultProps = {

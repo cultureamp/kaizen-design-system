@@ -1,3 +1,5 @@
+/* !!! This component is deprecated. Please do not use for new code  !!! */
+
 import classnames from "classnames"
 import * as React from "react"
 import "../styles/global.scss"
@@ -5,7 +7,7 @@ import Footer from "./Footer"
 import Head from "./Head"
 import MainNav from "./MainNav"
 
-const styles = require("./Layout.scss")
+import styles from "./Layout.scss"
 
 type LayoutProps = {
   currentPath?: string
@@ -39,21 +41,26 @@ const Layout: React.SFC<LayoutProps> = ({
           [styles.noPageHeader]: !pageHeader,
         })}
       >
-        {pageHeader}
-        {fullWidthContent ? (
-          children
-        ) : (
-          <div
-            className={classnames({
-              [styles.contentContainer]: true,
-              [styles.trimBottomOfCardToContent]: trimBottomOfCardToContent,
-            })}
-          >
-            <div className={styles.content}>{children}</div>
-          </div>
-        )}
+        <main>
+          {pageHeader}
+          {fullWidthContent ? (
+            children
+          ) : (
+            <div
+              className={classnames({
+                [styles.fullWidthContent]: true,
+                [styles.contentContainer]: true,
+                [styles.trimBottomOfCardToContent]: trimBottomOfCardToContent,
+              })}
+            >
+              <div className={styles.content}>{children}</div>
+            </div>
+          )}
+        </main>
       </div>
-      <div className={styles.footerContainer}>{footer}</div>
+      <footer>
+        <div className={styles.footerContainer}>{footer}</div>
+      </footer>
     </div>
   </>
 )

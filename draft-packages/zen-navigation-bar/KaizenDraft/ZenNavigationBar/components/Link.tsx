@@ -1,16 +1,17 @@
 import { Heading, Icon } from "@kaizen/component-library"
 import classNames from "classnames"
 import * as React from "react"
+import Media from "react-media"
 import ReactTooltip from "react-tooltip"
 import uuid from "uuid/v4"
 import { NavBarContext } from "../context"
 import { LinkProps } from "../types"
+import Indicator from "./Indicator"
 
-const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
-  .default
-const styles = require("./Link.module.scss")
+import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
+import styles from "./Link.module.scss"
 
-export default class Link extends React.PureComponent<LinkProps> {
+class Link extends React.PureComponent<LinkProps> {
   static displayName = "Link"
   static contextType = NavBarContext
   static defaultProps = {
@@ -21,6 +22,7 @@ export default class Link extends React.PureComponent<LinkProps> {
     new: false,
     content: false,
     target: "_self",
+    showIndicator: false,
   }
 
   render = () => {
@@ -41,6 +43,7 @@ export default class Link extends React.PureComponent<LinkProps> {
       menuOpen,
       colorScheme,
       tooltip,
+      showIndicator,
     } = this.props
 
     const toolId = uuid()
@@ -48,19 +51,27 @@ export default class Link extends React.PureComponent<LinkProps> {
     return (
       <>
         {icon && small && (
-          <ReactTooltip
-            className={hasExtendedNavigation}
-            id={toolId}
-            place={"left"}
-            effect={"solid"}
+          <Media
+            query={`(max-width: ${styles.caBreakpointMobileMax}), (min-width: ${styles.navbarBreakpointExtendedMin})`}
           >
-            <span className={styles.tooltip}>
-              <Heading color="white" variant="heading-6">
-                {text}
-              </Heading>
-              {tooltip && tooltip}
-            </span>
-          </ReactTooltip>
+            {matches =>
+              matches ? null : (
+                <ReactTooltip
+                  className={hasExtendedNavigation}
+                  id={toolId}
+                  place={"left"}
+                  effect={"solid"}
+                >
+                  <span className={styles.tooltip}>
+                    <Heading color="white" variant="heading-6">
+                      {text}
+                    </Heading>
+                    {tooltip && tooltip}
+                  </span>
+                </ReactTooltip>
+              )
+            }
+          </Media>
         )}
 
         <a
@@ -98,6 +109,7 @@ export default class Link extends React.PureComponent<LinkProps> {
                 />
               </span>
             )}
+            {showIndicator && !icon && <Indicator />}
             {text && !(icon && iconOnly) && (
               <span className={classNames(styles.linkText)}>
                 {text}
@@ -124,3 +136,4 @@ export default class Link extends React.PureComponent<LinkProps> {
     )
   }
 }
+export default Link

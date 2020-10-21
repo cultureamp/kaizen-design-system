@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/Input/styles.scss";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/type";
@@ -21,6 +22,7 @@
 
     &:hover {
       border-color: $ca-border-color-hover;
+      cursor: pointer;
     }
   }
 
@@ -44,11 +46,19 @@
     border: 6px $kz-border-solid-border-style transparent;
     border-radius: $kz-border-solid-border-radius;
     box-shadow: $kz-shadow-large-box-shadow;
+
+    // built-in class of React Select that is not easily styled any other way in CSS
+    // (This is the "MenuList" div that wraps all the options)
+    > div {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   }
 
   .option {
     @include base-font-style();
     border-radius: 4px;
+    cursor: pointer;
   }
 
   .focusedOption {
@@ -62,6 +72,11 @@
 
   .selectedOption {
     background-color: $kz-color-cluny-100;
+  }
+
+  .disabledOption {
+    cursor: not-allowed;
+    opacity: 0.3;
   }
 
   .noOptionsMessage {
@@ -90,7 +105,8 @@
     cursor: default;
   }
 
-  &.secondary {
+  &.secondary,
+  &.secondarySmall {
     &.default {
       .control {
         background: transparent;
@@ -137,14 +153,14 @@
 
     &.reversed {
       .control {
-        background: add-alpha($kz-color-white, 10%);
+        background: rgba($kz-color-white, 0.1);
         color: $kz-color-white;
         border: $kz-border-borderless-border-width
           $kz-border-borderless-border-style $kz-border-borderless-border-color;
         border-radius: $kz-border-borderless-border-radius;
 
         &:hover {
-          background: add-alpha($kz-color-white, 20%);
+          background: rgba($kz-color-white, 0.2);
         }
 
         &.disabled {
@@ -164,6 +180,65 @@
         &:hover {
           border-color: $secondary-reversed-focus-color;
         }
+      }
+    }
+  }
+
+  &.secondarySmall.secondarySmall {
+    $secondary-small-select-height: 24px;
+
+    &.reversed {
+      .control {
+        background: transparent;
+        border: 0;
+
+        &:hover {
+          background: transparent;
+        }
+      }
+    }
+
+    .control {
+      min-height: 0;
+      height: auto;
+
+      > div {
+        // see note on > div within .notFullWidth below for explanation
+        height: $secondary-small-select-height;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .valueContainer {
+        height: $secondary-small-select-height;
+      }
+
+      .singleValue {
+        font-family: $kz-typography-paragraph-extra-small-font-family;
+        font-weight: $kz-typography-paragraph-extra-small-font-weight;
+        font-size: $kz-typography-paragraph-extra-small-font-size;
+        line-height: $kz-typography-paragraph-extra-small-line-height;
+        letter-spacing: $kz-typography-paragraph-extra-small-letter-spacing;
+      }
+
+      .singleValueOverrides {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    .dropdownIndicator {
+      padding-top: 0;
+      padding-bottom: 0;
+      transform: translateY(1px);
+
+      // Usually reaching into the Icon component like this is a no-no, but
+      // in this case we don't have access to the component in the middle which is
+      // part of react-select. I thought this would be better than hacking the
+      // structure of that component to allow one custom prop to trickle through.
+      > svg {
+        height: 14px;
+        width: 14px;
       }
     }
   }

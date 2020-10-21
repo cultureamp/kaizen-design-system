@@ -24,6 +24,27 @@ import Dont from "docs-components/Dont"
 
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D205%253A12210" allowfullscreen></iframe>
 
+## To keep in mind
+
+*   All buttons use a button element (not a link element and no `role=”button”`)
+*   All buttons have a large click target of 48px to meet minimum touch target sizes
+*   Default action button:
+    *   Use this when there is more than 1 button or it is not the most important action on the page
+*   Primary action button:
+    *   Use only 1 primary action button per page
+*   Destructive action button:
+    *   Only use when the action will result in data loss, cannot be undone, or otherwise have significant consequences
+*   Secondary action button:
+    *   Secondary Action Buttons kind of look like links but have lots of padding, a large clickable area, and sit next to other buttons, such as a Primary button. That is, they perform actions and do not navigate.
+*   Icon + label (icon on the left):
+    *   RTL: flip the direction of arrow icons when the user is using a right-to-left language
+*   Label + icon (icon on the right):
+    *   RTL: flip the direction of arrow icons when the user is using a right-to-left language
+*   Disabled buttons:
+    *   See the [Interaction states guidelines for disabled elements](/guidelines/interaction-states#disabled-state).
+*   Supplementary information:
+    *   You might show additional, optional information on hover and focus using a [Tooltip](/components/tooltip) or [Popover](/components/popover).
+
 ## Copy guidelines
 
 All buttons across the platform should be clear, actionable and predictable. When a user clicks on a button, they should know what to expect. Therefore, it’s important to pay close attention to the labelling. Here are the most important rules to keep in mind:
@@ -165,27 +186,6 @@ Keep in mind that you shouldn’t use personal pronouns unless you’re asking t
 
 Make sure that the button uses the same verb and noun as what’s used in the body text above it. For example, if you say “Upload your most up-to-date employee data into Culture Amp.” in the body, the button should say “Upload data,” not “Import data.” There are also cases in which the action the user wants to perform is a common label button like “Next” or “Cancel.” Make sure that you’ve rewritten your body copy to make the action very clear. For example, if a user is trying to cancel sending a survey, but there’s also a cancel button to exit the modal they’re viewing, reword the copy of the body to say “don’t send survey.”
 
-## To keep in mind
-
-*   All buttons use a button element (not a link element and no `role=”button”`)
-*   All buttons have a large click target of 48px to meet minimum touch target sizes
-*   Default action button:
-    *   Use this when there is more than 1 button or it is not the most important action on the page
-*   Primary action button:
-    *   Use only 1 primary action button per page
-*   Destructive action button:
-    *   Only use when the action will result in data loss, cannot be undone, or otherwise have significant consequences
-*   Secondary action button:
-    *   Secondary Action Buttons kind of look like links but have lots of padding, a large clickable area, and sit next to other buttons, such as a Primary button. That is, they perform actions and do not navigate.
-*   Icon + label (icon on the left):
-    *   RTL: flip the direction of arrow icons when the user is using a right-to-left language
-*   Label + icon (icon on the right):
-    *   RTL: flip the direction of arrow icons when the user is using a right-to-left language
-*   Disabled buttons:
-    *   See the [Interaction states guidelines for disabled elements](/guidelines/interaction-states#disabled-state).
-*   Supplementary information:
-    *   You might show additional, optional information on hover and focus using a [Tooltip](/components/tooltip) or [Popover](/components/popover).
-
 ## When to use and when not to use
 
 <WhenToUseAndWhenNotToUse>
@@ -213,7 +213,7 @@ Make sure that the button uses the same verb and noun as what’s used in the bo
 *   [Typography](/guidelines/typography/)
 *   [Icon Button](/components/icon-button/)
 
-## External Links
+## External links
 
 Here are some examples of other existing design systems:
 

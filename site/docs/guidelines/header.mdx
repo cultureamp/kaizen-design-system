@@ -1,0 +1,117 @@
+---
+title: Header
+navTitle: Header
+summaryParagraph: The Header contains the Navigation Bar, Title Block, Skirt, and any additional toolbar actions for Reporting (Default), Education and Admin pages. It's a consistent pattern to allow users to easily navigate and complete tasks.
+tags: ["Top Bar", "Global Header"]
+needToKnow:
+  - The header is the visual glue of our product, it provides a consistent position for navigation, titles, actions and filtering.
+---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
+## Visuals
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D52349%253A39395&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+## To keep in mind
+
+- Anatomy:
+    - **Navigation bar:** Contains product switcher (between Engagement and Performance) or Culture Amp logo for customers with only 1 product.
+    - **Title Block:** Contains the page title, breadcrumb, primary action, default action, secondary actions, and secondary navigation.
+    - **Skirt:** Draws the user's eye into the content area. Contains the [Filter Drawer](/components/filter-drawer/), viewed or sorted by functionality ([Select](/components/select/)), and page [Search Field](/components/search-field).
+- Variants:
+    - **Default (Wisteria):** This is for most content and reporting pages. These pages let you consume data and take action.
+    - **Education (Cluny):** This is for informative content, such as manager learning.
+    - **Admin (White):** This is for administrative tasks. This header does not include a skirt.
+
+### Navigation bar
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D52349%253A45137&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+Contains product switcher (between Engagement and Performance) or Culture Amp logo for customers with only 1 product. Contains primary wayfinding and links to key areas of the product.
+
+### Title Block
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D52349%253A47975&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+
+Every Title Block must include:
+
+- **Page Title:** This is the page's H1 which represents the parent object (E.g Survey section, or Survey Title)
+- **Canvas Divider:** [Canvas dividers](/components/divider/) are used in the header to visually separate the top half from the bottom half.
+
+A Title Block may also include these optional components:
+
+- **Breadcrumb:** Breadcrumb navigation helps the user to understand their location in the website by providing a breadcrumb trail back to the start page.
+- **[Tag](/components/tag/):** Tags help users quickly recognize important information about items that organize and categorize them (E.g. Status of a Survey, or Topic of a skills development module)
+- **[Avatar](/components/avatar/):** An Avatar represents an individual or group visually.
+- **[Select](/components/select/):** A Select lets you choose options from an option menu. Used only to allow switching between report types (i.e. 'Administrator Report' in survey reporting)
+- **[Buttons](/components/button/):**
+    - **Primary action:** The most important next step that a user should take. 
+    - **Default action:** Use sparingly. Only apply if you have more than one action that requires similar prominence to the Primary action.
+
+- **Secondary navigation:** Links to relative pages of the parent object. E.g. Summary, Insights, Participation, Questions, etc. are all subsections of the parent object, 'Report [Survey name]'
+- **Secondary actions:** Are actions which are useful and relevant to the parent object, but hold less importance than a Primary/Default action.
+    - To minimize visual noise in the Header, we recommend limiting the number of Secondary actions to 3 at most. Any more, would need to fall into an [Overflow menu](/components/menu/#overflow-menu) or [Secondary Select](/components/select/)
+    - We show the most important action on the right through to least important action on the left. One exception to this is if an overflow menu or secondary select is available. This ensure that the dropdown menu is aligned to the edge of the content area.
+    - Hierarchy of actions must consider the importance of each action or frequency of use. For example, 'Export' is a common action and giving it a consistent position will help users to discover it quickly.
+- **Section title:** Typically an H2, the Section Title helps to introduce the content below. It should directly reflect the selected Secondary Navigation item.
+
+
+### Skirt
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D52349%253A49358&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+
+The skirt area may include these elements: 
+
+- **[Filter Drawer](/components/filter-drawer/):** A filter drawer contains filters. It controls filtering of an entire page.
+    - The Filter Drawer button must be positioned above and to the far-left (in left-to-right language layouts) of the content area it is controlling.
+    - (Optional) Metadata can also be displayed next to the Filter Menu button.
+- **[Section Title](/guidelines/typography/):** Section titles (H2) introduce a grouping of content directly below it and often reflect the current page you have selected. For example, 
+    - A section title may sit above or within a content card. This can determined if a Filter Drawer is present. If so, the section title may be positioned within the content card.
+
+- **[Viewed or Sorted by](/components/select/):** Using the Select component allows the user to choose options from an option menu. In this case, the ability to view or sort the content directly below. E.g. Allowing a user to select which benchmark they wish to compare their data to.
+    - Viewed or Sorted by function should be located next to the Search Field on the far-right of the content area. If Search isn't required, the Viewed or Sorted by function(s) would be positioned above and to the right edge (in left-to-right language layouts) of the content area.
+- **[Search Field](/components/search-field/):** Search lets users quickly find relevant content. 
+    - When used, the Search Field is always positioned above and to the far-right edge (in left-to-right language layouts) of the content area.
+
+- There is no skirt in an Admin page.
+
+
+#### First row
+
+Use the First Row variation of the Skirt if you only require 1-2 Skirt elements (E.g. Navigation Tabs (left) + Secondary Actions (right)).
+- If you have opposing elements diagonal from each other, we recommend using a 'First row' layout for the Skirt. This ensures we minimize awkward and unnecessary spacing. (E.g. Navigation Tabs + Search field)
+
+#### Second row
+
+Use the Second Row variation of the Skirt if you require 2 or more of the above Skirt elements
+
+
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
+  
+- Use a Header for any page that requires consistent platform navigation and continual access (E.g. Reporting, Education or Admin pages)
+
+</WhenToUse>
+<WhenNotToUse>
+
+- In a Workflow (E.g. Survey Designer), use a Workflow Header instead.
+- In an Intro/Outro page, use the Navigation Bar sans-navigation, i.e. Culture Amp Logo (left) and Customer Account Logo (right).
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
+
+## External links
+
+Here are some examples of existing design systems:
+
+- [Lightning: Global Header](https://www.lightningdesignsystem.com/components/global-header/)
+- [Spectrum: Header](https://spectrum.adobe.com/page/headers/)
+- [Polaris: Top Bar](https://polaris.shopify.com/components/structure/top-bar)
+

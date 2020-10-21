@@ -10,6 +10,10 @@ needToKnow:
   - Cautionary guides people away from problems.
 ---
 
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
 ## To keep in mind
 
 Our set of “Positive”, “Informative”, “Cautionary”, and “Negative” are associated with colors and often icons. They are used throughout our Design System for various components to give designers flexibility for adapting the emotional impact of a component to its context.
@@ -18,12 +22,12 @@ Our set of “Positive”, “Informative”, “Cautionary”, and “Negative�
 
 - Background color:
   - Positive mood uses a tint or shade of Seedling
-  - Informative mood uses a tint or shade of Lapis
+  - Informative mood uses a tint or shade of Cluny
   - Cautionary mood uses a tint or shade of Yuzu
   - Negative mood uses a tint or shade of Coral
 - Border color:
   - Positive mood uses Seedling
-  - Informative mood uses Lapis
+  - Informative mood uses Cluny
   - Cautionary mood uses Yuzu
   - Negative mood uses Coral
 - Icon:
@@ -40,19 +44,19 @@ Our set of “Positive”, “Informative”, “Cautionary”, and “Negative�
 
 
 
-## When to use
+## When to use and when not to use
 
-**Positive**: this conveys a positive message that guides and motivates. It is used for celebrating success and confirming actions through visual feedback.
-
-**Informative**: this conveys an informative message that is valuable and helpful. It is used to help people understand the purpose of something and guide people.
-
-**Cautionary**: this conveys a cautionary message that guides people away from problems, back to a safe path, and alerts them to risks. It is used to drive action that improves experience such as updating user data to address problems. They can still move forward.
-
-**Negative**: this conveys a negative message that alerts people to show-stopping problems or irreversible or destructive actions. It is only used when people cannot progress any further in the system's current state or are at a high risk of taking a regrettable action.
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 
+- **Positive**: this conveys a positive message that guides and motivates. It is used for celebrating success and confirming actions through visual feedback.
+- **Informative**: this conveys an informative message that is valuable and helpful. It is used to help people understand the purpose of something and guide people.
+- **Cautionary**: this conveys a cautionary message that guides people away from problems, back to a safe path, and alerts them to risks. It is used to drive action that improves experience such as updating user data to address problems. They can still move forward.
+- **Negative**: this conveys a negative message that alerts people to show-stopping problems or irreversible or destructive actions. It is only used when people cannot progress any further in the system's current state or are at a high risk of taking a regrettable action.
 
-## When not to use
+</WhenToUse>
+<WhenNotToUse>
 
 - **No mood**: Some components, such as [tooltips](/components/tooltip) and [popovers](/components/popover), have a “Default” without a mood: this conveys basic information without a specific Mood. It is used when the information needs to be less prominent or engaging than other content on the page.
 - **Positive**: Avoid positive mood for supplementary information unrelated to user actions—use informative instead.
@@ -61,6 +65,9 @@ Our set of “Positive”, “Informative”, “Cautionary”, and “Negative�
 - **Negative**: 
   - Avoid negative mood for successful confirmation of intended destructive user actions such as successfully deleting an item—use positive instead. You might, however, use a negative mood before the user takes a destructive action.
   - Avoid negative mood where the user may readily recover—use cautionary instead.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## Naming
 

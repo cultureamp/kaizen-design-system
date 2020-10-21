@@ -1,20 +1,19 @@
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
-import { action } from "@storybook/addon-actions"
+
 import React, { useCallback, useRef } from "react"
+import { Tooltip } from "@kaizen/draft-tooltip"
 
 import { TextField } from "@kaizen/draft-form"
-const lockIcon = require("@kaizen/component-library/icons/lock.icon.svg")
-  .default
-const userIcon = require("@kaizen/component-library/icons/user.icon.svg")
-  .default
+import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
+import userIcon from "@kaizen/component-library/icons/user.icon.svg"
 
 const ExampleContainer: React.FunctionComponent = ({ children }) => (
   <div style={{ width: "98%", margin: "1%" }}>{children}</div>
 )
 
 const ReversedBg = {
-  parameters: {
-    backgrounds: [{ value: colorTokens.kz.color.wisteria[700], default: true }],
+  backgrounds: {
+    default: "Wisteria 700",
   },
 }
 
@@ -45,15 +44,13 @@ export const DefaultKaizenSiteDemo = () => (
         </div>
       }
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       description="Valid email addresses must have an @ and a suffix"
     />
   </ExampleContainer>
 )
 
-DefaultKaizenSiteDemo.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const DefaultInline = () => (
   <ExampleContainer>
@@ -63,16 +60,14 @@ export const DefaultInline = () => (
       inputValue=""
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       inline={true}
       description="Valid email addresses must have an @ and a suffix"
     />
   </ExampleContainer>
 )
 
-DefaultInline.story = {
-  name: "Default, Inline",
-}
+DefaultInline.storyName = "Default, Inline"
 
 export const DefaultIcon = () => (
   <ExampleContainer>
@@ -82,15 +77,13 @@ export const DefaultIcon = () => (
       inputValue=""
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={userIcon}
     />
   </ExampleContainer>
 )
 
-DefaultIcon.story = {
-  name: "Default, Icon",
-}
+DefaultIcon.storyName = "Default, Icon"
 
 export const DefaultDisabled = () => (
   <ExampleContainer>
@@ -100,15 +93,13 @@ export const DefaultDisabled = () => (
       inputValue=""
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       disabled={true}
     />
   </ExampleContainer>
 )
 
-DefaultDisabled.story = {
-  name: "Default, Disabled",
-}
+DefaultDisabled.storyName = "Default, Disabled"
 
 export const DefaultDisabledWValue = () => (
   <ExampleContainer>
@@ -118,15 +109,13 @@ export const DefaultDisabledWValue = () => (
       inputValue="craig@cultureamp.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       disabled={true}
     />
   </ExampleContainer>
 )
 
-DefaultDisabledWValue.story = {
-  name: "Default, Disabled w/ value",
-}
+DefaultDisabledWValue.storyName = "Default, Disabled w/ value"
 
 export const DefaultDisabledIcon = () => (
   <ExampleContainer>
@@ -136,16 +125,14 @@ export const DefaultDisabledIcon = () => (
       inputValue=""
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={userIcon}
       disabled={true}
     />
   </ExampleContainer>
 )
 
-DefaultDisabledIcon.story = {
-  name: "Default, Disabled + Icon",
-}
+DefaultDisabledIcon.storyName = "Default, Disabled + Icon"
 
 export const DefaultSuccess = () => (
   <ExampleContainer>
@@ -155,15 +142,13 @@ export const DefaultSuccess = () => (
       inputValue="rod@cultureamp.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       status="success"
     />
   </ExampleContainer>
 )
 
-DefaultSuccess.story = {
-  name: "Default, Success",
-}
+DefaultSuccess.storyName = "Default, Success"
 
 export const DefaultSuccessIcon = () => (
   <ExampleContainer>
@@ -173,16 +158,14 @@ export const DefaultSuccessIcon = () => (
       inputValue="marc@cultureamp.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={userIcon}
       status="success"
     />
   </ExampleContainer>
 )
 
-DefaultSuccessIcon.story = {
-  name: "Default, Success + Icon",
-}
+DefaultSuccessIcon.storyName = "Default, Success + Icon"
 
 export const DefaultError = () => (
   <ExampleContainer>
@@ -192,16 +175,14 @@ export const DefaultError = () => (
       inputValue="super_cool999@hotmail.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       status="error"
       validationMessage="Your email address looks like it’s from 1996"
     />
   </ExampleContainer>
 )
 
-DefaultError.story = {
-  name: "Default, Error",
-}
+DefaultError.storyName = "Default, Error"
 
 export const DefaultErrorIcon = () => (
   <ExampleContainer>
@@ -211,16 +192,14 @@ export const DefaultErrorIcon = () => (
       inputValue="hello@oops"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={userIcon}
       status="error"
     />
   </ExampleContainer>
 )
 
-DefaultErrorIcon.story = {
-  name: "Default, Error + Icon",
-}
+DefaultErrorIcon.storyName = "Default, Error + Icon"
 
 export const DefaultMultipleFields = () => (
   <ExampleContainer>
@@ -230,7 +209,7 @@ export const DefaultMultipleFields = () => (
       inputValue="mackenzie@example.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={userIcon}
     />
     <TextField
@@ -239,15 +218,13 @@ export const DefaultMultipleFields = () => (
       inputValue="123445555"
       labelText="Password"
       placeholder="Please enter your password"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={lockIcon}
     />
   </ExampleContainer>
 )
 
-DefaultMultipleFields.story = {
-  name: "Default, Multiple Fields",
-}
+DefaultMultipleFields.storyName = "Default, Multiple Fields"
 
 export const DefaultMultipleFieldsError = () => (
   <ExampleContainer>
@@ -258,7 +235,7 @@ export const DefaultMultipleFieldsError = () => (
       inputValue="mackenzie@example.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={userIcon}
       validationMessage="Please enter a valid email address"
     />
@@ -269,16 +246,14 @@ export const DefaultMultipleFieldsError = () => (
       inputValue="123445555"
       labelText="Password"
       placeholder="Please enter your password"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={lockIcon}
       validationMessage="The password entered does not correctly match the provided email address"
     />
   </ExampleContainer>
 )
 
-DefaultMultipleFieldsError.story = {
-  name: "Default, Multiple Fields, Error",
-}
+DefaultMultipleFieldsError.storyName = "Default, Multiple Fields, Error"
 
 export const Reversed = () => (
   <ExampleContainer>
@@ -288,13 +263,13 @@ export const Reversed = () => (
       inputValue=""
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       reversed={true}
     />
   </ExampleContainer>
 )
 
-Reversed.story = {
+Reversed.parameters = {
   ...ReversedBg,
 }
 
@@ -306,17 +281,15 @@ export const ReversedIcon = () => (
       inputValue=""
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       reversed={true}
       icon={userIcon}
     />
   </ExampleContainer>
 )
 
-ReversedIcon.story = {
-  name: "Reversed, Icon",
-  ...ReversedBg,
-}
+ReversedIcon.storyName = "Reversed, Icon"
+ReversedIcon.parameters = { ...ReversedBg }
 
 export const ReversedDisabled = () => (
   <ExampleContainer>
@@ -326,17 +299,15 @@ export const ReversedDisabled = () => (
       inputValue=""
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       reversed={true}
       disabled={true}
     />
   </ExampleContainer>
 )
 
-ReversedDisabled.story = {
-  name: "Reversed, Disabled",
-  ...ReversedBg,
-}
+ReversedDisabled.storyName = "Reversed, Disabled"
+ReversedDisabled.parameters = { ...ReversedBg }
 
 export const ReversedDisabledWValue = () => (
   <ExampleContainer>
@@ -346,17 +317,15 @@ export const ReversedDisabledWValue = () => (
       inputValue="craig@cultureamp.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       reversed={true}
       disabled={true}
     />
   </ExampleContainer>
 )
 
-ReversedDisabledWValue.story = {
-  name: "Reversed, Disabled w/ value",
-  ...ReversedBg,
-}
+ReversedDisabledWValue.storyName = "Reversed, Disabled w/ value"
+ReversedDisabledWValue.parameters = { ...ReversedBg }
 
 export const ReversedDisabledIcon = () => (
   <ExampleContainer>
@@ -366,7 +335,7 @@ export const ReversedDisabledIcon = () => (
       inputValue=""
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       reversed={true}
       icon={userIcon}
       disabled={true}
@@ -374,10 +343,8 @@ export const ReversedDisabledIcon = () => (
   </ExampleContainer>
 )
 
-ReversedDisabledIcon.story = {
-  name: "Reversed, Disabled + Icon",
-  ...ReversedBg,
-}
+ReversedDisabledIcon.storyName = "Reversed, Disabled + Icon"
+ReversedDisabledIcon.parameters = { ...ReversedBg }
 
 export const ReversedSuccess = () => (
   <ExampleContainer>
@@ -387,17 +354,15 @@ export const ReversedSuccess = () => (
       inputValue="seb@cultureamp.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       reversed={true}
       status="success"
     />
   </ExampleContainer>
 )
 
-ReversedSuccess.story = {
-  name: "Reversed,  Success",
-  ...ReversedBg,
-}
+ReversedSuccess.storyName = "Reversed,  Success"
+ReversedSuccess.parameters = { ...ReversedBg }
 
 export const ReversedSuccessIcon = () => (
   <ExampleContainer>
@@ -407,7 +372,7 @@ export const ReversedSuccessIcon = () => (
       inputValue="rod@cultureamp.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={userIcon}
       reversed={true}
       status="success"
@@ -415,10 +380,8 @@ export const ReversedSuccessIcon = () => (
   </ExampleContainer>
 )
 
-ReversedSuccessIcon.story = {
-  name: "Reversed, Success + Icon",
-  ...ReversedBg,
-}
+ReversedSuccessIcon.storyName = "Reversed, Success + Icon"
+ReversedSuccessIcon.parameters = { ...ReversedBg }
 
 export const ReversedError = () => (
   <ExampleContainer>
@@ -428,7 +391,7 @@ export const ReversedError = () => (
       inputValue="hello@oops"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       reversed={true}
       status="error"
       validationMessage="Your email address looks like it’s from 1996"
@@ -436,10 +399,8 @@ export const ReversedError = () => (
   </ExampleContainer>
 )
 
-ReversedError.story = {
-  name: "Reversed, Error",
-  ...ReversedBg,
-}
+ReversedError.storyName = "Reversed, Error"
+ReversedError.parameters = { ...ReversedBg }
 
 export const ReversedErrorIcon = () => (
   <ExampleContainer>
@@ -449,7 +410,7 @@ export const ReversedErrorIcon = () => (
       inputValue="hello@oops"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={userIcon}
       reversed={true}
       status="error"
@@ -458,10 +419,8 @@ export const ReversedErrorIcon = () => (
   </ExampleContainer>
 )
 
-ReversedErrorIcon.story = {
-  name: "Reversed, Error + Icon",
-  ...ReversedBg,
-}
+ReversedErrorIcon.storyName = "Reversed, Error + Icon"
+ReversedErrorIcon.parameters = { ...ReversedBg }
 
 export const ReversedMultipleFields = () => (
   <ExampleContainer>
@@ -471,7 +430,7 @@ export const ReversedMultipleFields = () => (
       inputValue="mackenzie@example.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={userIcon}
       reversed={true}
     />
@@ -481,17 +440,15 @@ export const ReversedMultipleFields = () => (
       inputValue="123445555"
       labelText="Password"
       placeholder="Please enter your password"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={lockIcon}
       reversed={true}
     />
   </ExampleContainer>
 )
 
-ReversedMultipleFields.story = {
-  name: "Reversed, Multiple Fields",
-  ...ReversedBg,
-}
+ReversedMultipleFields.storyName = "Reversed, Multiple Fields"
+ReversedMultipleFields.parameters = { ...ReversedBg }
 
 export const ReversedMultipleFieldsWError = () => (
   <ExampleContainer>
@@ -502,7 +459,7 @@ export const ReversedMultipleFieldsWError = () => (
       inputValue="mackenzie@example.com"
       labelText="Email"
       placeholder="Please enter your email"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={userIcon}
       validationMessage="Please enter a valid email address"
       reversed={true}
@@ -514,7 +471,7 @@ export const ReversedMultipleFieldsWError = () => (
       inputValue="123445555"
       labelText="Password"
       placeholder="Please enter your password"
-      onChange={action("user input")}
+      onChange={() => undefined}
       icon={lockIcon}
       validationMessage="The password entered does not correctly match the provided email addrress"
       reversed={true}
@@ -522,10 +479,8 @@ export const ReversedMultipleFieldsWError = () => (
   </ExampleContainer>
 )
 
-ReversedMultipleFieldsWError.story = {
-  name: "Reversed, Multiple Fields w/ Error",
-  ...ReversedBg,
-}
+ReversedMultipleFieldsWError.storyName = "Reversed, Multiple Fields w/ Error"
+ReversedMultipleFieldsWError.parameters = { ...ReversedBg }
 
 export const DefaultFocusBlurEvents = () => (
   <ExampleContainer>
@@ -542,17 +497,15 @@ export const DefaultFocusBlurEvents = () => (
         </div>
       }
       placeholder="Please enter your email"
-      onFocus={action("onFocus fired")}
-      onBlur={action("onBlur fired")}
-      onChange={action("user input")}
+      onFocus={() => undefined}
+      onBlur={() => undefined}
+      onChange={() => undefined}
       description="Valid email addresses must have an @ and a suffix"
     />
   </ExampleContainer>
 )
 
-DefaultFocusBlurEvents.story = {
-  name: "Default, Focus/Blur events",
-}
+DefaultFocusBlurEvents.storyName = "Default, Focus/Blur events"
 
 // More info about uncontrolled components:
 //   https://reactjs.org/docs/uncontrolled-components.html
@@ -580,6 +533,35 @@ export const DefaultUncontrolled = () => {
   )
 }
 
-DefaultUncontrolled.story = {
-  name: "Default, Uncontrolled",
+DefaultUncontrolled.storyName = "Default, Uncontrolled"
+
+export const DefaultWithHtmlDescription = () => {
+  const description = (
+    <>
+      The description may contain a link to further details - we recommended
+      opening the link in a new tab with an
+      <span style={{ position: "relative" }}>
+        <Tooltip position="above" text="opens in new tab">
+          <a
+            href="https://cultureamp.design/guidelines/link-vs-button/#opens-in-new-tab-tooltip"
+            target="_blank"
+          >
+            "opens in new tab" tooltip{" "}
+          </a>
+        </Tooltip>
+      </span>
+    </>
+  )
+
+  return (
+    <ExampleContainer>
+      <TextField
+        id="default-with-html-description"
+        labelText="This a text field with a HTML description"
+        description={description}
+      />
+    </ExampleContainer>
+  )
 }
+
+DefaultWithHtmlDescription.storyName = "Default w HTML description"

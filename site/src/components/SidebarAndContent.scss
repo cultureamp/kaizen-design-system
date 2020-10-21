@@ -1,20 +1,29 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/responsive";
 
 $sidebar-width: $ca-grid * 10;
+$tableOfContents-width: $ca-grid * 10;
 
 .sidebarAndContent {
   display: grid;
-  grid-template-areas: "sidebar content";
-  grid-template-columns: $sidebar-width 1fr;
+  grid-template-areas: "sidebar content tableOfContents";
+  grid-template-columns: $sidebar-width minmax(840px, 936px) $tableOfContents-width;
   grid-template-rows: 1fr;
   grid-gap: var(--sidebar-content-gap);
 
+  @media (min-width: 768px) and (max-width: 1439px) {
+    grid-template-areas: "tableOfContents sidebar content";
+    grid-template-columns: max($tableOfContents-width, $sidebar-width) auto;
+    grid-template-rows: auto 1fr;
+  }
+
   @include ca-media-mobile() {
     grid-template-areas:
+      "tableOfContents"
       "content"
       "sidebar";
     grid-template-columns: 1fr;
@@ -29,7 +38,13 @@ $sidebar-width: $ca-grid * 10;
   box-shadow: var(--card-box-shadow);
   padding: 0;
   margin-top: calc(-1 * var(--content-card-top-offset));
-  max-width: var(--page-content-width);
+  max-width: 1080px;
+
+  @media (min-width: 768px) and (max-width: 1439px) {
+    grid-row-start: 1;
+    grid-row-end: span 2;
+    max-width: 768px;
+  }
 
   @include ca-media-mobile() {
     border: 0;
@@ -55,6 +70,12 @@ $sidebar-width: $ca-grid * 10;
 .sidebar {
   grid-area: sidebar;
   margin-top: $ca-grid * 1.5;
+  max-width: $sidebar-width;
+
+  @media (min-width: 768px) and (max-width: 1439px) {
+    grid-row-start: 2;
+    grid-column-start: 1;
+  }
 }
 
 .sidebarSectionTitle {
@@ -72,14 +93,16 @@ $sidebar-width: $ca-grid * 10;
 }
 
 .tab {
+  border-radius: 7px;
   list-style: none;
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 24px;
 
   a {
+    border-radius: 7px;
     padding: $ca-grid * 0.25 $ca-grid / 2;
     width: 100%;
     text-decoration: none;
@@ -93,5 +116,50 @@ $sidebar-width: $ca-grid * 10;
   &.active {
     background-color: $kz-color-ash;
     color: $kz-color-cluny-500;
+  }
+}
+
+.tableOfContents {
+  grid-area: tableOfContents;
+  margin-top: $ca-grid * 1.5;
+  margin-left: $ca-grid * 0.5;
+  max-width: $tableOfContents-width;
+}
+
+.tableOfContentsLabel {
+  font-size: $kz-typography-heading-5-font-size;
+  font-weight: $kz-typography-paragraph-bold-font-weight;
+  margin: 0.5rem 0;
+  opacity: 0.75;
+}
+
+.tableOfContentsList {
+  margin-left: -$ca-grid * 0.5;
+  padding-left: 0;
+  margin-bottom: var(--content-card-top-offset);
+
+  @media (min-width: 768px) and (max-width: 1440px) {
+    margin-left: 0;
+  }
+
+  li {
+    list-style-type: none;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  a {
+    color: inherit;
+    display: inline-block;
+    padding: $ca-grid * 0.25 $ca-grid / 2;
+    text-decoration: none;
+    border-radius: 7px;
+  }
+  a:hover {
+    color: $kz-color-cluny-500;
+  }
+  ol {
+    list-style-type: none;
+    padding-inline-start: $ca-grid;
   }
 }

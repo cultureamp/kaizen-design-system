@@ -1,0 +1,43 @@
+{
+  "name": "@kaizen/draft-avatar",
+  "version": "1.1.16",
+  "description": "The draft avatar component",
+  "scripts": {
+    "prepublish": "tsc --project tsconfig.dist.json",
+    "build": "yarn clean && yarn prepublish",
+    "build:watch": "yarn clean && yarn prepublish --watch",
+    "clean": "rimraf '*.d.ts' '*.js' '*.map' 'KaizenDraft/**/*.d.ts' 'KaizenDraft/**/*.js' 'KaizenDraft/**/*.map'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
+    "directory": "draft-packages/avatar"
+  },
+  "bugs": {
+    "url": "https://github.com/cultureamp/kaizen-design-system/issues"
+  },
+  "files": [
+    "**/*",
+    "!**/*.ts",
+    "!**/*.tsx",
+    "**/*.d.ts",
+    "!**/*.spec.*",
+    "!**/*.snap",
+    "!draft-templates",
+    "!stories",
+    "!tsconfig.dist.json"
+  ],
+  "author": "",
+  "private": false,
+  "license": "MIT",
+  "dependencies": {
+    "@kaizen/component-library": "^7.32.3",
+    "@types/classnames": "^2.2.10",
+    "classnames": "^2.2.6",
+    "react-textfit": "^1.1.0"
+  },
+  "peerDependencies": {
+    "@kaizen/design-tokens": "^1.6.0 || ^2",
+    "react": "^16.9.0"
+  }
+}

@@ -3,7 +3,7 @@ import classnames from "classnames"
 import { graphql, StaticQuery } from "gatsby"
 import * as React from "react"
 import Tag from "./Tag"
-const styles = require("./PageHeader.scss")
+import styles from "./PageHeader.scss"
 
 type PageHeaderProps = {
   children?: React.ReactNode
@@ -76,18 +76,6 @@ const PageHeader: React.SFC<PageHeaderProps> = ({
                     alt=""
                   />
                 </div>
-                <div className={styles.tagsContainer}>
-                  {tags && (
-                    <>
-                      <div className={styles.tagsLabel}>Also known as:</div>
-                      <div className={styles.tags}>
-                        {tags.map((tagText, i) => (
-                          <Tag text={tagText} key={`tag-${i}`} />
-                        ))}
-                      </div>
-                    </>
-                  )}
-                </div>
               </div>
             )}
             <div className={styles.mainSection}>
@@ -101,8 +89,20 @@ const PageHeader: React.SFC<PageHeaderProps> = ({
                 </Heading>
               </div>
               {summaryParagraph && (
-                <h3 className={styles.summaryParagraph}>{summaryParagraph}</h3>
+                <h2 className={styles.summaryParagraph}>{summaryParagraph}</h2>
               )}
+              <div className={styles.tagsContainer}>
+                {tags && (
+                  <>
+                    <div className={styles.tagsLabel}>Also known as:</div>
+                    <div className={styles.tags}>
+                      {tags.map((tagText, i) => (
+                        <Tag text={tagText} key={`tag-${i}`} />
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
               {children}
             </div>
           </div>

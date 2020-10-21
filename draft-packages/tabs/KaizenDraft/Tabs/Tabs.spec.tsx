@@ -1,9 +1,10 @@
-import { cleanup, fireEvent, render } from "@testing-library/react"
+import { cleanup, render } from "@testing-library/react"
+import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
 
 import { Tabs } from "."
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 afterEach(cleanup)
 
@@ -62,21 +63,19 @@ describe("Tabs", () => {
         <Tabs
           tabs={tabs}
           renderTab={({
-            // tslint:disable-next-line: no-shadowed-variable
+            // eslint-disable-next-line @typescript-eslint/no-shadow
             tab,
             tabClassName,
             activeTabClassName,
             disabledTabClassName,
-          }) => {
-            return (
-              <div key={tab.label}>
-                <span>{tab.label}</span>
-                <span>{tabClassName}</span>
-                <span>{activeTabClassName}</span>
-                <span>{disabledTabClassName}</span>
-              </div>
-            )
-          }}
+          }) => (
+            <div key={tab.label}>
+              <span>{tab.label}</span>
+              <span>{tabClassName}</span>
+              <span>{activeTabClassName}</span>
+              <span>{disabledTabClassName}</span>
+            </div>
+          )}
         />
       )
       const tab = baseElement.firstChild as HTMLDivElement

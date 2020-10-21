@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-badge",
-  "version": "1.1.1",
+  "version": "1.2.2",
   "description": "The draft badge component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -34,7 +34,7 @@
     "classnames": "^2.2.6"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^1.6.0",
+    "@kaizen/design-tokens": "^2.0.0",
     "react": "^16.9.0"
   }
 }

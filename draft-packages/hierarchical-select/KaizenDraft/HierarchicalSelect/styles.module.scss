@@ -1,0 +1,107 @@
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/Input/styles.scss";
+@import "~@kaizen/draft-button/KaizenDraft/Button/styles";
+@import "~@kaizen/component-library/styles/layers";
+@import "~@kaizen/component-library/styles/layout";
+
+.container {
+  -webkit-font-smoothing: antialiased;
+  color: $kz-color-wisteria-800;
+  width: 100%;
+  position: relative;
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.button {
+  @include button-reset;
+  @include ca-padding($start: $kz-spacing-sm, $end: $kz-spacing-sm);
+  background-color: $kz-color-white;
+  color: $kz-color-wisteria-800;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: $input-height;
+  border: $kz-border-solid-border-width $kz-border-solid-border-style
+    $ca-border-color;
+  border-radius: $kz-border-solid-border-radius;
+
+  &:hover:not(:disabled),
+  &:focus:not(:disabled) {
+    .chevron {
+      color: $kz-color-wisteria-500;
+    }
+  }
+
+  &:hover:not(:disabled) {
+    border-color: $ca-border-color-hover;
+  }
+
+  &:focus:not(:disabled) {
+    border-color: $ca-border-color-focus;
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: $input-disabled-background;
+  }
+}
+
+.value {
+  @include kz-typography-paragraph-body;
+  @include ca-inherit-baseline;
+  @include ca-margin($end: $kz-spacing-xs);
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.placeholder {
+  composes: value;
+  opacity: $input-placeholder-opacity;
+}
+
+.indicators {
+  color: $kz-color-wisteria-300;
+  display: flex;
+}
+
+.separator {
+  @include ca-margin($start: $kz-spacing-sm, $end: $kz-spacing-sm);
+  border-left: 1px solid currentColor;
+}
+
+.clear {
+  &:hover:not([aria-disabled="true"]) {
+    color: $kz-color-wisteria-500;
+  }
+
+  :global(.js-focus-visible) & {
+    &:focus {
+      outline: none;
+    }
+
+    &:global(.focus-visible) {
+      outline: $kz-border-focus-ring-border-width
+        $kz-border-focus-ring-border-style $kz-color-cluny-500;
+    }
+  }
+}
+
+.clear > svg,
+.chevron > svg {
+  display: block;
+}
+
+.menu {
+  position: absolute;
+  z-index: $ca-z-index-dropdown;
+}

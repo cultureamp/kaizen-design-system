@@ -1,6 +1,5 @@
-import classnames from "classnames"
 import * as React from "react"
-const styles = require("./ExampleLayout.module.scss")
+import styles from "./ExampleLayout.module.scss"
 
 interface ExampleLayoutProps {
   rtl?: boolean

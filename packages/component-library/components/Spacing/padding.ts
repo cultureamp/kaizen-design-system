@@ -1,7 +1,7 @@
 import { GridFractions, Spacing } from "./types"
 import { convertFractionToString } from "./util"
 
-const styles = require("./Padding.module.scss")
+import styles from "./Padding.module.scss"
 
 export const pt = (unit: GridFractions): string[] => [
   styles[`pt-${convertFractionToString(unit)}`],

@@ -1,5 +1,5 @@
 import * as React from "react"
-const styles = require("./Tag.scss")
+import styles from "./Tag.scss"
 
 type TagProps = {
   text: string

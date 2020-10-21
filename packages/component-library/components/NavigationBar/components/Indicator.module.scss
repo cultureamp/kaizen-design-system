@@ -1,0 +1,9 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/component-library/styles/layout";
+
+.container {
+  @include ca-margin($end: 4px);
+  width: $kz-spacing-sm;
+  color: $kz-color-seedling-400;
+}

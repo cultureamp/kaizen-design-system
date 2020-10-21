@@ -1,0 +1,123 @@
+---
+title: Workflow
+navTitle: Workflow
+summaryParagraph: A workflow is a long task broken up into a series of smaller, linked steps.
+tags: ["Wizard", "Multi-step workflow", "Onboarding"]
+needToKnow:
+  - "Use good defaults everywhere possible. For example, pre-select values in form fields."
+  - "Aim for only 2 choices at each step."
+---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
+## Visuals
+
+### UI Kit
+
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D49154%253A36853&chrome=DOCUMENTATION" allowfullscreen></iframe>
+
+## Options
+
+A workflow may be **gated** or **ungated**:
+
+- Gated: The user must navigate through all steps in order. Use a gated workflow when a later step depends on completed information from an earlier step.
+- Ungated: The user may complete the steps in any order. The user can navigate to any step directly by the step's link in the [Progress Stepper](/components/progress-stepper).
+
+## To keep in mind
+
+Breaking the long task into a series of smaller, linked steps, lets you:
+
+- Distribute the overall cognitive load
+- Help the user understand the process by breaking it into more understandable chunks
+- Guide the user through the process with minimal friction
+- Allow decisions made in preceding steps to vary the workflow of subsequent steps
+
+This can be useful for any process that is long but typically completed in one sitting. If the user is likely to jump in and out of this process over several weeks, consider either using an alternative to the workflow or provide easy shortcuts back to relevant steps, such as an index or recent activity overview.
+
+### Anatomy
+
+- Workflows are book-ended with **Intro/Outro** pages. Inside are **workflow pages**.
+- Each **step** in a workflow contains a logical grouping of form elements needed to complete the overall task. Steps may be in different states:
+    - Complete
+    - Current
+    - Incomplete
+    - Warning
+    - Error
+- **Workflow pages**:
+    - The **workflow header** includes the Culture Amp logo, step title, and exit link:
+        - The **step title** matches the step title in the workflow footer [progress stepper](/components/progress-stepper). See the progress stepper's copy guidelines for details.
+        - The **exit link** in the top–right (in left-to-right languages) returns the user to the rest of the product. It may link to the page that launched the workflow or a known sensible place to send the user. The label typically shows that it will "save & close", but in certain circumstances may need to be stronger, such as "exit".
+        - The fixed header may shrink as the user scrolls down the page to give more attention to the content.
+    - The **content area** contains the current step's content, such as form elements, and is scrollable and may include inline validation:
+        - **Description**: Introduce the content with intro lede text (see [Typography](/guidelines/typography) for details) to provide context to the current step.
+        - Separate sections of content in the content area using [cards](/components/card). If there's more than 4 sections, you might reconsider how the workflow is broken into steps.
+    - The **workflow footer** contains a [progress stepper](/components/progress-stepper) and previous/next buttons (labeled "Previous" and "Next):
+        - On the first step, no "previous" button is shown.
+        - On the final step, the "next" button changes to a confirmation of final behavior, such as "Launch".
+        - In a gated workflow, you may visually disable the "next" button until the current step is complete and show modal on click of the button, as explained in [forms](/guidelines/forms).
+- The optional **review/summary page** summarizes the changes effected by the workflow:
+    - Set expectations about what will happen next when the user completes the process. That is, the impact of pressing the final step should be clear and the Outro success page should be unsurprising.
+    - This can provide assurances before completing the processes. For example, it reduces survey launch anxiety in the survey workflow.
+    - It can highlight common mistakes that can be fixed before completion.
+- Intro/Outro pages:
+    - Nearly every workflow uses Intro and Outro pages, but the Intro is optional.
+    - The **Intro** sets the user's expectations about what they're biting off. If they need specific information before starting, such as account details they'll need from someone else in the business, let them know here.
+    - The **Outro** page confirms completion, celebrates the user's hard work, and lets them know what to do next.
+
+### Behavior
+
+Consider:
+
+- Aim for only 2 choices at each step. The more choices you present, the longer it will take the user to reach a decision. See external links for details about Hick's law.
+- Front-end validation of supplied data and selected options. Some of this may be achieved via affordances (such as preventing forward navigation until necessary information has been entered). [Form](/guidelines/forms) validation will be expressed via Kaizen styles.
+- The workflow is a new full page outside of the application’s usual navigational context. The user can’t exit the workflow without taking an explicit action to do so.
+- You may provide visual indications of autosaving to give users confidence that their progress is safe.
+- Provide sensible defaults so there’s a frictionless path through the workflow, e.g. pre-select all participants by default.
+- There may be offshoot behavior, such as linking to a preview or a PDF. Consider if it's worth [opening in a new tab](/guidelines/link-vs-button/#opens-in-new-tab-tooltip).
+- The workflow is not a "modal" as each step has its own URL and there's no additional context behind it in the background. For that reason, we don't consider opening a modal inside a workflow to be conflicting with our guidelines to avoid modals within modals.
+
+### Errors, validation, and feedback
+
+After visiting a step, the [progress stepper](/components/progress-stepper) may show validation warnings or errors on previous steps.
+
+
+
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
+
+- Use workflows when there is more than 1 "step" required to complete the task.
+- Use workflows when a task is long or complicated, particularly if there is conditional branching, and cannot be made any simpler.
+- Use workflows when the task will likely be completed in one sitting.
+
+</WhenToUse>
+<WhenNotToUse>
+
+- Avoid workflows when it makes the task feel more serious than it is.
+- Avoid workflows when breaking up a task makes it harder to understand.
+- Avoid workflows when working through steps is more of an impediment than a benefit (for instance if a task is performed frequently, or by an expert user).
+- Avoid workflows when a task is too small or too simple to be meaningfully broken up.
+- Consider avoiding a workflow when there's no predictable or logical order for the user to complete the relevant steps.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
+
+
+
+## External links
+
+Here are some examples of existing design systems or references:
+
+- [Clarity: Wizards](https://clarity.design/documentation/wizards)
+- [VA.gov: Wizards](https://design.va.gov/patterns/wizards)
+- [NNGroup: Wizards](https://www.nngroup.com/articles/wizards/)
+- [Patternfly: Wizard](https://www.patternfly.org/v4/design-guidelines/usage-and-behavior/wizard)
+- [Human Interface Guidelines: Onboarding](https://developer.apple.com/design/human-interface-guidelines/macos/app-architecture/onboarding/)
+- [Lightning: Builder](https://www.lightningdesignsystem.com/guidelines/builder/)
+- [Lightning: Welcome Mat](https://www.lightningdesignsystem.com/components/welcome-mat/)
+- [Interaction Design Foundation: Hick’s Law: Making the choice easier for users](https://www.interaction-design.org/literature/article/hick-s-law-making-the-choice-easier-for-users#:~:text=Hick's%20Law%20is%20a%20simple,into%20a%20site%20or%20application.)
+- [The Psychology of Design: Hick's Law](https://growth.design/psychology/#hicks-law)
+- [Design principle: Hick’s Law — quick decision making by Anton Nikolov](https://uxplanet.org/design-principles-hicks-law-quick-decision-making-3dcc1b1a0632)

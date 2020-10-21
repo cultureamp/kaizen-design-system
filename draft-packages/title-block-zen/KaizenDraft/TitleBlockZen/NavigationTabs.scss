@@ -17,6 +17,7 @@
   padding: 0 ($ca-grid / 2);
   @include ca-margin($end: $ca-grid);
   color: rgba($kz-color-white, 0.7);
+  text-decoration: none;
 
   @include title-block-under-1440 {
     @include ca-margin($end: $ca-grid * 0.25);

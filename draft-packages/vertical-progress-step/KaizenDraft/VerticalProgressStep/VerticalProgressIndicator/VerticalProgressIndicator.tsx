@@ -1,15 +1,11 @@
 import * as React from "react"
 
-const emptyIcon = require("@kaizen/component-library/icons/empty.icon.svg")
-  .default
-const printIcon = require("@kaizen/component-library/icons/print.icon.svg")
-  .default
-const successIcon = require("@kaizen/component-library/icons/success.icon.svg")
-  .default
-
+import emptyIcon from "@kaizen/component-library/icons/empty.icon.svg"
+import printIcon from "@kaizen/component-library/icons/print.icon.svg"
+import successIcon from "@kaizen/component-library/icons/success.icon.svg"
 import { Icon } from "@kaizen/component-library"
 
-const styles = require("./VerticalProgressIndicator.module.scss")
+import styles from "./VerticalProgressIndicator.module.scss"
 
 type Props = {
   position: Position
@@ -76,9 +72,9 @@ export const VerticalProgressIndicator = ({ position, completion }: Props) => {
   }
 
   const renderLines = ({
-    // tslint:disable-next-line: no-shadowed-variable
+    // eslint-disable-next-line @typescript-eslint/no-shadow
     completion,
-    // tslint:disable-next-line: no-shadowed-variable
+    // eslint-disable-next-line @typescript-eslint/no-shadow
     position,
   }: {
     completion: Completion

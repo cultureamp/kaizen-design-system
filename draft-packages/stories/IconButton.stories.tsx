@@ -1,8 +1,7 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { IconButton } from "../button"
-const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
-  .default
-import { action } from "@storybook/addon-actions"
+import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
+
 import * as React from "react"
 
 export default {
@@ -15,13 +14,15 @@ const StoryWrapper = ({ children }) => (
 
 export const DefaultKaizenSiteDemo = () => (
   <StoryWrapper>
-    <IconButton icon={configureIcon} label="Label" automationId="demo-button" />
+    <IconButton
+      icon={configureIcon}
+      label="Label"
+      data-automation-id="demo-button"
+    />
   </StoryWrapper>
 )
 
-DefaultKaizenSiteDemo.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const Hyperlink = () => (
   <StoryWrapper>
@@ -35,14 +36,12 @@ export const HyperlinkWOnClick = () => (
       icon={configureIcon}
       label="Label"
       href="//example.com"
-      onClick={action("I am an onClick handler")}
+      onClick={() => undefined}
     />
   </StoryWrapper>
 )
 
-HyperlinkWOnClick.story = {
-  name: "Hyperlink w/ onClick",
-}
+HyperlinkWOnClick.storyName = "Hyperlink w/ onClick"
 
 export const Disabled = () => (
   <StoryWrapper>
@@ -67,15 +66,18 @@ export const DestructiveDisabled = () => (
   </StoryWrapper>
 )
 
-DestructiveDisabled.story = {
-  name: "Destructive, Disabled",
-}
+DestructiveDisabled.storyName = "Destructive, Disabled"
 
 export const Reversed = () => (
   <StoryWrapper>
     <IconButton icon={configureIcon} label="Label" reversed />
   </StoryWrapper>
 )
+Reversed.parameters = {
+  backgrounds: {
+    default: "Wisteria 700",
+  },
+}
 
 export const ReversedDisabled = () => (
   <StoryWrapper>
@@ -88,8 +90,11 @@ export const ReversedDisabled = () => (
   </StoryWrapper>
 )
 
-ReversedDisabled.story = {
-  name: "Reversed, Disabled",
+ReversedDisabled.storyName = "Reversed, Disabled"
+ReversedDisabled.parameters = {
+  backgrounds: {
+    default: "Wisteria 700",
+  },
 }
 
 export const FormDiscouraged = () => (
@@ -98,6 +103,4 @@ export const FormDiscouraged = () => (
   </StoryWrapper>
 )
 
-FormDiscouraged.story = {
-  name: "Form (discouraged)",
-}
+FormDiscouraged.storyName = "Form (discouraged)"

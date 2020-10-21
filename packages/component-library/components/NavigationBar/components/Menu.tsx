@@ -4,25 +4,32 @@ import {
   OffCanvas,
   OffCanvasContext,
 } from "@kaizen/component-library"
-const arrowLeftIcon = require("@kaizen/component-library/icons/arrow-left.icon.svg")
-  .default
+/**
+ * Eslint throws a false negative for modules that use require. Ensure you
+ * are importing @kaizen/component-library into your package before turning
+ * this rule off.
+ */
+// eslint-disable-next-line import/no-extraneous-dependencies
+import arrowLeftIcon from "@kaizen/component-library/icons/arrow-left.icon.svg"
 
-const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
-  .default
+// eslint-disable-next-line import/no-extraneous-dependencies
+import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
+
 import classNames from "classnames"
 import * as React from "react"
 import Media from "react-media"
 import { MOBILE_QUERY } from "../constants"
 import { MenuGroup, MenuItem, MenuProps } from "../types"
 import Link from "./Link"
+import Indicator from "./Indicator"
 
-const styles = require("./Menu.module.scss")
+import styles from "./Menu.module.scss"
 
 type State = {
   open: boolean
 }
 
-export default class Menu extends React.Component<MenuProps, State> {
+class Menu extends React.Component<MenuProps, State> {
   static displayName = "Menu"
   static defaultProps = {
     items: [],
@@ -41,6 +48,7 @@ export default class Menu extends React.Component<MenuProps, State> {
       heading,
       mobileEnabled,
       section,
+      showIndicator,
     } = this.props
 
     return (
@@ -56,6 +64,7 @@ export default class Menu extends React.Component<MenuProps, State> {
                     onClick={() => toggleVisibleMenu(heading)}
                     hasMenu
                     section={section}
+                    showIndicator={showIndicator}
                   />
                 )}
               </OffCanvasContext.Consumer>
@@ -78,6 +87,7 @@ export default class Menu extends React.Component<MenuProps, State> {
                   children
                 ) : (
                   <React.Fragment>
+                    {showIndicator && <Indicator />}
                     <span className={styles.linkText}>{heading}</span>
                     <Icon icon={chevronDownIcon} role="presentation" />
                   </React.Fragment>
@@ -160,9 +170,11 @@ export default class Menu extends React.Component<MenuProps, State> {
         text={item.label}
         href={item.url}
         onClick={onLinkClick}
+        badge={item.badge}
       />
     )
   }
+
   renderOffCanvasMenuGroup = (menuGroup: MenuGroup) => {
     const { title, items } = menuGroup
 
@@ -176,7 +188,7 @@ export default class Menu extends React.Component<MenuProps, State> {
 
   renderMenuItem = (item: MenuItem) => {
     const { onLinkClick } = this.props
-    const { label, url, method, active = false } = item
+    const { label, url, method, active = false, badge } = item
 
     if (method && method !== "get") {
       return (
@@ -192,6 +204,16 @@ export default class Menu extends React.Component<MenuProps, State> {
             })}
           >
             {label}
+            {badge && (
+              <span
+                className={classNames(styles.badge, {
+                  [styles.badgeNotification]: badge.kind === "notification",
+                  [styles.badgeNew]: badge.kind === "new",
+                })}
+              >
+                {badge.text}
+              </span>
+            )}
           </button>
         </form>
       )
@@ -207,6 +229,16 @@ export default class Menu extends React.Component<MenuProps, State> {
         onClick={onLinkClick}
       >
         {label}
+        {badge && (
+          <span
+            className={classNames(styles.badge, {
+              [styles.badgeNotification]: badge.kind === "notification",
+              [styles.badgeNew]: badge.kind === "new",
+            })}
+          >
+            {badge.text}
+          </span>
+        )}
       </a>
     )
   }
@@ -242,3 +274,5 @@ export default class Menu extends React.Component<MenuProps, State> {
     }
   }
 }
+
+export default Menu

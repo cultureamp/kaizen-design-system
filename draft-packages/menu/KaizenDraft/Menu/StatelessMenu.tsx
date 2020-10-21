@@ -1,7 +1,7 @@
 import { default as React, ReactElement, useRef } from "react"
 
 import { GenericMenuProps, render } from "./Menu"
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 export type StatelessMenuProps = {
   isMenuVisible: boolean

@@ -1,11 +1,13 @@
 ---
 title: Loading Spinner
-navTitle: Loading Spinner (not built)
+navTitle: Loading Spinner
 summaryParagraph: An animated element that indicates loading is in process and where it will appear when loading data is slow.
 tags: ["Spinner", "Loader", "Progress indicators", "Circular indicators", "Indeterminate indicators"]
 needToKnow:
-- "This has been designed but not built."
+- "Center the loading spinner in the available space."
+- "Avoid showing multiple Loading Spinners on a single page."
 - "Give people an idea of what’s happening when a small content/data item takes less than 10s to load."
+demoStoryId: loadingspinner-react--default-story
 ---
 
 import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
@@ -18,9 +20,13 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## To keep in mind
 
-* A loading spinner is generally a branded element with a looping animation that indicates loading is in process and where it will appear.
-* The loading spinner accessibility label needs to describe the state of the loading element e.g. “Loading”, “Saving”, “Processing.”
+A loading spinner is generally a branded element with a looping animation that indicates loading is in process and where it will appear.
+
+* Avoid showing multiple loading spinners on a single page. For example, in a list, you might show one loading spinner for the entire group of items instead of a loading spinner for each item in the list.
+* The loading spinner accessibility label needs to describe the state of the loading element e.g. “Loading”, “Saving”, “Processing” and, where appropriate, the object e.g. “Loading comments”.
 * You might avoid “jank” using CSS animations.
+
+Learn more about [loading patterns](/guidelines/loading-patterns/).
 
 ## When to use and when not to use
 
@@ -43,12 +49,13 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 </WhenNotToUse>
 </WhenToUseAndWhenNotToUse>
 
-## External Links
+## External links
 
-- [Lightning: Loading](https://www.lightningdesignsystem.com/guidelines/loading/#site-main-content).
-- [Polaris: Spinner](https://polaris.shopify.com/components/feedback-indicators/spinner#navigation).
-- [Atlassian: Spinners](https://atlassian.design/guidelines/product/components/spinners).
-- [Quickbooks: Loading spinner](https://designsystem.quickbooks.com/component/loading-spinners/).
-- [Predix UI: Progress bar](https://www.predix-ui.com/#/elements/px-progress-bar).
-- [Predix UI: Spinner](https://www.predix-ui.com/#/elements/px-spinner).
+- [Lightning: Loading](https://www.lightningdesignsystem.com/guidelines/loading/#site-main-content)
+- [Lightning: Spinners](https://www.lightningdesignsystem.com/components/spinners/)
+- [Polaris: Spinner](https://polaris.shopify.com/components/feedback-indicators/spinner#navigation)
+- [Atlassian: Spinners](https://atlassian.design/guidelines/product/components/spinners)
+- [Atlaskit: Spinner](https://atlaskit.atlassian.com/packages/core/spinner)
+- [Predix UI: Progress bar](https://www.predix-ui.com/#/elements/px-progress-bar)
+- [Predix UI: Spinner](https://www.predix-ui.com/#/elements/px-spinner)
 

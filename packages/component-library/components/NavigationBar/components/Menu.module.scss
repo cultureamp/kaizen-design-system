@@ -169,3 +169,21 @@ $menu__square-size: $ca-grid * 2;
   color: $kz-color-white;
   padding: ($ca-grid / 2) $ca-grid;
 }
+
+.badge {
+  @include ca-margin($start: $ca-grid * 0.25);
+  @include ca-type-inter-small-bold;
+  @include ca-inherit-baseline;
+
+  border-radius: $ca-grid;
+  &.badgeNew {
+    @include ca-padding($start: $ca-grid * 0.5, $end: $ca-grid * 0.5);
+    background-color: $kz-color-seedling-200;
+    color: $kz-color-wisteria-800;
+  }
+  &.badgeNotification {
+    @include ca-padding($start: $ca-grid / 3, $end: $ca-grid / 3);
+    background-color: $kz-color-coral-500;
+    color: $kz-color-white;
+  }
+}

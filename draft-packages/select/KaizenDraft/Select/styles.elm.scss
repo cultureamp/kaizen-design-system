@@ -37,13 +37,14 @@
   position: relative;
   box-sizing: border-box;
   border: $kz-border-solid-border-width $kz-border-solid-border-style
-    $ca-border-color;
+    $kz-color-wisteria-500;
   border-radius: $kz-border-solid-border-radius;
   /* Tech debt - this !important existed before Stylelint rules */
   outline: 0 !important; /* stylelint-disable-line declaration-no-important */
 
   &:hover {
-    border-color: $ca-border-color-hover;
+    border-color: $kz-color-wisteria-700;
+    background-color: $kz-color-wisteria-100;
   }
 
   &.isFocused {

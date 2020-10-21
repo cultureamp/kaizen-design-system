@@ -28,39 +28,57 @@ You can edit Kaizen Site documentation using GitHub's interface.
     - Under "Commit changes", write a commit message starting with `docs: `, such as `docs: update typography documentation`.
     - Create a new branch for this commit and start a pull request, e.g. `di/update-typography-guidelines`.
     - Click the "Commit changes" button. This will start a pull request.
-5. **Create PR**: Click the "Create pull request" button. Add someone as a reviewer or let #team_design_systems know.
+5. **Create PR**: Click the "Create pull request" button. Add someone as a reviewer or let #prod_design_systems know.
 6. **PR description and branch preview**:
     - Give your PR **a description** to help reviewers quickly understand why you've made the changes you have made and give feedback.
     - Where it says "No description provided", look for an "**Edit**" action (in the unlabeled icon dropdown).
     - If there is an **open Issue** for your changes, link to it in the description by writing `#` and writing the number or title of the Issue. You can find the Issue number or title by searching for it in [Issues](https://github.com/cultureamp/kaizen-design-system/issues).
     - It's convenient for reviewers if you add a link to your "**branch preview**", which shows how your changes will look on the Kaizen Site after it has automatically been built (within a few minutes of opening the PR). The branch preview link will use your branch name like this: <https://dev.cultureamp.design/>(branch-name), which you can find in the "Checks" section of the page (likely under "Show all checks" > Branch preview: "Details").
 
-Once it's approved, click "Squash and merge" to publish your changes. Share the link to the updated documentation on #team_design_systems for awareness.
+Once it's approved, click "Squash and merge" to publish your changes. Share the link to the updated documentation on #updates_design_systems for awareness.
 
 
 
 ## Contributing code
 
+### Need to know
+
+Every contribution must be **design reviewed** and **communicated**.
+
+- **Kaizen Site** changes use `docs: ` at the start of the first commit message and PR title.
+- **New features** in components use `feat: ` at the start of PR titles. For 1 commit, use `feat: ` in the commit message too.
+- **Fixes** in components use `fix: ` at the start of PR titles. For 1 commit, use `fix: ` in the commit message too.
+- **Breaking changes** that are not backwards compatible use feat or fix as above and include `BREAKING CHANGE: ` in the body of a commit message.
+- **Design token** changes… let's talk about that.
+
 ### Quality and reviews
 
 Every code contribution **must** have:
 
-- A design review from a designer
-- A PR summary that describes the changes and anything others should be aware of
-- Communications: share your new component or changes on Slack or at the Front End Practice meeting
+1. A design review from a designer
+2. Semantic versioning and conventional commit PR titles: see [Releasing packages](#releasing-packages)
+3. Communications: share your new component or changes on Slack and at relevant Front End Practice meetings
 
 Every code contribution **should strive to** have:
 
 - Basic level of unit tests
 - New or updated Storybook stories
 
-To update a component:
+To update a component in code:
 
-- Ask for a review from a design systems advocate (an "advocado"), Design Systems Team, or someone in your team who is experienced with Kaizen*
+- Ask for a code review from a design systems advocate (an "advocado"), #prod_design_systems, or someone in your team who is experienced with Kaizen*
 - Notify the front-end engineering practice (#pract_front_end_eng) of any possible breaking changes
 - Notify the QA practice of any possible breaking changes
 
-\* **If you're new to Kaizen, please ask the Design Systems Team (#team_design_systems) to set up an onboarding session to get you up to speed.** If you have an urgent PR to merge before that happens, it is safest to ask Design Systems Team to review it to catch any issues.
+\* **If you're new to Kaizen, please ask #prod_design_systems to set up an onboarding session to get you up to speed.** If you have an urgent PR to merge before that happens, it is safest to ask #prod_design_systems to review it to catch any issues.
+
+### Design tokens
+
+See the [design tokens](https://github.com/cultureamp/kaizen-design-system/tree/master/packages/generator) package.
+
+### Building a new draft component
+
+See the [draft package generator](https://github.com/cultureamp/kaizen-design-system/tree/master/packages/generator) package.
 
 ### Browser and device support
 
@@ -70,7 +88,7 @@ To learn more about what browsers and devices we support in Kaizen Component Lib
 
 To strengthen the Kaizen Design System, we encourage engineers to take a component-first development approach. By concentrating on developing Kaizen components in Storybook, we are likely to improve the API design and achieve good separation of concerns, avoiding components tightly coupled to specific applications. If, however, you want to test a component in the context of another front-end codebase, you can [yarn link](https://yarnpkg.com/lang/en/docs/cli/link/) your local version of `@kaizen/component-library` with your other front-end codebase.
 
-#### For non-draft components
+#### For core, non-draft components
 
 **Step 1**: Make your local copy of `@kaizen/component-library` available.
 
@@ -168,7 +186,7 @@ Automated releases to the npm public registry are triggered for all pull request
 
 ### Release workflow
 
-To release a new version of a package, create a pull request which...
+To release a new version of a package, create a pull request that:
 
 - Modifies only the package(s) you wish to release ([see below](#updating-multiple-packages))
 - Has a conventional pull request title ([see below](#conventional-commit))
@@ -243,6 +261,16 @@ As well as triggering a major version update, this will make breaking changes cl
 #### Updating multiple packages
 
 Note that in the case that a pull request touches files from more than one package, all of those packages will be released to the npm registry with the specified update. Sometimes this might be desirable (e.g. when performing a bulk update to package docs), but in general, **be on the lookout for pull requests which touch more than one package**, and break those changes up into separate pull requests!
+
+## Canary releases 
+
+Canary releases create a way to test changes in production-like environments, and are a great way to reduce the risk of proposed changes to a package. Use canary releases when you're working on a significant refactor, experimenting with new technology, or making other large scale changes. 
+
+Any merged pull request into the (protected) `canary` branch will create a canary release, publishing a [pre-release version](https://semver.org/#spec-item-9) of any packages touched by that branch. Only repo admins are able to directly push to the `canary` branch without a pull request.
+
+For example, opening a pull request to merge a branch containing `feat: Even more glitter` into the branch `canary` will release e.g. `@kaizen/some-package@1.1.0-canary.0` to npm. This pre-release package version will then be available elsewhere for testing those changes prior to a full release.
+
+:warning: **Note that canary releases should not be used in production.**
 
 ## Using new package releases
 

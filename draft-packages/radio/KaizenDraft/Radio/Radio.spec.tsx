@@ -1,4 +1,5 @@
-import { cleanup, fireEvent, render } from "@testing-library/react"
+import { cleanup, render } from "@testing-library/react"
+import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
 import Radio, { RadioProps } from "./Radio"
 
@@ -29,7 +30,7 @@ describe("<Radio /> ", () => {
       disabled: true,
       value: "radio-1",
     })
-    expect(container.querySelector(`[disabled]`)).toBeTruthy()
+    expect(container.querySelector("[disabled]")).toBeTruthy()
   })
 
   it("has a true .checked property when the selectedStatus is true", () => {
@@ -53,7 +54,7 @@ describe("<Radio /> ", () => {
       value: "radio-1",
     })
     expect(container.querySelector("input")!.checked).toBeTruthy()
-    expect(container.querySelector(`[disabled]`)).toBeTruthy()
+    expect(container.querySelector("[disabled]")).toBeTruthy()
   })
 
   it("doesnt have the `.checked` property if the selectedStatus prop is not present", () => {

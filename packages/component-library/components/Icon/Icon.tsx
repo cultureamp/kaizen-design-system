@@ -4,7 +4,7 @@ import * as React from "react"
 import { warn } from "../../util/console"
 import { uuidFromString } from "../../util/uuidFromString"
 
-const styles = require("./Icon.module.scss")
+import styles from "./Icon.module.scss"
 
 type RolesType =
   | "img" // meaningful, title should be read aloud to users who can't see it

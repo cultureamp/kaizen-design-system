@@ -8,8 +8,7 @@ import Layout from "../components/Layout"
 import md from "../components/markdownComponents"
 import PageHeader from "../components/PageHeader"
 
-const exclamationIcon = require("@kaizen/component-library/icons/exclamation.icon.svg")
-  .default
+import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 
 const FourOhFourPageHeader = (
   <PageHeader
@@ -38,20 +37,30 @@ export default props => (
     pageHeader={FourOhFourPageHeader}
     footer={<Footer />}
     trimBottomOfCardToContent
+    fullWidthContent={true}
   >
     <ContentOnly>
       <Content>
         <ContentMarkdownSection>
-          <md.h3>Try one of these instead:</md.h3>
+          <md.h2>Try one of these instead</md.h2>
           <md.ul>
             <md.li>
               <Link to="/guidelines/color">Color</Link>
             </md.li>
             <md.li>
-              <Link to="/guidelines/overview">Guidelines overview</Link>
+              <Link to="/components/button">Button</Link>
             </md.li>
             <md.li>
-              <Link to="/components/button">Components</Link>
+              <Link to="/language/grammar">Style and punctuation</Link>
+            </md.li>
+            <md.li>
+              <Link to="/guidelines/overview">Guidelines</Link>
+            </md.li>
+            <md.li>
+              <Link to="/components/overview">Components</Link>
+            </md.li>
+            <md.li>
+              <Link to="/language/overview">Language</Link>
             </md.li>
             <md.li>
               <Link to="/storybook">Storybook</Link>

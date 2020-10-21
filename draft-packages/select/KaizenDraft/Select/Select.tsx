@@ -6,13 +6,9 @@ import { AsyncProps as ReactAsyncSelectProps } from "react-select/src/Async"
 import { Props as ReactSelectProps } from "react-select/src/Select"
 
 import { Icon } from "@kaizen/component-library"
-
-const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
-  .default
-const clearIcon = require("@kaizen/component-library/icons/clear.icon.svg")
-  .default
-
-const styles = require("./styles.react.scss")
+import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
+import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
+import styles from "./styles.react.scss"
 
 export { ValueType } from "react-select"
 
@@ -42,12 +38,12 @@ export type SelectProps = {
   fullWidth?: boolean
 }
 
-export type VariantType = "default" | "secondary"
+export type VariantType = "default" | "secondary" | "secondary-small"
 
 export const Select = (props: SelectProps & ReactSelectProps) => {
   if (props.fullWidth === false && props.variant !== "secondary") {
     throw new Error(
-      `the prop fullWidth=false is not yet implemented when variant="default"`
+      'the prop fullWidth=false is not yet implemented when variant="default"'
     )
   }
   const { variant = "default", reversed = false } = props
@@ -56,13 +52,13 @@ export const Select = (props: SelectProps & ReactSelectProps) => {
   const fullWidth =
     props.fullWidth != null
       ? props.fullWidth
-      : variant === "secondary"
+      : variant === "secondary" || variant === "secondary-small"
       ? false
       : true
 
   if (reversed === true && variant === "default") {
     throw new Error(
-      `the combo variant="default" and reversed=true is not yet implemented for the Select component`
+      'the combo variant="default" and reversed=true is not yet implemented for the Select component'
     )
   }
 
@@ -70,6 +66,7 @@ export const Select = (props: SelectProps & ReactSelectProps) => {
     [styles.default]: !reversed,
     [styles.reversed]: reversed,
     [styles.secondary]: variant === "secondary",
+    [styles.secondarySmall]: variant === "secondary-small",
     [styles.notFullWidth]: !fullWidth,
   })
   return (
@@ -95,36 +92,36 @@ export const Select = (props: SelectProps & ReactSelectProps) => {
 
 interface AsyncProps extends ReactAsyncSelectProps<any>, ReactSelectProps {}
 
-export const AsyncSelect = (props: AsyncProps) => {
-  return (
-    <Async
-      {...props}
-      components={{
-        Control,
-        Placeholder,
-        DropdownIndicator,
-        Menu,
-        Option,
-        NoOptionsMessage,
-        SingleValue,
-        MultiValue,
-        IndicatorsContainer,
-        ClearIndicator: null,
-        IndicatorSeparator: null,
-      }}
-      className={classNames(styles.specificityIncreaser, props.className)}
-    />
-  )
-}
+export const AsyncSelect = (props: AsyncProps) => (
+  <Async
+    {...props}
+    components={{
+      Control,
+      Placeholder,
+      DropdownIndicator,
+      Menu,
+      Option,
+      NoOptionsMessage,
+      SingleValue,
+      MultiValue,
+      IndicatorsContainer,
+      ClearIndicator: null,
+      IndicatorSeparator: null,
+    }}
+    className={classNames(styles.specificityIncreaser, props.className)}
+  />
+)
 
 const Control: typeof components.Control = props => (
-  <components.Control
-    {...props}
-    className={classNames(styles.control, {
-      [styles.focusedControl]: props.isFocused,
-      [styles.disabled]: props.isDisabled,
-    })}
-  />
+  <div data-automation-id="Select__Control">
+    <components.Control
+      {...props}
+      className={classNames(styles.control, {
+        [styles.focusedControl]: props.isFocused,
+        [styles.disabled]: props.isDisabled,
+      })}
+    />
+  </div>
 )
 
 const Placeholder: typeof components.Placeholder = props => (
@@ -147,13 +144,16 @@ const Menu: typeof components.Menu = props => (
 
 // TODO - needsclick class disables fastclick on this element. Remove when fastclick is removed from consuming repos
 const Option: typeof components.Option = props => (
-  <components.Option
-    {...props}
-    className={classNames("needsclick", styles.option, {
-      [styles.focusedOption]: props.isFocused,
-      [styles.selectedOption]: props.isSelected,
-    })}
-  />
+  <div data-automation-id="Select__Option">
+    <components.Option
+      {...props}
+      className={classNames("needsclick", styles.option, {
+        [styles.focusedOption]: props.isFocused,
+        [styles.selectedOption]: props.isSelected,
+        [styles.disabledOption]: props.isDisabled,
+      })}
+    />
+  </div>
 )
 
 const NoOptionsMessage: typeof components.NoOptionsMessage = props => (
@@ -162,13 +162,11 @@ const NoOptionsMessage: typeof components.NoOptionsMessage = props => (
   </components.NoOptionsMessage>
 )
 
-const SingleValue: typeof components.SingleValue = props => {
-  return (
-    <components.SingleValue {...props} className={styles.singleValueOverrides}>
-      <span className={styles.singleValue}>{props.children}</span>
-    </components.SingleValue>
-  )
-}
+const SingleValue: typeof components.SingleValue = props => (
+  <components.SingleValue {...props} className={styles.singleValueOverrides}>
+    <span className={styles.singleValue}>{props.children}</span>
+  </components.SingleValue>
+)
 
 const MultiValue: typeof components.MultiValue = props => (
   <components.MultiValue {...props} className={styles.multiValue} />

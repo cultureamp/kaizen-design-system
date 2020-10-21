@@ -8,6 +8,10 @@ needToKnow:
   - "As a general rule, we use 12px (½ Grid Unit) or 24px (1 Grid Unit) for most spacing requirements."
 ---
 
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
 ## To keep in mind
 
 ### Grid Units
@@ -40,9 +44,20 @@ Spacing helps to relate elements together through proximity. Grid units give us 
 
 - As a general rule, we use 12px (½ Grid Unit) or 24px (1 Grid Unit) to separate elements within a container.
 
-## When to use
+## When to use and when not to use
 
-- To control the positioning of elements that are close together inside a container.
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
+
+- Use spacing tokens to control the positioning of elements that are close together inside a container.
+
+</WhenToUse>
+<WhenNotToUse>
+
+- For optical [alignment](/guidelines/alignment), you might use custom adjustments or pair spacing tokens with custom adjustments.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ## See also
 

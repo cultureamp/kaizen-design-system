@@ -1,32 +1,38 @@
 @import "~@kaizen/component-library/styles/responsive";
-@import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/design-tokens/sass/animation";
 
 .content {
   display: grid;
   grid-template-areas:
-    "guidelines-image components-image"
-    "guidelines-text components-text";
+    "guidelines-image language-image components-image"
+    "guidelines-text language-text components-text";
   justify-content: space-evenly;
   align-content: center;
-  padding: calc(var(--ca-grid) * 6) 0;
+  padding: calc(var(--ca-grid) * 4.5) 0;
 
   @include ca-media-mobile() {
     grid-template-areas:
       "guidelines-image"
       "guidelines-text"
       "."
+      "language-image"
+      "language-text"
+      "."
       "components-image"
       "components-text";
     padding: calc(var(--ca-grid) * 4) 0 0 0;
-    grid-template-rows: auto auto 3rem auto auto;
+    grid-template-rows: auto auto 3rem auto auto 3rem;
   }
 }
 
 %imageContainer {
   background: #fff;
-  width: 300px;
-  height: 300px;
-  transition: transform $ca-duration-fast, box-shadow $ca-duration-fast;
+  width: 240px;
+  height: 240px;
+  transition: transform $kz-animation-duration-rapid
+      $kz-animation-easing-function-ease-in-out,
+    box-shadow $kz-animation-duration-rapid
+      $kz-animation-easing-function-ease-in-out;
 
   &:hover {
     transform: scale(1.025);
@@ -44,18 +50,28 @@
   grid-area: guidelines-image;
 }
 
+.languageImageContainer {
+  @extend %imageContainer;
+  grid-area: language-image;
+}
+
 .componentsImageContainer {
   @extend %imageContainer;
   grid-area: components-image;
 }
 
 %textContainer {
-  width: 300px;
+  width: 240px;
 }
 
 .guidelinesTextContainer {
   @extend %textContainer;
   grid-area: guidelines-text;
+}
+
+.languageTextContainer {
+  @extend %textContainer;
+  grid-area: language-text;
 }
 
 .componentsTextContainer {

@@ -1,0 +1,88 @@
+---
+title: Filter Drawer
+navTitle: Filter Drawer
+summaryParagraph: A filter drawer contains filters. It controls filtering of an entire page.
+tags: ["Filter bar", "Filter menu", "Filterable list"]
+needToKnow:
+- Use rows or columns to clearly define groups of filter components.
+demoStoryId: filterdrawer-react--default-story
+demoStoryHeight: 400px
+---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
+## Visuals
+
+### UI Kit
+
+Coming soon.
+
+## To keep in mind
+
+See the [Filtering](/guidelines/filtering) guidelines for more details about individual filter fields and their behavior. This page only concerns the filter drawer.
+
+### Anatomy
+
+- Filter button: This expands and collapses the dropdown. It may show a badge as well when filters are applied.
+- Filter button badge: This shows the number of filter fields with applied filters.
+- Filter metadata: This shows text info about the filters applied.
+- Filter dropdown container/drawer: This contains all the filter fields and any Apply, Cancel, or Clear buttons. Informally, we sometimes use "drawer" or "dropdown" to refer to the part that drops down. The dropdown container may be collapsed or expanded.
+
+### Filter Button
+
+- The filter button appears above the content it filters rather than beside.
+- The filter button appears on the left-hand side, except in right-to-left (RTL) languages where it would be placed on the right-hand side of the page layout. The icon and badge would also switch places.
+- The filter button uses standard [button](/components/button) behavior, but is stylistically unique.
+
+### Filter Button Badge
+
+The filter button badge shows the number of filter fields with applied filters. It does not show the number of filter values. For example, if the "Demographic" filter has the "Country" filter field applied with "Australia" and "United States" selected, you would show a badge count of "1" to indicate "Country". For "Country" with its 2 values applied and "Department" with 1 value applied, you would show a badge count of "2" to indicate the 2 filter fields applied.
+
+### Filter metadata
+
+There is space needed next to the filter button for metadata. It shows relevant info about the content being filtered, such as "Participation 1%, Responses 1 of 170", which is updated by the filters but always shown, even when no filters are applied. The metadata occupies 1 row without wrapping.
+
+### Filter dropdown
+
+The drawer can grow horizontally and vertically to comfortably fit a few filters and increasing numbers of applied filters. It can grow to a max width that matches the content area width.
+
+- Layout for filter fields:
+    - Use rows or columns to clearly define groups of filter components.
+- Layout for applied filters:
+    - As people apply filter values, the filter fields may stack, taking up more drawer space. Use analytics to answer general usage questions to inform optimal drawer layout. Consider internal scrolling behavior when the drawer grows too large.
+
+### Filter components
+
+Use the filter drawer to house [Select](/components/select) and [Date Picker](/components/date-picker) components. Do not include [Search Fields](/components/search-field), which always live outside of the filter drawer.
+
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
+
+*   Use a filter drawer to house filtering on a page that applies to the content of the whole page.
+
+</WhenToUse>
+<WhenNotToUse>
+
+*   For filtering a specific section of a page, use a filter bar instead.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
+
+## See also
+
+- [Filtering guidelines](/guidelines/filtering/)
+
+## External Links
+
+Here are some examples of other existing design systems:
+
+- [Feelix: Filter Bar](https://feelix.myob.com/#/Components/Filtering/FilterBar)
+- [CFPB: Filterable List Control Panel](https://cfpb.github.io/design-system/patterns/filterable-list-control-panels)
+- [Polaris: Filters](https://polaris.shopify.com/components/lists-and-tables/filters)
+- [Lightning: Rules, Filters, Logic](https://www.lightningdesignsystem.com/guidelines/rules-filters-logic/)
+- [Atlassian: page header](https://www.atlassian.design/guidelines/product/patterns/page-header)
+

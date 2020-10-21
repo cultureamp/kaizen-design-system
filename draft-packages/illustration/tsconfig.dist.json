@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "../../tsconfig.dist.json",
   "compilerOptions": {
     "allowJs": false,
     "declaration": true,

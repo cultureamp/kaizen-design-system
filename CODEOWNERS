@@ -2,14 +2,14 @@
 # https://help.github.com/articles/about-code-owners/
 
 # Require Design Systems Team approval for any new packages or this file
-/CODEOWNERS @cultureamp/design-systems
-/packages/ @cultureamp/design-systems
+/CODEOWNERS @cultureamp/frontend-avocados
+/packages/ @cultureamp/frontend-avocados
 /draft-packages/ @ghost
 
 # Exclude modifications to existing packages by assigning it to no one
 /packages/hosted-assets @ghost
 
-# Pipelines are maintained by Delivery Engineering:
-/.buildkite/ @cultureamp/delivery-engineering
-/docker-compose.yml @cultureamp/delivery-engineering
-/lerna.json @cultureamp/delivery-engineering
+# Pipelines are maintained by Foundation team FE Engineers
+/.buildkite/ @cultureamp/frontend-ops-approvers
+/docker-compose.yml @cultureamp/frontend-ops-approvers
+/lerna.json @cultureamp/frontend-ops-approvers

@@ -6,6 +6,7 @@ module KaizenDraft.Form.TextField.TextField exposing
     , controlled
     , default
     , description
+    , descriptionHtml
     , disabled
     , icon
     , id
@@ -77,6 +78,7 @@ type alias ConfigValue msg =
     , placeholder : String
     , validationMessage : Maybe String
     , description : Maybe String
+    , descriptionHtml : Maybe (List (Html msg))
     , disabled : Bool
     , inputValue : String
     , controlled : Bool
@@ -100,6 +102,7 @@ defaults =
     , placeholder = ""
     , validationMessage = Nothing
     , description = Nothing
+    , descriptionHtml = Nothing
     , disabled = False
     , inputValue = ""
     , controlled = True
@@ -161,6 +164,11 @@ validationMessage value (Config config) =
 description : String -> Config msg -> Config msg
 description value (Config config) =
     Config { config | description = Just value }
+
+
+descriptionHtml : List (Html msg) -> Config msg -> Config msg
+descriptionHtml value (Config config) =
+    Config { config | descriptionHtml = Just value }
 
 
 disabled : Bool -> Config msg -> Config msg
@@ -357,8 +365,11 @@ view (Config config) =
                     FieldMessage.Default
 
         fieldDescriptionHtml =
-            case config.description of
-                Just descriptionString ->
+            case ( config.description, config.descriptionHtml ) of
+                ( Nothing, Nothing ) ->
+                    text ""
+
+                _ ->
                     div
                         [ styles.classList
                             [ ( .description, True )
@@ -368,14 +379,13 @@ view (Config config) =
                             (FieldMessage.default
                                 |> FieldMessage.id (idProp ++ "-field-description")
                                 |> FieldMessage.automationId (idProp ++ "-field-description")
-                                |> FieldMessage.message descriptionString
+                                |> FieldMessage.message
+                                    (config.description |> Maybe.withDefault "")
+                                |> FieldMessage.messageHtml config.descriptionHtml
                                 |> FieldMessage.status FieldMessage.Default
                                 |> FieldMessage.reversed config.reversed
                             )
                         ]
-
-                Nothing ->
-                    text ""
 
         fieldValidationMessageHtml =
             case config.validationMessage of

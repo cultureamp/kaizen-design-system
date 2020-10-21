@@ -10,7 +10,7 @@ import {
 
 import { warn } from "@kaizen/component-library/util/console"
 
-const styles = require("./GenericModal.scss")
+import styles from "./GenericModal.scss"
 
 interface GenericModalContainerProps {
   readonly isOpen: boolean
@@ -92,15 +92,17 @@ class GenericModal extends React.Component<GenericModalProps> {
       document.removeEventListener("keyup", this.escapeKeyHandler)
   }
 
-  // tslint:disable-next-line: no-empty
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   removeAriaHider(): void {}
 
   preventBodyScroll() {
     const hasScrollbar =
       window.innerWidth > document.documentElement.clientWidth
-    document.documentElement.classList.add(
-      ...[styles.unscrollable, hasScrollbar && styles.pseudoScrollbar]
-    )
+    const scrollStyles = [styles.unscrollable]
+    if (hasScrollbar) {
+      scrollStyles.push(styles.pseudoScrollbar)
+    }
+    document.documentElement.classList.add(...scrollStyles)
   }
 
   restoreBodyScroll() {
@@ -232,7 +234,7 @@ function canUseDOM(): boolean {
   )
 }
 
-// tslint:disable-next-line: no-empty
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 function noop(): void {}
 
 /**

@@ -1,12 +1,11 @@
-import { Icon } from "@kaizen/component-library"
+import { Icon, Paragraph } from "@kaizen/component-library"
 import classNames from "classnames"
 import React from "react"
 import { NavBarContext } from "../context"
-import { MenuItemProps } from "../types"
+import { Badge, MenuItemProps } from "../types"
 
-const arrowForwardIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
-  .default
-const styles = require("./MenuItem.module.scss")
+import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
+import styles from "./MenuItem.module.scss"
 
 const MenuItem = ({
   label,
@@ -15,6 +14,7 @@ const MenuItem = ({
   onClick,
   showArrowIcon = false,
   active = false,
+  badge,
 }: MenuItemProps) => {
   const { handleNavigationChange } = React.useContext(NavBarContext)
 
@@ -29,6 +29,22 @@ const MenuItem = ({
     </span>
   )
 
+  const renderBadge = ({ kind, text }: Badge) => (
+    <div
+      className={classNames(styles.badge, {
+        [styles.badgeNotification]: kind === "notification",
+        [styles.badgeNew]: kind === "new",
+      })}
+    >
+      <Paragraph
+        variant="extra-small"
+        color={kind === "new" ? "dark" : "white"}
+      >
+        {text}
+      </Paragraph>
+    </div>
+  )
+
   const renderForm = () => (
     // HTML forms only accept POST. We use a hidden `_method` input as a convention for emulating other HTTP verbs.
     // This behaviour is the same as what is implemented by UJS and supported by Rails:
@@ -36,7 +52,10 @@ const MenuItem = ({
     <form method="post" action={url}>
       <input name="_method" value={method} type="hidden" />
       <button type="submit" className={styles.itemBtn}>
-        {label}
+        <div className={styles.linkLabel}>
+          {label}
+          {badge && renderBadge(badge)}
+        </div>
         {showArrowIcon && renderArrowIcon()}
       </button>
     </form>
@@ -49,7 +68,10 @@ const MenuItem = ({
       tabIndex={0}
       onClick={handleItemClick}
     >
-      {label}
+      <div className={styles.linkLabel}>
+        {label}
+        {badge && renderBadge(badge)}
+      </div>
       {showArrowIcon && renderArrowIcon()}
     </a>
   )

@@ -1,8 +1,9 @@
-import { cleanup, fireEvent, render } from "@testing-library/react"
+import { cleanup, render } from "@testing-library/react"
+import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
 
-import { Checkbox } from "."
 import { CheckboxProps, CheckedStatus } from "./Checkbox"
+import { Checkbox } from "."
 
 afterEach(cleanup)
 
@@ -37,17 +38,17 @@ describe("<Checkbox />", () => {
 
   it("should render a disabled checkbox", () => {
     const { container } = renderCheckbox({ disabled: true })
-    expect(container.querySelector(`[disabled]`)).toBeTruthy()
+    expect(container.querySelector("[disabled]")).toBeTruthy()
   })
 
   it("should render a `checked` checkbox", () => {
     const { container } = renderCheckbox({ checkedStatus: "on" })
-    expect(container.querySelector(`[checked]`)).toBeTruthy()
+    expect(container.querySelector("[checked]")).toBeTruthy()
   })
 
   it("should render a `mixed` checkbox", () => {
     const { container } = renderCheckbox({ checkedStatus: "mixed" })
-    expect(container.querySelector(`[data-indeterminate]`)).toBeTruthy()
+    expect(container.querySelector("[data-indeterminate]")).toBeTruthy()
   })
 
   it("should render an `id` attribute", () => {

@@ -23,62 +23,84 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D205%253A12158" allowfullscreen></iframe>
 
+## To keep in mind
+
+Use sparingly. Tooltips innately hide information. Consider exposing the information immediately without a tooltip or removing it completely.
+
+### Anatomy
+
+*   The anatomy of a tooltip is made up of a **container**, **description** and **tip** (i.e. arrow).
+*   A tooltip is connected to a **trigger** element, such as a button or icon, that shows the tooltip when the interactive trigger element is hovered, focused, or clicked. (More details below.)
+
+### Visual details
+
+*   Text and tips within tooltips can be left, centered and right aligned, as appropriate within its environmental context.
+*   Use strong signifiers for trigger elements to ensure the tooltip is discoverable.
+*   The proximity of tooltips is always paired nearby the element with which they are associated.
+*   Don’t crop tooltips e.g. at the edge of modals.
+
+### Trigger
+
+*   Needs to be discoverable:
+    *   E.g. something like an icon to tell you there’s a tooltip
+    *   E.g. show the first tooltip/popover immediately on page load so people know they’re there
+    *   Avoid triggering tooltips from text without indicators that the text has behaviour
+*   Needs to not be noisy (e.g. we don’t litter UI with icons all the time)
+*   Only trigger tooltips from:
+    *   Interactive elements:
+        *   Buttons
+        *   Links
+        *   Icon buttons
+    *   Non-interactive elements (be mindful of keyboard accessibility):
+        *   Icons
+        *   Abbreviations (e.g. dashed underlined text for HRIS that shows a tooltip that says Human Resource Information System)
+        *   Truncated text
+*   For interactive elements that trigger tooltips, only have optional information in the tooltip because it could be missed when the user clicks.
+
+### Moods
+
+For context, see [Moods](/guidelines/moods).
+
+*   When combined with an icon, use the matching icon and mood (Positive, Informative, Cautionary, Negative). For example, when using a Cluny (blue) colored information icon, show an informative tooltip.
+*   When used without an icon, use the Default tooltip (white).
+
+### Animation details
+
+*   A Tooltip **lifts up** from the **trigger point**, by “slide fading” towards the top of the screen away from the trigger point. Related: Tooltip arrows always point down and “slide fade” upwards unless they're at a viewport edge, then the tooltip should move in the opposite (and most logical) direction.
+
+### Amount
+
+*   Use sparingly. If you’re building something that requires a lot of tooltips, work on clarifying the design and the language in the experience.
+*   Only show 1 tooltip at a time.
+
+### Accessibility
+
+*   Tooltips contain limited content so we can use an ‘announcer’ to announce tooltip content to people using screen readers e.g. using an ARIA live region.
+*   In contrast, a user might interact with a Popover, requiring focus, so we need to move focus to the Popover when it’s triggered and support keyboard navigation to dismiss a dismissible Popover.
+
 ## Copy guidelines
+
 Tooltips are a useful way to highlight additional information for a feature or element in the platform. Use them sparingly and keep these rules in mind:
 
 ### They shouldn’t be a barrier to task completion
+
 Tooltips should never stop a user (or be a gate) from completing a task or performing an action. They disappear so they should never contain critical information that a user would absolutely need to proceed, or information without which a user may cause errors. If the information is crucial for a user to proceed, consider using a [modal](/components/modal) or [inline notification](/guidelines/notifications) instead.
 
 ### Don’t use tooltips to convey errors
+
 Never include any kind of error messages in a tooltip. As tooltips are hidden, a user may not be aware of an error if it exists in the tooltip text.
 
 ### Keep it brief
+
 Good tooltips contain concise and helpful information. Keep it to one or two very short sentences. Don’t use it to duplicate information that already exists on the page. Instead, closely consider its placement and whether the disclosed copy will inform the action the user is about to perform.
 
 ### Avoid links and buttons
+
 As tooltips only surface from a hover, never include links or buttons in the copy. If your tooltip requires either of these, considers putting your content in a [popover](/components/popover).
 
 ### Write in sentence case with minimal punctuation
+
 All tooltips copy should be in sentence case i.e. the first letter of the first word is capitalized and everything else is in lower case unless it’s a proper noun or feature name. Always err on the side of minimal punctuation, so leave out full stops and commas where possible.
-
-## To keep in mind
-
-*   Anatomy:
-    *   The anatomy of a tooltip is made up of a **container**, **description** and **tip** (i.e. arrow).
-    *   A tooltip is connected to a **trigger** element, such as a button or icon, that shows the tooltip when the interactive trigger element is hovered, focused, or clicked. (More details below.)
-*   Visual details:
-    *   Text and tips within tooltips can be left, centered and right aligned, as appropriate within its environmental context.
-    *   Use strong signifiers for trigger elements to ensure the tooltip is discoverable.
-    *   The proximity of tooltips is always paired nearby the element with which they are associated.
-    *   Don’t crop tooltips e.g. at the edge of modals.
-*   Trigger:
-    *   Needs to be discoverable:
-        *   E.g. something like an icon to tell you there’s a tooltip
-        *   E.g. show the first tooltip/popover immediately on page load so people know they’re there
-        *   Avoid triggering tooltips from text without indicators that the text has behaviour
-    *   Needs to not be noisy (e.g. we don’t litter UI with icons all the time)
-    *   Only trigger tooltips from:
-        *   Interactive elements:
-            *   Buttons
-            *   Links
-            *   Icon buttons
-        *   Non-interactive elements (be mindful of keyboard accessibility):
-            *   Icons
-            *   Abbreviations (e.g. dashed underlined text for HRIS that shows a tooltip that says Human Resource Information System)
-            *   Truncated text
-    *   For interactive elements that trigger tooltips, only have optional information in the tooltip because it could be missed when the user clicks.
-*   Moods:
-    *   When combined with an icon, use the matching icon and mood (Positive, Informative, Cautionary, Negative). For example, when using a Lapis (blue) colored information icon, show an informative tooltip.
-    *   When used without an icon, use the Default tooltip (white).
-*   Animation details:
-    *   A Tooltip **lifts up** from the **trigger point**, by “slide fading” towards the top of the screen away from the trigger point. Related: Tooltip arrows always point down and “slide fade” upwards unless they're at a viewport edge, then the tooltip should move in the opposite (and most logical) direction.
-*   Amount:
-    *   Use sparingly. If you’re building something that requires a lot of tooltips, work on clarifying the design and the language in the experience.
-    *   Only show 1 tooltip at a time.
-*   Accessibility:
-    *   Tooltips contain limited content so we can use an ‘announcer’ to announce tooltip content to people using screen readers e.g. using an ARIA live region.
-    *   In contrast, a user might interact with a Popover, requiring focus, so we need to move focus to the Popover when it’s triggered and support keyboard navigation to dismiss a dismissible Popover.
-*   Use sparingly. Tooltips innately hide information. Consider exposing it immediately without a tooltip or removing it completely.
 
 ## When to use and when not to use
 
@@ -107,7 +129,7 @@ All tooltips copy should be in sentence case i.e. the first letter of the first 
     *   [Popovers](/components/popover)
     *   [Modals](/components/modal)
 
-## External Links
+## External links
 
 - [Material: tooltip](https://material.io/design/components/tooltips.html)
 - [Lightning: tooltip](https://www.lightningdesignsystem.com/accessibility/patterns/tooltip/#site-main-content)

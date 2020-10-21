@@ -19,7 +19,9 @@ needToKnow:
 
 These definitions are used throughout the subsequent guidance.
 
-*   A **filter menu** describes a group of components available to apply filters.
+*   A **[Filter Drawer](/components/filter-drawer)** is a container that houses a filter menu that controls an entire page.
+*   A **Filter Bar (not built yet)** is a horizontal collection of filter components, such as Selects and Date Pickers for filtering that appears in a content area.
+*   A **Filter menu (not a component)** is a general term for a group of components available to apply filters.
 *   A **filter field** describes a specific group of data that you might have different options for, such as “Price”.
 *   A **filter value** describes a specific option for a value, such as “>$50”.
 *   An **applied filter** shows all the selected values for that filter dimension, such as “Price” being set to “>$50” and “&lt;$100”.
@@ -75,7 +77,7 @@ For [filtering that uses tags](#tags-in-filtering) to display selected values, c
 
 Consider providing a method for users to preserve or return to a combination of filter fields and values. For example, you might support "saving" a filter view. Alternatively, you might considering reusing the same filter settings across pages or browser sessions.
 
-### Filtering components
+## Filtering components
 
 We sometimes use the following components in filters:
 
@@ -94,7 +96,7 @@ We sometimes use the following components in filters:
 - We prefer search above content and right-aligned.
 - Use multi-select with tags outside the select input when it's important to keep the applied filter values visible. In contrast, if it's sufficient context to know only that a filter is applied but not the exact values, you might show the selected values as checkboxes in the select dropdown instead. Note: we currently use tags for selected values in our [Select component](/components/select).
 
-#### Select in filtering
+### Select in filtering
 
 A [select](/components/select/) lets you choose options from an option menu. A single-select lets you choose one option while a multi-select lets you choose multiple options.
 
@@ -121,7 +123,7 @@ The select filter:
     *   Other things that have natural ordering like age groups, performance rating (good, great, better), rating scales (strongly disagree to strongly agree)
 *   Can combine autocomplete search within the select input
 
-#### Section tabs in filtering
+### Section tabs in filtering
 
 Section tabs organize content by grouping similar information from the same dataset into containers that are shown and hidden into sections.
 
@@ -142,7 +144,7 @@ Section tabs are useful in filtering when:
 *   Understanding relationships between segments of data:
     *   Some tabs are parts of a whole (e.g. complete/incomplete)
 
-#### Checkbox group in filtering
+### Checkbox group in filtering
 
 A [checkbox group](/components/checkbox-group/) contains checkbox fields that let people select zero or more options from a set.
 
@@ -163,7 +165,7 @@ The checkbox group filter:
 *   Combine groups of checkboxes
 *   Works for 5+ checkboxes
 
-#### Radio group in filtering
+### Radio group in filtering
 
 [Radio groups](/components/radio-group/) include a set of radios that let people select exactly one option in a set.
 
@@ -183,7 +185,7 @@ A radio group filter:
 *   Radios are tabs
 *   Works for 5–20 radios whereas tabs might only work for &lt;5
 
-#### Search in filtering
+### Search in filtering
 
 [Search](/components/search-field) lets users quickly find relevant content. It allows a user to type a word or phrase to filter a large amount of data down to a known piece of content or to a narrower list of relevant content without navigation.
 
@@ -220,7 +222,7 @@ Here are some considerations for search in filtering:
     *   Filters can be separate from search and add the selected value Tag to the search input field
     *   Possible to combine specific tag results and keyword search in one search bar e.g. Gmail searching for `"Label: unread" covid-19|`
 
-#### Date picker in filtering
+### Date picker in filtering
 
 A [Date Picker](/components/date-picker) lets users select a date or range of dates. It uses a text field and a visual calendar in a popover.
 
@@ -237,11 +239,11 @@ Here are some considerations for using a date picker in filtering:
     *   Today, yesterday, last quarter, last year
 *   Consider providing button shortcuts to Today, Tomorrow, Next Week, or Next Month
 
-In data visualizations, such as a bar chart that show time on the X Axis:
+In [data visualizations](/guidelines/data-visualization), such as a bar chart that show time on the X Axis:
 
 *   Consider providing handles to filter and zoom in on a time period.
 
-#### Tags in filtering
+### Tags in filtering
 
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D26297%253A59&chrome=DOCUMENTATION" allowfullscreen></iframe>
 
@@ -249,7 +251,7 @@ A [Tag](/components/tag/) helps users quickly recognize important information ab
 
 Use dismissible tags with a [select](/component/select) to show selected filter values when there are multiple selected values you want to show while the select is closed.
 
-#### Logic and rules
+### Logic and rules
 
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D26297%253A0&chrome=DOCUMENTATION" allowfullscreen></iframe>
 
@@ -257,7 +259,7 @@ Use dismissible tags with a [select](/component/select) to show selected filter 
     - Use a `fieldset` for each row of form fields. Use a single `legend` to describe all elements in that row. Use an individual `label` for each form field in that form. To avoid visual repetition and noise, you might visibly hide redundant labels, providing them only to people using screen readers off screen.
     - Show how each row relates to the next. For example, for survey branching logic, you might show that each condition is combined together using the keyword "AND".
 
-#### Badges in filtering
+### Badges in filtering
 
 [Badges](/components/badge/) show the count of some adjacent data. A dot badge notifies the user that something is new or updated without showing a count.
 
@@ -267,7 +269,7 @@ Use badges to highlight counts available in that filter field.
 
 Use badges to highlight other metadata or counts, such as total results after applying several filters in a filter menu.
 
-### External Links
+### External links
 
 Here are some examples of existing design system with filtering.
 

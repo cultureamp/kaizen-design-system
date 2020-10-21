@@ -3,7 +3,7 @@ import * as React from "react"
 import Dropdown from "./Dropdown"
 import DropdownMenu from "./DropdownMenu"
 import { Dir } from "./types"
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 type AnchorCallback = (event: React.MouseEvent<HTMLAnchorElement>) => void
 type ButtonCallback = (event: React.MouseEvent<HTMLButtonElement>) => void
@@ -55,11 +55,10 @@ const SplitButton: React.FunctionComponent<SplitButtonProps> = ({
     setIsMenuVisible(!isMenuVisible)
   }
 
-  const getButtonsBoundingRect = () => {
-    return dropdownButtonsContainerRef.current
+  const getButtonsBoundingRect = () =>
+    dropdownButtonsContainerRef.current
       ? dropdownButtonsContainerRef.current.getBoundingClientRect()
       : null
-  }
 
   return (
     <div className={styles.root} dir={dir} data-automation-id={automationId}>

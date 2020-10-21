@@ -13,6 +13,8 @@ $breadcrumb-breakpoint-width: $kz-layout-content-max-width +
 $title-block-separator-height: 3px;
 $tab-container-height-default: $ca-grid * 3;
 $tab-container-height-small: $ca-grid * 2.5;
+$tab-container-height-default-collapsed: $ca-grid + 0.1875rem;
+$tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 
 .titleBlock {
   position: relative;
@@ -54,6 +56,7 @@ $tab-container-height-small: $ca-grid * 2.5;
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 
   @include title-block-medium-and-small {
     margin: 0 $title-block-margin-width-on-medium-and-small;
@@ -94,42 +97,20 @@ $tab-container-height-small: $ca-grid * 2.5;
 .title {
   display: flex;
   align-items: center;
-  max-width: 724px;
+  min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 
-  .hasLongTitle.hasLongSubtitle & {
-    @include title-block-under-1645 {
-      max-width: 520px;
-    }
-
-    @include title-block-medium-and-small {
-      max-width: 50vw;
-    }
-
-    @media (max-width: 899px) {
-      max-width: 44vw;
-    }
-
-    @include title-block-small {
-      max-width: 83vw;
-    }
-  }
-
-  @include title-block-under-1645 {
-    max-width: 44vw;
-  }
-
+  // Applying width 100% when the title is *not* long and is followed by a subtitle
+  // causes misalignment of both.
   @include title-block-under-1366 {
-    max-width: 42vw;
-  }
-
-  @include title-block-small {
-    max-width: 83vw;
+    width: 100%;
   }
 }
 
 .titleAndSubtitle {
   display: flex;
   align-items: center;
+  min-width: 0; // this is an important trick to prevent flexbox items from overflowing
+  z-index: $ca-z-index-dropdown; // this ensures the page switcher dropdown sits over nav tabs
 
   .hasSubtitle & {
     @include title-block-under-1366 {
@@ -141,12 +122,23 @@ $tab-container-height-small: $ca-grid * 2.5;
 
 .titleAndSubtitleInner {
   display: flex;
+  min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 
+  // TODO: removing .hasLongTitle here fixes the alignment on Performance story, but we should be able to not wrap subtitle.
   .hasSubtitle.hasLongTitle.hasLongSubtitle & {
     align-items: center;
 
     @include title-block-under-1366 {
       align-items: baseline;
+    }
+  }
+
+  .hasPageSwitcherSelect & {
+    @include title-block-medium-and-small {
+      align-items: normal;
+      flex-direction: column;
+      justify-content: space-between;
+      transform: translateY($ca-grid / 3);
     }
   }
 
@@ -159,7 +151,6 @@ $tab-container-height-small: $ca-grid * 2.5;
       flex-direction: column;
       justify-content: space-between;
       transform: translateY($ca-grid / 3);
-      // max-width: 42vw;
 
       .hasLongTitle.hasLongSubtitle & {
         align-items: baseline;
@@ -167,12 +158,7 @@ $tab-container-height-small: $ca-grid * 2.5;
     }
 
     @include title-block-medium-and-small {
-      // max-width: 42vw;
       transform: translateY($ca-grid / 2);
-    }
-
-    @include title-block-small {
-      // max-width: 88vw;
     }
   }
 }
@@ -233,16 +219,8 @@ $tab-container-height-small: $ca-grid * 2.5;
     max-width: 100%;
   }
 
-  @include title-block-under-1366 {
+  @media (min-width: $kz-layout-breakpoints-large) {
     display: block;
-  }
-
-  @include title-block-medium-and-small {
-    display: none;
-  }
-
-  .hasSubtitle & {
-    transform: translateY(10px);
   }
 
   .hasLongTitle & {
@@ -279,6 +257,12 @@ $tab-container-height-small: $ca-grid * 2.5;
       transform: translateY(-8px);
     }
   }
+
+  .hasPageSwitcherSelect & {
+    @include title-block-medium-and-small {
+      transform: translateY(-6px);
+    }
+  }
 }
 
 .subtitle {
@@ -290,7 +274,11 @@ $tab-container-height-small: $ca-grid * 2.5;
   font-size: $kz-typography-paragraph-small-font-size;
   line-height: $kz-typography-paragraph-small-line-height;
   letter-spacing: $kz-typography-paragraph-small-letter-spacing;
-  width: 230px;
+  max-width: 230px;
+
+  .adminVariant & {
+    color: $kz-color-wisteria-800;
+  }
 
   @include ca-margin($start: $ca-grid / 2);
 
@@ -298,7 +286,7 @@ $tab-container-height-small: $ca-grid * 2.5;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    width: auto;
+    max-width: none;
     margin: ($ca-grid / 5) 0;
   }
 }
@@ -385,29 +373,20 @@ $tab-container-height-small: $ca-grid * 2.5;
 
 .titleAndAdjacent {
   display: flex;
+  min-width: 0; // this is an important trick to prevent flexbox items from overflowing
 }
 
 .titleAndAdjacentNotBreadcrumb {
   display: flex;
   transition: opacity 0.3s ease;
+  min-width: 0; // this is an important trick to prevent flexbox items from overflowing
+  align-items: center;
 
-  .breadcrumb:hover + &,
-  .breadcrumb:focus + & {
+  .breadcrumb:hover ~ &,
+  .breadcrumb:focus ~ &,
+  .breadcrumbTextLink:hover ~ &,
+  .breadcrumbTextLink:focus ~ & {
     opacity: 0;
-
-    @include title-block-under-1645 {
-      left: $breadcrumb-circle-width + 12px;
-      transform: translateY(2px);
-      position: absolute;
-    }
-
-    @include title-block-under-1366 {
-      transform: translateY(4px);
-
-      .hasSubtitle & {
-        transform: translateY(-4px);
-      }
-    }
   }
 }
 
@@ -419,6 +398,21 @@ $tab-container-height-small: $ca-grid * 2.5;
   @include title-block-medium-and-small {
     display: none;
   }
+
+  + .pageSwitcherSelectNextToTitle {
+    @include ca-margin($start: 0);
+  }
+}
+
+.pageSwitcherSelectNextToTitle {
+  @include ca-margin($start: $ca-grid / 2);
+  flex-shrink: 0;
+  width: 10 * $ca-grid;
+}
+
+.pageSwitcherSelectUnderneathTitle {
+  flex-shrink: 0;
+  max-width: 10 * $ca-grid;
 }
 
 .navigationTabsContainer {
@@ -430,21 +424,24 @@ $tab-container-height-small: $ca-grid * 2.5;
   }
 }
 
-.navigationTabScrollerContainer {
-  @include title-block-small {
-    display: none;
-    overflow-x: scroll;
-    scrollbar-width: none;
-    width: 100vw;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
+.navigationTabsContainerCollapsed {
+  height: $tab-container-height-default-collapsed;
+  @include title-block-medium-and-small {
+    height: $tab-container-height-medium-and-small-collapsed;
   }
+}
 
+.navigationTabScrollerContainer {
   .hasNavigationTabs & {
     @include title-block-small {
       display: block;
+      overflow-x: scroll;
+      scrollbar-width: none;
+      width: 100vw;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 }
@@ -499,6 +496,10 @@ $tab-container-height-small: $ca-grid * 2.5;
 .mainActionsContainer {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
+  flex-shrink: 0;
+
   @include ca-margin($start: $ca-grid / 2);
 
   @include title-block-small {
@@ -509,9 +510,9 @@ $tab-container-height-small: $ca-grid * 2.5;
 .secondaryActionsContainer {
   display: flex;
   align-items: flex-start;
+  justify-content: flex-end;
   padding: ($ca-grid / 2) 0;
   @include ca-margin($start: $ca-grid * 1.5);
-  flex-shrink: 0;
 
   // To be removed eventually – the Dropdown does not
   // currently set its own color, and we want it
@@ -526,7 +527,21 @@ $tab-container-height-small: $ca-grid * 2.5;
   }
 }
 
+.buttonReset {
+  appearance: none;
+  display: inline;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
 .breadcrumb {
+  composes: buttonReset;
+  cursor: pointer;
   display: flex;
   position: absolute;
   z-index: $ca-z-index-sticky;
@@ -537,12 +552,6 @@ $tab-container-height-small: $ca-grid * 2.5;
     $start: calc(-#{$breadcrumb-circle-width} - #{$ca-grid})
   );
   align-self: normal;
-  color: $kz-color-white;
-
-  .educationVariant &,
-  .adminVariant & {
-    color: $kz-color-wisteria-800;
-  }
 
   &:hover {
     text-decoration: none;
@@ -560,10 +569,35 @@ $tab-container-height-small: $ca-grid * 2.5;
   }
 }
 
-.breadcrumbText {
-  top: 0;
+.breadcrumbTextLink {
+  composes: buttonReset;
   display: none;
-  @include ca-margin($start: $ca-grid);
+  position: absolute;
+  z-index: $ca-z-index-sticky - 1;
+  height: $breadcrumb-circle-width;
+  @include ca-position($start: -2 * $ca-grid);
+  top: $ca-grid * 3/4;
+  align-items: center;
+
+  @include title-block-under-1645 {
+    @include ca-position($start: $ca-grid);
+  }
+
+  &:hover,
+  &:focus,
+  .breadcrumb:hover + &,
+  .breadcrumb:focus + & {
+    display: flex;
+    animation: slide-fade 0.4s;
+
+    [dir="rtl"] & {
+      animation: reverse-slide-fade 0.4s;
+    }
+  }
+}
+
+.breadcrumbText {
+  @include ca-margin($start: $ca-grid * 2);
   white-space: nowrap;
   font-family: $kz-typography-heading-5-font-family;
   font-weight: $kz-typography-heading-5-font-weight;
@@ -571,19 +605,17 @@ $tab-container-height-small: $ca-grid * 2.5;
   line-height: $kz-typography-heading-5-line-height;
   letter-spacing: $kz-typography-heading-5-letter-spacing;
 
-  .breadcrumb:hover &,
-  .breadcrumb:focus & {
-    display: inline-block;
-    max-width: 200px;
-    animation: slide-fade 0.4s;
-
-    [dir="rtl"] & {
-      animation: reverse-slide-fade 0.4s;
-    }
-  }
-
   &:hover {
     text-decoration: underline;
+  }
+}
+
+.breadcrumb,
+.breadcrumbText {
+  color: $kz-color-white;
+  .educationVariant &,
+  .adminVariant & {
+    color: $kz-color-wisteria-800;
   }
 }
 

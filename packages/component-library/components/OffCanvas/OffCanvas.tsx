@@ -3,7 +3,7 @@ import * as React from "react"
 import Header from "./components/Header"
 import Menu from "./components/Menu"
 
-const styles = require("./OffCanvas.module.scss")
+import styles from "./OffCanvas.module.scss"
 
 type Props = {
   links?: any
@@ -70,12 +70,9 @@ export class OffCanvas extends React.Component<Props> {
   }
 }
 
-const withContextProvider = (Component: React.ComponentType<any>) => {
-  // tslint:disable-next-line: max-classes-per-file
-  return class OffCanvasWithContextProvider extends React.Component<
-    Props,
-    State
-  > {
+const withContextProvider = (Component: React.ComponentType<any>) =>
+  // eslint-disable-next-line max-classes-per-file
+  class OffCanvasWithContextProvider extends React.Component<Props, State> {
     constructor(props: Props) {
       super(props)
 
@@ -107,11 +104,10 @@ const withContextProvider = (Component: React.ComponentType<any>) => {
       )
     }
   }
-}
 
-const withTrigger = (Component: React.ComponentType<any>) => {
-  // tslint:disable-next-line: max-classes-per-file
-  return class OffCanvasWithTrigger extends React.Component<Props> {
+const withTrigger = (Component: React.ComponentType<any>) =>
+  // eslint-disable-next-line max-classes-per-file
+  class OffCanvasWithTrigger extends React.Component<Props> {
     render() {
       return (
         <OffCanvasContext.Consumer>
@@ -130,6 +126,5 @@ const withTrigger = (Component: React.ComponentType<any>) => {
       )
     }
   }
-}
 
 export default withContextProvider(withTrigger(OffCanvas))

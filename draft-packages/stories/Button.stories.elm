@@ -1,8 +1,8 @@
 module Main exposing (main)
 
-import Button.Button as Button exposing (..)
 import ElmStorybook exposing (statelessStoryOf, storybook)
 import Icon.SvgAsset exposing (svgAsset)
+import KaizenDraft.Button.Button as Button exposing (..)
 
 
 main =

@@ -10,21 +10,19 @@ import {
   Text,
   ToastNotification,
 } from "@kaizen/component-library"
-const academyIcon = require("@kaizen/component-library/icons/academy.icon.svg")
-  .default
-const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
-  .default
-const supportIcon = require("@kaizen/component-library/icons/support.icon.svg")
-  .default
+import academyIcon from "@kaizen/component-library/icons/academy.icon.svg"
+import caMonogramIcon from "@kaizen/component-library/icons/ca-monogram.icon.svg"
+import supportIcon from "@kaizen/component-library/icons/support.icon.svg"
 import { TitleBlock } from "@kaizen/draft-title-block"
 
 export default {
-  title: "Layout (React)",
+  title: "Layout (deprecated) (React)",
   component: Layout,
   parameters: {
     info: {
       text: `
-        import { Layout } from "@kaizen/component-library";
+        # Deprecated
+        Layout is deprecated.
       `,
     },
   },
@@ -224,6 +222,4 @@ export const WithTitleBlock = () => (
   </div>
 )
 
-WithTitleBlock.story = {
-  name: "With TitleBlock",
-}
+WithTitleBlock.storyName = "With TitleBlock"

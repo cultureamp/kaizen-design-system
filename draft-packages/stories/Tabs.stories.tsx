@@ -1,6 +1,8 @@
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
+import { Card } from "@kaizen/draft-card"
 import { Tabs } from "@kaizen/draft-tabs"
+import { Divider } from "@kaizen/draft-divider"
+import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import classnames from "classnames"
 import * as React from "react"
 import { ExampleLayout } from "./ExampleLayout"
@@ -56,9 +58,7 @@ export const LongAndShortText = () => {
   return <Tabs tabs={tabs} />
 }
 
-LongAndShortText.story = {
-  name: "Long and short text (Horizontal)",
-}
+LongAndShortText.storyName = "Long and short text (Horizontal)"
 
 export const VerticalLongAndShortText = () => {
   const tabs = [
@@ -77,9 +77,7 @@ export const VerticalLongAndShortText = () => {
   return <Tabs orientation="vertical" tabs={tabs} />
 }
 
-VerticalLongAndShortText.story = {
-  name: "Long and short text (Vertical)",
-}
+VerticalLongAndShortText.storyName = "Long and short text (Vertical)"
 
 export const ActiveTab = () => {
   const tabs = [
@@ -95,9 +93,7 @@ export const ActiveTab = () => {
   return <Tabs tabs={tabs} />
 }
 
-ActiveTab.story = {
-  name: "Active tab (Horizontal)",
-}
+ActiveTab.storyName = "Active tab (Horizontal)"
 
 export const ActiveVerticalTabs = () => {
   const tabs = [
@@ -113,9 +109,7 @@ export const ActiveVerticalTabs = () => {
   return <Tabs orientation="vertical" tabs={tabs} />
 }
 
-ActiveVerticalTabs.story = {
-  name: "Active tab (Vertical)",
-}
+ActiveVerticalTabs.storyName = "Active tab (Vertical)"
 
 export const DisabledTabHorizontal = () => {
   const tabs = [
@@ -131,9 +125,7 @@ export const DisabledTabHorizontal = () => {
   return <Tabs tabs={tabs} />
 }
 
-DisabledTabHorizontal.story = {
-  name: "Disabled tab (Horizontal)",
-}
+DisabledTabHorizontal.storyName = "Disabled tab (Horizontal)"
 
 export const DisabledTabVertical = () => {
   const tabs = [
@@ -149,9 +141,7 @@ export const DisabledTabVertical = () => {
   return <Tabs orientation="vertical" tabs={tabs} />
 }
 
-DisabledTabVertical.story = {
-  name: "Disabled tab (Vertical)",
-}
+DisabledTabVertical.storyName = "Disabled tab (Vertical)"
 
 export const WithOnClick = () => {
   const tabs = [
@@ -167,9 +157,7 @@ export const WithOnClick = () => {
   return <Tabs tabs={tabs} />
 }
 
-WithOnClick.story = {
-  name: "With onClick",
-}
+WithOnClick.storyName = "With onClick"
 
 export const WithHref = () => {
   const tabs = [
@@ -184,9 +172,7 @@ export const WithHref = () => {
   return <Tabs tabs={tabs} />
 }
 
-WithHref.story = {
-  name: "With href",
-}
+WithHref.storyName = "With href"
 
 export const WithCustomTabRenderer = () => {
   const tabs = [
@@ -248,9 +234,7 @@ export const WithCustomTabRenderer = () => {
   )
 }
 
-WithCustomTabRenderer.story = {
-  name: "With custom tab renderer (Horizontal)",
-}
+WithCustomTabRenderer.storyName = "With custom tab renderer (Horizontal)"
 
 export const WithCustomTabRendererVertical = () => {
   const tabs = [
@@ -276,27 +260,23 @@ export const WithCustomTabRendererVertical = () => {
         tabClassName,
         activeTabClassName,
         disabledTabClassName,
-      }) => {
-        return (
-          <a
-            key={tab.label}
-            href="#"
-            className={classnames(tabClassName, {
-              [activeTabClassName]: tab.active,
-              [disabledTabClassName]: tab.disabled,
-            })}
-          >
-            {tab.label}
-          </a>
-        )
-      }}
+      }) => (
+        <a
+          key={tab.label}
+          href="#"
+          className={classnames(tabClassName, {
+            [activeTabClassName]: tab.active,
+            [disabledTabClassName]: tab.disabled,
+          })}
+        >
+          {tab.label}
+        </a>
+      )}
     />
   )
 }
 
-WithCustomTabRendererVertical.story = {
-  name: "With custom tab renderer (Vertical)",
-}
+WithCustomTabRendererVertical.storyName = "With custom tab renderer (Vertical)"
 
 export const WithLayoutVerticalLTR = () => {
   const tabs = [
@@ -312,7 +292,9 @@ export const WithLayoutVerticalLTR = () => {
   return (
     <ExampleLayout>
       <ExampleLayout.Sidebar>
-        <Tabs orientation="vertical" tabs={tabs} />
+        <Box pr={1}>
+          <Tabs orientation="vertical" tabs={tabs} />
+        </Box>
       </ExampleLayout.Sidebar>
       <ExampleLayout.Content>
         <Box p={2}>Example layout</Box>
@@ -321,17 +303,16 @@ export const WithLayoutVerticalLTR = () => {
   )
 }
 
-WithLayoutVerticalLTR.story = {
-  name: "Layout LTR (Vertical)",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.stone,
-        default: true,
-      },
-    ],
-  },
+WithLayoutVerticalLTR.storyName = "(Example) Layout LTR (Vertical)"
+
+WithLayoutVerticalLTR.parameters = {
+  backgrounds: [
+    {
+      name: "Wisteria 700",
+      value: colorTokens.kz.color.stone,
+      default: true,
+    },
+  ],
 }
 
 export const WithLayoutVerticalRTL = () => {
@@ -348,7 +329,9 @@ export const WithLayoutVerticalRTL = () => {
   return (
     <ExampleLayout rtl>
       <ExampleLayout.Sidebar>
-        <Tabs orientation="vertical" tabs={tabs} textDirection="rtl" />
+        <Box pl={1}>
+          <Tabs orientation="vertical" tabs={tabs} textDirection="rtl" />
+        </Box>
       </ExampleLayout.Sidebar>
       <ExampleLayout.Content>
         <Box p={2}>Example layout</Box>
@@ -357,15 +340,104 @@ export const WithLayoutVerticalRTL = () => {
   )
 }
 
-WithLayoutVerticalRTL.story = {
-  name: "Layout RTL (Vertical)",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Stone",
-        value: colorTokens.kz.color.stone,
-        default: true,
-      },
-    ],
-  },
+WithLayoutVerticalRTL.storyName = "(Example) Layout RTL (Vertical)"
+
+WithLayoutVerticalRTL.parameters = {
+  backgrounds: [
+    {
+      name: "Stone",
+      value: colorTokens.kz.color.stone,
+      default: true,
+    },
+  ],
+}
+
+export const WithHeading = () => {
+  const firstTabs = [
+    {
+      label: "One (href here)",
+      href: "//www.example.com",
+      active: true,
+    },
+    { label: "Two", href: "https://www.cultureamp.design/storybook" },
+    { label: "Three", href: "https://www.cultureamp.design/storybook" },
+    { label: "Four", href: "https://www.cultureamp.design/storybook" },
+  ]
+  const secondTabs = [
+    {
+      label: "Five",
+      href: "//www.example.com",
+    },
+    { label: "Six", href: "https://www.cultureamp.design/storybook" },
+  ]
+  return (
+    <ExampleLayout>
+      <ExampleLayout.Sidebar>
+        <Box pr={1}>
+          <Heading variant="heading-6">Some heading</Heading>
+          <Tabs orientation="vertical" tabs={firstTabs} textDirection="ltr" />
+          <Box py={1}>
+            <Divider variant="canvas" />
+          </Box>
+          <Heading variant="heading-6">Another heading</Heading>
+          <Tabs orientation="vertical" tabs={secondTabs} textDirection="ltr" />
+        </Box>
+      </ExampleLayout.Sidebar>
+      <ExampleLayout.Content>
+        <Box p={2}>Example layout</Box>
+      </ExampleLayout.Content>
+    </ExampleLayout>
+  )
+}
+
+WithHeading.storyName = "(Example) Layout With heading"
+
+WithHeading.parameters = {
+  backgrounds: [
+    {
+      name: "Stone",
+      value: colorTokens.kz.color.stone,
+      default: true,
+    },
+  ],
+}
+
+export const ExampleContentTab = () => {
+  const tabs = [
+    {
+      label: "One (href here)",
+      href: "//www.example.com",
+    },
+    {
+      label: "Two",
+      href: "https://www.cultureamp.design/storybook",
+      active: true,
+    },
+    { label: "Three", href: "https://www.cultureamp.design/storybook" },
+    { label: "Four", href: "https://www.cultureamp.design/storybook" },
+  ]
+  return (
+    <ExampleLayout>
+      <ExampleLayout.Content>
+        <Card>
+          <Box pb={2}>
+            <Tabs orientation="horizontal" tabs={tabs} textDirection="ltr" />
+            <Divider variant="content" />
+          </Box>
+        </Card>
+      </ExampleLayout.Content>
+    </ExampleLayout>
+  )
+}
+
+ExampleContentTab.storyName = "(Example) Content Tab in Content Area"
+
+ExampleContentTab.parameters = {
+  backgrounds: [
+    {
+      name: "Stone",
+      value: colorTokens.kz.color.stone,
+      default: true,
+    },
+  ],
 }

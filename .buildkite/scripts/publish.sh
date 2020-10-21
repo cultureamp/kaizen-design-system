@@ -11,7 +11,7 @@ aws s3 sync --delete \
 
 aws s3 sync --delete \
     "storybook/public" \
-    "s3://${KAIZEN_DOMAIN_NAME}${KAIZEN_BASE_PATH}/storybook-static"
+    "s3://${KAIZEN_DOMAIN_NAME}${KAIZEN_BASE_PATH}/storybook"
 
 aws cloudfront create-invalidation \
     --distribution-id "${KAIZEN_DISTRIBUTION_ID}" \

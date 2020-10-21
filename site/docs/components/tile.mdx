@@ -1,11 +1,12 @@
 ---
 title: Tile
-navTitle: Tile (not built)
+navTitle: Tile
 summaryParagraph: A visually interesting item in a list consisting of a card, visual, title metadata, and call to action.
 tags: ["Card", "Grid item", "Featured item"]
 needToKnow:
 - Tiles draw attention to featured items.
-- All tiles have a title and call to action.
+- All tiles have a title.
+- There are three types of tiles - InformationTile, MultiActionTile, SingleActionTile (not built)
 ---
 
 import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
@@ -18,47 +19,56 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D1412%253A1546" allowfullscreen></iframe>
 
-### Examples
-
-<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D1412%253A1810" allowfullscreen></iframe>
-
-
 ## To keep in mind
 
-*   Anatomy:
-    *   **Title (required):**
-        *   1-3 words
-    *   **Label **(optional):
-        *   Categorizing labels (1-2 words)
-    *   **Metadata **(optional)
-        *   Key information to surface that helps people decide between items
-    *   **Description** (optional):
-        *   **On hover**: Extra information on hover that is not critical and can be found elsewhere in the platform
-        *   **Persistent**: Replacing the illustration, a persistent description shows meaningful information that might not be found elsewhere in the platform
-    *   **Illustration **(optional):
-        *   Adds visual interest
-        *   Distinguishes items
-    *   **Card **
-        *   **Clickable area**:
-            *   **Preferred: The entire card is clickable** and leads to the same place as the call to action default button.
-            *   Optional: If there need be other clickable areas inside the card such as a link in the description, the entire card is not clickable. Instead, only the links and buttons are clickable.
-        *   **Background colors**:
-            *   People try to discern meaning behind different background colors. Try to stick to one color on a page or within a section.
-    *   Supplementary footer:
-        *   **Call to action default button (required):**
-            *   Consider if the label needs to be different across items, especially for people using screen readers. If the labels are the same, they might also need ARIA tags to indicate which card title the button is labeled by or description it’s described by.
-        *   **Secondary control action button **(optional):
-            *   Aim for 1 word only
-*   **Interactions:**
-    *   Expand and collapse
-        *   TBD
-    *   Hover and reveal
-        *   On hover, reveal more supplementary content. This is useful when the user may not have been able to make a decision from the information that’s immediately available.
-        *   Slide fade content up and down when revealing and hiding supplementary content.
-*   **Layout**:
-    *   Max. 4 per row in 1080px area
-    *   Aspect ratios:
-        *   TBD
+### SingleActionTile (not built)
+*   Entire tile is a single click zone for performing a single action.   
+
+### MultiActionTile 
+*   Similar in terms of content to SingleActionTile, but with multiple actions and click zones.  
+*   Supports default action, secondary action and flip action (which shows additional context and optional secondary action).
+
+### InformationTile
+*   For display of hero data. 
+*   Generally has either no action, or a single action to flip (which shows additional context and optional secondary action).
+
+### Layout
+*   Max. 4 per row in 1392px area
+*   See [Tile Grid](/components/tile-grid)
+
+## Anatomy
+
+### MultiActionTile
+*   **Title (required)**
+    *   1-3 words
+*   **Metadata** (optional)
+    *   Key information to surface that helps people decide between items
+*   **Information** (optional)
+    *   Object with three parameters: text, primaryAction (optional), secondaryAction (optional)
+    *   Causes Information IconButton to appear in upper right corner. When clicked the backside of Tile is revealed.
+    *   Text params is rendered as a paragraph, primaryAction and secondaryAction action rendered as buttons.
+*   **Children** (optional)
+    *   Placed in middle of Tile between footer and title content.
+*   **Supplementary footer** (optional)
+    *   **Call to action default button (required):**
+        *   Consider if the label needs to be different across items, especially for people using screen readers. If the labels are the same, they might also need ARIA tags to indicate which card title the button is labeled by or description it’s described by.
+    *   **Secondary control action button** (optional):
+        *   Aim for 1 word only
+
+### InformationTile:
+*   **Title (required)**
+    *   1-3 words
+*   **Metadata**(optional)
+    *   Key information to surface that helps people decide between items
+*   **Information** (optional)
+    *   Object with three parameters: text, primaryAction (optional), secondaryAction (optional)
+    *   Causes Information IconButton to appear in upper right corner. When clicked the backside of Tile is revealed.
+    *   Text params is rendered as a paragraph, primaryAction and secondaryAction action rendered as buttons.
+*   **Children** (optional)
+    *   Placed in middle of Tile between footer and title content.
+*   **Supplementary footer** (optional)
+    *   Positioned at bottom of Tile.
+
 
 ## When to use and when not to use
 
@@ -78,11 +88,11 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 </WhenToUseAndWhenNotToUse>
 
 ## See also
-
+*   [Tile Grid](/components/tile-grid)
 *   [Buttons](/components/button/)
 *   [Cards](/components/card/)
 
-## External Links
+## External links
 
 Here are some examples of other existing design systems:
 

@@ -1,0 +1,26 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/layout";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/responsive";
+
+.grid {
+  max-width: $kz-layout-content-max-width;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 330px);
+  grid-gap: $kz-spacing-md;
+  justify-content: start;
+  justify-items: start;
+  align-items: center;
+
+  @include ca-media-mobile {
+    grid-template-columns: repeat(2, minmax(226px, 370px));
+
+    > * {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(1, 100%);
+  }
+}

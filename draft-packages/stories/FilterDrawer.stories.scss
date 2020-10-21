@@ -1,0 +1,19 @@
+@import "~@kaizen/design-tokens/sass/color";
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content {
+  width: 264px;
+  & label {
+    width: auto;
+  }
+}
+
+.siteDemoWrapper {
+  background-color: $kz-color-wisteria-700;
+  height: 368px;
+  padding: 1rem;
+}

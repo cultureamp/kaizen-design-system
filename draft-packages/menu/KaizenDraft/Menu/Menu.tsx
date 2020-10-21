@@ -2,7 +2,7 @@ import { ButtonProps } from "@kaizen/draft-button"
 import React, { useRef, useState } from "react"
 import MenuDropdown from "./MenuDropdown"
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 export type GenericMenuProps = {
   /**
@@ -110,10 +110,9 @@ export const render = (props: GenericMenuProps & RenderProps) => {
 
 const getPosition = (
   dropdownButtonContainer: React.RefObject<HTMLDivElement>
-) => {
-  return dropdownButtonContainer && dropdownButtonContainer.current
+) =>
+  dropdownButtonContainer && dropdownButtonContainer.current
     ? dropdownButtonContainer.current.getBoundingClientRect()
     : null
-}
 
 export default Menu

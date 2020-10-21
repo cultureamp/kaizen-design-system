@@ -30,11 +30,75 @@ import Dont from "docs-components/Dont"
 * Presets:
   * Confirmation:
     * Mood:
-      * Destructive / Negative
+       * Destructive / Negative
       * Affirmative / Positive
       * Informative
+      * Cautionary
   * Input/edit
   * Information
+  * Roadblock
+
+## To keep in mind
+
+Modals contain smaller pieces of additional content while maintaining the context of the rest of the page, covered by a transparent overlay.
+
+* Trigger:
+  * To trigger a modal, use a button. Alternatively, trigger on page load but this risks people dismissing without reading.
+
+### All modals
+
+* All modals are **dismissible** (Close button, cancel/back button, Esc keystroke, Click outside).
+* All modals use a **single Primary Action Button**. Never two primary action buttons. If a second action is an option, use a Secondary Action button (e.g. Cancel, in Cluny, no underline). 
+* Where appropriate, use precise language and **match the heading and primary button text** e.g. heading is “Delete photo” and primary button is “Delete”. Avoid questions like “Are you sure?”.
+* **Don't depend on a scrollable modal body**. We only support a scrollable modal body as a fallback for when content is unintentionally long, such as when user-generated content is provided. This is strongly discouraged. If there's a high risk of a scrollable modal body:
+    * Consider responsive behavior on small screens.
+    * A modal might not be the best approach. Consider using an inline page section or a separate page instead.
+    * Consider if any content inside the modal might be clipped, such as a Select dropdown section.
+* Close icon sits top right, never outside of modal. Screen reader reads the action for the icon, i.e. “Close”.
+* The backdrop overlay is pure black (not Wisteria) with 50% opacity.
+* We don't use modals as carousels. A Progress stepper in a modal is preferable if you need to guide a user through a flow.
+* Never stacks multiple modals together on screen at the same time.
+
+### Confirmation modal
+
+The confirmation modal confirms the end result of an interaction such as Negative, Positive, Informative or Cautionary.
+
+- Header: States what the intent of Modal is. A verb and a noun (e.g. Upload an image, Notify users, Restart imports etc.)
+- Footer: Primary/Destructive action label reflect the action they are performing (relative to the header).
+
+We don't use custom spot illustrations in confirmation modals. Instead, use the standard spot illustrations.
+
+### Input/edit modal
+
+Input/edit modals allow people to change data or settings without leaving the page. They support the ability to edit up to 3 fields. Any more becomes crowded and a new page is preferred.
+
+An input/edit modal may also be used to present data-intensive information such as a list of employees where the information modal is inappropriate.
+
+If data will be lost by dismissing the modal unintentionally, consider autosaving.
+
+- Header: Should state what the intent of Modal is. A verb and a noun (e.g. Upload an image, Notify users, Restart imports etc.)
+- Footer: Primary/Destructive action label should reflect the action they are performing (relative to the header).
+- Body: Adding a stone colored background will assist the definition of Inputs and will allow product team to clearly identify the modal type.
+
+### Information modals
+
+Information modals assist with education. They’re user triggered. They may be relative to a deeper level of information. May be useful for first time users. Heavily optional. Visual aid is good. Primary action optional.
+
+- Header: State what the intent of Modal is. A verb and a noun (e.g. Upload an image, Notify users, Restart imports etc.).
+- Footer: Does not require a Primary/Destructive action. Avoid using unnecessary acknowledgment buttons, e.g. ‘Okay, got it!’.
+- Visuals: use illustrations instead of screenshots where possible.
+  - Illustrations may last longer without needing to be updated as well as potentially have a smaller file size than a screenshot.
+  - If you need a new illustration, see [illustrations](/guidelines/illustrations).
+
+### Roadblock modals 
+
+The roadblock modal indicates a show-stopping problem that we couldn't address earlier in the flow. Use as a last resort. For example, server-side validation shows a form error that needs to be addressed before continuing.
+
+We don't use custom spot illustrations in roadblock modals. Use the standard spot illustration.
+
+- Header: States why you can't proceed
+- Footer: One button either labeled back or cancel
+- Body: Tell users why they’re unable to proceed and what needs to happen first.
 
 ## Copy guidelines
 
@@ -120,62 +184,6 @@ Your CTA button should complement the title of the modal. If a user scans the ti
 
 All modals copy should be in sentence case i.e. the first letter of the first word is capitalized and everything else is in lower case unless it’s a proper noun or feature name. Always err on the side of minimal punctuation, so when you’ve written single, standalone sentences, leave out full stops and commas where possible.
 
-## To keep in mind
-
-Modals contain smaller pieces of additional content while maintaining the context of the rest of the page, covered by a transparent overlay.
-
-* Trigger:
-  * To trigger a modal, use a button. Alternatively, trigger on page load but this risks people dismissing without reading.
-
-### All modals
-
-* All modals are **dismissible** (Close button, cancel button, Esc keystroke, Click outside).
-* All modals use a **single Primary Action Button**. Never two primary action buttons. If a second action is an option, use a Secondary Action button (e.g. Cancel, in Cluny, no underline). Always align buttons to the center of the modal.
-* Where appropriate, use precise language and **match the heading and primary button text** e.g. heading is “Delete photo” and primary button is “Delete”. Avoid questions like “Are you sure?”.
-* **Don't depend on a scrollable modal body**. We only support a scrollable modal body as a fallback for when content is unintentionally long, such as when user-generated content is provided. This is strongly discouraged. If there's a high risk of a scrollable modal body:
-    * Consider responsive behavior on small screens.
-    * A modal might not be the best approach. Consider using an inline page section or a separate page instead.
-    * Consider if any content inside the modal might be clipped, such as a Select dropdown section.
-* Close icon sits top right, never outside of modal. Screen reader reads the action for the icon, i.e. “Close”.
-* The backdrop overlay is pure black (not Wisteria) with 50% opacity.
-* We don't use modals as carousels. A Progress stepper in a modal is preferable if you need to guide a user through a flow.
-* Never stacks multiple modals together on screen at the same time.
-
-### Confirmation modal
-
-The confirmation modal confirms the end result of an action such as Negative or Positive actions.
-
-- Small: 300px wide x Height (Header, footer, margins and 1 line of content). Primarily for mobile use.
-- Medium: 600px wide x 600px H.
-- Large: 800px wide x 800px H
-- Header: States what the intent of Modal is. A verb and a noun (e.g. Upload an image, Notify users, Restart imports etc.)
-- Footer: Primary/Destructive action label reflect the action they are performing (relative to the header).
-
-We don't use custom spot illustrations in confirmation modals. Instead, use the standard spot illustrations.
-
-### Input/edit modal
-
-Input/edit modals allow people to change data or settings without leaving the page. They support the ability to edit up to 3 fields. Any more becomes crowded and a new page or Isolation modal is preferred.
-
-An input/edit modal may also be used to present data-intensive information such as a list of employees where the information modal is inappropriate.
-
-If data will be lost by dismissing the modal unintentionally, consider autosaving.
-
-- Min: 300px wide x Height (Header, footer, margins and 1 line of content).
-- Max: 800px x 600px (Must fit in laptop/mobile screen)
-- Header: Should state what the intent of Modal is. A verb and a noun (e.g. Upload an image, Notify users, Restart imports etc.)
-- Footer: Primary/Destructive action label should reflect the action they are performing (relative to the header).
-- Body: Adding a stone colored background will assist the definition of Inputs and will allow product team to clearly identify the modal type.
-
-### Information modals
-
-Information modals assist with education. They’re user triggered. They may be relative to a deeper level of information. May be useful for first time users. Heavily optional. Visual aid is good. Primary action optional.
-
-- Header: State what the intent of Modal is. A verb and a noun (e.g. Upload an image, Notify users, Restart imports etc.).
-- Footer: Does not require a Primary/Destructive action. Avoid using unnecessary acknowledgment buttons, e.g. ‘Okay, got it!’.
-- Visuals: use illustrations instead of screenshots where possible.
-  - Illustrations may last longer without needing to be updated as well as potentially have a smaller file size than a screenshot.
-  - If you need a new illustration, see [illustrations](/guidelines/illustrations).
 
 ## When to use and when not to use
 
@@ -204,7 +212,7 @@ Information modals assist with education. They’re user triggered. They may be 
 </WhenNotToUse>
 </WhenToUseAndWhenNotToUse>
 
-## External Links
+## External links
 
 Here are some examples of other existing design systems:
 

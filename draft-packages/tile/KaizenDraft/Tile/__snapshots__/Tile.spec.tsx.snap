@@ -1,0 +1,410 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<InformationTile /> snapshots renders InformationTile 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="tile"
+  >
+    <div
+      class="face faceFront"
+    >
+      <div
+        class="title"
+      >
+        <h3
+          class="heading heading-3 dark small"
+        >
+          Title
+        </h3>
+        <div
+          class="pt-0-point-25 m-0"
+        >
+          <p
+            class="paragraph small dark-reduced-opacity"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="children"
+      />
+      <div
+        class="footer"
+      >
+        <div>
+          Hello world
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<InformationTile /> snapshots renders InformationTile with children 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="tile"
+  >
+    <div
+      class="face faceFront"
+    >
+      <div
+        class="title"
+      >
+        <h3
+          class="heading heading-3 dark small"
+        >
+          Title
+        </h3>
+        <div
+          class="pt-0-point-25 m-0"
+        >
+          <p
+            class="paragraph small dark-reduced-opacity"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="children"
+      >
+        <div>
+          Child content
+        </div>
+      </div>
+      <div
+        class="footer"
+      >
+        <div>
+          Hello world
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<InformationTile /> snapshots renders InformationTile with information data 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="tile"
+  >
+    <div
+      class="face faceFront"
+    >
+      <div
+        class="informationBtn"
+      >
+        <span
+          class="container"
+        >
+          <button
+            aria-label="Information"
+            class="button iconButton"
+            title="Information"
+            type="button"
+          >
+            <span
+              class="content"
+            >
+              <span
+                class="iconWrapper"
+              >
+                <svg
+                  aria-hidden="true"
+                  aria-labelledby="80284680-3304-5869-9788-7428e6c6ee86"
+                  class="icon"
+                  focusable="false"
+                  role="presentation"
+                >
+                  <use
+                    xlink:href="#undefined"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+        </span>
+      </div>
+      <div
+        class="title"
+      >
+        <h3
+          class="heading heading-3 dark small"
+        >
+          Title
+        </h3>
+        <div
+          class="pt-0-point-25 m-0"
+        >
+          <p
+            class="paragraph small dark-reduced-opacity"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="children"
+      >
+        <div>
+          Child content
+        </div>
+      </div>
+      <div
+        class="footer"
+      >
+        <div>
+          Hello world
+        </div>
+      </div>
+    </div>
+    <div
+      class="face faceBack"
+    >
+      <div
+        class="informationBtn"
+      >
+        <span
+          class="container"
+        >
+          <button
+            aria-label="Information"
+            class="button iconButton"
+            disabled=""
+            title="Information"
+            type="button"
+          >
+            <span
+              class="content"
+            >
+              <span
+                class="iconWrapper"
+              >
+                <svg
+                  aria-hidden="true"
+                  aria-labelledby="80284680-3304-5869-9788-7428e6c6ee86"
+                  class="icon"
+                  focusable="false"
+                  role="presentation"
+                >
+                  <use
+                    xlink:href="#undefined"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+        </span>
+      </div>
+      <div
+        class="title"
+      >
+        <h3
+          class="heading heading-3 dark small"
+        >
+          Title
+        </h3>
+        <div
+          class="pt-0-point-25 m-0"
+        >
+          <p
+            class="paragraph small dark-reduced-opacity"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="information"
+      >
+        <p
+          class="paragraph body dark"
+        >
+          Additional information can be included on the underside of the tile and viewed on click of the information icon.
+        </p>
+        <div
+          class="footer"
+        >
+          <div
+            class="actions"
+          >
+            <span
+              class="container"
+            >
+              <button
+                class="button secondary"
+                disabled=""
+                type="button"
+              >
+                <span
+                  class="content"
+                >
+                  <span
+                    class="label"
+                  >
+                    Learn more
+                  </span>
+                </span>
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<MultiActionTile /> snapshots renders MultiActionTile 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="tile"
+  >
+    <div
+      class="face faceFront"
+    >
+      <div
+        class="title"
+      >
+        <h3
+          class="heading heading-3 dark small"
+        >
+          Title
+        </h3>
+        <div
+          class="pt-0-point-25 m-0"
+        >
+          <p
+            class="paragraph small dark-reduced-opacity"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="children"
+      />
+      <div
+        class="footer"
+      >
+        <div
+          class="actions"
+        >
+          <span
+            class="container"
+          >
+            <a
+              class="button"
+              href="href"
+              target="_self"
+            >
+              <span
+                class="content"
+              >
+                <span
+                  class="label"
+                >
+                  View
+                </span>
+              </span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<MultiActionTile /> snapshots renders MultiActionTile with secondary action 1`] = `
+<div
+  class="root"
+>
+  <div
+    class="tile"
+  >
+    <div
+      class="face faceFront"
+    >
+      <div
+        class="title"
+      >
+        <h3
+          class="heading heading-3 dark small"
+        >
+          Title
+        </h3>
+        <div
+          class="pt-0-point-25 m-0"
+        >
+          <p
+            class="paragraph small dark-reduced-opacity"
+          >
+            Metadata
+          </p>
+        </div>
+      </div>
+      <div
+        class="children"
+      />
+      <div
+        class="footer"
+      >
+        <div
+          class="actions"
+        >
+          <span
+            class="container"
+          >
+            <a
+              class="button secondary"
+              href="href2"
+              target="_self"
+            >
+              <span
+                class="content"
+              >
+                <span
+                  class="label"
+                >
+                  Preview
+                </span>
+              </span>
+            </a>
+          </span>
+          <span
+            class="container"
+          >
+            <a
+              class="button"
+              href="href"
+              target="_self"
+            >
+              <span
+                class="content"
+              >
+                <span
+                  class="label"
+                >
+                  View
+                </span>
+              </span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

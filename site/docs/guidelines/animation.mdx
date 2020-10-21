@@ -4,42 +4,53 @@ navTitle: Animation
 summaryParagraph: Meaningful motion helps make our product easy for everyone and tells our brand's story. It helps people make sense of space and navigate digital interfaces.
 tags: ["Motion design", "Transitions"]
 needToKnow:
-  - "Use our palette of animation styles, easing functions, and timing variables."
-  - "Test 100 animated instances shown at once. Test an animation repeated 100 times."
   - "Aim for a fast time to first interaction of 300ms or less with primary content or data."
-  - "Use 1 primary call to action."
+  - "Test designs with 100 animated instances shown at once. Test designs with one animation repeated 100 times."
+  - "Use animation on the 1 primary call to action."
   - "Use more user-initiated than system-initiated animation."
+  - "Use our palette of animation styles, easing functions, and timing variables."
 ---
 
 import AnimationPresetsExample from "docs-components/animation/AnimationPresetsExample"
 import AnimationSequencesExample from "docs-components/animation/AnimationSequencesExample"
-import AnimationUsageInputExample from "docs-components/animation/AnimationUsageInputExample"
-import AnimationUsageOutputExample from "docs-components/animation/AnimationUsageOutputExample"
-import AnimationImportExample from "docs-components/animation/AnimationImportExample"
-import DurationPresetsExample from "docs-components/animation/DurationPresetsExample"
-import EasingPresetsExample from "docs-components/animation/EasingPresetsExample"
+import AnimationTokensList from "docs-components/animation/AnimationTokensList"
 import TransitionPresetsExample from "docs-components/animation/TransitionPresetsExample"
-import TransitionUsageInputExample from "docs-components/animation/TransitionUsageInputExample"
-import TransitionUsageOutputExample from "docs-components/animation/TransitionUsageOutputExample"
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## To keep in mind
 
 The "wow" factor of motion wins deals. We're hard wired to notice movement and pay attention to it.
 
-## When to use
+## Animation Design Tokens
+
+Use our animation design tokens to ensure consistency for animation durations and easing timing functions:
+
+<AnimationTokensList />
+
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
 
 * Aim for **fast time to first interaction** and consider if the stylized entrance _feels_ slower than instantly loading content.
 * Use **consistent direction and movement** in relation to local environment to reinforce context and UI metaphors.
 * For entrances, exits, and decorations, animation style is **so subtle that you can’t put your finger on it**.
 * **Avoid bounces or overshoots**. We make exceptions when the bounce or overshoot is related to the animation effect or behavior itself, such as our emphasized growing "Take action" pill.
 
-## When not to use
+</WhenToUse>
+<WhenNotToUse>
 
 * **Content rules**. Draw attention to important content and data, not to interface controls.
 * **Avoid keeping people from their content with time-consuming or showy entrances**.
 * **Avoid contradicting movement that breaks UI metaphors**, such as an element entering with a fade and slide and exiting with a scale.
 * **Avoid sharp, noticeable entrances** that draw attention away from the content to the animation itself.
 * **Avoid excessively bouncy animations** that tarnish our trustworthy brand.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
 
 ### Meaningful motion
 
@@ -105,7 +116,7 @@ Connected items move together as a single body. We synchronize movement of group
 
 ### Placeholder loading skeletons predict content
 
-Placeholder loading skeletons fill the space that its future content will occupy when it's loaded.
+Placeholder [loading skeletons](/components/loading-skeleton) fill the space that its future content will occupy when it's loaded.
 
 * Give people an idea of **what’s about to come** and what’s happening (it's currently loading).
 * Be **subtle**, because it’s not a real, interactive interface.
@@ -123,7 +134,7 @@ Choreographed, stylized entrances focus attention through movement and reinforce
 
 Choreographed entrances are reserved for “red carpet” or “grand unveiling” experiences, such as first use, onboarding, demos, showcasing new features, or landing pages rather than frequently visited pages.
 
-_In contrast to a placeholder loading skeleton_, choreographed or stylized entrances don’t care how long content takes to load. For example, the whole page might be loaded already, but we only reveal each section with a fade as the person scrolls down the page. A single stylized entrance may mask and replace a short loading spinner.
+_In contrast to a placeholder loading skeleton_, choreographed or stylized entrances don’t care how long content takes to load. For example, the whole page might be loaded already, but we only reveal each section with a fade as the person scrolls down the page. A single stylized entrance may mask and replace a short [loading spinner](/components/loading-spinner).
 
 ## Animation & Transition Presets
 
@@ -143,46 +154,15 @@ Animations are *not* transitions. Although they can appear visually the same, th
 
 ## Sass mixins
 
-We have [Sass](https://sass-lang.com/) mixins and animation presets. To use them, import the animation styles into your Sass file:
+We have [Sass](https://sass-lang.com/) mixins and animation presets. To use them, import the animation styles into your Sass file.
 
 Our animation helpers have been heavily built upon [Zurb’s Motion UI](https://github.com/zurb/motion-ui). Most of the mixins are aliased versions from the motion-ui library. This lets us expand upon them and potentially remove this dependency without breaking our animation API.
-
-<AnimationImportExample />
-
-### Variables
-
-The Sass animation variables are designed to provide consistency across all Culture Amp animations.
-
-**Easings**
-
-Prefix: `$ca-timing`
-
-<EasingPresetsExample />
-
-**Durations**
-
-Prefix: `$ca-duration`
-
-<DurationPresetsExample />
 
 ### Mixins
 
 #### Animations
 
 To use any of the animation presets, define a class and include the mixin. All preset animation mixins are prefixed with `ca-animation-`.
-
-##### Animation Presets
-
-##### Example
-
-##### SASS Input
-
-<AnimationUsageInputExample />
-
-##### CSS Output
-
-<AnimationUsageOutputExample />
-
 
 | Type       | Mixin                              |
 | ---------- | ---------------------------------- |
@@ -205,14 +185,6 @@ To use any of the transition presets, define a class and include the mixin. All 
 ##### Transition Presets
 
 **Note:** Transitions need to be “triggered” by adding `.ca-enter-active` or `.ca-exit-active` classes.
-
-##### SASS Input
-
-<TransitionUsageInputExample />
-
-##### CSS Output
-
-<TransitionUsageOutputExample />
 
 | Type       | Mixin                               |
 | ---------- | ----------------------------------- |
@@ -270,7 +242,7 @@ Animation can cause accessibility issues, such as motion sickness in people with
 
 ```
 .animation {
-  animation: pulsate 0.3s $ca-ease-in-out infinite both;
+  animation: pulsate $kz-animation-duration-fast $kz-animation-easing-function-ease-in-out infinite both;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -286,3 +258,4 @@ Here are some examples of existing design systems that use motion:
 
 - [Material: motion](https://material.io/design/motion/understanding-motion.html)
 - [Lightning: time design tokens](https://www.lightningdesignsystem.com/design-tokens/#category-time)
+

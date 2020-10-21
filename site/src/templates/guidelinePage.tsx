@@ -12,11 +12,12 @@ import {
   SidebarAndContent,
   SidebarSection,
   SidebarTab,
+  TableOfContents,
 } from "../components/SidebarAndContent"
 import { sortSidebarTabs, stripTrailingSlash } from "./util"
 
-const renderSidebarTabs = (pages, currentPath, sectionName) => {
-  return pages.map((node, i) => (
+const renderSidebarTabs = (pages, currentPath, sectionName) =>
+  pages.map((node, i) => (
     <SidebarTab
       href={node!.node!.fields!.slug}
       active={
@@ -28,7 +29,6 @@ const renderSidebarTabs = (pages, currentPath, sectionName) => {
       {node!.node!.frontmatter!.navTitle}
     </SidebarTab>
   ))
-}
 
 export default ({ data, pageContext, location }) => {
   const md = data.mdx
@@ -68,15 +68,15 @@ export default ({ data, pageContext, location }) => {
           <SidebarSection>
             {renderSidebarTabs(overviewPage, currentPath, "Overview")}
           </SidebarSection>
+          <SidebarSection title="Guidelines">
+            {renderSidebarTabs(guidelinePages, currentPath, "Guidelines")}
+          </SidebarSection>
           <SidebarSection title="Comparing components">
             {renderSidebarTabs(
               comparingPages,
               currentPath,
               "Comparing components"
             )}
-          </SidebarSection>
-          <SidebarSection title="Guidelines">
-            {renderSidebarTabs(guidelinePages, currentPath, "Guidelines")}
           </SidebarSection>
         </Sidebar>
         <Content>
@@ -87,6 +87,7 @@ export default ({ data, pageContext, location }) => {
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
           </ContentMarkdownSection>
         </Content>
+        <TableOfContents items={md.tableOfContents.items} />
       </SidebarAndContent>
     </Layout>
   )
@@ -117,6 +118,7 @@ export const query = graphql`
         needToKnow
         headerImage
       }
+      tableOfContents
     }
   }
 `

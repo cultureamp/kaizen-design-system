@@ -2,40 +2,59 @@ import { Heading, Icon } from "@kaizen/component-library"
 import { Checkbox, CheckedStatus } from "@kaizen/draft-form"
 import classNames from "classnames"
 import * as React from "react"
+import styles from "./styles.scss"
+import sortDescendingIcon from "@kaizen/component-library/icons/sort-descending.icon.svg"
 
-const styles = require("./styles.scss")
-const sortDescendingIcon = require("@kaizen/component-library/icons/sort-descending.icon.svg")
-  .default
-
-type TableContainer = React.FunctionComponent
-export const TableContainer: TableContainer = ({ children, ...otherProps }) => (
-  <div className={styles.container} role="table" {...otherProps}>
-    {children}
-  </div>
-)
-
-export type AllowedTableHeaderBackgroundColors = "ash" | "white"
-
-type TableHeader = React.FunctionComponent<{
-  backgroundColor?: AllowedTableHeaderBackgroundColors
-}>
-export const TableHeader: TableHeader = ({
+type TableContainer = React.FunctionComponent<TableContainerProps>
+type TableContainerProps = {
+  variant?: "compact" | "default"
+}
+export const TableContainer: TableContainer = ({
+  variant = "compact",
   children,
-  backgroundColor = "ash",
   ...otherProps
 }) => (
   <div
-    className={classNames(styles.header, styles[backgroundColor])}
-    role="rowgroup"
+    role="table"
+    className={classNames(styles.container, {
+      [styles.defaultSpacing]: variant === "default",
+    })}
     {...otherProps}
   >
     {children}
   </div>
 )
 
+/**
+ * @deprecated backgroundColor is deprecated. Header props now have transparet backgrounds
+ */
+export type AllowedTableHeaderBackgroundColors = "ash" | "white"
+
+type TableHeader = React.FunctionComponent<{
+  backgroundColor?: AllowedTableHeaderBackgroundColors
+}>
+export const TableHeader: TableHeader = ({
+  backgroundColor,
+  children,
+  ...otherProps
+}) => {
+  if (backgroundColor) {
+    // eslint-disable-next-line no-console
+    console.warn(
+      "DEPRECATED(table): backgroundColor is deprecated - this prop has no effect"
+    )
+  }
+
+  return (
+    <div role="rowgroup" {...otherProps}>
+      {children}
+    </div>
+  )
+}
+
 type TableHeaderRow = React.FunctionComponent
 export const TableHeaderRow: TableHeaderRow = ({ children, ...otherProps }) => (
-  <div className={styles.headerRow} role="rowheader" {...otherProps}>
+  <div className={classNames(styles.row)} role="rowheader" {...otherProps}>
     {children}
   </div>
 )
@@ -51,6 +70,7 @@ const ratioToPercent = (width?: number) =>
  */
 type TableHeaderRowCell = React.FunctionComponent<{
   labelText: string
+  automationId?: string
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => any
   width?: number
   flex?: string
@@ -70,6 +90,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   checkedStatus,
   onCheck,
   active,
+  automationId,
   ...otherProps
 }) => {
   const label = icon ? (
@@ -80,10 +101,18 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
     <div className={styles.headerRowCellCheckboxContainer}>
       {checkable && (
         <div className={styles.headerRowCellCheckbox}>
-          <Checkbox checkedStatus={checkedStatus} onCheck={onCheck} />
+          <Checkbox
+            automationId={`${automationId}-checkbox`}
+            checkedStatus={checkedStatus}
+            onCheck={onCheck}
+          />
         </div>
       )}
-      <Heading tag="div" variant="heading-6">
+      <Heading
+        tag="div"
+        variant="heading-6"
+        color={active ? "dark" : "dark-reduced-opacity"}
+      >
         {labelText}
       </Heading>
     </div>
@@ -95,6 +124,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   }
   return onClick ? (
     <button
+      data-automation-id={automationId}
       style={style}
       className={classNames(styles.headerRowCell, { [styles.active]: active })}
       onClick={onClick}
@@ -106,6 +136,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
     </button>
   ) : (
     <div
+      data-automation-id={automationId}
       style={style}
       className={styles.headerRowCell}
       role="columnheader"
@@ -211,8 +242,8 @@ export const TableRowCell: TableRowCell = ({
   flex,
   href,
   ...otherProps
-}) => {
-  return href != null ? (
+}) =>
+  href != null ? (
     <a
       role="cell"
       style={{
@@ -238,4 +269,3 @@ export const TableRowCell: TableRowCell = ({
       {children}
     </div>
   )
-}

@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import * as React from "react"
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 type Props = {
   separated?: boolean
@@ -25,24 +25,22 @@ export const CollapsibleGroup: React.FunctionComponent<Props> = ({
   automationId,
   lazyLoad,
   onToggle,
-}) => {
-  return (
-    <div
-      className={classnames({ [styles.container]: !separated })}
-      data-automation-id={automationId}
-    >
-      {React.Children.map(children, collapsible =>
-        React.cloneElement(collapsible, {
-          group: true,
-          separated,
-          sticky,
-          noSectionPadding,
-          lazyLoad,
-          onToggle,
-        })
-      )}
-    </div>
-  )
-}
+}) => (
+  <div
+    className={classnames({ [styles.container]: !separated })}
+    data-automation-id={automationId}
+  >
+    {React.Children.map(children, collapsible =>
+      React.cloneElement(collapsible, {
+        group: true,
+        separated,
+        sticky,
+        noSectionPadding,
+        lazyLoad,
+        onToggle,
+      })
+    )}
+  </div>
+)
 
 export default CollapsibleGroup

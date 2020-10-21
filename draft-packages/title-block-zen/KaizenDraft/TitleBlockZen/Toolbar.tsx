@@ -6,7 +6,7 @@ import { ButtonProps } from "@kaizen/draft-button"
 import { MenuProps } from "@kaizen/draft-menu"
 import classNames from "classnames"
 import * as React from "react"
-const styles = require("./Toolbar.scss")
+import styles from "./Toolbar.scss"
 
 type ToolbarProps = {
   items?: Array<React.ReactElement<ButtonProps> | React.ReactElement<MenuProps>>
@@ -14,9 +14,15 @@ type ToolbarProps = {
 }
 
 const Toolbar = ({ items, noGap = false }: ToolbarProps) => {
+  if (!items || (items && items.length === 0)) {
+    return <></>
+  }
   return (
-    <div className={styles.toolbar}>
-      {items?.map((item, i) => (
+    <div
+      className={styles.toolbar}
+      data-automation-id="title-block-main-actions-toolbar"
+    >
+      {items.map((item, i) => (
         <div
           className={classNames(styles.toolbarItem, {
             [styles.noGap]: noGap,

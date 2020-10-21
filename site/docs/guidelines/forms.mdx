@@ -1,0 +1,80 @@
+---
+title: Forms
+navTitle: Forms
+summaryParagraph: Forms let people enter data needed to use the platform.
+tags: ['Inputs','Labels', 'Placeholders', 'Validation', 'Form layout']
+needToKnow:
+  - "Every form has a primary and secondary action."
+---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+
+## To keep in mind
+
+### Layout
+
+See individual component pages for label and input layout.
+We optimize for readability, scannability and time to form completion.
+
+Our preferred layout is with individual form elements stacked vertically, grouped by context as necessary. 
+
+#### Actions
+
+We require a single primary action to submit, with a secondary action to cancel and discard edits.
+
+For accessibility reasons, you should allow users to press the primary action button at all times. Do not make the button inactive, even when required fields are empty. Instead, trigger client-side validation to highlight the empty fields.
+
+### Validation and feedback
+
+Where possible, use client-side validation to present the user with feedback before submitting the form.
+
+Validate on press of the submit button. Do not validate on field selection or 'blur' (clicking out of the field). 
+
+If errors are present, reveal all relevant error messages and focus the user on the first invalid field on the page. You may also want to show a [negative confirmation modal](/components/modal/), then allow the user to navigate to the first error (or cancel to do nothing). 
+
+### Accessibility
+
+All form elements must have a label associated with the input. There are reasons you might make it visible to sighted users or not, see individual component pages for details.
+
+## When to use and when not to use
+
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
+
+- Only prompt for user input necessary to a specific task or action.
+- Prompt for input as close in time as possible to when it's needed. 
+
+</WhenToUse>
+<WhenNotToUse>
+
+- Don't prompt the user for input if the desired information can be determined via the browser (e.g. locale) or from data elsewhere in the system (e.g. asking a signed in user for their username).
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
+
+## See also
+
+- [Autocomplete](/components/autocomplete)
+- [Button](/components/button)
+- [Checkbox Field](/components/checkbox-field)
+- [Checkbox Group](/components/checkbox-group)
+- [Date Picker](/components/date-picker)
+- [Divider](/components/divider)
+- [Dropdown](/components/dropdown)
+- [Icon Button](/components/icon-button)
+- [Icon](/components/icon)
+- [Link vs button](/guidelines/link-vs-button)
+- [Radio Group](/components/radio-group)
+- [Select](/components/select)
+- [Slider](/components/slider)
+- [Text Field](/components/text-field)
+
+## External links
+
+- [Atlassian: Forms](https://www.atlassian.design/guidelines/product/patterns/forms)
+- [Polaris: Form](https://polaris.shopify.com/components/forms/form)
+- [Polaris: Form layout](https://polaris.shopify.com/components/forms/form-layout)
+- [Ant design: Form](https://ant.design/components/form/?locale=en-US#header)
+- [Lightning: Form element](https://www.lightningdesignsystem.com/components/form-element/)

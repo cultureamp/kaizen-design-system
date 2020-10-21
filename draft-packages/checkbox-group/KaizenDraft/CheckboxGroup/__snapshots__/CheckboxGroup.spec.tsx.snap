@@ -13,7 +13,7 @@ exports[`<CheckboxGroup />  renders Checkbox Group with noBottomMargin attribute
       data-automation-id="CheckboxGroupAutomationId-field-label"
     >
       <span
-        class="labelText"
+        class="appendedLabel"
       >
         CheckboxGroup Label
       </span>
@@ -35,7 +35,7 @@ exports[`<CheckboxGroup />  renders Checkbox Group without noBottomMargin attrib
       data-automation-id="CheckboxGroupAutomationId-field-label"
     >
       <span
-        class="labelText"
+        class="appendedLabel"
       >
         CheckboxGroup Label
       </span>

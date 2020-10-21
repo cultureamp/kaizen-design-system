@@ -28,6 +28,7 @@ import Html exposing (..)
 import Html.Attributes
 import Html.Events exposing (onFocus, onInput)
 import Html.Extra exposing (nothing)
+import Json.Encode
 import KaizenDraft.Events.Events as Events
 
 
@@ -250,7 +251,9 @@ view (Config config) =
                 [ Html.Attributes.value config.inputValue ]
 
             else
-                []
+                [ Html.Attributes.property "defaultValue"
+                    (Json.Encode.string config.inputValue)
+                ]
 
         placeholderAttr =
             [ Html.Attributes.placeholder config.placeholder ]

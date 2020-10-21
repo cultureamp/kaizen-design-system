@@ -28,10 +28,9 @@ exports[`matches snapshot with everything enabled 1`] = `
             class="icon"
             focusable="false"
             role="presentation"
-            viewBox="0 0 0 0"
           >
             <use
-              xlink:href="#my-svg"
+              xlink:href="#undefined"
             />
           </svg>
         </div>
@@ -84,10 +83,9 @@ exports[`matches snapshot with everything enabled 1`] = `
             class="icon"
             focusable="false"
             role="presentation"
-            viewBox="0 0 0 0"
           >
             <use
-              xlink:href="#my-svg"
+              xlink:href="#undefined"
             />
           </svg>
         </div>

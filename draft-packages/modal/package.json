@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-modal",
-  "version": "2.5.16",
+  "version": "3.2.1",
   "description": "The draft Modal component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -31,12 +31,14 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^7.24.2",
-    "@kaizen/deprecated-component-library-helpers": "^1.6.9",
-    "@kaizen/draft-button": "^1.10.0",
-    "@kaizen/draft-form": "^2.2.4",
+    "@kaizen/component-library": "^7.32.3",
+    "@kaizen/deprecated-component-library-helpers": "^1.6.13",
+    "@kaizen/draft-button": "^2.0.9",
+    "@kaizen/draft-form": "^2.7.9",
+    "@kaizen/draft-illustration": "^1.4.2",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",
+    "react-dom": "^16.13.1",
     "react-focus-lock": "1.19.1",
     "react-transition-group": "^2.9.0",
     "uuid": "^3.3.2"
@@ -46,7 +48,7 @@
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^1.2.0",
+    "@kaizen/design-tokens": "^1.2.0 || ^2",
     "react": "^16.9.0"
   }
 }

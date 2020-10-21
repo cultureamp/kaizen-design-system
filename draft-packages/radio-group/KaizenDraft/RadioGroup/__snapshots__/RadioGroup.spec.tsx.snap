@@ -13,7 +13,7 @@ exports[`<RadioGroup />  snapshots renders RadioGroup in a column and with a lab
       data-automation-id="-field-label"
     >
       <span
-        class="labelText"
+        class="appendedLabel"
       >
         Label
       </span>
@@ -35,7 +35,7 @@ exports[`<RadioGroup />  snapshots renders RadioGroup in a column and with a lab
       data-automation-id="-field-label"
     >
       <span
-        class="labelText"
+        class="appendedLabel"
       >
         Label
       </span>
@@ -57,7 +57,7 @@ exports[`<RadioGroup />  snapshots renders RadioGroup in a row and with a label 
       data-automation-id="-field-label"
     >
       <span
-        class="labelText"
+        class="appendedLabel"
       >
         Label
       </span>
@@ -79,7 +79,7 @@ exports[`<RadioGroup />  snapshots renders RadioGroup with radios 1`] = `
       data-automation-id="-field-label"
     >
       <span
-        class="labelText"
+        class="appendedLabel"
       >
         Label
       </span>
@@ -108,7 +108,7 @@ exports[`<RadioGroup />  snapshots renders RadioGroup with radios 1`] = `
         />
       </div>
       <span
-        class="labelText"
+        class="appendedLabel"
       >
         Label 1
       </span>
@@ -137,7 +137,7 @@ exports[`<RadioGroup />  snapshots renders RadioGroup with radios 1`] = `
         />
       </div>
       <span
-        class="labelText"
+        class="appendedLabel"
       >
         Label 2
       </span>

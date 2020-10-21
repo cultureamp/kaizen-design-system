@@ -1,11 +1,13 @@
 module KaizenDraft.Form.Primitives.Label.Label exposing
-    ( LabelProp(..)
+    ( LabelPosition(..)
+    , LabelProp(..)
     , LabelType(..)
     , automationId
     , children
     , default
     , htmlFor
     , id
+    , labelPosition
     , labelText
     , labelType
     , reversed
@@ -29,7 +31,8 @@ styles =
         , text = "text"
         , checkbox = "checkbox"
         , toggle = "toggle"
-        , labelText = "labelText"
+        , prependedLabel = "prependedLabel"
+        , appendedLabel = "appendedLabel"
         , radio = "radio"
         }
 
@@ -48,6 +51,7 @@ type alias ConfigValue msg =
     , reversed : Bool
     , labelText : LabelProp msg
     , labelType : LabelType
+    , labelPosition : LabelPosition
     , htmlFor : Maybe String
     , children : List (Html msg)
     }
@@ -60,6 +64,11 @@ type LabelType
     | Radio
 
 
+type LabelPosition
+    = Start
+    | End
+
+
 defaults : ConfigValue msg
 defaults =
     { id = Nothing
@@ -67,6 +76,7 @@ defaults =
     , reversed = False
     , labelText = LabelString ""
     , labelType = Text
+    , labelPosition = End
     , htmlFor = Nothing
     , children = []
     }
@@ -108,6 +118,11 @@ labelText value (Config config) =
 labelType : LabelType -> Config msg -> Config msg
 labelType value (Config config) =
     Config { config | labelType = value }
+
+
+labelPosition : LabelPosition -> Config msg -> Config msg
+labelPosition value (Config config) =
+    Config { config | labelPosition = value }
 
 
 htmlFor : String -> Config msg -> Config msg
@@ -172,4 +187,13 @@ view (Config config) =
                     ]
                ]
         )
-        (config.children ++ [ span [ styles.classList [ ( .labelText, True ) ] ] labelTextValue ])
+        (config.children
+            ++ [ span
+                    [ styles.classList
+                        [ ( .prependedLabel, config.labelPosition == Start )
+                        , ( .appendedLabel, config.labelPosition == End )
+                        ]
+                    ]
+                    labelTextValue
+               ]
+        )

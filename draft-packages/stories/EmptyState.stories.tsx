@@ -1,13 +1,13 @@
-const chevronLeft = require("@kaizen/component-library/icons/chevron-left.icon.svg")
-  .default
-const chevronRight = require("@kaizen/component-library/icons/chevron-right.icon.svg")
-  .default
+import chevronLeft from "@kaizen/component-library/icons/chevron-left.icon.svg"
+
+import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
+
 import * as React from "react"
 
-import { Button } from "@kaizen/component-library"
+import { Button } from "@kaizen/draft-button"
 import { EmptyState } from "../empty-state"
 
-const styles = require("./EmptyState.stories.scss")
+import styles from "./EmptyState.stories.scss"
 
 const SidebarAndContentLayout = ({
   children,
@@ -49,9 +49,7 @@ export const DefaultKaizenSiteDemo = () => (
   </SidebarAndContentLayout>
 )
 
-DefaultKaizenSiteDemo.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const LayoutSidebarContent = () => (
   <SidebarAndContentLayout>
@@ -65,9 +63,7 @@ export const LayoutSidebarContent = () => (
   </SidebarAndContentLayout>
 )
 
-LayoutSidebarContent.story = {
-  name: "Layout, Sidebar + Content",
-}
+LayoutSidebarContent.storyName = "Layout, Sidebar + Content"
 
 export const LayoutContentOnly = () => (
   <ContentOnlyLayout>
@@ -81,9 +77,7 @@ export const LayoutContentOnly = () => (
   </ContentOnlyLayout>
 )
 
-LayoutContentOnly.story = {
-  name: "Layout, Content-only",
-}
+LayoutContentOnly.storyName = "Layout, Content-only"
 
 export const Positive = () => (
   <SidebarAndContentLayout>
@@ -95,12 +89,7 @@ export const Positive = () => (
       useZenStyles
     >
       <div className={styles.buttonContainer}>
-        <Button
-          label="Label"
-          icon={chevronRight}
-          iconPosition="end"
-          fullWidth
-        />
+        <Button label="Label" icon={chevronRight} iconPosition="end" />
       </div>
     </EmptyState>
   </SidebarAndContentLayout>
@@ -128,12 +117,7 @@ export const Action = () => (
       useZenStyles
     >
       <div className={styles.buttonContainer}>
-        <Button
-          label="Label"
-          icon={chevronRight}
-          iconPosition="end"
-          fullWidth
-        />
+        <Button label="Label" icon={chevronRight} iconPosition="end" />
       </div>
     </EmptyState>
   </SidebarAndContentLayout>
@@ -148,20 +132,13 @@ export const ActionButNotZen = () => (
       illustrationType="action"
     >
       <div className={styles.buttonContainer}>
-        <Button
-          label="Label"
-          icon={chevronRight}
-          iconPosition="end"
-          fullWidth
-        />
+        <Button label="Label" icon={chevronRight} iconPosition="end" />
       </div>
     </EmptyState>
   </SidebarAndContentLayout>
 )
 
-ActionButNotZen.story = {
-  name: "Action (pre-Zen legacy styles)",
-}
+ActionButNotZen.storyName = "Action (pre-Zen legacy styles)"
 
 export const ActionButton = () => (
   <SidebarAndContentLayout>
@@ -177,20 +154,13 @@ export const ActionButton = () => (
       useZenStyles
     >
       <div className={styles.buttonContainer}>
-        <Button
-          label="Label"
-          icon={chevronRight}
-          iconPosition="end"
-          fullWidth
-        />
+        <Button label="Label" icon={chevronRight} iconPosition="end" />
       </div>
     </EmptyState>
   </SidebarAndContentLayout>
 )
 
-ActionButton.story = {
-  name: "Action, Button",
-}
+ActionButton.storyName = "Action, Button"
 
 export const Neutral = () => (
   <SidebarAndContentLayout>
@@ -214,12 +184,7 @@ export const Negative = () => (
       useZenStyles
     >
       <div className={styles.buttonContainer}>
-        <Button
-          label="Label"
-          icon={chevronRight}
-          iconPosition="end"
-          fullWidth
-        />
+        <Button label="Label" icon={chevronRight} iconPosition="end" />
       </div>
     </EmptyState>
   </SidebarAndContentLayout>
@@ -236,21 +201,14 @@ export const RtlAction = () => (
         useZenStyles
       >
         <div className={styles.buttonContainer}>
-          <Button
-            label="Label"
-            icon={chevronLeft}
-            iconPosition="end"
-            fullWidth
-          />
+          <Button label="Label" icon={chevronLeft} iconPosition="end" />
         </div>
       </EmptyState>
     </SidebarAndContentLayout>
   </div>
 )
 
-RtlAction.story = {
-  name: "RTL, Action",
-}
+RtlAction.storyName = "RTL, Action"
 
 export const StraightCorners = () => (
   <SidebarAndContentLayout>
@@ -263,12 +221,10 @@ export const StraightCorners = () => (
       useZenStyles
     >
       <div className={styles.buttonContainer}>
-        <Button label="Label" icon={chevronLeft} iconPosition="end" fullWidth />
+        <Button label="Label" icon={chevronRight} iconPosition="end" />
       </div>
     </EmptyState>
   </SidebarAndContentLayout>
 )
 
-StraightCorners.story = {
-  name: "Straight corners",
-}
+StraightCorners.storyName = "Straight corners"

@@ -3,7 +3,7 @@ import classnames from "classnames"
 import * as React from "react"
 import markdownComponents from "./markdownComponents"
 
-const styles = require("./ContentMarkdownSection.scss")
+import styles from "./ContentMarkdownSection.scss"
 const markdownStyles = require("../styles/markdown.scss")
 
 const ContentMarkdownSection: React.SFC = ({ children }) => (

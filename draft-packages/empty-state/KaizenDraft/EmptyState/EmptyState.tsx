@@ -7,7 +7,7 @@ const negativeIllustration = require("./illustrations/negative.png")
 const neutralIllustration = require("./illustrations/neutral.png")
 const positiveIllustration = require("./illustrations/positive.png")
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 const illustrations: { [key: string]: any } = {
   positive: positiveIllustration as any,

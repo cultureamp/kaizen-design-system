@@ -2,21 +2,21 @@ import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { AsyncSelect, Select } from "@kaizen/draft-select"
 import * as React from "react"
 
-const StoryContainer = ({ children }: { children: React.ReactNode }) => {
-  return <div style={{ width: "300px", margin: "12px auto" }}>{children}</div>
-}
+const StoryContainer = ({ children }: { children: React.ReactNode }) => (
+  <div style={{ width: "300px", margin: "12px auto" }}>{children}</div>
+)
 
-const WideStoryContainer = ({ children }: { children: React.ReactNode }) => {
-  return <div style={{ width: "500px", margin: "12px auto" }}>{children}</div>
-}
+const WideStoryContainer = ({ children }: { children: React.ReactNode }) => (
+  <div style={{ width: "500px", margin: "12px auto" }}>{children}</div>
+)
 
-const NarrowStoryContainer = ({ children }: { children: React.ReactNode }) => {
-  return <div style={{ width: "200px", margin: "12px auto" }}>{children}</div>
-}
+const NarrowStoryContainer = ({ children }: { children: React.ReactNode }) => (
+  <div style={{ width: "200px", margin: "12px auto" }}>{children}</div>
+)
 
 const options = [
   { value: "Mindy", label: "Mindy" },
-  { value: "Jaime", label: "Jaime" },
+  { value: "Jaime", label: "Jaime", isDisabled: true },
   { value: "Rafa", label: "Rafa" },
   { value: "Elaine", label: "Elaine" },
   { value: "Julio", label: "Julio" },
@@ -47,11 +47,10 @@ const asyncOptions = [
   { value: "Roberto", label: "Roberto" },
 ]
 
-const filterNames = (inputValue: string) => {
-  return asyncOptions.filter(i =>
+const filterNames = (inputValue: string) =>
+  asyncOptions.filter(i =>
     i.label.toLowerCase().includes(inputValue.toLowerCase())
   )
-}
 
 const promiseOptions = inputValue =>
   new Promise(resolve => {
@@ -105,9 +104,7 @@ export const SingleEllipsis = () => {
   )
 }
 
-SingleEllipsis.story = {
-  name: "Single with ellipsizing selection",
-}
+SingleEllipsis.storyName = "Single with ellipsizing selection"
 
 export const SingleClearable = () => (
   <StoryContainer>
@@ -132,9 +129,7 @@ export const MultiSelectSearchable = () => (
   </WideStoryContainer>
 )
 
-MultiSelectSearchable.story = {
-  name: "Multi-Select Searchable",
-}
+MultiSelectSearchable.storyName = "Multi-Select Searchable"
 
 export const AsyncSearchable = () => (
   <WideStoryContainer>
@@ -156,9 +151,7 @@ export const MultiAsyncSearchable = () => (
     />
   </WideStoryContainer>
 )
-MultiAsyncSearchable.story = {
-  name: "Multi-Async Searchable",
-}
+MultiAsyncSearchable.storyName = "Multi-Async Searchable"
 
 export const SingleSecondary = () => (
   <StoryContainer>
@@ -171,8 +164,25 @@ export const SingleSecondary = () => (
   </StoryContainer>
 )
 
-SingleSecondary.story = {
-  name: "Single, Secondary",
+SingleSecondary.storyName = "Single, Secondary"
+
+export const SingleSecondarySmall = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      isSearchable={false}
+      defaultValue={options[0]}
+      variant="secondary-small"
+      reversed={true}
+    />
+  </StoryContainer>
+)
+
+SingleSecondarySmall.storyName = "Single, Secondary-Small, Reversed"
+SingleSecondarySmall.parameters = {
+  backgrounds: {
+    default: "Wisteria 700",
+  },
 }
 
 export const SingleSecondaryDisabled = () => (
@@ -187,9 +197,7 @@ export const SingleSecondaryDisabled = () => (
   </StoryContainer>
 )
 
-SingleSecondaryDisabled.story = {
-  name: "Single, Secondary, Disabled",
-}
+SingleSecondaryDisabled.storyName = "Single, Secondary, Disabled"
 
 export const SingleSecondaryReversed = () => (
   <StoryContainer>
@@ -203,16 +211,10 @@ export const SingleSecondaryReversed = () => (
   </StoryContainer>
 )
 
-SingleSecondaryReversed.story = {
-  name: "Single, Secondary, Reversed",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
+SingleSecondaryReversed.storyName = "Single, Secondary, Reversed"
+SingleSecondaryReversed.parameters = {
+  backgrounds: {
+    default: "Wisteria 700",
   },
 }
 
@@ -239,16 +241,10 @@ export const SingleSecondaryWithEllipsis = () => {
   )
 }
 
-SingleSecondaryWithEllipsis.story = {
-  name: "Single Secondary with ellipsis",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
+SingleSecondaryWithEllipsis.storyName = "Single Secondary with ellipsis"
+SingleSecondaryWithEllipsis.parameters = {
+  backgrounds: {
+    default: "Wisteria 700",
   },
 }
 
@@ -265,15 +261,10 @@ export const SingleSecondaryReversedDisabled = () => (
   </StoryContainer>
 )
 
-SingleSecondaryReversedDisabled.story = {
-  name: "Single Secondary Reversed (disabled)",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
+SingleSecondaryReversedDisabled.storyName =
+  "Single Secondary Reversed (disabled)"
+SingleSecondaryReversedDisabled.parameters = {
+  backgrounds: {
+    default: "Wisteria 700",
   },
 }

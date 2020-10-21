@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import * as React from "react"
 
-const styles = require("./HeroCard.scss")
+import styles from "./HeroCard.scss"
 
 interface Props {
   readonly leftContent?: React.ReactNode
@@ -23,32 +23,30 @@ const HeroCard: HeroCard = ({
   badge,
   minHeight = "none",
   fullWidth = false,
-}: Props) => {
-  return (
-    <div
-      className={classnames(styles.root, {
-        [styles.fullWidth]: fullWidth,
-      })}
-    >
-      <div style={{ minHeight }} className={styles.left}>
-        {badge && <div className={styles.badge}>{badge}</div>}
-        {leftContent && (
-          <div
-            className={classnames(styles.leftContent, {
-              [styles.withBadge]: !!badge,
-            })}
-          >
-            {leftContent}
-          </div>
-        )}
-        {image}
-      </div>
-      <div className={styles.right}>
-        {title}
-        <div className={styles.rightContent}>{children}</div>
-      </div>
+}: Props) => (
+  <div
+    className={classnames(styles.root, {
+      [styles.fullWidth]: fullWidth,
+    })}
+  >
+    <div style={{ minHeight }} className={styles.left}>
+      {badge && <div className={styles.badge}>{badge}</div>}
+      {leftContent && (
+        <div
+          className={classnames(styles.leftContent, {
+            [styles.withBadge]: !!badge,
+          })}
+        >
+          {leftContent}
+        </div>
+      )}
+      {image}
     </div>
-  )
-}
+    <div className={styles.right}>
+      {title}
+      <div className={styles.rightContent}>{children}</div>
+    </div>
+  </div>
+)
 
 export default HeroCard

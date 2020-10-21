@@ -3,6 +3,325 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@2.0.8...@kaizen/draft-button@2.0.9) (2020-10-21)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [2.0.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@2.0.7...@kaizen/draft-button@2.0.8) (2020-10-08)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [2.0.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@2.0.6...@kaizen/draft-button@2.0.7) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [2.0.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@2.0.5...@kaizen/draft-button@2.0.6) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [2.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@2.0.4...@kaizen/draft-button@2.0.5) (2020-09-30)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [2.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@2.0.3...@kaizen/draft-button@2.0.4) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [2.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@2.0.2...@kaizen/draft-button@2.0.3) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [2.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@2.0.1...@kaizen/draft-button@2.0.2) (2020-09-24)
+
+
+### Bug Fixes
+
+* Change styles from require to use import ([#782](https://github.com/cultureamp/kaizen-design-system/issues/782)) ([defd448](https://github.com/cultureamp/kaizen-design-system/commit/defd4483faa3459d9af48e272c63656798008a28))
+
+
+
+
+
+## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@2.0.0...@kaizen/draft-button@2.0.1) (2020-09-23)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.12...@kaizen/draft-button@2.0.0) (2020-09-13)
+
+
+### Features
+
+* Allow routing libraries to be used with Button ([#763](https://github.com/cultureamp/kaizen-design-system/issues/763)) ([f6f55be](https://github.com/cultureamp/kaizen-design-system/commit/f6f55becff90bcce3aed8c4ccf62a6a393696857))
+
+
+### BREAKING CHANGES
+
+* This will cause TS to error for usages of the Zen Button with an onClick prop using the event param
+
+* fix: Remove preventDefault when specifying an onClick prop
+* There may be usages relying on this preventDefault, so we'll need to do a sweep of all usages to check
+
+* chore: Remove analytics related code on Button
+* I don't imagine there are any places where this is used on the new button, but we'll need to make sure.
+These attributes were used for the old system (Treasure Data) and should no longer be required. In the off change that they are - onClick can still be used, or data properties can still be sent to buttons
+
+* chore: Remove specific aria props on button
+* Any usages of ariaControls, ariaDescribedby, and ariaExpanded will need to be replaced with kebab case equivalents
+These specific props are no longer required since the work done to allow any kebab case props to be sent to buttons.
+
+* Send href to custom component
+
+* Allow any type of MouseEvent onClick
+
+* Pass component as an arg to renderCustomComponent rather than having to null check props.component
+
+* Remove component var declarations in renderLink and renderButton
+
+* Remove automationId prop
+The kebab case 'data-automation-id' prop can be used directly instead
+* Any usages of the automationId prop will need to be replaced with data-automation-id
+
+
+
+
+
+## [1.13.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.11...@kaizen/draft-button@1.13.12) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.13.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.10...@kaizen/draft-button@1.13.11) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.13.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.9...@kaizen/draft-button@1.13.10) (2020-09-09)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.13.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.8...@kaizen/draft-button@1.13.9) (2020-09-07)
+
+
+### Bug Fixes
+
+* Bump design-tokens peer dependency to the latest version ([#760](https://github.com/cultureamp/kaizen-design-system/issues/760)) ([37e5414](https://github.com/cultureamp/kaizen-design-system/commit/37e5414b2e2c0befb4127c588120eb2e8bdc4d39))
+
+
+
+
+
+## [1.13.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.7...@kaizen/draft-button@1.13.8) (2020-09-04)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.13.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.6...@kaizen/draft-button@1.13.7) (2020-08-28)
+
+
+### Bug Fixes
+
+* consider icon position end when additional content is used on generic button ([#741](https://github.com/cultureamp/kaizen-design-system/issues/741)) ([e985948](https://github.com/cultureamp/kaizen-design-system/commit/e985948db86ae972732bbbe049914c1fb608e4b8))
+
+
+
+
+
+## [1.13.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.5...@kaizen/draft-button@1.13.6) (2020-08-28)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.13.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.4...@kaizen/draft-button@1.13.5) (2020-08-27)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.13.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.3...@kaizen/draft-button@1.13.4) (2020-08-24)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.13.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.2...@kaizen/draft-button@1.13.3) (2020-08-19)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.13.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.1...@kaizen/draft-button@1.13.2) (2020-08-12)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.13.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.13.0...@kaizen/draft-button@1.13.1) (2020-08-10)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+# [1.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.12.7...@kaizen/draft-button@1.13.0) (2020-07-31)
+
+
+### Features
+
+* Add focus support to the Button components ([#662](https://github.com/cultureamp/kaizen-design-system/issues/662)) ([55a862d](https://github.com/cultureamp/kaizen-design-system/commit/55a862da6f198f2b48a4ee4af6f2dd685809fb9c))
+
+
+
+
+
+## [1.12.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.12.6...@kaizen/draft-button@1.12.7) (2020-07-30)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.12.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.12.5...@kaizen/draft-button@1.12.6) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.12.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.12.4...@kaizen/draft-button@1.12.5) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.12.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.12.3...@kaizen/draft-button@1.12.4) (2020-07-13)
+
+
+### Bug Fixes
+
+* Adds overflow:visible to buttons to fix IE11 clipping issue ([#647](https://github.com/cultureamp/kaizen-design-system/issues/647)) ([e737fc3](https://github.com/cultureamp/kaizen-design-system/commit/e737fc33c8888fb00a3cb21c20c90e65a9db3653))
+
+
+
+
+
+## [1.12.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.12.2...@kaizen/draft-button@1.12.3) (2020-07-10)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [1.12.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.12.1...@kaizen/draft-button@1.12.2) (2020-07-09)
+
+
+### Bug Fixes
+
+* Switch from TSlint to ESlint ([#621](https://github.com/cultureamp/kaizen-design-system/issues/621)) ([59e64d4](https://github.com/cultureamp/kaizen-design-system/commit/59e64d4d0cd14302544ae7f41fd76a101d313aee))
+
+
+
+
+
+## [1.12.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.12.0...@kaizen/draft-button@1.12.1) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+# [1.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.11.1...@kaizen/draft-button@1.12.0) (2020-07-09)
+
+
+### Features
+
+* @kaizen/draft-filter-drawer (React, new package) ([#590](https://github.com/cultureamp/kaizen-design-system/issues/590)) ([a44ef9e](https://github.com/cultureamp/kaizen-design-system/commit/a44ef9e2efd82855412c8d334b063208bfc5be28))
+
+
+
+
+
+## [1.11.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.11.0...@kaizen/draft-button@1.11.1) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+# [1.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.10.0...@kaizen/draft-button@1.11.0) (2020-07-08)
+
+
+### Features
+
+* abillity to add additional content to GenericButton ([#608](https://github.com/cultureamp/kaizen-design-system/issues/608)) ([bff3345](https://github.com/cultureamp/kaizen-design-system/commit/bff3345d861f23086d872bbc852c1cf112678530))
+
+
+
+
+
 # [1.10.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@1.9.1...@kaizen/draft-button@1.10.0) (2020-07-07)
 
 

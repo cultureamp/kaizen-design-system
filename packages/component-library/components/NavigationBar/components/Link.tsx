@@ -1,13 +1,20 @@
 import { Icon } from "@kaizen/component-library"
-const chevronRightIcon = require("@kaizen/component-library/icons/chevron-right.icon.svg")
-  .default
+/**
+ * Eslint throws a false negative for modules that use require. Ensure you
+ * are importing @kaizen/component-library into your package before turning
+ * this rule off.
+ */
+// eslint-disable-next-line import/no-extraneous-dependencies
+import chevronRightIcon from "@kaizen/component-library/icons/chevron-right.icon.svg"
+
 import classNames from "classnames"
 import * as React from "react"
 
-const styles = require("./Link.module.scss")
+import styles from "./Link.module.scss"
 import { LinkProps } from "../types"
+import Indicator from "./Indicator"
 
-export default class Link extends React.PureComponent<LinkProps> {
+class Link extends React.PureComponent<LinkProps> {
   static displayName = "Link"
   static defaultProps = {
     iconOnly: false,
@@ -30,6 +37,7 @@ export default class Link extends React.PureComponent<LinkProps> {
       target,
       hasMenu,
       section,
+      showIndicator,
     } = this.props
 
     return (
@@ -53,6 +61,7 @@ export default class Link extends React.PureComponent<LinkProps> {
         )}
         {text && !(icon && iconOnly) && (
           <span className={styles.linkText}>
+            {showIndicator && hasMenu && <Indicator />}
             {text}
             {badge && (
               <span
@@ -75,3 +84,5 @@ export default class Link extends React.PureComponent<LinkProps> {
     )
   }
 }
+
+export default Link

@@ -1,14 +1,10 @@
-import { Button, Heading, Icon, Paragraph } from "@kaizen/component-library"
-const configureIcon = require("@kaizen/component-library/icons/arrow-forward.icon.svg")
-  .default
-
+import { Button, ButtonProps } from "@kaizen/draft-button"
+import { Heading, Icon, Paragraph } from "@kaizen/component-library"
+import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
+import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import classnames from "classnames"
 import * as React from "react"
-
-const styles = require("./GuidanceBlock.scss")
-
-const closeIcon = require("@kaizen/component-library/icons/close.icon.svg")
-  .default
+import styles from "./GuidanceBlock.scss"
 
 type Props = {
   img: {
@@ -20,21 +16,14 @@ type Props = {
     description: string | React.ReactNode
   }
   actions: {
-    primary: {
-      label: string
-      onClick: () => void
-      disabled?: boolean
-    }
-    secondary?: {
-      label: string
-      onClick: () => void
-      disabled?: boolean
-    }
+    primary: ButtonProps
+    secondary?: ButtonProps
     dismiss?: {
       onClick: () => void
     }
   }
   persistent?: boolean
+  variant?: "default" | "prominent"
   withActionButtonArrow?: boolean
 }
 
@@ -44,6 +33,7 @@ type State = {
 }
 class GuidanceBlock extends React.Component<Props, State> {
   static defaultProps = {
+    variant: "default",
     withActionButtonArrow: true,
   }
 
@@ -89,7 +79,9 @@ class GuidanceBlock extends React.Component<Props, State> {
     return (
       <div
         className={this.bannerClassName()}
-        style={{ marginTop: this.marginTop() }}
+        style={{
+          marginTop: this.marginTop(),
+        }}
         ref={this.containerRef}
         onTransitionEnd={this.onTransitionEnd}
       >
@@ -113,21 +105,14 @@ class GuidanceBlock extends React.Component<Props, State> {
           })}
         >
           <Button
-            label={primary.label}
-            onClick={primary.onClick}
-            icon={withActionButtonArrow ? configureIcon : null}
+            icon={withActionButtonArrow ? configureIcon : undefined}
             iconPosition="end"
-            disabled={primary.disabled}
+            {...primary}
           />
 
           {secondary && (
             <div className={styles.secondaryAction}>
-              <Button
-                label={secondary.label}
-                onClick={secondary.onClick}
-                secondary
-                disabled={secondary.disabled}
-              />
+              <Button secondary {...secondary} />
             </div>
           )}
         </div>
@@ -139,6 +124,7 @@ class GuidanceBlock extends React.Component<Props, State> {
   bannerClassName(): string {
     return classnames(styles.banner, {
       [styles.hidden]: this.state.hidden,
+      [styles.prominent]: this.props.variant === "prominent",
     })
   }
 

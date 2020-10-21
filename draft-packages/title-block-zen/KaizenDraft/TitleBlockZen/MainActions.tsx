@@ -1,26 +1,44 @@
 import { Button, IconButton } from "@kaizen/draft-button"
+import GenericButton, {
+  AdditionalContentProps,
+  GenericProps,
+  LabelProps,
+} from "@kaizen/draft-button/KaizenDraft/Button/components/GenericButton"
 import { Menu, MenuContent, MenuItem, MenuItemProps } from "@kaizen/draft-menu"
 import * as React from "react"
 import {
-  ButtonWithOnClickOrHref,
+  TitleBlockButtonProps,
   isMenuGroupNotButton,
   PrimaryActionProps,
+  BadgeProps,
 } from "./TitleBlockZen"
 import Toolbar from "./Toolbar"
-const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
-  .default
-const meatballsIcon = require("@kaizen/component-library/icons/meatballs.icon.svg")
-  .default
+import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
+import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
+import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 
-const styles = require("./TitleBlockZen.scss")
+import styles from "./TitleBlockZen.scss"
 
 type MainActionsProps = {
   primaryAction?: PrimaryActionProps
-  defaultAction?: ButtonWithOnClickOrHref
+  defaultAction?: TitleBlockButtonProps
   reversed?: boolean
   overflowMenuItems?: MenuItemProps[]
   showOverflowMenu?: boolean
 }
+
+const renderBadge = (badge?: BadgeProps) => {
+  if (!badge) return null
+  return badge.animateChange ? (
+    <BadgeAnimated variant="dark">{badge.text}</BadgeAnimated>
+  ) : (
+    <Badge variant="dark">{badge.text}</Badge>
+  )
+}
+
+const ButtonAllowingAdditionalContent = (
+  props: GenericProps & LabelProps & AdditionalContentProps
+) => <GenericButton {...props} />
 
 const MainActions = ({
   primaryAction,
@@ -34,23 +52,42 @@ const MainActions = ({
     const menuContent = (
       <MenuContent>
         {primaryAction.menuItems.map((item, idx) => (
-          <MenuItem {...item} key={`main-action-primary-${idx}`} />
+          <MenuItem
+            {...item}
+            key={`main-action-primary-menu-item-${idx}`}
+            automationId={`main-action-primary-menu-item-${idx}`}
+          />
         ))}
       </MenuContent>
     )
     items = [
-      ...(defaultAction ? [<Button {...defaultAction} />] : []),
+      ...(defaultAction
+        ? [
+            <Button
+              {...{
+                ...defaultAction,
+                reversed:
+                  defaultAction.reversed !== undefined
+                    ? defaultAction.reversed
+                    : reversed,
+              }}
+              data-automation-id="title-block-default-action-button"
+            />,
+          ]
+        : []),
       ...(primaryAction
         ? [
             <Menu
               align="right"
               button={
-                <Button
+                <ButtonAllowingAdditionalContent
                   label={primaryAction.label}
                   primary
                   reversed={reversed}
                   icon={chevronDownIcon}
                   iconPosition="end"
+                  data-automation-id="title-block-primary-action-button"
+                  additionalContent={renderBadge(primaryAction.badge)}
                 />
               }
             >
@@ -61,8 +98,41 @@ const MainActions = ({
     ]
   } else {
     items = [
-      ...(defaultAction ? [<Button {...defaultAction} />] : []),
-      ...(primaryAction ? [<Button {...primaryAction} />] : []),
+      ...(defaultAction
+        ? [
+            <Button
+              {...{
+                ...defaultAction,
+                reversed:
+                  defaultAction.reversed !== undefined
+                    ? defaultAction.reversed
+                    : reversed,
+              }}
+              data-automation-id="title-block-default-action-button"
+            />,
+          ]
+        : []),
+      ...(primaryAction
+        ? [
+            <ButtonAllowingAdditionalContent
+              // Temporary grossness before we deprecate a mandatory
+              // optional field for primary in PrimaryActionProps
+              {...{
+                ...primaryAction,
+                primary:
+                  primaryAction.primary !== undefined
+                    ? primaryAction.primary
+                    : true,
+                reversed:
+                  primaryAction.reversed !== undefined
+                    ? primaryAction.reversed
+                    : reversed,
+              }}
+              data-automation-id="title-block-primary-action-button"
+              additionalContent={renderBadge(primaryAction.badge)}
+            />,
+          ]
+        : []),
     ]
   }
 
@@ -76,7 +146,10 @@ const MainActions = ({
       >
         <MenuContent>
           {overflowMenuItems.map((menuItem, idx) => (
-            <MenuItem {...menuItem} key={`main-action-overflow-item-${idx}`} />
+            <MenuItem
+              {...menuItem}
+              key={`main-action-overflow-item-menu-item-${idx}`}
+            />
           ))}
         </MenuContent>
       </Menu>,

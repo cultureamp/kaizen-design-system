@@ -1,54 +1,59 @@
 import * as React from "react"
-const styles = require("./Tooltip.scss")
+import styles from "./Tooltip.scss"
 import classnames from "classnames"
 
 type Position = "above" | "below"
 
 type Props = {
+  inline?: boolean
   position?: Position
   text: string
   children?: React.ReactNode
 }
 
-const Tooltip = (props: Props) => {
-  return (
-    <div className={styles.tooltipWrap}>
-      {props.children}
-      <div
-        className={classnames(styles.contentWrap, {
-          [styles.above]: props.position == "above",
-        })}
+const Tooltip = (props: Props) => (
+  <span
+    className={classnames(styles.tooltipWrap, {
+      [styles.inline]: props.inline === true,
+    })}
+  >
+    {props.children}
+    <span
+      className={classnames(styles.contentWrap, {
+        [styles.above]: props.position == "above",
+      })}
+    >
+      <span
+        className={classnames(
+          styles.root,
+          {
+            [styles.below]: props.position == "below",
+            [styles.above]: props.position == "above",
+          },
+          styles.default
+        )}
       >
-        <div
-          className={classnames(
-            styles.root,
-            {
-              [styles.below]: props.position == "below",
-              [styles.above]: props.position == "above",
-            },
-            styles.default
-          )}
-        >
-          <span className={styles.tooltipContent}>{props.text}</span>
-        </div>
+        <span className={styles.tooltipContent}>{props.text}</span>
+      </span>
 
-        <div
-          className={classnames(
-            styles.root,
-            styles.shadow,
-            {
-              [styles.below]: props.position == "below",
-              [styles.above]: props.position == "above",
-            },
-            styles.default
-          )}
-        >
-          <span className={styles.tooltipContent}>{props.text}</span>
-        </div>
-      </div>
-    </div>
-  )
-}
+      <span
+        className={classnames(
+          styles.root,
+          styles.shadow,
+          {
+            [styles.below]: props.position == "below",
+            [styles.above]: props.position == "above",
+          },
+          styles.default
+        )}
+      >
+        <span className={styles.tooltipContent} aria-hidden>
+          {props.text}
+        </span>
+      </span>
+    </span>
+  </span>
+)
 
 Tooltip.defaultProps = {
   position: "above",

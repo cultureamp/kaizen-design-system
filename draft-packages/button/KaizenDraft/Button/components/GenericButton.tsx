@@ -1,10 +1,29 @@
 import { Icon } from "@kaizen/component-library"
 import classNames from "classnames"
-import * as React from "react"
+import React, {
+  forwardRef,
+  Ref,
+  useImperativeHandle,
+  useRef,
+  ComponentType,
+  FocusEvent,
+  MouseEvent,
+} from "react"
 
-const styles = require("./GenericButton.module.scss")
+import styles from "./GenericButton.module.scss"
 
-type GenericProps = {
+export type CustomButtonProps = {
+  id?: string
+  className: string
+  ref: Ref<any>
+  href?: string
+  disabled?: boolean
+  onClick?: (e: MouseEvent<any>) => void
+  onFocus?: (e: FocusEvent<HTMLElement>) => void
+  onBlur?: (e: FocusEvent<HTMLElement>) => void
+}
+
+export type GenericProps = {
   id?: string
   label: string
   destructive?: boolean
@@ -17,27 +36,22 @@ type GenericProps = {
   href?: string
   newTabAndIUnderstandTheAccessibilityImplications?: boolean
   type?: "submit" | "reset" | "button"
-  automationId?: string
   fullWidth?: boolean
   disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean
-  analytics?: Analytics
-  ariaControls?: string
-  ariaDescribedBy?: string
-  ariaExpanded?: boolean
-  onFocus?: (e: React.FocusEvent<HTMLElement>) => void
-  onBlur?: (e: React.FocusEvent<HTMLElement>) => void
+  onFocus?: (e: FocusEvent<HTMLElement>) => void
+  onBlur?: (e: FocusEvent<HTMLElement>) => void
+  component?: ComponentType<CustomButtonProps>
 }
 
-type LabelProps = {
+export type AdditionalContentProps = {
+  additionalContent?: React.ReactNode
+}
+
+export type LabelProps = {
   iconPosition?: "start" | "end"
   primary?: boolean
   secondary?: boolean
   reverseColor?: "cluny" | "peach" | "seedling" | "wisteria" | "yuzu"
-}
-
-type Analytics = {
-  eventName: string
-  properties: object
 }
 
 export type IconButtonProps = GenericProps
@@ -45,19 +59,56 @@ export type ButtonProps = GenericProps & LabelProps
 
 type Props = ButtonProps & {
   iconButton?: boolean
+} & AdditionalContentProps
+
+export type ButtonRef = { focus: () => void }
+
+// We're treating custom props as anything that is kebab cased.
+// This is so we can support properties like aria-* or data-*
+const getCustomProps = (props: object) => {
+  const keys = Object.keys(props).filter(k => k.indexOf("-") !== -1)
+  return keys.reduce((acc, val) => {
+    acc[val] = props[val]
+    return acc
+  }, {})
 }
 
-const GenericButton: React.FunctionComponent<Props> = props => {
-  return (
-    <span
-      className={classNames(styles.container, {
-        [styles.fullWidth]: props.fullWidth,
-      })}
-    >
-      {props.href && !props.disabled ? renderLink(props) : renderButton(props)}
-    </span>
-  )
-}
+const GenericButton = forwardRef(
+  (props: Props, ref: Ref<ButtonRef | undefined>) => {
+    const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>()
+    useImperativeHandle(ref, () => ({
+      focus: () => {
+        buttonRef.current?.focus()
+      },
+    }))
+
+    const determineButtonRenderer = () => {
+      if (props.component) {
+        return renderCustomComponent(
+          props.component,
+          props,
+          buttonRef as Ref<HTMLElement>
+        )
+      }
+
+      if (props.href && !props.disabled) {
+        return renderLink(props, buttonRef as Ref<HTMLAnchorElement>)
+      }
+
+      return renderButton(props, buttonRef as Ref<HTMLButtonElement>)
+    }
+
+    return (
+      <span
+        className={classNames(styles.container, {
+          [styles.fullWidth]: props.fullWidth,
+        })}
+      >
+        {determineButtonRenderer()}
+      </span>
+    )
+  }
+)
 
 GenericButton.defaultProps = {
   iconPosition: "start",
@@ -69,59 +120,66 @@ GenericButton.defaultProps = {
   type: "button",
 }
 
-const renderButton: React.FunctionComponent<Props> = props => {
+const renderCustomComponent = (
+  CustomComponent: ComponentType<CustomButtonProps>,
+  props: Props,
+  ref: Ref<any>
+) => (
+  <CustomComponent
+    id={props.id}
+    className={buttonClass(props)}
+    disabled={props.disabled}
+    ref={ref}
+    href={props.href}
+    onClick={props.onClick}
+    onFocus={props.onFocus}
+    onBlur={props.onBlur}
+  >
+    {renderContent(props)}
+  </CustomComponent>
+)
+
+const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
   const {
     id,
     disabled,
     onClick,
     onMouseDown,
     type,
-    ariaDescribedBy,
-    ariaExpanded,
-    ariaControls,
     disableTabFocusAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
+    ...rest
   } = props
   const label = props.icon && props.iconButton ? props.label : undefined
+  const customProps = getCustomProps(rest)
 
   return (
     <button
       id={id}
       disabled={disabled}
       className={buttonClass(props)}
-      onClick={(e: any) => {
-        if (onClick) {
-          e.preventDefault()
-          onClick && onClick(e)
-        }
-      }}
+      onClick={onClick}
       onFocus={onFocus}
       onBlur={onBlur}
       onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
       type={type}
-      data-automation-id={props.automationId}
       title={label}
-      aria-controls={ariaControls}
-      aria-describedby={ariaDescribedBy}
-      aria-expanded={ariaExpanded}
       aria-label={label}
       tabIndex={
         disableTabFocusAndIUnderstandTheAccessibilityImplications
           ? -1
           : undefined
       }
-      data-analytics-click={props.analytics && props.analytics.eventName}
-      data-analytics-properties={
-        props.analytics && JSON.stringify(props.analytics.properties)
-      }
+      ref={ref}
+      {...customProps}
     >
       {renderContent(props)}
     </button>
   )
 }
 
-const renderLink: React.FunctionComponent<Props> = props => {
+const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
   const {
     id,
     href,
@@ -129,7 +187,9 @@ const renderLink: React.FunctionComponent<Props> = props => {
     newTabAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
+    ...rest
   } = props
+  const customProps = getCustomProps(rest)
 
   return (
     <a
@@ -139,19 +199,11 @@ const renderLink: React.FunctionComponent<Props> = props => {
         newTabAndIUnderstandTheAccessibilityImplications ? "_blank" : "_self"
       }
       className={buttonClass(props)}
-      onClick={(e: any) => {
-        if (onClick) {
-          e.preventDefault()
-          onClick && onClick(e)
-        }
-      }}
+      onClick={onClick}
       onFocus={onFocus}
       onBlur={onBlur}
-      data-automation-id={props.automationId}
-      data-analytics-click={props.analytics && props.analytics.eventName}
-      data-analytics-properties={
-        props.analytics && JSON.stringify(props.analytics.properties)
-      }
+      ref={ref}
+      {...customProps}
     >
       {renderContent(props)}
     </a>
@@ -181,6 +233,11 @@ const renderContent: React.FunctionComponent<Props> = props => (
     {props.icon && props.iconPosition !== "end" && renderIcon(props.icon)}
     {(!props.icon || !props.iconButton) && (
       <span className={styles.label}>{props.label}</span>
+    )}
+    {props.additionalContent && (
+      <span className={styles.additionalContentWrapper}>
+        {props.additionalContent}
+      </span>
     )}
     {props.icon && props.iconPosition === "end" && renderIcon(props.icon)}
   </span>

@@ -1,5 +1,5 @@
 import { MenuItem, MenuList } from "@kaizen/component-library"
-import { action } from "@storybook/addon-actions"
+
 import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
 import SplitButton, { SplitButtonProps } from "./SplitButton"
@@ -17,7 +17,6 @@ const defaultSplitButtonProps: SplitButtonProps = {
       <MenuItem
         action={(e: any) => {
           e.preventDefault()
-          action("Menu item 1 pressed")()
         }}
         icon={editIcon}
       >
@@ -26,7 +25,6 @@ const defaultSplitButtonProps: SplitButtonProps = {
       <MenuItem
         action={(e: any) => {
           e.preventDefault()
-          action("Menu item 2 pressed")()
         }}
         icon={duplicateIcon}
       >
@@ -48,7 +46,7 @@ describe("<SplitButton />", () => {
       ...defaultSplitButtonProps,
       disabled: true,
     })
-    expect(container.querySelector(`[disabled]`)).toBeTruthy()
+    expect(container.querySelector("[disabled]")).toBeTruthy()
   })
 
   it("should render a `data-automation-id` attribute", () => {
@@ -64,7 +62,7 @@ describe("<SplitButton />", () => {
     const { container } = renderSplitButton()
     expect(
       container.querySelector(
-        `button[data-automation-id="split-button-button"]`
+        'button[data-automation-id="split-button-button"]'
       )
     ).toBeTruthy()
   })
@@ -75,7 +73,7 @@ describe("<SplitButton />", () => {
       href: "//example.com",
     })
     expect(
-      container.querySelector(`a[data-automation-id="split-button-button"]`)
+      container.querySelector('a[data-automation-id="split-button-button"]')
     ).toBeTruthy()
   })
 })

@@ -14,6 +14,9 @@ Install Yeoman first:
 Then install this generator: 
 `yarn global add @kaizen/generator-create`
 
+If you would like to update to the latest generator:
+`yarn global add @kaizen/generator-create@latest`
+
 ## Usage
 1. Run the following and follow the prompts: `yo @kaizen/create:draft` 
 2. Choose an appropriate name for your component. See our guide: https://cultureamp.design/components/overview/#naming-things-is-hard!

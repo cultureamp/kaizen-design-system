@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import * as React from "react"
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 type LabelType = "text" | "checkbox" | "toggle" | "radio"
 
@@ -10,6 +10,7 @@ export type LabelProps = {
   automationId?: string
   htmlFor?: string
   labelText?: string | React.ReactNode
+  labelPosition?: "start" | "end"
   labelType?: LabelType
   reversed?: boolean
 }
@@ -22,6 +23,7 @@ const Label: Label = ({
   htmlFor,
   labelText = "",
   labelType = "text",
+  labelPosition = "end",
   reversed = false,
   children,
 }) => (
@@ -38,7 +40,14 @@ const Label: Label = ({
     })}
   >
     {children}
-    <span className={styles.labelText}>{labelText}</span>
+    <span
+      className={classnames({
+        [styles.prependedLabel]: labelPosition === "start",
+        [styles.appendedLabel]: labelPosition === "end",
+      })}
+    >
+      {labelText}
+    </span>
   </label>
 )
 

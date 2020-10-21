@@ -3,15 +3,9 @@ import * as React from "react"
 import { Button, Icon } from "@kaizen/component-library"
 import { Link, Menu, ZenNavigationBar } from "@kaizen/draft-zen-navigation-bar"
 import { ColorScheme } from "@kaizen/draft-zen-navigation-bar/KaizenDraft/ZenNavigationBar/types"
-
-const caIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
-  .default
-const academyIcon = require("@kaizen/component-library/icons/academy.icon.svg")
-  .default
-const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
-  .default
-const supportIcon = require("@kaizen/component-library/icons/support.icon.svg")
-  .default
+import caIcon from "@kaizen/component-library/icons/ca-monogram.icon.svg"
+import academyIcon from "@kaizen/component-library/icons/academy.icon.svg"
+import supportIcon from "@kaizen/component-library/icons/support.icon.svg"
 
 export default {
   title: "ZenNavigationBar (React)",
@@ -31,7 +25,7 @@ const accountMenuBtn = (
       height: "100%",
     }}
   >
-    <Icon icon={caMonogramIcon} title="Culture Amp Logo" inheritSize />
+    <Icon icon={caIcon} title="Culture Amp Logo" inheritSize />
   </div>
 )
 
@@ -419,6 +413,7 @@ export const WithFooterAndHeaderComponents = () => (
       secondary: [
         <Menu
           heading="Admin"
+          showIndicator
           items={[
             {
               label: "Skills",
@@ -451,6 +446,10 @@ export const WithFooterAndHeaderComponents = () => (
                 {
                   label: "Feedback stats",
                   url: "/",
+                  badge: {
+                    kind: "new",
+                    text: "New",
+                  },
                 },
               ],
             },

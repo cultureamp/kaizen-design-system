@@ -45,6 +45,12 @@ module.exports = class extends Generator {
       this.destinationPath(`${packageLocation}tsconfig.dist.json`)
     )
 
+    this.fs.copyTpl(
+      this.templatePath("README.mdx"),
+      this.destinationPath(`${packageLocation}README.mdx`),
+      { componentName }
+    )
+
     // elm component files
     if (this.answers.elm) {
       this.fs.copyTpl(
@@ -52,7 +58,7 @@ module.exports = class extends Generator {
         this.destinationPath(
           `${packageLocation}KaizenDraft/${componentName}/${componentName}.elm`
         ),
-        { componentName }
+        { componentName: componentName.toLowerCase() }
       )
     }
 

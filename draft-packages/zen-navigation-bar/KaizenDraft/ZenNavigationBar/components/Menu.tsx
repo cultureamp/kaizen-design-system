@@ -7,23 +7,22 @@ import { OffCanvasContext, ZenOffCanvas } from "@kaizen/draft-zen-off-canvas"
 import classNames from "classnames"
 import Media from "react-media"
 import { NavBarContext } from "../context"
-import { ColorScheme, MenuProps, NavigationItem } from "../types"
+import { MenuProps, NavigationItem } from "../types"
 import Dropdown from "./Dropdown"
 import Link from "./Link"
 import MenuGroup from "./MenuGroup"
+import Indicator from "./Indicator"
 
-const arrowLeftIcon = require("@kaizen/component-library/icons/arrow-left.icon.svg")
-  .default
-const chevronDownIcon = require("@kaizen/component-library/icons/chevron-down.icon.svg")
-  .default
+import arrowLeftIcon from "@kaizen/component-library/icons/arrow-left.icon.svg"
+import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 
-const styles = require("./Menu.module.scss")
+import styles from "./Menu.module.scss"
 
 type State = {
   open: boolean
 }
 
-export default class Menu extends React.Component<MenuProps, State> {
+class Menu extends React.Component<MenuProps, State> {
   static displayName = "Menu"
   static contextType = NavBarContext
   static defaultProps = {
@@ -32,6 +31,7 @@ export default class Menu extends React.Component<MenuProps, State> {
     mobileEnabled: true,
     small: false,
     opaque: false,
+    showIndicator: false,
   }
   rootRef = React.createRef<any>()
 
@@ -52,6 +52,7 @@ export default class Menu extends React.Component<MenuProps, State> {
       items,
       header,
       colorScheme,
+      showIndicator,
     } = this.props
 
     return (
@@ -67,6 +68,7 @@ export default class Menu extends React.Component<MenuProps, State> {
                     href="#"
                     onClick={() => toggleVisibleMenu(heading)}
                     opaque={opaque}
+                    showIndicator={showIndicator}
                   />
                 )}
               </OffCanvasContext.Consumer>
@@ -106,6 +108,7 @@ export default class Menu extends React.Component<MenuProps, State> {
                         />
                       </span>
                     )}
+                    {showIndicator && !icon && <Indicator />}
                     <span className={styles.linkText}>{heading}</span>
                     <span className={styles.downIcon}>
                       <Icon icon={chevronDownIcon} role="presentation" />
@@ -138,6 +141,7 @@ export default class Menu extends React.Component<MenuProps, State> {
               key={`${item.url}-${uuid()}`}
               text={item.label}
               href={item.url}
+              badge={item.badge}
             />
           )
         } else if ("title" in item) {
@@ -198,3 +202,4 @@ export default class Menu extends React.Component<MenuProps, State> {
     }
   }
 }
+export default Menu

@@ -11,7 +11,7 @@ import {
   ModalHeader,
 } from "../"
 
-const styles = require("./InputEditModal.scss")
+import styles from "./InputEditModal.scss"
 
 interface Props {
   readonly isOpen: boolean
@@ -45,7 +45,6 @@ const InputEditModal = ({
   <GenericModal
     isOpen={isOpen}
     onEscapeKeyup={onDismiss}
-    onOutsideModalClick={onDismiss}
     automationId={automationId}
   >
     <div className={styles.modal} dir={localeDirection}>

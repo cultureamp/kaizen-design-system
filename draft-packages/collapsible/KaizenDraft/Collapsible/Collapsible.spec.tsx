@@ -1,11 +1,7 @@
-import {
-  cleanup,
-  configure,
-  fireEvent,
-  getNodeText,
-  queryByTestId,
-  render,
-} from "@testing-library/react"
+import "@testing-library/jest-dom/extend-expect"
+
+import { cleanup, render } from "@testing-library/react"
+import { fireEvent, configure, queryByTestId } from "@testing-library/dom"
 import * as React from "react"
 import { Collapsible, CollapsibleGroup } from "./"
 
@@ -138,7 +134,7 @@ it("only toggles the height of the clicked panel in a group", () => {
 })
 
 it("gives precedence to renderHeader over title", () => {
-  const { container, getByTestId } = render(
+  const { container, getByTestId, getByText } = render(
     <Collapsible
       id="1"
       open
@@ -151,14 +147,12 @@ it("gives precedence to renderHeader over title", () => {
 
   const titleText = getByTestId("collapsible-button-1").querySelector("div")
 
-  expect(titleText && getNodeText(titleText)).toEqual(
-    "This title should be rendered"
-  )
+  expect(titleText).toHaveTextContent("This title should be rendered")
   expect(queryByTestId(container, "collapsible-button-title-1")).toBeNull()
 })
 
-it(`doesn't render section content when lazyLoad is enabled`, () => {
-  const { container } = render(
+it("doesn't render section content when lazyLoad is enabled", () => {
+  const { container, getByTestId } = render(
     <Collapsible id="1" title="Title" lazyLoad>
       <div data-automation-id="lazy-load-content">First panel content</div>
     </Collapsible>

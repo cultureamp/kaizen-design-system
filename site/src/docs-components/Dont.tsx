@@ -2,7 +2,7 @@ import classnames from "classnames"
 import * as React from "react"
 import DoOrDontItem from "./DoOrDontItem"
 
-const styles = require("./DoAndDontContainer.scss")
+import styles from "./DoAndDontContainer.scss"
 
 const maxItems = 3
 
@@ -13,14 +13,12 @@ export default ({ children }) => (
       <ul className={classnames(styles.doOrDontList)}>
         {React.Children.map(children, ul => {
           if (React.Children.count(ul.props.children) > maxItems) {
-            return React.Children.map(ul.props.children, li => {
-              return (
-                <li className={classnames(styles.doOrDontListItem)}>
-                  <DoOrDontItem variant="dont" />
-                  {li.props.children}
-                </li>
-              )
-            }).concat(
+            return React.Children.map(ul.props.children, li => (
+              <li className={classnames(styles.doOrDontListItem)}>
+                <DoOrDontItem variant="dont" />
+                {li.props.children}
+              </li>
+            )).concat(
               <li
                 className={classnames(
                   styles.doOrDontListItem,
@@ -31,14 +29,12 @@ export default ({ children }) => (
               </li>
             )
           } else {
-            return React.Children.map(ul.props.children, li => {
-              return (
-                <li className={classnames(styles.doOrDontListItem)}>
-                  <DoOrDontItem variant="dont" />
-                  {li.props.children}
-                </li>
-              )
-            })
+            return React.Children.map(ul.props.children, li => (
+              <li className={classnames(styles.doOrDontListItem)}>
+                <DoOrDontItem variant="dont" />
+                {li.props.children}
+              </li>
+            ))
           }
         })}
       </ul>

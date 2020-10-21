@@ -1,7 +1,7 @@
 import { Heading } from "@kaizen/component-library"
 import * as React from "react"
 
-const styles = require("./VerticalProgressStep.module.scss")
+import styles from "./VerticalProgressStep.module.scss"
 
 import {
   Completion,
@@ -16,22 +16,20 @@ type CompletedStepProps = {
   position: Position
 }
 
-const CompletedStep = (props: CompletedStepProps) => {
-  return (
-    <div className={styles.step}>
-      <VerticalProgressIndicator
-        position={props.position}
-        completion="completed"
-      />
-      <div className={styles.content}>
-        <Heading tag="h3" variant="heading-4">
-          {props.name}
-        </Heading>
-        {props.children}
-      </div>
+const CompletedStep = (props: CompletedStepProps) => (
+  <div className={styles.step}>
+    <VerticalProgressIndicator
+      position={props.position}
+      completion="completed"
+    />
+    <div className={styles.content}>
+      <Heading tag="h3" variant="heading-4">
+        {props.name}
+      </Heading>
+      {props.children}
     </div>
-  )
-}
+  </div>
+)
 
 type CurrentStepProps = {
   name: string
@@ -117,21 +115,19 @@ type UpcomingStepProps = {
   position: Position
 }
 
-const UpcomingStep = (props: UpcomingStepProps) => {
-  return (
-    <div className={styles.step}>
-      <VerticalProgressIndicator
-        position={props.position}
-        completion="upcoming"
-      />
-      <div className={styles.content}>
-        <Heading tag="h3" variant="heading-4">
-          {props.name}
-        </Heading>
-        {props.children}
-      </div>
+const UpcomingStep = (props: UpcomingStepProps) => (
+  <div className={styles.step}>
+    <VerticalProgressIndicator
+      position={props.position}
+      completion="upcoming"
+    />
+    <div className={styles.content}>
+      <Heading tag="h3" variant="heading-4">
+        {props.name}
+      </Heading>
+      {props.children}
     </div>
-  )
-}
+  </div>
+)
 
 export default { CompletedStep, CurrentStep, UpcomingStep }

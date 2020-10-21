@@ -10,11 +10,12 @@ import {
   Sidebar,
   SidebarAndContent,
   SidebarTab,
+  TableOfContents,
 } from "../components/SidebarAndContent"
 import { sortSidebarTabs, stripTrailingSlash } from "./util"
 
-const renderSidebarTabs = (pages, currentPath, sectionName) => {
-  return pages.map((node, i) => (
+const renderSidebarTabs = (pages, currentPath, sectionName) =>
+  pages.map((node, i) => (
     <SidebarTab
       href={node!.node!.fields!.slug}
       active={
@@ -26,7 +27,6 @@ const renderSidebarTabs = (pages, currentPath, sectionName) => {
       {node!.node!.frontmatter!.navTitle}
     </SidebarTab>
   ))
-}
 
 export default ({ data, pageContext, location }) => {
   const md = data.mdx
@@ -67,6 +67,7 @@ export default ({ data, pageContext, location }) => {
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
           </ContentMarkdownSection>
         </Content>
+        <TableOfContents items={md.tableOfContents.items} />
       </SidebarAndContent>
     </Layout>
   )
@@ -94,6 +95,7 @@ export const query = graphql`
         summaryParagraph
         tags
       }
+      tableOfContents
     }
   }
 `

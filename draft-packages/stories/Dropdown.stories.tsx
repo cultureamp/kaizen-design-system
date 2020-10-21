@@ -1,10 +1,7 @@
-const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
-  .default
-const kebabIcon = require("@kaizen/component-library/icons/kebab.icon.svg")
-  .default
-const printIcon = require("@kaizen/component-library/icons/print.icon.svg")
-  .default
-import { action } from "@storybook/addon-actions"
+import caMonogramIcon from "@kaizen/component-library/icons/ca-monogram.icon.svg"
+import kebabIcon from "@kaizen/component-library/icons/kebab.icon.svg"
+import printIcon from "@kaizen/component-library/icons/print.icon.svg"
+
 import * as React from "react"
 
 import {
@@ -21,7 +18,6 @@ const Menu: React.FunctionComponent = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        action("I am an onClick handler")()
       }}
       icon={caMonogramIcon}
     >
@@ -30,7 +26,6 @@ const Menu: React.FunctionComponent = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        action("I am an onClick handler")()
       }}
       icon={caMonogramIcon}
       hoverIcon
@@ -40,7 +35,6 @@ const Menu: React.FunctionComponent = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        action("I am an onClick handler")()
       }}
     >
       Action label
@@ -77,30 +71,21 @@ export const DefaultMeatball = () => (
     <Menu />
   </Dropdown>
 )
-
-DefaultMeatball.story = {
-  name: "Default (Meatball)",
-}
+DefaultMeatball.storyName = "Default (Meatball)"
 
 export const DefaultKebab = () => (
   <Dropdown icon={kebabIcon}>
     <Menu />
   </Dropdown>
 )
-
-DefaultKebab.story = {
-  name: "Default (Kebab)",
-}
+DefaultKebab.storyName = "Default (Kebab)"
 
 export const LabelAndIcon = () => (
   <Dropdown label="Print" icon={kebabIcon}>
     <Menu />
   </Dropdown>
 )
-
-LabelAndIcon.story = {
-  name: "Label and Icon",
-}
+LabelAndIcon.storyName = "Label and Icon"
 
 export const TextOnly = () => (
   <Dropdown label="Print">
@@ -113,17 +98,16 @@ export const ControlAction = () => (
     <Menu />
   </Dropdown>
 )
-
-ControlAction.story = {
-  name: "Control action",
-}
+ControlAction.storyName = "Control action"
 
 export const ReversedControlAction = () => (
   <Dropdown label="Print" icon={printIcon} controlAction reversedColor>
     <Menu />
   </Dropdown>
 )
-
-ReversedControlAction.story = {
-  name: "Reversed Control action",
+ReversedControlAction.storyName = "Reversed Control action"
+ReversedControlAction.parameters = {
+  backgrounds: {
+    default: "Wisteria 700",
+  },
 }

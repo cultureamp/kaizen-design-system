@@ -77,6 +77,10 @@
   @extend %caButtonIconWrapper;
 }
 
+.additionalContentWrapper {
+  @extend %caButtonAdditionalContentWrapper;
+}
+
 .destructiveModifier.destructiveModifier {
   @extend %caButtonDestructiveModifier;
 }

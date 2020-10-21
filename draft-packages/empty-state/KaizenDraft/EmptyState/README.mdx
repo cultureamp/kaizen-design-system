@@ -40,6 +40,28 @@ import Dont from "docs-components/Dont"
     *   Dashed
     *   None
 
+## To keep in mind
+
+* There are different Empty States including:
+    * **Positive empty state**: nothing is here because everything is working/you’ve completed all tasks.
+    * **Informative empty state**: things are happening and there are things to be done but no direct action required.
+    * **Action empty state**: we need the user to do something right now.
+    * **Neutral empty state**: nothing has happened/we have nothing to show.
+    * **Negative empty state**: something didn’t load/we couldn’t find anything.
+
+* They also come in three different sizes for you to use (max, mid, min):
+    * For viewports or containers **larger than 1080px**: show an empty pattern that’s 1080px wide (e.g. using max-width: 1080px) using the “large” layout.
+    * For viewports or containers **smaller than 720px**: show a responsive, scaling empty pattern (e.g. using max-width: 100%).
+    * For viewports or containers **between 300px and 720px**: use the “medium” layout.
+    * For viewports or containers **smaller than 300px**: use the “small” layout.
+
+* Call To Actions (CTAs):
+    * We use Default Buttons unless it is the only action on the page, then we use Primary Action Buttons (label + icon).
+    * If no action is appropriate, don’t show a button. Instead, you might include hyperlinks in the body copy as needed.
+
+* Illustrations:
+    * Each type of empty state comes with a standard illustration. Do not mix and match.
+
 ## Copy guidelines
 
 Empty states are a great way to engage and educate users. It’s a chance for our brand voice to shine through, but make sure to always prioritize clarity and action over joyful language and humor. Here are some rules to keep in mind:
@@ -125,28 +147,6 @@ Based on the overall user flow and the nature of the empty state, make sure you 
 All empty state copy should be in sentence case i.e. the first letter of the first word is capitalized and everything else is in lower case unless it’s a proper noun or feature name. Always err on the side of minimal punctuation, so leave out full stops and commas where possible.
 
 
-## To keep in mind
-
-* There are different Empty States including:
-    * **Positive empty state**: nothing is here because everything is working/you’ve completed all tasks.
-    * **Informative empty state**: things are happening and there are things to be done but no direct action required.
-    * **Action empty state**: we need the user to do something right now.
-    * **Neutral empty state**: nothing has happened/we have nothing to show.
-    * **Negative empty state**: something didn’t load/we couldn’t find anything.
-
-* They also come in three different sizes for you to use (max, mid, min):
-    * For viewports or containers **larger than 1080px**: show an empty pattern that’s 1080px wide (e.g. using max-width: 1080px) using the “large” layout.
-    * For viewports or containers **smaller than 720px**: show a responsive, scaling empty pattern (e.g. using max-width: 100%).
-    * For viewports or containers **between 300px and 720px**: use the “medium” layout.
-    * For viewports or containers **smaller than 300px**: use the “small” layout.
-
-* Call To Actions (CTAs):
-    * We use Default Buttons unless it is the only action on the page, then we use Primary Action Buttons (label + icon).
-    * If no action is appropriate, don’t show a button. Instead, you might include hyperlinks in the body copy as needed.
-
-* Illustrations:
-    * Each type of empty state comes with a standard illustration. Do not mix and match.
-
 ## When to use and when not to use
 
 <WhenToUseAndWhenNotToUse>
@@ -172,7 +172,7 @@ All empty state copy should be in sentence case i.e. the first letter of the fir
 * When something negative has happened because the system failed or is a direct result of the user providing bad input, use an error [notification](/components/inline-notification) instead.
 * Hero data pattern.
 
-## External Links
+## External links
 
 Here are some examples of other existing design systems:
 

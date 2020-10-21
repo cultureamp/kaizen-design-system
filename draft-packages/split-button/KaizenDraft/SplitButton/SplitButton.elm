@@ -240,7 +240,7 @@ dropdownMenuView menuItems_ =
     div
         [ styles.class .menuContainer
         , style "right" "0px"
-        , style "top" "42px"
+        , style "top" "46px"
         ]
         [ menuListView menuItems_ ]
 

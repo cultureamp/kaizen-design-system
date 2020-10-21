@@ -1,7 +1,7 @@
 import { withPrefix } from "gatsby"
 import * as React from "react"
 
-const styles = require("./StorybookDemo.scss")
+import styles from "./StorybookDemo.scss"
 
 type StorybookDemoProps = {
   demoId: string
@@ -30,9 +30,7 @@ export default class StorybookDemo extends React.Component<StorybookDemoProps> {
     return (
       <div className={styles.container}>
         <iframe
-          src={withPrefix(
-            `/storybook-static/iframe.html?id=${this.props.demoId}`
-          )}
+          src={withPrefix(`/storybook/iframe.html?id=${this.props.demoId}`)}
           onLoad={() => {
             setTimeout(() => {
               const obj = this.iFrameRef.current

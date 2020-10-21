@@ -5,6 +5,7 @@
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/component-library/components/NavigationBar/styles";
 @import "~@kaizen/component-library/components/Icon/styles";
 
@@ -18,12 +19,18 @@ $link-icon-margin: 12px;
 
   :global(.md-p),
   :global(.md-li) {
-    font-size: 1.25rem;
-    line-height: 1.8;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  :global(.md-ol),
+  :global(.md-ul) {
+    padding-inline-start: 30px;
   }
 
   :global(.md-li) {
     margin: 0;
+    margin-bottom: 0.5em;
     font-weight: $kz-typography-paragraph-body-font-weight;
 
     :global(.md-p) {
@@ -82,20 +89,32 @@ $link-icon-margin: 12px;
 
   :global(.md-h2) {
     @include kz-typography-heading-2;
-    margin-top: $ca-grid * 3.5;
+    margin-top: $ca-grid * 3.25;
     margin-bottom: 0;
+
+    @include ca-media-mobile() {
+      margin-top: $ca-grid * 2;
+    }
   }
 
   :global(.md-h2) + :global(.md-p),
   :global(.md-h2) + :global(.md-ul),
   :global(.md-h2) + :global(.md-ol) {
-    margin-top: $ca-grid * 2.5;
+    margin-top: $ca-grid * 1.5;
+
+    @include ca-media-mobile() {
+      margin-top: $ca-grid;
+    }
   }
 
   :global(.md-h3) {
     @include kz-typography-heading-3;
     margin-top: $ca-grid * 2;
     margin-bottom: $ca-grid;
+
+    @include ca-media-mobile() {
+      margin-top: $ca-grid;
+    }
   }
 
   :global(.md-h2) + :global(.md-h3) {
@@ -103,10 +122,13 @@ $link-icon-margin: 12px;
   }
 
   :global(.md-h4) {
-    font-size: 1.375rem;
-    line-height: 1.0909090909;
+    @include kz-typography-heading-4;
     margin-top: $ca-grid * 2;
     margin-bottom: $ca-grid;
+
+    @include ca-media-mobile() {
+      margin-top: $ca-grid;
+    }
   }
 
   :global(.md-h3) + :global(.md-h4) {
@@ -114,15 +136,13 @@ $link-icon-margin: 12px;
   }
 
   :global(.md-h5) {
-    font-size: 1rem;
-    line-height: 1.5;
-    font-weight: $ca-weight-medium;
+    @include kz-typography-heading-4;
   }
 
   :global(.md-em),
   :global(.md-i) {
     font-style: normal;
-    font-weight: $ca-weight-book;
+    font-weight: $kz-typography-paragraph-bold-font-weight;
   }
 
   :global(.md-strong) {

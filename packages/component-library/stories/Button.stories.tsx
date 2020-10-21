@@ -1,8 +1,8 @@
 import { Button } from "@kaizen/component-library"
-const configureIcon = require("@kaizen/component-library/icons/configure.icon.svg")
-  .default
-import { action } from "@storybook/addon-actions"
-import * as React from "react"
+import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
+
+import React, { useCallback, useRef } from "react"
+import { ButtonRef } from "../components/Button"
 
 export default {
   title: "Button (deprecated) (React)",
@@ -10,23 +10,24 @@ export default {
   parameters: {
     info: {
       text: `
-        import { Button } from "@kaizen/component-library";
+        # Deprecated
+        Button is deprecated. Please use @kaizen/draft-button instead. 
       `,
     },
   },
 }
 
-export const DefaultKaizenSiteDemo = () => <Button label="Label" />
-
-DefaultKaizenSiteDemo.story = {
-  name: "Default (Kaizen Site Demo)",
+const reversedBg = {
+  backgrounds: {
+    default: "Wisteria 700",
+  },
 }
+
+export const DefaultKaizenSiteDemo = () => <Button label="Label" />
+DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const DefaultDisabled = () => <Button label="Label" disabled={true} />
-
-DefaultDisabled.story = {
-  name: "Default, Disabled",
-}
+DefaultDisabled.storyName = "Default, Disabled"
 
 export const Primary = () => <Button label="Label" primary={true} />
 
@@ -34,9 +35,7 @@ export const PrimaryDisabled = () => (
   <Button label="Label" primary={true} disabled={true} />
 )
 
-PrimaryDisabled.story = {
-  name: "Primary, Disabled",
-}
+PrimaryDisabled.storyName = "Primary, Disabled"
 
 export const Destructive = () => <Button label="Label" destructive={true} />
 
@@ -44,9 +43,7 @@ export const DestructiveDisabled = () => (
   <Button label="Label" destructive={true} disabled={true} />
 )
 
-DestructiveDisabled.story = {
-  name: "Destructive, Disabled",
-}
+DestructiveDisabled.storyName = "Destructive, Disabled"
 
 export const Secondary = () => <Button label="Label" secondary={true} />
 
@@ -54,17 +51,13 @@ export const SecondaryDisabled = () => (
   <Button label="Label" secondary={true} disabled={true} />
 )
 
-SecondaryDisabled.story = {
-  name: "Secondary, Disabled",
-}
+SecondaryDisabled.storyName = "Secondary, Disabled"
 
 export const SecondaryWIcon = () => (
   <Button label="Configure" icon={configureIcon} secondary={true} />
 )
 
-SecondaryWIcon.story = {
-  name: "Secondary w/ Icon",
-}
+SecondaryWIcon.storyName = "Secondary w/ Icon"
 
 export const SecondaryWIconDisabled = () => (
   <Button
@@ -75,17 +68,14 @@ export const SecondaryWIconDisabled = () => (
   />
 )
 
-SecondaryWIconDisabled.story = {
-  name: "Secondary w/ Icon, Disabled",
-}
+SecondaryWIconDisabled.storyName = "Secondary w/ Icon, Disabled"
 
 export const SecondaryDestructiveNotYetImplemented = () => (
   <Button label="Delete" secondary={true} disabled={false} destructive={true} />
 )
 
-SecondaryDestructiveNotYetImplemented.story = {
-  name: "Secondary, Destructive (not yet implemented)",
-}
+SecondaryDestructiveNotYetImplemented.storyName =
+  "Secondary, Destructive (not yet implemented)"
 
 export const SecondaryWIconDestructiveNotYetImplemented = () => (
   <Button
@@ -97,23 +87,18 @@ export const SecondaryWIconDestructiveNotYetImplemented = () => (
   />
 )
 
-SecondaryWIconDestructiveNotYetImplemented.story = {
-  name: "Secondary w/ Icon, Destructive (not yet implemented)",
-}
+SecondaryWIconDestructiveNotYetImplemented.storyName =
+  "Secondary w/ Icon, Destructive (not yet implemented)"
 
 export const IconLabel = () => <Button label="Configure" icon={configureIcon} />
 
-IconLabel.story = {
-  name: "Icon + Label",
-}
+IconLabel.storyName = "Icon + Label"
 
 export const LabelIcon = () => (
   <Button label="Configure" icon={configureIcon} iconPosition="end" />
 )
 
-LabelIcon.story = {
-  name: "Label + Icon",
-}
+LabelIcon.storyName = "Label + Icon"
 
 export const FullWidth = () => <Button label="Label" fullWidth={true} />
 
@@ -121,53 +106,38 @@ export const FullWidthIcon = () => (
   <Button label="Label" fullWidth={true} icon={configureIcon} />
 )
 
-FullWidthIcon.story = {
-  name: "Full Width + Icon",
-}
+FullWidthIcon.storyName = "Full Width + Icon"
 
 export const Hyperlink = () => <Button label="Label" href="//example.com" />
 
 export const HyperlinkWOnClick = () => (
-  <Button
-    label="Label"
-    href="//example.com"
-    onClick={action("I am an onClick handler")}
-  />
+  <Button label="Label" href="//example.com" onClick={() => undefined} />
 )
 
-HyperlinkWOnClick.story = {
-  name: "Hyperlink w/ onClick",
-}
+HyperlinkWOnClick.storyName = "Hyperlink w/ onClick"
 
 export const ReversedDefault = () => <Button label="Label" reversed={true} />
 
-ReversedDefault.story = {
-  name: "Reversed, Default",
-}
+ReversedDefault.storyName = "Reversed, Default"
+ReversedDefault.parameters = { ...reversedBg }
 
 export const ReversedDefaultDisabled = () => (
   <Button label="Label" reversed={true} disabled={true} />
 )
-
-ReversedDefaultDisabled.story = {
-  name: "Reversed, Default, Disabled",
-}
+ReversedDefaultDisabled.storyName = "Reversed, Default, Disabled"
+ReversedDefaultDisabled.parameters = { ...reversedBg }
 
 export const ReversedPrimary = () => (
   <Button label="Label" primary={true} disabled={false} reversed={true} />
 )
-
-ReversedPrimary.story = {
-  name: "Reversed, Primary",
-}
+ReversedPrimary.storyName = "Reversed, Primary"
+ReversedPrimary.parameters = { ...reversedBg }
 
 export const ReversedPrimaryDisabled = () => (
   <Button label="Label" primary={true} reversed={true} disabled={true} />
 )
-
-ReversedPrimaryDisabled.story = {
-  name: "Reversed, Primary, Disabled",
-}
+ReversedPrimaryDisabled.storyName = "Reversed, Primary, Disabled"
+ReversedPrimaryDisabled.parameters = { ...reversedBg }
 
 export const ReversedColorLapisDiscouraged = () => (
   <Button
@@ -178,10 +148,8 @@ export const ReversedColorLapisDiscouraged = () => (
     reverseColor="lapis"
   />
 )
-
-ReversedColorLapisDiscouraged.story = {
-  name: "Reversed, Color, Lapis (discouraged)",
-}
+ReversedColorLapisDiscouraged.storyName = "Reversed, Color, Lapis (discouraged)"
+ReversedColorLapisDiscouraged.parameters = { ...reversedBg }
 
 export const ReversedPrimaryDisabledColorLapisDiscouraged = () => (
   <Button
@@ -192,10 +160,9 @@ export const ReversedPrimaryDisabledColorLapisDiscouraged = () => (
     reverseColor="lapis"
   />
 )
-
-ReversedPrimaryDisabledColorLapisDiscouraged.story = {
-  name: "Reversed, Primary, Disabled, Color, Lapis (discouraged)",
-}
+ReversedPrimaryDisabledColorLapisDiscouraged.storyName =
+  "Reversed, Primary, Disabled, Color, Lapis (discouraged)"
+ReversedPrimaryDisabledColorLapisDiscouraged.parameters = { ...reversedBg }
 
 export const ReversedPrimaryColorOceanDiscouraged = () => (
   <Button
@@ -206,10 +173,9 @@ export const ReversedPrimaryColorOceanDiscouraged = () => (
     reverseColor="ocean"
   />
 )
-
-ReversedPrimaryColorOceanDiscouraged.story = {
-  name: "Reversed, Primary, Color, Ocean (discouraged)",
-}
+ReversedPrimaryColorOceanDiscouraged.storyName =
+  "Reversed, Primary, Color, Ocean (discouraged)"
+ReversedPrimaryColorOceanDiscouraged.parameters = { ...reversedBg }
 
 export const ReversedPrimaryDisabledColorOceanDiscouraged = () => (
   <Button
@@ -220,10 +186,9 @@ export const ReversedPrimaryDisabledColorOceanDiscouraged = () => (
     reverseColor="ocean"
   />
 )
-
-ReversedPrimaryDisabledColorOceanDiscouraged.story = {
-  name: "Reversed, Primary, Disabled, Color, Ocean (discouraged)",
-}
+ReversedPrimaryDisabledColorOceanDiscouraged.storyName =
+  "Reversed, Primary, Disabled, Color, Ocean (discouraged)"
+ReversedPrimaryDisabledColorOceanDiscouraged.parameters = { ...reversedBg }
 
 export const ReversedPrimaryColorPeachDiscouraged = () => (
   <Button
@@ -234,10 +199,9 @@ export const ReversedPrimaryColorPeachDiscouraged = () => (
     reverseColor="peach"
   />
 )
-
-ReversedPrimaryColorPeachDiscouraged.story = {
-  name: "Reversed, Primary, Color, Peach (discouraged)",
-}
+ReversedPrimaryColorPeachDiscouraged.storyName =
+  "Reversed, Primary, Color, Peach (discouraged)"
+ReversedPrimaryColorPeachDiscouraged.parameters = { ...reversedBg }
 
 export const ReversedPrimaryDisabledColorPeachDiscouraged = () => (
   <Button
@@ -248,10 +212,9 @@ export const ReversedPrimaryDisabledColorPeachDiscouraged = () => (
     reverseColor="peach"
   />
 )
-
-ReversedPrimaryDisabledColorPeachDiscouraged.story = {
-  name: "Reversed, Primary, Disabled, Color, Peach (discouraged)",
-}
+ReversedPrimaryDisabledColorPeachDiscouraged.storyName =
+  "Reversed, Primary, Disabled, Color, Peach (discouraged)"
+ReversedPrimaryDisabledColorPeachDiscouraged.parameters = { ...reversedBg }
 
 export const ReversedPrimaryColorSeedlingDiscouraged = () => (
   <Button
@@ -262,10 +225,9 @@ export const ReversedPrimaryColorSeedlingDiscouraged = () => (
     reverseColor="seedling"
   />
 )
-
-ReversedPrimaryColorSeedlingDiscouraged.story = {
-  name: "Reversed, Primary, Color, Seedling (discouraged)",
-}
+ReversedPrimaryColorSeedlingDiscouraged.storyName =
+  "Reversed, Primary, Color, Seedling (discouraged)"
+ReversedPrimaryColorSeedlingDiscouraged.parameters = { ...reversedBg }
 
 export const ReversedPrimaryDisabledColorSeedlingDiscouraged = () => (
   <Button
@@ -276,10 +238,9 @@ export const ReversedPrimaryDisabledColorSeedlingDiscouraged = () => (
     reverseColor="seedling"
   />
 )
-
-ReversedPrimaryDisabledColorSeedlingDiscouraged.story = {
-  name: "Reversed, Primary, Disabled, Color, Seedling (discouraged)",
-}
+ReversedPrimaryDisabledColorSeedlingDiscouraged.storyName =
+  "Reversed, Primary, Disabled, Color, Seedling (discouraged)"
+ReversedPrimaryDisabledColorSeedlingDiscouraged.parameters = { ...reversedBg }
 
 export const ReversedPrimaryColorWisteriaDiscouraged = () => (
   <Button
@@ -290,10 +251,9 @@ export const ReversedPrimaryColorWisteriaDiscouraged = () => (
     reverseColor="wisteria"
   />
 )
-
-ReversedPrimaryColorWisteriaDiscouraged.story = {
-  name: "Reversed, Primary, Color, Wisteria (discouraged)",
-}
+ReversedPrimaryColorWisteriaDiscouraged.storyName =
+  "Reversed, Primary, Color, Wisteria (discouraged)"
+ReversedPrimaryColorWisteriaDiscouraged.parameters = { ...reversedBg }
 
 export const ReversedPrimaryDisabledColorWisteriaDiscouraged = () => (
   <Button
@@ -304,10 +264,9 @@ export const ReversedPrimaryDisabledColorWisteriaDiscouraged = () => (
     reverseColor="wisteria"
   />
 )
-
-ReversedPrimaryDisabledColorWisteriaDiscouraged.story = {
-  name: "Reversed, Primary, Disabled, Color, Wisteria (discouraged)",
-}
+ReversedPrimaryDisabledColorWisteriaDiscouraged.storyName =
+  "Reversed, Primary, Disabled, Color, Wisteria (discouraged)"
+ReversedPrimaryDisabledColorWisteriaDiscouraged.parameters = { ...reversedBg }
 
 export const ReversedPrimaryColorYuzuDiscouraged = () => (
   <Button
@@ -318,10 +277,9 @@ export const ReversedPrimaryColorYuzuDiscouraged = () => (
     reverseColor="yuzu"
   />
 )
-
-ReversedPrimaryColorYuzuDiscouraged.story = {
-  name: "Reversed, Primary, Color, Yuzu (discouraged)",
-}
+ReversedPrimaryColorYuzuDiscouraged.storyName =
+  "Reversed, Primary, Color, Yuzu (discouraged)"
+ReversedPrimaryColorYuzuDiscouraged.parameters = { ...reversedBg }
 
 export const ReversedPrimaryDisabledColorYuzuDiscouraged = () => (
   <Button
@@ -332,26 +290,21 @@ export const ReversedPrimaryDisabledColorYuzuDiscouraged = () => (
     reverseColor="yuzu"
   />
 )
-
-ReversedPrimaryDisabledColorYuzuDiscouraged.story = {
-  name: "Reversed, Primary, Disabled, Color, Yuzu (discouraged)",
-}
+ReversedPrimaryDisabledColorYuzuDiscouraged.storyName =
+  "Reversed, Primary, Disabled, Color, Yuzu (discouraged)"
+ReversedPrimaryDisabledColorYuzuDiscouraged.parameters = { ...reversedBg }
 
 export const ReversedSecondary = () => (
   <Button label="Label" secondary={true} reversed={true} />
 )
-
-ReversedSecondary.story = {
-  name: "Reversed, Secondary",
-}
+ReversedSecondary.storyName = "Reversed, Secondary"
+ReversedSecondary.parameters = { ...reversedBg }
 
 export const ReversedSecondaryDisabled = () => (
   <Button label="Label" secondary={true} reversed={true} disabled={true} />
 )
-
-ReversedSecondaryDisabled.story = {
-  name: "Reversed, Secondary, Disabled",
-}
+ReversedSecondaryDisabled.storyName = "Reversed, Secondary, Disabled"
+ReversedSecondaryDisabled.parameters = { ...reversedBg }
 
 export const ReversedSecondaryWIcon = () => (
   <Button
@@ -361,10 +314,8 @@ export const ReversedSecondaryWIcon = () => (
     icon={configureIcon}
   />
 )
-
-ReversedSecondaryWIcon.story = {
-  name: "Reversed, Secondary w/ Icon",
-}
+ReversedSecondaryWIcon.storyName = "Reversed, Secondary w/ Icon"
+ReversedSecondaryWIcon.parameters = { ...reversedBg }
 
 export const ReversedSecondaryWIconDisabled = () => (
   <Button
@@ -375,28 +326,18 @@ export const ReversedSecondaryWIconDisabled = () => (
     icon={configureIcon}
   />
 )
-
-ReversedSecondaryWIconDisabled.story = {
-  name: "Reversed, Secondary w/ Icon, Disabled",
-}
+ReversedSecondaryWIconDisabled.storyName =
+  "Reversed, Secondary w/ Icon, Disabled"
+ReversedSecondaryWIconDisabled.parameters = { ...reversedBg }
 
 export const TypeSubmit = () => <Button label="Label" type="submit" />
-
-TypeSubmit.story = {
-  name: "Type, Submit",
-}
+TypeSubmit.storyName = "Type, Submit"
 
 export const TypeReset = () => <Button label="Label" type="reset" />
-
-TypeReset.story = {
-  name: "Type, Reset",
-}
+TypeReset.storyName = "Type, Reset"
 
 export const FormDiscouraged = () => <Button label="Label" form={true} />
-
-FormDiscouraged.story = {
-  name: "Form (discouraged)",
-}
+FormDiscouraged.storyName = "Form (discouraged)"
 
 export const OverflowingTextIconLabelTestCase = () => (
   <div style={{ width: 120 }}>
@@ -407,10 +348,8 @@ export const OverflowingTextIconLabelTestCase = () => (
     />
   </div>
 )
-
-OverflowingTextIconLabelTestCase.story = {
-  name: "Overflowing text, Icon + Label (test case)",
-}
+OverflowingTextIconLabelTestCase.storyName =
+  "Overflowing text, Icon + Label (test case)"
 
 export const OverflowingTextFormTestCase = () => (
   <div style={{ width: 120 }}>
@@ -422,10 +361,7 @@ export const OverflowingTextFormTestCase = () => (
     />
   </div>
 )
-
-OverflowingTextFormTestCase.story = {
-  name: "Overflowing text, Form (test case)",
-}
+OverflowingTextFormTestCase.storyName = "Overflowing text, Form (test case)"
 
 export const MultipleButtons = () => (
   <div>
@@ -433,3 +369,23 @@ export const MultipleButtons = () => (
     <Button label="Exit" automationId="demo-button-2" />
   </div>
 )
+
+export const FocusExample = () => {
+  const ref = useRef<ButtonRef>()
+  const handleClick = useCallback(() => {
+    ref.current?.focus()
+  }, [])
+  return (
+    <>
+      <Button label="Label" ref={ref} />
+      <hr />
+      <p>
+        This story is to test the ability to imperatively call the `focus`
+        function.
+      </p>
+      <button onClick={handleClick}>
+        Click here to focus the button above
+      </button>
+    </>
+  )
+}

@@ -12,12 +12,13 @@ import {
   SidebarAndContent,
   SidebarSection,
   SidebarTab,
+  TableOfContents,
 } from "../components/SidebarAndContent"
 import StorybookDemo from "../components/StorybookDemo"
 import { sortSidebarTabs, stripTrailingSlash } from "./util"
 
-const renderSidebarTabs = (pages, currentPath) => {
-  return pages.map((node, i) => (
+const renderSidebarTabs = (pages, currentPath) =>
+  pages.map((node, i) => (
     <SidebarTab
       href={node!.node!.fields!.slug}
       active={
@@ -29,7 +30,6 @@ const renderSidebarTabs = (pages, currentPath) => {
       {node!.node!.frontmatter!.navTitle}
     </SidebarTab>
   ))
-}
 
 export default ({ data, pageContext, location }) => {
   const md = data.mdx
@@ -45,7 +45,7 @@ export default ({ data, pageContext, location }) => {
 
   const renderStorybookIFrame = () => {
     if (!md.frontmatter.demoStoryId) {
-      // tslint:disable-next-line: no-console
+      // eslint-disable-next-line no-console
       console.warn(
         `Could not find a demo story ID for "${md.frontmatter.title}". Please make sure there is a frontmatter field called demoStoryId in the component docs. The ID comes from the Storybook URL for a given story.`
       )
@@ -92,6 +92,7 @@ export default ({ data, pageContext, location }) => {
             <MDXRenderer>{data.mdx.body}</MDXRenderer>
           </ContentMarkdownSection>
         </Content>
+        <TableOfContents items={md.tableOfContents.items} />
       </SidebarAndContent>
     </Layout>
   )
@@ -123,6 +124,7 @@ export const query = graphql`
         demoStoryId
         demoStoryHeight
       }
+      tableOfContents
     }
   }
 `

@@ -1,7 +1,7 @@
 import { CheckboxGroup } from "@kaizen/draft-checkbox-group"
 import { CheckboxField, Label } from "@kaizen/draft-form"
 import * as React from "react"
-const styles = require("./CheckboxGroup.stories.scss")
+import styles from "./CheckboxGroup.stories.scss"
 
 interface RenderProps {
   checkedStatus: string
@@ -111,9 +111,7 @@ export const InteractiveKaizenSiteDemo = () => (
   </div>
 )
 
-InteractiveKaizenSiteDemo.story = {
-  name: "Interactive (Kaizen Site Demo)",
-}
+InteractiveKaizenSiteDemo.storyName = "Interactive (Kaizen Site Demo)"
 
 export const WithDisabledCheckboxes = () => (
   <div>
@@ -140,9 +138,7 @@ export const WithDisabledCheckboxes = () => (
   </div>
 )
 
-WithDisabledCheckboxes.story = {
-  name: "with disabled checkboxes",
-}
+WithDisabledCheckboxes.storyName = "with disabled checkboxes"
 
 export const Rtl = () => (
   <div dir="rtl">
@@ -169,9 +165,7 @@ export const Rtl = () => (
   </div>
 )
 
-Rtl.story = {
-  name: "RTL",
-}
+Rtl.storyName = "RTL"
 
 export const WithLinks = () => (
   <div>
@@ -216,9 +210,7 @@ export const WithLinks = () => (
   </div>
 )
 
-WithLinks.story = {
-  name: "with links",
-}
+WithLinks.storyName = "with links"
 
 export const WithBottomMargin = () => (
   <div>
@@ -252,9 +244,7 @@ export const WithBottomMargin = () => (
   </div>
 )
 
-WithBottomMargin.story = {
-  name: "with bottom margin",
-}
+WithBottomMargin.storyName = "with bottom margin"
 
 export const WithoutBottomMargin = () => (
   <div>
@@ -288,6 +278,4 @@ export const WithoutBottomMargin = () => (
   </div>
 )
 
-WithoutBottomMargin.story = {
-  name: "without bottom margin",
-}
+WithoutBottomMargin.storyName = "without bottom margin"

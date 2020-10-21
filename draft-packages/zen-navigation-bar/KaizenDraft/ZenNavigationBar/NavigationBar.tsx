@@ -15,7 +15,7 @@ import {
   NavigationItem,
 } from "./types"
 
-const styles = require("./NavigationBar.module.scss")
+import styles from "./NavigationBar.module.scss"
 
 type Props = {
   environment?: "production" | "staging" | "test" | "local"
@@ -35,7 +35,7 @@ type State = {
   mobileKey: number
 }
 
-export default class NavigationBar extends React.Component<Props, State> {
+class NavigationBar extends React.Component<Props, State> {
   static displayName = "NavigationBar"
   static Link = Link
   static Menu = Menu
@@ -179,3 +179,4 @@ export default class NavigationBar extends React.Component<Props, State> {
     )
   }
 }
+export default NavigationBar

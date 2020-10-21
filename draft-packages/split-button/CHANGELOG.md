@@ -3,6 +3,237 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.7.2...@kaizen/draft-split-button@1.7.3) (2020-10-21)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [1.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.7.1...@kaizen/draft-split-button@1.7.2) (2020-10-08)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [1.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.7.0...@kaizen/draft-split-button@1.7.1) (2020-10-01)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.39...@kaizen/draft-split-button@1.7.0) (2020-10-01)
+
+
+### Features
+
+* SplitButton and Menu updates ([#785](https://github.com/cultureamp/kaizen-design-system/issues/785)) ([64f7f43](https://github.com/cultureamp/kaizen-design-system/commit/64f7f4303c272c9b6778105392810fb21ab66b5c))
+
+
+
+
+
+## [1.6.39](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.38...@kaizen/draft-split-button@1.6.39) (2020-09-30)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [1.6.38](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.37...@kaizen/draft-split-button@1.6.38) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [1.6.37](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.36...@kaizen/draft-split-button@1.6.37) (2020-09-28)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [1.6.36](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.35...@kaizen/draft-split-button@1.6.36) (2020-09-24)
+
+
+### Bug Fixes
+
+* Change styles from require to use import ([#782](https://github.com/cultureamp/kaizen-design-system/issues/782)) ([defd448](https://github.com/cultureamp/kaizen-design-system/commit/defd4483faa3459d9af48e272c63656798008a28))
+
+
+
+
+
+## [1.6.35](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.34...@kaizen/draft-split-button@1.6.35) (2020-09-23)
+
+
+### Bug Fixes
+
+* Changed icons to use import, added types for icons ([#781](https://github.com/cultureamp/kaizen-design-system/issues/781)) ([e0856a8](https://github.com/cultureamp/kaizen-design-system/commit/e0856a84e3b39d3dc1bfa910b0b973bd65e170c9))
+
+
+
+
+
+## [1.6.34](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.33...@kaizen/draft-split-button@1.6.34) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [1.6.33](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.32...@kaizen/draft-split-button@1.6.33) (2020-09-11)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [1.6.32](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.31...@kaizen/draft-split-button@1.6.32) (2020-09-09)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [1.6.31](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.30...@kaizen/draft-split-button@1.6.31) (2020-09-07)
+
+
+### Bug Fixes
+
+* Bump design-tokens peer dependency to the latest version ([#760](https://github.com/cultureamp/kaizen-design-system/issues/760)) ([37e5414](https://github.com/cultureamp/kaizen-design-system/commit/37e5414b2e2c0befb4127c588120eb2e8bdc4d39))
+
+
+
+
+
+## [1.6.30](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.29...@kaizen/draft-split-button@1.6.30) (2020-08-28)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [1.6.29](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.28...@kaizen/draft-split-button@1.6.29) (2020-08-27)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [1.6.28](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.27...@kaizen/draft-split-button@1.6.28) (2020-08-24)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [1.6.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.26...@kaizen/draft-split-button@1.6.27) (2020-08-19)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [1.6.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.25...@kaizen/draft-split-button@1.6.26) (2020-08-12)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [1.6.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.24...@kaizen/draft-split-button@1.6.25) (2020-08-10)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [1.6.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.23...@kaizen/draft-split-button@1.6.24) (2020-07-31)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [1.6.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.22...@kaizen/draft-split-button@1.6.23) (2020-07-30)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [1.6.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.21...@kaizen/draft-split-button@1.6.22) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [1.6.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.20...@kaizen/draft-split-button@1.6.21) (2020-07-15)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [1.6.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.19...@kaizen/draft-split-button@1.6.20) (2020-07-10)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [1.6.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.18...@kaizen/draft-split-button@1.6.19) (2020-07-09)
+
+
+### Bug Fixes
+
+* Switch from TSlint to ESlint ([#621](https://github.com/cultureamp/kaizen-design-system/issues/621)) ([59e64d4](https://github.com/cultureamp/kaizen-design-system/commit/59e64d4d0cd14302544ae7f41fd76a101d313aee))
+
+
+
+
+
+## [1.6.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.17...@kaizen/draft-split-button@1.6.18) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [1.6.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.16...@kaizen/draft-split-button@1.6.17) (2020-07-09)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
 ## [1.6.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@1.6.15...@kaizen/draft-split-button@1.6.16) (2020-07-06)
 
 **Note:** Version bump only for package @kaizen/draft-split-button

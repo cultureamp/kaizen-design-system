@@ -3,7 +3,7 @@ import * as React from "react"
 
 import { Label } from "@kaizen/draft-form"
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 export type RadioGroupProps = {
   automationId?: string

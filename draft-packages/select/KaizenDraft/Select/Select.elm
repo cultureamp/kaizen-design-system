@@ -1,9 +1,14 @@
 module KaizenDraft.Select.Select exposing
     ( Action(..)
+    , Config
+    , MenuItem
     , Msg
     , SelectType(..)
     , State
     , Style(..)
+    , Variant(..)
+    , defaults
+    , dummyInputIdPrefix
     , initState
     , isLoading
     , menuItems
@@ -22,7 +27,7 @@ module KaizenDraft.Select.Select exposing
 import Browser.Dom as Dom
 import CssModules exposing (css)
 import Html exposing (Html, div, input, span, text)
-import Html.Attributes exposing (id, readonly, style, tabindex, value)
+import Html.Attributes exposing (attribute, id, readonly, style, tabindex, value)
 import Html.Attributes.Aria exposing (role)
 import Html.Events exposing (on, onBlur, onFocus, preventDefaultOn)
 import Html.Extra exposing (viewIf)
@@ -334,7 +339,7 @@ usePorts predicate (State state_) =
 -- UPDATE
 
 
-update : Msg value -> State -> ( Action value, State, Cmd (Msg value) )
+update : Msg item -> State -> ( Action item, State, Cmd (Msg item) )
 update msg (State state_) =
     case msg of
         EnterSelect item ->
@@ -634,7 +639,7 @@ update msg (State state_) =
 -- The id value needs to be a unique id
 
 
-view : Config value -> SelectId -> Html (Msg value)
+view : Config item -> SelectId -> Html (Msg item)
 view (Config config) selectId =
     let
         (State state_) =
@@ -733,6 +738,7 @@ view (Config config) selectId =
                 , ( .cautionary, config.selectType == Cautionary && state_.controlFocused == False )
                 , ( .error, config.selectType == Error && state_.controlFocused == False )
                 ]
+            , attribute "data-automation-id" "Select__Control"
             , preventDefaultOn "mousedown" <|
                 Decode.map
                     (\msg ->
@@ -847,6 +853,7 @@ viewMenuItem viewMenuItemData =
                     , ( .isTarget, data.menuItemIsTarget )
                     , ( .preventPointer, data.menuNavigation == Keyboard )
                     ]
+                 , attribute "data-automation-id" "Select__Option"
                  ]
                     ++ resolveMouseLeave
                     ++ resolveMouseUp
@@ -1075,7 +1082,11 @@ menuItemId selectId index =
 
 dummyInputId : SelectId -> String
 dummyInputId selectId =
-    "dummy-input-" ++ getSelectId selectId
+    dummyInputIdPrefix ++ getSelectId selectId
+
+
+dummyInputIdPrefix =
+    "dummy-input-"
 
 
 
@@ -1294,7 +1305,7 @@ queryActiveTargetElement selectId index =
     Dom.getElement (menuItemId selectId index)
 
 
-queryNodesForViewportFocus : SelectId -> Int -> Cmd (Msg value)
+queryNodesForViewportFocus : SelectId -> Int -> Cmd (Msg item)
 queryNodesForViewportFocus selectId menuItemIndex =
     Task.attempt (FocusMenuViewport selectId) <|
         Task.map2 (\menuListElem menuItemElem -> ( MenuListElement menuListElem, MenuItemElement menuItemElem ))

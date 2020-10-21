@@ -1,16 +1,14 @@
-import { Icon } from "@kaizen/component-library"
-const closeIcon = require("@kaizen/component-library/icons/close.icon.svg")
-  .default
-const exclamationIcon = require("@kaizen/component-library/icons/exclamation.icon.svg")
-  .default
-const informationIcon = require("@kaizen/component-library/icons/information.icon.svg")
-  .default
-const successIcon = require("@kaizen/component-library/icons/success.icon.svg")
-  .default
+import { Icon } from "../../Icon"
+
+import closeIcon from "../../../icons/close.icon.svg"
+import exclamationIcon from "../../../icons/exclamation.icon.svg"
+import informationIcon from "../../../icons/information.icon.svg"
+import successIcon from "../../../icons/success.icon.svg"
+
 import classnames from "classnames"
 import * as React from "react"
 
-const styles = require("./GenericNotification.module.scss")
+import styles from "./GenericNotification.module.scss"
 
 export type NotificationType =
   | "affirmative"
@@ -39,6 +37,7 @@ type State = {
 class GenericNotification extends React.Component<Props, State> {
   static defaultProps = {
     persistent: false,
+
     autohide: false,
     autohideDelay: "short",
   }
@@ -84,6 +83,11 @@ class GenericNotification extends React.Component<Props, State> {
         ref={this.containerRef}
         onTransitionEnd={this.onTransitionEnd}
         data-automation-id={this.props.automationId}
+        data-automation-class={classnames(
+          "generic-notification",
+          this.props.type,
+          this.props.style
+        )}
       >
         <div className={styles.icon}>
           <Icon icon={this.iconType()} role="presentation" inheritSize />

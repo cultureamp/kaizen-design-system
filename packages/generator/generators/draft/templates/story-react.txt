@@ -4,6 +4,14 @@ import { <%= componentName %> } from "<%= npmPackageName %>"
 
 export default {
   title: "<%= componentName %> (React)",
+  component: <%= componentName %>,
+  parameters: {
+    info: {
+      text: `
+        import { <%= componentName %> } from "@kaizen/draft-<%= componentName %>";
+      `,
+    },
+  },
 }
 
 export const DefaultStory = () => (
@@ -12,6 +20,4 @@ export const DefaultStory = () => (
   </<%= componentName %>>
 )
 
-DefaultStory.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultStory.storyName = "Default (Kaizen Site Demo)"

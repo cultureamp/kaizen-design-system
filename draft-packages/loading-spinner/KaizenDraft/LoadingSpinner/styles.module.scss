@@ -1,0 +1,22 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/animation";
+@import "~@kaizen/component-library/styles/utils";
+
+.wrapper {
+  display: flex;
+}
+
+.visuallyHidden {
+  @include sr-only();
+}
+
+.spinner {
+  animation: spinner $kz-animation-duration-deliberate
+    $kz-animation-easing-function-ease-in-out infinite;
+}
+
+@keyframes spinner {
+  100% {
+    transform: rotate(360deg);
+  }
+}

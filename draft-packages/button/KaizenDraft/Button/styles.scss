@@ -53,6 +53,7 @@ $caButton-verticalPaddingForm: calc(
   text-align: center;
   cursor: pointer;
   text-align: center;
+  overflow: visible; // Required for the focus ring on IE11
 
   // looking for padding? See %caButtonContent
 
@@ -368,11 +369,11 @@ $caButton-verticalPaddingForm: calc(
   }
 
   &:not(:first-child) {
-    @include ca-margin($start: 0.5em);
+    @include ca-margin($start: 0.5em, $end: null);
   }
 
   &:not(:last-child) {
-    @include ca-margin($end: 0.5em);
+    @include ca-margin($end: 0.5em, $start: null);
   }
 }
 
@@ -381,6 +382,12 @@ $caButton-verticalPaddingForm: calc(
   align-self: flex-start;
 }
 
+%caButtonAdditionalContentWrapper {
+  display: inherit;
+  &:not(:last-child) {
+    @include ca-margin($end: 0.5em, $start: null);
+  }
+}
 %caButtonIconButton {
   width: $caButton-height;
 

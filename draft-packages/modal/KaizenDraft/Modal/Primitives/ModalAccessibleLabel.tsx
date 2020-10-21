@@ -1,6 +1,6 @@
 import * as React from "react"
 import { ModalAccessibleContext } from "./ModalAccessibleContext"
-const styles = require("./ModalAccessibleLabel.scss")
+import styles from "./ModalAccessibleLabel.scss"
 
 interface Props {
   readonly children: React.ReactNode

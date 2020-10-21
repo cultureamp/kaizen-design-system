@@ -1,22 +1,17 @@
-import { Box, Dropdown, Heading, Paragraph } from "@kaizen/component-library"
+import { Box, Heading, Paragraph } from "@kaizen/component-library"
 import * as React from "react"
-import { Button } from "../button"
 import {
   NavigationTab,
   TitleBlockZen,
 } from "../title-block-zen/KaizenDraft/TitleBlockZen"
-const addIcon = require("@kaizen/component-library/icons/add.icon.svg").default
-const visibleIcon = require("@kaizen/component-library/icons/visible.icon.svg")
-  .default
-const commentIcon = require("@kaizen/component-library/icons/comment.icon.svg")
-  .default
-const starIcon = require("@kaizen/component-library/icons/star-on.icon.svg")
-  .default
-const reportSharingIcon = require("@kaizen/component-library/icons/report-sharing.icon.svg")
-  .default
+import addIcon from "@kaizen/component-library/icons/add.icon.svg"
+import commentIcon from "@kaizen/component-library/icons/comment.icon.svg"
+import starIcon from "@kaizen/component-library/icons/star-on.icon.svg"
+import reportSharingIcon from "@kaizen/component-library/icons/report-sharing.icon.svg"
+import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import { assetUrl } from "@kaizen/hosted-assets"
 
-const styles = require("./TitleBlockZen.stories.scss")
+import styles from "./TitleBlockZen.stories.scss"
 
 export default {
   title: "TitleBlockZen (React)",
@@ -45,6 +40,7 @@ const SECONDARY_ACTIONS = [
     onClick: () => {
       alert("test")
     },
+    href: "foo",
     label: "Secondary action",
   },
 ]
@@ -56,13 +52,11 @@ export const Default = () => (
     primaryAction={{
       label: "Primary link",
       icon: addIcon,
-      reversed: true,
-      primary: true,
+      disabled: true,
       href: "#",
     }}
     defaultAction={{
       label: "Default link",
-      reversed: true,
       href: "#",
     }}
     secondaryActions={SECONDARY_ACTIONS}
@@ -101,9 +95,87 @@ export const Default = () => (
   />
 )
 
-Default.story = {
-  name: "Default",
+Default.storyName = "Default"
+
+export const WithBadge = () => {
+  const [badgeCount, setBadgeCount] = React.useState(1)
+  return (
+    <TitleBlockZen
+      title="Page title"
+      surveyStatus={{ text: "Live", status: "live" }}
+      primaryAction={{
+        label: "Click Me",
+        icon: arrowForwardIcon,
+        iconPosition: "end",
+        href: "#",
+        onClick: () => setBadgeCount(b => b + 1),
+        badge: {
+          text: String(badgeCount),
+          animateChange: true,
+        },
+      }}
+      defaultAction={{
+        label: "Default link",
+        onClick: () => setBadgeCount(b => b + 1),
+        href: "#",
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+    />
+  )
 }
+
+WithBadge.storyName = "With Primary Action Badge"
+
+export const WithDefaultTag = () => (
+  <TitleBlockZen
+    title="Page title"
+    surveyStatus={{ text: "Due July 8, 2030", status: "default" }}
+    primaryAction={{
+      label: "Click Me",
+      icon: arrowForwardIcon,
+      iconPosition: "end",
+      href: "#",
+    }}
+    breadcrumb={{
+      path: "#",
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+  />
+)
+
+WithDefaultTag.storyName = "With Default Survey Status (Tag)"
+
+export const AdminWithDefaultTag = () => (
+  <TitleBlockZen
+    variant="admin"
+    title="Page title"
+    surveyStatus={{ text: "Due July 8, 2030", status: "default" }}
+    primaryAction={{
+      label: "Click Me",
+      icon: arrowForwardIcon,
+      iconPosition: "end",
+      href: "#",
+    }}
+    breadcrumb={{
+      path: "#",
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+  />
+)
+
+AdminWithDefaultTag.storyName = "Admin With Default Survey Status (Tag)"
 
 export const DefaultWithMenuButton = () => (
   <TitleBlockZen
@@ -131,7 +203,6 @@ export const DefaultWithMenuButton = () => (
     defaultAction={{
       label: "Label",
       icon: addIcon,
-      reversed: true,
     }}
     secondaryActions={SECONDARY_ACTIONS}
     handleHamburgerClick={() => {
@@ -155,9 +226,7 @@ export const DefaultWithMenuButton = () => (
   />
 )
 
-DefaultWithMenuButton.story = {
-  name: "Default (Menu Button)",
-}
+DefaultWithMenuButton.storyName = "Default (Menu Button)"
 
 export const AdminVariant = () => (
   <TitleBlockZen
@@ -165,7 +234,10 @@ export const AdminVariant = () => (
     variant="admin"
     sectionTitle="Default questions"
     sectionTitleDescription="Default questions are surfaced automatically for managers when requesting feedback about their teams from colleagues. Default questions are editable by managers."
-    primaryAction={{ label: "Primary link", primary: true, href: "#" }}
+    primaryAction={{
+      label: "Primary link",
+      href: "#",
+    }}
     defaultAction={{ label: "Default link", href: "#" }}
     secondaryActions={SECONDARY_ACTIONS}
     handleHamburgerClick={() => {
@@ -181,14 +253,12 @@ export const AdminVariant = () => (
   />
 )
 
-AdminVariant.story = {
-  name: "Admin variant",
-}
+AdminVariant.storyName = "Admin variant"
 export const AdminVariantWithNavTabs = () => (
   <TitleBlockZen
     title="Page title"
     variant="admin"
-    primaryAction={{ label: "Primary link", primary: true, href: "#" }}
+    primaryAction={{ label: "Primary link", href: "#" }}
     defaultAction={{ label: "Default link", href: "#" }}
     secondaryActions={SECONDARY_ACTIONS}
     handleHamburgerClick={() => {
@@ -212,9 +282,7 @@ export const AdminVariantWithNavTabs = () => (
   />
 )
 
-AdminVariantWithNavTabs.story = {
-  name: "Admin variant with Navigation Tabs",
-}
+AdminVariantWithNavTabs.storyName = "Admin variant with Navigation Tabs"
 
 export const EducationVariant = () => (
   <TitleBlockZen
@@ -224,7 +292,6 @@ export const EducationVariant = () => (
     sectionTitleDescription="Description of section can go here"
     primaryAction={{
       label: "Label",
-      primary: true,
     }}
     secondaryActions={SECONDARY_ACTIONS}
     secondaryOverflowMenuItems={[
@@ -254,9 +321,7 @@ export const EducationVariant = () => (
   />
 )
 
-EducationVariant.story = {
-  name: "Education variant",
-}
+EducationVariant.storyName = "Education variant"
 
 export const Engagement = () => (
   <TitleBlockZen
@@ -265,14 +330,11 @@ export const Engagement = () => (
     primaryAction={{
       label: "Label",
       icon: addIcon,
-      reversed: true,
-      primary: true,
       href: "#",
     }}
     defaultAction={{
       label: "Label",
       icon: addIcon,
-      reversed: true,
       href: "#",
     }}
     secondaryActions={SECONDARY_ACTIONS}
@@ -303,23 +365,20 @@ export const Engagement = () => (
   />
 )
 
-Engagement.story = {
-  name: "Engagement",
-}
+Engagement.storyName = "Engagement"
 
 export const Performance = () => (
   <TitleBlockZen
-    title="Blanca Wheeler Wheeler Wheeler Wheeler Wheeler Wheeler"
+    title="Blanca Wheeler"
+    subtitle="Director of Stuff and Things"
+    avatar={<img alt="avatar image" src={assetUrl("site/empty-state.png")} />}
     primaryAction={{
       href: "#",
       label: "Request feedback",
-      primary: true,
-      reversed: true,
     }}
     defaultAction={{
       href: "#",
       label: "Give feedback",
-      reversed: true,
     }}
     secondaryActions={[
       {
@@ -347,8 +406,6 @@ export const Performance = () => (
         alert("breadcrumb clicked!")
       },
     }}
-    avatar={<img alt="avatar image" src={assetUrl("site/empty-state.png")} />}
-    subtitle="Director of Stuff and Things"
     navigationTabs={[
       <NavigationTab text="Feedback" href="#" active />,
       <NavigationTab
@@ -365,21 +422,21 @@ export const Performance = () => (
   />
 )
 
-Performance.story = {
-  name: "Performance",
-}
+Performance.storyName = "Performance"
 
 export const LongLabels = () => (
   <TitleBlockZen
     title="Wolfeschlegelsteino Hausenbergerdorffsch Hausenbergerdorffsch"
+    surveyStatus={{ text: "Live", status: "live" }}
     primaryAction={{
       label: "Feedback anfordern",
-      reversed: true,
-      primary: true,
+      href: "#",
+      onClick: () => {
+        alert("test")
+      },
     }}
     defaultAction={{
       label: "Feedback geben",
-      reversed: true,
       href: "#",
     }}
     secondaryActions={[
@@ -388,8 +445,6 @@ export const LongLabels = () => (
         onClick: () => {
           alert("test")
         },
-        secondary: true,
-        reversed: true,
         icon: commentIcon,
       },
       {
@@ -397,8 +452,6 @@ export const LongLabels = () => (
         onClick: () => {
           alert("test")
         },
-        secondary: true,
-        reversed: true,
         icon: starIcon,
       },
     ]}
@@ -467,7 +520,6 @@ export const DefaultWithContent = () => (
       defaultAction={{
         label: "Default link",
         icon: addIcon,
-        reversed: true,
         href: "#",
       }}
       secondaryActions={SECONDARY_ACTIONS}
@@ -572,9 +624,7 @@ export const DefaultWithContent = () => (
   </div>
 )
 
-DefaultWithContent.story = {
-  name: "Default with content",
-}
+DefaultWithContent.storyName = "Default with content"
 
 export const DefaultNoSecondary = () => (
   <TitleBlockZen
@@ -583,13 +633,10 @@ export const DefaultNoSecondary = () => (
     primaryAction={{
       label: "Primary link",
       icon: addIcon,
-      reversed: true,
-      primary: true,
       href: "#",
     }}
     defaultAction={{
       label: "Default link",
-      reversed: true,
       href: "#",
     }}
     handleHamburgerClick={() => {
@@ -613,9 +660,7 @@ export const DefaultNoSecondary = () => (
   />
 )
 
-DefaultNoSecondary.story = {
-  name: "Default (no secondary actions)",
-}
+DefaultNoSecondary.storyName = "Default (no secondary actions)"
 
 export const DefaultOnlyPrimary = () => (
   <TitleBlockZen
@@ -624,8 +669,6 @@ export const DefaultOnlyPrimary = () => (
     primaryAction={{
       label: "Primary link",
       icon: addIcon,
-      reversed: true,
-      primary: true,
       href: "#",
     }}
     handleHamburgerClick={() => {
@@ -649,6 +692,223 @@ export const DefaultOnlyPrimary = () => (
   />
 )
 
-DefaultOnlyPrimary.story = {
-  name: "Default (only primary action)",
+DefaultOnlyPrimary.storyName = "Default (only primary action)"
+
+export const DefaultWithReportSwitcher = () => (
+  <TitleBlockZen
+    title="Baseline Engagement Survey"
+    surveyStatus={{ text: "Live", status: "live" }}
+    pageSwitcherSelect={{
+      placeholder: "Placeholder",
+      isSearchable: false,
+      isDisabled: false,
+      options: [
+        {
+          value: "survey3",
+          label: "Administrator Report",
+        },
+        {
+          value: "survey1",
+          label: "Other Report",
+        },
+        {
+          value: "survey2",
+          label: "Other Report: Redux",
+        },
+      ],
+      defaultValue: {
+        value: "survey3",
+        label: "Administrator Report",
+      },
+    }}
+    primaryAction={{
+      label: "Primary link",
+      icon: addIcon,
+      href: "#",
+    }}
+    handleHamburgerClick={() => {
+      alert("Hamburger clicked")
+    }}
+    breadcrumb={{
+      path: "#",
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+    navigationTabs={[
+      <NavigationTab text="Label" href="#" active />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+    ]}
+  />
+)
+
+DefaultWithReportSwitcher.storyName = "Default with report switcher"
+
+export const DefaultNoLink = () => (
+  <TitleBlockZen
+    title="Page title"
+    surveyStatus={{ text: "Live", status: "live" }}
+    primaryAction={{
+      label: "Primary link",
+      icon: addIcon,
+      disabled: true,
+      href: "#",
+    }}
+    defaultAction={{
+      label: "Default link",
+      href: "#",
+    }}
+    secondaryActions={SECONDARY_ACTIONS}
+    secondaryOverflowMenuItems={[
+      {
+        action: () => {
+          alert("test")
+        },
+        label: "Overflow action 1",
+        icon: starIcon,
+      },
+      {
+        action: "#",
+        label: "Overflow link 1",
+        icon: starIcon,
+      },
+    ]}
+    handleHamburgerClick={() => {
+      alert("Hamburger clicked")
+    }}
+    breadcrumb={{
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+    navigationTabs={[
+      <NavigationTab text="Label" href="#" active />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+      <NavigationTab text="Label" href="#" />,
+    ]}
+  />
+)
+
+DefaultNoLink.storyName = "Default (no link in breadcrumb)"
+
+export const DefaultOnlyLongTitle = () => (
+  <TitleBlockZen
+    title='Page title that is over the "long title" character threshold and goes way longer than usual'
+    subtitle="Subtitle goes here"
+    handleHamburgerClick={() => {
+      alert("Hamburger clicked")
+    }}
+    breadcrumb={{
+      path: "#",
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+  />
+)
+
+DefaultOnlyLongTitle.storyName = "Default (only long title)"
+
+export const DefaultCollapsedNavigation = () => (
+  <>
+    <TitleBlockZen
+      title="Page title"
+      subtitle="Subtitle goes here"
+      handleHamburgerClick={() => {
+        alert("Hamburger clicked")
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+      collapseNavigationAreaWhenPossible
+    />
+    <div className={styles.fakeSkirtContainerWithBackground}>
+      <div className={styles.fakeSkirtContent}>
+        <Paragraph variant="body" color="white-reduced-opacity">
+          I am some text that should feel nicely butted up
+        </Paragraph>
+      </div>
+    </div>
+  </>
+)
+
+DefaultCollapsedNavigation.storyName = "Default (collapsed navigation)"
+
+export const DefaultCollapsedNavigationCard = () => (
+  <>
+    <TitleBlockZen
+      title="Page title"
+      subtitle="Subtitle goes here"
+      handleHamburgerClick={() => {
+        alert("Hamburger clicked")
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+      collapseNavigationAreaWhenPossible
+    />
+    <div className={styles.fakeSkirtContainerWithBackground}>
+      <div className={styles.fakeSkirtContent}>
+        <div className={styles.fakeSkirtCard}>
+          <Paragraph variant="body">
+            I am a card that should feel nicely butted up
+          </Paragraph>
+        </div>
+      </div>
+    </div>
+  </>
+)
+
+DefaultCollapsedNavigationCard.story = {
+  name: "Default (collapsed navigation with card)",
 }
+
+export const AdminVariantNavigation = () => (
+  <>
+    <TitleBlockZen
+      variant="admin"
+      title="Page title"
+      subtitle="Subtitle goes here"
+      handleHamburgerClick={() => {
+        alert("Hamburger clicked")
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+      collapseNavigationAreaWhenPossible
+    />
+    <div className={styles.fakeSkirtContainer}>
+      <div className={styles.fakeSkirtContent}>
+        <Paragraph variant="body">
+          I am some text that should feel tightly butted up to the nav space.
+          The responsibility for the admin variant is to move things down
+          yourself if you need to.
+        </Paragraph>
+      </div>
+    </div>
+  </>
+)
+
+AdminVariantNavigation.storyName = "Admin (collapsed navigation)"

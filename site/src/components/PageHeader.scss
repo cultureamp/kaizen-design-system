@@ -19,7 +19,11 @@
 .pageHeaderInner {
   display: grid;
   grid-template-columns: [side] (12 * $ca-grid) [main] 1fr;
-  width: var(--content-max-width);
+  width: calc(var(--content-max-width) - (#{$ca-grid} * 2));
+
+  @media (min-width: 768px) and (max-width: 1439px) {
+    width: 100%;
+  }
 
   @include ca-media-mobile() {
     grid-template-columns: 1fr;
@@ -37,7 +41,7 @@
 .sideSection {
   grid-area: side;
   display: grid;
-  grid-template-rows: ($ca-grid * 9.5) auto;
+  grid-template-rows: ($ca-grid * 7.5) auto;
   row-gap: $ca-grid;
 
   @include ca-media-mobile() {
@@ -69,6 +73,8 @@
 
 .tagsContainer {
   color: $kz-color-white;
+  margin-bottom: 2rem;
+  opacity: 0.8;
 }
 
 .tagsLabel {
@@ -76,19 +82,19 @@
   line-height: 1.5;
   text-transform: uppercase;
   font-weight: 500;
-  margin-left: $ca-grid / 2;
   margin-bottom: $ca-grid / 2;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -0.25em;
+  margin-left: -0.5em;
 }
 
 .mainSection {
   grid-area: main;
-  padding: 0 $ca-grid * 6;
+  padding: 0 $ca-grid * 3;
+  max-width: $ca-grid * 27;
 
   @include ca-media-mobile() {
     padding: 0;
@@ -110,14 +116,14 @@
 }
 
 .summaryParagraph {
-  font-size: 1.625rem;
-  line-height: 1.4;
+  font-size: 1.25rem;
+  line-height: 1.5;
   font-weight: 400;
-  margin-bottom: var(--content-card-top-offset);
+  margin-bottom: calc(var(--content-card-top-offset) * 0.75);
 
   .headingOnly & {
+    max-width: 60rem;
     text-align: center;
-    white-space: pre-wrap;
 
     @media (max-width: 1080px) {
       white-space: normal;

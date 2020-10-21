@@ -1,8 +1,8 @@
 import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
 
-import { FieldMessage } from "."
 import { FieldMessageProps } from "./FieldMessage"
+import { FieldMessage } from "."
 
 afterEach(cleanup)
 

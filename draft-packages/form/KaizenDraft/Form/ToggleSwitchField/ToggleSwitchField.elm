@@ -1,4 +1,4 @@
-module KaizenDraft.Form.ToggleSwitchField.ToggleSwitchField exposing (ToggleTheme(..), ToggledStatus(..), default, disabled, fullWidth, id, inline, labelText, name, onToggle, theme, toggledStatus, view)
+module KaizenDraft.Form.ToggleSwitchField.ToggleSwitchField exposing (ToggleTheme(..), ToggledStatus(..), default, disabled, fullWidth, id, inline, labelPosition, labelText, name, onToggle, theme, toggledStatus, view)
 
 import CssModules exposing (css)
 import Html exposing (..)
@@ -15,6 +15,7 @@ type alias ConfigValue msg =
     { id : Maybe String
     , name : Maybe String
     , labelText : Label.LabelProp msg
+    , labelPosition : Label.LabelPosition
     , toggledStatus : Maybe ToggledStatus
     , onToggle : Maybe (Bool -> msg)
     , disabled : Maybe Bool
@@ -39,6 +40,7 @@ defaults =
     { id = Just ""
     , name = Just ""
     , labelText = Label.LabelString ""
+    , labelPosition = Label.Start
     , toggledStatus = Nothing
     , onToggle = Nothing
     , disabled = Just False
@@ -74,6 +76,11 @@ name value (Config config) =
 labelText : String -> Config msg -> Config msg
 labelText value (Config config) =
     Config { config | labelText = Label.LabelString value }
+
+
+labelPosition : Label.LabelPosition -> Config msg -> Config msg
+labelPosition value (Config config) =
+    Config { config | labelPosition = value }
 
 
 toggledStatus : ToggledStatus -> Config msg -> Config msg
@@ -197,6 +204,7 @@ view (Config config) =
                 |> Label.htmlFor (convertToString config.id ++ "-field-toggle")
                 |> Label.labelText config.labelText
                 |> Label.labelType Label.Toggle
+                |> Label.labelPosition config.labelPosition
                 |> Label.children toggleSwitch
             )
         ]

@@ -9,12 +9,13 @@ import {
   ToggleTheme,
 } from "@kaizen/draft-form"
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 interface Props {
   id?: string
   name?: string
   labelText: string | React.ReactNode
+  labelPosition?: "start" | "end"
   toggledStatus?: ToggledStatus
   onToggle?: (event: React.ChangeEvent<HTMLInputElement>) => any
   disabled?: boolean
@@ -31,6 +32,7 @@ const ToggleSwitchField: ToggleSwitchField = ({
   id = "",
   name = "",
   labelText,
+  labelPosition = "start",
   toggledStatus,
   onToggle,
   disabled = false,
@@ -56,6 +58,7 @@ const ToggleSwitchField: ToggleSwitchField = ({
         automationId={`${id}-field-label`}
         labelText={labelText}
         labelType="toggle"
+        labelPosition={labelPosition}
       >
         <ToggleSwitch
           id={`${id}-field-toggle`}

@@ -5,7 +5,7 @@ import { MenuGroupProps, MenuItemProps } from "../types"
 import Link from "./Link"
 import MenuItem from "./MenuItem"
 
-const styles = require("./MenuGroup.module.scss")
+import styles from "./MenuGroup.module.scss"
 
 const MenuGroup = ({
   title,
@@ -14,22 +14,25 @@ const MenuGroup = ({
   offCanvas,
 }: MenuGroupProps) => {
   const renderOffCanvasMenuItem = (item: MenuItemProps) => (
-    <Link key={`${item.url}-${uuid()}`} text={item.label} href={item.url} />
+    <Link
+      key={`${item.url}-${uuid()}`}
+      text={item.label}
+      href={item.url}
+      badge={item.badge}
+    />
   )
 
-  const renderOffCanvasMenuGroup = () => {
-    return (
-      <ul
-        className={classNames(styles.container, {
-          [styles.offCanvas]: true,
-          [styles.firstMenuItem]: first,
-        })}
-      >
-        <h4 className={styles.title}>{title}</h4>
-        {items.map(renderOffCanvasMenuItem)}
-      </ul>
-    )
-  }
+  const renderOffCanvasMenuGroup = () => (
+    <ul
+      className={classNames(styles.container, {
+        [styles.offCanvas]: true,
+        [styles.firstMenuItem]: first,
+      })}
+    >
+      <h4 className={styles.title}>{title}</h4>
+      {items.map(renderOffCanvasMenuItem)}
+    </ul>
+  )
 
   const renderMenuGroup = () => (
     <li className={styles.container}>

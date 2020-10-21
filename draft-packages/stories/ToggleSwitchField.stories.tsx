@@ -71,9 +71,7 @@ export const OnKaizenSiteDemo = () => (
   </ToggleStateContainer>
 )
 
-OnKaizenSiteDemo.story = {
-  name: "On (Kaizen Site Demo)",
-}
+OnKaizenSiteDemo.storyName = "On (Kaizen Site Demo)"
 
 export const Off = () => (
   <ToggleStateContainer initialToggledStatus={ToggledStatus.OFF}>
@@ -101,9 +99,7 @@ export const OnRtl = () => (
   </ToggleStateContainer>
 )
 
-OnRtl.story = {
-  name: "On (RTL)",
-}
+OnRtl.storyName = "On (RTL)"
 
 export const OffRtl = () => (
   <ToggleStateContainer initialToggledStatus={ToggledStatus.OFF}>
@@ -119,9 +115,7 @@ export const OffRtl = () => (
   </ToggleStateContainer>
 )
 
-OffRtl.story = {
-  name: "Off (RTL)",
-}
+OffRtl.storyName = "Off (RTL)"
 
 export const DisabledOn = () => (
   <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
@@ -164,9 +158,7 @@ export const DisabledOnRtl = () => (
   </ToggleStateContainer>
 )
 
-DisabledOnRtl.story = {
-  name: "Disabled On (RTL)",
-}
+DisabledOnRtl.storyName = "Disabled On (RTL)"
 
 export const DisabledOffRtl = () => (
   <ToggleStateContainer initialToggledStatus={ToggledStatus.OFF}>
@@ -183,9 +175,7 @@ export const DisabledOffRtl = () => (
   </ToggleStateContainer>
 )
 
-DisabledOffRtl.story = {
-  name: "Disabled Off (RTL)",
-}
+DisabledOffRtl.storyName = "Disabled Off (RTL)"
 
 export const FullWidth = () => (
   <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
@@ -202,9 +192,7 @@ export const FullWidth = () => (
   </ToggleStateContainer>
 )
 
-FullWidth.story = {
-  name: "Full width",
-}
+FullWidth.storyName = "Full width"
 
 export const FullWidthRtl = () => (
   <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
@@ -223,9 +211,7 @@ export const FullWidthRtl = () => (
   </ToggleStateContainer>
 )
 
-FullWidthRtl.story = {
-  name: "Full width (RTL)",
-}
+FullWidthRtl.storyName = "Full width (RTL)"
 
 export const FreemiumTheme = () => (
   <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
@@ -240,6 +226,36 @@ export const FreemiumTheme = () => (
   </ToggleStateContainer>
 )
 
-FreemiumTheme.story = {
-  name: "Freemium theme",
-}
+FreemiumTheme.storyName = "Freemium theme"
+
+export const LabelAtEnd = () => (
+  <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+    {({ toggledStatus, toggle }) => (
+      <ToggleSwitchField
+        labelText="Label"
+        toggledStatus={toggledStatus}
+        onToggle={toggle}
+        labelPosition="end"
+      />
+    )}
+  </ToggleStateContainer>
+)
+
+LabelAtEnd.storyName = "Label at end"
+
+export const LabelAtEndRtl = () => (
+  <ToggleStateContainer initialToggledStatus={ToggledStatus.ON}>
+    {({ toggledStatus, toggle }) => (
+      <RtlContainer>
+        <ToggleSwitchField
+          labelText="Label"
+          toggledStatus={toggledStatus}
+          onToggle={toggle}
+          labelPosition="end"
+        />
+      </RtlContainer>
+    )}
+  </ToggleStateContainer>
+)
+
+LabelAtEndRtl.storyName = "Label at end (RTL)"

@@ -1,9 +1,5 @@
-import {
-  cleanup,
-  fireEvent,
-  render,
-  waitForElementToBeRemoved,
-} from "@testing-library/react"
+import { cleanup, render } from "@testing-library/react"
+import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
 import * as ReactTestUtils from "react-dom/test-utils"
 import GuidanceBlock from "./GuidanceBlock"

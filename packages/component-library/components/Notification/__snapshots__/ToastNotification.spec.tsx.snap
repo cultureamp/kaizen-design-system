@@ -3,6 +3,7 @@
 exports[`The basic notification renders correctly 1`] = `
 <div
   class="notification affirmative toast hidden"
+  data-automation-class="generic-notification affirmative toast"
   style="margin-top: 0px;"
 >
   <div
@@ -14,10 +15,9 @@ exports[`The basic notification renders correctly 1`] = `
       class="icon inheritSize"
       focusable="false"
       role="presentation"
-      viewBox="0 0 0 0"
     >
       <use
-        xlink:href="#my-svg"
+        xlink:href="#undefined"
       />
     </svg>
   </div>
@@ -48,7 +48,6 @@ exports[`The basic notification renders correctly 1`] = `
         class="icon"
         focusable="false"
         role="img"
-        viewBox="0 0 0 0"
       >
         <title
           id="faffea72-0fc0-5bc3-8038-936bd9f22ca8"
@@ -56,7 +55,7 @@ exports[`The basic notification renders correctly 1`] = `
           close notification
         </title>
         <use
-          xlink:href="#my-svg"
+          xlink:href="#undefined"
         />
       </svg>
     </span>

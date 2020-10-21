@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import * as React from "react"
 
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 interface Tab {
   readonly label: string
@@ -9,6 +9,7 @@ interface Tab {
   readonly disabled?: boolean
   readonly onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => any
   readonly href?: string
+  readonly automationId?: string
 }
 
 interface Props {
@@ -60,6 +61,7 @@ const RowTab = ({ tabs, renderTab, textDirection }) => (
         })
       ) : (
         <a
+          data-automation-id={t.automationId}
           key={t.label}
           onClick={t.onClick}
           href={!t.disabled ? t.href : null}
@@ -88,6 +90,7 @@ const VerticalTab = ({ tabs, renderTab, textDirection }) => (
         })
       ) : (
         <a
+          data-automation-id={t.automationId}
           key={t.label}
           onClick={t.onClick}
           href={!t.disabled ? t.href : null}

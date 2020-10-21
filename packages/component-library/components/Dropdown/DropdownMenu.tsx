@@ -1,6 +1,6 @@
 import * as React from "react"
 
-const styles = require("./Dropdown.module.scss")
+import styles from "./Dropdown.module.scss"
 
 type DropdownMenuProps = {
   hideDropdownMenu: () => void
@@ -12,7 +12,7 @@ type DropdownMenuProps = {
   } | null
 }
 
-export default class DropdownMenu extends React.Component<DropdownMenuProps> {
+class DropdownMenu extends React.Component<DropdownMenuProps> {
   static displayName = "DropdownMenu"
   menu = React.createRef<HTMLDivElement>()
 
@@ -78,3 +78,5 @@ export default class DropdownMenu extends React.Component<DropdownMenuProps> {
     )
   }
 }
+
+export default DropdownMenu

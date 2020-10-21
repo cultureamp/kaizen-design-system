@@ -1,0 +1,43 @@
+{
+  "name": "@kaizen/draft-hierarchical-select",
+  "version": "1.3.25",
+  "description": "The draft hierarchical-select component",
+  "scripts": {
+    "prepublish": "yarn tsc --project tsconfig.dist.json",
+    "build": "yarn clean && yarn prepublish",
+    "build:watch": "yarn clean && yarn prepublish --watch",
+    "clean": "rimraf '*.d.ts' '*.js' '*.map' 'KaizenDraft/**/*.d.ts' 'KaizenDraft/**/*.js' 'KaizenDraft/**/*.map'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
+    "directory": "draft-packages/hierarchical-select"
+  },
+  "bugs": {
+    "url": "https://github.com/cultureamp/kaizen-design-system/issues"
+  },
+  "files": [
+    "**/*",
+    "!**/*.ts",
+    "!**/*.tsx",
+    "**/*.d.ts",
+    "!**/*.spec.*",
+    "!**/*.snap",
+    "!draft-templates",
+    "!stories",
+    "!tsconfig.dist.json"
+  ],
+  "author": "",
+  "private": false,
+  "license": "MIT",
+  "dependencies": {
+    "@kaizen/component-library": "^7.32.3",
+    "@kaizen/draft-button": "^2.0.9",
+    "@kaizen/draft-form": "^2.7.9",
+    "@kaizen/draft-hierarchical-menu": "^1.2.19"
+  },
+  "peerDependencies": {
+    "@kaizen/design-tokens": "^2.1.1",
+    "react": "^16.13.1"
+  }
+}

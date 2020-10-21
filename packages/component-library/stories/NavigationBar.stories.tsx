@@ -2,12 +2,11 @@ import * as React from "react"
 
 import { Icon, Link, Menu, NavigationBar } from "@kaizen/component-library"
 
-const academyIcon = require("@kaizen/component-library/icons/academy.icon.svg")
-  .default
-const caMonogramIcon = require("@kaizen/component-library/icons/ca-monogram.icon.svg")
-  .default
-const supportIcon = require("@kaizen/component-library/icons/support.icon.svg")
-  .default
+import academyIcon from "@kaizen/component-library/icons/academy.icon.svg"
+
+import caMonogramIcon from "@kaizen/component-library/icons/ca-monogram.icon.svg"
+
+import supportIcon from "@kaizen/component-library/icons/support.icon.svg"
 
 export default {
   title: "NavigationBar (React)",
@@ -242,6 +241,7 @@ export const MenuGroup = () => (
         />,
         <Menu
           heading="Admin"
+          showIndicator
           items={[
             {
               label: "Skills",
@@ -274,6 +274,7 @@ export const MenuGroup = () => (
                 {
                   label: "Feedback stats",
                   url: "meh",
+                  badge: { kind: "new", text: "New" },
                 },
               ],
             },

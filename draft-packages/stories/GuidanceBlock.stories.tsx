@@ -96,7 +96,7 @@ const SecondaryAction = () => (
         },
         secondary: {
           label: "Secondary action",
-          onClick: () => alert("tada: 🎉"),
+          href: "#",
         },
       }}
       persistent
@@ -105,56 +105,88 @@ const SecondaryAction = () => (
   </div>
 )
 
-Default.story = {
-  name: "Default",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Stone",
-        value: colorTokens.kz.color.stone,
-        default: true,
-      },
-    ],
-  },
+const Prominent = () => (
+  <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
+    <GuidanceBlock
+      img={{ src: guidanceBlockImg, alt: "Information illustration" }}
+      text={guidanceBlockText}
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+        },
+      }}
+      variant="prominent"
+    />
+  </div>
+)
+
+Default.storyName = "Default"
+
+Default.parameters = {
+  backgrounds: [
+    {
+      name: "Stone",
+      value: colorTokens.kz.color.stone,
+      default: true,
+    },
+  ],
 }
 
-Persistent.story = {
-  name: "Persistent",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Stone",
-        value: colorTokens.kz.color.stone,
-        default: true,
-      },
-    ],
-  },
+Persistent.storyName = "Persistent"
+
+Persistent.parameters = {
+  backgrounds: [
+    {
+      name: "Stone",
+      value: colorTokens.kz.color.stone,
+      default: true,
+    },
+  ],
 }
 
-WithoutActionArrowButton.story = {
-  name: "Without Action Arrow Button",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Stone",
-        value: colorTokens.kz.color.stone,
-        default: true,
-      },
-    ],
-  },
+WithoutActionArrowButton.storyName = "Without Action Arrow Button"
+
+WithoutActionArrowButton.parameters = {
+  backgrounds: [
+    {
+      name: "Stone",
+      value: colorTokens.kz.color.stone,
+      default: true,
+    },
+  ],
 }
 
-SecondaryAction.story = {
-  name: "Secondary Action",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Stone",
-        value: colorTokens.kz.color.stone,
-        default: true,
-      },
-    ],
-  },
+SecondaryAction.storyName = "Secondary Action"
+
+SecondaryAction.parameters = {
+  backgrounds: [
+    {
+      name: "Stone",
+      value: colorTokens.kz.color.stone,
+      default: true,
+    },
+  ],
 }
 
-export { Default, WithoutActionArrowButton, Persistent, SecondaryAction }
+Prominent.storyName = "Prominent"
+
+Prominent.parameters = {
+  backgrounds: [
+    {
+      name: "Stone",
+      value: colorTokens.kz.color.stone,
+      default: true,
+    },
+  ],
+}
+
+export {
+  Default,
+  WithoutActionArrowButton,
+  Persistent,
+  SecondaryAction,
+  Prominent,
+}

@@ -10,7 +10,7 @@ import {
   ModalHeader,
 } from "../"
 
-const styles = require("./InformationModal.scss")
+import styles from "./InformationModal.scss"
 
 interface Props {
   readonly isOpen: boolean

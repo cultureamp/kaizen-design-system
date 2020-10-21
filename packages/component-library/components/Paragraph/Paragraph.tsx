@@ -1,7 +1,7 @@
 import classNames from "classnames"
 import { createElement } from "react"
 
-const styles = require("./Paragraph.module.scss")
+import styles from "./Paragraph.module.scss"
 
 export type ParagraphVariants = "intro-lede" | "body" | "small" | "extra-small"
 
@@ -52,16 +52,16 @@ export const Paragraph = ({
   color = "dark",
   ...otherProps
 }: ParagraphProps) => {
-  const classes: string[] = [
+  const className = classNames([
     styles.paragraph,
     styles[variant],
     styles[color],
     classNameAndIHaveSpokenToDST,
-  ]
+  ])
 
   return createElement(
     tag === undefined ? "p" : tag,
-    { ...otherProps, className: classNames(classes) },
+    { ...otherProps, className },
     children
   )
 }

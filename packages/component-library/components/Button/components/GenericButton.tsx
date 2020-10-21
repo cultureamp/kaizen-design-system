@@ -1,8 +1,8 @@
 import classNames from "classnames"
-import * as React from "react"
+import React, { forwardRef, Ref, useImperativeHandle, useRef } from "react"
 import Icon from "../../Icon/Icon"
 
-const styles = require("./GenericButton.module.scss")
+import styles from "./GenericButton.module.scss"
 
 type GenericProps = {
   id?: string
@@ -28,6 +28,9 @@ type LabelProps = {
   iconPosition?: "start" | "end"
   primary?: boolean
   secondary?: boolean
+  /**
+   * @deprecated lapis and ocean are deprecated values
+   */
   reverseColor?: "lapis" | "ocean" | "peach" | "seedling" | "wisteria" | "yuzu"
 }
 
@@ -43,17 +46,40 @@ type Props = ButtonProps & {
   iconButton?: boolean
 }
 
-const GenericButton: React.FunctionComponent<Props> = props => {
-  return (
-    <span
-      className={classNames(styles.container, {
-        [styles.fullWidth]: props.fullWidth,
-      })}
-    >
-      {props.href ? renderLink(props) : renderButton(props)}
-    </span>
-  )
+export type ButtonRef = { focus: () => void }
+
+// We're treating custom props as anything that is kebab cased.
+// This is so we can support properties like aria-* or data-*
+const getCustomProps = (props: object) => {
+  const keys = Object.keys(props).filter(k => k.indexOf("-") !== -1)
+  return keys.reduce((acc, val) => {
+    acc[val] = props[val]
+    return acc
+  }, {})
 }
+
+const GenericButton = forwardRef(
+  (props: Props, ref: Ref<ButtonRef | undefined>) => {
+    const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>()
+    useImperativeHandle(ref, () => ({
+      focus: () => {
+        buttonRef.current?.focus()
+      },
+    }))
+
+    return (
+      <span
+        className={classNames(styles.container, {
+          [styles.fullWidth]: props.fullWidth,
+        })}
+      >
+        {props.href
+          ? renderLink(props, buttonRef as Ref<HTMLAnchorElement>)
+          : renderButton(props, buttonRef as Ref<HTMLButtonElement>)}
+      </span>
+    )
+  }
+)
 
 GenericButton.defaultProps = {
   iconPosition: "start",
@@ -65,7 +91,7 @@ GenericButton.defaultProps = {
   type: "button",
 }
 
-const renderButton: React.FunctionComponent<Props> = props => {
+const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
   const {
     id,
     disabled,
@@ -74,8 +100,10 @@ const renderButton: React.FunctionComponent<Props> = props => {
     disableTabFocusAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
+    ...rest
   } = props
   const label = props.icon && props.iconButton ? props.label : undefined
+  const customProps = getCustomProps(rest)
 
   return (
     <button
@@ -103,13 +131,15 @@ const renderButton: React.FunctionComponent<Props> = props => {
       data-analytics-properties={
         props.analytics && JSON.stringify(props.analytics.properties)
       }
+      ref={ref}
+      {...customProps}
     >
       {renderContent(props)}
     </button>
   )
 }
 
-const renderLink: React.FunctionComponent<Props> = props => {
+const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
   const {
     id,
     href,
@@ -117,7 +147,9 @@ const renderLink: React.FunctionComponent<Props> = props => {
     newTabAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
+    ...rest
   } = props
+  const customProps = getCustomProps(rest)
 
   return (
     <a
@@ -140,6 +172,8 @@ const renderLink: React.FunctionComponent<Props> = props => {
       data-analytics-properties={
         props.analytics && JSON.stringify(props.analytics.properties)
       }
+      ref={ref}
+      {...customProps}
     >
       {renderContent(props)}
     </a>

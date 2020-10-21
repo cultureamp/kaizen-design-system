@@ -42,7 +42,6 @@ exports[`Dropdown renders control action dropdown 1`] = `
         class="icon"
         focusable="false"
         role="img"
-        viewBox="0 0 0 0"
       >
         <title
           id="9bf7d107-5813-5af0-bab0-b86e615f8ec3"
@@ -50,7 +49,7 @@ exports[`Dropdown renders control action dropdown 1`] = `
           Open menu
         </title>
         <use
-          xlink:href="#my-svg"
+          xlink:href="#undefined"
         />
       </svg>
     </span>
@@ -74,7 +73,6 @@ exports[`Dropdown renders default view 1`] = `
         class="icon"
         focusable="false"
         role="img"
-        viewBox="0 0 0 0"
       >
         <title
           id="9bf7d107-5813-5af0-bab0-b86e615f8ec3"
@@ -82,7 +80,7 @@ exports[`Dropdown renders default view 1`] = `
           Open menu
         </title>
         <use
-          xlink:href="#my-svg"
+          xlink:href="#undefined"
         />
       </svg>
     </span>
@@ -217,7 +215,6 @@ exports[`Dropdown renders reversed color control action dropdown 1`] = `
         class="icon"
         focusable="false"
         role="img"
-        viewBox="0 0 0 0"
       >
         <title
           id="9bf7d107-5813-5af0-bab0-b86e615f8ec3"
@@ -225,7 +222,7 @@ exports[`Dropdown renders reversed color control action dropdown 1`] = `
           Open menu
         </title>
         <use
-          xlink:href="#my-svg"
+          xlink:href="#undefined"
         />
       </svg>
     </span>

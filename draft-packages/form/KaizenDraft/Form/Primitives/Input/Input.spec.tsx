@@ -1,8 +1,9 @@
-import { cleanup, fireEvent, render } from "@testing-library/react"
+import { cleanup, render } from "@testing-library/react"
+import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
 
-import { Input } from "."
 import { InputProps } from "./Input"
+import { Input } from "."
 
 afterEach(cleanup)
 
@@ -41,7 +42,7 @@ describe("<Input />", () => {
 
   it("should render a disabled inside of input", () => {
     const { container } = renderInput({ disabled: true })
-    expect(container.querySelector(`[disabled]`)).toBeTruthy()
+    expect(container.querySelector("[disabled]")).toBeTruthy()
   })
 
   it("should render an `id` attribute", () => {

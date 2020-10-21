@@ -1,7 +1,7 @@
 import { InputStatus } from "@kaizen/draft-form"
 import classnames from "classnames"
 import React from "react"
-const styles = require("./styles.scss")
+import styles from "./styles.scss"
 
 type Props = {
   id: string
