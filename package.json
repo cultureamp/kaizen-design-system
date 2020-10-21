@@ -125,13 +125,13 @@
     "@storybook/codemod": "^5.3.9",
     "@storybook/csf": "^0.0.1",
     "@storybook/node-logger": "^5.3.9",
-    "chromatic": "^5.2.0",
     "glob": "^7.1.1",
     "husky": "^4.2.5",
     "jscodeshift": "^0.7.0",
     "lint-staged": "^10.4.0",
     "loader-utils": "^1.0.2",
     "node-elm-compiler": "^5.0.0",
+    "storybook-chromatic": "^3.4.1",
     "yargs": "^6.5.0"
   },
   "lint-staged": {
