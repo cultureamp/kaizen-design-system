@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@2.3.1...@kaizen/draft-title-block-zen@2.4.0) (2020-10-21)
+
+
+### Features
+
+* Allow TitleBlockZen to collapse when no navigation ([#810](https://github.com/cultureamp/kaizen-design-system/issues/810)) ([442f952](https://github.com/cultureamp/kaizen-design-system/commit/442f952b73e492b57fc7a2e4df4a93c24f176bfb))
+
+
+
+
+
 ## [2.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@2.3.0...@kaizen/draft-title-block-zen@2.3.1) (2020-10-21)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
