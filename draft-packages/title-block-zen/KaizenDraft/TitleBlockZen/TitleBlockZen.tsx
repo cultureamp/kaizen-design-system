@@ -283,9 +283,13 @@ const renderNavigationTabs = (
         [styles.navigationTabsContainerCollapsed]: collapse,
       })}
     >
-      <span className={styles.navigationTabEdgeShadowLeft} />
-      {navigationTabs}
-      <span className={styles.navigationTabEdgeShadowRight} />
+      {!collapse && (
+        <>
+          <span className={styles.navigationTabEdgeShadowLeft} />
+          {navigationTabs}
+          <span className={styles.navigationTabEdgeShadowRight} />
+        </>
+      )}
     </div>
   </div>
 )
