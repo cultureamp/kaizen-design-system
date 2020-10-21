@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@3.1.1...@kaizen/draft-modal@3.2.0) (2020-10-21)
+
+
+### Features
+
+* Remove outside modal click close from input modals ([#833](https://github.com/cultureamp/kaizen-design-system/issues/833)) ([ce649d2](https://github.com/cultureamp/kaizen-design-system/commit/ce649d21b5d3312c77074faf8a86367a8b854a2a))
+
+
+
+
+
 ## [3.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@3.1.0...@kaizen/draft-modal@3.1.1) (2020-10-08)
 
 **Note:** Version bump only for package @kaizen/draft-modal
