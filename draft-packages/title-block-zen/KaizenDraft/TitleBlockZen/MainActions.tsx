@@ -86,7 +86,6 @@ const MainActions = ({
               key: "primaryAction",
               node: (
                 <Menu
-                  key="primaryAction"
                   align="right"
                   button={
                     <ButtonAllowingAdditionalContent
@@ -134,7 +133,6 @@ const MainActions = ({
               key: "primaryAction",
               node: (
                 <ButtonAllowingAdditionalContent
-                  key="primaryAction"
                   // Temporary grossness before we deprecate a mandatory
                   // optional field for primary in PrimaryActionProps
                   {...{
