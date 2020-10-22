@@ -18,6 +18,12 @@ export default {
   title: "FilterDrawer (React)",
 }
 
+const reversedBg = {
+  backgrounds: {
+    default: "Wisteria 700",
+  },
+}
+
 export const DefaultStory = () => (
   <div className={styles.siteDemoWrapper}>
     <DemoFilterDrawer />
@@ -178,19 +184,8 @@ const DemoFilterDrawer = () => {
     </FilterDrawer>
   )
 }
-
-DefaultStory.story = {
-  name: "Reversed (Kaizen Site Demo)",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
-  },
-}
+DefaultStory.storyName = "Reversed (Kaizen Site Demo)"
+DefaultStory.parameters = { ...reversedBg }
 
 export const ReversedEmpty = () => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
@@ -230,19 +225,8 @@ export const ReversedEmpty = () => {
     </StoryWrapper>
   )
 }
-
-ReversedEmpty.story = {
-  name: "Reversed (empty)",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
-  },
-}
+ReversedEmpty.storyName = "Reversed (empty)"
+ReversedEmpty.parameters = { ...reversedBg }
 
 export const DefaultEmpty = () => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
@@ -281,10 +265,7 @@ export const DefaultEmpty = () => {
     </StoryWrapper>
   )
 }
-
-DefaultEmpty.story = {
-  name: "Default (empty)",
-}
+DefaultEmpty.storyName = "Default (empty)"
 
 export const ReversedEmptyRTL = () => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
@@ -326,16 +307,5 @@ export const ReversedEmptyRTL = () => {
     </div>
   )
 }
-
-ReversedEmptyRTL.story = {
-  name: "Reversed RTL (empty)",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
-  },
-}
+ReversedEmptyRTL.storyName = "Reversed RTL (empty)"
+ReversedEmptyRTL.parameters = { ...reversedBg }

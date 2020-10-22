@@ -82,9 +82,7 @@ export const InteractiveKaizenSiteDemo = () => (
   />
 )
 
-InteractiveKaizenSiteDemo.story = {
-  name: "Interactive (Kaizen Site Demo)",
-}
+InteractiveKaizenSiteDemo.storyName = "Interactive (Kaizen Site Demo)"
 
 export const UnselectedDisabled = () => (
   <Radio
@@ -99,9 +97,7 @@ export const UnselectedDisabled = () => (
   </Radio>
 )
 
-UnselectedDisabled.story = {
-  name: "Unselected disabled",
-}
+UnselectedDisabled.storyName = "Unselected disabled"
 
 export const UnselectedDefault = () => (
   <Radio
@@ -116,9 +112,7 @@ export const UnselectedDefault = () => (
   </Radio>
 )
 
-UnselectedDefault.story = {
-  name: "Unselected default",
-}
+UnselectedDefault.storyName = "Unselected default"
 
 export const SelectedDefault = () => (
   <Radio
@@ -133,9 +127,7 @@ export const SelectedDefault = () => (
   </Radio>
 )
 
-SelectedDefault.story = {
-  name: "Selected default",
-}
+SelectedDefault.storyName = "Selected default"
 
 export const SelectedDisabled = () => (
   <Radio
@@ -150,9 +142,7 @@ export const SelectedDisabled = () => (
   </Radio>
 )
 
-SelectedDisabled.story = {
-  name: "Selected disabled",
-}
+SelectedDisabled.storyName = "Selected disabled"
 
 export const Rtl = () => (
   <div dir="rtl">
@@ -169,6 +159,4 @@ export const Rtl = () => (
   </div>
 )
 
-Rtl.story = {
-  name: "RTL",
-}
+Rtl.storyName = "RTL"

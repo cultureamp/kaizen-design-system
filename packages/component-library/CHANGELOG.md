@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [7.32.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.32.2...@kaizen/component-library@7.32.3) (2020-10-21)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [7.32.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.32.1...@kaizen/component-library@7.32.2) (2020-10-08)
+
+
+### Bug Fixes
+
+* Ensure delta-flat icon has path fill set to black ([#808](https://github.com/cultureamp/kaizen-design-system/issues/808)) ([ea98b5e](https://github.com/cultureamp/kaizen-design-system/commit/ea98b5ebfd2da469c199296ffd25463722d807d6))
+
+
+
+
+
 ## [7.32.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.32.0...@kaizen/component-library@7.32.1) (2020-10-01)
 
 

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.46](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.5.45...@kaizen/draft-tag@1.5.46) (2020-10-21)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.5.45](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.5.44...@kaizen/draft-tag@1.5.45) (2020-10-08)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
 ## [1.5.44](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.5.43...@kaizen/draft-tag@1.5.44) (2020-10-01)
 
 **Note:** Version bump only for package @kaizen/draft-tag

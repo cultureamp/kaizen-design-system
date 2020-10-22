@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.45](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.4.44...@kaizen/draft-popover@1.4.45) (2020-10-21)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [1.4.44](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.4.43...@kaizen/draft-popover@1.4.44) (2020-10-08)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
 ## [1.4.43](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.4.42...@kaizen/draft-popover@1.4.43) (2020-10-01)
 
 **Note:** Version bump only for package @kaizen/draft-popover

@@ -21,10 +21,7 @@ export type DropdownProps = {
   iconPosition?: "start" | "end"
 }
 
-export default class Dropdown extends React.Component<
-  DropdownProps,
-  DropdownState
-> {
+class Dropdown extends React.Component<DropdownProps, DropdownState> {
   static displayName = "Dropdown"
   static defaultProps = {
     iconPosition: "start",
@@ -153,3 +150,5 @@ export default class Dropdown extends React.Component<
     )
   }
 }
+
+export default Dropdown

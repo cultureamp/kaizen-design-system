@@ -35,7 +35,7 @@ type State = {
   mobileKey: number
 }
 
-export default class NavigationBar extends React.Component<Props, State> {
+class NavigationBar extends React.Component<Props, State> {
   static displayName = "NavigationBar"
   static Link = Link
   static Menu = Menu
@@ -179,3 +179,4 @@ export default class NavigationBar extends React.Component<Props, State> {
     )
   }
 }
+export default NavigationBar

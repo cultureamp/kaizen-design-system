@@ -20,6 +20,4 @@ export const DefaultStory = () => (
   </<%= componentName %>>
 )
 
-DefaultStory.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultStory.storyName = "Default (Kaizen Site Demo)"

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.33](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-off-canvas@1.7.32...@kaizen/draft-zen-off-canvas@1.7.33) (2020-10-21)
+
+**Note:** Version bump only for package @kaizen/draft-zen-off-canvas
+
+
+
+
+
+## [1.7.32](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-off-canvas@1.7.31...@kaizen/draft-zen-off-canvas@1.7.32) (2020-10-08)
+
+**Note:** Version bump only for package @kaizen/draft-zen-off-canvas
+
+
+
+
+
 ## [1.7.31](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-off-canvas@1.7.30...@kaizen/draft-zen-off-canvas@1.7.31) (2020-10-01)
 
 **Note:** Version bump only for package @kaizen/draft-zen-off-canvas

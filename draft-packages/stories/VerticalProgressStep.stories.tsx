@@ -41,9 +41,7 @@ export const CurrentStepActionable = () => (
   </StoryContainer>
 )
 
-CurrentStepActionable.story = {
-  name: "current step actionable",
-}
+CurrentStepActionable.storyName = "current step actionable"
 
 export const CurrentStepStarted = () => (
   <StoryContainer>
@@ -59,9 +57,7 @@ export const CurrentStepStarted = () => (
   </StoryContainer>
 )
 
-CurrentStepStarted.story = {
-  name: "current step started",
-}
+CurrentStepStarted.storyName = "current step started"
 
 // eslint-disable-next-line no-underscore-dangle
 export const _UpcomingStep = () => (
@@ -74,9 +70,7 @@ export const _UpcomingStep = () => (
   </StoryContainer>
 )
 
-_UpcomingStep.story = {
-  name: "upcoming step",
-}
+_UpcomingStep.storyName = "upcoming step"
 
 // eslint-disable-next-line no-underscore-dangle
 export const _CompletedStep = () => (
@@ -89,6 +83,4 @@ export const _CompletedStep = () => (
   </StoryContainer>
 )
 
-_CompletedStep.story = {
-  name: "completed step",
-}
+_CompletedStep.storyName = "completed step"

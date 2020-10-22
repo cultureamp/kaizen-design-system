@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.4.2...@kaizen/draft-menu@2.4.3) (2020-10-21)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [2.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.4.1...@kaizen/draft-menu@2.4.2) (2020-10-08)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
 ## [2.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.4.0...@kaizen/draft-menu@2.4.1) (2020-10-01)
 
 **Note:** Version bump only for package @kaizen/draft-menu

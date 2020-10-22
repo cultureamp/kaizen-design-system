@@ -1,6 +1,5 @@
 import { MenuItem, MenuContent } from "@kaizen/draft-menu"
 import { SplitButton } from "@kaizen/draft-split-button"
-import { action } from "@storybook/addon-actions"
 import * as React from "react"
 
 import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
@@ -9,6 +8,7 @@ import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 export default {
   title: "SplitButton (React)",
   component: SplitButton,
+  argTypes: { onClick: { action: "clicked" } },
   parameters: {
     info: {
       text: `
@@ -28,20 +28,16 @@ export const DefaultItemsAbove = () => (
   >
     <SplitButton
       label="Edit"
-      onClick={() => action("Button clicked")}
+      onClick={() => undefined}
       dropdownContent={
         <MenuContent>
           <MenuItem
-            onClick={e => {
-              action("Menu item 1 pressed")()
-            }}
+            onClick={e => undefined}
             icon={editIcon}
             label="Menu Item 1"
           />
           <MenuItem
-            onClick={e => {
-              action("Menu item 2 pressed")()
-            }}
+            onClick={e => undefined}
             icon={duplicateIcon}
             label="Menu Item 2"
           />
@@ -52,27 +48,21 @@ export const DefaultItemsAbove = () => (
   </div>
 )
 
-DefaultItemsAbove.story = {
-  name: "Default, Items above",
-}
+DefaultItemsAbove.storyName = "Default, Items above"
 
 export const DefaultKaizenSiteDemo = () => (
   <SplitButton
     label="Edit"
-    onClick={() => action("Button clicked")}
+    onClick={() => undefined}
     dropdownContent={
       <MenuContent>
         <MenuItem
-          onClick={e => {
-            action("Menu item 1 pressed")()
-          }}
+          onClick={e => undefined}
           icon={editIcon}
           label="Menu Item 1"
         />
         <MenuItem
-          onClick={e => {
-            action("Menu item 2 pressed")()
-          }}
+          onClick={e => undefined}
           icon={duplicateIcon}
           label="Menu Item 2"
         />
@@ -82,21 +72,17 @@ export const DefaultKaizenSiteDemo = () => (
   />
 )
 
-DefaultKaizenSiteDemo.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const Disabled = () => (
   <SplitButton
     label="Edit"
-    onClick={() => action("Button clicked")}
+    onClick={() => undefined}
     disabled
     dropdownContent={
       <MenuContent>
         <MenuItem
-          onClick={e => {
-            action("Menu item 1 pressed")()
-          }}
+          onClick={e => undefined}
           icon={editIcon}
           label="Menu Item 1"
         />
@@ -106,28 +92,22 @@ export const Disabled = () => (
   />
 )
 
-Disabled.story = {
-  name: "Default disabled",
-}
+Disabled.storyName = "Default disabled"
 
 export const Primary = () => (
   <SplitButton
     label="Edit"
     variant="primary"
-    onClick={() => action("Button clicked")}
+    onClick={() => undefined}
     dropdownContent={
       <MenuContent>
         <MenuItem
-          onClick={e => {
-            action("Menu item 1 pressed")()
-          }}
+          onClick={e => undefined}
           icon={editIcon}
           label="Menu Item 1"
         />
         <MenuItem
-          onClick={e => {
-            action("Menu item 2 pressed")()
-          }}
+          onClick={e => undefined}
           icon={duplicateIcon}
           label="Menu Item 2"
         />
@@ -137,29 +117,23 @@ export const Primary = () => (
   />
 )
 
-Primary.story = {
-  name: "Primary",
-}
+Primary.storyName = "Primary"
 
 export const PrimaryDisabled = () => (
   <SplitButton
     label="Edit"
     variant="primary"
-    onClick={() => action("Button clicked")}
+    onClick={() => undefined}
     disabled
     dropdownContent={
       <MenuContent>
         <MenuItem
-          onClick={e => {
-            action("Menu item 1 pressed")()
-          }}
+          onClick={e => undefined}
           icon={editIcon}
           label="Menu Item 1"
         />
         <MenuItem
-          onClick={e => {
-            action("Menu item 2 pressed")()
-          }}
+          onClick={e => undefined}
           icon={duplicateIcon}
           label="Menu Item 2"
         />
@@ -169,9 +143,7 @@ export const PrimaryDisabled = () => (
   />
 )
 
-PrimaryDisabled.story = {
-  name: "Primary disabled",
-}
+PrimaryDisabled.storyName = "Primary disabled"
 
 export const AnchorLink = () => (
   <SplitButton
@@ -180,9 +152,7 @@ export const AnchorLink = () => (
     dropdownContent={
       <MenuContent>
         <MenuItem
-          onClick={e => {
-            action("Menu item 1 pressed")()
-          }}
+          onClick={e => undefined}
           icon={editIcon}
           label="Menu Item 1"
         />
@@ -192,27 +162,21 @@ export const AnchorLink = () => (
   />
 )
 
-AnchorLink.story = {
-  name: "Anchor link",
-}
+AnchorLink.storyName = "Anchor link"
 
 export const Rtl = () => (
   <SplitButton
     label="Edit"
-    onClick={() => action("Button clicked")}
+    onClick={() => undefined}
     dropdownContent={
       <MenuContent>
         <MenuItem
-          onClick={e => {
-            action("Menu item 1 pressed")()
-          }}
+          onClick={e => undefined}
           icon={editIcon}
           label="Menu Item 1"
         />
         <MenuItem
-          onClick={e => {
-            action("Menu item 2 pressed")()
-          }}
+          onClick={e => undefined}
           icon={duplicateIcon}
           label="Menu Item 2"
         />
@@ -223,30 +187,24 @@ export const Rtl = () => (
   />
 )
 
-Rtl.story = {
-  name: "RTL",
-}
+Rtl.storyName = "RTL"
 
 export const PrimaryRtl = () => (
   <SplitButton
     label="Edit"
     variant="primary"
-    onClick={() => action("Button clicked")}
+    onClick={() => undefined}
     dropdownContent={
       <MenuContent>
         <MenuItem
-          onClick={e => {
-            action("Menu item 1 pressed")()
-          }}
+          onClick={e => undefined}
           icon={editIcon}
           label="
           Menu Item 1
         "
         />
         <MenuItem
-          onClick={e => {
-            action("Menu item 2 pressed")()
-          }}
+          onClick={e => undefined}
           icon={duplicateIcon}
           label="Menu Item 2"
         />
@@ -257,6 +215,4 @@ export const PrimaryRtl = () => (
   />
 )
 
-PrimaryRtl.story = {
-  name: "Primary RTL",
-}
+PrimaryRtl.storyName = "Primary RTL"

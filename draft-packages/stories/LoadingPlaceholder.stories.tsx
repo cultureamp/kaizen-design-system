@@ -40,9 +40,7 @@ export const DefaultMultipleKaizenSiteDemo = () => (
   </StoryContainer>
 )
 
-DefaultMultipleKaizenSiteDemo.story = {
-  name: "Default, Multiple (Kaizen Site Demo)",
-}
+DefaultMultipleKaizenSiteDemo.storyName = "Default, Multiple (Kaizen Site Demo)"
 
 export const DefaultMultipleInline = () => (
   <StoryContainer>
@@ -86,9 +84,7 @@ export const DefaultMultipleInline = () => (
   </StoryContainer>
 )
 
-DefaultMultipleInline.story = {
-  name: "Default, Multiple, Inline",
-}
+DefaultMultipleInline.storyName = "Default, Multiple, Inline"
 
 export const DefaultMultipleVariableWidth = () => (
   <StoryContainer>
@@ -110,9 +106,7 @@ export const DefaultMultipleVariableWidth = () => (
   </StoryContainer>
 )
 
-DefaultMultipleVariableWidth.story = {
-  name: "Default, Multiple, Variable width",
-}
+DefaultMultipleVariableWidth.storyName = "Default, Multiple, Variable width"
 
 export const DefaultMultipleVariableWidthCentered = () => (
   <StoryContainer>
@@ -136,9 +130,8 @@ export const DefaultMultipleVariableWidthCentered = () => (
   </StoryContainer>
 )
 
-DefaultMultipleVariableWidthCentered.story = {
-  name: "Default, Multiple, Variable width, Centered",
-}
+DefaultMultipleVariableWidthCentered.storyName =
+  "Default, Multiple, Variable width, Centered"
 
 export const DefaultMultipleCombinedBlockAndInline = () => (
   <StoryContainer>
@@ -177,9 +170,8 @@ export const DefaultMultipleCombinedBlockAndInline = () => (
   </StoryContainer>
 )
 
-DefaultMultipleCombinedBlockAndInline.story = {
-  name: "Default, Multiple, Combined block and inline",
-}
+DefaultMultipleCombinedBlockAndInline.storyName =
+  "Default, Multiple, Combined block and inline"
 
 export const DefaultWithoutBottomMargin = () => (
   <StoryContainer>
@@ -192,9 +184,7 @@ export const DefaultWithoutBottomMargin = () => (
   </StoryContainer>
 )
 
-DefaultWithoutBottomMargin.story = {
-  name: "Default, Without bottom margin",
-}
+DefaultWithoutBottomMargin.storyName = "Default, Without bottom margin"
 
 export const Defaul = () => (
   <StoryContainer>
@@ -207,9 +197,7 @@ export const Defaul = () => (
   </StoryContainer>
 )
 
-Defaul.story = {
-  name: "Default, Inherit baseline",
-}
+Defaul.storyName = "Default, Inherit baseline"
 
 export const HeadingLoading = () => (
   <StoryContainer>
@@ -254,9 +242,11 @@ export const ReversedDefault = () => (
     </div>
   </StoryContainer>
 )
-
-ReversedDefault.story = {
-  name: "Reversed, Default",
+ReversedDefault.storyName = "Reversed, Default"
+ReversedDefault.parameters = {
+  backgrounds: {
+    default: "Wisteria 700",
+  },
 }
 
 export const InTheWild = () => (
@@ -338,6 +328,4 @@ export const InTheWild = () => (
   </StoryContainer>
 )
 
-InTheWild.story = {
-  name: "In the wild",
-}
+InTheWild.storyName = "In the wild"

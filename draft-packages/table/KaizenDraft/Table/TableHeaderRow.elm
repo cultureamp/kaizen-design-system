@@ -27,10 +27,10 @@ defaults =
 
 view : Config msg -> List (Html msg) -> Html msg
 view (Config config) children =
-    div [ styles.class .headerRow, role "rowheader" ] children
+    div [ styles.class .row, role "rowheader" ] children
 
 
 styles =
     css "@kaizen/draft-table/KaizenDraft/Table/styles.scss"
-        { headerRow = "headerRow"
+        { row = "row"
         }

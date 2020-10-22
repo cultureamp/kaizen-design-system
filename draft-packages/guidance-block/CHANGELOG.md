@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.4.2...@kaizen/draft-guidance-block@2.4.3) (2020-10-21)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [2.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.4.1...@kaizen/draft-guidance-block@2.4.2) (2020-10-09)
+
+
+### Bug Fixes
+
+* Use correct props for button ([#811](https://github.com/cultureamp/kaizen-design-system/issues/811)) ([44de854](https://github.com/cultureamp/kaizen-design-system/commit/44de8545092364939d1ad89782ee160d975ccab5))
+
+
+
+
+
+## [2.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.4.0...@kaizen/draft-guidance-block@2.4.1) (2020-10-08)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
 # [2.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.3.7...@kaizen/draft-guidance-block@2.4.0) (2020-10-07)
 
 

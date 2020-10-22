@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@1.6.0...@kaizen/draft-tooltip@1.6.1) (2020-10-21)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@1.5.44...@kaizen/draft-tooltip@1.6.0) (2020-10-18)
+
+
+### Features
+
+* Change tooltip tag to span and add inline option ([#821](https://github.com/cultureamp/kaizen-design-system/issues/821)) ([d04d180](https://github.com/cultureamp/kaizen-design-system/commit/d04d18058a55fbd652ebc2864c15a0d804dd7dad))
+
+
+
+
+
+## [1.5.44](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@1.5.43...@kaizen/draft-tooltip@1.5.44) (2020-10-08)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
 ## [1.5.43](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@1.5.42...@kaizen/draft-tooltip@1.5.43) (2020-10-01)
 
 **Note:** Version bump only for package @kaizen/draft-tooltip
