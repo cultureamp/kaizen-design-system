@@ -1,4 +1,3 @@
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { Divider } from "@kaizen/draft-divider"
 import { Card } from "@kaizen/draft-card"
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
@@ -9,6 +8,12 @@ const Container = ({ children }: { children: React.ReactNode }) => (
     {children}
   </div>
 )
+
+const reversedBg = {
+  backgrounds: {
+    default: "Wisteria 700",
+  },
+}
 
 export default {
   title: "Divider (React)",
@@ -41,11 +46,7 @@ export const ContentDividerReversed = () => (
   </Container>
 )
 ContentDividerReversed.storyName = "Content Divider Reversed"
-ContentDividerReversed.parameters = {
-  backgrounds: {
-    default: "Wisteria 700",
-  },
-}
+ContentDividerReversed.parameters = { ...reversedBg }
 
 export const CanvasDividerReversed = () => (
   <Container>
@@ -53,11 +54,7 @@ export const CanvasDividerReversed = () => (
   </Container>
 )
 CanvasDividerReversed.storyName = "Canvas Divider Reversed"
-CanvasDividerReversed.parameters = {
-  backgrounds: {
-    default: "Wisteria 700",
-  },
-}
+CanvasDividerReversed.parameters = { ...reversedBg }
 
 export const TabDivider = () => (
   <Container>
