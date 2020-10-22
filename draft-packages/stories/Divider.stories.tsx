@@ -19,47 +19,31 @@ export const DefaultStory = () => (
     <Divider variant="canvas" />
   </Container>
 )
-
-DefaultStory.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultStory.storyName = "Default (Kaizen Site Demo)"
 
 export const CanvasStory = () => (
   <Container>
     <Divider variant="canvas" />
   </Container>
 )
-
-CanvasStory.story = {
-  name: "Canvas Divider",
-}
+CanvasStory.storyName = "Canvas Divider"
 
 export const ContentDivider = () => (
   <Container>
     <Divider variant="content" />
   </Container>
 )
-
-ContentDivider.story = {
-  name: "Content Divider",
-}
+ContentDivider.storyName = "Content Divider"
 
 export const ContentDividerReversed = () => (
   <Container>
     <Divider variant="content" isReversed />
   </Container>
 )
-
-ContentDividerReversed.story = {
-  name: "Content Divider Reversed",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[600],
-        default: true,
-      },
-    ],
+ContentDividerReversed.storyName = "Content Divider Reversed"
+ContentDividerReversed.parameters = {
+  backgrounds: {
+    default: "Wisteria 700",
   },
 }
 
@@ -68,17 +52,10 @@ export const CanvasDividerReversed = () => (
     <Divider variant="canvas" isReversed />
   </Container>
 )
-
-CanvasDividerReversed.story = {
-  name: "Canvas Divider Reversed",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
+CanvasDividerReversed.storyName = "Canvas Divider Reversed"
+CanvasDividerReversed.parameters = {
+  backgrounds: {
+    default: "Wisteria 700",
   },
 }
 
@@ -118,7 +95,4 @@ export const TabDivider = () => (
     </Card>
   </Container>
 )
-
-TabDivider.story = {
-  name: "Composing divider, card, box, and typography",
-}
+TabDivider.storyName = "Composing divider, card, box, and typography"

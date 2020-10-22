@@ -11,7 +11,7 @@ import Indicator from "./Indicator"
 import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import styles from "./Link.module.scss"
 
-export default class Link extends React.PureComponent<LinkProps> {
+class Link extends React.PureComponent<LinkProps> {
   static displayName = "Link"
   static contextType = NavBarContext
   static defaultProps = {
@@ -136,3 +136,4 @@ export default class Link extends React.PureComponent<LinkProps> {
     )
   }
 }
+export default Link

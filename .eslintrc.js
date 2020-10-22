@@ -32,7 +32,8 @@ module.exports = {
       },
     ],
     "@typescript-eslint/ban-types": [
-      // TODO - Change to error. This will be a breaking change on a lot of our Props that might be using "any non-nullish value"
+      // TODO - Change to error. This will be a breaking change on a lot of our Props
+      // that might be using "any non-nullish value"
       "warn",
       {
         types: {
@@ -61,7 +62,6 @@ module.exports = {
     "@typescript-eslint/class-name-casing": "off",
     "@typescript-eslint/consistent-type-assertions": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
-    "@typescript-eslint/dot-notation": "error",
     "@typescript-eslint/explicit-member-accessibility": [
       "off",
       {
@@ -176,15 +176,13 @@ module.exports = {
     "no-multiple-empty-lines": "error",
     "no-new-func": "error",
     "no-new-wrappers": "error",
-    "no-redeclare": "error",
     "no-return-await": "error",
     "no-sequences": "error",
-    "no-shadow": [
-      "error",
-      {
-        hoist: "all",
-      },
-    ],
+
+    // The base no-shadow rule reports incorrect errors in typescript
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+
     "no-sparse-arrays": "error",
     "no-template-curly-in-string": "error",
     "no-throw-literal": "error",

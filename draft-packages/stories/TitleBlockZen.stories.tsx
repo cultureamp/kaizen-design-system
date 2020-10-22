@@ -95,9 +95,7 @@ export const Default = () => (
   />
 )
 
-Default.story = {
-  name: "Default",
-}
+Default.storyName = "Default"
 
 export const WithBadge = () => {
   const [badgeCount, setBadgeCount] = React.useState(1)
@@ -132,9 +130,52 @@ export const WithBadge = () => {
   )
 }
 
-WithBadge.story = {
-  name: "With Primary Action Badge",
-}
+WithBadge.storyName = "With Primary Action Badge"
+
+export const WithDefaultTag = () => (
+  <TitleBlockZen
+    title="Page title"
+    surveyStatus={{ text: "Due July 8, 2030", status: "default" }}
+    primaryAction={{
+      label: "Click Me",
+      icon: arrowForwardIcon,
+      iconPosition: "end",
+      href: "#",
+    }}
+    breadcrumb={{
+      path: "#",
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+  />
+)
+
+WithDefaultTag.storyName = "With Default Survey Status (Tag)"
+
+export const AdminWithDefaultTag = () => (
+  <TitleBlockZen
+    variant="admin"
+    title="Page title"
+    surveyStatus={{ text: "Due July 8, 2030", status: "default" }}
+    primaryAction={{
+      label: "Click Me",
+      icon: arrowForwardIcon,
+      iconPosition: "end",
+      href: "#",
+    }}
+    breadcrumb={{
+      path: "#",
+      text: "Back to home",
+      handleClick: event => {
+        alert("breadcrumb clicked!")
+      },
+    }}
+  />
+)
+
+AdminWithDefaultTag.storyName = "Admin With Default Survey Status (Tag)"
 
 export const DefaultWithMenuButton = () => (
   <TitleBlockZen
@@ -185,9 +226,7 @@ export const DefaultWithMenuButton = () => (
   />
 )
 
-DefaultWithMenuButton.story = {
-  name: "Default (Menu Button)",
-}
+DefaultWithMenuButton.storyName = "Default (Menu Button)"
 
 export const AdminVariant = () => (
   <TitleBlockZen
@@ -214,9 +253,7 @@ export const AdminVariant = () => (
   />
 )
 
-AdminVariant.story = {
-  name: "Admin variant",
-}
+AdminVariant.storyName = "Admin variant"
 export const AdminVariantWithNavTabs = () => (
   <TitleBlockZen
     title="Page title"
@@ -245,9 +282,7 @@ export const AdminVariantWithNavTabs = () => (
   />
 )
 
-AdminVariantWithNavTabs.story = {
-  name: "Admin variant with Navigation Tabs",
-}
+AdminVariantWithNavTabs.storyName = "Admin variant with Navigation Tabs"
 
 export const EducationVariant = () => (
   <TitleBlockZen
@@ -286,9 +321,7 @@ export const EducationVariant = () => (
   />
 )
 
-EducationVariant.story = {
-  name: "Education variant",
-}
+EducationVariant.storyName = "Education variant"
 
 export const Engagement = () => (
   <TitleBlockZen
@@ -332,9 +365,7 @@ export const Engagement = () => (
   />
 )
 
-Engagement.story = {
-  name: "Engagement",
-}
+Engagement.storyName = "Engagement"
 
 export const Performance = () => (
   <TitleBlockZen
@@ -391,9 +422,7 @@ export const Performance = () => (
   />
 )
 
-Performance.story = {
-  name: "Performance",
-}
+Performance.storyName = "Performance"
 
 export const LongLabels = () => (
   <TitleBlockZen
@@ -595,9 +624,7 @@ export const DefaultWithContent = () => (
   </div>
 )
 
-DefaultWithContent.story = {
-  name: "Default with content",
-}
+DefaultWithContent.storyName = "Default with content"
 
 export const DefaultNoSecondary = () => (
   <TitleBlockZen
@@ -633,9 +660,7 @@ export const DefaultNoSecondary = () => (
   />
 )
 
-DefaultNoSecondary.story = {
-  name: "Default (no secondary actions)",
-}
+DefaultNoSecondary.storyName = "Default (no secondary actions)"
 
 export const DefaultOnlyPrimary = () => (
   <TitleBlockZen
@@ -667,9 +692,7 @@ export const DefaultOnlyPrimary = () => (
   />
 )
 
-DefaultOnlyPrimary.story = {
-  name: "Default (only primary action)",
-}
+DefaultOnlyPrimary.storyName = "Default (only primary action)"
 
 export const DefaultWithReportSwitcher = () => (
   <TitleBlockZen
@@ -724,9 +747,7 @@ export const DefaultWithReportSwitcher = () => (
   />
 )
 
-DefaultWithReportSwitcher.story = {
-  name: "Default with report switcher",
-}
+DefaultWithReportSwitcher.storyName = "Default with report switcher"
 
 export const DefaultNoLink = () => (
   <TitleBlockZen
@@ -777,9 +798,7 @@ export const DefaultNoLink = () => (
   />
 )
 
-DefaultNoLink.story = {
-  name: "Default (no link in breadcrumb)",
-}
+DefaultNoLink.storyName = "Default (no link in breadcrumb)"
 
 export const DefaultOnlyLongTitle = () => (
   <TitleBlockZen
@@ -798,6 +817,98 @@ export const DefaultOnlyLongTitle = () => (
   />
 )
 
-DefaultOnlyLongTitle.story = {
-  name: "Default (only long title)",
+DefaultOnlyLongTitle.storyName = "Default (only long title)"
+
+export const DefaultCollapsedNavigation = () => (
+  <>
+    <TitleBlockZen
+      title="Page title"
+      subtitle="Subtitle goes here"
+      handleHamburgerClick={() => {
+        alert("Hamburger clicked")
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+      collapseNavigationAreaWhenPossible
+    />
+    <div className={styles.fakeSkirtContainerWithBackground}>
+      <div className={styles.fakeSkirtContent}>
+        <Paragraph variant="body" color="white-reduced-opacity">
+          I am some text that should feel nicely butted up
+        </Paragraph>
+      </div>
+    </div>
+  </>
+)
+
+DefaultCollapsedNavigation.storyName = "Default (collapsed navigation)"
+
+export const DefaultCollapsedNavigationCard = () => (
+  <>
+    <TitleBlockZen
+      title="Page title"
+      subtitle="Subtitle goes here"
+      handleHamburgerClick={() => {
+        alert("Hamburger clicked")
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+      collapseNavigationAreaWhenPossible
+    />
+    <div className={styles.fakeSkirtContainerWithBackground}>
+      <div className={styles.fakeSkirtContent}>
+        <div className={styles.fakeSkirtCard}>
+          <Paragraph variant="body">
+            I am a card that should feel nicely butted up
+          </Paragraph>
+        </div>
+      </div>
+    </div>
+  </>
+)
+
+DefaultCollapsedNavigationCard.story = {
+  name: "Default (collapsed navigation with card)",
 }
+
+export const AdminVariantNavigation = () => (
+  <>
+    <TitleBlockZen
+      variant="admin"
+      title="Page title"
+      subtitle="Subtitle goes here"
+      handleHamburgerClick={() => {
+        alert("Hamburger clicked")
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+      collapseNavigationAreaWhenPossible
+    />
+    <div className={styles.fakeSkirtContainer}>
+      <div className={styles.fakeSkirtContent}>
+        <Paragraph variant="body">
+          I am some text that should feel tightly butted up to the nav space.
+          The responsibility for the admin variant is to move things down
+          yourself if you need to.
+        </Paragraph>
+      </div>
+    </div>
+  </>
+)
+
+AdminVariantNavigation.storyName = "Admin (collapsed navigation)"

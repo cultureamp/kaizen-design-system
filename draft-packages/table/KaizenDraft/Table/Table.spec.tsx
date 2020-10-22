@@ -12,6 +12,7 @@ import {
 
 afterEach(cleanup)
 
+// eslint-disable-next-line @typescript-eslint/no-shadow
 enum TestId {
   tableContainer = "table-container",
   tableHeader = "table-header",
@@ -22,6 +23,7 @@ enum TestId {
   tableRowCell = "table-row-cell",
 }
 
+// eslint-disable-next-line @typescript-eslint/no-shadow
 enum AriaRoles {
   table = "table",
   row = "row",

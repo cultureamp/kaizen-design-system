@@ -1,4 +1,3 @@
-import classnames from "classnames"
 import * as React from "react"
 import styles from "./ExampleLayout.module.scss"
 
