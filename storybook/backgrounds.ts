@@ -1,6 +1,7 @@
 import * as tokens from "@kaizen/design-tokens/tokens/color.json"
 
 export const backgrounds = [
+  { name: "White", value: tokens.kz.color.white },
   { name: "Stone", value: tokens.kz.color.stone },
   { name: "Ash", value: tokens.kz.color.ash },
   { name: "Wisteria 700", value: tokens.kz.color.wisteria["700"] },

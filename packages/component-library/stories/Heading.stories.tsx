@@ -74,30 +74,28 @@ export const Heading3Negative = () => (
   </Heading>
 )
 
-Heading1White.story = {
-  name: "Heading 1 White",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria["700"],
-        default: true,
-      },
-    ],
-  },
+Heading1White.storyName = "Heading 1 White"
+
+Heading1White.parameters = {
+  backgrounds: [
+    {
+      name: "Wisteria 700",
+      value: colorTokens.kz.color.wisteria["700"],
+      default: true,
+    },
+  ],
 }
 
-Heading1WhiteReducedOpacity.story = {
-  name: "Heading 1 White Reduced Opacity",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria["700"],
-        default: true,
-      },
-    ],
-  },
+Heading1WhiteReducedOpacity.storyName = "Heading 1 White Reduced Opacity"
+
+Heading1WhiteReducedOpacity.parameters = {
+  backgrounds: [
+    {
+      name: "Wisteria 700",
+      value: colorTokens.kz.color.wisteria["700"],
+      default: true,
+    },
+  ],
 }
 
 export {

@@ -16,7 +16,7 @@ type MenuDropdownProps = {
   width?: "default" | "contain"
 }
 
-export default class MenuDropdown extends React.Component<MenuDropdownProps> {
+class MenuDropdown extends React.Component<MenuDropdownProps> {
   static displayName = "MenuDropdown"
   menu = React.createRef<HTMLDivElement>()
 
@@ -86,3 +86,4 @@ export default class MenuDropdown extends React.Component<MenuDropdownProps> {
     )
   }
 }
+export default MenuDropdown
