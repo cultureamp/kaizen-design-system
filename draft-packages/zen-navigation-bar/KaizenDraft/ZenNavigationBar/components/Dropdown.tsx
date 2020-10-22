@@ -1,6 +1,5 @@
 import classNames from "classnames"
 import React, { useLayoutEffect, useRef, useState } from "react"
-import uuid from "uuid/v4"
 import { MenuGroupProps, MenuItemProps } from "../types"
 import MenuGroup from "./MenuGroup"
 import MenuItem from "./MenuItem"
