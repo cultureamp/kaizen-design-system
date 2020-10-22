@@ -15,7 +15,9 @@ const MenuGroup = ({
 }: MenuGroupProps) => {
   const renderOffCanvasMenuItem = (item: MenuItemProps, index: number) => (
     <Link
-      // This key should not be derived from the array index
+      // Unfortunately, I needed to use the array index,
+      // against react best practices (https://reactjs.org/docs/lists-and-keys.html)
+      // This is because the menu items have no unique identifier.
       key={`${item.url}-${index}`}
       text={item.label}
       href={item.url}

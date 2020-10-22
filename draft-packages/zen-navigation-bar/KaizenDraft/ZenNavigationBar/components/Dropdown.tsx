@@ -12,6 +12,10 @@ type Props = {
   items: Array<MenuItemProps | MenuGroupProps>
 }
 
+// Unfortunately, you'll notice below, that I needed to use the array index,
+// against react best practices (https://reactjs.org/docs/lists-and-keys.html)
+// This is because the menu items have no unique identifier.
+
 const Dropdown = ({ items, header }: Props) => {
   const [shiftLeft, setShiftLeft] = useState<boolean>(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
@@ -43,12 +47,12 @@ const Dropdown = ({ items, header }: Props) => {
       <ul className={styles.menuItems}>
         {items.map((item, index) => {
           if ("url" in item) {
-            // This key should not be derived from the array index
+            // This key should not be derived from the array index, see note above
             return <MenuItem key={`${item.url}-${index}`} {...item} />
           } else if ("title" in item) {
             return (
               <MenuGroup
-                // This key should not be derived from the array index
+                // This key should not be derived from the array index, see note above
                 key={`${item.title}-${index}`}
                 {...item}
                 first={index === 0}

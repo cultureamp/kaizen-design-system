@@ -33,6 +33,10 @@ const renderSecondaryOverflowMenu = (
   )
 }
 
+// Unfortunately, you'll notice below, that I needed to use the array index,
+// against react best practices (https://reactjs.org/docs/lists-and-keys.html)
+// This is because the menu items have no unique identifier.
+
 const SecondaryActions = ({
   secondaryActions,
   secondaryOverflowMenuItems,
@@ -44,7 +48,7 @@ const SecondaryActions = ({
     ? secondaryActions.map((a, i) => {
         if ("menuItems" in a) {
           return {
-            key: `${i}`, // We shouldn't use an index here
+            key: `${i}`, // We shouldn't use an index here, see note above
             node: (
               <Menu
                 align="right"
@@ -60,7 +64,7 @@ const SecondaryActions = ({
               >
                 <MenuContent>
                   {a.menuItems.map((menuItem, i2) => (
-                    // This key should not be the array index
+                    // We shouldn't use an index here, see note above
                     <MenuItem key={i2} {...menuItem} />
                   ))}
                 </MenuContent>
@@ -76,7 +80,7 @@ const SecondaryActions = ({
             )
           }
           return {
-            key: `${i}`, // We shouldn't use an index here
+            key: `${i}`, // We shouldn't use an index here, see note above
             node: (
               <Button
                 secondary
