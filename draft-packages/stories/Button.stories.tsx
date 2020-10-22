@@ -7,7 +7,7 @@ export default {
   title: "Button (Zen) (React)",
   component: Button,
   args: {
-    label: "hello",
+    label: "Label",
   },
   parameters: {
     actions: {
