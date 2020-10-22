@@ -4,6 +4,10 @@ import * as React from "react"
 
 require("./TitleBlock.stories.scss")
 
+const Container = ({ children }: { children: React.ReactNode }) => (
+  <div style={{ margin: "-1rem", minHeight: "150px" }}>{children}</div>
+)
+
 const navigationButtons = [
   {
     buttonText: "Dashboard",
@@ -42,124 +46,148 @@ export default {
   },
 }
 
-export const WithTitle = () => <TitleBlock title="Reports" />
+export const WithTitle = () => (
+  <Container>
+    <TitleBlock title="Reports" />
+  </Container>
+)
 
 WithTitle.storyName = "with Title"
 
 export const WithSubtitle = () => (
-  <TitleBlock title="Home" subtitle="Subtitle goes here" />
+  <Container>
+    <TitleBlock title="Home" subtitle="Subtitle goes here" />
+  </Container>
 )
 
 WithSubtitle.storyName = "with subtitle"
 
 export const WithBreadcrumb = () => (
-  <TitleBlock
-    title="Home"
-    subtitle="Subtitle goes here"
-    breadcrumb={{ path: "#", text: "Back to reports" }}
-  />
+  <Container>
+    <TitleBlock
+      title="Home"
+      subtitle="Subtitle goes here"
+      breadcrumb={{ path: "#", text: "Back to reports" }}
+    />
+  </Container>
 )
 
 WithBreadcrumb.storyName = "with breadcrumb"
 
 export const WithActionButtons = () => (
-  <TitleBlock title="Home">
-    <Button label="Action" secondary />
-    <Button label="Action 2" secondary />
-  </TitleBlock>
+  <Container>
+    <TitleBlock title="Home">
+      <Button label="Action" secondary />
+      <Button label="Action 2" secondary />
+    </TitleBlock>
+  </Container>
 )
 
 WithActionButtons.storyName = "with action buttons"
 
 export const WithNavigationButtons = () => (
-  <TitleBlock title="Home" navigationButtons={navigationButtons} />
+  <Container>
+    <TitleBlock title="Home" navigationButtons={navigationButtons} />
+  </Container>
 )
 
 WithNavigationButtons.storyName = "with navigation buttons"
 
 export const WithTag = () => (
-  <TitleBlock
-    title="Home"
-    subtitle="Subtitle goes here"
-    surveyStatus={{ status: "live", text: "Live" }}
-  />
+  <Container>
+    <TitleBlock
+      title="Home"
+      subtitle="Subtitle goes here"
+      surveyStatus={{ status: "live", text: "Live" }}
+    />
+  </Container>
 )
 
 WithTag.storyName = "with tag"
 
 export const Reversed = () => (
-  <div style={reversedContainerStyle}>
-    <TitleBlock
-      title="Home"
-      breadcrumb={{ path: "#", text: "Back to reports" }}
-      navigationButtons={navigationButtons}
-      reversed
-      reverseColor="Wisteria"
-    />
-  </div>
+  <Container>
+    <div style={reversedContainerStyle}>
+      <TitleBlock
+        title="Home"
+        breadcrumb={{ path: "#", text: "Back to reports" }}
+        navigationButtons={navigationButtons}
+        reversed
+        reverseColor="Wisteria"
+      />
+    </div>
+  </Container>
 )
 
 Reversed.storyName = "reversed"
 
 export const Sticky = () => (
-  <div style={stickyContainerStyle}>
-    <TitleBlock title="Home" navigationButtons={navigationButtons} sticky>
-      <Button label="Action" secondary reversed />
-      <Button label="Action 2" secondary reversed />
-    </TitleBlock>
-  </div>
+  <Container>
+    <div style={stickyContainerStyle}>
+      <TitleBlock title="Home" navigationButtons={navigationButtons} sticky>
+        <Button label="Action" secondary reversed />
+        <Button label="Action 2" secondary reversed />
+      </TitleBlock>
+    </div>
+  </Container>
 )
 
 Sticky.storyName = "sticky"
 
 export const StickyReversed = () => (
-  <div style={stickyContainerStyle}>
-    <TitleBlock
-      title="Home"
-      navigationButtons={navigationButtons}
-      reversed
-      reverseColor="Wisteria"
-      sticky
-    >
-      <Button label="Action" secondary reversed />
-      <Button label="Action 2" secondary reversed />
-    </TitleBlock>
-  </div>
+  <Container>
+    <div style={stickyContainerStyle}>
+      <TitleBlock
+        title="Home"
+        navigationButtons={navigationButtons}
+        reversed
+        reverseColor="Wisteria"
+        sticky
+      >
+        <Button label="Action" secondary reversed />
+        <Button label="Action 2" secondary reversed />
+      </TitleBlock>
+    </div>
+  </Container>
 )
 
 StickyReversed.storyName = "sticky reversed"
 
 export const StickyTransparent = () => (
-  <div style={stickyContainerStyle}>
-    <TitleBlock
-      title="Home"
-      navigationButtons={navigationButtons}
-      reversed
-      reverseColor="Transparent"
-      sticky
-    >
-      <Button label="Action" secondary reversed />
-      <Button label="Action 2" secondary reversed />
-    </TitleBlock>
-  </div>
+  <Container>
+    <div style={stickyContainerStyle}>
+      <TitleBlock
+        title="Home"
+        navigationButtons={navigationButtons}
+        reversed
+        reverseColor="Transparent"
+        sticky
+      >
+        <Button label="Action" secondary reversed />
+        <Button label="Action 2" secondary reversed />
+      </TitleBlock>
+    </div>
+  </Container>
 )
 
 StickyTransparent.storyName = "sticky transparent"
 
 export const StickyTransparentInitially = () => (
-  <div style={stickyContainerStyle}>
-    <TitleBlock
-      title="Home"
-      navigationButtons={navigationButtons}
-      reversed
-      reverseColor="Transparent"
-      sticky
-      stickyColor="Ocean"
-    >
-      <Button label="Action" secondary reversed />
-      <Button label="Action 2" secondary reversed />
-    </TitleBlock>
-  </div>
+  <Container>
+    <div style={stickyContainerStyle}>
+      <TitleBlock
+        title="Home"
+        navigationButtons={navigationButtons}
+        reversed
+        reverseColor="Transparent"
+        sticky
+        stickyColor="Ocean"
+      >
+        <Button label="Action" secondary reversed />
+        <Button label="Action 2" secondary reversed />
+      </TitleBlock>
+    </div>
+  </Container>
 )
 
 StickyTransparentInitially.storyName = "sticky transparent initially"
