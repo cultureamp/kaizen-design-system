@@ -129,7 +129,7 @@ class NavigationBar extends React.Component<Props, State> {
   renderNavSection(section: string, items: NavigationItem[]) {
     return items.length > 0 ? (
       <ul
-        key={`${section}-${uuid()}`}
+        key={section}
         className={classNames({
           [styles.primary]: section === "primary",
           [styles.secondary]: section === "secondary",
