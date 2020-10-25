@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@2.4.0...@kaizen/draft-title-block-zen@2.4.1) (2020-10-25)
+
+
+### Bug Fixes
+
+* Navigation action buttons from being unnecessarily recreated ([#807](https://github.com/cultureamp/kaizen-design-system/issues/807)) ([7260b58](https://github.com/cultureamp/kaizen-design-system/commit/7260b58ef075c9111f00e54ec7960fd3930fa57c))
+
+
+
+
+
 # [2.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@2.3.1...@kaizen/draft-title-block-zen@2.4.0) (2020-10-21)
 
 
