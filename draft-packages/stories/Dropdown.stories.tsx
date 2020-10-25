@@ -66,6 +66,12 @@ export default {
   },
 }
 
+const reversedBg = {
+  backgrounds: {
+    default: "Wisteria 700",
+  },
+}
+
 export const DefaultMeatball = () => (
   <Dropdown>
     <Menu />
@@ -106,8 +112,4 @@ export const ReversedControlAction = () => (
   </Dropdown>
 )
 ReversedControlAction.storyName = "Reversed Control action"
-ReversedControlAction.parameters = {
-  backgrounds: {
-    default: "Wisteria 700",
-  },
-}
+ReversedControlAction.parameters = { ...reversedBg }
