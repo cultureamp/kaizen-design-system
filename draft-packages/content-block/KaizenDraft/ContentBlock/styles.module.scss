@@ -1,0 +1,28 @@
+@import "~@kaizen/design-tokens/sass/layout";
+
+// This replicates the layout max-width logic in
+// draft-packages/title-block-zen/KaizenDraft/TitleBlockZen/TitleBlockZen.scss
+$content-margin-width-on-medium-and-small: 12px;
+
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  * {
+    &,
+    &:after,
+    &:before {
+      box-sizing: border-box;
+    }
+  }
+}
+
+.content {
+  max-width: $kz-layout-content-max-width;
+  margin: 0 $kz-layout-content-side-margin;
+  width: 100%;
+
+  @media (max-width: $kz-layout-breakpoints-large - 1px) {
+    margin: 0 $content-margin-width-on-medium-and-small;
+  }
+}
