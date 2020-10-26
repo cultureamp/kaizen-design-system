@@ -13,169 +13,185 @@ export default {
   },
 }
 
-export const DefaultKaizenSiteDemo = () => (
-  <Popover heading="Default">
-    Popover body that explains something useful, is optional, and not critical
-    to completing a task.
-  </Popover>
+const Container = ({ children }: { children: React.ReactNode }) => (
+  <div style={{ minHeight: "150px" }}>{children}</div>
 )
 
-DefaultKaizenSiteDemo.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+export const DefaultKaizenSiteDemo = () => (
+  <Container>
+    <Popover heading="Default">
+      Popover body that explains something useful, is optional, and not critical
+      to completing a task.
+    </Popover>
+  </Container>
+)
+
+DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const DefaultWithoutHeading = () => (
-  <Popover>
-    Popover body that explains something useful, is optional, and not critical
-    to completing a task.
-  </Popover>
+  <Container>
+    <Popover>
+      Popover body that explains something useful, is optional, and not critical
+      to completing a task.
+    </Popover>
+  </Container>
 )
 
-DefaultWithoutHeading.story = {
-  name: "Default without heading",
-}
+DefaultWithoutHeading.storyName = "Default without heading"
 
 export const Informative = () => (
-  <Popover heading="Informative" variant="informative">
-    Popover body that explains something useful, is optional, and not critical
-    to completing a task.
-  </Popover>
+  <Container>
+    <Popover heading="Informative" variant="informative">
+      Popover body that explains something useful, is optional, and not critical
+      to completing a task.
+    </Popover>
+  </Container>
 )
 
 export const InformativeWithSingleLine = () => (
-  <Popover
-    heading="Informative-default-with-single-line"
-    variant="informative"
-    singleLine
-  >
-    http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/iamaverylongurl/iamaverylongurl/iamaverylongurl
-  </Popover>
+  <Container>
+    <Popover
+      heading="Informative-default-with-single-line"
+      variant="informative"
+      singleLine
+    >
+      http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/iamaverylongurl/iamaverylongurl/iamaverylongurl
+    </Popover>
+  </Container>
 )
 
-InformativeWithSingleLine.story = {
-  name: "Informative with singleLine",
-}
+InformativeWithSingleLine.storyName = "Informative with singleLine"
 
 export const InformativeLarge = () => (
-  <Popover
-    heading="Informative-large-with-multi-line"
-    variant="informative"
-    size="large"
-  >
-    Popover body that explains something useful, is optional, and not critical
-    to completing a task.
-  </Popover>
+  <Container>
+    <Popover
+      heading="Informative-large-with-multi-line"
+      variant="informative"
+      size="large"
+    >
+      Popover body that explains something useful, is optional, and not critical
+      to completing a task.
+    </Popover>
+  </Container>
 )
 
 export const InformativeLargeWithSingleLine = () => (
-  <Popover
-    heading="Informative-large-with-single-line"
-    variant="informative"
-    size="large"
-    singleLine
-  >
-    http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/iamaverylongurl/iamaverylongurl/iamaverylongurl
-  </Popover>
+  <Container>
+    <Popover
+      heading="Informative-large-with-single-line"
+      variant="informative"
+      size="large"
+      singleLine
+    >
+      http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/iamaverylongurl/iamaverylongurl/iamaverylongurl
+    </Popover>
+  </Container>
 )
 
-InformativeLargeWithSingleLine.story = {
-  name: "Informative Large with singleLine",
-}
+InformativeLargeWithSingleLine.storyName = "Informative Large with singleLine"
 
 export const Positive = () => (
-  <Popover heading="Positive" variant="positive">
-    Popover body that explains something useful, is optional, and not critical
-    to completing a task.
-  </Popover>
+  <Container>
+    <Popover heading="Positive" variant="positive">
+      Popover body that explains something useful, is optional, and not critical
+      to completing a task.
+    </Popover>
+  </Container>
 )
 
 export const Negative = () => (
-  <Popover heading="Negative" variant="negative">
-    Popover body that explains something useful, is optional, and not critical
-    to completing a task.
-  </Popover>
+  <Container>
+    <Popover heading="Negative" variant="negative">
+      Popover body that explains something useful, is optional, and not critical
+      to completing a task.
+    </Popover>
+  </Container>
 )
 
 export const Cautionary = () => (
-  <Popover heading="Cautionary" variant="cautionary">
-    Popover body that explains something useful, is optional, and not critical
-    to completing a task.
-  </Popover>
+  <Container>
+    <Popover heading="Cautionary" variant="cautionary">
+      Popover body that explains something useful, is optional, and not critical
+      to completing a task.
+    </Popover>
+  </Container>
 )
 
 export const Dismissible = () => (
-  <Popover heading="Dismissible" dismissible>
-    Popover body that explains something useful, is optional, and not critical
-    to completing a task.
-  </Popover>
+  <Container>
+    <Popover heading="Dismissible" dismissible>
+      Popover body that explains something useful, is optional, and not critical
+      to completing a task.
+    </Popover>
+  </Container>
 )
 
 export const ArrowAbove = () => (
-  <div style={{ marginTop: "1.5rem" }}>
-    <Popover heading="Arrow above" side="top">
-      Popover body that explains something useful, is optional, and not critical
-      to completing a task.
-    </Popover>
-  </div>
+  <Container>
+    <div style={{ marginTop: "1.5rem" }}>
+      <Popover heading="Arrow above" side="top">
+        Popover body that explains something useful, is optional, and not
+        critical to completing a task.
+      </Popover>
+    </div>
+  </Container>
 )
 
-ArrowAbove.story = {
-  name: "Arrow above",
-}
+ArrowAbove.storyName = "Arrow above"
 
 export const ArrowStart = () => (
-  <div style={{ marginTop: "1.5rem" }}>
-    <Popover heading="Arrow start" position="start">
-      Popover body that explains something useful, is optional, and not critical
-      to completing a task.
-    </Popover>
-  </div>
+  <Container>
+    <div style={{ marginTop: "1.5rem" }}>
+      <Popover heading="Arrow start" position="start">
+        Popover body that explains something useful, is optional, and not
+        critical to completing a task.
+      </Popover>
+    </div>
+  </Container>
 )
 
-ArrowStart.story = {
-  name: "Arrow start",
-}
+ArrowStart.storyName = "Arrow start"
 
 export const ArrowEnd = () => (
-  <div style={{ marginTop: "1.5rem" }}>
-    <Popover heading="Arrow end" position="end" side="top">
-      Popover body that explains something useful, is optional, and not critical
-      to completing a task.
-    </Popover>
-  </div>
+  <Container>
+    <div style={{ marginTop: "1.5rem" }}>
+      <Popover heading="Arrow end" position="end" side="top">
+        Popover body that explains something useful, is optional, and not
+        critical to completing a task.
+      </Popover>
+    </div>
+  </Container>
 )
 
-ArrowEnd.story = {
-  name: "Arrow end",
-}
+ArrowEnd.storyName = "Arrow end"
 
 export const BoxOffset = () => (
-  <>
-    <div style={{ marginTop: "1.5rem", height: 200 }}>
-      <Popover
-        heading="Box offset"
-        position="center"
-        side="top"
-        boxOffset={-50}
-      >
-        Popover body that explains something useful, is optional, and not
-        critical to completing a task.
-      </Popover>
-    </div>
-    <div style={{ marginTop: "1.5rem", height: 200 }}>
-      <Popover
-        heading="Box offset"
-        position="center"
-        side="bottom"
-        boxOffset={50}
-      >
-        Popover body that explains something useful, is optional, and not
-        critical to completing a task.
-      </Popover>
-    </div>
-  </>
+  <Container>
+    <>
+      <div style={{ marginTop: "1.5rem", height: 200 }}>
+        <Popover
+          heading="Box offset"
+          position="center"
+          side="top"
+          boxOffset={-50}
+        >
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </Popover>
+      </div>
+      <div style={{ marginTop: "1.5rem", height: 200 }}>
+        <Popover
+          heading="Box offset"
+          position="center"
+          side="bottom"
+          boxOffset={50}
+        >
+          Popover body that explains something useful, is optional, and not
+          critical to completing a task.
+        </Popover>
+      </div>
+    </>
+  </Container>
 )
 
-BoxOffset.story = {
-  name: "Box offset",
-}
+BoxOffset.storyName = "Box offset"

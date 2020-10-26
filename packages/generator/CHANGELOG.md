@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/generator-create@1.1.7...@kaizen/generator-create@1.1.8) (2020-10-21)
+
+**Note:** Version bump only for package @kaizen/generator-create
+
+
+
+
+
 ## [1.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/generator-create@1.1.6...@kaizen/generator-create@1.1.7) (2020-09-28)
 
 **Note:** Version bump only for package @kaizen/generator-create

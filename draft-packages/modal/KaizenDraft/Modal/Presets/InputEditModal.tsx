@@ -45,7 +45,6 @@ const InputEditModal = ({
   <GenericModal
     isOpen={isOpen}
     onEscapeKeyup={onDismiss}
-    onOutsideModalClick={onDismiss}
     automationId={automationId}
   >
     <div className={styles.modal} dir={localeDirection}>

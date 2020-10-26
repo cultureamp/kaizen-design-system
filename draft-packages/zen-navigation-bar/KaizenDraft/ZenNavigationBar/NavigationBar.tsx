@@ -35,7 +35,7 @@ type State = {
   mobileKey: number
 }
 
-export default class NavigationBar extends React.Component<Props, State> {
+class NavigationBar extends React.Component<Props, State> {
   static displayName = "NavigationBar"
   static Link = Link
   static Menu = Menu
@@ -129,7 +129,7 @@ export default class NavigationBar extends React.Component<Props, State> {
   renderNavSection(section: string, items: NavigationItem[]) {
     return items.length > 0 ? (
       <ul
-        key={`${section}-${uuid()}`}
+        key={section}
         className={classNames({
           [styles.primary]: section === "primary",
           [styles.secondary]: section === "secondary",
@@ -179,3 +179,4 @@ export default class NavigationBar extends React.Component<Props, State> {
     )
   }
 }
+export default NavigationBar

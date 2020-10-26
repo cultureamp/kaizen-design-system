@@ -41,9 +41,8 @@ export const DefaultWithSolidBorderKaizenSiteDemo = () => (
   </Well>
 )
 
-DefaultWithSolidBorderKaizenSiteDemo.story = {
-  name: "Default with solid border (Kaizen Site Demo)",
-}
+DefaultWithSolidBorderKaizenSiteDemo.storyName =
+  "Default with solid border (Kaizen Site Demo)"
 
 export const DefaultWithDashedBorder = () => (
   <Well borderStyle="dashed">
@@ -51,9 +50,7 @@ export const DefaultWithDashedBorder = () => (
   </Well>
 )
 
-DefaultWithDashedBorder.story = {
-  name: "Default with dashed border",
-}
+DefaultWithDashedBorder.storyName = "Default with dashed border"
 
 export const DefaultWithoutBorder = () => (
   <Well borderStyle="none">
@@ -61,9 +58,7 @@ export const DefaultWithoutBorder = () => (
   </Well>
 )
 
-DefaultWithoutBorder.story = {
-  name: "Default without border",
-}
+DefaultWithoutBorder.storyName = "Default without border"
 
 export const DefaultWithNoMargin = () => (
   <Well noMargin>
@@ -71,9 +66,7 @@ export const DefaultWithNoMargin = () => (
   </Well>
 )
 
-DefaultWithNoMargin.story = {
-  name: "Default with no margin",
-}
+DefaultWithNoMargin.storyName = "Default with no margin"
 
 export const Positive = () => (
   <Well variant="positive">
@@ -105,6 +98,4 @@ export const InformativeWithDashedBorder = () => (
   </Well>
 )
 
-InformativeWithDashedBorder.story = {
-  name: "Informative with dashed border",
-}
+InformativeWithDashedBorder.storyName = "Informative with dashed border"

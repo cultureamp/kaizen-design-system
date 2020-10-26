@@ -16,15 +16,14 @@ export const DefaultBelowKaizenSiteDemo = () => (
   </div>
 )
 
-DefaultBelowKaizenSiteDemo.story = {
-  name: "Default - Below (Kaizen Site Demo)",
-  component: Tooltip,
-  parameters: {
-    info: {
-      text: `
-      import { Tooltip } from "@kaizen/draft-tooltip"
-      `,
-    },
+DefaultBelowKaizenSiteDemo.storyName = "Default - Below (Kaizen Site Demo)"
+DefaultBelowKaizenSiteDemo.component = Tooltip
+
+DefaultBelowKaizenSiteDemo.parameters = {
+  info: {
+    text: `
+    import { Tooltip } from "@kaizen/draft-tooltip"
+    `,
   },
 }
 
@@ -40,9 +39,7 @@ export const DefaultAbove = () => (
   </div>
 )
 
-DefaultAbove.story = {
-  name: "Default - Above",
-}
+DefaultAbove.storyName = "Default - Above"
 
 export const Inline = () => (
   <div
@@ -78,6 +75,4 @@ export const Inline = () => (
   </div>
 )
 
-Inline.story = {
-  name: "Inline",
-}
+Inline.storyName = "Inline"
