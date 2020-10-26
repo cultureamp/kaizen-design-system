@@ -48,27 +48,23 @@ export type AdditionalContentProps = {
   additionalContent?: React.ReactNode
 }
 
-export type LabelProps = {
+type LabelPropsGeneric = {
   iconPosition?: "start" | "end"
   primary?: boolean
   secondary?: boolean
   reverseColor?: "cluny" | "peach" | "seedling" | "wisteria" | "yuzu"
 }
 
-type WorkingUndefinedProps = {
-  working?: undefined
-}
-
-type WorkingDefinedProps = {
+type WorkingLabelProps = LabelPropsGeneric & {
   working: boolean
   workingLabel: string
   workingLabelHidden?: boolean
 }
 
+export type LabelProps = LabelPropsGeneric | WorkingLabelProps
+
 export type IconButtonProps = GenericProps
-export type ButtonProps = GenericProps &
-  LabelProps &
-  (WorkingUndefinedProps | WorkingDefinedProps)
+export type ButtonProps = GenericProps & LabelProps
 
 type Props = ButtonProps & {
   iconButton?: boolean
@@ -104,7 +100,7 @@ const GenericButton = forwardRef(
         )
       }
 
-      if (props.href && !props.disabled && !props.working) {
+      if (props.href && !props.disabled && !("working" in props)) {
         return renderLink(props, buttonRef as Ref<HTMLAnchorElement>)
       }
 
@@ -179,8 +175,8 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
       onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
       type={type}
       title={label}
-      aria-label={(props.working && props.workingLabel) || label}
-      aria-disabled={disabled || props.working}
+      aria-label={("working" in props && props.workingLabel) || label}
+      aria-disabled={disabled || "working" in props ? true : undefined}
       tabIndex={
         disableTabFocusAndIUnderstandTheAccessibilityImplications
           ? -1
@@ -202,7 +198,6 @@ const renderLink = (props: Props, ref: Ref<HTMLAnchorElement>) => {
     newTabAndIUnderstandTheAccessibilityImplications,
     onFocus,
     onBlur,
-    working,
     iconButton,
     ...rest
   } = props
@@ -242,7 +237,7 @@ const buttonClass = (props: Props) => {
     [styles.reverseColorSeedling]: props.reverseColor === "seedling",
     [styles.reverseColorWisteria]: props.reverseColor === "wisteria",
     [styles.reverseColorYuzu]: props.reverseColor === "yuzu",
-    [styles.working]: !props.iconButton && props.working,
+    [styles.working]: !props.iconButton && "working" in props,
   })
 }
 
@@ -298,7 +293,7 @@ const renderDefaultContent = props => (
 
 const renderContent: React.FunctionComponent<Props> = props => (
   <span className={styles.content}>
-    {props.working && !props.iconButton
+    {"working" in props && !props.iconButton
       ? renderWorkingContent(props)
       : renderDefaultContent(props)}
   </span>
