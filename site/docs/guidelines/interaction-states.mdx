@@ -54,6 +54,17 @@ A disabled state applies to an element when the action is unavailable to a user.
 A "read-only" form element cannot be modified, but can otherwise be focused, read, and submitted with a form. For example, you might show an employee what other previously known information about them by their organization that they cannot edit within Culture Amp would be submitted along with their user-provided data in a form. This state is rarely needed. More often, it would be provided as regular text content instead of a read-only form element.
 
 
+### Working
+
+The "working" state applies to buttons, in particular, situations where a button action triggers a change in UI state but needs to wait for a server response, such as submitting a form. To indicate this to the user, the button triggering the action changes to a 'working' state while it waits.
+
+#### Behaviour
+
+The working state of a button is pseudo-disabled. It visually appears disabled to indicate it isn't actionable, and it can retain focus for accessibility reasons. If an icon was present on the button, the loading spinner replaces the icon. If there is no icon, the spinner should be prefixed to the label, e.g '[Loading Spinner] Button label' in the position a regular icon would inhabit. 
+
+#### Language
+
+If the button has a label, it should change to an appropriate adjective form to reflect the 'working' state. For example, Duplicate becomes Duplicating, and Copy becomes Copying.
 
 ## When to use and when not to use
 
