@@ -43,6 +43,7 @@ export interface TitleBlockProps {
   secondaryActions?: SecondaryActionsProps
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
   navigationTabs?: NavigationTabs
+  collapseNavigationAreaWhenPossible?: boolean
   textDirection?: TextDirection
   surveyStatus?: SurveyStatus
   titleAutomationId?: string
@@ -272,12 +273,23 @@ const renderBreadcrumb = (
 
 // We want to accept undefined here because the NavigationTabs container is
 // important for the flex-based layout (it pushes Secondary Actions over to the right)
-const renderNavigationTabs = (navigationTabs: NavigationTabs | undefined) => (
+const renderNavigationTabs = (
+  navigationTabs: NavigationTabs | undefined,
+  collapse: boolean
+) => (
   <div className={styles.navigationTabScrollerContainer}>
-    <div className={styles.navigationTabsContainer}>
-      <span className={styles.navigationTabEdgeShadowLeft} />
-      {navigationTabs}
-      <span className={styles.navigationTabEdgeShadowRight} />
+    <div
+      className={classNames(styles.navigationTabsContainer, {
+        [styles.navigationTabsContainerCollapsed]: collapse,
+      })}
+    >
+      {!collapse && (
+        <>
+          <span className={styles.navigationTabEdgeShadowLeft} />
+          {navigationTabs}
+          <span className={styles.navigationTabEdgeShadowRight} />
+        </>
+      )}
     </div>
   </div>
 )
@@ -416,6 +428,7 @@ const TitleBlockZen = ({
   secondaryActions,
   secondaryOverflowMenuItems,
   navigationTabs,
+  collapseNavigationAreaWhenPossible = false,
   textDirection,
   surveyStatus,
   titleAutomationId = "TitleBlock__Title",
@@ -429,6 +442,11 @@ const TitleBlockZen = ({
   const [isSmallOrMediumViewport, setSmallOrMediumViewport] = React.useState(
     false
   )
+  const hasNavigationTabs = navigationTabs && navigationTabs.length > 0
+  const collapseNavigationArea =
+    collapseNavigationAreaWhenPossible &&
+    !hasNavigationTabs &&
+    secondaryActions === undefined
 
   const updateOnViewportChange = mediaQuery => {
     if (mediaQuery.matches && !isSmallOrMediumViewport) {
@@ -457,8 +475,7 @@ const TitleBlockZen = ({
           [styles.adminVariant]: variant === "admin",
           [styles.hasLongTitle]: title && title.length >= 30,
           [styles.hasLongSubtitle]: subtitle && subtitle.length >= 18,
-          [styles.hasNavigationTabs]:
-            navigationTabs && navigationTabs.length > 0,
+          [styles.hasNavigationTabs]: hasNavigationTabs,
         })}
       >
         <div className={styles.titleRow}>
@@ -557,7 +574,7 @@ const TitleBlockZen = ({
                   sectionTitleAutomationId,
                   sectionTitleDescriptionAutomationId
                 )}
-              {renderNavigationTabs(navigationTabs)}
+              {renderNavigationTabs(navigationTabs, collapseNavigationArea)}
               {(secondaryActions || secondaryOverflowMenuItems) && (
                 <SecondaryActions
                   secondaryActions={secondaryActions}

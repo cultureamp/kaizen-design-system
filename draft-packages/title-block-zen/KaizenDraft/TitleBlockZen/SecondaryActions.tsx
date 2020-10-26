@@ -33,6 +33,10 @@ const renderSecondaryOverflowMenu = (
   )
 }
 
+// Unfortunately, you'll notice below, that I needed to use the array index,
+// against react best practices (https://reactjs.org/docs/lists-and-keys.html)
+// This is because the menu items have no unique identifier.
+
 const SecondaryActions = ({
   secondaryActions,
   secondaryOverflowMenuItems,
@@ -41,28 +45,32 @@ const SecondaryActions = ({
   if (!secondaryActions && !secondaryOverflowMenuItems) return null
 
   const secondaryActionsAsToolbarItems = secondaryActions
-    ? secondaryActions.map(a => {
+    ? secondaryActions.map((a, i) => {
         if ("menuItems" in a) {
-          return (
-            <Menu
-              align="right"
-              button={
-                <Button
-                  secondary
-                  label={a.label}
-                  reversed={reversed}
-                  icon={chevronDownIcon}
-                  iconPosition="end"
-                />
-              }
-            >
-              <MenuContent>
-                {a.menuItems.map(menuItem => (
-                  <MenuItem {...menuItem} />
-                ))}
-              </MenuContent>
-            </Menu>
-          )
+          return {
+            key: `${i}`, // We shouldn't use an index here, see note above
+            node: (
+              <Menu
+                align="right"
+                button={
+                  <Button
+                    secondary
+                    label={a.label}
+                    reversed={reversed}
+                    icon={chevronDownIcon}
+                    iconPosition="end"
+                  />
+                }
+              >
+                <MenuContent>
+                  {a.menuItems.map((menuItem, i2) => (
+                    // We shouldn't use an index here, see note above
+                    <MenuItem key={i2} {...menuItem} />
+                  ))}
+                </MenuContent>
+              </Menu>
+            ),
+          }
         } else {
           if ("onClick" in a && "href" in a) {
             // eslint-disable-next-line no-console
@@ -71,14 +79,17 @@ const SecondaryActions = ({
                 "either an href or an onClick, not both simultaneously.\n"
             )
           }
-          return (
-            <Button
-              secondary
-              reversed={reversed}
-              {...a}
-              data-automation-id="title-block-secondary-actions-button"
-            />
-          )
+          return {
+            key: `${i}`, // We shouldn't use an index here, see note above
+            node: (
+              <Button
+                secondary
+                reversed={reversed}
+                {...a}
+                data-automation-id="title-block-secondary-actions-button"
+              />
+            ),
+          }
         }
       })
     : []
@@ -90,7 +101,14 @@ const SecondaryActions = ({
 
   const toolbarItems = [
     ...secondaryActionsAsToolbarItems,
-    ...(overflowMenu ? [overflowMenu] : []),
+    ...(overflowMenu
+      ? [
+          {
+            key: "overflowMenu",
+            node: overflowMenu,
+          },
+        ]
+      : []),
   ]
 
   return (
