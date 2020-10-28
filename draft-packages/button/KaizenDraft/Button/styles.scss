@@ -17,7 +17,7 @@ $caButton-verticalPaddingForm: calc(
   #{$ca-grid / 3} - #{$kz-border-solid-border-width}
 );
 
-// reset user agent syles for button elment type
+// reset user agent styles for button element type
 @mixin button-reset {
   appearance: none;
   background: transparent;
@@ -26,6 +26,10 @@ $caButton-verticalPaddingForm: calc(
   margin: 0;
   padding: 0;
   transition: none; // override Murmur global styles :(
+}
+
+@mixin working-state {
+  pointer-events: none;
 }
 
 %caButtonContainer {
@@ -113,12 +117,13 @@ $caButton-verticalPaddingForm: calc(
     }
   }
 
-  &:disabled {
+  &:disabled,
+  &.working {
+    @include working-state;
     opacity: 0.3;
     background: $kz-color-white;
     border-color: $kz-color-wisteria-500;
     color: $kz-color-wisteria-800;
-    cursor: default;
   }
 }
 
@@ -126,8 +131,7 @@ $caButton-verticalPaddingForm: calc(
   min-height: $caButton-formHeight;
 }
 
-%caButtonPrimary,
-%caButtonDestructive {
+%caButtonPrimary {
   &:not(:disabled) {
     background: $kz-color-cluny-500;
     border-color: $kz-border-borderless-border-color;
@@ -149,7 +153,9 @@ $caButton-verticalPaddingForm: calc(
     }
   }
 
-  &:disabled {
+  &:disabled,
+  &.working {
+    @include working-state;
     background: $kz-color-cluny-500;
     color: $kz-color-white;
     border-color: $kz-border-borderless-border-color;
@@ -157,28 +163,33 @@ $caButton-verticalPaddingForm: calc(
 }
 
 %caButtonDestructive {
-  &:disabled {
+  &:not(:disabled) {
+    color: $kz-color-white;
     background: $kz-color-coral-500;
+    border-color: $kz-color-coral-500;
+
+    &:hover {
+      background: $kz-color-coral-600;
+      border-color: $kz-color-coral-600;
+    }
+
+    &:active {
+      background: $kz-color-coral-600;
+      border-color: $kz-color-coral-600;
+    }
+
+    :global(.js-focus-visible) &:global(.focus-visible) {
+      background: $kz-color-coral-600;
+      border-color: $kz-color-coral-600;
+    }
   }
-}
 
-%caButtonDestructive:not(:disabled) {
-  background: $kz-color-coral-500;
-  border-color: $kz-color-coral-500;
-
-  &:hover {
-    background: $kz-color-coral-600;
-    border-color: $kz-color-coral-600;
-  }
-
-  &:active {
-    background: $kz-color-coral-600;
-    border-color: $kz-color-coral-600;
-  }
-
-  :global(.js-focus-visible) &:global(.focus-visible) {
-    background: $kz-color-coral-600;
-    border-color: $kz-color-coral-600;
+  &:disabled,
+  &.working {
+    @include working-state;
+    color: $kz-color-white;
+    background: $kz-color-coral-500;
+    border-color: $kz-color-coral-500;
   }
 }
 
@@ -207,7 +218,9 @@ $caButton-verticalPaddingForm: calc(
     }
   }
 
-  &:disabled {
+  &:disabled,
+  &.working {
+    @include working-state;
     background: transparent;
     border-color: $kz-border-borderless-border-color;
     color: $kz-color-cluny-500;
@@ -236,7 +249,9 @@ $caButton-verticalPaddingForm: calc(
     }
   }
 
-  &:disabled {
+  &:disabled,
+  &.working {
+    @include working-state;
     opacity: 0.3;
     border-color: rgba($kz-color-white, 0.5);
     color: $kz-color-white;
@@ -279,7 +294,9 @@ $caButton-verticalPaddingForm: calc(
       }
     }
 
-    &:disabled {
+    &:disabled,
+    &.working {
+      @include working-state;
       background: $kz-color-seedling-300;
       border-color: $kz-border-borderless-border-color;
       color: $kz-color-wisteria-800;
@@ -306,7 +323,9 @@ $caButton-verticalPaddingForm: calc(
       }
     }
 
-    &:disabled {
+    &:disabled,
+    &.working {
+      @include working-state;
       background: transparent;
       border-color: $kz-border-borderless-border-color;
       color: $kz-color-white;
@@ -463,17 +482,19 @@ $caButton-verticalPaddingForm: calc(
     width: $caButton-formHeight;
   }
 
-  &%caButtonDestructive:not(:disabled) {
-    &:hover,
-    &:active {
-      color: $kz-color-coral-600;
-      background-color: $kz-color-coral-100;
-    }
+  &%caButtonDestructive {
+    &:not(:disabled) {
+      &:hover,
+      &:active {
+        color: $kz-color-coral-600;
+        background-color: $kz-color-coral-100;
+      }
 
-    :global(.js-focus-visible) &:global(.focus-visible) {
-      color: $kz-color-coral-600;
-      background-color: $kz-color-coral-100;
-      border-color: $kz-border-borderless-border-color;
+      :global(.js-focus-visible) &:global(.focus-visible) {
+        color: $kz-color-coral-600;
+        background-color: $kz-color-coral-100;
+        border-color: $kz-border-borderless-border-color;
+      }
     }
   }
 }
