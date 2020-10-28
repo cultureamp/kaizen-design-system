@@ -1,7 +1,7 @@
 ---
 title: "Tables vs lists"
 navTitle: "Tables vs lists"
-summaryParagraph:
+summaryParagraph:  Lists and tables can be quite visually similar and can sometimes represent the same data. This guide will outline content and user considerations in determining which pattern is the most appropriate.  
 tags: ["Data Tables", "Tabular Data", "Cards", "Tiles", "Rows", "Grids"]
 inComparingSection: true
 ---
@@ -10,38 +10,36 @@ inComparingSection: true
 - **Lists also known as:** Cards, Tiles, Rows, Grids
 
 ## Need to know
+Tables and lists have distinct patterns which shouldn't be mixed.
+
 ### Tables
 - Tables are for presenting information which gives the user the flexibility to sort the data to find their own patterns
 - Tables must include column headers for sorting
 
 ### Lists
-- Lists are for presenting grouped information into scannable patterns. The content within a list can be stacked to create hierarchy within the data.
-- Lists are sortable by a ‘Sorted by’ Select, and do not have header labels
-- A single row of a list could make sense
-
-### General
-- Tables and lists have distinct patterns which shouldn't be mixed
-- Lists and tables can be quite visually similar and can sometimes represent the same data. This guide will outline content and user considerations in determining which pattern is the most appropriate.  
+- Lists are for presenting grouped information into scannable patterns. The content within a list can be stacked to create hierarchy within the data
+- Lists are sortable by a ‘Sorted by’ [Select](/components/select), and do not have column header labels
+- A single row of a list should make sense in isolation
 
 ## Tables
 Tables display rows and columns of tabular data. 
 
 ### For the user
-- They help make it easy to scan large amounts of data
-- Makes it efficient to find patterns in values
+- Tables help make it easy to scan large amounts of data
+- Tables make it efficient to find patterns in values
 - Data can be sorted by ascending or descending order using table column headers
 
 ### For the designer
-- Tables must represent more than 1 row of tabular data, otherwise use a card to contain a small volume of data. (e.g. Tile / List)
+- Tables must represent more than 1 row of tabular data, otherwise use a card to contain a small volume of data. (e.g.  [Tile](/components/tile) / List)
 - For textual or numerical values, column cells can contain only 1 piece of information
-- Columns cells that require additional visual or interactive components (e.g. Avatar and name) can contain more than 1 piece of information:
+- Columns cells that require additional visual or interactive components (e.g. [Avatar](/components/avatar) and name) can contain more than 1 piece of information:
   - Interactive components (such as buttons or selects)
   - Non-interactive elements with no natural grouping or order (such as avatars or icons)
 - Tabular data is structured into rows of cells of related information. Each row contains the same number of cells (although some of these cells may be empty), which provide values of properties of the thing described by the row. ([Source: W3C](https://www.w3.org/TR/tabular-data-model/#:~:text=Tabular%20data%20is%20data%20that,thing%20described%20by%20the%20row.))
 - A table allows the user to assess and control the data to find their own patterns
 - If there is an action it should be included to the far right of the table row
 - Tables can have interactive elements (E.g. checkboxes) to provide functions such as multi-select and bulk actions
-- Avatars can be considered as a data point and can be useful alongside a name to quickly scan for recognisable faces
+- [Avatars](/components/avatar) can be considered as a data point and can be useful alongside a name to quickly scan for recognisable faces
 - Tables must be sortable via table column headers
 - By default, one column must be sorted (E.g. chronological order or magnitude). Always present the user with the most relevant data first.
   - The sorted column should be easily distinguishable and in which direction it is being sorted
@@ -66,7 +64,7 @@ Lists group and stack information into logical and hierarchical patterns.
 - Surfacing the most interesting information is more important than finding detailed data
 - Lists can be either stacked horizontal rows of [Cards](/components/card) or gridded [Tiles](/components/tile)
 - Lists can also provide bulk actions
-- Lists must use a Select as a ‘sorting by’ function
+- Lists must use a [Select](/components/select) as a ‘sorting by’ function
 - On small viewports, the data in these lists can reflow and stack responsively. Design of the specific application of this is the responsibility of the designer
 - Lists cannot have column headers. Use a Table if you need to identify information with headings.
 - For guidance on how to link within lists, follow the same guidelines as [Tiles](/components/tile)
