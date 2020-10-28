@@ -66,29 +66,28 @@ If the content within the drawer exceeds the screen height, the header (and foot
 
 ### Dismissing/closing a Drawer
 
+*   Overlay drawers are not dismissed by clicking outside the window (unlike modals). This is to prevent users accidentally losing their work. 
+
 Users can dismiss a Drawer by:
 *   Clicking an X close button
 *   Pressing the Esc key
 *   Clicking the primary action (e.g. Save or Submit) 
-
-Upon dismissal, the drawer focus should be restored to the triggering element
-
-Overlay drawers are not dismissed by clicking outside the window (unlike modals). This is to prevent users accidentally losing their work. 
+*   Upon dismissal, the drawer focus should be restored to the triggering element
 
 ### Mobile/Responsiveness
 
 *   A Small Drawer maintains the same behavior all the way down to viewports of 300px, at which point it begins taking up 100% of the viewport width.
 *   A Medium Drawer will need to reflow when the viewport is <600px. If you expect this functionality to be used heavily on mobile, consider whether a Medium Drawer would work instead. 
 
-### Animation and loading**
-
-Loading patterns
-*   Slide in from the right 
-*   Timing: 300ms 
-*   Ease-in-out easing
+### Animation and loading
 
 *   See [animation guidelines](/guidelines/animation/)
 *   Provide a [skeleton loading pattern](/components/loading-skeleton/) when possible.
+
+**Loading patterns**
+*   Slide in from the right 
+*   Timing: 300ms 
+*   Ease-in-out easing
 
 ### Accessibility
 *   Drawer states (open/closed) should be announced by a screen reader. 
