@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@2.1.0...@kaizen/draft-button@2.1.1) (2020-10-28)
+
+
+### Bug Fixes
+
+* Add loading spinner as button dependency ([#842](https://github.com/cultureamp/kaizen-design-system/issues/842)) ([3c1627a](https://github.com/cultureamp/kaizen-design-system/commit/3c1627a55deacf94689b92a37dbf6c643a001717))
+
+
+
+
+
 # [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@2.0.10...@kaizen/draft-button@2.1.0) (2020-10-28)
 
 
