@@ -22,7 +22,7 @@ export interface Props {
   readonly dismissible?: boolean
   readonly singleLine?: boolean
   readonly children: React.ReactNode
-  readonly boxOffset?: number
+  readonly boxOffset?: BoxOffset
 }
 
 type Variant =
@@ -102,12 +102,22 @@ const Popover: Popover = React.forwardRef<HTMLDivElement, Props>(
   )
 )
 
-const getRootStyle = (boxOffset: number | undefined) => ({
-  transform:
-    boxOffset == null
-      ? "translateX(-50%)"
-      : `translateX(calc(-50% + ${boxOffset}px)`,
-})
+type BoxOffset = number | undefined | {
+  xOffset: string,
+  yOffset: string
+}
+
+const getRootStyle = (boxOffset: BoxOffset) => {
+  if (boxOffset == null) {
+    return { transform: "translateX(-50%)"}
+  }
+
+  const translate = typeof boxOffset === "number"
+    ? `translateX(calc(-50% + ${boxOffset}px))`
+    : `translate(${boxOffset.xOffset}, ${boxOffset.yOffset})`
+
+  return { transform: translate }
+}
 
 const mapVariantToBoxClass = (variant: Variant): string => {
   switch (variant) {
