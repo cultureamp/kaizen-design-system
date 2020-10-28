@@ -30,22 +30,26 @@ Tables display rows and columns of tabular data.
 - Data can be sorted by ascending or descending order using table column headers
 
 ### For the designer
-- Tables must represent more than 1 row of tabular data, otherwise use a card to contain a small volume of data. (e.g.  [Tile](/components/tile) / List)
+- A table allows the user to assess and control the data to find their own patterns
+- Raw tabular data is where data is imported from a .csv and does not contain any styling and is identical to its source file, such as the Employee data import example
+
+#### Structure
+- Tables must represent more than 1 row of tabular data, otherwise use a card to contain a small volume of data. (e.g. [Tile](/components/tile) / List)
 - For textual or numerical values, column cells can contain only 1 piece of information
+- [Avatars](/components/avatar) can be considered as a data point and can be useful alongside a name to quickly scan for recognisable faces
 - Columns cells that require additional visual or interactive components (e.g. [Avatar](/components/avatar) and name) can contain more than 1 piece of information:
-  - Interactive components (such as buttons or selects)
+  - Interactive components (such as [Buttons](/components/button) or [Selects](/components/select))
   - Non-interactive elements with no natural grouping or order (such as avatars or icons)
 - Tabular data is structured into rows of cells of related information. Each row contains the same number of cells (although some of these cells may be empty), which provide values of properties of the thing described by the row. ([Source: W3C](https://www.w3.org/TR/tabular-data-model/#:~:text=Tabular%20data%20is%20data%20that,thing%20described%20by%20the%20row.))
-- A table allows the user to assess and control the data to find their own patterns
 - If there is an action it should be included to the far right of the table row
-- Tables can have interactive elements (E.g. checkboxes) to provide functions such as multi-select and bulk actions
-- [Avatars](/components/avatar) can be considered as a data point and can be useful alongside a name to quickly scan for recognisable faces
+- Tables can have interactive elements (e.g. checkboxes) to provide functions such as multi-select and bulk actions
+- Tabular row content stays tabular even on small viewports. If you need to reflow and stack content responsively, use a List
+
+#### Sorting
 - Tables must be sortable via table column headers
-- By default, one column must be sorted (E.g. chronological order or magnitude). Always present the user with the most relevant data first.
+- By default, one column must be sorted (e.g. chronological order or magnitude). Always present the user with the most relevant data first.
   - The sorted column should be easily distinguishable and in which direction it is being sorted
 - Sorting by a column reorganizes all the content in the table. The values across each row remain the same when the sort is applied
-- Tabular row content stays tabular even on small viewports. If you need to reflow and stack content responsively, use a List
-- Raw tabular data is where data is imported from a .csv and does not contain any styling and is identical to its source file, such as the Employee data import example
 
 ### Recommendation
 - All content has the same weight and has equal visual emphasis. If there is key information that needs to be more prominent, consider the order of which the data is presented
@@ -59,7 +63,7 @@ Lists group and stack information into logical and hierarchical patterns.
 
 ### For the designer
 - Lists prioritise content. Metadata small, key information bigger
-- Lists are a collection of objects of the same type (E.g. A set of questions, or a group of people)
+- Lists are a collection of objects of the same type (e.g. A set of questions, or a group of people)
 - For rich data (e.g. Data visualization, avatars, hero data)
 - Surfacing the most interesting information is more important than finding detailed data
 - Lists can be either stacked horizontal rows of [Cards](/components/card) or gridded [Tiles](/components/tile)
