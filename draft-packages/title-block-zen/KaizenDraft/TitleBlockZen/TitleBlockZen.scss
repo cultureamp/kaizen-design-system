@@ -13,6 +13,8 @@ $breadcrumb-breakpoint-width: $kz-layout-content-max-width +
 $title-block-separator-height: 3px;
 $tab-container-height-default: $ca-grid * 3;
 $tab-container-height-small: $ca-grid * 2.5;
+$tab-container-height-default-collapsed: $ca-grid + 0.1875rem;
+$tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 
 .titleBlock {
   position: relative;
@@ -422,21 +424,24 @@ $tab-container-height-small: $ca-grid * 2.5;
   }
 }
 
-.navigationTabScrollerContainer {
-  @include title-block-small {
-    display: none;
-    overflow-x: scroll;
-    scrollbar-width: none;
-    width: 100vw;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
+.navigationTabsContainerCollapsed {
+  height: $tab-container-height-default-collapsed;
+  @include title-block-medium-and-small {
+    height: $tab-container-height-medium-and-small-collapsed;
   }
+}
 
+.navigationTabScrollerContainer {
   .hasNavigationTabs & {
     @include title-block-small {
       display: block;
+      overflow-x: scroll;
+      scrollbar-width: none;
+      width: 100vw;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 }

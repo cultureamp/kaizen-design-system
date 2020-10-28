@@ -177,6 +177,7 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
           class="container"
         >
           <button
+            aria-disabled="true"
             aria-label="Information"
             class="button iconButton"
             disabled=""
@@ -241,6 +242,7 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
               class="container"
             >
               <button
+                aria-disabled="true"
                 class="button secondary"
                 disabled=""
                 type="button"

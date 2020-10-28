@@ -25,9 +25,8 @@ export const DismissiblePositiveKaizenSiteDemo = () => (
   </InlineNotification>
 )
 
-DismissiblePositiveKaizenSiteDemo.story = {
-  name: "Dismissible, Positive (Kaizen Site Demo)",
-}
+DismissiblePositiveKaizenSiteDemo.storyName =
+  "Dismissible, Positive (Kaizen Site Demo)"
 
 export const DismissiblePositiveAutohide = () => (
   <InlineNotification
@@ -41,9 +40,7 @@ export const DismissiblePositiveAutohide = () => (
   </InlineNotification>
 )
 
-DismissiblePositiveAutohide.story = {
-  name: "Dismissible, Positive, Autohide",
-}
+DismissiblePositiveAutohide.storyName = "Dismissible, Positive, Autohide"
 
 export const DismissiblePositiveAutohideHideCloseIcon = () => (
   <InlineNotification
@@ -58,9 +55,8 @@ export const DismissiblePositiveAutohideHideCloseIcon = () => (
   </InlineNotification>
 )
 
-DismissiblePositiveAutohideHideCloseIcon.story = {
-  name: "Dismissible, Positive, Autohide, Hide Close Icon",
-}
+DismissiblePositiveAutohideHideCloseIcon.storyName =
+  "Dismissible, Positive, Autohide, Hide Close Icon"
 
 export const DismissibleInformative = () => (
   <InlineNotification
@@ -73,9 +69,7 @@ export const DismissibleInformative = () => (
   </InlineNotification>
 )
 
-DismissibleInformative.story = {
-  name: "Dismissible, Informative",
-}
+DismissibleInformative.storyName = "Dismissible, Informative"
 
 export const DismissibleCautionary = () => (
   <InlineNotification
@@ -88,9 +82,7 @@ export const DismissibleCautionary = () => (
   </InlineNotification>
 )
 
-DismissibleCautionary.story = {
-  name: "Dismissible, Cautionary",
-}
+DismissibleCautionary.storyName = "Dismissible, Cautionary"
 
 export const DismissibleNegative = () => (
   <InlineNotification
@@ -102,9 +94,7 @@ export const DismissibleNegative = () => (
   </InlineNotification>
 )
 
-DismissibleNegative.story = {
-  name: "Dismissible, Negative",
-}
+DismissibleNegative.storyName = "Dismissible, Negative"
 
 export const DismissibleMultiline = () => (
   <InlineNotification
@@ -118,9 +108,7 @@ export const DismissibleMultiline = () => (
   </InlineNotification>
 )
 
-DismissibleMultiline.story = {
-  name: "Dismissible, Multiline",
-}
+DismissibleMultiline.storyName = "Dismissible, Multiline"
 
 export const DismissibleSlim = () => (
   <InlineNotification
@@ -132,9 +120,7 @@ export const DismissibleSlim = () => (
   </InlineNotification>
 )
 
-DismissibleSlim.story = {
-  name: "Dismissible, Slim",
-}
+DismissibleSlim.storyName = "Dismissible, Slim"
 
 export const PersistentPositive = () => (
   <InlineNotification
@@ -148,9 +134,7 @@ export const PersistentPositive = () => (
   </InlineNotification>
 )
 
-PersistentPositive.story = {
-  name: "Persistent, Positive",
-}
+PersistentPositive.storyName = "Persistent, Positive"
 
 export const PersistentInformative = () => (
   <InlineNotification
@@ -164,9 +148,7 @@ export const PersistentInformative = () => (
   </InlineNotification>
 )
 
-PersistentInformative.story = {
-  name: "Persistent, Informative",
-}
+PersistentInformative.storyName = "Persistent, Informative"
 
 export const PersistentCautionary = () => (
   <InlineNotification
@@ -180,9 +162,7 @@ export const PersistentCautionary = () => (
   </InlineNotification>
 )
 
-PersistentCautionary.story = {
-  name: "Persistent, Cautionary",
-}
+PersistentCautionary.storyName = "Persistent, Cautionary"
 
 export const PersistentNegative = () => (
   <InlineNotification
@@ -194,9 +174,7 @@ export const PersistentNegative = () => (
   </InlineNotification>
 )
 
-PersistentNegative.story = {
-  name: "Persistent, Negative",
-}
+PersistentNegative.storyName = "Persistent, Negative"
 
 export const PersistentMultiline = () => (
   <InlineNotification
@@ -211,9 +189,7 @@ export const PersistentMultiline = () => (
   </InlineNotification>
 )
 
-PersistentMultiline.story = {
-  name: "Persistent, Multiline",
-}
+PersistentMultiline.storyName = "Persistent, Multiline"
 
 export const PersistentSlim = () => (
   <InlineNotification
@@ -226,9 +202,7 @@ export const PersistentSlim = () => (
   </InlineNotification>
 )
 
-PersistentSlim.story = {
-  name: "Persistent, Slim",
-}
+PersistentSlim.storyName = "Persistent, Slim"
 
 export const MultipleNotification = () => (
   <div

@@ -63,36 +63,46 @@ const MainActions = ({
     items = [
       ...(defaultAction
         ? [
-            <Button
-              {...{
-                ...defaultAction,
-                reversed:
-                  defaultAction.reversed !== undefined
-                    ? defaultAction.reversed
-                    : reversed,
-              }}
-              data-automation-id="title-block-default-action-button"
-            />,
+            {
+              key: "defaultAction",
+              node: (
+                <Button
+                  {...{
+                    ...defaultAction,
+                    reversed:
+                      defaultAction.reversed !== undefined
+                        ? defaultAction.reversed
+                        : reversed,
+                  }}
+                  data-automation-id="title-block-default-action-button"
+                />
+              ),
+            },
           ]
         : []),
       ...(primaryAction
         ? [
-            <Menu
-              align="right"
-              button={
-                <ButtonAllowingAdditionalContent
-                  label={primaryAction.label}
-                  primary
-                  reversed={reversed}
-                  icon={chevronDownIcon}
-                  iconPosition="end"
-                  data-automation-id="title-block-primary-action-button"
-                  additionalContent={renderBadge(primaryAction.badge)}
-                />
-              }
-            >
-              {menuContent}
-            </Menu>,
+            {
+              key: "primaryAction",
+              node: (
+                <Menu
+                  align="right"
+                  button={
+                    <ButtonAllowingAdditionalContent
+                      label={primaryAction.label}
+                      primary
+                      reversed={reversed}
+                      icon={chevronDownIcon}
+                      iconPosition="end"
+                      data-automation-id="title-block-primary-action-button"
+                      additionalContent={renderBadge(primaryAction.badge)}
+                    />
+                  }
+                >
+                  {menuContent}
+                </Menu>
+              ),
+            },
           ]
         : []),
     ]
@@ -100,37 +110,47 @@ const MainActions = ({
     items = [
       ...(defaultAction
         ? [
-            <Button
-              {...{
-                ...defaultAction,
-                reversed:
-                  defaultAction.reversed !== undefined
-                    ? defaultAction.reversed
-                    : reversed,
-              }}
-              data-automation-id="title-block-default-action-button"
-            />,
+            {
+              key: "defaultAction",
+              node: (
+                <Button
+                  {...{
+                    ...defaultAction,
+                    reversed:
+                      defaultAction.reversed !== undefined
+                        ? defaultAction.reversed
+                        : reversed,
+                  }}
+                  data-automation-id="title-block-default-action-button"
+                />
+              ),
+            },
           ]
         : []),
       ...(primaryAction
         ? [
-            <ButtonAllowingAdditionalContent
-              // Temporary grossness before we deprecate a mandatory
-              // optional field for primary in PrimaryActionProps
-              {...{
-                ...primaryAction,
-                primary:
-                  primaryAction.primary !== undefined
-                    ? primaryAction.primary
-                    : true,
-                reversed:
-                  primaryAction.reversed !== undefined
-                    ? primaryAction.reversed
-                    : reversed,
-              }}
-              data-automation-id="title-block-primary-action-button"
-              additionalContent={renderBadge(primaryAction.badge)}
-            />,
+            {
+              key: "primaryAction",
+              node: (
+                <ButtonAllowingAdditionalContent
+                  // Temporary grossness before we deprecate a mandatory
+                  // optional field for primary in PrimaryActionProps
+                  {...{
+                    ...primaryAction,
+                    primary:
+                      primaryAction.primary !== undefined
+                        ? primaryAction.primary
+                        : true,
+                    reversed:
+                      primaryAction.reversed !== undefined
+                        ? primaryAction.reversed
+                        : reversed,
+                  }}
+                  data-automation-id="title-block-primary-action-button"
+                  additionalContent={renderBadge(primaryAction.badge)}
+                />
+              ),
+            },
           ]
         : []),
     ]
@@ -138,21 +158,26 @@ const MainActions = ({
 
   if (overflowMenuItems && showOverflowMenu && overflowMenuItems.length > 0) {
     items = [
-      <Menu
-        align="right"
-        button={
-          <IconButton label="" reversed={reversed} icon={meatballsIcon} />
-        }
-      >
-        <MenuContent>
-          {overflowMenuItems.map((menuItem, idx) => (
-            <MenuItem
-              {...menuItem}
-              key={`main-action-overflow-item-menu-item-${idx}`}
-            />
-          ))}
-        </MenuContent>
-      </Menu>,
+      {
+        key: "overflowMenu",
+        node: (
+          <Menu
+            align="right"
+            button={
+              <IconButton label="" reversed={reversed} icon={meatballsIcon} />
+            }
+          >
+            <MenuContent>
+              {overflowMenuItems.map((menuItem, idx) => (
+                <MenuItem
+                  {...menuItem}
+                  key={`main-action-overflow-item-menu-item-${idx}`}
+                />
+              ))}
+            </MenuContent>
+          </Menu>
+        ),
+      },
       ...items,
     ]
   }

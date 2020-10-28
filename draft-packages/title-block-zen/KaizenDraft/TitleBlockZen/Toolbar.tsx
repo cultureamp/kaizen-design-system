@@ -9,7 +9,10 @@ import * as React from "react"
 import styles from "./Toolbar.scss"
 
 type ToolbarProps = {
-  items?: Array<React.ReactElement<ButtonProps> | React.ReactElement<MenuProps>>
+  items?: Array<{
+    key: string
+    node: React.ReactElement<ButtonProps> | React.ReactElement<MenuProps>
+  }>
   noGap?: boolean
 }
 
@@ -27,9 +30,9 @@ const Toolbar = ({ items, noGap = false }: ToolbarProps) => {
           className={classNames(styles.toolbarItem, {
             [styles.noGap]: noGap,
           })}
-          key={`toolbar-item-${i}`}
+          key={item.key}
         >
-          {item}
+          {item.node}
         </div>
       ))}
     </div>

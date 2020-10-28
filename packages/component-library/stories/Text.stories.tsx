@@ -16,9 +16,7 @@ export default {
 
 export const H1 = () => <Text tag="h1">This is a Page Title (H1)</Text>
 
-H1.story = {
-  name: "H1",
-}
+H1.storyName = "H1"
 
 export const H1InheritBaseline = () => (
   <Text tag="h1" inheritBaseline>
@@ -26,15 +24,11 @@ export const H1InheritBaseline = () => (
   </Text>
 )
 
-H1InheritBaseline.story = {
-  name: "H1 (inherit baseline)",
-}
+H1InheritBaseline.storyName = "H1 (inherit baseline)"
 
 export const H2 = () => <Text tag="h2">This is a Title (H2)</Text>
 
-H2.story = {
-  name: "H2",
-}
+H2.storyName = "H2"
 
 export const H2NoBottomMargin = () => (
   <Text tag="h2" inline={true}>
@@ -42,37 +36,27 @@ export const H2NoBottomMargin = () => (
   </Text>
 )
 
-H2NoBottomMargin.story = {
-  name: "H2 (no bottom margin)",
-}
+H2NoBottomMargin.storyName = "H2 (no bottom margin)"
 
 export const H3 = () => <Text tag="h3">This is a Display Heading (H3)</Text>
 
-H3.story = {
-  name: "H3",
-}
+H3.storyName = "H3"
 
 export const H4 = () => <Text tag="h4">This is a Heading (H4)</Text>
 
-H4.story = {
-  name: "H4",
-}
+H4.storyName = "H4"
 
 export const H5 = () => (
   <Text tag="h5">This is a H5, which uses Heading styles</Text>
 )
 
-H5.story = {
-  name: "H5",
-}
+H5.storyName = "H5"
 
 export const H6 = () => (
   <Text tag="h6">This is a H6, which uses Heading styles</Text>
 )
 
-H6.story = {
-  name: "H6",
-}
+H6.storyName = "H6"
 
 export const Paragraph = () => (
   <Text tag="p">
@@ -96,9 +80,7 @@ export const ParagraphNoMargin = () => (
   </Text>
 )
 
-ParagraphNoMargin.story = {
-  name: "Paragraph (no margin)",
-}
+ParagraphNoMargin.storyName = "Paragraph (no margin)"
 
 export const LedeParagraph = () => (
   <Text tag="p" style="lede">
@@ -128,9 +110,7 @@ export const DivWithPageTitleStyles = () => (
   </Text>
 )
 
-DivWithPageTitleStyles.story = {
-  name: "Div with Page Title styles",
-}
+DivWithPageTitleStyles.storyName = "Div with Page Title styles"
 
 export const Span = () => <Text tag="span">Span text</Text>
 
@@ -140,9 +120,7 @@ export const BodyBold = () => (
   </Text>
 )
 
-BodyBold.story = {
-  name: "Body-bold",
-}
+BodyBold.storyName = "Body-bold"
 
 export const Small = () => (
   <Text tag="div" style="small">
@@ -156,9 +134,7 @@ export const SmallBold = () => (
   </Text>
 )
 
-SmallBold.story = {
-  name: "Small-bold",
-}
+SmallBold.storyName = "Small-bold"
 
 export const Notification = () => (
   <Text tag="div" style="notification">
@@ -180,9 +156,7 @@ export const ControlAction = () => (
   </Text>
 )
 
-ControlAction.story = {
-  name: "Control-action",
-}
+ControlAction.storyName = "Control-action"
 
 export const Button = () => (
   <Text tag="div" style="button">

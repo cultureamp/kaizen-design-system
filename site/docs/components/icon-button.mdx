@@ -33,6 +33,7 @@ A default icon button indicates to a user that they can perform an inline action
 - Apply an action to an object, e.g. save, delete, add an item, undo, create a new item.
 - Trigger a new element to appear on the page e.g. toggle additional information, open a modal or reveal an [overflow menu](/components/menu/#overflow-menu).
 
+
 Other considerations:
 
 - Icon buttons use a button element (not a link element and no `role="button"`).
@@ -45,7 +46,8 @@ Other considerations:
 - Icons used in icon buttons are, by default, 20px in size (minimum) and can be scaled to larger sizes if it contextually makes sense.
 - Icon buttons have a minimum touch zone of 48px.
 - RTL: flip the direction of arrow icons when the user is using a right-to-left language.
-
+- Interaction states, such as disabled and working buttons:
+    - See the [Interaction states guidelines for disabled elements](/guidelines/interaction-states#working-state).
 ### Icon buttons with Tooltips
 
 If there's any doubt about comprehension for an Icon Button with no text label, a [Tooltip](/components/tooltip) must be used on hover and focus of the Icon Button. Buttons natively receive keyboard focus so there's no need to add a `tabindex` attribute.
