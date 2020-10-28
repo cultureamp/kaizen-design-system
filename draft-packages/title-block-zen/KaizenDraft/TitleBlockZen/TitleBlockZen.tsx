@@ -581,4 +581,4 @@ const TitleBlockZen = ({
 }
 
 export default TitleBlockZen
-export { NavigationTab }
+export { NavigationTab, NavigationTabProps }
