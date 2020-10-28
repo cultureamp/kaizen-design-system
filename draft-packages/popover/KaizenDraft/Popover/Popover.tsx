@@ -38,6 +38,14 @@ type Position = "start" | "center" | "end"
 
 type Size = "small" | "large"
 
+type BoxOffset =
+  | number
+  | undefined
+  | {
+      xOffset: number // to ensure a non-breaking change, xOffset can only be a number
+      yOffset: string
+    }
+
 type Popover = React.FunctionComponent<Props>
 
 const Popover: Popover = React.forwardRef<HTMLDivElement, Props>(
@@ -102,14 +110,6 @@ const Popover: Popover = React.forwardRef<HTMLDivElement, Props>(
   )
 )
 
-type BoxOffset =
-  | number
-  | undefined
-  | {
-      xOffset: string
-      yOffset: string
-    }
-
 const getRootStyle = (boxOffset: BoxOffset) => {
   if (boxOffset == null) {
     return { transform: "translateX(-50%)" }
@@ -118,7 +118,7 @@ const getRootStyle = (boxOffset: BoxOffset) => {
   const translate =
     typeof boxOffset === "number"
       ? `translateX(calc(-50% + ${boxOffset}px))`
-      : `translate(${boxOffset.xOffset}, ${boxOffset.yOffset})`
+      : `translate(${boxOffset.xOffset}px, ${boxOffset.yOffset})`
 
   return { transform: translate }
 }
@@ -138,14 +138,17 @@ const mapVariantToBoxClass = (variant: Variant): string => {
   }
 }
 
-const getArrowStyle = (boxOffset: number | undefined, side: Side) => {
+const getArrowStyle = (boxOffset: BoxOffset, side: Side) => {
   const rotate = side === "top" ? "rotate(180deg)" : ""
-  const translate =
-    boxOffset == null
-      ? ""
-      : // Because we shifted the popover in the parent, we need to readjust the
-        // arrow back to where it was.
-        `translateX(${boxOffset * -1}px)`
+  let translate = ""
+  if (boxOffset != null) {
+    translate =
+      typeof boxOffset === "number"
+        ? `translateX(${boxOffset * -1}px)`
+        : // Because we shifted the popover in the parent, we need to readjust the
+          // arrow back to where it was.
+          `translateX(${boxOffset.xOffset * -1}px)`
+  }
 
   return rotate || translate
     ? {
