@@ -49,22 +49,21 @@ A disabled state applies to an element when the action is unavailable to a user.
   - If you need to disable a button, help users (including people using assistive technologies, such as screen reader) understand how to enable it again. For example, include nearby microcopy that explains why it is disabled and what action the user can take e.g. “There are no more reports to share. To share more reports, wait for a survey to close.”
 
 
-### Read-only
+### Read-only State
 
 A "read-only" form element cannot be modified, but can otherwise be focused, read, and submitted with a form. For example, you might show an employee what other previously known information about them by their organization that they cannot edit within Culture Amp would be submitted along with their user-provided data in a form. This state is rarely needed. More often, it would be provided as regular text content instead of a read-only form element.
 
+### Working State
 
-### Working
+The "working" state applies to buttons, in particular, situations where a button action triggers a change in UI state but needs to wait for a server response, such as submitting a form. [Don't disable buttons while submitting forms with ajax](https://gomakethings.com/dont-disable-buttons-while-submitting-forms-with-ajax/) by Chris Ferdinandi summarises why this is especially important for screen reader and keyboard users. 
 
-The "working" state applies to buttons, in particular, situations where a button action triggers a change in UI state but needs to wait for a server response, such as submitting a form. To indicate this to the user, the button triggering the action changes to a 'working' state while it waits.
+To indicate this to the user, the button triggering the action changes to a 'working' state while it waits. 
 
 #### Behaviour
 
-The working state of a button is pseudo-disabled. It visually appears disabled to indicate it isn't actionable, and it can retain focus for accessibility reasons. If an icon was present on the button, the loading spinner replaces the icon. If there is no icon, the spinner should be prefixed to the label, e.g '[Loading Spinner] Button label' in the position a regular icon would inhabit. 
+The working state of a button is pseudo-disabled. It visually appears disabled to indicate it isn't actionable, and it must retain focus for accessibility reasons. 
 
-#### Language
-
-If the button has a label, it should change to an appropriate adjective form to reflect the 'working' state. For example, Duplicate becomes Duplicating, and Copy becomes Copying.
+To avoid the button changing the position of nearby actionable controls, the working button must retain it's pre-working state width. The label becomes visually hidden when transitioning into this state, and a loading spinner is centred within the button.
 
 ## When to use and when not to use
 
