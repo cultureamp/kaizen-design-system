@@ -1,5 +1,7 @@
+import { DismissiblePositiveAutohide } from "@kaizen/component-library/stories/InlineNotification.stories"
 import { Popover } from "@kaizen/draft-popover"
 import * as React from "react"
+import { Avatar } from "../avatar"
 
 export default {
   title: "Popover (React)",
@@ -195,3 +197,20 @@ export const BoxOffset = () => (
 )
 
 BoxOffset.storyName = "Box offset"
+
+export const BoxWithYOffset = () => (
+  <Container>
+    <Popover
+      heading="Default"
+      boxOffset={{ yOffset: "calc(-100% + -12px)" }}
+    >
+      Popover body that explains something useful, is optional, and not critical
+      to completing a task.
+    </Popover>
+    <div style={{ margin: "200px auto auto", width: "fit-content" }}>
+      <Avatar fullName="Test user"></Avatar>
+    </div>
+  </Container>
+)
+
+BoxWithYOffset.storyName = "Popover with Y offset positioning"
