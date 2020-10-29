@@ -42,7 +42,7 @@ type BoxOffset =
   | number
   | undefined
   | {
-      xOffset: number // to ensure a non-breaking change, xOffset can only be a number
+      xOffset: number | null // to ensure a non-breaking change, xOffset can only be a number
       yOffset: string
     }
 
@@ -118,7 +118,9 @@ const getRootStyle = (boxOffset: BoxOffset) => {
   const translate =
     typeof boxOffset === "number"
       ? `translateX(calc(-50% + ${boxOffset}px))`
-      : `translate(${boxOffset.xOffset}px, ${boxOffset.yOffset})`
+      : `translate(${
+          boxOffset.xOffset == null ? "-50%" : `${boxOffset.xOffset}px`
+        }, ${boxOffset.yOffset})`
 
   return { transform: translate }
 }
@@ -141,7 +143,10 @@ const mapVariantToBoxClass = (variant: Variant): string => {
 const getArrowStyle = (boxOffset: BoxOffset, side: Side) => {
   const rotate = side === "top" ? "rotate(180deg)" : ""
   let translate = ""
-  if (boxOffset != null) {
+  if (
+    boxOffset != null &&
+    (typeof boxOffset === "number" || boxOffset.xOffset != null)
+  ) {
     translate =
       typeof boxOffset === "number"
         ? `translateX(${boxOffset * -1}px)`
