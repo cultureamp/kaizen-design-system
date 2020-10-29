@@ -38,10 +38,22 @@ $row-height: 60px;
   padding: 8px $ca-grid;
   display: flex;
   align-items: center;
+  text-align: left;
+  justify-content: flex-start;
 }
 
 .headerRowCellWrap {
   white-space: normal;
+}
+
+.headerRowCellAlignCenter {
+  text-align: center;
+  justify-content: center;
+}
+
+.headerRowCellAlignEnd {
+  text-align: right;
+  justify-content: flex-end;
 }
 
 .headerRowCellCheckbox {

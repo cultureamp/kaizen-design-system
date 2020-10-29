@@ -80,6 +80,7 @@ type TableHeaderRowCell = React.FunctionComponent<{
   onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
   active?: boolean
   wrapping?: "nowrap" | "wrap"
+  align?: "start" | "center" | "end"
 }>
 export const TableHeaderRowCell: TableHeaderRowCell = ({
   onClick,
@@ -99,6 +100,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   // alignment? I'm not sure.
   // Anyway, we can override this default behaviour by setting wrapping to "wrap".
   wrapping = "nowrap",
+  align = "start",
   ...otherProps
 }) => {
   const label = icon ? (
@@ -130,13 +132,18 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
     width: ratioToPercent(width),
     flex,
   }
+  const classes = classNames(styles.headerRowCell, {
+    [styles.headerRowCellWrap]: wrapping === "wrap",
+    [styles.headerRowCellAlignCenter]: align === "center",
+    [styles.headerRowCellAlignEnd]: align === "end",
+  })
+
   return onClick ? (
     <button
       data-automation-id={automationId}
       style={style}
-      className={classNames(styles.headerRowCell, {
+      className={classNames(classes, {
         [styles.active]: active,
-        [styles.headerRowCellWrap]: wrapping === "wrap",
       })}
       onClick={onClick}
       role="columnheader"
@@ -149,9 +156,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
     <div
       data-automation-id={automationId}
       style={style}
-      className={classNames(styles.headerRowCell, {
-        [styles.headerRowCellWrap]: wrapping === "wrap",
-      })}
+      className={classes}
       role="columnheader"
       {...otherProps}
     >

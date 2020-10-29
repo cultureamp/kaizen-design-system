@@ -293,3 +293,41 @@ export const ExtraSpacing = () => (
 )
 
 ExtraSpacing.storyName = "Default variant (extra spacing)"
+
+export const HeaderAlignmentAndWrapping = () => (
+  <Container>
+    <TableContainer>
+      <TableHeader>
+        <TableHeaderRow>
+          <TableHeaderRowCell
+            labelText="Left header align with wrapping"
+            width={1 / 4}
+            wrapping="wrap"
+          />
+          <TableHeaderRowCell
+            labelText="Center header align with wrapping"
+            width={1 / 4}
+            wrapping="wrap"
+            align="center"
+          />
+          <TableHeaderRowCell
+            labelText="Right header align with wrapping"
+            width={1 / 4}
+            wrapping="wrap"
+            align="end"
+          />
+          <TableHeaderRowCell
+            labelText="This column has no wrapping"
+            width={1 / 4}
+            wrapping="nowrap"
+          />
+        </TableHeaderRow>
+      </TableHeader>
+      <TableCard>
+        <ExampleTableRow multiline expandable={false} />
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+
+HeaderAlignmentAndWrapping.storyName = "Header alignments and wrapping"
