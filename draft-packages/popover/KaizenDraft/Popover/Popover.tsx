@@ -42,8 +42,8 @@ type BoxOffset =
   | number
   | undefined
   | {
-      xOffset: number | null // to ensure a non-breaking change, xOffset can only be a number
-      yOffset: string
+      xOffset?: number // to ensure a non-breaking change, xOffset can only be a number
+      yOffset?: string
     }
 
 type Popover = React.FunctionComponent<Props>
