@@ -248,7 +248,11 @@ export const AdminVariant = () => (
       title="Page title"
       variant="admin"
       sectionTitle="Default questions"
-      sectionTitleDescription="Default questions are surfaced automatically for managers when requesting feedback about their teams from colleagues. Default questions are editable by managers."
+      sectionTitleDescription={
+        "Default questions are surfaced automatically for " +
+        "managers when requesting feedback about their teams from colleagues. " +
+        "Default questions are editable by managers."
+      }
       primaryAction={{
         label: "Primary link",
         href: "#",

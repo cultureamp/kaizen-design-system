@@ -27,7 +27,7 @@ interface GenericModalProps
 
 const MODAL_TRANSITION_TIMEOUT = 350
 
-function GenericModalContainer(props: GenericModalContainerProps) {
+const GenericModalContainer = (props: GenericModalContainerProps) => {
   const labelledByID = uuid()
   const describedByID = uuid()
   return (
@@ -213,29 +213,25 @@ class GenericModal extends React.Component<GenericModalProps> {
  * Get an element's owner document. Useful when components are used in iframes
  * or other environments like dev tools.
  */
-function getOwnerDocument<T extends HTMLElement = HTMLElement>(
+const getOwnerDocument = <T extends HTMLElement = HTMLElement>(
   element: T | null
-) {
-  return element && element.ownerDocument
+) =>
+  element && element.ownerDocument
     ? element.ownerDocument
     : canUseDOM()
     ? document
     : null
-}
 
 /**
  * Check if the DOM exists and is usable
  */
-function canUseDOM(): boolean {
-  return (
-    typeof window !== "undefined" &&
-    typeof window.document !== "undefined" &&
-    typeof window.document.createElement !== "undefined"
-  )
-}
+const canUseDOM = (): boolean =>
+  typeof window !== "undefined" &&
+  typeof window.document !== "undefined" &&
+  typeof window.document.createElement !== "undefined"
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
-function noop(): void {}
+const noop = (): void => {}
 
 /**
  * Hide elements in the DOM from screenreaders that are outside the parent tree
@@ -245,7 +241,7 @@ function noop(): void {}
  * Returns a function that restores the _original_ values of the affected nodes,
  * so any pre-aria-hidden values will continue to stay hidden.
  */
-function createAriaHider(dialogNode: HTMLElement): () => void {
+const createAriaHider = (dialogNode: HTMLElement): (() => void) => {
   const originalValues: any[] = []
   const rootNodes: HTMLElement[] = []
   const ownerDocument = getOwnerDocument(dialogNode) || document

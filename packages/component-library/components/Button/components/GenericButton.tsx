@@ -36,7 +36,7 @@ type LabelProps = {
 
 type Analytics = {
   eventName: string
-  properties: object
+  properties: Record<string, unknown>
 }
 
 export type IconButtonProps = GenericProps
@@ -50,7 +50,7 @@ export type ButtonRef = { focus: () => void }
 
 // We're treating custom props as anything that is kebab cased.
 // This is so we can support properties like aria-* or data-*
-const getCustomProps = (props: object) => {
+const getCustomProps = (props: Record<string, unknown>) => {
   const keys = Object.keys(props).filter(k => k.indexOf("-") !== -1)
   return keys.reduce((acc, val) => {
     acc[val] = props[val]

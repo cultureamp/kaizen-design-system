@@ -47,7 +47,9 @@ export default ({ data, pageContext, location }) => {
     if (!md.frontmatter.demoStoryId) {
       // eslint-disable-next-line no-console
       console.warn(
-        `Could not find a demo story ID for "${md.frontmatter.title}". Please make sure there is a frontmatter field called demoStoryId in the component docs. The ID comes from the Storybook URL for a given story.`
+        `Could not find a demo story ID for "${md.frontmatter.title}". Please ` +
+          "make sure there is a frontmatter field called demoStoryId in the " +
+          "component docs. The ID comes from the Storybook URL for a given story."
       )
       return undefined
     }

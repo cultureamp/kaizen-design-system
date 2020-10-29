@@ -19,7 +19,8 @@ export default {
 const guidanceBlockText = {
   title: "This is the Guidance block title",
   description:
-    "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
+    "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, " +
+    "qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
 }
 
 const guidanceBlockImg = assetUrl("illustrations/spot/moods-informative.svg")

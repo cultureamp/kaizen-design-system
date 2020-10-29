@@ -57,7 +57,8 @@ export const InformativeWithSingleLine = () => (
       variant="informative"
       singleLine
     >
-      http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/iamaverylongurl/iamaverylongurl/iamaverylongurl
+      {"http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/" +
+        "iamaverylongurl/iamaverylongurl/iamaverylongurl"}
     </Popover>
   </Container>
 )
@@ -85,7 +86,8 @@ export const InformativeLargeWithSingleLine = () => (
       size="large"
       singleLine
     >
-      http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/iamaverylongurl/iamaverylongurl/iamaverylongurl
+      {"http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/" +
+        "iamaverylongurl/iamaverylongurl/iamaverylongurl"}
     </Popover>
   </Container>
 )

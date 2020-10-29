@@ -26,7 +26,7 @@ type Props = {
   children?: Navigation
 }
 
-class NavigationBar extends React.Component<Props, {}> {
+class NavigationBar extends React.Component<Props, unknown> {
   static displayName = "NavigationBar"
   static Link = Link
   static Menu = Menu
