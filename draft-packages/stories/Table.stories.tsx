@@ -34,21 +34,25 @@ const ExampleTableHeaderRow = ({ checkable = false }) => (
       onClick={() => alert("Sort!")}
       labelText="Resource name"
       width={4 / 12}
+      wrapping="wrap"
     />
     <TableHeaderRowCell
       onClick={() => alert("Sort!")}
       labelText="Supplementary information"
       width={4 / 12}
+      wrapping="wrap"
     />
     <TableHeaderRowCell
       labelText="Date"
       width={2 / 12}
       onClick={() => alert("Sort!")}
+      wrapping="wrap"
     />
     <TableHeaderRowCell
       labelText="Comments"
       width={2 / 12}
       onClick={() => alert("Sort!")}
+      wrapping="wrap"
     />
   </TableHeaderRow>
 )

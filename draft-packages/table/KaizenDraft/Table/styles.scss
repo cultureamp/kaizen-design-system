@@ -35,10 +35,13 @@ $row-height: 60px;
   text-overflow: ellipsis;
   overflow-x: hidden;
   white-space: nowrap;
-  padding: 0 $ca-grid;
-  height: $ca-grid * 1.5;
+  padding: 8px $ca-grid;
   display: flex;
   align-items: center;
+}
+
+.headerRowCellWrap {
+  white-space: normal;
 }
 
 .headerRowCellCheckbox {
