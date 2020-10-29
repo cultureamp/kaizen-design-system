@@ -143,16 +143,13 @@ const mapVariantToBoxClass = (variant: Variant): string => {
 const getArrowStyle = (boxOffset: BoxOffset, side: Side) => {
   const rotate = side === "top" ? "rotate(180deg)" : ""
   let translate = ""
-  if (
-    boxOffset != null &&
-    (typeof boxOffset === "number" || boxOffset.xOffset != null)
-  ) {
-    translate =
-      typeof boxOffset === "number"
-        ? `translateX(${boxOffset * -1}px)`
-        : // Because we shifted the popover in the parent, we need to readjust the
-          // arrow back to where it was.
-          `translateX(${boxOffset.xOffset * -1}px)`
+  if (boxOffset != null) {
+    if (typeof boxOffset === "number") {
+      translate = `translateX(${boxOffset * -1}px)`
+    } else if (boxOffset.xOffset != null)
+      // Because we shifted the popover in the parent, we need to readjust the
+      // arrow back to where it was.
+      translate = `translateX(${boxOffset.xOffset * -1}px)`
   }
 
   return rotate || translate
