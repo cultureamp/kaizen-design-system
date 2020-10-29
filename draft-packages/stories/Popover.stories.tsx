@@ -200,10 +200,7 @@ BoxOffset.storyName = "Box offset"
 
 export const BoxWithYOffset = () => (
   <Container>
-    <Popover
-      heading="Default"
-      boxOffset={{ yOffset: "calc(-100% + -12px)" }}
-    >
+    <Popover heading="Default" boxOffset={{ yOffset: "calc(-100% + -12px)" }}>
       Popover body that explains something useful, is optional, and not critical
       to completing a task.
     </Popover>
