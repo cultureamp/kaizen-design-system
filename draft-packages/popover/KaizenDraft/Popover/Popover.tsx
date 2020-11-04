@@ -3,6 +3,7 @@ import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import negativeIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import informativeIcon from "@kaizen/component-library/icons/information.icon.svg"
 import positiveIcon from "@kaizen/component-library/icons/success.icon.svg"
+import guidanceIcon from "@kaizen/component-library/icons/guidance.icon.svg"
 
 import classNames from "classnames"
 import * as React from "react"
@@ -28,6 +29,7 @@ export interface Props {
 type Variant =
   | "default"
   | "informative"
+  | "guidance"
   | "positive"
   | "negative"
   | "cautionary"
@@ -129,6 +131,8 @@ const mapVariantToBoxClass = (variant: Variant): string => {
   switch (variant) {
     case "informative":
       return styles.informativeBox
+    case "guidance":
+      return styles.guidanceBox
     case "positive":
       return styles.positiveBox
     case "negative":
@@ -163,6 +167,8 @@ const mapVariantToIconClass = (variant: Variant) => {
   switch (variant) {
     case "informative":
       return styles.informativeIcon
+    case "guidance":
+      return styles.guidanceIcon
     case "positive":
       return styles.positiveIcon
     case "negative":
@@ -180,6 +186,8 @@ const mapVariantToIcon = (
   switch (variant) {
     case "informative":
       return informativeIcon
+    case "guidance":
+      return guidanceIcon
     case "positive":
       return positiveIcon
     case "negative":
@@ -195,6 +203,8 @@ const mapArrowVariantToClass = (variant: Variant): string => {
   switch (variant) {
     case "informative":
       return styles.informativeArrow
+    case "guidance":
+      return styles.guidanceArrow
     case "positive":
       return styles.positiveArrow
     case "negative":

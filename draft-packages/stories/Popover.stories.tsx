@@ -92,6 +92,15 @@ export const InformativeLargeWithSingleLine = () => (
 
 InformativeLargeWithSingleLine.storyName = "Informative Large with singleLine"
 
+export const Guidance = () => (
+  <Container>
+    <Popover heading="Guidance" variant="guidance">
+      Popover body that explains something useful, is optional, and not critical
+      to completing a task.
+    </Popover>
+  </Container>
+)
+
 export const Positive = () => (
   <Container>
     <Popover heading="Positive" variant="positive">

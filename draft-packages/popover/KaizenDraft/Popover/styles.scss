@@ -80,6 +80,16 @@ $large: 450px;
   @include arrow($kz-color-cluny-100, $kz-color-cluny-200);
 }
 
+.guidanceBox {
+  @extend %box;
+  background: $kz-color-cluny-100;
+  border-color: $kz-color-cluny-200;
+}
+
+.guidanceArrow {
+  @include arrow($kz-color-cluny-100, $kz-color-cluny-200);
+}
+
 .positiveBox {
   @extend %box;
   background: $kz-color-seedling-100;
@@ -133,6 +143,10 @@ $large: 450px;
 }
 
 .informativeIcon {
+  color: $kz-color-cluny-500;
+}
+
+.guidanceIcon {
   color: $kz-color-cluny-500;
 }
 
