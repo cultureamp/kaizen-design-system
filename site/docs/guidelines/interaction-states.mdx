@@ -61,7 +61,7 @@ To indicate this to the user, the button triggering the action changes to a 'wor
 
 #### Behaviour
 
-The working state of a button is pseudo-disabled. It visually appears disabled to indicate it isn't actionable, and it must retain focus for accessibility reasons. 
+The working state of a button is pseudo-disabled. It visually appears disabled to indicate it isn't actionable, and it must retain focus for accessibility reasons. This is a pattern for short duration interactions - long enough to let you know something is happening, but not so long that you need to show progress. Consider using one of the other [loading patterns](https://cultureamp.design/guidelines/loading-patterns/) if this doesn't apply. 
 
 To avoid the button changing the position of nearby actionable controls, the working button must retain it's pre-working state width.
 
