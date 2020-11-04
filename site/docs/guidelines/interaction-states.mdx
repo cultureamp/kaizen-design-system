@@ -57,13 +57,13 @@ A "read-only" form element cannot be modified, but can otherwise be focused, rea
 
 The "working" state applies to buttons, in particular, situations where a button action triggers a change in UI state but needs to wait for a server response, such as submitting a form. [Don't disable buttons while submitting forms with ajax](https://gomakethings.com/dont-disable-buttons-while-submitting-forms-with-ajax/) by Chris Ferdinandi summarises why this is especially important for screen reader and keyboard users. 
 
-To indicate this to the user, the button triggering the action changes to a 'working' state while it waits. 
+To indicate this to the user, the button triggering the action changes to a 'working' state while it waits. The label and/or icons visually disappear (while maintaining the space it once contained) and a loading spinner is centered in its position on the button. 
 
 #### Behaviour
 
 The working state of a button is pseudo-disabled. It visually appears disabled to indicate it isn't actionable, and it must retain focus for accessibility reasons. 
 
-To avoid the button changing the position of nearby actionable controls, the working button must retain it's pre-working state width. The label becomes visually hidden when transitioning into this state, and a loading spinner is centred within the button.
+To avoid the button changing the position of nearby actionable controls, the working button must retain it's pre-working state width.
 
 ## When to use and when not to use
 
