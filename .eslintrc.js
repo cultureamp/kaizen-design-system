@@ -32,9 +32,7 @@ module.exports = {
       },
     ],
     "@typescript-eslint/ban-types": [
-      // TODO - Change to error. This will be a breaking change on a lot of our Props
-      // that might be using "any non-nullish value"
-      "warn",
+      "error",
       {
         types: {
           Object: {
@@ -44,12 +42,15 @@ module.exports = {
             message:
               "Avoid using the `Function` type. Prefer a specific function type, like `() => void`.",
           },
+          // eslint-disable-next-line
           Boolean: {
             message: "Avoid using the `Boolean` type. Did you mean `boolean`?",
           },
+          // eslint-disable-next-line
           Number: {
             message: "Avoid using the `Number` type. Did you mean `number`?",
           },
+          // eslint-disable-next-line
           String: {
             message: "Avoid using the `String` type. Did you mean `string`?",
           },
@@ -145,12 +146,12 @@ module.exports = {
       },
     ],
     "import/no-internal-modules": "off",
-    "import/order": "off", // TODO - Change to error
+    "import/order": "error",
     "jsdoc/check-alignment": "off",
     "jsdoc/check-indentation": "off",
     "jsdoc/newline-after-description": "off",
     "linebreak-style": "off",
-    "max-classes-per-file": ["error", 3], // TODO - Change to ["error", 1]
+    "max-classes-per-file": ["error", 1],
     "max-len": [
       "warn",
       {
@@ -194,7 +195,7 @@ module.exports = {
     "no-var": "error",
     "object-shorthand": "error",
     "one-var": ["error", "never"],
-    "prefer-arrow/prefer-arrow-functions": "warn", // TODO - Change to error
+    "prefer-arrow/prefer-arrow-functions": "error",
     "prefer-const": "error",
     "prefer-object-spread": "error",
     "quote-props": ["error", "as-needed"],
