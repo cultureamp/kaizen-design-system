@@ -1,7 +1,7 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
-import { Button, CustomButtonProps, ButtonRef } from "../button"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 import React, { useCallback, useRef, useState } from "react"
+import { Button, CustomButtonProps, ButtonRef } from "../button"
 
 export default {
   title: "Button (Zen) (React)",

@@ -2,6 +2,8 @@ import { IconButton, Paragraph } from "@kaizen/component-library"
 import { Button } from "@kaizen/draft-button"
 import { CheckboxField } from "@kaizen/draft-form"
 import * as React from "react"
+import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
+import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import {
   TableCard,
   TableContainer,
@@ -12,9 +14,6 @@ import {
   TableRowCell,
 } from "../table"
 import styles from "./Table.stories.scss"
-
-import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
-import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
 
 const Container: React.FunctionComponent = ({ children }) => (
   <div style={{ margin: "1rem auto", width: "100%", maxWidth: "60rem" }}>

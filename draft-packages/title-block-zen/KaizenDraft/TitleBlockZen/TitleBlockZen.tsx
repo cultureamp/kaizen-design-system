@@ -6,14 +6,14 @@ import { Select } from "@kaizen/draft-select"
 import { Tag } from "@kaizen/draft-tag"
 import classNames from "classnames"
 import * as React from "react"
+import leftArrow from "@kaizen/component-library/icons/arrow-backward.icon.svg"
+import rightArrow from "@kaizen/component-library/icons/arrow-forward.icon.svg"
+import hamburgerIcon from "@kaizen/component-library/icons/hamburger.icon.svg"
 import MainActions from "./MainActions"
 import MobileActions from "./MobileActions"
 import NavigationTab, { NavigationTabProps } from "./NavigationTabs"
 import SecondaryActions from "./SecondaryActions"
 import styles from "./TitleBlockZen.scss"
-import leftArrow from "@kaizen/component-library/icons/arrow-backward.icon.svg"
-import rightArrow from "@kaizen/component-library/icons/arrow-forward.icon.svg"
-import hamburgerIcon from "@kaizen/component-library/icons/hamburger.icon.svg"
 
 export const NON_REVERSED_VARIANTS = ["education", "admin"]
 

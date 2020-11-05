@@ -6,16 +6,16 @@ import GenericButton, {
 } from "@kaizen/draft-button/KaizenDraft/Button/components/GenericButton"
 import { Menu, MenuContent, MenuItem, MenuItemProps } from "@kaizen/draft-menu"
 import * as React from "react"
+import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
+import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
+import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
+import Toolbar from "./Toolbar"
 import {
   TitleBlockButtonProps,
   isMenuGroupNotButton,
   PrimaryActionProps,
   BadgeProps,
 } from "./TitleBlockZen"
-import Toolbar from "./Toolbar"
-import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
-import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
-import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 
 import styles from "./TitleBlockZen.scss"
 

@@ -2,15 +2,14 @@ import * as React from "react"
 import { createPortal } from "react-dom"
 import FocusLock from "react-focus-lock"
 import uuid from "uuid/v4"
-const { CSSTransition } = require("react-transition-group")
+import { warn } from "@kaizen/component-library/util/console"
 import {
   ModalAccessibleContext,
   ModalAccessibleContextType,
 } from "./ModalAccessibleContext"
 
-import { warn } from "@kaizen/component-library/util/console"
-
 import styles from "./GenericModal.scss"
+const { CSSTransition } = require("react-transition-group")
 
 interface GenericModalContainerProps {
   readonly isOpen: boolean

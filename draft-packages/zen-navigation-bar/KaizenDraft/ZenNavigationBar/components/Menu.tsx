@@ -6,15 +6,14 @@ import { OffCanvasContext, ZenOffCanvas } from "@kaizen/draft-zen-off-canvas"
 
 import classNames from "classnames"
 import Media from "react-media"
+import arrowLeftIcon from "@kaizen/component-library/icons/arrow-left.icon.svg"
+import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import { NavBarContext } from "../context"
 import { LinkProps, MenuProps, NavigationItem } from "../types"
 import Dropdown from "./Dropdown"
 import Link from "./Link"
 import MenuGroup from "./MenuGroup"
 import Indicator from "./Indicator"
-
-import arrowLeftIcon from "@kaizen/component-library/icons/arrow-left.icon.svg"
-import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 
 import styles from "./Menu.module.scss"
 

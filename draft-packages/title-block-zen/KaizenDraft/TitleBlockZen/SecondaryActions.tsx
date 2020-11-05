@@ -1,10 +1,10 @@
 import { Button, IconButton } from "@kaizen/draft-button"
 import { Menu, MenuContent, MenuItem } from "@kaizen/draft-menu"
 import * as React from "react"
-import { SecondaryActionsProps, TitleBlockMenuItemProps } from "./TitleBlockZen"
-import Toolbar from "./Toolbar"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
+import { SecondaryActionsProps, TitleBlockMenuItemProps } from "./TitleBlockZen"
+import Toolbar from "./Toolbar"
 
 import styles from "./TitleBlockZen.scss"
 

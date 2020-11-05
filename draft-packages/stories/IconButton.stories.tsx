@@ -1,8 +1,8 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
-import { IconButton } from "../button"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 
 import * as React from "react"
+import { IconButton } from "../button"
 
 export default {
   title: "IconButton (React)",
