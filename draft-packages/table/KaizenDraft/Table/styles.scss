@@ -35,10 +35,11 @@ $row-height: 60px;
   text-overflow: ellipsis;
   overflow-x: hidden;
   white-space: nowrap;
+  // The 8px usually makes the height of the header cell 40px
   padding: 8px $ca-grid;
   display: flex;
   align-items: center;
-  text-align: left;
+  text-align: start;
   justify-content: flex-start;
 }
 
@@ -52,7 +53,7 @@ $row-height: 60px;
 }
 
 .headerRowCellAlignEnd {
-  text-align: right;
+  text-align: end;
   justify-content: flex-end;
 }
 

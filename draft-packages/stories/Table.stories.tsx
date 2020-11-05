@@ -324,7 +324,28 @@ export const HeaderAlignmentAndWrapping = () => (
         </TableHeaderRow>
       </TableHeader>
       <TableCard>
-        <ExampleTableRow multiline expandable={false} />
+        <TableRow>
+          <TableRowCell width={1 / 4}>
+            <Paragraph tag="div" variant="body">
+              This is a resource label
+            </Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 4}>
+            <Paragraph tag="div" variant="body">
+              Supplementary information
+            </Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 4}>
+            <Paragraph tag="div" variant="body">
+              Jan 1, 2017
+            </Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 4}>
+            <div className={styles.countAndExpander}>
+              <Paragraph variant="body">24</Paragraph>
+            </div>
+          </TableRowCell>
+        </TableRow>
       </TableCard>
     </TableContainer>
   </Container>
