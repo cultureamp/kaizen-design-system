@@ -55,6 +55,8 @@ A "read-only" form element cannot be modified, but can otherwise be focused, rea
 
 ### Working State
 
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D84287%253A39155" allowfullscreen></iframe> 
+
 The "working" state applies to buttons, in particular, situations where a button action triggers a change in UI state but needs to wait for a server response, such as submitting a form. [Don't disable buttons while submitting forms with ajax](https://gomakethings.com/dont-disable-buttons-while-submitting-forms-with-ajax/) by Chris Ferdinandi summarises why this is especially important for screen reader and keyboard users. 
 
 To indicate this to the user, the button triggering the action changes to a 'working' state while it waits. The label and/or icons visually disappear (while maintaining the space it once contained) and a loading spinner is centered in its position on the button. 
