@@ -1,7 +1,7 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { Button, CustomButtonProps, ButtonRef } from "../button"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
-import React, { useCallback, useRef } from "react"
+import React, { useCallback, useRef, useState } from "react"
 
 export default {
   title: "Button (Zen) (React)",
@@ -27,7 +27,7 @@ const reversedBg = {
   },
 }
 
-const clickAction = () => alert("This shouldn't fire")
+const clickAction = () => alert("This shouldn't fire when button is working")
 
 export const DefaultKaizenSiteDemo = args => <Button {...args} />
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
@@ -37,15 +37,27 @@ export const DefaultDisabled = args => (
 )
 DefaultDisabled.storyName = "Default, Disabled"
 
-export const DefaultWorking = () => (
-  <Button
-    label="Label"
-    onClick={clickAction}
-    working
-    workingLabel="Submitting"
-    workingLabelHidden
-  />
-)
+export const DefaultWorking = () => {
+  const [working, setWorking] = useState(false)
+  return (
+    <>
+      <Button
+        label="Click here to test"
+        onClick={() => setWorking(!working)}
+        primary
+      />
+      <div style={{ marginTop: "10px" }}>
+        <Button
+          label="Label"
+          onClick={clickAction}
+          working={working}
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
+      </div>
+    </>
+  )
+}
 
 DefaultWorking.story = {
   name: "Default, Working",
