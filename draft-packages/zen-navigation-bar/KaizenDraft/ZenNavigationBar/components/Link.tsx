@@ -25,6 +25,13 @@ class Link extends React.PureComponent<LinkProps> {
     showIndicator: false,
   }
 
+  toolId: string
+
+  constructor(props: LinkProps) {
+    super(props)
+    this.toolId = uuid()
+  }
+
   render = () => {
     const { handleNavigationChange, hasExtendedNavigation } = this.context
     const {
@@ -46,8 +53,6 @@ class Link extends React.PureComponent<LinkProps> {
       showIndicator,
     } = this.props
 
-    const toolId = uuid()
-
     return (
       <>
         {icon && small && (
@@ -58,7 +63,7 @@ class Link extends React.PureComponent<LinkProps> {
               matches ? null : (
                 <ReactTooltip
                   className={hasExtendedNavigation}
-                  id={toolId}
+                  id={this.toolId}
                   place={"left"}
                   effect={"solid"}
                 >
@@ -96,7 +101,7 @@ class Link extends React.PureComponent<LinkProps> {
             href,
             id,
             target,
-            ...(!!icon && { "data-tip": true, "data-for": toolId }),
+            ...(!!icon && { "data-tip": true, "data-for": this.toolId }),
           }}
         >
           <span className={styles.hoverArea}>
