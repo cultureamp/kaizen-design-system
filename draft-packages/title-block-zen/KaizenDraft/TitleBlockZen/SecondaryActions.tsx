@@ -25,8 +25,8 @@ const renderSecondaryOverflowMenu = (
       button={<IconButton label="" reversed={reversed} icon={meatballsIcon} />}
     >
       <MenuContent>
-        {secondaryOverflowMenuItems.map(menuItem => (
-          <MenuItem {...menuItem} />
+        {secondaryOverflowMenuItems.map((menuItem, i) => (
+          <MenuItem {...menuItem} key={i} /> // We shouldn't use an index here, see note below
         ))}
       </MenuContent>
     </Menu>
