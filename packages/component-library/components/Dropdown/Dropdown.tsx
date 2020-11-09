@@ -21,6 +21,9 @@ export type DropdownProps = {
   iconPosition?: "start" | "end"
 }
 
+/**
+ * @deprecated Dropdown is deprecated. Please use draft-menu instead.
+ */
 class Dropdown extends React.Component<DropdownProps, DropdownState> {
   static displayName = "Dropdown"
   static defaultProps = {
