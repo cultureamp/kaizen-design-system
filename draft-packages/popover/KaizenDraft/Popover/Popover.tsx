@@ -23,6 +23,9 @@ export interface Props {
   readonly singleLine?: boolean
   readonly children: React.ReactNode
   readonly boxOffset?: BoxOffset
+  // For almost all intents and purposes, you should be using a pre-defined variant.
+  // Please avoid using a custom icon unless you have a very good reason to do so.
+  readonly customIcon?: React.SVGAttributes<SVGSymbolElement>
 }
 
 type Variant =
@@ -63,6 +66,7 @@ const Popover: Popover = React.forwardRef<HTMLDivElement, Props>(
       onClose,
       singleLine = false,
       boxOffset,
+      customIcon,
     },
     ref
   ) => (
@@ -81,7 +85,10 @@ const Popover: Popover = React.forwardRef<HTMLDivElement, Props>(
                   mapVariantToIconClass(variant)
                 )}
               >
-                <Icon role="presentation" icon={mapVariantToIcon(variant)} />
+                <Icon
+                  role="presentation"
+                  icon={customIcon ? customIcon : mapVariantToIcon(variant)}
+                />
               </span>
             )}
             <div className={styles.singleLine}>{heading}</div>
