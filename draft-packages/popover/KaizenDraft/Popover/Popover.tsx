@@ -23,8 +23,8 @@ export interface Props {
   readonly singleLine?: boolean
   readonly children: React.ReactNode
   readonly boxOffset?: BoxOffset
-  // For almost all intents and purposes, you should be using a pre-defined variant.
-  // Please avoid using a custom icon unless you have a very good reason to do so.
+  /** For almost all intents and purposes, you should be using a pre-defined variant.
+  Please avoid using a custom icon unless you have a very good reason to do so. **/
   readonly customIcon?: React.SVGAttributes<SVGSymbolElement>
 }
 
