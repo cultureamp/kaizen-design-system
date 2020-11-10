@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@2.0.5...@kaizen/draft-table@2.1.0) (2020-11-10)
+
+
+### Features
+
+* Add table header wrapping and alignment support ([#851](https://github.com/cultureamp/kaizen-design-system/issues/851)) ([b26df68](https://github.com/cultureamp/kaizen-design-system/commit/b26df6888d2c701711b55778138963163d51b17a))
+
+
+
+
+
 ## [2.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@2.0.4...@kaizen/draft-table@2.0.5) (2020-11-09)
 
 **Note:** Version bump only for package @kaizen/draft-table
