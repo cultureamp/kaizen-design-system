@@ -35,10 +35,26 @@ $row-height: 60px;
   text-overflow: ellipsis;
   overflow-x: hidden;
   white-space: nowrap;
-  padding: 0 $ca-grid;
-  height: $ca-grid * 1.5;
+  // The 8px usually makes the height of the header cell 40px
+  padding: 8px $ca-grid;
   display: flex;
   align-items: center;
+  text-align: start;
+  justify-content: flex-start;
+}
+
+.headerRowCellWrap {
+  white-space: normal;
+}
+
+.headerRowCellAlignCenter {
+  text-align: center;
+  justify-content: center;
+}
+
+.headerRowCellAlignEnd {
+  text-align: end;
+  justify-content: flex-end;
 }
 
 .headerRowCellCheckbox {
