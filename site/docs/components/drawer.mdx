@@ -34,7 +34,7 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 **Use Small Drawers (375 px):**
 *   When it’s important to stay in context and when the action applies changes to the parent page.
-*   When you expect this functionality to be required on mobile. Because a small drawer does not need to rearrange or re-flow like a page or modal does, it is often a friendlier experience on mobile. 
+*   When you expect this functionality to be required on mobile. Because a small drawer looks the same as it does on a mobile vs. a desktop, it can often provide a friendlier experience on mobile. 
 *   When you can structure content using just headings or [collapsible rows](/components/collapsible/) (i.e. you do not require additional navigation like tabs). 
 
 ### Overlay vs Parallel
@@ -76,7 +76,7 @@ Users can dismiss a Drawer by:
 
 ### Mobile/Responsiveness
 
-*   A Small Drawer maintains the same behavior all the way down to viewports of 300px, at which point it begins taking up 100% of the viewport width.
+*   A Small Drawer maintains the same behavior all the way down to viewports of 405px (375px + 20px), at which point it begins taking up 100% of the viewport width.
 *   A Medium Drawer will need to reflow when the viewport is <600px. If you expect this functionality to be used heavily on mobile, consider whether a Medium Drawer would work instead. 
 
 ### Animation and loading
@@ -92,7 +92,8 @@ Users can dismiss a Drawer by:
 ### Accessibility
 *   Drawer states (open/closed) should be announced by a screen reader. 
 *   The focus should move to the drawer heading once opened. 
-*   An intentional keyboard trap keeps tab order (looped) within the drawer until it is closed. This is so a user cannot focus on anything outside the drawer. 
+*   A Small Drawer should use an intentional keyboard trap that keeps tab order (looped) within the drawer until it is closed. This is so a user cannot focus on anything outside the drawer. 
+*   A Medium Drawer may use a keyboard trap, depending on its functionality, however it is not required as Medium Drawers allow clickable actions outside the drawer.
 *   The Esc key should close the drawer along with the close icon.
 
 ## When to use and when not to use
