@@ -34,21 +34,25 @@ const ExampleTableHeaderRow = ({ checkable = false }) => (
       onClick={() => alert("Sort!")}
       labelText="Resource name"
       width={4 / 12}
+      wrapping="wrap"
     />
     <TableHeaderRowCell
       onClick={() => alert("Sort!")}
       labelText="Supplementary information"
       width={4 / 12}
+      wrapping="wrap"
     />
     <TableHeaderRowCell
       labelText="Date"
       width={2 / 12}
       onClick={() => alert("Sort!")}
+      wrapping="wrap"
     />
     <TableHeaderRowCell
       labelText="Comments"
       width={2 / 12}
       onClick={() => alert("Sort!")}
+      wrapping="wrap"
     />
   </TableHeaderRow>
 )
@@ -289,3 +293,62 @@ export const ExtraSpacing = () => (
 )
 
 ExtraSpacing.storyName = "Default variant (extra spacing)"
+
+export const HeaderAlignmentAndWrapping = () => (
+  <Container>
+    <TableContainer>
+      <TableHeader>
+        <TableHeaderRow>
+          <TableHeaderRowCell
+            labelText="Left header align with wrapping"
+            width={1 / 4}
+            wrapping="wrap"
+          />
+          <TableHeaderRowCell
+            labelText="Center header align with wrapping"
+            width={1 / 4}
+            wrapping="wrap"
+            align="center"
+          />
+          <TableHeaderRowCell
+            labelText="Right header align with wrapping"
+            width={1 / 4}
+            wrapping="wrap"
+            align="end"
+          />
+          <TableHeaderRowCell
+            labelText="This column has no wrapping"
+            width={1 / 4}
+            wrapping="nowrap"
+          />
+        </TableHeaderRow>
+      </TableHeader>
+      <TableCard>
+        <TableRow>
+          <TableRowCell width={1 / 4}>
+            <Paragraph tag="div" variant="body">
+              This is a resource label
+            </Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 4}>
+            <Paragraph tag="div" variant="body">
+              Supplementary information
+            </Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 4}>
+            <Paragraph tag="div" variant="body">
+              Jan 1, 2017
+            </Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 4}>
+            <div className={styles.countAndExpander}>
+              <Paragraph variant="body">24</Paragraph>
+            </div>
+          </TableRowCell>
+        </TableRow>
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+
+HeaderAlignmentAndWrapping.storyName = "Header alignments and wrapping"
