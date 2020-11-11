@@ -31,53 +31,83 @@ $row-height: 60px;
 }
 
 .headerRowCell {
-  @include button-reset;
-  text-overflow: ellipsis;
-  overflow-x: hidden;
-  white-space: nowrap;
-  // The 8px usually makes the height of the header cell 40px
-  padding: 8px $ca-grid;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   text-align: start;
   justify-content: flex-start;
+  // This is required as so the tooltip will display directly above the header cell
+  position: relative;
 }
 
-.headerRowCellWrap {
-  white-space: normal;
+.headerRowCellNoWrap {
+  .headerRowCellLabel {
+    // It appears that this ellipsis is not showing 🤔
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
 }
 
 .headerRowCellAlignCenter {
-  text-align: center;
-  justify-content: center;
+  .headerRowCellLabelAndIcons {
+    text-align: center;
+    justify-content: center;
+  }
 }
 
 .headerRowCellAlignEnd {
-  text-align: end;
-  justify-content: flex-end;
+  .headerRowCellLabelAndIcons {
+    text-align: end;
+    justify-content: flex-end;
+  }
 }
 
 .headerRowCellCheckbox {
   margin-right: 10px;
 }
 
-.headerRowCellCheckboxContainer {
+// The .headerRowCell wrapper is required to increase the specificity, as so
+// we can override the `Tooltip` component's styling.
+.headerRowCell .headerRowCellTooltip {
+  flex: 1 1 100%;
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+}
+
+.headerRowCellButton {
+  @include button-reset;
+}
+
+.headerRowCellButton,
+.headerRowCellNoButton {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  // The 8px usually makes the height of the header cell 40px
+  padding: 8px $ca-grid;
+  // Ensures that the 100% doesn't go outside of the `headerRowCell` width
+  box-sizing: border-box;
+}
+
+.headerRowCellLabelAndIcons {
   display: flex;
   align-items: center;
+  flex: 1 1 100%;
+  width: 100%;
+}
+
+.headerRowCellTooltipIcon {
+  color: $kz-color-cluny-500;
+  margin-right: $ca-grid / 4;
 }
 
 .headerRowCellIcon {
   color: $kz-color-wisteria-500;
   height: 20px;
 
-  .active & {
+  .headerRowCellActive & {
     color: $kz-color-wisteria-800;
-  }
-}
-
-.active {
-  .header & {
-    background-color: $kz-color-wisteria-100;
   }
 }
 
