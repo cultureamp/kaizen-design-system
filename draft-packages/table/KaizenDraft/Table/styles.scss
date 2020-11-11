@@ -68,13 +68,11 @@ $row-height: 60px;
 
 // The .headerRowCell wrapper is required to increase the specificity, as so
 // we can override the `Tooltip` component's styling.
-.headerRowCell {
-  .headerRowCellTooltip {
-    flex: 1 1 100%;
-    width: 100%;
-    display: flex;
-    align-items: stretch;
-  }
+.headerRowCell .headerRowCellTooltip {
+  flex: 1 1 100%;
+  width: 100%;
+  display: flex;
+  align-items: stretch;
 }
 
 .headerRowCellButton {
