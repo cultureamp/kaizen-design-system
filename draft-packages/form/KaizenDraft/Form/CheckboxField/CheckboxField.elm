@@ -3,6 +3,7 @@ module KaizenDraft.Form.CheckboxField.CheckboxField exposing
     , Config
     , checkedStatus
     , default
+    , description
     , disabled
     , id
     , inline
@@ -10,6 +11,9 @@ module KaizenDraft.Form.CheckboxField.CheckboxField exposing
     , labelText
     , name
     , onCheck
+    , reversed
+    , status
+    , validationMessage
     , view
     )
 
@@ -17,6 +21,7 @@ import CssModules exposing (css)
 import Html exposing (..)
 import KaizenDraft.Form.Primitives.Checkbox.Checkbox as Checkbox
 import KaizenDraft.Form.Primitives.FieldGroup.FieldGroup as FieldGroup
+import KaizenDraft.Form.Primitives.FieldMessage.FieldMessage as FieldMessage
 import KaizenDraft.Form.Primitives.Label.Label as Label
 
 
@@ -28,6 +33,7 @@ styles =
         , disabled = "disabled"
         , checked = "checked"
         , mixed = "mixed"
+        , description = "description"
         }
 
 
@@ -47,6 +53,10 @@ type alias ConfigValue msg =
     , onCheck : Maybe (Bool -> msg)
     , disabled : Bool
     , inline : Bool
+    , description : Maybe (List (Html msg))
+    , reversed : Bool
+    , validationMessage : Maybe String
+    , status : Checkbox.CheckedStatus
     }
 
 
@@ -59,6 +69,10 @@ defaults =
     , onCheck = Nothing
     , disabled = False
     , inline = False
+    , description = Nothing
+    , reversed = False
+    , validationMessage = Nothing
+    , status = Checkbox.Default
     }
 
 
@@ -66,6 +80,12 @@ type CheckedValue
     = On
     | Off
     | Mixed
+
+
+type CheckedStatus
+    = Default
+    | Success
+    | Error
 
 
 
@@ -119,6 +139,26 @@ checkedStatus value (Config config) =
 inline : Bool -> Config msg -> Config msg
 inline value (Config config) =
     Config { config | inline = value }
+
+
+description : List (Html msg) -> Config msg -> Config msg
+description value (Config config) =
+    Config { config | description = Just value }
+
+
+reversed : Bool -> Config msg -> Config msg
+reversed value (Config config) =
+    Config { config | reversed = value }
+
+
+validationMessage : String -> Config msg -> Config msg
+validationMessage value (Config config) =
+    Config { config | validationMessage = Just value }
+
+
+status : Checkbox.CheckedStatus -> Config msg -> Config msg
+status value (Config config) =
+    Config { config | status = value }
 
 
 view : Config msg -> Html msg
@@ -189,9 +229,50 @@ view (Config config) =
                     |> Checkbox.disabled config.disabled
                     |> Checkbox.checkedStatus checkboxCheckedStatusProp
                     |> Checkbox.name nameProp
+                    |> Checkbox.reversed config.reversed
+                    |> Checkbox.status config.status
                     |> maybeWithOnCheckProp
                 )
             ]
+
+        fieldDescriptionHtml =
+            div
+                [ styles.class .description ]
+                [ FieldMessage.view
+                    (FieldMessage.default
+                        |> FieldMessage.id (idProp ++ "-field-description")
+                        |> FieldMessage.automationId (idProp ++ "-field-description")
+                        |> FieldMessage.messageHtml config.description
+                        |> FieldMessage.status FieldMessage.Default
+                        |> FieldMessage.reversed config.reversed
+                    )
+                ]
+
+        fieldValidationMessageStatusProp =
+            case config.status of
+                Checkbox.Success ->
+                    FieldMessage.Success
+
+                Checkbox.Error ->
+                    FieldMessage.Error
+
+                Checkbox.Default ->
+                    FieldMessage.Default
+
+        fieldValidationMessageHtml =
+            case config.validationMessage of
+                Just validationMessageString ->
+                    FieldMessage.view
+                        (FieldMessage.default
+                            |> FieldMessage.id (idProp ++ "-field-validation-message")
+                            |> FieldMessage.automationId (idProp ++ "-field-validation-message")
+                            |> FieldMessage.message validationMessageString
+                            |> FieldMessage.status fieldValidationMessageStatusProp
+                            |> FieldMessage.reversed config.reversed
+                        )
+
+                Nothing ->
+                    text ""
     in
     FieldGroup.view
         (FieldGroup.default
@@ -214,6 +295,13 @@ view (Config config) =
                 |> Label.htmlFor (idProp ++ "-field-checkbox")
                 |> Label.labelText config.labelText
                 |> Label.labelType Label.Checkbox
+                |> Label.reversed config.reversed
                 |> Label.children checkboxInput
             )
+        , if config.status == Checkbox.Error then
+            fieldValidationMessageHtml
+
+          else
+            text ""
+        , fieldDescriptionHtml
         ]
