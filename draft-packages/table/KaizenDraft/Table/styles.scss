@@ -69,7 +69,9 @@ $row-height: 60px;
 .headerRowCellTooltip {
   flex: 1 1 100%;
   width: 100%;
+  /* stylelint-disable */
   display: flex !important; // We need to override the Tooltip styling 😬
+  /* stylelint-enable */
   align-items: stretch;
 }
 
