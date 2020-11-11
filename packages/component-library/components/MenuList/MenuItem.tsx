@@ -6,6 +6,9 @@ import { Icon } from "../Icon"
 
 import styles from "./Menu.module.scss"
 
+/**
+ * @deprecated MenuItem is deprecated. Please use draft-menu instead (it has its own menu item component).
+ */
 const MenuItem = (props: {
   icon?: React.SVGAttributes<SVGSymbolElement>
   hoverIcon?: boolean

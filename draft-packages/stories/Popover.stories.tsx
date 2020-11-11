@@ -1,5 +1,8 @@
+import { DismissiblePositiveAutohide } from "@kaizen/component-library/stories/InlineNotification.stories"
 import { Popover } from "@kaizen/draft-popover"
 import * as React from "react"
+import { Avatar } from "../avatar"
+import guidanceIcon from "@kaizen/component-library/icons/guidance.icon.svg"
 
 export default {
   title: "Popover (React)",
@@ -89,6 +92,21 @@ export const InformativeLargeWithSingleLine = () => (
 )
 
 InformativeLargeWithSingleLine.storyName = "Informative Large with singleLine"
+
+export const InformativeWithCustomIcon = () => (
+  <Container>
+    <Popover
+      heading="Informative"
+      variant="informative"
+      customIcon={guidanceIcon}
+    >
+      Popover body that explains something useful, is optional, and not critical
+      to completing a task.
+    </Popover>
+  </Container>
+)
+
+InformativeWithCustomIcon.storyName = "Informative with a custom icon"
 
 export const Positive = () => (
   <Container>
@@ -195,3 +213,17 @@ export const BoxOffset = () => (
 )
 
 BoxOffset.storyName = "Box offset"
+
+export const BoxWithYOffset = () => (
+  <Container>
+    <Popover heading="Default" boxOffset={{ yOffset: "calc(-100% + -12px)" }}>
+      Popover body that explains something useful, is optional, and not critical
+      to completing a task.
+    </Popover>
+    <div style={{ margin: "200px auto auto", width: "fit-content" }}>
+      <Avatar fullName="Test user"></Avatar>
+    </div>
+  </Container>
+)
+
+BoxWithYOffset.storyName = "Popover with Y offset positioning"

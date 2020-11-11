@@ -106,7 +106,7 @@ const GenericButton = forwardRef(
         )
       }
 
-      if (props.href && !props.disabled && !("working" in props)) {
+      if (props.href && !props.disabled && !props.working) {
         return renderLink(props, buttonRef as Ref<HTMLAnchorElement>)
       }
 
@@ -181,8 +181,8 @@ const renderButton = (props: Props, ref: Ref<HTMLButtonElement>) => {
       onMouseDown={(e: any) => onMouseDown && onMouseDown(e)}
       type={type}
       title={label}
-      aria-label={("working" in props && props.workingLabel) || label}
-      aria-disabled={disabled || "working" in props ? true : undefined}
+      aria-label={(props.working && props.workingLabel) || label}
+      aria-disabled={disabled || props.working ? true : undefined}
       tabIndex={
         disableTabFocusAndIUnderstandTheAccessibilityImplications
           ? -1
@@ -243,7 +243,7 @@ const buttonClass = (props: Props) => {
     [styles.reverseColorSeedling]: props.reverseColor === "seedling",
     [styles.reverseColorWisteria]: props.reverseColor === "wisteria",
     [styles.reverseColorYuzu]: props.reverseColor === "yuzu",
-    [styles.working]: !props.iconButton && "working" in props,
+    [styles.working]: !props.iconButton && props.working,
   })
 }
 
@@ -299,7 +299,7 @@ const renderDefaultContent = props => (
 
 const renderContent: React.FunctionComponent<Props> = props => (
   <span className={styles.content}>
-    {"working" in props && !props.iconButton
+    {props.working && !props.iconButton
       ? renderWorkingContent(props)
       : renderDefaultContent(props)}
   </span>
