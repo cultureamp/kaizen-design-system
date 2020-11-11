@@ -12,6 +12,9 @@ type DropdownMenuProps = {
   } | null
 }
 
+/**
+ * @deprecated DropdownMenu is deprecated. Please use draft-menu instead.
+ */
 class DropdownMenu extends React.Component<DropdownMenuProps> {
   static displayName = "DropdownMenu"
   menu = React.createRef<HTMLDivElement>()

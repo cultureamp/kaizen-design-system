@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.5.2...@kaizen/draft-popover@1.6.0) (2020-11-10)
+
+
+### Features
+
+* Allow custom icons for popovers ([#857](https://github.com/cultureamp/kaizen-design-system/issues/857)) ([5f7a223](https://github.com/cultureamp/kaizen-design-system/commit/5f7a223505dc88e2f282e4dde47ae833aa9a1c13))
+
+
+
+
+
+## [1.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.5.1...@kaizen/draft-popover@1.5.2) (2020-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [1.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.5.0...@kaizen/draft-popover@1.5.1) (2020-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
 # [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.4.45...@kaizen/draft-popover@1.5.0) (2020-10-29)
 
 

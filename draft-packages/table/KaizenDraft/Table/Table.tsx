@@ -79,6 +79,8 @@ type TableHeaderRowCell = React.FunctionComponent<{
   checkedStatus?: CheckedStatus
   onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
   active?: boolean
+  wrapping?: "nowrap" | "wrap"
+  align?: "start" | "center" | "end"
 }>
 export const TableHeaderRowCell: TableHeaderRowCell = ({
   onClick,
@@ -91,6 +93,14 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   onCheck,
   active,
   automationId,
+  // I can't say for cetin why "nowrap" was the default value. Normally you wouldn't
+  // want to clip off information because it doesn't fit on one line.
+  // My assumption is that because since the cell width rows are decoupled, a heading
+  // cell with a word longer than the column width would push the columns out of
+  // alignment? I'm not sure.
+  // Anyway, we can override this default behaviour by setting wrapping to "wrap".
+  wrapping = "nowrap",
+  align = "start",
   ...otherProps
 }) => {
   const label = icon ? (
@@ -122,11 +132,19 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
     width: ratioToPercent(width),
     flex,
   }
+  const classes = classNames(styles.headerRowCell, {
+    [styles.headerRowCellWrap]: wrapping === "wrap",
+    [styles.headerRowCellAlignCenter]: align === "center",
+    [styles.headerRowCellAlignEnd]: align === "end",
+  })
+
   return onClick ? (
     <button
       data-automation-id={automationId}
       style={style}
-      className={classNames(styles.headerRowCell, { [styles.active]: active })}
+      className={classNames(classes, {
+        [styles.active]: active,
+      })}
       onClick={onClick}
       role="columnheader"
       {...otherProps}
@@ -138,7 +156,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
     <div
       data-automation-id={automationId}
       style={style}
-      className={styles.headerRowCell}
+      className={classes}
       role="columnheader"
       {...otherProps}
     >
