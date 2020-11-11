@@ -165,7 +165,10 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
 
   cellContents =
     tooltipInfo != null ? (
-      <Tooltip text={tooltipInfo} className={styles.headerRowCellTooltip}>
+      <Tooltip
+        text={tooltipInfo}
+        classNameAndIHaveSpokenToDST={styles.headerRowCellTooltip}
+      >
         {cellContents}
       </Tooltip>
     ) : (

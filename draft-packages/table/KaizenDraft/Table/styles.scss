@@ -66,13 +66,15 @@ $row-height: 60px;
   margin-right: 10px;
 }
 
-.headerRowCellTooltip {
-  flex: 1 1 100%;
-  width: 100%;
-  /* stylelint-disable */
-  display: flex !important; // We need to override the Tooltip styling 😬
-  /* stylelint-enable */
-  align-items: stretch;
+// The .headerRowCell wrapper is required to increase the specificity, as so
+// we can override the `Tooltip` component's styling.
+.headerRowCell {
+  .headerRowCellTooltip {
+    flex: 1 1 100%;
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+  }
 }
 
 .headerRowCellButton {
