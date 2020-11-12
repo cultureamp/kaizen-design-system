@@ -14,7 +14,7 @@
 }
 
 .titleBlock {
-  background-color: #fff;
+  background-color: white;
   border-bottom: 1px solid $ca-border-color;
   width: inherit;
 
@@ -127,7 +127,7 @@
   .breadcrumb:hover &,
   .breadcrumb:focus & {
     background-color: $kz-color-cluny-500;
-    color: #fff;
+    color: white;
     transform: scale(1.1);
   }
 }
@@ -268,7 +268,7 @@
     margin: 0;
     border-bottom: 1px solid $ca-border-color;
     width: 100%;
-    background: #fff;
+    background: white;
   }
 
   .navButtonsContainer {
@@ -296,16 +296,16 @@
 //--------------------- REVERSE COLORS ---------------------//
 
 .reversed {
-  color: #fff;
+  color: white;
 
   @include ca-media-tablet-and-up {
     .title {
-      color: #fff;
+      color: white;
     }
   }
 
   .subtitle {
-    color: #fff;
+    color: white;
   }
 
   .breadcrumb {
@@ -313,13 +313,13 @@
 
     &:hover {
       .circle {
-        background-color: add-alpha(#fff, 40%);
+        background-color: add-alpha(white, 40%);
       }
     }
   }
 
   .circle {
-    background-color: add-alpha(#fff, 20%);
+    background-color: add-alpha(white, 20%);
     color: $kz-color-white;
   }
 
@@ -331,7 +331,7 @@
     background-color: transparent;
 
     @include ca-media-mobile {
-      border-bottom: 1px solid #fff;
+      border-bottom: 1px solid white;
     }
   }
 }
