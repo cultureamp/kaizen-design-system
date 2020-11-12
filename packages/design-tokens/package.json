@@ -21,7 +21,7 @@
     "build": "yarn clean && yarn prepublish",
     "build:less": "json-to-flat-sass './tokens/*.json' 'less' --extension 'less' --caseType 'kebab' && prettier less/* --write",
     "build:sass": "json-to-flat-sass './tokens/*.json' 'sass' --extension 'scss' --caseType 'kebab' && prettier sass/* --write",
-    "clean": "rimraf 'dist/**' 'tokens/*.js'",
+    "clean": "rimraf 'dist/**' 'tokens/**/*.js' 'tokens/**/*.d.ts' 'tokens/**/*.map'",
     "prepublish": "yarn build:less && yarn build:sass"
   },
   "devDependencies": {
