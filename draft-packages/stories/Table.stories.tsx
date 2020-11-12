@@ -15,8 +15,13 @@ import {
 } from "../table"
 import styles from "./Table.stories.scss"
 
-const Container: React.FunctionComponent = ({ children }) => (
-  <div style={{ margin: "1rem auto", width: "100%", maxWidth: "60rem" }}>
+const Container: React.FunctionComponent<{
+  children: React.ReactNode
+  style?: Record<string, string>
+}> = ({ children, style }) => (
+  <div
+    style={{ margin: "1rem auto", width: "100%", maxWidth: "60rem", ...style }}
+  >
     {children}
   </div>
 )
@@ -316,7 +321,7 @@ export const HeaderAlignmentAndWrapping = () => (
             align="end"
           />
           <TableHeaderRowCell
-            labelText="This column has no wrapping"
+            labelText="This column has no wrapping. This column has no wrapping."
             width={1 / 4}
             wrapping="nowrap"
           />
@@ -343,6 +348,65 @@ export const HeaderAlignmentAndWrapping = () => (
             <div className={styles.countAndExpander}>
               <Paragraph variant="body">24</Paragraph>
             </div>
+          </TableRowCell>
+        </TableRow>
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+
+HeaderAlignmentAndWrapping.storyName = "Header alignments and wrapping"
+
+export const Tooltip = () => (
+  // Extra margin added, so we can see the tooltip above
+  <Container style={{ marginTop: "200px" }}>
+    <TableContainer>
+      <TableHeader>
+        <TableHeaderRow>
+          <TableHeaderRowCell
+            labelText="This column has no tooltip"
+            width={1 / 4}
+          />
+          <TableHeaderRowCell
+            labelText="This column has a tooltip"
+            width={1 / 4}
+            tooltipInfo="This is a tooltip"
+          />
+          <TableHeaderRowCell
+            labelText="This column has a tooltip, and has wrapped content!"
+            width={1 / 4}
+            wrapping="wrap"
+            tooltipInfo="This is a tooltip"
+          />
+          <TableHeaderRowCell
+            labelText="End (right) aligned"
+            width={1 / 4}
+            tooltipInfo="This is a tooltip"
+            align="end"
+          />
+        </TableHeaderRow>
+      </TableHeader>
+      <TableCard>
+        <TableRow>
+          <TableRowCell width={1 / 4}>
+            <Paragraph tag="div" variant="body">
+              This is a cell
+            </Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 4}>
+            <Paragraph tag="div" variant="body">
+              This is a cell
+            </Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 4}>
+            <Paragraph tag="div" variant="body">
+              This is a cell
+            </Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 4}>
+            <Paragraph tag="div" variant="body">
+              This is a cell
+            </Paragraph>
           </TableRowCell>
         </TableRow>
       </TableCard>

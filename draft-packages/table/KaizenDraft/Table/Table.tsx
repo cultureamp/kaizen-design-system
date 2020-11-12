@@ -3,6 +3,8 @@ import { Checkbox, CheckedStatus } from "@kaizen/draft-form"
 import classNames from "classnames"
 import * as React from "react"
 import sortDescendingIcon from "@kaizen/component-library/icons/sort-descending.icon.svg"
+import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
+import { Tooltip } from "@kaizen/draft-tooltip"
 import styles from "./styles.scss"
 
 type TableContainer = React.FunctionComponent<TableContainerProps>
@@ -81,18 +83,19 @@ type TableHeaderRowCell = React.FunctionComponent<{
   active?: boolean
   wrapping?: "nowrap" | "wrap"
   align?: "start" | "center" | "end"
+  tooltipInfo?: string
 }>
 export const TableHeaderRowCell: TableHeaderRowCell = ({
+  labelText,
+  automationId,
   onClick,
   width,
   flex,
-  labelText,
   icon,
   checkable,
   checkedStatus,
   onCheck,
   active,
-  automationId,
   // I can't say for cetin why "nowrap" was the default value. Normally you wouldn't
   // want to clip off information because it doesn't fit on one line.
   // My assumption is that because since the cell width rows are decoupled, a heading
@@ -101,14 +104,20 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   // Anyway, we can override this default behaviour by setting wrapping to "wrap".
   wrapping = "nowrap",
   align = "start",
+  tooltipInfo,
+  // There aren't any other props in the type definition, so I'm unsure why we
+  // have this spread.
   ...otherProps
 }) => {
-  const label = icon ? (
-    <span className={styles.headerRowCellIcon}>
-      <Icon icon={icon} title={labelText} />
-    </span>
-  ) : (
-    <div className={styles.headerRowCellCheckboxContainer}>
+  // For this "cellContents" variable, we start at the inner most child, and
+  // wrap it elements, depending on what the props dictate.
+  let cellContents = (
+    <div className={styles.headerRowCellLabelAndIcons}>
+      {icon && (
+        <span className={styles.headerRowCellIcon}>
+          <Icon icon={icon} title={labelText} />
+        </span>
+      )}
       {checkable && (
         <div className={styles.headerRowCellCheckbox}>
           <Checkbox
@@ -118,49 +127,73 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
           />
         </div>
       )}
-      <Heading
-        tag="div"
-        variant="heading-6"
-        color={active ? "dark" : "dark-reduced-opacity"}
-      >
-        {labelText}
-      </Heading>
+      {tooltipInfo != null ? (
+        <div className={styles.headerRowCellTooltipIcon}>
+          <Icon icon={exclamationIcon} role="presentation" />
+        </div>
+      ) : null}
+      {/* If an "icon" is supplied, the label is displayed inside the icon aria title instead */}
+      {!icon ? (
+        <div className={styles.headerRowCellLabel}>
+          <Heading
+            tag="div"
+            variant="heading-6"
+            color={active ? "dark" : "dark-reduced-opacity"}
+          >
+            {labelText}
+          </Heading>
+        </div>
+      ) : null}
+      {active && <Icon icon={sortDescendingIcon} role="presentation" />}
     </div>
   )
 
-  const style = {
-    width: ratioToPercent(width),
-    flex,
-  }
-  const classes = classNames(styles.headerRowCell, {
-    [styles.headerRowCellWrap]: wrapping === "wrap",
-    [styles.headerRowCellAlignCenter]: align === "center",
-    [styles.headerRowCellAlignEnd]: align === "end",
-  })
-
-  return onClick ? (
+  cellContents = onClick ? (
     <button
       data-automation-id={automationId}
-      style={style}
-      className={classNames(classes, {
-        [styles.active]: active,
-      })}
+      className={styles.headerRowCellButton}
       onClick={onClick}
-      role="columnheader"
-      {...otherProps}
     >
-      {label}
-      {active && <Icon icon={sortDescendingIcon} role="presentation" />}
+      {cellContents}
     </button>
   ) : (
+    // This div wrapper probably isn't needed, but it's a bit easier
+    // for this flex positioning, to have the dom tree depth match for
+    // each permutation.
+    <div className={styles.headerRowCellNoButton}>{cellContents}</div>
+  )
+
+  cellContents =
+    tooltipInfo != null ? (
+      <Tooltip
+        text={tooltipInfo}
+        classNameAndIHaveSpokenToDST={styles.headerRowCellTooltip}
+      >
+        {cellContents}
+      </Tooltip>
+    ) : (
+      // Again, this wrapper is just to make the dom tree consistent between
+      // different permutations.
+      <div className={styles.headerRowCellTooltip}>{cellContents}</div>
+    )
+
+  return (
     <div
+      className={classNames(styles.headerRowCell, {
+        [styles.headerRowCellNoWrap]: wrapping === "nowrap",
+        [styles.headerRowCellAlignCenter]: align === "center",
+        [styles.headerRowCellAlignEnd]: align === "end",
+        [styles.headerRowCellActive]: active,
+      })}
+      style={{
+        width: ratioToPercent(width),
+        flex,
+      }}
       data-automation-id={automationId}
-      style={style}
-      className={classes}
       role="columnheader"
       {...otherProps}
     >
-      {label}
+      {cellContents}
     </div>
   )
 }

@@ -9,13 +9,18 @@ type Props = {
   position?: Position
   text: string
   children?: React.ReactNode
+  classNameAndIHaveSpokenToDST?: string
 }
 
 const Tooltip = (props: Props) => (
   <span
-    className={classnames(styles.tooltipWrap, {
-      [styles.inline]: props.inline === true,
-    })}
+    className={classnames(
+      styles.tooltipWrap,
+      props.classNameAndIHaveSpokenToDST,
+      {
+        [styles.inline]: props.inline === true,
+      }
+    )}
   >
     {props.children}
     <span

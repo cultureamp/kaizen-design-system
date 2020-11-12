@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@1.6.3...@kaizen/draft-tooltip@1.7.0) (2020-11-11)
+
+
+### Features
+
+* Add tooltip to the Table header ([#859](https://github.com/cultureamp/kaizen-design-system/issues/859)) ([aeafcc9](https://github.com/cultureamp/kaizen-design-system/commit/aeafcc9421aa5ca27b9e1476924c97af144f6e1e))
+
+
+
+
+
 ## [1.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@1.6.2...@kaizen/draft-tooltip@1.6.3) (2020-11-09)
 
 **Note:** Version bump only for package @kaizen/draft-tooltip
