@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.1.1...@kaizen/design-tokens@2.1.2) (2020-11-12)
+
+
+### Bug Fixes
+
+* Add coverage of .js and .d.ts files to clean scripts that were missing them ([#861](https://github.com/cultureamp/kaizen-design-system/issues/861)) ([e1e64e6](https://github.com/cultureamp/kaizen-design-system/commit/e1e64e693244fdc0c21369a353341a962cc990a8))
+
+
+
+
+
 ## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.1.0...@kaizen/design-tokens@2.1.1) (2020-07-15)
 
 **Note:** Version bump only for package @kaizen/design-tokens
