@@ -1,5 +1,4 @@
 import * as React from "react"
-import { Box } from "../components/Box"
 import {
   Title,
   Subtitle,
@@ -9,6 +8,7 @@ import {
   Stories,
   PRIMARY_STORY,
 } from "@storybook/addon-docs/blocks"
+import { Box } from "../components/Box"
 
 export default {
   title: "Box (React)",

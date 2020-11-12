@@ -1,12 +1,11 @@
 import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import * as React from "react"
+import enso from "@kaizen/component-library/icons/ca-monogram.icon.svg"
 import Card from "../Card"
 
-const iconStyles = require("@kaizen/component-library/components/Icon/Icon.module.scss")
-import enso from "@kaizen/component-library/icons/ca-monogram.icon.svg"
-
 import styles from "./IconsPage.scss"
+const iconStyles = require("@kaizen/component-library/components/Icon/Icon.module.scss")
 
 type InteractionStatesProps = {
   dark: boolean

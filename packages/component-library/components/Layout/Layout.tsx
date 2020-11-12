@@ -96,7 +96,7 @@ class Layout extends React.Component {
 
 const extractChildOfType = (
   children: React.ReactNode[],
-  type: React.FunctionComponent<{}>
+  type: React.FunctionComponent
 ) => {
   const match = children.find(child => {
     if (React.isValidElement(child) && typeof child.type === "function") {

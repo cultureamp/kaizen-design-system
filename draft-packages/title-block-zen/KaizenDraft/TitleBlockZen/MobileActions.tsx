@@ -8,6 +8,8 @@ import {
 } from "@kaizen/draft-menu"
 import classnames from "classnames"
 import * as React from "react"
+import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
+import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import {
   TitleBlockButtonProps,
   isMenuGroupNotButton,
@@ -17,8 +19,6 @@ import {
   TitleBlockMenuItemProps,
   convertSecondaryActionsToMenuItems,
 } from "./TitleBlockZen"
-import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
-import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import styles from "./MobileActions.scss"
 
 const buttonIsLink: (action: TitleBlockButtonProps) => boolean = action =>

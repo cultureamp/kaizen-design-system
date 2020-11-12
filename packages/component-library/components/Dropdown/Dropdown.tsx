@@ -1,8 +1,8 @@
+import classNames from "classnames"
+import * as React from "react"
 import { Icon } from "../Icon"
 import chevronDownIcon from "../../icons/chevron-down.icon.svg"
 import ellipsisIcon from "../../icons/ellipsis.icon.svg"
-import classNames from "classnames"
-import * as React from "react"
 import DropdownMenu from "./DropdownMenu"
 
 import styles from "./Dropdown.module.scss"

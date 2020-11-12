@@ -1,7 +1,4 @@
 import React from "react"
-import { Icon } from "../../Icon"
-
-import styles from "./Indicator.module.scss"
 /**
  * Eslint throws a false negative for modules that use require. Ensure you
  * are importing @kaizen/component-library into your package before turning
@@ -9,6 +6,9 @@ import styles from "./Indicator.module.scss"
  */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import fullIcon from "@kaizen/component-library/icons/full.icon.svg"
+import { Icon } from "../../Icon"
+
+import styles from "./Indicator.module.scss"
 
 const Indicator = () => (
   <span className={styles.container}>

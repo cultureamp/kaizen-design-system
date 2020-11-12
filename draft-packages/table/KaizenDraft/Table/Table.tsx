@@ -2,10 +2,10 @@ import { Heading, Icon } from "@kaizen/component-library"
 import { Checkbox, CheckedStatus } from "@kaizen/draft-form"
 import classNames from "classnames"
 import * as React from "react"
-import styles from "./styles.scss"
 import sortDescendingIcon from "@kaizen/component-library/icons/sort-descending.icon.svg"
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import { Tooltip } from "@kaizen/draft-tooltip"
+import styles from "./styles.scss"
 
 type TableContainer = React.FunctionComponent<TableContainerProps>
 type TableContainerProps = {

@@ -1,8 +1,8 @@
 import { DismissiblePositiveAutohide } from "@kaizen/component-library/stories/InlineNotification.stories"
 import { Popover } from "@kaizen/draft-popover"
 import * as React from "react"
-import { Avatar } from "../avatar"
 import guidanceIcon from "@kaizen/component-library/icons/guidance.icon.svg"
+import { Avatar } from "../avatar"
 
 export default {
   title: "Popover (React)",
@@ -58,7 +58,8 @@ export const InformativeWithSingleLine = () => (
       variant="informative"
       singleLine
     >
-      http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/iamaverylongurl/iamaverylongurl/iamaverylongurl
+      {"http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/" +
+        "iamaverylongurl/iamaverylongurl/iamaverylongurl"}
     </Popover>
   </Container>
 )
@@ -86,7 +87,8 @@ export const InformativeLargeWithSingleLine = () => (
       size="large"
       singleLine
     >
-      http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/iamaverylongurl/iamaverylongurl/iamaverylongurl
+      {"http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/" +
+        "iamaverylongurl/iamaverylongurl/iamaverylongurl"}
     </Popover>
   </Container>
 )

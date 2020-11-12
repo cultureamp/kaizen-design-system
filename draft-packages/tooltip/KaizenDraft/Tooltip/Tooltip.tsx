@@ -1,6 +1,6 @@
 import * as React from "react"
-import styles from "./Tooltip.scss"
 import classnames from "classnames"
+import styles from "./Tooltip.scss"
 
 type Position = "above" | "below"
 

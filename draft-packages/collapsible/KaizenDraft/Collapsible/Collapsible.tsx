@@ -3,11 +3,11 @@ import classnames from "classnames"
 import * as React from "react"
 import AnimateHeight from "react-animate-height"
 
+import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
+import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import { Sticky } from "./CollapsibleGroup"
 
 import styles from "./styles.scss"
-import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
-import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 
 export type Props = {
   id: string
