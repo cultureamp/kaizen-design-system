@@ -4,6 +4,9 @@
   "description": "Quickly scaffolds new components in Kaizen",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "clean": "rimraf 'generators/**/*.js' 'generators/**/*.d.ts'"
+  },
   "files": [
     "generators"
   ],
