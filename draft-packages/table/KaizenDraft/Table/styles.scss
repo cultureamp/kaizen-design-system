@@ -77,8 +77,7 @@ $row-height: 60px;
 
 .headerRowCellButton {
   @include button-reset;
-  text-decoration: none;
-  color: $kz-color-wisteria-800;
+  composes: anchorReset;
 }
 
 .headerRowCellButton,
