@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.0.2...@kaizen/draft-table@3.1.0) (2020-11-16)
+
+
+### Features
+
+* Add ability to change the table sorting arrow from descending to ascending ([#864](https://github.com/cultureamp/kaizen-design-system/issues/864)) ([912f393](https://github.com/cultureamp/kaizen-design-system/commit/912f393bb45ad2ca8f1dffd57abceee313dbdfaa))
+
+
+
+
+
 ## [3.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.0.1...@kaizen/draft-table@3.0.2) (2020-11-13)
 
 **Note:** Version bump only for package @kaizen/draft-table
