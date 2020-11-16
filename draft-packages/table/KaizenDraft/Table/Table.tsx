@@ -88,6 +88,9 @@ type TableHeaderRowCell = React.FunctionComponent<{
    * @deprecated
    */
   active?: boolean
+  /**
+   * Shows an up or down arrow, to show that the column is sorted.
+   */
   sorting?: "ascending" | "descending"
   wrapping?: "nowrap" | "wrap"
   align?: "start" | "center" | "end"
