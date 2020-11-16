@@ -41,6 +41,7 @@ export interface HeadingProps {
    */
   classNameAndIHaveSpokenToDST?: string
   children: React.ReactNode
+  automationId?: string
   /**
    * HTML elements that are allowed on Headings. When not supplied, the tag is inferred from
    * the variant. E.g. display-0 will infer h1
@@ -59,8 +60,12 @@ export const Heading = ({
   tag,
   variant,
   color = "dark",
+  automationId,
   ...otherProps
 }: HeadingProps) => {
+  const dataAutomationId = automationId
+    ? { "data-automation-id": automationId }
+    : { "data-automation-id": "" }
   const inferredTag =
     tag === undefined ? translateHeadingLevelToTag(variant) : tag
 
@@ -72,7 +77,11 @@ export const Heading = ({
     VARIANTS_24PX_OR_GREATER.includes(variant) ? styles.large : styles.small,
   ])
 
-  return createElement(inferredTag, { ...otherProps, className }, children)
+  return createElement(
+    inferredTag,
+    { ...otherProps, className, ...dataAutomationId },
+    children
+  )
 }
 
 /**
