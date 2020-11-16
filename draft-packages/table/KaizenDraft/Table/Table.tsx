@@ -2,6 +2,7 @@ import { Heading, Icon } from "@kaizen/component-library"
 import { Checkbox, CheckedStatus } from "@kaizen/draft-form"
 import classNames from "classnames"
 import * as React from "react"
+import sortAscendingIcon from "@kaizen/component-library/icons/sort-ascending.icon.svg"
 import sortDescendingIcon from "@kaizen/component-library/icons/sort-descending.icon.svg"
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import { Tooltip } from "@kaizen/draft-tooltip"
@@ -80,7 +81,14 @@ type TableHeaderRowCell = React.FunctionComponent<{
   checkable?: boolean
   checkedStatus?: CheckedStatus
   onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
+  /**
+   * This boolean would show a "sort by" icon in the table cell header.
+   * The problem was that the arrow was pointing in the descending direction only.
+   * Please use `sorting` prop instead.
+   * @deprecated
+   */
   active?: boolean
+  sorting?: "ascending" | "descending"
   wrapping?: "nowrap" | "wrap"
   align?: "start" | "center" | "end"
   tooltipInfo?: string
@@ -96,6 +104,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   checkedStatus,
   onCheck,
   active,
+  sorting: sortingRaw,
   // I can't say for cetin why "nowrap" was the default value. Normally you wouldn't
   // want to clip off information because it doesn't fit on one line.
   // My assumption is that because since the cell width rows are decoupled, a heading
@@ -109,6 +118,9 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   // have this spread.
   ...otherProps
 }) => {
+  // `active` is the legacy prop
+  const sorting = sortingRaw || (active ? "descending" : undefined)
+
   // For this "cellContents" variable, we start at the inner most child, and
   // wrap it elements, depending on what the props dictate.
   let cellContents = (
@@ -138,13 +150,20 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
           <Heading
             tag="div"
             variant="heading-6"
-            color={active ? "dark" : "dark-reduced-opacity"}
+            color={sorting ? "dark" : "dark-reduced-opacity"}
           >
             {labelText}
           </Heading>
         </div>
       ) : null}
-      {active && <Icon icon={sortDescendingIcon} role="presentation" />}
+      {sorting && (
+        <Icon
+          icon={
+            sorting === "ascending" ? sortAscendingIcon : sortDescendingIcon
+          }
+          role="presentation"
+        />
+      )}
     </div>
   )
 
@@ -183,7 +202,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
         [styles.headerRowCellNoWrap]: wrapping === "nowrap",
         [styles.headerRowCellAlignCenter]: align === "center",
         [styles.headerRowCellAlignEnd]: align === "end",
-        [styles.headerRowCellActive]: active,
+        [styles.headerRowCellActive]: !!sorting,
       })}
       style={{
         width: ratioToPercent(width),

@@ -34,7 +34,7 @@ const ExampleTableHeaderRow = ({ checkable = false }) => (
       onCheck={evt => {
         alert(evt.target.value)
       }}
-      active={true}
+      sorting="descending"
       onClick={() => alert("Sort!")}
       labelText="Resource name"
       width={4 / 12}
