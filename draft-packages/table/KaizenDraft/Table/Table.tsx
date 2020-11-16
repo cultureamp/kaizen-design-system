@@ -74,7 +74,10 @@ const ratioToPercent = (width?: number) =>
 type TableHeaderRowCell = React.FunctionComponent<{
   labelText: string
   automationId?: string
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => any
+  onClick?:
+    | ((e: React.MouseEvent<HTMLButtonElement>) => any)
+    | ((e: React.MouseEvent<HTMLAnchorElement>) => any)
+  href?: string
   width?: number
   flex?: string
   icon?: React.SVGAttributes<SVGSymbolElement>
@@ -100,6 +103,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   labelText,
   automationId,
   onClick,
+  href,
   width,
   flex,
   icon,
@@ -170,11 +174,22 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
     </div>
   )
 
-  cellContents = onClick ? (
+  cellContents = href ? (
+    <a
+      data-automation-id={automationId}
+      className={styles.headerRowCellButton}
+      href={href}
+      onClick={
+        onClick as (e: React.MouseEvent<HTMLAnchorElement>) => any | undefined
+      }
+    >
+      {cellContents}
+    </a>
+  ) : onClick ? (
     <button
       data-automation-id={automationId}
       className={styles.headerRowCellButton}
-      onClick={onClick}
+      onClick={onClick as (e: React.MouseEvent<HTMLButtonElement>) => any}
     >
       {cellContents}
     </button>

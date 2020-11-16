@@ -414,4 +414,52 @@ export const Tooltip = () => (
   </Container>
 )
 
-HeaderAlignmentAndWrapping.storyName = "Header alignments and wrapping"
+Tooltip.storyName = "Tooltip"
+
+export const AnchorLink = () => (
+  // Extra margin added, so we can see the tooltip above
+  <Container style={{ marginTop: "200px" }}>
+    <TableContainer>
+      <TableHeader>
+        <TableHeaderRow>
+          <TableHeaderRowCell
+            labelText="This is an anchor"
+            width={1 / 2}
+            onClick={e => {
+              e.preventDefault()
+              alert("Header was clicked")
+            }}
+            href="#?foo=bar"
+            sorting="ascending"
+          />
+          <TableHeaderRowCell
+            labelText="This is an anchor"
+            width={1 / 2}
+            onClick={e => {
+              e.preventDefault()
+              alert("Header was clicked")
+            }}
+            href="#?foo=bar"
+          />
+        </TableHeaderRow>
+      </TableHeader>
+      <TableCard>
+        <TableRow>
+          <TableRowCell width={1 / 2}>
+            <Paragraph tag="div" variant="body">
+              Notice that you can open it in a new tab
+            </Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 2}>
+            <Paragraph tag="div" variant="body">
+              Typically you'd need to hook this up with your routing library
+              (eg. react-router)
+            </Paragraph>
+          </TableRowCell>
+        </TableRow>
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+
+AnchorLink.storyName = "Anchor Link"
