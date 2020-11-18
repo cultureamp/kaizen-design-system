@@ -10,11 +10,12 @@ interface RenderProps {
 
 interface Props {
   render: (props: RenderProps) => JSX.Element
+  defaultValue: string
 }
 
 class WithState extends React.Component<Props> {
   public state = {
-    controlledValue: "Controlled value",
+    controlledValue: this.props.defaultValue,
   }
 
   constructor(props: Props) {
@@ -129,6 +130,7 @@ DefaultPrefilled.story = {
 export const DefaultControlled = () => (
   <ExampleContainer>
     <WithState
+      defaultValue="A controlled value"
       render={({ controlledValue, updateValue }) => (
         <TextAreaField
           id="reply"
@@ -193,6 +195,28 @@ export const DefaultErrorAndDesc = () => (
 
 DefaultErrorAndDesc.story = {
   name: "Default, Error & Description",
+}
+
+export const DefaultAutogrow = () => (
+  <ExampleContainer>
+    <WithState
+      defaultValue={"This\ntext\narea\nwill\ngrow\nand\nshrink\nwith\ncontent"}
+      render={({ controlledValue, updateValue }) => (
+        <TextAreaField
+          id="reply"
+          labelText="Your reply"
+          rows={1}
+          value={controlledValue}
+          onChange={updateValue}
+          autogrow
+        />
+      )}
+    ></WithState>
+  </ExampleContainer>
+)
+
+DefaultAutogrow.story = {
+  name: "Default, Autogrow",
 }
 
 export const Reversed = () => (
