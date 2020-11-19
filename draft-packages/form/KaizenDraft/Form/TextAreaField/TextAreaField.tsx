@@ -19,6 +19,7 @@ type Props = {
   defaultValue?: string
   validationMessage?: string
   status?: InputStatus
+  autogrow?: boolean
   description?: React.ReactNode
   textAreaRef?: React.RefObject<HTMLTextAreaElement>
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => any
@@ -34,6 +35,7 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
     defaultValue,
     validationMessage,
     status,
+    autogrow,
     description,
     inline,
     reversed,
@@ -71,6 +73,7 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
         rows={rows}
         reversed={reversed}
         status={status}
+        autogrow={autogrow}
         textAreaRef={textAreaRef}
       />
       {validationMessage && (
