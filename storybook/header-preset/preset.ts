@@ -1,11 +1,11 @@
 import path from "path"
 import { NormalModuleReplacementPlugin } from "webpack"
-const webpackConfig = require("../webpack.config")
+const webpackConfig = require("../rules")
 
 module.exports = {
-  managerWebpack: async config => {
+  managerWebpack: (config, { configType }) => {
     // don't add header and footer for local builds
-    if (process.env.NODE_ENV !== "production") return config
+    if (configType !== "PRODUCTION") return config
 
     const replaceLayoutPlugin = new NormalModuleReplacementPlugin(
       /^\.\/layout$/,

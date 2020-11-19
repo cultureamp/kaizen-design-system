@@ -1,6 +1,6 @@
 import React from "react"
-import { TileAction } from "./GenericTile"
 import { Button } from "@kaizen/draft-button"
+import { TileAction } from "./GenericTile"
 
 interface Props {
   readonly action: TileAction

@@ -95,13 +95,16 @@ view (Config config) =
         , styles.class .headerRowCell
         , role "columnheader"
         ]
-        [ Heading.view
-            (Heading.h1 |> Heading.variant Heading6)
-            [ Html.text config.labelText ]
+        [div
+            [ styles.class .headerRowCellNoButton ]
+            [ Heading.view
+                (Heading.h1 |> Heading.variant Heading6)
+                [ Html.text config.labelText ]
+            ]
         ]
-
 
 styles =
     css "@kaizen/draft-table/KaizenDraft/Table/styles.scss"
         { headerRowCell = "headerRowCell"
+        , headerRowCellNoButton = "headerRowCellNoButton"
         }

@@ -13,7 +13,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from "@kaizen/draft-modal"
-import { action } from "@storybook/addon-actions"
+
 import * as React from "react"
 import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
@@ -48,9 +48,10 @@ export default {
   component: ConfirmationModal,
   parameters: {
     info: {
-      text: `
-      import { ConfirmationModal, GenericModal, InformationModal, InputEditModal, ModalAccessibleDescription, ModalAccessibleLabel, ModalBody, ModalFooter, ModalHeader } from "@kaizen/draft-modal"
-      `,
+      text:
+        "import { ConfirmationModal, GenericModal, InformationModal, InputEditModal, " +
+        "ModalAccessibleDescription, ModalAccessibleLabel, ModalBody, ModalFooter, " +
+        'ModalHeader } from "@kaizen/draft-modal"',
     },
   },
 }
@@ -79,9 +80,8 @@ export const ConfirmationPositiveKaizenSiteDemo = () => (
   </ModalStateContainer>
 )
 
-ConfirmationPositiveKaizenSiteDemo.story = {
-  name: "Confirmation (positive) (Kaizen Site Demo)",
-}
+ConfirmationPositiveKaizenSiteDemo.storyName =
+  "Confirmation (positive) (Kaizen Site Demo)"
 
 export const ConfirmationInformative = () => (
   <ModalStateContainer isInitiallyOpen={false}>
@@ -107,9 +107,7 @@ export const ConfirmationInformative = () => (
   </ModalStateContainer>
 )
 
-ConfirmationInformative.story = {
-  name: "Confirmation (informative)",
-}
+ConfirmationInformative.storyName = "Confirmation (informative)"
 
 export const ConfirmationCautionary = () => (
   <ModalStateContainer isInitiallyOpen={false}>
@@ -135,9 +133,7 @@ export const ConfirmationCautionary = () => (
   </ModalStateContainer>
 )
 
-ConfirmationCautionary.story = {
-  name: "Confirmation (cautionary)",
-}
+ConfirmationCautionary.storyName = "Confirmation (cautionary)"
 
 export const ConfirmationNegative = () => (
   <ModalStateContainer isInitiallyOpen={false}>
@@ -163,9 +159,7 @@ export const ConfirmationNegative = () => (
   </ModalStateContainer>
 )
 
-ConfirmationNegative.story = {
-  name: "Confirmation (negative)",
-}
+ConfirmationNegative.storyName = "Confirmation (negative)"
 
 export const InputEditPositive = () => (
   <ModalStateContainer isInitiallyOpen={false}>
@@ -197,7 +191,7 @@ export const InputEditPositive = () => (
                 inputValue="mackenzie@example.com"
                 labelText="Email"
                 placeholder="Please enter your email"
-                onChange={action("user input")}
+                onChange={() => undefined}
                 icon={userIcon}
               />
               <TextField
@@ -206,7 +200,7 @@ export const InputEditPositive = () => (
                 inputValue="123445555"
                 labelText="Password"
                 placeholder="Please enter your password"
-                onChange={action("user input")}
+                onChange={() => undefined}
                 icon={lockIcon}
                 inline
               />
@@ -218,9 +212,7 @@ export const InputEditPositive = () => (
   </ModalStateContainer>
 )
 
-InputEditPositive.story = {
-  name: "Input-edit (positive)",
-}
+InputEditPositive.storyName = "Input-edit (positive)"
 
 export const InputEditPositiveRtlLocale = () => (
   <ModalStateContainer isInitiallyOpen={false}>
@@ -253,7 +245,7 @@ export const InputEditPositiveRtlLocale = () => (
                 inputValue="mackenzie@example.com"
                 labelText="Email"
                 placeholder="Please enter your email"
-                onChange={action("user input")}
+                onChange={() => undefined}
                 icon={userIcon}
               />
               <TextField
@@ -262,7 +254,7 @@ export const InputEditPositiveRtlLocale = () => (
                 inputValue="123445555"
                 labelText="Password"
                 placeholder="Please enter your password"
-                onChange={action("user input")}
+                onChange={() => undefined}
                 icon={lockIcon}
                 inline
               />
@@ -274,9 +266,7 @@ export const InputEditPositiveRtlLocale = () => (
   </ModalStateContainer>
 )
 
-InputEditPositiveRtlLocale.story = {
-  name: "Input-edit (positive, rtl locale)",
-}
+InputEditPositiveRtlLocale.storyName = "Input-edit (positive, rtl locale)"
 
 export const InputEditNegative = () => (
   <ModalStateContainer isInitiallyOpen={false}>
@@ -308,7 +298,7 @@ export const InputEditNegative = () => (
                 inputValue="mackenzie@example.com"
                 labelText="Email"
                 placeholder="Please enter your email"
-                onChange={action("user input")}
+                onChange={() => undefined}
                 icon={userIcon}
               />
               <TextField
@@ -317,7 +307,7 @@ export const InputEditNegative = () => (
                 inputValue="123445555"
                 labelText="Password"
                 placeholder="Please enter your password"
-                onChange={action("user input")}
+                onChange={() => undefined}
                 icon={lockIcon}
                 inline
               />
@@ -329,9 +319,7 @@ export const InputEditNegative = () => (
   </ModalStateContainer>
 )
 
-InputEditNegative.story = {
-  name: "Input-edit (negative)",
-}
+InputEditNegative.storyName = "Input-edit (negative)"
 
 export const InformationWithAction = () => (
   <ModalStateContainer isInitiallyOpen={false}>
@@ -376,9 +364,7 @@ export const InformationWithAction = () => (
   </ModalStateContainer>
 )
 
-InformationWithAction.story = {
-  name: "Information (with action)",
-}
+InformationWithAction.storyName = "Information (with action)"
 
 export const InformationWithoutAction = () => (
   <ModalStateContainer isInitiallyOpen={false}>
@@ -422,9 +408,7 @@ export const InformationWithoutAction = () => (
   </ModalStateContainer>
 )
 
-InformationWithoutAction.story = {
-  name: "Information (without action)",
-}
+InformationWithoutAction.storyName = "Information (without action)"
 
 export const InformationWithBackground = () => (
   <ModalStateContainer isInitiallyOpen={false}>
@@ -473,9 +457,7 @@ export const InformationWithBackground = () => (
   </ModalStateContainer>
 )
 
-InformationWithBackground.story = {
-  name: "Information (with background)",
-}
+InformationWithBackground.storyName = "Information (with background)"
 
 export const GenericModalPadded = () => (
   <>
@@ -518,9 +500,7 @@ export const GenericModalPadded = () => (
   </>
 )
 
-GenericModalPadded.story = {
-  name: "Generic modal (padded)",
-}
+GenericModalPadded.storyName = "Generic modal (padded)"
 
 export const GenericModalUnpadded = () => (
   <>
@@ -564,9 +544,7 @@ export const GenericModalUnpadded = () => (
   </>
 )
 
-GenericModalUnpadded.story = {
-  name: "Generic modal (unpadded)",
-}
+GenericModalUnpadded.storyName = "Generic modal (unpadded)"
 
 export const GenericModalWithoutAction = () => (
   <>
@@ -599,9 +577,7 @@ export const GenericModalWithoutAction = () => (
   </>
 )
 
-GenericModalWithoutAction.story = {
-  name: "Generic modal (without action)",
-}
+GenericModalWithoutAction.storyName = "Generic modal (without action)"
 
 export const TestScrollingModalAndScrollingContent = () => (
   <>
@@ -632,9 +608,8 @@ export const TestScrollingModalAndScrollingContent = () => (
   </>
 )
 
-TestScrollingModalAndScrollingContent.story = {
-  name: "Test - scrolling modal and scrolling content",
-}
+TestScrollingModalAndScrollingContent.storyName =
+  "Test - scrolling modal and scrolling content"
 
 export const NestedModal = () => (
   <ModalStateContainer isInitiallyOpen={false}>
@@ -680,9 +655,7 @@ export const NestedModal = () => (
   </ModalStateContainer>
 )
 
-NestedModal.story = {
-  name: "Nested confirmation modal",
-}
+NestedModal.storyName = "Nested confirmation modal"
 
 export const Roadblock = () => (
   <ModalStateContainer isInitiallyOpen={false}>
@@ -706,6 +679,4 @@ export const Roadblock = () => (
   </ModalStateContainer>
 )
 
-Roadblock.story = {
-  name: "Roadblock",
-}
+Roadblock.storyName = "Roadblock"

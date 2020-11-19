@@ -3,6 +3,74 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.0.1...@kaizen/component-library@8.0.2) (2020-11-13)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [8.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.0.0...@kaizen/component-library@8.0.1) (2020-11-12)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [8.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.33.1...@kaizen/component-library@8.0.0) (2020-11-12)
+
+
+### Bug Fixes
+
+* Clean up eslint warnings ([#850](https://github.com/cultureamp/kaizen-design-system/issues/850)) ([78d0f20](https://github.com/cultureamp/kaizen-design-system/commit/78d0f207b03e6449f6c5f4e3000926d91c3094e1))
+
+
+### BREAKING CHANGES
+
+* Consumers that were passing in a now-restricted type
+to a prop that accepted e.g. "any" as a type may now break.
+
+* Fix eslint errors as result of rule change
+
+* Fix type error in getCustomProps for Buttons
+
+* Add missing key to MenuItem
+
+* Fix line order syntax in Popover
+
+
+
+
+
+## [7.33.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.33.0...@kaizen/component-library@7.33.1) (2020-11-09)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [7.33.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.32.3...@kaizen/component-library@7.33.0) (2020-11-09)
+
+
+### Features
+
+* adding department icon ([#855](https://github.com/cultureamp/kaizen-design-system/issues/855)) ([eacb830](https://github.com/cultureamp/kaizen-design-system/commit/eacb83027d0ebc0de273173a20d4129a91b4bc5f))
+
+
+
+
+
+## [7.32.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.32.2...@kaizen/component-library@7.32.3) (2020-10-21)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [7.32.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@7.32.1...@kaizen/component-library@7.32.2) (2020-10-08)
 
 

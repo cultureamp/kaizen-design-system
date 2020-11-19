@@ -1,8 +1,8 @@
-export default function isEnabled(
+const isEnabled = (
   settingName: string,
   value: string | undefined,
   defaultValue: boolean
-): boolean {
+): boolean => {
   if (value === "1" || value === "true") {
     return true
   } else if (value === "0" || value === "false") {
@@ -13,4 +13,5 @@ export default function isEnabled(
   throw new Error("Unrecognised " + settingName + ' value: "' + value + '"')
 }
 
+export default isEnabled
 module.exports = isEnabled

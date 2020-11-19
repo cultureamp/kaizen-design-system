@@ -3,6 +3,112 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.0.2...@kaizen/draft-table@3.1.0) (2020-11-16)
+
+
+### Features
+
+* Add ability to change the table sorting arrow from descending to ascending ([#864](https://github.com/cultureamp/kaizen-design-system/issues/864)) ([912f393](https://github.com/cultureamp/kaizen-design-system/commit/912f393bb45ad2ca8f1dffd57abceee313dbdfaa))
+
+
+
+
+
+## [3.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.0.1...@kaizen/draft-table@3.0.2) (2020-11-13)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.0.0...@kaizen/draft-table@3.0.1) (2020-11-12)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+# [3.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@2.2.0...@kaizen/draft-table@3.0.0) (2020-11-12)
+
+
+### Bug Fixes
+
+* Clean up eslint warnings ([#850](https://github.com/cultureamp/kaizen-design-system/issues/850)) ([78d0f20](https://github.com/cultureamp/kaizen-design-system/commit/78d0f207b03e6449f6c5f4e3000926d91c3094e1))
+
+
+### BREAKING CHANGES
+
+* Consumers that were passing in a now-restricted type
+to a prop that accepted e.g. "any" as a type may now break.
+
+* Fix eslint errors as result of rule change
+
+* Fix type error in getCustomProps for Buttons
+
+* Add missing key to MenuItem
+
+* Fix line order syntax in Popover
+
+
+
+
+
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@2.1.0...@kaizen/draft-table@2.2.0) (2020-11-11)
+
+
+### Features
+
+* Add tooltip to the Table header ([#859](https://github.com/cultureamp/kaizen-design-system/issues/859)) ([aeafcc9](https://github.com/cultureamp/kaizen-design-system/commit/aeafcc9421aa5ca27b9e1476924c97af144f6e1e))
+
+
+
+
+
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@2.0.5...@kaizen/draft-table@2.1.0) (2020-11-10)
+
+
+### Features
+
+* Add table header wrapping and alignment support ([#851](https://github.com/cultureamp/kaizen-design-system/issues/851)) ([b26df68](https://github.com/cultureamp/kaizen-design-system/commit/b26df6888d2c701711b55778138963163d51b17a))
+
+
+
+
+
+## [2.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@2.0.4...@kaizen/draft-table@2.0.5) (2020-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [2.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@2.0.3...@kaizen/draft-table@2.0.4) (2020-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [2.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@2.0.2...@kaizen/draft-table@2.0.3) (2020-10-21)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [2.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@2.0.1...@kaizen/draft-table@2.0.2) (2020-10-16)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
 ## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@2.0.0...@kaizen/draft-table@2.0.1) (2020-10-12)
 
 **Note:** Version bump only for package @kaizen/draft-table

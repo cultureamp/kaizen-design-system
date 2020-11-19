@@ -10,11 +10,11 @@ import chevronRightIcon from "@kaizen/component-library/icons/chevron-right.icon
 import classNames from "classnames"
 import * as React from "react"
 
-import styles from "./Link.module.scss"
 import { LinkProps } from "../types"
+import styles from "./Link.module.scss"
 import Indicator from "./Indicator"
 
-export default class Link extends React.PureComponent<LinkProps> {
+class Link extends React.PureComponent<LinkProps> {
   static displayName = "Link"
   static defaultProps = {
     iconOnly: false,
@@ -84,3 +84,5 @@ export default class Link extends React.PureComponent<LinkProps> {
     )
   }
 }
+
+export default Link

@@ -50,9 +50,7 @@ export const DefaultStory = () => (
   </BadgeStoryWrapper>
 )
 
-DefaultStory.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultStory.storyName = "Default (Kaizen Site Demo)"
 
 export const Active = () => (
   <BadgeStoryWrapper>
@@ -66,9 +64,7 @@ export const Active = () => (
   </BadgeStoryWrapper>
 )
 
-Active.story = {
-  name: "Active",
-}
+Active.storyName = "Active"
 
 export const Dark = () => (
   <BadgeStoryWrapper>
@@ -82,9 +78,7 @@ export const Dark = () => (
   </BadgeStoryWrapper>
 )
 
-Dark.story = {
-  name: "Dark",
-}
+Dark.storyName = "Dark"
 
 export const Reversed = () => (
   <BadgeStoryWrapper>
@@ -102,16 +96,10 @@ export const Reversed = () => (
   </BadgeStoryWrapper>
 )
 
-Reversed.story = {
-  name: "Reversed",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
+Reversed.storyName = "Reversed"
+Reversed.parameters = {
+  backgrounds: {
+    default: "Wisteria 700",
   },
 }
 
@@ -131,21 +119,13 @@ export const ReversedActive = () => (
   </BadgeStoryWrapper>
 )
 
-ReversedActive.story = {
-  name: "Reversed, Active",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
+ReversedActive.storyName = "Reversed, Active"
+ReversedActive.parameters = {
+  backgrounds: {
+    default: "Wisteria 700",
   },
 }
 
 export const LongerText = () => <Badge variant="default">2x</Badge>
 
-LongerText.story = {
-  name: "Longer text",
-}
+LongerText.storyName = "Longer text"

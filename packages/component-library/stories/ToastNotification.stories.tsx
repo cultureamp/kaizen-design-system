@@ -25,9 +25,7 @@ export const PositiveKaizenSiteDemo = () => (
   </ToastNotification>
 )
 
-PositiveKaizenSiteDemo.story = {
-  name: "Positive (Kaizen Site Demo)",
-}
+PositiveKaizenSiteDemo.storyName = "Positive (Kaizen Site Demo)"
 
 export const PositiveAutohide = () => (
   <ToastNotification
@@ -41,9 +39,7 @@ export const PositiveAutohide = () => (
   </ToastNotification>
 )
 
-PositiveAutohide.story = {
-  name: "Positive, Autohide",
-}
+PositiveAutohide.storyName = "Positive, Autohide"
 
 export const PositiveAutohideHideCloseIcon = () => (
   <ToastNotification
@@ -58,9 +54,7 @@ export const PositiveAutohideHideCloseIcon = () => (
   </ToastNotification>
 )
 
-PositiveAutohideHideCloseIcon.story = {
-  name: "Positive, Autohide, Hide Close Icon",
-}
+PositiveAutohideHideCloseIcon.storyName = "Positive, Autohide, Hide Close Icon"
 
 export const Informative = () => (
   <ToastNotification
@@ -133,6 +127,4 @@ export const MultipleNotifications = () => (
   </div>
 )
 
-MultipleNotifications.story = {
-  name: "Multiple notifications",
-}
+MultipleNotifications.storyName = "Multiple notifications"

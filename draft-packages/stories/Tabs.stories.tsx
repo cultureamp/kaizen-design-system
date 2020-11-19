@@ -58,9 +58,7 @@ export const LongAndShortText = () => {
   return <Tabs tabs={tabs} />
 }
 
-LongAndShortText.story = {
-  name: "Long and short text (Horizontal)",
-}
+LongAndShortText.storyName = "Long and short text (Horizontal)"
 
 export const VerticalLongAndShortText = () => {
   const tabs = [
@@ -79,9 +77,7 @@ export const VerticalLongAndShortText = () => {
   return <Tabs orientation="vertical" tabs={tabs} />
 }
 
-VerticalLongAndShortText.story = {
-  name: "Long and short text (Vertical)",
-}
+VerticalLongAndShortText.storyName = "Long and short text (Vertical)"
 
 export const ActiveTab = () => {
   const tabs = [
@@ -97,9 +93,7 @@ export const ActiveTab = () => {
   return <Tabs tabs={tabs} />
 }
 
-ActiveTab.story = {
-  name: "Active tab (Horizontal)",
-}
+ActiveTab.storyName = "Active tab (Horizontal)"
 
 export const ActiveVerticalTabs = () => {
   const tabs = [
@@ -115,9 +109,7 @@ export const ActiveVerticalTabs = () => {
   return <Tabs orientation="vertical" tabs={tabs} />
 }
 
-ActiveVerticalTabs.story = {
-  name: "Active tab (Vertical)",
-}
+ActiveVerticalTabs.storyName = "Active tab (Vertical)"
 
 export const DisabledTabHorizontal = () => {
   const tabs = [
@@ -133,9 +125,7 @@ export const DisabledTabHorizontal = () => {
   return <Tabs tabs={tabs} />
 }
 
-DisabledTabHorizontal.story = {
-  name: "Disabled tab (Horizontal)",
-}
+DisabledTabHorizontal.storyName = "Disabled tab (Horizontal)"
 
 export const DisabledTabVertical = () => {
   const tabs = [
@@ -151,9 +141,7 @@ export const DisabledTabVertical = () => {
   return <Tabs orientation="vertical" tabs={tabs} />
 }
 
-DisabledTabVertical.story = {
-  name: "Disabled tab (Vertical)",
-}
+DisabledTabVertical.storyName = "Disabled tab (Vertical)"
 
 export const WithOnClick = () => {
   const tabs = [
@@ -169,9 +157,7 @@ export const WithOnClick = () => {
   return <Tabs tabs={tabs} />
 }
 
-WithOnClick.story = {
-  name: "With onClick",
-}
+WithOnClick.storyName = "With onClick"
 
 export const WithHref = () => {
   const tabs = [
@@ -186,9 +172,7 @@ export const WithHref = () => {
   return <Tabs tabs={tabs} />
 }
 
-WithHref.story = {
-  name: "With href",
-}
+WithHref.storyName = "With href"
 
 export const WithCustomTabRenderer = () => {
   const tabs = [
@@ -250,9 +234,7 @@ export const WithCustomTabRenderer = () => {
   )
 }
 
-WithCustomTabRenderer.story = {
-  name: "With custom tab renderer (Horizontal)",
-}
+WithCustomTabRenderer.storyName = "With custom tab renderer (Horizontal)"
 
 export const WithCustomTabRendererVertical = () => {
   const tabs = [
@@ -294,9 +276,7 @@ export const WithCustomTabRendererVertical = () => {
   )
 }
 
-WithCustomTabRendererVertical.story = {
-  name: "With custom tab renderer (Vertical)",
-}
+WithCustomTabRendererVertical.storyName = "With custom tab renderer (Vertical)"
 
 export const WithLayoutVerticalLTR = () => {
   const tabs = [
@@ -323,17 +303,16 @@ export const WithLayoutVerticalLTR = () => {
   )
 }
 
-WithLayoutVerticalLTR.story = {
-  name: "(Example) Layout LTR (Vertical)",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.stone,
-        default: true,
-      },
-    ],
-  },
+WithLayoutVerticalLTR.storyName = "(Example) Layout LTR (Vertical)"
+
+WithLayoutVerticalLTR.parameters = {
+  backgrounds: [
+    {
+      name: "Wisteria 700",
+      value: colorTokens.kz.color.stone,
+      default: true,
+    },
+  ],
 }
 
 export const WithLayoutVerticalRTL = () => {
@@ -361,17 +340,16 @@ export const WithLayoutVerticalRTL = () => {
   )
 }
 
-WithLayoutVerticalRTL.story = {
-  name: "(Example) Layout RTL (Vertical)",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Stone",
-        value: colorTokens.kz.color.stone,
-        default: true,
-      },
-    ],
-  },
+WithLayoutVerticalRTL.storyName = "(Example) Layout RTL (Vertical)"
+
+WithLayoutVerticalRTL.parameters = {
+  backgrounds: [
+    {
+      name: "Stone",
+      value: colorTokens.kz.color.stone,
+      default: true,
+    },
+  ],
 }
 
 export const WithHeading = () => {
@@ -412,17 +390,16 @@ export const WithHeading = () => {
   )
 }
 
-WithHeading.story = {
-  name: "(Example) Layout With heading",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Stone",
-        value: colorTokens.kz.color.stone,
-        default: true,
-      },
-    ],
-  },
+WithHeading.storyName = "(Example) Layout With heading"
+
+WithHeading.parameters = {
+  backgrounds: [
+    {
+      name: "Stone",
+      value: colorTokens.kz.color.stone,
+      default: true,
+    },
+  ],
 }
 
 export const ExampleContentTab = () => {
@@ -453,15 +430,14 @@ export const ExampleContentTab = () => {
   )
 }
 
-ExampleContentTab.story = {
-  name: "(Example) Content Tab in Content Area",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Stone",
-        value: colorTokens.kz.color.stone,
-        default: true,
-      },
-    ],
-  },
+ExampleContentTab.storyName = "(Example) Content Tab in Content Area"
+
+ExampleContentTab.parameters = {
+  backgrounds: [
+    {
+      name: "Stone",
+      value: colorTokens.kz.color.stone,
+      default: true,
+    },
+  ],
 }

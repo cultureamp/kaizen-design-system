@@ -1,4 +1,5 @@
 import * as React from "react"
+// eslint-disable-next-line max-len
 import { VerticalProgressIndicator } from "../vertical-progress-step/KaizenDraft/VerticalProgressStep/VerticalProgressIndicator/VerticalProgressIndicator"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => (
@@ -33,9 +34,7 @@ export const StartUpcoming = () => (
   </StoryContainer>
 )
 
-StartUpcoming.story = {
-  name: "Start-Upcoming",
-}
+StartUpcoming.storyName = "Start-Upcoming"
 
 export const StartCurrentInactionable = () => (
   <StoryContainer>
@@ -46,9 +45,7 @@ export const StartCurrentInactionable = () => (
   </StoryContainer>
 )
 
-StartCurrentInactionable.story = {
-  name: "Start-CurrentInactionable",
-}
+StartCurrentInactionable.storyName = "Start-CurrentInactionable"
 
 export const StartCurrentActionable = () => (
   <StoryContainer>
@@ -59,9 +56,7 @@ export const StartCurrentActionable = () => (
   </StoryContainer>
 )
 
-StartCurrentActionable.story = {
-  name: "Start-CurrentActionable",
-}
+StartCurrentActionable.storyName = "Start-CurrentActionable"
 
 export const StartCurrentStarted = () => (
   <StoryContainer>
@@ -69,9 +64,7 @@ export const StartCurrentStarted = () => (
   </StoryContainer>
 )
 
-StartCurrentStarted.story = {
-  name: "Start-CurrentStarted",
-}
+StartCurrentStarted.storyName = "Start-CurrentStarted"
 
 export const StartCompleted = () => (
   <StoryContainer>
@@ -79,9 +72,7 @@ export const StartCompleted = () => (
   </StoryContainer>
 )
 
-StartCompleted.story = {
-  name: "Start-Completed",
-}
+StartCompleted.storyName = "Start-Completed"
 
 export const MiddleUpcoming = () => (
   <StoryContainer>
@@ -89,9 +80,7 @@ export const MiddleUpcoming = () => (
   </StoryContainer>
 )
 
-MiddleUpcoming.story = {
-  name: "Middle-Upcoming",
-}
+MiddleUpcoming.storyName = "Middle-Upcoming"
 
 export const MiddleCurrentInactionable = () => (
   <StoryContainer>
@@ -102,9 +91,7 @@ export const MiddleCurrentInactionable = () => (
   </StoryContainer>
 )
 
-MiddleCurrentInactionable.story = {
-  name: "Middle-CurrentInactionable",
-}
+MiddleCurrentInactionable.storyName = "Middle-CurrentInactionable"
 
 export const MiddleCurrentActionable = () => (
   <StoryContainer>
@@ -115,9 +102,7 @@ export const MiddleCurrentActionable = () => (
   </StoryContainer>
 )
 
-MiddleCurrentActionable.story = {
-  name: "Middle-CurrentActionable",
-}
+MiddleCurrentActionable.storyName = "Middle-CurrentActionable"
 
 export const MiddleCurrentStarted = () => (
   <StoryContainer>
@@ -125,9 +110,7 @@ export const MiddleCurrentStarted = () => (
   </StoryContainer>
 )
 
-MiddleCurrentStarted.story = {
-  name: "Middle-CurrentStarted",
-}
+MiddleCurrentStarted.storyName = "Middle-CurrentStarted"
 
 export const MiddleCompleted = () => (
   <StoryContainer>
@@ -135,9 +118,7 @@ export const MiddleCompleted = () => (
   </StoryContainer>
 )
 
-MiddleCompleted.story = {
-  name: "Middle-Completed",
-}
+MiddleCompleted.storyName = "Middle-Completed"
 
 export const EndUpcoming = () => (
   <StoryContainer>
@@ -145,9 +126,7 @@ export const EndUpcoming = () => (
   </StoryContainer>
 )
 
-EndUpcoming.story = {
-  name: "End-Upcoming",
-}
+EndUpcoming.storyName = "End-Upcoming"
 
 export const EndCurrentInactionable = () => (
   <StoryContainer>
@@ -158,9 +137,7 @@ export const EndCurrentInactionable = () => (
   </StoryContainer>
 )
 
-EndCurrentInactionable.story = {
-  name: "End-CurrentInactionable",
-}
+EndCurrentInactionable.storyName = "End-CurrentInactionable"
 
 export const EndCurrentActionable = () => (
   <StoryContainer>
@@ -168,9 +145,7 @@ export const EndCurrentActionable = () => (
   </StoryContainer>
 )
 
-EndCurrentActionable.story = {
-  name: "End-CurrentActionable",
-}
+EndCurrentActionable.storyName = "End-CurrentActionable"
 
 export const EndCurrentStarted = () => (
   <StoryContainer>
@@ -178,9 +153,7 @@ export const EndCurrentStarted = () => (
   </StoryContainer>
 )
 
-EndCurrentStarted.story = {
-  name: "End-CurrentStarted",
-}
+EndCurrentStarted.storyName = "End-CurrentStarted"
 
 export const EndCompleted = () => (
   <StoryContainer>
@@ -188,6 +161,4 @@ export const EndCompleted = () => (
   </StoryContainer>
 )
 
-EndCompleted.story = {
-  name: "End-Completed",
-}
+EndCompleted.storyName = "End-Completed"

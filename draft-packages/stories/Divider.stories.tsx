@@ -1,4 +1,3 @@
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { Divider } from "@kaizen/draft-divider"
 import { Card } from "@kaizen/draft-card"
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
@@ -10,6 +9,12 @@ const Container = ({ children }: { children: React.ReactNode }) => (
   </div>
 )
 
+const reversedBg = {
+  backgrounds: {
+    default: "Wisteria 700",
+  },
+}
+
 export default {
   title: "Divider (React)",
 }
@@ -19,68 +24,37 @@ export const DefaultStory = () => (
     <Divider variant="canvas" />
   </Container>
 )
-
-DefaultStory.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultStory.storyName = "Default (Kaizen Site Demo)"
 
 export const CanvasStory = () => (
   <Container>
     <Divider variant="canvas" />
   </Container>
 )
-
-CanvasStory.story = {
-  name: "Canvas Divider",
-}
+CanvasStory.storyName = "Canvas Divider"
 
 export const ContentDivider = () => (
   <Container>
     <Divider variant="content" />
   </Container>
 )
-
-ContentDivider.story = {
-  name: "Content Divider",
-}
+ContentDivider.storyName = "Content Divider"
 
 export const ContentDividerReversed = () => (
   <Container>
     <Divider variant="content" isReversed />
   </Container>
 )
-
-ContentDividerReversed.story = {
-  name: "Content Divider Reversed",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[600],
-        default: true,
-      },
-    ],
-  },
-}
+ContentDividerReversed.storyName = "Content Divider Reversed"
+ContentDividerReversed.parameters = { ...reversedBg }
 
 export const CanvasDividerReversed = () => (
   <Container>
     <Divider variant="canvas" isReversed />
   </Container>
 )
-
-CanvasDividerReversed.story = {
-  name: "Canvas Divider Reversed",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
-  },
-}
+CanvasDividerReversed.storyName = "Canvas Divider Reversed"
+CanvasDividerReversed.parameters = { ...reversedBg }
 
 export const TabDivider = () => (
   <Container>
@@ -118,7 +92,4 @@ export const TabDivider = () => (
     </Card>
   </Container>
 )
-
-TabDivider.story = {
-  name: "Composing divider, card, box, and typography",
-}
+TabDivider.storyName = "Composing divider, card, box, and typography"

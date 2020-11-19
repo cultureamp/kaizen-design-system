@@ -6,14 +6,14 @@ import { Select } from "@kaizen/draft-select"
 import { Tag } from "@kaizen/draft-tag"
 import classNames from "classnames"
 import * as React from "react"
+import leftArrow from "@kaizen/component-library/icons/arrow-backward.icon.svg"
+import rightArrow from "@kaizen/component-library/icons/arrow-forward.icon.svg"
+import hamburgerIcon from "@kaizen/component-library/icons/hamburger.icon.svg"
 import MainActions from "./MainActions"
 import MobileActions from "./MobileActions"
 import NavigationTab, { NavigationTabProps } from "./NavigationTabs"
 import SecondaryActions from "./SecondaryActions"
 import styles from "./TitleBlockZen.scss"
-import leftArrow from "@kaizen/component-library/icons/arrow-backward.icon.svg"
-import rightArrow from "@kaizen/component-library/icons/arrow-forward.icon.svg"
-import hamburgerIcon from "@kaizen/component-library/icons/hamburger.icon.svg"
 
 export const NON_REVERSED_VARIANTS = ["education", "admin"]
 
@@ -43,6 +43,7 @@ export interface TitleBlockProps {
   secondaryActions?: SecondaryActionsProps
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
   navigationTabs?: NavigationTabs
+  collapseNavigationAreaWhenPossible?: boolean
   textDirection?: TextDirection
   surveyStatus?: SurveyStatus
   titleAutomationId?: string
@@ -149,7 +150,7 @@ type TextDirection = "ltr" | "rtl"
 
 type SurveyStatus = {
   text: string
-  status: "draft" | "live"
+  status: "draft" | "live" | "default"
 }
 
 type Breadcrumb = {
@@ -165,6 +166,10 @@ const renderTag = (surveyStatus: SurveyStatus) => {
   }
   if (surveyStatus.status === "live") {
     tagVariant = "statusLive"
+  }
+
+  if (surveyStatus.status === "default") {
+    tagVariant = "default"
   }
 
   return (
@@ -268,12 +273,23 @@ const renderBreadcrumb = (
 
 // We want to accept undefined here because the NavigationTabs container is
 // important for the flex-based layout (it pushes Secondary Actions over to the right)
-const renderNavigationTabs = (navigationTabs: NavigationTabs | undefined) => (
+const renderNavigationTabs = (
+  navigationTabs: NavigationTabs | undefined,
+  collapse: boolean
+) => (
   <div className={styles.navigationTabScrollerContainer}>
-    <div className={styles.navigationTabsContainer}>
-      <span className={styles.navigationTabEdgeShadowLeft} />
-      {navigationTabs}
-      <span className={styles.navigationTabEdgeShadowRight} />
+    <div
+      className={classNames(styles.navigationTabsContainer, {
+        [styles.navigationTabsContainerCollapsed]: collapse,
+      })}
+    >
+      {!collapse && (
+        <>
+          <span className={styles.navigationTabEdgeShadowLeft} />
+          {navigationTabs}
+          <span className={styles.navigationTabEdgeShadowRight} />
+        </>
+      )}
     </div>
   </div>
 )
@@ -412,6 +428,7 @@ const TitleBlockZen = ({
   secondaryActions,
   secondaryOverflowMenuItems,
   navigationTabs,
+  collapseNavigationAreaWhenPossible = false,
   textDirection,
   surveyStatus,
   titleAutomationId = "TitleBlock__Title",
@@ -425,6 +442,11 @@ const TitleBlockZen = ({
   const [isSmallOrMediumViewport, setSmallOrMediumViewport] = React.useState(
     false
   )
+  const hasNavigationTabs = navigationTabs && navigationTabs.length > 0
+  const collapseNavigationArea =
+    collapseNavigationAreaWhenPossible &&
+    !hasNavigationTabs &&
+    secondaryActions === undefined
 
   const updateOnViewportChange = mediaQuery => {
     if (mediaQuery.matches && !isSmallOrMediumViewport) {
@@ -453,8 +475,7 @@ const TitleBlockZen = ({
           [styles.adminVariant]: variant === "admin",
           [styles.hasLongTitle]: title && title.length >= 30,
           [styles.hasLongSubtitle]: subtitle && subtitle.length >= 18,
-          [styles.hasNavigationTabs]:
-            navigationTabs && navigationTabs.length > 0,
+          [styles.hasNavigationTabs]: hasNavigationTabs,
         })}
       >
         <div className={styles.titleRow}>
@@ -553,7 +574,7 @@ const TitleBlockZen = ({
                   sectionTitleAutomationId,
                   sectionTitleDescriptionAutomationId
                 )}
-              {renderNavigationTabs(navigationTabs)}
+              {renderNavigationTabs(navigationTabs, collapseNavigationArea)}
               {(secondaryActions || secondaryOverflowMenuItems) && (
                 <SecondaryActions
                   secondaryActions={secondaryActions}
@@ -581,4 +602,4 @@ const TitleBlockZen = ({
 }
 
 export default TitleBlockZen
-export { NavigationTab }
+export { NavigationTab, NavigationTabProps }

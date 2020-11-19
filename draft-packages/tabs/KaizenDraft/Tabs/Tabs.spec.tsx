@@ -2,9 +2,8 @@ import { cleanup, render } from "@testing-library/react"
 import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
 
-import { Tabs } from "."
-
 import styles from "./styles.scss"
+import { Tabs } from "."
 
 afterEach(cleanup)
 
@@ -63,7 +62,7 @@ describe("Tabs", () => {
         <Tabs
           tabs={tabs}
           renderTab={({
-            // eslint-disable-next-line no-shadow
+            // eslint-disable-next-line @typescript-eslint/no-shadow
             tab,
             tabClassName,
             activeTabClassName,

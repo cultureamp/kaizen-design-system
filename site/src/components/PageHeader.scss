@@ -8,7 +8,7 @@
   justify-items: center;
   background: $kz-color-wisteria-700;
   padding: calc(var(--ca-grid) * 3.5) var(--ca-grid);
-  color: #fff;
+  color: white;
 
   @include ca-media-mobile() {
     padding-bottom: calc(var(--ca-grid) * 3.5);

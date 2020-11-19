@@ -4,7 +4,7 @@ import * as React from "react"
 
 import styles from "./ContentOnly.scss"
 
-type ContentOnlyProps = {}
+type ContentOnlyProps = unknown
 
 export const ContentOnly: React.SFC<ContentOnlyProps> = ({ children }) => (
   <div className={styles.contentOnly}>{children}</div>

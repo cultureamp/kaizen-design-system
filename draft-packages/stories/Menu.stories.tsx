@@ -9,7 +9,6 @@ import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import kebabIcon from "@kaizen/component-library/icons/kebab.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 
-import { action } from "@storybook/addon-actions"
 import React, { useState } from "react"
 import {
   Menu,
@@ -36,7 +35,6 @@ const MenuInstance: React.FunctionComponent = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        action("I am an onClick handler")()
       }}
       icon={duplicateIcon}
       label="Menu button but the label is too long"
@@ -44,7 +42,6 @@ const MenuInstance: React.FunctionComponent = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        action("I am an onClick handler")()
       }}
       icon={editIcon}
       label="Menu button"
@@ -87,9 +84,7 @@ export const LabelAndIcon = () => (
   </StoryWrapper>
 )
 
-LabelAndIcon.story = {
-  name: "Label and Icon (Kaizen Site Demo)",
-}
+LabelAndIcon.storyName = "Label and Icon (Kaizen Site Demo)"
 
 export const LabelAndIconReversed = () => (
   <StoryWrapper>
@@ -103,16 +98,10 @@ export const LabelAndIconReversed = () => (
   </StoryWrapper>
 )
 
-LabelAndIconReversed.story = {
-  name: "Label and Icon (reversed)",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
+LabelAndIconReversed.storyName = "Label and Icon (reversed)"
+LabelAndIconReversed.parameters = {
+  backgrounds: {
+    default: "Wisteria 700",
   },
 }
 
@@ -124,9 +113,7 @@ export const DefaultMeatball = () => (
   </StoryWrapper>
 )
 
-DefaultMeatball.story = {
-  name: "Default (Meatball)",
-}
+DefaultMeatball.storyName = "Default (Meatball)"
 
 export const DefaultKebab = () => (
   <StoryWrapper>
@@ -136,9 +123,7 @@ export const DefaultKebab = () => (
   </StoryWrapper>
 )
 
-DefaultKebab.story = {
-  name: "Default (Kebab)",
-}
+DefaultKebab.storyName = "Default (Kebab)"
 
 export const LabelAndIconBottom = () => (
   <StoryWrapper>
@@ -151,11 +136,9 @@ export const LabelAndIconBottom = () => (
   </StoryWrapper>
 )
 
-LabelAndIconBottom.story = {
-  name: "Label and Icon (bottom of screen)",
-  parameters: {
-    viewport: { defaultViewport: "mobile1" },
-  },
+LabelAndIconBottom.storyName = "Label and Icon (bottom of screen)"
+LabelAndIconBottom.parameters = {
+  viewport: { defaultViewport: "mobile1" },
 }
 
 const StatelessMenuExample = props => {
@@ -217,7 +200,11 @@ export const DefaultStatelessMenu = () => (
         changes, but it requires more work to configure. It can be used instead
         of `Menu` if this level of flexibility is required. This component is
         used in the FilterDrawer component. View the source code{" "}
-        <a href="https://github.com/cultureamp/kaizen-design-system/blob/master/draft-packages/stories/Menu.stories.tsx">
+        <a
+          href={
+            "https://github.com/cultureamp/kaizen-design-system/blob/master/draft-packages/stories/Menu.stories.tsx"
+          }
+        >
           here
         </a>
         .
@@ -226,9 +213,7 @@ export const DefaultStatelessMenu = () => (
   </StoryWrapper>
 )
 
-DefaultStatelessMenu.story = {
-  name: "StatelessMenu (example usage)",
-}
+DefaultStatelessMenu.storyName = "StatelessMenu (example usage)"
 
 export const DropdownWidthContain = () => (
   <StoryWrapper>
@@ -245,6 +230,4 @@ export const DropdownWidthContain = () => (
   </StoryWrapper>
 )
 
-DropdownWidthContain.story = {
-  name: 'Label and Icon (dropdownWidth="contain")',
-}
+DropdownWidthContain.storyName = 'Label and Icon (dropdownWidth="contain")'
