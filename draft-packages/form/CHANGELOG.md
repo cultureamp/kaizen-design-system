@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.7.14...@kaizen/draft-form@2.8.0) (2020-11-19)
+
+
+### Features
+
+* Add autogrow feature to TextArea/TextAreaField ([#866](https://github.com/cultureamp/kaizen-design-system/issues/866)) ([651bc05](https://github.com/cultureamp/kaizen-design-system/commit/651bc05fd57a0cb409aa466c16fdcdaa01312ab2))
+
+
+
+
+
 ## [2.7.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.7.13...@kaizen/draft-form@2.7.14) (2020-11-13)
 
 **Note:** Version bump only for package @kaizen/draft-form
