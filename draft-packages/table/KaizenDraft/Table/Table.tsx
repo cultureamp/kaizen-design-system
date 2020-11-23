@@ -98,6 +98,7 @@ type TableHeaderRowCell = React.FunctionComponent<{
   wrapping?: "nowrap" | "wrap"
   align?: "start" | "center" | "end"
   tooltipInfo?: string
+  sortingArrowsOnHover?: "ascending" | "descending" | undefined
 }>
 export const TableHeaderRowCell: TableHeaderRowCell = ({
   labelText,
@@ -112,7 +113,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   onCheck,
   active,
   sorting: sortingRaw,
-  // I can't say for cetin why "nowrap" was the default value. Normally you wouldn't
+  // I can't say for certain why "nowrap" was the default value. Normally you wouldn't
   // want to clip off information because it doesn't fit on one line.
   // My assumption is that because since the cell width rows are decoupled, a heading
   // cell with a word longer than the column width would push the columns out of
@@ -121,12 +122,21 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   wrapping = "nowrap",
   align = "start",
   tooltipInfo,
+  // if set, this will show the arrow in the direction provided
+  // when the header cell is hovered over.
+  sortingArrowsOnHover,
   // There aren't any other props in the type definition, so I'm unsure why we
   // have this spread.
   ...otherProps
 }) => {
   // `active` is the legacy prop
   const sorting = sortingRaw || (active ? "descending" : undefined)
+  const [isHovered, setIsHovered] = React.useState(false)
+
+  const updateHoverState = (hoverState: boolean) => {
+    if (sortingArrowsOnHover && hoverState != isHovered)
+      setIsHovered(hoverState)
+  }
 
   // For this "cellContents" variable, we start at the inner most child, and
   // wrap it elements, depending on what the props dictate.
@@ -163,10 +173,12 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
           </Heading>
         </div>
       ) : null}
-      {sorting && (
+      {(sorting || (isHovered && sortingArrowsOnHover)) && (
         <Icon
           icon={
-            sorting === "ascending" ? sortAscendingIcon : sortDescendingIcon
+            sorting === "ascending" || sortingArrowsOnHover === "ascending"
+              ? sortAscendingIcon
+              : sortDescendingIcon
           }
           role="presentation"
         />
@@ -182,6 +194,10 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
       onClick={
         onClick as (e: React.MouseEvent<HTMLAnchorElement>) => any | undefined
       }
+      onMouseEnter={() => updateHoverState(true)}
+      onFocus={() => updateHoverState(true)}
+      onMouseLeave={() => updateHoverState(false)}
+      onBlur={() => updateHoverState(false)}
     >
       {cellContents}
     </a>
@@ -190,6 +206,10 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
       data-automation-id={automationId}
       className={styles.headerRowCellButton}
       onClick={onClick as (e: React.MouseEvent<HTMLButtonElement>) => any}
+      onMouseEnter={() => updateHoverState(true)}
+      onFocus={() => updateHoverState(true)}
+      onMouseLeave={() => updateHoverState(false)}
+      onBlur={() => updateHoverState(false)}
     >
       {cellContents}
     </button>
