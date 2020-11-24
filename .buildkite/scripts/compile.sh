@@ -2,4 +2,4 @@
 set -e
 
 yarn install --frozen-lockfile
-yarn tsc
+yarn build
