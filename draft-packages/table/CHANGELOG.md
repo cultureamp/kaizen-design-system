@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.1.1...@kaizen/draft-table@3.2.0) (2020-11-24)
+
+
+### Features
+
+* created hover ability for header table row cells ([#867](https://github.com/cultureamp/kaizen-design-system/issues/867)) ([cbdd447](https://github.com/cultureamp/kaizen-design-system/commit/cbdd4479df8fafe0424bf5f0eef4858309f427c2))
+
+
+
+
+
 ## [3.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.1.0...@kaizen/draft-table@3.1.1) (2020-11-19)
 
 **Note:** Version bump only for package @kaizen/draft-table
