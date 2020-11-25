@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio-group@1.4.21...@kaizen/draft-radio-group@1.4.22) (2020-11-25)
+
+**Note:** Version bump only for package @kaizen/draft-radio-group
+
+
+
+
+
 ## [1.4.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio-group@1.4.20...@kaizen/draft-radio-group@1.4.21) (2020-11-13)
 
 **Note:** Version bump only for package @kaizen/draft-radio-group

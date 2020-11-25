@@ -22,7 +22,7 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "8.0.2",
+  "version": "8.0.3",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
