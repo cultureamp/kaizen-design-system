@@ -17,6 +17,7 @@
     "eslint": "eslint . -c .eslintrc.js --ext .ts,.tsx",
     "prettier": "prettier --check '**/*'",
     "test": "jest",
+    "compile": "tsc",
     "lint": "elm-format --validate packages && yarn eslint && yarn prettier && stylelint '**/*.scss'",
     "lint:fix": "elm-format --yes packages && yarn eslint --fix && yarn prettier --write",
     "clean:storybook": "rimraf 'storybook/public'",
