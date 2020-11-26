@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.8.1...@kaizen/draft-form@2.9.0) (2020-11-26)
+
+
+### Features
+
+* Add prominent variant to TextAreaField (React) ([#869](https://github.com/cultureamp/kaizen-design-system/issues/869)) ([27ede16](https://github.com/cultureamp/kaizen-design-system/commit/27ede1645b6ef9cceeacd575eead3cd465d6ebca))
+
+
+
+
+
 ## [2.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.8.0...@kaizen/draft-form@2.8.1) (2020-11-25)
 
 **Note:** Version bump only for package @kaizen/draft-form
