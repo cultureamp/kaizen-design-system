@@ -23,6 +23,7 @@ type Props = {
   description?: React.ReactNode
   textAreaRef?: React.RefObject<HTMLTextAreaElement>
   variant?: "default" | "prominent"
+  maxLength?: number
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => any
   onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
   onFocus?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
@@ -41,6 +42,7 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
     inline,
     reversed,
     variant,
+    maxLength,
     placeholder,
     textAreaRef,
     onChange,
@@ -92,6 +94,7 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
         status={status}
         autogrow={autogrow}
         textAreaRef={textAreaRef}
+        maxLength={maxLength}
       />
       {validationMessage && (
         <FieldMessage
