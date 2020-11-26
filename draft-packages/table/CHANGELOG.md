@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.2.2...@kaizen/draft-table@3.2.3) (2020-11-26)
+
+
+### Bug Fixes
+
+* fixed issue where hover on table row moves label for center/right aligned cells ([#870](https://github.com/cultureamp/kaizen-design-system/issues/870)) ([cf32eff](https://github.com/cultureamp/kaizen-design-system/commit/cf32effe28cf3583a8a4ea2caf9642a63d285222))
+
+
+
+
+
 ## [3.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.2.1...@kaizen/draft-table@3.2.2) (2020-11-26)
 
 **Note:** Version bump only for package @kaizen/draft-table
