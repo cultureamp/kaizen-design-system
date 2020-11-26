@@ -1,4 +1,3 @@
-import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { TextAreaField } from "@kaizen/draft-form"
 
 import React from "react"
