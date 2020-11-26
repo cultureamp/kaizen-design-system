@@ -469,10 +469,44 @@ export const AnchorLink = () => (
 AnchorLink.storyName = "Anchor Link"
 
 export const HoverHeaderCell = () => (
-  <Container>
+  <Container style={{ marginTop: "200px" }}>
     <TableContainer>
       <TableHeader>
-        <ExampleTableHeaderRow checkable showHover />
+        <TableHeaderRow>
+          <TableHeaderRowCell
+            sorting="descending"
+            onClick={() => alert("Sort!")}
+            labelText="Resource name"
+            width={4 / 12}
+            wrapping="wrap"
+            sortingArrowsOnHover="descending"
+          />
+          <TableHeaderRowCell
+            onClick={() => alert("Sort!")}
+            labelText="Supplementary information"
+            width={4 / 12}
+            wrapping="wrap"
+            sortingArrowsOnHover="descending"
+            align="center"
+          />
+          <TableHeaderRowCell
+            labelText="Date"
+            width={2 / 12}
+            onClick={() => alert("Sort!")}
+            wrapping="wrap"
+            sortingArrowsOnHover="descending"
+            align="end"
+            tooltipInfo="This is a tooltip"
+          />
+          <TableHeaderRowCell
+            labelText="Comments"
+            width={2 / 12}
+            onClick={() => alert("Sort!")}
+            wrapping="wrap"
+            sortingArrowsOnHover="descending"
+            align="end"
+          />
+        </TableHeaderRow>
       </TableHeader>
       <TableCard>
         <ExampleTableRow expandable={false} />

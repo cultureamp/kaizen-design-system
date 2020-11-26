@@ -1975,6 +1975,28 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@kaizen/component-library@^7.30.4":
+  version "7.33.1"
+  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-7.33.1.tgz#2573fec05c77136bca28ee2f44e5e9e7e171d53d"
+  integrity sha512-ITNTiP09Vb57xkK+4IjgSYOYFHvcfAsN25MlFRRQ98puvAkFDdqv75pY+Y9gQC0VcGTRDbfBWjNybz6Bbamy5A==
+  dependencies:
+    "@kaizen/deprecated-component-library-helpers" "^1.6.13"
+    "@kaizen/hosted-assets" "^1.0.2"
+    "@types/classnames" "^2.2.6"
+    "@types/lodash" "^4.14.132"
+    "@types/react-select" "^3.0.5"
+    "@types/uuid" "^3.4.4"
+    classnames "^2.2.6"
+    lodash "^4.17.11"
+    motion-ui cultureamp/motion-ui
+    react-animate-height "^2.0.15"
+    react-focus-lock "^1.19.1"
+    react-media "^1.9.2"
+    react-select "^3.1.0"
+    react-tooltip "^4.2.6"
+    react-transition-group "^2.9.0"
+    uuid "^3.3.2"
+
 "@kaizen/draft-button@^1.7.4":
   version "1.13.12"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-button/-/draft-button-1.13.12.tgz#b6478a3e1922101d7eb2591250395d146f2bc1a6"
@@ -16238,7 +16260,7 @@ moment@^2.15.1, moment@^2.18.1, moment@^2.24.0, moment@^2.27.0:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
   integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
 
-motion-ui@cultureamp/motion-ui:
+motion-ui@cultureamp/motion-ui, "motion-ui@github:cultureamp/motion-ui":
   version "2.0.3"
   resolved "https://codeload.github.com/cultureamp/motion-ui/tar.gz/8be21797f0b63740fc38493b8ea2b947d248b222"
 
