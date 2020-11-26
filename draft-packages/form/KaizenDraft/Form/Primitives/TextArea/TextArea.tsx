@@ -15,6 +15,7 @@ type Props = {
   status?: InputStatus
   autogrow?: boolean
   textAreaRef?: React.RefObject<HTMLTextAreaElement>
+  maxLength?: number
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => any
   onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
   onFocus?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
@@ -30,6 +31,7 @@ const TextArea = (props: Props) => {
     rows = 3,
     status = "default",
     autogrow,
+    maxLength,
     onBlur,
     onFocus,
     automationId,
@@ -100,6 +102,7 @@ const TextArea = (props: Props) => {
         defaultValue={defaultValue}
         ref={textAreaRef}
         style={getTextAreaStyle()}
+        maxLength={maxLength}
       />
 
       {/* Textareas aren't able to have pseudo elements like ::after on them,
