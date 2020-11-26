@@ -1,5 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 $message-error-color: $kz-color-wisteria-800;
@@ -13,14 +14,13 @@ $ca-palette-input-validation-negative: $kz-color-coral-600;
 .message {
   @include kz-typography-paragraph-small;
   @include ca-inherit-baseline;
-  margin-top: 4px;
 }
 
 .default {
-  color: rgba($kz-color-wisteria-800, 0.8);
+  color: rgba($kz-color-wisteria-800, 0.75);
 
   &.reversed {
-    color: $kz-color-white;
+    color: rgba($kz-color-white, 0.8);
   }
 }
 
@@ -29,4 +29,12 @@ $ca-palette-input-validation-negative: $kz-color-coral-600;
   color: $message-error-color;
   border-radius: $message-border-radius;
   background: $kz-color-coral-300;
+}
+
+.positionBottom {
+  margin-top: $kz-spacing-xs;
+}
+
+.positionTop {
+  margin-bottom: $kz-spacing-xs;
 }

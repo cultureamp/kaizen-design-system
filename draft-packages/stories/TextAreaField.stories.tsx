@@ -1,4 +1,3 @@
-import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { TextAreaField } from "@kaizen/draft-form"
 
 import React from "react"
@@ -235,3 +234,39 @@ export const ReversedErrorAndDesc = () => (
 
 ReversedErrorAndDesc.storyName = "Reversed, Error & Description"
 ReversedErrorAndDesc.parameters = { ...reversedBg }
+
+export const DefaultProminent = () => (
+  <ExampleContainer>
+    <TextAreaField id="reply" labelText="Your reply" variant="prominent" />
+  </ExampleContainer>
+)
+
+DefaultProminent.storyName = "Default, Prominent"
+
+export const DefaultProminentDesc = () => (
+  <ExampleContainer>
+    <TextAreaField
+      id="reply"
+      labelText="Your reply"
+      variant="prominent"
+      description="Your reply will only be seen by you"
+    />
+  </ExampleContainer>
+)
+
+DefaultProminentDesc.storyName = "Default, Prominent with description"
+
+export const ReversedProminent = () => (
+  <ExampleContainer>
+    <TextAreaField
+      id="reply"
+      labelText="Your reply"
+      variant="prominent"
+      description="Your reply will only be seen by you"
+      reversed
+    />
+  </ExampleContainer>
+)
+
+ReversedProminent.storyName = "Reversed, Prominent"
+ReversedProminent.parameters = { ...reversedBg }
