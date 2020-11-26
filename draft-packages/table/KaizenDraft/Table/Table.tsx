@@ -167,21 +167,28 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
           <Heading
             tag="div"
             variant="heading-6"
-            color={sorting ? "dark" : "dark-reduced-opacity"}
+            color={sorting || isHovered ? "dark" : "dark-reduced-opacity"}
           >
             {labelText}
           </Heading>
         </div>
       ) : null}
       {(sorting || (isHovered && sortingArrowsOnHover)) && (
-        <Icon
-          icon={
-            sorting === "ascending" || sortingArrowsOnHover === "ascending"
-              ? sortAscendingIcon
-              : sortDescendingIcon
-          }
-          role="presentation"
-        />
+        <div
+          className={classNames({
+            [styles.headerRowCellIconAlignCenter]: align === "center",
+            [styles.headerRowCellIconAlignEnd]: align === "end",
+          })}
+        >
+          <Icon
+            icon={
+              sorting === "ascending" || sortingArrowsOnHover === "ascending"
+                ? sortAscendingIcon
+                : sortDescendingIcon
+            }
+            role="presentation"
+          />
+        </div>
       )}
     </div>
   )
