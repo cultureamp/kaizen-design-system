@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useState, useRef } from "react"
 import classNames from "classnames"
 
-import styles from "./styles.module.scss"
+import styles from "../styles/styles.module.scss"
 
 type Variant = "default" | "active" | "dark"
 
