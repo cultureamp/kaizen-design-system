@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "composite": true,
     "lib": ["es2018", "dom"],
     "module": "commonjs",
     "jsx": "react",

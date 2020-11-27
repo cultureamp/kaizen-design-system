@@ -3,9 +3,11 @@
   "compilerOptions": {
     "allowJs": false,
     "declaration": true,
+    "declarationDir": "dist",
     "noEmit": false,
     "sourceMap": true,
-    "outDir": "./dist"
+    "outDir": "dist",
+    "rootDir": "src"
   },
-  "include": ["index.ts", "KaizenDraft/**/*"]
+  "include": ["src", "styles"]
 }

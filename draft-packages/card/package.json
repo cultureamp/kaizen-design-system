@@ -16,10 +16,12 @@
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
+  "main": "./dist",
   "files": [
-    "./dist"
+    "./dist",
+    "./styles",
+    "./KaizenDraft"
   ],
-  "author": "",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
