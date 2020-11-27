@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.2.2...@kaizen/draft-table@3.2.3) (2020-11-26)
+
+
+### Bug Fixes
+
+* fixed issue where hover on table row moves label for center/right aligned cells ([#870](https://github.com/cultureamp/kaizen-design-system/issues/870)) ([cf32eff](https://github.com/cultureamp/kaizen-design-system/commit/cf32effe28cf3583a8a4ea2caf9642a63d285222))
+
+
+
+
+
+## [3.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.2.1...@kaizen/draft-table@3.2.2) (2020-11-26)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+## [3.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.2.0...@kaizen/draft-table@3.2.1) (2020-11-25)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+# [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.1.1...@kaizen/draft-table@3.2.0) (2020-11-24)
+
+
+### Features
+
+* created hover ability for header table row cells ([#867](https://github.com/cultureamp/kaizen-design-system/issues/867)) ([cbdd447](https://github.com/cultureamp/kaizen-design-system/commit/cbdd4479df8fafe0424bf5f0eef4858309f427c2))
+
+
+
+
+
+## [3.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.1.0...@kaizen/draft-table@3.1.1) (2020-11-19)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
+# [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.0.2...@kaizen/draft-table@3.1.0) (2020-11-16)
+
+
+### Features
+
+* Add ability to change the table sorting arrow from descending to ascending ([#864](https://github.com/cultureamp/kaizen-design-system/issues/864)) ([912f393](https://github.com/cultureamp/kaizen-design-system/commit/912f393bb45ad2ca8f1dffd57abceee313dbdfaa))
+
+
+
+
+
 ## [3.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.0.1...@kaizen/draft-table@3.0.2) (2020-11-13)
 
 **Note:** Version bump only for package @kaizen/draft-table

@@ -2,6 +2,7 @@ import { Heading, Icon } from "@kaizen/component-library"
 import { Checkbox, CheckedStatus } from "@kaizen/draft-form"
 import classNames from "classnames"
 import * as React from "react"
+import sortAscendingIcon from "@kaizen/component-library/icons/sort-ascending.icon.svg"
 import sortDescendingIcon from "@kaizen/component-library/icons/sort-descending.icon.svg"
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import { Tooltip } from "@kaizen/draft-tooltip"
@@ -73,22 +74,37 @@ const ratioToPercent = (width?: number) =>
 type TableHeaderRowCell = React.FunctionComponent<{
   labelText: string
   automationId?: string
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => any
+  onClick?:
+    | ((e: React.MouseEvent<HTMLButtonElement>) => any)
+    | ((e: React.MouseEvent<HTMLAnchorElement>) => any)
+  href?: string
   width?: number
   flex?: string
   icon?: React.SVGAttributes<SVGSymbolElement>
   checkable?: boolean
   checkedStatus?: CheckedStatus
   onCheck?: (event: React.ChangeEvent<HTMLInputElement>) => any
+  /**
+   * This boolean would show a "sort by" icon in the table cell header.
+   * The problem was that the arrow was pointing in the descending direction only.
+   * Please use `sorting` prop instead.
+   * @deprecated
+   */
   active?: boolean
+  /**
+   * Shows an up or down arrow, to show that the column is sorted.
+   */
+  sorting?: "ascending" | "descending"
   wrapping?: "nowrap" | "wrap"
   align?: "start" | "center" | "end"
   tooltipInfo?: string
+  sortingArrowsOnHover?: "ascending" | "descending" | undefined
 }>
 export const TableHeaderRowCell: TableHeaderRowCell = ({
   labelText,
   automationId,
   onClick,
+  href,
   width,
   flex,
   icon,
@@ -96,7 +112,8 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   checkedStatus,
   onCheck,
   active,
-  // I can't say for cetin why "nowrap" was the default value. Normally you wouldn't
+  sorting: sortingRaw,
+  // I can't say for certain why "nowrap" was the default value. Normally you wouldn't
   // want to clip off information because it doesn't fit on one line.
   // My assumption is that because since the cell width rows are decoupled, a heading
   // cell with a word longer than the column width would push the columns out of
@@ -105,10 +122,22 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
   wrapping = "nowrap",
   align = "start",
   tooltipInfo,
+  // if set, this will show the arrow in the direction provided
+  // when the header cell is hovered over.
+  sortingArrowsOnHover,
   // There aren't any other props in the type definition, so I'm unsure why we
   // have this spread.
   ...otherProps
 }) => {
+  // `active` is the legacy prop
+  const sorting = sortingRaw || (active ? "descending" : undefined)
+  const [isHovered, setIsHovered] = React.useState(false)
+
+  const updateHoverState = (hoverState: boolean) => {
+    if (sortingArrowsOnHover && hoverState != isHovered)
+      setIsHovered(hoverState)
+  }
+
   // For this "cellContents" variable, we start at the inner most child, and
   // wrap it elements, depending on what the props dictate.
   let cellContents = (
@@ -138,21 +167,56 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
           <Heading
             tag="div"
             variant="heading-6"
-            color={active ? "dark" : "dark-reduced-opacity"}
+            color={sorting || isHovered ? "dark" : "dark-reduced-opacity"}
           >
             {labelText}
           </Heading>
         </div>
       ) : null}
-      {active && <Icon icon={sortDescendingIcon} role="presentation" />}
+      {(sorting || (isHovered && sortingArrowsOnHover)) && (
+        <div
+          className={classNames({
+            [styles.headerRowCellIconAlignCenter]: align === "center",
+            [styles.headerRowCellIconAlignEnd]: align === "end",
+          })}
+        >
+          <Icon
+            icon={
+              sorting === "ascending" || sortingArrowsOnHover === "ascending"
+                ? sortAscendingIcon
+                : sortDescendingIcon
+            }
+            role="presentation"
+          />
+        </div>
+      )}
     </div>
   )
 
-  cellContents = onClick ? (
+  cellContents = href ? (
+    <a
+      data-automation-id={automationId}
+      className={styles.headerRowCellButton}
+      href={href}
+      onClick={
+        onClick as (e: React.MouseEvent<HTMLAnchorElement>) => any | undefined
+      }
+      onMouseEnter={() => updateHoverState(true)}
+      onFocus={() => updateHoverState(true)}
+      onMouseLeave={() => updateHoverState(false)}
+      onBlur={() => updateHoverState(false)}
+    >
+      {cellContents}
+    </a>
+  ) : onClick ? (
     <button
       data-automation-id={automationId}
       className={styles.headerRowCellButton}
-      onClick={onClick}
+      onClick={onClick as (e: React.MouseEvent<HTMLButtonElement>) => any}
+      onMouseEnter={() => updateHoverState(true)}
+      onFocus={() => updateHoverState(true)}
+      onMouseLeave={() => updateHoverState(false)}
+      onBlur={() => updateHoverState(false)}
     >
       {cellContents}
     </button>
@@ -183,7 +247,7 @@ export const TableHeaderRowCell: TableHeaderRowCell = ({
         [styles.headerRowCellNoWrap]: wrapping === "nowrap",
         [styles.headerRowCellAlignCenter]: align === "center",
         [styles.headerRowCellAlignEnd]: align === "end",
-        [styles.headerRowCellActive]: active,
+        [styles.headerRowCellActive]: !!sorting,
       })}
       style={{
         width: ratioToPercent(width),

@@ -26,7 +26,7 @@ const Container: React.FunctionComponent<{
   </div>
 )
 
-const ExampleTableHeaderRow = ({ checkable = false }) => (
+const ExampleTableHeaderRow = ({ checkable = false, showHover = false }) => (
   <TableHeaderRow>
     <TableHeaderRowCell
       checkable={checkable}
@@ -34,29 +34,33 @@ const ExampleTableHeaderRow = ({ checkable = false }) => (
       onCheck={evt => {
         alert(evt.target.value)
       }}
-      active={true}
+      sorting="descending"
       onClick={() => alert("Sort!")}
       labelText="Resource name"
       width={4 / 12}
       wrapping="wrap"
+      sortingArrowsOnHover={showHover ? "descending" : undefined}
     />
     <TableHeaderRowCell
       onClick={() => alert("Sort!")}
       labelText="Supplementary information"
       width={4 / 12}
       wrapping="wrap"
+      sortingArrowsOnHover={showHover ? "descending" : undefined}
     />
     <TableHeaderRowCell
       labelText="Date"
       width={2 / 12}
       onClick={() => alert("Sort!")}
       wrapping="wrap"
+      sortingArrowsOnHover={showHover ? "descending" : undefined}
     />
     <TableHeaderRowCell
       labelText="Comments"
       width={2 / 12}
       onClick={() => alert("Sort!")}
       wrapping="wrap"
+      sortingArrowsOnHover={showHover ? "descending" : undefined}
     />
   </TableHeaderRow>
 )
@@ -414,4 +418,107 @@ export const Tooltip = () => (
   </Container>
 )
 
-HeaderAlignmentAndWrapping.storyName = "Header alignments and wrapping"
+Tooltip.storyName = "Tooltip"
+
+export const AnchorLink = () => (
+  // Extra margin added, so we can see the tooltip above
+  <Container style={{ marginTop: "200px" }}>
+    <TableContainer>
+      <TableHeader>
+        <TableHeaderRow>
+          <TableHeaderRowCell
+            labelText="This is an anchor"
+            width={1 / 2}
+            onClick={e => {
+              e.preventDefault()
+              alert("Header was clicked")
+            }}
+            href="#?foo=bar"
+            sorting="ascending"
+          />
+          <TableHeaderRowCell
+            labelText="This is an anchor"
+            width={1 / 2}
+            onClick={e => {
+              e.preventDefault()
+              alert("Header was clicked")
+            }}
+            href="#?foo=bar"
+          />
+        </TableHeaderRow>
+      </TableHeader>
+      <TableCard>
+        <TableRow>
+          <TableRowCell width={1 / 2}>
+            <Paragraph tag="div" variant="body">
+              Notice that you can open it in a new tab
+            </Paragraph>
+          </TableRowCell>
+          <TableRowCell width={1 / 2}>
+            <Paragraph tag="div" variant="body">
+              Typically you'd need to hook this up with your routing library
+              (eg. react-router)
+            </Paragraph>
+          </TableRowCell>
+        </TableRow>
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+
+AnchorLink.storyName = "Anchor Link"
+
+export const HoverHeaderCell = () => (
+  <Container style={{ marginTop: "200px" }}>
+    <TableContainer>
+      <TableHeader>
+        <TableHeaderRow>
+          <TableHeaderRowCell
+            sorting="descending"
+            onClick={() => alert("Sort!")}
+            labelText="Resource name"
+            width={4 / 12}
+            wrapping="wrap"
+            sortingArrowsOnHover="descending"
+          />
+          <TableHeaderRowCell
+            onClick={() => alert("Sort!")}
+            labelText="Supplementary information"
+            width={4 / 12}
+            wrapping="wrap"
+            sortingArrowsOnHover="descending"
+            align="center"
+          />
+          <TableHeaderRowCell
+            labelText="Date"
+            width={2 / 12}
+            onClick={() => alert("Sort!")}
+            wrapping="wrap"
+            sortingArrowsOnHover="descending"
+            align="end"
+            tooltipInfo="This is a tooltip"
+          />
+          <TableHeaderRowCell
+            labelText="Comments"
+            width={2 / 12}
+            onClick={() => alert("Sort!")}
+            wrapping="wrap"
+            sortingArrowsOnHover="descending"
+            align="end"
+          />
+        </TableHeaderRow>
+      </TableHeader>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+
+HoverHeaderCell.storyName = "Header row hover"
