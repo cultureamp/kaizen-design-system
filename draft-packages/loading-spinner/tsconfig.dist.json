@@ -3,7 +3,11 @@
   "compilerOptions": {
     "allowJs": false,
     "declaration": true,
+    "declarationDir": "dist",
     "noEmit": false,
-    "sourceMap": true
-  }
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "include": ["src", "styles"]
 }

@@ -1,7 +1,6 @@
 import * as React from "react"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
-import spacingTokens from "@kaizen/design-tokens/tokens/spacing.json"
-import styles from "./styles.module.scss"
+import styles from "../styles/styles.module.scss"
 
 type size = "sm" | "md"
 
