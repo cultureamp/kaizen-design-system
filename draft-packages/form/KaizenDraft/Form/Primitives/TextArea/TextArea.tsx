@@ -3,7 +3,7 @@ import classnames from "classnames"
 import React, { useState, useEffect, useRef } from "react"
 import styles from "./styles.scss"
 
-type Props = {
+interface Props extends React.HTMLAttributes<HTMLTextAreaElement> {
   id: string
   automationId?: string
   rows?: number
@@ -35,6 +35,10 @@ const TextArea = (props: Props) => {
     onBlur,
     onFocus,
     automationId,
+    value,
+    onChange: propsOnChange,
+    textAreaRef: propsTextAreaRef,
+    ...genericTextAreaProps
   } = props
 
   const [textAreaHeight, setTextAreaHeight] = useState("auto")
@@ -43,7 +47,7 @@ const TextArea = (props: Props) => {
     autogrow ? defaultValue : undefined
   )
   // ^ holds an internal state of the value so that autogrow can still work with uncontrolled textareas
-  const textAreaRef = props.textAreaRef || useRef(null)
+  const textAreaRef = propsTextAreaRef || useRef(null)
 
   useEffect(() => {
     if (!autogrow) return
@@ -63,8 +67,8 @@ const TextArea = (props: Props) => {
         // see https://medium.com/@lucasalgus/creating-a-custom-auto-resize-textarea-component-for-your-react-web-application-6959c0ad68bc#2dee
 
         setInternalValue(event.target.value)
-        if (props.onChange) {
-          props.onChange(event)
+        if (propsOnChange) {
+          propsOnChange(event)
         }
       }
 
@@ -94,15 +98,16 @@ const TextArea = (props: Props) => {
         placeholder={placeholder}
         name={name}
         rows={rows}
-        onChange={onChange || props.onChange}
+        onChange={onChange || propsOnChange}
         onBlur={onBlur}
         onFocus={onFocus}
         data-automation-id={automationId}
-        value={props.value || internalValue}
+        value={value || internalValue}
         defaultValue={defaultValue}
         ref={textAreaRef}
         style={getTextAreaStyle()}
         maxLength={maxLength}
+        {...genericTextAreaProps}
       />
 
       {/* Textareas aren't able to have pseudo elements like ::after on them,

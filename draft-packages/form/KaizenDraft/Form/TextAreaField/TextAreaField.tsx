@@ -7,7 +7,7 @@ import {
 } from "@kaizen/draft-form"
 import React from "react"
 
-type Props = {
+interface Props extends React.HTMLAttributes<HTMLTextAreaElement> {
   id: string
   labelText: string | React.ReactNode
   rows?: number
@@ -49,6 +49,7 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
     onBlur,
     onFocus,
     rows,
+    ...genericTextAreaProps
   } = props
 
   const renderDescription = (position: "top" | "bottom") => {
@@ -95,6 +96,7 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
         autogrow={autogrow}
         textAreaRef={textAreaRef}
         maxLength={maxLength}
+        {...genericTextAreaProps}
       />
       {validationMessage && (
         <FieldMessage
