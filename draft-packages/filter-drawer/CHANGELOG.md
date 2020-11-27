@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-filter-drawer@2.0.15...@kaizen/draft-filter-drawer@2.0.16) (2020-11-25)
+
+**Note:** Version bump only for package @kaizen/draft-filter-drawer
+
+
+
+
+
 ## [2.0.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-filter-drawer@2.0.14...@kaizen/draft-filter-drawer@2.0.15) (2020-11-13)
 
 **Note:** Version bump only for package @kaizen/draft-filter-drawer

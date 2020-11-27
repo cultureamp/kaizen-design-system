@@ -26,7 +26,7 @@ const Container: React.FunctionComponent<{
   </div>
 )
 
-const ExampleTableHeaderRow = ({ checkable = false }) => (
+const ExampleTableHeaderRow = ({ checkable = false, showHover = false }) => (
   <TableHeaderRow>
     <TableHeaderRowCell
       checkable={checkable}
@@ -39,24 +39,28 @@ const ExampleTableHeaderRow = ({ checkable = false }) => (
       labelText="Resource name"
       width={4 / 12}
       wrapping="wrap"
+      sortingArrowsOnHover={showHover ? "descending" : undefined}
     />
     <TableHeaderRowCell
       onClick={() => alert("Sort!")}
       labelText="Supplementary information"
       width={4 / 12}
       wrapping="wrap"
+      sortingArrowsOnHover={showHover ? "descending" : undefined}
     />
     <TableHeaderRowCell
       labelText="Date"
       width={2 / 12}
       onClick={() => alert("Sort!")}
       wrapping="wrap"
+      sortingArrowsOnHover={showHover ? "descending" : undefined}
     />
     <TableHeaderRowCell
       labelText="Comments"
       width={2 / 12}
       onClick={() => alert("Sort!")}
       wrapping="wrap"
+      sortingArrowsOnHover={showHover ? "descending" : undefined}
     />
   </TableHeaderRow>
 )
@@ -463,3 +467,58 @@ export const AnchorLink = () => (
 )
 
 AnchorLink.storyName = "Anchor Link"
+
+export const HoverHeaderCell = () => (
+  <Container style={{ marginTop: "200px" }}>
+    <TableContainer>
+      <TableHeader>
+        <TableHeaderRow>
+          <TableHeaderRowCell
+            sorting="descending"
+            onClick={() => alert("Sort!")}
+            labelText="Resource name"
+            width={4 / 12}
+            wrapping="wrap"
+            sortingArrowsOnHover="descending"
+          />
+          <TableHeaderRowCell
+            onClick={() => alert("Sort!")}
+            labelText="Supplementary information"
+            width={4 / 12}
+            wrapping="wrap"
+            sortingArrowsOnHover="descending"
+            align="center"
+          />
+          <TableHeaderRowCell
+            labelText="Date"
+            width={2 / 12}
+            onClick={() => alert("Sort!")}
+            wrapping="wrap"
+            sortingArrowsOnHover="descending"
+            align="end"
+            tooltipInfo="This is a tooltip"
+          />
+          <TableHeaderRowCell
+            labelText="Comments"
+            width={2 / 12}
+            onClick={() => alert("Sort!")}
+            wrapping="wrap"
+            sortingArrowsOnHover="descending"
+            align="end"
+          />
+        </TableHeaderRow>
+      </TableHeader>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+
+HoverHeaderCell.storyName = "Header row hover"

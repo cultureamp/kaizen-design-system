@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.4.9...@kaizen/draft-menu@2.5.0) (2020-11-27)
+
+
+### Features
+
+* Allow for target in the MenuItem props ([#872](https://github.com/cultureamp/kaizen-design-system/issues/872)) ([da4070d](https://github.com/cultureamp/kaizen-design-system/commit/da4070db01ad89fce928d06672548e110477128e))
+
+
+
+
+
+## [2.4.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.4.8...@kaizen/draft-menu@2.4.9) (2020-11-25)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
 ## [2.4.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.4.7...@kaizen/draft-menu@2.4.8) (2020-11-13)
 
 **Note:** Version bump only for package @kaizen/draft-menu

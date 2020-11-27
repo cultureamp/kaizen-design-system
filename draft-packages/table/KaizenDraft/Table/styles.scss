@@ -209,3 +209,19 @@ $row-height: 60px;
     padding: $kz-spacing-md * 0.5 $kz-spacing-md;
   }
 }
+
+.rowCellAlignCenter {
+  justify-content: center;
+  text-align: center;
+}
+
+.rowCellAlignEnd {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.headerRowCellIconAlignCenter,
+.headerRowCellIconAlignEnd {
+  //makes sure the label doesn't move on hover when not left aligned
+  margin-right: -20px;
+}

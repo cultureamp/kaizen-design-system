@@ -22,6 +22,8 @@ type Props = {
   autogrow?: boolean
   description?: React.ReactNode
   textAreaRef?: React.RefObject<HTMLTextAreaElement>
+  variant?: "default" | "prominent"
+  maxLength?: number
   onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => any
   onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
   onFocus?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
@@ -39,6 +41,8 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
     description,
     inline,
     reversed,
+    variant,
+    maxLength,
     placeholder,
     textAreaRef,
     onChange,
@@ -46,6 +50,19 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
     onFocus,
     rows,
   } = props
+
+  const renderDescription = (position: "top" | "bottom") => {
+    if (!description) return null
+    return (
+      <FieldMessage
+        id={`${id}-field-message`}
+        automationId={`${id}-field-description`}
+        message={description}
+        reversed={reversed}
+        position={position}
+      />
+    )
+  }
 
   return (
     <FieldGroup
@@ -59,7 +76,9 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
         htmlFor={`${id}-field-textarea`}
         labelText={labelText}
         reversed={reversed}
+        variant={variant}
       />
+      {variant === "prominent" && renderDescription("top")}
       <TextArea
         id={`${id}-field-textarea`}
         automationId={`${id}-field-textarea`}
@@ -75,6 +94,7 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
         status={status}
         autogrow={autogrow}
         textAreaRef={textAreaRef}
+        maxLength={maxLength}
       />
       {validationMessage && (
         <FieldMessage
@@ -85,14 +105,7 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
           reversed={reversed}
         />
       )}
-      {description && (
-        <FieldMessage
-          id={`${id}-field-message`}
-          automationId={`${id}-field-description`}
-          message={description}
-          reversed={reversed}
-        />
-      )}
+      {variant === "default" && renderDescription("bottom")}
     </FieldGroup>
   )
 }

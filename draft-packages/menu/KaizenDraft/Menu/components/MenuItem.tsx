@@ -16,6 +16,8 @@ export type MenuItemProps = {
    */
   action?: string | ((e: React.MouseEvent<HTMLButtonElement>) => void)
   href?: string
+  // Only applicable if href is supplied above
+  target?: string
   onClick?:
     | ((e: React.MouseEvent<HTMLButtonElement>) => void)
     | ((e: React.MouseEvent<HTMLAnchorElement>) => void)
@@ -35,6 +37,7 @@ const MenuItem = (props: MenuItemProps) => {
     automationId,
     onClick,
     href,
+    target,
   } = props
 
   const wrappedLabel = <span className={styles.menuItem__Label}>{label}</span>
@@ -78,6 +81,7 @@ const MenuItem = (props: MenuItemProps) => {
         }
         className={className}
         data-automation-id={automationId}
+        target={target}
       >
         {iconNode}
         {wrappedLabel}
