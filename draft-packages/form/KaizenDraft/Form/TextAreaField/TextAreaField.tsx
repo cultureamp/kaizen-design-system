@@ -5,28 +5,18 @@ import {
   Label,
   TextArea,
 } from "@kaizen/draft-form"
-import React from "react"
+import React, { TextareaHTMLAttributes } from "react"
 
-interface Props extends React.HTMLAttributes<HTMLTextAreaElement> {
-  id: string
+interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   labelText: string | React.ReactNode
-  rows?: number
-  placeholder?: string
-  name?: string
-  value?: string
   inline?: boolean
   reversed?: boolean
-  defaultValue?: string
   validationMessage?: string
   status?: InputStatus
   autogrow?: boolean
   description?: React.ReactNode
   textAreaRef?: React.RefObject<HTMLTextAreaElement>
   variant?: "default" | "prominent"
-  maxLength?: number
-  onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => any
-  onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
-  onFocus?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
 }
 
 const TextAreaField: React.FunctionComponent<Props> = props => {

@@ -1,41 +1,30 @@
 import { InputStatus } from "@kaizen/draft-form"
 import classnames from "classnames"
-import React, { useState, useEffect, useRef } from "react"
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  TextareaHTMLAttributes,
+} from "react"
 import styles from "./styles.scss"
 
-interface Props extends React.HTMLAttributes<HTMLTextAreaElement> {
-  id: string
+interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   automationId?: string
-  rows?: number
-  value?: string
-  defaultValue?: string
-  placeholder?: string
-  name?: string
   reversed?: boolean
   status?: InputStatus
   autogrow?: boolean
   textAreaRef?: React.RefObject<HTMLTextAreaElement>
-  maxLength?: number
-  onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => any
-  onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
-  onFocus?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
 }
 
 const TextArea = (props: Props) => {
   const {
-    id,
+    value,
     defaultValue,
-    placeholder,
-    name,
     reversed,
     rows = 3,
     status = "default",
     autogrow,
-    maxLength,
-    onBlur,
-    onFocus,
     automationId,
-    value,
     onChange: propsOnChange,
     textAreaRef: propsTextAreaRef,
     ...genericTextAreaProps
@@ -89,24 +78,17 @@ const TextArea = (props: Props) => {
   return (
     <div className={styles.wrapper} style={getWrapperStyle()}>
       <textarea
-        id={id}
         className={classnames(styles.textarea, {
           [styles.default]: !reversed,
           [styles.reversed]: reversed,
           [styles.error]: status === "error",
         })}
-        placeholder={placeholder}
-        name={name}
         rows={rows}
         onChange={onChange || propsOnChange}
-        onBlur={onBlur}
-        onFocus={onFocus}
         data-automation-id={automationId}
         value={value || internalValue}
-        defaultValue={defaultValue}
         ref={textAreaRef}
         style={getTextAreaStyle()}
-        maxLength={maxLength}
         {...genericTextAreaProps}
       />
 
