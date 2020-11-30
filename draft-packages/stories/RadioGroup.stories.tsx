@@ -1,6 +1,4 @@
-import { Label } from "@kaizen/draft-form"
-import { Radio } from "@kaizen/draft-radio"
-import { RadioGroup } from "@kaizen/draft-radio-group"
+import { Label, Radio, RadioGroup } from "@kaizen/draft-form"
 import * as React from "react"
 import styles from "./RadioGroup.stories.scss"
 
@@ -43,7 +41,7 @@ export default {
   parameters: {
     info: {
       text: `
-      import { RadioGroup } from "@kaizen/draft-radio-group"
+      import { RadioGroup } from "@kaizen/draft-form"
       `,
     },
   },

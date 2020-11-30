@@ -1,4 +1,4 @@
-module KaizenDraft.Radio.Radio exposing
+module KaizenDraft.Form.Radio.Radio exposing
     ( LabelProp(..)
     , SelectedStatus(..)
     , automationId
@@ -18,7 +18,7 @@ import CssModules exposing (css)
 import Html exposing (Html, div)
 import Html.Attributes as Attributes
 import KaizenDraft.Form.Primitives.Label.Label as Label
-import KaizenDraft.Radio.Primitives.RadioInput as RadioInput
+import KaizenDraft.Form.Radio.Primitives.RadioInput as RadioInput
 
 
 labelSuffix : String
@@ -192,7 +192,7 @@ automationId a (Config config) =
 
 
 styles =
-    css "@kaizen/draft-radio/KaizenDraft/Radio/styles.scss"
+    css "@kaizen/draft-form/KaizenDraft/Form/Radio/styles.scss"
         { container = "container"
         , selected = "selected"
         , disabled = "disabled"

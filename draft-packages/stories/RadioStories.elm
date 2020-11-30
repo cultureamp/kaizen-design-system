@@ -3,7 +3,7 @@ module Main exposing (main)
 import ElmStorybook exposing (storyOf, storybook)
 import Html exposing (a, div, text)
 import Html.Attributes exposing (dir, href, style)
-import KaizenDraft.Radio.Radio as Radio
+import KaizenDraft.Form.Radio.Radio as Radio
 
 
 type Msg

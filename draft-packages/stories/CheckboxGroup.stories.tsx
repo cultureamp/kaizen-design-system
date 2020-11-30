@@ -1,4 +1,4 @@
-import { CheckboxGroup } from "@kaizen/draft-checkbox-group"
+import { CheckboxGroup } from "@kaizen/draft-form"
 import { CheckboxField, Label } from "@kaizen/draft-form"
 import * as React from "react"
 import styles from "./CheckboxGroup.stories.scss"
@@ -47,7 +47,7 @@ export default {
   parameters: {
     info: {
       text: `
-        import { CheckboxGroup } from "@kaizen/draft-checkbox-group";
+        import { CheckboxGroup } from "@kaizen/draft-form";
       `,
     },
   },

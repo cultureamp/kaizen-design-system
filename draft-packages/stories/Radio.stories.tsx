@@ -1,4 +1,4 @@
-import { Radio } from "@kaizen/draft-radio"
+import { Radio } from "@kaizen/draft-form"
 import * as React from "react"
 
 const ExampleContent = () => (
@@ -54,7 +54,7 @@ export default {
   parameters: {
     info: {
       text: `
-      import { Radio } from "@kaizen/draft-radio"
+      import { Radio } from "@kaizen/draft-form"
       `,
     },
   },

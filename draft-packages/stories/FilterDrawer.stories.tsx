@@ -1,9 +1,8 @@
 import { Box, Paragraph } from "@kaizen/component-library"
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { Button } from "@kaizen/draft-button"
-import { CheckboxGroup } from "@kaizen/draft-checkbox-group"
+import { CheckboxGroup, CheckboxField } from "@kaizen/draft-form"
 import { FilterDrawer } from "@kaizen/draft-filter-drawer"
-import { CheckboxField } from "@kaizen/draft-form"
 import React, { useState } from "react"
 import styles from "./FilterDrawer.stories.scss"
 const StoryWrapper = ({ children }) => (
