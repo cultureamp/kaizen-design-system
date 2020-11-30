@@ -1,0 +1,51 @@
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "./Primitives/styles";
+
+.container {
+  position: relative;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  margin-bottom: $ca-grid / 2;
+
+  label {
+    -webkit-tap-highlight-color: transparent;
+
+    // Disable pointer-events on the wrapper for the <RadioInput> primitive
+    > div:first-child {
+      pointer-events: none;
+    }
+
+    :global(.ideal-sans) & {
+      // This is to override bootstrap styles. Remove when appropriate
+      font-size: $ca-inter-font-base-size;
+      padding-top: 0;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    label:hover {
+      input:not([disabled]) + div {
+        border-color: $kz-color-wisteria-700;
+        background-color: $kz-color-wisteria-100;
+      }
+    }
+  }
+
+  &.selected {
+    label {
+      @include kz-typography-paragraph-body-bold;
+      @include ca-inherit-baseline;
+    }
+  }
+
+  &.disabled {
+    label {
+      > span {
+        opacity: 0.3;
+      }
+    }
+  }
+}
