@@ -1,40 +1,33 @@
 import { InputStatus } from "@kaizen/draft-form"
 import classnames from "classnames"
-import React, { useState, useEffect, useRef } from "react"
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  TextareaHTMLAttributes,
+} from "react"
 import styles from "./styles.scss"
 
-type Props = {
-  id: string
+interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   automationId?: string
-  rows?: number
-  value?: string
-  defaultValue?: string
-  placeholder?: string
-  name?: string
   reversed?: boolean
   status?: InputStatus
   autogrow?: boolean
   textAreaRef?: React.RefObject<HTMLTextAreaElement>
-  maxLength?: number
-  onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => any
-  onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
-  onFocus?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
 }
 
 const TextArea = (props: Props) => {
   const {
-    id,
+    value,
     defaultValue,
-    placeholder,
-    name,
     reversed,
     rows = 3,
     status = "default",
     autogrow,
-    maxLength,
-    onBlur,
-    onFocus,
     automationId,
+    onChange: propsOnChange,
+    textAreaRef: propsTextAreaRef,
+    ...genericTextAreaProps
   } = props
 
   const [textAreaHeight, setTextAreaHeight] = useState("auto")
@@ -43,7 +36,7 @@ const TextArea = (props: Props) => {
     autogrow ? defaultValue : undefined
   )
   // ^ holds an internal state of the value so that autogrow can still work with uncontrolled textareas
-  const textAreaRef = props.textAreaRef || useRef(null)
+  const textAreaRef = propsTextAreaRef || useRef(null)
 
   useEffect(() => {
     if (!autogrow) return
@@ -63,8 +56,8 @@ const TextArea = (props: Props) => {
         // see https://medium.com/@lucasalgus/creating-a-custom-auto-resize-textarea-component-for-your-react-web-application-6959c0ad68bc#2dee
 
         setInternalValue(event.target.value)
-        if (props.onChange) {
-          props.onChange(event)
+        if (propsOnChange) {
+          propsOnChange(event)
         }
       }
 
@@ -85,24 +78,18 @@ const TextArea = (props: Props) => {
   return (
     <div className={styles.wrapper} style={getWrapperStyle()}>
       <textarea
-        id={id}
         className={classnames(styles.textarea, {
           [styles.default]: !reversed,
           [styles.reversed]: reversed,
           [styles.error]: status === "error",
         })}
-        placeholder={placeholder}
-        name={name}
         rows={rows}
-        onChange={onChange || props.onChange}
-        onBlur={onBlur}
-        onFocus={onFocus}
+        onChange={onChange || propsOnChange}
         data-automation-id={automationId}
-        value={props.value || internalValue}
-        defaultValue={defaultValue}
+        value={value || internalValue}
         ref={textAreaRef}
         style={getTextAreaStyle()}
-        maxLength={maxLength}
+        {...genericTextAreaProps}
       />
 
       {/* Textareas aren't able to have pseudo elements like ::after on them,
