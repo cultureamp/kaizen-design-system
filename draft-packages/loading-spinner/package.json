@@ -22,6 +22,9 @@
     "./styles",
     "./KaizenDraft"
   ],
+  "directories": {
+    "lib": "./src"
+  },
   "author": "",
   "private": false,
   "license": "MIT",
