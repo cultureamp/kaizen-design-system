@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-hierarchical-select",
-  "version": "1.3.37",
+  "version": "1.3.38",
   "description": "The draft hierarchical-select component",
   "scripts": {
     "prepublish": "yarn tsc --project tsconfig.dist.json",
@@ -33,7 +33,7 @@
   "dependencies": {
     "@kaizen/component-library": "^8.0.3",
     "@kaizen/draft-button": "^3.0.3",
-    "@kaizen/draft-form": "^2.9.0",
+    "@kaizen/draft-form": "^2.10.0",
     "@kaizen/draft-hierarchical-menu": "^2.0.3"
   },
   "peerDependencies": {
