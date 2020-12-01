@@ -222,6 +222,4 @@ export const WithTitleBlock = () => (
   </div>
 )
 
-WithTitleBlock.story = {
-  name: "With TitleBlock",
-}
+WithTitleBlock.storyName = "With TitleBlock"

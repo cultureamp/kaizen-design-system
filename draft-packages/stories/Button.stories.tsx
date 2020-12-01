@@ -1,14 +1,18 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
-import { Button, CustomButtonProps, ButtonRef } from "../button"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
-
-import { action } from "@storybook/addon-actions"
-import React, { useCallback, useRef } from "react"
+import React, { useCallback, useRef, useState } from "react"
+import { Button, CustomButtonProps, ButtonRef } from "../button"
 
 export default {
   title: "Button (Zen) (React)",
   component: Button,
+  args: {
+    label: "Label",
+  },
   parameters: {
+    actions: {
+      argTypesRegex: "^on.*",
+    },
     info: {
       text: `
         import { Button } from "@kaizen/draft-button";
@@ -17,159 +21,264 @@ export default {
   },
 }
 
-export const DefaultKaizenSiteDemo = () => <Button label="Label" />
-
-DefaultKaizenSiteDemo.story = {
-  name: "Default (Kaizen Site Demo)",
+const reversedBg = {
+  backgrounds: {
+    default: "Wisteria 700",
+  },
 }
 
-export const DefaultDisabled = () => <Button label="Label" disabled={true} />
+const clickAction = () => alert("This shouldn't fire when button is working")
 
-DefaultDisabled.story = {
-  name: "Default, Disabled",
+export const DefaultKaizenSiteDemo = args => <Button {...args} />
+DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
+
+export const DefaultDisabled = args => (
+  <Button label="Label" disabled={true} {...args} />
+)
+DefaultDisabled.storyName = "Default, Disabled"
+
+export const DefaultWorking = () => {
+  const [working, setWorking] = useState(false)
+  return (
+    <>
+      <Button
+        label="Click here to test"
+        onClick={() => setWorking(!working)}
+        primary
+      />
+      <div style={{ marginTop: "10px" }}>
+        <Button
+          label="Label"
+          onClick={clickAction}
+          working={working}
+          workingLabel="Submitting"
+          workingLabelHidden
+        />
+      </div>
+    </>
+  )
 }
 
-export const Primary = () => <Button label="Label" primary={true} />
+DefaultWorking.story = {
+  name: "Default, Working",
+}
 
-export const PrimaryDisabled = () => (
-  <Button label="Label" primary={true} disabled={true} />
+export const DefaultWorkingWithWorkingLabelVisible = () => (
+  <Button
+    label="Label"
+    onClick={clickAction}
+    working
+    workingLabel="Submitting"
+  />
 )
 
-PrimaryDisabled.story = {
-  name: "Primary, Disabled",
+DefaultWorkingWithWorkingLabelVisible.story = {
+  name: "Default, Working with working label visible",
 }
 
-export const Destructive = () => <Button label="Label" destructive={true} />
-
-export const DestructiveDisabled = () => (
-  <Button label="Label" destructive={true} disabled={true} />
+export const DefaultWorkingOnEnd = () => (
+  <Button
+    label="Label"
+    onClick={clickAction}
+    working
+    workingLabel="Submitting"
+    iconPosition="end" // Loading spinner sits in same spot as icon
+  />
 )
+
+DefaultWorkingOnEnd.story = {
+  name: "Default, Working with working label and spinner on right side",
+}
+
+export const Primary = args => <Button label="Label" primary={true} {...args} />
+
+export const PrimaryDisabled = args => (
+  <Button label="Label" primary={true} disabled={true} {...args} />
+)
+PrimaryDisabled.storyName = "Primary, Disabled"
+
+export const Destructive = args => (
+  <Button label="Label" destructive={true} {...args} />
+)
+
+export const DestructiveDisabled = args => (
+  <Button label="Label" destructive={true} disabled={true} {...args} />
+)
+DestructiveDisabled.storyName = "Destructive, Disabled"
 
 DestructiveDisabled.story = {
   name: "Destructive, Disabled",
 }
 
-export const Secondary = () => <Button label="Label" secondary={true} />
-
-export const SecondaryDisabled = () => (
-  <Button label="Label" secondary={true} disabled={true} />
+export const PrimaryWorking = () => (
+  <Button
+    label="Label"
+    primary={true}
+    working
+    workingLabel="Submitting"
+    workingLabelHidden
+  />
 )
 
-SecondaryDisabled.story = {
-  name: "Secondary, Disabled",
+PrimaryWorking.story = {
+  name: "Primary, Working",
 }
 
-export const SecondaryWIcon = () => (
-  <Button label="Configure" icon={configureIcon} secondary={true} />
+export const Secondary = args => (
+  <Button label="Label" secondary={true} {...args} />
 )
 
-SecondaryWIcon.story = {
-  name: "Secondary w/ Icon",
+export const DestructiveWorking = () => (
+  <Button
+    label="Label"
+    destructive={true}
+    working
+    workingLabel="Submitting"
+    workingLabelHidden
+  />
+)
+
+DestructiveWorking.story = {
+  name: "Destructive, Working",
 }
 
-export const SecondaryWIconDisabled = () => (
+export const SecondaryDisabled = args => (
+  <Button label="Label" secondary={true} disabled={true} {...args} />
+)
+SecondaryDisabled.storyName = "Secondary, Disabled"
+
+export const SecondaryWorking = () => (
+  <Button
+    label="Label"
+    secondary={true}
+    working={true}
+    workingLabel="Submitting"
+    workingLabelHidden
+  />
+)
+
+SecondaryWorking.story = {
+  name: "Secondary, Working",
+}
+
+export const SecondaryWIcon = args => (
+  <Button label="Configure" icon={configureIcon} secondary={true} {...args} />
+)
+
+SecondaryWIcon.storyName = "Secondary w/ Icon"
+
+export const SecondaryWIconDisabled = args => (
   <Button
     label="Configure"
     icon={configureIcon}
     secondary={true}
     disabled={true}
+    {...args}
   />
 )
+SecondaryWIconDisabled.storyName = "Secondary w/ Icon, Disabled"
 
-SecondaryWIconDisabled.story = {
-  name: "Secondary w/ Icon, Disabled",
-}
+export const IconLabel = args => (
+  <Button label="Configure" icon={configureIcon} {...args} />
+)
+IconLabel.storyName = "Icon + Label"
 
-export const IconLabel = () => <Button label="Configure" icon={configureIcon} />
+export const LabelIcon = args => (
+  <Button label="Configure" icon={configureIcon} iconPosition="end" {...args} />
+)
+LabelIcon.storyName = "Label + Icon"
 
-IconLabel.story = {
-  name: "Icon + Label",
-}
-
-export const LabelIcon = () => (
-  <Button label="Configure" icon={configureIcon} iconPosition="end" />
+export const FullWidth = args => (
+  <Button label="Label" fullWidth={true} {...args} />
 )
 
-LabelIcon.story = {
-  name: "Label + Icon",
-}
+export const FullWidthIcon = args => (
+  <Button label="Label" fullWidth={true} icon={configureIcon} {...args} />
+)
+FullWidthIcon.storyName = "Full Width + Icon"
 
-export const FullWidth = () => <Button label="Label" fullWidth={true} />
-
-export const FullWidthIcon = () => (
-  <Button label="Label" fullWidth={true} icon={configureIcon} />
+export const Hyperlink = args => (
+  <Button label="Label" href="//example.com" {...args} />
 )
 
 FullWidthIcon.story = {
   name: "Full Width + Icon",
 }
 
-export const Hyperlink = () => <Button label="Label" href="//example.com" />
-
-export const HyperlinkWOnClick = () => (
+export const FullWidthWorking = () => (
   <Button
     label="Label"
-    href="//example.com"
-    onClick={action("I am an onClick handler")}
+    fullWidth={true}
+    working
+    workingLabel="Submitting"
+    workingLabelHidden
   />
 )
 
-HyperlinkWOnClick.story = {
-  name: "Hyperlink w/ onClick",
+FullWidthWorking.story = {
+  name: "Full Width Working",
 }
 
-export const ReversedDefault = () => <Button label="Label" reversed={true} />
+export const HyperlinkWOnClick = args => (
+  <Button
+    label="Label"
+    href="//example.com"
+    onClick={() => alert("I am an onClick handler")}
+    {...args}
+  />
+)
+HyperlinkWOnClick.storyName = "Hyperlink w/ onClick"
 
-ReversedDefault.story = {
-  name: "Reversed, Default",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
-  },
-}
+export const ReversedDefault = args => (
+  <Button label="Label" reversed={true} {...args} />
+)
+ReversedDefault.storyName = "Reversed, Default"
+ReversedDefault.parameters = { ...reversedBg }
 
-export const ReversedDefaultDisabled = () => (
-  <Button label="Label" reversed={true} disabled={true} />
+export const ReversedDefaultDisabled = args => (
+  <Button label="Label" reversed={true} disabled={true} {...args} />
+)
+ReversedDefaultDisabled.storyName = "Reversed, Default, Disabled"
+ReversedDefaultDisabled.parameters = { ...reversedBg }
+
+export const ReversedDefaultWorking = () => (
+  <Button
+    label="Label"
+    reversed={true}
+    working={true}
+    workingLabel="Submitting"
+    workingLabelHidden
+  />
 )
 
-ReversedDefaultDisabled.story = {
-  name: "Reversed, Default, Disabled",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
-  },
+ReversedDefaultWorking.story = {
+  name: "Reversed, Default, Working",
+  parameters: { ...reversedBg },
 }
 
-export const ReversedPrimary = () => (
-  <Button label="Label" primary={true} disabled={false} reversed={true} />
+export const ReversedPrimary = args => (
+  <Button
+    label="Label"
+    primary={true}
+    disabled={false}
+    reversed={true}
+    {...args}
+  />
 )
+ReversedPrimary.storyName = "Reversed, Primary"
+ReversedPrimary.parameters = { ...reversedBg }
 
-ReversedPrimary.story = {
-  name: "Reversed, Primary",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
-  },
-}
-
-export const ReversedPrimaryDisabled = () => (
-  <Button label="Label" primary={true} reversed={true} disabled={true} />
+export const ReversedPrimaryDisabled = args => (
+  <Button
+    label="Label"
+    primary={true}
+    reversed={true}
+    disabled={true}
+    {...args}
+  />
 )
+ReversedPrimaryDisabled.storyName = "Reversed, Primary, Disabled"
+ReversedPrimaryDisabled.parameters = { ...reversedBg }
 
 ReversedPrimaryDisabled.story = {
   name: "Reversed, Primary, Disabled",
@@ -184,26 +293,39 @@ ReversedPrimaryDisabled.story = {
   },
 }
 
-export const ReversedSecondary = () => (
-  <Button label="Label" secondary={true} reversed={true} />
+export const ReversedPrimaryWorking = () => (
+  <Button
+    label="Label"
+    primary={true}
+    reversed={true}
+    working={true}
+    workingLabel="Submitting"
+    workingLabelHidden
+  />
 )
 
-ReversedSecondary.story = {
-  name: "Reversed, Secondary",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
-  },
+ReversedPrimaryWorking.story = {
+  name: "Reversed, Primary, Working",
+  parameters: { ...reversedBg },
 }
 
-export const ReversedSecondaryDisabled = () => (
-  <Button label="Label" secondary={true} reversed={true} disabled={true} />
+export const ReversedSecondary = args => (
+  <Button label="Label" secondary={true} reversed={true} {...args} />
 )
+ReversedSecondary.storyName = "Reversed, Secondary"
+ReversedSecondary.parameters = { ...reversedBg }
+
+export const ReversedSecondaryDisabled = args => (
+  <Button
+    label="Label"
+    secondary={true}
+    reversed={true}
+    disabled={true}
+    {...args}
+  />
+)
+ReversedSecondaryDisabled.storyName = "Reversed, Secondary, Disabled"
+ReversedSecondaryDisabled.parameters = { ...reversedBg }
 
 ReversedSecondaryDisabled.story = {
   name: "Reversed, Secondary, Disabled",
@@ -218,97 +340,90 @@ ReversedSecondaryDisabled.story = {
   },
 }
 
-export const ReversedSecondaryWIcon = () => (
+export const ReversedSecondaryWorking = () => (
+  <Button
+    label="Label"
+    secondary={true}
+    reversed={true}
+    working={true}
+    workingLabel="Submitting"
+    workingLabelHidden
+  />
+)
+
+ReversedSecondaryWorking.story = {
+  name: "Reversed, Secondary, Working",
+  parameters: { ...reversedBg },
+}
+
+export const ReversedSecondaryWIcon = args => (
   <Button
     label="Configure"
     secondary={true}
     reversed={true}
     icon={configureIcon}
+    {...args}
   />
 )
+ReversedSecondaryWIcon.storyName = "Reversed, Secondary w/ Icon"
+ReversedSecondaryWIcon.parameters = { ...reversedBg }
 
-ReversedSecondaryWIcon.story = {
-  name: "Reversed, Secondary w/ Icon",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
-  },
-}
-
-export const ReversedSecondaryWIconDisabled = () => (
+export const ReversedSecondaryWIconDisabled = args => (
   <Button
     label="Configure"
     secondary={true}
     reversed={true}
     disabled={true}
     icon={configureIcon}
+    {...args}
   />
 )
+ReversedSecondaryWIconDisabled.storyName =
+  "Reversed, Secondary w/ Icon, Disabled"
+ReversedSecondaryWIconDisabled.parameters = { ...reversedBg }
 
-ReversedSecondaryWIconDisabled.story = {
-  name: "Reversed, Secondary w/ Icon, Disabled",
-  parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
-  },
-}
+export const TypeSubmit = args => (
+  <Button label="Label" type="submit" {...args} />
+)
+TypeSubmit.storyName = "Type, Submit"
 
-export const TypeSubmit = () => <Button label="Label" type="submit" />
+export const TypeReset = args => <Button label="Label" type="reset" {...args} />
+TypeReset.storyName = "Type, Reset"
 
-TypeSubmit.story = {
-  name: "Type, Submit",
-}
-
-export const TypeReset = () => <Button label="Label" type="reset" />
-
-TypeReset.story = {
-  name: "Type, Reset",
-}
-
-export const OverflowingTextIconLabelTestCase = () => (
+export const OverflowingTextIconLabelTestCase = args => (
   <div style={{ width: 120 }}>
     <Button
       icon={configureIcon}
       label="Passez au rapport de synthèse"
       data-automation-id="demo-button"
+      {...args}
     />
   </div>
 )
+OverflowingTextIconLabelTestCase.storyName =
+  "Overflowing text, Icon + Label (test case)"
 
-OverflowingTextIconLabelTestCase.story = {
-  name: "Overflowing text, Icon + Label (test case)",
-}
-
-export const OverflowingTextFormTestCase = () => (
+export const OverflowingTextFormTestCase = args => (
   <div style={{ width: 120 }}>
     <Button
       form
       icon={configureIcon}
       label="Passez au rapport de synthèse"
       data-automation-id="demo-button"
+      {...args}
     />
   </div>
 )
 
-export const FocusExample = () => {
+export const FocusExample = args => {
   const ref = useRef<ButtonRef>()
   const handleClick = useCallback(() => {
     ref.current?.focus()
   }, [])
   return (
     <>
-      <Button label="Label" ref={ref} />
-      <hr />
+      <Button label="Label" ref={ref} {...args} />
+      <hr {...args} />
       <p>
         This story is to test the ability to imperatively call the `focus`
         function.
@@ -320,22 +435,22 @@ export const FocusExample = () => {
   )
 }
 
-OverflowingTextFormTestCase.story = {
-  name: "Overflowing text, Form (test case)",
-}
+OverflowingTextFormTestCase.storyName = "Overflowing text, Form (test case)"
 
-export const MultipleButtons = () => (
+export const MultipleButtons = args => (
   <div>
-    <Button label="Save" primary data-automation-id="demo-button-1" />
-    <Button label="Exit" data-automation-id="demo-button-2" />
+    <Button label="Save" primary data-automation-id="demo-button-1" {...args} />
+    <Button label="Exit" data-automation-id="demo-button-2" {...args} />
   </div>
 )
 
-export const CustomComponent = () => {
+export const CustomComponent = args => {
   const CustomLink = (buttonProps: CustomButtonProps) => (
-    <a href={buttonProps.href} {...buttonProps} />
+    <a href={buttonProps.href} {...buttonProps} {...args} />
   )
   // ^ In actual usage - this would be a react-router <Link> component or similar
 
-  return <Button label="Custom component button" component={CustomLink} />
+  return (
+    <Button label="Custom component button" component={CustomLink} {...args} />
+  )
 }

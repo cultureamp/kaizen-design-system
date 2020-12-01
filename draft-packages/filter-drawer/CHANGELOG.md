@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-filter-drawer@2.0.15...@kaizen/draft-filter-drawer@2.0.16) (2020-11-25)
+
+**Note:** Version bump only for package @kaizen/draft-filter-drawer
+
+
+
+
+
+## [2.0.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-filter-drawer@2.0.14...@kaizen/draft-filter-drawer@2.0.15) (2020-11-13)
+
+**Note:** Version bump only for package @kaizen/draft-filter-drawer
+
+
+
+
+
+## [2.0.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-filter-drawer@2.0.13...@kaizen/draft-filter-drawer@2.0.14) (2020-11-12)
+
+**Note:** Version bump only for package @kaizen/draft-filter-drawer
+
+
+
+
+
+## [2.0.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-filter-drawer@2.0.12...@kaizen/draft-filter-drawer@2.0.13) (2020-11-12)
+
+**Note:** Version bump only for package @kaizen/draft-filter-drawer
+
+
+
+
+
+## [2.0.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-filter-drawer@2.0.11...@kaizen/draft-filter-drawer@2.0.12) (2020-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-filter-drawer
+
+
+
+
+
+## [2.0.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-filter-drawer@2.0.10...@kaizen/draft-filter-drawer@2.0.11) (2020-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-filter-drawer
+
+
+
+
+
+## [2.0.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-filter-drawer@2.0.9...@kaizen/draft-filter-drawer@2.0.10) (2020-10-21)
+
+**Note:** Version bump only for package @kaizen/draft-filter-drawer
+
+
+
+
+
 ## [2.0.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-filter-drawer@2.0.8...@kaizen/draft-filter-drawer@2.0.9) (2020-10-08)
 
 **Note:** Version bump only for package @kaizen/draft-filter-drawer

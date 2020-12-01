@@ -397,7 +397,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
 
     // show custom focus ring when :focus-visible
     &:global(.focus-visible) {
-      color: #fff;
+      color: white;
       outline: 2px solid $kz-color-cluny-500;
     }
   }

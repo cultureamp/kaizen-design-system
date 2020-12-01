@@ -2,8 +2,8 @@ import { cleanup, render } from "@testing-library/react"
 import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
 
-import { Well } from "."
 import { WellProps } from "./Well"
+import { Well } from "."
 
 afterEach(cleanup)
 

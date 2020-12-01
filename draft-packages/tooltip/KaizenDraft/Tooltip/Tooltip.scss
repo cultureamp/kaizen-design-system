@@ -21,6 +21,7 @@
 }
 
 .contentWrap {
+  display: block;
   width: 400px;
   position: absolute;
   transform: translateX(-50%);
@@ -32,10 +33,14 @@
   top: 0;
 }
 
+.contentWrap.below {
+  bottom: 0;
+}
+
 .tooltipContent {
   @include kz-typography-paragraph-body($size: 14);
   color: $kz-color-wisteria-800;
-  top: initial;
+  top: 0;
 }
 
 .default {
@@ -47,7 +52,7 @@
 }
 
 .below {
-  bottom: -6px;
+  bottom: -4px;
   transform: translateX(-50%) translateY(70%);
 }
 
@@ -128,4 +133,9 @@
 
 .below::after {
   margin-top: 2px;
+}
+
+.inline {
+  display: inline;
+  position: relative;
 }

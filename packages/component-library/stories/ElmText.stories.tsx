@@ -10,7 +10,7 @@ loadElmStories(
     "h3",
     "zen-display-0",
     "zen-heading-1",
-    "zen-heading-3",
+    "zen-heading-2",
     "zen-heading-3",
     "zen-data-large",
     "zen-data-large-units",

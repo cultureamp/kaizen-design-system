@@ -46,17 +46,17 @@
   border-bottom-color: $kz-color-cluny-500;
 
   &.reversed {
-    border-bottom-color: #fff;
+    border-bottom-color: white;
   }
 }
 
 .reversed {
-  color: #fff;
+  color: white;
 
   &.button {
     &:hover {
-      color: #fff;
-      border-bottom-color: #fff;
+      color: white;
+      border-bottom-color: white;
     }
   }
 }

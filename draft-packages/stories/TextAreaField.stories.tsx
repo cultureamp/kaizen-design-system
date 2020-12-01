@@ -1,6 +1,5 @@
-import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { TextAreaField } from "@kaizen/draft-form"
-import { action } from "@storybook/addon-actions"
+
 import React from "react"
 
 interface RenderProps {
@@ -10,11 +9,12 @@ interface RenderProps {
 
 interface Props {
   render: (props: RenderProps) => JSX.Element
+  defaultValue: string
 }
 
 class WithState extends React.Component<Props> {
   public state = {
-    controlledValue: "Controlled value",
+    controlledValue: this.props.defaultValue,
   }
 
   constructor(props: Props) {
@@ -45,9 +45,9 @@ const ExampleContainer: React.FunctionComponent = ({ children }) => (
   <div style={{ width: "98%", margin: "1%" }}>{children}</div>
 )
 
-const ReversedBg = {
-  parameters: {
-    backgrounds: [{ value: colorTokens.kz.color.wisteria[700], default: true }],
+const reversedBg = {
+  backgrounds: {
+    default: "Wisteria 700",
   },
 }
 
@@ -69,14 +69,12 @@ export const DefaultKaizenSiteDemo = () => (
       id="reply"
       labelText="Your reply"
       placeholder="Write your reply..."
-      onChange={action("user input")}
+      onChange={() => undefined}
     />
   </ExampleContainer>
 )
 
-DefaultKaizenSiteDemo.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const DefaultLarge = () => (
   <ExampleContainer>
@@ -84,15 +82,13 @@ export const DefaultLarge = () => (
       id="reply"
       labelText="Your reply"
       placeholder="Write your reply..."
-      onChange={action("user input")}
+      onChange={() => undefined}
       rows={7}
     />
   </ExampleContainer>
 )
 
-DefaultLarge.story = {
-  name: "Default, Large",
-}
+DefaultLarge.storyName = "Default, Large"
 
 export const DefaultError = () => (
   <ExampleContainer>
@@ -100,35 +96,32 @@ export const DefaultError = () => (
       id="reply"
       labelText="Your reply"
       placeholder="Write your reply..."
-      onChange={action("user input")}
+      onChange={() => undefined}
       status="error"
       validationMessage="Enter a reply"
     />
   </ExampleContainer>
 )
 
-DefaultError.story = {
-  name: "Default, Error",
-}
+DefaultError.storyName = "Default, Error"
 
 export const DefaultPrefilled = () => (
   <ExampleContainer>
     <TextAreaField
       id="reply"
       labelText="Your reply"
-      onChange={action("user input")}
+      onChange={() => undefined}
       defaultValue="A prefilled value in uncontrolled mode"
     />
   </ExampleContainer>
 )
 
-DefaultPrefilled.story = {
-  name: "Default, Prefilled & uncontrolled",
-}
+DefaultPrefilled.storyName = "Default, Prefilled & uncontrolled"
 
 export const DefaultControlled = () => (
   <ExampleContainer>
     <WithState
+      defaultValue="A controlled value"
       render={({ controlledValue, updateValue }) => (
         <TextAreaField
           id="reply"
@@ -141,9 +134,7 @@ export const DefaultControlled = () => (
   </ExampleContainer>
 )
 
-DefaultControlled.story = {
-  name: "Default, Controlled",
-}
+DefaultControlled.storyName = "Default, Controlled"
 
 export const DefaultWithDesc = () => (
   <ExampleContainer>
@@ -151,15 +142,13 @@ export const DefaultWithDesc = () => (
       id="reply"
       labelText="Your reply"
       placeholder="Write your reply..."
-      onChange={action("user input")}
+      onChange={() => undefined}
       description="Your reply will only be seen by you"
     />
   </ExampleContainer>
 )
 
-DefaultWithDesc.story = {
-  name: "Default, With description",
-}
+DefaultWithDesc.storyName = "Default, With description"
 
 export const DefaultInline = () => (
   <ExampleContainer>
@@ -167,15 +156,13 @@ export const DefaultInline = () => (
       id="reply"
       labelText="Your reply"
       placeholder="Write your reply..."
-      onChange={action("user input")}
+      onChange={() => undefined}
       inline={true}
     />
   </ExampleContainer>
 )
 
-DefaultInline.story = {
-  name: "Default, Inline",
-}
+DefaultInline.storyName = "Default, Inline"
 
 export const DefaultErrorAndDesc = () => (
   <ExampleContainer>
@@ -183,7 +170,7 @@ export const DefaultErrorAndDesc = () => (
       id="reply"
       labelText="Your reply"
       placeholder="Write your reply..."
-      onChange={action("user input")}
+      onChange={() => undefined}
       status="error"
       validationMessage="Enter a reply"
       description="Your reply will only be seen by you"
@@ -191,8 +178,28 @@ export const DefaultErrorAndDesc = () => (
   </ExampleContainer>
 )
 
-DefaultErrorAndDesc.story = {
-  name: "Default, Error & Description",
+DefaultErrorAndDesc.storyName = "Default, Error & Description"
+
+export const DefaultAutogrow = () => (
+  <ExampleContainer>
+    <WithState
+      defaultValue={"This\ntext\narea\nwill\ngrow\nand\nshrink\nwith\ncontent"}
+      render={({ controlledValue, updateValue }) => (
+        <TextAreaField
+          id="reply"
+          labelText="Your reply"
+          rows={1}
+          value={controlledValue}
+          onChange={updateValue}
+          autogrow
+        />
+      )}
+    ></WithState>
+  </ExampleContainer>
+)
+
+DefaultAutogrow.story = {
+  name: "Default, Autogrow",
 }
 
 export const Reversed = () => (
@@ -201,16 +208,14 @@ export const Reversed = () => (
       id="reply"
       labelText="Your reply"
       placeholder="Write your reply..."
-      onChange={action("user input")}
+      onChange={() => undefined}
       reversed
     />
   </ExampleContainer>
 )
 
-Reversed.story = {
-  name: "Reversed",
-  ...ReversedBg,
-}
+Reversed.storyName = "Reversed"
+Reversed.parameters = { ...reversedBg }
 
 export const ReversedErrorAndDesc = () => (
   <ExampleContainer>
@@ -218,7 +223,7 @@ export const ReversedErrorAndDesc = () => (
       id="reply"
       labelText="Your reply"
       placeholder="Write your reply..."
-      onChange={action("user input")}
+      onChange={() => undefined}
       status="error"
       validationMessage="Enter a reply"
       description="Your reply will only be seen by you"
@@ -227,7 +232,41 @@ export const ReversedErrorAndDesc = () => (
   </ExampleContainer>
 )
 
-ReversedErrorAndDesc.story = {
-  name: "Reversed, Error & Description",
-  ...ReversedBg,
-}
+ReversedErrorAndDesc.storyName = "Reversed, Error & Description"
+ReversedErrorAndDesc.parameters = { ...reversedBg }
+
+export const DefaultProminent = () => (
+  <ExampleContainer>
+    <TextAreaField id="reply" labelText="Your reply" variant="prominent" />
+  </ExampleContainer>
+)
+
+DefaultProminent.storyName = "Default, Prominent"
+
+export const DefaultProminentDesc = () => (
+  <ExampleContainer>
+    <TextAreaField
+      id="reply"
+      labelText="Your reply"
+      variant="prominent"
+      description="Your reply will only be seen by you"
+    />
+  </ExampleContainer>
+)
+
+DefaultProminentDesc.storyName = "Default, Prominent with description"
+
+export const ReversedProminent = () => (
+  <ExampleContainer>
+    <TextAreaField
+      id="reply"
+      labelText="Your reply"
+      variant="prominent"
+      description="Your reply will only be seen by you"
+      reversed
+    />
+  </ExampleContainer>
+)
+
+ReversedProminent.storyName = "Reversed, Prominent"
+ReversedProminent.parameters = { ...reversedBg }

@@ -1,13 +1,12 @@
 import classnames from "classnames"
 import * as React from "react"
 
+import styles from "./styles.scss"
 const actionIllustration = require("./illustrations/action.png")
 const informativeIllustration = require("./illustrations/informative.png")
 const negativeIllustration = require("./illustrations/negative.png")
 const neutralIllustration = require("./illustrations/neutral.png")
 const positiveIllustration = require("./illustrations/positive.png")
-
-import styles from "./styles.scss"
 
 const illustrations: { [key: string]: any } = {
   positive: positiveIllustration as any,

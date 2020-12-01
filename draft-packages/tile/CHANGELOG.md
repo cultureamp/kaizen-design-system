@@ -3,6 +3,90 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@3.0.2...@kaizen/draft-tile@3.0.3) (2020-11-25)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [3.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@3.0.1...@kaizen/draft-tile@3.0.2) (2020-11-13)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [3.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@3.0.0...@kaizen/draft-tile@3.0.1) (2020-11-12)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+# [3.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@2.1.2...@kaizen/draft-tile@3.0.0) (2020-11-12)
+
+
+### Bug Fixes
+
+* Clean up eslint warnings ([#850](https://github.com/cultureamp/kaizen-design-system/issues/850)) ([78d0f20](https://github.com/cultureamp/kaizen-design-system/commit/78d0f207b03e6449f6c5f4e3000926d91c3094e1))
+
+
+### BREAKING CHANGES
+
+* Consumers that were passing in a now-restricted type
+to a prop that accepted e.g. "any" as a type may now break.
+
+* Fix eslint errors as result of rule change
+
+* Fix type error in getCustomProps for Buttons
+
+* Add missing key to MenuItem
+
+* Fix line order syntax in Popover
+
+
+
+
+
+## [2.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@2.1.1...@kaizen/draft-tile@2.1.2) (2020-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@2.1.0...@kaizen/draft-tile@2.1.1) (2020-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@2.0.9...@kaizen/draft-tile@2.1.0) (2020-10-28)
+
+
+### Features
+
+* Add working variant of button ([#815](https://github.com/cultureamp/kaizen-design-system/issues/815)) ([8a22ebc](https://github.com/cultureamp/kaizen-design-system/commit/8a22ebc197525522a824209c76b17c7b2178b80e))
+
+
+
+
+
+## [2.0.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@2.0.8...@kaizen/draft-tile@2.0.9) (2020-10-21)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
 ## [2.0.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@2.0.7...@kaizen/draft-tile@2.0.8) (2020-10-08)
 
 **Note:** Version bump only for package @kaizen/draft-tile

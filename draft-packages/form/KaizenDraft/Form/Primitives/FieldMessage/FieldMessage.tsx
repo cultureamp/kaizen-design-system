@@ -10,6 +10,7 @@ export type FieldMessageProps = {
   message?: React.ReactNode
   status?: FieldMessageStatus
   reversed?: boolean
+  position?: "top" | "bottom"
 }
 
 type FieldMessage = React.SFC<FieldMessageProps>
@@ -20,6 +21,7 @@ const FieldMessage: FieldMessage = ({
   message,
   status = "default",
   reversed = false,
+  position = "bottom",
 }) => (
   <div
     id={id}
@@ -28,6 +30,8 @@ const FieldMessage: FieldMessage = ({
       [styles.reversed]: reversed,
       [styles.default]: status === "default",
       [styles.error]: status === "error",
+      [styles.positionBottom]: position === "bottom",
+      [styles.positionTop]: position === "top",
     })}
   >
     {message}

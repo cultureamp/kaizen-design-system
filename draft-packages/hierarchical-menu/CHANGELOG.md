@@ -3,6 +3,111 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.2...@kaizen/draft-hierarchical-menu@2.0.3) (2020-11-25)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.1...@kaizen/draft-hierarchical-menu@2.0.2) (2020-11-13)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.0...@kaizen/draft-hierarchical-menu@2.0.1) (2020-11-12)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@1.2.25...@kaizen/draft-hierarchical-menu@2.0.0) (2020-11-12)
+
+
+### Bug Fixes
+
+* Clean up eslint warnings ([#850](https://github.com/cultureamp/kaizen-design-system/issues/850)) ([78d0f20](https://github.com/cultureamp/kaizen-design-system/commit/78d0f207b03e6449f6c5f4e3000926d91c3094e1))
+
+
+### BREAKING CHANGES
+
+* Consumers that were passing in a now-restricted type
+to a prop that accepted e.g. "any" as a type may now break.
+
+* Fix eslint errors as result of rule change
+
+* Fix type error in getCustomProps for Buttons
+
+* Add missing key to MenuItem
+
+* Fix line order syntax in Popover
+
+
+
+
+
+## [1.2.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@1.2.24...@kaizen/draft-hierarchical-menu@1.2.25) (2020-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [1.2.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@1.2.23...@kaizen/draft-hierarchical-menu@1.2.24) (2020-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [1.2.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@1.2.22...@kaizen/draft-hierarchical-menu@1.2.23) (2020-10-29)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [1.2.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@1.2.21...@kaizen/draft-hierarchical-menu@1.2.22) (2020-10-28)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [1.2.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@1.2.20...@kaizen/draft-hierarchical-menu@1.2.21) (2020-10-28)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [1.2.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@1.2.19...@kaizen/draft-hierarchical-menu@1.2.20) (2020-10-27)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
+## [1.2.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@1.2.18...@kaizen/draft-hierarchical-menu@1.2.19) (2020-10-21)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
 ## [1.2.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@1.2.17...@kaizen/draft-hierarchical-menu@1.2.18) (2020-10-08)
 
 **Note:** Version bump only for package @kaizen/draft-hierarchical-menu

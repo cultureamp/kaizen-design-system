@@ -1,6 +1,6 @@
 import { addons } from "@storybook/addons"
-import TagManager from "react-gtm-module"
 import { isEmpty } from "lodash"
+import TagManager from "react-gtm-module"
 
 /**
  * This is inspired by the GA addon, but replacing GA for GTM and dropping custom events
@@ -10,6 +10,7 @@ addons.register("kaizen/gtm-addon", () => {
   const { analyticsGTM = {} } = addons.getConfig()
 
   if (isEmpty(analyticsGTM)) {
+    // eslint-disable-next-line no-console
     console.warn("kaizen/gtm-addon - Analytics not set. Check manager.js")
     return
   }

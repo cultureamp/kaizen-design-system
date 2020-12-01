@@ -3,6 +3,139 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.3...@kaizen/draft-title-block-zen@3.0.4) (2020-11-27)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.2...@kaizen/draft-title-block-zen@3.0.3) (2020-11-25)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.1...@kaizen/draft-title-block-zen@3.0.2) (2020-11-13)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.0...@kaizen/draft-title-block-zen@3.0.1) (2020-11-12)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+# [3.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@2.4.4...@kaizen/draft-title-block-zen@3.0.0) (2020-11-12)
+
+
+### Bug Fixes
+
+* Clean up eslint warnings ([#850](https://github.com/cultureamp/kaizen-design-system/issues/850)) ([78d0f20](https://github.com/cultureamp/kaizen-design-system/commit/78d0f207b03e6449f6c5f4e3000926d91c3094e1))
+
+
+### BREAKING CHANGES
+
+* Consumers that were passing in a now-restricted type
+to a prop that accepted e.g. "any" as a type may now break.
+
+* Fix eslint errors as result of rule change
+
+* Fix type error in getCustomProps for Buttons
+
+* Add missing key to MenuItem
+
+* Fix line order syntax in Popover
+
+
+
+
+
+## [2.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@2.4.3...@kaizen/draft-title-block-zen@2.4.4) (2020-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [2.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@2.4.2...@kaizen/draft-title-block-zen@2.4.3) (2020-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [2.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@2.4.1...@kaizen/draft-title-block-zen@2.4.2) (2020-10-28)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [2.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@2.4.0...@kaizen/draft-title-block-zen@2.4.1) (2020-10-25)
+
+
+### Bug Fixes
+
+* Navigation action buttons from being unnecessarily recreated ([#807](https://github.com/cultureamp/kaizen-design-system/issues/807)) ([7260b58](https://github.com/cultureamp/kaizen-design-system/commit/7260b58ef075c9111f00e54ec7960fd3930fa57c))
+
+
+
+
+
+# [2.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@2.3.1...@kaizen/draft-title-block-zen@2.4.0) (2020-10-21)
+
+
+### Features
+
+* Allow TitleBlockZen to collapse when no navigation ([#810](https://github.com/cultureamp/kaizen-design-system/issues/810)) ([442f952](https://github.com/cultureamp/kaizen-design-system/commit/442f952b73e492b57fc7a2e4df4a93c24f176bfb))
+
+
+
+
+
+## [2.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@2.3.0...@kaizen/draft-title-block-zen@2.3.1) (2020-10-21)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@2.2.4...@kaizen/draft-title-block-zen@2.3.0) (2020-10-20)
+
+
+### Features
+
+* TitleBlockZen. Add a  variant for the badge ([#826](https://github.com/cultureamp/kaizen-design-system/issues/826)) ([e61961b](https://github.com/cultureamp/kaizen-design-system/commit/e61961b546ff0bcc5bd16c914d6147cf9fecca4c))
+
+
+
+
+
+## [2.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@2.2.3...@kaizen/draft-title-block-zen@2.2.4) (2020-10-19)
+
+
+### Bug Fixes
+
+* Move Title Block subcomponents out of peer deps ([#819](https://github.com/cultureamp/kaizen-design-system/issues/819)) ([4abec2f](https://github.com/cultureamp/kaizen-design-system/commit/4abec2f339fddabd17a64f9c06a81156cb67ac4f))
+
+
+
+
+
 ## [2.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@2.2.2...@kaizen/draft-title-block-zen@2.2.3) (2020-10-08)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen

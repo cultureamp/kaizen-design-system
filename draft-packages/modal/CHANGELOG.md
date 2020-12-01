@@ -3,6 +3,154 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@4.0.6...@kaizen/draft-modal@4.0.7) (2020-12-01)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [4.0.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@4.0.5...@kaizen/draft-modal@4.0.6) (2020-11-30)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [4.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@4.0.4...@kaizen/draft-modal@4.0.5) (2020-11-26)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [4.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@4.0.3...@kaizen/draft-modal@4.0.4) (2020-11-25)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [4.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@4.0.2...@kaizen/draft-modal@4.0.3) (2020-11-19)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [4.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@4.0.1...@kaizen/draft-modal@4.0.2) (2020-11-13)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [4.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@4.0.0...@kaizen/draft-modal@4.0.1) (2020-11-12)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+# [4.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@3.2.7...@kaizen/draft-modal@4.0.0) (2020-11-12)
+
+
+### Bug Fixes
+
+* Clean up eslint warnings ([#850](https://github.com/cultureamp/kaizen-design-system/issues/850)) ([78d0f20](https://github.com/cultureamp/kaizen-design-system/commit/78d0f207b03e6449f6c5f4e3000926d91c3094e1))
+
+
+### BREAKING CHANGES
+
+* Consumers that were passing in a now-restricted type
+to a prop that accepted e.g. "any" as a type may now break.
+
+* Fix eslint errors as result of rule change
+
+* Fix type error in getCustomProps for Buttons
+
+* Add missing key to MenuItem
+
+* Fix line order syntax in Popover
+
+
+
+
+
+## [3.2.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@3.2.6...@kaizen/draft-modal@3.2.7) (2020-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [3.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@3.2.5...@kaizen/draft-modal@3.2.6) (2020-11-09)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [3.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@3.2.4...@kaizen/draft-modal@3.2.5) (2020-10-29)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [3.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@3.2.3...@kaizen/draft-modal@3.2.4) (2020-10-28)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [3.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@3.2.2...@kaizen/draft-modal@3.2.3) (2020-10-28)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [3.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@3.2.1...@kaizen/draft-modal@3.2.2) (2020-10-27)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [3.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@3.2.0...@kaizen/draft-modal@3.2.1) (2020-10-21)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+# [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@3.1.1...@kaizen/draft-modal@3.2.0) (2020-10-21)
+
+
+### Features
+
+* Remove outside modal click close from input modals ([#833](https://github.com/cultureamp/kaizen-design-system/issues/833)) ([ce649d2](https://github.com/cultureamp/kaizen-design-system/commit/ce649d21b5d3312c77074faf8a86367a8b854a2a))
+
+
+
+
+
 ## [3.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@3.1.0...@kaizen/draft-modal@3.1.1) (2020-10-08)
 
 **Note:** Version bump only for package @kaizen/draft-modal

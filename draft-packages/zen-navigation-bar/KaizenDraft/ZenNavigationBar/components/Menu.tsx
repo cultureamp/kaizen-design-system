@@ -6,15 +6,14 @@ import { OffCanvasContext, ZenOffCanvas } from "@kaizen/draft-zen-off-canvas"
 
 import classNames from "classnames"
 import Media from "react-media"
+import arrowLeftIcon from "@kaizen/component-library/icons/arrow-left.icon.svg"
+import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import { NavBarContext } from "../context"
-import { MenuProps, NavigationItem } from "../types"
+import { LinkProps, MenuProps, NavigationItem } from "../types"
 import Dropdown from "./Dropdown"
 import Link from "./Link"
 import MenuGroup from "./MenuGroup"
 import Indicator from "./Indicator"
-
-import arrowLeftIcon from "@kaizen/component-library/icons/arrow-left.icon.svg"
-import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 
 import styles from "./Menu.module.scss"
 
@@ -22,7 +21,7 @@ type State = {
   open: boolean
 }
 
-export default class Menu extends React.Component<MenuProps, State> {
+class Menu extends React.Component<MenuProps, State> {
   static displayName = "Menu"
   static contextType = NavBarContext
   static defaultProps = {
@@ -36,6 +35,13 @@ export default class Menu extends React.Component<MenuProps, State> {
   rootRef = React.createRef<any>()
 
   state = { open: false }
+
+  toolId: string
+
+  constructor(props: MenuProps) {
+    super(props)
+    this.toolId = uuid()
+  }
 
   render() {
     const { hasExtendedNavigation } = this.context
@@ -63,7 +69,7 @@ export default class Menu extends React.Component<MenuProps, State> {
               <OffCanvasContext.Consumer>
                 {({ toggleVisibleMenu }) => (
                   <Link
-                    key={uuid()}
+                    key={this.toolId}
                     text={`${heading}…`}
                     href="#"
                     onClick={() => toggleVisibleMenu(heading)}
@@ -138,7 +144,8 @@ export default class Menu extends React.Component<MenuProps, State> {
         if ("url" in item) {
           return (
             <Link
-              key={`${item.url}-${uuid()}`}
+              // These keys should not be derived from the array index
+              key={`${item.url}-${index}`}
               text={item.label}
               href={item.url}
               badge={item.badge}
@@ -147,7 +154,8 @@ export default class Menu extends React.Component<MenuProps, State> {
         } else if ("title" in item) {
           return (
             <MenuGroup
-              key={`${item.title}-${uuid()}`}
+              // These keys should not be derived from the array index
+              key={`${item.title}-${index}`}
               first={index === 0}
               {...item}
               offCanvas
@@ -202,3 +210,4 @@ export default class Menu extends React.Component<MenuProps, State> {
     }
   }
 }
+export default Menu

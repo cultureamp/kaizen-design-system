@@ -1,24 +1,34 @@
 import * as React from "react"
-import styles from "./Tooltip.scss"
 import classnames from "classnames"
+import styles from "./Tooltip.scss"
 
 type Position = "above" | "below"
 
 type Props = {
+  inline?: boolean
   position?: Position
-  text: string
+  text: React.ReactNode
   children?: React.ReactNode
+  classNameAndIHaveSpokenToDST?: string
 }
 
 const Tooltip = (props: Props) => (
-  <div className={styles.tooltipWrap}>
+  <span
+    className={classnames(
+      styles.tooltipWrap,
+      props.classNameAndIHaveSpokenToDST,
+      {
+        [styles.inline]: props.inline === true,
+      }
+    )}
+  >
     {props.children}
-    <div
+    <span
       className={classnames(styles.contentWrap, {
         [styles.above]: props.position == "above",
       })}
     >
-      <div
+      <span
         className={classnames(
           styles.root,
           {
@@ -29,9 +39,9 @@ const Tooltip = (props: Props) => (
         )}
       >
         <span className={styles.tooltipContent}>{props.text}</span>
-      </div>
+      </span>
 
-      <div
+      <span
         className={classnames(
           styles.root,
           styles.shadow,
@@ -42,10 +52,12 @@ const Tooltip = (props: Props) => (
           styles.default
         )}
       >
-        <span className={styles.tooltipContent}>{props.text}</span>
-      </div>
-    </div>
-  </div>
+        <span className={styles.tooltipContent} aria-hidden>
+          {props.text}
+        </span>
+      </span>
+    </span>
+  </span>
 )
 
 Tooltip.defaultProps = {

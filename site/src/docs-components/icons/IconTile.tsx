@@ -2,10 +2,10 @@ import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import * as React from "react"
 
-const iconStyles = require("@kaizen/component-library/components/Icon/Icon.module.scss")
 import tick from "@kaizen/component-library/icons/check.icon.svg"
 
 import styles from "./IconGrid.scss"
+const iconStyles = require("@kaizen/component-library/components/Icon/Icon.module.scss")
 
 const ICONS_IMPORT_DIR = "@kaizen/component-library/icons/"
 

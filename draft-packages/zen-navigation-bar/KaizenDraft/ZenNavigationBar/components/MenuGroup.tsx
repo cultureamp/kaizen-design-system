@@ -13,9 +13,12 @@ const MenuGroup = ({
   first = false,
   offCanvas,
 }: MenuGroupProps) => {
-  const renderOffCanvasMenuItem = (item: MenuItemProps) => (
+  const renderOffCanvasMenuItem = (item: MenuItemProps, index: number) => (
     <Link
-      key={`${item.url}-${uuid()}`}
+      // Unfortunately, I needed to use the array index,
+      // against react best practices (https://reactjs.org/docs/lists-and-keys.html)
+      // This is because the menu items have no unique identifier.
+      key={`${item.url}-${index}`}
       text={item.label}
       href={item.url}
       badge={item.badge}

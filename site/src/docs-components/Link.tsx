@@ -2,8 +2,8 @@ import classnames from "classnames"
 import { Link as GatsbyLink } from "gatsby"
 import * as React from "react"
 
-const iconStyles = require("@kaizen/component-library/components/Icon/Icon.module.scss")
 import styles from "./Link.scss"
+const iconStyles = require("@kaizen/component-library/components/Icon/Icon.module.scss")
 
 export const Link = ({ to, children }) => (
   <GatsbyLink

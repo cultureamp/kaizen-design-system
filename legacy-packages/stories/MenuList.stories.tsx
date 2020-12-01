@@ -1,4 +1,3 @@
-import { action } from "@storybook/addon-actions"
 import * as React from "react"
 
 import {
@@ -27,7 +26,6 @@ export const Default = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        action("I am an onClick handler")()
       }}
       icon={caMonogramIcon}
     >
@@ -36,7 +34,6 @@ export const Default = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        action("I am an onClick handler")()
       }}
       icon={caMonogramIcon}
       hoverIcon
@@ -46,7 +43,6 @@ export const Default = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        action("I am an onClick handler")()
       }}
     >
       Action label
@@ -67,7 +63,6 @@ export const Default = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        action("I am an onClick handler")()
       }}
       icon={caMonogramIcon}
       destructive
@@ -77,7 +72,6 @@ export const Default = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        action("I am an onClick handler")()
       }}
       icon={caMonogramIcon}
       hoverIcon
@@ -88,7 +82,6 @@ export const Default = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        action("I am an onClick handler")()
       }}
       destructive
     >
@@ -102,7 +95,6 @@ export const SimpleList = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        action("I am an onClick handler")()
       }}
       icon={caMonogramIcon}
       active
@@ -112,7 +104,6 @@ export const SimpleList = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        action("I am an onClick handler")()
       }}
       icon={caMonogramIcon}
     >
@@ -121,7 +112,6 @@ export const SimpleList = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        action("I am an onClick handler")()
       }}
       icon={caMonogramIcon}
       hoverIcon
@@ -131,7 +121,6 @@ export const SimpleList = () => (
     <MenuItem
       action={(e: any) => {
         e.preventDefault()
-        action("I am an onClick handler")()
       }}
     >
       Action label

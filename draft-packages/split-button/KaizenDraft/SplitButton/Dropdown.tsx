@@ -1,9 +1,9 @@
 import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import * as React from "react"
+import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import { Dir } from "./types"
 
-import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import styles from "./styles.scss"
 
 type Variant = "default" | "primary"
@@ -16,7 +16,7 @@ type Props = {
   onOpenDropdown: () => void
 }
 
-export default class Dropdown extends React.Component<Props> {
+class Dropdown extends React.Component<Props> {
   static displayName = "Dropdown"
   static defaultProps = {
     dir: "ltr",
@@ -54,3 +54,4 @@ export default class Dropdown extends React.Component<Props> {
     )
   }
 }
+export default Dropdown

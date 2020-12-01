@@ -49,9 +49,7 @@ export const DefaultKaizenSiteDemo = () => (
   </SidebarAndContentLayout>
 )
 
-DefaultKaizenSiteDemo.story = {
-  name: "Default (Kaizen Site Demo)",
-}
+DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
 export const LayoutSidebarContent = () => (
   <SidebarAndContentLayout>
@@ -65,9 +63,7 @@ export const LayoutSidebarContent = () => (
   </SidebarAndContentLayout>
 )
 
-LayoutSidebarContent.story = {
-  name: "Layout, Sidebar + Content",
-}
+LayoutSidebarContent.storyName = "Layout, Sidebar + Content"
 
 export const LayoutContentOnly = () => (
   <ContentOnlyLayout>
@@ -81,9 +77,7 @@ export const LayoutContentOnly = () => (
   </ContentOnlyLayout>
 )
 
-LayoutContentOnly.story = {
-  name: "Layout, Content-only",
-}
+LayoutContentOnly.storyName = "Layout, Content-only"
 
 export const Positive = () => (
   <SidebarAndContentLayout>
@@ -144,9 +138,7 @@ export const ActionButNotZen = () => (
   </SidebarAndContentLayout>
 )
 
-ActionButNotZen.story = {
-  name: "Action (pre-Zen legacy styles)",
-}
+ActionButNotZen.storyName = "Action (pre-Zen legacy styles)"
 
 export const ActionButton = () => (
   <SidebarAndContentLayout>
@@ -168,9 +160,7 @@ export const ActionButton = () => (
   </SidebarAndContentLayout>
 )
 
-ActionButton.story = {
-  name: "Action, Button",
-}
+ActionButton.storyName = "Action, Button"
 
 export const Neutral = () => (
   <SidebarAndContentLayout>
@@ -218,9 +208,7 @@ export const RtlAction = () => (
   </div>
 )
 
-RtlAction.story = {
-  name: "RTL, Action",
-}
+RtlAction.storyName = "RTL, Action"
 
 export const StraightCorners = () => (
   <SidebarAndContentLayout>
@@ -239,6 +227,4 @@ export const StraightCorners = () => (
   </SidebarAndContentLayout>
 )
 
-StraightCorners.story = {
-  name: "Straight corners",
-}
+StraightCorners.storyName = "Straight corners"
