@@ -1,10 +1,6 @@
-import {
-  marginClasses,
-  paddingClasses,
-  Spacing,
-} from "@kaizen/component-library"
 import classnames from "classnames"
 import * as React from "react"
+import { marginClasses, paddingClasses, Spacing } from "../Spacing"
 
 export interface BoxProps {
   children: React.ReactNode

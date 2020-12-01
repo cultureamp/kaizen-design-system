@@ -1,3 +1,5 @@
+/* eslint import/no-extraneous-dependencies: 0 */
+
 import { Hierarchy } from "@kaizen/draft-hierarchical-menu"
 
 export enum ResponseTime {

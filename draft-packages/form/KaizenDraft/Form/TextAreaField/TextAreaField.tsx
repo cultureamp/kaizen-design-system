@@ -1,11 +1,11 @@
+import React, { TextareaHTMLAttributes } from "react"
 import {
   FieldGroup,
   FieldMessage,
   InputStatus,
   Label,
   TextArea,
-} from "@kaizen/draft-form"
-import React, { TextareaHTMLAttributes } from "react"
+} from "../index"
 
 interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   labelText: string | React.ReactNode

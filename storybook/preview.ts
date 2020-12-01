@@ -1,3 +1,5 @@
+/* eslint import/no-extraneous-dependencies: 0 */
+
 import { addParameters } from "@storybook/react"
 import { backgrounds } from "./backgrounds"
 

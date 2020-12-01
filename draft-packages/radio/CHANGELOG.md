@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.37](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.2.36...@kaizen/draft-radio@2.2.37) (2020-12-01)
+
+
+### Bug Fixes
+
+* Added missing dependencies. Updated eslint. ([#875](https://github.com/cultureamp/kaizen-design-system/issues/875)) ([182a9ca](https://github.com/cultureamp/kaizen-design-system/commit/182a9cafa9cf9795dcdd936cfef7bac432d3c28f))
+
+
+
+
+
 ## [2.2.36](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-radio@2.2.35...@kaizen/draft-radio@2.2.36) (2020-11-25)
 
 **Note:** Version bump only for package @kaizen/draft-radio
