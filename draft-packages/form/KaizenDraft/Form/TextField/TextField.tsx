@@ -73,8 +73,6 @@ const TextField: TextField = ({
       inline={inline}
       className={classnames(styles.withLabel, {
         [styles.withDisabled]: disabled,
-        [styles.withReversed]: reversed,
-        [styles.withError]: status === "error",
       })}
     >
       <Label
