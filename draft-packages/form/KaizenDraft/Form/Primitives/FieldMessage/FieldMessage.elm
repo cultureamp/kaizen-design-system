@@ -11,6 +11,8 @@ styles =
         , default = "default"
         , reversed = "reversed"
         , message = "message"
+        , positionTop = "positionTop"
+        , positionBottom = "positionBottom"
         }
 
 
@@ -19,7 +21,9 @@ type FieldMessageStatus
     | Success
     | Error
 
-
+type FieldMessagePosition
+    = Top
+    | Bottom
 
 -- CONFIG
 
@@ -35,6 +39,7 @@ type alias ConfigValue msg =
     , message : String
     , messageHtml : Maybe (List (Html msg))
     , status : FieldMessageStatus
+    , position : FieldMessagePosition
     }
 
 
@@ -46,6 +51,7 @@ defaults =
     , message = ""
     , messageHtml = Nothing
     , status = Default
+    , position = Bottom
     }
 
 
@@ -122,6 +128,8 @@ view (Config config) =
                     , ( .default, config.status == Default )
                     , ( .error, config.status == Error )
                     , ( .reversed, config.reversed )
+                    , ( .positionTop, config.position == Top )
+                    , ( .positionBottom, config.position == Bottom )
                     ]
                ]
         )

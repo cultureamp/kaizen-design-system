@@ -53,7 +53,7 @@ $large: 450px;
 }
 
 %box {
-  background: #fff;
+  background: white;
   border: $kz-border-solid-border-width $kz-border-solid-border-style
     $kz-color-wisteria-200;
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.1));
@@ -67,7 +67,7 @@ $large: 450px;
 }
 
 .defaultArrow {
-  @include arrow(#fff, $kz-color-wisteria-200);
+  @include arrow(white, $kz-color-wisteria-200);
 }
 
 .informativeBox {
@@ -152,7 +152,7 @@ $large: 450px;
   @include button-reset;
   margin-left: auto;
   display: inherit;
-  color: add-alpha(#000, 50%);
+  color: add-alpha(black, 50%);
 }
 
 .arrowSideBottom {

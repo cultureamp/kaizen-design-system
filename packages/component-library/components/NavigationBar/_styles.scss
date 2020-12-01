@@ -36,12 +36,12 @@ $link-margin: $ca-grid / 4;
 
   border-radius: $kz-border-solid-border-radius;
 
-  color: rgba(#fff, 0.8);
+  color: rgba(white, 0.8);
   padding: 0;
   text-decoration: none;
 
   &.active {
-    color: #fff; // override hyperlink hover color
+    color: white; // override hyperlink hover color
     outline: none; // override native focus styles
     text-decoration: none;
 
@@ -62,7 +62,7 @@ $link-margin: $ca-grid / 4;
     top: 0;
     left: 0;
     right: 0;
-    background-color: #fff;
+    background-color: white;
     transition: transform $ca-navigation-bar__animation-ease
       $ca-navigation-bar__animation-timing;
 
@@ -76,7 +76,7 @@ $link-margin: $ca-grid / 4;
   }
 
   &:hover {
-    color: #fff; // override hyperlink hover color
+    color: white; // override hyperlink hover color
     text-decoration: none;
 
     .linkText::before {
@@ -119,7 +119,7 @@ $link-margin: $ca-grid / 4;
 
       &:hover,
       &:focus {
-        background-color: rgba(#fff, 0.1);
+        background-color: rgba(white, 0.1);
 
         .linkIcon {
           opacity: 0.7;
@@ -127,7 +127,7 @@ $link-margin: $ca-grid / 4;
       }
 
       &:active {
-        background-color: rgba(#fff, 0.2);
+        background-color: rgba(white, 0.2);
         transform: translateY(1px);
 
         .linkIcon {
@@ -160,7 +160,7 @@ $link-margin: $ca-grid / 4;
 
     // show custom focus ring when :focus-visible
     &:global(.focus-visible) {
-      color: #fff;
+      color: white;
       outline: 2px solid $kz-color-cluny-500;
     }
   }
