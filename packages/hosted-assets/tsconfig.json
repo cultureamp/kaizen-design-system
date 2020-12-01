@@ -1,11 +1,15 @@
 {
   "extends": "../../tsconfig.dist.json",
-  "include": ["./index.ts"],
   "compilerOptions": {
-    "outDir": "dist",
-    "noEmit": false,
+    "composite": true,
     "allowJs": false,
+    "declaration": true,
+    "declarationDir": "dist",
+    "noEmit": false,
     "sourceMap": true,
-    "declaration": true
-  }
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "include": ["src", "styles"],
+  "references": []
 }

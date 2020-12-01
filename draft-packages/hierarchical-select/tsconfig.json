@@ -1,9 +1,15 @@
 {
   "extends": "../../tsconfig.dist.json",
   "compilerOptions": {
+    "composite": true,
     "allowJs": false,
     "declaration": true,
+    "declarationDir": "dist",
     "noEmit": false,
-    "sourceMap": true
-  }
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "include": ["src", "styles"],
+  "references": []
 }
