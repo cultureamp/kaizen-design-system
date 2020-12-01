@@ -1,4 +1,8 @@
 import { Icon } from "@kaizen/component-library/components/Icon"
+import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
+import successIcon from "@kaizen/component-library/icons/success.icon.svg"
+import classnames from "classnames"
+import * as React from "react"
 import {
   FieldGroup,
   FieldMessage,
@@ -6,11 +10,7 @@ import {
   InputStatus,
   InputType,
   Label,
-} from "@kaizen/draft-form"
-import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
-import successIcon from "@kaizen/component-library/icons/success.icon.svg"
-import classnames from "classnames"
-import * as React from "react"
+} from "../index"
 
 import styles from "./styles.scss"
 

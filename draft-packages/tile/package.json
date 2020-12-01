@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@kaizen/component-library": "^8.0.3",
+    "@kaizen/draft-button": "^3.0.3",
     "classnames": "^2.2.6"
   }
 }

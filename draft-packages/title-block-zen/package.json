@@ -35,6 +35,7 @@
     "@kaizen/draft-badge": "^1.2.2",
     "@kaizen/draft-button": "^1.7.4",
     "@kaizen/draft-menu": "^2.5.0",
+    "@kaizen/draft-select": "^1.11.21",
     "@kaizen/draft-tag": "^1.5.52",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"

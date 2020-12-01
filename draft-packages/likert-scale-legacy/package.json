@@ -31,10 +31,14 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "classnames": "^2.2.6"
+    "classnames": "^2.2.6",
+    "@kaizen/component-library": "^8.0.3"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2",
     "react": "^16.9.0"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2"
   }
 }
