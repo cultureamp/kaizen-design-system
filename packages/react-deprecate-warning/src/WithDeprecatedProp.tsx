@@ -11,7 +11,7 @@ export interface withDeprecatedPropProps {
   }
 }
 
-export const withDeprecatedProp = <P extends object>(
+export const withDeprecatedProp = <P extends unknown>(
   WrappedComponent: React.ComponentType<P>,
   { warning }: withDeprecatedPropProps
 ): React.ComponentType<P> =>
