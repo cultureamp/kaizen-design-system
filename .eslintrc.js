@@ -12,6 +12,11 @@ module.exports = {
     browser: true,
     node: true,
   },
+  settings: {
+    "import/resolver": {
+      typescript: {}, // this empty key is required for eslint-import-resolver-typescript
+    },
+  },
   extends: ["prettier", "prettier/@typescript-eslint"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -139,12 +144,7 @@ module.exports = {
       "undefined",
     ],
     "id-match": "error",
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        devDependencies: false,
-      },
-    ],
+    "import/no-extraneous-dependencies": "error",
     "import/no-internal-modules": "off",
     "import/order": "error",
     "jsdoc/check-alignment": "off",
@@ -152,12 +152,6 @@ module.exports = {
     "jsdoc/newline-after-description": "off",
     "linebreak-style": "off",
     "max-classes-per-file": ["error", 1],
-    "max-len": [
-      "warn",
-      {
-        code: 120,
-      },
-    ],
     "new-parens": "error",
     "newline-per-chained-call": "off",
     "no-bitwise": "error",
@@ -221,7 +215,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["*.stories.tsx", "./storybook/*.ts", "*.spec.tsx"],
+      files: ["*.stories.tsx", "*.spec.tsx"],
       rules: {
         "import/no-extraneous-dependencies": "off",
       },

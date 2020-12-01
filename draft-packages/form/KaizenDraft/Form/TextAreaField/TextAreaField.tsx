@@ -1,32 +1,22 @@
+import React, { TextareaHTMLAttributes } from "react"
 import {
   FieldGroup,
   FieldMessage,
   InputStatus,
   Label,
   TextArea,
-} from "@kaizen/draft-form"
-import React from "react"
+} from "../index"
 
-type Props = {
-  id: string
+interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   labelText: string | React.ReactNode
-  rows?: number
-  placeholder?: string
-  name?: string
-  value?: string
   inline?: boolean
   reversed?: boolean
-  defaultValue?: string
   validationMessage?: string
   status?: InputStatus
   autogrow?: boolean
   description?: React.ReactNode
   textAreaRef?: React.RefObject<HTMLTextAreaElement>
   variant?: "default" | "prominent"
-  maxLength?: number
-  onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => any
-  onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
-  onFocus?: (event: React.FocusEvent<HTMLTextAreaElement>) => any
 }
 
 const TextAreaField: React.FunctionComponent<Props> = props => {
@@ -49,6 +39,7 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
     onBlur,
     onFocus,
     rows,
+    ...genericTextAreaProps
   } = props
 
   const renderDescription = (position: "top" | "bottom") => {
@@ -95,6 +86,7 @@ const TextAreaField: React.FunctionComponent<Props> = props => {
         autogrow={autogrow}
         textAreaRef={textAreaRef}
         maxLength={maxLength}
+        {...genericTextAreaProps}
       />
       {validationMessage && (
         <FieldMessage

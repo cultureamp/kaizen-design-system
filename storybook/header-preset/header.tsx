@@ -1,3 +1,5 @@
+/* eslint import/no-extraneous-dependencies: 0 */
+
 /**
  * This file is the Storybook-specific header. The Gatsby header is
  * located site/src/components/MainNav

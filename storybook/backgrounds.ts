@@ -1,3 +1,5 @@
+/* eslint import/no-extraneous-dependencies: 0 */
+
 import * as tokens from "@kaizen/design-tokens/tokens/color.json"
 
 export const backgrounds = [
