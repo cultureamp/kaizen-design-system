@@ -8,7 +8,8 @@
     "noEmit": false,
     "sourceMap": true,
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": "src",
+    "tsBuildInfoFile": "./node_modules/.cache/tsbuildinfo.json"
   },
   "include": ["src", "styles"],
   "references": []

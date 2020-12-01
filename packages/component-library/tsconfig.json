@@ -1,10 +1,20 @@
 {
   "extends": "../../tsconfig.dist.json",
-  "include": ["components/**/*", "draft/**/*", "util/**/*", "index.ts"],
   "compilerOptions": {
+    "composite": true,
     "allowJs": false,
     "declaration": true,
+    "declarationDir": "dist",
     "noEmit": false,
-    "sourceMap": true
-  }
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "tsBuildInfoFile": "./node_modules/.cache/tsbuildinfo.json"
+  },
+  "include": ["src", "styles"],
+  "references": [
+    {
+      "path": "../hosted-assets"
+    }
+  ]
 }
