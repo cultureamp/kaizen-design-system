@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.10.1...@kaizen/draft-form@2.10.2) (2020-12-01)
+
+
+### Bug Fixes
+
+* Added missing dependencies. Updated eslint. ([#875](https://github.com/cultureamp/kaizen-design-system/issues/875)) ([182a9ca](https://github.com/cultureamp/kaizen-design-system/commit/182a9cafa9cf9795dcdd936cfef7bac432d3c28f))
+
+
+
+
+
 ## [2.10.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.10.0...@kaizen/draft-form@2.10.1) (2020-12-01)
 
 **Note:** Version bump only for package @kaizen/draft-form
