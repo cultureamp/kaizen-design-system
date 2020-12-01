@@ -18,7 +18,7 @@
     "_index.scss"
   ],
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
+    "prepublish": "tsc --project tsconfig.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rm -rf dist && rimraf '*.d.ts' '*.js'"

@@ -3,7 +3,7 @@
   "version": "1.2.3",
   "description": "The draft divider component",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
+    "prepublish": "tsc --project tsconfig.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf '*.d.ts' '*.js' '*.map' 'KaizenDraft/**/*.d.ts' 'KaizenDraft/**/*.js' 'KaizenDraft/**/*.map'"

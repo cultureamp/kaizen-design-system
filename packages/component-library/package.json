@@ -53,7 +53,7 @@
     "rimraf": "^2.6.3"
   },
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
+    "prepublish": "tsc --project tsconfig.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf 'components/**/*.js' 'draft/**/*.js' 'util/**/*.js' 'index.js' 'components/**/*.js.map' 'draft/**/*.js.map' 'util/**/*.js.map' 'index.js.map' 'components/**/*.d.ts' 'draft/**/*.d.ts' 'util/**/*.d.ts' 'index.d.ts' 'stories/*.stories.js'"
