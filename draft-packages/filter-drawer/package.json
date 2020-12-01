@@ -32,6 +32,9 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^8.0.3",
+    "@kaizen/draft-badge": "^1.2.2",
+    "@kaizen/draft-button": "^3.0.3",
+    "@kaizen/draft-menu": "^2.5.0",
     "classnames": "^2.2.6"
   },
   "peerDependencies": {

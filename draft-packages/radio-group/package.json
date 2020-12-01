@@ -32,6 +32,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^8.0.3",
+    "@kaizen/draft-form": "^2.10.1",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },

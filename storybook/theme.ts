@@ -1,3 +1,5 @@
+/* eslint import/no-extraneous-dependencies: 0 */
+
 import { create } from "@storybook/theming/create"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 
