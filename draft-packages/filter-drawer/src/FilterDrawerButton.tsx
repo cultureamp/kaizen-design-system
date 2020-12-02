@@ -1,13 +1,14 @@
 import { Badge } from "@kaizen/draft-badge"
-import GenericButton, {
+import {
+  GenericButton,
   AdditionalContentProps,
   GenericProps,
   LabelProps,
-} from "@kaizen/draft-button/KaizenDraft/Button/components/GenericButton"
+} from "@kaizen/draft-button"
 import classnames from "classnames"
 import * as React from "react"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
-import styles from "./FilterDrawerButton.module.scss"
+import styles from "../styles/FilterDrawerButton.module.scss"
 
 type FilterButtonProps = {
   labelText: string
