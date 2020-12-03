@@ -18,7 +18,8 @@
   },
   "main": "./src",
   "files": [
-    "./dist"
+    "./dist",
+    "./illustrations"
   ],
   "directories": {
     "lib": "./src"

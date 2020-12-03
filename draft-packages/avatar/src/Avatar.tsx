@@ -3,7 +3,7 @@ import cx from "classnames"
 import { Icon } from "@kaizen/component-library"
 import { Textfit } from "react-textfit"
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
-import styles from "./styles.module.scss"
+import styles from "../styles/styles.module.scss"
 
 type AvatarSizes = "small" | "medium" | "large"
 

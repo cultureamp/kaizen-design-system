@@ -69,7 +69,7 @@ view (Config config) =
 
 
 styles =
-    css "@kaizen/draft-divider/KaizenDraft/Divider/styles.module.scss"
+    css "@kaizen/draft-divider/styles/styles.module.scss"
         { wrapper = "wrapper"
         , content = "content"
         , canvas = "canvas"

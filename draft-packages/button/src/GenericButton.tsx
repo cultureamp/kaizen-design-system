@@ -11,7 +11,7 @@ import React, {
   MouseEvent,
 } from "react"
 
-import styles from "./GenericButton.module.scss"
+import styles from "../styles/GenericButton.module.scss"
 
 export type CustomButtonProps = {
   id?: string

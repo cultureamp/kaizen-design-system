@@ -8,7 +8,7 @@ import {
   Text,
 } from "@kaizen/component-library"
 import crossIcon from "@kaizen/component-library/icons/close.icon.svg"
-import styles from "./HeroPanel.scss"
+import styles from "../styles/HeroPanel.scss"
 
 interface Props {
   readonly id?: string

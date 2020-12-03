@@ -1,5 +1,4 @@
-import { MenuContent } from "@kaizen/draft-menu"
-import { StatelessMenu } from "@kaizen/draft-menu/KaizenDraft/Menu/StatelessMenu"
+import { MenuContent, StatelessMenu } from "@kaizen/draft-menu"
 import classnames from "classnames"
 import * as React from "react"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"

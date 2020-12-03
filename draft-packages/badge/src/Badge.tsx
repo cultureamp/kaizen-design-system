@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState, useRef } from "react"
+import React, { useLayoutEffect, useState } from "react"
 import classNames from "classnames"
 
 import styles from "../styles/styles.module.scss"
