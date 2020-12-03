@@ -26,6 +26,22 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## To keep in mind
 
+### Modals vs. Drawers 
+
+[Modals](/components/modal) and Drawers serve a similar purpose. Both are for displaying additional content or functionality without directing the user to another page. Both should be used sparingly. 
+
+**Modals:**
+*   Are for simple messages or actions 
+*   Should not be scrollable 
+*   Have a single Primary Action Button
+*   Always have an overlay, with the page in the background fully disabled
+
+**Drawers:**
+*   Are for displaying more complex content or workspaces 
+*   Can be scrollable (and therefore allow more vertical space)
+*   Can have multiple Primary Actions
+*   Can be displayed in parallel with page content, with or without an overlay 
+
 ### Medium vs Small
 
 **Use Medium Drawers (600 px):**
@@ -41,13 +57,13 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 Drawers can have overlays or can appear in parallel with page content. 
 
-**Overlay drawers:**
+**Overlay Drawers:**
 *   Are useful when you want to focus the user on a specific task. 
-*   Sit over the top of page content, like a [modal](/components/modal), meaning a user is unable to interact with the main page while the drawer is open. Unlike a modal, clicking outside the drawer should not close the drawer. This is to prevent the user losing unsaved work. 
+*   Sit over the top of page content, like a [modal](/components/modal), meaning a user is unable to interact with the main page while the drawer is open. Clicking outside the drawer should not close the drawer. This is to prevent the user losing unsaved work. 
 *   Are full viewport height (covering the main nav). 
 *   Are vertically scrollable separate to the main page content. When the overlay is open, you can only scroll inside the overlay (i.e. when you scroll to the bottom of the drawer,the rest of the page should not start scrolling).
 
-**Parallel drawers:**
+**Parallel Drawers:**
 *   Push page content to the left and display in parallel, with no overlay. This is useful for providing additional context or information during a task. 
 *   Allow users to continue interacting with the main page content, including clicking links. Navigating away from the page will close the drawer. For this reason, parallel drawers should be avoided when asking the user to input information or make progress that will be lost by closing the page. 
 *   Are vertically scrollable separate to the main page content. 
