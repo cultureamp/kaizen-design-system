@@ -283,13 +283,7 @@ ReversedPrimaryDisabled.parameters = { ...reversedBg }
 ReversedPrimaryDisabled.story = {
   name: "Reversed, Primary, Disabled",
   parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
+    backgrounds: { default: "Wisteria 700" },
   },
 }
 
@@ -330,13 +324,7 @@ ReversedSecondaryDisabled.parameters = { ...reversedBg }
 ReversedSecondaryDisabled.story = {
   name: "Reversed, Secondary, Disabled",
   parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
+    backgrounds: { default: "Wisteria 700" },
   },
 }
 
