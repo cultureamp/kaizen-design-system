@@ -57,7 +57,7 @@ const meetsCompactThreshold = () =>
   (window.scrollY || window.pageYOffset) >= COMPACT_NAVIGATION_SCROLL_THRESHOLD
 
 class TitleBlock extends React.Component<Props, State> {
-  static defaultProps = {
+  static defaultProps: Pick<Props, "textDirection"> = {
     textDirection: "ltr",
   }
   state = {

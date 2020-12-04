@@ -18,7 +18,7 @@ import CssModules exposing (css)
 import Html exposing (Html, div)
 import Html.Attributes as Attributes
 import KaizenDraft.Form.Primitives.Label.Label as Label
-import KaizenDraft.Form.Radio.Primitives.RadioInput as RadioInput
+import KaizenDraft.Form.Primitives.RadioInput.RadioInput as RadioInput
 
 
 labelSuffix : String
