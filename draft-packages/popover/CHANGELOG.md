@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.6.5...@kaizen/draft-popover@1.7.0) (2020-12-04)
+
+
+### Features
+
+* Allow for the modal confirmation button to be optional ([#882](https://github.com/cultureamp/kaizen-design-system/issues/882)) ([4014d70](https://github.com/cultureamp/kaizen-design-system/commit/4014d702c0f782ce28368c2e3f16712ad8481b49))
+
+
+
+
+
+## [1.6.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.6.4...@kaizen/draft-popover@1.6.5) (2020-12-01)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
 ## [1.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.6.3...@kaizen/draft-popover@1.6.4) (2020-11-25)
 
 **Note:** Version bump only for package @kaizen/draft-popover

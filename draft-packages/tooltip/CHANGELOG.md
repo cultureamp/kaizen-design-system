@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.1.0...@kaizen/draft-tooltip@2.1.1) (2020-12-01)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.0.3...@kaizen/draft-tooltip@2.1.0) (2020-12-01)
+
+
+### Features
+
+* Tooltip to allow for React.ReactNode, instead of just string ([#874](https://github.com/cultureamp/kaizen-design-system/issues/874)) ([596eaf3](https://github.com/cultureamp/kaizen-design-system/commit/596eaf3f05d9261f34388cf9b50e249838739b65))
+
+
+
+
+
 ## [2.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.0.2...@kaizen/draft-tooltip@2.0.3) (2020-11-25)
 
 **Note:** Version bump only for package @kaizen/draft-tooltip

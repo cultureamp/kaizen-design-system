@@ -1,4 +1,3 @@
-import { InputStatus } from "@kaizen/draft-form"
 import classnames from "classnames"
 import React, {
   useState,
@@ -6,6 +5,7 @@ import React, {
   useRef,
   TextareaHTMLAttributes,
 } from "react"
+import { InputStatus } from "../index"
 import styles from "./styles.scss"
 
 interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {

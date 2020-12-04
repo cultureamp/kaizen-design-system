@@ -7,7 +7,7 @@ type Position = "above" | "below"
 type Props = {
   inline?: boolean
   position?: Position
-  text: string
+  text: React.ReactNode
   children?: React.ReactNode
   classNameAndIHaveSpokenToDST?: string
 }
