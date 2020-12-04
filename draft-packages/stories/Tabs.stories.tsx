@@ -306,13 +306,7 @@ export const WithLayoutVerticalLTR = () => {
 WithLayoutVerticalLTR.storyName = "(Example) Layout LTR (Vertical)"
 
 WithLayoutVerticalLTR.parameters = {
-  backgrounds: [
-    {
-      name: "Wisteria 700",
-      value: colorTokens.kz.color.stone,
-      default: true,
-    },
-  ],
+  backgrounds: { default: "Wisteria 700" },
 }
 
 export const WithLayoutVerticalRTL = () => {
@@ -343,13 +337,7 @@ export const WithLayoutVerticalRTL = () => {
 WithLayoutVerticalRTL.storyName = "(Example) Layout RTL (Vertical)"
 
 WithLayoutVerticalRTL.parameters = {
-  backgrounds: [
-    {
-      name: "Stone",
-      value: colorTokens.kz.color.stone,
-      default: true,
-    },
-  ],
+  backgrounds: { default: "Stone" },
 }
 
 export const WithHeading = () => {
@@ -393,13 +381,7 @@ export const WithHeading = () => {
 WithHeading.storyName = "(Example) Layout With heading"
 
 WithHeading.parameters = {
-  backgrounds: [
-    {
-      name: "Stone",
-      value: colorTokens.kz.color.stone,
-      default: true,
-    },
-  ],
+  backgrounds: { default: "Stone" },
 }
 
 export const ExampleContentTab = () => {
@@ -433,11 +415,5 @@ export const ExampleContentTab = () => {
 ExampleContentTab.storyName = "(Example) Content Tab in Content Area"
 
 ExampleContentTab.parameters = {
-  backgrounds: [
-    {
-      name: "Stone",
-      value: colorTokens.kz.color.stone,
-      default: true,
-    },
-  ],
+  backgrounds: { default: "Stone" },
 }
