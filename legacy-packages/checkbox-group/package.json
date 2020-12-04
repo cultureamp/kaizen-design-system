@@ -33,6 +33,7 @@
   "dependencies": {
     "@kaizen/component-library": "^8.0.4",
     "@kaizen/draft-form": "^2.10.2",
+    "@kaizen/react-deprecate-warning": "^1.1.1",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },

@@ -1,4 +1,5 @@
 import { Label } from "@kaizen/draft-form"
+import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 import classnames from "classnames"
 import * as React from "react"
 import RadioInput from "./Primitives/RadioInput"
@@ -58,4 +59,7 @@ const Radio: Radio = ({
   </div>
 )
 
-export default Radio
+export default withDeprecatedComponent(Radio, {
+  warning:
+    "This component is deprecated, use the Radio available in @kaizen/draft-form instead.",
+})

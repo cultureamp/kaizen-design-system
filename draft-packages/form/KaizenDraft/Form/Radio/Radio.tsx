@@ -1,6 +1,6 @@
-import { Label } from "@kaizen/draft-form"
 import classnames from "classnames"
 import * as React from "react"
+import { Label } from "../"
 import RadioInput from "./Primitives/RadioInput"
 
 import styles from "./styles.scss"

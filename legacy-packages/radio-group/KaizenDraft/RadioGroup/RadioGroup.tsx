@@ -1,4 +1,5 @@
 import classnames from "classnames"
+import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 import * as React from "react"
 
 import { Label } from "@kaizen/draft-form"
@@ -36,4 +37,7 @@ const RadioGroup: RadioGroup = ({
   </div>
 )
 
-export default RadioGroup
+export default withDeprecatedComponent(RadioGroup, {
+  warning:
+    "This component is deprecated, use the RadioGroup available in @kaizen/draft-form instead.",
+})

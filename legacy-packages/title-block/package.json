@@ -32,6 +32,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^8.0.4",
+    "@kaizen/react-deprecate-warning": "^1.1.1",
     "@kaizen/draft-tag": "^1.5.53",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",

@@ -1,4 +1,5 @@
 import { Label } from "@kaizen/draft-form"
+import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 import classnames from "classnames"
 import * as React from "react"
 
@@ -35,4 +36,7 @@ const CheckboxGroup: CheckboxGroup = ({
   </div>
 )
 
-export default CheckboxGroup
+export default withDeprecatedComponent(CheckboxGroup, {
+  warning:
+    "This component is deprecated, use the CheckboxGroup available in @kaizen/draft-form instead.",
+})
