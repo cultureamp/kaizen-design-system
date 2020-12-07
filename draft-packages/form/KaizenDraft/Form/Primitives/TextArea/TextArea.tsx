@@ -40,10 +40,12 @@ const TextArea = (props: Props) => {
 
   useEffect(() => {
     if (!autogrow) return
+    const scrollHeight = textAreaRef.current!.scrollHeight
+    if (scrollHeight < 1) return
     const borderWidth = textAreaRef.current
       ? parseInt(getComputedStyle(textAreaRef.current).borderTopWidth, 10)
       : 0
-    const newHeight = textAreaRef.current!.scrollHeight + borderWidth * 2
+    const newHeight = scrollHeight + borderWidth * 2
     setParentHeight(`${newHeight}px`)
     setTextAreaHeight(`${newHeight}px`)
   }, [internalValue])
