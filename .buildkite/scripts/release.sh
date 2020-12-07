@@ -90,7 +90,7 @@ main() {
 
     echo "Resetting canary branch..."
     git reset --hard master
-    git push --force
+    git push --force --no-verify
 
   fi
 
