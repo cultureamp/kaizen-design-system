@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.10.3...@kaizen/draft-form@2.10.4) (2020-12-07)
+
+
+### Bug Fixes
+
+* Don't set TextArea if calculated height is 0 ([#885](https://github.com/cultureamp/kaizen-design-system/issues/885)) ([aa9da77](https://github.com/cultureamp/kaizen-design-system/commit/aa9da77158065909611b907fd65ff86a6bdf0c27))
+
+
+
+
+
 ## [2.10.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.10.2...@kaizen/draft-form@2.10.3) (2020-12-04)
 
 **Note:** Version bump only for package @kaizen/draft-form
