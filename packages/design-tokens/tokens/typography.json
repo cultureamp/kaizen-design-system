@@ -44,8 +44,8 @@
         "letterSpacing": "normal"
       },
       "display0": {
-        "fontFamily": "\"Tiempos Headline Black\", \"Noto Serif\", Georgia, Times, serif",
-        "fontWeight": "700",
+        "fontFamily": "\"Tiempos Headline\", \"Noto Serif\", Georgia, Times, serif",
+        "fontWeight": "900",
         "fontSize": "4.5rem",
         "lineHeight": "5.25rem",
         "letterSpacing": "normal"
