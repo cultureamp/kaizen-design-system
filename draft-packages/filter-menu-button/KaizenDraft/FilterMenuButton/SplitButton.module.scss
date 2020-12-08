@@ -1,0 +1,83 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/design-tokens/sass/typography";
+
+$button-width: 383px;
+
+.filterSelectButton {
+  display: flex;
+}
+
+.primaryActionButton {
+  font-family: $kz-typography-button-primary-font-family;
+  line-height: $kz-typography-button-primary-line-height;
+  letter-spacing: $kz-typography-button-primary-letter-spacing;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: $ca-grid * 2;
+  border-top-left-radius: $kz-border-solid-border-radius;
+  border-bottom-left-radius: $kz-border-solid-border-radius;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  text-align: center;
+  overflow: visible; // Required for the focus ring on IE11
+  color: $kz-color-cluny-500;
+  background: $kz-color-cluny-100;
+  border-color: $kz-border-borderless-border-color;
+  max-width: $button-width;
+
+  &:hover {
+    background: $kz-color-cluny-200;
+  }
+
+  &:focus {
+    border: $kz-border-solid-border-width $kz-border-solid-border-style;
+    border-right-width: 0;
+    border-color: $kz-color-cluny-400;
+  }
+}
+
+.noClearButton {
+  border-top-right-radius: $kz-border-solid-border-radius;
+  border-bottom-right-radius: $kz-border-solid-border-radius;
+}
+
+.filterName {
+  font-weight: $kz-typography-heading-6-font-weight;
+  margin-right: $ca-grid / 3;
+}
+
+.clearButton {
+  font-family: $kz-typography-button-primary-font-family;
+  line-height: $kz-typography-button-primary-line-height;
+  letter-spacing: $kz-typography-button-primary-letter-spacing;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: $ca-grid * 2;
+  border-top-right-radius: $kz-border-solid-border-radius;
+  border-bottom-right-radius: $kz-border-solid-border-radius;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  text-align: center;
+  overflow: visible; // Required for the focus ring on IE11
+  color: $kz-color-cluny-500;
+  background: $kz-color-cluny-100;
+  border-color: $kz-border-borderless-border-color;
+  width: 50px;
+
+  &:hover {
+    background: $kz-color-cluny-200;
+  }
+
+  &:focus {
+    border: $kz-border-solid-border-width $kz-border-solid-border-style;
+    border-left-width: 0;
+    border-color: $kz-color-cluny-400;
+  }
+}
