@@ -47,10 +47,10 @@ import Dont from "docs-components/Dont"
 - Character formatting is applied to any selected text/characters.
 - Paragraph formatting is applied to the entire paragraph surrounding the selection or cursor.  
 - Common formatting functions (like bold, italic) have commonly understood keyboard bindings or shortcuts that we will support. These shortcuts will be shown as tooltips on the button action.
-    - Bold: Mac (Cmd + b) Windows (Ctrl + b)
-    - Italic: Mac (Cmd + i) Windows (Ctrl + i)
-    - Underline:  Mac (Cmd + u) Windows (Ctrl + u)
-    - Link:  Mac (Cmd + k) Windows (Ctrl + k)
+    - Bold: Mac (&#8984; + b) Windows (Ctrl + b)
+    - Italic: Mac (&#8984; + i) Windows (Ctrl + i)
+    - Underline:  Mac (&#8984; + u) Windows (Ctrl + u)
+    - Link:  Mac (&#8984; + k) Windows (Ctrl + k)
 - No right click functionality (i.e context menus)
 
 #### Adding a link
@@ -76,4 +76,32 @@ import Dont from "docs-components/Dont"
     - Underline
     - Bulleted & numbered lists
 
+## When to use and when not to use
 
+<WhenToUseAndWhenNotToUse>
+<WhenToUse>
+
+- Use a rich text editor when the input is to be consumed by other users, and control over the look and feel of the content is needed for a clear message.
+
+</WhenToUse>
+<WhenNotToUse>
+
+- The user doesn’t need control over the look & feel of the input text:
+    - If the input is short, consider using a [Text Field](/components/text-field/).
+    - If input is longer consider using a [Text Area Field](/components/text-area-field/).
+- Collecting information that in a configuration or setting.
+- For end users who are responding to questions in a prominent text field, consider using WYSIWYG-lite.
+
+</WhenNotToUse>
+</WhenToUseAndWhenNotToUse>
+
+## See also
+
+- [Text Field](/components/text-field/).
+- [Text Area Field](/components/text-area-field/).
+
+## External links
+
+Here are some examples of other existing design systems:
+- [Salesforce Lightning: Rich text editor](https://www.lightningdesignsystem.com/components/rich-text-editor/)
+- [HMCTS: Rich text editor](https://hmcts-design-system.herokuapp.com/components/rich-text-editor)
