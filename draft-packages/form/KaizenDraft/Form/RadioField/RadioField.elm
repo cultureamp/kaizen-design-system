@@ -1,4 +1,4 @@
-module KaizenDraft.Form.Radio.Radio exposing
+module KaizenDraft.Form.RadioField.RadioField exposing
     ( LabelProp(..)
     , SelectedStatus(..)
     , automationId
@@ -18,7 +18,7 @@ import CssModules exposing (css)
 import Html exposing (Html, div)
 import Html.Attributes as Attributes
 import KaizenDraft.Form.Primitives.Label.Label as Label
-import KaizenDraft.Form.Primitives.RadioInput.RadioInput as RadioInput
+import KaizenDraft.Form.Primitives.Radio.Radio as Radio
 
 
 labelSuffix : String
@@ -88,15 +88,15 @@ view (Config config) (RadioId i) =
         resolveSelectedStatus =
             case config.selectedStatus of
                 Selected ->
-                    RadioInput.Selected
+                    Radio.Selected
 
                 _ ->
-                    RadioInput.Unselected
+                    Radio.Unselected
 
         withOnChange cnfg =
             case config.onChange of
                 Just onChangeMsg ->
-                    RadioInput.onChange onChangeMsg cnfg
+                    Radio.onChange onChangeMsg cnfg
 
                 _ ->
                     cnfg
@@ -118,15 +118,15 @@ view (Config config) (RadioId i) =
                 |> Label.labelText resolveLabelText
                 |> Label.labelType Label.Radio
                 |> Label.children
-                    [ RadioInput.view
-                        (RadioInput.default
-                            |> RadioInput.automationId (i ++ radioSuffix)
-                            |> RadioInput.disabled config.disabled
-                            |> RadioInput.selectedStatus resolveSelectedStatus
-                            |> RadioInput.value config.value
-                            |> RadioInput.name config.name
+                    [ Radio.view
+                        (Radio.default
+                            |> Radio.automationId (i ++ radioSuffix)
+                            |> Radio.disabled config.disabled
+                            |> Radio.selectedStatus resolveSelectedStatus
+                            |> Radio.value config.value
+                            |> Radio.name config.name
                             |> withOnChange
-                            |> RadioInput.id i
+                            |> Radio.id i
                         )
                     ]
             )
@@ -192,7 +192,7 @@ automationId a (Config config) =
 
 
 styles =
-    css "@kaizen/draft-form/KaizenDraft/Form/Radio/styles.scss"
+    css "@kaizen/draft-form/KaizenDraft/Form/RadioField/styles.scss"
         { container = "container"
         , selected = "selected"
         , disabled = "disabled"

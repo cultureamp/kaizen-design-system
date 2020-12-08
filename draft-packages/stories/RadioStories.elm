@@ -3,7 +3,7 @@ module Main exposing (main)
 import ElmStorybook exposing (storyOf, storybook)
 import Html exposing (a, div, text)
 import Html.Attributes exposing (dir, href, style)
-import KaizenDraft.Form.Radio.Radio as Radio
+import KaizenDraft.Form.RadioField.RadioField as RadioField
 
 
 type Msg
@@ -11,12 +11,12 @@ type Msg
 
 
 type alias Model =
-    { interactiveRadioSelected : Radio.SelectedStatus }
+    { interactiveRadioSelected : RadioField.SelectedStatus }
 
 
 model : Model
 model =
-    { interactiveRadioSelected = Radio.Unselected
+    { interactiveRadioSelected = RadioField.Unselected
     }
 
 
@@ -27,10 +27,10 @@ update msg m =
             let
                 resolveSelected =
                     if isSelected then
-                        Radio.Selected
+                        RadioField.Selected
 
                     else
-                        Radio.Unselected
+                        RadioField.Unselected
             in
             ( { m | interactiveRadioSelected = resolveSelected }, Cmd.none )
 
@@ -47,84 +47,84 @@ main =
         [ storyOf "Interactive" config <|
             \m ->
                 div [ style "width" "100%", style "padding-top" "24px" ]
-                    [ Radio.view
-                        (Radio.default
-                            |> Radio.selectedStatus m.interactiveRadioSelected
-                            |> Radio.onChange OnRadioSelect
-                            |> Radio.labelText (Radio.LabelHtml [ text "This is a label with a ", a [ href "http://google.com" ] [ text "link" ] ])
-                            |> Radio.automationId "radio-1"
-                            |> Radio.name "radio"
+                    [ RadioField.view
+                        (RadioField.default
+                            |> RadioField.selectedStatus m.interactiveRadioSelected
+                            |> RadioField.onChange OnRadioSelect
+                            |> RadioField.labelText (RadioField.LabelHtml [ text "This is a label with a ", a [ href "http://google.com" ] [ text "link" ] ])
+                            |> RadioField.automationId "radio-1"
+                            |> RadioField.name "radio"
                         )
-                        (Radio.radioId "radio-1")
+                        (RadioField.radioId "radio-1")
                     ]
         , storyOf "Unselected disabled" config <|
             \_ ->
                 div [ style "width" "100%" ]
-                    [ Radio.view
-                        (Radio.default
-                            |> Radio.selectedStatus Radio.Unselected
-                            |> Radio.labelText (Radio.LabelString "Label")
-                            |> Radio.automationId "radio-1"
-                            |> Radio.name "radio"
-                            |> Radio.disabled True
-                            |> Radio.value "radio-1"
+                    [ RadioField.view
+                        (RadioField.default
+                            |> RadioField.selectedStatus RadioField.Unselected
+                            |> RadioField.labelText (RadioField.LabelString "Label")
+                            |> RadioField.automationId "radio-1"
+                            |> RadioField.name "radio"
+                            |> RadioField.disabled True
+                            |> RadioField.value "radio-1"
                         )
-                        (Radio.radioId "radio-1")
+                        (RadioField.radioId "radio-1")
                     ]
         , storyOf "Unselected default" config <|
             \_ ->
                 div [ style "width" "100%" ]
-                    [ Radio.view
-                        (Radio.default
-                            |> Radio.selectedStatus Radio.Unselected
-                            |> Radio.labelText (Radio.LabelString "Label")
-                            |> Radio.automationId "radio-1"
-                            |> Radio.name "radio"
-                            |> Radio.disabled False
-                            |> Radio.value "radio-1"
+                    [ RadioField.view
+                        (RadioField.default
+                            |> RadioField.selectedStatus RadioField.Unselected
+                            |> RadioField.labelText (RadioField.LabelString "Label")
+                            |> RadioField.automationId "radio-1"
+                            |> RadioField.name "radio"
+                            |> RadioField.disabled False
+                            |> RadioField.value "radio-1"
                         )
-                        (Radio.radioId "radio-1")
+                        (RadioField.radioId "radio-1")
                     ]
         , storyOf "Selected default" config <|
             \_ ->
                 div [ style "width" "100%" ]
-                    [ Radio.view
-                        (Radio.default
-                            |> Radio.selectedStatus Radio.Selected
-                            |> Radio.labelText (Radio.LabelString "Label")
-                            |> Radio.automationId "radio-1"
-                            |> Radio.name "radio"
-                            |> Radio.disabled False
-                            |> Radio.value "radio-1"
+                    [ RadioField.view
+                        (RadioField.default
+                            |> RadioField.selectedStatus RadioField.Selected
+                            |> RadioField.labelText (RadioField.LabelString "Label")
+                            |> RadioField.automationId "radio-1"
+                            |> RadioField.name "radio"
+                            |> RadioField.disabled False
+                            |> RadioField.value "radio-1"
                         )
-                        (Radio.radioId "radio-1")
+                        (RadioField.radioId "radio-1")
                     ]
         , storyOf "Selected disabled" config <|
             \_ ->
                 div [ style "width" "100%" ]
-                    [ Radio.view
-                        (Radio.default
-                            |> Radio.selectedStatus Radio.Selected
-                            |> Radio.labelText (Radio.LabelString "Label")
-                            |> Radio.automationId "radio-1"
-                            |> Radio.name "radio"
-                            |> Radio.disabled True
-                            |> Radio.value "radio-1"
+                    [ RadioField.view
+                        (RadioField.default
+                            |> RadioField.selectedStatus RadioField.Selected
+                            |> RadioField.labelText (RadioField.LabelString "Label")
+                            |> RadioField.automationId "radio-1"
+                            |> RadioField.name "radio"
+                            |> RadioField.disabled True
+                            |> RadioField.value "radio-1"
                         )
-                        (Radio.radioId "radio-1")
+                        (RadioField.radioId "radio-1")
                     ]
         , storyOf "RTL" config <|
             \_ ->
                 div [ dir "rtl", style "width" "100%" ]
-                    [ Radio.view
-                        (Radio.default
-                            |> Radio.selectedStatus Radio.Selected
-                            |> Radio.labelText (Radio.LabelString "Label")
-                            |> Radio.automationId "radio-1"
-                            |> Radio.name "radio"
-                            |> Radio.disabled True
-                            |> Radio.value "radio-1"
+                    [ RadioField.view
+                        (RadioField.default
+                            |> RadioField.selectedStatus RadioField.Selected
+                            |> RadioField.labelText (RadioField.LabelString "Label")
+                            |> RadioField.automationId "radio-1"
+                            |> RadioField.name "radio"
+                            |> RadioField.disabled True
+                            |> RadioField.value "radio-1"
                         )
-                        (Radio.radioId "radio-1")
+                        (RadioField.radioId "radio-1")
                     ]
         ]

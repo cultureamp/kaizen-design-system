@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import * as React from "react"
 import { Label } from "../"
-import RadioInput from "../Primitives/RadioInput/RadioInput"
+import RadioInput from "../Primitives/Radio/Radio"
 
 import styles from "./styles.scss"
 
