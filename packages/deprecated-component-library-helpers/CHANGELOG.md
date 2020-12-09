@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.8.0...@kaizen/deprecated-component-library-helpers@2.0.0) (2020-12-09)
+
+
+### Features
+
+* Move design tokens to peer dependency ([#895](https://github.com/cultureamp/kaizen-design-system/issues/895)) ([b6d8b84](https://github.com/cultureamp/kaizen-design-system/commit/b6d8b84d8ef06459323d01f329107ef112d6356e))
+
+
+### BREAKING CHANGES
+
+* Tokens are now a peer dependency of component-library-helpers. When upgrading ensure dependants are using @kaizen/deprecated-component-library-helpers@2.x.x or greater.
+
+
+
+
+
 # [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.7.0...@kaizen/deprecated-component-library-helpers@1.8.0) (2020-12-09)
 
 

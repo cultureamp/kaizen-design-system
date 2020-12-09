@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-menu-list",
-  "version": "1.5.52",
+  "version": "1.5.53",
   "description": "The draft Menu list component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -31,8 +31,8 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^8.0.7",
-    "@kaizen/deprecated-component-library-helpers": "^1.8.0",
+    "@kaizen/component-library": "^8.0.8",
+    "@kaizen/deprecated-component-library-helpers": "^2.0.0",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },
