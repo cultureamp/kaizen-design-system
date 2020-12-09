@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-radio-group",
-  "version": "1.4.25",
+  "version": "1.4.26",
   "description": "The draft Radio group component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -31,8 +31,8 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^8.0.5",
-    "@kaizen/draft-form": "^2.10.4",
+    "@kaizen/component-library": "^8.0.6",
+    "@kaizen/draft-form": "^2.10.5",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },
