@@ -15,7 +15,7 @@
   "sideEffects": false,
   "private": false,
   "license": "MIT",
-  "dependencies": {
+  "peerDependencies": {
     "@kaizen/design-tokens": "^2.1.3"
   }
 }
