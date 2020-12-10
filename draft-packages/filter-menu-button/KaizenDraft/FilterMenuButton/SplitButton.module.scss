@@ -5,11 +5,24 @@
 
 $button-width: 383px;
 
+// The styling and mixin in this file originally comes from @kaizen/draft-button styles.module.scss and I modify it to suit with the `SplitButton` for `FilterMenuButton`.
+
+@mixin button-reset {
+  appearance: none;
+  background: transparent;
+  border: none;
+  font: inherit;
+  margin: 0;
+  transition: none; // override Murmur global styles :(
+}
+
 .filterSelectButton {
   display: flex;
 }
 
 .primaryActionButton {
+  @include button-reset;
+
   font-family: $kz-typography-button-primary-font-family;
   line-height: $kz-typography-button-primary-line-height;
   letter-spacing: $kz-typography-button-primary-letter-spacing;
@@ -23,21 +36,31 @@ $button-width: 383px;
   text-align: center;
   cursor: pointer;
   text-align: center;
-  overflow: visible; // Required for the focus ring on IE11
+  overflow: visible;
   color: $kz-color-cluny-500;
   background: $kz-color-cluny-100;
   border-color: $kz-border-borderless-border-color;
   max-width: $button-width;
+  padding-right: $ca-grid * 0.75;
+  padding-left: $ca-grid * 0.75;
 
   &:hover {
     background: $kz-color-cluny-200;
   }
+}
 
-  &:focus {
-    border: $kz-border-solid-border-width $kz-border-solid-border-style;
-    border-right-width: 0;
-    border-color: $kz-color-cluny-400;
-  }
+.primaryActionButton.splitButtonFocus {
+  border: $kz-border-solid-border-width $kz-border-solid-border-style;
+  border-color: $kz-color-cluny-400;
+  border-right-width: 0;
+  border-radius: $kz-border-solid-border-radius;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.primaryActionButton.noClearButton.splitButtonFocus {
+  border-right-width: $kz-border-solid-border-width;
+  border-radius: $kz-border-solid-border-radius;
 }
 
 .noClearButton {
@@ -51,6 +74,8 @@ $button-width: 383px;
 }
 
 .clearButton {
+  @include button-reset;
+
   font-family: $kz-typography-button-primary-font-family;
   line-height: $kz-typography-button-primary-line-height;
   letter-spacing: $kz-typography-button-primary-letter-spacing;
@@ -74,10 +99,13 @@ $button-width: 383px;
   &:hover {
     background: $kz-color-cluny-200;
   }
+}
 
-  &:focus {
-    border: $kz-border-solid-border-width $kz-border-solid-border-style;
-    border-left-width: 0;
-    border-color: $kz-color-cluny-400;
-  }
+.clearButton.splitButtonFocus {
+  border: $kz-border-solid-border-width $kz-border-solid-border-style;
+  border-color: $kz-color-cluny-400;
+  border-left-width: 0;
+  border-radius: $kz-border-solid-border-radius;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }

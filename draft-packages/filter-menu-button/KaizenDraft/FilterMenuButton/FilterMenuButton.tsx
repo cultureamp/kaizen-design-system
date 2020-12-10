@@ -1,8 +1,6 @@
 import { MenuContent } from "@kaizen/draft-menu"
 import { StatelessMenu } from "@kaizen/draft-menu/KaizenDraft/Menu/StatelessMenu"
-import classnames from "classnames"
 import * as React from "react"
-
 import styles from "./styles.module.scss"
 import { SplitButton } from "./SplitButton"
 
@@ -26,26 +24,28 @@ export interface FilterMenuButtonProps {
    * The content that appears in the filter dropdown.
    */
   children: React.ReactElement
-  reversed?: boolean
 
   /**
-   * The filter drawer does not hold internall state, so you
+   * The filter menu button does not hold internal state, so you
    * must pass in the state of whether the dropdown is open
    * or not
    */
   isDropdownVisible: boolean
 
   /**
-   * You must provide a function that toggles the isDropdownVisible state
+   * A function that toggles the isDropdownVisible state
    */
   toggleDropdown: () => void
 
   /**
-   * You must provide a function that sets the isDropdownVisible state to `false`
+   * A function that sets the isDropdownVisible state to `false`
    */
   hideDropdown: () => void
 
-  onFilterClear?: (e: any) => void
+  /**
+   * A function for the clear button. You should only pass this function if you want to have a advanced filter behavior
+   */
+  onFilterClear?: (e: React.MouseEvent<any>) => void
 }
 
 export const FilterMenuButton = ({
@@ -57,26 +57,20 @@ export const FilterMenuButton = ({
   toggleDropdown,
   hideDropdown,
   onFilterClear,
-  reversed = false,
 }: FilterMenuButtonProps) => {
   const dropdownId = `${id}-dropdown`
   return (
-    <div
-      id={id}
-      className={classnames(styles.filterMenuButton, {
-        [styles.reversed]: reversed,
-      })}
-    >
+    <div id={id} className={styles.filterMenuButton}>
       <StatelessMenu
         renderButton={({ onClick, onMouseDown }) => (
           <SplitButton
             {...{
+              isDropdownVisible,
               onFilterClear,
               labelText,
               metadata,
               onClick,
               onMouseDown,
-              reversed,
               ariaExpanded: isDropdownVisible,
               ariaControls: dropdownId,
             }}

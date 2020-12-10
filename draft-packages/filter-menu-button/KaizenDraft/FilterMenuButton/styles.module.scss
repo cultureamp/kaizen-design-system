@@ -28,8 +28,4 @@ $menuContentVerticalPadding: 6px; // this comes from the MenuContent component, 
   @include kz-typography-paragraph-small;
   @include ca-inherit-baseline;
   color: $kz-color-wisteria-800;
-
-  .reversed & {
-    color: $kz-color-white;
-  }
 }
