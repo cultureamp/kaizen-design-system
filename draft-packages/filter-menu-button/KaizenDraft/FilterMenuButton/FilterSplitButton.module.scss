@@ -16,13 +16,7 @@ $button-width: 383px;
   transition: none; // override Murmur global styles :(
 }
 
-.filterSelectButton {
-  display: flex;
-}
-
-.primaryActionButton {
-  @include button-reset;
-
+@mixin button-base {
   font-family: $kz-typography-button-primary-font-family;
   line-height: $kz-typography-button-primary-line-height;
   letter-spacing: $kz-typography-button-primary-letter-spacing;
@@ -30,22 +24,35 @@ $button-width: 383px;
   align-items: center;
   box-sizing: border-box;
   min-height: $ca-grid * 2;
-  border-top-left-radius: $kz-border-solid-border-radius;
-  border-bottom-left-radius: $kz-border-solid-border-radius;
   position: relative;
   text-align: center;
   cursor: pointer;
-  text-align: center;
   overflow: visible;
   color: $kz-color-cluny-500;
   background: $kz-color-cluny-100;
   border-color: $kz-border-borderless-border-color;
-  max-width: $button-width;
-  padding-right: $ca-grid * 0.75;
-  padding-left: $ca-grid * 0.75;
 
   &:hover {
     background: $kz-color-cluny-200;
+  }
+}
+
+.filterSelectButton {
+  display: flex;
+}
+
+.primaryActionButton {
+  @include button-reset;
+  @include button-base;
+
+  max-width: $button-width;
+  padding-right: $ca-grid * 0.75;
+  padding-left: $ca-grid * 0.75;
+  border-top-left-radius: $kz-border-solid-border-radius;
+  border-bottom-left-radius: $kz-border-solid-border-radius;
+
+  &:hover {
+    color: $kz-color-cluny-600;
   }
 }
 
@@ -56,49 +63,31 @@ $button-width: 383px;
   border-radius: $kz-border-solid-border-radius;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+
+  &:hover {
+    background: $kz-color-cluny-100;
+    color: $kz-color-cluny-500;
+  }
 }
 
 .primaryActionButton.noClearButton.splitButtonFocus {
   border-right-width: $kz-border-solid-border-width;
   border-radius: $kz-border-solid-border-radius;
-}
 
-.noClearButton {
-  border-top-right-radius: $kz-border-solid-border-radius;
-  border-bottom-right-radius: $kz-border-solid-border-radius;
-}
-
-.filterName {
-  font-weight: $kz-typography-heading-6-font-weight;
-  margin-right: $ca-grid / 3;
+  &:hover {
+    background: $kz-color-cluny-100;
+    color: $kz-color-cluny-500;
+  }
 }
 
 .clearButton {
   @include button-reset;
+  @include button-base;
 
-  font-family: $kz-typography-button-primary-font-family;
-  line-height: $kz-typography-button-primary-line-height;
-  letter-spacing: $kz-typography-button-primary-letter-spacing;
-  display: flex;
-  align-items: center;
+  width: 50px;
   justify-content: center;
-  box-sizing: border-box;
-  min-height: $ca-grid * 2;
   border-top-right-radius: $kz-border-solid-border-radius;
   border-bottom-right-radius: $kz-border-solid-border-radius;
-  position: relative;
-  text-align: center;
-  cursor: pointer;
-  text-align: center;
-  overflow: visible; // Required for the focus ring on IE11
-  color: $kz-color-cluny-500;
-  background: $kz-color-cluny-100;
-  border-color: $kz-border-borderless-border-color;
-  width: 50px;
-
-  &:hover {
-    background: $kz-color-cluny-200;
-  }
 }
 
 .clearButton.splitButtonFocus {
@@ -108,4 +97,23 @@ $button-width: 383px;
   border-radius: $kz-border-solid-border-radius;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+
+  &:hover {
+    background: $kz-color-cluny-100;
+    color: $kz-color-cluny-500;
+  }
+}
+
+.noClearButton {
+  border-top-right-radius: $kz-border-solid-border-radius;
+  border-bottom-right-radius: $kz-border-solid-border-radius;
+
+  &:focus {
+    border: $kz-border-solid-border-width $kz-border-solid-border-style;
+  }
+}
+
+.filterName {
+  font-weight: $kz-typography-heading-6-font-weight;
+  margin-right: $ca-grid / 3;
 }

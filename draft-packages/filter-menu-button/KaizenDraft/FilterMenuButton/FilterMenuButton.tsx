@@ -2,7 +2,7 @@ import { MenuContent } from "@kaizen/draft-menu"
 import { StatelessMenu } from "@kaizen/draft-menu/KaizenDraft/Menu/StatelessMenu"
 import * as React from "react"
 import styles from "./styles.module.scss"
-import { SplitButton } from "./SplitButton"
+import { FilterSplitButton } from "./FilterSplitButton"
 
 export interface FilterMenuButtonProps {
   /* The html id attribute of the container element. This is also used
@@ -63,7 +63,7 @@ export const FilterMenuButton = ({
     <div id={id} className={styles.filterMenuButton}>
       <StatelessMenu
         renderButton={({ onClick, onMouseDown }) => (
-          <SplitButton
+          <FilterSplitButton
             {...{
               isDropdownVisible,
               onFilterClear,

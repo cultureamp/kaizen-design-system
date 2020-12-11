@@ -4,9 +4,9 @@ import { Button } from "@kaizen/draft-button"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
 import classnames from "classnames"
-import styles from "./SplitButton.module.scss"
+import styles from "./FilterSplitButton.module.scss"
 
-type SplitButtonProps = {
+type FilterSplitButtonProps = {
   labelText: string
   metadata?: React.ReactNode
   onClick: (e: any) => void
@@ -17,7 +17,7 @@ type SplitButtonProps = {
   isDropdownVisible: boolean
 }
 
-export const SplitButton = ({
+export const FilterSplitButton = ({
   labelText,
   metadata,
   onClick,
@@ -26,7 +26,7 @@ export const SplitButton = ({
   ariaControls,
   ariaExpanded,
   isDropdownVisible,
-}: SplitButtonProps) => {
+}: FilterSplitButtonProps) => {
   if (metadata) {
     return (
       <div className={styles.filterSelectButton}>
