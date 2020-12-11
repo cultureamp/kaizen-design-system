@@ -14,14 +14,13 @@ export default {
   title: "FilterMenuButton (React)",
 }
 
-type CheckboxState = "on" | "off"
-
-type AppliedFiltersState = {
-  furry: CheckboxState
-  aquatic: CheckboxState
-  venomous: CheckboxState
-  egglaying: CheckboxState
+type DropdownOption = {
+  id: number
+  label: string
 }
+
+export const DefaultStory = () => <DefaultWithChildrenSimpleFilter />
+DefaultStory.storyName = "Simple Filter (Kaizen Site Demo)"
 
 export const DefaultEmpty = () => {
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
@@ -61,36 +60,22 @@ export const DefaultEmpty = () => {
 }
 DefaultEmpty.storyName = "Default (Empty)"
 
+const dropdownOptions = [
+  { id: 1, label: "Furry" },
+  { id: 2, label: "Aquatic" },
+  { id: 3, label: "Venomous" },
+  { id: 4, label: "Egg-laying" },
+]
+
 export const DefaultWithChildrenSimpleFilter = () => {
-  const [furryCheckboxState, setFurryCheckboxState] = useState<CheckboxState>(
-    "off"
-  )
-  const [aquaticCheckboxState, setAquaticCheckboxState] = useState<
-    CheckboxState
-  >("off")
-  const [venomousCheckboxState, setVenomousCheckboxState] = useState<
-    CheckboxState
-  >("off")
-  const [egglayingCheckboxState, setEgglayingCheckboxState] = useState<
-    CheckboxState
-  >("off")
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
+  const [appliedFilters, setAppliedFilters] = useState<DropdownOption[]>([])
 
-  const [appliedFilters, setAppliedFilters] = useState<AppliedFiltersState>({
-    furry: "off",
-    aquatic: "off",
-    venomous: "off",
-    egglaying: "off",
-  })
-
-  const checkedTraits: string = (appliedFilters.furry === "on" ? ["Furry"] : [])
-    .concat(appliedFilters.aquatic === "on" ? ["Aquatic"] : [])
-    .concat(appliedFilters.venomous === "on" ? ["Venomous"] : [])
-    .concat(appliedFilters.egglaying === "on" ? ["Egg-laying"] : [])
+  const checkedTraits: string = appliedFilters
+    .map(trait => trait.label)
     .join(", ")
 
   const toggleDropdown = () => {
-    clearChanges()
     setIsDropdownVisible(!isDropdownVisible)
   }
 
@@ -98,28 +83,15 @@ export const DefaultWithChildrenSimpleFilter = () => {
     setIsDropdownVisible(false)
   }
 
-  const applyChanges = () => {
-    setAppliedFilters({
-      furry: furryCheckboxState,
-      aquatic: aquaticCheckboxState,
-      venomous: venomousCheckboxState,
-      egglaying: egglayingCheckboxState,
-    })
-    hideDropdown()
+  const onCheckboxChange = (option: DropdownOption) => {
+    if (appliedFilters.filter(filter => filter.id === option.id).length > 0) {
+      setAppliedFilters(
+        appliedFilters.filter(filter => filter.id !== option.id)
+      )
+    } else {
+      setAppliedFilters([...appliedFilters, option])
+    }
   }
-
-  const clearChanges = () => {
-    setFurryCheckboxState(appliedFilters.furry)
-    setAquaticCheckboxState(appliedFilters.aquatic)
-    setVenomousCheckboxState(appliedFilters.venomous)
-    setEgglayingCheckboxState(appliedFilters.egglaying)
-  }
-
-  const haveFiltersNotChanged = () =>
-    appliedFilters.furry == furryCheckboxState &&
-    appliedFilters.aquatic == aquaticCheckboxState &&
-    appliedFilters.venomous == venomousCheckboxState &&
-    appliedFilters.egglaying == egglayingCheckboxState
 
   return (
     <StoryWrapper>
@@ -134,63 +106,29 @@ export const DefaultWithChildrenSimpleFilter = () => {
         <>
           <div className={styles.content}>
             <CheckboxGroup labelText="Traits">
-              <CheckboxField
-                onCheck={() => {
-                  setFurryCheckboxState(
-                    furryCheckboxState === "on" ? "off" : "on"
-                  )
-                }}
-                id="checkbox-1"
-                checkedStatus={furryCheckboxState as any}
-                labelText="Furry"
-              />
-              <CheckboxField
-                onCheck={() => {
-                  setAquaticCheckboxState(
-                    aquaticCheckboxState === "on" ? "off" : "on"
-                  )
-                }}
-                id="checkbox-2"
-                checkedStatus={aquaticCheckboxState as any}
-                labelText="Aquatic"
-              />
-              <CheckboxField
-                onCheck={() => {
-                  setVenomousCheckboxState(
-                    venomousCheckboxState === "on" ? "off" : "on"
-                  )
-                }}
-                id="checkbox-3"
-                checkedStatus={venomousCheckboxState as any}
-                labelText="Venomous"
-              />
-              <CheckboxField
-                onCheck={() => {
-                  setEgglayingCheckboxState(
-                    egglayingCheckboxState === "on" ? "off" : "on"
-                  )
-                }}
-                id="checkbox-4"
-                checkedStatus={egglayingCheckboxState as any}
-                labelText="Egg-laying"
-              />
+              {dropdownOptions.map(trait => (
+                <CheckboxField
+                  onCheck={() => {
+                    onCheckboxChange(trait)
+                  }}
+                  id={`checkbox-${trait.id}`}
+                  checkedStatus={
+                    appliedFilters.filter(filter => filter.id === trait.id)
+                      .length > 0
+                      ? "on"
+                      : "off"
+                  }
+                  labelText={trait.label}
+                />
+              ))}
             </CheckboxGroup>
           </div>
           <div className={styles.buttons}>
             <Button
               secondary={true}
-              label="Cancel"
-              onClick={() => {
-                toggleDropdown()
-              }}
-            />
-            <Button
-              primary={true}
-              label="Apply"
-              disabled={haveFiltersNotChanged()}
-              onClick={() => {
-                applyChanges()
-              }}
+              fullWidth
+              label="Done"
+              onClick={hideDropdown}
             />
           </div>
         </>
@@ -202,35 +140,14 @@ DefaultWithChildrenSimpleFilter.storyName =
   "Default with children (Simple filter)"
 
 export const DefaultWithChildrenAdvancedFilter = () => {
-  const [furryCheckboxState, setFurryCheckboxState] = useState<CheckboxState>(
-    "off"
-  )
-  const [aquaticCheckboxState, setAquaticCheckboxState] = useState<
-    CheckboxState
-  >("off")
-  const [venomousCheckboxState, setVenomousCheckboxState] = useState<
-    CheckboxState
-  >("off")
-  const [egglayingCheckboxState, setEgglayingCheckboxState] = useState<
-    CheckboxState
-  >("off")
   const [isDropdownVisible, setIsDropdownVisible] = useState(false)
+  const [appliedFilters, setAppliedFilters] = useState<DropdownOption[]>([])
 
-  const [appliedFilters, setAppliedFilters] = useState<AppliedFiltersState>({
-    furry: "off",
-    aquatic: "off",
-    venomous: "off",
-    egglaying: "off",
-  })
-
-  const checkedTraits: string = (appliedFilters.furry === "on" ? ["Furry"] : [])
-    .concat(appliedFilters.aquatic === "on" ? ["Aquatic"] : [])
-    .concat(appliedFilters.venomous === "on" ? ["Venomous"] : [])
-    .concat(appliedFilters.egglaying === "on" ? ["Egg-laying"] : [])
+  const checkedTraits: string = appliedFilters
+    .map(trait => trait.label)
     .join(", ")
 
   const toggleDropdown = () => {
-    clearChanges()
     setIsDropdownVisible(!isDropdownVisible)
   }
 
@@ -238,36 +155,18 @@ export const DefaultWithChildrenAdvancedFilter = () => {
     setIsDropdownVisible(false)
   }
 
-  const applyChanges = () => {
-    setAppliedFilters({
-      furry: furryCheckboxState,
-      aquatic: aquaticCheckboxState,
-      venomous: venomousCheckboxState,
-      egglaying: egglayingCheckboxState,
-    })
-    hideDropdown()
+  const onCheckboxChange = (option: DropdownOption) => {
+    if (appliedFilters.filter(filter => filter.id === option.id).length > 0) {
+      setAppliedFilters(
+        appliedFilters.filter(filter => filter.id !== option.id)
+      )
+    } else {
+      setAppliedFilters([...appliedFilters, option])
+    }
   }
-
-  const clearChanges = () => {
-    setFurryCheckboxState(appliedFilters.furry)
-    setAquaticCheckboxState(appliedFilters.aquatic)
-    setVenomousCheckboxState(appliedFilters.venomous)
-    setEgglayingCheckboxState(appliedFilters.egglaying)
-  }
-
-  const haveFiltersNotChanged = () =>
-    appliedFilters.furry == furryCheckboxState &&
-    appliedFilters.aquatic == aquaticCheckboxState &&
-    appliedFilters.venomous == venomousCheckboxState &&
-    appliedFilters.egglaying == egglayingCheckboxState
 
   const clearFilter = () => {
-    setAppliedFilters({
-      furry: "off",
-      aquatic: "off",
-      venomous: "off",
-      egglaying: "off",
-    })
+    setAppliedFilters([])
   }
 
   return (
@@ -284,63 +183,29 @@ export const DefaultWithChildrenAdvancedFilter = () => {
         <>
           <div className={styles.content}>
             <CheckboxGroup labelText="Traits">
-              <CheckboxField
-                onCheck={() => {
-                  setFurryCheckboxState(
-                    furryCheckboxState === "on" ? "off" : "on"
-                  )
-                }}
-                id="checkbox-1"
-                checkedStatus={furryCheckboxState as any}
-                labelText="Furry"
-              />
-              <CheckboxField
-                onCheck={() => {
-                  setAquaticCheckboxState(
-                    aquaticCheckboxState === "on" ? "off" : "on"
-                  )
-                }}
-                id="checkbox-2"
-                checkedStatus={aquaticCheckboxState as any}
-                labelText="Aquatic"
-              />
-              <CheckboxField
-                onCheck={() => {
-                  setVenomousCheckboxState(
-                    venomousCheckboxState === "on" ? "off" : "on"
-                  )
-                }}
-                id="checkbox-3"
-                checkedStatus={venomousCheckboxState as any}
-                labelText="Venomous"
-              />
-              <CheckboxField
-                onCheck={() => {
-                  setEgglayingCheckboxState(
-                    egglayingCheckboxState === "on" ? "off" : "on"
-                  )
-                }}
-                id="checkbox-4"
-                checkedStatus={egglayingCheckboxState as any}
-                labelText="Egg-laying"
-              />
+              {dropdownOptions.map(trait => (
+                <CheckboxField
+                  onCheck={() => {
+                    onCheckboxChange(trait)
+                  }}
+                  id={`checkbox-${trait.id}`}
+                  checkedStatus={
+                    appliedFilters.filter(filter => filter.id === trait.id)
+                      .length > 0
+                      ? "on"
+                      : "off"
+                  }
+                  labelText={trait.label}
+                />
+              ))}
             </CheckboxGroup>
           </div>
           <div className={styles.buttons}>
             <Button
               secondary={true}
-              label="Cancel"
-              onClick={() => {
-                toggleDropdown()
-              }}
-            />
-            <Button
-              primary={true}
-              label="Apply"
-              disabled={haveFiltersNotChanged()}
-              onClick={() => {
-                applyChanges()
-              }}
+              fullWidth
+              label="Done"
+              onClick={hideDropdown}
             />
           </div>
         </>
