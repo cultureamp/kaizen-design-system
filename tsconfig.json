@@ -1,9 +1,6 @@
 {
   "compilerOptions": {
-    "lib": [
-      "es2018",
-      "dom"
-    ],
+    "lib": ["es2018", "dom"],
     "module": "commonjs",
     "jsx": "react",
     "esModuleInterop": true,
@@ -14,15 +11,11 @@
     "allowJs": false,
     "noEmit": true
   },
-  "files": [
-    "./types.d.ts"
-  ],
+  "files": ["./types.d.ts"],
   "include": [
     "./packages/**/*",
     "./draft-packages/**/*",
     "./legacy-packages/**/*"
   ],
-  "exclude": [
-    "**/node_modules"
-  ]
+  "exclude": ["**/node_modules"]
 }
