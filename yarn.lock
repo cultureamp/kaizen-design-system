@@ -1959,6 +1959,13 @@
     react-transition-group "^2.9.0"
     uuid "^3.3.2"
 
+"@kaizen/deprecated-component-library-helpers@^1.6.13":
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/@kaizen/deprecated-component-library-helpers/-/deprecated-component-library-helpers-1.8.0.tgz#6e93e8a92e93376badafd330d290541e568ae21f"
+  integrity sha512-uqo0OEjpRAtkDY/iSNYCbRKJdXrbxBbiicn/bBqFHYAFAfYIStmv111pjemzFvu1RtHtvCyUpLUICgPYEVIjtw==
+  dependencies:
+    "@kaizen/design-tokens" "^2.1.3"
+
 "@kaizen/draft-button@^1.7.4":
   version "1.13.12"
   resolved "https://registry.yarnpkg.com/@kaizen/draft-button/-/draft-button-1.13.12.tgz#b6478a3e1922101d7eb2591250395d146f2bc1a6"

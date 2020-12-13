@@ -9,6 +9,7 @@ import {
 } from "@kaizen/draft-tile"
 import { Coaching } from "@kaizen/draft-illustration"
 import { Tag } from "@kaizen/draft-tag"
+import { Paragraph } from "@kaizen/component-library"
 
 import bookmarkIcon from "@kaizen/component-library/icons/bookmark-off.icon.svg"
 
@@ -97,6 +98,18 @@ export const Information = () => (
 )
 
 Information.storyName = "Information tile"
+
+export const InformationCustomInfoElement = () => (
+  <InformationTile
+    title="Tile heading"
+    metadata="Metadata"
+    information={<Paragraph variant="body">Anything can go here</Paragraph>}
+    footer={<Tag variant="statusLive">Live</Tag>}
+  />
+)
+
+InformationCustomInfoElement.storyName =
+  "Information tile (custom information element)"
 
 export const TileGridWithTiles = () => (
   <TileGrid>
