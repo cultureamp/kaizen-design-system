@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-filter-drawer",
-  "version": "2.0.19",
+  "version": "2.0.21",
   "description": "The draft filter-drawer component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -31,10 +31,10 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^8.0.6",
+    "@kaizen/component-library": "^8.0.8",
     "@kaizen/draft-badge": "^1.2.2",
-    "@kaizen/draft-button": "^3.0.6",
-    "@kaizen/draft-menu": "^2.5.3",
+    "@kaizen/draft-button": "^3.0.8",
+    "@kaizen/draft-menu": "^2.5.5",
     "classnames": "^2.2.6"
   },
   "peerDependencies": {

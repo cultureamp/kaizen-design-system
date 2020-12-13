@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@3.0.8...@kaizen/draft-tile@3.1.0) (2020-12-11)
+
+
+### Features
+
+* Add ability to use custom element on back of Tile ([#896](https://github.com/cultureamp/kaizen-design-system/issues/896)) ([91ccf97](https://github.com/cultureamp/kaizen-design-system/commit/91ccf97fbb568190ced74fdf7a329c43d8fcf4a4))
+
+
+
+
+
+## [3.0.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@3.0.7...@kaizen/draft-tile@3.0.8) (2020-12-09)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [3.0.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@3.0.6...@kaizen/draft-tile@3.0.7) (2020-12-09)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
 ## [3.0.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@3.0.5...@kaizen/draft-tile@3.0.6) (2020-12-08)
 
 **Note:** Version bump only for package @kaizen/draft-tile
