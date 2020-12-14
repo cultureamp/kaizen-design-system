@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-radio",
-  "version": "2.2.42",
+  "version": "2.2.43",
   "description": "The draft Radio component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -33,7 +33,7 @@
   "dependencies": {
     "@kaizen/component-library": "^8.0.8",
     "@kaizen/deprecated-component-library-helpers": "^2.0.0",
-    "@kaizen/draft-form": "^2.10.7",
+    "@kaizen/draft-form": "^2.10.8",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },
