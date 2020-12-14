@@ -284,6 +284,8 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
   line-height: 0;
   float: right;
   margin-right: 10px;
+  display: flex;
+  align-items: center;
 }
 
 %ca-notification__cancel__label {
