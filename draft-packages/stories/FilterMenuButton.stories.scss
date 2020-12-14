@@ -1,0 +1,17 @@
+@import "~@kaizen/design-tokens/sass/color";
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content {
+  width: 264px;
+  & label {
+    width: auto;
+  }
+}
+
+.siteDemoWrapper {
+  height: 300px;
+}
