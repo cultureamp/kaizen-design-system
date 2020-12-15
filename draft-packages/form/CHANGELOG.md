@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.10.7...@kaizen/draft-form@2.10.8) (2020-12-14)
+
+
+### Bug Fixes
+
+* Restore defaultValue on textarea ([#901](https://github.com/cultureamp/kaizen-design-system/issues/901)) ([680c40b](https://github.com/cultureamp/kaizen-design-system/commit/680c40b15a131df3967b3c7e94efcd5d9acf7815))
+
+
+
+
+
+## [2.10.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.10.6...@kaizen/draft-form@2.10.7) (2020-12-09)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.10.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.10.5...@kaizen/draft-form@2.10.6) (2020-12-09)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [2.10.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.10.4...@kaizen/draft-form@2.10.5) (2020-12-08)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
 ## [2.10.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.10.3...@kaizen/draft-form@2.10.4) (2020-12-07)
 
 
