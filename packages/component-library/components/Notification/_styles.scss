@@ -1,7 +1,9 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/component-library/styles/layout";
 @import "../../styles/color";
 @import "../../styles/type";
 @import "../../styles/border";
@@ -280,10 +282,10 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 }
 
 %ca-notification__cancel__inner {
+  @include ca-margin($end: $kz-spacing-sm);
   // We ignore line-height so that the icon wrapper is the same size as the icon, not the current line.
   line-height: 0;
   float: right;
-  margin-right: 10px;
   display: flex;
   align-items: center;
 }
