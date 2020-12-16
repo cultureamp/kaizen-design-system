@@ -1,4 +1,4 @@
-import { Radio } from "@kaizen/draft-form"
+import { RadioField } from "@kaizen/draft-form"
 import { cleanup, render } from "@testing-library/react"
 import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
@@ -36,7 +36,7 @@ describe("<RadioGroup /> ", () => {
     test("renders RadioGroup with radios", () => {
       const { container } = render(
         <RadioGroup labelText="Label">
-          <Radio
+          <RadioField
             name="radio"
             id="radio-1"
             labelText="Label 1"
@@ -44,7 +44,7 @@ describe("<RadioGroup /> ", () => {
             disabled={false}
             value="radio-1"
           />
-          <Radio
+          <RadioField
             name="radio"
             id="radio-2"
             labelText="Label 2"

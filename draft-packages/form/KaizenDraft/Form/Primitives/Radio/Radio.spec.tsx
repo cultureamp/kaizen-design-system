@@ -1,11 +1,11 @@
 import { cleanup, render } from "@testing-library/react"
 import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
-import RadioInput, { RadioInputProps } from "./Radio"
+import RadioInput, { RadioProps } from "./Radio"
 
 afterEach(cleanup)
 
-const defaultRadioInputProps: RadioInputProps = {
+const defaultRadioProps: RadioProps = {
   id: "testRadioInputId",
   automationId: "RadioInputAutomationId",
   selectedStatus: false,
@@ -14,22 +14,22 @@ const defaultRadioInputProps: RadioInputProps = {
   onChange: jest.fn(),
   value: "radio-1",
 }
-const renderRadioInput = (props?: RadioInputProps) => {
-  const mergedRadioInputProps = { ...defaultRadioInputProps, ...props }
+const renderRadioInput = (props?: RadioProps) => {
+  const mergedRadioProps = { ...defaultRadioProps, ...props }
 
-  return render(<RadioInput {...mergedRadioInputProps} />)
+  return render(<RadioInput {...mergedRadioProps} />)
 }
 describe("<RadioInput /> ", () => {
   it("should call the `onChange` event when clicked", () => {
-    const { container } = render(<RadioInput {...defaultRadioInputProps} />)
+    const { container } = render(<RadioInput {...defaultRadioProps} />)
     const radioInput = container.querySelector(
-      `[data-automation-id="${defaultRadioInputProps.automationId}"]`
+      `[data-automation-id="${defaultRadioProps.automationId}"]`
     )
 
     if (radioInput) {
       fireEvent.click(radioInput)
 
-      expect(defaultRadioInputProps.onChange).toBeCalledTimes(1)
+      expect(defaultRadioProps.onChange).toBeCalledTimes(1)
     }
   })
 
@@ -77,14 +77,14 @@ describe("<RadioInput /> ", () => {
   it("should render an `id` attribute", () => {
     const { container } = renderRadioInput()
     expect(
-      container.querySelector(`[id="${defaultRadioInputProps.id}"]`)
+      container.querySelector(`[id="${defaultRadioProps.id}"]`)
     ).toBeTruthy()
   })
 
   it("should render a `name` attribute", () => {
     const { container } = renderRadioInput()
     expect(
-      container.querySelector(`[name="${defaultRadioInputProps.name}"]`)
+      container.querySelector(`[name="${defaultRadioProps.name}"]`)
     ).toBeTruthy()
   })
 
@@ -92,7 +92,7 @@ describe("<RadioInput /> ", () => {
     const { container } = renderRadioInput()
     expect(
       container.querySelector(
-        `[data-automation-id="${defaultRadioInputProps.automationId}"]`
+        `[data-automation-id="${defaultRadioProps.automationId}"]`
       )
     ).toBeTruthy()
   })
@@ -100,7 +100,7 @@ describe("<RadioInput /> ", () => {
   it("should render a `value` attribute", () => {
     const { container } = renderRadioInput()
     expect(
-      container.querySelector(`[value="${defaultRadioInputProps.value}"]`)
+      container.querySelector(`[value="${defaultRadioProps.value}"]`)
     ).toBeTruthy()
   })
 })
