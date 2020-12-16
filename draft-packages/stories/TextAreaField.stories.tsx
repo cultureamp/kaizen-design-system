@@ -180,7 +180,7 @@ export const DefaultErrorAndDesc = () => (
 
 DefaultErrorAndDesc.storyName = "Default, Error & Description"
 
-export const DefaultAutogrow = () => (
+export const DefaultAutogrowControlled = () => (
   <ExampleContainer>
     <WithState
       defaultValue={"This\ntext\narea\nwill\ngrow\nand\nshrink\nwith\ncontent"}
@@ -195,6 +195,22 @@ export const DefaultAutogrow = () => (
         />
       )}
     ></WithState>
+  </ExampleContainer>
+)
+
+DefaultAutogrowControlled.story = {
+  name: "Default, Autogrow Controlled",
+}
+
+export const DefaultAutogrow = () => (
+  <ExampleContainer>
+    <TextAreaField
+      id="reply"
+      labelText="Your reply"
+      rows={1}
+      defaultValue="A prefilled value in uncontrolled mode"
+      autogrow
+    />
   </ExampleContainer>
 )
 

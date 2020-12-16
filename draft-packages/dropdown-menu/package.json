@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-dropdown-menu",
-  "version": "1.5.53",
+  "version": "1.5.54",
   "description": "The draft Dropdown menu component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -31,7 +31,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^8.0.8",
+    "@kaizen/component-library": "^8.0.9",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },
