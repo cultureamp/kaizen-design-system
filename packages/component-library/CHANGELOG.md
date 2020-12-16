@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.0.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.0.8...@kaizen/component-library@8.0.9) (2020-12-16)
+
+
+### Bug Fixes
+
+* center align close icon in toast notification ([#903](https://github.com/cultureamp/kaizen-design-system/issues/903)) ([f589410](https://github.com/cultureamp/kaizen-design-system/commit/f589410e2b46875dfadb9f6d6b478e0445702f9a))
+
+
+
+
+
 ## [8.0.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.0.7...@kaizen/component-library@8.0.8) (2020-12-09)
 
 **Note:** Version bump only for package @kaizen/component-library
