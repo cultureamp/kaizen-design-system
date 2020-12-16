@@ -3,7 +3,7 @@ import * as React from "react"
 
 import styles from "./styles.scss"
 
-export type RadioInputProps = {
+export type RadioProps = {
   id: string
   automationId?: string
   selectedStatus?: boolean
@@ -13,7 +13,7 @@ export type RadioInputProps = {
   value: string
 }
 
-type RadioInput = React.FunctionComponent<RadioInputProps>
+type Radio = React.FunctionComponent<RadioProps>
 
 const renderSelected = (selectedStatus: boolean) => {
   if (selectedStatus) {
@@ -22,7 +22,7 @@ const renderSelected = (selectedStatus: boolean) => {
   return
 }
 
-const RadioInput: RadioInput = ({
+const Radio: Radio = ({
   id,
   automationId,
   name,
@@ -49,4 +49,4 @@ const RadioInput: RadioInput = ({
   </div>
 )
 
-export default RadioInput
+export default Radio
