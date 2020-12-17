@@ -1,27 +1,27 @@
 import { cleanup, render } from "@testing-library/react"
 import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
-import RadioInput, { RadioProps } from "./Radio"
+import Radio, { RadioProps } from "./Radio"
 
 afterEach(cleanup)
 
 const defaultRadioProps: RadioProps = {
-  id: "testRadioInputId",
-  automationId: "RadioInputAutomationId",
+  id: "testRadioId",
+  automationId: "RadioAutomationId",
   selectedStatus: false,
   disabled: false,
-  name: "RadioInputName",
+  name: "RadioName",
   onChange: jest.fn(),
   value: "radio-1",
 }
-const renderRadioInput = (props?: RadioProps) => {
+const renderRadio = (props?: RadioProps) => {
   const mergedRadioProps = { ...defaultRadioProps, ...props }
 
-  return render(<RadioInput {...mergedRadioProps} />)
+  return render(<Radio {...mergedRadioProps} />)
 }
-describe("<RadioInput /> ", () => {
+describe("<Radio /> ", () => {
   it("should call the `onChange` event when clicked", () => {
-    const { container } = render(<RadioInput {...defaultRadioProps} />)
+    const { container } = render(<Radio {...defaultRadioProps} />)
     const radioInput = container.querySelector(
       `[data-automation-id="${defaultRadioProps.automationId}"]`
     )
@@ -34,7 +34,7 @@ describe("<RadioInput /> ", () => {
   })
 
   it("has the disabled attribute applied if the disabled prop is true", () => {
-    const { container } = renderRadioInput({
+    const { container } = renderRadio({
       id: "testId",
       name: "someRadioName",
       disabled: true,
@@ -44,7 +44,7 @@ describe("<RadioInput /> ", () => {
   })
 
   it("has a true .checked property when the selectedStatus is true", () => {
-    const { container } = renderRadioInput({
+    const { container } = renderRadio({
       id: "testId",
       name: "someRadioName",
       selectedStatus: true,
@@ -54,7 +54,7 @@ describe("<RadioInput /> ", () => {
   })
 
   it("can be both checked and disabled at the same time", () => {
-    const { container } = renderRadioInput({
+    const { container } = renderRadio({
       id: "testId",
       name: "someRadioName",
       selectedStatus: true,
@@ -66,7 +66,7 @@ describe("<RadioInput /> ", () => {
   })
 
   it("doesnt have the `.checked` property if the selectedStatus prop is not present", () => {
-    const { container } = renderRadioInput({
+    const { container } = renderRadio({
       id: "testId",
       name: "someRadioName",
       value: "radio-1",
@@ -75,21 +75,21 @@ describe("<RadioInput /> ", () => {
   })
 
   it("should render an `id` attribute", () => {
-    const { container } = renderRadioInput()
+    const { container } = renderRadio()
     expect(
       container.querySelector(`[id="${defaultRadioProps.id}"]`)
     ).toBeTruthy()
   })
 
   it("should render a `name` attribute", () => {
-    const { container } = renderRadioInput()
+    const { container } = renderRadio()
     expect(
       container.querySelector(`[name="${defaultRadioProps.name}"]`)
     ).toBeTruthy()
   })
 
   it("should render a `data-automation-id` attribute", () => {
-    const { container } = renderRadioInput()
+    const { container } = renderRadio()
     expect(
       container.querySelector(
         `[data-automation-id="${defaultRadioProps.automationId}"]`
@@ -98,7 +98,7 @@ describe("<RadioInput /> ", () => {
   })
 
   it("should render a `value` attribute", () => {
-    const { container } = renderRadioInput()
+    const { container } = renderRadio()
     expect(
       container.querySelector(`[value="${defaultRadioProps.value}"]`)
     ).toBeTruthy()

@@ -1,20 +1,9 @@
 import { RadioField } from "@kaizen/draft-form"
 import { cleanup, render } from "@testing-library/react"
-import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
-import RadioGroup, { RadioGroupProps } from "./RadioGroup"
+import RadioGroup from "./RadioGroup"
 
 afterEach(cleanup)
-
-const defaultRadioGroupProps: RadioGroupProps = {
-  automationId: "RadioAutomationId",
-  labelText: "Label",
-}
-const renderRadioGroup = (props?: RadioGroupProps) => {
-  const mergedRadioGroupProps = { ...defaultRadioGroupProps, ...props }
-
-  return render(<RadioGroup {...mergedRadioGroupProps} />)
-}
 
 describe("<RadioGroup /> ", () => {
   describe("snapshots", () => {
