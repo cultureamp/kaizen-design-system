@@ -7,7 +7,7 @@
   margin: 0;
   border-radius: $kz-border-solid-border-radius;
   // This is here to protect against a global style in a consumer.
-  // See app/assets/stylesheets/legacy/modules/_body.scss in Murmur.
+  // https://github.com/cultureamp/murmur/blob/master/app/assets/stylesheets/legacy/modules/_body.scss
   visibility: visible;
 }
 
