@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.2.3...@kaizen/draft-divider@1.2.4) (2020-12-17)
+
+
+### Bug Fixes
+
+* Add explicit visibility style rule ([#907](https://github.com/cultureamp/kaizen-design-system/issues/907)) ([8259ec9](https://github.com/cultureamp/kaizen-design-system/commit/8259ec92b6956a69f147cea1527532de68edb505))
+
+
+
+
+
 ## [1.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.2.2...@kaizen/draft-divider@1.2.3) (2020-09-28)
 
 **Note:** Version bump only for package @kaizen/draft-divider
