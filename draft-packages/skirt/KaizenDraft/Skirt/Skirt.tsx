@@ -1,6 +1,6 @@
 import * as React from "react"
-import styles from "./styles.module.scss"
-import { DOMRectReadOnly, useResizeObserver } from "../hooks"
+import styles from "./styles.scss"
+import { DOMRectReadOnly, useResizeObserver } from "./useResizeObserver"
 import {
   ContentBlockContainer,
   ContentBlock,
@@ -38,13 +38,7 @@ export const Skirt = ({
   return (
     <ContentBlockContainer
       ref={ref}
-      classNameAndIHaveSpokenToDST={classNames(
-        styles.container,
-        {
-          [styles.withTitleBlockOverhang]: !titleBlockHasNavigation,
-        },
-        className
-      )}
+      classNameAndIHaveSpokenToDST={classNames(styles.container, className)}
     >
       <div
         style={{ ...(skirtHeight && { height: `${skirtHeight}px` }) }}
@@ -65,13 +59,13 @@ const deriveSkirtHeight = (
   titleBlockHasNavigation: boolean
 ) => {
   const { height, width } = rect
-  // These offsets match the $overhang-offset-* Sass variables
   let responsiveOffset: number = 0
-  if (width > 1080) {
-    responsiveOffset = 4.3 * 16
-  } else if (width > 768) {
-    responsiveOffset = 3 * 16
+  if (width > 768) {
+    responsiveOffset = 2.8125 * 16
   }
+
+  // This ensures the maximum height of the skirt is consistent between pages
+  // where the title block has/doesn’t have navigation
   const derivedMaxHeight = titleBlockHasNavigation
     ? maxHeight
     : maxHeight + responsiveOffset
