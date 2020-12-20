@@ -43,13 +43,7 @@ export const BodyWhite = () => (
 BodyWhite.storyName = "Body White"
 
 BodyWhite.parameters = {
-  backgrounds: [
-    {
-      name: "Wisteria 700",
-      value: colorTokens.kz.color.wisteria["700"],
-      default: true,
-    },
-  ],
+  backgrounds: { default: "Wisteria 700" },
 }
 
 export const BodyPositive = () => (

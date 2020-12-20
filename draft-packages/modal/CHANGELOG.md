@@ -3,6 +3,73 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@4.1.6...@kaizen/draft-modal@4.1.7) (2020-12-16)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [4.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@4.1.5...@kaizen/draft-modal@4.1.6) (2020-12-14)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [4.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@4.1.4...@kaizen/draft-modal@4.1.5) (2020-12-09)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [4.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@4.1.3...@kaizen/draft-modal@4.1.4) (2020-12-09)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [4.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@4.1.2...@kaizen/draft-modal@4.1.3) (2020-12-08)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [4.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@4.1.1...@kaizen/draft-modal@4.1.2) (2020-12-07)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [4.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@4.1.0...@kaizen/draft-modal@4.1.1) (2020-12-04)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+# [4.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@4.0.8...@kaizen/draft-modal@4.1.0) (2020-12-04)
+
+
+### Features
+
+* Allow for the modal confirmation button to be optional ([#882](https://github.com/cultureamp/kaizen-design-system/issues/882)) ([4014d70](https://github.com/cultureamp/kaizen-design-system/commit/4014d702c0f782ce28368c2e3f16712ad8481b49))
+
+
+
+
+
 ## [4.0.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@4.0.7...@kaizen/draft-modal@4.0.8) (2020-12-01)
 
 **Note:** Version bump only for package @kaizen/draft-modal

@@ -1,1 +1,1 @@
-export { default as SplitButton } from "./SplitButton"
+export { default as SplitButton, SplitButtonProps } from "./SplitButton"

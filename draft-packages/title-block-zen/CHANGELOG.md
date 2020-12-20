@@ -3,6 +3,73 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.12...@kaizen/draft-title-block-zen@3.0.13) (2020-12-16)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.0.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.11...@kaizen/draft-title-block-zen@3.0.12) (2020-12-14)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.0.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.10...@kaizen/draft-title-block-zen@3.0.11) (2020-12-09)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.0.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.9...@kaizen/draft-title-block-zen@3.0.10) (2020-12-09)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.0.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.8...@kaizen/draft-title-block-zen@3.0.9) (2020-12-08)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.0.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.7...@kaizen/draft-title-block-zen@3.0.8) (2020-12-07)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.0.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.6...@kaizen/draft-title-block-zen@3.0.7) (2020-12-04)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.0.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.5...@kaizen/draft-title-block-zen@3.0.6) (2020-12-02)
+
+
+### Bug Fixes
+
+* allow title-block zen to use v2 of design tokens ([#876](https://github.com/cultureamp/kaizen-design-system/issues/876)) ([062b5d4](https://github.com/cultureamp/kaizen-design-system/commit/062b5d418b933c649e2fa18576a37818567b2ca9))
+
+
+
+
+
 ## [3.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.4...@kaizen/draft-title-block-zen@3.0.5) (2020-12-01)
 
 

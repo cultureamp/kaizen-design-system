@@ -36,14 +36,17 @@ const TextArea = (props: Props) => {
     autogrow ? defaultValue : undefined
   )
   // ^ holds an internal state of the value so that autogrow can still work with uncontrolled textareas
+  // essentially forces the textarea into an (interally) controlled mode if autogrow is true
   const textAreaRef = propsTextAreaRef || useRef(null)
 
   useEffect(() => {
     if (!autogrow) return
+    const scrollHeight = textAreaRef.current!.scrollHeight
+    if (scrollHeight < 1) return
     const borderWidth = textAreaRef.current
       ? parseInt(getComputedStyle(textAreaRef.current).borderTopWidth, 10)
       : 0
-    const newHeight = textAreaRef.current!.scrollHeight + borderWidth * 2
+    const newHeight = scrollHeight + borderWidth * 2
     setParentHeight(`${newHeight}px`)
     setTextAreaHeight(`${newHeight}px`)
   }, [internalValue])
@@ -75,6 +78,8 @@ const TextArea = (props: Props) => {
     }
   }
 
+  const controlledValue = value || internalValue
+
   return (
     <div className={styles.wrapper} style={getWrapperStyle()}>
       <textarea
@@ -86,7 +91,9 @@ const TextArea = (props: Props) => {
         rows={rows}
         onChange={onChange || propsOnChange}
         data-automation-id={automationId}
-        value={value || internalValue}
+        value={controlledValue}
+        defaultValue={controlledValue ? undefined : defaultValue}
+        // ^ React throws a warning if you specify both a value and a defaultValue
         ref={textAreaRef}
         style={getTextAreaStyle()}
         {...genericTextAreaProps}

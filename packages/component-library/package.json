@@ -18,7 +18,7 @@
     "lib": "./src"
   },
   "sideEffects": false,
-  "version": "8.0.4",
+  "version": "8.0.9",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
@@ -27,7 +27,7 @@
     "react": "^16.9.0"
   },
   "dependencies": {
-    "@kaizen/deprecated-component-library-helpers": "^1.6.15",
+    "@kaizen/deprecated-component-library-helpers": "^2.0.0",
     "@kaizen/hosted-assets": "^1.0.3",
     "@types/classnames": "^2.2.6",
     "@types/lodash": "^4.14.132",

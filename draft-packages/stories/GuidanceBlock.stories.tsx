@@ -127,61 +127,31 @@ const Prominent = () => (
 Default.storyName = "Default"
 
 Default.parameters = {
-  backgrounds: [
-    {
-      name: "Stone",
-      value: colorTokens.kz.color.stone,
-      default: true,
-    },
-  ],
+  backgrounds: { default: "Stone" },
 }
 
 Persistent.storyName = "Persistent"
 
 Persistent.parameters = {
-  backgrounds: [
-    {
-      name: "Stone",
-      value: colorTokens.kz.color.stone,
-      default: true,
-    },
-  ],
+  backgrounds: { default: "Stone" },
 }
 
 WithoutActionArrowButton.storyName = "Without Action Arrow Button"
 
 WithoutActionArrowButton.parameters = {
-  backgrounds: [
-    {
-      name: "Stone",
-      value: colorTokens.kz.color.stone,
-      default: true,
-    },
-  ],
+  backgrounds: { default: "Stone" },
 }
 
 SecondaryAction.storyName = "Secondary Action"
 
 SecondaryAction.parameters = {
-  backgrounds: [
-    {
-      name: "Stone",
-      value: colorTokens.kz.color.stone,
-      default: true,
-    },
-  ],
+  backgrounds: { default: "Stone" },
 }
 
 Prominent.storyName = "Prominent"
 
 Prominent.parameters = {
-  backgrounds: [
-    {
-      name: "Stone",
-      value: colorTokens.kz.color.stone,
-      default: true,
-    },
-  ],
+  backgrounds: { default: "Stone" },
 }
 
 export {
