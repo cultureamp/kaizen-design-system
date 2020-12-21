@@ -1,9 +1,8 @@
 import "./matchMedia.mock"
-
 import { configure, fireEvent } from "@testing-library/dom"
 import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
-import { NavigationTab, TitleBlockZen } from "./index"
+import { TitleBlockZen } from "./index"
 
 configure({
   testIdAttribute: "data-automation-id",

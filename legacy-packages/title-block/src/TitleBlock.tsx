@@ -11,9 +11,8 @@ import backIcon from "@kaizen/component-library/icons/arrow-backward.icon.svg"
 
 import forwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 
+import styles from "../styles/TitleBlock.scss"
 import NavigationButtons, { NavigationButton } from "./NavigationButtons"
-
-import styles from "./TitleBlock.scss"
 
 type Color =
   | "Lapis"

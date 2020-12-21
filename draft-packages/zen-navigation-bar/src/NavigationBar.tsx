@@ -1,9 +1,9 @@
 import * as React from "react"
 
-import { ZenControlledOffCanvas } from "@kaizen/draft-zen-off-canvas"
 import classNames from "classnames"
 import Media from "react-media"
 import uuid from "uuid/v4"
+import { ZenControlledOffCanvas } from "./offCanvas"
 import Badge from "./components/Badge"
 import Link from "./components/Link"
 import Menu from "./components/Menu"

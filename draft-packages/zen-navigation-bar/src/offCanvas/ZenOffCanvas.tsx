@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 import * as React from "react"
-import { ColorScheme } from "@kaizen/draft-zen-navigation-bar/src/types"
 import classNames from "classnames"
+import { ColorScheme } from "../types"
 import Header from "./components/Header"
 import Menu from "./components/Menu"
 

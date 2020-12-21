@@ -1,5 +1,4 @@
-import { MenuContent } from "@kaizen/draft-menu"
-import { StatelessMenu } from "@kaizen/draft-menu"
+import { MenuContent, StatelessMenu } from "@kaizen/draft-menu"
 import * as React from "react"
 import styles from "../styles/styles.module.scss"
 import { FilterSplitButton } from "./FilterSplitButton"

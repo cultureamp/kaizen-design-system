@@ -1,6 +1,6 @@
 import * as React from "react"
 import classNames from "classnames"
-import styles from "./NavigationButton.scss"
+import styles from "../styles/NavigationButton.scss"
 const titleblockStyles = require("./TitleBlock.scss")
 
 export type NavigationButton = {

@@ -4,7 +4,7 @@ import Radio, { RadioFieldProps } from "./RadioField"
 
 afterEach(cleanup)
 
-const defaultRadioFieldProps: RadioFieldProps = {
+const defaultRadioFieldProps = {
   id: "testRadioId",
   automationId: "RadioAutomationId",
   selectedStatus: false,
