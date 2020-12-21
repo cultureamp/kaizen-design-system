@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import * as React from "react"
 
-import { Label } from "@kaizen/draft-form"
+import { Label } from "../index"
 
 import styles from "./styles.scss"
 

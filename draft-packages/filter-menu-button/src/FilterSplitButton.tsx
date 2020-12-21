@@ -4,7 +4,7 @@ import { Button } from "@kaizen/draft-button"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
 import classnames from "classnames"
-import styles from "./FilterSplitButton.module.scss"
+import styles from "../styles/FilterSplitButton.module.scss"
 
 type FilterSplitButtonProps = {
   labelText: string
