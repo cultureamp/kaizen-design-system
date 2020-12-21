@@ -12,7 +12,7 @@ import {
   Label,
 } from "../index"
 
-import styles from "./styles.scss"
+import styles from "../../styles/TextField.module.scss"
 
 type TextField = React.FunctionComponent<{
   id: string

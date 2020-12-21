@@ -1,7 +1,7 @@
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "../Primitives/Radio/styles";
+@import "./Radio.module";
 
 .container {
   position: relative;

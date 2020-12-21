@@ -6,7 +6,7 @@ import React, {
   TextareaHTMLAttributes,
 } from "react"
 import { InputStatus } from "../index"
-import styles from "./styles.scss"
+import styles from "../../../styles/TextArea.module.scss"
 
 interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   automationId?: string

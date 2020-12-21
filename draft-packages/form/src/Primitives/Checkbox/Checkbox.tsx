@@ -4,7 +4,7 @@ import minusIcon from "@kaizen/component-library/icons/minus.icon.svg"
 import classnames from "classnames"
 import * as React from "react"
 
-import styles from "./styles.scss"
+import styles from "../../../styles/Checkbox.module.scss"
 
 export type CheckedStatus = "on" | "off" | "mixed"
 

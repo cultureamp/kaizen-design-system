@@ -3,7 +3,7 @@ import * as React from "react"
 
 import { Label } from "../index"
 
-import styles from "./styles.scss"
+import styles from "../../styles/RadioGroup.module.scss"
 
 export type RadioGroupProps = {
   automationId?: string

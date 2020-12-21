@@ -9,7 +9,7 @@ import {
   ToggleTheme,
 } from "../index"
 
-import styles from "./styles.scss"
+import styles from "../../styles/ToggleSwitchField.module.scss"
 
 interface Props {
   id?: string

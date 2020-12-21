@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import * as React from "react"
 
-import styles from "./styles.scss"
+import styles from "../../../styles/FieldGroup.module.scss"
 
 export type FieldGroupProps = {
   id?: string

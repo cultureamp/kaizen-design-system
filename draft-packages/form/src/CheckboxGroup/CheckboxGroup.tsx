@@ -2,7 +2,7 @@ import classnames from "classnames"
 import * as React from "react"
 import { Label } from "../index"
 
-import styles from "./styles.scss"
+import styles from "../../styles/CheckboxGroup.module.scss"
 
 export type CheckboxGroupProps = {
   automationId?: string

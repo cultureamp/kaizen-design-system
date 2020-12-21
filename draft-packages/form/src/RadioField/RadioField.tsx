@@ -3,7 +3,7 @@ import * as React from "react"
 import { Label } from "../"
 import RadioInput from "../Primitives/Radio/Radio"
 
-import styles from "./styles.scss"
+import styles from "../../styles/RadioField.module.scss"
 
 export type RadioFieldProps = {
   id: string

@@ -1,9 +1,9 @@
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/mixins/forms";
-@import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/Checkbox/styles";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "./Checkbox.module";
 
 // -----------------------------------------------
 // Checkbox Field

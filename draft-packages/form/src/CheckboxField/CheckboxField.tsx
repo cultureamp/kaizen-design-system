@@ -2,7 +2,7 @@ import classnames from "classnames"
 import * as React from "react"
 import { Checkbox, CheckedStatus, Label } from "../index"
 
-import styles from "./styles.scss"
+import styles from "../../styles/CheckboxField.module.scss"
 
 export type CheckboxFieldProps = {
   id?: string

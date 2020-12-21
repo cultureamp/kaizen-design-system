@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/base";
+@import "./base";
 
 // @TODO - brought through from borders.scss in component-library
 // In the future these tokens should be better represented in
