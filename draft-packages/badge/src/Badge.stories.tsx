@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Button } from "@kaizen/component-library"
 import { ToggleSwitchField, ToggledStatus } from "@kaizen/draft-form"
-import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
+import { Badge, BadgeAnimated } from "."
 
 export default {
   title: "Badge (React)",

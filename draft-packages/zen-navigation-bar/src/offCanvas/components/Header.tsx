@@ -1,11 +1,11 @@
 import * as React from "react"
-
-import { ColorScheme } from "@kaizen/draft-zen-navigation-bar/KaizenDraft/ZenNavigationBar/types"
 import classNames from "classnames"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import IconButton from "@kaizen/component-library/components/Button/IconButton"
 
 import styles from "./Header.module.scss"
+
+export type ColorScheme = "cultureamp" | "kaizen" | "content" | "admin"
 
 type Props = {
   leftComponent: React.ReactNode

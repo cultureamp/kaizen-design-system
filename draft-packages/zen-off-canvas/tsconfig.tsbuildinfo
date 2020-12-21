@@ -166,7 +166,7 @@
         "signature": "2b9f3e90d70810dab17d5eca94a736e2eed7d57d603b8879ea0a3c2829ddb26b",
         "affectsGlobalScope": true
       },
-      "../zen-navigation-bar/kaizendraft/zennavigationbar/types.ts": {
+      "../zen-navigation-bar/src/types.ts": {
         "version": "77fa32d73a3f72665d87c2f702c3a279aa0ec24ee875a2408a77a9fecc2304c3",
         "affectsGlobalScope": false
       },
@@ -201,8 +201,8 @@
         "affectsGlobalScope": false
       },
       "./src/components/header.tsx": {
-        "version": "980a42ffd8a0cf6ec15cf4d8a4cc36b25d3a5b538eb32725c08160a013c22515",
-        "signature": "dea5e34077f35b9dc1f32541326c455e83ece9c5da8f7e73cec60f73d7779c50",
+        "version": "6e70c6f940c72013288fed0eb3f08cf0de55129fb7ab64d92e3ec3f2f544978b",
+        "signature": "4db2bf768c25a82c16134cd1f8851ebe0c7edbfc6cfec1fa67f63dd1ad0d70ac",
         "affectsGlobalScope": false
       },
       "../../node_modules/@types/uuid/interfaces.d.ts": {
@@ -216,13 +216,13 @@
         "affectsGlobalScope": false
       },
       "./src/components/menu.tsx": {
-        "version": "93fee07c285745bbb6d92c6b6c9ba8ff1f635acb11d09f765f6cd69f8328bc1d",
-        "signature": "39799692f234db6fef4383e2c831f09ae671f1f97c16c0bb46b955718bf71ec6",
+        "version": "a854c3c054838bd857dfe77f35e1ca87716e6f9185b44ee527f39ba5bfb636c9",
+        "signature": "2ce8e5c690ee6149518c7fdc77cd1a3159ec94b2becfc0a406dd15d4ff818d48",
         "affectsGlobalScope": false
       },
       "./src/zenoffcanvas.tsx": {
-        "version": "f2afd98fc84969f3e02a1f79110fce681e058371541385528d6b9373777e2625",
-        "signature": "e6754466b42dba05225efa28b9d12e92a0faab4984277b66e7ca23331182ec88",
+        "version": "280e744c8f7ae65c62b93ed33197288ed6322a2a6d5479dc4635e8a5e94a5b5f",
+        "signature": "ce3635d118f716f223305771cc3f31fc873b45d6a7573de232ae6b6070e9ff7b",
         "affectsGlobalScope": false
       },
       "./src/index.ts": {
@@ -1225,7 +1225,7 @@
       "configFilePath": "./tsconfig.json"
     },
     "referencedMap": {
-      "../zen-navigation-bar/kaizendraft/zennavigationbar/types.ts": [
+      "../zen-navigation-bar/src/types.ts": [
         "../../node_modules/@types/react/index.d.ts"
       ],
       "./src/components/header.tsx": [
@@ -1233,14 +1233,14 @@
         "../../node_modules/@types/react/index.d.ts",
         "../../packages/component-library/components/button/iconbutton.tsx",
         "../../types.d.ts",
-        "../zen-navigation-bar/kaizendraft/zennavigationbar/types.ts"
+        "../zen-navigation-bar/src/types.ts"
       ],
       "./src/components/menu.tsx": [
         "../../node_modules/@types/classnames/index.d.ts",
         "../../node_modules/@types/react/index.d.ts",
         "../../node_modules/@types/uuid/v4.d.ts",
         "../../types.d.ts",
-        "../zen-navigation-bar/kaizendraft/zennavigationbar/types.ts"
+        "../zen-navigation-bar/src/types.ts"
       ],
       "./src/index.ts": [
         "./src/zenoffcanvas.tsx"
@@ -1249,7 +1249,7 @@
         "../../node_modules/@types/classnames/index.d.ts",
         "../../node_modules/@types/react/index.d.ts",
         "../../types.d.ts",
-        "../zen-navigation-bar/kaizendraft/zennavigationbar/types.ts",
+        "../zen-navigation-bar/src/types.ts",
         "./src/components/header.tsx",
         "./src/components/menu.tsx"
       ],
@@ -2090,17 +2090,17 @@
     "exportedModulesMap": {
       "./src/components/header.tsx": [
         "../../node_modules/@types/react/index.d.ts",
-        "../zen-navigation-bar/kaizendraft/zennavigationbar/types.ts"
+        "../zen-navigation-bar/src/types.ts"
       ],
       "./src/components/menu.tsx": [
-        "../zen-navigation-bar/kaizendraft/zennavigationbar/types.ts"
+        "../zen-navigation-bar/src/types.ts"
       ],
       "./src/index.ts": [
         "./src/zenoffcanvas.tsx"
       ],
       "./src/zenoffcanvas.tsx": [
         "../../node_modules/@types/react/index.d.ts",
-        "../zen-navigation-bar/kaizendraft/zennavigationbar/types.ts"
+        "../zen-navigation-bar/src/types.ts"
       ],
       "../../node_modules/@babel/parser/typings/babel-parser.d.ts": [
         "../../node_modules/@babel/types/lib/index-ts3.7.d.ts"
@@ -2920,7 +2920,7 @@
       ]
     },
     "semanticDiagnosticsPerFile": [
-      "../zen-navigation-bar/kaizendraft/zennavigationbar/types.ts",
+      "../zen-navigation-bar/src/types.ts",
       "./src/components/header.tsx",
       "./src/components/menu.tsx",
       "./src/index.ts",
