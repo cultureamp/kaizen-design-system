@@ -1,6 +1,7 @@
 import { DismissiblePositiveAutohide } from "@kaizen/component-library/stories/InlineNotification.stories"
 import { Popover } from "@kaizen/draft-popover"
 import * as React from "react"
+import guidanceIcon from "@kaizen/component-library/icons/guidance.icon.svg"
 import { Avatar } from "../avatar"
 
 export default {
@@ -57,7 +58,8 @@ export const InformativeWithSingleLine = () => (
       variant="informative"
       singleLine
     >
-      http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/iamaverylongurl/iamaverylongurl/iamaverylongurl
+      {"http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/" +
+        "iamaverylongurl/iamaverylongurl/iamaverylongurl"}
     </Popover>
   </Container>
 )
@@ -85,12 +87,28 @@ export const InformativeLargeWithSingleLine = () => (
       size="large"
       singleLine
     >
-      http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/iamaverylongurl/iamaverylongurl/iamaverylongurl
+      {"http://employee-data.integrations.eu.cultureamp.com/iamaverylongurl/" +
+        "iamaverylongurl/iamaverylongurl/iamaverylongurl"}
     </Popover>
   </Container>
 )
 
 InformativeLargeWithSingleLine.storyName = "Informative Large with singleLine"
+
+export const InformativeWithCustomIcon = () => (
+  <Container>
+    <Popover
+      heading="Informative"
+      variant="informative"
+      customIcon={guidanceIcon}
+    >
+      Popover body that explains something useful, is optional, and not critical
+      to completing a task.
+    </Popover>
+  </Container>
+)
+
+InformativeWithCustomIcon.storyName = "Informative with a custom icon"
 
 export const Positive = () => (
   <Container>

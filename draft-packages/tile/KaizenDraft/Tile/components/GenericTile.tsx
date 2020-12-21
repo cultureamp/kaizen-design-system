@@ -1,11 +1,11 @@
 import React, { useState, MouseEvent } from "react"
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
-import Action from "./Action"
 import { IconButton } from "@kaizen/draft-button"
 import classNames from "classnames"
 
 import informationIcon from "@kaizen/component-library/icons/information.icon.svg"
 import arrowBackwardIcon from "@kaizen/component-library/icons/arrow-backward.icon.svg"
+import Action from "./Action"
 import styles from "./GenericTile.scss"
 
 export interface TileAction {
@@ -26,7 +26,7 @@ export interface GenericTileProps {
   readonly title: string
   readonly metadata?: string
   readonly children?: React.ReactNode
-  readonly information?: TileInformation
+  readonly information?: TileInformation | React.ReactNode
 }
 
 interface Props extends GenericTileProps {
@@ -88,10 +88,30 @@ const GenericTile: GenericTile = ({
     </div>
   )
 
+  const renderInformation = informationProp => {
+    if ("text" in informationProp) {
+      return (
+        <>
+          <Paragraph variant="body">{informationProp.text}</Paragraph>
+          {(informationProp.primaryAction ||
+            informationProp.secondaryAction) && (
+            <div className={styles.footer}>
+              {renderActions(
+                informationProp.primaryAction,
+                informationProp.secondaryAction,
+                !isFlipped
+              )}
+            </div>
+          )}
+        </>
+      )
+    }
+
+    return informationProp
+  }
+
   const renderBack = () => {
     if (!information) return
-
-    const { text, primaryAction, secondaryAction } = information
 
     return (
       <div className={classNames(styles.face, styles.faceBack)}>
@@ -105,12 +125,7 @@ const GenericTile: GenericTile = ({
         </div>
         {renderTitle()}
         <div className={styles.information}>
-          <Paragraph variant="body">{text}</Paragraph>
-          {(primaryAction || secondaryAction) && (
-            <div className={styles.footer}>
-              {renderActions(primaryAction, secondaryAction, !isFlipped)}
-            </div>
-          )}
+          {renderInformation(information)}
         </div>
       </div>
     )

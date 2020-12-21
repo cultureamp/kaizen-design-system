@@ -1,8 +1,8 @@
-import { ControlledOffCanvas } from "@kaizen/component-library"
 import classNames from "classnames"
 import * as React from "react"
 import Media from "react-media"
 import uuidv4 from "uuid/v4"
+import { ControlledOffCanvas } from "../OffCanvas"
 import {
   LocalBadge,
   namedBadge,
@@ -26,7 +26,7 @@ type Props = {
   children?: Navigation
 }
 
-class NavigationBar extends React.Component<Props, {}> {
+class NavigationBar extends React.Component<Props, unknown> {
   static displayName = "NavigationBar"
   static Link = Link
   static Menu = Menu

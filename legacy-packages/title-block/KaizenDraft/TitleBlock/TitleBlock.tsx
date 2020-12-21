@@ -2,6 +2,7 @@ import classNames from "classnames"
 import { throttle } from "lodash"
 import * as React from "react"
 import Media from "react-media"
+import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 
 import Icon from "@kaizen/component-library/components/Icon/Icon"
 import { MOBILE_QUERY } from "@kaizen/component-library/components/NavigationBar/constants"
@@ -56,7 +57,7 @@ const meetsCompactThreshold = () =>
   (window.scrollY || window.pageYOffset) >= COMPACT_NAVIGATION_SCROLL_THRESHOLD
 
 class TitleBlock extends React.Component<Props, State> {
-  static defaultProps = {
+  static defaultProps: Pick<Props, "textDirection"> = {
     textDirection: "ltr",
   }
   state = {
@@ -223,4 +224,7 @@ class TitleBlock extends React.Component<Props, State> {
   }
 }
 
-export default TitleBlock
+export default withDeprecatedComponent(TitleBlock, {
+  warning:
+    "TitleBlock is deprecated. Use @kaizen/draft-title-block-zen instead.",
+})

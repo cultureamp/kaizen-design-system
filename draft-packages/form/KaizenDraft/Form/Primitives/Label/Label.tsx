@@ -13,6 +13,7 @@ export type LabelProps = {
   labelPosition?: "start" | "end"
   labelType?: LabelType
   reversed?: boolean
+  variant?: "default" | "prominent"
 }
 
 type Label = React.SFC<LabelProps>
@@ -25,6 +26,7 @@ const Label: Label = ({
   labelType = "text",
   labelPosition = "end",
   reversed = false,
+  variant = "default",
   children,
 }) => (
   <label
@@ -37,6 +39,7 @@ const Label: Label = ({
       [styles.checkbox]: labelType === "checkbox",
       [styles.toggle]: labelType === "toggle",
       [styles.radio]: labelType === "radio",
+      [styles.prominent]: variant === "prominent",
     })}
   >
     {children}

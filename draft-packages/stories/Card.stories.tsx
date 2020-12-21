@@ -27,11 +27,5 @@ export const CardWithSpace = () => (
 CardWithSpace.storyName = "Card, custom spacing with Box"
 
 CardWithSpace.parameters = {
-  backgrounds: [
-    {
-      name: "Stone",
-      value: colorTokens.kz.color.stone,
-      default: true,
-    },
-  ],
+  backgrounds: { default: "Stone" },
 }

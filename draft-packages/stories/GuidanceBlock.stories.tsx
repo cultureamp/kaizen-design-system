@@ -19,7 +19,8 @@ export default {
 const guidanceBlockText = {
   title: "This is the Guidance block title",
   description:
-    "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
+    "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis, " +
+    "qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
 }
 
 const guidanceBlockImg = assetUrl("illustrations/spot/moods-informative.svg")
@@ -126,61 +127,31 @@ const Prominent = () => (
 Default.storyName = "Default"
 
 Default.parameters = {
-  backgrounds: [
-    {
-      name: "Stone",
-      value: colorTokens.kz.color.stone,
-      default: true,
-    },
-  ],
+  backgrounds: { default: "Stone" },
 }
 
 Persistent.storyName = "Persistent"
 
 Persistent.parameters = {
-  backgrounds: [
-    {
-      name: "Stone",
-      value: colorTokens.kz.color.stone,
-      default: true,
-    },
-  ],
+  backgrounds: { default: "Stone" },
 }
 
 WithoutActionArrowButton.storyName = "Without Action Arrow Button"
 
 WithoutActionArrowButton.parameters = {
-  backgrounds: [
-    {
-      name: "Stone",
-      value: colorTokens.kz.color.stone,
-      default: true,
-    },
-  ],
+  backgrounds: { default: "Stone" },
 }
 
 SecondaryAction.storyName = "Secondary Action"
 
 SecondaryAction.parameters = {
-  backgrounds: [
-    {
-      name: "Stone",
-      value: colorTokens.kz.color.stone,
-      default: true,
-    },
-  ],
+  backgrounds: { default: "Stone" },
 }
 
 Prominent.storyName = "Prominent"
 
 Prominent.parameters = {
-  backgrounds: [
-    {
-      name: "Stone",
-      value: colorTokens.kz.color.stone,
-      default: true,
-    },
-  ],
+  backgrounds: { default: "Stone" },
 }
 
 export {

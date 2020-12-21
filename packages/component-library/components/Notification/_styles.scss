@@ -1,7 +1,9 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/component-library/styles/layout";
 @import "../../styles/color";
 @import "../../styles/type";
 @import "../../styles/border";
@@ -70,7 +72,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 
   &%ca-notification---affirmative {
     background: $kz-color-seedling-100;
-    border-color: $kz-color-seedling-200;
+    border-color: $kz-color-seedling-300;
     color: $kz-color-wisteria-800;
 
     &%ca-notification---global {
@@ -80,7 +82,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 
   &%ca-notification---informative {
     background: $kz-color-cluny-100;
-    border-color: $kz-color-cluny-200;
+    border-color: $kz-color-cluny-300;
     color: $kz-color-wisteria-800;
 
     &%ca-notification---global {
@@ -90,7 +92,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 
   &%ca-notification---cautionary {
     background: $kz-color-yuzu-100;
-    border-color: $kz-color-yuzu-300;
+    border-color: $kz-color-yuzu-400;
     color: $kz-color-wisteria-800;
 
     &%ca-notification---global {
@@ -100,7 +102,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 
   &%ca-notification---negative {
     background: $kz-color-coral-100;
-    border-color: $kz-color-coral-200;
+    border-color: $kz-color-coral-300;
     color: $kz-color-wisteria-800;
 
     &%ca-notification---global {
@@ -138,7 +140,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
   align-items: flex-start;
 
   %ca-notification---affirmative & {
-    color: $kz-color-seedling-300;
+    color: $kz-color-seedling-500;
   }
 
   %ca-notification---informative & {
@@ -150,7 +152,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
   }
 
   %ca-notification---negative & {
-    color: $kz-color-coral-400;
+    color: $kz-color-coral-500;
   }
 
   %ca-notification---inline &,
@@ -280,10 +282,12 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 }
 
 %ca-notification__cancel__inner {
+  @include ca-margin($end: $kz-spacing-sm);
   // We ignore line-height so that the icon wrapper is the same size as the icon, not the current line.
   line-height: 0;
   float: right;
-  margin-right: 10px;
+  display: flex;
+  align-items: center;
 }
 
 %ca-notification__cancel__label {

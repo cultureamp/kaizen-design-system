@@ -1,14 +1,13 @@
 import { Icon } from "@kaizen/component-library"
 import { Link } from "gatsby"
 import * as React from "react"
+import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import ContentMarkdownSection from "../components/ContentMarkdownSection"
 import { Content, ContentOnly } from "../components/ContentOnly"
 import Footer from "../components/Footer"
 import Layout from "../components/Layout"
 import md from "../components/markdownComponents"
 import PageHeader from "../components/PageHeader"
-
-import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 
 const FourOhFourPageHeader = (
   <PageHeader

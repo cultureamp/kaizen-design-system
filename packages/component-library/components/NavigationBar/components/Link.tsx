@@ -1,17 +1,10 @@
-import { Icon } from "@kaizen/component-library"
-/**
- * Eslint throws a false negative for modules that use require. Ensure you
- * are importing @kaizen/component-library into your package before turning
- * this rule off.
- */
-// eslint-disable-next-line import/no-extraneous-dependencies
-import chevronRightIcon from "@kaizen/component-library/icons/chevron-right.icon.svg"
-
 import classNames from "classnames"
 import * as React from "react"
+import { Icon } from "../../Icon"
+import chevronRightIcon from "../../../icons/chevron-right.icon.svg"
 
-import styles from "./Link.module.scss"
 import { LinkProps } from "../types"
+import styles from "./Link.module.scss"
 import Indicator from "./Indicator"
 
 class Link extends React.PureComponent<LinkProps> {

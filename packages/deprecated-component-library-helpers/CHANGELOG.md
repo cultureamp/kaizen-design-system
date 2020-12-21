@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.8.0...@kaizen/deprecated-component-library-helpers@2.0.0) (2020-12-09)
+
+
+### Features
+
+* Move design tokens to peer dependency ([#895](https://github.com/cultureamp/kaizen-design-system/issues/895)) ([b6d8b84](https://github.com/cultureamp/kaizen-design-system/commit/b6d8b84d8ef06459323d01f329107ef112d6356e))
+
+
+### BREAKING CHANGES
+
+* Tokens are now a peer dependency of component-library-helpers. When upgrading ensure dependants are using @kaizen/deprecated-component-library-helpers@2.x.x or greater.
+
+
+
+
+
+# [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.7.0...@kaizen/deprecated-component-library-helpers@1.8.0) (2020-12-09)
+
+
+### Features
+
+* [REVERT] Move design tokens from a dependency to a peerDependency ([#894](https://github.com/cultureamp/kaizen-design-system/issues/894)) ([2b09810](https://github.com/cultureamp/kaizen-design-system/commit/2b09810acdd1fa71e8706576e8f20879aca38dd0)), closes [#891](https://github.com/cultureamp/kaizen-design-system/issues/891)
+
+
+
+
+
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.6.15...@kaizen/deprecated-component-library-helpers@1.7.0) (2020-12-08)
+
+
+### Features
+
+* Move design tokens from a dependency to a peerDependency ([#891](https://github.com/cultureamp/kaizen-design-system/issues/891)) ([f229318](https://github.com/cultureamp/kaizen-design-system/commit/f229318466a191f5ca774939a5a18fa3aa753f23))
+
+
+
+
+
+## [1.6.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.6.14...@kaizen/deprecated-component-library-helpers@1.6.15) (2020-11-13)
+
+**Note:** Version bump only for package @kaizen/deprecated-component-library-helpers
+
+
+
+
+
+## [1.6.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.6.13...@kaizen/deprecated-component-library-helpers@1.6.14) (2020-11-12)
+
+**Note:** Version bump only for package @kaizen/deprecated-component-library-helpers
+
+
+
+
+
 ## [1.6.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/deprecated-component-library-helpers@1.6.12...@kaizen/deprecated-component-library-helpers@1.6.13) (2020-07-15)
 
 **Note:** Version bump only for package @kaizen/deprecated-component-library-helpers

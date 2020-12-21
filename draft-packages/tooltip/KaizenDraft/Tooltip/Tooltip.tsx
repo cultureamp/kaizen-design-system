@@ -1,21 +1,26 @@
 import * as React from "react"
-import styles from "./Tooltip.scss"
 import classnames from "classnames"
+import styles from "./Tooltip.scss"
 
 type Position = "above" | "below"
 
 type Props = {
   inline?: boolean
   position?: Position
-  text: string
+  text: React.ReactNode
   children?: React.ReactNode
+  classNameAndIHaveSpokenToDST?: string
 }
 
 const Tooltip = (props: Props) => (
   <span
-    className={classnames(styles.tooltipWrap, {
-      [styles.inline]: props.inline === true,
-    })}
+    className={classnames(
+      styles.tooltipWrap,
+      props.classNameAndIHaveSpokenToDST,
+      {
+        [styles.inline]: props.inline === true,
+      }
+    )}
   >
     {props.children}
     <span

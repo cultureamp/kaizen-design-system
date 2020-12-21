@@ -1,4 +1,3 @@
-import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { TextAreaField } from "@kaizen/draft-form"
 
 import React from "react"
@@ -10,11 +9,12 @@ interface RenderProps {
 
 interface Props {
   render: (props: RenderProps) => JSX.Element
+  defaultValue: string
 }
 
 class WithState extends React.Component<Props> {
   public state = {
-    controlledValue: "Controlled value",
+    controlledValue: this.props.defaultValue,
   }
 
   constructor(props: Props) {
@@ -121,6 +121,7 @@ DefaultPrefilled.storyName = "Default, Prefilled & uncontrolled"
 export const DefaultControlled = () => (
   <ExampleContainer>
     <WithState
+      defaultValue="A controlled value"
       render={({ controlledValue, updateValue }) => (
         <TextAreaField
           id="reply"
@@ -179,6 +180,44 @@ export const DefaultErrorAndDesc = () => (
 
 DefaultErrorAndDesc.storyName = "Default, Error & Description"
 
+export const DefaultAutogrowControlled = () => (
+  <ExampleContainer>
+    <WithState
+      defaultValue={"This\ntext\narea\nwill\ngrow\nand\nshrink\nwith\ncontent"}
+      render={({ controlledValue, updateValue }) => (
+        <TextAreaField
+          id="reply"
+          labelText="Your reply"
+          rows={1}
+          value={controlledValue}
+          onChange={updateValue}
+          autogrow
+        />
+      )}
+    ></WithState>
+  </ExampleContainer>
+)
+
+DefaultAutogrowControlled.story = {
+  name: "Default, Autogrow Controlled",
+}
+
+export const DefaultAutogrow = () => (
+  <ExampleContainer>
+    <TextAreaField
+      id="reply"
+      labelText="Your reply"
+      rows={1}
+      defaultValue="A prefilled value in uncontrolled mode"
+      autogrow
+    />
+  </ExampleContainer>
+)
+
+DefaultAutogrow.story = {
+  name: "Default, Autogrow",
+}
+
 export const Reversed = () => (
   <ExampleContainer>
     <TextAreaField
@@ -211,3 +250,39 @@ export const ReversedErrorAndDesc = () => (
 
 ReversedErrorAndDesc.storyName = "Reversed, Error & Description"
 ReversedErrorAndDesc.parameters = { ...reversedBg }
+
+export const DefaultProminent = () => (
+  <ExampleContainer>
+    <TextAreaField id="reply" labelText="Your reply" variant="prominent" />
+  </ExampleContainer>
+)
+
+DefaultProminent.storyName = "Default, Prominent"
+
+export const DefaultProminentDesc = () => (
+  <ExampleContainer>
+    <TextAreaField
+      id="reply"
+      labelText="Your reply"
+      variant="prominent"
+      description="Your reply will only be seen by you"
+    />
+  </ExampleContainer>
+)
+
+DefaultProminentDesc.storyName = "Default, Prominent with description"
+
+export const ReversedProminent = () => (
+  <ExampleContainer>
+    <TextAreaField
+      id="reply"
+      labelText="Your reply"
+      variant="prominent"
+      description="Your reply will only be seen by you"
+      reversed
+    />
+  </ExampleContainer>
+)
+
+ReversedProminent.storyName = "Reversed, Prominent"
+ReversedProminent.parameters = { ...reversedBg }

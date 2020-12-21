@@ -1,11 +1,11 @@
 ---
-title: Filter Drawer
-navTitle: Filter Drawer
+title: Filter Menu
+navTitle: Filter Menu
 summaryParagraph: A filter drawer contains filters. It controls filtering of an entire page.
-tags: ["Filter bar", "Filter menu", "Filterable list"]
+tags: ["Filter menu", "Filter drawer", "Filter", "Filterable list"]
 needToKnow:
 - Use rows or columns to clearly define groups of filter components.
-demoStoryId: filterdrawer-react--default-story
+demoStoryId:  filtermenubutton-react--default-story
 demoStoryHeight: 400px
 ---
 
@@ -28,7 +28,7 @@ See the [Filtering](/guidelines/filtering) guidelines for more details about ind
 - Filter button: This expands and collapses the dropdown. It may show a badge as well when filters are applied.
 - Filter button badge: This shows the number of filter fields with applied filters.
 - Filter metadata: This shows text info about the filters applied.
-- Filter dropdown container/drawer: This contains all the filter fields and any Apply, Cancel, or Clear buttons. Informally, we sometimes use "drawer" or "dropdown" to refer to the part that drops down. The dropdown container may be collapsed or expanded.
+- Filter dropdown container: This contains all the filter fields and any Apply, Cancel, or Clear buttons. Informally, we sometimes use "drawer" or "dropdown" to refer to the part that drops down. The dropdown container may be collapsed or expanded.
 
 ### Filter Button
 
@@ -46,23 +46,23 @@ There is space needed next to the filter button for metadata. It shows relevant 
 
 ### Filter dropdown
 
-The drawer can grow horizontally and vertically to comfortably fit a few filters and increasing numbers of applied filters. It can grow to a max width that matches the content area width.
+The dropdown can grow horizontally and vertically to comfortably fit a few filters and increasing numbers of applied filters. It can grow to a max width that matches the content area width.
 
 - Layout for filter fields:
     - Use rows or columns to clearly define groups of filter components.
 - Layout for applied filters:
-    - As people apply filter values, the filter fields may stack, taking up more drawer space. Use analytics to answer general usage questions to inform optimal drawer layout. Consider internal scrolling behavior when the drawer grows too large.
+    - As people apply filter values, the filter fields may stack, taking up more dropdown space. Use analytics to answer general usage questions to inform optimal dropdown layout. Consider internal scrolling behavior when the dropdown grows too large.
 
-### Filter components
+### Filter content & components
 
-Use the filter drawer to house [Select](/components/select) and [Date Picker](/components/date-picker) components. Do not include [Search Fields](/components/search-field), which always live outside of the filter drawer.
+Use the filter menu to house [Select](/components/select) and [Date Picker](/components/date-picker) components. Do not include [Search Fields](/components/search-field), which always live outside of the filter menu.
 
 ## When to use and when not to use
 
 <WhenToUseAndWhenNotToUse>
 <WhenToUse>
 
-*   Use a filter drawer to house filtering on a page that applies to the content of the whole page.
+*   Use a filter menu to house filtering on a page that applies to the content of the whole page.
 
 </WhenToUse>
 <WhenNotToUse>

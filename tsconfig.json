@@ -12,6 +12,10 @@
     "noEmit": true
   },
   "files": ["./types.d.ts"],
-  "include": ["./packages/**/*", "./draft-packages/**/*"],
+  "include": [
+    "./packages/**/*",
+    "./draft-packages/**/*",
+    "./legacy-packages/**/*"
+  ],
   "exclude": ["**/node_modules"]
 }

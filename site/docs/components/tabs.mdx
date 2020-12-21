@@ -2,10 +2,10 @@
 title: Tabs
 navTitle: Tabs
 summaryParagraph: Tabs organize content by grouping similar information into containers that are shown and hidden through navigation.
-tags: ["Tab list", "Tab group", "Tab panel", "Section tabs", "Nav bar", "Vertical tabs", "Horizontal tabs"]
+tags: ["Tab list", "Tab group", "Tab panel", "Content tabs", "Nav bar", "Vertical tabs", "Horizontal tabs"]
 needToKnow:
 - Navigation tabs are always used for global navigation at the top of the page or inside an offscreen menu on small screens.
-- Section tabs are used for chunking content, allowing movement between content within a single section of a page.
+- Content tabs are used for chunking content, allowing movement between content within a single page.
 demoStoryId: tabs-react--active-tab
 ---
 
@@ -22,9 +22,9 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## Options
 
-- Navigation tabs and Section tabs:
+- Navigation tabs and Content tabs:
     - **Navigation tabs** are always used for global navigation at the top of the page or inside an offscreen menu on small screens. Navigation tabs navigate to unrelated content.
-    - **Section tabs** are used for chunking content, allowing movement between content within a single section of a page. Each section tab's content is similar and closely related to each other tab.
+    - **Content tabs** are used for chunking content, allowing movement between content within a single page. Each tab's content is similar and closely related to each other tab.
 - Vertical tabs and horizontal tabs are used for establishing hierarchy as appropriate for the product area.
 - Default and reversed
 
@@ -40,15 +40,15 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
     - **Tab link**: The large clickable area of the tab item uses a link to navigate to that tab's content.
     - **Tab label**: The label describes what content will be displayed. Use 1 short noun or noun phrase.
     - **Selected tab indicator**: This contains a selected tab indicator to show that the tab is current.
-    - **Optional metadata**: You might display 1 item of metadata, such as a [Badge](/components/badge) to bring data forward from the content in that section or a [Tag](/components/tag) to add supplementary information, such as "New".
+    - **Optional metadata**: You might display 1 item of metadata, such as a [Badge](/components/badge) to bring data forward from the content in that page or a [Tag](/components/tag) to add supplementary information, such as "New".
 - **Tab content**: The content that lives "inside" a tab and is revealed when that tab item is selected.
 - **Separator**: To separate tabs from content, use whitespace or the edge of another component, such as Title Blocks or Cards, not a [Divider](/components/divider).
 
 ### Styling
 
-- Align navigation tabs and section tabs left (in left-to-right languages) and never center within a page or section.
-- For small screens, tab items must adhere to [WCAG Success Criterion 1.4.10: Reflow](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html). For navigation tabs on small screens, we use a hamburger menu and offscreen navigation to present tabs vertically. For section tabs on small screens, a user can scroll horizontally. For touch devices (large or small), a user may drag section tabs to reveal more offscreen tab items.
-- Never use icons in section tabs. If we need icons for navigation tabs on small screens, we might use stacked icons above labels. We avoid icons in section tabs to reduce tab width, which is important for localization and small screens, and to avoid overburdening a tab item that might already have a badge as optional metadata.
+- Align navigation tabs and content tabs left (in left-to-right languages) and never center within a page or content area.
+- For small screens, tab items must adhere to [WCAG Success Criterion 1.4.10: Reflow](https://www.w3.org/WAI/WCAG21/Understanding/reflow.html). For navigation tabs on small screens, we use a hamburger menu and offscreen navigation to present tabs vertically. For content tabs on small screens, a user can scroll horizontally. For touch devices (large or small), a user may drag content tabs to reveal more offscreen tab items.
+- Never use icons in content tabs. If we need icons for navigation tabs on small screens, we might use stacked icons above labels. We avoid icons in content tabs to reduce tab width, which is important for localization and small screens, and to avoid overburdening a tab item that might already have a badge as optional metadata.
 - Tab content always appears below horizontal tabs.
 - Tab content always appears to the right of vertical tabs in left-to-right languages (and to the left of vertical tabs in right-to-left languages).
 - Use a single row of tabs without wrapping and without showing multiple rows.
@@ -63,7 +63,7 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ### Navigation
 
-- A user can navigate between tabs to reveal that tab's content by clicking or tapping on the tab item. We don't support swiping between sections using the tab content area (for example, using edge swipes on mobile devices).
+- A user can navigate between tabs to reveal that tab's content by clicking or tapping on the tab item. We don't support swiping between content using the tab content area (for example, using edge swipes on mobile devices).
 
 ### Labels
 
@@ -72,7 +72,7 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 ### Fixed or scrolling
 
 - Use fixed tabs of equal width for a small number of tab items (e.g. 3) that fit inside 320px containers or viewports.
-- Use scrolling section tabs of flexible width for all other tabs. That is, you can scroll them horizontally to see more tabs offscreen.
+- Use scrolling content tabs of flexible width for all other tabs. That is, you can scroll them horizontally to see more tabs offscreen.
 
 ### Overflow
 
@@ -102,7 +102,7 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 <WhenNotToUse>
 
 - Avoid tabs when the items perform an action. Instead, use a [Button](/components/button) or [Button group](/components/button-group).
-- Avoid tabs when you have more than 6 sections. Instead, consider using a [Collapsible](/components/collapsible).
+- Avoid tabs when you have more than 6 tab items. Instead, consider using a [Collapsible](/components/collapsible).
 - Avoid tabs when each tab or most tabs have limited content. Consider showing it all at once.
 - Avoid tabs when a user needs to see content from multiple tabs at the same time.
 

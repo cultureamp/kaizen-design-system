@@ -1,6 +1,6 @@
-import { Checkbox, CheckedStatus, Label } from "@kaizen/draft-form"
 import classnames from "classnames"
 import * as React from "react"
+import { Checkbox, CheckedStatus, Label } from "../index"
 
 import styles from "./styles.scss"
 

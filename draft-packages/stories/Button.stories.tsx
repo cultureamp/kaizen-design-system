@@ -1,7 +1,7 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
-import { Button, CustomButtonProps, ButtonRef } from "../button"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 import React, { useCallback, useRef, useState } from "react"
+import { Button, CustomButtonProps, ButtonRef } from "../button"
 
 export default {
   title: "Button (Zen) (React)",
@@ -283,13 +283,7 @@ ReversedPrimaryDisabled.parameters = { ...reversedBg }
 ReversedPrimaryDisabled.story = {
   name: "Reversed, Primary, Disabled",
   parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
+    backgrounds: { default: "Wisteria 700" },
   },
 }
 
@@ -330,13 +324,7 @@ ReversedSecondaryDisabled.parameters = { ...reversedBg }
 ReversedSecondaryDisabled.story = {
   name: "Reversed, Secondary, Disabled",
   parameters: {
-    backgrounds: [
-      {
-        name: "Wisteria 700",
-        value: colorTokens.kz.color.wisteria[700],
-        default: true,
-      },
-    ],
+    backgrounds: { default: "Wisteria 700" },
   },
 }
 

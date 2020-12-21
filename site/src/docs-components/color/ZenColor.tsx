@@ -4,7 +4,7 @@ import wcag from "wcag-contrast-verifier/lib/wcag"
 
 const DARK_TEXT_COLOR_FOR_CONTRAST_CHECKING = colorTokens.kz.color.wisteria[700]
 
-function shouldUseWhiteText(color) {
+const shouldUseWhiteText = (color: string) => {
   const whiteContrast = wcag.getContrastRatio(color, "#ffffff")
   const blackContrast = wcag.getContrastRatio(
     color,

@@ -1,6 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
-$white: #fff;
-$black: #000;
+$white: white;
+$black: black;
 
 @function add-tint($color, $percentage) {
   @return mix($white, $color, $percentage);

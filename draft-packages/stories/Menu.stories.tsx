@@ -200,7 +200,11 @@ export const DefaultStatelessMenu = () => (
         changes, but it requires more work to configure. It can be used instead
         of `Menu` if this level of flexibility is required. This component is
         used in the FilterDrawer component. View the source code{" "}
-        <a href="https://github.com/cultureamp/kaizen-design-system/blob/master/draft-packages/stories/Menu.stories.tsx">
+        <a
+          href={
+            "https://github.com/cultureamp/kaizen-design-system/blob/master/draft-packages/stories/Menu.stories.tsx"
+          }
+        >
           here
         </a>
         .

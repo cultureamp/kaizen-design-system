@@ -12,6 +12,11 @@ module.exports = {
     browser: true,
     node: true,
   },
+  settings: {
+    "import/resolver": {
+      typescript: {}, // this empty key is required for eslint-import-resolver-typescript
+    },
+  },
   extends: ["prettier", "prettier/@typescript-eslint"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -32,9 +37,7 @@ module.exports = {
       },
     ],
     "@typescript-eslint/ban-types": [
-      // TODO - Change to error. This will be a breaking change on a lot of our Props
-      // that might be using "any non-nullish value"
-      "warn",
+      "error",
       {
         types: {
           Object: {
@@ -44,12 +47,15 @@ module.exports = {
             message:
               "Avoid using the `Function` type. Prefer a specific function type, like `() => void`.",
           },
+          // eslint-disable-next-line
           Boolean: {
             message: "Avoid using the `Boolean` type. Did you mean `boolean`?",
           },
+          // eslint-disable-next-line
           Number: {
             message: "Avoid using the `Number` type. Did you mean `number`?",
           },
+          // eslint-disable-next-line
           String: {
             message: "Avoid using the `String` type. Did you mean `string`?",
           },
@@ -138,25 +144,14 @@ module.exports = {
       "undefined",
     ],
     "id-match": "error",
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        devDependencies: false,
-      },
-    ],
+    "import/no-extraneous-dependencies": "error",
     "import/no-internal-modules": "off",
-    "import/order": "off", // TODO - Change to error
+    "import/order": "error",
     "jsdoc/check-alignment": "off",
     "jsdoc/check-indentation": "off",
     "jsdoc/newline-after-description": "off",
     "linebreak-style": "off",
-    "max-classes-per-file": ["error", 3], // TODO - Change to ["error", 1]
-    "max-len": [
-      "warn",
-      {
-        code: 120,
-      },
-    ],
+    "max-classes-per-file": ["error", 1],
     "new-parens": "error",
     "newline-per-chained-call": "off",
     "no-bitwise": "error",
@@ -194,7 +189,7 @@ module.exports = {
     "no-var": "error",
     "object-shorthand": "error",
     "one-var": ["error", "never"],
-    "prefer-arrow/prefer-arrow-functions": "warn", // TODO - Change to error
+    "prefer-arrow/prefer-arrow-functions": "error",
     "prefer-const": "error",
     "prefer-object-spread": "error",
     "quote-props": ["error", "as-needed"],
@@ -220,7 +215,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["*.stories.tsx", "./storybook/*.ts", "*.spec.tsx"],
+      files: ["*.stories.tsx", "*.spec.tsx"],
       rules: {
         "import/no-extraneous-dependencies": "off",
       },

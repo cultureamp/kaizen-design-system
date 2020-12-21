@@ -3,6 +3,86 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.84](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-events@1.2.83...@kaizen/draft-events@1.2.84) (2020-12-16)
+
+**Note:** Version bump only for package @kaizen/draft-events
+
+
+
+
+
+## [1.2.83](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-events@1.2.82...@kaizen/draft-events@1.2.83) (2020-12-09)
+
+**Note:** Version bump only for package @kaizen/draft-events
+
+
+
+
+
+## [1.2.82](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-events@1.2.81...@kaizen/draft-events@1.2.82) (2020-12-09)
+
+**Note:** Version bump only for package @kaizen/draft-events
+
+
+
+
+
+## [1.2.81](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-events@1.2.80...@kaizen/draft-events@1.2.81) (2020-12-08)
+
+**Note:** Version bump only for package @kaizen/draft-events
+
+
+
+
+
+## [1.2.80](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-events@1.2.79...@kaizen/draft-events@1.2.80) (2020-12-04)
+
+**Note:** Version bump only for package @kaizen/draft-events
+
+
+
+
+
+## [1.2.79](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-events@1.2.78...@kaizen/draft-events@1.2.79) (2020-12-01)
+
+**Note:** Version bump only for package @kaizen/draft-events
+
+
+
+
+
+## [1.2.78](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-events@1.2.77...@kaizen/draft-events@1.2.78) (2020-11-25)
+
+**Note:** Version bump only for package @kaizen/draft-events
+
+
+
+
+
+## [1.2.77](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-events@1.2.76...@kaizen/draft-events@1.2.77) (2020-11-13)
+
+**Note:** Version bump only for package @kaizen/draft-events
+
+
+
+
+
+## [1.2.76](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-events@1.2.75...@kaizen/draft-events@1.2.76) (2020-11-12)
+
+**Note:** Version bump only for package @kaizen/draft-events
+
+
+
+
+
+## [1.2.75](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-events@1.2.74...@kaizen/draft-events@1.2.75) (2020-11-12)
+
+**Note:** Version bump only for package @kaizen/draft-events
+
+
+
+
+
 ## [1.2.74](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-events@1.2.73...@kaizen/draft-events@1.2.74) (2020-11-09)
 
 **Note:** Version bump only for package @kaizen/draft-events

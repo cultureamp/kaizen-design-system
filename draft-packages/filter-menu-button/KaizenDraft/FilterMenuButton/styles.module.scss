@@ -7,7 +7,7 @@ $gap: $kz-spacing-sm;
 $menuContentHorizontalPadding: 4px; // this comes from the MenuContent component, which should be using tokens
 $menuContentVerticalPadding: 6px; // this comes from the MenuContent component, which should be using tokens
 
-.filterDrawer {
+.filterMenuButton {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -28,8 +28,4 @@ $menuContentVerticalPadding: 6px; // this comes from the MenuContent component, 
   @include kz-typography-paragraph-small;
   @include ca-inherit-baseline;
   color: $kz-color-wisteria-800;
-
-  .reversed & {
-    color: $kz-color-white;
-  }
 }

@@ -1,12 +1,11 @@
+import classnames from "classnames"
+import * as React from "react"
 import { Icon } from "../../Icon"
 
 import closeIcon from "../../../icons/close.icon.svg"
 import exclamationIcon from "../../../icons/exclamation.icon.svg"
 import informationIcon from "../../../icons/information.icon.svg"
 import successIcon from "../../../icons/success.icon.svg"
-
-import classnames from "classnames"
-import * as React from "react"
 
 import styles from "./GenericNotification.module.scss"
 

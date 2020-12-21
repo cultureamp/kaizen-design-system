@@ -7,10 +7,10 @@ import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
 import animationTokens from "@kaizen/design-tokens/tokens/animation.json"
 import borderTokens from "@kaizen/design-tokens/tokens/border.json"
 import spacingTokens from "@kaizen/design-tokens/tokens/spacing.json"
-import { KeyboardNavigableList } from "./KeyboardNavigableList"
 
 import chevronLeft from "@kaizen/component-library/icons/chevron-left.icon.svg"
 import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
+import { KeyboardNavigableList } from "./KeyboardNavigableList"
 import styles from "./styles.module.scss"
 
 export type MenuWidth = "default" | "contain"

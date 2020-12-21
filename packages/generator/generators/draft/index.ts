@@ -100,6 +100,4 @@ module.exports = class extends Generator {
   }
 }
 
-function pascalCase(s) {
-  return startCase(s).replace(/ /gi, "")
-}
+const pascalCase = s => startCase(s).replace(/ /gi, "")

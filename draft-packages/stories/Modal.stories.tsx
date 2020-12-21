@@ -48,9 +48,10 @@ export default {
   component: ConfirmationModal,
   parameters: {
     info: {
-      text: `
-      import { ConfirmationModal, GenericModal, InformationModal, InputEditModal, ModalAccessibleDescription, ModalAccessibleLabel, ModalBody, ModalFooter, ModalHeader } from "@kaizen/draft-modal"
-      `,
+      text:
+        "import { ConfirmationModal, GenericModal, InformationModal, InputEditModal, " +
+        "ModalAccessibleDescription, ModalAccessibleLabel, ModalBody, ModalFooter, " +
+        'ModalHeader } from "@kaizen/draft-modal"',
     },
   },
 }

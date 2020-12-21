@@ -4,8 +4,8 @@ import { Link } from "gatsby"
 import * as React from "react"
 import markdownComponents from "./markdownComponents"
 
-const markdownStyles = require("../styles/markdown.scss")
 import styles from "./SidebarAndContent.scss"
+const markdownStyles = require("../styles/markdown.scss")
 const linkIcon = require("./images/link.svg").default
 
 type SidebarAndContentProps = {

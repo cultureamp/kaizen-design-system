@@ -1,10 +1,10 @@
 import { Button, IconButton } from "@kaizen/draft-button"
 import { Menu, MenuContent, MenuItem } from "@kaizen/draft-menu"
 import * as React from "react"
-import { SecondaryActionsProps, TitleBlockMenuItemProps } from "./TitleBlockZen"
-import Toolbar from "./Toolbar"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
+import { SecondaryActionsProps, TitleBlockMenuItemProps } from "./TitleBlockZen"
+import Toolbar from "./Toolbar"
 
 import styles from "./TitleBlockZen.scss"
 
@@ -25,8 +25,8 @@ const renderSecondaryOverflowMenu = (
       button={<IconButton label="" reversed={reversed} icon={meatballsIcon} />}
     >
       <MenuContent>
-        {secondaryOverflowMenuItems.map(menuItem => (
-          <MenuItem {...menuItem} />
+        {secondaryOverflowMenuItems.map((menuItem, i) => (
+          <MenuItem {...menuItem} key={i} /> // We shouldn't use an index here, see note below
         ))}
       </MenuContent>
     </Menu>

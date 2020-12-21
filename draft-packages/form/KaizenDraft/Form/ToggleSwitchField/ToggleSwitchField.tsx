@@ -7,7 +7,7 @@ import {
   ToggledStatus,
   ToggleSwitch,
   ToggleTheme,
-} from "@kaizen/draft-form"
+} from "../index"
 
 import styles from "./styles.scss"
 
