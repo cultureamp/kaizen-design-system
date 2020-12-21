@@ -17,7 +17,7 @@
       "path": "../../packages/component-library"
     },
     {
-      "path": "./zen-off-canvas"
+      "path": "../zen-off-canvas"
     }
   ]
 }
