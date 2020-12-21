@@ -8,7 +8,16 @@
     "noEmit": false,
     "sourceMap": true,
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": "src",
+    "tsBuildInfoFile": "./dist/.cache/tsbuildinfo.json"
   },
-  "include": ["src", "styles"]
+  "include": ["src", "styles"],
+  "references": [
+    {
+      "path": "../../packages/component-library"
+    },
+    {
+      "path": "./zen-off-canvas"
+    }
+  ]
 }
