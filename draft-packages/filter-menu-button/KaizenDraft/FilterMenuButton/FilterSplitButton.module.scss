@@ -3,8 +3,6 @@
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/design-tokens/sass/typography";
 
-$button-width: 383px;
-
 // The styling and mixin in this file originally comes from @kaizen/draft-button styles.module.scss and I modify it to suit with the `SplitButton` for `FilterMenuButton`.
 
 @mixin button-reset {
@@ -45,7 +43,7 @@ $button-width: 383px;
   @include button-reset;
   @include button-base;
 
-  max-width: $button-width;
+  max-width: 500px;
   padding-right: $ca-grid * 0.75;
   padding-left: $ca-grid * 0.75;
   border-top-left-radius: $kz-border-solid-border-radius;
