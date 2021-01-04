@@ -4,8 +4,6 @@ import {
   Link,
   Menu,
   ZenNavigationBar,
-  OffCanvasContext,
-  ZenOffCanvas,
   ZenControlledOffCanvas,
 } from "@kaizen/draft-zen-navigation-bar"
 import { ColorScheme } from "@kaizen/draft-zen-navigation-bar/KaizenDraft/ZenNavigationBar/types"
