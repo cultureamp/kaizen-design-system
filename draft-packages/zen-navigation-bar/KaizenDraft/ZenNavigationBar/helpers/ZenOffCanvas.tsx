@@ -1,13 +1,13 @@
 /* eslint-disable max-classes-per-file */
 import * as React from "react"
-import { ColorScheme } from "@kaizen/draft-zen-navigation-bar/KaizenDraft/ZenNavigationBar/types"
 import classNames from "classnames"
+import { ColorScheme } from "../types"
 import Header from "./components/Header"
 import Menu from "./components/Menu"
 
 import styles from "./OffCanvas.module.scss"
 
-type Props = {
+type ZenOffCanvasProps = {
   links?: any
   heading: string
   headerComponent: React.ReactNode
@@ -33,7 +33,7 @@ export const OffCanvasContext = React.createContext<OffCanvasContextProps>({
   resetVisibleMenus: () => undefined,
 })
 
-export class ZenOffCanvas extends React.Component<Props> {
+export class ZenOffCanvas extends React.Component<ZenOffCanvasProps> {
   static defaultProps = {
     withTrigger: false,
     colorScheme: "cultureamp",
@@ -93,8 +93,11 @@ export class ZenOffCanvas extends React.Component<Props> {
 
 const withContextProvider = (Component: React.ComponentType<any>) =>
   // eslint-disable-next-line max-classes-per-file
-  class OffCanvasWithContextProvider extends React.Component<Props, State> {
-    constructor(props: Props) {
+  class OffCanvasWithContextProvider extends React.Component<
+    ZenOffCanvasProps,
+    State
+  > {
+    constructor(props: ZenOffCanvasProps) {
       super(props)
 
       this.state = {
@@ -128,7 +131,7 @@ const withContextProvider = (Component: React.ComponentType<any>) =>
 
 const withTrigger = (Component: React.ComponentType<any>) =>
   // eslint-disable-next-line max-classes-per-file
-  class OffCanvasWithTrigger extends React.Component<Props> {
+  class OffCanvasWithTrigger extends React.Component<ZenOffCanvasProps> {
     render() {
       return (
         <OffCanvasContext.Consumer>

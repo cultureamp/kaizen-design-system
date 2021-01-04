@@ -1,7 +1,13 @@
 import * as React from "react"
-
-import { Button, Icon } from "@kaizen/component-library"
-import { Link, Menu, ZenNavigationBar } from "@kaizen/draft-zen-navigation-bar"
+import { Button, Icon, Paragraph, Box } from "@kaizen/component-library"
+import {
+  Link,
+  Menu,
+  ZenNavigationBar,
+  OffCanvasContext,
+  ZenOffCanvas,
+  ZenControlledOffCanvas,
+} from "@kaizen/draft-zen-navigation-bar"
 import { ColorScheme } from "@kaizen/draft-zen-navigation-bar/KaizenDraft/ZenNavigationBar/types"
 import caIcon from "@kaizen/component-library/icons/ca-monogram.icon.svg"
 import academyIcon from "@kaizen/component-library/icons/academy.icon.svg"
@@ -510,3 +516,55 @@ export const WithFooterAndHeaderComponents = () => (
     </ZenNavigationBar>
   </Container>
 )
+
+export const OffCanvas = () => {
+  const links = [
+    {
+      text: "link 1",
+      active: true,
+      href: "http://www.cultureamp.design",
+    },
+    {
+      text: "link 2",
+      active: false,
+      href: "http://www.cultureamp.design",
+    },
+    {
+      text: "link 3",
+      active: false,
+      href: "http://www.cultureamp.design",
+    },
+    {
+      text: "link 4",
+      active: false,
+      href: "http://www.cultureamp.design",
+    },
+  ].map((curr, i) => <Link key={`menu-${i}`} {...curr} />)
+
+  return (
+    <div>
+      <ZenControlledOffCanvas
+        key="1"
+        headerComponent={<div>header</div>}
+        footerComponent={<div>footer</div>}
+        links={links}
+        heading="Hamburger Menu"
+        menuId="menu"
+        colorScheme="content"
+      />
+      <Box pt={2}>
+        <Paragraph variant="body">☝️ Click hamburger to see results</Paragraph>
+      </Box>
+    </div>
+  )
+}
+OffCanvas.parameters = {
+  docs: {
+    description: {
+      story:
+        "Off Canvas is a helper used in Navigation Bar to control the LHS drawer. " +
+        "On larger viewports you should programatically hide this component, or instead " +
+        "consider using ZenNavigationBar which does this for you.",
+    },
+  },
+}
