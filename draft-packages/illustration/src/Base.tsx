@@ -1,6 +1,6 @@
 import { assetUrl } from "@kaizen/hosted-assets"
 import * as React from "react"
-import styles from "./style.module.scss"
+import styles from "../styles/style.module.scss"
 
 export type BaseProps = {
   /**

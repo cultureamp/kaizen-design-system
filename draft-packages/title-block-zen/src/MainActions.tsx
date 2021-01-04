@@ -9,6 +9,7 @@ import * as React from "react"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
+import styles from "../styles/TitleBlockZen.scss"
 import Toolbar from "./Toolbar"
 import {
   TitleBlockButtonProps,
@@ -16,8 +17,6 @@ import {
   PrimaryActionProps,
   BadgeProps,
 } from "./TitleBlockZen"
-
-import styles from "./TitleBlockZen.scss"
 
 type MainActionsProps = {
   primaryAction?: PrimaryActionProps

@@ -2,10 +2,10 @@ import * as React from "react"
 
 import { Button, Icon } from "@kaizen/component-library"
 import { Link, Menu, ZenNavigationBar } from "@kaizen/draft-zen-navigation-bar"
-import { ColorScheme } from "@kaizen/draft-zen-navigation-bar/KaizenDraft/ZenNavigationBar/types"
 import caIcon from "@kaizen/component-library/icons/ca-monogram.icon.svg"
 import academyIcon from "@kaizen/component-library/icons/academy.icon.svg"
 import supportIcon from "@kaizen/component-library/icons/support.icon.svg"
+import { ColorScheme } from "./types"
 
 export default {
   title: "ZenNavigationBar (React)",

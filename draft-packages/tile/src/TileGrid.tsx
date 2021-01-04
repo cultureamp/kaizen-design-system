@@ -1,8 +1,7 @@
 import React, { ReactElement } from "react"
+import styles from "../styles/TileGrid.scss"
 import { InformationTileProps } from "./InformationTile"
 import { MultiActionTileProps } from "./MultiActionTile"
-
-import styles from "./TileGrid.scss"
 
 type TileProps = InformationTileProps | MultiActionTileProps
 

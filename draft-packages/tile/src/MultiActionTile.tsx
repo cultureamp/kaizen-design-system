@@ -1,12 +1,11 @@
 import React from "react"
 
+import styles from "../styles/MultiActionTile.scss"
 import GenericTile, {
   GenericTileProps,
   TileAction,
 } from "./components/GenericTile"
 import Action from "./components/Action"
-
-import styles from "./MultiActionTile.scss"
 
 export interface MultiActionTileProps extends GenericTileProps {
   readonly primaryAction: TileAction

@@ -3,6 +3,7 @@ import * as React from "react"
 import classNames from "classnames"
 import Media from "react-media"
 import uuid from "uuid/v4"
+import styles from "../styles/NavigationBar.module.scss"
 import { ZenControlledOffCanvas } from "./offCanvas"
 import Badge from "./components/Badge"
 import Link from "./components/Link"
@@ -14,8 +15,6 @@ import {
   NavigationChange,
   NavigationItem,
 } from "./types"
-
-import styles from "./NavigationBar.module.scss"
 
 type Props = {
   environment?: "production" | "staging" | "test" | "local"

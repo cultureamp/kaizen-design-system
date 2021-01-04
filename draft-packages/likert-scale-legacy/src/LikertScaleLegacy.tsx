@@ -2,10 +2,9 @@ import React, { useState, createRef } from "react"
 
 import classnames from "classnames"
 import { Paragraph } from "@kaizen/component-library"
+import styles from "../styles/styles.module.scss"
 import determineSelectionFromKeyPress from "./helpers/determineSelectionFromKeyPress"
 import { Scale, ScaleItem, ScaleValue } from "./types"
-
-const styles = require("./styles.module.scss")
 
 type ItemRefs = Array<{
   value: ScaleValue

@@ -2,9 +2,8 @@ import { Icon } from "@kaizen/component-library"
 import classnames from "classnames"
 import * as React from "react"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
+import styles from "../styles/styles.scss"
 import { Dir } from "./types"
-
-import styles from "./styles.scss"
 
 type Variant = "default" | "primary"
 

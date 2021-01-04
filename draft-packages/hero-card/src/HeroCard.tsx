@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import * as React from "react"
 
-import styles from "./HeroCard.scss"
+import styles from "../styles/HeroCard.scss"
 
 interface Props {
   readonly leftContent?: React.ReactNode

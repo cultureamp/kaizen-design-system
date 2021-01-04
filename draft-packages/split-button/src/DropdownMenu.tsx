@@ -1,6 +1,6 @@
 import React, { RefObject } from "react"
+import styles from "../styles/styles.scss"
 import { Dir } from "./types"
-import styles from "./styles.scss"
 
 type Props = {
   children: React.ReactNode

@@ -5,9 +5,8 @@ import AnimateHeight from "react-animate-height"
 
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
+import styles from "../styles/styles.scss"
 import { Sticky } from "./CollapsibleGroup"
-
-import styles from "./styles.scss"
 
 export type Props = {
   id: string

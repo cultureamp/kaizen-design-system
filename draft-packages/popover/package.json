@@ -33,6 +33,7 @@
     "classnames": "^2.2.6"
   },
   "devDependencies": {
+    "@kaizen/draft-avatar": "1.1.7",
     "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.2.1",
     "rimraf": "^3.0.2"
   },

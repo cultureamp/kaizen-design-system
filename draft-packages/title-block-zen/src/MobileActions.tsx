@@ -10,6 +10,7 @@ import classnames from "classnames"
 import * as React from "react"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
+import styles from "../styles/MobileActions.scss"
 import {
   TitleBlockButtonProps,
   isMenuGroupNotButton,
@@ -19,7 +20,6 @@ import {
   TitleBlockMenuItemProps,
   convertSecondaryActionsToMenuItems,
 } from "./TitleBlockZen"
-import styles from "./MobileActions.scss"
 
 const buttonIsLink: (action: TitleBlockButtonProps) => boolean = action =>
   "href" in action

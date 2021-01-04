@@ -1,9 +1,9 @@
 import classnames from "classnames"
 import * as React from "react"
+import styles from "../styles/styles.scss"
 import Dropdown from "./Dropdown"
 import DropdownMenu from "./DropdownMenu"
 import { Dir } from "./types"
-import styles from "./styles.scss"
 
 type AnchorCallback = (event: React.MouseEvent<HTMLAnchorElement>) => void
 type ButtonCallback = (event: React.MouseEvent<HTMLButtonElement>) => void

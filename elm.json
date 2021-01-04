@@ -3,7 +3,6 @@
     "source-directories": [
         "./packages/component-library/components",
         "./packages/component-library/stories",
-        "./draft-packages/stories",
         "./draft-packages/button",
         "./draft-packages/card",
         "./draft-packages/collapsible",

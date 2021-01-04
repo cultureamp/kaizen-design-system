@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import * as React from "react"
 
-import styles from "./styles.scss"
+import styles from "../styles/styles.scss"
 
 type Props = {
   separated?: boolean

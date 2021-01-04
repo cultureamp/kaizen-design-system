@@ -4,7 +4,7 @@ import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.sv
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import classnames from "classnames"
 import * as React from "react"
-import styles from "./GuidanceBlock.scss"
+import styles from "../styles/GuidanceBlock.scss"
 
 type Props = {
   img: {

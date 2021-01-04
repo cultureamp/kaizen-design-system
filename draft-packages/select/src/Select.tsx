@@ -8,7 +8,7 @@ import { Props as ReactSelectProps } from "react-select/src/Select"
 import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
-import styles from "./styles.react.scss"
+import styles from "../styles/styles.react.scss"
 
 export { ValueType } from "react-select"
 

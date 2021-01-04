@@ -12,9 +12,5 @@
     "noEmit": true
   },
   "files": ["./types.d.ts"],
-  "exclude": [
-    "./draft-packages/stories/*",
-    "./packages/component-library/stories/*",
-    "**/node_modules"
-  ]
+  "exclude": ["./packages/component-library/stories/*", "**/node_modules"]
 }

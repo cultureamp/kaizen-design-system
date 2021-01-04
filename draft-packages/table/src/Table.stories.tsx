@@ -4,6 +4,7 @@ import { CheckboxField } from "@kaizen/draft-form"
 import * as React from "react"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
+import styles from "./Table.stories.scss"
 import {
   TableCard,
   TableContainer,
@@ -12,8 +13,7 @@ import {
   TableHeaderRowCell,
   TableRow,
   TableRowCell,
-} from "../table"
-import styles from "./Table.stories.scss"
+} from "."
 
 const Container: React.FunctionComponent<{
   children: React.ReactNode

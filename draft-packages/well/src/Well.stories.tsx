@@ -1,7 +1,7 @@
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
 import { TextField } from "@kaizen/draft-form"
-import { Well } from "@kaizen/draft-well"
 import * as React from "react"
+import { Well } from "."
 
 const ExampleContent = () => (
   <div style={{ padding: "1em 2em", maxWidth: "400px" }}>

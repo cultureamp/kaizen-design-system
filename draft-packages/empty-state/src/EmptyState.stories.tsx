@@ -1,13 +1,11 @@
 import chevronLeft from "@kaizen/component-library/icons/chevron-left.icon.svg"
-
 import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
 
 import * as React from "react"
 
 import { Button } from "@kaizen/draft-button"
-import { EmptyState } from "../empty-state"
-
 import styles from "./EmptyState.stories.scss"
+import { EmptyState } from "."
 
 const SidebarAndContentLayout = ({
   children,

@@ -6,7 +6,7 @@ import sortAscendingIcon from "@kaizen/component-library/icons/sort-ascending.ic
 import sortDescendingIcon from "@kaizen/component-library/icons/sort-descending.icon.svg"
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import { Tooltip } from "@kaizen/draft-tooltip"
-import styles from "./styles.scss"
+import styles from "../styles/styles.scss"
 
 type TableContainer = React.FunctionComponent<TableContainerProps>
 type TableContainerProps = {

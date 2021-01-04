@@ -1,4 +1,4 @@
-module Main exposing (main)
+module src.SelectStories exposing (main)
 
 import ElmStorybook exposing (storyOf, storybook)
 import Html exposing (Html, div)

@@ -1,5 +1,5 @@
 import * as React from "react"
-import styles from "./MenuContent.module.scss"
+import styles from "../../styles/MenuContent.module.scss"
 
 const MenuContent = (props: { children: React.ReactNode }) => (
   <div className={styles.menuContent}>{props.children}</div>

@@ -5,7 +5,7 @@ import Heading.Heading as Heading exposing (AllowedColor(..), TypeVariant(..), v
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (style)
 import KaizenDraft.Form.TextField.TextField as TextField
-import KaizenDraft.Well.Well as Well
+import KaizenDraft.Well.Well as Well exposing (..)
 import Paragraph.Paragraph as Paragraph
 
 

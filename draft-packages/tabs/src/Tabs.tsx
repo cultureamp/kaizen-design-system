@@ -1,9 +1,9 @@
 import classnames from "classnames"
 import * as React from "react"
 
-import styles from "./styles.scss"
+import styles from "../styles/styles.scss"
 
-interface Tab {
+interface IndividualTabProps {
   readonly label: string
   readonly active?: boolean
   readonly disabled?: boolean
@@ -12,16 +12,16 @@ interface Tab {
   readonly automationId?: string
 }
 
-interface Props {
+export interface TabProps {
   /**
    * Support for languages that read right to left. This will flip margins and paddings on the x-axis.
    * @default "false"
    */
   readonly textDirection?: "ltr" | "rtl"
-  readonly tabs: Tab[]
+  readonly tabs: IndividualTabProps[]
   readonly orientation?: "horizontal" | "vertical"
   readonly renderTab?: (renderProps: {
-    readonly tab: Tab
+    readonly tab: IndividualTabProps
     readonly tabClassName: string
     readonly activeTabClassName: string
     readonly disabledTabClassName: string
@@ -33,7 +33,7 @@ const Tabs = ({
   textDirection = "ltr",
   tabs,
   renderTab,
-}: Props) => {
+}: TabProps) => {
   if (orientation === "horizontal") {
     return (
       <RowTab textDirection={textDirection} tabs={tabs} renderTab={renderTab} />

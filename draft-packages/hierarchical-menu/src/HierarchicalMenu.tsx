@@ -10,8 +10,8 @@ import spacingTokens from "@kaizen/design-tokens/tokens/spacing.json"
 
 import chevronLeft from "@kaizen/component-library/icons/chevron-left.icon.svg"
 import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg"
+import styles from "../styles/styles.module.scss"
 import { KeyboardNavigableList } from "./KeyboardNavigableList"
-import styles from "./styles.module.scss"
 
 export type MenuWidth = "default" | "contain"
 export type MenuDirection = "ltr" | "rtl"

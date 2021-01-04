@@ -6,7 +6,7 @@ import { ButtonProps } from "@kaizen/draft-button"
 import { MenuProps } from "@kaizen/draft-menu"
 import classNames from "classnames"
 import * as React from "react"
-import styles from "./Toolbar.scss"
+import styles from "../styles/Toolbar.scss"
 
 type ToolbarProps = {
   items?: Array<{

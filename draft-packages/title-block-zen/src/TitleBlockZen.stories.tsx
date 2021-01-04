@@ -6,12 +6,8 @@ import starIcon from "@kaizen/component-library/icons/star-on.icon.svg"
 import reportSharingIcon from "@kaizen/component-library/icons/report-sharing.icon.svg"
 import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import { assetUrl } from "@kaizen/hosted-assets"
-import {
-  NavigationTab,
-  TitleBlockZen,
-} from "../title-block-zen/KaizenDraft/TitleBlockZen"
-
 import styles from "./TitleBlockZen.stories.scss"
+import { NavigationTab, TitleBlockZen } from "."
 
 export default {
   title: "TitleBlockZen (React)",

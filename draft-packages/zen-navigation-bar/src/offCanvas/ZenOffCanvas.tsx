@@ -2,10 +2,9 @@
 import * as React from "react"
 import classNames from "classnames"
 import { ColorScheme } from "../types"
+import styles from "../../styles/OffCanvas.module.scss"
 import Header from "./components/Header"
 import Menu from "./components/Menu"
-
-import styles from "./OffCanvas.module.scss"
 
 type Props = {
   links?: any

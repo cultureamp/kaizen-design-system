@@ -29,6 +29,9 @@
   "dependencies": {
     "classnames": "^2.2.6"
   },
+  "devDependencies": {
+    "@kaizen/draft-card": "^1.2.4"
+  },
   "peerDependencies": {
     "@kaizen/design-tokens": "^1.6.0 || ^2",
     "react": "^16.9.0"

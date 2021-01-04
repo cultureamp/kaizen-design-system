@@ -1,8 +1,8 @@
 import { Button } from "@kaizen/component-library"
-import { HeroCard } from "@kaizen/draft-hero-card"
 import * as React from "react"
+import { HeroCard } from "."
 
-const surveyIllustration = require("../illustrations/survey.png")
+const surveyIllustration = require("./survey.png")
 
 const Container = ({ children }: { children: React.ReactNode }) => (
   <div style={{ padding: "20px", display: "flex" }}>{children}</div>

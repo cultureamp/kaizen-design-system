@@ -3,10 +3,9 @@ import { Menu, MenuContent, MenuItem } from "@kaizen/draft-menu"
 import * as React from "react"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
+import styles from "../styles/TitleBlockZen.scss"
 import { SecondaryActionsProps, TitleBlockMenuItemProps } from "./TitleBlockZen"
 import Toolbar from "./Toolbar"
-
-import styles from "./TitleBlockZen.scss"
 
 type Props = {
   secondaryActions?: SecondaryActionsProps

@@ -1,11 +1,10 @@
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
 import { Card } from "@kaizen/draft-card"
-import { Tabs } from "@kaizen/draft-tabs"
 import { Divider } from "@kaizen/draft-divider"
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import classnames from "classnames"
 import * as React from "react"
 import { ExampleLayout } from "./ExampleLayout"
+import { Tabs } from "."
 
 export default {
   title: "Tabs (React)",

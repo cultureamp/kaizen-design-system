@@ -66,7 +66,7 @@ import {
   WellbeingSurvey2,
   WellbeingSurvey3,
   Workshop,
-} from "../illustration"
+} from "."
 
 export default {
   title: "Illustration, Spot (React)",

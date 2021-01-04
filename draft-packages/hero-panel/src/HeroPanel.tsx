@@ -10,7 +10,7 @@ import {
 import crossIcon from "@kaizen/component-library/icons/close.icon.svg"
 import styles from "../styles/HeroPanel.scss"
 
-interface Props {
+export interface HeroPanelProps {
   readonly id?: string
   readonly automationId?: string
   readonly img: {
@@ -38,7 +38,7 @@ interface Props {
   }
 }
 
-type Panel = React.FunctionComponent<Props>
+type Panel = React.FunctionComponent<HeroPanelProps>
 
 const HeroPanel: Panel = ({
   id,
