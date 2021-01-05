@@ -3,12 +3,12 @@ import { createPortal } from "react-dom"
 import FocusLock from "react-focus-lock"
 import uuid from "uuid/v4"
 import { warn } from "@kaizen/component-library/util/console"
+import styles from "../styles/GenericModal.scss"
 import {
   ModalAccessibleContext,
   ModalAccessibleContextType,
 } from "./ModalAccessibleContext"
 
-import styles from "./GenericModal.scss"
 const { CSSTransition } = require("react-transition-group")
 
 interface GenericModalContainerProps {

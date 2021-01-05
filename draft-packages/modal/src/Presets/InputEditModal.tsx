@@ -11,7 +11,7 @@ import {
   ModalHeader,
 } from "../"
 
-import styles from "./InputEditModal.scss"
+import styles from "../../styles/InputEditModal.scss"
 
 interface Props {
   readonly isOpen: boolean

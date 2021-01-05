@@ -18,7 +18,7 @@ import {
   ModalHeader,
 } from "../"
 
-import styles from "./ConfirmationModal.scss"
+import styles from "../../styles/ConfirmationModal.scss"
 
 interface Props {
   readonly isOpen: boolean

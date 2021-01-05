@@ -1,4 +1,4 @@
-module Main exposing (main)
+module KaizenDraft.Form.RadioField.RadioFieldStories exposing (main)
 
 import ElmStorybook exposing (storyOf, storybook)
 import Html exposing (a, div, text)

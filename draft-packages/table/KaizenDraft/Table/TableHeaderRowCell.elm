@@ -95,7 +95,7 @@ view (Config config) =
         , styles.class .headerRowCell
         , role "columnheader"
         ]
-        [div
+        [ div
             [ styles.class .headerRowCellNoButton ]
             [ Heading.view
                 (Heading.h1 |> Heading.variant Heading6)
@@ -103,8 +103,9 @@ view (Config config) =
             ]
         ]
 
+
 styles =
-    css "@kaizen/draft-table/KaizenDraft/Table/styles.scss"
+    css "@kaizen/draft-table/styles/styles.scss"
         { headerRowCell = "headerRowCell"
         , headerRowCellNoButton = "headerRowCellNoButton"
         }

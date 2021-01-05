@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import styles from "./GenericModalSection.scss"
+import styles from "../styles/GenericModalSection.scss"
 
 interface Props {
   readonly unpadded?: boolean

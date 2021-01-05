@@ -258,7 +258,7 @@ class =
 
 
 styles =
-    css "./LoadingPlaceholder.stories.scss"
+    css "../../src/LoadingPlaceholder.stories.scss"
         { storyContainer = "storyContainer"
         , reversedDefault = "reversedDefault"
         , reversedOcean = "reversedOcean"

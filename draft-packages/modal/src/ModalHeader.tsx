@@ -2,9 +2,8 @@ import * as React from "react"
 
 import { IconButton } from "@kaizen/draft-button"
 import close from "@kaizen/component-library/icons/close.icon.svg"
+import styles from "../styles/ModalHeader.scss"
 import GenericModalSection from "./GenericModalSection"
-
-import styles from "./ModalHeader.scss"
 
 interface Props {
   readonly unpadded?: boolean

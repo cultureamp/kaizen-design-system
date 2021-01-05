@@ -5,7 +5,7 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 .modal {
-  composes: genericModal from "../Primitives/GenericModal.scss";
+  composes: genericModal from "./GenericModal.scss";
   min-width: 300px;
   max-width: 840px;
 

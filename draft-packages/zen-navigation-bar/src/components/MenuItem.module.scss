@@ -4,7 +4,7 @@
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "../../styles";
+@import "../../styles/_styles.scss";
 
 $menuItem__padding: $kz-spacing-md / 2;
 $menuItem__margin: 4px;

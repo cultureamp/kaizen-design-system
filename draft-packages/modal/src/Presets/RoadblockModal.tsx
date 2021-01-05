@@ -13,7 +13,7 @@ import {
   ModalHeader,
 } from "../"
 
-import styles from "./RoadblockModal.scss"
+import styles from "../../styles/RoadblockModal.scss"
 
 interface Props {
   readonly isOpen: boolean

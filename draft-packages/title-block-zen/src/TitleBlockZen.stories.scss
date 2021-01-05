@@ -1,7 +1,7 @@
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/spacing";
-@import "../title-block-zen/KaizenDraft/TitleBlockZen/TitleBlockBreakpoints.scss";
+@import "../styles/TitleBlockBreakpoints.scss";
 
 body {
   margin: 0;
@@ -44,7 +44,7 @@ $content-margin-width-on-medium-and-small: 12px;
 }
 
 .fakeSkirtCard {
-  composes: wrapper from "~@kaizen/draft-card/KaizenDraft/Card/styles.module.scss";
+  composes: wrapper from "~@kaizen/draft-card/styles/styles.module.scss";
   margin-bottom: $kz-spacing-md * -1;
   padding: $kz-spacing-md;
   @media (max-width: $kz-layout-breakpoints-large) {

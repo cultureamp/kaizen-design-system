@@ -3,7 +3,7 @@
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/responsive";
-@import "~@kaizen/draft-zen-navigation-bar/KaizenDraft/ZenNavigationBar/_styles";
+@import "./_styles";
 
 .root {
   @include ca-padding($end: $ca-grid / 2);

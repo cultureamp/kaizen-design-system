@@ -1,9 +1,8 @@
 import * as React from "react"
 
 import { Button } from "@kaizen/draft-button"
+import styles from "../styles/ModalFooter.scss"
 import GenericModalSection from "./GenericModalSection"
-
-import styles from "./ModalFooter.scss"
 
 interface Props {
   readonly unpadded?: boolean

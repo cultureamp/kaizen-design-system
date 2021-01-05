@@ -1,5 +1,5 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
-import Ports from "../select/KaizenDraft/Select/ports"
+import Ports from "../../ports"
 
 loadElmStories(
   "SelectField (Elm)",

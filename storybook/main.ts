@@ -12,7 +12,7 @@ import {
 
 module.exports = {
   stories: [
-    "../draft-packages/*/src/**/*.stories.tsx",
+    "../draft-packages/**/*.stories.tsx",
     // "../packages/component-library/*/src/**/*.stories.tsx",
     // "../legacy-packages/*/src/**/*.stories.tsx",
   ],

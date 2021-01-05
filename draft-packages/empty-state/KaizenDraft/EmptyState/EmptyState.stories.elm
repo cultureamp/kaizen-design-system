@@ -144,7 +144,7 @@ main =
 
 
 styles =
-    css "./EmptyState.stories.scss"
+    css "../../src/EmptyState.stories.scss"
         { container = "container"
         , sidebar = "sidebar"
         , content = "content"

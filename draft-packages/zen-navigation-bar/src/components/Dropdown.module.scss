@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/layout";
-@import "../styles";
+@import "../../styles/_styles";
 
 .dropdown {
   top: calc(100% + #{$ca-grid / 4});

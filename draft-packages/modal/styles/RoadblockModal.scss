@@ -6,7 +6,7 @@
 @import "~@kaizen/component-library/styles/responsive";
 
 .modal {
-  composes: genericModal from "../Primitives/GenericModal.scss";
+  composes: genericModal from "./GenericModal.scss";
   min-width: 300px;
   max-width: 600px;
 }

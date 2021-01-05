@@ -134,7 +134,7 @@ renderSelected status =
 
 
 styles =
-    css "@kaizen/draft-form/KaizenDraft/Form/Primitives/Radio/styles.scss"
+    css "@kaizen/draft-form/styles/Radio.module.scss"
         { radioInput = "radioInput"
         , box = "box"
         , icon = "icon"
