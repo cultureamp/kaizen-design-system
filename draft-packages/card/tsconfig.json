@@ -11,5 +11,6 @@
     "rootDir": "./src",
     "tsBuildInfoFile": "./dist/.cache/tsbuildinfo.json"
   },
-  "include": ["src", "styles"]
+  "include": ["src", "styles"],
+  "exclude": ["**/*.stories.*"]
 }

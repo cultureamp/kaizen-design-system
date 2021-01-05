@@ -1,7 +1,7 @@
 import * as React from "react"
 import classNames from "classnames"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
-import IconButton from "@kaizen/component-library/components/Button/IconButton"
+import { IconButton } from "@kaizen/component-library"
 
 import styles from "../../../styles/Header.module.scss"
 

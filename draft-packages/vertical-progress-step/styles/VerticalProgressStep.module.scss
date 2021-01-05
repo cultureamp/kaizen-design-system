@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/type";
-@import "~@kaizen/component-library/components/Button/styles";
+@import "~@kaizen/component-library/styles/components/Button.module.scss";
 
 .step {
   padding: $ca-grid * 0.5;

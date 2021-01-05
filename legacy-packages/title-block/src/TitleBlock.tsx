@@ -4,8 +4,7 @@ import * as React from "react"
 import Media from "react-media"
 import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 
-import Icon from "@kaizen/component-library/components/Icon/Icon"
-import { MOBILE_QUERY } from "@kaizen/component-library/components/NavigationBar/constants"
+import { Icon } from "@kaizen/component-library"
 import { Tag } from "@kaizen/draft-tag"
 import backIcon from "@kaizen/component-library/icons/arrow-backward.icon.svg"
 
@@ -13,6 +12,7 @@ import forwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 
 import styles from "../styles/TitleBlock.scss"
 import NavigationButtons, { NavigationButton } from "./NavigationButtons"
+const MOBILE_QUERY = "(max-width: 767px)"
 
 type Color =
   | "Lapis"

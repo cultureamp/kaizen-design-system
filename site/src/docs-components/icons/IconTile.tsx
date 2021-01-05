@@ -5,7 +5,7 @@ import * as React from "react"
 import tick from "@kaizen/component-library/icons/check.icon.svg"
 
 import styles from "./IconGrid.scss"
-const iconStyles = require("@kaizen/component-library/components/Icon/Icon.module.scss")
+const iconStyles = require("@kaizen/component-library/styles/components/Icon.module.scss")
 
 const ICONS_IMPORT_DIR = "@kaizen/component-library/icons/"
 

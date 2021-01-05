@@ -7,7 +7,7 @@
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/layout";
-@import "~@kaizen/component-library/components/Button/styles";
+@import "~@kaizen/component-library/styles/components/Button.module.scss";
 
 // Taken from design-tokens/sass/shadow
 // we need control of the x and y offset in this component

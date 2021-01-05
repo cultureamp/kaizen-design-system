@@ -12,5 +12,15 @@
     "tsBuildInfoFile": "./dist/.cache/tsbuildinfo.json"
   },
   "include": ["src", "styles"],
-  "references": []
+  "references": [
+    {
+      "path": "../../packages/component-library"
+    },
+    {
+      "path": "../../packages/react-deprecate-warning"
+    },
+    {
+      "path": "../../draft-packages/tag"
+    }
+  ]
 }

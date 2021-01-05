@@ -1,4 +1,4 @@
-import { Icon } from "@kaizen/component-library/components/Icon"
+import { Icon } from "@kaizen/component-library"
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import successIcon from "@kaizen/component-library/icons/success.icon.svg"
 import classnames from "classnames"

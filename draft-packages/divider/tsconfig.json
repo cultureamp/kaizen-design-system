@@ -12,5 +12,6 @@
     "tsBuildInfoFile": "./dist/.cache/tsbuildinfo.json"
   },
   "include": ["src", "styles"],
+  "exclude": ["**/*.stories.*"],
   "references": []
 }

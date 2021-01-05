@@ -2,7 +2,7 @@ import * as React from "react"
 import { createPortal } from "react-dom"
 import FocusLock from "react-focus-lock"
 import uuid from "uuid/v4"
-import { warn } from "@kaizen/component-library/util/console"
+import { warn } from "@kaizen/component-library"
 import styles from "../styles/GenericModal.scss"
 import {
   ModalAccessibleContext,

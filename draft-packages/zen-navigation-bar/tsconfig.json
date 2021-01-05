@@ -12,12 +12,10 @@
     "tsBuildInfoFile": "./dist/.cache/tsbuildinfo.json"
   },
   "include": ["src", "styles"],
+  "exclude": ["**/*.stories.*"],
   "references": [
     {
       "path": "../../packages/component-library"
-    },
-    {
-      "path": "../zen-off-canvas"
     }
   ]
 }

@@ -28,7 +28,6 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^8.0.9",
-    "@kaizen/draft-zen-off-canvas": "^2.0.10",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",
     "react-media": "^1.9.2",

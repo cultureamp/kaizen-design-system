@@ -12,11 +12,9 @@
   },
   "main": "./src",
   "files": [
-    "./dist"
+    "./dist",
+    "!*.stories.tsx"
   ],
-  "directories": {
-    "lib": "./src"
-  },
   "sideEffects": false,
   "version": "8.0.9",
   "private": false,

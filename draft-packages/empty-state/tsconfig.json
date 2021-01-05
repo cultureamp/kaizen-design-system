@@ -12,6 +12,7 @@
     "tsBuildInfoFile": "./dist/.cache/tsbuildinfo.json"
   },
   "include": ["src", "styles", "illustrations"],
+  "exclude": ["**/*.stories.*"],
   "references": [
     {
       "path": "../../packages/component-library"

@@ -32,7 +32,7 @@ $tileHeight: $ca-grid * 6;
   margin: 0;
   padding: 0;
   border: none;
-  composes: interactiveIconWrapper from "@kaizen/component-library/components/Icon/Icon.module.scss";
+  composes: interactiveIconWrapper from "@kaizen/component-library/styles/components/Icon";
   cursor: pointer;
   border-radius: $ca-border-radius;
 
