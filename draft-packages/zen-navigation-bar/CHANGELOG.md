@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@2.0.9...@kaizen/draft-zen-navigation-bar@2.0.10) (2020-12-23)
+
+
+### Bug Fixes
+
+* console error, where boolean was passed into `className` ([#913](https://github.com/cultureamp/kaizen-design-system/issues/913)) ([a8bc140](https://github.com/cultureamp/kaizen-design-system/commit/a8bc140d4b1a0f2da7d7e3f2a45c175fe026effd))
+
+
+
+
+
 ## [2.0.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@2.0.8...@kaizen/draft-zen-navigation-bar@2.0.9) (2020-12-16)
 
 **Note:** Version bump only for package @kaizen/draft-zen-navigation-bar

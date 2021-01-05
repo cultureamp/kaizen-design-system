@@ -61,12 +61,7 @@ class Link extends React.PureComponent<LinkProps> {
           >
             {matches =>
               matches ? null : (
-                <ReactTooltip
-                  className={hasExtendedNavigation}
-                  id={this.toolId}
-                  place={"left"}
-                  effect={"solid"}
-                >
+                <ReactTooltip id={this.toolId} place={"left"} effect={"solid"}>
                   <span className={styles.tooltip}>
                     <Heading color="white" variant="heading-6">
                       {text}
