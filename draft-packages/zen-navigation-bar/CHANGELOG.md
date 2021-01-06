@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@2.0.10...@kaizen/draft-zen-navigation-bar@2.1.0) (2021-01-06)
+
+
+### Features
+
+* Consolidate off-canvas into zen-navigation-bar ([#914](https://github.com/cultureamp/kaizen-design-system/issues/914)) ([06ba68c](https://github.com/cultureamp/kaizen-design-system/commit/06ba68cdd9028edd0980895339f145eccd0d8387))
+
+
+
+
+
 ## [2.0.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@2.0.9...@kaizen/draft-zen-navigation-bar@2.0.10) (2020-12-23)
 
 
