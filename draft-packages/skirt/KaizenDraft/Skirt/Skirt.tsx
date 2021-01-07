@@ -1,11 +1,8 @@
 import * as React from "react"
+import { Container, Content } from "@kaizen/draft-page-layout"
+import classNames from "classnames"
 import styles from "./styles.scss"
 import { DOMRectReadOnly, useResizeObserver } from "./useResizeObserver"
-import {
-  ContentBlockContainer,
-  ContentBlock,
-} from "@kaizen/draft-content-block"
-import classNames from "classnames"
 
 const spacing = 24
 const maxHeight = 222
@@ -36,7 +33,7 @@ export const Skirt = ({
   )
 
   return (
-    <ContentBlockContainer
+    <Container
       ref={ref}
       classNameAndIHaveSpokenToDST={classNames(styles.container, className)}
     >
@@ -47,10 +44,10 @@ export const Skirt = ({
           [styles.educationVariant]: variant === "education",
         })}
       />
-      <ContentBlock classNameAndIHaveSpokenToDST={styles.content}>
+      <Content classNameAndIHaveSpokenToDST={styles.content}>
         {children}
-      </ContentBlock>
-    </ContentBlockContainer>
+      </Content>
+    </Container>
   )
 }
 

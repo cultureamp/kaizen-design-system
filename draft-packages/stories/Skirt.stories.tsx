@@ -1,10 +1,10 @@
 import * as React from "react"
+import { Skirt, SkirtCard } from "@kaizen/draft-skirt"
+import { Box, Paragraph } from "@kaizen/component-library"
 import {
   NavigationTab,
   TitleBlockZen,
 } from "../title-block-zen/KaizenDraft/TitleBlockZen"
-import { Skirt, SkirtCard } from "@kaizen/draft-skirt"
-import { Box, Paragraph } from "@kaizen/component-library"
 
 export default {
   title: "Skirt (React)",

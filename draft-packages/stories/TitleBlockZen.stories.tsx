@@ -7,10 +7,7 @@ import reportSharingIcon from "@kaizen/component-library/icons/report-sharing.ic
 import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import { assetUrl } from "@kaizen/hosted-assets"
 import { Skirt, SkirtCard } from "@kaizen/draft-skirt"
-import {
-  ContentBlockContainer,
-  ContentBlock,
-} from "@kaizen/draft-content-block"
+import { Container, Content } from "@kaizen/draft-page-layout"
 import {
   NavigationTab,
   TitleBlockZen,
@@ -22,7 +19,7 @@ export default {
   title: "TitleBlockZen (React)",
 }
 
-const Container = ({ children }: { children: React.ReactNode }) => (
+const OffsetPadding = ({ children }: { children: React.ReactNode }) => (
   <div style={{ margin: "-1rem" }}>{children}</div>
 )
 
@@ -55,7 +52,7 @@ const SECONDARY_ACTIONS = [
 ]
 
 export const Default = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       surveyStatus={{ text: "Live", status: "live" }}
@@ -103,7 +100,7 @@ export const Default = () => (
         <NavigationTab text="Label" href="#" />,
       ]}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 Default.storyName = "Default"
@@ -111,7 +108,7 @@ Default.storyName = "Default"
 export const WithBadge = () => {
   const [badgeCount, setBadgeCount] = React.useState(1)
   return (
-    <Container>
+    <OffsetPadding>
       <TitleBlockZen
         title="Page title"
         surveyStatus={{ text: "Live", status: "live" }}
@@ -139,14 +136,14 @@ export const WithBadge = () => {
           },
         }}
       />
-    </Container>
+    </OffsetPadding>
   )
 }
 
 WithBadge.storyName = "With Primary Action Badge"
 
 export const WithDefaultTag = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       surveyStatus={{ text: "Due July 8, 2030", status: "default" }}
@@ -164,13 +161,13 @@ export const WithDefaultTag = () => (
         },
       }}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 WithDefaultTag.storyName = "With Default Survey Status (Tag)"
 
 export const AdminWithDefaultTag = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       variant="admin"
       title="Page title"
@@ -189,13 +186,13 @@ export const AdminWithDefaultTag = () => (
         },
       }}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 AdminWithDefaultTag.storyName = "Admin With Default Survey Status (Tag)"
 
 export const DefaultWithMenuButton = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       surveyStatus={{ text: "Live", status: "live" }}
@@ -242,13 +239,13 @@ export const DefaultWithMenuButton = () => (
         <NavigationTab text="Label" href="#" />,
       ]}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 DefaultWithMenuButton.storyName = "Default (Menu Button)"
 
 export const AdminVariant = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       variant="admin"
@@ -275,12 +272,12 @@ export const AdminVariant = () => (
         },
       }}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 AdminVariant.storyName = "Admin variant"
 export const AdminVariantWithNavTabs = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       variant="admin"
@@ -306,13 +303,13 @@ export const AdminVariantWithNavTabs = () => (
         <NavigationTab text="Label" href="#" variant="admin" />,
       ]}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 AdminVariantWithNavTabs.storyName = "Admin variant with Navigation Tabs"
 
 export const EducationVariant = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       variant="education"
@@ -368,13 +365,13 @@ export const EducationVariant = () => (
         </Box>
       </SkirtCard>
     </Skirt>
-  </Container>
+  </OffsetPadding>
 )
 
 EducationVariant.storyName = "Education variant"
 
 export const Engagement = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Baseline Engagement Survey"
       surveyStatus={{ text: "Live", status: "live" }}
@@ -414,13 +411,13 @@ export const Engagement = () => (
         <NavigationTab text="Comments" href="#" />,
       ]}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 Engagement.storyName = "Engagement"
 
 export const Performance = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Blanca Wheeler"
       subtitle="Director of Stuff and Things"
@@ -473,13 +470,13 @@ export const Performance = () => (
         <NavigationTab text="Notes" href="#" />,
       ]}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 Performance.storyName = "Performance"
 
 export const LongLabels = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Wolfeschlegelsteino Hausenbergerdorffsch Hausenbergerdorffsch"
       surveyStatus={{ text: "Live", status: "live" }}
@@ -536,7 +533,7 @@ export const LongLabels = () => (
         <NavigationTab text="Anmerkungen" href="#" />,
       ]}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 const MENU_LINKS = [
@@ -565,7 +562,7 @@ const MENU_LINKS = [
 ]
 
 export const DefaultWithContent = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       surveyStatus={{ text: "Live", status: "live" }}
@@ -598,8 +595,8 @@ export const DefaultWithContent = () => (
         <NavigationTab text="Label" href="#" />,
       ]}
     />
-    <ContentBlockContainer>
-      <ContentBlock classNameAndIHaveSpokenToDST={styles.contentContainer}>
+    <Container>
+      <Content classNameAndIHaveSpokenToDST={styles.contentContainer}>
         <Box my={2}>
           <Heading variant="heading-1">Placeholder heading</Heading>
         </Box>
@@ -675,15 +672,15 @@ export const DefaultWithContent = () => (
             Ut massa enim, commodo non dapibus pharetra, viverra sed erat.
           </Paragraph>
         </Box>
-      </ContentBlock>
-    </ContentBlockContainer>
-  </Container>
+      </Content>
+    </Container>
+  </OffsetPadding>
 )
 
 DefaultWithContent.storyName = "Default with content"
 
 export const DefaultNoSecondary = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       surveyStatus={{ text: "Live", status: "live" }}
@@ -799,13 +796,13 @@ export const DefaultNoSecondary = () => (
         </Box>
       </SkirtCard>
     </Skirt>
-  </Container>
+  </OffsetPadding>
 )
 
 DefaultNoSecondary.storyName = "Default (no secondary actions)"
 
 export const DefaultOnlyPrimary = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       surveyStatus={{ text: "Live", status: "live" }}
@@ -833,13 +830,13 @@ export const DefaultOnlyPrimary = () => (
         <NavigationTab text="Label" href="#" />,
       ]}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 DefaultOnlyPrimary.storyName = "Default (only primary action)"
 
 export const DefaultWithReportSwitcher = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Baseline Engagement Survey"
       surveyStatus={{ text: "Live", status: "live" }}
@@ -890,13 +887,13 @@ export const DefaultWithReportSwitcher = () => (
         <NavigationTab text="Label" href="#" />,
       ]}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 DefaultWithReportSwitcher.storyName = "Default with report switcher"
 
 export const DefaultNoLink = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       surveyStatus={{ text: "Live", status: "live" }}
@@ -952,13 +949,13 @@ export const DefaultNoLink = () => (
         </Box>
       </SkirtCard>
     </Skirt>
-  </Container>
+  </OffsetPadding>
 )
 
 DefaultNoLink.storyName = "Default (no link in breadcrumb)"
 
 export const DefaultOnlyLongTitle = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title='Page title that is over the "long title" character threshold and goes way longer than usual'
       subtitle="Subtitle goes here"
@@ -973,13 +970,13 @@ export const DefaultOnlyLongTitle = () => (
         },
       }}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 DefaultOnlyLongTitle.storyName = "Default (only long title)"
 
 export const DefaultCollapsedNavigation = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       subtitle="Subtitle goes here"
@@ -995,20 +992,20 @@ export const DefaultCollapsedNavigation = () => (
       }}
       collapseNavigationAreaWhenPossible
     />
-    <ContentBlockContainer>
-      <ContentBlock>
+    <Container>
+      <Content>
         <Paragraph variant="body">
           I am some text that should feel tightly butted up
         </Paragraph>
-      </ContentBlock>
-    </ContentBlockContainer>
-  </Container>
+      </Content>
+    </Container>
+  </OffsetPadding>
 )
 
 DefaultCollapsedNavigation.storyName = "Default (collapsed navigation)"
 
 export const DefaultCollapsedNavigationCard = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       subtitle="Subtitle goes here"
@@ -1033,7 +1030,7 @@ export const DefaultCollapsedNavigationCard = () => (
         </Box>
       </SkirtCard>
     </Skirt>
-  </Container>
+  </OffsetPadding>
 )
 
 DefaultCollapsedNavigationCard.story = {
@@ -1041,7 +1038,7 @@ DefaultCollapsedNavigationCard.story = {
 }
 
 export const AdminVariantNavigation = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       variant="admin"
       title="Page title"
@@ -1058,16 +1055,16 @@ export const AdminVariantNavigation = () => (
       }}
       collapseNavigationAreaWhenPossible
     />
-    <ContentBlockContainer>
-      <ContentBlock>
+    <Container>
+      <Content>
         <Paragraph variant="body">
           I am some text that should feel tightly butted up to the nav space.
           The responsibility for the admin variant is to move things down
           yourself if you need to.
         </Paragraph>
-      </ContentBlock>
-    </ContentBlockContainer>
-  </Container>
+      </Content>
+    </Container>
+  </OffsetPadding>
 )
 
 AdminVariantNavigation.storyName = "Admin (collapsed navigation)"

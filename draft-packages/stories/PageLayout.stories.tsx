@@ -1,15 +1,16 @@
 import * as React from "react"
 import { Paragraph } from "@kaizen/component-library"
-import { ContentBlockContainer, ContentBlock } from "../content-block"
+import { Container, Content } from "../page-layout"
 import { TitleBlockZen } from "../title-block-zen/KaizenDraft/TitleBlockZen"
+import styles from "./PageLayout.stores.scss"
 
 export default {
-  title: "ContentBlock (React)",
-  component: ContentBlockContainer,
+  title: "Content (React)",
+  component: Container,
   parameters: {
     info: {
       text: `
-        import { ContentBlockContainer, ContentBlock } from "@kaizen/draft-content-block";
+        import { Container, Content } from "@kaizen/draft-page-layout";
       `,
     },
   },
@@ -18,8 +19,8 @@ export default {
 export const DefaultStory = () => (
   <>
     <TitleBlockZen title="Page title" collapseNavigationAreaWhenPossible />
-    <ContentBlockContainer>
-      <ContentBlock>
+    <Container>
+      <Content>
         <Paragraph variant="body">
           This content should sit with the same width as the TitleBlockZen. Call
           me Ishmael. Some years ago - never mind how long precisely - having
@@ -37,16 +38,16 @@ export const DefaultStory = () => (
           substitute for pistol and ball. With a philosophical flourish Cato
           throws himself upon his sword; I quietly take to the ship.
         </Paragraph>
-      </ContentBlock>
-    </ContentBlockContainer>
+      </Content>
+    </Container>
   </>
 )
 
 DefaultStory.storyName = "Default"
 
 export const FullBleedBackgroundStory = () => (
-  <ContentBlockContainer style={{ backgroundColor: "#f09" }}>
-    <ContentBlock style={{ backgroundColor: "#fff" }}>
+  <Container classNameAndIHaveSpokenToDST={styles.pink}>
+    <Content classNameAndIHaveSpokenToDST={styles.white}>
       <Paragraph variant="body">
         Call me Ishmael. Some years ago - never mind how long precisely - having
         little or no money in my purse, and nothing particular to interest me on
@@ -63,8 +64,8 @@ export const FullBleedBackgroundStory = () => (
         philosophical flourish Cato throws himself upon his sword; I quietly
         take to the ship.
       </Paragraph>
-    </ContentBlock>
-  </ContentBlockContainer>
+    </Content>
+  </Container>
 )
 
 FullBleedBackgroundStory.storyName = "Full-bleed background"

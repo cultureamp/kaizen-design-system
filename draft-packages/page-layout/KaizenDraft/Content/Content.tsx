@@ -2,7 +2,7 @@ import * as React from "react"
 import classNames from "classnames"
 import styles from "./styles.scss"
 
-export interface ContentBlockProps {
+export interface ContentProps {
   /**
    * Uniquely identify this component for testing purposes
    * @default ""
@@ -17,20 +17,41 @@ export interface ContentBlockProps {
   classNameAndIHaveSpokenToDST?: string
 
   /**
-   * Not recommended. A short-circuit for overriding styles in a pinch
+   * Not recommended. A short-circuit for dynamically overriding layout in a pinch
    * @default ""
    */
-  style?: React.CSSProperties
+  style?: Pick<
+    React.CSSProperties,
+    | "bottom"
+    | "left"
+    | "margin"
+    | "marginBottom"
+    | "marginLeft"
+    | "marginRight"
+    | "marginTop"
+    | "padding"
+    | "paddingBottom"
+    | "paddingLeft"
+    | "paddingRight"
+    | "paddingTop"
+    | "position"
+    | "right"
+    | "top"
+    | "transform"
+    | "transformBox"
+    | "transformOrigin"
+    | "transformStyle"
+  >
 }
 
-export const ContentBlockContainer = React.forwardRef(
+export const Container = React.forwardRef(
   (
     {
       automationId,
       children,
       classNameAndIHaveSpokenToDST,
       style,
-    }: ContentBlockProps,
+    }: ContentProps,
     ref: React.Ref<HTMLDivElement>
   ) => (
     <div
@@ -44,14 +65,14 @@ export const ContentBlockContainer = React.forwardRef(
   )
 )
 
-export const ContentBlock = React.forwardRef(
+export const Content = React.forwardRef(
   (
     {
       automationId,
       children,
       classNameAndIHaveSpokenToDST,
       style,
-    }: ContentBlockProps,
+    }: ContentProps,
     ref: React.Ref<HTMLDivElement>
   ) => (
     <div

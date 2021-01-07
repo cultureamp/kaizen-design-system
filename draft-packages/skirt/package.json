@@ -31,6 +31,8 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
+    "@kaizen/draft-card": "^1.2.4",
+    "@kaizen/draft-page-layout": "^1.0.0",
     "classnames": "^2.2.6",
     "resize-observer-polyfill": "^1.5.1"
   },
