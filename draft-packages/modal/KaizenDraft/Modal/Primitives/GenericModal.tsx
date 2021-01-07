@@ -11,7 +11,7 @@ import {
 import styles from "./GenericModal.scss"
 const { CSSTransition } = require("react-transition-group")
 
-interface GenericModalContainerProps {
+export interface GenericModalContainerProps {
   readonly isOpen: boolean
   readonly children: React.ReactNode
   readonly focusLockDisabled?: boolean
@@ -20,7 +20,7 @@ interface GenericModalContainerProps {
   readonly automationId?: string
 }
 
-interface GenericModalProps
+export interface GenericModalProps
   extends GenericModalContainerProps,
     ModalAccessibleContextType {}
 
