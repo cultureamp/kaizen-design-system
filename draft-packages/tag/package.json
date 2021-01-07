@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-tag",
-  "version": "1.5.58",
+  "version": "1.6.0",
   "description": "The draft Tag component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",

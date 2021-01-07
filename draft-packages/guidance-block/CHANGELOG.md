@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.4.19...@kaizen/draft-guidance-block@2.5.0) (2021-01-07)
+
+
+### Features
+
+* Export *Props from packages ([#917](https://github.com/cultureamp/kaizen-design-system/issues/917)) ([53656b6](https://github.com/cultureamp/kaizen-design-system/commit/53656b60ff51da40b22d0e489149dbf9eee22386))
+
+
+
+
+
 ## [2.4.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.4.18...@kaizen/draft-guidance-block@2.4.19) (2020-12-16)
 
 **Note:** Version bump only for package @kaizen/draft-guidance-block

@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-split-button",
-  "version": "2.1.5",
+  "version": "2.2.0",
   "description": "The draft Split button component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
