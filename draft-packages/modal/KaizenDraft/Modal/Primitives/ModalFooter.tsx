@@ -5,7 +5,7 @@ import GenericModalSection from "./GenericModalSection"
 
 import styles from "./ModalFooter.scss"
 
-interface Props {
+export interface ModalFooterProps {
   readonly unpadded?: boolean
   readonly actions: Array<{
     label: string
@@ -17,7 +17,7 @@ interface Props {
   readonly automationId?: string
 }
 
-type ModalFooter = React.FunctionComponent<Props>
+type ModalFooter = React.FunctionComponent<ModalFooterProps>
 
 const ModalFooter: ModalFooter = props => {
   const { unpadded, actions, appearance = "primary", automationId } = props

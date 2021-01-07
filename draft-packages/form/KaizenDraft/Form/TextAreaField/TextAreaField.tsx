@@ -7,7 +7,8 @@ import {
   TextArea,
 } from "../index"
 
-interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface TextAreaFieldProps
+  extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   labelText: string | React.ReactNode
   inline?: boolean
   reversed?: boolean
@@ -19,7 +20,7 @@ interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   variant?: "default" | "prominent"
 }
 
-const TextAreaField: React.FunctionComponent<Props> = props => {
+const TextAreaField: React.FunctionComponent<TextAreaFieldProps> = props => {
   const {
     id,
     labelText,

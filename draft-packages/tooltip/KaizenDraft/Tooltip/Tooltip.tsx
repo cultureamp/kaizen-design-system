@@ -4,7 +4,7 @@ import styles from "./Tooltip.scss"
 
 type Position = "above" | "below"
 
-type Props = {
+export type TooltipProps = {
   inline?: boolean
   position?: Position
   text: React.ReactNode
@@ -12,7 +12,7 @@ type Props = {
   classNameAndIHaveSpokenToDST?: string
 }
 
-const Tooltip = (props: Props) => (
+const Tooltip = (props: TooltipProps) => (
   <span
     className={classnames(
       styles.tooltipWrap,
