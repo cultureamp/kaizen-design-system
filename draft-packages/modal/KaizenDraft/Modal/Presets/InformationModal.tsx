@@ -34,7 +34,7 @@ const InformationModal = ({
   automationId,
   renderBackground,
   children,
-}: Props) => (
+}: InformationModalProps) => (
   <GenericModal
     isOpen={isOpen}
     onEscapeKeyup={onDismiss}

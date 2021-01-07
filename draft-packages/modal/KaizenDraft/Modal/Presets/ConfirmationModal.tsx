@@ -58,7 +58,7 @@ const ConfirmationModal = ({
   dismissLabel = "Cancel",
   automationId,
   children,
-}: Props) => {
+}: ConfirmationModalProps) => {
   const footerActions: Array<{ label: string; action: () => void }> = []
   if (onConfirm) {
     footerActions.push({ label: confirmLabel, action: onConfirm })

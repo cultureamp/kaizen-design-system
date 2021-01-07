@@ -33,7 +33,7 @@ const RoadblockModal = ({
   dismissLabel = "Back",
   automationId,
   children,
-}: Props) => (
+}: RoadblockModalProps) => (
   <GenericModal
     isOpen={isOpen}
     onEscapeKeyup={onDismiss}
