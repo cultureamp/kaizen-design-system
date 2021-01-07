@@ -11,7 +11,7 @@ import {
 
 import styles from "./styles.scss"
 
-interface ToggleSwitchFieldProps {
+export interface ToggleSwitchFieldProps {
   id?: string
   name?: string
   labelText: string | React.ReactNode
