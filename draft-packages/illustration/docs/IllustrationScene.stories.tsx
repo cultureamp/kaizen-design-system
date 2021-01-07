@@ -49,7 +49,7 @@ import {
   PerformanceSupport,
   PerformanceTeamSummary,
   Programs,
-} from "../illustration"
+} from ".."
 
 export default {
   title: "Illustration, Scene (React)",

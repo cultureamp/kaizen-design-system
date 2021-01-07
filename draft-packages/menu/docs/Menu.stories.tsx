@@ -17,7 +17,7 @@ import {
   MenuItem,
   MenuSeparator,
   StatelessMenu,
-} from "../menu"
+} from ".."
 
 const StoryWrapper = ({ children }) => (
   <div style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}>

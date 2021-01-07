@@ -2,7 +2,7 @@ import { DismissiblePositiveAutohide } from "@kaizen/component-library/stories/I
 import { Popover } from "@kaizen/draft-popover"
 import * as React from "react"
 import guidanceIcon from "@kaizen/component-library/icons/guidance.icon.svg"
-import { Avatar } from "../avatar"
+import { Avatar } from "@kaizen/draft-avatar"
 
 export default {
   title: "Popover (React)",

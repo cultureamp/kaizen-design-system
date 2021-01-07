@@ -1,7 +1,7 @@
 import { HeroPanel } from "@kaizen/draft-hero-panel"
 
 import * as React from "react"
-const reportHeroData = require("../illustrations/reporting-hero-data.png")
+const reportHeroData = require("./reporting-hero-data.png")
 
 export default {
   title: "HeroPanel (React)",

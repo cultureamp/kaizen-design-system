@@ -12,7 +12,7 @@ import {
   TableHeaderRowCell,
   TableRow,
   TableRowCell,
-} from "../table"
+} from ".."
 import styles from "./Table.stories.scss"
 
 const Container: React.FunctionComponent<{
