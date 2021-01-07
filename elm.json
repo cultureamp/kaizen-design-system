@@ -26,7 +26,6 @@
         "./draft-packages/user-interactions",
         "./draft-packages/vertical-progress-step",
         "./draft-packages/zen-navigation-bar",
-        "./draft-packages/zen-off-canvas",
         "./draft-packages/well",
         "./legacy-packages/menu-list",
         "./legacy-packages/title-block",

@@ -2,11 +2,11 @@ import * as React from "react"
 import { ModalAccessibleContext } from "./ModalAccessibleContext"
 import styles from "./ModalAccessibleLabel.scss"
 
-interface Props {
+export interface ModalAccessibleLabelProps {
   readonly children: React.ReactNode
 }
 
-type ModalAccessibleLabel = React.FunctionComponent<Props>
+type ModalAccessibleLabel = React.FunctionComponent<ModalAccessibleLabelProps>
 
 const ModalAccessibleLabel: ModalAccessibleLabel = ({ children }) => (
   <ModalAccessibleContext.Consumer>

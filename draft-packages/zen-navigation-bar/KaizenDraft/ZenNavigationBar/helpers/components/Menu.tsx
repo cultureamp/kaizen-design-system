@@ -1,7 +1,7 @@
-import { MenuProps } from "@kaizen/draft-zen-navigation-bar/KaizenDraft/ZenNavigationBar/types"
 import classNames from "classnames"
 import * as React from "react"
 import uuidv4 from "uuid/v4"
+import { MenuProps } from "../../types"
 
 import styles from "./Menu.module.scss"
 

@@ -8,11 +8,11 @@ type TileProps = InformationTileProps | MultiActionTileProps
 
 export type TileElement = ReactElement<TileProps>
 
-interface TileGrid {
+export interface TileGridProps {
   children: TileElement[] | TileElement
 }
 
-const TileGrid: React.FunctionComponent<TileGrid> = ({ children }) => {
+const TileGrid: React.FunctionComponent<TileGridProps> = ({ children }) => {
   const renderChildren = () => {
     const childrenArray = React.Children.toArray(children)
 

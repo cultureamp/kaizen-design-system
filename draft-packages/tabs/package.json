@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-tabs",
-  "version": "4.0.9",
+  "version": "4.1.0",
   "description": "The draft Tabs component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
