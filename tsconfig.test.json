@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "lib": ["es2018", "dom"],
+    "module": "commonjs",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "strict": true,
+    "allowJs": false,
+    "noEmit": true
+  },
+  "files": ["./types.d.ts"]
+}
