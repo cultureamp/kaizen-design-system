@@ -28,7 +28,7 @@ export const Skirt = ({
       if (entry.contentRect) {
         return deriveSkirtHeight(entry.contentRect, titleBlockHasNavigation)
       }
-      return null
+      return undefined
     }
   )
 

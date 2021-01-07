@@ -25,18 +25,18 @@ export interface DOMRectReadOnly {
  */
 export const useResizeObserver = <T, E extends Element = HTMLElement>(
   resolveEntry: (entry: ResizeObserverEntry) => any = defaultCallback
-): [Ref<E>, T | null] => {
+): [Ref<E>, T | undefined] => {
   const destroyResizeObserverRef: React.MutableRefObject<
-    null | (() => void)
-  > = useRef(null)
-  const [dimensions, setDimensions] = useState<T | null>(null)
+    undefined | (() => void)
+  > = useRef(undefined)
+  const [dimensions, setDimensions] = useState<T | undefined>(undefined)
   const resolveEntryRef: React.MutableRefObject<(
     entry: ResizeObserverEntry
   ) => any> = useRef(resolveEntry)
 
   const ref: Ref<E> = useCallback(
     (node: E) => {
-      if (node !== null) {
+      if (node !== undefined) {
         const resizeObserver = new ResizeObserver(
           (entries: ResizeObserverEntry[]) => {
             for (const entry of entries) {
