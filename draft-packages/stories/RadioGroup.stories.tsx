@@ -1,6 +1,4 @@
-import { Label } from "@kaizen/draft-form"
-import { Radio } from "@kaizen/draft-radio"
-import { RadioGroup } from "@kaizen/draft-radio-group"
+import { Label, RadioField, RadioGroup } from "@kaizen/draft-form"
 import * as React from "react"
 import styles from "./RadioGroup.stories.scss"
 
@@ -43,7 +41,7 @@ export default {
   parameters: {
     info: {
       text: `
-      import { RadioGroup } from "@kaizen/draft-radio-group"
+      import { RadioGroup } from "@kaizen/draft-form"
       `,
     },
   },
@@ -53,7 +51,7 @@ export const DefaultKaizenSiteDemo = () => (
   <RadioGroupExample
     render={({ selectedOption, onChangeHandler }) => (
       <RadioGroup labelText="Radio group label">
-        <Radio
+        <RadioField
           labelText="Label"
           name="radio"
           id="radio-1"
@@ -61,7 +59,7 @@ export const DefaultKaizenSiteDemo = () => (
           onChange={onChangeHandler}
           value="radio-1"
         />
-        <Radio
+        <RadioField
           labelText="Label"
           name="radio"
           id="radio-2"
@@ -69,7 +67,7 @@ export const DefaultKaizenSiteDemo = () => (
           onChange={onChangeHandler}
           value="radio-2"
         />
-        <Radio
+        <RadioField
           labelText="Label"
           name="radio"
           id="radio-3"
@@ -88,7 +86,7 @@ export const WithDisabledRadios = () => (
   <RadioGroupExample
     render={({ selectedOption, onChangeHandler }) => (
       <RadioGroup labelText="Radio group label">
-        <Radio
+        <RadioField
           labelText="Label"
           name="radio"
           id="radio-1"
@@ -97,7 +95,7 @@ export const WithDisabledRadios = () => (
           onChange={onChangeHandler}
           value="radio-1"
         />
-        <Radio
+        <RadioField
           labelText="Label"
           name="radio"
           id="radio-2"
@@ -105,7 +103,7 @@ export const WithDisabledRadios = () => (
           onChange={onChangeHandler}
           value="radio-2"
         />
-        <Radio
+        <RadioField
           labelText="Label"
           name="radio"
           id="radio-3"
@@ -125,7 +123,7 @@ export const Rtl = () => (
     <RadioGroupExample
       render={({ selectedOption, onChangeHandler }) => (
         <RadioGroup labelText="Radio group label">
-          <Radio
+          <RadioField
             labelText="Label"
             name="radio"
             id="radio-1"
@@ -133,7 +131,7 @@ export const Rtl = () => (
             onChange={onChangeHandler}
             value="radio-1"
           />
-          <Radio
+          <RadioField
             labelText="Label"
             name="radio"
             id="radio-2"
@@ -141,7 +139,7 @@ export const Rtl = () => (
             onChange={onChangeHandler}
             value="radio-2"
           />
-          <Radio
+          <RadioField
             labelText="Label"
             name="radio"
             id="radio-3"
@@ -162,7 +160,7 @@ export const RtlWithDisabledRadios = () => (
     <RadioGroupExample
       render={({ selectedOption, onChangeHandler }) => (
         <RadioGroup labelText="Radio group label">
-          <Radio
+          <RadioField
             labelText="Label"
             name="radio"
             id="radio-1"
@@ -171,7 +169,7 @@ export const RtlWithDisabledRadios = () => (
             onChange={onChangeHandler}
             value="radio-1"
           />
-          <Radio
+          <RadioField
             labelText="Label"
             name="radio"
             id="radio-2"
@@ -180,7 +178,7 @@ export const RtlWithDisabledRadios = () => (
             onChange={onChangeHandler}
             value="radio-2"
           />
-          <Radio
+          <RadioField
             labelText="Label"
             name="radio"
             id="radio-3"
@@ -209,7 +207,7 @@ export const WithLinks = () => (
           </div>
         }
       >
-        <Radio
+        <RadioField
           labelText="Label 1"
           name="radio"
           id="radio-1"
@@ -217,7 +215,7 @@ export const WithLinks = () => (
           onChange={onChangeHandler}
           value="radio-1"
         />
-        <Radio
+        <RadioField
           labelText="Label 2"
           name="radio"
           id="radio-2"
@@ -225,7 +223,7 @@ export const WithLinks = () => (
           onChange={onChangeHandler}
           value="radio-2"
         />
-        <Radio
+        <RadioField
           labelText={
             <div>
               Label 3 with a{" "}
@@ -252,7 +250,7 @@ export const WithoutBottomMargin = () => (
     render={({ selectedOption, onChangeHandler }) => (
       <>
         <RadioGroup noBottomMargin labelText="Radio group label">
-          <Radio
+          <RadioField
             labelText="Label"
             name="radio"
             id="radio-1"
@@ -260,7 +258,7 @@ export const WithoutBottomMargin = () => (
             onChange={onChangeHandler}
             value="radio-1"
           />
-          <Radio
+          <RadioField
             labelText="Label"
             name="radio"
             id="radio-2"
@@ -268,7 +266,7 @@ export const WithoutBottomMargin = () => (
             onChange={onChangeHandler}
             value="radio-2"
           />
-          <Radio
+          <RadioField
             labelText="Label"
             name="radio"
             id="radio-3"
@@ -297,7 +295,7 @@ export const WithBottomMargin = () => (
     render={({ selectedOption, onChangeHandler }) => (
       <>
         <RadioGroup labelText="Radio group label">
-          <Radio
+          <RadioField
             labelText="Label"
             name="radio"
             id="radio-1"
@@ -305,7 +303,7 @@ export const WithBottomMargin = () => (
             onChange={onChangeHandler}
             value="radio-1"
           />
-          <Radio
+          <RadioField
             labelText="Label"
             name="radio"
             id="radio-2"
@@ -313,7 +311,7 @@ export const WithBottomMargin = () => (
             onChange={onChangeHandler}
             value="radio-2"
           />
-          <Radio
+          <RadioField
             labelText="Label"
             name="radio"
             id="radio-3"
