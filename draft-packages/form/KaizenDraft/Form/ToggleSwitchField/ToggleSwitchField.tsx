@@ -11,7 +11,7 @@ import {
 
 import styles from "./styles.scss"
 
-interface Props {
+interface ToggleSwitchFieldProps {
   id?: string
   name?: string
   labelText: string | React.ReactNode
@@ -26,7 +26,7 @@ interface Props {
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
 }
 
-type ToggleSwitchField = React.FunctionComponent<Props>
+type ToggleSwitchField = React.FunctionComponent<ToggleSwitchFieldProps>
 
 const ToggleSwitchField: ToggleSwitchField = ({
   id = "",
