@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-hero-panel",
-  "version": "2.1.0",
+  "version": "2.0.9",
   "description": "The draft Hero panel component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",

@@ -1,4 +1,4 @@
-module KaizenDraft.Form.Primitives.Radio.Radio exposing (SelectedStatus(..), automationId, default, disabled, id, name, onChange, selectedStatus, value, view)
+module KaizenDraft.Radio.Primitives.RadioInput exposing (SelectedStatus(..), automationId, default, disabled, id, name, onChange, selectedStatus, value, view)
 
 import CssModules exposing (css)
 import Html exposing (Html, div, input, text)
@@ -134,7 +134,7 @@ renderSelected status =
 
 
 styles =
-    css "@kaizen/draft-form/KaizenDraft/Form/Primitives/Radio/styles.scss"
+    css "@kaizen/draft-radio/KaizenDraft/Radio/Primitives/styles.scss"
         { radioInput = "radioInput"
         , box = "box"
         , icon = "icon"

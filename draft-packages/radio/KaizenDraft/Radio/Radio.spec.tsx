@@ -9,9 +9,11 @@ const defaultRadioProps: RadioProps = {
   id: "testRadioId",
   automationId: "RadioAutomationId",
   selectedStatus: false,
+  labelText: "Label",
   disabled: false,
   name: "RadioName",
   onChange: jest.fn(),
+  inline: false,
   value: "radio-1",
 }
 const renderRadio = (props?: RadioProps) => {
@@ -20,23 +22,11 @@ const renderRadio = (props?: RadioProps) => {
   return render(<Radio {...mergedRadioProps} />)
 }
 describe("<Radio /> ", () => {
-  it("should call the `onChange` event when clicked", () => {
-    const { container } = render(<Radio {...defaultRadioProps} />)
-    const radioInput = container.querySelector(
-      `[data-automation-id="${defaultRadioProps.automationId}"]`
-    )
-
-    if (radioInput) {
-      fireEvent.click(radioInput)
-
-      expect(defaultRadioProps.onChange).toBeCalledTimes(1)
-    }
-  })
-
   it("has the disabled attribute applied if the disabled prop is true", () => {
     const { container } = renderRadio({
       id: "testId",
       name: "someRadioName",
+      labelText: "Label",
       disabled: true,
       value: "radio-1",
     })
@@ -46,7 +36,8 @@ describe("<Radio /> ", () => {
   it("has a true .checked property when the selectedStatus is true", () => {
     const { container } = renderRadio({
       id: "testId",
-      name: "someRadioName",
+      name: "RadioName",
+      labelText: "Label",
       selectedStatus: true,
       value: "radio-1",
     })
@@ -56,7 +47,8 @@ describe("<Radio /> ", () => {
   it("can be both checked and disabled at the same time", () => {
     const { container } = renderRadio({
       id: "testId",
-      name: "someRadioName",
+      name: "RadioName",
+      labelText: "Label",
       selectedStatus: true,
       disabled: true,
       value: "radio-1",
@@ -68,7 +60,8 @@ describe("<Radio /> ", () => {
   it("doesnt have the `.checked` property if the selectedStatus prop is not present", () => {
     const { container } = renderRadio({
       id: "testId",
-      name: "someRadioName",
+      name: "RadioName",
+      labelText: "Label",
       value: "radio-1",
     })
     expect(container.querySelector("input")!.checked).toBeFalsy()

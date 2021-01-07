@@ -1,7 +1,8 @@
 import { Box, Paragraph } from "@kaizen/component-library"
 import { Button } from "@kaizen/draft-button"
+import { CheckboxGroup } from "@kaizen/draft-checkbox-group"
 import { FilterMenuButton } from "@kaizen/draft-filter-menu-button"
-import { CheckboxField, CheckboxGroup } from "@kaizen/draft-form"
+import { CheckboxField } from "@kaizen/draft-form"
 import React, { useState } from "react"
 import styles from "./FilterMenuButton.stories.scss"
 

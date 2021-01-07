@@ -1,6 +1,6 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 
-loadElmStories("RadioField (Elm)", module, require("./RadioFieldStories.elm"), [
+loadElmStories("Radio (Elm)", module, require("./RadioStories.elm"), [
   "Interactive",
   "Unselected disabled",
   "Unselected default",

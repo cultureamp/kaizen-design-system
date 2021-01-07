@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-table",
-  "version": "3.2.13",
-  "description": "The draft Table component",
+  "name": "@kaizen/draft-radio",
+  "version": "2.2.44",
+  "description": "The draft Radio component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/table"
+    "directory": "draft-packages/radio"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
@@ -32,8 +32,8 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^8.0.9",
+    "@kaizen/deprecated-component-library-helpers": "^2.0.0",
     "@kaizen/draft-form": "^2.10.9",
-    "@kaizen/draft-tooltip": "^2.1.6",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },

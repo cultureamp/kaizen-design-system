@@ -1,11 +1,11 @@
+import { Label } from "@kaizen/draft-form"
 import classnames from "classnames"
 import * as React from "react"
-import { Label } from "../"
-import RadioInput from "../Primitives/Radio/Radio"
+import RadioInput from "./Primitives/RadioInput"
 
 import styles from "./styles.scss"
 
-export type RadioFieldProps = {
+export type RadioProps = {
   id: string
   automationId?: string
   name: string
@@ -17,9 +17,9 @@ export type RadioFieldProps = {
   inline?: boolean
 }
 
-type RadioField = React.FunctionComponent<RadioFieldProps>
+type Radio = React.FunctionComponent<RadioProps>
 
-const RadioField: RadioField = ({
+const Radio: Radio = ({
   id = "",
   automationId,
   name = "",
@@ -58,4 +58,4 @@ const RadioField: RadioField = ({
   </div>
 )
 
-export default RadioField
+export default Radio
