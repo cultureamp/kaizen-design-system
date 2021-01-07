@@ -15,7 +15,7 @@ import {
 
 import styles from "./RoadblockModal.scss"
 
-interface Props {
+export interface RoadblockModalProps {
   readonly isOpen: boolean
   readonly title: string
   readonly onDismiss: () => void
@@ -24,7 +24,7 @@ interface Props {
   readonly children: React.ReactNode
 }
 
-type RoadblockModal = React.FunctionComponent<Props>
+type RoadblockModal = React.FunctionComponent<RoadblockModalProps>
 
 const RoadblockModal = ({
   isOpen,

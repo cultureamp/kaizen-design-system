@@ -1,11 +1,13 @@
 import * as React from "react"
 import { ModalAccessibleContext } from "./ModalAccessibleContext"
 
-interface Props {
+export interface ModalAccessibleDescriptionProps {
   readonly children: React.ReactNode
 }
 
-type ModalAccessibleDescription = React.FunctionComponent<Props>
+type ModalAccessibleDescription = React.FunctionComponent<
+  ModalAccessibleDescriptionProps
+>
 
 const ModalAccessibleDescription: ModalAccessibleDescription = ({
   children,

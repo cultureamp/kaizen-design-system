@@ -6,18 +6,18 @@ import GenericModalSection from "./GenericModalSection"
 
 import styles from "./ModalHeader.scss"
 
-interface Props {
+export interface ModalHeaderProps {
   readonly unpadded?: boolean
   readonly reversed?: boolean
   readonly onDismiss: (evt: React.MouseEvent) => void
   readonly children: React.ReactNode
 }
 
-interface State {
+export interface ModalHeaderState {
   hasRendered: boolean
 }
 
-class ModalHeader extends React.Component<Props, State> {
+class ModalHeader extends React.Component<ModalHeaderProps, ModalHeaderState> {
   state = { hasRendered: false }
 
   componentDidMount() {
