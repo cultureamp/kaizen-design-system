@@ -22,7 +22,7 @@ type Variant =
   | "statusClosed"
   | "statusAction"
 
-interface Props {
+export interface TagProps {
   readonly children: React.ReactNode
   readonly variant?: Variant
   readonly size?: "medium" | "small"
@@ -41,7 +41,7 @@ const exclamationIconVariants: Variant[] = [
   "validationCautionary",
 ]
 
-const Tag = (props: Props) => {
+const Tag = (props: TagProps) => {
   const {
     children,
     variant = "default",

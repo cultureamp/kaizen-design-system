@@ -20,7 +20,7 @@ import {
 
 import styles from "./ConfirmationModal.scss"
 
-interface Props {
+export interface ConfirmationModalProps {
   readonly isOpen: boolean
   readonly type: ModalType
   readonly title: string
@@ -32,7 +32,7 @@ interface Props {
   readonly children: React.ReactNode
 }
 
-type ConfirmationModal = React.FunctionComponent<Props>
+type ConfirmationModal = React.FunctionComponent<ConfirmationModalProps>
 type ModalType = "positive" | "informative" | "negative" | "cautionary"
 
 const getIcon = (type: ModalType) => {
@@ -58,7 +58,7 @@ const ConfirmationModal = ({
   dismissLabel = "Cancel",
   automationId,
   children,
-}: Props) => {
+}: ConfirmationModalProps) => {
   const footerActions: Array<{ label: string; action: () => void }> = []
   if (onConfirm) {
     footerActions.push({ label: confirmLabel, action: onConfirm })
