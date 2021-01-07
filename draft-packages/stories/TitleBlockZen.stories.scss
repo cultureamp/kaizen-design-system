@@ -8,13 +8,5 @@ body {
 }
 
 .contentContainer {
-  box-sizing: border-box;
-  padding: 24px;
-  max-width: $kz-layout-content-max-width;
-  margin: 0 $kz-layout-content-side-margin;
   background: #eee;
-
-  @include title-block-medium-and-small {
-    margin: 0;
-  }
 }
