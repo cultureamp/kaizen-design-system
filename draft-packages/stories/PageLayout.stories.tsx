@@ -2,7 +2,7 @@ import * as React from "react"
 import { Paragraph } from "@kaizen/component-library"
 import { Container, Content } from "../page-layout"
 import { TitleBlockZen } from "../title-block-zen/KaizenDraft/TitleBlockZen"
-import styles from "./PageLayout.stores.scss"
+import styles from "./PageLayout.stories.scss"
 
 export default {
   title: "Content (React)",
