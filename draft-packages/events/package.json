@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-events",
-  "version": "1.2.84",
+  "version": "1.2.85",
   "description": "The draft Events component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -31,7 +31,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^8.0.9",
+    "@kaizen/component-library": "^8.1.0",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },

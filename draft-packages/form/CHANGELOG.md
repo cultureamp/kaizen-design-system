@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.11.0...@kaizen/draft-form@2.12.0) (2021-01-08)
+
+
+### Features
+
+* add checkbox validation and reverse states ([#858](https://github.com/cultureamp/kaizen-design-system/issues/858)) ([be74040](https://github.com/cultureamp/kaizen-design-system/commit/be7404071414dfaa7765e8c1977434edd8939665))
+
+
+
+
+
 # [2.11.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.10.9...@kaizen/draft-form@2.11.0) (2021-01-07)
 
 
