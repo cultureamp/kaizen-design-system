@@ -1,11 +1,5 @@
 import React, { TextareaHTMLAttributes } from "react"
-import {
-  FieldGroup,
-  FieldMessage,
-  InputStatus,
-  Label,
-  TextArea,
-} from "../index"
+import { FieldGroup, FieldMessage, InputStatus, Label, TextArea } from ".."
 
 export interface TextAreaFieldProps
   extends TextareaHTMLAttributes<HTMLTextAreaElement> {

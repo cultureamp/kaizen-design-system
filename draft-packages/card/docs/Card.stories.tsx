@@ -1,7 +1,7 @@
 import { Box, Paragraph } from "@kaizen/component-library"
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
-import { Card } from "../index"
+import { Card } from ".."
 
 export default {
   title: "Card (React)",

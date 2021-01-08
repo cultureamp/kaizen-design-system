@@ -5,7 +5,7 @@ import React, {
   useRef,
   TextareaHTMLAttributes,
 } from "react"
-import { InputStatus } from "../index"
+import { InputStatus } from ".."
 import styles from "./styles.scss"
 
 export interface TextAreaProps
