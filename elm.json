@@ -31,7 +31,6 @@
         "./draft-packages/well",
         "./legacy-packages/menu-list",
         "./legacy-packages/title-block",
-        "./legacy-packages/stories",
         "./node_modules/@cultureamp/elm-storybook/src",
         "./node_modules/elm-upgrade-shims/lib-0.19"
     ],
