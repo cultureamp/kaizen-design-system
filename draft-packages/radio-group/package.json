@@ -25,6 +25,7 @@
     "!**/*.snap",
     "!draft-templates",
     "!stories",
+    "!docs",
     "!tsconfig.dist.json"
   ],
   "author": "",
@@ -37,6 +38,7 @@
     "classnames": "^2.2.6"
   },
   "devDependencies": {
+    "@kaizen/draft-radio": "~2",
     "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.2.1",
     "rimraf": "^3.0.2"
   },

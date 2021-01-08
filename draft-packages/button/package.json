@@ -25,6 +25,8 @@
     "!**/*.snap",
     "!draft-templates",
     "!stories",
+    "!docs",
+    "!docs",
     "!tsconfig.dist.json"
   ],
   "author": "",
