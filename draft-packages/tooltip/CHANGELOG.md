@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.2.0...@kaizen/draft-tooltip@2.2.1) (2021-01-08)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.1.6...@kaizen/draft-tooltip@2.2.0) (2021-01-07)
+
+
+### Features
+
+* Export *Props from packages ([#917](https://github.com/cultureamp/kaizen-design-system/issues/917)) ([53656b6](https://github.com/cultureamp/kaizen-design-system/commit/53656b60ff51da40b22d0e489149dbf9eee22386))
+
+
+
+
+
 ## [2.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.1.5...@kaizen/draft-tooltip@2.1.6) (2020-12-16)
 
 **Note:** Version bump only for package @kaizen/draft-tooltip

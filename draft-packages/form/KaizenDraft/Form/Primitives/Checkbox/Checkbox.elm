@@ -1,5 +1,6 @@
 module KaizenDraft.Form.Primitives.Checkbox.Checkbox exposing
-    ( CheckedValue(..)
+    ( CheckedStatus(..)
+    , CheckedValue(..)
     , Config
     , automationId
     , checkedStatus
@@ -8,6 +9,8 @@ module KaizenDraft.Form.Primitives.Checkbox.Checkbox exposing
     , id
     , name
     , onCheck
+    , reversed
+    , status
     , view
     )
 
@@ -35,6 +38,8 @@ type alias ConfigValue msg =
     , checkedStatus : CheckedValue
     , onCheck : Maybe (Bool -> msg)
     , disabled : Bool
+    , reversed : Bool
+    , status : CheckedStatus
     }
 
 
@@ -42,6 +47,12 @@ type CheckedValue
     = On
     | Off
     | Mixed
+
+
+type CheckedStatus
+    = Default
+    | Success
+    | Error
 
 
 defaults : ConfigValue msg
@@ -52,6 +63,8 @@ defaults =
     , checkedStatus = Off
     , onCheck = Nothing
     , disabled = False
+    , reversed = False
+    , status = Default
     }
 
 
@@ -97,6 +110,16 @@ onCheck value (Config config) =
 disabled : Bool -> Config msg -> Config msg
 disabled value (Config config) =
     Config { config | disabled = value }
+
+
+reversed : Bool -> Config msg -> Config msg
+reversed value (Config config) =
+    Config { config | reversed = value }
+
+
+status : CheckedStatus -> Config msg -> Config msg
+status value (Config config) =
+    Config { config | status = value }
 
 
 
@@ -152,7 +175,7 @@ view (Config config) =
         checkOrMixedIcon =
             case config.checkedStatus of
                 On ->
-                    div [ styles.class .icon ]
+                    div [ styles.classList [ ( .icon, True ), ( .reversed, config.reversed ) ] ]
                         [ Icon.view (Icon.presentation |> Icon.inheritSize True)
                             (svgAsset "@kaizen/component-library/icons/check.icon.svg")
                             |> Html.map never
@@ -162,7 +185,7 @@ view (Config config) =
                     Html.text ""
 
                 Mixed ->
-                    div [ styles.class .icon ]
+                    div [ styles.classList [ ( .icon, True ), ( .reversed, config.reversed ) ] ]
                         [ Icon.view (Icon.presentation |> Icon.inheritSize True)
                             (svgAsset "@kaizen/component-library/icons/minus.icon.svg")
                             |> Html.map never
@@ -184,7 +207,14 @@ view (Config config) =
                    ]
             )
             []
-        , div [ styles.class .box ] [ checkOrMixedIcon ]
+        , div
+            [ styles.classList
+                [ ( .box, True )
+                , ( .reversed, config.reversed )
+                , ( .error, config.status == Error )
+                ]
+            ]
+            [ checkOrMixedIcon ]
         ]
 
 
@@ -195,4 +225,6 @@ styles =
         , container = "container"
         , icon = "icon"
         , box = "box"
+        , reversed = "reversed"
+        , error = "error"
         }
