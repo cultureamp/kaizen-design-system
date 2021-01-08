@@ -5,5 +5,7 @@
     "declaration": true,
     "noEmit": false,
     "sourceMap": true
-  }
+  },
+  "exclude": ["docs"],
+  "exclude": ["docs"]
 }
