@@ -1,7 +1,7 @@
-import { Radio } from "@kaizen/draft-radio"
 import { cleanup, render } from "@testing-library/react"
 import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
+import { Radio } from "@kaizen/draft-radio"
 import RadioGroup, { RadioGroupProps } from "./RadioGroup"
 
 afterEach(cleanup)

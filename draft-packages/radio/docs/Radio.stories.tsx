@@ -1,5 +1,5 @@
-import { Radio } from "@kaizen/draft-radio"
 import * as React from "react"
+import { Radio } from ".."
 
 const ExampleContent = () => (
   <div style={{ padding: "1em 2em", maxWidth: "400px" }} />
