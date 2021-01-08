@@ -6,7 +6,7 @@
     "prepublish": "yarn tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf '*.d.ts' '*.js' '*.map' 'KaizenDraft/**/*.d.ts' 'KaizenDraft/**/*.js' 'KaizenDraft/**/*.map'"
+    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {
     "type": "git",

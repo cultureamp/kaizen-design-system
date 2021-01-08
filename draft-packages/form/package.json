@@ -3,10 +3,10 @@
   "version": "2.12.0",
   "description": "The draft Form component",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf '*.d.ts' '*.js' '*.map' 'KaizenDraft/**/*.d.ts' 'KaizenDraft/**/*.js' 'KaizenDraft/**/*.map'"
+    "ffff": "tsc --project tsconfig.dist.json",
+    "build": "yarn clean && yarn ffff",
+    "build:watch": "yarn clean && yarn ffff --watch",
+    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
   },
   "repository": {
     "type": "git",
