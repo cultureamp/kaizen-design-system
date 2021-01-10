@@ -1,6 +1,5 @@
 import { Label, RadioField, RadioGroup } from "@kaizen/draft-form"
 import * as React from "react"
-import styles from "./RadioGroup.stories.scss"
 
 type RenderProps = {
   selectedOption: string
