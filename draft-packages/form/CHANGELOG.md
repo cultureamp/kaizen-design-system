@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.12.0...@kaizen/draft-form@3.0.0) (2021-01-10)
+
+
+### Features
+
+* Consolidate form packages ([#906](https://github.com/cultureamp/kaizen-design-system/issues/906)) ([28e4b8f](https://github.com/cultureamp/kaizen-design-system/commit/28e4b8f6851d7e2f1eba827c0ed1763a29f47774))
+
+
+### BREAKING CHANGES
+
+* RadioInput, Radio, and RadioGroup now within the KaizenDraft.Form Elm namespace
+* Regenerate snapshots
+* Rename Radio to RadioField, Form/RadioInput becomes Form/Radio, to be consistent with naming in other packages
+
+
+
+
+
 # [2.12.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@2.11.0...@kaizen/draft-form@2.12.0) (2021-01-08)
 
 
