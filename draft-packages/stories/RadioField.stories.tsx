@@ -1,4 +1,4 @@
-import { Radio } from "@kaizen/draft-radio"
+import { RadioField } from "@kaizen/draft-form"
 import * as React from "react"
 
 const ExampleContent = () => (
@@ -49,12 +49,12 @@ class RadioFieldExample extends React.Component<Props> {
 }
 
 export default {
-  title: "Radio (React)",
-  component: Radio,
+  title: "RadioField (React)",
+  component: RadioField,
   parameters: {
     info: {
       text: `
-      import { Radio } from "@kaizen/draft-radio"
+      import { RadioField } from "@kaizen/draft-form"
       `,
     },
   },
@@ -63,7 +63,7 @@ export default {
 export const InteractiveKaizenSiteDemo = () => (
   <RadioFieldExample
     render={({ selectedStatus, onChangeHandler }) => (
-      <Radio
+      <RadioField
         name="radio"
         onChange={onChangeHandler}
         id="radio-1"
@@ -85,7 +85,7 @@ export const InteractiveKaizenSiteDemo = () => (
 InteractiveKaizenSiteDemo.storyName = "Interactive (Kaizen Site Demo)"
 
 export const UnselectedDisabled = () => (
-  <Radio
+  <RadioField
     name="radio"
     id="radio-1"
     labelText="Label"
@@ -94,13 +94,13 @@ export const UnselectedDisabled = () => (
     value="radio-1"
   >
     <ExampleContent />
-  </Radio>
+  </RadioField>
 )
 
 UnselectedDisabled.storyName = "Unselected disabled"
 
 export const UnselectedDefault = () => (
-  <Radio
+  <RadioField
     name="radio"
     id="radio-1"
     labelText="Label"
@@ -109,13 +109,13 @@ export const UnselectedDefault = () => (
     value="radio-1"
   >
     <ExampleContent />
-  </Radio>
+  </RadioField>
 )
 
 UnselectedDefault.storyName = "Unselected default"
 
 export const SelectedDefault = () => (
-  <Radio
+  <RadioField
     name="radio"
     id="radio-1"
     labelText="Label"
@@ -124,13 +124,13 @@ export const SelectedDefault = () => (
     value="radio-1"
   >
     <ExampleContent />
-  </Radio>
+  </RadioField>
 )
 
 SelectedDefault.storyName = "Selected default"
 
 export const SelectedDisabled = () => (
-  <Radio
+  <RadioField
     name="radio"
     id="radio-1"
     labelText="Label"
@@ -139,14 +139,14 @@ export const SelectedDisabled = () => (
     value="radio-1"
   >
     <ExampleContent />
-  </Radio>
+  </RadioField>
 )
 
 SelectedDisabled.storyName = "Selected disabled"
 
 export const Rtl = () => (
   <div dir="rtl">
-    <Radio
+    <RadioField
       name="radio"
       id="radio-1"
       labelText="Label"
@@ -155,7 +155,7 @@ export const Rtl = () => (
       value="radio-1"
     >
       <ExampleContent />
-    </Radio>
+    </RadioField>
   </div>
 )
 
