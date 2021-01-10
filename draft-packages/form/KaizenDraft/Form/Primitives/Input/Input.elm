@@ -40,6 +40,7 @@ styles =
         , reversed = "reversed"
         , disabled = "disabled"
         , error = "error"
+        , caution = "caution"
         , success = "success"
         , withDisabled = "withDisabled"
         , withReversed = "withReversed"
@@ -68,6 +69,7 @@ type InputType
 type InputStatus
     = Default
     | Success
+    | Caution
     | Error
 
 
@@ -343,6 +345,7 @@ view (Config config) =
                             , ( .reversed, config.reversed )
                             , ( .disabled, config.disabled )
                             , ( .error, config.status == Error )
+                            , ( .caution, config.status == Caution )
                             , ( .success, config.status == Success )
                             ]
                        ]
