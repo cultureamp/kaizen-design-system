@@ -5,7 +5,7 @@ import styles from "./styles.scss"
 
 type MenuDropdownProps = {
   id?: string
-  hideMenuDropdown: () => void
+  onHideMenuDropdown: () => void
   position?: {
     top: number
     bottom: number
@@ -55,17 +55,17 @@ class MenuDropdown extends React.Component<MenuDropdownProps> {
       e.target instanceof Node &&
       !this.menu.current.contains(e.target)
     ) {
-      this.props.hideMenuDropdown()
+      this.props.onHideMenuDropdown()
     }
   }
 
   handleDocumentResize = () => {
-    this.props.hideMenuDropdown()
+    this.props.onHideMenuDropdown()
   }
 
   render(): JSX.Element {
     const {
-      hideMenuDropdown,
+      onHideMenuDropdown,
       children,
       align = "left",
       width = "default",
@@ -79,7 +79,7 @@ class MenuDropdown extends React.Component<MenuDropdownProps> {
           [styles.alignRight]: align == "right",
         })}
         ref={this.menu}
-        onClick={() => hideMenuDropdown()}
+        onClick={() => onHideMenuDropdown()}
       >
         {children}
       </div>
