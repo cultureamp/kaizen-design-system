@@ -21,6 +21,7 @@ export type HierarchyNode = {
   label: string
   level: number
   numberOfChildren: number | null
+  name: string
 }
 
 export type Hierarchy = {
