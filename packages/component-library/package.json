@@ -56,6 +56,6 @@
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf 'components/**/*.js' 'draft/**/*.js' 'util/**/*.js' 'index.js' 'components/**/*.js.map' 'draft/**/*.js.map' 'util/**/*.js.map' 'index.js.map' 'components/**/*.d.ts' 'draft/**/*.d.ts' 'util/**/*.d.ts' 'index.d.ts' 'stories/*.stories.js'"
+    "clean": "rimraf 'components/**/*.js' 'draft/**/*.js' 'util/**/*.js' '**/*.js.map' 'index.js' 'index.js.map' 'index.d.ts' 'components/**/*.d.ts' 'draft/**/*.d.ts' 'util/**/*.d.ts' 'draft-templates/**/*.d.ts' 'stories/*.stories.js' 'stories/*.stories.d.ts'"
   }
 }

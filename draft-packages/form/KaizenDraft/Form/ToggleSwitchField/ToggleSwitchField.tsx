@@ -1,13 +1,7 @@
 import classnames from "classnames"
 import * as React from "react"
 
-import {
-  FieldGroup,
-  Label,
-  ToggledStatus,
-  ToggleSwitch,
-  ToggleTheme,
-} from "../index"
+import { FieldGroup, Label, ToggledStatus, ToggleSwitch, ToggleTheme } from ".."
 
 import styles from "./styles.scss"
 

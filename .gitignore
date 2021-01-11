@@ -9,3 +9,4 @@ lerna-*.log
 /packages/**/*.js.map
 /packages/**/*.d.ts
 .DS_Store
+dist

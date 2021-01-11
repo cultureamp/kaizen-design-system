@@ -10,7 +10,7 @@ import {
   InputStatus,
   InputType,
   Label,
-} from "../index"
+} from ".."
 
 import styles from "./styles.scss"
 

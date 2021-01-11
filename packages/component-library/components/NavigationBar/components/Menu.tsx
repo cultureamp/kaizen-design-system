@@ -3,7 +3,7 @@ import * as React from "react"
 import Media from "react-media"
 
 import { Icon } from "../../Icon"
-import { IconButton, OffCanvas, OffCanvasContext } from "../../index"
+import { IconButton, OffCanvas, OffCanvasContext } from "../.."
 import arrowLeftIcon from "../../../icons/arrow-left.icon.svg"
 import chevronDownIcon from "../../../icons/chevron-down.icon.svg"
 import { MOBILE_QUERY } from "../constants"
