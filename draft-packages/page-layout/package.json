@@ -1,7 +1,7 @@
 {
-  "name": "@kaizen/draft-select",
-  "version": "1.11.32",
-  "description": "The draft Select component",
+  "name": "@kaizen/draft-page-layout",
+  "version": "1.1.0",
+  "description": "The draft content block component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
     "build": "yarn clean && yarn prepublish",
@@ -11,7 +11,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
-    "directory": "draft-packages/select"
+    "directory": "draft-packages/page-layout"
   },
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
@@ -32,19 +32,13 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^8.1.0",
-    "@kaizen/deprecated-component-library-helpers": "^2.0.0",
-    "@kaizen/draft-form": "^3.0.0",
-    "@types/classnames": "^2.2.10",
+    "@kaizen/draft-card": "^1.2.4",
+    "@kaizen/draft-page-layout": "^1.1.0",
     "classnames": "^2.2.6",
-    "react-select": "^3.1.0"
-  },
-  "devDependencies": {
-    "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.2.1",
-    "rimraf": "^3.0.2"
+    "resize-observer-polyfill": "^1.5.1"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^1.2.0 || ^2",
+    "@kaizen/design-tokens": "^2",
     "react": "^16.9.0"
   }
 }

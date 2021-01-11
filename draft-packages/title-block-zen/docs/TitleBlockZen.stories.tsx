@@ -1,11 +1,12 @@
-import { Box, Heading, Paragraph } from "@kaizen/component-library"
 import * as React from "react"
 import addIcon from "@kaizen/component-library/icons/add.icon.svg"
+import { Box, Heading, Paragraph } from "@kaizen/component-library"
 import commentIcon from "@kaizen/component-library/icons/comment.icon.svg"
 import starIcon from "@kaizen/component-library/icons/star-on.icon.svg"
 import reportSharingIcon from "@kaizen/component-library/icons/report-sharing.icon.svg"
 import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import { assetUrl } from "@kaizen/hosted-assets"
+import { Container, Content, Skirt, SkirtCard } from "@kaizen/draft-page-layout"
 import { NavigationTab, TitleBlockZen } from ".."
 
 import styles from "./TitleBlockZen.stories.scss"
@@ -14,7 +15,7 @@ export default {
   title: "TitleBlockZen (React)",
 }
 
-const Container = ({ children }: { children: React.ReactNode }) => (
+const OffsetPadding = ({ children }: { children: React.ReactNode }) => (
   <div style={{ margin: "-1rem" }}>{children}</div>
 )
 
@@ -47,7 +48,7 @@ const SECONDARY_ACTIONS = [
 ]
 
 export const Default = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       surveyStatus={{ text: "Live", status: "live" }}
@@ -95,7 +96,7 @@ export const Default = () => (
         <NavigationTab text="Label" href="#" />,
       ]}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 Default.storyName = "Default"
@@ -103,7 +104,7 @@ Default.storyName = "Default"
 export const WithBadge = () => {
   const [badgeCount, setBadgeCount] = React.useState(1)
   return (
-    <Container>
+    <OffsetPadding>
       <TitleBlockZen
         title="Page title"
         surveyStatus={{ text: "Live", status: "live" }}
@@ -131,14 +132,14 @@ export const WithBadge = () => {
           },
         }}
       />
-    </Container>
+    </OffsetPadding>
   )
 }
 
 WithBadge.storyName = "With Primary Action Badge"
 
 export const WithDefaultTag = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       surveyStatus={{ text: "Due July 8, 2030", status: "default" }}
@@ -156,13 +157,13 @@ export const WithDefaultTag = () => (
         },
       }}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 WithDefaultTag.storyName = "With Default Survey Status (Tag)"
 
 export const AdminWithDefaultTag = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       variant="admin"
       title="Page title"
@@ -181,13 +182,13 @@ export const AdminWithDefaultTag = () => (
         },
       }}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 AdminWithDefaultTag.storyName = "Admin With Default Survey Status (Tag)"
 
 export const DefaultWithMenuButton = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       surveyStatus={{ text: "Live", status: "live" }}
@@ -234,13 +235,13 @@ export const DefaultWithMenuButton = () => (
         <NavigationTab text="Label" href="#" />,
       ]}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 DefaultWithMenuButton.storyName = "Default (Menu Button)"
 
 export const AdminVariant = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       variant="admin"
@@ -267,12 +268,12 @@ export const AdminVariant = () => (
         },
       }}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 AdminVariant.storyName = "Admin variant"
 export const AdminVariantWithNavTabs = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       variant="admin"
@@ -298,13 +299,13 @@ export const AdminVariantWithNavTabs = () => (
         <NavigationTab text="Label" href="#" variant="admin" />,
       ]}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 AdminVariantWithNavTabs.storyName = "Admin variant with Navigation Tabs"
 
 export const EducationVariant = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       variant="education"
@@ -339,13 +340,34 @@ export const EducationVariant = () => (
         },
       }}
     />
-  </Container>
+    <Skirt variant="education">
+      <SkirtCard>
+        <Box p={1}>
+          <Paragraph variant="body">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+            semper odio vitae sem gravida rutrum. Praesent vel sapien eget eros
+            dictum luctus scelerisque eu nibh. Etiam ullamcorper lobortis
+            gravida. Suspendisse massa tortor, ultricies et ipsum at, iaculis
+            bibendum est. Mauris vestibulum interdum ultricies. Proin sed elit
+            lacinia, malesuada leo in, auctor enim. Suspendisse venenatis,
+            tortor vel eleifend cursus, metus sem luctus nunc, at maximus magna
+            metus at mi. Curabitur porttitor dignissim ante, sit amet tincidunt
+            nibh elementum convallis. Morbi accumsan rutrum elit eget sagittis.
+            Pellentesque id quam at enim dictum placerat sit amet in purus.
+            Pellentesque habitant morbi tristique senectus et netus et malesuada
+            fames ac turpis egestas. Suspendisse quam elit, facilisis sit amet
+            libero vitae, congue rutrum nisi. Ut non aliquet ex.
+          </Paragraph>
+        </Box>
+      </SkirtCard>
+    </Skirt>
+  </OffsetPadding>
 )
 
 EducationVariant.storyName = "Education variant"
 
 export const Engagement = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Baseline Engagement Survey"
       surveyStatus={{ text: "Live", status: "live" }}
@@ -385,13 +407,13 @@ export const Engagement = () => (
         <NavigationTab text="Comments" href="#" />,
       ]}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 Engagement.storyName = "Engagement"
 
 export const Performance = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Blanca Wheeler"
       subtitle="Director of Stuff and Things"
@@ -444,13 +466,13 @@ export const Performance = () => (
         <NavigationTab text="Notes" href="#" />,
       ]}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 Performance.storyName = "Performance"
 
 export const LongLabels = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Wolfeschlegelsteino Hausenbergerdorffsch Hausenbergerdorffsch"
       surveyStatus={{ text: "Live", status: "live" }}
@@ -507,7 +529,7 @@ export const LongLabels = () => (
         <NavigationTab text="Anmerkungen" href="#" />,
       ]}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 const MENU_LINKS = [
@@ -536,43 +558,160 @@ const MENU_LINKS = [
 ]
 
 export const DefaultWithContent = () => (
-  <Container>
-    <div>
-      <TitleBlockZen
-        title="Page title"
-        surveyStatus={{ text: "Live", status: "live" }}
-        primaryAction={{
-          label: "Primary menu",
-          menuItems: MENU_LINKS,
-        }}
-        defaultAction={{
-          label: "Default link",
-          icon: addIcon,
-          href: "#",
-        }}
-        secondaryActions={SECONDARY_ACTIONS}
-        handleHamburgerClick={() => {
-          alert("Hamburger clicked")
-        }}
-        breadcrumb={{
-          path: "#",
-          text: "Back to home",
-          handleClick: event => {
-            alert("breadcrumb clicked!")
-          },
-        }}
-        navigationTabs={[
-          <NavigationTab text="Label" href="#" active />,
-          <NavigationTab text="Label" href="#" />,
-          <NavigationTab text="Label" href="#" />,
-          <NavigationTab text="Label" href="#" />,
-          <NavigationTab text="Label" href="#" />,
-          <NavigationTab text="Label" href="#" />,
-        ]}
-      />
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <div className={styles.contentContainer}>
-          <Box my={2}>
+  <OffsetPadding>
+    <TitleBlockZen
+      title="Page title"
+      surveyStatus={{ text: "Live", status: "live" }}
+      primaryAction={{
+        label: "Primary menu",
+        menuItems: MENU_LINKS,
+      }}
+      defaultAction={{
+        label: "Default link",
+        icon: addIcon,
+        href: "#",
+      }}
+      secondaryActions={SECONDARY_ACTIONS}
+      handleHamburgerClick={() => {
+        alert("Hamburger clicked")
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+      navigationTabs={[
+        <NavigationTab text="Label" href="#" active />,
+        <NavigationTab text="Label" href="#" />,
+        <NavigationTab text="Label" href="#" />,
+        <NavigationTab text="Label" href="#" />,
+        <NavigationTab text="Label" href="#" />,
+        <NavigationTab text="Label" href="#" />,
+      ]}
+    />
+    <Container>
+      <Content classNameAndIHaveSpokenToDST={styles.contentContainer}>
+        <Box my={2}>
+          <Heading variant="heading-1">Placeholder heading</Heading>
+        </Box>
+        <Box my={1}>
+          <Paragraph variant="body">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+            semper odio vitae sem gravida rutrum. Praesent vel sapien eget eros
+            dictum luctus scelerisque eu nibh. Etiam ullamcorper lobortis
+            gravida. Suspendisse massa tortor, ultricies et ipsum at, iaculis
+            bibendum est. Mauris vestibulum interdum ultricies. Proin sed elit
+            lacinia, malesuada leo in, auctor enim. Suspendisse venenatis,
+            tortor vel eleifend cursus, metus sem luctus nunc, at maximus magna
+            metus at mi. Curabitur porttitor dignissim ante, sit amet tincidunt
+            nibh elementum convallis. Morbi accumsan rutrum elit eget sagittis.
+            Pellentesque id quam at enim dictum placerat sit amet in purus.
+            Pellentesque habitant morbi tristique senectus et netus et malesuada
+            fames ac turpis egestas. Suspendisse quam elit, facilisis sit amet
+            libero vitae, congue rutrum nisi. Ut non aliquet ex.
+          </Paragraph>
+        </Box>
+        <Box my={1}>
+          <Paragraph variant="body">
+            Aenean bibendum leo sit amet nisi pellentesque, vitae semper nunc
+            interdum. Nullam in felis porta, aliquam neque ut, viverra sapien.
+            Proin gravida diam sit amet bibendum viverra. Duis ligula erat,
+            pretium vel faucibus ac, vestibulum nec ligula. Nullam eleifend leo
+            non mauris facilisis, sed placerat lectus consectetur. Curabitur
+            rutrum elementum lobortis. Donec risus enim, tempus rutrum venenatis
+            et, mattis vel sem. Vivamus sed tempus justo, quis ultricies metus.
+            Etiam vitae ante interdum, tempor quam in, auctor sem. Pellentesque
+            blandit sem lorem, ut imperdiet velit lobortis sed. Cras aliquam
+            finibus suscipit. Vestibulum tempus, est at egestas scelerisque,
+            ante quam interdum risus, a ultricies mi nibh eget est.
+          </Paragraph>
+        </Box>
+        <Box my={1}>
+          <Paragraph variant="body">
+            Nulla et malesuada ligula, at euismod turpis. Curabitur ut tempus
+            ante. Nulla sit amet tellus eu neque volutpat volutpat. Mauris vitae
+            fermentum eros. Aliquam semper nisl ac turpis vestibulum mattis.
+            Curabitur ultrices pellentesque sapien, vitae vulputate ipsum. In
+            imperdiet dapibus magna, non ultricies lorem dictum non. Mauris
+            pretium erat eu elit laoreet, ac egestas ipsum aliquet. Nullam
+            cursus massa felis, et luctus felis semper elementum. Nulla
+            facilisi. In hac habitasse platea dictumst. Curabitur urna nibh,
+            tincidunt nec facilisis sit amet, finibus nec lorem. Morbi hendrerit
+            volutpat augue eget condimentum. Ut a fringilla augue, quis finibus
+            dui.
+          </Paragraph>
+        </Box>
+        <Box my={1}>
+          <Paragraph variant="body">
+            Etiam fermentum cursus massa non fermentum. Proin quis pharetra
+            enim. Phasellus fringilla sollicitudin auctor. Nunc tempor orci ac
+            nunc convallis dictum vel eget est. Sed eget placerat ante, quis
+            venenatis felis. Nulla varius varius lacus, quis consequat ex
+            placerat et. In consequat vestibulum tincidunt. Vivamus nibh leo,
+            mollis nec venenatis ac, pharetra id dui. Cras ullamcorper ante a
+            neque sodales, non tempus nisl sagittis. Etiam in odio sagittis,
+            hendrerit arcu et, rutrum metus.
+          </Paragraph>
+        </Box>
+        <Box my={1}>
+          <Paragraph variant="body">
+            Morbi eu mollis mauris, eleifend convallis nisi. Quisque malesuada
+            nisi ut leo tincidunt sodales. Nulla in accumsan diam. Nullam
+            egestas sed eros at luctus. Fusce eget elit quis nunc viverra
+            efficitur at et sem. Sed eget nisi et orci commodo hendrerit nec in
+            quam. Suspendisse condimentum tristique dignissim. Nunc sit amet
+            tortor efficitur, pellentesque ex at, placerat risus. Cras elit ex,
+            venenatis sit amet purus eget, mollis viverra justo. Quisque
+            sollicitudin ipsum non mi rutrum, feugiat hendrerit enim malesuada.
+            Ut massa enim, commodo non dapibus pharetra, viverra sed erat.
+          </Paragraph>
+        </Box>
+      </Content>
+    </Container>
+  </OffsetPadding>
+)
+
+DefaultWithContent.storyName = "Default with content"
+
+export const DefaultNoSecondary = () => (
+  <OffsetPadding>
+    <TitleBlockZen
+      title="Page title"
+      surveyStatus={{ text: "Live", status: "live" }}
+      primaryAction={{
+        label: "Primary link",
+        icon: addIcon,
+        href: "#",
+      }}
+      defaultAction={{
+        label: "Default link",
+        href: "#",
+      }}
+      handleHamburgerClick={() => {
+        alert("Hamburger clicked")
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+      navigationTabs={[
+        <NavigationTab text="Label" href="#" active />,
+        <NavigationTab text="Label" href="#" />,
+        <NavigationTab text="Label" href="#" />,
+        <NavigationTab text="Label" href="#" />,
+        <NavigationTab text="Label" href="#" />,
+        <NavigationTab text="Label" href="#" />,
+      ]}
+    />
+    <Skirt>
+      <SkirtCard>
+        <Box p={1}>
+          <Box mb={1}>
             <Heading variant="heading-1">Placeholder heading</Heading>
           </Box>
           <Box my={1}>
@@ -636,7 +775,7 @@ export const DefaultWithContent = () => (
               hendrerit arcu et, rutrum metus.
             </Paragraph>
           </Box>
-          <Box my={1}>
+          <Box>
             <Paragraph variant="body">
               Morbi eu mollis mauris, eleifend convallis nisi. Quisque malesuada
               nisi ut leo tincidunt sodales. Nulla in accumsan diam. Nullam
@@ -650,54 +789,16 @@ export const DefaultWithContent = () => (
               sed erat.
             </Paragraph>
           </Box>
-        </div>
-      </div>
-    </div>
-  </Container>
-)
-
-DefaultWithContent.storyName = "Default with content"
-
-export const DefaultNoSecondary = () => (
-  <Container>
-    <TitleBlockZen
-      title="Page title"
-      surveyStatus={{ text: "Live", status: "live" }}
-      primaryAction={{
-        label: "Primary link",
-        icon: addIcon,
-        href: "#",
-      }}
-      defaultAction={{
-        label: "Default link",
-        href: "#",
-      }}
-      handleHamburgerClick={() => {
-        alert("Hamburger clicked")
-      }}
-      breadcrumb={{
-        path: "#",
-        text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
-      }}
-      navigationTabs={[
-        <NavigationTab text="Label" href="#" active />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-      ]}
-    />
-  </Container>
+        </Box>
+      </SkirtCard>
+    </Skirt>
+  </OffsetPadding>
 )
 
 DefaultNoSecondary.storyName = "Default (no secondary actions)"
 
 export const DefaultOnlyPrimary = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       surveyStatus={{ text: "Live", status: "live" }}
@@ -725,13 +826,13 @@ export const DefaultOnlyPrimary = () => (
         <NavigationTab text="Label" href="#" />,
       ]}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 DefaultOnlyPrimary.storyName = "Default (only primary action)"
 
 export const DefaultWithReportSwitcher = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Baseline Engagement Survey"
       surveyStatus={{ text: "Live", status: "live" }}
@@ -782,13 +883,13 @@ export const DefaultWithReportSwitcher = () => (
         <NavigationTab text="Label" href="#" />,
       ]}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 DefaultWithReportSwitcher.storyName = "Default with report switcher"
 
 export const DefaultNoLink = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title="Page title"
       surveyStatus={{ text: "Live", status: "live" }}
@@ -835,13 +936,22 @@ export const DefaultNoLink = () => (
         <NavigationTab text="Label" href="#" />,
       ]}
     />
-  </Container>
+    <Skirt titleBlockHasNavigation={false}>
+      <SkirtCard>
+        <Box p={1}>
+          <Paragraph variant="body">
+            I am a card that should feel nicely butted up
+          </Paragraph>
+        </Box>
+      </SkirtCard>
+    </Skirt>
+  </OffsetPadding>
 )
 
 DefaultNoLink.storyName = "Default (no link in breadcrumb)"
 
 export const DefaultOnlyLongTitle = () => (
-  <Container>
+  <OffsetPadding>
     <TitleBlockZen
       title='Page title that is over the "long title" character threshold and goes way longer than usual'
       subtitle="Subtitle goes here"
@@ -856,71 +966,67 @@ export const DefaultOnlyLongTitle = () => (
         },
       }}
     />
-  </Container>
+  </OffsetPadding>
 )
 
 DefaultOnlyLongTitle.storyName = "Default (only long title)"
 
 export const DefaultCollapsedNavigation = () => (
-  <Container>
-    <>
-      <TitleBlockZen
-        title="Page title"
-        subtitle="Subtitle goes here"
-        handleHamburgerClick={() => {
-          alert("Hamburger clicked")
-        }}
-        breadcrumb={{
-          path: "#",
-          text: "Back to home",
-          handleClick: event => {
-            alert("breadcrumb clicked!")
-          },
-        }}
-        collapseNavigationAreaWhenPossible
-      />
-      <div className={styles.fakeSkirtContainerWithBackground}>
-        <div className={styles.fakeSkirtContent}>
-          <Paragraph variant="body" color="white-reduced-opacity">
-            I am some text that should feel nicely butted up
-          </Paragraph>
-        </div>
-      </div>
-    </>
-  </Container>
+  <OffsetPadding>
+    <TitleBlockZen
+      title="Page title"
+      subtitle="Subtitle goes here"
+      handleHamburgerClick={() => {
+        alert("Hamburger clicked")
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+      collapseNavigationAreaWhenPossible
+    />
+    <Container>
+      <Content>
+        <Paragraph variant="body">
+          I am some text that should feel tightly butted up
+        </Paragraph>
+      </Content>
+    </Container>
+  </OffsetPadding>
 )
 
 DefaultCollapsedNavigation.storyName = "Default (collapsed navigation)"
 
 export const DefaultCollapsedNavigationCard = () => (
-  <Container>
-    <>
-      <TitleBlockZen
-        title="Page title"
-        subtitle="Subtitle goes here"
-        handleHamburgerClick={() => {
-          alert("Hamburger clicked")
-        }}
-        breadcrumb={{
-          path: "#",
-          text: "Back to home",
-          handleClick: event => {
-            alert("breadcrumb clicked!")
-          },
-        }}
-        collapseNavigationAreaWhenPossible
-      />
-      <div className={styles.fakeSkirtContainerWithBackground}>
-        <div className={styles.fakeSkirtContent}>
-          <div className={styles.fakeSkirtCard}>
-            <Paragraph variant="body">
-              I am a card that should feel nicely butted up
-            </Paragraph>
-          </div>
-        </div>
-      </div>
-    </>
-  </Container>
+  <OffsetPadding>
+    <TitleBlockZen
+      title="Page title"
+      subtitle="Subtitle goes here"
+      handleHamburgerClick={() => {
+        alert("Hamburger clicked")
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+      collapseNavigationAreaWhenPossible
+    />
+    <Skirt titleBlockHasNavigation={false}>
+      <SkirtCard>
+        <Box p={1}>
+          <Paragraph variant="body">
+            I am a card that should feel nicely butted up
+          </Paragraph>
+        </Box>
+      </SkirtCard>
+    </Skirt>
+  </OffsetPadding>
 )
 
 DefaultCollapsedNavigationCard.story = {
@@ -928,35 +1034,33 @@ DefaultCollapsedNavigationCard.story = {
 }
 
 export const AdminVariantNavigation = () => (
-  <Container>
-    <>
-      <TitleBlockZen
-        variant="admin"
-        title="Page title"
-        subtitle="Subtitle goes here"
-        handleHamburgerClick={() => {
-          alert("Hamburger clicked")
-        }}
-        breadcrumb={{
-          path: "#",
-          text: "Back to home",
-          handleClick: event => {
-            alert("breadcrumb clicked!")
-          },
-        }}
-        collapseNavigationAreaWhenPossible
-      />
-      <div className={styles.fakeSkirtContainer}>
-        <div className={styles.fakeSkirtContent}>
-          <Paragraph variant="body">
-            I am some text that should feel tightly butted up to the nav space.
-            The responsibility for the admin variant is to move things down
-            yourself if you need to.
-          </Paragraph>
-        </div>
-      </div>
-    </>
-  </Container>
+  <OffsetPadding>
+    <TitleBlockZen
+      variant="admin"
+      title="Page title"
+      subtitle="Subtitle goes here"
+      handleHamburgerClick={() => {
+        alert("Hamburger clicked")
+      }}
+      breadcrumb={{
+        path: "#",
+        text: "Back to home",
+        handleClick: event => {
+          alert("breadcrumb clicked!")
+        },
+      }}
+      collapseNavigationAreaWhenPossible
+    />
+    <Container>
+      <Content>
+        <Paragraph variant="body">
+          I am some text that should feel tightly butted up to the nav space.
+          The responsibility for the admin variant is to move things down
+          yourself if you need to.
+        </Paragraph>
+      </Content>
+    </Container>
+  </OffsetPadding>
 )
 
 AdminVariantNavigation.storyName = "Admin (collapsed navigation)"
