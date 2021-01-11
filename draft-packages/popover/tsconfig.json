@@ -13,5 +13,12 @@
   },
   "include": ["src", "styles"],
   "exclude": ["**/*.stories.*"],
-  "references": []
+  "references": [
+    {
+      "path": "../avatar"
+    },
+    {
+      "path": "../../packages/component-library"
+    }
+  ]
 }

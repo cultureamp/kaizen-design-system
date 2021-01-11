@@ -5,7 +5,7 @@ import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import { IconButton } from "@kaizen/component-library"
 import { ColorScheme } from "../../types"
 
-import styles from "./Header.module.scss"
+import styles from "../../../styles/Header.module.scss"
 
 type Props = {
   leftComponent: React.ReactNode

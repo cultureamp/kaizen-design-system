@@ -10,12 +10,11 @@ import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.s
 import { OffCanvasContext, ZenOffCanvas } from "../helpers"
 import { NavBarContext } from "../context"
 import { MenuProps, NavigationItem } from "../types"
+import styles from "../../styles/Menu.module.scss"
 import Dropdown from "./Dropdown"
 import Link from "./Link"
 import MenuGroup from "./MenuGroup"
 import Indicator from "./Indicator"
-
-import styles from "./Menu.module.scss"
 
 type State = {
   open: boolean

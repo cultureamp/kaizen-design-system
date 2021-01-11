@@ -1,6 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/component-library/styles/layout";
-@import "../../styles/_styles";
+@import "./_styles";
 
 .container {
   @include ca-padding($start: 0);

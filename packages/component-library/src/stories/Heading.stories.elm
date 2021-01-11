@@ -58,6 +58,6 @@ main =
 
 
 styles =
-    css "@kaizen/component-library/stories/Heading.stories.scss"
+    css "./Heading.stories.scss"
         { blinking = "blinking"
         }

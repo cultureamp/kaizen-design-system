@@ -2,10 +2,9 @@ import classNames from "classnames"
 import React from "react"
 import uuid from "uuid/v4"
 import { MenuGroupProps, MenuItemProps } from "../types"
+import styles from "../../styles/MenuGroup.module.scss"
 import Link from "./Link"
 import MenuItem from "./MenuItem"
-
-import styles from "./MenuGroup.module.scss"
 
 const MenuGroup = ({
   title,

@@ -1,10 +1,9 @@
 import classNames from "classnames"
 import React, { useLayoutEffect, useRef, useState } from "react"
 import { MenuGroupProps, MenuItemProps } from "../types"
+import styles from "../../styles/Dropdown.module.scss"
 import MenuGroup from "./MenuGroup"
 import MenuItem from "./MenuItem"
-
-import styles from "./Dropdown.module.scss"
 
 type Props = {
   header?: React.ReactElement<any>

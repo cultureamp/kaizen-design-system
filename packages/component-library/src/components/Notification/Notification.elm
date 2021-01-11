@@ -290,7 +290,7 @@ viewCancelButton (Config { persistent, variant }) state onStateChange =
 
 
 styles =
-    css "@kaizen/component-library/components/Notification/components/GenericNotification.module.scss"
+    css "@kaizen/component-library/styles/components/Notification/GenericNotification.module.scss"
         { notification = "notification"
         , icon = "icon"
         , textContainer = "textContainer"

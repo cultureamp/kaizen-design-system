@@ -2,7 +2,7 @@
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/type";
-@import "../../styles/_styles";
+@import "./_styles";
 
 .badge {
   background-color: $kz-color-coral-500;

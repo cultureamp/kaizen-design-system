@@ -1,6 +1,6 @@
 import * as React from "react"
 // eslint-disable-next-line max-len
-import { VerticalProgressIndicator } from "../KaizenDraft/VerticalProgressStep/VerticalProgressIndicator"
+import { VerticalProgressIndicator } from "../src/VerticalProgressIndicator"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => (
   <div

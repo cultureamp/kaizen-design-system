@@ -5,7 +5,7 @@ import spinnerIcon from "@kaizen/component-library/icons/spinner.icon.svg"
 import classNames from "classnames"
 import * as React from "react"
 
-import styles from "./Badge.module.scss"
+import styles from "../../styles/Badge.module.scss"
 
 type BadgeProps = {
   loading: boolean

@@ -16,6 +16,7 @@
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
+  "main": "./src",
   "files": [
     "./dist",
     "./styles",

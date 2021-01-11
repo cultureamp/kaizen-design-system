@@ -7,9 +7,8 @@ import uuid from "uuid/v4"
 import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import { NavBarContext } from "../context"
 import { LinkProps } from "../types"
+import styles from "../../styles/Link.module.scss"
 import Indicator from "./Indicator"
-
-import styles from "./Link.module.scss"
 
 class Link extends React.PureComponent<LinkProps> {
   static displayName = "Link"

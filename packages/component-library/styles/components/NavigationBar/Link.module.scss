@@ -2,11 +2,11 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "./NavigationBarHelpers.module.scss";
-@import "../../../layers";
-@import "../../../border";
-@import "../../../layout";
-@import "../../../grid";
-@import "../../../responsive";
+@import "../../border";
+@import "../../layout";
+@import "../../layers";
+@import "../../grid";
+@import "../../responsive";
 
 $nav-ease: cubic-bezier(0.55, 0.085, 0.68, 0.53);
 $nav-timing: 150ms;

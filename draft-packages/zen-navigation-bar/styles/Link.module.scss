@@ -3,7 +3,7 @@
 @import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "../../styles/_styles";
+@import "./_styles";
 
 .link {
   @include ca-navigation-bar__link-item;

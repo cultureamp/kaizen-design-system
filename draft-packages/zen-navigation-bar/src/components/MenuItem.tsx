@@ -5,7 +5,7 @@ import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon
 import { NavBarContext } from "../context"
 import { Badge, MenuItemProps } from "../types"
 
-import styles from "./MenuItem.module.scss"
+import styles from "../../styles/MenuItem.module.scss"
 
 const MenuItem = ({
   label,

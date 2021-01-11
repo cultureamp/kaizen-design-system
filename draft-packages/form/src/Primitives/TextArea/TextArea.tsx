@@ -6,7 +6,7 @@ import React, {
   TextareaHTMLAttributes,
 } from "react"
 import { InputStatus } from ".."
-import styles from "./styles.scss"
+import styles from "../../../styles/TextArea.module.scss"
 
 export interface TextAreaProps
   extends TextareaHTMLAttributes<HTMLTextAreaElement> {

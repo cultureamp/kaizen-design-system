@@ -4,13 +4,13 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/layout";
-@import "../../../color";
-@import "../../../type";
-@import "../../../border";
-@import "../../../layers";
-@import "../../../animation";
-@import "../../../responsive";
-@import "../../Button.module.scss";
+@import "../../color";
+@import "../../type";
+@import "../../border";
+@import "../../layers";
+@import "../../animation";
+@import "../../responsive";
+@import "../Button.module.scss";
 
 $ca-notification-border-width: $kz-border-solid-border-width;
 $ca-notification-vertical-padding: calc(
