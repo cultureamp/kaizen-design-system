@@ -81,6 +81,7 @@ const SecondaryActions = ({
           return {
             key: `${i}`, // We shouldn't use an index here, see note above
             node: (
+              // @ts-ignore
               <Button
                 secondary
                 reversed={reversed}

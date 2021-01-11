@@ -1,6 +1,6 @@
 import classnames from "classnames"
 import * as React from "react"
-import { Checkbox, CheckedStatus, Label } from "../index"
+import { Checkbox, CheckedStatus, Label } from ".."
 
 import styles from "../../styles/CheckboxField.module.scss"
 

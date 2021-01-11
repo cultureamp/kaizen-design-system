@@ -3,8 +3,7 @@ import * as React from "react"
 import { Button } from "@kaizen/draft-button"
 import styles from "../styles/ModalFooter.scss"
 import GenericModalSection from "./GenericModalSection"
-
-interface Props {
+export interface ModalFooterProps {
   readonly unpadded?: boolean
   readonly actions: Array<{
     label: string
@@ -16,7 +15,7 @@ interface Props {
   readonly automationId?: string
 }
 
-type ModalFooter = React.FunctionComponent<Props>
+type ModalFooter = React.FunctionComponent<ModalFooterProps>
 
 const ModalFooter: ModalFooter = props => {
   const { unpadded, actions, appearance = "primary", automationId } = props

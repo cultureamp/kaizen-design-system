@@ -3,7 +3,7 @@ import * as React from "react"
 
 import styles from "../styles/styles.scss"
 
-interface Props {
+export interface LoadingPlaceholderProps {
   readonly animated?: boolean
   readonly centred?: boolean
   readonly reversedDefault?: boolean
@@ -18,7 +18,7 @@ interface Props {
   readonly width?: number
 }
 
-type LoadingPlaceholder = React.FunctionComponent<Props>
+type LoadingPlaceholder = React.FunctionComponent<LoadingPlaceholderProps>
 
 const LoadingPlaceholder: LoadingPlaceholder = ({
   animated = true,

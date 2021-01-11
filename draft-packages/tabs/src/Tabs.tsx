@@ -11,8 +11,7 @@ interface IndividualTabProps {
   readonly href?: string
   readonly automationId?: string
 }
-
-export interface TabProps {
+export interface TabsProps {
   /**
    * Support for languages that read right to left. This will flip margins and paddings on the x-axis.
    * @default "false"
@@ -33,7 +32,7 @@ const Tabs = ({
   textDirection = "ltr",
   tabs,
   renderTab,
-}: TabProps) => {
+}: TabsProps) => {
   if (orientation === "horizontal") {
     return (
       <RowTab textDirection={textDirection} tabs={tabs} renderTab={renderTab} />

@@ -6,7 +6,7 @@ import classnames from "classnames"
 import * as React from "react"
 import styles from "../styles/GuidanceBlock.scss"
 
-type Props = {
+export type GuidanceBlockProps = {
   img: {
     src: string
     alt: string
@@ -27,11 +27,14 @@ type Props = {
   withActionButtonArrow?: boolean
 }
 
-type State = {
+export type GuidanceBlockState = {
   hidden: boolean
   removed: boolean
 }
-class GuidanceBlock extends React.Component<Props, State> {
+class GuidanceBlock extends React.Component<
+  GuidanceBlockProps,
+  GuidanceBlockState
+> {
   static defaultProps = {
     variant: "default",
     withActionButtonArrow: true,
@@ -44,7 +47,7 @@ class GuidanceBlock extends React.Component<Props, State> {
 
   containerRef = React.createRef<HTMLDivElement>()
 
-  constructor(props: Props) {
+  constructor(props: GuidanceBlockProps) {
     super(props)
 
     this.dismissBanner = this.dismissBanner.bind(this)

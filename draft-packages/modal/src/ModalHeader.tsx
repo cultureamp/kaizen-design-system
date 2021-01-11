@@ -4,19 +4,18 @@ import { IconButton } from "@kaizen/draft-button"
 import close from "@kaizen/component-library/icons/close.icon.svg"
 import styles from "../styles/ModalHeader.scss"
 import GenericModalSection from "./GenericModalSection"
-
-interface Props {
+export interface ModalHeaderProps {
   readonly unpadded?: boolean
   readonly reversed?: boolean
   readonly onDismiss: (evt: React.MouseEvent) => void
   readonly children: React.ReactNode
 }
 
-interface State {
+export interface ModalHeaderState {
   hasRendered: boolean
 }
 
-class ModalHeader extends React.Component<Props, State> {
+class ModalHeader extends React.Component<ModalHeaderProps, ModalHeaderState> {
   state = { hasRendered: false }
 
   componentDidMount() {

@@ -10,3 +10,4 @@ lerna-*.log
 /packages/**/*.d.ts
 dist
 .DS_Store
+dist

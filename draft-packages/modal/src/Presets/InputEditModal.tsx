@@ -13,7 +13,7 @@ import {
 
 import styles from "../../styles/InputEditModal.scss"
 
-interface Props {
+export interface InputEditModalProps {
   readonly isOpen: boolean
   readonly type: "positive" | "negative"
   readonly title: string
@@ -27,7 +27,7 @@ interface Props {
   readonly submitDisabled?: boolean
 }
 
-type InputEditModal = React.FunctionComponent<Props>
+type InputEditModal = React.FunctionComponent<InputEditModalProps>
 
 const InputEditModal = ({
   isOpen,
@@ -41,7 +41,7 @@ const InputEditModal = ({
   automationId,
   children,
   submitDisabled = false,
-}: Props) => (
+}: InputEditModalProps) => (
   <GenericModal
     isOpen={isOpen}
     onEscapeKeyup={onDismiss}

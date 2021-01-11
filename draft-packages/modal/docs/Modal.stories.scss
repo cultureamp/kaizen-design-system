@@ -1,0 +1,28 @@
+@import "~@kaizen/component-library/styles/responsive";
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+
+  @include ca-media-tablet-and-up {
+    background-size: 80%;
+    background-image: url(~@kaizen/draft-modal/backgrounds/brush-informative.png);
+  }
+}
+
+.illustration {
+  background-image: url("https://picsum.photos/id/119/325/250");
+  background-repeat: no-repeat;
+  background-position: 90% 50%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.genericModal {
+  composes: genericModal from "~@kaizen/draft-modal/styles/GenericModal.scss";
+  max-width: 90%;
+}

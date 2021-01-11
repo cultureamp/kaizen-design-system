@@ -5,10 +5,11 @@ import React, {
   useRef,
   TextareaHTMLAttributes,
 } from "react"
-import { InputStatus } from "../index"
-import styles from "../../../styles/TextArea.module.scss"
+import { InputStatus } from ".."
+import styles from "./styles.scss"
 
-interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface TextAreaProps
+  extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   automationId?: string
   reversed?: boolean
   status?: InputStatus
@@ -16,7 +17,7 @@ interface Props extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   textAreaRef?: React.RefObject<HTMLTextAreaElement>
 }
 
-const TextArea = (props: Props) => {
+const TextArea = (props: TextAreaProps) => {
   const {
     value,
     defaultValue,

@@ -2,12 +2,12 @@ import * as React from "react"
 
 import styles from "../styles/GenericModalSection.scss"
 
-interface Props {
+export interface GenericModalSectionProps {
   readonly unpadded?: boolean
   readonly children: React.ReactNode
 }
 
-type GenericModalSection = React.FunctionComponent<Props>
+type GenericModalSection = React.FunctionComponent<GenericModalSectionProps>
 
 const GenericModalSection: GenericModalSection = ({
   unpadded = false,

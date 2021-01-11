@@ -1,12 +1,12 @@
 {
   "name": "@kaizen/draft-empty-state",
-  "version": "2.0.9",
+  "version": "2.0.11",
   "description": "The draft Empty state component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf './dist'"
+    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map' './dist'"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,11 @@
   "main": "./src",
   "files": [
     "./dist",
-    "./illustrations"
+    "./illustrations",
+    "./styles",
+    "./KaizenDraft",
+    "!docs",
+    "!tsconfig.dist.json"
   ],
   "directories": {
     "lib": "./src"
@@ -28,7 +32,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^8.0.9",
+    "@kaizen/component-library": "^8.1.1",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },

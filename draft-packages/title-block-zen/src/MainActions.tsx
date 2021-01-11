@@ -1,9 +1,11 @@
-import { Button, IconButton } from "@kaizen/draft-button"
-import GenericButton, {
+import {
+  Button,
+  IconButton,
+  GenericButton,
   AdditionalContentProps,
   GenericProps,
   LabelProps,
-} from "@kaizen/draft-button/KaizenDraft/Button/components/GenericButton"
+} from "@kaizen/draft-button"
 import { Menu, MenuContent, MenuItem, MenuItemProps } from "@kaizen/draft-menu"
 import * as React from "react"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
@@ -65,6 +67,7 @@ const MainActions = ({
             {
               key: "defaultAction",
               node: (
+                // @ts-ignore
                 <Button
                   {...{
                     ...defaultAction,
@@ -112,6 +115,7 @@ const MainActions = ({
             {
               key: "defaultAction",
               node: (
+                // @ts-ignore
                 <Button
                   {...{
                     ...defaultAction,
@@ -131,6 +135,7 @@ const MainActions = ({
             {
               key: "primaryAction",
               node: (
+                // @ts-ignore
                 <ButtonAllowingAdditionalContent
                   // Temporary grossness before we deprecate a mandatory
                   // optional field for primary in PrimaryActionProps

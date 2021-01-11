@@ -13,7 +13,7 @@ export enum ToggleTheme {
   FREEMIUM = "freemium",
 }
 
-interface Props {
+export interface ToggleSwitchProps {
   id?: string
   automationId?: string
   name?: string
@@ -25,7 +25,7 @@ interface Props {
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
 }
 
-type ToggleSwitch = React.FunctionComponent<Props>
+type ToggleSwitch = React.FunctionComponent<ToggleSwitchProps>
 
 const ToggleSwitch: ToggleSwitch = ({
   id,

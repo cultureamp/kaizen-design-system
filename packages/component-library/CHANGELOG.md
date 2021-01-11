@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.1.0...@kaizen/component-library@8.1.1) (2021-01-11)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [8.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.0.9...@kaizen/component-library@8.1.0) (2021-01-08)
+
+
+### Features
+
+* add checkbox validation and reverse states ([#858](https://github.com/cultureamp/kaizen-design-system/issues/858)) ([be74040](https://github.com/cultureamp/kaizen-design-system/commit/be7404071414dfaa7765e8c1977434edd8939665))
+
+
+
+
+
 ## [8.0.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.0.8...@kaizen/component-library@8.0.9) (2020-12-16)
 
 

@@ -10,11 +10,11 @@ import {
   InputStatus,
   InputType,
   Label,
-} from "../index"
+} from ".."
 
 import styles from "../../styles/TextField.module.scss"
 
-type TextField = React.FunctionComponent<{
+export type TextFieldProps = {
   id: string
   inputType?: InputType
   required?: boolean
@@ -34,7 +34,9 @@ type TextField = React.FunctionComponent<{
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any
   name?: string
-}>
+}
+
+type TextField = React.FunctionComponent<TextFieldProps>
 
 const TextField: TextField = ({
   id,

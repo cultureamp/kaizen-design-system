@@ -7,7 +7,7 @@ import { Dir } from "./types"
 
 type Variant = "default" | "primary"
 
-type Props = {
+export type DropdownProps = {
   automationId?: string
   dir?: Dir
   dropdownAltText: string
@@ -15,14 +15,14 @@ type Props = {
   onOpenDropdown: () => void
 }
 
-class Dropdown extends React.Component<Props> {
+class Dropdown extends React.Component<DropdownProps> {
   static displayName = "Dropdown"
   static defaultProps = {
     dir: "ltr",
     variant: "default",
   }
 
-  constructor(props: Props) {
+  constructor(props: DropdownProps) {
     super(props)
   }
 

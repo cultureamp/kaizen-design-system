@@ -1,12 +1,12 @@
 {
   "name": "@kaizen/draft-table",
-  "version": "3.2.13",
+  "version": "3.2.17",
   "description": "The draft Table component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf './dist'"
+    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map' './dist'"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,11 @@
   },
   "main": "./src",
   "files": [
-    "./dist"
+    "./dist",
+    "./styles",
+    "./KaizenDraft",
+    "!docs",
+    "!tsconfig.dist.json"
   ],
   "directories": {
     "lib": "./src"
@@ -27,9 +31,9 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^8.0.9",
-    "@kaizen/draft-form": "^2.10.9",
-    "@kaizen/draft-tooltip": "^2.1.6",
+    "@kaizen/component-library": "^8.1.1",
+    "@kaizen/draft-form": "^3.0.1",
+    "@kaizen/draft-tooltip": "^2.2.2",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },

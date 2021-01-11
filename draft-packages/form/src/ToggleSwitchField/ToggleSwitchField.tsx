@@ -1,17 +1,11 @@
 import classnames from "classnames"
 import * as React from "react"
 
-import {
-  FieldGroup,
-  Label,
-  ToggledStatus,
-  ToggleSwitch,
-  ToggleTheme,
-} from "../index"
+import { FieldGroup, Label, ToggledStatus, ToggleSwitch, ToggleTheme } from ".."
 
 import styles from "../../styles/ToggleSwitchField.module.scss"
 
-interface Props {
+export interface ToggleSwitchFieldProps {
   id?: string
   name?: string
   labelText: string | React.ReactNode
@@ -26,7 +20,7 @@ interface Props {
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
 }
 
-type ToggleSwitchField = React.FunctionComponent<Props>
+type ToggleSwitchField = React.FunctionComponent<ToggleSwitchFieldProps>
 
 const ToggleSwitchField: ToggleSwitchField = ({
   id = "",

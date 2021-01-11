@@ -12,9 +12,9 @@ import {
 
 module.exports = {
   stories: [
+    "../packages/component-library/**/*.stories.tsx",
     "../draft-packages/**/*.stories.tsx",
-    // "../packages/component-library/*/src/**/*.stories.tsx",
-    // "../legacy-packages/*/src/**/*.stories.tsx",
+    "../legacy-packages/**/*.stories.tsx",
   ],
   addons: [
     path.resolve("./storybook/gtm-addon/register"),

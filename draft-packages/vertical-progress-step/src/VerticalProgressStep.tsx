@@ -10,7 +10,7 @@ import {
 
 type Position = "start" | "middle" | "end"
 
-type CompletedStepProps = {
+export type CompletedStepProps = {
   name: string
   children?: React.ReactNode
   position: Position
@@ -31,7 +31,7 @@ const CompletedStep = (props: CompletedStepProps) => (
   </div>
 )
 
-type CurrentStepProps = {
+export type CurrentStepProps = {
   name: string
   children?: React.ReactNode
   status: CurrentStepStatus
@@ -109,7 +109,7 @@ const CurrentStep = (props: CurrentStepProps) => {
   }
 }
 
-type UpcomingStepProps = {
+export type UpcomingStepProps = {
   name: string
   children?: React.ReactNode
   position: Position

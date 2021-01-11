@@ -3,7 +3,7 @@ import * as React from "react"
 
 import styles from "../styles/HeroCard.scss"
 
-interface Props {
+export interface HeroCardProps {
   readonly leftContent?: React.ReactNode
   readonly children: React.ReactNode
   readonly title?: React.ReactNode
@@ -13,7 +13,7 @@ interface Props {
   readonly minHeight?: string
 }
 
-type HeroCard = React.FunctionComponent<Props>
+type HeroCard = React.FunctionComponent<HeroCardProps>
 
 const HeroCard: HeroCard = ({
   leftContent,
@@ -23,7 +23,7 @@ const HeroCard: HeroCard = ({
   badge,
   minHeight = "none",
   fullWidth = false,
-}: Props) => (
+}: HeroCardProps) => (
   <div
     className={classnames(styles.root, {
       [styles.fullWidth]: fullWidth,
