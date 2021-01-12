@@ -16,6 +16,9 @@
   "references": [
     {
       "path": "../../packages/component-library"
+    },
+    {
+      "path": "../form"
     }
   ]
 }
