@@ -28,6 +28,11 @@ module.exports = {
     "sort-imports-es6-autofix",
     "prefer-arrow",
   ],
+  ignorePatterns: [
+    "packages/**/dist",
+    "draft-packages/**/dist",
+    "legacy-packages/**/dist",
+  ],
   rules: {
     "@typescript-eslint/adjacent-overload-signatures": "error",
     "@typescript-eslint/array-type": [
