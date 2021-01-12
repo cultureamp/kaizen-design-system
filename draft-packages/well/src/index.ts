@@ -1,1 +1,1 @@
-export { default as Well } from "./Well"
+export { default as Well, WellProps } from "./Well"

@@ -1,5 +1,6 @@
 module.exports = {
   preset: "ts-jest",
+  testPathIgnorePatterns: ["/node_modules/", "<rootDir>/dist/"],
   testMatch: ["**/*.spec.ts?(x)"],
   moduleNameMapper: {
     "\\.(jpe?g|png)$": "jest-static-stubs/$1",

@@ -1,3 +1,3 @@
-export * from "./KaizenDraft/Content/Content"
-export * from "./KaizenDraft/Skirt/Skirt"
-export * from "./KaizenDraft/Skirt/SkirtCard"
+export * from "./src/Content/Content"
+export * from "./src/Skirt/Skirt"
+export * from "./src/Skirt/SkirtCard"

@@ -1,8 +1,7 @@
 import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
 
-import { WellProps } from "./Well"
-import { Well } from "./index"
+import { WellProps, Well } from "."
 
 afterEach(cleanup)
 

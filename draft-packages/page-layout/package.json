@@ -3,7 +3,7 @@
   "version": "1.1.1",
   "description": "The draft content block component",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
+    "prepublish": "tsc --project tsconfig.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map' './dist'"
@@ -28,7 +28,6 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/draft-card": "^1.2.5",
-    "@kaizen/draft-page-layout": "^1.1.1",
     "classnames": "^2.2.6",
     "resize-observer-polyfill": "^1.5.1"
   },

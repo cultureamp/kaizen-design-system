@@ -1,8 +1,7 @@
 import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
 
-import { FieldGroupProps } from "./FieldGroup"
-import { FieldGroup } from "."
+import { FieldGroupProps, FieldGroup } from "."
 
 afterEach(cleanup)
 
