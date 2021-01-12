@@ -44,10 +44,6 @@
     "react-transition-group": "^2.9.0",
     "uuid": "^3.3.2"
   },
-  "devDependencies": {
-    "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.2.1",
-    "rimraf": "^2.6.3"
-  },
   "scripts": {
     "prepublish": "tsc --project tsconfig.json",
     "build": "yarn clean && yarn prepublish",

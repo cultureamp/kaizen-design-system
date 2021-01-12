@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/layout";
-@import "~@kaizen/draft-page-layout/KaizenDraft/Content/styles.scss";
+@import "./Content.module.scss";
+@import "./styles";
 
 .wrapper {
   @media (max-width: $kz-layout-breakpoints-large) {
