@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-filter-menu-button@1.1.5...@kaizen/draft-filter-menu-button@1.1.6) (2021-01-12)
+
+
+### Bug Fixes
+
+* remove the max-width to make the button expand with the metadata ([#920](https://github.com/cultureamp/kaizen-design-system/issues/920)) ([bb329ce](https://github.com/cultureamp/kaizen-design-system/commit/bb329ce5d87d3a3746141c77d72fc9cb91921c75))
+
+
+
+
+
 ## [1.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-filter-menu-button@1.1.4...@kaizen/draft-filter-menu-button@1.1.5) (2021-01-11)
 
 **Note:** Version bump only for package @kaizen/draft-filter-menu-button
