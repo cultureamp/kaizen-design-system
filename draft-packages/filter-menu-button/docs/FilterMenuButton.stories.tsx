@@ -64,6 +64,9 @@ const dropdownOptions = [
   { id: 2, label: "Aquatic" },
   { id: 3, label: "Venomous" },
   { id: 4, label: "Egg-laying" },
+  { id: 5, label: "Water-proof feathers" },
+  { id: 6, label: "Cold-blooded" },
+  { id: 7, label: "Warm-blooded" },
 ]
 
 export const DefaultWithChildrenSimpleFilter = () => {
