@@ -5,9 +5,8 @@ lerna-*.log
 /site/public/
 /storybook/public/
 /elm-stuff/
-/packages/**/*.js
-/packages/**/*.js.map
-/packages/**/*.d.ts
-dist
+/packages/dist/
+/draft-packages/dist/
+/legacy-packages/dist/
 .DS_Store
-dist
+/dist
