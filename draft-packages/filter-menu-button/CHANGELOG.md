@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-filter-menu-button@1.1.6...@kaizen/draft-filter-menu-button@1.1.7) (2021-01-13)
+
+
+### Bug Fixes
+
+* update styling for FilterMenuButton metadata label ([#921](https://github.com/cultureamp/kaizen-design-system/issues/921)) ([16f2546](https://github.com/cultureamp/kaizen-design-system/commit/16f25465148561aeb98719eccb9a3f090e354a8d))
+
+
+
+
+
 ## [1.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-filter-menu-button@1.1.5...@kaizen/draft-filter-menu-button@1.1.6) (2021-01-12)
 
 
