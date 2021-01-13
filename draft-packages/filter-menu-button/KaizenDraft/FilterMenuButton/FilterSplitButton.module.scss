@@ -63,7 +63,6 @@
 
   &:hover {
     background: $kz-color-cluny-100;
-    color: $kz-color-cluny-500;
   }
 }
 
@@ -73,7 +72,6 @@
 
   &:hover {
     background: $kz-color-cluny-100;
-    color: $kz-color-cluny-500;
   }
 }
 
@@ -111,8 +109,14 @@
 }
 
 .filterName {
-  font-weight: $kz-typography-heading-6-font-weight;
+  font-weight: $kz-typography-button-primary-font-weight;
   margin-right: $ca-grid / 3;
+}
+
+.metadata {
+  font-size: $kz-typography-button-secondary-font-size;
+  font-weight: $kz-typography-button-secondary-font-weight;
+  letter-spacing: $kz-typography-button-secondary-letter-spacing;
 }
 
 // This is a temporary solution to mark an active state of the button
