@@ -23,9 +23,3 @@ $menuContentVerticalPadding: 6px; // this comes from the MenuContent component, 
   padding: calc(#{$kz-spacing-sm} - #{$menuContentVerticalPadding})
     calc(#{$kz-spacing-sm} - #{$menuContentHorizontalPadding});
 }
-
-.metadata {
-  @include kz-typography-paragraph-small;
-  @include ca-inherit-baseline;
-  color: $kz-color-wisteria-800;
-}

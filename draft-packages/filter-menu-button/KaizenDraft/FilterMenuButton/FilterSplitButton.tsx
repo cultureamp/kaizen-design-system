@@ -39,7 +39,7 @@ export const FilterSplitButton = ({
           })}
         >
           <span className={styles.filterName}>{labelText}</span>
-          <span>{metadata}</span>
+          <span className={styles.metadata}>{metadata}</span>
         </button>
         {onFilterClear ? (
           <button
