@@ -3,7 +3,7 @@
   "version": "2.1.3",
   "description": "The draft Title block component",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.json",
+    "prepublish": "tsc -b tsconfig.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf './dist'"

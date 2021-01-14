@@ -3,7 +3,7 @@
   "version": "1.1.4",
   "description": "The draft loading-spinner component",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.json",
+    "prepublish": "tsc -b tsconfig.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf './dist'"

@@ -3,7 +3,7 @@
   "version": "2.0.12",
   "description": "The draft hierarchical-menu component",
   "scripts": {
-    "prepublish": "yarn tsc --project tsconfig.json",
+    "prepublish": "yarn tsc -b tsconfig.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf './dist'"

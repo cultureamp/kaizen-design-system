@@ -3,7 +3,7 @@
   "version": "3.2.17",
   "description": "The draft Table component",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.json",
+    "prepublish": "tsc -b tsconfig.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf './dist'"
