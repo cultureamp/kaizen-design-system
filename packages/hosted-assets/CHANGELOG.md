@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/hosted-assets@1.0.3...@kaizen/hosted-assets@1.1.0) (2021-01-14)
+
+
+### Features
+
+* add Elm helper function for HostedAssets ([#923](https://github.com/cultureamp/kaizen-design-system/issues/923)) ([9ee5e81](https://github.com/cultureamp/kaizen-design-system/commit/9ee5e81db3b51c91fc6646b1cc9d27eb7cf82236))
+
+
+
+
+
 ## [1.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/hosted-assets@1.0.2...@kaizen/hosted-assets@1.0.3) (2020-11-12)
 
 

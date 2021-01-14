@@ -18,7 +18,7 @@
     "!*.stories.tsx"
   ],
   "sideEffects": false,
-  "version": "8.1.1",
+  "version": "8.1.2",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "@kaizen/deprecated-component-library-helpers": "^2.0.0",
-    "@kaizen/hosted-assets": "^1.0.3",
+    "@kaizen/hosted-assets": "^1.1.0",
     "@types/classnames": "^2.2.6",
     "@types/lodash": "^4.14.132",
     "@types/react-select": "^3.0.5",
