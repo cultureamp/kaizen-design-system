@@ -44,7 +44,6 @@ release() {
   git checkout master && git pull
 
   yarn install --frozen-lockfile
-  yarn build
 
   # Bump packages, push and tag a release commit, and update release notes
   yarn lerna version --conventional-commits --create-release=github --yes \
@@ -58,7 +57,6 @@ release_canary() {
   git checkout canary && git pull
 
   yarn install --frozen-lockfile
-  yarn build
 
   yarn lerna publish --canary --preid canary --yes
 }

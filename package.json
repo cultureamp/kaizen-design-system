@@ -10,7 +10,7 @@
     "node": "^14.15.1"
   },
   "scripts": {
-    "build": "lerna run build",
+    "postinstall": "lerna run build",
     "storybook": "start-storybook -p 6006 -c storybook",
     "storybook:build": "build-storybook -c storybook -o storybook/public",
     "gatsby": "yarn workspace site gatsby",

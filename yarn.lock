@@ -1976,16 +1976,6 @@
     classnames "^2.2.6"
     react-textfit "^1.1.0"
 
-"@kaizen/draft-form@^2.10.9":
-  version "2.12.0"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-form/-/draft-form-2.12.0.tgz#8ce788081567c76ac20197938e7ba15bdff816fc"
-  integrity sha512-JOCX77V/FiLqHuAI73eWeOjlcFvbTrxsgSRGnJ8qNDYTXggJMAIh4W+gXGiXH21x4GxaVJrst9Beunus9RjIBg==
-  dependencies:
-    "@kaizen/component-library" "^8.1.0"
-    "@kaizen/deprecated-component-library-helpers" "^2.0.0"
-    "@types/classnames" "^2.2.10"
-    classnames "^2.2.6"
-
 "@lerna/add@3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.21.0.tgz#27007bde71cc7b0a2969ab3c2f0ae41578b4577b"
