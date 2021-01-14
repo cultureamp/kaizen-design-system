@@ -16,14 +16,14 @@
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
-  "main": "./src",
+  "main": "dist",
   "directories": {
-    "lib": "./src"
+    "lib": "dist"
   },
   "files": [
-    "./dist",
-    "./styles",
-    "./KaizenDraft",
+    "dist",
+    "styles",
+    "KaizenDraft",
     "!docs",
     "!tsconfig.dist.json"
   ],

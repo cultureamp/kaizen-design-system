@@ -10,11 +10,11 @@
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
-  "main": "./src",
+  "main": "dist",
   "files": [
-    "./dist",
+    "dist",
     "./icons",
-    "./styles",
+    "styles",
     "!*.stories.tsx"
   ],
   "sideEffects": false,
