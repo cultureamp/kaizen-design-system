@@ -2,6 +2,7 @@ import * as React from "react"
 
 import { Text } from "@kaizen/component-library"
 
+import { ButtonProps } from "@kaizen/draft-button"
 import {
   GenericModal,
   ModalAccessibleLabel,
@@ -18,6 +19,7 @@ export interface InformationModalProps {
   readonly onConfirm?: () => void
   readonly onDismiss: () => void
   readonly confirmLabel?: string
+  readonly confirmButtonProps?: ButtonProps
   readonly automationId?: string
   readonly renderBackground?: () => React.ReactNode
   readonly children: React.ReactNode
@@ -31,6 +33,7 @@ const InformationModal = ({
   onConfirm,
   onDismiss,
   confirmLabel = "Confirm",
+  confirmButtonProps,
   automationId,
   renderBackground,
   children,
@@ -61,7 +64,9 @@ const InformationModal = ({
       </ModalBody>
       {onConfirm != null && (
         <ModalFooter
-          actions={[{ label: confirmLabel, action: onConfirm }]}
+          actions={[
+            { label: confirmLabel, onClick: onConfirm, ...confirmButtonProps },
+          ]}
           appearance={"primary"}
           automationId={automationId}
         />

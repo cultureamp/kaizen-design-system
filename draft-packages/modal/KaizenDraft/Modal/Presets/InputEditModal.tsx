@@ -1,8 +1,8 @@
-import classnames from "classnames"
 import * as React from "react"
 
 import { Text } from "@kaizen/component-library"
 
+import { ButtonProps } from "@kaizen/draft-button"
 import {
   GenericModal,
   ModalAccessibleLabel,
@@ -24,7 +24,8 @@ export interface InputEditModalProps {
   readonly dismissLabel?: string
   readonly automationId?: string
   readonly children: React.ReactNode
-  readonly submitDisabled?: boolean
+  readonly submitButtonProps?: ButtonProps
+  readonly dismissButtonProps?: ButtonProps
 }
 
 type InputEditModal = React.FunctionComponent<InputEditModalProps>
@@ -40,7 +41,8 @@ const InputEditModal = ({
   dismissLabel = "Cancel",
   automationId,
   children,
-  submitDisabled = false,
+  submitButtonProps,
+  dismissButtonProps,
 }: InputEditModalProps) => (
   <GenericModal
     isOpen={isOpen}
@@ -64,8 +66,8 @@ const InputEditModal = ({
       </ModalBody>
       <ModalFooter
         actions={[
-          { label: submitLabel, action: onSubmit, disabled: submitDisabled },
-          { label: dismissLabel, action: onDismiss },
+          { label: submitLabel, onClick: onSubmit, ...submitButtonProps },
+          { label: dismissLabel, onClick: onDismiss, ...dismissButtonProps },
         ]}
         appearance={type === "negative" ? "destructive" : "primary"}
         automationId={automationId}

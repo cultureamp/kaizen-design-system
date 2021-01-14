@@ -1,9 +1,9 @@
-import classnames from "classnames"
 import * as React from "react"
 
 import { Heading } from "@kaizen/component-library"
 import { Negative } from "@kaizen/draft-illustration"
 
+import { ButtonProps } from "@kaizen/draft-button"
 import {
   GenericModal,
   ModalAccessibleDescription,
@@ -20,6 +20,7 @@ export interface RoadblockModalProps {
   readonly title: string
   readonly onDismiss: () => void
   readonly dismissLabel?: string
+  readonly dismissButtonProps?: ButtonProps
   readonly automationId?: string
   readonly children: React.ReactNode
 }
@@ -31,6 +32,7 @@ const RoadblockModal = ({
   title,
   onDismiss,
   dismissLabel = "Back",
+  dismissButtonProps,
   automationId,
   children,
 }: RoadblockModalProps) => (
@@ -62,7 +64,9 @@ const RoadblockModal = ({
         </div>
       </ModalBody>
       <ModalFooter
-        actions={[{ label: dismissLabel, action: onDismiss }]}
+        actions={[
+          { label: dismissLabel, onClick: onDismiss, ...dismissButtonProps },
+        ]}
         appearance="primary"
         automationId={automationId}
       />

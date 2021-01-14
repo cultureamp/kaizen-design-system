@@ -161,6 +161,37 @@ export const ConfirmationNegative = () => (
 
 ConfirmationNegative.storyName = "Confirmation (negative)"
 
+export const ConfirmationCustomButtons = () => (
+  <ModalStateContainer isInitiallyOpen={false}>
+    {({ open, close, isOpen }) => (
+      <div>
+        <Button label="Open modal" onClick={open} />
+        <ConfirmationModal
+          isOpen={isOpen}
+          type="negative"
+          title="Negative title"
+          onConfirm={close}
+          onDismiss={close}
+          confirmButtonProps={{
+            label: "Confirm",
+            working: true,
+            workingLabel: "Working…",
+          }}
+        >
+          <div style={{ textAlign: "center" }}>
+            <Paragraph tag="p" variant="body">
+              Modals contain smaller pieces of content and can provide
+              additional information to aid the user.
+            </Paragraph>
+          </div>
+        </ConfirmationModal>
+      </div>
+    )}
+  </ModalStateContainer>
+)
+
+ConfirmationCustomButtons.storyName = "Confirmation w/ custom button props"
+
 export const InputEditPositive = () => (
   <ModalStateContainer isInitiallyOpen={false}>
     {({ open, close, isOpen }) => (
@@ -486,7 +517,7 @@ export const GenericModalPadded = () => (
                 actions={[
                   {
                     label: "Confirm",
-                    action: () => close(),
+                    onClick: () => close(),
                   },
                 ]}
               >
@@ -529,7 +560,7 @@ export const GenericModalUnpadded = () => (
                 actions={[
                   {
                     label: "Confirm",
-                    action: () => close(),
+                    onClick: () => close(),
                   },
                 ]}
                 unpadded
