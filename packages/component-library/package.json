@@ -13,10 +13,13 @@
   "main": "dist",
   "files": [
     "dist",
-    "./icons",
     "styles",
+    "icons",
     "!*.stories.tsx"
   ],
+  "directories": {
+    "lib": "dist"
+  },
   "sideEffects": false,
   "version": "8.1.2",
   "private": false,
@@ -48,7 +51,7 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
-    "prepublish": "tsc -b tsconfig.json",
+    "prepublishs": "tsc -b tsconfig.json",
     "build": "yarn clean && yarn prepublish",
     "build:watch": "yarn clean && yarn prepublish --watch",
     "clean": "rimraf 'dist' 'components/**/*.js' 'draft/**/*.js' 'util/**/*.js' '**/*.js.map' 'index.js' 'index.js.map' 'index.d.ts' 'components/**/*.d.ts' 'draft/**/*.d.ts' 'util/**/*.d.ts' 'draft-templates/**/*.d.ts' 'stories/*.stories.js' 'stories/*.stories.d.ts'"
