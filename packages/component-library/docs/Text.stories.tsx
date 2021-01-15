@@ -1,5 +1,5 @@
-import { Text } from "@kaizen/component-library"
 import * as React from "react"
+import { Text } from ".."
 
 export default {
   title: "Text (deprecated) (React)",

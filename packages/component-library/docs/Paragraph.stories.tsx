@@ -1,6 +1,6 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
-import { Paragraph } from "../components/Paragraph"
+import { Paragraph } from ".."
 
 export default {
   title: "Paragraph",
@@ -8,7 +8,7 @@ export default {
   parameters: {
     info: {
       text: `
-        import { Paragraph } from "@kaizen/component-library";
+        import { Paragraph } from "..";
       `,
     },
   },

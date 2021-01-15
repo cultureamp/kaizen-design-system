@@ -1,14 +1,14 @@
 import * as React from "react"
 
-import { Icon } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
+import { Icon } from ".."
 
 export default {
   title: "Icon (React)",
   parameters: {
     info: {
       text: `
-        import { Icon } from "@kaizen/component-library";
+        import { Icon } from "..";
       `,
     },
   },

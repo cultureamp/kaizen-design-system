@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { GlobalNotification } from "@kaizen/component-library"
+import { GlobalNotification } from ".."
 
 export default {
   title: "GlobalNotification (React)",
@@ -8,7 +8,7 @@ export default {
   parameters: {
     info: {
       text: `
-        import { GlobalNotification } from "@kaizen/component-library";
+        import { GlobalNotification } from "..";
       `,
     },
   },

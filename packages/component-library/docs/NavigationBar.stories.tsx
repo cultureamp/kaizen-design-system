@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { Icon, Link, Menu, NavigationBar } from "@kaizen/component-library"
+import { Icon, Link, Menu, NavigationBar } from ".."
 
 import academyIcon from "@kaizen/component-library/icons/academy.icon.svg"
 
@@ -14,7 +14,7 @@ export default {
   parameters: {
     info: {
       text: `
-        import { NavigationBar, Menu, Link } from "@kaizen/component-library";
+        import { NavigationBar, Menu, Link } from "..";
       `,
     },
   },

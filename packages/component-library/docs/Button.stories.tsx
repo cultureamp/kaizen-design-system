@@ -1,4 +1,4 @@
-import { Button } from "@kaizen/component-library"
+import { Button } from ".."
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 
 import React, { useCallback, useRef } from "react"

@@ -8,7 +8,7 @@ import {
   Stories,
   PRIMARY_STORY,
 } from "@storybook/addon-docs/blocks"
-import { Box } from "../components/Box"
+import { Box } from ".."
 
 export default {
   title: "Box (React)",
@@ -18,7 +18,7 @@ export default {
       page: () => (
         <>
           <Title />
-          <code>{'import { Box } from "@kaizen/component-library";'}</code>
+          <code>{'import { Box } from "..";'}</code>
           <Subtitle />
           <Description />
           <Primary />

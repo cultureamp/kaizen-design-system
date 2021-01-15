@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { InlineNotification } from "@kaizen/component-library"
+import { InlineNotification } from ".."
 
 export default {
   title: "InlineNotification (React)",
@@ -8,7 +8,7 @@ export default {
   parameters: {
     info: {
       text: `
-        import { InlineNotification } from "@kaizen/component-library";
+        import { InlineNotification } from "..";
       `,
     },
   },

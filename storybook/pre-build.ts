@@ -10,17 +10,3 @@ const exitWithError = (...message: string[]) => {
   console.error(chalk.red(`\n${message.join("\n")}\n`))
   process.exit(1)
 }
-
-// Check for compiler output in the @kaizen/component-library
-// package. This state is required for linking with murmur, but it causes
-// storybook to fail in ways that are difficult to diagnose.
-if (
-  readdirSync(dirname(require.resolve("@kaizen/component-library"))).includes(
-    "index.js"
-  )
-) {
-  exitWithError(
-    "The component-library package contains compiled javascript!",
-    "Please run `yarn clean` before running storybook again."
-  )
-}

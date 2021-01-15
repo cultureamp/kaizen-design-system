@@ -39,10 +39,6 @@
     "lodash": "^4.17.15",
     "react-media": "^1.9.2"
   },
-  "devDependencies": {
-    "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.2.1",
-    "rimraf": "^3.0.2"
-  },
   "peerDependencies": {
     "@kaizen/design-tokens": "^1.2.0 || ^2",
     "react": "^16.9.0"

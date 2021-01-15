@@ -26,6 +26,9 @@
     "focus-visible": "4.x || 5.x",
     "react": "^16.9.0"
   },
+  "devDependencies": {
+    "@kaizen/draft-title-block": "^2.1.4"
+  },
   "dependencies": {
     "@kaizen/deprecated-component-library-helpers": "^2.0.0",
     "@kaizen/hosted-assets": "^1.1.0",

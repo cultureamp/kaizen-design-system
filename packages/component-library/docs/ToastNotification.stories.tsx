@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { ToastNotification } from "@kaizen/component-library"
+import { ToastNotification } from "../"
 
 export default {
   title: "ToastNotification (React)",
@@ -8,7 +8,7 @@ export default {
   parameters: {
     info: {
       text: `
-        import { ToastNotification } from "@kaizen/component-library";
+        import { ToastNotification } from "..";
       `,
     },
   },

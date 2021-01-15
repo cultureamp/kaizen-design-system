@@ -12,7 +12,7 @@
     "tsBuildInfoFile": "./dist/.cache/tsbuildinfo.json"
   },
   "include": ["src", "styles", "icons"],
-  "exclude": ["stories"],
+  "exclude": ["docs"],
   "references": [
     {
       "path": "../hosted-assets"

@@ -1,7 +1,7 @@
 import { cleanup, render } from "@testing-library/react"
 import * as React from "react"
 
-import { Icon } from "@kaizen/component-library"
+import { Icon } from "../.."
 
 afterEach(cleanup)
 

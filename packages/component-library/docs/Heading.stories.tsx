@@ -1,6 +1,6 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
-import { Heading } from "../components/Heading"
+import { Heading } from ".."
 
 export default {
   title: "Heading (React)",
@@ -8,7 +8,7 @@ export default {
   parameters: {
     info: {
       text: `
-        import { Heading } from "@kaizen/component-library";
+        import { Heading } from "..";
       `,
     },
   },

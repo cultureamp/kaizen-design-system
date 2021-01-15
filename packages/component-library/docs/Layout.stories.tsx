@@ -1,5 +1,9 @@
 import * as React from "react"
 
+import { TitleBlock } from "@kaizen/draft-title-block"
+import caMonogramIcon from "../icons/ca-monogram.icon.svg"
+import supportIcon from "../icons/support.icon.svg"
+import academyIcon from "../icons/academy.icon.svg"
 import {
   GlobalNotification,
   Icon,
@@ -9,11 +13,7 @@ import {
   NavigationBar,
   Text,
   ToastNotification,
-} from "@kaizen/component-library"
-import academyIcon from "@kaizen/component-library/icons/academy.icon.svg"
-import caMonogramIcon from "@kaizen/component-library/icons/ca-monogram.icon.svg"
-import supportIcon from "@kaizen/component-library/icons/support.icon.svg"
-import { TitleBlock } from "@kaizen/draft-title-block"
+} from "../src"
 
 export default {
   title: "Layout (deprecated) (React)",
