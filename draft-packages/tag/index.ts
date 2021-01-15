@@ -1,1 +1,1 @@
-export * from "./KaizenDraft/Tag"
+export * from "./src"
