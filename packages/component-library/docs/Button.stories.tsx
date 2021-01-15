@@ -1,8 +1,7 @@
-import { Button } from ".."
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 
 import React, { useCallback, useRef } from "react"
-import { ButtonRef } from "../components/Button"
+import { Button, ButtonRef } from "@kaizen/component-library"
 
 export default {
   title: "Button (deprecated) (React)",

@@ -1,12 +1,9 @@
 import * as React from "react"
 
-import { Icon, Link, Menu, NavigationBar } from ".."
-
 import academyIcon from "@kaizen/component-library/icons/academy.icon.svg"
-
 import caMonogramIcon from "@kaizen/component-library/icons/ca-monogram.icon.svg"
-
 import supportIcon from "@kaizen/component-library/icons/support.icon.svg"
+import { Icon, Link, Menu, NavigationBar } from "@kaizen/component-library"
 
 export default {
   title: "NavigationBar (React)",
@@ -14,7 +11,7 @@ export default {
   parameters: {
     info: {
       text: `
-        import { NavigationBar, Menu, Link } from "..";
+        import { NavigationBar, Menu, Link } from "@kaizen/component-library";
       `,
     },
   },
