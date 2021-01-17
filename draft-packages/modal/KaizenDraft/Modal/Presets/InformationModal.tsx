@@ -61,7 +61,7 @@ const InformationModal = ({
       </ModalBody>
       {onConfirm != null && (
         <ModalFooter
-          actions={[{ label: confirmLabel, action: onConfirm }]}
+          actions={[{ label: confirmLabel, onClick: onConfirm }]}
           appearance={"primary"}
           automationId={automationId}
         />

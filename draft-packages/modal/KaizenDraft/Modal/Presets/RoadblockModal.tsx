@@ -1,4 +1,3 @@
-import classnames from "classnames"
 import * as React from "react"
 
 import { Heading } from "@kaizen/component-library"
@@ -62,7 +61,7 @@ const RoadblockModal = ({
         </div>
       </ModalBody>
       <ModalFooter
-        actions={[{ label: dismissLabel, action: onDismiss }]}
+        actions={[{ label: dismissLabel, onClick: onDismiss }]}
         appearance="primary"
         automationId={automationId}
       />

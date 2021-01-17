@@ -161,6 +161,33 @@ export const ConfirmationNegative = () => (
 
 ConfirmationNegative.storyName = "Confirmation (negative)"
 
+export const ConfirmationWorkingButton = () => (
+  <ModalStateContainer isInitiallyOpen={false}>
+    {({ open, close, isOpen }) => (
+      <div>
+        <Button label="Open modal" onClick={open} />
+        <ConfirmationModal
+          isOpen={isOpen}
+          type="positive"
+          title="Positive title"
+          onConfirm={close}
+          onDismiss={close}
+          confirmWorking={{ label: "Working…" }}
+        >
+          <div style={{ textAlign: "center" }}>
+            <Paragraph tag="p" variant="body">
+              Modals contain smaller pieces of content and can provide
+              additional information to aid the user.
+            </Paragraph>
+          </div>
+        </ConfirmationModal>
+      </div>
+    )}
+  </ModalStateContainer>
+)
+
+ConfirmationWorkingButton.storyName = "Confirmation w/ 'working' button"
+
 export const InputEditPositive = () => (
   <ModalStateContainer isInitiallyOpen={false}>
     {({ open, close, isOpen }) => (
@@ -320,6 +347,60 @@ export const InputEditNegative = () => (
 )
 
 InputEditNegative.storyName = "Input-edit (negative)"
+
+export const InputEditWorkingButton = () => (
+  <ModalStateContainer isInitiallyOpen={false}>
+    {({ open, close, isOpen }) => (
+      <div>
+        <Button label="Open modal" onClick={open} />
+        <InputEditModal
+          isOpen={isOpen}
+          type="positive"
+          title="Input-edit modal title"
+          onSubmit={close}
+          onDismiss={close}
+          submitWorking={{ label: "Submitting…" }}
+        >
+          <form>
+            <div style={{ textAlign: "center" }}>
+              <ModalAccessibleDescription>
+                <Paragraph variant="body">
+                  Instructive text to drive user selection goes here.
+                </Paragraph>
+              </ModalAccessibleDescription>
+              <Paragraph variant="body">
+                Instructive text to drive user selection goes here.
+              </Paragraph>
+            </div>
+            <div>
+              <TextField
+                id="email"
+                inputType="email"
+                inputValue="mackenzie@example.com"
+                labelText="Email"
+                placeholder="Please enter your email"
+                onChange={() => undefined}
+                icon={userIcon}
+              />
+              <TextField
+                id="password"
+                inputType="password"
+                inputValue="123445555"
+                labelText="Password"
+                placeholder="Please enter your password"
+                onChange={() => undefined}
+                icon={lockIcon}
+                inline
+              />
+            </div>
+          </form>
+        </InputEditModal>
+      </div>
+    )}
+  </ModalStateContainer>
+)
+
+InputEditWorkingButton.storyName = "Input-edit w/ working button"
 
 export const InformationWithAction = () => (
   <ModalStateContainer isInitiallyOpen={false}>
@@ -486,7 +567,7 @@ export const GenericModalPadded = () => (
                 actions={[
                   {
                     label: "Confirm",
-                    action: () => close(),
+                    onClick: () => close(),
                   },
                 ]}
               >
@@ -529,7 +610,7 @@ export const GenericModalUnpadded = () => (
                 actions={[
                   {
                     label: "Confirm",
-                    action: () => close(),
+                    onClick: () => close(),
                   },
                 ]}
                 unpadded
