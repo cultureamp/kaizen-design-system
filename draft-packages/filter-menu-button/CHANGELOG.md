@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-filter-menu-button@1.1.8...@kaizen/draft-filter-menu-button@1.1.9) (2021-01-18)
+
+
+### Bug Fixes
+
+* remove content wrapper for FilterMenuButton children ([#934](https://github.com/cultureamp/kaizen-design-system/issues/934)) ([92d223b](https://github.com/cultureamp/kaizen-design-system/commit/92d223b172ba1679de64afeec0e63326a2221e01))
+
+
+
+
+
 ## [1.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-filter-menu-button@1.1.7...@kaizen/draft-filter-menu-button@1.1.8) (2021-01-14)
 
 **Note:** Version bump only for package @kaizen/draft-filter-menu-button

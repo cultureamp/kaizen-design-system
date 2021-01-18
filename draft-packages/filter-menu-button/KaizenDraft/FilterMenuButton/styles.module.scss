@@ -18,8 +18,3 @@ $menuContentVerticalPadding: 6px; // this comes from the MenuContent component, 
     margin: 0 ($gap / 2);
   }
 }
-
-.content {
-  padding: calc(#{$kz-spacing-sm} - #{$menuContentVerticalPadding})
-    calc(#{$kz-spacing-sm} - #{$menuContentHorizontalPadding});
-}
