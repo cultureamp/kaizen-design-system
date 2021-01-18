@@ -30,9 +30,9 @@ export const useResizeObserver = <T, E extends Element = HTMLElement>(
     undefined | (() => void)
   > = useRef(undefined)
   const [dimensions, setDimensions] = useState<T | undefined>(undefined)
-  const resolveEntryRef: React.MutableRefObject<(
-    entry: ResizeObserverEntry
-  ) => any> = useRef(resolveEntry)
+  const resolveEntryRef: React.MutableRefObject<
+    (entry: ResizeObserverEntry) => any
+  > = useRef(resolveEntry)
 
   const ref: Ref<E> = useCallback(
     (node: E) => {
