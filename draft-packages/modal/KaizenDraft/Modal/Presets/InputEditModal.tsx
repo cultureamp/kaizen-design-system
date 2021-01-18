@@ -34,14 +34,15 @@ const InputEditModal = ({
   type,
   title,
   onSubmit,
-  onDismiss,
   localeDirection = "ltr",
   submitLabel = "Submit",
   dismissLabel = "Cancel",
   submitWorking,
   automationId,
   children,
+  ...props
 }: InputEditModalProps) => {
+  const onDismiss = submitWorking ? undefined : props.onDismiss
   const submitAction = { label: submitLabel, onClick: onSubmit }
   const workingProps = submitWorking
     ? {
@@ -53,7 +54,7 @@ const InputEditModal = ({
 
   const footerActions: ButtonProps[] = [
     { ...submitAction, ...workingProps },
-    { label: dismissLabel, onClick: onDismiss },
+    { label: dismissLabel, onClick: onDismiss, disabled: !!submitWorking },
   ]
 
   return (

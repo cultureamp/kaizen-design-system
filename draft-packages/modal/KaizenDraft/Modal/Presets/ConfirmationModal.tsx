@@ -55,13 +55,15 @@ const ConfirmationModal = ({
   type,
   title,
   onConfirm,
-  onDismiss,
   confirmLabel = "Confirm",
   dismissLabel = "Cancel",
   confirmWorking,
   automationId,
   children,
+  ...props
 }: ConfirmationModalProps) => {
+  const onDismiss = confirmWorking ? undefined : props.onDismiss
+
   const footerActions: ButtonProps[] = []
   if (onConfirm) {
     const confirmAction = { label: confirmLabel, onClick: onConfirm }
@@ -76,7 +78,11 @@ const ConfirmationModal = ({
     footerActions.push({ ...confirmAction, ...workingProps })
   }
 
-  footerActions.push({ label: dismissLabel, onClick: onDismiss })
+  footerActions.push({
+    label: dismissLabel,
+    onClick: onDismiss,
+    disabled: !!confirmWorking,
+  })
 
   return (
     <GenericModal
