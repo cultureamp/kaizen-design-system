@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "rimraf 'generators/**/*.js' 'generators/**/*.d.ts'",
-    "prepublish": "echo 'Nothing to compile, skipping...'"
+    "prepare": "echo 'Nothing to compile, skipping...'"
   },
   "files": [
     "generators"

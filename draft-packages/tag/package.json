@@ -3,9 +3,9 @@
   "version": "1.6.3",
   "description": "The draft Tag component",
   "scripts": {
-    "prepublish": "tsc -b tsconfig.json",
-    "build": "yarn clean && yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
+    "prepare": "tsc -b tsconfig.json",
+    "build": "yarn clean && yarn prepare",
+    "build:watch": "yarn clean && yarn prepare --watch",
     "clean": "rimraf './dist'"
   },
   "repository": {

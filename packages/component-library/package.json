@@ -29,9 +29,6 @@
     "focus-visible": "4.x || 5.x",
     "react": "^16.9.0"
   },
-  "devDependencies": {
-    "@kaizen/draft-title-block": "^2.1.4"
-  },
   "dependencies": {
     "@kaizen/deprecated-component-library-helpers": "^2.0.0",
     "@kaizen/hosted-assets": "^1.1.0",
@@ -51,9 +48,9 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
-    "prepublish": "tsc -b tsconfig.json",
-    "build": "yarn clean && yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
+    "prepare": "tsc -b tsconfig.json",
+    "build": "yarn clean && yarn prepare",
+    "build:watch": "yarn clean && yarn prepare --watch",
     "clean": "rimraf 'dist' 'components/**/*.js' 'draft/**/*.js' 'util/**/*.js' '**/*.js.map' 'index.js' 'index.js.map' 'index.d.ts' 'components/**/*.d.ts' 'draft/**/*.d.ts' 'util/**/*.d.ts' 'draft-templates/**/*.d.ts' 'stories/*.stories.js' 'stories/*.stories.d.ts'"
   }
 }
