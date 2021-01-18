@@ -9,6 +9,7 @@ import {
   PositiveFemale,
 } from "@kaizen/draft-illustration"
 
+import { ButtonProps } from "@kaizen/draft-button"
 import {
   GenericModal,
   ModalAccessibleDescription,
@@ -28,6 +29,7 @@ export interface ConfirmationModalProps {
   readonly onDismiss: () => void
   readonly confirmLabel?: string
   readonly dismissLabel?: string
+  readonly confirmWorking?: { label: string; labelHidden?: boolean }
   readonly automationId?: string
   readonly children: React.ReactNode
 }
@@ -53,17 +55,34 @@ const ConfirmationModal = ({
   type,
   title,
   onConfirm,
-  onDismiss,
   confirmLabel = "Confirm",
   dismissLabel = "Cancel",
+  confirmWorking,
   automationId,
   children,
+  ...props
 }: ConfirmationModalProps) => {
-  const footerActions: Array<{ label: string; action: () => void }> = []
+  const onDismiss = confirmWorking ? undefined : props.onDismiss
+
+  const footerActions: ButtonProps[] = []
   if (onConfirm) {
-    footerActions.push({ label: confirmLabel, action: onConfirm })
+    const confirmAction = { label: confirmLabel, onClick: onConfirm }
+    const workingProps = confirmWorking
+      ? {
+          working: true,
+          workingLabel: confirmWorking.label,
+          workingLabelHidden: confirmWorking.labelHidden,
+        }
+      : {}
+
+    footerActions.push({ ...confirmAction, ...workingProps })
   }
-  footerActions.push({ label: dismissLabel, action: onDismiss })
+
+  footerActions.push({
+    label: dismissLabel,
+    onClick: onDismiss,
+    disabled: !!confirmWorking,
+  })
 
   return (
     <GenericModal
