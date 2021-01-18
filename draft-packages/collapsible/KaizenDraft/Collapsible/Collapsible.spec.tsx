@@ -148,7 +148,9 @@ it("gives precedence to renderHeader over title", () => {
   const titleText = getByTestId("collapsible-button-1").querySelector("div")
 
   expect(titleText).toHaveTextContent("This title should be rendered")
-  expect(queryByTestId(container, "collapsible-button-title-1")).toBeNull()
+  expect(
+    queryByTestId(container as HTMLElement, "collapsible-button-title-1")
+  ).toBeNull()
 })
 
 it("doesn't render section content when lazyLoad is enabled", () => {
@@ -158,7 +160,9 @@ it("doesn't render section content when lazyLoad is enabled", () => {
     </Collapsible>
   )
 
-  expect(queryByTestId(container, "lazy-load-content")).toBeNull()
+  expect(
+    queryByTestId(container as HTMLElement, "lazy-load-content")
+  ).toBeNull()
 })
 
 it("runs the onToggle callback", () => {
