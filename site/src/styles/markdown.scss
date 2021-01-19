@@ -6,8 +6,8 @@
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/responsive";
-@import "~@kaizen/component-library/components/NavigationBar/styles";
-@import "~@kaizen/component-library/components/Icon/styles";
+@import "~@kaizen/component-library/styles/components/NavigationBar/NavigationBarHelpers.module.scss";
+@import "~@kaizen/component-library/styles/components/Icon.module.scss";
 
 $link-icon-margin: 12px;
 

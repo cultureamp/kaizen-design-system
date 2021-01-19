@@ -1,1 +1,1 @@
-export * from "./KaizenDraft/Tabs"
+export * from "./src"

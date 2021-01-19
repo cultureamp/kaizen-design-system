@@ -1,0 +1,282 @@
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/design-tokens/sass/animation";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/draft-button/styles/styles";
+
+$default-width: 385px;
+$option-height: $kz-spacing-xl;
+$max-visible-options: 6;
+$navigation-transition-speed: $kz-animation-duration-rapid;
+$navigation-transition-easing: $kz-animation-easing-function-ease-in-out;
+$delay-before-showing-loading-placeholders: 500ms;
+
+.container {
+  -webkit-font-smoothing: antialiased;
+  border: $kz-border-solid-border-width $kz-border-solid-border-style
+    $ca-border-color;
+  border-radius: $kz-border-solid-border-radius;
+  display: flex;
+  overflow: hidden;
+  transition: height $navigation-transition-speed $navigation-transition-easing;
+  max-height: calc(
+    ((2 + #{$max-visible-options}) * #{$option-height}) +
+      (2 * #{$kz-border-solid-border-width})
+  );
+
+  &,
+  & * {
+    box-sizing: border-box;
+  }
+}
+
+.defaultWidth {
+  width: $default-width;
+}
+
+.menu {
+  flex-shrink: 0;
+}
+
+.header {
+  background-color: $kz-color-wisteria-700;
+  color: $kz-color-wisteria-200;
+}
+
+.parent {
+  margin: 0 $kz-spacing-sm;
+  border: $kz-border-borderless-border-width $kz-border-borderless-border-style
+    $kz-border-borderless-border-color;
+  border-bottom-width: 1px;
+  border-bottom-color: $kz-color-wisteria-500;
+  height: $option-height;
+  display: flex;
+  align-items: center;
+}
+
+.parentButton {
+  @include button-reset;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  cursor: default;
+
+  :global(.js-focus-visible) & {
+    &:focus {
+      outline: none;
+    }
+
+    &:global(.focus-visible) {
+      outline: $kz-border-focus-ring-border-width
+        $kz-border-focus-ring-border-style $kz-color-cluny-300;
+    }
+  }
+}
+
+.disabledParentButton {
+  composes: parentButton;
+  opacity: 0.3;
+}
+
+.parentButtonIcon {
+  @include ca-margin($start: -8px, $end: $kz-spacing-xs);
+  height: $kz-spacing-md;
+  width: $kz-spacing-md;
+}
+
+.parentButtonIcon > svg {
+  display: block;
+}
+
+.current {
+  margin: 0 $kz-spacing-sm;
+  border: $kz-border-borderless-border-width $kz-border-borderless-border-style
+    $kz-border-borderless-border-color;
+  height: $option-height;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.currentButton {
+  @include button-reset;
+  @include ca-type-align-start;
+  @include ca-margin($end: $kz-spacing-md);
+  color: inherit;
+  flex: 1;
+  cursor: default;
+
+  :global(.js-focus-visible) & {
+    &:focus {
+      outline: none;
+    }
+
+    &:global(.focus-visible) {
+      outline: $kz-border-focus-ring-border-width
+        $kz-border-focus-ring-border-style $kz-color-cluny-300;
+    }
+  }
+}
+
+.body {
+  @include ca-margin($end: 4px);
+  background-color: $kz-color-white;
+  color: $kz-color-wisteria-800;
+  max-height: $option-height * $max-visible-options;
+  overflow-y: auto;
+}
+
+.child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.childLabelButton {
+  @include button-reset;
+  @include ca-type-align-start;
+  color: inherit;
+  flex: 1 0;
+  height: $option-height;
+  padding: 0 $kz-spacing-sm;
+  border: $kz-border-focus-ring-border-width $kz-border-focus-ring-border-style
+    $kz-border-borderless-border-color;
+  cursor: default;
+
+  // allows the .childLabelText to be truncated with white-space: nowrap
+  // and not break the flexbox layout
+  min-width: 0;
+
+  :global(.js-focus-visible) & {
+    &:focus {
+      outline: none;
+    }
+
+    &:global(.focus-visible) {
+      border-color: $kz-color-cluny-500;
+    }
+  }
+}
+
+.childLabelText {
+  @include kz-typography-paragraph-body;
+  @include ca-inherit-baseline;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.childDrilldownButton {
+  @include button-reset;
+  color: inherit;
+  height: $option-height;
+  padding: 0 $kz-spacing-sm;
+  display: flex;
+  align-items: center;
+  border: $kz-border-focus-ring-border-width $kz-border-focus-ring-border-style
+    $kz-border-borderless-border-color;
+  cursor: default;
+
+  :global(.js-focus-visible) & {
+    &:focus {
+      outline: none;
+    }
+
+    &:global(.focus-visible) {
+      border-color: $kz-color-cluny-500;
+    }
+  }
+}
+
+.disabledChildDrilldownButton {
+  composes: childDrilldownButton;
+  opacity: 0.3;
+}
+
+.keyboardHighlightedChild {
+  composes: child;
+  background-color: $kz-color-wisteria-100;
+}
+
+.childLabelButton:hover,
+.childDrilldownButton:hover {
+  background-color: $kz-color-wisteria-100;
+}
+
+.childDrilldownButtonIcon {
+  height: $kz-spacing-md;
+  width: $kz-spacing-md;
+}
+
+.parentMenu,
+.currentMenu,
+.childMenu {
+  transform: translateX(-100%);
+
+  [dir="rtl"] & {
+    transform: translateX(100%);
+  }
+}
+
+:global(.animating-enter),
+:global(.animating-enter-done) {
+  &.parentMenu {
+    transition: transform $navigation-transition-speed
+      $navigation-transition-easing;
+    transform: translateX(0);
+  }
+
+  &.childMenu {
+    transition: transform $navigation-transition-speed
+      $navigation-transition-easing;
+    transform: translateX(-200%);
+
+    [dir="rtl"] & {
+      transform: translateX(200%);
+    }
+  }
+}
+
+:global(.animating-exit),
+:global(.animating-exit-done) {
+  &.currentMenu {
+    transition: transform $navigation-transition-speed
+      $navigation-transition-easing;
+  }
+
+  &.currentMenu.toChild {
+    transform: translateX(-200%);
+
+    [dir="rtl"] & {
+      transform: translateX(200%);
+    }
+  }
+
+  &.currentMenu.toParent {
+    transform: translateX(0);
+  }
+}
+
+.loadingMenu {
+  composes: menu;
+  background-color: $kz-color-white;
+
+  .parent,
+  .current {
+    opacity: 0.1;
+  }
+
+  .body {
+    transition: opacity $kz-animation-duration-deliberate
+      $navigation-transition-easing;
+    transition-delay: $delay-before-showing-loading-placeholders;
+    opacity: 0;
+  }
+
+  &.shouldAnimate .body {
+    opacity: 1;
+  }
+}

@@ -1,1 +1,1 @@
-export * from "./KaizenDraft/Badge/Badge"
+export * from "./src"

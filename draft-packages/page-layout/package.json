@@ -3,10 +3,10 @@
   "version": "1.1.2",
   "description": "The draft content block component",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
+    "prepare": "tsc -b tsconfig.json",
+    "build": "yarn clean && yarn prepare",
+    "build:watch": "yarn clean && yarn prepare --watch",
+    "clean": "rimraf './dist'"
   },
   "repository": {
     "type": "git",
@@ -16,24 +16,21 @@
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
+  "main": "dist",
   "files": [
-    "**/*",
-    "!**/*.ts",
-    "!**/*.tsx",
-    "**/*.d.ts",
-    "!**/*.spec.*",
-    "!**/*.snap",
-    "!draft-templates",
-    "!stories",
-    "!docs",
-    "!tsconfig.dist.json"
+    "dist",
+    "styles",
+    "KaizenDraft",
+    "!docs"
   ],
+  "directories": {
+    "lib": "dist"
+  },
   "author": "",
   "private": false,
   "license": "MIT",
   "dependencies": {
     "@kaizen/draft-card": "^1.2.5",
-    "@kaizen/draft-page-layout": "^1.1.2",
     "classnames": "^2.2.6",
     "resize-observer-polyfill": "^1.5.1"
   },

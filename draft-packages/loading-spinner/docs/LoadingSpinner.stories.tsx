@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { LoadingSpinner } from "@kaizen/draft-loading-spinner"
+import { LoadingSpinner } from ".."
 
 export default {
   title: "LoadingSpinner (React)",

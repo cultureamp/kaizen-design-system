@@ -1,0 +1,14 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/component-library/styles/responsive";
+@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "./_styles";
+
+.link {
+  @include ca-navigation-bar__link-item;
+}
+
+:global(.__react_component_tooltip) {
+  @include font-extra-small;
+}

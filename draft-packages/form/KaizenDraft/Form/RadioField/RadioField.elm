@@ -192,7 +192,7 @@ automationId a (Config config) =
 
 
 styles =
-    css "@kaizen/draft-form/KaizenDraft/Form/RadioField/styles.scss"
+    css "@kaizen/draft-form/styles/RadioField.module.scss"
         { container = "container"
         , selected = "selected"
         , disabled = "disabled"

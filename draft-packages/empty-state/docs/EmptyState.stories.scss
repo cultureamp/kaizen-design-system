@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
-@import "~@kaizen/draft-empty-state/KaizenDraft/EmptyState/responsive";
+@import "../styles/responsive.scss";
 
 .container {
   width: 100%;

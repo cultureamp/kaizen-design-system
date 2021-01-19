@@ -1,4 +1,4 @@
-import { Heading } from "@kaizen/component-library/components/Heading"
+import { Heading } from "@kaizen/component-library"
 import classnames from "classnames"
 import { graphql, StaticQuery } from "gatsby"
 import * as React from "react"

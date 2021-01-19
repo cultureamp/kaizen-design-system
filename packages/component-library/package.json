@@ -10,17 +10,16 @@
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
+  "main": "dist",
   "files": [
-    "**/*",
-    "!**/*.ts",
-    "!**/*.tsx",
-    "**/*.d.ts",
-    "!**/*.spec.*",
-    "!**/*.snap",
-    "!draft-templates",
-    "!stories",
-    "!tsconfig.dist.json"
+    "dist",
+    "styles",
+    "icons",
+    "!*.stories.tsx"
   ],
+  "directories": {
+    "lib": "dist"
+  },
   "sideEffects": false,
   "version": "8.1.3",
   "private": false,
@@ -48,14 +47,10 @@
     "react-transition-group": "^2.9.0",
     "uuid": "^3.3.2"
   },
-  "devDependencies": {
-    "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.2.1",
-    "rimraf": "^2.6.3"
-  },
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf 'components/**/*.js' 'draft/**/*.js' 'util/**/*.js' '**/*.js.map' 'index.js' 'index.js.map' 'index.d.ts' 'components/**/*.d.ts' 'draft/**/*.d.ts' 'util/**/*.d.ts' 'draft-templates/**/*.d.ts' 'stories/*.stories.js' 'stories/*.stories.d.ts'"
+    "prepare": "tsc -b tsconfig.json",
+    "build": "yarn clean && yarn prepare",
+    "build:watch": "yarn clean && yarn prepare --watch",
+    "clean": "rimraf 'dist' 'components/**/*.js' 'draft/**/*.js' 'util/**/*.js' '**/*.js.map' 'index.js' 'index.js.map' 'index.d.ts' 'components/**/*.d.ts' 'draft/**/*.d.ts' 'util/**/*.d.ts' 'draft-templates/**/*.d.ts' 'stories/*.stories.js' 'stories/*.stories.d.ts'"
   }
 }

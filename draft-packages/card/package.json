@@ -3,10 +3,10 @@
   "version": "1.2.5",
   "description": "The draft card component",
   "scripts": {
-    "prepublish": "tsc --project tsconfig.dist.json",
-    "build": "yarn clean && yarn prepublish",
-    "build:watch": "yarn clean && yarn prepublish --watch",
-    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
+    "prepare": "tsc -b tsconfig.json",
+    "build": "yarn clean && yarn prepare",
+    "build:watch": "yarn clean && yarn prepare --watch",
+    "clean": "rimraf './dist'"
   },
   "repository": {
     "type": "git",
@@ -16,19 +16,16 @@
   "bugs": {
     "url": "https://github.com/cultureamp/kaizen-design-system/issues"
   },
+  "main": "dist",
   "files": [
-    "**/*",
-    "!**/*.ts",
-    "!**/*.tsx",
-    "**/*.d.ts",
-    "!**/*.spec.*",
-    "!**/*.snap",
-    "!draft-templates",
-    "!stories",
-    "!docs",
-    "!tsconfig.dist.json"
+    "dist",
+    "styles",
+    "KaizenDraft",
+    "!docs"
   ],
-  "author": "",
+  "directories": {
+    "lib": "dist"
+  },
   "private": false,
   "license": "MIT",
   "peerDependencies": {

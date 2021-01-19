@@ -17,5 +17,8 @@
   "license": "MIT",
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.1.3"
+  },
+  "scripts": {
+    "prepare": "echo 'Nothing to compile, skipping...'"
   }
 }

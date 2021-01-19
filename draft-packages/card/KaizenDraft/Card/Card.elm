@@ -74,6 +74,6 @@ view (Config config) children =
 
 
 styles =
-    css "@kaizen/draft-card/KaizenDraft/Card/styles.module.scss"
+    css "@kaizen/draft-card/styles/styles.module.scss"
         { wrapper = "wrapper"
         }

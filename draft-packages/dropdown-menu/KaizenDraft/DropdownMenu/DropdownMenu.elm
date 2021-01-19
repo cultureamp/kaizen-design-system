@@ -102,7 +102,7 @@ onClickWithStopAndPrevent msg =
 
 
 styles =
-    css "@kaizen/draft-dropdown-menu/KaizenDraft/DropdownMenu/DropdownMenu.scss"
+    css "@kaizen/draft-dropdown-menu/styles/DropdownMenu.scss"
         { dropdown = "dropdown"
         , dropdownControlAction = "dropdownControlAction"
         , buttonReset = "buttonReset"

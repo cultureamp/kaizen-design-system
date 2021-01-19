@@ -144,7 +144,7 @@ view (Config config) children =
 
 
 styles =
-    css "@kaizen/draft-well/styles.scss"
+    css "@kaizen/draft-well/styles/styles.scss"
         { container = "container"
         , solid = "solid"
         , dashed = "dashed"

@@ -19,3 +19,4 @@
 /storybook/public/
 /elm-stuff/
 elm.json
+**/dist/

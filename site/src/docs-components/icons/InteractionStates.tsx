@@ -5,7 +5,7 @@ import enso from "@kaizen/component-library/icons/ca-monogram.icon.svg"
 import Card from "../Card"
 
 import styles from "./IconsPage.scss"
-const iconStyles = require("@kaizen/component-library/components/Icon/Icon.module.scss")
+const iconStyles = require("@kaizen/component-library/styles/components/Icon.module.scss")
 
 type InteractionStatesProps = {
   dark: boolean

@@ -18,11 +18,11 @@
   "private": false,
   "license": "MIT",
   "scripts": {
-    "build": "yarn clean && yarn prepublish",
+    "build": "yarn clean && yarn prepare",
     "build:less": "json-to-flat-sass './tokens/*.json' 'less' --extension 'less' --caseType 'kebab' && prettier less/* --write",
     "build:sass": "json-to-flat-sass './tokens/*.json' 'sass' --extension 'scss' --caseType 'kebab' && prettier sass/* --write",
     "clean": "rimraf 'dist/**' 'tokens/**/*.js' 'tokens/**/*.d.ts' 'tokens/**/*.map'",
-    "prepublish": "yarn build:less && yarn build:sass"
+    "prepare": "yarn build:less && yarn build:sass"
   },
   "devDependencies": {
     "json-to-flat-sass": "^1.0.0"
