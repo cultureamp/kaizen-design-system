@@ -9,7 +9,7 @@ import styles from "./ModalHeader.scss"
 export interface ModalHeaderProps {
   readonly unpadded?: boolean
   readonly reversed?: boolean
-  readonly onDismiss: (evt: React.MouseEvent) => void
+  readonly onDismiss?: (evt: React.MouseEvent) => void
   readonly children: React.ReactNode
 }
 
@@ -48,6 +48,7 @@ class ModalHeader extends React.Component<ModalHeaderProps, ModalHeaderState> {
             icon={close}
             reversed={reversed}
             onClick={onDismiss}
+            disabled={onDismiss == undefined}
             disableTabFocusAndIUnderstandTheAccessibilityImplications={
               disableDismissButtonFocus
             }
