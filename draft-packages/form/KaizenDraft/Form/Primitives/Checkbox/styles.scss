@@ -3,6 +3,7 @@
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/mixins/forms";
+@import "./decision-tokens.scss";
 
 $checkbox-size: 24px;
 $icon-size: 24px;
@@ -40,38 +41,38 @@ $focus-ring-offset: 2px;
   width: $checkbox-size;
   top: 0;
   border: $kz-border-solid-border-width $kz-border-solid-border-style
-    $kz-color-wisteria-500;
+    $dt-checkbox-color-border-color-base;
   border-radius: $kz-border-solid-border-radius;
   box-sizing: border-box;
 
   .checkbox:not([checked]):focus + & {
-    border-color: $kz-color-wisteria-700;
-    background-color: $kz-color-wisteria-100;
+    border-color: $dt-checkbox-color-border-color-focus;
+    background-color: $dt-checkbox-color-background-color-unchecked-focus;
   }
 
   @media (hover: hover) and (pointer: fine) {
     .checkbox:not([checked]):hover + & {
-      border-color: $kz-color-wisteria-700;
-      background-color: $kz-color-wisteria-100;
+      border-color: $dt-checkbox-color-border-color-hover;
+      background-color: $dt-checkbox-color-background-color-unchecked-focus;
     }
   }
 
   .checkbox:checked + &,
   .checkbox:indeterminate + & {
-    background: $kz-color-wisteria-500;
+    background: $dt-checkbox-color-background-color-base;
   }
 
   .checkbox:checked:focus + &,
   .checkbox:indeterminate:focus + & {
-    background: $kz-color-wisteria-700;
-    border-color: $kz-color-wisteria-700;
+    background: $dt-checkbox-color-background-color-checked-focus;
+    border-color: $dt-checkbox-color-border-color-checked-focus;
   }
 
   @media (hover: hover) and (pointer: fine) {
     .checkbox:indeterminate:hover + &,
     .checkbox:checked:hover + & {
-      background: $kz-color-wisteria-700;
-      border-color: $kz-color-wisteria-700;
+      background: $dt-checkbox-color-background-color-hover;
+      border-color: $dt-checkbox-color-border-color-hover;
     }
   }
 
