@@ -104,7 +104,7 @@ $side-padding: 3/4 * $ca-grid;
     $background: $kz-color-white,
     $border-color: $kz-color-wisteria-200,
     $color: $kz-color-wisteria-800,
-    $hover-background: $kz-color-stone,
+    $hover-background: $kz-color-stone-200,
     $hover-border-color: $kz-color-wisteria-400,
     $active-background: $kz-color-ash,
     $active-border-color: $kz-color-wisteria-500,
@@ -303,7 +303,7 @@ version since the React version relies on kaizen's MenuList
   &.menuItem--active,
   &:hover,
   &:focus {
-    background: $kz-color-stone;
+    background: $kz-color-stone-200;
     color: $kz-color-cluny-500;
     // override Murmur global styles :(
     text-decoration: none;

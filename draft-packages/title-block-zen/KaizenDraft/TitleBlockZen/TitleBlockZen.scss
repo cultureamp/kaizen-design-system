@@ -31,7 +31,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   }
 
   &.adminVariant {
-    background-color: $kz-color-stone;
+    background-color: $kz-color-stone-200;
   }
 
   @media print {
@@ -466,7 +466,11 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 
   .adminVariant & {
     @include title-block-small {
-      background: linear-gradient(0, $kz-color-stone, rgba($kz-color-stone, 0));
+      background: linear-gradient(
+        0,
+        $kz-color-stone-200,
+        rgba($kz-color-stone-200, 0)
+      );
     }
   }
 
