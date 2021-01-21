@@ -95,8 +95,8 @@ $caButton-verticalPaddingForm: calc(
   // Disabled
   &:disabled {
     background: $kz-color-white;
-    border-color: add-alpha($kz-color-wisteria-500, 30%);
-    color: add-alpha($kz-color-wisteria-800, 30%);
+    border-color: add-alpha($kz-color-wisteria-500-default, 30%);
+    color: add-alpha($kz-color-wisteria-800-default, 30%);
   }
 }
 
@@ -124,14 +124,14 @@ $caButton-verticalPaddingForm: calc(
 
   &:disabled {
     color: $kz-color-white;
-    background: add-alpha($kz-color-seedling-500, 30%);
+    background: add-alpha($kz-color-seedling-500-default, 30%);
     border-color: $kz-border-borderless-border-color;
   }
 }
 
 %caButtonDestructive {
   &:disabled {
-    background: add-alpha($kz-color-coral-500, 30%);
+    background: add-alpha($kz-color-coral-500-default, 30%);
   }
 }
 
@@ -174,14 +174,14 @@ $caButton-verticalPaddingForm: calc(
     }
 
     &:active {
-      background: add-alpha($kz-color-wisteria-800, 30%);
+      background: add-alpha($kz-color-wisteria-800-default, 30%);
     }
   }
 
   &:disabled {
     background: transparent;
     border-color: $kz-border-borderless-border-color;
-    color: add-alpha($kz-color-cluny-500, 30%);
+    color: add-alpha($kz-color-cluny-500-default, 30%);
   }
 }
 

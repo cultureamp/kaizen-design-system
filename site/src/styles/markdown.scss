@@ -54,7 +54,7 @@ $link-icon-margin: 12px;
     float: left;
     margin-left: -$ca-icon-width - ($link-icon-margin * 2);
     padding: 0 $link-icon-margin;
-    color: add-alpha($kz-color-wisteria-700, 80%);
+    color: add-alpha($kz-color-wisteria-700-default, 80%);
     &:not(:focus) {
       svg {
         visibility: hidden;

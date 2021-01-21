@@ -22,7 +22,7 @@ $side-padding: 3/4 * $ca-grid;
 .header {
   padding: 10px $side-padding;
   text-align: left;
-  color: add-alpha($kz-color-wisteria-800, 40%);
+  color: add-alpha($kz-color-wisteria-800-default, 40%);
   border-bottom: $ca-border-color 1px solid;
 }
 

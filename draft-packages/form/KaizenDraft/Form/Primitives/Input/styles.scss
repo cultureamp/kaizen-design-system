@@ -65,7 +65,7 @@ $input-disabled-border-alpha: 50%;
     }
 
     @include form-input-placeholder {
-      color: add-alpha($ca-base-text-color, $input-disabled-alpha);
+      color: add-alpha($kz-color-wisteria-800-default, $input-disabled-alpha);
     }
   }
 }
@@ -219,7 +219,7 @@ $input-disabled-border-alpha: 50%;
   }
 
   &.disabled {
-    color: add-alpha($ca-base-text-color, $input-disabled-alpha);
+    color: add-alpha($kz-color-wisteria-800-default, $input-disabled-alpha);
 
     @include form-input-placeholder {
       opacity: $input-disabled-opacity;
@@ -253,7 +253,10 @@ $input-disabled-border-alpha: 50%;
 
   &.disabled {
     color: add-alpha($kz-color-white, $input-disabled-alpha);
-    border-color: add-alpha($kz-color-white, $input-disabled-border-alpha);
+    border-color: add-alpha(
+      $kz-color-white-default,
+      $input-disabled-border-alpha
+    );
 
     @include form-input-placeholder {
       opacity: $input-disabled-opacity;

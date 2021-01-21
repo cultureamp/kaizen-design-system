@@ -121,7 +121,7 @@ $focus-ring-offset: 2px;
 
   .checkbox:checked:focus + &,
   .checkbox:indeterminate:focus + & {
-    background: add-alpha($kz-color-wisteria-200, 65%);
+    background: add-alpha($kz-color-wisteria-200-default, 65%);
     border-color: $kz-color-wisteria-100;
   }
 
