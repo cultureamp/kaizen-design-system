@@ -1,5 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "./decision-tokens.scss";
 
 .wrapper {
   width: 100%;
@@ -12,15 +13,15 @@
 }
 
 .content {
-  border-top: 1px solid rgba($kz-color-wisteria-700, 0.1);
+  border-top: 1px solid $dt-color-border-color-content;
   &.reversed {
     border-color: rgba($kz-color-white, 0.1);
   }
 }
 
 .canvas {
-  border-top: 2px solid rgba($kz-color-wisteria-700, 0.2);
-  border-bottom: 1px solid rgba($kz-color-wisteria-700, 0.2);
+  border-top: 2px solid $dt-color-border-color-canvas;
+  border-bottom: 1px solid $dt-color-border-color-canvas;
   &.reversed {
     border-color: rgba($kz-color-white, 0.1);
   }
