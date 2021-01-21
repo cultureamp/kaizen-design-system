@@ -4,6 +4,7 @@
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/design-tokens/sass/animation";
 @import "~@kaizen/component-library/styles/animation";
+@import "./decision-tokens.scss";
 
 $small: $ca-grid;
 
@@ -24,7 +25,7 @@ $small: $ca-grid;
 }
 
 .default {
-  background-color: $kz-color-wisteria-200;
+  background-color: $dt-color-background-color;
   color: $kz-color-wisteria-800;
 }
 
@@ -35,12 +36,12 @@ $small: $ca-grid;
 }
 
 .dark {
-  background-color: rgba($kz-color-wisteria-700, 0.1);
+  background-color: rgba($dt-color-background-color-dark, 0.1);
   color: $kz-color-wisteria-800;
 }
 
 .reversed.dark {
-  background-color: $kz-color-wisteria-700;
+  background-color: $dt-color-background-color-dark;
   color: $kz-color-white;
 }
 
@@ -65,7 +66,7 @@ $badge-transition: transform $badge-duration-timing,
   &.animationOn .badge {
     transform: scale3d(1.35, 1.35, 1.35);
     &.dark {
-      background-color: rgba($kz-color-wisteria-700, 0.2);
+      background-color: rgba($dt-color-background-color-dark, 0.2);
     }
   }
 }

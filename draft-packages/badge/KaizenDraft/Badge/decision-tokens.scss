@@ -1,0 +1,9 @@
+@import "~@kaizen/design-tokens/sass/theme";
+
+$dt-color-background-color: $kz-color-wisteria-200;
+$dt-color-background-color-dark: $kz-color-wisteria-700;
+
+@if $rebrand {
+  $dt-color-background-color: $kz-color-ash;
+  $dt-color-background-color-dark: $kz-color-slate-700;
+}
