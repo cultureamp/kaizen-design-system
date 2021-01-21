@@ -4,27 +4,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/typography";
-@import "~@kaizen/design-tokens/sass/theme";
-
-$dt-color-border-color-base: $kz-color-wisteria-500;
-$dt-color-border-color-hover: $kz-color-wisteria-700;
-$dt-color-background-hover: $kz-color-wisteria-100;
-$dt-color-background-active: $kz-color-wisteria-100;
-$dt-color-background-focus: $kz-color-wisteria-100;
-$dt-color-border-color-focus: $kz-color-wisteria-700;
-$dt-color-border-color-disabled: $kz-color-wisteria-500;
-$dt-color-color-disabled: $kz-color-wisteria-800;
-
-@if $rebrand {
-  $dt-color-border-color-base: $kz-color-iron-500;
-  $dt-color-border-color-hover: $kz-color-slate-700;
-  $dt-color-background-hover: $kz-color-stone-200;
-  $dt-color-background-active: $kz-color-white;
-  $dt-color-background-focus: $kz-color-stone-200;
-  $dt-color-border-color-focus: $kz-color-slate-700;
-  $dt-color-border-color-disabled: $kz-color-iron-500;
-  $dt-color-color-disabled: $kz-color-wisteria-800;
-}
+@import "./decision-tokens.scss";
 
 $caButton-border-width: $kz-border-solid-border-width;
 $caButton-focus-border-width: $kz-border-focus-ring-border-width;
