@@ -1945,44 +1945,6 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@kaizen/component-library@^7.30.4":
-  version "7.33.1"
-  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-7.33.1.tgz#2573fec05c77136bca28ee2f44e5e9e7e171d53d"
-  integrity sha512-ITNTiP09Vb57xkK+4IjgSYOYFHvcfAsN25MlFRRQ98puvAkFDdqv75pY+Y9gQC0VcGTRDbfBWjNybz6Bbamy5A==
-  dependencies:
-    "@kaizen/deprecated-component-library-helpers" "^1.6.13"
-    "@kaizen/hosted-assets" "^1.0.2"
-    "@types/classnames" "^2.2.6"
-    "@types/lodash" "^4.14.132"
-    "@types/react-select" "^3.0.5"
-    "@types/uuid" "^3.4.4"
-    classnames "^2.2.6"
-    lodash "^4.17.11"
-    motion-ui cultureamp/motion-ui
-    react-animate-height "^2.0.15"
-    react-focus-lock "^1.19.1"
-    react-media "^1.9.2"
-    react-select "^3.1.0"
-    react-tooltip "^4.2.6"
-    react-transition-group "^2.9.0"
-    uuid "^3.3.2"
-
-"@kaizen/deprecated-component-library-helpers@^1.6.13":
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/@kaizen/deprecated-component-library-helpers/-/deprecated-component-library-helpers-1.8.0.tgz#6e93e8a92e93376badafd330d290541e568ae21f"
-  integrity sha512-uqo0OEjpRAtkDY/iSNYCbRKJdXrbxBbiicn/bBqFHYAFAfYIStmv111pjemzFvu1RtHtvCyUpLUICgPYEVIjtw==
-  dependencies:
-    "@kaizen/design-tokens" "^2.1.3"
-
-"@kaizen/draft-button@^1.7.4":
-  version "1.13.12"
-  resolved "https://registry.yarnpkg.com/@kaizen/draft-button/-/draft-button-1.13.12.tgz#b6478a3e1922101d7eb2591250395d146f2bc1a6"
-  integrity sha512-aUIGmoUKKkZdvLSzWywvnksB9MWP7P7SBO2OJZ/cnUSr9Wmt8yHkrhBh+QkAZXAw+Pt7VT5wtHyfnXsAPwoIww==
-  dependencies:
-    "@kaizen/component-library" "^7.30.4"
-    "@types/classnames" "^2.2.10"
-    classnames "^2.2.6"
-
 "@lerna/add@3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.21.0.tgz#27007bde71cc7b0a2969ab3c2f0ae41578b4577b"
@@ -4341,11 +4303,6 @@
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.3.tgz#9c088679876f374eb5983f150d4787aa6fb32d7e"
   integrity sha512-FvUupuM3rlRsRtCN+fDudtmytGO6iHJuuRKS1Ss0pG5z8oX0diNEw94UEL7hgDbpN94rgaK5R7sWm6RrSkZuAQ==
-
-"@types/uuid@^3.4.4":
-  version "3.4.9"
-  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-3.4.9.tgz#fcf01997bbc9f7c09ae5f91383af076d466594e1"
-  integrity sha512-XDwyIlt/47l2kWLTzw/mtrpLdB+GPSskR2n/PIcPn+VYhVO77rGhRncIR5GPU0KRzXuqkDO+J5qqrG0Y8P6jzQ==
 
 "@types/uuid@^8.3.0":
   version "8.3.0"

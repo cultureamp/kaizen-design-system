@@ -55,19 +55,13 @@ type LabelPropsGeneric = {
   reverseColor?: "cluny" | "peach" | "seedling" | "wisteria" | "yuzu"
 }
 
-type WorkingUndefinedProps = {
-  working?: undefined
-  workingLabel?: undefined
-}
-
 type WorkingProps = {
-  working: boolean
-  workingLabel: string
+  working?: boolean
+  workingLabel?: string
   workingLabelHidden?: boolean
 }
 
-export type LabelProps = LabelPropsGeneric &
-  (WorkingProps | WorkingUndefinedProps)
+export type LabelProps = LabelPropsGeneric & WorkingProps
 
 export type IconButtonProps = GenericProps
 export type ButtonProps = GenericProps & LabelProps
