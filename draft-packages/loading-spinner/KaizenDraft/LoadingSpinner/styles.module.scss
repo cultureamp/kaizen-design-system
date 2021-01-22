@@ -1,6 +1,6 @@
-@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/animation";
 @import "~@kaizen/component-library/styles/utils";
+@import "./decision-tokens.scss";
 
 .wrapper {
   display: flex;
@@ -19,4 +19,12 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+.circle {
+  color: $dt-color-color-cirle;
+}
+
+.path {
+  fill: $dt-color-fill-path;
 }

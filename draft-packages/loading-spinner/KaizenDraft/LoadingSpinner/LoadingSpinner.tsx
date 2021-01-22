@@ -1,10 +1,7 @@
 import * as React from "react"
-import colorTokens from "@kaizen/design-tokens/tokens/color.json"
-import spacingTokens from "@kaizen/design-tokens/tokens/spacing.json"
 import styles from "./styles.module.scss"
 
 type size = "sm" | "md"
-
 export interface LoadingSpinnerProps {
   accessibilityLabel: string
   /**
@@ -39,13 +36,14 @@ export const LoadingSpinner = ({
           cx="24"
           cy="24"
           r="22.5"
-          stroke={colorTokens.kz.color.wisteria[200]}
+          stroke="currentColor"
           strokeWidth="3"
+          className={styles.circle}
         />
         <path
           fillRule="evenodd"
           clipRule="evenodd"
-          fill={colorTokens.kz.color.seedling[400]}
+          className={styles.path}
           /* eslint-disable max-len */
           d="M46.5 24c.8284 0 1.5049-.6734 1.4539-1.5002C47.21 10.44 37.5601.789989 25.5003.0461639 24.6734-.004835 24 .671607 24 1.50003c0 .82843.6738 1.49444 1.5002 1.55277 10.4023.73424 18.7128 9.0447 19.447 19.447C45.0056 23.3262 45.6716 24 46.5 24z"
         />

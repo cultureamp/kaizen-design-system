@@ -1,0 +1,9 @@
+@import "~@kaizen/design-tokens/sass/theme";
+@import "~@kaizen/design-tokens/sass/color";
+
+$dt-color-color-cirle: $kz-color-wisteria-200;
+$dt-color-fill-path: $kz-color-seedling-400;
+
+@if $rebrand {
+  $dt-color-color-cirle: rgba($kz-color-slate-700, 0.2);
+}
