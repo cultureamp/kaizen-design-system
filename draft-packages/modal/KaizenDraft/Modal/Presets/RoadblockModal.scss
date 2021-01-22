@@ -1,9 +1,9 @@
-@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
+@import "../decision-tokens.scss";
 
 .modal {
   composes: genericModal from "../Primitives/GenericModal.scss";
@@ -18,7 +18,7 @@
 }
 
 .headerBackground {
-  background-color: $kz-color-peach-500;
+  background-color: $dt-color-background-color-header-roadblock;
   height: 120px;
   position: absolute;
   top: 0;

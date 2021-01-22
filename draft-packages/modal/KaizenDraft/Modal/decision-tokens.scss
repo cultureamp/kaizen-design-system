@@ -1,0 +1,18 @@
+@import "~@kaizen/design-tokens/sass/theme";
+@import "~@kaizen/design-tokens/sass/color";
+
+$dt-color-background-color-header-positive: $kz-color-seedling-500;
+$dt-color-background-color-header-informative: $kz-color-cluny-500;
+$dt-color-background-color-header-negative: $kz-color-coral-500;
+$dt-color-background-color-header-cautionary: $kz-color-yuzu-500;
+$dt-color-background-color-header-roadblock: $kz-color-peach-500;
+$dt-color-color-heading: $kz-color-white;
+
+@if $rebrand {
+  $dt-color-background-color-header-positive: $kz-color-seedling-100;
+  $dt-color-background-color-header-informative: $kz-color-cluny-100;
+  $dt-color-background-color-header-negative: $kz-color-coral-100;
+  $dt-color-background-color-header-cautionary: $kz-color-yuzu-100;
+  $dt-color-background-color-header-roadblock: $kz-color-peach-100;
+  $dt-color-color-heading: $kz-color-wisteria-800;
+}

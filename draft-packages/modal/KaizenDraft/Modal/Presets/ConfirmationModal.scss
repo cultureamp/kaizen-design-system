@@ -4,6 +4,7 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
+@import "../decision-tokens.scss";
 
 .modal {
   composes: genericModal from "../Primitives/GenericModal.scss";
@@ -12,7 +13,7 @@
 }
 
 .header {
-  color: $kz-color-white;
+  color: $dt-color-color-heading;
   padding: $kz-spacing-lg $kz-spacing-md $kz-spacing-lg;
   text-align: center;
   border-radius: $kz-border-solid-border-radius $kz-border-solid-border-radius 0
@@ -20,24 +21,24 @@
 
   // override Murmur global styles :(
   h1 {
-    color: $kz-color-white;
+    color: $dt-color-color-heading;
   }
 }
 
 .positiveHeader {
-  background-color: $kz-color-seedling-500;
+  background-color: $dt-color-background-color-header-positive;
 }
 
 .informativeHeader {
-  background-color: $kz-color-cluny-500;
+  background-color: $dt-color-background-color-header-informative;
 }
 
 .negativeHeader {
-  background-color: $kz-color-coral-500;
+  background-color: $dt-color-background-color-header-negative;
 }
 
 .cautionaryHeader {
-  background-color: $kz-color-yuzu-500;
+  background-color: $dt-color-background-color-header-cautionary;
 
   &.header h1 {
     color: $kz-color-wisteria-800;
