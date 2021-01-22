@@ -2,6 +2,7 @@
 @import "../../../styles/color";
 @import "../../../styles/type";
 @import "../styles";
+@import "../decision-tokens.scss";
 
 .badge {
   background-color: $kz-color-coral-500;
@@ -56,7 +57,7 @@
   }
 
   &.content {
-    background-color: $kz-color-cluny-200;
+    background-color: $dt-color-background-color-content;
     color: $kz-color-wisteria-800;
   }
 }

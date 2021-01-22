@@ -2,6 +2,7 @@
 @import "../../styles/color";
 @import "../../styles/type";
 @import "../../styles/responsive";
+@import "./decision-tokens.scss";
 
 $ca-navigation-bar__height: 2.5 * $ca-grid;
 
@@ -141,7 +142,7 @@ $link-margin: $ca-grid / 4;
 %ca-navigation-bar {
   display: flex;
   flex-direction: row;
-  background-color: $kz-color-wisteria-700;
+  background-color: $dt-color-background-color-kaizen;
   height: $ca-navigation-bar__height;
   width: 100%;
   position: fixed;

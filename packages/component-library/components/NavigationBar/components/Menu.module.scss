@@ -137,12 +137,12 @@ $menu__square-size: $ca-grid * 2;
 
   &:hover,
   &.menuItemActive {
-    background-color: $kz-color-wisteria-700;
+    background-color: $dt-color-background-color-kaizen;
   }
 }
 
 .menuGroup {
-  border-top: 1px solid $kz-color-wisteria-700;
+  border-top: 1px solid $dt-color-background-color-kaizen;
   margin-top: $ca-grid / 2;
 
   &:first-child {

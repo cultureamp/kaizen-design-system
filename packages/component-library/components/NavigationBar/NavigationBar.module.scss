@@ -5,12 +5,13 @@
 @import "../../styles/type";
 @import "../../styles/layout";
 @import "../../styles/responsive";
+@import "./decision-tokens.scss";
 
 .navigationBar {
   @extend %ca-navigation-bar;
 
   &.kaizen {
-    background: $kz-color-wisteria-700;
+    background: $dt-color-background-color-kaizen;
 
     a {
       color: white;
@@ -18,7 +19,7 @@
   }
 
   &.content {
-    background: $kz-color-cluny-200;
+    background: $dt-color-background-color-content;
 
     .links {
       a {
@@ -83,5 +84,5 @@
 }
 
 .kaizen .active {
-  background-color: $kz-color-wisteria-700;
+  background-color: $dt-color-background-color-kaizen;
 }
