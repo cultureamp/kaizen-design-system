@@ -1,0 +1,10 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/theme";
+
+$dt-color-background-color-default: $kz-color-wisteria-700;
+$dt-color-background-color-education: $kz-color-cluny-200;
+
+@if $rebrand {
+  $dt-color-background-color-default: $kz-color-wisteria-600;
+  $dt-color-background-color-education: $kz-color-cluny-100;
+}

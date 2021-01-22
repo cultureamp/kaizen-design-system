@@ -5,6 +5,7 @@
 @import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/component-library/styles/layout";
 @import "./TitleBlockBreakpoints.scss";
+@import "./decision-tokens.scss";
 
 $title-block-margin-width-on-medium-and-small: 12px;
 $breadcrumb-circle-width: 48px;
@@ -20,18 +21,18 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: $kz-color-wisteria-700;
+  background-color: $kz-color-wisteria-700; // switch to token
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
 
   &.educationVariant {
-    background-color: $kz-color-cluny-200;
+    background-color: $dt-color-background-color-eduction;
   }
 
   &.adminVariant {
-    background-color: $kz-color-stone;
+    background-color: $dt-color-background-color-admin;
   }
 
   @media print {
