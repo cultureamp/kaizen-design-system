@@ -23,6 +23,7 @@ export interface SearchBoxProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any
+  onPressEnter?: (event: React.KeyboardEvent<HTMLInputElement>) => any
   name?: string
 }
 
@@ -40,56 +41,66 @@ export const SearchBox = ({
   onChange,
   onBlur,
   onFocus,
+  onPressEnter,
   name,
   className,
-}: SearchBoxProps) => (
-  <div
-    className={classnames(styles.wrapper, styles.withStartIconAdornment, {
-      [styles.withReversed]: reversed,
-      [styles.withDisabled]: disabled,
-      // [styles.withEndIconAdornment]: endIconAdornment,
-    })}
-  >
-    {labelText && (
-      <Label
-        id={`${id}-field-label`}
-        automationId={`${id}-field-label`}
-        htmlFor={`${id}-field-input`}
-        labelText={labelText}
-        reversed={reversed}
-      />
-    )}
-    <div className={styles.startIconAdornment}>
-      {icon ? icon : <Icon role="img" icon={searchIcon} />}
-    </div>
-    <input
-      id={`${id}-field-input`}
-      name={name}
-      data-automation-id={`${id}-field-input`}
-      type={"text"}
-      value={inputValue}
-      defaultValue={defaultInputValue}
-      ref={inputRef}
-      // aria-describedby={description}
-      // aria-label={labelText}
-      placeholder={placeholder ? placeholder : "Search"}
-      onChange={onChange}
-      onBlur={onBlur}
-      onFocus={onFocus}
-      disabled={disabled}
-      className={classnames(styles.input, styles.default, className)}
-    />
-    <div className={styles.focusRing} />
+}: SearchBoxProps) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && onPressEnter) {
+      onPressEnter(e)
+    }
+  }
 
-    {description && (
-      <div className={styles.message}>
-        <FieldMessage
-          id={`${id}-field-message`}
-          automationId={`${id}-field-description`}
-          message={description}
+  return (
+    <div
+      className={classnames(styles.wrapper, styles.withStartIconAdornment, {
+        [styles.withReversed]: reversed,
+        [styles.withDisabled]: disabled,
+        // [styles.withEndIconAdornment]: endIconAdornment,
+      })}
+    >
+      {labelText && (
+        <Label
+          id={`${id}-field-label`}
+          automationId={`${id}-field-label`}
+          htmlFor={`${id}-field-input`}
+          labelText={labelText}
           reversed={reversed}
         />
+      )}
+      <div className={styles.startIconAdornment}>
+        {icon ? icon : <Icon role="img" icon={searchIcon} />}
       </div>
-    )}
-  </div>
-)
+      <input
+        id={`${id}-field-input`}
+        name={name}
+        data-automation-id={`${id}-field-input`}
+        type={"text"}
+        value={inputValue}
+        defaultValue={defaultInputValue}
+        ref={inputRef}
+        // aria-describedby={description}
+        // aria-label={labelText}
+        placeholder={placeholder ? placeholder : "Search"}
+        onChange={onChange}
+        onBlur={onBlur}
+        onFocus={onFocus}
+        onKeyDown={handleKeyDown}
+        disabled={disabled}
+        className={classnames(styles.input, styles.default, className)}
+      />
+      <div className={styles.focusRing} />
+
+      {description && (
+        <div className={styles.message}>
+          <FieldMessage
+            id={`${id}-field-message`}
+            automationId={`${id}-field-description`}
+            message={description}
+            reversed={reversed}
+          />
+        </div>
+      )}
+    </div>
+  )
+}
