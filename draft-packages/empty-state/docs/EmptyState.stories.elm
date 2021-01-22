@@ -1,11 +1,11 @@
 module Main exposing (main)
 
-import Button.Button as Button
 import CssModules exposing (css)
 import ElmStorybook exposing (statelessStoryOf, storybook)
-import Html exposing (Html, div, text)
+import Html exposing (Html, div)
 import Html.Attributes exposing (dir)
 import Icon.SvgAsset exposing (svgAsset)
+import KaizenDraft.Button.Button as Button
 import KaizenDraft.EmptyState.EmptyState as EmptyState
 
 

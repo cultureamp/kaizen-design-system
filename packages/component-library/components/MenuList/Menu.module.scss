@@ -14,7 +14,7 @@ $side-padding: 3/4 * $ca-grid;
 .menuList {
   background: white;
   border: $kz-border-solid-border-width $kz-border-solid-border-style
-    $kz-color-wisteria-200;
+    $kz-border-solid-border-color;
   box-shadow: $kz-shadow-small-box-shadow;
   line-height: 40px;
 }
@@ -23,7 +23,7 @@ $side-padding: 3/4 * $ca-grid;
   padding: 10px $side-padding;
   text-align: left;
   color: add-alpha($kz-color-wisteria-800, 40%);
-  border-bottom: $ca-border-color 1px solid;
+  border-bottom: $kz-border-solid-border-color 1px solid;
 }
 
 .header__title {
@@ -106,7 +106,7 @@ $side-padding: 3/4 * $ca-grid;
   height: 1px;
   width: 100%;
   border: 0;
-  background: $kz-color-wisteria-200;
+  background: $kz-border-solid-border-color;
   visibility: visible;
   margin: 5px 0;
 }
