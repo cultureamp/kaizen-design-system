@@ -4,7 +4,8 @@
       "solid": {
         "borderWidth": "2px",
         "borderRadius": "7px",
-        "borderStyle": "solid"
+        "borderStyle": "solid",
+        "borderColor": "#e1e2ea"
       },
       "dashed": {
         "borderWidth": "2px",
