@@ -14,6 +14,10 @@ export default {
   },
 }
 
-export const DefaultStory = () => <Slider>world!</Slider>
+export const DefaultStory = () => <Slider canRespond />
 
-DefaultStory.storyName = "Default (Kaizen Site Demo)"
+DefaultStory.storyName = "Can respond"
+
+export const CannotRespond = () => <Slider canRespond={false} />
+
+CannotRespond.storyName = "Can't respond"
