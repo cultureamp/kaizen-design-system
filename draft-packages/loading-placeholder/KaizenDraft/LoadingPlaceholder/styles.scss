@@ -2,12 +2,12 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/border";
-@import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/type";
+@import "./decision-tokens.scss";
 
 .base {
-  background-color: $kz-color-wisteria-100;
+  background-color: $dt-color-background-color-base;
   border-radius: $kz-border-solid-border-radius * 3;
   position: relative;
   top: $ca-grid * 0.175;
@@ -38,11 +38,11 @@
 }
 
 .reversedDefault {
-  background-color: rgba($kz-color-white, 0.5);
+  background-color: rgba($dt-color-background-color-base-reversed, 0.5);
 }
 
 .reversedOcean {
-  background-color: $kz-color-cluny-300;
+  background-color: $dt-color-background-color-cluny-reversed;
 }
 
 .normal {

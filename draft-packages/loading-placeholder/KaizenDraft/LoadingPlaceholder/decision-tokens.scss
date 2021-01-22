@@ -1,0 +1,10 @@
+@import "~@kaizen/design-tokens/sass/theme";
+@import "~@kaizen/design-tokens/sass/color";
+
+$dt-color-background-color-base: $kz-color-wisteria-100;
+$dt-color-background-color-base-reversed: $kz-color-white;
+$dt-color-background-color-cluny-reversed: $kz-color-cluny-300;
+
+@if $rebrand {
+  $dt-color-background-color-base: $kz-color-ash;
+}

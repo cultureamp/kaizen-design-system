@@ -36,8 +36,8 @@ export const LoadingSpinner = ({
           cx="24"
           cy="24"
           r="22.5"
-          stroke="currentColor"
           strokeWidth="3"
+          stroke="currentColor"
           className={styles.circle}
         />
         <path
@@ -61,13 +61,14 @@ export const LoadingSpinner = ({
           cx="12"
           cy="12"
           r="9"
-          stroke={colorTokens.kz.color.wisteria[200]}
+          stroke="currentColor"
+          className={styles.circle}
           strokeWidth="2"
         />
         <path
           fillRule="evenodd"
           clipRule="evenodd"
-          fill={colorTokens.kz.color.seedling[400]}
+          className={styles.path}
           /* eslint-disable max-len */
           d="M21.0564 13c.5076 0 .9377-.3851.9431-.8926.0004-.0358.0005-.0716.0005-.1074 0-5.52285-4.4771-10-10-10-.0359 0-.0718.00019-.1076.00057-.5076.00535-.8926.43552-.8926.94308v.11543C10.9998 3.59163 11.4675 4 12 4c4.4183 0 8 3.58172 8 8 0 .5324.4083 1 .9407 1h.1157z"
         />
