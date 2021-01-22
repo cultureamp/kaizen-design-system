@@ -14,6 +14,6 @@ export default {
   },
 }
 
-export const DefaultStory = () => <SearchBox>world!</SearchBox>
+export const DefaultStory = () => <SearchBox id="1"></SearchBox>
 
 DefaultStory.storyName = "Default (Kaizen Site Demo)"
