@@ -14,10 +14,22 @@ export default {
   },
 }
 
-export const DefaultStory = () => <Slider canRespond />
+export const DefaultKaizenSiteDemo = () => <Slider />
 
-DefaultStory.storyName = "Can respond"
+DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
-export const CannotRespond = () => <Slider canRespond={false} />
+export const Disabled = () => <Slider disabled />
 
-CannotRespond.storyName = "Can't respond"
+Disabled.storyName = "Disabled"
+
+export const DisabledWithLabel = () => (
+  <Slider disabled disabledLabel="Waiting for Jane to respond" />
+)
+
+DisabledWithLabel.storyName = "Disabled with label"
+
+export const CustomLabels = () => (
+  <Slider labelLeft="Never" labelRight="Always" />
+)
+
+CustomLabels.storyName = "Custom labels"

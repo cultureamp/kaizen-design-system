@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react"
 import cx from "classnames"
 import { throttle } from "lodash"
+import { Paragraph } from "@kaizen/component-library"
 import styles from "./styles.module.scss"
 
 export interface SliderProps {
@@ -8,17 +9,23 @@ export interface SliderProps {
    * Remember to annotate your props! The typehints make developers happy
    * @default ""
    */
-  canRespond: boolean
+  disabled?: boolean
+  disabledLabel?: string
   automationId?: string
   initialValue?: number
   onChange?: (n: number) => void
+  labelLeft?: string
+  labelRight?: string
 }
 
 export const Slider = ({
   automationId,
   initialValue,
-  canRespond,
+  disabled = false,
   onChange = () => {},
+  labelLeft = "Not at all",
+  labelRight = "Very",
+  disabledLabel,
 }: SliderProps) => {
   const [value, setValue] = useState(initialValue)
 
@@ -36,7 +43,7 @@ export const Slider = ({
       className={cx([
         styles.ratingScale,
         !value && styles.emptyValue,
-        canRespond ? styles.canRespond : styles.cannotRespond,
+        disabled ? styles.disabled : styles.enabled,
       ])}
       data-automation-id={automationId}
     >
@@ -52,8 +59,37 @@ export const Slider = ({
           setValue(v)
           throttledOnChange(Math.round(v)) // Save final rounded value
         }}
-        disabled={!canRespond}
+        disabled={disabled}
       />
+      <div className={styles.labelsContainer}>
+        {!disabled && (
+          <div className={styles.sliderLabels}>
+            <Paragraph
+              variant="extra-small"
+              color="dark-reduced-opacity"
+              tag="span"
+            >
+              {labelLeft}
+            </Paragraph>
+            <Paragraph
+              variant="extra-small"
+              color="dark-reduced-opacity"
+              tag="span"
+            >
+              {labelRight}
+            </Paragraph>
+          </div>
+        )}
+        {disabled && disabledLabel && (
+          <Paragraph
+            variant="extra-small"
+            color="dark-reduced-opacity"
+            tag="div"
+          >
+            {disabledLabel}
+          </Paragraph>
+        )}
+      </div>
     </div>
   )
 }

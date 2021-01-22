@@ -9,6 +9,7 @@
 //}
 
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/border";
@@ -40,7 +41,7 @@ $notches-number: 10;
   border-radius: $thumb-radius;
   background: $thumb-color;
 
-  .canRespond & {
+  .enabled & {
     cursor: pointer;
     transition: box-shadow 0.2s;
     box-shadow: 0 0 0 0 $thumb-hover-shadow-color;
@@ -48,6 +49,12 @@ $notches-number: 10;
       box-shadow: 0 0 0 6px $thumb-hover-shadow-color;
     }
   }
+}
+
+.ratingScale {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 input[type="range"].ratingScaleRange {
@@ -132,6 +139,19 @@ input[type="range"].ratingScaleRange {
   }
 }
 
-.cannotRespond.emptyValue {
+.disabled.emptyValue {
   opacity: 0.5;
+}
+
+.labelsContainer {
+  margin-top: $kz-spacing-xs;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.sliderLabels {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
