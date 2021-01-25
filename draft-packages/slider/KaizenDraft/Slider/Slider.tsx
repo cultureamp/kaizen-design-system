@@ -22,6 +22,7 @@ export const Slider = ({
   automationId,
   initialValue = 5,
   disabled = false,
+  // eslint-disable-next-line
   onChange = () => {},
   labelLow = "Not at all",
   labelHigh = "Very",
@@ -34,8 +35,6 @@ export const Slider = ({
     setValue(initialValue)
   }, [initialValue])
 
-  // Disabling as a quick fix, but might be worth fixing
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const throttledOnChange = useCallback(throttle(onChange, 200), [onChange])
 
   return (
