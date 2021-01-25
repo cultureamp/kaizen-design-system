@@ -14,8 +14,8 @@ export interface SliderProps {
   automationId?: string
   initialValue?: number
   onChange?: (n: number) => void
-  labelLeft?: string
-  labelRight?: string
+  labelLow?: string
+  labelHigh?: string
 }
 
 export const Slider = ({
@@ -23,8 +23,8 @@ export const Slider = ({
   initialValue,
   disabled = false,
   onChange = () => {},
-  labelLeft = "Not at all",
-  labelRight = "Very",
+  labelLow = "Not at all",
+  labelHigh = "Very",
   disabledLabel,
 }: SliderProps) => {
   const [value, setValue] = useState(initialValue)
@@ -69,14 +69,14 @@ export const Slider = ({
               color="dark-reduced-opacity"
               tag="span"
             >
-              {labelLeft}
+              {labelLow}
             </Paragraph>
             <Paragraph
               variant="extra-small"
               color="dark-reduced-opacity"
               tag="span"
             >
-              {labelRight}
+              {labelHigh}
             </Paragraph>
           </div>
         )}

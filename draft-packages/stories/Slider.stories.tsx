@@ -40,7 +40,7 @@ DisabledWithLabel.storyName = "Disabled with label"
 
 export const CustomLabels = () => (
   <div style={{ width: "450px" }}>
-    <Slider labelLeft="Never" labelRight="Always" />
+    <Slider labelLow="Never" labelHigh="Always" />
   </div>
 )
 
