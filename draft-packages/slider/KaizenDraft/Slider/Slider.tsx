@@ -20,7 +20,7 @@ export interface SliderProps {
 
 export const Slider = ({
   automationId,
-  initialValue,
+  initialValue = 5,
   disabled = false,
   onChange = () => {},
   labelLow = "Not at all",
@@ -50,10 +50,14 @@ export const Slider = ({
       <input
         className={styles.ratingScaleRange}
         type="range"
+        role="slider"
         min="1"
         max="10"
         step="1"
-        value={value || 5}
+        value={value}
+        aria-valuenow={value}
+        aria-valuemin={1}
+        aria-valuemax={10}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           const v = Number.parseFloat(e.target.value)
           setValue(v)
