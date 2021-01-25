@@ -2,7 +2,7 @@ import * as React from "react"
 import classnames from "classnames"
 import searchIcon from "@kaizen/component-library/icons/search.icon.svg"
 import { Icon } from "@kaizen/component-library"
-
+import spinnerIcon from "@kaizen/component-library/icons/spinner.icon.svg"
 import { FieldMessage, Label } from "../../../form"
 
 import styles from "./styles.module.scss"
@@ -25,6 +25,7 @@ export interface SearchBoxProps {
   onFocus?: (event: React.FocusEvent<HTMLInputElement>) => any
   onPressEnter?: (event: React.KeyboardEvent<HTMLInputElement>) => any
   name?: string
+  working?: boolean
 }
 
 export const SearchBox = ({
@@ -44,11 +45,20 @@ export const SearchBox = ({
   onPressEnter,
   name,
   className,
+  working = false,
 }: SearchBoxProps) => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && onPressEnter) {
       onPressEnter(e)
     }
+  }
+
+  const renderIcon = () => {
+    if (working) {
+      return <Icon role="img" icon={spinnerIcon} />
+    }
+
+    return icon ? icon : <Icon role="img" icon={searchIcon} />
   }
 
   return (
@@ -68,9 +78,7 @@ export const SearchBox = ({
           reversed={reversed}
         />
       )}
-      <div className={styles.startIconAdornment}>
-        {icon ? icon : <Icon role="img" icon={searchIcon} />}
-      </div>
+      <div className={styles.startIconAdornment}>{renderIcon()}</div>
       <input
         id={`${id}-field-input`}
         name={name}
