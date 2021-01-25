@@ -14,22 +14,34 @@ export default {
   },
 }
 
-export const DefaultKaizenSiteDemo = () => <Slider />
+export const DefaultKaizenSiteDemo = () => (
+  <div style={{ width: "450px" }}>
+    <Slider />
+  </div>
+)
 
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 
-export const Disabled = () => <Slider disabled />
+export const Disabled = () => (
+  <div style={{ width: "450px" }}>
+    <Slider disabled />
+  </div>
+)
 
 Disabled.storyName = "Disabled"
 
 export const DisabledWithLabel = () => (
-  <Slider disabled disabledLabel="Waiting for Jane to respond" />
+  <div style={{ width: "450px" }}>
+    <Slider disabled disabledLabel="Waiting for Jane to respond" />
+  </div>
 )
 
 DisabledWithLabel.storyName = "Disabled with label"
 
 export const CustomLabels = () => (
-  <Slider labelLeft="Never" labelRight="Always" />
+  <div style={{ width: "450px" }}>
+    <Slider labelLeft="Never" labelRight="Always" />
+  </div>
 )
 
 CustomLabels.storyName = "Custom labels"
