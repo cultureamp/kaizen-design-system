@@ -17,7 +17,6 @@ module Notification.Notification exposing
 
 import Browser.Events exposing (onAnimationFrame)
 import CssModules exposing (css)
-import Elm18Compatible.Time exposing (second)
 import Html exposing (Html, button, div, h6, p, span, text)
 import Html.Attributes exposing (type_)
 import Html.Events as Events exposing (on, preventDefaultOn)
@@ -395,6 +394,11 @@ each providing the current state, and a message we can use to update the state.
 -}
 subscriptions : List ( NotificationState, NotificationState -> msg ) -> Sub msg
 subscriptions allNotifications =
+    let
+        -- migrated from Elm 18
+        second =
+            1000
+    in
     Sub.batch
         (List.filterMap
             (\( state, setter ) ->
