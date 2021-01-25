@@ -9,7 +9,8 @@ module KaizenDraft.Dropdown.Dropdown exposing
     , update
     )
 
-import Elm18Compatible.Mouse as Mouse
+import Browser.Events
+import Json.Decode
 import KaizenDraft.UserInteractions.Keyboard as Keyboard
 
 
@@ -30,7 +31,7 @@ subscriptions =
                     NoOp
     in
     Sub.batch
-        [ Mouse.clicks (always Close)
+        [ Browser.Events.onClick (Json.Decode.succeed Close)
         , Keyboard.subscriptions keyboardMsg
         ]
 
