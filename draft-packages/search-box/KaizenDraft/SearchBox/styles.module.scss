@@ -266,3 +266,13 @@ $input-pill-shaped-border: 999999999px;
     }
   }
 }
+
+.clearButton {
+  position: absolute;
+  background: none;
+  border-color: $kz-border-borderless-border-color;
+  cursor: pointer;
+  padding: 0;
+  right: 0.75rem;
+  bottom: 0.5rem;
+}

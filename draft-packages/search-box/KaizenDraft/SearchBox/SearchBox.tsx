@@ -3,8 +3,8 @@ import classnames from "classnames"
 import searchIcon from "@kaizen/component-library/icons/search.icon.svg"
 import { Icon } from "@kaizen/component-library"
 import spinnerIcon from "@kaizen/component-library/icons/spinner.icon.svg"
+import clearIcon from "@kaizen/component-library/icons/clear-white.icon.svg"
 import { FieldMessage, Label } from "../../../form"
-
 import styles from "./styles.module.scss"
 
 export interface SearchBoxProps {
@@ -26,6 +26,7 @@ export interface SearchBoxProps {
   onPressEnter?: (event: React.KeyboardEvent<HTMLInputElement>) => any
   name?: string
   working?: boolean
+  onClearText: (event: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 export const SearchBox = ({
@@ -46,6 +47,7 @@ export const SearchBox = ({
   name,
   className,
   working = false,
+  onClearText,
 }: SearchBoxProps) => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && onPressEnter) {
@@ -98,6 +100,15 @@ export const SearchBox = ({
         className={classnames(styles.input, styles.default, className)}
       />
       <div className={styles.focusRing} />
+      {onClearText && !!inputValue ? (
+        <button
+          type="button"
+          onClick={onClearText}
+          className={styles.clearButton}
+        >
+          <Icon role="img" icon={clearIcon} />
+        </button>
+      ) : null}
 
       {description && (
         <div className={styles.message}>
