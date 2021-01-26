@@ -4,7 +4,7 @@ import searchIcon from "@kaizen/component-library/icons/search.icon.svg"
 import { Icon } from "@kaizen/component-library"
 import spinnerIcon from "@kaizen/component-library/icons/spinner.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear-white.icon.svg"
-import { FieldMessage, Label } from "../../../form"
+import { FieldMessage, Label } from "@kaizen/draft-form"
 import styles from "./styles.module.scss"
 
 export interface SearchBoxProps {
