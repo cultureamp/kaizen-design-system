@@ -4,10 +4,10 @@ import searchIcon from "@kaizen/component-library/icons/search.icon.svg"
 import { Icon } from "@kaizen/component-library"
 import spinnerIcon from "@kaizen/component-library/icons/spinner.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear-white.icon.svg"
-import { FieldMessage, Label } from "@kaizen/draft-form"
-import styles from "./styles.module.scss"
+import { FieldMessage, Label } from ".."
+import styles from "./SearchField.module.scss"
 
-export interface SearchBoxProps {
+export interface SearchFieldProps {
   id: string
   placeholder?: string
   labelText?: string | React.ReactNode
@@ -26,10 +26,10 @@ export interface SearchBoxProps {
   onPressEnter?: (event: React.KeyboardEvent<HTMLInputElement>) => any
   name?: string
   working?: boolean
-  onClearText: (event: React.MouseEvent<HTMLButtonElement>) => void
+  onClearText?: (event: React.MouseEvent<any>) => void
 }
 
-export const SearchBox = ({
+export const SearchField = ({
   id,
   placeholder,
   labelText,
@@ -48,7 +48,7 @@ export const SearchBox = ({
   className,
   working = false,
   onClearText,
-}: SearchBoxProps) => {
+}: SearchFieldProps) => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter" && onPressEnter) {
       onPressEnter(e)
@@ -61,6 +61,11 @@ export const SearchBox = ({
     }
 
     return icon ? icon : <Icon role="img" icon={searchIcon} />
+  }
+
+  const handleClearTextButtonOnClick = (e: React.MouseEvent<any>) => {
+    e.stopPropagation()
+    onClearText && onClearText(e)
   }
 
   return (
@@ -103,7 +108,10 @@ export const SearchBox = ({
       {onClearText && !!inputValue ? (
         <button
           type="button"
-          onClick={onClearText}
+          onClick={handleClearTextButtonOnClick}
+          onMouseDown={e => {
+            e.preventDefault()
+          }}
           className={styles.clearButton}
         >
           <Icon role="img" icon={clearIcon} />
