@@ -5,10 +5,6 @@ import { Paragraph } from "@kaizen/component-library"
 import styles from "./styles.module.scss"
 
 export interface SliderProps {
-  /**
-   * Remember to annotate your props! The typehints make developers happy
-   * @default ""
-   */
   disabled?: boolean
   disabledLabel?: string
   automationId?: string
