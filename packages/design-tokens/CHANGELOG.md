@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.1.3...@kaizen/design-tokens@2.2.0) (2021-01-22)
+
+
+### Features
+
+* Added color token for solid borders ([#973](https://github.com/cultureamp/kaizen-design-system/issues/973)) ([f4dd96a](https://github.com/cultureamp/kaizen-design-system/commit/f4dd96a46578aab684787e03f85d677dfb561d0a))
+
+
+
+
+
 ## [2.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.1.2...@kaizen/design-tokens@2.1.3) (2020-11-13)
 
 **Note:** Version bump only for package @kaizen/design-tokens
