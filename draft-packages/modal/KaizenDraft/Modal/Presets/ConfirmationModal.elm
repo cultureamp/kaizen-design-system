@@ -208,16 +208,16 @@ header config =
         resolveIcon =
             case config.variant of
                 Cautionary ->
-                    svgAsset "@kaizen/draft-modal/KaizenDraft/Modal/illustrations/cautionary.icon.svg"
+                    svgAsset "@kaizen/draft-modal/illustrations/cautionary.icon.svg"
 
                 Informative ->
-                    svgAsset "@kaizen/draft-modal/KaizenDraft/Modal/illustrations/informative.icon.svg"
+                    svgAsset "@kaizen/draft-modal/illustrations/informative.icon.svg"
 
                 Negative ->
-                    svgAsset "@kaizen/draft-modal/KaizenDraft/Modal/illustrations/negative.icon.svg"
+                    svgAsset "@kaizen/draft-modal/illustrations/negative.icon.svg"
 
                 Positive ->
-                    svgAsset "@kaizen/draft-modal/KaizenDraft/Modal/illustrations/positive.icon.svg"
+                    svgAsset "@kaizen/draft-modal/illustrations/positive.icon.svg"
     in
     div
         [ styles.classList
@@ -429,7 +429,7 @@ confirmId id_ (Config config) =
 
 
 styles =
-    css "@kaizen/draft-modal/KaizenDraft/Modal/Presets/ConfirmationModal.scss"
+    css "@kaizen/draft-modal/styles/ConfirmationModal.scss"
         { header = "header"
         , cautionaryHeader = "cautionaryHeader"
         , informativeHeader = "informativeHeader"
@@ -442,6 +442,6 @@ styles =
 
 
 genericStyles =
-    css "@kaizen/draft-modal/KaizenDraft/Modal/Primitives/GenericModal.scss"
+    css "@kaizen/draft-modal/styles/GenericModal.scss"
         { defaultModalWidth = "defaultModalWidth"
         }

@@ -341,7 +341,7 @@ viewClear config =
 
 
 styles =
-    css "@kaizen/draft-tag/KaizenDraft/Tag/Tag.scss"
+    css "@kaizen/draft-tag/styles/Tag.scss"
         { root = "root"
         , layoutContainer = "layoutContainer"
         , default = "default"

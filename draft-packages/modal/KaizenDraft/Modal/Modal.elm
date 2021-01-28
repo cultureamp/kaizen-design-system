@@ -501,7 +501,7 @@ setDefaultFocusableId defaultId (ModalState ( state, modalData )) =
 
 
 styles =
-    css "@kaizen/draft-modal/KaizenDraft/Modal/Primitives/GenericModal.scss"
+    css "@kaizen/draft-modal/styles/GenericModal.scss"
         { backdropLayer = "backdropLayer"
         , animatingElmEnter = "animatingElmEnter"
         , elmUnscrollable = "elmUnscrollable"

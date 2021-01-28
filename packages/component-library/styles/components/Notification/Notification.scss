@@ -1,0 +1,302 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/component-library/styles/layout";
+@import "../../color";
+@import "../../type";
+@import "../../border";
+@import "../../layers";
+@import "../../animation";
+@import "../../responsive";
+@import "../Button.module.scss";
+
+$ca-notification-border-width: $kz-border-solid-border-width;
+$ca-notification-vertical-padding: calc(
+  #{$ca-grid / 4} - #{$ca-notification-border-width}
+);
+$ca-notification-inline-horizontal-padding: 20px;
+$ca-notification-toast-horizontal-padding: 10px;
+$ca-notification-fade-out: opacity $ca-duration-slow ease;
+$ca-notification-collapse-height: margin-top $ca-duration-slow ease,
+  margin-bottom $ca-duration-slow ease;
+$ca-notification-collapse-height-delayed: margin-top $ca-duration-fast
+    $ca-duration-slow ease,
+  margin-bottom $ca-duration-fast $ca-duration-slow ease;
+$ca-notification-slide-right: transform $ca-duration-slow ease-out;
+
+%ca-notification {
+  display: flex;
+  box-sizing: border-box;
+
+  // Variants
+  &%ca-notification---inline,
+  &%ca-notification---toast {
+    margin-bottom: $ca-grid;
+    border-width: $ca-notification-border-width;
+    border-style: $kz-border-solid-border-style;
+    border-radius: $kz-border-solid-border-radius;
+  }
+
+  &%ca-notification---inline {
+    width: 100%;
+    padding: $ca-notification-vertical-padding
+      $ca-notification-inline-horizontal-padding;
+    transition: $ca-notification-fade-out,
+      $ca-notification-collapse-height-delayed;
+  }
+
+  &%ca-notification---toast {
+    width: 25rem;
+    box-shadow: $kz-shadow-small-box-shadow;
+    padding: $ca-notification-vertical-padding
+      $ca-notification-toast-horizontal-padding;
+    transition: $ca-notification-fade-out, $ca-notification-slide-right,
+      $ca-notification-collapse-height-delayed;
+    will-change: transform;
+  }
+
+  &%ca-notification---global {
+    width: 100%;
+    padding: $ca-grid / 2 15px;
+    border-width: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    transition: $ca-notification-collapse-height;
+    position: relative;
+    z-index: $ca-z-index-fixed;
+  }
+
+  // Types
+
+  &%ca-notification---affirmative {
+    background: $kz-color-seedling-100;
+    border-color: $kz-color-seedling-300;
+    color: $kz-color-wisteria-800;
+
+    &%ca-notification---global {
+      background-color: $kz-color-seedling-200;
+    }
+  }
+
+  &%ca-notification---informative {
+    background: $kz-color-cluny-100;
+    border-color: $kz-color-cluny-300;
+    color: $kz-color-wisteria-800;
+
+    &%ca-notification---global {
+      background-color: $kz-color-cluny-200;
+    }
+  }
+
+  &%ca-notification---cautionary {
+    background: $kz-color-yuzu-100;
+    border-color: $kz-color-yuzu-400;
+    color: $kz-color-wisteria-800;
+
+    &%ca-notification---global {
+      background-color: $kz-color-yuzu-300;
+    }
+  }
+
+  &%ca-notification---negative {
+    background: $kz-color-coral-100;
+    border-color: $kz-color-coral-300;
+    color: $kz-color-wisteria-800;
+
+    &%ca-notification---global {
+      background-color: $kz-color-coral-300;
+    }
+  }
+
+  // Hidden state
+
+  &%ca-notification---hidden {
+    opacity: 0;
+    margin-bottom: 0;
+
+    &%ca-notification---toast {
+      // When entering we use "ease-out", but when transitioning to hidden we want to use "ease-in".
+      // We want it moving the fastest when it is the furthest off screen.
+      transition-timing-function: ease-in;
+      transform: translateX(50%);
+    }
+
+    &%ca-notification---global {
+      z-index: $ca-z-index-fixed - 1;
+      opacity: 1;
+    }
+  }
+
+  // Modifiers
+
+  &%ca-notification---noBottomMargin {
+    margin-bottom: 0;
+  }
+}
+
+%ca-notification__icon {
+  align-items: flex-start;
+
+  %ca-notification---affirmative & {
+    color: $kz-color-seedling-500;
+  }
+
+  %ca-notification---informative & {
+    color: $kz-color-cluny-500;
+  }
+
+  %ca-notification---cautionary & {
+    color: $kz-color-yuzu-500;
+  }
+
+  %ca-notification---negative & {
+    color: $kz-color-coral-500;
+  }
+
+  %ca-notification---inline &,
+  %ca-notification---toast & {
+    width: $ca-grid;
+    height: $ca-grid;
+    margin-top: $ca-grid / 4;
+  }
+
+  %ca-notification---global & {
+    width: $ca-grid * 1.25;
+    height: $ca-grid * 1.25;
+    margin-top: $ca-grid / 8;
+    // Override the type-specific color values set above
+    color: $kz-color-wisteria-800;
+  }
+}
+
+%ca-notification__text-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 1 0 0;
+
+  %ca-notification---inline &,
+  %ca-notification---toast & {
+    margin-left: 10px;
+  }
+
+  %ca-notification---global & {
+    margin-left: 14px;
+  }
+
+  %ca-notification---inline & {
+    // Inline notifications often fade onto a white background.
+    // Fading the higher-contrast text out at, as well as the whole container, makes for a smoother animation.
+    transition: $ca-notification-fade-out;
+  }
+}
+
+%ca-notification__title {
+  @include kz-typography-heading-6;
+  margin: 0;
+  padding-right: $ca-grid / 2;
+  // overriding Bootstrap style that changes h6s to text-transform: uppercase
+  text-transform: none;
+  color: inherit;
+}
+
+%ca-notification__text {
+  @include kz-typography-paragraph-small;
+  margin: 0;
+  color: inherit;
+
+  %ca-notification---inline &,
+  %ca-notification---toast & {
+    @include kz-typography-paragraph-small;
+    // When the title and text are on different lines this ensures the baselines of the first lines are exactly 1 grid unit apart.
+    // When they are both on a single line it ensures both are 1 grid unit tall.
+    margin-top: $ca-grid / 4;
+    flex: 0 1 auto;
+    padding-bottom: 0.75rem;
+  }
+
+  %ca-notification---global & {
+    @include kz-typography-paragraph-body;
+  }
+
+  a[href] {
+    color: $ca-link-text-color;
+    text-decoration: underline;
+
+    &:hover {
+      color: $ca-link-hover-text-color;
+      text-decoration: none;
+    }
+
+    %ca-notification---global &,
+    %ca-notification---global &:hover {
+      color: $kz-color-wisteria-800;
+    }
+  }
+
+  strong {
+    font-weight: $ca-weight-semibold;
+  }
+
+  p {
+    font-weight: inherit;
+  }
+}
+
+%ca-notification__cancel {
+  @include button-reset;
+  composes: interactiveIconWrapper from "../../../styles/components/Icon.module.scss";
+  color: $kz-color-wisteria-800;
+  transform: none;
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  // The negative margins below are so that our clickable area will overlap the notification padding
+  %ca-notification---inline &,
+  %ca-notification---toast & {
+    width: $ca-grid * 2;
+    height: $ca-grid * 2;
+    margin-top: -$ca-grid / 4;
+    margin-bottom: -$ca-grid / 4;
+  }
+
+  %ca-notification---inline & {
+    margin-right: -$ca-notification-inline-horizontal-padding;
+  }
+
+  %ca-notification---toast & {
+    margin-right: -$ca-notification-toast-horizontal-padding;
+  }
+
+  %ca-notification---global & {
+    width: $ca-grid * 2.5;
+    height: $ca-grid * 2.5;
+    margin-right: -15px;
+    margin-top: -$ca-grid / 2;
+    margin-bottom: -$ca-grid / 2;
+  }
+}
+
+%ca-notification__cancel__inner {
+  @include ca-margin($end: $kz-spacing-sm);
+  // We ignore line-height so that the icon wrapper is the same size as the icon, not the current line.
+  line-height: 0;
+  float: right;
+  display: flex;
+  align-items: center;
+}
+
+%ca-notification__cancel__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

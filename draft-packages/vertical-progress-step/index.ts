@@ -1,1 +1,1 @@
-export * from "./KaizenDraft/VerticalProgressStep"
+export * from "./src"

@@ -1,1 +1,1 @@
-export * from "./KaizenDraft/GuidanceBlock"
+export * from "./src"

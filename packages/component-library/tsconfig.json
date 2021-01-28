@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.dist.json",
+  "compilerOptions": {
+    "composite": true,
+    "allowJs": false,
+    "declaration": true,
+    "declarationDir": "dist",
+    "noEmit": false,
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "tsBuildInfoFile": "./dist/.cache/tsbuildinfo.json"
+  },
+  "include": ["src", "styles", "icons"],
+  "exclude": ["docs"],
+  "references": [
+    {
+      "path": "../hosted-assets"
+    }
+  ]
+}

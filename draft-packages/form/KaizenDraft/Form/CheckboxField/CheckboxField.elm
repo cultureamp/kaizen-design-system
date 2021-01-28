@@ -26,7 +26,7 @@ import KaizenDraft.Form.Primitives.Label.Label as Label
 
 
 styles =
-    css "@kaizen/draft-form/KaizenDraft/Form/CheckboxField/styles.scss"
+    css "@kaizen/draft-form/styles/CheckboxField.module.scss"
         { withDisabled = "withDisabled"
         , inline = "inline"
         , container = "container"

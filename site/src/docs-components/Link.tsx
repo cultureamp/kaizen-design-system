@@ -3,7 +3,7 @@ import { Link as GatsbyLink } from "gatsby"
 import * as React from "react"
 
 import styles from "./Link.scss"
-const iconStyles = require("@kaizen/component-library/components/Icon/Icon.module.scss")
+const iconStyles = require("@kaizen/component-library/styles/components/Icon.module.scss")
 
 export const Link = ({ to, children }) => (
   <GatsbyLink

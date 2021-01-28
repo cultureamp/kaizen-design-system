@@ -1,1 +1,1 @@
-export * from "./KaizenDraft/Avatar/Avatar"
+export * from "./src"

@@ -1,0 +1,88 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "./base";
+
+// @TODO - brought through from borders.scss in component-library
+// In the future these tokens should be better represented in
+// a separate package so they are shareable.
+$ca-border-color-focus: $kz-color-cluny-500;
+$ca-border-color-hover: $kz-color-wisteria-400;
+$ca-border-color-focus-reversed: $kz-color-cluny-300;
+
+.wrapper {
+  position: relative;
+}
+
+.textarea {
+  @include form-input-reset;
+  border-radius: $kz-border-solid-border-radius;
+  width: 100%;
+  border: $kz-border-solid-border-width $kz-border-solid-border-style
+    $kz-color-wisteria-500;
+  padding: $ca-grid * 0.5;
+  color: $kz-color-wisteria-800;
+  display: block;
+  resize: vertical;
+
+  &:focus,
+  &:hover {
+    border-color: $kz-color-wisteria-700;
+  }
+
+  &.error:not(:focus) {
+    border-color: $kz-color-coral-500;
+  }
+
+  @include form-input-placeholder {
+    line-height: 1.5;
+    color: rgba($kz-color-wisteria-800, 0.7);
+  }
+}
+
+.textarea:focus + .focusRing {
+  $focus-ring-offset: 3px;
+  position: absolute;
+  background: transparent;
+  border-radius: $kz-border-focus-ring-border-radius;
+  border-width: $kz-border-focus-ring-border-width;
+  border-style: $kz-border-focus-ring-border-style;
+  border-color: transparent;
+  top: -$focus-ring-offset;
+  left: -$focus-ring-offset;
+  right: -$focus-ring-offset;
+  bottom: -$focus-ring-offset;
+  pointer-events: none;
+}
+
+.textarea.default {
+  &:focus + .focusRing {
+    border-color: $ca-border-color-focus;
+  }
+}
+
+// Reversed (Dark Backgrounds)
+.textarea.reversed {
+  color: $kz-color-white;
+  border-color: rgba($kz-color-white, 0.65);
+  background: transparent;
+
+  @include form-input-placeholder {
+    line-height: 1.5;
+    color: $kz-color-white;
+  }
+
+  &:focus,
+  &:hover {
+    background: rgba($kz-color-white, 0.1);
+    border-color: $kz-color-white;
+  }
+
+  &.error {
+    border-color: $kz-color-coral-300;
+  }
+
+  &:focus + .focusRing {
+    border-color: $ca-border-color-focus-reversed;
+  }
+}

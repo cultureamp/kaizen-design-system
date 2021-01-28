@@ -179,7 +179,7 @@ view (Config config) =
 
 
 styles =
-    css "@kaizen/draft-form/KaizenDraft/Form/Primitives/ToggleSwitch/styles.scss"
+    css "@kaizen/draft-form/styles/ToggleSwitch.module.scss"
         { checkbox = "checkbox"
         , track = "track"
         , thumb = "thumb"

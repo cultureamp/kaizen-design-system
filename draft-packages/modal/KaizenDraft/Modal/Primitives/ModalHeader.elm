@@ -193,7 +193,7 @@ preventDismissKeydown keydownDecoders (Config config) =
 
 
 styles =
-    css "@kaizen/draft-modal/KaizenDraft/Modal/Primitives/ModalHeader.scss"
+    css "@kaizen/draft-modal/styles/ModalHeader.scss"
         { layout = "layout"
         , filler = "filler"
         , fixed = "fixed"

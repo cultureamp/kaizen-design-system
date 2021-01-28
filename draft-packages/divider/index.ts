@@ -1,1 +1,1 @@
-export * from "./KaizenDraft/Divider/Divider"
+export * from "./src"

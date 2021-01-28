@@ -1,8 +1,7 @@
 {
     "type": "application",
     "source-directories": [
-        "./packages/component-library/components",
-        "./packages/component-library/stories",
+        "./packages/component-library/src/components",
         "./draft-packages/button",
         "./draft-packages/card",
         "./draft-packages/collapsible",

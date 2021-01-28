@@ -6,7 +6,7 @@ import Html.Attributes
 
 
 styles =
-    css "@kaizen/draft-form/KaizenDraft/Form/Primitives/FieldMessage/styles.scss"
+    css "@kaizen/draft-form/styles/FieldMessage.module.scss"
         { error = "error"
         , default = "default"
         , reversed = "reversed"
@@ -21,9 +21,12 @@ type FieldMessageStatus
     | Success
     | Error
 
+
 type FieldMessagePosition
     = Top
     | Bottom
+
+
 
 -- CONFIG
 

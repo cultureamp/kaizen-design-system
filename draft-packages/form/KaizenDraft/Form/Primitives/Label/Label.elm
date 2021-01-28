@@ -25,7 +25,7 @@ type LabelProp msg
 
 
 styles =
-    css "@kaizen/draft-form/KaizenDraft/Form/Primitives/Label/styles.scss"
+    css "@kaizen/draft-form/styles/Label.module.scss"
         { label = "label"
         , reversed = "reversed"
         , text = "text"

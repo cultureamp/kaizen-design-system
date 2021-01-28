@@ -1,1 +1,1 @@
-export * from "./KaizenDraft/LoadingPlaceholder"
+export * from "./src"
