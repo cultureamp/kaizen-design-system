@@ -16,6 +16,7 @@ export type CheckboxFieldProps = {
   disabled?: boolean
   noBottomMargin?: boolean
   tabIndex?: number
+  value?: string
 }
 
 type CheckboxField = React.FunctionComponent<CheckboxFieldProps>
@@ -32,6 +33,7 @@ const CheckboxField: CheckboxField = ({
   disabled = false,
   noBottomMargin = false,
   tabIndex,
+  value,
 }) => (
   <div
     data-automation-id={automationId}
@@ -59,6 +61,7 @@ const CheckboxField: CheckboxField = ({
         onFocus={onFocus}
         onBlur={onBlur}
         tabIndex={tabIndex}
+        value={value}
       />
     </Label>
   </div>
