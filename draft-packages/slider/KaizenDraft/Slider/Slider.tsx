@@ -16,7 +16,7 @@ export interface SliderProps {
 
 export const Slider = ({
   automationId,
-  initialValue = 5,
+  initialValue,
   disabled = false,
   // eslint-disable-next-line
   onChange = () => {},
@@ -49,8 +49,8 @@ export const Slider = ({
         min="1"
         max="10"
         step="1"
-        value={value}
-        aria-valuenow={value}
+        value={value || 5}
+        aria-valuenow={value || 5}
         aria-valuemin={1}
         aria-valuemax={10}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
