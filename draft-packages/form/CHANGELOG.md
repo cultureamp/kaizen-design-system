@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.0.3...@kaizen/draft-form@3.1.0) (2021-01-28)
+
+
+### Features
+
+* Add value to checkbox ([#982](https://github.com/cultureamp/kaizen-design-system/issues/982)) ([055255d](https://github.com/cultureamp/kaizen-design-system/commit/055255d0317781e3cb205ec3b4a09d8bb98f461d))
+
+
+
+
+
 ## [3.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.0.2...@kaizen/draft-form@3.0.3) (2021-01-18)
 
 **Note:** Version bump only for package @kaizen/draft-form
