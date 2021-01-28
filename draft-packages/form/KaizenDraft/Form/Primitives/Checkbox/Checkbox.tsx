@@ -18,6 +18,7 @@ export type CheckboxProps = {
   tabIndex?: number
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
+  value?: string
 }
 
 type Input = React.FunctionComponent<CheckboxProps>
@@ -52,6 +53,7 @@ const Input: Input = ({
   onBlur,
   disabled = false,
   tabIndex,
+  value,
 }) => (
   <div className={styles.container}>
     <input
@@ -70,6 +72,7 @@ const Input: Input = ({
       onFocus={onFocus}
       onBlur={onBlur}
       disabled={disabled}
+      value={value || checkedStatus}
       ref={node => {
         if (node && checkedStatus === "mixed") {
           node.indeterminate = true
