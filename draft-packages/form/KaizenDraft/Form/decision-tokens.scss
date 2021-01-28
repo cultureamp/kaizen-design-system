@@ -1,0 +1,13 @@
+@import "~@kaizen/design-tokens/sass/theme";
+@import "~@kaizen/design-tokens/sass/color";
+
+$dt-form-border-color: $kz-color-wisteria-500;
+$dt-form-border-color-hover: $kz-color-wisteria-700;
+$dt-form-border-color-focus: $kz-color-cluny-500;
+$dt-form-border-color-focus-reversed: $kz-color-cluny-300;
+$dt-form-text-color: $kz-color-wisteria-800;
+
+@if $rebrand {
+  $dt-form-border-color: $kz-color-iron-500;
+  $dt-form-border-color-hover: $kz-color-slate-700;
+}

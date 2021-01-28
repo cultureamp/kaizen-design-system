@@ -1,0 +1,9 @@
+@import "~@kaizen/design-tokens/sass/theme";
+@import "~@kaizen/design-tokens/sass/color";
+
+$dt-input-color-border-color-hover: $kz-color-wisteria-700;
+$dt-input-border-color-focus: $kz-color-cluny-500;
+
+@if $rebrand {
+  $dt-input-color-border-color-hover: $kz-color-slate-700;
+}

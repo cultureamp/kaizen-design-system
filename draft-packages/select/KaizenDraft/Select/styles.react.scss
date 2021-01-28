@@ -6,6 +6,7 @@
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "./decision-tokens.scss";
 
 @mixin base-font-style() {
   @include kz-typography-paragraph-body;
@@ -21,17 +22,17 @@
     border-radius: $kz-border-solid-border-radius;
 
     &:hover {
-      border-color: $ca-border-color-hover;
+      border-color: $dt-input-color-border-color-hover;
       cursor: pointer;
     }
   }
 
   .focusedControl {
-    border-color: $ca-border-color-focus;
+    border-color: $dt-input-border-color-focus;
     box-shadow: none;
 
     &:hover {
-      border-color: $ca-border-color-focus;
+      border-color: $dt-input-border-color-focus;
       box-shadow: none;
     }
   }

@@ -6,6 +6,7 @@
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/mixins/forms";
+@import "../../decision-tokens.scss";
 
 $animation-timing: $ca-duration-immediate $ca-linear;
 
@@ -32,7 +33,7 @@ $animation-timing: $ca-duration-immediate $ca-linear;
 
   .checkbox:focus:not([disabled]) + &,
   .checkbox:hover:focus:not([disabled]) + & {
-    border-color: $ca-border-color-focus;
+    border-color: $dt-form-border-color-focus;
   }
 
   .checkbox:not([disabled]) + &:hover {
@@ -58,7 +59,7 @@ $animation-timing: $ca-duration-immediate $ca-linear;
   }
 
   .checkbox:focus:not([disabled]) + .track {
-    border-color: $ca-border-color-focus;
+    border-color: $dt-form-border-color-focus;
   }
 
   .thumb {

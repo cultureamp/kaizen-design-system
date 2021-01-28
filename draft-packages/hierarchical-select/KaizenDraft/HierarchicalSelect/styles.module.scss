@@ -6,6 +6,7 @@
 @import "~@kaizen/draft-button/KaizenDraft/Button/styles";
 @import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/component-library/styles/layout";
+@import "./decision-tokens.scss";
 
 .container {
   -webkit-font-smoothing: antialiased;
@@ -41,11 +42,11 @@
   }
 
   &:hover:not(:disabled) {
-    border-color: $ca-border-color-hover;
+    border-color: $dt-input-color-border-color-hover;
   }
 
   &:focus:not(:disabled) {
-    border-color: $ca-border-color-focus;
+    border-color: $dt-input-border-color-focus;
     outline: none;
   }
 
