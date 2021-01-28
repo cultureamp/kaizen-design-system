@@ -23,4 +23,4 @@
 - If this contains substantial visual changes, especially far reaching ones, have you unlocked the Chromatic step in the pipeline?
 - Have Storybook stories been updated?
 
-**If you're new to Kaizen, please ask #prod_design_systems to set up an onboarding session to get you up to speed.** If you have an urgent PR to merge before that happens, it is safest to ask Design Systems team to review it to catch any issues.
+**If you're new to Kaizen, please ask #prod_design_systems to set up an onboarding session to get you up to speed.** If you have an urgent PR to merge before that happens, it is safest to ask in #prod_design_systems to have a design system advocate review the PR to catch any issues.
