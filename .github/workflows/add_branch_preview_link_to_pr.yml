@@ -43,8 +43,8 @@ jobs:
         id: find_comment
         with:
           issue-number: ${{ steps.findPr.outputs.number }}
-          comment-author: 'github-actions[bot]'
-          body-includes: ':sparkles: Here are your branch previews! :sparkles:'
+          comment-author: "github-actions[bot]"
+          body-includes: ":sparkles: Here are your branch previews! :sparkles:"
 
       - name: Create a new comment
         if: success() && steps.find_comment.outputs.comment-id == 0
