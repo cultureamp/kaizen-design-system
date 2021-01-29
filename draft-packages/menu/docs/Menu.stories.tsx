@@ -86,6 +86,20 @@ export const LabelAndIcon = () => (
 
 LabelAndIcon.storyName = "Label and Icon (Kaizen Site Demo)"
 
+export const LabelAndIconWithoutAutoHide = () => (
+  <StoryWrapper>
+    <Menu
+      button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+      dropdownId="dropdown"
+      autoHideOnClick={false}
+    >
+      <MenuInstance />
+    </Menu>
+  </StoryWrapper>
+)
+
+LabelAndIconWithoutAutoHide.storyName = "Label and Icon without auto hide"
+
 export const LabelAndIconReversed = () => (
   <StoryWrapper>
     <Menu

@@ -14,6 +14,7 @@ type MenuDropdownProps = {
   } | null
   align?: "left" | "right"
   width?: "default" | "contain"
+  autoHideOnClick?: boolean
 }
 
 class MenuDropdown extends React.Component<MenuDropdownProps> {
@@ -21,13 +22,19 @@ class MenuDropdown extends React.Component<MenuDropdownProps> {
   menu = React.createRef<HTMLDivElement>()
 
   componentDidMount() {
-    document.addEventListener("click", this.handleDocumentClick, false)
+    const { autoHideOnClick } = this.props
+    if (autoHideOnClick) {
+      document.addEventListener("click", this.handleDocumentClick, false)
+    }
     window.addEventListener("resize", this.handleDocumentResize, false)
     this.positionMenu()
   }
 
   componentWillUnmount() {
-    document.removeEventListener("click", this.handleDocumentClick, false)
+    const { autoHideOnClick } = this.props
+    if (autoHideOnClick) {
+      document.removeEventListener("click", this.handleDocumentClick, false)
+    }
     window.removeEventListener("resize", this.handleDocumentResize, false)
   }
 
