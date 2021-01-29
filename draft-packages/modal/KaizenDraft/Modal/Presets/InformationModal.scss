@@ -16,20 +16,67 @@
 
 .header {
   color: $kz-color-wisteria-800;
-  padding: $ca-grid * 1.5 $ca-grid * 1.5 0;
+  padding: $ca-grid * 0.5 $ca-grid * 1.5;
+  text-align: center;
 }
 
-.body {
-  padding: $ca-grid $ca-grid * 1.5;
+.footer {
+  padding: $ca-grid 0 0 0;
 }
 
-.bodyWithoutFooter {
-  composes: body;
-  padding-bottom: $ca-grid * 2.5;
+.footerWithSecondaryAction {
+  composes: footer;
+  margin-left: -0.5 * $ca-grid;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.headingStartPadder {
+  flex: 1;
+  min-width: $ca-grid;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.inlineBlock {
+  display: inline-block;
+}
+
+.floatRight {
+  float: right;
+}
+
+.emptyFooter {
+  height: $ca-grid * 0.5;
+}
+
+.contentLayout {
+  display: flex;
+  padding: $ca-grid;
+  @include ca-media-tablet-and-up {
+    padding: $ca-grid 2 * $ca-grid 1.5 * $ca-grid 2 * $ca-grid;
+  }
 }
 
 .content {
+  flex: 1 0 100%;
   @include ca-media-tablet-and-up {
     max-width: $ca-grid * 16;
+  }
+}
+
+.image {
+  flex: 1;
+  padding-left: $ca-grid * 2;
+  @include ca-media-mobile {
+    display: none;
   }
 }

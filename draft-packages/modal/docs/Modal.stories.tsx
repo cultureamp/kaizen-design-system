@@ -540,6 +540,114 @@ export const InformationWithBackground = () => (
 
 InformationWithBackground.storyName = "Information (with background)"
 
+export const InformationWithSecondaryAction = () => (
+  <ModalStateContainer isInitiallyOpen={false}>
+    {({ open, close, isOpen }) => (
+      <div>
+        <Button label="Open modal" onClick={open} />
+        <InformationModal
+          secondaryLabel="Continue using an outdated browser"
+          onSecondaryAction={close}
+          confirmLabel="Open in Edge"
+          onConfirm={close}
+          isOpen={isOpen}
+          title="Information modal title"
+          onDismiss={close}
+          renderBackground={() => (
+            <div className={styles.background}>
+              <div className={styles.illustration} />
+            </div>
+          )}
+        >
+          <ModalAccessibleDescription>
+            <Paragraph variant="body">
+              Intro defining what the modal is trying to explain or depict.
+              Intro defining what the modal is trying to explain or depict.
+            </Paragraph>
+          </ModalAccessibleDescription>
+          <ul>
+            <li>
+              <Paragraph variant="body">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              </Paragraph>
+            </li>
+            <li>
+              <Paragraph variant="body">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Eligendi.
+              </Paragraph>
+            </li>
+            <li>
+              <Paragraph variant="body">Lorem ipsum dolor sit amet.</Paragraph>
+            </li>
+          </ul>
+          <Paragraph variant="body">
+            More information to conclude can go here. More information to
+            conclude can go here. More information to conclude can go here.
+          </Paragraph>
+        </InformationModal>
+      </div>
+    )}
+  </ModalStateContainer>
+)
+
+InformationWithSecondaryAction.storyName = "Information (with secondary action)"
+
+export const InformationModalWithImage = () => (
+  <ModalStateContainer isInitiallyOpen={false}>
+    {({ open, close, isOpen }) => (
+      <div>
+        <Button label="Open modal" onClick={open} />
+        <InformationModal
+          secondaryLabel="Keep using Edge"
+          onSecondaryAction={close}
+          confirmLabel="Open in Edge"
+          onConfirm={close}
+          isOpen={isOpen}
+          title="Information modal title"
+          onDismiss={close}
+          image={
+            <img
+              style={{ width: "100%" }}
+              src="https://picsum.photos/id/119/325/250"
+              alt="stock image"
+            />
+          }
+        >
+          <ModalAccessibleDescription>
+            <Paragraph variant="body">
+              Intro defining what the modal is trying to explain or depict.
+              Intro defining what the modal is trying to explain or depict.
+            </Paragraph>
+          </ModalAccessibleDescription>
+          <ul>
+            <li>
+              <Paragraph variant="body">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              </Paragraph>
+            </li>
+            <li>
+              <Paragraph variant="body">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Eligendi.
+              </Paragraph>
+            </li>
+            <li>
+              <Paragraph variant="body">Lorem ipsum dolor sit amet.</Paragraph>
+            </li>
+          </ul>
+          <Paragraph variant="body">
+            More information to conclude can go here. More information to
+            conclude can go here. More information to conclude can go here.
+          </Paragraph>
+        </InformationModal>
+      </div>
+    )}
+  </ModalStateContainer>
+)
+
+InformationModalWithImage.storyName = "Information (with image)"
+
 export const GenericModalPadded = () => (
   <>
     <ModalStateContainer isInitiallyOpen={false}>

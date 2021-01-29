@@ -1,39 +1,46 @@
+import { Box, Heading } from "@kaizen/component-library"
+import { Divider } from "@kaizen/draft-divider"
 import * as React from "react"
-
-import { Text } from "@kaizen/component-library"
-
-import {
-  GenericModal,
-  ModalAccessibleLabel,
-  ModalBody,
-  ModalFooter,
-  ModalHeader,
-} from "../"
-
+import { GenericModal, ModalAccessibleLabel, ModalFooter } from "../"
+import ModalHeader from "../Primitives/ModalHeader"
 import styles from "./InformationModal.scss"
 
-export interface InformationModalProps {
-  readonly isOpen: boolean
-  readonly title: string
-  readonly onConfirm?: () => void
-  readonly onDismiss: () => void
-  readonly confirmLabel?: string
-  readonly automationId?: string
-  readonly renderBackground?: () => React.ReactNode
-  readonly children: React.ReactNode
-}
+export type InformationModalSecondaryActionProps =
+  | {
+      secondaryLabel: string
+      onSecondaryAction: () => void
+    }
+  | {
+      secondaryLabel?: undefined
+    }
+
+export type InformationModalProps = Readonly<
+  {
+    isOpen: boolean
+    title: string
+    onConfirm?: () => void
+    onDismiss: () => void
+    confirmLabel?: string
+    automationId?: string
+    renderBackground?: () => React.ReactNode
+    image?: React.ReactNode
+    children: React.ReactNode
+  } & InformationModalSecondaryActionProps
+>
 
 type InformationModal = React.FunctionComponent<InformationModalProps>
 
 const InformationModal = ({
   isOpen,
   title,
-  onConfirm,
   onDismiss,
+  onConfirm,
   confirmLabel = "Confirm",
   automationId,
   renderBackground,
   children,
+  image,
+  ...props
 }: InformationModalProps) => (
   <GenericModal
     isOpen={isOpen}
@@ -46,26 +53,48 @@ const InformationModal = ({
       <ModalHeader unpadded onDismiss={onDismiss}>
         <div className={styles.header}>
           <ModalAccessibleLabel>
-            <Text tag="h1" style="zen-heading-2" inline>
-              {title}
-            </Text>
+            <Heading variant="heading-2" tag="h1">
+              <Box pb={0.5}>{title}</Box>
+            </Heading>
           </ModalAccessibleLabel>
         </div>
       </ModalHeader>
-      <ModalBody unpadded>
-        <div
-          className={onConfirm == null ? styles.bodyWithoutFooter : styles.body}
-        >
-          <div className={styles.content}>{children}</div>
+      <Divider variant="content" />
+      <div className={styles.contentLayout}>
+        <div className={styles.content}>
+          {children}
+          {onConfirm != null ? (
+            <div
+              className={
+                props.secondaryLabel
+                  ? styles.footerWithSecondaryAction
+                  : styles.footer
+              }
+            >
+              <ModalFooter
+                unpadded
+                alignStart
+                actions={[
+                  { label: confirmLabel, onClick: onConfirm },
+                  ...(props.secondaryLabel
+                    ? [
+                        {
+                          label: props.secondaryLabel,
+                          onClick: props.onSecondaryAction,
+                        },
+                      ]
+                    : []),
+                ]}
+                appearance={"primary"}
+                automationId={automationId}
+              />
+            </div>
+          ) : (
+            <div className={styles.emptyFooter} />
+          )}
         </div>
-      </ModalBody>
-      {onConfirm != null && (
-        <ModalFooter
-          actions={[{ label: confirmLabel, onClick: onConfirm }]}
-          appearance={"primary"}
-          automationId={automationId}
-        />
-      )}
+        <div className={styles.image}>{image}</div>
+      </div>
     </div>
   </GenericModal>
 )

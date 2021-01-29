@@ -7,6 +7,11 @@
   justify-content: center;
 }
 
+.actionsAlignStart {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
 .actionButton + .actionButton {
   @include ca-margin($end: $ca-grid * 0.5);
 }
