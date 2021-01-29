@@ -1,4 +1,4 @@
-import { Paragraph } from "@kaizen/component-library"
+import { Box, Heading, Paragraph } from "@kaizen/component-library"
 import { Button } from "@kaizen/draft-button"
 import { TextField } from "@kaizen/draft-form"
 import {
@@ -18,8 +18,18 @@ import * as React from "react"
 import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
 
+import { BenefitsSurvey, Negative } from "@kaizen/draft-illustration"
 import styles from "./Modal.stories.scss"
 
+const Padding = ({
+  size = 1,
+}: {
+  size?: React.ComponentProps<typeof Box>["p"]
+}) => (
+  <Box pb={size} pr={size}>
+    {" "}
+  </Box>
+)
 class ModalStateContainer extends React.Component<
   {
     isInitiallyOpen: boolean
@@ -546,7 +556,7 @@ export const InformationWithSecondaryAction = () => (
       <div>
         <Button label="Open modal" onClick={open} />
         <InformationModal
-          secondaryLabel="Continue using an outdated browser"
+          secondaryLabel="Keep using Edge"
           onSecondaryAction={close}
           confirmLabel="Open in Edge"
           onConfirm={close}
@@ -599,46 +609,46 @@ export const InformationModalWithImage = () => (
       <div>
         <Button label="Open modal" onClick={open} />
         <InformationModal
-          secondaryLabel="Keep using Edge"
+          secondaryLabel="Continue with current browser"
           onSecondaryAction={close}
-          confirmLabel="Open in Edge"
+          confirmLabel="Launch in Edge"
           onConfirm={close}
           isOpen={isOpen}
-          title="Information modal title"
+          title="You're using an outdated browser"
           onDismiss={close}
           image={
-            <img
-              style={{ width: "100%" }}
-              src="https://picsum.photos/id/119/325/250"
-              alt="stock image"
-            />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                textAlign: "center",
+                height: "100%",
+              }}
+            >
+              <Negative alt="stock" />
+              <div style={{ flex: 1 }} />
+              <Paragraph variant="small" color="dark-reduced-opacity">
+                Cool kids don't use IE11 just sayin
+              </Paragraph>
+            </div>
           }
         >
           <ModalAccessibleDescription>
-            <Paragraph variant="body">
-              Intro defining what the modal is trying to explain or depict.
-              Intro defining what the modal is trying to explain or depict.
-            </Paragraph>
+            <Heading variant="heading-4">
+              Internet Explorer 11 is no longer supported by Culture Amp
+            </Heading>
           </ModalAccessibleDescription>
-          <ul>
-            <li>
-              <Paragraph variant="body">
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              </Paragraph>
-            </li>
-            <li>
-              <Paragraph variant="body">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Eligendi.
-              </Paragraph>
-            </li>
-            <li>
-              <Paragraph variant="body">Lorem ipsum dolor sit amet.</Paragraph>
-            </li>
-          </ul>
+          <Padding />
           <Paragraph variant="body">
-            More information to conclude can go here. More information to
-            conclude can go here. More information to conclude can go here.
+            You can continue to use Culture Amp, however some features may not
+            display correctly. For the best experience, we recommend switching
+            to Microsoft Edge, or a similar modern browser.
+          </Paragraph>
+          <Padding />
+          <Paragraph variant="body">
+            We've detected you already have Edge installed. Click the link below
+            to continue your session in Edge.
           </Paragraph>
         </InformationModal>
       </div>
@@ -646,7 +656,8 @@ export const InformationModalWithImage = () => (
   </ModalStateContainer>
 )
 
-InformationModalWithImage.storyName = "Information (with image)"
+InformationModalWithImage.storyName =
+  "Information (with image) - Outdated browser demo"
 
 export const GenericModalPadded = () => (
   <>

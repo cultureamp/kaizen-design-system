@@ -63,7 +63,7 @@ const InformationModal = ({
       <div className={styles.contentLayout}>
         <div className={styles.content}>
           {children}
-          {onConfirm != null ? (
+          {onConfirm != null && (
             <div
               className={
                 props.secondaryLabel
@@ -89,8 +89,6 @@ const InformationModal = ({
                 automationId={automationId}
               />
             </div>
-          ) : (
-            <div className={styles.emptyFooter} />
           )}
         </div>
         <div className={styles.image}>{image}</div>
