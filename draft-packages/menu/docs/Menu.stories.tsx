@@ -86,19 +86,46 @@ export const LabelAndIcon = () => (
 
 LabelAndIcon.storyName = "Label and Icon (Kaizen Site Demo)"
 
-export const LabelAndIconWithoutAutoHide = () => (
+export const AutoHideBehaviours = () => (
   <StoryWrapper>
-    <Menu
-      button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
-      dropdownId="dropdown"
-      autoHideOnClick={false}
-    >
-      <MenuInstance />
-    </Menu>
+    <Box mb={1}>
+      <Paragraph variant="body">
+        Auto hide turned on (default behaviour):
+      </Paragraph>
+      <Menu
+        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+        dropdownId="dropdown"
+        autoHide="on"
+      >
+        <MenuInstance />
+      </Menu>
+    </Box>
+    <Box mb={1}>
+      <Paragraph variant="body">
+        Auto hide when clicking outside the menu, but not inside:
+      </Paragraph>
+      <Menu
+        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+        dropdownId="dropdown"
+        autoHide="outside-click-only"
+      >
+        <MenuInstance />
+      </Menu>
+    </Box>
+    <Box mb={1}>
+      <Paragraph variant="body">Auto hide turned off:</Paragraph>
+      <Menu
+        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+        dropdownId="dropdown"
+        autoHide="off"
+      >
+        <MenuInstance />
+      </Menu>
+    </Box>
   </StoryWrapper>
 )
 
-LabelAndIconWithoutAutoHide.storyName = "Label and Icon without auto hide"
+AutoHideBehaviours.storyName = "Auto hide behaviours"
 
 export const LabelAndIconReversed = () => (
   <StoryWrapper>

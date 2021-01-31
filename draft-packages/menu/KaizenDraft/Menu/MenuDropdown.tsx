@@ -14,7 +14,7 @@ type MenuDropdownProps = {
   } | null
   align?: "left" | "right"
   width?: "default" | "contain"
-  autoHideOnClick?: boolean
+  autoHide?: "on" | "outside-click-only" | "off"
 }
 
 class MenuDropdown extends React.Component<MenuDropdownProps> {
@@ -22,20 +22,45 @@ class MenuDropdown extends React.Component<MenuDropdownProps> {
   menu = React.createRef<HTMLDivElement>()
 
   componentDidMount() {
-    const { autoHideOnClick } = this.props
-    if (autoHideOnClick) {
-      document.addEventListener("click", this.handleDocumentClick, false)
+    const { autoHide } = this.props
+    if (autoHide !== "off") {
+      document.addEventListener(
+        "click",
+        this.handleDocumentClickForAutoHide,
+        false
+      )
     }
     window.addEventListener("resize", this.handleDocumentResize, false)
     this.positionMenu()
   }
 
   componentWillUnmount() {
-    const { autoHideOnClick } = this.props
-    if (autoHideOnClick) {
-      document.removeEventListener("click", this.handleDocumentClick, false)
+    const { autoHide } = this.props
+    if (autoHide !== "off") {
+      document.removeEventListener(
+        "click",
+        this.handleDocumentClickForAutoHide,
+        false
+      )
     }
     window.removeEventListener("resize", this.handleDocumentResize, false)
+  }
+
+  componentWillUpdate(newProps) {
+    // Hm, I don't like hooks, but in this situation they would have been handy
+    if (this.props.autoHide === "off" && newProps.autoHide !== "off") {
+      document.addEventListener(
+        "click",
+        this.handleDocumentClickForAutoHide,
+        false
+      )
+    } else if (this.props.autoHide !== "off" && newProps.autoHide === "off") {
+      document.removeEventListener(
+        "click",
+        this.handleDocumentClickForAutoHide,
+        false
+      )
+    }
   }
 
   positionMenu() {
@@ -55,10 +80,10 @@ class MenuDropdown extends React.Component<MenuDropdownProps> {
     }
   }
 
-  handleDocumentClick = (e: MouseEvent) => {
+  // This callback handler will not run when autoHide === "off"
+  handleDocumentClickForAutoHide = (e: MouseEvent) => {
     if (
-      this.menu &&
-      this.menu.current &&
+      this.menu?.current &&
       e.target instanceof Node &&
       !this.menu.current.contains(e.target)
     ) {
@@ -70,13 +95,16 @@ class MenuDropdown extends React.Component<MenuDropdownProps> {
     this.props.hideMenuDropdown()
   }
 
+  handleRootClick = (): void => {
+    const { autoHide, hideMenuDropdown } = this.props
+    if (autoHide === "on") {
+      // ie. is not equal to "off" | "outside-click-only"
+      hideMenuDropdown()
+    }
+  }
+
   render(): JSX.Element {
-    const {
-      hideMenuDropdown,
-      children,
-      align = "left",
-      width = "default",
-    } = this.props
+    const { children, align = "left", width = "default" } = this.props
 
     return (
       <div
@@ -86,7 +114,7 @@ class MenuDropdown extends React.Component<MenuDropdownProps> {
           [styles.alignRight]: align == "right",
         })}
         ref={this.menu}
-        onClick={() => hideMenuDropdown()}
+        onClick={this.handleRootClick}
       >
         {children}
       </div>
