@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.6.0...@kaizen/draft-menu@2.7.0) (2021-02-01)
+
+
+### Features
+
+* Fix menu position, when not enough room above the toggle button ([#987](https://github.com/cultureamp/kaizen-design-system/issues/987)) ([7c0df19](https://github.com/cultureamp/kaizen-design-system/commit/7c0df195a0d58ec06b140808122631bd08f5c9ec))
+
+
+
+
+
 # [2.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.5.10...@kaizen/draft-menu@2.6.0) (2021-02-01)
 
 
