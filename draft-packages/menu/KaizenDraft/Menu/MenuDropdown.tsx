@@ -42,8 +42,9 @@ class MenuDropdown extends React.Component<MenuDropdownProps> {
       const pos = this.props.position
       const { innerHeight } = window
       const rect = menu.current.getBoundingClientRect()
+      const offsetParentRect = menu.current.offsetParent?.getBoundingClientRect()
 
-      const buttonHeight = 48
+      const offsetParentHeight = offsetParentRect?.height || 0
 
       menu.current.style.bottom =
         // If the menu won't fit below the the menu button, show it above instead.
@@ -52,8 +53,8 @@ class MenuDropdown extends React.Component<MenuDropdownProps> {
         // ...but, do not display it above the menu button, if there's not enough
         // room, otherwise the user won't even be able to scroll high enough to
         // see the menu items!
-        rect.top - rect.height - buttonHeight - 5 >= 0
-          ? `${buttonHeight + 5}px`
+        rect.top - rect.height - offsetParentHeight - 10 >= 0
+          ? `${offsetParentHeight + 5}px`
           : "auto"
     }
   }
