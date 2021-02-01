@@ -272,3 +272,37 @@ export const DropdownWidthContain = () => (
 )
 
 DropdownWidthContain.storyName = 'Label and Icon (dropdownWidth="contain")'
+
+export const MenuPositioning = () => (
+  <StoryWrapper>
+    <Paragraph variant="body">
+      Note that this menu is near the top of page. Resize your browser so it's
+      about 300px high. Note that the menu still shows below the menu button.
+    </Paragraph>
+    <Menu
+      button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+    >
+      <MenuInstance />
+    </Menu>
+    <div
+      style={{
+        height: "500px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
+      }}
+    >
+      <Paragraph variant="body">
+        Note that this menu is near the bottom of the page. If there is no room
+        below, it will display above the menu button.
+      </Paragraph>
+      <Menu
+        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+      >
+        <MenuInstance />
+      </Menu>
+    </div>
+  </StoryWrapper>
+)
+
+MenuPositioning.storyName = "Menu positioning"
