@@ -11,7 +11,7 @@ $small: $ca-grid;
 .badge {
   @include ca-inherit-baseline;
   border-radius: $kz-spacing-sm;
-  color: $kz-color-wisteria-800;
+  color: $dt-color-text-color;
   display: inline-block;
   position: relative;
   font-family: $kz-typography-paragraph-extra-small-font-family;
@@ -26,28 +26,28 @@ $small: $ca-grid;
 
 .default {
   background-color: $dt-color-background-color;
-  color: $kz-color-wisteria-800;
+  color: $dt-color-text-color;
 }
 
 .reversed.active,
 .active {
-  background-color: $kz-color-cluny-500;
-  color: $kz-color-white;
+  background-color: $dt-color-background-color-reversed-active;
+  color: $dt-color-text-color-reversed;
 }
 
 .dark {
-  background-color: rgba($dt-color-background-color-dark, 0.1);
-  color: $kz-color-wisteria-800;
+  background-color: rgba($dt-color-background-color-reversed, 0.1);
+  color: $dt-color-text-color;
 }
 
 .reversed.dark {
-  background-color: $dt-color-background-color-dark;
-  color: $kz-color-white;
+  background-color: $dt-color-background-color-reversed;
+  color: $dt-color-text-color-reversed;
 }
 
 .reversed {
   background-color: rgba($kz-color-white, 0.1);
-  color: $kz-color-white;
+  color: $dt-color-text-color-reversed;
 }
 
 $badge-duration-timing: ($kz-animation-duration-slow / 2)
@@ -66,7 +66,7 @@ $badge-transition: transform $badge-duration-timing,
   &.animationOn .badge {
     transform: scale3d(1.35, 1.35, 1.35);
     &.dark {
-      background-color: rgba($dt-color-background-color-dark, 0.2);
+      background-color: rgba($dt-color-background-color-reversed, 0.2);
     }
   }
 }

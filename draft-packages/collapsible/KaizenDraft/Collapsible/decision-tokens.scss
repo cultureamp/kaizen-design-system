@@ -1,0 +1,10 @@
+@import "~@kaizen/design-tokens/sass/theme";
+@import "~@kaizen/design-tokens/sass/color";
+
+$dt-color-heading-background-color: $kz-color-wisteria-100;
+$dt-color-border-color: $kz-color-wisteria-200;
+
+@if $rebrand {
+  $dt-color-heading-background-color: $kz-color-stone;
+  $dt-color-border-color: rgba($kz-color-slate-700, 0.1);
+}

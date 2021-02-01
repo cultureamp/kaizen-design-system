@@ -1,6 +1,9 @@
 @import "~@kaizen/design-tokens/sass/theme";
 
 $dt-color-background-color: $kz-color-stone;
+$dt-color-background-color-personal: $kz-color-peach-200;
+$dt-color-text-color: $kz-color-wisteria-800;
+$dt-color-border-color: $kz-color-white;
 $dt-color-icon-color: rgba($kz-color-wisteria-800, 0.3);
 
 @if $rebrand {

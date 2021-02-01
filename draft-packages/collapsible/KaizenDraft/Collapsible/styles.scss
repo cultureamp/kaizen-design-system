@@ -1,17 +1,15 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/component-library/styles/layout";
-@import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/animation";
-
-$heading-active-color: $kz-color-wisteria-100;
+@import "./decision-tokens.scss";
 
 .container {
-  border: $kz-border-solid-border-width $kz-border-solid-border-style
-    $ca-border-color;
   box-shadow: $kz-shadow-small-box-shadow;
-  border-radius: $ca-border-radius;
+  border-radius: $kz-border-solid-border-radius;
+  border: $kz-border-solid-border-width $kz-border-solid-border-style
+    $dt-color-border-color;
 }
 
 .separated {
@@ -22,7 +20,7 @@ $heading-active-color: $kz-color-wisteria-100;
 
 .groupItem {
   & + .groupItem {
-    border-top: 1px solid $ca-border-color;
+    border-top: 1px solid $dt-color-border-color;
   }
 }
 
@@ -43,7 +41,7 @@ $heading-active-color: $kz-color-wisteria-100;
   );
 
   &:hover {
-    background-color: $heading-active-color;
+    background-color: $dt-color-heading-background-color;
   }
 }
 
@@ -52,7 +50,7 @@ $heading-active-color: $kz-color-wisteria-100;
 }
 
 .open {
-  background-color: $heading-active-color;
+  background-color: $dt-color-heading-background-color;
 }
 
 .sticky {

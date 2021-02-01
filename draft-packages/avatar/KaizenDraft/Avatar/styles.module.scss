@@ -15,13 +15,13 @@
 
   &:not(.small) {
     box-shadow: $kz-shadow-small-box-shadow;
-    border: 3px solid $kz-color-white;
+    border: 3px solid $dt-color-border-color;
   }
 
   // Themes
 
   &.personal {
-    background: $kz-color-peach-200;
+    background: $dt-color-background-color-personal;
   }
 
   &.otherUser {
@@ -68,7 +68,7 @@
 
 .initials {
   box-sizing: border-box;
-  color: $kz-color-wisteria-800;
+  color: $dt-color-text-color;
   padding-left: 5px;
   padding-right: 5px;
   text-align: center;

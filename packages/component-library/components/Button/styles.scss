@@ -4,6 +4,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/typography";
+@import "./decision-tokens.scss";
 
 $caButton-border-width: $kz-border-solid-border-width;
 $caButton-focus-border-width: $kz-border-focus-ring-border-width;
@@ -62,17 +63,17 @@ $caButton-verticalPaddingForm: calc(
   // applied to elements that have no enabled/disabled states.
   &:not(:disabled) {
     background: $kz-color-white;
-    border-color: $kz-color-wisteria-500;
+    border-color: $dt-color-border-color-base;
     color: $kz-color-wisteria-800;
 
     &:hover {
-      background: $kz-color-wisteria-100;
-      border-color: $kz-color-wisteria-700;
+      background: $dt-color-background-hover;
+      border-color: $dt-color-border-color-hover;
     }
 
     &:active {
       background: $kz-color-ash;
-      border-color: $kz-color-wisteria-500;
+      border-color: $dt-color-border-color-active;
       transform: translateY(1px);
     }
 
@@ -95,7 +96,7 @@ $caButton-verticalPaddingForm: calc(
   // Disabled
   &:disabled {
     background: $kz-color-white;
-    border-color: add-alpha($kz-color-wisteria-500, 30%);
+    border-color: add-alpha($dt-color-border-color-disabled, 30%);
     color: add-alpha($kz-color-wisteria-800, 30%);
   }
 }
@@ -169,12 +170,12 @@ $caButton-verticalPaddingForm: calc(
     &:hover,
     &:active {
       color: $kz-color-cluny-500;
-      background: $kz-color-wisteria-100;
+      background: $dt-color-background-hover;
       border-color: $kz-border-borderless-border-color;
     }
 
     &:active {
-      background: add-alpha($kz-color-wisteria-800, 30%);
+      background: add-alpha($dt-color-border-color-base, 30%);
     }
   }
 
