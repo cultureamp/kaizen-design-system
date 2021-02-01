@@ -1,9 +1,15 @@
 @import "~@kaizen/design-tokens/sass/theme";
 @import "~@kaizen/design-tokens/sass/color";
 
-$dt-input-color-border-color-hover: $kz-color-wisteria-700;
-$dt-input-border-color-focus: $kz-color-cluny-500;
+$dt-color-border-color: $kz-color-wisteria-500;
+$dt-color-border-color-hover: $kz-color-wisteria-700;
+$dt-color-border-color-focus: $kz-color-cluny-500;
+$dt-color-background-color-hover: $kz-color-wisteria-100;
+$dt-color-icon-color: inherit;
 
 @if $rebrand {
-  $dt-input-color-border-color-hover: $kz-color-slate-700;
+  $dt-color-border-color: $kz-color-iron-500;
+  $dt-color-border-color-hover: $kz-color-slate-700;
+  $dt-color-background-color-hover: $kz-color-stone;
+  $dt-color-icon-color: rgba($kz-color-wisteria-800, 0.75);
 }

@@ -1,0 +1,10 @@
+@import "~@kaizen/design-tokens/sass/theme";
+@import "~@kaizen/design-tokens/sass/color";
+
+$dt-color-border-color: $kz-color-wisteria-200;
+$dt-color-icon-color: add-alpha(black, 50%);
+
+@if $rebrand {
+  $dt-color-border-color: $kz-color-ash;
+  $dt-color-icon-color: rgba($kz-color-wisteria-800, 0.75);
+}

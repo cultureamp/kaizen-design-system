@@ -14,25 +14,29 @@
   color: $kz-color-wisteria-800;
 }
 
+.dropdownIndicator.dropdownIndicator {
+  color: $dt-color-icon-color;
+}
+
 .specificityIncreaser {
   .control {
     min-height: $input-height;
     border: $kz-border-solid-border-width $kz-border-solid-border-style
-      $ca-border-color;
+      $dt-color-border-color;
     border-radius: $kz-border-solid-border-radius;
 
     &:hover {
-      border-color: $dt-input-color-border-color-hover;
+      border-color: $dt-color-border-color-hover;
       cursor: pointer;
     }
   }
 
   .focusedControl {
-    border-color: $dt-input-border-color-focus;
+    border-color: $dt-color-border-color-focus;
     box-shadow: none;
 
     &:hover {
-      border-color: $dt-input-border-color-focus;
+      border-color: $dt-color-border-color-focus;
       box-shadow: none;
     }
   }
@@ -268,6 +272,7 @@
       // being able to use inline-flex
       right: 0;
       top: 0;
+      color: red;
     }
 
     .singleValueOverrides {
