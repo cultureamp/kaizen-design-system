@@ -5,6 +5,7 @@
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/component-library/styles/animation";
+@import "../decision-tokens.scss";
 
 $side-padding: 1/2 * $ca-grid;
 
@@ -112,14 +113,17 @@ $side-padding: 1/2 * $ca-grid;
   display: flex;
   align-self: flex-start;
   transform: translateY(0.2em);
-  color: rgba($kz-color-wisteria-800, 0.75);
+  color: rgba(
+    $kz-color-wisteria-800,
+    0.75
+  ); // @TODOALLY - update all icons within menus?
 }
 
 .separator {
   height: 1px;
   width: 100%;
   border: 0;
-  background: $kz-color-wisteria-200;
+  background: $dt-color-border-color;
   visibility: visible;
   margin: 5px 0;
 }

@@ -1,0 +1,8 @@
+@import "~@kaizen/design-tokens/sass/theme";
+@import "~@kaizen/design-tokens/sass/color";
+
+$dt-color-border-color: $kz-color-wisteria-800;
+
+@if $rebrand {
+  $dt-color-border-color: rgba($kz-color-slate-700, 0.1);
+}
