@@ -1,5 +1,7 @@
 import { RadioField } from "@kaizen/draft-form"
 import * as React from "react"
+import { withDesign } from "storybook-addon-designs"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 const ExampleContent = () => (
   <div style={{ padding: "1em 2em", maxWidth: "400px" }} />
@@ -57,7 +59,11 @@ export default {
       import { RadioField } from "@kaizen/draft-form"
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14354%3A68219"
+    ),
   },
+  decorators: [withDesign],
 }
 
 export const InteractiveKaizenSiteDemo = () => (

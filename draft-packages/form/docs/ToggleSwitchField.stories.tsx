@@ -4,6 +4,8 @@ import {
   ToggleTheme,
 } from "@kaizen/draft-form"
 import * as React from "react"
+import { withDesign } from "storybook-addon-designs"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 class ToggleStateContainer extends React.Component<
   {
@@ -56,7 +58,11 @@ export default {
       import { ToggledStatus, ToggleSwitchField, ToggleTheme } from "@kaizen/draft-form"
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14361%3A67850"
+    ),
   },
+  decorators: [withDesign],
 }
 
 export const OnKaizenSiteDemo = () => (

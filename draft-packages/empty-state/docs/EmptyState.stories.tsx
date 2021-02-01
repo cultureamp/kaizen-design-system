@@ -5,7 +5,9 @@ import chevronRight from "@kaizen/component-library/icons/chevron-right.icon.svg
 import * as React from "react"
 
 import { Button } from "@kaizen/draft-button"
+import { withDesign } from "storybook-addon-designs"
 import { EmptyState } from ".."
+import { figmaEmbed } from "../../../storybook/helpers"
 
 import styles from "./EmptyState.stories.scss"
 
@@ -35,7 +37,11 @@ export default {
         import { EmptyState } from "@kaizen/draft-empty-state";
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A33123"
+    ),
   },
+  decorators: [withDesign],
 }
 
 export const DefaultKaizenSiteDemo = () => (

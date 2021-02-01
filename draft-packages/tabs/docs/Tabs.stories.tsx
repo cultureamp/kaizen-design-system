@@ -4,6 +4,8 @@ import { Tabs } from "@kaizen/draft-tabs"
 import { Divider } from "@kaizen/draft-divider"
 import classnames from "classnames"
 import * as React from "react"
+import { withDesign } from "storybook-addon-designs"
+import { figmaEmbed } from "../../../storybook/helpers"
 import { ExampleLayout } from "./ExampleLayout"
 
 export default {
@@ -15,7 +17,11 @@ export default {
       import { Tabs } from "@kaizen/draft-tabs"
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14533%3A72574"
+    ),
   },
+  decorators: [withDesign],
 }
 
 export const DefaultHorizontal = () => {

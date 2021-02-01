@@ -1,6 +1,8 @@
 import * as React from "react"
 
 import { InlineNotification } from "@kaizen/component-library"
+import { withDesign } from "storybook-addon-designs"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "InlineNotification (React)",
@@ -11,7 +13,11 @@ export default {
         import { InlineNotification } from "@kaizen/component-library";
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13877%3A66008"
+    ),
   },
+  decorators: [withDesign],
 }
 
 export const DismissiblePositiveKaizenSiteDemo = () => (
