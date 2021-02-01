@@ -192,7 +192,7 @@ $link-icon-margin: 12px;
   }
 
   :global(.md-pre) {
-    background-color: $kz-color-stone-200;
+    background-color: $kz-color-stone;
 
     & :global(.md-code) {
       padding: 0;
@@ -240,7 +240,7 @@ $link-icon-margin: 12px;
   }
 
   :global(blockquote) {
-    background-color: $kz-color-stone-200;
+    background-color: $kz-color-stone;
     border-left: 4px solid $kz-color-wisteria-600;
     margin: 0;
     padding: 0.5rem 1.5rem;
