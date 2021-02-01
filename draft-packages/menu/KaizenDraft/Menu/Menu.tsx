@@ -29,7 +29,11 @@ export type GenericMenuProps = {
   menuVisible?: boolean
   automationId?: string
   dropdownId?: string
-
+  /**
+   * Determines when the menu should automatically hide.
+   * @default: "on"
+   */
+  autoHide?: "on" | "outside-click-only" | "off"
   /**
    * The content to appear inside the dropdown when it is open
    */
@@ -48,6 +52,7 @@ const Menu: Menu = props => {
   const {
     align = "left",
     dropdownWidth = "default",
+    autoHide = "on",
     menuVisible = false,
   } = props
 
@@ -68,6 +73,7 @@ const Menu: Menu = props => {
   return render({
     ...props,
     align,
+    autoHide,
     isMenuVisible,
     dropdownButtonContainer,
     hideMenuDropdown,
@@ -96,6 +102,7 @@ export const render = (props: GenericMenuProps & RenderProps) => {
       hideMenuDropdown={props.hideMenuDropdown}
       width={props.dropdownWidth}
       id={props.dropdownId}
+      autoHide={props.autoHide}
     >
       {props.children}
     </MenuDropdown>

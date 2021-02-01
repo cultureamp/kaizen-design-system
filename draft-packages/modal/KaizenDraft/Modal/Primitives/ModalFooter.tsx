@@ -1,16 +1,16 @@
-import * as React from "react"
-
 import { Button, ButtonProps } from "@kaizen/draft-button"
+import classNames from "classnames"
+import * as React from "react"
 import GenericModalSection from "./GenericModalSection"
-
 import styles from "./ModalFooter.scss"
 
-export interface ModalFooterProps {
-  readonly unpadded?: boolean
-  readonly actions: ButtonProps[]
-  readonly appearance?: "primary" | "destructive"
-  readonly automationId?: string
-}
+export type ModalFooterProps = Readonly<{
+  unpadded?: boolean
+  actions: ButtonProps[]
+  appearance?: "primary" | "destructive"
+  automationId?: string
+  alignStart?: boolean
+}>
 
 type ModalFooter = React.FunctionComponent<ModalFooterProps>
 
@@ -19,7 +19,12 @@ const ModalFooter: ModalFooter = props => {
 
   return (
     <GenericModalSection unpadded={unpadded}>
-      <div className={styles.actions}>
+      <div
+        className={classNames(
+          styles.actions,
+          props.alignStart && styles.actionsAlignStart
+        )}
+      >
         {actions.map((action, index) => (
           <div className={styles.actionButton} key={action.label}>
             <Button
