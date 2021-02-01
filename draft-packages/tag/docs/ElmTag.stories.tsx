@@ -1,6 +1,9 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 
-loadElmStories("Tag (Elm)", module, require("./TagStories.elm"), [
+const compiledElm = require("../ElmStories/TagStories.elm").Elm.ElmStories
+  .TagStories
+
+loadElmStories("Tag (Elm)", module, compiledElm, [
   "Default - Medium",
   "Default - Small",
   "Sentiment - Positive",

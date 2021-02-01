@@ -1,6 +1,8 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
+const compiledElm = require("../ElmStories/ParagraphStories.elm").Elm.ElmStories
+  .ParagraphStories
 
-loadElmStories("Paragraph (Elm)", module, require("./Paragraph.stories.elm"), [
+loadElmStories("Paragraph (Elm)", module, compiledElm, [
   "IntroLede",
   "Body",
   "Body Dark Reduced Opacity",

@@ -1,6 +1,9 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 
-loadElmStories("Tooltip (Elm)", module, require("./TooltipStories.elm"), [
+const compiledElm = require("../ElmStories/TooltipStories.elm").Elm.ElmStories
+  .TooltipStories
+
+loadElmStories("Tooltip (Elm)", module, compiledElm, [
   "Default - Below",
   "Default - Above",
 ])

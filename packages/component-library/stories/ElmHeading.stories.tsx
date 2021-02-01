@@ -1,6 +1,9 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 
-loadElmStories("Heading (Elm)", module, require("./Heading.stories.elm"), [
+const compiledElm = require("../ElmStories/HeadingStories.elm").Elm.ElmStories
+  .HeadingStories
+
+loadElmStories("Heading (Elm)", module, compiledElm, [
   "Display0",
   "Heading1",
   "Heading2",

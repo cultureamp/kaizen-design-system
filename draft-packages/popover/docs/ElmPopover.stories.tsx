@@ -1,6 +1,8 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
+const compiledElm = require("../ElmStories/PopoverStories.elm").Elm.ElmStories
+  .PopoverStories
 
-loadElmStories("Popover (Elm)", module, require("./PopoverStories.elm"), [
+loadElmStories("Popover (Elm)", module, compiledElm, [
   "Default",
   "Informative",
   "Positive",

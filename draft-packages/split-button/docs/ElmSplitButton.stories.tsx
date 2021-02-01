@@ -1,8 +1,6 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 
-loadElmStories(
-  "SplitButton (Elm)",
-  module,
-  require("./SplitButtonStories.elm"),
-  ["Default"]
-)
+const compiledElm = require("../ElmStories/SplitButtonStories.elm").Elm
+  .ElmStories.SplitButtonStories
+
+loadElmStories("SplitButton (Elm)", module, compiledElm, ["Default"])

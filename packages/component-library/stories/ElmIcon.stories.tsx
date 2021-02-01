@@ -1,6 +1,9 @@
 import { loadElmStories } from "@cultureamp/elm-storybook"
 
-loadElmStories("Icon (Elm)", module, require("./Icon.stories.elm"), [
+const compiledElm = require("../ElmStories/IconStories.elm").Elm.ElmStories
+  .IconStories
+
+loadElmStories("Icon (Elm)", module, compiledElm, [
   "Meaningful",
   "Presentational",
   "Inherit Size",
