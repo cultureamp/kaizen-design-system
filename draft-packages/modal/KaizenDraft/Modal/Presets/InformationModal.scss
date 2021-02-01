@@ -23,36 +23,14 @@
 .footer {
   white-space: nowrap;
   padding: $ca-grid 0 0 0;
+  @include ca-media-mobile {
+    white-space: initial;
+  }
 }
 
 .footerWithSecondaryAction {
   composes: footer;
   margin-left: -0.5 * $ca-grid;
-}
-
-.flex {
-  display: flex;
-}
-
-.flex1 {
-  flex: 1;
-}
-
-.headingStartPadder {
-  flex: 1;
-  min-width: $ca-grid;
-}
-
-.textCenter {
-  text-align: center;
-}
-
-.inlineBlock {
-  display: inline-block;
-}
-
-.floatRight {
-  float: right;
 }
 
 .emptyFooter {
