@@ -19,6 +19,11 @@ type MenuDropdownProps = {
 
 class MenuDropdown extends React.Component<MenuDropdownProps> {
   static displayName = "MenuDropdown"
+
+  static defaultProps = {
+    autoHide: "on",
+  }
+
   menu = React.createRef<HTMLDivElement>()
 
   componentDidMount() {

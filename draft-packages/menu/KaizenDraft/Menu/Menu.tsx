@@ -52,7 +52,7 @@ const Menu: Menu = props => {
   const {
     align = "left",
     dropdownWidth = "default",
-    autoHide = true,
+    autoHide = "on",
     menuVisible = false,
   } = props
 
@@ -73,6 +73,7 @@ const Menu: Menu = props => {
   return render({
     ...props,
     align,
+    autoHide,
     isMenuVisible,
     dropdownButtonContainer,
     hideMenuDropdown,
