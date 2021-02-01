@@ -44,7 +44,17 @@ class MenuDropdown extends React.Component<MenuDropdownProps> {
       const rect = menu.current.getBoundingClientRect()
 
       menu.current.style.bottom =
-        pos.bottom > innerHeight - rect.height ? "24px" : "auto"
+        // If the menu won't fit below the the menu button, show it above instead.
+        // For some reason, a 5px buffer was needed.
+        pos.bottom + 5 > innerHeight - rect.height &&
+        // ...but, do not display it above the menu button, if there's not enough
+        // room, otherwise the user won't even be able to scroll high enough to
+        // see the menu items!
+        rect.top - rect.height - 30 >= 0
+          ? // I'm unsure if this 24px is intentional or not. The menu ends up
+            // overlapping the dropdown menu.
+            "24px"
+          : "auto"
     }
   }
 
