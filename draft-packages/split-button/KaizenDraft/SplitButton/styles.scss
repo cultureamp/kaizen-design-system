@@ -1,15 +1,14 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/shadow";
-@import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/type";
-@import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "./decision-tokens.scss";
 
 $base-border: $kz-border-solid-border-width $kz-border-solid-border-style
-  $ca-border-color;
+  $dt-color-border-color-default;
 $button-width: 124px;
 
 $side-padding: 3/4 * $ca-grid;
@@ -67,7 +66,8 @@ $side-padding: 3/4 * $ca-grid;
       // show custom focus ring when :focus-visible
       &:global(.focus-visible) {
         border: $kz-border-focus-ring-border-width
-          $kz-border-focus-ring-border-style $kz-color-cluny-500;
+          $kz-border-focus-ring-border-style
+          $dt-color-border-color-default-focus;
       }
     }
   }
@@ -78,6 +78,7 @@ $side-padding: 3/4 * $ca-grid;
     background: $disabled-background;
     border-color: $disabled-border-color;
     color: $disabled-color;
+    opacity: 0.3;
   }
 }
 
@@ -101,16 +102,16 @@ $side-padding: 3/4 * $ca-grid;
 
 .buttonDefault {
   @include button-mixing(
-    $background: $kz-color-white,
-    $border-color: $kz-color-wisteria-200,
-    $color: $kz-color-wisteria-800,
-    $hover-background: $kz-color-stone,
-    $hover-border-color: $kz-color-wisteria-400,
-    $active-background: $kz-color-ash,
-    $active-border-color: $kz-color-wisteria-500,
-    $disabled-background: $kz-color-white,
-    $disabled-border-color: $kz-color-wisteria-200,
-    $disabled-color: $kz-color-wisteria-300
+    $background: $dt-color-background-color-default,
+    $border-color: $dt-color-border-color-default,
+    $color: $dt-color-text-color,
+    $hover-background: $dt-color-background-color-default-hover,
+    $hover-border-color: $dt-color-border-color-default-hover,
+    $active-background: $dt-color-background-color-default-active,
+    $active-border-color: $dt-color-border-color-default-active,
+    $disabled-background: $dt-color-background-color-default-disabled,
+    $disabled-border-color: $dt-color-border-color-default-disabled,
+    $disabled-color: $dt-color-text-color-disabled
   );
 }
 
@@ -119,14 +120,14 @@ $side-padding: 3/4 * $ca-grid;
   @include button-mixing(
     $background: #58b59a,
     $border-color: #58b59a,
-    $color: $kz-color-white,
-    $hover-background: $kz-color-seedling-500,
-    $hover-border-color: $kz-color-seedling-500,
-    $active-background: $kz-color-seedling-500,
-    $active-border-color: $kz-color-seedling-500,
-    $disabled-background: $kz-color-white,
-    $disabled-border-color: $kz-color-wisteria-100,
-    $disabled-color: $kz-color-wisteria-300
+    $color: $dt-color-background-color-primary,
+    $hover-background: $dt-color-background-color-primary-hover,
+    $hover-border-color: $dt-color-border-color-primary-hover,
+    $active-background: $dt-color-background-color-primary-active,
+    $active-border-color: $dt-color-border-color-primary-active,
+    $disabled-background: $dt-color-background-color-primary-disabled,
+    $disabled-border-color: $dt-color-border-color-default-disabled,
+    $disabled-color: $dt-color-text-color-disabled
   );
 }
 
@@ -162,13 +163,13 @@ $side-padding: 3/4 * $ca-grid;
     &:hover,
     &:active {
       & + .dropdown > .dropdownButton {
-        border-left: 1px solid $kz-color-wisteria-400;
+        border-left: 1px solid $dt-color-border-color-default-active;
       }
     }
 
     &:active {
       & + .dropdown > .dropdownButton {
-        border-left: 1px solid $kz-color-wisteria-500;
+        border-left: 1px solid $dt-color-border-color-default-active;
       }
     }
 
@@ -176,14 +177,14 @@ $side-padding: 3/4 * $ca-grid;
     [dir="rtl"] &:active {
       & + .dropdown > .dropdownButton {
         border-left: $base-border;
-        border-right: 1px solid $kz-color-wisteria-400;
+        border-right: 1px solid $dt-color-border-color-default-active;
       }
     }
 
     [dir="rtl"] &:active {
       & + .dropdown > .dropdownButton {
         border-left: $base-border;
-        border-right: 1px solid $kz-color-wisteria-500;
+        border-right: 1px solid $dt-color-border-color-default-active;
       }
     }
   }
@@ -191,10 +192,16 @@ $side-padding: 3/4 * $ca-grid;
 
 .default {
   composes: buttonDefault;
+  .dropdownIcon {
+    color: $dt-color-icon-color-default;
+  }
 }
 
 .primary {
   composes: buttonPrimary;
+  .dropdownIcon {
+    color: $dt-color-icon-color-primary;
+  }
 }
 
 .buttonFullBorder {
@@ -244,12 +251,12 @@ $side-padding: 3/4 * $ca-grid;
   composes: buttonReset buttonPrimary;
 
   // Making the left | right border white to separate the button with dropdown button
-  border-left-color: $kz-color-white !important; /* stylelint-disable-line declaration-no-important */
+  border-left-color: $dt-color-border-color-separator-primary !important; /* stylelint-disable-line declaration-no-important */
 
   [dir="rtl"] & {
     // equal to add-tint($ca-palette-seedling, 10%). Temporary until we upgrade to Zen (Wisteria)
     border-left-color: #58b59a !important; /* stylelint-disable-line declaration-no-important */
-    border-left-color: $kz-color-white !important; /* stylelint-disable-line declaration-no-important */
+    border-left-color: $dt-color-border-color-separator-primary !important; /* stylelint-disable-line declaration-no-important */
   }
 }
 
@@ -274,7 +281,7 @@ version since the React version relies on kaizen's MenuList
 .menuList {
   background: white;
   border: $kz-border-solid-border-width $kz-border-solid-border-style
-    $kz-color-wisteria-200;
+    $dt-color-border-color-default;
   box-shadow: $kz-shadow-small-box-shadow;
   line-height: 40px;
 }
@@ -284,7 +291,7 @@ version since the React version relies on kaizen's MenuList
   @include ca-inherit-baseline;
   composes: interactiveIconWrapper from "~@kaizen/component-library/components/Icon/Icon.module.scss";
   background: transparent;
-  color: $kz-color-wisteria-800;
+  color: $dt-color-text-color;
   cursor: pointer;
   text-align: left;
 
@@ -303,7 +310,7 @@ version since the React version relies on kaizen's MenuList
   &.menuItem--active,
   &:hover,
   &:focus {
-    background: $kz-color-stone;
+    background: $dt-color-background-color-default-hover;
     color: $kz-color-cluny-500;
     // override Murmur global styles :(
     text-decoration: none;

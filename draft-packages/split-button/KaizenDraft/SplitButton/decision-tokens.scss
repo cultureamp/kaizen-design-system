@@ -1,0 +1,35 @@
+@import "~@kaizen/design-tokens/sass/theme";
+@import "~@kaizen/design-tokens/sass/color";
+
+$dt-color-background-color-default: $kz-color-white;
+$dt-color-background-color-default-disabled: $kz-color-white;
+$dt-color-background-color-default-hover: $kz-color-stone;
+$dt-color-background-color-default-active: $kz-color-ash;
+$dt-color-border-color-default: $kz-color-wisteria-200;
+$dt-color-border-color-default-active: $kz-color-wisteria-500;
+$dt-color-border-color-default-disabled: $kz-color-wisteria-500;
+$dt-color-border-color-default-focus: $kz-color-cluny-500;
+$dt-color-border-color-default-hover: $kz-color-wisteria-400;
+$dt-color-border-color-separator-primary: $kz-color-white;
+$dt-color-background-color-primary: $kz-color-white;
+$dt-color-background-color-primary-disabled: $kz-color-white;
+$dt-color-background-color-primary-hover: $kz-color-seedling-500;
+$dt-color-background-color-primary-active: $kz-color-seedling-500;
+$dt-color-border-color-primary: $kz-color-wisteria-200;
+$dt-color-border-color-primary-active: $kz-color-seedling-500;
+$dt-color-border-color-primary-disabled: $kz-color-wisteria-500;
+$dt-color-border-color-primary-focus: $kz-color-cluny-500;
+$dt-color-border-color-primary-hover: $kz-color-seedling-500;
+$dt-color-icon-color-default: $kz-color-wisteria-700;
+$dt-color-icon-color-primary: $kz-color-white;
+$dt-color-text-color: $kz-color-wisteria-800;
+$dt-color-text-color-disabled: $kz-color-wisteria-300;
+
+@if $rebrand {
+  $dt-color-border-color-default: $kz-color-iron-500;
+  $dt-color-border-color-default-active: $kz-color-iron-500;
+  $dt-color-border-color-default-disabled: $kz-color-iron-500;
+  $dt-color-border-color-default-hover: $kz-color-slate-700;
+  $dt-color-icon-color-default: rgba($kz-color-wisteria-800, 0.7);
+  $dt-color-text-color-disabled: $kz-color-wisteria-800;
+}
