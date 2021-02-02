@@ -55,7 +55,7 @@ const Menu: React.FunctionComponent = () => (
 )
 
 export default {
-  title: "Dropdown (React)",
+  title: "Dropdown (deprecated) (React)",
   component: Dropdown,
   parameters: {
     info: {
