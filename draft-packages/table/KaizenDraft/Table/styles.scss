@@ -4,10 +4,10 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/border";
-@import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/components/Button/styles";
+@import "./decision-tokens.scss";
 
 // Taken from design-tokens/sass/shadow
 // we need control of the x and y offset in this component
@@ -16,7 +16,7 @@ $row-height: 60px;
 
 .anchorReset {
   text-decoration: none;
-  color: $kz-color-wisteria-800;
+  color: $dt-color-anchor-color;
   display: block;
   &:hover,
   &:active,
@@ -99,23 +99,23 @@ $row-height: 60px;
 }
 
 .headerRowCellTooltipIcon {
-  color: $kz-color-cluny-500;
+  color: $dt-color-icon-tooltip;
   margin-right: $ca-grid / 4;
 }
 
 .headerRowCellIcon {
-  color: $kz-color-wisteria-500;
+  color: $dt-color-icon;
   height: 20px;
 
   .headerRowCellActive & {
-    color: $kz-color-wisteria-800;
+    color: $dt-color-icon-active;
   }
 }
 
 .card {
   @include button-reset;
-  background: $kz-color-white;
-  border: solid 1px rgba($kz-color-wisteria-700, 0.1);
+  background: $dt-color-background-color;
+  border: solid 1px $dt-color-border-color;
   transition: box-shadow $ca-duration-rapid, border-color $ca-duration-rapid,
     margin $ca-duration-rapid, padding $ca-duration-rapid,
     width $ca-duration-rapid;
@@ -166,7 +166,7 @@ $row-height: 60px;
   border-color: $kz-border-borderless-border-color;
   box-shadow: none;
   border-radius: $kz-border-solid-border-radius;
-  background-color: $kz-color-ash;
+  background-color: $dt-color-background-color-well;
   margin-bottom: $ca-grid * 0.5;
 }
 
@@ -193,7 +193,7 @@ $row-height: 60px;
   }
 
   &:hover {
-    background-color: $kz-color-stone;
+    background-color: $dt-color-background-color-hover;
   }
 }
 

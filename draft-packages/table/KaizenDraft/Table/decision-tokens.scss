@@ -1,0 +1,15 @@
+@import "~@kaizen/design-tokens/sass/theme";
+@import "~@kaizen/design-tokens/sass/color";
+
+$dt-color-anchor-color: $kz-color-wisteria-800;
+$dt-color-icon-tooltip: $kz-color-cluny-500;
+$dt-color-icon: $kz-color-wisteria-500;
+$dt-color-icon-active: $kz-color-wisteria-800;
+$dt-color-background-color: $kz-color-white;
+$dt-color-background-color-hover: $kz-color-stone;
+$dt-color-border-color: rgba($kz-color-wisteria-700, 0.1);
+$dt-color-background-color-well: $kz-color-ash;
+
+@if $rebrand {
+  $dt-color-border-color: rgba($kz-color-slate-700, 0.1);
+}
