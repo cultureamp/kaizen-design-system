@@ -107,7 +107,8 @@
 .iconButton {
   height: 20px;
   composes: interactiveIconWrapper from "~@kaizen/component-library/components/Icon/Icon.module.scss";
-  & {
+  &.iconButton {
+    // @TODOALLY - reduce specicifity
     color: $dt-color-icon-color;
   }
 }
