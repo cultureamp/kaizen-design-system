@@ -8,8 +8,6 @@
 .container {
   box-shadow: $kz-shadow-small-box-shadow;
   border-radius: $kz-border-solid-border-radius;
-  border: $kz-border-solid-border-width $kz-border-solid-border-style
-    $dt-color-border-color;
 }
 
 .separated {
@@ -22,6 +20,16 @@
   & + .groupItem {
     border-top: 1px solid $dt-color-border-color;
   }
+
+  &:first-child .button:not(.open) {
+    border-top-left-radius: $kz-border-solid-border-radius;
+    border-top-right-radius: $kz-border-solid-border-radius;
+  }
+
+  &:last-child .button:not(.open) {
+    border-bottom-left-radius: $kz-border-solid-border-radius;
+    border-bottom-right-radius: $kz-border-solid-border-radius;
+  }
 }
 
 .button {
@@ -31,7 +39,7 @@
   text-align: left;
   background-color: white;
   border: none;
-  transition: background-color $ca-duration-rapid;
+  transition: background-color border-radius $ca-duration-rapid;
 
   @include ca-padding(
     $top: $ca-grid,
