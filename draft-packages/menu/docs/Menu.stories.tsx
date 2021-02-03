@@ -306,3 +306,32 @@ export const MenuPositioning = () => (
 )
 
 MenuPositioning.storyName = "Menu positioning"
+
+export const MenuWithActiveItem = () => (
+  <StoryWrapper>
+    <Box mt={2} mx={2}>
+      <Box mb={1}>
+        <Paragraph variant="body">
+          Menus don't usually have "active" items, since they are just a
+          collection of links or actions, but in non-standard cases like the
+          navigation bar, the `isActive` prop provides a way to do this.
+        </Paragraph>
+      </Box>
+      <Menu
+        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+      >
+        <MenuContent>
+          <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+          <MenuItem
+            action="https://www.cultureamp.com/"
+            label="Menu link"
+            isActive
+          />
+          <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+        </MenuContent>
+      </Menu>
+    </Box>
+  </StoryWrapper>
+)
+
+MenuWithActiveItem.storyName = "Menu with active item"
