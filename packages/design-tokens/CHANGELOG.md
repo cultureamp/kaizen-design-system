@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.2.0...@kaizen/design-tokens@2.3.0) (2021-02-04)
+
+
+### Features
+
+* Updated color of shadow to black with opacity ([#997](https://github.com/cultureamp/kaizen-design-system/issues/997)) ([f7c7a52](https://github.com/cultureamp/kaizen-design-system/commit/f7c7a52641d45279a7ebaff907e811a465a35f5a))
+
+
+
+
+
 # [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.1.3...@kaizen/design-tokens@2.2.0) (2021-01-22)
 
 
