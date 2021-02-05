@@ -2,26 +2,42 @@
   "kz": {
     "border": {
       "solid": {
-        "borderWidth": "2px",
-        "borderRadius": "7px",
-        "borderStyle": "solid",
-        "borderColor": "#e1e2ea"
+        "borderWidth": "var(--kz-border-solid-border-width)",
+        "borderWidth-default": "2px",
+        "borderRadius": "var(--kz-border-solid-border-radius)",
+        "borderRadius-default": "7px",
+        "borderStyle": "var(--kz-border-solid-border-style)",
+        "borderStyle-default": "solid",
+        "borderColor": "var(--kz-border-solid-border-color)",
+        "borderColor-default": "#e1e2ea",
+        "borderColor-rgb-params": "var(--kz-border-solid-border-color-rgb-params)"
       },
       "dashed": {
-        "borderWidth": "2px",
-        "borderRadius": "7px",
-        "borderStyle": "dashed"
+        "borderWidth": "var(--kz-border-dashed-border-width)",
+        "borderWidth-default": "2px",
+        "borderRadius": "var(--kz-border-dashed-border-radius)",
+        "borderRadius-default": "7px",
+        "borderStyle": "var(--kz-border-dashed-border-style)",
+        "borderStyle-default": "dashed"
       },
       "borderless": {
-        "borderWidth": "2px",
-        "borderRadius": "7px",
-        "borderStyle": "solid",
-        "borderColor": "transparent"
+        "borderWidth": "var(--kz-border-borderless-border-width)",
+        "borderWidth-default": "2px",
+        "borderRadius": "var(--kz-border-borderless-border-radius)",
+        "borderRadius-default": "7px",
+        "borderStyle": "var(--kz-border-borderless-border-style)",
+        "borderStyle-default": "solid",
+        "borderColor": "var(--kz-border-borderless-border-color)",
+        "borderColor-default": "transparent",
+        "borderColor-rgb-params": "var(--kz-border-borderless-border-color-rgb-params)"
       },
       "focusRing": {
-        "borderWidth": "2px",
-        "borderRadius": "10px",
-        "borderStyle": "solid"
+        "borderWidth": "var(--kz-border-focus-ring-border-width)",
+        "borderWidth-default": "2px",
+        "borderRadius": "var(--kz-border-focus-ring-border-radius)",
+        "borderRadius-default": "10px",
+        "borderStyle": "var(--kz-border-focus-ring-border-style)",
+        "borderStyle-default": "solid"
       }
     }
   }

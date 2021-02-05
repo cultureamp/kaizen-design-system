@@ -1,13 +1,19 @@
 {
   "kz": {
     "layout": {
-      "contentMaxWidth": "1392px",
-      "contentSideMargin": "72px",
-      "mobileActionsDrawerHeight": "60px",
-      "navigationBarHeight": "72px",
+      "contentMaxWidth": "var(--kz-layout-content-max-width)",
+      "contentMaxWidth-default": "1392px",
+      "contentSideMargin": "var(--kz-layout-content-side-margin)",
+      "contentSideMargin-default": "72px",
+      "mobileActionsDrawerHeight": "var(--kz-layout-mobile-actions-drawer-height)",
+      "mobileActionsDrawerHeight-default": "60px",
+      "navigationBarHeight": "var(--kz-layout-navigation-bar-height)",
+      "navigationBarHeight-default": "72px",
       "breakpoints": {
-        "medium": "768px",
-        "large": "1080px"
+        "medium": "var(--kz-layout-breakpoints-medium)",
+        "medium-default": "768px",
+        "large": "var(--kz-layout-breakpoints-large)",
+        "large-default": "1080px"
       }
     }
   }
