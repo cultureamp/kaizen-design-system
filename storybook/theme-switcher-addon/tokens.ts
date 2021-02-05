@@ -1,3 +1,6 @@
+// @TODO - these should use tokens & values from @kaizen/design-tokens
+// when we are able to support multiple themes. For now, the Heart
+// theme tokens are hardcoded here
 export const tokens = [
   {
     name: "--kz-color-wisteria-100",
