@@ -89,7 +89,21 @@ export const makeCSSVariableTheme = (theme: Theme) =>
       : objectPathToCssVarReference(path)
   )
 
-const rgbParamsKeySuffix = "-rgb-params"
+/**
+ * Use this to generate an object containing `${key}: value`, `${key}-default: value`, and `${key}-rgb-params: rgb(r, g, b)` if the value is a color.
+ * This is for augmenting a CSS variable to support our solution to regression issues with using CSS variables instead of concrete values.
+ */
+const augmentCssVariable = (key: string, value: unknown) => {
+  const colorRgb = typeof value === "string" ? colorString.get.rgb(value) : null
+
+  return {
+    [key]: `${value}`,
+    [`${key}-default`]: `${value}`,
+    ...(colorRgb && {
+      [`${key}-rgb-params`]: colorRgb.slice(0, 3).join(", "),
+    }),
+  }
+}
 
 /**
  * This function will convert an object/theme to a list of CSS variable key-value pairs, that can be used by element.style.setProperty.
@@ -116,25 +130,24 @@ const rgbParamsKeySuffix = "-rgb-params"
 export const flattenObjectToCSSVariables = (
   object: Record<string | number, unknown>
 ) => {
-  const cssVariables = {} as Record<string, string>
+  let cssVariables = {} as Record<string, string>
 
   // Shamelessly using a map function like a forEach
   mapLeafsOfObject(object, (path, value) => {
     const key = objectPathToCssVarIdentifier(path)
-    cssVariables[key] = `${value}`
-    const colorRgb =
-      typeof value === "string" ? colorString.get.rgb(value) : null
-    if (colorRgb) {
-      cssVariables[`${key}${rgbParamsKeySuffix}`] = colorRgb
-        .slice(0, 3)
-        .join(", ")
+    const cssVariablesOfToken = augmentCssVariable(key, value)
+    cssVariables = {
+      ...cssVariables,
+      ...cssVariablesOfToken,
     }
   })
   return cssVariables
 }
 
 /**
- * WIP: Need a better name. Writing this as a solution to the add-alpha problem - we need to have additional tokens that reference variables, which contain a triple (R, G, B).
+ * WIP: Need a better name and articulation of this.
+ * Writing this as a solution to the add-alpha and add-tint/shade problem, and to spit out sass variables with `-default` and `-rgb-params` suffixes (where applicable).
+ * We need to have additional tokens that reference variables, which contain a triple (R, G, B).
  * This triple can then be used within the CSS [runtime] function as a CSS variable, e.g. `rgba(var(--kz-color-wisteria-800-rgb))`.
  * Also adds extra keys as leaf siblings, named`${key}-default`, containing the value within the theme provided as the parameter.
  */
@@ -152,15 +165,8 @@ export const augmentThemeWithRGBTripletsAndDefaults = (theme: Theme): Theme => {
         (child[segment] || (child[segment] = {})) as Record<string, unknown>,
       augmentedTheme as Record<string, unknown>
     )
-    leafObject[leafKey] = value
-    leafObject[`${leafKey}-default`] = value
-    const colorRgb =
-      typeof value === "string" ? colorString.get.rgb(value) : null
-    if (colorRgb) {
-      leafObject[`${leafKey}${rgbParamsKeySuffix}`] = colorRgb
-        .slice(0, 3)
-        .join(", ")
-    }
+    const cssVariablesOfToken = augmentCssVariable(leafKey, value)
+    Object.assign(leafObject, cssVariablesOfToken)
   })
   return augmentedTheme as Theme
 }
