@@ -1,7 +1,9 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 import React, { useCallback, useRef, useState } from "react"
+import { withDesign } from "storybook-addon-designs"
 import { Button, CustomButtonProps, ButtonRef } from ".."
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "Button (Zen) (React)",
@@ -18,7 +20,11 @@ export default {
         import { Button } from "@kaizen/draft-button";
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13555%3A0"
+    ),
   },
+  decorators: [withDesign],
 }
 
 const reversedBg = {
@@ -30,12 +36,26 @@ const reversedBg = {
 const clickAction = () => alert("This shouldn't fire when button is working")
 
 export const DefaultKaizenSiteDemo = args => <Button {...args} />
-DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
+DefaultKaizenSiteDemo.story = {
+  name: "Default (Kaizen Site Demo)",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13861%3A65143"
+    ),
+  },
+}
 
 export const DefaultDisabled = args => (
   <Button label="Label" disabled={true} {...args} />
 )
-DefaultDisabled.storyName = "Default, Disabled"
+DefaultDisabled.story = {
+  name: "Default, Disabled",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A99"
+    ),
+  },
+}
 
 export const DefaultWorking = () => {
   const [working, setWorking] = useState(false)
@@ -58,9 +78,13 @@ export const DefaultWorking = () => {
     </>
   )
 }
-
 DefaultWorking.story = {
   name: "Default, Working",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A150"
+    ),
+  },
 }
 
 export const DefaultWorkingWithWorkingLabelVisible = () => (
@@ -71,9 +95,9 @@ export const DefaultWorkingWithWorkingLabelVisible = () => (
     workingLabel="Submitting"
   />
 )
-
 DefaultWorkingWithWorkingLabelVisible.story = {
   name: "Default, Working with working label visible",
+  parameters: {},
 }
 
 export const DefaultWorkingOnEnd = () => (
@@ -85,29 +109,57 @@ export const DefaultWorkingOnEnd = () => (
     iconPosition="end" // Loading spinner sits in same spot as icon
   />
 )
-
 DefaultWorkingOnEnd.story = {
   name: "Default, Working with working label and spinner on right side",
+  parameters: {},
 }
 
 export const Primary = args => <Button label="Label" primary={true} {...args} />
+Primary.story = {
+  name: "Primary",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13861%3A65609"
+    ),
+  },
+}
 
 export const PrimaryDisabled = args => (
   <Button label="Label" primary={true} disabled={true} {...args} />
 )
-PrimaryDisabled.storyName = "Primary, Disabled"
+PrimaryDisabled.story = {
+  name: "Primary, Disabled",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A252"
+    ),
+  },
+}
 
 export const Destructive = args => (
   <Button label="Label" destructive={true} {...args} />
 )
+Destructive.story = {
+  name: "Destructive",
+  parameters: {
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A715",
+    },
+  },
+}
 
 export const DestructiveDisabled = args => (
   <Button label="Label" destructive={true} disabled={true} {...args} />
 )
-DestructiveDisabled.storyName = "Destructive, Disabled"
-
 DestructiveDisabled.story = {
   name: "Destructive, Disabled",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A707"
+    ),
+  },
 }
 
 export const PrimaryWorking = () => (
@@ -119,14 +171,26 @@ export const PrimaryWorking = () => (
     workingLabelHidden
   />
 )
-
 PrimaryWorking.story = {
   name: "Primary, Working",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A301"
+    ),
+  },
 }
 
 export const Secondary = args => (
   <Button label="Label" secondary={true} {...args} />
 )
+Secondary.story = {
+  name: "Secondary",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A1014"
+    ),
+  },
+}
 
 export const DestructiveWorking = () => (
   <Button
@@ -137,15 +201,26 @@ export const DestructiveWorking = () => (
     workingLabelHidden
   />
 )
-
 DestructiveWorking.story = {
   name: "Destructive, Working",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A659"
+    ),
+  },
 }
 
 export const SecondaryDisabled = args => (
   <Button label="Label" secondary={true} disabled={true} {...args} />
 )
-SecondaryDisabled.storyName = "Secondary, Disabled"
+SecondaryDisabled.story = {
+  name: "Secondary, Disabled",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A1058"
+    ),
+  },
+}
 
 export const SecondaryWorking = () => (
   <Button
@@ -156,16 +231,26 @@ export const SecondaryWorking = () => (
     workingLabelHidden
   />
 )
-
 SecondaryWorking.story = {
   name: "Secondary, Working",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A1050"
+    ),
+  },
 }
 
 export const SecondaryWIcon = args => (
   <Button label="Configure" icon={configureIcon} secondary={true} {...args} />
 )
-
-SecondaryWIcon.storyName = "Secondary w/ Icon"
+SecondaryWIcon.story = {
+  name: "Secondary w/ Icon",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A1074"
+    ),
+  },
+}
 
 export const SecondaryWIconDisabled = args => (
   <Button
@@ -176,33 +261,61 @@ export const SecondaryWIconDisabled = args => (
     {...args}
   />
 )
-SecondaryWIconDisabled.storyName = "Secondary w/ Icon, Disabled"
+SecondaryWIconDisabled.story = {
+  story: "Secondary w/ Icon, Disabled",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A1066"
+    ),
+  },
+}
 
 export const IconLabel = args => (
   <Button label="Configure" icon={configureIcon} {...args} />
 )
-IconLabel.storyName = "Icon + Label"
+IconLabel.story = {
+  name: "Icon + Label",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13861%3A65146"
+    ),
+  },
+}
 
 export const LabelIcon = args => (
   <Button label="Configure" icon={configureIcon} iconPosition="end" {...args} />
 )
-LabelIcon.storyName = "Label + Icon"
+LabelIcon.story = {
+  name: "Label + Icon",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13861%3A65134"
+    ),
+  },
+}
 
 export const FullWidth = args => (
   <Button label="Label" fullWidth={true} {...args} />
 )
+FullWidth.story = {
+  name: "Full Width",
+  parameters: {},
+}
 
 export const FullWidthIcon = args => (
   <Button label="Label" fullWidth={true} icon={configureIcon} {...args} />
 )
-FullWidthIcon.storyName = "Full Width + Icon"
+FullWidthIcon.story = {
+  name: "Full Width + Icon",
+  parameters: {},
+}
 
 export const Hyperlink = args => (
   <Button label="Label" href="//example.com" {...args} />
 )
-
-FullWidthIcon.story = {
-  name: "Full Width + Icon",
+Hyperlink.story = {
+  name: "Hyperlink",
+  parameters: {},
 }
 
 export const FullWidthWorking = () => (
@@ -214,9 +327,9 @@ export const FullWidthWorking = () => (
     workingLabelHidden
   />
 )
-
 FullWidthWorking.story = {
   name: "Full Width Working",
+  parameters: {},
 }
 
 export const HyperlinkWOnClick = args => (
@@ -227,19 +340,36 @@ export const HyperlinkWOnClick = args => (
     {...args}
   />
 )
-HyperlinkWOnClick.storyName = "Hyperlink w/ onClick"
+HyperlinkWOnClick.story = {
+  name: "Hyperlink w/ onClick",
+  parameters: {},
+}
 
 export const ReversedDefault = args => (
   <Button label="Label" reversed={true} {...args} />
 )
-ReversedDefault.storyName = "Reversed, Default"
-ReversedDefault.parameters = { ...reversedBg }
+ReversedDefault.story = {
+  name: "Reversed, Default",
+  parameters: {
+    ...reversedBg,
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17179"
+    ),
+  },
+}
 
 export const ReversedDefaultDisabled = args => (
   <Button label="Label" reversed={true} disabled={true} {...args} />
 )
-ReversedDefaultDisabled.storyName = "Reversed, Default, Disabled"
-ReversedDefaultDisabled.parameters = { ...reversedBg }
+ReversedDefaultDisabled.story = {
+  name: "Reversed, Default, Disabled",
+  parameters: {
+    ...reversedBg,
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17183"
+    ),
+  },
+}
 
 export const ReversedDefaultWorking = () => (
   <Button
@@ -250,10 +380,14 @@ export const ReversedDefaultWorking = () => (
     workingLabelHidden
   />
 )
-
 ReversedDefaultWorking.story = {
   name: "Reversed, Default, Working",
-  parameters: { ...reversedBg },
+  parameters: {
+    ...reversedBg,
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17187"
+    ),
+  },
 }
 
 export const ReversedPrimary = args => (
@@ -265,8 +399,15 @@ export const ReversedPrimary = args => (
     {...args}
   />
 )
-ReversedPrimary.storyName = "Reversed, Primary"
-ReversedPrimary.parameters = { ...reversedBg }
+ReversedPrimary.story = {
+  name: "Reversed, Primary",
+  parameters: {
+    ...reversedBg,
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17191"
+    ),
+  },
+}
 
 export const ReversedPrimaryDisabled = args => (
   <Button
@@ -277,13 +418,13 @@ export const ReversedPrimaryDisabled = args => (
     {...args}
   />
 )
-ReversedPrimaryDisabled.storyName = "Reversed, Primary, Disabled"
-ReversedPrimaryDisabled.parameters = { ...reversedBg }
-
 ReversedPrimaryDisabled.story = {
   name: "Reversed, Primary, Disabled",
   parameters: {
-    backgrounds: { default: "Wisteria 700" },
+    ...reversedBg,
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17203"
+    ),
   },
 }
 
@@ -297,17 +438,28 @@ export const ReversedPrimaryWorking = () => (
     workingLabelHidden
   />
 )
-
 ReversedPrimaryWorking.story = {
   name: "Reversed, Primary, Working",
-  parameters: { ...reversedBg },
+  parameters: {
+    ...reversedBg,
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17215"
+    ),
+  },
 }
 
 export const ReversedSecondary = args => (
   <Button label="Label" secondary={true} reversed={true} {...args} />
 )
-ReversedSecondary.storyName = "Reversed, Secondary"
-ReversedSecondary.parameters = { ...reversedBg }
+ReversedSecondary.story = {
+  name: "Reversed, Secondary",
+  parameters: {
+    ...reversedBg,
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17195"
+    ),
+  },
+}
 
 export const ReversedSecondaryDisabled = args => (
   <Button
@@ -318,13 +470,13 @@ export const ReversedSecondaryDisabled = args => (
     {...args}
   />
 )
-ReversedSecondaryDisabled.storyName = "Reversed, Secondary, Disabled"
-ReversedSecondaryDisabled.parameters = { ...reversedBg }
-
 ReversedSecondaryDisabled.story = {
   name: "Reversed, Secondary, Disabled",
   parameters: {
-    backgrounds: { default: "Wisteria 700" },
+    ...reversedBg,
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17195"
+    ),
   },
 }
 
@@ -338,10 +490,14 @@ export const ReversedSecondaryWorking = () => (
     workingLabelHidden
   />
 )
-
 ReversedSecondaryWorking.story = {
   name: "Reversed, Secondary, Working",
-  parameters: { ...reversedBg },
+  parameters: {
+    ...reversedBg,
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17219"
+    ),
+  },
 }
 
 export const ReversedSecondaryWIcon = args => (
@@ -353,8 +509,15 @@ export const ReversedSecondaryWIcon = args => (
     {...args}
   />
 )
-ReversedSecondaryWIcon.storyName = "Reversed, Secondary w/ Icon"
-ReversedSecondaryWIcon.parameters = { ...reversedBg }
+ReversedSecondaryWIcon.story = {
+  name: "Reversed, Secondary w/ Icon",
+  parameters: {
+    ...reversedBg,
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A16959"
+    ),
+  },
+}
 
 export const ReversedSecondaryWIconDisabled = args => (
   <Button
@@ -366,17 +529,29 @@ export const ReversedSecondaryWIconDisabled = args => (
     {...args}
   />
 )
-ReversedSecondaryWIconDisabled.storyName =
-  "Reversed, Secondary w/ Icon, Disabled"
-ReversedSecondaryWIconDisabled.parameters = { ...reversedBg }
+ReversedSecondaryWIconDisabled.story = {
+  name: "Reversed, Secondary w/ Icon, Disabled",
+  parameters: {
+    ...reversedBg,
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A16975"
+    ),
+  },
+}
 
 export const TypeSubmit = args => (
   <Button label="Label" type="submit" {...args} />
 )
-TypeSubmit.storyName = "Type, Submit"
+TypeSubmit.story = {
+  name: "Type, Submit",
+  parameters: {},
+}
 
 export const TypeReset = args => <Button label="Label" type="reset" {...args} />
-TypeReset.storyName = "Type, Reset"
+TypeReset.story = {
+  name: "Type, Reset",
+  parameters: {},
+}
 
 export const OverflowingTextIconLabelTestCase = args => (
   <div style={{ width: 120 }}>
@@ -388,8 +563,10 @@ export const OverflowingTextIconLabelTestCase = args => (
     />
   </div>
 )
-OverflowingTextIconLabelTestCase.storyName =
-  "Overflowing text, Icon + Label (test case)"
+OverflowingTextIconLabelTestCase.story = {
+  name: "Overflowing text, Icon + Label (test case)",
+  parameters: {},
+}
 
 export const OverflowingTextFormTestCase = args => (
   <div style={{ width: 120 }}>
@@ -402,6 +579,10 @@ export const OverflowingTextFormTestCase = args => (
     />
   </div>
 )
+OverflowingTextFormTestCase.story = {
+  name: "Overflowing text, Form (test case)",
+  parameters: {},
+}
 
 export const FocusExample = args => {
   const ref = useRef<ButtonRef>()
@@ -422,8 +603,10 @@ export const FocusExample = args => {
     </>
   )
 }
-
-OverflowingTextFormTestCase.storyName = "Overflowing text, Form (test case)"
+FocusExample.story = {
+  name: "Focus example",
+  parameters: {},
+}
 
 export const MultipleButtons = args => (
   <div>
@@ -431,6 +614,14 @@ export const MultipleButtons = args => (
     <Button label="Exit" data-automation-id="demo-button-2" {...args} />
   </div>
 )
+MultipleButtons.story = {
+  name: "Multiple Buttons",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14504%3A74951"
+    ),
+  },
+}
 
 export const CustomComponent = args => {
   const CustomLink = (buttonProps: CustomButtonProps) => (
@@ -441,4 +632,8 @@ export const CustomComponent = args => {
   return (
     <Button label="Custom component button" component={CustomLink} {...args} />
   )
+}
+CustomComponent.story = {
+  name: "Custom Component",
+  parameters: {},
 }

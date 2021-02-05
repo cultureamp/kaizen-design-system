@@ -6,6 +6,8 @@ import {
   ScaleItem,
 } from "@kaizen/draft-likert-scale-legacy"
 import { Heading } from "@kaizen/component-library"
+import { withDesign } from "storybook-addon-designs"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "LikertScaleLegacy (React)",
@@ -16,6 +18,9 @@ export default {
         import { LikertScale } from "@kaizen/draft-likert-scale-legacy";
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14473%3A61902"
+    ),
   },
 }
 

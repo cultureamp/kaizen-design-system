@@ -1,9 +1,11 @@
 import { MenuItem, MenuContent } from "@kaizen/draft-menu"
 import { SplitButton } from "@kaizen/draft-split-button"
 import * as React from "react"
+import { withDesign } from "storybook-addon-designs"
 
 import duplicateIcon from "@kaizen/component-library/icons/duplicate.icon.svg"
 import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "SplitButton (React)",
@@ -15,7 +17,11 @@ export default {
       import { SplitButton } from "@kaizen/draft-split-button"
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14512%3A404"
+    ),
   },
+  decorators: [withDesign],
 }
 
 export const DefaultItemsAbove = () => (

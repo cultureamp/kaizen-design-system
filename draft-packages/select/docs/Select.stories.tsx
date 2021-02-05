@@ -1,6 +1,8 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { AsyncSelect, Select } from "@kaizen/draft-select"
 import * as React from "react"
+import { withDesign } from "storybook-addon-designs"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => (
   <div style={{ width: "300px", margin: "12px auto" }}>{children}</div>
@@ -68,7 +70,11 @@ export default {
       import { AsyncSelect, Select } from "@kaizen/draft-select"
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14321%3A65630"
+    ),
   },
+  decorators: [withDesign],
 }
 
 export const Single = () => (

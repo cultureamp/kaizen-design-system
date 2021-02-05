@@ -8,8 +8,10 @@ import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import kebabIcon from "@kaizen/component-library/icons/kebab.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
-
+import { withDesign } from "storybook-addon-designs"
 import React, { useState } from "react"
+import { figmaEmbed } from "../../../storybook/helpers"
+
 import {
   Menu,
   MenuContent,
@@ -70,7 +72,11 @@ export default {
         import { Menu, MenuHeader, MenuItem, MenuContent, MenuSeparator } from "@kaizen/draft-menu";
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=6262%3A1233"
+    ),
   },
+  decorators: [withDesign],
 }
 
 export const LabelAndIcon = () => (

@@ -4,6 +4,7 @@ import { CheckboxField } from "@kaizen/draft-form"
 import * as React from "react"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUpIcon from "@kaizen/component-library/icons/chevron-up.icon.svg"
+import { withDesign } from "storybook-addon-designs"
 import {
   TableCard,
   TableContainer,
@@ -13,6 +14,7 @@ import {
   TableRow,
   TableRowCell,
 } from ".."
+import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./Table.stories.scss"
 
 const Container: React.FunctionComponent<{
@@ -119,7 +121,11 @@ export default {
         "import { TableCard, TableContainer, TableHeader, TableHeaderRow, " +
         'TableHeaderRowCell, TableRow, TableRowCell } from "@kaizen/draft-table"',
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A28358"
+    ),
   },
+  decorators: [withDesign],
 }
 
 export const DefaultKaizenSiteDemo = () => (
