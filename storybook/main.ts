@@ -21,6 +21,7 @@ module.exports = {
     path.resolve("./storybook/theme-switcher-addon/register"),
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",
+    "storybook-addon-designs",
   ],
   presets: [path.resolve("./storybook/header-preset/preset")],
   webpackFinal: (config, { configType }) => {

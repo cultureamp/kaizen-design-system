@@ -1,5 +1,7 @@
 import { Tag } from "@kaizen/draft-tag"
 import * as React from "react"
+import { withDesign } from "storybook-addon-designs"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 const StoryContainer = ({ children }: { children: React.ReactNode }) => (
   <div style={{ width: "100%", display: "flex", justifyContent: "center" }}>
@@ -16,7 +18,11 @@ export default {
       import { Tag } from "@kaizen/draft-tag"
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14473%3A90332"
+    ),
   },
+  decorators: [withDesign],
 }
 
 export const DefaultMediumKaizenSiteDemo = () => (

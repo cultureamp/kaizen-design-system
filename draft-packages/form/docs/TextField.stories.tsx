@@ -2,10 +2,12 @@ import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 
 import React, { useCallback, useRef } from "react"
 import { Tooltip } from "@kaizen/draft-tooltip"
+import { withDesign } from "storybook-addon-designs"
 
 import { TextField } from "@kaizen/draft-form"
 import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 const ExampleContainer: React.FunctionComponent = ({ children }) => (
   <div style={{ width: "98%", margin: "1%" }}>{children}</div>
@@ -26,7 +28,11 @@ export default {
       import { TextField } from "@kaizen/draft-form"
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14363%3A67837"
+    ),
   },
+  decorators: [withDesign],
 }
 
 export const DefaultKaizenSiteDemo = () => (
