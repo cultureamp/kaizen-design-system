@@ -1,4 +1,4 @@
-import { Paragraph } from "@kaizen/component-library"
+import { Box, Heading, Paragraph } from "@kaizen/component-library"
 import { Button } from "@kaizen/draft-button"
 import { TextField } from "@kaizen/draft-form"
 import {
@@ -17,9 +17,21 @@ import {
 import * as React from "react"
 import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
+import { withDesign } from "storybook-addon-designs"
+import { BenefitsSurvey, Negative } from "@kaizen/draft-illustration"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 import styles from "./Modal.stories.scss"
 
+const Padding = ({
+  size = 1,
+}: {
+  size?: React.ComponentProps<typeof Box>["p"]
+}) => (
+  <Box pb={size} pr={size}>
+    {" "}
+  </Box>
+)
 class ModalStateContainer extends React.Component<
   {
     isInitiallyOpen: boolean
@@ -53,7 +65,11 @@ export default {
         "ModalAccessibleDescription, ModalAccessibleLabel, ModalBody, ModalFooter, " +
         'ModalHeader } from "@kaizen/draft-modal"',
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A35440"
+    ),
   },
+  decorators: [withDesign],
 }
 
 export const ConfirmationPositiveKaizenSiteDemo = () => (
@@ -539,6 +555,115 @@ export const InformationWithBackground = () => (
 )
 
 InformationWithBackground.storyName = "Information (with background)"
+
+export const InformationWithSecondaryAction = () => (
+  <ModalStateContainer isInitiallyOpen={false}>
+    {({ open, close, isOpen }) => (
+      <div>
+        <Button label="Open modal" onClick={open} />
+        <InformationModal
+          secondaryLabel="Keep using Edge"
+          onSecondaryAction={close}
+          confirmLabel="Open in Edge"
+          onConfirm={close}
+          isOpen={isOpen}
+          title="Information modal title"
+          onDismiss={close}
+          renderBackground={() => (
+            <div className={styles.background}>
+              <div className={styles.illustration} />
+            </div>
+          )}
+        >
+          <ModalAccessibleDescription>
+            <Paragraph variant="body">
+              Intro defining what the modal is trying to explain or depict.
+              Intro defining what the modal is trying to explain or depict.
+            </Paragraph>
+          </ModalAccessibleDescription>
+          <ul>
+            <li>
+              <Paragraph variant="body">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              </Paragraph>
+            </li>
+            <li>
+              <Paragraph variant="body">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Eligendi.
+              </Paragraph>
+            </li>
+            <li>
+              <Paragraph variant="body">Lorem ipsum dolor sit amet.</Paragraph>
+            </li>
+          </ul>
+          <Paragraph variant="body">
+            More information to conclude can go here. More information to
+            conclude can go here. More information to conclude can go here.
+          </Paragraph>
+        </InformationModal>
+      </div>
+    )}
+  </ModalStateContainer>
+)
+
+InformationWithSecondaryAction.storyName = "Information (with secondary action)"
+
+export const InformationModalWithImage = () => (
+  <ModalStateContainer isInitiallyOpen={false}>
+    {({ open, close, isOpen }) => (
+      <div>
+        <Button label="Open modal" onClick={open} />
+        <InformationModal
+          secondaryLabel="Continue with current browser"
+          onSecondaryAction={close}
+          confirmLabel="Launch in Edge"
+          onConfirm={close}
+          isOpen={isOpen}
+          title="You're using an outdated browser"
+          onDismiss={close}
+          image={
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                textAlign: "center",
+                height: "100%",
+              }}
+            >
+              <Negative alt="stock" />
+              <div style={{ flex: 1 }} />
+              <Paragraph variant="small" color="dark-reduced-opacity">
+                Cool kids don't use IE11 just sayin
+              </Paragraph>
+            </div>
+          }
+        >
+          <ModalAccessibleDescription>
+            <Heading variant="heading-4">
+              Internet Explorer 11 is no longer supported by Culture Amp
+            </Heading>
+          </ModalAccessibleDescription>
+          <Padding />
+          <Paragraph variant="body">
+            You can continue to use Culture Amp, however some features may not
+            display correctly. For the best experience, we recommend switching
+            to Microsoft Edge, or a similar modern browser.
+          </Paragraph>
+          <Padding />
+          <Paragraph variant="body">
+            We've detected you already have Edge installed. Click the link below
+            to continue your session in Edge.
+          </Paragraph>
+        </InformationModal>
+      </div>
+    )}
+  </ModalStateContainer>
+)
+
+InformationModalWithImage.storyName =
+  "Information (with image) - Outdated browser demo"
 
 export const GenericModalPadded = () => (
   <>

@@ -1,9 +1,17 @@
 import * as React from "react"
 
 import { LoadingSpinner } from "@kaizen/draft-loading-spinner"
+import { withDesign } from "storybook-addon-designs"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "LoadingSpinner (React)",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A20943"
+    ),
+  },
+  decorators: [withDesign],
 }
 
 export const DefaultStory = () => (

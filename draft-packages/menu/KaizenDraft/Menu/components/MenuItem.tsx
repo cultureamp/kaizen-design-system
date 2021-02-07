@@ -25,6 +25,12 @@ export type MenuItemProps = {
   destructive?: boolean
   disabled?: boolean
   automationId?: string
+  /**
+   * Not recommended - this was added for use in exceptional cases like the navigation bar, which needs
+   * to highlight which page the user is currently on. By design, Menus don't have active items,
+   * because they are supposed to be a bunch of links/actions.
+   */
+  isActive?: boolean
 }
 
 const MenuItem = (props: MenuItemProps) => {
@@ -38,6 +44,7 @@ const MenuItem = (props: MenuItemProps) => {
     onClick,
     href,
     target,
+    isActive,
   } = props
 
   const wrappedLabel = <span className={styles.menuItem__Label}>{label}</span>
@@ -50,6 +57,7 @@ const MenuItem = (props: MenuItemProps) => {
   const className = classNames(styles.menuItem, {
     [styles["menuItem--destructive"]]: destructive,
     [styles["menuItem--disabled"]]: disabled,
+    [styles["menuItem--active"]]: isActive,
   })
 
   // Use the legacy `action` property, if the new onClick or href as not supplied
@@ -82,6 +90,9 @@ const MenuItem = (props: MenuItemProps) => {
         className={className}
         data-automation-id={automationId}
         target={target}
+        // this tells screenreaders that this link represents the current page
+        // (only intended for use in things like a nav with dropdowns)
+        aria-current={isActive ? "page" : undefined}
       >
         {iconNode}
         {wrappedLabel}

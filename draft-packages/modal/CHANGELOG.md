@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.1.1...@kaizen/draft-modal@5.1.2) (2021-02-05)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [5.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.1.0...@kaizen/draft-modal@5.1.1) (2021-02-02)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+# [5.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.0.1...@kaizen/draft-modal@5.1.0) (2021-02-01)
+
+
+### Features
+
+* Information modal design changes with added support for images and secondary actions ([#983](https://github.com/cultureamp/kaizen-design-system/issues/983)) ([a452632](https://github.com/cultureamp/kaizen-design-system/commit/a4526322c2a4b4d18f733fd1a4409f1bb8e61280))
+
+
+
+
+
 ## [5.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.0.0...@kaizen/draft-modal@5.0.1) (2021-01-28)
 
 **Note:** Version bump only for package @kaizen/draft-modal

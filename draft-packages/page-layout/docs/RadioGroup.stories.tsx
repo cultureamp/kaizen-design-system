@@ -1,5 +1,7 @@
 import { Label, RadioField, RadioGroup } from "@kaizen/draft-form"
 import * as React from "react"
+import { withDesign } from "storybook-addon-designs"
+import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./RadioGroup.stories.scss"
 
 type RenderProps = {
@@ -44,7 +46,11 @@ export default {
       import { RadioGroup } from "@kaizen/draft-form"
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=4496%3A481"
+    ),
   },
+  decorators: [withDesign],
 }
 
 export const DefaultKaizenSiteDemo = () => (

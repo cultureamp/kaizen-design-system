@@ -8,8 +8,10 @@ import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import kebabIcon from "@kaizen/component-library/icons/kebab.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
-
+import { withDesign } from "storybook-addon-designs"
 import React, { useState } from "react"
+import { figmaEmbed } from "../../../storybook/helpers"
+
 import {
   Menu,
   MenuContent,
@@ -70,7 +72,11 @@ export default {
         import { Menu, MenuHeader, MenuItem, MenuContent, MenuSeparator } from "@kaizen/draft-menu";
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=6262%3A1233"
+    ),
   },
+  decorators: [withDesign],
 }
 
 export const LabelAndIcon = () => (
@@ -85,6 +91,47 @@ export const LabelAndIcon = () => (
 )
 
 LabelAndIcon.storyName = "Label and Icon (Kaizen Site Demo)"
+
+export const AutoHideBehaviours = () => (
+  <StoryWrapper>
+    <Box mb={1}>
+      <Paragraph variant="body">
+        Auto hide turned on (default behaviour):
+      </Paragraph>
+      <Menu
+        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+        dropdownId="dropdown"
+        autoHide="on"
+      >
+        <MenuInstance />
+      </Menu>
+    </Box>
+    <Box mb={1}>
+      <Paragraph variant="body">
+        Auto hide when clicking outside the menu, but not inside:
+      </Paragraph>
+      <Menu
+        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+        dropdownId="dropdown"
+        autoHide="outside-click-only"
+      >
+        <MenuInstance />
+      </Menu>
+    </Box>
+    <Box mb={1}>
+      <Paragraph variant="body">Auto hide turned off:</Paragraph>
+      <Menu
+        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+        dropdownId="dropdown"
+        autoHide="off"
+      >
+        <MenuInstance />
+      </Menu>
+    </Box>
+  </StoryWrapper>
+)
+
+AutoHideBehaviours.storyName = "Auto hide behaviours"
 
 export const LabelAndIconReversed = () => (
   <StoryWrapper>
@@ -231,3 +278,66 @@ export const DropdownWidthContain = () => (
 )
 
 DropdownWidthContain.storyName = 'Label and Icon (dropdownWidth="contain")'
+
+export const MenuPositioning = () => (
+  <StoryWrapper>
+    <Paragraph variant="body">
+      Note that this menu is near the top of page. Resize your browser so it's
+      about 300px high. Note that the menu still shows below the menu button.
+    </Paragraph>
+    <Menu
+      button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+    >
+      <MenuInstance />
+    </Menu>
+    <div
+      style={{
+        height: "500px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
+      }}
+    >
+      <Paragraph variant="body">
+        Note that this menu is near the bottom of the page. If there is no room
+        below, it will display above the menu button.
+      </Paragraph>
+      <Menu
+        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+      >
+        <MenuInstance />
+      </Menu>
+    </div>
+  </StoryWrapper>
+)
+
+MenuPositioning.storyName = "Menu positioning"
+
+export const MenuWithActiveItem = () => (
+  <StoryWrapper>
+    <Box mt={2} mx={2}>
+      <Box mb={1}>
+        <Paragraph variant="body">
+          Menus don't usually have "active" items, since they are just a
+          collection of links or actions, but in non-standard cases like the
+          navigation bar, the `isActive` prop provides a way to do this.
+        </Paragraph>
+      </Box>
+      <Menu
+        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+      >
+        <MenuContent>
+          <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+          <MenuItem
+            action="https://www.cultureamp.com/"
+            label="Menu link"
+            isActive
+          />
+          <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+        </MenuContent>
+      </Menu>
+    </Box>
+  </StoryWrapper>
+)
+
+MenuWithActiveItem.storyName = "Menu with active item"

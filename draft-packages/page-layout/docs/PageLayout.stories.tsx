@@ -1,7 +1,9 @@
 import * as React from "react"
 import { Box, Paragraph } from "@kaizen/component-library"
 import { NavigationTab, TitleBlockZen } from "@kaizen/draft-title-block-zen"
+import { withDesign } from "storybook-addon-designs"
 import { Container, Content, Skirt, SkirtCard } from ".."
+import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./PageLayout.stories.scss"
 
 export default {
@@ -14,6 +16,7 @@ export default {
       `,
     },
   },
+  decorators: [withDesign],
 }
 
 const OffsetPadding = ({ children }: { children: React.ReactNode }) => (
@@ -137,7 +140,14 @@ export const SkirtStory = () => (
   </>
 )
 
-SkirtStory.storyName = "Skirt (default)"
+SkirtStory.story = {
+  name: "Skirt (default)",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=6243%3A4094"
+    ),
+  },
+}
 
 export const SkirtEducationVariant = () => (
   <>
@@ -168,7 +178,14 @@ export const SkirtEducationVariant = () => (
   </>
 )
 
-SkirtEducationVariant.storyName = "Skirt (Education variant)"
+SkirtEducationVariant.story = {
+  name: "Skirt (Education variant)",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=6243%3A4094"
+    ),
+  },
+}
 
 export const SkirtWithoutTitleBlockNavigation = () => (
   <>
@@ -237,8 +254,14 @@ export const SkirtWithoutTitleBlockNavigation = () => (
   </>
 )
 
-SkirtWithoutTitleBlockNavigation.storyName =
-  "Skirt (Title Block without navigation)"
+SkirtWithoutTitleBlockNavigation.story = {
+  name: "Skirt (Title Block without navigation)",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=6243%3A4094"
+    ),
+  },
+}
 
 export const WithoutSkirtCard = () => (
   <>
@@ -279,4 +302,11 @@ export const WithoutSkirtCard = () => (
   </>
 )
 
-WithoutSkirtCard.storyName = "Skirt (without SkirtCard)"
+WithoutSkirtCard.story = {
+  name: "Skirt (without SkirtCard)",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=6243%3A4094"
+    ),
+  },
+}

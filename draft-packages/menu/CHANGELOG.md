@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.8.0...@kaizen/draft-menu@2.8.1) (2021-02-05)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+# [2.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.7.1...@kaizen/draft-menu@2.8.0) (2021-02-03)
+
+
+### Features
+
+* Add active state prop to menu items ([#996](https://github.com/cultureamp/kaizen-design-system/issues/996)) ([d1e25ba](https://github.com/cultureamp/kaizen-design-system/commit/d1e25ba06b94fddffabd3e67d013cc23547e4d4f))
+
+
+
+
+
+## [2.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.7.0...@kaizen/draft-menu@2.7.1) (2021-02-02)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+# [2.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.6.0...@kaizen/draft-menu@2.7.0) (2021-02-01)
+
+
+### Features
+
+* Fix menu position, when not enough room above the toggle button ([#987](https://github.com/cultureamp/kaizen-design-system/issues/987)) ([7c0df19](https://github.com/cultureamp/kaizen-design-system/commit/7c0df195a0d58ec06b140808122631bd08f5c9ec))
+
+
+
+
+
+# [2.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.5.10...@kaizen/draft-menu@2.6.0) (2021-02-01)
+
+
+### Features
+
+* Add ability to change the Menu auto hide behaviour ([#984](https://github.com/cultureamp/kaizen-design-system/issues/984)) ([6e9de4c](https://github.com/cultureamp/kaizen-design-system/commit/6e9de4cd81c399e06e2324f67e44e1eaafe41fa9))
+
+
+
+
+
 ## [2.5.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.5.9...@kaizen/draft-menu@2.5.10) (2021-01-18)
 
 **Note:** Version bump only for package @kaizen/draft-menu

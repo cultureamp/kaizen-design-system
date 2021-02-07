@@ -1,5 +1,7 @@
 import { CheckboxGroup, CheckboxField, Label } from "@kaizen/draft-form"
 import * as React from "react"
+import { withDesign } from "storybook-addon-designs"
+import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./CheckboxGroup.stories.scss"
 
 interface RenderProps {
@@ -49,7 +51,11 @@ export default {
         import { CheckboxGroup } from "@kaizen/draft-form";
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14533%3A69854"
+    ),
   },
+  decorators: [withDesign],
 }
 
 export const InteractiveKaizenSiteDemo = () => (

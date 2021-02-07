@@ -1,6 +1,8 @@
 import { Heading, Paragraph } from "@kaizen/component-library"
 import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
 import * as React from "react"
+import { withDesign } from "storybook-addon-designs"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 import styles from "./LoadingPlaceholder.stories.scss"
 
@@ -17,7 +19,11 @@ export default {
       import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=4496%3A2"
+    ),
   },
+  decorators: [withDesign],
 }
 
 export const DefaultMultipleKaizenSiteDemo = () => (

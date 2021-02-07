@@ -1,10 +1,17 @@
 import { Box, Paragraph } from "@kaizen/component-library"
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
+import { withDesign } from "storybook-addon-designs"
 import { Card } from ".."
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "Card (React)",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A14085"
+    ),
+  },
+  decorators: [withDesign],
 }
 
 export const DefaultStory = () => <Card>This is a default card</Card>

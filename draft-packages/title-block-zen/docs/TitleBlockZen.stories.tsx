@@ -7,12 +7,20 @@ import reportSharingIcon from "@kaizen/component-library/icons/report-sharing.ic
 import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import { assetUrl } from "@kaizen/hosted-assets"
 import { Container, Content, Skirt, SkirtCard } from "@kaizen/draft-page-layout"
+import { withDesign } from "storybook-addon-designs"
 import { NavigationTab, TitleBlockZen } from ".."
+import { figmaEmbed } from "../../../storybook/helpers"
 
 import styles from "./TitleBlockZen.stories.scss"
 
 export default {
   title: "TitleBlockZen (React)",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=4619%3A17068"
+    ),
+  },
+  decorators: [withDesign],
 }
 
 const OffsetPadding = ({ children }: { children: React.ReactNode }) => (

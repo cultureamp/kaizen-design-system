@@ -95,6 +95,11 @@ $side-padding: 1/2 * $ca-grid;
   color: rgba($kz-color-wisteria-800, 0.3);
 }
 
+.menuItem--active {
+  color: $kz-color-cluny-500;
+  font-weight: $kz-typography-paragraph-bold-font-weight;
+}
+
 .menuItem--destructive {
   color: $kz-color-coral-600;
   .menuItem__Icon {

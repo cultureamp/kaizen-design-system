@@ -1,6 +1,8 @@
 import { Button } from "@kaizen/component-library"
 import { HeroCard } from "@kaizen/draft-hero-card"
 import * as React from "react"
+import { withDesign } from "storybook-addon-designs"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 const surveyIllustration = require("./survey.png")
 
@@ -33,7 +35,11 @@ export default {
         import { HeroCard } from "@kaizen/draft-hero-card";
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=3568%3A150"
+    ),
   },
+  decorators: [withDesign],
 }
 
 export const DefaultKaizenSiteDemo = () => (

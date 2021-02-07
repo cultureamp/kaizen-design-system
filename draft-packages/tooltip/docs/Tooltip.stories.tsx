@@ -2,10 +2,18 @@ import * as React from "react"
 
 import { Paragraph } from "@kaizen/component-library"
 import { Tag } from "@kaizen/draft-tag"
+import { withDesign } from "storybook-addon-designs"
 import { Tooltip } from "@kaizen/draft-tooltip"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "Tooltip (React)",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14473%3A90872"
+    ),
+  },
+  decorators: [withDesign],
 }
 
 export const DefaultBelowKaizenSiteDemo = () => (
