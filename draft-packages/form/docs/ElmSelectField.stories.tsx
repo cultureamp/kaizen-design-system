@@ -1,4 +1,4 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
+import { loadElmStories } from "elm-storybook"
 import Ports from "@kaizen/draft-select/KaizenDraft/Select/ports"
 
 const compiledElm = require("../ElmStories/SelectFieldStories.elm").Elm

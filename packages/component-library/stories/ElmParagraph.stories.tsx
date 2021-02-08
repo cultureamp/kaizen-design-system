@@ -1,4 +1,4 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
+import { loadElmStories } from "elm-storybook"
 const compiledElm = require("../ElmStories/ParagraphStories.elm").Elm.ElmStories
   .ParagraphStories
 

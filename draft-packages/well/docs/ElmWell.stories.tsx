@@ -1,6 +1,13 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
+import { loadElmStories } from "elm-storybook"
 const compiledElm = require("../ElmStories/WellStories.elm").Elm.ElmStories
   .WellStories
+
+import React from "react"
+import { storiesOf } from "@storybook/react"
+
+storiesOf("ElmWell", module).add("with some emoji", () => (
+  <div> 😀 😎 👍 💯</div>
+))
 
 loadElmStories("Well (Elm)", module, compiledElm, [
   "Default with solid border",

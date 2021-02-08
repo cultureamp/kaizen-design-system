@@ -38,7 +38,7 @@
     "react-animate-height": "^2.0.15"
   },
   "devDependencies": {
-    "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.2.1",
+    "elm-storybook": "cultureamp/elm-storybook#0.2.1",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
