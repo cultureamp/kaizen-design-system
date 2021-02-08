@@ -1,1 +1,1 @@
-require("./.danger/dangerfile")
+import "./.danger/dangerfile"
