@@ -30,10 +30,6 @@ jobs:
           path: "**/node_modules"
           key: ${{ runner.os }}-${{ hashFiles('package.json') }}
 
-      - name: Install dependencies and build
-        run: |
-          [ ! -d node_modules ] && yarn install
-
       - name: Danger
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
