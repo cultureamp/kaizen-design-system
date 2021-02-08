@@ -1,33 +1,41 @@
-import { Theme } from "./types"
 import { flattenObjectToCSSVariables } from "./utils"
-export class CSSVariableThemeManager {
-  /*   private installedCssVariables: Record<string, string> = {} */
-
+/**
+ * Use this class to manage theme variables, and which theme is active.
+ * This class fulfills the idea of theming and runtime theme switching by relying on CSS variables,
+ * and the ability to update them in JavaScript - a framework agnostic method.
+ *
+ * It works by converting a Theme interface to a flattened map of CSS variable keys and values, then calling `document.documentElement.style.setProperty(key, value)`.
+ */
+export class CSSVariableThemeManager<
+  Theme extends import("./types").Theme = import("./types").Theme
+> {
   constructor(
     private theme: Theme,
     private rootElement = document.documentElement
   ) {
     this.setTheme(theme)
   }
-
-  get currentTheme() {
-    return this.theme
+  public getCurrentTheme = () => this.theme
+  public getCssVariableThemeKey = () => {
+    const justTheKey = flattenObjectToCSSVariables({
+      kz: { themeKey: this.theme.themeKey },
+    })
+    return this.rootElement.style.getPropertyValue(justTheKey["--kz-theme-key"])
   }
-  public setTheme(theme: Theme) {
+  public setTheme = (theme: Theme) => {
     if (this.theme === theme) return
+
+    // This case will happen if you load a theme initially using CSS.
+    if (theme.themeKey !== this.getCssVariableThemeKey()) {
+      this.theme = theme
+      return
+    }
     const cssVariablesOfTheme = flattenObjectToCSSVariables({
       kz: theme,
     })
+
     Object.entries(cssVariablesOfTheme).forEach(([key, value]) => {
       this.rootElement.style.setProperty(key, value)
     })
-    this.theme = theme
   }
-  /*
-  private uninstallCurrentVariables() {
-    Object.keys(this.installedCssVariables).forEach(key =>
-      this.rootElement.style.removeProperty(key)
-    )
-    this.installedCssVariables = {}
-  } */
 }

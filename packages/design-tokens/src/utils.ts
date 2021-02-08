@@ -93,15 +93,26 @@ export const makeCSSVariableTheme = (theme: Theme) =>
  * Use this to generate an object containing `${key}: value`, `${key}-default: value`, and `${key}-rgb-params: rgb(r, g, b)` if the value is a color.
  * This is for augmenting a CSS variable to support our solution to regression issues with using CSS variables instead of concrete values.
  */
-const augmentCssVariable = (key: string, value: unknown) => {
+export const augmentCssVariable = (
+  key: string,
+  value: unknown,
+  {
+    augmentWithDefault = true,
+    augmentWithRgbParams = true,
+  }: {
+    augmentWithDefault?: boolean
+    augmentWithRgbParams?: boolean
+  } = {}
+) => {
   const colorRgb = typeof value === "string" ? colorString.get.rgb(value) : null
 
   return {
     [key]: `${value}`,
-    [`${key}-default`]: `${value}`,
-    ...(colorRgb && {
-      [`${key}-rgb-params`]: colorRgb.slice(0, 3).join(", "),
-    }),
+    ...(augmentWithDefault && { [`${key}-default`]: `${value}` }),
+    ...(colorRgb &&
+      augmentWithRgbParams && {
+        [`${key}-rgb-params`]: colorRgb.slice(0, 3).join(", "),
+      }),
   }
 }
 
@@ -134,39 +145,15 @@ export const flattenObjectToCSSVariables = (
 
   // Shamelessly using a map function like a forEach
   mapLeafsOfObject(object, (path, value) => {
+    // Key will be `--kz-color-blah`
     const key = objectPathToCssVarIdentifier(path)
-    const cssVariablesOfToken = augmentCssVariable(key, value)
+    const cssVariablesOfToken = augmentCssVariable(key, value, {
+      augmentWithDefault: false,
+    })
     cssVariables = {
       ...cssVariables,
       ...cssVariablesOfToken,
     }
   })
   return cssVariables
-}
-
-/**
- * WIP: Need a better name and articulation of this.
- * Writing this as a solution to the add-alpha and add-tint/shade problem, and to spit out sass variables with `-default` and `-rgb-params` suffixes (where applicable).
- * We need to have additional tokens that reference variables, which contain a triple (R, G, B).
- * This triple can then be used within the CSS [runtime] function as a CSS variable, e.g. `rgba(var(--kz-color-wisteria-800-rgb))`.
- * Also adds extra keys as leaf siblings, named`${key}-default`, containing the value within the theme provided as the parameter.
- */
-/* export const addExtraTokensForRGBColors = (
-  theme: Theme
-): Record<string, unknown> => {} */
-
-export const augmentThemeWithRGBTripletsAndDefaults = (theme: Theme): Theme => {
-  const augmentedTheme: Record<string, unknown> = {}
-  mapLeafsOfObject(theme, (path, value) => {
-    const leafKey = path[path.length - 1]
-    const pathWithoutLast = path.slice(0, path.length - 1)
-    const leafObject = pathWithoutLast.reduce(
-      (child, segment) =>
-        (child[segment] || (child[segment] = {})) as Record<string, unknown>,
-      augmentedTheme as Record<string, unknown>
-    )
-    const cssVariablesOfToken = augmentCssVariable(leafKey, value)
-    Object.assign(leafObject, cssVariablesOfToken)
-  })
-  return augmentedTheme as Theme
 }
