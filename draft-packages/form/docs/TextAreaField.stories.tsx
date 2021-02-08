@@ -1,6 +1,7 @@
 import { TextAreaField } from "@kaizen/draft-form"
-
+import { withDesign } from "storybook-addon-designs"
 import React from "react"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 interface RenderProps {
   controlledValue: string
@@ -60,7 +61,11 @@ export default {
       import { TextAreaField } from "@kaizen/draft-form"
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14539%3A69482"
+    ),
   },
+  decorators: [withDesign],
 }
 
 export const DefaultKaizenSiteDemo = () => (

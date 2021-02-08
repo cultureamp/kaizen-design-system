@@ -3,6 +3,8 @@ import * as React from "react"
 
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
 import { assetUrl } from "@kaizen/hosted-assets"
+import { withDesign } from "storybook-addon-designs"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "GuidanceBlock (React)",
@@ -13,7 +15,11 @@ export default {
         import { GuidanceBlock } from "@kaizen/draft-guidance-block";
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A39077"
+    ),
   },
+  decorators: [withDesign],
 }
 
 const guidanceBlockText = {

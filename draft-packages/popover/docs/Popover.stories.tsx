@@ -3,6 +3,8 @@ import { Popover } from "@kaizen/draft-popover"
 import * as React from "react"
 import guidanceIcon from "@kaizen/component-library/icons/guidance.icon.svg"
 import { Avatar } from "@kaizen/draft-avatar"
+import { withDesign } from "storybook-addon-designs"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "Popover (React)",
@@ -13,7 +15,11 @@ export default {
       import { Popover } from "@kaizen/draft-popover"
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14473%3A63845"
+    ),
   },
+  decorators: [withDesign],
 }
 
 const Container = ({ children }: { children: React.ReactNode }) => (

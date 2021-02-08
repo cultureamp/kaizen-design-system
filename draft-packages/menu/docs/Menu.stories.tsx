@@ -8,8 +8,10 @@ import editIcon from "@kaizen/component-library/icons/edit.icon.svg"
 import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import kebabIcon from "@kaizen/component-library/icons/kebab.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
-
+import { withDesign } from "storybook-addon-designs"
 import React, { useState } from "react"
+import { figmaEmbed } from "../../../storybook/helpers"
+
 import {
   Menu,
   MenuContent,
@@ -70,7 +72,11 @@ export default {
         import { Menu, MenuHeader, MenuItem, MenuContent, MenuSeparator } from "@kaizen/draft-menu";
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=6262%3A1233"
+    ),
   },
+  decorators: [withDesign],
 }
 
 export const LabelAndIcon = () => (
@@ -306,3 +312,32 @@ export const MenuPositioning = () => (
 )
 
 MenuPositioning.storyName = "Menu positioning"
+
+export const MenuWithActiveItem = () => (
+  <StoryWrapper>
+    <Box mt={2} mx={2}>
+      <Box mb={1}>
+        <Paragraph variant="body">
+          Menus don't usually have "active" items, since they are just a
+          collection of links or actions, but in non-standard cases like the
+          navigation bar, the `isActive` prop provides a way to do this.
+        </Paragraph>
+      </Box>
+      <Menu
+        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+      >
+        <MenuContent>
+          <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+          <MenuItem
+            action="https://www.cultureamp.com/"
+            label="Menu link"
+            isActive
+          />
+          <MenuItem action="https://www.cultureamp.com/" label="Menu link" />
+        </MenuContent>
+      </Menu>
+    </Box>
+  </StoryWrapper>
+)
+
+MenuWithActiveItem.storyName = "Menu with active item"

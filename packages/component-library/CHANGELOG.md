@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.1.6...@kaizen/component-library@8.1.7) (2021-02-08)
+
+
+### Bug Fixes
+
+* Delete unused dependencies from component-library ([#1014](https://github.com/cultureamp/kaizen-design-system/issues/1014)) ([a548bb8](https://github.com/cultureamp/kaizen-design-system/commit/a548bb8b9323f03dcb14a59a07c815d9e66f7f57))
+
+
+
+
+
+## [8.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.1.5...@kaizen/component-library@8.1.6) (2021-02-08)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [8.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.1.4...@kaizen/component-library@8.1.5) (2021-02-05)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [8.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.1.3...@kaizen/component-library@8.1.4) (2021-02-02)
+
+
+### Bug Fixes
+
+* Remove hardcoded color from security-tip icon ([#995](https://github.com/cultureamp/kaizen-design-system/issues/995)) ([9d7d340](https://github.com/cultureamp/kaizen-design-system/commit/9d7d34022bc4cb8dfb92fceffbaa8a2066c906c9))
+
+
+
+
+
 ## [8.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.1.2...@kaizen/component-library@8.1.3) (2021-01-18)
 
 **Note:** Version bump only for package @kaizen/component-library

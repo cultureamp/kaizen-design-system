@@ -1,5 +1,7 @@
 import * as React from "react"
 import { SearchBox } from "@kaizen/draft-search-box"
+import { withDesign } from "storybook-addon-designs"
+import { figmaEmbed } from "../../../storybook/helpers"
 import styles from "./Searcbox.module.scss"
 
 export default {
@@ -11,7 +13,11 @@ export default {
         import { SearchBox } from "@kaizen/draft-SearchBox";
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14473%3A87007"
+    ),
   },
+  decorators: [withDesign],
 }
 
 export const DefaultStory = () => {
