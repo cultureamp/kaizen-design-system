@@ -40,7 +40,7 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "elm-storybook": "cultureamp/elm-storybook#0.2.1",
+    "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
