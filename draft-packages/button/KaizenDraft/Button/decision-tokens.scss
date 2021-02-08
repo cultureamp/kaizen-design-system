@@ -1,16 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
 
-// Zen theme
-$dt-color-background-active: $kz-color-wisteria-100;
-$dt-color-background-hover: $kz-color-wisteria-100;
-$dt-color-background-focus: $kz-color-wisteria-100;
-$dt-color-border-color-base: $kz-color-wisteria-500;
-$dt-color-border-color-hover: $kz-color-wisteria-700;
-$dt-color-border-color-focus: $kz-color-wisteria-700;
-$dt-color-border-color-disabled: $kz-color-wisteria-500;
-$dt-color-color-disabled: $kz-color-wisteria-800;
-
-// Heart theme overrides
 $dt-color-background-active: var(--kz-color-stone, $kz-color-wisteria-100);
 $dt-color-background-focus: var(--kz-color-stone, $kz-color-wisteria-100);
 $dt-color-background-hover: var(--kz-color-stone, $kz-color-wisteria-100);
