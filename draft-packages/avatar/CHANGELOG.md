@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.35](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.1.34...@kaizen/draft-avatar@1.1.35) (2021-02-08)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
 ## [1.1.34](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.1.33...@kaizen/draft-avatar@1.1.34) (2021-02-05)
 
 **Note:** Version bump only for package @kaizen/draft-avatar
