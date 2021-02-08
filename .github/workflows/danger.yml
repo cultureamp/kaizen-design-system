@@ -1,0 +1,28 @@
+name: Danger Systems
+on:
+  pull_request:
+    types:
+      [
+        assigned,
+        unassigned,
+        labeled,
+        unlabeled,
+        opened,
+        edited,
+        reopened,
+        synchronize,
+      ]
+
+jobs:
+  danger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Danger
+        uses: cultureamp/danger-systems-github-action@v1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          language: js
+          language-version: 14
