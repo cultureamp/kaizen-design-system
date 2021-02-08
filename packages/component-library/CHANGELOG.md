@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [8.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.1.6...@kaizen/component-library@8.1.7) (2021-02-08)
+
+
+### Bug Fixes
+
+* Delete unused dependencies from component-library ([#1014](https://github.com/cultureamp/kaizen-design-system/issues/1014)) ([a548bb8](https://github.com/cultureamp/kaizen-design-system/commit/a548bb8b9323f03dcb14a59a07c815d9e66f7f57))
+
+
+
+
+
+## [8.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.1.5...@kaizen/component-library@8.1.6) (2021-02-08)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [8.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.1.4...@kaizen/component-library@8.1.5) (2021-02-05)
 
 **Note:** Version bump only for package @kaizen/component-library

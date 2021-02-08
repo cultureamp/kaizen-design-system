@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-avatar",
-  "version": "1.1.34",
+  "version": "1.1.36",
   "description": "The draft avatar component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,7 +32,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^8.1.5",
+    "@kaizen/component-library": "^8.1.7",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",
     "react-textfit": "^1.1.0"
