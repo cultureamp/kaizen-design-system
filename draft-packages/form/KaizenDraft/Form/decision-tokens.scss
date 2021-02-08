@@ -1,86 +1,63 @@
 @import "~@kaizen/design-tokens/sass/color";
 
+// ${namespace}-${tokenType}-${component}-${property}-${variant}-{state}
+
 // General purpose tokens
-$dt-form-border-color: $kz-color-wisteria-500;
-$dt-form-border-color-hover: $kz-color-wisteria-700;
-$dt-form-border-color-focus: $kz-color-cluny-500;
-$dt-form-border-color-focus-reversed: $kz-color-cluny-300;
-$dt-form-text-color: $kz-color-wisteria-800;
-
-// Component-specific tokens
-$dt-toggle-background-color: $kz-color-wisteria-300;
-$dt-toggle-background-color-hover: $kz-color-wisteria-500;
-
-$dt-form-border-color: var(--kz-color-iron-500, $kz-color-wisteria-500);
-$dt-form-border-color-hover: var(--kz-color-slate-700, $kz-color-wisteria-700);
-$dt-toggle-background-color: var(--kz-color-ash, $kz-color-wisteria-300);
-$dt-toggle-background-color-hover: rgba(var(--kz-color-iron-500), 0.4);
-
-// taken from radio
-
-$dt-radio-color-border-color-base: $kz-color-wisteria-500;
-$dt-radio-color-disc-color-base: $kz-color-wisteria-700;
-$dt-radio-color-border-color-hover: $kz-color-wisteria-700;
-$dt-radio-color-background-color-hover: $kz-color-wisteria-100;
-
-// rebrand
-$dt-radio-color-border-color-base: var(
-  --kz-color-iron-500,
-  $kz-color-wisteria-500
-);
-$dt-radio-color-disc-color-base: var(
+$dt-color-form-border-color: var(--kz-color-iron-500, $kz-color-wisteria-500);
+$dt-color-form-border-color-focus: $kz-color-cluny-500;
+$dt-color-form-border-color-hover: var(
   --kz-color-slate-700,
   $kz-color-wisteria-700
 );
-$dt-radio-color-border-color-hover: var(
+$dt-color-form-border-color-reversed-focus: $kz-color-cluny-300;
+$dt-color-form-text-color: $kz-color-wisteria-800;
+$dt-color-form-text-color-reversed: $kz-color-white;
+$dt-color-form-color-icon-reversed: var(
   --kz-color-slate-700,
   $kz-color-wisteria-700
 );
-$dt-radio-color-background-color-hover: var(
+
+// component specific tokens
+$dt-color-checkbox-background-color-checked-focus: var(
+  --kz-color-slate-700,
+  $kz-color-wisteria-700
+);
+$dt-color-checkbox-background-color-unchecked-focus: var(
   --kz-color-stone,
   $kz-color-wisteria-100
 );
-
-//taken from checkbox
-$dt-checkbox-color-background-color-base: $kz-color-wisteria-700;
-$dt-checkbox-color-background-color-checked-focus: $kz-color-wisteria-700;
-$dt-checkbox-color-background-color-unchecked-focus: $kz-color-wisteria-100;
-$dt-checkbox-color-background-color-hover: $kz-color-wisteria-700;
-$dt-checkbox-color-background-color-unchecked-hover: $kz-color-wisteria-100;
-$dt-checkbox-color-border-color-checked-focus: $kz-color-wisteria-700;
-$dt-checkbox-color-border-color-focus: $kz-color-wisteria-700;
-$dt-checkbox-color-border-color-hover: $kz-color-wisteria-700;
-
-// Heart theme
-$dt-checkbox-color-background-color-base: var(
-  --kz-color-iron-500,
-  $kz-color-wisteria-700
-);
-$dt-checkbox-color-background-color-checked-focus: var(
+$dt-color-checkbox-background-color-hover: var(
   --kz-color-slate-700,
   $kz-color-wisteria-700
 );
-$dt-checkbox-color-background-color-unchecked-focus: var(
+$dt-color-checkbox-background-color-unchecked-hover: var(
   --kz-color-stone,
   $kz-color-wisteria-100
 );
-$dt-checkbox-color-background-color-hover: var(
+$dt-color-checkbox-border-color-checked-focus: var(
   --kz-color-slate-700,
   $kz-color-wisteria-700
 );
-$dt-checkbox-color-background-color-unchecked-hover: var(
+$dt-color-checkbox-border-color-focus: var(
+  --kz-color-slate-700,
+  $kz-color-wisteria-700
+);
+$dt-color-checkbox-border-color-hover: var(
+  --kz-color-slate-700,
+  $kz-color-wisteria-700
+);
+$dt-color-radio-disc-color-base: var(
+  --kz-color-slate-700,
+  $kz-color-wisteria-700
+);
+$dt-color-radio-background-color-hover: var(
   --kz-color-stone,
   $kz-color-wisteria-100
 );
-$dt-checkbox-color-border-color-checked-focus: var(
+$dt-color-radio-border-color-focus: var(
   --kz-color-slate-700,
   $kz-color-wisteria-700
 );
-$dt-checkbox-color-border-color-focus: var(
-  --kz-color-slate-700,
-  $kz-color-wisteria-700
-);
-$dt-checkbox-color-border-color-hover: var(
-  --kz-color-slate-700,
-  $kz-color-wisteria-700
-);
+$dt-color-toggle-background-color: var(--kz-color-ash, $kz-color-wisteria-300);
+$dt-color-toggle-background-color-hover: $kz-color-wisteria-500;
+$dt-color-toggle-background-color-hover: rgba(var(--kz-color-iron-500), 0.4);

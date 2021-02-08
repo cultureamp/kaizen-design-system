@@ -32,15 +32,6 @@
     margin-bottom: 0;
   }
 
-  @media (hover: hover) and (pointer: fine) {
-    label:hover {
-      input:not([disabled]) + div {
-        // border-color: $dt-checkbox-color-border-color-hover;
-        // background-color: $dt-checkbox-color-background-color-hover;
-      }
-    }
-  }
-
   &.checked,
   &.mixed {
     label {

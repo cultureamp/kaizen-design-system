@@ -30,7 +30,7 @@ $focus-ring-offset: 2px;
 }
 
 .icon.reversed {
-  color: $kz-color-wisteria-700;
+  color: $dt-color-form-color-icon-reversed;
 }
 
 .box {
@@ -41,38 +41,38 @@ $focus-ring-offset: 2px;
   width: $checkbox-size;
   top: 0;
   border: $kz-border-solid-border-width $kz-border-solid-border-style
-    $dt-form-border-color;
+    $dt-color-form-border-color;
   border-radius: $kz-border-solid-border-radius;
   box-sizing: border-box;
   background-color: white;
-  border-color: $dt-form-border-color;
+  border-color: $dt-color-form-border-color;
 
   .checkbox:checked + &,
   .checkbox:indeterminate + & {
-    background: $dt-form-border-color;
-    background-color: $dt-form-border-color;
+    background: $dt-color-form-border-color;
+    background-color: $dt-color-form-border-color;
   }
 
   .checkbox:focus + & {
     background: white;
-    border-color: $dt-form-border-color-hover;
+    border-color: $dt-color-form-border-color-hover;
   }
 
   .checkbox:checked:focus + &,
   .checkbox:indeterminate:focus + & {
-    background: $dt-form-border-color-hover;
-    border-color: $dt-form-border-color-hover;
+    background: $dt-color-form-border-color-hover;
+    border-color: $dt-color-form-border-color-hover;
   }
 
   @media (hover: hover) and (pointer: fine) {
     .checkbox:checked:not([disabled]):hover + &,
     .checkbox:indeterminate:not([disabled]):hover + & {
-      background: $dt-form-border-color-hover;
-      border-color: $dt-form-border-color-hover;
+      background: $dt-color-form-border-color-hover;
+      border-color: $dt-color-form-border-color-hover;
     }
 
     .checkbox:not([disabled]):hover + & {
-      border-color: $dt-form-border-color-hover;
+      border-color: $dt-color-form-border-color-hover;
     }
   }
 
@@ -84,7 +84,7 @@ $focus-ring-offset: 2px;
     border-radius: $kz-border-focus-ring-border-radius;
     border-width: $kz-border-focus-ring-border-width;
     border-style: $kz-border-focus-ring-border-style;
-    border-color: $dt-form-border-color-focus;
+    border-color: $dt-color-form-border-color-focus;
     top: -$focus-ring-offset - ($checkbox-size / 8);
     left: -$focus-ring-offset - ($checkbox-size / 8);
     width: $checkbox-size + $focus-ring-offset + $kz-border-solid-border-width *
@@ -135,7 +135,7 @@ $focus-ring-offset: 2px;
   }
 
   .checkbox:focus + &::after {
-    border-color: $dt-form-border-color-focus-reversed;
+    border-color: $dt-color-form-border-color-reversed-focus;
   }
 }
 
