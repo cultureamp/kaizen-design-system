@@ -3,6 +3,7 @@
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/mixins/forms";
+@import "./decision-tokens.scss";
 
 $radio-size: 24px;
 $icon-size: 10px;
@@ -19,7 +20,7 @@ $focus-ring-offset: 2px;
   width: $icon-size;
   height: $icon-size;
   border-radius: 50%;
-  background: $kz-color-wisteria-700;
+  background: $dt-color-disc-color-base;
   position: absolute;
 }
 
@@ -30,7 +31,7 @@ $focus-ring-offset: 2px;
   width: $radio-size;
   top: 0;
   border: $kz-border-solid-border-width $kz-border-solid-border-style
-    $kz-color-wisteria-500;
+    $dt-color-border-color-base;
   box-sizing: border-box;
   border-radius: 50%;
 
@@ -52,7 +53,7 @@ $focus-ring-offset: 2px;
     border-radius: $radio-size + $focus-ring-offset;
     border-width: $kz-border-focus-ring-border-width;
     border-style: $kz-border-focus-ring-border-style;
-    border-color: $ca-border-color-focus;
+    border-color: $dt-color-disc-color-base;
     top: -$focus-ring-offset - ($radio-size / 8);
     left: -$focus-ring-offset - ($radio-size / 8);
     width: $radio-size + $focus-ring-offset + $kz-border-solid-border-width * 2;
@@ -61,8 +62,8 @@ $focus-ring-offset: 2px;
 
   @media (hover: hover) and (pointer: fine) {
     .radioInput:not([disabled]) + &:hover {
-      border-color: $kz-color-wisteria-700;
-      background-color: $kz-color-wisteria-100;
+      border-color: $dt-color-border-color-hover;
+      background-color: $dt-color-background-color-hover;
     }
   }
 }

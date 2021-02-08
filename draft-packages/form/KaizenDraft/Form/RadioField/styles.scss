@@ -28,8 +28,8 @@
   @media (hover: hover) and (pointer: fine) {
     label:hover {
       input:not([disabled]) + div {
-        border-color: $kz-color-wisteria-700;
-        background-color: $kz-color-wisteria-100;
+        border-color: $dt-color-border-color-hover;
+        background-color: $dt-color-background-color-hover;
       }
     }
   }

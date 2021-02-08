@@ -5,11 +5,12 @@
 @import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/Label/styles";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "../Primitives/Checkbox/decision-tokens.scss";
+@import "../decision-tokens.scss";
 
 // -----------------------------------------------
 // Checkbox Field
 // -----------------------------------------------
-
 ///////////////////////////////////////////////////
 // LAYOUT
 ///////////////////////////////////////////////////
@@ -35,8 +36,8 @@
   @media (hover: hover) and (pointer: fine) {
     label:hover {
       input:not([disabled]) + div {
-        border-color: $kz-color-wisteria-700;
-        background-color: $kz-color-wisteria-100;
+        // border-color: $dt-checkbox-color-border-color-hover;
+        // background-color: $dt-checkbox-color-background-color-hover;
       }
     }
   }
