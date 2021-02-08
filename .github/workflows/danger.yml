@@ -20,9 +20,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Danger
-        uses: cultureamp/danger-systems-github-action@v1
+      - name: Configure Node
+        uses: actions/setup-node@v1
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          language: js
-          language-version: 14
+          node-version: 12.16.x
+
+      - uses: actions/cache@v2
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-${{ hashFiles('package.json') }}
+
+      - name: Install dependencies and build
+        run: |
+          [ ! -d node_modules ] && yarn install
+
+      - name: Danger
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx danger ci --dangerfile=.danger/dangerfile.ts
