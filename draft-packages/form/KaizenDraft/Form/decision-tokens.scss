@@ -1,4 +1,3 @@
-@import "~@kaizen/design-tokens/sass/theme";
 @import "~@kaizen/design-tokens/sass/color";
 
 // General purpose tokens
@@ -12,9 +11,7 @@ $dt-form-text-color: $kz-color-wisteria-800;
 $dt-toggle-background-color: $kz-color-wisteria-300;
 $dt-toggle-background-color-hover: $kz-color-wisteria-500;
 
-@if $rebrand {
-  $dt-form-border-color: $kz-color-iron-500;
-  $dt-form-border-color-hover: $kz-color-slate-700;
-  $dt-toggle-background-color: $kz-color-ash;
-  $dt-toggle-background-color-hover: rgba($kz-color-iron-500, 0.4);
-}
+$dt-form-border-color: var(--kz-color-iron-500, $kz-color-wisteria-500);
+$dt-form-border-color-hover: var(--kz-color-slate-700, $kz-color-wisteria-700);
+$dt-toggle-background-color: var(--kz-color-ash, $kz-color-wisteria-300);
+$dt-toggle-background-color-hover: rgba(var(--kz-color-iron-500), 0.4);

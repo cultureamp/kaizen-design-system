@@ -1,4 +1,4 @@
-@import "~@kaizen/design-tokens/sass/theme";
+@import "~@kaizen/design-tokens/sass/color";
 
 $dt-checkbox-color-background-color-base: $kz-color-wisteria-700;
 $dt-checkbox-color-background-color-checked-focus: $kz-color-wisteria-700;
@@ -9,13 +9,36 @@ $dt-checkbox-color-border-color-checked-focus: $kz-color-wisteria-700;
 $dt-checkbox-color-border-color-focus: $kz-color-wisteria-700;
 $dt-checkbox-color-border-color-hover: $kz-color-wisteria-700;
 
-@if $rebrand {
-  $dt-checkbox-color-background-color-base: $kz-color-iron-500;
-  $dt-checkbox-color-background-color-checked-focus: $kz-color-slate-700;
-  $dt-checkbox-color-background-color-unchecked-focus: $kz-color-stone;
-  $dt-checkbox-color-background-color-hover: $kz-color-slate-700;
-  $dt-checkbox-color-background-color-unchecked-hover: $kz-color-stone;
-  $dt-checkbox-color-border-color-checked-focus: $kz-color-slate-700;
-  $dt-checkbox-color-border-color-focus: $kz-color-slate-700;
-  $dt-checkbox-color-border-color-hover: $kz-color-slate-700;
-}
+// Heart theme
+$dt-checkbox-color-background-color-base: var(
+  --kz-color-iron-500,
+  $kz-color-wisteria-700
+);
+$dt-checkbox-color-background-color-checked-focus: var(
+  --kz-color-slate-700,
+  $kz-color-wisteria-700
+);
+$dt-checkbox-color-background-color-unchecked-focus: var(
+  --kz-color-stone,
+  $kz-color-wisteria-100
+);
+$dt-checkbox-color-background-color-hover: var(
+  --kz-color-slate-700,
+  $kz-color-wisteria-700
+);
+$dt-checkbox-color-background-color-unchecked-hover: var(
+  --kz-color-stone,
+  $kz-color-wisteria-100
+);
+$dt-checkbox-color-border-color-checked-focus: var(
+  --kz-color-slate-700,
+  $kz-color-wisteria-700
+);
+$dt-checkbox-color-border-color-focus: var(
+  --kz-color-slate-700,
+  $kz-color-wisteria-700
+);
+$dt-checkbox-color-border-color-hover: var(
+  --kz-color-slate-700,
+  $kz-color-wisteria-700
+);
