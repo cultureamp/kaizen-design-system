@@ -1,4 +1,4 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
+import { loadElmStories } from "elm-storybook"
 
 const compiledElm = require("../ElmStories/RadioFieldStories.elm").Elm
   .ElmStories.RadioFieldStories

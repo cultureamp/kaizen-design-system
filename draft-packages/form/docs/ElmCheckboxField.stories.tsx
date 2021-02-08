@@ -1,4 +1,4 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
+import { loadElmStories } from "elm-storybook"
 
 const compiledElm = require("../ElmStories/CheckboxFieldStories.elm").Elm
   .ElmStories.CheckboxFieldStories
