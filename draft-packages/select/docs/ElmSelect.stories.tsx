@@ -2,7 +2,7 @@ import { loadElmStories } from "elm-storybook"
 import Ports from "../KaizenDraft/Select/ports"
 
 const compiledElm = require("../ElmStories/SelectStories.elm").Elm.ElmStories
-  .TagStories
+  .SelectStories
 
 loadElmStories(
   "Select (Elm)",
