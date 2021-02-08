@@ -78,7 +78,7 @@
     "elm-css-modules-plugin": "^1.0.1",
     "elm-format": "^0.8.4",
     "elm-hot-webpack-loader": "^1.1.2",
-    "elm-upgrade-shims": "cultureamp/elm-upgrade-shims#0.2.1",
+    "elm-upgrade-shims": "cultureamp/elm-upgrade-shims#0.5.1",
     "elm-webpack-loader": "^7.0.1",
     "eslint": "^7.11.0",
     "eslint-config-prettier": "^6.11.0",

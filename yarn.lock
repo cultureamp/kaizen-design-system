@@ -9000,9 +9000,10 @@ elm-hot@^1.1.5:
   resolved "https://registry.yarnpkg.com/elm-hot/-/elm-hot-1.1.5.tgz#bba309b592d39b5c3195c3c6f608f36b96c23b89"
   integrity sha512-HSMlAr6INTV82wkpPNG0zsHoJXo/04GwG7bnhFX8s4zyIbbzuJAovsdo27FAT6/NKx5IVTXGI+IFcK9Z7oN1Tw==
 
-elm-upgrade-shims@cultureamp/elm-upgrade-shims#0.2.1:
-  version "0.2.1"
-  resolved "https://codeload.github.com/cultureamp/elm-upgrade-shims/tar.gz/f669985fa82a13b419b2ae1d1fe6d8e0b5969d41"
+elm-upgrade-shims@cultureamp/elm-upgrade-shims#0.5.1:
+  version "0.5.1"
+  uid dcab123b01a7d085dfe6f4b058a8542a2ae18128
+  resolved "https://codeload.github.com/cultureamp/elm-upgrade-shims/tar.gz/dcab123b01a7d085dfe6f4b058a8542a2ae18128"
   dependencies:
     glob "^7.1.3"
 
