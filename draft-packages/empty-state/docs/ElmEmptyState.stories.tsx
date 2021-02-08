@@ -1,7 +1,7 @@
 import { loadElmStories } from "elm-storybook"
 
 const compiledElm = require("../ElmStories/EmptyStateStories.elm").Elm
-  .ElmStories.ElmEmptyStateStories
+  .ElmStories.EmptyStateStories
 
 loadElmStories("EmptyState (Elm)", module, compiledElm, [
   "Default",
