@@ -28,7 +28,6 @@ module KaizenDraft.Events.Events exposing
     , stringAt
     )
 
-import Elm18Compatible.Keyboard as Keyboard
 import Html exposing (Html)
 import Html.Events exposing (keyCode, on, preventDefaultOn)
 import Json.Decode as Decode
@@ -163,7 +162,7 @@ dispatchIfChange msg currentValue newValue =
         Decode.fail "ignored input"
 
 
-isCode : Key -> msg -> Keyboard.KeyCode -> Decode.Decoder msg
+isCode : Key -> msg -> Int -> Decode.Decoder msg
 isCode key msg code =
     if decoder code == key then
         Decode.succeed msg
@@ -207,7 +206,7 @@ isTab msg =
     keyCode |> Decode.andThen (isCode Tab msg)
 
 
-isEnterAndValueChange : String -> (String -> msg) -> msg -> ( Keyboard.KeyCode, String ) -> Decode.Decoder msg
+isEnterAndValueChange : String -> (String -> msg) -> msg -> ( Int, String ) -> Decode.Decoder msg
 isEnterAndValueChange currentValue onChangeValue onNoChangeValue ( code, value ) =
     case decoder code of
         Enter ->
@@ -221,10 +220,10 @@ isEnterAndValueChange currentValue onChangeValue onNoChangeValue ( code, value )
             Decode.fail "ignore input"
 
 
-getKeyAndValue : List String -> Decode.Decoder ( Keyboard.KeyCode, String )
+getKeyAndValue : List String -> Decode.Decoder ( Int, String )
 getKeyAndValue path =
     let
-        keyAndValue : Keyboard.KeyCode -> String -> ( Keyboard.KeyCode, String )
+        keyAndValue : Int -> String -> ( Int, String )
         keyAndValue code value =
             ( code, value )
     in
