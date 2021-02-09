@@ -1,4 +1,3 @@
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
 
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"

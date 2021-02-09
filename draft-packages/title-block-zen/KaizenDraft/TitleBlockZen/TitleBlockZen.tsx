@@ -351,8 +351,9 @@ const createTabletOverflowMenuItems = (
   return secondaryActionsList.concat(flatSecondaryOverflowItemsList)
 }
 
+// TODO: Resolve design token properly rather than use default
 const largeViewMinSizeInPixels = parseInt(
-  layoutTokens.kz.layout.breakpoints.large,
+  layoutTokens.kz.layout.breakpoints["large-default"],
   10
 )
 const smallAndMediumMediaQuery = window.matchMedia(

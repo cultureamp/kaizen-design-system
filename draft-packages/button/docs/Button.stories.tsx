@@ -1,8 +1,7 @@
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 import React, { useCallback, useRef, useState } from "react"
 import { withDesign } from "storybook-addon-designs"
-import { Button, CustomButtonProps, ButtonRef } from ".."
+import { Button, ButtonRef, CustomButtonProps } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {

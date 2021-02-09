@@ -1,8 +1,9 @@
-import colorTokens from "@kaizen/design-tokens/tokens/color.json"
+// TODO: Resolve design token properly rather than use default
+import { defaultTheme } from "@kaizen/design-tokens"
 import * as React from "react"
 import wcag from "wcag-contrast-verifier/lib/wcag"
 
-const DARK_TEXT_COLOR_FOR_CONTRAST_CHECKING = colorTokens.kz.color.wisteria[700]
+const DARK_TEXT_COLOR_FOR_CONTRAST_CHECKING = defaultTheme.color.wisteria[700]
 
 const shouldUseWhiteText = (color: string) => {
   const whiteContrast = wcag.getContrastRatio(color, "#ffffff")
@@ -24,22 +25,22 @@ const containerStyles: React.CSSProperties = {
 }
 
 const withBorder: React.CSSProperties = {
-  border: `2px solid ${colorTokens.kz.color.ash}`,
+  border: `2px solid ${defaultTheme.color.ash}`,
   boxSizing: "border-box",
 }
 
 const defaultTextStyles: React.CSSProperties = {
   display: "block",
-  color: colorTokens.kz.color.wisteria[800],
+  color: defaultTheme.color.wisteria[800],
   fontWeight: 500,
 }
 
 const withWhiteText: React.CSSProperties = {
-  color: colorTokens.kz.color.white,
+  color: defaultTheme.color.white,
 }
 
 const ZenColor = ({ name, value }) => {
-  const borderStyles = value === colorTokens.kz.color.white ? withBorder : {}
+  const borderStyles = value === defaultTheme.color.white ? withBorder : {}
   const textStyles = shouldUseWhiteText(value)
     ? { ...defaultTextStyles, ...withWhiteText }
     : defaultTextStyles

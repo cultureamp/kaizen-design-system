@@ -47,8 +47,9 @@ export interface HierarchicalMenuProps {
   focusLockDisabled?: boolean
 }
 
+// TODO: Resolve design token properly rather than use default
 const animationTimeout = Number(
-  animationTokens.kz.animation.duration.rapid.replace("ms", "")
+  animationTokens.kz.animation.duration["rapid-default"].replace("ms", "")
 )
 const optionHeight = spacingTokens.kz.spacing.xl
 

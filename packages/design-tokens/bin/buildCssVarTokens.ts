@@ -2,8 +2,7 @@ import fs from "fs"
 import path from "path"
 import { format } from "prettier"
 import * as yargs from "yargs"
-import { heartTheme, Theme } from "../src"
-import { zenTheme } from "../src/themes/zen"
+import { defaultTheme, heartTheme, Theme, zenTheme } from "../src"
 import {
   augmentCssVariable,
   flattenObjectToCSSVariables,
@@ -70,7 +69,7 @@ const run = () => {
 
   // Any theme passed into the factory function will be fine, as they all have the same keys
   const customPropertiesTheme = makeCSSVariableTheme(
-    augmentThemeForSassVariables(zenTheme)
+    augmentThemeForSassVariables(defaultTheme)
   ).kz
 
   /* Write JSON tokens */

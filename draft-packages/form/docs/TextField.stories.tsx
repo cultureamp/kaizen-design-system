@@ -1,5 +1,3 @@
-import colorTokens from "@kaizen/design-tokens/tokens/color.json"
-
 import React, { useCallback, useRef } from "react"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import { withDesign } from "storybook-addon-designs"

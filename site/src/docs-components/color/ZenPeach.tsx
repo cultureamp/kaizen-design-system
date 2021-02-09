@@ -1,7 +1,8 @@
-import colorTokens from "@kaizen/design-tokens/tokens/color.json"
+// TODO: Resolve design token properly rather than use default
+import { defaultTheme } from "@kaizen/design-tokens"
 import * as React from "react"
 import ZenColorGroup from "./ZenColorGroup"
 
-const ZenPeach = () => <ZenColorGroup colors={colorTokens.kz.color.peach} />
+const ZenPeach = () => <ZenColorGroup colors={defaultTheme.color.peach} />
 
 export default ZenPeach

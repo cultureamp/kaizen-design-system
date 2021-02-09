@@ -1,8 +1,22 @@
 import React, { useState, useEffect } from "react"
-import { tokens } from "./tokens"
+import {
+  heartTheme,
+  zenTheme,
+  CSSVariableThemeManager,
+  // eslint-disable-next-line import/no-extraneous-dependencies
+} from "@kaizen/design-tokens"
 
+const cssVariableThemeManager = new CSSVariableThemeManager(zenTheme)
+const themeOfKey = (themeKey: string) => {
+  switch (themeKey) {
+    case "heart":
+      return heartTheme
+    default:
+      return zenTheme
+  }
+}
 export const App = () => {
-  const [theme, setTheme] = useState("zen")
+  const [theme, setTheme] = useState(cssVariableThemeManager.getCurrentTheme())
   useEffect(() => {
     let storyRoot
     if (
@@ -21,13 +35,7 @@ export const App = () => {
       return
     }
 
-    tokens.forEach(({ name, value }) => {
-      if (theme === "zen") {
-        storyRoot.style.removeProperty(name)
-      } else {
-        storyRoot.style.setProperty(name, value)
-      }
-    })
+    cssVariableThemeManager.setTheme(theme)
   })
 
   return (
@@ -37,8 +45,8 @@ export const App = () => {
         <select
           id="theme-switcher"
           name="theme"
-          value={theme}
-          onChange={evt => setTheme(evt.target.value)}
+          value={theme.themeKey}
+          onChange={evt => setTheme(themeOfKey(evt.target.value))}
         >
           <option value="zen">Zen</option>
           <option value="heart">Heart</option>
