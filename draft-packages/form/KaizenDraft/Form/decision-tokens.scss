@@ -1,7 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
 
-// ${namespace}-${tokenType}-${component}-${property}-${variant}-{state}
-
 // General purpose tokens
 $dt-color-form-border-color: var(--kz-color-iron-500, $kz-color-wisteria-500);
 $dt-color-form-border-color-focus: $kz-color-cluny-500;
