@@ -4,6 +4,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/typography";
+@import "./decision-tokens.scss";
 
 $caButton-border-width: $kz-border-solid-border-width;
 $caButton-focus-border-width: $kz-border-focus-ring-border-width;
@@ -73,16 +74,16 @@ $caButton-verticalPaddingForm: calc(
   // applied to elements that have no enabled/disabled states.
   &:not(:disabled) {
     background: $kz-color-white;
-    border-color: $kz-color-wisteria-500;
+    border-color: $dt-color-border-color-base;
     color: $kz-color-wisteria-800;
 
     &:hover {
-      background: $kz-color-wisteria-100;
-      border-color: $kz-color-wisteria-700;
+      background: $dt-color-background-hover;
+      border-color: $dt-color-border-color-hover;
     }
 
     &:active {
-      background: $kz-color-wisteria-100;
+      background: $dt-color-background-active;
       transform: translateY(1px);
     }
 
@@ -95,8 +96,8 @@ $caButton-verticalPaddingForm: calc(
       }
 
       &:global(.focus-visible) {
-        background: $kz-color-wisteria-100;
-        border-color: $kz-color-wisteria-700;
+        background: $dt-color-background-focus;
+        border-color: $dt-color-border-color-focus;
       }
 
       // show custom focus ring when :focus-visible
@@ -122,8 +123,8 @@ $caButton-verticalPaddingForm: calc(
     @include working-state;
     opacity: 0.3;
     background: $kz-color-white;
-    border-color: $kz-color-wisteria-500;
-    color: $kz-color-wisteria-800;
+    border-color: $dt-color-border-color-disabled;
+    color: $dt-color-color-disabled;
   }
 }
 

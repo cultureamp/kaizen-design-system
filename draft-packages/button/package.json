@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-button",
-  "version": "3.0.18",
+  "version": "3.1.0",
   "description": "The draft Button component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
