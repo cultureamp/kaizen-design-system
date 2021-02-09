@@ -9000,12 +9000,6 @@ elm-hot@^1.1.5:
   resolved "https://registry.yarnpkg.com/elm-hot/-/elm-hot-1.1.5.tgz#bba309b592d39b5c3195c3c6f608f36b96c23b89"
   integrity sha512-HSMlAr6INTV82wkpPNG0zsHoJXo/04GwG7bnhFX8s4zyIbbzuJAovsdo27FAT6/NKx5IVTXGI+IFcK9Z7oN1Tw==
 
-elm-upgrade-shims@cultureamp/elm-upgrade-shims#0.2.1:
-  version "0.2.1"
-  resolved "https://codeload.github.com/cultureamp/elm-upgrade-shims/tar.gz/f669985fa82a13b419b2ae1d1fe6d8e0b5969d41"
-  dependencies:
-    glob "^7.1.3"
-
 elm-webpack-loader@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/elm-webpack-loader/-/elm-webpack-loader-7.0.1.tgz#7266d94466478e2f791fc6233a8c224480d8eab3"

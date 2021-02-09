@@ -9,44 +9,42 @@ module KaizenDraft.UserInteractions.KeyCodes exposing
     , upArrow
     )
 
-import Elm18Compatible.Keyboard as Keyboard18
 
-
-backspace : Keyboard18.KeyCode
+backspace : Int
 backspace =
     8
 
 
-tab : Keyboard18.KeyCode
+tab : Int
 tab =
     9
 
 
-enter : Keyboard18.KeyCode
+enter : Int
 enter =
     13
 
 
-escape : Keyboard18.KeyCode
+escape : Int
 escape =
     27
 
 
-upArrow : Keyboard18.KeyCode
+upArrow : Int
 upArrow =
     38
 
 
-downArrow : Keyboard18.KeyCode
+downArrow : Int
 downArrow =
     40
 
 
-space : Keyboard18.KeyCode
+space : Int
 space =
     32
 
 
-shift : Keyboard18.KeyCode
+shift : Int
 shift =
     16
