@@ -37,7 +37,8 @@
     "@kaizen/draft-form": "^3.1.7",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",
-    "react-select": "^3.1.0"
+    "react-select": "^3.1.0",
+    "@types/react-select": "3.0.22"
   },
   "devDependencies": {
     "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.2.1",
