@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.4.8...@kaizen/draft-loading-placeholder@1.4.9) (2021-02-09)
+
+
+### Bug Fixes
+
+* remove elm upgrade shims ([#990](https://github.com/cultureamp/kaizen-design-system/issues/990)) ([a7ee10a](https://github.com/cultureamp/kaizen-design-system/commit/a7ee10a87d8fa3fb35cf09d6d116c5ceeb4f6b85))
+
+
+
+
+
 ## [1.4.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.4.7...@kaizen/draft-loading-placeholder@1.4.8) (2021-02-08)
 
 **Note:** Version bump only for package @kaizen/draft-loading-placeholder
