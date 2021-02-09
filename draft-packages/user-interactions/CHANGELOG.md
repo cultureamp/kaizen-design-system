@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.95](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.2.94...@kaizen/draft-user-interactions@1.2.95) (2021-02-09)
+
+**Note:** Version bump only for package @kaizen/draft-user-interactions
+
+
+
+
+
+## [1.2.94](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.2.93...@kaizen/draft-user-interactions@1.2.94) (2021-02-09)
+
+
+### Bug Fixes
+
+* remove elm upgrade shims ([#990](https://github.com/cultureamp/kaizen-design-system/issues/990)) ([a7ee10a](https://github.com/cultureamp/kaizen-design-system/commit/a7ee10a87d8fa3fb35cf09d6d116c5ceeb4f6b85))
+
+
+
+
+
 ## [1.2.93](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-user-interactions@1.2.92...@kaizen/draft-user-interactions@1.2.93) (2021-02-08)
 
 **Note:** Version bump only for package @kaizen/draft-user-interactions
