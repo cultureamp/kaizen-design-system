@@ -413,7 +413,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $size-ratio: $size / 16,
     $family:
       unquote(
-        "#{$kz-typography-heading-1-font-family}, Helvetica, Arial, sans-serif"
+        "#{$kz-typography-heading-1-font-family-default}, Helvetica, Arial, sans-serif"
       ),
     $base-size: $ca-greycliff-font-base-size,
     $descender-height: $ca-greycliff-font-descender-height,
@@ -435,7 +435,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $size-ratio: $size / 16,
     $family:
       unquote(
-        "#{$kz-typography-paragraph-body-font-family}, Helvetica, Arial, sans-serif"
+        "#{$kz-typography-paragraph-body-font-family-default}, Helvetica, Arial, sans-serif"
       ),
     $base-size: $ca-inter-font-base-size,
     $descender-height: $ca-inter-font-descender-height,
@@ -447,7 +447,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin kz-typography-data-large(
-  $size: to-unitless-pixels($kz-typography-data-large-font-size),
+  $size: to-unitless-pixels($kz-typography-data-large-font-size-default),
   $args...
 ) {
   @include kz-typography-greycliff(
@@ -455,13 +455,13 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $kz-typography-data-large-font-weight,
     $letter-spacing: $kz-typography-data-large-letter-spacing,
     $line-height-in-grid-units:
-      to-grid-units($kz-typography-data-large-line-height),
+      to-grid-units($kz-typography-data-large-line-height-default),
     $args...
   );
 }
 
 @mixin kz-typography-data-large-units(
-  $size: to-unitless-pixels($kz-typography-data-large-units-font-size),
+  $size: to-unitless-pixels($kz-typography-data-large-units-font-size-default),
   $args...
 ) {
   @include kz-typography-greycliff(
@@ -469,13 +469,13 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $kz-typography-data-large-units-font-weight,
     $letter-spacing: $kz-typography-data-large-units-letter-spacing,
     $line-height-in-grid-units:
-      to-grid-units($kz-typography-data-large-units-line-height),
+      to-grid-units($kz-typography-data-large-units-line-height-default),
     $args...
   );
 }
 
 @mixin kz-typography-data-medium(
-  $size: to-unitless-pixels($kz-typography-data-medium-font-size),
+  $size: to-unitless-pixels($kz-typography-data-medium-font-size-default),
   $args...
 ) {
   @include kz-typography-greycliff(
@@ -483,13 +483,13 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $kz-typography-data-medium-font-weight,
     $letter-spacing: $kz-typography-data-medium-letter-spacing,
     $line-height-in-grid-units:
-      to-grid-units($kz-typography-data-medium-line-height),
+      to-grid-units($kz-typography-data-medium-line-height-default),
     $args...
   );
 }
 
 @mixin kz-typography-data-medium-units(
-  $size: to-unitless-pixels($kz-typography-data-medium-units-font-size),
+  $size: to-unitless-pixels($kz-typography-data-medium-units-font-size-default),
   $args...
 ) {
   @include kz-typography-greycliff(
@@ -497,13 +497,13 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $kz-typography-data-medium-units-font-weight,
     $letter-spacing: $kz-typography-data-medium-units-letter-spacing,
     $line-height-in-grid-units:
-      to-grid-units($kz-typography-data-medium-units-line-height),
+      to-grid-units($kz-typography-data-medium-units-line-height-default),
     $args...
   );
 }
 
 @mixin kz-typography-data-small(
-  $size: to-unitless-pixels($kz-typography-data-small-font-size),
+  $size: to-unitless-pixels($kz-typography-data-small-font-size-default),
   $args...
 ) {
   @include kz-typography-greycliff(
@@ -511,13 +511,13 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $kz-typography-data-small-font-weight,
     $letter-spacing: $kz-typography-data-small-letter-spacing,
     $line-height-in-grid-units:
-      to-grid-units($kz-typography-data-small-line-height),
+      to-grid-units($kz-typography-data-small-line-height-default),
     $args...
   );
 }
 
 @mixin kz-typography-data-small-units(
-  $size: to-unitless-pixels($kz-typography-data-small-units-font-size),
+  $size: to-unitless-pixels($kz-typography-data-small-units-font-size-default),
   $args...
 ) {
   @include kz-typography-greycliff(
@@ -525,13 +525,13 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $kz-typography-data-small-units-font-weight,
     $letter-spacing: $kz-typography-data-small-units-letter-spacing,
     $line-height-in-grid-units:
-      to-grid-units($kz-typography-data-small-units-line-height),
+      to-grid-units($kz-typography-data-small-units-line-height-default),
     $args...
   );
 }
 
 @mixin kz-typography-display-0(
-  $size: to-unitless-pixels($kz-typography-display-0-font-size),
+  $size: to-unitless-pixels($kz-typography-display-0-font-size-default),
   $args...
 ) {
   @include kz-typography-greycliff(
@@ -539,13 +539,13 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $kz-typography-display-0-font-weight,
     $letter-spacing: $kz-typography-display-0-letter-spacing,
     $line-height-in-grid-units:
-      to-grid-units($kz-typography-display-0-line-height),
+      to-grid-units($kz-typography-display-0-line-height-default),
     $args...
   );
 }
 
 @mixin kz-typography-heading-1(
-  $size: to-unitless-pixels($kz-typography-heading-1-font-size),
+  $size: to-unitless-pixels($kz-typography-heading-1-font-size-default),
   $args...
 ) {
   @include kz-typography-greycliff(
@@ -553,13 +553,13 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $kz-typography-heading-1-font-weight,
     $letter-spacing: $kz-typography-heading-1-letter-spacing,
     $line-height-in-grid-units:
-      to-grid-units($kz-typography-heading-1-line-height),
+      to-grid-units($kz-typography-heading-1-line-height-default),
     $args...
   );
 }
 
 @mixin kz-typography-heading-2(
-  $size: to-unitless-pixels($kz-typography-heading-2-font-size),
+  $size: to-unitless-pixels($kz-typography-heading-2-font-size-default),
   $args...
 ) {
   @include kz-typography-greycliff(
@@ -567,13 +567,13 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $kz-typography-heading-2-font-weight,
     $letter-spacing: $kz-typography-heading-2-letter-spacing,
     $line-height-in-grid-units:
-      to-grid-units($kz-typography-heading-2-line-height),
+      to-grid-units($kz-typography-heading-2-line-height-default),
     $args...
   );
 }
 
 @mixin kz-typography-heading-3(
-  $size: to-unitless-pixels($kz-typography-heading-3-font-size),
+  $size: to-unitless-pixels($kz-typography-heading-3-font-size-default),
   $args...
 ) {
   @include kz-typography-greycliff(
@@ -581,13 +581,13 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $kz-typography-heading-3-font-weight,
     $letter-spacing: $kz-typography-heading-3-letter-spacing,
     $line-height-in-grid-units:
-      to-grid-units($kz-typography-heading-3-line-height),
+      to-grid-units($kz-typography-heading-3-line-height-default),
     $args...
   );
 }
 
 @mixin kz-typography-heading-4(
-  $size: to-unitless-pixels($kz-typography-heading-4-font-size),
+  $size: to-unitless-pixels($kz-typography-heading-4-font-size-default),
   $args...
 ) {
   @include kz-typography-inter(
@@ -595,13 +595,13 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $kz-typography-heading-4-font-weight,
     $letter-spacing: $kz-typography-heading-4-letter-spacing,
     $line-height-in-grid-units:
-      to-grid-units($kz-typography-heading-4-line-height),
+      to-grid-units($kz-typography-heading-4-line-height-default),
     $args...
   );
 }
 
 @mixin kz-typography-heading-5(
-  $size: to-unitless-pixels($kz-typography-heading-5-font-size),
+  $size: to-unitless-pixels($kz-typography-heading-5-font-size-default),
   $args...
 ) {
   @include kz-typography-inter(
@@ -609,13 +609,13 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $kz-typography-heading-5-font-weight,
     $letter-spacing: $kz-typography-heading-5-letter-spacing,
     $line-height-in-grid-units:
-      to-grid-units($kz-typography-heading-5-line-height),
+      to-grid-units($kz-typography-heading-5-line-height-default),
     $args...
   );
 }
 
 @mixin kz-typography-heading-6(
-  $size: to-unitless-pixels($kz-typography-heading-6-font-size),
+  $size: to-unitless-pixels($kz-typography-heading-6-font-size-default),
   $args...
 ) {
   @include kz-typography-inter(
@@ -623,13 +623,13 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $kz-typography-heading-6-font-weight,
     $letter-spacing: $kz-typography-heading-6-letter-spacing,
     $line-height-in-grid-units:
-      to-grid-units($kz-typography-heading-6-line-height),
+      to-grid-units($kz-typography-heading-6-line-height-default),
     $args...
   );
 }
 
 @mixin kz-typography-paragraph-body(
-  $size: to-unitless-pixels($kz-typography-paragraph-body-font-size),
+  $size: to-unitless-pixels($kz-typography-paragraph-body-font-size-default),
   $args...
 ) {
   @include kz-typography-inter(
@@ -637,13 +637,13 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $kz-typography-paragraph-body-font-weight,
     $letter-spacing: $kz-typography-paragraph-body-letter-spacing,
     $line-height-in-grid-units:
-      to-grid-units($kz-typography-paragraph-body-line-height),
+      to-grid-units($kz-typography-paragraph-body-line-height-default),
     $args...
   );
 }
 
 @mixin kz-typography-paragraph-body-bold(
-  $size: to-unitless-pixels($kz-typography-paragraph-body-font-size),
+  $size: to-unitless-pixels($kz-typography-paragraph-body-font-size-default),
   $args...
 ) {
   @include kz-typography-inter(
@@ -651,14 +651,14 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $kz-typography-paragraph-body-font-weight,
     $letter-spacing: $kz-typography-paragraph-body-letter-spacing,
     $line-height-in-grid-units:
-      to-grid-units($kz-typography-paragraph-body-line-height),
+      to-grid-units($kz-typography-paragraph-body-line-height-default),
     $args...
   );
   font-weight: 600; // @TODO this should be a token
 }
 
 @mixin kz-typography-paragraph-small(
-  $size: to-unitless-pixels($kz-typography-paragraph-small-font-size),
+  $size: to-unitless-pixels($kz-typography-paragraph-small-font-size-default),
   $args...
 ) {
   @include kz-typography-inter(
@@ -666,7 +666,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
     $weight: $kz-typography-paragraph-small-font-weight,
     $letter-spacing: $kz-typography-paragraph-small-letter-spacing,
     $line-height-in-grid-units:
-      to-grid-units($kz-typography-paragraph-small-line-height),
+      to-grid-units($kz-typography-paragraph-small-line-height-default),
     $args...
   );
 }

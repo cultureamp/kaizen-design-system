@@ -12,7 +12,7 @@
 @import "../../styles/responsive";
 @import "../../components/Button/styles";
 
-$ca-notification-border-width: $kz-border-solid-border-width;
+$ca-notification-border-width: $kz-border-solid-border-width-default;
 $ca-notification-vertical-padding: calc(
   #{$ca-grid / 4} - #{$ca-notification-border-width}
 );
