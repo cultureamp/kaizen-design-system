@@ -206,7 +206,7 @@ $row-height: 60px;
   composes: anchorReset;
 
   .defaultSpacing & {
-    padding: $kz-spacing-md * 0.5 $kz-spacing-md;
+    padding: calc(#{$kz-spacing-md} * 0.5) $kz-spacing-md;
   }
 }
 

@@ -102,7 +102,8 @@ $caButton-verticalPaddingForm: calc(
 
       // show custom focus ring when :focus-visible
       &:global(.focus-visible)::after {
-        $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px;
+        $focus-ring-offset: ($kz-border-focus-ring-border-width-default * 2) +
+          1px;
         content: "";
         position: absolute;
         background: transparent;

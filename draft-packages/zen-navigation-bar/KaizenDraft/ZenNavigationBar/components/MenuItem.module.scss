@@ -88,7 +88,7 @@ $menuItem__margin: 4px;
 }
 
 .badge {
-  @include ca-margin($start: $kz-spacing-md * 0.25);
+  @include ca-margin($start: calc(#{$kz-spacing-md} * 0.25));
   min-height: $kz-spacing-md;
   border-radius: $kz-spacing-md;
   display: flex;
@@ -97,14 +97,17 @@ $menuItem__margin: 4px;
 
   &.badgeNew {
     @include ca-padding(
-      $start: $kz-spacing-md * 0.5,
-      $end: $kz-spacing-md * 0.5
+      $start: calc(#{$kz-spacing-md} * 0.5),
+      $end: calc(#{$kz-spacing-md} * 0.5)
     );
     background-color: $kz-color-seedling-200;
   }
 
   &.badgeNotification {
-    @include ca-padding($start: $kz-spacing-md / 3, $end: $kz-spacing-md / 3);
+    @include ca-padding(
+      $start: calc(#{$kz-spacing-md} / 3),
+      $end: calc(#{$kz-spacing-md} / 3)
+    );
     background-color: $kz-color-wisteria-800;
 
     @include navbar-mobile-only {

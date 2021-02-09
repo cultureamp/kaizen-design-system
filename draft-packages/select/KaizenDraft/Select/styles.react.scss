@@ -130,7 +130,9 @@
           background: $kz-color-cluny-100;
 
           &::after {
-            $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px;
+            $focus-ring-offset: calc(
+              $kz-border-focus-ring-border-width * 2 + 1px
+            );
             content: "";
             position: absolute;
             background: transparent;
@@ -153,14 +155,14 @@
 
     &.reversed {
       .control {
-        background: rgba($kz-color-white, 0.1);
+        background: rgba($kz-color-white-rgb-params, 0.1);
         color: $kz-color-white;
         border: $kz-border-borderless-border-width
           $kz-border-borderless-border-style $kz-border-borderless-border-color;
         border-radius: $kz-border-borderless-border-radius;
 
         &:hover {
-          background: rgba($kz-color-white, 0.2);
+          background: rgba($kz-color-white-rgb-params, 0.2);
         }
 
         &.disabled {

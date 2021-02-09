@@ -16,11 +16,6 @@ $black: black;
   @return transparentize($color, $inverse);
 }
 
-@function add-alpha-rgba($color, $percentage) {
-  $decimal: $percentage / 100%;
-  @return rgba($color, $decimal);
-}
-
 // Primary colours
 $ca-palette-ink: #3e4543;
 $ca-palette-paper: #f2edde;

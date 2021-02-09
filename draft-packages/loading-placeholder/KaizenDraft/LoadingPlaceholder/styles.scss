@@ -8,7 +8,7 @@
 
 .base {
   background-color: $kz-color-wisteria-100;
-  border-radius: $kz-border-solid-border-radius * 3;
+  border-radius: calc(#{$kz-border-solid-border-radius} * 3);
   position: relative;
   top: $ca-grid * 0.175;
   margin-bottom: $ca-grid * 0.5;

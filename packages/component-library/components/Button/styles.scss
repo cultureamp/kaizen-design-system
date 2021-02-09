@@ -11,10 +11,10 @@ $caButton-height: $ca-grid * 2;
 $caButtonIcon-height: 20px;
 $caButton-formHeight: $ca-grid * 5/3;
 $caButton-verticalPadding: calc(
-  #{$ca-grid / 2} - #{$kz-border-solid-border-width-default}
+  #{$ca-grid / 2} - #{$kz-border-solid-border-width}
 );
 $caButton-verticalPaddingForm: calc(
-  #{$ca-grid / 3} - #{$kz-border-solid-border-width-default}
+  #{$ca-grid / 3} - #{$kz-border-solid-border-width}
 );
 
 // reset user agent syles for button elment type
@@ -36,8 +36,8 @@ $caButton-verticalPaddingForm: calc(
   @include button-reset;
   @include kz-typography-inter(
     $size: 18,
-    $weight: $kz-typography-button-primary-font-weight-default,
-    $letter-spacing: $kz-typography-button-primary-letter-spacing-default,
+    $weight: $kz-typography-button-primary-font-weight,
+    $letter-spacing: $kz-typography-button-primary-letter-spacing,
     $line-height-in-grid-units:
       to-grid-units($kz-typography-button-primary-line-height-default)
   );
@@ -95,8 +95,8 @@ $caButton-verticalPaddingForm: calc(
   // Disabled
   &:disabled {
     background: $kz-color-white;
-    border-color: add-alpha-rgba($kz-color-wisteria-500-rgb-params, 30%);
-    color: add-alpha-rgba($kz-color-wisteria-800-rgb-params, 30%);
+    border-color: rgba($kz-color-wisteria-500-rgb-params, 30%);
+    color: rgba($kz-color-wisteria-800-rgb-params, 30%);
   }
 }
 
@@ -124,14 +124,14 @@ $caButton-verticalPaddingForm: calc(
 
   &:disabled {
     color: $kz-color-white;
-    background: add-alpha-rgba($kz-color-seedling-500-rgb-params, 30%);
+    background: rgba($kz-color-seedling-500-rgb-params, 30%);
     border-color: $kz-border-borderless-border-color;
   }
 }
 
 %caButtonDestructive {
   &:disabled {
-    background: add-alpha-rgba($kz-color-coral-500-rgb-params, 30%);
+    background: rgba($kz-color-coral-500-rgb-params, 30%);
   }
 }
 
@@ -174,14 +174,14 @@ $caButton-verticalPaddingForm: calc(
     }
 
     &:active {
-      background: add-alpha-rgba($kz-color-wisteria-800-rgb-params, 30%);
+      background: rgba($kz-color-wisteria-800-rgb-params, 30%);
     }
   }
 
   &:disabled {
     background: transparent;
     border-color: $kz-border-borderless-border-color;
-    color: add-alpha-rgba($kz-color-cluny-500-rgb-params, 30%);
+    color: rgba($kz-color-cluny-500-rgb-params, 30%);
   }
 }
 
@@ -192,7 +192,7 @@ $caButton-verticalPaddingForm: calc(
     color: $kz-color-white;
 
     &:hover {
-      background: add-alpha-rgba($kz-color-white-rgb-params, 10%);
+      background: rgba($kz-color-white-rgb-params, 10%);
       border-color: $kz-color-white;
     }
 
@@ -200,20 +200,20 @@ $caButton-verticalPaddingForm: calc(
       border-color: $kz-color-yuzu-500;
 
       &:not(:active) {
-        background: add-alpha-rgba($kz-color-white-rgb-params, 10%);
+        background: rgba($kz-color-white-rgb-params, 10%);
       }
     }
 
     &:active {
-      background: add-alpha-rgba($kz-color-white-rgb-params, 20%);
+      background: rgba($kz-color-white-rgb-params, 20%);
       border-color: $kz-color-white;
     }
   }
 
   &:disabled {
     background: transparent;
-    border-color: add-alpha-rgba($kz-color-white-rgb-params, 30%);
-    color: add-alpha-rgba($kz-color-white-rgb-params, 30%);
+    border-color: rgba($kz-color-white-rgb-params, 30%);
+    color: rgba($kz-color-white-rgb-params, 30%);
   }
 
   &%caButtonPrimary {
@@ -248,25 +248,25 @@ $caButton-verticalPaddingForm: calc(
       }
 
       &:hover {
-        background: add-alpha-rgba($kz-color-white-rgb-params, 95%);
+        background: rgba($kz-color-white-rgb-params, 95%);
       }
 
       :global(.js-focus-visible) &:global(.focus-visible) {
         border-color: $kz-color-cluny-500;
 
         &:not(:active) {
-          background: add-alpha-rgba($kz-color-white-rgb-params, 95%);
+          background: rgba($kz-color-white-rgb-params, 95%);
         }
       }
 
       &:active {
-        background: add-alpha-rgba($kz-color-white-rgb-params, 90%);
+        background: rgba($kz-color-white-rgb-params, 90%);
         border-color: $kz-border-borderless-border-color;
       }
     }
 
     &:disabled {
-      background: add-alpha-rgba($kz-color-white-rgb-params, 10%);
+      background: rgba($kz-color-white-rgb-params, 10%);
       border-color: $kz-border-borderless-border-color;
     }
   }
@@ -282,11 +282,11 @@ $caButton-verticalPaddingForm: calc(
       }
 
       &:hover {
-        background: add-alpha-rgba($kz-color-white-rgb-params, 10%);
+        background: rgba($kz-color-white-rgb-params, 10%);
       }
 
       &:active {
-        background: add-alpha-rgba($kz-color-white-rgb-params, 20%);
+        background: rgba($kz-color-white-rgb-params, 20%);
       }
 
       :global(.js-focus-visible) &:global(.focus-visible) {
@@ -301,7 +301,7 @@ $caButton-verticalPaddingForm: calc(
     &:disabled {
       background: transparent;
       border-color: $kz-border-borderless-border-color;
-      color: add-alpha-rgba($kz-color-white-rgb-params, 30%);
+      color: rgba($kz-color-white-rgb-params, 30%);
     }
   }
 }

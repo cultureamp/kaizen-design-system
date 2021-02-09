@@ -234,7 +234,7 @@ $input-disabled-border-alpha: 50%;
 // Reversed (Dark Backgrounds)
 .input.reversed {
   color: $kz-color-white;
-  border-color: rgba($kz-color-white, 0.65);
+  border-color: rgba($kz-color-white-rgb-params, 0.65);
 
   @include form-input-placeholder {
     color: $kz-color-white;
@@ -243,7 +243,7 @@ $input-disabled-border-alpha: 50%;
 
   &:focus:not([disabled]),
   &:hover:not([disabled]) {
-    background: rgba($kz-color-white, 0.1);
+    background: rgba($kz-color-white-rgb-params, 0.1);
     border-color: $kz-color-white;
   }
 
@@ -252,9 +252,9 @@ $input-disabled-border-alpha: 50%;
   }
 
   &.disabled {
-    color: add-alpha($kz-color-white, $input-disabled-alpha);
-    border-color: add-alpha(
-      $kz-color-white-default,
+    color: rgba($kz-color-white-rgb-params, $input-disabled-alpha);
+    border-color: rgba(
+      $kz-color-white-rgb-params,
       $input-disabled-border-alpha
     );
 
