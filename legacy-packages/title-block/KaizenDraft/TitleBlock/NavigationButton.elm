@@ -1,9 +1,9 @@
 module KaizenDraft.TitleBlock.NavigationButton exposing (active, default, onClick, path, reversed, view)
 
 import CssModules exposing (css)
-import Elm18Compatible.Html.Events as Events exposing (defaultOptions, onWithOptions)
 import Html exposing (..)
 import Html.Attributes exposing (href)
+import Html.Events as Events exposing (preventDefaultOn)
 import Json.Decode as Json
 
 
@@ -67,10 +67,9 @@ view (Config config) label =
         onClickAttribs =
             case config.onClick of
                 Just msg ->
-                    [ onWithOptions
+                    [ preventDefaultOn
                         "click"
-                        { defaultOptions | preventDefault = True }
-                        (Json.succeed msg)
+                        (Json.succeed msg |> Json.map (\m -> ( m, True )))
                     ]
 
                 Nothing ->

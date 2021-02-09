@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.65](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.64...@kaizen/draft-dropdown@1.3.65) (2021-02-09)
+
+
+### Bug Fixes
+
+* remove elm upgrade shims ([#990](https://github.com/cultureamp/kaizen-design-system/issues/990)) ([a7ee10a](https://github.com/cultureamp/kaizen-design-system/commit/a7ee10a87d8fa3fb35cf09d6d116c5ceeb4f6b85))
+
+
+
+
+
 ## [1.3.64](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.63...@kaizen/draft-dropdown@1.3.64) (2021-02-08)
 
 **Note:** Version bump only for package @kaizen/draft-dropdown
