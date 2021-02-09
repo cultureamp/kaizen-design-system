@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.1.8...@kaizen/component-library@8.2.0) (2021-02-09)
+
+
+### Features
+
+* point legacy Open Sans vars at Inter (release canary PR to master) ([#1021](https://github.com/cultureamp/kaizen-design-system/issues/1021)) ([a00d9e1](https://github.com/cultureamp/kaizen-design-system/commit/a00d9e14f6137e7bce465c55277f472f1217a518))
+
+
+
+
+
 ## [8.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.1.7...@kaizen/component-library@8.1.8) (2021-02-09)
 
 
