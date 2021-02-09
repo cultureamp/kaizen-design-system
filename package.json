@@ -127,7 +127,7 @@
     "lint-staged": "^10.4.0",
     "loader-utils": "^1.0.2",
     "node-elm-compiler": "^5.0.0",
-    "yargs": "^6.5.0"
+    "yargs": "^16.2.0"
   },
   "lint-staged": {
     "*": [
