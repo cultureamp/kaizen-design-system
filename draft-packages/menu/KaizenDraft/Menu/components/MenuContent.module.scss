@@ -9,6 +9,8 @@
 $side-padding: 1/2 * $ca-grid;
 
 .menuContent {
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   background: $kz-color-white;
   color: $kz-color-wisteria-800;
@@ -44,7 +46,6 @@ $side-padding: 1/2 * $ca-grid;
   box-sizing: border-box;
   background: none;
   border: none;
-  width: 100%;
   text-align: left;
   padding: 8px $side-padding;
   min-height: 1.75 * $ca-grid;
