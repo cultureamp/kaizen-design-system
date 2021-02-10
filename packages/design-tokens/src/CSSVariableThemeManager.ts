@@ -15,6 +15,7 @@ export class CSSVariableThemeManager<
   ) {
     this.setTheme(theme)
   }
+  public getRootElement = () => this.rootElement
   public getCurrentTheme = () => this.theme
   public getCssVariableThemeKey = () => {
     const justTheKey = flattenObjectToCSSVariables({
@@ -22,18 +23,25 @@ export class CSSVariableThemeManager<
     })
     return this.rootElement.style.getPropertyValue(justTheKey["--kz-theme-key"])
   }
-  public setTheme = (theme: Theme) => {
-    if (this.theme === theme) return
+  public setRootElement = (element: HTMLElement, force?: boolean) => {
+    if (this.rootElement !== element || force) {
+      this.rootElement = element
+      this.setTheme(this.theme)
+    }
+  }
+  public setTheme = (theme: Theme, force?: boolean) => {
+    if (!force) {
+      if (this.theme === theme) return
 
-    // This case will happen if you load a theme initially using CSS.
-    if (theme.themeKey !== this.getCssVariableThemeKey()) {
-      this.theme = theme
-      return
+      // This case will happen if you load a theme initially using CSS.
+      if (theme.themeKey !== this.getCssVariableThemeKey()) {
+        this.theme = theme
+        return
+      }
     }
     const cssVariablesOfTheme = flattenObjectToCSSVariables({
       kz: theme,
     })
-
     Object.entries(cssVariablesOfTheme).forEach(([key, value]) => {
       this.rootElement.style.setProperty(key, value)
     })

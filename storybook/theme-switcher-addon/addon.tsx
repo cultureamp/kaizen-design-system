@@ -6,7 +6,6 @@ import {
   // eslint-disable-next-line import/no-extraneous-dependencies
 } from "@kaizen/design-tokens"
 
-const cssVariableThemeManager = new CSSVariableThemeManager(zenTheme)
 const themeOfKey = (themeKey: string) => {
   switch (themeKey) {
     case "heart":
@@ -16,7 +15,11 @@ const themeOfKey = (themeKey: string) => {
   }
 }
 export const App = () => {
-  const [theme, setTheme] = useState(cssVariableThemeManager.getCurrentTheme())
+  const [theme, setTheme] = useState(zenTheme)
+  const cssVariableThemeManager = React.useMemo(
+    () => new CSSVariableThemeManager(theme),
+    []
+  )
   useEffect(() => {
     let storyRoot
     if (
@@ -34,7 +37,7 @@ export const App = () => {
     } else {
       return
     }
-
+    cssVariableThemeManager.setRootElement(storyRoot)
     cssVariableThemeManager.setTheme(theme)
   })
 
