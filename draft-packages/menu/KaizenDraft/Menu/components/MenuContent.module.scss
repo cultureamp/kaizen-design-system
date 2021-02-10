@@ -7,6 +7,7 @@
 @import "~@kaizen/component-library/styles/animation";
 
 $side-padding: 1/2 * $ca-grid;
+$gutter: 4px;
 
 .menuContent {
   display: flex;
@@ -16,7 +17,7 @@ $side-padding: 1/2 * $ca-grid;
   color: $kz-color-wisteria-800;
   border-radius: $kz-border-solid-border-radius;
   box-shadow: $kz-shadow-large-box-shadow;
-  padding: 6px 0;
+  padding: ($gutter + 2px) 0;
   text-align: left;
   width: 100%;
 
@@ -28,7 +29,7 @@ $side-padding: 1/2 * $ca-grid;
 .header {
   padding: 10px $side-padding 5px;
   color: $kz-color-wisteria-800;
-  margin: 0 4px;
+  margin: 0 $gutter;
 }
 
 .header__title {
@@ -49,7 +50,7 @@ $side-padding: 1/2 * $ca-grid;
   border: none;
   text-align: left;
   padding: 8px $side-padding;
-  margin: 0 4px;
+  margin: 0 $gutter;
   min-height: 1.75 * $ca-grid;
   border-radius: 4px;
   font-family: $kz-typography-paragraph-body-font-family;
