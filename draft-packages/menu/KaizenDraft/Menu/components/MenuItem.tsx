@@ -25,6 +25,11 @@ export type MenuItemProps = {
   destructive?: boolean
   disabled?: boolean
   automationId?: string
+  /*
+   * Used to associate a MenuItem with a MenuHeader for use with things like the
+   * aria-labelledby attribute.
+   */
+  headerId?: string
   /**
    * Not recommended - this was added for use in exceptional cases like the navigation bar, which needs
    * to highlight which page the user is currently on. By design, Menus don't have active items,
@@ -41,6 +46,7 @@ const MenuItem = (props: MenuItemProps) => {
     destructive,
     disabled,
     automationId,
+    headerId,
     onClick,
     href,
     target,
@@ -73,6 +79,7 @@ const MenuItem = (props: MenuItemProps) => {
         disabled={true}
         className={className}
         data-automation-id={automationId}
+        aria-labelledby={headerId}
       >
         {iconNode}
         {wrappedLabel}
@@ -89,6 +96,7 @@ const MenuItem = (props: MenuItemProps) => {
         }
         className={className}
         data-automation-id={automationId}
+        aria-labelledby={headerId}
         target={target}
         // this tells screenreaders that this link represents the current page
         // (only intended for use in things like a nav with dropdowns)
@@ -108,6 +116,7 @@ const MenuItem = (props: MenuItemProps) => {
       }
       className={className}
       data-automation-id={automationId}
+      aria-labelledby={headerId}
     >
       {iconNode}
       {wrappedLabel}
