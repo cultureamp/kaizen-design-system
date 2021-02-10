@@ -16,7 +16,7 @@ $side-padding: 1/2 * $ca-grid;
   color: $kz-color-wisteria-800;
   border-radius: $kz-border-solid-border-radius;
   box-shadow: $kz-shadow-large-box-shadow;
-  padding: 6px 4px;
+  padding: 6px 0;
   text-align: left;
   width: 100%;
 
@@ -28,6 +28,7 @@ $side-padding: 1/2 * $ca-grid;
 .header {
   padding: 10px $side-padding 5px;
   color: $kz-color-wisteria-800;
+  margin: 0 4px;
 }
 
 .header__title {
@@ -48,6 +49,7 @@ $side-padding: 1/2 * $ca-grid;
   border: none;
   text-align: left;
   padding: 8px $side-padding;
+  margin: 0 4px;
   min-height: 1.75 * $ca-grid;
   border-radius: 4px;
   font-family: $kz-typography-paragraph-body-font-family;
