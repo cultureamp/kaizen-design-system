@@ -12,5 +12,5 @@ export default create({
   fontCode: "monospace",
 
   // Text colors
-  textColor: defaultTheme.color.wisteria["800"],
+  /*   textColor: defaultTheme.color.wisteria["800"], */
 })

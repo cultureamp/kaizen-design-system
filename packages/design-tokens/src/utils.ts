@@ -57,13 +57,14 @@ const objectPathToCssVarIdentifier = (path: string[]) =>
 export const objectPathToCssVarReference = (path: string[]) =>
   `var(${objectPathToCssVarIdentifier(path)})`
 
+export const cssVariableThemeNamespace = "varkz" as const
 /**
  * This function will convert the leaf values of a theme to a value like `var(--parent1key-parent2key-leafkey)` - a CSS variable with an identifier that represents it's hierarchy within the object you provided.
  * One caveat though: if a key is suffixed with `-default` it will leave the value in place. This was implemented for consumer regression purposes, i.e. so that consumers had a fallback when CSS variables weren't feasible.
  * Example:
  * ```
  * {
- *  kz: {
+ *  varkz: {
  *      color: {
  *          wisteria: "#ff0011"
  *      }
@@ -73,7 +74,7 @@ export const objectPathToCssVarReference = (path: string[]) =>
  * Transforms into:
  * ```
  * {
- *  kz: {
+ *  varkz: {
  *      color: {
  *          wisteria: "var(--kz-color-wisteria)"
  *      }
@@ -83,7 +84,7 @@ export const objectPathToCssVarReference = (path: string[]) =>
  */
 
 export const makeCSSVariableTheme = (theme: Theme) =>
-  mapLeafsOfObject({ kz: theme }, (path, value) =>
+  mapLeafsOfObject({ [cssVariableThemeNamespace]: theme }, (path, value) =>
     path[path.length - 1].endsWith("-default")
       ? value
       : objectPathToCssVarReference(path)

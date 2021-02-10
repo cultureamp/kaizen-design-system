@@ -1,0 +1,36 @@
+{
+  "varkz": {
+    "animation": {
+      "easingFunction": {
+        "easeInOut": "var(--varkz-animation-easing-function-ease-in-out)",
+        "easeInOut-default": "cubic-bezier(0.455, 0.03, 0.515, 0.955)",
+        "easeIn": "var(--varkz-animation-easing-function-ease-in)",
+        "easeIn-default": "cubic-bezier(0.55, 0.085, 0.68, 0.53)",
+        "easeOut": "var(--varkz-animation-easing-function-ease-out)",
+        "easeOut-default": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+        "linear": "var(--varkz-animation-easing-function-linear)",
+        "linear-default": "linear",
+        "bounceIn": "var(--varkz-animation-easing-function-bounce-in)",
+        "bounceIn-default": "cubic-bezier(0.485, 0.155, 0.24, 1.245)",
+        "bounceOut": "var(--varkz-animation-easing-function-bounce-out)",
+        "bounceOut-default": "cubic-bezier(0.485, 0.155, 0.515, 0.845)",
+        "bounceInOut": "var(--varkz-animation-easing-function-bounce-in-out)",
+        "bounceInOut-default": "cubic-bezier(0.76, -0.245, 0.24, 1.245)"
+      },
+      "duration": {
+        "instant": "var(--varkz-animation-duration-instant)",
+        "instant-default": "0ms",
+        "immediate": "var(--varkz-animation-duration-immediate)",
+        "immediate-default": "100ms",
+        "rapid": "var(--varkz-animation-duration-rapid)",
+        "rapid-default": "200ms",
+        "fast": "var(--varkz-animation-duration-fast)",
+        "fast-default": "300ms",
+        "slow": "var(--varkz-animation-duration-slow)",
+        "slow-default": "400ms",
+        "deliberate": "var(--varkz-animation-duration-deliberate)",
+        "deliberate-default": "700ms"
+      }
+    }
+  }
+}

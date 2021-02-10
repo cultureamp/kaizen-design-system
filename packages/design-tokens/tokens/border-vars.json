@@ -1,0 +1,44 @@
+{
+  "varkz": {
+    "border": {
+      "solid": {
+        "borderWidth": "var(--varkz-border-solid-border-width)",
+        "borderWidth-default": "2px",
+        "borderRadius": "var(--varkz-border-solid-border-radius)",
+        "borderRadius-default": "7px",
+        "borderStyle": "var(--varkz-border-solid-border-style)",
+        "borderStyle-default": "solid",
+        "borderColor": "var(--varkz-border-solid-border-color)",
+        "borderColor-default": "#e1e2ea",
+        "borderColor-rgb-params": "var(--varkz-border-solid-border-color-rgb-params)"
+      },
+      "dashed": {
+        "borderWidth": "var(--varkz-border-dashed-border-width)",
+        "borderWidth-default": "2px",
+        "borderRadius": "var(--varkz-border-dashed-border-radius)",
+        "borderRadius-default": "7px",
+        "borderStyle": "var(--varkz-border-dashed-border-style)",
+        "borderStyle-default": "dashed"
+      },
+      "borderless": {
+        "borderWidth": "var(--varkz-border-borderless-border-width)",
+        "borderWidth-default": "2px",
+        "borderRadius": "var(--varkz-border-borderless-border-radius)",
+        "borderRadius-default": "7px",
+        "borderStyle": "var(--varkz-border-borderless-border-style)",
+        "borderStyle-default": "solid",
+        "borderColor": "var(--varkz-border-borderless-border-color)",
+        "borderColor-default": "transparent",
+        "borderColor-rgb-params": "var(--varkz-border-borderless-border-color-rgb-params)"
+      },
+      "focusRing": {
+        "borderWidth": "var(--varkz-border-focus-ring-border-width)",
+        "borderWidth-default": "2px",
+        "borderRadius": "var(--varkz-border-focus-ring-border-radius)",
+        "borderRadius-default": "10px",
+        "borderStyle": "var(--varkz-border-focus-ring-border-style)",
+        "borderStyle-default": "solid"
+      }
+    }
+  }
+}

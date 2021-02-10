@@ -1,0 +1,20 @@
+{
+  "varkz": {
+    "layout": {
+      "contentMaxWidth": "var(--varkz-layout-content-max-width)",
+      "contentMaxWidth-default": "1392px",
+      "contentSideMargin": "var(--varkz-layout-content-side-margin)",
+      "contentSideMargin-default": "72px",
+      "mobileActionsDrawerHeight": "var(--varkz-layout-mobile-actions-drawer-height)",
+      "mobileActionsDrawerHeight-default": "60px",
+      "navigationBarHeight": "var(--varkz-layout-navigation-bar-height)",
+      "navigationBarHeight-default": "72px",
+      "breakpoints": {
+        "medium": "var(--varkz-layout-breakpoints-medium)",
+        "medium-default": "768px",
+        "large": "var(--varkz-layout-breakpoints-large)",
+        "large-default": "1080px"
+      }
+    }
+  }
+}

@@ -1,10 +1,6 @@
-import React, { useState, useEffect } from "react"
-import {
-  heartTheme,
-  zenTheme,
-  CSSVariableThemeManager,
-  // eslint-disable-next-line import/no-extraneous-dependencies
-} from "@kaizen/design-tokens"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { heartTheme, ThemeManager, zenTheme } from "@kaizen/design-tokens"
+import React, { useEffect, useState } from "react"
 
 const themeOfKey = (themeKey: string) => {
   switch (themeKey) {
@@ -15,30 +11,31 @@ const themeOfKey = (themeKey: string) => {
   }
 }
 export const App = () => {
+  const themeManager = React.useRef<ThemeManager | null>(null)
   const [theme, setTheme] = useState(zenTheme)
-  const cssVariableThemeManager = React.useMemo(
-    () => new CSSVariableThemeManager(theme),
-    []
-  )
   useEffect(() => {
     let storyRoot
-    if (
+
+    const storybookIframe =
       document &&
-      document.getElementById("storybook-preview-iframe") &&
-      document.getElementById("storybook-preview-iframe").contentWindow
-        .document &&
-      document
-        .getElementById("storybook-preview-iframe")
-        .contentWindow.document.getElementById("root")
+      (document.getElementById(
+        "storybook-preview-iframe"
+      ) as HTMLIFrameElement | null)
+    if (
+      storybookIframe &&
+      storybookIframe.contentWindow.document &&
+      storybookIframe.contentWindow.document.getElementById("root")
     ) {
-      storyRoot = document
-        .getElementById("storybook-preview-iframe")
-        .contentWindow.document.getElementById("root")
+      storyRoot = storybookIframe.contentWindow.document.getElementById("root")
+      if (!themeManager.current) {
+        themeManager.current = new ThemeManager(theme, storyRoot)
+      } else {
+        themeManager.current.setRootElement(storyRoot)
+        themeManager.current.setAndApplyTheme(theme)
+      }
     } else {
       return
     }
-    cssVariableThemeManager.setRootElement(storyRoot)
-    cssVariableThemeManager.setTheme(theme)
   })
 
   return (
