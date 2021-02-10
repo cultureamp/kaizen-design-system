@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.1.8...@kaizen/component-library@8.2.0) (2021-02-09)
+
+
+### Features
+
+* point legacy Open Sans vars at Inter (release canary PR to master) ([#1021](https://github.com/cultureamp/kaizen-design-system/issues/1021)) ([a00d9e1](https://github.com/cultureamp/kaizen-design-system/commit/a00d9e14f6137e7bce465c55277f472f1217a518))
+
+
+
+
+
+## [8.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.1.7...@kaizen/component-library@8.1.8) (2021-02-09)
+
+
+### Bug Fixes
+
+* remove elm upgrade shims ([#990](https://github.com/cultureamp/kaizen-design-system/issues/990)) ([a7ee10a](https://github.com/cultureamp/kaizen-design-system/commit/a7ee10a87d8fa3fb35cf09d6d116c5ceeb4f6b85))
+
+
+
+
+
+## [8.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.1.6...@kaizen/component-library@8.1.7) (2021-02-08)
+
+
+### Bug Fixes
+
+* Delete unused dependencies from component-library ([#1014](https://github.com/cultureamp/kaizen-design-system/issues/1014)) ([a548bb8](https://github.com/cultureamp/kaizen-design-system/commit/a548bb8b9323f03dcb14a59a07c815d9e66f7f57))
+
+
+
+
+
 ## [8.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.1.5...@kaizen/component-library@8.1.6) (2021-02-08)
 
 **Note:** Version bump only for package @kaizen/component-library

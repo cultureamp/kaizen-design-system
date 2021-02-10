@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-menu",
-  "version": "2.8.2",
+  "version": "2.8.6",
   "description": "The draft Menu component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,8 +32,8 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^8.1.6",
-    "@kaizen/draft-button": "^3.0.16",
+    "@kaizen/component-library": "^8.2.0",
+    "@kaizen/draft-button": "^3.1.1",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },
