@@ -43,9 +43,8 @@ ${Object.entries(flattenObjectToCSSVariables({ kz: theme }))
  * WIP: Need a better name and articulation of this.
  * See {@link augmentCssVariable} to understand what happens to each leaf variable in the theme.
  * Writing this as a solution to the add-alpha and add-tint/shade problem, and to spit out sass variables with `-default` and `-rgb-params` suffixes (where applicable).
- * We need to have additional tokens that reference variables, which contain a triple (R, G, B).
- * This triple can then be used within the CSS [runtime] function as a CSS variable, e.g. `rgba(var(--kz-color-wisteria-800-rgb))`.
- * Adds extra keys as leaf siblings, named `${key}-default`, containing the value within the theme provided as the parameter.
+ * We need to have additional tokens that reference variables, which contain a tuple (R, G, B).
+ * This tuple can then be used within the CSS [runtime] function as a CSS variable, e.g. `rgba(var(--kz-color-wisteria-800-rgb))`.
  */
 
 export const augmentThemeForSassVariables = (theme: Theme): Theme => {
@@ -58,7 +57,9 @@ export const augmentThemeForSassVariables = (theme: Theme): Theme => {
         (child[segment] || (child[segment] = {})) as Record<string, unknown>,
       augmentedTheme as Record<string, unknown>
     )
-    const cssVariablesOfToken = augmentCssVariable(leafKey, value)
+    const cssVariablesOfToken = augmentCssVariable(leafKey, value, {
+      augmentWithDefault: false,
+    })
     Object.assign(leafObject, cssVariablesOfToken)
   })
   return augmentedTheme as Theme

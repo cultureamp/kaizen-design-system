@@ -2,23 +2,14 @@
   "kz-var": {
     "spacing": {
       "xs": "var(--kz-var-spacing-xs)",
-      "xs-default": "0.375rem",
       "sm": "var(--kz-var-spacing-sm)",
-      "sm-default": "0.75rem",
       "md": "var(--kz-var-spacing-md)",
-      "md-default": "1.5rem",
       "lg": "var(--kz-var-spacing-lg)",
-      "lg-default": "2.25rem",
       "xl": "var(--kz-var-spacing-xl)",
-      "xl-default": "3rem",
       "xxl": "var(--kz-var-spacing-xxl)",
-      "xxl-default": "3.75rem",
       "xxxl": "var(--kz-var-spacing-xxxl)",
-      "xxxl-default": "4.5rem",
       "xxxxl": "var(--kz-var-spacing-xxxxl)",
-      "xxxxl-default": "5.25rem",
-      "xxxxxl": "var(--kz-var-spacing-xxxxxl)",
-      "xxxxxl-default": "6rem"
+      "xxxxxl": "var(--kz-var-spacing-xxxxxl)"
     }
   }
 }

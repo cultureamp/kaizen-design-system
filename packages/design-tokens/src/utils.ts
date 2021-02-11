@@ -11,13 +11,13 @@ import { DeepMapObjectLeafs, Theme } from "./types"
  *  one: {
  *    two: 4
  *  }
- * }, (path, value) => `${path.join(".")}: ${value}`)
+ * }, (path, value) => value + 7)
  * ```
  * Results in:
  * ```
  * {
  *    one: {
- *      two: "one.two: 4"
+ *      two: 11
  *    }
  * }
  * ```
@@ -64,7 +64,7 @@ export const cssVariableThemeNamespace = "kz-var" as const
  * Example:
  * ```
  * {
- *  varkz: {
+ *  kz: {
  *      color: {
  *          wisteria: "#ff0011"
  *      }
@@ -74,7 +74,7 @@ export const cssVariableThemeNamespace = "kz-var" as const
  * Transforms into:
  * ```
  * {
- *  varkz: {
+ *  kz: {
  *      color: {
  *          wisteria: "var(--kz-color-wisteria)"
  *      }
@@ -91,7 +91,7 @@ export const makeCSSVariableTheme = (theme: Theme) =>
   )
 
 /**
- * Use this to generate an object containing `${key}: value`, `${key}-default: value`, and `${key}-rgb-params: rgb(r, g, b)` if the value is a color.
+ * Use this to generate an object containing `${key}: value`, `${key}-default: value`, and `${key}-rgb-params: r, g, b` if the value is a color.
  * This is for augmenting a CSS variable to support our solution to regression issues with using CSS variables instead of concrete values.
  */
 export const augmentCssVariable = (
