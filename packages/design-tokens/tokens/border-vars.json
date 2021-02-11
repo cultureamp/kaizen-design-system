@@ -1,0 +1,44 @@
+{
+  "kz-var": {
+    "border": {
+      "solid": {
+        "borderWidth": "var(--kz-var-border-solid-border-width)",
+        "borderWidth-default": "2px",
+        "borderRadius": "var(--kz-var-border-solid-border-radius)",
+        "borderRadius-default": "7px",
+        "borderStyle": "var(--kz-var-border-solid-border-style)",
+        "borderStyle-default": "solid",
+        "borderColor": "var(--kz-var-border-solid-border-color)",
+        "borderColor-default": "#e1e2ea",
+        "borderColor-rgb-params": "var(--kz-var-border-solid-border-color-rgb-params)"
+      },
+      "dashed": {
+        "borderWidth": "var(--kz-var-border-dashed-border-width)",
+        "borderWidth-default": "2px",
+        "borderRadius": "var(--kz-var-border-dashed-border-radius)",
+        "borderRadius-default": "7px",
+        "borderStyle": "var(--kz-var-border-dashed-border-style)",
+        "borderStyle-default": "dashed"
+      },
+      "borderless": {
+        "borderWidth": "var(--kz-var-border-borderless-border-width)",
+        "borderWidth-default": "2px",
+        "borderRadius": "var(--kz-var-border-borderless-border-radius)",
+        "borderRadius-default": "7px",
+        "borderStyle": "var(--kz-var-border-borderless-border-style)",
+        "borderStyle-default": "solid",
+        "borderColor": "var(--kz-var-border-borderless-border-color)",
+        "borderColor-default": "transparent",
+        "borderColor-rgb-params": "var(--kz-var-border-borderless-border-color-rgb-params)"
+      },
+      "focusRing": {
+        "borderWidth": "var(--kz-var-border-focus-ring-border-width)",
+        "borderWidth-default": "2px",
+        "borderRadius": "var(--kz-var-border-focus-ring-border-radius)",
+        "borderRadius-default": "10px",
+        "borderStyle": "var(--kz-var-border-focus-ring-border-style)",
+        "borderStyle-default": "solid"
+      }
+    }
+  }
+}
