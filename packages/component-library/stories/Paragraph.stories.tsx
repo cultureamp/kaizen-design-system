@@ -24,6 +24,19 @@ export const Body = () => (
   </Paragraph>
 )
 
+export const BodyBold = () => (
+  <>
+    <Paragraph data-automation-id="test" variant="body">
+      <strong>Paragraph Body (bold)</strong>
+    </Paragraph>
+    <Paragraph variant="body">
+      There is no variant for bold text. You can use{" "}
+      <code>&#x3C;strong&#x3E;</code> tags for this purpose and it will have the
+      correct font weight applied.
+    </Paragraph>
+  </>
+)
+
 export const BodyDarkReducedOpacity = () => (
   <Paragraph
     data-automation-id="test"
