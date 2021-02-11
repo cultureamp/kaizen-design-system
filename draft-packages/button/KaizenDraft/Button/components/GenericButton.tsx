@@ -56,12 +56,17 @@ type LabelPropsGeneric = {
 }
 
 type WorkingProps = {
-  working?: boolean
-  workingLabel?: string
+  working: true
+  workingLabel: string
   workingLabelHidden?: boolean
 }
 
-export type LabelProps = LabelPropsGeneric & WorkingProps
+type WorkingUndefinedProps = {
+  working?: false
+}
+
+export type LabelProps = LabelPropsGeneric &
+  (WorkingProps | WorkingUndefinedProps)
 
 export type IconButtonProps = GenericProps
 export type ButtonProps = GenericProps & LabelProps
@@ -247,7 +252,7 @@ const renderLoadingSpinner = () => (
   </div>
 )
 
-const renderWorkingContent = props => {
+const renderWorkingContent = (props: Extract<Props, { working: true }>) => {
   if (props.workingLabelHidden) {
     return (
       <>
@@ -276,7 +281,7 @@ const renderWorkingContent = props => {
   )
 }
 
-const renderDefaultContent = props => (
+const renderDefaultContent = (props: Props) => (
   <>
     {props.icon && props.iconPosition !== "end" && renderIcon(props.icon)}
     {(!props.icon || !props.iconButton) && (
