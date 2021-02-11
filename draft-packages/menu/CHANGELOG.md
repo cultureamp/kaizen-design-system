@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.8.6...@kaizen/draft-menu@2.9.0) (2021-02-10)
+
+
+### Features
+
+* Add aria attrs to menu button ([#1025](https://github.com/cultureamp/kaizen-design-system/issues/1025)) ([ff44c6c](https://github.com/cultureamp/kaizen-design-system/commit/ff44c6c45d1b2a0b1fee08aa9c3bc84ca817dee4))
+
+
+
+
+
+## [2.8.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.8.5...@kaizen/draft-menu@2.8.6) (2021-02-09)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [2.8.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.8.4...@kaizen/draft-menu@2.8.5) (2021-02-09)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [2.8.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.8.3...@kaizen/draft-menu@2.8.4) (2021-02-09)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [2.8.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.8.2...@kaizen/draft-menu@2.8.3) (2021-02-08)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
 ## [2.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.8.1...@kaizen/draft-menu@2.8.2) (2021-02-08)
 
 **Note:** Version bump only for package @kaizen/draft-menu

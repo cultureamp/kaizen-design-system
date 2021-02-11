@@ -27,8 +27,7 @@
         "./draft-packages/zen-navigation-bar",
         "./draft-packages/well",
         "./legacy-packages/title-block",
-        "./node_modules/@cultureamp/elm-storybook/src",
-        "./node_modules/elm-upgrade-shims/lib-0.19"
+        "./node_modules/@cultureamp/elm-storybook/src"
     ],
     "elm-version": "0.19.0",
     "dependencies": {

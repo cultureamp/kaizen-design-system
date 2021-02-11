@@ -9,10 +9,9 @@ module KaizenDraft.DropdownMenu.DropdownMenu exposing
     )
 
 import CssModules exposing (css)
-import Elm18Compatible.Html.Attributes exposing (style)
-import Elm18Compatible.Html.Events exposing (onWithOptions)
 import Html exposing (Attribute, Html, a, article, button, div, h1, h2, main_, option, p, progress, select, span, table, tbody, td, text, th, thead, tr)
-import Html.Attributes as Attributes exposing (attribute, selected, tabindex, title)
+import Html.Attributes as Attributes exposing (attribute, selected, style, tabindex, title)
+import Html.Events
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
 import Json.Decode as Decode
@@ -84,7 +83,7 @@ view args state =
         , if state |> isOpen args.dropdownId then
             div
                 [ styles.class .menuContainer
-                , style [ ( "right", "0px" ) ]
+                , style "right" "0px"
                 ]
                 [ MenuList.view { items = args.menuItems } ]
 
@@ -95,10 +94,14 @@ view args state =
 
 onClickWithStopAndPrevent : msg -> Attribute msg
 onClickWithStopAndPrevent msg =
-    onWithOptions
+    Html.Events.custom
         "click"
-        { preventDefault = True, stopPropagation = True }
-        (Decode.succeed msg)
+        (Decode.succeed
+            { message = msg
+            , stopPropagation = True
+            , preventDefault = True
+            }
+        )
 
 
 styles =

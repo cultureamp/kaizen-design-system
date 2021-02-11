@@ -22,7 +22,7 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "8.1.6",
+  "version": "8.2.0",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
@@ -31,21 +31,16 @@
     "react": "^16.9.0"
   },
   "dependencies": {
-    "@kaizen/deprecated-component-library-helpers": "^2.0.0",
+    "@kaizen/deprecated-component-library-helpers": "^2.1.0",
     "@kaizen/hosted-assets": "^1.1.0",
     "@types/classnames": "^2.2.6",
     "@types/lodash": "^4.14.132",
-    "@types/react-select": "^3.0.5",
     "@types/uuid": "^8.3.0",
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
     "motion-ui": "cultureamp/motion-ui",
-    "react-animate-height": "^2.0.15",
     "react-focus-lock": "^1.19.1",
     "react-media": "^1.9.2",
-    "react-select": "^3.1.0",
-    "react-tooltip": "^4.2.6",
-    "react-transition-group": "^4.4.1",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
