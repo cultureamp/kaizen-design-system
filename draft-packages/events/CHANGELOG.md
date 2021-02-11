@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.95](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-events@1.2.94...@kaizen/draft-events@1.2.95) (2021-02-11)
+
+**Note:** Version bump only for package @kaizen/draft-events
+
+
+
+
+
 ## [1.2.94](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-events@1.2.93...@kaizen/draft-events@1.2.94) (2021-02-09)
 
 **Note:** Version bump only for package @kaizen/draft-events
