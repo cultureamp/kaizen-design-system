@@ -12,5 +12,5 @@ export default create({
   fontCode: "monospace",
 
   // Text colors
-  extColor: colorVars["kz-var"].color.wisteria["800"],
+  textColor: colorVars["kz-var"].color.wisteria["800"],
 })
