@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-select",
-  "version": "1.11.43",
+  "version": "1.11.44",
   "description": "The draft Select component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -36,9 +36,9 @@
     "@kaizen/deprecated-component-library-helpers": "^2.1.0",
     "@kaizen/draft-form": "^3.1.7",
     "@types/classnames": "^2.2.10",
+    "@types/react-select": "3.0.22",
     "classnames": "^2.2.6",
-    "react-select": "^3.1.0",
-    "@types/react-select": "3.0.22"
+    "react-select": "^3.1.0"
   },
   "devDependencies": {
     "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.2.1",

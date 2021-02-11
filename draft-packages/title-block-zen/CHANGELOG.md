@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.35](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.34...@kaizen/draft-title-block-zen@3.0.35) (2021-02-11)
+
+
+### Bug Fixes
+
+* unpin draft-button dependency in zen-title-block ([#1029](https://github.com/cultureamp/kaizen-design-system/issues/1029)) ([2b4fb42](https://github.com/cultureamp/kaizen-design-system/commit/2b4fb424901334f0758fc348583d03af03dc210d))
+
+
+
+
+
 ## [3.0.34](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.33...@kaizen/draft-title-block-zen@3.0.34) (2021-02-11)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
