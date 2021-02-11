@@ -15,6 +15,16 @@ import NavigationTab, { NavigationTabProps } from "./NavigationTabs"
 import SecondaryActions from "./SecondaryActions"
 import styles from "./TitleBlockZen.scss"
 
+/*
+  This type exists to support omitting keys from a union or intersection type in a distributive manner. `Omit` out of the box will cause you to lose any union or intersection information about the type,
+  thus you might lose the ability to access some fields that only exist conditionally based on another (e.g. discriminated unions).
+  `T extends any ? Omit<T, K>` is a trick used to spread the action of Omit across every variant within the union or intersection.
+  So, if T is something like `{foo: string} | {bar: string}`, it becomes `Omit<{foo: string}, K> | Omit<{bar: string}, K>
+*/
+type DistributiveOmit<T, K extends keyof any> = T extends any
+  ? Omit<T, K>
+  : never
+
 export const NON_REVERSED_VARIANTS = ["education", "admin"]
 
 /**
@@ -60,7 +70,7 @@ export type BadgeProps = {
   animateChange?: boolean
 }
 
-export type TitleBlockButtonProps = Omit<ButtonProps, "onClick"> & {
+export type TitleBlockButtonProps = DistributiveOmit<ButtonProps, "onClick"> & {
   onClick?: (e: any) => void
 }
 
@@ -68,8 +78,11 @@ export type TitleBlockMenuItemProps = Omit<MenuItemProps, "action"> & {
   action: ((e: any) => void) | string
 }
 
-export type ButtonWithHrefNotOnClick = Omit<ButtonProps, "onClick">
-export type ButtonWithOnClickNotHref = Omit<TitleBlockButtonProps, "href">
+export type ButtonWithHrefNotOnClick = DistributiveOmit<ButtonProps, "onClick">
+export type ButtonWithOnClickNotHref = DistributiveOmit<
+  TitleBlockButtonProps,
+  "href"
+>
 
 export type MenuGroup = {
   label: string
