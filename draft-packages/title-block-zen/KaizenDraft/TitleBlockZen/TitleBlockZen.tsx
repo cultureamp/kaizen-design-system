@@ -174,7 +174,7 @@ type Breadcrumb = {
 }
 
 const renderTag = (surveyStatus: SurveyStatus) => {
-  let tagVariant
+  let tagVariant: React.ComponentPropsWithoutRef<typeof Tag>["variant"]
   if (surveyStatus.status === "draft") {
     tagVariant = "statusDraft"
   }
@@ -353,7 +353,7 @@ const createTabletOverflowMenuItems = (
   secondaryActions?: SecondaryActionsProps,
   secondaryOverflowMenuItems?: TitleBlockMenuItemProps[]
 ): TitleBlockMenuItemProps[] => {
-  let secondaryActionsList
+  let secondaryActionsList: TitleBlockMenuItemProps[]
   if (secondaryActions) {
     secondaryActionsList = secondaryActions
       ? convertSecondaryActionsToMenuItems(secondaryActions)
@@ -462,7 +462,9 @@ const TitleBlockZen = ({
     !hasNavigationTabs &&
     secondaryActions === undefined
 
-  const updateOnViewportChange = mediaQuery => {
+  const updateOnViewportChange = (
+    mediaQuery: MediaQueryList | MediaQueryListEvent
+  ) => {
     if (mediaQuery.matches && !isSmallOrMediumViewport) {
       setSmallOrMediumViewport(true)
     }

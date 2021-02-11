@@ -15,7 +15,7 @@ export default {
   title: "ZenNavigationBar (React)",
 }
 
-const handleNavigationChange = event => {
+const handleNavigationChange = (event: { preventDefault: () => void }) => {
   event.preventDefault()
 }
 

@@ -18,7 +18,7 @@ const MenuItem = ({
 }: MenuItemProps) => {
   const { handleNavigationChange } = React.useContext(NavBarContext)
 
-  const handleItemClick = event => {
+  const handleItemClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     onClick && onClick(event)
     handleNavigationChange && handleNavigationChange(event)
   }
