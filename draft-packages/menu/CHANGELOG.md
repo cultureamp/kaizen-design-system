@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.9.1...@kaizen/draft-menu@3.0.0) (2021-02-11)
+
+
+### Bug Fixes
+
+* Fix spacing issues on Menu dropdown ([#1028](https://github.com/cultureamp/kaizen-design-system/issues/1028)) ([f672734](https://github.com/cultureamp/kaizen-design-system/commit/f672734a273503aa98fdbca8e2dc7d27ad79368f))
+
+
+### BREAKING CHANGES
+
+* This includes a potential visual breaking change, since it restructures the way margins and padding work. If any consumers are using the Menu in non-standard ways, such as creating a section at the top of the dropdown that bleeds all the way to the edges by using a negative margin to override the dropdown container's padding, those could break.
+
+Under the new model, instead of the container using padding to add space, the *content* is responsible for setting its own margins. (This is handled within the component, so consumers don't have to do anything - but as mentioned above, they could run into problems if they had been overriding either the margin or padding.)
+
+* chore: Clean up gutter spacing code
+
+
+
+
+
 ## [2.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@2.9.0...@kaizen/draft-menu@2.9.1) (2021-02-11)
 
 **Note:** Version bump only for package @kaizen/draft-menu
