@@ -1,33 +1,41 @@
-import React, { useState, useEffect } from "react"
-import { tokens } from "./tokens"
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { heartTheme, ThemeManager, zenTheme } from "@kaizen/design-tokens"
+import React, { useEffect, useState } from "react"
 
+const themeOfKey = (themeKey: string) => {
+  switch (themeKey) {
+    case "heart":
+      return heartTheme
+    default:
+      return zenTheme
+  }
+}
 export const App = () => {
-  const [theme, setTheme] = useState("zen")
+  const themeManager = React.useRef<ThemeManager | null>(null)
+  const [theme, setTheme] = useState(zenTheme)
   useEffect(() => {
     let storyRoot
-    if (
+
+    const storybookIframe =
       document &&
-      document.getElementById("storybook-preview-iframe") &&
-      document.getElementById("storybook-preview-iframe").contentWindow
-        .document &&
-      document
-        .getElementById("storybook-preview-iframe")
-        .contentWindow.document.getElementById("root")
+      (document.getElementById(
+        "storybook-preview-iframe"
+      ) as HTMLIFrameElement | null)
+    if (
+      storybookIframe &&
+      storybookIframe.contentWindow.document &&
+      storybookIframe.contentWindow.document.getElementById("root")
     ) {
-      storyRoot = document
-        .getElementById("storybook-preview-iframe")
-        .contentWindow.document.getElementById("root")
+      storyRoot = storybookIframe.contentWindow.document.getElementById("root")
+      if (!themeManager.current) {
+        themeManager.current = new ThemeManager(theme, storyRoot)
+      } else {
+        themeManager.current.setRootElement(storyRoot)
+        themeManager.current.setAndApplyTheme(theme)
+      }
     } else {
       return
     }
-
-    tokens.forEach(({ name, value }) => {
-      if (theme === "zen") {
-        storyRoot.style.removeProperty(name)
-      } else {
-        storyRoot.style.setProperty(name, value)
-      }
-    })
   })
 
   return (
@@ -37,8 +45,8 @@ export const App = () => {
         <select
           id="theme-switcher"
           name="theme"
-          value={theme}
-          onChange={evt => setTheme(evt.target.value)}
+          value={theme.themeKey}
+          onChange={evt => setTheme(themeOfKey(evt.target.value))}
         >
           <option value="zen">Zen</option>
           <option value="heart">Heart</option>

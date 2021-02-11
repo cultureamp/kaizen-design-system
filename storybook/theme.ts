@@ -1,7 +1,7 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 
 import { create } from "@storybook/theming/create"
-import colorTokens from "@kaizen/design-tokens/tokens/color.json"
+import colorVars from "@kaizen/design-tokens/tokens/color-vars.json"
 
 export default create({
   base: "light",
@@ -12,5 +12,5 @@ export default create({
   fontCode: "monospace",
 
   // Text colors
-  textColor: colorTokens.kz.color.wisteria["800"],
+  extColor: colorVars["kz-var"].color.wisteria["800"],
 })
