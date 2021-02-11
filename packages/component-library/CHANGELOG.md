@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [8.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.2.0...@kaizen/component-library@8.3.0) (2021-02-11)
+
+
+### Features
+
+* Add strong selector for bold paragraph text ([#1013](https://github.com/cultureamp/kaizen-design-system/issues/1013)) ([4c12053](https://github.com/cultureamp/kaizen-design-system/commit/4c1205373034c467010fff73e0841a784274bb92))
+
+
+
+
+
 # [8.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.1.8...@kaizen/component-library@8.2.0) (2021-02-09)
 
 
