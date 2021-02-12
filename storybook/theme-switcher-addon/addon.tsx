@@ -3,9 +3,12 @@ import { defaultTheme, ThemeKey } from "@kaizen/design-tokens"
 import { addons } from "@storybook/addons"
 import { useAddonState } from "@storybook/api"
 import React, { useEffect } from "react"
-
+export const ADDON_ID = "theme-switcher"
 export const App = () => {
-  const [theme, setTheme] = useAddonState<ThemeKey>(defaultTheme.themeKey)
+  const [theme, setTheme] = useAddonState<ThemeKey>(
+    ADDON_ID,
+    defaultTheme.themeKey
+  )
 
   useEffect(() => {
     addons.getChannel().emit("theme-changed", theme)
