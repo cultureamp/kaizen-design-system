@@ -10,7 +10,7 @@ export const withDeprecatedComponent = <P extends unknown>(
   { warning }: withDeprecatedComponentProps
 ): React.ComponentType<P> =>
   class extends React.Component<P> {
-    constructor(props) {
+    constructor(props: P) {
       super(props)
 
       const name = getDisplayName(WrappedComponent)

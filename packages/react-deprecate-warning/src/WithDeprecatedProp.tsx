@@ -16,11 +16,11 @@ export const withDeprecatedProp = <P extends unknown>(
   { warning }: withDeprecatedPropProps
 ): React.ComponentType<P> =>
   class extends React.Component<P> {
-    constructor(props) {
+    constructor(props: P) {
       super(props)
       const name = getDisplayName(WrappedComponent)
       Object.keys(warning).forEach(deprecatedPropName => {
-        if (!props[deprecatedPropName]) {
+        if (!(props as Record<string, unknown>)[deprecatedPropName]) {
           // prop not being used
           return
         }
@@ -33,7 +33,10 @@ export const withDeprecatedProp = <P extends unknown>(
           // only _some values_ of the prop are deprecated, match against incoming props
           propWarning.forEach(
             ({ key: deprecatedKey, warning: deprecatedWarning }) => {
-              if (deprecatedKey === props[deprecatedPropName]) {
+              if (
+                deprecatedKey ===
+                (props as Record<string, unknown>)[deprecatedPropName]
+              ) {
                 log(name, deprecatedWarning)
               }
             }

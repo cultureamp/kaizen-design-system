@@ -47,7 +47,7 @@ class NavigationBar extends React.Component<Props, State> {
     onNavigationChange: () => null,
   }
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props)
     this.state = { mobileKey: 1 }
   }
@@ -119,8 +119,8 @@ class NavigationBar extends React.Component<Props, State> {
 
     return (
       <nav className={styles.links}>
-        {Object.keys(children).map(key =>
-          this.renderNavSection(key, children[key])
+        {(Object.keys(children) as Array<keyof typeof children>).map(key =>
+          this.renderNavSection(key, children[key] || [])
         )}
       </nav>
     )
@@ -141,7 +141,7 @@ class NavigationBar extends React.Component<Props, State> {
     ) : null
   }
 
-  renderNavItem(link: NavigationItem, section) {
+  renderNavItem(link: NavigationItem, section: string) {
     const { props: linkProps } = link
     const isFinal = section === "final"
     const linkWithProps = {

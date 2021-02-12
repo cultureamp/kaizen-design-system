@@ -3,7 +3,7 @@ const kebabCase = require("lodash/kebabCase")
 const startCase = require("lodash/startCase")
 
 module.exports = class extends Generator {
-  constructor(args, opts) {
+  constructor(args: unknown, opts: unknown) {
     super(args, opts)
   }
 
@@ -100,4 +100,4 @@ module.exports = class extends Generator {
   }
 }
 
-const pascalCase = s => startCase(s).replace(/ /gi, "")
+const pascalCase = (s: string) => startCase(s).replace(/ /gi, "")
