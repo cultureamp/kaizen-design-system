@@ -1,10 +1,15 @@
 import { ThemeManager } from "../ThemeManager"
 import { zenTheme } from "../themes"
 import { Theme } from "../types"
-import { flattenObjectToCSSVariables } from "../utils"
+import {
+  cssVariableThemeNamespace,
+  flattenObjectToCSSVariables,
+} from "../utils"
 
 const assertThemeIsActive = (theme: Theme, rootElement: HTMLElement) => {
-  const variables = flattenObjectToCSSVariables({ kz: theme })
+  const variables = flattenObjectToCSSVariables({
+    [cssVariableThemeNamespace]: theme,
+  })
   Object.entries(variables).forEach(([key, value]) => {
     expect(rootElement.style.getPropertyValue(key)).toBe(value)
   })

@@ -18,9 +18,15 @@ export const ThemeProvider = ({
     themeManager.getCurrentTheme()
   )
   React.useEffect(() => {
-    themeManager.onThemeChanged(newTheme => {
-      setTheme(newTheme)
-    })
+    let cancelled = false
+    const listener = (newTheme: Theme) => {
+      if (!cancelled) setTheme(newTheme)
+    }
+    themeManager.addThemeChangeListener(listener)
+    return () => {
+      cancelled = true
+      themeManager.removeThemeChangeListener(listener)
+    }
   }, [])
 
   return (

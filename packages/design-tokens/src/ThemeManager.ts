@@ -1,6 +1,6 @@
 import { defaultTheme } from "./themes"
-import { Theme as BaseTheme } from "./types"
-import { flattenObjectToCSSVariables } from "./utils"
+import { DeepMapObjectLeafs, Theme as BaseTheme } from "./types"
+import { cssVariableThemeNamespace, flattenObjectToCSSVariables } from "./utils"
 
 /**
  * Use this class to set and apply themes, and to access or subscribe to the currently active one.
@@ -9,15 +9,23 @@ import { flattenObjectToCSSVariables } from "./utils"
  *
  * It works by converting a Theme interface to a flattened map of CSS variable keys and values, then calling `document.documentElement.style.setProperty(key, value)`.
  */
-
 export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
   private themeChangeListeners = [] as Array<(theme: Theme) => void>
-
+  private theme: Theme
+  private rootElement = document.documentElement
   constructor(
-    private theme: Theme,
-    private rootElement = document.documentElement
+    theme: Theme,
+    rootElement = document.documentElement,
+    /* This allows you to stop the  class from applying the theme automatically during construction. Defaults to true */
+    apply: boolean = true
   ) {
-    this.applyCurrentTheme()
+    /*
+      For some reason, storybook likes this way of defining class properties better.
+      If you use `constructor( private theme: Theme, ...)` - theme becomes undefined within the class's methods.
+    */
+    this.theme = theme
+    this.rootElement = rootElement
+    if (apply) this.applyCurrentTheme()
   }
 
   public getRootElement = () => this.rootElement
@@ -45,12 +53,17 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
     this.notifyThemeChangeListeners(theme)
   }
 
-  public onThemeChanged = (listener: (theme: Theme) => void) => {
+  public addThemeChangeListener = (listener: (theme: Theme) => void) => {
     this.themeChangeListeners.push(listener)
+  }
+  public removeThemeChangeListener = (listener: (theme: Theme) => void) => {
+    this.themeChangeListeners = this.themeChangeListeners.filter(
+      l => l !== listener
+    )
   }
   public applyCurrentTheme = () => {
     const cssVariablesOfTheme = flattenObjectToCSSVariables({
-      kz: this.theme,
+      [cssVariableThemeNamespace]: this.theme,
     })
     Object.entries(cssVariablesOfTheme).forEach(([key, value]) => {
       this.rootElement.style.setProperty(key, value)

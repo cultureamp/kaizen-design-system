@@ -32,7 +32,9 @@ const formatJson = (jsonString: string) =>
 const themeToCssVariableStylesheetString = (theme: Theme) =>
   format(
     `:root {
-${Object.entries(flattenObjectToCSSVariables({ kz: theme }))
+${Object.entries(
+  flattenObjectToCSSVariables({ [cssVariableThemeNamespace]: theme })
+)
   .map(([key, value]) => `${key}: ${value};`)
   .join("  \n")}
 }`,

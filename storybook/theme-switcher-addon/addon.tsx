@@ -1,42 +1,15 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { heartTheme, ThemeManager, zenTheme } from "@kaizen/design-tokens"
-import React, { useEffect, useState } from "react"
+import { defaultTheme, ThemeKey } from "@kaizen/design-tokens"
+import { addons } from "@storybook/addons"
+import { useAddonState } from "@storybook/api"
+import React, { useEffect } from "react"
 
-const themeOfKey = (themeKey: string) => {
-  switch (themeKey) {
-    case "heart":
-      return heartTheme
-    default:
-      return zenTheme
-  }
-}
 export const App = () => {
-  const themeManager = React.useRef<ThemeManager | null>(null)
-  const [theme, setTheme] = useState(zenTheme)
-  useEffect(() => {
-    let storyRoot
+  const [theme, setTheme] = useAddonState<ThemeKey>(defaultTheme.themeKey)
 
-    const storybookIframe =
-      document &&
-      (document.getElementById(
-        "storybook-preview-iframe"
-      ) as HTMLIFrameElement | null)
-    if (
-      storybookIframe &&
-      storybookIframe.contentWindow.document &&
-      storybookIframe.contentWindow.document.getElementById("root")
-    ) {
-      storyRoot = storybookIframe.contentWindow.document.getElementById("root")
-      if (!themeManager.current) {
-        themeManager.current = new ThemeManager(theme, storyRoot)
-      } else {
-        themeManager.current.setRootElement(storyRoot)
-        themeManager.current.setAndApplyTheme(theme)
-      }
-    } else {
-      return
-    }
-  })
+  useEffect(() => {
+    addons.getChannel().emit("theme-changed", theme)
+  }, [theme])
 
   return (
     <div style={{ padding: "1rem" }}>
@@ -45,8 +18,8 @@ export const App = () => {
         <select
           id="theme-switcher"
           name="theme"
-          value={theme.themeKey}
-          onChange={evt => setTheme(themeOfKey(evt.target.value))}
+          value={theme}
+          onChange={evt => setTheme(evt.target.value as ThemeKey)}
         >
           <option value="zen">Zen</option>
           <option value="heart">Heart</option>
