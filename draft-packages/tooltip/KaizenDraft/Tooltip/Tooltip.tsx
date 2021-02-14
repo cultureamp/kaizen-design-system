@@ -54,15 +54,12 @@ const Tooltip = ({
   )
 
   const tooltip = (
-    <div
-      ref={setPopperElement}
-      style={popperStyles.popper}
-      {...attributes.popper}
-      className={styles.tooltip}
-    >
-      <AppearanceAnim
-        isVisible={isHover || isFocus}
-        animationDirection={position === "below" ? "down" : "up"}
+    <AppearanceAnim isVisible={isHover || isFocus}>
+      <div
+        ref={setPopperElement}
+        style={popperStyles.popper}
+        {...attributes.popper}
+        className={styles.tooltip}
       >
         <div className={classnames(styles.tooltipContent)}>{text}</div>
         <div
@@ -79,8 +76,8 @@ const Tooltip = ({
             <div className={styles.arrowShadow} />
           </div>
         </div>
-      </AppearanceAnim>
-    </div>
+      </div>
+    </AppearanceAnim>
   )
 
   return (

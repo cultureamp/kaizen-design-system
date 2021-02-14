@@ -7,7 +7,6 @@ import styles from "./AppearnaceAnim.scss"
 type Props = {
   children: React.ReactNode
   isVisible: boolean
-  animationDirection?: "up" | "down"
   className?: string | null
 }
 
@@ -20,13 +19,7 @@ const ANIM_BUFFER = 200 // Add a buffer, just in case the css animation hasn't h
  * When the component is no longer needed, it will no longer be rendered to the
  * dom.
  */
-const AppearanceAnim = ({
-  children,
-  isVisible,
-  animationDirection = "up",
-  className,
-  ...rest
-}: Props) => {
+const AppearanceAnim = ({ children, isVisible, className, ...rest }: Props) => {
   const [isAnimIn, setIsAnimIn] = useState(false)
   const [isAnimOut, setIsAnimOut] = useState(false)
   const [prevIsOpen, setPrevIsOpen] = useState(isVisible)
@@ -76,8 +69,6 @@ const AppearanceAnim = ({
         {
           [styles.defaultHiddenState]: true,
           [styles.visibleState]: isVisible && !isAnimIn,
-          [styles.animationDirectionUp]: animationDirection === "up",
-          [styles.animationDirectionDown]: animationDirection === "down",
         },
         className,
       ])}

@@ -4,24 +4,11 @@ $anim-duration-ms: 0.2s;
 .defaultHiddenState {
   opacity: 0;
   pointer-events: none;
-  transition: opacity $anim-duration-ms ease-out,
-    transform $anim-duration-ms ease-out;
-  will-change: opacity, transform;
-
-  &.animationDirectionUp {
-    transform: translateY(0);
-  }
-
-  &.animationDirectionDown {
-    transform: translateY(-0);
-  }
+  transition: opacity $anim-duration-ms ease-out;
+  will-change: opacity;
 }
 
 .visibleState {
   opacity: 1;
   pointer-events: initial;
-  &.animationDirectionUp,
-  &.animationDirectionDown {
-    transform: translateY(0);
-  }
 }
