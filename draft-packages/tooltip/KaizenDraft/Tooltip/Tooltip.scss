@@ -29,7 +29,24 @@
 
 .arrow {
   z-index: 2;
-  position: relative;
+  // This is required by popper, otherwise positioning issues will exist.
+  // https://github.com/popperjs/react-popper/issues/354#issuecomment-616540651
+  position: absolute;
+}
+
+.arrowAbove {
+  bottom: 0;
+}
+
+.arrowBelow {
+  top: 0;
+
+  // There is a conflict with the popper arrow styling, which also
+  // adds a transform to the arrow. Hence, we need this additional
+  // wrapper, just to rotate it.
+  .arrowInner {
+    transform: rotate(180deg);
+  }
 }
 
 .arrowWhite::before,
@@ -40,7 +57,6 @@
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   margin-left: -10px;
-  content: "";
 }
 
 .arrowWhite::before {

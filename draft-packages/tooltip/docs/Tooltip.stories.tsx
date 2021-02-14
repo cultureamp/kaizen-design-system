@@ -20,7 +20,9 @@ export default {
 export const DefaultBelowKaizenSiteDemo = () => (
   <div style={{ display: "flex", justifyContent: "center" }}>
     <Tooltip position="below" text="This is below the tooltip">
-      <Tag inline={true}>Below</Tag>
+      {/* Using buttons, as so we can test the focus state.
+         ie. the tooltip should show when any child is focused. */}
+      <Button label="Below" />
     </Tooltip>
   </div>
 )

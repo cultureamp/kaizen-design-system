@@ -35,13 +35,12 @@ const Tooltip = ({
     popperElement,
     {
       modifiers: [
-        // {
-        //   name: "arrow",
-        //   options: {
-        //     element: arrowElement,
-        //     padding: 10,
-        //   },
-        // },
+        {
+          name: "arrow",
+          options: {
+            element: arrowElement,
+          },
+        },
         {
           name: "offset",
           options: {
@@ -63,11 +62,17 @@ const Tooltip = ({
       <div className={classnames(styles.tooltipContent)}>{text}</div>
       <div
         ref={setArrowElement}
-        className={styles.arrow}
+        className={classnames({
+          [styles.arrow]: true,
+          [styles.arrowAbove]: position === "above",
+          [styles.arrowBelow]: position === "below",
+        })}
         style={popperStyles.arrow}
       >
-        <div className={styles.arrowWhite} />
-        <div className={styles.arrowShadow} />
+        <div className={styles.arrowInner}>
+          <div className={styles.arrowWhite} />
+          <div className={styles.arrowShadow} />
+        </div>
       </div>
     </div>
   )
