@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import ReactDOM from "react-dom"
 import classnames from "classnames"
 import styles from "./Tooltip.scss"
+import AppearanceAnim from "./AppearanceAnim"
 
 type Position = "above" | "below"
 
@@ -59,25 +60,28 @@ const Tooltip = ({
       {...attributes.popper}
       className={styles.tooltip}
     >
-      <div className={classnames(styles.tooltipContent)}>{text}</div>
-      <div
-        ref={setArrowElement}
-        className={classnames({
-          [styles.arrow]: true,
-          [styles.arrowAbove]: position === "above",
-          [styles.arrowBelow]: position === "below",
-        })}
-        style={popperStyles.arrow}
+      <AppearanceAnim
+        isVisible={isHover || isFocus}
+        animationDirection={position === "below" ? "down" : "up"}
       >
-        <div className={styles.arrowInner}>
-          <div className={styles.arrowWhite} />
-          <div className={styles.arrowShadow} />
+        <div className={classnames(styles.tooltipContent)}>{text}</div>
+        <div
+          ref={setArrowElement}
+          className={classnames({
+            [styles.arrow]: true,
+            [styles.arrowAbove]: position === "above",
+            [styles.arrowBelow]: position === "below",
+          })}
+          style={popperStyles.arrow}
+        >
+          <div className={styles.arrowInner}>
+            <div className={styles.arrowWhite} />
+            <div className={styles.arrowShadow} />
+          </div>
         </div>
-      </div>
+      </AppearanceAnim>
     </div>
   )
-
-  const isPopoverVisible = isHover || isFocus
 
   return (
     <>
@@ -102,13 +106,9 @@ const Tooltip = ({
         {children}
       </div>
 
-      {isPopoverVisible &&
-        (portalSelector
-          ? ReactDOM.createPortal(
-              tooltip,
-              document.querySelector(portalSelector)
-            )
-          : tooltip)}
+      {portalSelector
+        ? ReactDOM.createPortal(tooltip, document.querySelector(portalSelector))
+        : tooltip}
     </>
   )
 }
