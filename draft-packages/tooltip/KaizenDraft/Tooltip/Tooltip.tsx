@@ -9,6 +9,10 @@ type Position = "above" | "below"
 
 export type TooltipProps = {
   inline?: boolean
+  /**
+   * This is more a "desired position". The tooltip will automatically change
+   * its position, if there's not enough room to show it in the one specified.
+   */
   position?: Position
   text: React.ReactNode
   children?: React.ReactNode
@@ -55,8 +59,6 @@ const TooltipContent = ({ position, text, referenceElement }) => {
         ref={setArrowElement}
         className={classnames({
           [styles.arrow]: true,
-          [styles.arrowAbove]: position === "above",
-          [styles.arrowBelow]: position === "below",
         })}
         style={popperStyles.arrow}
       >

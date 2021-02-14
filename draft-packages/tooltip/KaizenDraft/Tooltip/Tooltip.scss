@@ -32,20 +32,20 @@
   // This is required by popper, otherwise positioning issues will exist.
   // https://github.com/popperjs/react-popper/issues/354#issuecomment-616540651
   position: absolute;
-}
 
-.arrowAbove {
-  bottom: 0;
-}
+  [data-popper-placement^="top"] & {
+    bottom: 0;
+  }
 
-.arrowBelow {
-  top: 0;
+  [data-popper-placement^="bottom"] & {
+    top: 0;
 
-  // There is a conflict with the popper arrow styling, which also
-  // adds a transform to the arrow. Hence, we need this additional
-  // wrapper, just to rotate it.
-  .arrowInner {
-    transform: rotate(180deg);
+    // There is a conflict with the popper arrow styling, which also
+    // adds a transform to the arrow. Hence, we need this additional
+    // wrapper, just to rotate it.
+    .arrowInner {
+      transform: rotate(180deg);
+    }
   }
 }
 
@@ -81,10 +81,6 @@
   margin-top: 1px;
   filter: blur(4px);
   z-index: 2;
-}
-
-.below::after {
-  margin-top: 2px;
 }
 
 .inline {
