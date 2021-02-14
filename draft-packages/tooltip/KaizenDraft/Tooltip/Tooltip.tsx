@@ -20,6 +20,7 @@ export type TooltipProps = {
   portalSelector?: string
 }
 
+// Sync with Tooltip.scss
 const arrowHeight = 10
 
 const TooltipContent = ({ position, text, referenceElement }) => {

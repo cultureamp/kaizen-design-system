@@ -5,6 +5,10 @@
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
+// Sync with Tooltip.tsx
+$arrow-height: 10px;
+$arrow-width: 20px;
+
 .tooltip {
   pointer-events: none;
 }
@@ -54,17 +58,17 @@
   content: "";
   position: absolute;
   left: 50%;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  margin-left: -10px;
+  border-left: ($arrow-width / 2) solid transparent;
+  border-right: ($arrow-width / 2) solid transparent;
+  margin-left: -($arrow-width / 2);
 }
 
 .arrowWhite::before {
-  border-top: 10px solid $kz-color-wisteria-200;
+  border-top: $arrow-height solid $kz-color-wisteria-200;
 }
 
 .arrowWhite::after {
-  border-top: 10px solid white;
+  border-top: $arrow-height solid white;
   margin-top: -2px;
   z-index: 2;
 }
@@ -77,7 +81,7 @@
 .arrowShadow::after {
   // this color is a duplication of the color portion of our
   // "small" shadow token defined in the design-tokens package
-  border-top: 10px solid rgba(53, 55, 74, 0.09);
+  border-top: $arrow-height solid rgba(53, 55, 74, 0.09);
   margin-top: 1px;
   filter: blur(4px);
   z-index: 2;

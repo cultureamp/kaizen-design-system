@@ -43,10 +43,7 @@ export const DefaultAbove = () => (
     style={{ marginTop: "100px", display: "flex", justifyContent: "center" }}
   >
     <div style={{ display: "inline-block", position: "relative" }}>
-      <Tooltip
-        position="above"
-        text="This is above the tooltipThis is above the tooltipThis is above the tooltipThis is above the tooltipThis is above the tooltipThis is above the tooltipThis is above the tooltipThis is above the tooltipThis is above the tooltipThis is above the tooltipThis is above the tooltipThis is above the tooltip"
-      >
+      <Tooltip position="above" text="This is above the tooltip">
         {/* Using buttons, as so we can test the focus state.
          ie. the tooltip should show when any child is focused. */}
         <Button label="Above" />
