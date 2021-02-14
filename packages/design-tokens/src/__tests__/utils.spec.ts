@@ -22,7 +22,7 @@ describe("utils", () => {
           test: {
             one: {
               two: {
-                three: "var(--test-one-two-three)",
+                three: "var(--test-one-two-three, 123)",
               },
             },
           },
@@ -35,18 +35,19 @@ describe("utils", () => {
             imACamel: "im-a-camel",
             one: {
               two: {
-                three: () => "this shouldn't show",
+                three: () => "i'm a function",
               },
             },
           },
         },
         objectPathToCssVarReference,
         {
-          rootValue: "var(--root-value)",
+          rootValue: "var(--root-value, Yep)",
           test: {
+            imACamel: "var(--test-im-a-camel, im-a-camel)",
             one: {
               two: {
-                three: "var(--test-one-two-three)",
+                three: `var(--test-one-two-three, ${() => "i'm a function"})`,
               },
             },
           },

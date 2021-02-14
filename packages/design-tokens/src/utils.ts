@@ -54,8 +54,8 @@ export const mapLeafsOfObject = <
 const objectPathToCssVarIdentifier = (path: string[]) =>
   `--${path.map(camelToKebab).join("-")}`
 
-export const objectPathToCssVarReference = (path: string[]) =>
-  `var(${objectPathToCssVarIdentifier(path)})`
+export const objectPathToCssVarReference = (path: string[], value: unknown) =>
+  `var(${objectPathToCssVarIdentifier(path)}, ${value})`
 
 export const cssVariableThemeNamespace = "kz-var" as const
 /**
@@ -87,7 +87,7 @@ export const makeCSSVariableTheme = (theme: Theme) =>
   mapLeafsOfObject({ [cssVariableThemeNamespace]: theme }, (path, value) =>
     path[path.length - 1].endsWith("-default")
       ? value
-      : objectPathToCssVarReference(path)
+      : objectPathToCssVarReference(path, value)
   )
 
 /**

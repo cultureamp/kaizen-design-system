@@ -1,15 +1,15 @@
 {
   "kz-var": {
     "spacing": {
-      "xs": "var(--kz-var-spacing-xs)",
-      "sm": "var(--kz-var-spacing-sm)",
-      "md": "var(--kz-var-spacing-md)",
-      "lg": "var(--kz-var-spacing-lg)",
-      "xl": "var(--kz-var-spacing-xl)",
-      "xxl": "var(--kz-var-spacing-xxl)",
-      "xxxl": "var(--kz-var-spacing-xxxl)",
-      "xxxxl": "var(--kz-var-spacing-xxxxl)",
-      "xxxxxl": "var(--kz-var-spacing-xxxxxl)"
+      "xs": "var(--kz-var-spacing-xs, 0.375rem)",
+      "sm": "var(--kz-var-spacing-sm, 0.75rem)",
+      "md": "var(--kz-var-spacing-md, 1.5rem)",
+      "lg": "var(--kz-var-spacing-lg, 2.25rem)",
+      "xl": "var(--kz-var-spacing-xl, 3rem)",
+      "xxl": "var(--kz-var-spacing-xxl, 3.75rem)",
+      "xxxl": "var(--kz-var-spacing-xxxl, 4.5rem)",
+      "xxxxl": "var(--kz-var-spacing-xxxxl, 5.25rem)",
+      "xxxxxl": "var(--kz-var-spacing-xxxxxl, 6rem)"
     }
   }
 }

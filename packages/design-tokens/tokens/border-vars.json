@@ -2,28 +2,28 @@
   "kz-var": {
     "border": {
       "solid": {
-        "borderWidth": "var(--kz-var-border-solid-border-width)",
-        "borderRadius": "var(--kz-var-border-solid-border-radius)",
-        "borderStyle": "var(--kz-var-border-solid-border-style)",
-        "borderColor": "var(--kz-var-border-solid-border-color)",
-        "borderColor-rgb-params": "var(--kz-var-border-solid-border-color-rgb-params)"
+        "borderWidth": "var(--kz-var-border-solid-border-width, 2px)",
+        "borderRadius": "var(--kz-var-border-solid-border-radius, 7px)",
+        "borderStyle": "var(--kz-var-border-solid-border-style, solid)",
+        "borderColor": "var(--kz-var-border-solid-border-color, #e1e2ea)",
+        "borderColor-rgb-params": "var(--kz-var-border-solid-border-color-rgb-params, 225, 226, 234)"
       },
       "dashed": {
-        "borderWidth": "var(--kz-var-border-dashed-border-width)",
-        "borderRadius": "var(--kz-var-border-dashed-border-radius)",
-        "borderStyle": "var(--kz-var-border-dashed-border-style)"
+        "borderWidth": "var(--kz-var-border-dashed-border-width, 2px)",
+        "borderRadius": "var(--kz-var-border-dashed-border-radius, 7px)",
+        "borderStyle": "var(--kz-var-border-dashed-border-style, dashed)"
       },
       "borderless": {
-        "borderWidth": "var(--kz-var-border-borderless-border-width)",
-        "borderRadius": "var(--kz-var-border-borderless-border-radius)",
-        "borderStyle": "var(--kz-var-border-borderless-border-style)",
-        "borderColor": "var(--kz-var-border-borderless-border-color)",
-        "borderColor-rgb-params": "var(--kz-var-border-borderless-border-color-rgb-params)"
+        "borderWidth": "var(--kz-var-border-borderless-border-width, 2px)",
+        "borderRadius": "var(--kz-var-border-borderless-border-radius, 7px)",
+        "borderStyle": "var(--kz-var-border-borderless-border-style, solid)",
+        "borderColor": "var(--kz-var-border-borderless-border-color, transparent)",
+        "borderColor-rgb-params": "var(--kz-var-border-borderless-border-color-rgb-params, 0, 0, 0)"
       },
       "focusRing": {
-        "borderWidth": "var(--kz-var-border-focus-ring-border-width)",
-        "borderRadius": "var(--kz-var-border-focus-ring-border-radius)",
-        "borderStyle": "var(--kz-var-border-focus-ring-border-style)"
+        "borderWidth": "var(--kz-var-border-focus-ring-border-width, 2px)",
+        "borderRadius": "var(--kz-var-border-focus-ring-border-radius, 10px)",
+        "borderStyle": "var(--kz-var-border-focus-ring-border-style, solid)"
       }
     }
   }
