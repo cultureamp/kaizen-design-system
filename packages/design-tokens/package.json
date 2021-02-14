@@ -17,14 +17,30 @@
   ],
   "private": false,
   "license": "MIT",
+  "sideEffects": false,
   "scripts": {
+    "test": "yarn jest",
     "build": "yarn clean && yarn prepublish",
+    "build:json": "yarn ts-node --files ./bin/buildCssVarTokens.ts",
     "build:less": "json-to-flat-sass './tokens/*.json' 'less' --extension 'less' --caseType 'kebab' && prettier less/* --write",
     "build:sass": "json-to-flat-sass './tokens/*.json' 'sass' --extension 'scss' --caseType 'kebab' && prettier sass/* --write",
-    "clean": "rimraf 'dist/**' 'tokens/**/*.js' 'tokens/**/*.d.ts' 'tokens/**/*.map'",
-    "prepublish": "yarn build:less && yarn build:sass"
+    "clean": "rimraf 'dist/**' './(!node_modules)/**/*.js' 'tokens/**/*.d.ts' 'tokens/**/*.map' ",
+    "prepublish": "yarn build:json && yarn build:less && yarn build:sass"
   },
   "devDependencies": {
-    "json-to-flat-sass": "^1.0.0"
+    "json-to-flat-sass": "^1.0.0",
+    "yargs": "16.2.0",
+    "@types/yargs": "16.0.0",
+    "ts-node": "9.1.1",
+    "prettier": "*"
+  },
+  "dependencies": {
+    "@types/lodash.kebabcase": "4.1.3",
+    "@types/color-string": "1.5.0",
+    "color-string": "1.5.3",
+    "lodash.kebabcase": "4.1.1"
+  },
+  "peerDependencies": {
+    "react": ">=16"
   }
 }
