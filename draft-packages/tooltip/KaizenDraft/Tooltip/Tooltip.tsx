@@ -15,6 +15,8 @@ export type TooltipProps = {
   portalSelector?: string
 }
 
+const arrowHeight = 10
+
 const Tooltip = ({
   children,
   text,
@@ -32,15 +34,21 @@ const Tooltip = ({
     referenceElement,
     popperElement,
     {
-      // modifiers: [
-      //   {
-      //     name: "arrow",
-      //     options: {
-      //       element: arrowElement,
-      //       padding: 10,
-      //     },
-      //   },
-      // ],
+      modifiers: [
+        // {
+        //   name: "arrow",
+        //   options: {
+        //     element: arrowElement,
+        //     padding: 10,
+        //   },
+        // },
+        {
+          name: "offset",
+          options: {
+            offset: [0, arrowHeight],
+          },
+        },
+      ],
       placement: position === "below" ? "bottom" : "top",
     }
   )
