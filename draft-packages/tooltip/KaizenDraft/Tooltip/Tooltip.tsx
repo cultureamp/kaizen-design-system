@@ -1,4 +1,6 @@
-import * as React from "react"
+import { usePopper } from "react-popper"
+import React, { useState } from "react"
+import ReactDOM from "react-dom"
 import classnames from "classnames"
 import styles from "./Tooltip.scss"
 
@@ -10,55 +12,91 @@ export type TooltipProps = {
   text: React.ReactNode
   children?: React.ReactNode
   classNameAndIHaveSpokenToDST?: string
+  portalSelector?: string
 }
 
-const Tooltip = (props: TooltipProps) => {
-  return (
-    <span
-      className={classnames(
-        styles.tooltipWrap,
-        props.classNameAndIHaveSpokenToDST,
-        {
-          [styles.inline]: props.inline === true,
-        }
-      )}
-    >
-      {props.children}
-      <span
-        className={classnames(styles.contentWrap, {
-          [styles.above]: props.position == "above",
-        })}
-      >
-        <span
-          className={classnames(
-            styles.root,
-            {
-              [styles.below]: props.position == "below",
-              [styles.above]: props.position == "above",
-            },
-            styles.default
-          )}
-        >
-          <span className={styles.tooltipContent}>{props.text}</span>
-        </span>
+const Tooltip = ({
+  children,
+  text,
+  inline,
+  position,
+  classNameAndIHaveSpokenToDST,
+  portalSelector,
+}: TooltipProps) => {
+  const [isHover, setIsHover] = useState(false)
+  const [isFocus, setIsFocus] = useState(false)
+  const [referenceElement, setReferenceElement] = useState(null)
+  const [popperElement, setPopperElement] = useState(null)
+  const [arrowElement, setArrowElement] = useState(null)
+  const { styles: popperStyles, attributes } = usePopper(
+    referenceElement,
+    popperElement,
+    {
+      // modifiers: [
+      //   {
+      //     name: "arrow",
+      //     options: {
+      //       element: arrowElement,
+      //       padding: 10,
+      //     },
+      //   },
+      // ],
+      placement: position === "below" ? "bottom" : "top",
+    }
+  )
 
-        <span
-          className={classnames(
-            styles.root,
-            styles.shadow,
-            {
-              [styles.below]: props.position == "below",
-              [styles.above]: props.position == "above",
-            },
-            styles.default
-          )}
-        >
-          <span className={styles.tooltipContent} aria-hidden>
-            {props.text}
-          </span>
-        </span>
-      </span>
-    </span>
+  const tooltip = (
+    <div
+      ref={setPopperElement}
+      style={popperStyles.popper}
+      {...attributes.popper}
+      className={styles.tooltip}
+    >
+      <div className={classnames(styles.tooltipContent)}>{text}</div>
+      <div
+        ref={setArrowElement}
+        className={styles.arrow}
+        style={popperStyles.arrow}
+      >
+        <div className={styles.arrowWhite} />
+        <div className={styles.arrowShadow} />
+      </div>
+    </div>
+  )
+
+  const isPopoverVisible = isHover || isFocus
+
+  return (
+    <>
+      <div
+        ref={setReferenceElement}
+        className={classnames(classNameAndIHaveSpokenToDST, {
+          [styles.inline]: inline === true,
+        })}
+        onMouseEnter={() => {
+          setIsHover(true)
+        }}
+        onMouseLeave={() => {
+          setIsHover(false)
+        }}
+        onFocusCapture={() => {
+          setIsFocus(true)
+        }}
+        onBlurCapture={() => {
+          setIsFocus(false)
+        }}
+      >
+        {children}
+      </div>
+
+      {isPopoverVisible &&
+        (portalSelector
+          ? ReactDOM.createPortal(
+              tooltip,
+              document.querySelector(portalSelector)
+            )
+          : tooltip)}
+    </>
   )
 }
 

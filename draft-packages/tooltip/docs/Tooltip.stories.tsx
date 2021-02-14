@@ -5,6 +5,7 @@ import { Tag } from "@kaizen/draft-tag"
 import { withDesign } from "storybook-addon-designs"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import { figmaEmbed } from "../../../storybook/helpers"
+import { Button } from "@kaizen/draft-button"
 
 export default {
   title: "Tooltip (React)",
@@ -19,7 +20,7 @@ export default {
 export const DefaultBelowKaizenSiteDemo = () => (
   <div style={{ display: "flex", justifyContent: "center" }}>
     <Tooltip position="below" text="This is below the tooltip">
-      <Tag>Below</Tag>
+      <Tag inline={true}>Below</Tag>
     </Tooltip>
   </div>
 )
@@ -41,7 +42,9 @@ export const DefaultAbove = () => (
   >
     <div style={{ display: "inline-block", position: "relative" }}>
       <Tooltip position="above" text="This is above the tooltip">
-        <Tag>Above</Tag>
+        {/* Using buttons, as so we can test the focus state.
+         ie. the tooltip should show when any child is focused. */}
+        <Button label="Above" />
       </Tooltip>
     </div>
   </div>
