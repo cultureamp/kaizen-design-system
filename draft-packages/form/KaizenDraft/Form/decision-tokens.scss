@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 
 // General purpose tokens
 $dt-color-form-border-color: var(--kz-color-iron-500, $kz-color-wisteria-500);
