@@ -87,7 +87,22 @@ $arrow-width: 20px;
   z-index: 2;
 }
 
-.inline {
+.displayInline {
   display: inline;
-  position: relative;
+}
+
+.displayBlock {
+  display: block;
+}
+
+.displayInlineBlock {
+  display: inline-block;
+}
+
+.displayFlex {
+  display: flex;
+}
+
+.displayInlineFlex {
+  display: inline-flex;
 }

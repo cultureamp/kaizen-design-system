@@ -1,6 +1,5 @@
 import { usePopper } from "react-popper"
 import React, { useState } from "react"
-import ReactDOM from "react-dom"
 import classnames from "classnames"
 import styles from "./Tooltip.scss"
 import AppearanceAnim from "./AppearanceAnim"
@@ -8,7 +7,18 @@ import AppearanceAnim from "./AppearanceAnim"
 type Position = "above" | "below"
 
 export type TooltipProps = {
+  /**
+   * Use `display="inline"` instead
+   * @deprecated
+   */
   inline?: boolean
+  /**
+   * Unfortunately, the content needed to be wrapped in a div. This can sometimes
+   * break the css layout. To get around this, we allow you to specify the css
+   * display value directly. If you need to need to modify more values, feel free
+   * to use the `classNameAndIHaveSpokenToDST` prop, but avoid it if you can.
+   */
+  display?: "block" | "inline" | "inline-block" | "flex" | "inline-flex"
   /**
    * This is more a "desired position". The tooltip will automatically change
    * its position, if there's not enough room to show it in the one specified.
@@ -80,6 +90,7 @@ const Tooltip = ({
   children,
   text,
   inline,
+  display = "block",
   position,
   classNameAndIHaveSpokenToDST,
 }: TooltipProps) => {
@@ -87,12 +98,19 @@ const Tooltip = ({
   const [isFocus, setIsFocus] = useState(false)
   const [referenceElement, setReferenceElement] = useState(null)
 
+  // Legacy support for the inline prop
+  const displayToUse = inline != null ? (inline ? "inline" : "block") : display
+
   return (
     <>
       <div
         ref={setReferenceElement}
         className={classnames(classNameAndIHaveSpokenToDST, {
-          [styles.inline]: inline === true,
+          [styles.displayInline]: displayToUse === "inline",
+          [styles.displayBlock]: displayToUse === "block",
+          [styles.displayInlineBlock]: displayToUse === "inline-block",
+          [styles.displayFlex]: displayToUse === "flex",
+          [styles.displayInlineFlex]: displayToUse === "inline-flex",
         })}
         onMouseEnter={() => {
           setIsHover(true)

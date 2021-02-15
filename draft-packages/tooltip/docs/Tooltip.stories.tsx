@@ -67,12 +67,12 @@ export const Inline = () => (
       <Paragraph variant="body">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nulla
         quas corporis? Perspiciatis, ratione voluptas{" "}
-        <Tooltip inline text="This is above the tooltip">
+        <Tooltip display="inline-block" text="This is above the tooltip">
           <Tag>ad veniam sapiente</Tag>
         </Tooltip>{" "}
         Maxime harum, ducimus maiores itaque pariatur quod vel porro mollitia.
         Lorem ipsum dolor sit{" "}
-        <Tooltip inline text="Open in new tab">
+        <Tooltip display="inline" text="Open in new tab">
           <a href="#">
             amet consectetur adipisicing elit Itaque obcaecati maxime molestiae
             blanditiis pariatur
@@ -80,7 +80,11 @@ export const Inline = () => (
         </Tooltip>
         . Magni perspiciatis assumenda in adipisci, eaque commodi quidem dolore,
         tempore provident animi{" "}
-        <Tooltip inline text="This is below the tooltip" position="below">
+        <Tooltip
+          display="inline-block"
+          text="This is below the tooltip"
+          position="below"
+        >
           <Tag>veniam sapiente ad</Tag>
         </Tooltip>{" "}
       </Paragraph>
@@ -119,6 +123,7 @@ export const OverflowScroll = () => (
       <div style={{ width: "500px", textAlign: "center" }}>
         <Tooltip
           position="below"
+          display="inline-block"
           text="This is above the tooltip, despite it being set to position=below"
         >
           <Button label="Bottom" />
