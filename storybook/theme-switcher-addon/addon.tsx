@@ -1,34 +1,18 @@
-import React, { useState, useEffect } from "react"
-import { tokens } from "./tokens"
-
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { defaultTheme, ThemeKey } from "@kaizen/design-tokens"
+import { addons } from "@storybook/addons"
+import { useAddonState } from "@storybook/api"
+import React, { useEffect } from "react"
+export const ADDON_ID = "theme-switcher"
 export const App = () => {
-  const [theme, setTheme] = useState("zen")
-  useEffect(() => {
-    let storyRoot
-    if (
-      document &&
-      document.getElementById("storybook-preview-iframe") &&
-      document.getElementById("storybook-preview-iframe").contentWindow
-        .document &&
-      document
-        .getElementById("storybook-preview-iframe")
-        .contentWindow.document.getElementById("root")
-    ) {
-      storyRoot = document
-        .getElementById("storybook-preview-iframe")
-        .contentWindow.document.getElementById("root")
-    } else {
-      return
-    }
+  const [theme, setTheme] = useAddonState<ThemeKey>(
+    ADDON_ID,
+    defaultTheme.themeKey
+  )
 
-    tokens.forEach(({ name, value }) => {
-      if (theme === "zen") {
-        storyRoot.style.removeProperty(name)
-      } else {
-        storyRoot.style.setProperty(name, value)
-      }
-    })
-  })
+  useEffect(() => {
+    addons.getChannel().emit("theme-changed", theme)
+  }, [theme])
 
   return (
     <div style={{ padding: "1rem" }}>
@@ -38,7 +22,7 @@ export const App = () => {
           id="theme-switcher"
           name="theme"
           value={theme}
-          onChange={evt => setTheme(evt.target.value)}
+          onChange={evt => setTheme(evt.target.value as ThemeKey)}
         >
           <option value="zen">Zen</option>
           <option value="heart">Heart</option>

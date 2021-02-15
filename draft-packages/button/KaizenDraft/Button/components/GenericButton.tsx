@@ -55,15 +55,14 @@ type LabelPropsGeneric = {
   reverseColor?: "cluny" | "peach" | "seedling" | "wisteria" | "yuzu"
 }
 
-type WorkingUndefinedProps = {
-  working?: undefined
-  workingLabel?: undefined
-}
-
 type WorkingProps = {
-  working: boolean
+  working: true
   workingLabel: string
   workingLabelHidden?: boolean
+}
+
+type WorkingUndefinedProps = {
+  working?: false
 }
 
 export type LabelProps = LabelPropsGeneric &
@@ -253,7 +252,7 @@ const renderLoadingSpinner = () => (
   </div>
 )
 
-const renderWorkingContent = props => {
+const renderWorkingContent = (props: Extract<Props, { working: true }>) => {
   if (props.workingLabelHidden) {
     return (
       <>
@@ -282,7 +281,7 @@ const renderWorkingContent = props => {
   )
 }
 
-const renderDefaultContent = props => (
+const renderDefaultContent = (props: Props) => (
   <>
     {props.icon && props.iconPosition !== "end" && renderIcon(props.icon)}
     {(!props.icon || !props.iconButton) && (
