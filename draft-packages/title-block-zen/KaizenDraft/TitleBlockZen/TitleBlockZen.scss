@@ -3,7 +3,7 @@
 @import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/component-library/styles/grid";
 @import "~@kaizen/component-library/styles/layers";
-@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "./TitleBlockBreakpoints.scss";
 
 $title-block-margin-width-on-medium-and-small: 12px;
