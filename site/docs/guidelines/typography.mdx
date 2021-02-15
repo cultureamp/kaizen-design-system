@@ -9,6 +9,7 @@ needToKnow:
   - "Use IBM Plex Mono for preformatted body text, such as code blocks."
   - "Visually create vertical rhythm by aligning text with the baseline grid. We are moving away from a technical baseline grid."
   - "Avoid long lines by keeping line length under 90 characters to improve readability."
+  - "To implement bold paragraph text, use <strong> elements inside the Paragraph component."
 ---
 
 import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
@@ -48,6 +49,8 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 
 ### Paragraphs
+
+**Note:** While there are bold variants of type styles in Figma, there are no bold variants of Paragraphs in the codebase. Bold text is handled natively by implementing `<strong>` elements within text content, just as links are handled by using `<a>` elements within text content.
 
 - **Intro Lede:** (Max width: 975px) Used only for brand moments including introductory screens (Log In, Onboarding, Capture Intro etc) or Positive and Negative Outro screens when paired with Display 0.
 
