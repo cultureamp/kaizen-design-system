@@ -82,21 +82,10 @@ const Tooltip = ({
   inline,
   position,
   classNameAndIHaveSpokenToDST,
-  portalSelector,
 }: TooltipProps) => {
   const [isHover, setIsHover] = useState(false)
   const [isFocus, setIsFocus] = useState(false)
   const [referenceElement, setReferenceElement] = useState(null)
-
-  const tooltip = (
-    <AppearanceAnim isVisible={isHover || isFocus}>
-      <TooltipContent
-        text={text}
-        position={position}
-        referenceElement={referenceElement}
-      />
-    </AppearanceAnim>
-  )
 
   return (
     <>
@@ -121,9 +110,13 @@ const Tooltip = ({
         {children}
       </div>
 
-      {portalSelector
-        ? ReactDOM.createPortal(tooltip, document.querySelector(portalSelector))
-        : tooltip}
+      <AppearanceAnim isVisible={isHover || isFocus}>
+        <TooltipContent
+          text={text}
+          position={position}
+          referenceElement={referenceElement}
+        />
+      </AppearanceAnim>
     </>
   )
 }
