@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "./styles";
-@import "../../styles/color";
+@import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "../../styles/type";
 @import "../../styles/layout";
 @import "../../styles/responsive";
