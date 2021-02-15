@@ -62,4 +62,7 @@ $dt-color-radio-border-color-focus: var(
 );
 $dt-color-toggle-background-color: var(--kz-color-ash, $kz-color-wisteria-300);
 $dt-color-toggle-background-color-hover: $kz-color-wisteria-500;
-$dt-color-toggle-background-color-hover: rgba(var(--kz-color-iron-500), 0.4);
+$dt-color-toggle-background-color-hover: rgba(
+  var(--kz-color-iron-500-rgb-params),
+  0.4
+);
