@@ -38,7 +38,7 @@ $ca-locale-he-font-family: $ca-inter-locale-ar-font-family;
 $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
 @mixin deprecate-legacy-typgraphy-mixins() {
-  @warn "@kaizen/component-library/styles/type is completely deprecated. Instead, please use one of the following in order from ideal to 'if you really must': 1: use the Heading and Paragraph components, 2: use the `kz-typography-` mixins in @kaizen/deprecated-component-library-helpers/styles/type, 3: use the `ca-type-` mixins in @kaizen/deprecated-component-library-helpers/styles/type which are identical to these deprecated mixins";
+  @warn "@kaizen/component-library/styles/type is completely deprecated. Instead, please use one of the following in order from ideal to 'if you really must': A: use the Heading and Paragraph components, B: use scss tokens from @kaizen/design-tokens/sass/typography C: use the `kz-typography-` mixins in @kaizen/deprecated-component-library-helpers/styles/type, D: use the `ca-type-` mixins in @kaizen/deprecated-component-library-helpers/styles/type which are identical to these deprecated mixins";
 }
 
 // Inspired by Basekick from SEEK: https://github.com/michaeltaranto/basekick
