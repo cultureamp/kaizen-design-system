@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.7.17...@kaizen/draft-popover@1.7.18) (2021-02-15)
+
+
+### Bug Fixes
+
+* Remove usage of add-tint, add-shade, and add-alpha ([#1047](https://github.com/cultureamp/kaizen-design-system/issues/1047)) ([4164904](https://github.com/cultureamp/kaizen-design-system/commit/4164904cd5bac74488ab47963e10b0f314b56228))
+
+
+
+
+
 ## [1.7.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.7.16...@kaizen/draft-popover@1.7.17) (2021-02-12)
 
 **Note:** Version bump only for package @kaizen/draft-popover
