@@ -124,7 +124,7 @@ export const OverflowScroll = () => (
         <Tooltip
           position="below"
           display="inline-block"
-          text="This is above the tooltip, despite it being set to position=below"
+          text="This should not get cropped"
         >
           <Button label="Bottom" />
         </Tooltip>
