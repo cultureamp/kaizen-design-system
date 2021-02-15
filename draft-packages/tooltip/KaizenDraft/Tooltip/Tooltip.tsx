@@ -36,8 +36,10 @@ const arrowHeight = 10
 const arrowWidth = 20
 
 const TooltipContent = ({ position, text, referenceElement, tooltipId }) => {
-  const [popperElement, setPopperElement] = useState(null)
-  const [arrowElement, setArrowElement] = useState(null)
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
+    null
+  )
+  const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(null)
   const { styles: popperStyles, attributes } = usePopper(
     referenceElement,
     popperElement,
@@ -99,7 +101,10 @@ const Tooltip = ({
 }: TooltipProps) => {
   const [isHover, setIsHover] = useState(false)
   const [isFocus, setIsFocus] = useState(false)
-  const [referenceElement, setReferenceElement] = useState(null)
+  const [
+    referenceElement,
+    setReferenceElement,
+  ] = useState<HTMLDivElement | null>(null)
   const tooltipId = useUuid()
 
   // Legacy support for the inline prop
