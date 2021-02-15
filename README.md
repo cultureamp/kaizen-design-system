@@ -66,7 +66,8 @@ It's dangerous to go alone! Take these:
 
 Command | Summary
 :- | :-
-`yarn storybook` | Develop components locally
+`yarn storybook` | Develop components locally using Storybook
+`STORIES=path/to/package yarn storybook` | Develop just one package at a time using Storybook (builds faster!)
 `yarn compile` | Run all typechecks
 `yarn lint` | Run all linters
 `yarn lint:fix` | Run all linters, fixing violations
