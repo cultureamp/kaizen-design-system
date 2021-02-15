@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@2.1.14...@kaizen/draft-title-block@2.1.15) (2021-02-15)
+
+
+### Bug Fixes
+
+* Remove usage of add-tint, add-shade, and add-alpha ([#1047](https://github.com/cultureamp/kaizen-design-system/issues/1047)) ([4164904](https://github.com/cultureamp/kaizen-design-system/commit/4164904cd5bac74488ab47963e10b0f314b56228))
+
+
+
+
+
 ## [2.1.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@2.1.13...@kaizen/draft-title-block@2.1.14) (2021-02-12)
 
 
