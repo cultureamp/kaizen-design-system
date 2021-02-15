@@ -22,6 +22,7 @@ export type TooltipProps = {
 
 // Sync with Tooltip.scss
 const arrowHeight = 10
+const arrowWidth = 20
 
 const TooltipContent = ({ position, text, referenceElement }) => {
   const [popperElement, setPopperElement] = useState(null)
@@ -35,6 +36,9 @@ const TooltipContent = ({ position, text, referenceElement }) => {
           name: "arrow",
           options: {
             element: arrowElement,
+            // Ensures that the arrow doesn't go too far to the left or right
+            // of the tooltip.
+            padding: arrowWidth / 2 + 10,
           },
         },
         {

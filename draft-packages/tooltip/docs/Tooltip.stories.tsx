@@ -89,3 +89,48 @@ export const Inline = () => (
 )
 
 Inline.storyName = "Inline"
+
+export const ArrowPositioning = () => (
+  <div>
+    <div style={{ position: "absolute", top: 0, left: 0 }}>
+      <Tooltip
+        position="above"
+        text="This is below the tooltip, despite it being set to position=above. This is because there is not enough room. Also note that the arrow is correctly positioned."
+      >
+        <Button label="Above" />
+      </Tooltip>
+    </div>
+    <div style={{ position: "absolute", bottom: 0, right: 0 }}>
+      <Tooltip
+        position="below"
+        text="This is above the tooltip, despite it being set to position=below. This is because there is not enough room. Also note that the arrow is correctly positioned."
+      >
+        <Button label="Bottom" />
+      </Tooltip>
+    </div>
+  </div>
+)
+
+ArrowPositioning.storyName = "Arrow positioning"
+
+export const OverflowScroll = () => (
+  <div>
+    <div style={{ overflowX: "scroll", width: "200px", height: "100px" }}>
+      <div style={{ width: "500px", textAlign: "center" }}>
+        <Tooltip
+          position="below"
+          text="This is above the tooltip, despite it being set to position=below"
+        >
+          <Button label="Bottom" />
+        </Tooltip>
+      </div>
+    </div>
+    <p>
+      Scroll the panel above, and hover over the button. Notice that the tooltip
+      does not get cropped. Also notice that the tooltip arrow follows the
+      button appropriately.
+    </p>
+  </div>
+)
+
+OverflowScroll.storyName = "OverflowScroll"
