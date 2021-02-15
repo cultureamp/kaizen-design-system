@@ -6,6 +6,7 @@ $anim-duration-ms: 0.2s;
   pointer-events: none;
   transition: opacity $anim-duration-ms ease-out;
   will-change: opacity;
+  display: inline;
 }
 
 .visibleState {
