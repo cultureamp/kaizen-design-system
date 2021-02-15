@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import classnames from "classnames"
 import styles from "./Tooltip.scss"
 import AppearanceAnim from "./AppearanceAnim"
+import { useUuid } from "./useUuid"
 
 type Position = "above" | "below"
 
@@ -34,7 +35,7 @@ export type TooltipProps = {
 const arrowHeight = 10
 const arrowWidth = 20
 
-const TooltipContent = ({ position, text, referenceElement }) => {
+const TooltipContent = ({ position, text, referenceElement, tooltipId }) => {
   const [popperElement, setPopperElement] = useState(null)
   const [arrowElement, setArrowElement] = useState(null)
   const { styles: popperStyles, attributes } = usePopper(
@@ -68,6 +69,8 @@ const TooltipContent = ({ position, text, referenceElement }) => {
       style={popperStyles.popper}
       {...attributes.popper}
       className={styles.tooltip}
+      role="tooltip"
+      id={tooltipId}
     >
       <div className={classnames(styles.tooltipContent)}>{text}</div>
       <div
@@ -97,6 +100,7 @@ const Tooltip = ({
   const [isHover, setIsHover] = useState(false)
   const [isFocus, setIsFocus] = useState(false)
   const [referenceElement, setReferenceElement] = useState(null)
+  const tooltipId = useUuid()
 
   // Legacy support for the inline prop
   const displayToUse = inline != null ? (inline ? "inline" : "block") : display
@@ -124,6 +128,7 @@ const Tooltip = ({
         onBlurCapture={() => {
           setIsFocus(false)
         }}
+        aria-describedby={tooltipId}
       >
         {children}
       </div>
@@ -133,6 +138,7 @@ const Tooltip = ({
           text={text}
           position={position}
           referenceElement={referenceElement}
+          tooltipId={tooltipId}
         />
       </AppearanceAnim>
     </>
