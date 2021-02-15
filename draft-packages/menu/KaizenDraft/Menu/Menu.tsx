@@ -40,8 +40,13 @@ export type GenericMenuProps = {
   children: React.ReactNode
 }
 
+type ButtonPropsWithOptionalAria = ButtonProps & {
+  "aria-haspopup"?: boolean
+  "aria-expanded"?: boolean
+}
+
 type StatefulMenuProps = {
-  button: React.ReactElement<ButtonProps>
+  button: React.ReactElement<ButtonPropsWithOptionalAria>
 }
 
 export type MenuProps = GenericMenuProps & StatefulMenuProps
@@ -83,6 +88,8 @@ const Menu: Menu = props => {
         toggleMenuDropdown()
       },
       onMouseDown: (e: any) => e.preventDefault(),
+      "aria-haspopup": true,
+      "aria-expanded": isMenuVisible,
     }),
   })
 }

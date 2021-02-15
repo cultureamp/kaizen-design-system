@@ -5,6 +5,10 @@
 
 .paragraph {
   margin: 0;
+
+  strong {
+    font-weight: $kz-typography-paragraph-bold-font-weight;
+  }
 }
 
 .intro-lede {

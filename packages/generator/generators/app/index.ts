@@ -1,7 +1,7 @@
 const YoGenerator = require("yeoman-generator")
 
 module.exports = class extends YoGenerator {
-  constructor(args, opts) {
+  constructor(args: unknown, opts: unknown) {
     super(args, opts)
   }
 

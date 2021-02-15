@@ -69,8 +69,8 @@ class NavigationBar extends React.Component<Props, unknown> {
 
     return (
       <nav className={styles.links}>
-        {Object.keys(children).map(key =>
-          this.renderNavSection(key, children[key])
+        {(Object.keys(children) as Array<keyof typeof children>).map(key =>
+          this.renderNavSection(key, children[key] || [])
         )}
       </nav>
     )
@@ -91,7 +91,7 @@ class NavigationBar extends React.Component<Props, unknown> {
     )
   }
 
-  renderNavItem(link: NavigationItem, section) {
+  renderNavItem(link: NavigationItem, section: string) {
     const linkWithSection = { ...link, props: { ...link.props, section } }
 
     const key =

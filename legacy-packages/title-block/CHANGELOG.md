@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@2.1.14...@kaizen/draft-title-block@2.1.15) (2021-02-15)
+
+
+### Bug Fixes
+
+* Remove usage of add-tint, add-shade, and add-alpha ([#1047](https://github.com/cultureamp/kaizen-design-system/issues/1047)) ([4164904](https://github.com/cultureamp/kaizen-design-system/commit/4164904cd5bac74488ab47963e10b0f314b56228))
+
+
+
+
+
+## [2.1.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@2.1.13...@kaizen/draft-title-block@2.1.14) (2021-02-12)
+
+
+### Bug Fixes
+
+* implicit any amendments ([#1032](https://github.com/cultureamp/kaizen-design-system/issues/1032)) ([1edffa8](https://github.com/cultureamp/kaizen-design-system/commit/1edffa86e6a371daf09fb18c2b3b2c9044318717))
+
+
+
+
+
+## [2.1.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@2.1.12...@kaizen/draft-title-block@2.1.13) (2021-02-11)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
 ## [2.1.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@2.1.11...@kaizen/draft-title-block@2.1.12) (2021-02-09)
 
 **Note:** Version bump only for package @kaizen/draft-title-block

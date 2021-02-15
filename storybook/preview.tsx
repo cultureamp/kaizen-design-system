@@ -1,8 +1,10 @@
 /* eslint import/no-extraneous-dependencies: 0 */
-
+import React from "react"
+import { heartTheme, ThemeProvider, zenTheme } from "@kaizen/design-tokens"
 import { addParameters } from "@storybook/react"
+import { addons } from "@storybook/addons"
 import { backgrounds } from "./backgrounds"
-
+import { themeManager } from "./themeManager"
 // Polyfill for :focus-visible pseudo-selector
 // See: https://github.com/WICG/focus-visible
 require("focus-visible")
@@ -30,3 +32,26 @@ addParameters({
     },
   },
 })
+
+const themeOfKey = (themeKey: string) => {
+  switch (themeKey) {
+    case "heart":
+      return heartTheme
+    default:
+      return zenTheme
+  }
+}
+
+addons.getChannel().addListener("theme-changed", (theme: unknown) => {
+  if (typeof theme === "string") {
+    themeManager.setAndApplyTheme(themeOfKey(theme))
+  }
+})
+
+export const decorators = [
+  (Story: React.ComponentType) => (
+    <ThemeProvider themeManager={themeManager}>
+      <Story />
+    </ThemeProvider>
+  ),
+]
