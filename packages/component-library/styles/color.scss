@@ -3,7 +3,7 @@ $white: white;
 $black: black;
 
 @function add-tint($color, $percentage) {
-  @return mix(#fff, $color, $percentage);
+  @return mix($white, $color, $percentage);
 }
 
 @function add-shade($color, $percentage) {
