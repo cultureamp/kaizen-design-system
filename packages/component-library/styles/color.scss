@@ -2,22 +2,20 @@
 $white: white;
 $black: black;
 
-@mixin deprecate-legacy-color-mixins() {
-  @warn "@kaizen/component-library/styles/color is completely deprecated. Please use tokens from @kaizen/design-tokens instead. Or if you really must, use the mixins in @kaizen/deprecated-component-library-helpers/styles/color instead.";
-}
+$deprecation-warning: "@kaizen/component-library/styles/color is completely deprecated. Please use tokens from @kaizen/design-tokens instead. Or if you really must, use the mixins in @kaizen/deprecated-component-library-helpers/styles/color instead.";
 
 @function add-tint($color, $percentage) {
-  @include deprecate-legacy-color-mixins;
+  @warn $deprecation-warning;
   @return mix($white, $color, $percentage);
 }
 
 @function add-shade($color, $percentage) {
-  @include deprecate-legacy-color-mixins;
+  @warn $deprecation-warning;
   @return mix($black, $color, $percentage);
 }
 
 @function add-alpha($color, $percentage) {
-  @include deprecate-legacy-color-mixins;
+  @warn $deprecation-warning;
   $decimal: $percentage / 100%;
   $inverse: 1 - $decimal;
   @return transparentize($color, $inverse);
