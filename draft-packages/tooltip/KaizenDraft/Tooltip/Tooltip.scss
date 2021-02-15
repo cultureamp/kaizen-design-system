@@ -22,9 +22,11 @@ $arrow-width: 20px;
     $kz-color-wisteria-200;
   box-shadow: $kz-shadow-small-box-shadow;
   text-align: center;
-  width: 200px;
-  display: block;
   max-width: 400px;
+  // I'm having a problem getting the tooltip width to match the size of the text content.
+  // As a workaround, I'm just going to set a min width of 200px. It should be enough
+  // in most cases.
+  min-width: 200px;
   @include kz-typography-paragraph-body($size: 14);
   top: initial; // Overrides the `top` value of kz-typography-paragraph-body
   color: $kz-color-wisteria-800;
