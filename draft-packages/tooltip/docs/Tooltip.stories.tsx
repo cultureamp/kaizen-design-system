@@ -3,9 +3,9 @@ import * as React from "react"
 import { Paragraph } from "@kaizen/component-library"
 import { Tag } from "@kaizen/draft-tag"
 import { withDesign } from "storybook-addon-designs"
+import { Button } from "@kaizen/draft-button"
 import { Tooltip } from "@kaizen/draft-tooltip"
 import { figmaEmbed } from "../../../storybook/helpers"
-import { Button } from "@kaizen/draft-button"
 
 export default {
   title: "Tooltip (React)",
