@@ -16,6 +16,10 @@ $dt-color-form-color-icon-reversed: var(
 );
 
 // component specific tokens
+$dt-color-checkbox-background-color-checked: var(
+  --kz-color-iron-500,
+  $kz-color-wisteria-500
+);
 $dt-color-checkbox-background-color-checked-focus: var(
   --kz-color-slate-700,
   $kz-color-wisteria-700

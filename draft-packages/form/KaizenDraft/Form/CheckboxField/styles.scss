@@ -32,6 +32,15 @@
     margin-bottom: 0;
   }
 
+  @media (hover: hover) and (pointer: fine) {
+    label:hover {
+      input:not([disabled]) + div {
+        border-color: $dt-color-form-border-color;
+        background-color: $kz-color-wisteria-100;
+      }
+    }
+  }
+
   &.checked,
   &.mixed {
     label {

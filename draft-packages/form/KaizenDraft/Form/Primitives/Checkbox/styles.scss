@@ -49,7 +49,7 @@ $focus-ring-offset: 2px;
 
   .checkbox:checked + &,
   .checkbox:indeterminate + & {
-    background: $dt-color-form-border-color;
+    background: $dt-color-checkbox-background-color-checked;
     background-color: $dt-color-form-border-color;
   }
 
