@@ -71,7 +71,7 @@
     "@types/webpack": "^4.39.1",
     "@typescript-eslint/eslint-plugin": "^4.4.1",
     "@typescript-eslint/eslint-plugin-tslint": "^3.5.0",
-    "@typescript-eslint/parser": "4.4.1",
+    "@typescript-eslint/parser": "4.15.0",
     "babel-elm-assets-plugin": "^1.2.2",
     "babel-loader": "^8.0.6",
     "chalk": "^2.4.2",
