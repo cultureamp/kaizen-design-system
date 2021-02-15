@@ -37,6 +37,10 @@ $ca-inter-locale-he-font-family: "Inter", Tahoma, sans-serif;
 $ca-locale-he-font-family: $ca-inter-locale-ar-font-family;
 $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 
+@mixin deprecate-legacy-typgraphy-mixins() {
+  @warn "@kaizen/component-library/styles/type is completely deprecated. Instead, please use one of the following in order from ideal to 'if you really must': 1: use the Heading and Paragraph components, 2: use the `kz-typography-` mixins in @kaizen/deprecated-component-library-helpers/styles/type, 3: use the `ca-type-` mixins in @kaizen/deprecated-component-library-helpers/styles/type which are identical to these deprecated mixins";
+}
+
 // Inspired by Basekick from SEEK: https://github.com/michaeltaranto/basekick
 @mixin ca-type(
   $family: $ca-default-font-family,
@@ -47,6 +51,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   $weight: $ca-weight-book,
   $letter-spacing: normal
 ) {
+  @include deprecate-legacy-typgraphy-mixins;
   font-family: $family;
   html:lang(he) & {
     font-family: $ca-locale-he-font-family;
@@ -74,15 +79,18 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 // Containing block for baseline-shifted text
 // Creates whitespace for the contained text to shift “into”
 @mixin ca-type-block($display: block) {
+  @include deprecate-legacy-typgraphy-mixins;
   display: $display;
   padding-bottom: $ca-grid / 2;
 }
 
 @mixin ca-inherit-baseline {
+  @include deprecate-legacy-typgraphy-mixins;
   position: static;
 }
 
 @mixin ca-type-reverse {
+  @include deprecate-legacy-typgraphy-mixins;
   color: white;
   // Without these non-standard anti-aliasing properties, white Ideal Sans on a dark background appears to have a heavier font weight
   -webkit-font-smoothing: antialiased;
@@ -366,6 +374,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin debug-vertical-rhythm-grid() {
+  @include deprecate-legacy-typgraphy-mixins;
   position: relative;
   &:after {
     content: "";
@@ -382,6 +391,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin ca-type-align-start() {
+  @include deprecate-legacy-typgraphy-mixins;
   text-align: left; // fallback for IE and Edge
   text-align: start;
 
@@ -393,6 +403,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin ca-type-align-end() {
+  @include deprecate-legacy-typgraphy-mixins;
   text-align: right; // fallback for IE and Edge
   text-align: end;
 
