@@ -1,0 +1,84 @@
+import { zenTheme, heartTheme } from '../themes'
+import { Card } from '@kaizen/draft-card'
+import { Box } from "@kaizen/component-library";
+import { makeCSSVariableTheme } from '../utils'
+
+# How to use design tokens
+
+Welcome! This document should serve as an explanation for how to use our design tokens, and the necessary abstractions that come with them.
+If you've arrived here as an existing user of design tokens, and are looking to migrate from V2 -> V3, please refer to the [Migrating](#migrating) section.
+
+## What are Kaizen design tokens?
+Kaizen's design tokens are a hierarchical set of variables that partly define what our design system *is*. They contain definitions of design system constants related (but not limited) to color, typography, spacing and layout,
+but don't define exactly what components should look like, otherwise they would be containing or re-inventing HTML and CSS. 
+They are the set of variables that accompany Kaizen components to make them look and feel as consistent as possible, and are available to be consumed in your own compositions.
+
+As of V3, design tokens are also **themable**; they are intended to be used as if they can be **switched at runtime**. Because of this, we employ [CSS Variables](https://www.w3schools.com/css/css3_variables.asp)
+to support this feature, so when consuming tokens in SASS/LESS you should assume they will contain values such as `var(--kz-var-color-...)`, rather than concrete values such as `1.5rem` or `#fff`.
+
+A model is worth 1000 words.
+
+<Box py={0.5}>
+    <Card>
+        <Box p={0.5}>
+            <pre style={{maxHeight: "15rem", overflow: "auto", fontSize: "0.75rem"}}>
+                {JSON.stringify(makeCSSVariableTheme(zenTheme)["kz-var"], null, 2)}
+            </pre>
+        </Box>
+    </Card>
+    <div style={{textAlign: "center", padding: "0.5rem"}}>
+        <small><strong>CSS variables of design tokens.</strong> Shows the structure of design tokens, and the Theme type.</small>
+    </div>
+</Box>
+
+
+<Box py={0.5}>
+    <Card>
+        <Box p={0.5}>
+            <pre style={{maxHeight: "15rem", overflow: "auto",  fontSize: "0.75rem"}}>
+                {JSON.stringify(zenTheme, null, 2)}
+            </pre>
+        </Box>
+    </Card>
+    <div style={{textAlign: "center", padding: "0.5rem"}}>
+        <small><strong>Zen theme.</strong></small>
+    </div>
+</Box>
+
+
+<Box py={0.5}>
+    <Card>
+        <Box p={0.5}>
+            <pre style={{maxHeight: "15rem", overflow: "auto",  fontSize: "0.75rem"}}>
+                {JSON.stringify(heartTheme, null, 2)}
+            </pre>
+        </Box>
+    </Card>
+    <div style={{textAlign: "center", padding: "0.5rem"}}>
+        <small><strong>Heart theme</strong></small>
+    </div>
+
+</Box>
+
+
+
+## Getting started
+
+
+### Bootstrapping
+
+
+
+### Theme Switching
+
+### API
+
+## Migrating
+If you're reading this, you're most likely using design tokens either by referring to SASS/LESS variables such as `$kz-color-wisteria-800`, or by importing values through `import { color } from '@kaizen/design-tokens/tokens/color` in JavaScript/TypeScript, and expecting that they hold concrete values such as `#fa0626`.
+
+There are two significant and breaking changes that are occurring as of the next release:
+
+### All token variables `$kz-*` are being renamed to `$kz-var-*`
+We would like to perform the migration
+
+### Tokens now contain CSS variables and should be defined on `:root`
