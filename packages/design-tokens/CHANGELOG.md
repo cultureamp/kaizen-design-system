@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.4.0...@kaizen/design-tokens@2.4.1) (2021-02-16)
+
+
+### Bug Fixes
+
+* Add missing files to publications ([#1055](https://github.com/cultureamp/kaizen-design-system/issues/1055)) ([a05b804](https://github.com/cultureamp/kaizen-design-system/commit/a05b804d8b3f71b281dc2d18555abeb0ffeb84fd))
+
+
+
+
+
 # [2.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.3.2...@kaizen/design-tokens@2.4.0) (2021-02-14)
 
 
