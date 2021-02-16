@@ -246,7 +246,7 @@ const initialInteractionState = {
   scale: 0.9,
   translation: { x: 50, y: 50 },
 }
-export const Everything = () => {
+export const Everything: Story = () => {
   const theme = useTheme()
   const [
     interactionState,
@@ -463,3 +463,6 @@ export const Everything = () => {
   )
 }
 Everything.storyName = "Story Board"
+Everything.parameters = {
+  chromatic: { disable: true }
+}
