@@ -14,10 +14,10 @@
     "tokens",
     "sass",
     "less",
+    "css",
     "index.ts",
     "src",
-    "react",
-    "css"
+    "react"
   ],
   "private": false,
   "license": "MIT",
