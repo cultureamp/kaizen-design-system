@@ -29,7 +29,10 @@ export type TooltipProps = {
   text: React.ReactNode
   children?: React.ReactNode
   classNameAndIHaveSpokenToDST?: string
-  portalSelector?: undefined
+  /**
+   * Render the tooltip inside a react portal, given the ccs selector.
+   */
+  portalSelector?: string
 }
 
 // Sync with Tooltip.scss
