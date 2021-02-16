@@ -141,7 +141,7 @@ const ColorDemo = (props: { color: string; name?: string }) => {
 const ComponentsSection = React.forwardRef(
   (
     props: {
-      title: string
+      title: React.ReactNode
       children: React.ReactNode
     },
     ref: React.Ref<HTMLDivElement>
@@ -177,15 +177,28 @@ const StoriesContainer = (props: {
   const meta = props.storyModule.default
   const [shouldRender, setShouldRender] = React.useState(false)
   const [ref, inView] = useInView()
+  const [key, setKey] = React.useState(0)
   React.useEffect(() => {
     if (inView && !shouldRender) {
       setShouldRender(true)
     }
   }, [inView])
   return (
-    <ComponentsSection ref={ref} title={meta.title}>
+    <ComponentsSection
+      ref={ref}
+      title={
+        <span>
+          {meta.title}{" "}
+          <Button
+            secondary
+            label="Re-render"
+            onClick={() => setKey(k => k + 1)}
+          />
+        </span>
+      }
+    >
       {shouldRender && (
-        <Stack>
+        <Stack key={key}>
           {Object.entries(props.storyModule).map(([k, V]) => {
             if (typeof V !== "function") return null
             const parameters = "story" in V ? V.story.parameters : V.parameters
