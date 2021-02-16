@@ -13,7 +13,11 @@
   "files": [
     "tokens",
     "sass",
-    "less"
+    "less",
+    "index.ts",
+    "src",
+    "react",
+    "css"
   ],
   "private": false,
   "license": "MIT",
