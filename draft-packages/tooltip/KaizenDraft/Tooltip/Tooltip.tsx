@@ -95,7 +95,7 @@ const Tooltip = ({
   text,
   inline,
   display = "block",
-  position,
+  position = "above",
   classNameAndIHaveSpokenToDST,
 }: TooltipProps) => {
   const [isHover, setIsHover] = useState(false)
