@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.2.13...@kaizen/draft-tooltip@2.3.0) (2021-02-16)
+
+
+### Features
+
+* Tooltip positioning improvements + allow it to work inside an `overflow: hidden` element ([#1041](https://github.com/cultureamp/kaizen-design-system/issues/1041)) ([2891f83](https://github.com/cultureamp/kaizen-design-system/commit/2891f83261bc8c3b4e350732fdbd92c3cc17b3f9))
+
+
+
+
+
 ## [2.2.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.2.12...@kaizen/draft-tooltip@2.2.13) (2021-02-15)
 
 **Note:** Version bump only for package @kaizen/draft-tooltip
