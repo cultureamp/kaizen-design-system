@@ -28,7 +28,6 @@ export type TooltipProps = {
   text: React.ReactNode
   children?: React.ReactNode
   classNameAndIHaveSpokenToDST?: string
-  portalSelector?: string
 }
 
 // Sync with Tooltip.scss
