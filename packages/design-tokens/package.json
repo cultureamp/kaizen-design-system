@@ -35,7 +35,8 @@
     "yargs": "16.2.0",
     "@types/lodash.flatmap": "4.5.3",
     "lodash.flatmap": "4.5.0",
-    "react-map-interaction": "2.0.0"
+    "react-map-interaction": "2.0.0",
+    "react-intersection-observer": "8.31.0"
   },
   "dependencies": {
     "@types/color-string": "1.5.0",

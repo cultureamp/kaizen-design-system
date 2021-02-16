@@ -1,64 +1,60 @@
+/* eslint-disable import/order */
+import { Box, Heading, Paragraph } from "@kaizen/component-library"
 /* Stories Modules */
+import * as GlobalNotificationStories from "@kaizen/component-library/stories/GlobalNotification.stories"
+import * as HeadingStories from "@kaizen/component-library/stories/Heading.stories"
+import * as IconStories from "@kaizen/component-library/stories/Icon.stories"
+import * as InlineNotificationStories from "@kaizen/component-library/stories/InlineNotification.stories"
+import * as NavigationBarStories from "@kaizen/component-library/stories/NavigationBar.stories"
+import * as ParagraphStories from "@kaizen/component-library/stories/Paragraph.stories"
+import * as ToastNotificationStories from "@kaizen/component-library/stories/ToastNotification.stories"
 import * as AvatarStories from "@kaizen/draft-avatar/docs/Avatar.stories"
+import { Button } from "@kaizen/draft-button"
 import * as ButtonStories from "@kaizen/draft-button/docs/Button.stories"
-import * as CheckboxFieldStories from "@kaizen/draft-form/docs/CheckboxField.stories"
-import * as CheckboxGroupStories from "@kaizen/draft-form/docs/CheckboxGroup.stories"
+import * as IconButtonStories from "@kaizen/draft-button/docs/IconButton.stories"
+import * as CardStories from "@kaizen/draft-card/docs/Card.stories"
 import * as CollapsibleStories from "@kaizen/draft-collapsible/KaizenDraft/Collapsible/Collapsible.stories"
 import * as DividerStories from "@kaizen/draft-divider/docs/Divider.stories"
 import * as DropdownStories from "@kaizen/draft-dropdown/docs/Dropdown.stories"
 import * as EmptyStateStories from "@kaizen/draft-empty-state/docs/EmptyState.stories"
 import * as FilterMenuButtonStories from "@kaizen/draft-filter-menu-button/docs/FilterMenuButton.stories"
-import * as GlobalNotificationStories from "@kaizen/component-library/stories/GlobalNotification.stories"
+import * as CheckboxFieldStories from "@kaizen/draft-form/docs/CheckboxField.stories"
+import * as CheckboxGroupStories from "@kaizen/draft-form/docs/CheckboxGroup.stories"
+import * as RadioFieldStories from "@kaizen/draft-form/docs/RadioField.stories"
+import * as TextAreaFieldStories from "@kaizen/draft-form/docs/TextAreaField.stories"
+import * as TextFieldStories from "@kaizen/draft-form/docs/TextField.stories"
+import * as ToggleSwitchFieldStories from "@kaizen/draft-form/docs/ToggleSwitchField.stories"
 import * as GuidanceBlockStories from "@kaizen/draft-guidance-block/docs/GuidanceBlock.stories"
-import * as HeadingStories from "@kaizen/component-library/stories/Heading.stories"
 import * as HeroCardStories from "@kaizen/draft-hero-card/docs/HeroCard.stories"
 import * as HeroPanelStories from "@kaizen/draft-hero-panel/docs/HeroPanel.stories"
 import * as HierarchicalMenuStories from "@kaizen/draft-hierarchical-menu/docs/HierarchicalMenu.stories"
 import * as HierarchicalSelectStories from "@kaizen/draft-hierarchical-select/docs/HierarchicalSelect.stories"
-import * as IconStories from "@kaizen/component-library/stories/Icon.stories"
-import * as IconButtonStories from "@kaizen/draft-button/docs/IconButton.stories"
 import * as IllustrationSceneStories from "@kaizen/draft-illustration/docs/IllustrationScene.stories"
 import * as IllustrationSpotStories from "@kaizen/draft-illustration/docs/IllustrationSpot.stories"
-import * as InlineNotificationStories from "@kaizen/component-library/stories/InlineNotification.stories"
 import * as LoadingPlaceholderStories from "@kaizen/draft-loading-placeholder/docs/LoadingPlaceholder.stories"
 import * as LoadingSpinnerStories from "@kaizen/draft-loading-spinner/docs/LoadingSpinner.stories"
 import * as MenuStories from "@kaizen/draft-menu/docs/Menu.stories"
 import * as ModalStories from "@kaizen/draft-modal/docs/Modal.stories"
-import * as NavigationBarStories from "@kaizen/component-library/stories/NavigationBar.stories"
 import * as PageLayoutStories from "@kaizen/draft-page-layout/docs/PageLayout.stories"
-import * as ParagraphStories from "@kaizen/component-library/stories/Paragraph.stories"
-import * as PopoverStories from "@kaizen/draft-popover/docs/Popover.stories"
-import * as RadioFieldStories from "@kaizen/draft-form/docs/RadioField.stories"
 import * as RadioGroupStories from "@kaizen/draft-page-layout/docs/RadioGroup.stories"
+import * as PopoverStories from "@kaizen/draft-popover/docs/Popover.stories"
 import * as SearchBoxStories from "@kaizen/draft-search-box/docs/SearchBox.stories"
 import * as SelectStories from "@kaizen/draft-select/docs/Select.stories"
 import * as SplitButtonStories from "@kaizen/draft-split-button/docs/SplitButton.stories"
 import * as TableStories from "@kaizen/draft-table/docs/Table.stories"
 import * as TagStories from "@kaizen/draft-tag/docs/Tag.stories"
-import * as TextAreaFieldStories from "@kaizen/draft-form/docs/TextAreaField.stories"
-import * as TextFieldStories from "@kaizen/draft-form/docs/TextField.stories"
 import * as TileStories from "@kaizen/draft-tile/docs/Tile.stories"
 import * as TitleBlockZenStories from "@kaizen/draft-title-block-zen/docs/TitleBlockZen.stories"
-import * as ToastNotificationStories from "@kaizen/component-library/stories/ToastNotification.stories"
-import * as ToggleSwitchFieldStories from "@kaizen/draft-form/docs/ToggleSwitchField.stories"
 import * as TooltipStories from "@kaizen/draft-tooltip/docs/Tooltip.stories"
 import * as VerticalProgressIndicatorStories from "@kaizen/draft-vertical-progress-step/docs/VerticalProgressIndicator.stories"
 import * as VerticalProgressStepStories from "@kaizen/draft-vertical-progress-step/docs/VerticalProgressStep.stories"
 import * as WellStories from "@kaizen/draft-well/docs/Well.stories"
 import * as ZenNavigationBarStories from "@kaizen/draft-zen-navigation-bar/docs/ZenNavigationBar.stories"
-
-import { Box, Heading, Paragraph } from "@kaizen/component-library"
-import { Card } from "@kaizen/draft-card"
-import * as CardStories from "@kaizen/draft-card/docs/Card.stories"
 import { Meta, Story } from "@storybook/react"
 import flatMap from "lodash.flatmap"
 import React from "react"
-import {
-  InteractionState,
-  MapInteraction,
-  MapInteractionCSS,
-} from "react-map-interaction"
-import { Button } from "@kaizen/draft-button"
+import { useInView } from "react-intersection-observer"
+import { InteractionState, MapInteractionCSS } from "react-map-interaction"
 import * as SliderStories from "../../draft-packages/stories/Slider.stories"
 import { cssVarBackgrounds } from "../../storybook/backgrounds"
 import { useTheme } from "./react"
@@ -126,15 +122,12 @@ const ColorDemo = (props: { color: string; name?: string }) => {
         style={{
           ...theme.typography.heading4,
           writingMode: "vertical-lr",
-          flex: 1,
         }}
       >
         {props.name}
       </h4>
       <div
         style={{
-          flex: 11,
-          flexShrink: 0,
           width: "20rem",
           height: "10rem",
           backgroundColor: props.color,
@@ -145,86 +138,91 @@ const ColorDemo = (props: { color: string; name?: string }) => {
   )
 }
 
-const ComponentCard = (props: { children: React.ReactNode; title: string }) => (
-  <Card>
-    <Box p={1}>
-      <Heading variant="heading-3">{props.title}</Heading>
-      <Padding />
-      {props.children}
-    </Box>
-  </Card>
+const ComponentsSection = React.forwardRef(
+  (
+    props: {
+      title: string
+      children: React.ReactNode
+    },
+    ref: React.Ref<HTMLDivElement>
+  ) => {
+    const theme = useTheme()
+    const border = `solid 1px ${theme.color.wisteria[700]}`
+    return (
+      <div
+        ref={ref}
+        style={{
+          borderLeft: border,
+          borderTop: border,
+          maxWidth: "100vw",
+          contain: "content",
+        }}
+      >
+        <Box p={1}>
+          <Heading variant="heading-2">{props.title}</Heading>
+          <Padding />
+          {props.children}
+        </Box>
+      </div>
+    )
+  }
 )
-
-const ComponentsSection = (props: {
-  title: string
-  children: React.ReactNode
-}) => {
-  const theme = useTheme()
-  const border = `solid 1px ${theme.color.wisteria[700]}`
-  return (
-    <div
-      style={{
-        borderLeft: border,
-        borderTop: border,
-        contain: "content",
-        maxWidth: "100vw",
-      }}
-    >
-      <Box p={1}>
-        <Heading variant="heading-2">{props.title}</Heading>
-        <Padding />
-        {props.children}
-      </Box>
-    </div>
-  )
-}
-
 const StoriesContainer = (props: {
   storyModule: { default: Meta } & {
     [key: string]: Story | Meta | (React.ComponentType<any> & { story: Story })
   }
+  onRender?: () => void
 }) => {
   const theme = useTheme()
   const meta = props.storyModule.default
+  const [shouldRender, setShouldRender] = React.useState(false)
+  const [ref, inView] = useInView()
+  React.useEffect(() => {
+    if (inView && !shouldRender) {
+      setShouldRender(true)
+    }
+  }, [inView])
   return (
-    <ComponentsSection title={meta.title}>
-      <Stack>
-        {Object.entries(props.storyModule).map(([k, V]) => {
-          if (typeof V !== "function") return null
-          const parameters = "story" in V ? V.story.parameters : V.parameters
-          const storyElement = (
-            <V {...meta.args} {...("story" in V ? V.story.args : {})} />
-          )
-          return (
-            <div key={k}>
-              <Heading variant="heading-3">
-                {"story" in V && "name" in V.story
-                  ? V.story.name
-                  : "storyName" in V
-                  ? V.storyName
-                  : k}
-              </Heading>
-              <Padding size={0.5} />
-              {parameters &&
-              parameters.backgrounds &&
-              parameters.backgrounds.default ? (
-                <div
-                  style={{
-                    backgroundColor: cssVarBackgrounds.find(
-                      b => b.name === parameters.backgrounds.default
-                    )?.value,
-                    padding: theme.spacing.md,
-                  }}
-                >
-                  {storyElement}
-                </div>
-              ) : (
-                storyElement
-              )}
-            </div>
-          )
-        })}
-      </Stack>
+    <ComponentsSection ref={ref} title={meta.title}>
+      {shouldRender && (
+        <Stack>
+          {Object.entries(props.storyModule).map(([k, V]) => {
+            if (typeof V !== "function") return null
+            const parameters = "story" in V ? V.story.parameters : V.parameters
+            const storyElement = (
+              <V {...meta.args} {...("story" in V ? V.story.args : {})} />
+            )
+            return (
+              <div key={k}>
+                <Heading variant="heading-3">
+                  {"story" in V && "name" in V.story
+                    ? V.story.name
+                    : "storyName" in V
+                    ? V.storyName
+                    : k}
+                </Heading>
+                <Padding size={0.5} />
+                {parameters &&
+                parameters.backgrounds &&
+                parameters.backgrounds.default ? (
+                  <div
+                    style={{
+                      backgroundColor: cssVarBackgrounds.find(
+                        b => b.name === parameters.backgrounds.default
+                      )?.value,
+                      padding: theme.spacing.md,
+                    }}
+                  >
+                    {storyElement}
+                  </div>
+                ) : (
+                  storyElement
+                )}
+              </div>
+            )
+          })}
+        </Stack>
+      )}
     </ComponentsSection>
   )
 }
@@ -242,6 +240,8 @@ export const Everything = () => {
   const resetInteraction = React.useCallback(() => {
     setInteractionState(initialInteractionState)
   }, [])
+
+  const [rendering, setRendering] = React.useState(true)
 
   /* We don't really need to update any of the stories from above, unless the theme changes. */
   const memoizedChildren = React.useMemo(
@@ -416,9 +416,6 @@ export const Everything = () => {
       style={{
         height: "100vh",
         backgroundColor: theme.color.stone,
-        ...{
-          contentVisibility: "auto",
-        },
       }}
     >
       <div
@@ -449,4 +446,4 @@ export const Everything = () => {
     </div>
   )
 }
-Everything.storyName = "All the things"
+Everything.storyName = "Story Board"
