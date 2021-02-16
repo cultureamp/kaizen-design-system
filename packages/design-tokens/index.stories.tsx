@@ -1,4 +1,7 @@
 /* eslint-disable import/order */
+
+// TODO: This file should be refactored to be more readable and maintainable.
+
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
 /* Stories Modules */
 import * as GlobalNotificationStories from "@kaizen/component-library/stories/GlobalNotification.stories"
