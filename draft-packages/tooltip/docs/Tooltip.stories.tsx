@@ -125,6 +125,9 @@ export const OverflowScroll = () => (
           position="below"
           display="inline-block"
           text="This should not get cropped"
+          // Normally, you'd specify a div by ID, but since this is only in storybook,
+          // using `body` is fine (I think).
+          portalSelector="body"
         >
           <Button label="Bottom" />
         </Tooltip>
