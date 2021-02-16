@@ -37,7 +37,10 @@ $animation-timing: $ca-duration-immediate $ca-linear;
   }
 
   .checkbox:not([disabled]) + &:hover {
-    background-color: $dt-color-toggle-background-color-hover;
+    // if kz-color-iron-500-rgb-params fails, it will fallback to wisteria-500
+    // (the non-css variable token)
+    background-color: $kz-color-wisteria-500;
+    background-color: rgba(var(--kz-color-iron-500-rgb-params), 0.4);
   }
 }
 

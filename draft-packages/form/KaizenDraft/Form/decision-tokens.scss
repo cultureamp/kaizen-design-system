@@ -2,67 +2,73 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
 
 // General purpose tokens
-$dt-color-form-border-color: var(--kz-color-iron-500, $kz-color-wisteria-500);
-$dt-color-form-border-color-focus: $kz-color-cluny-500;
+$dt-color-form-border-color: var(
+  --kz-color-iron-500,
+  $kz-var-color-wisteria-500
+);
+$dt-color-form-border-color-focus: $kz-var-color-cluny-500;
 $dt-color-form-border-color-hover: var(
   --kz-color-slate-700,
-  $kz-color-wisteria-700
+  $kz-var-color-wisteria-700
 );
-$dt-color-form-border-color-reversed-focus: $kz-color-cluny-300;
-$dt-color-form-text-color: $kz-color-wisteria-800;
-$dt-color-form-text-color-reversed: $kz-color-white;
+$dt-color-form-border-color-reversed-focus: $kz-var-color-cluny-300;
+$dt-color-form-text-color: $kz-var-color-wisteria-800;
+$dt-color-form-text-color-reversed: $kz-var-color-white;
 $dt-color-form-color-icon-reversed: var(
   --kz-color-slate-700,
-  $kz-color-wisteria-700
+  $kz-var-color-wisteria-700
 );
 
 // component specific tokens
 $dt-color-checkbox-background-color-checked: var(
   --kz-color-iron-500,
-  $kz-color-wisteria-500
+  $kz-var-color-wisteria-500
 );
 $dt-color-checkbox-background-color-checked-focus: var(
   --kz-color-slate-700,
-  $kz-color-wisteria-700
+  $kz-var-color-wisteria-700
 );
 $dt-color-checkbox-background-color-unchecked-focus: var(
   --kz-color-stone,
-  $kz-color-wisteria-100
+  $kz-var-color-wisteria-100
 );
 $dt-color-checkbox-background-color-hover: var(
   --kz-color-slate-700,
-  $kz-color-wisteria-700
+  $kz-var-color-wisteria-700
 );
 $dt-color-checkbox-background-color-unchecked-hover: var(
   --kz-color-stone,
-  $kz-color-wisteria-100
+  $kz-var-color-wisteria-100
 );
 $dt-color-checkbox-border-color-checked-focus: var(
   --kz-color-slate-700,
-  $kz-color-wisteria-700
+  $kz-var-color-wisteria-700
 );
 $dt-color-checkbox-border-color-focus: var(
   --kz-color-slate-700,
-  $kz-color-wisteria-700
+  $kz-var-color-wisteria-700
 );
 $dt-color-checkbox-border-color-hover: var(
   --kz-color-slate-700,
-  $kz-color-wisteria-700
+  $kz-var-color-wisteria-700
 );
 $dt-color-radio-disc-color-base: var(
   --kz-color-slate-700,
-  $kz-color-wisteria-700
+  $kz-var-color-wisteria-700
 );
 $dt-color-radio-background-color-hover: var(
   --kz-color-stone,
-  $kz-color-wisteria-100
+  $kz-var-color-wisteria-100
 );
 $dt-color-radio-border-color-focus: var(
   --kz-color-slate-700,
-  $kz-color-wisteria-700
+  $kz-var-color-wisteria-700
 );
-$dt-color-toggle-background-color: var(--kz-color-ash, $kz-color-wisteria-300);
-$dt-color-toggle-background-color-hover: $kz-color-wisteria-500;
+$dt-color-toggle-background-color: var(
+  --kz-color-ash,
+  $kz-var-color-wisteria-300
+);
+$dt-color-toggle-background-color-hover: $kz-var-color-wisteria-500;
 $dt-color-toggle-background-color-hover: rgba(
   var(--kz-color-iron-500-rgb-params),
   0.4
