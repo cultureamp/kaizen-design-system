@@ -1,6 +1,6 @@
 /* eslint-disable import/order */
 
-// TODO: This file should be refactored to be more readable and maintainable.
+// TODO: This file could be refactored to be more readable and maintainable.
 
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
 /* Stories Modules */
@@ -75,6 +75,9 @@ const Padding = ({
   size?: React.ComponentProps<typeof Box>["p"]
 }) => <Box p={size}> </Box>
 
+/**
+ * Use this for showing a simple horizontal or vertical stack of elements, with the support of padding/gaps between each of them.
+ */
 const Stack = React.memo(
   ({
     children,
@@ -117,6 +120,9 @@ const Stack = React.memo(
   }
 )
 
+/**
+ * A component to show a simple color block with a name
+ */
 const ColorDemo = (props: { color: string; name?: string }) => {
   const theme = useTheme()
   return (
@@ -141,6 +147,9 @@ const ColorDemo = (props: { color: string; name?: string }) => {
   )
 }
 
+/**
+ * A section of components, displayed as a column, with some styles such as a top and left border, and a heading/title.
+ */
 const ComponentsSection = React.forwardRef(
   (
     props: {
@@ -170,6 +179,18 @@ const ComponentsSection = React.forwardRef(
     )
   }
 )
+
+/**
+ * A very heavy component that expects a story module like `import * as storyModule from 'blah.stories.tsx'`, and displays a ComponentSection
+ * for it and it's stories.
+ * It will also only render when it is visible to the user, as a performance optimisation for the board of all stories.
+ * Once rendered, however, it won't un-render, as to preserve the layout.
+ *
+ * NOTE: This relies on the assumption that the user starts their navigation from top: 0, left: 0 within the MapInteraction container.
+ * If they don't, prior elements won't be rendered initially, which will cause layout shifts.
+ *
+ * At the time of writing, it wasn't intended for scalable or framework-like usage. It could most definitely be made more rigorous and portable though, if you wanted to expose it and re-use it.
+ */
 const StoriesContainer = (props: {
   storyModule: { default: Meta } & {
     [key: string]: Story | Meta | (React.ComponentType<any> & { story: Story })
@@ -259,7 +280,7 @@ export const Everything: Story = () => {
 
   const [rendering, setRendering] = React.useState(true)
 
-  /* We don't really need to update any of the stories from above, unless the theme changes. */
+  /* We don't really need to update any of the stories elements unless the theme changes. This memoization causes a huge perf boost. */
   const memoizedChildren = React.useMemo(
     () => (
       <Stack horizontal gapSize={2}>
@@ -464,5 +485,5 @@ export const Everything: Story = () => {
 }
 Everything.storyName = "Story Board"
 Everything.parameters = {
-  chromatic: { disable: true }
+  chromatic: { disable: true },
 }
