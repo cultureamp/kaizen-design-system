@@ -5,11 +5,15 @@
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
-.root {
-  opacity: 0;
-  left: 50%;
-  position: absolute;
+// Sync with Tooltip.tsx
+$arrow-height: 10px;
+$arrow-width: 20px;
+
+.tooltip {
   pointer-events: none;
+}
+
+.tooltipContent {
   border-radius: $kz-border-solid-border-radius;
   transition: opacity $ca-duration-fast, transform $ca-duration-fast;
   padding: $ca-grid / 2 $ca-grid / 2;
@@ -18,124 +22,89 @@
     $kz-color-wisteria-200;
   box-shadow: $kz-shadow-small-box-shadow;
   text-align: center;
-}
-
-.contentWrap {
-  display: block;
-  width: 400px;
-  position: absolute;
-  transform: translateX(-50%);
-  left: 50%;
-  z-index: 2;
-}
-
-.contentWrap.above {
-  top: 0;
-}
-
-.contentWrap.below {
-  bottom: 0;
-}
-
-.tooltipContent {
+  max-width: 400px;
+  // I'm having a problem getting the tooltip width to match the size of the text content.
+  // As a workaround, I'm just going to set a min width of 200px. It should be enough
+  // in most cases.
+  min-width: 200px;
   @include kz-typography-paragraph-body($size: 14);
+  top: initial; // Overrides the `top` value of kz-typography-paragraph-body
   color: $kz-color-wisteria-800;
-  top: 0;
-}
-
-.default {
   background-color: white;
 }
 
-.above {
-  transform: translateX(-50%) translateY(-70%);
-}
+.arrow {
+  z-index: 2;
+  // This is required by popper, otherwise positioning issues will exist.
+  // https://github.com/popperjs/react-popper/issues/354#issuecomment-616540651
+  position: absolute;
 
-.below {
-  bottom: -4px;
-  transform: translateX(-50%) translateY(70%);
-}
-
-.shadow {
-  z-index: 1;
-  border: none;
-  .tooltipContent {
-    visibility: hidden;
+  [data-popper-placement^="top"] & {
+    bottom: 0;
   }
-}
 
-.tooltipWrap {
-  position: initial;
-  display: inline-block;
-  &:hover {
-    .above {
-      opacity: 1;
-      transform: translateX(-50%) translateY(calc(-100% + -6px));
-    }
+  [data-popper-placement^="bottom"] & {
+    top: 0;
 
-    .below {
-      opacity: 1;
-      transform: translateX(-50%) translateY(calc(100% + 6px));
-    }
-  }
-  &:focus {
-    .root {
-      visibility: visible;
+    // There is a conflict with the popper arrow styling, which also
+    // adds a transform to the arrow. Hence, we need this additional
+    // wrapper, just to rotate it.
+    .arrowInner {
+      transform: rotate(180deg);
     }
   }
 }
 
-.root::before,
-.root::after {
+.arrowWhite::before,
+.arrowWhite::after {
   content: "";
   position: absolute;
   left: 50%;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  margin-left: -10px;
+  border-left: ($arrow-width / 2) solid transparent;
+  border-right: ($arrow-width / 2) solid transparent;
+  margin-left: -($arrow-width / 2);
 }
 
-.above::before,
-.above::after {
-  bottom: -4px;
-  top: 100%;
+.arrowWhite::before {
+  border-top: $arrow-height solid $kz-color-wisteria-200;
 }
 
-.below::before,
-.below::after {
-  top: -10px;
-  transform: rotate(180deg);
-}
-
-.root::before {
-  border-top: 10px solid $kz-color-wisteria-200;
-}
-
-.root::after {
-  border-top: 10px solid white;
+.arrowWhite::after {
+  border-top: $arrow-height solid white;
   margin-top: -2px;
   z-index: 2;
 }
 
-.shadow::before {
+.arrowShadow::before {
   border-top: 0px solid $kz-color-wisteria-200;
 }
 
 // Triangle portion is a little darker to bring out shadow
-.shadow::after {
+.arrowShadow::after {
   // this color is a duplication of the color portion of our
   // "small" shadow token defined in the design-tokens package
-  border-top: 10px solid rgba(53, 55, 74, 0.09);
+  border-top: $arrow-height solid rgba(53, 55, 74, 0.09);
   margin-top: 1px;
   filter: blur(4px);
   z-index: 2;
 }
 
-.below::after {
-  margin-top: 2px;
+.displayInline {
+  display: inline;
 }
 
-.inline {
-  display: inline;
-  position: relative;
+.displayBlock {
+  display: block;
+}
+
+.displayInlineBlock {
+  display: inline-block;
+}
+
+.displayFlex {
+  display: flex;
+}
+
+.displayInlineFlex {
+  display: inline-flex;
 }
