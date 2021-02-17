@@ -58,12 +58,12 @@ import flatMap from "lodash.flatmap"
 import React from "react"
 import { useInView } from "react-intersection-observer"
 import { InteractionState, MapInteractionCSS } from "react-map-interaction"
-import * as SliderStories from "../../draft-packages/stories/Slider.stories"
-import { cssVarBackgrounds } from "../../storybook/backgrounds"
-import { useTheme } from "./react"
+import * as SliderStories from "../../../draft-packages/stories/Slider.stories"
+import { cssVarBackgrounds } from "../../../storybook/backgrounds"
+import { useTheme } from "../react"
 
 export default {
-  title: "Design Tokens/Overview",
+  title: "Design Tokens/Story Board",
   parameters: {
     layout: "fullscreen",
   },
