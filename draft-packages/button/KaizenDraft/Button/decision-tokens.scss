@@ -1,13 +1,16 @@
 @import "~@kaizen/design-tokens/sass/color";
 
-$dt-color-background-active: var(--kz-color-stone, $kz-color-wisteria-100);
-$dt-color-background-focus: var(--kz-color-stone, $kz-color-wisteria-100);
-$dt-color-background-hover: var(--kz-color-stone, $kz-color-wisteria-100);
-$dt-color-border-color-base: var(--kz-color-iron-500, $kz-color-wisteria-500);
-$dt-color-border-color-hover: var(--kz-color-slate-700, $kz-color-wisteria-700);
-$dt-color-border-color-focus: var(--kz-color-slate-700, $kz-color-wisteria-700);
+$dt-color-background-active: var(--kz-var-color-stone, $kz-color-wisteria-100);
+$dt-color-background-focus: var(--kz-var-color-stone, $kz-color-wisteria-100);
+$dt-color-background-hover: var(--kz-var-color-stone, $kz-color-wisteria-100);
+$dt-color-border-color-base: var(--kz-var-color-iron, $kz-color-wisteria-500);
+$dt-color-border-color-hover: var(--kz-var-color-slate, $kz-color-wisteria-700);
+$dt-color-border-color-focus: var(--kz-var-color-slate, $kz-color-wisteria-700);
 $dt-color-border-color-disabled: var(
-  --kz-color-iron-500,
+  --kz-var-color-iron,
   $kz-color-wisteria-500
 );
-$dt-color-color-disabled: var(--kz-color-wisteria-800, $kz-color-wisteria-800);
+$dt-color-color-disabled: var(
+  --kz-var-color-wisteria-800,
+  $kz-color-wisteria-800
+);
