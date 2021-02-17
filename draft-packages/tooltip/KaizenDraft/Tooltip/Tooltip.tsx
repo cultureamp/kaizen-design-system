@@ -126,6 +126,10 @@ const Tooltip = ({
     </AppearanceAnim>
   )
 
+  const portalSelectorElement: Element | null = portalSelector
+    ? document.querySelector(portalSelector)
+    : null
+
   return (
     <>
       <div
@@ -154,8 +158,8 @@ const Tooltip = ({
         {children}
       </div>
 
-      {portalSelector
-        ? ReactDOM.createPortal(tooltip, document.querySelector(portalSelector))
+      {portalSelector && portalSelectorElement
+        ? ReactDOM.createPortal(tooltip, portalSelectorElement)
         : tooltip}
     </>
   )
