@@ -66,7 +66,11 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
       [cssVariableThemeNamespace]: this.theme,
     })
     Object.entries(cssVariablesOfTheme).forEach(([key, value]) => {
-      this.rootElement.style.setProperty(key, value)
+      if (this.theme.themeKey === "zen") {
+        this.rootElement.style.removeProperty(key)
+      } else {
+        this.rootElement.style.setProperty(key, value)
+      }
     })
   }
 
