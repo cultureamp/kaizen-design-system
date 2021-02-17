@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.4.2...@kaizen/design-tokens@2.4.3) (2021-02-17)
+
+
+### Bug Fixes
+
+* Remove CSS properties when theme is Zen ([#1065](https://github.com/cultureamp/kaizen-design-system/issues/1065)) ([60ba556](https://github.com/cultureamp/kaizen-design-system/commit/60ba556a33bf320db8ca62977ae00696e9194c21))
+
+
+
+
+
 ## [2.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.4.1...@kaizen/design-tokens@2.4.2) (2021-02-16)
 
 **Note:** Version bump only for package @kaizen/design-tokens
