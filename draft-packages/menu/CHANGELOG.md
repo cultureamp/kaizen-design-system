@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.0.4...@kaizen/draft-menu@3.0.5) (2021-02-17)
+
+
+### Bug Fixes
+
+* remove unused animation import ([#1073](https://github.com/cultureamp/kaizen-design-system/issues/1073)) ([460ba46](https://github.com/cultureamp/kaizen-design-system/commit/460ba464d135367cf06d49b9d32f41ffbb5bff75))
+
+
+
+
+
 ## [3.0.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.0.3...@kaizen/draft-menu@3.0.4) (2021-02-17)
 
 **Note:** Version bump only for package @kaizen/draft-menu
