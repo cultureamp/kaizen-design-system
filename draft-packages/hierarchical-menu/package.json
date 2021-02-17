@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-hierarchical-menu",
-  "version": "2.0.25",
+  "version": "2.0.26",
   "description": "The draft hierarchical-menu component",
   "scripts": {
     "prepublish": "yarn tsc --project tsconfig.dist.json",
@@ -33,7 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^8.3.2",
-    "@kaizen/draft-button": "^3.1.5",
+    "@kaizen/draft-button": "^3.1.6",
     "@kaizen/draft-loading-placeholder": "^1.4.13",
     "classnames": "^2.2.6",
     "react-focus-lock": "^2.4.1",

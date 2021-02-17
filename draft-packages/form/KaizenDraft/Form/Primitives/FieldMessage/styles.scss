@@ -1,15 +1,8 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
-
-$message-error-color: $kz-color-wisteria-800;
-$message-border-radius: $kz-border-solid-border-radius;
-
-// @TODO - taken from ~@kaizen/component-library/styles/color
-// previously add-tint($ca-palette-coral, 70%);
-// a proper uplift would change this to use an inline notification
-$ca-palette-input-validation-negative: $kz-color-coral-600;
+@import "../../decision-tokens.scss";
 
 .message {
   @include kz-typography-paragraph-small;
@@ -17,17 +10,17 @@ $ca-palette-input-validation-negative: $kz-color-coral-600;
 }
 
 .default {
-  color: rgba($kz-color-wisteria-800, 0.75);
+  color: rgba($dt-color-form-text-color, 0.75);
 
   &.reversed {
-    color: rgba($kz-color-white, 0.8);
+    color: rgba($dt-color-form-text-color-reversed, 0.8);
   }
 }
 
 .error {
   padding: $ca-grid / 2;
-  color: $message-error-color;
-  border-radius: $message-border-radius;
+  color: $dt-color-form-text-color;
+  border-radius: $kz-border-solid-border-radius;
   background: $kz-color-coral-300;
 }
 

@@ -2,13 +2,7 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/base";
-
-// @TODO - brought through from borders.scss in component-library
-// In the future these tokens should be better represented in
-// a separate package so they are shareable.
-$ca-border-color-focus: $kz-color-cluny-500;
-$ca-border-color-hover: $kz-color-wisteria-400;
-$ca-border-color-focus-reversed: $kz-color-cluny-300;
+@import "../../decision-tokens.scss";
 
 .wrapper {
   position: relative;
@@ -19,15 +13,15 @@ $ca-border-color-focus-reversed: $kz-color-cluny-300;
   border-radius: $kz-border-solid-border-radius;
   width: 100%;
   border: $kz-border-solid-border-width $kz-border-solid-border-style
-    $kz-color-wisteria-500;
+    $dt-color-form-border-color;
   padding: $ca-grid * 0.5;
-  color: $kz-color-wisteria-800;
+  color: $dt-color-form-text-color;
   display: block;
   resize: vertical;
 
   &:focus,
   &:hover {
-    border-color: $kz-color-wisteria-700;
+    border-color: $dt-color-form-border-color-hover;
   }
 
   &.error:not(:focus) {
@@ -36,7 +30,7 @@ $ca-border-color-focus-reversed: $kz-color-cluny-300;
 
   @include form-input-placeholder {
     line-height: 1.5;
-    color: rgba($kz-color-wisteria-800, 0.7);
+    color: rgba($dt-color-form-text-color, 0.7);
   }
 }
 
@@ -57,7 +51,7 @@ $ca-border-color-focus-reversed: $kz-color-cluny-300;
 
 .textarea.default {
   &:focus + .focusRing {
-    border-color: $ca-border-color-focus;
+    border-color: $dt-color-form-border-color-focus;
   }
 }
 
@@ -83,6 +77,6 @@ $ca-border-color-focus-reversed: $kz-color-cluny-300;
   }
 
   &:focus + .focusRing {
-    border-color: $ca-border-color-focus-reversed;
+    border-color: $dt-color-form-border-color-reversed-focus;
   }
 }

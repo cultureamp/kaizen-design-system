@@ -6,6 +6,7 @@
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/mixins/forms";
+@import "../../decision-tokens.scss";
 
 $animation-timing: $ca-duration-immediate $ca-linear;
 
@@ -14,7 +15,7 @@ $animation-timing: $ca-duration-immediate $ca-linear;
 }
 
 .track {
-  background-color: $kz-color-wisteria-300;
+  background-color: $dt-color-toggle-background-color;
   border: $kz-border-borderless-border-width $kz-border-borderless-border-style
     $kz-border-borderless-border-color;
   border-radius: $ca-grid;
@@ -32,11 +33,14 @@ $animation-timing: $ca-duration-immediate $ca-linear;
 
   .checkbox:focus:not([disabled]) + &,
   .checkbox:hover:focus:not([disabled]) + & {
-    border-color: $ca-border-color-focus;
+    border-color: $dt-color-form-border-color-focus;
   }
 
   .checkbox:not([disabled]) + &:hover {
+    // if kz-color-iron-500-rgb-params fails, it will fallback to wisteria-500
+    // (the non-css variable token)
     background-color: $kz-color-wisteria-500;
+    background-color: rgba(var(--kz-color-iron-500-rgb-params), 0.4);
   }
 }
 
@@ -58,7 +62,7 @@ $animation-timing: $ca-duration-immediate $ca-linear;
   }
 
   .checkbox:focus:not([disabled]) + .track {
-    border-color: $ca-border-color-focus;
+    border-color: $dt-color-form-border-color-focus;
   }
 
   .thumb {
