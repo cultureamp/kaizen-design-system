@@ -5,10 +5,11 @@ import * as yargs from "yargs"
 import { defaultTheme, heartTheme, Theme, zenTheme } from "../"
 import {
   augmentCssVariable,
-  flattenObjectToCSSVariables,
   mapLeafsOfObject,
   makeCSSVariableTheme,
   cssVariableThemeNamespace,
+  objectPathToCssVarIdentifier,
+  makeCSSVariablesOfTheme,
 } from "../src/utils"
 
 const { jsonOutput, cssOutput } = yargs
@@ -32,9 +33,7 @@ const formatJson = (jsonString: string) =>
 const themeToCssVariableStylesheetString = (theme: Theme) =>
   format(
     `:root {
-${Object.entries(
-  flattenObjectToCSSVariables({ [cssVariableThemeNamespace]: theme })
-)
+${Object.entries(makeCSSVariablesOfTheme(theme))
   .map(([key, value]) => `${key}: ${value};`)
   .join("  \n")}
 }`,
@@ -74,6 +73,24 @@ const run = () => {
   // Any theme passed into the factory function will be fine, as they all have the same keys
   const customPropertiesTheme = makeCSSVariableTheme(
     augmentThemeForSassVariables(defaultTheme)
+  )
+
+  /*
+    This is used for compiling a json file contianing the identifiers of variables rather than CSS var() functions as values.
+    e.g.
+    {
+      themeKey: "--kz-var-theme-key"
+    }
+
+    This is useful for situations when you want to access CSS variables from javascript.
+    E.g.
+    ```ts
+      document.documentElement.style.getPropertyValue(identifiers.themeKey)
+    ```
+   */
+  const customPropertiesThemeIdentifiers = makeCSSVariableTheme(
+    augmentThemeForSassVariables(defaultTheme),
+    objectPathToCssVarIdentifier
   )
 
   /* Write JSON tokens */
@@ -116,6 +133,16 @@ const run = () => {
 
   /* Write JSON CSS variable tokens */
 
+  fs.writeFileSync(
+    path.resolve(jsonOutput, "variable-identifiers.json"),
+    formatJson(
+      JSON.stringify({
+        [`${cssVariableThemeNamespace}-id`]: customPropertiesThemeIdentifiers[
+          cssVariableThemeNamespace
+        ],
+      })
+    )
+  )
   fs.writeFileSync(
     path.resolve(jsonOutput, "color-vars.json"),
     formatJson(
