@@ -188,11 +188,11 @@ export const heartTheme: Theme = {
       letterSpacing: "normal",
     },
     display0: {
-      fontFamily: '"Greycliff CF", "Noto Sans", Helvetica, Arial, sans-serif',
-      fontWeight: 700,
+      fontFamily: '"Tiempos Headline", Georgia, serif',
+      fontWeight: 800,
       fontSize: "4.5rem",
-      lineHeight: "4.5rem",
-      letterSpacing: "-0.03em",
+      lineHeight: "5.25rem",
+      letterSpacing: "0em",
     },
     heading1: {
       fontFamily: '"Greycliff CF", "Noto Sans", Helvetica, Arial, sans-serif',
