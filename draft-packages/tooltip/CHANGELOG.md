@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.3.1...@kaizen/draft-tooltip@2.4.0) (2021-02-18)
+
+
+### Features
+
+* Add portal support to Tooltip ([#1058](https://github.com/cultureamp/kaizen-design-system/issues/1058)) ([4926878](https://github.com/cultureamp/kaizen-design-system/commit/4926878cc7484979c75a3685579eaca857e6fdc9))
+
+
+
+
+
 ## [2.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.3.0...@kaizen/draft-tooltip@2.3.1) (2021-02-18)
 
 **Note:** Version bump only for package @kaizen/draft-tooltip
