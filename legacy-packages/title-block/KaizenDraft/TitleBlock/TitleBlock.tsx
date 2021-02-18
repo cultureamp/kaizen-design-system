@@ -5,7 +5,6 @@ import Media from "react-media"
 import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 
 import Icon from "@kaizen/component-library/components/Icon/Icon"
-import { MOBILE_QUERY } from "@kaizen/component-library/components/NavigationBar/constants"
 import { kz as layoutTokens } from "@kaizen/design-tokens/tokens/layout.json"
 import { Tag } from "@kaizen/draft-tag"
 import backIcon from "@kaizen/component-library/icons/arrow-backward.icon.svg"
