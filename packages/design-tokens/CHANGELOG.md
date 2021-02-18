@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.4.3...@kaizen/design-tokens@2.4.4) (2021-02-18)
+
+
+### Bug Fixes
+
+* "custom" variant for ThemeKey ([#1075](https://github.com/cultureamp/kaizen-design-system/issues/1075)) ([e777300](https://github.com/cultureamp/kaizen-design-system/commit/e7773003973874565a8e85835315978a9c7c99f9))
+
+
+
+
+
 ## [2.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.4.2...@kaizen/design-tokens@2.4.3) (2021-02-17)
 
 
