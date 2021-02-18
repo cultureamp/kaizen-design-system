@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.2.0...@kaizen/draft-form@3.2.1) (2021-02-18)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
 # [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.1.9...@kaizen/draft-form@3.2.0) (2021-02-17)
 
 
