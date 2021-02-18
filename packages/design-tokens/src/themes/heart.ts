@@ -188,7 +188,7 @@ export const heartTheme: Theme = {
       letterSpacing: "normal",
     },
     display0: {
-      fontFamily: '"Tiempos", Georgia, serif',
+      fontFamily: '"Tiempos Headline", Georgia, serif',
       fontWeight: 800,
       fontSize: "4.5rem",
       lineHeight: "5.25rem",
