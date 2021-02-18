@@ -15,6 +15,18 @@
   }
 }
 
+@mixin title-block-tablet-up {
+  @media (min-width: $kz-layout-breakpoints-large) {
+    @content;
+  }
+}
+
+@mixin title-block-tablet {
+  @media (min-width: $kz-layout-breakpoints-large) and (max-width: #{$ca-breakpoint-tablet - 1px}) {
+    @content;
+  }
+}
+
 .titleBlockContainer {
   color: $kz-color-wisteria-800;
   width: 100%;
@@ -41,7 +53,7 @@
   // Specifying this explicity in case the consuming app don't have this specified by default
   box-sizing: border-box;
 
-  @include ca-media-tablet {
+  @include title-block-tablet {
     height: $ca-layout-title-block-tablet-height;
   }
 
@@ -83,7 +95,7 @@
     }
   }
 
-  @include ca-media-tablet {
+  @include title-block-tablet {
     top: $ca-layout-title-block-tablet-height / 2;
   }
 
@@ -169,7 +181,7 @@
   display: inline-block;
   top: auto;
 
-  @include ca-media-tablet {
+  @include title-block-tablet {
     @include kz-typography-heading-2;
     @include ca-inherit-baseline;
   }
@@ -295,7 +307,7 @@
 }
 
 .mobileNav {
-  @include ca-media-tablet-and-up {
+  @include title-block-tablet-up {
     display: none;
   }
 }
@@ -305,7 +317,7 @@
 .reversed {
   color: white;
 
-  @include ca-media-tablet-and-up {
+  @include title-block-tablet-up {
     .title {
       color: white;
     }
@@ -344,7 +356,7 @@
 }
 
 .reverseColorLapis {
-  @include ca-media-tablet-and-up {
+  @include title-block-tablet-up {
     .titleBlock {
       background-color: $kz-color-wisteria-800;
     }
@@ -357,7 +369,7 @@
 }
 
 .reverseColorOcean {
-  @include ca-media-tablet-and-up {
+  @include title-block-tablet-up {
     .titleBlock {
       background-color: $kz-color-cluny-500;
     }
@@ -370,7 +382,7 @@
 }
 
 .reverseColorPeach {
-  @include ca-media-tablet-and-up {
+  @include title-block-tablet-up {
     .titleBlock {
       background-color: $kz-color-peach-500;
     }
@@ -383,7 +395,7 @@
 }
 
 .reverseColorSeedling {
-  @include ca-media-tablet-and-up {
+  @include title-block-tablet-up {
     .titleBlock {
       background-color: $kz-color-seedling-500;
     }
@@ -396,7 +408,7 @@
 }
 
 .reverseColorWisteria {
-  @include ca-media-tablet-and-up {
+  @include title-block-tablet-up {
     .titleBlock {
       background-color: $kz-color-wisteria-700;
     }
@@ -409,7 +421,7 @@
 }
 
 .reverseColorYuzu {
-  @include ca-media-tablet-and-up {
+  @include title-block-tablet-up {
     .titleBlock {
       background-color: $kz-color-yuzu-500;
     }
@@ -422,7 +434,7 @@
 }
 
 .reverseColorTransparent {
-  @include ca-media-tablet-and-up {
+  @include title-block-tablet-up {
     .titleBlock {
       background-color: transparent;
     }
@@ -445,7 +457,7 @@
 }
 
 .compact {
-  @include ca-media-tablet-and-up {
+  @include title-block-tablet-up {
     box-shadow: $kz-shadow-large-box-shadow;
 
     .titleBlockInner {
@@ -455,7 +467,7 @@
 }
 
 .sticky {
-  @include ca-media-tablet-and-up {
+  @include title-block-tablet-up {
     position: fixed;
     z-index: $ca-z-index-sticky;
   }
@@ -470,7 +482,7 @@
 }
 
 .stickyColorLapis {
-  @include ca-media-tablet-and-up {
+  @include title-block-tablet-up {
     .titleBlock {
       background-color: $kz-color-wisteria-600;
     }
@@ -483,7 +495,7 @@
 }
 
 .stickyColorOcean {
-  @include ca-media-tablet-and-up {
+  @include title-block-tablet-up {
     .titleBlock {
       background-color: $kz-color-cluny-500;
     }
@@ -496,7 +508,7 @@
 }
 
 .stickyColorPeach {
-  @include ca-media-tablet-and-up {
+  @include title-block-tablet-up {
     .titleBlock {
       background-color: $kz-color-peach-400;
     }
@@ -509,7 +521,7 @@
 }
 
 .stickyColorSeedling {
-  @include ca-media-tablet-and-up {
+  @include title-block-tablet-up {
     .titleBlock {
       background-color: $kz-color-seedling-400;
     }
@@ -522,7 +534,7 @@
 }
 
 .stickyColorWisteria {
-  @include ca-media-tablet-and-up {
+  @include title-block-tablet-up {
     .titleBlock {
       background-color: $kz-color-wisteria-700;
     }
@@ -535,7 +547,7 @@
 }
 
 .stickyColorYuzu {
-  @include ca-media-tablet-and-up {
+  @include title-block-tablet-up {
     .titleBlock {
       background-color: $kz-color-yuzu-500;
     }
@@ -548,7 +560,7 @@
 }
 
 .stickyColorTransparent {
-  @include ca-media-tablet-and-up {
+  @include title-block-tablet-up {
     .titleBlock {
       background-color: transparent;
     }

@@ -6,6 +6,7 @@ import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 
 import Icon from "@kaizen/component-library/components/Icon/Icon"
 import { MOBILE_QUERY } from "@kaizen/component-library/components/NavigationBar/constants"
+import { kz as layoutTokens } from "@kaizen/design-tokens/tokens/layout.json"
 import { Tag } from "@kaizen/draft-tag"
 import backIcon from "@kaizen/component-library/icons/arrow-backward.icon.svg"
 
@@ -196,9 +197,11 @@ class TitleBlock extends React.Component<Props, State> {
                   {this.renderSubtitle()}
                 </div>
               </div>
-              <Media query={MOBILE_QUERY}>
+              <Media
+                query={{ minWidth: layoutTokens.layout.breakpoints.large }}
+              >
                 {(matches: boolean) =>
-                  !matches && (
+                  matches && (
                     <React.Fragment>{this.renderNavigation()}</React.Fragment>
                   )
                 }
@@ -212,9 +215,9 @@ class TitleBlock extends React.Component<Props, State> {
             </div>
           </div>
         </div>
-        <Media query={MOBILE_QUERY}>
+        <Media query={{ minWidth: layoutTokens.layout.breakpoints.large }}>
           {(matches: boolean) =>
-            matches && (
+            !matches && (
               <React.Fragment>{this.renderNavigation()}</React.Fragment>
             )
           }
