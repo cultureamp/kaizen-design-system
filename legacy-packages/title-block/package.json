@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-title-block",
-  "version": "2.1.15",
+  "version": "3.0.0",
   "description": "The draft Title block component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
