@@ -1,5 +1,13 @@
 @import "~@kaizen/hosted-assets/index";
 
+// =============== TIEMPOS ===============
+@font-face {
+  font-family: "Tiempos";
+  src: url(asset-url("fonts/tiempos/tiempos-headline-bold.woff2")),
+    url(asset-url("fonts/tiempos/tiempos-headline-bold.woff"));
+  font-weight: 800;
+}
+
 // =============== GREYCLIFF ===============
 
 @font-face {
