@@ -1,5 +1,5 @@
-@import "~@kaizen/design-tokens/sass/typography-vars";
-@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/component-library/styles/fonts";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
@@ -8,96 +8,96 @@
 }
 
 .display-0 {
-  font-family: $kz-var-typography-display-0-font-family;
-  font-weight: $kz-var-typography-display-0-font-weight;
-  font-size: $kz-var-typography-display-0-font-size;
-  line-height: $kz-var-typography-display-0-line-height;
-  letter-spacing: $kz-var-typography-display-0-letter-spacing;
+  font-family: $kz-typography-display-0-font-family;
+  font-weight: $kz-typography-display-0-font-weight;
+  font-size: $kz-typography-display-0-font-size;
+  line-height: $kz-typography-display-0-line-height;
+  letter-spacing: $kz-typography-display-0-letter-spacing;
 }
 
 .heading-1 {
-  font-family: $kz-var-typography-heading-1-font-family;
-  font-weight: $kz-var-typography-heading-1-font-weight;
-  font-size: $kz-var-typography-heading-1-font-size;
-  line-height: $kz-var-typography-heading-1-line-height;
-  letter-spacing: $kz-var-typography-heading-1-letter-spacing;
+  font-family: $kz-typography-heading-1-font-family;
+  font-weight: $kz-typography-heading-1-font-weight;
+  font-size: $kz-typography-heading-1-font-size;
+  line-height: $kz-typography-heading-1-line-height;
+  letter-spacing: $kz-typography-heading-1-letter-spacing;
 }
 
 .heading-2 {
-  font-family: $kz-var-typography-heading-2-font-family;
-  font-weight: $kz-var-typography-heading-2-font-weight;
-  font-size: $kz-var-typography-heading-2-font-size;
-  line-height: $kz-var-typography-heading-2-line-height;
-  letter-spacing: $kz-var-typography-heading-2-letter-spacing;
+  font-family: $kz-typography-heading-2-font-family;
+  font-weight: $kz-typography-heading-2-font-weight;
+  font-size: $kz-typography-heading-2-font-size;
+  line-height: $kz-typography-heading-2-line-height;
+  letter-spacing: $kz-typography-heading-2-letter-spacing;
 }
 
 .heading-3 {
-  font-family: $kz-var-typography-heading-3-font-family;
-  font-weight: $kz-var-typography-heading-3-font-weight;
-  font-size: $kz-var-typography-heading-3-font-size;
-  line-height: $kz-var-typography-heading-3-line-height;
-  letter-spacing: $kz-var-typography-heading-3-letter-spacing;
+  font-family: $kz-typography-heading-3-font-family;
+  font-weight: $kz-typography-heading-3-font-weight;
+  font-size: $kz-typography-heading-3-font-size;
+  line-height: $kz-typography-heading-3-line-height;
+  letter-spacing: $kz-typography-heading-3-letter-spacing;
 }
 
 .heading-4 {
-  font-family: $kz-var-typography-heading-4-font-family;
-  font-weight: $kz-var-typography-heading-4-font-weight;
-  font-size: $kz-var-typography-heading-4-font-size;
-  line-height: $kz-var-typography-heading-4-line-height;
-  letter-spacing: $kz-var-typography-heading-4-letter-spacing;
+  font-family: $kz-typography-heading-4-font-family;
+  font-weight: $kz-typography-heading-4-font-weight;
+  font-size: $kz-typography-heading-4-font-size;
+  line-height: $kz-typography-heading-4-line-height;
+  letter-spacing: $kz-typography-heading-4-letter-spacing;
 }
 
 .heading-5 {
-  font-family: $kz-var-typography-heading-5-font-family;
-  font-weight: $kz-var-typography-heading-5-font-weight;
-  font-size: $kz-var-typography-heading-5-font-size;
-  line-height: $kz-var-typography-heading-5-line-height;
-  letter-spacing: $kz-var-typography-heading-5-letter-spacing;
+  font-family: $kz-typography-heading-5-font-family;
+  font-weight: $kz-typography-heading-5-font-weight;
+  font-size: $kz-typography-heading-5-font-size;
+  line-height: $kz-typography-heading-5-line-height;
+  letter-spacing: $kz-typography-heading-5-letter-spacing;
 }
 
 .heading-6 {
-  font-family: $kz-var-typography-heading-6-font-family;
-  font-weight: $kz-var-typography-heading-6-font-weight;
-  font-size: $kz-var-typography-heading-6-font-size;
-  line-height: $kz-var-typography-heading-6-line-height;
-  letter-spacing: $kz-var-typography-heading-6-letter-spacing;
+  font-family: $kz-typography-heading-6-font-family;
+  font-weight: $kz-typography-heading-6-font-weight;
+  font-size: $kz-typography-heading-6-font-size;
+  line-height: $kz-typography-heading-6-line-height;
+  letter-spacing: $kz-typography-heading-6-letter-spacing;
 }
 
 .dark {
-  color: $kz-var-color-wisteria-800;
+  color: $kz-color-wisteria-800;
   opacity: 1;
 }
 
 .dark-reduced-opacity {
-  color: $kz-var-color-wisteria-800;
+  color: $kz-color-wisteria-800;
   opacity: 0.7;
 }
 
 .white {
-  color: $kz-var-color-white;
+  color: $kz-color-white;
   opacity: 1;
 }
 
 .white-reduced-opacity {
-  color: $kz-var-color-white;
+  color: $kz-color-white;
   opacity: 0.8;
 }
 
 .positive {
   &.small {
-    color: $kz-var-color-seedling-600;
+    color: $kz-color-seedling-600;
   }
   &.large {
-    color: $kz-var-color-seedling-500;
+    color: $kz-color-seedling-500;
   }
 }
 
 .negative {
   &.small {
-    color: $kz-var-color-coral-600;
+    color: $kz-color-coral-600;
   }
 
   &.large {
-    color: $kz-var-color-coral-500;
+    color: $kz-color-coral-500;
   }
 }

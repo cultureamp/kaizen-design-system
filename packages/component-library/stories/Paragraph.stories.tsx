@@ -1,6 +1,6 @@
+import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
 import { Paragraph } from "../components/Paragraph"
-import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "Paragraph",
@@ -11,9 +11,6 @@ export default {
         import { Paragraph } from "@kaizen/component-library";
       `,
     },
-    ...figmaEmbed(
-      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A1289"
-    ),
   },
 }
 
