@@ -1,6 +1,6 @@
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
 import { Heading } from "../components/Heading"
+import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "Heading (React)",
@@ -11,10 +11,15 @@ export default {
         import { Heading } from "@kaizen/component-library";
       `,
     },
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A1289"
+    ),
   },
 }
 
-export const Display0 = () => <Heading variant="display-0">Display 0</Heading>
+export const Display0 = () => (
+  <Heading variant="display-0">A better world of work</Heading>
+)
 
 export const Heading1 = () => (
   <Heading data-automation-id="test" variant="heading-1">
