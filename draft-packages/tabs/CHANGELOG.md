@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.1.14...@kaizen/draft-tabs@4.1.15) (2021-02-19)
+
+**Note:** Version bump only for package @kaizen/draft-tabs
+
+
+
+
+
 ## [4.1.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tabs@4.1.13...@kaizen/draft-tabs@4.1.14) (2021-02-18)
 
 **Note:** Version bump only for package @kaizen/draft-tabs
