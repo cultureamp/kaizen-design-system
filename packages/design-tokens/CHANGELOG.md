@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.4.4...@kaizen/design-tokens@2.5.0) (2021-02-18)
+
+
+### Features
+
+* Added Tiempos 800 to font-face & updated display-0 heart tokens ([#1076](https://github.com/cultureamp/kaizen-design-system/issues/1076)) ([a4c86bd](https://github.com/cultureamp/kaizen-design-system/commit/a4c86bd4eef1876a4070a28f0ebd750bb6501ab8))
+
+
+
+
+
+## [2.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.4.3...@kaizen/design-tokens@2.4.4) (2021-02-18)
+
+
+### Bug Fixes
+
+* "custom" variant for ThemeKey ([#1075](https://github.com/cultureamp/kaizen-design-system/issues/1075)) ([e777300](https://github.com/cultureamp/kaizen-design-system/commit/e7773003973874565a8e85835315978a9c7c99f9))
+
+
+
+
+
+## [2.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.4.2...@kaizen/design-tokens@2.4.3) (2021-02-17)
+
+
+### Bug Fixes
+
+* Remove CSS properties when theme is Zen ([#1065](https://github.com/cultureamp/kaizen-design-system/issues/1065)) ([60ba556](https://github.com/cultureamp/kaizen-design-system/commit/60ba556a33bf320db8ca62977ae00696e9194c21))
+
+
+
+
+
 ## [2.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.4.1...@kaizen/design-tokens@2.4.2) (2021-02-16)
 
 **Note:** Version bump only for package @kaizen/design-tokens

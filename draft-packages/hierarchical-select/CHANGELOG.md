@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-select@1.4.1...@kaizen/draft-hierarchical-select@1.4.2) (2021-02-18)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-select
+
+
+
+
+
+## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-select@1.4.0...@kaizen/draft-hierarchical-select@1.4.1) (2021-02-17)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-select
+
+
+
+
+
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-select@1.3.65...@kaizen/draft-hierarchical-select@1.4.0) (2021-02-17)
+
+
+### Features
+
+* Update form to support Heart ([#1015](https://github.com/cultureamp/kaizen-design-system/issues/1015)) ([9ed1ca0](https://github.com/cultureamp/kaizen-design-system/commit/9ed1ca07752cf38342f323d0d9460b10e1d1bf2d))
+
+
+
+
+
 ## [1.3.65](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-select@1.3.64...@kaizen/draft-hierarchical-select@1.3.65) (2021-02-15)
 
 **Note:** Version bump only for package @kaizen/draft-hierarchical-select

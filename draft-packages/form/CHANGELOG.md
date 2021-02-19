@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.2.0...@kaizen/draft-form@3.2.1) (2021-02-18)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.1.9...@kaizen/draft-form@3.2.0) (2021-02-17)
+
+
+### Features
+
+* Update form to support Heart ([#1015](https://github.com/cultureamp/kaizen-design-system/issues/1015)) ([9ed1ca0](https://github.com/cultureamp/kaizen-design-system/commit/9ed1ca07752cf38342f323d0d9460b10e1d1bf2d))
+
+
+
+
+
 ## [3.1.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.1.8...@kaizen/draft-form@3.1.9) (2021-02-15)
 
 

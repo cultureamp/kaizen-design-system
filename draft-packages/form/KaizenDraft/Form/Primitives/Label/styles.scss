@@ -3,6 +3,7 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
+@import "../../decision-tokens.scss";
 
 $label-start-margin: 10px;
 
@@ -14,7 +15,7 @@ $label-start-margin: 10px;
 :global(.ideal-sans) .label {
   // override Murmur global styles :(
   opacity: inherit;
-  color: $kz-color-wisteria-800;
+  color: $dt-color-form-text-color;
   visibility: visible;
   @include ca-type-align-start;
   width: 100%;
