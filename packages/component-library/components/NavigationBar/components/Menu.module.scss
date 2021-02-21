@@ -2,7 +2,7 @@
 @import "~@kaizen/design-tokens/sass/border";
 @import "../styles";
 @import "../../../styles/border";
-@import "../../../styles/color";
+@import "@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "../../../styles/layers";
 @import "../../../styles/layout";
