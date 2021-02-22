@@ -15,7 +15,6 @@ $input-base-padding-horizontal: $ca-grid / 2;
 $input-icon-size: 1.25rem; // 20px
 $input-placeholder-opacity: 0.5;
 $input-disabled-background: $kz-color-ash;
-$input-disabled-alpha: 30%;
 $input-disabled-opacity: 0.3;
 $input-disabled-border-alpha: 50%;
 
@@ -59,7 +58,7 @@ $input-disabled-border-alpha: 50%;
     }
 
     @include form-input-placeholder {
-      color: rgba($ca-base-text-color, $input-disabled-alpha);
+      color: rgba($ca-base-text-color, $input-disabled-opacity);
     }
   }
 }
@@ -214,7 +213,7 @@ $input-disabled-border-alpha: 50%;
   }
 
   &.disabled {
-    color: rgba($ca-base-text-color, $input-disabled-alpha);
+    color: rgba($ca-base-text-color, $input-disabled-opacity);
 
     @include form-input-placeholder {
       opacity: $input-disabled-opacity;
@@ -247,7 +246,7 @@ $input-disabled-border-alpha: 50%;
   }
 
   &.disabled {
-    color: rgba($kz-color-white, $input-disabled-alpha);
+    color: rgba($kz-color-white, $input-disabled-opacity);
     border-color: rgba($kz-color-white, $input-disabled-border-alpha);
 
     @include form-input-placeholder {
