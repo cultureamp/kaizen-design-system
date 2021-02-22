@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.0.2...@kaizen/draft-title-block@3.0.3) (2021-02-22)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [3.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.0.1...@kaizen/draft-title-block@3.0.2) (2021-02-19)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [3.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.0.0...@kaizen/draft-title-block@3.0.1) (2021-02-18)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+# [3.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@2.1.15...@kaizen/draft-title-block@3.0.0) (2021-02-18)
+
+
+### Features
+
+* align breakpoints to mobile design token to make rollout of new title block and navigation easier ([#1074](https://github.com/cultureamp/kaizen-design-system/issues/1074)) ([718b8ea](https://github.com/cultureamp/kaizen-design-system/commit/718b8ea685607e6d08a74a6693a8dd093e18cb0b))
+
+
+### BREAKING CHANGES
+
+* Visual change - Remove unneeded tablet view, adjust any styles that position things absolutely to match this
+
+
+
+
+
+## [2.1.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@2.1.14...@kaizen/draft-title-block@2.1.15) (2021-02-15)
+
+
+### Bug Fixes
+
+* Remove usage of add-tint, add-shade, and add-alpha ([#1047](https://github.com/cultureamp/kaizen-design-system/issues/1047)) ([4164904](https://github.com/cultureamp/kaizen-design-system/commit/4164904cd5bac74488ab47963e10b0f314b56228))
+
+
+
+
+
 ## [2.1.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@2.1.13...@kaizen/draft-title-block@2.1.14) (2021-02-12)
 
 

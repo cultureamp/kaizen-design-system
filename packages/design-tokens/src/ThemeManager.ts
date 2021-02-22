@@ -1,7 +1,6 @@
-import { defaultTheme } from "./themes"
-import { DeepMapObjectLeafs, Theme as BaseTheme } from "./types"
-import { cssVariableThemeNamespace, flattenObjectToCSSVariables } from "./utils"
-
+import identifiers from "../tokens/variable-identifiers.json"
+import { Theme as BaseTheme } from "./types"
+import { makeCSSVariablesOfTheme } from "./utils"
 /**
  * Use this class to set and apply themes, and to access or subscribe to the currently active one.
  * This class fulfills the idea of theming and runtime theme switching by relying on CSS variables,
@@ -30,12 +29,12 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
 
   public getRootElement = () => this.rootElement
   public getCurrentTheme = () => this.theme
-  public getCssVariableThemeKey = () => {
-    const justTheKey = flattenObjectToCSSVariables({
-      kz: { themeKey: this.theme.themeKey },
-    })
-    return this.rootElement.style.getPropertyValue(justTheKey["--kz-theme-key"])
-  }
+  public getCssVariableThemeKeyIdentifier = () =>
+    identifiers["kz-var-id"].themeKey
+  public getCssVariableThemeKeyValue = () =>
+    this.rootElement.style.getPropertyValue(
+      this.getCssVariableThemeKeyIdentifier()
+    )
   public setRootElement = (element: HTMLElement) => {
     this.rootElement = element
   }
@@ -44,7 +43,7 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
       if (
         this.theme === theme ||
         // This case will happen if you load a theme initially using CSS.
-        theme.themeKey === this.getCssVariableThemeKey()
+        theme.themeKey === this.getCssVariableThemeKeyValue()
       )
         return
     }
@@ -62,11 +61,13 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
     )
   }
   public applyCurrentTheme = () => {
-    const cssVariablesOfTheme = flattenObjectToCSSVariables({
-      [cssVariableThemeNamespace]: this.theme,
-    })
+    const cssVariablesOfTheme = makeCSSVariablesOfTheme(this.theme)
     Object.entries(cssVariablesOfTheme).forEach(([key, value]) => {
-      this.rootElement.style.setProperty(key, value)
+      if (this.theme.themeKey === "zen") {
+        this.rootElement.style.removeProperty(key)
+      } else {
+        this.rootElement.style.setProperty(key, value)
+      }
     })
   }
 

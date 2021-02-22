@@ -51,71 +51,13 @@ export const mapLeafsOfObject = <
   return recurser([], object)
 }
 
-const objectPathToCssVarIdentifier = (path: string[]) =>
+export const objectPathToCssVarIdentifier = (path: string[]) =>
   `--${path.map(camelToKebab).join("-")}`
 
 export const objectPathToCssVarReference = (path: string[], value: unknown) =>
   `var(${objectPathToCssVarIdentifier(path)}, ${value})`
 
 export const cssVariableThemeNamespace = "kz-var" as const
-/**
- * This function will convert the leaf values of a theme to a value like `var(--parent1key-parent2key-leafkey)` - a CSS variable with an identifier that represents it's hierarchy within the object you provided.
- * One caveat though: if a key is suffixed with `-default` it will leave the value in place. This was implemented for consumer regression purposes, i.e. so that consumers had a fallback when CSS variables weren't feasible.
- * Example:
- * ```
- * {
- *  kz: {
- *      color: {
- *          wisteria: "#ff0011"
- *      }
- *  }
- * }
- * ```
- * Transforms into:
- * ```
- * {
- *  kz: {
- *      color: {
- *          wisteria: "var(--kz-color-wisteria)"
- *      }
- *  }
- * }
- * ```
- */
-
-export const makeCSSVariableTheme = (theme: Theme) =>
-  mapLeafsOfObject({ [cssVariableThemeNamespace]: theme }, (path, value) =>
-    path[path.length - 1].endsWith("-default")
-      ? value
-      : objectPathToCssVarReference(path, value)
-  )
-
-/**
- * Use this to generate an object containing `${key}: value`, `${key}-default: value`, and `${key}-rgb-params: r, g, b` if the value is a color.
- * This is for augmenting a CSS variable to support our solution to regression issues with using CSS variables instead of concrete values.
- */
-export const augmentCssVariable = (
-  key: string,
-  value: unknown,
-  {
-    augmentWithDefault = true,
-    augmentWithRgbParams = true,
-  }: {
-    augmentWithDefault?: boolean
-    augmentWithRgbParams?: boolean
-  } = {}
-) => {
-  const colorRgb = typeof value === "string" ? colorString.get.rgb(value) : null
-
-  return {
-    [key]: `${value}`,
-    ...(augmentWithDefault && { [`${key}-default`]: `${value}` }),
-    ...(colorRgb &&
-      augmentWithRgbParams && {
-        [`${key}-rgb-params`]: colorRgb.slice(0, 3).join(", "),
-      }),
-  }
-}
 
 /**
  * This function will convert an object/theme to a list of CSS variable key-value pairs, that can be used by element.style.setProperty.
@@ -157,4 +99,80 @@ export const flattenObjectToCSSVariables = (
     }
   })
   return cssVariables
+}
+
+/**
+ * This function will convert the leaf values of a theme to a value like `var(--parent1key-parent2key-leafkey)` - a CSS variable with an identifier that represents it's hierarchy within the object you provided.
+ * One caveat though: if a key is suffixed with `-default` it will leave the value in place. This was implemented for consumer regression purposes, i.e. so that consumers had a fallback when CSS variables weren't feasible.
+ * Example:
+ * ```
+ * {
+ *  kz: {
+ *      color: {
+ *          wisteria: "#ff0011"
+ *      }
+ *  }
+ * }
+ * ```
+ * Transforms into:
+ * ```
+ * {
+ *  kz: {
+ *      color: {
+ *          wisteria: "var(--kz-color-wisteria)"
+ *      }
+ *  }
+ * }
+ * ```
+ */
+
+export const makeCSSVariableTheme = (
+  theme: Theme,
+  printValue = objectPathToCssVarReference
+) =>
+  mapLeafsOfObject({ [cssVariableThemeNamespace]: theme }, (path, value) =>
+    path[path.length - 1].endsWith("-default") ? value : printValue(path, value)
+  )
+
+/**
+ * Make a map of CSS variables -> values in a consistent way.
+ * Use this to, for example, create a CSS file that declares each theme variable on the `:root` pseudo element.
+ * Example output:
+ * ```
+ * {
+ *    ...
+ *    "--kz-var-theme-key": "zen",
+ *    "--kz-var-color-wisteria-800": "#3537a4"
+ *    ...
+ * }
+ * ```
+ */
+export const makeCSSVariablesOfTheme = (theme: Theme) =>
+  flattenObjectToCSSVariables({ [cssVariableThemeNamespace]: theme })
+
+/**
+ * Use this to generate an object containing `${key}: value`, `${key}-default: value`, and `${key}-rgb-params: r, g, b` if the value is a color.
+ * This is for augmenting a CSS variable to support our solution to regression issues with using CSS variables instead of concrete values.
+ */
+export const augmentCssVariable = (
+  key: string,
+  value: unknown,
+  {
+    augmentWithDefault = true,
+    augmentWithRgbParams = true,
+  }: {
+    augmentWithDefault?: boolean
+    augmentWithRgbParams?: boolean
+  } = {}
+) => {
+  const colorRgb = typeof value === "string" ? colorString.get.rgb(value) : null
+
+  return {
+    [key]: `${value}`,
+    ...(augmentWithDefault && { [`${key}-default`]: `${value}` }),
+    ...(colorRgb &&
+      augmentWithRgbParams && {
+        [`${key}-rgb-params`]: colorRgb.slice(0, 3).join(", "),
+      }),
+  }
 }

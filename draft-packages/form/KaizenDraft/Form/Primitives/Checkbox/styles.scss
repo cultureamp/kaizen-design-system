@@ -3,6 +3,7 @@
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/mixins/forms";
+@import "../../decision-tokens.scss";
 
 $checkbox-size: 24px;
 $icon-size: 24px;
@@ -29,7 +30,7 @@ $focus-ring-offset: 2px;
 }
 
 .icon.reversed {
-  color: $kz-color-wisteria-700;
+  color: $dt-color-form-color-icon-reversed;
 }
 
 .box {
@@ -40,38 +41,38 @@ $focus-ring-offset: 2px;
   width: $checkbox-size;
   top: 0;
   border: $kz-border-solid-border-width $kz-border-solid-border-style
-    $kz-color-wisteria-500;
+    $dt-color-form-border-color;
   border-radius: $kz-border-solid-border-radius;
   box-sizing: border-box;
-
-  .checkbox:not([checked]):focus + & {
-    border-color: $kz-color-wisteria-700;
-    background-color: $kz-color-wisteria-100;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .checkbox:not([checked]):hover + & {
-      border-color: $kz-color-wisteria-700;
-      background-color: $kz-color-wisteria-100;
-    }
-  }
+  background-color: white;
+  border-color: $dt-color-form-border-color;
 
   .checkbox:checked + &,
   .checkbox:indeterminate + & {
-    background: $kz-color-wisteria-500;
+    background: $dt-color-checkbox-background-color-checked;
+    background-color: $dt-color-form-border-color;
+  }
+
+  .checkbox:focus + & {
+    background: white;
+    border-color: $dt-color-form-border-color-hover;
   }
 
   .checkbox:checked:focus + &,
   .checkbox:indeterminate:focus + & {
-    background: $kz-color-wisteria-700;
-    border-color: $kz-color-wisteria-700;
+    background: $dt-color-form-border-color-hover;
+    border-color: $dt-color-form-border-color-hover;
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .checkbox:indeterminate:hover + &,
-    .checkbox:checked:hover + & {
-      background: $kz-color-wisteria-700;
-      border-color: $kz-color-wisteria-700;
+    .checkbox:checked:not([disabled]):hover + &,
+    .checkbox:indeterminate:not([disabled]):hover + & {
+      background: $dt-color-form-border-color-hover;
+      border-color: $dt-color-form-border-color-hover;
+    }
+
+    .checkbox:not([disabled]):hover + & {
+      border-color: $dt-color-form-border-color-hover;
     }
   }
 
@@ -83,7 +84,7 @@ $focus-ring-offset: 2px;
     border-radius: $kz-border-focus-ring-border-radius;
     border-width: $kz-border-focus-ring-border-width;
     border-style: $kz-border-focus-ring-border-style;
-    border-color: $ca-border-color-focus;
+    border-color: $dt-color-form-border-color-focus;
     top: -$focus-ring-offset - ($checkbox-size / 8);
     left: -$focus-ring-offset - ($checkbox-size / 8);
     width: $checkbox-size + $focus-ring-offset + $kz-border-solid-border-width *
@@ -121,7 +122,7 @@ $focus-ring-offset: 2px;
 
   .checkbox:checked:focus + &,
   .checkbox:indeterminate:focus + & {
-    background: add-alpha($kz-color-wisteria-200, 65%);
+    background: rgba($kz-color-wisteria-200, 65%);
     border-color: $kz-color-wisteria-100;
   }
 
@@ -134,7 +135,7 @@ $focus-ring-offset: 2px;
   }
 
   .checkbox:focus + &::after {
-    border-color: $ca-border-color-focus-reversed;
+    border-color: $dt-color-form-border-color-reversed-focus;
   }
 }
 

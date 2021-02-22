@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.43](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.42...@kaizen/draft-title-block-zen@3.0.43) (2021-02-22)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.0.42](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.41...@kaizen/draft-title-block-zen@3.0.42) (2021-02-19)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.0.41](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.40...@kaizen/draft-title-block-zen@3.0.41) (2021-02-18)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.0.40](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.39...@kaizen/draft-title-block-zen@3.0.40) (2021-02-17)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.0.39](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.38...@kaizen/draft-title-block-zen@3.0.39) (2021-02-17)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.0.38](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.37...@kaizen/draft-title-block-zen@3.0.38) (2021-02-17)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.0.37](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.36...@kaizen/draft-title-block-zen@3.0.37) (2021-02-15)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
 ## [3.0.36](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.35...@kaizen/draft-title-block-zen@3.0.36) (2021-02-12)
 
 

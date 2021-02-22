@@ -61,6 +61,8 @@
   font-size: $kz-typography-heading-6-font-size;
   line-height: $kz-typography-heading-6-line-height;
   letter-spacing: $kz-typography-heading-6-letter-spacing;
+  // override Murmur global styles :(
+  text-transform: none;
 }
 
 .dark {
