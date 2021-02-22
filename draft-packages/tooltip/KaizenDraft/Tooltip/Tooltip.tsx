@@ -1,5 +1,6 @@
 import { usePopper } from "react-popper"
 import React, { useState } from "react"
+import ReactDOM from "react-dom"
 import classnames from "classnames"
 import styles from "./Tooltip.scss"
 import AppearanceAnim from "./AppearanceAnim"
@@ -28,6 +29,10 @@ export type TooltipProps = {
   text: React.ReactNode
   children?: React.ReactNode
   classNameAndIHaveSpokenToDST?: string
+  /**
+   * Render the tooltip inside a react portal, given the ccs selector.
+   */
+  portalSelector?: string
 }
 
 // Sync with Tooltip.scss
@@ -95,8 +100,9 @@ const Tooltip = ({
   text,
   inline,
   display = "block",
-  position,
+  position = "above",
   classNameAndIHaveSpokenToDST,
+  portalSelector,
 }: TooltipProps) => {
   const [isHover, setIsHover] = useState(false)
   const [isFocus, setIsFocus] = useState(false)
@@ -108,6 +114,21 @@ const Tooltip = ({
 
   // Legacy support for the inline prop
   const displayToUse = inline != null ? (inline ? "inline" : "block") : display
+
+  const tooltip = (
+    <AppearanceAnim isVisible={isHover || isFocus}>
+      <TooltipContent
+        text={text}
+        position={position}
+        referenceElement={referenceElement}
+        tooltipId={tooltipId}
+      />
+    </AppearanceAnim>
+  )
+
+  const portalSelectorElement: Element | null = portalSelector
+    ? document.querySelector(portalSelector)
+    : null
 
   return (
     <>
@@ -137,14 +158,9 @@ const Tooltip = ({
         {children}
       </div>
 
-      <AppearanceAnim isVisible={isHover || isFocus}>
-        <TooltipContent
-          text={text}
-          position={position}
-          referenceElement={referenceElement}
-          tooltipId={tooltipId}
-        />
-      </AppearanceAnim>
+      {portalSelector && portalSelectorElement
+        ? ReactDOM.createPortal(tooltip, portalSelectorElement)
+        : tooltip}
     </>
   )
 }
