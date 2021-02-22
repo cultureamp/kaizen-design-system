@@ -1,6 +1,8 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "../../styles/color";
 @import "../../styles/type";
 @import "../../styles/responsive";
-@import "./decision-tokens.scss";
 
 $ca-navigation-bar__height: 2.5 * $ca-grid;
 
@@ -140,7 +142,7 @@ $link-margin: $ca-grid / 4;
 %ca-navigation-bar {
   display: flex;
   flex-direction: row;
-  background-color: $dt-color-background-color-default;
+  background-color: $kz-color-wisteria-700;
   height: $ca-navigation-bar__height;
   width: 100%;
   position: fixed;
@@ -160,7 +162,7 @@ $link-margin: $ca-grid / 4;
     // show custom focus ring when :focus-visible
     &:global(.focus-visible) {
       color: white;
-      outline: 2px solid $kz-var-color-cluny-500;
+      outline: 2px solid $kz-color-cluny-500;
     }
   }
 }

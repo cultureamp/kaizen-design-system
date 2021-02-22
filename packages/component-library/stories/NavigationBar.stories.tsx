@@ -3,11 +3,13 @@ import * as React from "react"
 import { Icon, Link, Menu, NavigationBar } from "@kaizen/component-library"
 
 import academyIcon from "@kaizen/component-library/icons/academy.icon.svg"
+
 import caMonogramIcon from "@kaizen/component-library/icons/ca-monogram.icon.svg"
+
 import supportIcon from "@kaizen/component-library/icons/support.icon.svg"
 
 export default {
-  title: "NavigationBar (deprecated) (React)",
+  title: "NavigationBar (React)",
   component: NavigationBar,
   parameters: {
     info: {

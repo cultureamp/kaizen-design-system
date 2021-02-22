@@ -1,9 +1,10 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "../../../styles/color";
 @import "../../../styles/type";
 @import "../styles";
-@import "../decision-tokens.scss";
 
 .badge {
-  background-color: $dt-color-badge-background-color;
+  background-color: $kz-color-coral-500;
   color: white;
   font-weight: $ca-weight-medium;
   text-decoration: none;
@@ -39,23 +40,23 @@
   }
 
   &.staging {
-    background-color: $dt-color-badge-background-color-staging;
+    background-color: $kz-color-peach-500;
   }
 
   &.named {
-    background-color: $dt-color-badge-background-color-named;
+    background-color: $kz-color-seedling-400;
   }
 
   &.test {
-    background-color: $dt-color-badge-background-color-test;
+    background-color: $kz-color-wisteria-400;
   }
 
   &.local {
-    background-color: $dt-color-badge-background-color-local;
+    background-color: $kz-color-cluny-300;
   }
 
   &.content {
-    background-color: $dt-color-background-color-content;
-    color: $dt-color-badge-color-content;
+    background-color: $kz-color-cluny-200;
+    color: $kz-color-wisteria-800;
   }
 }

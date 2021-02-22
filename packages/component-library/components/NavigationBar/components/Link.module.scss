@@ -1,12 +1,11 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "../styles";
 @import "../../../styles/border";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "../../../styles/layout";
 @import "../../../styles/grid";
 @import "../../../styles/responsive";
-@import "../decision-tokens.scss";
 
 $nav-ease: cubic-bezier(0.55, 0.085, 0.68, 0.53);
 $nav-timing: 150ms;
@@ -63,12 +62,12 @@ $indicator-height: 3px;
   border-radius: $ca-grid;
   &.badgeNew {
     @include ca-padding($start: $ca-grid * 0.5, $end: $ca-grid * 0.5);
-    background-color: $dt-color-badge-background-color-new;
-    color: $kz-var-color-wisteria-800;
+    background-color: $kz-color-seedling-200;
+    color: $kz-color-wisteria-800;
   }
   &.badgeNotification {
     @include ca-padding($start: $ca-grid / 3, $end: $ca-grid / 3);
-    background-color: $dt-color-badge-background-color;
-    color: $kz-var-color-white;
+    background-color: $kz-color-coral-500;
+    color: $kz-color-white;
   }
 }

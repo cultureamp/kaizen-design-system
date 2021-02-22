@@ -1,6 +1,7 @@
+@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "./styles";
-@import "./decision-tokens.scss";
+@import "../../styles/color";
 @import "../../styles/type";
 @import "../../styles/layout";
 @import "../../styles/responsive";
@@ -9,7 +10,7 @@
   @extend %ca-navigation-bar;
 
   &.kaizen {
-    background: $dt-color-background-color-default;
+    background: $kz-color-wisteria-700;
 
     a {
       color: white;
@@ -17,16 +18,16 @@
   }
 
   &.content {
-    background: $dt-color-background-color-content;
+    background: $kz-color-cluny-200;
 
     .links {
       a {
-        color: $dt-color-link;
+        color: $kz-color-wisteria-800;
         font-weight: 500;
       }
 
       .active a {
-        color: $dt-color-link-active;
+        color: $kz-color-cluny-500;
       }
     }
   }
@@ -57,7 +58,7 @@
 
     // Bit of a hack selector, but because of module scoping this is the easiest way
     .content & span::before {
-      background-color: $dt-color-background-color-content-link;
+      background-color: $kz-color-cluny-500;
       height: 5px;
       border-radius: 0 0 $kz-border-solid-border-radius
         $kz-border-solid-border-radius;
@@ -82,5 +83,5 @@
 }
 
 .kaizen .active {
-  background-color: $dt-color-background-color-default;
+  background-color: $kz-color-wisteria-700;
 }
