@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/animation";
@@ -34,7 +35,7 @@ $menuItem__margin: 4px;
   @include ca-margin($start: $kz-spacing-md / 2);
 
   display: flex;
-  color: rgba($kz-color-wisteria-800, 0.5);
+  color: rgba($kz-var-color-wisteria-800-rgb-params, 0.5);
   transition: color $ca-ease $ca-duration-immediate;
 }
 

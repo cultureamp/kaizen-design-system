@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/component-library/styles/grid";
@@ -78,10 +79,11 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   align-items: center;
   height: $ca-grid * 3.5;
   justify-content: space-between;
-  border-bottom: $title-block-separator-height solid rgba($kz-color-white, 0.1);
+  border-bottom: $title-block-separator-height solid
+    rgba($kz-var-color-white-rgb-params, 0.1);
 
   .educationVariant & {
-    border-bottom-color: rgba($kz-color-wisteria-700, 0.2);
+    border-bottom-color: rgba($kz-var-color-wisteria-700-rgb-params, 0.2);
   }
 
   .adminVariant & {
@@ -360,7 +362,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   letter-spacing: $kz-typography-paragraph-small-letter-spacing;
 
   &.dark {
-    color: rgba($kz-color-wisteria-800, 0.7);
+    color: rgba($kz-var-color-wisteria-800-rgb-params, 0.7);
   }
 }
 
@@ -459,14 +461,18 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
     background: linear-gradient(
       0,
       $kz-color-wisteria-700,
-      rgba($kz-color-wisteria-700, 0)
+      rgba($kz-var-color-wisteria-700-rgb-params, 0)
     );
     z-index: $ca-z-index-sticky;
   }
 
   .adminVariant & {
     @include title-block-small {
-      background: linear-gradient(0, $kz-color-stone, rgba($kz-color-stone, 0));
+      background: linear-gradient(
+        0,
+        $kz-color-stone,
+        rgba($kz-var-color-stone-rgb-params, 0)
+      );
     }
   }
 
@@ -475,7 +481,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
       background: linear-gradient(
         0,
         $kz-color-cluny-200,
-        rgba($kz-color-cluny-200, 0)
+        rgba($kz-var-color-cluny-200-rgb-params, 0)
       );
     }
   }
@@ -626,7 +632,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   width: $breadcrumb-circle-width;
   height: $breadcrumb-circle-width;
   color: $kz-color-white;
-  border-color: rgba($kz-color-white, 0.5);
+  border-color: rgba($kz-var-color-white-rgb-params, 0.5);
   border-width: 2px;
   border-radius: 50%;
   border-style: solid;
@@ -640,7 +646,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
     transform: scale(1.1);
     border-color: $kz-color-white;
     color: $kz-color-white;
-    background-color: rgba($kz-color-white, 0.1);
+    background-color: rgba($kz-var-color-white-rgb-params, 0.1);
   }
 
   .educationVariant &,
@@ -656,7 +662,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   .adminVariant .breadcrumb:focus & {
     border-color: $kz-color-cluny-500;
     color: $kz-color-cluny-500;
-    background-color: rgba($kz-color-cluny-500, 0.1);
+    background-color: rgba($kz-var-color-cluny-500-rgb-params, 0.1);
   }
 }
 
