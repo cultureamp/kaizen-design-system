@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.0.0...@kaizen/component-library@9.1.0) (2021-02-22)
+
+
+### Features
+
+* Add photo upload icon ([#1091](https://github.com/cultureamp/kaizen-design-system/issues/1091)) ([1378989](https://github.com/cultureamp/kaizen-design-system/commit/13789896a447cc06e021b532a389801e5a5650fa))
+
+
+
+
+
 # [9.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.4.0...@kaizen/component-library@9.0.0) (2021-02-19)
 
 
