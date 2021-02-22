@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/mixins/forms";
@@ -123,7 +124,7 @@ $input-pill-shaped-border: 999999999px;
 // Reversed (Dark Backgrounds)
 .input.reversed {
   color: $kz-color-white;
-  border-color: rgba($kz-color-white, 0.65);
+  border-color: rgba($kz-var-color-white-rgb-params, 0.65);
 
   @include form-input-placeholder {
     color: $kz-color-white;
@@ -132,7 +133,7 @@ $input-pill-shaped-border: 999999999px;
 
   &:focus:not([disabled]),
   &:hover:not([disabled]) {
-    background: rgba($kz-color-white, 0.1);
+    background: rgba($kz-var-color-white-rgb-params, 0.1);
     border-color: $kz-color-white;
   }
 
@@ -141,8 +142,11 @@ $input-pill-shaped-border: 999999999px;
   }
 
   &.disabled {
-    color: rgba($kz-color-white, $input-disabled-opacity);
-    border-color: rgba($kz-color-white, $input-disabled-border-alpha);
+    color: rgba($kz-var-color-white-rgb-params, $input-disabled-opacity);
+    border-color: rgba(
+      $kz-var-color-white-rgb-params,
+      $input-disabled-border-alpha
+    );
 
     @include form-input-placeholder {
       opacity: $input-disabled-opacity;
