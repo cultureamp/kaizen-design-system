@@ -191,7 +191,7 @@ $small: $ca-grid;
 }
 
 .statusDraft {
-  background-color: add-alpha($kz-color-peach-500, 20%);
+  background-color: rgba($kz-color-peach-500, 20%);
   color: $kz-color-wisteria-800;
 }
 

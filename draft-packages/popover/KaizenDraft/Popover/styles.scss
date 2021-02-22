@@ -151,7 +151,7 @@ $large: 450px;
   @include button-reset;
   margin-left: auto;
   display: inherit;
-  color: add-alpha(black, 50%);
+  color: rgba(black, 50%);
 }
 
 .arrowSideBottom {

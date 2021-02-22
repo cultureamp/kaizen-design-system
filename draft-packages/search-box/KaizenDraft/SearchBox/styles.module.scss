@@ -67,7 +67,7 @@ $input-pill-shaped-border: 999999999px;
     }
 
     @include form-input-placeholder {
-      color: add-alpha($ca-base-text-color, $input-disabled-alpha);
+      color: rgba($ca-base-text-color, $input-disabled-alpha);
     }
   }
 }
@@ -110,7 +110,7 @@ $input-pill-shaped-border: 999999999px;
   }
 
   &.disabled {
-    color: add-alpha($ca-base-text-color, $input-disabled-alpha);
+    color: rgba($ca-base-text-color, $input-disabled-alpha);
 
     @include form-input-placeholder {
       opacity: $input-disabled-opacity;
@@ -143,8 +143,8 @@ $input-pill-shaped-border: 999999999px;
   }
 
   &.disabled {
-    color: add-alpha($kz-color-white, $input-disabled-alpha);
-    border-color: add-alpha($kz-color-white, $input-disabled-border-alpha);
+    color: rgba($kz-color-white, $input-disabled-alpha);
+    border-color: rgba($kz-color-white, $input-disabled-border-alpha);
 
     @include form-input-placeholder {
       opacity: $input-disabled-opacity;

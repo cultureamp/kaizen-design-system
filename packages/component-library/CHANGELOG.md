@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.4.0...@kaizen/component-library@9.0.0) (2021-02-19)
+
+
+### Bug Fixes
+
+* Provide explicit text-transform on Headings ([#1083](https://github.com/cultureamp/kaizen-design-system/issues/1083)) ([c6aeaa2](https://github.com/cultureamp/kaizen-design-system/commit/c6aeaa2362c37e77606f45a9afa1c1abb5df587d))
+
+
+### BREAKING CHANGES
+
+* Any h6 elements that were relying on global h6 styles in the consuming repo for uppercase text could now break.
+
+
+
+
+
+# [8.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.3.2...@kaizen/component-library@8.4.0) (2021-02-18)
+
+
+### Features
+
+* Added Tiempos 800 to font-face & updated display-0 heart tokens ([#1076](https://github.com/cultureamp/kaizen-design-system/issues/1076)) ([a4c86bd](https://github.com/cultureamp/kaizen-design-system/commit/a4c86bd4eef1876a4070a28f0ebd750bb6501ab8))
+
+
+
+
+
+## [8.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.3.1...@kaizen/component-library@8.3.2) (2021-02-15)
+
+
+### Bug Fixes
+
+* Remove usage of add-tint, add-shade, and add-alpha ([#1047](https://github.com/cultureamp/kaizen-design-system/issues/1047)) ([4164904](https://github.com/cultureamp/kaizen-design-system/commit/4164904cd5bac74488ab47963e10b0f314b56228))
+
+
+
+
+
 ## [8.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.3.0...@kaizen/component-library@8.3.1) (2021-02-12)
 
 

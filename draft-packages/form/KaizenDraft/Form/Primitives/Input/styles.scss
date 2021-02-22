@@ -4,13 +4,7 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/mixins/forms";
 @import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/base";
-
-// @TODO - brought through from borders.scss in component-library
-// In the future these tokens should be better represented in
-// a separate package so they are shareable.
-$ca-border-color-focus: $kz-color-cluny-500;
-$ca-border-color-hover: $kz-color-wisteria-700;
-$ca-border-color-focus-reversed: $kz-color-cluny-300;
+@import "../../decision-tokens.scss";
 
 // -----------------------------------------------
 // Form Input Primitive
@@ -66,7 +60,7 @@ $input-disabled-border-alpha: 50%;
     }
 
     @include form-input-placeholder {
-      color: add-alpha($ca-base-text-color, $input-disabled-alpha);
+      color: rgba($ca-base-text-color, $input-disabled-alpha);
     }
   }
 }
@@ -200,27 +194,28 @@ $input-disabled-border-alpha: 50%;
 // Default
 .input.default {
   background-color: $kz-color-white;
-  color: $ca-base-text-color;
-  border-color: $kz-color-wisteria-500;
+  color: $dt-color-form-text-color;
+  border-color: $dt-color-form-border-color;
   display: flex;
   align-items: center;
 
   @include form-input-placeholder {
-    color: $ca-base-text-color;
+    color: $dt-color-form-text-color;
     opacity: $input-placeholder-opacity;
   }
 
   &:focus:not([disabled]),
-  &:hover:focus:not([disabled]) {
-    border-color: $ca-border-color-hover;
+  &:hover:focus:not([disabled]),
+  &:hover:not([disabled]) {
+    border-color: $dt-color-form-border-color-hover;
   }
 
   &:focus + .focusRing {
-    border-color: $ca-border-color-focus;
+    border-color: $dt-color-form-border-color-focus;
   }
 
   &.disabled {
-    color: add-alpha($ca-base-text-color, $input-disabled-alpha);
+    color: rgba($ca-base-text-color, $input-disabled-alpha);
 
     @include form-input-placeholder {
       opacity: $input-disabled-opacity;
@@ -249,12 +244,12 @@ $input-disabled-border-alpha: 50%;
   }
 
   &:focus + .focusRing {
-    border-color: $ca-border-color-focus-reversed;
+    border-color: $dt-color-form-border-color-reversed-focus;
   }
 
   &.disabled {
-    color: add-alpha($kz-color-white, $input-disabled-alpha);
-    border-color: add-alpha($kz-color-white, $input-disabled-border-alpha);
+    color: rgba($kz-color-white, $input-disabled-alpha);
+    border-color: rgba($kz-color-white, $input-disabled-border-alpha);
 
     @include form-input-placeholder {
       opacity: $input-disabled-opacity;

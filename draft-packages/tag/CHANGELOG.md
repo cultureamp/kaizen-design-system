@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.7.10...@kaizen/draft-tag@1.7.11) (2021-02-19)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.7.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.7.9...@kaizen/draft-tag@1.7.10) (2021-02-18)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.7.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.7.8...@kaizen/draft-tag@1.7.9) (2021-02-15)
+
+
+### Bug Fixes
+
+* Remove usage of add-tint, add-shade, and add-alpha ([#1047](https://github.com/cultureamp/kaizen-design-system/issues/1047)) ([4164904](https://github.com/cultureamp/kaizen-design-system/commit/4164904cd5bac74488ab47963e10b0f314b56228))
+
+
+
+
+
 ## [1.7.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.7.7...@kaizen/draft-tag@1.7.8) (2021-02-12)
 
 **Note:** Version bump only for package @kaizen/draft-tag

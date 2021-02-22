@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-guidance-block",
-  "version": "2.5.14",
+  "version": "2.5.18",
   "description": "The draft Guidance block component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,8 +32,8 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^8.3.1",
-    "@kaizen/draft-button": "^3.1.4",
+    "@kaizen/component-library": "^9.0.0",
+    "@kaizen/draft-button": "^3.1.8",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },
