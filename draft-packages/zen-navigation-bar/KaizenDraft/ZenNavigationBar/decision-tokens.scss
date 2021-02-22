@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
 
 $dt-color-text: $kz-var-color-wisteria-800;
+$dt-color-text-reversed: $kz-var-color-white;
 $dt-color-background-color-default: var(
   --kz-var-color-wisteria-600,
   $kz-var-color-wisteria-700
