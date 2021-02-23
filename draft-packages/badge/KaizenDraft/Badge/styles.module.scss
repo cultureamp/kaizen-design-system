@@ -1,5 +1,4 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/component-library/styles/type";
@@ -36,7 +35,7 @@ $small: $ca-grid;
 }
 
 .dark {
-  background-color: rgba($kz-var-color-wisteria-700-rgb-params, 0.1);
+  background-color: rgba($kz-color-wisteria-700, 0.1);
   color: $kz-color-wisteria-800;
 }
 
@@ -46,7 +45,7 @@ $small: $ca-grid;
 }
 
 .reversed {
-  background-color: rgba($kz-var-color-white-rgb-params, 0.1);
+  background-color: rgba($kz-color-white, 0.1);
   color: $kz-color-white;
 }
 
@@ -66,7 +65,7 @@ $badge-transition: transform $badge-duration-timing,
   &.animationOn .badge {
     transform: scale3d(1.35, 1.35, 1.35);
     &.dark {
-      background-color: rgba($kz-var-color-wisteria-700-rgb-params, 0.2);
+      background-color: rgba($kz-color-wisteria-700, 0.2);
     }
   }
 }

@@ -1,5 +1,4 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/component-library/styles/grid";
@@ -55,7 +54,7 @@
 }
 
 .fallbackIcon {
-  color: rgba($kz-var-color-wisteria-800-rgb-params, 0.3);
+  color: rgba($kz-color-wisteria-800, 0.3);
   width: 28px;
   .medium & {
     width: 20px;
