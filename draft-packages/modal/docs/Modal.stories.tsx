@@ -96,8 +96,14 @@ export const ConfirmationPositiveKaizenSiteDemo = () => (
   </ModalStateContainer>
 )
 
-ConfirmationPositiveKaizenSiteDemo.storyName =
-  "Confirmation (positive) (Kaizen Site Demo)"
+ConfirmationPositiveKaizenSiteDemo.story = {
+  name: "Confirmation (positive) (Kaizen Site Demo)",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=2272%3A18307"
+    ),
+  },
+}
 
 export const ConfirmationInformative = () => (
   <ModalStateContainer isInitiallyOpen={false}>
@@ -123,7 +129,14 @@ export const ConfirmationInformative = () => (
   </ModalStateContainer>
 )
 
-ConfirmationInformative.storyName = "Confirmation (informative)"
+ConfirmationInformative.story = {
+  name: "Confirmation (informative)",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1700%3A65"
+    ),
+  },
+}
 
 export const ConfirmationCautionary = () => (
   <ModalStateContainer isInitiallyOpen={false}>
@@ -149,7 +162,14 @@ export const ConfirmationCautionary = () => (
   </ModalStateContainer>
 )
 
-ConfirmationCautionary.storyName = "Confirmation (cautionary)"
+ConfirmationCautionary.story = {
+  name: "Confirmation (cautionary)",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=2272%3A18381"
+    ),
+  },
+}
 
 export const ConfirmationNegative = () => (
   <ModalStateContainer isInitiallyOpen={false}>
@@ -175,7 +195,14 @@ export const ConfirmationNegative = () => (
   </ModalStateContainer>
 )
 
-ConfirmationNegative.storyName = "Confirmation (negative)"
+ConfirmationNegative.story = {
+  name: "Confirmation (negative)",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=2272%3A18460"
+    ),
+  },
+}
 
 export const ConfirmationWorkingButton = () => (
   <ModalStateContainer isInitiallyOpen={false}>
@@ -255,7 +282,14 @@ export const InputEditPositive = () => (
   </ModalStateContainer>
 )
 
-InputEditPositive.storyName = "Input-edit (positive)"
+InputEditPositive.story = {
+  name: "Input-edit (positive)",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1620%3A121"
+    ),
+  },
+}
 
 export const InputEditPositiveRtlLocale = () => (
   <ModalStateContainer isInitiallyOpen={false}>
@@ -662,8 +696,14 @@ export const InformationModalWithImage = () => (
   </ModalStateContainer>
 )
 
-InformationModalWithImage.storyName =
-  "Information (with image) - Outdated browser demo"
+InformationModalWithImage.story = {
+  name: "Information (with image) - Outdated browser demo",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1620%3A114"
+    ),
+  },
+}
 
 export const GenericModalPadded = () => (
   <>
