@@ -32,7 +32,7 @@ export type StatelessMenuProps = {
    */
   children: React.ReactNode
   /**
-   * Render the tooltip inside a react portal, given the ccs selector.
+   * Render the tooltip inside a react portal, given the CSS selector.
    * This is typically used for instances where the menu is a descendant of an
    * `overflow: scroll` or `overflow: hidden` element.
    */
