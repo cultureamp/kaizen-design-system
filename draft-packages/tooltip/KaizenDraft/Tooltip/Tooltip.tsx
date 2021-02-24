@@ -64,6 +64,14 @@ const TooltipContent = ({ position, text, referenceElement, tooltipId }) => {
             offset: [0, arrowHeight],
           },
         },
+        {
+          name: "preventOverflow",
+          options: {
+            // Makes sure that the tooltip isn't flush up against the end of the
+            // viewport
+            padding: 4,
+          },
+        },
       ],
       placement: position === "below" ? "bottom" : "top",
     }
