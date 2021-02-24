@@ -1,5 +1,5 @@
 import { usePopper } from "react-popper"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import ReactDOM from "react-dom"
 import classnames from "classnames"
 import styles from "./Tooltip.scss"
@@ -129,6 +129,15 @@ const Tooltip = ({
   const portalSelectorElement: Element | null = portalSelector
     ? document.querySelector(portalSelector)
     : null
+
+  useEffect(() => {
+    if (portalSelector && !portalSelectorElement) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        "The portal could not be created using the selector: " + portalSelector
+      )
+    }
+  }, [portalSelectorElement, portalSelector])
 
   return (
     <>
