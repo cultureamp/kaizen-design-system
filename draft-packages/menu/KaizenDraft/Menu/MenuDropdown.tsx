@@ -40,7 +40,7 @@ const MenuDropdown = ({
         {
           name: "offset",
           options: {
-            offset: [0, parseInt(spacing.kz.spacing.xs, 10)],
+            offset: [0, parseInt(spacing?.kz.spacing.xs, 10)],
           },
         },
         {
