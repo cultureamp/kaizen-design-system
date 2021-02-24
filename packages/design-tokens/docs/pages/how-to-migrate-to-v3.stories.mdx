@@ -1,0 +1,17 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import exampleSass from '!!raw-loader!./examples/example.scss'
+import { CodeBlock } from '../DocsComponents'
+
+
+<Meta title="How-to guides/How to migrate from V2 to V3" parameters={{ docsOnly: true }} />
+
+# How to migrate from V2 to V3 of design tokens
+
+There are two significant and breaking changes that are occurring as of the next release:
+
+- All token variables `$kz-*` are being renamed to `$kz-var-*`, and the latter contain CSS variables.
+    - This will allow us to support both sets of SASS variables concurrently while consumers migrate to the new.
+- Tokens now contain CSS variables and should be defined on `:root`. 
+    - This means that previous usages of compile-time SASS functions will break, for example: `add-tint($kz-color-stone, 90%)`.
+    - It also means that if you aren't using the SASS variables the package provides which contain fallback values, you should keep in mind how your application is defining CSS variables, and provide fallbacks as a safety net.
+

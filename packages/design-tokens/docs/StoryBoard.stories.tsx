@@ -148,7 +148,7 @@ const ColorDemo = (props: { color: string; name?: string }) => {
 }
 
 /**
- * A section of components, displayed as a column, with some styles such as a top and left border, and a heading/title.
+ * A section of components, displayed as a column, with some styles such as a top and left border, a heading/title, and `contain: content` to ensure nothing bleeds out of it such as fixed or absolute positioned elements.
  */
 const ComponentsSection = React.forwardRef(
   (

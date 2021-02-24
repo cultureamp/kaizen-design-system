@@ -5,6 +5,9 @@ import React from "react"
 import { Card } from "@kaizen/draft-card"
 import { Tabs } from "@kaizen/draft-tabs"
 import Highlight from "react-highlight"
+import classNames from "classnames"
+import { Meta } from "@storybook/react"
+import LinkTo from "@storybook/addon-links/react"
 import { defaultTheme } from "../src/themes"
 import { makeCSSVariableTheme } from "../src/utils"
 import { useTheme } from "../react"
@@ -30,7 +33,7 @@ export const CodeBlock = (props: {
 }) => {
   const theme = useTheme()
   return (
-    <Box>
+    <Box py={0.5}>
       <Card>
         <div
           style={{
@@ -73,16 +76,39 @@ const TabbedCodeBlocks = ({
   const { name, ...codeBlockProps } = currentTab
 
   return (
-    <div style={{ minHeight: "28rem" }}>
-      <Box pl={0.25}>
-        <Tabs
-          tabs={blocks.map(block => ({
-            label: block.name,
-            active: currentTab.name === block.name,
-            onClick: () => setCurrentTab(block),
-          }))}
-        />
-      </Box>
+    <div style={{ minHeight: "32rem" }}>
+      <div style={{ overflowX: "auto" }}>
+        <Box pl={0.25}>
+          <Tabs
+            renderTab={({
+              tab,
+              activeTabClassName,
+              tabClassName,
+              disabledTabClassName,
+            }) => (
+              <a
+                style={{ flexShrink: 0 }}
+                data-automation-id={tab.automationId}
+                key={tab.label}
+                onClick={tab.onClick}
+                href={!tab.disabled ? tab.href : undefined}
+                className={classNames({
+                  [tabClassName]: !tab.active && !tab.disabled,
+                  [activeTabClassName]: tab.active,
+                  [disabledTabClassName]: tab.disabled,
+                })}
+              >
+                {tab.label}
+              </a>
+            )}
+            tabs={blocks.map(block => ({
+              label: block.name,
+              active: currentTab.name === block.name,
+              onClick: () => setCurrentTab(block),
+            }))}
+          />
+        </Box>
+      </div>
       <CodeBlock {...codeBlockProps} />
     </div>
   )
@@ -172,4 +198,21 @@ const sassBlocks: Array<
 
 export const SassVariablesCodeBlocks = () => (
   <TabbedCodeBlocks blocks={sassBlocks} />
+)
+
+export const getStoryLinkName = (storyTitle: string) =>
+  storyTitle.replace(/.*\//, "")
+
+export const LinkToStory = ({
+  storyModule,
+  children,
+  hash,
+}: {
+  storyModule: Meta
+  hash?: string
+  children?: React.ReactNode
+}) => (
+  <LinkTo kind={storyModule.title}>
+    {children || getStoryLinkName(storyModule.title)}
+  </LinkTo>
 )

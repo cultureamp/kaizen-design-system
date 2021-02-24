@@ -1,0 +1,20 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { LinkToStory, CodeBlock } from '../DocsComponents'
+import switchingThemesExample from '!!raw-loader!./examples/switchingThemes.tsx'
+import gettingStartedPage from './how-to-setup.stories.mdx'
+
+<Meta title="How-to guides/How to switch themes" parameters={{ docsOnly: true }} />
+
+
+# How to switch themes
+
+## 1. Setup a ThemeManager
+
+Ensure you have followed the steps in <LinkToStory storyModule={gettingStartedPage} /> to setup your application for using design tokens.
+
+## 2. Use `setAndApplyTheme`
+
+You can use the method `setAndApplyTheme` to change the current theme, to either a preset like Zen or Heart, or a customised object.
+
+Example:
+<CodeBlock language="typescript" code={switchingThemesExample} />
