@@ -1,69 +1,29 @@
 import { ButtonProps } from "@kaizen/draft-button"
-import ReactDOM from "react-dom"
-import React, { useEffect, useRef, useState } from "react"
-import MenuDropdown from "./MenuDropdown"
-import styles from "./styles.scss"
-
-export type GenericMenuProps = {
-  /**
-   * Whether the menu is to be used on the left or right
-   * side of the viewport. If left, the left of the dropdown
-   * is aligned to the left of the button (and vice versa)
-   * @default "left"
-   */
-  align?: "left" | "right"
-
-  /**
-   * The width of the dropdown.
-   * "default": a fixed width of 248px
-   * "contain": contain the children's width (will be same width as children)
-   * @default "default"
-   */
-  dropdownWidth?: "default" | "contain"
-
-  /**
-   * The initial state of the dropdown. Once initalised, further changes to this
-   * prop will not have any affect, as the state is handled internally to the component.
-   * @default: false
-   */
-  menuVisible?: boolean
-  automationId?: string
-  dropdownId?: string
-  /**
-   * Determines when the menu should automatically hide.
-   * @default: "on"
-   */
-  autoHide?: "on" | "outside-click-only" | "off"
-  /**
-   * The content to appear inside the dropdown when it is open
-   */
-  children: React.ReactNode
-  portalSelector?: string
-}
+import React, { useState } from "react"
+import StatelessMenu, { StatelessMenuProps } from "./StatelessMenu"
 
 type ButtonPropsWithOptionalAria = ButtonProps & {
   "aria-haspopup"?: boolean
   "aria-expanded"?: boolean
 }
 
-type StatefulMenuProps = {
+export type MenuProps = Omit<
+  StatelessMenuProps,
+  "renderButton" | "hideMenuDropdown" | "toggleMenuDropdown" | "isMenuVisible"
+> & {
+  /**
+   * The initial state of the dropdown. Once initalised, further changes to this
+   * prop will not have any affect, as the state is handled internally to the component.
+   * @default: false
+   */
+  menuVisible?: boolean
   button: React.ReactElement<ButtonPropsWithOptionalAria>
 }
 
-export type MenuProps = GenericMenuProps & StatefulMenuProps
-
-type Menu = React.FunctionComponent<MenuProps>
-
-const Menu: Menu = ({
-  align = "left",
-  dropdownWidth = "default",
-  autoHide = "on",
-  automationId,
-  dropdownId,
-  children,
+const Menu: React.FunctionComponent<MenuProps> = ({
   button,
-  portalSelector,
   menuVisible = false,
+  ...rest
 }) => {
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(menuVisible)
 
@@ -75,55 +35,20 @@ const Menu: Menu = ({
     setIsMenuVisible(false)
   }
 
-  const [
-    referenceElement,
-    setReferenceElement,
-  ] = useState<HTMLSpanElement | null>(null)
-  const portalSelectorElement: Element | null = portalSelector
-    ? document.querySelector(portalSelector)
-    : null
-
-  const menuButton = React.cloneElement(button, {
-    onClick: (e: any) => {
-      e.stopPropagation()
-      toggleMenuDropdown()
-    },
-    onMouseDown: (e: any) => e.preventDefault(),
-    "aria-haspopup": true,
-    "aria-expanded": isMenuVisible,
-  })
-
-  useEffect(() => {
-    if (portalSelector && !portalSelectorElement) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        "The portal could not be created using the selector: " + portalSelector
-      )
-    }
-  }, [portalSelectorElement, portalSelector])
-
-  const menu = isMenuVisible ? (
-    <MenuDropdown
-      referenceElement={referenceElement}
-      align={align}
-      hideMenuDropdown={hideMenuDropdown}
-      width={dropdownWidth}
-      id={dropdownId}
-      autoHide={autoHide}
-    >
-      {children}
-    </MenuDropdown>
-  ) : null
-
   return (
-    <div data-automation-id={automationId}>
-      <div className={styles.buttonWrapper} ref={setReferenceElement}>
-        {menuButton}
-      </div>
-      {portalSelector && portalSelectorElement
-        ? ReactDOM.createPortal(menu, portalSelectorElement)
-        : menu}
-    </div>
+    <StatelessMenu
+      {...rest}
+      isMenuVisible={isMenuVisible}
+      toggleMenuDropdown={toggleMenuDropdown}
+      hideMenuDropdown={hideMenuDropdown}
+      // `StatelessMenu` is one of the newer components, so it uses a render function,
+      // as opposed to `React.cloneElement`.
+      // `cloneElement` has its problems, mainly because it's somewhat magical, can lead
+      // to unexpected behaviour, and it doesn't self document. Hence, the switch
+      // to the render function. It would be nice if the `Menu` component also
+      // used this pattern, but it's probably not worth the time and effort.
+      renderButton={props => React.cloneElement(button, props)}
+    />
   )
 }
 
