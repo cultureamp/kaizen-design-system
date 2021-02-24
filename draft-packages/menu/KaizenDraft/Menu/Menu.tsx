@@ -1,7 +1,7 @@
 import { ButtonProps } from "@kaizen/draft-button"
-import React, { useRef, useState } from "react"
+import ReactDOM from "react-dom"
+import React, { useEffect, useRef, useState } from "react"
 import MenuDropdown from "./MenuDropdown"
-
 import styles from "./styles.scss"
 
 export type GenericMenuProps = {
@@ -38,6 +38,7 @@ export type GenericMenuProps = {
    * The content to appear inside the dropdown when it is open
    */
   children: React.ReactNode
+  portalSelector?: string
 }
 
 type ButtonPropsWithOptionalAria = ButtonProps & {
@@ -53,16 +54,17 @@ export type MenuProps = GenericMenuProps & StatefulMenuProps
 
 type Menu = React.FunctionComponent<MenuProps>
 
-const Menu: Menu = props => {
-  const {
-    align = "left",
-    dropdownWidth = "default",
-    autoHide = "on",
-    menuVisible = false,
-  } = props
-
-  const dropdownButtonContainer: React.RefObject<HTMLDivElement> = useRef(null)
-
+const Menu: Menu = ({
+  align = "left",
+  dropdownWidth = "default",
+  autoHide = "on",
+  automationId,
+  dropdownId,
+  children,
+  button,
+  portalSelector,
+  menuVisible = false,
+}) => {
   const [isMenuVisible, setIsMenuVisible] = useState<boolean>(menuVisible)
 
   const toggleMenuDropdown = () => {
@@ -73,64 +75,56 @@ const Menu: Menu = props => {
     setIsMenuVisible(false)
   }
 
-  const { button } = props
+  const [
+    referenceElement,
+    setReferenceElement,
+  ] = useState<HTMLSpanElement | null>(null)
+  const portalSelectorElement: Element | null = portalSelector
+    ? document.querySelector(portalSelector)
+    : null
 
-  return render({
-    ...props,
-    align,
-    autoHide,
-    isMenuVisible,
-    dropdownButtonContainer,
-    hideMenuDropdown,
-    menuButton: React.cloneElement(button, {
-      onClick: (e: any) => {
-        e.stopPropagation()
-        toggleMenuDropdown()
-      },
-      onMouseDown: (e: any) => e.preventDefault(),
-      "aria-haspopup": true,
-      "aria-expanded": isMenuVisible,
-    }),
+  const menuButton = React.cloneElement(button, {
+    onClick: (e: any) => {
+      e.stopPropagation()
+      toggleMenuDropdown()
+    },
+    onMouseDown: (e: any) => e.preventDefault(),
+    "aria-haspopup": true,
+    "aria-expanded": isMenuVisible,
   })
-}
 
-type RenderProps = {
-  menuButton: React.ReactElement
-  isMenuVisible: boolean
-  dropdownButtonContainer: React.RefObject<HTMLDivElement>
-  hideMenuDropdown: () => void
-}
+  useEffect(() => {
+    if (portalSelector && !portalSelectorElement) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        "The portal could not be created using the selector: " + portalSelector
+      )
+    }
+  }, [portalSelectorElement, portalSelector])
 
-export const render = (props: GenericMenuProps & RenderProps) => {
-  const menu = (
+  const menu = isMenuVisible ? (
     <MenuDropdown
-      position={getPosition(props.dropdownButtonContainer)}
-      align={props.align}
-      hideMenuDropdown={props.hideMenuDropdown}
-      width={props.dropdownWidth}
-      id={props.dropdownId}
-      autoHide={props.autoHide}
+      referenceElement={referenceElement}
+      align={align}
+      hideMenuDropdown={hideMenuDropdown}
+      width={dropdownWidth}
+      id={dropdownId}
+      autoHide={autoHide}
     >
-      {props.children}
+      {children}
     </MenuDropdown>
-  )
+  ) : null
+
   return (
-    <div
-      className={styles.dropdown}
-      data-automation-id={props.automationId}
-      ref={props.dropdownButtonContainer}
-    >
-      {props.menuButton}
-      {props.isMenuVisible ? menu : null}
+    <div data-automation-id={automationId}>
+      <div className={styles.buttonWrapper} ref={setReferenceElement}>
+        {menuButton}
+      </div>
+      {portalSelector && portalSelectorElement
+        ? ReactDOM.createPortal(menu, portalSelectorElement)
+        : menu}
     </div>
   )
 }
-
-const getPosition = (
-  dropdownButtonContainer: React.RefObject<HTMLDivElement>
-) =>
-  dropdownButtonContainer && dropdownButtonContainer.current
-    ? dropdownButtonContainer.current.getBoundingClientRect()
-    : null
 
 export default Menu

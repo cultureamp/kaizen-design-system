@@ -1,5 +1,6 @@
 import classnames from "classnames"
-import React, { useEffect, useRef } from "react"
+import React, { useCallback, useEffect, useRef, useState } from "react"
+import { usePopper } from "react-popper"
 import styles from "./styles.scss"
 
 type MenuDropdownProps = {
@@ -15,58 +16,61 @@ type MenuDropdownProps = {
   width?: "default" | "contain"
   autoHide?: "on" | "outside-click-only" | "off"
   children: React.ReactNode
+  referenceElement: HTMLElement | null
 }
 
 const MenuDropdown = ({
   children,
-  position,
+  referenceElement,
   id,
   hideMenuDropdown,
   autoHide = "on",
   align = "left",
   width = "default",
 }: MenuDropdownProps) => {
-  const menu = useRef<HTMLDivElement | null>(null)
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
+    null
+  )
+  const { styles: popperStyles, attributes } = usePopper(
+    referenceElement,
+    popperElement,
+    {
+      modifiers: [
+        {
+          name: "offset",
+          options: {
+            offset: [0, 6], // value used from the $kz-spacing-xs scss variable
+          },
+        },
+        {
+          name: "preventOverflow",
+          options: {
+            // Gives some room so the menu shadow doesn't get clipped if near the edge of the viewport.
+            padding: 8,
+          },
+        },
+      ],
+      placement: align === "left" ? "bottom-start" : "bottom-end",
+    }
+  )
 
   // This callback handler will not run when autoHide === "off"
-  const handleDocumentClickForAutoHide = (e: MouseEvent) => {
-    if (
-      menu?.current &&
-      e.target instanceof Node &&
-      !menu.current.contains(e.target)
-    ) {
-      hideMenuDropdown()
-    }
-  }
+  const handleDocumentClickForAutoHide = useCallback(
+    (e: MouseEvent) => {
+      if (
+        popperElement &&
+        e.target instanceof Node &&
+        !popperElement.contains(e.target)
+      ) {
+        hideMenuDropdown()
+      }
+    },
+    [popperElement, hideMenuDropdown]
+  )
 
-  const positionMenu = () => {
-    if (!position || !menu) {
-      return
-    }
-
-    if (menu.current) {
-      const { innerHeight } = window
-      const rect = menu.current.getBoundingClientRect()
-      const offsetParentRect = menu.current.offsetParent?.getBoundingClientRect()
-
-      const offsetParentHeight = offsetParentRect?.height || 0
-
-      menu.current.style.bottom =
-        // If the menu won't fit below the the menu button, show it above instead.
-        // For some reason, a 5px buffer was needed.
-        position.bottom + 5 > innerHeight - rect.height &&
-        // ...but, do not display it above the menu button, if there's not enough
-        // room, otherwise the user won't even be able to scroll high enough to
-        // see the menu items!
-        rect.top - rect.height - offsetParentHeight - 10 >= 0
-          ? `${offsetParentHeight + 5}px`
-          : "auto"
-    }
-  }
-
-  const handleDocumentResize = () => {
+  const handleDocumentResize = useCallback(() => {
     hideMenuDropdown()
-  }
+  }, [hideMenuDropdown])
 
   const handleRootClick = (): void => {
     if (autoHide === "on") {
@@ -80,7 +84,6 @@ const MenuDropdown = ({
       document.addEventListener("click", handleDocumentClickForAutoHide, false)
     }
     window.addEventListener("resize", handleDocumentResize, false)
-    positionMenu()
 
     return () => {
       if (autoHide !== "off") {
@@ -92,16 +95,17 @@ const MenuDropdown = ({
       }
       window.removeEventListener("resize", handleDocumentResize, false)
     }
-  }, [autoHide])
+  }, [autoHide, handleDocumentClickForAutoHide, handleDocumentResize])
 
   return (
     <div
       id={id}
+      ref={setPopperElement}
+      {...attributes.popper}
+      style={popperStyles.popper}
       className={classnames(styles.menuContainer, {
         [styles.defaultWidth]: width == "default",
-        [styles.alignRight]: align == "right",
       })}
-      ref={menu}
       onClick={handleRootClick}
     >
       {children}
