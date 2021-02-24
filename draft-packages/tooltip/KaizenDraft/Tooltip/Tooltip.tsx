@@ -31,6 +31,8 @@ export type TooltipProps = {
   classNameAndIHaveSpokenToDST?: string
   /**
    * Render the tooltip inside a react portal, given the ccs selector.
+   * This is typically used for instances where the menu is a descendant of an
+   * `overflow: scroll` or `overflow: hidden` element.
    */
   portalSelector?: string
 }

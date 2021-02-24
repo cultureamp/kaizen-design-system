@@ -31,6 +31,11 @@ export type StatelessMenuProps = {
    * The content to appear inside the dropdown when it is open
    */
   children: React.ReactNode
+  /**
+   * Render the tooltip inside a react portal, given the ccs selector.
+   * This is typically used for instances where the menu is a descendant of an
+   * `overflow: scroll` or `overflow: hidden` element.
+   */
   portalSelector?: string
   isMenuVisible: boolean
   toggleMenuDropdown: () => void
