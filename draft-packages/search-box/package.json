@@ -37,7 +37,7 @@
     "classnames": "^2.2.6"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2",
+    "@kaizen/design-tokens": "^2.5.0",
     "react": "^16.9.0"
   }
 }
