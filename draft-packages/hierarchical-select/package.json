@@ -38,7 +38,7 @@
     "@kaizen/draft-hierarchical-menu": "^2.0.30"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.1.1",
+    "@kaizen/design-tokens": "^2.5.0",
     "react": "^16.13.1"
   }
 }
