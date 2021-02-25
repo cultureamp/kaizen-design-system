@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.0.26...@kaizen/draft-well@3.0.27) (2021-02-25)
+
+
+### Bug Fixes
+
+* Update minimum design-token dependency ([#1131](https://github.com/cultureamp/kaizen-design-system/issues/1131)) ([ce8182c](https://github.com/cultureamp/kaizen-design-system/commit/ce8182c054c9e8bc96bfdba8457bcd169d449204))
+
+
+
+
+
 ## [3.0.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.0.25...@kaizen/draft-well@3.0.26) (2021-02-25)
 
 **Note:** Version bump only for package @kaizen/draft-well

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.0.11...@kaizen/draft-menu@3.0.12) (2021-02-25)
+
+
+### Bug Fixes
+
+* Update minimum design-token dependency ([#1131](https://github.com/cultureamp/kaizen-design-system/issues/1131)) ([ce8182c](https://github.com/cultureamp/kaizen-design-system/commit/ce8182c054c9e8bc96bfdba8457bcd169d449204))
+
+
+
+
+
 ## [3.0.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.0.10...@kaizen/draft-menu@3.0.11) (2021-02-25)
 
 **Note:** Version bump only for package @kaizen/draft-menu

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.12.4...@kaizen/draft-select@1.12.5) (2021-02-25)
+
+
+### Bug Fixes
+
+* Update minimum design-token dependency ([#1131](https://github.com/cultureamp/kaizen-design-system/issues/1131)) ([ce8182c](https://github.com/cultureamp/kaizen-design-system/commit/ce8182c054c9e8bc96bfdba8457bcd169d449204))
+
+
+
+
+
 ## [1.12.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.12.3...@kaizen/draft-select@1.12.4) (2021-02-25)
 
 
