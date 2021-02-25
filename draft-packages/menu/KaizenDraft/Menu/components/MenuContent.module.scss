@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/design-tokens/sass/typography";
@@ -95,7 +96,7 @@ $gutter: 4px;
 }
 
 .menuItem--disabled {
-  color: rgba($kz-color-wisteria-800, 0.3);
+  color: rgba($kz-var-color-wisteria-800-rgb-params, 0.3);
 }
 
 .menuItem--active {
@@ -120,7 +121,7 @@ $gutter: 4px;
   display: flex;
   align-self: flex-start;
   transform: translateY(0.2em);
-  color: rgba($kz-color-wisteria-800, 0.75);
+  color: rgba($kz-var-color-wisteria-800-rgb-params, 0.75);
 }
 
 .separator {

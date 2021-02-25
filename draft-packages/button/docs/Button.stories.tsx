@@ -1,5 +1,6 @@
 import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
+import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import React, { useCallback, useRef, useState } from "react"
 import { withDesign } from "storybook-addon-designs"
 import { Button, CustomButtonProps, ButtonRef } from ".."
@@ -146,6 +147,83 @@ Destructive.story = {
       type: "figma",
       url:
         "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A715",
+    },
+  },
+}
+
+export const SecondaryDestructive = args => (
+  <Button label="Label" destructive={true} secondary={true} {...args} />
+)
+SecondaryDestructive.story = {
+  name: "Secondary, Destructive",
+  parameters: {
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A1482",
+    },
+  },
+}
+
+export const SecondaryDestructiveIcon = args => (
+  <Button
+    label="Label"
+    icon={trashIcon}
+    destructive={true}
+    secondary={true}
+    {...args}
+  />
+)
+SecondaryDestructiveIcon.story = {
+  name: "Secondary, Destructive + Icon",
+  parameters: {
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A1542",
+    },
+  },
+}
+
+export const SecondaryDestructiveDisabled = args => (
+  <Button
+    label="Label"
+    icon={trashIcon}
+    destructive={true}
+    secondary={true}
+    disabled={true}
+    {...args}
+  />
+)
+SecondaryDestructiveDisabled.story = {
+  name: "Secondary, Destructive + Icon, Disabled",
+  parameters: {
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A1554",
+    },
+  },
+}
+
+export const SecondaryDestructiveWorking = args => (
+  <Button
+    label="Label"
+    icon={trashIcon}
+    destructive={true}
+    secondary={true}
+    working={true}
+    workingLabelHidden
+    {...args}
+  />
+)
+SecondaryDestructiveWorking.story = {
+  name: "Secondary, Destructive + Icon, Working",
+  parameters: {
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A1534",
     },
   },
 }

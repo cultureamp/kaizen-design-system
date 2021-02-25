@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-slider",
-  "version": "1.1.12",
+  "version": "1.1.14",
   "description": "The draft slider component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,12 +32,12 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^9.1.0",
+    "@kaizen/component-library": "^9.1.2",
     "classnames": "^2.2.6",
     "lodash": "^4.17.20"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2",
+    "@kaizen/design-tokens": "^2.5.0",
     "react": "^16.9.0"
   }
 }

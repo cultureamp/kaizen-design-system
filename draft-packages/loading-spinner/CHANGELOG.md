@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-spinner@2.0.0...@kaizen/draft-loading-spinner@2.0.1) (2021-02-25)
+
+
+### Bug Fixes
+
+* Update minimum design-token dependency ([#1131](https://github.com/cultureamp/kaizen-design-system/issues/1131)) ([ce8182c](https://github.com/cultureamp/kaizen-design-system/commit/ce8182c054c9e8bc96bfdba8457bcd169d449204))
+
+
+
+
+
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-spinner@1.1.5...@kaizen/draft-loading-spinner@2.0.0) (2021-02-25)
+
+
+### Features
+
+* Make LoadingSpinner inherit color ([#1130](https://github.com/cultureamp/kaizen-design-system/issues/1130)) ([cc2f209](https://github.com/cultureamp/kaizen-design-system/commit/cc2f209d3dface882cdecce2d216c60c2242979e))
+
+
+### BREAKING CHANGES
+
+* Consumers will now have to make sure that they are using LoadingSpinner in a context that provides the correct color property, since LoadingSpinner now no longer sets its own color but inherits it instead.
+
+
+
+
+
 ## [1.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-spinner@1.1.4...@kaizen/draft-loading-spinner@1.1.5) (2021-02-05)
 
 **Note:** Version bump only for package @kaizen/draft-loading-spinner

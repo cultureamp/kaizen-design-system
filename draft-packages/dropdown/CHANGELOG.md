@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.74](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.73...@kaizen/draft-dropdown@1.3.74) (2021-02-25)
+
+
+### Bug Fixes
+
+* Update minimum design-token dependency ([#1131](https://github.com/cultureamp/kaizen-design-system/issues/1131)) ([ce8182c](https://github.com/cultureamp/kaizen-design-system/commit/ce8182c054c9e8bc96bfdba8457bcd169d449204))
+
+
+
+
+
+## [1.3.73](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.72...@kaizen/draft-dropdown@1.3.73) (2021-02-25)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
 ## [1.3.72](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.71...@kaizen/draft-dropdown@1.3.72) (2021-02-22)
 
 **Note:** Version bump only for package @kaizen/draft-dropdown
