@@ -43,7 +43,7 @@
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.5.0",
+    "@kaizen/design-tokens": "^1.2.0 || ^2",
     "react": "^16.9.0"
   }
 }

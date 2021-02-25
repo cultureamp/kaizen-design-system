@@ -37,7 +37,7 @@
     "lodash": "^4.17.20"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.5.0",
+    "@kaizen/design-tokens": "^2",
     "react": "^16.9.0"
   }
 }
