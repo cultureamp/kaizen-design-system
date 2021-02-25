@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@3.2.0...@kaizen/draft-button@3.2.1) (2021-02-25)
+
+
+### Bug Fixes
+
+* Update minimum design-token dependency ([#1131](https://github.com/cultureamp/kaizen-design-system/issues/1131)) ([ce8182c](https://github.com/cultureamp/kaizen-design-system/commit/ce8182c054c9e8bc96bfdba8457bcd169d449204))
+
+
+
+
+
 # [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@3.1.11...@kaizen/draft-button@3.2.0) (2021-02-25)
 
 

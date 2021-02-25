@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.4.17...@kaizen/draft-loading-placeholder@1.4.18) (2021-02-25)
+
+
+### Bug Fixes
+
+* Update minimum design-token dependency ([#1131](https://github.com/cultureamp/kaizen-design-system/issues/1131)) ([ce8182c](https://github.com/cultureamp/kaizen-design-system/commit/ce8182c054c9e8bc96bfdba8457bcd169d449204))
+
+
+
+
+
 ## [1.4.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.4.16...@kaizen/draft-loading-placeholder@1.4.17) (2021-02-25)
 
 
