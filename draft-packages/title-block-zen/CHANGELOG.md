@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.1.0...@kaizen/draft-title-block-zen@3.1.1) (2021-02-25)
+
+
+### Bug Fixes
+
+* Use rgb-param variables in rgba ([#1094](https://github.com/cultureamp/kaizen-design-system/issues/1094)) ([4e7f0c7](https://github.com/cultureamp/kaizen-design-system/commit/4e7f0c7cbdadd5a0d606b58ed4b0f1344b8b9d99))
+
+
+
+
+
+# [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.43...@kaizen/draft-title-block-zen@3.1.0) (2021-02-22)
+
+
+### Features
+
+* Update titleblock and pageLayout to support Heart ([#1066](https://github.com/cultureamp/kaizen-design-system/issues/1066)) ([6613f95](https://github.com/cultureamp/kaizen-design-system/commit/6613f956944682d360c45c693309a2b98f4f737a))
+
+
+
+
+
+## [3.0.43](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.42...@kaizen/draft-title-block-zen@3.0.43) (2021-02-22)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
 ## [3.0.42](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.0.41...@kaizen/draft-title-block-zen@3.0.42) (2021-02-19)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen

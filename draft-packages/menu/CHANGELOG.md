@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.0.8...@kaizen/draft-menu@3.0.9) (2021-02-25)
+
+
+### Bug Fixes
+
+* Use rgb-param variables in rgba ([#1094](https://github.com/cultureamp/kaizen-design-system/issues/1094)) ([4e7f0c7](https://github.com/cultureamp/kaizen-design-system/commit/4e7f0c7cbdadd5a0d606b58ed4b0f1344b8b9d99))
+
+
+
+
+
+## [3.0.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.0.7...@kaizen/draft-menu@3.0.8) (2021-02-22)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
 ## [3.0.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.0.6...@kaizen/draft-menu@3.0.7) (2021-02-19)
 
 **Note:** Version bump only for package @kaizen/draft-menu

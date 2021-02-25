@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.5.17...@kaizen/draft-vertical-progress-step@1.5.18) (2021-02-25)
+
+**Note:** Version bump only for package @kaizen/draft-vertical-progress-step
+
+
+
+
+
+## [1.5.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.5.16...@kaizen/draft-vertical-progress-step@1.5.17) (2021-02-22)
+
+**Note:** Version bump only for package @kaizen/draft-vertical-progress-step
+
+
+
+
+
 ## [1.5.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.5.15...@kaizen/draft-vertical-progress-step@1.5.16) (2021-02-19)
 
 **Note:** Version bump only for package @kaizen/draft-vertical-progress-step

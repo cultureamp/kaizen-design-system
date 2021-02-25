@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.7.12...@kaizen/draft-tag@1.7.13) (2021-02-25)
+
+
+### Bug Fixes
+
+* Use rgb-param variables in rgba ([#1094](https://github.com/cultureamp/kaizen-design-system/issues/1094)) ([4e7f0c7](https://github.com/cultureamp/kaizen-design-system/commit/4e7f0c7cbdadd5a0d606b58ed4b0f1344b8b9d99))
+
+
+
+
+
+## [1.7.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.7.11...@kaizen/draft-tag@1.7.12) (2021-02-22)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
 ## [1.7.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.7.10...@kaizen/draft-tag@1.7.11) (2021-02-19)
 
 **Note:** Version bump only for package @kaizen/draft-tag

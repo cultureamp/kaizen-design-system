@@ -10,10 +10,9 @@
 }
 
 .default {
-  color: rgba($dt-color-form-text-color, 0.75);
-
+  color: $dt-color-form-text-color-label;
   &.reversed {
-    color: rgba($dt-color-form-text-color-reversed, 0.8);
+    color: $dt-color-form-text-color-label-reversed;
   }
 }
 
@@ -21,7 +20,7 @@
   padding: $ca-grid / 2;
   color: $dt-color-form-text-color;
   border-radius: $kz-border-solid-border-radius;
-  background: $kz-color-coral-300;
+  background: $kz-var-color-coral-300;
 }
 
 .positionBottom {
