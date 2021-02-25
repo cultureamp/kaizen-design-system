@@ -35,13 +35,16 @@
     "@kaizen/component-library": "^9.1.2",
     "@kaizen/draft-button": "^3.2.1",
     "@types/classnames": "^2.2.10",
-    "classnames": "^2.2.6"
+    "@popperjs/core": "^2.6.0",
+    "classnames": "^2.2.6",
+    "react-popper": "^2.2.4"
   },
   "devDependencies": {
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.5.0",
-    "react": "^16.9.0"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   }
 }
