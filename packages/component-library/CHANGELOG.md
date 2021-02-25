@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.1.0...@kaizen/component-library@9.1.1) (2021-02-25)
+
+
+### Bug Fixes
+
+* Use rgb-param variables in rgba ([#1094](https://github.com/cultureamp/kaizen-design-system/issues/1094)) ([4e7f0c7](https://github.com/cultureamp/kaizen-design-system/commit/4e7f0c7cbdadd5a0d606b58ed4b0f1344b8b9d99))
+
+
+
+
+
 # [9.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.0.0...@kaizen/component-library@9.1.0) (2021-02-22)
 
 
