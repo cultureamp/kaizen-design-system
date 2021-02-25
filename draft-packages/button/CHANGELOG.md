@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@3.1.11...@kaizen/draft-button@3.2.0) (2021-02-25)
+
+
+### Features
+
+* Add secondary destructive button variant ([#1109](https://github.com/cultureamp/kaizen-design-system/issues/1109)) ([4566b59](https://github.com/cultureamp/kaizen-design-system/commit/4566b59a37b8e821d58864088ab6858de212fe15))
+
+
+
+
+
 ## [3.1.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@3.1.10...@kaizen/draft-button@3.1.11) (2021-02-25)
 
 **Note:** Version bump only for package @kaizen/draft-button
