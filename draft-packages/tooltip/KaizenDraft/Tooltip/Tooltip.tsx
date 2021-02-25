@@ -1,5 +1,5 @@
 import { usePopper } from "react-popper"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import ReactDOM from "react-dom"
 import classnames from "classnames"
 import styles from "./Tooltip.scss"
@@ -31,6 +31,8 @@ export type TooltipProps = {
   classNameAndIHaveSpokenToDST?: string
   /**
    * Render the tooltip inside a react portal, given the ccs selector.
+   * This is typically used for instances where the menu is a descendant of an
+   * `overflow: scroll` or `overflow: hidden` element.
    */
   portalSelector?: string
 }
@@ -62,6 +64,14 @@ const TooltipContent = ({ position, text, referenceElement, tooltipId }) => {
           name: "offset",
           options: {
             offset: [0, arrowHeight],
+          },
+        },
+        {
+          name: "preventOverflow",
+          options: {
+            // Makes sure that the tooltip isn't flush up against the end of the
+            // viewport
+            padding: 4,
           },
         },
       ],
@@ -129,6 +139,15 @@ const Tooltip = ({
   const portalSelectorElement: Element | null = portalSelector
     ? document.querySelector(portalSelector)
     : null
+
+  useEffect(() => {
+    if (portalSelector && !portalSelectorElement) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        "The portal could not be created using the selector: " + portalSelector
+      )
+    }
+  }, [portalSelectorElement, portalSelector])
 
   return (
     <>

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.4.4...@kaizen/draft-tooltip@2.5.0) (2021-02-25)
+
+
+### Features
+
+* Add automatic positioning for the Menu component, using popper ([#1110](https://github.com/cultureamp/kaizen-design-system/issues/1110)) ([aa1f289](https://github.com/cultureamp/kaizen-design-system/commit/aa1f2892364294fb5d959e3a57d3af910ac3f88f))
+
+
+
+
+
 ## [2.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.4.3...@kaizen/draft-tooltip@2.4.4) (2021-02-25)
 
 
