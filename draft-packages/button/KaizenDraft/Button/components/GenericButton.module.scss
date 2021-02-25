@@ -24,6 +24,10 @@
   @extend %caButtonDestructive;
 }
 
+.secondaryDestructive {
+  @extend %caButtonSecondaryDestructive;
+}
+
 .form {
   @extend %caButtonForm;
 }
