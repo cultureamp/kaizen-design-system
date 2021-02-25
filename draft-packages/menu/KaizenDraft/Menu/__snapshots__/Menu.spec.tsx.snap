@@ -1,30 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Dropdown renders default view 1`] = `
-<div>
-  <div
-    class="buttonWrapper"
+<div
+  class="dropdown"
+>
+  <span
+    class="container"
   >
-    <span
-      class="container"
+    <button
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="button"
+      type="button"
     >
-      <button
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="button"
-        type="button"
+      <span
+        class="content"
       >
         <span
-          class="content"
+          class="label"
         >
-          <span
-            class="label"
-          >
-            Button
-          </span>
+          Button
         </span>
-      </button>
-    </span>
-  </div>
+      </span>
+    </button>
+  </span>
 </div>
 `;

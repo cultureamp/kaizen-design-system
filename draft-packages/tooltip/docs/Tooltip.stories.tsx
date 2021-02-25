@@ -126,7 +126,7 @@ export const OverflowScroll = () => (
           display="inline-block"
           text="This should not get cropped"
           // Normally, you'd specify a div by ID, but since this is only in storybook,
-          // using `body` is fine (I think). DO NOT USE "BODY" AS A VALUE IN PRODUCTION.
+          // using `body` is fine (I think).
           portalSelector="body"
         >
           <Button label="Bottom" />
@@ -141,4 +141,4 @@ export const OverflowScroll = () => (
   </div>
 )
 
-OverflowScroll.storyName = "overflow: scroll"
+OverflowScroll.storyName = "OverflowScroll"

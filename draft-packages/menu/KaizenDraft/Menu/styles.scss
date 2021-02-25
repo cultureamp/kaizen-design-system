@@ -7,17 +7,34 @@
 
 $menu-container-width: 248px;
 
-.buttonWrapper {
-  display: inline-block;
+.dropdown {
+  position: relative;
 }
 
 .menuContainer {
+  margin-top: $kz-spacing-xs;
+  position: absolute;
   z-index: $ca-z-index-dropdown;
+  left: 0;
   width: auto;
+
+  [dir="rtl"] & {
+    left: auto;
+    right: 0;
+  }
 }
 
 .defaultWidth {
   width: $menu-container-width;
+}
+
+.alignRight {
+  right: 0;
+  left: auto;
+  [dir="rtl"] & {
+    right: auto;
+    left: 0;
+  }
 }
 
 .reversedColor {

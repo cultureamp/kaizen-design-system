@@ -281,71 +281,26 @@ DropdownWidthContain.storyName = 'Label and Icon (dropdownWidth="contain")'
 
 export const MenuPositioning = () => (
   <StoryWrapper>
+    <Paragraph variant="body">
+      Note that this menu is near the top of page. Resize your browser so it's
+      about 300px high. Note that the menu still shows below the menu button.
+    </Paragraph>
+    <Menu
+      button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
+    >
+      <MenuInstance />
+    </Menu>
     <div
       style={{
-        position: "absolute",
-        top: "10px",
-        left: "10px",
-        width: "200px",
+        height: "500px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
       }}
     >
       <Paragraph variant="body">
-        This menu is near the top of page. Resize your browser so it's about
-        300px high. Note that the menu still shows below the menu button.
-      </Paragraph>
-      <Menu
-        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
-      >
-        <MenuInstance />
-      </Menu>
-    </div>
-    <div
-      style={{
-        position: "absolute",
-        top: "10px",
-        right: "10px",
-        width: "200px",
-      }}
-    >
-      <Paragraph variant="body">
-        This menu is near right of the page. If there is no room to the right,
-        it push the menu to the left.
-      </Paragraph>
-      <Menu
-        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
-      >
-        <MenuInstance />
-      </Menu>
-    </div>
-    <div
-      style={{
-        position: "absolute",
-        bottom: "10px",
-        left: "10px",
-        width: "200px",
-      }}
-    >
-      <Paragraph variant="body">
-        This menu is near the bottom of the page. If there is no room below, it
-        will display above the menu button.
-      </Paragraph>
-      <Menu
-        button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
-      >
-        <MenuInstance />
-      </Menu>
-    </div>
-    <div
-      style={{
-        position: "absolute",
-        bottom: "10px",
-        right: "10px",
-        width: "200px",
-      }}
-    >
-      <Paragraph variant="body">
-        This menu is near the bottom right of the page. If there is no room to
-        the right or bottom, it push the menu to the left and above.
+        Note that this menu is near the bottom of the page. If there is no room
+        below, it will display above the menu button.
       </Paragraph>
       <Menu
         button={<Button label="Label" icon={chevronDown} iconPosition="end" />}
@@ -386,28 +341,3 @@ export const MenuWithActiveItem = () => (
 )
 
 MenuWithActiveItem.storyName = "Menu with active item"
-
-export const OverflowScroll = () => (
-  <StoryWrapper>
-    <div style={{ overflowX: "scroll", width: "200px", height: "100px" }}>
-      <div style={{ width: "500px", textAlign: "center" }}>
-        <Menu
-          button={
-            <Button label="Label" icon={chevronDown} iconPosition="end" />
-          }
-          // Normally, you'd specify a div by ID, but since this is only in storybook,
-          // using `body` is fine (I think). DO NOT USE "BODY" AS A VALUE IN PRODUCTION.
-          portalSelector="body"
-        >
-          <MenuInstance />
-        </Menu>
-      </div>
-    </div>
-    <p>
-      Scroll the panel above, and open the menu. Notice that the dropdown does
-      not get cropped.
-    </p>
-  </StoryWrapper>
-)
-
-OverflowScroll.storyName = "overflow: scroll"
