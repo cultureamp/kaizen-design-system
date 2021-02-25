@@ -1,5 +1,4 @@
 import classnames from "classnames"
-import { spacing } from "@kaizen/design-tokens/tokens/spacing"
 import React, { useCallback, useEffect, useState } from "react"
 import { usePopper } from "react-popper"
 import styles from "./styles.scss"
@@ -40,7 +39,7 @@ const MenuDropdown = ({
         {
           name: "offset",
           options: {
-            offset: [0, parseInt(spacing?.kz.spacing.xs, 10)],
+            offset: [0, 6], // value used from the $kz-spacing-xs scss variable,
           },
         },
         {
