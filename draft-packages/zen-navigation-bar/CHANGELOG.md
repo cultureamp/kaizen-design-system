@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@3.0.5...@kaizen/draft-zen-navigation-bar@3.1.0) (2021-02-26)
+
+
+### Features
+
+* Update navigation bar to support Heart ([#1095](https://github.com/cultureamp/kaizen-design-system/issues/1095)) ([c3df69d](https://github.com/cultureamp/kaizen-design-system/commit/c3df69df3368af51b2226250e11a5a4a7ac64b8b))
+
+
+
+
+
 ## [3.0.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@3.0.4...@kaizen/draft-zen-navigation-bar@3.0.5) (2021-02-25)
 
 
