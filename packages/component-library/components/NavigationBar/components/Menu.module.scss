@@ -1,12 +1,13 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "../styles";
 @import "../../../styles/border";
 @import "../../../styles/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "../../../styles/layers";
 @import "../../../styles/layout";
 @import "../../../styles/grid";
+@import "../decision-tokens.scss";
 
 $menu__square-size: $ca-grid * 2;
 
@@ -82,7 +83,7 @@ $menu__square-size: $ca-grid * 2;
     right: calc(#{$menu__square-size / 2} - #{$menu__arrow-size});
     border: $menu__arrow-size solid transparent;
     border-top-width: 0;
-    border-bottom-color: $kz-color-wisteria-800;
+    border-bottom-color: $dt-color-menu-background-color;
   }
 
   [dir="rtl"] &::before {
@@ -92,7 +93,7 @@ $menu__square-size: $ca-grid * 2;
 
   > * {
     color: white;
-    background-color: $kz-color-wisteria-800;
+    background-color: $dt-color-menu-background-color;
     border-radius: $kz-border-solid-border-radius;
     padding: 3px 0; // @TODO-DST - No magic padding
     white-space: nowrap;
@@ -137,12 +138,12 @@ $menu__square-size: $ca-grid * 2;
 
   &:hover,
   &.menuItemActive {
-    background-color: $kz-color-wisteria-700;
+    background-color: $dt-color-menu-background-color-active;
   }
 }
 
 .menuGroup {
-  border-top: 1px solid $kz-color-wisteria-700;
+  border-top: 1px solid $dt-color-menu-background-color-active;
   margin-top: $ca-grid / 2;
 
   &:first-child {
@@ -166,7 +167,7 @@ $menu__square-size: $ca-grid * 2;
 .offCanvasMenuGroupTitle {
   @extend .menuGroupTitle;
   font-size: 18px;
-  color: $kz-color-white;
+  color: $kz-var-color-white;
   padding: ($ca-grid / 2) $ca-grid;
 }
 
@@ -178,12 +179,12 @@ $menu__square-size: $ca-grid * 2;
   border-radius: $ca-grid;
   &.badgeNew {
     @include ca-padding($start: $ca-grid * 0.5, $end: $ca-grid * 0.5);
-    background-color: $kz-color-seedling-200;
-    color: $kz-color-wisteria-800;
+    background-color: $dt-color-badge-background-color-new;
+    color: $kz-var-color-wisteria-800;
   }
   &.badgeNotification {
     @include ca-padding($start: $ca-grid / 3, $end: $ca-grid / 3);
-    background-color: $kz-color-coral-500;
-    color: $kz-color-white;
+    background-color: $dt-color-badge-background-color;
+    color: $kz-var-color-white;
   }
 }
