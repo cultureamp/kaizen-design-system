@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@1.2.1...@kaizen/draft-page-layout@1.2.2) (2021-02-26)
+
+
+### Bug Fixes
+
+* error in useResizeObserver in Storybook ([#1141](https://github.com/cultureamp/kaizen-design-system/issues/1141)) ([f1d382a](https://github.com/cultureamp/kaizen-design-system/commit/f1d382af81d12d0b605c35e85f9fd8d368766062))
+
+
+
+
+
 ## [1.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-page-layout@1.2.0...@kaizen/draft-page-layout@1.2.1) (2021-02-25)
 
 
