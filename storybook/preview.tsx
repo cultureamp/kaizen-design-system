@@ -31,6 +31,9 @@ addParameters({
       return null
     },
   },
+  axe: {
+    enabled: false,
+  },
 })
 
 const themeOfKey = (themeKey: string) => {
