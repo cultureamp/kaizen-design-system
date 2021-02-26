@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.1.0...@kaizen/draft-menu@3.1.1) (2021-02-25)
+
+
+### Bug Fixes
+
+* Menu crashing fix ([#1134](https://github.com/cultureamp/kaizen-design-system/issues/1134)) ([328c46e](https://github.com/cultureamp/kaizen-design-system/commit/328c46ee487f5f9449adbd597e21e89cb173d029))
+
+
+
+
+
+# [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.0.12...@kaizen/draft-menu@3.1.0) (2021-02-25)
+
+
+### Features
+
+* Add automatic positioning for the Menu component, using popper ([#1110](https://github.com/cultureamp/kaizen-design-system/issues/1110)) ([aa1f289](https://github.com/cultureamp/kaizen-design-system/commit/aa1f2892364294fb5d959e3a57d3af910ac3f88f))
+
+
+
+
+
 ## [3.0.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.0.11...@kaizen/draft-menu@3.0.12) (2021-02-25)
 
 
