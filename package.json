@@ -123,7 +123,7 @@
     "danger": "^10.6.2",
     "eslint-import-resolver-typescript": "^2.3.0",
     "glob": "^7.1.1",
-    "husky": "^4.2.5",
+    "husky": "^5.1.1",
     "jscodeshift": "^0.7.0",
     "lint-staged": "^10.4.0",
     "loader-utils": "^1.0.2",
