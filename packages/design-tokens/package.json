@@ -45,7 +45,7 @@
   "dependencies": {
     "@types/color-string": "1.5.0",
     "@types/lodash.kebabcase": "4.1.3",
-    "color-string": "1.5.3",
+    "color-string": "1.5.4",
     "lodash.kebabcase": "4.1.1"
   },
   "peerDependencies": {
