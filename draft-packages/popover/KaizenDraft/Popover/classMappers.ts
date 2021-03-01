@@ -89,7 +89,6 @@ export const mapArrowPositionToClassLegacy = (position: Position): string => {
  * In the legacy popover, the "side" described the location of the arrow.
  * In the modern popover, the "side" describes the location of the popover
  * relative to the reference element.
- * Hence, the reversal of class names.
  */
 export const mapArrowSideToClassLegacy = (side: Side): string => {
   switch (side) {

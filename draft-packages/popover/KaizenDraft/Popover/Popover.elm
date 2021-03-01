@@ -369,7 +369,7 @@ mapArrowSideToClass side =
         -- In the legacy popover, the "side" described the location of the arrow.
         -- In the modern popover, the "side" describes the location of the popover
         -- relative to the reference element.
-        -- This elm component is the legacy type, hence, the reversal of class names.
+        -- This elm component is the legacy type.
         Bottom ->
             .arrowSideBottom
 
