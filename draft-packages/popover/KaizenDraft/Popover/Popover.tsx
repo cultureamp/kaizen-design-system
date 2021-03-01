@@ -21,7 +21,7 @@ const Popover: PopoverType = React.forwardRef<HTMLDivElement, Props>(
       singleLine = false,
       customIcon,
     } = props
-    const { referenceElement } = props as ModernPopoverProps
+    const { referenceElement, portalSelector } = props as ModernPopoverProps
 
     useEffect(() => {
       if (referenceElement && ref) {
@@ -47,6 +47,7 @@ const Popover: PopoverType = React.forwardRef<HTMLDivElement, Props>(
         singleLine={singleLine}
         customIcon={customIcon}
         referenceElement={referenceElement}
+        portalSelector={portalSelector}
       />
     ) : (
       <PopoverLegacy

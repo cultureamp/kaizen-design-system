@@ -1,8 +1,6 @@
-import { DismissiblePositiveAutohide } from "@kaizen/component-library/stories/InlineNotification.stories"
 import { Popover, usePopoverReferenceElementRef } from "@kaizen/draft-popover"
 import * as React from "react"
 import guidanceIcon from "@kaizen/component-library/icons/guidance.icon.svg"
-import { Avatar } from "@kaizen/draft-avatar"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 
@@ -355,3 +353,37 @@ export const LegacyPopover = () => (
 )
 
 LegacyPopover.storyName = "Legacy Popover"
+
+export const OverflowScroll = () => {
+  const [
+    referenceElement,
+    referenceElementRef,
+  ] = usePopoverReferenceElementRef()
+
+  return (
+    <Container>
+      <div style={{ overflowX: "scroll", width: "220px", height: "100px" }}>
+        <div style={{ width: "500px", textAlign: "center" }}>
+          <TargetElement referenceElementRef={referenceElementRef} />
+          <Popover
+            referenceElement={referenceElement}
+            heading="Position end"
+            side="bottom"
+            // Normally, you'd specify a div by ID, but since this is only in storybook,
+            // using `body` is fine (I think). DO NOT USE "BODY" AS A VALUE IN PRODUCTION.
+            portalSelector="body"
+          >
+            This should not get cropped
+          </Popover>
+        </div>
+      </div>
+      <p>
+        Scroll the panel above, and hover over the button. Notice that the
+        popover does not get cropped. Also notice that the tooltip arrow follows
+        the button appropriately.
+      </p>
+    </Container>
+  )
+}
+
+OverflowScroll.storyName = "overflow: scroll"
