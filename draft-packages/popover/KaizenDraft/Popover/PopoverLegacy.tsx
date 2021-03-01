@@ -5,10 +5,8 @@ import classNames from "classnames"
 import * as React from "react"
 
 import styles from "./styles.scss"
-import { Side, Size, Variant, Position } from "./types"
+import { Size, Variant } from "./types"
 import {
-  mapArrowPositionToClassLegacy,
-  mapArrowSideToClassLegacy,
   mapArrowVariantToClass,
   mapLineVariant,
   mapSizeToClass,
@@ -16,6 +14,10 @@ import {
   mapVariantToIcon,
   mapVariantToIconClass,
 } from "./classMappers"
+
+export type Side = "top" | "bottom"
+
+export type Position = "start" | "center" | "end"
 
 export type LegacyPopoverProps = {
   readonly automationId?: string
@@ -32,6 +34,38 @@ export type LegacyPopoverProps = {
   /** For almost all intents and purposes, you should be using a pre-defined variant.
    Please avoid using a custom icon unless you have a very good reason to do so. **/
   readonly customIcon?: React.SVGAttributes<SVGSymbolElement>
+}
+
+/**
+ * Used for the legacy popover only. For the new popover, the position of the
+ * arrow is determined by popper.
+ */
+const mapArrowPositionToClass = (position: Position): string => {
+  switch (position) {
+    case "start":
+      return styles.arrowPositionStart
+    case "end":
+      return styles.arrowPositionEnd
+    case "center":
+      return styles.arrowPositionCenter
+    default:
+      return ""
+  }
+}
+
+/**
+ * Used for the legacy popover only.
+ * In the legacy popover, the "side" described the location of the arrow.
+ * In the modern popover, the "side" describes the location of the popover
+ * relative to the reference element.
+ */
+const mapArrowSideToClass = (side: Side): string => {
+  switch (side) {
+    case "top":
+      return styles.arrowSideTop
+    default:
+      return styles.arrowSideBottom
+  }
 }
 
 type Popover = React.FunctionComponent<LegacyPopoverProps>
@@ -95,8 +129,8 @@ export const PopoverLegacy: Popover = React.forwardRef<
       <div
         className={classNames(
           styles.arrowWrapper,
-          mapArrowSideToClassLegacy(side),
-          mapArrowPositionToClassLegacy(position)
+          mapArrowSideToClass(side),
+          mapArrowPositionToClass(position)
         )}
       >
         <div

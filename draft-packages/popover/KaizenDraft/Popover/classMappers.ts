@@ -3,7 +3,7 @@ import informativeIcon from "@kaizen/component-library/icons/information.icon.sv
 import positiveIcon from "@kaizen/component-library/icons/success.icon.svg"
 import negativeIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
 import styles from "./styles.scss"
-import { Side, Size, Variant, Position } from "./types"
+import { Size, Variant } from "./types"
 
 export const mapVariantToBoxClass = (variant: Variant): string => {
   switch (variant) {
@@ -64,38 +64,6 @@ export const mapArrowVariantToClass = (variant: Variant): string => {
       return styles.cautionaryArrow
     default:
       return styles.defaultArrow
-  }
-}
-
-/**
- * Used for the legacy popover only. For the new popover, the position of the
- * arrow is determined by popper.
- */
-export const mapArrowPositionToClassLegacy = (position: Position): string => {
-  switch (position) {
-    case "start":
-      return styles.arrowPositionStart
-    case "end":
-      return styles.arrowPositionEnd
-    case "center":
-      return styles.arrowPositionCenter
-    default:
-      return ""
-  }
-}
-
-/**
- * Used for the legacy popover only.
- * In the legacy popover, the "side" described the location of the arrow.
- * In the modern popover, the "side" describes the location of the popover
- * relative to the reference element.
- */
-export const mapArrowSideToClassLegacy = (side: Side): string => {
-  switch (side) {
-    case "top":
-      return styles.arrowSideTop
-    default:
-      return styles.arrowSideBottom
   }
 }
 
