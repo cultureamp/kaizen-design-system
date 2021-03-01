@@ -1,14 +1,15 @@
 import * as React from "react"
 import { default as PopoverLegacy, LegacyPopoverProps } from "./PopoverLegacy"
+import { useEffect } from "react"
+import PopoverModern, { ModernPopoverProps } from "./PopoverModern"
 
-export type Props = LegacyPopoverProps
+export type Props = LegacyPopoverProps | ModernPopoverProps
 
 type PopoverType = React.FunctionComponent<Props>
 
 const Popover: PopoverType = React.forwardRef<HTMLDivElement, Props>(
-  (
-    {
-      id,
+  (props: Props, ref) => {
+    const {
       automationId,
       children,
       variant = "default",
@@ -20,14 +21,38 @@ const Popover: PopoverType = React.forwardRef<HTMLDivElement, Props>(
       onClose,
       singleLine = false,
       customIcon,
-    },
-    ref
-  ) => {
-    return (
+    } = props
+    const { referenceElement } = props as ModernPopoverProps
+
+    useEffect(() => {
+      if (referenceElement && ref) {
+        // eslint-disable-next-line no-console
+        console.warn(
+          "refs are no longer passed down to the Popover element. This " +
+            "is because that prop is required by the positioning engine, popper."
+        )
+      }
+    }, [ref, referenceElement])
+
+    return referenceElement !== undefined ? (
+      <PopoverModern
+        automationId={automationId}
+        children={children}
+        variant={variant}
+        side={side}
+        size={size}
+        position={position}
+        heading={heading}
+        dismissible={dismissible}
+        onClose={onClose}
+        singleLine={singleLine}
+        customIcon={customIcon}
+        referenceElement={referenceElement}
+      />
+    ) : (
       <PopoverLegacy
         // @ts-ignore: 🤷 this is fine
         ref={ref}
-        id={id}
         automationId={automationId}
         children={children}
         variant={variant}

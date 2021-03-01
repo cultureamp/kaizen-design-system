@@ -105,3 +105,10 @@ export const mapLineVariant = (singleLine: boolean): string => {
     return ""
   }
 }
+
+export const getArrowStyle = (side: Side) =>
+  side === "top"
+    ? {
+        transform: "rotate(180deg)",
+      }
+    : undefined

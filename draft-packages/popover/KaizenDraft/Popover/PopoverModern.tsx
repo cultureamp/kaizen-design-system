@@ -18,7 +18,7 @@ import {
   mapVariantToIconClass,
 } from "./classMappers"
 
-export type LegacyPopoverProps = {
+export type ModernPopoverProps = {
   readonly automationId?: string
   readonly visible?: boolean
   readonly onClose?: (event: React.MouseEvent<HTMLButtonElement>) => any
@@ -33,31 +33,29 @@ export type LegacyPopoverProps = {
   /** For almost all intents and purposes, you should be using a pre-defined variant.
    Please avoid using a custom icon unless you have a very good reason to do so. **/
   readonly customIcon?: React.SVGAttributes<SVGSymbolElement>
+  readonly referenceElement: HTMLDivElement | null
 }
 
-type Popover = React.FunctionComponent<LegacyPopoverProps>
+type PopoverModernType = React.FunctionComponent<ModernPopoverProps>
 
-const Popover: Popover = React.forwardRef<HTMLDivElement, LegacyPopoverProps>(
-  (
-    {
-      automationId,
-      children,
-      variant = "default",
-      side = "bottom",
-      size = "small",
-      position = "center",
-      heading,
-      dismissible = false,
-      onClose,
-      singleLine = false,
-      customIcon,
-    },
-    ref
-  ) => (
+const PopoverModern: PopoverModernType = ({
+  automationId,
+  children,
+  variant = "default",
+  side = "bottom",
+  size = "small",
+  position = "center",
+  heading,
+  dismissible = false,
+  onClose,
+  singleLine = false,
+  customIcon,
+  referenceElement,
+}) => {
+  return (
     <div
       className={classNames(styles.root, mapSizeToClass(size))}
       style={{ transform: "translateX(-50%)" }}
-      ref={ref}
       data-automation-id={automationId}
     >
       <div className={mapVariantToBoxClass(variant)}>
@@ -100,6 +98,6 @@ const Popover: Popover = React.forwardRef<HTMLDivElement, LegacyPopoverProps>(
       />
     </div>
   )
-)
+}
 
-export default Popover
+export default PopoverModern
