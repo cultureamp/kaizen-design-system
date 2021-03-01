@@ -213,7 +213,6 @@ view (Config config) =
                 , ( mapArrowSideToClass side, True )
                 , ( mapArrowPositionToClass position, True )
                 ]
-            , getArrowStyle side
             ]
             []
         ]
@@ -274,17 +273,6 @@ mapVariantToBoxClass variant =
 
         Cautionary ->
             .cautionaryBox
-
-
-getArrowStyle : Side -> Attribute msg
-getArrowStyle side =
-    case side of
-        Top ->
-            style "transform" "rotate(180deg)"
-
-        Bottom ->
-            style "" ""
-
 
 mapVariantToIconClass : Variant -> { b | informativeIcon : a, positiveIcon : a, negativeIcon : a, cautionaryIcon : a } -> a
 mapVariantToIconClass variant =

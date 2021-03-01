@@ -67,6 +67,10 @@ export const mapArrowVariantToClass = (variant: Variant): string => {
   }
 }
 
+/**
+ * Used for the legacy popover only. For the new popover, the position of the
+ * arrow is determined by popper.
+ */
 export const mapArrowPositionToClass = (position: Position): string => {
   switch (position) {
     case "start":
@@ -105,10 +109,3 @@ export const mapLineVariant = (singleLine: boolean): string => {
     return ""
   }
 }
-
-export const getArrowStyle = (side: Side) =>
-  side === "top"
-    ? {
-        transform: "rotate(180deg)",
-      }
-    : undefined

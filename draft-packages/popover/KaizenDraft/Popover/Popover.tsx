@@ -1,7 +1,6 @@
-import * as React from "react"
-import { default as PopoverLegacy, LegacyPopoverProps } from "./PopoverLegacy"
-import { useEffect } from "react"
-import PopoverModern, { ModernPopoverProps } from "./PopoverModern"
+import React, { useEffect } from "react"
+import { PopoverLegacy, LegacyPopoverProps } from "./PopoverLegacy"
+import { PopoverModern, ModernPopoverProps } from "./PopoverModern"
 
 export type Props = LegacyPopoverProps | ModernPopoverProps
 

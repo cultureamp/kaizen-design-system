@@ -1,5 +1,5 @@
 import { DismissiblePositiveAutohide } from "@kaizen/component-library/stories/InlineNotification.stories"
-import { Popover } from "@kaizen/draft-popover"
+import { Popover, usePopoverReferenceElementRef } from "@kaizen/draft-popover"
 import * as React from "react"
 import guidanceIcon from "@kaizen/component-library/icons/guidance.icon.svg"
 import { Avatar } from "@kaizen/draft-avatar"
@@ -26,14 +26,26 @@ const Container = ({ children }: { children: React.ReactNode }) => (
   <div style={{ minHeight: "150px" }}>{children}</div>
 )
 
-export const DefaultKaizenSiteDemo = () => (
-  <Container>
-    <Popover heading="Default">
-      Popover body that explains something useful, is optional, and not critical
-      to completing a task.
-    </Popover>
-  </Container>
-)
+export const DefaultKaizenSiteDemo = () => {
+  const [
+    referenceElement,
+    referenceElementRef,
+  ] = usePopoverReferenceElementRef()
+  return (
+    <Container>
+      <div
+        ref={referenceElementRef}
+        style={{ display: "inline-block", background: "#888", padding: "8px" }}
+      >
+        Target element
+      </div>
+      <Popover heading="Default" referenceElement={referenceElement}>
+        Popover body that explains something useful, is optional, and not
+        critical to completing a task.
+      </Popover>
+    </Container>
+  )
+}
 
 DefaultKaizenSiteDemo.storyName = "Default (Kaizen Site Demo)"
 

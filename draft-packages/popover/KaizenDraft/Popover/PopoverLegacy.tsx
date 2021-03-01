@@ -7,7 +7,6 @@ import * as React from "react"
 import styles from "./styles.scss"
 import { Side, Size, Variant, Position } from "./types"
 import {
-  getArrowStyle,
   mapArrowPositionToClass,
   mapArrowSideToClass,
   mapArrowVariantToClass,
@@ -37,7 +36,10 @@ export type LegacyPopoverProps = {
 
 type Popover = React.FunctionComponent<LegacyPopoverProps>
 
-const Popover: Popover = React.forwardRef<HTMLDivElement, LegacyPopoverProps>(
+export const PopoverLegacy: Popover = React.forwardRef<
+  HTMLDivElement,
+  LegacyPopoverProps
+>(
   (
     {
       automationId,
@@ -96,10 +98,7 @@ const Popover: Popover = React.forwardRef<HTMLDivElement, LegacyPopoverProps>(
           mapArrowSideToClass(side),
           mapArrowPositionToClass(position)
         )}
-        style={getArrowStyle(side)}
       />
     </div>
   )
 )
-
-export default Popover
