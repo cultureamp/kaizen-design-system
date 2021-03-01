@@ -3,8 +3,7 @@ import { Icon } from "@kaizen/component-library"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 
 import classNames from "classnames"
-import React, { useEffect, useState } from "react"
-import ReactDOM from "react-dom"
+import React, { useState } from "react"
 import styles from "./styles.scss"
 import { Size, Variant } from "./types"
 import {
@@ -39,12 +38,6 @@ export type ModernPopoverProps = {
    Please avoid using a custom icon unless you have a very good reason to do so. **/
   readonly customIcon?: React.SVGAttributes<SVGSymbolElement>
   readonly referenceElement: HTMLElement | null
-  /**
-   * Render the tooltip inside a react portal, given the ccs selector.
-   * This is typically used for instances where the menu is a descendant of an
-   * `overflow: scroll` or `overflow: hidden` element.
-   */
-  readonly portalSelector?: string
 }
 
 type PopoverModernType = React.FunctionComponent<ModernPopoverProps>
@@ -65,7 +58,6 @@ export const PopoverModern: PopoverModernType = ({
   singleLine = false,
   customIcon,
   referenceElement,
-  portalSelector,
 }: ModernPopoverProps) => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
@@ -104,20 +96,7 @@ export const PopoverModern: PopoverModernType = ({
     }
   )
 
-  const portalSelectorElement: Element | null = portalSelector
-    ? document.querySelector(portalSelector)
-    : null
-
-  useEffect(() => {
-    if (portalSelector && !portalSelectorElement) {
-      // eslint-disable-next-line no-console
-      console.warn(
-        "The portal could not be created using the selector: " + portalSelector
-      )
-    }
-  }, [portalSelectorElement, portalSelector])
-
-  const popover = (
+  return (
     <div
       ref={setPopperElement}
       style={popperStyles.popper}
@@ -166,10 +145,6 @@ export const PopoverModern: PopoverModernType = ({
       </div>
     </div>
   )
-
-  return portalSelector && portalSelectorElement
-    ? ReactDOM.createPortal(popover, portalSelectorElement)
-    : popover
 }
 
 /**
