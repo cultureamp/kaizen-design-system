@@ -272,18 +272,18 @@ export const Dismissible = () => {
   )
 }
 
-export const ArrowAbove = () => {
+export const SideTop = () => {
   const [
     referenceElement,
     referenceElementRef,
   ] = usePopoverReferenceElementRef()
   return (
     <Container>
-      <div style={{ marginTop: "1.5rem" }}>
+      <div style={{ marginTop: "200px" }}>
         <TargetElement referenceElementRef={referenceElementRef} />
         <Popover
           referenceElement={referenceElement}
-          heading="Arrow above"
+          heading="Side top"
           side="top"
         >
           Popover body that explains something useful, is optional, and not
@@ -294,9 +294,9 @@ export const ArrowAbove = () => {
   )
 }
 
-ArrowAbove.storyName = "Arrow above"
+SideTop.storyName = "Side top"
 
-export const ArrowStart = () => {
+export const PositionStart = () => {
   const [
     referenceElement,
     referenceElementRef,
@@ -307,7 +307,7 @@ export const ArrowStart = () => {
         <TargetElement referenceElementRef={referenceElementRef} />
         <Popover
           referenceElement={referenceElement}
-          heading="Arrow start"
+          heading="Position start"
           position="start"
         >
           Popover body that explains something useful, is optional, and not
@@ -318,9 +318,9 @@ export const ArrowStart = () => {
   )
 }
 
-ArrowStart.storyName = "Arrow start"
+PositionStart.storyName = "Position start"
 
-export const ArrowEnd = () => {
+export const PositionEnd = () => {
   const [
     referenceElement,
     referenceElementRef,
@@ -331,7 +331,7 @@ export const ArrowEnd = () => {
         <TargetElement referenceElementRef={referenceElementRef} />
         <Popover
           referenceElement={referenceElement}
-          heading="Arrow end"
+          heading="Position end"
           position="end"
           side="top"
         >
@@ -343,4 +343,4 @@ export const ArrowEnd = () => {
   )
 }
 
-ArrowEnd.storyName = "Arrow end"
+PositionEnd.storyName = "Position end"

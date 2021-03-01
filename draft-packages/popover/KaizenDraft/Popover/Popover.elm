@@ -371,7 +371,7 @@ mapArrowSideToClass side =
         -- relative to the reference element.
         -- This elm component is the legacy type, hence, the reversal of class names.
         Bottom ->
-            .arrowSideTop
+            .arrowSideBottom
 
         Top ->
-            .arrowSideBottom
+            .arrowSideTop

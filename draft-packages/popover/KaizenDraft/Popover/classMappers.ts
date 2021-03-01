@@ -94,9 +94,9 @@ export const mapArrowPositionToClassLegacy = (position: Position): string => {
 export const mapArrowSideToClassLegacy = (side: Side): string => {
   switch (side) {
     case "top":
-      return styles.arrowSideBottom
-    default:
       return styles.arrowSideTop
+    default:
+      return styles.arrowSideBottom
   }
 }
 
