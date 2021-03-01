@@ -27,7 +27,7 @@ const Container = ({ children }: { children: React.ReactNode }) => (
 const TargetElement = ({
   referenceElementRef,
 }: {
-  referenceElementRef: HTMLElement | null
+  referenceElementRef: (element: HTMLElement | null) => void
 }) => (
   <div style={{ textAlign: "center" }}>
     <div

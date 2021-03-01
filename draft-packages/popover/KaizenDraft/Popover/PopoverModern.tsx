@@ -200,7 +200,10 @@ export const PopoverModern: PopoverModernType = ({
  * The popper documentation may help provide more context:
  *   https://popper.js.org/react-popper/v2/hook/
  */
-export const usePopoverReferenceElementRef = () => {
+export const usePopoverReferenceElementRef = (): [
+  HTMLElement | null,
+  (element: HTMLElement | null) => void
+] => {
   const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(
     null
   )
