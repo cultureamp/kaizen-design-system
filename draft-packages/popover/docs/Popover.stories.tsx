@@ -33,11 +33,17 @@ export const DefaultKaizenSiteDemo = () => {
   ] = usePopoverReferenceElementRef()
   return (
     <Container>
-      <div
-        ref={referenceElementRef}
-        style={{ display: "inline-block", background: "#888", padding: "8px" }}
-      >
-        Target element
+      <div style={{ textAlign: "center" }}>
+        <div
+          ref={referenceElementRef}
+          style={{
+            display: "inline-block",
+            background: "#888",
+            padding: "8px",
+          }}
+        >
+          Target element
+        </div>
       </div>
       <Popover heading="Default" referenceElement={referenceElement}>
         Popover body that explains something useful, is optional, and not

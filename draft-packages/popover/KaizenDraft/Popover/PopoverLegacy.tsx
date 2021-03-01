@@ -8,7 +8,7 @@ import styles from "./styles.scss"
 import { Side, Size, Variant, Position } from "./types"
 import {
   mapArrowPositionToClass,
-  mapArrowSideToClass,
+  mapArrowSideToClassLegacy,
   mapArrowVariantToClass,
   mapLineVariant,
   mapSizeToClass,
@@ -94,11 +94,15 @@ export const PopoverLegacy: Popover = React.forwardRef<
       </div>
       <div
         className={classNames(
-          mapArrowVariantToClass(variant),
-          mapArrowSideToClass(side),
+          styles.arrowWrapper,
+          mapArrowSideToClassLegacy(side),
           mapArrowPositionToClass(position)
         )}
-      />
+      >
+        <div
+          className={classNames(styles.arrow, mapArrowVariantToClass(variant))}
+        />
+      </div>
     </div>
   )
 )

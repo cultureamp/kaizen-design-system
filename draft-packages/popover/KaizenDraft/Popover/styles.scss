@@ -20,10 +20,6 @@ $large-width: 450px;
 // add something like a `margin-top: 8px` to get the popover properly positioned.
 // I didn't update this, as I didn't want to introduce a breaking change.
 @mixin arrow($background-color, $border-color) {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-
   &::before,
   &::after {
     content: "";
@@ -32,7 +28,6 @@ $large-width: 450px;
     border-right: ($arrow-width / 2) solid transparent;
     top: 0;
     left: 0;
-    margin-left: -($arrow-width / 2);
   }
 
   &::before {
@@ -157,25 +152,38 @@ $large-width: 450px;
   color: rgba(black, 0.5);
 }
 
+.arrowWrapper {
+  // Needed by popper, so it measures the size of the arrow correctly
+  width: $arrow-width;
+  height: $arrow-height;
+}
+
+.arrow {
+  // Needed by popper, so it measures the size of the arrow correctly
+  width: $arrow-width;
+  height: $arrow-height;
+}
+
 .arrowSideBottom {
-  // This is just an empty class to satisfy Elm's case statement
-  // (we were in a rush and the linter wouldn't let an empty class through.)
-  // Can be refactored out!
-  visibility: visible;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-top: -$arrow-height;
+
+  .arrow {
+    transform: rotate(180deg);
+  }
 }
 
 .arrowSideTop {
-  top: initial;
-  bottom: 100%;
-  margin-top: 1px;
-  transform: rotate(180deg);
+  position: absolute;
+  top: 100%;
+  left: 50%;
 }
 
+// Legacy component only
 .arrowPositionCenter {
-  // This is just an empty class to satisfy Elm's case statement
-  // (we were in a rush and the linter wouldn't let an empty class through.)
-  // Can be refactored out!
-  visibility: visible;
+  transform: translateX(-50%);
 }
 
 // Legacy component only

@@ -146,12 +146,13 @@ export const PopoverModern: PopoverModernType = ({
       </div>
       <div
         ref={setArrowElement}
-        className={classNames(
-          mapArrowVariantToClass(variant),
-          mapArrowSideToClass(side)
-        )}
         style={popperStyles.arrow}
-      />
+        className={classNames(styles.arrowWrapper, mapArrowSideToClass(side))}
+      >
+        <div
+          className={classNames(styles.arrow, mapArrowVariantToClass(variant))}
+        />
+      </div>
     </div>
   )
 }
