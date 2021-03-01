@@ -9,7 +9,7 @@ import { useState } from "react"
 import styles from "./styles.scss"
 import { Side, Size, Variant, Position } from "./types"
 import {
-  mapArrowPositionToClass,
+  mapArrowPositionToClassLegacy,
   mapArrowSideToClass,
   mapArrowVariantToClass,
   mapLineVariant,
@@ -147,7 +147,7 @@ export const PopoverModern: PopoverModernType = ({
       <div
         ref={setArrowElement}
         style={popperStyles.arrow}
-        className={classNames(styles.arrowWrapper, mapArrowSideToClass(side))}
+        className={styles.arrowWrapper}
       >
         <div
           className={classNames(styles.arrow, mapArrowVariantToClass(variant))}

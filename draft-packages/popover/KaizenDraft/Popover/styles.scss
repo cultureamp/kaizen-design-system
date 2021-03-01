@@ -153,6 +153,7 @@ $large-width: 450px;
 }
 
 .arrowWrapper {
+  position: absolute;
   // Needed by popper, so it measures the size of the arrow correctly
   width: $arrow-width;
   height: $arrow-height;
@@ -164,8 +165,16 @@ $large-width: 450px;
   height: $arrow-height;
 }
 
-.arrowSideBottom {
-  position: absolute;
+/**
+ * In the legacy popover, the "side" described the location of the arrow, and
+ * we use css classes to determine the placement.
+ * In the modern popover, the "side" describes the location of the popover
+ * relative to the reference element, and we use data attributes to determine
+ * the placement.
+ * Hence, the confusion below.
+ */
+.arrowSideTop,
+[data-popper-placement^="bottom"] .arrowWrapper {
   bottom: 100%;
   left: 50%;
   margin-top: -$arrow-height;
@@ -175,8 +184,8 @@ $large-width: 450px;
   }
 }
 
-.arrowSideTop {
-  position: absolute;
+.arrowSideBottom,
+[data-popper-placement^="top"] .arrowWrapper {
   top: 100%;
   left: 50%;
 }

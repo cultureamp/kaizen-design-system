@@ -71,7 +71,7 @@ export const mapArrowVariantToClass = (variant: Variant): string => {
  * Used for the legacy popover only. For the new popover, the position of the
  * arrow is determined by popper.
  */
-export const mapArrowPositionToClass = (position: Position): string => {
+export const mapArrowPositionToClassLegacy = (position: Position): string => {
   switch (position) {
     case "start":
       return styles.arrowPositionStart
@@ -84,16 +84,8 @@ export const mapArrowPositionToClass = (position: Position): string => {
   }
 }
 
-export const mapArrowSideToClass = (side: Side): string => {
-  switch (side) {
-    case "top":
-      return styles.arrowSideTop
-    default:
-      return styles.arrowSideBottom
-  }
-}
-
 /**
+ * Used for the legacy popover only.
  * In the legacy popover, the "side" described the location of the arrow.
  * In the modern popover, the "side" describes the location of the popover
  * relative to the reference element.
