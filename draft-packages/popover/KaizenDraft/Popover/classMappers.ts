@@ -1,8 +1,8 @@
-import styles from "./styles.scss"
 import * as React from "react"
 import informativeIcon from "@kaizen/component-library/icons/information.icon.svg"
 import positiveIcon from "@kaizen/component-library/icons/success.icon.svg"
 import negativeIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
+import styles from "./styles.scss"
 import { Side, Size, Variant, Position } from "./types"
 
 export const mapVariantToBoxClass = (variant: Variant): string => {

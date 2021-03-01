@@ -3,9 +3,8 @@ import { Icon } from "@kaizen/component-library"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 
 import classNames from "classnames"
-import * as React from "react"
-
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
+import ReactDOM from "react-dom"
 import styles from "./styles.scss"
 import { Side, Size, Variant, Position } from "./types"
 import {
@@ -16,7 +15,6 @@ import {
   mapVariantToIcon,
   mapVariantToIconClass,
 } from "./classMappers"
-import ReactDOM from "react-dom"
 
 export type ModernPopoverProps = {
   readonly automationId?: string
