@@ -344,3 +344,14 @@ export const PositionEnd = () => {
 }
 
 PositionEnd.storyName = "Position end"
+
+export const LegacyPopover = () => (
+  <Container>
+    <Popover heading="Position end" position="end" side="top">
+      The legacy popover gets used when the referenceElement prop is not
+      included.
+    </Popover>
+  </Container>
+)
+
+LegacyPopover.storyName = "Legacy Popover"
