@@ -22,7 +22,6 @@ export interface Props {
   readonly dismissible?: boolean
   readonly singleLine?: boolean
   readonly children: React.ReactNode
-  readonly boxOffset?: BoxOffset
   /** For almost all intents and purposes, you should be using a pre-defined variant.
   Please avoid using a custom icon unless you have a very good reason to do so. **/
   readonly customIcon?: React.SVGAttributes<SVGSymbolElement>
@@ -41,14 +40,6 @@ type Position = "start" | "center" | "end"
 
 type Size = "small" | "large"
 
-type BoxOffset =
-  | number
-  | undefined
-  | {
-      xOffset?: number // to ensure a non-breaking change, xOffset can only be a number
-      yOffset?: string
-    }
-
 type Popover = React.FunctionComponent<Props>
 
 const Popover: Popover = React.forwardRef<HTMLDivElement, Props>(
@@ -65,14 +56,13 @@ const Popover: Popover = React.forwardRef<HTMLDivElement, Props>(
       dismissible = false,
       onClose,
       singleLine = false,
-      boxOffset,
       customIcon,
     },
     ref
   ) => (
     <div
       className={classNames(styles.root, mapSizeToClass(size))}
-      style={getRootStyle(boxOffset)}
+      style={{ transform: "translateX(-50%)" }}
       ref={ref}
     >
       <div className={mapVariantToBoxClass(variant)}>
@@ -111,26 +101,11 @@ const Popover: Popover = React.forwardRef<HTMLDivElement, Props>(
           mapArrowSideToClass(side),
           mapArrowPositionToClass(position)
         )}
-        style={getArrowStyle(boxOffset, side)}
+        style={getArrowStyle(side)}
       />
     </div>
   )
 )
-
-const getRootStyle = (boxOffset: BoxOffset) => {
-  if (boxOffset == null) {
-    return { transform: "translateX(-50%)" }
-  }
-
-  const translate =
-    typeof boxOffset === "number"
-      ? `translateX(calc(-50% + ${boxOffset}px))`
-      : `translate(${
-          boxOffset.xOffset == null ? "-50%" : `${boxOffset.xOffset}px`
-        }, ${boxOffset.yOffset})`
-
-  return { transform: translate }
-}
 
 const mapVariantToBoxClass = (variant: Variant): string => {
   switch (variant) {
@@ -147,24 +122,12 @@ const mapVariantToBoxClass = (variant: Variant): string => {
   }
 }
 
-const getArrowStyle = (boxOffset: BoxOffset, side: Side) => {
-  const rotate = side === "top" ? "rotate(180deg)" : ""
-  let translate = ""
-  if (boxOffset != null) {
-    if (typeof boxOffset === "number") {
-      translate = `translateX(${boxOffset * -1}px)`
-    } else if (boxOffset.xOffset != null)
-      // Because we shifted the popover in the parent, we need to readjust the
-      // arrow back to where it was.
-      translate = `translateX(${boxOffset.xOffset * -1}px)`
-  }
-
-  return rotate || translate
+const getArrowStyle = (side: Side) =>
+  side === "top"
     ? {
-        transform: `${translate}${rotate}`,
+        transform: "rotate(180deg)",
       }
     : undefined
-}
 
 const mapVariantToIconClass = (variant: Variant) => {
   switch (variant) {
