@@ -1,0 +1,45 @@
+@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color";
+
+code {
+  background: $kz-color-yuzu-100;
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+  font-family: "IBM Plex Mono";
+}
+
+%boxStoriesText {
+  font-family: $kz-typography-paragraph-body-font-family;
+  font-weight: $kz-typography-paragraph-body-font-weight;
+  font-size: $kz-typography-paragraph-body-font-size;
+  line-height: $kz-typography-paragraph-body-line-height;
+  letter-spacing: $kz-typography-paragraph-body-letter-spacing;
+  color: $kz-color-wisteria-800;
+}
+
+.boxStoriesWrapper {
+  border: 2px dashed $kz-color-wisteria-300;
+}
+
+.boxStoriesTable {
+  @extend %boxStoriesText;
+
+  td {
+    width: $kz-spacing-md * 4;
+    padding: $kz-spacing-sm 0;
+  }
+
+  th,
+  .tableLabel {
+    text-align: left;
+    font-weight: $kz-typography-paragraph-bold-font-weight;
+  }
+
+  // td:first-child {
+  //   padding-left: 0;
+  // }
+  // td:last-child {
+  //   padding-right: 0;
+  // }
+}
