@@ -6,7 +6,7 @@ import classNames from "classnames"
 import React, { useEffect, useState } from "react"
 import ReactDOM from "react-dom"
 import styles from "./styles.scss"
-import { Side, Size, Variant, Position } from "./types"
+import { Size, Variant } from "./types"
 import {
   mapArrowVariantToClass,
   mapLineVariant,
@@ -16,14 +16,21 @@ import {
   mapVariantToIconClass,
 } from "./classMappers"
 
+type Placement =
+  | "top"
+  | "bottom"
+  | "top-start"
+  | "top-end"
+  | "bottom-start"
+  | "bottom-end"
+
 export type ModernPopoverProps = {
   readonly automationId?: string
   readonly visible?: boolean
   readonly onClose?: (event: React.MouseEvent<HTMLButtonElement>) => any
   readonly variant?: Variant
-  readonly side?: Side
+  readonly placement?: Placement
   readonly size?: Size
-  readonly position?: Position
   readonly heading?: string
   readonly dismissible?: boolean
   readonly singleLine?: boolean
@@ -46,25 +53,12 @@ type PopoverModernType = React.FunctionComponent<ModernPopoverProps>
 const arrowWidth = 16
 const arrowHeight = 8
 
-const getPlacement = (side: Side, position: Position) => {
-  if (position === "center") {
-    return side
-  }
-
-  return `${side}-${position}` as
-    | "bottom-start"
-    | "bottom-end"
-    | "top-start"
-    | "top-end"
-}
-
 export const PopoverModern: PopoverModernType = ({
   automationId,
   children,
   variant = "default",
-  side = "bottom",
+  placement = "bottom",
   size = "small",
-  position = "center",
   heading,
   dismissible = false,
   onClose,
@@ -72,7 +66,7 @@ export const PopoverModern: PopoverModernType = ({
   customIcon,
   referenceElement,
   portalSelector,
-}) => {
+}: ModernPopoverProps) => {
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
     null
   )
@@ -106,7 +100,7 @@ export const PopoverModern: PopoverModernType = ({
           },
         },
       ],
-      placement: getPlacement(side, position),
+      placement,
     }
   )
 

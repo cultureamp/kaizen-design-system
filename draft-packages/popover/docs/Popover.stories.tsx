@@ -270,7 +270,7 @@ export const Dismissible = () => {
   )
 }
 
-export const SideTop = () => {
+export const PlacementTop = () => {
   const [
     referenceElement,
     referenceElementRef,
@@ -281,8 +281,8 @@ export const SideTop = () => {
         <TargetElement referenceElementRef={referenceElementRef} />
         <Popover
           referenceElement={referenceElement}
-          heading="Side top"
-          side="top"
+          heading="Placement top"
+          placement="top"
         >
           Popover body that explains something useful, is optional, and not
           critical to completing a task.
@@ -292,9 +292,9 @@ export const SideTop = () => {
   )
 }
 
-SideTop.storyName = "Side top"
+PlacementTop.storyName = "Placement top"
 
-export const PositionStart = () => {
+export const PlacementStart = () => {
   const [
     referenceElement,
     referenceElementRef,
@@ -305,8 +305,8 @@ export const PositionStart = () => {
         <TargetElement referenceElementRef={referenceElementRef} />
         <Popover
           referenceElement={referenceElement}
-          heading="Position start"
-          position="start"
+          heading="Placement start"
+          placement="bottom-start"
         >
           Popover body that explains something useful, is optional, and not
           critical to completing a task.
@@ -316,9 +316,9 @@ export const PositionStart = () => {
   )
 }
 
-PositionStart.storyName = "Position start"
+PlacementStart.storyName = "Placement start"
 
-export const PositionEnd = () => {
+export const PlacementEnd = () => {
   const [
     referenceElement,
     referenceElementRef,
@@ -329,9 +329,8 @@ export const PositionEnd = () => {
         <TargetElement referenceElementRef={referenceElementRef} />
         <Popover
           referenceElement={referenceElement}
-          heading="Position end"
-          position="end"
-          side="top"
+          heading="Placement end"
+          placement="bottom-end"
         >
           Popover body that explains something useful, is optional, and not
           critical to completing a task.
@@ -341,7 +340,7 @@ export const PositionEnd = () => {
   )
 }
 
-PositionEnd.storyName = "Position end"
+PlacementEnd.storyName = "Placement end"
 
 export const LegacyPopover = () => (
   <Container>
@@ -367,8 +366,8 @@ export const OverflowScroll = () => {
           <TargetElement referenceElementRef={referenceElementRef} />
           <Popover
             referenceElement={referenceElement}
-            heading="Position end"
-            side="bottom"
+            heading="Heading"
+            placement="bottom"
             // Normally, you'd specify a div by ID, but since this is only in storybook,
             // using `body` is fine (I think). DO NOT USE "BODY" AS A VALUE IN PRODUCTION.
             portalSelector="body"
