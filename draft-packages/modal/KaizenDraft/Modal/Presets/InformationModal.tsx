@@ -1,9 +1,16 @@
-import { Box, Heading } from "@kaizen/component-library"
+import { Box, Heading, InlineNotification } from "@kaizen/component-library"
+import { NotificationType } from "@kaizen/component-library/components/Notification/components/GenericNotification"
 import { Divider } from "@kaizen/draft-divider"
 import * as React from "react"
 import { GenericModal, ModalAccessibleLabel, ModalFooter } from "../"
 import ModalHeader from "../Primitives/ModalHeader"
 import styles from "./InformationModal.scss"
+
+export type InlineNotificationProps = {
+  title: string
+  type: NotificationType
+  body: string
+}
 
 export type InformationModalSecondaryActionProps =
   | {
@@ -25,6 +32,7 @@ export type InformationModalProps = Readonly<
     renderBackground?: () => React.ReactNode
     image?: React.ReactNode
     children: React.ReactNode
+    notification?: InlineNotificationProps
   } & InformationModalSecondaryActionProps
 >
 
@@ -39,6 +47,7 @@ const InformationModal = ({
   automationId,
   renderBackground,
   children,
+  notification,
   image,
   ...props
 }: InformationModalProps) => (
@@ -60,6 +69,19 @@ const InformationModal = ({
         </div>
       </ModalHeader>
       <Divider variant="content" />
+      {notification && (
+        <Box mt={0.5} mx={1} mb={1}>
+          <InlineNotification
+            type={notification.type}
+            title={notification.title}
+            autohide={false}
+            hideCloseIcon={true}
+            noBottomMargin={true}
+          >
+            {notification.body}
+          </InlineNotification>
+        </Box>
+      )}
       <div className={styles.contentLayout}>
         <div className={styles.content}>
           {children}

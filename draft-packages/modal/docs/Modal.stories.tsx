@@ -1,3 +1,4 @@
+import { title } from "process"
 import { Box, Heading, Paragraph } from "@kaizen/component-library"
 import { Button } from "@kaizen/draft-button"
 import { TextField } from "@kaizen/draft-form"
@@ -18,7 +19,11 @@ import * as React from "react"
 import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
 import { withDesign } from "storybook-addon-designs"
-import { BenefitsSurvey, Negative } from "@kaizen/draft-illustration"
+import {
+  BenefitsSurvey,
+  Negative,
+  ExecutiveReportSharing,
+} from "@kaizen/draft-illustration"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 import styles from "./Modal.stories.scss"
@@ -698,6 +703,74 @@ export const InformationModalWithImage = () => (
 
 InformationModalWithImage.story = {
   name: "Information (with image) - Outdated browser demo",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1620%3A114"
+    ),
+  },
+}
+
+export const InformationModalWithNotification = () => (
+  <ModalStateContainer isInitiallyOpen={false}>
+    {({ open, close, isOpen }) => (
+      <div>
+        <Button label="Open modal" onClick={open} />
+        <InformationModal
+          secondaryLabel="Cancel"
+          onSecondaryAction={close}
+          confirmLabel="Share"
+          onConfirm={close}
+          isOpen={isOpen}
+          title="Share review"
+          onDismiss={close}
+          notification={{
+            title: "Sharing",
+            body: "Once the review has been shared, it can't be unshared",
+            type: "cautionary",
+          }}
+          image={
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                textAlign: "center",
+                height: "100%",
+              }}
+            >
+              <ExecutiveReportSharing alt="stock" />
+            </div>
+          }
+        >
+          <ModalAccessibleDescription>
+            <Heading variant="heading-4">
+              The responses to these questions will be shared with Carlos
+              Quintero:
+            </Heading>
+          </ModalAccessibleDescription>
+          <Padding />
+          <Paragraph variant="body">
+            • What did this person achieve over the last 6 months? What specific
+            impact did they have on the team’s goals?
+          </Paragraph>
+          <Padding />
+          <Paragraph variant="body">
+            • What progress have they made on their learning anddevelopment
+            goals?
+          </Paragraph>
+          <Padding />
+          <Paragraph variant="body">
+            • What are 2-3 skills or competencies you'd like them to focus on
+            for further development?
+          </Paragraph>
+        </InformationModal>
+      </div>
+    )}
+  </ModalStateContainer>
+)
+
+InformationModalWithNotification.story = {
+  name: "Information (with Inline Notification)",
   parameters: {
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1620%3A114"
