@@ -1,3 +1,5 @@
+import { useTheme } from "@kaizen/design-tokens"
+import { Well } from "@kaizen/draft-well"
 import classnames from "classnames"
 import * as React from "react"
 
@@ -49,32 +51,60 @@ const EmptyState: EmptyState = ({
   children,
   straightCorners,
   useZenStyles,
-}) => (
-  <div
-    className={classnames([
-      styles.container,
-      styles[layoutContext],
-      { [styles.straightCorners]: straightCorners },
-    ])}
-    id={id}
-    data-automation-id={automationId}
-  >
-    <div className={styles.illustrationSide}>
-      <img
-        src={illustrations[illustrationType]}
-        className={styles.illustration}
-      />
-    </div>
-    <div
-      className={classnames([styles.textSide, { [styles.zen]: useZenStyles }])}
-    >
-      <div className={styles.textSideInner}>
-        <div className={styles.heading}>{headingText}</div>
-        <div className={styles.description}>{bodyText}</div>
-        {children}
+}) => {
+  const theme = useTheme()
+  const inner = (
+    <>
+      <div className={styles.illustrationSide}>
+        <img
+          src={illustrations[illustrationType]}
+          className={styles.illustration}
+        />
       </div>
+      <div
+        className={classnames([
+          styles.textSide,
+          { [styles.zen]: useZenStyles },
+        ])}
+      >
+        <div className={styles.textSideInner}>
+          <div className={styles.heading}>{headingText}</div>
+          <div className={styles.description}>{bodyText}</div>
+          {children}
+        </div>
+      </div>
+    </>
+  )
+  return theme.themeKey === "zen" ? (
+    <div
+      className={classnames([
+        styles.container,
+        styles.zen,
+        styles[layoutContext],
+        { [styles.straightCorners]: straightCorners },
+        styles[theme.themeKey],
+      ])}
+      id={id}
+      data-automation-id={automationId}
+    >
+      {inner}
     </div>
-  </div>
-)
+  ) : (
+    <Well
+      id={id}
+      automationId={automationId}
+      straightCorners={straightCorners}
+      borderStyle="none"
+      classNameAndIHaveSpokenToDST={classnames([
+        styles.container,
+        styles[layoutContext],
+        { [styles.straightCorners]: straightCorners },
+        styles[theme.themeKey],
+      ])}
+    >
+      {inner}
+    </Well>
+  )
+}
 
 export default EmptyState

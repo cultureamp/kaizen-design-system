@@ -65,3 +65,7 @@
   border-style: $kz-var-border-borderless-border-style;
   border-width: $kz-var-border-borderless-border-width;
 }
+
+.straightCorners {
+  border-radius: 0;
+}

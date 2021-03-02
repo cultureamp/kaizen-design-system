@@ -18,6 +18,8 @@ export type WellProps = {
   variant?: VariantType
   borderStyle?: BorderStyleType
   noMargin?: boolean
+  straightCorners?: boolean
+  classNameAndIHaveSpokenToDST?: string
 }
 
 type Well = React.FunctionComponent<WellProps>
@@ -29,6 +31,8 @@ const Well: Well = ({
   variant = "default",
   borderStyle = "solid",
   noMargin = false,
+  straightCorners = false,
+  classNameAndIHaveSpokenToDST,
 }) => (
   <div
     id={id}
@@ -37,7 +41,9 @@ const Well: Well = ({
       styles.container,
       styles[borderStyle],
       styles[variant],
-      noMargin && styles.noMargin
+      noMargin && styles.noMargin,
+      straightCorners && styles.straightCorners,
+      classNameAndIHaveSpokenToDST
     )}
   >
     {children}

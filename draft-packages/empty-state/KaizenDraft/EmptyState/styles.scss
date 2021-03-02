@@ -1,5 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
@@ -13,11 +15,14 @@
   padding-bottom: 2%;
   padding-left: $ca-grid;
   padding-right: $ca-grid;
-  background-color: $kz-color-ash;
-  color: $kz-color-wisteria-800;
-  border: $kz-border-solid-border-width $kz-border-solid-border-style
-    $ca-border-color;
-  border-radius: $kz-border-solid-border-radius;
+  color: $kz-var-color-wisteria-800;
+
+  &.zen {
+    background-color: $kz-var-color-ash;
+    border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
+      $ca-border-color;
+    border-radius: $kz-var-border-solid-border-radius;
+  }
 
   @include small {
     flex-direction: column;
