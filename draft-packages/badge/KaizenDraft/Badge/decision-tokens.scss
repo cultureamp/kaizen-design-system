@@ -1,0 +1,5 @@
+@import "~@kaizen/design-tokens/sass/color";
+
+// if --kz-var-color-ash fails, assume a Zen theme and fall back to $kz-color-wisteria-200
+// (the non-css variable token)
+$dt-color-background-default: var(--kz-var-color-ash, $kz-color-wisteria-200);

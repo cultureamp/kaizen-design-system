@@ -4,6 +4,7 @@
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/design-tokens/sass/animation";
 @import "~@kaizen/component-library/styles/animation";
+@import "./decision-tokens.scss";
 
 $small: $ca-grid;
 
@@ -24,7 +25,7 @@ $small: $ca-grid;
 }
 
 .default {
-  background-color: $kz-color-wisteria-200;
+  background-color: $dt-color-background-default;
   color: $kz-color-wisteria-800;
 }
 
