@@ -1,15 +1,17 @@
-@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/component-library/styles/animation";
-@import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "./decision-tokens";
 
 .base {
-  background-color: $kz-color-wisteria-100;
-  border-radius: $kz-border-solid-border-radius * 3;
+  // We need to set some CSS Custom Properties on our container for theme switching to work.
+  @include loading-placeholder-theme-switching-tokens;
+
+  background-color: $dt-color-background-default;
+  border-radius: calc(#{$kz-var-border-solid-border-radius} * 3);
   position: relative;
   top: $ca-grid * 0.175;
   margin-bottom: $ca-grid * 0.5;
@@ -39,11 +41,11 @@
 }
 
 .reversedDefault {
-  background-color: rgba($kz-var-color-white-rgb-params, 0.5);
+  background-color: $dt-color-background-reversed;
 }
 
 .reversedOcean {
-  background-color: $kz-color-cluny-300;
+  background-color: $kz-var-color-cluny-300;
 }
 
 .normal {
