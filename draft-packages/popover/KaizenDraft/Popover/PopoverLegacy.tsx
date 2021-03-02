@@ -68,13 +68,13 @@ const mapArrowSideToClass = (side: Side): string => {
   }
 }
 
-type Popover = React.FunctionComponent<PopoverLegacyProps>
+type PopoverLegacy = React.FunctionComponent<PopoverLegacyProps>
 
 /**
- * Please use `usePopover` instead
+ * Please use `usePopover` or `Popover` instead
  * @deprecated
  */
-export const PopoverLegacy: Popover = React.forwardRef<
+export const PopoverLegacy: PopoverLegacy = React.forwardRef<
   HTMLDivElement,
   PopoverLegacyProps
 >(
