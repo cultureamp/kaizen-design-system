@@ -1,8 +1,8 @@
-// Usually we will use the `usePopover` hook. However, if we want to use the
-// legacy popover code, we'll need to use the raw Popover component. The only
-// difference is that the referenceElement prop isn't automatically passed
-// down for us.
-import { PopoverLegacy, usePopover, Popover } from "@kaizen/draft-popover"
+import {
+  PopoverLegacy,
+  usePopover,
+  Popover as PopoverRaw,
+} from "@kaizen/draft-popover"
 import * as React from "react"
 import guidanceIcon from "@kaizen/component-library/icons/guidance.icon.svg"
 import { withDesign } from "storybook-addon-designs"
@@ -10,7 +10,7 @@ import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "Popover (React)",
-  component: Popover,
+  component: PopoverRaw,
   parameters: {
     info: {
       text: `
