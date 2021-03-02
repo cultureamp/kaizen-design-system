@@ -3,7 +3,7 @@ import { Icon } from "@kaizen/component-library"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 
 import classNames from "classnames"
-import React, { useState } from "react"
+import React, { useMemo, useState } from "react"
 import styles from "./styles.scss"
 import { Size, Variant } from "./types"
 import {
@@ -147,33 +147,46 @@ export const PopoverModern: PopoverModernType = ({
   )
 }
 
+type PopoverPropsWithoutRef = Omit<ModernPopoverProps, "referenceElement">
+
 /**
  * How to use:
  *
- * const [referenceElement, referenceElementRef] = usePopoverReferenceElementRef()
+ * const [referenceElementRef, Popover] = usePopoverReferenceElementRef()
  *
  * return (<>
  *   <button ref={referenceElementRef}>
  *     Hello world
  *   </button>
- *   <Popover referenceElement={referenceElement} />
+ *   <Popover>Hello world</Popover>
  * </>)
  *
- * The purpose of this hook is to ensure that the user passes down an element
- * reference, which will cause a rerender when it changes. To do this, we need
- * to use `useState` instead of `useRef`. Given how this is an uncommon pattern,
- * we figured that creating this hook will help abstract this away.
+ * The purpose of this hook is to abstract away some of the awkwardness with the
+ * requirement of passing in refs with popper. We need to use `useState` instead
+ * of `useRef`, which may not be immediately intuitive.
  *
- * The popper documentation may help provide more context:
+ * The popper documentation to help provide more context:
  *   https://popper.js.org/react-popper/v2/hook/
  */
-export const usePopoverReferenceElementRef = (): [
-  HTMLElement | null,
-  (element: HTMLElement | null) => void
+export const usePopover = (): [
+  (element: HTMLElement | null) => void,
+  React.FunctionComponent<PopoverPropsWithoutRef>
 ] => {
   const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(
     null
   )
 
-  return [referenceElement, setReferenceElement]
+  // I guess the problem with this pattern, is that every time referenceElement
+  // changes, a brand new component is generated, which would be bad for memoization.
+  // In this situation however, the value is rarely going to change, and
+  // popovers aren't going to include content with expensive render times.
+  const PopoverWithRef = useMemo(
+    () => (props: PopoverPropsWithoutRef) =>
+      referenceElement ? (
+        <PopoverModern {...props} referenceElement={referenceElement} />
+      ) : null,
+    [referenceElement]
+  )
+
+  return [setReferenceElement, PopoverWithRef]
 }
