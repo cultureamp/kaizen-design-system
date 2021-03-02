@@ -1,3 +1,7 @@
+// Usually we will use the `usePopover` hook. However, if we want to use the
+// legacy popover code, we'll need to use the raw Popover component. The only
+// difference is that the referenceElement prop isn't automatically passed
+// down for us.
 import { Popover as PopoverRaw, usePopover } from "@kaizen/draft-popover"
 import * as React from "react"
 import guidanceIcon from "@kaizen/component-library/icons/guidance.icon.svg"
