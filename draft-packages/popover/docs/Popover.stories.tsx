@@ -2,7 +2,7 @@
 // legacy popover code, we'll need to use the raw Popover component. The only
 // difference is that the referenceElement prop isn't automatically passed
 // down for us.
-import { Popover as PopoverRaw, usePopover } from "@kaizen/draft-popover"
+import { PopoverLegacy, usePopover, Popover } from "@kaizen/draft-popover"
 import * as React from "react"
 import guidanceIcon from "@kaizen/component-library/icons/guidance.icon.svg"
 import { withDesign } from "storybook-addon-designs"
@@ -10,7 +10,7 @@ import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "Popover (React)",
-  component: PopoverRaw,
+  component: Popover,
   parameters: {
     info: {
       text: `
@@ -276,10 +276,10 @@ export const LegacyPopover = () => (
         height: "200px",
       }}
     >
-      <PopoverRaw heading="Arrow top end" position="end" side="top">
+      <PopoverLegacy heading="Arrow top end" position="end" side="top">
         The legacy popover gets used when the referenceElement prop is not
         included.
-      </PopoverRaw>
+      </PopoverLegacy>
     </div>
 
     <div
@@ -288,10 +288,14 @@ export const LegacyPopover = () => (
         height: "200px",
       }}
     >
-      <PopoverRaw heading="Arrow bottom start" position="start" side="bottom">
+      <PopoverLegacy
+        heading="Arrow bottom start"
+        position="start"
+        side="bottom"
+      >
         The legacy popover gets used when the referenceElement prop is not
         included.
-      </PopoverRaw>
+      </PopoverLegacy>
     </div>
   </Container>
 )

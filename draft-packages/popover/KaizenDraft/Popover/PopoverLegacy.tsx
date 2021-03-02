@@ -19,7 +19,7 @@ export type Side = "top" | "bottom"
 
 export type Position = "start" | "center" | "end"
 
-export type LegacyPopoverProps = {
+export type PopoverLegacyProps = {
   readonly automationId?: string
   readonly visible?: boolean
   readonly onClose?: (event: React.MouseEvent<HTMLButtonElement>) => any
@@ -68,11 +68,15 @@ const mapArrowSideToClass = (side: Side): string => {
   }
 }
 
-type Popover = React.FunctionComponent<LegacyPopoverProps>
+type Popover = React.FunctionComponent<PopoverLegacyProps>
 
+/**
+ * Please use `usePopover` instead
+ * @deprecated
+ */
 export const PopoverLegacy: Popover = React.forwardRef<
   HTMLDivElement,
-  LegacyPopoverProps
+  PopoverLegacyProps
 >(
   (
     {

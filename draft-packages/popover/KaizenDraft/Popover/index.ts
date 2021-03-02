@@ -1,3 +1,2 @@
-export { default as Popover, Props as PopoverProps } from "./Popover"
-export { usePopover, ModernPopoverProps } from "./PopoverModern"
-export { LegacyPopoverProps } from "./PopoverLegacy"
+export { usePopover, Popover, PopoverProps } from "./Popover"
+export { PopoverLegacy, PopoverLegacyProps } from "./PopoverLegacy"
