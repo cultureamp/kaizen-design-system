@@ -152,7 +152,7 @@ type PopoverPropsWithoutRef = Omit<PopoverProps, "referenceElement">
 /**
  * How to use:
  *
- * const [referenceElementRef, Popover] = usePopoverReferenceElementRef()
+ * const [referenceElementRef, Popover] = usePopover()
  *
  * return (<>
  *   <button ref={referenceElementRef}>
