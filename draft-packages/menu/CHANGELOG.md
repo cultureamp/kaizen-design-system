@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.1.1...@kaizen/draft-menu@3.1.2) (2021-02-26)
+
+**Note:** Version bump only for package @kaizen/draft-menu
+
+
+
+
+
+## [3.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.1.0...@kaizen/draft-menu@3.1.1) (2021-02-25)
+
+
+### Bug Fixes
+
+* Menu crashing fix ([#1134](https://github.com/cultureamp/kaizen-design-system/issues/1134)) ([328c46e](https://github.com/cultureamp/kaizen-design-system/commit/328c46ee487f5f9449adbd597e21e89cb173d029))
+
+
+
+
+
 # [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.0.12...@kaizen/draft-menu@3.1.0) (2021-02-25)
 
 

@@ -1,4 +1,3 @@
-@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/component-library/styles/layout";
 @import "../styles";
@@ -56,6 +55,6 @@
     @include font-heading-6;
 
     margin: 0 10px;
-    color: $kz-color-wisteria-800;
+    color: $kz-var-color-wisteria-800;
   }
 }

@@ -1,4 +1,3 @@
-@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/type";
@@ -17,5 +16,5 @@
 }
 
 .active {
-  background-color: $kz-color-wisteria-700;
+  background-color: $kz-var-color-wisteria-700;
 }
