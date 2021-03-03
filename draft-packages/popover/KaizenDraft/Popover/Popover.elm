@@ -209,17 +209,13 @@ view (Config config) =
             ]
         , div
             [ styles.classList
-                [ ( mapArrowSideToClass side, True )
+                [ ( mapArrowVariantToClass config.variant, True )
+                , ( mapArrowSideToClass side, True )
                 , ( mapArrowPositionToClass position, True )
-                ], styles.class .arrowWrapper
-            ] [
-              div
-                [ styles.classList
-                  [ ( mapArrowVariantToClass config.variant, True ) ]
-                , styles.class .arrow
                 ]
-                []
+            , getArrowStyle side
             ]
+            []
         ]
 
 
@@ -234,8 +230,6 @@ styles =
         , cautionaryBox = "cautionaryBox"
         , header = "header"
         , icon = "icon"
-        , arrow = "arrow"
-        , arrowWrapper = "arrowWrapper"
         , close = "close"
         , informativeArrow = "informativeArrow"
         , positiveArrow = "positiveArrow"
@@ -280,6 +274,17 @@ mapVariantToBoxClass variant =
 
         Cautionary ->
             .cautionaryBox
+
+
+getArrowStyle : Side -> Attribute msg
+getArrowStyle side =
+    case side of
+        Top ->
+            style "transform" "rotate(180deg)"
+
+        Bottom ->
+            style "" ""
+
 
 mapVariantToIconClass : Variant -> { b | informativeIcon : a, positiveIcon : a, negativeIcon : a, cautionaryIcon : a } -> a
 mapVariantToIconClass variant =
@@ -366,10 +371,6 @@ mapArrowPositionToClass position =
 mapArrowSideToClass : Side -> { b | arrowSideTop : a, arrowSideBottom : a } -> a
 mapArrowSideToClass side =
     case side of
-        -- In the legacy popover, the "side" described the location of the arrow.
-        -- In the modern popover, the "side" describes the location of the popover
-        -- relative to the reference element.
-        -- This elm component is the legacy type.
         Bottom ->
             .arrowSideBottom
 
