@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.8.0...@kaizen/draft-popover@1.8.1) (2021-03-03)
+
+
+### Bug Fixes
+
+* Revert Add popper layout engine to  ([#1151](https://github.com/cultureamp/kaizen-design-system/issues/1151)) ([#1174](https://github.com/cultureamp/kaizen-design-system/issues/1174)) ([59b96b8](https://github.com/cultureamp/kaizen-design-system/commit/59b96b8d5f357b61207fec1dab65405a3ffb4e26))
+
+
+
+
+
 # [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.7.24...@kaizen/draft-popover@1.8.0) (2021-03-02)
 
 
