@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.8.1...@kaizen/draft-popover@2.0.0) (2021-03-03)
+
+
+### Features
+
+* Add popper layout engine to `Popover` ([#1178](https://github.com/cultureamp/kaizen-design-system/issues/1178)) ([9b96a06](https://github.com/cultureamp/kaizen-design-system/commit/9b96a06a2dbe687c3fa5d3b05a43be3e2a75e296))
+
+
+### BREAKING CHANGES
+
+* To quickly fix all breaking changes, simply import `PopoverLegacy` instead of `Popover` from `@kaizen/draft-popover`. Codemod:
+
+```
+codemod -m -d ./src --extensions tsx,jsx 'import \{([\,\w\s]*)Popover([\w\W]*)\} from "@kaizen\/draft-popover"' 'import {\1PopoverLegacy\2} from "@kaizen/draft-popover"'
+codemod -m -d ./src --extensions tsx,jsx '<Popover([\w\W]*)<\/Popover>' '<PopoverLegacy\1</PopoverLegacy>'
+```
+
+With that said, it is recommended that you start using the `usePopover` hook (see the stories for more examples), or the new `Popover` component if you are using a class component (see the `usePopover` hook to see how this needs to be wired up).
+* The `boxOffset` property has been removed. Now that the new `Popover` uses popper, it will automatically determine the offset. This property was also being overloaded with two types of offsets, depending on the value type, which was confusing.
+* With the new version of `Popover`, the `side` and `position` props are no longer used. Use `placement` instead. Also note, the `placement` describes the position of the popover, relative to the referenceElement, which is unlike the legacy popover, where it describes the placement of the arrow.
+* We now use popper as the positioning engine, which shouldn't cause any breaking change, but please test your popovers when upgrading this package.
+
+# Side updates
+* Fix the `automationId` prop not getting added to the root div element
+* Remove the `id` prop, which wasn't getting used.
+
+
+
+
+
 ## [1.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.8.0...@kaizen/draft-popover@1.8.1) (2021-03-03)
 
 
