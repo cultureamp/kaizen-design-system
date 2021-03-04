@@ -1,9 +1,33 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
+@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
+
+$dt-positive-header-background: var(
+  $kz-var-id-color-seedling-100,
+  $kz-var-color-seedling-500
+);
+
+$dt-informative-header-background: var(
+  $kz-var-id-color-cluny-100,
+  $kz-var-color-cluny-500
+);
+
+$dt-negative-header-background: var(
+  $kz-var-id-color-coral-100,
+  $kz-var-color-coral-500
+);
+
+$dt-cautionary-header-background: var(
+  $kz-var-id-color-yuzu-100,
+  $kz-var-color-yuzu-500
+);
+
+$dt-heading-text-color: var($kz-var-id-color-wisteria-800, $kz-var-color-white);
+$dt-cautionary-heading-text-color: $kz-var-color-wisteria-800;
 
 .modal {
   composes: genericModal from "../Primitives/GenericModal.scss";
@@ -12,45 +36,45 @@
 }
 
 .header {
-  color: $kz-color-white;
-  padding: $kz-spacing-lg $kz-spacing-md $kz-spacing-lg;
+  color: $kz-var-color-white;
+  padding: $kz-var-spacing-lg $kz-var-spacing-md $kz-var-spacing-lg;
   text-align: center;
-  border-radius: $kz-border-solid-border-radius $kz-border-solid-border-radius 0
-    0;
+  border-radius: $kz-var-border-solid-border-radius
+    $kz-var-border-solid-border-radius 0 0;
 
   // override Murmur global styles :(
   h1 {
-    color: $kz-color-white;
+    color: $dt-heading-text-color;
   }
 }
 
 .positiveHeader {
-  background-color: $kz-color-seedling-500;
+  background-color: $dt-positive-header-background;
 }
 
 .informativeHeader {
-  background-color: $kz-color-cluny-500;
+  background-color: $dt-informative-header-background;
 }
 
 .negativeHeader {
-  background-color: $kz-color-coral-500;
+  background-color: $dt-negative-header-background;
 }
 
 .cautionaryHeader {
-  background-color: $kz-color-yuzu-500;
+  background-color: $dt-cautionary-header-background;
 
   &.header h1 {
-    color: $kz-color-wisteria-800;
+    color: $kz-var-color-wisteria-800;
   }
 }
 
 .body {
-  padding: $kz-spacing-md $kz-spacing-xxxxl $kz-spacing-sm;
+  padding: $kz-var-spacing-md $kz-var-spacing-xxxxl $kz-var-spacing-sm;
 }
 
 .iconContainer {
   position: relative;
-  margin-bottom: $kz-spacing-sm;
+  margin-bottom: $kz-var-spacing-sm;
 }
 
 .spotIcon,
