@@ -1,5 +1,11 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/variable-identifiers";
+
+$dt-content-border-color: rgba(
+  var($kz-var-id-color-slate-rgb-params, $kz-var-color-wisteria-700-rgb-params),
+  0.1
+);
 
 .wrapper {
   width: 100%;
@@ -13,24 +19,30 @@
 
 .content {
   border-top: 1px solid;
-  border-color: rgba($kz-var-color-slate-rgb-params, 0.1);
+  border-color: $dt-content-border-color;
 
-  &.zen {
-    border-color: rgba($kz-var-color-wisteria-700-rgb-params, 0.1);
-  }
   &.reversed {
     border-color: rgba($kz-var-color-white-rgb-params, 0.1);
   }
 }
 
 .canvas {
+  --dt-canvas-border-color-zen: rgba(
+    #{$kz-var-color-wisteria-700-rgb-params},
+    0.2
+  );
+  --dt-canvas-border-color-heart: rgba(
+    var(#{$kz-var-id-color-slate-rgb-params}),
+    0.1
+  );
+  --dt-canvas-border-color: var(
+    --dt-canvas-border-color-heart,
+    var(--dt-canvas-border-color-zen)
+  );
+
   border-top: 2px solid;
   border-bottom: 1px solid;
-  border-color: rgba($kz-var-color-slate-rgb-params, 0.1);
-
-  &.zen {
-    border-color: rgba($kz-var-color-wisteria-700-rgb-params, 0.2);
-  }
+  border-color: var(--dt-canvas-border-color);
 
   &.reversed {
     border-color: rgba($kz-var-color-white-rgb-params, 0.1);
