@@ -1,5 +1,9 @@
-import { title } from "process"
-import { Box, Heading, Paragraph } from "@kaizen/component-library"
+import {
+  Box,
+  Heading,
+  InlineNotification,
+  Paragraph,
+} from "@kaizen/component-library"
 import { Button } from "@kaizen/draft-button"
 import { TextField } from "@kaizen/draft-form"
 import {
@@ -723,11 +727,17 @@ export const InformationModalWithNotification = () => (
           isOpen={isOpen}
           title="Share review"
           onDismiss={close}
-          notification={{
-            title: "Sharing",
-            body: "Once the review has been shared, it can't be unshared",
-            type: "cautionary",
-          }}
+          contentHeader={
+            <InlineNotification
+              type="cautionary"
+              title="Sharing"
+              autohide={false}
+              hideCloseIcon={true}
+              noBottomMargin={true}
+            >
+              Once the review has been shared, it can't be unshared
+            </InlineNotification>
+          }
           image={
             <div
               style={{
@@ -755,7 +765,7 @@ export const InformationModalWithNotification = () => (
           </Paragraph>
           <Padding />
           <Paragraph variant="body">
-            • What progress have they made on their learning anddevelopment
+            • What progress have they made on their learning and development
             goals?
           </Paragraph>
           <Padding />

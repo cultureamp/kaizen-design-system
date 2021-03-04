@@ -1,16 +1,9 @@
-import { Box, Heading, InlineNotification } from "@kaizen/component-library"
-import { NotificationType } from "@kaizen/component-library/components/Notification/components/GenericNotification"
+import { Box, Heading } from "@kaizen/component-library"
 import { Divider } from "@kaizen/draft-divider"
 import * as React from "react"
 import { GenericModal, ModalAccessibleLabel, ModalFooter } from "../"
 import ModalHeader from "../Primitives/ModalHeader"
 import styles from "./InformationModal.scss"
-
-export type InlineNotificationProps = {
-  title: string
-  type: NotificationType
-  body: string
-}
 
 export type InformationModalSecondaryActionProps =
   | {
@@ -32,7 +25,7 @@ export type InformationModalProps = Readonly<
     renderBackground?: () => React.ReactNode
     image?: React.ReactNode
     children: React.ReactNode
-    notification?: InlineNotificationProps
+    contentHeader?: React.ReactNode
   } & InformationModalSecondaryActionProps
 >
 
@@ -47,7 +40,7 @@ const InformationModal = ({
   automationId,
   renderBackground,
   children,
-  notification,
+  contentHeader,
   image,
   ...props
 }: InformationModalProps) => (
@@ -69,17 +62,9 @@ const InformationModal = ({
         </div>
       </ModalHeader>
       <Divider variant="content" />
-      {notification && (
+      {contentHeader && (
         <Box mt={0.5} mx={1} mb={1}>
-          <InlineNotification
-            type={notification.type}
-            title={notification.title}
-            autohide={false}
-            hideCloseIcon={true}
-            noBottomMargin={true}
-          >
-            {notification.body}
-          </InlineNotification>
+          {contentHeader}
         </Box>
       )}
       <div className={styles.contentLayout}>
@@ -96,6 +81,7 @@ const InformationModal = ({
               <ModalFooter
                 unpadded
                 alignStart
+                variant={image ? "information" : undefined}
                 actions={[
                   { label: confirmLabel, onClick: onConfirm },
                   ...(props.secondaryLabel
