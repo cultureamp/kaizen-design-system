@@ -1,8 +1,8 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/typography";
-@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/typography-vars";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
+@import "~@kaizen/design-tokens/sass/animation-vars";
 @import "~@kaizen/component-library/styles/type";
-@import "~@kaizen/design-tokens/sass/animation";
 @import "~@kaizen/component-library/styles/animation";
 @import "./decision-tokens.scss";
 
@@ -10,48 +10,48 @@ $small: $ca-grid;
 
 .badge {
   @include ca-inherit-baseline;
-  border-radius: $kz-spacing-sm;
-  color: $kz-color-wisteria-800;
+  border-radius: $kz-var-spacing-sm;
+  color: $kz-var-color-wisteria-800;
   display: inline-block;
   position: relative;
-  font-family: $kz-typography-paragraph-extra-small-font-family;
-  font-size: $kz-typography-paragraph-extra-small-font-size;
-  font-weight: $kz-typography-paragraph-bold-font-weight;
-  letter-spacing: $kz-typography-paragraph-extra-small-letter-spacing;
-  line-height: $kz-typography-paragraph-extra-small-line-height;
-  padding: 1px $kz-spacing-xs;
+  font-family: $kz-var-typography-paragraph-extra-small-font-family;
+  font-size: $kz-var-typography-paragraph-extra-small-font-size;
+  font-weight: $kz-var-typography-paragraph-bold-font-weight;
+  letter-spacing: $kz-var-typography-paragraph-extra-small-letter-spacing;
+  line-height: $kz-var-typography-paragraph-extra-small-line-height;
+  padding: 1px $kz-var-spacing-xs;
   min-width: 8px;
   text-align: center;
 }
 
 .default {
   background-color: $dt-color-background-default;
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
 }
 
 .reversed.active,
 .active {
-  background-color: $kz-color-cluny-500;
-  color: $kz-color-white;
+  background-color: $kz-var-color-cluny-500;
+  color: $kz-var-color-white;
 }
 
 .dark {
-  background-color: rgba($kz-color-wisteria-700, 0.1);
-  color: $kz-color-wisteria-800;
+  background-color: rgba($kz-var-color-wisteria-700-rgb-params, 0.1);
+  color: $kz-var-color-wisteria-800;
 }
 
 .reversed.dark {
-  background-color: $kz-color-wisteria-700;
-  color: $kz-color-white;
+  background-color: $kz-var-color-wisteria-700;
+  color: $kz-var-color-white;
 }
 
 .reversed {
-  background-color: rgba($kz-color-white, 0.1);
-  color: $kz-color-white;
+  background-color: rgba($kz-var-color-white-rgb-params, 0.1);
+  color: $kz-var-color-white;
 }
 
-$badge-duration-timing: ($kz-animation-duration-slow / 2)
-  $kz-animation-easing-function-ease-in;
+$badge-duration-timing: ($kz-var-animation-duration-slow / 2)
+  $kz-var-animation-easing-function-ease-in;
 
 $badge-transition: transform $badge-duration-timing,
   background-color $badge-duration-timing;
@@ -66,7 +66,7 @@ $badge-transition: transform $badge-duration-timing,
   &.animationOn .badge {
     transform: scale3d(1.35, 1.35, 1.35);
     &.dark {
-      background-color: rgba($kz-color-wisteria-700, 0.2);
+      background-color: rgba($kz-var-color-wisteria-700-rgb-params, 0.2);
     }
   }
 }
