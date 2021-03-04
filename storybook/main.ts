@@ -34,7 +34,6 @@ const defaultStoryPaths = [
   "../packages/component-library/**/*.stories.tsx",
   "../packages/design-tokens/**/*.stories.tsx",
   "../packages/design-tokens/**/*.stories.mdx",
-  "../packages/design-tokens/README.mdx",
   "../draft-packages/**/*.stories.tsx",
   "../legacy-packages/**/*.stories.tsx",
 ]
@@ -47,6 +46,12 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-a11y",
     "storybook-addon-designs",
+    {
+      name: "@storybook/addon-docs",
+      options: {
+        transcludeMarkdown: true,
+      },
+    },
   ],
   presets: [path.resolve("./storybook/header-preset/preset")],
   webpackFinal: (config, { configType }) => {

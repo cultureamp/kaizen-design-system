@@ -23,7 +23,7 @@ These values are supplied by the ThemeManager.
 
 ## Installation
 
-```
+```sh
 yarn add @kaizen/design-tokens
 ```
 
@@ -31,7 +31,7 @@ yarn add @kaizen/design-tokens
 
 ### Sass
 
-```
+```scss
 ## Note helper functions are provided
 @import "~@kaizen/design-tokens/sass/[color/depth/layout/spacing/typography/helpers]";
 ```
