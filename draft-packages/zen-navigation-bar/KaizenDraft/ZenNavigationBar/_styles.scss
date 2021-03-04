@@ -1,4 +1,4 @@
-@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/layout";
@@ -7,6 +7,7 @@
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/responsive";
+@import "./decision-tokens.scss";
 
 $ca-navigation-bar__spacer: $ca-grid / 2;
 $ca-navigation-bar__child-height: $ca-grid * 2;
@@ -109,7 +110,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
       position: absolute;
       top: -100%;
       left: 0;
-      background-color: $kz-color-white;
+      background-color: $kz-var-color-white;
       transition: top $ca-navigation-bar__animation-ease
         $ca-navigation-bar__animation-timing;
       border-radius: 0 0 $kz-border-borderless-border-radius
@@ -120,7 +121,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   &.active {
     outline: none; // override native focus styles
     text-decoration: none;
-    color: $kz-color-white;
+    color: $kz-var-color-white;
 
     &::before {
       top: 0;
@@ -151,7 +152,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   &.menuOpen,
   &:focus {
     text-decoration: none;
-    color: $kz-color-white; // override hyperlink hover color
+    color: $kz-var-color-white; // override hyperlink hover color
 
     .hoverArea {
       background-color: rgba($kz-var-color-white-rgb-params, 0.1);
@@ -202,25 +203,25 @@ $navbar-breakpoint-condensed-large-up: 1150px;
     border-radius: $ca-grid;
     &.badgeNew {
       @include ca-padding($start: $ca-grid * 0.5, $end: $ca-grid * 0.5);
-      background-color: $kz-color-seedling-200;
-      color: $kz-color-wisteria-800;
+      background-color: $dt-color-badge-background-color-new;
+      color: $dt-color-text;
     }
     &.badgeNotification {
       @include ca-padding($start: $ca-grid / 3, $end: $ca-grid / 3);
-      background-color: $kz-color-white;
-      color: $kz-color-wisteria-800;
+      background-color: $kz-var-color-white;
+      color: $dt-color-text;
 
       @include navbar-mobile-only {
-        background-color: $kz-color-coral-500;
-        color: $kz-color-white;
+        background-color: $dt-color-badge-background-color;
+        color: $kz-var-color-white;
       }
     }
   }
 
   &.admin .badge {
     &.badgeNotification {
-      background-color: $kz-color-wisteria-800;
-      color: $kz-color-white;
+      background-color: $kz-var-color-wisteria-800;
+      color: $kz-var-color-white;
     }
   }
 
@@ -236,7 +237,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   }
 
   &.opaque {
-    color: $kz-color-white;
+    color: $kz-var-color-white;
 
     @include navbar-tablet-up {
       .linkIcon {
@@ -305,32 +306,32 @@ $navbar-breakpoint-condensed-large-up: 1150px;
 
       &.opaque,
       &.menuOpen {
-        color: $kz-color-wisteria-800;
+        color: $kz-var-color-wisteria-800;
       }
 
       &.small {
-        color: $kz-color-cluny-500;
+        color: $kz-var-color-cluny-500;
 
         &.opaque {
-          color: $kz-color-cluny-500;
+          color: $kz-var-color-cluny-500;
         }
       }
 
       &.active {
-        color: $kz-color-cluny-500;
+        color: $kz-var-color-cluny-500;
       }
 
       &:hover,
       &:focus,
       &.menuOpen {
-        color: $kz-color-cluny-500;
+        color: $kz-var-color-cluny-500;
         .hoverArea {
           background-color: rgba($kz-var-color-white-rgb-params, 0.5);
         }
       }
 
       &::before {
-        background-color: $kz-color-cluny-500;
+        background-color: $kz-var-color-cluny-500;
       }
     }
   }
@@ -338,7 +339,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   @include navbar-mobile-only {
     justify-content: flex-start;
     align-items: center;
-    color: $kz-color-wisteria-700;
+    color: $dt-color-background-color-default;
     transition: none;
     margin: 0 $ca-navigation-bar__link-item-margin-mobile;
 
@@ -346,8 +347,8 @@ $navbar-breakpoint-condensed-large-up: 1150px;
     &:hover,
     &:focus {
       .hoverArea {
-        color: $kz-color-cluny-500;
-        background-color: $kz-color-cluny-100;
+        color: $kz-var-color-cluny-500;
+        background-color: $kz-var-color-cluny-100;
 
         .menuIcon {
           opacity: 1;
@@ -367,7 +368,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: $kz-color-wisteria-700;
+  background-color: $dt-color-background-color-default;
   height: $kz-layout-navigation-bar-height;
   max-height: $kz-layout-navigation-bar-height;
   width: 100%;
@@ -380,11 +381,11 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   transition: background-color $ca-duration-slow $ca-ease-in-out;
 
   &.content {
-    background-color: $kz-color-cluny-200;
+    background-color: $dt-color-background-color-content;
   }
 
   &.admin {
-    background-color: $kz-color-white;
+    background-color: $kz-var-color-white;
   }
 }
 
@@ -398,7 +399,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
     // show custom focus ring when :focus-visible
     &:global(.focus-visible) {
       color: white;
-      outline: 2px solid $kz-color-cluny-500;
+      outline: 2px solid $kz-var-color-cluny-500;
     }
   }
 }

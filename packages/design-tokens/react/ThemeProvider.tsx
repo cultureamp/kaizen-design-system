@@ -1,7 +1,7 @@
 import React from "react"
 import { ThemeManager, defaultTheme, Theme } from "../"
 
-const ThemeContext = React.createContext<Theme>(defaultTheme)
+export const ThemeContext = React.createContext<Theme>(defaultTheme)
 
 /**
  * Wrap your application in this provider using a ThemeManager, to synchronise it with a react context.
