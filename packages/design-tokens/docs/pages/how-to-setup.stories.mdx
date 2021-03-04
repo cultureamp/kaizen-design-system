@@ -8,8 +8,9 @@ import LinkTo from '@storybook/addon-links/react'
 import howToUseInSass from './how-to-use-with-sass.stories.mdx'
 import howToUseInReact from './how-to-use-in-react.stories.mdx'
 import howToSwitchThemes from './how-to-switch-themes.stories.mdx'
+import api from './api.stories.mdx'
 
-<Meta title="How-to guides/Getting started" parameters={{ docsOnly: true }} />
+<Meta title="Design Tokens/Getting started" parameters={{ docsOnly: true }} />
 
 # Getting started
 
@@ -55,7 +56,7 @@ This means that any parts of your UI that are loaded before the theme manager (f
 
 The framework accommodates for this in two ways:
 
-- Every SASS variable that contains a CSS variable will provide a fallback value to the default theme. See [SASS Variables](#sass-variables).
+- Every SASS variable that contains a CSS variable will provide a fallback value to the default theme. See <LinkToStory storyModule={api} />
 - Allows you to import a theme-specific CSS file that defines variables on `:root`, which resides in `@kaizen/design-tokens/css/`. At the time of writing there are 3 files: `zen-theme.css`, `heart-theme.css` and `default-theme.css`, where the default theme is Zen and those two theme files will be identical.
     - For example, you could add a tag to your index.html file such as `<link rel="stylesheet" href="./node_modules/@kaizen/design-tokens/css/heart-theme.css">`
     - You could use CSS imports in a top level CSS file, like: `@import "~@kaizen/design-tokens/css/zen-theme.css"`

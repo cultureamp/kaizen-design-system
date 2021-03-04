@@ -1,30 +1,28 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 import { Box, Paragraph } from "@kaizen/component-library"
-import React from "react"
 import { Card } from "@kaizen/draft-card"
 import { Tabs } from "@kaizen/draft-tabs"
-import Highlight from "react-highlight"
-import classNames from "classnames"
-import { Meta } from "@storybook/react"
 import LinkTo from "@storybook/addon-links/react"
+import { Meta } from "@storybook/react"
+import classNames from "classnames"
+import "highlight.js/styles/monokai.css"
+import React from "react"
+import Highlight from "react-highlight"
+import { useTheme } from "../react"
 import { defaultTheme } from "../src/themes"
 import { makeCSSVariableTheme } from "../src/utils"
-import { useTheme } from "../react"
 import styles from "./styles.scss"
-
 import zenThemeSrc from "!!raw-loader!../src/themes/zen"
 import heartThemeSrc from "!!raw-loader!../src/themes/heart"
-
-import colorsSass from "!!raw-loader!../sass/color-vars.scss"
-import typographySass from "!!raw-loader!../sass/typography-vars.scss"
-import animationSass from "!!raw-loader!../sass/animation-vars.scss"
-import shadowSass from "!!raw-loader!../sass/shadow-vars.scss"
-import spacingSass from "!!raw-loader!../sass/spacing-vars.scss"
-import layoutSass from "!!raw-loader!../sass/layout-vars.scss"
-import borderSass from "!!raw-loader!../sass/border-vars.scss"
 import variableIdentifiersSass from "!!raw-loader!../sass/variable-identifiers.scss"
-import "highlight.js/styles/monokai.css"
+import typographySass from "!!raw-loader!../sass/typography-vars.scss"
+import colorsSass from "!!raw-loader!../sass/color-vars.scss"
+import spacingSass from "!!raw-loader!../sass/spacing-vars.scss"
+import shadowSass from "!!raw-loader!../sass/shadow-vars.scss"
+import layoutSass from "!!raw-loader!../sass/layout-vars.scss"
+import animationSass from "!!raw-loader!../sass/animation-vars.scss"
+import borderSass from "!!raw-loader!../sass/border-vars.scss"
 
 export const CodeBlock = (props: {
   language: string
@@ -163,9 +161,17 @@ const sassBlocks: Array<
     ),
   },
   {
+    name: "Spacing",
+    language: "scss",
+    code: spacingSass,
+    caption: (
+      <code>@import "~@kaizen/design-tokens/sass/spacing-vars.scss"</code>
+    ),
+  },
+  {
     name: "Border",
     language: "scss",
-    code: animationSass,
+    code: borderSass,
     caption: (
       <code>@import "~@kaizen/design-tokens/sass/border-vars.scss"</code>
     ),
@@ -194,6 +200,16 @@ const sassBlocks: Array<
       <code>@import "~@kaizen/design-tokens/sass/animation-vars.scss"</code>
     ),
   },
+  {
+    name: "Variable Identifiers",
+    language: "scss",
+    code: variableIdentifiersSass,
+    caption: (
+      <code>
+        @import "~@kaizen/design-tokens/sass/variable-identifiers.scss"
+      </code>
+    ),
+  },
 ]
 
 export const SassVariablesCodeBlocks = () => (
@@ -210,6 +226,7 @@ export const LinkToStory = ({
 }: {
   storyModule: Meta
   hash?: string
+  /* Children can be used to override the Link text */
   children?: React.ReactNode
 }) => (
   <LinkTo kind={storyModule.title}>

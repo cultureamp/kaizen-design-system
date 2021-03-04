@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { heartTheme, zenTheme } from "@kaizen/design-tokens"
 import { themeManager } from "./themeManager"
 

@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-
 import { useTheme } from "@kaizen/design-tokens"
 import React from "react"
 
