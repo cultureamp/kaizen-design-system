@@ -28,7 +28,7 @@ See <LinkToStory storyModule={apiPage} hash="sass-variables">SASS Variables</Lin
 
 ### Compile-time functions like `mix()` or `darken()`
 
-Because the exposes SASS variables contain values such as `var(--kz-var-color-wisteria-800)`, CSS compilers such as SASS won't be able to calculate anything that relies on concrete values such as HEX or RGB strings.
+Because the exposed SASS variables contain values such as `var(--kz-var-color-wisteria-800)`, the SASS compiler won't be able to calculate anything that relies on concrete values such as HEX strings.
 
 **It won't be possible to do things like:**
 <CodeBlock language="scss" code={`.myClass { 
@@ -37,7 +37,9 @@ Because the exposes SASS variables contain values such as `var(--kz-var-color-wi
 
 because, `$kz-var-color-wisteria-800` will hold a value like `var(--kz-var-color-wisteria-800)`, and SASS won't be able to resolve it to a concrete color value to compute the color blend.
 
-## 4. Be aware of `-rgb-params` variables - used for changing opacity with `rgba()`
+Usually when we've used functions like `mix` or `shade` it has been to lighten or darken a token by a certain amount. We recommend you just find the nearest plain value. In the example above,  you could simply use `$kz-var-color-wisteria-600`
+
+## 4. When you need to add opacity to a colour, use `rgba()` and the `-rgb-params` variables
 
 We have exposed extra sibling variables for every color, as seen in <LinkToStory storyModule={apiPage} hash="sass-variables">SASS Variables</LinkToStory>, which allow you to manipulate opacity of CSS variable colors:
 
@@ -48,10 +50,11 @@ We have exposed extra sibling variables for every color, as seen in <LinkToStory
 
 For similar reasons to the previous section, a statement like `rgba($kz-var-color-stone, 0.5)`, will not work because neither SASS or your browser can understand the expanded value: `rgba(var(--kz-var-color-stone), 0.5)`.
 
-Every color variable such as `$kz-var-color-stone` will have a matching sibling variable with the `-rgb-params` prefix and will contain a CSS variable, however it's value will be defined as a string like `240, 10, 59`, which browsers will therefore expand a statement like `rgba(var(--kz-var-color-rgb-params), 0.5)` to `rgba(240, 10, 59, 0.5)` - the latter is valid usage of the `rgba()` function.
+Every color variable such as `$kz-var-color-stone` will have a matching sibling variable with the `-rgb-params` suffix. And `$kz-var-color-stone-rgb-params` points to a CSS variable that contains a list of numbers, `249, 249, 249`, which browsers can then use in inside the `rgba()` function. 
+
+For example `rgba(var($kz-var-color-stone), 0.5)` becomes `rgba(249, 249, 249, 0.5)` - which browsers know how to handle.
 
 
 ## Migrating from compile time SASS functions like add-tint, darken, or mix
 
 A utility to help with this is coming soon. You will need to replace any function calls like these with design tokens, as these are both not computable using CSS variables, and have been deprecated for a while.
-
