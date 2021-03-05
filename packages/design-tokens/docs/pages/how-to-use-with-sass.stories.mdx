@@ -8,7 +8,6 @@ import gettingStartedPage from './getting-started.stories.mdx'
 
 # How to use design tokens in SASS
 
-
 ## 1. Setup a ThemeManager
 
 Ensure you have followed the steps in <LinkToStory storyModule={gettingStartedPage} /> to setup your application for using design tokens.
@@ -50,9 +49,9 @@ We have exposed extra sibling variables for every color, as seen in <LinkToStory
 
 For similar reasons to the previous section, a statement like `rgba($kz-var-color-stone, 0.5)`, will not work because neither SASS or your browser can understand the expanded value: `rgba(var(--kz-var-color-stone), 0.5)`.
 
-Every color variable such as `$kz-var-color-stone` will have a matching sibling variable with the `-rgb-params` suffix. And `$kz-var-color-stone-rgb-params` points to a CSS variable that contains a list of numbers, `249, 249, 249`, which browsers can then use in inside the `rgba()` function. 
+Every color variable such as `$kz-var-color-stone` will have a matching sibling variable with the `-rgb-params` suffix. And `$kz-var-color-stone-rgb-params` points to a CSS variable that contains a list of numbers, `246, 246, 246`, which browsers can then use in inside the `rgba()` function. 
 
-For example `rgba(var($kz-var-color-stone), 0.5)` becomes `rgba(249, 249, 249, 0.5)` - which browsers know how to handle.
+For example `rgba($kz-var-color-stone-rgb-params, 0.5)`, compiles to `rgba(var(--kz-var-color-stone-rgb-params), 0.5)`, which the browser then resolves to `rgba(246, 246, 246, 0.5)` with CSS variables declared.
 
 
 ## Migrating from compile time SASS functions like add-tint, darken, or mix
