@@ -17,7 +17,7 @@ module.exports = {
       typescript: {}, // this empty key is required for eslint-import-resolver-typescript
     },
   },
-  extends: ["prettier", "prettier/@typescript-eslint"],
+  extends: ["prettier"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     sourceType: "module",
