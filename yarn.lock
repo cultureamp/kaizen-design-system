@@ -3471,13 +3471,13 @@
     global "^4.3.2"
 
 "@storybook/codemod@^6.1.9":
-  version "6.1.14"
-  resolved "https://registry.yarnpkg.com/@storybook/codemod/-/codemod-6.1.14.tgz#35987a7ac41cf59fc2ff79feb3ecb99dbae7b91d"
-  integrity sha512-8iqeMBbXc6nrFEOu5R1iE8KdiOodYoAjXbEldVsRcz1RhXj2EVApnTOtoncqx3wPxvpTaRlv2DQtQuOxN57ZMA==
+  version "6.1.21"
+  resolved "https://registry.yarnpkg.com/@storybook/codemod/-/codemod-6.1.21.tgz#f1219b48c504c185dddb103aa66db86d4c67a3e3"
+  integrity sha512-sgHdQtYQ/j+DZCEG4tOnm+AGStBTzPrz6Q2Uf0f7VEHajFA0ATldc/z6WT873gSHSOKQcLsXT8W3ZLVpjlW1TA==
   dependencies:
     "@mdx-js/mdx" "^1.6.19"
     "@storybook/csf" "0.0.1"
-    "@storybook/node-logger" "6.1.14"
+    "@storybook/node-logger" "6.1.21"
     core-js "^3.0.1"
     cross-spawn "^7.0.0"
     globby "^11.0.0"
@@ -3668,10 +3668,10 @@
   dependencies:
     lodash "^4.17.15"
 
-"@storybook/node-logger@6.1.14", "@storybook/node-logger@^6.1.9":
-  version "6.1.14"
-  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.1.14.tgz#e5294f986e3ec5c67b2738895b9d16c9a2b667fa"
-  integrity sha512-3jrw7coAwFXZu4qK1vm54bCPhNRvxjG+7jISbhhocDoNIv0nLWL3+tJyrC5/k/XHQiUlLkhEzpMaASADmkttNw==
+"@storybook/node-logger@6.1.21", "@storybook/node-logger@^6.1.9":
+  version "6.1.21"
+  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.1.21.tgz#bcf882209697acfe4fc60bc224676400bce260ed"
+  integrity sha512-wQZZw4n1PG3kGOsczWCBC6+8RagYkrGYDqsVOpUcs5shGbPg5beCXDuzP4nxz2IlsoP9ZtTSaX741H791OIOjA==
   dependencies:
     "@types/npmlog" "^4.1.2"
     chalk "^4.0.0"
