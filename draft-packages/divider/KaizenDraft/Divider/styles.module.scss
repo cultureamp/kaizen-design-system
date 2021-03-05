@@ -2,6 +2,8 @@
 @import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/design-tokens/sass/variable-identifiers";
 
+// Use different tokens with different opacities across the Zen and Heart themes, by assuming that when Zen is applied there won't be any CSS variables declared.
+
 $dt-content-border-color: rgba(
   var($kz-var-id-color-slate-rgb-params, $kz-var-color-wisteria-700-rgb-params),
   0.1
