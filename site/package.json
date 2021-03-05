@@ -37,6 +37,6 @@
     "svgo-loader": "^2.2.1",
     "unist-util-visit": "^2.0.0",
     "wcag-contrast-verifier": "^1.1.0",
-    "webpack": "^4.40.2"
+    "webpack": "^5.24.3"
   }
 }
