@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-badge@1.2.5...@kaizen/draft-badge@1.3.0) (2021-03-04)
+
+
+### Features
+
+* Update Badge component to heart theme ([#1173](https://github.com/cultureamp/kaizen-design-system/issues/1173)) ([0aec6f2](https://github.com/cultureamp/kaizen-design-system/commit/0aec6f2f941d5f305a3ae451f6e977e5710a7c49))
+
+
+
+
+
 ## [1.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-badge@1.2.4...@kaizen/draft-badge@1.2.5) (2021-02-25)
 
 
