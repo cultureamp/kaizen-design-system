@@ -21977,9 +21977,9 @@ store2@^2.7.1:
   integrity sha512-7t+/wpKLanLzSnQPX8WAcuLCCeuSHoWdQuh9SB3xD0kNOM38DNf+0Oa+wmvxmYueRzkmh6IcdKFtvTa+ecgPDw==
 
 storybook-addon-designs@^5.4.3:
-  version "5.4.3"
-  resolved "https://registry.yarnpkg.com/storybook-addon-designs/-/storybook-addon-designs-5.4.3.tgz#ab4209e180e94c848f5920dc1ebbb075b4283303"
-  integrity sha512-rSEC/jX0ig8qnQz1AzbEU+s2lmlDyZTCEy3Jh//XSBiZWycm0uPbP1vcknVXHbbGhkvHRvoyROqssiCjX661ZA==
+  version "5.4.5"
+  resolved "https://registry.yarnpkg.com/storybook-addon-designs/-/storybook-addon-designs-5.4.5.tgz#28ae0070f0783a699af6b115051cfa73f38cd582"
+  integrity sha512-IYzY/LNuQA62dJ6/au3/4sC+lOIrlPuIiQJv3co3mkvokd3sjqy8LqMXu7lqD/XXbdVreJQ3WNJ2NuFHJhRasA==
   dependencies:
     react-pdf "^4.0.5"
 
