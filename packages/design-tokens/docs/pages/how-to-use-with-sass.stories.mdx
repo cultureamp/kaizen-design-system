@@ -51,7 +51,7 @@ For similar reasons to the previous section, a statement like `rgba($kz-var-colo
 
 Every color variable such as `$kz-var-color-stone` will have a matching sibling variable with the `-rgb-params` suffix. And `$kz-var-color-stone-rgb-params` points to a CSS variable that contains a list of numbers, `246, 246, 246`, which browsers can then use in inside the `rgba()` function. 
 
-For example `rgba($kz-var-color-stone-rgb-params, 0.5)`, compiles to `rgba(var(--kz-var-color-stone-rgb-params), 0.5)`, which the browser then resolves to `rgba(246, 246, 246, 0.5)` with CSS variables declared.
+For example `rgba($kz-var-color-stone-rgb-params, 0.5)`, compiles to `rgba(var(--kz-var-color-stone-rgb-params), 0.5)`, which the browser then resolves to `rgba(246, 246, 246, 0.5)`.
 
 
 ## Migrating from compile time SASS functions like add-tint, darken, or mix
