@@ -6,6 +6,7 @@
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
 
+// Use Peach 100 for Heart theme, and Peach 500 for Zen (default fallback)
 $dt-roadblock-header-background: var(
   $kz-var-id-color-peach-100,
   $kz-var-color-peach-500

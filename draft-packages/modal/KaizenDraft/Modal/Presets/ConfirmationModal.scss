@@ -6,6 +6,7 @@
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
 
+// Use different tokens for "Heart" theme with fallback values set to "Zen" theme.
 $dt-positive-header-background: var(
   $kz-var-id-color-seedling-100,
   $kz-var-color-seedling-500
