@@ -22,16 +22,16 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "9.1.0",
+  "version": "9.2.0",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
-    "@kaizen/design-tokens": "^1.4.0 || ^2",
+    "@kaizen/design-tokens": "^2.5.0",
     "focus-visible": "4.x || 5.x",
     "react": "^16.9.0"
   },
   "dependencies": {
-    "@kaizen/deprecated-component-library-helpers": "^2.1.0",
+    "@kaizen/deprecated-component-library-helpers": "^2.1.1",
     "@kaizen/hosted-assets": "^1.1.0",
     "@types/classnames": "^2.2.6",
     "@types/lodash": "^4.14.132",

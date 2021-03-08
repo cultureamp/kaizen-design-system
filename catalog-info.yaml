@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: kaizen-design-system
+  annotations:
+    github.com/project-slug: cultureamp/kaizen-design-system
+  namespace: default
+spec:
+  type: other
+  lifecycle: unknown
+  owner: foundations

@@ -1,79 +1,108 @@
+import { usePopper } from "react-popper"
 import { Icon } from "@kaizen/component-library"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
-import negativeIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
-import informativeIcon from "@kaizen/component-library/icons/information.icon.svg"
-import positiveIcon from "@kaizen/component-library/icons/success.icon.svg"
 
 import classNames from "classnames"
-import * as React from "react"
-
+import React, { useMemo, useState } from "react"
 import styles from "./styles.scss"
+import { Size, Variant } from "./types"
+import {
+  mapArrowVariantToClass,
+  mapLineVariant,
+  mapSizeToClass,
+  mapVariantToBoxClass,
+  mapVariantToIcon,
+  mapVariantToIconClass,
+} from "./classMappers"
 
-export interface Props {
-  readonly id?: string
+type Placement =
+  | "top"
+  | "bottom"
+  | "top-start"
+  | "top-end"
+  | "bottom-start"
+  | "bottom-end"
+
+export type PopoverProps = {
   readonly automationId?: string
   readonly visible?: boolean
   readonly onClose?: (event: React.MouseEvent<HTMLButtonElement>) => any
   readonly variant?: Variant
-  readonly side?: Side
+  readonly placement?: Placement
   readonly size?: Size
-  readonly position?: Position
   readonly heading?: string
   readonly dismissible?: boolean
   readonly singleLine?: boolean
   readonly children: React.ReactNode
-  readonly boxOffset?: BoxOffset
   /** For almost all intents and purposes, you should be using a pre-defined variant.
-  Please avoid using a custom icon unless you have a very good reason to do so. **/
+   Please avoid using a custom icon unless you have a very good reason to do so. **/
   readonly customIcon?: React.SVGAttributes<SVGSymbolElement>
+  readonly referenceElement: HTMLElement | null
 }
 
-type Variant =
-  | "default"
-  | "informative"
-  | "positive"
-  | "negative"
-  | "cautionary"
+type PopoverModernType = React.FunctionComponent<PopoverProps>
 
-type Side = "top" | "bottom" // | "left" | "right" - not yet implemented
+// Sync with styles.scss
+const arrowWidth = 16
+const arrowHeight = 8
 
-type Position = "start" | "center" | "end"
-
-type Size = "small" | "large"
-
-type BoxOffset =
-  | number
-  | undefined
-  | {
-      xOffset?: number // to ensure a non-breaking change, xOffset can only be a number
-      yOffset?: string
-    }
-
-type Popover = React.FunctionComponent<Props>
-
-const Popover: Popover = React.forwardRef<HTMLDivElement, Props>(
-  (
+export const Popover: PopoverModernType = ({
+  automationId,
+  children,
+  variant = "default",
+  placement = "bottom",
+  size = "small",
+  heading,
+  dismissible = false,
+  onClose,
+  singleLine = false,
+  customIcon,
+  referenceElement,
+}: PopoverProps) => {
+  const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(
+    null
+  )
+  const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(null)
+  const { styles: popperStyles, attributes } = usePopper(
+    referenceElement,
+    popperElement,
     {
-      id,
-      automationId,
-      children,
-      variant = "default",
-      side = "bottom",
-      size = "small",
-      position = "center",
-      heading,
-      dismissible = false,
-      onClose,
-      singleLine = false,
-      boxOffset,
-      customIcon,
-    },
-    ref
-  ) => (
+      modifiers: [
+        {
+          name: "arrow",
+          options: {
+            element: arrowElement,
+            // Ensures that the arrow doesn't go too far to the left or right
+            // of the tooltip.
+            padding: arrowWidth / 2 + 10,
+          },
+        },
+        {
+          name: "offset",
+          options: {
+            offset: [0, arrowHeight],
+          },
+        },
+        {
+          name: "preventOverflow",
+          options: {
+            // Makes sure that the popover isn't flush up against the end of the
+            // viewport
+            padding: 4,
+          },
+        },
+      ],
+      placement,
+    }
+  )
+
+  return (
     <div
+      ref={setPopperElement}
+      style={popperStyles.popper}
+      {...attributes.popper}
       className={classNames(styles.root, mapSizeToClass(size))}
-      style={getRootStyle(boxOffset)}
-      ref={ref}
+      data-automation-id={automationId}
     >
       <div className={mapVariantToBoxClass(variant)}>
         {heading && (
@@ -106,150 +135,58 @@ const Popover: Popover = React.forwardRef<HTMLDivElement, Props>(
         </div>
       </div>
       <div
-        className={classNames(
-          mapArrowVariantToClass(variant),
-          mapArrowSideToClass(side),
-          mapArrowPositionToClass(position)
-        )}
-        style={getArrowStyle(boxOffset, side)}
-      />
+        ref={setArrowElement}
+        style={popperStyles.arrow}
+        className={styles.arrowWrapper}
+      >
+        <div
+          className={classNames(styles.arrow, mapArrowVariantToClass(variant))}
+        />
+      </div>
     </div>
   )
-)
-
-const getRootStyle = (boxOffset: BoxOffset) => {
-  if (boxOffset == null) {
-    return { transform: "translateX(-50%)" }
-  }
-
-  const translate =
-    typeof boxOffset === "number"
-      ? `translateX(calc(-50% + ${boxOffset}px))`
-      : `translate(${
-          boxOffset.xOffset == null ? "-50%" : `${boxOffset.xOffset}px`
-        }, ${boxOffset.yOffset})`
-
-  return { transform: translate }
 }
 
-const mapVariantToBoxClass = (variant: Variant): string => {
-  switch (variant) {
-    case "informative":
-      return styles.informativeBox
-    case "positive":
-      return styles.positiveBox
-    case "negative":
-      return styles.negativeBox
-    case "cautionary":
-      return styles.cautionaryBox
-    default:
-      return styles.defaultBox
-  }
+type PopoverPropsWithoutRef = Omit<PopoverProps, "referenceElement">
+
+/**
+ * How to use:
+ *
+ * const [referenceElementRef, Popover] = usePopover()
+ *
+ * return (<>
+ *   <button ref={referenceElementRef}>
+ *     Hello world
+ *   </button>
+ *   <Popover>Hello world</Popover>
+ * </>)
+ *
+ * The purpose of this hook is to abstract away some of the awkwardness with the
+ * requirement of passing in refs with popper. We need to use `useState` instead
+ * of `useRef`, which may not be immediately intuitive.
+ *
+ * The popper documentation to help provide more context:
+ *   https://popper.js.org/react-popper/v2/hook/
+ */
+export const usePopover = (): [
+  (element: HTMLElement | null) => void,
+  React.FunctionComponent<PopoverPropsWithoutRef>
+] => {
+  const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(
+    null
+  )
+
+  // I guess the problem with this pattern, is that every time referenceElement
+  // changes, a brand new component is generated, which would be bad for memoization.
+  // In this situation however, the value is rarely going to change, and
+  // popovers aren't going to include content with expensive render times.
+  const PopoverWithRef = useMemo(
+    () => (props: PopoverPropsWithoutRef) =>
+      referenceElement ? (
+        <Popover {...props} referenceElement={referenceElement} />
+      ) : null,
+    [referenceElement]
+  )
+
+  return [setReferenceElement, PopoverWithRef]
 }
-
-const getArrowStyle = (boxOffset: BoxOffset, side: Side) => {
-  const rotate = side === "top" ? "rotate(180deg)" : ""
-  let translate = ""
-  if (boxOffset != null) {
-    if (typeof boxOffset === "number") {
-      translate = `translateX(${boxOffset * -1}px)`
-    } else if (boxOffset.xOffset != null)
-      // Because we shifted the popover in the parent, we need to readjust the
-      // arrow back to where it was.
-      translate = `translateX(${boxOffset.xOffset * -1}px)`
-  }
-
-  return rotate || translate
-    ? {
-        transform: `${translate}${rotate}`,
-      }
-    : undefined
-}
-
-const mapVariantToIconClass = (variant: Variant) => {
-  switch (variant) {
-    case "informative":
-      return styles.informativeIcon
-    case "positive":
-      return styles.positiveIcon
-    case "negative":
-      return styles.negativeIcon
-    case "cautionary":
-      return styles.cautionaryIcon
-    default:
-      return undefined
-  }
-}
-
-const mapVariantToIcon = (
-  variant: Variant
-): React.SVGAttributes<SVGSymbolElement> => {
-  switch (variant) {
-    case "informative":
-      return informativeIcon
-    case "positive":
-      return positiveIcon
-    case "negative":
-      return negativeIcon
-    case "cautionary":
-      return negativeIcon
-    default:
-      return informativeIcon
-  }
-}
-
-const mapArrowVariantToClass = (variant: Variant): string => {
-  switch (variant) {
-    case "informative":
-      return styles.informativeArrow
-    case "positive":
-      return styles.positiveArrow
-    case "negative":
-      return styles.negativeArrow
-    case "cautionary":
-      return styles.cautionaryArrow
-    default:
-      return styles.defaultArrow
-  }
-}
-
-const mapArrowPositionToClass = (position: Position): string => {
-  switch (position) {
-    case "start":
-      return styles.arrowPositionStart
-    case "end":
-      return styles.arrowPositionEnd
-    case "center":
-      return styles.arrowPositionCenter
-    default:
-      return ""
-  }
-}
-
-const mapArrowSideToClass = (side: Side): string => {
-  switch (side) {
-    case "top":
-      return styles.arrowSideTop
-    default:
-      return styles.arrowSideBottom
-  }
-}
-
-const mapSizeToClass = (size: Size): string => {
-  switch (size) {
-    case "large":
-      return styles.large
-    default:
-      return ""
-  }
-}
-
-const mapLineVariant = (singleLine: boolean): string => {
-  if (singleLine === true) {
-    return styles.singleLine
-  } else {
-    return ""
-  }
-}
-
-export default Popover

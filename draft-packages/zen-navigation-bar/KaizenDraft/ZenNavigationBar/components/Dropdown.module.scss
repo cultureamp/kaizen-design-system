@@ -1,4 +1,4 @@
-@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/component-library/styles/type";
 @import "~@kaizen/component-library/styles/layout";
 @import "../styles";
@@ -8,8 +8,9 @@
   align-items: center;
   position: absolute;
   z-index: $ca-z-index-dropdown;
-  background-color: $kz-color-white;
-  box-shadow: 0 0 ($ca-grid / 2) rgba($kz-color-wisteria-800, 0.3);
+  background-color: $kz-var-color-white;
+  box-shadow: 0 0 ($ca-grid / 2)
+    rgba($kz-var-color-wisteria-800-rgb-params, 0.3);
   border-radius: $kz-border-solid-border-radius;
   overflow: hidden;
   padding: 4px 0 0;

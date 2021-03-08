@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.5.0...@kaizen/design-tokens@2.5.1) (2021-02-25)
+
+
+### Bug Fixes
+
+* export the ThemeContext ([#1132](https://github.com/cultureamp/kaizen-design-system/issues/1132)) ([acfc643](https://github.com/cultureamp/kaizen-design-system/commit/acfc643593babdbd815e5fc130134bcfd770a706))
+
+
+
+
+
 # [2.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.4.4...@kaizen/design-tokens@2.5.0) (2021-02-18)
 
 

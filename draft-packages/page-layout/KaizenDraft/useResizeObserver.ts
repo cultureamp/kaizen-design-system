@@ -36,7 +36,7 @@ export const useResizeObserver = <T, E extends Element = HTMLElement>(
 
   const ref: Ref<E> = useCallback(
     (node: E) => {
-      if (node !== undefined) {
+      if (node) {
         const resizeObserver = new ResizeObserver(
           (entries: ResizeObserverEntry[]) => {
             for (const entry of entries) {

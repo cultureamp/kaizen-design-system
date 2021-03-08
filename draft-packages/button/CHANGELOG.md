@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@3.2.1...@kaizen/draft-button@3.2.2) (2021-02-26)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [3.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@3.2.0...@kaizen/draft-button@3.2.1) (2021-02-25)
+
+
+### Bug Fixes
+
+* Update minimum design-token dependency ([#1131](https://github.com/cultureamp/kaizen-design-system/issues/1131)) ([ce8182c](https://github.com/cultureamp/kaizen-design-system/commit/ce8182c054c9e8bc96bfdba8457bcd169d449204))
+
+
+
+
+
+# [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@3.1.11...@kaizen/draft-button@3.2.0) (2021-02-25)
+
+
+### Features
+
+* Add secondary destructive button variant ([#1109](https://github.com/cultureamp/kaizen-design-system/issues/1109)) ([4566b59](https://github.com/cultureamp/kaizen-design-system/commit/4566b59a37b8e821d58864088ab6858de212fe15))
+
+
+
+
+
+## [3.1.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@3.1.10...@kaizen/draft-button@3.1.11) (2021-02-25)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [3.1.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@3.1.9...@kaizen/draft-button@3.1.10) (2021-02-25)
+
+
+### Bug Fixes
+
+* Use rgb-param variables in rgba ([#1094](https://github.com/cultureamp/kaizen-design-system/issues/1094)) ([4e7f0c7](https://github.com/cultureamp/kaizen-design-system/commit/4e7f0c7cbdadd5a0d606b58ed4b0f1344b8b9d99))
+
+
+
+
+
 ## [3.1.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@3.1.8...@kaizen/draft-button@3.1.9) (2021-02-22)
 
 **Note:** Version bump only for package @kaizen/draft-button

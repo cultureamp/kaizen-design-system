@@ -3,6 +3,88 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.8.1...@kaizen/draft-popover@2.0.0) (2021-03-03)
+
+
+### Features
+
+* Add popper layout engine to `Popover` ([#1178](https://github.com/cultureamp/kaizen-design-system/issues/1178)) ([9b96a06](https://github.com/cultureamp/kaizen-design-system/commit/9b96a06a2dbe687c3fa5d3b05a43be3e2a75e296))
+
+
+### BREAKING CHANGES
+
+* To quickly fix all breaking changes, simply import `PopoverLegacy` instead of `Popover` from `@kaizen/draft-popover`. Codemod:
+
+```
+codemod -m -d ./src --extensions tsx,jsx 'import \{([\,\w\s]*)Popover([\w\W]*)\} from "@kaizen\/draft-popover"' 'import {\1PopoverLegacy\2} from "@kaizen/draft-popover"'
+codemod -m -d ./src --extensions tsx,jsx '<Popover([\w\W]*)<\/Popover>' '<PopoverLegacy\1</PopoverLegacy>'
+```
+
+With that said, it is recommended that you start using the `usePopover` hook (see the stories for more examples), or the new `Popover` component if you are using a class component (see the `usePopover` hook to see how this needs to be wired up).
+* The `boxOffset` property has been removed. Now that the new `Popover` uses popper, it will automatically determine the offset. This property was also being overloaded with two types of offsets, depending on the value type, which was confusing.
+* With the new version of `Popover`, the `side` and `position` props are no longer used. Use `placement` instead. Also note, the `placement` describes the position of the popover, relative to the referenceElement, which is unlike the legacy popover, where it describes the placement of the arrow.
+* We now use popper as the positioning engine, which shouldn't cause any breaking change, but please test your popovers when upgrading this package.
+
+# Side updates
+* Fix the `automationId` prop not getting added to the root div element
+* Remove the `id` prop, which wasn't getting used.
+
+
+
+
+
+## [1.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.8.0...@kaizen/draft-popover@1.8.1) (2021-03-03)
+
+
+### Bug Fixes
+
+* Revert Add popper layout engine to  ([#1151](https://github.com/cultureamp/kaizen-design-system/issues/1151)) ([#1174](https://github.com/cultureamp/kaizen-design-system/issues/1174)) ([59b96b8](https://github.com/cultureamp/kaizen-design-system/commit/59b96b8d5f357b61207fec1dab65405a3ffb4e26))
+
+
+
+
+
+# [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.7.24...@kaizen/draft-popover@1.8.0) (2021-03-02)
+
+
+### Features
+
+* Add popper layout engine to `Popover` ([#1151](https://github.com/cultureamp/kaizen-design-system/issues/1151)) ([193a65c](https://github.com/cultureamp/kaizen-design-system/commit/193a65cfc911280f284d52f5133e48e78d7449a1))
+
+
+
+
+
+## [1.7.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.7.23...@kaizen/draft-popover@1.7.24) (2021-02-26)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [1.7.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.7.22...@kaizen/draft-popover@1.7.23) (2021-02-25)
+
+
+### Bug Fixes
+
+* Update minimum design-token dependency ([#1131](https://github.com/cultureamp/kaizen-design-system/issues/1131)) ([ce8182c](https://github.com/cultureamp/kaizen-design-system/commit/ce8182c054c9e8bc96bfdba8457bcd169d449204))
+
+
+
+
+
+## [1.7.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.7.21...@kaizen/draft-popover@1.7.22) (2021-02-25)
+
+
+### Bug Fixes
+
+* Use rgb-param variables in rgba ([#1094](https://github.com/cultureamp/kaizen-design-system/issues/1094)) ([4e7f0c7](https://github.com/cultureamp/kaizen-design-system/commit/4e7f0c7cbdadd5a0d606b58ed4b0f1344b8b9d99))
+
+
+
+
+
 ## [1.7.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@1.7.20...@kaizen/draft-popover@1.7.21) (2021-02-22)
 
 **Note:** Version bump only for package @kaizen/draft-popover

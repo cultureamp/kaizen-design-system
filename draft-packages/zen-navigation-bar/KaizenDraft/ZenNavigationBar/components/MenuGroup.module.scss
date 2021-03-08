@@ -1,11 +1,11 @@
-@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/component-library/styles/layout";
 @import "../styles";
 
 .container {
   @include ca-padding($start: 0);
 
-  border-top: 1px solid rgba($kz-color-wisteria-800, 0.1);
+  border-top: 1px solid rgba($kz-var-color-wisteria-800-rgb-params, 0.1);
   list-style: none;
 
   &:first-child {
@@ -22,7 +22,7 @@
     width: 100%;
 
     &:first-child {
-      border-top: 1px solid rgba($kz-color-wisteria-800, 0.1);
+      border-top: 1px solid rgba($kz-var-color-wisteria-800-rgb-params, 0.1);
     }
 
     // Required because of the way this is nested
@@ -48,13 +48,13 @@
   margin: 0;
   white-space: nowrap;
 
-  color: rgba($kz-color-wisteria-800, 0.8);
+  color: rgba($kz-var-color-wisteria-800-rgb-params, 0.8);
 
   .offCanvas & {
     @include ca-padding($top: 10px, $bottom: 4px, $start: 12px, $end: 12px);
     @include font-heading-6;
 
     margin: 0 10px;
-    color: $kz-color-wisteria-800;
+    color: $kz-var-color-wisteria-800;
   }
 }

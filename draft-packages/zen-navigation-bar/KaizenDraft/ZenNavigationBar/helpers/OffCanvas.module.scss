@@ -1,4 +1,4 @@
-@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/component-library/styles/color";
 @import "~@kaizen/component-library/styles/type";
@@ -20,8 +20,8 @@ $menu-footer-height: 80px;
   top: 0;
   left: 0;
   transform: translate3d(-120%, 0, 0);
-  background-color: $kz-color-white;
-  color: $kz-color-wisteria-800;
+  background-color: $kz-var-color-white;
+  color: $kz-var-color-wisteria-800;
   transition: transform $ca-duration-fast $ca-ease-out;
   box-shadow: $kz-shadow-small-box-shadow;
 }
@@ -38,7 +38,7 @@ $menu-footer-height: 80px;
   position: absolute;
   top: $ca-grid / 2;
   left: $ca-grid / 2;
-  color: $kz-color-cluny-500;
+  color: $kz-var-color-cluny-500;
   height: $hamburger-width;
   width: $hamburger-width;
   padding-bottom: $hamburger-layer-height;
@@ -51,7 +51,7 @@ $menu-footer-height: 80px;
 .hamburger {
   width: $hamburger-width;
   height: $hamburger-layer-height;
-  background-color: $kz-color-cluny-500;
+  background-color: $kz-var-color-cluny-500;
   position: relative;
   display: block;
 
@@ -62,7 +62,7 @@ $menu-footer-height: 80px;
     position: absolute;
     top: $hamburger-layer-height + $hamburger-layer-spacing;
     left: 0;
-    background-color: $kz-color-cluny-500;
+    background-color: $kz-var-color-cluny-500;
   }
 
   &::after {
@@ -72,7 +72,7 @@ $menu-footer-height: 80px;
     position: absolute;
     top: ($hamburger-layer-height + $hamburger-layer-spacing) * 2;
     left: 0;
-    background-color: $kz-color-cluny-500;
+    background-color: $kz-var-color-cluny-500;
   }
 }
 
@@ -94,7 +94,7 @@ $menu-footer-height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $kz-color-white;
+  color: $kz-var-color-white;
   width: 22px;
   height: 22px;
 }
