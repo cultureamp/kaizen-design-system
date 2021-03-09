@@ -1,10 +1,11 @@
-@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/shadow";
-@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/typography-vars";
 @import "~@kaizen/component-library/styles/grid";
+@import "./decision-tokens.scss";
 
 .wrapper {
-  background: $kz-color-stone;
+  @include avatar-theme-switching-tokens;
+  background: $dt-color-background-color;
   border-radius: 100%;
   box-sizing: border-box;
   overflow: hidden;
@@ -14,16 +15,17 @@
 
   &:not(.small) {
     box-shadow: $kz-shadow-small-box-shadow;
-    border: 3px solid $kz-color-white;
+    border: 3px solid $dt-color-border-color;
   }
+
   // Themes
 
   &.personal {
-    background: $kz-color-peach-200;
+    background: $dt-color-background-color-personal;
   }
 
   &.otherUser {
-    background: $kz-color-wisteria-200;
+    background: $dt-color-background-color-initials;
   }
 
   // Sizes
@@ -54,7 +56,7 @@
 }
 
 .fallbackIcon {
-  color: rgba($kz-color-wisteria-800, 0.3);
+  color: $dt-color-icon-color;
   width: 28px;
   .medium & {
     width: 20px;
@@ -66,16 +68,16 @@
 
 .initials {
   box-sizing: border-box;
-  color: $kz-color-wisteria-800;
+  color: $dt-color-text-color;
   padding-left: 5px;
   padding-right: 5px;
   text-align: center;
   width: 100%;
 
   font-size: 22px;
-  font-family: $kz-typography-heading-1-font-family;
-  font-weight: $kz-typography-heading-1-font-weight;
-  letter-spacing: $kz-typography-heading-3-letter-spacing;
+  font-family: $kz-var-typography-heading-1-font-family;
+  font-weight: $kz-var-typography-heading-1-font-weight;
+  letter-spacing: $kz-var-typography-heading-3-letter-spacing;
 
   // Whitespace cropping
 
@@ -87,13 +89,13 @@
 
   .medium & {
     font-size: 16px;
-    font-weight: $kz-typography-heading-5-font-weight;
-    letter-spacing: $kz-typography-heading-5-letter-spacing;
+    font-weight: $kz-var-typography-heading-5-font-weight;
+    letter-spacing: $kz-var-typography-heading-5-letter-spacing;
   }
 
   .small & {
     font-size: 8px;
-    font-weight: $kz-typography-heading-5-font-weight;
-    letter-spacing: $kz-typography-heading-5-letter-spacing;
+    font-weight: $kz-var-typography-heading-5-font-weight;
+    letter-spacing: $kz-var-typography-heading-5-letter-spacing;
   }
 }

@@ -1,0 +1,26 @@
+@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/variable-identifiers";
+
+@mixin avatar-theme-switching-tokens() {
+  --avatar--color-icon-color: rgba(
+    var(#{$kz-var-id-color-wisteria-800-rgb-params}),
+    0.7
+  );
+}
+
+$dt-color-background-color: var($kz-var-id-color-ash, $kz-var-color-stone);
+$dt-color-background-color-initials: var(
+  $kz-var-id-color-ash,
+  $kz-var-color-wisteria-200
+);
+$dt-color-background-color-personal: var(
+  $kz-var-id-color-peach-100,
+  $kz-var-color-peach-200
+);
+$dt-color-text-color: $kz-var-color-wisteria-800;
+$dt-color-border-color: $kz-var-color-white;
+$dt-color-icon-color: var(
+  --avatar--color-icon-color,
+  rgba($kz-var-color-wisteria-800-rgb-params, 0.3)
+);
