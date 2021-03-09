@@ -14,10 +14,10 @@ Ensure you have followed the steps in <LinkToStory storyModule={gettingStartedPa
 
 ## 2. Start using design tokens
 
-Tokens (which contain CSS variables, e.g `var(--kz-var-color-ash)`) can be subscribed to in SASS by importing variables exposed by the package.
+* Import the CSS variable versions of the tokens
+* Use these tokens in your CSS. They will be compiled to CSS variables (e.g. `$kz-var-color-wisteria-800` will become `var(--kz-var-color-wisteria-800)`)
 
 Example:
-
 <CodeBlock language="scss" code={exampleSass} />
 
 See <LinkToStory storyModule={apiPage} /> for all available tokens.
@@ -25,20 +25,21 @@ See <LinkToStory storyModule={apiPage} /> for all available tokens.
 
 ## 3. Be aware of the limitations of CSS variables in SASS
 
-### Compile-time functions like `mix()` or `darken()`
-
-Because the exposed SASS variables contain values such as `var(--kz-var-color-wisteria-800)`, the SASS compiler won't be able to calculate anything that relies on concrete values such as HEX strings.
+### Compile-time functions like `mix()` or `darken()` won't work
 
 **It won't be possible to do things like:**
 <CodeBlock language="scss" code={`.myClass { 
     color: mix(white, $kz-var-color-wisteria-800, 90%);
 }`} />
 
-because, `$kz-var-color-wisteria-800` will hold a value like `var(--kz-var-color-wisteria-800)`, and SASS won't be able to resolve it to a concrete color value to compute the color blend.
 
-Usually when we've used functions like `mix` or `shade` it has been to lighten or darken a token by a certain amount. We recommend you just find the nearest plain value. In the example above,  you could simply use `$kz-var-color-wisteria-600`
+Because the exposed SASS variables contain values such as `var(--kz-var-color-wisteria-800)`, the SASS compiler won't be able to calculate anything that relies on concrete values such as HEX strings.
+
+Usually when we've used functions like `mix` or `shade` it has been to lighten or darken a token by a certain amount. We recommend you find the nearest plain value. In the example above, you could simply use `$kz-var-color-wisteria-600`.
 
 ## 4. When you need to add opacity to a colour, use `rgba()` and the `-rgb-params` variables
+
+**Use `rgba($kz-var-color-wisteria-800-rgb-params, 0.5)` instead of `rgba($kz-var-color-wisteria-800, 0.5)` to add alpha to a color.**
 
 We have exposed extra sibling variables for every color, as seen in <LinkToStory storyModule={apiPage} hash="sass-variables">SASS Variables</LinkToStory>, which allow you to manipulate opacity of CSS variable colors:
 
