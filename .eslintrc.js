@@ -215,7 +215,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["*.stories.tsx", "*.spec.tsx"],
+      files: ["*.stories.tsx", "*.spec.tsx", "*.docsExample.tsx"],
       rules: {
         "import/no-extraneous-dependencies": "off",
       },
