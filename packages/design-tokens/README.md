@@ -15,7 +15,7 @@ In its current state this package supports Sass and Less variables, generated fr
 
 **Please note** that the helpers in this package are specifically for accessing and using these design tokens. Component-specific helpers are best suited for kaizen-component-library.
 
-As of V3, design tokens are also **themable**; they are intended to be used as if they can be **switched at runtime**. Because of this, we employ [CSS Variables](https://www.w3schools.com/css/css3_variables.asp)
+As of V3, design tokens are also **themable**; they are intended to be used as if they can be **switched at runtime**. Because of this, we employ [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
 to support this feature, so when consuming tokens in SASS/LESS you should assume they will contain values such as `var(--kz-var-color-...)`, rather than concrete values such as `1.5rem` or `#fff`.
 These values are supplied by the ThemeManager.
 
