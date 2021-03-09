@@ -92,7 +92,7 @@ const ConfirmationModal = ({
       automationId={automationId}
     >
       <div className={styles.modal}>
-        <ModalHeader unpadded reversed onDismiss={onDismiss}>
+        <ModalHeader unpadded onDismiss={onDismiss}>
           <div
             className={classnames(styles.header, {
               [styles.cautionaryHeader]: type === "cautionary",
