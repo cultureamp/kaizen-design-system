@@ -9,7 +9,6 @@ import classNames from "classnames"
 import "highlight.js/styles/monokai.css"
 import React from "react"
 import Highlight from "react-highlight"
-import { useTheme } from "../react"
 import { defaultTheme } from "../src/themes"
 import { makeCSSVariableTheme } from "../src/utils"
 import styles from "./styles.scss"
@@ -28,40 +27,23 @@ export const CodeBlock = (props: {
   language: string
   caption?: React.ReactNode
   code: string
-}) => {
-  const theme = useTheme()
-  return (
-    <Box py={0.5}>
-      <Card>
-        <div
-          style={{
-            maxHeight: "25rem",
-            overflow: "auto",
-            borderRadius: theme.border.solid.borderRadius,
-          }}
-          className={styles.codeWrapper}
-        >
-          <Highlight className={props.language}>{props.code}</Highlight>
-        </div>
-      </Card>
+}) => (
+  <Box py={0.5}>
+    <Card>
+      <div className={styles.codeWrapper}>
+        <Highlight className={props.language}>{props.code}</Highlight>
+      </div>
+    </Card>
 
-      {props.caption && (
-        <div
-          style={{
-            textAlign: "center",
-            padding: "0.75rem 0 2rem",
-          }}
-        >
-          <Paragraph variant="small">
-            <span style={{ color: theme.color.wisteria[600] }}>
-              {props.caption}
-            </span>
-          </Paragraph>
-        </div>
-      )}
-    </Box>
-  )
-}
+    {props.caption && (
+      <div className={styles.codeWrapperCaption}>
+        <Paragraph variant="small">
+          <span className={styles.codeWrapperCaptionText}>{props.caption}</span>
+        </Paragraph>
+      </div>
+    )}
+  </Box>
+)
 
 const TabbedCodeBlocks = ({
   blocks,
