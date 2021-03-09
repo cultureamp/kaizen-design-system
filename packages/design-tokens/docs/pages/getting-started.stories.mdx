@@ -51,7 +51,7 @@ See <LinkToStory storyModule={howToSwitchThemes} /> for more details and complex
 
 #### Before a ThemeManager has been instantiated, no CSS variables will have been defined on the DOM automatically.
 
-However, **all tokens will automatically work because every CSS token will provide a fallback value to the default theme.** See <LinkToStory storyModule={api} />.
+However, **all tokens will automatically work because every CSS variable token will provide a fallback value to the default theme.** See <LinkToStory storyModule={api} />.
 
 This means that any parts of your UI that are loaded before the theme manager (for example HAML blocks) will render initially without CSS variables defined, which can result in a flash of unstyled content, or a visual theme change after the page has loaded.
 
