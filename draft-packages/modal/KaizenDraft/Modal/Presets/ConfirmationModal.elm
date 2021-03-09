@@ -191,7 +191,8 @@ view (Config config) =
                 |> withHeaderDismissBlur
                 |> withHeaderDismissId
                 |> withPreventHeaderDismissKeydown
-            )
+                |> ModalHeader.dismissReverse False
+            ) 
         , withBody
         , ModalFooter.view <|
             (ModalFooter.layout (footer config)

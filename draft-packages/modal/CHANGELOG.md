@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.2.0...@kaizen/draft-modal@5.2.1) (2021-03-09)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+# [5.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.1.22...@kaizen/draft-modal@5.2.0) (2021-03-09)
+
+
+### Features
+
+* Update Modal to support Heart ([#1185](https://github.com/cultureamp/kaizen-design-system/issues/1185)) ([e00d644](https://github.com/cultureamp/kaizen-design-system/commit/e00d6447f954583dd44db869fe1b68f82ab42383))
+
+
+
+
+
 ## [5.1.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.1.21...@kaizen/draft-modal@5.1.22) (2021-02-26)
 
 **Note:** Version bump only for package @kaizen/draft-modal
