@@ -18,49 +18,44 @@ This document should serve as an explanation for how to use our design tokens - 
 
 ## 1. Setup a ThemeManager
 
-The first thing you need to do, per application, is instantiate a *singleton* `ThemeManager` class with the default theme as the initial theme, or another of your choice.
-It is responsible for maintaining the state of the currently active theme, and applying themes to the DOM through CSS variables to make them accessible in SASS/LESS/CSS.
-
-Example: 
 <CodeBlock language="typescript" code={
 `import { ThemeManager, defaultTheme } from '@kaizen/design-tokens'
 export const themeManager = new ThemeManager(defaultTheme);`
 } />
 
-Design tokens are themable. You consume them with the assumption that they can change at runtime; you should **subscribe** to them rather than access them.
+* Instantiate a `ThemeManager` with your choice of initial theme. If you're not sure, use the `defaultTheme`.
+* There should only be one instance per application (singleton).
+* It is responsible for holding the state of the current theme.
+* The current theme can be subscribed to using `addThemeChangeListener` so you can be reactive to changes. This is the preferred way to consume tokens in JS/TS.
+* Themes are applied to the DOM as a flattened list of CSS variables, so that changes to the current theme are also reflected in CSS (or SASS/LESS)
 
 **Note**: it is important to be aware of the loading order of your application's assets. This code needs to be run *before* any parts of your UI (that depend on CSS variables being defined) are visible. See [Caveats](#caveats)
 
 ## 2. Start using design tokens
 
-The recommended approaches to consuming design tokens current are to:
+The recommended approaches to consuming design tokens are to:
 
-- Import their CSS variables representations in SASS - <LinkToStory storyModule={howToUseInSass} />
-- In a React application, use context and hook components to subscribe and consume the current theme values - <LinkToStory storyModule={howToUseInReact} />
+* Import their CSS variables representations in SASS - <LinkToStory storyModule={howToUseInSass} />
+* In a React application, use the context and hook components to subscribe and consume the current theme values - <LinkToStory storyModule={howToUseInReact} />
+* Subscribe to the theme using `themeManager.addThemeChangeListener(theme => ...)` and react to changes.
 
-Alternatively, you may access the design tokens directly by using `themeManager.getCurrentTheme()`, or subscribing to the current theme using `themeManager.addThemeChangeListener(theme => ...)`
 
 ## 3. Switching themes
 
-You may at some point want to change themes, for example based on user preferences or flags.
-
-You can call `themeManager.setAndApplyTheme(themeObject)` to do this, which will set CSS variables accordingly and update all subscribers.
+* Call `themeManager.setAndApplyTheme(themeObject)` which will set CSS variables accordingly and update all subscribers.
 
 See <LinkToStory storyModule={howToSwitchThemes} /> for more details and complex examples.
 
 
 ## Caveats
 
-Before a ThemeManager has been instantiated, no CSS variables will have been defined on the DOM automatically. 
+#### Before a ThemeManager has been instantiated, no CSS variables will have been defined on the DOM automatically.
+
+However, all tokens will automatically work because **every SASS variable that contains a CSS variable will provide a fallback value to the default theme.** See <LinkToStory storyModule={api} />.
+
 This means that any parts of your UI that are loaded before the theme manager (for example HAML blocks) will render initially without CSS variables defined, which can be bad if no fallbacks are defined in your usages of CSS variables.
 
-The framework accommodates for this in two ways:
+#### Import a CSS file to apply a theme if you can't instantiate a ThemeManager.
 
-- Every SASS variable that contains a CSS variable will provide a fallback value to the default theme. See <LinkToStory storyModule={api} />
-- Allows you to import a theme-specific CSS file that defines variables on `:root`, which resides in `@kaizen/design-tokens/css/`. At the time of writing there are 3 files: `zen-theme.css`, `heart-theme.css` and `default-theme.css`, where the default theme is Zen and those two theme files will be identical.
-    - For example, you could add a tag to your index.html file such as `<link rel="stylesheet" href="./node_modules/@kaizen/design-tokens/css/heart-theme.css">`
-    - You could use CSS imports in a top level CSS file, like: `@import "~@kaizen/design-tokens/css/zen-theme.css"`
-    - Or, if your build system supports it, add a JS import statement like `import "@kaizen/design-tokens/css/default-theme.css"`. However, if you are able to load CSS in this manner before all UI components, you can probably instantiate a ThemeManager too. 
-
-A further caveat is that if you need to load a different theme based on user-preferences or feature flags, you will most likely need to use a ThemeManager to control which one is active, hence if the theme loaded initially doesn't match the one loaded by the ThemeManager, incorrect styles may initially flash.
-
+* Add `import "@kaizen/design-tokens/css/default-theme.css"` to your JS/TS source to apply the default theme's CSS variables on the `:root` element.
+* Similarly, you can add `<link rel="stylesheet" href="./node_modules/@kaizen/design-tokens/css/default-theme.css">` to your HTML.
