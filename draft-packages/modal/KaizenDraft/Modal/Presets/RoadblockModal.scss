@@ -1,9 +1,16 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
+@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
+
+// Use Peach 100 for Heart theme, and Peach 500 for Zen (default fallback)
+$dt-roadblock-header-background: var(
+  $kz-var-id-color-peach-100,
+  $kz-var-color-peach-500
+);
 
 .modal {
   composes: genericModal from "../Primitives/GenericModal.scss";
@@ -12,29 +19,29 @@
 }
 
 .header {
-  padding: $kz-spacing-lg $kz-spacing-md $kz-spacing-sm;
+  padding: $kz-var-spacing-lg $kz-var-spacing-md $kz-var-spacing-sm;
   text-align: center;
   position: relative;
 }
 
 .headerBackground {
-  background-color: $kz-color-peach-500;
+  background-color: $dt-roadblock-header-background;
   height: 120px;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  border-radius: $kz-border-solid-border-radius $kz-border-solid-border-radius 0
-    0;
+  border-radius: $kz-var-border-solid-border-radius
+    $kz-var-border-solid-border-radius 0 0;
 }
 
 .body {
-  padding: $kz-spacing-md $kz-spacing-xxxxl $kz-spacing-sm;
+  padding: $kz-var-spacing-md $kz-var-spacing-xxxxl $kz-var-spacing-sm;
 }
 
 .iconContainer {
   position: relative;
-  margin-bottom: $kz-spacing-sm;
+  margin-bottom: $kz-var-spacing-sm;
 }
 
 .spotIcon {
