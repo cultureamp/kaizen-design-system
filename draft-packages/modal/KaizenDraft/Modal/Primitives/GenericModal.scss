@@ -1,6 +1,6 @@
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/shadow-vars";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/layers";
@@ -42,13 +42,13 @@
 
 .genericModal {
   margin: auto;
-  background-color: $kz-color-white;
-  border-radius: $kz-border-solid-border-radius;
-  box-shadow: $kz-shadow-large-box-shadow;
+  background-color: $kz-var-color-white;
+  border-radius: $kz-var-border-solid-border-radius;
+  box-shadow: $kz-var-shadow-large-box-shadow;
   position: relative;
   width: 90%;
   -webkit-font-smoothing: antialiased;
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
 
   @include ca-media-tablet-and-up {
     width: 100%;
