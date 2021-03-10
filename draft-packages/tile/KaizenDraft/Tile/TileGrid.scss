@@ -1,10 +1,8 @@
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/layout";
-@import "~@kaizen/component-library/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
 
 .grid {
-  max-width: $kz-layout-content-max-width;
   display: grid;
   grid-template-columns: repeat(auto-fit, 330px);
   grid-gap: $kz-spacing-md;
