@@ -4,7 +4,7 @@ import { heartTheme, ThemeProvider, zenTheme } from "@kaizen/design-tokens"
 import { addParameters } from "@storybook/react"
 import { addons } from "@storybook/addons"
 import { backgrounds } from "./backgrounds"
-import { themeManager } from "./themeManager"
+import { themeManager, themeOfKey } from "./theme-switcher-addon/themeManager"
 // Polyfill for :focus-visible pseudo-selector
 // See: https://github.com/WICG/focus-visible
 require("focus-visible")
@@ -32,15 +32,6 @@ addParameters({
     },
   },
 })
-
-const themeOfKey = (themeKey: string) => {
-  switch (themeKey) {
-    case "heart":
-      return heartTheme
-    default:
-      return zenTheme
-  }
-}
 
 addons.getChannel().addListener("theme-changed", (theme: unknown) => {
   if (typeof theme === "string") {

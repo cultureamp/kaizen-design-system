@@ -1,17 +1,22 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { defaultTheme, ThemeKey } from "@kaizen/design-tokens"
+import { ThemeKey } from "@kaizen/design-tokens"
 import { addons } from "@storybook/addons"
 import { useAddonState } from "@storybook/api"
 import React, { useEffect } from "react"
-export const ADDON_ID = "theme-switcher"
+import { ADDON_ID, THEME_KEY_STORE_KEY } from "./constants"
+import { getInitialTheme } from "./themeManager"
+
 export const App = () => {
-  const [theme, setTheme] = useAddonState<ThemeKey>(
+  const [theme, setTheme] = useAddonState<string>(
     ADDON_ID,
-    defaultTheme.themeKey
+    getInitialTheme().themeKey
   )
 
   useEffect(() => {
-    addons.getChannel().emit("theme-changed", theme)
+    addons.ready().then(() => {
+      addons.getChannel().emit("theme-changed", theme)
+      localStorage.setItem(THEME_KEY_STORE_KEY, theme)
+    })
   }, [theme])
 
   return (
