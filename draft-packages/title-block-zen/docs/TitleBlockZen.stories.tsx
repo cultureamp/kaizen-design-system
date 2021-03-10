@@ -716,90 +716,86 @@ export const DefaultNoSecondary = () => (
         <NavigationTab text="Label" href="#" />,
       ]}
     />
-    <Skirt>
-      <SkirtCard>
-        <Box p={1}>
-          <Box mb={1}>
-            <Heading variant="heading-1">Placeholder heading</Heading>
-          </Box>
-          <Box my={1}>
-            <Paragraph variant="body">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-              semper odio vitae sem gravida rutrum. Praesent vel sapien eget
-              eros dictum luctus scelerisque eu nibh. Etiam ullamcorper lobortis
-              gravida. Suspendisse massa tortor, ultricies et ipsum at, iaculis
-              bibendum est. Mauris vestibulum interdum ultricies. Proin sed elit
-              lacinia, malesuada leo in, auctor enim. Suspendisse venenatis,
-              tortor vel eleifend cursus, metus sem luctus nunc, at maximus
-              magna metus at mi. Curabitur porttitor dignissim ante, sit amet
-              tincidunt nibh elementum convallis. Morbi accumsan rutrum elit
-              eget sagittis. Pellentesque id quam at enim dictum placerat sit
-              amet in purus. Pellentesque habitant morbi tristique senectus et
-              netus et malesuada fames ac turpis egestas. Suspendisse quam elit,
-              facilisis sit amet libero vitae, congue rutrum nisi. Ut non
-              aliquet ex.
-            </Paragraph>
-          </Box>
-          <Box my={1}>
-            <Paragraph variant="body">
-              Aenean bibendum leo sit amet nisi pellentesque, vitae semper nunc
-              interdum. Nullam in felis porta, aliquam neque ut, viverra sapien.
-              Proin gravida diam sit amet bibendum viverra. Duis ligula erat,
-              pretium vel faucibus ac, vestibulum nec ligula. Nullam eleifend
-              leo non mauris facilisis, sed placerat lectus consectetur.
-              Curabitur rutrum elementum lobortis. Donec risus enim, tempus
-              rutrum venenatis et, mattis vel sem. Vivamus sed tempus justo,
-              quis ultricies metus. Etiam vitae ante interdum, tempor quam in,
-              auctor sem. Pellentesque blandit sem lorem, ut imperdiet velit
-              lobortis sed. Cras aliquam finibus suscipit. Vestibulum tempus,
-              est at egestas scelerisque, ante quam interdum risus, a ultricies
-              mi nibh eget est.
-            </Paragraph>
-          </Box>
-          <Box my={1}>
-            <Paragraph variant="body">
-              Nulla et malesuada ligula, at euismod turpis. Curabitur ut tempus
-              ante. Nulla sit amet tellus eu neque volutpat volutpat. Mauris
-              vitae fermentum eros. Aliquam semper nisl ac turpis vestibulum
-              mattis. Curabitur ultrices pellentesque sapien, vitae vulputate
-              ipsum. In imperdiet dapibus magna, non ultricies lorem dictum non.
-              Mauris pretium erat eu elit laoreet, ac egestas ipsum aliquet.
-              Nullam cursus massa felis, et luctus felis semper elementum. Nulla
-              facilisi. In hac habitasse platea dictumst. Curabitur urna nibh,
-              tincidunt nec facilisis sit amet, finibus nec lorem. Morbi
-              hendrerit volutpat augue eget condimentum. Ut a fringilla augue,
-              quis finibus dui.
-            </Paragraph>
-          </Box>
-          <Box my={1}>
-            <Paragraph variant="body">
-              Etiam fermentum cursus massa non fermentum. Proin quis pharetra
-              enim. Phasellus fringilla sollicitudin auctor. Nunc tempor orci ac
-              nunc convallis dictum vel eget est. Sed eget placerat ante, quis
-              venenatis felis. Nulla varius varius lacus, quis consequat ex
-              placerat et. In consequat vestibulum tincidunt. Vivamus nibh leo,
-              mollis nec venenatis ac, pharetra id dui. Cras ullamcorper ante a
-              neque sodales, non tempus nisl sagittis. Etiam in odio sagittis,
-              hendrerit arcu et, rutrum metus.
-            </Paragraph>
-          </Box>
-          <Box>
-            <Paragraph variant="body">
-              Morbi eu mollis mauris, eleifend convallis nisi. Quisque malesuada
-              nisi ut leo tincidunt sodales. Nulla in accumsan diam. Nullam
-              egestas sed eros at luctus. Fusce eget elit quis nunc viverra
-              efficitur at et sem. Sed eget nisi et orci commodo hendrerit nec
-              in quam. Suspendisse condimentum tristique dignissim. Nunc sit
-              amet tortor efficitur, pellentesque ex at, placerat risus. Cras
-              elit ex, venenatis sit amet purus eget, mollis viverra justo.
-              Quisque sollicitudin ipsum non mi rutrum, feugiat hendrerit enim
-              malesuada. Ut massa enim, commodo non dapibus pharetra, viverra
-              sed erat.
-            </Paragraph>
-          </Box>
-        </Box>
-      </SkirtCard>
-    </Skirt>
+    {/* <Skirt>
+      <SkirtCard> */}
+    <Box p={1}>
+      <Box mb={1}>
+        <Heading variant="heading-1">Placeholder heading</Heading>
+      </Box>
+      <Box my={1}>
+        <Paragraph variant="body">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla semper
+          odio vitae sem gravida rutrum. Praesent vel sapien eget eros dictum
+          luctus scelerisque eu nibh. Etiam ullamcorper lobortis gravida.
+          Suspendisse massa tortor, ultricies et ipsum at, iaculis bibendum est.
+          Mauris vestibulum interdum ultricies. Proin sed elit lacinia,
+          malesuada leo in, auctor enim. Suspendisse venenatis, tortor vel
+          eleifend cursus, metus sem luctus nunc, at maximus magna metus at mi.
+          Curabitur porttitor dignissim ante, sit amet tincidunt nibh elementum
+          convallis. Morbi accumsan rutrum elit eget sagittis. Pellentesque id
+          quam at enim dictum placerat sit amet in purus. Pellentesque habitant
+          morbi tristique senectus et netus et malesuada fames ac turpis
+          egestas. Suspendisse quam elit, facilisis sit amet libero vitae,
+          congue rutrum nisi. Ut non aliquet ex.
+        </Paragraph>
+      </Box>
+      <Box my={1}>
+        <Paragraph variant="body">
+          Aenean bibendum leo sit amet nisi pellentesque, vitae semper nunc
+          interdum. Nullam in felis porta, aliquam neque ut, viverra sapien.
+          Proin gravida diam sit amet bibendum viverra. Duis ligula erat,
+          pretium vel faucibus ac, vestibulum nec ligula. Nullam eleifend leo
+          non mauris facilisis, sed placerat lectus consectetur. Curabitur
+          rutrum elementum lobortis. Donec risus enim, tempus rutrum venenatis
+          et, mattis vel sem. Vivamus sed tempus justo, quis ultricies metus.
+          Etiam vitae ante interdum, tempor quam in, auctor sem. Pellentesque
+          blandit sem lorem, ut imperdiet velit lobortis sed. Cras aliquam
+          finibus suscipit. Vestibulum tempus, est at egestas scelerisque, ante
+          quam interdum risus, a ultricies mi nibh eget est.
+        </Paragraph>
+      </Box>
+      <Box my={1}>
+        <Paragraph variant="body">
+          Nulla et malesuada ligula, at euismod turpis. Curabitur ut tempus
+          ante. Nulla sit amet tellus eu neque volutpat volutpat. Mauris vitae
+          fermentum eros. Aliquam semper nisl ac turpis vestibulum mattis.
+          Curabitur ultrices pellentesque sapien, vitae vulputate ipsum. In
+          imperdiet dapibus magna, non ultricies lorem dictum non. Mauris
+          pretium erat eu elit laoreet, ac egestas ipsum aliquet. Nullam cursus
+          massa felis, et luctus felis semper elementum. Nulla facilisi. In hac
+          habitasse platea dictumst. Curabitur urna nibh, tincidunt nec
+          facilisis sit amet, finibus nec lorem. Morbi hendrerit volutpat augue
+          eget condimentum. Ut a fringilla augue, quis finibus dui.
+        </Paragraph>
+      </Box>
+      <Box my={1}>
+        <Paragraph variant="body">
+          Etiam fermentum cursus massa non fermentum. Proin quis pharetra enim.
+          Phasellus fringilla sollicitudin auctor. Nunc tempor orci ac nunc
+          convallis dictum vel eget est. Sed eget placerat ante, quis venenatis
+          felis. Nulla varius varius lacus, quis consequat ex placerat et. In
+          consequat vestibulum tincidunt. Vivamus nibh leo, mollis nec venenatis
+          ac, pharetra id dui. Cras ullamcorper ante a neque sodales, non tempus
+          nisl sagittis. Etiam in odio sagittis, hendrerit arcu et, rutrum
+          metus.
+        </Paragraph>
+      </Box>
+      <Box>
+        <Paragraph variant="body">
+          Morbi eu mollis mauris, eleifend convallis nisi. Quisque malesuada
+          nisi ut leo tincidunt sodales. Nulla in accumsan diam. Nullam egestas
+          sed eros at luctus. Fusce eget elit quis nunc viverra efficitur at et
+          sem. Sed eget nisi et orci commodo hendrerit nec in quam. Suspendisse
+          condimentum tristique dignissim. Nunc sit amet tortor efficitur,
+          pellentesque ex at, placerat risus. Cras elit ex, venenatis sit amet
+          purus eget, mollis viverra justo. Quisque sollicitudin ipsum non mi
+          rutrum, feugiat hendrerit enim malesuada. Ut massa enim, commodo non
+          dapibus pharetra, viverra sed erat.
+        </Paragraph>
+      </Box>
+    </Box>
+    {/* </SkirtCard>
+    </Skirt> */}
   </OffsetPadding>
 )
 

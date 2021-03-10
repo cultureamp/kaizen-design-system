@@ -25,6 +25,7 @@ export type InformationModalProps = Readonly<
     renderBackground?: () => React.ReactNode
     image?: React.ReactNode
     children: React.ReactNode
+    contentHeader?: React.ReactNode
   } & InformationModalSecondaryActionProps
 >
 
@@ -39,6 +40,7 @@ const InformationModal = ({
   automationId,
   renderBackground,
   children,
+  contentHeader,
   image,
   ...props
 }: InformationModalProps) => (
@@ -60,6 +62,11 @@ const InformationModal = ({
         </div>
       </ModalHeader>
       <Divider variant="content" />
+      {contentHeader && (
+        <Box mt={0.5} mx={1} mb={1}>
+          {contentHeader}
+        </Box>
+      )}
       <div className={styles.contentLayout}>
         <div className={styles.content}>
           {children}
@@ -74,6 +81,7 @@ const InformationModal = ({
               <ModalFooter
                 unpadded
                 alignStart
+                variant={image ? "information" : undefined}
                 actions={[
                   { label: confirmLabel, onClick: onConfirm },
                   ...(props.secondaryLabel
