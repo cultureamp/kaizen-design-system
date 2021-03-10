@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { ThemeKey } from "@kaizen/design-tokens"
-import { useChannel } from "@storybook/addons"
+import addons from "@storybook/addons"
 import { useAddonState } from "@storybook/api"
 import React, { useEffect } from "react"
 import { ADDON_ID, THEME_CHANGE_EVENT_TYPE } from "./constants"
@@ -12,13 +12,23 @@ export const App = () => {
     getInitialTheme().themeKey
   )
 
-  const emit = useChannel({
-    [THEME_CHANGE_EVENT_TYPE]: nextTheme => setTheme(nextTheme),
-  })
+  useEffect(() => {
+    const listener = (nextTheme: unknown) => {
+      if (typeof nextTheme === "string") {
+        setTheme(currentTheme =>
+          currentTheme !== nextTheme ? nextTheme : currentTheme
+        )
+      }
+    }
+    addons.getChannel().removeListener(THEME_CHANGE_EVENT_TYPE, listener)
+    return () => {
+      addons.getChannel().removeListener(THEME_CHANGE_EVENT_TYPE, listener)
+    }
+  }, [])
 
   // Notify listeners (the story preview iframe) that the theme should be changed.
   useEffect(() => {
-    emit(THEME_CHANGE_EVENT_TYPE, theme)
+    addons.getChannel().emit(THEME_CHANGE_EVENT_TYPE, theme)
   }, [theme])
 
   return (
