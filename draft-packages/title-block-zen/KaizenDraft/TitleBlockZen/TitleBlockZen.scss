@@ -27,6 +27,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  overflow-x: hidden;
 
   &.educationVariant {
     background-color: $dt-color-background-color-eduction;
