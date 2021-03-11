@@ -40,7 +40,7 @@ const RoadblockModal = ({
     automationId={automationId}
   >
     <div className={styles.modal}>
-      <ModalHeader unpadded reversed onDismiss={onDismiss}>
+      <ModalHeader unpadded onDismiss={onDismiss}>
         <div className={styles.header}>
           <div className={styles.headerBackground}></div>
           <div className={styles.iconContainer}>

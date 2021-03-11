@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.2.7...@kaizen/draft-divider@1.3.0) (2021-03-09)
+
+
+### Features
+
+* Update Divider component to support Heart ([#1158](https://github.com/cultureamp/kaizen-design-system/issues/1158)) ([f91ed87](https://github.com/cultureamp/kaizen-design-system/commit/f91ed8778b230147891f92224f8cd87e34662be5))
+
+
+
+
+
 ## [1.2.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.2.6...@kaizen/draft-divider@1.2.7) (2021-02-25)
 
 
