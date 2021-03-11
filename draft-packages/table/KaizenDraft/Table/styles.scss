@@ -1,7 +1,8 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/shadow";
-@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/shadow-vars";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
+@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
@@ -16,7 +17,7 @@ $row-height: 60px;
 
 .anchorReset {
   text-decoration: none;
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
   display: block;
   &:hover,
   &:active,
@@ -99,22 +100,22 @@ $row-height: 60px;
 }
 
 .headerRowCellTooltipIcon {
-  color: $kz-color-cluny-500;
+  color: $kz-var-color-cluny-500;
   margin-right: $ca-grid / 4;
 }
 
 .headerRowCellIcon {
-  color: $kz-color-wisteria-500;
+  color: $kz-var-color-wisteria-500;
   height: 20px;
 
   .headerRowCellActive & {
-    color: $kz-color-wisteria-800;
+    color: $kz-var-color-wisteria-800;
   }
 }
 
 .card {
   @include button-reset;
-  background: $kz-color-white;
+  background: $kz-var-color-white;
   border: solid 1px rgba($kz-var-color-wisteria-700-rgb-params, 0.1);
   transition: box-shadow $ca-duration-rapid, border-color $ca-duration-rapid,
     margin $ca-duration-rapid, padding $ca-duration-rapid,
@@ -132,8 +133,8 @@ $row-height: 60px;
   }
 
   &:last-child {
-    border-bottom-left-radius: $kz-border-solid-border-radius;
-    border-bottom-right-radius: $kz-border-solid-border-radius;
+    border-bottom-left-radius: $kz-var-border-solid-border-radius;
+    border-bottom-right-radius: $kz-var-border-solid-border-radius;
   }
 
   &:hover {
@@ -147,15 +148,15 @@ $row-height: 60px;
 
 // target the first child card when there is a heading present
 [role="rowgroup"] + .card {
-  border-top-left-radius: $kz-border-solid-border-radius;
-  border-top-right-radius: $kz-border-solid-border-radius;
-  box-shadow: $kz-shadow-small-box-shadow;
+  border-top-left-radius: $kz-var-border-solid-border-radius;
+  border-top-right-radius: $kz-var-border-solid-border-radius;
+  box-shadow: $kz-var-shadow-small-box-shadow;
 }
 
 .card:first-child {
-  border-top-left-radius: $kz-border-solid-border-radius;
-  border-top-right-radius: $kz-border-solid-border-radius;
-  box-shadow: $kz-shadow-small-box-shadow;
+  border-top-left-radius: $kz-var-border-solid-border-radius;
+  border-top-right-radius: $kz-var-border-solid-border-radius;
+  box-shadow: $kz-var-shadow-small-box-shadow;
 }
 
 .row {
@@ -163,15 +164,15 @@ $row-height: 60px;
 }
 
 .well {
-  border-color: $kz-border-borderless-border-color;
+  border-color: $kz-var-border-borderless-border-color;
   box-shadow: none;
-  border-radius: $kz-border-solid-border-radius;
-  background-color: $kz-color-ash;
+  border-radius: $kz-var-border-solid-border-radius;
+  background-color: $kz-var-color-ash;
   margin-bottom: $ca-grid * 0.5;
 }
 
 .popout {
-  box-shadow: $kz-shadow-large-box-shadow;
+  box-shadow: $kz-var-shadow-large-box-shadow;
 }
 
 .expanded {
@@ -193,20 +194,20 @@ $row-height: 60px;
   }
 
   &:hover {
-    background-color: $kz-color-stone;
+    background-color: $kz-var-color-stone;
   }
 }
 
 .rowCell {
   min-height: $row-height;
-  padding: 0 $kz-spacing-md;
+  padding: 0 $kz-var-spacing-md;
   display: flex;
   align-items: center;
   // These css properties are required for when the cells are anchor elements
   composes: anchorReset;
 
   .defaultSpacing & {
-    padding: $kz-spacing-md * 0.5 $kz-spacing-md;
+    padding: calc(#{$kz-var-spacing-md} * 0.5 #{$kz-var-spacing-md});
   }
 }
 
