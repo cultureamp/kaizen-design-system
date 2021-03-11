@@ -1,0 +1,60 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import exampleSass from '!!raw-loader!./examples/example.scss'
+import { CodeBlock, LinkToStory } from '../DocsComponents'
+import apiPage from './api.stories.mdx'
+import gettingStartedPage from './getting-started.stories.mdx'
+
+<Meta title="Design Tokens/How to use design tokens in SASS" parameters={{ docsOnly: true }} />
+
+# How to use design tokens in SASS
+
+## 1. Setup a ThemeManager
+
+Ensure you have followed the steps in <LinkToStory storyModule={gettingStartedPage} /> to setup your application for using design tokens.
+
+## 2. Start using design tokens
+
+* Import the CSS variable versions of the tokens
+* Use these tokens in your CSS. They will be compiled to CSS variables (e.g. `$kz-var-color-wisteria-800` will become `var(--kz-var-color-wisteria-800)`)
+
+Example:
+<CodeBlock language="scss" code={exampleSass} />
+
+See <LinkToStory storyModule={apiPage} /> for all available tokens.
+
+
+## 3. Be aware of the limitations of CSS variables in SASS
+
+### Compile-time functions like `mix()` or `darken()` won't work
+
+**It won't be possible to do things like:**
+<CodeBlock language="scss" code={`.myClass { 
+    color: mix(white, $kz-var-color-wisteria-800, 90%);
+}`} />
+
+
+Because the exposed SASS variables contain values such as `var(--kz-var-color-wisteria-800)`, the SASS compiler won't be able to calculate anything that relies on concrete values such as HEX strings.
+
+Usually when we've used functions like `mix` or `shade` it has been to lighten or darken a token by a certain amount. We recommend you find the nearest plain value. In the example above, you could simply use `$kz-var-color-wisteria-200`.
+
+## 4. When you need to add opacity to a colour, use `rgba()` and the `-rgb-params` variables
+
+**Use `rgba($kz-var-color-wisteria-800-rgb-params, 0.5)` instead of `rgba($kz-var-color-wisteria-800, 0.5)` to add alpha to a color.**
+
+We have exposed extra sibling variables for every color, as seen in <LinkToStory storyModule={apiPage} hash="sass-variables">SASS Variables</LinkToStory>, which allow you to manipulate opacity of CSS variable colors:
+
+<CodeBlock language="scss" code={`@import '~@kaizen/design-tokens/sass/color-vars.scss';
+.myClass {
+    background-color: rgba($kz-var-color-stone-rgb-params, 0.5);
+}`} />
+
+For similar reasons to the previous section, a statement like `rgba($kz-var-color-stone, 0.5)`, will not work because neither SASS or your browser can understand the expanded value: `rgba(var(--kz-var-color-stone), 0.5)`.
+
+Every color variable such as `$kz-var-color-stone` will have a matching sibling variable with the `-rgb-params` suffix. And `$kz-var-color-stone-rgb-params` points to a CSS variable that contains a list of numbers, `246, 246, 246`, which browsers can then use in inside the `rgba()` function. 
+
+For example `rgba($kz-var-color-stone-rgb-params, 0.5)`, compiles to `rgba(var(--kz-var-color-stone-rgb-params), 0.5)`, which the browser then resolves to `rgba(246, 246, 246, 0.5)`.
+
+
+## Migrating from compile time SASS functions like add-tint, darken, or mix
+
+A utility to help with this is coming soon. You will need to replace any function calls like these with design tokens, as these are both not computable using CSS variables, and have been deprecated for a while.

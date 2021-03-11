@@ -12,6 +12,15 @@
   justify-content: flex-end;
 }
 
+.informationAlign {
+  flex-direction: row;
+  justify-content: flex-start;
+
+  .actionButton + .actionButton {
+    @include ca-margin($start: $ca-grid * 0.5);
+  }
+}
+
 .actionButton + .actionButton {
   @include ca-margin($end: $ca-grid * 0.5);
 }

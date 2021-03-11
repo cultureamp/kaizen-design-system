@@ -3266,6 +3266,24 @@
     regenerator-runtime "^0.13.7"
     ts-dedent "^2.0.0"
 
+"@storybook/addon-links@^6.1.20":
+  version "6.1.21"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-6.1.21.tgz#59b04c4a0bd1c8dc86fecea64a2531154df382e6"
+  integrity sha512-DFPK6aYs9VIs1tO0PJ+mBwg64ZLv6NcVwFJ083ghCj/hR+0+3NRox+oRHXCWq7RHtnJeU4VKEiRx2EpE9L9Bkg==
+  dependencies:
+    "@storybook/addons" "6.1.21"
+    "@storybook/client-logger" "6.1.21"
+    "@storybook/core-events" "6.1.21"
+    "@storybook/csf" "0.0.1"
+    "@storybook/router" "6.1.21"
+    "@types/qs" "^6.9.0"
+    core-js "^3.0.1"
+    global "^4.3.2"
+    prop-types "^15.7.2"
+    qs "^6.6.0"
+    regenerator-runtime "^0.13.7"
+    ts-dedent "^2.0.0"
+
 "@storybook/addon-toolbars@6.1.21":
   version "6.1.21"
   resolved "https://registry.yarnpkg.com/@storybook/addon-toolbars/-/addon-toolbars-6.1.21.tgz#7e03ef74fe448c5b4e378cb08e1d79b9d8496d9f"
@@ -4131,6 +4149,13 @@
   version "16.9.8"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.9.8.tgz#fe4c1e11dfc67155733dfa6aa65108b4971cb423"
   integrity sha512-ykkPQ+5nFknnlU6lDd947WbQ6TE3NNzbQAkInC2EKY1qeYdTKp7onFusmYZb+ityzx2YviqT6BXSu+LyWWJwcA==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-highlight@0.12.2":
+  version "0.12.2"
+  resolved "https://registry.yarnpkg.com/@types/react-highlight/-/react-highlight-0.12.2.tgz#205b3437bf3611c185884a564d20548a4780480b"
+  integrity sha512-Pd0jkT7OB0eVccQeytwf1e+RoszedNHnsmJWbyr4F6407xdRz1Si7zmF9imO/Qr88DidnNv63Vyy9UfGHSMDrg==
   dependencies:
     "@types/react" "*"
 
@@ -12195,7 +12220,7 @@ highlight-words-core@1.2.2:
   resolved "https://registry.yarnpkg.com/highlight-words-core/-/highlight-words-core-1.2.2.tgz#1eff6d7d9f0a22f155042a00791237791b1eeaaa"
   integrity sha512-BXUKIkUuh6cmmxzi5OIbUJxrG8OAk2MqoL1DtO3Wo9D2faJg2ph5ntyuQeLqaHJmzER6H5tllCDA9ZnNe9BVGg==
 
-highlight.js@^10.1.1, highlight.js@~10.6.0:
+highlight.js@^10.1.1, highlight.js@^10.5.0, highlight.js@~10.6.0:
   version "10.6.0"
   resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-10.6.0.tgz#0073aa71d566906965ba6e1b7be7b2682f5e18b6"
   integrity sha512-8mlRcn5vk/r4+QcqerapwBYTe+iPL5ih6xrNylxrnBdHQiijDETfXX7VIxC3UiCRiINBJfANBAsPzAvRQj8RpQ==
@@ -19575,6 +19600,13 @@ react-helmet@^5.2.1:
     prop-types "^15.5.4"
     react-fast-compare "^2.0.2"
     react-side-effect "^1.1.0"
+
+react-highlight@0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/react-highlight/-/react-highlight-0.13.0.tgz#3331d47fe45a3db0cdcca2e5b479ed81b117ac20"
+  integrity sha512-k8BfWsTN9mFy+ijXvg79Gk6qOtAX0HU4OHW25QQz339PDHbov6N+frJWygFOAR1rPxMeC9y9cvYJRjaAaXs9dw==
+  dependencies:
+    highlight.js "^10.5.0"
 
 react-hot-loader@^4.12.21:
   version "4.13.0"
