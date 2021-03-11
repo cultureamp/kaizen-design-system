@@ -141,5 +141,8 @@
       "pre-commit": "lint-staged",
       "pre-push": "yarn lint"
     }
+  },
+  "resolutions": {
+    "axios": "0.21.1"
   }
 }
