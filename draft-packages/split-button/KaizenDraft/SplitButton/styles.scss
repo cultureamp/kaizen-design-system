@@ -1,14 +1,16 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/shadow-vars";
+@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/component-library/styles/animation";
 
-$base-border: $kz-border-solid-border-width $kz-border-solid-border-style
-  $ca-border-color;
+$base-border: $kz-var-border-solid-border-width
+  $kz-var-border-solid-border-style
+  var($kz-var-id-color-iron, $kz-var-color-wisteria-200);
 $button-width: 124px;
 
 $side-padding: 3/4 * $ca-grid;
@@ -28,10 +30,7 @@ $side-padding: 3/4 * $ca-grid;
   $hover-background,
   $hover-border-color,
   $active-background,
-  $active-border-color,
-  $disabled-background,
-  $disabled-border-color,
-  $disabled-color
+  $active-border-color
 ) {
   &:hover {
     text-decoration: none;
@@ -65,8 +64,8 @@ $side-padding: 3/4 * $ca-grid;
 
       // show custom focus ring when :focus-visible
       &:global(.focus-visible) {
-        border: $kz-border-focus-ring-border-width
-          $kz-border-focus-ring-border-style $kz-color-cluny-500;
+        border: $kz-var-border-focus-ring-border-width
+          $kz-var-border-focus-ring-border-style $kz-var-color-cluny-500;
       }
     }
   }
@@ -74,9 +73,7 @@ $side-padding: 3/4 * $ca-grid;
   // Disabled
   &:disabled,
   &.disabled {
-    background: $disabled-background;
-    border-color: $disabled-border-color;
-    color: $disabled-color;
+    opacity: 0.3;
   }
 }
 
@@ -100,16 +97,13 @@ $side-padding: 3/4 * $ca-grid;
 
 .buttonDefault {
   @include button-mixing(
-    $background: $kz-color-white,
-    $border-color: $kz-color-wisteria-200,
-    $color: $kz-color-wisteria-800,
-    $hover-background: $kz-color-stone,
-    $hover-border-color: $kz-color-wisteria-400,
-    $active-background: $kz-color-ash,
-    $active-border-color: $kz-color-wisteria-500,
-    $disabled-background: $kz-color-white,
-    $disabled-border-color: $kz-color-wisteria-200,
-    $disabled-color: $kz-color-wisteria-300
+    $background: $kz-var-color-white,
+    $border-color: var($kz-var-id-color-iron, $kz-var-color-wisteria-200),
+    $color: $kz-var-color-wisteria-800,
+    $hover-background: $kz-var-color-stone,
+    $hover-border-color: var($kz-var-id-color-slate, $kz-var-color-wisteria-400),
+    $active-background: $kz-var-color-ash,
+    $active-border-color: $kz-var-color-wisteria-500
   );
 }
 
@@ -118,14 +112,11 @@ $side-padding: 3/4 * $ca-grid;
   @include button-mixing(
     $background: #58b59a,
     $border-color: #58b59a,
-    $color: $kz-color-white,
-    $hover-background: $kz-color-seedling-500,
-    $hover-border-color: $kz-color-seedling-500,
-    $active-background: $kz-color-seedling-500,
-    $active-border-color: $kz-color-seedling-500,
-    $disabled-background: $kz-color-white,
-    $disabled-border-color: $kz-color-wisteria-100,
-    $disabled-color: $kz-color-wisteria-300
+    $color: $kz-var-color-white,
+    $hover-background: $kz-var-color-seedling-500,
+    $hover-border-color: $kz-var-color-seedling-500,
+    $active-background: $kz-var-color-seedling-500,
+    $active-border-color: $kz-var-color-seedling-500
   );
 }
 
@@ -140,8 +131,8 @@ $side-padding: 3/4 * $ca-grid;
   padding: 0.5rem 1rem;
   border: $base-border;
   border-right: 0;
-  border-radius: $kz-border-solid-border-radius 0 0
-    $kz-border-solid-border-radius;
+  border-radius: $kz-var-border-solid-border-radius 0 0
+    $kz-var-border-solid-border-radius;
   white-space: nowrap;
   min-width: $button-width;
   display: block;
@@ -150,8 +141,8 @@ $side-padding: 3/4 * $ca-grid;
   [dir="rtl"] & {
     border-right: $base-border;
     border-left: 0;
-    border-radius: 0 $kz-border-solid-border-radius
-      $kz-border-solid-border-radius 0;
+    border-radius: 0 $kz-var-border-solid-border-radius
+      $kz-var-border-solid-border-radius 0;
     text-align: right;
   }
 
@@ -161,13 +152,13 @@ $side-padding: 3/4 * $ca-grid;
     &:hover,
     &:active {
       & + .dropdown > .dropdownButton {
-        border-left: 1px solid $kz-color-wisteria-400;
+        border-left: 1px solid $kz-var-color-wisteria-400;
       }
     }
 
     &:active {
       & + .dropdown > .dropdownButton {
-        border-left: 1px solid $kz-color-wisteria-500;
+        border-left: 1px solid $kz-var-color-wisteria-500;
       }
     }
 
@@ -175,14 +166,14 @@ $side-padding: 3/4 * $ca-grid;
     [dir="rtl"] &:active {
       & + .dropdown > .dropdownButton {
         border-left: $base-border;
-        border-right: 1px solid $kz-color-wisteria-400;
+        border-right: 1px solid $kz-var-color-wisteria-400;
       }
     }
 
     [dir="rtl"] &:active {
       & + .dropdown > .dropdownButton {
         border-left: $base-border;
-        border-right: 1px solid $kz-color-wisteria-500;
+        border-right: 1px solid $kz-var-color-wisteria-500;
       }
     }
   }
@@ -198,7 +189,7 @@ $side-padding: 3/4 * $ca-grid;
 
 .buttonFullBorder {
   border-right: $base-border;
-  border-radius: $kz-border-solid-border-radius;
+  border-radius: $kz-var-border-solid-border-radius;
   min-width: 0;
 
   [dir="rtl"] & {
@@ -226,12 +217,12 @@ $side-padding: 3/4 * $ca-grid;
   justify-content: center;
   padding: 0 0.75rem;
   border: $base-border;
-  border-radius: 0 $kz-border-solid-border-radius $kz-border-solid-border-radius
-    0;
+  border-radius: 0 $kz-var-border-solid-border-radius
+    $kz-var-border-solid-border-radius 0;
 
   [dir="rtl"] & {
-    border-radius: $kz-border-solid-border-radius 0 0
-      $kz-border-solid-border-radius;
+    border-radius: $kz-var-border-solid-border-radius 0 0
+      $kz-var-border-solid-border-radius;
   }
 }
 
@@ -243,12 +234,12 @@ $side-padding: 3/4 * $ca-grid;
   composes: buttonReset buttonPrimary;
 
   // Making the left | right border white to separate the button with dropdown button
-  border-left-color: $kz-color-white !important; /* stylelint-disable-line declaration-no-important */
+  border-left-color: $kz-var-color-white !important; /* stylelint-disable-line declaration-no-important */
 
   [dir="rtl"] & {
     // equal to add-tint($ca-palette-seedling, 10%). Temporary until we upgrade to Zen (Wisteria)
     border-left-color: #58b59a !important; /* stylelint-disable-line declaration-no-important */
-    border-left-color: $kz-color-white !important; /* stylelint-disable-line declaration-no-important */
+    border-left-color: $kz-var-color-white !important; /* stylelint-disable-line declaration-no-important */
   }
 }
 
@@ -272,9 +263,9 @@ version since the React version relies on kaizen's MenuList
 
 .menuList {
   background: white;
-  border: $kz-border-solid-border-width $kz-border-solid-border-style
-    $kz-color-wisteria-200;
-  box-shadow: $kz-shadow-small-box-shadow;
+  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
+    $kz-var-color-wisteria-200;
+  box-shadow: $kz-var-shadow-small-box-shadow;
   line-height: 40px;
 }
 
@@ -283,7 +274,7 @@ version since the React version relies on kaizen's MenuList
   @include ca-inherit-baseline;
   composes: interactiveIconWrapper from "~@kaizen/component-library/components/Icon/Icon.module.scss";
   background: transparent;
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
   cursor: pointer;
   text-align: left;
 
@@ -302,13 +293,13 @@ version since the React version relies on kaizen's MenuList
   &.menuItem--active,
   &:hover,
   &:focus {
-    background: $kz-color-stone;
-    color: $kz-color-cluny-500;
+    background: $kz-var-color-stone;
+    color: $kz-var-color-cluny-500;
     // override Murmur global styles :(
     text-decoration: none;
 
     .menuItem__Icon {
-      color: $kz-color-cluny-500;
+      color: $kz-var-color-cluny-500;
     }
   }
 }
