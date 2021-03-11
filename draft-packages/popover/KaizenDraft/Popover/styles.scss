@@ -53,7 +53,7 @@ $large-width: 450px;
 %box {
   background: white;
   border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
-    $kz-var-color-ash;
+    var($kz-var-id-color-ash, $kz-var-color-wisteria-200);
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.1));
   border-radius: $kz-var-border-solid-border-radius;
   color: $kz-var-color-wisteria-800;
@@ -65,7 +65,7 @@ $large-width: 450px;
 }
 
 .defaultArrow {
-  @include arrow(white, $kz-var-color-ash);
+  @include arrow(white, var($kz-var-id-color-ash, $kz-var-color-wisteria-200));
 }
 
 $informative-box-border-color: var(
@@ -165,7 +165,7 @@ $negative-box-border-color: var(
   @include button-reset;
   margin-left: auto;
   display: inherit;
-  color: rgba($kz-var-color-wisteria-800, 0.7);
+  color: rgba($kz-var-color-wisteria-800-rgb-params, 0.7);
 }
 
 .arrowWrapper {
