@@ -61,7 +61,7 @@ import { InteractionState, MapInteractionCSS } from "react-map-interaction"
 import * as SliderStories from "../../../draft-packages/stories/Slider.stories"
 import { cssVarBackgrounds } from "../../../storybook/backgrounds"
 import { useTheme } from "../react"
-
+import colorString from "color-string"
 export default {
   title: "Design Tokens/Story Board",
   parameters: {
@@ -125,6 +125,7 @@ const Stack = React.memo(
  */
 const ColorDemo = (props: { color: string; name?: string }) => {
   const theme = useTheme()
+  const parsedColor = colorString.get(props.color)
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
       <h4
@@ -140,9 +141,38 @@ const ColorDemo = (props: { color: string; name?: string }) => {
           width: "20rem",
           height: "10rem",
           backgroundColor: props.color,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
           ...theme.border.solid,
         }}
-      ></div>
+      >
+        {parsedColor && (
+          <Heading variant="heading-5">
+            <span
+              style={{
+                color: props.color,
+                filter: "invert(1) grayscale(1) contrast(100)",
+              }}
+            >
+              {colorString.to.hex(parsedColor.value)}
+            </span>
+          </Heading>
+        )}
+        {parsedColor && (
+          <Heading variant="heading-5">
+            <span
+              style={{
+                color: props.color,
+                filter: "invert(1) grayscale(1) contrast(100)",
+              }}
+            >
+              {colorString.to.rgb(parsedColor.value)}
+            </span>
+          </Heading>
+        )}
+      </div>
     </div>
   )
 }

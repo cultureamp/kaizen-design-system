@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.2.1...@kaizen/draft-modal@5.3.0) (2021-03-10)
+
+
+### Features
+
+* Include notification prop to display on Information Modal ([#1166](https://github.com/cultureamp/kaizen-design-system/issues/1166)) ([0295253](https://github.com/cultureamp/kaizen-design-system/commit/0295253ffe4ca2f60040f50866da19f426d6b7c0))
+
+
+
+
+
 ## [5.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.2.0...@kaizen/draft-modal@5.2.1) (2021-03-09)
 
 **Note:** Version bump only for package @kaizen/draft-modal
