@@ -1,10 +1,10 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/component-library/styles/color";
-@import "~@kaizen/component-library/styles/type";
-@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
+@import "../decision-tokens";
 
-$top: $ca-grid;
-$left: $ca-grid;
+$top: $kz-var-spacing-md;
+$left: $kz-var-spacing-md;
 $icon-width: 18px;
 $line-width: 2px;
 
@@ -23,40 +23,40 @@ $line-width: 2px;
   position: absolute;
   top: 50%;
   left: 50%;
-  background: $kz-color-seedling-500;
+  background: $dt-color-success;
   transform: translate(-50%, -50%);
   border-radius: 50%;
 }
 
 .upcomingIcon {
   composes: iconWrapper;
-  color: $kz-color-wisteria-400;
+  color: $dt-color-border-color;
 }
 
 .currentInactionableIcon {
   composes: iconWrapper;
-  color: $kz-color-wisteria-400;
+  color: $dt-color-border-color;
 }
 
 .currentActionableIcon {
   composes: iconWrapper;
-  color: $kz-color-cluny-500;
+  color: $dt-color-actionable;
 }
 
 .currentStartedIcon {
   composes: iconWrapper;
-  color: $kz-color-seedling-500;
+  color: $dt-color-success;
 }
 
 .completedIcon {
   composes: iconWrapper;
-  color: $kz-color-seedling-500;
+  color: $dt-color-success;
 }
 
 .topLine {
   position: absolute;
   top: 0;
-  left: calc(#{$ca-grid} + #{$icon-width/2 - $line-width/2});
+  left: calc(#{$kz-var-spacing-md} + #{$icon-width/2 - $line-width/2});
   width: $line-width;
   height: calc(#{$top} - 1px);
   border-radius: 0 0 $line-width $line-width;
@@ -64,18 +64,18 @@ $line-width: 2px;
 
 .greenTopLine {
   composes: topLine;
-  background: $kz-color-seedling-500;
+  background: $dt-color-success;
 }
 
 .greyTopLine {
   composes: topLine;
-  background: $ca-border-color;
+  background: $dt-color-border-color-line;
 }
 
 .bottomLine {
   position: absolute;
   bottom: 0;
-  left: calc(#{$ca-grid} + #{$icon-width/2 - $line-width/2});
+  left: calc(#{$kz-var-spacing-md} + #{$icon-width/2 - $line-width/2});
   width: $line-width;
   top: calc(#{$top} + #{$icon-width + 1px});
   border-radius: $line-width $line-width 0 0;
@@ -83,10 +83,10 @@ $line-width: 2px;
 
 .greenBottomLine {
   composes: bottomLine;
-  background: $kz-color-seedling-500;
+  background: $dt-color-success;
 }
 
 .greyBottomLine {
   composes: bottomLine;
-  background: $kz-color-wisteria-200;
+  background: $dt-color-border-color-line;
 }
