@@ -115,7 +115,7 @@ $row-height: 60px;
 .card {
   @include button-reset;
   background: $kz-color-white;
-  border: solid 1px rgba($kz-color-wisteria-700, 0.1);
+  border: solid 1px rgba($kz-var-color-wisteria-700-rgb-params, 0.1);
   transition: box-shadow $ca-duration-rapid, border-color $ca-duration-rapid,
     margin $ca-duration-rapid, padding $ca-duration-rapid,
     width $ca-duration-rapid;

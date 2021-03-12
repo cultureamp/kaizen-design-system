@@ -1,4 +1,4 @@
-@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/animation";
@@ -34,7 +34,7 @@ $menuItem__margin: 4px;
   @include ca-margin($start: $kz-spacing-md / 2);
 
   display: flex;
-  color: rgba($kz-color-wisteria-800, 0.5);
+  color: rgba($kz-var-color-wisteria-800-rgb-params, 0.5);
   transition: color $ca-ease $ca-duration-immediate;
 }
 
@@ -56,7 +56,7 @@ $menuItem__margin: 4px;
   min-width: 150px;
   padding: 0 $menuItem__padding;
   text-align: left;
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
 
   transition-property: background-color, color;
   transition-duration: $ca-duration-immediate;
@@ -65,12 +65,12 @@ $menuItem__margin: 4px;
   &:hover,
   &:focus,
   .active & {
-    background-color: $kz-color-cluny-100;
-    color: $kz-color-cluny-500;
+    background-color: $kz-var-color-cluny-100;
+    color: $kz-var-color-cluny-500;
     text-decoration: none;
 
     .arrowIcon {
-      color: $kz-color-cluny-500;
+      color: $kz-var-color-cluny-500;
     }
   }
 }
@@ -100,16 +100,16 @@ $menuItem__margin: 4px;
       $start: $kz-spacing-md * 0.5,
       $end: $kz-spacing-md * 0.5
     );
-    background-color: $kz-color-seedling-200;
+    background-color: $kz-var-color-seedling-200;
   }
 
   &.badgeNotification {
     @include ca-padding($start: $kz-spacing-md / 3, $end: $kz-spacing-md / 3);
-    background-color: $kz-color-wisteria-800;
+    background-color: $kz-var-color-wisteria-800;
 
     @include navbar-mobile-only {
-      background-color: $kz-color-coral-500;
-      color: $kz-color-white;
+      background-color: $kz-var-color-coral-500;
+      color: $kz-var-color-white;
     }
   }
 }

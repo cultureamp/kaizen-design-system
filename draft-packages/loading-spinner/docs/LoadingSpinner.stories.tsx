@@ -1,7 +1,9 @@
 import * as React from "react"
 
 import { LoadingSpinner } from "@kaizen/draft-loading-spinner"
+import { Paragraph } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
+import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
@@ -20,12 +22,26 @@ export const DefaultStory = () => (
       alignItems: "center",
       display: "flex",
       justifyContent: "center",
+      flexDirection: "column",
+      color: colorTokens.kz.color.seedling["400"],
     }}
   >
-    <LoadingSpinner
-      accessibilityLabel="Loading comments"
-      size="md"
-    ></LoadingSpinner>
+    <div style={{ marginBottom: "3rem" }}>
+      <LoadingSpinner
+        accessibilityLabel="Loading comments"
+        size="md"
+      ></LoadingSpinner>
+    </div>
+    <Paragraph variant="body">
+      LoadingSpinner will inherit its color from the parent's <code>color</code>{" "}
+      property.
+      <br />
+      That color will become the foreground, and the background will be the same
+      color with 10% opacity.
+      <br />
+      When inside a button, it is intended to have the same color as the label
+      text.
+    </Paragraph>
   </div>
 )
 
@@ -37,6 +53,7 @@ export const SizeStory = () => (
       alignItems: "center",
       display: "flex",
       justifyContent: "center",
+      color: colorTokens.kz.color.wisteria["800"],
     }}
   >
     <LoadingSpinner

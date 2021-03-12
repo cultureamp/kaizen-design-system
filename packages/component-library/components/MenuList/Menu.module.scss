@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
@@ -21,7 +22,7 @@ $side-padding: 3/4 * $ca-grid;
 .header {
   padding: 10px $side-padding;
   text-align: left;
-  color: rgba($kz-color-wisteria-800, 40%);
+  color: rgba($kz-var-color-wisteria-800-rgb-params, 0.4);
   border-bottom: $ca-border-color 1px solid;
 }
 

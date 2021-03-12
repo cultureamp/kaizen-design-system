@@ -1,4 +1,4 @@
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
@@ -26,7 +26,7 @@
 ///////////////////////////////////////////////////
 
 .success {
-  @include input-icon($ca-palette-positive, $kz-color-white);
+  @include input-icon($ca-palette-positive, $kz-var-color-white);
   @include ca-animation-fade(in);
 }
 

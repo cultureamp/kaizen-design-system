@@ -1,5 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/mixins/forms";
@@ -15,8 +15,7 @@ $input-height: 48px;
 $input-base-padding-horizontal: $ca-grid / 2;
 $input-icon-size: 1.25rem; // 20px
 $input-placeholder-opacity: 0.5;
-$input-disabled-background: $kz-color-ash;
-$input-disabled-alpha: 30%;
+$input-disabled-background: $kz-var-color-ash;
 $input-disabled-opacity: 0.3;
 $input-disabled-border-alpha: 50%;
 
@@ -60,7 +59,7 @@ $input-disabled-border-alpha: 50%;
     }
 
     @include form-input-placeholder {
-      color: rgba($ca-base-text-color, $input-disabled-alpha);
+      color: rgba($ca-base-text-color, $input-disabled-opacity);
     }
   }
 }
@@ -146,7 +145,7 @@ $input-disabled-border-alpha: 50%;
 .withStartIconAdornment {
   /* stylelint-disable-next-line no-duplicate-selectors */
   .startIconAdornment {
-    color: $kz-color-wisteria-800;
+    color: $kz-var-color-wisteria-800;
     opacity: 0.5;
   }
 
@@ -170,7 +169,7 @@ $input-disabled-border-alpha: 50%;
 // Reversed
 .withStartIconAdornment.withReversed {
   .startIconAdornment {
-    color: $kz-color-white;
+    color: $kz-var-color-white;
     opacity: 1;
   }
 
@@ -193,7 +192,7 @@ $input-disabled-border-alpha: 50%;
 
 // Default
 .input.default {
-  background-color: $kz-color-white;
+  background-color: $kz-var-color-white;
   color: $dt-color-form-text-color;
   border-color: $dt-color-form-border-color;
   display: flex;
@@ -215,7 +214,7 @@ $input-disabled-border-alpha: 50%;
   }
 
   &.disabled {
-    color: rgba($ca-base-text-color, $input-disabled-alpha);
+    color: rgba($ca-base-text-color, $input-disabled-opacity);
 
     @include form-input-placeholder {
       opacity: $input-disabled-opacity;
@@ -229,18 +228,18 @@ $input-disabled-border-alpha: 50%;
 
 // Reversed (Dark Backgrounds)
 .input.reversed {
-  color: $kz-color-white;
-  border-color: rgba($kz-color-white, 0.65);
+  color: $kz-var-color-white;
+  border-color: rgba($kz-var-color-white-rgb-params, 0.65);
 
   @include form-input-placeholder {
-    color: $kz-color-white;
+    color: $kz-var-color-white;
     opacity: $input-placeholder-opacity;
   }
 
   &:focus:not([disabled]),
   &:hover:not([disabled]) {
-    background: rgba($kz-color-white, 0.1);
-    border-color: $kz-color-white;
+    background: rgba($kz-var-color-white-rgb-params, 0.1);
+    border-color: $kz-var-color-white;
   }
 
   &:focus + .focusRing {
@@ -248,8 +247,11 @@ $input-disabled-border-alpha: 50%;
   }
 
   &.disabled {
-    color: rgba($kz-color-white, $input-disabled-alpha);
-    border-color: rgba($kz-color-white, $input-disabled-border-alpha);
+    color: rgba($kz-var-color-white-rgb-params, $input-disabled-opacity);
+    border-color: rgba(
+      $kz-var-color-white-rgb-params,
+      $input-disabled-border-alpha
+    );
 
     @include form-input-placeholder {
       opacity: $input-disabled-opacity;

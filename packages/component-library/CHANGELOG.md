@@ -3,6 +3,50 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.1.2...@kaizen/component-library@9.2.0) (2021-02-26)
+
+
+### Features
+
+* Update navigation bar to support Heart ([#1095](https://github.com/cultureamp/kaizen-design-system/issues/1095)) ([c3df69d](https://github.com/cultureamp/kaizen-design-system/commit/c3df69df3368af51b2226250e11a5a4a7ac64b8b))
+
+
+
+
+
+## [9.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.1.1...@kaizen/component-library@9.1.2) (2021-02-25)
+
+
+### Bug Fixes
+
+* Update minimum design-token dependency ([#1131](https://github.com/cultureamp/kaizen-design-system/issues/1131)) ([ce8182c](https://github.com/cultureamp/kaizen-design-system/commit/ce8182c054c9e8bc96bfdba8457bcd169d449204))
+
+
+
+
+
+## [9.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.1.0...@kaizen/component-library@9.1.1) (2021-02-25)
+
+
+### Bug Fixes
+
+* Use rgb-param variables in rgba ([#1094](https://github.com/cultureamp/kaizen-design-system/issues/1094)) ([4e7f0c7](https://github.com/cultureamp/kaizen-design-system/commit/4e7f0c7cbdadd5a0d606b58ed4b0f1344b8b9d99))
+
+
+
+
+
+# [9.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.0.0...@kaizen/component-library@9.1.0) (2021-02-22)
+
+
+### Features
+
+* Add photo upload icon ([#1091](https://github.com/cultureamp/kaizen-design-system/issues/1091)) ([1378989](https://github.com/cultureamp/kaizen-design-system/commit/13789896a447cc06e021b532a389801e5a5650fa))
+
+
+
+
+
 # [9.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@8.4.0...@kaizen/component-library@9.0.0) (2021-02-19)
 
 

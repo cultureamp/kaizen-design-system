@@ -26,7 +26,7 @@ $focus-ring-offset: 2px;
   // .icon is inside .box so .box's border-box rule means
   // .icon sits to the right of .box's left-side border
   left: -$kz-border-solid-border-width;
-  color: $kz-color-white;
+  color: $kz-var-color-white;
 }
 
 .icon.reversed {
@@ -36,7 +36,7 @@ $focus-ring-offset: 2px;
 .box {
   position: relative;
   pointer-events: none;
-  background: $kz-color-white;
+  background: $kz-var-color-white;
   height: $checkbox-size;
   width: $checkbox-size;
   top: 0;
@@ -100,37 +100,37 @@ $focus-ring-offset: 2px;
 
 .box.reversed {
   border: $kz-border-solid-border-width $kz-border-solid-border-style
-    $kz-color-wisteria-100;
-  background-color: $kz-color-wisteria-700;
+    $kz-var-color-wisteria-100;
+  background-color: $kz-var-color-wisteria-700;
 
   .checkbox:not([checked]):focus + & {
-    border-color: $kz-color-wisteria-100;
-    background-color: $kz-color-wisteria-700;
+    border-color: $kz-var-color-wisteria-100;
+    background-color: $kz-var-color-wisteria-700;
   }
 
   @media (hover: hover) and (pointer: fine) {
     .checkbox:not([checked]):hover + & {
-      border-color: $kz-color-white;
-      background-color: $kz-color-wisteria-300;
+      border-color: $kz-var-color-white;
+      background-color: $kz-var-color-wisteria-300;
     }
   }
 
   .checkbox:checked + &,
   .checkbox:indeterminate + & {
-    background: $kz-color-wisteria-300;
+    background: $kz-var-color-wisteria-300;
   }
 
   .checkbox:checked:focus + &,
   .checkbox:indeterminate:focus + & {
-    background: rgba($kz-color-wisteria-200, 65%);
-    border-color: $kz-color-wisteria-100;
+    background: rgba($kz-var-color-wisteria-200-rgb-params, 0.65);
+    border-color: $kz-var-color-wisteria-100;
   }
 
   @media (hover: hover) and (pointer: fine) {
     .checkbox:indeterminate:hover + &,
     .checkbox:checked:hover + & {
-      background: $kz-color-white;
-      border-color: $kz-color-white;
+      background: $kz-var-color-white;
+      border-color: $kz-var-color-white;
     }
   }
 
@@ -140,15 +140,15 @@ $focus-ring-offset: 2px;
 }
 
 .box.error {
-  border-color: $kz-color-coral-300;
+  border-color: $kz-var-color-coral-300;
 
   .checkbox:not([checked]):focus + & {
-    border-color: $kz-color-coral-300;
+    border-color: $kz-var-color-coral-300;
   }
 
   @media (hover: hover) and (pointer: fine) {
     .checkbox:not([checked]):hover + & {
-      border-color: $kz-color-coral-300;
+      border-color: $kz-var-color-coral-300;
     }
   }
 }

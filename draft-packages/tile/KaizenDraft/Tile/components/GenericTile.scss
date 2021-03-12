@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
@@ -79,7 +80,7 @@ $tilePaddingTop: $kz-spacing-xl;
 .informationBtn {
   @include ca-position($top: 0, $end: 0);
   position: absolute;
-  color: rgba($kz-color-wisteria-800, 0.5);
+  color: rgba($kz-var-color-wisteria-800-rgb-params, 0.5);
 }
 
 .information {

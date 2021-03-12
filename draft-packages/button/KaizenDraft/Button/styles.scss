@@ -2,6 +2,7 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/typography";
 @import "./decision-tokens.scss";
@@ -228,14 +229,48 @@ $caButton-verticalPaddingForm: calc(
   }
 }
 
+%caButtonSecondaryDestructive {
+  font-family: $kz-typography-button-secondary-font-family;
+  font-weight: $kz-typography-button-secondary-font-weight;
+  font-size: $kz-typography-button-secondary-font-size;
+  line-height: $kz-typography-button-secondary-line-height;
+  letter-spacing: $kz-typography-button-secondary-letter-spacing;
+
+  &:not(:disabled) {
+    background: transparent;
+    border-color: $kz-border-borderless-border-color;
+    color: $kz-color-coral-600;
+
+    %caButtonLabel {
+      color: $kz-color-coral-600;
+    }
+
+    &:hover,
+    &:active,
+    :global(.js-focus-visible) &:global(.focus-visible) {
+      color: $kz-color-coral-600;
+      background: $kz-color-coral-100;
+      border-color: $kz-border-borderless-border-color;
+    }
+  }
+
+  &:disabled,
+  &.working {
+    @include working-state;
+    background: transparent;
+    border-color: $kz-border-borderless-border-color;
+    color: $kz-color-coral-600;
+  }
+}
+
 %caButtonReversed {
   &:not(:disabled) {
     background: transparent;
-    border-color: rgba($kz-color-white, 0.65);
+    border-color: rgba($kz-var-color-white-rgb-params, 0.65);
     color: $kz-color-white;
 
     &:hover {
-      background: rgba($kz-color-white, 0.1);
+      background: rgba($kz-var-color-white-rgb-params, 0.1);
       border-color: $kz-color-white;
     }
 
@@ -246,7 +281,7 @@ $caButton-verticalPaddingForm: calc(
         border-color: $kz-color-cluny-300;
       }
 
-      background: rgba($kz-color-white, 0.1);
+      background: rgba($kz-var-color-white-rgb-params, 0.1);
     }
   }
 
@@ -254,7 +289,7 @@ $caButton-verticalPaddingForm: calc(
   &.working {
     @include working-state;
     opacity: 0.3;
-    border-color: rgba($kz-color-white, 0.5);
+    border-color: rgba($kz-var-color-white-rgb-params, 0.5);
     color: $kz-color-white;
     background: transparent;
   }
@@ -315,7 +350,7 @@ $caButton-verticalPaddingForm: calc(
       }
 
       &:hover {
-        background: rgba($kz-color-white, 0.1);
+        background: rgba($kz-var-color-white-rgb-params, 0.1);
       }
 
       :global(.js-focus-visible) &:global(.focus-visible) {
@@ -342,7 +377,8 @@ $caButton-verticalPaddingForm: calc(
   padding: $caButton-verticalPadding
     calc(#{$ca-grid * 1} - #{$kz-border-solid-border-width});
 
-  %caButtonSecondary & {
+  %caButtonSecondary &,
+  %caButtonSecondaryDestructive & {
     padding-left: calc(#{$ca-grid * 0.5} - #{$kz-border-solid-border-width});
     padding-right: calc(#{$ca-grid * 0.5} - #{$kz-border-solid-border-width});
   }
@@ -357,7 +393,10 @@ $caButton-verticalPaddingForm: calc(
       calc(#{$ca-grid * 1} - #{$kz-border-focus-ring-border-width});
   }
 
-  :global(.js-focus-visible) %caButtonSecondary:global(.focus-visible) & {
+  :global(.js-focus-visible) %caButtonSecondary:global(.focus-visible) &,
+  :global(.js-focus-visible)
+    %caButtonSecondaryDestructive:global(.focus-visible)
+    & {
     padding: calc(#{$ca-grid / 2} - #{$kz-border-focus-ring-border-width})
       calc(#{$ca-grid * 0.5} - #{$kz-border-focus-ring-border-width});
   }
@@ -455,7 +494,7 @@ $caButton-verticalPaddingForm: calc(
       &:active,
       :global(.js-focus-visible) &:global(.focus-visible) {
         color: $kz-color-white;
-        background: rgba($kz-color-white, 0.1);
+        background: rgba($kz-var-color-white-rgb-params, 0.1);
         border-color: $kz-border-borderless-border-color;
       }
     }
