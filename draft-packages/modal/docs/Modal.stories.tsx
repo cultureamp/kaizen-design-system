@@ -794,7 +794,6 @@ InformationModalWithNotification.story = {
 
 export const InformationModalWithWorkingButton = () => {
   const [isLoading, setIsLoading] = React.useState(false)
-
   return (
     <ModalStateContainer isInitiallyOpen={false}>
       {({ open, close, isOpen }) => (
@@ -802,14 +801,20 @@ export const InformationModalWithWorkingButton = () => {
           <Button label="Open modal" onClick={open} />
           <InformationModal
             secondaryLabel="Cancel"
-            onSecondaryAction={close}
+            onSecondaryAction={() => {
+              setIsLoading(false)
+              close()
+            }}
             confirmLabel="Share"
             onConfirm={() => {
               setIsLoading(true)
             }}
             isOpen={isOpen}
             title="Share review"
-            onDismiss={close}
+            onDismiss={() => {
+              setIsLoading(false)
+              close()
+            }}
             workingLabel="Sharing review"
             isWorking={isLoading}
             contentHeader={
