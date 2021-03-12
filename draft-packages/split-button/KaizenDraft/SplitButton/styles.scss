@@ -30,7 +30,10 @@ $side-padding: 3/4 * $ca-grid;
   $hover-background,
   $hover-border-color,
   $active-background,
-  $active-border-color
+  $active-border-color,
+  $disabled-background,
+  $disabled-border-color,
+  $disabled-color
 ) {
   &:hover {
     text-decoration: none;
@@ -73,7 +76,9 @@ $side-padding: 3/4 * $ca-grid;
   // Disabled
   &:disabled,
   &.disabled {
-    opacity: 0.3;
+    background: $disabled-background;
+    border-color: $disabled-border-color;
+    color: $disabled-color;
   }
 }
 
@@ -81,6 +86,15 @@ $side-padding: 3/4 * $ca-grid;
   @include ca-type-block(inline-block);
   height: 40px; // Set a fixed height to avoid expansion when dropdown is displayed
   position: relative;
+
+  --dt-heart-disabled-border-color: rgba(
+    var(#{$kz-var-id-color-iron-rgb-params}),
+    0.3
+  );
+  --dt-heart-disabled-color: rgba(
+    var(#{$kz-var-id-color-wisteria-800-rgb-params}),
+    0.3
+  );
 }
 
 .buttonReset {
@@ -103,7 +117,11 @@ $side-padding: 3/4 * $ca-grid;
     $hover-background: $kz-var-color-stone,
     $hover-border-color: var($kz-var-id-color-slate, $kz-var-color-wisteria-400),
     $active-background: $kz-var-color-ash,
-    $active-border-color: $kz-var-color-wisteria-500
+    $active-border-color: $kz-var-color-wisteria-500,
+    $disabled-background: $kz-var-color-white,
+    $disabled-border-color:
+      var(--dt-heart-disabled-border-color, $kz-var-color-wisteria-200),
+    $disabled-color: var(--dt-heart-disabled-color, $kz-var-color-wisteria-300)
   );
 }
 
@@ -116,7 +134,11 @@ $side-padding: 3/4 * $ca-grid;
     $hover-background: $kz-var-color-seedling-500,
     $hover-border-color: $kz-var-color-seedling-500,
     $active-background: $kz-var-color-seedling-500,
-    $active-border-color: $kz-var-color-seedling-500
+    $active-border-color: $kz-var-color-seedling-500,
+    $disabled-background: $kz-var-color-white,
+    $disabled-border-color:
+      var(--dt-heart-disabled-border-color, $kz-var-color-wisteria-100),
+    $disabled-color: var(--dt-heart-disabled-color, $kz-var-color-wisteria-300)
   );
 }
 
