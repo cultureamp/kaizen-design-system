@@ -176,6 +176,10 @@ $row-height: 60px;
 }
 
 .expanded {
+  // We want to have NO background on Heart theme (when CSS variables are defined), but keep stone backgrond on Zen. Need to do this using 0 opacity.
+  // We also only want this switch for the expanded state. Non-expanded hovering will resort to stone background, as seen in .hasHoverState
+  --dt-hover-background-heart: rgba(var(#{$kz-var-id-color-white}), 0);
+
   position: relative;
   z-index: 1;
   margin-left: -$ca-grid * 0.5;
@@ -194,7 +198,7 @@ $row-height: 60px;
   }
 
   &:hover {
-    background-color: $kz-var-color-stone;
+    background-color: var(--dt-hover-background-heart, $kz-var-color-stone);
   }
 }
 
