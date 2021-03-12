@@ -1,0 +1,9 @@
+
+- @import "~@kaizen/design-tokens/sass/color"
++ @import "~@kaizen/design-tokens/sass/color-vars"
+
+.myClass {
+-     background-color: $kz-color-wisteria-800;
++     background-color: $kz-var-color-wisteria-800;
+
+}

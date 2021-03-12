@@ -1,4 +1,4 @@
 import { useMemo } from "react"
-import uuid from "uuid/v4"
+import { v4 } from "uuid"
 
-export const useUuid = (): string => useMemo(() => uuid(), [])
+export const useUuid = (): string => useMemo(() => v4(), [])

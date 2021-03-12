@@ -52,6 +52,7 @@
     "@babel/preset-typescript": "^7.6.0",
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "@storybook/addon-a11y": "^6.1.20",
+    "@storybook/addon-links": "^6.1.20",
     "@storybook/addon-essentials": "^6.1.20",
     "@storybook/addons": "^6.1.20",
     "@storybook/api": "^6.1.20",
@@ -140,5 +141,8 @@
       "pre-commit": "lint-staged",
       "pre-push": "yarn lint"
     }
+  },
+  "resolutions": {
+    "axios": "0.21.1"
   }
 }

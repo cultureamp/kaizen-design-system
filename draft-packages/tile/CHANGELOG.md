@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@3.2.24...@kaizen/draft-tile@4.0.0) (2021-03-10)
+
+
+### Bug Fixes
+
+* Remove max-width to prevent bugs outside grid ([#1224](https://github.com/cultureamp/kaizen-design-system/issues/1224)) ([2355410](https://github.com/cultureamp/kaizen-design-system/commit/23554108b9415a95fede1277f4966a152bdb0e7d))
+
+
+### BREAKING CHANGES
+
+* Because TileGrid no longer sets its own max-width, the surrounding container or page must take on this responsibility of constraining its width. If this is not already the case on a page that is affected by this update, the TileGrid will be wider than it should be.
+
+
+
+
+
 ## [3.2.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@3.2.23...@kaizen/draft-tile@3.2.24) (2021-02-26)
 
 **Note:** Version bump only for package @kaizen/draft-tile
