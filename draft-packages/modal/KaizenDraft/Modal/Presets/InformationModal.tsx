@@ -14,6 +14,15 @@ export type InformationModalSecondaryActionProps =
       secondaryLabel?: undefined
     }
 
+export type WorkingActionProps =
+  | {
+      isWorking: boolean
+      workingLabel: string
+    }
+  | {
+      workingLabel?: undefined
+    }
+
 export type InformationModalProps = Readonly<
   {
     isOpen: boolean
@@ -26,7 +35,8 @@ export type InformationModalProps = Readonly<
     image?: React.ReactNode
     children: React.ReactNode
     contentHeader?: React.ReactNode
-  } & InformationModalSecondaryActionProps
+  } & InformationModalSecondaryActionProps &
+    WorkingActionProps
 >
 
 type InformationModal = React.FunctionComponent<InformationModalProps>
@@ -43,66 +53,77 @@ const InformationModal = ({
   contentHeader,
   image,
   ...props
-}: InformationModalProps) => (
-  <GenericModal
-    isOpen={isOpen}
-    onEscapeKeyup={onDismiss}
-    onOutsideModalClick={onDismiss}
-    automationId={automationId}
-  >
-    <div className={styles.modal}>
-      {renderBackground && renderBackground()}
-      <ModalHeader unpadded onDismiss={onDismiss}>
-        <div className={styles.header}>
-          <ModalAccessibleLabel>
-            <Heading variant="heading-2" tag="h1">
-              <Box pb={0.5}>{title}</Box>
-            </Heading>
-          </ModalAccessibleLabel>
+}: InformationModalProps) => {
+  const workingProps = props.workingLabel
+    ? {
+        working: props.isWorking,
+        workingLabel: props.workingLabel,
+      }
+    : {}
+
+  return (
+    <GenericModal
+      isOpen={isOpen}
+      onEscapeKeyup={onDismiss}
+      onOutsideModalClick={onDismiss}
+      automationId={automationId}
+    >
+      <div className={styles.modal}>
+        {renderBackground && renderBackground()}
+        <ModalHeader unpadded onDismiss={onDismiss}>
+          <div className={styles.header}>
+            <ModalAccessibleLabel>
+              <Heading variant="heading-2" tag="h1">
+                <Box pb={0.5}>{title}</Box>
+              </Heading>
+            </ModalAccessibleLabel>
+          </div>
+        </ModalHeader>
+        <Divider variant="content" />
+        {contentHeader && (
+          <div className={styles.contentHeader}>{contentHeader}</div>
+        )}
+        <div className={styles.contentLayout}>
+          <div className={styles.content}>
+            {children}
+            {onConfirm != null && (
+              <div
+                className={
+                  props.secondaryLabel
+                    ? styles.footerWithSecondaryAction
+                    : styles.footer
+                }
+              >
+                <ModalFooter
+                  unpadded
+                  alignStart
+                  variant={image ? "information" : undefined}
+                  actions={[
+                    {
+                      label: confirmLabel,
+                      onClick: onConfirm,
+                      ...workingProps,
+                    },
+                    ...(props.secondaryLabel
+                      ? [
+                          {
+                            label: props.secondaryLabel,
+                            onClick: props.onSecondaryAction,
+                          },
+                        ]
+                      : []),
+                  ]}
+                  appearance={"primary"}
+                  automationId={automationId}
+                />
+              </div>
+            )}
+          </div>
+          <div className={styles.image}>{image}</div>
         </div>
-      </ModalHeader>
-      <Divider variant="content" />
-      {contentHeader && (
-        <Box mt={0.5} mx={1} mb={1}>
-          {contentHeader}
-        </Box>
-      )}
-      <div className={styles.contentLayout}>
-        <div className={styles.content}>
-          {children}
-          {onConfirm != null && (
-            <div
-              className={
-                props.secondaryLabel
-                  ? styles.footerWithSecondaryAction
-                  : styles.footer
-              }
-            >
-              <ModalFooter
-                unpadded
-                alignStart
-                variant={image ? "information" : undefined}
-                actions={[
-                  { label: confirmLabel, onClick: onConfirm },
-                  ...(props.secondaryLabel
-                    ? [
-                        {
-                          label: props.secondaryLabel,
-                          onClick: props.onSecondaryAction,
-                        },
-                      ]
-                    : []),
-                ]}
-                appearance={"primary"}
-                automationId={automationId}
-              />
-            </div>
-          )}
-        </div>
-        <div className={styles.image}>{image}</div>
       </div>
-    </div>
-  </GenericModal>
-)
+    </GenericModal>
+  )
+}
 
 export default InformationModal

@@ -37,6 +37,17 @@
   height: $ca-grid * 0.5;
 }
 
+.contentHeader {
+  padding-top: $ca-grid;
+  padding-right: $ca-grid;
+  padding-left: $ca-grid;
+  @include ca-media-tablet-and-up {
+    padding-top: $ca-grid;
+    padding-right: 2 * $ca-grid;
+    padding-left: 2 * $ca-grid;
+  }
+}
+
 .contentLayout {
   display: flex;
   padding: $ca-grid;
