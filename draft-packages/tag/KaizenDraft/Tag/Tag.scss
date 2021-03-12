@@ -50,12 +50,22 @@ $small: $ca-grid;
   margin-right: -0.6625rem;
   margin-bottom: -$kz-var-spacing-xs;
   margin-left: -0.225rem;
-  color: $kz-var-color-wisteria-600;
+
+  --dt-dismiss-icon-color-heart: rgba(
+    var(#{$kz-var-id-color-wisteria-800-rgb-params}),
+    0.7
+  );
+  $dt-dismiss-icon-color: var(
+    --dt-dismiss-icon-color-heart,
+    $kz-var-color-wisteria-600
+  );
+
+  color: $dt-dismiss-icon-color;
   height: 16px;
   cursor: pointer;
 
   &:hover {
-    color: $kz-var-color-wisteria-700;
+    color: var($kz-var-id-color-wisteria-800, $kz-var-color-wisteria-700);
   }
 
   &:active {
@@ -103,7 +113,7 @@ $small: $ca-grid;
   background-color: var($kz-var-id-color-ash, $kz-var-color-wisteria-200);
 
   &.dismissible:hover {
-    border-color: $kz-var-color-wisteria-300;
+    border-color: var($kz-var-id-color-iron, $kz-var-color-wisteria-300);
   }
 }
 
@@ -119,7 +129,7 @@ $small: $ca-grid;
   background-color: $kz-var-color-ash;
 
   &.dismissible:hover {
-    border-color: $kz-var-color-wisteria-200;
+    border-color: var($kz-var-id-color-iron, $kz-var-color-wisteria-300);
   }
 }
 
@@ -133,10 +143,10 @@ $small: $ca-grid;
 
 .sentimentNone {
   background-color: $kz-var-color-white;
-  border-color: $kz-var-color-wisteria-300;
+  border-color: var($kz-var-id-color-ash, $kz-var-color-wisteria-200);
 
-  &:hover {
-    border-color: $kz-var-color-wisteria-500;
+  &.dismissible:hover {
+    border-color: var($kz-var-id-color-iron, $kz-var-color-wisteria-300);
   }
 }
 
@@ -194,12 +204,12 @@ $small: $ca-grid;
 }
 
 .statusDraft {
-  background-color: rgba($kz-var-color-peach-500-rgb-params, 0.2);
+  background-color: var($kz-var-id-color-peach-100, $kz-var-color-peach-200);
   color: $kz-var-color-wisteria-800;
 }
 
 .statusClosed {
-  background-color: $kz-var-color-wisteria-200;
+  background-color: var($kz-var-id-color-coral-100, $kz-var-color-wisteria-200);
 }
 
 .statusAction {
