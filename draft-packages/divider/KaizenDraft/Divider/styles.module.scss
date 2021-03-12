@@ -50,3 +50,8 @@ $dt-content-border-color: rgba(
     border-color: rgba($kz-var-color-white-rgb-params, 0.1);
   }
 }
+
+.menuSeparator {
+  @extend .content;
+  margin: 5px 0;
+}
