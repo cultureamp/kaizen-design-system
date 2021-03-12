@@ -45,7 +45,7 @@
 }
 
 .reversedOcean {
-  background-color: $kz-var-color-cluny-300;
+  background-color: var($kz-var-id-color-cluny-200, $kz-var-color-cluny-300);
 }
 
 .normal {
