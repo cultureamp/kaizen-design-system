@@ -65,6 +65,7 @@ $mobile-actions-split-select-square-width: 64px;
 .mobileActionsPrimaryLabel {
   @include ca-padding($start: $ca-grid * 0.75);
   text-align: left;
+  text-decoration: none;
 
   color: $kz-color-white;
   font-family: $kz-typography-button-primary-font-family;

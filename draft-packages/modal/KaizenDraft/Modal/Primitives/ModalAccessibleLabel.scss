@@ -1,5 +1,6 @@
 @import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/color-vars";
 
 .label {
   position: relative;
@@ -18,10 +19,10 @@
       content: "";
       position: absolute;
       background: transparent;
-      border-radius: $kz-border-focus-ring-border-radius;
-      border-width: $kz-border-focus-ring-border-width;
-      border-style: $kz-border-focus-ring-border-style;
-      border-color: $kz-color-cluny-500;
+      border-radius: $kz-var-border-focus-ring-border-radius;
+      border-width: $kz-var-border-focus-ring-border-width;
+      border-style: $kz-var-border-focus-ring-border-style;
+      border-color: $kz-var-color-cluny-500;
       top: -$focus-ring-offset;
       left: -$focus-ring-offset;
       right: -$focus-ring-offset;

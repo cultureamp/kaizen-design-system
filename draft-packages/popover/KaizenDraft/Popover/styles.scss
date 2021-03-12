@@ -8,37 +8,34 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/components/Button/styles";
 
-/* The bordered part of the triangle */
-$default-size: 8px;
-$large: 450px;
+// Sync with PopoverModern.tsx
+$arrow-width: 16px;
+$arrow-height: 8px;
+
+$large-width: 450px;
 
 // Suggestion: with this implementation, the anchor point of the popover is at the base of the triangle. But,
 // we would ideally want it at the tip of the triangle. Otherwise, when using the popover, the consumer needs to manually
 // add something like a `margin-top: 8px` to get the popover properly positioned.
 // I didn't update this, as I didn't want to introduce a breaking change.
-@mixin arrow($background-color, $border-color, $size: $default-size) {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-
+@mixin arrow($background-color, $border-color) {
   &::before,
   &::after {
     content: "";
     position: absolute;
-    border-left: $size solid transparent;
-    border-right: $size solid transparent;
+    border-left: ($arrow-width / 2) solid transparent;
+    border-right: ($arrow-width / 2) solid transparent;
     top: 0;
     left: 0;
-    margin-left: -$size;
   }
 
   &::before {
-    border-top: $size solid $border-color;
+    border-top: $arrow-height solid $border-color;
   }
 
   /* The white fill of the triangle */
   &::after {
-    border-top: $size solid $background-color;
+    border-top: $arrow-height solid $background-color;
     margin-top: -2px;
     z-index: 1;
   }
@@ -154,32 +151,56 @@ $large: 450px;
   color: rgba(black, 0.5);
 }
 
-.arrowSideBottom {
-  // This is just an empty class to satisfy Elm's case statement
-  // (we were in a rush and the linter wouldn't let an empty class through.)
-  // Can be refactored out!
-  visibility: visible;
+.arrowWrapper {
+  position: absolute;
+  // Needed by popper, so it measures the size of the arrow correctly
+  width: $arrow-width;
+  height: $arrow-height;
 }
 
-.arrowSideTop {
-  top: initial;
+.arrow {
+  // Needed by popper, so it measures the size of the arrow correctly
+  width: $arrow-width;
+  height: $arrow-height;
+}
+
+/**
+ * In the legacy popover, the "side" described the location of the arrow, and
+ * we use css classes to determine the placement.
+ * In the modern popover, the "side" describes the location of the popover
+ * relative to the reference element, and we use data attributes to determine
+ * the placement.
+ * Hence, the confusion below.
+ */
+.arrowSideTop,
+[data-popper-placement^="bottom"] .arrowWrapper {
   bottom: 100%;
-  margin-top: 1px;
-  // Also see getArrowStyle in the component file, which will rotate the arrow 180 degrees
+  left: 50%;
+  margin-top: -$arrow-height;
+
+  .arrow {
+    transform: rotate(180deg);
+  }
 }
 
+.arrowSideBottom,
+[data-popper-placement^="top"] .arrowWrapper {
+  top: 100%;
+  left: 50%;
+}
+
+// Legacy component only
 .arrowPositionCenter {
-  // This is just an empty class to satisfy Elm's case statement
-  // (we were in a rush and the linter wouldn't let an empty class through.)
-  // Can be refactored out!
-  visibility: visible;
+  transform: translateX(-50%);
 }
 
+// Legacy component only
 .arrowPositionStart {
   left: $ca-grid;
   right: auto;
 }
 
+// Legacy component only
 .arrowPositionEnd {
   right: $ca-grid;
   left: auto;
@@ -187,7 +208,7 @@ $large: 450px;
 
 .large {
   width: auto;
-  max-width: $large;
+  max-width: $large-width;
 }
 
 .singleLine {

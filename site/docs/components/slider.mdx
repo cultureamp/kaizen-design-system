@@ -1,7 +1,7 @@
 ---
 title: Slider
 navTitle: Slider
-summaryParagraph: A slider lets people imprecisely select a value from a subjective range by moving a handle horizontally.
+summaryParagraph: Sliders are an input that allows users to make an imprecise selection from a range of values.
 tags: ["Range", "Range input", "Range slider"]
 needToKnow:
 - Avoid sliders when choosing a precise value is important.
@@ -25,23 +25,28 @@ Sliders are helpful for choosing subjective values.
 - Provide a visible label describing what the slider changes, such as "Brightness".
 - Show the minimum value on the left and maximum value on the right, where these are reversed in Right-To-Left (RTL) languages.
 - We generally use sliders with no fill. You might use a fill when it's useful to give the impression of building towards the maximum value.
-- We only use horizontal sliders. We're yet to need a vertical slider.
-- We only use sliders with a single handle. We're unlikely to need a slider with more than one handle.
 
-### Style
+## Anatomy
 
-- Tick marks:
-    - For a fine-grained range, you might consider hiding tick marks to minimize visual clutter. For example, a range of 0%–100% with 1% steps would have too many ticks and be incredibly crowded.
-    - For a coarse range, where the slider may snap to widely spaced intervals, you might show a tick mark for every step so it is clear where the slider will snap to.
-- Tick labels:
-    - There's rarely a need to apply labels to every tick mark. Consider only showing a label for min, max, and middle ticks, such as 0%, 100%, and maybe 50%.
+The structure of the slider is horizontal and has a single handle that can be moved along a track with the mouse or by using the arrow keys. The position of the handle denotes the selected value.
 
-### Behavior
+### Steps 
+
+Steps are selectable values along a slider range and can be visually indicated by vertical tick marks. 
+- For a fine-grained range, hide tick marks to minimize visual clutter. For example, a range of 0%–100% with 1% steps.
+- For a coarse-grained range, where the slider may snap to widely spaced intervals, show a tick mark for every step so it is clear where the slider will snap to. 
+
+### Labels
+
+Where the range of values is not obvious, sliders should be labeled with minimum and maximum values. An optional center label can also be used to denote a middle value or as a description.
+
+
+## Behavior
 
 - Use a `step` number to set the granularity that the slider values snap to. A good default step is 1 to stick to whole numbers.
 - Consider pairing the slider with a [Text Field](/components/text-field) as an alternative input control.
 
-### Accessibility
+## Accessibility
 
 For a custom slider:
 
@@ -55,6 +60,11 @@ For a custom slider:
 - The slider must be keyboard focusable and operable, and RTL languages reverse the direction of arrows. Usually:
     - Right and Up arrows increase the selected value
     - Left and Down arrows decrease the selected value
+
+## Copy guidelines
+
+Keep descriptive labels short (1-2 words max)
+
 
 ## When to use and when not to use
 
@@ -92,4 +102,7 @@ For a custom slider:
 - [Fluent UI: Slider](https://developer.microsoft.com/en-us/fluentui#/controls/web/slider)
 - [Lightning: Slider](https://www.lightningdesignsystem.com/components/slider/#site-main-content)
 - [Hubspot: UISlider](https://canvas.hubspot.com/show/UIComponents/input/UISlider)
+- [Garden: range](https://garden.zendesk.com/components/range)
+- [Garden: multi-thumb range](https://garden.zendesk.com/components/multi-thumb-range)
+- [Polaris: range slider](https://polaris.shopify.com/components/forms/range-slider)
 
