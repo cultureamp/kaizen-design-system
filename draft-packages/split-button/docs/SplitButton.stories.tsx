@@ -98,7 +98,7 @@ export const Disabled = () => (
   />
 )
 
-Disabled.storyName = "Default disabled"
+Disabled.storyName = "Default button disabled"
 
 export const EnabledWithDisabledItems = () => (
   <SplitButton
