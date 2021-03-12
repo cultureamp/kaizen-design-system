@@ -14,8 +14,9 @@
 }
 
 .interactiveIconWrapper {
+  cursor: pointer;
   .icon {
-    opacity: 0.5;
+    opacity: 0.7;
     transition: $ca-duration-fast opacity;
   }
   &:disabled,
@@ -29,7 +30,7 @@
     &:focus,
     &.hover {
       .icon {
-        opacity: 0.7;
+        opacity: 1;
       }
     }
     &:active,
