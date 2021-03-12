@@ -1,6 +1,7 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/shadow-vars";
+@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/animation";
 
@@ -8,18 +9,23 @@
 $arrow-height: 10px;
 $arrow-width: 20px;
 
+$dt-tooltip-content-border: var(
+  $kz-var-id-color-ash,
+  $kz-var-color-wisteria-200
+);
+
 .tooltip {
   pointer-events: none;
 }
 
 .tooltipContent {
-  border-radius: $kz-border-solid-border-radius;
+  border-radius: $kz-var-border-solid-border-radius;
   transition: opacity $ca-duration-fast, transform $ca-duration-fast;
   padding: $ca-grid / 2 $ca-grid / 2;
   z-index: 2;
-  border: $kz-border-solid-border-width $kz-border-solid-border-style
-    $kz-color-wisteria-200;
-  box-shadow: $kz-shadow-small-box-shadow;
+  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
+    $dt-tooltip-content-border;
+  box-shadow: $kz-var-shadow-small-box-shadow;
   text-align: center;
   max-width: 400px;
   // I'm having a problem getting the tooltip width to match the size of the text content.
@@ -28,7 +34,7 @@ $arrow-width: 20px;
   min-width: 200px;
   @include kz-typography-paragraph-body($size: 14);
   top: initial; // Overrides the `top` value of kz-typography-paragraph-body
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
   background-color: white;
 }
 
@@ -65,7 +71,7 @@ $arrow-width: 20px;
 }
 
 .arrowWhite::before {
-  border-top: $arrow-height solid $kz-color-wisteria-200;
+  border-top: $arrow-height solid $dt-tooltip-content-border;
 }
 
 .arrowWhite::after {
@@ -75,14 +81,13 @@ $arrow-width: 20px;
 }
 
 .arrowShadow::before {
-  border-top: 0px solid $kz-color-wisteria-200;
+  border-top: 0px solid $dt-tooltip-content-border;
 }
 
 // Triangle portion is a little darker to bring out shadow
 .arrowShadow::after {
-  // this color is a duplication of the color portion of our
-  // "small" shadow token defined in the design-tokens package
-  border-top: $arrow-height solid rgba(53, 55, 74, 0.09);
+  border-top: $arrow-height solid
+    rgba($kz-var-color-wisteria-800-rgb-params, 0.09);
   margin-top: 1px;
   filter: blur(4px);
   z-index: 2;
