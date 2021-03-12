@@ -38,13 +38,9 @@
 }
 
 .contentHeader {
-  padding-top: $ca-grid;
-  padding-right: $ca-grid;
-  padding-left: $ca-grid;
+  padding: $ca-grid $ca-grid 0 $ca-grid;
   @include ca-media-tablet-and-up {
-    padding-top: $ca-grid;
-    padding-right: 2 * $ca-grid;
-    padding-left: 2 * $ca-grid;
+    padding: $ca-grid 2 * $ca-grid 0 2 * $ca-grid;
   }
 }
 
