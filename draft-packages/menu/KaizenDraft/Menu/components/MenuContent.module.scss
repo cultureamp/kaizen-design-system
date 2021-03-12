@@ -1,8 +1,6 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/shadow";
-@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/shadow-vars";
+@import "~@kaizen/design-tokens/sass/typography-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/layers";
 
@@ -13,10 +11,10 @@ $gutter: 4px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  background: $kz-color-white;
-  color: $kz-color-wisteria-800;
-  border-radius: $kz-border-solid-border-radius;
-  box-shadow: $kz-shadow-large-box-shadow;
+  background: $kz-var-color-white;
+  color: $kz-var-color-wisteria-800;
+  border-radius: $kz-var-border-solid-border-radius;
+  box-shadow: $kz-var-shadow-large-box-shadow;
   padding: ($gutter + 2px) 0;
   text-align: left;
   width: 100%;
@@ -28,16 +26,16 @@ $gutter: 4px;
 
 .header {
   padding: 10px $side-padding 5px;
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
   margin: 0 $gutter;
 }
 
 .header__title {
-  font-family: $kz-typography-heading-6-font-family;
-  font-weight: $kz-typography-heading-6-font-weight;
-  font-size: $kz-typography-heading-6-font-size;
-  line-height: $kz-typography-heading-6-line-height;
-  letter-spacing: $kz-typography-heading-6-letter-spacing;
+  font-family: $kz-var-typography-heading-6-font-family;
+  font-weight: $kz-var-typography-heading-6-font-weight;
+  font-size: $kz-var-typography-heading-6-font-size;
+  line-height: $kz-var-typography-heading-6-line-height;
+  letter-spacing: $kz-var-typography-heading-6-letter-spacing;
   display: block;
 }
 
@@ -50,16 +48,16 @@ $gutter: 4px;
   border: none;
   text-align: left;
   padding: 8px $side-padding;
-  margin: 0 $gutter;
+  margin: 0 $gutter + 2px;
   min-height: 1.75 * $ca-grid;
   border-radius: 4px;
-  font-family: $kz-typography-paragraph-body-font-family;
-  font-weight: $kz-typography-paragraph-body-font-weight;
-  font-size: $kz-typography-paragraph-body-font-size;
-  line-height: $kz-typography-paragraph-body-line-height;
-  letter-spacing: $kz-typography-paragraph-body-letter-spacing;
+  font-family: $kz-var-typography-paragraph-body-font-family;
+  font-weight: $kz-var-typography-paragraph-body-font-weight;
+  font-size: $kz-var-typography-paragraph-body-font-size;
+  line-height: $kz-var-typography-paragraph-body-line-height;
+  letter-spacing: $kz-var-typography-paragraph-body-letter-spacing;
   text-decoration: none;
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
 
   cursor: default;
 
@@ -73,19 +71,19 @@ $gutter: 4px;
 
   &:not(.menuItem--disabled):hover,
   &:focus {
-    background: $kz-color-cluny-100;
-    color: $kz-color-cluny-500;
+    background: $kz-var-color-cluny-100;
+    color: $kz-var-color-cluny-500;
 
     .menuItem__Icon {
-      color: $kz-color-cluny-500;
+      color: $kz-var-color-cluny-500;
     }
 
     &.menuItem--destructive {
-      background: $kz-color-coral-100;
-      color: $kz-color-coral-600;
+      background: $kz-var-color-coral-100;
+      color: $kz-var-color-coral-600;
 
       .menuItem__Icon {
-        color: $kz-color-coral-600;
+        color: $kz-var-color-coral-600;
       }
     }
   }
@@ -100,14 +98,14 @@ $gutter: 4px;
 }
 
 .menuItem--active {
-  color: $kz-color-cluny-500;
-  font-weight: $kz-typography-paragraph-bold-font-weight;
+  color: $kz-var-color-cluny-500;
+  font-weight: $kz-var-typography-paragraph-bold-font-weight;
 }
 
 .menuItem--destructive {
-  color: $kz-color-coral-600;
+  color: $kz-var-color-coral-600;
   .menuItem__Icon {
-    color: $kz-color-coral-600;
+    color: $kz-var-color-coral-600;
   }
 }
 
@@ -122,13 +120,4 @@ $gutter: 4px;
   align-self: flex-start;
   transform: translateY(0.2em);
   color: rgba($kz-var-color-wisteria-800-rgb-params, 0.75);
-}
-
-.separator {
-  height: 1px;
-  width: 100%;
-  border: 0;
-  background: $kz-color-wisteria-200;
-  visibility: visible;
-  margin: 5px 0;
 }
