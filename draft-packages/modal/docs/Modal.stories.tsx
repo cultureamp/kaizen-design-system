@@ -33,7 +33,10 @@ import { figmaEmbed } from "../../../storybook/helpers"
 
 import styles from "./Modal.stories.scss"
 
-// Add additional height for Chromatic snapshots only
+// Add additional height to the stories when running in Chromatic only.
+// Modals have fixed position and would be cropped from snapshot tests.
+// Setting height to 100vh ensures we capture as much content of the
+// modal, as it's height responds to the content within it.
 const withMinHeight = Story => {
   if (!isChromatic()) return <Story />
   return (
