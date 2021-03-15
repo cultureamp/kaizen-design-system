@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@2.2.19...@kaizen/draft-split-button@2.2.20) (2021-03-15)
+
+
+### Bug Fixes
+
+* upgrade to Elm 0.19.1 ([#1038](https://github.com/cultureamp/kaizen-design-system/issues/1038)) ([07cd9e4](https://github.com/cultureamp/kaizen-design-system/commit/07cd9e4039d5cacfc64f752e1d3a966507ebc377))
+
+
+
+
+
 ## [2.2.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@2.2.18...@kaizen/draft-split-button@2.2.19) (2021-02-26)
 
 **Note:** Version bump only for package @kaizen/draft-split-button
