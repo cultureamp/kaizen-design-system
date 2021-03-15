@@ -1,6 +1,9 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
+import { loadElmStories } from "elm-storybook"
 
-loadElmStories("TextField (Elm)", module, require("./TextFieldStories.elm"), [
+const compiledElm = require("../ElmStories/TextFieldStories.elm").Elm.ElmStories
+  .TextFieldStories
+
+loadElmStories("TextField (Elm)", module, compiledElm, [
   "Default",
   "Default, Controlled, Prefilled Value",
   "Default, Uncontrolled, Prefilled Value",
