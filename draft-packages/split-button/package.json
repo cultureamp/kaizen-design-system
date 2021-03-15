@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-split-button",
-  "version": "2.2.19",
+  "version": "2.2.20",
   "description": "The draft Split button component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,13 +32,13 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^9.2.0",
+    "@kaizen/component-library": "^9.2.1",
     "@kaizen/deprecated-component-library-helpers": "^2.1.1",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },
   "devDependencies": {
-    "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.2.1",
+    "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.7.15...@kaizen/draft-tag@1.7.16) (2021-03-15)
+
+
+### Bug Fixes
+
+* upgrade to Elm 0.19.1 ([#1038](https://github.com/cultureamp/kaizen-design-system/issues/1038)) ([07cd9e4](https://github.com/cultureamp/kaizen-design-system/commit/07cd9e4039d5cacfc64f752e1d3a966507ebc377))
+
+
+
+
+
 ## [1.7.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.7.14...@kaizen/draft-tag@1.7.15) (2021-02-26)
 
 **Note:** Version bump only for package @kaizen/draft-tag

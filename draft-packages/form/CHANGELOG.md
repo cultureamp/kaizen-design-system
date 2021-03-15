@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.2.7...@kaizen/draft-form@3.2.8) (2021-03-15)
+
+
+### Bug Fixes
+
+* Allow ReactNode for TextField and TextAreaField validationMessage ([#1249](https://github.com/cultureamp/kaizen-design-system/issues/1249)) ([48607af](https://github.com/cultureamp/kaizen-design-system/commit/48607af2bf9b067656b6b8c1c74f5dac95087fed))
+
+
+
+
+
+## [3.2.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.2.6...@kaizen/draft-form@3.2.7) (2021-03-15)
+
+
+### Bug Fixes
+
+* upgrade to Elm 0.19.1 ([#1038](https://github.com/cultureamp/kaizen-design-system/issues/1038)) ([07cd9e4](https://github.com/cultureamp/kaizen-design-system/commit/07cd9e4039d5cacfc64f752e1d3a966507ebc377))
+
+
+
+
+
 ## [3.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.2.5...@kaizen/draft-form@3.2.6) (2021-02-26)
 
 **Note:** Version bump only for package @kaizen/draft-form
