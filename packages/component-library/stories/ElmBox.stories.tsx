@@ -1,6 +1,9 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
+import { loadElmStories } from "elm-storybook"
 
-loadElmStories("Box (Elm)", module, require("./Box.stories.elm"), [
+const compiledElm = require("../ElmStories/BoxStories.elm").Elm.ElmStories
+  .BoxStories
+
+loadElmStories("Box (Elm)", module, compiledElm, [
   "Box Default",
   "Box With Margin",
   "Box With Padding",
