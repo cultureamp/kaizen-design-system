@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/design-tokens/sass/shadow-vars";
+@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/Input/styles.scss";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/border";
@@ -42,8 +43,8 @@
   outline: 0 !important; /* stylelint-disable-line declaration-no-important */
 
   &:hover {
-    border-color: $kz-var-color-wisteria-700;
-    background-color: $kz-var-color-wisteria-100;
+    border-color: var($kz-var-id-color-slate, $kz-var-color-wisteria-400);
+    background-color: var($kz-var-id-color-stone, $kz-var-color-wisteria-100);
   }
 
   &.isFocused {

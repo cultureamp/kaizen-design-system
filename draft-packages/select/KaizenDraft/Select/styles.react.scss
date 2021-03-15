@@ -41,6 +41,9 @@ $focus-border-color: $kz-var-color-cluny-500;
     }
   }
   .control {
+    &.disabled {
+      opacity: 0.3;
+    }
     min-height: $input-height;
     border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
       var($kz-var-id-color-iron, $kz-var-color-wisteria-200);
@@ -122,12 +125,7 @@ $focus-border-color: $kz-var-color-cluny-500;
   }
 
   .multiValue {
-    @include kz-typography-paragraph-body;
-    @include ca-inherit-baseline;
-    color: $kz-var-color-wisteria-800;
-    border-radius: 15px;
-    padding: $ca-grid * 0.075 $ca-grid * 0.25;
-    cursor: default;
+    margin-right: $ca-grid * (7 / 24);
   }
 
   &.secondary,
