@@ -18,7 +18,7 @@
     "color": "^3.1.2",
     "gatsby": "2.24.74",
     "gatsby-plugin-force-trailing-slashes": "1.0.5",
-    "gatsby-plugin-google-tagmanager": "2.2.1",
+    "gatsby-plugin-google-tagmanager": "2.11.0",
     "gatsby-plugin-mdx": "1.1.6",
     "gatsby-plugin-react-helmet": "3.1.8",
     "gatsby-plugin-sass": "2.1.15",
