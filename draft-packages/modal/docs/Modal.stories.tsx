@@ -956,11 +956,11 @@ TestScrollingModalAndScrollingContent.storyName =
   "Test - scrolling modal and scrolling content"
 
 export const NestedModal = () => (
-  <ModalStateContainer isInitiallyOpen={isChromatic()}>
+  <ModalStateContainer isInitiallyOpen={false}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
-        <ModalStateContainer isInitiallyOpen={isChromatic()}>
+        <ModalStateContainer isInitiallyOpen={false}>
           {internal => (
             <>
               <ConfirmationModal
