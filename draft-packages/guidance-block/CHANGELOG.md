@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.5.25...@kaizen/draft-guidance-block@2.5.26) (2021-03-15)
+
+
+### Bug Fixes
+
+* add deprecation warnings to ultra legacy style, type and layout mixins + remove internal usage ([#1046](https://github.com/cultureamp/kaizen-design-system/issues/1046)) ([893ba13](https://github.com/cultureamp/kaizen-design-system/commit/893ba134d49468dc1cda3ffd847a056cf4886071))
+
+
+
+
+
 ## [2.5.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.5.24...@kaizen/draft-guidance-block@2.5.25) (2021-03-15)
 
 

@@ -3,9 +3,9 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "../styles";
 @import "../../../styles/border";
-@import "../../../styles/color";
+@import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "../../../styles/layers";
-@import "../../../styles/layout";
+@import "@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "../../../styles/grid";
 @import "../decision-tokens.scss";
 
