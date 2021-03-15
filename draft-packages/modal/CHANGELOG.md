@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.3.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.3.3...@kaizen/draft-modal@5.3.4) (2021-03-15)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [5.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.3.2...@kaizen/draft-modal@5.3.3) (2021-03-15)
+
+
+### Bug Fixes
+
+* add deprecation warnings to ultra legacy style, type and layout mixins + remove internal usage ([#1046](https://github.com/cultureamp/kaizen-design-system/issues/1046)) ([893ba13](https://github.com/cultureamp/kaizen-design-system/commit/893ba134d49468dc1cda3ffd847a056cf4886071))
+
+
+
+
+
 ## [5.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.3.1...@kaizen/draft-modal@5.3.2) (2021-03-15)
 
 **Note:** Version bump only for package @kaizen/draft-modal
