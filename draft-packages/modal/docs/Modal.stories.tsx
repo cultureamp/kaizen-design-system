@@ -18,6 +18,7 @@ import {
   ModalFooter,
   ModalHeader,
 } from "@kaizen/draft-modal"
+import isChromatic from "chromatic/isChromatic"
 
 import * as React from "react"
 import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
@@ -31,6 +32,16 @@ import {
 import { figmaEmbed } from "../../../storybook/helpers"
 
 import styles from "./Modal.stories.scss"
+
+// Add additional height for Chromatic snapshots only
+const withMinHeight = Story => {
+  if (!isChromatic()) return <Story />
+  return (
+    <div style={{ minHeight: "100vh" }}>
+      <Story />
+    </div>
+  )
+}
 
 const Padding = ({
   size = 1,
@@ -77,12 +88,16 @@ export default {
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A35440"
     ),
+    chromatic: {
+      delay: 400, // match MODAL_TRANSITION_TIMEOUT in modals + 50ms
+      pauseAnimationAtEnd: true,
+    },
   },
-  decorators: [withDesign],
+  decorators: [withDesign, withMinHeight],
 }
 
 export const ConfirmationPositiveKaizenSiteDemo = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -115,7 +130,7 @@ ConfirmationPositiveKaizenSiteDemo.story = {
 }
 
 export const ConfirmationInformative = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -148,7 +163,7 @@ ConfirmationInformative.story = {
 }
 
 export const ConfirmationCautionary = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -181,7 +196,7 @@ ConfirmationCautionary.story = {
 }
 
 export const ConfirmationNegative = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -214,7 +229,7 @@ ConfirmationNegative.story = {
 }
 
 export const ConfirmationWorkingButton = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -241,7 +256,7 @@ export const ConfirmationWorkingButton = () => (
 ConfirmationWorkingButton.storyName = "Confirmation w/ 'working' button"
 
 export const InputEditPositive = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -301,7 +316,7 @@ InputEditPositive.story = {
 }
 
 export const InputEditPositiveRtlLocale = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -355,7 +370,7 @@ export const InputEditPositiveRtlLocale = () => (
 InputEditPositiveRtlLocale.storyName = "Input-edit (positive, rtl locale)"
 
 export const InputEditNegative = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -408,7 +423,7 @@ export const InputEditNegative = () => (
 InputEditNegative.storyName = "Input-edit (negative)"
 
 export const InputEditWorkingButton = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -462,7 +477,7 @@ export const InputEditWorkingButton = () => (
 InputEditWorkingButton.storyName = "Input-edit w/ working button"
 
 export const InformationWithAction = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -507,7 +522,7 @@ export const InformationWithAction = () => (
 InformationWithAction.storyName = "Information (with action)"
 
 export const InformationWithoutAction = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -551,7 +566,7 @@ export const InformationWithoutAction = () => (
 InformationWithoutAction.storyName = "Information (without action)"
 
 export const InformationWithBackground = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -600,7 +615,7 @@ export const InformationWithBackground = () => (
 InformationWithBackground.storyName = "Information (with background)"
 
 export const InformationWithSecondaryAction = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -653,7 +668,7 @@ export const InformationWithSecondaryAction = () => (
 InformationWithSecondaryAction.storyName = "Information (with secondary action)"
 
 export const InformationModalWithImage = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -715,7 +730,7 @@ InformationModalWithImage.story = {
 }
 
 export const InformationModalWithNotification = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -790,7 +805,7 @@ InformationModalWithNotification.story = {
 
 export const GenericModalPadded = () => (
   <>
-    <ModalStateContainer isInitiallyOpen={false}>
+    <ModalStateContainer isInitiallyOpen={isChromatic()}>
       {({ open, close, isOpen }) => (
         <div>
           <Button label="Open modal" onClick={open} />
@@ -833,7 +848,7 @@ GenericModalPadded.storyName = "Generic modal (padded)"
 
 export const GenericModalUnpadded = () => (
   <>
-    <ModalStateContainer isInitiallyOpen={false}>
+    <ModalStateContainer isInitiallyOpen={isChromatic()}>
       {({ open, close, isOpen }) => (
         <div>
           <Button label="Open modal" onClick={open} />
@@ -877,7 +892,7 @@ GenericModalUnpadded.storyName = "Generic modal (unpadded)"
 
 export const GenericModalWithoutAction = () => (
   <>
-    <ModalStateContainer isInitiallyOpen={false}>
+    <ModalStateContainer isInitiallyOpen={isChromatic()}>
       {({ open, close, isOpen }) => (
         <div>
           <Button label="Open modal" onClick={open} />
@@ -910,7 +925,7 @@ GenericModalWithoutAction.storyName = "Generic modal (without action)"
 
 export const TestScrollingModalAndScrollingContent = () => (
   <>
-    <ModalStateContainer isInitiallyOpen={false}>
+    <ModalStateContainer isInitiallyOpen={isChromatic()}>
       {({ open, close, isOpen }) => (
         <div>
           <div style={{ height: "500px", background: "whitesmoke" }}>
@@ -941,11 +956,11 @@ TestScrollingModalAndScrollingContent.storyName =
   "Test - scrolling modal and scrolling content"
 
 export const NestedModal = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
-        <ModalStateContainer isInitiallyOpen={false}>
+        <ModalStateContainer isInitiallyOpen={isChromatic()}>
           {internal => (
             <>
               <ConfirmationModal
@@ -985,9 +1000,12 @@ export const NestedModal = () => (
 )
 
 NestedModal.storyName = "Nested confirmation modal"
+NestedModal.parameters = {
+  chromatic: { disable: true },
+}
 
 export const Roadblock = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
