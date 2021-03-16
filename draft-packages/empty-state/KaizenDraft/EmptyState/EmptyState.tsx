@@ -1,5 +1,4 @@
 import { useTheme } from "@kaizen/design-tokens"
-import { Well } from "@kaizen/draft-well"
 import classnames from "classnames"
 import * as React from "react"
 
@@ -75,35 +74,20 @@ const EmptyState: EmptyState = ({
       </div>
     </>
   )
-  return theme.themeKey === "zen" ? (
+  return (
     <div
       className={classnames([
+        styles[illustrationType],
         styles.container,
         styles.zen,
         styles[layoutContext],
         { [styles.straightCorners]: straightCorners },
-        styles[theme.themeKey],
       ])}
       id={id}
       data-automation-id={automationId}
     >
       {inner}
     </div>
-  ) : (
-    <Well
-      id={id}
-      automationId={automationId}
-      straightCorners={straightCorners}
-      borderStyle="none"
-      classNameAndIHaveSpokenToDST={classnames([
-        styles.container,
-        styles[layoutContext],
-        { [styles.straightCorners]: straightCorners },
-        styles[theme.themeKey],
-      ])}
-    >
-      {inner}
-    </Well>
   )
 }
 

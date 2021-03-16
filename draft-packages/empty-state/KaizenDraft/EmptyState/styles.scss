@@ -1,6 +1,5 @@
-@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
@@ -8,6 +7,12 @@
 @import "./responsive";
 
 .container {
+  --dt-border-zen: #{$kz-var-border-solid-border-width} #{$kz-var-border-solid-border-style}
+    #{$kz-var-color-wisteria-200};
+  --dt-border-heart: var(#{$kz-var-id-border-solid-border-width})
+    var(#{$kz-var-id-border-solid-border-style})
+    var(#{$kz-var-id-border-borderless-border-color});
+
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -16,13 +21,8 @@
   padding-left: $ca-grid;
   padding-right: $ca-grid;
   color: $kz-var-color-wisteria-800;
-
-  &.zen {
-    background-color: $kz-var-color-ash;
-    border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
-      $ca-border-color;
-    border-radius: $kz-var-border-solid-border-radius;
-  }
+  border: var(--dt-border-heart, var(--dt-border-zen));
+  border-radius: $kz-var-border-solid-border-radius;
 
   @include small {
     flex-direction: column;
@@ -48,6 +48,22 @@
       padding-top: $ca-grid;
       padding-bottom: $ca-grid;
     }
+  }
+
+  &.positive {
+    background-color: var($kz-var-id-color-seedling-100, $kz-var-color-ash);
+  }
+  &.negative {
+    background-color: var($kz-var-id-color-coral-100, $kz-var-color-ash);
+  }
+  &.action {
+    background-color: var($kz-var-id-color-peach-100, $kz-var-color-ash);
+  }
+  &.neutral {
+    background-color: var($kz-var-id-color-wisteria-100, $kz-var-color-ash);
+  }
+  &.informative {
+    background-color: var($kz-var-id-color-cluny-100, $kz-var-color-ash);
   }
 }
 
