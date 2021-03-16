@@ -99,51 +99,27 @@ $small: $ca-grid;
 
 .default {
   background-color: $kz-color-wisteria-200;
-
-  &.dismissible:hover {
-    border-color: $kz-color-wisteria-300;
-  }
 }
 
 .sentimentPositive {
   background-color: $kz-color-seedling-100;
-
-  &.dismissible:hover {
-    border-color: $kz-color-seedling-200;
-  }
 }
 
 .sentimentNeutral {
   background-color: $kz-color-ash;
-
-  &.dismissible:hover {
-    border-color: $kz-color-wisteria-200;
-  }
 }
 
 .sentimentNegative {
   background-color: $kz-color-coral-100;
-
-  &.dismissible:hover {
-    border-color: $kz-color-coral-200;
-  }
 }
 
 .sentimentNone {
   background-color: $kz-color-white;
   border-color: $kz-color-wisteria-300;
-
-  &:hover {
-    border-color: $kz-color-wisteria-500;
-  }
 }
 
 .validationPositive {
   background-color: $kz-color-seedling-100;
-
-  &.dismissible:hover {
-    border-color: $kz-color-seedling-200;
-  }
 
   .validationIcon {
     color: $kz-color-seedling-300;
@@ -153,10 +129,6 @@ $small: $ca-grid;
 .validationInformative {
   background-color: $kz-color-cluny-100;
 
-  &.dismissible:hover {
-    border-color: $kz-color-cluny-300;
-  }
-
   .validationIcon {
     color: $kz-color-cluny-500;
   }
@@ -165,10 +137,6 @@ $small: $ca-grid;
 .validationNegative {
   background-color: $kz-color-coral-100;
 
-  &.dismissible:hover {
-    border-color: $kz-color-coral-200;
-  }
-
   .validationIcon {
     color: $kz-color-coral-500;
   }
@@ -176,10 +144,6 @@ $small: $ca-grid;
 
 .validationCautionary {
   background-color: $kz-color-yuzu-100;
-
-  &.dismissible:hover {
-    border-color: $kz-color-yuzu-300;
-  }
 
   .validationIcon {
     color: $kz-color-yuzu-500;
