@@ -1,5 +1,6 @@
 import { Box, Heading } from "@kaizen/component-library"
 import { Divider } from "@kaizen/draft-divider"
+import { ButtonProps } from "@kaizen/draft-button"
 import * as React from "react"
 import { GenericModal, ModalAccessibleLabel, ModalFooter } from "../"
 import ModalHeader from "../Primitives/ModalHeader"
@@ -14,15 +15,6 @@ export type InformationModalSecondaryActionProps =
       secondaryLabel?: undefined
     }
 
-export type WorkingActionProps =
-  | {
-      isWorking: boolean
-      workingLabel: string
-    }
-  | {
-      workingLabel?: undefined
-    }
-
 export type InformationModalProps = Readonly<
   {
     isOpen: boolean
@@ -30,13 +22,13 @@ export type InformationModalProps = Readonly<
     onConfirm?: () => void
     onDismiss: () => void
     confirmLabel?: string
+    confirmWorking?: { label: string; labelHidden?: boolean }
     automationId?: string
     renderBackground?: () => React.ReactNode
     image?: React.ReactNode
     children: React.ReactNode
     contentHeader?: React.ReactNode
-  } & InformationModalSecondaryActionProps &
-    WorkingActionProps
+  } & InformationModalSecondaryActionProps
 >
 
 type InformationModal = React.FunctionComponent<InformationModalProps>
@@ -44,9 +36,9 @@ type InformationModal = React.FunctionComponent<InformationModalProps>
 const InformationModal = ({
   isOpen,
   title,
-  onDismiss,
   onConfirm,
   confirmLabel = "Confirm",
+  confirmWorking,
   automationId,
   renderBackground,
   children,
@@ -54,12 +46,29 @@ const InformationModal = ({
   image,
   ...props
 }: InformationModalProps) => {
-  const workingProps = props.workingLabel
+  const onDismiss = confirmWorking ? undefined : props.onDismiss
+
+  const footerActions: ButtonProps[] = []
+
+  const workingProps = confirmWorking
     ? {
-        working: props.isWorking,
-        workingLabel: props.workingLabel,
+        working: true,
+        workingLabel: confirmWorking.label,
+        workingLabelHidden: confirmWorking.labelHidden,
       }
     : {}
+
+  if (onConfirm) {
+    const confirmAction = { label: confirmLabel, onClick: onConfirm }
+
+    footerActions.push({ ...confirmAction, ...workingProps })
+  }
+  // const workingProps = props.workingLabel
+  //   ? {
+  //       working: props.isWorking,
+  //       workingLabel: props.workingLabel,
+  //     }
+  //   : {}
 
   return (
     <GenericModal
