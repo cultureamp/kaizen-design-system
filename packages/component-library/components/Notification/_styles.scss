@@ -99,6 +99,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
     color: $kz-var-color-wisteria-800;
 
     &%ca-notification---global {
+      // Yuzu200 for Heart theme, Yuzu300 for Zen theme. Switch not needed when Zen is removed.
       background-color: var($kz-var-id-color-yuzu-200, $kz-var-color-yuzu-300);
     }
   }
@@ -109,6 +110,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
     color: $kz-var-color-wisteria-800;
 
     &%ca-notification---global {
+      // Coral200 for Heart theme, Coral300 for Zen theme. Switch not needed when Zen is removed.
       background-color: var(
         $kz-var-id-color-coral-200,
         $kz-var-color-coral-300
@@ -243,11 +245,12 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
   }
 
   %ca-notification---global & {
+    //Inherit baseline because the parent selector doesn't.
+    @include ca-inherit-baseline;
     font-weight: $kz-var-typography-paragraph-body-font-weight;
     font-size: $kz-var-typography-paragraph-body-font-size;
     line-height: $kz-var-typography-paragraph-body-line-height;
     letter-spacing: $kz-var-typography-paragraph-body-letter-spacing;
-    top: 0;
   }
 
   a[href] {
