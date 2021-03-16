@@ -43,7 +43,9 @@
   outline: 0 !important; /* stylelint-disable-line declaration-no-important */
 
   &:hover {
+    // Slate on Heart theme, Wisteria400 on Zen. Switching not needed when Zen is removed.
     border-color: var($kz-var-id-color-slate, $kz-var-color-wisteria-400);
+    // Stone on Heart theme, Wisteria100 on Zen. Switching not needed when Zen is removed
     background-color: var($kz-var-id-color-stone, $kz-var-color-wisteria-100);
   }
 
