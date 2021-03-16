@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-search-box@1.1.20...@kaizen/draft-search-box@1.1.21) (2021-03-15)
+
+
+### Bug Fixes
+
+* add deprecation warnings to ultra legacy style, type and layout mixins + remove internal usage ([#1046](https://github.com/cultureamp/kaizen-design-system/issues/1046)) ([893ba13](https://github.com/cultureamp/kaizen-design-system/commit/893ba134d49468dc1cda3ffd847a056cf4886071))
+
+
+
+
+
+## [1.1.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-search-box@1.1.19...@kaizen/draft-search-box@1.1.20) (2021-03-15)
+
+**Note:** Version bump only for package @kaizen/draft-search-box
+
+
+
+
+
+## [1.1.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-search-box@1.1.18...@kaizen/draft-search-box@1.1.19) (2021-03-15)
+
+**Note:** Version bump only for package @kaizen/draft-search-box
+
+
+
+
+
 ## [1.1.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-search-box@1.1.17...@kaizen/draft-search-box@1.1.18) (2021-02-26)
 
 **Note:** Version bump only for package @kaizen/draft-search-box

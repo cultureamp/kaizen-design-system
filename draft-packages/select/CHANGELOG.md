@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.12.8...@kaizen/draft-select@1.12.9) (2021-03-15)
+
+
+### Bug Fixes
+
+* add deprecation warnings to ultra legacy style, type and layout mixins + remove internal usage ([#1046](https://github.com/cultureamp/kaizen-design-system/issues/1046)) ([893ba13](https://github.com/cultureamp/kaizen-design-system/commit/893ba134d49468dc1cda3ffd847a056cf4886071))
+
+
+
+
+
+## [1.12.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.12.7...@kaizen/draft-select@1.12.8) (2021-03-15)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.12.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.12.6...@kaizen/draft-select@1.12.7) (2021-03-15)
+
+
+### Bug Fixes
+
+* upgrade to Elm 0.19.1 ([#1038](https://github.com/cultureamp/kaizen-design-system/issues/1038)) ([07cd9e4](https://github.com/cultureamp/kaizen-design-system/commit/07cd9e4039d5cacfc64f752e1d3a966507ebc377))
+
+
+
+
+
 ## [1.12.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.12.5...@kaizen/draft-select@1.12.6) (2021-02-26)
 
 **Note:** Version bump only for package @kaizen/draft-select
