@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-select@1.4.12...@kaizen/draft-hierarchical-select@1.4.13) (2021-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-select
+
+
+
+
+
 ## [1.4.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-select@1.4.11...@kaizen/draft-hierarchical-select@1.4.12) (2021-03-15)
 
 
