@@ -37,7 +37,8 @@
   position: relative;
   box-sizing: border-box;
   border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
-    $kz-var-color-wisteria-500;
+    // Iron for Heart theme and Wisteria200 for Zen. Switching not needed when Zen is removed.
+    var($kz-var-id-color-iron, $kz-var-color-wisteria-200);
   border-radius: $kz-var-border-solid-border-radius;
   /* Tech debt - this !important existed before Stylelint rules */
   outline: 0 !important; /* stylelint-disable-line declaration-no-important */
