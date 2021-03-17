@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.2.2...@kaizen/component-library@9.3.0) (2021-03-17)
+
+
+### Features
+
+* Added typography support for Heart ([#1223](https://github.com/cultureamp/kaizen-design-system/issues/1223)) ([c63fea1](https://github.com/cultureamp/kaizen-design-system/commit/c63fea1214a051e78b6fb97a3ddefc6621e0ab75))
+
+
+
+
+
 ## [9.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.2.1...@kaizen/component-library@9.2.2) (2021-03-15)
 
 
