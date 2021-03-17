@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@3.2.3...@kaizen/draft-button@3.2.4) (2021-03-15)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [3.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@3.2.2...@kaizen/draft-button@3.2.3) (2021-03-15)
+
+
+### Bug Fixes
+
+* upgrade to Elm 0.19.1 ([#1038](https://github.com/cultureamp/kaizen-design-system/issues/1038)) ([07cd9e4](https://github.com/cultureamp/kaizen-design-system/commit/07cd9e4039d5cacfc64f752e1d3a966507ebc377))
+
+
+
+
+
 ## [3.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@3.2.1...@kaizen/draft-button@3.2.2) (2021-02-26)
 
 **Note:** Version bump only for package @kaizen/draft-button
