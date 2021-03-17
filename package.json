@@ -114,7 +114,7 @@
     "ts-jest": "^26.4.0",
     "typescript": "^3.6.3",
     "typescript-plugin-css-modules": "^2.4.0",
-    "webpack": "^4.40.2"
+    "webpack": "^5.26.2"
   },
   "devDependencies": {
     "@storybook/codemod": "^6.1.9",
