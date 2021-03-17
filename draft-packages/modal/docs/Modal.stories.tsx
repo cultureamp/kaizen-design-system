@@ -1,4 +1,9 @@
-import { Box, Heading, Paragraph } from "@kaizen/component-library"
+import {
+  Box,
+  Heading,
+  InlineNotification,
+  Paragraph,
+} from "@kaizen/component-library"
 import { Button } from "@kaizen/draft-button"
 import { TextField } from "@kaizen/draft-form"
 import {
@@ -13,15 +18,33 @@ import {
   ModalFooter,
   ModalHeader,
 } from "@kaizen/draft-modal"
+import isChromatic from "chromatic/isChromatic"
 
 import * as React from "react"
 import lockIcon from "@kaizen/component-library/icons/lock.icon.svg"
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
 import { withDesign } from "storybook-addon-designs"
-import { BenefitsSurvey, Negative } from "@kaizen/draft-illustration"
+import {
+  BenefitsSurvey,
+  Negative,
+  ExecutiveReportSharing,
+} from "@kaizen/draft-illustration"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 import styles from "./Modal.stories.scss"
+
+// Add additional height to the stories when running in Chromatic only.
+// Modals have fixed position and would be cropped from snapshot tests.
+// Setting height to 100vh ensures we capture as much content of the
+// modal, as it's height responds to the content within it.
+const withMinHeight = Story => {
+  if (!isChromatic()) return <Story />
+  return (
+    <div style={{ minHeight: "100vh" }}>
+      <Story />
+    </div>
+  )
+}
 
 const Padding = ({
   size = 1,
@@ -68,12 +91,16 @@ export default {
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A35440"
     ),
+    chromatic: {
+      delay: 400, // match MODAL_TRANSITION_TIMEOUT in modals + 50ms
+      pauseAnimationAtEnd: true,
+    },
   },
-  decorators: [withDesign],
+  decorators: [withDesign, withMinHeight],
 }
 
 export const ConfirmationPositiveKaizenSiteDemo = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -106,7 +133,7 @@ ConfirmationPositiveKaizenSiteDemo.story = {
 }
 
 export const ConfirmationInformative = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -139,7 +166,7 @@ ConfirmationInformative.story = {
 }
 
 export const ConfirmationCautionary = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -172,7 +199,7 @@ ConfirmationCautionary.story = {
 }
 
 export const ConfirmationNegative = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -205,7 +232,7 @@ ConfirmationNegative.story = {
 }
 
 export const ConfirmationWorkingButton = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -232,7 +259,7 @@ export const ConfirmationWorkingButton = () => (
 ConfirmationWorkingButton.storyName = "Confirmation w/ 'working' button"
 
 export const InputEditPositive = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -292,7 +319,7 @@ InputEditPositive.story = {
 }
 
 export const InputEditPositiveRtlLocale = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -346,7 +373,7 @@ export const InputEditPositiveRtlLocale = () => (
 InputEditPositiveRtlLocale.storyName = "Input-edit (positive, rtl locale)"
 
 export const InputEditNegative = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -399,7 +426,7 @@ export const InputEditNegative = () => (
 InputEditNegative.storyName = "Input-edit (negative)"
 
 export const InputEditWorkingButton = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -453,7 +480,7 @@ export const InputEditWorkingButton = () => (
 InputEditWorkingButton.storyName = "Input-edit w/ working button"
 
 export const InformationWithAction = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -498,7 +525,7 @@ export const InformationWithAction = () => (
 InformationWithAction.storyName = "Information (with action)"
 
 export const InformationWithoutAction = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -542,7 +569,7 @@ export const InformationWithoutAction = () => (
 InformationWithoutAction.storyName = "Information (without action)"
 
 export const InformationWithBackground = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -591,7 +618,7 @@ export const InformationWithBackground = () => (
 InformationWithBackground.storyName = "Information (with background)"
 
 export const InformationWithSecondaryAction = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -644,7 +671,7 @@ export const InformationWithSecondaryAction = () => (
 InformationWithSecondaryAction.storyName = "Information (with secondary action)"
 
 export const InformationModalWithImage = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />
@@ -705,9 +732,83 @@ InformationModalWithImage.story = {
   },
 }
 
+export const InformationModalWithNotification = () => (
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
+    {({ open, close, isOpen }) => (
+      <div>
+        <Button label="Open modal" onClick={open} />
+        <InformationModal
+          secondaryLabel="Cancel"
+          onSecondaryAction={close}
+          confirmLabel="Share"
+          onConfirm={close}
+          isOpen={isOpen}
+          title="Share review"
+          onDismiss={close}
+          contentHeader={
+            <InlineNotification
+              type="cautionary"
+              title="Sharing"
+              autohide={false}
+              hideCloseIcon={true}
+              noBottomMargin={true}
+            >
+              Once the review has been shared, it can't be unshared
+            </InlineNotification>
+          }
+          image={
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                textAlign: "center",
+                height: "100%",
+              }}
+            >
+              <ExecutiveReportSharing alt="stock" />
+            </div>
+          }
+        >
+          <ModalAccessibleDescription>
+            <Heading variant="heading-4">
+              The responses to these questions will be shared with Carlos
+              Quintero:
+            </Heading>
+          </ModalAccessibleDescription>
+          <Padding />
+          <Paragraph variant="body">
+            • What did this person achieve over the last 6 months? What specific
+            impact did they have on the team’s goals?
+          </Paragraph>
+          <Padding />
+          <Paragraph variant="body">
+            • What progress have they made on their learning and development
+            goals?
+          </Paragraph>
+          <Padding />
+          <Paragraph variant="body">
+            • What are 2-3 skills or competencies you'd like them to focus on
+            for further development?
+          </Paragraph>
+        </InformationModal>
+      </div>
+    )}
+  </ModalStateContainer>
+)
+
+InformationModalWithNotification.story = {
+  name: "Information (with Inline Notification)",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1620%3A114"
+    ),
+  },
+}
+
 export const GenericModalPadded = () => (
   <>
-    <ModalStateContainer isInitiallyOpen={false}>
+    <ModalStateContainer isInitiallyOpen={isChromatic()}>
       {({ open, close, isOpen }) => (
         <div>
           <Button label="Open modal" onClick={open} />
@@ -750,7 +851,7 @@ GenericModalPadded.storyName = "Generic modal (padded)"
 
 export const GenericModalUnpadded = () => (
   <>
-    <ModalStateContainer isInitiallyOpen={false}>
+    <ModalStateContainer isInitiallyOpen={isChromatic()}>
       {({ open, close, isOpen }) => (
         <div>
           <Button label="Open modal" onClick={open} />
@@ -794,7 +895,7 @@ GenericModalUnpadded.storyName = "Generic modal (unpadded)"
 
 export const GenericModalWithoutAction = () => (
   <>
-    <ModalStateContainer isInitiallyOpen={false}>
+    <ModalStateContainer isInitiallyOpen={isChromatic()}>
       {({ open, close, isOpen }) => (
         <div>
           <Button label="Open modal" onClick={open} />
@@ -827,7 +928,7 @@ GenericModalWithoutAction.storyName = "Generic modal (without action)"
 
 export const TestScrollingModalAndScrollingContent = () => (
   <>
-    <ModalStateContainer isInitiallyOpen={false}>
+    <ModalStateContainer isInitiallyOpen={isChromatic()}>
       {({ open, close, isOpen }) => (
         <div>
           <div style={{ height: "500px", background: "whitesmoke" }}>
@@ -902,9 +1003,12 @@ export const NestedModal = () => (
 )
 
 NestedModal.storyName = "Nested confirmation modal"
+NestedModal.parameters = {
+  chromatic: { disable: true },
+}
 
 export const Roadblock = () => (
-  <ModalStateContainer isInitiallyOpen={false}>
+  <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
       <div>
         <Button label="Open modal" onClick={open} />

@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.2.1...@kaizen/component-library@9.2.2) (2021-03-15)
+
+
+### Bug Fixes
+
+* add deprecation warnings to ultra legacy style, type and layout mixins + remove internal usage ([#1046](https://github.com/cultureamp/kaizen-design-system/issues/1046)) ([893ba13](https://github.com/cultureamp/kaizen-design-system/commit/893ba134d49468dc1cda3ffd847a056cf4886071))
+
+
+
+
+
+## [9.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.2.0...@kaizen/component-library@9.2.1) (2021-03-15)
+
+
+### Bug Fixes
+
+* upgrade to Elm 0.19.1 ([#1038](https://github.com/cultureamp/kaizen-design-system/issues/1038)) ([07cd9e4](https://github.com/cultureamp/kaizen-design-system/commit/07cd9e4039d5cacfc64f752e1d3a966507ebc377))
+
+
+
+
+
 # [9.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.1.2...@kaizen/component-library@9.2.0) (2021-02-26)
 
 
