@@ -6,11 +6,11 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
-$medium: $ca-grid * 1.25;
-$small: $ca-grid;
+$medium: calc(#{$kz-var-spacing-md} * 1.25);
+$small: $kz-var-spacing-md;
 
 .root {
-  @include ca-margin($end: $ca-grid * 0.5);
+  @include ca-margin($end: calc(#{$kz-var-spacing-md} * 0.5));
   font-size: $kz-var-typography-paragraph-small-font-size;
   font-weight: $kz-var-typography-paragraph-small-font-weight;
   letter-spacing: $kz-var-typography-paragraph-small-letter-spacing;
@@ -19,8 +19,8 @@ $small: $ca-grid;
   border: $kz-var-border-borderless-border-width
     $kz-var-border-borderless-border-style
     $kz-var-border-borderless-border-color;
-  border-radius: $ca-grid * 0.75;
-  padding: 0 $ca-grid * 0.4;
+  border-radius: calc(#{$kz-var-spacing-md} * 0.75);
+  padding: 0 calc(#{$kz-var-spacing-md} * 0.4);
   box-sizing: border-box;
 }
 
@@ -31,7 +31,10 @@ $small: $ca-grid;
 }
 
 .validationIcon {
-  @include ca-margin($start: -$ca-grid * 0.15, $end: $ca-grid * 0.125);
+  @include ca-margin(
+    $start: calc(#{$kz-var-spacing-md} * -0.15),
+    $end: calc(#{$kz-var-spacing-md} * 0.125)
+  );
   display: flex;
   align-items: center;
 }
@@ -84,8 +87,8 @@ $small: $ca-grid;
   // different to the rest of the tag
   position: absolute;
   display: inline-block;
-  width: $kz-var-spacing-xs + 0.125rem; // optical adjustment
-  height: $kz-var-spacing-xs + 0.125rem; // optical adjustment
+  width: calc(#{$kz-var-spacing-xs} + 0.125rem); // optical adjustment
+  height: calc(#{$kz-var-spacing-xs} + 0.125rem); // optical adjustment
   background-color: white;
   left: 10px;
   top: 10px;
@@ -222,7 +225,10 @@ $pulse-scale-factor: 9;
 $pulse-size-after: $pulse-size-initial * $pulse-scale-factor;
 
 .pulse {
-  @include ca-margin($start: $ca-grid * 0.35, $end: $ca-grid * 0.15);
+  @include ca-margin(
+    $start: calc(#{$kz-var-spacing-md} * 0.35),
+    $end: calc(#{$kz-var-spacing-md} * 0.15)
+  );
   width: $pulse-size-initial;
   height: $pulse-size-initial;
   border-radius: 50%;
