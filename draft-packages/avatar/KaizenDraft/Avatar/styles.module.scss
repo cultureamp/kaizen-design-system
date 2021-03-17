@@ -1,6 +1,6 @@
 @import "~@kaizen/design-tokens/sass/shadow";
 @import "~@kaizen/design-tokens/sass/typography-vars";
-@import "~@kaizen/component-library/styles/grid";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "./decision-tokens.scss";
 
 .wrapper {
@@ -31,18 +31,18 @@
   // Sizes
 
   &.small {
-    width: $ca-grid;
-    height: $ca-grid;
+    width: $kz-var-spacing-md;
+    height: $kz-var-spacing-md;
   }
 
   &.medium {
-    width: $ca-grid * 2;
-    height: $ca-grid * 2;
+    width: $kz-var-spacing-xl;
+    height: $kz-var-spacing-xl;
   }
 
   &.large {
-    width: $ca-grid * 2.5;
-    height: $ca-grid * 2.5;
+    width: $kz-var-spacing-xxl;
+    height: $kz-var-spacing-xxl;
   }
 }
 
