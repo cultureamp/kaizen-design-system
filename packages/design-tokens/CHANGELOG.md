@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.5.3...@kaizen/design-tokens@2.6.0) (2021-03-17)
+
+
+### Features
+
+* Added typography support for Heart ([#1223](https://github.com/cultureamp/kaizen-design-system/issues/1223)) ([c63fea1](https://github.com/cultureamp/kaizen-design-system/commit/c63fea1214a051e78b6fb97a3ddefc6621e0ab75))
+
+
+
+
+
 ## [2.5.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.5.2...@kaizen/design-tokens@2.5.3) (2021-03-10)
 
 **Note:** Version bump only for package @kaizen/design-tokens

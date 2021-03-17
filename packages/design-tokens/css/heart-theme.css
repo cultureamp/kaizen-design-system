@@ -180,25 +180,25 @@
   --kz-var-spacing-xxxl: 4.5rem;
   --kz-var-spacing-xxxxl: 5.25rem;
   --kz-var-spacing-xxxxxl: 6rem;
-  --kz-var-typography-data-large-font-family: "Greycliff CF", "Noto Sans",
-    Helvetica, Arial, sans-serif;
+  --kz-var-typography-data-large-font-family: "Inter", "Noto Sans", Helvetica,
+    Arial, sans-serif;
   --kz-var-typography-data-large-font-weight: 700;
   --kz-var-typography-data-large-font-size: 5.25rem;
   --kz-var-typography-data-large-line-height: 5.25rem;
   --kz-var-typography-data-large-letter-spacing: normal;
-  --kz-var-typography-data-large-units-font-family: "Greycliff CF", "Noto Sans",
+  --kz-var-typography-data-large-units-font-family: "Inter", "Noto Sans",
     Helvetica, Arial, sans-serif;
   --kz-var-typography-data-large-units-font-weight: 700;
   --kz-var-typography-data-large-units-font-size: 2.625rem;
   --kz-var-typography-data-large-units-line-height: 5.25rem;
   --kz-var-typography-data-large-units-letter-spacing: normal;
-  --kz-var-typography-data-medium-font-family: "Greycliff CF", "Noto Sans",
-    Helvetica, Arial, sans-serif;
+  --kz-var-typography-data-medium-font-family: "Inter", "Noto Sans", Helvetica,
+    Arial, sans-serif;
   --kz-var-typography-data-medium-font-weight: 700;
   --kz-var-typography-data-medium-font-size: 3rem;
   --kz-var-typography-data-medium-line-height: 5rem;
   --kz-var-typography-data-medium-letter-spacing: normal;
-  --kz-var-typography-data-medium-units-font-family: "Greycliff CF", "Noto Sans",
+  --kz-var-typography-data-medium-units-font-family: "Inter", "Noto Sans",
     Helvetica, Arial, sans-serif;
   --kz-var-typography-data-medium-units-font-weight: 700;
   --kz-var-typography-data-medium-units-font-size: 1.5rem;
@@ -221,24 +221,24 @@
   --kz-var-typography-display-0-font-size: 4.5rem;
   --kz-var-typography-display-0-line-height: 5.25rem;
   --kz-var-typography-display-0-letter-spacing: 0em;
-  --kz-var-typography-heading-1-font-family: "Greycliff CF", "Noto Sans",
-    Helvetica, Arial, sans-serif;
+  --kz-var-typography-heading-1-font-family: "Inter", "Noto Sans", Helvetica,
+    Arial, sans-serif;
   --kz-var-typography-heading-1-font-weight: 700;
-  --kz-var-typography-heading-1-font-size: 2.25rem;
-  --kz-var-typography-heading-1-line-height: 2.25rem;
-  --kz-var-typography-heading-1-letter-spacing: -0.03em;
-  --kz-var-typography-heading-2-font-family: "Greycliff CF", "Noto Sans",
-    Helvetica, Arial, sans-serif;
+  --kz-var-typography-heading-1-font-size: 2.125rem;
+  --kz-var-typography-heading-1-line-height: 2.625rem;
+  --kz-var-typography-heading-1-letter-spacing: normal;
+  --kz-var-typography-heading-2-font-family: "Inter", "Noto Sans", Helvetica,
+    Arial, sans-serif;
   --kz-var-typography-heading-2-font-weight: 700;
-  --kz-var-typography-heading-2-font-size: 1.875rem;
+  --kz-var-typography-heading-2-font-size: 1.75rem;
   --kz-var-typography-heading-2-line-height: 2.25rem;
-  --kz-var-typography-heading-2-letter-spacing: -0.03em;
-  --kz-var-typography-heading-3-font-family: "Greycliff CF", "Noto Sans",
-    Helvetica, Arial, sans-serif;
+  --kz-var-typography-heading-2-letter-spacing: normal;
+  --kz-var-typography-heading-3-font-family: "Inter", "Noto Sans", Helvetica,
+    Arial, sans-serif;
   --kz-var-typography-heading-3-font-weight: 700;
   --kz-var-typography-heading-3-font-size: 1.375rem;
   --kz-var-typography-heading-3-line-height: 1.5rem;
-  --kz-var-typography-heading-3-letter-spacing: -0.03em;
+  --kz-var-typography-heading-3-letter-spacing: normal;
   --kz-var-typography-heading-4-font-family: "Inter", "Noto Sans", Helvetica,
     Arial, sans-serif;
   --kz-var-typography-heading-4-font-weight: 600;
