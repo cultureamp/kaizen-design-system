@@ -1,6 +1,15 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/animation";
-@import "~@kaizen/component-library/styles/utils";
+@import "~@kaizen/design-tokens/sass/animation-vars";
+
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 .wrapper {
   display: flex;
@@ -11,8 +20,8 @@
 }
 
 .spinner {
-  animation: spinner $kz-animation-duration-deliberate
-    $kz-animation-easing-function-ease-in-out infinite;
+  animation: spinner $kz-var-animation-duration-deliberate
+    $kz-var-animation-easing-function-ease-in-out infinite;
 }
 
 @keyframes spinner {
