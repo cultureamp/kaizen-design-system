@@ -1,11 +1,13 @@
 @import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/design-tokens/sass/shadow-vars";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "~@kaizen/design-tokens/sass/typography-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/layers";
 
-$side-padding: 1/2 * $ca-grid;
-$gutter: 4px;
+$side-padding: calc(1 / 2 * #{$kz-var-spacing-md});
+$gutter: calc(#{$kz-var-spacing-md} * 1 / 6);
+$padding: calc(#{$kz-var-spacing-md} * 1 / 4);
 
 .menuContent {
   display: flex;
@@ -15,7 +17,7 @@ $gutter: 4px;
   color: $kz-var-color-wisteria-800;
   border-radius: $kz-var-border-solid-border-radius;
   box-shadow: $kz-var-shadow-large-box-shadow;
-  padding: ($gutter + 2px) 0;
+  padding: $padding 0;
   text-align: left;
   width: 100%;
 
@@ -48,8 +50,8 @@ $gutter: 4px;
   border: none;
   text-align: left;
   padding: 8px $side-padding;
-  margin: 0 $gutter + 2px;
-  min-height: 1.75 * $ca-grid;
+  margin: 0 $padding;
+  min-height: calc(1.75 * #{$kz-var-spacing-md});
   border-radius: 4px;
   font-family: $kz-var-typography-paragraph-body-font-family;
   font-weight: $kz-var-typography-paragraph-body-font-weight;
@@ -114,7 +116,7 @@ $gutter: 4px;
 }
 
 .menuItem__Icon {
-  @include ca-margin($end: $ca-grid / 3);
+  @include ca-margin($end: calc(#{$kz-var-spacing-md} / 3));
 
   display: flex;
   align-self: flex-start;
