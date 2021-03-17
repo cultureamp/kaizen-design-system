@@ -1,8 +1,7 @@
-import { useTheme } from "@kaizen/design-tokens"
 import classnames from "classnames"
 import * as React from "react"
-
 import styles from "./styles.scss"
+
 const actionIllustration = require("./illustrations/action.png")
 const informativeIllustration = require("./illustrations/informative.png")
 const negativeIllustration = require("./illustrations/negative.png")
@@ -50,45 +49,34 @@ const EmptyState: EmptyState = ({
   children,
   straightCorners,
   useZenStyles,
-}) => {
-  const theme = useTheme()
-  const inner = (
-    <>
-      <div className={styles.illustrationSide}>
-        <img
-          src={illustrations[illustrationType]}
-          className={styles.illustration}
-        />
-      </div>
-      <div
-        className={classnames([
-          styles.textSide,
-          { [styles.zen]: useZenStyles },
-        ])}
-      >
-        <div className={styles.textSideInner}>
-          <div className={styles.heading}>{headingText}</div>
-          <div className={styles.description}>{bodyText}</div>
-          {children}
-        </div>
-      </div>
-    </>
-  )
-  return (
-    <div
-      className={classnames([
-        styles[illustrationType],
-        styles.container,
-        styles.zen,
-        styles[layoutContext],
-        { [styles.straightCorners]: straightCorners },
-      ])}
-      id={id}
-      data-automation-id={automationId}
-    >
-      {inner}
+}) => (
+  <div
+    className={classnames([
+      styles[illustrationType],
+      styles.container,
+      styles.zen,
+      styles[layoutContext],
+      { [styles.straightCorners]: straightCorners },
+    ])}
+    id={id}
+    data-automation-id={automationId}
+  >
+    <div className={styles.illustrationSide}>
+      <img
+        src={illustrations[illustrationType]}
+        className={styles.illustration}
+      />
     </div>
-  )
-}
+    <div
+      className={classnames([styles.textSide, { [styles.zen]: useZenStyles }])}
+    >
+      <div className={styles.textSideInner}>
+        <div className={styles.heading}>{headingText}</div>
+        <div className={styles.description}>{bodyText}</div>
+        {children}
+      </div>
+    </div>
+  </div>
+)
 
 export default EmptyState
