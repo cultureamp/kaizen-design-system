@@ -63,12 +63,6 @@ const InformationModal = ({
 
     footerActions.push({ ...confirmAction, ...workingProps })
   }
-  // const workingProps = props.workingLabel
-  //   ? {
-  //       working: props.isWorking,
-  //       workingLabel: props.workingLabel,
-  //     }
-  //   : {}
 
   return (
     <GenericModal
