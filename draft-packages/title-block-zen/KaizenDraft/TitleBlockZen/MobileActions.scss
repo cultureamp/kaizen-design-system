@@ -3,7 +3,8 @@
 @import "~@kaizen/design-tokens/sass/typography";
 @import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/component-library/styles/grid";
-@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
+@import "~@kaizen/component-library/styles/layers";
 @import "./TitleBlockBreakpoints.scss";
 
 $mobile-actions-split-select-square-width: 64px;
@@ -64,6 +65,7 @@ $mobile-actions-split-select-square-width: 64px;
 .mobileActionsPrimaryLabel {
   @include ca-padding($start: $ca-grid * 0.75);
   text-align: left;
+  text-decoration: none;
 
   color: $kz-color-white;
   font-family: $kz-typography-button-primary-font-family;
