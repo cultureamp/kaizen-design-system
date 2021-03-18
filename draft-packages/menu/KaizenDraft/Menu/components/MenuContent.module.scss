@@ -5,9 +5,9 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/layers";
 
-$side-padding: calc(1 / 2 * #{$kz-var-spacing-md});
+$side-padding: $kz-var-spacing-sm;
 $gutter: calc(#{$kz-var-spacing-md} * 1 / 6);
-$padding: calc(#{$kz-var-spacing-md} * 1 / 4);
+$padding: $kz-var-spacing-xs;
 
 .menuContent {
   display: flex;
