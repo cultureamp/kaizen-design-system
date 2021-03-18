@@ -111,6 +111,7 @@ $side-padding: 3/4 * $ca-grid;
 
 .buttonDefault {
   @include button-mixing(
+    // Use of variable fallbacks to switch between Heart and Zen themes (use Zen as default fallback)
     $background: $kz-var-color-white,
     $border-color: var($kz-var-id-color-iron, $kz-var-color-wisteria-200),
     $color: $kz-var-color-wisteria-800,
@@ -127,7 +128,7 @@ $side-padding: 3/4 * $ca-grid;
 }
 
 .buttonPrimary {
-  // equal to add-tint($ca-palette-seedling, 10%). Temporary until we upgrade to Zen (Wisteria)
+  // #58b59a is equal to add-tint($ca-palette-seedling, 10%). Temporary until we remove Zen (Wisteria)
   @include button-mixing(
     $background: var($kz-var-id-color-seedling-300, #58b59a),
     $border-color: var($kz-var-id-color-seedling-300, #58b59a),
@@ -264,24 +265,26 @@ $side-padding: 3/4 * $ca-grid;
   );
 
   // Making the left | right border white to separate the button with dropdown button
+  /* stylelint-disable declaration-no-important */
   border-left-color: var(
     --dt-border-left-color-heart,
     $kz-var-color-white
-  ) !important; /* stylelint-disable-line declaration-no-important */
+  ) !important;
 
   [dir="rtl"] & {
     // equal to add-tint($ca-palette-seedling, 10%). Temporary until we upgrade to Zen (Wisteria)
-    border-left-color: #58b59a !important; /* stylelint-disable-line declaration-no-important */
+    border-left-color: #58b59a !important;
     border-left-color: var(
       --dt-border-left-color-heart,
       $kz-var-color-white
-    ) !important; /* stylelint-disable-line declaration-no-important */
+    ) !important;
   }
 
   &:active,
   &:hover {
     border-left-color: transparent !important;
   }
+  /* stylelint-enable declaration-no-important */
 }
 
 .dropdownIcon {
