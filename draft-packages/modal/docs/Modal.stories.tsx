@@ -732,6 +732,30 @@ InformationModalWithImage.story = {
   },
 }
 
+const InformationModalContent = () => (
+  <>
+    <ModalAccessibleDescription>
+      <Heading variant="heading-4">
+        The responses to these questions will be shared with Carlos Quintero:
+      </Heading>
+    </ModalAccessibleDescription>
+    <Padding />
+    <Paragraph variant="body">
+      • What did this person achieve over the last 6 months? What specific
+      impact did they have on the team’s goals?
+    </Paragraph>
+    <Padding />
+    <Paragraph variant="body">
+      • What progress have they made on their learning and development goals?
+    </Paragraph>
+    <Padding />
+    <Paragraph variant="body">
+      • What are 2-3 skills or competencies you'd like them to focus on for
+      further development?
+    </Paragraph>
+  </>
+)
+
 export const InformationModalWithNotification = () => (
   <ModalStateContainer isInitiallyOpen={isChromatic()}>
     {({ open, close, isOpen }) => (
@@ -770,27 +794,7 @@ export const InformationModalWithNotification = () => (
             </div>
           }
         >
-          <ModalAccessibleDescription>
-            <Heading variant="heading-4">
-              The responses to these questions will be shared with Carlos
-              Quintero:
-            </Heading>
-          </ModalAccessibleDescription>
-          <Padding />
-          <Paragraph variant="body">
-            • What did this person achieve over the last 6 months? What specific
-            impact did they have on the team’s goals?
-          </Paragraph>
-          <Padding />
-          <Paragraph variant="body">
-            • What progress have they made on their learning and development
-            goals?
-          </Paragraph>
-          <Padding />
-          <Paragraph variant="body">
-            • What are 2-3 skills or competencies you'd like them to focus on
-            for further development?
-          </Paragraph>
+          <InformationModalContent />
         </InformationModal>
       </div>
     )}
@@ -799,6 +803,72 @@ export const InformationModalWithNotification = () => (
 
 InformationModalWithNotification.story = {
   name: "Information (with Inline Notification)",
+  parameters: {
+    ...figmaEmbed(
+      "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1620%3A114"
+    ),
+  },
+}
+
+export const InformationModalWithWorkingButton = () => {
+  const [isLoading, setIsLoading] = React.useState(false)
+  return (
+    <ModalStateContainer isInitiallyOpen={false}>
+      {({ open, close, isOpen }) => (
+        <div>
+          <Button label="Open modal" onClick={open} />
+          <InformationModal
+            secondaryLabel="Cancel"
+            onSecondaryAction={() => {
+              setIsLoading(false)
+              close()
+            }}
+            confirmLabel="Share"
+            onConfirm={() => {
+              setIsLoading(true)
+            }}
+            isOpen={isOpen}
+            title="Share review"
+            onDismiss={() => {
+              setIsLoading(false)
+              close()
+            }}
+            confirmWorking={{ label: "Sharing review…" }}
+            contentHeader={
+              <InlineNotification
+                type="cautionary"
+                title="Sharing"
+                autohide={false}
+                hideCloseIcon={true}
+                noBottomMargin={true}
+              >
+                Once the review has been shared, it can't be unshared
+              </InlineNotification>
+            }
+            image={
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  textAlign: "center",
+                  height: "100%",
+                }}
+              >
+                <ExecutiveReportSharing alt="stock" />
+              </div>
+            }
+          >
+            <InformationModalContent />
+          </InformationModal>
+        </div>
+      )}
+    </ModalStateContainer>
+  )
+}
+
+InformationModalWithWorkingButton.story = {
+  name: "Information (with working button)",
   parameters: {
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1620%3A114"
