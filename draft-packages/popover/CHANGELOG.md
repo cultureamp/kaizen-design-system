@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.0.3...@kaizen/draft-popover@2.1.0) (2021-03-18)
+
+
+### Features
+
+* Update Popover to support Heart ([#1228](https://github.com/cultureamp/kaizen-design-system/issues/1228)) ([71379be](https://github.com/cultureamp/kaizen-design-system/commit/71379be3ba580af0b638a3a14c21ab871108ca07))
+
+
+
+
+
 ## [2.0.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.0.2...@kaizen/draft-popover@2.0.3) (2021-03-17)
 
 **Note:** Version bump only for package @kaizen/draft-popover
