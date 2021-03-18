@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-title-block-zen",
-  "version": "3.2.1",
+  "version": "3.2.6",
   "description": "The draft Title Block (Zen) component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,17 +32,17 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^9.2.0",
-    "@kaizen/draft-badge": "^1.3.0",
-    "@kaizen/draft-button": "^3.2.2",
-    "@kaizen/draft-menu": "^3.1.2",
-    "@kaizen/draft-select": "^1.12.6",
-    "@kaizen/draft-tag": "^1.7.15",
+    "@kaizen/component-library": "^9.3.0",
+    "@kaizen/draft-badge": "^1.3.1",
+    "@kaizen/draft-button": "^3.2.6",
+    "@kaizen/draft-menu": "^3.1.6",
+    "@kaizen/draft-select": "^1.12.10",
+    "@kaizen/draft-tag": "^1.7.18",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },
   "devDependencies": {
-    "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.2.1",
+    "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {

@@ -1,14 +1,12 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
+import { loadElmStories } from "elm-storybook"
 
-loadElmStories(
-  "GlobalNotification (Elm)",
-  module,
-  require("./GlobalNotification.stories.elm"),
-  [
-    "Positive",
-    "Informative",
-    "Cautionary",
-    "Negative",
-    "Multiple notifications",
-  ]
-)
+const compiledElm = require("../ElmStories/GlobalNotificationStories.elm").Elm
+  .ElmStories.GlobalNotificationStories
+
+loadElmStories("GlobalNotification (Elm)", module, compiledElm, [
+  "Positive",
+  "Informative",
+  "Cautionary",
+  "Negative",
+  "Multiple notifications",
+])
