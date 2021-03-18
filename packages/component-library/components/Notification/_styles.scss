@@ -111,6 +111,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 
     &%ca-notification---global {
       // Coral200 for Heart theme, Coral300 for Zen theme. Switch not needed when Zen is removed.
+      // Use Coral 200 for Heart theme, and Coral 300 for zen (the default fallback)
       background-color: var(
         $kz-var-id-color-coral-200,
         $kz-var-color-coral-300
