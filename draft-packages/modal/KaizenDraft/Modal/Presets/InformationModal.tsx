@@ -60,8 +60,15 @@ const InformationModal = ({
 
   if (onConfirm) {
     const confirmAction = { label: confirmLabel, onClick: onConfirm }
-
     footerActions.push({ ...confirmAction, ...workingProps })
+  }
+
+  if (props.secondaryLabel) {
+    footerActions.push({
+      label: props.secondaryLabel,
+      onClick: props.onSecondaryAction,
+      disabled: !!confirmWorking,
+    })
   }
 
   return (
@@ -101,21 +108,7 @@ const InformationModal = ({
                   unpadded
                   alignStart
                   variant={image ? "information" : undefined}
-                  actions={[
-                    {
-                      label: confirmLabel,
-                      onClick: onConfirm,
-                      ...workingProps,
-                    },
-                    ...(props.secondaryLabel
-                      ? [
-                          {
-                            label: props.secondaryLabel,
-                            onClick: props.onSecondaryAction,
-                          },
-                        ]
-                      : []),
-                  ]}
+                  actions={footerActions}
                   appearance={"primary"}
                   automationId={automationId}
                 />
