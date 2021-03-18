@@ -100,6 +100,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 
     &%ca-notification---global {
       // Yuzu200 for Heart theme, Yuzu300 for Zen theme. Switch not needed when Zen is removed.
+      // Use Yuzu200 for Heart theme, and Yuzu300 for zen (the default fallback)
       background-color: var($kz-var-id-color-yuzu-200, $kz-var-color-yuzu-300);
     }
   }
