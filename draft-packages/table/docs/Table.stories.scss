@@ -1,4 +1,5 @@
-@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 
@@ -12,7 +13,7 @@
 }
 
 .popoutExpandedFooter {
-  background: $kz-color-wisteria-100;
+  background: var($kz-var-id-color-stone, $kz-var-color-wisteria-100);
   margin-left: -$ca-grid * 0.5;
   margin-right: -$ca-grid * 0.5;
   padding: $ca-grid * 0.5 ($ca-grid * 0.5 + $ca-grid * 0.8) $ca-grid;
