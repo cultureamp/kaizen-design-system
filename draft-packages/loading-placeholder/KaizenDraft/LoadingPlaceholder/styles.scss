@@ -1,7 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/border-vars";
-@import "~@kaizen/component-library/styles/animation";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/design-tokens/sass/animation-vars";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "./decision-tokens";
@@ -13,8 +13,8 @@
   background-color: $dt-color-background-default;
   border-radius: calc(#{$kz-var-border-solid-border-radius} * 3);
   position: relative;
-  top: $ca-grid * 0.175;
-  margin-bottom: $ca-grid * 0.5;
+  top: calc(#{$kz-var-spacing-md} * 0.175);
+  margin-bottom: calc(#{$kz-var-spacing-md} * 0.5);
 }
 
 @keyframes fadeInOut {
@@ -31,7 +31,7 @@
 
 .animated {
   animation-name: fadeInOut;
-  animation-duration: $ca-duration-deliberate * 2;
+  animation-duration: calc(#{$kz-var-animation-duration-deliberate} * 2);
   animation-iteration-count: infinite;
 }
 
@@ -49,21 +49,21 @@
 }
 
 .normal {
-  height: $ca-grid * 0.625;
+  height: calc(#{$kz-var-spacing-md} * 0.625);
 }
 
 .tall {
-  top: $ca-grid * 0.25;
-  height: $ca-grid * 0.725;
+  top: calc(#{$kz-var-spacing-md} * 0.25);
+  height: calc(#{$kz-var-spacing-md} * 0.725);
 }
 
 .inline {
   display: inline-block;
-  margin-bottom: $ca-grid * 0.35;
+  margin-bottom: calc(#{$kz-var-spacing-md} * 0.35);
 }
 
 .inline + .inline {
-  @include ca-margin($start: $ca-grid);
+  @include ca-margin($start: $kz-var-spacing-md);
 }
 
 .noBottomMargin {
