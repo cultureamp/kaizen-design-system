@@ -1,11 +1,12 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "~@kaizen/component-library/components/Button/styles";
+@import "./decision-tokens.scss";
 
 .step {
-  padding: $ca-grid * 0.5;
-  min-height: $ca-grid * 5;
+  padding: $kz-var-spacing-sm;
+  min-height: calc(#{$kz-var-spacing-md} * 5);
   min-width: 400px;
   position: relative;
 }
@@ -18,7 +19,7 @@
   width: 100%;
 
   &:hover {
-    background: $kz-color-wisteria-100;
+    background: $dt-color-button-hover;
   }
 
   :global(.js-focus-visible) & {
@@ -29,14 +30,14 @@
 
     // show custom focus ring when :focus-visible
     &:global(.focus-visible) {
-      outline: $kz-border-focus-ring-border-width
-        $kz-border-focus-ring-border-style $kz-color-cluny-500;
+      outline: $kz-var-border-focus-ring-border-width
+        $kz-var-border-focus-ring-border-style $dt-color-actionable;
     }
   }
 }
 
 .actionable {
-  color: $kz-color-cluny-500;
+  color: $dt-color-actionable;
 
   &:hover {
     text-decoration: underline;
@@ -44,5 +45,5 @@
 }
 
 .content {
-  margin-left: $ca-grid * 2;
+  margin-left: $kz-var-spacing-xl;
 }
