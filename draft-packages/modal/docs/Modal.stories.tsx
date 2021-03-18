@@ -833,7 +833,7 @@ export const InformationModalWithWorkingButton = () => {
               setIsLoading(false)
               close()
             }}
-            confirmWorking={{ label: "Sharing review" }}
+            confirmWorking={{ label: "Sharing review…" }}
             contentHeader={
               <InlineNotification
                 type="cautionary"
