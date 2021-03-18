@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.3.1...@kaizen/draft-divider@1.4.0) (2021-03-17)
+
+
+### Features
+
+* add menuSeparator variant to Divider ([#1239](https://github.com/cultureamp/kaizen-design-system/issues/1239)) ([68a359c](https://github.com/cultureamp/kaizen-design-system/commit/68a359c321e724cdcce29b8b9503ae03460e0490))
+
+
+
+
+
+## [1.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.3.0...@kaizen/draft-divider@1.3.1) (2021-03-15)
+
+
+### Bug Fixes
+
+* upgrade to Elm 0.19.1 ([#1038](https://github.com/cultureamp/kaizen-design-system/issues/1038)) ([07cd9e4](https://github.com/cultureamp/kaizen-design-system/commit/07cd9e4039d5cacfc64f752e1d3a966507ebc377))
+
+
+
+
+
 # [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.2.7...@kaizen/draft-divider@1.3.0) (2021-03-09)
 
 

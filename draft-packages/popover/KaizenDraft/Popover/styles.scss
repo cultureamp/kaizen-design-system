@@ -1,13 +1,13 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/component-library/styles/border";
-@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/layers";
-@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
-@import "~@kaizen/component-library/styles/type";
-@import "~@kaizen/component-library/components/Button/styles";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/component-library/components/Button/styles";
 
 // Sync with PopoverModern.tsx
 $arrow-width: 16px;
@@ -51,11 +51,11 @@ $large-width: 450px;
 
 %box {
   background: white;
-  border: $kz-border-solid-border-width $kz-border-solid-border-style
-    $kz-color-wisteria-200;
+  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
+    var($kz-var-id-color-ash, $kz-var-color-wisteria-200);
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.1));
-  border-radius: $kz-border-solid-border-radius;
-  color: $kz-color-wisteria-800;
+  border-radius: $kz-var-border-solid-border-radius;
+  color: $kz-var-color-wisteria-800;
   text-align: left;
 }
 
@@ -64,47 +64,62 @@ $large-width: 450px;
 }
 
 .defaultArrow {
-  @include arrow(white, $kz-color-wisteria-200);
+  @include arrow(white, var($kz-var-id-color-ash, $kz-var-color-wisteria-200));
 }
+
+$informative-box-border-color: var(
+  $kz-var-id-color-cluny-300,
+  $kz-var-color-cluny-200
+);
 
 .informativeBox {
   @extend %box;
-  background: $kz-color-cluny-100;
-  border-color: $kz-color-cluny-200;
+  background: $kz-var-color-cluny-100;
+  border-color: $informative-box-border-color;
 }
 
 .informativeArrow {
-  @include arrow($kz-color-cluny-100, $kz-color-cluny-200);
+  @include arrow($kz-var-color-cluny-100, $informative-box-border-color);
 }
+
+$positive-box-border-color: var(
+  $kz-var-id-color-seedling-300,
+  $kz-var-color-seedling-200
+);
 
 .positiveBox {
   @extend %box;
-  background: $kz-color-seedling-100;
-  border-color: $kz-color-seedling-200;
+  background: $kz-var-color-seedling-100;
+  border-color: $positive-box-border-color;
 }
 
 .positiveArrow {
-  @include arrow($kz-color-seedling-100, $kz-color-seedling-200);
+  @include arrow($kz-var-color-seedling-100, $positive-box-border-color);
 }
+
+$negative-box-border-color: var(
+  $kz-var-id-color-coral-300,
+  $kz-var-color-coral-200
+);
 
 .negativeBox {
   @extend %box;
-  background: $kz-color-coral-100;
-  border-color: $kz-color-coral-200;
+  background: $kz-var-color-coral-100;
+  border-color: $negative-box-border-color;
 }
 
 .negativeArrow {
-  @include arrow($kz-color-coral-100, $kz-color-coral-200);
+  @include arrow($kz-var-color-coral-100, $negative-box-border-color);
 }
 
 .cautionaryBox {
   @extend %box;
-  background: $kz-color-yuzu-100;
-  border-color: $kz-color-yuzu-400;
+  background: $kz-var-color-yuzu-100;
+  border-color: $kz-var-color-yuzu-400;
 }
 
 .cautionaryArrow {
-  @include arrow($kz-color-yuzu-100, $kz-color-yuzu-400);
+  @include arrow($kz-var-color-yuzu-100, $kz-var-color-yuzu-400);
 }
 
 .header {
@@ -130,26 +145,26 @@ $large-width: 450px;
 }
 
 .informativeIcon {
-  color: $kz-color-cluny-500;
+  color: $kz-var-color-cluny-500;
 }
 
 .positiveIcon {
-  color: $kz-color-seedling-400;
+  color: $kz-var-color-seedling-400;
 }
 
 .negativeIcon {
-  color: $kz-color-coral-500;
+  color: $kz-var-color-coral-500;
 }
 
 .cautionaryIcon {
-  color: $kz-color-yuzu-500;
+  color: $kz-var-color-yuzu-500;
 }
 
 .close {
   @include button-reset;
   margin-left: auto;
   display: inherit;
-  color: rgba(black, 0.5);
+  color: rgba($kz-var-color-wisteria-800-rgb-params, 0.7);
 }
 
 .arrowWrapper {

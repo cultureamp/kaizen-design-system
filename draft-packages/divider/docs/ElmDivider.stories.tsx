@@ -1,6 +1,9 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
+import { loadElmStories } from "elm-storybook"
 
-loadElmStories("Divider (Elm)", module, require("./Divider.stories.elm"), [
+const compiledElm = require("../ElmStories/DividerStories.elm").Elm.ElmStories
+  .DividerStories
+
+loadElmStories("Divider (Elm)", module, compiledElm, [
   "Default",
   "Canvas",
   "Canvas (Reversed)",

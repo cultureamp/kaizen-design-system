@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.1.51...@kaizen/draft-avatar@1.2.0) (2021-03-17)
+
+
+### Features
+
+* Added Heart support to avatar ([#1217](https://github.com/cultureamp/kaizen-design-system/issues/1217)) ([3e4a3d0](https://github.com/cultureamp/kaizen-design-system/commit/3e4a3d0496e5fcbf35a40fa29f722d1f49d3ce82))
+
+
+
+
+
+## [1.1.51](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.1.50...@kaizen/draft-avatar@1.1.51) (2021-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [1.1.50](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.1.49...@kaizen/draft-avatar@1.1.50) (2021-03-15)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [1.1.49](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.1.48...@kaizen/draft-avatar@1.1.49) (2021-03-15)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [1.1.48](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.1.47...@kaizen/draft-avatar@1.1.48) (2021-03-11)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
 ## [1.1.47](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.1.46...@kaizen/draft-avatar@1.1.47) (2021-02-26)
 
 **Note:** Version bump only for package @kaizen/draft-avatar

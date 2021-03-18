@@ -3,6 +3,74 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.2.5...@kaizen/draft-title-block-zen@3.2.6) (2021-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.2.4...@kaizen/draft-title-block-zen@3.2.5) (2021-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.2.3...@kaizen/draft-title-block-zen@3.2.4) (2021-03-15)
+
+
+### Bug Fixes
+
+* add deprecation warnings to ultra legacy style, type and layout mixins + remove internal usage ([#1046](https://github.com/cultureamp/kaizen-design-system/issues/1046)) ([893ba13](https://github.com/cultureamp/kaizen-design-system/commit/893ba134d49468dc1cda3ffd847a056cf4886071))
+
+
+
+
+
+## [3.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.2.2...@kaizen/draft-title-block-zen@3.2.3) (2021-03-15)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.2.1...@kaizen/draft-title-block-zen@3.2.2) (2021-03-15)
+
+
+### Bug Fixes
+
+* upgrade to Elm 0.19.1 ([#1038](https://github.com/cultureamp/kaizen-design-system/issues/1038)) ([07cd9e4](https://github.com/cultureamp/kaizen-design-system/commit/07cd9e4039d5cacfc64f752e1d3a966507ebc377))
+
+
+
+
+
+## [3.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.2.0...@kaizen/draft-title-block-zen@3.2.1) (2021-03-11)
+
+
+### Bug Fixes
+
+* Fix styling bugs in TitleBlockZen ([#1232](https://github.com/cultureamp/kaizen-design-system/issues/1232)) ([1e112b7](https://github.com/cultureamp/kaizen-design-system/commit/1e112b771f93481f709304b6ce2955733187cb7d))
+
+
+
+
+
+# [3.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.1.8...@kaizen/draft-title-block-zen@3.2.0) (2021-03-10)
+
+
+### Features
+
+* Include notification prop to display on Information Modal ([#1166](https://github.com/cultureamp/kaizen-design-system/issues/1166)) ([0295253](https://github.com/cultureamp/kaizen-design-system/commit/0295253ffe4ca2f60040f50866da19f426d6b7c0))
+
+
+
+
+
 ## [3.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.1.7...@kaizen/draft-title-block-zen@3.1.8) (2021-03-04)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
