@@ -272,7 +272,7 @@ $side-padding: 3/4 * $ca-grid;
   ) !important;
 
   [dir="rtl"] & {
-    // equal to add-tint($ca-palette-seedling, 10%). Temporary until we upgrade to Zen (Wisteria)
+    // equal to add-tint($ca-palette-seedling, 10%). Temporary until we remove Zen
     border-left-color: #58b59a !important;
     border-left-color: var(
       --dt-border-left-color-heart,
