@@ -283,7 +283,6 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
   composes: interactiveIconWrapper from "../../Icon/Icon.module.scss";
   color: $kz-var-color-wisteria-800;
   transform: none;
-  padding-right: (5 / 8) * $ca-grid;
 
   &:active {
     transform: translateY(1px);
@@ -307,6 +306,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
   }
 
   %ca-notification---global & {
+    padding-right: (5 / 8) * $ca-grid;
     width: $ca-grid * 2.5;
     height: $ca-grid * 2.5;
     margin-right: -15px;
