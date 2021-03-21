@@ -1,12 +1,9 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/shadow";
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/component-library/styles/animation";
-@import "~@kaizen/component-library/styles/border";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/shadow-vars";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
+@import "~@kaizen/design-tokens/sass/animation-vars";
+@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/component-library/components/Button/styles";
 
 // Taken from design-tokens/sass/shadow
@@ -16,7 +13,7 @@ $row-height: 60px;
 
 .anchorReset {
   text-decoration: none;
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
   display: block;
   &:hover,
   &:active,
@@ -27,7 +24,7 @@ $row-height: 60px;
 
 .container {
   width: 100%;
-  margin-bottom: $ca-grid * 0.5;
+  margin-bottom: calc(#{$kz-var-spacing-md} * 0.5);
 }
 
 .headerRowCell {
@@ -86,7 +83,7 @@ $row-height: 60px;
   align-items: stretch;
   width: 100%;
   // The 8px usually makes the height of the header cell 40px
-  padding: 8px $ca-grid;
+  padding: 8px $kz-var-spacing-md;
   // Ensures that the 100% doesn't go outside of the `headerRowCell` width
   box-sizing: border-box;
 }
@@ -99,26 +96,28 @@ $row-height: 60px;
 }
 
 .headerRowCellTooltipIcon {
-  color: $kz-color-cluny-500;
-  margin-right: $ca-grid / 4;
+  color: $kz-var-color-cluny-500;
+  margin-right: calc(#{$kz-var-spacing-md} / 4);
 }
 
 .headerRowCellIcon {
-  color: $kz-color-wisteria-500;
+  color: $kz-var-color-wisteria-500;
   height: 20px;
 
   .headerRowCellActive & {
-    color: $kz-color-wisteria-800;
+    color: $kz-var-color-wisteria-800;
   }
 }
 
 .card {
   @include button-reset;
-  background: $kz-color-white;
+  background: $kz-var-color-white;
   border: solid 1px rgba($kz-var-color-wisteria-700-rgb-params, 0.1);
-  transition: box-shadow $ca-duration-rapid, border-color $ca-duration-rapid,
-    margin $ca-duration-rapid, padding $ca-duration-rapid,
-    width $ca-duration-rapid;
+  transition: box-shadow $kz-var-animation-duration-rapid,
+    border-color $kz-var-animation-duration-rapid,
+    margin $kz-var-animation-duration-rapid,
+    padding $kz-var-animation-duration-rapid,
+    width $kz-var-animation-duration-rapid;
 
   // This is an optical hack to stop the card shadow from overlapping over
   // the proceeding cards
@@ -132,8 +131,8 @@ $row-height: 60px;
   }
 
   &:last-child {
-    border-bottom-left-radius: $kz-border-solid-border-radius;
-    border-bottom-right-radius: $kz-border-solid-border-radius;
+    border-bottom-left-radius: $kz-var-border-solid-border-radius;
+    border-bottom-right-radius: $kz-var-border-solid-border-radius;
   }
 
   &:hover {
@@ -141,21 +140,21 @@ $row-height: 60px;
   }
 
   &.well {
-    margin-top: ($ca-grid * 0.5);
+    margin-top: calc(#{$kz-var-spacing-md} * 0.5);
   }
 }
 
 // target the first child card when there is a heading present
 [role="rowgroup"] + .card {
-  border-top-left-radius: $kz-border-solid-border-radius;
-  border-top-right-radius: $kz-border-solid-border-radius;
-  box-shadow: $kz-shadow-small-box-shadow;
+  border-top-left-radius: $kz-var-border-solid-border-radius;
+  border-top-right-radius: $kz-var-border-solid-border-radius;
+  box-shadow: $kz-var-shadow-small-box-shadow;
 }
 
 .card:first-child {
-  border-top-left-radius: $kz-border-solid-border-radius;
-  border-top-right-radius: $kz-border-solid-border-radius;
-  box-shadow: $kz-shadow-small-box-shadow;
+  border-top-left-radius: $kz-var-border-solid-border-radius;
+  border-top-right-radius: $kz-var-border-solid-border-radius;
+  box-shadow: $kz-var-shadow-small-box-shadow;
 }
 
 .row {
@@ -163,24 +162,28 @@ $row-height: 60px;
 }
 
 .well {
-  border-color: $kz-border-borderless-border-color;
+  border-color: $kz-var-border-borderless-border-color;
   box-shadow: none;
-  border-radius: $kz-border-solid-border-radius;
-  background-color: $kz-color-ash;
-  margin-bottom: $ca-grid * 0.5;
+  border-radius: $kz-var-border-solid-border-radius;
+  background-color: $kz-var-color-ash;
+  margin-bottom: calc(#{$kz-var-spacing-md} * 0.5);
 }
 
 .popout {
-  box-shadow: $kz-shadow-large-box-shadow;
+  box-shadow: $kz-var-shadow-large-box-shadow;
 }
 
 .expanded {
+  // We want to have NO background on Heart theme (when CSS variables are defined), but keep stone backgrond on Zen. Need to do this using 0 opacity.
+  // We also only want this switch for the expanded state. Non-expanded hovering will resort to stone background, as seen in .hasHoverState
+  --dt-hover-background-heart: rgba(var(#{$kz-var-id-color-white}), 0);
+
   position: relative;
   z-index: 1;
-  margin-left: -$ca-grid * 0.5;
-  margin-right: -$ca-grid * 0.5;
-  padding-left: $ca-grid * 0.5;
-  padding-right: $ca-grid * 0.5;
+  margin-left: calc(#{$kz-var-spacing-md} * -0.5);
+  margin-right: calc(#{$kz-var-spacing-md} * -0.5);
+  padding-left: calc(#{$kz-var-spacing-md} * 0.5);
+  padding-right: calc(#{$kz-var-spacing-md} * 0.5);
 }
 
 .hasHoverState {
@@ -189,24 +192,24 @@ $row-height: 60px;
   cursor: pointer;
 
   &.expanded {
-    width: calc(100% + #{$ca-grid});
+    width: calc(100% + #{$kz-var-spacing-md});
   }
 
   &:hover {
-    background-color: $kz-color-stone;
+    background-color: var(--dt-hover-background-heart, $kz-var-color-stone);
   }
 }
 
 .rowCell {
   min-height: $row-height;
-  padding: 0 $kz-spacing-md;
+  padding: 0 $kz-var-spacing-md;
   display: flex;
   align-items: center;
   // These css properties are required for when the cells are anchor elements
   composes: anchorReset;
 
   .defaultSpacing & {
-    padding: $kz-spacing-md * 0.5 $kz-spacing-md;
+    padding: calc(#{$kz-var-spacing-md} * 0.5 #{$kz-var-spacing-md});
   }
 }
 

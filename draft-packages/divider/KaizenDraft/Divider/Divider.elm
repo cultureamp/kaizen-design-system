@@ -26,6 +26,7 @@ defaults =
 type Variant
     = Content
     | Canvas
+    | MenuSeparator
 
 
 default : Config msg
@@ -57,6 +58,10 @@ view (Config config) =
 
                 Canvas ->
                     .canvas
+
+                MenuSeparator ->
+                    .menuSeparator
+                
     in
     hr
         [ styles.classList
@@ -74,4 +79,5 @@ styles =
         , content = "content"
         , canvas = "canvas"
         , reversed = "reversed"
+        , menuSeparator = "menuSeparator"
         }

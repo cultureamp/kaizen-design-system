@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.2.44...@kaizen/draft-table@3.3.0) (2021-03-18)
+
+
+### Features
+
+* Update Table to support Heart ([#1236](https://github.com/cultureamp/kaizen-design-system/issues/1236)) ([5c11887](https://github.com/cultureamp/kaizen-design-system/commit/5c118879cc1a88eaddb10a679cf17040126849ec))
+
+
+
+
+
+## [3.2.44](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.2.43...@kaizen/draft-table@3.2.44) (2021-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
 ## [3.2.43](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.2.42...@kaizen/draft-table@3.2.43) (2021-03-15)
 
 

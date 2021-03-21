@@ -125,7 +125,7 @@
     "eslint-import-resolver-typescript": "^2.4.0",
     "glob": "^7.1.1",
     "husky": "^4.2.5",
-    "jscodeshift": "^0.7.0",
+    "jscodeshift": "^0.8.0",
     "lint-staged": "^10.4.0",
     "loader-utils": "^1.0.2",
     "node-elm-compiler": "^5.0.0",
