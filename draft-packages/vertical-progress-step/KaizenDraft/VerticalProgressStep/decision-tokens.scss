@@ -1,0 +1,14 @@
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/variable-identifiers";
+
+// Ash on Heart and Wisteria200 on Zen.
+$dt-color-border-color-line: var(
+  $kz-var-id-color-ash,
+  $kz-var-color-wisteria-200
+);
+// Ash on Heart and Wisteria400 on Zen.
+$dt-color-border-color: var($kz-var-id-color-ash, $kz-var-color-wisteria-400);
+$dt-color-success: $kz-var-color-seedling-500;
+$dt-color-actionable: $kz-var-color-cluny-500;
+// Stone on Heart and Wisteria100 on Zen.
+$dt-color-button-hover: var($kz-var-id-color-stone, $kz-var-color-wisteria-100);
