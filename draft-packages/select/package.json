@@ -35,6 +35,7 @@
     "@kaizen/component-library": "^9.3.1",
     "@kaizen/deprecated-component-library-helpers": "^2.1.1",
     "@kaizen/draft-form": "^3.2.11",
+    "@kaizen/draft-tag": "^1.7.17",
     "@types/classnames": "^2.2.10",
     "@types/react-select": "3.0.22",
     "classnames": "^2.2.6",
@@ -43,12 +44,10 @@
   "devDependencies": {
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "@cultureamp/elm-storybook": "cultureamp/elm-storybook#0.2.1",
-    "@kaizen/draft-tag": "^1.7.17",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.5.0",
-    "@kaizen/draft-tag": "^1.7.17",
     "react": "^16.9.0"
   }
 }
