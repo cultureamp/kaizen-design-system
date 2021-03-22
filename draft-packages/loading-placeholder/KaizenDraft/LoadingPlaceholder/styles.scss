@@ -1,18 +1,20 @@
-@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/component-library/styles/animation";
-@import "~@kaizen/component-library/styles/border";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/animation-vars";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "./decision-tokens";
 
 .base {
-  background-color: $kz-color-wisteria-100;
-  border-radius: $kz-border-solid-border-radius * 3;
+  // We need to set some CSS Custom Properties on our container for theme switching to work.
+  @include loading-placeholder-theme-switching-tokens;
+
+  background-color: $dt-color-background-default;
+  border-radius: calc(#{$kz-var-border-solid-border-radius} * 3);
   position: relative;
-  top: $ca-grid * 0.175;
-  margin-bottom: $ca-grid * 0.5;
+  top: calc(#{$kz-var-spacing-md} * 0.175);
+  margin-bottom: calc(#{$kz-var-spacing-md} * 0.5);
 }
 
 @keyframes fadeInOut {
@@ -29,7 +31,7 @@
 
 .animated {
   animation-name: fadeInOut;
-  animation-duration: $ca-duration-deliberate * 2;
+  animation-duration: calc(#{$kz-var-animation-duration-deliberate} * 2);
   animation-iteration-count: infinite;
 }
 
@@ -39,29 +41,29 @@
 }
 
 .reversedDefault {
-  background-color: rgba($kz-var-color-white-rgb-params, 0.5);
+  background-color: $dt-color-background-reversed;
 }
 
 .reversedOcean {
-  background-color: $kz-color-cluny-300;
+  background-color: var($kz-var-id-color-cluny-200, $kz-var-color-cluny-300);
 }
 
 .normal {
-  height: $ca-grid * 0.625;
+  height: calc(#{$kz-var-spacing-md} * 0.625);
 }
 
 .tall {
-  top: $ca-grid * 0.25;
-  height: $ca-grid * 0.725;
+  top: calc(#{$kz-var-spacing-md} * 0.25);
+  height: calc(#{$kz-var-spacing-md} * 0.725);
 }
 
 .inline {
   display: inline-block;
-  margin-bottom: $ca-grid * 0.35;
+  margin-bottom: calc(#{$kz-var-spacing-md} * 0.35);
 }
 
 .inline + .inline {
-  @include ca-margin($start: $ca-grid);
+  @include ca-margin($start: $kz-var-spacing-md);
 }
 
 .noBottomMargin {
