@@ -6,7 +6,7 @@ import GenericNotification, {
 type Props = {
   type: NotificationType
   title: string
-  children: React.ReactNode
+  children?: React.ReactNode
   autohide?: boolean
   autohideDelay?: "short" | "long"
   persistent: boolean
