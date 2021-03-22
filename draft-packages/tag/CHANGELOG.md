@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.7.18...@kaizen/draft-tag@1.8.0) (2021-03-22)
+
+
+### Features
+
+* Update Tag to support Heart ([#1238](https://github.com/cultureamp/kaizen-design-system/issues/1238)) ([d03ca5e](https://github.com/cultureamp/kaizen-design-system/commit/d03ca5e1298a2b8dcc6185d2c4c17156fb19fa5f))
+
+
+
+
+
+## [1.7.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.7.17...@kaizen/draft-tag@1.7.18) (2021-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
 ## [1.7.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.7.16...@kaizen/draft-tag@1.7.17) (2021-03-15)
 
 

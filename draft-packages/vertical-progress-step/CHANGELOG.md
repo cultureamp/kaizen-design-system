@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.5.23...@kaizen/draft-vertical-progress-step@1.6.0) (2021-03-18)
+
+
+### Features
+
+* Add Heart support to vertical-progress-step ([#1234](https://github.com/cultureamp/kaizen-design-system/issues/1234)) ([3073115](https://github.com/cultureamp/kaizen-design-system/commit/307311578fd214127ad6941a8beed315fd38b22c))
+
+
+
+
+
+## [1.5.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.5.22...@kaizen/draft-vertical-progress-step@1.5.23) (2021-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-vertical-progress-step
+
+
+
+
+
 ## [1.5.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-vertical-progress-step@1.5.21...@kaizen/draft-vertical-progress-step@1.5.22) (2021-03-15)
 
 

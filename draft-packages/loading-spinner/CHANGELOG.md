@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-spinner@2.0.1...@kaizen/draft-loading-spinner@2.1.0) (2021-03-17)
+
+
+### Features
+
+* Add Heart support to loading spinner ([#1225](https://github.com/cultureamp/kaizen-design-system/issues/1225)) ([5ac9307](https://github.com/cultureamp/kaizen-design-system/commit/5ac930777878d9942da7c046fb0127df19b0acd7))
+
+
+
+
+
 ## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-spinner@2.0.0...@kaizen/draft-loading-spinner@2.0.1) (2021-02-25)
 
 
