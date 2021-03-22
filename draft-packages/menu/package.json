@@ -34,6 +34,7 @@
   "dependencies": {
     "@kaizen/component-library": "^9.3.1",
     "@kaizen/draft-button": "^3.2.7",
+    "@kaizen/draft-divider": "^1.4.0",
     "@popperjs/core": "^2.6.0",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",
