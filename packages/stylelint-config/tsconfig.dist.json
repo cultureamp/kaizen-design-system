@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.dist.json",
+  "compilerOptions": {
+    "allowJs": false,
+    "declaration": true,
+    "noEmit": false,
+    "sourceMap": true
+  },
+  "include": ["index.ts", "./plugins/**/*"]
+}

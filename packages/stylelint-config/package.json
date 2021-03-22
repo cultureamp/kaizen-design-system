@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublish": "tsc --project tsconfig.dist.json",
+    "build": "yarn clean && yarn prepublish",
+    "build:watch": "yarn clean && yarn prepublish --watch",
+    "clean": "rimraf '**/*.js.map' 'index.js' 'index.js.map' 'index.d.ts' 'src/**/*.d.ts'"
+  },
   "dependencies": {
     "@types/stylelint": "^9.10.1",
     "stylelint": "^13.6.0"
