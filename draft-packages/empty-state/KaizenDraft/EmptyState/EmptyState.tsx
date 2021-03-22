@@ -36,6 +36,7 @@ export type EmptyStateProps = {
   automationId?: string
   headingText: string
   bodyText: string | React.ReactNode
+  straightCorners?: boolean
   illustrationType?: IllustrationType
   layoutContext?: LayoutContextType
   useZenStyles?: boolean
@@ -52,6 +53,7 @@ const EmptyState: EmptyState = ({
   headingText,
   bodyText,
   children,
+  straightCorners,
   useZenStyles,
 }) => {
   const theme = useTheme()
@@ -62,6 +64,7 @@ const EmptyState: EmptyState = ({
         styles.container,
         styles.zen,
         styles[layoutContext],
+        { [styles.straightCorners]: straightCorners },
       ])}
       id={id}
       data-automation-id={automationId}
