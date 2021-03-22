@@ -30,6 +30,10 @@ const createToastNotificationManager = (): ToastNotificationApi => {
     | undefined
   if (portal === undefined) {
     portal = document.createElement("div")
+    portal.setAttribute(
+      "data-automation-id",
+      "toast-notification-manager-portal"
+    )
     document.body.appendChild(portal)
   }
 
