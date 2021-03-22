@@ -1,8 +1,8 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "~@kaizen/component-library/styles/border";
-@import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "./responsive";
 
@@ -18,8 +18,8 @@
   width: 100%;
   padding-top: 2%;
   padding-bottom: 2%;
-  padding-left: $ca-grid;
-  padding-right: $ca-grid;
+  padding-left: $kz-var-spacing-md;
+  padding-right: $kz-var-spacing-md;
   color: $kz-var-color-wisteria-800;
   border: var(--dt-border-heart, var(--dt-border-zen));
   border-radius: $kz-var-border-solid-border-radius;
@@ -27,8 +27,8 @@
   @include small {
     flex-direction: column;
     align-items: center;
-    padding-top: $ca-grid;
-    padding-bottom: $ca-grid;
+    padding-top: $kz-var-spacing-md;
+    padding-bottom: $kz-var-spacing-md;
   }
 
   &.straightCorners {
@@ -38,15 +38,15 @@
   // These class names must match the possible values of the component's layoutContext prop
   &.sidebarAndContent {
     @include large-sidebar-and-content {
-      padding-top: $ca-grid;
-      padding-bottom: $ca-grid;
+      padding-top: $kz-var-spacing-md;
+      padding-bottom: $kz-var-spacing-md;
     }
   }
 
   &.contentOnly {
     @include large-content-only {
-      padding-top: $ca-grid;
-      padding-bottom: $ca-grid;
+      padding-top: $kz-var-spacing-md;
+      padding-bottom: $kz-var-spacing-md;
     }
   }
 
@@ -76,7 +76,7 @@
   min-width: 224px;
   flex-grow: 0;
   flex-shrink: 1;
-  margin-bottom: $ca-grid;
+  margin-bottom: $kz-var-spacing-md;
 
   @include small {
     width: 224px;
@@ -92,7 +92,7 @@
     max-width: 50%;
     flex-grow: 1;
     box-sizing: border-box;
-    padding-right: $ca-grid * 2;
+    padding-right: $kz-var-spacing-md;
   }
 
   .sidebarAndContent & {
@@ -138,20 +138,20 @@
 .textSideInner {
   flex-grow: 0;
   height: auto;
-  margin: 0 ($ca-grid / 2);
+  margin: 0 $kz-var-spacing-sm;
 
   @include small {
     margin-bottom: 0;
   }
 
   @include medium {
-    max-width: 460px;
+    max-width: 426px;
   }
 }
 
 .heading {
   @include ca-type-inter-display;
-  margin-bottom: $ca-grid;
+  margin-bottom: $kz-var-spacing-md;
 
   .sidebarAndContent & {
     @include large-sidebar-and-content {
@@ -189,7 +189,7 @@
 
 .description {
   @include kz-typography-paragraph-body;
-  margin-bottom: $ca-grid;
+  margin-bottom: $kz-var-spacing-md;
 
   .sidebarAndContent & {
     @include small {
