@@ -66,9 +66,10 @@
   z-index: $ca-z-index-modal + 1;
 }
 
-:global(.animating-enter),
-:global(.animating-appear),
+.animatingEnter,
 .animatingElmEnter {
+  transition-duration: $ca-duration-fast;
+
   .backdropLayer {
     @include ca-animation-fade(
       $duration: $ca-duration-rapid,
@@ -86,8 +87,10 @@
   }
 }
 
-:global(.animating-exit),
-.animatingElmExit {
+.aniamtingLeave,
+.animatingElmLeave {
+  transition-duration: $ca-duration-rapid;
+
   .backdropLayer {
     @include ca-animation-fade(
       $duration: $ca-duration-rapid,
