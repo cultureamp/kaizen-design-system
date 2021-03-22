@@ -1,7 +1,9 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/shadow";
-@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/shadow-vars";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
+@import "~@kaizen/design-tokens/sass/typography-vars";
+@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
@@ -11,11 +13,11 @@
 @import "../../styles/responsive";
 @import "../../components/Button/styles";
 
-$ca-notification-border-width: $kz-border-solid-border-width;
+$ca-notification-border-width: $kz-var-border-solid-border-width;
 $ca-notification-vertical-padding: calc(
   #{$ca-grid / 4} - #{$ca-notification-border-width}
 );
-$ca-notification-inline-horizontal-padding: $kz-spacing-sm;
+$ca-notification-inline-horizontal-padding: $kz-var-spacing-sm;
 $ca-notification-toast-horizontal-padding: 10px;
 $ca-notification-fade-out: opacity $ca-duration-slow ease;
 $ca-notification-collapse-height: margin-top $ca-duration-slow ease,
@@ -34,8 +36,8 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
   &%ca-notification---toast {
     margin-bottom: $ca-grid;
     border-width: $ca-notification-border-width;
-    border-style: $kz-border-solid-border-style;
-    border-radius: $kz-border-solid-border-radius;
+    border-style: $kz-var-border-solid-border-style;
+    border-radius: $kz-var-border-solid-border-radius;
   }
 
   &%ca-notification---inline {
@@ -49,7 +51,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 
   &%ca-notification---toast {
     width: 25rem;
-    box-shadow: $kz-shadow-small-box-shadow;
+    box-shadow: $kz-var-shadow-small-box-shadow;
     padding: $ca-notification-vertical-padding
       $ca-notification-toast-horizontal-padding;
     transition: $ca-notification-fade-out, $ca-notification-slide-right,
@@ -59,7 +61,8 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 
   &%ca-notification---global {
     width: 100%;
-    padding: $ca-grid / 2 15px;
+    display: flex;
+    align-items: center;
     border-width: 0;
     border-radius: 0;
     margin-bottom: 0;
@@ -71,42 +74,49 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
   // Types
 
   &%ca-notification---affirmative {
-    background: $kz-color-seedling-100;
-    border-color: $kz-color-seedling-300;
-    color: $kz-color-wisteria-800;
+    background: $kz-var-color-seedling-100;
+    border-color: $kz-var-color-seedling-300;
+    color: $kz-var-color-wisteria-800;
 
     &%ca-notification---global {
-      background-color: $kz-color-seedling-200;
+      background-color: $kz-var-color-seedling-200;
     }
   }
 
   &%ca-notification---informative {
-    background: $kz-color-cluny-100;
-    border-color: $kz-color-cluny-300;
-    color: $kz-color-wisteria-800;
+    background: $kz-var-color-cluny-100;
+    border-color: $kz-var-color-cluny-300;
+    color: $kz-var-color-wisteria-800;
 
     &%ca-notification---global {
-      background-color: $kz-color-cluny-200;
+      background-color: $kz-var-color-cluny-200;
     }
   }
 
   &%ca-notification---cautionary {
-    background: $kz-color-yuzu-100;
-    border-color: $kz-color-yuzu-400;
-    color: $kz-color-wisteria-800;
+    background: $kz-var-color-yuzu-100;
+    border-color: $kz-var-color-yuzu-400;
+    color: $kz-var-color-wisteria-800;
 
     &%ca-notification---global {
-      background-color: $kz-color-yuzu-300;
+      // Yuzu200 for Heart theme, Yuzu300 for Zen theme. Switch not needed when Zen is removed.
+      // Use Yuzu200 for Heart theme, and Yuzu300 for zen (the default fallback)
+      background-color: var($kz-var-id-color-yuzu-200, $kz-var-color-yuzu-300);
     }
   }
 
   &%ca-notification---negative {
-    background: $kz-color-coral-100;
-    border-color: $kz-color-coral-300;
-    color: $kz-color-wisteria-800;
+    background: $kz-var-color-coral-100;
+    border-color: $kz-var-color-coral-300;
+    color: $kz-var-color-wisteria-800;
 
     &%ca-notification---global {
-      background-color: $kz-color-coral-300;
+      // Coral200 for Heart theme, Coral300 for Zen theme. Switch not needed when Zen is removed.
+      // Use Coral 200 for Heart theme, and Coral 300 for zen (the default fallback)
+      background-color: var(
+        $kz-var-id-color-coral-200,
+        $kz-var-color-coral-300
+      );
     }
   }
 
@@ -140,19 +150,19 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
   align-items: flex-start;
 
   %ca-notification---affirmative & {
-    color: $kz-color-seedling-500;
+    color: $kz-var-color-seedling-500;
   }
 
   %ca-notification---informative & {
-    color: $kz-color-cluny-500;
+    color: $kz-var-color-cluny-500;
   }
 
   %ca-notification---cautionary & {
-    color: $kz-color-yuzu-500;
+    color: $kz-var-color-yuzu-500;
   }
 
   %ca-notification---negative & {
-    color: $kz-color-coral-500;
+    color: $kz-var-color-coral-500;
   }
 
   %ca-notification---inline &,
@@ -163,11 +173,29 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
   }
 
   %ca-notification---global & {
-    width: $ca-grid * 1.25;
-    height: $ca-grid * 1.25;
-    margin-top: $ca-grid / 8;
+    $size: $ca-grid * 1.25;
+
+    width: $size;
+    height: $size;
+    padding: (($ca-grid * 2) - $size) / 2;
+    margin: $ca-grid / 4;
+    border-radius: $kz-var-border-solid-border-radius;
+
     // Override the type-specific color values set above
-    color: $kz-color-wisteria-800;
+    color: $kz-var-color-white;
+  }
+
+  %ca-notification---global%ca-notification---affirmative & {
+    background-color: $kz-var-color-seedling-500;
+  }
+  %ca-notification---global%ca-notification---informative & {
+    background-color: $kz-var-color-cluny-500;
+  }
+  %ca-notification---global%ca-notification---cautionary & {
+    background-color: $kz-var-color-yuzu-500;
+  }
+  %ca-notification---global%ca-notification---negative & {
+    background-color: $kz-var-color-coral-500;
   }
 }
 
@@ -184,6 +212,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 
   %ca-notification---global & {
     margin-left: 14px;
+    padding: 0.25 * $ca-grid 0;
   }
 
   %ca-notification---inline & {
@@ -220,7 +249,12 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
   }
 
   %ca-notification---global & {
-    @include kz-typography-paragraph-body;
+    //Inherit baseline because the parent selector doesn't.
+    @include ca-inherit-baseline;
+    font-weight: $kz-var-typography-paragraph-body-font-weight;
+    font-size: $kz-var-typography-paragraph-body-font-size;
+    line-height: $kz-var-typography-paragraph-body-line-height;
+    letter-spacing: $kz-var-typography-paragraph-body-letter-spacing;
   }
 
   a[href] {
@@ -234,7 +268,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 
     %ca-notification---global &,
     %ca-notification---global &:hover {
-      color: $kz-color-wisteria-800;
+      color: $kz-var-color-wisteria-800;
     }
   }
 
@@ -250,7 +284,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 %ca-notification__cancel {
   @include button-reset;
   composes: interactiveIconWrapper from "../../Icon/Icon.module.scss";
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
   transform: none;
 
   &:active {
@@ -275,6 +309,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
   }
 
   %ca-notification---global & {
+    padding-right: (5 / 8) * $ca-grid;
     width: $ca-grid * 2.5;
     height: $ca-grid * 2.5;
     margin-right: -15px;
@@ -284,7 +319,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 }
 
 %ca-notification__cancel__inner {
-  @include ca-margin($end: $kz-spacing-sm);
+  @include ca-margin($end: $kz-var-spacing-sm);
   // We ignore line-height so that the icon wrapper is the same size as the icon, not the current line.
   line-height: 0;
   float: right;
