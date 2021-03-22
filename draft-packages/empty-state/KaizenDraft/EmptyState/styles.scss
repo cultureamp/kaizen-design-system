@@ -2,6 +2,7 @@
 @import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/design-tokens/sass/spacing-vars";
+@import "~@kaizen/design-tokens/sass/typography-vars";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "./responsive";
@@ -171,19 +172,11 @@
 // will enable Zen headings. This block can be removed
 // once these typography styles are the default.
 .zen .heading {
-  @include kz-typography-heading-3;
-
-  .sidebarAndContent & {
-    @include large-sidebar-and-content {
-      @include kz-typography-heading-2;
-    }
-  }
-
-  .contentOnly & {
-    @include large-content-only {
-      @include kz-typography-heading-2;
-    }
-  }
+  font-family: $kz-var-typography-heading-3-font-family;
+  font-size: $kz-var-typography-heading-3-font-size;
+  font-weight: $kz-var-typography-heading-3-font-weight;
+  line-height: $kz-var-typography-heading-3-line-height;
+  letter-spacing: $kz-var-typography-heading-3-letter-spacing;
 }
 // ===================================================
 
