@@ -1,6 +1,8 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
+import { loadElmStories } from "elm-storybook"
+const compiledElm = require("../ElmStories/WellStories.elm").Elm.ElmStories
+  .WellStories
 
-loadElmStories("Well (Elm)", module, require("./Well.stories.elm"), [
+loadElmStories("Well (Elm)", module, compiledElm, [
   "Default with solid border",
   "Default with dashed border",
   "Default without border",

@@ -1,5 +1,6 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
+import { loadElmStories } from "elm-storybook"
 
-loadElmStories("Table (Elm)", module, require("./Table.stories.elm"), [
-  "Default",
-])
+const compiledElm = require("../ElmStories/TableStories.elm").Elm.ElmStories
+  .TableStories
+
+loadElmStories("Table (Elm)", module, compiledElm, ["Default"])

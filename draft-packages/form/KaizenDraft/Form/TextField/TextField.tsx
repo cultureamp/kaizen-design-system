@@ -28,7 +28,7 @@ export type TextFieldProps = {
   inline?: boolean
   icon?: React.SVGAttributes<SVGSymbolElement>
   status?: InputStatus
-  validationMessage?: string
+  validationMessage?: React.ReactNode
   description?: React.ReactNode
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => any
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => any

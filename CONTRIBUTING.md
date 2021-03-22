@@ -6,7 +6,7 @@ Kaizen Design System follows a federated, open-source model. All teams contribut
 
 ### Issues
 
-An issue is a way to track ideas, enhancements and bugs. 
+An issue is a way to track ideas, enhancements and bugs.
 
 Before creating an issue, search existing [Issues](https://github.com/cultureamp/kaizen-design-system/issues/) to see if any relevant issues already exist.
 
@@ -170,7 +170,7 @@ You have to refer it on the component's JS story.
 
 ```
 -- MyComponent.tsx
-import { loadElmStories } from "@cultureamp/elm-storybook"
+import { loadElmStories } from "elm-storybook"
 
 // JS stories
 
@@ -229,9 +229,9 @@ Note that since the `description` will be included in the CHANGELOG — and may 
 The commit `type` is used to indicate the type of update (i.e. PATCH or MINOR in [Semantic Versioning](#semantic-versioning)) that was included in the release, as well as the context in which that update was made. There are a number of valid commit types (e.g. `style`, `build`, `refactor`, `test` etc.) — for a detailed list of commit types used in this repository, refer to the [Angular convention](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#type) docs.
 
 Most commit types describe changes which do not modify the behaviour of the published package, and will result in a PATCH version update, along with an entry in the CHANGELOG noting that the package implementation has not changed. For example:
-  
+
 - `docs` — indicates that documentation has been updated, e.g. editing a README that corresponds to a component's documentation on the Kaizen Site
-  
+
 - `chore` — indicates that some otherwise-unspecified work has been performed on the package with no consequence on the published code, e.g. updating package metadata in `package.json`
 
 However, **two commit types have special meaning** for the purpose of versioning package releases, and signify changes in the behaviour or implementation of published code which may affect consumers of the package. These are:
@@ -262,9 +262,9 @@ As well as triggering a major version update, this will make breaking changes cl
 
 Note that in the case that a pull request touches files from more than one package, all of those packages will be released to the npm registry with the specified update. Sometimes this might be desirable (e.g. when performing a bulk update to package docs), but in general, **be on the lookout for pull requests which touch more than one package**, and break those changes up into separate pull requests!
 
-## Canary releases 
+## Canary releases
 
-Canary releases create a way to test changes in production-like environments, and are a great way to reduce the risk of proposed changes to a package. Use canary releases when you're working on a significant refactor, experimenting with new technology, or making other large scale changes. 
+Canary releases create a way to test changes in production-like environments, and are a great way to reduce the risk of proposed changes to a package. Use canary releases when you're working on a significant refactor, experimenting with new technology, or making other large scale changes.
 
 Any merged pull request into the (protected) `canary` branch will create a canary release, publishing a [pre-release version](https://semver.org/#spec-item-9) of any packages touched by that branch. Only repo admins are able to directly push to the `canary` branch without a pull request.
 

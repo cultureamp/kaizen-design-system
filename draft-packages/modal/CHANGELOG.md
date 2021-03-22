@@ -3,6 +3,109 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.3.7...@kaizen/draft-modal@5.4.0) (2021-03-18)
+
+
+### Features
+
+* InformationModal include working button ([#1243](https://github.com/cultureamp/kaizen-design-system/issues/1243)) ([9e623bf](https://github.com/cultureamp/kaizen-design-system/commit/9e623bfcdb79270497f35ba2ab4cf9d605ac5424))
+
+
+
+
+
+## [5.3.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.3.6...@kaizen/draft-modal@5.3.7) (2021-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [5.3.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.3.5...@kaizen/draft-modal@5.3.6) (2021-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [5.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.3.4...@kaizen/draft-modal@5.3.5) (2021-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [5.3.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.3.3...@kaizen/draft-modal@5.3.4) (2021-03-15)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [5.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.3.2...@kaizen/draft-modal@5.3.3) (2021-03-15)
+
+
+### Bug Fixes
+
+* add deprecation warnings to ultra legacy style, type and layout mixins + remove internal usage ([#1046](https://github.com/cultureamp/kaizen-design-system/issues/1046)) ([893ba13](https://github.com/cultureamp/kaizen-design-system/commit/893ba134d49468dc1cda3ffd847a056cf4886071))
+
+
+
+
+
+## [5.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.3.1...@kaizen/draft-modal@5.3.2) (2021-03-15)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+## [5.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.3.0...@kaizen/draft-modal@5.3.1) (2021-03-15)
+
+
+### Bug Fixes
+
+* upgrade to Elm 0.19.1 ([#1038](https://github.com/cultureamp/kaizen-design-system/issues/1038)) ([07cd9e4](https://github.com/cultureamp/kaizen-design-system/commit/07cd9e4039d5cacfc64f752e1d3a966507ebc377))
+
+
+
+
+
+# [5.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.2.1...@kaizen/draft-modal@5.3.0) (2021-03-10)
+
+
+### Features
+
+* Include notification prop to display on Information Modal ([#1166](https://github.com/cultureamp/kaizen-design-system/issues/1166)) ([0295253](https://github.com/cultureamp/kaizen-design-system/commit/0295253ffe4ca2f60040f50866da19f426d6b7c0))
+
+
+
+
+
+## [5.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.2.0...@kaizen/draft-modal@5.2.1) (2021-03-09)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
+# [5.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.1.22...@kaizen/draft-modal@5.2.0) (2021-03-09)
+
+
+### Features
+
+* Update Modal to support Heart ([#1185](https://github.com/cultureamp/kaizen-design-system/issues/1185)) ([e00d644](https://github.com/cultureamp/kaizen-design-system/commit/e00d6447f954583dd44db869fe1b68f82ab42383))
+
+
+
+
+
 ## [5.1.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.1.21...@kaizen/draft-modal@5.1.22) (2021-02-26)
 
 **Note:** Version bump only for package @kaizen/draft-modal

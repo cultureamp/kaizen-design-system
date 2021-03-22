@@ -1,4 +1,4 @@
-@import "type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
 $ca-layout-max-width: 1416px;
 $ca-layout-side-padding: 24px;
@@ -8,7 +8,12 @@ $ca-layout-title-block-tablet-height: 3.5 * $ca-grid;
 $ca-layout-title-block-mobile-height: 2.5 * $ca-grid;
 $ca-layout-sidebar-width: 10 * $ca-grid;
 
+@mixin deprecate-legacy-layout-mixins() {
+  @warn "@kaizen/component-library/styles/layout is completely deprecated. Instead, please use one of the scss tokens from @kaizen/design-tokens/sass/layout or if what you need is not available use a var or mixin from @kaizen/deprecated-component-library-helpers/styles/layout";
+}
+
 @mixin ca-margin($start: 0, $end: 0, $top: null, $bottom: null) {
+  @include deprecate-legacy-layout-mixins;
   margin-top: $top;
   margin-bottom: $bottom;
   margin-right: $end;
@@ -22,6 +27,7 @@ $ca-layout-sidebar-width: 10 * $ca-grid;
 }
 
 @mixin ca-padding($start: 0, $end: 0, $top: null, $bottom: null) {
+  @include deprecate-legacy-layout-mixins;
   padding-top: $top;
   padding-bottom: $bottom;
   padding-right: $end;
@@ -35,6 +41,7 @@ $ca-layout-sidebar-width: 10 * $ca-grid;
 }
 
 @mixin ca-position($start: null, $end: null, $top: null, $bottom: null) {
+  @include deprecate-legacy-layout-mixins;
   @if ($start == null and $end != null) {
     $start: auto;
   }

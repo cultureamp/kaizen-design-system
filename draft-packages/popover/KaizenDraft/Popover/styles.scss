@@ -1,45 +1,42 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/component-library/styles/border";
-@import "~@kaizen/component-library/styles/color";
+@import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/layers";
-@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
-@import "~@kaizen/component-library/styles/type";
-@import "~@kaizen/component-library/components/Button/styles";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/component-library/components/Button/styles";
 
-/* The bordered part of the triangle */
-$default-size: 8px;
-$large: 450px;
+// Sync with PopoverModern.tsx
+$arrow-width: 16px;
+$arrow-height: 8px;
+
+$large-width: 450px;
 
 // Suggestion: with this implementation, the anchor point of the popover is at the base of the triangle. But,
 // we would ideally want it at the tip of the triangle. Otherwise, when using the popover, the consumer needs to manually
 // add something like a `margin-top: 8px` to get the popover properly positioned.
 // I didn't update this, as I didn't want to introduce a breaking change.
-@mixin arrow($background-color, $border-color, $size: $default-size) {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-
+@mixin arrow($background-color, $border-color) {
   &::before,
   &::after {
     content: "";
     position: absolute;
-    border-left: $size solid transparent;
-    border-right: $size solid transparent;
+    border-left: ($arrow-width / 2) solid transparent;
+    border-right: ($arrow-width / 2) solid transparent;
     top: 0;
     left: 0;
-    margin-left: -$size;
   }
 
   &::before {
-    border-top: $size solid $border-color;
+    border-top: $arrow-height solid $border-color;
   }
 
   /* The white fill of the triangle */
   &::after {
-    border-top: $size solid $background-color;
+    border-top: $arrow-height solid $background-color;
     margin-top: -2px;
     z-index: 1;
   }
@@ -54,11 +51,11 @@ $large: 450px;
 
 %box {
   background: white;
-  border: $kz-border-solid-border-width $kz-border-solid-border-style
-    $kz-color-wisteria-200;
+  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
+    var($kz-var-id-color-ash, $kz-var-color-wisteria-200);
   filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.1));
-  border-radius: $kz-border-solid-border-radius;
-  color: $kz-color-wisteria-800;
+  border-radius: $kz-var-border-solid-border-radius;
+  color: $kz-var-color-wisteria-800;
   text-align: left;
 }
 
@@ -67,47 +64,62 @@ $large: 450px;
 }
 
 .defaultArrow {
-  @include arrow(white, $kz-color-wisteria-200);
+  @include arrow(white, var($kz-var-id-color-ash, $kz-var-color-wisteria-200));
 }
+
+$informative-box-border-color: var(
+  $kz-var-id-color-cluny-300,
+  $kz-var-color-cluny-200
+);
 
 .informativeBox {
   @extend %box;
-  background: $kz-color-cluny-100;
-  border-color: $kz-color-cluny-200;
+  background: $kz-var-color-cluny-100;
+  border-color: $informative-box-border-color;
 }
 
 .informativeArrow {
-  @include arrow($kz-color-cluny-100, $kz-color-cluny-200);
+  @include arrow($kz-var-color-cluny-100, $informative-box-border-color);
 }
+
+$positive-box-border-color: var(
+  $kz-var-id-color-seedling-300,
+  $kz-var-color-seedling-200
+);
 
 .positiveBox {
   @extend %box;
-  background: $kz-color-seedling-100;
-  border-color: $kz-color-seedling-200;
+  background: $kz-var-color-seedling-100;
+  border-color: $positive-box-border-color;
 }
 
 .positiveArrow {
-  @include arrow($kz-color-seedling-100, $kz-color-seedling-200);
+  @include arrow($kz-var-color-seedling-100, $positive-box-border-color);
 }
+
+$negative-box-border-color: var(
+  $kz-var-id-color-coral-300,
+  $kz-var-color-coral-200
+);
 
 .negativeBox {
   @extend %box;
-  background: $kz-color-coral-100;
-  border-color: $kz-color-coral-200;
+  background: $kz-var-color-coral-100;
+  border-color: $negative-box-border-color;
 }
 
 .negativeArrow {
-  @include arrow($kz-color-coral-100, $kz-color-coral-200);
+  @include arrow($kz-var-color-coral-100, $negative-box-border-color);
 }
 
 .cautionaryBox {
   @extend %box;
-  background: $kz-color-yuzu-100;
-  border-color: $kz-color-yuzu-400;
+  background: $kz-var-color-yuzu-100;
+  border-color: $kz-var-color-yuzu-400;
 }
 
 .cautionaryArrow {
-  @include arrow($kz-color-yuzu-100, $kz-color-yuzu-400);
+  @include arrow($kz-var-color-yuzu-100, $kz-var-color-yuzu-400);
 }
 
 .header {
@@ -133,54 +145,78 @@ $large: 450px;
 }
 
 .informativeIcon {
-  color: $kz-color-cluny-500;
+  color: $kz-var-color-cluny-500;
 }
 
 .positiveIcon {
-  color: $kz-color-seedling-400;
+  color: $kz-var-color-seedling-400;
 }
 
 .negativeIcon {
-  color: $kz-color-coral-500;
+  color: $kz-var-color-coral-500;
 }
 
 .cautionaryIcon {
-  color: $kz-color-yuzu-500;
+  color: $kz-var-color-yuzu-500;
 }
 
 .close {
   @include button-reset;
   margin-left: auto;
   display: inherit;
-  color: rgba(black, 0.5);
+  color: rgba($kz-var-color-wisteria-800-rgb-params, 0.7);
 }
 
-.arrowSideBottom {
-  // This is just an empty class to satisfy Elm's case statement
-  // (we were in a rush and the linter wouldn't let an empty class through.)
-  // Can be refactored out!
-  visibility: visible;
+.arrowWrapper {
+  position: absolute;
+  // Needed by popper, so it measures the size of the arrow correctly
+  width: $arrow-width;
+  height: $arrow-height;
 }
 
-.arrowSideTop {
-  top: initial;
+.arrow {
+  // Needed by popper, so it measures the size of the arrow correctly
+  width: $arrow-width;
+  height: $arrow-height;
+}
+
+/**
+ * In the legacy popover, the "side" described the location of the arrow, and
+ * we use css classes to determine the placement.
+ * In the modern popover, the "side" describes the location of the popover
+ * relative to the reference element, and we use data attributes to determine
+ * the placement.
+ * Hence, the confusion below.
+ */
+.arrowSideTop,
+[data-popper-placement^="bottom"] .arrowWrapper {
   bottom: 100%;
-  margin-top: 1px;
-  // Also see getArrowStyle in the component file, which will rotate the arrow 180 degrees
+  left: 50%;
+  margin-top: -$arrow-height;
+
+  .arrow {
+    transform: rotate(180deg);
+  }
 }
 
+.arrowSideBottom,
+[data-popper-placement^="top"] .arrowWrapper {
+  top: 100%;
+  left: 50%;
+}
+
+// Legacy component only
 .arrowPositionCenter {
-  // This is just an empty class to satisfy Elm's case statement
-  // (we were in a rush and the linter wouldn't let an empty class through.)
-  // Can be refactored out!
-  visibility: visible;
+  transform: translateX(-50%);
 }
 
+// Legacy component only
 .arrowPositionStart {
   left: $ca-grid;
   right: auto;
 }
 
+// Legacy component only
 .arrowPositionEnd {
   right: $ca-grid;
   left: auto;
@@ -188,7 +224,7 @@ $large: 450px;
 
 .large {
   width: auto;
-  max-width: $large;
+  max-width: $large-width;
 }
 
 .singleLine {

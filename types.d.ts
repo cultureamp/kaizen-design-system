@@ -15,6 +15,10 @@ declare module "*.icon.svg" {
   }
   export default content
 }
+declare module "!!raw-loader!*" {
+  const content: string
+  export default content
+}
 
 declare module "react-map-interaction" {
   type InteractionState = {

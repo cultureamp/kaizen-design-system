@@ -4,7 +4,7 @@ import styles from "./styles.module.scss"
 
 export interface DividerProps {
   isReversed?: boolean
-  variant: "content" | "canvas"
+  variant: "content" | "canvas" | "menuSeparator"
 }
 
 export const Divider = ({ isReversed = false, variant }: DividerProps) => (
@@ -13,6 +13,7 @@ export const Divider = ({ isReversed = false, variant }: DividerProps) => (
       [styles.reversed]: isReversed,
       [styles.content]: variant === "content",
       [styles.canvas]: variant === "canvas",
+      [styles.menuSeparator]: variant === "menuSeparator",
     })}
   />
 )

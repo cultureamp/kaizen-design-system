@@ -27,9 +27,9 @@
         "./draft-packages/zen-navigation-bar",
         "./draft-packages/well",
         "./legacy-packages/title-block",
-        "./node_modules/@cultureamp/elm-storybook/src"
+        "./node_modules/elm-storybook/src"
     ],
-    "elm-version": "0.19.0",
+    "elm-version": "0.19.1",
     "dependencies": {
         "direct": {
             "cultureamp/babel-elm-assets-plugin": "1.0.1",

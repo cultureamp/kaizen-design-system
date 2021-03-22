@@ -98,7 +98,36 @@ export const Disabled = () => (
   />
 )
 
-Disabled.storyName = "Default disabled"
+Disabled.storyName = "Default button disabled"
+
+export const EnabledWithDisabledItems = () => (
+  <SplitButton
+    label="Edit"
+    onClick={() => undefined}
+    dropdownContent={
+      <MenuContent>
+        <MenuItem
+          onClick={e => undefined}
+          disabled
+          label="Disabled Menu Item"
+        />
+        <MenuItem
+          onClick={e => undefined}
+          icon={editIcon}
+          label="Menu Item 1"
+        />
+        <MenuItem
+          onClick={e => undefined}
+          icon={editIcon}
+          label="Menu Item 2"
+        />
+      </MenuContent>
+    }
+    dropdownAltText="Open menu"
+  />
+)
+
+EnabledWithDisabledItems.storyName = "Default enabled with disabled items"
 
 export const Primary = () => (
   <SplitButton

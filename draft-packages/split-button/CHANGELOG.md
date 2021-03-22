@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@2.2.22...@kaizen/draft-split-button@2.3.0) (2021-03-21)
+
+
+### Features
+
+* Update SplitButton to support Heart ([#1233](https://github.com/cultureamp/kaizen-design-system/issues/1233)) ([2c65363](https://github.com/cultureamp/kaizen-design-system/commit/2c65363faceedb5c5c4711fbbcd7a90797e3bb93))
+
+
+
+
+
+## [2.2.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@2.2.21...@kaizen/draft-split-button@2.2.22) (2021-03-17)
+
+**Note:** Version bump only for package @kaizen/draft-split-button
+
+
+
+
+
+## [2.2.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@2.2.20...@kaizen/draft-split-button@2.2.21) (2021-03-15)
+
+
+### Bug Fixes
+
+* add deprecation warnings to ultra legacy style, type and layout mixins + remove internal usage ([#1046](https://github.com/cultureamp/kaizen-design-system/issues/1046)) ([893ba13](https://github.com/cultureamp/kaizen-design-system/commit/893ba134d49468dc1cda3ffd847a056cf4886071))
+
+
+
+
+
+## [2.2.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@2.2.19...@kaizen/draft-split-button@2.2.20) (2021-03-15)
+
+
+### Bug Fixes
+
+* upgrade to Elm 0.19.1 ([#1038](https://github.com/cultureamp/kaizen-design-system/issues/1038)) ([07cd9e4](https://github.com/cultureamp/kaizen-design-system/commit/07cd9e4039d5cacfc64f752e1d3a966507ebc377))
+
+
+
+
+
 ## [2.2.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-split-button@2.2.18...@kaizen/draft-split-button@2.2.19) (2021-02-26)
 
 **Note:** Version bump only for package @kaizen/draft-split-button

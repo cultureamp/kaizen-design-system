@@ -1,6 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 
 .container {
   border-radius: $kz-border-solid-border-radius;

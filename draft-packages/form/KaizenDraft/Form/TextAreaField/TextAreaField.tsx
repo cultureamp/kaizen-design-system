@@ -6,7 +6,7 @@ export interface TextAreaFieldProps
   labelText: string | React.ReactNode
   inline?: boolean
   reversed?: boolean
-  validationMessage?: string
+  validationMessage?: React.ReactNode
   status?: InputStatus
   autogrow?: boolean
   description?: React.ReactNode

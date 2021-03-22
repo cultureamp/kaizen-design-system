@@ -1,0 +1,36 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import exampleSass from '!!raw-loader!./examples/example.scss'
+import { CodeBlock, LinkToStory } from '../DocsComponents'
+import gettingStartedPage from './getting-started.stories.mdx'
+import howToUseWithSass from './how-to-use-with-sass.stories.mdx'
+import cssVariableReplacementDiffExample from '!!raw-loader!./examples/cssVariableReplacement.diff'
+
+<Meta title="Design Tokens/How to migrate from V2 to V3" parameters={{ docsOnly: true }} />
+
+# How to migrate from V2 to V3 of design tokens
+
+
+## 1. Update @kaizen/design-tokens to the latest 2.x version
+
+* The late releases of version 2 contain both old and new tokens. This will allow you to gradually migrate to the new.
+
+## 2. Setup a ThemeManager
+
+Ensure you have followed the steps in <LinkToStory storyModule={gettingStartedPage} /> to setup your application for using design tokens.
+
+## 3. Replace tokens with their CSS variable sibling
+
+<CodeBlock language="diff" code={cssVariableReplacementDiffExample} />
+
+Be careful of places where color mixing or rgba functions are used in SASS, as these won't work anymore. See <LinkToStory storyModule={howToUseWithSass} />
+
+Team Foundations will release a codemod or stylint plugin to assist with this migration.
+
+
+## 4. Update @kaizen/design-tokens to V3 when released.
+
+There are two significant and breaking changes that are occurring as of the next release:
+
+* The old tokens will be removed; only `$kz-var-*` tokens will be available. Perform the above steps to prepare for this change.
+
+* There may be more breaking changes, such as renaming color names (e.g. Wisteria -> Purple). Follow #updates_design_systems on Slack to stay informed.

@@ -1,6 +1,9 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
+import { loadElmStories } from "elm-storybook"
 
-loadElmStories("Button (Zen) (Elm)", module, require("./Button.stories.elm"), [
+const compiledElm = require("../ElmStories/ButtonStories.elm").Elm.ElmStories
+  .ButtonStories
+
+loadElmStories("Button (Zen) (Elm)", module, compiledElm, [
   "Default",
   "Primary",
   "Secondary",

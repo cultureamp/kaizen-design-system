@@ -1,5 +1,5 @@
 @import "~@kaizen/component-library/styles/fonts";
-@import "~@kaizen/component-library/styles/type"; // just for the grid unit @TODO - update when we move to dart-sass
+@import "~@kaizen/deprecated-component-library-helpers/styles/type"; // just for the grid unit @TODO - update when we move to dart-sass
 
 // this should always be parity with util.ts
 $spacing-list: (

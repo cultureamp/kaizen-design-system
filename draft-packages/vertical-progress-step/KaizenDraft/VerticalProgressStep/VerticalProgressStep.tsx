@@ -1,8 +1,6 @@
 import { Heading } from "@kaizen/component-library"
 import * as React from "react"
-
 import styles from "./VerticalProgressStep.module.scss"
-
 import {
   Completion,
   VerticalProgressIndicator,

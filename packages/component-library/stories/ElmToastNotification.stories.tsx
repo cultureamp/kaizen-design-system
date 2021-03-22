@@ -1,14 +1,12 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
+import { loadElmStories } from "elm-storybook"
 
-loadElmStories(
-  "ToastNotification (Elm)",
-  module,
-  require("./ToastNotification.stories.elm"),
-  [
-    "Positive",
-    "Informative",
-    "Cautionary",
-    "Negative",
-    "Multiple notifications",
-  ]
-)
+const compiledElm = require("../ElmStories/ToastNotificationStories.elm").Elm
+  .ElmStories.ToastNotificationStories
+
+loadElmStories("ToastNotification (Elm)", module, compiledElm, [
+  "Positive",
+  "Informative",
+  "Cautionary",
+  "Negative",
+  "Multiple notifications",
+])

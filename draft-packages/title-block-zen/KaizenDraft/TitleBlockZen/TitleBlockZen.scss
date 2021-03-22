@@ -4,7 +4,7 @@
 @import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/component-library/styles/grid";
 @import "~@kaizen/component-library/styles/layers";
-@import "~@kaizen/component-library/styles/layout";
+@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "./TitleBlockBreakpoints.scss";
 @import "./decision-tokens.scss";
 
@@ -27,6 +27,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  overflow-x: hidden;
 
   &.educationVariant {
     background-color: $dt-color-background-color-eduction;
@@ -585,6 +586,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   @include ca-position($start: -2 * $ca-grid);
   top: $ca-grid * 3/4;
   align-items: center;
+  text-decoration: none;
 
   @include title-block-under-1645 {
     @include ca-position($start: $ca-grid);

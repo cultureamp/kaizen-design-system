@@ -4,8 +4,8 @@
 @import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/component-library/styles/fonts";
 @import "~@kaizen/component-library/styles/animation";
-@import "~@kaizen/component-library/styles/color";
-@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/responsive";
 @import "./decision-tokens.scss";
 

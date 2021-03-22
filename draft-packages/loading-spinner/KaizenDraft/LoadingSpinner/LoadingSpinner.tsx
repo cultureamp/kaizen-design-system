@@ -1,6 +1,4 @@
 import * as React from "react"
-import colorTokens from "@kaizen/design-tokens/tokens/color.json"
-import spacingTokens from "@kaizen/design-tokens/tokens/spacing.json"
 import styles from "./styles.module.scss"
 
 type size = "sm" | "md"
@@ -65,8 +63,8 @@ export const LoadingSpinner = ({
           cy="12"
           r="9"
           stroke="currentColor"
-          stroke-opacity="0.3"
           strokeWidth="2"
+          stroke-opacity="0.3"
         />
         <path
           fillRule="evenodd"

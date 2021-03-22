@@ -1,9 +1,8 @@
 @import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border";
 @import "~@kaizen/design-tokens/sass/shadow";
-@import "~@kaizen/component-library/styles/type";
-@import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/component-library/styles/animation";
 
 // Sync with Tooltip.tsx
 $arrow-height: 10px;

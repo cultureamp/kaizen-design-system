@@ -1,6 +1,9 @@
-import { loadElmStories } from "@cultureamp/elm-storybook"
+import { loadElmStories } from "elm-storybook"
 
-loadElmStories("Modal (Elm)", module, require("./ModalStories.elm"), [
+const compiledElm = require("../ElmStories/ModalStories.elm").Elm.ElmStories
+  .ModalStories
+
+loadElmStories("Modal (Elm)", module, compiledElm, [
   "Confirmation (cautionary), shown by default",
   "Generic, shown by default",
   "Confirmation (informative), shown by default",
