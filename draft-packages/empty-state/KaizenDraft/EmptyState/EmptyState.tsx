@@ -39,6 +39,7 @@ export type EmptyStateProps = {
   straightCorners?: boolean
   illustrationType?: IllustrationType
   layoutContext?: LayoutContextType
+  // TODO: Heart Rebrand Cleanup > Deprecate or completely remove this prop once Heart is released.
   useZenStyles?: boolean
   children?: React.ReactNode
 }

@@ -171,6 +171,7 @@
 // This works with the temporary useZenStyles prop and
 // will enable Zen headings. This block can be removed
 // once these typography styles are the default.
+// TODO: Heart Rebrand Cleanup > We can remove the `useZenStyles` and this class variant once Heart is released. This means moving the following heading styles to the class above.
 .zen .heading {
   font-family: $kz-var-typography-heading-3-font-family;
   font-size: $kz-var-typography-heading-3-font-size;
