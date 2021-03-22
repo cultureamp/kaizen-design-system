@@ -17,7 +17,7 @@ $ca-notification-border-width: $kz-var-border-solid-border-width;
 $ca-notification-vertical-padding: calc(
   #{$ca-grid / 4} - #{$ca-notification-border-width}
 );
-$ca-notification-inline-horizontal-padding: 20px;
+$ca-notification-inline-horizontal-padding: $kz-spacing-sm;
 $ca-notification-toast-horizontal-padding: 10px;
 $ca-notification-fade-out: opacity $ca-duration-slow ease;
 $ca-notification-collapse-height: margin-top $ca-duration-slow ease,
@@ -42,6 +42,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 
   &%ca-notification---inline {
     width: 100%;
+    min-height: 46px;
     padding: $ca-notification-vertical-padding
       $ca-notification-inline-horizontal-padding;
     transition: $ca-notification-fade-out,
@@ -166,8 +167,8 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 
   %ca-notification---inline &,
   %ca-notification---toast & {
-    width: $ca-grid;
-    height: $ca-grid;
+    width: 22px;
+    height: 22px;
     margin-top: $ca-grid / 4;
   }
 
@@ -206,7 +207,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 
   %ca-notification---inline &,
   %ca-notification---toast & {
-    margin-left: 10px;
+    margin-left: 6px;
   }
 
   %ca-notification---global & {
@@ -224,10 +225,11 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 %ca-notification__title {
   @include kz-typography-heading-6;
   margin: 0;
-  padding-right: $ca-grid / 2;
+  padding-right: 6px;
   // overriding Bootstrap style that changes h6s to text-transform: uppercase
   text-transform: none;
   color: inherit;
+  top: 0.37em;
 }
 
 %ca-notification__text {
@@ -243,6 +245,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
     margin-top: $ca-grid / 4;
     flex: 0 1 auto;
     padding-bottom: 0.75rem;
+    top: 0.21em;
   }
 
   %ca-notification---global & {

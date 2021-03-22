@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.3.0...@kaizen/component-library@9.3.1) (2021-03-22)
+
+
+### Bug Fixes
+
+* Adjust padding and sizing within inline notifications ([#1280](https://github.com/cultureamp/kaizen-design-system/issues/1280)) ([6a06d2a](https://github.com/cultureamp/kaizen-design-system/commit/6a06d2a3573440a86286267507086ba1bd225930))
+
+
+
+
+
 # [9.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.2.2...@kaizen/component-library@9.3.0) (2021-03-17)
 
 
