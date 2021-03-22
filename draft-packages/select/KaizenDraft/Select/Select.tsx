@@ -8,6 +8,7 @@ import { Props as ReactSelectProps } from "react-select/src/Select"
 import { Icon } from "@kaizen/component-library"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
+import { Tag } from "@kaizen/draft-tag"
 import styles from "./styles.react.scss"
 
 export { ValueType } from "react-select"
@@ -68,6 +69,7 @@ export const Select = (props: SelectProps & ReactSelectProps) => {
     [styles.secondary]: variant === "secondary",
     [styles.secondarySmall]: variant === "secondary-small",
     [styles.notFullWidth]: !fullWidth,
+    [styles.disabled]: props.isDisabled,
   })
   return (
     <ReactSelect
@@ -169,7 +171,15 @@ const SingleValue: typeof components.SingleValue = props => (
 )
 
 const MultiValue: typeof components.MultiValue = props => (
-  <components.MultiValue {...props} className={styles.multiValue} />
+  <div className={styles.multiValue}>
+    <Tag
+      children={props.children}
+      variant="default"
+      dismissible
+      inline
+      onDismiss={props.removeProps.onClick}
+    />
+  </div>
 )
 
 const IndicatorsContainer: typeof components.IndicatorsContainer = props => (
