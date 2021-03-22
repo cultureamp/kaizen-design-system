@@ -19,13 +19,11 @@ $ca-notification-vertical-padding: calc(
 );
 $ca-notification-inline-horizontal-padding: $kz-var-spacing-sm;
 $ca-notification-toast-horizontal-padding: 10px;
-$ca-notification-fade-out: opacity $ca-duration-slow ease;
-$ca-notification-collapse-height: margin-top $ca-duration-slow ease,
-  margin-bottom $ca-duration-slow ease;
-$ca-notification-collapse-height-delayed: margin-top $ca-duration-fast
-    $ca-duration-slow ease,
-  margin-bottom $ca-duration-fast $ca-duration-slow ease;
-$ca-notification-slide-right: transform $ca-duration-slow ease-out;
+$ca-notification-fade-out: opacity $ca-duration-rapid ease;
+$ca-notification-collapse-height: margin-top $ca-duration-rapid ease,
+  margin-bottom $ca-duration-rapid ease;
+$ca-notification-pop-up: transform $ca-duration-rapid ease-out;
+$ca-notification-slide-right: transform $ca-duration-fast ease-out;
 
 %ca-notification {
   display: flex;
@@ -45,8 +43,8 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
     min-height: 46px;
     padding: $ca-notification-vertical-padding
       $ca-notification-inline-horizontal-padding;
-    transition: $ca-notification-fade-out,
-      $ca-notification-collapse-height-delayed;
+    transition: $ca-notification-fade-out, $ca-notification-pop-up,
+      $ca-notification-collapse-height;
   }
 
   &%ca-notification---toast {
@@ -55,7 +53,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
     padding: $ca-notification-vertical-padding
       $ca-notification-toast-horizontal-padding;
     transition: $ca-notification-fade-out, $ca-notification-slide-right,
-      $ca-notification-collapse-height-delayed;
+      $ca-notification-collapse-height;
     will-change: transform;
   }
 
@@ -124,8 +122,18 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
 
   &%ca-notification---hidden {
     opacity: 0;
-    margin-bottom: 0;
 
+    &%ca-notification---inline,
+    &%ca-notification---global {
+      margin-bottom: 0;
+    }
+
+    &%ca-notification---inline {
+      // When entering we use "ease-out", but when transitioning to hidden we want to use "ease-in".
+      // We want it moving the fastest when it is the furthest off screen.
+      transition-timing-function: ease-in;
+      transform: translateY(-50%);
+    }
     &%ca-notification---toast {
       // When entering we use "ease-out", but when transitioning to hidden we want to use "ease-in".
       // We want it moving the fastest when it is the furthest off screen.
