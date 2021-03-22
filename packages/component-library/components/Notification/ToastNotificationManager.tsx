@@ -28,7 +28,7 @@ const createToastNotificationManager = (): ToastNotificationApi => {
   let setNotifications:
     | React.Dispatch<React.SetStateAction<ToastNotification[]>>
     | undefined
-  if (portal === undefined) {
+  if (portal === undefined && typeof window !== "undefined") {
     portal = document.createElement("div")
     portal.setAttribute(
       "data-automation-id",
@@ -85,13 +85,15 @@ const createToastNotificationManager = (): ToastNotificationApi => {
     }
   }
 
-  ReactDOM.render(
-    <ToastNotificationsListContainer
-      removeToastNotification={removeToastNotification}
-      registerSetNotificationsCallback={registerSetNotificationsCallback}
-    />,
-    portal
-  )
+  if (portal) {
+    ReactDOM.render(
+      <ToastNotificationsListContainer
+        removeToastNotification={removeToastNotification}
+        registerSetNotificationsCallback={registerSetNotificationsCallback}
+      />,
+      portal
+    )
+  }
 
   return {
     addToastNotification,
