@@ -89,6 +89,18 @@ export const Single = () => (
   </StoryContainer>
 )
 
+export const SingleDisabled = () => (
+  <StoryContainer>
+    <Select
+      options={options}
+      placeholder="Placeholder"
+      isSearchable={false}
+      isDisabled={true}
+      defaultValue={options[0]}
+    />
+  </StoryContainer>
+)
+
 export const SingleEllipsis = () => {
   const localOptions = [
     {

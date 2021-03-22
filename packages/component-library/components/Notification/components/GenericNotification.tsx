@@ -18,7 +18,7 @@ export type NotificationType =
 type Props = {
   type: NotificationType
   style: "global" | "inline" | "toast"
-  children: React.ReactNode
+  children?: React.ReactNode
   title?: string
   persistent: boolean
   autohide: boolean
@@ -95,7 +95,9 @@ class GenericNotification extends React.Component<Props, State> {
           {this.props.title && (
             <h6 className={styles.title}>{this.props.title}</h6>
           )}
-          <p className={styles.text}>{this.props.children}</p>
+          {this.props.children && (
+            <p className={styles.text}>{this.props.children}</p>
+          )}
         </div>
         {!this.props.persistent && <CancelButton onClick={this.hide} />}
       </div>
