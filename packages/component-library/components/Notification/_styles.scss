@@ -17,7 +17,7 @@ $ca-notification-border-width: $kz-var-border-solid-border-width;
 $ca-notification-vertical-padding: calc(
   #{$ca-grid / 4} - #{$ca-notification-border-width}
 );
-$ca-notification-inline-horizontal-padding: $kz-spacing-sm;
+$ca-notification-inline-horizontal-padding: $kz-var-spacing-sm;
 $ca-notification-toast-horizontal-padding: 10px;
 $ca-notification-fade-out: opacity $ca-duration-slow ease;
 $ca-notification-collapse-height: margin-top $ca-duration-slow ease,
