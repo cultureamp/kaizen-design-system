@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.4.23...@kaizen/draft-loading-placeholder@1.5.0) (2021-03-22)
+
+
+### Features
+
+* update LoadingPlaceholder to support Heart theme ([#1172](https://github.com/cultureamp/kaizen-design-system/issues/1172)) ([5f12a33](https://github.com/cultureamp/kaizen-design-system/commit/5f12a330c08c3469f7c841449061bc68a2bd3600))
+
+
+
+
+
 ## [1.4.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-placeholder@1.4.22...@kaizen/draft-loading-placeholder@1.4.23) (2021-03-22)
 
 **Note:** Version bump only for package @kaizen/draft-loading-placeholder
