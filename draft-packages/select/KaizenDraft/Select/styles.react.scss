@@ -1,37 +1,68 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/shadow";
-@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/shadow-vars";
+@import "~@kaizen/design-tokens/sass/typography-vars";
+@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/Input/styles.scss";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
+$focus-border-color: $kz-var-color-cluny-500;
+
+%focus-border {
+  $focus-ring-offset: calc(
+    (#{$kz-var-border-focus-ring-border-width} * -2) - 1px
+  );
+  content: "";
+  position: absolute;
+  background: transparent;
+  border-radius: $kz-var-border-focus-ring-border-radius;
+  border-width: $kz-var-border-focus-ring-border-width;
+  border-style: $kz-var-border-focus-ring-border-style;
+  border-color: $focus-border-color;
+  top: $focus-ring-offset;
+  left: $focus-ring-offset;
+  right: $focus-ring-offset;
+  bottom: $focus-ring-offset;
+}
+
 @mixin base-font-style() {
   @include kz-typography-paragraph-body;
   @include ca-inherit-baseline;
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
 }
 
 .specificityIncreaser {
+  .dropdownIndicator {
+    color: rgba($kz-var-color-wisteria-800-rgb-params, 0.7);
+    &:hover {
+      color: rgba($kz-var-color-wisteria-800-rgb-params, 0.7);
+    }
+  }
   .control {
+    &.disabled {
+      opacity: 0.3;
+    }
     min-height: $input-height;
-    border: $kz-border-solid-border-width $kz-border-solid-border-style
-      $ca-border-color;
-    border-radius: $kz-border-solid-border-radius;
+    border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
+      // Iron for Heart theme and Wisteria200 for Zen. Switching not needed when Zen is removed.
+      var($kz-var-id-color-iron, $kz-var-color-wisteria-200);
+    border-radius: $kz-var-border-solid-border-radius;
 
     &:hover {
-      border-color: $ca-border-color-hover;
+      // Slate on Heart theme, Wisteria400 on Zen. Switching not needed when Zen is removed.
+      border-color: var($kz-var-id-color-slate, $kz-var-color-wisteria-400);
+      // Stone on Heart theme, Wisteria100 on Zen. Switching not needed when Zen is removed.
+      background-color: var($kz-var-id-color-stone, $kz-var-color-wisteria-100);
       cursor: pointer;
     }
   }
 
   .focusedControl {
-    border-color: $ca-border-color-focus;
     box-shadow: none;
 
     &:hover {
-      border-color: $ca-border-color-focus;
       box-shadow: none;
     }
   }
@@ -43,9 +74,9 @@
 
   .menu {
     // Temporary 6px until we redesign this component with Inter
-    border: 6px $kz-border-solid-border-style transparent;
-    border-radius: $kz-border-solid-border-radius;
-    box-shadow: $kz-shadow-large-box-shadow;
+    border: 6px $kz-var-border-solid-border-style transparent;
+    border-radius: $kz-var-border-solid-border-radius;
+    box-shadow: $kz-var-shadow-large-box-shadow;
 
     // built-in class of React Select that is not easily styled any other way in CSS
     // (This is the "MenuList" div that wraps all the options)
@@ -62,16 +93,16 @@
   }
 
   .focusedOption {
-    background-color: $kz-color-cluny-100;
-    color: $kz-color-cluny-500;
+    background-color: $kz-var-color-cluny-100;
+    color: $kz-var-color-cluny-500;
 
     &:active {
-      background-color: $kz-color-cluny-100;
+      background-color: $kz-var-color-cluny-100;
     }
   }
 
   .selectedOption {
-    background-color: $kz-color-cluny-100;
+    background-color: $kz-var-color-cluny-100;
   }
 
   .disabledOption {
@@ -89,20 +120,15 @@
 
   &.reversed {
     .singleValue {
-      color: $kz-color-white;
+      color: $kz-var-color-white;
     }
     .singleValueOverrides {
-      color: $kz-color-white;
+      color: $kz-var-color-white;
     }
   }
 
   .multiValue {
-    @include kz-typography-paragraph-body;
-    @include ca-inherit-baseline;
-    color: $kz-color-wisteria-800;
-    border-radius: 15px;
-    padding: $ca-grid * 0.075 $ca-grid * 0.25;
-    cursor: default;
+    margin-right: $ca-grid * (7 / 24);
   }
 
   &.secondary,
@@ -110,16 +136,17 @@
     &.default {
       .control {
         background: transparent;
-        border: $kz-border-borderless-border-width
-          $kz-border-borderless-border-style $kz-border-borderless-border-color;
-        border-radius: $kz-border-borderless-border-radius;
+        border: $kz-var-border-borderless-border-width
+          $kz-var-border-borderless-border-style
+          $kz-var-border-borderless-border-color;
+        border-radius: $kz-var-border-borderless-border-radius;
 
         .singleValue {
-          color: $kz-color-cluny-500;
+          color: $kz-var-color-cluny-500;
         }
 
         &:hover {
-          background: $kz-color-cluny-100;
+          background: $kz-var-color-cluny-100;
         }
 
         &.disabled {
@@ -127,37 +154,27 @@
         }
 
         &.focusedControl {
-          background: $kz-color-cluny-100;
+          background: $kz-var-color-cluny-100;
 
           &::after {
-            $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px;
-            content: "";
-            position: absolute;
-            background: transparent;
-            border-radius: $kz-border-focus-ring-border-radius;
-            border-width: $kz-border-focus-ring-border-width;
-            border-style: $kz-border-focus-ring-border-style;
-            border-color: $kz-color-cluny-500;
-            top: -$focus-ring-offset;
-            left: -$focus-ring-offset;
-            right: -$focus-ring-offset;
-            bottom: -$focus-ring-offset;
+            @extend %focus-border;
           }
         }
       }
 
       .dropdownIndicator {
-        color: $kz-color-cluny-500;
+        color: $kz-var-color-cluny-500;
       }
     }
 
     &.reversed {
       .control {
         background: rgba($kz-var-color-white-rgb-params, 0.1);
-        color: $kz-color-white;
-        border: $kz-border-borderless-border-width
-          $kz-border-borderless-border-style $kz-border-borderless-border-color;
-        border-radius: $kz-border-borderless-border-radius;
+        color: $kz-var-color-white;
+        border: $kz-var-border-borderless-border-width
+          $kz-var-border-borderless-border-style
+          $kz-var-border-borderless-border-color;
+        border-radius: $kz-var-border-borderless-border-radius;
 
         &:hover {
           background: rgba($kz-var-color-white-rgb-params, 0.2);
@@ -169,10 +186,10 @@
       }
 
       .dropdownIndicator {
-        color: $kz-color-white;
+        color: $kz-var-color-white;
       }
 
-      $secondary-reversed-focus-color: $kz-color-cluny-300;
+      $secondary-reversed-focus-color: $kz-var-color-cluny-300;
 
       .focusedControl {
         border-color: $secondary-reversed-focus-color;
@@ -214,11 +231,11 @@
       }
 
       .singleValue {
-        font-family: $kz-typography-paragraph-extra-small-font-family;
-        font-weight: $kz-typography-paragraph-extra-small-font-weight;
-        font-size: $kz-typography-paragraph-extra-small-font-size;
-        line-height: $kz-typography-paragraph-extra-small-line-height;
-        letter-spacing: $kz-typography-paragraph-extra-small-letter-spacing;
+        font-family: $kz-var-typography-paragraph-extra-small-font-family;
+        font-weight: $kz-var-typography-paragraph-extra-small-font-weight;
+        font-size: $kz-var-typography-paragraph-extra-small-font-size;
+        line-height: $kz-var-typography-paragraph-extra-small-line-height;
+        letter-spacing: $kz-var-typography-paragraph-extra-small-letter-spacing;
       }
 
       .singleValueOverrides {
