@@ -1,78 +1,45 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import ReactDOM from "react-dom"
-const styles = require("./ToastNotificationManager.module.scss")
+import {
+  AddToastNotification,
+  ClearToastNotifications,
+  RemoveToastNotification,
+  ToastNotification,
+} from "./types"
+import { ToastNotificationsListContainer } from "./ToastNotificationsList"
 
-import GenericNotification, {
-  NotificationType,
-} from "./components/GenericNotification"
-
-const ToastNotificationsList = ({ notifications, onHide }) => (
-  <div className={styles.list}>
-    {notifications.map(notification => (
-      <GenericNotification
-        key={notification.id}
-        style="toast"
-        {...notification}
-        onHide={() => onHide(notification.id)}
-      />
-    ))}
-  </div>
-)
-
-const ToastNotificationManager = ({ remove, registerCallback }) => {
-  const [notifications, setNotifications] = useState([])
-
-  // Pass the setter upwards
-  useEffect(() => {
-    registerCallback(setNotifications)
-  }, [setNotifications])
-
-  return (
-    <ToastNotificationsList notifications={notifications} onHide={remove} />
-  )
+type ToastNotificationApi = {
+  addToastNotification: AddToastNotification
+  removeToastNotification: RemoveToastNotification
+  clearToastNotifications: ClearToastNotifications
 }
 
-export type ToastNotification = {
-  type: NotificationType
-  title: string
-  children: React.ReactNode
-  autohide: boolean
-  autohideDelay?: "short" | "long"
-  onHide?: () => void
-  automationId?: string
-  persistent?: boolean
-}
+/**
+ * Persistent reference to a "portal" for rendering the separate DOM tree
+ */
+let portal: HTMLDivElement | undefined
 
-export type ToastNotificationWithID = ToastNotification & { id?: string }
-
-type State = {
-  notifications: ToastNotificationWithID[]
-}
-
-type AddToastNotification = (notification: ToastNotificationWithID) => void
-type RemoveToastNotification = (notificationID: string) => void
-type ClearToastNotifications = () => void
-
-type Callback = ((notifications: ToastNotificationWithID[]) => void) | null
-
-let portal: HTMLDivElement | null = null
-
-const createNotificationManager = (): {
-  add: AddToastNotification
-  remove: RemoveToastNotification
-  clear: ClearToastNotifications
-} => {
-  let callback: Callback = null
-  if (portal === null) {
+/**
+ * Create an instance of the toast notification manager
+ * Renders ToastNotifications in an independent React tree
+ * @returns {addToastNotification, removeToastNotification, clearToastNotifications}
+ */
+const createToastNotificationManager = (): ToastNotificationApi => {
+  let setNotifications:
+    | React.Dispatch<React.SetStateAction<ToastNotification[]>>
+    | undefined
+  if (portal === undefined) {
     portal = document.createElement("div")
     document.body.appendChild(portal)
   }
 
-  const state: State = {
+  const state: {
+    notifications: ToastNotification[]
+  } = {
     notifications: [],
   }
 
-  const add = notification => {
+  const addToastNotification = (notification: ToastNotification) => {
     const notificationIndex = state.notifications.findIndex(
       n => n.id === notification.id
     )
@@ -87,7 +54,7 @@ const createNotificationManager = (): {
     render()
   }
 
-  const remove = (notificationID: string) => {
+  const removeToastNotification = (notificationID: string) => {
     const notificationIndex = state.notifications.findIndex(
       notification => notification.id === notificationID
     )
@@ -97,36 +64,46 @@ const createNotificationManager = (): {
     render()
   }
 
-  const clear = () => {
+  const clearToastNotifications = () => {
     state.notifications = []
     render()
   }
 
-  const registerCallback = (
-    cb: (notifications: ToastNotificationWithID[]) => void
+  const registerSetNotificationsCallback = (
+    cb: React.Dispatch<React.SetStateAction<ToastNotification[]>>
   ) => {
-    callback = cb
+    setNotifications = cb
   }
 
   const render = () => {
-    if (callback !== null) {
-      callback(state.notifications)
+    if (setNotifications) {
+      setNotifications(state.notifications)
     }
   }
 
   ReactDOM.render(
-    <ToastNotificationManager
-      remove={remove}
-      registerCallback={registerCallback}
+    <ToastNotificationsListContainer
+      removeToastNotification={removeToastNotification}
+      registerSetNotificationsCallback={registerSetNotificationsCallback}
     />,
     portal
   )
 
   return {
-    add,
-    clear,
-    remove,
+    addToastNotification,
+    clearToastNotifications,
+    removeToastNotification,
   }
 }
 
-export default createNotificationManager
+/**
+ * Singleton instance of the toast notification manager
+ */
+const instance = createToastNotificationManager()
+
+/**
+ * Export the curried API methods
+ */
+export const addToastNotification = instance.addToastNotification
+export const clearToastNotifications = instance.clearToastNotifications
+export const removeToastNotification = instance.removeToastNotification

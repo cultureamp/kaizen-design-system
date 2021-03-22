@@ -1,9 +1,7 @@
 import * as React from "react"
-import uuid from "uuid/v4"
-import createNotificationManager from "./ToastNotificationManager"
+import { v4 } from "uuid"
+import { addToastNotification } from "./ToastNotificationManager"
 import { NotificationType } from "./components/GenericNotification"
-
-const notificationManager = createNotificationManager()
 
 type Props = {
   id?: string
@@ -18,9 +16,10 @@ type Props = {
 }
 
 const ToastNotification = ({ id, hideCloseIcon, ...otherProps }: Props) => {
-  const [localID] = React.useState(id || uuid())
+  const [localID] = React.useState(id || v4())
   const persistent = otherProps.autohide && hideCloseIcon
-  notificationManager.add({
+
+  addToastNotification({
     id: localID,
     type: otherProps.type,
     title: otherProps.title,
