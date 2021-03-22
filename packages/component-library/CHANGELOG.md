@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.3.1...@kaizen/component-library@9.4.0) (2021-03-22)
+
+
+### Features
+
+* Update GlobalNotification and InlineNotification to support Heart ([#1218](https://github.com/cultureamp/kaizen-design-system/issues/1218)) ([0356041](https://github.com/cultureamp/kaizen-design-system/commit/0356041ba2206b9e5b3499a772ab2610e7b16060))
+
+
+
+
+
 ## [9.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.3.0...@kaizen/component-library@9.3.1) (2021-03-22)
 
 
