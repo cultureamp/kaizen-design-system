@@ -1,5 +1,5 @@
 import_mapping = {
-    "~@kaizen/design-tokens/sass/color": [
+    "~@kaizen/design-tokens/sass/color-vars": [
         "$kz-var-color-wisteria-100",
         "$kz-var-color-wisteria-200",
         "$kz-var-color-wisteria-300",

@@ -1,4 +1,4 @@
-@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 
 .wrapper {
   // explicitly setting the box-sizing on your component avoids

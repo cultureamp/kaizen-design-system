@@ -1,6 +1,6 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "@kaizen/deprecated-component-library-helpers/styles/type";
 
 $gap: $kz-var-spacing-sm;

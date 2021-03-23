@@ -1,8 +1,8 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "../../styles/layers";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/typography-vars";
 
 $width: 248px;
 $caButton-border-width: $kz-var-border-solid-border-width;
