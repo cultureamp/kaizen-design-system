@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.13.0...@kaizen/draft-select@1.13.1) (2021-03-22)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+# [1.13.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.12.11...@kaizen/draft-select@1.13.0) (2021-03-22)
+
+
+### Features
+
+* Update Select component to support Heart ([#1254](https://github.com/cultureamp/kaizen-design-system/issues/1254)) ([2b52f7b](https://github.com/cultureamp/kaizen-design-system/commit/2b52f7be6369255ecedf7c737a63446ccaec47c5))
+
+
+
+
+
+## [1.12.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.12.10...@kaizen/draft-select@1.12.11) (2021-03-22)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
 ## [1.12.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.12.9...@kaizen/draft-select@1.12.10) (2021-03-17)
 
 **Note:** Version bump only for package @kaizen/draft-select

@@ -249,3 +249,7 @@ export const MultipleNotification = () => (
     </InlineNotification>
   </div>
 )
+
+export const NoChildren = () => (
+  <InlineNotification title="No children" type="affirmative" persistent />
+)

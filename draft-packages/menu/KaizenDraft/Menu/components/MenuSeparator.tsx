@@ -1,8 +1,7 @@
+import { Divider } from "@kaizen/draft-divider"
 import * as React from "react"
 
-import styles from "./MenuContent.module.scss"
-
-const MenuSeparator = () => <hr className={styles.separator} />
+const MenuSeparator = () => <Divider variant="menuSeparator" />
 MenuSeparator.displayName = "MenuSeparator"
 
 export default MenuSeparator
