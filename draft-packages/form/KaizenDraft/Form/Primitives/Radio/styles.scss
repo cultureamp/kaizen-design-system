@@ -55,10 +55,12 @@ $focus-ring-offset: 2px;
     border-color: $dt-color-radio-disc-color-base;
     top: -$focus-ring-offset - ($radio-size / 8);
     left: -$focus-ring-offset - ($radio-size / 8);
-    width: $radio-size + $focus-ring-offset + $kz-var-border-solid-border-width *
-      2;
-    height: $radio-size + $focus-ring-offset + $kz-var-border-solid-border-width *
-      2;
+    width: calc(
+      #{$radio-size}#{" + "}#{$focus-ring-offset}#{" + "}#{$kz-var-border-solid-border-width}#{" * 2"}
+    );
+    height: calc(
+      #{$radio-size}#{" + "}#{$focus-ring-offset}#{" + "}#{$kz-var-border-solid-border-width}#{" * 2"}
+    );
   }
 
   @media (hover: hover) and (pointer: fine) {

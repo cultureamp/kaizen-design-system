@@ -127,7 +127,7 @@ $delay-before-showing-loading-placeholders: 500ms;
   @include ca-margin($end: 4px);
   background-color: $kz-var-color-white;
   color: $kz-var-color-wisteria-800;
-  max-height: $option-height * $max-visible-options;
+  max-height: calc(#{$option-height}#{" * "}#{$max-visible-options});
   overflow-y: auto;
 }
 

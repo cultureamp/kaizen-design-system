@@ -31,7 +31,7 @@ $menuItem__margin: 4px;
 }
 
 .arrowIcon {
-  @include ca-margin($start: $kz-var-spacing-md / 2);
+  @include ca-margin($start: $kz-var-spacing-sm);
 
   display: flex;
   color: rgba($kz-var-color-wisteria-800-rgb-params, 0.5);
@@ -88,7 +88,7 @@ $menuItem__margin: 4px;
 }
 
 .badge {
-  @include ca-margin($start: $kz-var-spacing-md * 0.25);
+  @include ca-margin($start: $kz-var-spacing-xs);
   min-height: $kz-var-spacing-md;
   border-radius: $kz-var-spacing-md;
   display: flex;
@@ -96,17 +96,14 @@ $menuItem__margin: 4px;
   justify-content: center;
 
   &.badgeNew {
-    @include ca-padding(
-      $start: $kz-var-spacing-md * 0.5,
-      $end: $kz-var-spacing-md * 0.5
-    );
+    @include ca-padding($start: $kz-var-spacing-sm, $end: $kz-var-spacing-sm);
     background-color: $kz-var-color-seedling-200;
   }
 
   &.badgeNotification {
     @include ca-padding(
-      $start: $kz-var-spacing-md / 3,
-      $end: $kz-var-spacing-md / 3
+      $start: calc(#{$kz-var-spacing-md}#{" / 3"}),
+      $end: calc(#{$kz-var-spacing-md}#{" / 3"})
     );
     background-color: $kz-var-color-wisteria-800;
 

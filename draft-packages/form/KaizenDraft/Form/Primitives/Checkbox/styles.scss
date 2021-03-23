@@ -87,10 +87,12 @@ $focus-ring-offset: 2px;
     border-color: $dt-color-form-border-color-focus;
     top: -$focus-ring-offset - ($checkbox-size / 8);
     left: -$focus-ring-offset - ($checkbox-size / 8);
-    width: $checkbox-size + $focus-ring-offset +
-      $kz-var-border-solid-border-width * 2;
-    height: $checkbox-size + $focus-ring-offset +
-      $kz-var-border-solid-border-width * 2;
+    width: calc(
+      #{$checkbox-size}#{" + "}#{$focus-ring-offset}#{" + "}#{$kz-var-border-solid-border-width}#{" * 2"}
+    );
+    height: calc(
+      #{$checkbox-size}#{" + "}#{$focus-ring-offset}#{" + "}#{$kz-var-border-solid-border-width}#{" * 2"}
+    );
   }
 
   .checkbox:disabled + & {

@@ -1,5 +1,4 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/typography-vars";
 @import "~@kaizen/design-tokens/sass/layout-vars";
 @import "~@kaizen/component-library/styles/grid";
@@ -10,8 +9,9 @@
 
 $title-block-margin-width-on-medium-and-small: 12px;
 $breadcrumb-circle-width: 48px;
-$breadcrumb-breakpoint-width: $kz-var-layout-content-max-width +
-  $kz-var-layout-content-side-margin * 2 + $breadcrumb-circle-width * 2.25;
+$breadcrumb-breakpoint-width: calc(
+  #{$kz-var-layout-content-max-width}#{" + "}#{$kz-var-layout-content-side-margin}#{" * 2 + "}#{$breadcrumb-circle-width}#{" * 2.25"}
+);
 $title-block-separator-height: 3px;
 $tab-container-height-default: $ca-grid * 3;
 $tab-container-height-small: $ca-grid * 2.5;

@@ -1,5 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "~@kaizen/design-tokens/sass/typography-vars";
+@import "~@kaizen/design-tokens/sass/typography";
 
 $ca-grid: 1.5rem; // 24px @ default root font-size of 16px
 
@@ -59,8 +61,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   letter-spacing: $letter-spacing;
 
   $font-size: $base-size * $size-ratio; // in rem
-  $absolute-line-height: $ca-grid * $line-height-in-grid-units; // in rem
-  $line-height-ratio: $absolute-line-height / $font-size; // unitless number
+  $absolute-line-height: calc(
+    #{$kz-var-spacing-md}#{" * "}#{$line-height-in-grid-units}
+  ); // in rem
+  $line-height-ratio: calc(
+    #{$absolute-line-height}#{" / "}#{$font-size}
+  ); // unitless number
   $line-spacing: $line-height-ratio - 1;
   font-size: $font-size;
   line-height: $line-height-ratio;
@@ -76,7 +82,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 // Creates whitespace for the contained text to shift “into”
 @mixin ca-type-block($display: block) {
   display: $display;
-  padding-bottom: $ca-grid / 2;
+  padding-bottom: $kz-var-spacing-sm;
 }
 
 @mixin ca-inherit-baseline {
@@ -447,7 +453,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin kz-typography-data-large(
-  $size: to-unitless-pixels($kz-var-typography-data-large-font-size),
+  $size: to-unitless-pixels($kz-typography-data-large-font-size),
   $args...
 ) {
   @include kz-typography-greycliff(
@@ -461,7 +467,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin kz-typography-data-large-units(
-  $size: to-unitless-pixels($kz-var-typography-data-large-units-font-size),
+  $size: to-unitless-pixels($kz-typography-data-large-units-font-size),
   $args...
 ) {
   @include kz-typography-greycliff(
@@ -475,7 +481,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin kz-typography-data-medium(
-  $size: to-unitless-pixels($kz-var-typography-data-medium-font-size),
+  $size: to-unitless-pixels($kz-typography-data-medium-font-size),
   $args...
 ) {
   @include kz-typography-greycliff(
@@ -489,7 +495,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin kz-typography-data-medium-units(
-  $size: to-unitless-pixels($kz-var-typography-data-medium-units-font-size),
+  $size: to-unitless-pixels($kz-typography-data-medium-units-font-size),
   $args...
 ) {
   @include kz-typography-greycliff(
@@ -503,7 +509,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin kz-typography-data-small(
-  $size: to-unitless-pixels($kz-var-typography-data-small-font-size),
+  $size: to-unitless-pixels($kz-typography-data-small-font-size),
   $args...
 ) {
   @include kz-typography-greycliff(
@@ -517,7 +523,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin kz-typography-data-small-units(
-  $size: to-unitless-pixels($kz-var-typography-data-small-units-font-size),
+  $size: to-unitless-pixels($kz-typography-data-small-units-font-size),
   $args...
 ) {
   @include kz-typography-greycliff(
@@ -531,7 +537,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin kz-typography-display-0(
-  $size: to-unitless-pixels($kz-var-typography-display-0-font-size),
+  $size: to-unitless-pixels($kz-typography-display-0-font-size),
   $args...
 ) {
   @include kz-typography-greycliff(
@@ -545,7 +551,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin kz-typography-heading-1(
-  $size: to-unitless-pixels($kz-var-typography-heading-1-font-size),
+  $size: to-unitless-pixels($kz-typography-heading-1-font-size),
   $args...
 ) {
   @include kz-typography-greycliff(
@@ -559,7 +565,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin kz-typography-heading-2(
-  $size: to-unitless-pixels($kz-var-typography-heading-2-font-size),
+  $size: to-unitless-pixels($kz-typography-heading-2-font-size),
   $args...
 ) {
   @include kz-typography-greycliff(
@@ -573,7 +579,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin kz-typography-heading-3(
-  $size: to-unitless-pixels($kz-var-typography-heading-3-font-size),
+  $size: to-unitless-pixels($kz-typography-heading-3-font-size),
   $args...
 ) {
   @include kz-typography-greycliff(
@@ -587,7 +593,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin kz-typography-heading-4(
-  $size: to-unitless-pixels($kz-var-typography-heading-4-font-size),
+  $size: to-unitless-pixels($kz-typography-heading-4-font-size),
   $args...
 ) {
   @include kz-typography-inter(
@@ -601,7 +607,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin kz-typography-heading-5(
-  $size: to-unitless-pixels($kz-var-typography-heading-5-font-size),
+  $size: to-unitless-pixels($kz-typography-heading-5-font-size),
   $args...
 ) {
   @include kz-typography-inter(
@@ -615,7 +621,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin kz-typography-heading-6(
-  $size: to-unitless-pixels($kz-var-typography-heading-6-font-size),
+  $size: to-unitless-pixels($kz-typography-heading-6-font-size),
   $args...
 ) {
   @include kz-typography-inter(
@@ -629,7 +635,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin kz-typography-paragraph-body(
-  $size: to-unitless-pixels($kz-var-typography-paragraph-body-font-size),
+  $size: to-unitless-pixels($kz-typography-paragraph-body-font-size),
   $args...
 ) {
   @include kz-typography-inter(
@@ -643,7 +649,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin kz-typography-paragraph-body-bold(
-  $size: to-unitless-pixels($kz-var-typography-paragraph-body-font-size),
+  $size: to-unitless-pixels($kz-typography-paragraph-body-font-size),
   $args...
 ) {
   @include kz-typography-inter(
@@ -658,7 +664,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 }
 
 @mixin kz-typography-paragraph-small(
-  $size: to-unitless-pixels($kz-var-typography-paragraph-small-font-size),
+  $size: to-unitless-pixels($kz-typography-paragraph-small-font-size),
   $args...
 ) {
   @include kz-typography-inter(

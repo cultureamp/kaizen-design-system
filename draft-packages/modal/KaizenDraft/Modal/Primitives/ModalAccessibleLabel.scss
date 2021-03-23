@@ -1,5 +1,4 @@
 @import "~@kaizen/design-tokens/sass/border-vars";
-@import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/design-tokens/sass/color-vars";
 
 .label {
@@ -15,7 +14,9 @@
 
     // show custom focus ring when :focus-visible
     &:global(.focus-visible)::after {
-      $focus-ring-offset: ($kz-var-border-focus-ring-border-width * 2) + 1px;
+      $focus-ring-offset: calc(
+        (#{$kz-var-border-focus-ring-border-width}#{" * 2"}) #{" + 1px"}
+      );
       content: "";
       position: absolute;
       background: transparent;
@@ -23,10 +24,10 @@
       border-width: $kz-var-border-focus-ring-border-width;
       border-style: $kz-var-border-focus-ring-border-style;
       border-color: $kz-var-color-cluny-500;
-      top: -$focus-ring-offset;
-      left: -$focus-ring-offset;
-      right: -$focus-ring-offset;
-      bottom: -$focus-ring-offset;
+      top: calc(#{"-1 * "}#{$focus-ring-offset});
+      left: calc(#{"-1 * "}#{$focus-ring-offset});
+      right: calc(#{"-1 * "}#{$focus-ring-offset});
+      bottom: calc(#{"-1 * "}#{$focus-ring-offset});
     }
   }
 }
