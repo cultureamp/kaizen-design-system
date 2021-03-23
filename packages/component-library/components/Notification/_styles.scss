@@ -22,6 +22,9 @@ $ca-notification-toast-horizontal-padding: 10px;
 $ca-notification-fade-out: opacity $ca-duration-rapid ease;
 $ca-notification-collapse-height: margin-top $ca-duration-rapid ease,
   margin-bottom $ca-duration-rapid ease;
+$ca-notification-collapse-height-delayed: margin-top $ca-duration-rapid ease
+    $ca-duration-rapid,
+  margin-bottom $ca-duration-rapid ease;
 $ca-notification-pop-up: transform $ca-duration-rapid ease-out;
 $ca-notification-slide-right: transform $ca-duration-fast ease-out;
 
@@ -53,7 +56,7 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
     padding: $ca-notification-vertical-padding
       $ca-notification-toast-horizontal-padding;
     transition: $ca-notification-fade-out, $ca-notification-slide-right,
-      $ca-notification-collapse-height;
+      $ca-notification-collapse-height-delayed;
     will-change: transform;
   }
 
