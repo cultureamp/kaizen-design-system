@@ -1,8 +1,42 @@
 import * as React from "react"
-
+import { Link, ZenNavigationBar } from "@kaizen/draft-zen-navigation-bar"
+import { TitleBlockZen } from "@kaizen/draft-title-block-zen"
 import { ToastNotification } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
+import styles from "./ToastNotification.stories.scss"
+
+const withNavigation = (Story: React.FunctionComponent) => (
+  <>
+    <div style={{ margin: "-1rem", minHeight: "150px" }}>
+      <div className={styles.navigationBarContainer}>
+        <ZenNavigationBar>
+          {{
+            primary: [
+              <Link text="Home" href="/" active />,
+              <Link text="Surveys" href="/" />,
+              <Link
+                text="Performance"
+                href="/"
+                badge={{ kind: "new", text: "New" }}
+              />,
+            ],
+            final: [
+              <Link text="Support" href="http://academy.cultureamp.com/" />,
+              <Link
+                tooltip="Opens in new tab"
+                text="Academy"
+                href="http://academy.cultureamp.com/"
+              />,
+            ],
+          }}
+        </ZenNavigationBar>
+      </div>
+      <TitleBlockZen title="Page title" collapseNavigationAreaWhenPossible />
+      <Story />
+    </div>
+  </>
+)
 
 export default {
   title: "ToastNotification (React)",
@@ -17,7 +51,7 @@ export default {
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A21830"
     ),
   },
-  decorators: [withDesign],
+  decorators: [withDesign, withNavigation],
 }
 
 export const PositiveKaizenSiteDemo = () => (
