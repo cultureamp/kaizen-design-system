@@ -84,7 +84,7 @@ $tableOfContents-width: $ca-grid * 10;
   font-weight: 500;
   margin: 1.5rem 0.75rem 0.75rem;
   letter-spacing: 0.03125em;
-  color: add-alpha($kz-var-color-wisteria-700, 80%);
+  color: rgba($kz-var-color-wisteria-700-rgb-params, 80%);
 }
 
 .tabList {
