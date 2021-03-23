@@ -24,11 +24,11 @@ exports[`The basic notification renders correctly 1`] = `
   <div
     class="textContainer"
   >
-    <p
+    <div
       class="text"
     >
       This is my positive notification
-    </p>
+    </div>
   </div>
   <button
     class="cancel"
@@ -82,7 +82,7 @@ exports[`You can change the type 1`] = `
   <div
     class="textContainer"
   >
-    <p
+    <div
       class="text"
     >
       This is my 
@@ -90,7 +90,7 @@ exports[`You can change the type 1`] = `
         informational
       </em>
        notification
-    </p>
+    </div>
   </div>
   <button
     class="cancel"
