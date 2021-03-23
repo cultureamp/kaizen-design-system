@@ -15,6 +15,16 @@ import WhenNotToUse from "docs-components/WhenNotToUse"
 
 ## To keep in mind
 
+### Focus indicator
+- Any element a user can interact with must have a focus indicator when tabbing while using keyboard navigation. This helps users with screen readers and limited mobility to understand what they are interacting with and where they are on the page. 
+- All input fields must include a focus indicator when active, whether using keyboard navigation or click interactions. This includes all types of [Form](/guidelines/forms) elements:
+  - Text field
+  - [Search field](/components/search-field)
+  - [Checkbox](/components/checkbox-group) (on checkbox, exclude focus on label)
+  - [Radio button](/components/radio-field) (on radio button, exclude focus on label)
+  - [Select](/components/select)
+- An exception to the rule is focus indicators on [Buttons](/components/button). Our preference is to show the focus indicator when using keyboard navigation, but not on mouse click.
+
 ### Disabled state
 
 A disabled state applies to an element when the action is unavailable to a user. It might be unavailable due to permissions or pre-requisites, such as needing particular data. For example, you might prevent launching a survey with no questions and no participants by disabling the launch button.
