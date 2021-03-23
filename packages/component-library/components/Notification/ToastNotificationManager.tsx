@@ -94,6 +94,7 @@ const createToastNotificationManager = (): ToastNotificationApi => {
     cb: React.Dispatch<React.SetStateAction<ToastNotification[]>>
   ) => {
     setNotifications = cb
+    render()
   }
 
   const render = () => {
