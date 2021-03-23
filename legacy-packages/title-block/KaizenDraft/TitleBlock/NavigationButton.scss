@@ -10,7 +10,7 @@
   @include ca-inherit-baseline;
   top: 0;
   padding-top: $ca-grid * 0.25;
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
   border: 0;
   border-bottom: 4px solid transparent;
   text-decoration: none;
@@ -21,12 +21,12 @@
 
   &:hover {
     text-decoration: none;
-    color: $kz-color-cluny-500;
-    border-bottom-color: $kz-color-cluny-500;
+    color: $kz-var-color-cluny-500;
+    border-bottom-color: $kz-var-color-cluny-500;
   }
 
   @include ca-media-tablet-and-up {
-    color: $kz-color-wisteria-800;
+    color: $kz-var-color-wisteria-800;
     padding-top: 1.0625rem;
   }
 
@@ -42,8 +42,8 @@
 
 .activeButton {
   composes: button;
-  color: $kz-color-cluny-500;
-  border-bottom-color: $kz-color-cluny-500;
+  color: $kz-var-color-cluny-500;
+  border-bottom-color: $kz-var-color-cluny-500;
 
   &.reversed {
     border-bottom-color: white;

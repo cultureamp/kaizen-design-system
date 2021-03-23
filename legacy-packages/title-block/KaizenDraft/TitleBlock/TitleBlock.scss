@@ -11,19 +11,19 @@
 @import "~@kaizen/component-library/styles/animation";
 
 @mixin title-block-mobile {
-  @media (max-width: $kz-layout-breakpoints-large - 1px) {
+  @media (max-width: $kz-var-layout-breakpoints-large - 1px) {
     @content;
   }
 }
 
 @mixin title-block-desktop {
-  @media (min-width: $kz-layout-breakpoints-large) {
+  @media (min-width: $kz-var-layout-breakpoints-large) {
     @content;
   }
 }
 
 .titleBlockContainer {
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
   width: 100%;
 }
 
@@ -124,7 +124,7 @@
   height: 40px;
   border-radius: 40px;
   background-color: rgba($kz-var-color-cluny-500-rgb-params, 0.1);
-  color: $kz-color-cluny-500;
+  color: $kz-var-color-cluny-500;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -132,7 +132,7 @@
 
   .breadcrumb:hover &,
   .breadcrumb:focus & {
-    background-color: $kz-color-cluny-500;
+    background-color: $kz-var-color-cluny-500;
     color: white;
     transform: scale(1.1);
   }
@@ -261,7 +261,7 @@
   flex: 1;
   align-items: stretch;
   height: 100%;
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
   @include ca-margin($start: $ca-grid * 1.5);
 
   @include title-block-mobile {
@@ -310,7 +310,7 @@
   }
 
   .breadcrumb {
-    color: $kz-color-white;
+    color: $kz-var-color-white;
 
     &:hover {
       .circle {
@@ -321,7 +321,7 @@
 
   .circle {
     background-color: rgba(white, 0.2);
-    color: $kz-color-white;
+    color: $kz-var-color-white;
   }
 
   .titleBlock {
@@ -340,12 +340,12 @@
 .reverseColorLapis {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-color-wisteria-800;
+      background-color: $kz-var-color-wisteria-800;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-color-wisteria-800;
+      background-color: $kz-var-color-wisteria-800;
     }
   }
 }
@@ -353,12 +353,12 @@
 .reverseColorOcean {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-color-cluny-500;
+      background-color: $kz-var-color-cluny-500;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-color-cluny-500;
+      background-color: $kz-var-color-cluny-500;
     }
   }
 }
@@ -366,12 +366,12 @@
 .reverseColorPeach {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-color-peach-500;
+      background-color: $kz-var-color-peach-500;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-color-peach-500;
+      background-color: $kz-var-color-peach-500;
     }
   }
 }
@@ -379,12 +379,12 @@
 .reverseColorSeedling {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-color-seedling-500;
+      background-color: $kz-var-color-seedling-500;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-color-seedling-500;
+      background-color: $kz-var-color-seedling-500;
     }
   }
 }
@@ -392,12 +392,12 @@
 .reverseColorWisteria {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-color-wisteria-700;
+      background-color: $kz-var-color-wisteria-700;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-color-wisteria-500;
+      background-color: $kz-var-color-wisteria-500;
     }
   }
 }
@@ -405,12 +405,12 @@
 .reverseColorYuzu {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-color-yuzu-500;
+      background-color: $kz-var-color-yuzu-500;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-color-yuzu-500;
+      background-color: $kz-var-color-yuzu-500;
     }
   }
 }
@@ -440,7 +440,7 @@
 
 .compact {
   @include title-block-desktop {
-    box-shadow: $kz-shadow-large-box-shadow;
+    box-shadow: $kz-var-shadow-large-box-shadow;
 
     .titleBlockInner {
       height: $ca-layout-title-block-tablet-height;
@@ -466,12 +466,12 @@
 .stickyColorLapis {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-color-wisteria-600;
+      background-color: $kz-var-color-wisteria-600;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-color-wisteria-600;
+      background-color: $kz-var-color-wisteria-600;
     }
   }
 }
@@ -479,12 +479,12 @@
 .stickyColorOcean {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-color-cluny-500;
+      background-color: $kz-var-color-cluny-500;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-color-cluny-500;
+      background-color: $kz-var-color-cluny-500;
     }
   }
 }
@@ -492,12 +492,12 @@
 .stickyColorPeach {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-color-peach-400;
+      background-color: $kz-var-color-peach-400;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-color-peach-400;
+      background-color: $kz-var-color-peach-400;
     }
   }
 }
@@ -505,12 +505,12 @@
 .stickyColorSeedling {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-color-seedling-400;
+      background-color: $kz-var-color-seedling-400;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-color-seedling-400;
+      background-color: $kz-var-color-seedling-400;
     }
   }
 }
@@ -518,12 +518,12 @@
 .stickyColorWisteria {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-color-wisteria-700;
+      background-color: $kz-var-color-wisteria-700;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-color-wisteria-700;
+      background-color: $kz-var-color-wisteria-700;
     }
   }
 }
@@ -531,12 +531,12 @@
 .stickyColorYuzu {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-color-yuzu-500;
+      background-color: $kz-var-color-yuzu-500;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-color-yuzu-500;
+      background-color: $kz-var-color-yuzu-500;
     }
   }
 }

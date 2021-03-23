@@ -13,9 +13,9 @@ $left-content__width: 221px;
   @include ca-inherit-baseline;
   display: flex;
   // this box shadow should change to small once the Zen look is adopted
-  box-shadow: $kz-shadow-large-box-shadow;
+  box-shadow: $kz-var-shadow-large-box-shadow;
   background-color: transparent;
-  border-radius: $kz-border-solid-border-radius;
+  border-radius: $kz-var-border-solid-border-radius;
 }
 
 .fullWidth {
@@ -24,9 +24,9 @@ $left-content__width: 221px;
 
 .left {
   display: flex;
-  border-radius: $kz-border-solid-border-radius 0 0
-    $kz-border-solid-border-radius;
-  color: $kz-color-white;
+  border-radius: $kz-var-border-solid-border-radius 0 0
+    $kz-var-border-solid-border-radius;
+  color: $kz-var-color-white;
   padding: ($ca-grid / 2) ($ca-grid * 2);
   flex-direction: column;
   flex-shrink: 0;
@@ -40,19 +40,19 @@ $left-content__width: 221px;
   }
 
   &.wisteria700 {
-    background-color: $kz-color-wisteria-700;
+    background-color: $kz-var-color-wisteria-700;
   }
 
   &.wisteria200 {
-    background-color: $kz-color-wisteria-200;
+    background-color: $kz-var-color-wisteria-200;
   }
 
   &.cluny200 {
-    background-color: $kz-color-cluny-200;
+    background-color: $kz-var-color-cluny-200;
   }
 
   &.seedling200 {
-    background-color: $kz-color-seedling-200;
+    background-color: $kz-var-color-seedling-200;
   }
 }
 
@@ -61,13 +61,13 @@ $left-content__width: 221px;
 }
 
 .right {
-  border-radius: 0 $kz-border-solid-border-radius $kz-border-solid-border-radius
-    0;
+  border-radius: 0 $kz-var-border-solid-border-radius
+    $kz-var-border-solid-border-radius 0;
   display: flex;
   flex-direction: column;
   padding: 51px;
-  background-color: $kz-color-white;
-  color: $kz-color-wisteria-800;
+  background-color: $kz-var-color-white;
+  color: $kz-var-color-wisteria-800;
   width: 100%;
 }
 

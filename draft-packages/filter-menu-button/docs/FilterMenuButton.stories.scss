@@ -14,8 +14,8 @@ $menuContentVerticalPadding: 6px; // this comes from the MenuContent component, 
   & label {
     width: auto;
   }
-  padding: calc(#{$kz-spacing-sm} - #{$menuContentVerticalPadding})
-    calc(#{$kz-spacing-sm} - #{$menuContentHorizontalPadding});
+  padding: calc(#{$kz-var-spacing-sm} - #{$menuContentVerticalPadding})
+    calc(#{$kz-var-spacing-sm} - #{$menuContentHorizontalPadding});
 }
 
 .siteDemoWrapper {

@@ -5,14 +5,14 @@
 @import "~@kaizen/component-library/styles/border";
 
 // The draghandle
-$thumb-color: $kz-color-wisteria-600;
+$thumb-color: $kz-var-color-wisteria-600;
 $thumb-radius: 100%;
 $thumb-height: 26px;
 $thumb-width: 26px;
-$thumb-hover-shadow-color: $kz-color-wisteria-700;
+$thumb-hover-shadow-color: $kz-var-color-wisteria-700;
 
 // The range
-$track-color: $kz-color-ash;
+$track-color: $kz-var-color-ash;
 $track-radius: 4px;
 $track-width: auto;
 $track-height: 10px;
@@ -77,7 +77,7 @@ input[type="range"].ratingScaleRange {
   }
 
   :global(.js-focus-visible) &:global(.focus-visible) {
-    outline: 2px solid $kz-color-cluny-500;
+    outline: 2px solid $kz-var-color-cluny-500;
   }
 
   &::-webkit-slider-runnable-track {
@@ -134,7 +134,7 @@ input[type="range"].ratingScaleRange {
 }
 
 .labelsContainer {
-  margin-top: $kz-spacing-xs;
+  margin-top: $kz-var-spacing-xs;
   display: flex;
   justify-content: center;
   width: 100%;

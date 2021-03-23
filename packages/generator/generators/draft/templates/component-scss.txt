@@ -5,5 +5,5 @@
   // unexpected overrides from the consuming repo
   box-sizing: border-box;
 
-  color: $kz-color-coral-600; // Use design tokens where possible
+  color: $kz-var-color-coral-600; // Use design tokens where possible
 }

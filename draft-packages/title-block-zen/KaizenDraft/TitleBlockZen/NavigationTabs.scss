@@ -32,12 +32,12 @@
     color: rgba($kz-var-color-wisteria-800-rgb-params, 0.75);
 
     &:hover {
-      color: $kz-color-cluny-500;
+      color: $kz-var-color-cluny-500;
     }
   }
 
   &:hover {
-    color: $kz-color-white;
+    color: $kz-var-color-white;
     text-decoration: none;
   }
 }
@@ -48,22 +48,22 @@
   align-items: center;
   white-space: nowrap;
 
-  font-family: $kz-typography-heading-4-font-family;
-  font-weight: $kz-typography-heading-4-font-weight;
-  font-size: $kz-typography-heading-4-font-size;
-  line-height: $kz-typography-heading-4-line-height;
-  letter-spacing: $kz-typography-heading-4-letter-spacing;
+  font-family: $kz-var-typography-heading-4-font-family;
+  font-weight: $kz-var-typography-heading-4-font-weight;
+  font-size: $kz-var-typography-heading-4-font-size;
+  line-height: $kz-var-typography-heading-4-line-height;
+  letter-spacing: $kz-var-typography-heading-4-letter-spacing;
 
   @include title-block-under-1366 {
-    font-family: $kz-typography-heading-5-font-family;
-    font-weight: $kz-typography-heading-5-font-weight;
-    font-size: $kz-typography-heading-5-font-size;
-    line-height: $kz-typography-heading-5-line-height;
-    letter-spacing: $kz-typography-heading-5-letter-spacing;
+    font-family: $kz-var-typography-heading-5-font-family;
+    font-weight: $kz-var-typography-heading-5-font-weight;
+    font-size: $kz-var-typography-heading-5-font-size;
+    line-height: $kz-var-typography-heading-5-line-height;
+    letter-spacing: $kz-var-typography-heading-5-letter-spacing;
   }
 
   &.active {
-    color: $kz-color-white;
+    color: $kz-var-color-white;
 
     &::before {
       content: "";
@@ -73,31 +73,31 @@
       top: 0;
       left: -($ca-grid / 2);
       right: -($ca-grid / 2);
-      background-color: $kz-color-white;
+      background-color: $kz-var-color-white;
       transition: transform cubic-bezier(0.55, 0.085, 0.68, 0.53) 150ms;
-      border-radius: 0 0 $kz-border-solid-border-radius
-        $kz-border-solid-border-radius;
+      border-radius: 0 0 $kz-var-border-solid-border-radius
+        $kz-var-border-solid-border-radius;
 
       @include title-block-medium-and-small {
         top: auto;
         bottom: 0;
-        border-radius: $kz-border-solid-border-radius
-          $kz-border-solid-border-radius 0 0;
+        border-radius: $kz-var-border-solid-border-radius
+          $kz-var-border-solid-border-radius 0 0;
       }
     }
 
     .lightBackground & {
-      color: $kz-color-cluny-500;
+      color: $kz-var-color-cluny-500;
 
       &::before {
-        background-color: $kz-color-cluny-500;
+        background-color: $kz-var-color-cluny-500;
         top: 3px;
 
         @include title-block-medium-and-small {
           top: auto;
           bottom: 0;
-          border-radius: $kz-border-solid-border-radius
-            $kz-border-solid-border-radius 0 0;
+          border-radius: $kz-var-border-solid-border-radius
+            $kz-var-border-solid-border-radius 0 0;
         }
       }
     }

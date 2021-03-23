@@ -57,8 +57,8 @@
     .content & span::before {
       background-color: $dt-color-background-color-content-link;
       height: 5px;
-      border-radius: 0 0 $kz-border-solid-border-radius
-        $kz-border-solid-border-radius;
+      border-radius: 0 0 $kz-var-border-solid-border-radius
+        $kz-var-border-solid-border-radius;
     }
 
     @include navbar-tablet-up {

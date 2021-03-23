@@ -5,7 +5,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, 330px);
-  grid-gap: $kz-spacing-md;
+  grid-gap: $kz-var-spacing-md;
   justify-content: start;
   justify-items: start;
   align-items: center;

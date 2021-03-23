@@ -15,7 +15,7 @@
   padding-top: $ca-grid;
   bottom: 0;
 
-  background-color: $kz-color-cluny-500;
+  background-color: $kz-var-color-cluny-500;
 
   @include ca-media-mobile {
     padding-top: 0;
@@ -29,7 +29,7 @@
   align-content: center;
   justify-content: center;
 
-  color: $kz-color-white;
+  color: $kz-var-color-white;
 
   @include ca-media-mobile {
     justify-content: left;
@@ -45,7 +45,7 @@
   right: 0;
 
   svg {
-    color: $kz-color-white;
+    color: $kz-var-color-white;
   }
 }
 

@@ -16,8 +16,9 @@ $animation-timing: $ca-duration-immediate $ca-linear;
 
 .track {
   background-color: $dt-color-toggle-background-color;
-  border: $kz-border-borderless-border-width $kz-border-borderless-border-style
-    $kz-border-borderless-border-color;
+  border: $kz-var-border-borderless-border-width
+    $kz-var-border-borderless-border-style
+    $kz-var-border-borderless-border-color;
   border-radius: $ca-grid;
   box-sizing: content-box;
   width: ($ca-grid * 1.05) * 2;
@@ -46,8 +47,9 @@ $animation-timing: $ca-duration-immediate $ca-linear;
 
 .thumb {
   background-color: $kz-var-color-white;
-  border: $kz-border-borderless-border-width $kz-border-borderless-border-style
-    $kz-border-borderless-border-color;
+  border: $kz-var-border-borderless-border-width
+    $kz-var-border-borderless-border-style
+    $kz-var-border-borderless-border-color;
   box-sizing: content-box;
   width: $ca-grid * 0.9;
   height: $ca-grid * 0.9;
@@ -57,7 +59,7 @@ $animation-timing: $ca-duration-immediate $ca-linear;
 
 .on {
   .checkbox:not([disabled]) + .track {
-    border-color: $kz-border-borderless-border-color;
+    border-color: $kz-var-border-borderless-border-color;
     background-color: $kz-var-color-seedling-400;
   }
 

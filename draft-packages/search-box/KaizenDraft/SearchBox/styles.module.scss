@@ -9,9 +9,9 @@
 // @TODO - brought through from borders.scss in component-library
 // In the future these tokens should be better represented in
 // a separate package so they are shareable.
-$ca-border-color-focus: $kz-color-cluny-500;
-$ca-border-color-hover: $kz-color-wisteria-700;
-$ca-border-color-focus-reversed: $kz-color-cluny-300;
+$ca-border-color-focus: $kz-var-color-cluny-500;
+$ca-border-color-hover: $kz-var-color-wisteria-700;
+$ca-border-color-focus-reversed: $kz-var-color-cluny-300;
 
 // -----------------------------------------------
 // Form Input Primitive
@@ -22,7 +22,7 @@ $input-height: 48px;
 $input-base-padding-horizontal: $ca-grid / 2;
 $input-icon-size: 1.25rem; // 20px
 $input-placeholder-opacity: 0.5;
-$input-disabled-background: $kz-color-ash;
+$input-disabled-background: $kz-var-color-ash;
 $input-disabled-opacity: 0.3;
 $input-disabled-border-alpha: 50%;
 $input-pill-shaped-border: 999999999px;
@@ -39,7 +39,7 @@ $input-pill-shaped-border: 999999999px;
   @include form-input-reset;
   background-color: transparent;
   background-clip: padding-box;
-  border: $kz-border-solid-border-width $kz-border-solid-border-style
+  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
     transparent;
   border-radius: $input-pill-shaped-border;
   display: block;
@@ -77,8 +77,8 @@ $input-pill-shaped-border: 999999999px;
   position: absolute;
   background: transparent;
   border-radius: $input-pill-shaped-border;
-  border-width: $kz-border-focus-ring-border-width;
-  border-style: $kz-border-focus-ring-border-style;
+  border-width: $kz-var-border-focus-ring-border-width;
+  border-style: $kz-var-border-focus-ring-border-style;
   border-color: transparent;
   top: -$focus-ring-offset;
   left: -$focus-ring-offset;
@@ -89,9 +89,9 @@ $input-pill-shaped-border: 999999999px;
 
 // Default
 .input.default {
-  background-color: $kz-color-white;
+  background-color: $kz-var-color-white;
   color: $ca-base-text-color;
-  border-color: $kz-color-wisteria-500;
+  border-color: $kz-var-color-wisteria-500;
   display: flex;
   align-items: center;
 
@@ -124,18 +124,18 @@ $input-pill-shaped-border: 999999999px;
 
 // Reversed (Dark Backgrounds)
 .input.reversed {
-  color: $kz-color-white;
+  color: $kz-var-color-white;
   border-color: rgba($kz-var-color-white-rgb-params, 0.65);
 
   @include form-input-placeholder {
-    color: $kz-color-white;
+    color: $kz-var-color-white;
     opacity: $input-placeholder-opacity;
   }
 
   &:focus:not([disabled]),
   &:hover:not([disabled]) {
     background: rgba($kz-var-color-white-rgb-params, 0.1);
-    border-color: $kz-color-white;
+    border-color: $kz-var-color-white;
   }
 
   &:focus + .focusRing {
@@ -229,7 +229,7 @@ $input-pill-shaped-border: 999999999px;
 .withStartIconAdornment {
   /* stylelint-disable-next-line no-duplicate-selectors */
   .startIconAdornment {
-    color: $kz-color-wisteria-800;
+    color: $kz-var-color-wisteria-800;
     opacity: 0.5;
   }
 
@@ -253,7 +253,7 @@ $input-pill-shaped-border: 999999999px;
 // Reversed
 .withStartIconAdornment.withReversed {
   .startIconAdornment {
-    color: $kz-color-white;
+    color: $kz-var-color-white;
     opacity: 1;
   }
 
@@ -274,7 +274,7 @@ $input-pill-shaped-border: 999999999px;
 .clearButton {
   position: absolute;
   background: none;
-  border-color: $kz-border-borderless-border-color;
+  border-color: $kz-var-border-borderless-border-color;
   cursor: pointer;
   padding: 0;
   right: 0.75rem;

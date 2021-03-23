@@ -19,8 +19,8 @@ html {
 }
 
 body {
-  background-color: $kz-color-stone;
-  color: $kz-color-wisteria-800;
+  background-color: $kz-var-color-stone;
+  color: $kz-var-color-wisteria-800;
   font-family: $ca-inter-font-family;
 
   @include ca-media-mobile() {
@@ -29,7 +29,7 @@ body {
 }
 
 a {
-  color: $kz-color-cluny-500;
+  color: $kz-var-color-cluny-500;
   word-break: break-word;
 }
 
@@ -42,7 +42,7 @@ pre {
 
 code {
   line-height: inherit;
-  background-color: $kz-color-stone;
+  background-color: $kz-var-color-stone;
   padding: 0.25em;
   border-radius: 0.25em;
 }

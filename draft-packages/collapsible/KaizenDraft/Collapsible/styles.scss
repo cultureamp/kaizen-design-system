@@ -5,12 +5,12 @@
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/animation";
 
-$heading-active-color: $kz-color-wisteria-100;
+$heading-active-color: $kz-var-color-wisteria-100;
 
 .container {
-  border: $kz-border-solid-border-width $kz-border-solid-border-style
+  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
     $ca-border-color;
-  box-shadow: $kz-shadow-small-box-shadow;
+  box-shadow: $kz-var-shadow-small-box-shadow;
   border-radius: $ca-border-radius;
 }
 

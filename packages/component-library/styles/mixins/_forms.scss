@@ -12,7 +12,7 @@ $input-placeholder-line-height: 2.9rem;
 }
 
 @mixin form-input-focus-border($color) {
-  border: 1px $kz-border-solid-border-style $color;
+  border: 1px $kz-var-border-solid-border-style $color;
   box-shadow: 0 0 0 1px $color; // fake a 2px border without moving input
 }
 
@@ -21,7 +21,7 @@ $input-placeholder-line-height: 2.9rem;
 // Example usage:
 // ```
 // @include input-placeholder {
-//  color: $kz-color-white;
+//  color: $kz-var-color-white;
 // }
 // ```
 @mixin form-input-placeholder() {

@@ -4,6 +4,6 @@
 
 .container {
   @include ca-margin($end: 4px);
-  width: $kz-spacing-sm;
+  width: $kz-var-spacing-sm;
   color: $dt-color-indicator-color;
 }

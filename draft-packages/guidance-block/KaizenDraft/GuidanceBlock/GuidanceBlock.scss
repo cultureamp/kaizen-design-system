@@ -15,18 +15,19 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
 .banner {
   display: flex;
   flex-direction: column;
-  background: $kz-color-white;
+  background: $kz-var-color-white;
   min-width: 320px;
   max-width: $ca-layout-content-width;
-  border: $kz-border-borderless-border-width $kz-border-borderless-border-style
-    $kz-border-borderless-border-color;
-  border-radius: $kz-border-solid-border-radius;
+  border: $kz-var-border-borderless-border-width
+    $kz-var-border-borderless-border-style
+    $kz-var-border-borderless-border-color;
+  border-radius: $kz-var-border-solid-border-radius;
   padding: $ca-grid / 2;
-  box-shadow: $kz-shadow-small-box-shadow;
+  box-shadow: $kz-var-shadow-small-box-shadow;
   position: relative;
   top: -1px;
   transition: $ca-banner-fade-out, $ca-banner-collapse-height-delayed;
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
 
   @include ca-media-desktop {
     min-height: $heightConstraint;
@@ -106,9 +107,9 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
   position: absolute;
   top: $ca-grid / 2;
   right: $ca-grid / 2;
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
 }
 
 .prominent {
-  background: $kz-color-cluny-100;
+  background: $kz-var-color-cluny-100;
 }

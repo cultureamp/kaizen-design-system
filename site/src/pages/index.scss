@@ -29,10 +29,10 @@
   background: white;
   width: 240px;
   height: 240px;
-  transition: transform $kz-animation-duration-rapid
-      $kz-animation-easing-function-ease-in-out,
-    box-shadow $kz-animation-duration-rapid
-      $kz-animation-easing-function-ease-in-out;
+  transition: transform $kz-var-animation-duration-rapid
+      $kz-var-animation-easing-function-ease-in-out,
+    box-shadow $kz-var-animation-duration-rapid
+      $kz-var-animation-easing-function-ease-in-out;
 
   &:hover {
     transform: scale(1.025);

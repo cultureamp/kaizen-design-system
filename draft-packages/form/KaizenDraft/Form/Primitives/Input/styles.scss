@@ -32,9 +32,9 @@ $input-disabled-border-alpha: 50%;
   @include form-input-reset;
   background-color: transparent;
   background-clip: padding-box;
-  border: $kz-border-solid-border-width $kz-border-solid-border-style
+  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
     transparent;
-  border-radius: $kz-border-solid-border-radius;
+  border-radius: $kz-var-border-solid-border-radius;
   display: block;
   font-size: 1rem;
   line-height: 1.5;
@@ -69,9 +69,9 @@ $input-disabled-border-alpha: 50%;
   $focus-ring-offset: 3px;
   position: absolute;
   background: transparent;
-  border-radius: $kz-border-focus-ring-border-radius;
-  border-width: $kz-border-focus-ring-border-width;
-  border-style: $kz-border-focus-ring-border-style;
+  border-radius: $kz-var-border-focus-ring-border-radius;
+  border-width: $kz-var-border-focus-ring-border-width;
+  border-style: $kz-var-border-focus-ring-border-style;
   border-color: transparent;
   top: -$focus-ring-offset;
   left: -$focus-ring-offset;

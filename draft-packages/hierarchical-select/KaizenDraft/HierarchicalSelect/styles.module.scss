@@ -10,7 +10,7 @@
 
 .container {
   -webkit-font-smoothing: antialiased;
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
   width: 100%;
   position: relative;
 
@@ -22,22 +22,22 @@
 
 .button {
   @include button-reset;
-  @include ca-padding($start: $kz-spacing-sm, $end: $kz-spacing-sm);
-  background-color: $kz-color-white;
-  color: $kz-color-wisteria-800;
+  @include ca-padding($start: $kz-var-spacing-sm, $end: $kz-var-spacing-sm);
+  background-color: $kz-var-color-white;
+  color: $kz-var-color-wisteria-800;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   height: $input-height;
-  border: $kz-border-solid-border-width $kz-border-solid-border-style
+  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
     $ca-border-color;
-  border-radius: $kz-border-solid-border-radius;
+  border-radius: $kz-var-border-solid-border-radius;
 
   &:hover:not(:disabled),
   &:focus:not(:disabled) {
     .chevron {
-      color: $kz-color-wisteria-500;
+      color: $kz-var-color-wisteria-500;
     }
   }
 
@@ -58,7 +58,7 @@
 .value {
   @include kz-typography-paragraph-body;
   @include ca-inherit-baseline;
-  @include ca-margin($end: $kz-spacing-xs);
+  @include ca-margin($end: $kz-var-spacing-xs);
   pointer-events: none;
   white-space: nowrap;
   overflow: hidden;
@@ -71,18 +71,18 @@
 }
 
 .indicators {
-  color: $kz-color-wisteria-300;
+  color: $kz-var-color-wisteria-300;
   display: flex;
 }
 
 .separator {
-  @include ca-margin($start: $kz-spacing-sm, $end: $kz-spacing-sm);
+  @include ca-margin($start: $kz-var-spacing-sm, $end: $kz-var-spacing-sm);
   border-left: 1px solid currentColor;
 }
 
 .clear {
   &:hover:not([aria-disabled="true"]) {
-    color: $kz-color-wisteria-500;
+    color: $kz-var-color-wisteria-500;
   }
 
   :global(.js-focus-visible) & {
@@ -91,8 +91,8 @@
     }
 
     &:global(.focus-visible) {
-      outline: $kz-border-focus-ring-border-width
-        $kz-border-focus-ring-border-style $kz-color-cluny-500;
+      outline: $kz-var-border-focus-ring-border-width
+        $kz-var-border-focus-ring-border-style $kz-var-color-cluny-500;
     }
   }
 }

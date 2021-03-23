@@ -30,7 +30,7 @@ $focus-ring-offset: 2px;
   height: $radio-size;
   width: $radio-size;
   top: 0;
-  border: $kz-border-solid-border-width $kz-border-solid-border-style
+  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
     $dt-color-form-border-color;
   box-sizing: border-box;
   border-radius: 50%;
@@ -50,13 +50,15 @@ $focus-ring-offset: 2px;
     position: absolute;
     background: transparent;
     border-radius: $radio-size + $focus-ring-offset;
-    border-width: $kz-border-focus-ring-border-width;
-    border-style: $kz-border-focus-ring-border-style;
+    border-width: $kz-var-border-focus-ring-border-width;
+    border-style: $kz-var-border-focus-ring-border-style;
     border-color: $dt-color-radio-disc-color-base;
     top: -$focus-ring-offset - ($radio-size / 8);
     left: -$focus-ring-offset - ($radio-size / 8);
-    width: $radio-size + $focus-ring-offset + $kz-border-solid-border-width * 2;
-    height: $radio-size + $focus-ring-offset + $kz-border-solid-border-width * 2;
+    width: $radio-size + $focus-ring-offset + $kz-var-border-solid-border-width *
+      2;
+    height: $radio-size + $focus-ring-offset + $kz-var-border-solid-border-width *
+      2;
   }
 
   @media (hover: hover) and (pointer: fine) {

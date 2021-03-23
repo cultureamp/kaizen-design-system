@@ -18,11 +18,11 @@ $content-margin-width-on-medium-and-small: 12px;
 }
 
 .content {
-  max-width: $kz-layout-content-max-width;
-  margin: 0 $kz-layout-content-side-margin;
+  max-width: $kz-var-layout-content-max-width;
+  margin: 0 $kz-var-layout-content-side-margin;
   width: 100%;
 
-  @media (max-width: $kz-layout-breakpoints-large - 1px) {
+  @media (max-width: $kz-var-layout-breakpoints-large - 1px) {
     margin: 0 $content-margin-width-on-medium-and-small;
   }
 }

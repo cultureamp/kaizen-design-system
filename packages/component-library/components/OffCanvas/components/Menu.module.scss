@@ -9,10 +9,10 @@
   list-style-type: none;
 
   &.primary {
-    border-bottom: solid 1px $kz-color-wisteria-500;
+    border-bottom: solid 1px $kz-var-color-wisteria-500;
   }
 }
 
 .active {
-  background-color: $kz-color-wisteria-700;
+  background-color: $kz-var-color-wisteria-700;
 }
