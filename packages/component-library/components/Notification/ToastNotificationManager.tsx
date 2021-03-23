@@ -1,10 +1,12 @@
 import React from "react"
 import ReactDOM from "react-dom"
+import { v4 } from "uuid"
 import {
   AddToastNotification,
   ClearToastNotifications,
   RemoveToastNotification,
   ToastNotification,
+  ToastNotificationWithOptionalId,
 } from "./types"
 import { ToastNotificationsListContainer } from "./ToastNotificationsList"
 
@@ -18,6 +20,19 @@ type ToastNotificationApi = {
  * Persistent reference to a "portal" for rendering the separate DOM tree
  */
 let portal: HTMLDivElement | undefined
+
+/**
+ * Ensure notifications have IDs
+ */
+const ensureId = (
+  notificationMaybeWithId: ToastNotificationWithOptionalId
+): ToastNotification => {
+  const copy = { ...notificationMaybeWithId }
+  if (typeof copy.id === "undefined") {
+    copy.id = v4()
+  }
+  return copy as ToastNotification
+}
 
 /**
  * Create an instance of the toast notification manager
@@ -43,17 +58,19 @@ const createToastNotificationManager = (): ToastNotificationApi => {
     notifications: [],
   }
 
-  const addToastNotification = (notification: ToastNotification) => {
+  const addToastNotification: AddToastNotification = notification => {
+    const notificationWithId = ensureId(notification)
+
     const notificationIndex = state.notifications.findIndex(
       n => n.id === notification.id
     )
 
     if (notificationIndex > -1) {
       const copy = state.notifications.slice()
-      copy.splice(notificationIndex, 1, notification) // Mutation to insert notification over itself
+      copy.splice(notificationIndex, 1, notificationWithId) // Mutation to insert notification over itself
       state.notifications = copy
     } else {
-      state.notifications = [...state.notifications, notification]
+      state.notifications = [...state.notifications, notificationWithId]
     }
     render()
   }

@@ -1,5 +1,7 @@
 import { NotificationType } from "./components/GenericNotification"
 
+type Modify<T, R> = Omit<T, keyof R> & R
+
 export type ToastNotification = {
   id: string
   type: NotificationType
@@ -12,7 +14,14 @@ export type ToastNotification = {
   persistent?: boolean
 }
 
-export type AddToastNotification = (notification: ToastNotification) => void
+export type ToastNotificationWithOptionalId = Modify<
+  ToastNotification,
+  { id?: string }
+>
+
+export type AddToastNotification = (
+  notification: ToastNotificationWithOptionalId
+) => void
 
 export type RemoveToastNotification = (notificationId: string) => void
 
