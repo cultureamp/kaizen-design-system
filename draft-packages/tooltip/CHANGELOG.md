@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.5.7...@kaizen/draft-tooltip@2.6.0) (2021-03-23)
+
+
+### Features
+
+* Update tooltip to heart theme ([#1255](https://github.com/cultureamp/kaizen-design-system/issues/1255)) ([213dba1](https://github.com/cultureamp/kaizen-design-system/commit/213dba1676912a62f70b31d32d720eaa90a119bc))
+
+
+
+
+
 ## [2.5.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.5.6...@kaizen/draft-tooltip@2.5.7) (2021-03-22)
 
 **Note:** Version bump only for package @kaizen/draft-tooltip
