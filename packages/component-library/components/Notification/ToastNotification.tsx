@@ -26,7 +26,7 @@ const ToastNotification = ({ id, hideCloseIcon, ...otherProps }: Props) => {
     automationId: otherProps.automationId,
     autohide: otherProps.autohide,
     autohideDelay: otherProps.autohideDelay,
-    children: otherProps.children,
+    message: otherProps.children,
     persistent,
   })
 

@@ -15,8 +15,19 @@ export const ToastNotificationsList = ({
       <GenericNotification
         key={notification.id}
         style="toast"
-        {...notification}
-        onHide={() => onHide(notification.id)}
+        type={notification.type}
+        title={notification.title}
+        children={notification.message}
+        autohide={notification.autohide}
+        autohideDelay={notification.autohideDelay}
+        automationId={notification.automationId}
+        persistent={notification.persistent}
+        onHide={() => {
+          if (typeof notification.onHide !== "undefined") {
+            notification.onHide()
+          }
+          onHide(notification.id)
+        }}
       />
     ))}
   </div>

@@ -4,7 +4,7 @@ export type ToastNotification = {
   id: string
   type: NotificationType
   title: string
-  children: React.ReactNode
+  message: React.ReactNode
   autohide: boolean
   autohideDelay?: "short" | "long"
   onHide?: () => void
