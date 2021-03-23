@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.0.33...@kaizen/draft-well@3.1.0) (2021-03-23)
+
+
+### Features
+
+* Add Heart theme support to Well component ([#1242](https://github.com/cultureamp/kaizen-design-system/issues/1242)) ([d8737ea](https://github.com/cultureamp/kaizen-design-system/commit/d8737ea9ce767fef68898277228947fabad95ca5))
+
+
+
+
+
 ## [3.0.33](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-well@3.0.32...@kaizen/draft-well@3.0.33) (2021-03-22)
 
 **Note:** Version bump only for package @kaizen/draft-well
