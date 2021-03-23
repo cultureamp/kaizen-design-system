@@ -1,5 +1,4 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/shadow-vars";
 @import "~@kaizen/design-tokens/sass/layout-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
@@ -28,8 +27,8 @@
 }
 
 .titleBlock {
-  background-color: white;
-  border-bottom: 1px solid $ca-border-color;
+  background-color: $kz-var-color-white;
+  border-bottom: 1px solid $kz-var-color-wisteria-200;
   width: inherit;
 
   @media print {
@@ -133,7 +132,7 @@
   .breadcrumb:hover &,
   .breadcrumb:focus & {
     background-color: $kz-var-color-cluny-500;
-    color: white;
+    color: $kz-var-color-white;
     transform: scale(1.1);
   }
 }
@@ -269,7 +268,7 @@
     margin: 0;
     border-bottom: 1px solid $ca-border-color;
     width: 100%;
-    background: white;
+    background: $kz-var-color-white;
   }
 
   .navButtonsContainer {
@@ -314,25 +313,25 @@
 
     &:hover {
       .circle {
-        background-color: rgba(white, 0.4);
+        background-color: rgba($kz-var-color-white-rgb-params, 0.4);
       }
     }
   }
 
   .circle {
-    background-color: rgba(white, 0.2);
+    background-color: rgba($kz-var-color-white-rgb-params, 0.2);
     color: $kz-var-color-white;
   }
 
   .titleBlock {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba($kz-var-color-white-rgb-params, 0.3);
   }
 
   .navContainer {
     background-color: transparent;
 
     @include title-block-mobile {
-      border-bottom: 1px solid white;
+      border-bottom: 1px solid $kz-var-color-white;
     }
   }
 }

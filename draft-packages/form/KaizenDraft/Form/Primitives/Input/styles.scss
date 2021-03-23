@@ -1,5 +1,4 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
@@ -60,7 +59,10 @@ $input-disabled-border-alpha: 50%;
     }
 
     @include form-input-placeholder {
-      color: rgba($ca-base-text-color, $input-disabled-opacity);
+      color: rgba(
+        $kz-var-color-wisteria-800-rgb-params,
+        $input-disabled-opacity
+      );
     }
   }
 }
@@ -215,7 +217,7 @@ $input-disabled-border-alpha: 50%;
   }
 
   &.disabled {
-    color: rgba($ca-base-text-color, $input-disabled-opacity);
+    color: rgba($kz-var-color-wisteria-800-rgb-params, $input-disabled-opacity);
 
     @include form-input-placeholder {
       opacity: $input-disabled-opacity;

@@ -38,7 +38,7 @@ $link-margin: $ca-grid / 4;
 
   border-radius: $kz-var-border-solid-border-radius;
 
-  color: rgba(white, 0.8);
+  color: rgba($kz-var-color-white-rgb-params, 0.8);
   padding: 0;
   text-decoration: none;
 
@@ -121,7 +121,7 @@ $link-margin: $ca-grid / 4;
 
       &:hover,
       &:focus {
-        background-color: rgba(white, 0.1);
+        background-color: rgba($kz-var-color-white-rgb-params, 0.1);
 
         .linkIcon {
           opacity: 0.7;
@@ -129,7 +129,7 @@ $link-margin: $ca-grid / 4;
       }
 
       &:active {
-        background-color: rgba(white, 0.2);
+        background-color: rgba($kz-var-color-white-rgb-params, 0.2);
         transform: translateY(1px);
 
         .linkIcon {
