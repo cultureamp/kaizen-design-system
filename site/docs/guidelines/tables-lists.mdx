@@ -21,14 +21,6 @@ Tables and lists have distinct patterns which shouldn't be mixed.
 - Lists are sortable by a ‘Sorted by’ [Select](/components/select), and do not have column header labels
 - A single row of a list should make sense in isolation
 
-### [Focus indicator](/guidelines/interaction-states#focus-indicator)
-- Lists:
-    -   Single Action: Exactly one interactive element, on keyboard navigation show focus around the whole row. See also: [Single action Tile](/components/tile/#singleactiontile-not-built).
-    -   Multi-action: Multiple interactive elements inside the object container, on keyboard navigation show focus on the individual interactive elements. See also: [Multi-action Tile](/components/tile/#singleactiontile-not-built)
-- Table: On keyboard navigation show focus on the individual interactive elements within table cells.
-
-
-
 ## Tables
 Tables display rows and columns of tabular data.
 
@@ -63,6 +55,9 @@ Tables display rows and columns of tabular data.
 - All content has the same weight and has equal visual emphasis. If there is key information that needs to be more prominent, consider the order of which the data is presented
 - Cells can contain links, but avoid linking whole table rows. If you need to link a whole row, use a List
 
+### [Focus indicator](/guidelines/interaction-states#focus-indicator)
+- On keyboard navigation through a table show focus on the individual interactive elements within table cells.
+
 ## Lists
 Lists group and stack information into logical and hierarchical patterns.
 
@@ -82,6 +77,10 @@ Lists group and stack information into logical and hierarchical patterns.
 - For guidance on how to link within lists, follow the same guidelines as [Tiles](/components/tile)
   - **Single Action:** Exactly one interactive element, so hover/focus/click interaction applies to the whole object. See also: [Single action Tile](/components/tile/#singleactiontile-not-built)
   - **Multi-action:** Multiple interactive elements inside the object container. See also: [Multi-action Tile](/components/tile/#singleactiontile-not-built)
+
+### [Focus indicator](/guidelines/interaction-states#focus-indicator)
+- Single Action: Exactly one interactive element, on keyboard navigation show focus around the whole row. See also: [Single action Tile](/components/tile/#singleactiontile-not-built).
+- Multi-action: Multiple interactive elements inside the object container, on keyboard navigation show focus on the individual interactive elements. See also: [Multi-action Tile](/components/tile/#singleactiontile-not-built)
 
 ## See also
 - [Tables](components/table/)
