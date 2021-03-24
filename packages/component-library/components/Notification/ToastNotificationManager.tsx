@@ -6,7 +6,7 @@ import {
   ClearToastNotifications,
   RemoveToastNotification,
   ToastNotification,
-  ToastNotificationWithOptionalId,
+  ToastNotificationWithOptionals,
 } from "./types"
 import { ToastNotificationsListContainer } from "./ToastNotificationsList"
 
@@ -22,14 +22,17 @@ type ToastNotificationApi = {
 let portal: HTMLDivElement | undefined
 
 /**
- * Ensure notifications have IDs
+ * Set default values for optional params
  */
-const ensureId = (
-  notificationMaybeWithId: ToastNotificationWithOptionalId
+const setDefaults = (
+  notificationMaybe: ToastNotificationWithOptionals
 ): ToastNotification => {
-  const copy = { ...notificationMaybeWithId }
+  const copy = { ...notificationMaybe }
   if (typeof copy.id === "undefined") {
     copy.id = v4()
+  }
+  if (typeof copy.autohide === "undefined") {
+    copy.autohide = true
   }
   return copy as ToastNotification
 }
@@ -59,7 +62,7 @@ const createToastNotificationManager = (): ToastNotificationApi => {
   }
 
   const addToastNotification: AddToastNotification = notification => {
-    const notificationWithId = ensureId(notification)
+    const notificationWithId = setDefaults(notification)
 
     const notificationIndex = state.notifications.findIndex(
       n => n.id === notification.id

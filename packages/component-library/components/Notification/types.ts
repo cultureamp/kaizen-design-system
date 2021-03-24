@@ -14,13 +14,16 @@ export type ToastNotification = {
   persistent?: boolean
 }
 
-export type ToastNotificationWithOptionalId = Modify<
+export type ToastNotificationWithOptionals = Modify<
   ToastNotification,
-  { id?: string }
+  {
+    id?: string
+    autohide?: boolean
+  }
 >
 
 export type AddToastNotification = (
-  notification: ToastNotificationWithOptionalId
+  notification: ToastNotificationWithOptionals
 ) => void
 
 export type RemoveToastNotification = (notificationId: string) => void
