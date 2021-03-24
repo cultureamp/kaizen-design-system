@@ -6,21 +6,39 @@ export type SceneProps = Pick<BaseProps, "alt" | "classNameAndIHaveSpokenToDST">
 export const EmptyStatesAction = (props: SceneProps) => (
   <Base {...props} name="illustrations/scene/empty-states-action.svg" />
 )
+export const EmptyStatesActionHeart = (props: SceneProps) => (
+  <Base {...props} name="illustrations/heart/scene/empty-states-action.svg" />
+)
 
 export const EmptyStatesInformative = (props: SceneProps) => (
   <Base {...props} name="illustrations/scene/empty-states-informative.svg" />
+)
+export const EmptyStatesInformativeHeart = (props: SceneProps) => (
+  <Base
+    {...props}
+    name="illustrations/heart/scene/empty-states-informative.svg"
+  />
 )
 
 export const EmptyStatesNegative = (props: SceneProps) => (
   <Base {...props} name="illustrations/scene/empty-states-negative.svg" />
 )
+export const EmptyStatesNegativeHeart = (props: SceneProps) => (
+  <Base {...props} name="illustrations/heart/scene/empty-states-negative.svg" />
+)
 
 export const EmptyStatesPositive = (props: SceneProps) => (
   <Base {...props} name="illustrations/scene/empty-states-positive.svg" />
 )
+export const EmptyStatesPositiveHeart = (props: SceneProps) => (
+  <Base {...props} name="illustrations/heart/scene/empty-states-positive.svg" />
+)
 
 export const EmptyStatesNeutral = (props: SceneProps) => (
   <Base {...props} name="illustrations/scene/empty-states-neutral.svg" />
+)
+export const EmptyStatesNeutralHeart = (props: SceneProps) => (
+  <Base {...props} name="illustrations/heart/scene/empty-states-neutral.svg" />
 )
 
 export const IntroductionsNewAccount = (props: SceneProps) => (
