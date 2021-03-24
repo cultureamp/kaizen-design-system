@@ -4,6 +4,7 @@
 @import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/animation";
+@import "~@kaizen/component-library/styles/layers";
 
 // Sync with Tooltip.tsx
 $arrow-height: 10px;
@@ -23,7 +24,7 @@ $dt-tooltip-content-border: var(
   border-radius: $kz-var-border-solid-border-radius;
   transition: opacity $ca-duration-fast, transform $ca-duration-fast;
   padding: $ca-grid / 2 $ca-grid / 2;
-  z-index: 2;
+  z-index: $ca-z-index-tooltip;
   border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
     $dt-tooltip-content-border;
   box-shadow: $kz-var-shadow-small-box-shadow;
@@ -40,7 +41,7 @@ $dt-tooltip-content-border: var(
 }
 
 .arrow {
-  z-index: 2;
+  z-index: $ca-z-index-tooltip;
   // This is required by popper, otherwise positioning issues will exist.
   // https://github.com/popperjs/react-popper/issues/354#issuecomment-616540651
   position: absolute;
@@ -78,7 +79,7 @@ $dt-tooltip-content-border: var(
 .arrowWhite::after {
   border-top: $arrow-height solid white;
   margin-top: -2px;
-  z-index: 2;
+  z-index: $ca-z-index-tooltip;
 }
 
 .arrowShadow::before {
@@ -91,7 +92,7 @@ $dt-tooltip-content-border: var(
     rgba($kz-var-color-wisteria-800-rgb-params, 0.09);
   margin-top: 1px;
   filter: blur(4px);
-  z-index: 2;
+  z-index: $ca-z-index-tooltip;
 }
 
 .displayInline {
