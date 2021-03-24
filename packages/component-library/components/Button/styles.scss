@@ -2,6 +2,7 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/design-tokens/sass/typography-vars";
 
@@ -39,7 +40,7 @@ $caButton-verticalPaddingForm: calc(
     $weight: $kz-var-typography-button-primary-font-weight,
     $letter-spacing: $kz-var-typography-button-primary-letter-spacing,
     $line-height-in-grid-units:
-      to-grid-units($kz-var-typography-button-primary-line-height)
+      to-grid-units($kz-typography-button-primary-line-height)
   );
 
   display: flex;
