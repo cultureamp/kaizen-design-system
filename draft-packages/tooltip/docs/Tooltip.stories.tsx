@@ -1,7 +1,9 @@
 import * as React from "react"
 
 import { Paragraph } from "@kaizen/component-library"
+import { MenuItem, MenuContent } from "@kaizen/draft-menu"
 import { Tag } from "@kaizen/draft-tag"
+import { SplitButton } from "@kaizen/draft-split-button"
 import { withDesign } from "storybook-addon-designs"
 import { Button } from "@kaizen/draft-button"
 import { Tooltip } from "@kaizen/draft-tooltip"
@@ -142,3 +144,31 @@ export const OverflowScroll = () => (
 )
 
 OverflowScroll.storyName = "overflow: scroll"
+
+export const TooltipAboveDropdown = () => (
+  <>
+    <div>
+      <SplitButton
+        label="Test"
+        dropdownAltText="test"
+        dropdownContent={
+          <MenuContent>
+            <MenuItem
+              onClick={e => undefined}
+              label="Text to appear behind tooltip overlay"
+            />
+          </MenuContent>
+        }
+      />
+    </div>
+    <div style={{ paddingTop: "50px" }}>
+      <Tooltip
+        position="above"
+        display="inline-block"
+        text="Text to appear above the button dropdown text"
+      >
+        <Button label="Above" />
+      </Tooltip>
+    </div>
+  </>
+)
