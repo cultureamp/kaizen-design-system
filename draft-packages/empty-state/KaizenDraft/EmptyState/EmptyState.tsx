@@ -2,35 +2,20 @@ import classnames from "classnames"
 import * as React from "react"
 import { useTheme } from "@kaizen/design-tokens"
 import {
-  EmptyStatesActionHeart,
-  EmptyStatesInformativeHeart,
-  EmptyStatesNegativeHeart,
-  EmptyStatesNeutralHeart,
-  EmptyStatesPositiveHeart,
+  EmptyStatesAction,
+  EmptyStatesInformative,
+  EmptyStatesNegative,
+  EmptyStatesNeutral,
+  EmptyStatesPositive,
 } from "@kaizen/draft-illustration"
 import styles from "./styles.scss"
 
-const actionIllustration = require("./illustrations/action.png")
-const informativeIllustration = require("./illustrations/informative.png")
-const negativeIllustration = require("./illustrations/negative.png")
-const neutralIllustration = require("./illustrations/neutral.png")
-const positiveIllustration = require("./illustrations/positive.png")
-
-// These can be removed once the rebrand to Heart is finished.
-const deprecatedZenIllustrations: { [key: string]: any } = {
-  positive: positiveIllustration as any,
-  neutral: neutralIllustration as any,
-  negative: negativeIllustration as any,
-  informative: informativeIllustration as any,
-  action: actionIllustration as any,
-}
-
 const illustrations = {
-  positive: EmptyStatesPositiveHeart,
-  neutral: EmptyStatesNeutralHeart,
-  negative: EmptyStatesNegativeHeart,
-  informative: EmptyStatesInformativeHeart,
-  action: EmptyStatesActionHeart,
+  positive: EmptyStatesPositive,
+  neutral: EmptyStatesNeutral,
+  negative: EmptyStatesNegative,
+  informative: EmptyStatesInformative,
+  action: EmptyStatesAction,
 } as const
 
 type IllustrationType =
@@ -82,17 +67,10 @@ const EmptyState: EmptyState = ({
       data-automation-id={automationId}
     >
       <div className={styles.illustrationSide}>
-        {theme.themeKey === "zen" ? (
-          <img
-            src={deprecatedZenIllustrations[illustrationType]}
-            className={styles.illustration}
-          />
-        ) : (
-          React.createElement(illustrations[illustrationType], {
-            alt: illustrationType,
-            classNameAndIHaveSpokenToDST: styles.illustration,
-          })
-        )}
+        {React.createElement(illustrations[illustrationType], {
+          alt: illustrationType,
+          classNameAndIHaveSpokenToDST: styles.illustration,
+        })}
       </div>
       <div
         className={classnames([

@@ -50,13 +50,6 @@ import {
   PerformanceTeamSummary,
   Programs,
 } from ".."
-import {
-  EmptyStatesActionHeart,
-  EmptyStatesInformativeHeart,
-  EmptyStatesNegativeHeart,
-  EmptyStatesNeutralHeart,
-  EmptyStatesPositiveHeart,
-} from "../KaizenDraft/Illustration"
 
 export default {
   title: "Illustration, Scene (React)",
@@ -84,26 +77,12 @@ export const EmptyStatesActionStory = () => (
 )
 EmptyStatesActionStory.storyName = "Empty States: Action"
 
-export const EmptyStatesActionHeartStory = () => (
-  <div style={{ width: "500px" }}>
-    <EmptyStatesActionHeart alt="" />
-  </div>
-)
-EmptyStatesActionHeartStory.storyName = "Empty States: Action (Heart)"
-
 export const EmptyStatesInformativeStory = () => (
   <div style={{ width: "500px" }}>
     <EmptyStatesInformative alt="" />
   </div>
 )
 EmptyStatesInformativeStory.storyName = "Empty States: Informative"
-
-export const EmptyStatesInformativeHeartStory = () => (
-  <div style={{ width: "500px" }}>
-    <EmptyStatesInformativeHeart alt="" />
-  </div>
-)
-EmptyStatesInformativeHeartStory.storyName = "Empty States: Informative (Heart)"
 
 export const EmptyStatesNegativeStory = () => (
   <div style={{ width: "500px" }}>
@@ -112,13 +91,6 @@ export const EmptyStatesNegativeStory = () => (
 )
 EmptyStatesNegativeStory.storyName = "Empty States: Negative"
 
-export const EmptyStatesNegativeStoryHeart = () => (
-  <div style={{ width: "500px" }}>
-    <EmptyStatesNegativeHeart alt="" />
-  </div>
-)
-EmptyStatesNegativeStoryHeart.storyName = "Empty States: Negative (Heart)"
-
 export const EmptyStatesPositiveStory = () => (
   <div style={{ width: "500px" }}>
     <EmptyStatesPositive alt="" />
@@ -126,26 +98,12 @@ export const EmptyStatesPositiveStory = () => (
 )
 EmptyStatesPositiveStory.storyName = "Empty States: Positive"
 
-export const EmptyStatesPositiveHeartStory = () => (
-  <div style={{ width: "500px" }}>
-    <EmptyStatesPositiveHeart alt="" />
-  </div>
-)
-EmptyStatesPositiveHeartStory.storyName = "Empty States: Positive (Heart)"
-
 export const EmptyStatesNeutralStory = () => (
   <div style={{ width: "500px" }}>
     <EmptyStatesNeutral alt="" />
   </div>
 )
 EmptyStatesNeutralStory.storyName = "Empty States: Neutral"
-
-export const EmptyStatesNeutralHeartStory = () => (
-  <div style={{ width: "500px" }}>
-    <EmptyStatesNeutralHeart alt="" />
-  </div>
-)
-EmptyStatesNeutralHeartStory.storyName = "Empty States: Neutral (Heart)"
 
 export const IntroductionsNewAccountStory = () => (
   <div style={{ width: "500px" }}>
