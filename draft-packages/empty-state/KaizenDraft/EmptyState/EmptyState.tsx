@@ -1,7 +1,13 @@
 import classnames from "classnames"
 import * as React from "react"
-import { assetUrl } from "@kaizen/hosted-assets"
 import { useTheme } from "@kaizen/design-tokens"
+import {
+  EmptyStatesActionHeart,
+  EmptyStatesInformativeHeart,
+  EmptyStatesNegativeHeart,
+  EmptyStatesNeutralHeart,
+  EmptyStatesPositiveHeart,
+} from "@kaizen/draft-illustration"
 import styles from "./styles.scss"
 
 const actionIllustration = require("./illustrations/action.png")
@@ -19,8 +25,13 @@ const deprecatedZenIllustrations: { [key: string]: any } = {
   action: actionIllustration as any,
 }
 
-const getIllustrationUrl = (type: IllustrationType) =>
-  assetUrl(`illustrations/heart/scene/empty-states-${type}.svg`)
+const illustrations = {
+  positive: EmptyStatesPositiveHeart,
+  neutral: EmptyStatesNeutralHeart,
+  negative: EmptyStatesNegativeHeart,
+  informative: EmptyStatesInformativeHeart,
+  action: EmptyStatesActionHeart,
+} as const
 
 type IllustrationType =
   | "positive"
@@ -71,14 +82,17 @@ const EmptyState: EmptyState = ({
       data-automation-id={automationId}
     >
       <div className={styles.illustrationSide}>
-        <img
-          src={
-            theme.themeKey === "zen"
-              ? deprecatedZenIllustrations[illustrationType]
-              : getIllustrationUrl(illustrationType)
-          }
-          className={styles.illustration}
-        />
+        {theme.themeKey === "zen" ? (
+          <img
+            src={deprecatedZenIllustrations[illustrationType]}
+            className={styles.illustration}
+          />
+        ) : (
+          React.createElement(illustrations[illustrationType], {
+            alt: illustrationType,
+            classNameAndIHaveSpokenToDST: styles.illustration,
+          })
+        )}
       </div>
       <div
         className={classnames([
