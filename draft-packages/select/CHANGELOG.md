@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.13.2...@kaizen/draft-select@1.13.3) (2021-03-25)
+
+
+### Bug Fixes
+
+* Select component style regression on Zen ([#1316](https://github.com/cultureamp/kaizen-design-system/issues/1316)) ([6ce46a9](https://github.com/cultureamp/kaizen-design-system/commit/6ce46a920660a6b8541dc9626b5d522c1c2df70a))
+
+
+
+
+
 ## [1.13.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.13.1...@kaizen/draft-select@1.13.2) (2021-03-25)
 
 **Note:** Version bump only for package @kaizen/draft-select
