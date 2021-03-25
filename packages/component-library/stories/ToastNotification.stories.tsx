@@ -117,7 +117,7 @@ export const PositiveKaizenSiteDemo = () => {
       ),
     })
   })
-  return null
+  return <></>
 }
 
 PositiveKaizenSiteDemo.storyName = "Positive (Kaizen Site Demo)"
