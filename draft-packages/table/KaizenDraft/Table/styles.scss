@@ -24,7 +24,7 @@ $row-height: 60px;
 
 .container {
   width: 100%;
-  margin-bottom: calc(#{$kz-var-spacing-md} * 0.5);
+  margin-bottom: $kz-var-spacing-sm;
 }
 
 .headerRowCell {
@@ -97,7 +97,7 @@ $row-height: 60px;
 
 .headerRowCellTooltipIcon {
   color: $kz-var-color-cluny-500;
-  margin-right: calc(#{$kz-var-spacing-md} / 4);
+  margin-right: $kz-var-spacing-xs;
 }
 
 .headerRowCellIcon {
@@ -140,7 +140,7 @@ $row-height: 60px;
   }
 
   &.well {
-    margin-top: calc(#{$kz-var-spacing-md} * 0.5);
+    margin-top: $kz-var-spacing-sm;
   }
 }
 
@@ -166,7 +166,7 @@ $row-height: 60px;
   box-shadow: none;
   border-radius: $kz-var-border-solid-border-radius;
   background-color: $kz-var-color-ash;
-  margin-bottom: calc(#{$kz-var-spacing-md} * 0.5);
+  margin-bottom: $kz-var-spacing-sm;
 }
 
 .popout {
@@ -180,10 +180,10 @@ $row-height: 60px;
 
   position: relative;
   z-index: 1;
-  margin-left: calc(#{$kz-var-spacing-md} * -0.5);
-  margin-right: calc(#{$kz-var-spacing-md} * -0.5);
-  padding-left: calc(#{$kz-var-spacing-md} * 0.5);
-  padding-right: calc(#{$kz-var-spacing-md} * 0.5);
+  margin-left: calc(#{$kz-var-spacing-sm} * -1);
+  margin-right: calc(#{$kz-var-spacing-sm} * -1);
+  padding-left: $kz-var-spacing-sm;
+  padding-right: $kz-var-spacing-sm;
 }
 
 .hasHoverState {
@@ -209,7 +209,7 @@ $row-height: 60px;
   composes: anchorReset;
 
   .defaultSpacing & {
-    padding: calc(#{$kz-var-spacing-md} * 0.5 #{$kz-var-spacing-md});
+    padding: $kz-var-spacing-sm $kz-var-spacing-md;
   }
 }
 
