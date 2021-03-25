@@ -1,9 +1,13 @@
 @import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/component-library/styles/layers";
 
 .list {
   position: fixed;
   right: $kz-spacing-md;
-  top: $kz-spacing-md * 4;
+  top: 160px + 12px;
   z-index: $ca-z-index-fixed;
+  @media (max-width: $kz-layout-breakpoints-medium - 1px) {
+    top: 108px;
+  }
 }
