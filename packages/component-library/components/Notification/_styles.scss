@@ -54,7 +54,7 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
   &%ca-notification---toast {
     width: 25rem;
     box-shadow: $kz-var-shadow-small-box-shadow;
-    max-width: calc(100% - #{$ca-notification-toast-horizontal-padding * 2});
+    max-width: 100%;
     padding: $ca-notification-vertical-padding
       $ca-notification-toast-horizontal-padding;
     transition: $ca-notification-fade-out, $ca-notification-slide-right,
