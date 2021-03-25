@@ -268,3 +268,24 @@ export const MultipleNotifications = () => (
 )
 
 MultipleNotifications.storyName = "Multiple notifications"
+
+export const OverflowNotifications = () => {
+  const seed = Math.random() * 1000
+  return (
+    <Triggers
+      notifications={[...Array(15)].map((_, i) => ({
+        automationId: `notification-${i}-${seed}`,
+        type: Math.random() > 0.5 ? "affirmative" : "cautionary",
+        title: "Success",
+        autohide: false,
+        message: (
+          <>
+            New user data, imported by mackenzie@hooli.com has successfully
+            uploaded. <a href="/">Manage users is now available</a>
+          </>
+        ),
+      }))}
+    />
+  )
+}
+OverflowNotifications.storyName = "Overflow notifications"

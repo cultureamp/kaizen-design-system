@@ -3,11 +3,22 @@
 @import "~@kaizen/component-library/styles/layers";
 
 .list {
+  bottom: 0;
+  overflow: hidden;
+  padding-bottom: 0;
+  padding-right: $kz-spacing-md;
+  padding-top: 160px + 12px;
   position: fixed;
-  right: $kz-spacing-md;
-  top: 160px + 12px;
+  right: 0;
+  top: 0;
+  bottom: 0;
   z-index: $ca-z-index-fixed;
+  pointer-events: none;
+
+  @media (max-width: $kz-layout-breakpoints-large - 1px) {
+    padding-top: 108px;
+  }
   @media (max-width: $kz-layout-breakpoints-medium - 1px) {
-    top: 108px;
+    padding-right: 0;
   }
 }

@@ -31,6 +31,7 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
 %ca-notification {
   display: flex;
   box-sizing: border-box;
+  pointer-events: all;
 
   // Variants
   &%ca-notification---inline,
@@ -53,6 +54,7 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
   &%ca-notification---toast {
     width: 25rem;
     box-shadow: $kz-var-shadow-small-box-shadow;
+    max-width: calc(100% - #{$ca-notification-toast-horizontal-padding * 2});
     padding: $ca-notification-vertical-padding
       $ca-notification-toast-horizontal-padding;
     transition: $ca-notification-fade-out, $ca-notification-slide-right,
