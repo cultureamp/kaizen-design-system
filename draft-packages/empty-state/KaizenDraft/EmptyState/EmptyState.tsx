@@ -1,20 +1,22 @@
 import classnames from "classnames"
 import * as React from "react"
-
+import { useTheme } from "@kaizen/design-tokens"
+import {
+  EmptyStatesAction,
+  EmptyStatesInformative,
+  EmptyStatesNegative,
+  EmptyStatesNeutral,
+  EmptyStatesPositive,
+} from "@kaizen/draft-illustration"
 import styles from "./styles.scss"
-const actionIllustration = require("./illustrations/action.png")
-const informativeIllustration = require("./illustrations/informative.png")
-const negativeIllustration = require("./illustrations/negative.png")
-const neutralIllustration = require("./illustrations/neutral.png")
-const positiveIllustration = require("./illustrations/positive.png")
 
-const illustrations: { [key: string]: any } = {
-  positive: positiveIllustration as any,
-  neutral: neutralIllustration as any,
-  negative: negativeIllustration as any,
-  informative: informativeIllustration as any,
-  action: actionIllustration as any,
-}
+const illustrations = {
+  positive: EmptyStatesPositive,
+  neutral: EmptyStatesNeutral,
+  negative: EmptyStatesNegative,
+  informative: EmptyStatesInformative,
+  action: EmptyStatesAction,
+} as const
 
 type IllustrationType =
   | "positive"
@@ -33,6 +35,7 @@ export type EmptyStateProps = {
   straightCorners?: boolean
   illustrationType?: IllustrationType
   layoutContext?: LayoutContextType
+  // TODO: Heart Rebrand Cleanup > Deprecate or completely remove this prop once Heart is released.
   useZenStyles?: boolean
   children?: React.ReactNode
 }
@@ -49,32 +52,40 @@ const EmptyState: EmptyState = ({
   children,
   straightCorners,
   useZenStyles,
-}) => (
-  <div
-    className={classnames([
-      styles.container,
-      styles[layoutContext],
-      { [styles.straightCorners]: straightCorners },
-    ])}
-    id={id}
-    data-automation-id={automationId}
-  >
-    <div className={styles.illustrationSide}>
-      <img
-        src={illustrations[illustrationType]}
-        className={styles.illustration}
-      />
-    </div>
+}) => {
+  const theme = useTheme()
+  return (
     <div
-      className={classnames([styles.textSide, { [styles.zen]: useZenStyles }])}
+      className={classnames([
+        styles[illustrationType],
+        styles.container,
+        styles.zen,
+        styles[layoutContext],
+        { [styles.straightCorners]: straightCorners },
+      ])}
+      id={id}
+      data-automation-id={automationId}
     >
-      <div className={styles.textSideInner}>
-        <div className={styles.heading}>{headingText}</div>
-        <div className={styles.description}>{bodyText}</div>
-        {children}
+      <div className={styles.illustrationSide}>
+        {React.createElement(illustrations[illustrationType], {
+          alt: illustrationType,
+          classNameAndIHaveSpokenToDST: styles.illustration,
+        })}
+      </div>
+      <div
+        className={classnames([
+          styles.textSide,
+          { [styles.zen]: useZenStyles },
+        ])}
+      >
+        <div className={styles.textSideInner}>
+          <div className={styles.heading}>{headingText}</div>
+          <div className={styles.description}>{bodyText}</div>
+          {children}
+        </div>
       </div>
     </div>
-  </div>
-)
+  )
+}
 
 export default EmptyState

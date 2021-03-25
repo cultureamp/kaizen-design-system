@@ -160,6 +160,35 @@ emptyStateIllustration illustration =
             img [ styles.class .illustration, src actionIllustrationUrl ] []
 
 
+illustrationClass :
+    Illustration
+    ->
+        { a
+            | positiveIllustrationType : String
+            , negativeIllustrationType : String
+            , neutralIllustrationType : String
+            , informativeIllustrationType : String
+            , actionIllustrationType : String
+        }
+    -> String
+illustrationClass illustration =
+    case illustration of
+        Positive ->
+            .positiveIllustrationType
+
+        Negative ->
+            .negativeIllustrationType
+
+        Neutral ->
+            .neutralIllustrationType
+
+        Informative ->
+            .informativeIllustrationType
+
+        Action ->
+            .actionIllustrationType
+
+
 
 -- VIEW
 
@@ -199,6 +228,7 @@ view (Config config) =
                     , ( .sidebarAndContent, config.layoutContext == SidebarAndContent )
                     , ( .contentOnly, config.layoutContext == ContentOnly )
                     , ( .zen, True )
+                    , ( illustrationClass config.illustrationType, True )
                     ]
                ]
         )
@@ -228,4 +258,9 @@ styles =
         , description = "description"
         , sidebarAndContent = "sidebarAndContent"
         , contentOnly = "contentOnly"
+        , positiveIllustrationType = "positive"
+        , negativeIllustrationType = "negative"
+        , neutralIllustrationType = "neutral"
+        , actionIllustrationType = "action"
+        , informativeIllustrationType = "informative"
         }
