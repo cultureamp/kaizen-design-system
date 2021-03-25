@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.0.33...@kaizen/draft-empty-state@2.1.0) (2021-03-25)
+
+
+### Features
+
+* Update EmptyState to support Heart ([#1159](https://github.com/cultureamp/kaizen-design-system/issues/1159)) ([e7cceb6](https://github.com/cultureamp/kaizen-design-system/commit/e7cceb6d6b5d6c6a4f07b2f08de94cb201b16165))
+
+
+
+
+
 ## [2.0.33](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.0.32...@kaizen/draft-empty-state@2.0.33) (2021-03-22)
 
 **Note:** Version bump only for package @kaizen/draft-empty-state
