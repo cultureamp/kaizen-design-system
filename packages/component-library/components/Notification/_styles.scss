@@ -301,7 +301,7 @@ $ca-notification-slide-right: transform $ca-duration-slow ease-out;
   }
 
   %ca-notification---inline & {
-    margin-right: -$ca-notification-inline-horizontal-padding;
+    margin-right: calc(-1 * #{$ca-notification-inline-horizontal-padding});
   }
 
   %ca-notification---toast & {
