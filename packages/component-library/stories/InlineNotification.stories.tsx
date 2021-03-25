@@ -4,6 +4,20 @@ import { InlineNotification } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 
+const multilineText = (
+  <>
+    There’s a problem connecting to your HRIS. Check your HRIS is working and
+    check your <a href="/">integration settings</a>, or if you require more
+    assistance please <a href="/">contact support</a>... or just don't do
+    anything and observe that this notification contains an absurd amount of
+    text that is purposely verbose in order to demonstrate that verbosity is, in
+    most cases, just in general really, i guess it's debatable, unnecessary and
+    to demonstrate that verbosity makes this notification's body text spit into
+    multiple lines because there is, surely, unequivocally, no way that all of
+    this can fit into one line of text on an average screen...
+  </>
+)
+
 export default {
   title: "InlineNotification (React)",
   component: InlineNotification,
@@ -108,9 +122,7 @@ export const DismissibleMultiline = () => (
     title="Negative"
     automationId="notification1"
   >
-    There’s a problem connecting to your HRIS. Check your HRIS is working and
-    check your <a href="/">integration settings</a>, or if you require more
-    assistance please <a href="/">contact support</a>.
+    {multilineText}
   </InlineNotification>
 )
 
@@ -189,9 +201,7 @@ export const PersistentMultiline = () => (
     persistent
     automationId="notification1"
   >
-    There’s a problem connecting to your HRIS. Check your HRIS is working and
-    check your <a href="/">integration settings</a>, or if you require more
-    assistance please <a href="/">contact support</a>.
+    {multilineText}
   </InlineNotification>
 )
 

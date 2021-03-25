@@ -14,6 +14,9 @@ multiline =
     , a [ href "/" ] [ text "integration settings" ]
     , text ", or if you require more assistance please "
     , a [ href "/" ] [ text "contact support" ]
+    , text "...or just observe that this is a plain old multiline notification with too much of text,"
+    , text "and with a delicious interface designed by delicious people working at CultureAmp..."
+    , text "almost as if it was purposely written to show what a notification looks like with multiple lines."
     ]
 
 
