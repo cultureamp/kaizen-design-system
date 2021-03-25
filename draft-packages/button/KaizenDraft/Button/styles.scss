@@ -4,18 +4,19 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/design-tokens/sass/typography-vars";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "./decision-tokens.scss";
 
 $caButton-border-width: $kz-var-border-solid-border-width;
 $caButton-focus-border-width: $kz-var-border-focus-ring-border-width;
-$caButton-height: $ca-grid * 2;
+$caButton-height: $kz-var-spacing-lg;
 $caButtonIcon-height: 20px;
-$caButton-formHeight: $ca-grid * 5/3;
+$caButton-formHeight: calc(#{$kz-var-spacing-md} * 5 / 3);
 $caButton-verticalPadding: calc(
-  #{$ca-grid / 2} - #{$kz-var-border-solid-border-width}
+  #{$kz-var-spacing-sm} - #{$kz-var-border-solid-border-width}
 );
 $caButton-verticalPaddingForm: calc(
-  #{$ca-grid / 3} - #{$kz-var-border-solid-border-width}
+  #{$kz-var-spacing-md / 3} - #{$kz-var-border-solid-border-width}
 );
 
 // reset user agent styles for button element type
@@ -103,7 +104,7 @@ $caButton-verticalPaddingForm: calc(
       // show custom focus ring when :focus-visible
       &:global(.focus-visible)::after {
         $focus-ring-offset: calc(
-          (#{$kz-var-border-focus-ring-border-width}#{" * 2"}) #{" + 1px"}
+          (#{$kz-var-border-focus-ring-border-width} * 2) + 1px
         );
         content: "";
         position: absolute;
@@ -112,10 +113,10 @@ $caButton-verticalPaddingForm: calc(
         border-width: $kz-var-border-focus-ring-border-width;
         border-style: $kz-var-border-focus-ring-border-style;
         border-color: $kz-var-color-cluny-500;
-        top: calc(#{"-1 * "}#{$focus-ring-offset});
-        left: calc(#{"-1 * "}#{$focus-ring-offset});
-        right: calc(#{"-1 * "}#{$focus-ring-offset});
-        bottom: calc(#{"-1 * "}#{$focus-ring-offset});
+        top: calc(-1 * #{$focus-ring-offset});
+        left: calc(-1 * #{$focus-ring-offset});
+        right: calc(-1 * #{$focus-ring-offset});
+        bottom: calc(-1 * #{$focus-ring-offset});
       }
     }
   }
@@ -376,15 +377,15 @@ $caButton-verticalPaddingForm: calc(
   align-items: center;
 
   padding: $caButton-verticalPadding
-    calc(#{$ca-grid * 1} - #{$kz-var-border-solid-border-width});
+    calc(#{$kz-var-spacing-md} - #{$kz-var-border-solid-border-width});
 
   %caButtonSecondary &,
   %caButtonSecondaryDestructive & {
     padding-left: calc(
-      #{$ca-grid * 0.5} - #{$kz-var-border-solid-border-width}
+      #{$kz-var-spacing-sm} - #{$kz-var-border-solid-border-width}
     );
     padding-right: calc(
-      #{$ca-grid * 0.5} - #{$kz-var-border-solid-border-width}
+      #{$kz-var-spacing-sm} - #{$kz-var-border-solid-border-width}
     );
   }
 
@@ -394,28 +395,36 @@ $caButton-verticalPaddingForm: calc(
   }
 
   :global(.js-focus-visible) %caButton:global(.focus-visible) & {
-    padding: calc(#{$ca-grid / 2} - #{$kz-var-border-focus-ring-border-width})
-      calc(#{$ca-grid * 1} - #{$kz-var-border-focus-ring-border-width});
+    padding: calc(
+        #{$kz-var-spacing-sm} - #{$kz-var-border-focus-ring-border-width}
+      )
+      calc(#{$kz-var-spacing-md} - #{$kz-var-border-focus-ring-border-width});
   }
 
   :global(.js-focus-visible) %caButtonSecondary:global(.focus-visible) &,
   :global(.js-focus-visible)
     %caButtonSecondaryDestructive:global(.focus-visible)
     & {
-    padding: calc(#{$ca-grid / 2} - #{$kz-var-border-focus-ring-border-width})
-      calc(#{$ca-grid * 0.5} - #{$kz-var-border-focus-ring-border-width});
+    padding: calc(
+        #{$kz-var-spacing-sm} - #{$kz-var-border-focus-ring-border-width}
+      )
+      calc(#{$kz-var-spacing-sm} - #{$kz-var-border-focus-ring-border-width});
   }
 
   :global(.js-focus-visible) %caButton%caButtonForm:global(.focus-visible) & {
-    padding: calc(#{$ca-grid / 3} - #{$kz-var-border-focus-ring-border-width})
-      calc(#{$ca-grid * 1} - #{$kz-var-border-focus-ring-border-width});
+    padding: calc(
+        #{$kz-var-spacing-md / 3} - #{$kz-var-border-focus-ring-border-width}
+      )
+      calc(#{$kz-var-spacing-md} - #{$kz-var-border-focus-ring-border-width});
   }
 
   :global(.js-focus-visible)
     %caButtonSecondary%caButtonForm:global(.focus-visible)
     & {
-    padding: calc(#{$ca-grid / 3} - #{$kz-var-border-focus-ring-border-width})
-      calc(#{$ca-grid * 0.5} - #{$kz-var-border-focus-ring-border-width});
+    padding: calc(
+        #{$kz-var-spacing-md / 3} - #{$kz-var-border-focus-ring-border-width}
+      )
+      calc(#{$kz-var-spacing-sm} - #{$kz-var-border-focus-ring-border-width});
   }
 }
 

@@ -129,7 +129,7 @@ $fifth: mix($start, $end, 0%);
 
     &:global(.focus-visible)::after {
       $focus-ring-offset: calc(
-        (#{$kz-var-border-focus-ring-border-width}#{" * 2"}) #{" + 1px"}
+        (#{$kz-var-border-focus-ring-border-width} * 2) + 1px
       );
       content: "";
       position: absolute;
@@ -138,10 +138,10 @@ $fifth: mix($start, $end, 0%);
       border-width: $kz-var-border-focus-ring-border-width;
       border-style: $kz-var-border-focus-ring-border-style;
       border-color: $kz-var-color-cluny-500;
-      top: calc(#{"-1 *"}$focus-ring-offset);
-      left: calc(#{"-1 *"}$focus-ring-offset);
-      right: calc(#{"-1 *"}$focus-ring-offset);
-      bottom: calc(#{"-1 *"}$focus-ring-offset);
+      top: calc(-1 * $focus-ring-offset);
+      left: calc(-1 * $focus-ring-offset);
+      right: calc(-1 * $focus-ring-offset);
+      bottom: calc(-1 * $focus-ring-offset);
     }
   }
 
@@ -166,10 +166,10 @@ $fifth: mix($start, $end, 0%);
     border-width: $kz-var-border-focus-ring-border-width;
     border-style: $kz-var-border-focus-ring-border-style;
     border-color: $kz-var-color-cluny-500;
-    top: calc(#{"-1 *"}$focus-ring-offset);
-    left: calc(#{"-1 *"}$focus-ring-offset);
-    right: calc(#{"-1 *"}$focus-ring-offset);
-    bottom: calc(#{"-1 *"}$focus-ring-offset);
+    top: calc(-1 * $focus-ring-offset);
+    left: calc(-1 * $focus-ring-offset);
+    right: calc(-1 * $focus-ring-offset);
+    bottom: calc(-1 * $focus-ring-offset);
   }
 
   .reversed :global([data-focus-visible-added]).likertItem::after {

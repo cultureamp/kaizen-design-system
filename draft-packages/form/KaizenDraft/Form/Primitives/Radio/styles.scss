@@ -56,10 +56,12 @@ $focus-ring-offset: 2px;
     top: -$focus-ring-offset - ($radio-size / 8);
     left: -$focus-ring-offset - ($radio-size / 8);
     width: calc(
-      #{$radio-size}#{" + "}#{$focus-ring-offset}#{" + "}#{$kz-var-border-solid-border-width}#{" * 2"}
+      #{$radio-size} + #{$focus-ring-offset} + #{$kz-var-border-solid-border-width} *
+        2
     );
     height: calc(
-      #{$radio-size}#{" + "}#{$focus-ring-offset}#{" + "}#{$kz-var-border-solid-border-width}#{" * 2"}
+      #{$radio-size} + #{$focus-ring-offset} + #{$kz-var-border-solid-border-width} *
+        2
     );
   }
 

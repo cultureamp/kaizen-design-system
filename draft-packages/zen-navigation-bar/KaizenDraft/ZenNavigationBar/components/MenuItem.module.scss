@@ -102,8 +102,8 @@ $menuItem__margin: 4px;
 
   &.badgeNotification {
     @include ca-padding(
-      $start: calc(#{$kz-var-spacing-md}#{" / 3"}),
-      $end: calc(#{$kz-var-spacing-md}#{" / 3"})
+      $start: calc(#{$kz-var-spacing-md} / 3),
+      $end: calc(#{$kz-var-spacing-md} / 3)
     );
     background-color: $kz-var-color-wisteria-800;
 
