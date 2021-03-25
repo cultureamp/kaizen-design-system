@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.4.6...@kaizen/draft-illustration@1.5.0) (2021-03-25)
+
+
+### Features
+
+* Update EmptyState to support Heart ([#1159](https://github.com/cultureamp/kaizen-design-system/issues/1159)) ([e7cceb6](https://github.com/cultureamp/kaizen-design-system/commit/e7cceb6d6b5d6c6a4f07b2f08de94cb201b16165))
+
+
+
+
+
 ## [1.4.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.4.5...@kaizen/draft-illustration@1.4.6) (2021-03-15)
 
 
