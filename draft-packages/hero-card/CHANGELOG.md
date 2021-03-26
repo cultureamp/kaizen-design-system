@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.5.27...@kaizen/draft-hero-card@1.6.0) (2021-03-26)
+
+
+### Features
+
+* add additional background colors to HeroCard component ([#1320](https://github.com/cultureamp/kaizen-design-system/issues/1320)) ([be2575e](https://github.com/cultureamp/kaizen-design-system/commit/be2575e13909af6eb3f8b5e885bc15d779f185e5))
+
+
+
+
+
 ## [1.5.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.5.26...@kaizen/draft-hero-card@1.5.27) (2021-03-25)
 
 **Note:** Version bump only for package @kaizen/draft-hero-card
