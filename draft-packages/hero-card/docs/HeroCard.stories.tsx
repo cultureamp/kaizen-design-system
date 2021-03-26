@@ -133,11 +133,11 @@ export const FullWidth = () => (
 
 FullWidth.storyName = "Full width"
 
-export const BackgroundColors = ({ leftBackgroundColor }) => (
+export const BackgroundColors = () => (
   <Container>
     <HeroCard
       title={<h1>Preview the survey questions</h1>}
-      leftBackgroundColor={leftBackgroundColor}
+      leftBackgroundColor="cluny200"
     >
       {renderContent()}
     </HeroCard>
@@ -145,6 +145,3 @@ export const BackgroundColors = ({ leftBackgroundColor }) => (
 )
 
 BackgroundColors.storyName = "Background colors"
-BackgroundColors.args = {
-  leftBackgroundColor: "cluny200",
-}
