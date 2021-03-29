@@ -1,0 +1,25 @@
+@import "~@kaizen/component-library/styles/type";
+@import "~@kaizen/component-library/styles/responsive";
+@import "~@kaizen/component-library/styles/layers";
+
+.navigationBarContainer {
+  position: relative;
+  height: $ca-grid * 3;
+  z-index: $ca-z-index-fixed;
+
+  @media print {
+    display: none;
+  }
+
+  @include ca-media-mobile {
+    height: 0;
+  }
+
+  @include ca-media-tablet {
+    height: 0;
+  }
+}
+
+.triggerContainer {
+  display: flex;
+}

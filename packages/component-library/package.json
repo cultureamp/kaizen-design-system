@@ -28,7 +28,8 @@
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.5.0",
     "focus-visible": "4.x || 5.x",
-    "react": "^16.9.0"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "dependencies": {
     "@kaizen/deprecated-component-library-helpers": "^2.1.1",
@@ -45,6 +46,7 @@
   },
   "devDependencies": {
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
+    "@testing-library/dom": "^7.30.0",
     "rimraf": "^2.6.3"
   },
   "scripts": {

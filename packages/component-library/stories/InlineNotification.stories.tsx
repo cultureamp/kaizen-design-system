@@ -17,6 +17,12 @@ const multilineText = (
     this can fit into one line of text on an average screen...
   </>
 )
+const withContentBelow = (Story: React.FunctionComponent) => (
+  <>
+    <Story />
+    <p>Content below the notification</p>
+  </>
+)
 
 export default {
   title: "InlineNotification (React)",
@@ -31,7 +37,7 @@ export default {
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13877%3A66008"
     ),
   },
-  decorators: [withDesign],
+  decorators: [withDesign, withContentBelow],
 }
 
 export const DismissiblePositiveKaizenSiteDemo = () => (
