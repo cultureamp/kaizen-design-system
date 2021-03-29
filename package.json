@@ -22,7 +22,8 @@
     "clean:storybook": "rimraf 'storybook/public'",
     "clean": "lerna run clean && yarn gatsby clean && yarn clean:storybook && rimraf 'elm-stuff'",
     "reset": "yarn clean && yarn install --force",
-    "chromatic": "chromatic"
+    "chromatic": "chromatic",
+    "style-snapshot": "yarn ts-node generateStyleSnapshot --files './**/!(node_modules)/*.{scss,css}'"
   },
   "babel": {
     "presets": [
@@ -50,10 +51,9 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.13.0",
     "@babel/preset-react": "^7.12.13",
     "@babel/preset-typescript": "^7.13.0",
-    "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "@storybook/addon-a11y": "^6.1.20",
-    "@storybook/addon-links": "^6.1.20",
     "@storybook/addon-essentials": "^6.1.20",
+    "@storybook/addon-links": "^6.1.20",
     "@storybook/addons": "^6.1.20",
     "@storybook/api": "^6.1.20",
     "@storybook/components": "^6.1.20",
@@ -81,6 +81,7 @@
     "elm-css-modules-plugin": "^1.0.1",
     "elm-format": "^0.8.4",
     "elm-hot-webpack-loader": "^1.1.2",
+    "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "elm-webpack-loader": "^7.0.1",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
@@ -94,8 +95,12 @@
     "jest-static-stubs": "^0.0.1",
     "lerna": "^3.20.2",
     "lodash": "^4.17.21",
+    "mini-css-extract-plugin": "^1.4.0",
     "node-sass": "^4.12.0",
     "normalize.css": "^8.0.1",
+    "postcss-calc": "^8.0.0",
+    "postcss-css-variables": "^0.17.0",
+    "postcss-discard-comments": "^4.0.2",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
