@@ -25,7 +25,7 @@ $focus-ring-offset: 2px;
   transform: translateY(-50%);
   // .icon is inside .box so .box's border-box rule means
   // .icon sits to the right of .box's left-side border
-  left: -$kz-var-border-solid-border-width;
+  left: calc(-1 * #{$kz-var-border-solid-border-width});
   color: $kz-var-color-white;
 }
 

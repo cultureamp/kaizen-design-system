@@ -2,7 +2,9 @@
 @import "~@kaizen/design-tokens/sass/animation-vars";
 
 $duration: $kz-var-animation-duration-deliberate; // 700ms
-$delay: -$kz-var-animation-duration-slow; // -400ms (stagger effect)
+$delay: calc(
+  -1 * #{$kz-var-animation-duration-slow}
+); // -400ms (stagger effect)
 
 @include ca-series {
   .spin-1 {
