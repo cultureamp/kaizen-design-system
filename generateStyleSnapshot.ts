@@ -9,13 +9,13 @@ import prettier from "prettier"
 const { files } = yargs.option("files", {
   demandOption: true,
   description:
-    "A glob of SASS files you want to use as the source of the snapshot.\nE.g. ./**/!(node_modules|design-tokens/sass)/*.{scss,css,sass}' ",
+    "A glob of SASS files you want to use as the source of the snapshot.\nE.g. ./**/!(node_modules)/*.{scss,css,sass}' ",
   type: "string",
 }).argv
 
 const rules = [
   {
-    test: /\.s?css$/,
+    test: /\.s?(a|c)ss$/,
     use: [
       {
         loader: "style-loader",
@@ -25,7 +25,7 @@ const rules = [
         loader: "css-loader",
         options: {
           importLoaders: 2,
-          sourceMap: true,
+          sourceMap: false,
           modules: {
             localIdentName: "[path][name]__[local]--[hash:base64:5]",
           },
@@ -36,45 +36,20 @@ const rules = [
         options: {
           plugins: () => [
             require("postcss-css-variables"),
-            // It might be nice to add this at some point, but it only works with Postcss 8, which isn't being used (implicitly/transitively by postcss-loader)
-            // require("postcss-calc"),
-            require("cssnano")({
-              preset: [
-                "default",
-                {
-                  // Enabled
-                  discardComments: {
-                    removeAll: true,
-                  },
-                  normalizeUnicode: true,
-                  normalizeString: true,
-                  normalizeWhitespace: true,
-                  orderedValues: true,
-                  minifyFontValues: true,
-                  // Disabled
-                  convertValues: false,
-                  colormin: false,
-                  mergeLonghand: false,
-                  minifyGradients: false,
-                  minifyParams: false,
-                  minifySelectors: false,
-                  normalizeDisplayValues: false,
-                  normalizePositions: false,
-                  normalizeRepeatStyle: false,
-                  normalizeTimingFunctions: false,
-                  normalizeUrl: false,
-                  reduceTransforms: false,
-                  reduceInitial: false,
-                },
-              ],
+            require("postcss-calc"),
+            require("postcss-minify-font-values")({
+              removeQuotes: true,
+              removeDuplicates: false,
             }),
+            require("postcss-discard-comments")({ removeAll: true }),
+            require("postcss-merge-rules"),
           ],
         },
       },
       {
         loader: "sass-loader",
         options: {
-          sourceMap: true,
+          sourceMap: false,
         },
       },
     ],
@@ -92,18 +67,21 @@ const run = async () => {
     entry: filePaths,
     mode: "development",
     module: { rules },
+    devtool: false,
     plugins: [new MiniCssExtractPlugin({ filename: "snapshot.css" })],
     output: {
       path: __dirname,
-      filename: snapshotCssFileName,
+      filename: "snapshot-tmp.js",
     },
   }).run((err, stats) => {
+    fs.rmSync("snapshot-tmp.js")
     if (!err) {
+      console.log("............\n......." + stats.toString().slice(-4000))
       console.log("Formatting the snapshot file")
       fs.writeFileSync(
         snapshotCssFileName,
         prettier.format(fs.readFileSync(snapshotCssFileName).toString(), {
-          parser: "scss",
+          parser: "css",
         })
       )
     } else {
