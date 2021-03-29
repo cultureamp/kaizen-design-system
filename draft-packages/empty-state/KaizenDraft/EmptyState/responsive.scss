@@ -1,9 +1,9 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/design-tokens/sass/layout-vars";
+@import "~@kaizen/design-tokens/sass/layout";
 
 $small: 300px;
-$medium: $kz-var-layout-breakpoints-medium;
-$large: $kz-var-layout-breakpoints-large;
+$medium: $kz-layout-breakpoints-medium;
+$large: $kz-layout-breakpoints-large;
 
 $sidebarWidth: 240px;
 $sidebarWithPadding: $sidebarWidth + (2 * $ca-layout-side-padding);

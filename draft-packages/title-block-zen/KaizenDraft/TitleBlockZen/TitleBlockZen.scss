@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/typography-vars";
 @import "~@kaizen/design-tokens/sass/layout-vars";
+@import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/component-library/styles/grid";
 @import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
@@ -9,10 +10,8 @@
 
 $title-block-margin-width-on-medium-and-small: 12px;
 $breadcrumb-circle-width: 48px;
-$breadcrumb-breakpoint-width: calc(
-  #{$kz-var-layout-content-max-width} + #{$kz-var-layout-content-side-margin} *
-    2 + #{$breadcrumb-circle-width} * 2.25
-);
+$breadcrumb-breakpoint-width: $kz-layout-content-max-width +
+  $kz-layout-content-side-margin * 2 + $breadcrumb-circle-width * 2.25;
 $title-block-separator-height: 3px;
 $tab-container-height-default: $ca-grid * 3;
 $tab-container-height-small: $ca-grid * 2.5;
@@ -224,7 +223,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
     max-width: 100%;
   }
 
-  @media (min-width: $kz-var-layout-breakpoints-large) {
+  @media (min-width: $kz-layout-breakpoints-large) {
     display: block;
   }
 

@@ -2,6 +2,7 @@
 @import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/design-tokens/sass/typography-vars";
 @import "~@kaizen/design-tokens/sass/layout-vars";
+@import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/component-library/styles/fonts";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
@@ -26,18 +27,18 @@ $navbar-breakpoint-extended-large-up: 1350px;
 $navbar-breakpoint-condensed-large-up: 1150px;
 
 :export {
-  caBreakpointMobileMax: #{$kz-var-layout-breakpoints-large - 1};
+  caBreakpointMobileMax: #{$kz-layout-breakpoints-large - 1};
   navbarBreakpointExtendedMin: $navbar-breakpoint-extended-large-up;
 }
 
 @mixin navbar-mobile-only {
-  @media (max-width: #{$kz-var-layout-breakpoints-large - 1px}) {
+  @media (max-width: #{$kz-layout-breakpoints-large - 1px}) {
     @content;
   }
 }
 
 @mixin navbar-tablet-up {
-  @media (min-width: $kz-var-layout-breakpoints-large) {
+  @media (min-width: $kz-layout-breakpoints-large) {
     @content;
   }
 }

@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/shadow-vars";
 @import "~@kaizen/design-tokens/sass/layout-vars";
+@import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/border";
@@ -10,13 +11,13 @@
 @import "~@kaizen/component-library/styles/animation";
 
 @mixin title-block-mobile {
-  @media (max-width: $kz-var-layout-breakpoints-large - 1px) {
+  @media (max-width: $kz-layout-breakpoints-large - 1px) {
     @content;
   }
 }
 
 @mixin title-block-desktop {
-  @media (min-width: $kz-var-layout-breakpoints-large) {
+  @media (min-width: $kz-layout-breakpoints-large) {
     @content;
   }
 }
