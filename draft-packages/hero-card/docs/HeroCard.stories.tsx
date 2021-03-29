@@ -132,3 +132,16 @@ export const FullWidth = () => (
 )
 
 FullWidth.storyName = "Full width"
+
+export const BackgroundColors = () => (
+  <Container>
+    <HeroCard
+      title={<h1>Preview the survey questions</h1>}
+      leftBackgroundColor="cluny200"
+    >
+      {renderContent()}
+    </HeroCard>
+  </Container>
+)
+
+BackgroundColors.storyName = "Background colors"

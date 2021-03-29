@@ -26,7 +26,6 @@ $left-content__width: 221px;
   display: flex;
   border-radius: $kz-border-solid-border-radius 0 0
     $kz-border-solid-border-radius;
-  background-color: $kz-color-wisteria-700;
   color: $kz-color-white;
   padding: ($ca-grid / 2) ($ca-grid * 2);
   flex-direction: column;
@@ -38,6 +37,22 @@ $left-content__width: 221px;
   .fullWidth & {
     width: 33%;
     max-width: 450px;
+  }
+
+  &.wisteria700 {
+    background-color: $kz-color-wisteria-700;
+  }
+
+  &.wisteria200 {
+    background-color: $kz-color-wisteria-200;
+  }
+
+  &.cluny200 {
+    background-color: $kz-color-cluny-200;
+  }
+
+  &.seedling200 {
+    background-color: $kz-color-seedling-200;
   }
 }
 
