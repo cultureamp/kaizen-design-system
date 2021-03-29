@@ -289,3 +289,50 @@ export const OverflowNotifications = () => {
   )
 }
 OverflowNotifications.storyName = "Overflow notifications"
+
+export const UpdatedNotification = () => (
+  <Container>
+    <Content>
+      <Box py={1} classNameAndIHaveSpokenToDST={styles.triggerContainer}>
+        <Box mr={0.25}>
+          <Button
+            label={"Create initial notification"}
+            onClick={() => {
+              addToastNotification({
+                id: "consistent-id",
+                automationId: "notification1",
+                type: "affirmative",
+                title: "Initial notification title",
+                message: (
+                  <>
+                    Notifications with consistent IDs will be updated in place.
+                  </>
+                ),
+                persistent: true,
+              })
+            }}
+          />
+        </Box>
+        <Button
+          label={"Update initial notification"}
+          onClick={() => {
+            addToastNotification({
+              id: "consistent-id",
+              automationId: "notification1",
+              type: "cautionary",
+              title: "Updated notification title",
+              message: (
+                <>
+                  Which means you can send them multiple times safely (as long
+                  as you’re not hiding them).
+                </>
+              ),
+              persistent: true,
+            })
+          }}
+        />
+      </Box>
+    </Content>
+  </Container>
+)
+UpdatedNotification.storyName = "Updated notification"
