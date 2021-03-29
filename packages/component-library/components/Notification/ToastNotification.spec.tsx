@@ -5,11 +5,11 @@ import ToastNotification from "./ToastNotification"
 afterEach(cleanup)
 
 test("The basic notification renders correctly", () => {
-  const { container } = render(
+  const { getByRole } = render(
     <ToastNotification type="affirmative" title="Success">
       It worked!
     </ToastNotification>
   )
 
-  expect(container.firstChild).toMatchSnapshot()
+  expect(getByRole("heading").textContent).toEqual("Success")
 })

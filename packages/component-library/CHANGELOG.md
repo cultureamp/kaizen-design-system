@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.4.3...@kaizen/component-library@9.5.0) (2021-03-29)
+
+
+### Features
+
+* Toast notification manager ([#758](https://github.com/cultureamp/kaizen-design-system/issues/758)) ([d84d8f4](https://github.com/cultureamp/kaizen-design-system/commit/d84d8f4b5d1efd8340995bc6763dd57612f0ab37))
+
+
+
+
+
 ## [9.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.4.2...@kaizen/component-library@9.4.3) (2021-03-25)
 
 **Note:** Version bump only for package @kaizen/component-library
