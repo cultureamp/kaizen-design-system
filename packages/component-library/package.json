@@ -22,7 +22,7 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "9.4.3",
+  "version": "9.5.0",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
@@ -45,8 +45,8 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "@testing-library/dom": "^7.30.0",
+    "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^2.6.3"
   },
   "scripts": {

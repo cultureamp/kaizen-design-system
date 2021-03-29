@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.34](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.5.33...@kaizen/draft-guidance-block@2.5.34) (2021-03-29)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
 ## [2.5.33](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.5.32...@kaizen/draft-guidance-block@2.5.33) (2021-03-25)
 
 **Note:** Version bump only for package @kaizen/draft-guidance-block
