@@ -36,7 +36,6 @@ const rules = [
         options: {
           plugins: () => [
             require("postcss-css-variables"),
-            require("postcss-calc"),
             require("postcss-minify-font-values")({
               removeQuotes: true,
               removeDuplicates: false,
