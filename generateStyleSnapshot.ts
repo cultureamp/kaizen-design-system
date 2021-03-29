@@ -38,7 +38,17 @@ const rules = [
             require("postcss-css-variables"),
             // It might be nice to add this at some point, but it only works with Postcss 8, which isn't being used (implicitly/transitively by postcss-loader)
             // require("postcss-calc"),
-            require("postcss-discard-comments"),
+            require("cssnano")({
+              preset: [
+                "default",
+                {
+                  discardComments: {
+                    removeAll: true,
+                  },
+                  mergeIdents: true,
+                },
+              ],
+            }),
           ],
         },
       },
@@ -70,7 +80,6 @@ const run = async () => {
     },
   }).run((err, stats) => {
     if (!err) {
-      console.log(stats.toString())
       console.log("Formatting the snapshot file")
       fs.writeFileSync(
         snapshotCssFileName,
