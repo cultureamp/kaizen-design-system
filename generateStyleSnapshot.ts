@@ -42,10 +42,29 @@ const rules = [
               preset: [
                 "default",
                 {
+                  // Enabled
                   discardComments: {
                     removeAll: true,
                   },
-                  mergeIdents: true,
+                  normalizeUnicode: true,
+                  normalizeString: true,
+                  normalizeWhitespace: true,
+                  orderedValues: true,
+                  minifyFontValues: true,
+                  // Disabled
+                  convertValues: false,
+                  colormin: false,
+                  mergeLonghand: false,
+                  minifyGradients: false,
+                  minifyParams: false,
+                  minifySelectors: false,
+                  normalizeDisplayValues: false,
+                  normalizePositions: false,
+                  normalizeRepeatStyle: false,
+                  normalizeTimingFunctions: false,
+                  normalizeUrl: false,
+                  reduceTransforms: false,
+                  reduceInitial: false,
                 },
               ],
             }),
