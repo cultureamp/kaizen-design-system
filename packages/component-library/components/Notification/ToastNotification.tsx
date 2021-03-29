@@ -1,5 +1,6 @@
 import * as React from "react"
 import { v4 } from "uuid"
+import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
 import { addToastNotification } from "./ToastNotificationManager"
 import { ToastNotificationWithOptionals } from "./types"
 
@@ -32,4 +33,7 @@ const ToastNotification = ({
   return null
 }
 
-export default ToastNotification
+export default withDeprecatedComponent(ToastNotification, {
+  warning:
+    "ToastNotification component API is deprecated. Use addToastNotification from @kaizen/component-library instead.",
+})
