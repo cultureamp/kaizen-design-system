@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.5.0...@kaizen/draft-illustration@1.6.0) (2021-03-29)
+
+
+### Features
+
+* add new illustration for survey overview page ([#1334](https://github.com/cultureamp/kaizen-design-system/issues/1334)) ([d7a4dfa](https://github.com/cultureamp/kaizen-design-system/commit/d7a4dfa57c6420586524ae0bdccf7f06b11b0466))
+
+
+
+
+
 # [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.4.6...@kaizen/draft-illustration@1.5.0) (2021-03-25)
 
 
