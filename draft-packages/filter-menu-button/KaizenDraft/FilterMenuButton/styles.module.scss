@@ -12,9 +12,9 @@ $menuContentVerticalPadding: 6px; // this comes from the MenuContent component, 
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  margin: 0 (-$gap / 2);
+  margin: 0 calc(#{$gap} / -2);
 
   > * {
-    margin: 0 ($gap / 2);
+    margin: 0 calc(#{$gap} / 2);
   }
 }

@@ -6,7 +6,7 @@
 @import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "../styles";
 
-$menuItem__padding: $kz-var-spacing-md / 2;
+$menuItem__padding: calc(#{$kz-var-spacing-md} / 2);
 $menuItem__margin: 4px;
 
 .buttonReset {
