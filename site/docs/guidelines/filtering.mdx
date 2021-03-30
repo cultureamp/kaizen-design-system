@@ -107,10 +107,13 @@ A select is useful in filtering when:
 *   Reducing data by pre-defined segment of data (E.g. In a report select 'Administrator Report' or by comment sentiment, 'Positive', 'Neutral', 'Negative')
 *   Shows the options available for that field (E.g. Country demographic, 'Australia', 'England', 'United States')
 *   Reducing data in 1 field e.g. "Department" is a "Field" and "Marketing Design" is the value
+*   Narrowing data by by a pre-defined list of options e.g. Using a searchable select element for "City" where you can narrow to a city or department by starting to type to narrow the available selections then select the desired option
+
 
 The select filter:
 
 *   Could be live-updating, could have "Apply", "Cancel", "Reset" options
+*   A select element may itself be 'searchable' and use autocomplete to narrow down from a large number of options, but the value that is filtered by is always  from the predefined options 
 *   The select filter has limited scannability, because it is hidden by a dropdown
 *   Selects can be a single instance or multiple adjacent selects to provide greater choice.
 *   Works for longer lists of selectable values to assist with screen clutter
@@ -186,7 +189,7 @@ A radio group filter:
 
 ### Search in filtering
 
-[Search](/components/search-field) lets users quickly find relevant content. It allows a user to type a word or phrase to filter a large amount of data down to a known piece of content or to a narrower list of relevant content without navigation.
+[Search](/components/search-field) lets users quickly find relevant content. It allows a user to type a word or phrase to filter a large amount of data down to a known piece of content or to a narrower list of relevant content without navigation. Unlike a select filter, a search filter can match incomplete words and does not require a predefined list of options.
 
 <iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D26297%253A48&chrome=DOCUMENTATION" allowfullscreen></iframe>
 
@@ -197,7 +200,7 @@ Use search in filtering when:
 *   Looking for something specific
 *   In a long list, 10–10,000 results
 *   Finding out what's available, e.g. keywords for searching comments
-*   Narrowing data by pre-defined things in another component: e.g. Group employees… "by City" where you can search for city or department and then select it
+*   Narrowing a set of results by part of a word or value e.g. finding people who work at the same company by filtering to domain part of the email address field 
 
 Here are some considerations for search in filtering:
 
