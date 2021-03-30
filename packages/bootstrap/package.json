@@ -1,0 +1,39 @@
+{
+  "name": "@kaizen/bootstrap",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "",
+  "private": false,
+  "scripts": {
+    "prepublish": "tsc --project tsconfig.dist.json",
+    "build": "yarn clean && yarn prepublish",
+    "build:watch": "yarn clean && yarn prepublish --watch",
+    "clean": "rimraf '**/*.d.ts' '**/*.js' '**/*.map'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cultureamp/kaizen-design-system.git",
+    "directory": "packages/bootstrap"
+  },
+  "bugs": {
+    "url": "https://github.com/cultureamp/kaizen-design-system/issues"
+  },
+  "files": [
+    "**/*",
+    "!**/*.ts",
+    "!**/*.tsx",
+    "**/*.d.ts",
+    "!**/*.spec.*",
+    "!**/*.snap",
+    "!docs",
+    "!tsconfig.dist.json"
+  ],
+  "peerDependencies": {
+    "react": "^16.9.0",
+    "@kaizen/design-tokens": "^2.5.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "@kaizen/hosted-assets": "^1.1.0"
+  }
+}

@@ -1,0 +1,13 @@
+/**
+ * For polyfills and browser normalisation, see @cultureamp/frontend-runtime:
+ * https://github.com/cultureamp/frontend-ops/blob/master/packages/frontend-runtime/lib/index.ts
+ */
+
+@import "~@kaizen/design-tokens/sass/color";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $kz-color-stone;
+}
