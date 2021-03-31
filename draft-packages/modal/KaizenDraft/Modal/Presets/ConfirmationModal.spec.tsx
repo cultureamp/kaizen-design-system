@@ -19,9 +19,7 @@ const ConfirmationModalWrapper = (props: Partial<ConfirmationModalProps>) => (
 describe("<ConfirmationModal />", () => {
   it("renders an open modal with the provided content", () => {
     const { getByText } = render(
-      <ConfirmationModalWrapper>
-          Example modal body
-      </ConfirmationModalWrapper>
+      <ConfirmationModalWrapper>Example modal body</ConfirmationModalWrapper>
     )
     expect(getByText("Example modal body")).toBeTruthy()
 
@@ -30,14 +28,15 @@ describe("<ConfirmationModal />", () => {
     expect(getByText("Cancel")).toBeTruthy()
   })
 
-  it("renders a modal in a \"working\" state", () => {
+  it('renders a modal in a "working" state', () => {
     const { getByText, queryByText } = render(
       <ConfirmationModalWrapper
         confirmWorking={{
           label: "Submitting",
-          labelHidden: false
-        }}>
-          Example modal body
+          labelHidden: false,
+        }}
+      >
+        Example modal body
       </ConfirmationModalWrapper>
     )
     expect(getByText("Example modal body")).toBeTruthy()
@@ -56,8 +55,9 @@ describe("<ConfirmationModal />", () => {
     const document = render(
       <ConfirmationModalWrapper
         onDismiss={handleDismiss}
-        onConfirm={handleConfirm}>
-          Example modal body
+        onConfirm={handleConfirm}
+      >
+        Example modal body
       </ConfirmationModalWrapper>
     )
     fireEvent.keyUp(document.container, { key: "Escape", code: "Escape" })
@@ -71,8 +71,9 @@ describe("<ConfirmationModal />", () => {
     const { getByText } = render(
       <ConfirmationModalWrapper
         onDismiss={handleDismiss}
-        onConfirm={handleConfirm}>
-          Example modal body
+        onConfirm={handleConfirm}
+      >
+        Example modal body
       </ConfirmationModalWrapper>
     )
     fireEvent.click(getByText(/Cancel/i))
@@ -86,8 +87,9 @@ describe("<ConfirmationModal />", () => {
     const { getByText } = render(
       <ConfirmationModalWrapper
         onDismiss={handleDismiss}
-        onConfirm={handleConfirm}>
-          Example modal body
+        onConfirm={handleConfirm}
+      >
+        Example modal body
       </ConfirmationModalWrapper>
     )
     fireEvent.click(getByText(/Confirm/i))
