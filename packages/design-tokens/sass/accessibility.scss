@@ -3,14 +3,18 @@ $default-stripe-angle: 45deg;
 $default-lighten-percent: 50%;
 $default-darken-percent: 50%;
 
-@mixin kz-accessibility-stripe($base-color, $stripe-color, $angle, $width) {
-  background: repeating-linear-gradient(
+@mixin accessibility-stripe($base-color, $stripe-color, $angle, $width) {
+  background: linear-gradient(
     $angle,
-    $base-color,
-    $base-color $width,
-    $stripe-color $width,
-    $stripe-color $width * 2
+    $base-color 25%,
+    $stripe-color 25%,
+    $stripe-color 50%,
+    $base-color 50%,
+    $base-color 75%,
+    $stripe-color 75%,
+    $stripe-color 100%
   );
+  background-size: $width $width;
 }
 
 @mixin kz-accessibility-stripe-dark(
@@ -31,4 +35,12 @@ $default-darken-percent: 50%;
 ) {
   $stripe-color: scale-color($base-color, $lightness: 75%);
   @include accessibility-stripe($base-color, $stripe-color, $angle, $width);
+}
+
+.kz-blue-stripe {
+  @include kz-accessibility-stripe(
+    var(--kz-var-color-cluny-300, #73c0e8),
+    var(--kz-var-color-cluny-500, #0168b3),
+    $width: 1px
+  );
 }
