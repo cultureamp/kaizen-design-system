@@ -156,6 +156,12 @@
       "slate": "--kz-var-color-slate",
       "slate-rgb-params": "--kz-var-color-slate-rgb-params"
     },
+    "dataViz": {
+      "favorable": "--kz-var-data-viz-favorable",
+      "favorable-rgb-params": "--kz-var-data-viz-favorable-rgb-params",
+      "unfavorable": "--kz-var-data-viz-unfavorable",
+      "unfavorable-rgb-params": "--kz-var-data-viz-unfavorable-rgb-params"
+    },
     "DEPRECATED": {
       "color": {
         "lapis": "--kz-var-deprecated-color-lapis",
