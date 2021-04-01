@@ -74,37 +74,37 @@ $default-stripe-width-multiplier: 1;
   );
 }
 
-.kz-blue-stripe {
+.kz-cluny-stripe {
   @include accessibility-stripe(
-    var(--kz-var-color-cluny-300, #73c0e8),
-    var(--kz-var-color-cluny-500, #0168b3),
+    var(--kz-var-color-cluny-300),
+    var(--kz-var-color-cluny-500),
     $angle: $default-stripe-angle,
     $width: $default-stripe-width-thin
   );
 }
 
-.kz-grey-stripe {
+.kz-ash-stripe {
   @include accessibility-stripe(
-    var(--kz-var-color-ash, #ececef),
-    var(--kz-var-color-iron, #8c8c97),
+    var(--kz-var-color-ash),
+    var(--kz-var-color-iron),
     $angle: $default-stripe-angle,
     $width: $default-stripe-width-thin
   );
 }
 
-.kz-green-stripe {
+.kz-favorable-with-stripe {
   @include accessibility-stripe(
-    var(--kz-var-color-seedling-400, #5dcbad),
-    var(--kz-var-color-seedling-500, #3caf90),
+    var(--kz-var-data-viz-favorable),
+    var(--kz-var-color-seedling-500),
     $angle: $default-stripe-angle,
     $width: $default-stripe-width-thick
   );
 }
 
-.kz-red-stripe {
+.kz-unfavorable-with-stripe {
   @include accessibility-stripe(
-    var(--kz-var-color-coral-400, #e0707d),
-    var(--kz-var-color-coral-600, #a82433),
+    var(--kz-var-data-viz-unfavorable),
+    var(--kz-var-color-coral-600),
     $angle: $default-stripe-angle,
     $width: $default-stripe-width-thick
   );
