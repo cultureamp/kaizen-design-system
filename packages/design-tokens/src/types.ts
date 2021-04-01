@@ -133,6 +133,10 @@ export type Theme = {
     iron: string
     slate: string
   }
+  dataViz: {
+    favorable: string
+    unfavorable: string
+  }
   /**
    * @deprecated
    */
