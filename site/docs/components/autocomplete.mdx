@@ -6,6 +6,7 @@ tags: ["Autosuggest", "Live filter", "Filters", "Search", "Top bar", "Text input
 needToKnow:
 - "Search and autocomplete are separated into distinct components, because search may be used in a way that doesn't show autocompleted results."
 - 'Unlike a Select (single- or multi-) that lets you select options from an options menu, the Autocomplete component has other behavior beyond choosing an option as the value for a setting, such as linking to other content.'
+- There is a [searchable select component](/components/select/) which is not an example of autocomplete. The user enters text to narrow down a large list of options to make a selection and set the value of the field.
 
 ---
 
@@ -47,12 +48,6 @@ Autocomplete is forgiving, letting people make mistakes such as spelling errors 
 
 - **Fuzzy search**: a user can write some text and a partial match returns results. Consider whether the text needs to be in order, what effect spaces have, and the effect of capitalization on the match. For example, a forgiving search input that lets you type “design” to match the result “Marketing Design” may be ideal for users that aren't sure what exactly it will be called here.
 - **Smart capitalization matching**: consider appropriate capitalization matching for the data available. For example, when people type a search query using lowercase letters, you might return all, case-insensitive results and when they type a search query containing capital letters, you might return only case-sensitive results matching their capitalization.
-
-### Displaying results
-
-- **Searchable selects**: a user can write some text and potential autocomplete matches or results are shown in a dropdown. The user may either keep typing, or select a result from the dropdown, wherein that selection sets the value of the element. This pattern should be used when there is a very large set of predefined values, such as choosing employee names from a list of all employees.
-- **Immediate results matching**: a user can write some text and potential autocomplete matches or results are filtered live and shown on the page itself as the user types. These results will be further matched and refined as the user continues to type. The user may either keep typing, or select the desired result that has appeared on the page. This pattern should be used when there is a smaller set of initial predefined values, and when seeing the results may help the user to distinguish between them, such as searching for blog posts or articles.
-
 
 ### Content
 
