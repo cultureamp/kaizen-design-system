@@ -50,6 +50,16 @@ const Default = () => (
     />
   </div>
 )
+
+const DefaultWithoutActions = () => (
+  <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
+    <GuidanceBlock
+      img={{ src: guidanceBlockImg, alt: "Guidance block" }}
+      text={guidanceBlockText}
+    />
+  </div>
+)
+
 const WithoutActionArrowButton = () => (
   <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
     <GuidanceBlock
@@ -136,6 +146,12 @@ Default.parameters = {
   backgrounds: { default: "Stone" },
 }
 
+DefaultWithoutActions.storyName = "Default Without Actions"
+
+DefaultWithoutActions.parameters = {
+  backgrounds: { default: "Stone" },
+}
+
 Persistent.storyName = "Persistent"
 
 Persistent.parameters = {
@@ -162,6 +178,7 @@ Prominent.parameters = {
 
 export {
   Default,
+  DefaultWithoutActions,
   WithoutActionArrowButton,
   Persistent,
   SecondaryAction,
