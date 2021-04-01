@@ -1,46 +1,111 @@
-$default-stripe-width: 5px;
-$default-stripe-angle: 45deg;
-$default-lighten-percent: 50%;
-$default-darken-percent: 50%;
+$default-stripe-width-thin: 5px;
+$default-stripe-width-thick: 10px;
+$default-stripe-angle: -45deg;
+$default-stripe-lighten-percent: 50%;
+$default-stripe-darken-percent: 50%;
+$default-stripe-ratio: 0.5;
+$default-striped-row-background-size: 10px;
+$default-stripe-width-multiplier: 1;
 
-@mixin accessibility-stripe($base-color, $stripe-color, $angle, $width) {
+@function generate-stripes($base-color, $stripe-color, $stripe-to-base-ratio) {
+  @if (unit($stripe-to-base-ratio) == "%") {
+    $stripe-to-base-ratio: $stripe-to-base-ratio / 100%;
+  }
+  $base-color-percent: ceil(50% * $stripe-to-base-ratio);
+
+  $stripes: (
+    $stripe-color $base-color-percent,
+    $base-color $base-color-percent,
+    $base-color 50%,
+    $stripe-color 50%,
+    $stripe-color 50% + ($base-color-percent),
+    $base-color 50% + ($base-color-percent),
+    $base-color 100%
+  );
+
+  @return $stripes;
+}
+
+@mixin kz-accessibility-stripe(
+  $base-color,
+  $stripe-color,
+  $angle,
+  $width: $default-stripe-width-thick,
+  $stripe-to-base-ratio: $default-stripe-ratio,
+  $stripe-width-multiplier: $default-stripe-width-multiplier
+) {
   background: linear-gradient(
     $angle,
-    $base-color 25%,
-    $stripe-color 25%,
-    $stripe-color 50%,
-    $base-color 50%,
-    $base-color 75%,
-    $stripe-color 75%,
-    $stripe-color 100%
+    generate-stripes($base-color, $stripe-color, $stripe-to-base-ratio)
   );
-  background-size: $width $width;
+  background-size: (
+      $default-striped-row-background-size * $stripe-width-multiplier
+    )
+    ($default-striped-row-background-size * $stripe-width-multiplier);
 }
 
 @mixin kz-accessibility-stripe-dark(
   $base-color,
   $angle: $default-stripe-angle,
-  $width: $default-stripe-width,
-  $lightness: $default-darken-percent
+  $lightness: $default-stripe-darken-percent,
+  $stripe-width-multiplier: $default-stripe-width-multiplier
 ) {
   $stripe-color: scale-color($base-color, $lightness: -75%);
-  @include accessibility-stripe($base-color, $stripe-color, $angle, $width);
+  @include kz-accessibility-stripe(
+    $base-color,
+    $stripe-color,
+    $angle,
+    $stripe-width-multiplier
+  );
 }
 
 @mixin kz-accessibility-stripe-light(
   $base-color,
   $angle: $default-stripe-angle,
-  $width: $default-stripe-width,
-  $lightness: $default-lighten-percent
+  $lightness: $default-stripe-lighten-percent,
+  $stripe-width-multiplier: $default-stripe-width-multiplier
 ) {
   $stripe-color: scale-color($base-color, $lightness: 75%);
-  @include accessibility-stripe($base-color, $stripe-color, $angle, $width);
+  @include kz-accessibility-stripe(
+    $base-color,
+    $stripe-color,
+    $angle,
+    $stripe-width-multiplier
+  );
 }
 
 .kz-blue-stripe {
-  @include kz-accessibility-stripe(
+  @include accessibility-stripe(
     var(--kz-var-color-cluny-300, #73c0e8),
     var(--kz-var-color-cluny-500, #0168b3),
-    $width: 1px
+    $angle: $default-stripe-angle,
+    $width: $default-stripe-width-thin
+  );
+}
+
+.kz-grey-stripe {
+  @include accessibility-stripe(
+    var(--kz-var-color-ash, #ececef),
+    var(--kz-var-color-iron, #8c8c97),
+    $angle: $default-stripe-angle,
+    $width: $default-stripe-width-thin
+  );
+}
+
+.kz-green-stripe {
+  @include accessibility-stripe(
+    var(--kz-var-color-seedling-400, #5dcbad),
+    var(--kz-var-color-seedling-500, #3caf90),
+    $angle: $default-stripe-angle,
+    $width: $default-stripe-width-thick
+  );
+}
+
+.kz-red-stripe {
+  @include accessibility-stripe(
+    var(--kz-var-color-coral-400, #e0707d),
+    var(--kz-var-color-coral-600, #a82433),
+    $angle: $default-stripe-angle,
+    $width: $default-stripe-width-thick
   );
 }
