@@ -18,6 +18,7 @@ $dt-tooltip-content-border: var(
 
 .tooltip {
   pointer-events: none;
+  z-index: $ca-z-index-tooltip;
 }
 
 .tooltipContent {

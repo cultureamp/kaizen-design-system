@@ -7,7 +7,13 @@ import { SplitButton } from "@kaizen/draft-split-button"
 import { withDesign } from "storybook-addon-designs"
 import { Button } from "@kaizen/draft-button"
 import { Tooltip } from "@kaizen/draft-tooltip"
+import isChromatic from "chromatic/isChromatic"
 import { figmaEmbed } from "../../../storybook/helpers"
+
+const excludeFromChromatic = Story => {
+  if (!isChromatic()) return <Story />
+  return null
+}
 
 export default {
   title: "Tooltip (React)",
@@ -16,7 +22,7 @@ export default {
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14473%3A90872"
     ),
   },
-  decorators: [withDesign],
+  decorators: [withDesign, excludeFromChromatic],
 }
 
 export const DefaultBelowKaizenSiteDemo = () => (
