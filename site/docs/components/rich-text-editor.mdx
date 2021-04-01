@@ -1,9 +1,9 @@
 ---
 title: Rich Text Editor
 navTitle: Rich Text Editor
-summaryParagraph: A text area with additional capabilities for users to format the input text. 
+summaryParagraph: A text area with additional capabilities for users to format the input text.
 tags: ["WYSIWYG editor", "HTML editor"]
-needToKnow: 
+needToKnow:
 - Used to create & publish content for other users, where control over the look & feel of the content is important (e.g. survey communications)
  or users need to structure text to make it more readable (e.g. performance reviews & manager 1:1s).
 ---
@@ -21,10 +21,13 @@ import Dont from "docs-components/Dont"
 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D109544%253A41636" allowfullscreen></iframe>
 
 ## To keep in mind
-- The output of a Rich Text Editor can appear in the context of a larger page, and can present information that comes from a user rather than the system. In support of this: 
-    - We offer only limited formatting options. 
-    - If the content being edited is part of a wider page, users should have the ability to preview that content in context. 
+- The output of a Rich Text Editor can appear in the context of a larger page, and can present information that comes from a user rather than the system. In support of this:
+    - We offer only limited formatting options.
+    - If the content being edited is part of a wider page, users should have the ability to preview that content in context.
 - For accessibility, there is a single tab key stop for the button groups in the toolbar, and the left and right arrows are used to navigate through each button.
+- Focus indicator
+    - See [Interaction states guidelines for focus indicators](/guidelines/interaction-states#focus-indicator).
+    - On keyboard navigation and when clicking into the text field show the focus indicator around the entire rich text editor component.
 
 ## Formatting controls
 
@@ -34,7 +37,7 @@ Formatting controls of the same type are visually grouped to distinguish them. T
     - Bold
     - Italic
     - Underline
-2. **Paragraph format** 
+2. **Paragraph format**
     - Headings (With a maximum of 3 levels: H1, H2, H3)
     - Bulleted lists
     - Numbered lists
@@ -46,7 +49,7 @@ Formatting controls of the same type are visually grouped to distinguish them. T
 
 ## Interactions
 - Character formatting is applied to any selected text/characters.
-- Paragraph formatting is applied to the entire paragraph surrounding the selection or cursor.  
+- Paragraph formatting is applied to the entire paragraph surrounding the selection or cursor.
 - Common formatting functions (like bold, italic) have commonly understood keyboard bindings or shortcuts that we will support. These shortcuts will be shown as tooltips on the button action.
     - **Bold:** &#8984;+b (Mac) Ctrl+b (Windows)
     - **Italic:** &#8984;+i (Mac) Ctrl+i (Windows)
@@ -57,7 +60,7 @@ Formatting controls of the same type are visually grouped to distinguish them. T
 #### Adding a link
 - Highlight the text, click the link icon and add a URL to the dialog.
 - To preview the link, highlight the linked text.
-- To edit a link, highlight the linked text and choose to edit the URL. 
+- To edit a link, highlight the linked text and choose to edit the URL.
 - To delete a link, highlight the linked text and choose delete.
 
 #### Adding a variable
@@ -67,11 +70,11 @@ Formatting controls of the same type are visually grouped to distinguish them. T
 - Upon saving & previewing, the tag will be substituted with the corresponding data.
 - Use backspace/delete to remove the variable.
 
-#### Adding an image 
+#### Adding an image
 - (Not yet built)
 
 ## Minimum defaults
-- For a consistent experience across the product, all rich text editors should at least have the default set of formatting controls: 
+- For a consistent experience across the product, all rich text editors should at least have the default set of formatting controls:
     - Bold
     - Italic
     - Underline

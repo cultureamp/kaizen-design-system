@@ -3,6 +3,63 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.5.1...@kaizen/component-library@9.5.2) (2021-03-31)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [9.5.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.5.0...@kaizen/component-library@9.5.1) (2021-03-30)
+
+
+### Bug Fixes
+
+* Deprecate ToastNotification component ([#1335](https://github.com/cultureamp/kaizen-design-system/issues/1335)) ([8496aef](https://github.com/cultureamp/kaizen-design-system/commit/8496aef333568e471019b9f73349b24d165a9c54))
+
+
+
+
+
+# [9.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.4.3...@kaizen/component-library@9.5.0) (2021-03-29)
+
+
+### Features
+
+* Toast notification manager ([#758](https://github.com/cultureamp/kaizen-design-system/issues/758)) ([d84d8f4](https://github.com/cultureamp/kaizen-design-system/commit/d84d8f4b5d1efd8340995bc6763dd57612f0ab37))
+
+
+
+
+
+## [9.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.4.2...@kaizen/component-library@9.4.3) (2021-03-25)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [9.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.4.1...@kaizen/component-library@9.4.2) (2021-03-25)
+
+
+### Bug Fixes
+
+* InlineNotification issue from Heart update ([#1318](https://github.com/cultureamp/kaizen-design-system/issues/1318)) ([9dfb674](https://github.com/cultureamp/kaizen-design-system/commit/9dfb674bb4240b768168a09118042f439422190d))
+
+
+
+
+
+## [9.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.4.0...@kaizen/component-library@9.4.1) (2021-03-25)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 # [9.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.3.1...@kaizen/component-library@9.4.0) (2021-03-22)
 
 

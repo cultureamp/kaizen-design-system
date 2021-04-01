@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.1.7...@kaizen/draft-popover@2.1.8) (2021-03-31)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [2.1.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.1.6...@kaizen/draft-popover@2.1.7) (2021-03-30)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [2.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.1.5...@kaizen/draft-popover@2.1.6) (2021-03-29)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [2.1.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.1.4...@kaizen/draft-popover@2.1.5) (2021-03-25)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [2.1.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.1.3...@kaizen/draft-popover@2.1.4) (2021-03-25)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
+## [2.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.1.2...@kaizen/draft-popover@2.1.3) (2021-03-25)
+
+**Note:** Version bump only for package @kaizen/draft-popover
+
+
+
+
+
 ## [2.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-popover@2.1.1...@kaizen/draft-popover@2.1.2) (2021-03-22)
 
 **Note:** Version bump only for package @kaizen/draft-popover

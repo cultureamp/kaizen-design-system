@@ -49,6 +49,7 @@ import {
   PerformanceSupport,
   PerformanceTeamSummary,
   Programs,
+  SurveyOverviewClosed,
 } from ".."
 
 export default {
@@ -420,3 +421,10 @@ export const KaizenSiteResourcesAltStory = () => (
   </div>
 )
 KaizenSiteResourcesAltStory.storyName = "Kaizen Site: Resources Alt"
+
+export const SurveyOverviewClosedStory = () => (
+  <div style={{ width: "500px" }}>
+    <SurveyOverviewClosed alt="" />
+  </div>
+)
+SurveyOverviewClosedStory.storyName = "Survey Overview: Closed Survey"

@@ -1,27 +1,77 @@
+import { useTheme } from "@kaizen/design-tokens"
 import * as React from "react"
 import { Base, BaseProps } from "./Base"
 
 export type SceneProps = Pick<BaseProps, "alt" | "classNameAndIHaveSpokenToDST">
 
-export const EmptyStatesAction = (props: SceneProps) => (
-  <Base {...props} name="illustrations/scene/empty-states-action.svg" />
-)
+export const EmptyStatesAction = (props: SceneProps) => {
+  const theme = useTheme()
+  return (
+    <Base
+      {...props}
+      name={
+        theme.themeKey === "zen"
+          ? "illustrations/scene/empty-states-action.svg"
+          : "illustrations/heart/scene/empty-states-action.svg"
+      }
+    />
+  )
+}
+export const EmptyStatesInformative = (props: SceneProps) => {
+  const theme = useTheme()
+  return (
+    <Base
+      {...props}
+      name={
+        theme.themeKey === "zen"
+          ? "illustrations/scene/empty-states-informative.svg"
+          : "illustrations/heart/scene/empty-states-informative.svg"
+      }
+    />
+  )
+}
 
-export const EmptyStatesInformative = (props: SceneProps) => (
-  <Base {...props} name="illustrations/scene/empty-states-informative.svg" />
-)
+export const EmptyStatesNegative = (props: SceneProps) => {
+  const theme = useTheme()
+  return (
+    <Base
+      {...props}
+      name={
+        theme.themeKey === "zen"
+          ? "illustrations/scene/empty-states-negative.svg"
+          : "illustrations/heart/scene/empty-states-negative.svg"
+      }
+    />
+  )
+}
 
-export const EmptyStatesNegative = (props: SceneProps) => (
-  <Base {...props} name="illustrations/scene/empty-states-negative.svg" />
-)
+export const EmptyStatesPositive = (props: SceneProps) => {
+  const theme = useTheme()
+  return (
+    <Base
+      {...props}
+      name={
+        theme.themeKey === "zen"
+          ? "illustrations/scene/empty-states-positive.svg"
+          : "illustrations/heart/scene/empty-states-positive.svg"
+      }
+    />
+  )
+}
 
-export const EmptyStatesPositive = (props: SceneProps) => (
-  <Base {...props} name="illustrations/scene/empty-states-positive.svg" />
-)
-
-export const EmptyStatesNeutral = (props: SceneProps) => (
-  <Base {...props} name="illustrations/scene/empty-states-neutral.svg" />
-)
+export const EmptyStatesNeutral = (props: SceneProps) => {
+  const theme = useTheme()
+  return (
+    <Base
+      {...props}
+      name={
+        theme.themeKey === "zen"
+          ? "illustrations/scene/empty-states-neutral.svg"
+          : "illustrations/heart/scene/empty-states-neutral.svg"
+      }
+    />
+  )
+}
 
 export const IntroductionsNewAccount = (props: SceneProps) => (
   <Base {...props} name="illustrations/scene/introductions-new-account.svg" />
@@ -236,4 +286,8 @@ export const KaizenSiteResources = (props: SceneProps) => (
 
 export const KaizenSiteResourcesAlt = (props: SceneProps) => (
   <Base {...props} name="illustrations/scene/kaizen-site-resources-alt.svg" />
+)
+
+export const SurveyOverviewClosed = (props: SceneProps) => (
+  <Base {...props} name="illustrations/scene/survey-overview-closed.svg" />
 )

@@ -31,10 +31,10 @@ A menu provides access to additional actions and navigation links on demand whil
 
 ### Overflow menu
 
-* An overflow menu is used to bundle multiple related or infrequently used actions. It helps to declutter the interface. 
+* An overflow menu is used to bundle multiple related or infrequently used actions. It helps to declutter the interface.
 * Use an overflow menu if you are short on space / screen real estate.
 * Consider using an overflow menu if you are presenting too many actions (E.g. more than 3) in the same row/space.
-* For an overflow menu, use an [icon button](/components/icon-button) with meatballs icon (i.e. three horizontal dots). 
+* For an overflow menu, use an [icon button](/components/icon-button) with meatballs icon (i.e. three horizontal dots).
 * Overflow menus generally appear on the far right (in left-to-right languages) of a page or section layouts, to define a consistent location for users to look for.
 * Because overflow buttons (meatballs) are generally found on the right edge (in left-to-right languages) of a page, the menu list will need to align to the right edge (in left-to-right languages) of the icon button, so that the menu faces inward towards the content area, and doesn't appear outside of the content area.
 
@@ -43,13 +43,19 @@ A menu provides access to additional actions and navigation links on demand whil
 * A menu list should contain more than 1 action/link. If not, consider exposing these as individual actions.
 * For more than 6 menu items, chunk them into sections, separated by a content [divider](/components/divider). Optionally, you may provide a subheading for each section.
 * Actions must be indicated with an icon. Links do not have an icon.
-* Action icons always live on the left of the action menu button. 
+* Action icons always live on the left of the action menu button.
 * Destructive actions are always at the bottom of the menu list using the destructive menu link style (see example).
 
 
 ### Accessibility
 
 * Ensure people using keyboards can open and close the menu by pressing the button and access links and buttons within the menu list.
+
+### Focus indicator
+* See [Interaction states guidelines for focus indicators](/guidelines/interaction-states#focus-indicator).
+* On keyboard navigation show focus indicator on top selector.
+* For menu select options show focus indicator on keyboard navigation and on click (not hover).
+
 
 ## Copy guidelines
 
@@ -83,4 +89,3 @@ A menu provides access to additional actions and navigation links on demand whil
 - [To ARIA! The Cause of, and Solution to, All Our Accessibility Problems by Jon Whiting](https://webaim.org/blog/aria-cause-solution/)
 - [Lightning: Button groups with overflow menu](https://www.lightningdesignsystem.com/components/button-groups/#With-Overflow-Menu)
 - [Ant Design: Icon button](https://ant.design/docs/spec/buttons#%E2%91%A3-Icon-Button)
-

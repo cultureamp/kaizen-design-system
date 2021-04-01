@@ -1,35 +1,39 @@
 import * as React from "react"
-import GenericNotification, {
-  NotificationType,
-} from "./components/GenericNotification"
+import { v4 } from "uuid"
+import { withDeprecatedComponent } from "@kaizen/react-deprecate-warning"
+import { addToastNotification } from "./ToastNotificationManager"
+import { ToastNotificationWithOptionals } from "./types"
 
-type Props = {
-  type: NotificationType
-  title: string
+type Props = Omit<ToastNotificationWithOptionals, "message"> & {
+  hideCloseIcon?: boolean
   children: React.ReactNode
-  autohide: boolean
-  autohideDelay?: "short" | "long"
-  hideCloseIcon: boolean
-  onHide?: () => void
-  automationId?: string
 }
 
-const ToastNotification = ({ hideCloseIcon, ...otherProps }: Props) => {
-  const persistent = otherProps.autohide && hideCloseIcon
+const ToastNotification = ({
+  id,
+  hideCloseIcon = false,
+  autohide = true,
+  autohideDelay = "short",
+  ...otherProps
+}: Props) => {
+  const [localID] = React.useState(id || v4())
+  const persistent = autohide && hideCloseIcon
 
-  return (
-    <GenericNotification
-      style="toast"
-      persistent={persistent}
-      {...otherProps}
-    />
-  )
+  addToastNotification({
+    id: localID,
+    type: otherProps.type,
+    title: otherProps.title,
+    automationId: otherProps.automationId,
+    autohide,
+    autohideDelay,
+    message: otherProps.children,
+    persistent,
+  })
+
+  return null
 }
 
-ToastNotification.defaultProps = {
-  autohide: false,
-  hideCloseIcon: false,
-  autohideDelay: "short",
-}
-
-export default ToastNotification
+export default withDeprecatedComponent(ToastNotification, {
+  warning:
+    "ToastNotification component API is deprecated. Use addToastNotification from @kaizen/component-library instead.",
+})

@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.13.7...@kaizen/draft-select@1.13.8) (2021-03-31)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.13.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.13.6...@kaizen/draft-select@1.13.7) (2021-03-30)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.13.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.13.5...@kaizen/draft-select@1.13.6) (2021-03-29)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.13.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.13.4...@kaizen/draft-select@1.13.5) (2021-03-25)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.13.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.13.3...@kaizen/draft-select@1.13.4) (2021-03-25)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.13.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.13.2...@kaizen/draft-select@1.13.3) (2021-03-25)
+
+
+### Bug Fixes
+
+* Select component style regression on Zen ([#1316](https://github.com/cultureamp/kaizen-design-system/issues/1316)) ([6ce46a9](https://github.com/cultureamp/kaizen-design-system/commit/6ce46a920660a6b8541dc9626b5d522c1c2df70a))
+
+
+
+
+
+## [1.13.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.13.1...@kaizen/draft-select@1.13.2) (2021-03-25)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
 ## [1.13.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.13.0...@kaizen/draft-select@1.13.1) (2021-03-22)
 
 **Note:** Version bump only for package @kaizen/draft-select

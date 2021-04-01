@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.0.17...@kaizen/draft-title-block@3.0.18) (2021-03-31)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [3.0.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.0.16...@kaizen/draft-title-block@3.0.17) (2021-03-30)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [3.0.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.0.15...@kaizen/draft-title-block@3.0.16) (2021-03-29)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [3.0.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.0.14...@kaizen/draft-title-block@3.0.15) (2021-03-25)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [3.0.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.0.13...@kaizen/draft-title-block@3.0.14) (2021-03-25)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
+## [3.0.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.0.12...@kaizen/draft-title-block@3.0.13) (2021-03-25)
+
+**Note:** Version bump only for package @kaizen/draft-title-block
+
+
+
+
+
 ## [3.0.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.0.11...@kaizen/draft-title-block@3.0.12) (2021-03-22)
 
 **Note:** Version bump only for package @kaizen/draft-title-block

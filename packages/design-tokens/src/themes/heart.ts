@@ -107,6 +107,10 @@ export const heartTheme: Theme = {
     iron: "#8c8c97",
     slate: "#524e56",
   },
+  dataViz: {
+    favorable: "#a5e2d2",
+    unfavorable: "#f7acb9",
+  },
   DEPRECATED: {
     color: {
       lapis: "#253C64",

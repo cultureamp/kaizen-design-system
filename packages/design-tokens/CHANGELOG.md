@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.6.0...@kaizen/design-tokens@2.7.0) (2021-04-01)
+
+
+### Features
+
+* Add new tokens for favorable and unfavorable colors ([#1348](https://github.com/cultureamp/kaizen-design-system/issues/1348)) ([543fcda](https://github.com/cultureamp/kaizen-design-system/commit/543fcda68b9f9fcf8262a6c0b91095a68cf20b38))
+
+
+
+
+
 # [2.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.5.3...@kaizen/design-tokens@2.6.0) (2021-03-17)
 
 

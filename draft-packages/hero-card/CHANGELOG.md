@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.6.2...@kaizen/draft-hero-card@1.6.3) (2021-03-31)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [1.6.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.6.1...@kaizen/draft-hero-card@1.6.2) (2021-03-30)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [1.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.6.0...@kaizen/draft-hero-card@1.6.1) (2021-03-29)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+# [1.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.5.27...@kaizen/draft-hero-card@1.6.0) (2021-03-26)
+
+
+### Features
+
+* add additional background colors to HeroCard component ([#1320](https://github.com/cultureamp/kaizen-design-system/issues/1320)) ([be2575e](https://github.com/cultureamp/kaizen-design-system/commit/be2575e13909af6eb3f8b5e885bc15d779f185e5))
+
+
+
+
+
+## [1.5.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.5.26...@kaizen/draft-hero-card@1.5.27) (2021-03-25)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [1.5.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.5.25...@kaizen/draft-hero-card@1.5.26) (2021-03-25)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
+## [1.5.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.5.24...@kaizen/draft-hero-card@1.5.25) (2021-03-25)
+
+**Note:** Version bump only for package @kaizen/draft-hero-card
+
+
+
+
+
 ## [1.5.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-card@1.5.23...@kaizen/draft-hero-card@1.5.24) (2021-03-22)
 
 **Note:** Version bump only for package @kaizen/draft-hero-card

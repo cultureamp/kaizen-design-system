@@ -29,11 +29,11 @@ exports[`Persistent versions of the notifications work 1`] = `
     >
       Error
     </h6>
-    <p
+    <div
       class="text"
     >
       Something has gone wrong
-    </p>
+    </div>
   </div>
 </div>
 `;
@@ -67,11 +67,11 @@ exports[`The basic notification renders correctly 1`] = `
     >
       Warning
     </h6>
-    <p
+    <div
       class="text"
     >
       Something has gone wrong
-    </p>
+    </div>
   </div>
   <button
     class="cancel"
