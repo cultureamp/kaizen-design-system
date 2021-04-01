@@ -115,6 +115,10 @@ export const zenTheme: Theme = {
     // Duplicate from Heart because it's new
     slate: "#524e56",
   },
+  dataViz: {
+    favorable: "#6B6E94",
+    unfavorable: "#FCCFD4",
+  },
   DEPRECATED: {
     color: {
       lapis: "#253C64",
