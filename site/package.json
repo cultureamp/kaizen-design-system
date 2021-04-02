@@ -21,7 +21,7 @@
     "gatsby-plugin-google-tagmanager": "2.2.1",
     "gatsby-plugin-mdx": "1.1.6",
     "gatsby-plugin-react-helmet": "3.1.8",
-    "gatsby-plugin-sass": "2.1.15",
+    "gatsby-plugin-sass": "4.2.0",
     "gatsby-plugin-svg-sprite": "2.0.1",
     "gatsby-source-filesystem": "2.11.1",
     "gatsby-transformer-remark": "2.6.24",
