@@ -49,7 +49,7 @@ describe("<ConfirmationModal />", () => {
     expect(queryByText("Confirm")).toBeNull()
   })
 
-  it("closes the modal when escape key pressed", () => {
+  it("supports a dismiss action when escape key is pressed", () => {
     const handleConfirm = jest.fn()
     const handleDismiss = jest.fn()
     const document = render(
@@ -65,7 +65,23 @@ describe("<ConfirmationModal />", () => {
     expect(handleConfirm).toHaveBeenCalledTimes(0)
   })
 
-  it("closes the modal when cancel button is pressed", () => {
+  it("supports a dismiss action when dismiss button is pressed", () => {
+    const handleConfirm = jest.fn()
+    const handleDismiss = jest.fn()
+    const { getByTitle } = render(
+      <ConfirmationModalWrapper
+        onConfirm={handleConfirm}
+        onDismiss={handleDismiss}
+      >
+        Example modal body
+      </ConfirmationModalWrapper>
+    )
+    fireEvent.click(getByTitle(/Dismiss/i))
+    expect(handleConfirm).toHaveBeenCalledTimes(0)
+    expect(handleDismiss).toHaveBeenCalledTimes(1)
+  })
+
+  it("supports a dismiss action when cancel button is pressed", () => {
     const handleConfirm = jest.fn()
     const handleDismiss = jest.fn()
     const { getByText } = render(
@@ -81,7 +97,7 @@ describe("<ConfirmationModal />", () => {
     expect(handleDismiss).toHaveBeenCalledTimes(1)
   })
 
-  it("closes the modal when confirm button is pressed", () => {
+  it("supports a confirm action when confirm button is pressed", () => {
     const handleConfirm = jest.fn()
     const handleDismiss = jest.fn()
     const { getByText } = render(

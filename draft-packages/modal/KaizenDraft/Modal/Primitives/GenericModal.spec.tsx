@@ -21,7 +21,7 @@ describe("<GenericModal />", () => {
     expect(() => getByText("Example")).toThrow()
   })
 
-  it("closes the modal when the escape key is pressed", () => {
+  it("closes the modal when escape key is pressed", () => {
     const handleDismiss = jest.fn()
     const document = render(
       <GenericModal isOpen={true} onEscapeKeyup={handleDismiss}>
