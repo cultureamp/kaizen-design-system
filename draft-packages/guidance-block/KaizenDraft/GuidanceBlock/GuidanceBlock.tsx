@@ -15,7 +15,7 @@ export type GuidanceBlockProps = {
     title: string
     description: string | React.ReactNode
   }
-  actions: {
+  actions?: {
     primary: ButtonProps
     secondary?: ButtonProps
     dismiss?: {
@@ -56,7 +56,7 @@ class GuidanceBlock extends React.Component<
 
   dismissBanner(): void {
     this.setState({ hidden: true })
-    this.props.actions.dismiss?.onClick()
+    this.props.actions?.dismiss?.onClick()
   }
 
   onTransitionEnd(e: React.TransitionEvent<HTMLDivElement>) {
@@ -71,13 +71,7 @@ class GuidanceBlock extends React.Component<
       return null
     }
 
-    const {
-      actions: { primary, secondary },
-      img,
-      text,
-      persistent,
-      withActionButtonArrow,
-    } = this.props
+    const { actions, img, text, persistent, withActionButtonArrow } = this.props
 
     return (
       <div
@@ -102,23 +96,25 @@ class GuidanceBlock extends React.Component<
             {text.description}
           </Paragraph>
         </div>
-        <div
-          className={classnames(styles.buttonContainer, {
-            [styles.secondaryAction]: secondary,
-          })}
-        >
-          <Button
-            icon={withActionButtonArrow ? configureIcon : undefined}
-            iconPosition="end"
-            {...primary}
-          />
+        {actions?.primary ? (
+          <div
+            className={classnames(styles.buttonContainer, {
+              [styles.secondaryAction]: actions?.secondary,
+            })}
+          >
+            <Button
+              icon={withActionButtonArrow ? configureIcon : undefined}
+              iconPosition="end"
+              {...actions.primary}
+            />
 
-          {secondary && (
-            <div className={styles.secondaryAction}>
-              <Button secondary {...secondary} />
-            </div>
-          )}
-        </div>
+            {actions?.secondary && (
+              <div className={styles.secondaryAction}>
+                <Button secondary {...actions.secondary} />
+              </div>
+            )}
+          </div>
+        ) : null}
         {!persistent && <CancelButton onClick={this.dismissBanner} />}
       </div>
     )

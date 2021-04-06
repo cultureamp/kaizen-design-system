@@ -155,6 +155,10 @@
   --kz-var-color-iron-rgb-params: 140, 140, 151;
   --kz-var-color-slate: #524e56;
   --kz-var-color-slate-rgb-params: 82, 78, 86;
+  --kz-var-data-viz-favorable: #a5e2d2;
+  --kz-var-data-viz-favorable-rgb-params: 165, 226, 210;
+  --kz-var-data-viz-unfavorable: #f7acb9;
+  --kz-var-data-viz-unfavorable-rgb-params: 247, 172, 185;
   --kz-var-deprecated-color-lapis: #253c64;
   --kz-var-deprecated-color-lapis-rgb-params: 37, 60, 100;
   --kz-var-deprecated-color-ocean: #1b7688;
