@@ -41,8 +41,8 @@ export const App = () => {
           value={theme}
           onChange={evt => setTheme(evt.target.value as ThemeKey)}
         >
-          <option value="zen">Zen</option>
-          <option value="heart">Heart</option>
+          <option value="zen" selected={theme === "zen"}>Zen</option>
+          <option value="heart" selected={theme === "heart"}>Heart</option>
         </select>
       </label>
     </div>
