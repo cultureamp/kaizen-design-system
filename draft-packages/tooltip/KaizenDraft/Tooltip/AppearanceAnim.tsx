@@ -2,9 +2,9 @@ import React, { useState } from "react"
 import { useDebouncedCallback } from "use-debounce"
 
 type AnimationProps = {
-  isAnimIn?: boolean,
-  isAnimOut?: boolean,
-  prevIsOpen?: boolean,
+  isAnimIn?: boolean
+  isAnimOut?: boolean
+  prevIsOpen?: boolean
   isVisible: boolean
 }
 
@@ -16,7 +16,7 @@ export const AnimationContext = React.createContext<AnimationProps>({
   isVisible: false,
   isAnimIn: false,
   isAnimOut: false,
-});
+})
 
 /**
  * Simply applies a css animation to transition a component in and out.
@@ -68,11 +68,14 @@ export const AnimationProvider = ({ isVisible, ...otherProps }) => {
   }
 
   return (
-    <AnimationContext.Provider value={{
-      isVisible,
-      isAnimOut,
-      isAnimIn
-    }} {...otherProps} />
+    <AnimationContext.Provider
+      value={{
+        isVisible,
+        isAnimOut,
+        isAnimIn,
+      }}
+      {...otherProps}
+    />
   )
 }
 
@@ -83,4 +86,3 @@ export const useAnimation = () => {
   }
   return context
 }
-

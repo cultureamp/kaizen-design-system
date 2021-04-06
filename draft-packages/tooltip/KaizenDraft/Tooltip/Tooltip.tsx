@@ -79,38 +79,36 @@ const TooltipContent = ({ position, text, referenceElement, tooltipId }) => {
       placement: position === "below" ? "bottom" : "top",
     }
   )
-  const { isVisible, isAnimIn, isAnimOut } = useAnimation();
+  const { isVisible, isAnimIn, isAnimOut } = useAnimation()
 
-  return (
-    isVisible || isAnimOut || isAnimIn ? (
+  return isVisible || isAnimOut || isAnimIn ? (
+    <div
+      ref={setPopperElement}
+      className={classnames({
+        [tooltipStyles.tooltip]: true,
+        [animationStyles.defaultHiddenState]: true,
+        [animationStyles.visibleState]: isVisible && !isAnimIn,
+      })}
+      style={popperStyles.popper}
+      {...attributes.popper}
+      role="tooltip"
+      id={tooltipId}
+    >
+      <div className={classnames(tooltipStyles.tooltipContent)}>{text}</div>
       <div
-        ref={setPopperElement}
+        ref={setArrowElement}
         className={classnames({
-          [tooltipStyles.tooltip]: true,
-          [animationStyles.defaultHiddenState]: true,
-          [animationStyles.visibleState]: isVisible && !isAnimIn
+          [tooltipStyles.arrow]: true,
         })}
-        style={popperStyles.popper}
-        {...attributes.popper}
-        role="tooltip"
-        id={tooltipId}
+        style={popperStyles.arrow}
       >
-        <div className={classnames(tooltipStyles.tooltipContent)}>{text}</div>
-        <div
-          ref={setArrowElement}
-          className={classnames({
-            [tooltipStyles.arrow]: true,
-          })}
-          style={popperStyles.arrow}
-        >
-          <div className={tooltipStyles.arrowInner}>
-            <div className={tooltipStyles.arrowWhite} />
-            <div className={tooltipStyles.arrowShadow} />
-          </div>
+        <div className={tooltipStyles.arrowInner}>
+          <div className={tooltipStyles.arrowWhite} />
+          <div className={tooltipStyles.arrowShadow} />
         </div>
       </div>
-    ) : null
-  )
+    </div>
+  ) : null
 }
 
 const Tooltip = ({
