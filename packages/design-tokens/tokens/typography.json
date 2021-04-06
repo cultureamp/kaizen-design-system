@@ -2,28 +2,28 @@
   "kz": {
     "typography": {
       "dataLarge": {
-        "fontFamily": "\"Greycliff CF\", \"Noto Sans\", Helvetica, Arial, sans-serif",
+        "fontFamily": "\"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif",
         "fontWeight": 700,
         "fontSize": "5.25rem",
         "lineHeight": "5.25rem",
         "letterSpacing": "normal"
       },
       "dataLargeUnits": {
-        "fontFamily": "\"Greycliff CF\", \"Noto Sans\", Helvetica, Arial, sans-serif",
+        "fontFamily": "\"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif",
         "fontWeight": 700,
         "fontSize": "2.625rem",
         "lineHeight": "5.25rem",
         "letterSpacing": "normal"
       },
       "dataMedium": {
-        "fontFamily": "\"Greycliff CF\", \"Noto Sans\", Helvetica, Arial, sans-serif",
+        "fontFamily": "\"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif",
         "fontWeight": 700,
         "fontSize": "3rem",
         "lineHeight": "5rem",
         "letterSpacing": "normal"
       },
       "dataMediumUnits": {
-        "fontFamily": "\"Greycliff CF\", \"Noto Sans\", Helvetica, Arial, sans-serif",
+        "fontFamily": "\"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif",
         "fontWeight": 700,
         "fontSize": "1.5rem",
         "lineHeight": "5rem",
@@ -44,32 +44,32 @@
         "letterSpacing": "normal"
       },
       "display0": {
-        "fontFamily": "\"Greycliff CF\", \"Noto Sans\", Helvetica, Arial, sans-serif",
-        "fontWeight": 700,
+        "fontFamily": "\"Tiempos Headline\", Georgia, serif",
+        "fontWeight": 800,
         "fontSize": "4.5rem",
-        "lineHeight": "4.5rem",
-        "letterSpacing": "-0.03em"
+        "lineHeight": "5.25rem",
+        "letterSpacing": "0em"
       },
       "heading1": {
-        "fontFamily": "\"Greycliff CF\", \"Noto Sans\", Helvetica, Arial, sans-serif",
+        "fontFamily": "\"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif",
         "fontWeight": 700,
-        "fontSize": "2.25rem",
-        "lineHeight": "2.25rem",
-        "letterSpacing": "-0.03em"
+        "fontSize": "2.125rem",
+        "lineHeight": "2.625rem",
+        "letterSpacing": "normal"
       },
       "heading2": {
-        "fontFamily": "\"Greycliff CF\", \"Noto Sans\", Helvetica, Arial, sans-serif",
+        "fontFamily": "\"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif",
         "fontWeight": 700,
-        "fontSize": "1.875rem",
+        "fontSize": "1.75rem",
         "lineHeight": "2.25rem",
-        "letterSpacing": "-0.03em"
+        "letterSpacing": "normal"
       },
       "heading3": {
-        "fontFamily": "\"Greycliff CF\", \"Noto Sans\", Helvetica, Arial, sans-serif",
+        "fontFamily": "\"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif",
         "fontWeight": 700,
         "fontSize": "1.375rem",
         "lineHeight": "1.5rem",
-        "letterSpacing": "-0.03em"
+        "letterSpacing": "normal"
       },
       "heading4": {
         "fontFamily": "\"Inter\", \"Noto Sans\", Helvetica, Arial, sans-serif",
