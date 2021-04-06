@@ -19,8 +19,8 @@ export const themeOfKey = (themeKey: string) => {
 export const getInitialTheme = () =>
   themeOfKey(
     window.location.search.match(/(\?|\&)theme=(zen|heart)/)?.[2] ||
-    localStorage.getItem(THEME_KEY_STORE_KEY) ||
-    defaultTheme.themeKey
+      localStorage.getItem(THEME_KEY_STORE_KEY) ||
+      defaultTheme.themeKey
   )
 
 export const themeManager = new ThemeManager(getInitialTheme())
