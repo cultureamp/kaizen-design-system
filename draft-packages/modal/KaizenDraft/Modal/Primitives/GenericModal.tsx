@@ -185,6 +185,7 @@ class GenericModal extends React.Component<GenericModalProps> {
             onClick={
               this.props.onOutsideModalClick && this.outsideModalClickHandler
             }
+            data-automation-id={`${automationId}-scrollLayer`}
           >
             <div
               role="dialog"
