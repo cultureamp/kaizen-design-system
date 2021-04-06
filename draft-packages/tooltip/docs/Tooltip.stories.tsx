@@ -10,6 +10,11 @@ import { Tooltip } from "@kaizen/draft-tooltip"
 import isChromatic from "chromatic/isChromatic"
 import { figmaEmbed } from "../../../storybook/helpers"
 
+/**
+ * We should not be running visual regressions on these tooltip stories
+ * until there is a clean way to trigger open states for the snapshots. See:
+ * https://github.com/cultureamp/kaizen-design-system/issues/1375
+ */
 const excludeFromChromatic = Story => {
   if (!isChromatic()) return <Story />
   return null
