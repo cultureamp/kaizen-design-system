@@ -33,6 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^9.5.3",
+    "@headlessui/react": "^0.3.1",
     "@kaizen/deprecated-component-library-helpers": "^2.1.2",
     "@kaizen/draft-button": "^3.2.15",
     "@kaizen/draft-divider": "^1.4.1",
@@ -42,7 +43,6 @@
     "classnames": "^2.2.6",
     "react-dom": "^16.13.1",
     "react-focus-lock": "1.19.1",
-    "react-transition-group": "^4.4.1",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
