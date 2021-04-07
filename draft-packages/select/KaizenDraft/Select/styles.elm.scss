@@ -195,3 +195,14 @@
 .preventPointer {
   pointer-events: none;
 }
+
+.clearButtonWrapper {
+  color: $kz-var-color-wisteria-700;
+  height: 20px;
+  position: relative;
+  top: -14px;
+
+  button:not(:disabled):hover {
+    background-color: transparent;
+  }
+}
