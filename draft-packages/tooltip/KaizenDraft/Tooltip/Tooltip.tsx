@@ -2,8 +2,9 @@ import { usePopper } from "react-popper"
 import React, { useEffect, useState } from "react"
 import ReactDOM from "react-dom"
 import classnames from "classnames"
-import styles from "./Tooltip.scss"
-import AppearanceAnim from "./AppearanceAnim"
+import tooltipStyles from "./Tooltip.scss"
+import animationStyles from "./AppearanceAnim.scss"
+import { AnimationProvider, useAnimation } from "./AppearanceAnim"
 import { useUuid } from "./useUuid"
 
 type Position = "above" | "below"
@@ -78,31 +79,36 @@ const TooltipContent = ({ position, text, referenceElement, tooltipId }) => {
       placement: position === "below" ? "bottom" : "top",
     }
   )
+  const { isVisible, isAnimIn, isAnimOut } = useAnimation()
 
-  return (
+  return isVisible || isAnimOut || isAnimIn ? (
     <div
       ref={setPopperElement}
+      className={classnames({
+        [tooltipStyles.tooltip]: true,
+        [animationStyles.defaultHiddenState]: true,
+        [animationStyles.visibleState]: isVisible && !isAnimIn,
+      })}
       style={popperStyles.popper}
       {...attributes.popper}
-      className={styles.tooltip}
       role="tooltip"
       id={tooltipId}
     >
-      <div className={classnames(styles.tooltipContent)}>{text}</div>
+      <div className={classnames(tooltipStyles.tooltipContent)}>{text}</div>
       <div
         ref={setArrowElement}
         className={classnames({
-          [styles.arrow]: true,
+          [tooltipStyles.arrow]: true,
         })}
         style={popperStyles.arrow}
       >
-        <div className={styles.arrowInner}>
-          <div className={styles.arrowWhite} />
-          <div className={styles.arrowShadow} />
+        <div className={tooltipStyles.arrowInner}>
+          <div className={tooltipStyles.arrowWhite} />
+          <div className={tooltipStyles.arrowShadow} />
         </div>
       </div>
     </div>
-  )
+  ) : null
 }
 
 const Tooltip = ({
@@ -126,14 +132,12 @@ const Tooltip = ({
   const displayToUse = inline != null ? (inline ? "inline" : "block") : display
 
   const tooltip = (
-    <AppearanceAnim isVisible={isHover || isFocus}>
-      <TooltipContent
-        text={text}
-        position={position}
-        referenceElement={referenceElement}
-        tooltipId={tooltipId}
-      />
-    </AppearanceAnim>
+    <TooltipContent
+      text={text}
+      position={position}
+      referenceElement={referenceElement}
+      tooltipId={tooltipId}
+    />
   )
 
   const portalSelectorElement: Element | null = portalSelector
@@ -150,37 +154,39 @@ const Tooltip = ({
   }, [portalSelectorElement, portalSelector])
 
   return (
-    <>
-      <div
-        ref={setReferenceElement}
-        className={classnames(classNameAndIHaveSpokenToDST, {
-          [styles.displayInline]: displayToUse === "inline",
-          [styles.displayBlock]: displayToUse === "block",
-          [styles.displayInlineBlock]: displayToUse === "inline-block",
-          [styles.displayFlex]: displayToUse === "flex",
-          [styles.displayInlineFlex]: displayToUse === "inline-flex",
-        })}
-        onMouseEnter={() => {
-          setIsHover(true)
-        }}
-        onMouseLeave={() => {
-          setIsHover(false)
-        }}
-        onFocusCapture={() => {
-          setIsFocus(true)
-        }}
-        onBlurCapture={() => {
-          setIsFocus(false)
-        }}
-        aria-describedby={tooltipId}
-      >
-        {children}
-      </div>
+    <AnimationProvider isVisible={isHover || isFocus}>
+      <>
+        <div
+          ref={setReferenceElement}
+          className={classnames(classNameAndIHaveSpokenToDST, {
+            [tooltipStyles.displayInline]: displayToUse === "inline",
+            [tooltipStyles.displayBlock]: displayToUse === "block",
+            [tooltipStyles.displayInlineBlock]: displayToUse === "inline-block",
+            [tooltipStyles.displayFlex]: displayToUse === "flex",
+            [tooltipStyles.displayInlineFlex]: displayToUse === "inline-flex",
+          })}
+          onMouseEnter={() => {
+            setIsHover(true)
+          }}
+          onMouseLeave={() => {
+            setIsHover(false)
+          }}
+          onFocusCapture={() => {
+            setIsFocus(true)
+          }}
+          onBlurCapture={() => {
+            setIsFocus(false)
+          }}
+          aria-describedby={tooltipId}
+        >
+          {children}
+        </div>
 
-      {portalSelector && portalSelectorElement
-        ? ReactDOM.createPortal(tooltip, portalSelectorElement)
-        : tooltip}
-    </>
+        {portalSelector && portalSelectorElement
+          ? ReactDOM.createPortal(tooltip, portalSelectorElement)
+          : tooltip}
+      </>
+    </AnimationProvider>
   )
 }
 
