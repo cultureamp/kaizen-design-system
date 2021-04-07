@@ -84,7 +84,7 @@ const WithoutActionArrowButton = () => (
 const WithoutMaxWidth = () => (
   <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
     <GuidanceBlock
-      img={{ src: guidanceBlockImg, alt: "Guidance block" }}
+      img={{ src: guidanceBlockImg, alt: "" }}
       text={guidanceBlockText}
       noMaxWidth
     />

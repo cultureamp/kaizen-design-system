@@ -130,14 +130,11 @@ class GuidanceBlock extends React.Component<
   }
 
   bannerClassName(noMaxWidth): string {
-    return classnames(
-      styles.banner,
-      {
-        [styles.hidden]: this.state.hidden,
-        [styles.prominent]: this.props.variant === "prominent",
-      },
-      noMaxWidth && styles.noMaxWidth
-    )
+    return classnames(styles.banner, {
+      [styles.hidden]: this.state.hidden,
+      [styles.prominent]: this.props.variant === "prominent",
+      [styles.noMaxWidth]: noMaxWidth,
+    })
   }
 
   marginTop(): string {
