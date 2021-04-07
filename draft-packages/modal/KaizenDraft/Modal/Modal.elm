@@ -241,7 +241,7 @@ viewContent (Config modalConfig) =
                     [ ( .animatingElmEnter, True ) ]
 
                 Closing_ ->
-                    [ ( .animatingElmExit, True ) ]
+                    [ ( .animatingElmLeave, True ) ]
 
                 _ ->
                     []
@@ -505,7 +505,7 @@ styles =
         { backdropLayer = "backdropLayer"
         , animatingElmEnter = "animatingElmEnter"
         , elmUnscrollable = "elmUnscrollable"
-        , animatingElmExit = "animatingElmExit"
+        , animatingElmLeave = "animatingElmLeave"
         , elmGenericModal = "elmGenericModal"
         , hide = "hide"
         }
