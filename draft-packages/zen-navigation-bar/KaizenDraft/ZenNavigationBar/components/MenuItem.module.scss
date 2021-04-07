@@ -2,11 +2,11 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/animation";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "../styles";
 
-$menuItem__padding: $kz-spacing-md / 2;
+$menuItem__padding: calc(#{$kz-var-spacing-md} / 2);
 $menuItem__margin: 4px;
 
 .buttonReset {
@@ -31,7 +31,7 @@ $menuItem__margin: 4px;
 }
 
 .arrowIcon {
-  @include ca-margin($start: $kz-spacing-md / 2);
+  @include ca-margin($start: $kz-var-spacing-sm);
 
   display: flex;
   color: rgba($kz-var-color-wisteria-800-rgb-params, 0.5);
@@ -88,23 +88,23 @@ $menuItem__margin: 4px;
 }
 
 .badge {
-  @include ca-margin($start: $kz-spacing-md * 0.25);
-  min-height: $kz-spacing-md;
-  border-radius: $kz-spacing-md;
+  @include ca-margin($start: $kz-var-spacing-xs);
+  min-height: $kz-var-spacing-md;
+  border-radius: $kz-var-spacing-md;
   display: flex;
   align-items: center;
   justify-content: center;
 
   &.badgeNew {
-    @include ca-padding(
-      $start: $kz-spacing-md * 0.5,
-      $end: $kz-spacing-md * 0.5
-    );
+    @include ca-padding($start: $kz-var-spacing-sm, $end: $kz-var-spacing-sm);
     background-color: $kz-var-color-seedling-200;
   }
 
   &.badgeNotification {
-    @include ca-padding($start: $kz-spacing-md / 3, $end: $kz-spacing-md / 3);
+    @include ca-padding(
+      $start: calc(#{$kz-var-spacing-md} / 3),
+      $end: calc(#{$kz-var-spacing-md} / 3)
+    );
     background-color: $kz-var-color-wisteria-800;
 
     @include navbar-mobile-only {

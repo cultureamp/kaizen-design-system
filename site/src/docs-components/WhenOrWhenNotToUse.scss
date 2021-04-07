@@ -1,8 +1,8 @@
-@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 
 .container {
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
   display: inline-flex;
   height: 1.75rem;
   align-items: center;
@@ -18,19 +18,19 @@
 }
 
 .whenToUse {
-  background: $kz-color-seedling-100;
-  border: 1px solid $kz-color-seedling-500;
+  background: $kz-var-color-seedling-100;
+  border: 1px solid $kz-var-color-seedling-500;
 
   .icon {
-    color: $kz-color-seedling-500;
+    color: $kz-var-color-seedling-500;
   }
 }
 
 .whenNotToUse {
-  background: $kz-color-coral-100;
-  border: 1px solid $kz-color-coral-500;
+  background: $kz-var-color-coral-100;
+  border: 1px solid $kz-var-color-coral-500;
 
   .icon {
-    color: $kz-color-coral-500;
+    color: $kz-var-color-coral-500;
   }
 }

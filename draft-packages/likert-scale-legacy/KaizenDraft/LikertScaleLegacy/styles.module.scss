@@ -1,7 +1,6 @@
-@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/layout";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/layout-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 
 @mixin respond-to($media) {
@@ -109,8 +108,8 @@ $fifth: mix($start, $end, 0%);
   }
 
   &.rated .likertItem.unselected .likertItemFill {
-    background-color: $kz-color-wisteria-100;
-    border-color: $kz-color-wisteria-100;
+    background-color: $kz-var-color-wisteria-100;
+    border-color: $kz-var-color-wisteria-100;
     transition: background 0.1s;
   }
 
@@ -129,18 +128,20 @@ $fifth: mix($start, $end, 0%);
     }
 
     &:global(.focus-visible)::after {
-      $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px;
+      $focus-ring-offset: calc(
+        (#{$kz-var-border-focus-ring-border-width} * 2) + 1px
+      );
       content: "";
       position: absolute;
       background: transparent;
-      border-radius: $kz-border-focus-ring-border-radius;
-      border-width: $kz-border-focus-ring-border-width;
-      border-style: $kz-border-focus-ring-border-style;
-      border-color: $kz-color-cluny-500;
-      top: -$focus-ring-offset;
-      left: -$focus-ring-offset;
-      right: -$focus-ring-offset;
-      bottom: -$focus-ring-offset;
+      border-radius: $kz-var-border-focus-ring-border-radius;
+      border-width: $kz-var-border-focus-ring-border-width;
+      border-style: $kz-var-border-focus-ring-border-style;
+      border-color: $kz-var-color-cluny-500;
+      top: calc(-1 * #{$focus-ring-offset});
+      left: calc(-1 * #{$focus-ring-offset});
+      right: calc(-1 * #{$focus-ring-offset});
+      bottom: calc(-1 * #{$focus-ring-offset});
     }
   }
 
@@ -151,7 +152,7 @@ $fifth: mix($start, $end, 0%);
   .reversed:not(.rated)
     :global([data-focus-visible-added]).likertItem:focus
     .likertItemFill {
-    border-color: $kz-color-white;
+    border-color: $kz-var-color-white;
   }
 
   // React seems to be causing the .focus-visible class to only be added sometimes,
@@ -161,18 +162,18 @@ $fifth: mix($start, $end, 0%);
     content: "";
     position: absolute;
     background: transparent;
-    border-radius: $kz-border-focus-ring-border-radius;
-    border-width: $kz-border-focus-ring-border-width;
-    border-style: $kz-border-focus-ring-border-style;
-    border-color: $kz-color-cluny-500;
-    top: -$focus-ring-offset;
-    left: -$focus-ring-offset;
-    right: -$focus-ring-offset;
-    bottom: -$focus-ring-offset;
+    border-radius: $kz-var-border-focus-ring-border-radius;
+    border-width: $kz-var-border-focus-ring-border-width;
+    border-style: $kz-var-border-focus-ring-border-style;
+    border-color: $kz-var-color-cluny-500;
+    top: calc(-1 * #{$focus-ring-offset});
+    left: calc(-1 * #{$focus-ring-offset});
+    right: calc(-1 * #{$focus-ring-offset});
+    bottom: calc(-1 * #{$focus-ring-offset});
   }
 
   .reversed :global([data-focus-visible-added]).likertItem::after {
-    border-color: $kz-color-cluny-300;
+    border-color: $kz-var-color-cluny-300;
   }
 }
 

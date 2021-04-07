@@ -9,8 +9,8 @@
   font-weight: $ca-weight-medium;
   text-decoration: none;
   text-transform: uppercase;
-  max-height: $kz-layout-navigation-bar-height;
-  width: $kz-layout-navigation-bar-height;
+  max-height: $kz-var-layout-navigation-bar-height;
+  width: $kz-var-layout-navigation-bar-height;
   position: relative;
   &::after {
     display: block;

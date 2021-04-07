@@ -1,5 +1,5 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "../styles";
 @import "../../../styles/border";
@@ -94,7 +94,7 @@ $menu__square-size: $ca-grid * 2;
   > * {
     color: white;
     background-color: $dt-color-menu-background-color;
-    border-radius: $kz-border-solid-border-radius;
+    border-radius: $kz-var-border-solid-border-radius;
     padding: 3px 0; // @TODO-DST - No magic padding
     white-space: nowrap;
   }
