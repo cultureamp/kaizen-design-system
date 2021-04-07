@@ -17,7 +17,7 @@ $dt-tooltip-content-border: var(
 );
 
 .tooltip {
-  position: relative; // Set an initial position for the tooltip, which will then be overridden by Popper
+  position: relative; // Make this a positioned element so z-index works. (Note: Popper overrides this to absolute.)
   pointer-events: none;
   z-index: $ca-z-index-tooltip;
 }
