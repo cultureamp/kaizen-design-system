@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.4.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.4.11...@kaizen/draft-modal@5.4.12) (2021-04-07)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
 ## [5.4.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.4.10...@kaizen/draft-modal@5.4.11) (2021-04-01)
 
 **Note:** Version bump only for package @kaizen/draft-modal
