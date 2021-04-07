@@ -1,4 +1,4 @@
-@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/shadow-vars";
 @import "~@kaizen/design-tokens/sass/typography-vars";
 @import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "./decision-tokens.scss";
@@ -14,7 +14,7 @@
   justify-content: center;
 
   &:not(.small) {
-    box-shadow: $kz-shadow-small-box-shadow;
+    box-shadow: $kz-var-shadow-small-box-shadow;
     border: 3px solid $dt-color-border-color;
   }
 

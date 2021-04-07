@@ -20,10 +20,10 @@
 // If the `--kz-var-*` variable is missing, our `--loading-placeholder--*` variables will be invalid, and the Zen tokens are used as a fallback.
 $dt-color-background-default: var(
   --loading-placeholder--color-background-default,
-  $kz-color-wisteria-200
+  $kz-var-color-wisteria-200
 );
 
 $dt-color-background-reversed: var(
   --loading-placeholder--color-background-reversed,
-  rgba($kz-color-white, 0.65)
+  rgba($kz-var-color-white-rgb-params, 0.65)
 );

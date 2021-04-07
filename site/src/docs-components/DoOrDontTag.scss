@@ -1,4 +1,4 @@
-@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 
 .tag {
@@ -10,12 +10,12 @@
 
 .do {
   .icon {
-    color: $kz-color-seedling-500;
+    color: $kz-var-color-seedling-500;
   }
 }
 
 .dont {
   .icon {
-    color: $kz-color-coral-500;
+    color: $kz-var-color-coral-500;
   }
 }

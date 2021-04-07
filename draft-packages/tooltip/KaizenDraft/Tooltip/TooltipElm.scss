@@ -1,6 +1,6 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/shadow-vars";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
@@ -15,13 +15,13 @@
   left: 50%;
   position: absolute;
   pointer-events: none;
-  border-radius: $kz-border-solid-border-radius;
+  border-radius: $kz-var-border-solid-border-radius;
   transition: opacity $ca-duration-fast, transform $ca-duration-fast;
   padding: $ca-grid / 2 $ca-grid / 2;
   z-index: 2;
-  border: $kz-border-solid-border-width $kz-border-solid-border-style
-    $kz-color-wisteria-200;
-  box-shadow: $kz-shadow-small-box-shadow;
+  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
+    $kz-var-color-wisteria-200;
+  box-shadow: $kz-var-shadow-small-box-shadow;
   text-align: center;
 }
 
@@ -44,7 +44,7 @@
 
 .tooltipContent {
   @include kz-typography-paragraph-body($size: 14);
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
   top: 0;
 }
 
@@ -113,7 +113,7 @@
 }
 
 .root::before {
-  border-top: 10px solid $kz-color-wisteria-200;
+  border-top: 10px solid $kz-var-color-wisteria-200;
 }
 
 .root::after {
@@ -123,7 +123,7 @@
 }
 
 .shadow::before {
-  border-top: 0px solid $kz-color-wisteria-200;
+  border-top: 0px solid $kz-var-color-wisteria-200;
 }
 
 // Triangle portion is a little darker to bring out shadow

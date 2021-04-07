@@ -49,9 +49,9 @@ $small: $kz-var-spacing-md;
   position: relative;
   display: flex;
   padding: $kz-var-spacing-xs;
-  margin-top: -$kz-var-spacing-xs;
+  margin-top: calc(-1 * #{$kz-var-spacing-xs});
   margin-right: -0.6625rem;
-  margin-bottom: -$kz-var-spacing-xs;
+  margin-bottom: calc(-1 * #{$kz-var-spacing-xs});
   margin-left: -0.225rem;
 
   --dt-dismiss-icon-color-heart: rgba(

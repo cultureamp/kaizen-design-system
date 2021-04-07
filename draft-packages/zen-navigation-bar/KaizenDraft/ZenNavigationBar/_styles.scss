@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/typography-vars";
+@import "~@kaizen/design-tokens/sass/layout-vars";
 @import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/component-library/styles/fonts";
 @import "~@kaizen/component-library/styles/animation";
@@ -88,7 +89,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   @include ca-type-reverse;
 
   align-items: center;
-  border-radius: $kz-border-solid-border-radius;
+  border-radius: $kz-var-border-solid-border-radius;
   color: rgba($kz-var-color-white-rgb-params, 0.8);
   display: flex;
   height: 100%;
@@ -101,7 +102,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   // active indicator
   @include navbar-tablet-up {
     margin-top: -$ca-navigation-bar__spacer;
-    height: $kz-layout-navigation-bar-height;
+    height: $kz-var-layout-navigation-bar-height;
     &::before {
       content: "";
       display: block;
@@ -113,8 +114,8 @@ $navbar-breakpoint-condensed-large-up: 1150px;
       background-color: $kz-var-color-white;
       transition: top $ca-navigation-bar__animation-ease
         $ca-navigation-bar__animation-timing;
-      border-radius: 0 0 $kz-border-borderless-border-radius
-        $kz-border-borderless-border-radius;
+      border-radius: 0 0 $kz-var-border-borderless-border-radius
+        $kz-var-border-borderless-border-radius;
     }
   }
 
@@ -133,7 +134,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
     align-items: center;
     height: $ca-navigation-bar__child-height;
     padding: 0 ($ca-grid / 2);
-    border-radius: $kz-border-borderless-border-radius;
+    border-radius: $kz-var-border-borderless-border-radius;
     width: 100%;
     justify-content: center;
     @include navbar-mobile-only {
@@ -192,7 +193,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
     justify-content: center;
     height: 48px;
     @include navbar-mobile-only {
-      font-weight: $kz-typography-paragraph-body-font-weight;
+      font-weight: $kz-var-typography-paragraph-body-font-weight;
     }
   }
 
@@ -230,7 +231,7 @@ $navbar-breakpoint-condensed-large-up: 1150px;
       .linkText {
         @include font-heading-5;
         @include ca-inherit-baseline;
-        font-weight: $kz-typography-button-secondary-font-weight;
+        font-weight: $kz-var-typography-button-secondary-font-weight;
         display: none;
       }
     }
@@ -369,8 +370,8 @@ $navbar-breakpoint-condensed-large-up: 1150px;
   flex-direction: row;
   align-items: center;
   background-color: $dt-color-background-color-default;
-  height: $kz-layout-navigation-bar-height;
-  max-height: $kz-layout-navigation-bar-height;
+  height: $kz-var-layout-navigation-bar-height;
+  max-height: $kz-var-layout-navigation-bar-height;
   width: 100%;
   position: fixed;
 
@@ -413,54 +414,54 @@ $navbar-breakpoint-condensed-large-up: 1150px;
 
 @mixin font-heading-3 {
   @include anti-aliasing;
-  font-family: $kz-typography-heading-3-font-family;
-  font-weight: $kz-typography-heading-3-font-weight;
-  font-size: $kz-typography-heading-3-font-size;
-  line-height: $kz-typography-heading-3-line-height;
-  letter-spacing: $kz-typography-heading-3-letter-spacing;
+  font-family: $kz-var-typography-heading-3-font-family;
+  font-weight: $kz-var-typography-heading-3-font-weight;
+  font-size: $kz-var-typography-heading-3-font-size;
+  line-height: $kz-var-typography-heading-3-line-height;
+  letter-spacing: $kz-var-typography-heading-3-letter-spacing;
 }
 
 @mixin font-heading-4 {
   @include anti-aliasing;
-  font-family: $kz-typography-heading-4-font-family;
-  font-weight: $kz-typography-heading-4-font-weight;
-  font-size: $kz-typography-heading-4-font-size;
-  line-height: $kz-typography-heading-4-line-height;
-  letter-spacing: $kz-typography-heading-4-letter-spacing;
+  font-family: $kz-var-typography-heading-4-font-family;
+  font-weight: $kz-var-typography-heading-4-font-weight;
+  font-size: $kz-var-typography-heading-4-font-size;
+  line-height: $kz-var-typography-heading-4-line-height;
+  letter-spacing: $kz-var-typography-heading-4-letter-spacing;
 }
 
 @mixin font-heading-5 {
   @include anti-aliasing;
-  font-family: $kz-typography-heading-5-font-family;
-  font-weight: $kz-typography-heading-5-font-weight;
-  font-size: $kz-typography-heading-5-font-size;
-  line-height: $kz-typography-heading-5-line-height;
-  letter-spacing: $kz-typography-heading-5-letter-spacing;
+  font-family: $kz-var-typography-heading-5-font-family;
+  font-weight: $kz-var-typography-heading-5-font-weight;
+  font-size: $kz-var-typography-heading-5-font-size;
+  line-height: $kz-var-typography-heading-5-line-height;
+  letter-spacing: $kz-var-typography-heading-5-letter-spacing;
 }
 
 @mixin font-heading-6 {
   @include anti-aliasing;
-  font-family: $kz-typography-heading-6-font-family;
-  font-weight: $kz-typography-heading-6-font-weight;
-  font-size: $kz-typography-heading-6-font-size;
-  line-height: $kz-typography-heading-6-line-height;
-  letter-spacing: $kz-typography-heading-6-letter-spacing;
+  font-family: $kz-var-typography-heading-6-font-family;
+  font-weight: $kz-var-typography-heading-6-font-weight;
+  font-size: $kz-var-typography-heading-6-font-size;
+  line-height: $kz-var-typography-heading-6-line-height;
+  letter-spacing: $kz-var-typography-heading-6-letter-spacing;
 }
 
 @mixin font-body {
   @include anti-aliasing;
-  font-family: $kz-typography-paragraph-body-font-family;
-  font-weight: $kz-typography-paragraph-body-font-weight;
-  font-size: $kz-typography-paragraph-body-font-size;
-  line-height: $kz-typography-paragraph-body-line-height;
-  letter-spacing: $kz-typography-paragraph-body-letter-spacing;
+  font-family: $kz-var-typography-paragraph-body-font-family;
+  font-weight: $kz-var-typography-paragraph-body-font-weight;
+  font-size: $kz-var-typography-paragraph-body-font-size;
+  line-height: $kz-var-typography-paragraph-body-line-height;
+  letter-spacing: $kz-var-typography-paragraph-body-letter-spacing;
 }
 
 @mixin font-extra-small {
   @include anti-aliasing;
-  font-family: $kz-typography-paragraph-extra-small-font-family;
-  font-weight: $kz-typography-paragraph-extra-small-font-weight;
-  font-size: $kz-typography-paragraph-extra-small-font-size;
-  line-height: $kz-typography-paragraph-extra-small-line-height;
-  letter-spacing: $kz-typography-paragraph-extra-small-letter-spacing;
+  font-family: $kz-var-typography-paragraph-extra-small-font-family;
+  font-weight: $kz-var-typography-paragraph-extra-small-font-weight;
+  font-size: $kz-var-typography-paragraph-extra-small-font-size;
+  line-height: $kz-var-typography-paragraph-extra-small-line-height;
+  letter-spacing: $kz-var-typography-paragraph-extra-small-letter-spacing;
 }

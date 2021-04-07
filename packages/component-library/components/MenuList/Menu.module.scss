@@ -1,7 +1,6 @@
-@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border";
-@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/shadow-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
@@ -13,9 +12,9 @@ $side-padding: 3/4 * $ca-grid;
 
 .menuList {
   background: white;
-  border: $kz-border-solid-border-width $kz-border-solid-border-style
-    $kz-color-wisteria-200;
-  box-shadow: $kz-shadow-small-box-shadow;
+  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
+    $kz-var-color-wisteria-200;
+  box-shadow: $kz-var-shadow-small-box-shadow;
   line-height: 40px;
 }
 
@@ -37,7 +36,7 @@ $side-padding: 3/4 * $ca-grid;
   @include ca-inherit-baseline;
   composes: interactiveIconWrapper from "../Icon/Icon.module.scss";
   background: transparent;
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
   cursor: pointer;
   text-align: left;
 
@@ -56,13 +55,13 @@ $side-padding: 3/4 * $ca-grid;
   &.menuItem--active,
   &:hover,
   &:focus {
-    background: $kz-color-stone;
-    color: $kz-color-cluny-500;
+    background: $kz-var-color-stone;
+    color: $kz-var-color-cluny-500;
     // override Murmur global styles :(
     text-decoration: none;
 
     .menuItem__Icon {
-      color: $kz-color-cluny-500;
+      color: $kz-var-color-cluny-500;
     }
   }
 }
@@ -72,9 +71,9 @@ $side-padding: 3/4 * $ca-grid;
 }
 
 .menuItem--destructive {
-  color: $kz-color-coral-600;
+  color: $kz-var-color-coral-600;
   .menuItem__Icon {
-    color: $kz-color-coral-600;
+    color: $kz-var-color-coral-600;
   }
 }
 
@@ -88,7 +87,7 @@ $side-padding: 3/4 * $ca-grid;
 
 .menuItem__Icon {
   text-align: right;
-  color: $kz-color-wisteria-800;
+  color: $kz-var-color-wisteria-800;
   position: relative;
   top: 3px;
 
@@ -106,7 +105,7 @@ $side-padding: 3/4 * $ca-grid;
   height: 1px;
   width: 100%;
   border: 0;
-  background: $kz-color-wisteria-200;
+  background: $kz-var-color-wisteria-200;
   visibility: visible;
   margin: 5px 0;
 }

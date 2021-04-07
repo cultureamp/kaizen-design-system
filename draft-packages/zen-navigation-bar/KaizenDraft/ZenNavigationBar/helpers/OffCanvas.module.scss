@@ -1,5 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/shadow-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/animation";
@@ -23,7 +23,7 @@ $menu-footer-height: 80px;
   background-color: $kz-var-color-white;
   color: $kz-var-color-wisteria-800;
   transition: transform $ca-duration-fast $ca-ease-out;
-  box-shadow: $kz-shadow-small-box-shadow;
+  box-shadow: $kz-var-shadow-small-box-shadow;
 }
 
 .active {
