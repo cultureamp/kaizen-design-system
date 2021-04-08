@@ -13,7 +13,7 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
   $ca-duration-slow ease;
 
 .banner.noMaxWidth {
-  max-width: fit-content;
+  max-width: inherit;
 }
 
 .banner {
