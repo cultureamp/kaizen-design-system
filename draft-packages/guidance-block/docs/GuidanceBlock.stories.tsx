@@ -81,6 +81,16 @@ const WithoutActionArrowButton = () => (
   </div>
 )
 
+const WithoutMaxWidth = () => (
+  <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
+    <GuidanceBlock
+      img={{ src: guidanceBlockImg, alt: "" }}
+      text={guidanceBlockText}
+      noMaxWidth
+    />
+  </div>
+)
+
 const Persistent = () => (
   <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
     <GuidanceBlock
@@ -164,6 +174,12 @@ WithoutActionArrowButton.parameters = {
   backgrounds: { default: "Stone" },
 }
 
+WithoutMaxWidth.storyName = "Without Max Width"
+
+WithoutMaxWidth.parameters = {
+  backgrounds: { default: "Stone" },
+}
+
 SecondaryAction.storyName = "Secondary Action"
 
 SecondaryAction.parameters = {
@@ -179,6 +195,7 @@ Prominent.parameters = {
 export {
   Default,
   DefaultWithoutActions,
+  WithoutMaxWidth,
   WithoutActionArrowButton,
   Persistent,
   SecondaryAction,
