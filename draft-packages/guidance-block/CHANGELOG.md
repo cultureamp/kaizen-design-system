@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.7.0...@kaizen/draft-guidance-block@2.7.1) (2021-04-08)
+
+
+### Bug Fixes
+
+* fix the css rule ([#1392](https://github.com/cultureamp/kaizen-design-system/issues/1392)) ([f13fbf3](https://github.com/cultureamp/kaizen-design-system/commit/f13fbf35ab9c11a3899fc10b8ec73ff63eac29a3))
+
+
+
+
+
 # [2.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.6.1...@kaizen/draft-guidance-block@2.7.0) (2021-04-08)
 
 
