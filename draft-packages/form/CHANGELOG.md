@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.3.0...@kaizen/draft-form@3.3.1) (2021-04-09)
+
+
+### Bug Fixes
+
+* export elm select field clearable ([#1398](https://github.com/cultureamp/kaizen-design-system/issues/1398)) ([ae25013](https://github.com/cultureamp/kaizen-design-system/commit/ae25013e84090348095b3b90e025729dbaf78915))
+
+
+
+
+
 # [3.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.2.19...@kaizen/draft-form@3.3.0) (2021-04-09)
 
 
