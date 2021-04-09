@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-search-box",
-  "version": "1.1.32",
+  "version": "1.1.33",
   "description": "The draft search-box component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -33,7 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^9.5.3",
-    "@kaizen/draft-form": "^3.2.19",
+    "@kaizen/draft-form": "^3.3.0",
     "classnames": "^2.2.6"
   },
   "peerDependencies": {

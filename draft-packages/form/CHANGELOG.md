@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.2.19...@kaizen/draft-form@3.3.0) (2021-04-09)
+
+
+### Features
+
+* add clearable option for SelectField.elm ([#1385](https://github.com/cultureamp/kaizen-design-system/issues/1385)) ([c1f7736](https://github.com/cultureamp/kaizen-design-system/commit/c1f7736c44f2d45baaf03a9fbdc70e487a6ff36a))
+
+
+
+
+
 ## [3.2.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.2.18...@kaizen/draft-form@3.2.19) (2021-04-07)
 
 **Note:** Version bump only for package @kaizen/draft-form
