@@ -1,6 +1,7 @@
 module KaizenDraft.Form.SelectField.SelectField exposing
     ( Config
     , Status(..)
+    , clearable
     , description
     , disabled
     , id
