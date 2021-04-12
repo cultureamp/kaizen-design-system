@@ -32,7 +32,7 @@
     "prepublish": "yarn build:json && yarn build:less && yarn build:sass"
   },
   "devDependencies": {
-    "@types/lodash.flatmap": "4.5.3",
+    "@types/lodash.flatmap": "4.5.6",
     "@types/react-highlight": "0.12.2",
     "@types/yargs": "16.0.0",
     "json-to-flat-sass": "^1.0.0",
