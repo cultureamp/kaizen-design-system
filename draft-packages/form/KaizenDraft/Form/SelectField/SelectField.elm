@@ -5,6 +5,7 @@ module KaizenDraft.Form.SelectField.SelectField exposing
     , description
     , disabled
     , id
+    , isLoading
     , labelHtml
     , labelText
     , menuItems
