@@ -40,8 +40,13 @@ steps:
     branches: "!master"
     <<: *defaults
 
-  - name: ":pencil2: Test"
-    command: ".buildkite/scripts/test.sh"
+  - name: ":pencil2: Test (React 16)"
+    command: ".buildkite/scripts/test-react-16.sh"
+    branches: "!master"
+    <<: *defaults
+
+  - name: ":pencil2: Test (React 17)"
+    command: ".buildkite/scripts/test-react-17.sh"
     branches: "!master"
     <<: *defaults
 
