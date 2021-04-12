@@ -8,3 +8,12 @@ module.exports = {
     "\\.svg$": require.resolve("@kaizen/component-library/mocks/svgMock"),
   },
 }
+
+if (process.env.USE_REACT_17 === "true") {
+  module.exports.cacheDirectory = ".cache/jest-cache-react-17"
+  module.exports.moduleNameMapper = {
+    ...module.exports.moduleNameMapper,
+    "^react-dom((\\/.*)?)$": "react-dom-17$1",
+    "^react((\\/.*)?)$": "react-17$1",
+  }
+}
