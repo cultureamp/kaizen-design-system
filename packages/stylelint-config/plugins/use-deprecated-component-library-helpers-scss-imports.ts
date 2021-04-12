@@ -1,4 +1,3 @@
-// Abbreviated example
 import stylelint from "stylelint"
 import { AtRule } from "postcss"
 const ruleName = "kaizen/use-deprecated-component-library-helpers-scss-imports"
