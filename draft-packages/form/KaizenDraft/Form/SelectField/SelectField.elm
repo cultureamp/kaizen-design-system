@@ -1,6 +1,7 @@
 module KaizenDraft.Form.SelectField.SelectField exposing
     ( Config
     , Status(..)
+    , clearable
     , description
     , disabled
     , id
@@ -48,6 +49,7 @@ type alias ConfigValue msg item =
     , placeholder : ( String, Select.Style )
     , menuItems : List (Select.MenuItem item)
     , searchable : Bool
+    , clearable : Bool
     , toMsg : ToMsg msg item
     , labelText : Label.LabelProp msg
     , description : Maybe (List (Html msg))
@@ -71,6 +73,7 @@ defaults toMsg =
     , placeholder = Select.defaults.placeholder
     , menuItems = Select.defaults.menuItems
     , searchable = Select.defaults.searchable
+    , clearable = Select.defaults.clearable
     , toMsg = toMsg
     , labelText = Label.LabelString ""
     , description = Nothing
@@ -143,6 +146,11 @@ placeholder plc (Config config) =
 searchable : Bool -> Config msg item -> Config msg item
 searchable searchable_ (Config config) =
     Config { config | searchable = searchable_ }
+
+
+clearable : Bool -> Config msg item -> Config msg item
+clearable predicate (Config config) =
+    Config { config | clearable = predicate }
 
 
 
@@ -269,6 +277,7 @@ view (Config config) =
                 |> Select.placeholder config.placeholder
                 |> Select.menuItems config.menuItems
                 |> Select.searchable config.searchable
+                |> Select.clearable config.clearable
 
         selectInputId =
             config.id ++ "-field-input"

@@ -12,6 +12,10 @@ $ca-banner-fade-out: opacity $ca-duration-slow ease;
 $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
   $ca-duration-slow ease;
 
+.banner.noMaxWidth {
+  max-width: inherit;
+}
+
 .banner {
   display: flex;
   flex-direction: column;
