@@ -7,7 +7,7 @@ exports[`matches snapshot with everything enabled 1`] = `
     data-automation-id="some-bogus-test-id"
   >
     <div
-      class="container separated"
+      class="container stickyContainer separated"
       data-automation-id="collapsible-container-1"
     >
       <button
@@ -55,13 +55,13 @@ exports[`matches snapshot with everything enabled 1`] = `
       </div>
     </div>
     <div
-      class="container separated"
+      class="container stickyContainer separated"
       data-automation-id="another-bogus-test-id"
     >
       <button
         aria-controls="2-section"
         aria-expanded="true"
-        class="button open sticky"
+        class="button highlightOpen sticky"
         data-automation-id="collapsible-button-2"
         id="2-button"
         style="top: 20px;"
