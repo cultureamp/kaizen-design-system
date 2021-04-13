@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.3.1...@kaizen/draft-form@3.3.2) (2021-04-13)
+
+
+### Bug Fixes
+
+* expose isLoading from SelectField.elm ([#1419](https://github.com/cultureamp/kaizen-design-system/issues/1419)) ([8090116](https://github.com/cultureamp/kaizen-design-system/commit/809011667aeafb62df4fb8013a461cba4429579f))
+
+
+
+
+
 ## [3.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.3.0...@kaizen/draft-form@3.3.1) (2021-04-09)
 
 
