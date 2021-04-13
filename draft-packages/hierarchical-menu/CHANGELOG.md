@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.49](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.48...@kaizen/draft-hierarchical-menu@2.0.49) (2021-04-13)
+
+**Note:** Version bump only for package @kaizen/draft-hierarchical-menu
+
+
+
+
+
 ## [2.0.48](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hierarchical-menu@2.0.47...@kaizen/draft-hierarchical-menu@2.0.48) (2021-04-07)
 
 **Note:** Version bump only for package @kaizen/draft-hierarchical-menu
