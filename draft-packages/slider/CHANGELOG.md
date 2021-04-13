@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.1.27...@kaizen/draft-slider@1.2.0) (2021-04-13)
+
+
+### Features
+
+* Add Heart support ([#1425](https://github.com/cultureamp/kaizen-design-system/issues/1425)) ([73dcfbd](https://github.com/cultureamp/kaizen-design-system/commit/73dcfbdf0d8973efde071e48997030ddb13e2b3d))
+
+
+
+
+
 ## [1.1.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.1.26...@kaizen/draft-slider@1.1.27) (2021-04-07)
 
 **Note:** Version bump only for package @kaizen/draft-slider
