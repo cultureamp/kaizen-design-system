@@ -41,7 +41,7 @@ export type SelectProps = {
 
 export type VariantType = "default" | "secondary" | "secondary-small"
 
-export const Select = (props: SelectProps & ReactSelectProps) => {
+export const Select = (props: SelectProps & ReactSelectProps<any, boolean>) => {
   if (props.fullWidth === false && props.variant !== "secondary") {
     throw new Error(
       'the prop fullWidth=false is not yet implemented when variant="default"'
@@ -92,7 +92,9 @@ export const Select = (props: SelectProps & ReactSelectProps) => {
   )
 }
 
-interface AsyncProps extends ReactAsyncSelectProps<any>, ReactSelectProps {}
+interface AsyncProps
+  extends ReactAsyncSelectProps<any>,
+    ReactSelectProps<any, boolean> {}
 
 export const AsyncSelect = (props: AsyncProps) => (
   <Async
