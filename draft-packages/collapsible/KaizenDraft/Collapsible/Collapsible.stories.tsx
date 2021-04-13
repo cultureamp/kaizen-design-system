@@ -74,6 +74,7 @@ export const SingleCollapsibleCustomHeader = () => (
       id="collapsible-single"
       open
       title="Custom header"
+      highlightOpen={false}
       renderHeader={title => (
         <>
           <Icon icon={translationIcon} />

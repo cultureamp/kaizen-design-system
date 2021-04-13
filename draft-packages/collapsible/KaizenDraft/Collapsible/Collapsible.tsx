@@ -22,6 +22,9 @@ export type Props = {
   automationId?: string
   onToggle?: (open: boolean, id: string) => void
 
+  /* Highlights the header when open by changing the background color */
+  highlightOpen?: boolean
+
   /* Will avoid rendering the content until required (especially important when you have queries inside sections).
   Removes animation. */
   lazyLoad?: boolean
@@ -51,6 +54,7 @@ class Collapsible extends React.Component<Props, State> {
       automationId,
       children,
       lazyLoad,
+      highlightOpen = true,
     } = this.props
     const buttonId = `${this.props.id}-button`
     const sectionId = `${this.props.id}-section`
@@ -70,7 +74,7 @@ class Collapsible extends React.Component<Props, State> {
         <button
           id={buttonId}
           className={classnames(styles.button, {
-            [styles.open]: open,
+            [styles.highlightOpen]: open && highlightOpen,
             [styles.sticky]: sticky,
           })}
           style={sticky && { top: sticky.top }}
