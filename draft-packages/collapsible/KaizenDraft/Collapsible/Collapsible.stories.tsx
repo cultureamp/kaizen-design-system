@@ -22,6 +22,7 @@ export default {
   title: "Collapsible (React)",
   component: Collapsible,
   parameters: {
+    backgrounds: { default: "Stone" },
     info: {
       text: `
         import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible";
@@ -73,6 +74,7 @@ export const SingleCollapsibleCustomHeader = () => (
       id="collapsible-single"
       open
       title="Custom header"
+      highlightOpen={false}
       renderHeader={title => (
         <>
           <Icon icon={translationIcon} />
