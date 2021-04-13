@@ -55,11 +55,13 @@ class Collapsible extends React.Component<Props, State> {
     const buttonId = `${this.props.id}-button`
     const sectionId = `${this.props.id}-section`
     const open = this.getOpen()
+    const isContainer = !group || separated
 
     return (
       <div
         className={classnames({
-          [styles.container]: !group || separated,
+          [styles.container]: isContainer,
+          [styles.stickyContainer]: isContainer && sticky,
           [styles.groupItem]: group && !separated,
           [styles.separated]: separated,
         })}

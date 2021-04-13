@@ -22,6 +22,7 @@ export default {
   title: "Collapsible (React)",
   component: Collapsible,
   parameters: {
+    backgrounds: { default: "Stone" },
     info: {
       text: `
         import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible";
