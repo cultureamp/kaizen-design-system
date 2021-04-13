@@ -27,7 +27,10 @@ export const CollapsibleGroup: React.FunctionComponent<Props> = ({
   onToggle,
 }) => (
   <div
-    className={classnames({ [styles.container]: !separated })}
+    className={classnames({
+      [styles.container]: !separated,
+      [styles.stickyContainer]: !separated && sticky,
+    })}
     data-automation-id={automationId}
   >
     {React.Children.map(children, collapsible =>

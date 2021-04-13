@@ -8,10 +8,22 @@
 $heading-active-color: $kz-var-color-wisteria-100;
 
 .container {
-  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
-    $ca-border-color;
   box-shadow: $kz-var-shadow-small-box-shadow;
-  border-radius: $ca-border-radius;
+  border-radius: $kz-var-border-borderless-border-radius;
+  overflow: hidden;
+}
+
+// We set overflow: hidden on the container, so that child nodes without border
+// radius do not overlap the container. However, this breaks the sticky headers
+// because it creates a new scroll container. The solution is to use the new
+// overflow: clip setting, but until it has full support across browsers we also
+// need a fallback. When there is full support for overflow:clip, we can use that
+// in .container for everything
+.stickyContainer {
+  overflow: visible;
+  @supports (overflow: clip) {
+    overflow: clip;
+  }
 }
 
 .separated {
@@ -51,7 +63,7 @@ $heading-active-color: $kz-var-color-wisteria-100;
   flex: 1 1 auto;
 }
 
-.open {
+.highlightOpen {
   background-color: $heading-active-color;
 }
 
