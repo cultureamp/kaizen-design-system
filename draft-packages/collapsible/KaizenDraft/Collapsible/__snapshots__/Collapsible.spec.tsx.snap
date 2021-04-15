@@ -61,7 +61,7 @@ exports[`matches snapshot with everything enabled 1`] = `
       <button
         aria-controls="2-section"
         aria-expanded="true"
-        class="button highlightOpen sticky"
+        class="button defaultVariant sticky"
         data-automation-id="collapsible-button-2"
         id="2-button"
         style="top: 20px;"
