@@ -38,7 +38,7 @@
     "@kaizen/draft-form": "^3.3.3",
     "@kaizen/draft-tag": "^1.8.10",
     "@types/classnames": "^2.2.10",
-    "@types/react-select": "^3.0.22",
+    "@types/react-select": "^4.0.14",
     "classnames": "^2.2.6",
     "react-select": "^3.1.0"
   },
