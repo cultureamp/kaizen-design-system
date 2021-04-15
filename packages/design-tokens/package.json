@@ -18,10 +18,10 @@
     "index.ts",
     "src",
     "react",
-    "build"
+    "dist"
   ],
-  "types": "build/**/*.d.ts",
-  "main": "build/index.js",
+  "types": "dist/**/*.d.ts",
+  "main": "dist/index.js",
   "private": false,
   "license": "MIT",
   "sideEffects": false,

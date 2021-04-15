@@ -19,4 +19,4 @@
 /storybook/public/
 /elm-stuff/
 elm.json
-/packages/design-tokens/build
+/packages/design-tokens/dist
