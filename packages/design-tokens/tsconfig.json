@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "strict": true,
+    "noImplicitAny": true,
+    "rootDir": ".",
+    "outDir": "build",
+    "declarationMap": true,
+    "declaration": true,
+    "target": "es5",
+    "module": "CommonJS"
+  },
+  "include": ["src", "index.ts"]
+}
