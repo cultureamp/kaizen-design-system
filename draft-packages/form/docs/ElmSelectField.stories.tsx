@@ -8,6 +8,6 @@ loadElmStories(
   "SelectField (Elm)",
   module,
   compiledElm,
-  ["Single", "Multi-Select"],
+  ["Single", "Single Disabled", "Multi-Select"],
   Ports
 )

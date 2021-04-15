@@ -13,6 +13,7 @@ loadElmStories(
     "Single Searchable",
     "Multi-Select Searchable",
     "Single Clearable",
+    "Single Disabled",
   ],
   Ports
 )

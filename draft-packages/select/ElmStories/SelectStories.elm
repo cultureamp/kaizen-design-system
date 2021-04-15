@@ -58,7 +58,7 @@ update msg selectModel =
 
 main =
     let
-        buildMenuItems i =
+        buildMenuItem i =
             { item = i, label = i, menuItemType = Select.Default }
 
         buildSelected m =
@@ -83,7 +83,7 @@ main =
                         [ Select.view
                             (Select.single (buildSelected m)
                                 |> Select.state m.selectState
-                                |> Select.menuItems (List.map buildMenuItems m.members)
+                                |> Select.menuItems (List.map buildMenuItem m.members)
                                 |> Select.searchable False
                                 |> Select.placeholder ( "Placeholder", Select.Bold )
                             )
@@ -96,7 +96,7 @@ main =
                         [ Select.view
                             (Select.single (buildSelected m)
                                 |> Select.state m.selectState
-                                |> Select.menuItems (List.map buildMenuItems m.members)
+                                |> Select.menuItems (List.map buildMenuItem m.members)
                                 |> Select.searchable True
                                 |> Select.placeholder ( "Placeholder", Select.Bold )
                             )
@@ -107,9 +107,9 @@ main =
                 Html.map SelectMsg <|
                     div [ style "width" "500px", style "margin-top" "12px" ]
                         [ Select.view
-                            (Select.multi { truncationWidth = Just 300 } (List.map buildMenuItems m.selectedMembers)
+                            (Select.multi { truncationWidth = Just 300 } (List.map buildMenuItem m.selectedMembers)
                                 |> Select.state m.selectState
-                                |> Select.menuItems (List.map buildMenuItems m.members)
+                                |> Select.menuItems (List.map buildMenuItem m.members)
                                 |> Select.searchable True
                                 |> Select.placeholder ( "Placeholder", Select.Bold )
                             )
@@ -122,10 +122,25 @@ main =
                         [ Select.view
                             (Select.single (buildSelected m)
                                 |> Select.state m.selectState
-                                |> Select.menuItems (List.map buildMenuItems m.members)
+                                |> Select.menuItems (List.map buildMenuItem m.members)
                                 |> Select.searchable True
                                 |> Select.clearable True
                                 |> Select.placeholder ( "Placeholder", Select.Bold )
+                            )
+                            (Select.selectIdentifier "Single Clearable Select")
+                        ]
+        , storyOf "Single Disabled" config <|
+            \m ->
+                Html.map SelectMsg <|
+                    div [ style "width" "300px", style "margin-top" "12px" ]
+                        [ Select.view
+                            (Select.single (Just <| buildMenuItem "Jaime")
+                                |> Select.state m.selectState
+                                |> Select.menuItems (List.map buildMenuItem m.members)
+                                |> Select.searchable True
+                                |> Select.clearable True
+                                |> Select.placeholder ( "Placeholder", Select.Bold )
+                                |> Select.disabled True
                             )
                             (Select.selectIdentifier "Single Clearable Select")
                         ]
