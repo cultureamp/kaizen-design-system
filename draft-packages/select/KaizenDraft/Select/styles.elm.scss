@@ -26,6 +26,10 @@
   box-sizing: border-box;
 }
 
+.disabled {
+  opacity: 0.3;
+}
+
 .control {
   align-items: center;
   background-color: white;
@@ -43,7 +47,7 @@
   /* Tech debt - this !important existed before Stylelint rules */
   outline: 0 !important; /* stylelint-disable-line declaration-no-important */
 
-  &:hover {
+  &:not(.disabled):hover {
     // Slate on Heart theme, Wisteria700 on Zen. Switching not needed when Zen is removed.
     border-color: var($kz-var-id-color-slate, $kz-var-color-wisteria-700);
     // Stone on Heart theme, Wisteria100 on Zen. Switching not needed when Zen is removed
@@ -64,6 +68,10 @@
   flex: 1;
   padding: 2px 8px;
   overflow: hidden;
+
+  .disabled & {
+    position: static;
+  }
 }
 
 .singleValue {
@@ -110,6 +118,10 @@
 .iconButton {
   height: 20px;
   composes: interactiveIconWrapper from "~@kaizen/component-library/components/Icon/Icon.module.scss";
+}
+
+.iconButtonDisabled {
+  height: 20px;
 }
 
 .menu {
@@ -203,6 +215,7 @@
   top: -14px;
 
   button:not(:disabled):hover {
+    // not(:disabled) is required for extra specificity to override the default button background
     background-color: transparent;
   }
 }

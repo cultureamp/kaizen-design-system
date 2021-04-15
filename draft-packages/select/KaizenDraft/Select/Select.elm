@@ -9,6 +9,7 @@ module KaizenDraft.Select.Select exposing
     , Variant(..)
     , clearable
     , defaults
+    , disabled
     , dummyInputIdPrefix
     , initState
     , isLoading
@@ -186,6 +187,7 @@ type alias Configuration item =
     , menuItems : List (MenuItem item)
     , searchable : Bool
     , clearable : Bool
+    , disabled : Bool
     }
 
 
@@ -270,6 +272,7 @@ defaults =
     , menuItems = []
     , searchable = True
     , clearable = False
+    , disabled = False
     }
 
 
@@ -319,6 +322,11 @@ searchable predicate (Config config) =
 clearable : Bool -> Config item -> Config item
 clearable predicate (Config config) =
     Config { config | clearable = predicate }
+
+
+disabled : Bool -> Config item -> Config item
+disabled predicate (Config config) =
+    Config { config | disabled = predicate }
 
 
 
@@ -716,18 +724,22 @@ view (Config config) selectId =
                 text ""
 
         buildInput =
-            if config.searchable then
-                lazy viewSelectInput
-                    (ViewSelectInputData (getSelectId selectId) state_.inputValue enterSelectTargetItem totalMenuItems state_.menuOpen state_.usePorts)
+            if not config.disabled then
+                if config.searchable then
+                    lazy viewSelectInput
+                        (ViewSelectInputData (getSelectId selectId) state_.inputValue enterSelectTargetItem totalMenuItems state_.menuOpen state_.usePorts)
+
+                else
+                    lazy viewDummyInput
+                        (ViewDummyInputData
+                            (getSelectId selectId)
+                            enterSelectTargetItem
+                            totalMenuItems
+                            state_.menuOpen
+                        )
 
             else
-                lazy viewDummyInput
-                    (ViewDummyInputData
-                        (getSelectId selectId)
-                        enterSelectTargetItem
-                        totalMenuItems
-                        state_.menuOpen
-                    )
+                text ""
 
         preventDefault =
             if config.searchable then
@@ -745,7 +757,7 @@ view (Config config) selectId =
                 True
 
         clearButtonVisible =
-            if config.clearable then
+            if config.clearable && not config.disabled then
                 case config.variant of
                     Multi _ _ ->
                         -- clearable is only applicable to Single Select
@@ -762,25 +774,35 @@ view (Config config) selectId =
             else
                 False
     in
-    div [ styles.class .container ]
+    div
+        [ styles.class .container
+        ]
         [ div
-            [ styles.classList
+            ([ styles.classList
                 [ ( .control, True )
+                , ( .disabled, config.disabled )
                 , ( .isFocused, state_.controlFocused )
                 , ( .cautionary, config.selectType == Cautionary && state_.controlFocused == False )
                 , ( .error, config.selectType == Error && state_.controlFocused == False )
                 ]
-            , attribute "data-automation-id" "Select__Control"
-            , preventDefaultOn "mousedown" <|
-                Decode.map
-                    (\msg ->
-                        ( msg
-                        , preventDefault
-                        )
-                    )
-                <|
-                    Decode.succeed resolveContainerMsg
-            ]
+             , attribute "data-automation-id" "Select__Control"
+             ]
+                ++ (if config.disabled then
+                        []
+
+                    else
+                        [ preventDefaultOn "mousedown" <|
+                            Decode.map
+                                (\msg ->
+                                    ( msg
+                                    , preventDefault
+                                    )
+                                )
+                            <|
+                                Decode.succeed resolveContainerMsg
+                        ]
+                   )
+            )
             [ div [ styles.class .valueContainer ]
                 [ span [] buildMulti
                 , buildPlaceholder
@@ -794,7 +816,12 @@ view (Config config) selectId =
 
                       else
                         text ""
-                    , span [ styles.class .iconButton ]
+                    , span
+                        [ styles.classList
+                            [ ( .iconButton, not config.disabled )
+                            , ( .iconButtonDisabled, config.disabled )
+                            ]
+                        ]
                         [ Icon.view Icon.presentation
                             (svgAsset "@kaizen/component-library/icons/chevron-down.icon.svg")
                             |> Html.map never
@@ -1409,6 +1436,7 @@ styles =
         , indicators = "indicators"
         , indicatorContainer = "indicatorContainer"
         , iconButton = "iconButton"
+        , iconButtonDisabled = "iconButtonDisabled"
         , menuList = "menuList"
         , menu = "menu"
         , option = "option"
@@ -1423,4 +1451,5 @@ styles =
         , error = "error"
         , preventPointer = "preventPointer"
         , clearButtonWrapper = "clearButtonWrapper"
+        , disabled = "disabled"
         }

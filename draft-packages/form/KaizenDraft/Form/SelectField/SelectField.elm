@@ -279,6 +279,7 @@ view (Config config) =
                 |> Select.menuItems config.menuItems
                 |> Select.searchable config.searchable
                 |> Select.clearable config.clearable
+                |> Select.disabled config.disabled
 
         selectInputId =
             config.id ++ "-field-input"
