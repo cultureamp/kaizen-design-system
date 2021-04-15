@@ -24,7 +24,11 @@ export type Props = {
   automationId?: string
   onToggle?: (open: boolean, id: string) => void
 
-  /* Highlights the header when open by changing the background color */
+  /**
+   * By default, the header will change background colour when open. When the variant
+    is set to 'clear', it will not have a background but a border-bottom will appear
+    to separate the heading from the content.
+   */
   variant?: Variant
 
   /* Will avoid rendering the content until required (especially important when you have queries inside sections).
