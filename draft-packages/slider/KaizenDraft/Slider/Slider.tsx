@@ -18,8 +18,7 @@ export const Slider = ({
   automationId,
   initialValue,
   disabled = false,
-  // eslint-disable-next-line
-  onChange = () => {},
+  onChange = () => undefined,
   labelLow = "Not at all",
   labelHigh = "Very",
   disabledLabel,
