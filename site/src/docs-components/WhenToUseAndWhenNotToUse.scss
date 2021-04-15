@@ -1,4 +1,4 @@
-@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/responsive";
 
@@ -50,9 +50,9 @@
 }
 
 .whenToUse {
-  border-top-color: $kz-color-seedling-500;
+  border-top-color: $kz-var-color-seedling-500;
 }
 
 .whenNotToUse {
-  border-top-color: $kz-color-coral-500;
+  border-top-color: $kz-var-color-coral-500;
 }

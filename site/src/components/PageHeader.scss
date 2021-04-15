@@ -1,4 +1,4 @@
-@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/responsive";
@@ -6,7 +6,7 @@
 .pageHeader {
   display: grid;
   justify-items: center;
-  background: $kz-color-wisteria-700;
+  background: $kz-var-color-wisteria-700;
   padding: calc(var(--ca-grid) * 3.5) var(--ca-grid);
   color: white;
 
@@ -72,7 +72,7 @@
 }
 
 .tagsContainer {
-  color: $kz-color-white;
+  color: $kz-var-color-white;
   margin-bottom: 2rem;
   opacity: 0.8;
 }
@@ -112,7 +112,7 @@
 
 .headingTextOverrides.headingTextOverrides {
   // the double class name is to get higher specificity. This is until we find a better way to specify colour overrides of the Text component. Without this, the css file load order becomes important, but it is non deterministic or unpredictable (is different in development and production)
-  color: $kz-color-white;
+  color: $kz-var-color-white;
 }
 
 .summaryParagraph {

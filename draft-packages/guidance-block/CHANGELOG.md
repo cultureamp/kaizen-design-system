@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.7.1...@kaizen/draft-guidance-block@2.7.2) (2021-04-13)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [2.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.7.0...@kaizen/draft-guidance-block@2.7.1) (2021-04-08)
+
+
+### Bug Fixes
+
+* fix the css rule ([#1392](https://github.com/cultureamp/kaizen-design-system/issues/1392)) ([f13fbf3](https://github.com/cultureamp/kaizen-design-system/commit/f13fbf35ab9c11a3899fc10b8ec73ff63eac29a3))
+
+
+
+
+
+# [2.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.6.1...@kaizen/draft-guidance-block@2.7.0) (2021-04-08)
+
+
+### Features
+
+* Optional max width for Guidance Block ([#1377](https://github.com/cultureamp/kaizen-design-system/issues/1377)) ([5ef93c0](https://github.com/cultureamp/kaizen-design-system/commit/5ef93c0e61a695f95fb140a7c718da849c1c2d60))
+
+
+
+
+
+## [2.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.6.0...@kaizen/draft-guidance-block@2.6.1) (2021-04-07)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
 # [2.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.5.36...@kaizen/draft-guidance-block@2.6.0) (2021-04-01)
 
 

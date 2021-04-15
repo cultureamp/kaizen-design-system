@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.7.2...@kaizen/design-tokens@2.8.0) (2021-04-13)
+
+
+### Features
+
+* Add Heart support ([#1425](https://github.com/cultureamp/kaizen-design-system/issues/1425)) ([73dcfbd](https://github.com/cultureamp/kaizen-design-system/commit/73dcfbdf0d8973efde071e48997030ddb13e2b3d))
+
+
+
+
+
+## [2.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.7.1...@kaizen/design-tokens@2.7.2) (2021-04-12)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [2.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.7.0...@kaizen/design-tokens@2.7.1) (2021-04-07)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
 # [2.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.6.0...@kaizen/design-tokens@2.7.0) (2021-04-01)
 
 

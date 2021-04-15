@@ -1,5 +1,5 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/base";
 @import "../../decision-tokens.scss";
@@ -10,9 +10,9 @@
 
 .textarea {
   @include form-input-reset;
-  border-radius: $kz-border-solid-border-radius;
+  border-radius: $kz-var-border-solid-border-radius;
   width: 100%;
-  border: $kz-border-solid-border-width $kz-border-solid-border-style
+  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
     $dt-color-form-border-color;
   padding: $ca-grid * 0.5;
   color: $dt-color-form-text-color;
@@ -38,9 +38,9 @@
   $focus-ring-offset: 3px;
   position: absolute;
   background: transparent;
-  border-radius: $kz-border-focus-ring-border-radius;
-  border-width: $kz-border-focus-ring-border-width;
-  border-style: $kz-border-focus-ring-border-style;
+  border-radius: $kz-var-border-focus-ring-border-radius;
+  border-width: $kz-var-border-focus-ring-border-width;
+  border-style: $kz-var-border-focus-ring-border-style;
   border-color: transparent;
   top: -$focus-ring-offset;
   left: -$focus-ring-offset;

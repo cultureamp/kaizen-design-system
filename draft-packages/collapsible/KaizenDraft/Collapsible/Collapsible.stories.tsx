@@ -22,6 +22,7 @@ export default {
   title: "Collapsible (React)",
   component: Collapsible,
   parameters: {
+    backgrounds: { default: "Stone" },
     info: {
       text: `
         import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible";
@@ -73,6 +74,7 @@ export const SingleCollapsibleCustomHeader = () => (
       id="collapsible-single"
       open
       title="Custom header"
+      variant="default"
       renderHeader={title => (
         <>
           <Icon icon={translationIcon} />
@@ -129,6 +131,39 @@ export const _CollapsibleGroup = () => (
 )
 
 _CollapsibleGroup.storyName = "Collapsible group"
+SingleCollapsibleLazyLoad.storyName = "Single collapsible (lazy load)"
+
+// eslint-disable-next-line no-underscore-dangle
+export const _CollapsibleClearVariantGroup = () => (
+  <div style={{ margin: "1rem", width: "40rem" }}>
+    <CollapsibleGroup>
+      <Collapsible
+        variant="clear"
+        id="collapsible-separate-1"
+        open
+        title="First panel"
+      >
+        <Paragraph variant="body">{lipsum}</Paragraph>
+      </Collapsible>
+      <Collapsible
+        variant="clear"
+        id="collapsible-separate-2"
+        title="Second panel"
+      >
+        <Paragraph variant="body">{lipsum}</Paragraph>
+      </Collapsible>
+      <Collapsible
+        variant="clear"
+        id="collapsible-separate-3"
+        title="Third panel"
+      >
+        <Paragraph variant="body">{lipsum}</Paragraph>
+      </Collapsible>
+    </CollapsibleGroup>
+  </div>
+)
+
+_CollapsibleClearVariantGroup.storyName = "Collapsible group (clear variant)"
 
 export const CollapsibleGroupSeparated = () => (
   <div style={{ margin: "1rem", width: "40rem" }}>

@@ -7,6 +7,7 @@ module KaizenDraft.Select.Select exposing
     , State
     , Style(..)
     , Variant(..)
+    , clearable
     , defaults
     , dummyInputIdPrefix
     , initState
@@ -37,6 +38,7 @@ import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
 import Json.Decode as Decode
 import Json.Encode as Encode
+import KaizenDraft.Button.Button as Button
 import KaizenDraft.Events.Events as Events
 import KaizenDraft.Select.Ports as Ports
 import KaizenDraft.Select.SelectInput as SelectInput
@@ -77,6 +79,7 @@ type Msg item
     | MenuListScrollTop Float
     | SetMouseMenuNavigation
     | DoNothing
+    | SingleSelectClearButtonPressed
 
 
 type Action item
@@ -84,6 +87,7 @@ type Action item
     | Select item
     | Deselect item
     | Internal
+    | DeselectSingleSelectItem
 
 
 type Style
@@ -181,6 +185,7 @@ type alias Configuration item =
     , placeholder : ( String, Style )
     , menuItems : List (MenuItem item)
     , searchable : Bool
+    , clearable : Bool
     }
 
 
@@ -264,6 +269,7 @@ defaults =
     , placeholder = ( "Select...", Faded )
     , menuItems = []
     , searchable = True
+    , clearable = False
     }
 
 
@@ -308,6 +314,11 @@ selectType value (Config config) =
 searchable : Bool -> Config item -> Config item
 searchable predicate (Config config) =
     Config { config | searchable = predicate }
+
+
+clearable : Bool -> Config item -> Config item
+clearable predicate (Config config) =
+    Config { config | clearable = predicate }
 
 
 
@@ -634,6 +645,9 @@ update msg (State state_) =
         SetMouseMenuNavigation ->
             ( Internal, State { state_ | menuNavigation = Mouse }, Cmd.none )
 
+        SingleSelectClearButtonPressed ->
+            ( DeselectSingleSelectItem, State state_, Cmd.none )
+
 
 
 -- The id value needs to be a unique id
@@ -729,6 +743,24 @@ view (Config config) selectId =
 
             else
                 True
+
+        clearButtonVisible =
+            if config.clearable then
+                case config.variant of
+                    Multi _ _ ->
+                        -- clearable is only applicable to Single Select
+                        False
+
+                    Single maybeSelectedItem ->
+                        case maybeSelectedItem of
+                            Just _ ->
+                                True
+
+                            Nothing ->
+                                False
+
+            else
+                False
     in
     div [ styles.class .container ]
         [ div
@@ -757,6 +789,11 @@ view (Config config) selectId =
             , div [ styles.class .indicators ]
                 [ div [ styles.class .indicatorContainer ]
                     [ resolveLoadingSpinner
+                    , if clearButtonVisible then
+                        viewClearButton
+
+                      else
+                        text ""
                     , span [ styles.class .iconButton ]
                         [ Icon.view Icon.presentation
                             (svgAsset "@kaizen/component-library/icons/chevron-down.icon.svg")
@@ -1070,6 +1107,18 @@ viewMultiValue { truncationWidth } mousedownedItem index menuItem =
         ]
 
 
+viewClearButton : Html (Msg item)
+viewClearButton =
+    span [ styles.class .clearButtonWrapper ]
+        [ Button.view
+            (Button.iconButton
+                (svgAsset "@kaizen/component-library/icons/clear.icon.svg")
+                |> Button.onClick SingleSelectClearButtonPressed
+            )
+            "clear"
+        ]
+
+
 menuListId : SelectId -> String
 menuListId selectId =
     "select-menu-list-" ++ getSelectId selectId
@@ -1373,4 +1422,5 @@ styles =
         , cautionary = "cautionary"
         , error = "error"
         , preventPointer = "preventPointer"
+        , clearButtonWrapper = "clearButtonWrapper"
         }

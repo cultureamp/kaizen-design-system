@@ -8,6 +8,11 @@ loadElmStories(
   "Select (Elm)",
   module,
   compiledElm,
-  ["Single (Kaizen Site Demo)", "Single Searchable", "Multi-Select Searchable"],
+  [
+    "Single (Kaizen Site Demo)",
+    "Single Searchable",
+    "Multi-Select Searchable",
+    "Single Clearable",
+  ],
   Ports
 )

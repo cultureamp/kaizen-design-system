@@ -1,4 +1,4 @@
-@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/responsive";
 
@@ -73,27 +73,27 @@
 
     // Visibly highlight extraneous items to content contributors
     &:nth-child(n + 4) {
-      color: $kz-color-coral-500;
+      color: $kz-var-color-coral-500;
     }
   }
 }
 
 .doCard {
-  border-top-color: $kz-color-seedling-500;
-  background-color: $kz-color-seedling-100;
+  border-top-color: $kz-var-color-seedling-500;
+  background-color: $kz-var-color-seedling-100;
 }
 
 .dontCard {
-  border-top-color: $kz-color-coral-500;
-  background-color: $kz-color-coral-100;
+  border-top-color: $kz-var-color-coral-500;
+  background-color: $kz-var-color-coral-100;
 }
 
 .doText {
-  color: $kz-color-seedling-600;
+  color: $kz-var-color-seedling-600;
   font-weight: 500;
 }
 
 .dontText {
-  color: $kz-color-coral-600;
+  color: $kz-var-color-coral-600;
   font-weight: 500;
 }

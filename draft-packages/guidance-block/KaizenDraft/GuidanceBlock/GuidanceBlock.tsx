@@ -25,6 +25,7 @@ export type GuidanceBlockProps = {
   persistent?: boolean
   variant?: "default" | "prominent"
   withActionButtonArrow?: boolean
+  noMaxWidth?: boolean
 }
 
 export type GuidanceBlockState = {
@@ -38,6 +39,7 @@ class GuidanceBlock extends React.Component<
   static defaultProps = {
     variant: "default",
     withActionButtonArrow: true,
+    noMaxWidth: false,
   }
 
   state = {
@@ -71,11 +73,18 @@ class GuidanceBlock extends React.Component<
       return null
     }
 
-    const { actions, img, text, persistent, withActionButtonArrow } = this.props
+    const {
+      actions,
+      img,
+      text,
+      persistent,
+      withActionButtonArrow,
+      noMaxWidth,
+    } = this.props
 
     return (
       <div
-        className={this.bannerClassName()}
+        className={this.bannerClassName(noMaxWidth)}
         style={{
           marginTop: this.marginTop(),
         }}
@@ -120,10 +129,11 @@ class GuidanceBlock extends React.Component<
     )
   }
 
-  bannerClassName(): string {
+  bannerClassName(noMaxWidth): string {
     return classnames(styles.banner, {
       [styles.hidden]: this.state.hidden,
       [styles.prominent]: this.props.variant === "prominent",
+      [styles.noMaxWidth]: noMaxWidth,
     })
   }
 

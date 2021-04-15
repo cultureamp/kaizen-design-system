@@ -1,9 +1,9 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/spacing";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 
 .container {
   @include ca-margin($end: 4px);
-  width: $kz-spacing-sm;
+  width: $kz-var-spacing-sm;
   color: $kz-var-color-seedling-400;
 }

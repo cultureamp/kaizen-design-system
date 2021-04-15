@@ -1,4 +1,4 @@
-@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 
 .storyContainer {
   margin: 1rem;
@@ -8,7 +8,7 @@
 .reversedDefault {
   padding: 1rem;
   color: white;
-  background: $kz-color-wisteria-700;
+  background: $kz-var-color-wisteria-700;
 }
 
 .reversedOcean {

@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.6.8...@kaizen/draft-tooltip@2.6.9) (2021-04-13)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [2.6.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.6.7...@kaizen/draft-tooltip@2.6.8) (2021-04-07)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
+## [2.6.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.6.6...@kaizen/draft-tooltip@2.6.7) (2021-04-07)
+
+
+### Bug Fixes
+
+* bump tooltip z-index to a much higher value using layers vars, flatten DOM ([#1312](https://github.com/cultureamp/kaizen-design-system/issues/1312)) ([1d60a3c](https://github.com/cultureamp/kaizen-design-system/commit/1d60a3c175640f3c59978028c66140d78171fe92))
+
+
+
+
+
 ## [2.6.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.6.5...@kaizen/draft-tooltip@2.6.6) (2021-03-31)
 
 **Note:** Version bump only for package @kaizen/draft-tooltip

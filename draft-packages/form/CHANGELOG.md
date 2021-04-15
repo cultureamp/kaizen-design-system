@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.3.2...@kaizen/draft-form@3.3.3) (2021-04-13)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.3.1...@kaizen/draft-form@3.3.2) (2021-04-13)
+
+
+### Bug Fixes
+
+* expose isLoading from SelectField.elm ([#1419](https://github.com/cultureamp/kaizen-design-system/issues/1419)) ([8090116](https://github.com/cultureamp/kaizen-design-system/commit/809011667aeafb62df4fb8013a461cba4429579f))
+
+
+
+
+
+## [3.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.3.0...@kaizen/draft-form@3.3.1) (2021-04-09)
+
+
+### Bug Fixes
+
+* export elm select field clearable ([#1398](https://github.com/cultureamp/kaizen-design-system/issues/1398)) ([ae25013](https://github.com/cultureamp/kaizen-design-system/commit/ae25013e84090348095b3b90e025729dbaf78915))
+
+
+
+
+
+# [3.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.2.19...@kaizen/draft-form@3.3.0) (2021-04-09)
+
+
+### Features
+
+* add clearable option for SelectField.elm ([#1385](https://github.com/cultureamp/kaizen-design-system/issues/1385)) ([c1f7736](https://github.com/cultureamp/kaizen-design-system/commit/c1f7736c44f2d45baaf03a9fbdc70e487a6ff36a))
+
+
+
+
+
+## [3.2.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.2.18...@kaizen/draft-form@3.2.19) (2021-04-07)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
 ## [3.2.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.2.17...@kaizen/draft-form@3.2.18) (2021-03-31)
 
 **Note:** Version bump only for package @kaizen/draft-form

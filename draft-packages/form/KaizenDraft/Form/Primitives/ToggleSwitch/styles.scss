@@ -1,5 +1,5 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/border";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
@@ -16,8 +16,9 @@ $animation-timing: $ca-duration-immediate $ca-linear;
 
 .track {
   background-color: $dt-color-toggle-background-color;
-  border: $kz-border-borderless-border-width $kz-border-borderless-border-style
-    $kz-border-borderless-border-color;
+  border: $kz-var-border-borderless-border-width
+    $kz-var-border-borderless-border-style
+    $kz-var-border-borderless-border-color;
   border-radius: $ca-grid;
   box-sizing: content-box;
   width: ($ca-grid * 1.05) * 2;
@@ -40,14 +41,15 @@ $animation-timing: $ca-duration-immediate $ca-linear;
     // if kz-color-iron-500-rgb-params fails, it will fallback to wisteria-500
     // (the non-css variable token)
     background-color: $kz-var-color-wisteria-500;
-    background-color: rgba(var(--kz-color-iron-500-rgb-params), 0.4);
+    background-color: rgba($kz-var-color-iron-rgb-params, 0.4);
   }
 }
 
 .thumb {
   background-color: $kz-var-color-white;
-  border: $kz-border-borderless-border-width $kz-border-borderless-border-style
-    $kz-border-borderless-border-color;
+  border: $kz-var-border-borderless-border-width
+    $kz-var-border-borderless-border-style
+    $kz-var-border-borderless-border-color;
   box-sizing: content-box;
   width: $ca-grid * 0.9;
   height: $ca-grid * 0.9;
@@ -57,7 +59,7 @@ $animation-timing: $ca-duration-immediate $ca-linear;
 
 .on {
   .checkbox:not([disabled]) + .track {
-    border-color: $kz-border-borderless-border-color;
+    border-color: $kz-var-border-borderless-border-color;
     background-color: $kz-var-color-seedling-400;
   }
 

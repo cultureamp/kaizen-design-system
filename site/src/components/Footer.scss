@@ -1,8 +1,8 @@
-@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 
-$reverse-variant-color: $kz-color-wisteria-700;
+$reverse-variant-color: $kz-var-color-wisteria-700;
 
 .footerExtraContent {
   .reverseVariant & {

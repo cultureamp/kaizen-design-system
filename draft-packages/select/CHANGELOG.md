@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.14.4...@kaizen/draft-select@1.14.5) (2021-04-13)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.14.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.14.3...@kaizen/draft-select@1.14.4) (2021-04-13)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.14.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.14.2...@kaizen/draft-select@1.14.3) (2021-04-12)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.14.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.14.1...@kaizen/draft-select@1.14.2) (2021-04-09)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.14.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.14.0...@kaizen/draft-select@1.14.1) (2021-04-09)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+# [1.14.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.13.9...@kaizen/draft-select@1.14.0) (2021-04-07)
+
+
+### Features
+
+* add clearable option for Elm Select ([#1351](https://github.com/cultureamp/kaizen-design-system/issues/1351)) ([af6b387](https://github.com/cultureamp/kaizen-design-system/commit/af6b3874bf0bd36582f2d7ed49fd7caee5c44165))
+
+
+
+
+
+## [1.13.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.13.8...@kaizen/draft-select@1.13.9) (2021-04-07)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
 ## [1.13.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.13.7...@kaizen/draft-select@1.13.8) (2021-03-31)
 
 **Note:** Version bump only for package @kaizen/draft-select

@@ -1,14 +1,13 @@
-@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/spacing";
-@import "~@kaizen/design-tokens/sass/shadow";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
+@import "~@kaizen/design-tokens/sass/shadow-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/responsive";
 
 $tileWidth: 330px;
 $tileHeight: 370px;
-$tilePaddingTop: $kz-spacing-xl;
+$tilePaddingTop: $kz-var-spacing-xl;
 
 .root {
   perspective: 800px;
@@ -18,8 +17,8 @@ $tilePaddingTop: $kz-spacing-xl;
   width: $tileWidth;
   height: $tileHeight;
   position: relative;
-  box-shadow: $kz-shadow-small-box-shadow;
-  background-color: $kz-color-white;
+  box-shadow: $kz-var-shadow-small-box-shadow;
+  background-color: $kz-var-color-white;
   transition: transform $ca-duration-slow $ca-default;
   transform-style: preserve-3d;
   border-radius: 7px;
@@ -37,7 +36,7 @@ $tilePaddingTop: $kz-spacing-xl;
 
 .face {
   position: absolute;
-  background-color: $kz-color-white;
+  background-color: $kz-var-color-white;
   border-radius: 7px;
   box-sizing: border-box;
   display: flex;
@@ -54,7 +53,7 @@ $tilePaddingTop: $kz-spacing-xl;
 
 .faceFront {
   justify-content: space-between;
-  padding: $tilePaddingTop $kz-spacing-md $kz-spacing-md;
+  padding: $tilePaddingTop $kz-var-spacing-md $kz-var-spacing-md;
 }
 
 .faceBack {
@@ -68,8 +67,8 @@ $tilePaddingTop: $kz-spacing-xl;
 
 .title {
   text-align: center;
-  padding-bottom: $kz-spacing-sm;
-  background-color: $kz-color-white;
+  padding-bottom: $kz-var-spacing-sm;
+  background-color: $kz-var-color-white;
   backface-visibility: hidden;
 }
 
@@ -86,17 +85,17 @@ $tilePaddingTop: $kz-spacing-xl;
 .information {
   @include ca-padding(
     $top: 18px,
-    $bottom: $kz-spacing-md,
-    $start: $kz-spacing-md,
-    $end: $kz-spacing-md
+    $bottom: $kz-var-spacing-md,
+    $start: $kz-var-spacing-md,
+    $end: $kz-var-spacing-md
   );
-  margin-top: $kz-spacing-sm;
+  margin-top: $kz-var-spacing-sm;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  background-color: $kz-color-cluny-100;
+  background-color: $kz-var-color-cluny-100;
   width: 100%;
   height: 100%;
   text-align: center;
@@ -107,6 +106,6 @@ $tilePaddingTop: $kz-spacing-xl;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: $kz-spacing-sm;
-  height: $kz-spacing-xl;
+  margin-top: $kz-var-spacing-sm;
+  height: $kz-var-spacing-xl;
 }

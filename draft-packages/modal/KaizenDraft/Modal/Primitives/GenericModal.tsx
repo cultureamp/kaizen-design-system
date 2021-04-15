@@ -3,13 +3,13 @@ import { createPortal } from "react-dom"
 import FocusLock from "react-focus-lock"
 import uuid from "uuid/v4"
 import { warn } from "@kaizen/component-library/util/console"
+import { Transition } from "@headlessui/react"
 import {
   ModalAccessibleContext,
   ModalAccessibleContextType,
 } from "./ModalAccessibleContext"
 
 import styles from "./GenericModal.scss"
-const { CSSTransition } = require("react-transition-group")
 
 export interface GenericModalContainerProps {
   readonly isOpen: boolean
@@ -167,42 +167,39 @@ class GenericModal extends React.Component<GenericModalProps> {
     } = this.props
 
     return createPortal(
-      <CSSTransition
-        in={isOpen}
-        timeout={MODAL_TRANSITION_TIMEOUT}
-        classNames="animating"
+      <Transition
         appear={true}
-        unmountOnExit
+        show={isOpen}
+        enter={styles.animatingEnter}
+        leave={styles.animatingLeave}
       >
-        {/* This is not an unused div. It will receive `animating-` classes from react-transition-group */}
-        <div>
-          <FocusLock
-            disabled={focusLockDisabled}
-            returnFocus={true}
-            autoFocus={false}
+        <FocusLock
+          disabled={focusLockDisabled}
+          returnFocus={true}
+          autoFocus={false}
+        >
+          <div className={styles.backdropLayer} />
+          <div
+            className={styles.scrollLayer}
+            ref={scrollLayer => (this.scrollLayer = scrollLayer)}
+            onClick={
+              this.props.onOutsideModalClick && this.outsideModalClickHandler
+            }
+            data-automation-id={`${automationId}-scrollLayer`}
           >
-            <div className={styles.backdropLayer} />
             <div
-              className={styles.scrollLayer}
-              ref={scrollLayer => (this.scrollLayer = scrollLayer)}
-              onClick={
-                this.props.onOutsideModalClick && this.outsideModalClickHandler
-              }
+              role="dialog"
+              aria-labelledby={this.props.labelledByID}
+              aria-describedby={this.props.describedByID}
+              className={styles.modalLayer}
+              ref={modalLayer => (this.modalLayer = modalLayer)}
+              data-automation-id={automationId}
             >
-              <div
-                role="dialog"
-                aria-labelledby={this.props.labelledByID}
-                aria-describedby={this.props.describedByID}
-                className={styles.modalLayer}
-                ref={modalLayer => (this.modalLayer = modalLayer)}
-                data-automation-id={automationId}
-              >
-                {children}
-              </div>
+              {children}
             </div>
-          </FocusLock>
-        </div>
-      </CSSTransition>,
+          </div>
+        </FocusLock>
+      </Transition>,
       document.body
     )
   }

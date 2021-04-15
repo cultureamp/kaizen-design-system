@@ -47,6 +47,9 @@ update msg selectModel =
                         Select.Deselect i ->
                             { selectModel | selectedMembers = List.filter (\item -> item /= i) selectModel.selectedMembers }
 
+                        Select.DeselectSingleSelectItem ->
+                            { selectModel | selectedMember = Nothing }
+
                         _ ->
                             selectModel
             in
@@ -111,5 +114,19 @@ main =
                                 |> Select.placeholder ( "Placeholder", Select.Bold )
                             )
                             (Select.selectIdentifier "Multi Select")
+                        ]
+        , storyOf "Single Clearable" config <|
+            \m ->
+                Html.map SelectMsg <|
+                    div [ style "width" "300px", style "margin-top" "12px" ]
+                        [ Select.view
+                            (Select.single (buildSelected m)
+                                |> Select.state m.selectState
+                                |> Select.menuItems (List.map buildMenuItems m.members)
+                                |> Select.searchable True
+                                |> Select.clearable True
+                                |> Select.placeholder ( "Placeholder", Select.Bold )
+                            )
+                            (Select.selectIdentifier "Single Clearable Select")
                         ]
         ]

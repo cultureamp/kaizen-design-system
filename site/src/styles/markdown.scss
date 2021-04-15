@@ -1,5 +1,5 @@
-@import "~@kaizen/design-tokens/sass/color";
-@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/typography-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
@@ -12,7 +12,7 @@ $link-icon-margin: 12px;
 
 .markdownContainer {
   :global(.md-p) {
-    font-weight: $kz-typography-paragraph-body-font-weight;
+    font-weight: $kz-var-typography-paragraph-body-font-weight;
     margin: $ca-grid 0;
   }
 
@@ -30,7 +30,7 @@ $link-icon-margin: 12px;
   :global(.md-li) {
     margin: 0;
     margin-bottom: 0.5em;
-    font-weight: $kz-typography-paragraph-body-font-weight;
+    font-weight: $kz-var-typography-paragraph-body-font-weight;
 
     :global(.md-p) {
       margin: $ca-grid / 2 0;
@@ -53,7 +53,7 @@ $link-icon-margin: 12px;
     float: left;
     margin-left: -$ca-icon-width - ($link-icon-margin * 2);
     padding: 0 $link-icon-margin;
-    color: add-alpha($kz-color-wisteria-700, 80%);
+    color: rgba($kz-var-color-wisteria-700-rgb-params, 0.8);
     &:not(:focus) {
       svg {
         visibility: hidden;
@@ -141,7 +141,7 @@ $link-icon-margin: 12px;
   :global(.md-em),
   :global(.md-i) {
     font-style: normal;
-    font-weight: $kz-typography-paragraph-bold-font-weight;
+    font-weight: $kz-var-typography-paragraph-bold-font-weight;
   }
 
   :global(.md-strong) {
@@ -157,7 +157,7 @@ $link-icon-margin: 12px;
 
   :global(.md-a) {
     text-decoration: underline;
-    color: $kz-color-cluny-500;
+    color: $kz-var-color-cluny-500;
     word-break: break-word;
 
     &:hover {
@@ -187,11 +187,11 @@ $link-icon-margin: 12px;
   }
 
   :global(.md-td) {
-    font-weight: $kz-typography-paragraph-body-font-weight;
+    font-weight: $kz-var-typography-paragraph-body-font-weight;
   }
 
   :global(.md-pre) {
-    background-color: $kz-color-stone;
+    background-color: $kz-var-color-stone;
 
     & :global(.md-code) {
       padding: 0;
@@ -232,15 +232,15 @@ $link-icon-margin: 12px;
   }
 
   :global(iframe) {
-    background-color: $kz-color-ash;
+    background-color: $kz-var-color-ash;
     border-radius: 3px;
     margin-top: 1.5rem;
     width: 100%;
   }
 
   :global(blockquote) {
-    background-color: $kz-color-stone;
-    border-left: 4px solid $kz-color-wisteria-600;
+    background-color: $kz-var-color-stone;
+    border-left: 4px solid $kz-var-color-wisteria-600;
     margin: 0;
     padding: 0.5rem 1.5rem;
   }

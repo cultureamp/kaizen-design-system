@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.1.1...@kaizen/draft-collapsible@2.2.0) (2021-04-15)
+
+
+### Features
+
+* Add clear variant to Collapsible component ([#1429](https://github.com/cultureamp/kaizen-design-system/issues/1429)) ([0fd096e](https://github.com/cultureamp/kaizen-design-system/commit/0fd096e2ce9fb018d9c08b53a00acf22e619920c))
+
+
+
+
+
+## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.1.0...@kaizen/draft-collapsible@2.1.1) (2021-04-13)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.0.41...@kaizen/draft-collapsible@2.1.0) (2021-04-13)
+
+
+### Features
+
+* adjust Collapsible component styles and add prop to disable background in header ([#1426](https://github.com/cultureamp/kaizen-design-system/issues/1426)) ([34a7c57](https://github.com/cultureamp/kaizen-design-system/commit/34a7c57322ec2d45c13ec8cbd468099de76984e1))
+
+
+
+
+
+## [2.0.41](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.0.40...@kaizen/draft-collapsible@2.0.41) (2021-04-07)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
 ## [2.0.40](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.0.39...@kaizen/draft-collapsible@2.0.40) (2021-03-31)
 
 **Note:** Version bump only for package @kaizen/draft-collapsible

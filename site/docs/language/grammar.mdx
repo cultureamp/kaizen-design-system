@@ -146,23 +146,146 @@ Avoid unnecessary capitalization like using initial capitals on words you want t
 
 ### Dates
 
-When writing dates, spell out the day of the week and abbreviate the month.
+**Format**
 
->Do: Thursday, Aug 26, 2020
->
->Don’t: Thu, August 26, 2020
+Culture Amp uses American English date formatting. 
 
-In some parts of the world, the month comes first, in other parts the day. For example, it’s hard to tell whether 6/12/2017 refers to June 6th, 2017 or Dec 6th 2017. So, typing out the name of the month as opposed to the number helps remove ambiguity and caters to a wider audience.
+Consider what customers need in each specific context. Do your dates need to be short and scannable or long and thorough? The short format is easy to scan and typically used for columns or other places with limited space. The long date format is used in longer form description and body text.
 
-When you’re only referring to a month or month/year, spell out the name of the month. For example:
+<table>
+  <thead>
+    <tr>
+      <th>Short format</th>
+      <th>Long  format</th>      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Jan 2, 2020</td>
+      <td>January 2, 2020</td>      
+    </tr>    
+  </tbody>    
+</table>
 
->Do: August 26 or August 2020
->
->Don’t: Aug 26th 
+To avoid confusion we always show months alphabetically. e.g. Feb 3, 2020 rather than 02/03/20.
 
-Do not use ordinal indicators (as seen in superscripts) like “th,” “nd,” or “st.”
+- The year is the full 4 digits. e.g. ‘1984’, ‘2020’
+- The short format month is the first 3 characters. Starting with a capital letter then lower case e.g. Jan, Feb, Mar, Apr
+- The long format month is the month spelled out in full. e.g. January, February, March
+- The day of the month is 1 or 2 digits without a preceding zero on single days e.g. Feb 2 not Feb 02
+  - Data imports are an exception: the day of the month is always 2 digits with a preceding zero on single days e.g. 02
+  - Do not use ordinal indicators (as seen in superscripts) like “th,” “nd,” or “st.”
 
-For convenience dates, mention the number of days if it’s less than a week. For example, “Due in 5 days.” If it’s more than a week, round it down to a week. Alternatively, you can also mention the date, “Due on March 26, 2020.”
+**Ranges**
+
+A period or date range can be any length from one date to another date. For brevity and ease of reading, we reduce needless repetition. If the start and end dates share the same month or year then the repetition is omitted. Likewise, if the period covered is a complete month or year only the month or year needs to be shown. 
+- Ranges between digits are separated by an endash without spaces. 
+- Ranges between words and digits are separated by an endash without spaces.
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th><strong>Short format</strong></th>
+      <th><strong>Long format</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Custom Period (over a year)</strong></td>
+      <td>Jan 2, 2012 – Dec 20, 2020</td>
+      <td>January 2, 2012 – December 20, 2020</td>      
+    </tr>  
+    <tr>
+      <td><strong>Custom period (within a year)</strong></td>
+      <td>Jan 2 – Dec 20, 2020</td>
+      <td>January 2 – December 20, 2020</td>      
+    </tr>  
+    <tr>
+      <td><strong>Custom period (within a month)</strong></td>
+      <td>Dec 1–12, 2020</td>
+      <td>December 1–12, 2020</td>      
+    </tr>
+    <tr>
+      <td><strong>Year (calendar year)</strong></td>
+      <td>Jan – Dec 2020</td>
+      <td>January – December 2020</td>      
+    </tr>
+    <tr>
+      <td><strong>Quarter (financial year ending Dec)</strong></td>
+      <td>Sep – Dec 2020</td>
+      <td>September – December 2020</td>      
+    </tr>  
+    <tr>
+      <td><strong>Month</strong></td>
+      <td>Dec 2020</td>
+      <td>December 2020</td>      
+    </tr>      
+  </tbody>    
+</table>
+
+**Time since**
+
+Sometimes it’s more useful to show how much time has passed since a date rather than the specific date or time.  The time since format makes it easier to get a sense of how much time has passed since an edit was made. 
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Time since event</strong></th>
+      <th><strong>Format</strong></th>
+      <th><strong>Example</strong></th>      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Under 1 minutes</td>
+      <td><code>Just now</code></td>
+      <td>Just now</td>      
+    </tr>    
+    <tr>
+      <td>Under 60 minutes</td>
+      <td><code>[x] [minute/s] ago</code></td>
+      <td>12 minutes ago</td>      
+    </tr>
+    <tr>
+      <td>60 minutes to 24 hours</td>
+      <td><code>[x] [hour/s] ago</code></td>
+      <td>3 hours ago</td>      
+    </tr>
+    <tr>
+      <td>24 hours to 5 days</td>
+      <td><code>[x] [day/s] ago</code></td>
+      <td>1 day ago</td>      
+    </tr>
+    <tr>
+      <td>Over 5 days</td>
+      <td><code>[short date]</code></td>
+      <td>Jan 1, 2020</td>      
+    </tr>
+  </tbody>    
+</table>
+
+**Exact time**
+
+Saying how long ago something happened can obscure the exact date and time of an edit. Whenever the ‘[x] time ago’ format is used the exact date and time should be made available as a default browser tooltip.
+
+
+<table>
+  <thead>
+    <tr>
+      <th><strong>Format</strong></th>
+      <th><strong>Example</strong></th>      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>[mmm d, yyyy] at [H:mm tt]</code></td>
+      <td>Mar 26, 2020 at 10:54am</td>      
+    </tr>    
+  </tbody>    
+</table>
+
+
 
 
 ### e.g.
@@ -319,8 +442,6 @@ To save space and be concise, you can remove the pronoun from buttons and links.
 ### Times
 
 When writing out a time, use the user’s local time without a time zone in all cases when it’s unambiguous. Use a.m. or p.m. and not 24-hour time. Here are some other rules to keep in mind:
-
-
 
 *   Use spaces between the time and the meridiem a.m. or p.m. marker. For example, 8:30 a.m. or 7:00 p.m.
 *   Use a colon to separate hours from minutes.

@@ -1,6 +1,6 @@
-@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/typography";
+@import "~@kaizen/design-tokens/sass/typography-vars";
+@import "~@kaizen/design-tokens/sass/layout-vars";
 @import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/component-library/styles/grid";
 @import "~@kaizen/component-library/styles/layers";
@@ -50,12 +50,12 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 }
 
 .adminVariant .titleRow {
-  background-color: $kz-color-white;
+  background-color: $kz-var-color-white;
 }
 
 %titleBlockInner {
-  max-width: $kz-layout-content-max-width;
-  margin: 0 $kz-layout-content-side-margin;
+  max-width: $kz-var-layout-content-max-width;
+  margin: 0 $kz-var-layout-content-side-margin;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -174,37 +174,37 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   padding: 4px 0;
 
   @media (max-width: $breadcrumb-breakpoint-width) {
-    font-family: $kz-typography-heading-2-font-family;
-    font-weight: $kz-typography-heading-2-font-weight;
-    font-size: $kz-typography-heading-2-font-size;
-    line-height: $kz-typography-heading-2-line-height;
-    letter-spacing: $kz-typography-heading-2-letter-spacing;
+    font-family: $kz-var-typography-heading-2-font-family;
+    font-weight: $kz-var-typography-heading-2-font-weight;
+    font-size: $kz-var-typography-heading-2-font-size;
+    line-height: $kz-var-typography-heading-2-line-height;
+    letter-spacing: $kz-var-typography-heading-2-letter-spacing;
   }
   @include title-block-under-1366 {
-    font-family: $kz-typography-heading-2-font-family;
-    font-weight: $kz-typography-heading-2-font-weight;
-    font-size: $kz-typography-heading-2-font-size;
-    line-height: $kz-typography-heading-2-line-height;
-    letter-spacing: $kz-typography-heading-2-letter-spacing;
+    font-family: $kz-var-typography-heading-2-font-family;
+    font-weight: $kz-var-typography-heading-2-font-weight;
+    font-size: $kz-var-typography-heading-2-font-size;
+    line-height: $kz-var-typography-heading-2-line-height;
+    letter-spacing: $kz-var-typography-heading-2-letter-spacing;
     padding: 2px 0;
   }
   .hasLongTitle & {
     @include title-block-under-1366 {
-      font-family: $kz-typography-heading-3-font-family;
-      font-weight: $kz-typography-heading-3-font-weight;
-      font-size: $kz-typography-heading-3-font-size;
-      line-height: $kz-typography-heading-3-line-height;
-      letter-spacing: $kz-typography-heading-3-letter-spacing;
+      font-family: $kz-var-typography-heading-3-font-family;
+      font-weight: $kz-var-typography-heading-3-font-weight;
+      font-size: $kz-var-typography-heading-3-font-size;
+      line-height: $kz-var-typography-heading-3-line-height;
+      letter-spacing: $kz-var-typography-heading-3-letter-spacing;
       padding: 2px 0;
     }
   }
 
   @include title-block-medium-and-small {
-    font-family: $kz-typography-heading-4-font-family;
-    font-weight: $kz-typography-heading-4-font-weight;
-    font-size: $kz-typography-heading-4-font-size;
-    line-height: $kz-typography-heading-4-line-height;
-    letter-spacing: $kz-typography-heading-4-letter-spacing;
+    font-family: $kz-var-typography-heading-4-font-family;
+    font-weight: $kz-var-typography-heading-4-font-weight;
+    font-size: $kz-var-typography-heading-4-font-size;
+    line-height: $kz-var-typography-heading-4-line-height;
+    letter-spacing: $kz-var-typography-heading-4-letter-spacing;
     padding: 0;
   }
 }
@@ -212,7 +212,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 .avatar {
   display: none;
   box-sizing: border-box;
-  border: 3px solid $kz-color-white;
+  border: 3px solid $kz-var-color-white;
   border-radius: 50%;
   overflow: hidden;
   height: $ca-grid * 2;
@@ -235,7 +235,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 .hamburger {
   display: none;
   @include ca-margin($end: $ca-grid * 2/3);
-  color: $kz-color-white;
+  color: $kz-var-color-white;
 
   &:hover {
     cursor: pointer;
@@ -243,7 +243,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 
   .educationVariant &,
   .adminVariant & {
-    color: $kz-color-wisteria-800;
+    color: $kz-var-color-wisteria-800;
   }
 
   @include title-block-medium-and-small {
@@ -272,16 +272,16 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 .subtitle {
   display: flex;
   align-items: center;
-  color: $kz-color-white;
-  font-family: $kz-typography-paragraph-small-font-family;
-  font-weight: $kz-typography-paragraph-small-font-weight;
-  font-size: $kz-typography-paragraph-small-font-size;
-  line-height: $kz-typography-paragraph-small-line-height;
-  letter-spacing: $kz-typography-paragraph-small-letter-spacing;
+  color: $kz-var-color-white;
+  font-family: $kz-var-typography-paragraph-small-font-family;
+  font-weight: $kz-var-typography-paragraph-small-font-weight;
+  font-size: $kz-var-typography-paragraph-small-font-size;
+  line-height: $kz-var-typography-paragraph-small-line-height;
+  letter-spacing: $kz-var-typography-paragraph-small-letter-spacing;
   max-width: 230px;
 
   .adminVariant & {
-    color: $kz-color-wisteria-800;
+    color: $kz-var-color-wisteria-800;
   }
 
   @include ca-margin($start: $ca-grid / 2);
@@ -324,25 +324,25 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 
   @include ca-margin($end: $ca-grid);
 
-  font-family: $kz-typography-heading-2-font-family;
-  font-weight: $kz-typography-heading-2-font-weight;
-  font-size: $kz-typography-heading-2-font-size;
-  line-height: $kz-typography-heading-2-line-height;
-  letter-spacing: $kz-typography-heading-2-letter-spacing;
+  font-family: $kz-var-typography-heading-2-font-family;
+  font-weight: $kz-var-typography-heading-2-font-weight;
+  font-size: $kz-var-typography-heading-2-font-size;
+  line-height: $kz-var-typography-heading-2-line-height;
+  letter-spacing: $kz-var-typography-heading-2-letter-spacing;
 
   @include title-block-under-1645 {
-    font-family: $kz-typography-heading-3-font-family;
-    font-weight: $kz-typography-heading-3-font-weight;
-    font-size: $kz-typography-heading-3-font-size;
-    line-height: $kz-typography-heading-3-line-height;
-    letter-spacing: $kz-typography-heading-3-letter-spacing;
+    font-family: $kz-var-typography-heading-3-font-family;
+    font-weight: $kz-var-typography-heading-3-font-weight;
+    font-size: $kz-var-typography-heading-3-font-size;
+    line-height: $kz-var-typography-heading-3-line-height;
+    letter-spacing: $kz-var-typography-heading-3-letter-spacing;
   }
   @include title-block-medium-and-small {
-    font-family: $kz-typography-heading-4-font-family;
-    font-weight: $kz-typography-heading-4-font-weight;
-    font-size: $kz-typography-heading-4-font-size;
-    line-height: $kz-typography-heading-4-line-height;
-    letter-spacing: $kz-typography-heading-4-letter-spacing;
+    font-family: $kz-var-typography-heading-4-font-family;
+    font-weight: $kz-var-typography-heading-4-font-weight;
+    font-size: $kz-var-typography-heading-4-font-size;
+    line-height: $kz-var-typography-heading-4-line-height;
+    letter-spacing: $kz-var-typography-heading-4-letter-spacing;
   }
 }
 
@@ -355,13 +355,13 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
     margin-top: $ca-grid / 4;
   }
 
-  color: $kz-color-white;
+  color: $kz-var-color-white;
   max-width: 780px;
-  font-family: $kz-typography-paragraph-small-font-family;
-  font-weight: $kz-typography-paragraph-small-font-weight;
-  font-size: $kz-typography-paragraph-small-font-size;
-  line-height: $kz-typography-paragraph-small-line-height;
-  letter-spacing: $kz-typography-paragraph-small-letter-spacing;
+  font-family: $kz-var-typography-paragraph-small-font-family;
+  font-weight: $kz-var-typography-paragraph-small-font-weight;
+  font-size: $kz-var-typography-paragraph-small-font-size;
+  line-height: $kz-var-typography-paragraph-small-line-height;
+  letter-spacing: $kz-var-typography-paragraph-small-letter-spacing;
 
   &.dark {
     color: rgba($kz-var-color-wisteria-800-rgb-params, 0.7);
@@ -462,7 +462,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
     height: $tab-container-height-small;
     background: linear-gradient(
       0,
-      $kz-color-wisteria-700,
+      $kz-var-color-wisteria-700,
       rgba($kz-var-color-wisteria-700-rgb-params, 0)
     );
     z-index: $ca-z-index-sticky;
@@ -472,7 +472,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
     @include title-block-small {
       background: linear-gradient(
         0,
-        $kz-color-stone,
+        $kz-var-color-stone,
         rgba($kz-var-color-stone-rgb-params, 0)
       );
     }
@@ -482,7 +482,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
     @include title-block-small {
       background: linear-gradient(
         0,
-        $kz-color-cluny-200,
+        $kz-var-color-cluny-200,
         rgba($kz-var-color-cluny-200-rgb-params, 0)
       );
     }
@@ -527,7 +527,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   // to be Cluny like the default secondary buttons
   .educationVariant &,
   .adminVariant & {
-    color: $kz-color-cluny-500;
+    color: $kz-var-color-cluny-500;
   }
 
   @include title-block-medium-and-small {
@@ -608,11 +608,11 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 .breadcrumbText {
   @include ca-margin($start: $ca-grid * 2);
   white-space: nowrap;
-  font-family: $kz-typography-heading-5-font-family;
-  font-weight: $kz-typography-heading-5-font-weight;
-  font-size: $kz-typography-heading-5-font-size;
-  line-height: $kz-typography-heading-5-line-height;
-  letter-spacing: $kz-typography-heading-5-letter-spacing;
+  font-family: $kz-var-typography-heading-5-font-family;
+  font-weight: $kz-var-typography-heading-5-font-weight;
+  font-size: $kz-var-typography-heading-5-font-size;
+  line-height: $kz-var-typography-heading-5-line-height;
+  letter-spacing: $kz-var-typography-heading-5-letter-spacing;
 
   &:hover {
     text-decoration: underline;
@@ -621,10 +621,10 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 
 .breadcrumb,
 .breadcrumbText {
-  color: $kz-color-white;
+  color: $kz-var-color-white;
   .educationVariant &,
   .adminVariant & {
-    color: $kz-color-wisteria-800;
+    color: $kz-var-color-wisteria-800;
   }
 }
 
@@ -634,7 +634,7 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   box-sizing: border-box;
   width: $breadcrumb-circle-width;
   height: $breadcrumb-circle-width;
-  color: $kz-color-white;
+  color: $kz-var-color-white;
   border-color: rgba($kz-var-color-white-rgb-params, 0.5);
   border-width: 2px;
   border-radius: 50%;
@@ -647,15 +647,15 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   .breadcrumb:hover &,
   .breadcrumb:focus & {
     transform: scale(1.1);
-    border-color: $kz-color-white;
-    color: $kz-color-white;
+    border-color: $kz-var-color-white;
+    color: $kz-var-color-white;
     background-color: rgba($kz-var-color-white-rgb-params, 0.1);
   }
 
   .educationVariant &,
   .adminVariant & {
-    color: $kz-color-cluny-500;
-    border-color: $kz-color-cluny-300;
+    color: $kz-var-color-cluny-500;
+    border-color: $kz-var-color-cluny-300;
     border-width: $border-width;
   }
 
@@ -663,8 +663,8 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   .educationVariant .breadcrumb:focus &,
   .adminVariant .breadcrumb:hover &,
   .adminVariant .breadcrumb:focus & {
-    border-color: $kz-color-cluny-500;
-    color: $kz-color-cluny-500;
+    border-color: $kz-var-color-cluny-500;
+    color: $kz-var-color-cluny-500;
     background-color: rgba($kz-var-color-cluny-500-rgb-params, 0.1);
   }
 }

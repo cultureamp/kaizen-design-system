@@ -1,4 +1,4 @@
-@import "~@kaizen/design-tokens/sass/color";
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "@kaizen/deprecated-component-library-helpers/styles/color";
 @import "../../../styles/grid";
@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: space-between;
   height: 60px;
-  background-color: $kz-color-wisteria-800;
+  background-color: $kz-var-color-wisteria-800;
 }
 
 .close {
