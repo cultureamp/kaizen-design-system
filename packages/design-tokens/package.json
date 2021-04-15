@@ -29,7 +29,7 @@
     "test": "yarn jest",
     "build": "yarn clean && yarn prepublish",
     "build:json": "yarn ts-node --files ./bin/buildCssVarTokens.ts",
-    "build:ts": "yarn tsc",
+    "build:ts": "tsc --project tsconfig.dist.json",
     "build:less": "json-to-flat-sass './tokens/*.json' 'less' --extension 'less' --caseType 'kebab' && prettier less/* --write",
     "build:sass": "json-to-flat-sass './tokens/*.json' 'sass' --extension 'scss' --caseType 'kebab' && prettier sass/* --write",
     "clean": "rimraf 'dist/**' './(!node_modules)/**/*.js' 'tokens/**/*.d.ts' 'tokens/**/*.map' ",
