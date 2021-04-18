@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import cx from "classnames"
 import { Icon } from "@kaizen/component-library"
 import { Textfit } from "react-textfit"
@@ -54,10 +54,21 @@ export const Avatar = ({
     "none" | "error" | "loading" | "success"
   >(avatarSrc ? "loading" : "none")
 
+  useEffect(() => {
+    setAvatarState(avatarSrc ? "loading" : "none")
+  }, [avatarSrc])
+
+  const nameHasAlpha = fullName && /[a-zA-Z]+$/.test(fullName)
   const isLongName = getInitials(fullName).length > 2 && size !== "small"
 
   const onImageFailure = () => setAvatarState("error")
   const onImageSuccess = () => setAvatarState("success")
+
+  const fallbackIcon = (
+    <span className={styles.fallbackIcon}>
+      <Icon inheritSize role="presentation" icon={userIcon} />
+    </span>
+  )
   return (
     <div
       className={cx(styles.wrapper, styles[size], {
@@ -75,27 +86,26 @@ export const Avatar = ({
           alt={fullName}
         />
       )}
-      {avatarState === "none" && (
-        <div
-          className={cx(styles.initials, {
-            [styles.longName]: isLongName,
-          })}
-        >
-          {isLongName ? (
-            // Only called if 3 or more initials, fits text width for long names
-            <Textfit mode="single" max={getMaxFontSizePixels(size)}>
-              {getInitials(fullName)}
-            </Textfit>
-          ) : (
-            getInitials(fullName, size === "small")
-          )}
-        </div>
-      )}
-      {avatarState === "error" && (
-        <span className={styles.fallbackIcon}>
-          <Icon inheritSize role="presentation" icon={userIcon} />
-        </span>
-      )}
+      {avatarState === "none" &&
+        (nameHasAlpha ? (
+          <div
+            className={cx(styles.initials, {
+              [styles.longName]: isLongName,
+            })}
+          >
+            {isLongName ? (
+              // Only called if 3 or more initials, fits text width for long names
+              <Textfit mode="single" max={getMaxFontSizePixels(size)}>
+                {getInitials(fullName)}
+              </Textfit>
+            ) : (
+              getInitials(fullName, size === "small")
+            )}
+          </div>
+        ) : (
+          fallbackIcon
+        ))}
+      {avatarState === "error" && fallbackIcon}
     </div>
   )
 }
