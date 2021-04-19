@@ -45,9 +45,12 @@ const makeRuleFunction = (
     return
   }
 
-  if (postcssRoot.source.lang !== "scss") {
-    return
-  }
+  // This has been commented out as when this is run as a test, postcssRoot.source.lang
+  // is undefined (even using `syntax: "scss"` passed to stylelint.lint()), so the
+  // test breaks.
+  // if (postcssRoot.source.lang !== "scss") {
+  //   return
+  // }
 
   for (const importToReplace of importsToReplace) {
     replaceImport(context, postcssRoot, postcssResult, importToReplace)
