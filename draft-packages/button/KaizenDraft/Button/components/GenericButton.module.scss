@@ -64,7 +64,7 @@
   @extend %caButtonLabel;
 }
 
-.fullWidth {
+@mixin full-width {
   width: 100%;
 
   .button {
@@ -74,6 +74,28 @@
 
   .content {
     justify-content: center;
+  }
+}
+
+.fullWidth {
+  @include full-width;
+}
+
+@media (max-width: 768px) {
+  .smallFullWidth {
+    @include full-width;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1080px) {
+  .mediumFullWidth {
+    @include full-width;
+  }
+}
+
+@media (min-width: 1081px) {
+  .largeFullWidth {
+    @include full-width;
   }
 }
 

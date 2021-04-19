@@ -13,6 +13,16 @@ import React, {
 
 import styles from "./GenericButton.module.scss"
 
+// Duplicated(ish?) from design-tokens/layout
+type Breakpoints = {
+  "small": 0,
+  "medium": 768,
+  "large": 1080
+}
+
+type BreakpointNames = keyof Breakpoints
+type BreakpointMap<N> = N | { [key in BreakpointNames]: N }
+
 export type CustomButtonProps = {
   id?: string
   className: string
@@ -37,7 +47,7 @@ export type GenericProps = {
   href?: string
   newTabAndIUnderstandTheAccessibilityImplications?: boolean
   type?: "submit" | "reset" | "button"
-  fullWidth?: boolean
+  fullWidth?: BreakpointMap<boolean>
   disableTabFocusAndIUnderstandTheAccessibilityImplications?: boolean
   onFocus?: (e: FocusEvent<HTMLElement>) => void
   onBlur?: (e: FocusEvent<HTMLElement>) => void
@@ -115,7 +125,10 @@ const GenericButton = forwardRef(
     return (
       <span
         className={classNames(styles.container, {
-          [styles.fullWidth]: props.fullWidth,
+          [styles.fullWidth]: typeof props.fullWidth !== "object" && props.fullWidth,
+          [styles.smallFullWidth]: typeof props.fullWidth !== "boolean" && props.fullWidth?.small,
+          [styles.mediumFullWidth]: typeof props.fullWidth !== "boolean" &&  props.fullWidth?.medium,
+          [styles.largeFullWidth]: typeof props.fullWidth !== "boolean" && props.fullWidth?.large,
         })}
       >
         {determineButtonRenderer()}

@@ -715,3 +715,18 @@ CustomComponent.story = {
   name: "Custom Component",
   parameters: {},
 }
+
+export const FullWidthResponsiveButton = args => (
+  <div>
+    <Button
+      fullWidth={{ small: true, medium: true, large: false }}
+      label="Passez au rapport de synthèse"
+      data-automation-id="demo-button"
+      {...args}
+    />
+  </div>
+)
+FullWidthResponsiveButton.story = {
+  name: "Full width responsive",
+  parameters: {},
+}
