@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.28](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.2.27...@kaizen/draft-title-block-zen@3.2.28) (2021-04-19)
+
+
+### Bug Fixes
+
+* Stop shadow from overflowing and remove overflow-x:hidden ([#1451](https://github.com/cultureamp/kaizen-design-system/issues/1451)) ([c76bf3c](https://github.com/cultureamp/kaizen-design-system/commit/c76bf3c4766af636c24e4ca8f058f410f5d637bf))
+
+
+
+
+
 ## [3.2.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.2.26...@kaizen/draft-title-block-zen@3.2.27) (2021-04-15)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen
