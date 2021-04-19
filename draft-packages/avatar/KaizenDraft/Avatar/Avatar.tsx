@@ -30,7 +30,7 @@ export interface AvatarProps {
   fullName: string
   /**
    * Default behaviour when an avatarSrc is not provided is to generate initials from the username.
-   * This disables this feature and shows the generica avatar.
+   * This disables this feature and shows the generic avatar.
    */
   disableInitials?: string
   /**
