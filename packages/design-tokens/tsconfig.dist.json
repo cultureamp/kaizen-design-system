@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.dist.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "noImplicitAny": true,
+    "rootDir": ".",
+    "outDir": "dist",
+    "declarationMap": true,
+    "declaration": true,
+    "target": "es5",
+    "module": "CommonJS"
+  },
+  "include": ["index.ts"]
+}
