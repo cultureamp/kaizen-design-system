@@ -7,6 +7,7 @@ const ZenNeutrals = () => {
     <ZenColorGroup
       // this order will be reversed before being displayed
       colors={{
+        Slate: color.slate,
         Ash: color.ash,
         Stone: color.stone,
         White: color.white,
