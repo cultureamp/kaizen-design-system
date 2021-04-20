@@ -291,3 +291,7 @@ export const KaizenSiteResourcesAlt = (props: SceneProps) => (
 export const SurveyOverviewClosed = (props: SceneProps) => (
   <Base {...props} name="illustrations/scene/survey-overview-closed.svg" />
 )
+
+export const SurveyGetStarted = (props: SceneProps) => (
+  <Base {...props} name="illustrations/scene/getting-started.svg" />
+)
