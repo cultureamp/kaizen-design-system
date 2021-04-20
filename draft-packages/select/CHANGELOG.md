@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.14.6...@kaizen/draft-select@1.15.0) (2021-04-15)
+
+
+### Features
+
+* add disabled variant of Elm Select and SelectField ([#1431](https://github.com/cultureamp/kaizen-design-system/issues/1431)) ([37bceae](https://github.com/cultureamp/kaizen-design-system/commit/37bceaef24cee39cadfdc24b9f02cc947595cd68))
+
+
+
+
+
+## [1.14.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.14.5...@kaizen/draft-select@1.14.6) (2021-04-15)
+
+
+### Bug Fixes
+
+* add explicit @kaizen/draft-button dep to @kaizen/draft-select ([#1448](https://github.com/cultureamp/kaizen-design-system/issues/1448)) ([f30c7bd](https://github.com/cultureamp/kaizen-design-system/commit/f30c7bd6a0888d90d628cc569347f43984abf36b))
+
+
+
+
+
 ## [1.14.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.14.4...@kaizen/draft-select@1.14.5) (2021-04-13)
 
 **Note:** Version bump only for package @kaizen/draft-select

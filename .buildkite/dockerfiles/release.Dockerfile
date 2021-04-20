@@ -4,7 +4,10 @@ RUN apk update && apk add --no-cache \
   git \
   openssh \
   python \
-  py-pip
+  py-pip \ 
+  gcc \ 
+  alpine-sdk \ 
+  python-dev
 
 RUN pip install \
   awscli

@@ -198,3 +198,37 @@ it("respects controlled mode (stays open after click)", () => {
   fireEvent.click(button)
   expect(section.style.height).toEqual("auto")
 })
+
+it("clear variant has correct class", () => {
+  const { getByTestId } = render(
+    <CollapsibleGroup>
+      <Collapsible variant="clear" id="1" open title="First panel">
+        First panel content
+      </Collapsible>
+      <Collapsible variant="clear" id="2" title="Second panel">
+        Second panel content
+      </Collapsible>
+    </CollapsibleGroup>
+  )
+
+  const collapsibleContainer = getByTestId("collapsible-button-1")
+
+  expect(collapsibleContainer.classList.contains("clearVariant")).toBeTruthy()
+})
+
+it("default variant has correct class", () => {
+  const { getByTestId } = render(
+    <CollapsibleGroup>
+      <Collapsible id="1" open title="First panel">
+        First panel content
+      </Collapsible>
+      <Collapsible id="2" title="Second panel">
+        Second panel content
+      </Collapsible>
+    </CollapsibleGroup>
+  )
+
+  const collapsibleContainer = getByTestId("collapsible-button-1")
+
+  expect(collapsibleContainer.classList.contains("defaultVariant")).toBeTruthy()
+})

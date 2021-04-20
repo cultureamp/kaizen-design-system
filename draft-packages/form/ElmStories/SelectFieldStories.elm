@@ -113,6 +113,28 @@ main =
                                 )
                         )
                     ]
+        , storyOf "Single Disabled" storyConfig <|
+            \state ->
+                let
+                    isError =
+                        state.selectedItem == Nothing
+                in
+                div [ style "width" "300px", style "margin-top" "12px" ]
+                    [ SelectField.view
+                        (SelectField.single
+                            { maybeSelectedItem = Just (buildMenuItem "Jaime")
+                            , toMsg = SelectMsg
+                            , id = "disabled-single-select-demo"
+                            }
+                            |> SelectField.state state.selectState
+                            |> SelectField.menuItems (List.map buildMenuItem state.items)
+                            |> SelectField.searchable True
+                            |> SelectField.placeholder ( "Placeholder", Select.Bold )
+                            |> SelectField.description [ Html.text "A description goes here" ]
+                            |> SelectField.labelHtml [ Html.text "Label" ]
+                            |> SelectField.disabled True
+                        )
+                    ]
         , storyOf "Multi-Select" storyConfig <|
             \state ->
                 div [ style "width" "500px", style "margin-top" "12px" ]

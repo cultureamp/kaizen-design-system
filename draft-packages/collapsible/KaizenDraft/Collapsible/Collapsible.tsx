@@ -9,6 +9,8 @@ import { Sticky } from "./CollapsibleGroup"
 
 import styles from "./styles.scss"
 
+type Variant = "default" | "clear"
+
 export type Props = {
   id: string
   children: JSX.Element | JSX.Element[] | string
@@ -22,8 +24,12 @@ export type Props = {
   automationId?: string
   onToggle?: (open: boolean, id: string) => void
 
-  /* Highlights the header when open by changing the background color */
-  highlightOpen?: boolean
+  /**
+   * By default, the header will change background colour when open. When the variant
+    is set to 'clear', it will not have a background but a border-bottom will appear
+    to separate the heading from the content.
+   */
+  variant?: Variant
 
   /* Will avoid rendering the content until required (especially important when you have queries inside sections).
   Removes animation. */
@@ -54,7 +60,7 @@ class Collapsible extends React.Component<Props, State> {
       automationId,
       children,
       lazyLoad,
-      highlightOpen = true,
+      variant = "default",
     } = this.props
     const buttonId = `${this.props.id}-button`
     const sectionId = `${this.props.id}-section`
@@ -74,7 +80,8 @@ class Collapsible extends React.Component<Props, State> {
         <button
           id={buttonId}
           className={classnames(styles.button, {
-            [styles.highlightOpen]: open && highlightOpen,
+            [styles.defaultVariant]: open && variant === "default",
+            [styles.clearVariant]: open && variant === "clear",
             [styles.sticky]: sticky,
           })}
           style={sticky && { top: sticky.top }}
