@@ -1,0 +1,9 @@
+{
+  "plugins": ["./build/src/index.js"],
+  "rules": {
+    "kaizen/deprecated-tokens": [
+      true,
+      { "severity": "error", "unusedImports": true }
+    ]
+  }
+}
