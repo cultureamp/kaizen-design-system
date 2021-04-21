@@ -1,4 +1,5 @@
 import { Icon } from "@kaizen/component-library"
+import { ThemeManager, ThemeProvider, heartTheme } from "@kaizen/design-tokens"
 import { Link } from "gatsby"
 import * as React from "react"
 import exclamationIcon from "@kaizen/component-library/icons/exclamation.icon.svg"
@@ -30,43 +31,49 @@ const FourOhFourPageHeader = (
   />
 )
 
-export default props => (
-  <Layout
-    pageTitle="404"
-    pageHeader={FourOhFourPageHeader}
-    footer={<Footer />}
-    trimBottomOfCardToContent
-    fullWidthContent={true}
-  >
-    <ContentOnly>
-      <Content>
-        <ContentMarkdownSection>
-          <md.h2>Try one of these instead</md.h2>
-          <md.ul>
-            <md.li>
-              <Link to="/guidelines/color">Color</Link>
-            </md.li>
-            <md.li>
-              <Link to="/components/button">Button</Link>
-            </md.li>
-            <md.li>
-              <Link to="/language/grammar">Style and punctuation</Link>
-            </md.li>
-            <md.li>
-              <Link to="/guidelines/overview">Guidelines</Link>
-            </md.li>
-            <md.li>
-              <Link to="/components/overview">Components</Link>
-            </md.li>
-            <md.li>
-              <Link to="/language/overview">Language</Link>
-            </md.li>
-            <md.li>
-              <Link to="/storybook">Storybook</Link>
-            </md.li>
-          </md.ul>
-        </ContentMarkdownSection>
-      </Content>
-    </ContentOnly>
-  </Layout>
-)
+export default props => {
+  const themeManager = new ThemeManager(heartTheme);
+
+  return (
+    <ThemeProvider themeManager={themeManager}>
+      <Layout
+        pageTitle="404"
+        pageHeader={FourOhFourPageHeader}
+        footer={<Footer />}
+        trimBottomOfCardToContent
+        fullWidthContent={true}
+      >
+        <ContentOnly>
+          <Content>
+            <ContentMarkdownSection>
+              <md.h2>Try one of these instead</md.h2>
+              <md.ul>
+                <md.li>
+                  <Link to="/guidelines/color">Color</Link>
+                </md.li>
+                <md.li>
+                  <Link to="/components/button">Button</Link>
+                </md.li>
+                <md.li>
+                  <Link to="/language/grammar">Style and punctuation</Link>
+                </md.li>
+                <md.li>
+                  <Link to="/guidelines/overview">Guidelines</Link>
+                </md.li>
+                <md.li>
+                  <Link to="/components/overview">Components</Link>
+                </md.li>
+                <md.li>
+                  <Link to="/language/overview">Language</Link>
+                </md.li>
+                <md.li>
+                  <Link to="/storybook">Storybook</Link>
+                </md.li>
+              </md.ul>
+            </ContentMarkdownSection>
+          </Content>
+        </ContentOnly>
+      </Layout>
+    </ThemeProvider>
+  )
+}
