@@ -1,5 +1,6 @@
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { ThemeManager, heartTheme, ThemeProvider } from "@kaizen/design-tokens"
 import * as React from "react"
 import ContentMarkdownSection from "../components/ContentMarkdownSection"
 import Footer from "../components/Footer"
@@ -28,7 +29,8 @@ const renderSidebarTabs = (pages, currentPath, sectionName) =>
     </SidebarTab>
   ))
 
-export default ({ data, pageContext, location }) => {
+export default ({ data, location }) => {
+  const themeManager = new ThemeManager(heartTheme)
   const md = data.mdx
   const allPages = data.allMdx.edges
   const overviewPage = allPages.filter(
@@ -49,27 +51,29 @@ export default ({ data, pageContext, location }) => {
   )
 
   return (
-    <Layout
-      pageTitle={md.frontmatter.title}
-      currentPath={currentPath}
-      pageHeader={LanguagePageHeader}
-      footer={<Footer />}
-    >
-      <SidebarAndContent>
-        <Sidebar>
-          {renderSidebarTabs(overviewPage, currentPath, "language")}
-          {renderSidebarTabs(pagesWithoutOverview, currentPath, "language")}
-        </Sidebar>
-        <Content>
-          <ContentMarkdownSection>
-            {/*
-            // @ts-ignore */}
-            <MDXRenderer>{data.mdx.body}</MDXRenderer>
-          </ContentMarkdownSection>
-        </Content>
-        <TableOfContents items={md.tableOfContents.items} />
-      </SidebarAndContent>
-    </Layout>
+    <ThemeProvider themeManager={themeManager}>
+      <Layout
+        pageTitle={md.frontmatter.title}
+        currentPath={currentPath}
+        pageHeader={LanguagePageHeader}
+        footer={<Footer />}
+      >
+        <SidebarAndContent>
+          <Sidebar>
+            {renderSidebarTabs(overviewPage, currentPath, "language")}
+            {renderSidebarTabs(pagesWithoutOverview, currentPath, "language")}
+          </Sidebar>
+          <Content>
+            <ContentMarkdownSection>
+              {/*
+              // @ts-ignore */}
+              <MDXRenderer>{data.mdx.body}</MDXRenderer>
+            </ContentMarkdownSection>
+          </Content>
+          <TableOfContents items={md.tableOfContents.items} />
+        </SidebarAndContent>
+      </Layout>
+    </ThemeProvider>
   )
 }
 

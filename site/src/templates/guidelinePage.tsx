@@ -1,5 +1,6 @@
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { ThemeManager, heartTheme, ThemeProvider } from "@kaizen/design-tokens"
 import * as React from "react"
 import ContentMarkdownSection from "../components/ContentMarkdownSection"
 import Footer from "../components/Footer"
@@ -30,7 +31,8 @@ const renderSidebarTabs = (pages, currentPath, sectionName) =>
     </SidebarTab>
   ))
 
-export default ({ data, pageContext, location }) => {
+export default ({ data, location }) => {
+  const themeManager = new ThemeManager(heartTheme)
   const md = data.mdx
   const allPages = data.allMdx.edges
   const overviewPage = allPages.filter(
@@ -57,39 +59,40 @@ export default ({ data, pageContext, location }) => {
   )
 
   return (
-    <Layout
-      pageTitle={md.frontmatter.title}
-      currentPath={currentPath}
-      pageHeader={GuidelinesPageHeader}
-      footer={<Footer />}
-    >
-      <SidebarAndContent>
-        <Sidebar>
-          <SidebarSection>
-            {renderSidebarTabs(overviewPage, currentPath, "Overview")}
-          </SidebarSection>
-          <SidebarSection title="Guidelines">
-            {renderSidebarTabs(guidelinePages, currentPath, "Guidelines")}
-          </SidebarSection>
-          <SidebarSection title="Comparing components">
-            {renderSidebarTabs(
-              comparingPages,
-              currentPath,
-              "Comparing components"
-            )}
-          </SidebarSection>
-        </Sidebar>
-        <Content>
-          <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
-          <ContentMarkdownSection>
-            {/*
-            // @ts-ignore */}
-            <MDXRenderer>{data.mdx.body}</MDXRenderer>
-          </ContentMarkdownSection>
-        </Content>
-        <TableOfContents items={md.tableOfContents.items} />
-      </SidebarAndContent>
-    </Layout>
+    <ThemeProvider themeManager={themeManager}>
+      <Layout
+        pageTitle={md.frontmatter.title}
+        currentPath={currentPath}
+        pageHeader={GuidelinesPageHeader}
+        footer={<Footer />}
+      >
+        <SidebarAndContent>
+          <Sidebar>
+            <SidebarSection>
+              {renderSidebarTabs(overviewPage, currentPath, "Overview")}
+            </SidebarSection>
+            <SidebarSection title="Guidelines">
+              {renderSidebarTabs(guidelinePages, currentPath, "Guidelines")}
+            </SidebarSection>
+            <SidebarSection title="Comparing components">
+              {renderSidebarTabs(
+                comparingPages,
+                currentPath,
+                "Comparing components"
+              )}
+            </SidebarSection>
+          </Sidebar>
+          <Content>
+            <ContentNeedToKnowSection listOfTips={md.frontmatter.needToKnow} />
+            <ContentMarkdownSection>
+              {/* @ts-ignore */}
+              <MDXRenderer>{data.mdx.body}</MDXRenderer>
+            </ContentMarkdownSection>
+          </Content>
+          <TableOfContents items={md.tableOfContents.items} />
+        </SidebarAndContent>
+      </Layout>
+    </ThemeProvider>
   )
 }
 

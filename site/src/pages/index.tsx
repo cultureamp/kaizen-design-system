@@ -1,5 +1,6 @@
 import { Button, Heading } from "@kaizen/component-library"
 import { assetUrl } from "@kaizen/hosted-assets"
+import { ThemeManager, heartTheme, ThemeProvider } from "@kaizen/design-tokens"
 import { graphql, useStaticQuery, withPrefix } from "gatsby"
 import * as React from "react"
 import { Content, ContentOnly } from "../components/ContentOnly"
@@ -51,6 +52,7 @@ const FooterExtraContent = () => (
 )
 
 export default ({ location }) => {
+  const themeManager = new ThemeManager(heartTheme);
   const data = useStaticQuery(graphql`
     query HomePageComponentsQuery {
       allMdx(filter: { fields: { slug: { regex: "^/components/" } } }) {
@@ -66,78 +68,80 @@ export default ({ location }) => {
   `)
 
   return (
-    <Layout
-      pageTitle="Kaizen Design System"
-      currentPath={location.pathname}
-      pageHeader={HomePageHeader}
-      footer={<Footer reverseVariant extraContent={<FooterExtraContent />} />}
-      fullWidthContent={true}
-    >
-      <ContentOnly>
-        <Content>
-          <div className={styles.content}>
-            <div className={styles.guidelinesImageContainer}>
-              <a href={withPrefix("/guidelines/overview")}>
-                <img
-                  src={assetUrl("illustrations/scene/kaizen-site-product.svg")}
-                  alt="Guidelines"
-                />
-              </a>
-            </div>
-            <div className={styles.languageImageContainer}>
-              <a href={withPrefix("/language/overview")}>
-                <img
-                  src={assetUrl("illustrations/scene/kaizen-site-language.svg")}
-                  alt="Language"
-                />
-              </a>
-            </div>
-            <div className={styles.componentsImageContainer}>
-              <a href={withPrefix("/components/overview")}>
-                <img
-                  src={assetUrl(
-                    "illustrations/scene/kaizen-site-resources.svg"
-                  )}
-                  alt="Components"
-                />
-              </a>
-            </div>
-            <div className={styles.guidelinesTextContainer}>
-              <div className={styles.headingContainer}>
-                <Heading tag="div" variant="heading-2">
-                  <a href={withPrefix("/guidelines/overview")}>Guidelines</a>
-                </Heading>
+    <ThemeProvider themeManager={themeManager}>
+      <Layout
+        pageTitle="Kaizen Design System"
+        currentPath={location.pathname}
+        pageHeader={HomePageHeader}
+        footer={<Footer reverseVariant extraContent={<FooterExtraContent />} />}
+        fullWidthContent={true}
+      >
+        <ContentOnly>
+          <Content>
+            <div className={styles.content}>
+              <div className={styles.guidelinesImageContainer}>
+                <a href={withPrefix("/guidelines/overview")}>
+                  <img
+                    src={assetUrl("illustrations/scene/kaizen-site-product.svg")}
+                    alt="Guidelines"
+                  />
+                </a>
               </div>
-              <div className={styles.body}>
-                Learn how to design and build cohesive and predictable products
-                for Culture Amp.
+              <div className={styles.languageImageContainer}>
+                <a href={withPrefix("/language/overview")}>
+                  <img
+                    src={assetUrl("illustrations/scene/kaizen-site-language.svg")}
+                    alt="Language"
+                  />
+                </a>
+              </div>
+              <div className={styles.componentsImageContainer}>
+                <a href={withPrefix("/components/overview")}>
+                  <img
+                    src={assetUrl(
+                      "illustrations/scene/kaizen-site-resources.svg"
+                    )}
+                    alt="Components"
+                  />
+                </a>
+              </div>
+              <div className={styles.guidelinesTextContainer}>
+                <div className={styles.headingContainer}>
+                  <Heading tag="div" variant="heading-2">
+                    <a href={withPrefix("/guidelines/overview")}>Guidelines</a>
+                  </Heading>
+                </div>
+                <div className={styles.body}>
+                  Learn how to design and build cohesive and predictable products
+                  for Culture Amp.
+                </div>
+              </div>
+              <div className={styles.languageTextContainer}>
+                <div className={styles.headingContainer}>
+                  <Heading tag="div" variant="heading-2">
+                    <a href={withPrefix("/language/overview")}>Language</a>
+                  </Heading>
+                </div>
+                <div className={styles.body}>
+                  Write consistent content in Culture Amp's voice and adhere to
+                  our style&nbsp;guidelines.
+                </div>
+              </div>
+              <div className={styles.componentsTextContainer}>
+                <div className={styles.headingContainer}>
+                  <Heading tag="div" variant="heading-2">
+                    <a href={withPrefix("/components/overview")}>Components</a>
+                  </Heading>
+                </div>
+                <div className={styles.body}>
+                  Kaizen’s Component Library includes reusable code used to
+                  rapidly build pages.
+                </div>
               </div>
             </div>
-            <div className={styles.languageTextContainer}>
-              <div className={styles.headingContainer}>
-                <Heading tag="div" variant="heading-2">
-                  <a href={withPrefix("/language/overview")}>Language</a>
-                </Heading>
-              </div>
-              <div className={styles.body}>
-                Write consistent content in Culture Amp's voice and adhere to
-                our style&nbsp;guidelines.
-              </div>
-            </div>
-            <div className={styles.componentsTextContainer}>
-              <div className={styles.headingContainer}>
-                <Heading tag="div" variant="heading-2">
-                  <a href={withPrefix("/components/overview")}>Components</a>
-                </Heading>
-              </div>
-              <div className={styles.body}>
-                Kaizen’s Component Library includes reusable code used to
-                rapidly build pages.
-              </div>
-            </div>
-          </div>
-        </Content>
-      </ContentOnly>
-    </Layout>
+          </Content>
+        </ContentOnly>
+      </Layout>
+    </ThemeProvider>
   )
 }
