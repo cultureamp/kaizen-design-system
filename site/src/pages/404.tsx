@@ -32,7 +32,7 @@ const FourOhFourPageHeader = (
 )
 
 export default props => {
-  const themeManager = new ThemeManager(heartTheme);
+  const themeManager = new ThemeManager(heartTheme)
 
   return (
     <ThemeProvider themeManager={themeManager}>

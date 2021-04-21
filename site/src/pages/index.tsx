@@ -52,7 +52,7 @@ const FooterExtraContent = () => (
 )
 
 export default ({ location }) => {
-  const themeManager = new ThemeManager(heartTheme);
+  const themeManager = new ThemeManager(heartTheme)
   const data = useStaticQuery(graphql`
     query HomePageComponentsQuery {
       allMdx(filter: { fields: { slug: { regex: "^/components/" } } }) {
@@ -82,7 +82,9 @@ export default ({ location }) => {
               <div className={styles.guidelinesImageContainer}>
                 <a href={withPrefix("/guidelines/overview")}>
                   <img
-                    src={assetUrl("illustrations/scene/kaizen-site-product.svg")}
+                    src={assetUrl(
+                      "illustrations/scene/kaizen-site-product.svg"
+                    )}
                     alt="Guidelines"
                   />
                 </a>
@@ -90,7 +92,9 @@ export default ({ location }) => {
               <div className={styles.languageImageContainer}>
                 <a href={withPrefix("/language/overview")}>
                   <img
-                    src={assetUrl("illustrations/scene/kaizen-site-language.svg")}
+                    src={assetUrl(
+                      "illustrations/scene/kaizen-site-language.svg"
+                    )}
                     alt="Language"
                   />
                 </a>
@@ -112,8 +116,8 @@ export default ({ location }) => {
                   </Heading>
                 </div>
                 <div className={styles.body}>
-                  Learn how to design and build cohesive and predictable products
-                  for Culture Amp.
+                  Learn how to design and build cohesive and predictable
+                  products for Culture Amp.
                 </div>
               </div>
               <div className={styles.languageTextContainer}>
