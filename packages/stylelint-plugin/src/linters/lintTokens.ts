@@ -2,13 +2,10 @@ import { AtRule, Declaration, Root } from "postcss"
 import postcssValueParser from "postcss-value-parser"
 import { deprecatedTokenUsage, unmigratableDeclarationMessage } from "../errors"
 import { kaizenTokensByName } from "../kaizenTokens"
-import { variableUsedAsEquationTerm } from "../patterns"
 import { Options } from "../types"
 import { variablePrefixForLanguage } from "../utils"
-import {
-  walkDeclsWithKaizenTokens,
-  walkVariablesOnValue,
-} from "../walkVariables"
+import { walkDeclsWithKaizenTokens, walkVariablesOnValue } from "../walkers"
+import { lintEquation } from "./lintEquation"
 import { lintFunctions } from "./lintFunctions"
 
 /**
@@ -38,16 +35,30 @@ export const lintTokens = (styleSheetNode: Root, options: Options) => {
       }
 
       // If a token is being used as a term within an equation, ignore, and label it as "unmigratable"
-      if (variableUsedAsEquationTerm(value)) {
-        unmigratables.push(postcssNode)
-        options.reporter({
-          message: unmigratableDeclarationMessage(
-            postcssNode,
-            "Variable used within equation"
-          ),
-          node: postcssNode,
-        })
-        return
+      const equationErrorResult = lintEquation(value, options)
+      if (equationErrorResult.invalid) {
+        if (equationErrorResult.amended) {
+          if (options.fix) {
+            decl.value = equationErrorResult.amended
+          } else {
+            options.reporter({
+              message:
+                equationErrorResult.reason ||
+                "Invalid usage of Kaizen token in a mathematical expression",
+              node: postcssNode,
+            })
+          }
+        } else {
+          unmigratables.push(postcssNode)
+          options.reporter({
+            message: unmigratableDeclarationMessage(
+              postcssNode,
+              equationErrorResult.reason
+            ),
+            node: postcssNode,
+          })
+          return
+        }
       }
 
       const functionLintResult = lintFunctions(decl, options)
@@ -86,7 +97,11 @@ export const lintTokens = (styleSheetNode: Root, options: Options) => {
               node: decl,
             })
           } else {
-            node.value = `${variablePrefix}${replacementToken.name}`
+            if (variable.interpolated) {
+              node.value = `#{${variablePrefix}${replacementToken.name}}`
+            } else {
+              node.value = `${variablePrefix}${replacementToken.name}`
+            }
           }
         }
 

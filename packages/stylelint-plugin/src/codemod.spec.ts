@@ -1,4 +1,3 @@
-jest.deepUnmock("./codemod")
 import { codemodOnSource } from "./codemod"
 import { Language } from "./types"
 
@@ -202,6 +201,33 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800, 80%) }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800-rgb-params, 80%) }',
+    expectedUnmigratableTokens: 0,
+  },
+  {
+    language: "scss",
+    testName: "migrates tokens used in calc() without string interpolations",
+    input:
+      '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: calc(5px + $kz-spacing-md) }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: calc(5px + #{$kz-var-spacing-md}) }',
+    expectedUnmigratableTokens: 0,
+  },
+  {
+    language: "less",
+    testName: "nothing unmigratable showing up for valid use cases",
+    input:
+      '@import "~@kaizen/design-tokens/less/color-vars"; .foo { color: rgba(@kz-var-color-wisteria-800-rgb-params, 80%) }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/less/color-vars"; .foo { color: rgba(@kz-var-color-wisteria-800-rgb-params, 80%) }',
+    expectedUnmigratableTokens: 0,
+  },
+  {
+    language: "scss",
+    testName: "interpolated tokens are still migrated",
+    input:
+      '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: #{$kz-spacing-lg} }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: #{$kz-var-spacing-lg} }',
     expectedUnmigratableTokens: 0,
   },
 ]
