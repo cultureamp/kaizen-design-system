@@ -39,7 +39,7 @@ export const walkVariablesOnValue = (
 }
 
 /**
- * Given the value part of a declaration (e.g. `5px 0 10px 0`, `#ff0000`), visit any less or sass variables that show up
+ * Visit any less or sass variables within an entire stylesheet
  */
 export const walkVariables = (
   stylesheetNode: Root,
