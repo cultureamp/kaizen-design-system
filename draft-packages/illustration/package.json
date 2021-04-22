@@ -32,14 +32,15 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/design-tokens": "^2.8.1",
     "@kaizen/hosted-assets": "^1.1.0"
   },
   "devDependencies": {
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "@kaizen/design-tokens": "^2.8.1"
   },
   "peerDependencies": {
+    "@kaizen/design-tokens": "^2.8.1",
     "react": "^16.9.0"
   }
 }
