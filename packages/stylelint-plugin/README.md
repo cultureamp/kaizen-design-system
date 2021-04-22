@@ -12,7 +12,7 @@ Then, add the plugin and rule to your stylelint configuration:
   "rules": {
     "kaizen/deprecated-tokens": [
       true,
-      { "severity": "warning", "unusedImports": true }
+      { "severity": "warning", "unusedImports": true, "allowFixing" false }
     ]
   }
 }
@@ -37,13 +37,15 @@ To automatically migrate as much as possible on a codebase, run:
 
 ## Options:
 
-- `unusedImports: boolean` - Should the codemod report on and remove any unused kaizen imports?
-- `allowFixing: boolean` - Allows you to run stylelint fixes using the codemod, even though there may be incosistent results.
+- `unusedImports: boolean` - Should the codemod report on and remove any unused kaizen imports? Defaults to false.
+- `allowFixing: boolean` - Allows you to run stylelint fixes using the codemod, even though there may be incosistent results. Defaults to false.
 
 In the example above, `severity` is used, however it is inbuilt into stylelint. You can set this to "warning" or "error" to treat reports of anything as ok or fatal.
 
 ## Features
 - Detect and report on usages of old/deprecated kaizen tokens
 - Doesn't auto-migrate anything that can't be safely migrated, e.g. variable declarations, color manipulation functions, or equations.
+  - However, it WILL migrate any variables that are used incorrectly within a `calc()` function
 - Migrates `rgba|rgb|add-alpha` usages.
 - Warns you when you use a new kaizen token incorrectly (most of the time)
+- Coming soon: any usages of darken, add-shade, add-tint, mix etc will be computed within the codemod and replaced with a HEX/RGB/HSL value.
