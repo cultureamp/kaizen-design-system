@@ -1,17 +1,11 @@
 import stylelint from "stylelint"
 import { codemodOnAst } from "./codemod"
+import { StylelintPluginOptions } from "./types"
 export const ruleName = "kaizen/deprecated-tokens"
-
-type SecondaryOptions = {
-  /** Allows the codemod to apply fixes using stylelint. Warning: Some inconsistent changes may occur */
-  allowFixing?: boolean
-  /** Report on and remove unused kaizen imports */
-  unusedImports?: boolean
-}
 
 export default stylelint.createPlugin(
   ruleName,
-  (primary, secondary: SecondaryOptions | undefined, context) => (
+  (primary, secondary: StylelintPluginOptions | undefined, context) => (
     root,
     result
   ) => {
