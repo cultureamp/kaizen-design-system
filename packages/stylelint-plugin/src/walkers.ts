@@ -1,15 +1,8 @@
-import { Root, Declaration, AtRule } from "postcss"
+import { AtRule, Declaration, Root } from "postcss"
 import postcssValueParser from "postcss-value-parser"
-import { KaizenToken, kaizenTokensByName } from "./kaizenTokens"
+import { kaizenTokensByName } from "./kaizenTokens"
 import { sassInterpolationPattern } from "./patterns"
-
-export type Variable = {
-  name: string
-  nameWithPrefix: string
-  prefix: "$" | "@"
-  kaizenToken?: KaizenToken
-  interpolated?: boolean
-}
+import { ParsedKaizenVariable, Variable } from "./types"
 
 /**
  * Given a parsed value (from postcss-value-parser), visit any less or sass variables that show up
@@ -68,11 +61,6 @@ export const walkVariables = (
       visitor({ postcssNode, value, parsedValue, variableNode, variable })
     })
   })
-}
-
-type ParsedKaizenVariable = Variable & {
-  kaizenToken: KaizenToken
-  variableNode: postcssValueParser.WordNode
 }
 
 /**

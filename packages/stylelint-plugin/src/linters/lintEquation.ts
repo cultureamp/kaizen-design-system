@@ -1,9 +1,5 @@
 import postcssValueParser, { WordNode } from "postcss-value-parser"
-import {
-  isOperator,
-  isKaizenTokenVariable,
-  migrateToNewVarPattern,
-} from "../patterns"
+import { isKaizenTokenVariable, isOperator } from "../patterns"
 import { Options } from "../types"
 import { walkWithParent } from "../walkers"
 

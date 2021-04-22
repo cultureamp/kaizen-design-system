@@ -1,6 +1,7 @@
 import fs from "fs"
 import flatmap from "lodash.flatmap"
 import postcssValueParser from "postcss-value-parser"
+import { CSSVariable, KaizenToken } from "./types"
 import { getParser } from "./utils"
 const scssParser = getParser("scss")
 
@@ -45,20 +46,6 @@ export const kaizenTokensByModule = {
   typography: getVarsFromKaizenModule("typography"),
   typographyVars: getVarsFromKaizenModule("typography-vars"),
   variableIdentifiers: getVarsFromKaizenModule("variable-identifiers"),
-}
-
-export type KaizenToken = {
-  name: string
-  sassModulePath: string
-  lessModulePath: string
-  value: string
-  moduleName: string
-  cssVariable?: CSSVariable
-}
-
-export type CSSVariable = {
-  identifier: string
-  fallback?: string
 }
 
 const parseCssVariableValue = (value: string): CSSVariable | undefined => {
