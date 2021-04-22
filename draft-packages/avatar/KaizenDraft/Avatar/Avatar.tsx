@@ -31,8 +31,9 @@ export interface AvatarProps {
   /**
    * Default behaviour when an avatarSrc is not provided is to generate initials from the username.
    * This disables this feature and shows the generic avatar.
+   * Enable this prop when there is no specific individual or group identified.
    */
-  disableInitials?: string
+  disableInitials?: boolean
   /**
    * Src for the avatar image to load, if not passed we will derive initials from the full name.
    */
