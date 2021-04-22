@@ -37,7 +37,8 @@ To automatically migrate as much as possible on a codebase, run:
 
 ## Options:
 
-- `unusedImports: boolean` - Will report on and remove any unused kaizen imports.
+- `unusedImports: boolean` - Should the codemod report on and remove any unused kaizen imports?
+- `allowFixing: boolean` - Allows you to run stylelint fixes using the codemod, even though there may be incosistent results.
 
 In the example above, `severity` is used, however it is inbuilt into stylelint. You can set this to "warning" or "error" to treat reports of anything as ok or fatal.
 
