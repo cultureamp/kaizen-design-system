@@ -1,12 +1,14 @@
 import { Root, Declaration, AtRule } from "postcss"
 import postcssValueParser from "postcss-value-parser"
 import { KaizenToken, kaizenTokensByName } from "./kaizenTokens"
+import { sassInterpolationPattern } from "./patterns"
 
 export type Variable = {
   name: string
   nameWithPrefix: string
   prefix: "$" | "@"
   kaizenToken?: KaizenToken
+  interpolated?: boolean
 }
 
 /**
@@ -17,14 +19,20 @@ export const walkVariablesOnValue = (
   visitor: (node: postcssValueParser.WordNode, variable: Variable) => void
 ) => {
   parsedValue.walk(node => {
-    const firstChar = node.value[0]
+    const interpolated = sassInterpolationPattern.test(node.value)
+    const valueWithoutInterpolation = node.value.replace(
+      sassInterpolationPattern,
+      "$1"
+    )
+    const firstChar = valueWithoutInterpolation[0]
     if (node.type === "word" && (firstChar === "@" || firstChar === "$")) {
-      const name = node.value.substr(1)
-      visitor(node, {
+      const name = valueWithoutInterpolation.substr(1)
+      return visitor(node, {
         name,
-        nameWithPrefix: node.value,
+        nameWithPrefix: valueWithoutInterpolation,
         prefix: firstChar,
         kaizenToken: kaizenTokensByName[name],
+        interpolated,
       })
     }
   })
@@ -127,4 +135,41 @@ export const walkKaizenTokens = (
         }
       )
   })
+}
+
+/**
+ * Works the same way as postcssValueParser.ParsedValue.walk except the visitor knows about it's parent (if one exists). Currently, value parser will only put children nodes in functions, and a function with no name is just an expression within ( .. ) which won't be treated as a parent within our implementation.
+ */
+export const walkWithParent = (
+  _value: postcssValueParser.ParsedValue,
+  _visitor: (
+    node: postcssValueParser.Node,
+    parent?: postcssValueParser.FunctionNode
+  ) => void | false
+) => {
+  // We want an inner walker so that we can recurse without the context parameter (currentParent) in the parent function (users shouldn't know about it)
+  const innerWalker = (
+    nodes: postcssValueParser.Node[],
+    visitor: (
+      node: postcssValueParser.Node,
+      parent?: postcssValueParser.FunctionNode
+    ) => void | false,
+    currentParent?: postcssValueParser.FunctionNode
+  ): void | false => {
+    for (const node of nodes) {
+      const shouldContinue = visitor(node, currentParent)
+      if (shouldContinue === false) return false
+      // If there are children, and the node is a function, AND the function has a name (it's not just an expression wrapped in "( )" )
+      if ("nodes" in node) {
+        if (node.type === "function" && node.value.length) {
+          if (innerWalker(node.nodes, visitor, node) === false) return false
+        } else {
+          if (innerWalker(node.nodes, visitor, currentParent) === false)
+            return false
+        }
+      }
+    }
+  }
+
+  innerWalker(_value.nodes, _visitor)
 }

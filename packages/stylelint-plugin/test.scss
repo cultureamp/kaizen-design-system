@@ -1,0 +1,21 @@
+@import "~@kaizen/design-tokens/sass/spacing-vars";
+
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "././another.scss";
+
+.test {
+  color: $kz-var-color-wisteria-800-rgb-params;
+}
+
+.testt {
+  color: rgba($kz-var-color-cluny-600-rgb-params, 80%);
+  background-color: rgb($kz-var-color-cluny-600-rgb-params);
+
+  border-color: rgba($kz-var-color-wisteria-800-rgb-params, 70%);
+  padding: $kz-var-spacing-md;
+
+  padding: calc(#{$kz-var-spacing-md} * 2);
+  margin: calc(#{$kz-var-spacing-md} * 2);
+
+  color: darken($kz-var-color-white, 80%);
+}

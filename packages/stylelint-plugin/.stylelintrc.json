@@ -3,7 +3,7 @@
   "rules": {
     "kaizen/deprecated-tokens": [
       true,
-      { "severity": "error", "unusedImports": true }
+      { "severity": "error", "unusedImports": true, "allowFixing": true }
     ]
   }
 }

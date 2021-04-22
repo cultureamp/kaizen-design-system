@@ -3,7 +3,7 @@ import { missingRequiredKaizeImport, unnecessaryKaizenImport } from "../errors"
 import { KaizenToken } from "../kaizenTokens"
 import { quotesPattern } from "../patterns"
 import { Options } from "../types"
-import { walkKaizenTokens } from "../walkVariables"
+import { walkKaizenTokens } from "../walkers"
 
 const getCurrentImports = (stylesheet: Root) => {
   const imports = new Set<string>()
