@@ -6,7 +6,9 @@ export type SpotProps = Pick<BaseProps, "alt" | "classNameAndIHaveSpokenToDST">
 
 const noZenIllustrationWarning = (illustrationName: string) => {
   // eslint-disable-next-line no-console
-  console.warn(`Kaizen Illustration: No corresponding Zen illustration for ${illustrationName}. Displaying Heart illustration instead."`)
+  console.warn(
+    `Kaizen Illustration: No corresponding Zen illustration for ${illustrationName}. Displaying Heart illustration instead."`
+  )
 }
 
 /**
@@ -595,8 +597,8 @@ export const ManagerLearning = (props: SpotProps) => {
   const theme = useTheme()
   const illustrationPath =
     theme.themeKey === "zen"
-    ? "illustrations/spot/manager-learning-manager-learning.svg"
-     : "illustrations/heart/spot/skills-coach-manager-learning.svg"
+      ? "illustrations/spot/manager-learning-manager-learning.svg"
+      : "illustrations/heart/spot/skills-coach-manager-learning.svg"
 
   return <Base {...props} name={illustrationPath} />
 }
@@ -625,7 +627,7 @@ export const OneOnOne = (props: SpotProps) => {
   const theme = useTheme()
   const illustrationPath =
     theme.themeKey === "zen"
-    ? "illustrations/spot/manager-learning-1-on-1.svg"
+      ? "illustrations/spot/manager-learning-1-on-1.svg"
       : "illustrations/heart/spot/skills-coach-1-on-1.svg"
 
   return <Base {...props} name={illustrationPath} />
@@ -994,10 +996,6 @@ export const Recommendation = (props: SpotProps) => {
     noZenIllustrationWarning("Recommendation")
   }
   return (
-    <Base
-      {...props}
-      name="illustrations/heart/spot/miscellaneous-shield.svg"
-    />
+    <Base {...props} name="illustrations/heart/spot/miscellaneous-shield.svg" />
   )
 }
-

@@ -88,7 +88,7 @@ import {
   Trophy,
   UnderConstruction,
   ValueAdd,
-  Recommendation
+  Recommendation,
 } from ".."
 
 export default {
@@ -313,7 +313,7 @@ export const AllSpotIllustrations = () => {
     },
     {
       Component: Assertive,
-      name: "Assertive"
+      name: "Assertive",
     },
     {
       Component: Positive,

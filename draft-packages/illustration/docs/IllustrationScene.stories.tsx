@@ -59,7 +59,8 @@ export default {
   parameters: {
     docs: {
       description: {
-        component: "Import { SurveyOverviewClosed } from \"@kaizen/draft-illustration\"",
+        component:
+          'Import { SurveyOverviewClosed } from "@kaizen/draft-illustration"',
       },
     },
   },
