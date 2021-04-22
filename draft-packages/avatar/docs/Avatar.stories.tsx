@@ -33,6 +33,32 @@ export const InitialsOthers = () => (
     <Avatar isCurrentUser={false} size="small" fullName="Jane Doe" />
   </>
 )
+
+export const DisabledInitials = () => (
+  <>
+    <Avatar
+      isCurrentUser={false}
+      size="large"
+      fullName="213146147"
+      disableInitials
+    />
+    <br />
+    <Avatar
+      isCurrentUser={false}
+      size="medium"
+      fullName="213146147"
+      disableInitials
+    />
+    <br />
+    <Avatar
+      isCurrentUser={false}
+      size="small"
+      fullName="213146147"
+      disableInitials
+    />
+  </>
+)
+
 export const PhotoPersonal = () => (
   <>
     <Avatar
