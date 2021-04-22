@@ -1,8 +1,8 @@
 {
   "name": "@kaizen/stylelint-plugin",
   "version": "1.0.0",
-  "types": "build/**/*.d.ts",
-  "main": "build/src/index.js",
+  "types": "dist/**/*.d.ts",
+  "main": "dist/src/index.js",
   "license": "MIT",
   "files": [
     "src",
@@ -10,7 +10,7 @@
     "types"
   ],
   "bin": {
-    "kaizen-token-codemod": "./build/src/cli.js"
+    "kaizen-token-codemod": "./dist/src/cli.js"
   },
   "dependencies": {
     "@kaizen/design-tokens": "^2.8.1",
@@ -27,9 +27,10 @@
     "yargs": "^16.2.0"
   },
   "scripts": {
+    "cli": "yarn build && node ./dist/src/cli.js",
     "test": " yarn jest",
-    "build": "yarn tsc",
-    "clean": "rm -rf build",
-    "prepare": "yarn clean && yarn build"
+    "build": "yarn tsc --project tsconfig.dist.json",
+    "clean": "rm -rf dist",
+    "prepare": "yarn clean && yarn test && yarn build"
   }
 }

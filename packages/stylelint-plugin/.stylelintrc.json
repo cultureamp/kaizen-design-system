@@ -1,5 +1,5 @@
 {
-  "plugins": ["./build/src/index.js"],
+  "plugins": ["./dist/src/index.js"],
   "rules": {
     "kaizen/deprecated-tokens": [
       true,
