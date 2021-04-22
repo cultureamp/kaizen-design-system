@@ -50,6 +50,7 @@ import {
   PerformanceTeamSummary,
   Programs,
   SurveyOverviewClosed,
+  SurveyGetStarted,
 } from ".."
 
 export default {
@@ -428,3 +429,10 @@ export const SurveyOverviewClosedStory = () => (
   </div>
 )
 SurveyOverviewClosedStory.storyName = "Survey Overview: Closed Survey"
+
+export const SurveyGetStartedStory = () => (
+  <div style={{ width: "500px" }}>
+    <SurveyGetStarted alt="" />
+  </div>
+)
+SurveyGetStartedStory.storyName = "Survey Overview: Get Started"
