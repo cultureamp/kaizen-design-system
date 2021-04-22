@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.7.0...@kaizen/draft-illustration@1.7.1) (2021-04-20)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.6.4...@kaizen/draft-illustration@1.7.0) (2021-04-20)
+
+
+### Features
+
+* Add get started illustration to storybook and scene component ([#1464](https://github.com/cultureamp/kaizen-design-system/issues/1464)) ([65fb356](https://github.com/cultureamp/kaizen-design-system/commit/65fb35611c0fa6e7f299f2d84bcb136f82459073))
+
+
+
+
+
 ## [1.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.6.3...@kaizen/draft-illustration@1.6.4) (2021-04-13)
 
 **Note:** Version bump only for package @kaizen/draft-illustration

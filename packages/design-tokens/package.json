@@ -1,7 +1,7 @@
 {
   "name": "@kaizen/design-tokens",
   "description": "Tokens used in the Kaizen Design System",
-  "version": "2.8.0",
+  "version": "2.8.1",
   "homepage": "https://github.com/cultureamp/kaizen-design-system/tree/master/packages/design-tokens",
   "repository": {
     "type": "git",
@@ -17,8 +17,11 @@
     "css",
     "index.ts",
     "src",
-    "react"
+    "react",
+    "dist"
   ],
+  "types": "dist/**/*.d.ts",
+  "main": "dist/index.js",
   "private": false,
   "license": "MIT",
   "sideEffects": false,
@@ -26,10 +29,11 @@
     "test": "yarn jest",
     "build": "yarn clean && yarn prepublish",
     "build:json": "yarn ts-node --files ./bin/buildCssVarTokens.ts",
+    "build:ts": "tsc --project tsconfig.dist.json",
     "build:less": "json-to-flat-sass './tokens/*.json' 'less' --extension 'less' --caseType 'kebab' && prettier less/* --write",
     "build:sass": "json-to-flat-sass './tokens/*.json' 'sass' --extension 'scss' --caseType 'kebab' && prettier sass/* --write",
     "clean": "rimraf 'dist/**' './(!node_modules)/**/*.js' 'tokens/**/*.d.ts' 'tokens/**/*.map' ",
-    "prepublish": "yarn build:json && yarn build:less && yarn build:sass"
+    "prepublish": "yarn build:json && yarn build:less && yarn build:sass && yarn build:ts"
   },
   "devDependencies": {
     "@types/lodash.flatmap": "^4.5.3",
