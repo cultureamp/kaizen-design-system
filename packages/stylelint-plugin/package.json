@@ -30,6 +30,6 @@
     "test": " yarn jest",
     "build": "yarn tsc",
     "clean": "rm -rf build",
-    "prepublish": "yarn clean && yarn build"
+    "prepare": "yarn clean && yarn build"
   }
 }
