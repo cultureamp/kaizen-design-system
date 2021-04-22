@@ -27,14 +27,14 @@ import Dont from "docs-components/Dont"
 
 ## Options
 
-  - Confirmation:
+  - Confirmation Modal:
       - Positive
       - Informative
       - Cautionary
       - Assertive (previously Roadblock)
       - Negative
-  - Input-edit
-  - Context (previously Information)
+  - Input-Edit Modal
+  - Context Modal (previously Information Modal)
 
 ## To keep in mind
 
@@ -59,31 +59,31 @@ Modals contain smaller pieces of additional content while maintaining the contex
 
 ### Confirmation modal
 
-The confirmation modal confirms the end result of an interaction such as Positive, Informative, Cautionary or Negative. The Assertive confirmation modal (previously Roadblock modal) indicates a show-stopping problem that we couldn't address earlier in the flow. Use as a last resort. For example, server-side validation shows a form error that needs to be addressed before continuing.
+The Confirmation Modal confirms the end result of an interaction such as Positive, Informative, Cautionary or Negative. The Assertive Confirmation Modal (previously Roadblock modal) indicates a show-stopping problem that we couldn't address earlier in the flow. Use as a last resort. For example, server-side validation shows a form error that needs to be addressed before continuing.
 
-There are two types of confirmation modal; Default and Prominent.
+There are two types of Confirmation Modal; Default and Prominent.
 
-- **Default** is a simpler confirmation modal which is our preference for standard use cases.
-- **Prominent** includes an animated spot illustration to help convey increased sentiment to the user. Use the Prominent modal when you want to celebrate the completion of a task or make it known that you need the user to pay attention to important information.
+- **Default** is a simpler Confirmation Modal which is our preference for standard use cases.
+- **Prominent** includes an animated spot illustration to help convey increased sentiment to the user. Use the Prominent Confirmation Modal when you want to celebrate the completion of a task or make it known to the user that they need to pay attention to important information.
 
-The anatomy of a confirmation modal contains:
+The anatomy of a Confirmation Modal contains:
 - Header: States what the intent of Modal is. A verb and a noun (e.g. Upload an image, Notify users, Restart imports etc.).
-- Content: Additional context about the confirmation
+- Content: Additional context about the thing a user is confirming
 - Footer: Primary/Destructive action label reflects the action they are performing (relative to the header).
 
-For Assertive confirmation modals, follow this structure:
+For Assertive Confirmation Modals, follow this structure:
 - Header: States why you can't proceed
 - Footer: One button either labeled back or cancel
 - Body: Tell users why they’re unable to proceed and what needs to happen first.
 
-**Note:** We don't use custom spot illustrations in confirmation modals. Use the standard, predefined animated spot illustration.
+**Note:** We don't use custom spot illustrations in Confirmation Modals. Use the standard, predefined animated spot illustration.
 
 
-### Input/edit modal
+### Input-Edit Modal
 
-Input/edit modals allow people to change data or settings without leaving the page. They support the ability to edit up to 3 fields. Any more becomes crowded and a new page is preferred.
+Input-Edit Modals allow people to change data or settings without leaving the page. They support the ability to edit up to 3 fields. Any more becomes crowded and a new page is preferred.
 
-An input/edit modal may also be used to present data-intensive information such as a list of employees where the information modal is inappropriate.
+An Input-Edit Modal may also be used to present data-intensive information such as a list of employees where the Context Modal is inappropriate.
 
 If data will be lost by dismissing the modal unintentionally, consider autosaving.
 
@@ -91,9 +91,9 @@ If data will be lost by dismissing the modal unintentionally, consider autosavin
 - Footer: Primary/Destructive action label should reflect the action they are performing (relative to the header).
 - Body: Adding a stone colored background will assist the definition of Inputs and will allow product team to clearly identify the modal type.
 
-### Context modals (previously Information modal)
+### Context Modals (previously Information modal)
 
-Context modals assist with education. They’re user triggered. They may be relative to a deeper level of information. May be useful for first time users. Heavily optional. Visual aid is good. Primary action optional.
+Context Modals assist with education. They’re user triggered. They may be relative to a deeper level of information. May be useful for first time users. Heavily optional. Visual aid is good. Primary action optional.
 
 - Header: State what the intent of Modal is. A verb and a noun (e.g. Upload an image, Notify users, Restart imports etc.).
 - Footer: Does not require a Primary/Destructive action. Avoid using unnecessary acknowledgment buttons, e.g. ‘Okay, got it!’.
