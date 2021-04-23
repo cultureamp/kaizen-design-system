@@ -230,31 +230,102 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: #{$kz-var-spacing-lg} }',
     expectedUnmigratableTokens: 0,
   },
+  {
+    language: "scss",
+    testName:
+      "negation of old token is detected as an equation, and then migrated with a calc()",
+    input:
+      '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: -$kz-spacing-lg; }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: calc(-1 * #{$kz-var-spacing-lg}); }',
+    expectedUnmigratableTokens: 0,
+  },
+  {
+    language: "scss",
+    testName:
+      "negation of old token is detected as an equation, and then migrated with a calc(), but not if it's already within one",
+    input:
+      '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: calc(-$kz-spacing-lg); }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: calc((-1 * #{$kz-var-spacing-lg})); }',
+    expectedUnmigratableTokens: 0,
+  },
+  {
+    language: "scss",
+    testName:
+      "negation of old token is detected as an equation, and then migrated with a calc(), even when it's part of a value with multiple 'sides' ",
+    input:
+      '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: 5px -$kz-spacing-lg; }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: 5px calc(-1 * #{$kz-var-spacing-lg}); }',
+    expectedUnmigratableTokens: 0,
+  },
+  {
+    language: "scss",
+    testName:
+      "negation of old token is detected as an equation, and then migrated with a calc(), even when it's part of a value with multiple 'sides', and with another kaizen token next to it ",
+    input:
+      '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: $kz-spacing-md -$kz-spacing-lg; }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: $kz-var-spacing-md calc(-1 * #{$kz-var-spacing-lg}); }',
+    expectedUnmigratableTokens: 0,
+  },
+  {
+    language: "scss",
+    testName:
+      "doesn't migrate ambiguous case of negation (knows if it's an equation and not a negation - all it takes is a space)",
+    input:
+      '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: 5px - $kz-spacing-lg; }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: 5px - $kz-spacing-lg; }',
+    expectedUnmigratableTokens: 1,
+  },
+
+  {
+    language: "less",
+    testName:
+      "negation of old token is detected as an equation, but not migrated in LESS",
+    input:
+      '@import "~@kaizen/design-tokens/less/spacing"; .foo { padding: -@kz-spacing-lg; }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/less/spacing"; .foo { padding: -@kz-spacing-lg; }',
+    expectedUnmigratableTokens: 1,
+  },
 ]
 
 describe("Codemod", () => {
-  testExamples.forEach(
-    ({
-      input,
-      language,
-      testName,
-      expectedOutput,
-      expectedUnmigratableTokens,
-    }) =>
-      test(`${language}: ${testName}`, () => {
-        const result = codemodOnSource(input, {
-          language,
-          fix: true,
-          removeUnusedImports: true,
-          reporter: () => {
-            // noop
-            // If we wanted to test that everything is being reported correctly, we could do that here.
-          },
-        })
-        expect(result.stylesheet.toString().replace(/\n/g, " ").trim()).toBe(
-          expectedOutput.replace(/\n/g, " ").trim()
-        )
-        expect(result.unmigratables.length).toBe(expectedUnmigratableTokens)
+  const testExample = ({
+    language,
+    testName,
+    input,
+    expectedOutput,
+    expectedUnmigratableTokens,
+  }: TestExample) => {
+    test(`${language}: ${testName}`, () => {
+      const result = codemodOnSource(input, {
+        language,
+        fix: true,
+        removeUnusedImports: true,
+        reporter: () => {
+          // noop
+          // If we wanted to test that everything is being reported correctly, we could do that here.
+        },
       })
-  )
+      expect(result.stylesheet.toString().replace(/\n/g, " ").trim()).toBe(
+        expectedOutput.replace(/\n/g, " ").trim()
+      )
+      expect(result.unmigratables.length).toBe(expectedUnmigratableTokens)
+    })
+  }
+  testExamples.forEach(testExample)
+  // Test a single example like so:
+  /*   testExample({
+    language: "scss",
+    testName: "test",
+    input:
+      '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: $kz-var-spacing-lg calc(-1 * #{$kz-var-spacing-md}); }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: $kz-var-spacing-lg calc(-1 * #{$kz-var-spacing-md}); }',
+    expectedUnmigratableTokens: 0,
+  }) */
 })

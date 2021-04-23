@@ -1,8 +1,9 @@
 import { AtRule, Declaration, Root } from "postcss"
 import postcssValueParser from "postcss-value-parser"
 import { kaizenTokensByName } from "./kaizenTokens"
-import { sassInterpolationPattern } from "./patterns"
+import { operatorPattern, sassInterpolationPattern } from "./patterns"
 import { ParsedKaizenVariable, Variable } from "./types"
+import { parseVariable } from "./utils"
 
 /**
  * Given a parsed value (from postcss-value-parser), visit any less or sass variables that show up
@@ -12,21 +13,11 @@ export const walkVariablesOnValue = (
   visitor: (node: postcssValueParser.WordNode, variable: Variable) => void
 ) => {
   parsedValue.walk(node => {
-    const interpolated = sassInterpolationPattern.test(node.value)
-    const valueWithoutInterpolation = node.value.replace(
-      sassInterpolationPattern,
-      "$1"
-    )
-    const firstChar = valueWithoutInterpolation[0]
-    if (node.type === "word" && (firstChar === "@" || firstChar === "$")) {
-      const name = valueWithoutInterpolation.substr(1)
-      return visitor(node, {
-        name,
-        nameWithPrefix: valueWithoutInterpolation,
-        prefix: firstChar,
-        kaizenToken: kaizenTokensByName[name],
-        interpolated,
-      })
+    if (node.type === "word") {
+      const variable = parseVariable(node)
+      if (variable) {
+        visitor(node, variable)
+      }
     }
   })
 }
@@ -94,7 +85,7 @@ export const walkDeclsWithKaizenTokens = (
         kaizenVariables.push({
           ...variable,
           kaizenToken: variable.kaizenToken,
-          variableNode,
+          node: variableNode,
         })
       }
     })

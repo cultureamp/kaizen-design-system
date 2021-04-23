@@ -8,11 +8,11 @@ import { getParser } from "./utils"
  * Run the codemod on a stylesheet AST (postcss Root)
  */
 export const codemodOnAst = (stylesheetNode: Root, options: Options) => {
-  const { unmigratables, migrated } = lintTokens(stylesheetNode, options)
+  const { unmigratables } = lintTokens(stylesheetNode, options)
 
   lintImports(stylesheetNode, options)
 
-  return { stylesheet: stylesheetNode, unmigratables, migrated }
+  return { stylesheet: stylesheetNode, unmigratables }
 }
 
 /**

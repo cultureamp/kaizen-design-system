@@ -32,15 +32,22 @@ export type CSSVariable = {
   fallback?: string
 }
 
+/**
+ *  This type represents a variable within a stylesheet, and is tied to either SCSS or LESS
+ */
 export type Variable = {
   name: string
   nameWithPrefix: string
   prefix: "$" | "@"
   kaizenToken?: KaizenToken
   interpolated?: boolean
+  negated?: boolean
+  node: WordNode
 }
 
+/**
+ * This represents a Variable, but one that definitely holds a KaizenToken, and a parsed WordNode (variableNode)
+ */
 export type ParsedKaizenVariable = Variable & {
   kaizenToken: KaizenToken
-  variableNode: WordNode
 }

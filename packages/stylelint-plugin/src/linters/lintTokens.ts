@@ -3,19 +3,19 @@ import postcssValueParser from "postcss-value-parser"
 import { deprecatedTokenUsage, unmigratableDeclarationMessage } from "../errors"
 import { kaizenTokensByName } from "../kaizenTokens"
 import { Options } from "../types"
-import { variablePrefixForLanguage } from "../utils"
+import { replaceTokenInVariable, stringifyVariable } from "../utils"
 import { walkDeclsWithKaizenTokens, walkVariablesOnValue } from "../walkers"
 import { lintEquation } from "./lintEquation"
 import { lintFunctions } from "./lintFunctions"
 
 /**
  * This linter will report any deprecated tokens, and replace them with their new CSS variable replacement IF POSSIBLE.
- * If the linter determines it can't migrate, it will report an unmigratable declaration
+ * If the linter determines it can't migrate, it will report an unmigratable declaration.
+ *
+ * Note: There is definitely some weirdness here. In order to clean it up, we really need a better value parser, in particular one that has a better hierarchical structure (one which we can go up and down between parents and children) and a better understanding of SASS and LESS constructs like negation and string interpolation.
  */
 export const lintTokens = (styleSheetNode: Root, options: Options) => {
-  const variablePrefix = variablePrefixForLanguage(options.language)
   const unmigratables: Array<Declaration | AtRule> = []
-  const migrated: Declaration[] = []
 
   walkDeclsWithKaizenTokens(styleSheetNode, ({ value, postcssNode }) => {
     if (postcssNode.type === "decl") {
@@ -72,7 +72,8 @@ export const lintTokens = (styleSheetNode: Root, options: Options) => {
       }
 
       const parsedValue = postcssValueParser(functionLintResult.decl.value)
-
+      const oldValue = decl.value
+      let newValue = decl.value
       walkVariablesOnValue(parsedValue, (node, variable) => {
         if (!variable.kaizenToken) return
         // If the token is not a CSS variable, it should be migrated
@@ -97,23 +98,20 @@ export const lintTokens = (styleSheetNode: Root, options: Options) => {
               node: decl,
             })
           } else {
-            if (variable.interpolated) {
-              node.value = `#{${variablePrefix}${replacementToken.name}}`
-            } else {
-              node.value = `${variablePrefix}${replacementToken.name}`
-            }
+            node.value = stringifyVariable(
+              replaceTokenInVariable(variable, replacementToken)
+            )
+            newValue = postcssValueParser.stringify(parsedValue.nodes)
           }
         }
-
-        const newNode = decl.clone({
-          value: postcssValueParser.stringify(parsedValue.nodes),
-        })
-
-        if (options.fix) {
-          decl.replaceWith(newNode)
-        }
-        migrated.push(newNode)
       })
+      if (newValue !== oldValue && options.fix) {
+        decl.replaceWith(
+          decl.clone({
+            value: newValue,
+          })
+        )
+      }
     } else if (postcssNode.type === "atrule") {
       unmigratables.push(postcssNode)
       options.reporter({
@@ -124,5 +122,5 @@ export const lintTokens = (styleSheetNode: Root, options: Options) => {
     }
   })
 
-  return { unmigratables, migrated }
+  return { unmigratables }
 }
