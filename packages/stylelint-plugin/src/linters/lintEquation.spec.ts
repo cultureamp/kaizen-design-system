@@ -15,6 +15,7 @@ describe("lintEquation", () => {
     ["calc($kz-var-spacing-md + 5px)", true],
 
     ["calc(#{$kz-var-spacing-md} + 5rem)", false],
+    ["-$kz-var-spacing-md", true],
   ])("Equation: `%s`, invalid?: %s ", (input, isInvalid) => {
     const result = lintEquation(input, {
       language: "scss",

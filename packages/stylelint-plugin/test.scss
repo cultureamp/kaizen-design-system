@@ -18,5 +18,7 @@
   padding: calc(#{$kz-var-spacing-md} * 2);
   margin: calc(#{$kz-var-spacing-md} * 2);
 
+  margin: $kz-var-spacing-md calc((-1 * #{$kz-var-spacing-md}));
+
   color: darken($kz-var-color-white, 80%);
 }
