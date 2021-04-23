@@ -99,7 +99,11 @@ export const kaizenTokensByName = flatmap(
   {} as Record<string, KaizenToken | undefined>
 )
 
-export const kaizenTokensSassVariables = Object.entries(
+/** I know this is a long name but it's hard to describe otherwise.
+ It is a map of kaizen token sass variables ({"$kz-color-wisteria-800": "blah"}), but it also contains the concrete values of any CSS variable tokens, rather than their actual values.
+ I.e. values like { "$kz-var-color-wisteria-800": "#blah" } rather than { "$kz-var-color-wisteria-800": "var(blah)" }
+ */
+export const kaizenTokensSassVariablesWithInlineCSSVariableValues = Object.entries(
   kaizenTokensByName
 ).reduce(
   (acc, [key, value]) =>
@@ -107,7 +111,9 @@ export const kaizenTokensSassVariables = Object.entries(
       ? acc
       : {
           ...acc,
-          [`$${key}`]: value?.value,
+          [`$${key}`]: value?.cssVariable
+            ? value.cssVariable.fallback
+            : value?.value,
         },
   {} as Record<string, string | undefined>
 )
