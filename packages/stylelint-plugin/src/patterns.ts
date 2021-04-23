@@ -22,12 +22,6 @@ export const entireLineKaizenTokenPattern = new RegExp(
 export const isKaizenTokenVariable = (value: string) =>
   entireLineKaizenTokenPattern.test(value)
 
-// A regex that is composed of the operator regex and the kaizenToken regex.
-// Matches when a kaizen token is used next to an operator, cancelling out any brackets or space tokens, e.g. `(     $kz-var-spacing-md    ) * (5)` will match.
-export const kaizenVariableNextToOperatorPattern = new RegExp(
-  `${operatorPattern.source}(\\(|\\s)*${kaizenTokenPattern.source}|${kaizenTokenPattern.source}(\\)|\\s)*${operatorPattern.source}`
-)
-
 export const allowedFunctions = new Set([
   "rgba",
   "rgb",

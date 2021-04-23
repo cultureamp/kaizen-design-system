@@ -1,14 +1,17 @@
-import { Node } from "postcss"
+import { Node, Root } from "postcss"
 import type { WordNode } from "postcss-value-parser"
 
-export type Reporter = (opts: { message: string; node: Node }) => void
+export type Reporter = (opts: {
+  message: string
+  node: Node
+  autofixAvailable: boolean
+}) => void
 export type Language = "scss" | "less"
 
 export type Options = {
   language: "scss" | "less"
   fix?: boolean
   reporter: Reporter
-  removeUnusedImports?: boolean
 }
 
 export type StylelintPluginOptions = {
@@ -50,4 +53,13 @@ export type Variable = {
  */
 export type ParsedKaizenVariable = Variable & {
   kaizenToken: KaizenToken
+}
+
+export type StyleLintRuleFunction = (
+  stylesheetNode: Root,
+  options: Options
+) => void
+export type StyleLintRule = {
+  name: string
+  ruleFunction: StyleLintRuleFunction
 }

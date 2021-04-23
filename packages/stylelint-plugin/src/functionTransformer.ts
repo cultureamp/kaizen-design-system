@@ -3,7 +3,6 @@
 
 type Transformer = (functionName: string, ...params: string[]) => string
 type FunctionsMap = Record<string, Transformer>
-import * as postcss from "postcss"
 import valueParser from "postcss-value-parser"
 const transformString = (str: string, functions: FunctionsMap) =>
   valueParser.stringify(
@@ -45,11 +44,5 @@ const extractArgs = (nodes: valueParser.Node[], functions: FunctionsMap) => {
   return args
 }
 
-export const transformDecl = (
-  node: postcss.Declaration,
-  functions: FunctionsMap
-) => {
-  const value = transformString(node.value, functions)
-  node.value = value
-  return node
-}
+export const transformDecl = (value: string, functions: FunctionsMap) =>
+  transformString(value, functions)

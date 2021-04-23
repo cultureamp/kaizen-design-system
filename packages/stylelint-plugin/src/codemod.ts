@@ -1,6 +1,9 @@
 import { Root } from "postcss"
-import { lintImports } from "./linters/lintImports"
-import { lintTokens } from "./linters/lintTokens"
+import { importsNoExtraneousRule } from "./rules/imports-no-extraneous"
+import { importsNoUnusedRule } from "./rules/imports-no-unused"
+import { noDeprecatedTokensRule } from "./rules/no-deprecated-tokens"
+import { noInvalidEquationsRule } from "./rules/no-invalid-equations"
+import { noInvalidFunctionsRule } from "./rules/no-invalid-functions"
 import { Options } from "./types"
 import { getParser } from "./utils"
 
@@ -8,11 +11,13 @@ import { getParser } from "./utils"
  * Run the codemod on a stylesheet AST (postcss Root)
  */
 export const codemodOnAst = (stylesheetNode: Root, options: Options) => {
-  const { unmigratables } = lintTokens(stylesheetNode, options)
+  noInvalidEquationsRule(stylesheetNode, options)
+  noInvalidFunctionsRule(stylesheetNode, options)
+  noDeprecatedTokensRule(stylesheetNode, options)
+  importsNoExtraneousRule(stylesheetNode, options)
+  importsNoUnusedRule(stylesheetNode, options)
 
-  lintImports(stylesheetNode, options)
-
-  return { stylesheet: stylesheetNode, unmigratables }
+  return stylesheetNode
 }
 
 /**
