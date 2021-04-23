@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Paragraph } from "@kaizen/component-library"
+import { Heading, Paragraph } from "@kaizen/component-library"
 import {
   AccountBasics,
   Action,
@@ -498,49 +498,49 @@ export const AllSpotIllustrations = () => {
   return (
     <>
       <div>
-        <h1>Template Library / Engagement</h1>
+        <Heading variant="heading-3">Template Library / Engagement</Heading>
         {engagementSpots.map((props, i) => (
           <IllustrationExampleTile key={`engagement-${i}`} {...props} />
         ))}
       </div>
       <div>
-        <h1>Template Library / Experience</h1>
+        <Heading variant="heading-3">Template Library / Experience</Heading>
         {experienceSpots.map((props, i) => (
           <IllustrationExampleTile key={`experience-${i}`} {...props} />
         ))}
       </div>
       <div>
-        <h1>Template Library / Performance</h1>
+        <Heading variant="heading-3">Template Library / Performance</Heading>
         {performanceSpots.map((props, i) => (
           <IllustrationExampleTile key={`performance-${i}`} {...props} />
         ))}
       </div>
       <div>
-        <h1>Template Library / COVID-19</h1>
+        <Heading variant="heading-3">Template Library / COVID-19</Heading>
         {covidSpots.map((props, i) => (
           <IllustrationExampleTile key={`covid-${i}`} {...props} />
         ))}
       </div>
       <div>
-        <h1>New Account</h1>
+        <Heading variant="heading-3">New Account</Heading>
         {newAccountSpots.map((props, i) => (
           <IllustrationExampleTile key={`new-account-${i}`} {...props} />
         ))}
       </div>
       <div>
-        <h1>Moods</h1>
+        <Heading variant="heading-3">Moods</Heading>
         {moodSpots.map((props, i) => (
           <IllustrationExampleTile key={`moods-${i}`} {...props} />
         ))}
       </div>
       <div>
-        <h1>Skills Coach</h1>
+        <Heading variant="heading-3">Skills Coach</Heading>
         {managerLearningSpots.map((props, i) => (
           <IllustrationExampleTile key={`skills-coach-${i}`} {...props} />
         ))}
       </div>
       <div>
-        <h1>Miscellaneous</h1>
+        <Heading variant="heading-3">Miscellaneous</Heading>
         {miscellaneousSpots.map((props, i) => (
           <IllustrationExampleTile key={`misc-${i}`} {...props} />
         ))}
