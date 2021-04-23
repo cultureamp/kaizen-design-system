@@ -1,7 +1,8 @@
+import { Root } from "postcss"
 import { WordNode } from "postcss-value-parser"
 import { kaizenTokensByName } from "./kaizenTokens"
 import { sassInterpolationPattern } from "./patterns"
-import { Variable, KaizenToken } from "./types"
+import { KaizenToken, Variable } from "./types"
 
 export const stringifyVariable = (variable: Variable) => {
   const variableWithPrefix = `${variable.prefix}${variable.name}`
@@ -54,3 +55,31 @@ export const replaceTokenInVariable = (
   nameWithPrefix: `${variable.prefix}${variable.name}`,
   kaizenToken: replacementToken,
 })
+
+/**
+ * Get a map of variables that are defined on the stylesheet.
+ * Input: stylesheet,
+ * Output: { "$foo": "red", "$other": "rgba(0, 0, 0, 0.1)". ...}
+ */
+export const getStylesheetVariables = (
+  stylesheetNode: Root
+): Record<string, string | undefined> => {
+  const vars: Record<string, string | undefined> = {}
+  stylesheetNode.walkDecls(decl => {
+    if (decl.variable) {
+      // Add a new variable, and normalise it to be SASS
+      vars[decl.prop.replace(/^@/, "$")] = decl.value
+    }
+  })
+  return vars
+}
+
+export const stringifyStylesheetVariables = (
+  variablesWithPrefixes: Record<string, string | undefined>
+) => {
+  let output = ""
+  Object.entries(variablesWithPrefixes).forEach(([key, value]) => {
+    output += `${key}: ${value};\n`
+  })
+  return output
+}

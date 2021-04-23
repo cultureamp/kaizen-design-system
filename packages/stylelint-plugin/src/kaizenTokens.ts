@@ -98,3 +98,34 @@ export const kaizenTokensByName = flatmap(
   (acc, next) => ({ ...acc, ...next }),
   {} as Record<string, KaizenToken | undefined>
 )
+
+export const kaizenTokensSassVariables = Object.entries(
+  kaizenTokensByName
+).reduce(
+  (acc, [key, value]) =>
+    !value
+      ? acc
+      : {
+          ...acc,
+          [`$${key}`]: value?.value,
+        },
+  {} as Record<string, string | undefined>
+)
+
+export const deprecatedSassFunctionsSource = `
+$black: #000;
+$white: #fff;
+@function add-tint($color, $percentage) {
+  @return mix($white, $color, $percentage);
+}
+
+@function add-shade($color, $percentage) {
+  @return mix($black, $color, $percentage);
+}
+
+@function add-alpha($color, $percentage) {
+  $decimal: $percentage / 100%;
+  $inverse: 1 - $decimal;
+  @return transparentize($color, $inverse);
+}
+`
