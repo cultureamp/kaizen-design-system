@@ -1,4 +1,4 @@
-import { Declaration } from "postcss"
+import { Declaration, Root } from "postcss"
 import postcssValueParser from "postcss-value-parser"
 import { invalidRgbaUsage, unmigratableDeclarationMessage } from "../errors"
 import { transformDecl } from "../functionTransformer"
@@ -6,25 +6,25 @@ import { kaizenTokensByName } from "../kaizenTokens"
 import { containsUnmigratableFunction } from "../patterns"
 import { Options } from "../types"
 import { variablePrefixForLanguage } from "../utils"
-import { walkVariablesOnValue } from "../walkers"
+import { walkDeclsWithKaizenTokens, walkVariablesOnValue } from "../walkers"
 
 // Does the value look like `123, 123, 123`? Used for determining whether an rgba function is used with the correct variable
 const isRgbTriple = (value: string) =>
   /^\s*\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3}\s*$/.test(value)
 
-/**
- * This will lint the functions within a declaration, and migrate anything it can (such as with rgb, rgba and add-alpha)
- */
-export const lintFunctions = (decl: Declaration, options: Options) => {
+export const noInvalidFunctionsRuleName = "no-invalid-functions"
+export const noInvalidFunctionsOnDeclaration = (
+  decl: Declaration,
+  options: Options
+) => {
   const variablePrefix = variablePrefixForLanguage(options.language)
-  let unmigratable = false
+
   const fixRgbaOrAddAlpha = (
     _functionName: string,
     first: string,
     ...rest: string[]
   ) => {
     const parsedFirst = postcssValueParser(first)
-
     walkVariablesOnValue(parsedFirst, (node, variable) => {
       // Ignore anything that isn't a kaizen token
       if (!variable.kaizenToken) return
@@ -35,15 +35,15 @@ export const lintFunctions = (decl: Declaration, options: Options) => {
             variable.kaizenToken.name.replace("kz", "kz-var") + "-rgb-params"
           ]
         if (!fixedVariable) {
-          unmigratable = true
           options.reporter({
             message: unmigratableDeclarationMessage(
               decl,
               "No matching -rgb-params variable found"
             ),
             node: decl,
+            autofixAvailable: false,
           })
-          return
+          return false
         }
         if (options.fix) {
           node.value = `${variablePrefix}${fixedVariable.name}`
@@ -51,6 +51,7 @@ export const lintFunctions = (decl: Declaration, options: Options) => {
           options.reporter({
             message: invalidRgbaUsage(fixedVariable.name),
             node: decl,
+            autofixAvailable: true,
           })
         }
       }
@@ -64,15 +65,15 @@ export const lintFunctions = (decl: Declaration, options: Options) => {
         const fixedVariable =
           kaizenTokensByName[variable.kaizenToken.name + "-rgb-params"]
         if (!fixedVariable) {
-          unmigratable = true
           options.reporter({
             message: unmigratableDeclarationMessage(
               decl,
               "No matching -rgb-params variable found"
             ),
             node: decl,
+            autofixAvailable: false,
           })
-          return
+          return false
         }
         if (options.fix) {
           node.value = `${variablePrefix}${fixedVariable.name}`
@@ -80,6 +81,7 @@ export const lintFunctions = (decl: Declaration, options: Options) => {
           options.reporter({
             message: invalidRgbaUsage(fixedVariable.name),
             node: decl,
+            autofixAvailable: true,
           })
         }
       }
@@ -99,6 +101,7 @@ export const lintFunctions = (decl: Declaration, options: Options) => {
   // TODO: Here you could actually perform a calculation to spit out a hex value from color manipulation functions if you wanted...
   const reportCssVariables = (functionName: string, ...params: string[]) => {
     let reported = false
+    // For each parameter within the function, parse it and see if it contains a CSS variable token
     params.forEach(param => {
       walkVariablesOnValue(postcssValueParser(param), (node, variable) => {
         if (
@@ -109,6 +112,7 @@ export const lintFunctions = (decl: Declaration, options: Options) => {
           options.reporter({
             message: `${variable.kaizenToken.name} is a CSS variable. You can't use a CSS variable within a '${functionName} function'`,
             node: decl,
+            autofixAvailable: false,
           })
 
           reported = true
@@ -120,8 +124,8 @@ export const lintFunctions = (decl: Declaration, options: Options) => {
   }
 
   if (containsUnmigratableFunction(decl.value)) {
-    unmigratable = true
     options.reporter({
+      autofixAvailable: false,
       message: unmigratableDeclarationMessage(
         decl,
         "Can't auto-migrate function usage"
@@ -130,17 +134,49 @@ export const lintFunctions = (decl: Declaration, options: Options) => {
     })
   }
 
-  return {
-    decl: transformDecl(decl, {
-      rgba: fixRgbaOrAddAlpha,
-      rgb: fixRgbaOrAddAlpha,
-      "add-alpha": fixRgbaOrAddAlpha,
-      "add-shade": reportCssVariables,
-      "add-tint": reportCssVariables,
-      mix: reportCssVariables,
-      darken: reportCssVariables,
-      lighten: reportCssVariables,
-    }),
-    unmigratable,
+  const newValue = transformDecl(decl.value, {
+    rgba: fixRgbaOrAddAlpha,
+    rgb: fixRgbaOrAddAlpha,
+    "add-alpha": fixRgbaOrAddAlpha,
+    "add-shade": reportCssVariables,
+    "add-tint": reportCssVariables,
+    mix: reportCssVariables,
+    darken: reportCssVariables,
+    lighten: reportCssVariables,
+  })
+  if (options.fix && newValue !== decl.value) {
+    decl.replaceWith(
+      decl.clone({
+        value: newValue,
+      })
+    )
   }
+}
+
+/**
+ * This will lint the functions within a declaration, and migrate anything it can (such as with rgb, rgba and add-alpha)
+ */
+export const noInvalidFunctionsRule = (
+  stylesheetNode: Root,
+  options: Options
+) => {
+  walkDeclsWithKaizenTokens(stylesheetNode, ({ postcssNode }) => {
+    if (postcssNode.type === "decl" && !postcssNode.variable) {
+      noInvalidFunctionsOnDeclaration(postcssNode, options)
+    }
+  })
+}
+export const declContainsInvalidFunctions = (
+  postcssNode: Declaration,
+  options: Options
+) => {
+  let reported = 0
+  noInvalidFunctionsOnDeclaration(postcssNode, {
+    ...options,
+    fix: false,
+    reporter: () => {
+      reported++
+    },
+  })
+  return reported > 0
 }

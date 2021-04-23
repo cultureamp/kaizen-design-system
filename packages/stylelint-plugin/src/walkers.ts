@@ -1,9 +1,7 @@
 import { AtRule, Declaration, Root } from "postcss"
 import postcssValueParser from "postcss-value-parser"
-import { kaizenTokensByName } from "./kaizenTokens"
-import { operatorPattern, sassInterpolationPattern } from "./patterns"
 import { ParsedKaizenVariable, Variable } from "./types"
-import { parseVariable } from "./utils"
+import { parseVariable } from "./variableUtils"
 
 /**
  * Given a parsed value (from postcss-value-parser), visit any less or sass variables that show up
@@ -16,7 +14,7 @@ export const walkVariablesOnValue = (
     if (node.type === "word") {
       const variable = parseVariable(node)
       if (variable) {
-        visitor(node, variable)
+        return visitor(node, variable)
       }
     }
   })

@@ -28,3 +28,6 @@ export const tokenNotInterpolatedInCalcMessage =
 
 export const kaizenVariableUsedNextToOperatorMessage =
   "Kaizen variable used next to math operator"
+
+export const noMatchingRgbParamsVariableMessage =
+  "No matching -rgb-params variable found"
