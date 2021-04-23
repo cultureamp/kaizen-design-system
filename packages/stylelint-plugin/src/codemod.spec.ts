@@ -7,6 +7,7 @@ type TestExample = {
   expectedUnmigratableTokens: number
   input: string
   expectedOutput: string
+  only?: boolean
 }
 
 const testExamples: TestExample[] = [
@@ -151,16 +152,16 @@ const testExamples: TestExample[] = [
   },
   {
     language: "scss",
-    testName: "doesn't migrate functions other than rgba, rgb, or add-alpha",
+    testName: "migrates functions other than rgba, rgb, or add-alpha",
     input:
       '@import "~@kaizen/design-tokens/sass/color"; @import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-color-wisteria-800, 0.4); background-color: darken($kz-color-cluny-700, 0.8); test: something-else($kz-color-yuzu-400); another: rgb($kz-color-cluny-200); foo: add-alpha($kz-color-wisteria-700, 90%); }',
     expectedOutput:
-      '@import "~@kaizen/design-tokens/sass/color"; @import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800-rgb-params, 0.4); background-color: darken($kz-color-cluny-700, 0.8); test: something-else($kz-color-yuzu-400); another: rgb($kz-var-color-cluny-200-rgb-params); foo: rgba($kz-var-color-wisteria-700-rgb-params, 90%); }',
-    expectedUnmigratableTokens: 4,
+      '@import "~@kaizen/design-tokens/sass/color"; @import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800-rgb-params, 0.4); background-color: #002f53; test: something-else($kz-color-yuzu-400); another: rgb($kz-var-color-cluny-200-rgb-params); foo: rgba($kz-var-color-wisteria-700-rgb-params, 90%); }',
+    expectedUnmigratableTokens: 2,
   },
   {
     language: "less",
-    testName: "doesn't migrate functions other than rgba, rgb, or add-alpha",
+    testName: "doesn't migrates functions other than rgba, rgb, or add-alpha",
     input:
       '@import "~@kaizen/design-tokens/less/color"; @import "~@kaizen/design-tokens/less/color-vars"; .foo { color: rgba(@kz-color-wisteria-800, 0.4); background-color: darken(@kz-color-cluny-700, 0.8); test: something-else(@kz-color-yuzu-400); another: rgb(@kz-color-cluny-200); foo: add-alpha(@kz-color-wisteria-700, 90%); }',
     expectedOutput:
@@ -303,6 +304,87 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: rgba(+, $kz-var-spacing-md) }',
     expectedUnmigratableTokens: 0,
   },
+  {
+    language: "scss",
+    testName: "compiles mix() function in place",
+    input:
+      '@import "~@kaizen/design-tokens/sass/color"; $customVar: white; .foo { color: mix($kz-color-wisteria-800, $customVar, 80%) }',
+    expectedOutput: "$customVar: white; .foo { color: #5d5f6e }",
+    expectedUnmigratableTokens: 0,
+  },
+  {
+    language: "scss",
+    testName: "compiles add-shade() function in place",
+    input:
+      '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 80%; .foo { color: add-shade($kz-color-wisteria-800, $custom-param) }',
+    expectedOutput: "$custom-param: 80%; .foo { color: #0b0b0f }",
+    expectedUnmigratableTokens: 0,
+  },
+  {
+    language: "scss",
+    testName: "compiles add-tint() function in place",
+    input:
+      '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 80%; .foo { color: add-tint($kz-color-wisteria-800, $custom-param) }',
+    expectedOutput: "$custom-param: 80%; .foo { color: #d7d7db }",
+    expectedUnmigratableTokens: 0,
+  },
+  {
+    language: "scss",
+    testName: "compiles darken() function in place",
+    input:
+      '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 10%; .foo { color: darken($kz-color-wisteria-800, $custom-param) }',
+    expectedOutput: "$custom-param: 10%; .foo { color: #20212c }",
+    expectedUnmigratableTokens: 0,
+  },
+  {
+    language: "scss",
+    testName: "compiles lighten() function in place",
+    input:
+      '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 10%; .foo { color: lighten($kz-color-wisteria-800, $custom-param) }',
+    expectedOutput: "$custom-param: 10%; .foo { color: #4a4d68 }",
+    expectedUnmigratableTokens: 0,
+  },
+  {
+    language: "scss",
+    testName: "compiles transparentize() function in place",
+    input:
+      '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 0.1; .foo { color: transparentize($kz-color-wisteria-800, $custom-param) }',
+    expectedOutput: "$custom-param: 0.1; .foo { color: rgba(53, 55, 74, 0.9) }",
+    expectedUnmigratableTokens: 0,
+  },
+  {
+    language: "scss",
+    testName: "compiles adjust-hue() function in place",
+    input:
+      '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 100; .foo { color: adjust-hue($kz-color-wisteria-800, $custom-param) }',
+    expectedOutput: "$custom-param: 100; .foo { color: #4a353e }",
+    expectedUnmigratableTokens: 0,
+  },
+  {
+    language: "scss",
+    testName: "compiles saturate() function in place",
+    input:
+      '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 10%; .foo { color: saturate($kz-color-wisteria-800, $custom-param) }',
+    expectedOutput: "$custom-param: 10%; .foo { color: #2f3250 }",
+    expectedUnmigratableTokens: 0,
+  },
+  {
+    language: "scss",
+    testName: "compiles desaturate() function in place",
+    input:
+      '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 10%; .foo { color: desaturate($kz-color-wisteria-800, $custom-param) }',
+    expectedOutput: "$custom-param: 10%; .foo { color: #3b3c44 }",
+    expectedUnmigratableTokens: 0,
+  },
+  {
+    language: "less",
+    testName: "doesn't compile functions in place",
+    input:
+      '@import "~@kaizen/design-tokens/less/color"; @customVar: white; .foo { color: mix(@kz-color-wisteria-800, @customVar, 80%) }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/less/color"; @customVar: white; .foo { color: mix(@kz-color-wisteria-800, @customVar, 80%) }',
+    expectedUnmigratableTokens: 2,
+  },
 ]
 
 describe("Codemod", () => {
@@ -312,8 +394,10 @@ describe("Codemod", () => {
     input,
     expectedOutput,
     expectedUnmigratableTokens,
+    only,
   }: TestExample) => {
-    test(`${language}: ${testName}`, () => {
+    const testFn = only ? test.only : test
+    testFn(`${language}: ${testName}`, () => {
       let unfixables = 0
       const result = codemodOnSource(input, {
         language,
@@ -324,6 +408,7 @@ describe("Codemod", () => {
           }
         },
       })
+
       expect(result.toString().replace(/\n/g, " ").trim()).toBe(
         expectedOutput.replace(/\n/g, " ").trim()
       )
@@ -331,6 +416,8 @@ describe("Codemod", () => {
     })
   }
   testExamples.forEach(testExample)
+  // TEst a single example by adding "only" to an example up above
+  // OR
   // Test a single example like so:
   /*   testExample({
     language: "scss",

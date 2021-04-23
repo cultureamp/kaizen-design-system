@@ -35,3 +35,14 @@ export const cantFindReplacementTokenForDeprecatedMessage = (
 
 export const cantUseTokenInAtRuleParamsMessage = (tokenName: string) =>
   `${tokenName} cannot be used within AtRule parameters like @media. Only tokens that begin with "kz-layout-" are supported.`
+
+export const unableToCompileFunctionMessage = (
+  value: string,
+  details?: string
+) =>
+  `${value} can't be compiled, so it can't be autofixed (${
+    details || "unknown reason"
+  }). Try and only include Kaizen tokens in the function.`
+
+export const unsupportedFunctionWithFixMessage =
+  "Kaizen token used within unsupported function. Running with --fix will replace it with it's computed value"
