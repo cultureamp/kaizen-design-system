@@ -14,6 +14,21 @@ import { walkDeclsWithKaizenTokens, walkVariablesOnValue } from "../walkers"
 import { declContainsInvalidEquations } from "./no-invalid-equations"
 import { declContainsInvalidFunctions } from "./no-invalid-functions"
 
+// The AtRules which shouldn't contain CSS variables in their parameters
+// https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule
+const disallowedAtRules = new Set([
+  "media",
+  "supports",
+  "document",
+  "page",
+  "font-face",
+  "keyframes",
+  "viewport",
+  "counter-style",
+  "font-feature-values",
+  "property",
+  "color-profile",
+])
 export const noDeprecatedTokensRuleName = "no-deprecated-tokens"
 
 /**
@@ -109,7 +124,10 @@ export const noDeprecatedTokensRule = (
             })
           )
         }
-      } else if (postcssNode.type === "atrule") {
+      } else if (
+        postcssNode.type === "atrule" &&
+        disallowedAtRules.has(postcssNode.name)
+      ) {
         walkVariablesOnValue(
           postcssValueParser(postcssNode.params),
           (node, variable) => {
