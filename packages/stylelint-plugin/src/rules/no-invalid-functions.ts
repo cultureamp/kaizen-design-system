@@ -1,6 +1,10 @@
 import { Declaration, Root } from "postcss"
 import postcssValueParser from "postcss-value-parser"
-import { invalidRgbaUsage, unmigratableDeclarationMessage } from "../errors"
+import {
+  invalidRgbaUsage,
+  noMatchingRgbParamsVariableMessage,
+  unsupportedFunctionMessage,
+} from "../errors"
 import { transformDecl } from "../functionTransformer"
 import { kaizenTokensByName } from "../kaizenTokens"
 import { containsUnmigratableFunction } from "../patterns"
@@ -36,9 +40,8 @@ export const noInvalidFunctionsOnDeclaration = (
           ]
         if (!fixedVariable) {
           options.reporter({
-            message: unmigratableDeclarationMessage(
-              decl,
-              "No matching -rgb-params variable found"
+            message: noMatchingRgbParamsVariableMessage(
+              variable.kaizenToken.name
             ),
             node: decl,
             autofixAvailable: false,
@@ -66,9 +69,8 @@ export const noInvalidFunctionsOnDeclaration = (
           kaizenTokensByName[variable.kaizenToken.name + "-rgb-params"]
         if (!fixedVariable) {
           options.reporter({
-            message: unmigratableDeclarationMessage(
-              decl,
-              "No matching -rgb-params variable found"
+            message: noMatchingRgbParamsVariableMessage(
+              variable.kaizenToken.name
             ),
             node: decl,
             autofixAvailable: false,
@@ -99,7 +101,7 @@ export const noInvalidFunctionsOnDeclaration = (
 
   // TODO: Working on a method that doesn't just bail out when it finds an unmigratable
   // TODO: Here you could actually perform a calculation to spit out a hex value from color manipulation functions if you wanted...
-  const reportCssVariables = (functionName: string, ...params: string[]) => {
+  /*   const reportCssVariables = (functionName: string, ...params: string[]) => {
     let reported = false
     // For each parameter within the function, parse it and see if it contains a CSS variable token
     params.forEach(param => {
@@ -122,14 +124,11 @@ export const noInvalidFunctionsOnDeclaration = (
 
     return `${functionName}(${params.join(", ")})`
   }
-
+ */
   if (containsUnmigratableFunction(decl.value)) {
     options.reporter({
       autofixAvailable: false,
-      message: unmigratableDeclarationMessage(
-        decl,
-        "Can't auto-migrate function usage"
-      ),
+      message: unsupportedFunctionMessage,
       node: decl,
     })
   }
@@ -138,11 +137,11 @@ export const noInvalidFunctionsOnDeclaration = (
     rgba: fixRgbaOrAddAlpha,
     rgb: fixRgbaOrAddAlpha,
     "add-alpha": fixRgbaOrAddAlpha,
-    "add-shade": reportCssVariables,
+    /*     "add-shade": reportCssVariables,
     "add-tint": reportCssVariables,
     mix: reportCssVariables,
     darken: reportCssVariables,
-    lighten: reportCssVariables,
+    lighten: reportCssVariables, */
   })
   if (options.fix && newValue !== decl.value) {
     decl.replaceWith(

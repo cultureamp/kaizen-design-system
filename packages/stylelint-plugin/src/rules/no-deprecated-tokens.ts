@@ -1,18 +1,19 @@
 import { Root } from "postcss"
 import postcssValueParser from "postcss-value-parser"
-import { deprecatedTokenUsage, unmigratableDeclarationMessage } from "../errors"
+import {
+  cantFindReplacementTokenForDeprecatedMessage,
+  cantUseTokenInAtRuleParamsMessage,
+  deprecatedTokenUsage,
+  deprecatedTokenUsedWithinAnotherVariableMessage,
+  deprecatedTokenUsedWithinUnsupportedFunction,
+  invalidEquationContainingDeprecatedTokenMessage,
+} from "../errors"
 import { kaizenTokensByName } from "../kaizenTokens"
 import { Options } from "../types"
 import { replaceTokenInVariable, stringifyVariable } from "../variableUtils"
 import { walkDeclsWithKaizenTokens, walkVariablesOnValue } from "../walkers"
-import {
-  declContainsInvalidEquations,
-  noInvalidEquationsRuleName,
-} from "./no-invalid-equations"
-import {
-  declContainsInvalidFunctions,
-  noInvalidFunctionsRuleName,
-} from "./no-invalid-functions"
+import { declContainsInvalidEquations } from "./no-invalid-equations"
+import { declContainsInvalidFunctions } from "./no-invalid-functions"
 
 export const noDeprecatedTokensRuleName = "no-deprecated-tokens"
 
@@ -28,29 +29,32 @@ export const noDeprecatedTokensRule = (
 ) => {
   walkDeclsWithKaizenTokens(
     styleSheetNode,
-    ({ value, parsedValue, postcssNode }) => {
+    ({ value, parsedValue, kaizenVariables, postcssNode }) => {
       if (postcssNode.type === "decl") {
+        const unmigratedVariables = kaizenVariables.filter(
+          ({ kaizenToken }) => !kaizenToken.cssVariable
+        )
+        // If the whole declaration contains only new CSS variable tokens, nothing needs to be done, so just return.
+        if (!unmigratedVariables.length) {
+          return
+        }
+
         const decl = postcssNode
         // If the value contains a kaizen variable, label it as "unmigratable"
         // e.g. $foo: $kz-color-wisteria-800;
         if (decl.variable) {
           options.reporter({
-            message: unmigratableDeclarationMessage(
-              decl,
-              "Can't auto-migrate transitive token usages"
-            ),
+            message: deprecatedTokenUsedWithinAnotherVariableMessage,
             node: decl,
             autofixAvailable: false,
           })
           return
         }
 
+        // These next two blocks bail out if a token is used in an equation or in an unsupported function. Admittedly it's a bit weird because there is a double up on reporting if you include the rules that relate to these predicate functions.
         if (declContainsInvalidEquations(decl, parsedValue, options)) {
           options.reporter({
-            message: unmigratableDeclarationMessage(
-              decl,
-              `token used within equation, consider turning on the rule: '${noInvalidEquationsRuleName}'`
-            ),
+            message: invalidEquationContainingDeprecatedTokenMessage,
             node: decl,
             autofixAvailable: false,
           })
@@ -58,10 +62,7 @@ export const noDeprecatedTokensRule = (
         }
         if (declContainsInvalidFunctions(decl, options)) {
           options.reporter({
-            message: unmigratableDeclarationMessage(
-              decl,
-              `token used within unsupported function, consider turning on the rule: '${noInvalidFunctionsRuleName}'`
-            ),
+            message: deprecatedTokenUsedWithinUnsupportedFunction,
             node: decl,
             autofixAvailable: false,
           })
@@ -79,9 +80,8 @@ export const noDeprecatedTokensRule = (
               kaizenTokensByName[variable.name.replace("kz", "kz-var")]
             if (!replacementToken) {
               options.reporter({
-                message: unmigratableDeclarationMessage(
-                  decl,
-                  `Could not find replacement token for ${variable.name}`
+                message: cantFindReplacementTokenForDeprecatedMessage(
+                  variable.name
                 ),
                 node: decl,
                 autofixAvailable: false,
@@ -111,11 +111,20 @@ export const noDeprecatedTokensRule = (
           )
         }
       } else if (postcssNode.type === "atrule") {
-        options.reporter({
-          message: unmigratableDeclarationMessage(postcssNode),
-          node: postcssNode,
-          autofixAvailable: false,
-        })
+        walkVariablesOnValue(
+          postcssValueParser(postcssNode.params),
+          (node, variable) => {
+            if (!variable.name.startsWith("kz-layout")) {
+              options.reporter({
+                message: cantUseTokenInAtRuleParamsMessage(variable.name),
+                node: postcssNode,
+                autofixAvailable: false,
+              })
+              return false
+            }
+          }
+        )
+
         return
       }
     }
