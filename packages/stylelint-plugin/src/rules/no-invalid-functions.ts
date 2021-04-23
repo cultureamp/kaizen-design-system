@@ -12,7 +12,7 @@ import { transformDecl } from "../functionTransformer"
 import {
   deprecatedSassFunctionsSource,
   kaizenTokensByName,
-  kaizenTokensSassVariables,
+  kaizenTokensSassVariablesWithInlineCSSVariableValues,
 } from "../kaizenTokens"
 import { containsUnmigratableFunction } from "../patterns"
 import { Options } from "../types"
@@ -26,13 +26,14 @@ import { walkDeclsWithKaizenTokens, walkVariablesOnValue } from "../walkers"
 /**
  * This function will compile a value, for example `mix($kz-color-wisteria-800, $white, 80%)` in place (which would result in #5d5f6e).
  * It also uses the variables that are immediately available within the same stylesheet, so nothing too fancy, and will bail out with a lint error if it can't compile.
+ * ALSO, it will work with $kz-var-* variables too.
  */
 const compileSassValue = (stylesheetNode: Root, value: string) => {
   try {
     const stylesheetVariables = getStylesheetVariables(stylesheetNode)
     const stylesheetAndKaizenVariables = {
       ...stylesheetVariables,
-      ...kaizenTokensSassVariables,
+      ...kaizenTokensSassVariablesWithInlineCSSVariableValues,
     }
     const stylesheetAndKaizenVariablesString = stringifyStylesheetVariables(
       stylesheetAndKaizenVariables

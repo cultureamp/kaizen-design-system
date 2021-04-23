@@ -364,7 +364,7 @@ const testExamples: TestExample[] = [
     language: "scss",
     testName: "compiles saturate() function in place",
     input:
-      '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 10%; .foo { color: saturate($kz-color-wisteria-800, $custom-param) }',
+      '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 10%; .foo { color: saturate($kz-var-color-wisteria-800, $custom-param) }',
     expectedOutput: "$custom-param: 10%; .foo { color: #2f3250 }",
     expectedUnmigratableTokens: 0,
   },
@@ -372,7 +372,7 @@ const testExamples: TestExample[] = [
     language: "scss",
     testName: "compiles desaturate() function in place",
     input:
-      '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 10%; .foo { color: desaturate($kz-color-wisteria-800, $custom-param) }',
+      '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 10%; .foo { color: desaturate($kz-var-color-wisteria-800, $custom-param) }',
     expectedOutput: "$custom-param: 10%; .foo { color: #3b3c44 }",
     expectedUnmigratableTokens: 0,
   },
