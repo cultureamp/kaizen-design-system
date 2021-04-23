@@ -3,8 +3,8 @@ export const missingRequiredKaizeImport = (path: string) =>
 export const unnecessaryKaizenImport = (path: string) =>
   `Unnecessary Kaizen token import: ${path}`
 
-export const deprecatedTokenUsage =
-  "Expected kz-var token, but a deprecated token was used."
+export const deprecatedTokenUsage = (oldName: string, newName: string) =>
+  `Deprecated Kaizen token "${oldName}" should be migrated to "${newName}"`
 export const invalidRgbaUsage = (replacementVariable: string) =>
   `Invalid parameter to rgba or add-alpha function. Expected '-rgb-params' suffixed replacement: ${replacementVariable}`
 
