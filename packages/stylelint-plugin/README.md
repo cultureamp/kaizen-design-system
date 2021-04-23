@@ -11,19 +11,19 @@ Then, add the plugin and the rules you want to your stylelint configuration:
   "plugins": ["@kaizen/stylelint-plugin"],
   "rules": {
     "kaizen/no-deprecated-tokens": [
-      true, { "severity": "warning", "allowFixing" false }
+      true, { "severity": "warning", "allowFixing": false }
     ],
     "kaizen/no-invalid-functions": [
-      true, { "severity": "warning", "allowFixing" false }
+      true, { "severity": "warning", "allowFixing": false }
     ],
     "kaizen/no-invalid-equations": [
-      true, { "severity": "warning", "allowFixing" false }
+      true, { "severity": "warning", "allowFixing": false }
     ],
     "kaizen/imports-no-unused": [
-      true, { "severity": "warning", "allowFixing" false }
+      true, { "severity": "warning", "allowFixing": false }
     ],
     "kaizen/imports-no-extraneous": [
-      true, { "severity": "warning", "allowFixing" false }
+      true, { "severity": "warning", "allowFixing": false }
     ]
   }
 }

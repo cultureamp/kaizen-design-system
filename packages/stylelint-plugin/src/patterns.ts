@@ -28,6 +28,7 @@ export const allowedFunctions = new Set([
   "add-alpha",
   "var",
   "calc",
+  "linear-gradient",
 ])
 
 // Returns true if a value contains an unmigratable function such as `add-tint`.

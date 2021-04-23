@@ -31,16 +31,16 @@ const rules: StyleLintRule[] = [
     ruleFunction: importsNoUnusedRule,
   },
   {
-    name: noDeprecatedTokensRuleName,
-    ruleFunction: noDeprecatedTokensRule,
-  },
-  {
     name: noInvalidEquationsRuleName,
     ruleFunction: noInvalidEquationsRule,
   },
   {
     name: noInvalidFunctionsRuleName,
     ruleFunction: noInvalidFunctionsRule,
+  },
+  {
+    name: noDeprecatedTokensRuleName,
+    ruleFunction: noDeprecatedTokensRule,
   },
 ]
 
@@ -58,10 +58,12 @@ export default rules.map(rule =>
         rule.ruleFunction(root, {
           fix: Boolean(secondary?.allowFixing && context?.fix),
           language,
-          reporter: ({ message, node }) =>
+          reporter: ({ message, node, autofixAvailable }) =>
             stylelint.utils.report({
               ruleName: `kaizen/${rule.name}`,
-              message,
+              message: `${message}${
+                autofixAvailable ? "(autofix avaialable)" : ""
+              }`,
               node,
               result,
             }),

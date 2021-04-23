@@ -17,7 +17,7 @@ const testExamples: TestExample[] = [
       "@media (min-width: $kz-layout-breakpoints-large) { .test { color: $kz-color-wisteria-800 } }",
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color-vars"; @import "~@kaizen/design-tokens/sass/layout"; @media (min-width: $kz-layout-breakpoints-large) { .test { color: $kz-var-color-wisteria-800 } }',
-    expectedUnmigratableTokens: 1,
+    expectedUnmigratableTokens: 0,
   },
   {
     language: "less",
@@ -26,7 +26,7 @@ const testExamples: TestExample[] = [
       "@media (min-width: @kz-layout-breakpoints-large) { .test { color: @kz-color-wisteria-800 } }",
     expectedOutput:
       '@import "~@kaizen/design-tokens/less/color-vars"; @import "~@kaizen/design-tokens/less/layout"; @media (min-width: @kz-layout-breakpoints-large) { .test { color: @kz-var-color-wisteria-800 } }',
-    expectedUnmigratableTokens: 1,
+    expectedUnmigratableTokens: 0,
   },
   {
     language: "scss",
@@ -35,7 +35,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/color-vars"; @import "~@kaizen/design-tokens/sass/layout"; @media (min-width: $kz-layout-breakpoints-large) { .test { color: red; } }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/layout"; @media (min-width: $kz-layout-breakpoints-large) { .test { color: red; } }',
-    expectedUnmigratableTokens: 1,
+    expectedUnmigratableTokens: 0,
   },
   {
     language: "less",
@@ -44,24 +44,26 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/less/color-vars"; @import "~@kaizen/design-tokens/less/layout"; @media (min-width: @kz-layout-breakpoints-large) { .test { color: red; } }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/less/layout"; @media (min-width: @kz-layout-breakpoints-large) { .test { color: red; } }',
-    expectedUnmigratableTokens: 1,
+    expectedUnmigratableTokens: 0,
   },
 
   {
     language: "scss",
-    testName: "doesn't migrate variables within @media queries",
+    testName:
+      "doesn't migrate variables within @media queries, but still fixes imports for variables in AtRule parameters",
     input: "@media (min-width: $kz-layout-breakpoints-large) {}",
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/layout"; @media (min-width: $kz-layout-breakpoints-large) {}',
-    expectedUnmigratableTokens: 1,
+    expectedUnmigratableTokens: 0,
   },
   {
     language: "less",
-    testName: "doesn't migrate variables within @media queries",
+    testName:
+      "doesn't migrate variables within @media queries, but still fixes imports for variables in AtRule parameters",
     input: "@media (min-width: @kz-layout-breakpoints-large) {}",
     expectedOutput:
       '@import "~@kaizen/design-tokens/less/layout"; @media (min-width: @kz-layout-breakpoints-large) {}',
-    expectedUnmigratableTokens: 1,
+    expectedUnmigratableTokens: 0,
   },
   {
     language: "scss",
@@ -136,7 +138,7 @@ const testExamples: TestExample[] = [
       ".foo { color: $kz-color-wisteria-800; background-color: $kz-color-cluny-600; border-color: $kz-color-yuzu-600 } @media (min-width: $kz-layout-breakpoints-large) {}",
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/layout"; @import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: $kz-var-color-wisteria-800; background-color: $kz-var-color-cluny-600; border-color: $kz-var-color-yuzu-600 } @media (min-width: $kz-layout-breakpoints-large) {}',
-    expectedUnmigratableTokens: 1,
+    expectedUnmigratableTokens: 0,
   },
   {
     language: "less",
@@ -145,7 +147,7 @@ const testExamples: TestExample[] = [
       ".foo { color: @kz-color-wisteria-800; background-color: @kz-color-cluny-600; border-color: @kz-color-yuzu-600 } @media (min-width: @kz-layout-breakpoints-large) {}",
     expectedOutput:
       '@import "~@kaizen/design-tokens/less/layout"; @import "~@kaizen/design-tokens/less/color-vars"; .foo { color: @kz-var-color-wisteria-800; background-color: @kz-var-color-cluny-600; border-color: @kz-var-color-yuzu-600 } @media (min-width: @kz-layout-breakpoints-large) {}',
-    expectedUnmigratableTokens: 1,
+    expectedUnmigratableTokens: 0,
   },
   {
     language: "scss",

@@ -1,15 +1,3 @@
-import { AtRule, Declaration } from "postcss"
-
-export const unmigratableDeclarationMessage = (
-  node: Declaration | AtRule,
-  extraDetail?: string
-) =>
-  `Detected usage of deprecated token that can't be automatically migrated${
-    extraDetail ? ` (${extraDetail})` : ""
-  }: \`${(node.type === "decl" ? node.value : node.params)
-    .replace(/(\s)+/g, " ")
-    .trim()}\``
-
 export const missingRequiredKaizeImport = (path: string) =>
   `Missing required Kaizen token import: ${path}`
 export const unnecessaryKaizenImport = (path: string) =>
@@ -29,5 +17,21 @@ export const tokenNotInterpolatedInCalcMessage =
 export const kaizenVariableUsedNextToOperatorMessage =
   "Kaizen variable used next to math operator"
 
-export const noMatchingRgbParamsVariableMessage =
-  "No matching -rgb-params variable found"
+export const noMatchingRgbParamsVariableMessage = (tokenName: string) =>
+  `No matching -rgb-params variable found for ${tokenName}`
+
+export const deprecatedTokenUsedWithinAnotherVariableMessage =
+  "Deprecated Kaizen token used as the value of another variable."
+export const invalidEquationContainingDeprecatedTokenMessage =
+  "Equation contains a deprecated Kaizen token"
+
+export const deprecatedTokenUsedWithinUnsupportedFunction =
+  "Deprecated Kaizen token used within unsupported function"
+export const unsupportedFunctionMessage =
+  "Kaizen token used within unsupported function"
+export const cantFindReplacementTokenForDeprecatedMessage = (
+  deprecatedTokenName: string
+) => `Could not find replacement token for ${deprecatedTokenName}`
+
+export const cantUseTokenInAtRuleParamsMessage = (tokenName: string) =>
+  `${tokenName} cannot be used within AtRule parameters like @media. Only tokens that begin with "kz-layout-" are supported.`
