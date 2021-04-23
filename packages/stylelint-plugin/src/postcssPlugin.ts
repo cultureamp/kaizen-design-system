@@ -3,7 +3,6 @@ import { codemodOnAst } from "./codemod"
 
 type Opts = {
   fix?: boolean
-  removeUnusedImports?: boolean
 }
 export const deprecatedTokensPlugin: PluginCreator<Opts> = (opts?: Opts) =>
   ({
