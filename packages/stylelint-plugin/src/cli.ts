@@ -29,10 +29,19 @@ yargs.command(
         type: "boolean",
         description:
           "this option enables stylelint as a postcss plugin, thus using your stylelint configuration to run fixes as well as the codemod",
+      })
+      .option("removeUnusedImports", {
+        default: false,
+        type: "boolean",
+        description:
+          "removes unused kaizen token imports, beware that this may greatly impact snapshot diffs",
       }),
   async argv => {
     const postcssInstance = postcss([
-      deprecatedTokensPlugin({ fix: argv.fix }),
+      deprecatedTokensPlugin({
+        fix: argv.fix,
+        removeUnusedImports: argv.removeUnusedImports,
+      }),
       ...(argv.withStylelint
         ? [
             require("stylelint")({
