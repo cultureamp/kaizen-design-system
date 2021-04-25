@@ -2,6 +2,7 @@ import { Declaration, Root } from "postcss"
 import postcssValueParser from "postcss-value-parser"
 import * as sass from "sass"
 import {
+  invalidAddAlphaFunction,
   invalidRgbaUsage,
   noMatchingRgbParamsVariableMessage,
   unableToCompileFunctionMessage,
@@ -15,13 +16,84 @@ import {
   kaizenTokensSassVariablesWithInlineCSSVariableValues,
 } from "../kaizenTokens"
 import { containsUnmigratableFunction } from "../patterns"
-import { Options } from "../types"
+import { Options, Variable } from "../types"
 import { getParser, variablePrefixForLanguage } from "../utils"
 import {
   getStylesheetVariables,
+  parseVariable,
   stringifyStylesheetVariables,
 } from "../variableUtils"
 import { walkDeclsWithKaizenTokens, walkVariablesOnValue } from "../walkers"
+
+// Add-alpha can be used without a percentage sign, that won't fly.
+// Fix the percentage sign, then convert to a decimal for usage in RGBA
+const convertAddAlphaPercentage = (value: string) => {
+  const parsed = parseInt(value.replace(/\%/, ""), 10)
+  if (isNaN(parsed)) {
+    return value
+  }
+  return (parsed / 100).toString()
+}
+
+const getReplacementRgbParamsVariable = (
+  variable: Variable,
+  decl: Declaration,
+  options: Options
+) => {
+  const variablePrefix = variablePrefixForLanguage(options.language)
+  if (!variable.kaizenToken) return undefined
+
+  if (!variable.kaizenToken.cssVariable) {
+    const fixedVariable =
+      kaizenTokensByName[
+        variable.kaizenToken.name.replace("kz", "kz-var") + "-rgb-params"
+      ]
+    if (!fixedVariable) {
+      options.reporter({
+        message: noMatchingRgbParamsVariableMessage(variable.kaizenToken.name),
+        node: decl,
+        autofixAvailable: false,
+      })
+      return undefined
+    }
+    if (options.fix) {
+      return `${variablePrefix}${fixedVariable.name}`
+    } else {
+      options.reporter({
+        message: invalidRgbaUsage(fixedVariable.name),
+        node: decl,
+        autofixAvailable: true,
+      })
+    }
+  }
+
+  // If the value is not like `123, 123, 123`, AND it's a CSS variable, it's not valid
+  if (
+    variable.kaizenToken.cssVariable &&
+    variable.kaizenToken.cssVariable.fallback &&
+    !isRgbTriple(variable.kaizenToken.cssVariable.fallback)
+  ) {
+    const fixedVariable =
+      kaizenTokensByName[variable.kaizenToken.name + "-rgb-params"]
+    if (!fixedVariable) {
+      options.reporter({
+        message: noMatchingRgbParamsVariableMessage(variable.kaizenToken.name),
+        node: decl,
+        autofixAvailable: false,
+      })
+      return undefined
+    }
+    if (options.fix) {
+      return `${variablePrefix}${fixedVariable.name}`
+    } else {
+      options.reporter({
+        message: invalidRgbaUsage(fixedVariable.name),
+        node: decl,
+        autofixAvailable: true,
+      })
+    }
+  }
+}
 
 /**
  * This function will compile a value, for example `mix($kz-color-wisteria-800, $white, 80%)` in place (which would result in #5d5f6e).
@@ -79,79 +151,46 @@ export const noInvalidFunctionsOnDeclaration = (
   decl: Declaration,
   options: Options
 ) => {
-  const variablePrefix = variablePrefixForLanguage(options.language)
-
-  const fixRgbaOrAddAlpha = (
-    _functionName: string,
-    first: string,
-    ...rest: string[]
-  ) => {
-    const parsedFirst = postcssValueParser(first)
-    walkVariablesOnValue(parsedFirst, (node, variable) => {
-      // Ignore anything that isn't a kaizen token
-      if (!variable.kaizenToken) return
-
-      if (!variable.kaizenToken.cssVariable) {
-        const fixedVariable =
-          kaizenTokensByName[
-            variable.kaizenToken.name.replace("kz", "kz-var") + "-rgb-params"
-          ]
-        if (!fixedVariable) {
-          options.reporter({
-            message: noMatchingRgbParamsVariableMessage(
-              variable.kaizenToken.name
-            ),
-            node: decl,
-            autofixAvailable: false,
-          })
-          return false
-        }
-        if (options.fix) {
-          node.value = `${variablePrefix}${fixedVariable.name}`
-        } else {
-          options.reporter({
-            message: invalidRgbaUsage(fixedVariable.name),
-            node: decl,
-            autofixAvailable: true,
-          })
-        }
+  const fixAddAlpha = (functionName: string, ...params: string[]): string => {
+    const original = `${functionName}(${params.join(", ")})`
+    const first = params[0]
+    const second = params[1]
+    const parsedFirst = postcssValueParser(first).nodes[0]
+    if (params.length !== 2 || parsedFirst.type !== "word") {
+      options.reporter({
+        message: invalidAddAlphaFunction,
+        node: decl,
+        autofixAvailable: false,
+      })
+      return original
+    } else {
+      const variable = parseVariable(parsedFirst)
+      if (!variable) {
+        return original
       }
+      const modifiedFirstParameter =
+        getReplacementRgbParamsVariable(variable, decl, options) || first
 
-      // If the value is not like `123, 123, 123`, AND it's a CSS variable, it's not valid
-      if (
-        variable.kaizenToken.cssVariable &&
-        variable.kaizenToken.cssVariable.fallback &&
-        !isRgbTriple(variable.kaizenToken.cssVariable.fallback)
-      ) {
-        const fixedVariable =
-          kaizenTokensByName[variable.kaizenToken.name + "-rgb-params"]
-        if (!fixedVariable) {
-          options.reporter({
-            message: noMatchingRgbParamsVariableMessage(
-              variable.kaizenToken.name
-            ),
-            node: decl,
-            autofixAvailable: false,
-          })
-          return false
-        }
-        if (options.fix) {
-          node.value = `${variablePrefix}${fixedVariable.name}`
-        } else {
-          options.reporter({
-            message: invalidRgbaUsage(fixedVariable.name),
-            node: decl,
-            autofixAvailable: true,
-          })
-        }
-      }
-    })
+      const fixedSecond = convertAddAlphaPercentage(second)
+
+      return `rgba(${modifiedFirstParameter}, ${fixedSecond})`
+    }
+  }
+  const fixRgbAndRgba = (functionName: string, ...params: string[]) => {
+    const [first, ...rest] = params
+    const original = `${functionName}(${params.join(", ")})`
+    const parsedFirst = postcssValueParser(first).nodes[0]
+    if (parsedFirst.type !== "word") return original
+    const variable = parseVariable(parsedFirst)
+    if (!variable) return original
+    const modifiedFirstParameter =
+      getReplacementRgbParamsVariable(variable, decl, options) || first
 
     // If there is no 2nd parameter, it must be an `rgb` function. Or, an invalid rgba function, in which case just use rgb
     if (!rest.length) {
-      return `rgb(${postcssValueParser.stringify(parsedFirst.nodes)})`
+      return `rgb(${modifiedFirstParameter})`
     } else {
-      return `rgba(${postcssValueParser.stringify(parsedFirst.nodes)}${
+      return `rgba(${modifiedFirstParameter}${
         rest.length ? ", " + rest.join(", ") : ""
       })`
     }
@@ -189,9 +228,9 @@ export const noInvalidFunctionsOnDeclaration = (
   }
 
   const newValue = transformDecl(decl.value, {
-    rgba: fixRgbaOrAddAlpha,
-    rgb: fixRgbaOrAddAlpha,
-    "add-alpha": fixRgbaOrAddAlpha,
+    rgba: fixRgbAndRgba,
+    rgb: fixRgbAndRgba,
+    "add-alpha": fixAddAlpha,
     // In SASS we support compilation of functions
     ...(options.language === "scss"
       ? {

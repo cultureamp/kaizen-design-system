@@ -118,9 +118,9 @@ const testExamples: TestExample[] = [
     language: "scss",
     testName: "migrates add-alpha, rgba, and rgb functions to use -rgb-params",
     input:
-      ".foo { color: add-alpha($kz-color-wisteria-800, 80%); background-color: rgba($kz-color-cluny-600, 0.5); border-color: rgb($kz-color-yuzu-600) }",
+      ".foo { color: add-alpha($kz-color-wisteria-800, 80); background-color: rgba($kz-color-cluny-600, 0.5); border-color: rgb($kz-color-yuzu-600) }",
     expectedOutput:
-      '@import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800-rgb-params, 80%); background-color: rgba($kz-var-color-cluny-600-rgb-params, 0.5); border-color: rgb($kz-var-color-yuzu-600-rgb-params) }',
+      '@import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800-rgb-params, 0.8); background-color: rgba($kz-var-color-cluny-600-rgb-params, 0.5); border-color: rgb($kz-var-color-yuzu-600-rgb-params) }',
     expectedUnmigratableTokens: 0,
   },
   {
@@ -129,7 +129,7 @@ const testExamples: TestExample[] = [
     input:
       ".foo { color: add-alpha(@kz-color-wisteria-800, 80%); background-color: rgba(@kz-color-cluny-600, 0.5); border-color: rgb(@kz-color-yuzu-600) }",
     expectedOutput:
-      '@import "~@kaizen/design-tokens/less/color-vars"; .foo { color: rgba(@kz-var-color-wisteria-800-rgb-params, 80%); background-color: rgba(@kz-var-color-cluny-600-rgb-params, 0.5); border-color: rgb(@kz-var-color-yuzu-600-rgb-params) }',
+      '@import "~@kaizen/design-tokens/less/color-vars"; .foo { color: rgba(@kz-var-color-wisteria-800-rgb-params, 0.8); background-color: rgba(@kz-var-color-cluny-600-rgb-params, 0.5); border-color: rgb(@kz-var-color-yuzu-600-rgb-params) }',
     expectedUnmigratableTokens: 0,
   },
   {
@@ -154,9 +154,9 @@ const testExamples: TestExample[] = [
     language: "scss",
     testName: "migrates functions other than rgba, rgb, or add-alpha",
     input:
-      '@import "~@kaizen/design-tokens/sass/color"; @import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-color-wisteria-800, 0.4); background-color: darken($kz-color-cluny-700, 0.8); test: something-else($kz-color-yuzu-400); another: rgb($kz-color-cluny-200); foo: add-alpha($kz-color-wisteria-700, 90%); }',
+      '@import "~@kaizen/design-tokens/sass/color"; @import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-color-wisteria-800, 0.4); background-color: darken($kz-color-cluny-700, 0.8); test: something-else($kz-color-yuzu-400); another: rgb($kz-color-cluny-200); foo: add-alpha($kz-color-wisteria-700, 90); }',
     expectedOutput:
-      '@import "~@kaizen/design-tokens/sass/color"; @import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800-rgb-params, 0.4); background-color: #002f53; test: something-else($kz-color-yuzu-400); another: rgb($kz-var-color-cluny-200-rgb-params); foo: rgba($kz-var-color-wisteria-700-rgb-params, 90%); }',
+      '@import "~@kaizen/design-tokens/sass/color"; @import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800-rgb-params, 0.4); background-color: #002f53; test: something-else($kz-color-yuzu-400); another: rgb($kz-var-color-cluny-200-rgb-params); foo: rgba($kz-var-color-wisteria-700-rgb-params, 0.9); }',
     expectedUnmigratableTokens: 2,
   },
   {
@@ -165,7 +165,7 @@ const testExamples: TestExample[] = [
     input:
       '@import "~@kaizen/design-tokens/less/color"; @import "~@kaizen/design-tokens/less/color-vars"; .foo { color: rgba(@kz-color-wisteria-800, 0.4); background-color: darken(@kz-color-cluny-700, 0.8); test: something-else(@kz-color-yuzu-400); another: rgb(@kz-color-cluny-200); foo: add-alpha(@kz-color-wisteria-700, 90%); }',
     expectedOutput:
-      '@import "~@kaizen/design-tokens/less/color"; @import "~@kaizen/design-tokens/less/color-vars"; .foo { color: rgba(@kz-var-color-wisteria-800-rgb-params, 0.4); background-color: darken(@kz-color-cluny-700, 0.8); test: something-else(@kz-color-yuzu-400); another: rgb(@kz-var-color-cluny-200-rgb-params); foo: rgba(@kz-var-color-wisteria-700-rgb-params, 90%); }',
+      '@import "~@kaizen/design-tokens/less/color"; @import "~@kaizen/design-tokens/less/color-vars"; .foo { color: rgba(@kz-var-color-wisteria-800-rgb-params, 0.4); background-color: darken(@kz-color-cluny-700, 0.8); test: something-else(@kz-color-yuzu-400); another: rgb(@kz-var-color-cluny-200-rgb-params); foo: rgba(@kz-var-color-wisteria-700-rgb-params, 0.9); }',
     expectedUnmigratableTokens: 4,
   },
   {
@@ -175,15 +175,6 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/color"; $foo: $kz-color-wisteria-800;',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color"; $foo: $kz-color-wisteria-800;',
-    expectedUnmigratableTokens: 1,
-  },
-  {
-    language: "less",
-    testName: "doesn't migrate tokens within variables",
-    input:
-      '@import "~@kaizen/design-tokens/less/color"; @foo: @kz-color-wisteria-800;',
-    expectedOutput:
-      '@import "~@kaizen/design-tokens/less/color"; @foo: @kz-color-wisteria-800;',
     expectedUnmigratableTokens: 1,
   },
   {
@@ -385,6 +376,15 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/less/color"; @customVar: white; .foo { color: mix(@kz-color-wisteria-800, @customVar, 80%) }',
     expectedUnmigratableTokens: 2,
   },
+  {
+    language: "scss",
+    testName: "weird add-alpha alpha parameter is fixed",
+    input:
+      '@import "~@kaizen/design-tokens/sass/color"; .foo { color: add-alpha($kz-color-wisteria-800, 70) }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800-rgb-params, 0.7) }',
+    expectedUnmigratableTokens: 0,
+  },
 ]
 
 describe("Codemod", () => {
@@ -402,6 +402,7 @@ describe("Codemod", () => {
       const result = codemodOnSource(input, {
         language,
         fix: true,
+        removeUnusedImports: true,
         reporter: ({ message, autofixAvailable }) => {
           if (!autofixAvailable) {
             unfixables++

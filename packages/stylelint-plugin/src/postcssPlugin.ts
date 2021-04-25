@@ -3,6 +3,7 @@ import { codemodOnAst } from "./codemod"
 
 type Opts = {
   fix?: boolean
+  removeUnusedImports?: boolean
 }
 export const deprecatedTokensPlugin: PluginCreator<Opts> = (opts?: Opts) =>
   ({
@@ -14,6 +15,7 @@ export const deprecatedTokensPlugin: PluginCreator<Opts> = (opts?: Opts) =>
       codemodOnAst(root, {
         language,
         fix: opts?.fix || false,
+        removeUnusedImports: opts?.removeUnusedImports || false,
         reporter: ({ message, node }) => {
           node.warn(result, message)
         },

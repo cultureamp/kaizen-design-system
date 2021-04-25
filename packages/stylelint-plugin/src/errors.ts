@@ -46,3 +46,6 @@ export const unableToCompileFunctionMessage = (
 
 export const unsupportedFunctionWithFixMessage =
   "Kaizen token used within unsupported function. Running with --fix will replace it with it's computed value"
+
+export const invalidAddAlphaFunction =
+  "Found add-alpha function but it is not used in a way which can be automatically migrated"

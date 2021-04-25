@@ -7,15 +7,18 @@ import { noInvalidFunctionsRule } from "./rules/no-invalid-functions"
 import { Options } from "./types"
 import { getParser } from "./utils"
 
+type CodemodOptions = Options & {
+  removeUnusedImports?: boolean
+}
 /**
  * Run the codemod on a stylesheet AST (postcss Root)
  */
-export const codemodOnAst = (stylesheetNode: Root, options: Options) => {
+export const codemodOnAst = (stylesheetNode: Root, options: CodemodOptions) => {
   noInvalidEquationsRule(stylesheetNode, options)
   noInvalidFunctionsRule(stylesheetNode, options)
   noDeprecatedTokensRule(stylesheetNode, options)
   importsNoExtraneousRule(stylesheetNode, options)
-  importsNoUnusedRule(stylesheetNode, options)
+  if (options.removeUnusedImports) importsNoUnusedRule(stylesheetNode, options)
 
   return stylesheetNode
 }
@@ -25,10 +28,5 @@ export const codemodOnAst = (stylesheetNode: Root, options: Options) => {
  */
 export const codemodOnSource = (
   styleSheetSource: string,
-  options: Options = {
-    language: "scss",
-    reporter: () => {
-      // Noop reporter
-    },
-  }
+  options: CodemodOptions
 ) => codemodOnAst(getParser(options.language).parse(styleSheetSource), options)
