@@ -30,7 +30,7 @@ const transformNode = (node: valueParser.Node, functions: FunctionsMap) => {
 const extractArgs = (nodes: valueParser.Node[], functions: FunctionsMap) => {
   const values = nodes.map(node => transformNode(node, functions))
 
-  const args = []
+  const args = [] as string[]
   const last = values.reduce((prev, node) => {
     if (node.type === "div" && node.value === ",") {
       args.push(prev)
