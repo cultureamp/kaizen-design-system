@@ -50,16 +50,18 @@ import {
   PerformanceTeamSummary,
   Programs,
   SurveyOverviewClosed,
+  SurveyGetStarted,
 } from ".."
 
 export default {
   title: "Illustration, Scene (React)",
   component: ManagerLearningResilience,
   parameters: {
-    info: {
-      text: `
-        import { EmptyStatesAction, EmptyStatesInformative, EmptyStatesNegative } from "@kaizen/draft-illustration";
-      `,
+    docs: {
+      description: {
+        component:
+          'Import { SurveyOverviewClosed } from "@kaizen/draft-illustration"',
+      },
     },
   },
 }
@@ -428,3 +430,10 @@ export const SurveyOverviewClosedStory = () => (
   </div>
 )
 SurveyOverviewClosedStory.storyName = "Survey Overview: Closed Survey"
+
+export const SurveyGetStartedStory = () => (
+  <div style={{ width: "500px" }}>
+    <SurveyGetStarted alt="" />
+  </div>
+)
+SurveyGetStartedStory.storyName = "Survey Overview: Get Started"
