@@ -1,9 +1,9 @@
-import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
-import ZenColorGroup from "./ZenColorGroup"
+import ZenColorGroup, { ColorThemeContext } from "./ZenColorGroup"
 
-const ZenSeedling = () => (
-  <ZenColorGroup colors={colorTokens.kz.color.seedling} />
-)
+const ZenSeedling = () => {
+  const { color } = React.useContext(ColorThemeContext)
+  return <ZenColorGroup colors={color.seedling} />
+}
 
 export default ZenSeedling
