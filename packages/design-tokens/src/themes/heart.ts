@@ -108,8 +108,8 @@ export const heartTheme: Theme = {
     slate: "#524e56",
   },
   dataViz: {
-    favorable: "#a5e2d2",
-    unfavorable: "#f7acb9",
+    favorable: "#7dd5bd",
+    unfavorable: "#e68d97",
   },
   DEPRECATED: {
     color: {
