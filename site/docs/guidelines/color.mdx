@@ -19,6 +19,7 @@ import ZenSeedling from "docs-components/color/ZenSeedling"
 import ZenYuzu from "docs-components/color/ZenYuzu"
 import ZenPeach from "docs-components/color/ZenPeach"
 import ZenCoral from "docs-components/color/ZenCoral"
+import HeartAccessibilityHelpers from "docs-components/color/HeartAccessibilityHelpers"
 
 ## Zen palette
 
@@ -88,6 +89,14 @@ For the most important action on a page, use Cluny (or Seedling on dark backgrou
 
 See [data visualization](/guidelines/data-visualization) for details.
 
+### Accessibility tools
+
+The preferred option for handling accessibility in relation to colors is to use contrasting colors that won't cause confusion as our defaults. Sometimes this isn't possible, and in that case other indicators such as stripes over data colors can help create this distinction.
+
+Some defaults and helper methods are available for scss.
+
+<HeartAccessibilityHelpers />
+
 ## When to use and when not to use
 
 <WhenToUseAndWhenNotToUse>
@@ -121,4 +130,3 @@ Here are some examples of existing design system colors:
 - [Bootstrap: colors](https://getbootstrap.com/docs/4.3/utilities/colors/)
 - [Element: color](https://element.eleme.io/#/en-US/component/color)
 - [Spectre: color](https://picturepan2.github.io/spectre/utilities/colors.html)
-
