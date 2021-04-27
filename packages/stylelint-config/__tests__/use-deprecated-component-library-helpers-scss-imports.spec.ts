@@ -12,7 +12,7 @@ const stylelintConfig = {
 const lintNotInFixMode = (code: string) =>
   stylelint.lint({
     code,
-    stylelintConfig,
+    config: stylelintConfig,
     syntax: "scss",
     lang: "scss",
     fix: false,
@@ -21,7 +21,7 @@ const lintNotInFixMode = (code: string) =>
 const lintInFixMode = (code: string) =>
   stylelint.lint({
     code,
-    stylelintConfig,
+    config: stylelintConfig,
     syntax: "scss",
     lang: "scss",
     fix: true,
