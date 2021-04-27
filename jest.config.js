@@ -4,7 +4,7 @@ module.exports = {
   testMatch: ["**/*.spec.ts?(x)"],
   moduleNameMapper: {
     "\\.(jpe?g|png)$": "jest-static-stubs/$1",
-    "\\.s?css$": "identity-obj-proxy",
+    "!(@kaizen/design-tokens/{sass,less,css})\\.s?css$": "identity-obj-proxy",
     "\\.svg$": require.resolve("@kaizen/component-library/mocks/svgMock"),
   },
 }
