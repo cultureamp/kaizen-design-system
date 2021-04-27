@@ -413,6 +413,26 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-800; .foo { color: #5d5f6e; }',
     expectedUnmigratableTokens: 0,
   },
+  {
+    language: "scss",
+    testName:
+      "transitive tokens are fixed correctly when their usages are negated",
+    input:
+      '@import "~@kaizen/design-tokens/sass/spacing"; $foo: $kz-spacing-md; .foo { top: -$foo; }',
+    expectedOutput:
+      ' @import "~@kaizen/design-tokens/sass/spacing-vars"; @import "~@kaizen/design-tokens/sass/spacing"; $foo: $kz-spacing-md; .foo { top: calc(-1 * #{$kz-var-spacing-md}); }',
+    expectedUnmigratableTokens: 1,
+  },
+  {
+    language: "scss",
+    testName:
+      "transitive tokens are fixed correctly when their usages are interpolated",
+    input:
+      '@import "~@kaizen/design-tokens/sass/spacing"; $foo: $kz-spacing-md; .foo { top: #{$foo}; }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/spacing-vars"; @import "~@kaizen/design-tokens/sass/spacing"; $foo: $kz-spacing-md; .foo { top: #{$kz-var-spacing-md}; }',
+    expectedUnmigratableTokens: 1,
+  },
 ]
 
 describe("Codemod", () => {
@@ -432,6 +452,8 @@ describe("Codemod", () => {
         fix: true,
         ...allRulesEnabled,
         reporter: ({ message, autofixAvailable }) => {
+          // Uncomment this if you want to see reports
+          // console.log(message)
           if (!autofixAvailable) {
             unfixables++
           }

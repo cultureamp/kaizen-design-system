@@ -32,7 +32,12 @@ export const noTransitiveTokensRule = (
         const transitiveVariable =
           transitiveKaizenVariables[variable.nameWithPrefix]
         if (options.fix) {
-          variableNode.value = transitiveVariable.value
+          // We can't just replace the whole variableNode.value with a new variable, because it might have been negated or interpolated
+          // this is due to postcss-value-parser weirdness (it doesn't tokenize negations or interpolations)
+          variableNode.value = variableNode.value.replace(
+            variable.nameWithPrefix,
+            transitiveVariable.value
+          )
           postcssNode.replaceWith(
             postcssNode.clone({
               value: postcssValueParser.stringify(parsedValue.nodes),

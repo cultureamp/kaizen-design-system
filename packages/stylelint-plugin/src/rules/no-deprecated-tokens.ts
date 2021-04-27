@@ -3,6 +3,7 @@ import postcssValueParser from "postcss-value-parser"
 import {
   cantFindReplacementTokenForDeprecatedMessage,
   cantUseTokenInAtRuleParamsMessage,
+  deprecatedTokenUsageMessage,
   deprecatedTokenUsedWithinAnotherVariableMessage,
   deprecatedTokenUsedWithinUnsupportedFunction,
   invalidEquationContainingDeprecatedTokenMessage,
@@ -109,7 +110,10 @@ export const noDeprecatedTokensRule = (
 
             if (!options.fix) {
               options.reporter({
-                message: (variable.name, replacementToken.name),
+                message: deprecatedTokenUsageMessage(
+                  variable.name,
+                  replacementToken.name
+                ),
                 node: decl,
                 autofixAvailable: true,
               })

@@ -4,7 +4,7 @@
 
 `yarn add @kaizen/stylelint-plugin`
 
-Then, add the plugin and the rules you want to your stylelint configuration:
+Then, add the plugin and the rules you want to your stylelint configuration (e.g. `stylelint.config.js` or `.stylelintrc.json`):
 
 ```json
 {

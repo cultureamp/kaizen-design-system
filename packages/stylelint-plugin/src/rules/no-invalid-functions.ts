@@ -210,7 +210,10 @@ export const noInvalidFunctionsOnDeclaration = (
         autofixAvailable: false,
         message: unableToCompileFunctionMessage(
           sourceValue,
-          compileResult.error || undefined
+          (compileResult.details instanceof Error
+            ? compileResult.details.message
+            : compileResult.error || "unknown reason"
+          ).replace(/\s*/g, " ")
         ),
         node: decl,
       })
