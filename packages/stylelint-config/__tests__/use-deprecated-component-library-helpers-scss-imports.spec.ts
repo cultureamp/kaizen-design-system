@@ -28,7 +28,8 @@ const lintInFixMode = (code: string) =>
   })
 
 const getOutputCss = output => {
-  const result = output.results[0]._postcssResult
+  const result = output.results[0]._postcssResult // eslint-disable-line no-underscore-dangle
+
   const css = result.root.toString(result.opts.syntax)
 
   return css
