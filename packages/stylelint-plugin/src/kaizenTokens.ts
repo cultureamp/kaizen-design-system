@@ -3,6 +3,7 @@ import flatmap from "lodash.flatmap"
 import postcssValueParser from "postcss-value-parser"
 import { CSSVariable, KaizenToken } from "./types"
 import { getParser } from "./utils"
+import { isVariable } from "./variableUtils"
 const scssParser = getParser("scss")
 
 /* Pass in just the name of a module which is used to import variable.
@@ -18,7 +19,7 @@ const getVarsFromKaizenModule = (moduleName: string) => {
   const root = scssParser.parse(source)
   const variables = {} as Record<string, string>
   root.walkDecls(decl => {
-    if (decl.variable) {
+    if (isVariable(decl)) {
       variables[decl.prop.substr(1)] = decl.value
     }
   })

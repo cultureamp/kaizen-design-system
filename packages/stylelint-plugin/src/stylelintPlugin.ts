@@ -19,9 +19,17 @@ import {
   noInvalidFunctionsRule,
   noInvalidFunctionsRuleName,
 } from "./rules/no-invalid-functions"
+import {
+  noTransitiveTokensRule,
+  noTransitiveTokensRuleName,
+} from "./rules/no-transitive-tokens"
 import { StylelintPluginOptions, StyleLintRule } from "./types"
 
 const rules: StyleLintRule[] = [
+  {
+    name: noTransitiveTokensRuleName,
+    ruleFunction: noTransitiveTokensRule,
+  },
   {
     name: importsNoExtraneousRuleName,
     ruleFunction: importsNoExtraneousRule,

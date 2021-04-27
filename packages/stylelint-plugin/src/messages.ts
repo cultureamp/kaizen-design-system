@@ -49,3 +49,8 @@ export const unsupportedFunctionWithFixMessage =
 
 export const invalidAddAlphaFunction =
   "Found add-alpha function but it is not used in a way which can be automatically migrated"
+
+export const transitiveKaizenTokenUsage = (
+  nameOfVariableThatContainsKaizen: string
+) =>
+  `Variable ${nameOfVariableThatContainsKaizen} contains a Kaizen token, and is not allowed because it prevents other rules from detecting invalid kaizen tokens`

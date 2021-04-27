@@ -3,7 +3,7 @@ import { kaizenTokensByName } from "./kaizenTokens"
 
 export const quotesPattern = /("|')/g
 
-export const operatorPattern = /[\+\-\*\/]/
+export const operatorPattern = /^\s*[\+\-\*\/]\s*$/
 
 export const migrateToNewVarPattern = /kz-(?!(var))/
 

@@ -8,7 +8,7 @@ import {
   unableToCompileFunctionMessage,
   unsupportedFunctionMessage,
   unsupportedFunctionWithFixMessage,
-} from "../errors"
+} from "../messages"
 import { transformDecl } from "../functionTransformer"
 import {
   deprecatedSassFunctionsSource,
@@ -20,6 +20,7 @@ import { Options, Variable } from "../types"
 import { getParser, variablePrefixForLanguage } from "../utils"
 import {
   getStylesheetVariables,
+  isVariable,
   parseVariable,
   stringifyStylesheetVariables,
 } from "../variableUtils"
@@ -104,8 +105,9 @@ const compileSassValue = (stylesheetNode: Root, value: string) => {
   try {
     const stylesheetVariables = getStylesheetVariables(stylesheetNode)
     const stylesheetAndKaizenVariables = {
-      ...stylesheetVariables,
+      // Very important that kaizen vars come before local stylesheet vars, because locals could be using kaizen tokens.
       ...kaizenTokensSassVariablesWithInlineCSSVariableValues,
+      ...stylesheetVariables,
     }
     const stylesheetAndKaizenVariablesString = stringifyStylesheetVariables(
       stylesheetAndKaizenVariables
@@ -272,7 +274,7 @@ export const noInvalidFunctionsRule = (
   options: Options
 ) => {
   walkDeclsWithKaizenTokens(stylesheetNode, ({ postcssNode }) => {
-    if (postcssNode.type === "decl" && !postcssNode.variable) {
+    if (postcssNode.type === "decl" && !isVariable(postcssNode)) {
       noInvalidFunctionsOnDeclaration(postcssNode, options)
     }
   })

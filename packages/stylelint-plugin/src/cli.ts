@@ -6,6 +6,7 @@ import postcss from "postcss"
 import yargs from "yargs"
 import { getParser } from "./utils"
 import { deprecatedTokensPlugin } from "./postcssPlugin"
+import { allRulesEnabled } from "./types"
 
 yargs.command(
   "* <files>",
@@ -40,7 +41,8 @@ yargs.command(
     const postcssInstance = postcss([
       deprecatedTokensPlugin({
         fix: argv.fix,
-        removeUnusedImports: argv.removeUnusedImports,
+        ...allRulesEnabled,
+        importsNoUnused: argv.removeUnusedImports,
       }),
       ...(argv.withStylelint
         ? [
