@@ -1,9 +1,10 @@
-@import "~@kaizen/design-tokens/sass/color";
 // This is a file you can use to play with the stylelint plugin
 @import "~@kaizen/design-tokens/sass/spacing-vars";
 
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "././another.scss";
+
+$test: foo;
 
 .test {
   color: $kz-var-color-wisteria-800-rgb-params;
@@ -21,5 +22,5 @@
 
   margin: $kz-var-spacing-md calc((-1 * #{$kz-var-spacing-md}));
 
-  color: darken($kz-color-white, 80%);
+  color: #ebebed;
 }
