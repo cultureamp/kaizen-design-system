@@ -4,10 +4,10 @@ import {
   kaizenVariableUsedNextToOperatorMessage,
   negatedKaizenVariableMessage,
   tokenNotInterpolatedInCalcMessage,
-} from "../errors"
+} from "../messages"
 import { isOperator } from "../patterns"
 import { Options } from "../types"
-import { parseVariable, stringifyVariable } from "../variableUtils"
+import { isVariable, parseVariable, stringifyVariable } from "../variableUtils"
 import { walkDeclsWithKaizenTokens, walkWithParent } from "../walkers"
 
 export const noInvalidEquationsRuleName = "no-invalid-equations"
@@ -24,11 +24,7 @@ export const noInvalidEquationsOnDeclaraion = (
     // Will reset when the parent changes
     let lastTwoWordNodesNextToEachOther: WordNode[] = []
     walkWithParent(parsed, (node, parent) => {
-      if (
-        node.type !== "space" &&
-        node.type !== "comment" &&
-        node.type !== "word"
-      ) {
+      if (node.type === "function" || node.type === "div") {
         // Reset the word sequence if there is something meaningful separating them, like a function or a divider (comma)
         lastTwoWordNodesNextToEachOther = []
         return
@@ -133,7 +129,7 @@ export const noInvalidEquationsRule = (
   options: Options
 ) => {
   walkDeclsWithKaizenTokens(stylesheetNode, ({ postcssNode, parsedValue }) => {
-    if (postcssNode.type === "decl" && !postcssNode.variable)
+    if (postcssNode.type === "decl" && !isVariable(postcssNode))
       noInvalidEquationsOnDeclaraion(postcssNode, parsedValue, options)
   })
 }

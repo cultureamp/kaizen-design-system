@@ -1,5 +1,5 @@
 import { Root } from "postcss"
-import { missingRequiredKaizeImport } from "../errors"
+import { missingRequiredKaizeImport } from "../messages"
 import { addImport, getCurrentImports } from "../importUtils"
 import { KaizenToken, Options } from "../types"
 import { walkKaizenTokens } from "../walkers"

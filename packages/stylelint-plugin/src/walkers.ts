@@ -8,7 +8,10 @@ import { parseVariable } from "./variableUtils"
  */
 export const walkVariablesOnValue = (
   parsedValue: postcssValueParser.ParsedValue,
-  visitor: (node: postcssValueParser.WordNode, variable: Variable) => void
+  visitor: (
+    node: postcssValueParser.WordNode,
+    variable: Variable
+  ) => void | false
 ) => {
   parsedValue.walk(node => {
     if (node.type === "word") {
@@ -34,6 +37,7 @@ export const walkVariables = (
   }) => void | false
 ) => {
   stylesheetNode.walk(postcssNode => {
+    // Only look at the values of declarations, and the parameters of atrules
     if (postcssNode.type !== "decl" && postcssNode.type !== "atrule") return
 
     const value =
@@ -99,7 +103,6 @@ export const walkKaizenTokens = (
   visitor: (params: {
     postcssNode: Declaration | AtRule
     parsedValue: postcssValueParser.ParsedValue
-    variableNode: postcssValueParser.Node
     variable: ParsedKaizenVariable
     value: string
   }) => void | false

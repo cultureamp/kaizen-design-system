@@ -4,7 +4,7 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "././another.scss";
 
-$test: foo;
+$foo: $kz-var-color-wisteria-800;
 
 .test {
   color: $kz-var-color-wisteria-800-rgb-params;
@@ -22,5 +22,7 @@ $test: foo;
 
   margin: $kz-var-spacing-md calc((-1 * #{$kz-var-spacing-md}));
 
-  color: #ebebed;
+  // Take this out to see some magic
+  /* stylelint-disable-next-line */
+  color: mix($foo, white, 80%);
 }

@@ -6,10 +6,14 @@ import {
   deprecatedTokenUsedWithinAnotherVariableMessage,
   deprecatedTokenUsedWithinUnsupportedFunction,
   invalidEquationContainingDeprecatedTokenMessage,
-} from "../errors"
+} from "../messages"
 import { kaizenTokensByName } from "../kaizenTokens"
 import { Options } from "../types"
-import { replaceTokenInVariable, stringifyVariable } from "../variableUtils"
+import {
+  isVariable,
+  replaceTokenInVariable,
+  stringifyVariable,
+} from "../variableUtils"
 import { walkDeclsWithKaizenTokens, walkVariablesOnValue } from "../walkers"
 import { declContainsInvalidEquations } from "./no-invalid-equations"
 import { declContainsInvalidFunctions } from "./no-invalid-functions"
@@ -56,7 +60,7 @@ export const noDeprecatedTokensRule = (
         const decl = postcssNode
         // If the value contains a kaizen variable, label it as "unmigratable"
         // e.g. $foo: $kz-color-wisteria-800;
-        if (decl.variable) {
+        if (isVariable(decl)) {
           options.reporter({
             message: deprecatedTokenUsedWithinAnotherVariableMessage,
             node: decl,

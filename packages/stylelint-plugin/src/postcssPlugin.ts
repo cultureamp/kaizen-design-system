@@ -1,11 +1,21 @@
 import { Plugin, PluginCreator } from "postcss"
 import { codemodOnAst } from "./codemod"
+import { RulesEnabled } from "./types"
 
 type Opts = {
   fix?: boolean
-  removeUnusedImports?: boolean
-}
-export const deprecatedTokensPlugin: PluginCreator<Opts> = (opts?: Opts) =>
+} & RulesEnabled
+export const deprecatedTokensPlugin: PluginCreator<Opts> = (
+  opts: Opts = {
+    importsNoExtraneous: true,
+    importsNoUnused: true,
+    noDeprecatedTokens: true,
+    noInvalidEquations: true,
+    noInvalidFunctions: true,
+    noTransitiveTokens: true,
+    fix: true,
+  }
+) =>
   ({
     postcssPlugin: "kaizen-deprecated-tokens",
     Root: (root, { result }) => {
@@ -13,9 +23,8 @@ export const deprecatedTokensPlugin: PluginCreator<Opts> = (opts?: Opts) =>
         ? "less"
         : "scss"
       codemodOnAst(root, {
+        ...opts,
         language,
-        fix: opts?.fix || false,
-        removeUnusedImports: opts?.removeUnusedImports || false,
         reporter: ({ message, node }) => {
           node.warn(result, message)
         },

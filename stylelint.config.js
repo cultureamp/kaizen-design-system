@@ -1,4 +1,6 @@
 module.exports = {
+  // Stylelint plugin is being linted on its own
+  ignoreFiles: ["packages/stylelint-plugin/**/*"],
   rules: {
     "string-quotes": "double",
     "no-duplicate-at-import-rules": true,

@@ -1,5 +1,5 @@
 import { codemodOnSource } from "./codemod"
-import { Language } from "./types"
+import { allRulesEnabled, Language } from "./types"
 
 type TestExample = {
   language: Language
@@ -385,6 +385,34 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800-rgb-params, 0.7) }',
     expectedUnmigratableTokens: 0,
   },
+  {
+    language: "scss",
+    testName: "transitive kaizen tokens are fixed",
+    input:
+      '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-800; .foo { color: $foo; }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-800; .foo { color: $kz-var-color-wisteria-800; }',
+    expectedUnmigratableTokens: 0,
+  },
+  {
+    language: "scss",
+    testName: "transitive kaizen tokens containing multiple values are fixed",
+    input:
+      '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-800 $kz-var-color-wisteria-700 $kz-var-color-wisteria-800; .foo { color: $foo; }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-800 $kz-var-color-wisteria-700 $kz-var-color-wisteria-800; .foo { color: $kz-var-color-wisteria-800 $kz-var-color-wisteria-700 $kz-var-color-wisteria-800; }',
+    expectedUnmigratableTokens: 0,
+  },
+  {
+    language: "scss",
+    testName:
+      "color manipulation functions are computed, even when a transitive kaizen token is used",
+    input:
+      '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-800; .foo { color: mix($foo, $white, 80%); }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-800; .foo { color: #5d5f6e; }',
+    expectedUnmigratableTokens: 0,
+  },
 ]
 
 describe("Codemod", () => {
@@ -402,7 +430,7 @@ describe("Codemod", () => {
       const result = codemodOnSource(input, {
         language,
         fix: true,
-        removeUnusedImports: true,
+        ...allRulesEnabled,
         reporter: ({ message, autofixAvailable }) => {
           if (!autofixAvailable) {
             unfixables++

@@ -63,3 +63,21 @@ export type StyleLintRule = {
   name: string
   ruleFunction: StyleLintRuleFunction
 }
+
+export type RulesEnabled = {
+  importsNoUnused: boolean
+  importsNoExtraneous: boolean
+  noInvalidEquations: boolean
+  noInvalidFunctions: boolean
+  noDeprecatedTokens: boolean
+  noTransitiveTokens: boolean
+}
+
+export const allRulesEnabled: RulesEnabled = {
+  noDeprecatedTokens: true,
+  noInvalidEquations: true,
+  importsNoExtraneous: true,
+  importsNoUnused: true,
+  noInvalidFunctions: true,
+  noTransitiveTokens: true,
+}
