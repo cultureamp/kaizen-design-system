@@ -29,14 +29,25 @@ export const noTransitiveTokensRule = (
         transitiveKaizenVariables[variable.nameWithPrefix]
       ) {
         const transitiveVariableName = variable.nameWithPrefix
+
+        // The variable within the stylesheet that contains kaizen e.g `$foo: $kz-color-wisteria-800`
         const transitiveVariable =
           transitiveKaizenVariables[variable.nameWithPrefix]
+
         if (options.fix) {
+          // The replacement should be in brackets if it is negated and if the value isn't just a single token
+          const shouldReplacementBeInBrackets =
+            variable.negated &&
+            transitiveVariable.value !==
+              transitiveVariable.kaizenVariablesInValue[0].nameWithPrefix
+
           // We can't just replace the whole variableNode.value with a new variable, because it might have been negated or interpolated
           // this is due to postcss-value-parser weirdness (it doesn't tokenize negations or interpolations)
           variableNode.value = variableNode.value.replace(
             variable.nameWithPrefix,
-            transitiveVariable.value
+            shouldReplacementBeInBrackets
+              ? `(${transitiveVariable.value})`
+              : transitiveVariable.value
           )
           postcssNode.replaceWith(
             postcssNode.clone({

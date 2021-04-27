@@ -213,7 +213,7 @@ export const noInvalidFunctionsOnDeclaration = (
           (compileResult.details instanceof Error
             ? compileResult.details.message
             : compileResult.error || "unknown reason"
-          ).replace(/\s*/g, " ")
+          ).replace(/\s+/g, " ")
         ),
         node: decl,
       })

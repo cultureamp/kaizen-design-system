@@ -4,7 +4,7 @@ import { allRulesEnabled, Language } from "./types"
 type TestExample = {
   language: Language
   testName: string
-  expectedUnmigratableTokens: number
+  expectedReports: number
   input: string
   expectedOutput: string
   only?: boolean
@@ -18,7 +18,7 @@ const testExamples: TestExample[] = [
       "@media (min-width: $kz-layout-breakpoints-large) { .test { color: $kz-color-wisteria-800 } }",
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color-vars"; @import "~@kaizen/design-tokens/sass/layout"; @media (min-width: $kz-layout-breakpoints-large) { .test { color: $kz-var-color-wisteria-800 } }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "less",
@@ -27,7 +27,7 @@ const testExamples: TestExample[] = [
       "@media (min-width: @kz-layout-breakpoints-large) { .test { color: @kz-color-wisteria-800 } }",
     expectedOutput:
       '@import "~@kaizen/design-tokens/less/color-vars"; @import "~@kaizen/design-tokens/less/layout"; @media (min-width: @kz-layout-breakpoints-large) { .test { color: @kz-var-color-wisteria-800 } }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -36,7 +36,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/color-vars"; @import "~@kaizen/design-tokens/sass/layout"; @media (min-width: $kz-layout-breakpoints-large) { .test { color: red; } }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/layout"; @media (min-width: $kz-layout-breakpoints-large) { .test { color: red; } }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "less",
@@ -45,7 +45,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/less/color-vars"; @import "~@kaizen/design-tokens/less/layout"; @media (min-width: @kz-layout-breakpoints-large) { .test { color: red; } }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/less/layout"; @media (min-width: @kz-layout-breakpoints-large) { .test { color: red; } }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
 
   {
@@ -55,7 +55,7 @@ const testExamples: TestExample[] = [
     input: "@media (min-width: $kz-layout-breakpoints-large) {}",
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/layout"; @media (min-width: $kz-layout-breakpoints-large) {}',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "less",
@@ -64,7 +64,7 @@ const testExamples: TestExample[] = [
     input: "@media (min-width: @kz-layout-breakpoints-large) {}",
     expectedOutput:
       '@import "~@kaizen/design-tokens/less/layout"; @media (min-width: @kz-layout-breakpoints-large) {}',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -72,7 +72,7 @@ const testExamples: TestExample[] = [
     input: ".foo { padding: $kz-spacing-md * 2; }",
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: $kz-spacing-md * 2; }',
-    expectedUnmigratableTokens: 2,
+    expectedReports: 2,
   },
   {
     language: "less",
@@ -80,7 +80,7 @@ const testExamples: TestExample[] = [
     input: ".foo { padding: @kz-spacing-md * 2; }",
     expectedOutput:
       '@import "~@kaizen/design-tokens/less/spacing"; .foo { padding: @kz-spacing-md * 2; }',
-    expectedUnmigratableTokens: 2,
+    expectedReports: 2,
   },
   {
     language: "scss",
@@ -88,7 +88,7 @@ const testExamples: TestExample[] = [
     input: ".foo { padding: 0 1px 5 * 10px $kz-spacing-md; }",
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: 0 1px 5 * 10px $kz-var-spacing-md; }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "less",
@@ -96,7 +96,7 @@ const testExamples: TestExample[] = [
     input: ".foo { padding: 0 1px 5 * 10px @kz-spacing-md; }",
     expectedOutput:
       '@import "~@kaizen/design-tokens/less/spacing-vars"; .foo { padding: 0 1px 5 * 10px @kz-var-spacing-md; }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -104,7 +104,7 @@ const testExamples: TestExample[] = [
     input: ".foo { padding: $kz-spacing-md; color: $kz-color-wisteria-800; }",
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color-vars"; @import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: $kz-var-spacing-md; color: $kz-var-color-wisteria-800; }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "less",
@@ -112,7 +112,7 @@ const testExamples: TestExample[] = [
     input: ".foo { padding: @kz-spacing-md; color: @kz-color-wisteria-800; }",
     expectedOutput:
       '@import "~@kaizen/design-tokens/less/color-vars"; @import "~@kaizen/design-tokens/less/spacing-vars"; .foo { padding: @kz-var-spacing-md; color: @kz-var-color-wisteria-800; }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -121,7 +121,7 @@ const testExamples: TestExample[] = [
       ".foo { color: add-alpha($kz-color-wisteria-800, 80); background-color: rgba($kz-color-cluny-600, 0.5); border-color: rgb($kz-color-yuzu-600) }",
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800-rgb-params, 0.8); background-color: rgba($kz-var-color-cluny-600-rgb-params, 0.5); border-color: rgb($kz-var-color-yuzu-600-rgb-params) }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "less",
@@ -130,7 +130,7 @@ const testExamples: TestExample[] = [
       ".foo { color: add-alpha(@kz-color-wisteria-800, 80%); background-color: rgba(@kz-color-cluny-600, 0.5); border-color: rgb(@kz-color-yuzu-600) }",
     expectedOutput:
       '@import "~@kaizen/design-tokens/less/color-vars"; .foo { color: rgba(@kz-var-color-wisteria-800-rgb-params, 0.8); background-color: rgba(@kz-var-color-cluny-600-rgb-params, 0.5); border-color: rgb(@kz-var-color-yuzu-600-rgb-params) }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -139,7 +139,7 @@ const testExamples: TestExample[] = [
       ".foo { color: $kz-color-wisteria-800; background-color: $kz-color-cluny-600; border-color: $kz-color-yuzu-600 } @media (min-width: $kz-layout-breakpoints-large) {}",
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/layout"; @import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: $kz-var-color-wisteria-800; background-color: $kz-var-color-cluny-600; border-color: $kz-var-color-yuzu-600 } @media (min-width: $kz-layout-breakpoints-large) {}',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "less",
@@ -148,7 +148,7 @@ const testExamples: TestExample[] = [
       ".foo { color: @kz-color-wisteria-800; background-color: @kz-color-cluny-600; border-color: @kz-color-yuzu-600 } @media (min-width: @kz-layout-breakpoints-large) {}",
     expectedOutput:
       '@import "~@kaizen/design-tokens/less/layout"; @import "~@kaizen/design-tokens/less/color-vars"; .foo { color: @kz-var-color-wisteria-800; background-color: @kz-var-color-cluny-600; border-color: @kz-var-color-yuzu-600 } @media (min-width: @kz-layout-breakpoints-large) {}',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -157,7 +157,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/color"; @import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-color-wisteria-800, 0.4); background-color: darken($kz-color-cluny-700, 0.8); test: something-else($kz-color-yuzu-400); another: rgb($kz-color-cluny-200); foo: add-alpha($kz-color-wisteria-700, 90); }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color"; @import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800-rgb-params, 0.4); background-color: #002f53; test: something-else($kz-color-yuzu-400); another: rgb($kz-var-color-cluny-200-rgb-params); foo: rgba($kz-var-color-wisteria-700-rgb-params, 0.9); }',
-    expectedUnmigratableTokens: 2,
+    expectedReports: 2,
   },
   {
     language: "less",
@@ -166,7 +166,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/less/color"; @import "~@kaizen/design-tokens/less/color-vars"; .foo { color: rgba(@kz-color-wisteria-800, 0.4); background-color: darken(@kz-color-cluny-700, 0.8); test: something-else(@kz-color-yuzu-400); another: rgb(@kz-color-cluny-200); foo: add-alpha(@kz-color-wisteria-700, 90%); }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/less/color"; @import "~@kaizen/design-tokens/less/color-vars"; .foo { color: rgba(@kz-var-color-wisteria-800-rgb-params, 0.4); background-color: darken(@kz-color-cluny-700, 0.8); test: something-else(@kz-color-yuzu-400); another: rgb(@kz-var-color-cluny-200-rgb-params); foo: rgba(@kz-var-color-wisteria-700-rgb-params, 0.9); }',
-    expectedUnmigratableTokens: 4,
+    expectedReports: 4,
   },
   {
     language: "scss",
@@ -175,7 +175,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/color"; $foo: $kz-color-wisteria-800;',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color"; $foo: $kz-color-wisteria-800;',
-    expectedUnmigratableTokens: 1,
+    expectedReports: 1,
   },
   {
     language: "scss",
@@ -185,7 +185,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800, 80%) }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800-rgb-params, 80%) }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -195,7 +195,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800, 80%) }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800-rgb-params, 80%) }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -204,7 +204,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: calc(5px + $kz-spacing-md) }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: calc(5px + #{$kz-var-spacing-md}) }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "less",
@@ -213,7 +213,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/less/color-vars"; .foo { color: rgba(@kz-var-color-wisteria-800-rgb-params, 80%) }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/less/color-vars"; .foo { color: rgba(@kz-var-color-wisteria-800-rgb-params, 80%) }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -222,7 +222,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: #{$kz-spacing-lg} }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: #{$kz-var-spacing-lg} }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -232,7 +232,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: -$kz-spacing-lg; }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: calc(-1 * #{$kz-var-spacing-lg}); }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -242,7 +242,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: calc(-$kz-spacing-lg); }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: calc((-1 * #{$kz-var-spacing-lg})); }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -252,7 +252,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: 5px -$kz-spacing-lg; }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: 5px calc(-1 * #{$kz-var-spacing-lg}); }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -262,7 +262,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: $kz-spacing-md -$kz-spacing-lg; }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: $kz-var-spacing-md calc(-1 * #{$kz-var-spacing-lg}); }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -272,7 +272,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: 5px - $kz-spacing-lg; }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: 5px - $kz-spacing-lg; }',
-    expectedUnmigratableTokens: 2,
+    expectedReports: 2,
   },
 
   {
@@ -283,7 +283,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/less/spacing"; .foo { padding: -@kz-spacing-lg; }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/less/spacing"; .foo { padding: -@kz-spacing-lg; }',
-    expectedUnmigratableTokens: 1,
+    expectedReports: 1,
   },
   {
     language: "scss",
@@ -293,7 +293,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: rgba(+, $kz-spacing-md) }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: rgba(+, $kz-var-spacing-md) }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -301,7 +301,7 @@ const testExamples: TestExample[] = [
     input:
       '@import "~@kaizen/design-tokens/sass/color"; $customVar: white; .foo { color: mix($kz-color-wisteria-800, $customVar, 80%) }',
     expectedOutput: "$customVar: white; .foo { color: #5d5f6e }",
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -309,7 +309,7 @@ const testExamples: TestExample[] = [
     input:
       '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 80%; .foo { color: add-shade($kz-color-wisteria-800, $custom-param) }',
     expectedOutput: "$custom-param: 80%; .foo { color: #0b0b0f }",
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -317,7 +317,7 @@ const testExamples: TestExample[] = [
     input:
       '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 80%; .foo { color: add-tint($kz-color-wisteria-800, $custom-param) }',
     expectedOutput: "$custom-param: 80%; .foo { color: #d7d7db }",
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -325,7 +325,7 @@ const testExamples: TestExample[] = [
     input:
       '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 10%; .foo { color: darken($kz-color-wisteria-800, $custom-param) }',
     expectedOutput: "$custom-param: 10%; .foo { color: #20212c }",
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -333,7 +333,7 @@ const testExamples: TestExample[] = [
     input:
       '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 10%; .foo { color: lighten($kz-color-wisteria-800, $custom-param) }',
     expectedOutput: "$custom-param: 10%; .foo { color: #4a4d68 }",
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -341,7 +341,7 @@ const testExamples: TestExample[] = [
     input:
       '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 0.1; .foo { color: transparentize($kz-color-wisteria-800, $custom-param) }',
     expectedOutput: "$custom-param: 0.1; .foo { color: rgba(53, 55, 74, 0.9) }",
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -349,7 +349,7 @@ const testExamples: TestExample[] = [
     input:
       '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 100; .foo { color: adjust-hue($kz-color-wisteria-800, $custom-param) }',
     expectedOutput: "$custom-param: 100; .foo { color: #4a353e }",
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -357,7 +357,7 @@ const testExamples: TestExample[] = [
     input:
       '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 10%; .foo { color: saturate($kz-var-color-wisteria-800, $custom-param) }',
     expectedOutput: "$custom-param: 10%; .foo { color: #2f3250 }",
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -365,7 +365,7 @@ const testExamples: TestExample[] = [
     input:
       '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 10%; .foo { color: desaturate($kz-var-color-wisteria-800, $custom-param) }',
     expectedOutput: "$custom-param: 10%; .foo { color: #3b3c44 }",
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "less",
@@ -374,7 +374,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/less/color"; @customVar: white; .foo { color: mix(@kz-color-wisteria-800, @customVar, 80%) }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/less/color"; @customVar: white; .foo { color: mix(@kz-color-wisteria-800, @customVar, 80%) }',
-    expectedUnmigratableTokens: 2,
+    expectedReports: 2,
   },
   {
     language: "scss",
@@ -383,7 +383,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/color"; .foo { color: add-alpha($kz-color-wisteria-800, 70) }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800-rgb-params, 0.7) }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -392,7 +392,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-800; .foo { color: $foo; }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-800; .foo { color: $kz-var-color-wisteria-800; }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -401,7 +401,7 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-800 $kz-var-color-wisteria-700 $kz-var-color-wisteria-800; .foo { color: $foo; }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-800 $kz-var-color-wisteria-700 $kz-var-color-wisteria-800; .foo { color: $kz-var-color-wisteria-800 $kz-var-color-wisteria-700 $kz-var-color-wisteria-800; }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
@@ -411,17 +411,17 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-800; .foo { color: mix($foo, $white, 80%); }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-800; .foo { color: #5d5f6e; }',
-    expectedUnmigratableTokens: 0,
+    expectedReports: 0,
   },
   {
     language: "scss",
     testName:
-      "transitive tokens are fixed correctly when their usages are negated",
+      "transitive tokens are fixed correctly when their usages are negated, and their replacements are simple",
     input:
       '@import "~@kaizen/design-tokens/sass/spacing"; $foo: $kz-spacing-md; .foo { top: -$foo; }',
     expectedOutput:
       ' @import "~@kaizen/design-tokens/sass/spacing-vars"; @import "~@kaizen/design-tokens/sass/spacing"; $foo: $kz-spacing-md; .foo { top: calc(-1 * #{$kz-var-spacing-md}); }',
-    expectedUnmigratableTokens: 1,
+    expectedReports: 1,
   },
   {
     language: "scss",
@@ -431,7 +431,17 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/spacing"; $foo: $kz-spacing-md; .foo { top: #{$foo}; }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/spacing-vars"; @import "~@kaizen/design-tokens/sass/spacing"; $foo: $kz-spacing-md; .foo { top: #{$kz-var-spacing-md}; }',
-    expectedUnmigratableTokens: 1,
+    expectedReports: 1,
+  },
+  {
+    language: "scss",
+    testName:
+      "transitive tokens are fixed correctly when their usages are negated, and the replacement variable value is complex",
+    input:
+      '@import "~@kaizen/design-tokens/sass/border"; $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px; .foo { padding: -$focus-ring-offset }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/border"; $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px; .foo { padding: -(($kz-border-focus-ring-border-width * 2) + 1px) }',
+    expectedReports: 4,
   },
 ]
 
@@ -441,7 +451,7 @@ describe("Codemod", () => {
     testName,
     input,
     expectedOutput,
-    expectedUnmigratableTokens,
+    expectedReports: expectedUnmigratableTokens,
     only,
   }: TestExample) => {
     const testFn = only ? test.only : test
