@@ -1,4 +1,13 @@
-import { Declaration, Root } from "postcss"
+import nanomemoize from "nano-memoize"
+import {
+  AtRule,
+  ChildNode,
+  Container,
+  Declaration,
+  Node,
+  Root,
+  Rule,
+} from "postcss"
 import postcssValueParser, { WordNode } from "postcss-value-parser"
 import { kaizenTokensByName } from "./kaizenTokens"
 import { sassInterpolationPattern } from "./patterns"
@@ -65,22 +74,63 @@ export const replaceTokenInVariable = (
 }
 
 /**
- * Get a map of variables that are defined on the stylesheet.
+ * Get a map of variables that are defined on a single block
  * Input: stylesheet,
  * Output: { "$foo": "red", "$other": "rgba(0, 0, 0, 0.1)". ...}
  */
-export const getStylesheetVariables = (
-  stylesheetNode: Root
-): Record<string, string | undefined> => {
-  const vars: Record<string, string | undefined> = {}
-  stylesheetNode.walkDecls(decl => {
-    if (isVariable(decl)) {
-      // Add a new variable, and normalise it to be SASS
-      vars[decl.prop.replace(/^@/, "$")] = decl.value
+export const getVariablesInBlock = (block: Container) =>
+  block.nodes
+    .filter(
+      (node): node is Declaration => node.type === "decl" && isVariable(node)
+    )
+    .reduce(
+      (acc, next) => ({ ...acc, [next.prop]: next.value }),
+      {} as Record<string, string | undefined>
+    )
+
+/**
+ * See the function below for the description. It does the same thing, but accepts another accumulator parameter, and is recursive.
+ * We did this because we didn't want the consumer to worry or know about the other accumulator parameter.
+ * We also memoized it because we'll be calling it often in some cases with the same parameters, and it's recursive
+ */
+const getLexicallyClosestVariablesRecursive = nanomemoize(
+  (
+    stylesheetNode: Root,
+    leafNode: ChildNode | Container,
+    currentVariables: Record<string, string | undefined>
+  ): Record<string, string | undefined> => {
+    const nextVariables =
+      "nodes" in leafNode
+        ? {
+            ...getVariablesInBlock(leafNode),
+            // Here is the key part of scoping: we prioritise variables that are closer (currentVariables) over ones that are defined higher in the tree.
+            ...currentVariables,
+          }
+        : currentVariables
+
+    if (leafNode.parent) {
+      return getLexicallyClosestVariablesRecursive(
+        stylesheetNode,
+        leafNode.parent,
+        nextVariables
+      )
+    } else {
+      return nextVariables
     }
-  })
-  return vars
-}
+  }
+)
+
+/**
+ * Get a map of variables, similar to getVariablesInBlock, but starting from the childNode and concatenating variables as we move up the tree
+ * Input: stylesheet, and a leaf node
+ * Output: { "$foo": "red", "$other": "rgba(0, 0, 0, 0.1)", "$variableNextToLeafNode": "red", ...}
+ *
+ */
+export const getLexicallyClosestVariables = (
+  stylesheetNode: Root,
+  leafNode: ChildNode | Container
+): Record<string, string | undefined> =>
+  getLexicallyClosestVariablesRecursive(stylesheetNode, leafNode, {})
 
 /**
  * Turn a map of variables, most likely the return value of getStylesheetVariables, into a string that you can add to a stylesheet
@@ -100,11 +150,16 @@ export const stringifyStylesheetVariables = (
  * Get a map of variables, that contain kaizen tokens, that are defined on the stylesheet.
  * Input: stylesheet,
  * Output: { "$foo": "$kz-color-wisteria-800", "$other": "5px $kz-spacing-md $kz-var-spacing-lg". ...}
+ *
  */
-export const getStylesheetTransitiveKaizenVariables = (
-  stylesheetNode: Root
+export const getLexicalTransitiveKaizenVariables = (
+  stylesheetNode: Root,
+  leafNode: ChildNode | Container
 ) => {
-  const stylesheetVariables = getStylesheetVariables(stylesheetNode)
+  const stylesheetVariables = getLexicallyClosestVariables(
+    stylesheetNode,
+    leafNode
+  )
 
   return Object.entries(stylesheetVariables).reduce((acc, [key, value]) => {
     if (!value) return acc

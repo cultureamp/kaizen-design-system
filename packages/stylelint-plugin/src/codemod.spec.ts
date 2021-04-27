@@ -416,6 +416,16 @@ const testExamples: TestExample[] = [
   {
     language: "scss",
     testName:
+      "color manipulation functions are computed, even when a transitive kaizen token defined in the same block is used",
+    input:
+      '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-600; .foo { $foo: $kz-var-color-wisteria-800; color: mix($foo, $white, 80%); }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-600; .foo { $foo: $kz-var-color-wisteria-800; color: #5d5f6e; }',
+    expectedReports: 0,
+  },
+  {
+    language: "scss",
+    testName:
       "transitive tokens are fixed correctly when their usages are negated, and their replacements are simple",
     input:
       '@import "~@kaizen/design-tokens/sass/spacing"; $foo: $kz-spacing-md; .foo { top: -$foo; }',
@@ -442,6 +452,16 @@ const testExamples: TestExample[] = [
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/border"; $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px; .foo { padding: -(($kz-border-focus-ring-border-width * 2) + 1px) }',
     expectedReports: 4,
+  },
+  {
+    language: "scss",
+    testName:
+      "transitive tokens are fixed correctly when their usages are negated, and the replacement variable value is complex, and the variable is declared both locally and globally",
+    input:
+      '@import "~@kaizen/design-tokens/sass/border"; $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px; .foo { $focus-ring-offset: ($kz-border-focus-ring-border-width * 4) + 10px; padding: -$focus-ring-offset }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/border"; $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px; .foo { $focus-ring-offset: ($kz-border-focus-ring-border-width * 4) + 10px; padding: -(($kz-border-focus-ring-border-width * 4) + 10px) }',
+    expectedReports: 5,
   },
 ]
 

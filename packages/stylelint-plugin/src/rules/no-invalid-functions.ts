@@ -19,7 +19,7 @@ import { containsUnmigratableFunction } from "../patterns"
 import { Options, Variable } from "../types"
 import { getParser, variablePrefixForLanguage } from "../utils"
 import {
-  getStylesheetVariables,
+  getLexicallyClosestVariables,
   isVariable,
   parseVariable,
   stringifyStylesheetVariables,
@@ -101,9 +101,16 @@ const getReplacementRgbParamsVariable = (
  * It also uses the variables that are immediately available within the same stylesheet, so nothing too fancy, and will bail out with a lint error if it can't compile.
  * ALSO, it will work with $kz-var-* variables too.
  */
-const compileSassValue = (stylesheetNode: Root, value: string) => {
+const compileSassValue = (
+  stylesheetNode: Root,
+  declaration: Declaration,
+  value: string
+) => {
   try {
-    const stylesheetVariables = getStylesheetVariables(stylesheetNode)
+    const stylesheetVariables = getLexicallyClosestVariables(
+      stylesheetNode,
+      declaration
+    )
     const stylesheetAndKaizenVariables = {
       // Very important that kaizen vars come before local stylesheet vars, because locals could be using kaizen tokens.
       ...kaizenTokensSassVariablesWithInlineCSSVariableValues,
@@ -204,7 +211,7 @@ export const noInvalidFunctionsOnDeclaration = (
   ) => {
     const sourceValue = `${functionName}(${params.join(", ")})`
 
-    const compileResult = compileSassValue(decl.root(), sourceValue)
+    const compileResult = compileSassValue(decl.root(), decl, sourceValue)
     if (compileResult.error || !compileResult.compiledValue) {
       options.reporter({
         autofixAvailable: false,

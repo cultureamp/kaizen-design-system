@@ -3,7 +3,7 @@ import postcssValueParser from "postcss-value-parser"
 import { transitiveKaizenTokenUsage } from "../messages"
 import { Options } from "../types"
 import {
-  getStylesheetTransitiveKaizenVariables,
+  getLexicalTransitiveKaizenVariables,
   isVariable,
 } from "../variableUtils"
 import { walkVariables } from "../walkers"
@@ -13,12 +13,13 @@ export const noTransitiveTokensRule = (
   stylesheetNode: Root,
   options: Options
 ) => {
-  const transitiveKaizenVariables = getStylesheetTransitiveKaizenVariables(
-    stylesheetNode
-  )
   walkVariables(
     stylesheetNode,
     ({ variable, variableNode, parsedValue, postcssNode }) => {
+      const transitiveKaizenVariables = getLexicalTransitiveKaizenVariables(
+        stylesheetNode,
+        postcssNode
+      )
       // We want to only modify declaration values that aren't variable declarations, e.g. `$foo: red`
       // AND most certainly not already a variable that contains a kaizen token.
       // AND the declaration contains a use of a transitive kaizen variable

@@ -20,6 +20,7 @@
     "@types/stylelint": "^9.10.1",
     "glob": "^7.1.6",
     "lodash.flatmap": "^4.5.0",
+    "nano-memoize": "^1.2.1",
     "postcss": "^8.2.10",
     "postcss-less": "^4.0.1",
     "postcss-scss": "^3.0.5",
