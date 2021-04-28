@@ -1,0 +1,368 @@
+version: 2
+registries:
+  npm-registry-npm-pkg-github-com:
+    type: npm-registry
+    url: https://npm.pkg.github.com
+    token: "${{secrets.NPM_REGISTRY_NPM_PKG_GITHUB_COM_TOKEN}}"
+
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    day: saturday
+    time: "08:00"
+    timezone: Australia/Melbourne
+  open-pull-requests-limit: 99
+  ignore:
+  - dependency-name: gatsby
+    versions:
+    - "> 2.24.74"
+  - dependency-name: gatsby
+    versions:
+    - ">= 3.1.a, < 3.2"
+  - dependency-name: gatsby
+    versions:
+    - ">= 3.a, < 4"
+  - dependency-name: gatsby-plugin-mdx
+    versions:
+    - "> 1.1.6"
+  - dependency-name: gatsby-plugin-react-helmet
+    versions:
+    - "> 3.1.8"
+  - dependency-name: gatsby-plugin-sass
+    versions:
+    - "> 2.1.15"
+  - dependency-name: gatsby-transformer-remark
+    versions:
+    - "> 2.6.24"
+  - dependency-name: webpack
+    versions:
+    - "> 4.46.0"
+  - dependency-name: "@types/jest"
+    versions:
+    - 26.0.20
+    - 26.0.21
+    - 26.0.22
+  - dependency-name: "@types/node"
+    versions:
+    - 14.14.31
+    - 14.14.32
+    - 14.14.33
+    - 14.14.34
+    - 14.14.35
+    - 14.14.36
+    - 14.14.37
+    - 14.14.39
+    - 14.14.41
+  - dependency-name: mdast-util-to-string
+    versions:
+    - 2.0.0
+    - 3.0.0
+  - dependency-name: "@headlessui/react"
+    versions:
+    - 0.3.2
+    - 1.0.0
+  - dependency-name: gatsby-source-filesystem
+    versions:
+    - 2.10.0
+    - 2.11.0
+    - 2.11.1
+    - 3.0.0
+    - 3.1.0
+    - 3.2.0
+    - 3.3.0
+  - dependency-name: "@types/react"
+    versions:
+    - 17.0.1
+    - 17.0.2
+    - 17.0.3
+  - dependency-name: eslint-config-prettier
+    versions:
+    - 8.2.0
+  - dependency-name: "@storybook/theming"
+    versions:
+    - 6.2.2
+    - 6.2.3
+    - 6.2.4
+    - 6.2.5
+    - 6.2.6
+    - 6.2.7
+    - 6.2.8
+  - dependency-name: "@storybook/react"
+    versions:
+    - 6.1.18
+    - 6.1.20
+    - 6.1.21
+    - 6.2.7
+    - 6.2.8
+  - dependency-name: "@storybook/addon-a11y"
+    versions:
+    - 6.1.18
+    - 6.1.20
+    - 6.2.7
+    - 6.2.8
+  - dependency-name: "@storybook/codemod"
+    versions:
+    - 6.1.18
+    - 6.1.20
+    - 6.2.7
+    - 6.2.8
+  - dependency-name: "@storybook/addons"
+    versions:
+    - 6.1.21
+    - 6.2.7
+    - 6.2.8
+  - dependency-name: "@storybook/addon-essentials"
+    versions:
+    - 6.1.20
+    - 6.1.21
+    - 6.2.2
+    - 6.2.3
+    - 6.2.4
+    - 6.2.5
+    - 6.2.6
+    - 6.2.7
+    - 6.2.8
+  - dependency-name: "@storybook/addon-links"
+    versions:
+    - 6.2.2
+    - 6.2.3
+    - 6.2.4
+    - 6.2.5
+    - 6.2.6
+    - 6.2.7
+    - 6.2.8
+  - dependency-name: "@storybook/api"
+    versions:
+    - 6.1.20
+    - 6.1.21
+    - 6.2.7
+    - 6.2.8
+  - dependency-name: "@storybook/components"
+    versions:
+    - 6.2.7
+    - 6.2.8
+  - dependency-name: "@storybook/node-logger"
+    versions:
+    - 6.1.17
+    - 6.1.18
+    - 6.1.20
+    - 6.1.21
+    - 6.2.7
+    - 6.2.8
+  - dependency-name: "@storybook/core-events"
+    versions:
+    - 6.1.18
+    - 6.1.20
+    - 6.1.21
+    - 6.2.2
+    - 6.2.3
+    - 6.2.4
+    - 6.2.5
+    - 6.2.6
+    - 6.2.7
+    - 6.2.8
+  - dependency-name: svg-sprite-loader
+    versions:
+    - 6.0.0
+    - 6.0.2
+    - 6.0.5
+  - dependency-name: stylelint
+    versions:
+    - 13.10.0
+    - 13.11.0
+    - 13.12.0
+    - 13.9.0
+  - dependency-name: react-tooltip
+    versions:
+    - 4.2.15
+    - 4.2.17
+  - dependency-name: "@testing-library/react-hooks"
+    versions:
+    - 5.0.3
+    - 5.1.0
+    - 5.1.1
+  - dependency-name: "@testing-library/jest-dom"
+    versions:
+    - 5.11.10
+    - 5.11.9
+  - dependency-name: "@testing-library/dom"
+    versions:
+    - 7.30.3
+  - dependency-name: "@babel/core"
+    versions:
+    - 7.12.10
+    - 7.12.13
+    - 7.12.16
+    - 7.12.17
+    - 7.13.1
+    - 7.13.10
+    - 7.13.13
+    - 7.13.14
+    - 7.13.15
+    - 7.13.8
+  - dependency-name: chalk
+    versions:
+    - 4.1.0
+  - dependency-name: css-loader
+    versions:
+    - 5.1.0
+    - 5.1.1
+    - 5.1.2
+    - 5.1.3
+    - 5.2.0
+    - 5.2.1
+  - dependency-name: "@types/react-select"
+    versions:
+    - 4.0.13
+    - 4.0.14
+  - dependency-name: ts-jest
+    versions:
+    - 26.5.1
+    - 26.5.2
+    - 26.5.3
+    - 26.5.4
+  - dependency-name: "@typescript-eslint/parser"
+    versions:
+    - 4.14.2
+    - 4.15.0
+    - 4.15.1
+    - 4.15.2
+    - 4.16.1
+    - 4.17.0
+    - 4.18.0
+    - 4.19.0
+    - 4.20.0
+    - 4.21.0
+  - dependency-name: "@typescript-eslint/eslint-plugin"
+    versions:
+    - 4.17.0
+    - 4.18.0
+    - 4.19.0
+    - 4.20.0
+    - 4.21.0
+  - dependency-name: "@typescript-eslint/eslint-plugin-tslint"
+    versions:
+    - 4.15.1
+    - 4.15.2
+    - 4.16.1
+    - 4.17.0
+    - 4.18.0
+    - 4.19.0
+    - 4.20.0
+    - 4.21.0
+  - dependency-name: "@types/lodash.flatmap"
+    versions:
+    - 4.5.6
+  - dependency-name: "@types/lodash.kebabcase"
+    versions:
+    - 4.1.6
+  - dependency-name: react
+    versions:
+    - 17.0.2
+  - dependency-name: react-dom
+    versions:
+    - 17.0.1
+    - 17.0.2
+  - dependency-name: typescript
+    versions:
+    - 4.1.3
+    - 4.1.4
+    - 4.1.5
+    - 4.2.2
+    - 4.2.3
+  - dependency-name: classnames
+    versions:
+    - 2.3.0
+  - dependency-name: "@popperjs/core"
+    versions:
+    - 2.9.0
+    - 2.9.1
+  - dependency-name: use-debounce
+    versions:
+    - 5.2.0
+    - 5.2.1
+    - 6.0.0
+  - dependency-name: "@testing-library/react"
+    versions:
+    - 11.2.5
+  - dependency-name: husky
+    versions:
+    - 5.1.1
+    - 5.1.3
+    - 5.2.0
+  - dependency-name: "@types/webpack"
+    versions:
+    - 4.41.26
+    - 5.0.0
+  - dependency-name: danger
+    versions:
+    - 10.6.3
+  - dependency-name: "@types/react-dom"
+    versions:
+    - 17.0.1
+    - 17.0.2
+  - dependency-name: react-select
+    versions:
+    - 4.1.0
+    - 4.2.0
+    - 4.2.1
+  - dependency-name: gatsby-plugin-google-tagmanager
+    versions:
+    - 2.11.0
+  - dependency-name: gatsby-plugin-force-trailing-slashes
+    versions:
+    - 1.0.5
+  - dependency-name: yeoman-generator
+    versions:
+    - 5.0.0
+    - 5.0.1
+    - 5.1.0
+  - dependency-name: chromatic
+    versions:
+    - 5.6.3
+  - dependency-name: "@babel/plugin-proposal-class-properties"
+    versions:
+    - 7.12.13
+    - 7.13.0
+  - dependency-name: storybook-addon-designs
+    versions:
+    - 5.4.5
+  - dependency-name: eslint-plugin-prefer-arrow
+    versions:
+    - 1.2.3
+  - dependency-name: "@babel/preset-typescript"
+    versions:
+    - 7.12.17
+    - 7.13.0
+  - dependency-name: "@babel/preset-react"
+    versions:
+    - 7.12.13
+  - dependency-name: "@babel/plugin-proposal-numeric-separator"
+    versions:
+    - 7.12.13
+  - dependency-name: "@babel/plugin-proposal-object-rest-spread"
+    versions:
+    - 7.13.8
+  - dependency-name: eslint-import-resolver-typescript
+    versions:
+    - 2.4.0
+  - dependency-name: eslint
+    versions:
+    - 7.20.0
+    - 7.21.0
+  - dependency-name: lodash
+    versions:
+    - 4.17.21
+  - dependency-name: postcss-flexbugs-fixes
+    versions:
+    - 5.0.1
+  - dependency-name: lint-staged
+    versions:
+    - 10.5.3
+  - dependency-name: style-loader
+    versions:
+    - 2.0.0
+  registries:
+  - npm-registry-npm-pkg-github-com
