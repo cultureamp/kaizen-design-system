@@ -176,7 +176,7 @@ $link-icon-margin: 12px;
 
   :global(.md-th),
   :global(.md-td) {
-    $cell-padding: $ca-grid / 4;
+    $cell-padding: $ca-grid / 2;
     padding: $cell-padding $ca-grid $cell-padding 0;
   }
 
