@@ -32,7 +32,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@headlessui/react": "^0.3.1",
+    "@headlessui/react": "^1.1.0",
     "@kaizen/component-library": "^9.5.4",
     "@kaizen/deprecated-component-library-helpers": "^2.1.2",
     "@kaizen/draft-button": "^3.2.16",
