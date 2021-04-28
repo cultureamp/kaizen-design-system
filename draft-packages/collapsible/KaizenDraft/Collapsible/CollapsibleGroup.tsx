@@ -29,7 +29,6 @@ export const CollapsibleGroup: React.FunctionComponent<Props> = ({
   <div
     className={classnames({
       [styles.container]: !separated,
-      [styles.stickyContainer]: !separated && sticky,
     })}
     data-automation-id={automationId}
   >
