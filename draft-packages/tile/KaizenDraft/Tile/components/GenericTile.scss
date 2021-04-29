@@ -4,9 +4,8 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/responsive";
+@import "../dimensions";
 
-$tileWidth: 330px;
-$tileHeight: 370px;
 $tilePaddingTop: $kz-var-spacing-xl;
 
 .root {
@@ -15,6 +14,11 @@ $tilePaddingTop: $kz-var-spacing-xl;
 
 .tile {
   width: $tileWidth;
+
+  [class*="TileGrid__grid"] & {
+    width: auto;
+  }
+
   height: $tileHeight;
   position: relative;
   box-shadow: $kz-var-shadow-small-box-shadow;
