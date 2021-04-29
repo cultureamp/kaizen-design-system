@@ -176,18 +176,26 @@ $link-icon-margin: 12px;
 
   :global(.md-th),
   :global(.md-td) {
-    $cell-padding: $ca-grid / 4;
+    $cell-padding: $ca-grid / 2;
     padding: $cell-padding $ca-grid $cell-padding 0;
   }
 
   :global(.md-th) {
     text-align: left;
     border-bottom: 1px solid $ca-border-color;
-    font-weight: $ca-weight-book;
+    font-weight: $kz-var-typography-paragraph-bold-font-weight;
   }
 
   :global(.md-td) {
     font-weight: $kz-var-typography-paragraph-body-font-weight;
+    vertical-align: text-top;
+  }
+
+  :global(.md-tr) {
+    border-bottom: 1px solid $ca-border-color;
+    &:last-of-type {
+      border-bottom: 0;
+    }
   }
 
   :global(.md-pre) {
