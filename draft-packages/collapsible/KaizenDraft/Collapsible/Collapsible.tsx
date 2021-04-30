@@ -74,6 +74,7 @@ class Collapsible extends React.Component<Props, State> {
           [styles.stickyContainer]: isContainer && sticky,
           [styles.groupItem]: group && !separated,
           [styles.separated]: separated,
+          [styles.isOpen]: open,
         })}
         data-automation-id={automationId || `collapsible-container-${id}`}
       >
@@ -83,6 +84,7 @@ class Collapsible extends React.Component<Props, State> {
             [styles.defaultVariant]: open && variant === "default",
             [styles.clearVariant]: open && variant === "clear",
             [styles.sticky]: sticky,
+            [styles.open]: open,
           })}
           style={sticky && { top: sticky.top }}
           onClick={this.handleClick}

@@ -9,13 +9,10 @@ $heading-active-color: $kz-var-color-wisteria-100;
 
 .container {
   box-shadow: $kz-var-shadow-small-box-shadow;
-
-  // TODO: This has been removed for the meantime as the collapsible component
-  // has an issue of not being able to have border-radius without needing to hide
-  // the overflow - resulting in cropping out modals that overflow the container.
-  // We've removed all radiuses now until we add enough logic to handle all
-  // the edge cases.
-  // border-radius: $kz-var-border-borderless-border-radius;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .separated {
@@ -27,6 +24,33 @@ $heading-active-color: $kz-var-color-wisteria-100;
 .groupItem {
   & + .groupItem {
     border-top: 1px solid $ca-border-color;
+  }
+
+  &:first-of-type > .button {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+
+  &:last-of-type > .button {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  &:last-of-type > div > div > .section {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  &:last-of-type {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+}
+
+.isOpen {
+  .button {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
   }
 }
 
