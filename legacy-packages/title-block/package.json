@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-title-block",
-  "version": "3.0.20",
+  "version": "3.0.21",
   "description": "The draft Title block component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,8 +32,8 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^9.5.4",
-    "@kaizen/draft-tag": "^1.8.10",
+    "@kaizen/component-library": "^9.5.5",
+    "@kaizen/draft-tag": "^1.8.11",
     "@kaizen/react-deprecate-warning": "^1.1.4",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6",
