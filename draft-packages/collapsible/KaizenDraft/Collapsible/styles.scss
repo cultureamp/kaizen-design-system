@@ -9,21 +9,13 @@ $heading-active-color: $kz-var-color-wisteria-100;
 
 .container {
   box-shadow: $kz-var-shadow-small-box-shadow;
-  border-radius: $kz-var-border-borderless-border-radius;
-  overflow: hidden;
-}
 
-// We set overflow: hidden on the container, so that child nodes without border
-// radius do not overlap the container. However, this breaks the sticky headers
-// because it creates a new scroll container. The solution is to use the new
-// overflow: clip setting, but until it has full support across browsers we also
-// need a fallback. When there is full support for overflow:clip, we can use that
-// in .container for everything
-.stickyContainer {
-  overflow: visible;
-  @supports (overflow: clip) {
-    overflow: clip;
-  }
+  // TODO: This has been removed for the meantime as the collapsible component
+  // has an issue of not being able to have border-radius without needing to hide
+  // the overflow - resulting in cropping out modals that overflow the container.
+  // We've removed all radiuses now until we add enough logic to handle all
+  // the edge cases.
+  // border-radius: $kz-var-border-borderless-border-radius;
 }
 
 .separated {

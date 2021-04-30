@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.2.0...@kaizen/draft-collapsible@2.2.1) (2021-04-28)
+
+
+### Bug Fixes
+
+* remove hidden overflow on collapsible component ([#1509](https://github.com/cultureamp/kaizen-design-system/issues/1509)) ([91847d9](https://github.com/cultureamp/kaizen-design-system/commit/91847d909f1ff7b1eb6aa646ca3ba3b81eb74e10))
+
+
+
+
+
 # [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.1.1...@kaizen/draft-collapsible@2.2.0) (2021-04-15)
 
 
