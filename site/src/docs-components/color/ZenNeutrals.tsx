@@ -1,16 +1,20 @@
-import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
-import ZenColorGroup from "./ZenColorGroup"
+import ZenColorGroup, { ColorThemeContext } from "./ZenColorGroup"
 
-const ZenNeutrals = () => (
-  <ZenColorGroup
-    // this order will be reversed before being displayed
-    colors={{
-      Ash: colorTokens.kz.color.ash,
-      Stone: colorTokens.kz.color.stone,
-      White: colorTokens.kz.color.white,
-    }}
-  />
-)
+const ZenNeutrals = () => {
+  const { color } = React.useContext(ColorThemeContext)
+  return (
+    <ZenColorGroup
+      // this order will be reversed before being displayed
+      colors={{
+        Slate: color.slate,
+        Iron: color.iron,
+        Ash: color.ash,
+        Stone: color.stone,
+        White: color.white,
+      }}
+    />
+  )
+}
 
 export default ZenNeutrals

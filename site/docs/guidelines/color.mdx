@@ -1,7 +1,7 @@
 ---
 title: Color
 navTitle: Color
-summaryParagraph: Our color palette is built with our core principles and guidelines as its foundation. We are committed to complying with WCAG AA standard contrast ratios.
+summaryParagraph: Our color palette is built with our core principles and guidelines as its foundation. We are committed to complying with WCAG 2.1 AA standard contrast ratios.
 tags: ["Palette"]
 needToKnow:
   - Use official color palette colors and variables for all color CSS declarations. Never hard-code a color without a variable.
@@ -20,47 +20,47 @@ import ZenYuzu from "docs-components/color/ZenYuzu"
 import ZenPeach from "docs-components/color/ZenPeach"
 import ZenCoral from "docs-components/color/ZenCoral"
 
-## Zen palette
+## Heart palette
 
 These color design tokens can be used in Sass or JavaScript. See the [design tokens package](https://github.com/cultureamp/kaizen-design-system/tree/master/packages/design-tokens).
 
 ### Neutrals
 
-White is used for text and icons on dark backgrounds. Stone is used for the product's canvas. Ash is primarily used for Wells (Empty States).
+White 100 is used for text and icons on dark backgrounds. Stone 200 is the product’s canvas. Ash 300 → Slate 700 are primarily used for borders.
 
 <ZenNeutrals />
 
-### Wisteria
+### Purple
 
-Used for dark text (Wisteria 800), content header background and status tags.
+Purple 800 is our default text color, Purple 600 is used for our Default header color. Purple 500 → Purple 100 can be used for Prominent moods. 
 
 <ZenWisteria />
 
-### Cluny
+### Blue
 
-Used for links (Cluny 500), control actions, guidance and onboarding.
+Used for semantic text (links), secondary actions and general informative moods including guidance and onboarding.
 
 <ZenCluny />
 
-### Seedling
+### Green
 
-Used for Calls To Action (CTAs) and positive moods (e.g. success messages, status, progress).
+Used for reversed Primary actions on our Default Header and general positive moods (E.g. success messages, status, progress).
 
 <ZenSeedling />
 
-### Yuzu
+### Yellow
 
 Used for highlighting Collective Intelligence assets and cautionary moods (e.g. warning messages, progress).
 
 <ZenYuzu />
 
-### Peach
+### Orange
 
-Used for indicating intensity (e.g. Impact bar) and status tags.
+Used for indivating assertive moods, (E.g. action empty states, assertive confirmation modal).
 
 <ZenPeach />
 
-### Coral
+### Red
 
 Used for destructive actions and negative moods (e.g. error messages, status, progress).
 
@@ -70,30 +70,33 @@ To learn more, Culture Amp employees can visit the [Color page in Figma](https:/
 
 ## To keep in mind
 
-- Contrast and accessibility is crucial. To [consider everyone](/language/voiceandtone/), we use color contrast ratios that adhered to [WCAG 2.0 AA](https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast) guidelines.
+- Contrast and accessibility is crucial. To [consider everyone](/language/voiceandtone/), we use color contrast ratios that adhered to [WCAG 2.1 AA](https://www.w3.org/TR/WCAG21/#contrast-minimum) guidelines.
 - Use our official color palette variables for all color CSS declarations.
-- Use `rgba()` to add transparency to a color, e.g. `rgba($kz-var-color-wisteria-800-rgb-params, 0.8)`.
+- Use `rgba()` to add transparency to a color, e.g. `rgba($kz-var-color-purple-800-rgb-params, 0.7)`.
 - Please avoid using the deprecated custom helper `add-alpha()`, as it requires importing a deprecated module and will not break the build when it is missing.
 - Be mindful of color psychology associations and cultural values (such as red symbolizing danger versus good luck).
 
 ### Links
 
-To indicate links and on-page actions, use Cluny.
+To indicate links and on-page actions, use Blue 500.
 
 ### Primary action
 
-For the most important action on a page, use Cluny (or Seedling on dark backgrounds).
+For the most important action on a page, use Blue 500 or Green 400 as the Primary button color on our Default Header (Purple 600 background).
 
 ### Data visualization
 
 See [data visualization](/guidelines/data-visualization) for details.
+
+- For favorable scores and general positive colored graphs and visualizations, use Data Viz / Favorable `$kz-var-id-data-viz-favorable`
+- For unfavorable scores and general negative colored graphs and visualizations, use Data Viz / Unfavorable `$kz-var-id-data-viz-unfavorable`
 
 ## When to use and when not to use
 
 <WhenToUseAndWhenNotToUse>
 <WhenToUse>
 
-- Colors can help to create visual patterns that the user can recall (for example, links are always Cluny colored or negative favorability scores, errors, and destructive actions are always Coral).
+- Colors can help to create visual patterns that the user can recall (for example, links are always Blue colored or negative favorability scores, errors, and destructive actions are always Red).
 - Use colors to create visual hierarchy.
 - Colors can help to determine the level of severity.
 - Add tone and contrast to define areas and guide or call out certain information.
@@ -103,7 +106,7 @@ See [data visualization](/guidelines/data-visualization) for details.
 <WhenNotToUse>
 
 - Use more than color alone to convey information. Test with with a gray scale filter and color blindness simulators.
-- Avoid using color when you can use contrast (such as levels of Wisteria or Neutrals), spacing, or typography to create hierarchy or groupings.
+- Avoid using color when you can use contrast (such as levels of Purple or Neutrals), spacing, or typography to create hierarchy or groupings.
 - Avoid color when there’s a risk of overuse or a ‘candy shop’ effect.
 - Avoid color when it might overload the user and create confusion.
 

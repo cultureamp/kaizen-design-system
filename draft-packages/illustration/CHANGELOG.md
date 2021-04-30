@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.7.2...@kaizen/draft-illustration@1.8.0) (2021-04-26)
+
+
+### Features
+
+* Added Heart spot illustrations ([#1473](https://github.com/cultureamp/kaizen-design-system/issues/1473)) ([14df2be](https://github.com/cultureamp/kaizen-design-system/commit/14df2bef851f7f52e811e48fd507d03d665e3189))
+
+
+
+
+
+## [1.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.7.1...@kaizen/draft-illustration@1.7.2) (2021-04-23)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
 ## [1.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.7.0...@kaizen/draft-illustration@1.7.1) (2021-04-20)
 
 **Note:** Version bump only for package @kaizen/draft-illustration
