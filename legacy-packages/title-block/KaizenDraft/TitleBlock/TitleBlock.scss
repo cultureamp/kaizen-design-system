@@ -1,4 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/design-tokens/sass/shadow-vars";
 @import "~@kaizen/design-tokens/sass/layout-vars";
 @import "~@kaizen/design-tokens/sass/layout";
@@ -29,7 +30,7 @@
 
 .titleBlock {
   background-color: $kz-var-color-white;
-  border-bottom: 1px solid $kz-var-color-wisteria-200;
+  border-bottom: 1px solid $kz-var-color-ash;
   width: inherit;
 
   @media print {
@@ -267,7 +268,7 @@
   @include title-block-mobile {
     display: flex;
     margin: 0;
-    border-bottom: 1px solid $ca-border-color;
+    border-bottom: 1px solid $kz-var-color-ash;
     width: 100%;
     background: $kz-var-color-white;
   }
@@ -392,12 +393,18 @@
 .reverseColorWisteria {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-var-color-wisteria-700;
+      background-color: var(
+        $kz-var-id-color-wisteria-600,
+        $kz-var-color-wisteria-700
+      );
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-var-color-wisteria-500;
+      background-color: var(
+        $kz-var-id-color-wisteria-600,
+        $kz-var-color-wisteria-700
+      );
     }
   }
 }
@@ -518,12 +525,18 @@
 .stickyColorWisteria {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-var-color-wisteria-700;
+      background-color: var(
+        $kz-var-id-color-wisteria-600,
+        $kz-var-color-wisteria-700
+      );
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-var-color-wisteria-700;
+      background-color: var(
+        $kz-var-id-color-wisteria-600,
+        $kz-var-color-wisteria-700
+      );
     }
   }
 }
