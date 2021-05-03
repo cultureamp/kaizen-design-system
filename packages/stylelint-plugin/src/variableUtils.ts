@@ -1,14 +1,5 @@
-import { first } from "lodash"
 import nanomemoize from "nano-memoize"
-import {
-  AtRule,
-  ChildNode,
-  Container,
-  Declaration,
-  Node,
-  Root,
-  Rule,
-} from "postcss"
+import { ChildNode, Container, Declaration, Root } from "postcss"
 import postcssValueParser, { WordNode } from "postcss-value-parser"
 import { kaizenTokensByName } from "./kaizenTokens"
 import { sassInterpolationPattern } from "./patterns"
