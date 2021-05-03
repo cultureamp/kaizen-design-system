@@ -20,6 +20,10 @@ $row-height: 60px;
   &:focus {
     text-decoration: none;
   }
+
+  &.headerRowCellButtonReversed {
+    color: $kz-var-color-white;
+  }
 }
 
 .container {
