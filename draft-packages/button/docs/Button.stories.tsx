@@ -234,7 +234,7 @@ export const SecondaryWithBadge = args => (
     label="Label"
     icon={filterIcon}
     secondary={true}
-    badge={{ children: "3" }}
+    badge={{ text: "3" }}
     workingLabelHidden
     {...args}
   />
@@ -256,7 +256,7 @@ export const SecondaryWithBadgeDisabled = args => (
     label="Label"
     icon={filterIcon}
     secondary={true}
-    badge={{ children: "3" }}
+    badge={{ text: "3" }}
     workingLabelHidden
     {...args}
   />

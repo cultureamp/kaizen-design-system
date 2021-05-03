@@ -78,8 +78,7 @@ type Props = ButtonProps & {
 } & AdditionalContentProps
 
 type BadgeProps = {
-  children: string
-  active?: boolean
+  text: string
 }
 
 export type ButtonRef = { focus: () => void }
@@ -307,10 +306,10 @@ const renderDefaultContent = (props: Props) => (
 
 const renderBadge = (props: Props) => {
   if (props.badge) {
-    const { children } = props.badge
+    const { text } = props.badge
     return (
       <Badge variant="active" reversed={props.reversed}>
-        {children}
+        {text}
       </Badge>
     )
   }
