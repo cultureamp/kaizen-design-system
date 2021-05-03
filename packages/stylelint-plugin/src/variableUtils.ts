@@ -26,6 +26,9 @@ export const stringifyVariable = (variable: Variable) => {
   return interpolated
 }
 
+/*
+  Given a postcss-value-parser WordNode, return either a Variable or null. The variable will contain a kaizenToken if there is a matchine one.
+*/
 export const parseVariable = (node: WordNode): Variable | null => {
   // I wish postcss-value-parser was just a bit better at knowing how to handle a few more tokens like negating a variable or string interpolation.
   // It doesn't seem to be built directly for SASS or LESS, but it mostly works with them.

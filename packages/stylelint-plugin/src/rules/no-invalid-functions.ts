@@ -1,20 +1,19 @@
 import { Declaration, Root } from "postcss"
 import postcssValueParser from "postcss-value-parser"
 import * as sass from "sass"
-import {
-  invalidAddAlphaFunction,
-  invalidRgbaUsage,
-  noMatchingRgbParamsVariableMessage,
-  unableToCompileFunctionMessage,
-  unsupportedFunctionMessage,
-  unsupportedFunctionWithFixMessage,
-} from "../messages"
 import { transformDecl } from "../functionTransformer"
 import {
   deprecatedSassFunctionsSource,
   kaizenTokensByName,
   kaizenTokensSassVariablesWithInlineCSSVariableValues,
 } from "../kaizenTokens"
+import {
+  invalidRgbaUsage,
+  noMatchingRgbParamsVariableMessage,
+  unableToCompileFunctionMessage,
+  unsupportedFunctionMessage,
+  unsupportedFunctionWithFixMessage,
+} from "../messages"
 import { containsUnmigratableFunction } from "../patterns"
 import { Options, Variable } from "../types"
 import { getParser, variablePrefixForLanguage } from "../utils"
@@ -24,19 +23,45 @@ import {
   parseVariable,
   stringifyStylesheetVariables,
 } from "../variableUtils"
-import { walkDeclsWithKaizenTokens, walkVariablesOnValue } from "../walkers"
+import { walkDeclsWithKaizenTokens } from "../walkers"
 
-// Add-alpha can be used without a percentage sign, that won't fly.
-// Fix the percentage sign, then convert to a decimal for usage in RGBA
-const convertAddAlphaPercentage = (value: string) => {
-  const parsed = parseInt(value.replace(/\%/, ""), 10)
-  if (isNaN(parsed)) {
-    return value
+/*
+  We want to use percentages consistently, so, given a string that may be a percentage or a decimal, always return the decimal form.
+  This differs from the function below, `convertPercentage`, in that this expects a valid ratio value, e.g. a decimal number OR a percentage.
+  `convertPercentage` only supports percentage values, with an optional percentage sign, meaning it can't disambiguate between decimals and percentages.
+*/
+const parsePercentageOrDecimal = (
+  percentageOrDecimal: string
+): number | "NaN" => {
+  if (percentageOrDecimal.indexOf("%") !== -1) {
+    return parsePercentage(percentageOrDecimal)
+  } else {
+    const parsed = parseFloat(percentageOrDecimal)
+    if (isNaN(parsed)) {
+      return "NaN"
+    } else {
+      return parsed
+    }
   }
-  return (parsed / 100).toString()
 }
 
-const getReplacementRgbParamsVariable = (
+/**
+ * Given a string like "50%", "40%", "30", "15" etc (you don't have to pass in the percentage sign), return a decimal like 0.5, 0.4, 0.3 etc
+ */
+const parsePercentage = (value: string): number | "NaN" => {
+  // Add-alpha can be used without a percentage sign, that won't fly.
+  // Fix the percentage sign, then convert to a decimal for usage in RGBA
+  const parsed = parseInt(value.replace(/\%/, ""), 10)
+  if (isNaN(parsed)) {
+    return "NaN"
+  }
+  return parsed / 100
+}
+
+/*
+  Return a replacement rgb-params variable
+*/
+const getAndReportOnReplacementRgbParamsVariable = (
   variable: Variable,
   decl: Declaration,
   options: Options
@@ -165,25 +190,21 @@ export const noInvalidFunctionsOnDeclaration = (
     const first = params[0]
     const second = params[1]
     const parsedFirst = postcssValueParser(first).nodes[0]
-    if (params.length !== 2 || parsedFirst.type !== "word") {
-      options.reporter({
-        message: invalidAddAlphaFunction,
-        node: decl,
-        autofixAvailable: false,
-      })
-      return original
-    } else {
-      const variable = parseVariable(parsedFirst)
-      if (!variable) {
-        return original
-      }
-      const modifiedFirstParameter =
-        getReplacementRgbParamsVariable(variable, decl, options) || first
+    if (parsedFirst.type !== "word") return original
+    const variable = parseVariable(parsedFirst)
+    if (!variable) return original
+    const replacementVariable = getAndReportOnReplacementRgbParamsVariable(
+      variable,
+      decl,
+      options
+    )
+    if (!replacementVariable) return origin
 
-      const fixedSecond = convertAddAlphaPercentage(second)
+    const fixedSecondParameter = parsePercentage(second)
 
-      return `rgba(${modifiedFirstParameter}, ${fixedSecond})`
-    }
+    if (fixedSecondParameter === "NaN") return original
+
+    return `rgba(${replacementVariable}, ${fixedSecondParameter})`
   }
   const fixRgbAndRgba = (functionName: string, ...params: string[]) => {
     const [first, ...rest] = params
@@ -193,7 +214,8 @@ export const noInvalidFunctionsOnDeclaration = (
     const variable = parseVariable(parsedFirst)
     if (!variable) return original
     const modifiedFirstParameter =
-      getReplacementRgbParamsVariable(variable, decl, options) || first
+      getAndReportOnReplacementRgbParamsVariable(variable, decl, options) ||
+      first
 
     // If there is no 2nd parameter, it must be an `rgb` function. Or, an invalid rgba function, in which case just use rgb
     if (!rest.length) {
@@ -203,6 +225,24 @@ export const noInvalidFunctionsOnDeclaration = (
         rest.length ? ", " + rest.join(", ") : ""
       })`
     }
+  }
+
+  const fixTransparentize = (functionName: string, ...params: string[]) => {
+    const [first, second] = params
+    const original = `${functionName}(${params.join(", ")})`
+    const parsedFirst = postcssValueParser(first).nodes[0]
+    if (parsedFirst.type !== "word") return original
+    const variable = parseVariable(parsedFirst)
+    if (!variable) return original
+    const replacementVariable =
+      getAndReportOnReplacementRgbParamsVariable(variable, decl, options) ||
+      first
+
+    const fixedSecondParameter = parsePercentageOrDecimal(second)
+
+    if (fixedSecondParameter === "NaN") return original
+
+    return `rgba(${replacementVariable}, ${1 - fixedSecondParameter})`
   }
 
   const compileSassValueInPlace = (
@@ -243,6 +283,7 @@ export const noInvalidFunctionsOnDeclaration = (
     rgba: fixRgbAndRgba,
     rgb: fixRgbAndRgba,
     "add-alpha": fixAddAlpha,
+    transparentize: fixTransparentize,
     // In SASS we support compilation of functions
     ...(options.language === "scss"
       ? {
@@ -253,7 +294,6 @@ export const noInvalidFunctionsOnDeclaration = (
           desaturate: compileSassValueInPlace,
           "add-tint": compileSassValueInPlace,
           "add-shade": compileSassValueInPlace,
-          transparentize: compileSassValueInPlace,
           "adjust-hue": compileSassValueInPlace,
         }
       : {}),

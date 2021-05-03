@@ -337,14 +337,6 @@ const testExamples: TestExample[] = [
   },
   {
     language: "scss",
-    testName: "compiles transparentize() function in place",
-    input:
-      '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 0.1; .foo { color: transparentize($kz-color-wisteria-800, $custom-param) }',
-    expectedOutput: "$custom-param: 0.1; .foo { color: rgba(53, 55, 74, 0.9) }",
-    expectedReports: 0,
-  },
-  {
-    language: "scss",
     testName: "compiles adjust-hue() function in place",
     input:
       '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 100; .foo { color: adjust-hue($kz-color-wisteria-800, $custom-param) }',
@@ -462,6 +454,16 @@ const testExamples: TestExample[] = [
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/border"; $focus-ring-offset: ($kz-border-focus-ring-border-width * 2) + 1px; .foo { $focus-ring-offset: ($kz-border-focus-ring-border-width * 4) + 10px; padding: -(($kz-border-focus-ring-border-width * 4) + 10px) }',
     expectedReports: 5,
+  },
+  {
+    language: "scss",
+    testName:
+      "transparentize functions are fixed and decimals are parsed and converted correctly",
+    input:
+      '@import "~@kaizen/design-tokens/sass/color"; .foo { color: transparentize($kz-color-wisteria-800, 0.654); }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800-rgb-params, 0.346); }',
+    expectedReports: 0,
   },
 ]
 
