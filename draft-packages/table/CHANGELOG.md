@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.3.19...@kaizen/draft-table@3.4.0) (2021-05-03)
+
+
+### Features
+
+* add reversed table header styling ([#1528](https://github.com/cultureamp/kaizen-design-system/issues/1528)) ([9a31703](https://github.com/cultureamp/kaizen-design-system/commit/9a31703484cd23d431880184a879e52007d365fa))
+
+
+
+
+
+## [3.3.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.3.18...@kaizen/draft-table@3.3.19) (2021-05-03)
+
+**Note:** Version bump only for package @kaizen/draft-table
+
+
+
+
+
 ## [3.3.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-table@3.3.17...@kaizen/draft-table@3.3.18) (2021-04-30)
 
 **Note:** Version bump only for package @kaizen/draft-table
