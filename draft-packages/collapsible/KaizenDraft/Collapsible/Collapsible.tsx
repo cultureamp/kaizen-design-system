@@ -75,6 +75,7 @@ class Collapsible extends React.Component<Props, State> {
           [styles.groupItem]: group && !separated,
           [styles.separated]: separated,
           [styles.isOpen]: open,
+          [styles.isSingle]: !group,
         })}
         data-automation-id={automationId || `collapsible-container-${id}`}
       >
