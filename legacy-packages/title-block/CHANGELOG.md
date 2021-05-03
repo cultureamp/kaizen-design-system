@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.0.21...@kaizen/draft-title-block@3.1.0) (2021-05-03)
+
+
+### Features
+
+* Improved Heart support for titleblock ([#1510](https://github.com/cultureamp/kaizen-design-system/issues/1510)) ([6de358c](https://github.com/cultureamp/kaizen-design-system/commit/6de358c12fbfac25a9df01f4f14ff31159712864))
+
+
+
+
+
 ## [3.0.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block@3.0.20...@kaizen/draft-title-block@3.0.21) (2021-04-30)
 
 **Note:** Version bump only for package @kaizen/draft-title-block
