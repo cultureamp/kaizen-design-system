@@ -34,15 +34,15 @@
   "dependencies": {
     "@kaizen/component-library": "^9.6.1",
     "@kaizen/draft-button": "^3.3.3",
-    "@types/classnames": "^2.2.10",
-    "classnames": "^2.2.6"
+    "@types/classnames": "^2.3.1",
+    "classnames": "^2.3.1"
   },
   "devDependencies": {
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "@kaizen/design-tokens": "^2.5.0",
+    "@kaizen/design-tokens": "^2.8.2",
     "react": "^16.9.0"
   }
 }
