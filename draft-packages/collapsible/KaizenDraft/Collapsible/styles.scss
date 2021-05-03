@@ -10,12 +10,12 @@ $heading-active-color: $kz-var-color-wisteria-100;
 .container {
   background-color: white;
   box-shadow: $kz-var-shadow-small-box-shadow;
-  border-radius: 20px;
+  border-radius: $kz-var-border-borderless-border-radius;
 }
 
 .isSingle {
   .button {
-    border-radius: 20px;
+    border-radius: $kz-var-border-borderless-border-radius;
   }
 }
 
@@ -25,7 +25,7 @@ $heading-active-color: $kz-var-color-wisteria-100;
   }
 
   .button {
-    border-radius: 20px;
+    border-radius: $kz-var-border-borderless-border-radius;
   }
 }
 
@@ -35,13 +35,13 @@ $heading-active-color: $kz-var-color-wisteria-100;
   }
 
   &:first-of-type > .button {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: $kz-var-border-borderless-border-radius;
+    border-top-right-radius: $kz-var-border-borderless-border-radius;
   }
 
   &:last-of-type > .button {
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: $kz-var-border-borderless-border-radius;
+    border-bottom-right-radius: $kz-var-border-borderless-border-radius;
   }
 }
 
