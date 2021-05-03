@@ -8,24 +8,14 @@
 $heading-active-color: $kz-var-color-wisteria-100;
 
 .container {
+  background-color: white;
   box-shadow: $kz-var-shadow-small-box-shadow;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-radius: 20px;
 }
 
 .isSingle {
   .button {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-  }
-
-  &.isOpen > div > div > .section {
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-radius: 20px;
   }
 }
 
@@ -35,15 +25,7 @@ $heading-active-color: $kz-var-color-wisteria-100;
   }
 
   .button {
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-  }
-
-  &.isOpen > div > div > .section {
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-radius: 20px;
   }
 }
 
@@ -58,16 +40,6 @@ $heading-active-color: $kz-var-color-wisteria-100;
   }
 
   &:last-of-type > .button {
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-  }
-
-  &:last-of-type > div > div > .section {
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-  }
-
-  &:last-of-type {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
   }
@@ -125,7 +97,6 @@ $heading-active-color: $kz-var-color-wisteria-100;
 }
 
 .section {
-  background-color: white;
   @include ca-padding(
     $top: $ca-grid,
     $end: $ca-grid,
