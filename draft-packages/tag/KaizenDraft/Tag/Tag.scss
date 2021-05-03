@@ -53,6 +53,7 @@ $small: $kz-var-spacing-md;
   margin-right: -0.6625rem;
   margin-bottom: calc(-1 * #{$kz-var-spacing-xs});
   margin-left: -0.225rem;
+  box-sizing: content-box;
 
   --dt-dismiss-icon-color-heart: rgba(
     var(#{$kz-var-id-color-wisteria-800-rgb-params}),
