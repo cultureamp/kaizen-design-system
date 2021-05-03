@@ -25,7 +25,6 @@ export const noTransitiveTokensRule = (
       // AND the declaration contains a use of a transitive kaizen variable
       if (
         postcssNode.type === "decl" &&
-        !isVariable(postcssNode) &&
         !transitiveKaizenVariables[postcssNode.prop] &&
         transitiveKaizenVariables[variable.nameWithPrefix]
       ) {
@@ -35,7 +34,7 @@ export const noTransitiveTokensRule = (
         const transitiveVariable =
           transitiveKaizenVariables[variable.nameWithPrefix]
 
-        if (options.fix) {
+        if (options.fix && !isVariable(postcssNode)) {
           // The replacement should be in brackets if it is negated and if the value isn't just a single token
           const shouldReplacementBeInBrackets =
             variable.negated &&
@@ -58,7 +57,7 @@ export const noTransitiveTokensRule = (
         } else {
           options.reporter({
             message: transitiveKaizenTokenUsage(transitiveVariableName),
-            autofixAvailable: true,
+            autofixAvailable: !isVariable(postcssNode),
             node: postcssNode,
           })
         }

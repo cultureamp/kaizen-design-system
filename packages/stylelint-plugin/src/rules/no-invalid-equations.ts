@@ -35,7 +35,11 @@ export const noInvalidEquationsOnDeclaraion = (
         // Detect the cose of the node being a negated variable (because postcss-value-parser doesn't detect the operator and variable as seprate nodes)
         const parsedVariable = parseVariable(node)
         if (parsedVariable?.negated && parsedVariable?.kaizenToken) {
-          if (options.language === "scss" && options.fix) {
+          if (
+            options.language === "scss" &&
+            options.fix &&
+            !isVariable(postcssNode)
+          ) {
             // just wrap the value in brackets if we're already in a calc function
             const fixedVariable = `${
               isWithinCalcFunction ? "" : "calc"
@@ -50,7 +54,7 @@ export const noInvalidEquationsOnDeclaraion = (
             options.reporter({
               message: negatedKaizenVariableMessage,
               node: postcssNode,
-              autofixAvailable: true,
+              autofixAvailable: !isVariable(postcssNode),
             })
           }
 
@@ -83,7 +87,11 @@ export const noInvalidEquationsOnDeclaraion = (
                 return false
               }
 
-              if (options.language === "scss" && options.fix) {
+              if (
+                options.language === "scss" &&
+                options.fix &&
+                !isVariable(postcssNode)
+              ) {
                 if (variableInEquation?.kaizenToken) {
                   variableInEquation.node.value = stringifyVariable({
                     ...variableInEquation,
@@ -96,7 +104,7 @@ export const noInvalidEquationsOnDeclaraion = (
                 options.reporter({
                   message: tokenNotInterpolatedInCalcMessage,
                   node: postcssNode,
-                  autofixAvailable: true,
+                  autofixAvailable: !isVariable(postcssNode),
                 })
               }
             } else {
@@ -114,7 +122,7 @@ export const noInvalidEquationsOnDeclaraion = (
       }
     })
 
-    if (options.fix && amended) {
+    if (options.fix && amended && !isVariable(postcssNode)) {
       postcssNode.replaceWith(
         postcssNode.clone({
           value: amended,
@@ -129,7 +137,7 @@ export const noInvalidEquationsRule = (
   options: Options
 ) => {
   walkDeclsWithKaizenTokens(stylesheetNode, ({ postcssNode, parsedValue }) => {
-    if (postcssNode.type === "decl" && !isVariable(postcssNode))
+    if (postcssNode.type === "decl")
       noInvalidEquationsOnDeclaraion(postcssNode, parsedValue, options)
   })
 }

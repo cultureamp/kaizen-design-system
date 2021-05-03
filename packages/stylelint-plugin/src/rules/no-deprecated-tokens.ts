@@ -58,23 +58,6 @@ export const noDeprecatedTokensRule = (
         }
 
         const decl = postcssNode
-        // If the value contains a kaizen variable, label it as "unmigratable"
-        // e.g. $foo: $kz-color-wisteria-800;
-        if (isVariable(decl)) {
-          deprecatedVariables.forEach(variable => {
-            options.reporter({
-              message: deprecatedTokenUsageMessage(
-                variable.name,
-                getReplacementForDeprecatedToken(variable.kaizenToken)?.name ||
-                  ""
-              ),
-              node: decl,
-              autofixAvailable: false,
-            })
-          })
-
-          return
-        }
 
         // These next two blocks bail out if a token is used in an equation or in an unsupported function. Admittedly it's a bit weird because there is a double up on reporting if you include the rules that relate to these predicate functions.
         if (declContainsInvalidEquations(decl, parsedValue, options)) {
@@ -115,24 +98,24 @@ export const noDeprecatedTokensRule = (
               return
             }
 
-            if (!options.fix) {
+            if (options.fix && !isVariable(decl)) {
+              node.value = stringifyVariable(
+                replaceTokenInVariable(variable, replacementToken)
+              )
+              newValue = postcssValueParser.stringify(parsedValue.nodes)
+            } else {
               options.reporter({
                 message: deprecatedTokenUsageMessage(
                   variable.name,
                   replacementToken.name
                 ),
                 node: decl,
-                autofixAvailable: true,
+                autofixAvailable: !isVariable(decl),
               })
-            } else {
-              node.value = stringifyVariable(
-                replaceTokenInVariable(variable, replacementToken)
-              )
-              newValue = postcssValueParser.stringify(parsedValue.nodes)
             }
           }
         })
-        if (newValue !== oldValue && options.fix) {
+        if (newValue !== oldValue && options.fix && !isVariable(decl)) {
           decl.replaceWith(
             decl.clone({
               value: newValue,

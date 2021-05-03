@@ -82,13 +82,13 @@ const getAndReportOnReplacementRgbParamsVariable = (
       })
       return undefined
     }
-    if (options.fix) {
+    if (options.fix && !isVariable(decl)) {
       return `${variablePrefix}${fixedVariable.name}`
     } else {
       options.reporter({
         message: invalidRgbaUsage(fixedVariable.name),
         node: decl,
-        autofixAvailable: true,
+        autofixAvailable: !isVariable(decl),
       })
     }
   }
@@ -109,13 +109,13 @@ const getAndReportOnReplacementRgbParamsVariable = (
       })
       return undefined
     }
-    if (options.fix) {
+    if (options.fix && !isVariable(decl)) {
       return `${variablePrefix}${fixedVariable.name}`
     } else {
       options.reporter({
         message: invalidRgbaUsage(fixedVariable.name),
         node: decl,
-        autofixAvailable: true,
+        autofixAvailable: !isVariable(decl),
       })
     }
   }
@@ -198,7 +198,7 @@ export const noInvalidFunctionsOnDeclaration = (
       decl,
       options
     )
-    if (!replacementVariable) return origin
+    if (!replacementVariable) return original
 
     const fixedSecondParameter = parsePercentage(second)
 
@@ -266,11 +266,11 @@ export const noInvalidFunctionsOnDeclaration = (
       })
       return sourceValue
     } else {
-      if (options.fix) {
+      if (options.fix && !isVariable(decl)) {
         return compileResult.compiledValue
       } else {
         options.reporter({
-          autofixAvailable: true,
+          autofixAvailable: !isVariable(decl),
           message: unsupportedFunctionWithFixMessage,
           node: decl,
         })
@@ -307,7 +307,7 @@ export const noInvalidFunctionsOnDeclaration = (
       node: decl,
     })
   }
-  if (options.fix && newValue !== decl.value) {
+  if (options.fix && newValue !== decl.value && !isVariable(decl)) {
     decl.replaceWith(
       decl.clone({
         value: newValue,
@@ -324,7 +324,7 @@ export const noInvalidFunctionsRule = (
   options: Options
 ) => {
   walkDeclsWithKaizenTokens(stylesheetNode, ({ postcssNode }) => {
-    if (postcssNode.type === "decl" && !isVariable(postcssNode)) {
+    if (postcssNode.type === "decl") {
       noInvalidFunctionsOnDeclaration(postcssNode, options)
     }
   })
