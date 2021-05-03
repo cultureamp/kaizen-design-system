@@ -75,8 +75,8 @@ $heading-active-color: $kz-var-color-wisteria-100;
 
 .isOpen {
   .button {
-    border-bottom-left-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 }
 
@@ -117,6 +117,11 @@ $heading-active-color: $kz-var-color-wisteria-100;
   position: -webkit-sticky;
   position: sticky;
   z-index: 10;
+
+  .button {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
 }
 
 .section {
