@@ -82,23 +82,34 @@ const parseCssVariableValue = (value: string): CSSVariable | undefined => {
   return undefined
 }
 
-export const kaizenTokensByName = flatmap(
-  Object.values(kaizenTokensByModule),
-  module =>
-    Object.entries(module.variables).map(([variableName, value]) => ({
+/**
+ * A nifty map of kaizen token variable -> information about the variable.
+ * Looks something like:
+ * {
+ *    "kz-var-color-wisteria-800": { name: "kz-var-color-wisteria-800", value: "var(--kz-var-color-wisteria-800, #ff0011)", cssVariable: { identifier: "--kz-var-color-wisteria-800", fallback: "#ff0011" }, ... },
+ *    "kz-color-wisteria-800": { name: "kz-var-color-wisteria-800", value: "#ff0011", cssVariable: undefined, ...},
+ *    ...
+ *    "kz-you-get-the-point": {...}
+ * }
+ */
+export const kaizenTokensByName: Readonly<
+  Record<string, KaizenToken | undefined>
+> = flatmap(Object.values(kaizenTokensByModule), module =>
+  Object.entries(module.variables).map(([variableName, value]) => {
+    const cssVariable = parseCssVariableValue(value)
+    return {
       [variableName]: {
         name: variableName,
         value,
-        cssVariable: parseCssVariableValue(value),
+        deprecated: !cssVariable,
+        cssVariable,
         moduleName: module.moduleName,
         sassModulePath: module.sassModulePath,
         lessModulePath: module.lessModulePath,
       },
-    }))
-).reduce(
-  (acc, next) => ({ ...acc, ...next }),
-  {} as Record<string, KaizenToken | undefined>
-)
+    }
+  })
+).reduce((acc, next) => ({ ...acc, ...next }), {})
 
 /** I know this is a long name but it's hard to describe otherwise.
  It is a map of kaizen token sass variables ({"$kz-color-wisteria-800": "blah"}), but it also contains the concrete values of any CSS variable tokens, rather than their actual values.

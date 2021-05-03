@@ -4,13 +4,12 @@ import {
   cantFindReplacementTokenForDeprecatedMessage,
   cantUseTokenInAtRuleParamsMessage,
   deprecatedTokenUsageMessage,
-  deprecatedTokenUsedWithinAnotherVariableMessage,
   deprecatedTokenUsedWithinUnsupportedFunction,
   invalidEquationContainingDeprecatedTokenMessage,
 } from "../messages"
-import { kaizenTokensByName } from "../kaizenTokens"
 import { Options } from "../types"
 import {
+  getReplacementForDeprecatedToken,
   isVariable,
   replaceTokenInVariable,
   stringifyVariable,
@@ -50,11 +49,11 @@ export const noDeprecatedTokensRule = (
     styleSheetNode,
     ({ value, parsedValue, kaizenVariables, postcssNode }) => {
       if (postcssNode.type === "decl") {
-        const unmigratedVariables = kaizenVariables.filter(
-          ({ kaizenToken }) => !kaizenToken.cssVariable
+        const deprecatedVariables = kaizenVariables.filter(
+          variable => variable.kaizenToken.deprecated
         )
         // If the whole declaration contains only new CSS variable tokens, nothing needs to be done, so just return.
-        if (!unmigratedVariables.length) {
+        if (!deprecatedVariables.length) {
           return
         }
 
@@ -62,11 +61,18 @@ export const noDeprecatedTokensRule = (
         // If the value contains a kaizen variable, label it as "unmigratable"
         // e.g. $foo: $kz-color-wisteria-800;
         if (isVariable(decl)) {
-          options.reporter({
-            message: deprecatedTokenUsedWithinAnotherVariableMessage,
-            node: decl,
-            autofixAvailable: false,
+          deprecatedVariables.forEach(variable => {
+            options.reporter({
+              message: deprecatedTokenUsageMessage(
+                variable.name,
+                getReplacementForDeprecatedToken(variable.kaizenToken)?.name ||
+                  ""
+              ),
+              node: decl,
+              autofixAvailable: false,
+            })
           })
+
           return
         }
 
@@ -94,9 +100,10 @@ export const noDeprecatedTokensRule = (
           if (!variable.kaizenToken) return
 
           // If the token is not a CSS variable, it should be migrated
-          if (!variable.kaizenToken?.cssVariable) {
-            const replacementToken =
-              kaizenTokensByName[variable.name.replace("kz", "kz-var")]
+          if (variable.kaizenToken.deprecated) {
+            const replacementToken = getReplacementForDeprecatedToken(
+              variable.kaizenToken
+            )
             if (!replacementToken) {
               options.reporter({
                 message: cantFindReplacementTokenForDeprecatedMessage(

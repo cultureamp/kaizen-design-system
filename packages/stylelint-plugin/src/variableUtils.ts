@@ -1,3 +1,4 @@
+import { first } from "lodash"
 import nanomemoize from "nano-memoize"
 import {
   AtRule,
@@ -183,6 +184,9 @@ export const getLexicalTransitiveKaizenVariables = (
   }, {} as Record<string, { value: string; kaizenVariablesInValue: ParsedKaizenVariable[] }>)
 }
 
-const variablePattern = /^(@|\$)/
+export const variablePrefixPattern = /^(@|\$)/
 export const isVariable = (declaration: Declaration) =>
-  variablePattern.test(declaration.prop)
+  variablePrefixPattern.test(declaration.prop)
+
+export const getReplacementForDeprecatedToken = (token: KaizenToken) =>
+  kaizenTokensByName[token.name.replace("kz", "kz-var")]

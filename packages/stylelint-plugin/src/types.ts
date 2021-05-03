@@ -28,6 +28,7 @@ export type KaizenToken = {
   value: string
   moduleName: string
   cssVariable?: CSSVariable
+  deprecated: boolean
 }
 
 export type CSSVariable = {
