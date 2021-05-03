@@ -10,6 +10,7 @@ import React, {
   FocusEvent,
   MouseEvent,
 } from "react"
+import { Badge } from "@kaizen/draft-badge"
 
 import styles from "./GenericButton.module.scss"
 
@@ -32,6 +33,7 @@ export type GenericProps = {
   form?: boolean
   reversed?: boolean
   icon?: React.SVGAttributes<SVGSymbolElement>
+  badge?: BadgeProps
   onClick?: (e: MouseEvent) => void
   onMouseDown?: (e: MouseEvent) => void
   href?: string
@@ -74,6 +76,11 @@ export type ButtonProps = GenericProps & LabelProps
 type Props = ButtonProps & {
   iconButton?: boolean
 } & AdditionalContentProps
+
+type BadgeProps = {
+  children: string
+  active?: boolean
+}
 
 export type ButtonRef = { focus: () => void }
 
@@ -293,9 +300,21 @@ const renderDefaultContent = (props: Props) => (
         {props.additionalContent}
       </span>
     )}
+    {renderBadge(props)}
     {props.icon && props.iconPosition === "end" && renderIcon(props.icon)}
   </>
 )
+
+const renderBadge = (props: Props) => {
+  if (props.badge) {
+    const { children } = props.badge
+    return (
+      <Badge variant="active" reversed={props.reversed}>
+        {children}
+      </Badge>
+    )
+  }
+}
 
 const renderContent: React.FunctionComponent<Props> = props => (
   <span className={styles.content}>
