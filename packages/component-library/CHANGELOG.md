@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.5.5...@kaizen/component-library@9.6.0) (2021-05-03)
+
+
+### Features
+
+* add minimise icon ([#1525](https://github.com/cultureamp/kaizen-design-system/issues/1525)) ([45945a5](https://github.com/cultureamp/kaizen-design-system/commit/45945a5fd20098fc38dc8520797bd489fd3d07a9))
+
+
+
+
+
 ## [9.5.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.5.4...@kaizen/component-library@9.5.5) (2021-04-30)
 
 **Note:** Version bump only for package @kaizen/component-library
