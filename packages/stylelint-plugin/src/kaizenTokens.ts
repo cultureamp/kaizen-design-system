@@ -49,6 +49,17 @@ export const kaizenTokensByModule = {
   variableIdentifiers: getVarsFromKaizenModule("variable-identifiers"),
 }
 
+const deprecatedModuleNames = new Set([
+  "color",
+  "animation",
+  "border",
+  // Layout is allowed to be used for now. If that changes, uncomment the next line.
+  // "layout",
+  "shadow",
+  "spacing",
+  "typography",
+])
+
 const parseCssVariableValue = (value: string): CSSVariable | undefined => {
   const parsedValue = postcssValueParser(value)
   const firstNode = parsedValue.nodes[0]
@@ -101,7 +112,7 @@ export const kaizenTokensByName: Readonly<
       [variableName]: {
         name: variableName,
         value,
-        deprecated: !cssVariable,
+        deprecated: deprecatedModuleNames.has(module.moduleName),
         cssVariable,
         moduleName: module.moduleName,
         sassModulePath: module.sassModulePath,
