@@ -465,6 +465,15 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800-rgb-params, 0.346); }',
     expectedReports: 0,
   },
+  {
+    language: "scss",
+    testName: "no errors are reported for a valid calc function",
+    input:
+      '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { transform: translateX(calc(-1 * #{$kz-var-spacing-md})); }',
+    expectedOutput:
+      '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { transform: translateX(calc(-1 * #{$kz-var-spacing-md})); }',
+    expectedReports: 0,
+  },
 ]
 
 describe("Codemod", () => {

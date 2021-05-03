@@ -1,4 +1,5 @@
 import postcssValueParser from "postcss-value-parser"
+import { cssStandardFunctions } from "./cssStandardFunctions"
 import { kaizenTokensByName } from "./kaizenTokens"
 
 export const quotesPattern = /("|')/g
@@ -22,15 +23,6 @@ export const entireLineKaizenTokenPattern = new RegExp(
 export const isKaizenTokenVariable = (value: string) =>
   entireLineKaizenTokenPattern.test(value)
 
-export const allowedFunctions = new Set([
-  "rgba",
-  "rgb",
-  "add-alpha",
-  "var",
-  "calc",
-  "linear-gradient",
-])
-
 // Returns true if a value contains an unmigratable function such as `add-tint`.
 // e.g. `color: add-tint`
 export const containsUnmigratableFunction = (declarationValue: string) => {
@@ -40,7 +32,7 @@ export const containsUnmigratableFunction = (declarationValue: string) => {
     if (
       node.type === "function" &&
       node.value.length &&
-      !allowedFunctions.has(node.value)
+      !cssStandardFunctions.has(node.value)
     ) {
       found = true
     }
