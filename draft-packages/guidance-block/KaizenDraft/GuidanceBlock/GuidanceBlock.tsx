@@ -1,10 +1,12 @@
+import * as React from "react"
+
 import { Button, ButtonProps } from "@kaizen/draft-button"
 import { Heading, Icon, Paragraph } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import classnames from "classnames"
-import * as React from "react"
-import styles from "./GuidanceBlock.scss"
+
+const styles = require("./GuidanceBlock.scss")
 
 export type GuidanceBlockProps = {
   img: {
