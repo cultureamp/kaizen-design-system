@@ -13,7 +13,7 @@ $heading-active-color: $kz-var-color-wisteria-100;
   border-radius: $kz-var-border-borderless-border-radius;
 }
 
-.isSingle {
+.single {
   .button {
     border-radius: $kz-var-border-borderless-border-radius;
   }
@@ -45,7 +45,7 @@ $heading-active-color: $kz-var-color-wisteria-100;
   }
 }
 
-.isOpen {
+.open {
   .button {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
