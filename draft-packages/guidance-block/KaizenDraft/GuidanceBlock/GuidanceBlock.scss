@@ -7,7 +7,7 @@
 @import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/component-library/components/Button/styles";
 
-$heightConstraint: 9rem;
+$heightConstraint: calc(2 * #{$kz-var-spacing-xxxl});
 $ca-banner-fade-out: opacity $kz-var-animation-duration-slow ease;
 $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
   $kz-var-animation-duration-slow ease;
