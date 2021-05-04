@@ -25,8 +25,8 @@
     "postcss-less": "^4.0.1",
     "postcss-scss": "^3.0.5",
     "postcss-value-parser": "^4.1.0",
+    "stylelint": ">=13.10.0",
     "sass": "^1.32.11",
-    "stylelint": "^13.12.0",
     "yargs": "^16.2.0"
   },
   "scripts": {
@@ -35,5 +35,8 @@
     "build": "yarn tsc --project tsconfig.dist.json",
     "clean": "rm -rf dist",
     "prepare": "yarn clean && yarn test && yarn build"
+  },
+  "devDependencies": {
+    "ts-node": "^9.1.1"
   }
 }

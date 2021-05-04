@@ -20,3 +20,4 @@
 /elm-stuff/
 elm.json
 /packages/design-tokens/dist
+/packages/stylelint-plugin/dist

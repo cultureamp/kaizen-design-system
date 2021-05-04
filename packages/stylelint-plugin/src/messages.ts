@@ -33,7 +33,7 @@ export const cantFindReplacementTokenForDeprecatedMessage = (
 ) => `Could not find replacement token for ${deprecatedTokenName}`
 
 export const cantUseTokenInAtRuleParamsMessage = (tokenName: string) =>
-  `${tokenName} cannot be used within AtRule parameters like @media. Only tokens that begin with "kz-layout-" are supported.`
+  `${tokenName} cannot be used within AtRule parameters like @media. Only variables that aren't deprecated (e.g. kz-layout-*) and don't contain CSS variables are allowed.`
 
 export const unableToCompileFunctionMessage = (
   value: string,
