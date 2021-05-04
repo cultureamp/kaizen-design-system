@@ -32,14 +32,13 @@ $heading-active-color: $kz-var-color-wisteria-100;
 }
 
 // When a collapsible group is rendered, we need the first group to have a rounded
-// on top and the last group to have a rounded bottom edge. Then when open, we
-// remove these as the content sits beneath and needs to be straight.
+// on top and the last group to have a rounded bottom edge.
 .groupItem {
   & + .groupItem {
     border-top: 1px solid $ca-border-color;
   }
 
-  &:first-of-type > .button:not(.open) {
+  &:first-of-type > .button {
     border-top-left-radius: $kz-var-border-borderless-border-radius;
     border-top-right-radius: $kz-var-border-borderless-border-radius;
   }
