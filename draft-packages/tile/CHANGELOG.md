@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.0.16...@kaizen/draft-tile@4.0.17) (2021-05-04)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
 ## [4.0.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.0.15...@kaizen/draft-tile@4.0.16) (2021-05-03)
 
 **Note:** Version bump only for package @kaizen/draft-tile
