@@ -7,6 +7,8 @@
 
 $heading-active-color: $kz-var-color-wisteria-100;
 
+// We need a full border radius on this container element, then have classes
+// beneath to toggle nested borders off and on for different use cases.
 .container {
   background-color: white;
   box-shadow: $kz-var-shadow-small-box-shadow;
@@ -29,27 +31,30 @@ $heading-active-color: $kz-var-color-wisteria-100;
   }
 }
 
+// When a collapsible group is rendered, we need the first group to have a rounded
+// on top and the last group to have a rounded bottom edge. Then when open, we
+// remove these as the content sits beneath and needs to be straight.
 .groupItem {
   & + .groupItem {
     border-top: 1px solid $ca-border-color;
   }
 
-  &:first-of-type > .button {
+  &:first-of-type > .button:not(.open) {
     border-top-left-radius: $kz-var-border-borderless-border-radius;
     border-top-right-radius: $kz-var-border-borderless-border-radius;
   }
 
-  &:last-of-type > .button {
+  &:last-of-type > .button:not(.open) {
     border-bottom-left-radius: $kz-var-border-borderless-border-radius;
     border-bottom-right-radius: $kz-var-border-borderless-border-radius;
   }
 }
 
-.open {
-  .button {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
+// Round the bottom corners of the button so when the container is open, the
+// button background is not rounded on the corners and flush with the content beneath.
+.open .button {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .button {
