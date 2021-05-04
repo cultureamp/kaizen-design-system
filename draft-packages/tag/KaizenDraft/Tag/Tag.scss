@@ -48,14 +48,11 @@ $small: $kz-var-spacing-md;
 .dismissIcon {
   position: relative;
   display: flex;
-  padding: $kz-var-spacing-xs;
-  margin-top: calc(-1 * #{$kz-var-spacing-xs});
+  height: 100%;
+  align-items: center;
+  padding: 0 $kz-var-spacing-xs;
   margin-right: -0.6625rem;
-  margin-bottom: calc(-1 * #{$kz-var-spacing-xs});
   margin-left: -0.225rem;
-
-  // Override Materialize global style for performance-ui
-  box-sizing: content-box;
 
   --dt-dismiss-icon-color-heart: rgba(
     var(#{$kz-var-id-color-wisteria-800-rgb-params}),
@@ -67,7 +64,6 @@ $small: $kz-var-spacing-md;
   );
 
   color: $dt-dismiss-icon-color;
-  height: 16px;
   cursor: pointer;
 
   &:hover {
@@ -95,6 +91,11 @@ $small: $kz-var-spacing-md;
   background-color: white;
   left: 10px;
   top: 10px;
+}
+
+.iconWrapper {
+  height: 16px;
+  width: 16px;
 }
 
 .truncate {
