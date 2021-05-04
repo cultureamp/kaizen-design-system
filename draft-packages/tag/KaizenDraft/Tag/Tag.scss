@@ -53,6 +53,8 @@ $small: $kz-var-spacing-md;
   margin-right: -0.6625rem;
   margin-bottom: calc(-1 * #{$kz-var-spacing-xs});
   margin-left: -0.225rem;
+
+  // Override Materialize global style for performance-ui
   box-sizing: content-box;
 
   --dt-dismiss-icon-color-heart: rgba(
