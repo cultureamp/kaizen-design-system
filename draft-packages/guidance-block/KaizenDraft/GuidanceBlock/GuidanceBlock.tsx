@@ -99,7 +99,7 @@ class GuidanceBlock extends React.Component<
 
         <div className={styles.descriptionContainer}>
           <div className={styles.headingWrapper}>
-            <Heading tag="h3" variant="heading-4">
+            <Heading tag="h3" variant="heading-3">
               {text.title}
             </Heading>
           </div>
