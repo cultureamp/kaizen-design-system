@@ -71,6 +71,7 @@ export const StatelessMenu: React.FunctionComponent<StatelessMenuProps> = ({
 
   const menuButton = renderButton({
     onClick: (e: any) => {
+      e.preventDefault()
       e.stopPropagation()
       toggleMenuDropdown()
     },
