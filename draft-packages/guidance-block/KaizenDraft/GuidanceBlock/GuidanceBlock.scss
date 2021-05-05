@@ -65,6 +65,8 @@ $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
   flex: 0 1 auto;
   margin: ($kz-var-spacing-sm) 0;
   text-align: center;
+  max-width: 780px;
+  box-sizing: border-box;
 
   @include ca-media-desktop {
     padding-left: $kz-var-spacing-sm;
