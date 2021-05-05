@@ -28,7 +28,7 @@ const ToastNotification = ({
     autohideDelay,
     message: otherProps.children,
     persistent,
-    onHide: otherProps.onHide
+    onHide: otherProps.onHide,
   })
 
   return null
