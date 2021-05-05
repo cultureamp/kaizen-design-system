@@ -49,7 +49,9 @@ $caButton-verticalPaddingForm: calc(
   font-size: $kz-var-typography-button-primary-font-size;
   line-height: $kz-var-typography-button-primary-line-height;
   letter-spacing: $kz-var-typography-button-primary-letter-spacing;
-  display: flex;
+  display: inline-flex;
+  // ^inline-flex is used over (block) flex here to fix an edge case where the parent element is display:grid
+  //  and this element is an <a>, causing the element to be full width.
   align-items: center;
   box-sizing: border-box;
   min-height: $caButton-height;
