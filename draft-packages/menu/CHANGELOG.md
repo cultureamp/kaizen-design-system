@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.13...@kaizen/draft-menu@3.2.14) (2021-05-05)
+
+
+### Bug Fixes
+
+* Prevent default on Menu trigger button ([#1542](https://github.com/cultureamp/kaizen-design-system/issues/1542)) ([cc0dc5c](https://github.com/cultureamp/kaizen-design-system/commit/cc0dc5c2b8b6a919e72d76dcb7923626ac2cd1c4))
+
+
+
+
+
 ## [3.2.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.12...@kaizen/draft-menu@3.2.13) (2021-05-04)
 
 **Note:** Version bump only for package @kaizen/draft-menu
