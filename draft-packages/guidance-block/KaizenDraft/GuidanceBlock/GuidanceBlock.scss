@@ -7,7 +7,7 @@
 @import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/component-library/components/Button/styles";
 
-$heightConstraint: calc(2 * #{$kz-var-spacing-xxxl});
+$heightConstraint: 12.25rem;
 $ca-banner-fade-out: opacity $kz-var-animation-duration-slow ease;
 $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
   $kz-var-animation-duration-slow ease;
@@ -35,6 +35,7 @@ $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
 
   @include ca-media-desktop {
     min-height: $heightConstraint;
+    box-sizing: border-box;
     flex-direction: row;
     width: auto;
     align-items: center;
@@ -46,18 +47,17 @@ $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
 }
 
 .iconWrapper {
-  display: none;
+  display: flex;
+  padding: 0 ($kz-var-spacing-sm);
 
   @include ca-media-tablet {
-    display: block;
     text-align: center;
     padding: $kz-var-spacing-sm;
     width: auto;
   }
 
-  @include ca-media-desktop {
-    display: block;
-    padding: 0 ($kz-var-spacing-sm);
+  @include ca-media-mobile {
+    display: none;
   }
 }
 
@@ -67,7 +67,7 @@ $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
   text-align: center;
 
   @include ca-media-desktop {
-    padding-left: $kz-var-spacing-md;
+    padding-left: $kz-var-spacing-sm;
     text-align: left;
   }
 }
@@ -87,13 +87,12 @@ $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
   }
 
   @include ca-media-desktop {
-    padding: 0 ($kz-var-spacing-md);
     margin-top: 0;
   }
 }
 
 .secondaryAction {
-  margin-right: $kz-var-spacing-sm;
+  margin-right: $kz-var-spacing-md;
 }
 
 .hidden {
@@ -102,7 +101,7 @@ $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
 }
 
 .headingWrapper {
-  margin-bottom: $kz-var-spacing-md / 4;
+  margin-bottom: $kz-var-spacing-md;
 }
 
 .cancel {
