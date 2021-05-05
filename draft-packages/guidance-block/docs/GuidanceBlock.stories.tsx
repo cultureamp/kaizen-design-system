@@ -1,4 +1,3 @@
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
 
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
@@ -47,6 +46,7 @@ const Default = () => (
           onClick: () => alert("tada: 🎉"),
         },
       }}
+      noMaxWidth
     />
   </div>
 )
@@ -150,6 +150,32 @@ const Prominent = () => (
   </div>
 )
 
+const WithCustomDescription = () => (
+  <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
+    <GuidanceBlock
+      img={{ src: guidanceBlockImg, alt: "" }}
+      text={{
+        title: "Informative guidance block title",
+        description: (<div style={{ color: "darkorchid"}}>Providing further details to suggest a path forward or promote a feature that allows the user to progress with confidence.</div>)
+      }}
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+        },
+        secondary: {
+          label: "Secondary action",
+          href: "#",
+        }
+      }}
+      persistent
+      noMaxWidth
+    />
+  </div>
+)
+
 Default.storyName = "Default"
 
 Default.parameters = {
@@ -192,6 +218,12 @@ Prominent.parameters = {
   backgrounds: { default: "Stone" },
 }
 
+WithCustomDescription.storyName = "With custom description"
+
+WithCustomDescription.paramters = {
+  backgrounds: { default: "Stone" },
+}
+
 export {
   Default,
   DefaultWithoutActions,
@@ -200,4 +232,5 @@ export {
   Persistent,
   SecondaryAction,
   Prominent,
+  WithCustomDescription
 }
