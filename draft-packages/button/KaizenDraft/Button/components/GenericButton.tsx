@@ -307,8 +307,9 @@ const renderDefaultContent = (props: Props) => (
 const renderBadge = (props: Props) => {
   if (props.badge) {
     const { text } = props.badge
+    const variant = props.reversed ? "default" : "active"
     return (
-      <Badge variant="active" reversed={props.reversed}>
+      <Badge variant={variant} reversed={props.reversed}>
         {text}
       </Badge>
     )
