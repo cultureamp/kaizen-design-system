@@ -1,16 +1,16 @@
 import * as React from "react"
 
 import { Button, ButtonProps } from "@kaizen/draft-button"
-import { Heading, Icon, Paragraph } from "@kaizen/component-library"
+import { Box, Heading, Icon, Paragraph } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import classnames from "classnames"
-import { Tooltip } from "@kaizen/draft-tooltip"
+import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
 
 const styles = require("./GuidanceBlock.scss")
 
 export type ActionProps = ButtonProps & {
-  tooltip?: string
+  tooltip?: TooltipProps
 }
 
 type GuidanceBlockActions = {
@@ -42,8 +42,20 @@ export type GuidanceBlockState = {
   removed: boolean
 }
 
-const ConditionalWrapper = ({ condition, wrapper, children }) =>
-  condition ? wrapper(children) : children
+type WithTooltipProps = {
+  children: React.ReactNode
+  tooltipProps?: TooltipProps
+}
+
+const WithTooltip: React.FunctionComponent<WithTooltipProps> = ({
+  tooltipProps,
+  children,
+}) =>
+  !!tooltipProps ? (
+    <Tooltip {...tooltipProps}>{children}</Tooltip>
+  ) : (
+    <>{children}</>
+  )
 
 class GuidanceBlock extends React.Component<
   GuidanceBlockProps,
@@ -85,32 +97,29 @@ class GuidanceBlock extends React.Component<
     actions: GuidanceBlockActions,
     withActionButtonArrow?: boolean
   ) => (
-    <div
-      className={classnames(styles.buttonContainer, {
-        [styles.secondaryAction]: actions?.secondary,
-      })}
-    >
-      <ConditionalWrapper
-        condition={!!actions.primary.tooltip}
-        wrapper={children => (
-          <Tooltip text={actions.primary.tooltip} position="above">
-            {children}
-          </Tooltip>
-        )}
+    <Box mr={0.5}>
+      <div
+        className={classnames(styles.buttonContainer, {
+          [styles.secondaryAction]: actions?.secondary,
+        })}
       >
-        <Button
-          icon={withActionButtonArrow ? configureIcon : undefined}
-          iconPosition="end"
-          {...actions.primary}
-        />
-      </ConditionalWrapper>
+        <WithTooltip tooltipProps={actions.primary.tooltip}>
+          <Button
+            icon={withActionButtonArrow ? configureIcon : undefined}
+            iconPosition="end"
+            {...actions.primary}
+          />
+        </WithTooltip>
 
-      {actions?.secondary && (
-        <div className={styles.secondaryAction}>
-          <Button secondary {...actions.secondary} />
-        </div>
-      )}
-    </div>
+        {actions?.secondary && (
+          <WithTooltip tooltipProps={actions.secondary.tooltip}>
+            <div className={styles.secondaryAction}>
+              <Button secondary {...actions.secondary} />
+            </div>
+          </WithTooltip>
+        )}
+      </div>
+    </Box>
   )
 
   render(): JSX.Element | null {

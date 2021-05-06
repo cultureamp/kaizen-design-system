@@ -34,7 +34,7 @@
   "dependencies": {
     "@kaizen/component-library": "^9.6.1",
     "@kaizen/draft-button": "^3.3.3",
-    "@kaizen/draft-tooltip": "^2.6.12",
+    "@kaizen/draft-tooltip": "^2.7.0",
     "@types/classnames": "^2.3.1",
     "classnames": "^2.3.1"
   },

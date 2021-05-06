@@ -203,7 +203,9 @@ const WithTooltip = () => (
           onClick: () => {
             alert("tada: 🎉")
           },
-          tooltip: "Opens in a new tab",
+          tooltip: {
+            text: "Opens in a new tab",
+          },
           icon: externalLinkIcon,
         },
         secondary: {
