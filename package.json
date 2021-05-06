@@ -94,7 +94,7 @@
     "jest-static-stubs": "^0.0.1",
     "lerna": "^3.20.2",
     "lodash": "^4.17.21",
-    "node-sass": "^4.12.0",
+    "node-sass": "^5.0.0",
     "normalize.css": "^8.0.1",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
