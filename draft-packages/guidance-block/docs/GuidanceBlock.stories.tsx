@@ -190,12 +190,9 @@ const WithTooltip = () => (
       img={{ src: guidanceBlockImg, alt: "" }}
       text={{
         title: "Informative guidance block title",
-        description: (
-          <div style={{ color: "darkorchid" }}>
-            Providing further details to suggest a path forward or promote a
-            feature that allows the user to progress with confidence.
-          </div>
-        ),
+        description:
+          "Providing further details to suggest a path forward or promote a feature that allows the user" +
+          " to progress with confidence.",
       }}
       actions={{
         primary: {
