@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@3.3.2...@kaizen/draft-button@3.3.3) (2021-05-05)
+
+
+### Bug Fixes
+
+* use inline-flex for Button to fix edge case ([#1544](https://github.com/cultureamp/kaizen-design-system/issues/1544)) ([85758b1](https://github.com/cultureamp/kaizen-design-system/commit/85758b1584c5bef2c88dfb7a6a98cc89b36777b7))
+
+
+
+
+
+## [3.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@3.3.1...@kaizen/draft-button@3.3.2) (2021-05-05)
+
+**Note:** Version bump only for package @kaizen/draft-button
+
+
+
+
+
+## [3.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@3.3.0...@kaizen/draft-button@3.3.1) (2021-05-05)
+
+
+### Bug Fixes
+
+* add default variant for badge in button component when button is in reversed ([#1543](https://github.com/cultureamp/kaizen-design-system/issues/1543)) ([f9ff304](https://github.com/cultureamp/kaizen-design-system/commit/f9ff304efdf2242087ca5a2bc9ad3d08a2616dfa))
+
+
+
+
+
+# [3.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@3.2.18...@kaizen/draft-button@3.3.0) (2021-05-04)
+
+
+### Features
+
+* add badge component to the button ([#1532](https://github.com/cultureamp/kaizen-design-system/issues/1532)) ([bdf92e2](https://github.com/cultureamp/kaizen-design-system/commit/bdf92e2d7133b2877f70083773c0a5d3f748bab0))
+
+
+
+
+
 ## [3.2.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-button@3.2.17...@kaizen/draft-button@3.2.18) (2021-05-03)
 
 **Note:** Version bump only for package @kaizen/draft-button
