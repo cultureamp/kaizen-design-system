@@ -36,7 +36,8 @@
     "@kaizen/draft-button": "^3.3.3",
     "@kaizen/draft-tooltip": "^2.7.0",
     "@types/classnames": "^2.3.1",
-    "classnames": "^2.3.1"
+    "classnames": "^2.3.1",
+    "react-media": "^1.10.0"
   },
   "devDependencies": {
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",

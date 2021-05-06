@@ -6,6 +6,8 @@ import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.sv
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import classnames from "classnames"
 import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
+import { MOBILE_QUERY } from "@kaizen/component-library/components/NavigationBar/constants"
+import Media from "react-media"
 
 const styles = require("./GuidanceBlock.scss")
 
@@ -97,29 +99,38 @@ class GuidanceBlock extends React.Component<
     actions: GuidanceBlockActions,
     withActionButtonArrow?: boolean
   ) => (
-    <Box mr={0.5}>
-      <div
-        className={classnames(styles.buttonContainer, {
-          [styles.secondaryAction]: actions?.secondary,
-        })}
-      >
-        <WithTooltip tooltipProps={actions.primary.tooltip}>
-          <Button
-            icon={withActionButtonArrow ? configureIcon : undefined}
-            iconPosition="end"
-            {...actions.primary}
-          />
-        </WithTooltip>
+    <Media query={MOBILE_QUERY}>
+      {isMobile => (
+        <Box mr={isMobile ? 0 : 0.5}>
+          <div
+            className={classnames(styles.buttonContainer, {
+              [styles.secondaryAction]: actions?.secondary,
+            })}
+          >
+            <WithTooltip tooltipProps={actions.primary.tooltip}>
+              <Button
+                icon={withActionButtonArrow ? configureIcon : undefined}
+                iconPosition="end"
+                {...actions.primary}
+                fullWidth={isMobile}
+              />
+            </WithTooltip>
 
-        {actions?.secondary && (
-          <WithTooltip tooltipProps={actions.secondary.tooltip}>
-            <div className={styles.secondaryAction}>
-              <Button secondary {...actions.secondary} />
-            </div>
-          </WithTooltip>
-        )}
-      </div>
-    </Box>
+            {actions?.secondary && (
+              <WithTooltip tooltipProps={actions.secondary.tooltip}>
+                <div className={styles.secondaryAction}>
+                  <Button
+                    secondary
+                    {...actions.secondary}
+                    fullWidth={isMobile}
+                  />
+                </div>
+              </WithTooltip>
+            )}
+          </div>
+        </Box>
+      )}
+    </Media>
   )
 
   render(): JSX.Element | null {

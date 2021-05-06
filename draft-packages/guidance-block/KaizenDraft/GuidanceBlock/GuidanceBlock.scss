@@ -44,6 +44,10 @@ $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
       padding: $kz-var-spacing-sm;
     }
   }
+
+  @include ca-media-mobile {
+    min-width: unset;
+  }
 }
 
 .iconWrapper {
@@ -52,6 +56,7 @@ $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
 
   @include ca-media-tablet {
     text-align: center;
+    justify-content: center;
     padding: $kz-var-spacing-sm;
     width: auto;
   }
@@ -63,13 +68,18 @@ $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
 
 .descriptionContainer {
   flex: 0 1 auto;
-  margin: ($kz-var-spacing-sm) 0;
+  margin: $kz-var-spacing-sm 0;
   text-align: center;
   max-width: 780px;
 
   @include ca-media-desktop {
     padding-left: $kz-var-spacing-sm;
     text-align: left;
+  }
+
+  @include ca-media-mobile {
+    margin: $kz-var-spacing-sm;
+    max-width: 100%;
   }
 }
 
@@ -78,17 +88,17 @@ $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
   flex: 1 0 auto;
   justify-content: center;
   flex-direction: row-reverse;
-  width: 100%;
   min-width: max-content;
 
   @include ca-media-tablet-and-up {
-    width: auto;
     padding: ($kz-var-spacing-sm) 0;
     text-align: center;
   }
 
-  @include ca-media-desktop {
-    margin-top: 0;
+  @include ca-media-mobile {
+    flex-direction: column;
+    width: 100%;
+    margin-top: $kz-var-spacing-xs;
   }
 }
 
