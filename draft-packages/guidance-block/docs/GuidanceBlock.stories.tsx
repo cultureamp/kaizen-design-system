@@ -5,6 +5,9 @@ import { assetUrl } from "@kaizen/hosted-assets"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
 
+const externalLinkIcon = require("@kaizen/component-library/icons/external-link.icon.svg")
+  .default
+
 export default {
   title: "GuidanceBlock (React)",
   component: GuidanceBlock,
@@ -156,7 +159,12 @@ const WithCustomDescription = () => (
       img={{ src: guidanceBlockImg, alt: "" }}
       text={{
         title: "Informative guidance block title",
-        description: (<div style={{ color: "darkorchid"}}>Providing further details to suggest a path forward or promote a feature that allows the user to progress with confidence.</div>)
+        description: (
+          <div style={{ color: "darkorchid" }}>
+            Providing further details to suggest a path forward or promote a
+            feature that allows the user to progress with confidence.
+          </div>
+        ),
       }}
       actions={{
         primary: {
@@ -168,10 +176,41 @@ const WithCustomDescription = () => (
         secondary: {
           label: "Secondary action",
           href: "#",
-        }
+        },
       }}
       persistent
       noMaxWidth
+    />
+  </div>
+)
+
+const WithTooltip = () => (
+  <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
+    <GuidanceBlock
+      img={{ src: guidanceBlockImg, alt: "" }}
+      text={{
+        title: "Informative guidance block title",
+        description: (
+          <div style={{ color: "darkorchid" }}>
+            Providing further details to suggest a path forward or promote a
+            feature that allows the user to progress with confidence.
+          </div>
+        ),
+      }}
+      actions={{
+        primary: {
+          label: "Learn more",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+          tooltip: "Opens in a new tab",
+          icon: externalLinkIcon,
+        },
+        secondary: {
+          label: "Secondary action",
+          href: "#",
+        },
+      }}
     />
   </div>
 )
@@ -232,5 +271,6 @@ export {
   Persistent,
   SecondaryAction,
   Prominent,
-  WithCustomDescription
+  WithCustomDescription,
+  WithTooltip,
 }

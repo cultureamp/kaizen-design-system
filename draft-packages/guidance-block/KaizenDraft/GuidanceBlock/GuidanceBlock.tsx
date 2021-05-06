@@ -5,8 +5,21 @@ import { Heading, Icon, Paragraph } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import classnames from "classnames"
+import { Tooltip } from "@kaizen/draft-tooltip"
 
 const styles = require("./GuidanceBlock.scss")
+
+export type ActionProps = ButtonProps & {
+  tooltip?: string
+}
+
+type GuidanceBlockActions = {
+  primary: ActionProps
+  secondary?: ActionProps
+  dismiss?: {
+    onClick: () => void
+  }
+}
 
 export type GuidanceBlockProps = {
   img: {
@@ -17,13 +30,7 @@ export type GuidanceBlockProps = {
     title: string
     description: string | React.ReactNode
   }
-  actions?: {
-    primary: ButtonProps
-    secondary?: ButtonProps
-    dismiss?: {
-      onClick: () => void
-    }
-  }
+  actions?: GuidanceBlockActions
   persistent?: boolean
   variant?: "default" | "prominent"
   withActionButtonArrow?: boolean
@@ -34,6 +41,10 @@ export type GuidanceBlockState = {
   hidden: boolean
   removed: boolean
 }
+
+const ConditionalWrapper = ({ condition, wrapper, children }) =>
+  condition ? wrapper(children) : children
+
 class GuidanceBlock extends React.Component<
   GuidanceBlockProps,
   GuidanceBlockState
@@ -69,6 +80,38 @@ class GuidanceBlock extends React.Component<
       this.setState({ removed: true })
     }
   }
+
+  renderActions = (
+    actions: GuidanceBlockActions,
+    withActionButtonArrow?: boolean
+  ) => (
+    <div
+      className={classnames(styles.buttonContainer, {
+        [styles.secondaryAction]: actions?.secondary,
+      })}
+    >
+      <ConditionalWrapper
+        condition={!!actions.primary.tooltip}
+        wrapper={children => (
+          <Tooltip text={actions.primary.tooltip} position="above">
+            {children}
+          </Tooltip>
+        )}
+      >
+        <Button
+          icon={withActionButtonArrow ? configureIcon : undefined}
+          iconPosition="end"
+          {...actions.primary}
+        />
+      </ConditionalWrapper>
+
+      {actions?.secondary && (
+        <div className={styles.secondaryAction}>
+          <Button secondary {...actions.secondary} />
+        </div>
+      )}
+    </div>
+  )
 
   render(): JSX.Element | null {
     if (this.state.removed) {
@@ -107,25 +150,7 @@ class GuidanceBlock extends React.Component<
             {text.description}
           </Paragraph>
         </div>
-        {actions?.primary ? (
-          <div
-            className={classnames(styles.buttonContainer, {
-              [styles.secondaryAction]: actions?.secondary,
-            })}
-          >
-            <Button
-              icon={withActionButtonArrow ? configureIcon : undefined}
-              iconPosition="end"
-              {...actions.primary}
-            />
-
-            {actions?.secondary && (
-              <div className={styles.secondaryAction}>
-                <Button secondary {...actions.secondary} />
-              </div>
-            )}
-          </div>
-        ) : null}
+        {actions?.primary && this.renderActions(actions, withActionButtonArrow)}
         {!persistent && <CancelButton onClick={this.dismissBanner} />}
       </div>
     )
