@@ -392,7 +392,7 @@ describe("<TitleBlockZen />", () => {
       expect(menuItem.textContent).toEqual(defaultActionAsLinkAndOnClick.label)
       fireEvent.click(menuItem)
       await waitFor(() => {
-        expect(testOnClickFn).toHaveBeenCalled()
+        expect(testOnClickFn).not.toHaveBeenCalled()
       })
     })
   })
