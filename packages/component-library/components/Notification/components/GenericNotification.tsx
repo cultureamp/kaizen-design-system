@@ -55,7 +55,11 @@ class GenericNotification extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    requestAnimationFrame(() => this.setState({ hidden: false }))
+    requestAnimationFrame(() => {
+      if (this.containerRef.current) {
+        this.setState({ hidden: false })
+      }
+    })
 
     if (["toast", "inline"].includes(this.props.style) && this.props.autohide) {
       setTimeout(this.hide, this.autohideDelayMs())
