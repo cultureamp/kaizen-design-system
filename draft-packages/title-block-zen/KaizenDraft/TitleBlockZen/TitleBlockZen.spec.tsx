@@ -529,7 +529,7 @@ describe("<TitleBlockZen />", () => {
 
     const secondaryActionWithOnClick = {
       label: "secondaryActionLabel",
-      onClick: "secondaryActionHref",
+      onClick: testOnClickFn,
       disabled: true,
     }
 
