@@ -202,6 +202,27 @@ Reversed.parameters = {
   },
 }
 
+export const DataVariant = () => (
+  <Container>
+    <TableContainer variant="data">
+      <TableHeader>
+        <ExampleTableHeaderRow />
+      </TableHeader>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+
+DataVariant.storyName = "Data Variant"
+
 export const Clickable = () => (
   <Container>
     <TableContainer>

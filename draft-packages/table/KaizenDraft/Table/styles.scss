@@ -10,6 +10,7 @@
 // we need control of the x and y offset in this component
 $box-shadow-color-sm: rgba(53, 55, 74, 0.09);
 $row-height: 60px;
+$row-height-data-variant: 48px;
 
 .anchorReset {
   text-decoration: none;
@@ -217,6 +218,10 @@ $row-height: 60px;
 
   .defaultSpacing & {
     padding: $kz-var-spacing-sm $kz-var-spacing-md;
+  }
+
+  .dataVariant & {
+    min-height: $row-height-data-variant;
   }
 }
 
