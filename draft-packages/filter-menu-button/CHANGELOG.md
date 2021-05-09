@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.61](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-filter-menu-button@1.1.60...@kaizen/draft-filter-menu-button@1.1.61) (2021-05-05)
+
+**Note:** Version bump only for package @kaizen/draft-filter-menu-button
+
+
+
+
+
+## [1.1.60](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-filter-menu-button@1.1.59...@kaizen/draft-filter-menu-button@1.1.60) (2021-05-05)
+
+**Note:** Version bump only for package @kaizen/draft-filter-menu-button
+
+
+
+
+
 ## [1.1.59](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-filter-menu-button@1.1.58...@kaizen/draft-filter-menu-button@1.1.59) (2021-05-05)
 
 **Note:** Version bump only for package @kaizen/draft-filter-menu-button
