@@ -23,6 +23,10 @@ import {
   noTransitiveTokensRule,
   noTransitiveTokensRuleName,
 } from "./rules/no-transitive-tokens"
+import {
+  useDeprecatedComponentLibraryHelpersScssImportsRuleName,
+  useDeprecatedComponentLibraryHelpersScssImportsRule,
+} from "./rules/use-deprecated-component-library-helpers-scss-imports"
 import { StylelintPluginOptions, StyleLintRule } from "./types"
 
 const rules: StyleLintRule[] = [
@@ -49,6 +53,14 @@ const rules: StyleLintRule[] = [
   {
     name: noDeprecatedTokensRuleName,
     ruleFunction: noDeprecatedTokensRule,
+  },
+  {
+    name: noDeprecatedTokensRuleName,
+    ruleFunction: noDeprecatedTokensRule,
+  },
+  {
+    name: useDeprecatedComponentLibraryHelpersScssImportsRuleName,
+    ruleFunction: useDeprecatedComponentLibraryHelpersScssImportsRule,
   },
 ]
 

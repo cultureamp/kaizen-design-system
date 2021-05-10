@@ -53,3 +53,12 @@ export const transitiveKaizenTokenUsage = (
   nameOfVariableThatContainsKaizen: string
 ) =>
   `Variable ${nameOfVariableThatContainsKaizen} contains a Kaizen token, and is not allowed because it prevents other rules from detecting invalid kaizen tokens`
+
+export const deprecatedComponentLibraryColorImport =
+  "@kaizen/component-library/styles/color.scss has been deprecated"
+
+export const deprecatedComponentLibraryTypeImport =
+  "@kaizen/component-library/styles/type.scss has been deprecated"
+
+export const deprecatedComponentLibraryLayoutImport =
+  "@kaizen/component-library/styles/layout.scss has been deprecated"
