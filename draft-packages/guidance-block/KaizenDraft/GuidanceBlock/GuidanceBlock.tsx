@@ -1,5 +1,6 @@
 import { Button, ButtonProps } from "@kaizen/draft-button"
 import { Heading, Icon, Paragraph } from "@kaizen/component-library"
+import { SpotProps } from "@kaizen/draft-illustration"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import classnames from "classnames"
@@ -7,10 +8,12 @@ import * as React from "react"
 import styles from "./GuidanceBlock.scss"
 
 export type GuidanceBlockProps = {
-  img: {
-    src: string
-    alt: string
-  }
+  img:
+    | {
+        src: string
+        alt: string
+      }
+    | React.ReactElement<SpotProps>
   text: {
     title: string
     description: string | React.ReactNode
@@ -68,6 +71,23 @@ class GuidanceBlock extends React.Component<
     }
   }
 
+  renderImage() {
+    const { img } = this.props
+    if ("src" in img) {
+      return (
+        <div className={styles.iconWrapper}>
+          <img src={img.src} alt={img.alt} height="155px" width="155px" />
+        </div>
+      )
+    } else {
+      return (
+        <div className={styles.iconWrapper}>
+          <div className={styles.spotWrapper}>{img}</div>
+        </div>
+      )
+    }
+  }
+
   render(): JSX.Element | null {
     if (this.state.removed) {
       return null
@@ -75,7 +95,6 @@ class GuidanceBlock extends React.Component<
 
     const {
       actions,
-      img,
       text,
       persistent,
       withActionButtonArrow,
@@ -91,9 +110,7 @@ class GuidanceBlock extends React.Component<
         ref={this.containerRef}
         onTransitionEnd={this.onTransitionEnd}
       >
-        <div className={styles.iconWrapper}>
-          <img src={img.src} alt={img.alt} height="155px" width="155px" />
-        </div>
+        <div className={styles.iconWrapper}>{this.renderImage()}</div>
 
         <div className={styles.descriptionContainer}>
           <div className={styles.headingWrapper}>

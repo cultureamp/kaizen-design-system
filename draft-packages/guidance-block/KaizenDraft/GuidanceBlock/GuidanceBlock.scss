@@ -61,6 +61,12 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
   }
 }
 
+.spotWrapper {
+  width: 155px;
+  height: 155px;
+  margin: auto;
+}
+
 .descriptionContainer {
   flex: 0 1 auto;
   margin: ($ca-grid / 2) 0;
