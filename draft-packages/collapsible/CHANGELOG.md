@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.2.4...@kaizen/draft-collapsible@2.2.5) (2021-05-05)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [2.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.2.3...@kaizen/draft-collapsible@2.2.4) (2021-05-04)
+
+
+### Bug Fixes
+
+* border radius on collapsible component ([#1526](https://github.com/cultureamp/kaizen-design-system/issues/1526)) ([7118e47](https://github.com/cultureamp/kaizen-design-system/commit/7118e47c06226add5a7d5aaa80392dc9120d6b6d))
+
+
+
+
+
+## [2.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.2.2...@kaizen/draft-collapsible@2.2.3) (2021-05-03)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
+## [2.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.2.1...@kaizen/draft-collapsible@2.2.2) (2021-04-30)
+
+**Note:** Version bump only for package @kaizen/draft-collapsible
+
+
+
+
+
 ## [2.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.2.0...@kaizen/draft-collapsible@2.2.1) (2021-04-28)
 
 

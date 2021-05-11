@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.6.0...@kaizen/component-library@9.6.1) (2021-05-05)
+
+
+### Bug Fixes
+
+* Pass the missing onHide prop to the toast ([#1546](https://github.com/cultureamp/kaizen-design-system/issues/1546)) ([fdbc426](https://github.com/cultureamp/kaizen-design-system/commit/fdbc426b23d6cb1a1d3e6407323e562d80f982d5)), closes [#1545](https://github.com/cultureamp/kaizen-design-system/issues/1545)
+
+
+
+
+
+# [9.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.5.5...@kaizen/component-library@9.6.0) (2021-05-03)
+
+
+### Features
+
+* add minimise icon ([#1525](https://github.com/cultureamp/kaizen-design-system/issues/1525)) ([45945a5](https://github.com/cultureamp/kaizen-design-system/commit/45945a5fd20098fc38dc8520797bd489fd3d07a9))
+
+
+
+
+
+## [9.5.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.5.4...@kaizen/component-library@9.5.5) (2021-04-30)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
 ## [9.5.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.5.3...@kaizen/component-library@9.5.4) (2021-04-13)
 
 **Note:** Version bump only for package @kaizen/component-library

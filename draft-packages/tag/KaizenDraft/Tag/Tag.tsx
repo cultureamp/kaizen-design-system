@@ -123,7 +123,9 @@ const Tag = (props: TagProps) => {
               onMouseLeave={onMouseLeave}
             >
               <span className={styles.background} />
-              <Icon icon={clearIcon} inheritSize role="img" title="Dismiss" />
+              <div className={styles.iconWrapper}>
+                <Icon icon={clearIcon} inheritSize role="img" title="Dismiss" />
+              </div>
             </span>
           </>
         )}
