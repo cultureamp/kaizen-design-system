@@ -3,6 +3,54 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.0.19...@kaizen/draft-tile@4.0.20) (2021-05-05)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [4.0.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.0.18...@kaizen/draft-tile@4.0.19) (2021-05-05)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [4.0.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.0.17...@kaizen/draft-tile@4.0.18) (2021-05-05)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [4.0.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.0.16...@kaizen/draft-tile@4.0.17) (2021-05-04)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [4.0.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.0.15...@kaizen/draft-tile@4.0.16) (2021-05-03)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [4.0.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.0.14...@kaizen/draft-tile@4.0.15) (2021-04-30)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
 ## [4.0.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.0.13...@kaizen/draft-tile@4.0.14) (2021-04-13)
 
 **Note:** Version bump only for package @kaizen/draft-tile

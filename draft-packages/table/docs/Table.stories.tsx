@@ -28,7 +28,11 @@ const Container: React.FunctionComponent<{
   </div>
 )
 
-const ExampleTableHeaderRow = ({ checkable = false, showHover = false }) => (
+const ExampleTableHeaderRow = ({
+  checkable = false,
+  showHover = false,
+  reversed = false,
+}) => (
   <TableHeaderRow>
     <TableHeaderRowCell
       checkable={checkable}
@@ -42,6 +46,7 @@ const ExampleTableHeaderRow = ({ checkable = false, showHover = false }) => (
       width={4 / 12}
       wrapping="wrap"
       sortingArrowsOnHover={showHover ? "descending" : undefined}
+      reversed={reversed}
     />
     <TableHeaderRowCell
       onClick={() => alert("Sort!")}
@@ -49,6 +54,7 @@ const ExampleTableHeaderRow = ({ checkable = false, showHover = false }) => (
       width={4 / 12}
       wrapping="wrap"
       sortingArrowsOnHover={showHover ? "descending" : undefined}
+      reversed={reversed}
     />
     <TableHeaderRowCell
       labelText="Date"
@@ -56,6 +62,7 @@ const ExampleTableHeaderRow = ({ checkable = false, showHover = false }) => (
       onClick={() => alert("Sort!")}
       wrapping="wrap"
       sortingArrowsOnHover={showHover ? "descending" : undefined}
+      reversed={reversed}
     />
     <TableHeaderRowCell
       labelText="Comments"
@@ -63,6 +70,7 @@ const ExampleTableHeaderRow = ({ checkable = false, showHover = false }) => (
       onClick={() => alert("Sort!")}
       wrapping="wrap"
       sortingArrowsOnHover={showHover ? "descending" : undefined}
+      reversed={reversed}
     />
   </TableHeaderRow>
 )
@@ -167,6 +175,53 @@ export const Multiline = () => (
     </TableContainer>
   </Container>
 )
+
+export const Reversed = () => (
+  <Container>
+    <TableContainer>
+      <TableHeader>
+        <ExampleTableHeaderRow reversed={true} />
+      </TableHeader>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+
+Reversed.storyName = "Reversed"
+Reversed.parameters = {
+  backgrounds: {
+    default: "Wisteria 700",
+  },
+}
+
+export const DataVariant = () => (
+  <Container>
+    <TableContainer variant="data">
+      <TableHeader>
+        <ExampleTableHeaderRow />
+      </TableHeader>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+      <TableCard>
+        <ExampleTableRow expandable={false} />
+      </TableCard>
+    </TableContainer>
+  </Container>
+)
+
+DataVariant.storyName = "Data Variant"
 
 export const Clickable = () => (
   <Container>
