@@ -30,7 +30,7 @@ type LayoutContextType = "sidebarAndContent" | "contentOnly"
 export type EmptyStateProps = {
   id?: string
   automationId?: string
-  headingText: string
+  headingText: string | React.ReactNode
   bodyText: string | React.ReactNode
   straightCorners?: boolean
   illustrationType?: IllustrationType
