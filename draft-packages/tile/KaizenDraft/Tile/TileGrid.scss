@@ -3,9 +3,6 @@
 @import "~@kaizen/component-library/styles/responsive";
 @import "./dimensions";
 
-// Don't change this classname before checking GenericTile.scss in components/.
-// There is a hack in the Tile which depends on this classname in order to make
-// the Tile work with the TileGrid.
 .grid {
   display: grid;
   // the more we shave off the width here,

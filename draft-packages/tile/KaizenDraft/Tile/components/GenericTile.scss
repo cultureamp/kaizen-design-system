@@ -15,7 +15,7 @@ $tilePaddingTop: $kz-var-spacing-xl;
 .tile {
   width: $tileWidth;
 
-  [class*="TileGrid__grid"] & {
+  [data-tile-grid] & {
     width: auto;
   }
 
