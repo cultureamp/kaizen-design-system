@@ -4,6 +4,7 @@ import * as React from "react"
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
 import { assetUrl } from "@kaizen/hosted-assets"
 import { withDesign } from "storybook-addon-designs"
+import { Informative } from "@kaizen/draft-illustration"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
@@ -150,6 +151,23 @@ const Prominent = () => (
   </div>
 )
 
+const WithSpotIllustration = () => (
+  <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
+    <GuidanceBlock
+      img={<Informative alt="" />}
+      text={guidanceBlockText}
+      actions={{
+        primary: {
+          label: "Action",
+          onClick: () => {
+            alert("tada: 🎉")
+          },
+        },
+      }}
+    />
+  </div>
+)
+
 Default.storyName = "Default"
 
 Default.parameters = {
@@ -200,4 +218,5 @@ export {
   Persistent,
   SecondaryAction,
   Prominent,
+  WithSpotIllustration,
 }
