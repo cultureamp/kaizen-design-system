@@ -2,6 +2,7 @@ import { cleanup, render } from "@testing-library/react"
 import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
 import * as ReactTestUtils from "react-dom/test-utils"
+import { Informative } from "@kaizen/draft-illustration"
 import GuidanceBlock from "./GuidanceBlock"
 
 describe("GuidanceBlock", () => {
@@ -141,5 +142,33 @@ describe("GuidanceBlock", () => {
 
     const secondaryAction = container.querySelector(".secondaryAction")
     expect(secondaryAction).not.toBeNull()
+  })
+
+  test("it accepts an img", () => {
+    const { getByAltText } = render(
+      <GuidanceBlock
+        img={{ src: "image/path.png", alt: "This is an image" }}
+        text={{
+          title: "This is the title",
+          description:
+            "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
+        }}
+      />
+    )
+    expect(getByAltText("This is an image")).toBeTruthy()
+  })
+
+  test("it accepts a Spot Illustration", () => {
+    const { getByAltText } = render(
+      <GuidanceBlock
+        img={<Informative alt="This is informative" />}
+        text={{
+          title: "This is the title",
+          description:
+            "Mussum Ipsum, cacilds vidis litro abertis. Suco de cevadiss, é um leite divinis.",
+        }}
+      />
+    )
+    expect(getByAltText("This is informative")).toBeTruthy()
   })
 })
