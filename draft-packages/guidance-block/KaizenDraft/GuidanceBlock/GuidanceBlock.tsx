@@ -74,17 +74,9 @@ class GuidanceBlock extends React.Component<
   renderImage() {
     const { img } = this.props
     if ("src" in img) {
-      return (
-        <div className={styles.iconWrapper}>
-          <img src={img.src} alt={img.alt} height="155px" width="155px" />
-        </div>
-      )
+      return <img src={img.src} alt={img.alt} height="155px" width="155px" />
     } else {
-      return (
-        <div className={styles.iconWrapper}>
-          <div className={styles.spotWrapper}>{img}</div>
-        </div>
-      )
+      return <div className={styles.spotWrapper}>{img}</div>
     }
   }
 
