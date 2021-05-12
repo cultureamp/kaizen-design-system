@@ -154,7 +154,6 @@ const Prominent = () => (
 const WithSpotIllustration = () => (
   <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
     <GuidanceBlock
-      img={<Informative alt="" />}
       text={guidanceBlockText}
       actions={{
         primary: {
@@ -164,6 +163,7 @@ const WithSpotIllustration = () => (
           },
         },
       }}
+      illustration={"Informative"}
     />
   </div>
 )

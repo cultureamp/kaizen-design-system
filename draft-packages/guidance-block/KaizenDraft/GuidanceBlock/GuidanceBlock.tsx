@@ -1,19 +1,20 @@
 import { Button, ButtonProps } from "@kaizen/draft-button"
 import { Heading, Icon, Paragraph } from "@kaizen/component-library"
-import { SpotProps } from "@kaizen/draft-illustration"
+import { SpotIllustration } from "@kaizen/draft-illustration"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import classnames from "classnames"
 import * as React from "react"
 import styles from "./GuidanceBlock.scss"
+import LazySpotIllustration from "./LazySpotIllustration"
+import LazySpotIllustrationErrorBoundary from "./LazySpotIllustrationErrorBoundary"
 
 export type GuidanceBlockProps = {
-  img:
-    | {
-        src: string
-        alt: string
-      }
-    | React.ReactElement<SpotProps>
+  img?: {
+    src: string
+    alt: string
+  }
+
   text: {
     title: string
     description: string | React.ReactNode
@@ -29,6 +30,7 @@ export type GuidanceBlockProps = {
   variant?: "default" | "prominent"
   withActionButtonArrow?: boolean
   noMaxWidth?: boolean
+  illustration?: SpotIllustration
 }
 
 export type GuidanceBlockState = {
@@ -71,15 +73,6 @@ class GuidanceBlock extends React.Component<
     }
   }
 
-  renderImage() {
-    const { img } = this.props
-    if ("src" in img) {
-      return <img src={img.src} alt={img.alt} height="155px" width="155px" />
-    } else {
-      return <div className={styles.spotWrapper}>{img}</div>
-    }
-  }
-
   render(): JSX.Element | null {
     if (this.state.removed) {
       return null
@@ -88,6 +81,8 @@ class GuidanceBlock extends React.Component<
     const {
       actions,
       text,
+      img,
+      illustration,
       persistent,
       withActionButtonArrow,
       noMaxWidth,
@@ -102,7 +97,27 @@ class GuidanceBlock extends React.Component<
         ref={this.containerRef}
         onTransitionEnd={this.onTransitionEnd}
       >
-        <div className={styles.iconWrapper}>{this.renderImage()}</div>
+        {illustration ? (
+          <div className={styles.iconWrapper}>
+            <div className={styles.spotWrapper}>
+              <React.Suspense fallback={<Placeholder />}>
+                <LazySpotIllustrationErrorBoundary>
+                  <LazySpotIllustration illustration={illustration} />
+                </LazySpotIllustrationErrorBoundary>
+              </React.Suspense>
+            </div>
+          </div>
+        ) : img ? (
+          <div className={styles.iconWrapper}>
+            <img src={img.src} alt={img.alt} height="155px" width="155px" />
+          </div>
+        ) : (
+          <div className={styles.iconWrapper}>
+            <div className={styles.spotWrapper}>
+              <Placeholder />
+            </div>
+          </div>
+        )}
 
         <div className={styles.descriptionContainer}>
           <div className={styles.headingWrapper}>
@@ -165,6 +180,12 @@ const CancelButton = ({ onClick }: CancelButtonProps) => (
       <Icon icon={closeIcon} role="img" title="close notification" />
     </span>
   </button>
+)
+
+const Placeholder = () => (
+  <svg height="155" width="155" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0" y="0" width="155" height="155" fill="#f9f9f9" />
+  </svg>
 )
 
 export default GuidanceBlock
