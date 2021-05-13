@@ -234,7 +234,7 @@ export const SecondaryWithBadge = args => (
     label="Label"
     icon={filterIcon}
     secondary={true}
-    badge={{ text: "3" }}
+    badge={{ text: "3", variant: "active" }}
     workingLabelHidden
     {...args}
   />
@@ -256,7 +256,7 @@ export const SecondaryWithBadgeDisabled = args => (
     label="Label"
     icon={filterIcon}
     secondary={true}
-    badge={{ text: "3" }}
+    badge={{ text: "3", variant: "active" }}
     workingLabelHidden
     {...args}
   />
@@ -667,7 +667,7 @@ export const ReversedSecondaryWithBadge = args => (
     label="Label"
     icon={filterIcon}
     secondary={true}
-    badge={{ text: "3" }}
+    badge={{ text: "3", reversed: true, variant: "default" }}
     workingLabelHidden
     {...args}
   />
