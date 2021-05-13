@@ -4,6 +4,14 @@ import * as React from "react"
 import * as ReactTestUtils from "react-dom/test-utils"
 import GuidanceBlock from "./GuidanceBlock"
 
+window.matchMedia = jest.fn().mockImplementation(() => ({
+  matches: false,
+  media: "",
+  onchange: null,
+  addListener: jest.fn(),
+  removeListener: jest.fn(),
+}))
+
 describe("GuidanceBlock", () => {
   afterEach(cleanup)
 
