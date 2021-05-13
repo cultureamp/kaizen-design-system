@@ -1,8 +1,7 @@
-import { cleanup, render } from "@testing-library/react"
+import { cleanup, render, waitFor } from "@testing-library/react"
 import { fireEvent } from "@testing-library/dom"
 import * as React from "react"
 import * as ReactTestUtils from "react-dom/test-utils"
-import { Informative } from "@kaizen/draft-illustration"
 import GuidanceBlock from "./GuidanceBlock"
 
 describe("GuidanceBlock", () => {
@@ -158,10 +157,10 @@ describe("GuidanceBlock", () => {
     expect(getByAltText("This is an image")).toBeTruthy()
   })
 
-  test("it accepts a Spot Illustration", () => {
-    const { getByAltText } = render(
+  test("it accepts a Spot Illustration", async () => {
+    const { container, debug } = render(
       <GuidanceBlock
-        img={<Informative alt="This is informative" />}
+        illustration={"Informative"}
         text={{
           title: "This is the title",
           description:
@@ -169,6 +168,19 @@ describe("GuidanceBlock", () => {
         }}
       />
     )
-    expect(getByAltText("This is informative")).toBeTruthy()
+
+    /*
+      This is bad, we're checking the src of the Spot, which:
+        * is liable to change
+        * checks the theme before choosing an image
+      But for now the test passes at least
+    */
+    await waitFor(() => {
+      expect(
+        container.querySelector(
+          "img[src*='illustrations/spot/moods-informative.svg']"
+        )
+      ).toBeTruthy()
+    })
   })
 })
