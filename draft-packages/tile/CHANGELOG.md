@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.1.0...@kaizen/draft-tile@4.1.1) (2021-05-11)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+# [4.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.0.20...@kaizen/draft-tile@4.1.0) (2021-05-11)
+
+
+### Features
+
+* Make tiles flexy when used in TileGrid ([#1518](https://github.com/cultureamp/kaizen-design-system/issues/1518)) ([a9b9f98](https://github.com/cultureamp/kaizen-design-system/commit/a9b9f98f91f064e068a621cb49243c0b2ee265f0))
+
+
+
+
+
+## [4.0.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.0.19...@kaizen/draft-tile@4.0.20) (2021-05-05)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [4.0.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.0.18...@kaizen/draft-tile@4.0.19) (2021-05-05)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [4.0.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.0.17...@kaizen/draft-tile@4.0.18) (2021-05-05)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
 ## [4.0.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.0.16...@kaizen/draft-tile@4.0.17) (2021-05-04)
 
 **Note:** Version bump only for package @kaizen/draft-tile

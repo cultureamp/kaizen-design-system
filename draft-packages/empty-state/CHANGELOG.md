@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.1.19...@kaizen/draft-empty-state@2.1.20) (2021-05-10)
+
+
+### Bug Fixes
+
+* Allow react nodes for heading text ([#1561](https://github.com/cultureamp/kaizen-design-system/issues/1561)) ([496c001](https://github.com/cultureamp/kaizen-design-system/commit/496c001e168fb91e0b6500e3ad56e1556a92e0c5))
+
+
+
+
+
+## [2.1.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.1.18...@kaizen/draft-empty-state@2.1.19) (2021-05-05)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
 ## [2.1.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.1.17...@kaizen/draft-empty-state@2.1.18) (2021-05-03)
 
 **Note:** Version bump only for package @kaizen/draft-empty-state

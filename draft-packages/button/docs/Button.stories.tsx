@@ -234,7 +234,7 @@ export const SecondaryWithBadge = args => (
     label="Label"
     icon={filterIcon}
     secondary={true}
-    badge={{ text: "3" }}
+    badge={{ text: "3", variant: "active" }}
     workingLabelHidden
     {...args}
   />
@@ -256,13 +256,13 @@ export const SecondaryWithBadgeDisabled = args => (
     label="Label"
     icon={filterIcon}
     secondary={true}
-    badge={{ text: "3" }}
+    badge={{ text: "3", variant: "active" }}
     workingLabelHidden
     {...args}
   />
 )
 SecondaryWithBadgeDisabled.story = {
-  name: "Secondary, w/ Badge Disabled",
+  name: "Secondary, w/ Badge, Disabled",
   parameters: {
     design: {
       type: "figma",
@@ -658,6 +658,29 @@ ReversedSecondaryWIconDisabled.story = {
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A16975"
     ),
+  },
+}
+
+export const ReversedSecondaryWithBadge = args => (
+  <Button
+    reversed
+    label="Label"
+    icon={filterIcon}
+    secondary={true}
+    badge={{ text: "3", reversed: true, variant: "default" }}
+    workingLabelHidden
+    {...args}
+  />
+)
+ReversedSecondaryWithBadge.story = {
+  name: "Reversed, Secondary w/ Badge",
+  parameters: {
+    ...reversedBg,
+    design: {
+      type: "figma",
+      url:
+        "https://www.figma.com/file/eZKEE5kXbEMY3lx84oz8iN/%E2%9D%A4%EF%B8%8F-UI-Kit-Heart?node-id=17582%3A671",
+    },
   },
 }
 

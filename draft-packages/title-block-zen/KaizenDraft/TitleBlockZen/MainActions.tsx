@@ -1,12 +1,6 @@
 import { Button, IconButton } from "@kaizen/draft-button"
-import GenericButton, {
-  AdditionalContentProps,
-  GenericProps,
-  LabelProps,
-} from "@kaizen/draft-button/KaizenDraft/Button/components/GenericButton"
 import { Menu, MenuContent, MenuItem, MenuItemProps } from "@kaizen/draft-menu"
 import * as React from "react"
-import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import meatballsIcon from "@kaizen/component-library/icons/meatballs.icon.svg"
 import Toolbar from "./Toolbar"
@@ -14,7 +8,6 @@ import {
   TitleBlockButtonProps,
   isMenuGroupNotButton,
   PrimaryActionProps,
-  BadgeProps,
 } from "./TitleBlockZen"
 
 import styles from "./TitleBlockZen.scss"
@@ -26,19 +19,6 @@ type MainActionsProps = {
   overflowMenuItems?: MenuItemProps[]
   showOverflowMenu?: boolean
 }
-
-const renderBadge = (badge?: BadgeProps) => {
-  if (!badge) return null
-  return badge.animateChange ? (
-    <BadgeAnimated variant="dark">{badge.text}</BadgeAnimated>
-  ) : (
-    <Badge variant="dark">{badge.text}</Badge>
-  )
-}
-
-const ButtonAllowingAdditionalContent = (
-  props: GenericProps & LabelProps & AdditionalContentProps
-) => <GenericButton {...props} />
 
 const MainActions = ({
   primaryAction,
@@ -88,14 +68,21 @@ const MainActions = ({
                 <Menu
                   align="right"
                   button={
-                    <ButtonAllowingAdditionalContent
+                    <Button
                       label={primaryAction.label}
                       primary
                       reversed={reversed}
                       icon={chevronDownIcon}
                       iconPosition="end"
                       data-automation-id="title-block-primary-action-button"
-                      additionalContent={renderBadge(primaryAction.badge)}
+                      badge={
+                        primaryAction.badge
+                          ? {
+                              ...primaryAction.badge,
+                              variant: "dark",
+                            }
+                          : undefined
+                      }
                     />
                   }
                 >
@@ -132,9 +119,7 @@ const MainActions = ({
             {
               key: "primaryAction",
               node: (
-                <ButtonAllowingAdditionalContent
-                  // Temporary grossness before we deprecate a mandatory
-                  // optional field for primary in PrimaryActionProps
+                <Button
                   {...{
                     ...primaryAction,
                     primary:
@@ -147,7 +132,14 @@ const MainActions = ({
                         : reversed,
                   }}
                   data-automation-id="title-block-primary-action-button"
-                  additionalContent={renderBadge(primaryAction.badge)}
+                  badge={
+                    primaryAction.badge
+                      ? {
+                          ...primaryAction.badge,
+                          variant: "dark",
+                        }
+                      : undefined
+                  }
                 />
               ),
             },

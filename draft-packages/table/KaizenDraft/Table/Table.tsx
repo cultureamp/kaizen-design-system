@@ -10,7 +10,7 @@ import styles from "./styles.scss"
 
 type TableContainer = React.FunctionComponent<TableContainerProps>
 type TableContainerProps = {
-  variant?: "compact" | "default"
+  variant?: "compact" | "default" | "data"
 }
 export const TableContainer: TableContainer = ({
   variant = "compact",
@@ -21,6 +21,7 @@ export const TableContainer: TableContainer = ({
     role="table"
     className={classNames(styles.container, {
       [styles.defaultSpacing]: variant === "default",
+      [styles.dataVariant]: variant === "data",
     })}
     {...otherProps}
   >
