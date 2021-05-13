@@ -7,7 +7,7 @@
 @import "~@kaizen/component-library/styles/responsive";
 @import "~@kaizen/component-library/components/Button/styles";
 
-$heightConstraint: 12.25rem;
+$bannerPadding: $kz-var-spacing-sm;
 $ca-banner-fade-out: opacity $kz-var-animation-duration-slow ease;
 $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
   $kz-var-animation-duration-slow ease;
@@ -26,7 +26,7 @@ $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
     $kz-var-border-borderless-border-style
     $kz-var-border-borderless-border-color;
   border-radius: $kz-var-border-solid-border-radius;
-  padding: $kz-var-spacing-sm;
+  padding: $bannerPadding;
   box-shadow: $kz-var-shadow-small-box-shadow;
   position: relative;
   top: -1px;
@@ -34,8 +34,7 @@ $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
   color: $kz-var-color-wisteria-800;
 
   @include ca-media-desktop {
-    min-height: $heightConstraint;
-    box-sizing: border-box;
+    min-height: calc(12rem - calc(#{$bannerPadding} * 2));
     flex-direction: row;
     width: auto;
     align-items: center;
