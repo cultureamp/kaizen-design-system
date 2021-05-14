@@ -1,13 +1,13 @@
 import { Declaration, Root } from "postcss"
 import postcssValueParser, { WordNode } from "postcss-value-parser"
+import { parseVariable } from "../kaizenTokens"
 import {
   kaizenVariableUsedNextToOperatorMessage,
   negatedKaizenVariableMessage,
   tokenNotInterpolatedInCalcMessage,
 } from "../messages"
-import { isOperator } from "../patterns"
 import { Options } from "../types"
-import { isVariable, parseVariable, stringifyVariable } from "../variableUtils"
+import { isOperator, isVariable, stringifySassVariable } from "../variableUtils"
 import { walkDeclsWithKaizenTokens, walkWithParent } from "../walkers"
 
 export const noInvalidEquationsRuleName = "no-invalid-equations"
@@ -43,7 +43,7 @@ export const noInvalidEquationsOnDeclaraion = (
             // just wrap the value in brackets if we're already in a calc function
             const fixedVariable = `${
               isWithinCalcFunction ? "" : "calc"
-            }(-1 * ${stringifyVariable({
+            }(-1 * ${stringifySassVariable({
               ...parsedVariable,
               interpolated: true,
               negated: false,
@@ -93,7 +93,7 @@ export const noInvalidEquationsOnDeclaraion = (
                 !isVariable(postcssNode)
               ) {
                 if (variableInEquation?.kaizenToken) {
-                  variableInEquation.node.value = stringifyVariable({
+                  variableInEquation.node.value = stringifySassVariable({
                     ...variableInEquation,
                     interpolated: true,
                   })

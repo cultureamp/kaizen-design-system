@@ -6,6 +6,7 @@ import {
   deprecatedSassFunctionsSource,
   kaizenTokensByName,
   kaizenTokensSassVariablesWithInlineCSSVariableValues,
+  parseVariable,
 } from "../kaizenTokens"
 import {
   invalidRgbaUsage,
@@ -20,7 +21,6 @@ import { getParser, variablePrefixForLanguage } from "../utils"
 import {
   getLexicallyClosestVariables,
   isVariable,
-  parseVariable,
   stringifyStylesheetVariables,
 } from "../variableUtils"
 import { walkDeclsWithKaizenTokens } from "../walkers"

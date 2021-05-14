@@ -1,6 +1,10 @@
 import { Root } from "postcss"
 import postcssValueParser from "postcss-value-parser"
 import {
+  getReplacementForDeprecatedToken,
+  replaceTokenInVariable,
+} from "../kaizenTokens"
+import {
   cantFindReplacementTokenForDeprecatedMessage,
   cantUseTokenInAtRuleParamsMessage,
   deprecatedTokenUsageMessage,
@@ -8,12 +12,7 @@ import {
   invalidEquationContainingDeprecatedTokenMessage,
 } from "../messages"
 import { Options } from "../types"
-import {
-  getReplacementForDeprecatedToken,
-  isVariable,
-  replaceTokenInVariable,
-  stringifyVariable,
-} from "../variableUtils"
+import { isVariable, stringifySassVariable } from "../variableUtils"
 import { walkDeclsWithKaizenTokens, walkVariablesOnValue } from "../walkers"
 import { declContainsInvalidEquations } from "./no-invalid-equations"
 import { declContainsInvalidFunctions } from "./no-invalid-functions"
@@ -100,7 +99,7 @@ export const noDeprecatedTokensRule = (
             }
 
             if (options.fix && !isVariable(decl)) {
-              node.value = stringifyVariable(
+              node.value = stringifySassVariable(
                 replaceTokenInVariable(variable, replacementToken)
               )
               newValue = postcssValueParser.stringify(parsedValue.nodes)
