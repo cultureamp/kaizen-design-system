@@ -2,9 +2,9 @@ import colorString from "color-string"
 import { Root } from "postcss"
 import valueParser from "postcss-value-parser"
 import stylelint from "stylelint"
-import { inverseKaizenTokens } from "../../kaizenTokens"
-import { KaizenToken, Options } from "../../types"
-import { prefixVariableName } from "../../variableUtils"
+import { inverseKaizenTokens } from "../kaizenTokens"
+import { KaizenToken, Options } from "../types"
+import { prefixVariableName } from "../variableUtils"
 
 const colorMap = Object.entries(inverseKaizenTokens).reduce(
   (acc, [_, value]) => {

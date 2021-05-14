@@ -23,6 +23,10 @@ import {
   noTransitiveTokensRule,
   noTransitiveTokensRuleName,
 } from "./rules/no-transitive-tokens"
+import {
+  colorsPreferTokenRule,
+  colorsPreferTokenRuleName,
+} from "./rules/colors-prefer-token"
 import { StylelintPluginOptions, StyleLintRule } from "./types"
 
 const rules: StyleLintRule[] = [
@@ -49,6 +53,10 @@ const rules: StyleLintRule[] = [
   {
     name: noDeprecatedTokensRuleName,
     ruleFunction: noDeprecatedTokensRule,
+  },
+  {
+    name: colorsPreferTokenRuleName,
+    ruleFunction: colorsPreferTokenRule,
   },
 ]
 

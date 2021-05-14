@@ -3,7 +3,7 @@ import {
   messages,
   colorsPreferTokenRuleName,
   colorsPreferTokenRule,
-} from "./colours"
+} from "./colors-prefer-token"
 
 const tests = {
   accept: [
