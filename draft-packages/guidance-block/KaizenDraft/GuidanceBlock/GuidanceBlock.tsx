@@ -1,10 +1,27 @@
+import * as React from "react"
+
 import { Button, ButtonProps } from "@kaizen/draft-button"
-import { Heading, Icon, Paragraph } from "@kaizen/component-library"
+import { Box, Heading, Icon, Paragraph } from "@kaizen/component-library"
 import configureIcon from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import classnames from "classnames"
-import * as React from "react"
-import styles from "./GuidanceBlock.scss"
+import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
+import { MOBILE_QUERY } from "@kaizen/component-library/components/NavigationBar/constants"
+import Media from "react-media"
+
+const styles = require("./GuidanceBlock.scss")
+
+export type ActionProps = ButtonProps & {
+  tooltip?: TooltipProps
+}
+
+type GuidanceBlockActions = {
+  primary: ActionProps
+  secondary?: ActionProps
+  dismiss?: {
+    onClick: () => void
+  }
+}
 
 export type GuidanceBlockProps = {
   img: {
@@ -15,13 +32,7 @@ export type GuidanceBlockProps = {
     title: string
     description: string | React.ReactNode
   }
-  actions?: {
-    primary: ButtonProps
-    secondary?: ButtonProps
-    dismiss?: {
-      onClick: () => void
-    }
-  }
+  actions?: GuidanceBlockActions
   persistent?: boolean
   variant?: "default" | "prominent"
   withActionButtonArrow?: boolean
@@ -32,6 +43,22 @@ export type GuidanceBlockState = {
   hidden: boolean
   removed: boolean
 }
+
+type WithTooltipProps = {
+  children: React.ReactNode
+  tooltipProps?: TooltipProps
+}
+
+const WithTooltip: React.FunctionComponent<WithTooltipProps> = ({
+  tooltipProps,
+  children,
+}) =>
+  !!tooltipProps ? (
+    <Tooltip {...tooltipProps}>{children}</Tooltip>
+  ) : (
+    <>{children}</>
+  )
+
 class GuidanceBlock extends React.Component<
   GuidanceBlockProps,
   GuidanceBlockState
@@ -68,6 +95,44 @@ class GuidanceBlock extends React.Component<
     }
   }
 
+  renderActions = (
+    actions: GuidanceBlockActions,
+    withActionButtonArrow?: boolean
+  ) => (
+    <Media query={MOBILE_QUERY}>
+      {isMobile => (
+        <Box mr={isMobile ? 0 : 0.5}>
+          <div
+            className={classnames(styles.buttonContainer, {
+              [styles.secondaryAction]: actions?.secondary,
+            })}
+          >
+            <WithTooltip tooltipProps={actions.primary.tooltip}>
+              <Button
+                icon={withActionButtonArrow ? configureIcon : undefined}
+                iconPosition="end"
+                {...actions.primary}
+                fullWidth={isMobile}
+              />
+            </WithTooltip>
+
+            {actions?.secondary && (
+              <WithTooltip tooltipProps={actions.secondary.tooltip}>
+                <div className={styles.secondaryAction}>
+                  <Button
+                    secondary
+                    {...actions.secondary}
+                    fullWidth={isMobile}
+                  />
+                </div>
+              </WithTooltip>
+            )}
+          </div>
+        </Box>
+      )}
+    </Media>
+  )
+
   render(): JSX.Element | null {
     if (this.state.removed) {
       return null
@@ -97,7 +162,7 @@ class GuidanceBlock extends React.Component<
 
         <div className={styles.descriptionContainer}>
           <div className={styles.headingWrapper}>
-            <Heading tag="h3" variant="heading-4">
+            <Heading tag="h3" variant="heading-3">
               {text.title}
             </Heading>
           </div>
@@ -105,25 +170,7 @@ class GuidanceBlock extends React.Component<
             {text.description}
           </Paragraph>
         </div>
-        {actions?.primary ? (
-          <div
-            className={classnames(styles.buttonContainer, {
-              [styles.secondaryAction]: actions?.secondary,
-            })}
-          >
-            <Button
-              icon={withActionButtonArrow ? configureIcon : undefined}
-              iconPosition="end"
-              {...actions.primary}
-            />
-
-            {actions?.secondary && (
-              <div className={styles.secondaryAction}>
-                <Button secondary {...actions.secondary} />
-              </div>
-            )}
-          </div>
-        ) : null}
+        {actions?.primary && this.renderActions(actions, withActionButtonArrow)}
         {!persistent && <CancelButton onClick={this.dismissBanner} />}
       </div>
     )
