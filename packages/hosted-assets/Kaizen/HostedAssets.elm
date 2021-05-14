@@ -1,4 +1,8 @@
-module Kaizen.HostedAssets exposing (assetUrl)
+module Kaizen.HostedAssets exposing (Role(..), assetUrl, image)
+
+import Html exposing (Html, img)
+import Html.Attributes exposing (src)
+import Html.Attributes.Aria as Aria exposing (ariaHidden, ariaLabelledby)
 
 
 originBaseUrl =
@@ -17,3 +21,23 @@ assetUrl "some/blob.png" -> "<https://<origin>/some/blob.png">
 assetUrl : String -> String
 assetUrl path =
     [ originBaseUrl, path ] |> String.join "/"
+
+
+type Role
+    = Presentation
+
+
+image : String -> Role -> Html msg
+image assetPath role =
+    img
+        ((src <| assetUrl assetPath) :: a11yAttributes role)
+        []
+
+
+a11yAttributes : Role -> List (Html.Attribute msg)
+a11yAttributes role =
+    case role of
+        Presentation ->
+            [ Aria.role "presentation"
+            , ariaHidden True
+            ]

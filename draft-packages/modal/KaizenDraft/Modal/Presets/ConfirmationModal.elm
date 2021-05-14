@@ -27,10 +27,13 @@ module KaizenDraft.Modal.Presets.ConfirmationModal exposing
     )
 
 import CssModules exposing (css)
-import Html exposing (Html, div, text)
+import Html exposing (Html, div, img, text)
+import Html.Attributes exposing (src)
+import Html.Attributes.Aria as Aria exposing (ariaHidden, ariaLabelledby)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
 import Json.Decode as Decode
+import Kaizen.HostedAssets exposing (Role(..), assetUrl, image)
 import KaizenDraft.Button.Button as Button
 import KaizenDraft.Modal.Primitives.Constants as Constants
 import KaizenDraft.Modal.Primitives.ModalBody as ModalBody
@@ -192,7 +195,7 @@ view (Config config) =
                 |> withHeaderDismissId
                 |> withPreventHeaderDismissKeydown
                 |> ModalHeader.dismissReverse False
-            ) 
+            )
         , withBody
         , ModalFooter.view <|
             (ModalFooter.layout (footer config)
@@ -206,19 +209,27 @@ view (Config config) =
 header : Configuration msg -> Html msg
 header config =
     let
-        resolveIcon =
+        resolveImage =
             case config.variant of
                 Cautionary ->
-                    svgAsset "@kaizen/draft-modal/KaizenDraft/Modal/illustrations/cautionary.icon.svg"
+                    image
+                        "illustrations/heart/spot/moods-cautionary.svg"
+                        Presentation
 
                 Informative ->
-                    svgAsset "@kaizen/draft-modal/KaizenDraft/Modal/illustrations/informative.icon.svg"
+                    image
+                        "illustrations/heart/spot/moods-informative.svg"
+                        Presentation
 
                 Negative ->
-                    svgAsset "@kaizen/draft-modal/KaizenDraft/Modal/illustrations/negative.icon.svg"
+                    image
+                        "illustrations/heart/spot/moods-negative.svg"
+                        Presentation
 
                 Positive ->
-                    svgAsset "@kaizen/draft-modal/KaizenDraft/Modal/illustrations/positive.icon.svg"
+                    image
+                        "illustrations/heart/spot/moods-positive.svg"
+                        Presentation
     in
     div
         [ styles.classList
@@ -231,9 +242,7 @@ header config =
         ]
         [ div [ styles.class .iconContainer ]
             [ div [ styles.class .svgIcon ]
-                [ Icon.view Icon.presentation
-                    resolveIcon
-                    |> Html.map never
+                [ resolveImage
                 ]
             ]
         , Text.view (Text.h1 |> Text.style Text.ZenHeading1 |> Text.inline True |> Text.id Constants.ariaLabelledBy) [ text config.title ]
