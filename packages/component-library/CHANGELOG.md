@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [9.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.6.1...@kaizen/component-library@9.7.0) (2021-05-13)
+
+
+### Features
+
+* Add tooltip to guidanceblock action ([#1541](https://github.com/cultureamp/kaizen-design-system/issues/1541)) ([6930545](https://github.com/cultureamp/kaizen-design-system/commit/69305459c8d00e9b8f67a985f8d3acade0e72332))
+
+
+
+
+
 ## [9.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.6.0...@kaizen/component-library@9.6.1) (2021-05-05)
 
 

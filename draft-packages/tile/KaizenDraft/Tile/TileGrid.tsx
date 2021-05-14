@@ -12,18 +12,10 @@ export interface TileGridProps {
   children: TileElement[] | TileElement
 }
 
-const TileGrid: React.FunctionComponent<TileGridProps> = ({ children }) => {
-  const renderChildren = () => {
-    const childrenArray = React.Children.toArray(children)
-
-    if (childrenArray.length > 1) {
-      return childrenArray.map((child, idx) => <div key={idx}>{child}</div>)
-    } else {
-      return children
-    }
-  }
-
-  return <div className={styles.grid}>{renderChildren()}</div>
-}
+const TileGrid: React.FunctionComponent<TileGridProps> = ({ children }) => (
+  <div className={styles.grid} data-tile-grid>
+    {children}
+  </div>
+)
 
 export default TileGrid

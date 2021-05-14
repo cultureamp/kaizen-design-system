@@ -10,7 +10,7 @@ import React, {
   FocusEvent,
   MouseEvent,
 } from "react"
-import { Badge } from "@kaizen/draft-badge"
+import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 
 import styles from "./GenericButton.module.scss"
 
@@ -79,6 +79,9 @@ type Props = ButtonProps & {
 
 type BadgeProps = {
   text: string
+  animateChange?: boolean
+  variant?: "default" | "dark" | "active"
+  reversed?: boolean
 }
 
 export type ButtonRef = { focus: () => void }
@@ -305,15 +308,22 @@ const renderDefaultContent = (props: Props) => (
 )
 
 const renderBadge = (props: Props) => {
-  if (props.badge) {
-    const { text } = props.badge
-    const variant = props.reversed ? "default" : "active"
+  if (!props.badge) return null
+
+  const { text, animateChange, reversed, variant } = props.badge
+
+  if (animateChange) {
     return (
-      <Badge variant={variant} reversed={props.reversed}>
+      <BadgeAnimated variant={variant} reversed={reversed}>
         {text}
-      </Badge>
+      </BadgeAnimated>
     )
   }
+  return (
+    <Badge variant={variant} reversed={reversed}>
+      {text}
+    </Badge>
+  )
 }
 
 const renderContent: React.FunctionComponent<Props> = props => (

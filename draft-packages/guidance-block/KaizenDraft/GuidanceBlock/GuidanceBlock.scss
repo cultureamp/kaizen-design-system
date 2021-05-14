@@ -1,16 +1,16 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/shadow-vars";
-@import "~@kaizen/deprecated-component-library-helpers/styles/layout";
-@import "~@kaizen/component-library/styles/border";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
+@import "~@kaizen/design-tokens/sass/animation-vars";
+@import "~@kaizen/design-tokens/sass/layout-vars";
+@import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/component-library/styles/responsive";
-@import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/components/Button/styles";
-@import "~@kaizen/component-library/components/Icon/Icon.module.scss";
 
-$heightConstraint: $ca-grid * 6;
-$ca-banner-fade-out: opacity $ca-duration-slow ease;
-$ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
-  $ca-duration-slow ease;
+$bannerPadding: $kz-var-spacing-sm;
+$ca-banner-fade-out: opacity $kz-var-animation-duration-slow ease;
+$ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
+  $kz-var-animation-duration-slow ease;
 
 .banner.noMaxWidth {
   max-width: inherit;
@@ -21,12 +21,12 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
   flex-direction: column;
   background: $kz-var-color-white;
   min-width: 320px;
-  max-width: $ca-layout-content-width;
+  max-width: $kz-var-layout-breakpoints-large;
   border: $kz-var-border-borderless-border-width
     $kz-var-border-borderless-border-style
     $kz-var-border-borderless-border-color;
   border-radius: $kz-var-border-solid-border-radius;
-  padding: $ca-grid / 2;
+  padding: $bannerPadding;
   box-shadow: $kz-var-shadow-small-box-shadow;
   position: relative;
   top: -1px;
@@ -34,41 +34,51 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
   color: $kz-var-color-wisteria-800;
 
   @include ca-media-desktop {
-    min-height: $heightConstraint;
+    min-height: calc(12rem - calc(#{$bannerPadding} * 2));
     flex-direction: row;
     width: auto;
     align-items: center;
 
     > * {
-      padding: $ca-grid / 2;
+      padding: $kz-var-spacing-sm;
     }
+  }
+
+  @include ca-media-mobile {
+    min-width: unset;
   }
 }
 
 .iconWrapper {
-  display: none;
+  display: flex;
+  padding: 0 ($kz-var-spacing-sm);
 
   @include ca-media-tablet {
-    display: block;
     text-align: center;
-    padding: $ca-grid / 2;
+    justify-content: center;
+    padding: $kz-var-spacing-sm;
     width: auto;
   }
 
-  @include ca-media-desktop {
-    display: block;
-    padding: 0 ($ca-grid / 2);
+  @include ca-media-mobile {
+    display: none;
   }
 }
 
 .descriptionContainer {
-  flex: 0 1 auto;
-  margin: ($ca-grid / 2) 0;
+  flex: 1;
+  margin: $kz-var-spacing-sm 0;
   text-align: center;
+  max-width: 780px;
 
   @include ca-media-desktop {
-    padding-left: $ca-grid;
+    padding-left: $kz-var-spacing-sm;
     text-align: left;
+  }
+
+  @include ca-media-mobile {
+    margin: $kz-var-spacing-sm;
+    max-width: 100%;
   }
 }
 
@@ -77,23 +87,18 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
   flex: 1 0 auto;
   justify-content: center;
   flex-direction: row-reverse;
-
-  width: 100%;
+  min-width: max-content;
 
   @include ca-media-tablet-and-up {
-    width: auto;
-    padding: ($ca-grid / 2) 0;
+    padding: ($kz-var-spacing-sm) 0;
     text-align: center;
   }
 
-  @include ca-media-desktop {
-    padding: 0 ($ca-grid);
-    margin-top: 0;
+  @include ca-media-mobile {
+    flex-direction: column;
+    width: 100%;
+    margin-top: $kz-var-spacing-xs;
   }
-}
-
-.secondaryAction {
-  margin-right: $ca-grid / 2;
 }
 
 .hidden {
@@ -102,15 +107,15 @@ $ca-banner-collapse-height-delayed: margin-top $ca-duration-fast
 }
 
 .headingWrapper {
-  margin-bottom: $ca-grid / 4;
+  margin-bottom: $kz-var-spacing-md;
 }
 
 .cancel {
   @include button-reset;
   composes: interactiveIconWrapper from "~@kaizen/component-library/components/Icon/Icon.module.scss";
   position: absolute;
-  top: $ca-grid / 2;
-  right: $ca-grid / 2;
+  top: $kz-var-spacing-sm;
+  right: $kz-var-spacing-sm;
   color: $kz-var-color-wisteria-800;
 }
 

@@ -95,6 +95,26 @@ export const MultiActionWithInformation = () => (
 
 MultiActionWithInformation.storyName = "Multi action tile with information"
 
+export const MultiActionActionInNewTabs = () => (
+  <MultiActionTile
+    title="Tile heading"
+    metadata="Metadata"
+    primaryAction={{
+      ...primaryAction,
+      href: "https://www.cultureamp.com",
+      newTabAndIUnderstandTheAccessibilityImplications: true,
+    }}
+    secondaryAction={{
+      ...secondaryAction,
+      href: "https://www.cultureamp.com",
+      newTabAndIUnderstandTheAccessibilityImplications: true,
+    }}
+  />
+)
+
+MultiActionActionInNewTabs.storyName =
+  "Multi action tile with actions opening in new tabs"
+
 export const Information = () => (
   <InformationTile
     title="Tile heading"
@@ -160,3 +180,21 @@ export const TileGridWithTiles = () => (
 )
 
 TileGridWithTiles.storyName = "Tile Grid"
+
+export const TileGridWithFewTiles = () => (
+  <TileGrid>
+    <InformationTile
+      title="Tile heading"
+      metadata="Metadata"
+      footer={<Tag variant="statusLive">Live</Tag>}
+    />
+    <MultiActionTile
+      title="Tile heading"
+      metadata="Metadata"
+      primaryAction={primaryAction}
+      information={information}
+    />
+  </TileGrid>
+)
+
+TileGridWithFewTiles.storyName = "Tile Grid (less than one row)"
