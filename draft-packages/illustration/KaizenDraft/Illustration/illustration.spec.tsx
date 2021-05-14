@@ -4,7 +4,9 @@ import * as SpotIllustrations from "./Spot"
 import * as SceneIllustrations from "./Scene"
 
 afterEach(cleanup)
-
+beforeEach(() => {
+  jest.spyOn(global.console, "warn").mockImplementation(jest.fn())
+})
 describe("<Illustration />", () => {
   describe("Spot", () => {
     Object.keys(SpotIllustrations).forEach(componentName => {
