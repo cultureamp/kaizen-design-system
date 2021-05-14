@@ -473,7 +473,6 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when a secondary action is passed with both an href and an onClick", () => {
-    jest.spyOn(global.console, "warn")
     let testOnClickFn
     let secondaryActionWithLinkAndOnClick
     beforeEach(() => {
@@ -485,6 +484,10 @@ describe("<TitleBlockZen />", () => {
       }
     })
     it("renders the secondary action with both the href and onClick", async () => {
+      const mockWarnFn = jest.fn()
+      const spy = jest
+        .spyOn(global.console, "warn")
+        .mockImplementation(mockWarnFn)
       const { getByTestId } = render(
         <TitleBlockZen
           title="Test Title"
@@ -495,8 +498,7 @@ describe("<TitleBlockZen />", () => {
       )
       const btn = getByTestId("title-block-secondary-actions-button")
       expect(btn).toBeTruthy()
-      // eslint-disable-next-line no-console
-      expect(console.warn).toBeCalled()
+      expect(mockWarnFn).toBeCalled()
       expect(btn.textContent).toEqual(secondaryActionWithLinkAndOnClick.label)
       expect(btn.getAttribute("href")).toEqual(
         secondaryActionWithLinkAndOnClick.href
@@ -505,9 +507,14 @@ describe("<TitleBlockZen />", () => {
       await waitFor(() => {
         expect(testOnClickFn).toHaveBeenCalled()
       })
+      spy.mockRestore()
     })
 
     it("renders the action as a single mobile actions drawer item with an onClick", () => {
+      const mockWarnFn = jest.fn()
+      const spy = jest
+        .spyOn(global.console, "warn")
+        .mockImplementation(mockWarnFn)
       const { getAllByTestId } = render(
         <TitleBlockZen
           title="Test Title"
@@ -523,6 +530,7 @@ describe("<TitleBlockZen />", () => {
       )
       fireEvent.click(btn[0])
       expect(testOnClickFn).toHaveBeenCalled()
+      spy.mockRestore()
     })
   })
 
