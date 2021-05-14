@@ -33,6 +33,10 @@ Then, add the plugin and the rules you want to your stylelint configuration (e.g
     "kaizen/imports-no-extraneous": [
       true,
       { "severity": "warning", "allowFixing": true }
+    ],
+    "kaizen/colors-prefer-token": [
+      true,
+      { "severity": "warning", "allowFixing": true }
     ]
   }
 }
@@ -46,6 +50,7 @@ Then, add the plugin and the rules you want to your stylelint configuration (e.g
 - `kaizen/no-transitive-tokens` - Prevent and fix usages of local non-Kaizen variables (only ones that are defined on the current sheet, ignoring any that are imported) that contain Kaizen tokens in their values. For example, `$card-bg: $kz-color-wisteria-800; .card { background-color: $card-bg; }` would be disallowed, and would be autofixed to `background-color: $kz-color-wisteria-800;`
 - `kaizen/imports-no-unused` - Reports and fixes unused imports that relate to Kaizen tokens
 - `kaizen/imports-no-extraneous` - Reports and fixes any imports that should exist but don't, based on the tokens that are used in the current stylesheet.
+- `kaizen/colors-prefer-token` - Reports and fixes any non-token color values that could be changed to tokens. E.g. will recommend (and autofix) `#fff` be replaced with `$kz-var-color-white`, and similar across all other color tokens.
 
 ## CAVEAT
 Running `stylelint --fix` won't apply any fixes due to some limitations that stylelint imposes on the PostCSS AST, UNLESS you set `allowFixing` to true.
