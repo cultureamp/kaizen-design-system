@@ -21,7 +21,6 @@
     "@types/stylelint": "^9.10.1",
     "color-string": "^1.5.5",
     "glob": "^7.1.6",
-    "jest-preset-stylelint": "^3.0.0",
     "lodash.flatmap": "^4.5.0",
     "lodash.kebabcase": "^4.1.1",
     "nano-memoize": "^1.2.1",

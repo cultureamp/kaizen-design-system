@@ -62,7 +62,7 @@ export const colorsPreferTokenRule = (root: Root, options: Options) => {
         if (matchingKaizenToken) {
           const expectedValue = prefixVariableName(
             options.language,
-            matchingKaizenToken.value
+            matchingKaizenToken.name
           )
           if (options.fix) {
             fixPositions.push({

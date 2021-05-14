@@ -1,8 +1,10 @@
-require("ts-node").register()
-// @ts-ignore
-import getTestRule from "jest-preset-stylelint/getTestRule"
-import { messages, colorsPreferTokenRuleName } from "./colours"
-const testRule = getTestRule()
+import postcss from "postcss"
+import {
+  messages,
+  colorsPreferTokenRuleName,
+  colorsPreferTokenRule,
+} from "./colours"
+
 const tests = {
   accept: [
     { code: ".foo { color: $kz-color-cluny-500; }" },
@@ -12,8 +14,8 @@ const tests = {
   reject: [
     {
       code: ".foo { background-color: #0168b3; }",
-      fixed: ".foo { background-color: $kz-color-cluny-500; }",
-      message: messages.expected("$kz-color-cluny-500", "#0168b3"),
+      fixed: ".foo { background-color: $kz-var-color-cluny-500; }",
+      warnings: [messages.expected("$kz-var-color-cluny-500", "#0168b3")],
     },
     {
       code: `
@@ -23,21 +25,51 @@ const tests = {
       }`,
       fixed: `
       .foo {
-        background-color: $kz-color-cluny-500;
-        border-color: $kz-color-wisteria-600
+        background-color: $kz-var-color-cluny-500;
+        border-color: $kz-var-color-wisteria-600
       }`,
       warnings: [
-        { message: messages.expected("$kz-color-cluny-500", "#0168b3") },
-        { message: messages.expected("$kz-color-wisteria-600", "#6b6e94") },
+        messages.expected("$kz-var-color-cluny-500", "#0168b3"),
+        messages.expected("$kz-var-color-wisteria-600", "#6b6e94"),
       ],
     },
   ],
-}
+} as const
 
-testRule({
-  plugins: [require.resolve("../../stylelintPlugin")],
-  ruleName: `kaizen/${colorsPreferTokenRuleName}`,
-  config: [],
-  fix: true,
-  ...tests,
+describe(`kaizen/${colorsPreferTokenRuleName}`, () => {
+  tests.accept.forEach(acceptTest => {
+    test(`Accepts: ${acceptTest.code}`, () => {
+      let reports = 0
+      colorsPreferTokenRule(postcss.parse(acceptTest.code), {
+        fix: true,
+        reporter: () => {
+          reports++
+        },
+        language: "scss",
+      })
+    })
+  })
+  tests.reject.forEach(rejectTest => {
+    test(`Rejects: ${rejectTest.code}`, () => {
+      const reports: string[] = []
+      const root = postcss.parse(rejectTest.code)
+      colorsPreferTokenRule(root, {
+        fix: false,
+        reporter: ({ message }) => {
+          reports.push(message)
+        },
+        language: "scss",
+      })
+      expect(reports.join(", ")).toBe(rejectTest.warnings.join(", "))
+
+      colorsPreferTokenRule(root, {
+        fix: true,
+        reporter: () => {
+          //
+        },
+        language: "scss",
+      })
+      expect(root.toString()).toBe(rejectTest.fixed)
+    })
+  })
 })
