@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.1.2...@kaizen/draft-tile@4.1.3) (2021-05-14)
+
+
+### Bug Fixes
+
+* Ensure tiles don't expand to fill width when they’re short of a row ([#1577](https://github.com/cultureamp/kaizen-design-system/issues/1577)) ([28035a9](https://github.com/cultureamp/kaizen-design-system/commit/28035a98e600cfd23e420ecb6feba165a8788d3e))
+
+
+
+
+
 ## [4.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.1.1...@kaizen/draft-tile@4.1.2) (2021-05-13)
 
 **Note:** Version bump only for package @kaizen/draft-tile
