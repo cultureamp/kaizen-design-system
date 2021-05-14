@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.1.3...@kaizen/draft-tile@4.2.0) (2021-05-14)
+
+
+### Features
+
+* Allow actions to open in new tabs ([#1580](https://github.com/cultureamp/kaizen-design-system/issues/1580)) ([605e151](https://github.com/cultureamp/kaizen-design-system/commit/605e1511e4829cd50888dc152c84e9dea00e9683))
+
+
+
+
+
 ## [4.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.1.2...@kaizen/draft-tile@4.1.3) (2021-05-14)
 
 
