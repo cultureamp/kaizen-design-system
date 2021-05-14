@@ -160,3 +160,21 @@ export const TileGridWithTiles = () => (
 )
 
 TileGridWithTiles.storyName = "Tile Grid"
+
+export const TileGridWithFewTiles = () => (
+  <TileGrid>
+    <InformationTile
+      title="Tile heading"
+      metadata="Metadata"
+      footer={<Tag variant="statusLive">Live</Tag>}
+    />
+    <MultiActionTile
+      title="Tile heading"
+      metadata="Metadata"
+      primaryAction={primaryAction}
+      information={information}
+    />
+  </TileGrid>
+)
+
+TileGridWithFewTiles.storyName = "Tile Grid (less than one row)"
