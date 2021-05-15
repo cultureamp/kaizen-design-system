@@ -48,6 +48,7 @@ const GenericModalContainer = (props: GenericModalContainerProps) => {
 class GenericModal extends React.Component<GenericModalProps> {
   scrollLayer: HTMLDivElement | null = null
   modalLayer: HTMLDivElement | null = null
+  accessibilityCheckTimeoutId: null | ReturnType<typeof setTimeout> = null
 
   componentDidMount() {
     if (this.props.isOpen) this.onOpen()
@@ -79,6 +80,10 @@ class GenericModal extends React.Component<GenericModalProps> {
     this.removeEventHandlers()
     this.restoreBodyScroll()
     this.removeAriaHider()
+    if (this.accessibilityCheckTimeoutId) {
+      clearTimeout(this.accessibilityCheckTimeoutId)
+      this.accessibilityCheckTimeoutId = null
+    }
   }
 
   addEventHandlers() {
@@ -126,15 +131,17 @@ class GenericModal extends React.Component<GenericModalProps> {
   }
 
   ensureAccessiblityIsMet() {
-    if (!this.modalLayer) return
-    // Ensure that consumers have provided an element that labels the modal
-    // to meet ARIA accessibility guidelines.
-    if (!document.getElementById(this.props.labelledByID)) {
-      warn(
-        `When using the Modal component, you must provide a label for the modal.
+    this.accessibilityCheckTimeoutId = setTimeout(() => {
+      if (!this.modalLayer) return
+      // Ensure that consumers have provided an element that labels the modal
+      // to meet ARIA accessibility guidelines.
+      if (!document.getElementById(this.props.labelledByID)) {
+        warn(
+          `When using the Modal component, you must provide a label for the modal.
         Make sure you have a <ModalAccessibleLabel /> component with content that labels the modal.`
-      )
-    }
+        )
+      }
+    }, 0)
   }
 
   scrollModalToTop() {
