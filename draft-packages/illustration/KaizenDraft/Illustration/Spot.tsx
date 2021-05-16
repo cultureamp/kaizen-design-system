@@ -963,3 +963,200 @@ export const Recommendation = (props: SpotProps) => {
     <Base {...props} name="illustrations/heart/spot/miscellaneous-shield.svg" />
   )
 }
+
+export type SpotIllustrationType =
+  | "Cautionary"
+  | "Informative"
+  | "Negative"
+  | "PositiveMale"
+  | "PositiveFemale"
+  | "Positive"
+  | "Assertive"
+  | "BenefitsSurvey"
+  | "CustomSurvey"
+  | "CustomUnattributedSurvey"
+  | "EngagementSurvey"
+  | "InclusionSurvey"
+  | "QuickEngagementSurvey"
+  | "ValuesSurvey1"
+  | "ValuesSurvey2"
+  | "WellbeingSurvey1"
+  | "WellbeingSurvey2"
+  | "WellbeingSurvey3"
+  | "ChangeReadiness"
+  | "ChangeSuccess"
+  | "PerformanceDiagnostics"
+  | "LeadingThroughCrisis"
+  | "EmergencyResponse"
+  | "CandidateSurvey"
+  | "CustomOnboardSurvey"
+  | "ExitSurvey"
+  | "InternSurvey"
+  | "PhasedWeek1OnboardSurvey"
+  | "PhasedWeek5OnboardSurvey"
+  | "SinglePointOnboardSurvey"
+  | "GeneralOnboardSurvey"
+  | "RemoteOnboardSurvey"
+  | "Individual360"
+  | "Leadership360"
+  | "Manager360"
+  | "TeamEffectiveness1"
+  | "TeamEffectiveness2"
+  | "WellbeingSurvey"
+  | "Response"
+  | "RemoteWorkQSet"
+  | "ReturnToWorkplace"
+  | "PulseSurvey"
+  | "AccountBasics"
+  | "CompanyDetails"
+  | "EmployeeData"
+  | "Gdpr"
+  | "Timezone"
+  | "AddUser"
+  | "Strategy"
+  | "Resilience"
+  | "RemoteManager"
+  | "Productivity"
+  | "ManagerLearning"
+  | "Feedback"
+  | "Coaching"
+  | "OneOnOne"
+  | "ViewReports"
+  | "ReadArticle"
+  | "FastAction"
+  | "BaselineSurvey"
+  | "SpreadsheetTemplate"
+  | "AddImage"
+  | "MeetingVoices"
+  | "Workshop"
+  | "Video"
+  | "ReportSharing"
+  | "BlankSurvey"
+  | "TakeAim"
+  | "Action"
+  | "Training1"
+  | "Training2"
+  | "Training3"
+  | "ShareReport"
+  | "Team"
+  | "ExecutiveReportSharing"
+  | "ManagerReportSharing"
+  | "LeaderReportSharing"
+  | "Alarm"
+  | "Fire"
+  | "Fireworks"
+  | "FullImport"
+  | "HrisImport"
+  | "PartialImport"
+  | "Starburst"
+  | "Stop"
+  | "TrafficCone"
+  | "Trophy"
+  | "UnderConstruction"
+  | "ValueAdd"
+  | "Recommendation"
+
+const spotIlustrations = {
+  Cautionary,
+  Informative,
+  Negative,
+  PositiveMale,
+  PositiveFemale,
+  Positive,
+  Assertive,
+  BenefitsSurvey,
+  CustomSurvey,
+  CustomUnattributedSurvey,
+  EngagementSurvey,
+  InclusionSurvey,
+  QuickEngagementSurvey,
+  ValuesSurvey1,
+  ValuesSurvey2,
+  WellbeingSurvey1,
+  WellbeingSurvey2,
+  WellbeingSurvey3,
+  ChangeReadiness,
+  ChangeSuccess,
+  PerformanceDiagnostics,
+  LeadingThroughCrisis,
+  EmergencyResponse,
+  CandidateSurvey,
+  CustomOnboardSurvey,
+  ExitSurvey,
+  InternSurvey,
+  PhasedWeek1OnboardSurvey,
+  PhasedWeek5OnboardSurvey,
+  SinglePointOnboardSurvey,
+  GeneralOnboardSurvey,
+  RemoteOnboardSurvey,
+  Individual360,
+  Leadership360,
+  Manager360,
+  TeamEffectiveness1,
+  TeamEffectiveness2,
+  WellbeingSurvey,
+  Response,
+  RemoteWorkQSet,
+  ReturnToWorkplace,
+  PulseSurvey,
+  AccountBasics,
+  CompanyDetails,
+  EmployeeData,
+  Gdpr,
+  Timezone,
+  AddUser,
+  Strategy,
+  Resilience,
+  RemoteManager,
+  Productivity,
+  ManagerLearning,
+  Feedback,
+  Coaching,
+  OneOnOne,
+  ViewReports,
+  ReadArticle,
+  FastAction,
+  BaselineSurvey,
+  SpreadsheetTemplate,
+  AddImage,
+  MeetingVoices,
+  Workshop,
+  Video,
+  ReportSharing,
+  BlankSurvey,
+  TakeAim,
+  Action,
+  Training1,
+  Training2,
+  Training3,
+  ShareReport,
+  Team,
+  ExecutiveReportSharing,
+  ManagerReportSharing,
+  LeaderReportSharing,
+  Alarm,
+  Fire,
+  Fireworks,
+  FullImport,
+  HrisImport,
+  PartialImport,
+  Starburst,
+  Stop,
+  TrafficCone,
+  Trophy,
+  UnderConstruction,
+  ValueAdd,
+  Recommendation,
+}
+
+export const SpotIllustration = ({
+  illustration,
+  alt = "",
+  ...theRest
+}: Omit<SpotProps, "alt"> & {
+  illustration: SpotIllustrationType
+  alt?: string
+}) => {
+  const Component = spotIlustrations[illustration]
+  return <Component alt={alt} {...theRest} />
+}
