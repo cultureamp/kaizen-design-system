@@ -50,12 +50,15 @@ $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
 }
 
 .iconWrapper {
+  width: 155px;
+  height: 155px;
   display: flex;
   padding: 0 ($kz-var-spacing-sm);
 
   @include ca-media-tablet {
     text-align: center;
     justify-content: center;
+    align-self: center;
     padding: $kz-var-spacing-sm;
     width: auto;
   }
