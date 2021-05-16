@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@3.1.17...@kaizen/draft-zen-navigation-bar@3.1.18) (2021-05-16)
+
+**Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
+
+
+
+
+
 ## [3.1.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-zen-navigation-bar@3.1.16...@kaizen/draft-zen-navigation-bar@3.1.17) (2021-05-13)
 
 **Note:** Version bump only for package @kaizen/draft-zen-navigation-bar
