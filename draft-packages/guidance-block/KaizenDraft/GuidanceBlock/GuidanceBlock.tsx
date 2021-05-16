@@ -8,6 +8,10 @@ import classnames from "classnames"
 import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
 import { MOBILE_QUERY } from "@kaizen/component-library/components/NavigationBar/constants"
 import Media from "react-media"
+import {
+  SpotIllustration,
+  SpotIllustrationType,
+} from "@kaizen/draft-illustration"
 
 const styles = require("./GuidanceBlock.scss")
 
@@ -24,10 +28,7 @@ type GuidanceBlockActions = {
 }
 
 export type GuidanceBlockProps = {
-  img: {
-    src: string
-    alt: string
-  }
+  illustration: SpotIllustrationType
   text: {
     title: string
     description: string | React.ReactNode
@@ -140,7 +141,7 @@ class GuidanceBlock extends React.Component<
 
     const {
       actions,
-      img,
+      illustration,
       text,
       persistent,
       withActionButtonArrow,
@@ -157,9 +158,8 @@ class GuidanceBlock extends React.Component<
         onTransitionEnd={this.onTransitionEnd}
       >
         <div className={styles.iconWrapper}>
-          <img src={img.src} alt={img.alt} height="155px" width="155px" />
+          <SpotIllustration illustration={illustration} />
         </div>
-
         <div className={styles.descriptionContainer}>
           <div className={styles.headingWrapper}>
             <Heading tag="h3" variant="heading-3">

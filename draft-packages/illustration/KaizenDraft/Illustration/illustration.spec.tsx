@@ -8,16 +8,30 @@ afterEach(cleanup)
 describe("<Illustration />", () => {
   describe("Spot", () => {
     Object.keys(SpotIllustrations).forEach(componentName => {
-      const Component: (props: SpotIllustrations.SpotProps) => JSX.Element =
-        SpotIllustrations[componentName]
+      if (componentName === "SpotIllustration") {
+        const Component: (
+          props: Omit<SpotIllustrations.SpotProps, "alt"> & {
+            illustration: SpotIllustrations.SpotIllustrationType
+            alt?: string
+          }
+        ) => JSX.Element = SpotIllustrations[componentName]
+        it("SpotIllustration takes a SpotIllustrationType and renders the corresponding Spot", () => {
+          const { container } = render(<Component illustration="Informative" />)
+          expect(
+            container.querySelector("img[src*='moods-informative.svg']")
+          ).toBeTruthy()
+        })
+      } else {
+        const Component: (props: SpotIllustrations.SpotProps) => JSX.Element =
+          SpotIllustrations[componentName]
+        it(`${componentName} should exist and render an alt tag`, () => {
+          const altTitle = "My accessible title"
+          const wrapper = render(<Component alt={altTitle} />)
 
-      it(`${componentName} should exist and render an alt tag`, () => {
-        const altTitle = "My accessible title"
-        const wrapper = render(<Component alt={altTitle} />)
-
-        expect(wrapper.getByAltText(altTitle)).toBeTruthy()
-        expect(wrapper.container).toMatchSnapshot()
-      })
+          expect(wrapper.getByAltText(altTitle)).toBeTruthy()
+          expect(wrapper.container).toMatchSnapshot()
+        })
+      }
     })
   })
 
