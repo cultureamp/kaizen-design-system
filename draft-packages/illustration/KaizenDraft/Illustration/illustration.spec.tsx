@@ -3,12 +3,17 @@ import * as React from "react"
 import * as SpotIllustrations from "./Spot"
 import * as SceneIllustrations from "./Scene"
 
+let spy = jest.spyOn(global.console, "warn")
+
 afterEach(cleanup)
-beforeEach(() => {
-  jest.spyOn(global.console, "warn").mockImplementation(jest.fn())
-})
 describe("<Illustration />", () => {
   describe("Spot", () => {
+    beforeEach(() => {
+      spy = jest.spyOn(global.console, "warn").mockImplementation(jest.fn())
+    })
+    afterEach(() => {
+      spy.mockRestore()
+    })
     Object.keys(SpotIllustrations).forEach(componentName => {
       const Component: (props: SpotIllustrations.SpotProps) => JSX.Element =
         SpotIllustrations[componentName]
@@ -24,6 +29,12 @@ describe("<Illustration />", () => {
   })
 
   describe("Scene", () => {
+    beforeEach(() => {
+      spy = jest.spyOn(global.console, "warn").mockImplementation(jest.fn())
+    })
+    afterEach(() => {
+      spy.mockRestore()
+    })
     Object.keys(SceneIllustrations).forEach(componentName => {
       const Component: (props: SceneIllustrations.SceneProps) => JSX.Element =
         SceneIllustrations[componentName]
