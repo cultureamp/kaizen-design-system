@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.7.2...@kaizen/component-library@9.7.3) (2021-05-17)
+
+
+### Bug Fixes
+
+* Make box-sizing explicit ([#1600](https://github.com/cultureamp/kaizen-design-system/issues/1600)) ([d442f4c](https://github.com/cultureamp/kaizen-design-system/commit/d442f4c2d2e39aa2d70d759a0aa80358f14b6a81))
+
+
+
+
+
 ## [9.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.7.1...@kaizen/component-library@9.7.2) (2021-05-17)
 
 
