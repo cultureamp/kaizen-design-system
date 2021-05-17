@@ -233,30 +233,22 @@ export const PerformanceDiagnostics = (props: SpotProps) => {
 
 export const LeadingThroughCrisis = (props: SpotProps) => {
   const theme = useTheme()
-  if (theme.themeKey === "zen") {
-    noZenIllustrationWarning("LeadingThroughCrisis")
-  }
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-leading-through-crisis.svg"
 
-  return (
-    <Base
-      {...props}
-      name="illustrations/heart/spot/template-library-leading-through-crisis.svg"
-    />
-  )
+  return <Base {...props} name={illustrationPath} />
 }
 
 export const EmergencyResponse = (props: SpotProps) => {
   const theme = useTheme()
-  if (theme.themeKey === "zen") {
-    noZenIllustrationWarning("EmergencyResponse")
-  }
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-emergency-response.svg"
 
-  return (
-    <Base
-      {...props}
-      name="illustrations/heart/spot/template-library-emergency-response.svg"
-    />
-  )
+  return <Base {...props} name={illustrationPath} />
 }
 
 /**
@@ -334,30 +326,22 @@ export const SinglePointOnboardSurvey = (props: SpotProps) => {
 
 export const GeneralOnboardSurvey = (props: SpotProps) => {
   const theme = useTheme()
-  if (theme.themeKey === "zen") {
-    noZenIllustrationWarning("GeneralOnboardSurvey")
-  }
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-general-onboard-survey.svg"
 
-  return (
-    <Base
-      {...props}
-      name="illustrations/heart/spot/template-library-general-onboard-survey.svg"
-    />
-  )
+  return <Base {...props} name={illustrationPath} />
 }
 
 export const RemoteOnboardSurvey = (props: SpotProps) => {
   const theme = useTheme()
-  if (theme.themeKey === "zen") {
-    noZenIllustrationWarning("GeneralOnboardSurvey")
-  }
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-remote-onboard-survey.svg"
 
-  return (
-    <Base
-      {...props}
-      name="illustrations/heart/spot/template-library-remote-onboard-survey.svg"
-    />
-  )
+  return <Base {...props} name={illustrationPath} />
 }
 
 /**
@@ -419,72 +403,52 @@ export const TeamEffectiveness2 = (props: SpotProps) => {
 
 export const WellbeingSurvey = (props: SpotProps) => {
   const theme = useTheme()
-  if (theme.themeKey === "zen") {
-    noZenIllustrationWarning("WellbeingSurvey")
-  }
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-wellbeing-survey.svg"
 
-  return (
-    <Base
-      {...props}
-      name="illustrations/heart/spot/template-library-wellbeing-survey.svg"
-    />
-  )
+  return <Base {...props} name={illustrationPath} />
 }
 
 export const Response = (props: SpotProps) => {
   const theme = useTheme()
-  if (theme.themeKey === "zen") {
-    noZenIllustrationWarning("Response")
-  }
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-response.svg"
 
-  return (
-    <Base
-      {...props}
-      name="illustrations/heart/spot/template-library-response.svg"
-    />
-  )
+  return <Base {...props} name={illustrationPath} />
 }
 
 export const RemoteWorkQSet = (props: SpotProps) => {
   const theme = useTheme()
-  if (theme.themeKey === "zen") {
-    noZenIllustrationWarning("RemoteWorkQSet")
-  }
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-remote-work-q-set.svg"
 
-  return (
-    <Base
-      {...props}
-      name="illustrations/heart/spot/template-library-remote-work-q-set.svg"
-    />
-  )
+  return <Base {...props} name={illustrationPath} />
 }
 
 export const ReturnToWorkplace = (props: SpotProps) => {
   const theme = useTheme()
-  if (theme.themeKey === "zen") {
-    noZenIllustrationWarning("ReturnToWorkplace")
-  }
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-return-to-workplace.svg"
 
-  return (
-    <Base
-      {...props}
-      name="illustrations/heart/spot/template-library-return-to-workplace.svg"
-    />
-  )
+  return <Base {...props} name={illustrationPath} />
 }
 
 export const PulseSurvey = (props: SpotProps) => {
   const theme = useTheme()
-  if (theme.themeKey === "zen") {
-    noZenIllustrationWarning("PulseSurvey")
-  }
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-pulse-survey.svg"
 
-  return (
-    <Base
-      {...props}
-      name="illustrations/heart/spot/template-library-pulse-survey.svg"
-    />
-  )
+  return <Base {...props} name={illustrationPath} />
 }
 
 /**
