@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.7.1...@kaizen/component-library@9.7.2) (2021-05-17)
+
+
+### Bug Fixes
+
+* toast unmounted set state ([#1553](https://github.com/cultureamp/kaizen-design-system/issues/1553)) ([735389f](https://github.com/cultureamp/kaizen-design-system/commit/735389f62fa7896412e776f41a3d3ecb5bb0a1f1))
+
+
+
+
+
 ## [9.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.7.0...@kaizen/component-library@9.7.1) (2021-05-16)
 
 **Note:** Version bump only for package @kaizen/component-library
