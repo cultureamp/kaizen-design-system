@@ -4,7 +4,7 @@
 name: "chromatic"
 
 # Event for the workflow
-on: push
+on: workflow_dispatch
 
 # List of jobs
 jobs:
