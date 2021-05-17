@@ -20,12 +20,7 @@ export default {
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A39077"
     ),
   },
-  decorators: [
-    withDesign,
-    story => (
-      <div style={{ display: "flex", justifyContent: "center" }}>{story()}</div>
-    ),
-  ],
+  decorators: [withDesign, story => <div>{story()}</div>],
 }
 
 const guidanceBlockText = {
