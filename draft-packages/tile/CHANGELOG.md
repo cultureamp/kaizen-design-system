@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.2.2...@kaizen/draft-tile@4.2.3) (2021-05-17)
+
+
+### Bug Fixes
+
+* Add space between actions on MultiActionTile ([#1597](https://github.com/cultureamp/kaizen-design-system/issues/1597)) ([e3a01cf](https://github.com/cultureamp/kaizen-design-system/commit/e3a01cfbb5342972e06b0d213a29a843c248ee01))
+
+
+
+
+
+## [4.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.2.1...@kaizen/draft-tile@4.2.2) (2021-05-16)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
 ## [4.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.2.0...@kaizen/draft-tile@4.2.1) (2021-05-14)
 
 **Note:** Version bump only for package @kaizen/draft-tile

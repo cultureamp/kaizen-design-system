@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.8.1...@kaizen/draft-illustration@1.8.2) (2021-05-17)
+
+
+### Bug Fixes
+
+* Fallback to blank survey for Heart template illustrations without Zen equivalents ([#1598](https://github.com/cultureamp/kaizen-design-system/issues/1598)) ([aac86be](https://github.com/cultureamp/kaizen-design-system/commit/aac86be2d7c9f6412d4b76df9afbd5dad98b3f8b))
+
+
+
+
+
+## [1.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.8.0...@kaizen/draft-illustration@1.8.1) (2021-05-16)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
 # [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.7.2...@kaizen/draft-illustration@1.8.0) (2021-04-26)
 
 

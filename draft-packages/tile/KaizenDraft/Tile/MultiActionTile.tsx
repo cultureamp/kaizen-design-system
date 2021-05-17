@@ -1,5 +1,6 @@
 import React from "react"
 
+import { Box } from "@kaizen/component-library"
 import GenericTile, {
   GenericTileProps,
   TileAction,
@@ -20,7 +21,11 @@ const renderActions = (
   secondaryAction?: TileAction
 ) => (
   <div className={styles.actions}>
-    {secondaryAction && <Action action={secondaryAction} secondary />}
+    {secondaryAction && (
+      <Box mr={0.5}>
+        <Action action={secondaryAction} secondary />
+      </Box>
+    )}
     <Action action={primaryAction} />
   </div>
 )

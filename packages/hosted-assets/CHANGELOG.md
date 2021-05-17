@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/hosted-assets@1.1.0...@kaizen/hosted-assets@1.1.1) (2021-05-16)
+
+
+### Bug Fixes
+
+* elm Kaizen.HostedAssets code was not being published ([#1583](https://github.com/cultureamp/kaizen-design-system/issues/1583)) ([7d26e8f](https://github.com/cultureamp/kaizen-design-system/commit/7d26e8f1435e76ebd5af94a31c03f75973700ddf))
+
+
+
+
+
 # [1.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/hosted-assets@1.0.3...@kaizen/hosted-assets@1.1.0) (2021-01-14)
 
 
