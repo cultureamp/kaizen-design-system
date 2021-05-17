@@ -22,7 +22,7 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "9.6.1",
+  "version": "9.7.1",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@kaizen/deprecated-component-library-helpers": "^2.1.2",
-    "@kaizen/hosted-assets": "^1.1.0",
+    "@kaizen/hosted-assets": "^1.1.1",
     "@kaizen/react-deprecate-warning": "^1.1.4",
     "@types/classnames": "^2.2.6",
     "@types/lodash": "^4.14.132",

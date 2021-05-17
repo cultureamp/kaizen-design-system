@@ -11,7 +11,14 @@ interface Props {
 type Action = React.FunctionComponent<Props>
 
 const Action: Action = ({ action, secondary = false, disabled = false }) => {
-  const { label, href, onClick, icon, automationId } = action
+  const {
+    label,
+    href,
+    onClick,
+    icon,
+    automationId,
+    newTabAndIUnderstandTheAccessibilityImplications,
+  } = action
 
   return href ? (
     <Button
@@ -21,6 +28,9 @@ const Action: Action = ({ action, secondary = false, disabled = false }) => {
       icon={icon}
       data-automation-id={automationId}
       disabled={disabled}
+      newTabAndIUnderstandTheAccessibilityImplications={
+        newTabAndIUnderstandTheAccessibilityImplications
+      }
     />
   ) : (
     <Button
@@ -30,6 +40,9 @@ const Action: Action = ({ action, secondary = false, disabled = false }) => {
       icon={icon}
       data-automation-id={automationId}
       disabled={disabled}
+      newTabAndIUnderstandTheAccessibilityImplications={
+        newTabAndIUnderstandTheAccessibilityImplications
+      }
     />
   )
 }

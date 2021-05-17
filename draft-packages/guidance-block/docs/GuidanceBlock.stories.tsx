@@ -1,10 +1,12 @@
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import * as React from "react"
 
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
 import { assetUrl } from "@kaizen/hosted-assets"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
+
+const externalLinkIcon = require("@kaizen/component-library/icons/external-link.icon.svg")
+  .default
 
 export default {
   title: "GuidanceBlock (React)",
@@ -19,7 +21,12 @@ export default {
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A39077"
     ),
   },
-  decorators: [withDesign],
+  decorators: [
+    withDesign,
+    story => (
+      <div style={{ display: "flex", justifyContent: "center" }}>{story()}</div>
+    ),
+  ],
 }
 
 const guidanceBlockText = {
@@ -32,122 +39,166 @@ const guidanceBlockText = {
 const guidanceBlockImg = assetUrl("illustrations/spot/moods-informative.svg")
 
 const Default = () => (
-  <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
-    <GuidanceBlock
-      img={{ src: guidanceBlockImg, alt: "Guidance block" }}
-      text={guidanceBlockText}
-      actions={{
-        primary: {
-          label: "Action",
-          onClick: () => {
-            alert("tada: 🎉")
-          },
+  <GuidanceBlock
+    img={{ src: guidanceBlockImg, alt: "Guidance block" }}
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
         },
-        dismiss: {
-          onClick: () => alert("tada: 🎉"),
-        },
-      }}
-    />
-  </div>
+      },
+      dismiss: {
+        onClick: () => alert("tada: 🎉"),
+      },
+    }}
+    noMaxWidth
+  />
 )
 
 const DefaultWithoutActions = () => (
-  <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
-    <GuidanceBlock
-      img={{ src: guidanceBlockImg, alt: "Guidance block" }}
-      text={guidanceBlockText}
-    />
-  </div>
+  <GuidanceBlock
+    img={{ src: guidanceBlockImg, alt: "Guidance block" }}
+    text={guidanceBlockText}
+  />
 )
 
 const WithoutActionArrowButton = () => (
-  <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
-    <GuidanceBlock
-      img={{ src: guidanceBlockImg, alt: "Guidance block" }}
-      text={guidanceBlockText}
-      actions={{
-        primary: {
-          label: "Action",
-          onClick: () => {
-            alert("tada: 🎉")
-          },
+  <GuidanceBlock
+    img={{ src: guidanceBlockImg, alt: "Guidance block" }}
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
         },
-        dismiss: {
-          onClick: () => alert("tada: 🎉"),
-        },
-      }}
-      withActionButtonArrow={false}
-    />
-  </div>
+      },
+      dismiss: {
+        onClick: () => alert("tada: 🎉"),
+      },
+    }}
+    withActionButtonArrow={false}
+  />
 )
 
 const WithoutMaxWidth = () => (
-  <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
-    <GuidanceBlock
-      img={{ src: guidanceBlockImg, alt: "" }}
-      text={guidanceBlockText}
-      noMaxWidth
-    />
-  </div>
+  <GuidanceBlock
+    img={{ src: guidanceBlockImg, alt: "" }}
+    text={guidanceBlockText}
+    noMaxWidth
+  />
 )
 
 const Persistent = () => (
-  <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
-    <GuidanceBlock
-      img={{ src: guidanceBlockImg, alt: "Information illustration" }}
-      text={guidanceBlockText}
-      actions={{
-        primary: {
-          label: "Action",
-          onClick: () => {
-            alert("tada: 🎉")
-          },
+  <GuidanceBlock
+    img={{ src: guidanceBlockImg, alt: "Information illustration" }}
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
         },
-      }}
-      persistent
-    />
-  </div>
+      },
+    }}
+    persistent
+  />
 )
 
 const SecondaryAction = () => (
-  <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
-    <GuidanceBlock
-      img={{ src: guidanceBlockImg, alt: "Information illustration" }}
-      text={guidanceBlockText}
-      actions={{
-        primary: {
-          label: "Action",
-          onClick: () => {
-            alert("tada: 🎉")
-          },
+  <GuidanceBlock
+    img={{ src: guidanceBlockImg, alt: "Information illustration" }}
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
         },
-        secondary: {
-          label: "Secondary action",
-          href: "#",
-        },
-      }}
-      persistent
-      withActionButtonArrow={false}
-    />
-  </div>
+      },
+      secondary: {
+        label: "Secondary action",
+        href: "#",
+      },
+    }}
+    persistent
+    withActionButtonArrow={false}
+  />
 )
 
 const Prominent = () => (
-  <div style={{ display: "flex", justifyContent: "center", margin: "100px" }}>
-    <GuidanceBlock
-      img={{ src: guidanceBlockImg, alt: "Information illustration" }}
-      text={guidanceBlockText}
-      actions={{
-        primary: {
-          label: "Action",
-          onClick: () => {
-            alert("tada: 🎉")
-          },
+  <GuidanceBlock
+    img={{ src: guidanceBlockImg, alt: "Information illustration" }}
+    text={guidanceBlockText}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
         },
-      }}
-      variant="prominent"
-    />
-  </div>
+      },
+    }}
+    variant="prominent"
+  />
+)
+
+const WithCustomDescription = () => (
+  <GuidanceBlock
+    img={{ src: guidanceBlockImg, alt: "" }}
+    text={{
+      title: "Informative guidance block title",
+      description: (
+        <div style={{ color: "darkorchid" }}>
+          Providing further details to suggest a path forward or promote a
+          feature that allows the user to progress with confidence.
+        </div>
+      ),
+    }}
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+      secondary: {
+        label: "Secondary action",
+        href: "#",
+      },
+    }}
+    persistent
+    noMaxWidth
+  />
+)
+
+const WithTooltip = () => (
+  <GuidanceBlock
+    img={{ src: guidanceBlockImg, alt: "" }}
+    text={{
+      title: "Informative guidance block title",
+      description:
+        "Providing further details to suggest a path forward or promote a feature that allows the user" +
+        " to progress with confidence.",
+    }}
+    actions={{
+      primary: {
+        label: "Learn more",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+        tooltip: {
+          text: "Opens in a new tab",
+        },
+        icon: externalLinkIcon,
+      },
+      secondary: {
+        label: "Secondary action",
+        href: "#",
+      },
+    }}
+  />
 )
 
 Default.storyName = "Default"
@@ -192,6 +243,12 @@ Prominent.parameters = {
   backgrounds: { default: "Stone" },
 }
 
+WithCustomDescription.storyName = "With custom description"
+
+WithCustomDescription.paramters = {
+  backgrounds: { default: "Stone" },
+}
+
 export {
   Default,
   DefaultWithoutActions,
@@ -200,4 +257,6 @@ export {
   Persistent,
   SecondaryAction,
   Prominent,
+  WithCustomDescription,
+  WithTooltip,
 }
