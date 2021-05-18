@@ -72,6 +72,7 @@ $illustration-size: 155px;
   flex: 1;
   margin: $kz-var-spacing-sm 0;
   text-align: center;
+  align-self: center;
   max-width: 780px;
 
   @include ca-media-desktop {
