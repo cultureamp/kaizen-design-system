@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.9.0...@kaizen/draft-guidance-block@2.9.1) (2021-05-18)
+
+
+### Bug Fixes
+
+* remove the tablet width auto. ([#1606](https://github.com/cultureamp/kaizen-design-system/issues/1606)) ([06ffe34](https://github.com/cultureamp/kaizen-design-system/commit/06ffe342a7ecad25ea3f97d308fd7784f21053a9))
+
+
+
+
+
 # [2.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.8.5...@kaizen/draft-guidance-block@2.9.0) (2021-05-17)
 
 
