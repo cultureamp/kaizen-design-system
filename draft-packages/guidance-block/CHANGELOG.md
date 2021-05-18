@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.9.2...@kaizen/draft-guidance-block@2.9.3) (2021-05-18)
+
+
+### Bug Fixes
+
+* guidance block max-width not centering description text ([#1610](https://github.com/cultureamp/kaizen-design-system/issues/1610)) ([c80185b](https://github.com/cultureamp/kaizen-design-system/commit/c80185b4eb89197820514709f3ac6d211f8141aa))
+
+
+
+
+
 ## [2.9.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.9.1...@kaizen/draft-guidance-block@2.9.2) (2021-05-18)
 
 **Note:** Version bump only for package @kaizen/draft-guidance-block
