@@ -11,6 +11,7 @@ $bannerPadding: $kz-var-spacing-sm;
 $ca-banner-fade-out: opacity $kz-var-animation-duration-slow ease;
 $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
   $kz-var-animation-duration-slow ease;
+$illustration-size: 155px;
 
 .banner.noMaxWidth {
   max-width: inherit;
@@ -49,13 +50,16 @@ $ca-banner-collapse-height-delayed: margin-top $kz-var-animation-duration-fast
   }
 }
 
-.iconWrapper {
+.illustration {
+  width: $illustration-size;
+  height: $illustration-size;
   display: flex;
   padding: 0 ($kz-var-spacing-sm);
 
   @include ca-media-tablet {
     text-align: center;
     justify-content: center;
+    align-self: center;
     padding: $kz-var-spacing-sm;
     width: auto;
   }

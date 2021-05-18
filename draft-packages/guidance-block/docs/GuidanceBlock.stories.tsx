@@ -1,10 +1,9 @@
 import * as React from "react"
 
 import { GuidanceBlock } from "@kaizen/draft-guidance-block"
-import { assetUrl } from "@kaizen/hosted-assets"
+import { Informative } from "@kaizen/draft-illustration"
 import { withDesign } from "storybook-addon-designs"
 import { figmaEmbed } from "../../../storybook/helpers"
-
 const externalLinkIcon = require("@kaizen/component-library/icons/external-link.icon.svg")
   .default
 
@@ -36,11 +35,9 @@ const guidanceBlockText = {
     "qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
 }
 
-const guidanceBlockImg = assetUrl("illustrations/spot/moods-informative.svg")
-
 const Default = () => (
   <GuidanceBlock
-    img={{ src: guidanceBlockImg, alt: "Guidance block" }}
+    illustration={<Informative alt="" />}
     text={guidanceBlockText}
     actions={{
       primary: {
@@ -59,14 +56,14 @@ const Default = () => (
 
 const DefaultWithoutActions = () => (
   <GuidanceBlock
-    img={{ src: guidanceBlockImg, alt: "Guidance block" }}
+    illustration={<Informative alt="" />}
     text={guidanceBlockText}
   />
 )
 
 const WithoutActionArrowButton = () => (
   <GuidanceBlock
-    img={{ src: guidanceBlockImg, alt: "Guidance block" }}
+    illustration={<Informative alt="" />}
     text={guidanceBlockText}
     actions={{
       primary: {
@@ -85,7 +82,7 @@ const WithoutActionArrowButton = () => (
 
 const WithoutMaxWidth = () => (
   <GuidanceBlock
-    img={{ src: guidanceBlockImg, alt: "" }}
+    illustration={<Informative alt="" />}
     text={guidanceBlockText}
     noMaxWidth
   />
@@ -93,7 +90,7 @@ const WithoutMaxWidth = () => (
 
 const Persistent = () => (
   <GuidanceBlock
-    img={{ src: guidanceBlockImg, alt: "Information illustration" }}
+    illustration={<Informative alt="" />}
     text={guidanceBlockText}
     actions={{
       primary: {
@@ -109,7 +106,7 @@ const Persistent = () => (
 
 const SecondaryAction = () => (
   <GuidanceBlock
-    img={{ src: guidanceBlockImg, alt: "Information illustration" }}
+    illustration={<Informative alt="" />}
     text={guidanceBlockText}
     actions={{
       primary: {
@@ -130,7 +127,7 @@ const SecondaryAction = () => (
 
 const Prominent = () => (
   <GuidanceBlock
-    img={{ src: guidanceBlockImg, alt: "Information illustration" }}
+    illustration={<Informative alt="" />}
     text={guidanceBlockText}
     actions={{
       primary: {
@@ -146,7 +143,7 @@ const Prominent = () => (
 
 const WithCustomDescription = () => (
   <GuidanceBlock
-    img={{ src: guidanceBlockImg, alt: "" }}
+    illustration={<Informative alt="" />}
     text={{
       title: "Informative guidance block title",
       description: (
@@ -175,7 +172,7 @@ const WithCustomDescription = () => (
 
 const WithTooltip = () => (
   <GuidanceBlock
-    img={{ src: guidanceBlockImg, alt: "" }}
+    illustration={<Informative alt="" />}
     text={{
       title: "Informative guidance block title",
       description:
