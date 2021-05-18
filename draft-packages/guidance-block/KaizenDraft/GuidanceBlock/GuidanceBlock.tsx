@@ -154,7 +154,9 @@ class GuidanceBlock extends React.Component<
         ref={this.containerRef}
         onTransitionEnd={this.onTransitionEnd}
       >
-        <div className={styles.illustration}>{illustration}</div>
+        <div className={styles.illustrationWrapper}>
+          <div className={styles.illustration}>{illustration}</div>
+        </div>
 
         <div className={styles.descriptionContainer}>
           <div className={styles.headingWrapper}>
