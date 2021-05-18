@@ -14,7 +14,11 @@ import {
   replaceTokenInVariable,
   stringifyVariable,
 } from "../variableUtils"
-import { walkDeclsWithKaizenTokens, walkVariablesOnValue } from "../walkers"
+import {
+  walkDeclsWithKaizenTokens,
+  walkAtRulesWithKaizenTokens,
+  walkVariablesOnValue,
+} from "../walkers"
 import { declContainsInvalidEquations } from "./no-invalid-equations"
 import { declContainsInvalidFunctions } from "./no-invalid-functions"
 
@@ -48,121 +52,116 @@ export const noDeprecatedTokensRule = (
   walkDeclsWithKaizenTokens(
     styleSheetNode,
     ({ value, parsedValue, kaizenVariables, postcssNode }) => {
-      if (postcssNode.type === "decl") {
-        const deprecatedVariables = kaizenVariables.filter(
-          variable => variable.kaizenToken.deprecated
-        )
-        // If the whole declaration contains only new CSS variable tokens, nothing needs to be done, so just return.
-        if (!deprecatedVariables.length) {
-          return
-        }
-
-        const decl = postcssNode
-
-        // These next two blocks bail out if a token is used in an equation or in an unsupported function. Admittedly it's a bit weird because there is a double up on reporting if you include the rules that relate to these predicate functions.
-        // This is what determines if a deprecated token can't automatically be migrated.
-        if (declContainsInvalidEquations(decl, parsedValue, options)) {
-          options.reporter({
-            message: invalidEquationContainingDeprecatedTokenMessage,
-            node: decl,
-            autofixAvailable: false,
-          })
-          return
-        }
-        if (declContainsInvalidFunctions(decl, options)) {
-          options.reporter({
-            message: deprecatedTokenUsedWithinUnsupportedFunction,
-            node: decl,
-            autofixAvailable: false,
-          })
-          return
-        }
-
-        const oldValue = decl.value
-        let newValue = decl.value
-        walkVariablesOnValue(parsedValue, (node, variable) => {
-          if (!variable.kaizenToken) return
-
-          // If the token is not a CSS variable, it should be migrated
-          if (variable.kaizenToken.deprecated) {
-            const replacementToken = getReplacementForDeprecatedToken(
-              variable.kaizenToken
-            )
-            if (!replacementToken) {
-              options.reporter({
-                message: cantFindReplacementTokenForDeprecatedMessage(
-                  variable.name
-                ),
-                node: decl,
-                autofixAvailable: false,
-              })
-              return
-            }
-
-            if (options.fix && !isVariable(decl)) {
-              node.value = stringifyVariable(
-                replaceTokenInVariable(variable, replacementToken)
-              )
-              newValue = postcssValueParser.stringify(parsedValue.nodes)
-            } else {
-              options.reporter({
-                message: deprecatedTokenUsageMessage(
-                  variable.name,
-                  replacementToken.name
-                ),
-                node: decl,
-                autofixAvailable: !isVariable(decl),
-              })
-            }
-          }
-        })
-        if (newValue !== oldValue && options.fix && !isVariable(decl)) {
-          decl.replaceWith(
-            decl.clone({
-              value: newValue,
-            })
-          )
-        }
-      } else if (postcssNode.type === "atrule") {
-        walkVariablesOnValue(
-          postcssValueParser(postcssNode.params),
-          (node, variable) => {
-            // We only care about deprecated tokens
-            if (variable.kaizenToken?.deprecated) {
-              const kaizenToken = variable.kaizenToken
-              if (
-                disallowedAtRules.has(postcssNode.name) &&
-                kaizenToken.cssVariable
-              ) {
-                // If we're within an AtRule which cannot support CSS variables
-                options.reporter({
-                  message: cantUseTokenInAtRuleParamsMessage(kaizenToken.name),
-                  node: postcssNode,
-                  autofixAvailable: false,
-                })
-                return false
-              } else {
-                const replacement = getReplacementForDeprecatedToken(
-                  kaizenToken
-                )
-                // For other AtRules like @include, mixins etc.
-                options.reporter({
-                  message: deprecatedTokenUsageMessage(
-                    kaizenToken.name,
-                    replacement?.name ||
-                      "...(couldn't find replacement variable?)"
-                  ),
-                  node: postcssNode,
-                  autofixAvailable: false,
-                })
-                return false
-              }
-            }
-          }
-        )
-
+      const deprecatedVariables = kaizenVariables.filter(
+        variable => variable.kaizenToken.deprecated
+      )
+      // If the whole declaration contains only new CSS variable tokens, nothing needs to be done, so just return.
+      if (!deprecatedVariables.length) {
         return
+      }
+
+      const decl = postcssNode
+
+      // These next two blocks bail out if a token is used in an equation or in an unsupported function. Admittedly it's a bit weird because there is a double up on reporting if you include the rules that relate to these predicate functions.
+      // This is what determines if a deprecated token can't automatically be migrated.
+      if (declContainsInvalidEquations(decl, parsedValue, options)) {
+        options.reporter({
+          message: invalidEquationContainingDeprecatedTokenMessage,
+          node: decl,
+          autofixAvailable: false,
+        })
+        return
+      }
+      if (declContainsInvalidFunctions(decl, options)) {
+        options.reporter({
+          message: deprecatedTokenUsedWithinUnsupportedFunction,
+          node: decl,
+          autofixAvailable: false,
+        })
+        return
+      }
+
+      const oldValue = decl.value
+      let newValue = decl.value
+      walkVariablesOnValue(parsedValue, (node, variable) => {
+        if (!variable.kaizenToken) return
+
+        // If the token is not a CSS variable, it should be migrated
+        if (variable.kaizenToken.deprecated) {
+          const replacementToken = getReplacementForDeprecatedToken(
+            variable.kaizenToken
+          )
+          if (!replacementToken) {
+            options.reporter({
+              message: cantFindReplacementTokenForDeprecatedMessage(
+                variable.name
+              ),
+              node: decl,
+              autofixAvailable: false,
+            })
+            return
+          }
+
+          if (options.fix && !isVariable(decl)) {
+            node.value = stringifyVariable(
+              replaceTokenInVariable(variable, replacementToken)
+            )
+            newValue = postcssValueParser.stringify(parsedValue.nodes)
+          } else {
+            options.reporter({
+              message: deprecatedTokenUsageMessage(
+                variable.name,
+                replacementToken.name
+              ),
+              node: decl,
+              autofixAvailable: !isVariable(decl),
+            })
+          }
+        }
+      })
+      if (newValue !== oldValue && options.fix && !isVariable(decl)) {
+        decl.replaceWith(
+          decl.clone({
+            value: newValue,
+          })
+        )
       }
     }
   )
+
+  walkAtRulesWithKaizenTokens(styleSheetNode, ({ postcssNode }) => {
+    walkVariablesOnValue(
+      postcssValueParser(postcssNode.params),
+      (node, variable) => {
+        // We only care about deprecated tokens
+        if (variable.kaizenToken?.deprecated) {
+          const kaizenToken = variable.kaizenToken
+          if (
+            disallowedAtRules.has(postcssNode.name) &&
+            kaizenToken.cssVariable
+          ) {
+            // If we're within an AtRule which cannot support CSS variables
+            options.reporter({
+              message: cantUseTokenInAtRuleParamsMessage(kaizenToken.name),
+              node: postcssNode,
+              autofixAvailable: false,
+            })
+            return false
+          } else {
+            const replacement = getReplacementForDeprecatedToken(kaizenToken)
+            // For other AtRules like @include, mixins etc.
+            options.reporter({
+              message: deprecatedTokenUsageMessage(
+                kaizenToken.name,
+                replacement?.name || "...(couldn't find replacement variable?)"
+              ),
+              node: postcssNode,
+              autofixAvailable: false,
+            })
+            return false
+          }
+        }
+      }
+    )
+  })
 }

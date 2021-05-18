@@ -1,10 +1,8 @@
-import fs from "fs"
 import flatmap from "lodash.flatmap"
+import kebabCase from "lodash.kebabcase"
+import { Utils } from "@kaizen/design-tokens"
 import postcssValueParser from "postcss-value-parser"
 import { CSSVariable, KaizenToken } from "./types"
-import { getParser } from "./utils"
-import { isVariable } from "./variableUtils"
-const scssParser = getParser("scss")
 
 /* Pass in just the name of a module which is used to import variable.
   E.g. "color" or "color-vars", NOT "@kaizen/design-tokens/sass/color".
@@ -13,15 +11,14 @@ const scssParser = getParser("scss")
 const getVarsFromKaizenModule = (moduleName: string) => {
   const sassModulePath = `@kaizen/design-tokens/sass/${moduleName}`
   const lessModulePath = `@kaizen/design-tokens/less/${moduleName}`
-  const source = fs
-    .readFileSync(require.resolve(sassModulePath + ".scss"))
-    .toString()
-  const root = scssParser.parse(source)
+  const source = require(`@kaizen/design-tokens/tokens/${moduleName}.json`)
+
   const variables = {} as Record<string, string>
-  root.walkDecls(decl => {
-    if (isVariable(decl)) {
-      variables[decl.prop.substr(1)] = decl.value
-    }
+
+  // Shamelessly using a map function like a forEach
+  Utils.mapLeafsOfObject(source, (path, value) => {
+    const key = path.map(kebabCase).join("-")
+    variables[key] = `${value}`
   })
   return {
     moduleName,

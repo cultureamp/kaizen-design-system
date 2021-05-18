@@ -324,9 +324,7 @@ export const noInvalidFunctionsRule = (
   options: Options
 ) => {
   walkDeclsWithKaizenTokens(stylesheetNode, ({ postcssNode }) => {
-    if (postcssNode.type === "decl") {
-      noInvalidFunctionsOnDeclaration(postcssNode, options)
-    }
+    noInvalidFunctionsOnDeclaration(postcssNode, options)
   })
 }
 export const declContainsInvalidFunctions = (

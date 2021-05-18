@@ -57,29 +57,24 @@ export const walkVariables = (
 }
 
 /**
- * Walk through a whole stylesheet, and visit only the Declarations (e.g. `color: $kz-spacing-md`) that contain kaizen tokens. You're also given a list of the kaizen variables that show up within the declaration.
+ * Walk through a whole stylesheet, and visit only the Declarations (e.g. `color: $kz-spacing-md`) that contain kaizen tokens.
+ * You're also given a list of the kaizen variables that show up within the declaration.
  * You could use the functions above to walk through variables again within your visitor function.
  */
 export const walkDeclsWithKaizenTokens = (
   stylesheetNode: Root,
   visitor: (params: {
-    postcssNode: Declaration | AtRule
+    postcssNode: Declaration
     parsedValue: postcssValueParser.ParsedValue
     kaizenVariables: ParsedKaizenVariable[]
     value: string
   }) => void | false
 ) => {
   stylesheetNode.walk(postcssNode => {
-    if (postcssNode.type !== "decl" && postcssNode.type !== "atrule") return
+    if (postcssNode.type !== "decl") return
 
-    const value =
-      postcssNode.type === "decl"
-        ? postcssNode.value
-        : postcssNode.type === "atrule"
-        ? postcssNode.params
-        : undefined
+    const value = postcssNode.value
 
-    if (!value) return
     const parsedValue = postcssValueParser(value)
     const kaizenVariables: ParsedKaizenVariable[] = []
     walkVariablesOnValue(parsedValue, (variableNode, variable) => {
@@ -95,6 +90,42 @@ export const walkDeclsWithKaizenTokens = (
       visitor({ postcssNode, parsedValue, kaizenVariables, value })
   })
 }
+/**
+ * Similar to {@link walkDeclsWithKaizenTokens}
+ * Walk through a whole stylesheet, and visit only the AtRules (e.g. `@media (min-width: $kz-layout-breakpoints-lg) {}`) that contain kaizen tokens.
+ * You're also given a list of the kaizen variables that show up within the declaration.
+ * You could use the functions above to walk through variables again within your visitor function.
+ */
+export const walkAtRulesWithKaizenTokens = (
+  stylesheetNode: Root,
+  visitor: (params: {
+    postcssNode: AtRule
+    parsedValue: postcssValueParser.ParsedValue
+    kaizenVariables: ParsedKaizenVariable[]
+    value: string
+  }) => void | false
+) => {
+  stylesheetNode.walk(postcssNode => {
+    if (postcssNode.type !== "atrule") return
+
+    const value = postcssNode.params
+
+    const parsedValue = postcssValueParser(value)
+    const kaizenVariables: ParsedKaizenVariable[] = []
+    walkVariablesOnValue(parsedValue, (variableNode, variable) => {
+      if (variable.kaizenToken) {
+        kaizenVariables.push({
+          ...variable,
+          kaizenToken: variable.kaizenToken,
+          node: variableNode,
+        })
+      }
+    })
+    if (kaizenVariables.length)
+      visitor({ postcssNode, parsedValue, kaizenVariables, value })
+  })
+}
+
 /*
   Visit all kaizen tokens within a stylesheet
 */

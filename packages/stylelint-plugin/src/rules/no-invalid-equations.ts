@@ -137,8 +137,7 @@ export const noInvalidEquationsRule = (
   options: Options
 ) => {
   walkDeclsWithKaizenTokens(stylesheetNode, ({ postcssNode, parsedValue }) => {
-    if (postcssNode.type === "decl")
-      noInvalidEquationsOnDeclaraion(postcssNode, parsedValue, options)
+    noInvalidEquationsOnDeclaraion(postcssNode, parsedValue, options)
   })
 }
 
