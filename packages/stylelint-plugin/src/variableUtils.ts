@@ -1,12 +1,16 @@
 import nanomemoize from "nano-memoize"
 import { ChildNode, Container, Declaration, Root } from "postcss"
-import postcssValueParser, { WordNode } from "postcss-value-parser"
-import { kaizenTokensByName } from "./kaizenTokens"
-import { sassInterpolationPattern } from "./patterns"
-import { KaizenToken, ParsedKaizenVariable, Variable } from "./types"
+import postcssValueParser from "postcss-value-parser"
+import { operatorPattern } from "./patterns"
+import { Language, ParsedKaizenVariable, Variable } from "./types"
+import { variablePrefixForLanguage } from "./utils"
 import { walkVariablesOnValue } from "./walkers"
 
-export const stringifyVariable = (variable: Variable) => {
+/**
+ * Given that we represent some variables in our own way, we need a way to stringify them.
+ * This will stringify a variable with respect to it's polarity (if its preceeded by an immediate negative sign), and if its interpolated (surrounded by #{})
+ */
+export const stringifySassVariable = (variable: Variable) => {
   const variableWithPrefix = `${variable.prefix}${variable.name}`
 
   const negated = variable.negated
@@ -15,57 +19,6 @@ export const stringifyVariable = (variable: Variable) => {
   const interpolated = variable.interpolated ? `#{${negated}}` : negated
 
   return interpolated
-}
-
-/*
-  Given a postcss-value-parser WordNode, return either a Variable or null. The variable will contain a kaizenToken if there is a matchine one.
-*/
-export const parseVariable = (node: WordNode): Variable | null => {
-  // I wish postcss-value-parser was just a bit better at knowing how to handle a few more tokens like negating a variable or string interpolation.
-  // It doesn't seem to be built directly for SASS or LESS, but it mostly works with them.
-  // In order to get around this (mostly), we detect a few edge cases in this function.
-
-  const interpolated = sassInterpolationPattern.test(node.value)
-  const valueWithoutInterpolation = node.value.replace(
-    sassInterpolationPattern,
-    "$1"
-  )
-  const negated = valueWithoutInterpolation[0] === "-"
-  const cleanedValue = negated
-    ? valueWithoutInterpolation.slice(1)
-    : valueWithoutInterpolation
-  const firstChar = cleanedValue[0]
-  if (firstChar === "@" || firstChar === "$") {
-    const name = cleanedValue.substr(1)
-    return {
-      name,
-      nameWithPrefix: cleanedValue,
-      prefix: firstChar,
-      kaizenToken: kaizenTokensByName[name],
-      interpolated,
-      negated,
-      node,
-    }
-  }
-  // Not a variable
-  return null
-}
-
-/**
- * Given a Variable (which represents an instance of a variable within a Stylesheet), return a copy of it but replaces with a KaizenToken of your choice.
- */
-export const replaceTokenInVariable = (
-  variable: Variable,
-  replacementToken: KaizenToken
-) => {
-  const nameWithPrefix = `${variable.prefix}${variable.name}`
-  return {
-    ...variable,
-    node: { ...variable.node, value: nameWithPrefix },
-    name: replacementToken.name,
-    nameWithPrefix,
-    kaizenToken: replacementToken,
-  }
 }
 
 /**
@@ -182,5 +135,10 @@ export const variablePrefixPattern = /^(@|\$)/
 export const isVariable = (declaration: Declaration) =>
   variablePrefixPattern.test(declaration.prop)
 
-export const getReplacementForDeprecatedToken = (token: KaizenToken) =>
-  kaizenTokensByName[token.name.replace("kz", "kz-var")]
+/**
+ * Go from kz-var-color-white -> $kz-var-color-white | @kz-var-color-white, depending on the language
+ */
+export const prefixVariableName = (language: Language, name: string) =>
+  `${variablePrefixForLanguage(language)}${name}`
+
+export const isOperator = (value: string) => operatorPattern.test(value)

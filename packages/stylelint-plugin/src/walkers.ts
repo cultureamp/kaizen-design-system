@@ -1,7 +1,7 @@
 import { AtRule, Declaration, Root } from "postcss"
 import postcssValueParser from "postcss-value-parser"
+import { parseVariable } from "./kaizenTokens"
 import { ParsedKaizenVariable, Variable } from "./types"
-import { parseVariable } from "./variableUtils"
 
 /**
  * Given a parsed value (from postcss-value-parser), visit any less or sass variables that show up

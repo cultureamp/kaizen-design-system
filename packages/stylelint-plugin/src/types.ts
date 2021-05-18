@@ -27,8 +27,10 @@ export type KaizenToken = {
   lessModulePath: string
   value: string
   moduleName: string
-  cssVariable?: CSSVariable
+  cssVariable: CSSVariable | null
   deprecated: boolean
+  // Will contain a HEX (possibly with an alpha channel) color if the value (or CSS fallback) contains any valid color.
+  color: string | null
 }
 
 export type CSSVariable = {
