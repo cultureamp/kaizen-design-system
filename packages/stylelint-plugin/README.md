@@ -1,6 +1,6 @@
 # Kaizen Stylelint Plugin
 
-## Tl;dr
+## Getting Started
 
 `yarn add @kaizen/stylelint-plugin`
 
