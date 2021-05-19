@@ -55,7 +55,7 @@ const rules: StyleLintRule[] = [
 export default rules.map(rule =>
   stylelint.createPlugin(
     `kaizen/${rule.name}`,
-    (primary, secondary: StylelintPluginOptions | undefined, context) => (
+    (_, secondary: StylelintPluginOptions | undefined, context) => (
       root,
       result
     ) => {
