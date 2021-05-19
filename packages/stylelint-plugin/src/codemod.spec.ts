@@ -188,13 +188,13 @@ const testExamples: TestExample[] = [
     expectedUnfixables: 0,
   },
   {
-    language: "scss",
+    language: "less",
     testName:
       "fixes new kaizen css variable tokens when used incorrectly in rgba|rgb|add-alpha",
     input:
-      '@import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800, 80%) }',
+      '@import "~@kaizen/design-tokens/less/color-vars"; .foo { color: rgba(@kz-var-color-wisteria-800, 80%) }',
     expectedOutput:
-      '@import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800-rgb-params, 80%) }',
+      '@import "~@kaizen/design-tokens/less/color-vars"; .foo { color: rgba(@kz-var-color-wisteria-800-rgb-params, 80%) }',
     expectedUnfixables: 0,
   },
   {
@@ -508,7 +508,7 @@ describe("Codemod", () => {
     })
   }
   testExamples.forEach(testExample)
-  // TEst a single example by adding "only" to an example up above
+  // Test a single example by adding "only" to an example up above
   // OR
   // Test a single example like so:
   /*   testExample({
