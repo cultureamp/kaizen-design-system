@@ -377,6 +377,36 @@ export const Manager360 = (props: SpotProps) => {
   return <Base {...props} name={illustrationPath} />
 }
 
+export const Individual180 = (props: SpotProps) => {
+  const theme = useTheme()
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-individual-180.svg"
+
+  return <Base {...props} name={illustrationPath} />
+}
+
+export const Leadership180 = (props: SpotProps) => {
+  const theme = useTheme()
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-leadership-180.svg"
+
+  return <Base {...props} name={illustrationPath} />
+}
+
+export const Manager180 = (props: SpotProps) => {
+  const theme = useTheme()
+  const illustrationPath =
+    theme.themeKey === "zen"
+      ? "illustrations/spot/miscellaneous-blank-survey.svg"
+      : "illustrations/heart/spot/template-library-manager-180.svg"
+
+  return <Base {...props} name={illustrationPath} />
+}
+
 export const TeamEffectiveness1 = (props: SpotProps) => {
   const theme = useTheme()
   const illustrationPath =
