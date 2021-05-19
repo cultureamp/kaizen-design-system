@@ -5,10 +5,6 @@
       true,
       { "severity": "warning", "allowFixing": true }
     ],
-    "kaizen/no-transitive-tokens": [
-      true,
-      { "severity": "warning", "allowFixing": true }
-    ],
     "kaizen/no-invalid-functions": [
       true,
       { "severity": "warning", "allowFixing": true }

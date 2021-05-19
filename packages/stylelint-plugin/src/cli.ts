@@ -1,5 +1,11 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
+
+/*
+    This is a CLI that allows you to run the codemod as a standalone PostCSS plugin.
+    You give it a glob of files, some extra options, and you'll receive warnings and autofixes in-place.
+*/
+
 import fs from "fs"
 import glob from "glob"
 import postcss from "postcss"

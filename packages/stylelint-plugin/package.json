@@ -9,9 +9,6 @@
     "dist",
     "types"
   ],
-  "bin": {
-    "kaizen-token-codemod": "./dist/src/cli.js"
-  },
   "dependencies": {
     "@kaizen/design-tokens": "^2.8.1",
     "@types/lodash.kebabcase": "^4.1.6",
