@@ -217,7 +217,7 @@ const testExamples: TestExample[] = [
   },
   {
     language: "scss",
-    testName: "interpolated tokens are still fixd",
+    testName: "interpolated tokens are still fixed",
     input:
       '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { padding: #{$kz-spacing-lg} }',
     expectedOutput:
@@ -227,7 +227,7 @@ const testExamples: TestExample[] = [
   {
     language: "scss",
     testName:
-      "negation of old token is detected as an equation, and then fixd with a calc()",
+      "negation of old token is detected as an equation, and then fixed with a calc()",
     input:
       '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: -$kz-spacing-lg; }',
     expectedOutput:
@@ -237,7 +237,7 @@ const testExamples: TestExample[] = [
   {
     language: "scss",
     testName:
-      "negation of old token is detected as an equation, and then fixd with a calc(), but not if it's already within one",
+      "negation of old token is detected as an equation, and then fixed with a calc(), but not if it's already within one",
     input:
       '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: calc(-$kz-spacing-lg); }',
     expectedOutput:
@@ -247,7 +247,7 @@ const testExamples: TestExample[] = [
   {
     language: "scss",
     testName:
-      "negation of old token is detected as an equation, and then fixd with a calc(), even when it's part of a value with multiple 'sides' ",
+      "negation of old token is detected as an equation, and then fixed with a calc(), even when it's part of a value with multiple 'sides' ",
     input:
       '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: 5px -$kz-spacing-lg; }',
     expectedOutput:
@@ -257,7 +257,7 @@ const testExamples: TestExample[] = [
   {
     language: "scss",
     testName:
-      "negation of old token is detected as an equation, and then fixd with a calc(), even when it's part of a value with multiple 'sides', and with another kaizen token next to it ",
+      "negation of old token is detected as an equation, and then fixed with a calc(), even when it's part of a value with multiple 'sides', and with another kaizen token next to it ",
     input:
       '@import "~@kaizen/design-tokens/sass/spacing"; .foo { padding: $kz-spacing-md -$kz-spacing-lg; }',
     expectedOutput:
@@ -278,7 +278,7 @@ const testExamples: TestExample[] = [
   {
     language: "less",
     testName:
-      "negation of old token is detected as an equation, but not fixd in LESS",
+      "negation of old token is detected as an equation, but not fixed in LESS",
     input:
       '@import "~@kaizen/design-tokens/less/spacing"; .foo { padding: -@kz-spacing-lg; }',
     expectedOutput:
@@ -508,7 +508,7 @@ describe("Codemod", () => {
     })
   }
   testExamples.forEach(testExample)
-  // TEst a single example by adding "only" to an example up above
+  // Test a single example by adding "only" to an example up above
   // OR
   // Test a single example like so:
   /*   testExample({
