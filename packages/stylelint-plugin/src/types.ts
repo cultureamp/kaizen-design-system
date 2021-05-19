@@ -15,8 +15,8 @@ export type Options = {
 }
 
 export type StylelintPluginOptions = {
-  /** Allows the codemod to apply fixes using stylelint. Warning: Some inconsistent changes may occur */
-  allowFixing?: boolean
+  /** Doesn't apply autofixes even when running with `--fix`, so that you can isolate a set of rules' fixes. */
+  disableFixing?: boolean
   /** Report on and remove unused kaizen imports */
   unusedImports?: boolean
 }

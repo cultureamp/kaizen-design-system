@@ -64,7 +64,7 @@ export default rules.map(rule =>
           ? "less"
           : "scss"
         rule.ruleFunction(root, {
-          fix: Boolean(secondary?.allowFixing && context?.fix),
+          fix: Boolean(!secondary?.disableFixing && context?.fix),
           language,
           reporter: ({ message, node, autofixAvailable }) =>
             stylelint.utils.report({
