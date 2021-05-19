@@ -129,7 +129,7 @@ const getAndReportOnReplacementRgbParamsVariable = (
 const compileSassValue = (
   stylesheetNode: Root,
   declaration: Declaration,
-  value: string
+  valueToCompile: string
 ) => {
   try {
     const stylesheetVariables = getLexicallyClosestVariables(
@@ -150,7 +150,7 @@ const compileSassValue = (
 ${deprecatedSassFunctionsSource}
 ${stylesheetAndKaizenVariablesString}
 .target {
-  targetvalue: ${value}
+  targetvalue: ${valueToCompile}
 }
   `,
       })

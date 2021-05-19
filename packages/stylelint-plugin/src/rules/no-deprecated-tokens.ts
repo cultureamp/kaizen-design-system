@@ -49,21 +49,29 @@ export const noDeprecatedTokensRule = (
   styleSheetNode: Root,
   options: Options
 ) => {
+  // Loop through every declaration within the stylesheet IF that declaration value contains a kaizen token.
+  // An example declaration with a kaizen token is something like: `color: $kz-color-wisteria-800`.
+  // An example of a declaration without a kaizen token: `padding: 1rem`.
   walkDeclsWithKaizenTokens(
     styleSheetNode,
-    ({ value, parsedValue, kaizenVariables, postcssNode }) => {
+    ({ parsedValue, kaizenVariables, postcssNode }) => {
+      // Because every KaizenToken type has a `deprecated: boolean` we can easily extract a list of only deprecated tokens found on the declaration.
       const deprecatedVariables = kaizenVariables.filter(
         variable => variable.kaizenToken.deprecated
       )
-      // If the whole declaration contains only new CSS variable tokens, nothing needs to be done, so just return.
+      // If the whole declaration contains only valid tokens, nothing needs to be done, so just return.
       if (!deprecatedVariables.length) {
         return
       }
 
       const decl = postcssNode
 
-      // These next two blocks bail out if a token is used in an equation or in an unsupported function. Admittedly it's a bit weird because there is a double up on reporting if you include the rules that relate to these predicate functions.
-      // This is what determines if a deprecated token can't automatically be migrated.
+      /*
+        These next two blocks bail out if a token is used in an equation or in an unsupported function.
+        Admittedly it's a bit weird because there is a double up on reporting if you include the rules that relate to these predicate functions.
+        However, this is what determines if a deprecated token can't automatically be migrated.
+        We want to be able to use the same logic as the other rules, but also keep them as separate rules...
+      */
       if (declContainsInvalidEquations(decl, parsedValue, options)) {
         options.reporter({
           message: invalidEquationContainingDeprecatedTokenMessage,
@@ -83,42 +91,51 @@ export const noDeprecatedTokensRule = (
 
       const oldValue = decl.value
       let newValue = decl.value
-      walkVariablesOnValue(parsedValue, (node, variable) => {
-        if (!variable.kaizenToken) return
 
-        // If the token is not a CSS variable, it should be migrated
-        if (variable.kaizenToken.deprecated) {
-          const replacementToken = getReplacementForDeprecatedToken(
-            variable.kaizenToken
+      deprecatedVariables.forEach(variable => {
+        const replacementToken = getReplacementForDeprecatedToken(
+          variable.kaizenToken
+        )
+        if (!replacementToken) {
+          options.reporter({
+            message: cantFindReplacementTokenForDeprecatedMessage(
+              variable.name
+            ),
+            node: decl,
+            autofixAvailable: false,
+          })
+          return
+        }
+
+        if (isVariable(decl)) {
+          options.reporter({
+            message: deprecatedTokenUsageMessage(
+              variable.name,
+              replacementToken.name
+            ),
+            node: decl,
+            autofixAvailable: false,
+          })
+          return
+        }
+
+        if (options.fix) {
+          variable.node.value = stringifyVariable(
+            replaceTokenInVariable(variable, replacementToken)
           )
-          if (!replacementToken) {
-            options.reporter({
-              message: cantFindReplacementTokenForDeprecatedMessage(
-                variable.name
-              ),
-              node: decl,
-              autofixAvailable: false,
-            })
-            return
-          }
-
-          if (options.fix && !isVariable(decl)) {
-            node.value = stringifyVariable(
-              replaceTokenInVariable(variable, replacementToken)
-            )
-            newValue = postcssValueParser.stringify(parsedValue.nodes)
-          } else {
-            options.reporter({
-              message: deprecatedTokenUsageMessage(
-                variable.name,
-                replacementToken.name
-              ),
-              node: decl,
-              autofixAvailable: !isVariable(decl),
-            })
-          }
+          newValue = postcssValueParser.stringify(parsedValue.nodes)
+        } else {
+          options.reporter({
+            message: deprecatedTokenUsageMessage(
+              variable.name,
+              replacementToken.name
+            ),
+            node: decl,
+            autofixAvailable: true,
+          })
         }
       })
+
       if (newValue !== oldValue && options.fix && !isVariable(decl)) {
         decl.replaceWith(
           decl.clone({
@@ -129,10 +146,10 @@ export const noDeprecatedTokensRule = (
     }
   )
 
-  walkAtRulesWithKaizenTokens(styleSheetNode, ({ postcssNode }) => {
-    walkVariablesOnValue(
-      postcssValueParser(postcssNode.params),
-      (node, variable) => {
+  walkAtRulesWithKaizenTokens(
+    styleSheetNode,
+    ({ postcssNode, kaizenVariables }) => {
+      kaizenVariables.forEach(variable => {
         // We only care about deprecated tokens
         if (variable.kaizenToken?.deprecated) {
           const kaizenToken = variable.kaizenToken
@@ -161,7 +178,7 @@ export const noDeprecatedTokensRule = (
             return false
           }
         }
-      }
-    )
-  })
+      })
+    }
+  )
 }

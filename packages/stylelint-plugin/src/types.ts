@@ -37,7 +37,7 @@ export type CSSVariable = {
 }
 
 /**
- *  This type represents a variable within a stylesheet, and is tied to either SCSS or LESS
+ *  This type represents a variable within a stylesheet, and is tied to either SCSS or LESS.
  */
 export type Variable = {
   name: string
@@ -50,7 +50,8 @@ export type Variable = {
 }
 
 /**
- * This represents a Variable, but one that definitely holds a KaizenToken, and a parsed WordNode (variableNode)
+ * This represents a Variable, but one that definitely holds a KaizenToken, and a parsed WordNode (variableNode).
+ * We use the terminology "Variable" and "Token" to distinguish between a stylesheet construct and a Kaizen theme field (token) respectively
  */
 export type ParsedKaizenVariable = Variable & {
   kaizenToken: KaizenToken

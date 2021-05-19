@@ -9,18 +9,25 @@ export const importsNoExtraneousRule = (
   stylesheetNode: Root,
   options: Options
 ) => {
+  // Get a map of all distinct kaizen tokens within the stylesheet
   const foundKaizenTokens = new Map<string, KaizenToken>()
   walkKaizenTokens(stylesheetNode, ({ variable }) => {
     foundKaizenTokens.set(variable.name, variable.kaizenToken)
   })
 
+  // Get a set of distinct imports paths within the stylesheet.
   const currentImports = getCurrentImports(stylesheetNode)
+
+  // Go through each kaizen token within the stylesheet, and generate a new set of distinct required imports.
+  // Each kaizen token (KaizenToken type) contains a `lessModulePath` or a `sassModulePath`.
   const requiredImports = new Set(
     Array.from(foundKaizenTokens.values()).map(token =>
       options.language === "less" ? token.lessModulePath : token.sassModulePath
     )
   )
-  // Add missing imports
+
+  // For each required import:
+  // If the import doesn't exist, and we are in `fix: true` mode, add it.
   requiredImports.forEach(path => {
     if (!currentImports.has(path)) {
       if (options.fix) {

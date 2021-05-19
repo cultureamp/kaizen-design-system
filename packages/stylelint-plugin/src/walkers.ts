@@ -4,7 +4,7 @@ import { ParsedKaizenVariable, Variable } from "./types"
 import { parseVariable } from "./variableUtils"
 
 /**
- * Given a parsed value (from postcss-value-parser), visit any less or sass variables that show up
+ * Given an AST of a value (from postcss-value-parser), visit any less or sass variables that show up
  */
 export const walkVariablesOnValue = (
   parsedValue: postcssValueParser.ParsedValue,
@@ -65,7 +65,13 @@ export const walkDeclsWithKaizenTokens = (
   stylesheetNode: Root,
   visitor: (params: {
     postcssNode: Declaration
+    /* The AST of the value part of the declaration */
     parsedValue: postcssValueParser.ParsedValue
+    /* Contains an array of kaizen token instances within the declaration.
+      For example:
+        - `color: $kz-color-wisteria-800` -> `[{name: "$kz-color-wisteria-800", ...}]`
+        - `padding: $kz-spacing-md $kz-spacing-lg` -> `[{name: "$kz-spacing-md", ...}, {name: "$kz-spacing-lg", ...}]
+    */
     kaizenVariables: ParsedKaizenVariable[]
     value: string
   }) => void | false
