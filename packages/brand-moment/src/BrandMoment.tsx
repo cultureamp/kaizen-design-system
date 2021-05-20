@@ -1,10 +1,11 @@
-import React, { ReactNode } from "react"
+import React, { ReactNode, ReactElement } from "react"
 import { Heading, Box, Paragraph } from "@kaizen/component-library"
-import { IntroductionsCaptureIntro } from "@kaizen/draft-illustration"
 import { Button, ButtonProps } from "@kaizen/draft-button"
+import { SceneProps } from "@kaizen/draft-illustration"
 import styles from "./BrandMoment.scss"
 
 type Props = {
+  illustration: ReactElement<SceneProps>
   heading: ReactNode
   subheading?: ReactNode
   bodyText?: ReactNode
@@ -15,9 +16,7 @@ type Props = {
 export const BrandMoment = (props: Props) => (
   <div className={styles.container}>
     <div className={styles.left}>
-      <div className={styles.leftInner}>
-        <IntroductionsCaptureIntro alt="" />
-      </div>
+      <div className={styles.leftInner}>{props.illustration}</div>
     </div>
     <div className={styles.right}>
       <div className={styles.rightInner}>

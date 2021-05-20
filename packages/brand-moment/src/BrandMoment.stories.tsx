@@ -1,4 +1,5 @@
 import React from "react"
+import { IntroductionsCaptureIntro } from "@kaizen/draft-illustration"
 import { BrandMoment } from "../"
 
 export default {
@@ -17,6 +18,7 @@ export default {
 export const DefaultStory = () => (
   <div>
     <BrandMoment
+      illustration={<IntroductionsCaptureIntro alt="" />}
       subheading="A survey for Hooli"
       heading="Manager Effectiveness Survey"
       bodyText="Thank you for taking the time to respond to this survey. It'll help us better understand your experience and perspective."
