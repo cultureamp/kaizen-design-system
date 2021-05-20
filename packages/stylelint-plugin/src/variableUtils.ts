@@ -58,7 +58,7 @@ export const replaceTokenInVariable = (
   variable: Variable,
   replacementToken: KaizenToken
 ) => {
-  const nameWithPrefix = `${variable.prefix}${variable.name}`
+  const nameWithPrefix = `${variable.prefix}${replacementToken.name}`
   return {
     ...variable,
     node: { ...variable.node, value: nameWithPrefix },
