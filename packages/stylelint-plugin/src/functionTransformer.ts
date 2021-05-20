@@ -44,5 +44,15 @@ const extractArgs = (nodes: valueParser.Node[], functions: FunctionsMap) => {
   return args
 }
 
+/**
+ * This is the transformer that allows us to do things with function like `add-alpha($kz-color-blah, 80%)`.
+ * You give it a value like: `solid 1px darken($kz-color-white, 10%)`, and a map of functions like: `{ darken: (functionName: string, ...params: string[]) => string }`
+ * and it will call the transformer function on the functions map if it exists, and replace the function call with your return value.
+ * e.g.
+ * value: `solid 1px darken($kz-color-white, 10%)`
+ * functions: { darken: (functionName, ...params) => params[0] }
+ *
+ * output: `solid 1px $kz-color-white`
+ */
 export const transformDecl = (value: string, functions: FunctionsMap) =>
   transformString(value, functions)
