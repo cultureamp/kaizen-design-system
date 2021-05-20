@@ -45,7 +45,6 @@ const Default = () => (
         onClick: () => alert("tada: 🎉"),
       },
     }}
-    noMaxWidth
   />
 )
 
@@ -161,7 +160,6 @@ const WithCustomDescription = () => (
       },
     }}
     persistent
-    noMaxWidth
   />
 )
 
