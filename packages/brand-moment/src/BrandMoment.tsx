@@ -15,8 +15,8 @@ type Props = {
 }
 
 export const BrandMoment = (props: Props) => (
-  <div className={styles.container}>
-    <div className={styles.main}>
+  <div className={styles.body}>
+    <main className={styles.main}>
       <div className={styles.left}>
         <div className={styles.leftInner}>{props.illustration}</div>
       </div>
@@ -53,7 +53,7 @@ export const BrandMoment = (props: Props) => (
           </div>
         </div>
       </div>
-    </div>
+    </main>
     {props.footer && (
       <footer className={styles.footer}>
         {/* TODO: add "Powered By Culture Amp" part */}
