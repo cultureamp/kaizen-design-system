@@ -1,5 +1,5 @@
 import { codemodOnSource } from "./codemod"
-import { allRulesEnabled, Language } from "./types"
+import { Language } from "./types"
 
 type TestExample = {
   language: Language
@@ -491,7 +491,12 @@ describe("Codemod", () => {
       const result = codemodOnSource(input, {
         language,
         fix: true,
-        ...allRulesEnabled,
+        noDeprecatedTokens: true,
+        noInvalidEquations: true,
+        importsNoExtraneous: true,
+        importsNoUnused: true,
+        noInvalidFunctions: true,
+        noTransitiveTokens: true,
         reporter: ({ message, autofixAvailable }) => {
           // Uncomment this if you want to see reports
           // console.log(message)

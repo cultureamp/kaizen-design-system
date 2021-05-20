@@ -74,12 +74,3 @@ export type RulesEnabled = {
   noDeprecatedTokens: boolean
   noTransitiveTokens: boolean
 }
-
-export const allRulesEnabled: RulesEnabled = {
-  noDeprecatedTokens: true,
-  noInvalidEquations: true,
-  importsNoExtraneous: true,
-  importsNoUnused: true,
-  noInvalidFunctions: true,
-  noTransitiveTokens: true,
-}
