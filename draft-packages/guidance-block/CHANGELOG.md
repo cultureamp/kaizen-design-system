@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.9.4...@kaizen/draft-guidance-block@2.9.5) (2021-05-20)
+
+
+### Bug Fixes
+
+* Make GuidanceBlock action buttons right aligned ([#1621](https://github.com/cultureamp/kaizen-design-system/issues/1621)) ([0dfebb2](https://github.com/cultureamp/kaizen-design-system/commit/0dfebb245ebd1cb6a0484758437d92d7061e5936))
+
+
+
+
+
 ## [2.9.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.9.3...@kaizen/draft-guidance-block@2.9.4) (2021-05-19)
 
 **Note:** Version bump only for package @kaizen/draft-guidance-block
