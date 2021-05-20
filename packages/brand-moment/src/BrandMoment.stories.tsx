@@ -29,6 +29,7 @@ export const DefaultStory = () => (
       secondaryAction={{
         label: "About data safety",
       }}
+      footer="Your responses and information are securely collected and kept by Culture Amp in accordance with our Privacy Policy. Your responses will be reported to Hooli based on the specific rules for this survey. If you have any additional questions, please contact us at support@cultureamp.com."
     />
   </div>
 )
