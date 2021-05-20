@@ -79,6 +79,18 @@ const WithoutMaxWidth = () => (
     illustration={<Informative alt="" />}
     text={guidanceBlockText}
     noMaxWidth
+    actions={{
+      primary: {
+        label: "Action",
+        onClick: () => {
+          alert("tada: 🎉")
+        },
+      },
+      secondary: {
+        label: "Secondary action",
+        href: "#",
+      },
+    }}
   />
 )
 
