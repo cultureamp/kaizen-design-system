@@ -155,7 +155,9 @@ export const walkKaizenTokens = (
 }
 
 /**
- * Works the same way as postcssValueParser.ParsedValue.walk except the visitor knows about it's parent (if one exists). Currently, value parser will only put children nodes in functions, and a function with no name is just an expression within ( .. ) which won't be treated as a parent within our implementation.
+ * Works the same way as postcssValueParser.ParsedValue.walk except the visitor knows about it's parent (if one exists).
+ * Currently, value parser will only put children nodes in functions, and a function with no name is just an expression within ( .. )
+ * which won't be treated as a parent within our implementation.
  */
 export const walkWithParent = (
   _value: postcssValueParser.ParsedValue,
