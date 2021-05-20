@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.96](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.95...@kaizen/draft-dropdown@1.3.96) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
+## [1.3.95](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.94...@kaizen/draft-dropdown@1.3.95) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
+## [1.3.94](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.93...@kaizen/draft-dropdown@1.3.94) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
+## [1.3.93](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.92...@kaizen/draft-dropdown@1.3.93) (2021-05-16)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
+## [1.3.92](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.91...@kaizen/draft-dropdown@1.3.92) (2021-05-13)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
+## [1.3.91](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.90...@kaizen/draft-dropdown@1.3.91) (2021-05-05)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
+## [1.3.90](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.89...@kaizen/draft-dropdown@1.3.90) (2021-05-03)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
+## [1.3.89](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.88...@kaizen/draft-dropdown@1.3.89) (2021-04-30)
+
+**Note:** Version bump only for package @kaizen/draft-dropdown
+
+
+
+
+
 ## [1.3.88](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-dropdown@1.3.87...@kaizen/draft-dropdown@1.3.88) (2021-04-13)
 
 **Note:** Version bump only for package @kaizen/draft-dropdown

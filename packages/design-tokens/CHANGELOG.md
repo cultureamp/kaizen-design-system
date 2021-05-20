@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.8.2...@kaizen/design-tokens@2.8.3) (2021-05-18)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
+## [2.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.8.1...@kaizen/design-tokens@2.8.2) (2021-04-23)
+
+
+### Bug Fixes
+
+* Update data-viz color values for Heart theme ([#1472](https://github.com/cultureamp/kaizen-design-system/issues/1472)) ([10fd580](https://github.com/cultureamp/kaizen-design-system/commit/10fd58012308fe3cbce128de912fe261c3830948))
+
+
+
+
+
+## [2.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.8.0...@kaizen/design-tokens@2.8.1) (2021-04-20)
+
+**Note:** Version bump only for package @kaizen/design-tokens
+
+
+
+
+
 # [2.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.7.2...@kaizen/design-tokens@2.8.0) (2021-04-13)
 
 

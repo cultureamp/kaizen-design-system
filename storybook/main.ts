@@ -43,15 +43,15 @@ module.exports = {
   addons: [
     path.resolve("./storybook/gtm-addon/register"),
     path.resolve("./storybook/theme-switcher-addon/register"),
-    "@storybook/addon-essentials",
-    "@storybook/addon-a11y",
-    "storybook-addon-designs",
     {
       name: "@storybook/addon-docs",
       options: {
         transcludeMarkdown: true,
       },
     },
+    "@storybook/addon-essentials",
+    "@storybook/addon-a11y",
+    "storybook-addon-designs",
   ],
   presets: [path.resolve("./storybook/header-preset/preset")],
   webpackFinal: (config, { configType }) => {

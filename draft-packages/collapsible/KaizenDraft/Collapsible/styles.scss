@@ -7,22 +7,17 @@
 
 $heading-active-color: $kz-var-color-wisteria-100;
 
+// We need a full border radius on this container element, then have classes
+// beneath to toggle nested borders off and on for different use cases.
 .container {
+  background-color: white;
   box-shadow: $kz-var-shadow-small-box-shadow;
   border-radius: $kz-var-border-borderless-border-radius;
-  overflow: hidden;
 }
 
-// We set overflow: hidden on the container, so that child nodes without border
-// radius do not overlap the container. However, this breaks the sticky headers
-// because it creates a new scroll container. The solution is to use the new
-// overflow: clip setting, but until it has full support across browsers we also
-// need a fallback. When there is full support for overflow:clip, we can use that
-// in .container for everything
-.stickyContainer {
-  overflow: visible;
-  @supports (overflow: clip) {
-    overflow: clip;
+.single {
+  .button {
+    border-radius: $kz-var-border-borderless-border-radius;
   }
 }
 
@@ -30,12 +25,36 @@ $heading-active-color: $kz-var-color-wisteria-100;
   & + .separated {
     @include ca-margin($top: $ca-grid * 0.3);
   }
+
+  .button {
+    border-radius: $kz-var-border-borderless-border-radius;
+  }
 }
 
+// When a collapsible group is rendered, we need the first group to have a rounded
+// on top and the last group to have a rounded bottom edge. Then when the last group
+// is open we remove the rounded edge as the content sits beneath and needs to be straight.
 .groupItem {
   & + .groupItem {
     border-top: 1px solid $ca-border-color;
   }
+
+  &:first-of-type > .button {
+    border-top-left-radius: $kz-var-border-borderless-border-radius;
+    border-top-right-radius: $kz-var-border-borderless-border-radius;
+  }
+
+  &:last-of-type > .button:not(.open) {
+    border-bottom-left-radius: $kz-var-border-borderless-border-radius;
+    border-bottom-right-radius: $kz-var-border-borderless-border-radius;
+  }
+}
+
+// Round the bottom corners of the button so when the container is open, the
+// button background is not rounded on the corners and flush with the content beneath.
+.open .button {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .button {
@@ -78,7 +97,6 @@ $heading-active-color: $kz-var-color-wisteria-100;
 }
 
 .section {
-  background-color: white;
   @include ca-padding(
     $top: $ca-grid,
     $end: $ca-grid,

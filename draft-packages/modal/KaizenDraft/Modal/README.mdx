@@ -6,7 +6,7 @@ tags: ["Modal window", "Dialog", "Pop up", "Alert", "Lightbox", "Overlay"]
 needToKnow:
 - "Modals need a trigger to open like a button."
 - "Modals need an overlay behind them and over the page."
-- "Choose your type (confirmation, informative, etc.)."
+- "Choose your type (confirmation, input-edit or context)."
 - "Use sparingly."
 demoStoryId: modal-react--confirmation-positive-kaizen-site-demo
 demoStoryHeight: 500px
@@ -23,20 +23,18 @@ import Dont from "docs-components/Dont"
 
 ## Visuals
 
-<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fe3TyAOZKfLg9cA01Iy1Mgm%2FKaizen-Site-embed%3Fnode-id%3D136%253A4458" allowfullscreen></iframe>
+<iframe style="border: none;" width="744" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FeZKEE5kXbEMY3lx84oz8iN%2F%25E2%259D%25A4%25EF%25B8%258F-UI-Kit-Heart%3Fnode-id%3D1929%253A35439" allowfullscreen></iframe>
 
 ## Options
 
-* Presets:
-  * Confirmation:
-    * Mood:
-       * Destructive / Negative
-      * Affirmative / Positive
-      * Informative
-      * Cautionary
-  * Input/edit
-  * Information
-  * Roadblock
+  - Confirmation Modal:
+      - Positive
+      - Informative
+      - Cautionary
+      - Assertive (previously Roadblock)
+      - Negative
+  - Input-Edit Modal
+  - Context Modal (previously Information Modal)
 
 ## To keep in mind
 
@@ -48,31 +46,44 @@ Modals contain smaller pieces of additional content while maintaining the contex
 ### All modals
 
 * All modals are **dismissible** (Close button, cancel/back button, Esc keystroke, Click outside).
-* All modals use a **single Primary Action Button**. Never two primary action buttons. If a second action is an option, use a Secondary Action button (e.g. Cancel, in Cluny, no underline). 
-* Where appropriate, use precise language and **match the heading and primary button text** e.g. heading is “Delete photo” and primary button is “Delete”. Avoid questions like “Are you sure?”.
+* All modals use a **single Primary Action Button**. Never two primary action buttons. If a second action is an option, use a Secondary Action button (e.g. Cancel). 
+* Where appropriate, use precise language and **match the heading and primary button text** e.g. heading is “Delete photo”, use a Destructive Action button such as “Delete”. Avoid questions like “Are you sure?”.
 * **Don't depend on a scrollable modal body**. We only support a scrollable modal body as a fallback for when content is unintentionally long, such as when user-generated content is provided. This is strongly discouraged. If there's a high risk of a scrollable modal body:
     * Consider responsive behavior on small screens.
     * A modal might not be the best approach. Consider using an inline page section or a separate page instead.
     * Consider if any content inside the modal might be clipped, such as a Select dropdown section.
 * Close icon sits top right, never outside of modal. Screen reader reads the action for the icon, i.e. “Close”.
-* The backdrop overlay is pure black (not Wisteria) with 50% opacity.
+* The backdrop overlay is pure black (#000000) with 50% opacity.
 * We don't use modals as carousels. A Progress stepper in a modal is preferable if you need to guide a user through a flow.
 * Never stacks multiple modals together on screen at the same time.
 
 ### Confirmation modal
 
-The confirmation modal confirms the end result of an interaction such as Negative, Positive, Informative or Cautionary.
+The Confirmation Modal confirms the end result of an interaction such as Positive, Informative, Cautionary or Negative. The Assertive Confirmation Modal (previously Roadblock modal) indicates a show-stopping problem that we couldn't address earlier in the flow. Use as a last resort. For example, server-side validation shows a form error that needs to be addressed before continuing.
 
-- Header: States what the intent of Modal is. A verb and a noun (e.g. Upload an image, Notify users, Restart imports etc.)
-- Footer: Primary/Destructive action label reflect the action they are performing (relative to the header).
+There are two types of Confirmation Modal; Default and Prominent.
 
-We don't use custom spot illustrations in confirmation modals. Instead, use the standard spot illustrations.
+- **Default** is a simpler Confirmation Modal which is our preference for standard use cases.
+- **Prominent** includes an animated spot illustration to help convey increased sentiment to the user. Use the Prominent Confirmation Modal when you want to celebrate the completion of a task or make it known to the user that they need to pay attention to important information.
 
-### Input/edit modal
+The anatomy of a Confirmation Modal contains:
+- Header: States what the intent of Modal is. A verb and a noun (e.g. Upload an image, Notify users, Restart imports etc.).
+- Content: Additional context about the thing a user is confirming
+- Footer: Primary/Destructive action label reflects the action they are performing (relative to the header).
 
-Input/edit modals allow people to change data or settings without leaving the page. They support the ability to edit up to 3 fields. Any more becomes crowded and a new page is preferred.
+For Assertive Confirmation Modals, follow this structure:
+- Header: States why you can't proceed
+- Footer: One button either labeled back or cancel
+- Body: Tell users why they’re unable to proceed and what needs to happen first.
 
-An input/edit modal may also be used to present data-intensive information such as a list of employees where the information modal is inappropriate.
+**Note:** We don't use custom spot illustrations in Confirmation Modals. Use the standard, predefined animated spot illustration.
+
+
+### Input-Edit Modal
+
+Input-Edit Modals allow people to change data or settings without leaving the page. They support the ability to edit up to 3 fields. Any more becomes crowded and a new page is preferred.
+
+An Input-Edit Modal may also be used to present data-intensive information such as a list of employees where the Context Modal is inappropriate.
 
 If data will be lost by dismissing the modal unintentionally, consider autosaving.
 
@@ -80,9 +91,9 @@ If data will be lost by dismissing the modal unintentionally, consider autosavin
 - Footer: Primary/Destructive action label should reflect the action they are performing (relative to the header).
 - Body: Adding a stone colored background will assist the definition of Inputs and will allow product team to clearly identify the modal type.
 
-### Information modals
+### Context Modals (previously Information modal)
 
-Information modals assist with education. They’re user triggered. They may be relative to a deeper level of information. May be useful for first time users. Heavily optional. Visual aid is good. Primary action optional.
+Context Modals assist with education. They’re user triggered. They may be relative to a deeper level of information. May be useful for first time users. Heavily optional. Visual aid is good. Primary action optional.
 
 - Header: State what the intent of Modal is. A verb and a noun (e.g. Upload an image, Notify users, Restart imports etc.).
 - Footer: Does not require a Primary/Destructive action. Avoid using unnecessary acknowledgment buttons, e.g. ‘Okay, got it!’.
@@ -90,15 +101,6 @@ Information modals assist with education. They’re user triggered. They may be 
   - Illustrations may last longer without needing to be updated as well as potentially have a smaller file size than a screenshot.
   - If you need a new illustration, see [illustrations](/guidelines/illustrations).
 
-### Roadblock modals 
-
-The roadblock modal indicates a show-stopping problem that we couldn't address earlier in the flow. Use as a last resort. For example, server-side validation shows a form error that needs to be addressed before continuing.
-
-We don't use custom spot illustrations in roadblock modals. Use the standard spot illustration.
-
-- Header: States why you can't proceed
-- Footer: One button either labeled back or cancel
-- Body: Tell users why they’re unable to proceed and what needs to happen first.
 
 ## Copy guidelines
 
@@ -106,7 +108,7 @@ Modals are highly contextual and can be disruptive, so pay close attention to th
 
 ### Consider the flow
 
-Pay close attention to where the user encounters this modal in their flow. Is this new information? Or is this a change in the usual flow? Adjust your language accordingly. A new step might require more context and an intro (like in an information modal). Whereas a change doesn’t require as much context as it does justification for the change and how it affects the user’s usual workflow.
+Pay close attention to where the user encounters this modal in their flow. Is this new information? Or is this a change in the usual flow? Adjust your language accordingly. A new step might require more context and an intro (like in a Context Modal). Whereas a change doesn’t require as much context as it does justification for the change and how it affects the user’s usual workflow.
 
 ### Give it a descriptive title
 

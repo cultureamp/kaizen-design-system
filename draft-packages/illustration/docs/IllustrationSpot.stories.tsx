@@ -1,21 +1,24 @@
 import * as React from "react"
+import { Heading, Paragraph } from "@kaizen/component-library"
 import {
   AccountBasics,
   Action,
   AddImage,
   AddUser,
+  Assertive,
   BaselineSurvey,
   BenefitsSurvey,
   BlankSurvey,
   CandidateSurvey,
   Cautionary,
+  CompanyDetails,
   ChangeReadiness,
   ChangeSuccess,
   Coaching,
-  CompanyDetails,
   CustomOnboardSurvey,
   CustomSurvey,
   CustomUnattributedSurvey,
+  EmergencyResponse,
   EmployeeData,
   EngagementSurvey,
   ExecutiveReportSharing,
@@ -23,12 +26,17 @@ import {
   FastAction,
   Feedback,
   Gdpr,
+  GeneralOnboardSurvey,
   InclusionSurvey,
+  Individual180,
   Individual360,
   Informative,
   InternSurvey,
   LeaderReportSharing,
+  Leadership180,
   Leadership360,
+  LeadingThroughCrisis,
+  Manager180,
   Manager360,
   ManagerLearning,
   ManagerReportSharing,
@@ -38,12 +46,12 @@ import {
   PerformanceDiagnostics,
   PhasedWeek1OnboardSurvey,
   PhasedWeek5OnboardSurvey,
-  PositiveFemale,
-  PositiveMale,
+  Positive,
   Productivity,
   QuickEngagementSurvey,
   ReadArticle,
   RemoteManager,
+  RemoteOnboardSurvey,
   ReportSharing,
   Resilience,
   ShareReport,
@@ -66,490 +74,492 @@ import {
   WellbeingSurvey2,
   WellbeingSurvey3,
   Workshop,
+  WellbeingSurvey,
+  Response,
+  RemoteWorkQSet,
+  ReturnToWorkplace,
+  PulseSurvey,
+  Alarm,
+  Fire,
+  Fireworks,
+  FullImport,
+  HrisImport,
+  PartialImport,
+  Starburst,
+  Stop,
+  TrafficCone,
+  Trophy,
+  UnderConstruction,
+  ValueAdd,
+  Recommendation,
 } from ".."
 
 export default {
   title: "Illustration, Spot (React)",
   component: AccountBasics,
   parameters: {
-    info: {
-      text: `
-        import { AccountBasics } from "@kaizen/draft-illustration";
-      `,
+    docs: {
+      description: {
+        component:
+          'import { AccountBasics } from "@kaizen/draft-illustration";',
+      },
     },
   },
 }
 
 export const SpotStoryForKaizenSite = () => (
-  <div style={{ width: "156px" }}>
-    <BenefitsSurvey alt="" />
+  <div style={{ width: "150px" }}>
+    <AccountBasics alt="" />
   </div>
 )
 SpotStoryForKaizenSite.storyName = "Spot (Kaizen Site Demo)"
 
-export const BenefitsSurveyStory = () => (
-  <div style={{ width: "156px" }}>
-    <BenefitsSurvey alt="" />
-  </div>
-)
-BenefitsSurveyStory.storyName = "Engagement: Benefits Survey"
-
-export const CustomSurveyStory = () => (
-  <div style={{ width: "156px" }}>
-    <CustomSurvey alt="" />
-  </div>
-)
-CustomSurveyStory.storyName = "Engagement: Custom Survey"
-
-export const CustomUnattributedSurveyStory = () => (
-  <div style={{ width: "156px" }}>
-    <CustomUnattributedSurvey alt="" />
-  </div>
-)
-CustomUnattributedSurveyStory.storyName =
-  "Engagement: Custom Unattributed Survey"
-
-export const EngagementSurveyStory = () => (
-  <div style={{ width: "156px" }}>
-    <EngagementSurvey alt="" />
-  </div>
-)
-EngagementSurveyStory.storyName = "Engagement: Engagement Survey"
-
-export const InclusionSurveyStory = () => (
-  <div style={{ width: "156px" }}>
-    <InclusionSurvey alt="" />
-  </div>
-)
-InclusionSurveyStory.storyName = "Engagement: Inclusion Survey"
-
-export const QuickEngagementSurveyStory = () => (
-  <div style={{ width: "156px" }}>
-    <QuickEngagementSurvey alt="" />
-  </div>
-)
-QuickEngagementSurveyStory.storyName = "Engagement: Quick Engagement Survey"
-
-export const ValuesSurvey1Story = () => (
-  <div style={{ width: "156px" }}>
-    <ValuesSurvey1 alt="" />
-  </div>
-)
-ValuesSurvey1Story.storyName = "Engagement: Values Survey 1"
-
-export const ValuesSurvey2Story = () => (
-  <div style={{ width: "156px" }}>
-    <ValuesSurvey2 alt="" />
-  </div>
-)
-ValuesSurvey2Story.storyName = "Engagement: Values Survey 2"
-
-export const WellbeingSurvey1Story = () => (
-  <div style={{ width: "156px" }}>
-    <WellbeingSurvey1 alt="" />
-  </div>
-)
-WellbeingSurvey1Story.storyName = "Engagement: Wellbeing Survey 1"
-
-export const WellbeingSurvey2Story = () => (
-  <div style={{ width: "156px" }}>
-    <WellbeingSurvey2 alt="" />
-  </div>
-)
-WellbeingSurvey2Story.storyName = "Engagement: Wellbeing Survey 2"
-
-export const WellbeingSurvey3Story = () => (
-  <div style={{ width: "156px" }}>
-    <WellbeingSurvey3 alt="" />
-  </div>
-)
-WellbeingSurvey3Story.storyName = "Engagement: Wellbeing Survey 3"
-
-export const ChangeReadinessStory = () => (
-  <div style={{ width: "156px" }}>
-    <ChangeReadiness alt="" />
-  </div>
-)
-ChangeReadinessStory.storyName = "Engagement: Change Readiness"
-
-export const ChangeSuccessStory = () => (
-  <div style={{ width: "156px" }}>
-    <ChangeSuccess alt="" />
-  </div>
-)
-ChangeSuccessStory.storyName = "Engagement: Change Success"
-
-export const PerformanceDiagnosticsStory = () => (
-  <div style={{ width: "156px" }}>
-    <PerformanceDiagnostics alt="" />
-  </div>
-)
-PerformanceDiagnosticsStory.storyName = "Engagement: Performance Diagnostics"
-
-export const CandidateSurveyStory = () => (
-  <div style={{ width: "156px" }}>
-    <CandidateSurvey alt="" />
-  </div>
-)
-CandidateSurveyStory.storyName = "Experience: Candidate Survey"
-
-export const CustomOnboardSurveyStory = () => (
-  <div style={{ width: "156px" }}>
-    <CustomOnboardSurvey alt="" />
-  </div>
-)
-CustomOnboardSurveyStory.storyName = "Experience: Custom Onboard Survey"
-
-export const ExitSurveyStory = () => (
-  <div style={{ width: "156px" }}>
-    <ExitSurvey alt="" />
-  </div>
-)
-ExitSurveyStory.storyName = "Experience: Exit Survey"
-
-export const InternSurveyStory = () => (
-  <div style={{ width: "156px" }}>
-    <InternSurvey alt="" />
-  </div>
-)
-InternSurveyStory.storyName = "Experience: Intern Survey"
-
-export const PhasedWeek1OnboardSurveyStory = () => (
-  <div style={{ width: "156px" }}>
-    <PhasedWeek1OnboardSurvey alt="" />
-  </div>
-)
-PhasedWeek1OnboardSurveyStory.storyName =
-  "Experience: Phased Week 1 Onboard Survey"
-
-export const PhasedWeek5OnboardSurveyStory = () => (
-  <div style={{ width: "156px" }}>
-    <PhasedWeek5OnboardSurvey alt="" />
-  </div>
-)
-PhasedWeek5OnboardSurveyStory.storyName =
-  "Experience: Phased Week 5 Onboard Survey"
-
-export const SinglePointOnboardSurveyStory = () => (
-  <div style={{ width: "156px" }}>
-    <SinglePointOnboardSurvey alt="" />
-  </div>
-)
-SinglePointOnboardSurveyStory.storyName =
-  "Experience: Single Point Onboard Survey"
-
-export const Individual360Story = () => (
-  <div style={{ width: "156px" }}>
-    <Individual360 alt="" />
-  </div>
-)
-Individual360Story.storyName = "Performance: Individual 360"
-
-export const Leadership360Story = () => (
-  <div style={{ width: "156px" }}>
-    <Leadership360 alt="" />
-  </div>
-)
-Leadership360Story.storyName = "Performance: Leadership 360"
-
-export const Manager360Story = () => (
-  <div style={{ width: "156px" }}>
-    <Manager360 alt="" />
-  </div>
-)
-Manager360Story.storyName = "Performance: Manager 360"
-
-export const TeamEffectiveness1Story = () => (
-  <div style={{ width: "156px" }}>
-    <TeamEffectiveness1 alt="" />
-  </div>
-)
-TeamEffectiveness1Story.storyName = "Performance: Team Effectiveness 1"
-
-export const TeamEffectiveness2Story = () => (
-  <div style={{ width: "156px" }}>
-    <TeamEffectiveness2 alt="" />
-  </div>
-)
-TeamEffectiveness2Story.storyName = "Performance: Team Effectiveness 2"
-
-export const AccountBasicsStory = () => (
-  <div style={{ width: "156px" }}>
-    <AccountBasics alt="" />
-  </div>
-)
-AccountBasicsStory.storyName = "New Account: Account Basics"
-
-export const CompanyDetailsStory = () => (
-  <div style={{ width: "156px" }}>
-    <CompanyDetails alt="" />
-  </div>
-)
-CompanyDetailsStory.storyName = "New Account: Company Details"
-
-export const EmployeeDataStory = () => (
-  <div style={{ width: "156px" }}>
-    <EmployeeData alt="" />
-  </div>
-)
-EmployeeDataStory.storyName = "New Account: Employee Data"
-
-export const GdprStory = () => (
-  <div style={{ width: "156px" }}>
-    <Gdpr alt="" />
-  </div>
-)
-GdprStory.storyName = "New Account: GDPR"
-
-export const TimezoneStory = () => (
-  <div style={{ width: "156px" }}>
-    <Timezone alt="" />
-  </div>
-)
-TimezoneStory.storyName = "New Account: Timezone"
-
-export const AddUserStory = () => (
-  <div style={{ width: "156px" }}>
-    <AddUser alt="" />
-  </div>
-)
-AddUserStory.storyName = "New Account: Add User"
-
-export const ViewReportsStory = () => (
-  <div style={{ width: "156px" }}>
-    <ViewReports alt="" />
-  </div>
-)
-ViewReportsStory.storyName = "Miscellaneous: View Reports"
-
-export const ReadArticleStory = () => (
-  <div style={{ width: "156px" }}>
-    <ReadArticle alt="" />
-  </div>
-)
-ReadArticleStory.storyName = "Miscellaneous: Read Article"
-
-export const FastActionStory = () => (
-  <div style={{ width: "156px" }}>
-    <FastAction alt="" />
-  </div>
-)
-FastActionStory.storyName = "Miscellaneous: Fast Action"
-
-export const BaselineSurveyStory = () => (
-  <div style={{ width: "156px" }}>
-    <BaselineSurvey alt="" />
-  </div>
-)
-BaselineSurveyStory.storyName = "Miscellaneous: Baseline Survey"
-
-export const SpreadsheetTemplateStory = () => (
-  <div style={{ width: "156px" }}>
-    <SpreadsheetTemplate alt="" />
-  </div>
-)
-SpreadsheetTemplateStory.storyName = "Miscellaneous: Spreadsheet Template"
-
-export const AddImageStory = () => (
-  <div style={{ width: "156px" }}>
-    <AddImage alt="" />
-  </div>
-)
-AddImageStory.storyName = "Miscellaneous: Add Image"
-
-export const MeetingVoicesStory = () => (
-  <div style={{ width: "156px" }}>
-    <MeetingVoices alt="" />
-  </div>
-)
-MeetingVoicesStory.storyName = "Miscellaneous: Meeting Voices"
-
-export const WorkshopStory = () => (
-  <div style={{ width: "156px" }}>
-    <Workshop alt="" />
-  </div>
-)
-WorkshopStory.storyName = "Miscellaneous: Workshop"
-
-export const VideoStory = () => (
-  <div style={{ width: "156px" }}>
-    <Video alt="" />
-  </div>
-)
-VideoStory.storyName = "Miscellaneous: Video"
-
-export const ReportSharingStory = () => (
-  <div style={{ width: "156px" }}>
-    <ReportSharing alt="" />
-  </div>
-)
-ReportSharingStory.storyName = "Miscellaneous: Report Sharing"
-
-export const BlankSurveyStory = () => (
-  <div style={{ width: "156px" }}>
-    <BlankSurvey alt="" />
-  </div>
-)
-BlankSurveyStory.storyName = "Miscellaneous: Blank Survey"
-
-export const TakeAimStory = () => (
-  <div style={{ width: "156px" }}>
-    <TakeAim alt="" />
-  </div>
-)
-TakeAimStory.storyName = "Miscellaneous: Take Aim"
-
-export const ActionStory = () => (
-  <div style={{ width: "156px" }}>
-    <Action alt="" />
-  </div>
-)
-ActionStory.storyName = "Miscellaneous: Action"
-
-export const Training1Story = () => (
-  <div style={{ width: "156px" }}>
-    <Training1 alt="" />
-  </div>
-)
-Training1Story.storyName = "Miscellaneous: Training 1"
-
-export const Training2Story = () => (
-  <div style={{ width: "156px" }}>
-    <Training2 alt="" />
-  </div>
-)
-Training2Story.storyName = "Miscellaneous: Training 2"
-
-export const Training3Story = () => (
-  <div style={{ width: "156px" }}>
-    <Training3 alt="" />
-  </div>
-)
-Training3Story.storyName = "Miscellaneous: Training 3"
-
-export const ShareReportStory = () => (
-  <div style={{ width: "156px" }}>
-    <ShareReport alt="" />
-  </div>
-)
-ShareReportStory.storyName = "Miscellaneous: Share Report"
-
-export const TeamStory = () => (
-  <div style={{ width: "156px" }}>
-    <Team alt="" />
-  </div>
-)
-TeamStory.storyName = "Miscellaneous: Team"
-
-export const ExecutiveReportSharingStory = () => (
-  <div style={{ width: "156px" }}>
-    <ExecutiveReportSharing alt="" />
-  </div>
-)
-ExecutiveReportSharingStory.storyName =
-  "Miscellaneous: Executive Report Sharing"
-
-export const ManagerReportSharingStory = () => (
-  <div style={{ width: "156px" }}>
-    <ManagerReportSharing alt="" />
-  </div>
-)
-ManagerReportSharingStory.storyName = "Miscellaneous: Manager Report Sharing"
-
-export const LeaderReportSharingStory = () => (
-  <div style={{ width: "156px" }}>
-    <LeaderReportSharing alt="" />
-  </div>
-)
-LeaderReportSharingStory.storyName = "Miscellaneous: Leader Report Sharing"
-
-export const CautionaryStory = () => (
-  <div style={{ width: "156px" }}>
-    <Cautionary alt="" />
-  </div>
-)
-CautionaryStory.storyName = "Moods: Cautionary"
-
-export const InformativeStory = () => (
-  <div style={{ width: "156px" }}>
-    <Informative alt="" />
-  </div>
-)
-InformativeStory.storyName = "Moods: Informative"
-
-export const NegativeStory = () => (
-  <div style={{ width: "156px" }}>
-    <Negative alt="" />
-  </div>
-)
-NegativeStory.storyName = "Moods: Negative"
-
-export const PositiveMaleStory = () => (
-  <div style={{ width: "156px" }}>
-    <PositiveMale alt="" />
-  </div>
-)
-PositiveMaleStory.storyName = "Moods: Positive Male"
-
-export const PositiveFemaleStory = () => (
-  <div style={{ width: "156px" }}>
-    <PositiveFemale alt="" />
-  </div>
-)
-PositiveFemaleStory.storyName = "Moods: Positive Female"
-
-export const OneOnOneStory = () => (
-  <div style={{ width: "156px" }}>
-    <OneOnOne alt="" />
-  </div>
-)
-OneOnOneStory.storyName = "Manager Learning: 1 On 1"
-
-export const ProductivityStory = () => (
-  <div style={{ width: "156px" }}>
-    <Productivity alt="" />
-  </div>
-)
-ProductivityStory.storyName = "Manager Learning: Productivity"
-
-export const StrategyStory = () => (
-  <div style={{ width: "156px" }}>
-    <Strategy alt="" />
-  </div>
-)
-StrategyStory.storyName = "Manager Learning: Strategy"
-
-export const ResilienceStory = () => (
-  <div style={{ width: "156px" }}>
-    <Resilience alt="" />
-  </div>
-)
-ResilienceStory.storyName = "Manager Learning: Resilience"
-
-export const CoachingStory = () => (
-  <div style={{ width: "156px" }}>
-    <Coaching alt="" />
-  </div>
-)
-CoachingStory.storyName = "Manager Learning: Coaching"
-
-export const FeedbackStory = () => (
-  <div style={{ width: "156px" }}>
-    <Feedback alt="" />
-  </div>
-)
-FeedbackStory.storyName = "Manager Learning: Feedback"
-
-export const RemoteManagerStory = () => (
-  <div style={{ width: "156px" }}>
-    <RemoteManager alt="" />
-  </div>
-)
-RemoteManagerStory.storyName = "Manager Learning: Remote Manager"
-
-export const ManagerLearningStory = () => (
-  <div style={{ width: "156px" }}>
-    <ManagerLearning alt="" />
-  </div>
-)
-ManagerLearningStory.storyName = "Manager Learning: Manager Learning"
+const IllustrationExampleTile = ({ Component, name }) => (
+  <div style={{ width: "150px", display: "inline-block", padding: "2rem" }}>
+    <Component alt="" />
+    <Paragraph variant="small">{name}</Paragraph>
+  </div>
+)
+
+export const AllSpotIllustrations = () => {
+  const engagementSpots = [
+    {
+      Component: BenefitsSurvey,
+      name: "Benefits Survey",
+    },
+    {
+      Component: CustomSurvey,
+      name: "Custom Survey",
+    },
+    {
+      Component: CustomUnattributedSurvey,
+      name: "Custom Unattributed Survey",
+    },
+    {
+      Component: EngagementSurvey,
+      name: "Engagement Survey",
+    },
+    {
+      Component: InclusionSurvey,
+      name: "Inclusion Survey",
+    },
+    {
+      Component: QuickEngagementSurvey,
+      name: "Quick Engagement Survey",
+    },
+    {
+      Component: ValuesSurvey1,
+      name: "Values Survey 1",
+    },
+    {
+      Component: ValuesSurvey2,
+      name: "Values Survey 2",
+    },
+    {
+      Component: WellbeingSurvey1,
+      name: "Wellbeing Survey 1",
+    },
+    {
+      Component: WellbeingSurvey2,
+      name: "Wellbeing Survey 2",
+    },
+    {
+      Component: WellbeingSurvey3,
+      name: "Wellbeing Survey 3",
+    },
+    {
+      Component: ChangeReadiness,
+      name: "Change Readiness",
+    },
+    {
+      Component: ChangeSuccess,
+      name: "Change Success",
+    },
+    {
+      Component: PerformanceDiagnostics,
+      name: "Performance Diagnostics",
+    },
+    {
+      Component: LeadingThroughCrisis,
+      name: "Leading Through Crisis",
+    },
+    {
+      Component: EmergencyResponse,
+      name: "Emergency Response",
+    },
+  ]
+
+  const experienceSpots = [
+    {
+      Component: PhasedWeek1OnboardSurvey,
+      name: "Phased Week 1 Onboard Survey",
+    },
+    {
+      Component: PhasedWeek5OnboardSurvey,
+      name: "Phased Week 5 Onboard Survey",
+    },
+    {
+      Component: RemoteOnboardSurvey,
+      name: "Remote Onboard Survey",
+    },
+    {
+      Component: GeneralOnboardSurvey,
+      name: "General Onboard Survey",
+    },
+    {
+      Component: CustomOnboardSurvey,
+      name: "Custom Onboard Survey",
+    },
+    {
+      Component: CandidateSurvey,
+      name: "Candidate Survey",
+    },
+    {
+      Component: ExitSurvey,
+      name: "Exit Survey",
+    },
+    {
+      Component: InternSurvey,
+      name: "Intern Survey",
+    },
+    {
+      Component: SinglePointOnboardSurvey,
+      name: "Single Point Onboard Survey",
+    },
+  ]
+
+  const performanceSpots = [
+    {
+      Component: Individual360,
+      name: "Individual 360",
+    },
+    {
+      Component: Leadership360,
+      name: "Leadership 360",
+    },
+    {
+      Component: Manager360,
+      name: "Manager 360",
+    },
+    {
+      Component: Individual180,
+      name: "Individual 180",
+    },
+    {
+      Component: Leadership180,
+      name: "Leadership 180",
+    },
+    {
+      Component: Manager180,
+      name: "Manager 180",
+    },
+    {
+      Component: TeamEffectiveness1,
+      name: "Team Effectiveness 1",
+    },
+    {
+      Component: TeamEffectiveness2,
+      name: "Team Effectiveness 2",
+    },
+  ]
+
+  const covidSpots = [
+    {
+      Component: Response,
+      name: "COVID-19 Response",
+    },
+    {
+      Component: WellbeingSurvey,
+      name: "Wellbeing Survey",
+    },
+    {
+      Component: RemoteWorkQSet,
+      name: "Remote Work Q Set",
+    },
+    {
+      Component: ReturnToWorkplace,
+      name: "Return To Workplace",
+    },
+    {
+      Component: PulseSurvey,
+      name: "Pulse Survey",
+    },
+  ]
+
+  const newAccountSpots = [
+    {
+      Component: AccountBasics,
+      name: "Account Basics",
+    },
+    {
+      Component: CompanyDetails,
+      name: "Company Details",
+    },
+    {
+      Component: EmployeeData,
+      name: "Employee Data",
+    },
+    {
+      Component: Gdpr,
+      name: "GDPR",
+    },
+    {
+      Component: Timezone,
+      name: "Timezone",
+    },
+    {
+      Component: AddUser,
+      name: "Add User",
+    },
+  ]
+
+  const moodSpots = [
+    {
+      Component: Cautionary,
+      name: "Cautionary",
+    },
+    {
+      Component: Informative,
+      name: "Informative",
+    },
+    {
+      Component: Negative,
+      name: "Negative",
+    },
+    {
+      Component: Assertive,
+      name: "Assertive",
+    },
+    {
+      Component: Positive,
+      name: "Positive",
+    },
+  ]
+
+  const managerLearningSpots = [
+    {
+      Component: OneOnOne,
+      name: "1 on 1",
+    },
+    {
+      Component: Productivity,
+      name: "Productivity",
+    },
+    {
+      Component: Strategy,
+      name: "Strategy",
+    },
+    {
+      Component: Resilience,
+      name: "Resilience",
+    },
+    {
+      Component: Coaching,
+      name: "Coaching",
+    },
+    {
+      Component: Feedback,
+      name: "Feedback",
+    },
+    {
+      Component: RemoteManager,
+      name: "Remote Manager",
+    },
+    {
+      Component: ManagerLearning,
+      name: "Manager Learning",
+    },
+  ]
+
+  const miscellaneousSpots = [
+    {
+      Component: ViewReports,
+      name: "View Reports",
+    },
+    {
+      Component: ReadArticle,
+      name: "Read Article",
+    },
+    {
+      Component: FastAction,
+      name: "Fast Action",
+    },
+    {
+      Component: BaselineSurvey,
+      name: "Baseline Survey",
+    },
+    {
+      Component: Team,
+      name: "Team",
+    },
+    {
+      Component: Recommendation,
+      name: "Recommendation",
+    },
+    {
+      Component: AddImage,
+      name: "Add Image",
+    },
+    {
+      Component: MeetingVoices,
+      name: "Meeting Voices",
+    },
+    {
+      Component: Workshop,
+      name: "Workshop",
+    },
+    {
+      Component: Video,
+      name: "Video",
+    },
+    {
+      Component: ReportSharing,
+      name: "Report Sharing",
+    },
+    {
+      Component: BlankSurvey,
+      name: "Blank Survey",
+    },
+    {
+      Component: TakeAim,
+      name: "Take Aim",
+    },
+    {
+      Component: Action,
+      name: "Action",
+    },
+    {
+      Component: Training1,
+      name: "Training 1",
+    },
+    {
+      Component: Training2,
+      name: "Training 2",
+    },
+    {
+      Component: Training3,
+      name: "Training 3",
+    },
+    {
+      Component: ShareReport,
+      name: "Share Report",
+    },
+    {
+      Component: ExecutiveReportSharing,
+      name: "ExecutiveReportSharing",
+    },
+    {
+      Component: ManagerReportSharing,
+      name: "Manager Report Sharing",
+    },
+    {
+      Component: LeaderReportSharing,
+      name: "Leader Report Sharing",
+    },
+    {
+      Component: SpreadsheetTemplate,
+      name: "Spreadsheet Template",
+    },
+    {
+      Component: FullImport,
+      name: "Full Import",
+    },
+    {
+      Component: PartialImport,
+      name: "Partial Import",
+    },
+    {
+      Component: HrisImport,
+      name: "Hris Import",
+    },
+    {
+      Component: Alarm,
+      name: "Alarm",
+    },
+    {
+      Component: Fire,
+      name: "Fire",
+    },
+    {
+      Component: UnderConstruction,
+      name: "Under Construction",
+    },
+    {
+      Component: Stop,
+      name: "Stop",
+    },
+    {
+      Component: Trophy,
+      name: "Trophy",
+    },
+    {
+      Component: TrafficCone,
+      name: "Traffic Cone",
+    },
+    {
+      Component: ValueAdd,
+      name: "Value Add",
+    },
+    {
+      Component: Starburst,
+      name: "Starburst",
+    },
+    {
+      Component: Fireworks,
+      name: "Fireworks",
+    },
+  ]
+
+  return (
+    <>
+      <div>
+        <Heading variant="heading-3">Template Library / Engagement</Heading>
+        {engagementSpots.map((props, i) => (
+          <IllustrationExampleTile key={`engagement-${i}`} {...props} />
+        ))}
+      </div>
+      <div>
+        <Heading variant="heading-3">Template Library / Experience</Heading>
+        {experienceSpots.map((props, i) => (
+          <IllustrationExampleTile key={`experience-${i}`} {...props} />
+        ))}
+      </div>
+      <div>
+        <Heading variant="heading-3">Template Library / Performance</Heading>
+        {performanceSpots.map((props, i) => (
+          <IllustrationExampleTile key={`performance-${i}`} {...props} />
+        ))}
+      </div>
+      <div>
+        <Heading variant="heading-3">Template Library / COVID-19</Heading>
+        {covidSpots.map((props, i) => (
+          <IllustrationExampleTile key={`covid-${i}`} {...props} />
+        ))}
+      </div>
+      <div>
+        <Heading variant="heading-3">New Account</Heading>
+        {newAccountSpots.map((props, i) => (
+          <IllustrationExampleTile key={`new-account-${i}`} {...props} />
+        ))}
+      </div>
+      <div>
+        <Heading variant="heading-3">Moods</Heading>
+        {moodSpots.map((props, i) => (
+          <IllustrationExampleTile key={`moods-${i}`} {...props} />
+        ))}
+      </div>
+      <div>
+        <Heading variant="heading-3">Skills Coach</Heading>
+        {managerLearningSpots.map((props, i) => (
+          <IllustrationExampleTile key={`skills-coach-${i}`} {...props} />
+        ))}
+      </div>
+      <div>
+        <Heading variant="heading-3">Miscellaneous</Heading>
+        {miscellaneousSpots.map((props, i) => (
+          <IllustrationExampleTile key={`misc-${i}`} {...props} />
+        ))}
+      </div>
+    </>
+  )
+}

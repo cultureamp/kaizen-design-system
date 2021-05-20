@@ -3,6 +3,81 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.3.7...@kaizen/draft-avatar@1.3.8) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [1.3.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.3.6...@kaizen/draft-avatar@1.3.7) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [1.3.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.3.5...@kaizen/draft-avatar@1.3.6) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [1.3.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.3.4...@kaizen/draft-avatar@1.3.5) (2021-05-16)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [1.3.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.3.3...@kaizen/draft-avatar@1.3.4) (2021-05-13)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [1.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.3.2...@kaizen/draft-avatar@1.3.3) (2021-05-05)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [1.3.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.3.1...@kaizen/draft-avatar@1.3.2) (2021-05-03)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+## [1.3.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.3.0...@kaizen/draft-avatar@1.3.1) (2021-04-30)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
+# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.2.10...@kaizen/draft-avatar@1.3.0) (2021-04-22)
+
+
+### Features
+
+* avatar won't render initials if prop is passed ([#1450](https://github.com/cultureamp/kaizen-design-system/issues/1450)) ([1bbb0e4](https://github.com/cultureamp/kaizen-design-system/commit/1bbb0e4b52620f5a02ba1dcd211f8d0c03cf58a0))
+
+
+
+
+
 ## [1.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.2.9...@kaizen/draft-avatar@1.2.10) (2021-04-13)
 
 **Note:** Version bump only for package @kaizen/draft-avatar

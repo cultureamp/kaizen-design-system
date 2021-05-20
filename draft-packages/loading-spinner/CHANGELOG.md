@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-spinner@2.1.0...@kaizen/draft-loading-spinner@2.1.1) (2021-05-14)
+
+
+### Bug Fixes
+
+* stroke opacity requires camel case ([#1554](https://github.com/cultureamp/kaizen-design-system/issues/1554)) ([5761795](https://github.com/cultureamp/kaizen-design-system/commit/5761795c78fa838627e3c7cf4c7c05e2b80d04a9))
+
+
+
+
+
 # [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-loading-spinner@2.0.1...@kaizen/draft-loading-spinner@2.1.0) (2021-03-17)
 
 

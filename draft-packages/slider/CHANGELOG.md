@@ -3,6 +3,81 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.2.9...@kaizen/draft-slider@1.3.0) (2021-05-20)
+
+
+### Features
+
+* allow the scale labels to show if the disabledlabel is not provided ([#1614](https://github.com/cultureamp/kaizen-design-system/issues/1614)) ([006bbe2](https://github.com/cultureamp/kaizen-design-system/commit/006bbe25d8af9a81081bbf4e035e26d786fe3ad9))
+
+
+
+
+
+## [1.2.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.2.8...@kaizen/draft-slider@1.2.9) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.2.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.2.7...@kaizen/draft-slider@1.2.8) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.2.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.2.6...@kaizen/draft-slider@1.2.7) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.2.5...@kaizen/draft-slider@1.2.6) (2021-05-16)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.2.4...@kaizen/draft-slider@1.2.5) (2021-05-13)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.2.3...@kaizen/draft-slider@1.2.4) (2021-05-05)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.2.2...@kaizen/draft-slider@1.2.3) (2021-05-03)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
+## [1.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.2.1...@kaizen/draft-slider@1.2.2) (2021-04-30)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
 ## [1.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.2.0...@kaizen/draft-slider@1.2.1) (2021-04-13)
 
 **Note:** Version bump only for package @kaizen/draft-slider

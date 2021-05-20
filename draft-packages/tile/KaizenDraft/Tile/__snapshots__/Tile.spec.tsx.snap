@@ -366,25 +366,29 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with secondary ac
         <div
           class="actions"
         >
-          <span
-            class="container"
+          <div
+            class="p-0 mr-0-point-5"
           >
-            <a
-              class="button secondary"
-              href="href2"
-              target="_self"
+            <span
+              class="container"
             >
-              <span
-                class="content"
+              <a
+                class="button secondary"
+                href="href2"
+                target="_self"
               >
                 <span
-                  class="label"
+                  class="content"
                 >
-                  Preview
+                  <span
+                    class="label"
+                  >
+                    Preview
+                  </span>
                 </span>
-              </span>
-            </a>
-          </span>
+              </a>
+            </span>
+          </div>
           <span
             class="container"
           >

@@ -3,6 +3,89 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.4.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.4.8...@kaizen/draft-form@3.4.9) (2021-05-18)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.4.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.4.7...@kaizen/draft-form@3.4.8) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.4.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.4.6...@kaizen/draft-form@3.4.7) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.4.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.4.5...@kaizen/draft-form@3.4.6) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.4.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.4.4...@kaizen/draft-form@3.4.5) (2021-05-16)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.4.3...@kaizen/draft-form@3.4.4) (2021-05-13)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.4.2...@kaizen/draft-form@3.4.3) (2021-05-05)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.4.1...@kaizen/draft-form@3.4.2) (2021-05-03)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.4.0...@kaizen/draft-form@3.4.1) (2021-04-30)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+# [3.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.3.3...@kaizen/draft-form@3.4.0) (2021-04-15)
+
+
+### Features
+
+* add disabled variant of Elm Select and SelectField ([#1431](https://github.com/cultureamp/kaizen-design-system/issues/1431)) ([37bceae](https://github.com/cultureamp/kaizen-design-system/commit/37bceaef24cee39cadfdc24b9f02cc947595cd68))
+
+
+
+
+
 ## [3.3.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.3.2...@kaizen/draft-form@3.3.3) (2021-04-13)
 
 **Note:** Version bump only for package @kaizen/draft-form

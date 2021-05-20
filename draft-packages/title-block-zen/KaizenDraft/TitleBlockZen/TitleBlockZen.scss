@@ -12,7 +12,7 @@ $title-block-margin-width-on-medium-and-small: 12px;
 $breadcrumb-circle-width: 48px;
 $breadcrumb-breakpoint-width: $kz-layout-content-max-width +
   $kz-layout-content-side-margin * 2 + $breadcrumb-circle-width * 2.25;
-$title-block-separator-height: 3px;
+$title-block-separator-height: 0.1875rem;
 $tab-container-height-default: $ca-grid * 3;
 $tab-container-height-small: $ca-grid * 2.5;
 $tab-container-height-default-collapsed: $ca-grid + 0.1875rem;
@@ -27,7 +27,6 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  overflow-x: hidden;
 
   &.educationVariant {
     background-color: $dt-color-background-color-eduction;
@@ -457,8 +456,8 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
   @include title-block-small {
     display: block;
     position: absolute;
-    top: 63px;
-    width: $ca-grid * 2;
+    top: $tab-container-height-small - $title-block-separator-height;
+    width: $tab-container-height-small;
     height: $tab-container-height-small;
     background: linear-gradient(
       0,

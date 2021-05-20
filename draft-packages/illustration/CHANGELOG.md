@@ -3,6 +3,90 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.8.4...@kaizen/draft-illustration@1.9.0) (2021-05-19)
+
+
+### Features
+
+* Add 180 versions for performance template library spots ([#1612](https://github.com/cultureamp/kaizen-design-system/issues/1612)) ([603d746](https://github.com/cultureamp/kaizen-design-system/commit/603d7460a479642cf6894fa637b87d6e7e090169))
+
+
+
+
+
+## [1.8.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.8.3...@kaizen/draft-illustration@1.8.4) (2021-05-18)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [1.8.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.8.2...@kaizen/draft-illustration@1.8.3) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [1.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.8.1...@kaizen/draft-illustration@1.8.2) (2021-05-17)
+
+
+### Bug Fixes
+
+* Fallback to blank survey for Heart template illustrations without Zen equivalents ([#1598](https://github.com/cultureamp/kaizen-design-system/issues/1598)) ([aac86be](https://github.com/cultureamp/kaizen-design-system/commit/aac86be2d7c9f6412d4b76df9afbd5dad98b3f8b))
+
+
+
+
+
+## [1.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.8.0...@kaizen/draft-illustration@1.8.1) (2021-05-16)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+# [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.7.2...@kaizen/draft-illustration@1.8.0) (2021-04-26)
+
+
+### Features
+
+* Added Heart spot illustrations ([#1473](https://github.com/cultureamp/kaizen-design-system/issues/1473)) ([14df2be](https://github.com/cultureamp/kaizen-design-system/commit/14df2bef851f7f52e811e48fd507d03d665e3189))
+
+
+
+
+
+## [1.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.7.1...@kaizen/draft-illustration@1.7.2) (2021-04-23)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [1.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.7.0...@kaizen/draft-illustration@1.7.1) (2021-04-20)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+# [1.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.6.4...@kaizen/draft-illustration@1.7.0) (2021-04-20)
+
+
+### Features
+
+* Add get started illustration to storybook and scene component ([#1464](https://github.com/cultureamp/kaizen-design-system/issues/1464)) ([65fb356](https://github.com/cultureamp/kaizen-design-system/commit/65fb35611c0fa6e7f299f2d84bcb136f82459073))
+
+
+
+
+
 ## [1.6.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.6.3...@kaizen/draft-illustration@1.6.4) (2021-04-13)
 
 **Note:** Version bump only for package @kaizen/draft-illustration
