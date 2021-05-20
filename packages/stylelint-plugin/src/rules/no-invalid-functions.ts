@@ -1,6 +1,7 @@
 import { Declaration, Root } from "postcss"
 import postcssValueParser from "postcss-value-parser"
 import * as sass from "sass"
+import { cssStandardFunctions } from "../cssStandardFunctions"
 import { transformDecl } from "../functionTransformer"
 import {
   deprecatedSassFunctionsSource,
@@ -14,7 +15,6 @@ import {
   unsupportedFunctionMessage,
   unsupportedFunctionWithFixMessage,
 } from "../messages"
-import { containsUnmigratableFunction } from "../patterns"
 import { Options, Variable } from "../types"
 import { getParser, variablePrefixForLanguage } from "../utils"
 import {
@@ -24,6 +24,23 @@ import {
   stringifyStylesheetVariables,
 } from "../variableUtils"
 import { walkDeclsWithKaizenTokens } from "../walkers"
+
+// Returns true if a value contains an unmigratable function such as `add-tint`.
+// e.g. `color: add-tint`
+const containsUnmigratableFunction = (declarationValue: string) => {
+  let found = false
+  postcssValueParser(declarationValue).walk(node => {
+    // assert node.value.length because value parser treats anything in brackets as a function
+    if (
+      node.type === "function" &&
+      node.value.length &&
+      !cssStandardFunctions.has(node.value)
+    ) {
+      found = true
+    }
+  })
+  return found
+}
 
 /*
   We want to use percentages consistently, so, given a string that may be a percentage or a decimal, always return the decimal form.

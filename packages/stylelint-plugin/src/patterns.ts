@@ -22,20 +22,3 @@ export const entireLineKaizenTokenPattern = new RegExp(
 )
 export const isKaizenTokenVariable = (value: string) =>
   entireLineKaizenTokenPattern.test(value)
-
-// Returns true if a value contains an unmigratable function such as `add-tint`.
-// e.g. `color: add-tint`
-export const containsUnmigratableFunction = (declarationValue: string) => {
-  let found = false
-  postcssValueParser(declarationValue).walk(node => {
-    // assert node.value.length because value parser treats anything in brackets as a function
-    if (
-      node.type === "function" &&
-      node.value.length &&
-      !cssStandardFunctions.has(node.value)
-    ) {
-      found = true
-    }
-  })
-  return found
-}
