@@ -40,7 +40,7 @@ export const noInvalidEquationsOnDeclaraion = (
 
     const isWithinCalcFunction = parent?.value === "calc"
     if (node.type === "word") {
-      // Detect the cose of the node being a negated variable (because postcss-value-parser doesn't detect the operator and variable as seprate nodes)
+      // Detect the case of the node being a negated variable (because postcss-value-parser doesn't detect the operator and variable as seprate nodes)
       const parsedVariable = parseVariable(node)
       if (parsedVariable?.negated && parsedVariable?.kaizenToken) {
         if (
