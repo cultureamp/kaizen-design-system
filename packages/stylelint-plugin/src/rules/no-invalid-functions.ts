@@ -15,7 +15,8 @@ import { variablePrefixForLanguage } from "../utils"
 import { isVariable, parseVariable } from "../variableUtils"
 import { walkDeclsWithKaizenTokens, walkVariablesOnValue } from "../walkers"
 
-// Returns true if a value contains an unmigratable function such as `add-tint`.
+// Returns true if a value contains an unmigratable function such as `add-tint`, and a Kaizen token. e.g. `add-tint($kz-color-wisteria-800, 10%)` -> true
+// `add-tint(blue, 10%)` -> false
 // e.g. `color: add-tint`
 const containsUnmigratableFunctionAndKaizenToken = (
   declarationValue: string
