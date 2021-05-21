@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.7.5...@kaizen/draft-tooltip@2.8.0) (2021-05-21)
+
+
+### Features
+
+* quickfix option for Elm Tooltip to not take up space ([#1611](https://github.com/cultureamp/kaizen-design-system/issues/1611)) ([21fddb6](https://github.com/cultureamp/kaizen-design-system/commit/21fddb639d070ead22d750834519b35052069e19))
+
+
+
+
+
 ## [2.7.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.7.4...@kaizen/draft-tooltip@2.7.5) (2021-05-17)
 
 **Note:** Version bump only for package @kaizen/draft-tooltip
