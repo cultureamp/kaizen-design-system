@@ -11,7 +11,8 @@ import { isVariable, parseVariable, stringifyVariable } from "../variableUtils"
 import { walkDeclsWithKaizenTokens, walkWithParent } from "../walkers"
 
 export const noInvalidEquationsRuleName = "no-invalid-equations"
-export const noInvalidEquationsOnDeclaraion = (
+
+const noInvalidEquationsOnDeclaraion = (
   postcssNode: Declaration,
   parsedValue: postcssValueParser.ParsedValue,
   options: Options
