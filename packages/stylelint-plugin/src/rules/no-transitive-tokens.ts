@@ -9,6 +9,18 @@ import {
 import { walkVariables } from "../walkers"
 
 export const noTransitiveTokensRuleName = "no-transitive-tokens"
+
+/**
+ * This rule will find and (optionally) transform usages of variables like `$foo` that are declared using Kaizen tokens in their values, e.g. `$foo: 5px $kz-spacing-md`.
+ * In the above example, if would replace `$foo` with `5px $kz-var-spacing-md`.
+ * A lot of manual work is required without this rule in large codebases because the no-deprecated-tokens rule can't safely migrate Kaizen tokens within variable declarations
+ * (e.g `$foo: 5px $kz-spacing-md` -> `$foo: 5px $kz-var-spacing-md`).
+ * We can utilise all other rules when proxy/transitive variables aren't used.
+ *
+ * It is not recommended to turn this on by default, because transitive variables aren't inherently bad, they're just hard to run codemods on.
+ * E.g. `$card-background-color: $kz-var-color-wisteria-800` is expressive and notifies the reader of the author's intention.
+ *
+ */
 export const noTransitiveTokensRule = (
   stylesheetNode: Root,
   options: Options
