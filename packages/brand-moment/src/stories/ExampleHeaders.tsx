@@ -26,3 +26,13 @@ export const MinimalCustomerFocused = () => (
     </div>
   </div>
 )
+
+export const FakeNavBar = () => (
+  <div className={styles.fakeNav}>
+    <img
+      src={assetUrl("brand/logo-horizontal-reversed.svg")}
+      alt="Culture Amp"
+      width={126}
+    />
+  </div>
+)

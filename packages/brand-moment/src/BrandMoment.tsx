@@ -21,7 +21,6 @@ export const BrandMoment = (props: Props) => (
   <div
     className={classnames(styles.body, {
       [styles.blue]: props.backgroundColor === "blue",
-      [styles.purple]: props.backgroundColor === "purple",
       [styles.green]: props.backgroundColor === "green",
       [styles.red]: props.backgroundColor === "red",
     })}
@@ -48,7 +47,7 @@ export const BrandMoment = (props: Props) => (
           {props.bodyText && (
             <Box mb={1.5}>
               {typeof props.bodyText === "string" && (
-                <Paragraph variant="body">{props.bodyText}</Paragraph>
+                <Paragraph variant="intro-lede">{props.bodyText}</Paragraph>
               )}
               {typeof props.bodyText !== "string" && props.bodyText}
             </Box>

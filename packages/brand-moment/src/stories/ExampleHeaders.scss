@@ -31,3 +31,10 @@
     width: 100%;
   }
 }
+
+.fakeNav {
+  background: $kz-var-color-wisteria-600;
+  padding: $kz-var-spacing-md;
+  display: flex;
+  align-items: center;
+}

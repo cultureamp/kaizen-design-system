@@ -12,10 +12,6 @@
     background: $kz-var-color-cluny-100;
   }
 
-  &.purple {
-    background: $kz-var-color-wisteria-100;
-  }
-
   &.green {
     background: $kz-var-color-seedling-100;
   }
@@ -31,6 +27,7 @@
 }
 
 .main {
+  width: 100%;
   flex: 1 0 auto;
   display: flex;
 }
@@ -44,6 +41,7 @@
 }
 
 .leftInner {
+  width: 100%;
   max-width: 525px;
 }
 
