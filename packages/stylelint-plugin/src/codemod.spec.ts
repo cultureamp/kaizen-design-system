@@ -1,5 +1,5 @@
 import { codemodOnSource } from "./codemod"
-import { Language, RulesEnabled } from "./types"
+import { Language } from "./types"
 
 type TestExample = {
   language: Language
@@ -8,7 +8,7 @@ type TestExample = {
   input: string
   expectedOutput: string
   only?: boolean
-} & Partial<RulesEnabled>
+}
 
 const testExamples: TestExample[] = [
   {
@@ -492,7 +492,6 @@ describe("Codemod", () => {
     expectedOutput,
     expectedUnfixables,
     only,
-    ...codemodOptions
   }: TestExample) => {
     const testFn = only ? test.only : test
     testFn(`${language}: ${testName}`, () => {
@@ -513,7 +512,6 @@ describe("Codemod", () => {
             unfixables++
           }
         },
-        ...codemodOptions,
       })
 
       expect(result.toString().replace(/\n/g, " ").trim()).toBe(
