@@ -31,6 +31,8 @@ export const Slider = ({
   }, [initialValue])
 
   const throttledOnChange = useCallback(throttle(onChange, 200), [onChange])
+  const showDisabledLabel =
+    disabled === true && disabledLabel !== undefined && disabledLabel !== ""
 
   return (
     <div
@@ -60,7 +62,7 @@ export const Slider = ({
         disabled={disabled}
       />
       <div className={styles.labelsContainer}>
-        {!disabled && (
+        {!showDisabledLabel && (
           <div className={styles.sliderLabels}>
             <Paragraph
               variant="extra-small"
@@ -78,7 +80,7 @@ export const Slider = ({
             </Paragraph>
           </div>
         )}
-        {disabled && disabledLabel && (
+        {showDisabledLabel && (
           <Paragraph
             variant="extra-small"
             color="dark-reduced-opacity"

@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-illustration",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "The draft illustration component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,10 +32,10 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/hosted-assets": "^1.1.0"
+    "@kaizen/hosted-assets": "^1.1.1"
   },
   "devDependencies": {
-    "@kaizen/design-tokens": "^2.8.1",
+    "@kaizen/design-tokens": "^2.8.3",
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^3.0.2"
   },

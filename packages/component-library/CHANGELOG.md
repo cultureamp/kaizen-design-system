@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [9.7.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.7.3...@kaizen/component-library@9.7.4) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+## [9.7.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.7.2...@kaizen/component-library@9.7.3) (2021-05-17)
+
+
+### Bug Fixes
+
+* Make box-sizing explicit ([#1600](https://github.com/cultureamp/kaizen-design-system/issues/1600)) ([d442f4c](https://github.com/cultureamp/kaizen-design-system/commit/d442f4c2d2e39aa2d70d759a0aa80358f14b6a81))
+
+
+
+
+
+## [9.7.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.7.1...@kaizen/component-library@9.7.2) (2021-05-17)
+
+
+### Bug Fixes
+
+* toast unmounted set state ([#1553](https://github.com/cultureamp/kaizen-design-system/issues/1553)) ([735389f](https://github.com/cultureamp/kaizen-design-system/commit/735389f62fa7896412e776f41a3d3ecb5bb0a1f1))
+
+
+
+
+
+## [9.7.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.7.0...@kaizen/component-library@9.7.1) (2021-05-16)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [9.7.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.6.1...@kaizen/component-library@9.7.0) (2021-05-13)
+
+
+### Features
+
+* Add tooltip to guidanceblock action ([#1541](https://github.com/cultureamp/kaizen-design-system/issues/1541)) ([6930545](https://github.com/cultureamp/kaizen-design-system/commit/69305459c8d00e9b8f67a985f8d3acade0e72332))
+
+
+
+
+
 ## [9.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.6.0...@kaizen/component-library@9.6.1) (2021-05-05)
 
 
