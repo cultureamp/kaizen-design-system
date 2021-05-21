@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.8.4...@kaizen/draft-illustration@1.9.0) (2021-05-19)
+
+
+### Features
+
+* Add 180 versions for performance template library spots ([#1612](https://github.com/cultureamp/kaizen-design-system/issues/1612)) ([603d746](https://github.com/cultureamp/kaizen-design-system/commit/603d7460a479642cf6894fa637b87d6e7e090169))
+
+
+
+
+
 ## [1.8.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.8.3...@kaizen/draft-illustration@1.8.4) (2021-05-18)
 
 **Note:** Version bump only for package @kaizen/draft-illustration

@@ -72,6 +72,7 @@ $illustration-size: 155px;
   flex: 1;
   margin: $kz-var-spacing-sm 0;
   text-align: center;
+  align-self: center;
   max-width: 780px;
 
   @include ca-media-desktop {
@@ -82,6 +83,19 @@ $illustration-size: 155px;
   @include ca-media-mobile {
     margin: $kz-var-spacing-sm;
     max-width: 100%;
+  }
+}
+
+.descriptionAndActions {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+
+  @include ca-media-tablet-and-under {
+    flex-direction: column;
+    width: 100%;
+    align-items: unset;
   }
 }
 
