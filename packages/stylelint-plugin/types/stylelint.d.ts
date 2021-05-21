@@ -1,3 +1,7 @@
+/*
+  Hey there camper!
+  We need this custom declaration because the Plugin type is out of date (it doesn't support the 3rd parameter: `context: {fix: boolean}`)
+ */
 // Type definitions for stylelint 9.10
 // Project: https://github.com/stylelint/stylelint, https://stylelint.io
 // Definitions by: Alan Agius <https://github.com/alan-agius4>
@@ -7,11 +11,6 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 /* eslint-disable */
-
-/*
-  Hey there.
-  We need this custom declaration because the Plugin type is out of date (it doesn't support the 3rd parameter: `context: {fix: boolean}`)
- */
 declare module "stylelint" {
   import * as postcss from "postcss"
 
