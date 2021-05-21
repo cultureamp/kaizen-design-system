@@ -1,6 +1,7 @@
 import React from "react"
 import { IntroductionsCaptureIntro } from "@kaizen/draft-illustration"
-import { BrandMoment } from "../"
+import { BrandMoment } from "../../"
+import { MinimalCustomerFocused } from "./ExampleHeaders"
 
 export default {
   title: "Brand Moment (React)",
@@ -18,6 +19,7 @@ export default {
 export const DefaultStory = () => (
   <div>
     <BrandMoment
+      header={<MinimalCustomerFocused />}
       illustration={<IntroductionsCaptureIntro alt="" />}
       subheading="A survey for Hooli"
       heading="Manager Effectiveness Survey"

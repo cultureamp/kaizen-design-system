@@ -10,6 +10,11 @@
   align-items: center;
 }
 
+.header {
+  width: 100%;
+  margin-bottom: $kz-var-spacing-md;
+}
+
 .main {
   flex: 1 0 auto;
   display: flex;

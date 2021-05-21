@@ -5,6 +5,7 @@ import { SceneProps } from "@kaizen/draft-illustration"
 import styles from "./BrandMoment.scss"
 
 type Props = {
+  header: ReactNode
   illustration: ReactElement<SceneProps>
   heading: ReactNode
   subheading?: ReactNode
@@ -16,6 +17,7 @@ type Props = {
 
 export const BrandMoment = (props: Props) => (
   <div className={styles.body}>
+    <header className={styles.header}>{props.header}</header>
     <main className={styles.main}>
       <div className={styles.left}>
         <div className={styles.leftInner}>{props.illustration}</div>
