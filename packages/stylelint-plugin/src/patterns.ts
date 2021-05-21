@@ -22,3 +22,6 @@ export const entireLineKaizenTokenPattern = new RegExp(
 )
 export const isKaizenTokenVariable = (value: string) =>
   entireLineKaizenTokenPattern.test(value)
+
+export const containsKaizenVariable = (value: string) =>
+  kaizenTokenPattern.test(value)

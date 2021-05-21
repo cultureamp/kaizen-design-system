@@ -25,6 +25,6 @@ $test-color: $kz-var-color-wisteria-800;
 
   margin: $kz-var-spacing-md calc(-1 * #{$kz-var-spacing-md});
 
-  // Take this out to see some magic
-  color: mix($foo, white, 80%);
+  
+  color: mix($kz-var-color-wisteria-800, white, 80%);
 }
