@@ -3,11 +3,7 @@ import postcssValueParser from "postcss-value-parser"
 import * as sass from "sass"
 import { cssStandardFunctions } from "../cssStandardFunctions"
 import { transformDecl } from "../functionTransformer"
-import {
-  deprecatedSassFunctionsSource,
-  kaizenTokensByName,
-  kaizenTokensSassVariablesWithInlineCSSVariableValues,
-} from "../kaizenTokens"
+import { kaizenTokensByName } from "../kaizenTokens"
 import {
   invalidRgbaUsage,
   noMatchingRgbParamsVariableMessage,
@@ -41,6 +37,43 @@ const containsUnmigratableFunction = (declarationValue: string) => {
   })
   return found
 }
+
+/** I know this is a long name but it's hard to describe otherwise.
+ It is a map of kaizen token sass variables ({"$kz-color-wisteria-800": "blah"}), but it also contains the concrete values of any CSS variable tokens, rather than their actual values.
+ I.e. values like { "$kz-var-color-wisteria-800": "#blah" } rather than { "$kz-var-color-wisteria-800": "var(blah)" }
+ */
+const kaizenTokensSassVariablesWithInlineCSSVariableValues = Object.entries(
+  kaizenTokensByName
+).reduce(
+  (acc, [key, value]) =>
+    !value
+      ? acc
+      : {
+          ...acc,
+          [`$${key}`]: value?.cssVariable
+            ? value.cssVariable.fallback
+            : value?.value,
+        },
+  {} as Record<string, string | undefined>
+)
+
+const deprecatedSassFunctionsSource = `
+$black: #000;
+$white: #fff;
+@function add-tint($color, $percentage) {
+  @return mix($white, $color, $percentage);
+}
+
+@function add-shade($color, $percentage) {
+  @return mix($black, $color, $percentage);
+}
+
+@function add-alpha($color, $percentage) {
+  $decimal: $percentage / 100%;
+  $inverse: 1 - $decimal;
+  @return transparentize($color, $inverse);
+}
+`
 
 /*
   We want to use percentages consistently, so, given a string that may be a percentage or a decimal, always return the decimal form.
