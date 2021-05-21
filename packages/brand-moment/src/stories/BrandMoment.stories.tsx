@@ -19,6 +19,7 @@ export default {
 export const DefaultStory = () => (
   <div>
     <BrandMoment
+      backgroundColor="blue"
       header={<MinimalCustomerFocused />}
       illustration={<IntroductionsCaptureIntro alt="" />}
       subheading="A survey for Hooli"

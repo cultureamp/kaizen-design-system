@@ -2,9 +2,11 @@ import React, { ReactNode, ReactElement } from "react"
 import { Heading, Box, Paragraph } from "@kaizen/component-library"
 import { Button, ButtonProps } from "@kaizen/draft-button"
 import { SceneProps } from "@kaizen/draft-illustration"
+import classnames from "classnames"
 import styles from "./BrandMoment.scss"
 
 type Props = {
+  backgroundColor: "blue" | "purple" | "green" | "red"
   header: ReactNode
   illustration: ReactElement<SceneProps>
   heading: ReactNode
@@ -16,7 +18,14 @@ type Props = {
 }
 
 export const BrandMoment = (props: Props) => (
-  <div className={styles.body}>
+  <div
+    className={classnames(styles.body, {
+      [styles.blue]: props.backgroundColor === "blue",
+      [styles.purple]: props.backgroundColor === "purple",
+      [styles.green]: props.backgroundColor === "green",
+      [styles.red]: props.backgroundColor === "red",
+    })}
+  >
     <header className={styles.header}>{props.header}</header>
     <main className={styles.main}>
       <div className={styles.left}>

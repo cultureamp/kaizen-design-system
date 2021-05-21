@@ -2,12 +2,27 @@
 @import "~@kaizen/design-tokens/sass/spacing-vars";
 
 .body {
-  background: $kz-var-color-seedling-100;
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  &.blue {
+    background: $kz-var-color-cluny-100;
+  }
+
+  &.purple {
+    background: $kz-var-color-wisteria-100;
+  }
+
+  &.green {
+    background: $kz-var-color-seedling-100;
+  }
+
+  &.red {
+    background: $kz-var-color-coral-100;
+  }
 }
 
 .header {
