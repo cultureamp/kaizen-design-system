@@ -23,4 +23,13 @@ main =
                     )
                     (div [] [ Tag.view (Tag.default |> Tag.inline True) "Above" ])
                 ]
+        , statelessStoryOf "Default - dontTakeUpSpaceWhenHiddenQuickFix" <|
+            div [ style "margin-top" "200px", style "position" "relative" ]
+                [ Tooltip.view
+                    (Tooltip.default "This tooltip does not take up space or cause unwanted scrollbars when not visible. However, there is no animation."
+                        |> Tooltip.position Tooltip.Above
+                        |> Tooltip.dontTakeUpSpaceWhenHiddenQuickFix True
+                    )
+                    (div [] [ Tag.view (Tag.default |> Tag.inline True) "Above" ])
+                ]
         ]

@@ -830,6 +830,16 @@ exports[`<Illustration /> Spot InclusionSurvey should exist and render an alt ta
 </div>
 `;
 
+exports[`<Illustration /> Spot Individual180 should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/spot/miscellaneous-blank-survey.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Individual360 should exist and render an alt tag 1`] = `
 <div>
   <img
@@ -870,6 +880,16 @@ exports[`<Illustration /> Spot LeaderReportSharing should exist and render an al
 </div>
 `;
 
+exports[`<Illustration /> Spot Leadership180 should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/spot/miscellaneous-blank-survey.svg"
+  />
+</div>
+`;
+
 exports[`<Illustration /> Spot Leadership360 should exist and render an alt tag 1`] = `
 <div>
   <img
@@ -881,6 +901,16 @@ exports[`<Illustration /> Spot Leadership360 should exist and render an alt tag 
 `;
 
 exports[`<Illustration /> Spot LeadingThroughCrisis should exist and render an alt tag 1`] = `
+<div>
+  <img
+    alt="My accessible title"
+    class=" wrapper"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/spot/miscellaneous-blank-survey.svg"
+  />
+</div>
+`;
+
+exports[`<Illustration /> Spot Manager180 should exist and render an alt tag 1`] = `
 <div>
   <img
     alt="My accessible title"

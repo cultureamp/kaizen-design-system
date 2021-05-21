@@ -158,17 +158,20 @@ class GuidanceBlock extends React.Component<
           <div className={styles.illustration}>{illustration}</div>
         </div>
 
-        <div className={styles.descriptionContainer}>
-          <div className={styles.headingWrapper}>
-            <Heading tag="h3" variant="heading-3">
-              {text.title}
-            </Heading>
+        <div className={styles.descriptionAndActions}>
+          <div className={styles.descriptionContainer}>
+            <div className={styles.headingWrapper}>
+              <Heading tag="h3" variant="heading-3">
+                {text.title}
+              </Heading>
+            </div>
+            <Paragraph tag="p" variant="body">
+              {text.description}
+            </Paragraph>
           </div>
-          <Paragraph tag="p" variant="body">
-            {text.description}
-          </Paragraph>
+          {actions?.primary &&
+            this.renderActions(actions, withActionButtonArrow)}
         </div>
-        {actions?.primary && this.renderActions(actions, withActionButtonArrow)}
         {!persistent && <CancelButton onClick={this.dismissBanner} />}
       </div>
     )
