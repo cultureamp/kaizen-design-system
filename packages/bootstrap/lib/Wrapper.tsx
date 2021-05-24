@@ -1,5 +1,7 @@
 import * as React from "react"
 import classNames from "classnames"
+import { ThemeManager } from "@kaizen/design-tokens"
+import { themeSwitcher, getCurrentTheme } from "@cultureamp/theme-switcher"
 import styles from "../index.module.scss"
 
 // Polyfill for :focus-visible pseudo-selector
@@ -10,6 +12,8 @@ import "focus-visible"
 // See: https://github.com/necolas/normalize.css/
 import "normalize.css"
 
-export default ({ children }: { children: React.ReactNode }) => (
-  <div className={classNames(styles.wrapper)}>{children}</div>
-)
+// Initialise the ThemeManager, this is a singleton so this should not be redeclared
+export const themeManager = new ThemeManager(getCurrentTheme())
+themeSwitcher({ themeManager })
+
+export default ({ children }: { children: React.ReactNode }) => children

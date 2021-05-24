@@ -30,13 +30,14 @@
   ],
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.5.0",
-    "react": "^16.9.0",
-    "@types/react": "^16.9.0"
+    "@types/react": "^16.9.0",
+    "react": "^16.9.0"
   },
   "dependencies": {
+    "@cultureamp/theme-switcher": "^6.1.5",
     "@kaizen/hosted-assets": "^1.1.0",
     "classnames": "^2.2.6",
-    "normalize.css": "^8.0.1",
-    "focus-visible": "^5.1.0"
+    "focus-visible": "^5.1.0",
+    "normalize.css": "^8.0.1"
   }
 }
