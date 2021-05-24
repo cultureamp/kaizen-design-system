@@ -4,6 +4,9 @@ set -e
 # shellcheck source=helpers/get-secret.sh
 . ".buildkite/scripts/helpers/get-secret.sh"
 
+# shellcheck source=setup-registry.sh
+. ".buildkite/scripts/helpers/setup-registry.sh"
+
 export CHROMATIC_APP_CODE
 CHROMATIC_APP_CODE=$(get_secret "chromatic-app-code") || exit $?
 
