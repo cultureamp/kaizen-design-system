@@ -12,6 +12,12 @@ import "focus-visible"
 // See: https://github.com/necolas/normalize.css/
 import "normalize.css"
 
+// Global styles
+import "./globals.module.scss"
+
+// Supported / active face declarations
+import "./fonts.module.scss"
+
 // Initialise the ThemeManager, this is a singleton so this should not be redeclared
 export const themeManager = new ThemeManager(getCurrentTheme())
 themeSwitcher({ themeManager })

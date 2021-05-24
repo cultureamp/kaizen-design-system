@@ -1,0 +1,13 @@
+/**
+ * IMPORTANT
+ * Before adding styles to this class, think _very carefully_ about
+ * possible side effects this may have on apps. These styles will
+ * be applied to all apps that consume Kaizen
+ */
+
+/** 
+ * Component-level overrides 
+ */
+[data-kaizen-component] {
+  box-sizing: border-box;
+}
