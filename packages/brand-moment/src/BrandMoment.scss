@@ -62,10 +62,21 @@
 }
 
 .footer {
+  display: flex;
+  align-items: center;
   flex: 0 0 auto;
   border-top: 1px solid $kz-var-color-wisteria-800;
   border-left: 1px solid $kz-var-color-wisteria-800;
   padding: $kz-var-spacing-sm;
   margin: $kz-var-spacing-lg;
   max-width: 1392px;
+}
+
+.poweredByContainer {
+  display: flex;
+}
+
+.poweredByText {
+  flex: 1 0 auto;
+  margin-right: $kz-var-spacing-xs;
 }

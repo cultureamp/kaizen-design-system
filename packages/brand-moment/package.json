@@ -33,7 +33,8 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^9.6.1",
-    "@kaizen/draft-button": "3.3.4",
+    "@kaizen/draft-button": "^3.3.4",
+    "@kaizen/hosted-assets": "^1.1.1",
     "@kaizen/draft-illustration": "^1.8.0",
     "@types/classnames": "^2.3.1",
     "classnames": "^2.3.1"

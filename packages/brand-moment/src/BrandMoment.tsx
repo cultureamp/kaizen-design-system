@@ -2,6 +2,7 @@ import React, { ReactNode, ReactElement } from "react"
 import { Heading, Box, Paragraph } from "@kaizen/component-library"
 import { Button, ButtonProps } from "@kaizen/draft-button"
 import { SceneProps } from "@kaizen/draft-illustration"
+import { assetUrl } from "@kaizen/hosted-assets"
 import classnames from "classnames"
 import styles from "./BrandMoment.scss"
 
@@ -66,7 +67,22 @@ export const BrandMoment = (props: Props) => (
     </main>
     {props.footer && (
       <footer className={styles.footer}>
-        {/* TODO: add "Powered By Culture Amp" part */}
+        <Box mr={2}>
+          <div className={styles.poweredByContainer}>
+            <div className={styles.poweredByText}>
+              <Paragraph variant="extra-small" color="dark-reduced-opacity">
+                Powered by
+              </Paragraph>
+            </div>
+            <div>
+              <img
+                src={assetUrl("brand/logo-horizontal-default.svg")}
+                alt="Culture Amp"
+                width={133}
+              />
+            </div>
+          </div>
+        </Box>
         {typeof props.footer === "string" && (
           <Paragraph variant="extra-small" color="dark-reduced-opacity">
             {props.footer}
