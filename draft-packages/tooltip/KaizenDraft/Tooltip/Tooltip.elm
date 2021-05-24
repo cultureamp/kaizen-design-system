@@ -4,6 +4,7 @@ module KaizenDraft.Tooltip.Tooltip exposing
     , Position(..)
     , Variant(..)
     , default
+    , dontTakeUpSpaceWhenHiddenQuickFix
     , position
     , styles
     , toolTip
@@ -21,6 +22,7 @@ type Config
 type alias Configuration =
     { variant : Variant
     , positionAt : Position
+    , dontTakeUpSpaceWhenHiddenQuickFix : Bool
     }
 
 
@@ -51,16 +53,32 @@ position p (Config config) =
     Config { config | positionAt = p }
 
 
+{-| this fixes an issue where the tooltip takes up space even when it is hidden. This can cause ugly & annoying horizontal scrollbars to appear when they shouldn't. Ideally the the tooltip would reposition itself to make use of available space, which would also solve this problem, but that would require a major rewrite.
+
+IMPORTANT NOTE: there is a major caviat with this option: the animation becomes disabled! This is because the div goes from `display: none` to `display: block` at the same time as the animation starts, so it doesn't kick in. So, this should only be used in scenarios where having unwanted scrollbars is worse than not having aniation.
+
+-}
+dontTakeUpSpaceWhenHiddenQuickFix : Bool -> Config -> Config
+dontTakeUpSpaceWhenHiddenQuickFix value (Config config) =
+    Config { config | dontTakeUpSpaceWhenHiddenQuickFix = value }
+
+
 defaults : Configuration
 defaults =
     { variant = Default ""
     , positionAt = Above
+    , dontTakeUpSpaceWhenHiddenQuickFix = False
     }
 
 
 view : Config -> Html msg -> Html msg
 view (Config config) content =
-    div [ styles.class .tooltipWrap ]
+    div
+        [ styles.classList
+            [ ( .tooltipWrap, True )
+            , ( .dontTakeUpSpaceWhenHiddenQuickFix, config.dontTakeUpSpaceWhenHiddenQuickFix )
+            ]
+        ]
         [ content
         , div
             [ styles.classList [ ( .contentWrap, True ), ( .above, config.positionAt == Above ) ] ]
@@ -108,4 +126,5 @@ styles =
         , above = "above"
         , below = "below"
         , shadow = "shadow"
+        , dontTakeUpSpaceWhenHiddenQuickFix = "dontTakeUpSpaceWhenHiddenQuickFix"
         }

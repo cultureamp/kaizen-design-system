@@ -50,9 +50,7 @@ $illustration-size: 155px;
   }
 }
 
-.illustration {
-  width: $illustration-size;
-  height: $illustration-size;
+.illustrationWrapper {
   display: flex;
   padding: 0 ($kz-var-spacing-sm);
 
@@ -66,6 +64,11 @@ $illustration-size: 155px;
   @include ca-media-mobile {
     display: none;
   }
+}
+
+.illustration {
+  width: $illustration-size;
+  height: $illustration-size;
 }
 
 .descriptionContainer {

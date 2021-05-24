@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.9.6...@kaizen/draft-guidance-block@3.0.0) (2021-05-21)
+
+
+### Features
+
+* add wrapping element to illustration ([#1613](https://github.com/cultureamp/kaizen-design-system/issues/1613)) ([60e953c](https://github.com/cultureamp/kaizen-design-system/commit/60e953ceb545c38f0edcbee572972554be867108))
+
+
+### BREAKING CHANGES
+
+* The width and height of the illustration element
+must be seperate from the element that has padding for the
+guidance block style. This is because consumers are likely to
+implement `box-sizing: border-box` which will destroy the
+dimensions of the image.
+
+Co-authored-by: Ally Beaton <allanna.beaton@gmail.com>
+
+
+
+
+
+## [2.9.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.9.5...@kaizen/draft-guidance-block@2.9.6) (2021-05-21)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
 ## [2.9.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.9.4...@kaizen/draft-guidance-block@2.9.5) (2021-05-20)
 
 

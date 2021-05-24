@@ -1,8 +1,6 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 import React from "react"
-import {
-  ThemeProvider,
-} from "@kaizen/design-tokens"
+import { ThemeProvider } from "@kaizen/design-tokens"
 import { addParameters } from "@storybook/react"
 import { addons } from "@storybook/addons"
 import KaizenContainer from "@kaizen/bootstrap"

@@ -13,4 +13,3 @@ import "normalize.css"
 export default ({ children }: { children: React.ReactNode }) => (
   <div className={classNames(styles.wrapper)}>{children}</div>
 )
-

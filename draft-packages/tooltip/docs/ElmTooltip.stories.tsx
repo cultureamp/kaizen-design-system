@@ -6,4 +6,5 @@ const compiledElm = require("../ElmStories/TooltipStories.elm").Elm.ElmStories
 loadElmStories("Tooltip (Elm)", module, compiledElm, [
   "Default - Below",
   "Default - Above",
+  "Default - dontTakeUpSpaceWhenHiddenQuickFix",
 ])
