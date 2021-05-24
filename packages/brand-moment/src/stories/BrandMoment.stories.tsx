@@ -78,10 +78,10 @@ export const CaptureOutro = () => (
     subheading="Manager Effectiveness Survey"
     heading="That's it — thank you"
     bodyText={
-      <Paragraph variant="intro-lede">
+      <>
         Your responses have been securely recorded. If you need to, you can{" "}
         <a href="#">retake the survey</a>.
-      </Paragraph>
+      </>
     }
     primaryAction={{
       label: "Go to Home",
@@ -107,10 +107,8 @@ export const Error = () => (
     bodyText={
       <>
         <Box mb={1.75}>
-          <Paragraph variant="intro-lede">
-            Sorry but we can't find the page you're looking for. Go back and try
-            again, or head to <a href="#">Home</a>.
-          </Paragraph>
+          Sorry but we can't find the page you're looking for. Go back and try
+          again, or head to <a href="#">Home</a>.
         </Box>
         <Paragraph variant="small" color="dark-reduced-opacity">
           Error code 404

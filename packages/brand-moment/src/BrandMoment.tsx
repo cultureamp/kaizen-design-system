@@ -47,10 +47,7 @@ export const BrandMoment = (props: Props) => (
           </Box>
           {props.bodyText && (
             <Box mb={1.5}>
-              {typeof props.bodyText === "string" && (
-                <Paragraph variant="intro-lede">{props.bodyText}</Paragraph>
-              )}
-              {typeof props.bodyText !== "string" && props.bodyText}
+              <Paragraph variant="intro-lede">{props.bodyText}</Paragraph>
             </Box>
           )}
 
@@ -83,12 +80,9 @@ export const BrandMoment = (props: Props) => (
             </div>
           </div>
         </Box>
-        {typeof props.footer === "string" && (
-          <Paragraph variant="extra-small" color="dark-reduced-opacity">
-            {props.footer}
-          </Paragraph>
-        )}
-        {typeof props.footer !== "string" && props.footer}
+        <Paragraph variant="extra-small" color="dark-reduced-opacity">
+          {props.footer}
+        </Paragraph>
       </footer>
     )}
   </div>
