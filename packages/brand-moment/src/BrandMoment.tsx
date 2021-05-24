@@ -12,7 +12,7 @@ type Props = {
   illustration: ReactElement<SceneProps>
   heading: ReactNode
   subheading?: ReactNode
-  bodyText?: ReactNode
+  body?: ReactNode
   primaryAction: ButtonProps
   secondaryAction?: ButtonProps
   footer?: ReactNode
@@ -45,9 +45,9 @@ export const BrandMoment = (props: Props) => (
               {props.heading}
             </Heading>
           </Box>
-          {props.bodyText && (
+          {props.body && (
             <Box mb={1.5}>
-              <Paragraph variant="intro-lede">{props.bodyText}</Paragraph>
+              <Paragraph variant="intro-lede">{props.body}</Paragraph>
             </Box>
           )}
 

@@ -54,7 +54,7 @@ export const CaptureIntro = () => (
     illustration={<EmptyStatesPositive alt="" />}
     subheading="A survey for Hooli"
     heading="Manager Effectiveness Survey"
-    bodyText="Thank you for taking the time to respond to this survey. It'll help us better understand your experience and perspective."
+    body="Thank you for taking the time to respond to this survey. It'll help us better understand your experience and perspective."
     primaryAction={{
       label: "Take survey",
       href: "#",
@@ -77,7 +77,7 @@ export const CaptureOutro = () => (
     illustration={<EmptyStatesNeutral alt="" />}
     subheading="Manager Effectiveness Survey"
     heading="That's it — thank you"
-    bodyText={
+    body={
       <>
         Your responses have been securely recorded. If you need to, you can{" "}
         <a href="#">retake the survey</a>.
@@ -104,7 +104,7 @@ export const Error = () => (
     header={<FakeNavBar />}
     illustration={<EmptyStatesNegative alt="" />}
     heading="Missing pages are one of life's mysteries"
-    bodyText={
+    body={
       <>
         <Box mb={1.75}>
           Sorry but we can't find the page you're looking for. Go back and try
