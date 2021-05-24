@@ -1,8 +1,6 @@
 import * as React from "react"
-import classNames from "classnames"
 import { ThemeManager } from "@kaizen/design-tokens"
 import { themeSwitcher, getCurrentTheme } from "@cultureamp/theme-switcher"
-import styles from "../index.module.scss"
 
 // Polyfill for :focus-visible pseudo-selector
 // See: https://github.com/WICG/focus-visible
@@ -22,4 +20,4 @@ import "./fonts.module.scss"
 export const themeManager = new ThemeManager(getCurrentTheme())
 themeSwitcher({ themeManager })
 
-export default ({ children }: { children: React.ReactNode }) => children
+export default ({ children }: { children?: React.ReactNode }) => <>{children}</>
