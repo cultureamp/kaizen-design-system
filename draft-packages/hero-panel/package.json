@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-hero-panel",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "The draft Hero panel component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,8 +32,8 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^9.7.4",
-    "@kaizen/draft-button": "^3.3.11",
+    "@kaizen/component-library": "^10.0.0",
+    "@kaizen/draft-button": "^3.3.12",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },
