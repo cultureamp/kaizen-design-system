@@ -2,8 +2,8 @@
 @import "~@kaizen/design-tokens/sass/shadow-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
+@import "~@kaizen/draft-button/KaizenDraft/Button/styles";
 @import "../../styles/animation";
-@import "../Button/styles";
 
 $hamburger-width: 18px;
 $hamburger-layer-height: 2px;
