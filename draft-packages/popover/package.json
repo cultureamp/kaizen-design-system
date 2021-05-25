@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-popover",
-  "version": "2.1.18",
+  "version": "2.2.0",
   "description": "The draft Popover component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",

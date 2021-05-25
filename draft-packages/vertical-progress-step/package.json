@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-vertical-progress-step",
-  "version": "1.6.18",
+  "version": "1.7.0",
   "description": "The draft Vertical progress step component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",

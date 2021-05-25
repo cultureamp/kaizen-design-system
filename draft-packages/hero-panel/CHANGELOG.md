@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-panel@2.1.40...@kaizen/draft-hero-panel@2.2.0) (2021-05-25)
+
+
+### Features
+
+* Update all usages and references of deprecated Button ([#1633](https://github.com/cultureamp/kaizen-design-system/issues/1633)) ([11efeb8](https://github.com/cultureamp/kaizen-design-system/commit/11efeb88cc16c95aeb692fd025e1b801a07b0a1d))
+
+
+
+
+
 ## [2.1.40](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-hero-panel@2.1.39...@kaizen/draft-hero-panel@2.1.40) (2021-05-17)
 
 **Note:** Version bump only for package @kaizen/draft-hero-panel
