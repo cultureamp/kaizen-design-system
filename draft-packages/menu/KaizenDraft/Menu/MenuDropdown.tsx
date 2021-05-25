@@ -60,12 +60,14 @@ const MenuDropdown = ({
       if (
         popperElement &&
         e.target instanceof Node &&
-        !popperElement.contains(e.target)
+        !popperElement.contains(e.target) &&
+        referenceElement !== e.target &&
+        !referenceElement?.contains(e.target)
       ) {
         hideMenuDropdown()
       }
     },
-    [popperElement, hideMenuDropdown]
+    [popperElement, referenceElement, hideMenuDropdown]
   )
 
   const handleDocumentResize = useCallback(() => {
@@ -81,7 +83,7 @@ const MenuDropdown = ({
 
   useEffect(() => {
     if (autoHide !== "off") {
-      document.addEventListener("click", handleDocumentClickForAutoHide, false)
+      document.addEventListener("click", handleDocumentClickForAutoHide, true)
     }
     window.addEventListener("resize", handleDocumentResize, false)
 
@@ -90,7 +92,7 @@ const MenuDropdown = ({
         document.removeEventListener(
           "click",
           handleDocumentClickForAutoHide,
-          false
+          true
         )
       }
       window.removeEventListener("resize", handleDocumentResize, false)
