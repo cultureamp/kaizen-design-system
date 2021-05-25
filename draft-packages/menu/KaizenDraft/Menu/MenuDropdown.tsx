@@ -82,10 +82,17 @@ const MenuDropdown = ({
   }
 
   useEffect(() => {
+    window.addEventListener("resize", handleDocumentResize, false)
+
+    return () => {
+      window.removeEventListener("resize", handleDocumentResize, false)
+    }
+  }, [handleDocumentResize])
+
+  useEffect(() => {
     if (autoHide !== "off") {
       document.addEventListener("click", handleDocumentClickForAutoHide, true)
     }
-    window.addEventListener("resize", handleDocumentResize, false)
 
     return () => {
       if (autoHide !== "off") {
@@ -95,9 +102,8 @@ const MenuDropdown = ({
           true
         )
       }
-      window.removeEventListener("resize", handleDocumentResize, false)
     }
-  }, [autoHide, handleDocumentClickForAutoHide, handleDocumentResize])
+  }, [autoHide, handleDocumentClickForAutoHide])
 
   return (
     <div
