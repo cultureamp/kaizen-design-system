@@ -563,3 +563,14 @@ export const AllSpotIllustrations = () => {
     </>
   )
 }
+
+export const AnimatedSpot = () => (
+  <div style={{ width: "156px" }}>
+    <Cautionary alt="" isAnimated loop />
+    <Informative alt="" isAnimated loop />
+    <Negative alt="" isAnimated loop />
+    <Positive alt="" isAnimated loop />
+    <Assertive alt="" isAnimated loop />
+  </div>
+)
+AnimatedSpot.storyName = "Spot, animated"

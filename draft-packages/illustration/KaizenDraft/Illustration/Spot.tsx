@@ -1,8 +1,10 @@
 import { useTheme } from "@kaizen/design-tokens"
 import * as React from "react"
 import { Base, BaseProps } from "./Base"
+import { AnimatedBase, AnimatedBaseProps } from "./AnimatedBase"
 
 export type SpotProps = Pick<BaseProps, "alt" | "classNameAndIHaveSpokenToDST">
+export type AnimatedSpotProps = SpotProps & AnimatedBaseProps
 
 const noZenIllustrationWarning = (illustrationName: string) => {
   // eslint-disable-next-line no-console
@@ -14,39 +16,63 @@ const noZenIllustrationWarning = (illustrationName: string) => {
 /**
  * Moods
  */
-export const Cautionary = (props: SpotProps) => {
+export const Cautionary = (props: AnimatedSpotProps) => {
   const theme = useTheme()
   const illustrationPath =
     theme.themeKey === "zen"
       ? "illustrations/spot/moods-cautionary.svg"
       : "illustrations/heart/spot/moods-cautionary.svg"
 
+  if (props.isAnimated) {
+    return (
+      <AnimatedBase
+        {...props}
+        name="illustrations/spot/moods-cautionary.lottie"
+      />
+    )
+  }
   return <Base {...props} name={illustrationPath} />
 }
 
-export const Informative = (props: SpotProps) => {
+export const Informative = (props: AnimatedSpotProps) => {
   const theme = useTheme()
   const illustrationPath =
     theme.themeKey === "zen"
       ? "illustrations/spot/moods-informative.svg"
       : "illustrations/heart/spot/moods-informative.svg"
+  if (props.isAnimated) {
+    return (
+      <AnimatedBase
+        {...props}
+        name="illustrations/spot/moods-informative.lottie"
+      />
+    )
+  }
   return <Base {...props} name={illustrationPath} />
 }
 
-export const Negative = (props: SpotProps) => {
+export const Negative = (props: AnimatedSpotProps) => {
   const theme = useTheme()
   const illustrationPath =
     theme.themeKey === "zen"
       ? "illustrations/spot/moods-negative.svg"
       : "illustrations/heart/spot/moods-negative.svg"
 
+  if (props.isAnimated) {
+    return (
+      <AnimatedBase
+        {...props}
+        name="illustrations/spot/moods-negative.lottie"
+      />
+    )
+  }
   return <Base {...props} name={illustrationPath} />
 }
 
 /**
  * @deprecated Use the non-gendered Positive illustration instead
  */
-export const PositiveMale = (props: SpotProps) => {
+export const PositiveMale = (props: AnimatedSpotProps) => {
   const theme = useTheme()
   const illustrationPath =
     theme.themeKey === "zen"
@@ -59,32 +85,55 @@ export const PositiveMale = (props: SpotProps) => {
 /**
  * @deprecated Use the non-gendered Positive illustration instead
  */
-export const PositiveFemale = (props: SpotProps) => {
+export const PositiveFemale = (props: AnimatedSpotProps) => {
   const theme = useTheme()
   const illustrationPath =
     theme.themeKey === "zen"
       ? "illustrations/spot/moods-positive-female.svg"
       : "illustrations/heart/spot/moods-positive.svg"
 
+  if (props.isAnimated) {
+    return (
+      <AnimatedBase
+        {...props}
+        name="illustrations/spot/moods-positive.lottie"
+      />
+    )
+  }
   return <Base {...props} name={illustrationPath} />
 }
 
-export const Positive = (props: SpotProps) => {
+export const Positive = (props: AnimatedSpotProps) => {
   const theme = useTheme()
   const illustrationPath =
     theme.themeKey === "zen"
       ? "illustrations/spot/moods-positive-female.svg"
       : "illustrations/heart/spot/moods-positive.svg"
 
+  if (props.isAnimated) {
+    return (
+      <AnimatedBase
+        {...props}
+        name="illustrations/spot/moods-positive.lottie"
+      />
+    )
+  }
   return <Base {...props} name={illustrationPath} />
 }
 
-export const Assertive = (props: SpotProps) => {
+export const Assertive = (props: AnimatedSpotProps) => {
   const theme = useTheme()
   if (theme.themeKey === "zen") {
     noZenIllustrationWarning("Assertive")
   }
-
+  if (props.isAnimated) {
+    return (
+      <AnimatedBase
+        {...props}
+        name="illustrations/spot/moods-assertive.lottie"
+      />
+    )
+  }
   return <Base {...props} name="illustrations/heart/spot/moods-assertive.svg" />
 }
 
