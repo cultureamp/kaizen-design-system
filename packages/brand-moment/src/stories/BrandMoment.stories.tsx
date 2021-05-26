@@ -32,7 +32,7 @@ export default {
 
 export const DemoIntro = () => (
   <BrandMoment
-    variant="informative"
+    mood="informative"
     header={<MinimalBasic />}
     illustration={<EmptyStatesAction alt="" />}
     subheading="Welcome to Culture Amp"
@@ -49,7 +49,7 @@ DemoIntro.storyName = "Demo Intro"
 
 export const CaptureIntro = () => (
   <BrandMoment
-    variant="informative"
+    mood="informative"
     header={<MinimalCustomerFocused />}
     illustration={<EmptyStatesPositive alt="" />}
     subheading="A survey for Hooli"
@@ -72,7 +72,7 @@ CaptureIntro.storyName = "Capture Intro"
 
 export const CaptureOutro = () => (
   <BrandMoment
-    variant="positive"
+    mood="positive"
     header={<MinimalCustomerFocused />}
     illustration={<EmptyStatesNeutral alt="" />}
     subheading="Manager Effectiveness Survey"
@@ -100,7 +100,7 @@ CaptureOutro.storyName = "Capture Outro"
 
 export const Error = () => (
   <BrandMoment
-    variant="negative"
+    mood="negative"
     header={<FakeNavBar />}
     illustration={<EmptyStatesNegative alt="" />}
     heading="Missing pages are one of life’s mysteries"

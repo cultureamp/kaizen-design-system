@@ -7,7 +7,7 @@ import classnames from "classnames"
 import styles from "./BrandMoment.scss"
 
 type Props = {
-  variant: "informative" | "positive" | "negative"
+  mood: "informative" | "positive" | "negative"
   header: ReactNode
   illustration: ReactElement<SceneProps>
   heading: ReactNode
@@ -21,9 +21,9 @@ type Props = {
 export const BrandMoment = (props: Props) => (
   <div
     className={classnames(styles.body, {
-      [styles.informative]: props.variant === "informative",
-      [styles.positive]: props.variant === "positive",
-      [styles.negative]: props.variant === "negative",
+      [styles.informative]: props.mood === "informative",
+      [styles.positive]: props.mood === "positive",
+      [styles.negative]: props.mood === "negative",
     })}
   >
     <header className={styles.header}>{props.header}</header>
