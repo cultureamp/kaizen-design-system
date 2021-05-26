@@ -41,7 +41,6 @@
   },
   "devDependencies": {
     "@kaizen/design-tokens": "^2.8.1",
-    "elm-storybook": "cultureamp/elm-storybook#0.3.0",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
