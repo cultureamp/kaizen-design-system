@@ -89,5 +89,11 @@ describe("<Slider />", () => {
       fireEvent.change(slider, { target: { value: 4.5 } })
       expect(slider).not.toHaveValue("4.5")
     })
+    it("a fractional number should round correctly", async () => {
+      const { findByRole } = renderSlider()
+      const slider = await findByRole("slider")
+      fireEvent.change(slider, { target: { value: 6.5 } })
+      expect(slider).toHaveValue("7")
+    })
   })
 })
