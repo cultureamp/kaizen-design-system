@@ -8,7 +8,7 @@ import { Button, CustomButtonProps, ButtonRef } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
-  title: "Button (Zen) (React)",
+  title: "Button (React)",
   component: Button,
   args: {
     label: "Label",

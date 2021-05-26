@@ -3,7 +3,7 @@ import { loadElmStories } from "elm-storybook"
 const compiledElm = require("../ElmStories/ButtonStories.elm").Elm.ElmStories
   .ButtonStories
 
-loadElmStories("Button (Zen) (Elm)", module, compiledElm, [
+loadElmStories("Button (Elm)", module, compiledElm, [
   "Default",
   "Primary",
   "Secondary",

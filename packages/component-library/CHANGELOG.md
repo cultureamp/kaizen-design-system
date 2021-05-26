@@ -3,6 +3,53 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.0...@kaizen/component-library@10.0.1) (2021-05-26)
+
+**Note:** Version bump only for package @kaizen/component-library
+
+
+
+
+
+# [10.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.7.4...@kaizen/component-library@10.0.0) (2021-05-25)
+
+
+### Features
+
+* Delete component-library/Button ([#1632](https://github.com/cultureamp/kaizen-design-system/issues/1632)) ([3aeee96](https://github.com/cultureamp/kaizen-design-system/commit/3aeee967b0c88e0c0eb263e12629ca02cf4ae0fd))
+
+
+### BREAKING CHANGES
+
+* Any usages or references to Button or IconButton from @kaizen/component-library need to be updated to come from @kaizen/draft-button instead.
+
+Eg.
+import { Button } from "@kaizen/component-library"
+to
+import { Button, IconButton } from "@kaizen/draft-button"
+
+It's also been common to import the Button stylesheet for the button-reset mixin:
+@import '~@kaizen/component-library/components/Button/styles'
+Ideally a copy of the mixin should be created on the consuming repo instead, but this can be updated like this as a quick fix:
+@import '~@kaizen/draft-button/KaizenDraft/Button/styles'
+
+Some other variations to look out for:
+
+Importing directly from the GenericButton file:
+import Button from "@kaizen/component-library/components/Button/components/GenericButton"
+
+Importing ButtonProps:
+import { ButtonProps } from '@kaizen/component-library
+
+Elm usages of the old Button:
+import Button.Button as Button
+changes to:
+import KaizenDraft.Button.Button as Button
+
+
+
+
+
 ## [9.7.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@9.7.3...@kaizen/component-library@9.7.4) (2021-05-17)
 
 **Note:** Version bump only for package @kaizen/component-library

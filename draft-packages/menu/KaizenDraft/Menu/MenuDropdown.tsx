@@ -60,12 +60,14 @@ const MenuDropdown = ({
       if (
         popperElement &&
         e.target instanceof Node &&
-        !popperElement.contains(e.target)
+        !popperElement.contains(e.target) &&
+        referenceElement !== e.target &&
+        !referenceElement?.contains(e.target)
       ) {
         hideMenuDropdown()
       }
     },
-    [popperElement, hideMenuDropdown]
+    [popperElement, referenceElement, hideMenuDropdown]
   )
 
   const handleDocumentResize = useCallback(() => {
@@ -80,22 +82,28 @@ const MenuDropdown = ({
   }
 
   useEffect(() => {
-    if (autoHide !== "off") {
-      document.addEventListener("click", handleDocumentClickForAutoHide, false)
-    }
     window.addEventListener("resize", handleDocumentResize, false)
+
+    return () => {
+      window.removeEventListener("resize", handleDocumentResize, false)
+    }
+  }, [handleDocumentResize])
+
+  useEffect(() => {
+    if (autoHide !== "off") {
+      document.addEventListener("click", handleDocumentClickForAutoHide, true)
+    }
 
     return () => {
       if (autoHide !== "off") {
         document.removeEventListener(
           "click",
           handleDocumentClickForAutoHide,
-          false
+          true
         )
       }
-      window.removeEventListener("resize", handleDocumentResize, false)
     }
-  }, [autoHide, handleDocumentClickForAutoHide, handleDocumentResize])
+  }, [autoHide, handleDocumentClickForAutoHide])
 
   return (
     <div
