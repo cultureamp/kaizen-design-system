@@ -90,7 +90,7 @@
     "focus-visible": "^5.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
-    "jest-circus": "^24.9.0",
+    "jest-circus": "^27.0.1",
     "jest-static-stubs": "^0.0.1",
     "lerna": "^3.20.2",
     "lodash": "^4.17.21",
