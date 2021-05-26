@@ -65,7 +65,7 @@ export const CaptureIntro = () => (
       label: "About data safety",
       icon: securityTipIcon,
     }}
-    footer="Your responses and information are securely collected and kept by Culture Amp in accordance with our Privacy Policy. Your responses will be reported to Hooli based on the specific rules for this survey. If you have any additional questions, please contact us at support@cultureamp.com."
+    footerContent="Your responses and information are securely collected and kept by Culture Amp in accordance with our Privacy Policy. Your responses will be reported to Hooli based on the specific rules for this survey. If you have any additional questions, please contact us at support@cultureamp.com."
   />
 )
 CaptureIntro.storyName = "Capture Intro"
@@ -93,7 +93,7 @@ export const CaptureOutro = () => (
       label: "Rate this survey",
       icon: feedbackClassifyIcon,
     }}
-    footer="Your responses and information are securely collected and kept by Culture Amp in accordance with our Privacy Policy. Your responses will be reported to Hooli based on the specific rules for this survey. If you have any additional questions, please contact us at support@cultureamp.com."
+    footerContent="Your responses and information are securely collected and kept by Culture Amp in accordance with our Privacy Policy. Your responses will be reported to Hooli based on the specific rules for this survey. If you have any additional questions, please contact us at support@cultureamp.com."
   />
 )
 CaptureOutro.storyName = "Capture Outro"

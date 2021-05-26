@@ -15,7 +15,7 @@ type Props = {
   body?: ReactNode
   primaryAction: ButtonProps
   secondaryAction?: ButtonProps
-  footer?: ReactNode
+  footerContent?: ReactNode
 }
 
 export const BrandMoment = (props: Props) => (
@@ -62,7 +62,7 @@ export const BrandMoment = (props: Props) => (
         </div>
       </div>
     </main>
-    {props.footer && (
+    {props.footerContent && (
       <footer className={styles.footer}>
         <Box mr={2}>
           <div className={styles.poweredByContainer}>
@@ -81,7 +81,7 @@ export const BrandMoment = (props: Props) => (
           </div>
         </Box>
         <Paragraph variant="extra-small" color="dark-reduced-opacity">
-          {props.footer}
+          {props.footerContent}
         </Paragraph>
       </footer>
     )}
