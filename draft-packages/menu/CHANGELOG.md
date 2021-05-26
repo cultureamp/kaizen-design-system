@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.28](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.27...@kaizen/draft-menu@3.2.28) (2021-05-26)
+
+
+### Bug Fixes
+
+* Fix issue with autohide for draft-menu ([#1642](https://github.com/cultureamp/kaizen-design-system/issues/1642)) ([d047301](https://github.com/cultureamp/kaizen-design-system/commit/d047301ecdc0f6ac23c2b62507ac9f0da75ce8e0))
+
+
+
+
+
 ## [3.2.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-menu@3.2.26...@kaizen/draft-menu@3.2.27) (2021-05-26)
 
 **Note:** Version bump only for package @kaizen/draft-menu
