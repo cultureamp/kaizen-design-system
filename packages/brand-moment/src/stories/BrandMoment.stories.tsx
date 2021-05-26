@@ -32,7 +32,7 @@ export default {
 
 export const DemoIntro = () => (
   <BrandMoment
-    backgroundColor="blue"
+    variant="informative"
     header={<MinimalBasic />}
     illustration={<EmptyStatesAction alt="" />}
     subheading="Welcome to Culture Amp"
@@ -49,7 +49,7 @@ DemoIntro.storyName = "Demo Intro"
 
 export const CaptureIntro = () => (
   <BrandMoment
-    backgroundColor="blue"
+    variant="informative"
     header={<MinimalCustomerFocused />}
     illustration={<EmptyStatesPositive alt="" />}
     subheading="A survey for Hooli"
@@ -72,7 +72,7 @@ CaptureIntro.storyName = "Capture Intro"
 
 export const CaptureOutro = () => (
   <BrandMoment
-    backgroundColor="green"
+    variant="positive"
     header={<MinimalCustomerFocused />}
     illustration={<EmptyStatesNeutral alt="" />}
     subheading="Manager Effectiveness Survey"
@@ -100,7 +100,7 @@ CaptureOutro.storyName = "Capture Outro"
 
 export const Error = () => (
   <BrandMoment
-    backgroundColor="red"
+    variant="negative"
     header={<FakeNavBar />}
     illustration={<EmptyStatesNegative alt="" />}
     heading="Missing pages are one of life’s mysteries"

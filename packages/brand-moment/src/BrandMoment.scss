@@ -8,15 +8,15 @@
   flex-direction: column;
   align-items: center;
 
-  &.blue {
+  &.informative {
     background: $kz-var-color-cluny-100;
   }
 
-  &.green {
+  &.positive {
     background: $kz-var-color-seedling-100;
   }
 
-  &.red {
+  &.negative {
     background: $kz-var-color-coral-100;
   }
 }
