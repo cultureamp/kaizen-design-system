@@ -36,7 +36,7 @@ export const DemoIntro = () => (
     header={<MinimalBasic />}
     illustration={<EmptyStatesAction alt="" />}
     subheading="Welcome to Culture Amp"
-    heading="Let's dive in and see how it works"
+    heading="Let’s dive in and see how it works"
     primaryAction={{
       label: "Get started",
       href: "#",
@@ -54,7 +54,7 @@ export const CaptureIntro = () => (
     illustration={<EmptyStatesPositive alt="" />}
     subheading="A survey for Hooli"
     heading="Manager Effectiveness Survey"
-    body="Thank you for taking the time to respond to this survey. It'll help us better understand your experience and perspective."
+    body="Thank you for taking the time to respond to this survey. It’ll help us better understand your experience and perspective."
     primaryAction={{
       label: "Take survey",
       href: "#",
@@ -76,7 +76,7 @@ export const CaptureOutro = () => (
     header={<MinimalCustomerFocused />}
     illustration={<EmptyStatesNeutral alt="" />}
     subheading="Manager Effectiveness Survey"
-    heading="That's it — thank you"
+    heading="That’s it — thank you"
     body={
       <>
         Your responses have been securely recorded. If you need to, you can{" "}
@@ -103,11 +103,11 @@ export const Error = () => (
     backgroundColor="red"
     header={<FakeNavBar />}
     illustration={<EmptyStatesNegative alt="" />}
-    heading="Missing pages are one of life's mysteries"
+    heading="Missing pages are one of life’s mysteries"
     body={
       <>
         <Box mb={1.75}>
-          Sorry but we can't find the page you're looking for. Go back and try
+          Sorry but we can’t find the page you’re looking for. Go back and try
           again, or head to <a href="#">Home</a>.
         </Box>
         <Paragraph variant="small" color="dark-reduced-opacity">
