@@ -5,11 +5,13 @@ import styles from "./ExampleHeaders.scss"
 export const MinimalBasic = () => (
   <div className={styles.header}>
     <div className={styles.headerLeft}>
-      <img
-        src={assetUrl("brand/logo-horizontal-default.svg")}
-        alt="Culture Amp"
-        width={126}
-      />
+      <a href="/" aria-label="Home">
+        <img
+          src={assetUrl("brand/logo-horizontal-default.svg")}
+          alt="Culture Amp"
+          width={126}
+        />
+      </a>
     </div>
     <div className={styles.headerRight}>
       <div className={styles.logoContainer}>
