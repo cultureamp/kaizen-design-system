@@ -35,7 +35,7 @@
 .left {
   flex: 1 1 50%;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   padding: 0 $kz-var-spacing-xl;
 }
