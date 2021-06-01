@@ -8,14 +8,17 @@ import styles from "./BrandMoment.scss"
 
 type Props = {
   mood: "informative" | "positive" | "negative"
-  header: ReactNode
   illustration: ReactElement<SceneProps>
-  heading: ReactNode
-  subheading?: ReactNode
+  header: ReactNode
   body?: ReactNode
   primaryAction: ButtonProps
   secondaryAction?: ButtonProps
-  footerContent?: ReactNode
+  text: {
+    title: ReactNode
+    subtitle?: ReactNode
+    body?: ReactNode
+    footer?: ReactNode
+  }
 }
 
 export const BrandMoment = (props: Props) => (
@@ -33,24 +36,27 @@ export const BrandMoment = (props: Props) => (
       </div>
       <div className={styles.right}>
         <div className={styles.rightInner}>
-          {props.subheading && (
+          {props.text.subtitle && (
             <Box mb={0.5}>
               <Heading variant="heading-3" tag="h1">
-                {props.subheading}
+                {props.text.subtitle}
               </Heading>
             </Box>
           )}
           <Box mb={1.5}>
-            <Heading variant="display-0" tag={props.subheading ? "h2" : "h1"}>
-              {props.heading}
+            <Heading
+              variant="display-0"
+              tag={props.text.subtitle ? "h2" : "h1"}
+            >
+              {props.text.title}
             </Heading>
           </Box>
-          {props.body && (
+          {props.text.body && (
             <Box mb={1.5}>
-              <Paragraph variant="intro-lede">{props.body}</Paragraph>
+              <Paragraph variant="intro-lede">{props.text.body}</Paragraph>
             </Box>
           )}
-
+          {props.body && <Box mb={1.5}>{props.body}</Box>}
           <div className={styles.actions}>
             <Button primary {...props.primaryAction} />
             {props.secondaryAction && (
@@ -62,7 +68,7 @@ export const BrandMoment = (props: Props) => (
         </div>
       </div>
     </main>
-    {props.footerContent && (
+    {props.text.footer && (
       <footer className={styles.footer}>
         <Box mr={2}>
           <div className={styles.poweredByContainer}>
@@ -81,7 +87,7 @@ export const BrandMoment = (props: Props) => (
           </div>
         </Box>
         <Paragraph variant="extra-small" color="dark-reduced-opacity">
-          {props.footerContent}
+          {props.text.footer}
         </Paragraph>
       </footer>
     )}

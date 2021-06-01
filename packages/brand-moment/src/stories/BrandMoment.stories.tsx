@@ -33,10 +33,12 @@ export default {
 export const DemoIntro = () => (
   <BrandMoment
     mood="informative"
-    header={<MinimalBasic />}
     illustration={<EmptyStatesAction alt="" />}
-    subheading="Welcome to Culture Amp"
-    heading="Let’s dive in and see how it works"
+    header={<MinimalBasic />}
+    text={{
+      subtitle: "Welcome to Culture Amp",
+      title: "Let’s dive in and see how it works",
+    }}
     primaryAction={{
       label: "Get started",
       href: "#",
@@ -50,11 +52,16 @@ DemoIntro.storyName = "Demo Intro"
 export const CaptureIntro = () => (
   <BrandMoment
     mood="informative"
-    header={<MinimalCustomerFocused />}
     illustration={<EmptyStatesPositive alt="" />}
-    subheading="A survey for Hooli"
-    heading="Manager Effectiveness Survey"
-    body="Thank you for taking the time to respond to this survey. It’ll help us better understand your experience and perspective."
+    header={<MinimalCustomerFocused />}
+    text={{
+      subtitle: "A survey for Hooli",
+      title: "Manager Effectiveness Survey",
+      body:
+        "Thank you for taking the time to respond to this survey. It’ll help us better understand your experience and perspective.",
+      footer:
+        "Your responses and information are securely collected and kept by Culture Amp in accordance with our Privacy Policy. Your responses will be reported to Hooli based on the specific rules for this survey. If you have any additional questions, please contact us at support@cultureamp.com.",
+    }}
     primaryAction={{
       label: "Take survey",
       href: "#",
@@ -65,7 +72,6 @@ export const CaptureIntro = () => (
       label: "About data safety",
       icon: securityTipIcon,
     }}
-    footerContent="Your responses and information are securely collected and kept by Culture Amp in accordance with our Privacy Policy. Your responses will be reported to Hooli based on the specific rules for this survey. If you have any additional questions, please contact us at support@cultureamp.com."
   />
 )
 CaptureIntro.storyName = "Capture Intro"
@@ -73,16 +79,20 @@ CaptureIntro.storyName = "Capture Intro"
 export const CaptureOutro = () => (
   <BrandMoment
     mood="positive"
-    header={<MinimalCustomerFocused />}
     illustration={<EmptyStatesNeutral alt="" />}
-    subheading="Manager Effectiveness Survey"
-    heading="That’s it — thank you"
-    body={
-      <>
-        Your responses have been securely recorded. If you need to, you can{" "}
-        <a href="#">retake the survey</a>.
-      </>
-    }
+    header={<MinimalCustomerFocused />}
+    text={{
+      subtitle: "Manager Effectiveness Survey",
+      title: "That’s it — thank you",
+      body: (
+        <>
+          Your responses have been securely recorded. If you need to, you can{" "}
+          <a href="#">retake the survey</a>.
+        </>
+      ),
+      footer:
+        "Your responses and information are securely collected and kept by Culture Amp in accordance with our Privacy Policy. Your responses will be reported to Hooli based on the specific rules for this survey. If you have any additional questions, please contact us at support@cultureamp.com.",
+    }}
     primaryAction={{
       label: "Go to Home",
       href: "#",
@@ -93,7 +103,6 @@ export const CaptureOutro = () => (
       label: "Rate this survey",
       icon: feedbackClassifyIcon,
     }}
-    footerContent="Your responses and information are securely collected and kept by Culture Amp in accordance with our Privacy Policy. Your responses will be reported to Hooli based on the specific rules for this survey. If you have any additional questions, please contact us at support@cultureamp.com."
   />
 )
 CaptureOutro.storyName = "Capture Outro"
@@ -101,14 +110,18 @@ CaptureOutro.storyName = "Capture Outro"
 export const Error = () => (
   <BrandMoment
     mood="negative"
-    header={<FakeNavBar />}
     illustration={<EmptyStatesNegative alt="" />}
-    heading="Missing pages are one of life’s mysteries"
+    header={<FakeNavBar />}
+    text={{
+      title: "Missing pages are one of life’s mysteries",
+    }}
     body={
       <>
         <Box mb={1.75}>
-          Sorry but we can’t find the page you’re looking for. Go back and try
-          again, or head to <a href="#">Home</a>.
+          <Paragraph variant="intro-lede">
+            Sorry but we can’t find the page you’re looking for. Go back and try
+            again, or head to <a href="#">Home</a>.
+          </Paragraph>
         </Box>
         <Paragraph variant="small" color="dark-reduced-opacity">
           Error code 404
