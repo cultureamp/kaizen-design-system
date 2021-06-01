@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.5.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.5.2...@kaizen/draft-modal@5.5.3) (2021-06-01)
+
+
+### Bug Fixes
+
+* Add known attribute name to allow animation overrides ([#1657](https://github.com/cultureamp/kaizen-design-system/issues/1657)) ([afa426f](https://github.com/cultureamp/kaizen-design-system/commit/afa426f37e1ad051c8bc5b35c1d4b431a15608f6))
+
+
+
+
+
 ## [5.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.5.1...@kaizen/draft-modal@5.5.2) (2021-05-26)
 
 **Note:** Version bump only for package @kaizen/draft-modal
