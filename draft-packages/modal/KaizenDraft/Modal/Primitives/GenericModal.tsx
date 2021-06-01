@@ -172,6 +172,7 @@ class GenericModal extends React.Component<GenericModalProps> {
         show={isOpen}
         enter={styles.animatingEnter}
         leave={styles.animatingLeave}
+        data-generic-modal-transition-wrapper
       >
         <FocusLock
           disabled={focusLockDisabled}
