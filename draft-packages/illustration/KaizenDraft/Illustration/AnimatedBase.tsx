@@ -1,6 +1,6 @@
-import * as React from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { assetUrl } from "@kaizen/hosted-assets"
-import LottiePlayer from "lottie-react"
+import lottie from "lottie-web"
 import { BaseProps } from "./Base"
 import { fetchPath } from "./utils"
 import styles from "./style.module.scss"
@@ -18,31 +18,54 @@ export type AnimatedBaseProps = {
 // - allow delay on animation
 export const AnimatedBase = ({
   name,
-  autoplay,
-  loop,
+  autoplay = true,
+  loop = false,
   alt,
 }: AnimatedBaseProps & BaseProps) => {
+  const lottiePlayer = useRef<HTMLDivElement>(null)
+  const [playerLoaded, setPlayerLoaded] = useState<boolean>(false)
   const [asset, setAsset] = React.useState<null | any>(null)
 
   React.useEffect(() => {
+    let didCancel = false;
     const fetchData = async () => {
       const path = assetUrl(name)
       const srcParsed = await fetchPath(path)
-      setAsset(srcParsed)
+      if (!didCancel) {
+        setAsset(srcParsed)
+      }
     }
-
     fetchData()
+    return () => {
+      didCancel = true;
+    };
   }, [])
+
+  useEffect(() => {
+    const initialiseLottiePlayer = () => {
+      if (asset && lottiePlayer.current !== null && !playerLoaded) {
+        setPlayerLoaded(true)
+        lottie.loadAnimation({
+          container: lottiePlayer.current,
+          renderer: "svg",
+          loop,
+          autoplay,
+          animationData: asset
+        })
+      }
+    }
+    initialiseLottiePlayer()
+  }, [asset])
 
   return (
     <div className={styles.wrapper}>
       {/* Avoid jump when asset loads */}
-      {!asset && (
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      {!playerLoaded && (
+        <svg data-testid="loading" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <circle fill="#f9f9f9" cx="48" cy="48" r="48" />
         </svg>
       )}
-      <LottiePlayer autoplay={autoplay} loop={loop} animationData={asset} />
+      <div data-testid="lottie-player" ref={lottiePlayer} />
     </div>
   )
 }

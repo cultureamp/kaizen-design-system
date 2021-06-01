@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AnimatedBase /> should render a fallback indicator 1`] = `
+<svg
+  data-testid="loading"
+  viewBox="0 0 100 100"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <circle
+    cx="48"
+    cy="48"
+    fill="#f9f9f9"
+    r="48"
+  />
+</svg>
+`;
+
+exports[`<AnimatedBase /> should render a fallback loading indicator 1`] = `
+<svg
+  data-testid="loading"
+  viewBox="0 0 100 100"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <circle
+    cx="48"
+    cy="48"
+    fill="#f9f9f9"
+    r="48"
+  />
+</svg>
+`;
