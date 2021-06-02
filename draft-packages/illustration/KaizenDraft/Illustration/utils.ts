@@ -1,79 +1,103 @@
-/* eslint-disable prefer-arrow/prefer-arrow-functions, space-before-function-paren */
-
-// pinched from https://github.com/dotlottie/player-component/blob/master/src/dotlottie-player.ts#L40
 import * as JSZip from "jszip"
+import { assetUrl } from "@kaizen/hosted-assets"
+import { LottieManifestFile, LottieAnimation } from "./types"
 
-export function fetchPath(path: string): Promise<Record<string, unknown>> {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest()
-    xhr.open("GET", path, true)
-    xhr.responseType = "arraybuffer"
-    xhr.send()
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState == 4 && xhr.status == 200) {
-        JSZip.loadAsync(xhr.response)
-          .then(zip => {
-            if (!zip) {
-              throw new Error("Asset invalid")
-            }
+/**
+ * Fetch and unzip dotlottie files
+ * @param path
+ */
+export const getAnimationData = async (path: string) => {
+  const animationData = await fetchAnimationData(assetUrl(name))
+  const parsedResponse = await parseAnimationData(animationData)
 
-            // @ts-ignore
-            return zip
-              .file("manifest.json")
-              .async("string")
-              .then((manifestFile: string) => {
-                const manifest = JSON.parse(manifestFile)
-
-                if (!("animations" in manifest)) {
-                  throw new Error("Manifest not found")
-                }
-
-                if (manifest.animations.length === 0) {
-                  throw new Error("No animations listed in the manifest")
-                }
-
-                const defaultLottie = manifest.animations[0]
-
-                // @ts-ignore
-                zip
-                  .file(`animations/${defaultLottie.id}.json`)
-                  .async("string")
-                  .then((lottieFile: string) => {
-                    const lottieJson = JSON.parse(lottieFile)
-
-                    if ("assets" in lottieJson) {
-                      Promise.all(
-                        lottieJson.assets.map((asset: any) => {
-                          if (!asset.p) {
-                            return
-                          }
-
-                          return new Promise(resolveAsset => {
-                            // @ts-ignore
-                            zip
-                              .file(`images/${asset.p}`)
-                              .async("base64")
-                              .then((assetB64: any) => {
-                                asset.p = "data:;base64," + assetB64
-                                asset.e = 1
-
-                                resolveAsset()
-                              })
-                          })
-                        })
-                      ).then(() => {
-                        resolve(lottieJson)
-                      })
-                    }
-                  })
-              })
-          })
-          .catch((err: Error) => {
-            reject(err)
-          })
-      }
-    }
-  })
+  return parsedResponse
 }
 
-/* eslint-enable prefer-arrow/prefer-arrow-functions, space-before-function-paren */
+const fetchAnimationData = async (path: string): Promise<Blob> => {
+  const response = await fetch(path)
+  if (response.ok) {
+    const blob = await response.blob()
+    return blob
+  }
+  throw new Error("Lottie asset failed")
+}
+
+/**
+ * Unzip the dotlottie file to form a format that the lottie-web player understands.
+ * Each directory needs to be unzipped separately
+ *
+ * Dotlottie has the following folder structure when unzipped:
+ * ├─ manifest.json
+ * ├─ animations
+ * │  ├─ animation-1.json
+ * │  └─ animation-2.json
+ * ├─ images
+ * │  ├─ img_1.json
+ * │  └─ img_2.json
+ * ├─ fonts
+ * |- js
+ * |- resources
+ * └─ previews
+ *
+ * Reference: {@link https://dotlottie.io/structure/}
+ * @param animationData dotlottie file (compressed)
+ */
+const parseAnimationData = async (
+  animationData: Blob
+): Promise<LottieAnimation> => {
+  try {
+    const deserialize = (await JSZip.loadAsync(animationData)) || {}
+    if (!deserialize) {
+      throw new Error("Asset invalid")
+    }
+
+    const manifestFile = await deserialize
+      ?.file("manifest.json")
+      ?.async("string")
+
+    if (!manifestFile) {
+      throw new Error("Manifest file corrupt")
+    }
+
+    const { animations }: LottieManifestFile = JSON.parse(manifestFile)
+
+    if (!animations || animations.length === 0) {
+      throw new Error("No animations listed in the manifest")
+    }
+
+    const defaultLottie = animations[0]
+
+    const lottieFile = await deserialize
+      ?.file(`animations/${defaultLottie.id}.json`)
+      ?.async("string")
+
+    if (!lottieFile) {
+      throw new Error("No animations listed in the manifest")
+    }
+
+    const lottieJson: LottieAnimation = JSON.parse(lottieFile)
+    const deserializeImages = lottieJson.assets.map(asset => {
+      if (!asset.p) {
+        return
+      }
+
+      return new Promise(resolve => {
+        deserialize
+          ?.file(`images/${asset.p}`)
+          ?.async("base64")
+          .then((assetB64: string) => {
+            asset.p = "data:;base64," + assetB64
+            asset.e = 1
+            resolve()
+          })
+      })
+    })
+
+    // deserialize and mutate the lottieJson with the uncompressed data
+    await Promise.all(deserializeImages)
+
+    return lottieJson
+  } catch (err) {
+    throw new Error(err)
+  }
+}
