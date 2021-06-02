@@ -7,7 +7,7 @@ import { LottieManifestFile, LottieAnimation } from "./types"
  * @param path
  */
 export const getAnimationData = async (path: string) => {
-  const animationData = await fetchAnimationData(assetUrl(name))
+  const animationData = await fetchAnimationData(assetUrl(path))
   const parsedResponse = await parseAnimationData(animationData)
 
   return parsedResponse

@@ -22,7 +22,7 @@
     "!tsconfig.dist.json"
   ],
   "sideEffects": false,
-  "version": "10.0.1",
+  "version": "10.0.2",
   "private": false,
   "license": "MIT",
   "peerDependencies": {
@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@kaizen/deprecated-component-library-helpers": "^2.1.2",
-    "@kaizen/draft-button": "^3.3.13",
+    "@kaizen/draft-button": "^3.3.14",
     "@kaizen/hosted-assets": "^1.1.1",
     "@kaizen/react-deprecate-warning": "^1.1.5",
     "@types/classnames": "^2.2.6",

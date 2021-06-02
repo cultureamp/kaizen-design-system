@@ -16,125 +16,144 @@ const noZenIllustrationWarning = (illustrationName: string) => {
 /**
  * Moods
  */
-export const Cautionary = (props: AnimatedSpotProps) => {
+export const Cautionary = ({
+  isAnimated,
+  ...otherProps
+}: AnimatedSpotProps) => {
   const theme = useTheme()
   const illustrationPath =
     theme.themeKey === "zen"
       ? "illustrations/spot/moods-cautionary.svg"
       : "illustrations/heart/spot/moods-cautionary.svg"
 
-  if (props.isAnimated) {
+  if (isAnimated) {
     return (
       <AnimatedBase
-        {...props}
+        {...otherProps}
         name="illustrations/spot/moods-cautionary.lottie"
+        fallback={illustrationPath}
       />
     )
   }
-  return <Base {...props} name={illustrationPath} />
+  return <Base {...otherProps} name={illustrationPath} />
 }
 
-export const Informative = (props: AnimatedSpotProps) => {
+export const Informative = ({
+  isAnimated,
+  ...otherProps
+}: AnimatedSpotProps) => {
   const theme = useTheme()
   const illustrationPath =
     theme.themeKey === "zen"
       ? "illustrations/spot/moods-informative.svg"
       : "illustrations/heart/spot/moods-informative.svg"
-  if (props.isAnimated) {
+  if (isAnimated) {
     return (
       <AnimatedBase
-        {...props}
+        {...otherProps}
         name="illustrations/spot/moods-informative.lottie"
+        fallback={illustrationPath}
       />
     )
   }
-  return <Base {...props} name={illustrationPath} />
+  return <Base {...otherProps} name={illustrationPath} />
 }
 
-export const Negative = (props: AnimatedSpotProps) => {
+export const Negative = ({ isAnimated, ...otherProps }: AnimatedSpotProps) => {
   const theme = useTheme()
   const illustrationPath =
     theme.themeKey === "zen"
       ? "illustrations/spot/moods-negative.svg"
       : "illustrations/heart/spot/moods-negative.svg"
 
-  if (props.isAnimated) {
+  if (isAnimated) {
     return (
       <AnimatedBase
-        {...props}
+        {...otherProps}
         name="illustrations/spot/moods-negative.lottie"
+        fallback={illustrationPath}
       />
     )
   }
-  return <Base {...props} name={illustrationPath} />
+  return <Base {...otherProps} name={illustrationPath} />
 }
 
 /**
  * @deprecated Use the non-gendered Positive illustration instead
  */
-export const PositiveMale = (props: AnimatedSpotProps) => {
+export const PositiveMale = ({
+  isAnimated,
+  ...otherProps
+}: AnimatedSpotProps) => {
   const theme = useTheme()
   const illustrationPath =
     theme.themeKey === "zen"
       ? "illustrations/spot/moods-positive-male.svg"
       : "illustrations/heart/spot/moods-positive.svg"
 
-  return <Base {...props} name={illustrationPath} />
+  return <Base {...otherProps} name={illustrationPath} />
 }
 
 /**
  * @deprecated Use the non-gendered Positive illustration instead
  */
-export const PositiveFemale = (props: AnimatedSpotProps) => {
+export const PositiveFemale = ({
+  isAnimated,
+  ...otherProps
+}: AnimatedSpotProps) => {
   const theme = useTheme()
   const illustrationPath =
     theme.themeKey === "zen"
       ? "illustrations/spot/moods-positive-female.svg"
       : "illustrations/heart/spot/moods-positive.svg"
 
-  if (props.isAnimated) {
+  if (isAnimated) {
     return (
       <AnimatedBase
-        {...props}
+        {...otherProps}
         name="illustrations/spot/moods-positive.lottie"
+        fallback={illustrationPath}
       />
     )
   }
-  return <Base {...props} name={illustrationPath} />
+  return <Base {...otherProps} name={illustrationPath} />
 }
 
-export const Positive = (props: AnimatedSpotProps) => {
+export const Positive = ({ isAnimated, ...otherProps }: AnimatedSpotProps) => {
   const theme = useTheme()
   const illustrationPath =
     theme.themeKey === "zen"
       ? "illustrations/spot/moods-positive-female.svg"
       : "illustrations/heart/spot/moods-positive.svg"
 
-  if (props.isAnimated) {
+  if (isAnimated) {
     return (
       <AnimatedBase
-        {...props}
+        {...otherProps}
         name="illustrations/spot/moods-positive.lottie"
+        fallback={illustrationPath}
       />
     )
   }
-  return <Base {...props} name={illustrationPath} />
+  return <Base {...otherProps} name={illustrationPath} />
 }
 
-export const Assertive = (props: AnimatedSpotProps) => {
+export const Assertive = ({ isAnimated, ...otherProps }: AnimatedSpotProps) => {
   const theme = useTheme()
   if (theme.themeKey === "zen") {
     noZenIllustrationWarning("Assertive")
   }
-  if (props.isAnimated) {
+  const illustrationPath = "illustrations/heart/spot/moods-assertive.svg"
+  if (isAnimated) {
     return (
       <AnimatedBase
-        {...props}
+        {...otherProps}
         name="illustrations/spot/moods-assertive.lottie"
+        fallback={illustrationPath}
       />
     )
   }
-  return <Base {...props} name="illustrations/heart/spot/moods-assertive.svg" />
+  return <Base {...otherProps} name={illustrationPath} />
 }
 
 /**

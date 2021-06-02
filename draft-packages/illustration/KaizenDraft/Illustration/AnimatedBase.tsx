@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react"
 import lottie from "lottie-web"
+import { assetUrl } from "@kaizen/hosted-assets"
 import { BaseProps } from "./Base"
 import { getAnimationData } from "./utils"
 import styles from "./style.module.scss"
+import { LottieAnimation } from "./types"
 
 export type AnimatedBaseProps = {
   autoplay?: boolean
@@ -10,14 +12,24 @@ export type AnimatedBaseProps = {
   isAnimated?: boolean
 }
 
+enum AssetStatus {
+  Loading,
+  Success,
+  Failed,
+}
+
 export const AnimatedBase = ({
   name,
+  fallback,
   autoplay = true,
   loop = false,
-}: AnimatedBaseProps & BaseProps) => {
+  classNameAndIHaveSpokenToDST,
+}: AnimatedBaseProps & BaseProps & { fallback: string }) => {
   const lottiePlayer = useRef<HTMLDivElement>(null)
-  const [playerLoaded, setPlayerLoaded] = useState<boolean>(false)
-  const [asset, setAsset] = React.useState<null | any>(null)
+  const [playerLoaded, setPlayerLoaded] = useState<AssetStatus>(
+    AssetStatus.Loading
+  )
+  const [asset, setAsset] = React.useState<null | LottieAnimation>(null)
 
   React.useEffect(() => {
     let didCancel = false
@@ -30,6 +42,7 @@ export const AnimatedBase = ({
       } catch (err) {
         // eslint-disable-next-line no-console
         console.warn(err)
+        setPlayerLoaded(AssetStatus.Failed)
       }
     }
     fetchData()
@@ -40,8 +53,8 @@ export const AnimatedBase = ({
 
   useEffect(() => {
     const initialiseLottiePlayer = () => {
-      if (asset && lottiePlayer.current !== null && !playerLoaded) {
-        setPlayerLoaded(true)
+      if (asset && lottiePlayer.current !== null) {
+        setPlayerLoaded(AssetStatus.Success)
         lottie.loadAnimation({
           container: lottiePlayer.current,
           renderer: "svg",
@@ -54,19 +67,31 @@ export const AnimatedBase = ({
     initialiseLottiePlayer()
   }, [asset])
 
+  const wrapper =
+    (classNameAndIHaveSpokenToDST ? classNameAndIHaveSpokenToDST : "") +
+    " " +
+    styles.wrapper
+
+  const LoadingState = (
+    /* Avoid jump when asset loads */
+    <div className={wrapper}>
+      <svg
+        data-testid="loading"
+        viewBox="0 0 100 100"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle fill="#f9f9f9" cx="48" cy="48" r="48" />
+      </svg>
+    </div>
+  )
+
+  const FailedState = <img src={assetUrl(fallback)} />
+
   return (
-    <div className={styles.wrapper}>
-      {!playerLoaded && (
-        /* Avoid jump when asset loads */
-        <svg
-          data-testid="loading"
-          viewBox="0 0 100 100"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle fill="#f9f9f9" cx="48" cy="48" r="48" />
-        </svg>
-      )}
-      {lottiePlayer && <div data-testid="lottie-player" ref={lottiePlayer} />}
+    <div className={wrapper}>
+      {playerLoaded === AssetStatus.Loading && LoadingState}
+      {playerLoaded === AssetStatus.Failed && FailedState}
+      <div data-testid="lottie-player" ref={lottiePlayer} />
     </div>
   )
 }

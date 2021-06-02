@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.2.11...@kaizen/draft-collapsible@2.2.12) (2021-06-02)
+
+
+### Bug Fixes
+
+* Only add aria-labelledby when Icon is meaningful img ([#1665](https://github.com/cultureamp/kaizen-design-system/issues/1665)) ([ff67544](https://github.com/cultureamp/kaizen-design-system/commit/ff675447bcaf53e8e11c708d59349a31b90f8658))
+
+
+
+
+
 ## [2.2.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.2.10...@kaizen/draft-collapsible@2.2.11) (2021-05-25)
 
 **Note:** Version bump only for package @kaizen/draft-collapsible

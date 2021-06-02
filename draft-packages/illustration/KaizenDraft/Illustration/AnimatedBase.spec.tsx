@@ -9,6 +9,7 @@ import {
 import * as React from "react"
 import { AnimatedBase } from "./AnimatedBase"
 import * as utils from "./utils"
+import { LottieAnimation } from "./types"
 
 jest.mock("./utils.ts")
 const mockedGetAnimationData = utils as jest.Mocked<typeof utils>
@@ -18,16 +19,26 @@ afterEach(cleanup)
 describe("<AnimatedBase />", () => {
   describe("Loading", () => {
     beforeEach(() => {
-      mockedGetAnimationData.getAnimationData.mockResolvedValue(undefined)
+      mockedGetAnimationData.getAnimationData.mockResolvedValue(
+        {} as LottieAnimation
+      )
     })
 
     it("should render an initial loading indicator", async () => {
-      render(<AnimatedBase name="" alt="" isAnimated />)
+      render(
+        <AnimatedBase
+          name=""
+          alt=""
+          isAnimated
+          fallback="illustrations/heart/spot/moods-cautionary.svg"
+        />
+      )
 
       const loadingIndicator = await screen.getByTestId("loading")
       expect(loadingIndicator).toBeInTheDocument()
-      expect(loadingIndicator).toMatchSnapshot()
-      waitFor(() => mockedGetAnimationData.getAnimationData)
+      await waitFor(() => {
+        mockedGetAnimationData.getAnimationData
+      })
     })
   })
 
@@ -39,17 +50,37 @@ describe("<AnimatedBase />", () => {
     it("logs a browser warning when asset fails to load", async () => {
       const warningFunction = jest.fn()
       jest.spyOn(global.console, "warn").mockImplementation(warningFunction)
-      render(<AnimatedBase name="" alt="" isAnimated />)
+      render(
+        <AnimatedBase
+          name=""
+          alt=""
+          isAnimated
+          fallback="illustrations/heart/spot/moods-cautionary.svg"
+        />
+      )
       waitFor(() => {
         expect(warningFunction).toHaveBeenCalledTimes(1)
         expect(warningFunction).toBeCalledWith("Error")
+        return mockedGetAnimationData.getAnimationData
       })
     })
 
-    it("defaults to loading state when the asset fails to load", async () => {
-      render(<AnimatedBase name="" alt="" isAnimated />)
+    it("defaults to a static asset when the lottie asset fails to load", async () => {
+      render(
+        <AnimatedBase
+          name=""
+          alt=""
+          isAnimated
+          fallback="illustrations/heart/spot/moods-cautionary.svg"
+        />
+      )
       expect(screen.getByTestId("lottie-player")).toBeInTheDocument()
-      waitFor(() => mockedGetAnimationData.getAnimationData)
+      expect(document.getElementsByTagName("img")).toHaveLength(0)
+      await waitForElementToBeRemoved(await screen.getByTestId("loading")).then(
+        () => {
+          expect(document.getElementsByTagName("img")).toHaveLength(1)
+        }
+      )
     })
   })
 })

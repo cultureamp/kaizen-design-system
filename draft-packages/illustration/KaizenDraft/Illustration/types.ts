@@ -4,10 +4,10 @@
  * the dotlottie structure documentation: {@link https://dotlottie.io/structure/}
  */
 export interface LottieManifestFile {
-  author: string,
-  generator: string,
-  version: number,
-  revision: number,
+  author: string
+  generator: string
+  version: number
+  revision: number
   animations?: LottieAnimationManifest[]
   images?: []
   fonts?: any
