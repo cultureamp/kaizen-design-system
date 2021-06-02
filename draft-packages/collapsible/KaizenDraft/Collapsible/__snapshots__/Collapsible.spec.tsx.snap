@@ -24,7 +24,6 @@ exports[`matches snapshot with everything enabled 1`] = `
         <div>
           <svg
             aria-hidden="true"
-            aria-labelledby="80284680-3304-5869-9788-7428e6c6ee86"
             class="icon"
             focusable="false"
             role="presentation"
@@ -79,7 +78,6 @@ exports[`matches snapshot with everything enabled 1`] = `
         <div>
           <svg
             aria-hidden="true"
-            aria-labelledby="80284680-3304-5869-9788-7428e6c6ee86"
             class="icon"
             focusable="false"
             role="presentation"
