@@ -334,9 +334,11 @@ viewClear config =
                 ]
     in
     span ([ styles.class .dismissIcon ] ++ events)
-        [ Icon.view (Icon.presentation |> Icon.inheritSize True)
-            (svgAsset "@kaizen/component-library/icons/clear.icon.svg")
-            |> Html.map never
+        [ div [ styles.class .iconWrapper ]
+            [ Icon.view (Icon.presentation |> Icon.inheritSize True)
+                (svgAsset "@kaizen/component-library/icons/clear.icon.svg")
+                |> Html.map never
+            ]
         ]
 
 
@@ -367,4 +369,5 @@ styles =
         , textContent = "textContent"
         , pulse = "pulse"
         , pulseRing = "pulseRing"
+        , iconWrapper = "iconWrapper"
         }
