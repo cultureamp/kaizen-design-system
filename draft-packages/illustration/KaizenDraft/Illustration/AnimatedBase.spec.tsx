@@ -29,15 +29,14 @@ describe("<AnimatedBase />", () => {
         <AnimatedBase
           name=""
           alt=""
-          isAnimated
           fallback="illustrations/heart/spot/moods-cautionary.svg"
         />
       )
 
-      const loadingIndicator = await screen.getByTestId("loading")
-      expect(loadingIndicator).toBeInTheDocument()
       await waitFor(() => {
         mockedGetAnimationData.getAnimationData
+        const loadingIndicator = screen.getByTestId("loading")
+        expect(loadingIndicator).toBeInTheDocument()
       })
     })
   })
@@ -54,14 +53,13 @@ describe("<AnimatedBase />", () => {
         <AnimatedBase
           name=""
           alt=""
-          isAnimated
           fallback="illustrations/heart/spot/moods-cautionary.svg"
         />
       )
-      waitFor(() => {
+      await waitFor(() => {
+        mockedGetAnimationData.getAnimationData
         expect(warningFunction).toHaveBeenCalledTimes(1)
         expect(warningFunction).toBeCalledWith("Error")
-        return mockedGetAnimationData.getAnimationData
       })
     })
 
@@ -70,7 +68,6 @@ describe("<AnimatedBase />", () => {
         <AnimatedBase
           name=""
           alt=""
-          isAnimated
           fallback="illustrations/heart/spot/moods-cautionary.svg"
         />
       )
