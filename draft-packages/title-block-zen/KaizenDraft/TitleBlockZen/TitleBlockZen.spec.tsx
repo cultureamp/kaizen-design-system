@@ -1,9 +1,10 @@
 import "./matchMedia.mock"
 
 import { configure, fireEvent } from "@testing-library/dom"
-import { cleanup, render, waitFor } from "@testing-library/react"
+import { cleanup, render, waitFor, screen } from "@testing-library/react"
 import * as React from "react"
-import { NavigationTab, TitleBlockZen } from "./index"
+import { TitleBlockZen } from "./index"
+import "@testing-library/jest-dom"
 
 configure({
   testIdAttribute: "data-automation-id",
@@ -642,6 +643,32 @@ describe("<TitleBlockZen />", () => {
     })
   })
 
+  describe("survey status", () => {
+    it("it doesn't render tag when field is omitted", async () => {
+      render(<TitleBlockZen title="Test Title">Example</TitleBlockZen>)
+
+      await waitFor(() => {
+        expect(
+          screen.queryByTestId("survey-status-tag")
+        ).not.toBeInTheDocument()
+      })
+    })
+    it("it renders tag with correct text and variant when draft status", async () => {
+      render(
+        <TitleBlockZen
+          title="Test Title"
+          surveyStatus={{ text: "draft text", status: "draft" }}
+        >
+          Example
+        </TitleBlockZen>
+      )
+
+      const tagElement = await (await screen.findByTestId("survey-status-tag"))
+        .firstChild
+      expect(tagElement).toHaveTextContent("draft text")
+      expect(tagElement).toHaveClass("statusDraft")
+    })
+  })
   describe("automation ID behaviour", () => {
     describe("when default automation IDs are not provided alongside required conditional renders", () => {
       it("renders the default automation IDs", () => {

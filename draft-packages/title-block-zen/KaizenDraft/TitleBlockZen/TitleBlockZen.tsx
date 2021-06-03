@@ -164,7 +164,7 @@ type TextDirection = "ltr" | "rtl"
 
 type SurveyStatus = {
   text: string
-  status: "draft" | "live" | "default"
+  status: "draft" | "live" | "scheduled" | "closed" | "default"
 }
 
 type Breadcrumb = {
@@ -178,8 +178,24 @@ const renderTag = (surveyStatus: SurveyStatus) => {
   if (surveyStatus.status === "draft") {
     tagVariant = "statusDraft"
   }
+
+  /*
+    scheduled is actually a draft survey status that has a launch job scheduled
+    still, we want to differentiate on the UI and render a specific tag
+    the styles must be identical to the draft style
+
+    we have similar behaviour on programs index page's table
+  */
+  if (surveyStatus.status === "scheduled") {
+    tagVariant = "statusDraft"
+  }
+
   if (surveyStatus.status === "live") {
     tagVariant = "statusLive"
+  }
+
+  if (surveyStatus.status === "closed") {
+    tagVariant = "statusClosed"
   }
 
   if (surveyStatus.status === "default") {
@@ -187,7 +203,7 @@ const renderTag = (surveyStatus: SurveyStatus) => {
   }
 
   return (
-    <div className={styles.tag}>
+    <div data-automation-id="survey-status-tag" className={styles.tag}>
       <Tag variant={tagVariant} size="small">
         {surveyStatus.text}
       </Tag>
