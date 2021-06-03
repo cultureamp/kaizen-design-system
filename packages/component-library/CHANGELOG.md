@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [10.0.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.1...@kaizen/component-library@10.0.2) (2021-06-02)
+
+
+### Bug Fixes
+
+* Only add aria-labelledby when Icon is meaningful img ([#1665](https://github.com/cultureamp/kaizen-design-system/issues/1665)) ([ff67544](https://github.com/cultureamp/kaizen-design-system/commit/ff675447bcaf53e8e11c708d59349a31b90f8658))
+
+
+
+
+
 ## [10.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/component-library@10.0.0...@kaizen/component-library@10.0.1) (2021-05-26)
 
 **Note:** Version bump only for package @kaizen/component-library
