@@ -1,0 +1,82 @@
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
+
+.body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &.informative {
+    background: $kz-var-color-cluny-100;
+  }
+
+  &.positive {
+    background: $kz-var-color-seedling-100;
+  }
+
+  &.negative {
+    background: $kz-var-color-coral-100;
+  }
+}
+
+.header {
+  width: 100%;
+  margin-bottom: $kz-var-spacing-md;
+}
+
+.main {
+  width: 100%;
+  flex: 1 0 auto;
+  display: flex;
+}
+
+.left {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 $kz-var-spacing-xl;
+}
+
+.leftInner {
+  width: 100%;
+  max-width: 525px;
+}
+
+.right {
+  flex: 1 1 50%;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  padding: 0 $kz-var-spacing-xl;
+}
+
+.rightInner {
+  max-width: 543px;
+}
+
+.actions {
+  display: flex;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  border-top: 1px solid $kz-var-color-wisteria-800;
+  border-left: 1px solid $kz-var-color-wisteria-800;
+  padding: $kz-var-spacing-sm;
+  margin: $kz-var-spacing-lg;
+  max-width: 1392px;
+}
+
+.poweredByContainer {
+  display: flex;
+}
+
+.poweredByText {
+  flex: 1 0 auto;
+  margin-right: $kz-var-spacing-xs;
+}
