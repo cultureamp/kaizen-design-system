@@ -1,12 +1,12 @@
 import * as React from "react"
+import { IconButton } from "@kaizen/draft-button"
 import closeIcon from "../../../icons/close.icon.svg"
-import IconButton from "../../Button/IconButton"
 
 import styles from "./Header.module.scss"
 
 type Props = {
   leftComponent: React.ReactNode
-  onClose: (e: MouseEvent) => void
+  onClose: (e: React.MouseEvent) => void
   heading: string
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-empty-state",
-  "version": "2.1.28",
+  "version": "2.2.1",
   "description": "The draft Empty state component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,7 +32,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^9.7.4",
+    "@kaizen/component-library": "^10.0.0",
     "@kaizen/draft-illustration": "^1.9.0",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
