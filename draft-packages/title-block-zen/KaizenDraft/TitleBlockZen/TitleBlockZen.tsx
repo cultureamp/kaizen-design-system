@@ -187,7 +187,7 @@ const renderTag = (surveyStatus: SurveyStatus) => {
     we have similar behaviour on programs index page's table
   */
   if (surveyStatus.status === "scheduled") {
-    tagVariant = "statusDraft"
+    tagVariant = "statusClosed"
   }
 
   if (surveyStatus.status === "live") {

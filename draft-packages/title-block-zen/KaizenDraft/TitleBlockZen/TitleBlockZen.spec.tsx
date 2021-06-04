@@ -653,20 +653,40 @@ describe("<TitleBlockZen />", () => {
         ).not.toBeInTheDocument()
       })
     })
-    it("it renders tag with correct text and variant when draft status", async () => {
-      render(
-        <TitleBlockZen
-          title="Test Title"
-          surveyStatus={{ text: "draft text", status: "draft" }}
-        >
-          Example
-        </TitleBlockZen>
-      )
 
-      const tagElement = await (await screen.findByTestId("survey-status-tag"))
-        .firstChild
-      expect(tagElement).toHaveTextContent("draft text")
-      expect(tagElement).toHaveClass("statusDraft")
+    const surveyStatuses = ["draft", "live", "closed", "scheduled"]
+    const statusClassNameMap = {
+      draft: "statusDraft",
+      live: "statusLive",
+      closed: "statusClosed",
+      scheduled: "statusClosed",
+    }
+    surveyStatuses.forEach(status => {
+      it(`it renders tag with correct text and variant when ${status} status`, async () => {
+        render(
+          <TitleBlockZen
+            title="Test Title"
+            surveyStatus={{
+              text: `${status} text`,
+              status: `${status}` as
+                | "draft"
+                | "live"
+                | "scheduled"
+                | "closed"
+                | "default",
+            }}
+          >
+            Example
+          </TitleBlockZen>
+        )
+
+        const tagElement = await (
+          await screen.findByTestId("survey-status-tag")
+        ).firstChild
+
+        expect(tagElement).toHaveTextContent(`${status} text`)
+        expect(tagElement).toHaveClass(statusClassNameMap[status])
+      })
     })
   })
   describe("automation ID behaviour", () => {
