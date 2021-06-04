@@ -2,15 +2,13 @@
 import React from "react"
 import { addParameters } from "@storybook/react"
 import { addons } from "@storybook/addons"
-import KaizenContainer from "@kaizen/bootstrap"
+import KaizenContainer, { themeManager } from "@kaizen/container"
 import { backgrounds } from "./backgrounds"
-import { themeManager, themeOfKey } from "./theme-switcher-addon/themeManager"
+import { themeOfKey } from "./theme-switcher-addon/themeManager"
 import {
   THEME_CHANGE_EVENT_TYPE,
   THEME_KEY_STORE_KEY,
 } from "./theme-switcher-addon/constants"
-
-require("@kaizen/component-library/styles/fonts.scss")
 
 addParameters({
   backgrounds: {
