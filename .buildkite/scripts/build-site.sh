@@ -1,8 +1,5 @@
 #!/bin/sh
 set -e
- 
-# shellcheck source=setup-registry.sh
-. ".buildkite/scripts/helpers/setup-registry.sh"
 
 export GATSBY_TELEMETRY_DISABLED=true
 
