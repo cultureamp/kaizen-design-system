@@ -22,8 +22,7 @@
     "clean:storybook": "rimraf 'storybook/public'",
     "clean": "lerna run clean && yarn gatsby clean && yarn clean:storybook && rimraf 'elm-stuff'",
     "reset": "yarn clean && yarn install --force",
-    "chromatic": "chromatic",
-    "preinstall": "scripts/check-if-authenticated-to-github-registry.bash"
+    "chromatic": "chromatic"
   },
   "babel": {
     "presets": [
