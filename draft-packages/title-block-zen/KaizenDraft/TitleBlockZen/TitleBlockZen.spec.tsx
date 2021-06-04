@@ -654,15 +654,14 @@ describe("<TitleBlockZen />", () => {
       })
     })
 
-    const surveyStatuses = ["draft", "live", "closed", "scheduled"]
-    const statusClassNameMap = {
-      draft: "statusDraft",
-      live: "statusLive",
-      closed: "statusClosed",
-      scheduled: "statusClosed",
-    }
-    surveyStatuses.forEach(status => {
-      it(`it renders tag with correct text and variant when ${status} status`, async () => {
+    it.each([
+      ["draft", "statusDraft"],
+      ["live", "statusLive"],
+      ["closed", "statusClosed"],
+      ["scheduled", "statusClosed"],
+    ])(
+      "it renders tag with correct text and variant when %s status",
+      async (status, expectedClassName) => {
         render(
           <TitleBlockZen
             title="Test Title"
@@ -680,14 +679,13 @@ describe("<TitleBlockZen />", () => {
           </TitleBlockZen>
         )
 
-        const tagElement = await (
-          await screen.findByTestId("survey-status-tag")
-        ).firstChild
+        const tagElement = (await screen.findByTestId("survey-status-tag"))
+          .firstChild
 
         expect(tagElement).toHaveTextContent(`${status} text`)
-        expect(tagElement).toHaveClass(statusClassNameMap[status])
-      })
-    })
+        expect(tagElement).toHaveClass(expectedClassName)
+      }
+    )
   })
   describe("automation ID behaviour", () => {
     describe("when default automation IDs are not provided alongside required conditional renders", () => {
