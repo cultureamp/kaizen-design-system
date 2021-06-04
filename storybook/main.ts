@@ -32,7 +32,6 @@ const getStoryPathsFromEnv = (): string[] | false => {
 
 const defaultStoryPaths = [
   "../packages/**/*.stories.tsx",
-  "../packages/design-tokens/**/*.stories.mdx",
   "../draft-packages/**/*.stories.tsx",
   "../legacy-packages/**/*.stories.tsx",
 ]
