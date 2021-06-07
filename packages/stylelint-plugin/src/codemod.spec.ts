@@ -506,9 +506,12 @@ describe("Codemod", () => {
         },
       })
 
-      expect(result.toString().replace(/\n/g, " ").trim()).toBe(
-        expectedOutput.replace(/\n/g, " ").trim()
-      )
+      expect(
+        result
+          .toString()
+          .replace(/(\n|\t| )+/g, " ")
+          .trim()
+      ).toBe(expectedOutput.replace(/(\n|\t| )+/g, " ").trim())
       expect(unfixables).toBe(expectedUnfixables)
     })
   }
