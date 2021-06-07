@@ -1727,6 +1727,24 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@kaizen/component-library@^9.6.1":
+  version "9.7.4"
+  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-9.7.4.tgz#a803f174377c89e24df5e89faf2b29429df81cc3"
+  integrity sha512-aqeo2c2cfPwokS+lCyuZfxlmBrunhjYFJg6f3PTa+7mWt3w8VcJ4KaBmz43jCGhnIFI4PCcTRjzQ++92fqfWBw==
+  dependencies:
+    "@kaizen/deprecated-component-library-helpers" "^2.1.2"
+    "@kaizen/hosted-assets" "^1.1.1"
+    "@kaizen/react-deprecate-warning" "^1.1.5"
+    "@types/classnames" "^2.2.6"
+    "@types/lodash" "^4.14.132"
+    "@types/uuid" "^3.3.2"
+    classnames "^2.2.6"
+    lodash "^4.17.11"
+    motion-ui "github:cultureamp/motion-ui"
+    react-focus-lock "^1.19.1"
+    react-media "^1.9.2"
+    uuid "^3.3.2"
+
 "@lerna/add@3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.21.0.tgz#27007bde71cc7b0a2969ab3c2f0ae41578b4577b"
@@ -11460,9 +11478,9 @@ homedir-polyfill@^1.0.0, homedir-polyfill@^1.0.1:
     parse-passwd "^1.0.0"
 
 hosted-git-info@^2.1.4, hosted-git-info@^2.7.1:
-  version "2.8.8"
-  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.8.tgz#7539bd4bc1e0e0a895815a2e0262420b12858488"
-  integrity sha512-f/wzC2QaWBs7t9IYqB4T3sR1xviIViXJRJTWBlx2Gf3g0Xi5vI7Yy4koXQ1c9OYDGHN9sBy1DQ2AB8fqZBWhUg==
+  version "2.8.9"
+  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.9.tgz#dffc0bf9a21c02209090f2aa69429e1414daf3f9"
+  integrity sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==
 
 hosted-git-info@^3.0.6:
   version "3.0.7"
@@ -15216,7 +15234,7 @@ moment@^2.15.1, moment@^2.18.1, moment@^2.24.0, moment@^2.27.0:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
   integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
 
-motion-ui@cultureamp/motion-ui:
+motion-ui@cultureamp/motion-ui, "motion-ui@github:cultureamp/motion-ui":
   version "2.0.3"
   resolved "https://codeload.github.com/cultureamp/motion-ui/tar.gz/8be21797f0b63740fc38493b8ea2b947d248b222"
 
