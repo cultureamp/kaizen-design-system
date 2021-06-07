@@ -1,1 +1,1 @@
-export { default, themeManager } from "./lib/Wrapper"
+export { default, themeManager } from "./lib/index"

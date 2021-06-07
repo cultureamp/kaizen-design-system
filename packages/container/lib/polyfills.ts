@@ -7,7 +7,8 @@ import "focus-visible"
 import "normalize.css"
 
 // Global styles
-import "./globals.module.scss"
+import { } from "./globals.module.scss"
 
 // Supported / active face declarations
-import "./fonts.module.scss"
+import { } from "./fonts.module.scss"
+
