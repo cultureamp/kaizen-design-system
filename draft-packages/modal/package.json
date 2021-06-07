@@ -43,7 +43,7 @@
     "classnames": "^2.2.6",
     "react-dom": "^16.13.1",
     "react-focus-lock": "^1.19.1",
-    "uuid": "^3.3.2"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",

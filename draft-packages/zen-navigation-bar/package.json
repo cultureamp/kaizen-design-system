@@ -38,7 +38,7 @@
     "classnames": "^2.2.6",
     "react-media": "^1.9.2",
     "react-tooltip": "^4.2.6",
-    "uuid": "^3.3.2"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",

@@ -44,7 +44,7 @@
     "motion-ui": "cultureamp/motion-ui",
     "react-focus-lock": "^1.19.1",
     "react-media": "^1.9.2",
-    "uuid": "^3.3.2"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@testing-library/dom": "^7.30.0",
