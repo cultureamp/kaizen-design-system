@@ -1727,6 +1727,24 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@kaizen/component-library@^9.6.1":
+  version "9.7.4"
+  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-9.7.4.tgz#a803f174377c89e24df5e89faf2b29429df81cc3"
+  integrity sha512-aqeo2c2cfPwokS+lCyuZfxlmBrunhjYFJg6f3PTa+7mWt3w8VcJ4KaBmz43jCGhnIFI4PCcTRjzQ++92fqfWBw==
+  dependencies:
+    "@kaizen/deprecated-component-library-helpers" "^2.1.2"
+    "@kaizen/hosted-assets" "^1.1.1"
+    "@kaizen/react-deprecate-warning" "^1.1.5"
+    "@types/classnames" "^2.2.6"
+    "@types/lodash" "^4.14.132"
+    "@types/uuid" "^3.3.2"
+    classnames "^2.2.6"
+    lodash "^4.17.11"
+    motion-ui "github:cultureamp/motion-ui"
+    react-focus-lock "^1.19.1"
+    react-media "^1.9.2"
+    uuid "^3.3.2"
+
 "@lerna/add@3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.21.0.tgz#27007bde71cc7b0a2969ab3c2f0ae41578b4577b"
@@ -11073,9 +11091,9 @@ handle-thing@^2.0.0:
   integrity sha512-9Qn4yBxelxoh2Ow62nP+Ka/kMnOXRi8BXnRaUwezLNhqelnN49xKz4F/dPP8OYLxLxq6JDtZb2i9XznUQbNPTg==
 
 handlebars@^4.7.6:
-  version "4.7.6"
-  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.7.6.tgz#d4c05c1baf90e9945f77aa68a7a219aa4a7df74e"
-  integrity sha512-1f2BACcBfiwAfStCKZNrUCgqNZkGsAT7UM3kkYtXuLo0KnaVfjKOyf7PRzB6++aK9STyT1Pd2ZCPe3EGOXleXA==
+  version "4.7.7"
+  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.7.7.tgz#9ce33416aad02dbd6c8fafa8240d5d98004945a1"
+  integrity sha512-aAcXm5OAfE/8IXkcZvCepKU3VzW1/39Fb5ZuqMtgI/hT8X2YgoMvBY5dLhq/cpOvw7Lk1nK/UF71aLG/ZnVYRA==
   dependencies:
     minimist "^1.2.5"
     neo-async "^2.6.0"
@@ -15216,7 +15234,7 @@ moment@^2.15.1, moment@^2.18.1, moment@^2.24.0, moment@^2.27.0:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
   integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
 
-motion-ui@cultureamp/motion-ui:
+motion-ui@cultureamp/motion-ui, "motion-ui@github:cultureamp/motion-ui":
   version "2.0.3"
   resolved "https://codeload.github.com/cultureamp/motion-ui/tar.gz/8be21797f0b63740fc38493b8ea2b947d248b222"
 
@@ -21639,9 +21657,9 @@ uglify-js@3.4.x:
     source-map "~0.6.1"
 
 uglify-js@^3.1.4:
-  version "3.11.3"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.11.3.tgz#b2f8c87826344f091ba48c417c499d6cba5d5786"
-  integrity sha512-wDRziHG94mNj2n3R864CvYw/+pc9y/RNImiTyrrf8BzgWn75JgFSwYvXrtZQMnMnOp/4UTrf3iCSQxSStPiByA==
+  version "3.13.9"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.13.9.tgz#4d8d21dcd497f29cfd8e9378b9df123ad025999b"
+  integrity sha512-wZbyTQ1w6Y7fHdt8sJnHfSIuWeDgk6B5rCb4E/AM6QNNPbOMIZph21PW5dRB3h7Df0GszN+t7RuUH6sWK5bF0g==
 
 uid-number@0.0.6:
   version "0.0.6"
