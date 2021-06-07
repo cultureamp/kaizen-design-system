@@ -1,5 +1,4 @@
 export {
-  AllowedTableHeaderBackgroundColors,
   TableCard,
   TableContainer,
   TableHeader,
@@ -8,3 +7,5 @@ export {
   TableRow,
   TableRowCell,
 } from "./Table"
+
+export type { AllowedTableHeaderBackgroundColors } from "./Table"
