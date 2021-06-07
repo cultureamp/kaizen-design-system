@@ -153,11 +153,27 @@ const testExamples: TestExample[] = [
   {
     language: "scss",
     testName: "fixes functions other than rgba, rgb, or add-alpha",
-    input:
-      '@import "~@kaizen/design-tokens/sass/color"; @import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-color-wisteria-800, 0.4); background-color: darken($kz-color-cluny-700, 0.8); test: something-else($kz-color-yuzu-400); another: rgb($kz-color-cluny-200); foo: add-alpha($kz-color-wisteria-700, 90); }',
-    expectedOutput:
-      '@import "~@kaizen/design-tokens/sass/color"; @import "~@kaizen/design-tokens/sass/color-vars"; .foo { color: rgba($kz-var-color-wisteria-800-rgb-params, 0.4); background-color: #002f53; test: something-else($kz-color-yuzu-400); another: rgb($kz-var-color-cluny-200-rgb-params); foo: rgba($kz-var-color-wisteria-700-rgb-params, 0.9); }',
-    expectedUnfixables: 2,
+    input: `
+      @import "~@kaizen/design-tokens/sass/color";
+      @import "~@kaizen/design-tokens/sass/color-vars";
+      .foo {
+        color: rgba($kz-color-wisteria-800, 0.4);
+        background-color: darken($kz-color-cluny-700, 0.8);
+        test: something-else($kz-color-yuzu-400);
+        another: rgb($kz-color-cluny-200);
+        foo: add-alpha($kz-color-wisteria-700, 90);
+      }`,
+    expectedOutput: `
+      @import "~@kaizen/design-tokens/sass/color";
+      @import "~@kaizen/design-tokens/sass/color-vars";
+      .foo {
+        color: rgba($kz-var-color-wisteria-800-rgb-params, 0.4);
+        background-color: darken($kz-color-cluny-700, 0.8);
+        test: something-else($kz-color-yuzu-400);
+        another: rgb($kz-var-color-cluny-200-rgb-params);
+        foo: rgba($kz-var-color-wisteria-700-rgb-params, 0.9);
+      }`,
+    expectedUnfixables: 4,
   },
   {
     language: "less",
@@ -297,76 +313,193 @@ const testExamples: TestExample[] = [
   },
   {
     language: "scss",
-    testName: "compiles mix() function in place",
-    input:
-      '@import "~@kaizen/design-tokens/sass/color"; $customVar: white; .foo { color: mix($kz-color-wisteria-800, $customVar, 80%) }',
-    expectedOutput: "$customVar: white; .foo { color: #5d5f6e }",
-    expectedUnfixables: 0,
+    testName:
+      "warns about usage of variable tokens in color mixing functions mix() shade() tint() darken() lighten() adjust-hue() saturate() desaturate()",
+    input: `
+      @import "~@kaizen/design-tokens/sass/color-vars";
+      $white: white;
+      $amount: 80%;
+      .mix {
+        color: mix($kz-var-color-wisteria-800, $white, 80%);
+      }
+      .shade {
+        color: shade($kz-var-color-wisteria-800, $amount);
+      }
+      .tint {
+        color: tint($kz-var-color-wisteria-800, $amount);
+      }
+      .darken {
+        color: darken($kz-var-color-wisteria-800, $amount);
+      }
+      .lighten {
+        color: lighten($kz-var-color-wisteria-800, $amount);
+      }
+      .adjust-hue {
+        color: adjust-hue($kz-var-color-wisteria-800, $amount);
+      }
+      .saturate {
+        color: saturate($kz-var-color-wisteria-800, $amount);
+      }
+      .desaturate {
+        color: desaturate($kz-var-color-wisteria-800, $amount);
+      }
+    `,
+    expectedOutput: `
+    @import "~@kaizen/design-tokens/sass/color-vars";
+    $white: white;
+    $amount: 80%;
+    .mix {
+      color: mix($kz-var-color-wisteria-800, $white, 80%);
+    }
+    .shade {
+      color: shade($kz-var-color-wisteria-800, $amount);
+    }
+    .tint {
+      color: tint($kz-var-color-wisteria-800, $amount);
+    }
+    .darken {
+      color: darken($kz-var-color-wisteria-800, $amount);
+    }
+    .lighten {
+      color: lighten($kz-var-color-wisteria-800, $amount);
+    }
+    .adjust-hue {
+      color: adjust-hue($kz-var-color-wisteria-800, $amount);
+    }
+    .saturate {
+      color: saturate($kz-var-color-wisteria-800, $amount);
+    }
+    .desaturate {
+      color: desaturate($kz-var-color-wisteria-800, $amount);
+    }
+  `,
+    expectedUnfixables: 8,
   },
   {
     language: "scss",
-    testName: "compiles add-shade() function in place",
-    input:
-      '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 80%; .foo { color: add-shade($kz-color-wisteria-800, $custom-param) }',
-    expectedOutput: "$custom-param: 80%; .foo { color: #0b0b0f }",
-    expectedUnfixables: 0,
+    testName: "also warns about deprecated tokens in color mixing functions",
+    input: `
+      @import "~@kaizen/design-tokens/sass/color";
+      $white: white;
+      $amount: 80%;
+      .mix {
+        color: mix($kz-color-wisteria-800, $white, 80%);
+      }
+      .shade {
+        color: shade($kz-color-wisteria-800, $amount);
+      }
+      .tint {
+        color: tint($kz-color-wisteria-800, $amount);
+      }
+      .darken {
+        color: darken($kz-color-wisteria-800, $amount);
+      }
+      .lighten {
+        color: lighten($kz-color-wisteria-800, $amount);
+      }
+      .adjust-hue {
+        color: adjust-hue($kz-color-wisteria-800, $amount);
+      }
+      .saturate {
+        color: saturate($kz-color-wisteria-800, $amount);
+      }
+      .desaturate {
+        color: desaturate($kz-color-wisteria-800, $amount);
+      }
+    `,
+    expectedOutput: `
+    @import "~@kaizen/design-tokens/sass/color";
+    $white: white;
+    $amount: 80%;
+    .mix {
+      color: mix($kz-color-wisteria-800, $white, 80%);
+    }
+    .shade {
+      color: shade($kz-color-wisteria-800, $amount);
+    }
+    .tint {
+      color: tint($kz-color-wisteria-800, $amount);
+    }
+    .darken {
+      color: darken($kz-color-wisteria-800, $amount);
+    }
+    .lighten {
+      color: lighten($kz-color-wisteria-800, $amount);
+    }
+    .adjust-hue {
+      color: adjust-hue($kz-color-wisteria-800, $amount);
+    }
+    .saturate {
+      color: saturate($kz-color-wisteria-800, $amount);
+    }
+    .desaturate {
+      color: desaturate($kz-color-wisteria-800, $amount);
+    }
+  `,
+    expectedUnfixables: 16,
   },
   {
     language: "scss",
-    testName: "compiles add-tint() function in place",
-    input:
-      '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 80%; .foo { color: add-tint($kz-color-wisteria-800, $custom-param) }',
-    expectedOutput: "$custom-param: 80%; .foo { color: #d7d7db }",
+    testName: "does not warn about color mix functions that don't have tokens",
+    input: `
+      $white: white;
+      $blue: blue;
+      $amount: 80%;
+      .mix {
+        color: mix(blue, $white, 80%);
+      }
+      .shade {
+        color: shade(blue, $amount);
+      }
+      .tint {
+        color: tint(blue, $amount);
+      }
+      .darken {
+        color: darken(blue, $amount);
+      }
+      .lighten {
+        color: lighten(blue, $amount);
+      }
+      .adjust-hue {
+        color: adjust-hue(blue, $amount);
+      }
+      .saturate {
+        color: saturate(blue, $amount);
+      }
+      .desaturate {
+        color: desaturate(blue, $amount);
+      }
+    `,
+    expectedOutput: `
+    $white: white;
+    $blue: blue;
+    $amount: 80%;
+    .mix {
+      color: mix(blue, $white, 80%);
+    }
+    .shade {
+      color: shade(blue, $amount);
+    }
+    .tint {
+      color: tint(blue, $amount);
+    }
+    .darken {
+      color: darken(blue, $amount);
+    }
+    .lighten {
+      color: lighten(blue, $amount);
+    }
+    .adjust-hue {
+      color: adjust-hue(blue, $amount);
+    }
+    .saturate {
+      color: saturate(blue, $amount);
+    }
+    .desaturate {
+      color: desaturate(blue, $amount);
+    }
+  `,
     expectedUnfixables: 0,
-  },
-  {
-    language: "scss",
-    testName: "compiles darken() function in place",
-    input:
-      '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 10%; .foo { color: darken($kz-color-wisteria-800, $custom-param) }',
-    expectedOutput: "$custom-param: 10%; .foo { color: #20212c }",
-    expectedUnfixables: 0,
-  },
-  {
-    language: "scss",
-    testName: "compiles lighten() function in place",
-    input:
-      '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 10%; .foo { color: lighten($kz-color-wisteria-800, $custom-param) }',
-    expectedOutput: "$custom-param: 10%; .foo { color: #4a4d68 }",
-    expectedUnfixables: 0,
-  },
-  {
-    language: "scss",
-    testName: "compiles adjust-hue() function in place",
-    input:
-      '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 100; .foo { color: adjust-hue($kz-color-wisteria-800, $custom-param) }',
-    expectedOutput: "$custom-param: 100; .foo { color: #4a353e }",
-    expectedUnfixables: 0,
-  },
-  {
-    language: "scss",
-    testName: "compiles saturate() function in place",
-    input:
-      '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 10%; .foo { color: saturate($kz-var-color-wisteria-800, $custom-param) }',
-    expectedOutput: "$custom-param: 10%; .foo { color: #2f3250 }",
-    expectedUnfixables: 0,
-  },
-  {
-    language: "scss",
-    testName: "compiles desaturate() function in place",
-    input:
-      '@import "~@kaizen/design-tokens/sass/color"; $custom-param: 10%; .foo { color: desaturate($kz-var-color-wisteria-800, $custom-param) }',
-    expectedOutput: "$custom-param: 10%; .foo { color: #3b3c44 }",
-    expectedUnfixables: 0,
-  },
-  {
-    language: "less",
-    testName: "doesn't compile functions in place",
-    input:
-      '@import "~@kaizen/design-tokens/less/color"; @customVar: white; .foo { color: mix(@kz-color-wisteria-800, @customVar, 80%) }',
-    expectedOutput:
-      '@import "~@kaizen/design-tokens/less/color"; @customVar: white; .foo { color: mix(@kz-color-wisteria-800, @customVar, 80%) }',
-    expectedUnfixables: 2,
   },
   {
     language: "scss",
@@ -398,22 +531,40 @@ const testExamples: TestExample[] = [
   {
     language: "scss",
     testName:
-      "color manipulation functions are computed, even when a transitive kaizen token is used",
-    input:
-      '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-800; .foo { color: mix($foo, $white, 80%); }',
-    expectedOutput:
-      '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-800; .foo { color: #5d5f6e; }',
-    expectedUnfixables: 0,
+      "color manipulation functions are warned about, even when a transitive kaizen token is used",
+    input: `
+      @import "~@kaizen/design-tokens/sass/color-vars";
+      $foo: $kz-var-color-wisteria-800;
+      .foo {
+        color: mix($foo, $white, 80%);
+      }`,
+    expectedOutput: `
+      @import "~@kaizen/design-tokens/sass/color-vars";
+      $foo: $kz-var-color-wisteria-800;
+      .foo {
+        color: mix($kz-var-color-wisteria-800, $white, 80%);
+      }`,
+    expectedUnfixables: 1,
   },
   {
     language: "scss",
     testName:
-      "color manipulation functions are computed, even when a transitive kaizen token defined in the same block is used",
-    input:
-      '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-600; .foo { $foo: $kz-var-color-wisteria-800; color: mix($foo, $white, 80%); }',
-    expectedOutput:
-      '@import "~@kaizen/design-tokens/sass/color-vars"; $foo: $kz-var-color-wisteria-600; .foo { $foo: $kz-var-color-wisteria-800; color: #5d5f6e; }',
-    expectedUnfixables: 0,
+      "color manipulation functions are warned about, even when a transitive kaizen token defined in the same block is used",
+    input: `
+      @import "~@kaizen/design-tokens/sass/color-vars";
+      $foo: $kz-var-color-wisteria-600;
+      .foo {
+        $foo: $kz-var-color-wisteria-800;
+        color: mix($foo, $white, 80%);
+      }`,
+    expectedOutput: `
+      @import "~@kaizen/design-tokens/sass/color-vars";
+      $foo: $kz-var-color-wisteria-600;
+      .foo {
+        $foo: $kz-var-color-wisteria-800;
+        color: mix($kz-var-color-wisteria-800, $white, 80%);
+      }`,
+    expectedUnfixables: 1,
   },
   {
     language: "scss",
