@@ -40,7 +40,7 @@
     "@types/classnames": "^2.2.10",
     "@types/react-select": "^3.0.22",
     "classnames": "^2.2.6",
-    "react-select": "^3.1.0"
+    "react-select": "^4.3.1"
   },
   "devDependencies": {
     "elm-storybook": "cultureamp/elm-storybook#0.3.0",
