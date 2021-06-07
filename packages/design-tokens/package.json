@@ -46,7 +46,7 @@
     "react-intersection-observer": "^8.31.0",
     "react-map-interaction": "^2.0.0",
     "ts-node": "^9.1.1",
-    "yargs": "^16.2.0"
+    "yargs": "^17.0.1"
   },
   "dependencies": {
     "@types/color-string": "^1.5.0",
