@@ -38,7 +38,7 @@
     "@kaizen/react-deprecate-warning": "^1.1.5",
     "@types/classnames": "^2.2.6",
     "@types/lodash": "^4.14.132",
-    "@types/uuid": "^3.3.2",
+    "@types/uuid": "^8.3.0",
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
     "motion-ui": "cultureamp/motion-ui",
