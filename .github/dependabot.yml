@@ -11,5 +11,5 @@ updates:
       interval: "monthly"
     open-pull-requests-limit: 5
     ignore:
-      - depedency-name: "*"
+      - dependency-name: "*"
         update-types: ["version-update:semver-patch"]

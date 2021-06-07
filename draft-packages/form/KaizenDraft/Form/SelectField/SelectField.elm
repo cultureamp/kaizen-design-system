@@ -104,6 +104,7 @@ single required =
 
 multi :
     { truncationWidth : Maybe Float
+    , allowTextWrapping : Bool
     , selectedItems : List (Select.MenuItem item)
     , toMsg : ToMsg msg item
     , id : String
@@ -118,7 +119,9 @@ multi required =
         { config
             | variant =
                 Select.Multi
-                    { truncationWidth = required.truncationWidth }
+                    { truncationWidth = required.truncationWidth
+                    , allowTextWrapping = required.allowTextWrapping
+                    }
                     required.selectedItems
             , id = required.id
         }
