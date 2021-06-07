@@ -3,12 +3,9 @@
 # Workflow name
 name: "chromatic"
 
-on: push
-
-# TODO: change to this before release. `push` is just for testing.
-# on:
-#   issue_comment:
-#     types: [created]
+on:
+  issue_comment:
+    types: [created]
 
 # List of jobs
 jobs:
