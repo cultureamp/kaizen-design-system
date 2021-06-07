@@ -8,6 +8,7 @@ import arrowForwardIcon from "@kaizen/component-library/icons/arrow-forward.icon
 import { assetUrl } from "@kaizen/hosted-assets"
 import { Container, Content, Skirt, SkirtCard } from "@kaizen/draft-page-layout"
 import { withDesign } from "storybook-addon-designs"
+import { Args, Story } from "@storybook/react"
 import { NavigationTab, TitleBlockZen } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
 
@@ -55,57 +56,60 @@ const SECONDARY_ACTIONS = [
   },
 ]
 
-export const Default = () => (
+const DefaultTemplate = args => (
   <OffsetPadding>
-    <TitleBlockZen
-      title="Page title"
-      surveyStatus={{ text: "Live", status: "live" }}
-      primaryAction={{
-        label: "Primary link",
-        icon: addIcon,
-        disabled: true,
-        href: "#",
-      }}
-      defaultAction={{
-        label: "Default link",
-        href: "#",
-      }}
-      secondaryActions={SECONDARY_ACTIONS}
-      secondaryOverflowMenuItems={[
-        {
-          action: () => {
-            alert("test")
-          },
-          label: "Overflow action 1",
-          icon: starIcon,
-        },
-        {
-          action: "#",
-          label: "Overflow link 1",
-          icon: starIcon,
-        },
-      ]}
-      handleHamburgerClick={() => {
-        alert("Hamburger clicked")
-      }}
-      breadcrumb={{
-        path: "#",
-        text: "Back to home",
-        handleClick: event => {
-          alert("breadcrumb clicked!")
-        },
-      }}
-      navigationTabs={[
-        <NavigationTab text="Label" href="#" active />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-        <NavigationTab text="Label" href="#" />,
-      ]}
-    />
+    <TitleBlockZen {...args} />
   </OffsetPadding>
 )
+
+export const Default: Story<Args> = DefaultTemplate.bind({})
+Default.args = {
+  title: "Page title",
+  surveyStatus: { text: "Live", status: "live" },
+  primaryAction: {
+    label: "Primary link",
+    icon: addIcon,
+    disabled: true,
+    href: "#",
+  },
+  defaultAction: {
+    label: "Default link",
+    href: "#",
+  },
+  secondaryActions: SECONDARY_ACTIONS,
+  secondaryOverflowMenuItems: [
+    {
+      action: () => {
+        alert("test")
+      },
+      label: "Overflow action 1",
+      icon: starIcon,
+    },
+    {
+      action: "#",
+      label: "Overflow link 1",
+      icon: starIcon,
+    },
+  ],
+  handleHamburgerClick: () => {
+    alert("Hamburger clicked")
+  },
+  breadcrumb: {
+    path: "#",
+    text: "Back to home",
+    handleClick: event => {
+      alert("breadcrumb clicked!")
+    },
+  },
+  navigationTabs: () => [
+    <NavigationTab text="Label" href="#" active />,
+    <NavigationTab text="Label" href="#" />,
+    <NavigationTab text="Label" href="#" />,
+    <NavigationTab text="Label" href="#" />,
+    <NavigationTab text="Label" href="#" />,
+    <NavigationTab text="Label" href="#" />,
+  ],
+}
 
 Default.storyName = "Default"
 
