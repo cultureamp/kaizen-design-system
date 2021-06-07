@@ -1727,6 +1727,24 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@kaizen/component-library@^9.6.1":
+  version "9.7.4"
+  resolved "https://registry.yarnpkg.com/@kaizen/component-library/-/component-library-9.7.4.tgz#a803f174377c89e24df5e89faf2b29429df81cc3"
+  integrity sha512-aqeo2c2cfPwokS+lCyuZfxlmBrunhjYFJg6f3PTa+7mWt3w8VcJ4KaBmz43jCGhnIFI4PCcTRjzQ++92fqfWBw==
+  dependencies:
+    "@kaizen/deprecated-component-library-helpers" "^2.1.2"
+    "@kaizen/hosted-assets" "^1.1.1"
+    "@kaizen/react-deprecate-warning" "^1.1.5"
+    "@types/classnames" "^2.2.6"
+    "@types/lodash" "^4.14.132"
+    "@types/uuid" "^3.3.2"
+    classnames "^2.2.6"
+    lodash "^4.17.11"
+    motion-ui "github:cultureamp/motion-ui"
+    react-focus-lock "^1.19.1"
+    react-media "^1.9.2"
+    uuid "^3.3.2"
+
 "@lerna/add@3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@lerna/add/-/add-3.21.0.tgz#27007bde71cc7b0a2969ab3c2f0ae41578b4577b"
@@ -2421,7 +2439,7 @@
     "@mdx-js/react" "1.6.22"
     loader-utils "2.0.0"
 
-"@mdx-js/mdx@1.6.22", "@mdx-js/mdx@^1.4.5", "@mdx-js/mdx@^1.6.19":
+"@mdx-js/mdx@1.6.22", "@mdx-js/mdx@^1.4.5", "@mdx-js/mdx@^1.6.19", "@mdx-js/mdx@^1.6.22":
   version "1.6.22"
   resolved "https://registry.yarnpkg.com/@mdx-js/mdx/-/mdx-1.6.22.tgz#8a723157bf90e78f17dc0f27995398e6c731f1ba"
   integrity sha512-AMxuLxPz2j5/6TpF/XSdKpQP1NlG0z11dFOlq+2IP/lSgl11GY8ji6S/rgsViN/L0BDvHvUMruRb7ub+24LUYA==
@@ -3032,19 +3050,19 @@
     global "^4.3.2"
 
 "@storybook/codemod@^6.1.9":
-  version "6.1.21"
-  resolved "https://registry.yarnpkg.com/@storybook/codemod/-/codemod-6.1.21.tgz#f1219b48c504c185dddb103aa66db86d4c67a3e3"
-  integrity sha512-sgHdQtYQ/j+DZCEG4tOnm+AGStBTzPrz6Q2Uf0f7VEHajFA0ATldc/z6WT873gSHSOKQcLsXT8W3ZLVpjlW1TA==
+  version "6.2.9"
+  resolved "https://registry.yarnpkg.com/@storybook/codemod/-/codemod-6.2.9.tgz#aa5d9a9de7a7f75c712fbcacd08927da24b278df"
+  integrity sha512-mconOQdwo9PguJQEd1gIUsZDHu0F5UlYXhW+BOgQOxnwDGBXkld2lGOm2v6n9OzuAwkEheHJBt52hz/7wRsi3w==
   dependencies:
-    "@mdx-js/mdx" "^1.6.19"
+    "@mdx-js/mdx" "^1.6.22"
     "@storybook/csf" "0.0.1"
-    "@storybook/node-logger" "6.1.21"
-    core-js "^3.0.1"
-    cross-spawn "^7.0.0"
-    globby "^11.0.0"
+    "@storybook/node-logger" "6.2.9"
+    core-js "^3.8.2"
+    cross-spawn "^7.0.3"
+    globby "^11.0.2"
     jscodeshift "^0.7.0"
-    lodash "^4.17.15"
-    prettier "~2.0.5"
+    lodash "^4.17.20"
+    prettier "~2.2.1"
     recast "^0.19.0"
     regenerator-runtime "^0.13.7"
 
@@ -3196,7 +3214,7 @@
   dependencies:
     lodash "^4.17.15"
 
-"@storybook/node-logger@6.1.21", "@storybook/node-logger@^6.1.9":
+"@storybook/node-logger@6.1.21":
   version "6.1.21"
   resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.1.21.tgz#bcf882209697acfe4fc60bc224676400bce260ed"
   integrity sha512-wQZZw4n1PG3kGOsczWCBC6+8RagYkrGYDqsVOpUcs5shGbPg5beCXDuzP4nxz2IlsoP9ZtTSaX741H791OIOjA==
@@ -3204,6 +3222,17 @@
     "@types/npmlog" "^4.1.2"
     chalk "^4.0.0"
     core-js "^3.0.1"
+    npmlog "^4.1.2"
+    pretty-hrtime "^1.0.3"
+
+"@storybook/node-logger@6.2.9", "@storybook/node-logger@^6.1.9":
+  version "6.2.9"
+  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-6.2.9.tgz#c67d8d7684514b8d00207502e8a9adda0ee750e5"
+  integrity sha512-ryRBChWZf1A5hOVONErJZosS25IdMweoMVFAUAcj91iC0ynoSA6YL2jmoE71jQchxEXEgkDeRkX9lR/GlqFGZQ==
+  dependencies:
+    "@types/npmlog" "^4.1.2"
+    chalk "^4.1.0"
+    core-js "^3.8.2"
     npmlog "^4.1.2"
     pretty-hrtime "^1.0.3"
 
@@ -7076,10 +7105,10 @@ core-js@2, core-js@^2.6.5:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
   integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
 
-core-js@^3.0.1, core-js@^3.0.4, core-js@^3.6.5:
-  version "3.9.1"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.9.1.tgz#cec8de593db8eb2a85ffb0dbdeb312cb6e5460ae"
-  integrity sha512-gSjRvzkxQc1zjM/5paAmL4idJBFzuJoo+jDjF1tStYFMV2ERfD02HhahhCGXUyHxQRG4yFKVSdO6g62eoRMcDg==
+core-js@^3.0.1, core-js@^3.0.4, core-js@^3.6.5, core-js@^3.8.2:
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.14.0.tgz#62322b98c71cc2018b027971a69419e2425c2a6c"
+  integrity sha512-3s+ed8er9ahK+zJpp9ZtuVcDoFzHNiZsPbNAAE4KXgrRHbjSqqNN6xGSXq6bq7TZIbKj4NLrLb6bJ5i+vSVjHA==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -10820,7 +10849,7 @@ globby@^10.0.1:
     merge2 "^1.2.3"
     slash "^3.0.0"
 
-globby@^11.0.0, globby@^11.0.1, globby@^11.0.2:
+globby@^11.0.1, globby@^11.0.2:
   version "11.0.2"
   resolved "https://registry.yarnpkg.com/globby/-/globby-11.0.2.tgz#1af538b766a3b540ebfb58a32b2e2d5897321d83"
   integrity sha512-2ZThXDvvV8fYFRVIxnrMQBipZQDr7MxKAmQK1vujaj9/7eF0efG7BPUKJ7jP7G5SLF37xKDXvO4S/KKLj/Z0og==
@@ -15216,7 +15245,7 @@ moment@^2.15.1, moment@^2.18.1, moment@^2.24.0, moment@^2.27.0:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
   integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
 
-motion-ui@cultureamp/motion-ui:
+motion-ui@cultureamp/motion-ui, "motion-ui@github:cultureamp/motion-ui":
   version "2.0.3"
   resolved "https://codeload.github.com/cultureamp/motion-ui/tar.gz/8be21797f0b63740fc38493b8ea2b947d248b222"
 
@@ -17591,7 +17620,7 @@ prepend-http@^2.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
 
-prettier@*, prettier@^2.0.5:
+prettier@*, prettier@^2.0.5, prettier@~2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
   integrity sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
