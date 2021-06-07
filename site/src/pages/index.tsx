@@ -1,4 +1,5 @@
-import { Button, Heading } from "@kaizen/component-library"
+import { Heading } from "@kaizen/component-library"
+import { Button } from "@kaizen/draft-button"
 import { assetUrl } from "@kaizen/hosted-assets"
 import { graphql, useStaticQuery, withPrefix } from "gatsby"
 import * as React from "react"

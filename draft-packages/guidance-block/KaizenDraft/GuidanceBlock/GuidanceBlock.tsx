@@ -8,6 +8,7 @@ import classnames from "classnames"
 import { Tooltip, TooltipProps } from "@kaizen/draft-tooltip"
 import { MOBILE_QUERY } from "@kaizen/component-library/components/NavigationBar/constants"
 import Media from "react-media"
+import { SpotProps } from "@kaizen/draft-illustration"
 
 const styles = require("./GuidanceBlock.scss")
 
@@ -24,10 +25,7 @@ type GuidanceBlockActions = {
 }
 
 export type GuidanceBlockProps = {
-  img: {
-    src: string
-    alt: string
-  }
+  illustration: React.ReactElement<SpotProps>
   text: {
     title: string
     description: string | React.ReactNode
@@ -140,7 +138,7 @@ class GuidanceBlock extends React.Component<
 
     const {
       actions,
-      img,
+      illustration,
       text,
       persistent,
       withActionButtonArrow,
@@ -156,21 +154,24 @@ class GuidanceBlock extends React.Component<
         ref={this.containerRef}
         onTransitionEnd={this.onTransitionEnd}
       >
-        <div className={styles.iconWrapper}>
-          <img src={img.src} alt={img.alt} height="155px" width="155px" />
+        <div className={styles.illustrationWrapper}>
+          <div className={styles.illustration}>{illustration}</div>
         </div>
 
-        <div className={styles.descriptionContainer}>
-          <div className={styles.headingWrapper}>
-            <Heading tag="h3" variant="heading-3">
-              {text.title}
-            </Heading>
+        <div className={styles.descriptionAndActions}>
+          <div className={styles.descriptionContainer}>
+            <div className={styles.headingWrapper}>
+              <Heading tag="h3" variant="heading-3">
+                {text.title}
+              </Heading>
+            </div>
+            <Paragraph tag="p" variant="body">
+              {text.description}
+            </Paragraph>
           </div>
-          <Paragraph tag="p" variant="body">
-            {text.description}
-          </Paragraph>
+          {actions?.primary &&
+            this.renderActions(actions, withActionButtonArrow)}
         </div>
-        {actions?.primary && this.renderActions(actions, withActionButtonArrow)}
         {!persistent && <CancelButton onClick={this.dismissBanner} />}
       </div>
     )

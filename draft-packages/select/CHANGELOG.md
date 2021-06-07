@@ -3,6 +3,57 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.15.19...@kaizen/draft-select@1.16.0) (2021-06-07)
+
+
+### Features
+
+* elm tag allow text wrapping option + dismiss button size fix ([#1671](https://github.com/cultureamp/kaizen-design-system/issues/1671)) ([9d42e38](https://github.com/cultureamp/kaizen-design-system/commit/9d42e3887bff7f4417fc56d1d9bba845877b89ec))
+
+
+
+
+
+## [1.15.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.15.18...@kaizen/draft-select@1.15.19) (2021-06-02)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.15.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.15.17...@kaizen/draft-select@1.15.18) (2021-05-26)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.15.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.15.16...@kaizen/draft-select@1.15.17) (2021-05-25)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.15.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.15.15...@kaizen/draft-select@1.15.16) (2021-05-25)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
+## [1.15.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.15.14...@kaizen/draft-select@1.15.15) (2021-05-18)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
 ## [1.15.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.15.13...@kaizen/draft-select@1.15.14) (2021-05-17)
 
 **Note:** Version bump only for package @kaizen/draft-select

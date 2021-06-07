@@ -1,5 +1,5 @@
-import { IconButton, Paragraph } from "@kaizen/component-library"
-import { Button } from "@kaizen/draft-button"
+import { Paragraph } from "@kaizen/component-library"
+import { IconButton, Button } from "@kaizen/draft-button"
 import { CheckboxField } from "@kaizen/draft-form"
 import * as React from "react"
 import chevronDownIcon from "@kaizen/component-library/icons/chevron-down.icon.svg"

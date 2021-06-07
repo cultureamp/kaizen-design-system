@@ -2,14 +2,14 @@ import * as React from "react"
 
 import classNames from "classnames"
 import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
-import IconButton from "@kaizen/component-library/components/Button/IconButton"
+import { IconButton } from "@kaizen/draft-button"
 import { ColorScheme } from "../../types"
 
 import styles from "./Header.module.scss"
 
 type Props = {
   leftComponent: React.ReactNode
-  onClose: (e: MouseEvent) => void
+  onClose: (e: React.MouseEvent) => void
   heading: string
   colorScheme?: ColorScheme
 }
