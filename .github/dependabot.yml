@@ -1,4 +1,4 @@
-version: 2
+version: 1
 updates:
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -11,5 +11,5 @@ updates:
       interval: "monthly"
     open-pull-requests-limit: 5
     ignore:
-      - depedency-name: "*"
+      - dependency-name: "*"
         update-types: ["version-update:semver-patch"]
