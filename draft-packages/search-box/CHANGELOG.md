@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.49](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-search-box@1.1.48...@kaizen/draft-search-box@1.1.49) (2021-06-07)
+
+**Note:** Version bump only for package @kaizen/draft-search-box
+
+
+
+
+
 ## [1.1.48](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-search-box@1.1.47...@kaizen/draft-search-box@1.1.48) (2021-06-02)
 
 **Note:** Version bump only for package @kaizen/draft-search-box

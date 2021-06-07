@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.21...@kaizen/draft-tag@1.9.0) (2021-06-07)
+
+
+### Features
+
+* elm tag allow text wrapping option + dismiss button size fix ([#1671](https://github.com/cultureamp/kaizen-design-system/issues/1671)) ([9d42e38](https://github.com/cultureamp/kaizen-design-system/commit/9d42e3887bff7f4417fc56d1d9bba845877b89ec))
+
+
+
+
+
 ## [1.8.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.20...@kaizen/draft-tag@1.8.21) (2021-06-02)
 
 **Note:** Version bump only for package @kaizen/draft-tag
