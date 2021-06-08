@@ -18,11 +18,16 @@ import { walkDeclsWithKaizenTokens } from "../walkers"
 const containsUnmigratableFunction = (declarationValue: string) => {
   let found = false
   postcssValueParser(declarationValue).walk(node => {
-    // assert node.value.length because value parser treats anything in brackets as a function
+    // Most CSS standard functions are allowed to contain CSS variables.
+    const allowedFunctions = new Set(cssStandardFunctions)
+    // SASS overloads the "saturate" function and computes it at compile time.
+    // We therefore don't allow it to be used with CSS variable tokens.
+    allowedFunctions.delete("saturate")
     if (
       node.type === "function" &&
+      // assert node.value.length because value parser treats anything in brackets as a function
       node.value.length &&
-      !cssStandardFunctions.has(node.value)
+      !allowedFunctions.has(node.value)
     ) {
       found = true
     }
@@ -229,6 +234,11 @@ export const noInvalidFunctionsRule = (
     noInvalidFunctionsOnDeclaration(postcssNode, options)
   })
 }
+
+/**
+ * Check if a declaration contains a function that we cannot support with CSS Variables.
+ * This is exported so other rules can avoid transforming tokens to CSS Variables versions when they are used in unsupported functions.
+ **/
 export const declContainsInvalidFunctions = (
   postcssNode: Declaration,
   options: Options
