@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@3.1.2...@kaizen/draft-guidance-block@3.1.3) (2021-06-02)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [3.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@3.1.1...@kaizen/draft-guidance-block@3.1.2) (2021-05-26)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+## [3.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@3.1.0...@kaizen/draft-guidance-block@3.1.1) (2021-05-25)
+
+**Note:** Version bump only for package @kaizen/draft-guidance-block
+
+
+
+
+
+# [3.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@3.0.0...@kaizen/draft-guidance-block@3.1.0) (2021-05-25)
+
+
+### Features
+
+* Update all usages and references of deprecated Button ([#1633](https://github.com/cultureamp/kaizen-design-system/issues/1633)) ([11efeb8](https://github.com/cultureamp/kaizen-design-system/commit/11efeb88cc16c95aeb692fd025e1b801a07b0a1d))
+
+
+
+
+
 # [3.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-guidance-block@2.9.6...@kaizen/draft-guidance-block@3.0.0) (2021-05-21)
 
 

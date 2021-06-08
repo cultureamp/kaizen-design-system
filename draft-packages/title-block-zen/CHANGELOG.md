@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.53](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.2.52...@kaizen/draft-title-block-zen@3.2.53) (2021-06-07)
+
+
+### Bug Fixes
+
+* add new survey statuses to title block zen component ([#1673](https://github.com/cultureamp/kaizen-design-system/issues/1673)) ([f1e45ad](https://github.com/cultureamp/kaizen-design-system/commit/f1e45adb390d76f81dbe6c364f32c5a04f254de8))
+
+
+
+
+
+## [3.2.52](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.2.51...@kaizen/draft-title-block-zen@3.2.52) (2021-06-07)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.2.51](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.2.50...@kaizen/draft-title-block-zen@3.2.51) (2021-06-02)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.2.50](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.2.49...@kaizen/draft-title-block-zen@3.2.50) (2021-05-26)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.2.49](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.2.48...@kaizen/draft-title-block-zen@3.2.49) (2021-05-26)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.2.48](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.2.47...@kaizen/draft-title-block-zen@3.2.48) (2021-05-25)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
+## [3.2.47](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.2.46...@kaizen/draft-title-block-zen@3.2.47) (2021-05-25)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
 ## [3.2.46](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.2.45...@kaizen/draft-title-block-zen@3.2.46) (2021-05-18)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen

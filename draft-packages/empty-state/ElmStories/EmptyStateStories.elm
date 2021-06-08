@@ -1,6 +1,6 @@
 module ElmStories.EmptyStateStories exposing (main)
 
-import Button.Button as Button
+import KaizenDraft.Button.Button as Button
 import CssModules exposing (css)
 import ElmStorybook exposing (statelessStoryOf, storybook)
 import Html exposing (Html, div, text)

@@ -10,7 +10,7 @@ module KaizenDraft.Modal.Primitives.ModalHeader exposing
     , view
     )
 
-import Button.Button as Button
+import KaizenDraft.Button.Button as Button
 import CssModules exposing (css)
 import Html exposing (Html, div, text)
 import Html.Events exposing (onClick)

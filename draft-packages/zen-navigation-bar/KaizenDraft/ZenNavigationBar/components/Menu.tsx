@@ -1,7 +1,8 @@
 import * as React from "react"
 import uuid from "uuid/v4"
 
-import { Icon, IconButton } from "@kaizen/component-library"
+import { Icon } from "@kaizen/component-library"
+import { IconButton } from "@kaizen/draft-button"
 
 import classNames from "classnames"
 import Media from "react-media"

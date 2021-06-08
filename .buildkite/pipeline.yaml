@@ -2,6 +2,7 @@ env:
   KAIZEN_ROLE_ARN: ${BRANCH_ROLE_ARN}
   KAIZEN_DOMAIN_NAME: ${BRANCH_DOMAIN_NAME}
   KAIZEN_DISTRIBUTION_ID: ${BRANCH_DISTRIBUTION_ID}
+  GITHUB_REGISTRY_TOKEN: ${GITHUB_REGISTRY_TOKEN}
 
 x-defaults: &defaults
   agent_query_rules: ["queue=build-unrestricted"]

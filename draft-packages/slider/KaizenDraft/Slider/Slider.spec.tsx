@@ -1,5 +1,5 @@
 import React from "react"
-import { cleanup, render } from "@testing-library/react"
+import { cleanup, fireEvent, render } from "@testing-library/react"
 import "@testing-library/jest-dom"
 
 import { Slider, SliderProps } from "./Slider"
@@ -9,7 +9,7 @@ afterEach(cleanup)
 const defaultProps: SliderProps = {
   labelLow: "Low",
   labelHigh: "High",
-  initialValue: 5,
+  initialValue: 5.5,
 }
 
 const renderSlider = (props?: SliderProps) => {
@@ -68,6 +68,32 @@ describe("<Slider />", () => {
       expect(queryByText("Low")).not.toBeNull()
       expect(queryByText("High")).not.toBeNull()
       expect(queryByText("Slider Disabled")).toBeNull()
+    })
+  })
+  describe("when no initial value is provided", () => {
+    it("the value should default", async () => {
+      const { findByRole } = renderSlider()
+      expect(await findByRole("slider")).toHaveValue("5.5")
+    })
+  })
+  describe("when the value is changed", () => {
+    it("a whole number should work", async () => {
+      const { findByRole } = renderSlider()
+      const slider = await findByRole("slider")
+      fireEvent.change(slider, { target: { value: 6 } })
+      expect(slider).toHaveValue("6")
+    })
+    it("a fractional number should fail", async () => {
+      const { findByRole } = renderSlider()
+      const slider = await findByRole("slider")
+      fireEvent.change(slider, { target: { value: 4.5 } })
+      expect(slider).not.toHaveValue("4.5")
+    })
+    it("a fractional number should round correctly", async () => {
+      const { findByRole } = renderSlider()
+      const slider = await findByRole("slider")
+      fireEvent.change(slider, { target: { value: 6.5 } })
+      expect(slider).toHaveValue("7")
     })
   })
 })

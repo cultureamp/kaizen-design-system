@@ -1,12 +1,7 @@
 import React, { useState } from "react"
 
-import {
-  Box,
-  Button,
-  IconButton,
-  Paragraph,
-  Text,
-} from "@kaizen/component-library"
+import { Box, Paragraph, Text } from "@kaizen/component-library"
+import { Button, IconButton } from "@kaizen/draft-button"
 import crossIcon from "@kaizen/component-library/icons/close.icon.svg"
 import styles from "./HeroPanel.scss"
 
