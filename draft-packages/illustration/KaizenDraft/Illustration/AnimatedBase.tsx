@@ -74,15 +74,13 @@ export const AnimatedBase = ({
 
   const LoadingState = (
     /* Avoid jump when asset loads */
-    <div className={wrapper}>
-      <svg
-        data-testid="loading"
-        viewBox="0 0 100 100"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle fill="#f9f9f9" cx="48" cy="48" r="48" />
-      </svg>
-    </div>
+    <svg
+      data-testid="loading"
+      viewBox="0 0 100 100"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle fill="#f9f9f9" cx="48" cy="48" r="48" />
+    </svg>
   )
 
   const FailedState = <img src={assetUrl(fallback)} />
