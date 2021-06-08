@@ -9,7 +9,8 @@ else
   echo
   echo "You need to log into the GitHub package registry to install private @cultureamp packages."
   echo
-  echo "Follow: https://github.com/cultureamp/node-packages/blob/master/README.md"
+  echo "Read this to find out how:"
+  echo "  https://github.com/cultureamp/node-packages/blob/master/how-to-use-private-cultureamp-packages-on-your-laptop.md"
   echo
   exit 1
 fi
