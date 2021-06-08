@@ -7,9 +7,8 @@ import {
   deprecatedTokenUsedWithinUnsupportedFunction,
   invalidEquationContainingDeprecatedTokenMessage,
 } from "../messages"
-import { Options } from "../types"
+import { Options, KaizenToken } from "../types"
 import {
-  getReplacementForDeprecatedToken,
   isVariable,
   replaceTokenInVariable,
   stringifyVariable,
@@ -17,8 +16,8 @@ import {
 import {
   walkDeclsWithKaizenTokens,
   walkAtRulesWithKaizenTokens,
-  walkVariablesOnValue,
 } from "../walkers"
+import { kaizenTokensByName } from "../kaizenTokens"
 import { declContainsInvalidEquations } from "./no-invalid-equations"
 import { declContainsInvalidFunctions } from "./no-invalid-functions"
 
@@ -37,6 +36,10 @@ const disallowedAtRules = new Set([
   "property",
   "color-profile",
 ])
+
+const getReplacementForDeprecatedToken = (token: KaizenToken) =>
+  kaizenTokensByName[token.name.replace("kz", "kz-var")]
+
 export const noDeprecatedTokensRuleName = "no-deprecated-tokens"
 
 /**

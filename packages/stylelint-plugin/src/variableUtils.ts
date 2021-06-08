@@ -168,6 +168,3 @@ export const getLexicalTransitiveKaizenVariables = (
 const variablePrefixPattern = /^(@|\$)/
 export const isVariable = (declaration: Declaration) =>
   variablePrefixPattern.test(declaration.prop)
-
-export const getReplacementForDeprecatedToken = (token: KaizenToken) =>
-  kaizenTokensByName[token.name.replace("kz", "kz-var")]
