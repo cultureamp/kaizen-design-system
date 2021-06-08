@@ -1,0 +1,40 @@
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/spacing-vars";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $kz-var-spacing-sm $kz-var-spacing-md;
+}
+
+.headerLeft {
+  flex: 0 0 50%;
+}
+
+.headerRight {
+  flex: 0 0 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.logoContainer {
+  background: $kz-var-color-white;
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  padding: $kz-var-spacing-xs;
+  border-radius: $kz-var-border-solid-border-radius;
+
+  > img {
+    width: 100%;
+  }
+}
+
+.fakeNav {
+  background: $kz-var-color-wisteria-600;
+  padding: $kz-var-spacing-md;
+  display: flex;
+  align-items: center;
+}

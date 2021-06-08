@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.4.11...@kaizen/draft-form@3.5.0) (2021-06-07)
+
+
+### Features
+
+* elm tag allow text wrapping option + dismiss button size fix ([#1671](https://github.com/cultureamp/kaizen-design-system/issues/1671)) ([9d42e38](https://github.com/cultureamp/kaizen-design-system/commit/9d42e3887bff7f4417fc56d1d9bba845877b89ec))
+
+
+
+
+
+## [3.4.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.4.10...@kaizen/draft-form@3.4.11) (2021-06-02)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
+## [3.4.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.4.9...@kaizen/draft-form@3.4.10) (2021-05-25)
+
+**Note:** Version bump only for package @kaizen/draft-form
+
+
+
+
+
 ## [3.4.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-form@3.4.8...@kaizen/draft-form@3.4.9) (2021-05-18)
 
 **Note:** Version bump only for package @kaizen/draft-form

@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { Button } from "@kaizen/component-library"
+import { Button } from "@kaizen/draft-button"
 import { ToggleSwitchField, ToggledStatus } from "@kaizen/draft-form"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
 import { withDesign } from "storybook-addon-designs"

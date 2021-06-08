@@ -22,4 +22,6 @@ loadElmStories("Tag (Elm)", module, compiledElm, [
   "Status - Draft",
   "Status - Closed",
   "Status - Action",
+  "Medium - Allow Text Wrapping",
+  "Small - Allow Text Wrapping",
 ])
