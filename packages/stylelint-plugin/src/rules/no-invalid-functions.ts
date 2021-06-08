@@ -1,24 +1,16 @@
 import { Declaration, Root } from "postcss"
 import postcssValueParser from "postcss-value-parser"
-import * as sass from "sass"
 import { cssStandardFunctions } from "../cssStandardFunctions"
 import { transformDecl } from "../functionTransformer"
 import { kaizenTokensByName } from "../kaizenTokens"
 import {
   invalidRgbaUsage,
   noMatchingRgbParamsVariableMessage,
-  unableToCompileFunctionMessage,
   unsupportedFunctionMessage,
-  unsupportedFunctionWithFixMessage,
 } from "../messages"
 import { Options, Variable } from "../types"
-import { getParser, variablePrefixForLanguage } from "../utils"
-import {
-  getLexicallyClosestVariables,
-  isVariable,
-  parseVariable,
-  stringifyStylesheetVariables,
-} from "../variableUtils"
+import { variablePrefixForLanguage } from "../utils"
+import { isVariable, parseVariable } from "../variableUtils"
 import { walkDeclsWithKaizenTokens } from "../walkers"
 
 // Returns true if a value contains an unmigratable function such as `add-tint`.
@@ -37,43 +29,6 @@ const containsUnmigratableFunction = (declarationValue: string) => {
   })
   return found
 }
-
-/** I know this is a long name but it's hard to describe otherwise.
- It is a map of kaizen token sass variables ({"$kz-color-wisteria-800": "blah"}), but it also contains the concrete values of any CSS variable tokens, rather than their actual values.
- I.e. values like { "$kz-var-color-wisteria-800": "#blah" } rather than { "$kz-var-color-wisteria-800": "var(blah)" }
- */
-const kaizenTokensSassVariablesWithInlineCSSVariableValues = Object.entries(
-  kaizenTokensByName
-).reduce(
-  (acc, [key, value]) =>
-    !value
-      ? acc
-      : {
-          ...acc,
-          [`$${key}`]: value?.cssVariable
-            ? value.cssVariable.fallback
-            : value?.value,
-        },
-  {} as Record<string, string | undefined>
-)
-
-const deprecatedSassFunctionsSource = `
-$black: #000;
-$white: #fff;
-@function add-tint($color, $percentage) {
-  @return mix($white, $color, $percentage);
-}
-
-@function add-shade($color, $percentage) {
-  @return mix($black, $color, $percentage);
-}
-
-@function add-alpha($color, $percentage) {
-  $decimal: $percentage / 100%;
-  $inverse: 1 - $decimal;
-  @return transparentize($color, $inverse);
-}
-`
 
 /*
   We want to use percentages consistently, so, given a string that may be a percentage or a decimal, always return the decimal form.
@@ -171,61 +126,6 @@ const getAndReportOnReplacementRgbParamsVariable = (
   }
 }
 
-/**
- * This function will compile a value, for example `mix($kz-color-wisteria-800, $white, 80%)` in place (which would result in #5d5f6e).
- * It also uses the variables that are immediately available within the same stylesheet, so nothing too fancy, and will bail out with a lint error if it can't compile.
- * ALSO, it will work with $kz-var-* variables too.
- */
-const compileSassValue = (
-  stylesheetNode: Root,
-  declaration: Declaration,
-  valueToCompile: string
-) => {
-  try {
-    const stylesheetVariables = getLexicallyClosestVariables(
-      stylesheetNode,
-      declaration
-    )
-    const stylesheetAndKaizenVariables = {
-      // Very important that kaizen vars come before local stylesheet vars, because locals could be using kaizen tokens.
-      ...kaizenTokensSassVariablesWithInlineCSSVariableValues,
-      ...stylesheetVariables,
-    }
-    const stylesheetAndKaizenVariablesString = stringifyStylesheetVariables(
-      stylesheetAndKaizenVariables
-    )
-    const rendered = sass
-      .renderSync({
-        data: `
-${deprecatedSassFunctionsSource}
-${stylesheetAndKaizenVariablesString}
-.target {
-  targetvalue: ${valueToCompile}
-}
-  `,
-      })
-      .css.toString()
-
-    const reParsed = getParser("scss").parse(rendered)
-    let compiledValue: undefined | string
-    reParsed.walkRules(".target", rule => {
-      const first = rule.nodes[0]
-      if (first.type === "decl") {
-        compiledValue = first.value
-      }
-    })
-    if (!compiledValue) {
-      return {
-        compiledValue: null,
-        error: "Could not find compiled value",
-      }
-    }
-    return { compiledValue, error: null }
-  } catch (e) {
-    return { error: "unable to compile", details: e, compiledValue: null }
-  }
-}
-
 // Does the value look like `123, 123, 123`? Used for determining whether an rgba function is used with the correct variable
 const isRgbTriple = (value: string) =>
   /^\s*\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3}\s*$/.test(value)
@@ -295,61 +195,13 @@ export const noInvalidFunctionsOnDeclaration = (
     return `rgba(${replacementVariable}, ${1 - fixedSecondParameter})`
   }
 
-  const compileSassValueInPlace = (
-    functionName: string,
-    ...params: string[]
-  ) => {
-    const sourceValue = `${functionName}(${params.join(", ")})`
-
-    const compileResult = compileSassValue(decl.root(), decl, sourceValue)
-    if (compileResult.error || !compileResult.compiledValue) {
-      options.reporter({
-        autofixAvailable: false,
-        message: unableToCompileFunctionMessage(
-          sourceValue,
-          (compileResult.details instanceof Error
-            ? compileResult.details.message
-            : compileResult.error || "unknown reason"
-          ).replace(/\s+/g, " ")
-        ),
-        node: decl,
-      })
-      return sourceValue
-    } else {
-      if (options.fix && !isVariable(decl)) {
-        return compileResult.compiledValue
-      } else {
-        options.reporter({
-          autofixAvailable: !isVariable(decl),
-          message: unsupportedFunctionWithFixMessage,
-          node: decl,
-        })
-        return sourceValue
-      }
-    }
-  }
-
   const newValue = transformDecl(decl.value, {
     rgba: fixRgbAndRgba,
     rgb: fixRgbAndRgba,
     "add-alpha": fixAddAlpha,
     transparentize: fixTransparentize,
-    // In SASS we support compilation of functions
-    ...(options.language === "scss"
-      ? {
-          mix: compileSassValueInPlace,
-          darken: compileSassValueInPlace,
-          lighten: compileSassValueInPlace,
-          saturate: compileSassValueInPlace,
-          desaturate: compileSassValueInPlace,
-          "add-tint": compileSassValueInPlace,
-          "add-shade": compileSassValueInPlace,
-          "adjust-hue": compileSassValueInPlace,
-        }
-      : {}),
   })
 
-  // TODO: Figure out a method that doesn't just bail out when it finds an unmigratable (there could be fixable values within the same declaration)
   if (containsUnmigratableFunction(newValue)) {
     options.reporter({
       autofixAvailable: false,

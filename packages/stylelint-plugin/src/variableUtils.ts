@@ -73,7 +73,7 @@ export const replaceTokenInVariable = (
  * Input: stylesheet,
  * Output: { "$foo": "red", "$other": "rgba(0, 0, 0, 0.1)". ...}
  */
-export const getVariablesInBlock = (block: Container) =>
+const getVariablesInBlock = (block: Container) =>
   block.nodes
     .filter(
       (node): node is Declaration => node.type === "decl" && isVariable(node)
@@ -121,27 +121,14 @@ const getLexicallyClosestVariablesRecursive = nanomemoize(
  * Output: { "$foo": "red", "$other": "rgba(0, 0, 0, 0.1)", "$variableNextToLeafNode": "red", ...}
  *
  */
-export const getLexicallyClosestVariables = (
+const getLexicallyClosestVariables = (
   stylesheetNode: Root,
   leafNode: ChildNode | Container
 ): Record<string, string | undefined> =>
   getLexicallyClosestVariablesRecursive(stylesheetNode, leafNode, {})
 
 /**
- * Turn a map of variables, most likely the return value of getStylesheetVariables, into a string that you can add to a stylesheet
- */
-export const stringifyStylesheetVariables = (
-  variablesWithPrefixes: Record<string, string | undefined>
-) => {
-  let output = ""
-  Object.entries(variablesWithPrefixes).forEach(([key, value]) => {
-    output += `${key}: ${value};\n`
-  })
-  return output
-}
-
-/**
- * Similar to getStylesheetVariables but only returning those that conain KaizenTokens
+ * Similar to getStylesheetVariables but only returning those that contain KaizenTokens
  * Get a map of variables, that contain kaizen tokens, that are defined on the stylesheet.
  * Input: stylesheet,
  * Output: { "$foo": "$kz-color-wisteria-800", "$other": "5px $kz-spacing-md $kz-var-spacing-lg". ...}
@@ -178,7 +165,7 @@ export const getLexicalTransitiveKaizenVariables = (
   }, {} as Record<string, { value: string; kaizenVariablesInValue: ParsedKaizenVariable[] }>)
 }
 
-export const variablePrefixPattern = /^(@|\$)/
+const variablePrefixPattern = /^(@|\$)/
 export const isVariable = (declaration: Declaration) =>
   variablePrefixPattern.test(declaration.prop)
 

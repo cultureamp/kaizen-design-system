@@ -1,5 +1,3 @@
-import postcssValueParser from "postcss-value-parser"
-import { cssStandardFunctions } from "./cssStandardFunctions"
 import { kaizenTokensByName } from "./kaizenTokens"
 
 export const quotesPattern = /("|')/g
