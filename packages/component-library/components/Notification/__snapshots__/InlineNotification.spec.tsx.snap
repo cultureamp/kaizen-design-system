@@ -11,7 +11,6 @@ exports[`Persistent versions of the notifications work 1`] = `
   >
     <svg
       aria-hidden="true"
-      aria-labelledby="80284680-3304-5869-9788-7428e6c6ee86"
       class="icon inheritSize"
       focusable="false"
       role="presentation"
@@ -49,7 +48,6 @@ exports[`The basic notification renders correctly 1`] = `
   >
     <svg
       aria-hidden="true"
-      aria-labelledby="80284680-3304-5869-9788-7428e6c6ee86"
       class="icon inheritSize"
       focusable="false"
       role="presentation"

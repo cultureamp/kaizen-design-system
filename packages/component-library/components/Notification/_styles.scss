@@ -7,11 +7,11 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
+@import "~@kaizen/draft-button/KaizenDraft/Button/styles";
 @import "../../styles/border";
 @import "../../styles/layers";
 @import "../../styles/animation";
 @import "../../styles/responsive";
-@import "../../components/Button/styles";
 
 $ca-notification-border-width: $kz-var-border-solid-border-width;
 $ca-notification-vertical-padding: calc(

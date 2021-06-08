@@ -5,7 +5,7 @@
 @import "~@kaizen/design-tokens/sass/layout-vars";
 @import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/component-library/styles/responsive";
-@import "~@kaizen/component-library/components/Button/styles";
+@import "~@kaizen/draft-button/KaizenDraft/Button/styles";
 
 $bannerPadding: $kz-var-spacing-sm;
 $ca-banner-fade-out: opacity $kz-var-animation-duration-slow ease;
