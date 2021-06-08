@@ -19,7 +19,7 @@ const fetchAnimationData = async (path: string): Promise<Blob> => {
     const blob = await response.blob()
     return blob
   }
-  throw new Error("Lottie asset failed")
+  throw new Error("Lottie asset failed to load", response.status)
 }
 
 /**

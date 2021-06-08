@@ -41,7 +41,7 @@ describe("<AnimatedBase />", () => {
     })
   })
 
-  describe("Loading failed", () => {
+  describe("Failed", () => {
     beforeEach(() => {
       mockedGetAnimationData.getAnimationData.mockRejectedValue("Error")
     })
@@ -78,6 +78,26 @@ describe("<AnimatedBase />", () => {
           expect(document.getElementsByTagName("img")).toHaveLength(1)
         }
       )
+    })
+  })
+
+  describe("Success", () => {
+    beforeEach(() => {
+      mockedGetAnimationData.getAnimationData.mockResolvedValue(
+        {} as LottieAnimation
+      )
+    })
+
+    it("Renders a figcaption for screen readers", async () => {
+      render(
+        <AnimatedBase
+          name=""
+          alt="Screen reader text"
+          fallback="illustrations/heart/spot/moods-cautionary.svg"
+        />
+      )
+      const items = await screen.findAllByText(/Screen reader text/)
+      expect(items).toHaveLength(1)
     })
   })
 })

@@ -9,7 +9,6 @@ import { LottieAnimation } from "./types"
 export type AnimatedBaseProps = {
   autoplay?: boolean
   loop?: boolean
-  isAnimated?: boolean
 }
 
 enum AssetStatus {
@@ -23,6 +22,7 @@ export const AnimatedBase = ({
   fallback,
   autoplay = true,
   loop = false,
+  alt,
   classNameAndIHaveSpokenToDST,
 }: AnimatedBaseProps & BaseProps & { fallback: string }) => {
   const lottiePlayer = useRef<HTMLDivElement>(null)
@@ -75,6 +75,7 @@ export const AnimatedBase = ({
   const LoadingState = (
     /* Avoid jump when asset loads */
     <svg
+      aria-hidden={true}
       data-testid="loading"
       viewBox="0 0 100 100"
       xmlns="http://www.w3.org/2000/svg"
@@ -83,13 +84,14 @@ export const AnimatedBase = ({
     </svg>
   )
 
-  const FailedState = <img src={assetUrl(fallback)} />
+  const FailedState = <img src={assetUrl(fallback)} aria-hidden={true} />
 
   return (
-    <div className={wrapper}>
+    <figure className={wrapper}>
+      <figcaption>{alt}</figcaption>
       {playerLoaded === AssetStatus.Loading && LoadingState}
       {playerLoaded === AssetStatus.Failed && FailedState}
-      <div data-testid="lottie-player" ref={lottiePlayer} />
-    </div>
+      <div data-testid="lottie-player" ref={lottiePlayer} aria-hidden={true} />
+    </figure>
   )
 }
