@@ -1,4 +1,10 @@
-import { cleanup, render, fireEvent, configure } from "@testing-library/react"
+import {
+  cleanup,
+  render,
+  fireEvent,
+  configure,
+  waitFor,
+} from "@testing-library/react"
 import * as React from "react"
 import GenericModal from "./GenericModal"
 import ModalAccessibleLabel from "./ModalAccessibleLabel"
@@ -50,5 +56,23 @@ describe("<GenericModal />", () => {
     )
     fireEvent.click(getByTestId("GenericModalAutomationId-scrollLayer"))
     expect(handleDismiss).toHaveBeenCalledTimes(1)
+  })
+  it("warns when a <ModalAccessibleLabel /> is not rendered", async () => {
+    const mockWarnFn = jest.fn()
+    const spy = jest
+      .spyOn(global.console, "warn")
+      .mockImplementation(mockWarnFn)
+    const { getByText } = render(
+      <GenericModal isOpen={true}>Catch me if you can</GenericModal>
+    )
+    await waitFor(() => {
+      expect(mockWarnFn).toBeCalled()
+      expect(mockWarnFn).toBeCalledWith(
+        expect.stringContaining(
+          "When using the Modal component, you must provide a label for the modal. Make sure you have a <ModalAccessibleLabel /> component with content that labels the modal."
+        )
+      )
+    })
+    spy.mockRestore()
   })
 })
