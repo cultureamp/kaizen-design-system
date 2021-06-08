@@ -11,6 +11,7 @@ import React, {
   MouseEvent,
 } from "react"
 import { Badge, BadgeAnimated } from "@kaizen/draft-badge"
+import { FocusRing } from "@kaizen/a11y"
 
 import styles from "./GenericButton.module.scss"
 
@@ -127,7 +128,7 @@ const GenericButton = forwardRef(
           [styles.fullWidth]: props.fullWidth,
         })}
       >
-        {determineButtonRenderer()}
+        <FocusRing offset={-1}>{determineButtonRenderer()}</FocusRing>
       </span>
     )
   }

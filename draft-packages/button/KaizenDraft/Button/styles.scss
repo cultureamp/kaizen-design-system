@@ -19,6 +19,25 @@ $caButton-verticalPaddingForm: calc(
   #{$kz-var-spacing-md / 3} - #{$kz-var-border-solid-border-width}
 );
 
+:global(.focus-rings-ring) {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  /* Default styling */
+  background: none;
+  margin: 0;
+  padding: 0;
+  border-radius: var(
+    --__adaptive-focus-ring-radius,
+    $kz-var-border-solid-border-radius
+  );
+  box-shadow: 0 0 0 2px
+    var(
+      --__adaptive-focus-ring-color,
+      var(--focus-primary, $kz-var-color-cluny-500)
+    );
+}
+
 // reset user agent styles for button element type
 @mixin button-reset {
   appearance: none;
@@ -104,22 +123,22 @@ $caButton-verticalPaddingForm: calc(
       }
 
       // show custom focus ring when :focus-visible
-      &:global(.focus-visible)::after {
-        $focus-ring-offset: calc(
-          (#{$kz-var-border-focus-ring-border-width} * 2) + 1px
-        );
-        content: "";
-        position: absolute;
-        background: transparent;
-        border-radius: $kz-var-border-focus-ring-border-radius;
-        border-width: $kz-var-border-focus-ring-border-width;
-        border-style: $kz-var-border-focus-ring-border-style;
-        border-color: $kz-var-color-cluny-500;
-        top: calc(-1 * #{$focus-ring-offset});
-        left: calc(-1 * #{$focus-ring-offset});
-        right: calc(-1 * #{$focus-ring-offset});
-        bottom: calc(-1 * #{$focus-ring-offset});
-      }
+      // &:global(.focus-visible)::after {
+      //   $focus-ring-offset: calc(
+      //     (#{$kz-var-border-focus-ring-border-width} * 2) + 1px
+      //   );
+      //   content: "";
+      //   position: absolute;
+      //   background: transparent;
+      //   border-radius: $kz-var-border-focus-ring-border-radius;
+      //   border-width: $kz-var-border-focus-ring-border-width;
+      //   border-style: $kz-var-border-focus-ring-border-style;
+      //   border-color: $kz-var-color-cluny-500;
+      //   top: calc(-1 * #{$focus-ring-offset});
+      //   left: calc(-1 * #{$focus-ring-offset});
+      //   right: calc(-1 * #{$focus-ring-offset});
+      //   bottom: calc(-1 * #{$focus-ring-offset});
+      // }
     }
   }
 

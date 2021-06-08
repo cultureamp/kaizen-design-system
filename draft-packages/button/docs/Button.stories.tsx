@@ -4,6 +4,7 @@ import trashIcon from "@kaizen/component-library/icons/trash.icon.svg"
 import React, { useCallback, useRef, useState } from "react"
 import { withDesign } from "storybook-addon-designs"
 import filterIcon from "@kaizen/component-library/icons/filter.icon.svg"
+import { FocusRingScope } from "@kaizen/a11y"
 import { Button, CustomButtonProps, ButtonRef } from ".."
 import { figmaEmbed } from "../../../storybook/helpers"
 
@@ -26,7 +27,27 @@ export default {
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13555%3A0"
     ),
   },
-  decorators: [withDesign],
+  decorators: [
+    withDesign,
+    Story => {
+      const containerRef = React.useRef<HTMLDivElement>(null)
+      return (
+        <div
+          ref={containerRef}
+          style={{
+            position: "relative",
+            background: "#000",
+            height: "100vh",
+            padding: "10rem",
+          }}
+        >
+          <FocusRingScope containerRef={containerRef}>
+            <Story />
+          </FocusRingScope>
+        </div>
+      )
+    },
+  ],
 }
 
 const reversedBg = {
@@ -473,7 +494,6 @@ export const ReversedDefault = args => (
 ReversedDefault.story = {
   name: "Reversed, Default",
   parameters: {
-    ...reversedBg,
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13865%3A17179"
     ),
