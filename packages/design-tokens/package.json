@@ -18,7 +18,8 @@
     "index.ts",
     "src",
     "react",
-    "dist"
+    "dist",
+    "elm"
   ],
   "types": "dist/**/*.d.ts",
   "main": "dist/index.js",
