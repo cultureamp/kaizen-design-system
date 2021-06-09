@@ -187,7 +187,7 @@ export const Assertive = ({ isAnimated, ...otherProps }: AnimatedSpotProps) => {
   const AnimatedIllustration = (
     <AnimatedBase
       {...otherProps}
-      name="illustrations/spot/moods-assertive.lottie"
+      name="illustrations/heart/spot/moods-assertive.lottie"
       fallback={illustrationPath}
     />
   )
