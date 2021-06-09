@@ -1,5 +1,32 @@
-import { codemodOnSource } from "./codemod"
-import { Language } from "./types"
+import { Root } from "postcss"
+import { Language, Options } from "./types"
+import { importsNoExtraneousRule } from "./rules/imports-no-extraneous"
+import { importsNoUnusedRule } from "./rules/imports-no-unused"
+import { noDeprecatedTokensRule } from "./rules/no-deprecated-tokens"
+import { noInvalidEquationsRule } from "./rules/no-invalid-equations"
+import { noInvalidFunctionsRule } from "./rules/no-invalid-functions"
+import { noTransitiveTokensRule } from "./rules/no-transitive-tokens"
+import { getParser } from "./utils"
+
+/**
+ * Run the codemod on a stylesheet AST (postcss Root)
+ */
+export const codemodOnAst = (stylesheetNode: Root, options: Options) => {
+  noTransitiveTokensRule(stylesheetNode, options)
+  noInvalidEquationsRule(stylesheetNode, options)
+  noInvalidFunctionsRule(stylesheetNode, options)
+  noDeprecatedTokensRule(stylesheetNode, options)
+  importsNoExtraneousRule(stylesheetNode, options)
+  importsNoUnusedRule(stylesheetNode, options)
+
+  return stylesheetNode
+}
+
+/**
+ * Allows you to run the codemod on source file content
+ */
+export const codemodOnSource = (styleSheetSource: string, options: Options) =>
+  codemodOnAst(getParser(options.language).parse(styleSheetSource), options)
 
 type TestExample = {
   language: Language
@@ -642,12 +669,6 @@ describe("Codemod", () => {
       const result = codemodOnSource(input, {
         language,
         fix: true,
-        noDeprecatedTokens: true,
-        noInvalidEquations: true,
-        importsNoExtraneous: true,
-        importsNoUnused: true,
-        noInvalidFunctions: true,
-        noTransitiveTokens: true,
         reporter: ({ message, autofixAvailable }) => {
           // Uncomment this if you want to see reports
           // console.log(message)

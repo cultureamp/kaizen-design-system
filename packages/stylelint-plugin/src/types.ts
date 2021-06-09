@@ -65,12 +65,3 @@ export type StyleLintRule = {
   name: string
   ruleFunction: StyleLintRuleFunction
 }
-
-export type RulesEnabled = {
-  importsNoUnused: boolean
-  importsNoExtraneous: boolean
-  noInvalidEquations: boolean
-  noInvalidFunctions: boolean
-  noDeprecatedTokens: boolean
-  noTransitiveTokens: boolean
-}
