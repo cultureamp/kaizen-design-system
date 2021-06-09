@@ -119,11 +119,15 @@
   letter-spacing: $kz-var-typography-button-secondary-letter-spacing;
 }
 
+.button {
+  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style;
+  border-radius: $kz-var-border-solid-border-radius;
+  border-color: transparent;
+}
+
 // This is a temporary solution to mark an active state of the button
 // until it's decided whether this should be part of kaizen button or not
 .buttonActive {
-  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style;
   border-color: $kz-var-color-cluny-400;
-  border-radius: $kz-var-border-solid-border-radius;
   background: $kz-var-color-cluny-100;
 }

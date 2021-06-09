@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.13](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.2.12...@kaizen/draft-collapsible@2.2.13) (2021-06-08)
+
+
+### Bug Fixes
+
+* Update Collapsible colours to be more Heart compatible ([#1694](https://github.com/cultureamp/kaizen-design-system/issues/1694)) ([ce5bb3e](https://github.com/cultureamp/kaizen-design-system/commit/ce5bb3e413285da25966265f4d60f7b92a54f7c5))
+
+
+
+
+
 ## [2.2.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.2.11...@kaizen/draft-collapsible@2.2.12) (2021-06-02)
 
 
