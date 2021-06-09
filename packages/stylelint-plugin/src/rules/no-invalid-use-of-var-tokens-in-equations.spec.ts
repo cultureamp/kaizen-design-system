@@ -1,5 +1,5 @@
 import { getParser } from "../util/utils"
-import { noInvalidEquationsRule } from "./no-invalid-use-of-var-tokens-in-equations"
+import { noInvalidUseOfVarTokensInEquations } from "./no-invalid-use-of-var-tokens-in-equations"
 
 describe("no-invalid-use-of-var-tokens-in-equations rule", () => {
   test.each([
@@ -19,7 +19,7 @@ describe("no-invalid-use-of-var-tokens-in-equations rule", () => {
     ["-$kz-var-spacing-md", true],
   ])("Equation: `%s`, invalid?: %s ", (input, isInvalid) => {
     let reported = 0
-    noInvalidEquationsRule(
+    noInvalidUseOfVarTokensInEquations.ruleFunction(
       getParser("scss").parse(`.foo { padding: ${input}; }`),
       {
         language: "scss",

@@ -1,23 +1,23 @@
 import { Root } from "postcss"
 import { Language, Options } from "./types"
-import { importsNoExtraneousRule } from "./rules/imports-no-extraneous"
-import { importsNoUnusedRule } from "./rules/imports-no-unused"
-import { noDeprecatedTokensRule } from "./rules/no-deprecated-tokens"
-import { noInvalidEquationsRule } from "./rules/no-invalid-equations"
-import { noInvalidFunctionsRule } from "./rules/no-invalid-functions"
-import { noTransitiveTokensRule } from "./rules/no-transitive-tokens"
+import { allUsedTokensMustBeImported } from "./rules/all-used-tokens-must-be-imported"
+import { allTokenImportsMustBeUsed } from "./rules/all-token-imports-must-be-used"
+import { preferVarTokens } from "./rules/prefer-var-tokens"
+import { noInvalidUseOfVarTokensInEquations } from "./rules/no-invalid-use-of-var-tokens-in-equations"
+import { noInvalidUseOfVarTokensInFunctions } from "./rules/no-invalid-use-of-var-tokens-in-functions"
+import { noTokensInVariables } from "./rules/no-tokens-in-variables"
 import { getParser } from "./util/utils"
 
 /**
  * Run the codemod on a stylesheet AST (postcss Root)
  */
 export const codemodOnAst = (stylesheetNode: Root, options: Options) => {
-  noTransitiveTokensRule(stylesheetNode, options)
-  noInvalidEquationsRule(stylesheetNode, options)
-  noInvalidFunctionsRule(stylesheetNode, options)
-  noDeprecatedTokensRule(stylesheetNode, options)
-  importsNoExtraneousRule(stylesheetNode, options)
-  importsNoUnusedRule(stylesheetNode, options)
+  noTokensInVariables.ruleFunction(stylesheetNode, options)
+  noInvalidUseOfVarTokensInEquations.ruleFunction(stylesheetNode, options)
+  noInvalidUseOfVarTokensInFunctions.ruleFunction(stylesheetNode, options)
+  preferVarTokens.ruleFunction(stylesheetNode, options)
+  allUsedTokensMustBeImported.ruleFunction(stylesheetNode, options)
+  allTokenImportsMustBeUsed.ruleFunction(stylesheetNode, options)
 
   return stylesheetNode
 }

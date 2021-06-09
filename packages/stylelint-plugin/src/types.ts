@@ -1,5 +1,10 @@
-import { Node } from "postcss"
+import { Node, Root } from "postcss"
 import type { WordNode } from "postcss-value-parser"
+
+export type RuleDefinition = {
+  name: string
+  ruleFunction: (stylesheetNode: Root, options: Options) => void
+}
 
 export type Reporter = (opts: {
   message: string

@@ -6,16 +6,13 @@ import {
   tokenNotInterpolatedInCalcMessage,
 } from "../messages"
 import { isOperator } from "../util/patterns"
-import { Options } from "../types"
+import { Options, RuleDefinition } from "../types"
 import {
   isVariable,
   parseVariable,
   stringifyVariable,
 } from "../util/variableUtils"
 import { walkDeclsWithKaizenTokens, walkWithParent } from "../util/walkers"
-
-export const noInvalidEquationsRuleName =
-  "no-invalid-use-of-var-tokens-in-equations"
 
 const noInvalidEquationsOnDeclaraion = (
   postcssNode: Declaration,
@@ -145,15 +142,22 @@ const noInvalidEquationsOnDeclaraion = (
   }
 }
 
-export const noInvalidEquationsRule = (
-  stylesheetNode: Root,
-  options: Options
-) => {
-  walkDeclsWithKaizenTokens(stylesheetNode, ({ postcssNode, parsedValue }) => {
-    noInvalidEquationsOnDeclaraion(postcssNode, parsedValue, options)
-  })
+export const noInvalidUseOfVarTokensInEquations: RuleDefinition = {
+  name: "no-invalid-use-of-var-tokens-in-equations",
+  ruleFunction: (stylesheetNode: Root, options: Options) => {
+    walkDeclsWithKaizenTokens(
+      stylesheetNode,
+      ({ postcssNode, parsedValue }) => {
+        noInvalidEquationsOnDeclaraion(postcssNode, parsedValue, options)
+      }
+    )
+  },
 }
 
+/**
+ * Check if a declaration contains an equation that we cannot support with CSS Variables.
+ * This is exported so other rules can avoid transforming tokens to CSS Variables versions when they are used in unsupported functions.
+ **/
 export const declContainsInvalidEquations = (
   postcssNode: Declaration,
   parsedValue: postcssValueParser.ParsedValue,

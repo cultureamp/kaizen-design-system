@@ -8,7 +8,7 @@ import {
   noMatchingRgbParamsVariableMessage,
   unsupportedFunctionMessage,
 } from "../messages"
-import { Options, Variable } from "../types"
+import { Options, RuleDefinition, Variable } from "../types"
 import { variablePrefixForLanguage } from "../util/utils"
 import { isVariable, parseVariable } from "../util/variableUtils"
 import { walkDeclsWithKaizenTokens } from "../util/walkers"
@@ -135,9 +135,7 @@ const getAndReportOnReplacementRgbParamsVariable = (
 const isRgbTriple = (value: string) =>
   /^\s*\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3}\s*$/.test(value)
 
-export const noInvalidFunctionsRuleName =
-  "no-invalid-use-of-var-tokens-in-functions"
-export const noInvalidFunctionsOnDeclaration = (
+const noInvalidFunctionsOnDeclaration = (
   decl: Declaration,
   options: Options
 ) => {
@@ -227,13 +225,13 @@ export const noInvalidFunctionsOnDeclaration = (
 /**
  * This will lint the functions within a declaration, and migrate anything it can (such as with rgb, rgba and add-alpha)
  */
-export const noInvalidFunctionsRule = (
-  stylesheetNode: Root,
-  options: Options
-) => {
-  walkDeclsWithKaizenTokens(stylesheetNode, ({ postcssNode }) => {
-    noInvalidFunctionsOnDeclaration(postcssNode, options)
-  })
+export const noInvalidUseOfVarTokensInFunctions: RuleDefinition = {
+  name: "no-invalid-use-of-var-tokens-in-functions",
+  ruleFunction: (stylesheetNode: Root, options: Options) => {
+    walkDeclsWithKaizenTokens(stylesheetNode, ({ postcssNode }) => {
+      noInvalidFunctionsOnDeclaration(postcssNode, options)
+    })
+  },
 }
 
 /**

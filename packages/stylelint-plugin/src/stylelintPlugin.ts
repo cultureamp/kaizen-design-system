@@ -1,29 +1,11 @@
 import stylelint from "stylelint"
 import { Root } from "postcss"
-import {
-  importsNoExtraneousRule,
-  importsNoExtraneousRuleName,
-} from "./rules/imports-no-extraneous"
-import {
-  importsNoUnusedRule,
-  importsNoUnusedRuleName,
-} from "./rules/imports-no-unused"
-import {
-  noDeprecatedTokensRule,
-  noDeprecatedTokensRuleName,
-} from "./rules/no-deprecated-tokens"
-import {
-  noInvalidEquationsRule,
-  noInvalidEquationsRuleName,
-} from "./rules/no-invalid-equations"
-import {
-  noInvalidFunctionsRule,
-  noInvalidFunctionsRuleName,
-} from "./rules/no-invalid-functions"
-import {
-  noTransitiveTokensRule,
-  noTransitiveTokensRuleName,
-} from "./rules/no-transitive-tokens"
+import { allUsedTokensMustBeImported } from "./rules/all-used-tokens-must-be-imported"
+import { allTokenImportsMustBeUsed } from "./rules/all-token-imports-must-be-used"
+import { preferVarTokens } from "./rules/prefer-var-tokens"
+import { noInvalidUseOfVarTokensInEquations } from "./rules/no-invalid-use-of-var-tokens-in-equations"
+import { noInvalidUseOfVarTokensInFunctions } from "./rules/no-invalid-use-of-var-tokens-in-functions"
+import { noTokensInVariables } from "./rules/no-tokens-in-variables"
 import { Options } from "./types"
 
 type StyleLintRuleFunction = (stylesheetNode: Root, options: Options) => void
@@ -41,30 +23,12 @@ export type StylelintPluginOptions = {
 }
 
 const rules: StyleLintRule[] = [
-  {
-    name: noTransitiveTokensRuleName,
-    ruleFunction: noTransitiveTokensRule,
-  },
-  {
-    name: importsNoExtraneousRuleName,
-    ruleFunction: importsNoExtraneousRule,
-  },
-  {
-    name: importsNoUnusedRuleName,
-    ruleFunction: importsNoUnusedRule,
-  },
-  {
-    name: noInvalidEquationsRuleName,
-    ruleFunction: noInvalidEquationsRule,
-  },
-  {
-    name: noInvalidFunctionsRuleName,
-    ruleFunction: noInvalidFunctionsRule,
-  },
-  {
-    name: noDeprecatedTokensRuleName,
-    ruleFunction: noDeprecatedTokensRule,
-  },
+  noTokensInVariables,
+  allUsedTokensMustBeImported,
+  allTokenImportsMustBeUsed,
+  noInvalidUseOfVarTokensInEquations,
+  noInvalidUseOfVarTokensInFunctions,
+  preferVarTokens,
 ]
 
 export default rules.map(rule =>
