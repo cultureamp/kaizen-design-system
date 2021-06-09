@@ -88,7 +88,7 @@ export const AnimatedBase = ({
 
   return (
     <figure className={wrapper}>
-      <figcaption>{alt}</figcaption>
+      <figcaption className={styles.visuallyHidden}>{alt}</figcaption>
       {playerLoaded === AssetStatus.Loading && LoadingState}
       {playerLoaded === AssetStatus.Failed && FailedState}
       <div data-testid="lottie-player" ref={lottiePlayer} aria-hidden={true} />
