@@ -210,50 +210,44 @@ view (Config config) =
         ]
 
 
+illustrationPath : Configuration msg -> String
+illustrationPath config =
+    case config.variant of
+        Cautionary ->
+            case config.theme of
+                Heart ->
+                    "illustrations/heart/spot/moods-cautionary.svg"
+
+                Zen ->
+                    "illustrations/spot/moods-cautionary.svg"
+
+        Informative ->
+            case config.theme of
+                Heart ->
+                    "illustrations/heart/spot/moods-informative.svg"
+
+                Zen ->
+                    "illustrations/spot/moods-informative.svg"
+
+        Negative ->
+            case config.theme of
+                Heart ->
+                    "illustrations/heart/spot/moods-negative.svg"
+
+                Zen ->
+                    "illustrations/spot/moods-negative.svg"
+
+        Positive ->
+            case config.theme of
+                Heart ->
+                    "illustrations/heart/spot/moods-positive.svg"
+
+                Zen ->
+                    "illustrations/spot/moods-positive.svg"
+
+
 header : Configuration msg -> Html msg
 header config =
-    let
-        resolveIcon =
-            case config.theme of
-                Zen ->
-                    Icon.view Icon.presentation
-                        (case config.variant of
-                            Cautionary ->
-                                svgAsset "@kaizen/draft-modal/KaizenDraft/Modal/illustrations/cautionary.icon.svg"
-
-                            Informative ->
-                                svgAsset "@kaizen/draft-modal/KaizenDraft/Modal/illustrations/informative.icon.svg"
-
-                            Negative ->
-                                svgAsset "@kaizen/draft-modal/KaizenDraft/Modal/illustrations/negative.icon.svg"
-
-                            Positive ->
-                                svgAsset "@kaizen/draft-modal/KaizenDraft/Modal/illustrations/positive.icon.svg"
-                        )
-                        |> Html.map never
-
-                Heart ->
-                    case config.variant of
-                        Cautionary ->
-                            image
-                                "illustrations/heart/spot/moods-cautionary.svg"
-                                Presentation
-
-                        Informative ->
-                            image
-                                "illustrations/heart/spot/moods-informative.svg"
-                                Presentation
-
-                        Negative ->
-                            image
-                                "illustrations/heart/spot/moods-negative.svg"
-                                Presentation
-
-                        Positive ->
-                            image
-                                "illustrations/heart/spot/moods-positive.svg"
-                                Presentation
-    in
     div
         [ styles.classList
             [ ( .header, True )
@@ -265,7 +259,7 @@ header config =
         ]
         [ div [ styles.class .iconContainer ]
             [ div [ styles.class .svgIcon ]
-                [ resolveIcon
+                [ image (illustrationPath config) Presentation
                 ]
             ]
         , Text.view (Text.h1 |> Text.style Text.ZenHeading1 |> Text.inline True |> Text.id Constants.ariaLabelledBy) [ text config.title ]
