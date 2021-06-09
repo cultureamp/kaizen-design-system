@@ -1,6 +1,6 @@
 import postcssLess from "postcss-less"
 import postcssScss from "postcss-scss"
-import { Language } from "./types"
+import { Language } from "../types"
 
 export const getLanguageFromFilePath = (filePath: string): Language =>
   /\.less$/.test(filePath) ? "less" : "scss"

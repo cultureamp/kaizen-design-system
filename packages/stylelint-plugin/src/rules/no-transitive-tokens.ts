@@ -5,8 +5,8 @@ import { Options } from "../types"
 import {
   getLexicalTransitiveKaizenVariables,
   isVariable,
-} from "../variableUtils"
-import { walkVariables } from "../walkers"
+} from "../util/variableUtils"
+import { walkVariables } from "../util/walkers"
 
 export const noTransitiveTokensRuleName = "no-transitive-tokens"
 

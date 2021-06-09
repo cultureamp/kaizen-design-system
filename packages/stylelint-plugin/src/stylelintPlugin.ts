@@ -1,4 +1,5 @@
 import stylelint from "stylelint"
+import { Root } from "postcss"
 import {
   importsNoExtraneousRule,
   importsNoExtraneousRuleName,
@@ -23,7 +24,21 @@ import {
   noTransitiveTokensRule,
   noTransitiveTokensRuleName,
 } from "./rules/no-transitive-tokens"
-import { StylelintPluginOptions, StyleLintRule } from "./types"
+import { Options } from "./types"
+
+type StyleLintRuleFunction = (stylesheetNode: Root, options: Options) => void
+
+type StyleLintRule = {
+  name: string
+  ruleFunction: StyleLintRuleFunction
+}
+
+export type StylelintPluginOptions = {
+  /** Doesn't apply autofixes even when running with `--fix`, so that you can isolate a set of rules' fixes. */
+  disableFixing?: boolean
+  /** Report on and remove unused kaizen imports */
+  unusedImports?: boolean
+}
 
 const rules: StyleLintRule[] = [
   {

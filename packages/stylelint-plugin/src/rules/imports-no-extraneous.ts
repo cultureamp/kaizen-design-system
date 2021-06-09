@@ -1,8 +1,8 @@
 import { Root } from "postcss"
 import { missingRequiredKaizeImport } from "../messages"
-import { addImport, getCurrentImports } from "../importUtils"
+import { addImport, getCurrentImports } from "../util/importUtils"
 import { KaizenToken, Options } from "../types"
-import { walkKaizenTokens } from "../walkers"
+import { walkKaizenTokens } from "../util/walkers"
 
 export const importsNoExtraneousRuleName = "imports-no-extraneous"
 export const importsNoExtraneousRule = (

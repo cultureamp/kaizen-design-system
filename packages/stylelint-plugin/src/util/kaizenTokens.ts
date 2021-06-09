@@ -2,7 +2,7 @@ import flatmap from "lodash.flatmap"
 import kebabCase from "lodash.kebabcase"
 import { Utils } from "@kaizen/design-tokens"
 import postcssValueParser from "postcss-value-parser"
-import { CSSVariable, KaizenToken } from "./types"
+import { CSSVariable, KaizenToken } from "../types"
 
 /* Pass in just the name of a module which is used to import variable.
   E.g. "color" or "color-vars", NOT "@kaizen/design-tokens/sass/color".

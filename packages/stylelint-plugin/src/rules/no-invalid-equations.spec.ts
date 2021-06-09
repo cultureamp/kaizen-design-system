@@ -1,4 +1,4 @@
-import { getParser } from "../utils"
+import { getParser } from "../util/utils"
 import { noInvalidEquationsRule } from "./no-invalid-equations"
 
 describe("no-invalid-equations rule", () => {

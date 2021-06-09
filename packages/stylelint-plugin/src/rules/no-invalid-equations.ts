@@ -5,10 +5,14 @@ import {
   negatedKaizenVariableMessage,
   tokenNotInterpolatedInCalcMessage,
 } from "../messages"
-import { isOperator } from "../patterns"
+import { isOperator } from "../util/patterns"
 import { Options } from "../types"
-import { isVariable, parseVariable, stringifyVariable } from "../variableUtils"
-import { walkDeclsWithKaizenTokens, walkWithParent } from "../walkers"
+import {
+  isVariable,
+  parseVariable,
+  stringifyVariable,
+} from "../util/variableUtils"
+import { walkDeclsWithKaizenTokens, walkWithParent } from "../util/walkers"
 
 export const noInvalidEquationsRuleName = "no-invalid-equations"
 

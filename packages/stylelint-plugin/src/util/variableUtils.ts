@@ -1,9 +1,9 @@
 import nanomemoize from "nano-memoize"
 import { ChildNode, Container, Declaration, Root } from "postcss"
 import postcssValueParser, { WordNode } from "postcss-value-parser"
+import { KaizenToken, ParsedKaizenVariable, Variable } from "../types"
 import { kaizenTokensByName } from "./kaizenTokens"
 import { sassInterpolationPattern } from "./patterns"
-import { KaizenToken, ParsedKaizenVariable, Variable } from "./types"
 import { walkVariablesOnValue } from "./walkers"
 
 export const stringifyVariable = (variable: Variable) => {

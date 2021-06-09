@@ -6,7 +6,7 @@ import { noDeprecatedTokensRule } from "./rules/no-deprecated-tokens"
 import { noInvalidEquationsRule } from "./rules/no-invalid-equations"
 import { noInvalidFunctionsRule } from "./rules/no-invalid-functions"
 import { noTransitiveTokensRule } from "./rules/no-transitive-tokens"
-import { getParser } from "./utils"
+import { getParser } from "./util/utils"
 
 /**
  * Run the codemod on a stylesheet AST (postcss Root)

@@ -12,12 +12,12 @@ import {
   isVariable,
   replaceTokenInVariable,
   stringifyVariable,
-} from "../variableUtils"
+} from "../util/variableUtils"
 import {
   walkDeclsWithKaizenTokens,
   walkAtRulesWithKaizenTokens,
-} from "../walkers"
-import { kaizenTokensByName } from "../kaizenTokens"
+} from "../util/walkers"
+import { kaizenTokensByName } from "../util/kaizenTokens"
 import { declContainsInvalidEquations } from "./no-invalid-equations"
 import { declContainsInvalidFunctions } from "./no-invalid-functions"
 

@@ -1,17 +1,17 @@
 import { Declaration, Root } from "postcss"
 import postcssValueParser from "postcss-value-parser"
-import { cssStandardFunctions } from "../cssStandardFunctions"
-import { transformDecl } from "../functionTransformer"
-import { kaizenTokensByName } from "../kaizenTokens"
+import { cssStandardFunctions } from "../util/cssStandardFunctions"
+import { transformDecl } from "../util/functionTransformer"
+import { kaizenTokensByName } from "../util/kaizenTokens"
 import {
   invalidRgbaUsage,
   noMatchingRgbParamsVariableMessage,
   unsupportedFunctionMessage,
 } from "../messages"
 import { Options, Variable } from "../types"
-import { variablePrefixForLanguage } from "../utils"
-import { isVariable, parseVariable } from "../variableUtils"
-import { walkDeclsWithKaizenTokens } from "../walkers"
+import { variablePrefixForLanguage } from "../util/utils"
+import { isVariable, parseVariable } from "../util/variableUtils"
+import { walkDeclsWithKaizenTokens } from "../util/walkers"
 
 // Returns true if a value contains an unmigratable function such as `add-tint`.
 // e.g. `color: add-tint`

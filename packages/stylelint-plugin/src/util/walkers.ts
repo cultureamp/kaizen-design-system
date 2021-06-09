@@ -1,6 +1,6 @@
 import { AtRule, Declaration, Root } from "postcss"
 import postcssValueParser from "postcss-value-parser"
-import { ParsedKaizenVariable, Variable } from "./types"
+import { ParsedKaizenVariable, Variable } from "../types"
 import { parseVariable } from "./variableUtils"
 
 /**

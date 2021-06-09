@@ -1,8 +1,8 @@
 import { Root } from "postcss"
 import { unnecessaryKaizenImport } from "../messages"
-import { getCurrentImports, removeImport } from "../importUtils"
+import { getCurrentImports, removeImport } from "../util/importUtils"
 import { KaizenToken, Options } from "../types"
-import { walkKaizenTokens } from "../walkers"
+import { walkKaizenTokens } from "../util/walkers"
 export const importsNoUnusedRuleName = "imports-no-unused"
 export const importsNoUnusedRule = (stylesheetNode: Root, options: Options) => {
   // Get a map of all distinct kaizen tokens within the stylesheet
