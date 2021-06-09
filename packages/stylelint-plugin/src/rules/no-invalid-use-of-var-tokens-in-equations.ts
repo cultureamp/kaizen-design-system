@@ -14,7 +14,8 @@ import {
 } from "../util/variableUtils"
 import { walkDeclsWithKaizenTokens, walkWithParent } from "../util/walkers"
 
-export const noInvalidEquationsRuleName = "no-invalid-equations"
+export const noInvalidEquationsRuleName =
+  "no-invalid-use-of-var-tokens-in-equations"
 
 const noInvalidEquationsOnDeclaraion = (
   postcssNode: Declaration,

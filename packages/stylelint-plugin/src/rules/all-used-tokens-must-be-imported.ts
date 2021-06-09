@@ -1,10 +1,14 @@
 import { Root } from "postcss"
-import { unnecessaryKaizenImport } from "../messages"
-import { getCurrentImports, removeImport } from "../util/importUtils"
+import { missingRequiredKaizeImport } from "../messages"
+import { addImport, getCurrentImports } from "../util/importUtils"
 import { KaizenToken, Options } from "../types"
 import { walkKaizenTokens } from "../util/walkers"
-export const importsNoUnusedRuleName = "imports-no-unused"
-export const importsNoUnusedRule = (stylesheetNode: Root, options: Options) => {
+
+export const importsNoExtraneousRuleName = "all-used-tokens-must-be-imported"
+export const importsNoExtraneousRule = (
+  stylesheetNode: Root,
+  options: Options
+) => {
   // Get a map of all distinct kaizen tokens within the stylesheet
   const foundKaizenTokens = new Map<string, KaizenToken>()
   walkKaizenTokens(stylesheetNode, ({ variable }) => {
@@ -22,18 +26,15 @@ export const importsNoUnusedRule = (stylesheetNode: Root, options: Options) => {
     )
   )
 
-  // Loop through each existing import within the stylesheet.
-  // If an import is not contained with the set of requiredImports, remove it (or just report it if fix: false)
-  currentImports.forEach(path => {
-    if (
-      !requiredImports.has(path) &&
-      path.indexOf("@kaizen/design-tokens") !== -1
-    ) {
+  // For each required import:
+  // If the import doesn't exist, and we are in `fix: true` mode, add it.
+  requiredImports.forEach(path => {
+    if (!currentImports.has(path)) {
       if (options.fix) {
-        removeImport(stylesheetNode, path)
+        addImport(stylesheetNode, path)
       } else {
         options.reporter({
-          message: unnecessaryKaizenImport(path),
+          message: missingRequiredKaizeImport(path),
           node: stylesheetNode,
           autofixAvailable: true,
         })

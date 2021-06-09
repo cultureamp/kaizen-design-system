@@ -135,7 +135,8 @@ const getAndReportOnReplacementRgbParamsVariable = (
 const isRgbTriple = (value: string) =>
   /^\s*\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3}\s*$/.test(value)
 
-export const noInvalidFunctionsRuleName = "no-invalid-functions"
+export const noInvalidFunctionsRuleName =
+  "no-invalid-use-of-var-tokens-in-functions"
 export const noInvalidFunctionsOnDeclaration = (
   decl: Declaration,
   options: Options

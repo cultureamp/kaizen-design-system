@@ -18,8 +18,8 @@ import {
   walkAtRulesWithKaizenTokens,
 } from "../util/walkers"
 import { kaizenTokensByName } from "../util/kaizenTokens"
-import { declContainsInvalidEquations } from "./no-invalid-equations"
-import { declContainsInvalidFunctions } from "./no-invalid-functions"
+import { declContainsInvalidEquations } from "./no-invalid-use-of-var-tokens-in-equations"
+import { declContainsInvalidFunctions } from "./no-invalid-use-of-var-tokens-in-functions"
 
 // The AtRules which shouldn't contain CSS variables in their parameters
 // https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule
@@ -40,7 +40,7 @@ const disallowedAtRules = new Set([
 const getReplacementForDeprecatedToken = (token: KaizenToken) =>
   kaizenTokensByName[token.name.replace("kz", "kz-var")]
 
-export const noDeprecatedTokensRuleName = "no-deprecated-tokens"
+export const noDeprecatedTokensRuleName = "prefer-var-tokens"
 
 /**
  * This linter will report any deprecated tokens, and replace them with their new CSS variable replacement IF POSSIBLE.

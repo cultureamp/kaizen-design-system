@@ -28,15 +28,15 @@ Using this preset allows you to adopt the Kaizen rules easily, and allows the pa
 
 These rules are included by default:
 
-- `kaizen/no-deprecated-tokens` - Detects usages of deprecated tokens, with the ability to automatically migrate many instances.
-- `kaizen/no-invalid-functions` - Detects invalid usages of Kaizen tokens within some functions that are known to be problematic such as `rgba`, `darken` or `mix`, and automatically fixes `rgba`, `rgb`, `add-alpha`, `transparentize` instances by ensuring the correct `-rgb-params` tokens are used, OR by replacing unfixable color manipulation functions into their computed values (see [Sass Manipulate Color Functions] (https://www.w3schools.com/sass/sass_functions_color.asp))
-- `kaizen/no-invalid-equations` - Detects invalid usages of Kaizen tokens within equations. It won't be able to automatically fix many cases, but it can for some simple cases for example negating a Kaizen variable without a `calc()` function, which is going to be unsupported in the future due to CSS variables.
-- `kaizen/imports-no-unused` - Reports and fixes unused Kaizen token imports
-- `kaizen/imports-no-extraneous` - Reports and fixes any Kaizen token imports that should exist but don't, based on the tokens that are used in the current stylesheet.
+- `kaizen/prefer-var-tokens` - Detects usages of deprecated tokens, with the ability to automatically migrate many instances.
+- `kaizen/no-invalid-use-of-var-tokens-in-functions` - Detects invalid usages of Kaizen tokens within some functions that are known to be problematic such as `rgba`, `darken` or `mix`, and automatically fixes `rgba`, `rgb`, `add-alpha`, `transparentize` instances by ensuring the correct `-rgb-params` tokens are used, OR by replacing unfixable color manipulation functions into their computed values (see [Sass Manipulate Color Functions] (https://www.w3schools.com/sass/sass_functions_color.asp))
+- `kaizen/no-invalid-use-of-var-tokens-in-equations` - Detects invalid usages of Kaizen tokens within equations. It won't be able to automatically fix many cases, but it can for some simple cases for example negating a Kaizen variable without a `calc()` function, which is going to be unsupported in the future due to CSS variables.
+- `kaizen/all-token-imports-must-be-used` - Reports and fixes unused Kaizen token imports
+- `kaizen/tokens-must-be-imported` - Reports and fixes any Kaizen token imports that should exist but don't, based on the tokens that are used in the current stylesheet.
 
 Also available, but not enabled by default:
 
-- `kaizen/no-transitive-tokens` - Prevent and fix usages of local non-Kaizen variables (only ones that are defined on the current sheet, ignoring any that are imported) that contain Kaizen tokens in their values. For example, `$card-bg: $kz-color-wisteria-800; .card { background-color: $card-bg; }` would be disallowed, and would be autofixed to `background-color: $kz-color-wisteria-800;`. The main reason you might want to enable this rule is if you have a large amount of proxy variables like these, because the other rules' autofixes can't be safely applied to variable values, e.g. we can't transform `$card-bg: $kz-color-wisteria-800;` -> `$card-bg: $kz-var-color-wisteria-800;` because we don't know how `$card-bg` is being used (it could be imported in other files, and used within a calc function which may silently fail).
+- `kaizen/no-tokens-in-variables` - Prevent and fix usages of local non-Kaizen variables (only ones that are defined on the current sheet, ignoring any that are imported) that contain Kaizen tokens in their values. For example, `$card-bg: $kz-color-wisteria-800; .card { background-color: $card-bg; }` would be disallowed, and would be autofixed to `background-color: $kz-color-wisteria-800;`. The main reason you might want to enable this rule is if you have a large amount of proxy variables like these, because the other rules' autofixes can't be safely applied to variable values, e.g. we can't transform `$card-bg: $kz-color-wisteria-800;` -> `$card-bg: $kz-var-color-wisteria-800;` because we don't know how `$card-bg` is being used (it could be imported in other files, and used within a calc function which may silently fail).
 
 ## Options:
 

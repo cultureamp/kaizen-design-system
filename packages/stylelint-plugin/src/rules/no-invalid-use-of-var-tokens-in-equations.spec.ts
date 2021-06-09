@@ -1,7 +1,7 @@
 import { getParser } from "../util/utils"
-import { noInvalidEquationsRule } from "./no-invalid-equations"
+import { noInvalidEquationsRule } from "./no-invalid-use-of-var-tokens-in-equations"
 
-describe("no-invalid-equations rule", () => {
+describe("no-invalid-use-of-var-tokens-in-equations rule", () => {
   test.each([
     ["$kz-color-wisteria-800 * 5", true],
 

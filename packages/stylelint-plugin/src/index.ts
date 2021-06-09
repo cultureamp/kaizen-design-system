@@ -1,23 +1,23 @@
 import { Configuration } from "stylelint"
 
 export const kaizenStylelintRules = {
-  "kaizen/no-deprecated-tokens": [
+  "kaizen/prefer-var-tokens": [
     true,
     { severity: "warning", disableFixing: false },
   ],
-  "kaizen/no-invalid-functions": [
+  "kaizen/no-invalid-use-of-var-tokens-in-functions": [
     true,
     { severity: "warning", disableFixing: false },
   ],
-  "kaizen/no-invalid-equations": [
+  "kaizen/no-invalid-use-of-var-tokens-in-equations": [
     true,
     { severity: "warning", disableFixing: false },
   ],
-  "kaizen/imports-no-unused": [
+  "kaizen/all-token-imports-must-be-used": [
     true,
     { severity: "warning", disableFixing: false },
   ],
-  "kaizen/imports-no-extraneous": [
+  "kaizen/all-used-tokens-must-be-imported": [
     true,
     { severity: "warning", disableFixing: false },
   ],

@@ -8,12 +8,12 @@ import {
 } from "../util/variableUtils"
 import { walkVariables } from "../util/walkers"
 
-export const noTransitiveTokensRuleName = "no-transitive-tokens"
+export const noTransitiveTokensRuleName = "no-tokens-in-variables"
 
 /**
  * This rule will find and (optionally) transform usages of variables like `$foo` that are declared using Kaizen tokens in their values, e.g. `$foo: 5px $kz-spacing-md`.
  * In the above example, if would replace `$foo` with `5px $kz-var-spacing-md`.
- * A lot of manual work is required without this rule in large codebases because the no-deprecated-tokens rule can't safely migrate Kaizen tokens within variable declarations
+ * A lot of manual work is required without this rule in large codebases because the prefer-var-tokens rule can't safely migrate Kaizen tokens within variable declarations
  * (e.g `$foo: 5px $kz-spacing-md` -> `$foo: 5px $kz-var-spacing-md`).
  * We can utilise all other rules when proxy/transitive variables aren't used.
  *
