@@ -34,7 +34,7 @@ import Html.Attributes.Aria as Aria exposing (ariaHidden, ariaLabelledby)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
 import Json.Decode as Decode
-import Kaizen.HostedAssets exposing (Role(..), assetUrl, image)
+import Kaizen.HostedAssets.Image as Image exposing (Role(..), image)
 import Kaizen.Theme as Theme exposing (Theme(..))
 import KaizenDraft.Button.Button as Button
 import KaizenDraft.Modal.Primitives.Constants as Constants
@@ -259,7 +259,7 @@ header config =
         ]
         [ div [ styles.class .iconContainer ]
             [ div [ styles.class .svgIcon ]
-                [ image (illustrationPath config) Presentation
+                [ image Image.default (illustrationPath config)
                 ]
             ]
         , Text.view (Text.h1 |> Text.style Text.ZenHeading1 |> Text.inline True |> Text.id Constants.ariaLabelledBy) [ text config.title ]
