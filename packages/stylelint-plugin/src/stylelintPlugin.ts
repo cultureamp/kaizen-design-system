@@ -18,8 +18,6 @@ type StyleLintRule = {
 export type StylelintPluginOptions = {
   /** Doesn't apply autofixes even when running with `--fix`, so that you can isolate a set of rules' fixes. */
   disableFixing?: boolean
-  /** Report on and remove unused kaizen imports */
-  unusedImports?: boolean
 }
 
 const rules: StyleLintRule[] = [
