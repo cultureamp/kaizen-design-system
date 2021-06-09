@@ -22,6 +22,7 @@ module KaizenDraft.Modal.Presets.ConfirmationModal exposing
     , onHeaderDismissFocus
     , onHeaderDismissPreventKeydown
     , positive
+    , theme
     , title
     , view
     )
@@ -34,6 +35,7 @@ import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
 import Json.Decode as Decode
 import Kaizen.HostedAssets exposing (Role(..), assetUrl, image)
+import Kaizen.Theme as Theme exposing (Theme(..))
 import KaizenDraft.Button.Button as Button
 import KaizenDraft.Modal.Primitives.Constants as Constants
 import KaizenDraft.Modal.Primitives.ModalBody as ModalBody
@@ -73,6 +75,7 @@ type alias Configuration msg =
     , onConfirmBlur : Maybe msg
     , confirmId : Maybe String
     , onConfirmDisabled : Bool
+    , theme : Theme
     }
 
 
@@ -133,6 +136,7 @@ defaults =
     , onConfirmBlur = Nothing
     , confirmId = Just Constants.lastFocusableId
     , onConfirmDisabled = False
+    , theme = Heart
     }
 
 
@@ -209,27 +213,46 @@ view (Config config) =
 header : Configuration msg -> Html msg
 header config =
     let
-        resolveImage =
-            case config.variant of
-                Cautionary ->
-                    image
-                        "illustrations/heart/spot/moods-cautionary.svg"
-                        Presentation
+        resolveIcon =
+            case config.theme of
+                Zen ->
+                    Icon.view Icon.presentation
+                        (case config.variant of
+                            Cautionary ->
+                                svgAsset "@kaizen/draft-modal/KaizenDraft/Modal/illustrations/cautionary.icon.svg"
 
-                Informative ->
-                    image
-                        "illustrations/heart/spot/moods-informative.svg"
-                        Presentation
+                            Informative ->
+                                svgAsset "@kaizen/draft-modal/KaizenDraft/Modal/illustrations/informative.icon.svg"
 
-                Negative ->
-                    image
-                        "illustrations/heart/spot/moods-negative.svg"
-                        Presentation
+                            Negative ->
+                                svgAsset "@kaizen/draft-modal/KaizenDraft/Modal/illustrations/negative.icon.svg"
 
-                Positive ->
-                    image
-                        "illustrations/heart/spot/moods-positive.svg"
-                        Presentation
+                            Positive ->
+                                svgAsset "@kaizen/draft-modal/KaizenDraft/Modal/illustrations/positive.icon.svg"
+                        )
+                        |> Html.map never
+
+                Heart ->
+                    case config.variant of
+                        Cautionary ->
+                            image
+                                "illustrations/heart/spot/moods-cautionary.svg"
+                                Presentation
+
+                        Informative ->
+                            image
+                                "illustrations/heart/spot/moods-informative.svg"
+                                Presentation
+
+                        Negative ->
+                            image
+                                "illustrations/heart/spot/moods-negative.svg"
+                                Presentation
+
+                        Positive ->
+                            image
+                                "illustrations/heart/spot/moods-positive.svg"
+                                Presentation
     in
     div
         [ styles.classList
@@ -242,7 +265,7 @@ header config =
         ]
         [ div [ styles.class .iconContainer ]
             [ div [ styles.class .svgIcon ]
-                [ resolveImage
+                [ resolveIcon
                 ]
             ]
         , Text.view (Text.h1 |> Text.style Text.ZenHeading1 |> Text.inline True |> Text.id Constants.ariaLabelledBy) [ text config.title ]
@@ -436,6 +459,11 @@ onFooterDismissBlur msg (Config config) =
 confirmId : String -> Config msg -> Config msg
 confirmId id_ (Config config) =
     Config { config | confirmId = Just id_ }
+
+
+theme : Theme -> Config msg -> Config msg
+theme theme_ (Config config) =
+    Config { config | theme = theme_ }
 
 
 styles =
