@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.9.0...@kaizen/draft-illustration@2.0.0) (2021-06-09)
+
+
+### Features
+
+* Added optional isAnimated prop to illustrations that support an… ([#1650](https://github.com/cultureamp/kaizen-design-system/issues/1650)) ([2dd9411](https://github.com/cultureamp/kaizen-design-system/commit/2dd9411cabace434dc08a0efaedf376f3b55bac3))
+
+
+### BREAKING CHANGES
+
+* Consumers may need to update test cases that contain animated illustrations with a canvas mock. We use and recommend [jest-canvas-mock](https://github.com/hustcc/jest-canvas-mock#readme).
+
+
+
+
+
 # [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.8.4...@kaizen/draft-illustration@1.9.0) (2021-05-19)
 
 
