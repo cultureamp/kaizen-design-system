@@ -15,6 +15,7 @@ enum AssetStatus {
   Loading,
   Success,
   Failed,
+  Fallback
 }
 
 export const AnimatedBase = ({
@@ -26,14 +27,31 @@ export const AnimatedBase = ({
   classNameAndIHaveSpokenToDST,
 }: AnimatedBaseProps & BaseProps & { fallback: string }) => {
   const lottiePlayer = useRef<HTMLDivElement>(null)
+  const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  const [prefersReducedMotion, setPrefersReducedMotion] = React.useState<boolean>(reducedMotionQuery.matches || false)
   const [playerLoaded, setPlayerLoaded] = useState<AssetStatus>(
     AssetStatus.Loading
   )
   const [asset, setAsset] = React.useState<null | LottieAnimation>(null)
 
+  useEffect(() => {
+    const updateMotionPreferences = () => {
+      const { matches = false } = window.matchMedia("(prefers-reduced-motion: reduce)");
+      setPrefersReducedMotion(matches)
+    }
+    reducedMotionQuery.addEventListener("change", updateMotionPreferences, true)
+
+    // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
+    return function cleanup() {
+      reducedMotionQuery.removeEventListener("change", updateMotionPreferences)
+    }
+  }, [])
+
   React.useEffect(() => {
     let didCancel = false
     const fetchData = async () => {
+      if (playerLoaded || prefersReducedMotion) return
       try {
         const srcParsed = await getAnimationData(name)
         if (!didCancel) {
@@ -49,10 +67,11 @@ export const AnimatedBase = ({
     return () => {
       didCancel = true
     }
-  }, [])
+  }, [prefersReducedMotion])
 
   useEffect(() => {
     const initialiseLottiePlayer = () => {
+      if (prefersReducedMotion) return
       if (asset && lottiePlayer.current !== null) {
         setPlayerLoaded(AssetStatus.Success)
         lottie.loadAnimation({
@@ -65,7 +84,7 @@ export const AnimatedBase = ({
       }
     }
     initialiseLottiePlayer()
-  }, [asset])
+  }, [asset, prefersReducedMotion])
 
   const wrapper =
     (classNameAndIHaveSpokenToDST ? classNameAndIHaveSpokenToDST : "") +
@@ -84,13 +103,13 @@ export const AnimatedBase = ({
     </svg>
   )
 
-  const FailedState = <img src={assetUrl(fallback)} aria-hidden={true} />
+  const FallbackAsset = <img src={assetUrl(fallback)} aria-hidden={true} />
 
   return (
     <figure className={wrapper}>
       <figcaption className={styles.visuallyHidden}>{alt}</figcaption>
       {playerLoaded === AssetStatus.Loading && LoadingState}
-      {playerLoaded === AssetStatus.Failed && FailedState}
+      {playerLoaded === AssetStatus.Failed || playerLoaded === AssetStatus.Fallback && FallbackAsset}
       <div data-testid="lottie-player" ref={lottiePlayer} aria-hidden={true} />
     </figure>
   )
