@@ -5,7 +5,6 @@
   "main": "dist/src/index.js",
   "license": "MIT",
   "files": [
-    "src",
     "dist",
     "types"
   ],
@@ -16,7 +15,6 @@
     "@types/postcss-less": "^4.0.0",
     "@types/sass": "^1.16.0",
     "@types/stylelint": "^9.10.1",
-    "glob": "^7.1.6",
     "lodash.flatmap": "^4.5.0",
     "lodash.kebabcase": "^4.1.1",
     "nano-memoize": "^1.2.1",
@@ -24,8 +22,7 @@
     "postcss-less": "^4.0.1",
     "postcss-scss": "^3.0.5",
     "postcss-value-parser": "^4.1.0",
-    "stylelint": "^13.10.0",
-    "yargs": "^16.2.0"
+    "stylelint": "^13.10.0"
   },
   "scripts": {
     "cli": "yarn build && node ./dist/src/cli.js",
