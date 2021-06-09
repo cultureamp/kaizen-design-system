@@ -1,25 +1,3 @@
 {
-  "plugins": ["./dev-plugin.js"],
-  "rules": {
-    "kaizen/no-deprecated-tokens": [
-      true,
-      { "severity": "warning", "allowFixing": true }
-    ],
-    "kaizen/no-invalid-functions": [
-      true,
-      { "severity": "warning", "allowFixing": true }
-    ],
-    "kaizen/no-invalid-equations": [
-      true,
-      { "severity": "warning", "allowFixing": true }
-    ],
-    "kaizen/imports-no-unused": [
-      true,
-      { "severity": "warning", "allowFixing": true }
-    ],
-    "kaizen/imports-no-extraneous": [
-      true,
-      { "severity": "warning", "allowFixing": true }
-    ]
-  }
+  "extends": ["./dev-config.js"]
 }

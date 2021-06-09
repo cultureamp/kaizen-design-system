@@ -4,4 +4,4 @@ require("ts-node").register({
   project: require.resolve("./tsconfig.json"),
   transpileOnly: true,
 })
-module.exports = require("./src/index")
+module.exports = require("./src/stylelintPlugin")
