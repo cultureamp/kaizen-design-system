@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.5.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.5.7...@kaizen/draft-modal@5.5.8) (2021-06-10)
+
+
+### Bug Fixes
+
+* Stop propagation at top of modal ([#1701](https://github.com/cultureamp/kaizen-design-system/issues/1701)) ([1428107](https://github.com/cultureamp/kaizen-design-system/commit/1428107b2dbacb4c03cfcb25f0335b3c6d4b1358))
+
+
+
+
+
 ## [5.5.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.5.6...@kaizen/draft-modal@5.5.7) (2021-06-09)
 
 **Note:** Version bump only for package @kaizen/draft-modal
