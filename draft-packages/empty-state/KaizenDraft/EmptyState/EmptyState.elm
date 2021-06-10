@@ -18,7 +18,7 @@ import CssModules exposing (css)
 import Html exposing (Html, div, img, text)
 import Html.Attributes exposing (id, src)
 import Kaizen.HostedAssets.Image as Image exposing (Role(..), image)
-import Kaizen.Theme as Theme exposing (Theme(..))
+import Kaizen.Theme as Theme exposing (Theme(..), defaultTheme)
 
 
 
@@ -68,7 +68,7 @@ defaults =
     , illustrationType = Informative
     , layoutContext = SidebarAndContent
     , children = []
-    , theme = Heart
+    , theme = defaultTheme
     }
 
 

@@ -35,7 +35,7 @@ import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
 import Json.Decode as Decode
 import Kaizen.HostedAssets.Image as Image exposing (Role(..), image)
-import Kaizen.Theme as Theme exposing (Theme(..))
+import Kaizen.Theme as Theme exposing (Theme(..), defaultTheme)
 import KaizenDraft.Button.Button as Button
 import KaizenDraft.Modal.Primitives.Constants as Constants
 import KaizenDraft.Modal.Primitives.ModalBody as ModalBody
@@ -136,7 +136,7 @@ defaults =
     , onConfirmBlur = Nothing
     , confirmId = Just Constants.lastFocusableId
     , onConfirmDisabled = False
-    , theme = Heart
+    , theme = defaultTheme
     }
 
 
