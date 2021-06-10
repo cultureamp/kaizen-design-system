@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from "react"
 import lottie from "lottie-web"
 import { assetUrl } from "@kaizen/hosted-assets"
-import { BaseProps } from "./Base"
-import { getAnimationData } from "./utils"
-import styles from "./style.module.scss"
-import { LottieAnimation } from "./types"
+import { getAnimationData } from "../utils"
+import styles from "../style.module.scss"
+import { LottieAnimation } from "../types"
+import { BaseProps } from "../Base"
 
 export type AnimatedBaseProps = {
   autoplay?: boolean

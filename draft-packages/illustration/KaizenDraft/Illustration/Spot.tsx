@@ -1,7 +1,7 @@
 import { useTheme } from "@kaizen/design-tokens"
 import * as React from "react"
 import { Base, BaseProps } from "./Base"
-import { AnimatedBase, AnimatedBaseProps } from "./AnimatedBase"
+import { AnimatedBase, AnimatedBaseProps } from "./Players/LottiePlayer"
 
 export type SpotProps = Pick<BaseProps, "alt" | "classNameAndIHaveSpokenToDST">
 export type AnimatedSpotProps = SpotProps &

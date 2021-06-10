@@ -7,7 +7,7 @@ import {
   waitForElementToBeRemoved,
 } from "@testing-library/react"
 import * as React from "react"
-import { AnimatedBase } from "./AnimatedBase"
+import { AnimatedBase } from "./Players/LottiePlayer"
 import * as utils from "./utils"
 import { LottieAnimation } from "./types"
 
