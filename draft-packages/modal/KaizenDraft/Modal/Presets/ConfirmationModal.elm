@@ -210,6 +210,26 @@ view (Config config) =
         ]
 
 
+header : Configuration msg -> Html msg
+header config =
+    div
+        [ styles.classList
+            [ ( .header, True )
+            , ( .cautionaryHeader, config.variant == Cautionary )
+            , ( .informativeHeader, config.variant == Informative )
+            , ( .negativeHeader, config.variant == Negative )
+            , ( .positiveHeader, config.variant == Positive )
+            ]
+        ]
+        [ div [ styles.class .iconContainer ]
+            [ div [ styles.class .svgIcon ]
+                [ image Image.default (illustrationPath config)
+                ]
+            ]
+        , Text.view (Text.h1 |> Text.style Text.ZenHeading1 |> Text.inline True |> Text.id Constants.ariaLabelledBy) [ text config.title ]
+        ]
+
+
 illustrationPath : Configuration msg -> String
 illustrationPath config =
     case config.variant of
@@ -244,26 +264,6 @@ illustrationPath config =
 
                 Zen ->
                     "illustrations/spot/moods-positive.svg"
-
-
-header : Configuration msg -> Html msg
-header config =
-    div
-        [ styles.classList
-            [ ( .header, True )
-            , ( .cautionaryHeader, config.variant == Cautionary )
-            , ( .informativeHeader, config.variant == Informative )
-            , ( .negativeHeader, config.variant == Negative )
-            , ( .positiveHeader, config.variant == Positive )
-            ]
-        ]
-        [ div [ styles.class .iconContainer ]
-            [ div [ styles.class .svgIcon ]
-                [ image Image.default (illustrationPath config)
-                ]
-            ]
-        , Text.view (Text.h1 |> Text.style Text.ZenHeading1 |> Text.inline True |> Text.id Constants.ariaLabelledBy) [ text config.title ]
-        ]
 
 
 body : List (Html msg) -> Html msg
