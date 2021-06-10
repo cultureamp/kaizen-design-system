@@ -263,7 +263,7 @@ illustrationPath config =
                     "illustrations/heart/spot/moods-positive.svg"
 
                 Zen ->
-                    "illustrations/spot/moods-positive.svg"
+                    "illustrations/spot/moods-positive-female.svg"
 
 
 body : List (Html msg) -> Html msg
