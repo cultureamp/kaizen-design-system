@@ -2,8 +2,6 @@
     A set of all function names that are part of the CSS specification.
     Because they arent (shouldn't be) evaluated at compile-time (apart from some SASS overloaded ones like rgb, rgba), they should support CSS variables within their parameters.
     Source: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions
-    To generate this list again, go to https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Functions and run this in your dev console:
-    `Array.from(document.querySelectorAll("#content > article > div:nth-child(22) > div li a")).map(n => n.textContent.replace("()", ""))`
 */
 export const cssStandardFunctions = new Set([
   "abs",
