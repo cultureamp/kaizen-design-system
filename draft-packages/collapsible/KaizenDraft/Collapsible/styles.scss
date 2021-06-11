@@ -5,7 +5,8 @@
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/animation";
 
-$heading-active-color: $kz-var-color-wisteria-100;
+$heading-active-color: rgba($kz-var-color-slate-rgb-params, 0.05);
+$border-color: rgba($kz-var-color-slate-rgb-params, 0.2);
 
 // We need a full border radius on this container element, then have classes
 // beneath to toggle nested borders off and on for different use cases.
@@ -36,7 +37,7 @@ $heading-active-color: $kz-var-color-wisteria-100;
 // is open we remove the rounded edge as the content sits beneath and needs to be straight.
 .groupItem {
   & + .groupItem {
-    border-top: 1px solid $ca-border-color;
+    border-top: 1px solid $border-color;
   }
 
   &:first-of-type > .button {
@@ -87,7 +88,7 @@ $heading-active-color: $kz-var-color-wisteria-100;
 }
 
 .clearVariant {
-  border-bottom: 1px solid $kz-var-color-wisteria-200;
+  border-bottom: 1px solid $border-color;
 }
 
 .sticky {
