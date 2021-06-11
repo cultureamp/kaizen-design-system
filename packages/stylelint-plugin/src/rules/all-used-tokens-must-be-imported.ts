@@ -1,5 +1,5 @@
 import { Root } from "postcss"
-import { missingRequiredKaizeImport } from "../messages"
+import { missingRequiredKaizenImport } from "../messages"
 import { addImport, getCurrentImports } from "../util/importUtils"
 import { KaizenToken, Options, RuleDefinition } from "../types"
 import { walkKaizenTokens } from "../util/walkers"
@@ -34,7 +34,7 @@ export const allUsedTokensMustBeImported: RuleDefinition = {
           addImport(stylesheetNode, path)
         } else {
           options.reporter({
-            message: missingRequiredKaizeImport(path),
+            message: missingRequiredKaizenImport(path),
             node: stylesheetNode,
             autofixAvailable: true,
           })
