@@ -5,6 +5,7 @@ import Html exposing (div, text)
 import Html.Attributes exposing (style)
 import Icon.Icon as Icon
 import Icon.SvgAsset exposing (svgAsset)
+import Kaizen.Theme as Theme exposing (Theme(..))
 import KaizenDraft.Button.Button as Button
 import KaizenDraft.Form.TextField.TextField as TextField
 import KaizenDraft.Modal.Modal as Modal
@@ -188,6 +189,7 @@ main =
                                     |> Modal.modalState modalState
                                     -- IMPORTANT: the modal uses this for internal messages
                                     |> Modal.onUpdate ModalUpdate
+                                    |> Modal.theme Heart
                                 )
 
                         _ ->
@@ -216,6 +218,7 @@ main =
                                     |> Modal.modalState modalState
                                     -- IMPORTANT: the modal uses this for internal messages
                                     |> Modal.onUpdate ModalUpdate
+                                    |> Modal.theme Heart
                                 )
 
                         _ ->
@@ -243,6 +246,7 @@ main =
                                     |> Modal.modalState modalState
                                     -- IMPORTANT: the modal uses this for internal messages
                                     |> Modal.onUpdate ModalUpdate
+                                    |> Modal.theme Heart
                                 )
 
                         _ ->
@@ -270,6 +274,7 @@ main =
                                     |> Modal.modalState modalState
                                     -- IMPORTANT: the modal uses this for internal messages
                                     |> Modal.onUpdate ModalUpdate
+                                    |> Modal.theme Heart
                                 )
 
                         _ ->
@@ -297,6 +302,7 @@ main =
                                     |> Modal.modalState modalState
                                     -- IMPORTANT: the modal uses this for internal messages
                                     |> Modal.onUpdate ModalUpdate
+                                    |> Modal.theme Heart
                                 )
 
                         _ ->
@@ -324,6 +330,7 @@ main =
                                     |> Modal.modalState modalState
                                     -- IMPORTANT: the modal uses this for internal messages
                                     |> Modal.onUpdate ModalUpdate
+                                    |> Modal.theme Heart
                                 )
 
                         _ ->
@@ -353,6 +360,7 @@ main =
                                         |> Modal.modalState modalState
                                         -- IMPORTANT: the modal uses this for internal messages
                                         |> Modal.onUpdate ModalUpdate
+                                        |> Modal.theme Heart
                                     )
 
                             _ ->
@@ -402,6 +410,7 @@ main =
                                     |> Modal.modalState modalState
                                     -- IMPORTANT: the modal uses this for internal messages
                                     |> Modal.onUpdate ModalUpdate
+                                    |> Modal.theme Heart
                                 )
 
                         _ ->
@@ -448,6 +457,7 @@ main =
                                     |> Modal.modalState modalState
                                     -- IMPORTANT: the modal uses this for internal messages
                                     |> Modal.onUpdate ModalUpdate
+                                    |> Modal.theme Heart
                                 )
 
                         _ ->
