@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.5.8...@kaizen/draft-modal@5.6.0) (2021-06-11)
+
+
+### Features
+
+* add Heart theme option to Elm Modal and EmptyState (for Heart illustrations) ([#1581](https://github.com/cultureamp/kaizen-design-system/issues/1581)) ([415d1ae](https://github.com/cultureamp/kaizen-design-system/commit/415d1ae7c980fd91fbb29b4c0b86e2486ca43757))
+
+
+
+
+
 ## [5.5.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.5.7...@kaizen/draft-modal@5.5.8) (2021-06-10)
 
 
