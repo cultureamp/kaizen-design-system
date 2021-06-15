@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.8.3...@kaizen/design-tokens@2.9.0) (2021-06-11)
+
+
+### Features
+
+* add Heart theme option to Elm Modal and EmptyState (for Heart illustrations) ([#1581](https://github.com/cultureamp/kaizen-design-system/issues/1581)) ([415d1ae](https://github.com/cultureamp/kaizen-design-system/commit/415d1ae7c980fd91fbb29b4c0b86e2486ca43757))
+
+
+
+
+
 ## [2.8.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/design-tokens@2.8.2...@kaizen/design-tokens@2.8.3) (2021-05-18)
 
 **Note:** Version bump only for package @kaizen/design-tokens

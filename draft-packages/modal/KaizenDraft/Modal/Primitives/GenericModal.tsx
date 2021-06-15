@@ -180,6 +180,7 @@ class GenericModal extends React.Component<GenericModalProps> {
         enter={styles.animatingEnter}
         leave={styles.animatingLeave}
         data-generic-modal-transition-wrapper
+        onClick={(e: React.MouseEvent) => e.stopPropagation()}
       >
         <FocusLock
           disabled={focusLockDisabled}

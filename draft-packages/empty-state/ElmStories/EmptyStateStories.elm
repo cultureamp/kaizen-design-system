@@ -1,11 +1,12 @@
 module ElmStories.EmptyStateStories exposing (main)
 
-import KaizenDraft.Button.Button as Button
 import CssModules exposing (css)
 import ElmStorybook exposing (statelessStoryOf, storybook)
 import Html exposing (Html, div, text)
 import Html.Attributes exposing (dir)
 import Icon.SvgAsset exposing (svgAsset)
+import Kaizen.Theme exposing (Theme(..))
+import KaizenDraft.Button.Button as Button
 import KaizenDraft.EmptyState.EmptyState as EmptyState
 
 
@@ -48,6 +49,7 @@ main =
                         |> EmptyState.illustrationType EmptyState.Informative
                         |> EmptyState.layoutContext EmptyState.SidebarAndContent
                         |> EmptyState.children []
+                        |> EmptyState.theme Heart
                     )
                 ]
         , statelessStoryOf "Default (minimal props)" <|
@@ -56,6 +58,7 @@ main =
                     (EmptyState.default
                         |> EmptyState.headingText "Empty state title"
                         |> EmptyState.bodyText (EmptyState.BodyText "This preset only passes in the headingText and bodyText props, and leaves the rest to fallbacks.")
+                        |> EmptyState.theme Heart
                     )
                 ]
         , statelessStoryOf "Positive" <|
@@ -65,6 +68,7 @@ main =
                         |> EmptyState.headingText "Empty state title"
                         |> EmptyState.bodyText (EmptyState.BodyText "This preset only passes in the headingText and bodyText props, and leaves the rest to fallbacks.")
                         |> EmptyState.illustrationType EmptyState.Positive
+                        |> EmptyState.theme Heart
                     )
                 ]
         , statelessStoryOf "Informative" <|
@@ -74,6 +78,7 @@ main =
                         |> EmptyState.headingText "Empty state title"
                         |> EmptyState.bodyText (EmptyState.BodyText "This preset only passes in the headingText and bodyText props, and leaves the rest to fallbacks.")
                         |> EmptyState.illustrationType EmptyState.Informative
+                        |> EmptyState.theme Heart
                     )
                 ]
         , statelessStoryOf "Action" <|
@@ -83,6 +88,7 @@ main =
                         |> EmptyState.headingText "Empty state title"
                         |> EmptyState.bodyText (EmptyState.BodyText "This preset only passes in the headingText and bodyText props, and leaves the rest to fallbacks.")
                         |> EmptyState.illustrationType EmptyState.Action
+                        |> EmptyState.theme Heart
                     )
                 ]
         , statelessStoryOf "Action, button" <|
@@ -102,6 +108,7 @@ main =
                                     "Label"
                                 ]
                             ]
+                        |> EmptyState.theme Heart
                     )
                 ]
         , statelessStoryOf "Neutral" <|
@@ -111,6 +118,7 @@ main =
                         |> EmptyState.headingText "Empty state title"
                         |> EmptyState.bodyText (EmptyState.BodyText "This preset only passes in the headingText and bodyText props, and leaves the rest to fallbacks.")
                         |> EmptyState.illustrationType EmptyState.Neutral
+                        |> EmptyState.theme Heart
                     )
                 ]
         , statelessStoryOf "Negative" <|
@@ -120,6 +128,7 @@ main =
                         |> EmptyState.headingText "Empty state title"
                         |> EmptyState.bodyText (EmptyState.BodyText "This preset only passes in the headingText and bodyText props, and leaves the rest to fallbacks.")
                         |> EmptyState.illustrationType EmptyState.Negative
+                        |> EmptyState.theme Heart
                     )
                 ]
         , statelessStoryOf "Layout, Content-only" <|
@@ -129,6 +138,7 @@ main =
                         |> EmptyState.headingText "Empty state title"
                         |> EmptyState.bodyText (EmptyState.BodyText "This is an example of the content-only layout (no sidebar).")
                         |> EmptyState.layoutContext EmptyState.ContentOnly
+                        |> EmptyState.theme Heart
                     )
                 ]
         , statelessStoryOf "RTL, Action" <|
@@ -138,6 +148,7 @@ main =
                         |> EmptyState.headingText "Empty state title"
                         |> EmptyState.bodyText (EmptyState.BodyText "This preset only passes in the headingText and bodyText props, and leaves the rest to fallbacks.")
                         |> EmptyState.illustrationType EmptyState.Action
+                        |> EmptyState.theme Heart
                     )
                 ]
         ]

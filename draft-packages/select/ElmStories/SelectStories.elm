@@ -144,4 +144,15 @@ main =
                             )
                             (Select.selectIdentifier "Single Clearable Select")
                         ]
+        , storyOf "Single, no placeholder (test case)" config <|
+            \m ->
+                Html.map SelectMsg <|
+                    div [ style "width" "300px", style "margin-top" "12px" ]
+                        [ Select.view
+                            (Select.single (buildSelected m)
+                                |> Select.state m.selectState
+                                |> Select.menuItems (List.map buildMenuItem m.members)
+                            )
+                            (Select.selectIdentifier "single-no-placeholder")
+                        ]
         ]
