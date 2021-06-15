@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.6.0...@kaizen/draft-modal@5.6.1) (2021-06-15)
+
+
+### Bug Fixes
+
+* Remove hasRendered state from ModalHeader ([#1700](https://github.com/cultureamp/kaizen-design-system/issues/1700)) ([0a527df](https://github.com/cultureamp/kaizen-design-system/commit/0a527df8b79c366ec4dc6de388146f7235767175))
+
+
+
+
+
 # [5.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.5.8...@kaizen/draft-modal@5.6.0) (2021-06-11)
 
 
