@@ -9,6 +9,10 @@
   padding: $kz-var-spacing-sm $kz-var-spacing-md;
 }
 
+.header.customerFocused {
+  padding: $kz-var-spacing-lg $kz-var-spacing-md;
+}
+
 .headerLeft {
   flex: 0 0 50%;
 }

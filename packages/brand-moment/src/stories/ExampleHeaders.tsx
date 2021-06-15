@@ -22,7 +22,7 @@ export const MinimalBasic = () => (
 )
 
 export const MinimalCustomerFocused = () => (
-  <div className={styles.header}>
+  <div className={`${styles.header} ${styles.customerFocused}`}>
     <div className={styles.logoContainer}>
       <img src={assetUrl("brand/enso-default.svg")} alt="Culture Amp" />
     </div>
