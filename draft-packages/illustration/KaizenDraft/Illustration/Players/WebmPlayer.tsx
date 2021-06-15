@@ -1,5 +1,12 @@
 import * as React from "react"
+import { assetUrl } from "@kaizen/hosted-assets"
 
 export const Player = () => (
-  <div>TODO</div>
+  <video controls>
+    <source
+      src={assetUrl("illustrations/heart/scene/empty-states-action.webm")}
+      type="video/webm"
+    />
+    Sorry, your browser doesn't support embedded videos.
+  </video>
 )

@@ -51,6 +51,7 @@ import {
   Programs,
   SurveyOverviewClosed,
   SurveyGetStarted,
+  Player,
 } from ".."
 
 export default {
@@ -65,6 +66,8 @@ export default {
     },
   },
 }
+
+export const WebmPlayer = () => <Player />
 
 export const DefaultSiteDemo = () => (
   <div style={{ width: "500px" }}>
