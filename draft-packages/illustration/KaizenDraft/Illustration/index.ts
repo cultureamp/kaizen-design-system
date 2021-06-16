@@ -1,3 +1,3 @@
 export * from "./Spot"
 export * from "./Scene"
-export * from "./Players/WebmPlayer"
+export * from "./Players/VideoPlayer"

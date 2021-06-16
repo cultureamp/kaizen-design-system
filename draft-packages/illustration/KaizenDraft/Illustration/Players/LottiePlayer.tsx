@@ -7,7 +7,13 @@ import { LottieAnimation } from "../types"
 import { BaseProps } from "../Base"
 
 export type AnimatedBaseProps = {
+  /**
+   * Specifies whether the animation plays as soon as it is rendered
+   */
   autoplay?: boolean
+  /**
+   * Replay from start when active animation reaches the end of the animation
+   */
   loop?: boolean
 }
 
