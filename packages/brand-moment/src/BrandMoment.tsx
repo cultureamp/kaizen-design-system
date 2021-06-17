@@ -84,11 +84,13 @@ export const BrandMoment = (props: Props) => (
                   </Paragraph>
                 </div>
                 <div>
-                  <img
-                    src={assetUrl("brand/logo-horizontal-default.svg")}
-                    alt="Culture Amp"
-                    width={133}
-                  />
+                  <a href="https://www.cultureamp.com">
+                    <img
+                      src={assetUrl("brand/logo-horizontal-default.svg")}
+                      alt="Culture Amp"
+                      width={133}
+                    />
+                  </a>
                 </div>
               </div>
             </Box>
