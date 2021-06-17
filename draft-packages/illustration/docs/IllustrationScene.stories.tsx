@@ -51,7 +51,6 @@ import {
   Programs,
   SurveyOverviewClosed,
   SurveyGetStarted,
-  Player,
 } from ".."
 
 export default {
@@ -67,7 +66,25 @@ export default {
   },
 }
 
-export const WebmPlayer = () => <Player />
+export const AnimatedSceneIllustrations = () => (
+  <>
+    <div style={{ width: "450px" }}>
+      <EmptyStatesAction isAnimated loop />
+    </div>
+    <div style={{ width: "450px" }}>
+      <EmptyStatesInformative isAnimated loop />
+    </div>
+    <div style={{ width: "450px" }}>
+      <EmptyStatesNegative isAnimated loop />
+    </div>
+    <div style={{ width: "450px" }}>
+      <EmptyStatesPositive isAnimated loop />
+    </div>
+    <div style={{ width: "450px" }}>
+      <EmptyStatesNeutral isAnimated loop />
+    </div>
+  </>
+)
 
 export const DefaultSiteDemo = () => (
   <div style={{ width: "500px" }}>

@@ -4,29 +4,27 @@ import styles from "../style.module.scss"
 
 export type VideoPlayerProps = {
   /**
-   * Specifies whether the animation plays as soon as it is rendered
+   * Specifies whether the animation plays as soon as it is rendered.
    * If the user has enabled prefer-reduced-motion their preferences
-   * take precedent over this prop
+   * take precedent over this prop.
    */
   autoplay?: boolean
 
   /**
-   * Replay from start when active animation reaches the end of the animation
+   * Replay from start when active animation reaches the end of the animation.
    */
   loop?: boolean
 
   /**
-   * The path of the initial video asset to play.
+   * The path of the initial video asset to play. This is only used in
+   * situations where we have two clips - the `initialAnimation` will play
+   * once, then we will swap to the ambient animation and loop indefinitely
    */
   initialAnimation?: string
 
-  alt: string
-}
-
-type VideoPlayerFallback = {
   /**
    * Fallback image. Used when rendering of the asset fails, or as a
-   * poster for the video player
+   * poster for the video player.
    */
   fallback: string
 
@@ -39,18 +37,15 @@ type VideoPlayerFallback = {
 
 /**
  * TODO
- * Accessibility
- * * Prefer reduced motion
- * tests
  * ambient and initial animation
+ * convert to mp4 for safari
  */
 export const VideoPlayer = ({
   autoplay = true,
   loop = false,
   fallback,
   ambientAnimation,
-  alt,
-}: VideoPlayerProps & VideoPlayerFallback) => {
+}: VideoPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement>(null)
   const reducedMotionQuery = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
@@ -77,6 +72,7 @@ export const VideoPlayer = ({
   }, [])
 
   useEffect(() => {
+    if (!reducedMotionQuery.addEventListener || !window) return
     const updateMotionPreferences = () => {
       const { matches = false } = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
@@ -96,13 +92,24 @@ export const VideoPlayer = ({
     if (!videoElement) return
     if (prefersReducedMotion) {
       videoElement.pause()
-    } else {
-      videoElement.play()
+    } else if (autoplay && !prefersReducedMotion) {
+      videoElement.play().catch(err =>
+        /*
+         * An DOMException _may_ be raised by some browsers if we
+         * programatically interact with the video before the
+         * user has interacted with the page. This is okay - so
+         * we're going to catch this error without handling it. See:
+         * https://developer.mozilla.org/en-US/docs/Web/Media/Autoplay_guide#autoplay_availability
+         */
+        // eslint-disable-next-line no-console
+        console.warn(err)
+      )
     }
   }, [prefersReducedMotion])
 
   return (
     <video
+      aria-hidden={true}
       preload="metadata"
       ref={videoRef}
       width="100%"

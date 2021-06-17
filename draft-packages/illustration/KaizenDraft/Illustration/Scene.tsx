@@ -4,11 +4,28 @@ import { Base, BaseProps } from "./Base"
 import { VideoPlayerProps, VideoPlayer } from "./Players/VideoPlayer"
 
 export type SceneProps = Pick<BaseProps, "alt" | "classNameAndIHaveSpokenToDST">
-export type AnimatedSceneProps = SceneProps &
-  VideoPlayerProps & { isAnimated?: boolean }
+
+/**
+ * All keys K within T will be converted to a never type.
+ * This is useful for discriminated unions
+ */
+type SubsetBecomesNever<T, K extends keyof T> = T | { [L in K]?: never }
+
+type AnimatedProps = { isAnimated?: true } & Pick<
+  VideoPlayerProps,
+  "loop" | "autoplay"
+> &
+  SubsetBecomesNever<SceneProps, "alt">
+type NotAnimatedProps = { isAnimated: false } & SubsetBecomesNever<
+  VideoPlayerProps,
+  "autoplay" | "loop"
+> &
+  SceneProps
+type AnimatedSceneProps = AnimatedProps | NotAnimatedProps
 
 export const EmptyStatesAction = ({
   isAnimated,
+  alt,
   ...otherProps
 }: AnimatedSceneProps) => {
   const { themeKey } = useTheme()
@@ -23,6 +40,7 @@ export const EmptyStatesAction = ({
   }
   return (
     <Base
+      alt={alt || ""}
       {...otherProps}
       name={
         themeKey === "zen"
@@ -34,6 +52,7 @@ export const EmptyStatesAction = ({
 }
 export const EmptyStatesInformative = ({
   isAnimated,
+  alt,
   ...otherProps
 }: AnimatedSceneProps) => {
   const { themeKey } = useTheme()
@@ -48,6 +67,7 @@ export const EmptyStatesInformative = ({
   }
   return (
     <Base
+      alt={alt || ""}
       {...otherProps}
       name={
         themeKey === "zen"
@@ -60,6 +80,7 @@ export const EmptyStatesInformative = ({
 
 export const EmptyStatesNegative = ({
   isAnimated,
+  alt,
   ...otherProps
 }: AnimatedSceneProps) => {
   const { themeKey } = useTheme()
@@ -74,6 +95,7 @@ export const EmptyStatesNegative = ({
   }
   return (
     <Base
+      alt={alt || ""}
       {...otherProps}
       name={
         themeKey === "zen"
@@ -86,6 +108,7 @@ export const EmptyStatesNegative = ({
 
 export const EmptyStatesPositive = ({
   isAnimated,
+  alt,
   ...otherProps
 }: AnimatedSceneProps) => {
   const { themeKey } = useTheme()
@@ -100,6 +123,7 @@ export const EmptyStatesPositive = ({
   }
   return (
     <Base
+      alt={alt || ""}
       {...otherProps}
       name={
         themeKey === "zen"
@@ -112,6 +136,7 @@ export const EmptyStatesPositive = ({
 
 export const EmptyStatesNeutral = ({
   isAnimated,
+  alt,
   ...otherProps
 }: AnimatedSceneProps) => {
   const { themeKey } = useTheme()
@@ -126,6 +151,7 @@ export const EmptyStatesNeutral = ({
   }
   return (
     <Base
+      alt={alt || ""}
       {...otherProps}
       name={
         themeKey === "zen"
