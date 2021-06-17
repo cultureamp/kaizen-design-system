@@ -36,6 +36,12 @@
   }
 }
 
+.customerFocused .logoContainer {
+  width: 84px;
+  height: 84px;
+  padding: $kz-var-spacing-sm;
+}
+
 .fakeNav {
   background: $kz-var-color-wisteria-600;
   padding: $kz-var-spacing-md;
