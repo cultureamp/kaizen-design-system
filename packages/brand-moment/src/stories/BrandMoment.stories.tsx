@@ -30,7 +30,7 @@ export default {
   decorators: [story => <div style={{ margin: "-1rem" }}>{story()}</div>],
 }
 
-export const DemoIntro = () => (
+export const InformativeIntro = () => (
   <BrandMoment
     mood="informative"
     illustration={<EmptyStatesAction alt="" />}
@@ -47,9 +47,34 @@ export const DemoIntro = () => (
     }}
   />
 )
-DemoIntro.storyName = "Informative intro"
+InformativeIntro.storyName = "Informative intro"
 
-export const CaptureIntro = () => (
+export const PositiveOutro = () => (
+  <BrandMoment
+    mood="positive"
+    illustration={<EmptyStatesNeutral alt="" />}
+    header={<MinimalBasic />}
+    text={{
+      title: "Import in progress",
+      body: (
+        <>
+          That’s it for now. Your data is importing but you don’t need to hang
+          out here while it happens. Get on with your day and we’ll let you know
+          on the <a href="#">Users page</a> when it’s complete.
+        </>
+      ),
+    }}
+    primaryAction={{
+      label: "Go to Users",
+      href: "#",
+      icon: arrowRightIcon,
+      iconPosition: "end",
+    }}
+  />
+)
+PositiveOutro.storyName = "Positive outro"
+
+export const InformativeIntroCustomerFocused = () => (
   <BrandMoment
     mood="informative"
     illustration={<EmptyStatesPositive alt="" />}
@@ -81,9 +106,10 @@ export const CaptureIntro = () => (
     }}
   />
 )
-CaptureIntro.storyName = "Informative intro (customer focused)"
+InformativeIntroCustomerFocused.storyName =
+  "Informative intro (customer focused)"
 
-export const CaptureOutro = () => (
+export const PositiveOutroCustomerFocused = () => (
   <BrandMoment
     mood="positive"
     illustration={<EmptyStatesNeutral alt="" />}
@@ -119,7 +145,7 @@ export const CaptureOutro = () => (
     }}
   />
 )
-CaptureOutro.storyName = "Positive outro (customer focused)"
+PositiveOutroCustomerFocused.storyName = "Positive outro (customer focused)"
 
 export const Error = () => (
   <BrandMoment
