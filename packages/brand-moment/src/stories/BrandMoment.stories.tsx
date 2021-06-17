@@ -47,7 +47,7 @@ export const DemoIntro = () => (
     }}
   />
 )
-DemoIntro.storyName = "Informative Intro"
+DemoIntro.storyName = "Informative intro"
 
 export const CaptureIntro = () => (
   <BrandMoment
@@ -59,8 +59,15 @@ export const CaptureIntro = () => (
       title: "Manager Effectiveness Survey",
       body:
         "Thank you for taking the time to respond to this survey. It’ll help us better understand your experience and perspective.",
-      footer:
-        "Your responses and information are securely collected and kept by Culture Amp in accordance with our Privacy Policy. Your responses will be reported to Hooli based on the specific rules for this survey. If you have any additional questions, please contact us at support@cultureamp.com.",
+      footer: (
+        <>
+          Your responses and information are securely collected and kept by
+          Culture Amp in accordance with our <a href="#">Privacy Policy</a>.
+          Your responses will be reported to Hooli based on the specific rules
+          for this survey. If you have any additional questions, please contact
+          us at <a href="#">support@cultureamp.com</a>.
+        </>
+      ),
     }}
     primaryAction={{
       label: "Take survey",
@@ -90,8 +97,15 @@ export const CaptureOutro = () => (
           <a href="#">retake the survey</a>.
         </>
       ),
-      footer:
-        "Your responses and information are securely collected and kept by Culture Amp in accordance with our Privacy Policy. Your responses will be reported to Hooli based on the specific rules for this survey. If you have any additional questions, please contact us at support@cultureamp.com.",
+      footer: (
+        <>
+          Your responses and information are securely collected and kept by
+          Culture Amp in accordance with our <a href="#">Privacy Policy</a>.
+          Your responses will be reported to Hooli based on the specific rules
+          for this survey. If you have any additional questions, please contact
+          us at <a href="#">support@cultureamp.com</a>.
+        </>
+      ),
     }}
     primaryAction={{
       label: "Go to Home",
