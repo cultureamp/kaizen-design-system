@@ -1,6 +1,7 @@
 @import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/spacing-vars";
+@import "~@kaizen/design-tokens/sass/shadow-vars";
 
 .header {
   display: flex;
@@ -30,6 +31,7 @@
   height: 48px;
   padding: $kz-var-spacing-xs;
   border-radius: $kz-var-border-solid-border-radius;
+  box-shadow: $kz-var-shadow-small-box-shadow;
 
   > img {
     width: 100%;
