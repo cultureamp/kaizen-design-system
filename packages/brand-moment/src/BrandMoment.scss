@@ -144,6 +144,8 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 }
 
 .footerInner {
+  display: flex;
+  flex-direction: column;
   border-top: 1px solid $kz-var-color-wisteria-800;
   border-left: 1px solid $kz-var-color-wisteria-800;
   padding: $kz-var-spacing-sm $kz-var-spacing-md;
@@ -151,22 +153,38 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 }
 
 .poweredByContainer {
-  display: flex;
-  margin: $kz-var-spacing-sm 0;
-}
-
-.poweredByText {
   flex: 0 0 auto;
-  margin-right: $kz-var-spacing-xs;
+  order: 2;
+  display: flex;
 }
 
-@media (min-width: $kz-layout-breakpoints-medium) {
+.footerTextContainer {
+  flex: 1 1 auto;
+  order: 1;
+  margin-bottom: $kz-var-spacing-md;
+}
+
+.poweredByLogo {
+  margin-left: $kz-var-spacing-xs;
+
+  > img {
+    max-width: 133px;
+  }
+}
+
+@media (min-width: $kz-layout-breakpoints-large) {
   .footerInner {
-    display: flex;
+    flex-direction: row;
     align-items: center;
   }
 
-  .poweredByContainer {
+  .footerTextContainer {
+    order: initial;
     margin-bottom: 0;
+    margin-left: $kz-var-spacing-md;
+  }
+
+  .poweredByContainer {
+    order: initial;
   }
 }

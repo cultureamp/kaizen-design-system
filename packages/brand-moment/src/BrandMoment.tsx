@@ -76,27 +76,25 @@ export const BrandMoment = (props: Props) => (
       <footer className={styles.footer}>
         <div className={styles.container}>
           <div className={styles.footerInner}>
-            <Box mr={2}>
-              <div className={styles.poweredByContainer}>
-                <div className={styles.poweredByText}>
-                  <Paragraph variant="extra-small" color="dark-reduced-opacity">
-                    Powered by
-                  </Paragraph>
-                </div>
-                <div>
-                  <a href="https://www.cultureamp.com">
-                    <img
-                      src={assetUrl("brand/logo-horizontal-default.svg")}
-                      alt="Culture Amp"
-                      width={133}
-                    />
-                  </a>
-                </div>
-              </div>
-            </Box>
-            <Paragraph variant="extra-small" color="dark-reduced-opacity">
-              {props.text.footer}
-            </Paragraph>
+            <div className={styles.poweredByContainer}>
+              <Paragraph variant="extra-small" color="dark-reduced-opacity">
+                Powered by
+              </Paragraph>
+              <a
+                href="https://www.cultureamp.com"
+                className={styles.poweredByLogo}
+              >
+                <img
+                  src={assetUrl("brand/logo-horizontal-default.svg")}
+                  alt="Culture Amp"
+                />
+              </a>
+            </div>
+            <div className={styles.footerTextContainer}>
+              <Paragraph variant="extra-small" color="dark-reduced-opacity">
+                {props.text.footer}
+              </Paragraph>
+            </div>
           </div>
         </div>
       </footer>
