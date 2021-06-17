@@ -47,7 +47,7 @@ export const DemoIntro = () => (
     }}
   />
 )
-DemoIntro.storyName = "Demo Intro"
+DemoIntro.storyName = "Informative Intro"
 
 export const CaptureIntro = () => (
   <BrandMoment
@@ -74,7 +74,7 @@ export const CaptureIntro = () => (
     }}
   />
 )
-CaptureIntro.storyName = "Capture Intro"
+CaptureIntro.storyName = "Informative intro (customer focused)"
 
 export const CaptureOutro = () => (
   <BrandMoment
@@ -105,7 +105,7 @@ export const CaptureOutro = () => (
     }}
   />
 )
-CaptureOutro.storyName = "Capture Outro"
+CaptureOutro.storyName = "Positive outro (customer focused)"
 
 export const Error = () => (
   <BrandMoment
