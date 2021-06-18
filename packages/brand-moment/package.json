@@ -45,6 +45,7 @@
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.8.2",
+    "@kaizen/draft-select": "^1.16.2",
     "react": "^16.9.0"
   }
 }
