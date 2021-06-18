@@ -27,7 +27,7 @@ model =
     { selectState = Select.initState |> Select.usePorts True
     , selectedMembers = []
     , selectedMember = Nothing
-    , members = [ "Mindy", "Jaime", "Rafa", "Elaine", "Julio", "Priyanka", "Prince", "Charith", "Nick" ]
+    , members = [ "Mindy", "Jaime", "Rafa", "Elaine", "Julio", "Priyanka", "Prince", "Charith", "Nick", "AVeryLongNameWithoutAnySpacesAtall", "A very long long name with spaces inside it" ]
     }
 
 
