@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.16.2...@kaizen/draft-select@1.16.3) (2021-06-18)
+
+
+### Bug Fixes
+
+* update Elm select clear button color for Heart ([#1707](https://github.com/cultureamp/kaizen-design-system/issues/1707)) ([2d81d12](https://github.com/cultureamp/kaizen-design-system/commit/2d81d121c247cf6b0f512cf41bf1f2a893c51849))
+
+
+
+
+
 ## [1.16.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.16.1...@kaizen/draft-select@1.16.2) (2021-06-11)
 
 
