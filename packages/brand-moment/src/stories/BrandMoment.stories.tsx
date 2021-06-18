@@ -1,8 +1,7 @@
 import React from "react"
 import {
-  EmptyStatesAction,
   EmptyStatesNegative,
-  EmptyStatesNeutral,
+  EmptyStatesInformative,
   EmptyStatesPositive,
 } from "@kaizen/draft-illustration"
 import arrowRightIcon from "@kaizen/component-library/icons/arrow-right.icon.svg"
@@ -33,7 +32,7 @@ export default {
 export const InformativeIntro = () => (
   <BrandMoment
     mood="informative"
-    illustration={<EmptyStatesAction alt="" />}
+    illustration={<EmptyStatesInformative alt="" />}
     header={<MinimalBasic />}
     text={{
       subtitle: "Welcome to Culture Amp",
@@ -52,7 +51,7 @@ InformativeIntro.storyName = "Informative intro"
 export const PositiveOutro = () => (
   <BrandMoment
     mood="positive"
-    illustration={<EmptyStatesNeutral alt="" />}
+    illustration={<EmptyStatesPositive alt="" />}
     header={<MinimalBasic />}
     text={{
       title: "Import in progress",
@@ -77,7 +76,7 @@ PositiveOutro.storyName = "Positive outro"
 export const InformativeIntroCustomerFocused = () => (
   <BrandMoment
     mood="informative"
-    illustration={<EmptyStatesPositive alt="" />}
+    illustration={<EmptyStatesInformative alt="" />}
     header={<MinimalCustomerFocused />}
     text={{
       subtitle: "A survey for Hooli",
@@ -112,7 +111,7 @@ InformativeIntroCustomerFocused.storyName =
 export const PositiveOutroCustomerFocused = () => (
   <BrandMoment
     mood="positive"
-    illustration={<EmptyStatesNeutral alt="" />}
+    illustration={<EmptyStatesPositive alt="" />}
     header={<MinimalCustomerFocused />}
     text={{
       subtitle: "Manager Effectiveness Survey",
