@@ -73,6 +73,7 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
   flex: 1 0 auto;
   display: flex;
   align-items: center;
+  margin-bottom: $kz-var-spacing-xxl;
 }
 
 .mainInner {
@@ -149,7 +150,7 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
   border-top: 1px solid $kz-var-color-wisteria-800;
   border-left: 1px solid $kz-var-color-wisteria-800;
   padding: $kz-var-spacing-sm $kz-var-spacing-md;
-  margin: $kz-var-spacing-xxl 0 $kz-var-spacing-lg;
+  margin: 0 0 $kz-var-spacing-lg;
 }
 
 .poweredByContainer {

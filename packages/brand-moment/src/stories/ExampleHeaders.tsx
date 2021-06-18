@@ -9,11 +9,10 @@ import styles from "./ExampleHeaders.scss"
 export const MinimalBasic = () => (
   <div className={styles.header}>
     <div className={styles.headerLeft}>
-      <a href="/" aria-label="Home">
+      <a href="/" aria-label="Home" className={styles.logoLink}>
         <img
           src={assetUrl("brand/logo-horizontal-default.svg")}
           alt="Culture Amp"
-          width={126}
         />
       </a>
     </div>

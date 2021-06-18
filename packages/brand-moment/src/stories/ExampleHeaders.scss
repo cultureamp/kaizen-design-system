@@ -21,6 +21,17 @@
   justify-content: flex-end;
 }
 
+.logoLink {
+  display: flex;
+  align-items: center;
+  padding: calc(#{$kz-var-spacing-sm} - #{$kz-var-border-solid-border-width}) 0;
+  max-width: 133px;
+
+  > img {
+    width: 100%;
+  }
+}
+
 .logoContainer {
   background: $kz-var-color-white;
   box-sizing: border-box;
