@@ -1,6 +1,9 @@
 import React from "react"
 import { assetUrl } from "@kaizen/hosted-assets"
+import { Box } from "@kaizen/component-library"
 import { Select } from "@kaizen/draft-select"
+import { Button } from "@kaizen/draft-button"
+import closeIcon from "@kaizen/component-library/icons/close.icon.svg"
 import styles from "./ExampleHeaders.scss"
 
 export const MinimalBasic = () => (
@@ -15,6 +18,9 @@ export const MinimalBasic = () => (
       </a>
     </div>
     <div className={styles.headerRight}>
+      <Box mr={0.5}>
+        <Button href="#" label="Exit" icon={closeIcon} secondary />
+      </Box>
       <div className={styles.logoContainer}>
         <img src={assetUrl("brand/enso-default.svg")} alt="Culture Amp" />
       </div>
