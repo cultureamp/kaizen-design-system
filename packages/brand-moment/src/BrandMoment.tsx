@@ -91,9 +91,7 @@ export const BrandMoment = (props: Props) => (
               </a>
             </div>
             <div className={styles.footerTextContainer}>
-              <Paragraph variant="extra-small" color="dark-reduced-opacity">
-                {props.text.footer}
-              </Paragraph>
+              <Paragraph variant="extra-small">{props.text.footer}</Paragraph>
             </div>
           </div>
         </div>
