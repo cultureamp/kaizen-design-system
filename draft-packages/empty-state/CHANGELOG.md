@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.2.3...@kaizen/draft-empty-state@2.3.0) (2021-06-11)
+
+
+### Features
+
+* add Heart theme option to Elm Modal and EmptyState (for Heart illustrations) ([#1581](https://github.com/cultureamp/kaizen-design-system/issues/1581)) ([415d1ae](https://github.com/cultureamp/kaizen-design-system/commit/415d1ae7c980fd91fbb29b4c0b86e2486ca43757))
+
+
+
+
+
+## [2.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.2.2...@kaizen/draft-empty-state@2.2.3) (2021-06-09)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
 ## [2.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.2.1...@kaizen/draft-empty-state@2.2.2) (2021-06-02)
 
 **Note:** Version bump only for package @kaizen/draft-empty-state

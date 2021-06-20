@@ -3,6 +3,47 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.6.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.6.0...@kaizen/draft-modal@5.6.1) (2021-06-15)
+
+
+### Bug Fixes
+
+* Remove hasRendered state from ModalHeader ([#1700](https://github.com/cultureamp/kaizen-design-system/issues/1700)) ([0a527df](https://github.com/cultureamp/kaizen-design-system/commit/0a527df8b79c366ec4dc6de388146f7235767175))
+
+
+
+
+
+# [5.6.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.5.8...@kaizen/draft-modal@5.6.0) (2021-06-11)
+
+
+### Features
+
+* add Heart theme option to Elm Modal and EmptyState (for Heart illustrations) ([#1581](https://github.com/cultureamp/kaizen-design-system/issues/1581)) ([415d1ae](https://github.com/cultureamp/kaizen-design-system/commit/415d1ae7c980fd91fbb29b4c0b86e2486ca43757))
+
+
+
+
+
+## [5.5.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.5.7...@kaizen/draft-modal@5.5.8) (2021-06-10)
+
+
+### Bug Fixes
+
+* Stop propagation at top of modal ([#1701](https://github.com/cultureamp/kaizen-design-system/issues/1701)) ([1428107](https://github.com/cultureamp/kaizen-design-system/commit/1428107b2dbacb4c03cfcb25f0335b3c6d4b1358))
+
+
+
+
+
+## [5.5.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.5.6...@kaizen/draft-modal@5.5.7) (2021-06-09)
+
+**Note:** Version bump only for package @kaizen/draft-modal
+
+
+
+
+
 ## [5.5.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-modal@5.5.5...@kaizen/draft-modal@5.5.6) (2021-06-07)
 
 **Note:** Version bump only for package @kaizen/draft-modal
