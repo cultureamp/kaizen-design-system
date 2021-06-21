@@ -4,9 +4,9 @@
 name: "chromatic"
 
 on:
-  push
-  # issue_comment:
-  #   types: [created]
+  # despite the name, this is triggered on both isuse comments *and* PR comments. We're only interested in PR comments for this Action.
+  issue_comment:
+    types: [created]
 
 # List of jobs
 jobs:
@@ -21,24 +21,12 @@ jobs:
         with:
           fetch-depth: 0 # 👈 Required to retrieve git history
 
-      - uses: 8BitJonny/gh-get-current-pr@1.1.0
-        id: getPr
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          # Only return if PR is still open
-          filterOutClosed: true
-
-      - run: echo "The current PR number is ${prNumber}"
-        if: success() && steps.getPr.outputs.number
-        env:
-          prNumber: ${{ steps.getPr.outputs.number }}
-
       - name: Get most recent comment
-        if: success() && steps.getPr.outputs.number
+        if: ${{ github.event.issue.pull_request }} # despite the name "issue_comment", an "issue_comment" can either actually be an issue comment, or it might be a PR comment (even though issues and PRs are completely different things). This checks where this is a "PR comment" kind of "issue comment". You know like when sometimes a dog isn't a dog, but it's actually a cat so you need to check to make sure?
         uses: peter-evans/find-comment@v1
         id: latestComment
         with:
-          issue-number: ${{ steps.getPr.outputs.number }}
+          issue-number: ${{ github.event.issue.pull_request }}
           body-includes: ""
           direction: last
 
