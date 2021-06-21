@@ -1,6 +1,11 @@
 import { Node, Root } from "postcss"
 import type { WordNode } from "postcss-value-parser"
 
+export type RuleDefinition = {
+  name: string
+  ruleFunction: (stylesheetNode: Root, options: Options) => void
+}
+
 export type Reporter = (opts: {
   message: string
   node: Node
@@ -12,13 +17,6 @@ export type Options = {
   language: "scss" | "less"
   fix?: boolean
   reporter: Reporter
-}
-
-export type StylelintPluginOptions = {
-  /** Allows the codemod to apply fixes using stylelint. Warning: Some inconsistent changes may occur */
-  allowFixing?: boolean
-  /** Report on and remove unused kaizen imports */
-  unusedImports?: boolean
 }
 
 export type KaizenToken = {
@@ -37,7 +35,7 @@ export type CSSVariable = {
 }
 
 /**
- *  This type represents a variable within a stylesheet, and is tied to either SCSS or LESS
+ *  This type represents a variable within a stylesheet, and is tied to either SCSS or LESS.
  */
 export type Variable = {
   name: string
@@ -50,35 +48,9 @@ export type Variable = {
 }
 
 /**
- * This represents a Variable, but one that definitely holds a KaizenToken, and a parsed WordNode (variableNode)
+ * This represents a Variable, but one that definitely holds a KaizenToken, and a parsed WordNode (variableNode).
+ * We use the terminology "Variable" and "Token" to distinguish between a stylesheet construct and a Kaizen theme field (token) respectively
  */
 export type ParsedKaizenVariable = Variable & {
   kaizenToken: KaizenToken
-}
-
-export type StyleLintRuleFunction = (
-  stylesheetNode: Root,
-  options: Options
-) => void
-export type StyleLintRule = {
-  name: string
-  ruleFunction: StyleLintRuleFunction
-}
-
-export type RulesEnabled = {
-  importsNoUnused: boolean
-  importsNoExtraneous: boolean
-  noInvalidEquations: boolean
-  noInvalidFunctions: boolean
-  noDeprecatedTokens: boolean
-  noTransitiveTokens: boolean
-}
-
-export const allRulesEnabled: RulesEnabled = {
-  noDeprecatedTokens: true,
-  noInvalidEquations: true,
-  importsNoExtraneous: true,
-  importsNoUnused: true,
-  noInvalidFunctions: true,
-  noTransitiveTokens: true,
 }

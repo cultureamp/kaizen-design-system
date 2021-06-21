@@ -31,9 +31,8 @@ const getStoryPathsFromEnv = (): string[] | false => {
 }
 
 const defaultStoryPaths = [
-  "../packages/component-library/**/*.stories.tsx",
-  "../packages/design-tokens/**/*.stories.tsx",
-  "../packages/design-tokens/**/*.stories.mdx",
+  "../packages/**/*.stories.tsx",
+  "../packages/**/*.stories.mdx",
   "../draft-packages/**/*.stories.tsx",
   "../legacy-packages/**/*.stories.tsx",
 ]
@@ -43,15 +42,15 @@ module.exports = {
   addons: [
     path.resolve("./storybook/gtm-addon/register"),
     path.resolve("./storybook/theme-switcher-addon/register"),
-    "@storybook/addon-essentials",
-    "@storybook/addon-a11y",
-    "storybook-addon-designs",
     {
       name: "@storybook/addon-docs",
       options: {
         transcludeMarkdown: true,
       },
     },
+    "@storybook/addon-essentials",
+    "@storybook/addon-a11y",
+    "storybook-addon-designs",
   ],
   presets: [path.resolve("./storybook/header-preset/preset")],
   webpackFinal: (config, { configType }) => {

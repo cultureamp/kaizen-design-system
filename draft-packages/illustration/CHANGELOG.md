@@ -3,6 +3,76 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.0.0...@kaizen/draft-illustration@2.0.1) (2021-06-11)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+# [2.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.9.0...@kaizen/draft-illustration@2.0.0) (2021-06-09)
+
+
+### Features
+
+* Added optional isAnimated prop to illustrations that support an… ([#1650](https://github.com/cultureamp/kaizen-design-system/issues/1650)) ([2dd9411](https://github.com/cultureamp/kaizen-design-system/commit/2dd9411cabace434dc08a0efaedf376f3b55bac3))
+
+
+### BREAKING CHANGES
+
+* Consumers may need to update test cases that contain animated illustrations with a canvas mock. We use and recommend [jest-canvas-mock](https://github.com/hustcc/jest-canvas-mock#readme).
+
+
+
+
+
+# [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.8.4...@kaizen/draft-illustration@1.9.0) (2021-05-19)
+
+
+### Features
+
+* Add 180 versions for performance template library spots ([#1612](https://github.com/cultureamp/kaizen-design-system/issues/1612)) ([603d746](https://github.com/cultureamp/kaizen-design-system/commit/603d7460a479642cf6894fa637b87d6e7e090169))
+
+
+
+
+
+## [1.8.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.8.3...@kaizen/draft-illustration@1.8.4) (2021-05-18)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [1.8.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.8.2...@kaizen/draft-illustration@1.8.3) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
+## [1.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.8.1...@kaizen/draft-illustration@1.8.2) (2021-05-17)
+
+
+### Bug Fixes
+
+* Fallback to blank survey for Heart template illustrations without Zen equivalents ([#1598](https://github.com/cultureamp/kaizen-design-system/issues/1598)) ([aac86be](https://github.com/cultureamp/kaizen-design-system/commit/aac86be2d7c9f6412d4b76df9afbd5dad98b3f8b))
+
+
+
+
+
+## [1.8.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.8.0...@kaizen/draft-illustration@1.8.1) (2021-05-16)
+
+**Note:** Version bump only for package @kaizen/draft-illustration
+
+
+
+
+
 # [1.8.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@1.7.2...@kaizen/draft-illustration@1.8.0) (2021-04-26)
 
 

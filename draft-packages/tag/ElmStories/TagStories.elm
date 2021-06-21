@@ -108,4 +108,22 @@ main =
                 , Tag.view (Tag.sentiment Tag.SentimentPositive |> Tag.inline True |> Tag.dismissible True) "Inline"
                 , Tag.view (Tag.validation Tag.ValidationPositive |> Tag.inline True |> Tag.dismissible True) "Inline"
                 ]
+        , statelessStoryOf "Medium - Allow Text Wrapping" <|
+            storyContainer
+                [ div
+                    [ style "width" "200px" ]
+                    [ Tag.view (Tag.default |> Tag.dismissible True |> Tag.allowTextWrapping True) "Normal 1"
+                    , Tag.view (Tag.default |> Tag.dismissible True |> Tag.allowTextWrapping True) "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras semper erat eget nisl porta congue. Vivamus in ipsum ut nisi cursus interdum eget eget felis. Mauris maximus cursus mauris."
+                    , Tag.view (Tag.default |> Tag.dismissible True |> Tag.allowTextWrapping True) "Normal 2"
+                    ]
+                ]
+        , statelessStoryOf "Small - Allow Text Wrapping" <|
+            storyContainer
+                [ div
+                    [ style "width" "200px" ]
+                    [ Tag.view (Tag.default |> Tag.size Tag.Small |> Tag.dismissible True |> Tag.allowTextWrapping True) "Normal 1"
+                    , Tag.view (Tag.default |> Tag.size Tag.Small |> Tag.dismissible True |> Tag.allowTextWrapping True) "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras semper erat eget nisl porta congue. Vivamus in ipsum ut nisi cursus interdum eget eget felis. Mauris maximus cursus mauris."
+                    , Tag.view (Tag.default |> Tag.size Tag.Small |> Tag.dismissible True |> Tag.allowTextWrapping True) "Normal 2"
+                    ]
+                ]
         ]

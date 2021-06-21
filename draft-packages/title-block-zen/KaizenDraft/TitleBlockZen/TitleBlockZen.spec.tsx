@@ -1,9 +1,10 @@
 import "./matchMedia.mock"
 
 import { configure, fireEvent } from "@testing-library/dom"
-import { cleanup, render } from "@testing-library/react"
+import { cleanup, render, waitFor, screen } from "@testing-library/react"
 import * as React from "react"
-import { NavigationTab, TitleBlockZen } from "./index"
+import { TitleBlockZen } from "./index"
+import "@testing-library/jest-dom"
 
 configure({
   testIdAttribute: "data-automation-id",
@@ -13,12 +14,14 @@ afterEach(() => cleanup())
 
 describe("<TitleBlockZen />", () => {
   describe("when the primary action is a button with only an href", () => {
-    const primaryActionAsLink = {
-      label: "primaryActionLabel",
-      href: "primaryActionHref",
-      primary: true,
-    }
-
+    let primaryActionAsLink
+    beforeEach(() => {
+      primaryActionAsLink = {
+        label: "primaryActionLabel",
+        href: "#primaryActionHref",
+        primary: true,
+      }
+    })
     it("renders the primary action button label and href", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsLink}>
@@ -26,8 +29,8 @@ describe("<TitleBlockZen />", () => {
         </TitleBlockZen>
       )
       const btn = getByTestId("title-block-primary-action-button")
-      expect(btn.textContent).toEqual("primaryActionLabel")
-      expect(btn.getAttribute("href")).toEqual("primaryActionHref")
+      expect(btn.textContent).toEqual(primaryActionAsLink.label)
+      expect(btn.getAttribute("href")).toEqual(primaryActionAsLink.href)
     })
 
     it("passes the href to the mobile action drawer button", () => {
@@ -37,18 +40,21 @@ describe("<TitleBlockZen />", () => {
         </TitleBlockZen>
       )
       const btn = getByTestId("title-block-mobile-actions-primary-button")
-      expect(btn.getAttribute("href")).toEqual("primaryActionHref")
+      expect(btn.getAttribute("href")).toEqual(primaryActionAsLink.href)
     })
   })
 
   describe("when the primary action is a button with only an onClick", () => {
-    const testOnClickFn = jest.fn()
-    const primaryActionAsButton = {
-      label: "primaryActionLabel",
-      onClick: testOnClickFn,
-      primary: true,
-    }
-
+    let testOnClickFn
+    let primaryActionAsButton
+    beforeEach(() => {
+      testOnClickFn = jest.fn()
+      primaryActionAsButton = {
+        label: "primaryActionLabel",
+        onClick: testOnClickFn,
+        primary: true,
+      }
+    })
     it("renders the primary action button label and onClick", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsButton}>
@@ -56,7 +62,7 @@ describe("<TitleBlockZen />", () => {
         </TitleBlockZen>
       )
       const btn = getByTestId("title-block-primary-action-button")
-      expect(btn.textContent).toEqual("primaryActionLabel")
+      expect(btn.textContent).toEqual(primaryActionAsButton.label)
       fireEvent.click(btn)
       expect(testOnClickFn).toHaveBeenCalled()
     })
@@ -69,27 +75,31 @@ describe("<TitleBlockZen />", () => {
       )
 
       const btn = getByTestId("title-block-mobile-actions-primary-button")
-      expect(btn.textContent).toEqual("primaryActionLabel")
+      expect(btn.textContent).toEqual(primaryActionAsButton.label)
       fireEvent.click(btn)
       expect(testOnClickFn).toHaveBeenCalled()
     })
   })
 
   describe("when the primary action is disabled", () => {
-    const testOnClickFn = jest.fn()
-    const primaryActionAsButton = {
-      label: "primaryActionLabel",
-      onClick: testOnClickFn,
-      disabled: true,
-      primary: true,
-    }
-    const primaryActionAsLink = {
-      label: "primaryActionLabel",
-      href: "primaryActionHref",
-      disabled: true,
-      primary: true,
-    }
-
+    let testOnClickFn
+    let primaryActionAsButton
+    let primaryActionAsLink
+    beforeEach(() => {
+      testOnClickFn = jest.fn()
+      primaryActionAsButton = {
+        label: "primaryActionLabel",
+        onClick: testOnClickFn,
+        disabled: true,
+        primary: true,
+      }
+      primaryActionAsLink = {
+        label: "primaryActionLabel",
+        href: "#primaryActionHref",
+        disabled: true,
+        primary: true,
+      }
+    })
     it("renders a disabled primary action button", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsButton}>
@@ -99,7 +109,7 @@ describe("<TitleBlockZen />", () => {
       const btn = getByTestId(
         "title-block-primary-action-button"
       ) as HTMLButtonElement
-      expect(btn.textContent).toEqual("primaryActionLabel")
+      expect(btn.textContent).toEqual(primaryActionAsButton.label)
       expect(btn.disabled).toBeTruthy()
       fireEvent.click(btn)
       expect(testOnClickFn).not.toHaveBeenCalled()
@@ -114,8 +124,8 @@ describe("<TitleBlockZen />", () => {
       const btn = getByTestId(
         "title-block-primary-action-button"
       ) as HTMLButtonElement
-      expect(btn.textContent).toEqual("primaryActionLabel")
-      expect(btn.getAttribute("href")).not.toEqual("primaryActionHref")
+      expect(btn.textContent).toEqual(primaryActionAsLink.label)
+      expect(btn.getAttribute("href")).not.toEqual(primaryActionAsLink.href)
     })
 
     it("creates a mobile actions primary button with disabled styles and no onClick", () => {
@@ -128,7 +138,7 @@ describe("<TitleBlockZen />", () => {
       const btn = getByTestId(
         "title-block-mobile-actions-primary-button"
       ) as HTMLButtonElement
-      expect(btn.textContent).toEqual("primaryActionLabel")
+      expect(btn.textContent).toEqual(primaryActionAsButton.label)
       fireEvent.click(btn)
       expect(testOnClickFn).not.toHaveBeenCalled()
     })
@@ -143,20 +153,23 @@ describe("<TitleBlockZen />", () => {
       const btn = getByTestId(
         "title-block-mobile-actions-primary-button"
       ) as HTMLButtonElement
-      expect(btn.textContent).toEqual("primaryActionLabel")
-      expect(btn.getAttribute("href")).not.toEqual("primaryActionHref")
+      expect(btn.textContent).toEqual(primaryActionAsLink.label)
+      expect(btn.getAttribute("href")).not.toEqual(primaryActionAsLink.href)
     })
   })
 
   describe("when the primary action is a button with both an href and an onClick", () => {
-    const testOnClickFn = jest.fn()
-    const primaryActionAsLinkAndOnClick = {
-      label: "primaryActionLabel",
-      href: "primaryActionHref",
-      onClick: testOnClickFn,
-      primary: true,
-    }
-
+    let testOnClickFn
+    let primaryActionAsLinkAndOnClick
+    beforeEach(() => {
+      testOnClickFn = jest.fn()
+      primaryActionAsLinkAndOnClick = {
+        label: "primaryActionLabel",
+        href: "#primaryActionHref",
+        onClick: testOnClickFn,
+        primary: true,
+      }
+    })
     it("renders the primary action button label, href and onClick", () => {
       const { getByTestId } = render(
         <TitleBlockZen
@@ -167,8 +180,10 @@ describe("<TitleBlockZen />", () => {
         </TitleBlockZen>
       )
       const btn = getByTestId("title-block-primary-action-button")
-      expect(btn.textContent).toEqual("primaryActionLabel")
-      expect(btn.getAttribute("href")).toEqual("primaryActionHref")
+      expect(btn.textContent).toEqual(primaryActionAsLinkAndOnClick.label)
+      expect(btn.getAttribute("href")).toEqual(
+        primaryActionAsLinkAndOnClick.href
+      )
       fireEvent.click(btn)
       expect(testOnClickFn).toHaveBeenCalled()
     })
@@ -183,38 +198,44 @@ describe("<TitleBlockZen />", () => {
         </TitleBlockZen>
       )
       const btn = getByTestId("title-block-mobile-actions-primary-button")
-      expect(btn.getAttribute("href")).toEqual("primaryActionHref")
+      expect(btn.getAttribute("href")).toEqual(
+        primaryActionAsLinkAndOnClick.href
+      )
       fireEvent.click(btn)
       expect(testOnClickFn).toHaveBeenCalled()
     })
   })
 
   describe("when the primary action is a menu", () => {
-    const primaryActionAsMenu = {
-      label: "primaryActionLabel",
-      menuItems: [
-        {
-          label: "Menu item 1",
-          action: "#",
-        },
-        {
-          label: "Menu item 1",
-          action: "#",
-        },
-      ],
-    }
-
-    it("renders the primary action menu button with label and menu items", () => {
+    let primaryActionAsMenu
+    beforeEach(() => {
+      primaryActionAsMenu = {
+        label: "primaryActionLabel",
+        menuItems: [
+          {
+            label: "Menu item 1",
+            action: "#",
+          },
+          {
+            label: "Menu item 1",
+            action: "#",
+          },
+        ],
+      }
+    })
+    it("renders the primary action menu button with label and menu items", async () => {
       const { getByTestId, getAllByTestId } = render(
         <TitleBlockZen title="Test Title" primaryAction={primaryActionAsMenu}>
           Example
         </TitleBlockZen>
       )
       const btn = getByTestId("title-block-primary-action-button")
-      expect(btn.textContent).toEqual("primaryActionLabel")
+      expect(btn.textContent).toEqual(primaryActionAsMenu.label)
       fireEvent.click(btn)
-      const menuItems = getAllByTestId(/^main-action-primary-menu-item-/)
-      expect(menuItems.length).toEqual(2)
+      await waitFor(() => {
+        const menuItems = getAllByTestId(/^main-action-primary-menu-item-/)
+        expect(menuItems.length).toEqual(2)
+      })
     })
 
     it("passes the primary menu items to the mobile actions drawer", () => {
@@ -231,11 +252,13 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the default action is a button with only an href", () => {
-    const defaultActionAsLink = {
-      label: "defaultActionLabel",
-      href: "defaultActionHref",
-    }
-
+    let defaultActionAsLink
+    beforeEach(() => {
+      defaultActionAsLink = {
+        label: "defaultActionLabel",
+        href: "#defaultActionHref",
+      }
+    })
     it("renders the default action button label and href", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsLink}>
@@ -243,8 +266,8 @@ describe("<TitleBlockZen />", () => {
         </TitleBlockZen>
       )
       const btn = getByTestId("title-block-default-action-button")
-      expect(btn.textContent).toEqual("defaultActionLabel")
-      expect(btn.getAttribute("href")).toEqual("defaultActionHref")
+      expect(btn.textContent).toEqual(defaultActionAsLink.label)
+      expect(btn.getAttribute("href")).toEqual(defaultActionAsLink.href)
     })
 
     it("creates a mobile actions default action menu item", () => {
@@ -255,8 +278,8 @@ describe("<TitleBlockZen />", () => {
       )
 
       const menuItem = getByTestId("title-block-mobile-actions-default-link")
-      expect(menuItem.getAttribute("href")).toEqual("defaultActionHref")
-      expect(menuItem.textContent).toEqual("defaultActionLabel")
+      expect(menuItem.getAttribute("href")).toEqual(defaultActionAsLink.href)
+      expect(menuItem.textContent).toEqual(defaultActionAsLink.label)
     })
 
     it("renders the mobile actions menu drawer handle even with no primary action", () => {
@@ -273,12 +296,15 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the default action is a button with only an onClick", () => {
-    const testOnClickFn = jest.fn()
-    const defaultActionAsButton = {
-      label: "defaultActionLabel",
-      onClick: testOnClickFn,
-    }
-
+    let testOnClickFn
+    let defaultActionAsButton
+    beforeEach(() => {
+      testOnClickFn = jest.fn()
+      defaultActionAsButton = {
+        label: "defaultActionLabel",
+        onClick: testOnClickFn,
+      }
+    })
     it("renders the default action button label and onClick", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
@@ -286,7 +312,7 @@ describe("<TitleBlockZen />", () => {
         </TitleBlockZen>
       )
       const btn = getByTestId("title-block-default-action-button")
-      expect(btn.textContent).toEqual("defaultActionLabel")
+      expect(btn.textContent).toEqual(defaultActionAsButton.label)
       fireEvent.click(btn)
       expect(testOnClickFn).toHaveBeenCalled()
     })
@@ -299,7 +325,7 @@ describe("<TitleBlockZen />", () => {
       )
 
       const menuItem = getByTestId("title-block-mobile-actions-default-action")
-      expect(menuItem.textContent).toEqual("defaultActionLabel")
+      expect(menuItem.textContent).toEqual(defaultActionAsButton.label)
       fireEvent.click(menuItem)
       expect(testOnClickFn).toHaveBeenCalled()
     })
@@ -318,14 +344,16 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when the default action is a button with both an href and an onClick", () => {
-    const testOnClickFn = jest.fn()
-
-    const defaultActionAsLinkAndOnClick = {
-      label: "defaultActionLabel",
-      href: "defaultActionHref",
-      onClick: testOnClickFn,
-    }
-
+    let testOnClickFn
+    let defaultActionAsLinkAndOnClick
+    beforeEach(() => {
+      testOnClickFn = jest.fn()
+      defaultActionAsLinkAndOnClick = {
+        label: "defaultActionLabel",
+        href: "#defaultActionHref",
+        onClick: testOnClickFn,
+      }
+    })
     it("renders the default action button label, href and onClick", () => {
       const { getByTestId } = render(
         <TitleBlockZen
@@ -336,13 +364,15 @@ describe("<TitleBlockZen />", () => {
         </TitleBlockZen>
       )
       const btn = getByTestId("title-block-default-action-button")
-      expect(btn.textContent).toEqual("defaultActionLabel")
-      expect(btn.getAttribute("href")).toEqual("defaultActionHref")
+      expect(btn.textContent).toEqual(defaultActionAsLinkAndOnClick.label)
+      expect(btn.getAttribute("href")).toEqual(
+        defaultActionAsLinkAndOnClick.href
+      )
       fireEvent.click(btn)
       expect(testOnClickFn).toHaveBeenCalled()
     })
 
-    it("creates a single mobile actions default link menu item with both href and onClick", () => {
+    it("creates a single mobile actions default link menu item with both href and onClick", async () => {
       const { getByTestId, queryByTestId } = render(
         <TitleBlockZen
           title="Test Title"
@@ -357,26 +387,34 @@ describe("<TitleBlockZen />", () => {
         "title-block-mobile-actions-default-action"
       )
       expect(defaultAction).toBeFalsy()
-      expect(menuItem.getAttribute("href")).toEqual("defaultActionHref")
-      expect(menuItem.textContent).toEqual("defaultActionLabel")
+      expect(menuItem.getAttribute("href")).toEqual(
+        defaultActionAsLinkAndOnClick.href
+      )
+      expect(menuItem.textContent).toEqual(defaultActionAsLinkAndOnClick.label)
       fireEvent.click(menuItem)
-      expect(testOnClickFn).toHaveBeenCalled()
+      await waitFor(() => {
+        expect(testOnClickFn).not.toHaveBeenCalled()
+      })
     })
   })
 
   describe("when the default action is disabled", () => {
-    const testOnClickFn = jest.fn()
-    const defaultActionAsButton = {
-      label: "defaultActionLabel",
-      onClick: testOnClickFn,
-      disabled: true,
-    }
-    const defaultActionAsLink = {
-      label: "defaultActionLabel",
-      href: "defaultActionHref",
-      disabled: true,
-    }
-
+    let testOnClickFn
+    let defaultActionAsButton
+    let defaultActionAsLink
+    beforeEach(() => {
+      testOnClickFn = jest.fn()
+      defaultActionAsButton = {
+        label: "defaultActionLabel",
+        onClick: testOnClickFn,
+        disabled: true,
+      }
+      defaultActionAsLink = {
+        label: "defaultActionLabel",
+        href: "#defaultActionHref",
+        disabled: true,
+      }
+    })
     it("renders a disabled default action button", () => {
       const { getByTestId } = render(
         <TitleBlockZen title="Test Title" defaultAction={defaultActionAsButton}>
@@ -386,7 +424,7 @@ describe("<TitleBlockZen />", () => {
       const btn = getByTestId(
         "title-block-default-action-button"
       ) as HTMLButtonElement
-      expect(btn.textContent).toEqual("defaultActionLabel")
+      expect(btn.textContent).toEqual(defaultActionAsButton.label)
       expect(btn.disabled).toBeTruthy()
       fireEvent.click(btn)
       expect(testOnClickFn).not.toHaveBeenCalled()
@@ -401,8 +439,8 @@ describe("<TitleBlockZen />", () => {
       const btn = getByTestId(
         "title-block-default-action-button"
       ) as HTMLButtonElement
-      expect(btn.textContent).toEqual("defaultActionLabel")
-      expect(btn.getAttribute("href")).not.toEqual("defaultActionHref")
+      expect(btn.textContent).toEqual(defaultActionAsLink.label)
+      expect(btn.getAttribute("href")).not.toEqual(defaultActionAsLink.href)
     })
 
     it("creates a mobile actions default action menu item with disabled styles and no onClick", () => {
@@ -415,7 +453,7 @@ describe("<TitleBlockZen />", () => {
       const btn = getByTestId(
         "title-block-mobile-actions-default-action"
       ) as HTMLButtonElement
-      expect(btn.textContent).toEqual("defaultActionLabel")
+      expect(btn.textContent).toEqual(defaultActionAsButton.label)
       fireEvent.click(btn)
       expect(testOnClickFn).not.toHaveBeenCalled()
     })
@@ -430,22 +468,27 @@ describe("<TitleBlockZen />", () => {
       const btn = getByTestId(
         "title-block-mobile-actions-default-link"
       ) as HTMLButtonElement
-      expect(btn.textContent).toEqual("defaultActionLabel")
-      expect(btn.getAttribute("href")).not.toEqual("defaultActionHref")
+      expect(btn.textContent).toEqual(defaultActionAsLink.label)
+      expect(btn.getAttribute("href")).not.toEqual(defaultActionAsLink.href)
     })
   })
 
   describe("when a secondary action is passed with both an href and an onClick", () => {
-    const testOnClickFn = jest.fn()
-
-    const secondaryActionWithLinkAndOnClick = {
-      label: "secondaryActionLabel",
-      href: "secondaryActionHref",
-      onClick: testOnClickFn,
-    }
-    jest.spyOn(global.console, "warn")
-
-    it("renders the secondary action with both the href and onClick", () => {
+    let testOnClickFn
+    let secondaryActionWithLinkAndOnClick
+    beforeEach(() => {
+      testOnClickFn = jest.fn()
+      secondaryActionWithLinkAndOnClick = {
+        label: "secondaryActionLabel",
+        href: "#secondaryActionHref",
+        onClick: testOnClickFn,
+      }
+    })
+    it("renders the secondary action with both the href and onClick", async () => {
+      const mockWarnFn = jest.fn()
+      const spy = jest
+        .spyOn(global.console, "warn")
+        .mockImplementation(mockWarnFn)
       const { getByTestId } = render(
         <TitleBlockZen
           title="Test Title"
@@ -456,15 +499,23 @@ describe("<TitleBlockZen />", () => {
       )
       const btn = getByTestId("title-block-secondary-actions-button")
       expect(btn).toBeTruthy()
-      // eslint-disable-next-line no-console
-      expect(console.warn).toBeCalled()
-      expect(btn.textContent).toEqual("secondaryActionLabel")
-      expect(btn.getAttribute("href")).toEqual("secondaryActionHref")
+      expect(mockWarnFn).toBeCalled()
+      expect(btn.textContent).toEqual(secondaryActionWithLinkAndOnClick.label)
+      expect(btn.getAttribute("href")).toEqual(
+        secondaryActionWithLinkAndOnClick.href
+      )
       fireEvent.click(btn)
-      expect(testOnClickFn).toHaveBeenCalled()
+      await waitFor(() => {
+        expect(testOnClickFn).toHaveBeenCalled()
+      })
+      spy.mockRestore()
     })
 
     it("renders the action as a single mobile actions drawer item with an onClick", () => {
+      const mockWarnFn = jest.fn()
+      const spy = jest
+        .spyOn(global.console, "warn")
+        .mockImplementation(mockWarnFn)
       const { getAllByTestId } = render(
         <TitleBlockZen
           title="Test Title"
@@ -475,18 +526,23 @@ describe("<TitleBlockZen />", () => {
       )
       const btn = getAllByTestId("title-block-mobile-actions-secondary-action")
       expect(btn.length).toEqual(1)
-      expect(btn[0].getAttribute("href")).not.toEqual("secondaryActionHref")
+      expect(btn[0].getAttribute("href")).not.toEqual(
+        secondaryActionWithLinkAndOnClick.href
+      )
       fireEvent.click(btn[0])
       expect(testOnClickFn).toHaveBeenCalled()
+      spy.mockRestore()
     })
   })
 
   describe("when a secondary action is passed with only an href", () => {
-    const secondaryActionWithLinkAndOnClick = {
-      label: "secondaryActionLabel",
-      href: "secondaryActionHref",
-    }
-
+    let secondaryActionWithLinkAndOnClick
+    beforeEach(() => {
+      secondaryActionWithLinkAndOnClick = {
+        label: "secondaryActionLabel",
+        href: "#secondaryActionHref",
+      }
+    })
     it("renders the action as a single mobile actions drawer item with the correct href", () => {
       const { getAllByTestId } = render(
         <TitleBlockZen
@@ -498,17 +554,21 @@ describe("<TitleBlockZen />", () => {
       )
       const btn = getAllByTestId("title-block-mobile-actions-secondary-action")
       expect(btn.length).toEqual(1)
-      expect(btn[0].getAttribute("href")).toEqual("secondaryActionHref")
+      expect(btn[0].getAttribute("href")).toEqual(
+        secondaryActionWithLinkAndOnClick.href
+      )
     })
   })
 
   describe("when a disabled secondary action is passed with only an href", () => {
-    const secondaryActionWithLink = {
-      label: "secondaryActionLabel",
-      href: "secondaryActionHref",
-      disabled: true,
-    }
-
+    let secondaryActionWithLink
+    beforeEach(() => {
+      secondaryActionWithLink = {
+        label: "secondaryActionLabel",
+        href: "#secondaryActionHref",
+        disabled: true,
+      }
+    })
     it("renders the action as a single disabled mobile actions drawer item with no href", () => {
       const { getAllByTestId } = render(
         <TitleBlockZen
@@ -520,19 +580,23 @@ describe("<TitleBlockZen />", () => {
       )
       const btn = getAllByTestId("title-block-mobile-actions-secondary-action")
       expect(btn.length).toEqual(1)
-      expect(btn[0].getAttribute("href")).not.toEqual("secondaryActionHref")
+      expect(btn[0].getAttribute("href")).not.toEqual(
+        secondaryActionWithLink.href
+      )
     })
   })
 
   describe("when a disabled secondary action is passed with only an onClick", () => {
-    const testOnClickFn = jest.fn()
-
-    const secondaryActionWithOnClick = {
-      label: "secondaryActionLabel",
-      onClick: "secondaryActionHref",
-      disabled: true,
-    }
-
+    let testOnClickFn
+    let secondaryActionWithOnClick
+    beforeEach(() => {
+      testOnClickFn = jest.fn()
+      secondaryActionWithOnClick = {
+        label: "secondaryActionLabel",
+        onClick: testOnClickFn,
+        disabled: true,
+      }
+    })
     it("renders the action as a single disabled mobile actions drawer item with no onClick", () => {
       const { getAllByTestId } = render(
         <TitleBlockZen
@@ -550,14 +614,16 @@ describe("<TitleBlockZen />", () => {
   })
 
   describe("when a disabled secondary overflow menu item is passed with only an onClick for the action", () => {
-    const testOnClickFn = jest.fn()
-
-    const secondaryOverflowMenuItemWithOnClick = {
-      label: "secondaryActionOverflowMenuItemLabel",
-      action: testOnClickFn,
-      disabled: true,
-    }
-
+    let testOnClickFn
+    let secondaryOverflowMenuItemWithOnClick
+    beforeEach(() => {
+      testOnClickFn = jest.fn()
+      secondaryOverflowMenuItemWithOnClick = {
+        label: "secondaryActionOverflowMenuItemLabel",
+        action: testOnClickFn,
+        disabled: true,
+      }
+    })
     it("renders the action as a single disabled mobile actions drawer item with no onClick", () => {
       const { getAllByTestId } = render(
         <TitleBlockZen
@@ -577,6 +643,50 @@ describe("<TitleBlockZen />", () => {
     })
   })
 
+  describe("survey status", () => {
+    it("it doesn't render tag when field is omitted", async () => {
+      render(<TitleBlockZen title="Test Title">Example</TitleBlockZen>)
+
+      await waitFor(() => {
+        expect(
+          screen.queryByTestId("survey-status-tag")
+        ).not.toBeInTheDocument()
+      })
+    })
+
+    it.each([
+      ["draft", "statusDraft"],
+      ["live", "statusLive"],
+      ["closed", "statusClosed"],
+      ["scheduled", "statusClosed"],
+    ])(
+      "it renders tag with correct text and variant when %s status",
+      async (status, expectedClassName) => {
+        render(
+          <TitleBlockZen
+            title="Test Title"
+            surveyStatus={{
+              text: `${status} text`,
+              status: `${status}` as
+                | "draft"
+                | "live"
+                | "scheduled"
+                | "closed"
+                | "default",
+            }}
+          >
+            Example
+          </TitleBlockZen>
+        )
+
+        const tagElement = (await screen.findByTestId("survey-status-tag"))
+          .firstChild
+
+        expect(tagElement).toHaveTextContent(`${status} text`)
+        expect(tagElement).toHaveClass(expectedClassName)
+      }
+    )
+  })
   describe("automation ID behaviour", () => {
     describe("when default automation IDs are not provided alongside required conditional renders", () => {
       it("renders the default automation IDs", () => {

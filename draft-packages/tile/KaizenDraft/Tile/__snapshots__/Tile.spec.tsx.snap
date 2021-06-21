@@ -120,7 +120,6 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
               >
                 <svg
                   aria-hidden="true"
-                  aria-labelledby="80284680-3304-5869-9788-7428e6c6ee86"
                   class="icon"
                   focusable="false"
                   role="presentation"
@@ -192,7 +191,6 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
               >
                 <svg
                   aria-hidden="true"
-                  aria-labelledby="80284680-3304-5869-9788-7428e6c6ee86"
                   class="icon"
                   focusable="false"
                   role="presentation"
@@ -366,25 +364,29 @@ exports[`<MultiActionTile /> snapshots renders MultiActionTile with secondary ac
         <div
           class="actions"
         >
-          <span
-            class="container"
+          <div
+            class="p-0 mr-0-point-5"
           >
-            <a
-              class="button secondary"
-              href="href2"
-              target="_self"
+            <span
+              class="container"
             >
-              <span
-                class="content"
+              <a
+                class="button secondary"
+                href="href2"
+                target="_self"
               >
                 <span
-                  class="label"
+                  class="content"
                 >
-                  Preview
+                  <span
+                    class="label"
+                  >
+                    Preview
+                  </span>
                 </span>
-              </span>
-            </a>
-          </span>
+              </a>
+            </span>
+          </div>
           <span
             class="container"
           >

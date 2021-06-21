@@ -1,73 +1,38 @@
 import stylelint from "stylelint"
-import {
-  importsNoExtraneousRule,
-  importsNoExtraneousRuleName,
-} from "./rules/imports-no-extraneous"
-import {
-  importsNoUnusedRule,
-  importsNoUnusedRuleName,
-} from "./rules/imports-no-unused"
-import {
-  noDeprecatedTokensRule,
-  noDeprecatedTokensRuleName,
-} from "./rules/no-deprecated-tokens"
-import {
-  noInvalidEquationsRule,
-  noInvalidEquationsRuleName,
-} from "./rules/no-invalid-equations"
-import {
-  noInvalidFunctionsRule,
-  noInvalidFunctionsRuleName,
-} from "./rules/no-invalid-functions"
-import {
-  noTransitiveTokensRule,
-  noTransitiveTokensRuleName,
-} from "./rules/no-transitive-tokens"
-import {
-  useDeprecatedComponentLibraryHelpersScssImportsRuleName,
-  useDeprecatedComponentLibraryHelpersScssImportsRule,
-} from "./rules/use-deprecated-component-library-helpers-scss-imports"
-import { StylelintPluginOptions, StyleLintRule } from "./types"
+import { Root } from "postcss"
+import { allUsedTokensMustBeImported } from "./rules/all-used-tokens-must-be-imported"
+import { allTokenImportsMustBeUsed } from "./rules/all-token-imports-must-be-used"
+import { preferVarTokens } from "./rules/prefer-var-tokens"
+import { noInvalidUseOfVarTokensInEquations } from "./rules/no-invalid-use-of-var-tokens-in-equations"
+import { noInvalidUseOfVarTokensInFunctions } from "./rules/no-invalid-use-of-var-tokens-in-functions"
+import { noTokensInVariables } from "./rules/no-tokens-in-variables"
+import { Options } from "./types"
+
+type StyleLintRuleFunction = (stylesheetNode: Root, options: Options) => void
+
+type StyleLintRule = {
+  name: string
+  ruleFunction: StyleLintRuleFunction
+}
+
+export type StylelintPluginOptions = {
+  /** Doesn't apply autofixes even when running with `--fix`, so that you can isolate a set of rules' fixes. */
+  disableFixing?: boolean
+}
 
 const rules: StyleLintRule[] = [
-  {
-    name: noTransitiveTokensRuleName,
-    ruleFunction: noTransitiveTokensRule,
-  },
-  {
-    name: importsNoExtraneousRuleName,
-    ruleFunction: importsNoExtraneousRule,
-  },
-  {
-    name: importsNoUnusedRuleName,
-    ruleFunction: importsNoUnusedRule,
-  },
-  {
-    name: noInvalidEquationsRuleName,
-    ruleFunction: noInvalidEquationsRule,
-  },
-  {
-    name: noInvalidFunctionsRuleName,
-    ruleFunction: noInvalidFunctionsRule,
-  },
-  {
-    name: noDeprecatedTokensRuleName,
-    ruleFunction: noDeprecatedTokensRule,
-  },
-  {
-    name: noDeprecatedTokensRuleName,
-    ruleFunction: noDeprecatedTokensRule,
-  },
-  {
-    name: useDeprecatedComponentLibraryHelpersScssImportsRuleName,
-    ruleFunction: useDeprecatedComponentLibraryHelpersScssImportsRule,
-  },
+  noTokensInVariables,
+  allUsedTokensMustBeImported,
+  allTokenImportsMustBeUsed,
+  noInvalidUseOfVarTokensInEquations,
+  noInvalidUseOfVarTokensInFunctions,
+  preferVarTokens,
 ]
 
 export default rules.map(rule =>
   stylelint.createPlugin(
     `kaizen/${rule.name}`,
-    (primary, secondary: StylelintPluginOptions | undefined, context) => (
+    (_, secondary: StylelintPluginOptions | undefined, context) => (
       root,
       result
     ) => {
@@ -76,7 +41,7 @@ export default rules.map(rule =>
           ? "less"
           : "scss"
         rule.ruleFunction(root, {
-          fix: Boolean(secondary?.allowFixing && context?.fix),
+          fix: Boolean(!secondary?.disableFixing && context?.fix),
           language,
           reporter: ({ message, node, autofixAvailable }) =>
             stylelint.utils.report({

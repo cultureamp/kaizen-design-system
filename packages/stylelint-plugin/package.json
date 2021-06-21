@@ -1,34 +1,13 @@
 {
   "name": "@kaizen/stylelint-plugin",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "types": "dist/**/*.d.ts",
   "main": "dist/src/index.js",
   "license": "MIT",
   "files": [
-    "src",
     "dist",
     "types"
   ],
-  "bin": {
-    "kaizen-token-codemod": "./dist/src/cli.js"
-  },
-  "dependencies": {
-    "@kaizen/design-tokens": "^2.8.1",
-    "@types/node": "^14.14.37",
-    "@types/postcss-less": "^4.0.0",
-    "@types/sass": "^1.16.0",
-    "@types/stylelint": "^9.10.1",
-    "glob": "^7.1.6",
-    "lodash.flatmap": "^4.5.0",
-    "nano-memoize": "^1.2.1",
-    "postcss": "^8.2.10",
-    "postcss-less": "^4.0.1",
-    "postcss-scss": "^3.0.5",
-    "postcss-value-parser": "^4.1.0",
-    "stylelint": ">=13.10.0",
-    "sass": "^1.32.11",
-    "yargs": "^16.2.0"
-  },
   "scripts": {
     "cli": "yarn build && node ./dist/src/cli.js",
     "test": "cd ../../ && yarn jest ./packages/stylelint-plugin",
@@ -36,7 +15,24 @@
     "clean": "rm -rf dist",
     "prepare": "yarn clean && yarn test && yarn build"
   },
+  "dependencies": {
+    "lodash.flatmap": "^4.5.0",
+    "lodash.kebabcase": "^4.1.1",
+    "nano-memoize": "^1.2.1",
+    "postcss": "^8.2.15",
+    "postcss-less": "^4.0.1",
+    "postcss-scss": "^3.0.5",
+    "postcss-value-parser": "^4.1.0",
+    "stylelint": "^13.10.0"
+  },
+  "peerDependencies": {
+    "@kaizen/design-tokens": "^2.8.1"
+  },
   "devDependencies": {
+    "@types/lodash.kebabcase": "^4.1.6",
+    "@types/node": "^14.14.37",
+    "@types/postcss-less": "^4.0.0",
+    "@types/stylelint": "^9.10.1",
     "ts-node": "^9.1.1"
   }
 }

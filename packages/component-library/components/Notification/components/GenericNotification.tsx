@@ -45,6 +45,9 @@ class GenericNotification extends React.Component<Props, State> {
     hidden: true,
     removed: false,
   }
+
+  autoHideTimeoutId: null | ReturnType<typeof setTimeout> = null
+
   containerRef = React.createRef<HTMLDivElement>()
 
   constructor(props: Props) {
@@ -55,10 +58,21 @@ class GenericNotification extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    requestAnimationFrame(() => this.setState({ hidden: false }))
+    requestAnimationFrame(() => {
+      if (this.containerRef.current) {
+        this.setState({ hidden: false })
+      }
+    })
 
     if (["toast", "inline"].includes(this.props.style) && this.props.autohide) {
-      setTimeout(this.hide, this.autohideDelayMs())
+      this.autoHideTimeoutId = setTimeout(this.hide, this.autohideDelayMs())
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.autoHideTimeoutId) {
+      clearTimeout(this.autoHideTimeoutId)
+      this.autoHideTimeoutId = null
     }
   }
 
