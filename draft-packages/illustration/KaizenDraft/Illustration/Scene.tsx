@@ -23,6 +23,100 @@ type NotAnimatedProps = { isAnimated: false } & SubsetBecomesNever<
   SceneProps
 type AnimatedSceneProps = AnimatedProps | NotAnimatedProps
 
+export const BrandMomentCaptureIntro = ({
+  isAnimated,
+  alt,
+  ...otherProps
+}: AnimatedSceneProps) => {
+  if (isAnimated) {
+    return (
+      <VideoPlayer
+        {...otherProps}
+        fallback="illustrations/heart/scene/brand-moments-capture-intro.png"
+        ambientAnimation="illustrations/heart/scene/brand-moments-capture-intro-loop.webm"
+        initialAnimation="illustrations/heart/scene/brand-moments-capture-intro.webm"
+      />
+    )
+  }
+  return (
+    <Base
+      alt={alt || ""}
+      {...otherProps}
+      name="illustrations/heart/scene/brand-moments-capture-intro.png"
+    />
+  )
+}
+
+export const BrandMomentPositiveOutro = ({
+  isAnimated,
+  alt,
+  ...otherProps
+}: AnimatedSceneProps) => {
+  if (isAnimated) {
+    return (
+      <VideoPlayer
+        {...otherProps}
+        fallback="illustrations/heart/scene/brand-moments-positive-outro.png"
+        ambientAnimation="illustrations/heart/scene/brand-moments-positive-outro.webm"
+      />
+    )
+  }
+  return (
+    <Base
+      alt={alt || ""}
+      {...otherProps}
+      name="illustrations/heart/scene/brand-moments-positive-outro.png"
+    />
+  )
+}
+
+export const BrandMomentLogin = ({
+  isAnimated,
+  alt,
+  ...otherProps
+}: AnimatedSceneProps) => {
+  if (isAnimated) {
+    return (
+      <VideoPlayer
+        {...otherProps}
+        fallback="illustrations/heart/scene/brand-moments-login.png"
+        ambientAnimation="illustrations/heart/scene/brand-moments-login.webm"
+      />
+    )
+  }
+  return (
+    <Base
+      alt={alt || ""}
+      {...otherProps}
+      name="illustrations/heart/scene/brand-moments-login.png"
+    />
+  )
+}
+
+export const BrandMomentError = ({
+  isAnimated,
+  alt,
+  ...otherProps
+}: AnimatedSceneProps) => {
+  const { themeKey } = useTheme()
+  if (isAnimated) {
+    return (
+      <VideoPlayer
+        {...otherProps}
+        fallback="illustrations/heart/scene/brand-moments-error-page.png"
+        ambientAnimation="illustrations/heart/scene/brand-moments-error.webm"
+      />
+    )
+  }
+  return (
+    <Base
+      alt={alt || ""}
+      {...otherProps}
+      name="illustrations/heart/scene/brand-moments-error-page.png"
+    />
+  )
+}
+
 export const EmptyStatesAction = ({
   isAnimated,
   alt,
@@ -50,6 +144,7 @@ export const EmptyStatesAction = ({
     />
   )
 }
+
 export const EmptyStatesInformative = ({
   isAnimated,
   alt,
