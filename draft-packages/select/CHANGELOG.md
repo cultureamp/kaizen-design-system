@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.16.2...@kaizen/draft-select@1.16.3) (2021-06-18)
+
+
+### Bug Fixes
+
+* update Elm select clear button color for Heart ([#1707](https://github.com/cultureamp/kaizen-design-system/issues/1707)) ([2d81d12](https://github.com/cultureamp/kaizen-design-system/commit/2d81d121c247cf6b0f512cf41bf1f2a893c51849))
+
+
+
+
+
+## [1.16.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.16.1...@kaizen/draft-select@1.16.2) (2021-06-11)
+
+
+### Bug Fixes
+
+* change elm select "faded" placeholder from wisteria-300 to 800 ([#1695](https://github.com/cultureamp/kaizen-design-system/issues/1695)) ([0bcf7d8](https://github.com/cultureamp/kaizen-design-system/commit/0bcf7d889e863d55c42edf92c0e4a23b561da7d4))
+
+
+
+
+
+## [1.16.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.16.0...@kaizen/draft-select@1.16.1) (2021-06-11)
+
+**Note:** Version bump only for package @kaizen/draft-select
+
+
+
+
+
 # [1.16.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.15.19...@kaizen/draft-select@1.16.0) (2021-06-07)
 
 

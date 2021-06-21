@@ -7,11 +7,11 @@ import {
   waitForElementToBeRemoved,
 } from "@testing-library/react"
 import * as React from "react"
-import { AnimatedBase } from "./Players/LottiePlayer"
-import * as utils from "./utils"
-import { LottieAnimation } from "./types"
+import * as utils from "../utils"
+import { LottieAnimation } from "../types"
+import { AnimatedBase } from "./LottiePlayer"
 
-jest.mock("./utils.ts")
+jest.mock("../utils.ts")
 const mockedGetAnimationData = utils as jest.Mocked<typeof utils>
 
 afterEach(cleanup)

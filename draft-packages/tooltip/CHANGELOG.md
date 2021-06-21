@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.8.3...@kaizen/draft-tooltip@2.8.4) (2021-06-17)
+
+
+### Bug Fixes
+
+* elm tooltip heart uplift quick fix ([#1705](https://github.com/cultureamp/kaizen-design-system/issues/1705)) ([2f07ff6](https://github.com/cultureamp/kaizen-design-system/commit/2f07ff677645cc112db5bac6ec5408488eeaf45b))
+
+
+
+
+
+## [2.8.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.8.2...@kaizen/draft-tooltip@2.8.3) (2021-06-11)
+
+**Note:** Version bump only for package @kaizen/draft-tooltip
+
+
+
+
+
 ## [2.8.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tooltip@2.8.1...@kaizen/draft-tooltip@2.8.2) (2021-06-02)
 
 **Note:** Version bump only for package @kaizen/draft-tooltip

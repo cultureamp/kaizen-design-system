@@ -20,7 +20,7 @@
   padding: $ca-grid / 2 $ca-grid / 2;
   z-index: 2;
   border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
-    $kz-var-color-wisteria-200;
+    $kz-var-color-ash;
   box-shadow: $kz-var-shadow-small-box-shadow;
   text-align: center;
 }
@@ -121,7 +121,7 @@
 }
 
 .root::before {
-  border-top: 10px solid $kz-var-color-wisteria-200;
+  border-top: 10px solid $kz-var-color-ash;
 }
 
 .root::after {
@@ -131,7 +131,7 @@
 }
 
 .shadow::before {
-  border-top: 0px solid $kz-var-color-wisteria-200;
+  border-top: 0px solid $kz-var-color-ash;
 }
 
 // Triangle portion is a little darker to bring out shadow
