@@ -4,8 +4,9 @@
 name: "chromatic"
 
 on:
-  issue_comment:
-    types: [created]
+  push
+  # issue_comment:
+  #   types: [created]
 
 # List of jobs
 jobs:
