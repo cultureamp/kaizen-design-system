@@ -27,7 +27,7 @@ model =
     { selectState = Select.initState |> Select.usePorts True
     , selectedMembers = []
     , selectedMember = Nothing
-    , members = [ "Mindy", "Jaime", "Rafa", "Elaine", "Julio", "Priyanka", "Prince", "Charith", "Nick", "AVeryLongNameWithoutAnySpacesAtall", "A very long long name with spaces inside it" ]
+    , members = [ "Mindy", "Jaime", "Rafa", "Elaine", "Julio", "Priyanka", "Prince", "Charith", "Nick", "AVeryLongNameWithoutAnySpacesAtall", "A very very very very very very very very very very long name with spaces inside it" ]
     }
 
 
@@ -154,5 +154,29 @@ main =
                                 |> Select.menuItems (List.map buildMenuItem m.members)
                             )
                             (Select.selectIdentifier "single-no-placeholder")
+                        ]
+        , storyOf
+            "Single Clearable, controlHasUnconstrainedHeight"
+            (let
+                thisInitialModel =
+                    { model | selectedMember = Just "A very very very very very very very very very very long name with spaces inside it" }
+             in
+             { update = update
+             , init = ( thisInitialModel, Cmd.none )
+             , subscriptions = \_ -> Sub.none
+             }
+            )
+          <|
+            \m ->
+                Html.map SelectMsg <|
+                    div [ style "width" "300px", style "margin-top" "12px" ]
+                        [ Select.view
+                            (Select.single (buildSelected m)
+                                |> Select.state m.selectState
+                                |> Select.menuItems (List.map buildMenuItem m.members)
+                                |> Select.clearable True
+                                |> Select.controlHasUnconstrainedHeight True
+                            )
+                            (Select.selectIdentifier "single-control-has-unconstrained-height")
                         ]
         ]

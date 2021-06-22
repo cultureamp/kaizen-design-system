@@ -15,6 +15,7 @@ loadElmStories(
     "Single Clearable",
     "Single Disabled",
     "Single, no placeholder (test case)",
+    "Single Clearable, controlHasUnconstrainedHeight",
   ],
   Ports
 )
