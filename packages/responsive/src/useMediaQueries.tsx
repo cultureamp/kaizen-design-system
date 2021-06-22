@@ -3,11 +3,13 @@ import { useMediaQuery } from "react-responsive"
 import { useTheme } from "@kaizen/design-tokens"
 import styles from "./useMediaQueries.scss"
 
-export const useMediaQueries = () => {
+type Props = { [key: string]: string }
+
+export const useMediaQueries = (propQueries: Props) => {
   const theme = useTheme()
 
   // TODO: max-width usage needs to be -1px
-  const queries = {
+  const kaizenQueries = {
     isSmall: useMediaQuery({
       query: `(max-width: ${theme.layout.breakpoints.medium})`,
     }),
@@ -25,7 +27,14 @@ export const useMediaQueries = () => {
     }),
   }
 
-  const components = {
+  const customQueries = {}
+  Object.keys(propQueries).map(key => {
+    customQueries[key] = useMediaQuery({
+      query: propQueries[key],
+    })
+  })
+
+  const kaizenComponents = {
     SmallOnly: (props: any) => (
       <div className={styles.smallOnly}>{props.children}</div>
     ),
@@ -42,6 +51,17 @@ export const useMediaQueries = () => {
       <div className={styles.mediumDown}>{props.children}</div>
     ),
   }
+
+  const customComponents = {}
+  Object.keys(propQueries).map(key => {
+    const componentName = key.charAt(0).toUpperCase() + key.slice(1)
+    customComponents[componentName] = (props: any) => (
+      <>{customQueries[key] && props.children}</>
+    )
+  })
+
+  const queries = { ...kaizenQueries, ...customQueries }
+  const components = { ...kaizenComponents, ...customComponents }
 
   return { queries, components }
 }
