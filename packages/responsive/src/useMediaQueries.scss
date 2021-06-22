@@ -1,0 +1,33 @@
+@import "~@kaizen/design-tokens/sass/layout";
+
+@media (max-width: $kz-layout-breakpoints-medium - 1) {
+  .mediumOnly {
+    display: none;
+  }
+
+  .mediumUp {
+    display: none;
+  }
+}
+
+@media (max-width: $kz-layout-breakpoints-large - 1) {
+  .largeOnly {
+    display: none;
+  }
+}
+
+@media (min-width: $kz-layout-breakpoints-medium) {
+  .smallOnly {
+    display: none;
+  }
+}
+
+@media (min-width: $kz-layout-breakpoints-large) {
+  .mediumOnly {
+    display: none;
+  }
+
+  .mediumDown {
+    display: none;
+  }
+}
