@@ -10,7 +10,7 @@ module KaizenDraft.Select.SelectInput exposing
     , onFocusMsg
     , onInput
     , onMousedown
-    , preventKeydownOn
+    , onWithStopPropagationAndPreventDefault
     , sizerId
     , view
     )
@@ -39,7 +39,7 @@ type alias Configuration msg =
     , currentValue : Maybe String
     , disabled : Bool
     , minWidth : Int
-    , preventKeydownOn : List (Decode.Decoder msg)
+    , onWithStopPropagationAndPreventDefault : List (Decode.Decoder msg)
     , inputSizing : InputSizing
     }
 
@@ -57,7 +57,7 @@ defaults =
     , currentValue = Nothing
     , disabled = False
     , minWidth = defaultWidth
-    , preventKeydownOn = []
+    , onWithStopPropagationAndPreventDefault = []
     , inputSizing = Dynamic
     }
 
@@ -95,9 +95,9 @@ inputSizing width (Config config) =
     Config { config | inputSizing = width }
 
 
-preventKeydownOn : List (Decode.Decoder msg) -> Config msg -> Config msg
-preventKeydownOn decoders (Config config) =
-    Config { config | preventKeydownOn = decoders }
+onWithStopPropagationAndPreventDefault : List (Decode.Decoder msg) -> Config msg -> Config msg
+onWithStopPropagationAndPreventDefault decoders (Config config) =
+    Config { config | onWithStopPropagationAndPreventDefault = decoders }
 
 
 onInput : (String -> msg) -> Config msg -> Config msg
@@ -178,10 +178,10 @@ view (Config config) id_ =
                     ++ [ preventOn ]
 
         preventOn =
-            preventDefaultOn "keydown" <|
-                Decode.map
-                    (\m -> ( m, True ))
-                    (Decode.oneOf config.preventKeydownOn)
+            Html.Events.custom "keydown"
+                (Decode.oneOf config.onWithStopPropagationAndPreventDefault
+                    |> Decode.map (\m -> { message = m, stopPropagation = True, preventDefault = True })
+                )
 
         inputStyles =
             [ style "box-sizing" "content-box"
