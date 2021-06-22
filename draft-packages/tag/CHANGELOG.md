@@ -3,6 +3,81 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.9.0...@kaizen/draft-tag@1.9.1) (2021-06-11)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+# [1.9.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.21...@kaizen/draft-tag@1.9.0) (2021-06-07)
+
+
+### Features
+
+* elm tag allow text wrapping option + dismiss button size fix ([#1671](https://github.com/cultureamp/kaizen-design-system/issues/1671)) ([9d42e38](https://github.com/cultureamp/kaizen-design-system/commit/9d42e3887bff7f4417fc56d1d9bba845877b89ec))
+
+
+
+
+
+## [1.8.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.20...@kaizen/draft-tag@1.8.21) (2021-06-02)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.8.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.19...@kaizen/draft-tag@1.8.20) (2021-05-25)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.8.19](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.18...@kaizen/draft-tag@1.8.19) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.8.18](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.17...@kaizen/draft-tag@1.8.18) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.8.17](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.16...@kaizen/draft-tag@1.8.17) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.8.16](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.15...@kaizen/draft-tag@1.8.16) (2021-05-16)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
+## [1.8.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.14...@kaizen/draft-tag@1.8.15) (2021-05-13)
+
+**Note:** Version bump only for package @kaizen/draft-tag
+
+
+
+
+
 ## [1.8.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tag@1.8.13...@kaizen/draft-tag@1.8.14) (2021-05-05)
 
 **Note:** Version bump only for package @kaizen/draft-tag

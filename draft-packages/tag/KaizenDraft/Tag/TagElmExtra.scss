@@ -1,0 +1,13 @@
+@import "./Tag.scss";
+
+.mediumAllowingTextWrapping {
+  min-height: $medium;
+  padding-top: 4px; // padding required because vertical centering doesn't work with min-height
+  padding-bottom: 4px;
+}
+
+.smallAllowingTextWrapping {
+  min-height: $small;
+  padding-top: 1px; // padding required because vertical centering doesn't work with min-height
+  padding-bottom: 1px;
+}

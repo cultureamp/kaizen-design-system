@@ -3,6 +3,130 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.2.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.2.10...@kaizen/draft-tile@4.2.11) (2021-06-11)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [4.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.2.9...@kaizen/draft-tile@4.2.10) (2021-06-02)
+
+
+### Bug Fixes
+
+* Only add aria-labelledby when Icon is meaningful img ([#1665](https://github.com/cultureamp/kaizen-design-system/issues/1665)) ([ff67544](https://github.com/cultureamp/kaizen-design-system/commit/ff675447bcaf53e8e11c708d59349a31b90f8658))
+
+
+
+
+
+## [4.2.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.2.8...@kaizen/draft-tile@4.2.9) (2021-05-26)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [4.2.8](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.2.7...@kaizen/draft-tile@4.2.8) (2021-05-25)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [4.2.7](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.2.6...@kaizen/draft-tile@4.2.7) (2021-05-25)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [4.2.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.2.5...@kaizen/draft-tile@4.2.6) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [4.2.5](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.2.4...@kaizen/draft-tile@4.2.5) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [4.2.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.2.3...@kaizen/draft-tile@4.2.4) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [4.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.2.2...@kaizen/draft-tile@4.2.3) (2021-05-17)
+
+
+### Bug Fixes
+
+* Add space between actions on MultiActionTile ([#1597](https://github.com/cultureamp/kaizen-design-system/issues/1597)) ([e3a01cf](https://github.com/cultureamp/kaizen-design-system/commit/e3a01cfbb5342972e06b0d213a29a843c248ee01))
+
+
+
+
+
+## [4.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.2.1...@kaizen/draft-tile@4.2.2) (2021-05-16)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+## [4.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.2.0...@kaizen/draft-tile@4.2.1) (2021-05-14)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
+# [4.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.1.3...@kaizen/draft-tile@4.2.0) (2021-05-14)
+
+
+### Features
+
+* Allow actions to open in new tabs ([#1580](https://github.com/cultureamp/kaizen-design-system/issues/1580)) ([605e151](https://github.com/cultureamp/kaizen-design-system/commit/605e1511e4829cd50888dc152c84e9dea00e9683))
+
+
+
+
+
+## [4.1.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.1.2...@kaizen/draft-tile@4.1.3) (2021-05-14)
+
+
+### Bug Fixes
+
+* Ensure tiles don't expand to fill width when they’re short of a row ([#1577](https://github.com/cultureamp/kaizen-design-system/issues/1577)) ([28035a9](https://github.com/cultureamp/kaizen-design-system/commit/28035a98e600cfd23e420ecb6feba165a8788d3e))
+
+
+
+
+
+## [4.1.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.1.1...@kaizen/draft-tile@4.1.2) (2021-05-13)
+
+**Note:** Version bump only for package @kaizen/draft-tile
+
+
+
+
+
 ## [4.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.1.0...@kaizen/draft-tile@4.1.1) (2021-05-11)
 
 **Note:** Version bump only for package @kaizen/draft-tile

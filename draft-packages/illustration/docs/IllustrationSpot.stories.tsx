@@ -28,12 +28,15 @@ import {
   Gdpr,
   GeneralOnboardSurvey,
   InclusionSurvey,
+  Individual180,
   Individual360,
   Informative,
   InternSurvey,
   LeaderReportSharing,
+  Leadership180,
   Leadership360,
   LeadingThroughCrisis,
+  Manager180,
   Manager360,
   ManagerLearning,
   ManagerReportSharing,
@@ -237,6 +240,18 @@ export const AllSpotIllustrations = () => {
     {
       Component: Manager360,
       name: "Manager 360",
+    },
+    {
+      Component: Individual180,
+      name: "Individual 180",
+    },
+    {
+      Component: Leadership180,
+      name: "Leadership 180",
+    },
+    {
+      Component: Manager180,
+      name: "Manager 180",
     },
     {
       Component: TeamEffectiveness1,
@@ -548,3 +563,14 @@ export const AllSpotIllustrations = () => {
     </>
   )
 }
+
+export const AnimatedSpot = () => (
+  <div style={{ width: "156px" }}>
+    <Cautionary alt="Add useful alt text for screen readers" isAnimated loop />
+    <Informative alt="Add useful alt text for screen readers" isAnimated loop />
+    <Negative alt="Add useful alt text for screen readers" isAnimated loop />
+    <Positive alt="Add useful alt text for screen readers" isAnimated loop />
+    <Assertive alt="Add useful alt text for screen readers" isAnimated loop />
+  </div>
+)
+AnimatedSpot.storyName = "Spot, animated"

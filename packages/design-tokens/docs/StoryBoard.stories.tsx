@@ -39,7 +39,7 @@ import * as LoadingSpinnerStories from "@kaizen/draft-loading-spinner/docs/Loadi
 import * as MenuStories from "@kaizen/draft-menu/docs/Menu.stories"
 import * as ModalStories from "@kaizen/draft-modal/docs/Modal.stories"
 import * as PageLayoutStories from "@kaizen/draft-page-layout/docs/PageLayout.stories"
-import * as RadioGroupStories from "@kaizen/draft-page-layout/docs/RadioGroup.stories"
+import * as RadioGroupStories from "@kaizen/draft-form/docs/RadioGroup.stories"
 import * as PopoverStories from "@kaizen/draft-popover/docs/Popover.stories"
 import * as SearchBoxStories from "@kaizen/draft-search-box/docs/SearchBox.stories"
 import * as SelectStories from "@kaizen/draft-select/docs/Select.stories"

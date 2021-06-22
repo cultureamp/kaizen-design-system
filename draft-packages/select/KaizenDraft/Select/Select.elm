@@ -192,7 +192,9 @@ type alias Configuration item =
 
 
 type alias MultiSelectTagConfig =
-    { truncationWidth : Maybe Float }
+    { truncationWidth : Maybe Float
+    , allowTextWrapping : Bool
+    }
 
 
 type SelectType
@@ -1077,7 +1079,7 @@ viewDummyInput viewDummyInputData =
 
 
 viewMultiValue : MultiSelectTagConfig -> InitialMousedown -> Int -> MenuItem item -> Html (Msg item)
-viewMultiValue { truncationWidth } mousedownedItem index menuItem =
+viewMultiValue { truncationWidth, allowTextWrapping } mousedownedItem index menuItem =
     let
         isMousedowned =
             case mousedownedItem of
@@ -1102,6 +1104,13 @@ viewMultiValue { truncationWidth } mousedownedItem index menuItem =
                 Nothing ->
                     tagConfig
 
+        resolveAllowTextWrapping tagConfig =
+            if allowTextWrapping then
+                Tag.allowTextWrapping True tagConfig
+
+            else
+                tagConfig
+
         resolveVariant =
             case menuItem.menuItemType of
                 Default ->
@@ -1125,6 +1134,7 @@ viewMultiValue { truncationWidth } mousedownedItem index menuItem =
                             |> Tag.onMousedown (MultiItemFocus index)
                             |> Tag.inline True
                             |> resolveTruncationWidth
+                            |> resolveAllowTextWrapping
                             |> resolveMouseleave
                         )
                         mi.label

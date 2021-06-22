@@ -57,7 +57,11 @@ export const FilterSplitButton = ({
   }
 
   return (
-    <div className={classnames({ [styles.buttonActive]: isDropdownVisible })}>
+    <div
+      className={classnames(styles.button, {
+        [styles.buttonActive]: isDropdownVisible,
+      })}
+    >
       <Button
         secondary={true}
         label={labelText}

@@ -3,6 +3,116 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.2.3...@kaizen/draft-empty-state@2.3.0) (2021-06-11)
+
+
+### Features
+
+* add Heart theme option to Elm Modal and EmptyState (for Heart illustrations) ([#1581](https://github.com/cultureamp/kaizen-design-system/issues/1581)) ([415d1ae](https://github.com/cultureamp/kaizen-design-system/commit/415d1ae7c980fd91fbb29b4c0b86e2486ca43757))
+
+
+
+
+
+## [2.2.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.2.2...@kaizen/draft-empty-state@2.2.3) (2021-06-09)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [2.2.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.2.1...@kaizen/draft-empty-state@2.2.2) (2021-06-02)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [2.2.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.2.0...@kaizen/draft-empty-state@2.2.1) (2021-05-25)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.1.28...@kaizen/draft-empty-state@2.2.0) (2021-05-25)
+
+
+### Features
+
+* Update all usages and references of deprecated Button ([#1633](https://github.com/cultureamp/kaizen-design-system/issues/1633)) ([11efeb8](https://github.com/cultureamp/kaizen-design-system/commit/11efeb88cc16c95aeb692fd025e1b801a07b0a1d))
+
+
+
+
+
+## [2.1.28](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.1.27...@kaizen/draft-empty-state@2.1.28) (2021-05-19)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [2.1.27](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.1.26...@kaizen/draft-empty-state@2.1.27) (2021-05-18)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [2.1.26](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.1.25...@kaizen/draft-empty-state@2.1.26) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [2.1.25](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.1.24...@kaizen/draft-empty-state@2.1.25) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [2.1.24](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.1.23...@kaizen/draft-empty-state@2.1.24) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [2.1.23](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.1.22...@kaizen/draft-empty-state@2.1.23) (2021-05-17)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [2.1.22](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.1.21...@kaizen/draft-empty-state@2.1.22) (2021-05-16)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
+## [2.1.21](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.1.20...@kaizen/draft-empty-state@2.1.21) (2021-05-13)
+
+**Note:** Version bump only for package @kaizen/draft-empty-state
+
+
+
+
+
 ## [2.1.20](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-empty-state@2.1.19...@kaizen/draft-empty-state@2.1.20) (2021-05-10)
 
 

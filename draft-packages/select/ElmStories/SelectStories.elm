@@ -107,7 +107,7 @@ main =
                 Html.map SelectMsg <|
                     div [ style "width" "500px", style "margin-top" "12px" ]
                         [ Select.view
-                            (Select.multi { truncationWidth = Just 300 } (List.map buildMenuItem m.selectedMembers)
+                            (Select.multi { truncationWidth = Just 300, allowTextWrapping = False } (List.map buildMenuItem m.selectedMembers)
                                 |> Select.state m.selectState
                                 |> Select.menuItems (List.map buildMenuItem m.members)
                                 |> Select.searchable True
@@ -143,5 +143,16 @@ main =
                                 |> Select.disabled True
                             )
                             (Select.selectIdentifier "Single Clearable Select")
+                        ]
+        , storyOf "Single, no placeholder (test case)" config <|
+            \m ->
+                Html.map SelectMsg <|
+                    div [ style "width" "300px", style "margin-top" "12px" ]
+                        [ Select.view
+                            (Select.single (buildSelected m)
+                                |> Select.state m.selectState
+                                |> Select.menuItems (List.map buildMenuItem m.members)
+                            )
+                            (Select.selectIdentifier "single-no-placeholder")
                         ]
         ]
