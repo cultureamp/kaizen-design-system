@@ -19,11 +19,21 @@ export const Components = () => {
 
   return (
     <>
-      <SmallOnly>Small only</SmallOnly>
-      <MediumOnly>Medium only</MediumOnly>
-      <LargeOnly>Large only</LargeOnly>
-      <MediumDown>Medium down</MediumDown>
-      <MediumUp>Medium up</MediumUp>
+      <SmallOnly>
+        <div>Small only</div>
+      </SmallOnly>
+      <MediumOnly>
+        <div>Medium only</div>
+      </MediumOnly>
+      <LargeOnly>
+        <div>Large only</div>
+      </LargeOnly>
+      <MediumDown>
+        <div>Medium down</div>
+      </MediumDown>
+      <MediumUp>
+        <div>Medium up</div>
+      </MediumUp>
     </>
   )
 }

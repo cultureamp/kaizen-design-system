@@ -1,7 +1,6 @@
 import React from "react"
 import { useMediaQuery } from "react-responsive"
 import { useTheme } from "@kaizen/design-tokens"
-import styles from "./useMediaQueries.scss"
 
 type Props = { [key: string]: string }
 
@@ -35,20 +34,12 @@ export const useMediaQueries = (propQueries: Props) => {
   })
 
   const kaizenComponents = {
-    SmallOnly: (props: any) => (
-      <div className={styles.smallOnly}>{props.children}</div>
-    ),
-    MediumOnly: (props: any) => (
-      <div className={styles.mediumOnly}>{props.children}</div>
-    ),
-    LargeOnly: (props: any) => (
-      <div className={styles.largeOnly}>{props.children}</div>
-    ),
-    MediumUp: (props: any) => (
-      <div className={styles.mediumUp}>{props.children}</div>
-    ),
+    SmallOnly: (props: any) => <>{kaizenQueries.isSmall && props.children}</>,
+    MediumOnly: (props: any) => <>{kaizenQueries.isMedium && props.children}</>,
+    LargeOnly: (props: any) => <>{kaizenQueries.isLarge && props.children}</>,
+    MediumUp: (props: any) => <>{kaizenQueries.isMediumUp && props.children}</>,
     MediumDown: (props: any) => (
-      <div className={styles.mediumDown}>{props.children}</div>
+      <>{kaizenQueries.isMediumDown && props.children}</>
     ),
   }
 
