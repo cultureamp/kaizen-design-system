@@ -1,8 +1,7 @@
 import React from "react"
 import {
-  EmptyStatesAction,
   EmptyStatesNegative,
-  EmptyStatesNeutral,
+  EmptyStatesInformative,
   EmptyStatesPositive,
 } from "@kaizen/draft-illustration"
 import arrowRightIcon from "@kaizen/component-library/icons/arrow-right.icon.svg"
@@ -30,10 +29,10 @@ export default {
   decorators: [story => <div style={{ margin: "-1rem" }}>{story()}</div>],
 }
 
-export const DemoIntro = () => (
+export const InformativeIntro = () => (
   <BrandMoment
     mood="informative"
-    illustration={<EmptyStatesAction alt="" />}
+    illustration={<EmptyStatesInformative alt="" />}
     header={<MinimalBasic />}
     text={{
       subtitle: "Welcome to Culture Amp",
@@ -47,20 +46,52 @@ export const DemoIntro = () => (
     }}
   />
 )
-DemoIntro.storyName = "Demo Intro"
+InformativeIntro.storyName = "Informative intro"
 
-export const CaptureIntro = () => (
+export const PositiveOutro = () => (
+  <BrandMoment
+    mood="positive"
+    illustration={<EmptyStatesPositive alt="" />}
+    header={<MinimalBasic />}
+    text={{
+      title: "Import in progress",
+      body: (
+        <>
+          That’s it for now. Your data is importing but you don’t need to hang
+          out here while it happens. Get on with your day and we’ll let you know
+          on the <a href="#">Users page</a> when it’s complete.
+        </>
+      ),
+    }}
+    primaryAction={{
+      label: "Go to Users",
+      href: "#",
+      icon: arrowRightIcon,
+      iconPosition: "end",
+    }}
+  />
+)
+PositiveOutro.storyName = "Positive outro"
+
+export const InformativeIntroCustomerFocused = () => (
   <BrandMoment
     mood="informative"
-    illustration={<EmptyStatesPositive alt="" />}
+    illustration={<EmptyStatesInformative alt="" />}
     header={<MinimalCustomerFocused />}
     text={{
       subtitle: "A survey for Hooli",
       title: "Manager Effectiveness Survey",
       body:
         "Thank you for taking the time to respond to this survey. It’ll help us better understand your experience and perspective.",
-      footer:
-        "Your responses and information are securely collected and kept by Culture Amp in accordance with our Privacy Policy. Your responses will be reported to Hooli based on the specific rules for this survey. If you have any additional questions, please contact us at support@cultureamp.com.",
+      footer: (
+        <>
+          Your responses and information are securely collected and kept by
+          Culture Amp in accordance with our <a href="#">Privacy Policy</a>.
+          Your responses will be reported to Hooli based on the specific rules
+          for this survey. If you have any additional questions, please contact
+          us at <a href="#">support@cultureamp.com</a>.
+        </>
+      ),
     }}
     primaryAction={{
       label: "Take survey",
@@ -74,12 +105,13 @@ export const CaptureIntro = () => (
     }}
   />
 )
-CaptureIntro.storyName = "Capture Intro"
+InformativeIntroCustomerFocused.storyName =
+  "Informative intro (customer focused)"
 
-export const CaptureOutro = () => (
+export const PositiveOutroCustomerFocused = () => (
   <BrandMoment
     mood="positive"
-    illustration={<EmptyStatesNeutral alt="" />}
+    illustration={<EmptyStatesPositive alt="" />}
     header={<MinimalCustomerFocused />}
     text={{
       subtitle: "Manager Effectiveness Survey",
@@ -90,8 +122,15 @@ export const CaptureOutro = () => (
           <a href="#">retake the survey</a>.
         </>
       ),
-      footer:
-        "Your responses and information are securely collected and kept by Culture Amp in accordance with our Privacy Policy. Your responses will be reported to Hooli based on the specific rules for this survey. If you have any additional questions, please contact us at support@cultureamp.com.",
+      footer: (
+        <>
+          Your responses and information are securely collected and kept by
+          Culture Amp in accordance with our <a href="#">Privacy Policy</a>.
+          Your responses will be reported to Hooli based on the specific rules
+          for this survey. If you have any additional questions, please contact
+          us at <a href="#">support@cultureamp.com</a>.
+        </>
+      ),
     }}
     primaryAction={{
       label: "Go to Home",
@@ -105,7 +144,7 @@ export const CaptureOutro = () => (
     }}
   />
 )
-CaptureOutro.storyName = "Capture Outro"
+PositiveOutroCustomerFocused.storyName = "Positive outro (customer focused)"
 
 export const Error = () => (
   <BrandMoment
