@@ -41,11 +41,11 @@
   },
   "devDependencies": {
     "@kaizen/design-tokens": "^2.9.0",
+    "@kaizen/draft-select": "^1.16.2",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
     "@kaizen/design-tokens": "^2.8.2",
-    "@kaizen/draft-select": "^1.16.2",
     "react": "^16.9.0"
   }
 }
