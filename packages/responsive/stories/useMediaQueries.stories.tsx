@@ -27,4 +27,18 @@ export const Components = () => {
     </>
   )
 }
-Components.storyName = "Components"
+
+export const Queries = () => {
+  const { queries } = useMediaQueries()
+  const { isSmall, isMedium, isLarge, isMediumUp, isMediumDown } = queries
+
+  return (
+    <>
+      <div>Small? {isSmall ? "Yes" : "No"}</div>
+      <div>Medium? {isMedium ? "Yes" : "No"}</div>
+      <div>Large? {isLarge ? "Yes" : "No"}</div>
+      <div>Medium Up? {isMediumUp ? "Yes" : "No"}</div>
+      <div>Medium Down? {isMediumDown ? "Yes" : "No"}</div>
+    </>
+  )
+}
