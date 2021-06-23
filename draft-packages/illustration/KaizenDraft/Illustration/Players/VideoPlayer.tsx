@@ -35,11 +35,6 @@ export type VideoPlayerProps = {
   ambientAnimation: string
 }
 
-/**
- * TODO
- * ambient and initial animation
- * convert to mp4 for safari
- */
 export const VideoPlayer = ({
   autoplay = true,
   loop = false,
@@ -121,7 +116,6 @@ export const VideoPlayer = ({
       playsInline={true}
     >
       <source src={assetUrl(ambientAnimation)} type="video/webm" />
-      Sorry, your browser doesn't support embedded videos.
     </video>
   )
 }
