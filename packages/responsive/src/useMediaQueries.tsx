@@ -1,10 +1,29 @@
-import React from "react"
+import React, { FC } from "react"
 import { useMediaQuery } from "react-responsive"
 import { useTheme } from "@kaizen/design-tokens"
 
 type Props = { [key: string]: string }
 
-export const useMediaQueries = (propQueries: Props) => {
+export const useMediaQueries = (
+  propQueries: Props
+): {
+  queries: {
+    [key: string]: boolean
+    isSmall: boolean
+    isMedium: boolean
+    isLarge: boolean
+    isMediumUp: boolean
+    isMediumDown: boolean
+  }
+  components: {
+    [key: string]: FC
+    SmallOnly: FC
+    MediumOnly: FC
+    LargeOnly: FC
+    MediumDown: FC
+    MediumUp: FC
+  }
+} => {
   const theme = useTheme()
 
   const kaizenQueries = {
