@@ -75,7 +75,6 @@ describe("<VideoPlayer />", () => {
             src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.webm"
             type="video/webm"
           />
-          Sorry, your browser doesn't support embedded videos.
         </video>
       `)
       expect(mockPause).toBeCalled()
@@ -109,7 +108,6 @@ describe("<VideoPlayer />", () => {
             src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.webm"
             type="video/webm"
           />
-          Sorry, your browser doesn't support embedded videos.
         </video>
       `)
       expect(mockPlay).toBeCalled()
