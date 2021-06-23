@@ -59,10 +59,30 @@ window.addEventListener("storage", () => {
     .emit(THEME_CHANGE_EVENT_TYPE, localStorage.getItem(THEME_KEY_STORE_KEY))
 })
 
+export const globalTypes = {
+  textDirection: {
+    name: "Text direction",
+    description: "",
+    defaultValue: "ltr",
+    toolbar: {
+      icon: "globe",
+      items: ["ltr", "rtl"],
+    },
+  },
+}
+
 export const decorators = [
   (Story: React.ComponentType) => (
     <ThemeProvider themeManager={themeManager}>
       <Story />
     </ThemeProvider>
   ),
+  (Story, props) => {
+    const dir = props.args.textDirection ?? props.globals.textDirection
+    return (
+      <div dir={dir}>
+        <Story {...props} />
+      </div>
+    )
+  },
 ]
