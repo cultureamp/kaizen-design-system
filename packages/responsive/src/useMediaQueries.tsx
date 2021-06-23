@@ -7,19 +7,20 @@ type Props = { [key: string]: string }
 export const useMediaQueries = (propQueries: Props) => {
   const theme = useTheme()
 
-  // TODO: max-width usage needs to be -1px
   const kaizenQueries = {
     isSmall: useMediaQuery({
-      query: `(max-width: ${theme.layout.breakpoints.medium})`,
+      query: `(max-width: ${minus1Px(theme.layout.breakpoints.medium)})`,
     }),
     isMedium: useMediaQuery({
-      query: `(min-width: ${theme.layout.breakpoints.medium}) and (max-width: ${theme.layout.breakpoints.large})`,
+      query: `(min-width: ${
+        theme.layout.breakpoints.medium
+      }) and (max-width: ${minus1Px(theme.layout.breakpoints.large)})`,
     }),
     isLarge: useMediaQuery({
       query: `(min-width: ${theme.layout.breakpoints.large})`,
     }),
     isMediumDown: useMediaQuery({
-      query: `(max-width: ${theme.layout.breakpoints.large})`,
+      query: `(max-width: ${minus1Px(theme.layout.breakpoints.large)})`,
     }),
     isMediumUp: useMediaQuery({
       query: `(min-width: ${theme.layout.breakpoints.medium})`,
@@ -56,3 +57,5 @@ export const useMediaQueries = (propQueries: Props) => {
 
   return { queries, components }
 }
+
+const minus1Px = (breakpoint: string) => `${parseInt(breakpoint, 10) - 1}px`
