@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.0.1...@kaizen/draft-illustration@2.1.0) (2021-06-23)
+
+
+### Features
+
+* Add brand moment and empty state animations ([#1710](https://github.com/cultureamp/kaizen-design-system/issues/1710)) ([890752c](https://github.com/cultureamp/kaizen-design-system/commit/890752c666898ee3430e1f3ed89a728d6d72f400))
+
+
+
+
+
 ## [2.0.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.0.0...@kaizen/draft-illustration@2.0.1) (2021-06-11)
 
 **Note:** Version bump only for package @kaizen/draft-illustration

@@ -51,6 +51,10 @@ import {
   Programs,
   SurveyOverviewClosed,
   SurveyGetStarted,
+  BrandMomentCaptureIntro,
+  BrandMomentPositiveOutro,
+  BrandMomentLogin,
+  BrandMomentError,
 } from ".."
 
 export default {
@@ -65,6 +69,43 @@ export default {
     },
   },
 }
+
+export const BrandMoments = () => (
+  <>
+    <div style={{ width: "450px" }}>
+      <BrandMomentCaptureIntro isAnimated loop />
+    </div>
+    <div style={{ width: "450px" }}>
+      <BrandMomentPositiveOutro isAnimated loop />
+    </div>
+    <div style={{ width: "800px" }}>
+      <BrandMomentLogin isAnimated loop />
+    </div>
+    <div style={{ width: "450px" }}>
+      <BrandMomentError isAnimated loop />
+    </div>
+  </>
+)
+
+export const AnimatedSceneIllustrations = () => (
+  <>
+    <div style={{ width: "450px" }}>
+      <EmptyStatesAction isAnimated loop />
+    </div>
+    <div style={{ width: "450px" }}>
+      <EmptyStatesInformative isAnimated loop />
+    </div>
+    <div style={{ width: "450px" }}>
+      <EmptyStatesNegative isAnimated loop />
+    </div>
+    <div style={{ width: "450px" }}>
+      <EmptyStatesPositive isAnimated loop />
+    </div>
+    <div style={{ width: "450px" }}>
+      <EmptyStatesNeutral isAnimated loop />
+    </div>
+  </>
+)
 
 export const DefaultSiteDemo = () => (
   <div style={{ width: "500px" }}>
