@@ -12,16 +12,16 @@ export const useMediaQueries = (
     isSmall: boolean
     isMedium: boolean
     isLarge: boolean
-    isMediumUp: boolean
-    isMediumDown: boolean
+    isMediumOrSmaller: boolean
+    isMediumOrLarger: boolean
   }
   components: {
     [key: string]: FC
     SmallOnly: FC
     MediumOnly: FC
     LargeOnly: FC
-    MediumDown: FC
-    MediumUp: FC
+    MediumOrSmaller: FC
+    MediumOrLarger: FC
   }
 } => {
   const theme = useTheme()
@@ -38,10 +38,10 @@ export const useMediaQueries = (
     isLarge: useMediaQuery({
       query: `(min-width: ${theme.layout.breakpoints.large})`,
     }),
-    isMediumDown: useMediaQuery({
+    isMediumOrSmaller: useMediaQuery({
       query: `(max-width: ${minus1Px(theme.layout.breakpoints.large)})`,
     }),
-    isMediumUp: useMediaQuery({
+    isMediumOrLarger: useMediaQuery({
       query: `(min-width: ${theme.layout.breakpoints.medium})`,
     }),
   }
@@ -57,9 +57,11 @@ export const useMediaQueries = (
     SmallOnly: (props: any) => <>{kaizenQueries.isSmall && props.children}</>,
     MediumOnly: (props: any) => <>{kaizenQueries.isMedium && props.children}</>,
     LargeOnly: (props: any) => <>{kaizenQueries.isLarge && props.children}</>,
-    MediumUp: (props: any) => <>{kaizenQueries.isMediumUp && props.children}</>,
-    MediumDown: (props: any) => (
-      <>{kaizenQueries.isMediumDown && props.children}</>
+    MediumOrSmaller: (props: any) => (
+      <>{kaizenQueries.isMediumOrSmaller && props.children}</>
+    ),
+    MediumOrLarger: (props: any) => (
+      <>{kaizenQueries.isMediumOrLarger && props.children}</>
     ),
   }
 

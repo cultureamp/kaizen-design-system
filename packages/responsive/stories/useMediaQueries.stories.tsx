@@ -15,7 +15,13 @@ export default {
 
 export const Components = () => {
   const { components } = useMediaQueries({})
-  const { SmallOnly, MediumOnly, LargeOnly, MediumDown, MediumUp } = components
+  const {
+    SmallOnly,
+    MediumOnly,
+    LargeOnly,
+    MediumOrSmaller,
+    MediumOrLarger,
+  } = components
 
   return (
     <>
@@ -28,27 +34,33 @@ export const Components = () => {
       <LargeOnly>
         <div>Large only</div>
       </LargeOnly>
-      <MediumDown>
-        <div>Medium down</div>
-      </MediumDown>
-      <MediumUp>
-        <div>Medium up</div>
-      </MediumUp>
+      <MediumOrSmaller>
+        <div>Medium or smaller</div>
+      </MediumOrSmaller>
+      <MediumOrLarger>
+        <div>Medium or larger</div>
+      </MediumOrLarger>
     </>
   )
 }
 
 export const Queries = () => {
   const { queries } = useMediaQueries({})
-  const { isSmall, isMedium, isLarge, isMediumUp, isMediumDown } = queries
+  const {
+    isSmall,
+    isMedium,
+    isLarge,
+    isMediumOrLarger,
+    isMediumOrSmaller,
+  } = queries
 
   return (
     <>
       <div>Small? {isSmall ? "Yes" : "No"}</div>
       <div>Medium? {isMedium ? "Yes" : "No"}</div>
       <div>Large? {isLarge ? "Yes" : "No"}</div>
-      <div>Medium Up? {isMediumUp ? "Yes" : "No"}</div>
-      <div>Medium Down? {isMediumDown ? "Yes" : "No"}</div>
+      <div>Medium or smaller? {isMediumOrSmaller ? "Yes" : "No"}</div>
+      <div>Medium or larger? {isMediumOrLarger ? "Yes" : "No"}</div>
     </>
   )
 }
