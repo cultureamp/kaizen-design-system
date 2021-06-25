@@ -5,7 +5,8 @@
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/animation";
 
-$heading-active-color: rgba($kz-var-color-slate-rgb-params, 0.05);
+$heading-active-color: #f2f2f3;
+// ^This is just a temporary hex to get us by for now until we rearrange our neutrals and introduce something that can used here.
 $border-color: rgba($kz-var-color-slate-rgb-params, 0.2);
 
 // We need a full border radius on this container element, then have classes
