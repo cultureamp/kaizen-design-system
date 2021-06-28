@@ -1,10 +1,10 @@
 import React from "react"
 import {
-  EmptyStatesAction,
   EmptyStatesNegative,
-  EmptyStatesNeutral,
+  EmptyStatesInformative,
   EmptyStatesPositive,
 } from "@kaizen/draft-illustration"
+import arrowLeftIcon from "@kaizen/component-library/icons/arrow-left.icon.svg"
 import arrowRightIcon from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import securityTipIcon from "@kaizen/component-library/icons/security-tip.icon.svg"
 import mailIcon from "@kaizen/component-library/icons/email.icon.svg"
@@ -27,13 +27,19 @@ export default {
       `,
     },
   },
-  decorators: [story => <div style={{ margin: "-1rem" }}>{story()}</div>],
+  decorators: [
+    (story, { globals: { textDirection } }) => (
+      <div id="brand-moment-container" style={{ margin: "-1rem" }}>
+        {story({ isRTL: textDirection === "rtl" })}
+      </div>
+    ),
+  ],
 }
 
-export const DemoIntro = () => (
+export const InformativeIntro = (_, { isRTL }) => (
   <BrandMoment
     mood="informative"
-    illustration={<EmptyStatesAction alt="" />}
+    illustration={<EmptyStatesInformative alt="" />}
     header={<MinimalBasic />}
     text={{
       subtitle: "Welcome to Culture Amp",
@@ -42,30 +48,62 @@ export const DemoIntro = () => (
     primaryAction={{
       label: "Get started",
       href: "#",
-      icon: arrowRightIcon,
+      icon: isRTL ? arrowLeftIcon : arrowRightIcon,
       iconPosition: "end",
     }}
   />
 )
-DemoIntro.storyName = "Demo Intro"
+InformativeIntro.storyName = "Informative intro"
 
-export const CaptureIntro = () => (
+export const PositiveOutro = (_, { isRTL }) => (
+  <BrandMoment
+    mood="positive"
+    illustration={<EmptyStatesPositive alt="" />}
+    header={<MinimalBasic />}
+    text={{
+      title: "Import in progress",
+      body: (
+        <>
+          That’s it for now. Your data is importing but you don’t need to hang
+          out here while it happens. Get on with your day and we’ll let you know
+          on the <a href="#">Users page</a> when it’s complete.
+        </>
+      ),
+    }}
+    primaryAction={{
+      label: "Go to Users",
+      href: "#",
+      icon: isRTL ? arrowLeftIcon : arrowRightIcon,
+      iconPosition: "end",
+    }}
+  />
+)
+PositiveOutro.storyName = "Positive outro"
+
+export const InformativeIntroCustomerFocused = (_, { isRTL }) => (
   <BrandMoment
     mood="informative"
-    illustration={<EmptyStatesPositive alt="" />}
+    illustration={<EmptyStatesInformative alt="" />}
     header={<MinimalCustomerFocused />}
     text={{
       subtitle: "A survey for Hooli",
       title: "Manager Effectiveness Survey",
       body:
         "Thank you for taking the time to respond to this survey. It’ll help us better understand your experience and perspective.",
-      footer:
-        "Your responses and information are securely collected and kept by Culture Amp in accordance with our Privacy Policy. Your responses will be reported to Hooli based on the specific rules for this survey. If you have any additional questions, please contact us at support@cultureamp.com.",
+      footer: (
+        <>
+          Your responses and information are securely collected and kept by
+          Culture Amp in accordance with our <a href="#">Privacy Policy</a>.
+          Your responses will be reported to Hooli based on the specific rules
+          for this survey. If you have any additional questions, please contact
+          us at <a href="#">support@cultureamp.com</a>.
+        </>
+      ),
     }}
     primaryAction={{
       label: "Take survey",
       href: "#",
-      icon: arrowRightIcon,
+      icon: isRTL ? arrowLeftIcon : arrowRightIcon,
       iconPosition: "end",
     }}
     secondaryAction={{
@@ -74,12 +112,13 @@ export const CaptureIntro = () => (
     }}
   />
 )
-CaptureIntro.storyName = "Capture Intro"
+InformativeIntroCustomerFocused.storyName =
+  "Informative intro (customer focused)"
 
-export const CaptureOutro = () => (
+export const PositiveOutroCustomerFocused = (_, { isRTL }) => (
   <BrandMoment
     mood="positive"
-    illustration={<EmptyStatesNeutral alt="" />}
+    illustration={<EmptyStatesPositive alt="" />}
     header={<MinimalCustomerFocused />}
     text={{
       subtitle: "Manager Effectiveness Survey",
@@ -90,13 +129,20 @@ export const CaptureOutro = () => (
           <a href="#">retake the survey</a>.
         </>
       ),
-      footer:
-        "Your responses and information are securely collected and kept by Culture Amp in accordance with our Privacy Policy. Your responses will be reported to Hooli based on the specific rules for this survey. If you have any additional questions, please contact us at support@cultureamp.com.",
+      footer: (
+        <>
+          Your responses and information are securely collected and kept by
+          Culture Amp in accordance with our <a href="#">Privacy Policy</a>.
+          Your responses will be reported to Hooli based on the specific rules
+          for this survey. If you have any additional questions, please contact
+          us at <a href="#">support@cultureamp.com</a>.
+        </>
+      ),
     }}
     primaryAction={{
       label: "Go to Home",
       href: "#",
-      icon: arrowRightIcon,
+      icon: isRTL ? arrowLeftIcon : arrowRightIcon,
       iconPosition: "end",
     }}
     secondaryAction={{
@@ -105,9 +151,9 @@ export const CaptureOutro = () => (
     }}
   />
 )
-CaptureOutro.storyName = "Capture Outro"
+PositiveOutroCustomerFocused.storyName = "Positive outro (customer focused)"
 
-export const Error = () => (
+export const Error = (_, { isRTL }) => (
   <BrandMoment
     mood="negative"
     illustration={<EmptyStatesNegative alt="" />}
@@ -131,7 +177,7 @@ export const Error = () => (
     primaryAction={{
       label: "Go to Home",
       href: "#",
-      icon: arrowRightIcon,
+      icon: isRTL ? arrowLeftIcon : arrowRightIcon,
       iconPosition: "end",
     }}
     secondaryAction={{

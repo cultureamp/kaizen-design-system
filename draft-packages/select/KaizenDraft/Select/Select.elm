@@ -8,6 +8,7 @@ module KaizenDraft.Select.Select exposing
     , Style(..)
     , Variant(..)
     , clearable
+    , controlHasUnconstrainedHeight
     , defaults
     , disabled
     , dummyInputIdPrefix
@@ -188,6 +189,7 @@ type alias Configuration item =
     , searchable : Bool
     , clearable : Bool
     , disabled : Bool
+    , controlHasUnconstrainedHeight : Bool
     }
 
 
@@ -275,6 +277,7 @@ defaults =
     , searchable = True
     , clearable = False
     , disabled = False
+    , controlHasUnconstrainedHeight = False
     }
 
 
@@ -329,6 +332,11 @@ clearable predicate (Config config) =
 disabled : Bool -> Config item -> Config item
 disabled predicate (Config config) =
     Config { config | disabled = predicate }
+
+
+controlHasUnconstrainedHeight : Bool -> Config item -> Config item
+controlHasUnconstrainedHeight predicate (Config config) =
+    Config { config | controlHasUnconstrainedHeight = predicate }
 
 
 
@@ -786,6 +794,7 @@ view (Config config) selectId =
                 , ( .isFocused, state_.controlFocused )
                 , ( .cautionary, config.selectType == Cautionary && state_.controlFocused == False )
                 , ( .error, config.selectType == Error && state_.controlFocused == False )
+                , ( .controlHasUnconstrainedHeight, config.controlHasUnconstrainedHeight )
                 ]
              , attribute "data-automation-id" "Select__Control"
              ]
@@ -1462,4 +1471,5 @@ styles =
         , preventPointer = "preventPointer"
         , clearButtonWrapper = "clearButtonWrapper"
         , disabled = "disabled"
+        , controlHasUnconstrainedHeight = "controlHasUnconstrainedHeight"
         }
