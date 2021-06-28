@@ -4,6 +4,7 @@ import {
   EmptyStatesInformative,
   EmptyStatesPositive,
 } from "@kaizen/draft-illustration"
+import arrowLeftIcon from "@kaizen/component-library/icons/arrow-left.icon.svg"
 import arrowRightIcon from "@kaizen/component-library/icons/arrow-right.icon.svg"
 import securityTipIcon from "@kaizen/component-library/icons/security-tip.icon.svg"
 import mailIcon from "@kaizen/component-library/icons/email.icon.svg"
@@ -26,10 +27,16 @@ export default {
       `,
     },
   },
-  decorators: [story => <div style={{ margin: "-1rem" }}>{story()}</div>],
+  decorators: [
+    (story, { globals: { textDirection } }) => (
+      <div id="brand-moment-container" style={{ margin: "-1rem" }}>
+        {story({ isRTL: textDirection === "rtl" })}
+      </div>
+    ),
+  ],
 }
 
-export const InformativeIntro = () => (
+export const InformativeIntro = (_, { isRTL }) => (
   <BrandMoment
     mood="informative"
     illustration={<EmptyStatesInformative alt="" />}
@@ -41,14 +48,14 @@ export const InformativeIntro = () => (
     primaryAction={{
       label: "Get started",
       href: "#",
-      icon: arrowRightIcon,
+      icon: isRTL ? arrowLeftIcon : arrowRightIcon,
       iconPosition: "end",
     }}
   />
 )
 InformativeIntro.storyName = "Informative intro"
 
-export const PositiveOutro = () => (
+export const PositiveOutro = (_, { isRTL }) => (
   <BrandMoment
     mood="positive"
     illustration={<EmptyStatesPositive alt="" />}
@@ -66,14 +73,14 @@ export const PositiveOutro = () => (
     primaryAction={{
       label: "Go to Users",
       href: "#",
-      icon: arrowRightIcon,
+      icon: isRTL ? arrowLeftIcon : arrowRightIcon,
       iconPosition: "end",
     }}
   />
 )
 PositiveOutro.storyName = "Positive outro"
 
-export const InformativeIntroCustomerFocused = () => (
+export const InformativeIntroCustomerFocused = (_, { isRTL }) => (
   <BrandMoment
     mood="informative"
     illustration={<EmptyStatesInformative alt="" />}
@@ -96,7 +103,7 @@ export const InformativeIntroCustomerFocused = () => (
     primaryAction={{
       label: "Take survey",
       href: "#",
-      icon: arrowRightIcon,
+      icon: isRTL ? arrowLeftIcon : arrowRightIcon,
       iconPosition: "end",
     }}
     secondaryAction={{
@@ -108,7 +115,7 @@ export const InformativeIntroCustomerFocused = () => (
 InformativeIntroCustomerFocused.storyName =
   "Informative intro (customer focused)"
 
-export const PositiveOutroCustomerFocused = () => (
+export const PositiveOutroCustomerFocused = (_, { isRTL }) => (
   <BrandMoment
     mood="positive"
     illustration={<EmptyStatesPositive alt="" />}
@@ -135,7 +142,7 @@ export const PositiveOutroCustomerFocused = () => (
     primaryAction={{
       label: "Go to Home",
       href: "#",
-      icon: arrowRightIcon,
+      icon: isRTL ? arrowLeftIcon : arrowRightIcon,
       iconPosition: "end",
     }}
     secondaryAction={{
@@ -146,7 +153,7 @@ export const PositiveOutroCustomerFocused = () => (
 )
 PositiveOutroCustomerFocused.storyName = "Positive outro (customer focused)"
 
-export const Error = () => (
+export const Error = (_, { isRTL }) => (
   <BrandMoment
     mood="negative"
     illustration={<EmptyStatesNegative alt="" />}
@@ -170,7 +177,7 @@ export const Error = () => (
     primaryAction={{
       label: "Go to Home",
       href: "#",
-      icon: arrowRightIcon,
+      icon: isRTL ? arrowLeftIcon : arrowRightIcon,
       iconPosition: "end",
     }}
     secondaryAction={{
