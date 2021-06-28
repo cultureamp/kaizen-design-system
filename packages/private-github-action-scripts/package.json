@@ -4,6 +4,7 @@
   "private": "true",
   "type": "module",
   "scripts": {
-    "should-we-run-chromatic": "node ./src/should-we-run-chromatic.js"
+    "should-we-run-chromatic": "node ./dist/src/should-we-run-chromatic.js",
+    "build": "tsc --project tsconfig.dist.json"
   }
 }

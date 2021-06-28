@@ -30,7 +30,15 @@ jobs:
         run: |
           yarn workspace private-github-action-scripts install --frozen-lockfile
 
-      - run: yarn workspace private-github-action-scripts should-we-run-chromatic
+      - name: build private-github-action-scripts
+        run: |
+          yarn workspace private-github-action-scripts build
+
+      # the should-we-run-chromatic script determines if the most recent comment
+      # contains the text "run chromatic" and whether the comment author belongs
+      # to the cultureamp org
+      - name: run the should-we-run-chromatic script
+        run: yarn workspace private-github-action-scripts should-we-run-chromatic
         id: should-we-run-chromatic
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
