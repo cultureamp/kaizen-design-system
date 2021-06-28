@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.16.3...@kaizen/draft-select@1.17.0) (2021-06-24)
+
+
+### Features
+
+* controlHasUnconstrainedHeight option for Elm Select ([#1715](https://github.com/cultureamp/kaizen-design-system/issues/1715)) ([374edce](https://github.com/cultureamp/kaizen-design-system/commit/374edce3c130153ec90b86a55b8eb6f581382e8c))
+
+
+
+
+
 ## [1.16.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.16.2...@kaizen/draft-select@1.16.3) (2021-06-18)
 
 

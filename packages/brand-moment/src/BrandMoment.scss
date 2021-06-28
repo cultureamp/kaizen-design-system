@@ -10,7 +10,7 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 // --------------------------------
 
 .body {
-  width: 100%;
+  inline-size: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,7 +30,7 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 
 @media (min-width: $kz-layout-breakpoints-large) {
   .body {
-    min-height: 100vh;
+    min-block-size: 100vh;
   }
 }
 
@@ -39,7 +39,7 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 // --------------------------------
 
 .container {
-  max-width: $kz-var-layout-content-max-width;
+  max-inline-size: $kz-var-layout-content-max-width;
   margin: 0 auto;
   padding: 0 $kz-var-spacing-md;
 }
@@ -61,8 +61,8 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 // --------------------------------
 
 .header {
-  width: 100%;
-  margin-bottom: $kz-var-spacing-md;
+  inline-size: 100%;
+  margin-block-end: $kz-var-spacing-md;
 }
 
 // --------------------------------
@@ -73,7 +73,7 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
   flex: 1 0 auto;
   display: flex;
   align-items: center;
-  margin-bottom: $kz-var-spacing-xxl;
+  margin-block-end: $kz-var-spacing-xxl;
 }
 
 .mainInner {
@@ -107,8 +107,8 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 }
 
 .leftInner {
-  width: 100%;
-  max-width: 525px;
+  inline-size: 100%;
+  max-inline-size: 525px;
 }
 
 .right {
@@ -119,7 +119,7 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 }
 
 .rightInner {
-  max-width: 543px;
+  max-inline-size: 543px;
 }
 
 .actions {
@@ -147,10 +147,10 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 .footerInner {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid $kz-var-color-wisteria-800;
-  border-left: 1px solid $kz-var-color-wisteria-800;
+  border-block-start: 1px solid $kz-var-color-wisteria-800;
+  border-inline-start: 1px solid $kz-var-color-wisteria-800;
   padding: $kz-var-spacing-sm $kz-var-spacing-md;
-  margin: 0 0 $kz-var-spacing-lg;
+  margin-block-end: $kz-var-spacing-lg;
 }
 
 .poweredByContainer {
@@ -162,14 +162,14 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 .footerTextContainer {
   flex: 1 1 auto;
   order: 1;
-  margin-bottom: $kz-var-spacing-md;
+  margin-block-end: $kz-var-spacing-md;
 }
 
 .poweredByLogo {
-  margin-left: $kz-var-spacing-xs;
+  margin-inline-start: $kz-var-spacing-xs;
 
   > img {
-    max-width: 133px;
+    max-inline-size: 133px;
   }
 }
 
@@ -181,8 +181,8 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
 
   .footerTextContainer {
     order: initial;
-    margin-bottom: 0;
-    margin-left: $kz-var-spacing-md;
+    margin-block-end: 0;
+    margin-inline-start: $kz-var-spacing-md;
   }
 
   .poweredByContainer {
