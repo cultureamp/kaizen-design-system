@@ -5,8 +5,9 @@ name: "chromatic"
 
 on:
   # despite the name, this is triggered on both isuse comments *and* PR comments. We're only interested in PR comments for this Action.
-  issue_comment:
-    types: [created]
+  # issue_comment:
+  #   types: [created]
+  push
 
 # List of jobs
 jobs:
@@ -21,22 +22,28 @@ jobs:
         with:
           fetch-depth: 0 # 👈 Required to retrieve git history
 
-      - name: Get most recent comment
-        if: ${{ github.event.issue.pull_request }} # despite the name "issue_comment", an "issue_comment" can either actually be an issue comment, or it might be a PR comment (even though issues and PRs are completely different things). This checks where this is a "PR comment" kind of "issue comment". You know like when sometimes a dog isn't a dog, but it's actually a cat so you need to check to make sure?
-        uses: peter-evans/find-comment@v1
-        id: latestComment
+      - uses: actions/setup-node@v1
         with:
-          issue-number: ${{ github.event.issue.pull_request }}
-          body-includes: ""
-          direction: last
+          node-version: "14.15.x"
+
+      - name: Install package dependencies for private-github-action-scripts
+        run: |
+          yarn workspace private-github-action-scripts install --frozen-lockfile
+
+      - run: yarn workspace private-github-action-scripts should-we-run-chromatic
+        id: should-we-run-chromatic
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.issue.number }}
+          PR_URL: ${{ github.event.issue.pull_request.url }}
+
+      - name: debug should we run chromatic
+        run: echo "Should we run chromatic ${{ steps.should-we-run-chromatic.outputs.RESULT }}"
 
       - run: |
           echo "runChromatic=${runChromatic}" >> $GITHUB_ENV
         env:
-          runChromatic: ${{ contains(steps.latestComment.outputs.comment-body, 'run chromatic') }}
-
-      - run: echo "found run chromatic text in latest comment"
-        if: ${{ env.runChromatic == 'true' }}
+          runChromatic: ${{ steps.should-we-run-chromatic.outputs.RESULT }}
 
       - uses: actions/cache@v2 # use of cache for node_modules saves usually > 1min of build time
         if: ${{ env.runChromatic == 'true' }}
@@ -47,12 +54,7 @@ jobs:
             ${{ runner.os }}-${{ hashFiles('yarn.lock') }}-
             ${{ runner.os }}-
 
-      - uses: actions/setup-node@v1
-        if: ${{ env.runChromatic == 'true' }}
-        with:
-          node-version: "14.15.x"
-
-      - name: Install package dependencies
+      - name: Install package dependencies for Chromatic build
         if: ${{ env.runChromatic == 'true' }}
         run: |
           yarn install --frozen-lockfile

@@ -1,0 +1,9 @@
+{
+  "name": "private-github-action-scripts",
+  "version": "0.0.0",
+  "private": "true",
+  "type": "module",
+  "scripts": {
+    "should-we-run-chromatic": "node ./src/should-we-run-chromatic.js"
+  }
+}
