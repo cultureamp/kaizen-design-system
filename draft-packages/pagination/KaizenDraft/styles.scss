@@ -1,0 +1,98 @@
+@import "~@kaizen/design-tokens/sass/typography-vars";
+@import "~@kaizen/design-tokens/sass/color-vars";
+@import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/component-library/styles/type";
+// @import "../../styles/utils";
+// @import "../../styles/focusable";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrowIconWrapper {
+  height: 36px;
+  width: 36px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: $kz-var-border-focus-ring-border-width solid $kz-var-color-cluny-200;
+  margin: 0 5px;
+  background-color: transparent;
+  color: $kz-var-color-cluny-500;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  &:disabled {
+    opacity: 0.35;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  &:hover {
+    background-color: $kz-var-color-cluny-200;
+  }
+
+  // @include on-focus() {
+  //   background-color: $kz-var-color-cluny-200;
+  // }
+}
+
+.arrowIconWrapperDisabled {
+  opacity: 0.35;
+  pointer-events: none;
+  cursor: default;
+}
+
+.pagesIndicatorWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.pageIndicator,
+.pageIndicatorSelected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  width: 36px;
+  border-radius: 18px;
+  border: $kz-var-border-focus-ring-border-width solid transparent;
+  background-color: transparent;
+  color: $kz-var-color-cluny-500;
+  margin: 0 5px;
+  cursor: pointer;
+  font-family: $kz-var-typography-paragraph-body-font-family;
+  font-weight: $kz-var-typography-paragraph-body-font-weight;
+  font-size: $kz-var-typography-paragraph-body-font-size;
+}
+
+.pageIndicator {
+  &:hover {
+    border: $kz-var-border-focus-ring-border-width solid $kz-var-color-cluny-200;
+  }
+
+  // @include on-focus() {
+  //   border: $kz-var-border-focus-ring-border-width solid $kz-var-color-cluny-200;
+  // }
+}
+
+.pageIndicatorSelected {
+  border: $kz-var-border-focus-ring-border-width solid $kz-var-color-cluny-500;
+  background-color: $kz-var-color-cluny-500;
+  color: $kz-var-color-white;
+}
+
+.truncateIndicatorWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  width: 36px;
+  background-color: transparent;
+  color: $kz-var-color-cluny-500;
+  margin: 0 5px;
+}

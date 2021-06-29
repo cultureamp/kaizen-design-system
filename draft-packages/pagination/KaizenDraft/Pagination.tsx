@@ -3,9 +3,10 @@ import arrowBackward from "@kaizen/component-library/icons/arrow-backward.icon.s
 import arrowForward from "@kaizen/component-library/icons/arrow-forward.icon.svg"
 import { Icon } from "@kaizen/component-library"
 import cx from "classnames"
+// We don't use this here
 import { Link } from "react-router"
-import { scrollUpToElementIntoView } from "../../utils/dom"
-import { defaultScrollOffset } from "../../constants/scrolling"
+// import { scrollUpToElementIntoView } from "../../utils/dom"
+// import { defaultScrollOffset } from "../../constants/scrolling"
 import PageIndicator from "./PageIndicator"
 import TruncateIndicator from "./TruncateIndicator"
 import styles from "./styles.scss"
@@ -14,14 +15,15 @@ import { createRange, getPaginationUrl } from "./utils"
 type Props = {
   currentPage: number
   pageCount: number
-  location: string
-  ariaLabelNextPage: string
-  ariaLabelPreviousPage: string
-  ariaLabelPage: string
+  // location: string
+  ariaLabelNextPage?: string
+  ariaLabelPreviousPage?: string
+  ariaLabelPage?: string
   // The dom reference of the table data which will be updated.
   // The only purpose of this is so we can automatically scroll to the top
   // of the table upon every update.
-  contentRef: RefObject<HTMLElement>
+  // contentRef: RefObject<HTMLElement>
+  onPageChange: (newPage: number) => void
 }
 
 // TODO: this can be part of the props.
@@ -35,25 +37,39 @@ const Pagination = ({
   ariaLabelNextPage,
   ariaLabelPreviousPage,
   ariaLabelPage,
-  location,
-  contentRef,
-}: Props) => {
-  const getPageHref = (page: number) => getPaginationUrl(location, page)
+  onPageChange,
+}: // location,
+// contentRef,
+Props) => {
+  // const getPageHref = (page: number) => getPaginationUrl(location, page)
 
   // Click event for all pagination buttons (next, prev, and the actual numbers)
-  const handleButtonClick = useCallback(() => {
-    const content = contentRef.current
-    if (!content) return // hopefully this shouldn't happen
-    scrollUpToElementIntoView(content, { offset: defaultScrollOffset })
-  }, [contentRef])
+  // const handleButtonClick = useCallback(() => {
+  //   // const content = contentRef.current
+  //   // if (!content) return // hopefully this shouldn't happen
+  //   // scrollUpToElementIntoView(content, { offset: defaultScrollOffset })
+  //   // }, [contentRef])
+  // }, [])
+
+  const handleButtonClick = (newPage: number | "prev" | "next") => {
+    if (newPage === "prev") {
+      onPageChange(currentPage - 1)
+      return
+    }
+    if (newPage === "next") {
+      onPageChange(currentPage + 1)
+      return
+    }
+    onPageChange(newPage)
+  }
 
   const paginationIndicator = (page: number) => (
     <PageIndicator
       page={page}
       selected={currentPage === page}
-      location={location}
+      // location={location}
       ariaLabelPage={ariaLabelPage}
-      onClick={handleButtonClick}
+      onPageClick={handleButtonClick}
     />
   )
 
@@ -135,31 +151,31 @@ const Pagination = ({
 
   return (
     <div className={styles.container}>
-      <Link
+      <button
         className={cx(styles.arrowIconWrapper, {
           [styles.arrowIconWrapperDisabled]: previousPageDisabled,
         })}
-        to={getPageHref(previousPageDisabled ? currentPage : currentPage - 1)}
+        // to={getPageHref(previousPageDisabled ? currentPage : currentPage - 1)}
         aria-label={ariaLabelPreviousPage}
         aria-disabled={previousPageDisabled}
-        onClick={handleButtonClick}
+        onClick={() => handleButtonClick("prev")}
       >
         <Icon icon={arrowBackward} role="presentation" />
-      </Link>
+      </button>
 
       <div className={styles.pagesIndicatorWrapper}>{pagination()}</div>
 
-      <Link
+      <button
         className={cx(styles.arrowIconWrapper, {
           [styles.arrowIconWrapperDisabled]: nextPageDisabled,
         })}
-        to={getPageHref(nextPageDisabled ? currentPage : currentPage + 1)}
+        // to={getPageHref(nextPageDisabled ? currentPage : currentPage + 1)}
         aria-label={ariaLabelNextPage}
         aria-disabled={nextPageDisabled}
-        onClick={handleButtonClick}
+        onClick={() => handleButtonClick("next")}
       >
         <Icon icon={arrowForward} role="presentation" />
-      </Link>
+      </button>
     </div>
   )
 }

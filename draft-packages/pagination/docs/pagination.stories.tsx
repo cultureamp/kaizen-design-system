@@ -13,4 +13,13 @@ export default {
   },
 }
 
-export const basic = () => <Pagination />
+export const basic = () => {
+  const [currentPage, setCurrentPage] = React.useState(1)
+  return (
+    <Pagination
+      pageCount={50}
+      currentPage={currentPage}
+      onPageChange={setCurrentPage}
+    />
+  )
+}
