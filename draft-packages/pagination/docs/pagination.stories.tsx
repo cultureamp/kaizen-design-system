@@ -19,7 +19,12 @@ export const basic = () => {
     <Pagination
       pageCount={50}
       currentPage={currentPage}
-      onPageChange={setCurrentPage}
+      onPageChange={(newPage: number) => {
+        setCurrentPage(newPage)
+        // fetch new page
+        // update currentPage value in state
+        // scroll to top of page
+      }}
     />
   )
 }

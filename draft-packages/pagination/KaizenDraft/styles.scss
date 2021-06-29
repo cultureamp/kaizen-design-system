@@ -1,9 +1,8 @@
 @import "~@kaizen/design-tokens/sass/typography-vars";
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/border-vars";
+@import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/type";
-// @import "../../styles/utils";
-// @import "../../styles/focusable";
 
 .container {
   display: flex;
@@ -35,9 +34,11 @@
     background-color: $kz-var-color-cluny-200;
   }
 
-  // @include on-focus() {
-  //   background-color: $kz-var-color-cluny-200;
-  // }
+  &:focus {
+    background-color: $kz-var-color-cluny-200;
+    outline: $kz-var-border-focus-ring-border-width
+      $kz-var-border-solid-border-style $ca-border-color-focus;
+  }
 }
 
 .arrowIconWrapperDisabled {
@@ -75,9 +76,11 @@
     border: $kz-var-border-focus-ring-border-width solid $kz-var-color-cluny-200;
   }
 
-  // @include on-focus() {
-  //   border: $kz-var-border-focus-ring-border-width solid $kz-var-color-cluny-200;
-  // }
+  &:focus {
+    background-color: $kz-var-color-cluny-200;
+    outline: $kz-var-border-focus-ring-border-width
+      $kz-var-border-solid-border-style $ca-border-color-focus;
+  }
 }
 
 .pageIndicatorSelected {

@@ -1,12 +1,10 @@
 import React from "react"
 import cx from "classnames"
 import styles from "./styles.scss"
-// import { getPaginationUrl } from "./utils"
 
 type PageIndicatorProps = {
   page: number
   selected: boolean
-  // location: string
   ariaLabelPage?: string
   onPageClick: (pageClicked: number) => void
 }
@@ -14,7 +12,6 @@ type PageIndicatorProps = {
 const PageIndicator = ({
   page,
   selected,
-  // location,
   ariaLabelPage,
   onPageClick,
 }: PageIndicatorProps) => (
@@ -24,7 +21,6 @@ const PageIndicator = ({
       [styles.pageIndicatorSelected]: selected,
     })}
     aria-label={`${ariaLabelPage} ${page}`}
-    // href={getPaginationUrl(location, page)}
     onClick={() => onPageClick(page)}
   >
     {page}
