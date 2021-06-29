@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.2.15](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.2.14...@kaizen/draft-collapsible@2.2.15) (2021-06-25)
+
+
+### Bug Fixes
+
+* Collapsible fixes: type=button and opaque sticky header ([#1722](https://github.com/cultureamp/kaizen-design-system/issues/1722)) ([6c93edb](https://github.com/cultureamp/kaizen-design-system/commit/6c93edb5d780de1dba5241e26e9002d742da44bf))
+
+
+
+
+
 ## [2.2.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-collapsible@2.2.13...@kaizen/draft-collapsible@2.2.14) (2021-06-11)
 
 **Note:** Version bump only for package @kaizen/draft-collapsible
