@@ -32,8 +32,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/design-tokens": "^2.9.0",
-    "react-responsive": "^8.2.0"
+    "@kaizen/design-tokens": "^2.9.0"
   },
   "devDependencies": {
     "@kaizen/draft-button": "^3.3.15",

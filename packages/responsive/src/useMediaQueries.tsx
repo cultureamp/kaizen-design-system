@@ -1,8 +1,9 @@
-import React, { FC } from "react"
-import { useMediaQuery } from "react-responsive"
+import React, { FC, useEffect, useState } from "react"
 import { useTheme } from "@kaizen/design-tokens"
 
 type Props = { [key: string]: string }
+
+const minus1Px = (breakpoint: string) => `${parseInt(breakpoint, 10) - 1}px`
 
 export const useMediaQueries = (
   propQueries: Props
@@ -26,57 +27,142 @@ export const useMediaQueries = (
 } => {
   const theme = useTheme()
 
-  const kaizenQueries = {
-    isSmall: useMediaQuery({
-      query: `(max-width: ${minus1Px(theme.layout.breakpoints.medium)})`,
-    }),
-    isMedium: useMediaQuery({
-      query: `(min-width: ${
-        theme.layout.breakpoints.medium
-      }) and (max-width: ${minus1Px(theme.layout.breakpoints.large)})`,
-    }),
-    isLarge: useMediaQuery({
-      query: `(min-width: ${theme.layout.breakpoints.large})`,
-    }),
-    isMediumOrSmaller: useMediaQuery({
-      query: `(max-width: ${minus1Px(theme.layout.breakpoints.large)})`,
-    }),
-    isMediumOrLarger: useMediaQuery({
-      query: `(min-width: ${theme.layout.breakpoints.medium})`,
-    }),
-  }
+  // ---------------------------------------
+  // Create Kaizen breakpoint matches for initial state
+  // ---------------------------------------
+  const smallMatchMedia = window.matchMedia(
+    `(max-width: ${minus1Px(theme.layout.breakpoints.medium)})`
+  )
+  const mediumMatchMedia = window.matchMedia(
+    `(min-width: ${theme.layout.breakpoints.medium}) and (max-width: ${minus1Px(
+      theme.layout.breakpoints.large
+    )})`
+  )
+  const largeMatchMedia = window.matchMedia(
+    `(min-width: ${theme.layout.breakpoints.large})`
+  )
 
-  const customQueries = {}
-  Object.keys(propQueries).map(key => {
-    customQueries[key] = useMediaQuery({
-      query: propQueries[key],
-    })
+  const isSmall = smallMatchMedia.matches || false
+  const isMedium = mediumMatchMedia.matches || false
+  const isLarge = largeMatchMedia.matches || false
+
+  const [kaizenMatches, setKaizenMatches] = useState<{
+    isSmall: boolean
+    isMedium: boolean
+    isLarge: boolean
+    isMediumOrSmaller: boolean
+    isMediumOrLarger: boolean
+  }>({
+    isSmall,
+    isMedium,
+    isLarge,
+    isMediumOrSmaller: !isLarge,
+    isMediumOrLarger: !isSmall,
+    // Note: ^the last two will need an adjustment in logic if/when we add more breakpoints
   })
 
+  // ---------------------------------------
+  // Create an event listener based on the medium breakpoint and update state whenever it changes
+  // ---------------------------------------
+  useEffect(() => {
+    const updateMatches = () => {
+      const isSmallAfterUpdate = smallMatchMedia.matches || false
+      const isMediumAfterUpdate = mediumMatchMedia.matches || false
+      const isLargeAfterUpdate = largeMatchMedia.matches || false
+
+      setKaizenMatches({
+        isSmall: isSmallAfterUpdate,
+        isMedium: isMediumAfterUpdate,
+        isLarge: isLargeAfterUpdate,
+        isMediumOrSmaller: !isLargeAfterUpdate,
+        isMediumOrLarger: !isSmallAfterUpdate,
+      })
+    }
+
+    mediumMatchMedia.addEventListener("change", updateMatches, true)
+
+    return () => {
+      mediumMatchMedia.removeEventListener("change", updateMatches)
+    }
+  }, [])
+
+  // ---------------------------------------
+  // Create custom queries matches for initial state
+  // ---------------------------------------
+  const customQueryMatchMedias = new Map()
+  const customQueryMatches = {}
+  new Map(Object.entries(propQueries)).forEach((queryString, queryName) => {
+    const matchMedia = window.matchMedia(queryString)
+    customQueryMatches[queryName] = matchMedia.matches || false
+
+    // Store this matchMedia so that we can loop over it later and add event listeners
+    customQueryMatchMedias.set(queryName, matchMedia)
+  })
+
+  const [customMatches, setCustomMatches] = useState<{
+    [key: string]: boolean
+  }>(customQueryMatches)
+
+  // ---------------------------------------
+  // Create an event listener for each custom query
+  // ---------------------------------------
+  useEffect(() => {
+    const updateCustomMatches = (
+      matchMedia: MediaQueryList,
+      queryName: string
+    ) =>
+      setCustomMatches({
+        ...customQueryMatches,
+        [queryName]: matchMedia.matches || false,
+      })
+
+    const allEventListeners = new Map()
+    customQueryMatchMedias.forEach((matchMedia, queryName) => {
+      // Store this method so that we can reference it in the cleanup function below
+      const updateCustomMatchesForQuery = () => {
+        updateCustomMatches(matchMedia, queryName)
+      }
+      allEventListeners.set(matchMedia, updateCustomMatchesForQuery)
+
+      // Add the event listener
+      matchMedia.addEventListener("change", updateCustomMatchesForQuery, true)
+    })
+
+    return () => {
+      allEventListeners.forEach((eventListener, matchMedia) => {
+        matchMedia.removeEventListener("change", eventListener)
+      })
+    }
+  }, [])
+
+  // ---------------------------------------
+  // Create Kaizen helper components
+  // ---------------------------------------
   const kaizenComponents = {
-    SmallOnly: (props: any) => <>{kaizenQueries.isSmall && props.children}</>,
-    MediumOnly: (props: any) => <>{kaizenQueries.isMedium && props.children}</>,
-    LargeOnly: (props: any) => <>{kaizenQueries.isLarge && props.children}</>,
+    SmallOnly: (props: any) => <>{kaizenMatches.isSmall && props.children}</>,
+    MediumOnly: (props: any) => <>{kaizenMatches.isMedium && props.children}</>,
+    LargeOnly: (props: any) => <>{kaizenMatches.isLarge && props.children}</>,
     MediumOrSmaller: (props: any) => (
-      <>{kaizenQueries.isMediumOrSmaller && props.children}</>
+      <>{kaizenMatches.isMediumOrSmaller && props.children}</>
     ),
     MediumOrLarger: (props: any) => (
-      <>{kaizenQueries.isMediumOrLarger && props.children}</>
+      <>{kaizenMatches.isMediumOrLarger && props.children}</>
     ),
   }
 
+  // ---------------------------------------
+  // Create custom query helper components
+  // ---------------------------------------
   const customComponents = {}
   Object.keys(propQueries).map(key => {
     const componentName = key.charAt(0).toUpperCase() + key.slice(1)
     customComponents[componentName] = (props: any) => (
-      <>{customQueries[key] && props.children}</>
+      <>{customMatches[key] && props.children}</>
     )
   })
 
-  const queries = { ...kaizenQueries, ...customQueries }
-  const components = { ...kaizenComponents, ...customComponents }
-
-  return { queries, components }
+  return {
+    queries: { ...kaizenMatches, ...customQueryMatches },
+    components: { ...kaizenComponents, ...customComponents },
+  }
 }
-
-const minus1Px = (breakpoint: string) => `${parseInt(breakpoint, 10) - 1}px`
