@@ -21,7 +21,7 @@ const reversedBg = {
 }
 
 export const DefaultSiteDemo = _ => (
-  <Brand alt="Culture Amp" variant="logo-horizontal" isReversed={false} />
+  <Brand alt="Culture Amp" variant="logo-horizontal" reversed={false} />
 )
 DefaultSiteDemo.story = {
   name: "Logo horizontal",
@@ -33,7 +33,7 @@ DefaultSiteDemo.story = {
 }
 
 export const LogoHorizontalReversed = () => (
-  <Brand alt="Culture Amp" variant="logo-horizontal" isReversed={true} />
+  <Brand alt="Culture Amp" variant="logo-horizontal" reversed={true} />
 )
 LogoHorizontalReversed.story = {
   name: "Logo horizontal (Reversed)",
@@ -46,7 +46,7 @@ LogoHorizontalReversed.story = {
 }
 
 export const LogoVertical = () => (
-  <Brand alt="Culture Amp" variant="logo-vertical" isReversed={false} />
+  <Brand alt="Culture Amp" variant="logo-vertical" reversed={false} />
 )
 LogoVertical.story = {
   name: "Logo Vertical",
@@ -58,7 +58,7 @@ LogoVertical.story = {
 }
 
 export const LogoVerticalReversed = () => (
-  <Brand alt="Culture Amp" variant="logo-vertical" isReversed={true} />
+  <Brand alt="Culture Amp" variant="logo-vertical" reversed={true} />
 )
 LogoVerticalReversed.story = {
   name: "Logo Vertical (Reversed)",
@@ -71,7 +71,7 @@ LogoVerticalReversed.story = {
 }
 
 export const Enso = () => (
-  <Brand alt="Culture Amp" variant="enso" isReversed={false} />
+  <Brand alt="Culture Amp" variant="enso" reversed={false} />
 )
 Enso.story = {
   name: "Enso",
@@ -83,7 +83,7 @@ Enso.story = {
 }
 
 export const EnsoReversed = () => (
-  <Brand alt="Culture Amp" variant="enso" isReversed={true} />
+  <Brand alt="Culture Amp" variant="enso" reversed={true} />
 )
 EnsoReversed.story = {
   name: "Enso (Reversed)",
@@ -99,7 +99,7 @@ export const CollectiveIntelligence = () => (
   <Brand
     alt="Collective Intelligence"
     variant="collective-intelligence"
-    isReversed={false}
+    reversed={false}
   />
 )
 CollectiveIntelligence.story = {
@@ -115,7 +115,7 @@ export const CollectiveIntelligenceReversed = () => (
   <Brand
     alt="Collective Intelligence"
     variant="collective-intelligence"
-    isReversed={true}
+    reversed={true}
   />
 )
 CollectiveIntelligenceReversed.story = {

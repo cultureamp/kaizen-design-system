@@ -7,12 +7,12 @@ export interface BrandProps {
     | "logo-vertical"
     | "enso"
     | "collective-intelligence"
-  isReversed: boolean
+  reversed?: boolean
   alt: string
 }
 
 export const Brand = (props: BrandProps) => {
-  const brandTheme = props.isReversed ? "-reversed" : "-default"
+  const brandTheme = props.reversed ? "-reversed" : "-default"
 
   return (
     <img
