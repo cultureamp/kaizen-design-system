@@ -23,6 +23,7 @@ const PageIndicator = ({
     aria-label={`${ariaLabelPage} ${page}`}
     onClick={() => onPageClick(page)}
   >
+    <div className={styles.pageIndicatorFocusRing} />
     {page}
   </button>
 )
