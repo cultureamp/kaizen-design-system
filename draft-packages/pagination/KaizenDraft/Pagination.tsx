@@ -148,6 +148,8 @@ const Pagination = ({
         onClick={() => handleButtonClick("prev")}
       >
         <Icon icon={arrowBackward} role="presentation" />
+
+        <div className={styles.pageIndicatorFocusRing} />
       </button>
 
       <div className={styles.pagesIndicatorWrapper}>{pagination()}</div>
@@ -161,6 +163,7 @@ const Pagination = ({
         onClick={() => handleButtonClick("next")}
       >
         <Icon icon={arrowForward} role="presentation" />
+        <div className={styles.pageIndicatorFocusRing} />
       </button>
     </div>
   )

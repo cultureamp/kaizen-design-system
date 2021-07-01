@@ -36,8 +36,13 @@
 
   &:focus {
     background-color: $kz-var-color-cluny-200;
-    outline: $kz-var-border-focus-ring-border-width
-      $kz-var-border-solid-border-style $ca-border-color-focus;
+    &:focus-visible {
+      outline: none;
+    }
+    .pageIndicatorFocusRing {
+      border: $kz-var-border-focus-ring-border-width solid
+        $kz-var-color-cluny-200;
+    }
   }
 }
 
