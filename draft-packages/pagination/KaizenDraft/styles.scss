@@ -41,7 +41,7 @@
     }
     .pageIndicatorFocusRing {
       border: $kz-var-border-focus-ring-border-width solid
-        $kz-var-color-cluny-200;
+        $kz-var-color-cluny-500;
     }
   }
 }
@@ -96,7 +96,7 @@
       background-color: $kz-var-color-cluny-200;
       .pageIndicatorFocusRing {
         border: $kz-var-border-focus-ring-border-width solid
-          $kz-var-color-cluny-200;
+          $kz-var-color-cluny-500;
       }
     }
   }
@@ -105,8 +105,11 @@
 .pageIndicatorSelected {
   background-color: $kz-var-color-cluny-500;
   color: $kz-var-color-white;
-  .pageIndicatorFocusRing {
-    border: $kz-var-border-focus-ring-border-width solid $kz-var-color-cluny-500;
+  &:focus {
+    .pageIndicatorFocusRing {
+      border: $kz-var-border-focus-ring-border-width solid
+        $kz-var-color-cluny-500;
+    }
   }
 }
 
