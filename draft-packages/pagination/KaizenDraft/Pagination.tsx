@@ -21,10 +21,6 @@ type Props = {
   ariaLabelNextPage?: string
   ariaLabelPreviousPage?: string
   ariaLabelPage?: string
-  // The dom reference of the table data which will be updated.
-  // The only purpose of this is so we can automatically scroll to the top
-  // of the table upon every update.
-  // contentRef: RefObject<HTMLElement>
   onPageChange: (newPage: number) => void
 }
 
