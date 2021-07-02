@@ -11,13 +11,18 @@ export default {
       `,
     },
   },
+  argTypes: {
+    currentPage: { control: { type: null } },
+    onPageChange: { control: { type: null } },
+    pageCount: { defaultValue: 10 },
+  },
 }
 
-export const basic = () => {
+export const basic = args => {
   const [currentPage, setCurrentPage] = React.useState(1)
   return (
     <Pagination
-      pageCount={50}
+      {...args}
       currentPage={currentPage}
       onPageChange={(newPage: number) => {
         setCurrentPage(newPage)
