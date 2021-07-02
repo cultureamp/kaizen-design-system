@@ -7,7 +7,7 @@ export default {
   parameters: {
     info: {
       text: `
-      import { AsyncSelect, Select } from "@kaizen/draft-select"
+      import Pagination from "@kaizen/draft-pagination"
       `,
     },
   },
@@ -21,9 +21,6 @@ export const basic = () => {
       currentPage={currentPage}
       onPageChange={(newPage: number) => {
         setCurrentPage(newPage)
-        // fetch new page
-        // update currentPage value in state
-        // scroll to top of page
       }}
     />
   )
