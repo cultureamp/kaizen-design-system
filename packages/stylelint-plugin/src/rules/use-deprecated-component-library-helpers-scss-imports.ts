@@ -14,18 +14,18 @@ type ImportToReplace = {
 
 const importsToReplace: ImportToReplace[] = [
   {
-    oldImport: '"~@kaizen/component-library/styles/type"',
-    newImport: '"~@kaizen/deprecated-component-library-helpers/styles/type"',
+    oldImport: "~@kaizen/component-library/styles/type",
+    newImport: "~@kaizen/deprecated-component-library-helpers/styles/type",
     message: deprecatedComponentLibraryTypeImport,
   },
   {
-    oldImport: '"~@kaizen/component-library/styles/color"',
-    newImport: '"~@kaizen/deprecated-component-library-helpers/styles/color"',
+    oldImport: "~@kaizen/component-library/styles/color",
+    newImport: "~@kaizen/deprecated-component-library-helpers/styles/color",
     message: deprecatedComponentLibraryColorImport,
   },
   {
-    oldImport: '"~@kaizen/component-library/styles/layout"',
-    newImport: '"~@kaizen/deprecated-component-library-helpers/styles/layout"',
+    oldImport: "~@kaizen/component-library/styles/layout",
+    newImport: "~@kaizen/deprecated-component-library-helpers/styles/layout",
     message: deprecatedComponentLibraryLayoutImport,
   },
 ]
@@ -48,7 +48,8 @@ const replaceImport = (
   let containsOldImport = false
   styleSheetNode.walkAtRules((node: AtRule) => {
     if (node.name === "import") {
-      if ([oldImport, newImport].includes(node.params)) {
+      const line = node.params
+      if (line.indexOf(oldImport) >= 0 || line.indexOf(newImport) >= 0) {
         importsToProcess.push(node)
         if (node.params.includes(oldImport)) {
           containsOldImport = true
@@ -67,13 +68,18 @@ const replaceImport = (
   if (options.fix && containsOldImport) {
     const [lastImport, ...importsToRemove] = importsToProcess.reverse()
 
-    // the last import, whether it's an old or new import, should be
-    // changed to a new import
-    lastImport.params = newImport
+    // replace with new import, preserving either single or double quotes depending on the
+    // prettier config
+    lastImport.params = addQuotes(oldImport, newImport)
 
     for (const importToRemove of importsToRemove) {
       // we only want one import, so remove all earlier imports
       importToRemove.remove()
     }
   }
+}
+
+function addQuotes(oldImport: string, newImport: string) {
+  const quoteCharacter = oldImport.indexOf("'") >= 0 ? "'" : '"'
+  return `${quoteCharacter}${newImport}${quoteCharacter}`
 }
