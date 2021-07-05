@@ -39,3 +39,9 @@ export const transitiveKaizenTokenUsage = (
   nameOfVariableThatContainsKaizen: string
 ) =>
   `Variable ${nameOfVariableThatContainsKaizen} contains a Kaizen token, and is not allowed because it prevents other rules from detecting invalid kaizen tokens`
+
+export const usageOfOldColorName = (
+  oldColorName: string,
+  newColorName: string
+) =>
+  `Usage of "${oldColorName}" is deprecated and should be renamed to "${newColorName}"`
