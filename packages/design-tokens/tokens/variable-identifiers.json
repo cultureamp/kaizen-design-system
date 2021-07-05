@@ -65,6 +65,24 @@
         "700-rgb-params": "--kz-var-color-wisteria-700-rgb-params",
         "800-rgb-params": "--kz-var-color-wisteria-800-rgb-params"
       },
+      "purple": {
+        "100": "--kz-var-color-purple-100",
+        "200": "--kz-var-color-purple-200",
+        "300": "--kz-var-color-purple-300",
+        "400": "--kz-var-color-purple-400",
+        "500": "--kz-var-color-purple-500",
+        "600": "--kz-var-color-purple-600",
+        "700": "--kz-var-color-purple-700",
+        "800": "--kz-var-color-purple-800",
+        "100-rgb-params": "--kz-var-color-purple-100-rgb-params",
+        "200-rgb-params": "--kz-var-color-purple-200-rgb-params",
+        "300-rgb-params": "--kz-var-color-purple-300-rgb-params",
+        "400-rgb-params": "--kz-var-color-purple-400-rgb-params",
+        "500-rgb-params": "--kz-var-color-purple-500-rgb-params",
+        "600-rgb-params": "--kz-var-color-purple-600-rgb-params",
+        "700-rgb-params": "--kz-var-color-purple-700-rgb-params",
+        "800-rgb-params": "--kz-var-color-purple-800-rgb-params"
+      },
       "cluny": {
         "100": "--kz-var-color-cluny-100",
         "200": "--kz-var-color-cluny-200",
@@ -80,6 +98,22 @@
         "500-rgb-params": "--kz-var-color-cluny-500-rgb-params",
         "600-rgb-params": "--kz-var-color-cluny-600-rgb-params",
         "700-rgb-params": "--kz-var-color-cluny-700-rgb-params"
+      },
+      "blue": {
+        "100": "--kz-var-color-blue-100",
+        "200": "--kz-var-color-blue-200",
+        "300": "--kz-var-color-blue-300",
+        "400": "--kz-var-color-blue-400",
+        "500": "--kz-var-color-blue-500",
+        "600": "--kz-var-color-blue-600",
+        "700": "--kz-var-color-blue-700",
+        "100-rgb-params": "--kz-var-color-blue-100-rgb-params",
+        "200-rgb-params": "--kz-var-color-blue-200-rgb-params",
+        "300-rgb-params": "--kz-var-color-blue-300-rgb-params",
+        "400-rgb-params": "--kz-var-color-blue-400-rgb-params",
+        "500-rgb-params": "--kz-var-color-blue-500-rgb-params",
+        "600-rgb-params": "--kz-var-color-blue-600-rgb-params",
+        "700-rgb-params": "--kz-var-color-blue-700-rgb-params"
       },
       "seedling": {
         "100": "--kz-var-color-seedling-100",
@@ -97,6 +131,22 @@
         "600-rgb-params": "--kz-var-color-seedling-600-rgb-params",
         "700-rgb-params": "--kz-var-color-seedling-700-rgb-params"
       },
+      "green": {
+        "100": "--kz-var-color-green-100",
+        "200": "--kz-var-color-green-200",
+        "300": "--kz-var-color-green-300",
+        "400": "--kz-var-color-green-400",
+        "500": "--kz-var-color-green-500",
+        "600": "--kz-var-color-green-600",
+        "700": "--kz-var-color-green-700",
+        "100-rgb-params": "--kz-var-color-green-100-rgb-params",
+        "200-rgb-params": "--kz-var-color-green-200-rgb-params",
+        "300-rgb-params": "--kz-var-color-green-300-rgb-params",
+        "400-rgb-params": "--kz-var-color-green-400-rgb-params",
+        "500-rgb-params": "--kz-var-color-green-500-rgb-params",
+        "600-rgb-params": "--kz-var-color-green-600-rgb-params",
+        "700-rgb-params": "--kz-var-color-green-700-rgb-params"
+      },
       "yuzu": {
         "100": "--kz-var-color-yuzu-100",
         "200": "--kz-var-color-yuzu-200",
@@ -112,6 +162,22 @@
         "500-rgb-params": "--kz-var-color-yuzu-500-rgb-params",
         "600-rgb-params": "--kz-var-color-yuzu-600-rgb-params",
         "700-rgb-params": "--kz-var-color-yuzu-700-rgb-params"
+      },
+      "yellow": {
+        "100": "--kz-var-color-yellow-100",
+        "200": "--kz-var-color-yellow-200",
+        "300": "--kz-var-color-yellow-300",
+        "400": "--kz-var-color-yellow-400",
+        "500": "--kz-var-color-yellow-500",
+        "600": "--kz-var-color-yellow-600",
+        "700": "--kz-var-color-yellow-700",
+        "100-rgb-params": "--kz-var-color-yellow-100-rgb-params",
+        "200-rgb-params": "--kz-var-color-yellow-200-rgb-params",
+        "300-rgb-params": "--kz-var-color-yellow-300-rgb-params",
+        "400-rgb-params": "--kz-var-color-yellow-400-rgb-params",
+        "500-rgb-params": "--kz-var-color-yellow-500-rgb-params",
+        "600-rgb-params": "--kz-var-color-yellow-600-rgb-params",
+        "700-rgb-params": "--kz-var-color-yellow-700-rgb-params"
       },
       "coral": {
         "100": "--kz-var-color-coral-100",
@@ -129,6 +195,22 @@
         "600-rgb-params": "--kz-var-color-coral-600-rgb-params",
         "700-rgb-params": "--kz-var-color-coral-700-rgb-params"
       },
+      "red": {
+        "100": "--kz-var-color-red-100",
+        "200": "--kz-var-color-red-200",
+        "300": "--kz-var-color-red-300",
+        "400": "--kz-var-color-red-400",
+        "500": "--kz-var-color-red-500",
+        "600": "--kz-var-color-red-600",
+        "700": "--kz-var-color-red-700",
+        "100-rgb-params": "--kz-var-color-red-100-rgb-params",
+        "200-rgb-params": "--kz-var-color-red-200-rgb-params",
+        "300-rgb-params": "--kz-var-color-red-300-rgb-params",
+        "400-rgb-params": "--kz-var-color-red-400-rgb-params",
+        "500-rgb-params": "--kz-var-color-red-500-rgb-params",
+        "600-rgb-params": "--kz-var-color-red-600-rgb-params",
+        "700-rgb-params": "--kz-var-color-red-700-rgb-params"
+      },
       "peach": {
         "100": "--kz-var-color-peach-100",
         "200": "--kz-var-color-peach-200",
@@ -144,6 +226,22 @@
         "500-rgb-params": "--kz-var-color-peach-500-rgb-params",
         "600-rgb-params": "--kz-var-color-peach-600-rgb-params",
         "700-rgb-params": "--kz-var-color-peach-700-rgb-params"
+      },
+      "orange": {
+        "100": "--kz-var-color-orange-100",
+        "200": "--kz-var-color-orange-200",
+        "300": "--kz-var-color-orange-300",
+        "400": "--kz-var-color-orange-400",
+        "500": "--kz-var-color-orange-500",
+        "600": "--kz-var-color-orange-600",
+        "700": "--kz-var-color-orange-700",
+        "100-rgb-params": "--kz-var-color-orange-100-rgb-params",
+        "200-rgb-params": "--kz-var-color-orange-200-rgb-params",
+        "300-rgb-params": "--kz-var-color-orange-300-rgb-params",
+        "400-rgb-params": "--kz-var-color-orange-400-rgb-params",
+        "500-rgb-params": "--kz-var-color-orange-500-rgb-params",
+        "600-rgb-params": "--kz-var-color-orange-600-rgb-params",
+        "700-rgb-params": "--kz-var-color-orange-700-rgb-params"
       },
       "ash": "--kz-var-color-ash",
       "ash-rgb-params": "--kz-var-color-ash-rgb-params",
