@@ -6,6 +6,7 @@ import { preferVarTokens } from "./rules/prefer-var-tokens"
 import { noInvalidUseOfVarTokensInEquations } from "./rules/no-invalid-use-of-var-tokens-in-equations"
 import { noInvalidUseOfVarTokensInFunctions } from "./rules/no-invalid-use-of-var-tokens-in-functions"
 import { noTokensInVariables } from "./rules/no-tokens-in-variables"
+import { useDeprecatedComponentLibraryHelpersScssImports } from "./rules/use-deprecated-component-library-helpers-scss-imports"
 import { Options } from "./types"
 
 type StyleLintRuleFunction = (stylesheetNode: Root, options: Options) => void
@@ -27,6 +28,7 @@ const rules: StyleLintRule[] = [
   noInvalidUseOfVarTokensInEquations,
   noInvalidUseOfVarTokensInFunctions,
   preferVarTokens,
+  useDeprecatedComponentLibraryHelpersScssImports,
 ]
 
 export default rules.map(rule =>

@@ -4,7 +4,7 @@ import {
   deprecatedComponentLibraryTypeImport,
   deprecatedComponentLibraryLayoutImport,
 } from "../messages"
-import { Options } from "../types"
+import { Options, RuleDefinition } from "../types"
 
 type ImportToReplace = {
   oldImport: string
@@ -30,16 +30,13 @@ const importsToReplace: ImportToReplace[] = [
   },
 ]
 
-export const useDeprecatedComponentLibraryHelpersScssImportsRuleName =
-  "use-deprecated-component-library-helpers-scss-imports"
-
-export const useDeprecatedComponentLibraryHelpersScssImportsRule = (
-  styleSheetNode: Root,
-  options: Options
-) => {
-  for (const importToReplace of importsToReplace) {
-    replaceImport(styleSheetNode, options, importToReplace)
-  }
+export const useDeprecatedComponentLibraryHelpersScssImports: RuleDefinition = {
+  name: "use-deprecated-component-library-helpers-scss-imports",
+  ruleFunction: (styleSheetNode: Root, options: Options) => {
+    for (const importToReplace of importsToReplace) {
+      replaceImport(styleSheetNode, options, importToReplace)
+    }
+  },
 }
 
 const replaceImport = (
