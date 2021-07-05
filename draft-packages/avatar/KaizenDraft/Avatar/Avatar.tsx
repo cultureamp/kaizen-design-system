@@ -5,7 +5,7 @@ import { Textfit } from "react-textfit"
 import userIcon from "@kaizen/component-library/icons/user.icon.svg"
 import styles from "./styles.module.scss"
 
-type AvatarSizes = "small" | "medium" | "large"
+type AvatarSizes = "small" | "medium" | "large" | "xlarge"
 
 const getInitials: (fullName: string, max2Characters?: boolean) => string = (
   fullName,
@@ -20,6 +20,7 @@ const getInitials: (fullName: string, max2Characters?: boolean) => string = (
 const getMaxFontSizePixels: (size: AvatarSizes) => number = size => {
   if (size === "small") return 8
   if (size === "medium") return 16
+  if (size === "xlarge") return 34
   return 22
 }
 

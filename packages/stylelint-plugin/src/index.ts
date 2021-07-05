@@ -1,6 +1,6 @@
 import { Configuration } from "stylelint"
 
-export const kaizenStylelintRules = {
+const kaizenStylelintRules = {
   "kaizen/prefer-var-tokens": [
     true,
     { severity: "warning", disableFixing: false },
@@ -28,4 +28,4 @@ const kaizenStylelintConfig: Partial<Configuration> = {
   rules: kaizenStylelintRules,
 }
 
-export default kaizenStylelintConfig
+module.exports = kaizenStylelintConfig

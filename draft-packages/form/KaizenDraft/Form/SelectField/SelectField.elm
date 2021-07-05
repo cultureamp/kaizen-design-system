@@ -2,6 +2,7 @@ module KaizenDraft.Form.SelectField.SelectField exposing
     ( Config
     , Status(..)
     , clearable
+    , controlHasUnconstrainedHeight
     , description
     , disabled
     , id
@@ -57,6 +58,7 @@ type alias ConfigValue msg item =
     , disabled : Bool
     , reversed : Bool
     , validationMessage : Maybe String
+    , controlHasUnconstrainedHeight : Bool
     }
 
 
@@ -81,6 +83,7 @@ defaults toMsg =
     , disabled = False
     , reversed = False
     , validationMessage = Nothing
+    , controlHasUnconstrainedHeight = False
     }
 
 
@@ -201,6 +204,11 @@ status value (Config config) =
     Config { config | status = value }
 
 
+controlHasUnconstrainedHeight : Bool -> Config msg item -> Config msg item
+controlHasUnconstrainedHeight predicate (Config config) =
+    Config { config | controlHasUnconstrainedHeight = predicate }
+
+
 view : Config msg item -> Html msg
 view (Config config) =
     let
@@ -283,6 +291,7 @@ view (Config config) =
                 |> Select.searchable config.searchable
                 |> Select.clearable config.clearable
                 |> Select.disabled config.disabled
+                |> Select.controlHasUnconstrainedHeight config.controlHasUnconstrainedHeight
 
         selectInputId =
             config.id ++ "-field-input"

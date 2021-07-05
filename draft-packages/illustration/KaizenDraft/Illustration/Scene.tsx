@@ -1,29 +1,171 @@
 import { useTheme } from "@kaizen/design-tokens"
 import * as React from "react"
 import { Base, BaseProps } from "./Base"
+import { VideoPlayerProps, VideoPlayer } from "./Players/VideoPlayer"
 
 export type SceneProps = Pick<BaseProps, "alt" | "classNameAndIHaveSpokenToDST">
 
-export const EmptyStatesAction = (props: SceneProps) => {
-  const theme = useTheme()
+/**
+ * All keys K within T will be converted to a never type.
+ * This is useful for discriminated unions
+ */
+type SubsetBecomesNever<T, K extends keyof T> = T | { [L in K]?: never }
+
+type AnimatedProps = { isAnimated?: true } & Pick<
+  VideoPlayerProps,
+  "loop" | "autoplay"
+> &
+  SubsetBecomesNever<SceneProps, "alt">
+type NotAnimatedProps = { isAnimated: false } & SubsetBecomesNever<
+  VideoPlayerProps,
+  "autoplay" | "loop"
+> &
+  SceneProps
+type AnimatedSceneProps = AnimatedProps | NotAnimatedProps
+
+export const BrandMomentCaptureIntro = ({
+  isAnimated,
+  alt,
+  ...otherProps
+}: AnimatedSceneProps) => {
+  if (isAnimated) {
+    return (
+      <VideoPlayer
+        {...otherProps}
+        fallback="illustrations/heart/scene/brand-moments-capture-intro.png"
+        ambientAnimation="illustrations/heart/scene/brand-moments-capture-intro-loop.webm"
+        initialAnimation="illustrations/heart/scene/brand-moments-capture-intro.webm"
+      />
+    )
+  }
   return (
     <Base
-      {...props}
+      alt={alt || ""}
+      {...otherProps}
+      name="illustrations/heart/scene/brand-moments-capture-intro.png"
+    />
+  )
+}
+
+export const BrandMomentPositiveOutro = ({
+  isAnimated,
+  alt,
+  ...otherProps
+}: AnimatedSceneProps) => {
+  if (isAnimated) {
+    return (
+      <VideoPlayer
+        {...otherProps}
+        fallback="illustrations/heart/scene/brand-moments-positive-outro.png"
+        ambientAnimation="illustrations/heart/scene/brand-moments-positive-outro.webm"
+      />
+    )
+  }
+  return (
+    <Base
+      alt={alt || ""}
+      {...otherProps}
+      name="illustrations/heart/scene/brand-moments-positive-outro.png"
+    />
+  )
+}
+
+export const BrandMomentLogin = ({
+  isAnimated,
+  alt,
+  ...otherProps
+}: AnimatedSceneProps) => {
+  if (isAnimated) {
+    return (
+      <VideoPlayer
+        {...otherProps}
+        fallback="illustrations/heart/scene/brand-moments-login.png"
+        ambientAnimation="illustrations/heart/scene/brand-moments-login.webm"
+      />
+    )
+  }
+  return (
+    <Base
+      alt={alt || ""}
+      {...otherProps}
+      name="illustrations/heart/scene/brand-moments-login.png"
+    />
+  )
+}
+
+export const BrandMomentError = ({
+  isAnimated,
+  alt,
+  ...otherProps
+}: AnimatedSceneProps) => {
+  const { themeKey } = useTheme()
+  if (isAnimated) {
+    return (
+      <VideoPlayer
+        {...otherProps}
+        fallback="illustrations/heart/scene/brand-moments-error-page.png"
+        ambientAnimation="illustrations/heart/scene/brand-moments-error.webm"
+      />
+    )
+  }
+  return (
+    <Base
+      alt={alt || ""}
+      {...otherProps}
+      name="illustrations/heart/scene/brand-moments-error-page.png"
+    />
+  )
+}
+
+export const EmptyStatesAction = ({
+  isAnimated,
+  alt,
+  ...otherProps
+}: AnimatedSceneProps) => {
+  const { themeKey } = useTheme()
+  if (isAnimated) {
+    return (
+      <VideoPlayer
+        {...otherProps}
+        fallback="illustrations/heart/scene/empty-states-action.svg"
+        ambientAnimation="illustrations/heart/scene/empty-states-action.webm"
+      />
+    )
+  }
+  return (
+    <Base
+      alt={alt || ""}
+      {...otherProps}
       name={
-        theme.themeKey === "zen"
+        themeKey === "zen"
           ? "illustrations/scene/empty-states-action.svg"
           : "illustrations/heart/scene/empty-states-action.svg"
       }
     />
   )
 }
-export const EmptyStatesInformative = (props: SceneProps) => {
-  const theme = useTheme()
+
+export const EmptyStatesInformative = ({
+  isAnimated,
+  alt,
+  ...otherProps
+}: AnimatedSceneProps) => {
+  const { themeKey } = useTheme()
+  if (isAnimated) {
+    return (
+      <VideoPlayer
+        {...otherProps}
+        fallback="illustrations/heart/scene/empty-states-informative.svg"
+        ambientAnimation="illustrations/heart/scene/empty-states-informative.webm"
+      />
+    )
+  }
   return (
     <Base
-      {...props}
+      alt={alt || ""}
+      {...otherProps}
       name={
-        theme.themeKey === "zen"
+        themeKey === "zen"
           ? "illustrations/scene/empty-states-informative.svg"
           : "illustrations/heart/scene/empty-states-informative.svg"
       }
@@ -31,13 +173,27 @@ export const EmptyStatesInformative = (props: SceneProps) => {
   )
 }
 
-export const EmptyStatesNegative = (props: SceneProps) => {
-  const theme = useTheme()
+export const EmptyStatesNegative = ({
+  isAnimated,
+  alt,
+  ...otherProps
+}: AnimatedSceneProps) => {
+  const { themeKey } = useTheme()
+  if (isAnimated) {
+    return (
+      <VideoPlayer
+        {...otherProps}
+        fallback="illustrations/heart/scene/empty-states-negative.svg"
+        ambientAnimation="illustrations/heart/scene/empty-states-negative.webm"
+      />
+    )
+  }
   return (
     <Base
-      {...props}
+      alt={alt || ""}
+      {...otherProps}
       name={
-        theme.themeKey === "zen"
+        themeKey === "zen"
           ? "illustrations/scene/empty-states-negative.svg"
           : "illustrations/heart/scene/empty-states-negative.svg"
       }
@@ -45,13 +201,27 @@ export const EmptyStatesNegative = (props: SceneProps) => {
   )
 }
 
-export const EmptyStatesPositive = (props: SceneProps) => {
-  const theme = useTheme()
+export const EmptyStatesPositive = ({
+  isAnimated,
+  alt,
+  ...otherProps
+}: AnimatedSceneProps) => {
+  const { themeKey } = useTheme()
+  if (isAnimated) {
+    return (
+      <VideoPlayer
+        {...otherProps}
+        fallback="illustrations/heart/scene/empty-states-positive.svg"
+        ambientAnimation="illustrations/heart/scene/empty-states-positive.webm"
+      />
+    )
+  }
   return (
     <Base
-      {...props}
+      alt={alt || ""}
+      {...otherProps}
       name={
-        theme.themeKey === "zen"
+        themeKey === "zen"
           ? "illustrations/scene/empty-states-positive.svg"
           : "illustrations/heart/scene/empty-states-positive.svg"
       }
@@ -59,13 +229,27 @@ export const EmptyStatesPositive = (props: SceneProps) => {
   )
 }
 
-export const EmptyStatesNeutral = (props: SceneProps) => {
-  const theme = useTheme()
+export const EmptyStatesNeutral = ({
+  isAnimated,
+  alt,
+  ...otherProps
+}: AnimatedSceneProps) => {
+  const { themeKey } = useTheme()
+  if (isAnimated) {
+    return (
+      <VideoPlayer
+        {...otherProps}
+        fallback="illustrations/heart/scene/empty-states-neutral.svg"
+        ambientAnimation="illustrations/heart/scene/empty-states-neutral.webm"
+      />
+    )
+  }
   return (
     <Base
-      {...props}
+      alt={alt || ""}
+      {...otherProps}
       name={
-        theme.themeKey === "zen"
+        themeKey === "zen"
           ? "illustrations/scene/empty-states-neutral.svg"
           : "illustrations/heart/scene/empty-states-neutral.svg"
       }
