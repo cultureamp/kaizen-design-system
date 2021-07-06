@@ -44,6 +44,14 @@ const testCases = [
   },
   {
     input:
+      ".foo { test-prop: $kz-var-color-white $kz-var-color-stone $kz-var-color-ash $kz-var-color-iron $kz-var-color-slate; }",
+    expectedOutput:
+      ".foo { test-prop: $kz-var-color-neutral-100 $kz-var-color-neutral-200 $kz-var-color-neutral-300 $kz-var-color-neutral-500 $kz-var-color-neutral-600; }",
+    testName: "neutrals are renamed in declarations",
+    expectedReports: 0,
+  },
+  {
+    input:
       "@testrule(test-prop: $kz-var-color-wisteria-100 $kz-var-color-wisteria-200 $kz-var-color-wisteria-300 $kz-var-color-wisteria-400 $kz-var-color-wisteria-500 $kz-var-color-wisteria-600 $kz-var-color-wisteria-700 $kz-var-color-wisteria-800)",
     expectedOutput:
       "@testrule(test-prop: $kz-var-color-purple-100 $kz-var-color-purple-200 $kz-var-color-purple-300 $kz-var-color-purple-400 $kz-var-color-purple-500 $kz-var-color-purple-600 $kz-var-color-purple-700 $kz-var-color-purple-800)",
@@ -80,6 +88,14 @@ const testCases = [
     expectedOutput:
       "@testrule(test-prop: $kz-var-color-orange-100 $kz-var-color-orange-200 $kz-var-color-orange-300 $kz-var-color-orange-400 $kz-var-color-orange-500 $kz-var-color-orange-600 $kz-var-color-orange-700)",
     testName: "peach is renamed to orange in at-rules",
+    expectedReports: 0,
+  },
+  {
+    input:
+      "@testrule(test-prop: $kz-var-color-white $kz-var-color-stone $kz-var-color-ash $kz-var-color-iron $kz-var-color-slate)",
+    expectedOutput:
+      "@testrule(test-prop: $kz-var-color-neutral-100 $kz-var-color-neutral-200 $kz-var-color-neutral-300 $kz-var-color-neutral-500 $kz-var-color-neutral-600)",
+    testName: "neutrals are renamed in at-rules",
     expectedReports: 0,
   },
 ]

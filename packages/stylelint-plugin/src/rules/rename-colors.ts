@@ -13,6 +13,11 @@ const renameRules = [
   ["yuzu", "yellow"],
   ["coral", "red"],
   ["peach", "orange"],
+  ["white", "neutral-100"],
+  ["stone", "neutral-200"],
+  ["ash", "neutral-300"],
+  ["iron", "neutral-500"],
+  ["slate", "neutral-600"],
 ]
 
 /**

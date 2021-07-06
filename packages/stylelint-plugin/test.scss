@@ -23,4 +23,10 @@ $test-color: $kz-var-color-purple-800;
   color: mix($foo, white, 80%);
 
   test: $kz-var-color-purple-800;
+
+  color: $kz-color-stone $kz-color-ash $kz-var-color-iron;
+  color: $kz-color-stone;
+  color: $kz-color-white;
+  color: $kz-color-iron;
+  color: $kz-color-slate;
 }
