@@ -45,7 +45,7 @@ ${Object.entries(makeCSSVariablesOfTheme(theme))
  * See {@link augmentCssVariable} to understand what happens to each leaf variable in the theme.
  * Writing this as a solution to the add-alpha and add-tint/shade problem, and to spit out sass variables with `-default` and `-rgb-params` suffixes (where applicable).
  * We need to have additional tokens that reference variables, which contain a tuple (R, G, B).
- * This tuple can then be used within the CSS [runtime] function as a CSS variable, e.g. `rgba(var(--kz-color-wisteria-800-rgb))`.
+ * This tuple can then be used within the CSS [runtime] function as a CSS variable, e.g. `rgba(var(--kz-color-purple-800-rgb))`.
  */
 
 export const augmentThemeForSassVariables = (theme: Theme): Theme => {

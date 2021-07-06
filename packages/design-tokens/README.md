@@ -8,7 +8,7 @@ Design tokens are named and stored visual design traits, including colors, typog
 
 The tokens represented here are platform-agnostic (JSON), as this will help us contribute to & facilitate the maintenance of living style guides. This package defines all the option tokens in Kaizen.
 
-- **Option tokens** offer options. For example, `$kz-var-color-wisteria-500: #898ba9;` is one color option available.
+- **Option tokens** offer options. For example, `$kz-var-color-purple-500: #898ba9;` is one color option available.
 - **Decision tokens** communicate decisions about when to apply an option token to a context. For example, the color used for text is a decision.
 
 In its current state this package supports Sass and Less variables, generated from a JSON tokens file.
