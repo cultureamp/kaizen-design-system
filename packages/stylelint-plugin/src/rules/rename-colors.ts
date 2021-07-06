@@ -50,7 +50,7 @@ export const renameColorsRule: RuleDefinition = {
         })
       })
 
-      // Here is where we replace the postcss node with a new modified value, using the modified postcssValueParser nodes.
+      // Here is where we replace the postcss node value with something new: a stringified postcssValueParser AST, which will have been mutated in the previous block that walked through each node.
       if (options.fix && changesMade) {
         const newNode =
           declOrAtRule.type === "decl"
