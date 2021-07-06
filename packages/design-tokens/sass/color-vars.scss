@@ -602,6 +602,55 @@ $kz-var-color-orange-700-rgb-params: var(
   60,
   0
 );
+$kz-var-color-neutral-100: var(--kz-var-color-neutral-100, #ffffff);
+$kz-var-color-neutral-200: var(--kz-var-color-neutral-200, #f9f9f9);
+$kz-var-color-neutral-250: var(--kz-var-color-neutral-250, #f4f4f5);
+$kz-var-color-neutral-300: var(--kz-var-color-neutral-300, #eaeaec);
+$kz-var-color-neutral-400: var(--kz-var-color-neutral-400, #cdcdd0);
+$kz-var-color-neutral-500: var(--kz-var-color-neutral-500, #8c8c97);
+$kz-var-color-neutral-600: var(--kz-var-color-neutral-600, #524e56);
+$kz-var-color-neutral-100-rgb-params: var(
+  --kz-var-color-neutral-100-rgb-params,
+  255,
+  255,
+  255
+);
+$kz-var-color-neutral-200-rgb-params: var(
+  --kz-var-color-neutral-200-rgb-params,
+  249,
+  249,
+  249
+);
+$kz-var-color-neutral-250-rgb-params: var(
+  --kz-var-color-neutral-250-rgb-params,
+  244,
+  244,
+  245
+);
+$kz-var-color-neutral-300-rgb-params: var(
+  --kz-var-color-neutral-300-rgb-params,
+  234,
+  234,
+  236
+);
+$kz-var-color-neutral-400-rgb-params: var(
+  --kz-var-color-neutral-400-rgb-params,
+  205,
+  205,
+  208
+);
+$kz-var-color-neutral-500-rgb-params: var(
+  --kz-var-color-neutral-500-rgb-params,
+  140,
+  140,
+  151
+);
+$kz-var-color-neutral-600-rgb-params: var(
+  --kz-var-color-neutral-600-rgb-params,
+  82,
+  78,
+  86
+);
 $kz-var-color-ash: var(--kz-var-color-ash, #ececef);
 $kz-var-color-ash-rgb-params: var(--kz-var-color-ash-rgb-params, 236, 236, 239);
 $kz-var-color-stone: var(--kz-var-color-stone, #f6f6f6);

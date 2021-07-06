@@ -197,6 +197,22 @@
         "600-rgb-params": "var(--kz-var-color-orange-600-rgb-params, 184, 93, 74)",
         "700-rgb-params": "var(--kz-var-color-orange-700-rgb-params, 144, 60, 0)"
       },
+      "neutral": {
+        "100": "var(--kz-var-color-neutral-100, #FFFFFF)",
+        "200": "var(--kz-var-color-neutral-200, #F9F9F9)",
+        "250": "var(--kz-var-color-neutral-250, #F4F4F5)",
+        "300": "var(--kz-var-color-neutral-300, #EAEAEC)",
+        "400": "var(--kz-var-color-neutral-400, #CDCDD0)",
+        "500": "var(--kz-var-color-neutral-500, #8C8C97)",
+        "600": "var(--kz-var-color-neutral-600, #524E56)",
+        "100-rgb-params": "var(--kz-var-color-neutral-100-rgb-params, 255, 255, 255)",
+        "200-rgb-params": "var(--kz-var-color-neutral-200-rgb-params, 249, 249, 249)",
+        "250-rgb-params": "var(--kz-var-color-neutral-250-rgb-params, 244, 244, 245)",
+        "300-rgb-params": "var(--kz-var-color-neutral-300-rgb-params, 234, 234, 236)",
+        "400-rgb-params": "var(--kz-var-color-neutral-400-rgb-params, 205, 205, 208)",
+        "500-rgb-params": "var(--kz-var-color-neutral-500-rgb-params, 140, 140, 151)",
+        "600-rgb-params": "var(--kz-var-color-neutral-600-rgb-params, 82, 78, 86)"
+      },
       "ash": "var(--kz-var-color-ash, #ECECEF)",
       "ash-rgb-params": "var(--kz-var-color-ash-rgb-params, 236, 236, 239)",
       "stone": "var(--kz-var-color-stone, #F6F6F6)",
