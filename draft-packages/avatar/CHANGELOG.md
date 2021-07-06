@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.3.12...@kaizen/draft-avatar@1.4.0) (2021-07-04)
+
+
+### Features
+
+* add xlarge size for avatar ([#1738](https://github.com/cultureamp/kaizen-design-system/issues/1738)) ([ec754f4](https://github.com/cultureamp/kaizen-design-system/commit/ec754f4cd82f193c383adb3f7af889399a65a7ee))
+
+
+
+
+
+## [1.3.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.3.11...@kaizen/draft-avatar@1.3.12) (2021-07-02)
+
+**Note:** Version bump only for package @kaizen/draft-avatar
+
+
+
+
+
 ## [1.3.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.3.10...@kaizen/draft-avatar@1.3.11) (2021-06-11)
 
 **Note:** Version bump only for package @kaizen/draft-avatar

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.4.3...@kaizen/draft-slider@1.4.4) (2021-07-06)
+
+
+### Bug Fixes
+
+* Delete template Slider README ([#1744](https://github.com/cultureamp/kaizen-design-system/issues/1744)) ([82c66c1](https://github.com/cultureamp/kaizen-design-system/commit/82c66c15f90e52e1fa9d754857991da17db9aeed))
+
+
+
+
+
+## [1.4.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.4.2...@kaizen/draft-slider@1.4.3) (2021-07-02)
+
+**Note:** Version bump only for package @kaizen/draft-slider
+
+
+
+
+
 ## [1.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-slider@1.4.1...@kaizen/draft-slider@1.4.2) (2021-06-11)
 
 **Note:** Version bump only for package @kaizen/draft-slider

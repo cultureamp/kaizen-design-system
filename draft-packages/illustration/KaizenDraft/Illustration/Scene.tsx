@@ -32,7 +32,7 @@ export const BrandMomentCaptureIntro = ({
     return (
       <VideoPlayer
         {...otherProps}
-        fallback="illustrations/heart/scene/brand-moments-capture-intro.png"
+        fallback="illustrations/heart/scene/brand-moments-capture-intro-loop.png"
         ambientAnimation="illustrations/heart/scene/brand-moments-capture-intro-loop.webm"
         initialAnimation="illustrations/heart/scene/brand-moments-capture-intro.webm"
       />
@@ -42,7 +42,7 @@ export const BrandMomentCaptureIntro = ({
     <Base
       alt={alt || ""}
       {...otherProps}
-      name="illustrations/heart/scene/brand-moments-capture-intro.png"
+      name="illustrations/heart/scene/brand-moments-capture-intro-loop.png"
     />
   )
 }
@@ -103,7 +103,7 @@ export const BrandMomentError = ({
     return (
       <VideoPlayer
         {...otherProps}
-        fallback="illustrations/heart/scene/brand-moments-error-page.png"
+        fallback="illustrations/heart/scene/brand-moments-error.png"
         ambientAnimation="illustrations/heart/scene/brand-moments-error.webm"
       />
     )
@@ -112,7 +112,7 @@ export const BrandMomentError = ({
     <Base
       alt={alt || ""}
       {...otherProps}
-      name="illustrations/heart/scene/brand-moments-error-page.png"
+      name="illustrations/heart/scene/brand-moments-error.png"
     />
   )
 }
