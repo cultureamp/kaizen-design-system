@@ -1,22 +1,17 @@
-@import "~@kaizen/design-tokens/sass/spacing";
 // This is a file you can use to play with the stylelint plugin
+@import "~@kaizen/design-tokens/sass/spacing";
 @import "~@kaizen/design-tokens/sass/spacing-vars";
-
 @import "~@kaizen/design-tokens/sass/color-vars";
-@import "././another.scss";
-
 @import "~@kaizen/component-library/styles/layout";
 
-$test-color: $kz-var-color-wisteria-800;
+$test-color: $kz-var-color-purple-800;
 
-/* $test-offset: -1 * ($kz-spacing-md + 1px);
- */
 .test {
-  background-color: rgb($kz-var-color-cluny-600-rgb-params);
+  background-color: rgb($kz-var-color-blue-600-rgb-params);
 
-  border-color: rgba($kz-var-color-wisteria-800-rgb-params, 70%);
+  border-color: rgba($kz-var-color-purple-800-rgb-params, 70%);
 
-  border: rgba($kz-var-color-wisteria-800-rgb-params, 0.7);
+  border: rgba($kz-var-color-purple-800-rgb-params, 0.7);
 
   padding: $kz-var-spacing-md;
 
@@ -25,6 +20,5 @@ $test-color: $kz-var-color-wisteria-800;
 
   margin: $kz-var-spacing-md calc(-1 * #{$kz-var-spacing-md});
 
-  // Take this out to see some magic
   color: mix($foo, white, 80%);
 }
