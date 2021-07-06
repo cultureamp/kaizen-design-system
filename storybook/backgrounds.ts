@@ -13,3 +13,14 @@ export const backgrounds = [
   { name: "Orange 500", value: tokens.kz.color.orange["500"] },
   { name: "Red 500", value: tokens.kz.color.red["500"] },
 ]
+export const cssVarBackgrounds = [
+  { name: "Neutral-100 (White)", value: tokens["kz-var"].color.neutral["100"] },
+  { name: "Neutral-200", value: tokens["kz-var"].color.neutral["200"] },
+  { name: "Neutral-300", value: tokens["kz-var"].color.neutral["300"] },
+  { name: "Purple 700", value: tokens["kz-var"].color.purple["700"] },
+  { name: "Blue 500", value: tokens["kz-var"].color.blue["500"] },
+  { name: "Green 500", value: tokens["kz-var"].color.green["500"] },
+  { name: "Yellow 500", value: tokens["kz-var"].color.yellow["500"] },
+  { name: "Orange 500", value: tokens["kz-var"].color.orange["500"] },
+  { name: "Red 500", value: tokens["kz-var"].color.red["500"] },
+]
