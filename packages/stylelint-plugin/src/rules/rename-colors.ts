@@ -15,6 +15,11 @@ const renameRules = [
 ]
 
 export const renameColorsRuleName = "rename-colors"
+
+/**
+ * This rule renames all old colors to the new (wisteria -> purple, cluny -> blue, coral -> red etc).
+ * It does so by looping through declarations and at-rules that contain kaizen tokens, then replacing any matching old strings with new strings, based on {@link renameRules}
+ */
 export const renameColorsRule = (stylesheet: Root, options: Options) => {
   const handleDeclAndAtRule = (node: Declaration | AtRule) => {
     const value = node.type === "decl" ? node.value : node.params
