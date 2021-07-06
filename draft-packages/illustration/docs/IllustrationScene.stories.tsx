@@ -70,42 +70,50 @@ export default {
   },
 }
 
-export const BrandMoments = () => (
+export const BrandMoments = args => (
   <>
     <div style={{ width: "450px" }}>
-      <BrandMomentCaptureIntro isAnimated loop />
+      <BrandMomentCaptureIntro {...args} />
     </div>
     <div style={{ width: "450px" }}>
-      <BrandMomentPositiveOutro isAnimated loop />
+      <BrandMomentPositiveOutro {...args} />
     </div>
     <div style={{ width: "800px" }}>
-      <BrandMomentLogin isAnimated loop />
+      <BrandMomentLogin {...args} />
     </div>
     <div style={{ width: "450px" }}>
-      <BrandMomentError isAnimated loop />
+      <BrandMomentError {...args} />
     </div>
   </>
 )
+BrandMoments.args = {
+  isAnimated: true,
+  loop: true,
+}
 
-export const AnimatedSceneIllustrations = () => (
+export const AnimatedSceneIllustrations = args => (
   <>
     <div style={{ width: "450px" }}>
-      <EmptyStatesAction isAnimated loop />
+      <EmptyStatesAction {...args} />
     </div>
     <div style={{ width: "450px" }}>
-      <EmptyStatesInformative isAnimated loop />
+      <EmptyStatesInformative {...args} />
     </div>
     <div style={{ width: "450px" }}>
-      <EmptyStatesNegative isAnimated loop />
+      <EmptyStatesNegative {...args} />
     </div>
     <div style={{ width: "450px" }}>
-      <EmptyStatesPositive isAnimated loop />
+      <EmptyStatesPositive {...args} />
     </div>
     <div style={{ width: "450px" }}>
-      <EmptyStatesNeutral isAnimated loop />
+      <EmptyStatesNeutral {...args} />
     </div>
   </>
 )
+AnimatedSceneIllustrations.args = {
+  isAnimated: true,
+  loop: true,
+}
 
 export const DefaultSiteDemo = () => (
   <div style={{ width: "500px" }}>
