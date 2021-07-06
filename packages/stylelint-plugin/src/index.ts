@@ -21,6 +21,7 @@ const kaizenStylelintRules = {
     true,
     { severity: "warning", disableFixing: false },
   ],
+  "kaizen/rename-colors": [true, { severity: "warning", disableFixing: false }],
 }
 
 const kaizenStylelintConfig: Partial<Configuration> = {
