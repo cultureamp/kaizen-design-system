@@ -26,7 +26,7 @@ require("@kaizen/component-library/styles/fonts.scss")
 
 addParameters({
   backgrounds: {
-    default: "Neutral-100 (White)",
+    default: "Neutral-100",
     values: backgrounds,
   },
   options: {
