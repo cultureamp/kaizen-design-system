@@ -35,6 +35,13 @@ const testCases = [
     expectedReports: 0,
   },
   {
+    // The input contains a kaizen var `$kz-var-border-dashed-border-style;` that has `ash` as a substring, which should not be replaced.
+    input: ".foo { test-prop: $kz-var-border-dashed-border-style; }",
+    expectedOutput: ".foo { test-prop: $kz-var-border-dashed-border-style; }",
+    testName: "accidental renames don't occur",
+    expectedReports: 0,
+  },
+  {
     input:
       ".foo { test-prop: $kz-var-color-peach-100 $kz-var-color-peach-200 $kz-var-color-peach-300 $kz-var-color-peach-400 $kz-var-color-peach-500 $kz-var-color-peach-600 $kz-var-color-peach-700; }",
     expectedOutput:

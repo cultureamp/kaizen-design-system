@@ -8,16 +8,16 @@ import {
 } from "../util/walkers"
 
 const renameRules = [
-  ["wisteria", "purple"],
-  ["cluny", "blue"],
-  ["yuzu", "yellow"],
-  ["coral", "red"],
-  ["peach", "orange"],
-  ["white", "neutral-100"],
-  ["stone", "neutral-200"],
-  ["ash", "neutral-300"],
-  ["iron", "neutral-500"],
-  ["slate", "neutral-600"],
+  ["-color-wisteria", "-color-purple"],
+  ["-color-cluny", "-color-blue"],
+  ["-color-yuzu", "-color-yellow"],
+  ["-color-coral", "-color-red"],
+  ["-color-peach", "-color-orange"],
+  ["-color-white", "-color-neutral-100"],
+  ["-color-stone", "-color-neutral-200"],
+  ["-color-ash", "-color-neutral-300"],
+  ["-color-iron", "-color-neutral-500"],
+  ["-color-slate", "-color-neutral-600"],
 ]
 
 /**
