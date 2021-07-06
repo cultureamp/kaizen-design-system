@@ -1,4 +1,4 @@
-import { Root } from "postcss"
+import { AtRule, Declaration, Root } from "postcss"
 import { usageOfOldColorName } from "../messages"
 import { Options } from "../types"
 import {
@@ -16,46 +16,36 @@ const renameRules = [
 
 export const renameColorsRuleName = "rename-colors"
 export const renameColorsRule = (stylesheet: Root, options: Options) => {
-  walkDeclsWithKaizenTokens(stylesheet, ({ postcssNode }) => {
+  const handleDeclAndAtRule = (node: Declaration | AtRule) => {
+    const value = node.type === "decl" ? node.value : node.params
     renameRules.forEach(renameRule => {
       const [oldName, newName] = renameRule
-      if (postcssNode.value.indexOf(oldName) === -1) return
+      if (value.indexOf(oldName) === -1) return
       if (options.fix) {
-        postcssNode.replaceWith(
-          postcssNode.clone({
-            value: postcssNode.value.replace(new RegExp(oldName, "g"), newName),
-          })
-        )
+        const newNode =
+          node.type === "decl"
+            ? node.clone({
+                value: value.replace(new RegExp(oldName, "g"), newName),
+              })
+            : node.clone({
+                params: value.replace(new RegExp(oldName, "g"), newName),
+              })
+        node.replaceWith(newNode)
       } else {
         options.reporter({
           message: usageOfOldColorName(oldName, newName),
-          node: postcssNode,
+          node,
           autofixAvailable: true,
         })
       }
     })
+  }
+
+  walkDeclsWithKaizenTokens(stylesheet, ({ postcssNode }) => {
+    handleDeclAndAtRule(postcssNode)
   })
 
   walkAtRulesWithKaizenTokens(stylesheet, ({ postcssNode }) => {
-    renameRules.forEach(renameRule => {
-      const [oldName, newName] = renameRule
-      if (postcssNode.params.indexOf(oldName) === -1) return
-      if (options.fix) {
-        postcssNode.replaceWith(
-          postcssNode.clone({
-            params: postcssNode.params.replace(
-              new RegExp(oldName, "g"),
-              newName
-            ),
-          })
-        )
-      } else {
-        options.reporter({
-          message: usageOfOldColorName(oldName, newName),
-          node: postcssNode,
-          autofixAvailable: true,
-        })
-      }
-    })
+    handleDeclAndAtRule(postcssNode)
   })
 }
