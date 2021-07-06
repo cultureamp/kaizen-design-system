@@ -74,6 +74,7 @@ export type Theme = {
   color: {
     /**
      * @deprecated
+     * Use purple instead of wisteria, it is being renamed.
      */
     wisteria: {
       "100": string
@@ -97,6 +98,7 @@ export type Theme = {
     }
     /**
      * @deprecated
+     * Use blue instead of cluny (soz @Cluny), it is being renamed.
      */
     cluny: {
       "100": string
@@ -118,6 +120,7 @@ export type Theme = {
     }
     /**
      * @deprecated
+     * Use green instead of seedling, it is being renamed.
      */
     seedling: {
       "100": string
@@ -128,7 +131,6 @@ export type Theme = {
       "600": string
       "700": string
     }
-
     green: {
       "100": string
       "200": string
@@ -140,6 +142,7 @@ export type Theme = {
     }
     /**
      * @deprecated
+     * Use yellow instead of yuzu, it is being renamed.
      */
     yuzu: {
       "100": string
@@ -150,7 +153,6 @@ export type Theme = {
       "600": string
       "700": string
     }
-
     yellow: {
       "100": string
       "200": string
@@ -162,6 +164,7 @@ export type Theme = {
     }
     /**
      * @deprecated
+     * Use red instead of coral, it is being renamed.
      */
     coral: {
       "100": string
@@ -183,6 +186,7 @@ export type Theme = {
     }
     /**
      * @deprecated
+     * Use orange instead of peach, it is being renamed.
      */
     peach: {
       "100": string
@@ -211,10 +215,30 @@ export type Theme = {
       "500": string
       "600": string
     }
+    /**
+     * @deprecated
+     * Use neutral-300 instead of ash, it is being renamed
+     */
     ash: string
+    /**
+     * @deprecated
+     * Use neutral-200 instead of stone, it is being renamed
+     */
     stone: string
+    /**
+     * @deprecated
+     * Use neutral-100 instead of white, it is being renamed
+     */
     white: string
+    /**
+     * @deprecated
+     * Use neutral-500 instead of iron, it is being renamed
+     */
     iron: string
+    /**
+     * @deprecated
+     * Use neutral-600 instead of slate, it is being renamed
+     */
     slate: string
   }
   dataViz: {
