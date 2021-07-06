@@ -35,6 +35,14 @@ const testCases = [
     expectedReports: 0,
   },
   {
+    input:
+      ".foo { test-prop: $kz-var-color-seedling-100 $kz-var-color-seedling-200 $kz-var-color-seedling-300 $kz-var-color-seedling-400 $kz-var-color-seedling-500 $kz-var-color-seedling-600 $kz-var-color-seedling-700; }",
+    expectedOutput:
+      ".foo { test-prop: $kz-var-color-green-100 $kz-var-color-green-200 $kz-var-color-green-300 $kz-var-color-green-400 $kz-var-color-green-500 $kz-var-color-green-600 $kz-var-color-green-700; }",
+    testName: "seedling is renamed to green in declarations",
+    expectedReports: 0,
+  },
+  {
     // The input contains a kaizen var `$kz-var-border-dashed-border-style;` that has `ash` as a substring, which should not be replaced.
     input: ".foo { test-prop: $kz-var-border-dashed-border-style; }",
     expectedOutput: ".foo { test-prop: $kz-var-border-dashed-border-style; }",
@@ -95,6 +103,14 @@ const testCases = [
     expectedOutput:
       "@testrule(test-prop: $kz-var-color-orange-100 $kz-var-color-orange-200 $kz-var-color-orange-300 $kz-var-color-orange-400 $kz-var-color-orange-500 $kz-var-color-orange-600 $kz-var-color-orange-700)",
     testName: "peach is renamed to orange in at-rules",
+    expectedReports: 0,
+  },
+  {
+    input:
+      "@testrule(test-prop: $kz-var-color-seedling-100 $kz-var-color-seedling-200 $kz-var-color-seedling-300 $kz-var-color-seedling-400 $kz-var-color-seedling-500 $kz-var-color-seedling-600 $kz-var-color-seedling-700)",
+    expectedOutput:
+      "@testrule(test-prop: $kz-var-color-green-100 $kz-var-color-green-200 $kz-var-color-green-300 $kz-var-color-green-400 $kz-var-color-green-500 $kz-var-color-green-600 $kz-var-color-green-700)",
+    testName: "seedling is renamed to green in at-rules",
     expectedReports: 0,
   },
   {

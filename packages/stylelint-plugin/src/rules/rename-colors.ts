@@ -12,6 +12,7 @@ const renameRules = [
   ["-color-cluny", "-color-blue"],
   ["-color-yuzu", "-color-yellow"],
   ["-color-coral", "-color-red"],
+  ["-color-seedling", "-color-green"],
   ["-color-peach", "-color-orange"],
   ["-color-white", "-color-neutral-100"],
   ["-color-stone", "-color-neutral-200"],
