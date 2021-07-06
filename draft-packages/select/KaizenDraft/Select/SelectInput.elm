@@ -15,6 +15,7 @@ module KaizenDraft.Select.SelectInput exposing
     , view
     )
 
+import CssModules exposing (css)
 import Html exposing (Html, div, input, text)
 import Html.Attributes exposing (attribute, id, size, style, type_, value)
 import Html.Events exposing (on, onBlur, onFocus, preventDefaultOn)
@@ -206,15 +207,8 @@ view (Config config) id_ =
             , style "letter-spacing" "normal"
             , style "text-transform" "none"
             ]
-
-        autoSizeInputContainerStyles =
-            [ style "padding-bottom" "2px"
-            , style "padding-top" "2px"
-            , style "box-sizing" "border-box"
-            , style "margin" "2px"
-            ]
     in
-    div autoSizeInputContainerStyles
+    div [ styles.class .autosizeInputContainer ]
         [ input
             ([ id (inputId id_), value inputValue, type_ "text", attribute "autocomplete" "new-password" ] ++ events ++ inputStyles)
             []
@@ -222,3 +216,9 @@ view (Config config) id_ =
         -- query the div width to set the input width
         , div ([ id (sizerId id_) ] ++ sizerStyles) [ text inputValue ]
         ]
+
+
+styles =
+    css "@kaizen/draft-select/KaizenDraft/Select/styles.elm.scss"
+        { autosizeInputContainer = "autosizeInputContainer"
+        }

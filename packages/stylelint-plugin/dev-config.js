@@ -5,9 +5,10 @@ require("ts-node").register({
   transpileOnly: true,
 })
 
-const rules = require("./src/index").kaizenStylelintRules
+const defaultConfig = require("./src/index")
 
 module.exports = {
+  ...defaultConfig,
+  // Overwrite "plugins" with the dev-plugin that also registers ts-node
   plugins: [require.resolve("./dev-plugin.js")],
-  rules,
 }

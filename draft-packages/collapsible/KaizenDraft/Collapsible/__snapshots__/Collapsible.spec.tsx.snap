@@ -17,6 +17,7 @@ exports[`matches snapshot with everything enabled 1`] = `
         data-automation-id="collapsible-button-1"
         id="1-button"
         style="top: 20px;"
+        type="button"
       >
         <div>
           First panel w/ custom header
@@ -64,6 +65,7 @@ exports[`matches snapshot with everything enabled 1`] = `
         data-automation-id="collapsible-button-2"
         id="2-button"
         style="top: 20px;"
+        type="button"
       >
         <div
           class="title"

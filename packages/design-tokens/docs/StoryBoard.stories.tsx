@@ -29,7 +29,6 @@ import * as TextFieldStories from "@kaizen/draft-form/docs/TextField.stories"
 import * as ToggleSwitchFieldStories from "@kaizen/draft-form/docs/ToggleSwitchField.stories"
 import * as GuidanceBlockStories from "@kaizen/draft-guidance-block/docs/GuidanceBlock.stories"
 import * as HeroCardStories from "@kaizen/draft-hero-card/docs/HeroCard.stories"
-import * as HeroPanelStories from "@kaizen/draft-hero-panel/docs/HeroPanel.stories"
 import * as HierarchicalMenuStories from "@kaizen/draft-hierarchical-menu/docs/HierarchicalMenu.stories"
 import * as HierarchicalSelectStories from "@kaizen/draft-hierarchical-select/docs/HierarchicalSelect.stories"
 import * as IllustrationSceneStories from "@kaizen/draft-illustration/docs/IllustrationScene.stories"
@@ -41,7 +40,6 @@ import * as ModalStories from "@kaizen/draft-modal/docs/Modal.stories"
 import * as PageLayoutStories from "@kaizen/draft-page-layout/docs/PageLayout.stories"
 import * as RadioGroupStories from "@kaizen/draft-form/docs/RadioGroup.stories"
 import * as PopoverStories from "@kaizen/draft-popover/docs/Popover.stories"
-import * as SearchBoxStories from "@kaizen/draft-search-box/docs/SearchBox.stories"
 import * as SelectStories from "@kaizen/draft-select/docs/Select.stories"
 import * as SplitButtonStories from "@kaizen/draft-split-button/docs/SplitButton.stories"
 import * as TableStories from "@kaizen/draft-table/docs/Table.stories"
@@ -438,7 +436,6 @@ export const Everything: Story = () => {
         <StoriesContainer storyModule={GuidanceBlockStories} />
         <StoriesContainer storyModule={HeadingStories} />
         <StoriesContainer storyModule={HeroCardStories} />
-        <StoriesContainer storyModule={HeroPanelStories} />
         <StoriesContainer storyModule={HierarchicalMenuStories} />
         <StoriesContainer storyModule={HierarchicalSelectStories} />
         <StoriesContainer storyModule={IconStories} />
@@ -456,7 +453,6 @@ export const Everything: Story = () => {
         <StoriesContainer storyModule={PopoverStories} />
         <StoriesContainer storyModule={RadioFieldStories} />
         <StoriesContainer storyModule={RadioGroupStories} />
-        <StoriesContainer storyModule={SearchBoxStories} />
         <StoriesContainer storyModule={SelectStories} />
         <StoriesContainer storyModule={SliderStories} />
         <StoriesContainer storyModule={SplitButtonStories} />
