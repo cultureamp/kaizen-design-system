@@ -1,8 +1,8 @@
 import React from "react"
 import {
-  EmptyStatesNegative,
-  EmptyStatesInformative,
-  EmptyStatesPositive,
+  BrandMomentCaptureIntro,
+  BrandMomentPositiveOutro,
+  BrandMomentError,
 } from "@kaizen/draft-illustration"
 import arrowLeftIcon from "@kaizen/component-library/icons/arrow-left.icon.svg"
 import arrowRightIcon from "@kaizen/component-library/icons/arrow-right.icon.svg"
@@ -39,7 +39,7 @@ export default {
 export const InformativeIntro = (_, { isRTL }) => (
   <BrandMoment
     mood="informative"
-    illustration={<EmptyStatesInformative alt="" />}
+    illustration={<BrandMomentCaptureIntro isAnimated loop />}
     header={<MinimalBasic />}
     text={{
       subtitle: "Welcome to Culture Amp",
@@ -58,7 +58,7 @@ InformativeIntro.storyName = "Informative intro"
 export const PositiveOutro = (_, { isRTL }) => (
   <BrandMoment
     mood="positive"
-    illustration={<EmptyStatesPositive alt="" />}
+    illustration={<BrandMomentPositiveOutro isAnimated loop />}
     header={<MinimalBasic />}
     text={{
       title: "Import in progress",
@@ -83,7 +83,7 @@ PositiveOutro.storyName = "Positive outro"
 export const InformativeIntroCustomerFocused = (_, { isRTL }) => (
   <BrandMoment
     mood="informative"
-    illustration={<EmptyStatesInformative alt="" />}
+    illustration={<BrandMomentCaptureIntro isAnimated loop />}
     header={<MinimalCustomerFocused />}
     text={{
       subtitle: "A survey for Hooli",
@@ -118,7 +118,7 @@ InformativeIntroCustomerFocused.storyName =
 export const PositiveOutroCustomerFocused = (_, { isRTL }) => (
   <BrandMoment
     mood="positive"
-    illustration={<EmptyStatesPositive alt="" />}
+    illustration={<BrandMomentPositiveOutro isAnimated loop />}
     header={<MinimalCustomerFocused />}
     text={{
       subtitle: "Manager Effectiveness Survey",
@@ -156,7 +156,7 @@ PositiveOutroCustomerFocused.storyName = "Positive outro (customer focused)"
 export const Error = (_, { isRTL }) => (
   <BrandMoment
     mood="negative"
-    illustration={<EmptyStatesNegative alt="" />}
+    illustration={<BrandMomentError isAnimated loop />}
     header={<FakeNavBar />}
     text={{
       title: "Missing pages are one of life’s mysteries",
