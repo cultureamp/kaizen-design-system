@@ -84,13 +84,13 @@ const testCases = [
   },
 ]
 
-describe("Rename colors rule", () => {
+describe(renameColorsRule.name, () => {
   testCases.forEach(testCase => {
     test(testCase.testName, () => {
       let reports = 0
       const parser = getParser("scss")
       const ast = parser.parse(testCase.input)
-      renameColorsRule(ast, {
+      renameColorsRule.ruleFunction(ast, {
         language: "scss",
         reporter: () => reports++,
         fix: true,
