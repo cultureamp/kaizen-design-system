@@ -13,6 +13,8 @@ export const backgrounds = [
   { name: "Orange 500", value: tokens.kz.color.orange["500"] },
   { name: "Red 500", value: tokens.kz.color.red["500"] },
 ]
+
+// This is a temporary duplication until we find a way for storybook to like the above ^^ tokens with css variables rather than concretes.
 export const cssVarBackgrounds = [
   { name: "Neutral-100 (White)", value: tokens["kz-var"].color.neutral["100"] },
   { name: "Neutral-200", value: tokens["kz-var"].color.neutral["200"] },
