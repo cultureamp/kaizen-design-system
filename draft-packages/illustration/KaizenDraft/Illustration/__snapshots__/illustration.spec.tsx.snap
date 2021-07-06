@@ -5,7 +5,7 @@ exports[`<Illustration /> Scene BrandMomentCaptureIntro should exist and render 
   <img
     alt="My accessible title"
     class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/brand-moments-capture-intro.png"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/brand-moments-capture-intro-loop.png"
   />
 </div>
 `;
@@ -15,7 +15,7 @@ exports[`<Illustration /> Scene BrandMomentError should exist and render an alt 
   <img
     alt="My accessible title"
     class=" wrapper"
-    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/brand-moments-error-page.png"
+    src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/scene/brand-moments-error.png"
   />
 </div>
 `;
