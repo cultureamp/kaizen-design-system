@@ -168,6 +168,16 @@ export const zenTheme: Theme = {
       // Duplicate from Heart because it's new
       700: "#903c00",
     },
+    // Should only exist in Heart but we need a consistent type.
+    neutral: {
+      100: "#FFFFFF",
+      200: "#F9F9F9",
+      250: "#F4F4F5",
+      300: "#EAEAEC",
+      400: "#CDCDD0",
+      500: "#8C8C97",
+      600: "#524E56",
+    },
     ash: "#ECECEF",
     stone: "#F6F6F6",
     white: "#FFFFFF",

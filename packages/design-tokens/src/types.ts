@@ -202,6 +202,15 @@ export type Theme = {
       "600": string
       "700": string
     }
+    neutral: {
+      100: string
+      200: string
+      250: string
+      300: string
+      400: string
+      500: string
+      600: string
+    }
     ash: string
     stone: string
     white: string
