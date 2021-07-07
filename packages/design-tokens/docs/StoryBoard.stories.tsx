@@ -385,10 +385,10 @@ export const Everything: Story = () => {
             <ColorDemo name="700" color={theme.color.yellow[700]} />
           </Stack>
           <Padding size={2} />
-          <Heading variant="heading-3">Neutrals</Heading>
+          <Heading variant="heading-3">Neutral</Heading>
           <Padding />
           <Stack gapSize={0.5}>
-            <ColorDemo name="100" color={theme.color.neutral[100]} />
+            <ColorDemo name="100 (White)" color={theme.color.neutral[100]} />
             <ColorDemo name="200" color={theme.color.neutral[200]} />
             <ColorDemo name="300" color={theme.color.neutral[300]} />
             <ColorDemo name="400" color={theme.color.neutral[400]} />
