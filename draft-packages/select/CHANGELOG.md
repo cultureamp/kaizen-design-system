@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.17.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.17.2...@kaizen/draft-select@1.17.3) (2021-07-06)
+
+
+### Bug Fixes
+
+* elm select also stop propagation on keyboard events ([#1718](https://github.com/cultureamp/kaizen-design-system/issues/1718)) ([752110e](https://github.com/cultureamp/kaizen-design-system/commit/752110ef508e8a770207c41834fd38dfb7126dbd))
+
+
+
+
+
 ## [1.17.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.17.1...@kaizen/draft-select@1.17.2) (2021-07-02)
 
 **Note:** Version bump only for package @kaizen/draft-select
