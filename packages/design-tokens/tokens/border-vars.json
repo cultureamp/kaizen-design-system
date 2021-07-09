@@ -1,29 +1,93 @@
 {
+  "kzv": {
+    "border": {
+      "solid": {
+        "borderWidth": "var(--kzv-border-solid-border-width, 2px)",
+        "borderWidth-id": "--kzv-border-solid-border-width",
+        "borderRadius": "var(--kzv-border-solid-border-radius, 7px)",
+        "borderRadius-id": "--kzv-border-solid-border-radius",
+        "borderStyle": "var(--kzv-border-solid-border-style, solid)",
+        "borderStyle-id": "--kzv-border-solid-border-style",
+        "borderColor": "var(--kzv-border-solid-border-color, #e1e2ea)",
+        "borderColor-rgb": "var(--kzv-border-solid-border-color-rgb, 225, 226, 234)",
+        "borderColor-rgb-params": "var(--kzv-border-solid-border-color-rgb, 225, 226, 234)",
+        "borderColor-rgb-id": "--kzv-border-solid-border-color-rgb",
+        "borderColor-id": "--kzv-border-solid-border-color"
+      },
+      "dashed": {
+        "borderWidth": "var(--kzv-border-dashed-border-width, 2px)",
+        "borderWidth-id": "--kzv-border-dashed-border-width",
+        "borderRadius": "var(--kzv-border-dashed-border-radius, 7px)",
+        "borderRadius-id": "--kzv-border-dashed-border-radius",
+        "borderStyle": "var(--kzv-border-dashed-border-style, dashed)",
+        "borderStyle-id": "--kzv-border-dashed-border-style"
+      },
+      "borderless": {
+        "borderWidth": "var(--kzv-border-borderless-border-width, 2px)",
+        "borderWidth-id": "--kzv-border-borderless-border-width",
+        "borderRadius": "var(--kzv-border-borderless-border-radius, 7px)",
+        "borderRadius-id": "--kzv-border-borderless-border-radius",
+        "borderStyle": "var(--kzv-border-borderless-border-style, solid)",
+        "borderStyle-id": "--kzv-border-borderless-border-style",
+        "borderColor": "var(--kzv-border-borderless-border-color, transparent)",
+        "borderColor-rgb": "var(--kzv-border-borderless-border-color-rgb, 0, 0, 0)",
+        "borderColor-rgb-params": "var(--kzv-border-borderless-border-color-rgb, 0, 0, 0)",
+        "borderColor-rgb-id": "--kzv-border-borderless-border-color-rgb",
+        "borderColor-id": "--kzv-border-borderless-border-color"
+      },
+      "focusRing": {
+        "borderWidth": "var(--kzv-border-focus-ring-border-width, 2px)",
+        "borderWidth-id": "--kzv-border-focus-ring-border-width",
+        "borderRadius": "var(--kzv-border-focus-ring-border-radius, 10px)",
+        "borderRadius-id": "--kzv-border-focus-ring-border-radius",
+        "borderStyle": "var(--kzv-border-focus-ring-border-style, solid)",
+        "borderStyle-id": "--kzv-border-focus-ring-border-style"
+      }
+    }
+  },
   "kz-var": {
     "border": {
       "solid": {
         "borderWidth": "var(--kz-var-border-solid-border-width, 2px)",
+        "borderWidth-id": "--kz-var-border-solid-border-width",
         "borderRadius": "var(--kz-var-border-solid-border-radius, 7px)",
+        "borderRadius-id": "--kz-var-border-solid-border-radius",
         "borderStyle": "var(--kz-var-border-solid-border-style, solid)",
+        "borderStyle-id": "--kz-var-border-solid-border-style",
         "borderColor": "var(--kz-var-border-solid-border-color, #e1e2ea)",
-        "borderColor-rgb-params": "var(--kz-var-border-solid-border-color-rgb-params, 225, 226, 234)"
+        "borderColor-rgb": "var(--kz-var-border-solid-border-color-rgb, 225, 226, 234)",
+        "borderColor-rgb-params": "var(--kz-var-border-solid-border-color-rgb, 225, 226, 234)",
+        "borderColor-rgb-id": "--kz-var-border-solid-border-color-rgb",
+        "borderColor-id": "--kz-var-border-solid-border-color"
       },
       "dashed": {
         "borderWidth": "var(--kz-var-border-dashed-border-width, 2px)",
+        "borderWidth-id": "--kz-var-border-dashed-border-width",
         "borderRadius": "var(--kz-var-border-dashed-border-radius, 7px)",
-        "borderStyle": "var(--kz-var-border-dashed-border-style, dashed)"
+        "borderRadius-id": "--kz-var-border-dashed-border-radius",
+        "borderStyle": "var(--kz-var-border-dashed-border-style, dashed)",
+        "borderStyle-id": "--kz-var-border-dashed-border-style"
       },
       "borderless": {
         "borderWidth": "var(--kz-var-border-borderless-border-width, 2px)",
+        "borderWidth-id": "--kz-var-border-borderless-border-width",
         "borderRadius": "var(--kz-var-border-borderless-border-radius, 7px)",
+        "borderRadius-id": "--kz-var-border-borderless-border-radius",
         "borderStyle": "var(--kz-var-border-borderless-border-style, solid)",
+        "borderStyle-id": "--kz-var-border-borderless-border-style",
         "borderColor": "var(--kz-var-border-borderless-border-color, transparent)",
-        "borderColor-rgb-params": "var(--kz-var-border-borderless-border-color-rgb-params, 0, 0, 0)"
+        "borderColor-rgb": "var(--kz-var-border-borderless-border-color-rgb, 0, 0, 0)",
+        "borderColor-rgb-params": "var(--kz-var-border-borderless-border-color-rgb, 0, 0, 0)",
+        "borderColor-rgb-id": "--kz-var-border-borderless-border-color-rgb",
+        "borderColor-id": "--kz-var-border-borderless-border-color"
       },
       "focusRing": {
         "borderWidth": "var(--kz-var-border-focus-ring-border-width, 2px)",
+        "borderWidth-id": "--kz-var-border-focus-ring-border-width",
         "borderRadius": "var(--kz-var-border-focus-ring-border-radius, 10px)",
-        "borderStyle": "var(--kz-var-border-focus-ring-border-style, solid)"
+        "borderRadius-id": "--kz-var-border-focus-ring-border-radius",
+        "borderStyle": "var(--kz-var-border-focus-ring-border-style, solid)",
+        "borderStyle-id": "--kz-var-border-focus-ring-border-style"
       }
     }
   }

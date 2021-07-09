@@ -4,12 +4,14 @@ import { format } from "prettier"
 import * as yargs from "yargs"
 import { defaultTheme, heartTheme, Theme, zenTheme } from "../"
 import {
-  augmentCssVariable,
+  augmentThemeKeyValue,
   mapLeafsOfObject,
   makeCSSVariableTheme,
-  cssVariableThemeNamespace,
+  topLevelThemeNamespace,
   objectPathToCssVarIdentifier,
   makeCSSVariablesOfTheme,
+  objectPathToCssVarReference,
+  deprecatedKzVarNamespace,
 } from "../src/utils"
 
 const { jsonOutput, cssOutput } = yargs
@@ -41,13 +43,13 @@ ${Object.entries(makeCSSVariablesOfTheme(theme))
   )
 
 /**
- * WIP: Need a better name and articulation of this.
- * See {@link augmentCssVariable} to understand what happens to each leaf variable in the theme.
- * Writing this as a solution to the add-alpha and add-tint/shade problem, and to spit out sass variables with `-default` and `-rgb-params` suffixes (where applicable).
- * We need to have additional tokens that reference variables, which contain a tuple (R, G, B).
- * This tuple can then be used within the CSS [runtime] function as a CSS variable, e.g. `rgba(var(--kz-color-purple-800-rgb))`.
+ * REMOVE THIS IN THE NEXT BREAKING CHANGE
+ * @deprecated
+ *
+ * Given a Theme (which is the source of truth and doesn't contain any computed properties), add extra necessary properties to the tree such as `-rgb` suffixed keys, with R, G, B triple values.
+ * It is only relevant for generating SASS files of our theme.
+ * See {@link augmentThemeKeyValue} to understand what happens to each leaf variable in the theme.
  */
-
 export const augmentThemeForSassVariables = (theme: Theme): Theme => {
   const augmentedTheme: Record<string, unknown> = {}
   mapLeafsOfObject(theme, (leafPath, value) => {
@@ -58,9 +60,12 @@ export const augmentThemeForSassVariables = (theme: Theme): Theme => {
         (child[segment] || (child[segment] = {})) as Record<string, unknown>,
       augmentedTheme as Record<string, unknown>
     )
-    const cssVariablesOfToken = augmentCssVariable(leafKey, value, {
-      augmentWithDefault: false,
-    })
+    const cssVariablesOfToken = augmentThemeKeyValue(
+      leafPath,
+      leafKey,
+      value,
+      objectPathToCssVarReference
+    )
     Object.assign(leafObject, cssVariablesOfToken)
   })
   return augmentedTheme as Theme
@@ -70,12 +75,10 @@ const run = () => {
   fs.mkdirSync(jsonOutput, { recursive: true })
   fs.mkdirSync(cssOutput, { recursive: true })
 
-  // Any theme passed into the factory function will be fine, as they all have the same keys
-  const customPropertiesTheme = makeCSSVariableTheme(
-    augmentThemeForSassVariables(defaultTheme)
-  )
+  const customPropertiesTheme = makeCSSVariableTheme(defaultTheme, true)
 
   /*
+    WILL BE REMOVED IN THE FUTURE IN FAVOR OF THE ABOVE'S ^^ ABILITY TO ADD IDENTIFIERS
     This is used for compiling a json file contianing the identifiers of variables rather than CSS var() functions as values.
     e.g.
     {
@@ -89,7 +92,8 @@ const run = () => {
     ```
    */
   const customPropertiesThemeIdentifiers = makeCSSVariableTheme(
-    augmentThemeForSassVariables(defaultTheme),
+    defaultTheme,
+    false,
     objectPathToCssVarIdentifier
   )
 
@@ -137,8 +141,8 @@ const run = () => {
     path.resolve(jsonOutput, "variable-identifiers.json"),
     formatJson(
       JSON.stringify({
-        [`${cssVariableThemeNamespace}-id`]: customPropertiesThemeIdentifiers[
-          cssVariableThemeNamespace
+        [`${deprecatedKzVarNamespace}-id`]: customPropertiesThemeIdentifiers[
+          deprecatedKzVarNamespace
         ],
       })
     )
@@ -147,10 +151,14 @@ const run = () => {
     path.resolve(jsonOutput, "color-vars.json"),
     formatJson(
       JSON.stringify({
-        [cssVariableThemeNamespace]: {
-          color: customPropertiesTheme[cssVariableThemeNamespace].color,
+        [topLevelThemeNamespace]: {
+          color: customPropertiesTheme[topLevelThemeNamespace].color,
+          DEPRECATED: customPropertiesTheme[topLevelThemeNamespace].DEPRECATED,
+        },
+        [deprecatedKzVarNamespace]: {
+          color: customPropertiesTheme[deprecatedKzVarNamespace].color,
           DEPRECATED:
-            customPropertiesTheme[cssVariableThemeNamespace].DEPRECATED,
+            customPropertiesTheme[deprecatedKzVarNamespace].DEPRECATED,
         },
       })
     )
@@ -159,8 +167,11 @@ const run = () => {
     path.resolve(jsonOutput, "border-vars.json"),
     formatJson(
       JSON.stringify({
-        [cssVariableThemeNamespace]: {
-          border: customPropertiesTheme[cssVariableThemeNamespace].border,
+        [topLevelThemeNamespace]: {
+          border: customPropertiesTheme[topLevelThemeNamespace].border,
+        },
+        [deprecatedKzVarNamespace]: {
+          border: customPropertiesTheme[deprecatedKzVarNamespace].border,
         },
       })
     )
@@ -169,8 +180,11 @@ const run = () => {
     path.resolve(jsonOutput, "animation-vars.json"),
     formatJson(
       JSON.stringify({
-        [cssVariableThemeNamespace]: {
-          animation: customPropertiesTheme[cssVariableThemeNamespace].animation,
+        [topLevelThemeNamespace]: {
+          animation: customPropertiesTheme[topLevelThemeNamespace].animation,
+        },
+        [deprecatedKzVarNamespace]: {
+          animation: customPropertiesTheme[deprecatedKzVarNamespace].animation,
         },
       })
     )
@@ -179,8 +193,11 @@ const run = () => {
     path.resolve(jsonOutput, "layout-vars.json"),
     formatJson(
       JSON.stringify({
-        [cssVariableThemeNamespace]: {
-          layout: customPropertiesTheme[cssVariableThemeNamespace].layout,
+        [topLevelThemeNamespace]: {
+          layout: customPropertiesTheme[topLevelThemeNamespace].layout,
+        },
+        [deprecatedKzVarNamespace]: {
+          layout: customPropertiesTheme[deprecatedKzVarNamespace].layout,
         },
       })
     )
@@ -189,8 +206,11 @@ const run = () => {
     path.resolve(jsonOutput, "shadow-vars.json"),
     formatJson(
       JSON.stringify({
-        [cssVariableThemeNamespace]: {
-          shadow: customPropertiesTheme[cssVariableThemeNamespace].shadow,
+        [topLevelThemeNamespace]: {
+          shadow: customPropertiesTheme[topLevelThemeNamespace].shadow,
+        },
+        [deprecatedKzVarNamespace]: {
+          shadow: customPropertiesTheme[deprecatedKzVarNamespace].shadow,
         },
       })
     )
@@ -199,8 +219,11 @@ const run = () => {
     path.resolve(jsonOutput, "spacing-vars.json"),
     formatJson(
       JSON.stringify({
-        [cssVariableThemeNamespace]: {
-          spacing: customPropertiesTheme[cssVariableThemeNamespace].spacing,
+        [topLevelThemeNamespace]: {
+          spacing: customPropertiesTheme[topLevelThemeNamespace].spacing,
+        },
+        [deprecatedKzVarNamespace]: {
+          spacing: customPropertiesTheme[deprecatedKzVarNamespace].spacing,
         },
       })
     )
@@ -209,9 +232,12 @@ const run = () => {
     path.resolve(jsonOutput, "typography-vars.json"),
     formatJson(
       JSON.stringify({
-        [cssVariableThemeNamespace]: {
+        [topLevelThemeNamespace]: {
+          typography: customPropertiesTheme[topLevelThemeNamespace].typography,
+        },
+        [deprecatedKzVarNamespace]: {
           typography:
-            customPropertiesTheme[cssVariableThemeNamespace].typography,
+            customPropertiesTheme[deprecatedKzVarNamespace].typography,
         },
       })
     )
