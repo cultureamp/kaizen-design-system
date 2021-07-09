@@ -14,7 +14,7 @@ export default {
 }
 
 export const Components = () => {
-  const { components } = useMediaQueries({})
+  const { components } = useMediaQueries()
   const {
     SmallOnly,
     MediumOnly,
@@ -45,7 +45,7 @@ export const Components = () => {
 }
 
 export const Queries = () => {
-  const { queries } = useMediaQueries({})
+  const { queries } = useMediaQueries()
   const {
     isSmall,
     isMedium,

@@ -6,7 +6,7 @@ type Props = { [key: string]: string }
 const minus1Px = (breakpoint: string) => `${parseInt(breakpoint, 10) - 1}px`
 
 export const useMediaQueries = (
-  propQueries: Props
+  propQueries: Props = {}
 ): {
   queries: {
     [key: string]: boolean
