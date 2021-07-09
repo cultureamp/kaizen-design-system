@@ -1,5 +1,5 @@
 import React from "react"
-import { useMediaQueries } from "../index"
+import { useMediaQueries } from "../"
 
 export default {
   title: "useMediaQueries (React)",
