@@ -121,4 +121,16 @@ export const WithLongInitials = () => (
   </>
 )
 
+export const WithoutNameOrAvatar = () => (
+  <>
+    <Avatar size="xlarge" />
+    <br />
+    <Avatar size="large" />
+    <br />
+    <Avatar size="medium" />
+    <br />
+    <Avatar size="small" />
+  </>
+)
+
 DefaultUser.storyName = "Default User (Shows when image fails to load)"
