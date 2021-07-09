@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.4.0...@kaizen/draft-avatar@1.5.0) (2021-07-09)
+
+
+### Features
+
+* Allow the Avatar to handle the case where the fullname cannot be provided ([#1749](https://github.com/cultureamp/kaizen-design-system/issues/1749)) ([c3ed709](https://github.com/cultureamp/kaizen-design-system/commit/c3ed709488c9a4947b53ffbfa872703cc918d373))
+
+
+
+
+
 # [1.4.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.3.12...@kaizen/draft-avatar@1.4.0) (2021-07-04)
 
 
