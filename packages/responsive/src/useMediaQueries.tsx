@@ -3,7 +3,8 @@ import { useTheme } from "@kaizen/design-tokens"
 
 type Props = { [key: string]: string }
 
-const minus1Px = (breakpoint: string) => `${parseInt(breakpoint, 10) - 1}px`
+export const subtractOnePixel = (breakpoint: string) =>
+  `${parseInt(breakpoint, 10) - 1}px`
 
 export const useMediaQueries = (
   propQueries: Props = {}
@@ -31,12 +32,12 @@ export const useMediaQueries = (
   // Create Kaizen breakpoint matches for initial state
   // ---------------------------------------
   const smallMatchMedia = window.matchMedia(
-    `(max-width: ${minus1Px(theme.layout.breakpoints.medium)})`
+    `(max-width: ${subtractOnePixel(theme.layout.breakpoints.medium)})`
   )
   const mediumMatchMedia = window.matchMedia(
-    `(min-width: ${theme.layout.breakpoints.medium}) and (max-width: ${minus1Px(
-      theme.layout.breakpoints.large
-    )})`
+    `(min-width: ${
+      theme.layout.breakpoints.medium
+    }) and (max-width: ${subtractOnePixel(theme.layout.breakpoints.large)})`
   )
   const largeMatchMedia = window.matchMedia(
     `(min-width: ${theme.layout.breakpoints.large})`

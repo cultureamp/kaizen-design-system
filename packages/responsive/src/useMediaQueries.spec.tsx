@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import * as React from "react"
-import { useMediaQueries } from "../"
+import { useMediaQueries, subtractOnePixel } from "../"
 import "@testing-library/jest-dom/extend-expect"
 
 const ExampleComponent = () => {
@@ -77,4 +77,8 @@ it("shows and hides content based on based on custom queries passed in", () => {
   expect(
     screen.queryByRole("button", { name: /Prefers reduced component/i })
   ).toBeInTheDocument()
+})
+
+it("subtracts 1px correctly", () => {
+  expect(subtractOnePixel("1080px")).toEqual("1079px")
 })
