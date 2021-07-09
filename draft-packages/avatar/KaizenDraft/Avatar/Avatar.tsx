@@ -7,15 +7,17 @@ import styles from "./styles.module.scss"
 
 type AvatarSizes = "small" | "medium" | "large" | "xlarge"
 
-const getInitials: (fullName: string, max2Characters?: boolean) => string = (
+const getInitials: (fullName?: string, max2Characters?: boolean) => string = (
   fullName,
   max2Characters = false
 ) =>
-  fullName
-    .split(/\s/)
-    .reduce((acc, name) => `${acc}${name.slice(0, 1)}`, "")
-    .toUpperCase()
-    .substring(0, max2Characters ? 2 : 8)
+  fullName == null
+    ? ""
+    : fullName
+        .split(/\s/)
+        .reduce((acc, name) => `${acc}${name.slice(0, 1)}`, "")
+        .toUpperCase()
+        .substring(0, max2Characters ? 2 : 8)
 
 const getMaxFontSizePixels: (size: AvatarSizes) => number = size => {
   if (size === "small") return 8
@@ -28,7 +30,7 @@ export interface AvatarProps {
   /**
    * We use this for the alt text of the avatar, and to derive intials when user has no avatar image.
    */
-  fullName: string
+  fullName?: string
   /**
    * Default behaviour when an avatarSrc is not provided is to generate initials from the username.
    * This disables this feature and shows the generic avatar.
@@ -66,7 +68,8 @@ export const Avatar = ({
     setAvatarState(avatarSrc ? "loading" : "none")
   }, [avatarSrc])
 
-  const isLongName = getInitials(fullName).length > 2 && size !== "small"
+  const initials = getInitials(fullName)
+  const isLongName = initials.length > 2 && size !== "small"
 
   const onImageFailure = () => setAvatarState("error")
   const onImageSuccess = () => setAvatarState("success")
@@ -96,7 +99,7 @@ export const Avatar = ({
         />
       )}
       {(avatarState === "none" || avatarState === "error") &&
-        (disableInitials ? (
+        (disableInitials || initials === "" ? (
           fallbackIcon
         ) : (
           <div
@@ -107,7 +110,7 @@ export const Avatar = ({
             {isLongName ? (
               // Only called if 3 or more initials, fits text width for long names
               <Textfit mode="single" max={getMaxFontSizePixels(size)}>
-                {getInitials(fullName)}
+                {initials}
               </Textfit>
             ) : (
               getInitials(fullName, size === "small")
