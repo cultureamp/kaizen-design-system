@@ -39,6 +39,9 @@ export const useDeprecatedComponentLibraryHelpersScssImports: RuleDefinition = {
   },
 }
 
+const addQuotes = (newImport: string, quoteCharacter: string) =>
+  `${quoteCharacter}${newImport}${quoteCharacter}`
+
 const replaceImport = (
   styleSheetNode: Root,
   options: Options,
@@ -79,8 +82,4 @@ const replaceImport = (
       importToRemove.remove()
     }
   }
-}
-
-function addQuotes(newImport: string, quoteCharacter: string) {
-  return `${quoteCharacter}${newImport}${quoteCharacter}`
 }
