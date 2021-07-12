@@ -450,10 +450,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
+/* stylelint-disable-next-line */
 @mixin kz-typography-data-large(
   $size: to-unitless-pixels($kz-typography-data-large-font-size),
   $args...
 ) {
+  /* stylelint-disable-next-line */
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-data-large-font-weight,
@@ -464,10 +466,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
+/* stylelint-disable-next-line */
 @mixin kz-typography-data-large-units(
   $size: to-unitless-pixels($kz-typography-data-large-units-font-size),
   $args...
 ) {
+  /* stylelint-disable-next-line */
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-data-large-units-font-weight,
@@ -478,10 +482,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
+/* stylelint-disable-next-line */
 @mixin kz-typography-data-medium(
   $size: to-unitless-pixels($kz-typography-data-medium-font-size),
   $args...
 ) {
+  /* stylelint-disable-next-line */
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-data-medium-font-weight,
@@ -492,10 +498,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
+/* stylelint-disable-next-line */
 @mixin kz-typography-data-medium-units(
   $size: to-unitless-pixels($kz-typography-data-medium-units-font-size),
   $args...
 ) {
+  /* stylelint-disable-next-line */
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-data-medium-units-font-weight,
@@ -506,10 +514,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
+/* stylelint-disable-next-line */
 @mixin kz-typography-data-small(
   $size: to-unitless-pixels($kz-typography-data-small-font-size),
   $args...
 ) {
+  /* stylelint-disable-next-line */
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-data-small-font-weight,
@@ -520,10 +530,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
+/* stylelint-disable-next-line */
 @mixin kz-typography-data-small-units(
   $size: to-unitless-pixels($kz-typography-data-small-units-font-size),
   $args...
 ) {
+  /* stylelint-disable-next-line */
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-data-small-units-font-weight,
@@ -534,10 +546,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
+/* stylelint-disable-next-line */
 @mixin kz-typography-display-0(
   $size: to-unitless-pixels($kz-typography-display-0-font-size),
   $args...
 ) {
+  /* stylelint-disable-next-line */
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-display-0-font-weight,
@@ -548,10 +562,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
+/* stylelint-disable-next-line */
 @mixin kz-typography-heading-1(
   $size: to-unitless-pixels($kz-typography-heading-1-font-size),
   $args...
 ) {
+  /* stylelint-disable-next-line */
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-heading-1-font-weight,
@@ -562,10 +578,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
+/* stylelint-disable-next-line */
 @mixin kz-typography-heading-2(
   $size: to-unitless-pixels($kz-typography-heading-2-font-size),
   $args...
 ) {
+  /* stylelint-disable-next-line */
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-heading-2-font-weight,
@@ -576,10 +594,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
+/* stylelint-disable-next-line */
 @mixin kz-typography-heading-3(
   $size: to-unitless-pixels($kz-typography-heading-3-font-size),
   $args...
 ) {
+  /* stylelint-disable-next-line */
   @include kz-typography-greycliff(
     $size: $size,
     $weight: $typography-heading-3-font-weight,
@@ -590,10 +610,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
+/* stylelint-disable-next-line */
 @mixin kz-typography-heading-4(
   $size: to-unitless-pixels($kz-typography-heading-4-font-size),
   $args...
 ) {
+  /* stylelint-disable-next-line */
   @include kz-typography-inter(
     $size: $size,
     $weight: $typography-heading-4-font-weight,
@@ -604,10 +626,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
+/* stylelint-disable-next-line */
 @mixin kz-typography-heading-5(
   $size: to-unitless-pixels($kz-typography-heading-5-font-size),
   $args...
 ) {
+  /* stylelint-disable-next-line */
   @include kz-typography-inter(
     $size: $size,
     $weight: $typography-heading-5-font-weight,
@@ -618,10 +642,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
+/* stylelint-disable-next-line */
 @mixin kz-typography-heading-6(
   $size: to-unitless-pixels($kz-typography-heading-6-font-size),
   $args...
 ) {
+  /* stylelint-disable-next-line */
   @include kz-typography-inter(
     $size: $size,
     $weight: $typography-heading-6-font-weight,
@@ -632,10 +658,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
+/* stylelint-disable-next-line */
 @mixin kz-typography-paragraph-body(
   $size: to-unitless-pixels($kz-typography-paragraph-body-font-size),
   $args...
 ) {
+  /* stylelint-disable-next-line */
   @include kz-typography-inter(
     $size: $size,
     $weight: $typography-paragraph-body-font-weight,
@@ -646,10 +674,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
 }
 
+/* stylelint-disable-next-line */
 @mixin kz-typography-paragraph-body-bold(
   $size: to-unitless-pixels($kz-typography-paragraph-body-font-size),
   $args...
 ) {
+  /* stylelint-disable-next-line */
   @include kz-typography-inter(
     $size: $size,
     $weight: $typography-paragraph-body-font-weight,
@@ -661,10 +691,12 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   font-weight: 600; // @TODO this should be a token
 }
 
+/* stylelint-disable-next-line */
 @mixin kz-typography-paragraph-small(
   $size: to-unitless-pixels($kz-typography-paragraph-small-font-size),
   $args...
 ) {
+  /* stylelint-disable-next-line */
   @include kz-typography-inter(
     $size: $size,
     $weight: $typography-paragraph-small-font-weight,
