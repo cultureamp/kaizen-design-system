@@ -32,10 +32,12 @@ These rules are included by default:
 - `kaizen/no-invalid-use-of-var-tokens-in-equations` - Detects invalid usages of Kaizen tokens within equations. It won't be able to automatically fix many cases, but it can for some simple cases for example negating a Kaizen variable without a runtime `calc()` function.
 - `kaizen/all-token-imports-must-be-used` - Reports and fixes unused Kaizen token imports.
 - `kaizen/all-used-tokens-must-be-imported` - Reports and fixes any Kaizen token imports that should exist but don't, based on the tokens that are used in the current stylesheet.
-- `kaizen/rename-colors` - Reports and automatically renames any ex-generation or deprecated color names, for example:
-  - `wisteria -> purple`
-  - `cluny -> blue`
-  - `ash -> neutral-300`
+- `kaizen/rename-tokens` - Reports and automatically renames any ex-generation or deprecated color names, removes the `kz-var` prefix as it is not used anymore, renames `-rgb-params` to `-rgb`, and renames `kz-var-id-*` to `*-id`. E.g:
+  - `kz-var-color-wisteria-100 -> color-purple-100`
+  - `kz-var-spacing-md` -> `spacing-md`
+  - `kz-var-id-color-peach-100` -> `color-orange-100-id`
+  - `kz-var-color-seedling-500-rgb-params` -> `color-green-500-rgb`
+
 
 Also available, but not enabled by default:
 
