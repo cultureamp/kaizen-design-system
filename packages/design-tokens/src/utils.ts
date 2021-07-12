@@ -157,6 +157,7 @@ export const makeCSSVariableTheme = (
     Object.assign(leafObject, cssVariablesOfToken)
   }
 
+  // Until we remove the deprecated namespace, we expose and augment both, to delay the breaking change.
   mapLeafsOfObject({ [topLevelThemeNamespace]: theme }, mapper)
   mapLeafsOfObject({ [deprecatedKzVarNamespace]: theme }, mapper)
 
@@ -223,12 +224,12 @@ export const augmentThemeKeyValue = (
     const rgbTriple = printValue(rgbPath, colorRgb.slice(0, 3).join(", "))
     result[`${key}-rgb`] = rgbTriple
 
-    // DEPRECATED - REMVOE IN THE NEXT BREAKING CHANGE
+    // DEPRECATED - REMOVE IN THE NEXT BREAKING CHANGE
     result[`${key}-rgb-params`] = rgbTriple
 
     if (augmentWithId) {
       result[`${key}-rgb-id`] = objectPathToCssVarIdentifier(rgbPath)
-      // We don't need `-rgb-params-id` because it won't be used in future releases
+      // We don't need `-rgb-params-id` because it won't be used in future releases, nor is it required for compatibility
     }
   }
 
