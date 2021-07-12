@@ -1,12 +1,11 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "~@kaizen/draft-button/KaizenDraft/Button/styles";
 @import "./decision-tokens.scss";
 
 .step {
-  padding: $kz-var-spacing-sm;
-  min-height: calc(#{$kz-var-spacing-md} * 5);
+  padding: $spacing-sm;
+  min-height: calc(#{$spacing-md} * 5);
   min-width: 400px;
   position: relative;
 }
@@ -30,8 +29,8 @@
 
     // show custom focus ring when :focus-visible
     &:global(.focus-visible) {
-      outline: $kz-var-border-focus-ring-border-width
-        $kz-var-border-focus-ring-border-style $dt-color-actionable;
+      outline: $border-focus-ring-border-width
+        $border-focus-ring-border-style $dt-color-actionable;
     }
   }
 }
@@ -45,5 +44,5 @@
 }
 
 .content {
-  margin-left: $kz-var-spacing-xl;
+  margin-left: $spacing-xl;
 }

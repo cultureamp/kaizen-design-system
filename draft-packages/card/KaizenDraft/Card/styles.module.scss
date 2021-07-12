@@ -3,8 +3,8 @@
 @import "~@kaizen/design-tokens/sass/shadow-vars";
 
 .wrapper {
-  color: $kz-var-color-wisteria-800;
-  background-color: $kz-var-color-white;
-  border-radius: $kz-var-border-borderless-border-radius;
-  box-shadow: $kz-var-shadow-small-box-shadow;
+  color: $color-purple-800;
+  background-color: $color-neutral-100;
+  border-radius: $border-borderless-border-radius;
+  box-shadow: $shadow-small-box-shadow;
 }

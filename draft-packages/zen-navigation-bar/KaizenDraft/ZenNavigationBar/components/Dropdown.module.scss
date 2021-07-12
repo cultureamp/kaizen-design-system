@@ -1,3 +1,4 @@
+@import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
@@ -9,10 +10,10 @@
   align-items: center;
   position: absolute;
   z-index: $ca-z-index-dropdown;
-  background-color: $kz-var-color-white;
+  background-color: $color-neutral-100;
   box-shadow: 0 0 ($ca-grid / 2)
-    rgba($kz-var-color-wisteria-800-rgb-params, 0.3);
-  border-radius: $kz-var-border-solid-border-radius;
+    rgba($color-purple-800-rgb, 0.3);
+  border-radius: $border-solid-border-radius;
   overflow: hidden;
   padding: 4px 0 0;
   max-width: 300px;

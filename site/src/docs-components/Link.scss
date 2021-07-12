@@ -1,3 +1,4 @@
+@import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
@@ -13,7 +14,7 @@
   }
   &:active,
   &:focus {
-    outline-color: $kz-var-color-wisteria-700;
+    outline-color: $color-purple-700;
     outline-offset: 2px;
   }
   &:hover {

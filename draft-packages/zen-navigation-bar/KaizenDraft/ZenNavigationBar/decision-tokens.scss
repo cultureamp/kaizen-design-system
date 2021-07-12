@@ -1,30 +1,30 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
 
-$dt-color-text: $kz-var-color-wisteria-800;
-$dt-color-text-reversed: $kz-var-color-white;
+$dt-color-text: $color-purple-800;
+$dt-color-text-reversed: $color-neutral-100;
 $dt-color-background-color-default: var(
   --kz-var-color-wisteria-600,
-  $kz-var-color-wisteria-700
+  $color-purple-700
 );
 $dt-color-background-color-content: var(
   --kz-var-color-cluny-100,
-  $kz-var-color-cluny-200
+  $color-blue-200
 );
-$dt-color-link: $kz-var-color-wisteria-800;
-$dt-color-link-active: $kz-var-color-cluny-500;
-$dt-color-background-color-content-link: $kz-var-color-cluny-500;
-$dt-color-badge-background-color: $kz-var-color-coral-500;
-$dt-color-badge-background-color-staging: $kz-var-color-peach-500;
-$dt-color-badge-background-color-named: $kz-var-color-seedling-400;
-$dt-color-badge-background-color-test: $kz-var-color-wisteria-400;
-$dt-color-badge-background-color-local: $kz-var-color-cluny-300;
-$dt-color-badge-background-color-new: $kz-var-color-seedling-200;
-$dt-color-indicator-color: $kz-var-color-seedling-400;
+$dt-color-link: $color-purple-800;
+$dt-color-link-active: $color-blue-500;
+$dt-color-background-color-content-link: $color-blue-500;
+$dt-color-badge-background-color: $color-red-500;
+$dt-color-badge-background-color-staging: $color-orange-500;
+$dt-color-badge-background-color-named: $color-green-400;
+$dt-color-badge-background-color-test: $color-purple-400;
+$dt-color-badge-background-color-local: $color-blue-300;
+$dt-color-badge-background-color-new: $color-green-200;
+$dt-color-indicator-color: $color-green-400;
 $dt-color-menu-background-color: var(
   --kz-var-color-wisteria-700,
-  $kz-var-color-wisteria-800
+  $color-purple-800
 );
 $dt-color-menu-background-color-active: var(
   --kz-var-color-wisteria-600,
-  $kz-var-color-wisteria-700
+  $color-purple-700
 );

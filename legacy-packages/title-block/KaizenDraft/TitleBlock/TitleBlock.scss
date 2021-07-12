@@ -1,7 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/design-tokens/sass/shadow-vars";
-@import "~@kaizen/design-tokens/sass/layout-vars";
 @import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
@@ -24,13 +23,13 @@
 }
 
 .titleBlockContainer {
-  color: $kz-var-color-wisteria-800;
+  color: $color-purple-800;
   width: 100%;
 }
 
 .titleBlock {
-  background-color: $kz-var-color-white;
-  border-bottom: 1px solid $kz-var-color-ash;
+  background-color: $color-neutral-100;
+  border-bottom: 1px solid $color-neutral-300;
   width: inherit;
 
   @media print {
@@ -124,8 +123,8 @@
   flex: 0 0 40px;
   height: 40px;
   border-radius: 40px;
-  background-color: rgba($kz-var-color-cluny-500-rgb-params, 0.1);
-  color: $kz-var-color-cluny-500;
+  background-color: rgba($color-blue-500-rgb, 0.1);
+  color: $color-blue-500;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,8 +132,8 @@
 
   .breadcrumb:hover &,
   .breadcrumb:focus & {
-    background-color: $kz-var-color-cluny-500;
-    color: $kz-var-color-white;
+    background-color: $color-blue-500;
+    color: $color-neutral-100;
     transform: scale(1.1);
   }
 }
@@ -262,15 +261,15 @@
   flex: 1;
   align-items: stretch;
   height: 100%;
-  color: $kz-var-color-wisteria-800;
+  color: $color-purple-800;
   @include ca-margin($start: $ca-grid * 1.5);
 
   @include title-block-mobile {
     display: flex;
     margin: 0;
-    border-bottom: 1px solid $kz-var-color-ash;
+    border-bottom: 1px solid $color-neutral-300;
     width: 100%;
-    background: $kz-var-color-white;
+    background: $color-neutral-100;
   }
 
   .navButtonsContainer {
@@ -311,29 +310,29 @@
   }
 
   .breadcrumb {
-    color: $kz-var-color-white;
+    color: $color-neutral-100;
 
     &:hover {
       .circle {
-        background-color: rgba($kz-var-color-white-rgb-params, 0.4);
+        background-color: rgba($color-neutral-100-rgb, 0.4);
       }
     }
   }
 
   .circle {
-    background-color: rgba($kz-var-color-white-rgb-params, 0.2);
-    color: $kz-var-color-white;
+    background-color: rgba($color-neutral-100-rgb, 0.2);
+    color: $color-neutral-100;
   }
 
   .titleBlock {
-    border-bottom: 1px solid rgba($kz-var-color-white-rgb-params, 0.3);
+    border-bottom: 1px solid rgba($color-neutral-100-rgb, 0.3);
   }
 
   .navContainer {
     background-color: transparent;
 
     @include title-block-mobile {
-      border-bottom: 1px solid $kz-var-color-white;
+      border-bottom: 1px solid $color-neutral-100;
     }
   }
 }
@@ -341,12 +340,12 @@
 .reverseColorLapis {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-var-color-wisteria-800;
+      background-color: $color-purple-800;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-var-color-wisteria-800;
+      background-color: $color-purple-800;
     }
   }
 }
@@ -354,12 +353,12 @@
 .reverseColorOcean {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-var-color-cluny-500;
+      background-color: $color-blue-500;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-var-color-cluny-500;
+      background-color: $color-blue-500;
     }
   }
 }
@@ -367,12 +366,12 @@
 .reverseColorPeach {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-var-color-peach-500;
+      background-color: $color-orange-500;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-var-color-peach-500;
+      background-color: $color-orange-500;
     }
   }
 }
@@ -380,12 +379,12 @@
 .reverseColorSeedling {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-var-color-seedling-500;
+      background-color: $color-green-500;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-var-color-seedling-500;
+      background-color: $color-green-500;
     }
   }
 }
@@ -394,16 +393,16 @@
   @include title-block-desktop {
     .titleBlock {
       background-color: var(
-        $kz-var-id-color-wisteria-600,
-        $kz-var-color-wisteria-700
+        $color-purple-600-id,
+        $color-purple-700
       );
     }
   }
   @include title-block-mobile {
     .navContainer {
       background-color: var(
-        $kz-var-id-color-wisteria-600,
-        $kz-var-color-wisteria-700
+        $color-purple-600-id,
+        $color-purple-700
       );
     }
   }
@@ -412,12 +411,12 @@
 .reverseColorYuzu {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-var-color-yuzu-500;
+      background-color: $color-yellow-500;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-var-color-yuzu-500;
+      background-color: $color-yellow-500;
     }
   }
 }
@@ -447,7 +446,7 @@
 
 .compact {
   @include title-block-desktop {
-    box-shadow: $kz-var-shadow-large-box-shadow;
+    box-shadow: $shadow-large-box-shadow;
 
     .titleBlockInner {
       height: $ca-layout-title-block-tablet-height;
@@ -473,12 +472,12 @@
 .stickyColorLapis {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-var-color-wisteria-600;
+      background-color: $color-purple-600;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-var-color-wisteria-600;
+      background-color: $color-purple-600;
     }
   }
 }
@@ -486,12 +485,12 @@
 .stickyColorOcean {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-var-color-cluny-500;
+      background-color: $color-blue-500;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-var-color-cluny-500;
+      background-color: $color-blue-500;
     }
   }
 }
@@ -499,12 +498,12 @@
 .stickyColorPeach {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-var-color-peach-400;
+      background-color: $color-orange-400;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-var-color-peach-400;
+      background-color: $color-orange-400;
     }
   }
 }
@@ -512,12 +511,12 @@
 .stickyColorSeedling {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-var-color-seedling-400;
+      background-color: $color-green-400;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-var-color-seedling-400;
+      background-color: $color-green-400;
     }
   }
 }
@@ -526,16 +525,16 @@
   @include title-block-desktop {
     .titleBlock {
       background-color: var(
-        $kz-var-id-color-wisteria-600,
-        $kz-var-color-wisteria-700
+        $color-purple-600-id,
+        $color-purple-700
       );
     }
   }
   @include title-block-mobile {
     .navContainer {
       background-color: var(
-        $kz-var-id-color-wisteria-600,
-        $kz-var-color-wisteria-700
+        $color-purple-600-id,
+        $color-purple-700
       );
     }
   }
@@ -544,12 +543,12 @@
 .stickyColorYuzu {
   @include title-block-desktop {
     .titleBlock {
-      background-color: $kz-var-color-yuzu-500;
+      background-color: $color-yellow-500;
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: $kz-var-color-yuzu-500;
+      background-color: $color-yellow-500;
     }
   }
 }

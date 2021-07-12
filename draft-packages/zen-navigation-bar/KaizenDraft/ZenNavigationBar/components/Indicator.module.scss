@@ -4,6 +4,6 @@
 
 .container {
   @include ca-margin($end: 4px);
-  width: $kz-var-spacing-sm;
-  color: $kz-var-color-seedling-400;
+  width: $spacing-sm;
+  color: $color-green-400;
 }

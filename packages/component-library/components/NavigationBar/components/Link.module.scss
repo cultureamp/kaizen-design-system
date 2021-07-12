@@ -1,5 +1,4 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "../styles";
 @import "../../../styles/border";
@@ -64,11 +63,11 @@ $indicator-height: 3px;
   &.badgeNew {
     @include ca-padding($start: $ca-grid * 0.5, $end: $ca-grid * 0.5);
     background-color: $dt-color-badge-background-color-new;
-    color: $kz-var-color-wisteria-800;
+    color: $color-purple-800;
   }
   &.badgeNotification {
     @include ca-padding($start: $ca-grid / 3, $end: $ca-grid / 3);
     background-color: $dt-color-badge-background-color;
-    color: $kz-var-color-white;
+    color: $color-neutral-100;
   }
 }

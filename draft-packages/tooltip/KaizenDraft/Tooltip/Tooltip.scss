@@ -12,8 +12,8 @@ $arrow-width: 20px;
 
 // Ash for Heart theme, Wisteria200 for Zen. Switching not needed when Zen is removed.
 $dt-tooltip-content-border: var(
-  $kz-var-id-color-ash,
-  $kz-var-color-wisteria-200
+  $color-neutral-300-id,
+  $color-purple-200
 );
 
 .tooltip {
@@ -23,12 +23,12 @@ $dt-tooltip-content-border: var(
 }
 
 .tooltipContent {
-  border-radius: $kz-var-border-solid-border-radius;
+  border-radius: $border-solid-border-radius;
   transition: opacity $ca-duration-fast, transform $ca-duration-fast;
   padding: $ca-grid / 2 $ca-grid / 2;
-  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
+  border: $border-solid-border-width $border-solid-border-style
     $dt-tooltip-content-border;
-  box-shadow: $kz-var-shadow-small-box-shadow;
+  box-shadow: $shadow-small-box-shadow;
   text-align: center;
   max-width: 400px;
   // I'm having a problem getting the tooltip width to match the size of the text content.
@@ -37,7 +37,7 @@ $dt-tooltip-content-border: var(
   min-width: 200px;
   @include kz-typography-paragraph-body($size: 14);
   top: initial; // Overrides the `top` value of kz-typography-paragraph-body
-  color: $kz-var-color-wisteria-800;
+  color: $color-purple-800;
   background-color: white;
 }
 
@@ -91,7 +91,7 @@ $dt-tooltip-content-border: var(
 // Triangle portion is a little darker to bring out shadow
 .arrowShadow::after {
   border-top: $arrow-height solid
-    rgba($kz-var-color-wisteria-800-rgb-params, 0.09);
+    rgba($color-purple-800-rgb, 0.09);
   margin-top: 1px;
   filter: blur(4px);
 }

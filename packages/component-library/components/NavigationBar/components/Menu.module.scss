@@ -94,7 +94,7 @@ $menu__square-size: $ca-grid * 2;
   > * {
     color: white;
     background-color: $dt-color-menu-background-color;
-    border-radius: $kz-var-border-solid-border-radius;
+    border-radius: $border-solid-border-radius;
     padding: 3px 0; // @TODO-DST - No magic padding
     white-space: nowrap;
   }
@@ -167,7 +167,7 @@ $menu__square-size: $ca-grid * 2;
 .offCanvasMenuGroupTitle {
   @extend .menuGroupTitle;
   font-size: 18px;
-  color: $kz-var-color-white;
+  color: $color-neutral-100;
   padding: ($ca-grid / 2) $ca-grid;
 }
 
@@ -180,11 +180,11 @@ $menu__square-size: $ca-grid * 2;
   &.badgeNew {
     @include ca-padding($start: $ca-grid * 0.5, $end: $ca-grid * 0.5);
     background-color: $dt-color-badge-background-color-new;
-    color: $kz-var-color-wisteria-800;
+    color: $color-purple-800;
   }
   &.badgeNotification {
     @include ca-padding($start: $ca-grid / 3, $end: $ca-grid / 3);
     background-color: $dt-color-badge-background-color;
-    color: $kz-var-color-white;
+    color: $color-neutral-100;
   }
 }

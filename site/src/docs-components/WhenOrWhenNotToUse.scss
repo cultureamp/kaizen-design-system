@@ -2,7 +2,7 @@
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 
 .container {
-  color: $kz-var-color-wisteria-800;
+  color: $color-purple-800;
   display: inline-flex;
   height: 1.75rem;
   align-items: center;
@@ -18,19 +18,19 @@
 }
 
 .whenToUse {
-  background: $kz-var-color-seedling-100;
-  border: 1px solid $kz-var-color-seedling-500;
+  background: $color-green-100;
+  border: 1px solid $color-green-500;
 
   .icon {
-    color: $kz-var-color-seedling-500;
+    color: $color-green-500;
   }
 }
 
 .whenNotToUse {
-  background: $kz-var-color-coral-100;
-  border: 1px solid $kz-var-color-coral-500;
+  background: $color-red-100;
+  border: 1px solid $color-red-500;
 
   .icon {
-    color: $kz-var-color-coral-500;
+    color: $color-red-500;
   }
 }

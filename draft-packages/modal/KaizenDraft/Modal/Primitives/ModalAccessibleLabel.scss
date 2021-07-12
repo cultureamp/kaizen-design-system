@@ -15,15 +15,15 @@
     // show custom focus ring when :focus-visible
     &:global(.focus-visible)::after {
       $focus-ring-offset: calc(
-        (#{$kz-var-border-focus-ring-border-width} * 2) + 1px
+        (#{$border-focus-ring-border-width} * 2) + 1px
       );
       content: "";
       position: absolute;
       background: transparent;
-      border-radius: $kz-var-border-focus-ring-border-radius;
-      border-width: $kz-var-border-focus-ring-border-width;
-      border-style: $kz-var-border-focus-ring-border-style;
-      border-color: $kz-var-color-cluny-500;
+      border-radius: $border-focus-ring-border-radius;
+      border-width: $border-focus-ring-border-width;
+      border-style: $border-focus-ring-border-style;
+      border-color: $color-blue-500;
       top: calc(-1 * #{$focus-ring-offset});
       left: calc(-1 * #{$focus-ring-offset});
       right: calc(-1 * #{$focus-ring-offset});

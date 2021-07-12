@@ -25,8 +25,8 @@ $focus-ring-offset: 2px;
   transform: translateY(-50%);
   // .icon is inside .box so .box's border-box rule means
   // .icon sits to the right of .box's left-side border
-  left: calc(-1 * #{$kz-var-border-solid-border-width});
-  color: $kz-var-color-white;
+  left: calc(-1 * #{$border-solid-border-width});
+  color: $color-neutral-100;
 }
 
 .icon.reversed {
@@ -36,13 +36,13 @@ $focus-ring-offset: 2px;
 .box {
   position: relative;
   pointer-events: none;
-  background: $kz-var-color-white;
+  background: $color-neutral-100;
   height: $checkbox-size;
   width: $checkbox-size;
   top: 0;
-  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
+  border: $border-solid-border-width $border-solid-border-style
     $dt-color-form-border-color;
-  border-radius: $kz-var-border-solid-border-radius;
+  border-radius: $border-solid-border-radius;
   box-sizing: border-box;
   background-color: white;
   border-color: $dt-color-form-border-color;
@@ -81,18 +81,18 @@ $focus-ring-offset: 2px;
     box-sizing: border-box;
     position: absolute;
     background: transparent;
-    border-radius: $kz-var-border-focus-ring-border-radius;
-    border-width: $kz-var-border-focus-ring-border-width;
-    border-style: $kz-var-border-focus-ring-border-style;
+    border-radius: $border-focus-ring-border-radius;
+    border-width: $border-focus-ring-border-width;
+    border-style: $border-focus-ring-border-style;
     border-color: $dt-color-form-border-color-focus;
     top: -$focus-ring-offset - ($checkbox-size / 8);
     left: -$focus-ring-offset - ($checkbox-size / 8);
     width: calc(
-      #{$checkbox-size} + #{$focus-ring-offset} + #{$kz-var-border-solid-border-width} *
+      #{$checkbox-size} + #{$focus-ring-offset} + #{$border-solid-border-width} *
         2
     );
     height: calc(
-      #{$checkbox-size} + #{$focus-ring-offset} + #{$kz-var-border-solid-border-width} *
+      #{$checkbox-size} + #{$focus-ring-offset} + #{$border-solid-border-width} *
         2
     );
   }
@@ -103,38 +103,38 @@ $focus-ring-offset: 2px;
 }
 
 .box.reversed {
-  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
-    $kz-var-color-wisteria-100;
-  background-color: $kz-var-color-wisteria-700;
+  border: $border-solid-border-width $border-solid-border-style
+    $color-purple-100;
+  background-color: $color-purple-700;
 
   .checkbox:not([checked]):focus + & {
-    border-color: $kz-var-color-wisteria-100;
-    background-color: $kz-var-color-wisteria-700;
+    border-color: $color-purple-100;
+    background-color: $color-purple-700;
   }
 
   @media (hover: hover) and (pointer: fine) {
     .checkbox:not([checked]):hover + & {
-      border-color: $kz-var-color-white;
-      background-color: $kz-var-color-wisteria-300;
+      border-color: $color-neutral-100;
+      background-color: $color-purple-300;
     }
   }
 
   .checkbox:checked + &,
   .checkbox:indeterminate + & {
-    background: $kz-var-color-wisteria-300;
+    background: $color-purple-300;
   }
 
   .checkbox:checked:focus + &,
   .checkbox:indeterminate:focus + & {
-    background: rgba($kz-var-color-wisteria-200-rgb-params, 0.65);
-    border-color: $kz-var-color-wisteria-100;
+    background: rgba($color-purple-200-rgb, 0.65);
+    border-color: $color-purple-100;
   }
 
   @media (hover: hover) and (pointer: fine) {
     .checkbox:indeterminate:hover + &,
     .checkbox:checked:hover + & {
-      background: $kz-var-color-white;
-      border-color: $kz-var-color-white;
+      background: $color-neutral-100;
+      border-color: $color-neutral-100;
     }
   }
 
@@ -144,15 +144,15 @@ $focus-ring-offset: 2px;
 }
 
 .box.error {
-  border-color: $kz-var-color-coral-300;
+  border-color: $color-red-300;
 
   .checkbox:not([checked]):focus + & {
-    border-color: $kz-var-color-coral-300;
+    border-color: $color-red-300;
   }
 
   @media (hover: hover) and (pointer: fine) {
     .checkbox:not([checked]):hover + & {
-      border-color: $kz-var-color-coral-300;
+      border-color: $color-red-300;
     }
   }
 }

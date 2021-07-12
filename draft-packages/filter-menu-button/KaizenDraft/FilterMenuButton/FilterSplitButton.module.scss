@@ -15,9 +15,9 @@
 }
 
 @mixin button-base {
-  font-family: $kz-var-typography-button-primary-font-family;
-  line-height: $kz-var-typography-button-primary-line-height;
-  letter-spacing: $kz-var-typography-button-primary-letter-spacing;
+  font-family: $typography-button-primary-font-family;
+  line-height: $typography-button-primary-line-height;
+  letter-spacing: $typography-button-primary-letter-spacing;
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -26,12 +26,12 @@
   text-align: center;
   cursor: pointer;
   overflow: visible;
-  color: $kz-var-color-cluny-500;
-  background: $kz-var-color-cluny-100;
-  border-color: $kz-var-border-borderless-border-color;
+  color: $color-blue-500;
+  background: $color-blue-100;
+  border-color: $border-borderless-border-color;
 
   &:hover {
-    background: $kz-var-color-cluny-200;
+    background: $color-blue-200;
   }
 }
 
@@ -45,33 +45,33 @@
 
   padding-right: $ca-grid * 0.75;
   padding-left: $ca-grid * 0.75;
-  border-top-left-radius: $kz-var-border-solid-border-radius;
-  border-bottom-left-radius: $kz-var-border-solid-border-radius;
+  border-top-left-radius: $border-solid-border-radius;
+  border-bottom-left-radius: $border-solid-border-radius;
 
   &:hover {
-    color: $kz-var-color-cluny-600;
+    color: $color-blue-600;
   }
 }
 
 .primaryActionButton.splitButtonFocus {
-  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style;
-  border-color: $kz-var-color-cluny-400;
+  border: $border-solid-border-width $border-solid-border-style;
+  border-color: $color-blue-400;
   border-right-width: 0;
-  border-radius: $kz-var-border-solid-border-radius;
+  border-radius: $border-solid-border-radius;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 
   &:hover {
-    background: $kz-var-color-cluny-100;
+    background: $color-blue-100;
   }
 }
 
 .primaryActionButton.noClearButton.splitButtonFocus {
-  border-right-width: $kz-var-border-solid-border-width;
-  border-radius: $kz-var-border-solid-border-radius;
+  border-right-width: $border-solid-border-width;
+  border-radius: $border-solid-border-radius;
 
   &:hover {
-    background: $kz-var-color-cluny-100;
+    background: $color-blue-100;
   }
 }
 
@@ -81,53 +81,53 @@
 
   width: 50px;
   justify-content: center;
-  border-top-right-radius: $kz-var-border-solid-border-radius;
-  border-bottom-right-radius: $kz-var-border-solid-border-radius;
+  border-top-right-radius: $border-solid-border-radius;
+  border-bottom-right-radius: $border-solid-border-radius;
 }
 
 .clearButton.splitButtonFocus {
-  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style;
-  border-color: $kz-var-color-cluny-400;
+  border: $border-solid-border-width $border-solid-border-style;
+  border-color: $color-blue-400;
   border-left-width: 0;
-  border-radius: $kz-var-border-solid-border-radius;
+  border-radius: $border-solid-border-radius;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 
   &:hover {
-    background: $kz-var-color-cluny-100;
-    color: $kz-var-color-cluny-500;
+    background: $color-blue-100;
+    color: $color-blue-500;
   }
 }
 
 .noClearButton {
-  border-top-right-radius: $kz-var-border-solid-border-radius;
-  border-bottom-right-radius: $kz-var-border-solid-border-radius;
+  border-top-right-radius: $border-solid-border-radius;
+  border-bottom-right-radius: $border-solid-border-radius;
 
   &:focus {
-    border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style;
+    border: $border-solid-border-width $border-solid-border-style;
   }
 }
 
 .filterName {
-  font-weight: $kz-var-typography-button-primary-font-weight;
+  font-weight: $typography-button-primary-font-weight;
   margin-right: $ca-grid / 3;
 }
 
 .metadata {
-  font-size: $kz-var-typography-button-secondary-font-size;
-  font-weight: $kz-var-typography-button-secondary-font-weight;
-  letter-spacing: $kz-var-typography-button-secondary-letter-spacing;
+  font-size: $typography-button-secondary-font-size;
+  font-weight: $typography-button-secondary-font-weight;
+  letter-spacing: $typography-button-secondary-letter-spacing;
 }
 
 .button {
-  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style;
-  border-radius: $kz-var-border-solid-border-radius;
+  border: $border-solid-border-width $border-solid-border-style;
+  border-radius: $border-solid-border-radius;
   border-color: transparent;
 }
 
 // This is a temporary solution to mark an active state of the button
 // until it's decided whether this should be part of kaizen button or not
 .buttonActive {
-  border-color: $kz-var-color-cluny-400;
-  background: $kz-var-color-cluny-100;
+  border-color: $color-blue-400;
+  background: $color-blue-100;
 }

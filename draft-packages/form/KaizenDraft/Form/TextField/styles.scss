@@ -27,7 +27,7 @@
 ///////////////////////////////////////////////////
 
 .success {
-  @include input-icon($ca-palette-positive, $kz-var-color-white);
+  @include input-icon($ca-palette-positive, $color-neutral-100);
   @include ca-animation-fade(in);
 }
 

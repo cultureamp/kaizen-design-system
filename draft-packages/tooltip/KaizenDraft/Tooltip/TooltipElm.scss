@@ -15,19 +15,19 @@
   left: 50%;
   position: absolute;
   pointer-events: none;
-  border-radius: $kz-var-border-solid-border-radius;
+  border-radius: $border-solid-border-radius;
   transition: opacity $ca-duration-fast, transform $ca-duration-fast;
   padding: $ca-grid / 2 $ca-grid / 2;
   z-index: 2;
-  border: $kz-var-border-solid-border-width $kz-var-border-solid-border-style
-    $kz-var-color-ash;
-  box-shadow: $kz-var-shadow-small-box-shadow;
+  border: $border-solid-border-width $border-solid-border-style
+    $color-neutral-300;
+  box-shadow: $shadow-small-box-shadow;
   text-align: center;
 }
 
 .tooltipContent {
   @include kz-typography-paragraph-body($size: 14);
-  color: $kz-var-color-wisteria-800;
+  color: $color-purple-800;
   top: 0;
 }
 
@@ -121,7 +121,7 @@
 }
 
 .root::before {
-  border-top: 10px solid $kz-var-color-ash;
+  border-top: 10px solid $color-neutral-300;
 }
 
 .root::after {
@@ -131,7 +131,7 @@
 }
 
 .shadow::before {
-  border-top: 0px solid $kz-var-color-ash;
+  border-top: 0px solid $color-neutral-300;
 }
 
 // Triangle portion is a little darker to bring out shadow

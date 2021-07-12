@@ -39,7 +39,7 @@ $tileHeight: $ca-grid * 6;
   &:hover,
   &:active,
   &:focus {
-    background: $kz-var-color-stone;
+    background: $color-neutral-200;
   }
 }
 
@@ -87,11 +87,11 @@ $tileHeight: $ca-grid * 6;
     @include ca-type-inter-small;
     display: block;
     text-align: center;
-    color: $kz-var-color-cluny-500;
+    color: $color-blue-500;
     font-weight: 400;
 
     .clicked & {
-      color: $kz-var-color-seedling-500;
+      color: $color-green-500;
     }
   }
 
@@ -102,7 +102,7 @@ $tileHeight: $ca-grid * 6;
   }
   .clicked & {
     opacity: 1;
-    color: $kz-var-color-seedling-500;
+    color: $color-green-500;
     transition-duration: 0s;
   }
 }
@@ -112,7 +112,7 @@ $tileHeight: $ca-grid * 6;
   position: absolute;
   right: $ca-grid / 2;
   bottom: $ca-grid / 2;
-  color: $kz-var-color-seedling-500;
+  color: $color-green-500;
 }
 
 .pathInput {

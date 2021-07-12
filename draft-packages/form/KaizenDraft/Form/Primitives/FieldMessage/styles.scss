@@ -19,14 +19,14 @@
 .error {
   padding: $ca-grid / 2;
   color: $dt-color-form-text-color;
-  border-radius: $kz-var-border-solid-border-radius;
-  background: $kz-var-color-coral-300;
+  border-radius: $border-solid-border-radius;
+  background: $color-red-300;
 }
 
 .positionBottom {
-  margin-top: $kz-var-spacing-xs;
+  margin-top: $spacing-xs;
 }
 
 .positionTop {
-  margin-bottom: $kz-var-spacing-xs;
+  margin-bottom: $spacing-xs;
 }

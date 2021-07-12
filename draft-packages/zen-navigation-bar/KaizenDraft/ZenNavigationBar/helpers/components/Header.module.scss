@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: space-between;
   height: 60px;
-  background-color: $kz-var-color-wisteria-700;
+  background-color: $color-purple-700;
   box-sizing: border-box;
 
   &.content {
@@ -25,7 +25,7 @@
 
 .heading {
   @include font-heading-3;
-  color: $kz-var-color-white;
+  color: $color-neutral-100;
 
   .content & {
     color: $dt-color-text;

@@ -4,29 +4,29 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/component-library/styles/layout";
 
-$test-color: $kz-var-color-purple-800;
+$test-color: $color-purple-800;
 
 .test {
-  background-color: rgb($kz-var-color-blue-600-rgb-params);
+  background-color: rgb($color-blue-600-rgb);
 
-  border-color: rgba($kz-var-color-purple-800-rgb-params, 70%);
+  border-color: rgba($color-purple-800-rgb, 70%);
 
-  border: rgba($kz-var-color-purple-800-rgb-params, 0.7);
+  border: rgba($color-purple-800-rgb, 0.7);
 
-  padding: $kz-var-spacing-md;
+  padding: $spacing-md;
 
-  padding: $kz-var-spacing-md * 2;
+  padding: $spacing-md * 2;
   margin: $kz-spacing-md * 2;
 
-  margin: $kz-var-spacing-md calc(-1 * #{$kz-var-spacing-md});
+  margin: $spacing-md calc(-1 * #{$spacing-md});
 
   color: mix($foo, white, 80%);
 
-  test: $kz-var-color-purple-800;
+  test: $color-purple-800;
 
-  color: $kz-color-stone $kz-color-ash $kz-var-color-iron;
-  color: $kz-color-stone;
-  color: $kz-color-white;
-  color: $kz-color-iron;
-  color: $kz-color-slate;
+  color: $color-neutral-200 $color-neutral-300 $color-neutral-500;
+  color: $color-neutral-200;
+  color: $color-neutral-100;
+  color: $color-neutral-500;
+  color: $color-neutral-600;
 }

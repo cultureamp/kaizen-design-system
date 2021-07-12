@@ -1,5 +1,4 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/color";
 @import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "~@kaizen/design-tokens/sass/typography-vars";
 @import "~@kaizen/design-tokens/sass/typography";
@@ -81,7 +80,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 // Creates whitespace for the contained text to shift “into”
 @mixin ca-type-block($display: block) {
   display: $display;
-  padding-bottom: $kz-var-spacing-sm;
+  padding-bottom: $spacing-sm;
 }
 
 @mixin ca-inherit-baseline {
@@ -247,7 +246,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   @include ca-type-ideal($size: $size, $weight: $ca-weight-book, $args...);
   text-decoration: none;
   text-decoration-skip-ink: auto;
-  color: $kz-var-color-cluny-500;
+  color: $color-blue-500;
   cursor: pointer;
   &:hover {
     text-decoration: underline;
@@ -360,7 +359,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   @include ca-type-inter($size: $size, $weight: 500, $args...);
   text-decoration: none;
   text-decoration-skip-ink: auto;
-  color: $kz-var-color-cluny-500;
+  color: $color-blue-500;
   cursor: pointer;
   &:hover {
     text-decoration: underline;
@@ -411,7 +410,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   $size,
   $weight,
   $line-height-in-grid-units: 1,
-  $letter-spacing: $kz-var-typography-heading-1-letter-spacing,
+  $letter-spacing: $typography-heading-1-letter-spacing,
   $args...
 ) {
   @include ca-type(
@@ -433,7 +432,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   $size,
   $weight,
   $line-height-in-grid-units: 1,
-  $letter-spacing: $kz-var-typography-heading-1-letter-spacing,
+  $letter-spacing: $typography-heading-1-letter-spacing,
   $args...
 ) {
   @include ca-type(
@@ -457,8 +456,8 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 ) {
   @include kz-typography-greycliff(
     $size: $size,
-    $weight: $kz-var-typography-data-large-font-weight,
-    $letter-spacing: $kz-var-typography-data-large-letter-spacing,
+    $weight: $typography-data-large-font-weight,
+    $letter-spacing: $typography-data-large-letter-spacing,
     $line-height-in-grid-units:
       to-grid-units($kz-typography-data-large-line-height),
     $args...
@@ -471,8 +470,8 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 ) {
   @include kz-typography-greycliff(
     $size: $size,
-    $weight: $kz-var-typography-data-large-units-font-weight,
-    $letter-spacing: $kz-var-typography-data-large-units-letter-spacing,
+    $weight: $typography-data-large-units-font-weight,
+    $letter-spacing: $typography-data-large-units-letter-spacing,
     $line-height-in-grid-units:
       to-grid-units($kz-typography-data-large-units-line-height),
     $args...
@@ -485,8 +484,8 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 ) {
   @include kz-typography-greycliff(
     $size: $size,
-    $weight: $kz-var-typography-data-medium-font-weight,
-    $letter-spacing: $kz-var-typography-data-medium-letter-spacing,
+    $weight: $typography-data-medium-font-weight,
+    $letter-spacing: $typography-data-medium-letter-spacing,
     $line-height-in-grid-units:
       to-grid-units($kz-typography-data-medium-line-height),
     $args...
@@ -499,8 +498,8 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 ) {
   @include kz-typography-greycliff(
     $size: $size,
-    $weight: $kz-var-typography-data-medium-units-font-weight,
-    $letter-spacing: $kz-var-typography-data-medium-units-letter-spacing,
+    $weight: $typography-data-medium-units-font-weight,
+    $letter-spacing: $typography-data-medium-units-letter-spacing,
     $line-height-in-grid-units:
       to-grid-units($kz-typography-data-medium-units-line-height),
     $args...
@@ -513,8 +512,8 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 ) {
   @include kz-typography-greycliff(
     $size: $size,
-    $weight: $kz-var-typography-data-small-font-weight,
-    $letter-spacing: $kz-var-typography-data-small-letter-spacing,
+    $weight: $typography-data-small-font-weight,
+    $letter-spacing: $typography-data-small-letter-spacing,
     $line-height-in-grid-units:
       to-grid-units($kz-typography-data-small-line-height),
     $args...
@@ -527,8 +526,8 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 ) {
   @include kz-typography-greycliff(
     $size: $size,
-    $weight: $kz-var-typography-data-small-units-font-weight,
-    $letter-spacing: $kz-var-typography-data-small-units-letter-spacing,
+    $weight: $typography-data-small-units-font-weight,
+    $letter-spacing: $typography-data-small-units-letter-spacing,
     $line-height-in-grid-units:
       to-grid-units($kz-typography-data-small-units-line-height),
     $args...
@@ -541,8 +540,8 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 ) {
   @include kz-typography-greycliff(
     $size: $size,
-    $weight: $kz-var-typography-display-0-font-weight,
-    $letter-spacing: $kz-var-typography-display-0-letter-spacing,
+    $weight: $typography-display-0-font-weight,
+    $letter-spacing: $typography-display-0-letter-spacing,
     $line-height-in-grid-units:
       to-grid-units($kz-typography-display-0-line-height),
     $args...
@@ -555,8 +554,8 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 ) {
   @include kz-typography-greycliff(
     $size: $size,
-    $weight: $kz-var-typography-heading-1-font-weight,
-    $letter-spacing: $kz-var-typography-heading-1-letter-spacing,
+    $weight: $typography-heading-1-font-weight,
+    $letter-spacing: $typography-heading-1-letter-spacing,
     $line-height-in-grid-units:
       to-grid-units($kz-typography-heading-1-line-height),
     $args...
@@ -569,8 +568,8 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 ) {
   @include kz-typography-greycliff(
     $size: $size,
-    $weight: $kz-var-typography-heading-2-font-weight,
-    $letter-spacing: $kz-var-typography-heading-2-letter-spacing,
+    $weight: $typography-heading-2-font-weight,
+    $letter-spacing: $typography-heading-2-letter-spacing,
     $line-height-in-grid-units:
       to-grid-units($kz-typography-heading-2-line-height),
     $args...
@@ -583,8 +582,8 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 ) {
   @include kz-typography-greycliff(
     $size: $size,
-    $weight: $kz-var-typography-heading-3-font-weight,
-    $letter-spacing: $kz-var-typography-heading-3-letter-spacing,
+    $weight: $typography-heading-3-font-weight,
+    $letter-spacing: $typography-heading-3-letter-spacing,
     $line-height-in-grid-units:
       to-grid-units($kz-typography-heading-3-line-height),
     $args...
@@ -597,8 +596,8 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 ) {
   @include kz-typography-inter(
     $size: $size,
-    $weight: $kz-var-typography-heading-4-font-weight,
-    $letter-spacing: $kz-var-typography-heading-4-letter-spacing,
+    $weight: $typography-heading-4-font-weight,
+    $letter-spacing: $typography-heading-4-letter-spacing,
     $line-height-in-grid-units:
       to-grid-units($kz-typography-heading-4-line-height),
     $args...
@@ -611,8 +610,8 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 ) {
   @include kz-typography-inter(
     $size: $size,
-    $weight: $kz-var-typography-heading-5-font-weight,
-    $letter-spacing: $kz-var-typography-heading-5-letter-spacing,
+    $weight: $typography-heading-5-font-weight,
+    $letter-spacing: $typography-heading-5-letter-spacing,
     $line-height-in-grid-units:
       to-grid-units($kz-typography-heading-5-line-height),
     $args...
@@ -625,8 +624,8 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 ) {
   @include kz-typography-inter(
     $size: $size,
-    $weight: $kz-var-typography-heading-6-font-weight,
-    $letter-spacing: $kz-var-typography-heading-6-letter-spacing,
+    $weight: $typography-heading-6-font-weight,
+    $letter-spacing: $typography-heading-6-letter-spacing,
     $line-height-in-grid-units:
       to-grid-units($kz-typography-heading-6-line-height),
     $args...
@@ -639,8 +638,8 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 ) {
   @include kz-typography-inter(
     $size: $size,
-    $weight: $kz-var-typography-paragraph-body-font-weight,
-    $letter-spacing: $kz-var-typography-paragraph-body-letter-spacing,
+    $weight: $typography-paragraph-body-font-weight,
+    $letter-spacing: $typography-paragraph-body-letter-spacing,
     $line-height-in-grid-units:
       to-grid-units($kz-typography-paragraph-body-line-height),
     $args...
@@ -653,8 +652,8 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 ) {
   @include kz-typography-inter(
     $size: $size,
-    $weight: $kz-var-typography-paragraph-body-font-weight,
-    $letter-spacing: $kz-var-typography-paragraph-body-letter-spacing,
+    $weight: $typography-paragraph-body-font-weight,
+    $letter-spacing: $typography-paragraph-body-letter-spacing,
     $line-height-in-grid-units:
       to-grid-units($kz-typography-paragraph-body-line-height),
     $args...
@@ -668,8 +667,8 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
 ) {
   @include kz-typography-inter(
     $size: $size,
-    $weight: $kz-var-typography-paragraph-small-font-weight,
-    $letter-spacing: $kz-var-typography-paragraph-small-letter-spacing,
+    $weight: $typography-paragraph-small-font-weight,
+    $letter-spacing: $typography-paragraph-small-letter-spacing,
     $line-height-in-grid-units:
       to-grid-units($kz-typography-paragraph-small-line-height),
     $args...
@@ -684,7 +683,7 @@ $ca-locale-ar-font-family: $ca-inter-locale-he-font-family;
   );
   text-decoration: none;
   text-decoration-skip-ink: auto;
-  color: $kz-var-color-cluny-500;
+  color: $color-blue-500;
   cursor: pointer;
   &:hover {
     text-decoration: underline;

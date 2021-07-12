@@ -16,7 +16,7 @@
   display: flex;
   padding: 0 ($ca-grid / 2);
   @include ca-margin($end: $ca-grid);
-  color: rgba($kz-var-color-white-rgb-params, 0.7);
+  color: rgba($color-neutral-100-rgb, 0.7);
   text-decoration: none;
 
   @include title-block-under-1440 {
@@ -28,15 +28,15 @@
   }
 
   &.lightBackground {
-    color: rgba($kz-var-color-wisteria-800-rgb-params, 0.75);
+    color: rgba($color-purple-800-rgb, 0.75);
 
     &:hover {
-      color: $kz-var-color-cluny-500;
+      color: $color-blue-500;
     }
   }
 
   &:hover {
-    color: $kz-var-color-white;
+    color: $color-neutral-100;
     text-decoration: none;
   }
 }
@@ -47,22 +47,22 @@
   align-items: center;
   white-space: nowrap;
 
-  font-family: $kz-var-typography-heading-4-font-family;
-  font-weight: $kz-var-typography-heading-4-font-weight;
-  font-size: $kz-var-typography-heading-4-font-size;
-  line-height: $kz-var-typography-heading-4-line-height;
-  letter-spacing: $kz-var-typography-heading-4-letter-spacing;
+  font-family: $typography-heading-4-font-family;
+  font-weight: $typography-heading-4-font-weight;
+  font-size: $typography-heading-4-font-size;
+  line-height: $typography-heading-4-line-height;
+  letter-spacing: $typography-heading-4-letter-spacing;
 
   @include title-block-under-1366 {
-    font-family: $kz-var-typography-heading-5-font-family;
-    font-weight: $kz-var-typography-heading-5-font-weight;
-    font-size: $kz-var-typography-heading-5-font-size;
-    line-height: $kz-var-typography-heading-5-line-height;
-    letter-spacing: $kz-var-typography-heading-5-letter-spacing;
+    font-family: $typography-heading-5-font-family;
+    font-weight: $typography-heading-5-font-weight;
+    font-size: $typography-heading-5-font-size;
+    line-height: $typography-heading-5-line-height;
+    letter-spacing: $typography-heading-5-letter-spacing;
   }
 
   &.active {
-    color: $kz-var-color-white;
+    color: $color-neutral-100;
 
     &::before {
       content: "";
@@ -72,31 +72,31 @@
       top: 0;
       left: -($ca-grid / 2);
       right: -($ca-grid / 2);
-      background-color: $kz-var-color-white;
+      background-color: $color-neutral-100;
       transition: transform cubic-bezier(0.55, 0.085, 0.68, 0.53) 150ms;
-      border-radius: 0 0 $kz-var-border-solid-border-radius
-        $kz-var-border-solid-border-radius;
+      border-radius: 0 0 $border-solid-border-radius
+        $border-solid-border-radius;
 
       @include title-block-medium-and-small {
         top: auto;
         bottom: 0;
-        border-radius: $kz-var-border-solid-border-radius
-          $kz-var-border-solid-border-radius 0 0;
+        border-radius: $border-solid-border-radius
+          $border-solid-border-radius 0 0;
       }
     }
 
     .lightBackground & {
-      color: $kz-var-color-cluny-500;
+      color: $color-blue-500;
 
       &::before {
-        background-color: $kz-var-color-cluny-500;
+        background-color: $color-blue-500;
         top: 3px;
 
         @include title-block-medium-and-small {
           top: auto;
           bottom: 0;
-          border-radius: $kz-var-border-solid-border-radius
-            $kz-var-border-solid-border-radius 0 0;
+          border-radius: $border-solid-border-radius
+            $border-solid-border-radius 0 0;
         }
       }
     }
