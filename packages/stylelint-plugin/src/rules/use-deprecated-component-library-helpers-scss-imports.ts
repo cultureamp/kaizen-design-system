@@ -46,12 +46,14 @@ const replaceImport = (
 ) => {
   const importsToProcess: AtRule[] = []
   let containsOldImport = false
+  let quoteCharacter = "'"
   styleSheetNode.walkAtRules((node: AtRule) => {
     if (node.name === "import") {
       const line = node.params
-      if (line.indexOf(oldImport) >= 0 || line.indexOf(newImport) >= 0) {
+      if (line.includes(oldImport) || line.includes(newImport)) {
         importsToProcess.push(node)
-        if (node.params.includes(oldImport)) {
+        if (line.includes(oldImport)) {
+          quoteCharacter = line.includes("'") ? "'" : '"'
           containsOldImport = true
           if (!options.fix) {
             options.reporter({
@@ -70,7 +72,7 @@ const replaceImport = (
 
     // replace with new import, preserving either single or double quotes depending on the
     // prettier config
-    lastImport.params = addQuotes(oldImport, newImport)
+    lastImport.params = addQuotes(newImport, quoteCharacter)
 
     for (const importToRemove of importsToRemove) {
       // we only want one import, so remove all earlier imports
@@ -79,7 +81,6 @@ const replaceImport = (
   }
 }
 
-function addQuotes(oldImport: string, newImport: string) {
-  const quoteCharacter = oldImport.indexOf("'") >= 0 ? "'" : '"'
+function addQuotes(newImport: string, quoteCharacter: string) {
   return `${quoteCharacter}${newImport}${quoteCharacter}`
 }
