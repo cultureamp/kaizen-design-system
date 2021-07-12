@@ -1,14 +1,12 @@
 {
-  "kzv": {
-    "shadow": {
-      "small": {
-        "boxShadow": "var(--kzv-shadow-small-box-shadow, 0 0 4px rgba(0, 0, 0, 0.09))",
-        "boxShadow-id": "--kzv-shadow-small-box-shadow"
-      },
-      "large": {
-        "boxShadow": "var(--kzv-shadow-large-box-shadow, 0 0 12px rgba(0, 0, 0, 0.19))",
-        "boxShadow-id": "--kzv-shadow-large-box-shadow"
-      }
+  "shadow": {
+    "small": {
+      "boxShadow": "var(--shadow-small-box-shadow, 0 0 4px rgba(0, 0, 0, 0.09))",
+      "boxShadow-id": "--shadow-small-box-shadow"
+    },
+    "large": {
+      "boxShadow": "var(--shadow-large-box-shadow, 0 0 12px rgba(0, 0, 0, 0.19))",
+      "boxShadow-id": "--shadow-large-box-shadow"
     }
   },
   "kz-var": {

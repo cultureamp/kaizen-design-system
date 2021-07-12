@@ -57,7 +57,6 @@ export const objectPathToCssVarIdentifier = (path: string[]) =>
 export const objectPathToCssVarReference = (path: string[], value: unknown) =>
   `var(${objectPathToCssVarIdentifier(path)}, ${value})`
 
-export const topLevelThemeNamespace = "kzv" as const
 export const deprecatedKzVarNamespace = "kz-var" as const
 
 /**
@@ -66,19 +65,17 @@ export const deprecatedKzVarNamespace = "kz-var" as const
  * For example:
  * ```
  * {
- *   kz: {
  *      color: {
  *        whatever: {
  *          100: "#ff0022"
  *        }
  *      }
- *    }
  * }
  * ```
  * transforms into:
  * ```
  * {
- *  "--kz-color-whatever-100": "#ff0022"
+ *  "--color-whatever-100": "#ff0022"
  * }
  * ```
  */
@@ -158,7 +155,7 @@ export const makeCSSVariableTheme = (
   }
 
   // Until we remove the deprecated namespace, we expose and augment both, to delay the breaking change.
-  mapLeafsOfObject({ [topLevelThemeNamespace]: theme }, mapper)
+  mapLeafsOfObject(theme, mapper)
   mapLeafsOfObject({ [deprecatedKzVarNamespace]: theme }, mapper)
 
   return augmentedTheme as Theme
@@ -179,7 +176,7 @@ export const makeCSSVariableTheme = (
  */
 export const makeCSSVariablesOfTheme = (theme: Theme) =>
   flattenObjectToCSSVariables({
-    [topLevelThemeNamespace]: theme,
+    ...theme,
     [deprecatedKzVarNamespace]: theme,
   })
 

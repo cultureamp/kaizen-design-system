@@ -1,36 +1,34 @@
 {
-  "kzv": {
-    "animation": {
-      "easingFunction": {
-        "easeInOut": "var(--kzv-animation-easing-function-ease-in-out, cubic-bezier(0.455, 0.03, 0.515, 0.955))",
-        "easeInOut-id": "--kzv-animation-easing-function-ease-in-out",
-        "easeIn": "var(--kzv-animation-easing-function-ease-in, cubic-bezier(0.55, 0.085, 0.68, 0.53))",
-        "easeIn-id": "--kzv-animation-easing-function-ease-in",
-        "easeOut": "var(--kzv-animation-easing-function-ease-out, cubic-bezier(0.25, 0.46, 0.45, 0.94))",
-        "easeOut-id": "--kzv-animation-easing-function-ease-out",
-        "linear": "var(--kzv-animation-easing-function-linear, linear)",
-        "linear-id": "--kzv-animation-easing-function-linear",
-        "bounceIn": "var(--kzv-animation-easing-function-bounce-in, cubic-bezier(0.485, 0.155, 0.24, 1.245))",
-        "bounceIn-id": "--kzv-animation-easing-function-bounce-in",
-        "bounceOut": "var(--kzv-animation-easing-function-bounce-out, cubic-bezier(0.485, 0.155, 0.515, 0.845))",
-        "bounceOut-id": "--kzv-animation-easing-function-bounce-out",
-        "bounceInOut": "var(--kzv-animation-easing-function-bounce-in-out, cubic-bezier(0.76, -0.245, 0.24, 1.245))",
-        "bounceInOut-id": "--kzv-animation-easing-function-bounce-in-out"
-      },
-      "duration": {
-        "instant": "var(--kzv-animation-duration-instant, 0ms)",
-        "instant-id": "--kzv-animation-duration-instant",
-        "immediate": "var(--kzv-animation-duration-immediate, 100ms)",
-        "immediate-id": "--kzv-animation-duration-immediate",
-        "rapid": "var(--kzv-animation-duration-rapid, 200ms)",
-        "rapid-id": "--kzv-animation-duration-rapid",
-        "fast": "var(--kzv-animation-duration-fast, 300ms)",
-        "fast-id": "--kzv-animation-duration-fast",
-        "slow": "var(--kzv-animation-duration-slow, 400ms)",
-        "slow-id": "--kzv-animation-duration-slow",
-        "deliberate": "var(--kzv-animation-duration-deliberate, 700ms)",
-        "deliberate-id": "--kzv-animation-duration-deliberate"
-      }
+  "animation": {
+    "easingFunction": {
+      "easeInOut": "var(--animation-easing-function-ease-in-out, cubic-bezier(0.455, 0.03, 0.515, 0.955))",
+      "easeInOut-id": "--animation-easing-function-ease-in-out",
+      "easeIn": "var(--animation-easing-function-ease-in, cubic-bezier(0.55, 0.085, 0.68, 0.53))",
+      "easeIn-id": "--animation-easing-function-ease-in",
+      "easeOut": "var(--animation-easing-function-ease-out, cubic-bezier(0.25, 0.46, 0.45, 0.94))",
+      "easeOut-id": "--animation-easing-function-ease-out",
+      "linear": "var(--animation-easing-function-linear, linear)",
+      "linear-id": "--animation-easing-function-linear",
+      "bounceIn": "var(--animation-easing-function-bounce-in, cubic-bezier(0.485, 0.155, 0.24, 1.245))",
+      "bounceIn-id": "--animation-easing-function-bounce-in",
+      "bounceOut": "var(--animation-easing-function-bounce-out, cubic-bezier(0.485, 0.155, 0.515, 0.845))",
+      "bounceOut-id": "--animation-easing-function-bounce-out",
+      "bounceInOut": "var(--animation-easing-function-bounce-in-out, cubic-bezier(0.76, -0.245, 0.24, 1.245))",
+      "bounceInOut-id": "--animation-easing-function-bounce-in-out"
+    },
+    "duration": {
+      "instant": "var(--animation-duration-instant, 0ms)",
+      "instant-id": "--animation-duration-instant",
+      "immediate": "var(--animation-duration-immediate, 100ms)",
+      "immediate-id": "--animation-duration-immediate",
+      "rapid": "var(--animation-duration-rapid, 200ms)",
+      "rapid-id": "--animation-duration-rapid",
+      "fast": "var(--animation-duration-fast, 300ms)",
+      "fast-id": "--animation-duration-fast",
+      "slow": "var(--animation-duration-slow, 400ms)",
+      "slow-id": "--animation-duration-slow",
+      "deliberate": "var(--animation-duration-deliberate, 700ms)",
+      "deliberate-id": "--animation-duration-deliberate"
     }
   },
   "kz-var": {

@@ -7,7 +7,6 @@ import {
   augmentThemeKeyValue,
   mapLeafsOfObject,
   makeCSSVariableTheme,
-  topLevelThemeNamespace,
   objectPathToCssVarIdentifier,
   makeCSSVariablesOfTheme,
   objectPathToCssVarReference,
@@ -75,7 +74,11 @@ const run = () => {
   fs.mkdirSync(jsonOutput, { recursive: true })
   fs.mkdirSync(cssOutput, { recursive: true })
 
-  const customPropertiesTheme = makeCSSVariableTheme(defaultTheme, objectPathToCssVarReference, true)
+  const customPropertiesTheme = makeCSSVariableTheme(
+    defaultTheme,
+    objectPathToCssVarReference,
+    true
+  )
 
   /*
     WILL BE REMOVED IN THE FUTURE IN FAVOR OF THE ABOVE'S ^^ ABILITY TO ADD IDENTIFIERS
@@ -94,7 +97,7 @@ const run = () => {
   const customPropertiesThemeIdentifiers = makeCSSVariableTheme(
     defaultTheme,
     objectPathToCssVarIdentifier,
-    false,
+    false
   )
 
   /* Write JSON tokens */
@@ -151,10 +154,8 @@ const run = () => {
     path.resolve(jsonOutput, "color-vars.json"),
     formatJson(
       JSON.stringify({
-        [topLevelThemeNamespace]: {
-          color: customPropertiesTheme[topLevelThemeNamespace].color,
-          DEPRECATED: customPropertiesTheme[topLevelThemeNamespace].DEPRECATED,
-        },
+        color: customPropertiesTheme.color,
+        DEPRECATED: customPropertiesTheme.DEPRECATED,
         [deprecatedKzVarNamespace]: {
           color: customPropertiesTheme[deprecatedKzVarNamespace].color,
           DEPRECATED:
@@ -167,9 +168,7 @@ const run = () => {
     path.resolve(jsonOutput, "border-vars.json"),
     formatJson(
       JSON.stringify({
-        [topLevelThemeNamespace]: {
-          border: customPropertiesTheme[topLevelThemeNamespace].border,
-        },
+        border: customPropertiesTheme.border,
         [deprecatedKzVarNamespace]: {
           border: customPropertiesTheme[deprecatedKzVarNamespace].border,
         },
@@ -180,9 +179,7 @@ const run = () => {
     path.resolve(jsonOutput, "animation-vars.json"),
     formatJson(
       JSON.stringify({
-        [topLevelThemeNamespace]: {
-          animation: customPropertiesTheme[topLevelThemeNamespace].animation,
-        },
+        animation: customPropertiesTheme.animation,
         [deprecatedKzVarNamespace]: {
           animation: customPropertiesTheme[deprecatedKzVarNamespace].animation,
         },
@@ -193,9 +190,7 @@ const run = () => {
     path.resolve(jsonOutput, "layout-vars.json"),
     formatJson(
       JSON.stringify({
-        [topLevelThemeNamespace]: {
-          layout: customPropertiesTheme[topLevelThemeNamespace].layout,
-        },
+        layout: customPropertiesTheme.layout,
         [deprecatedKzVarNamespace]: {
           layout: customPropertiesTheme[deprecatedKzVarNamespace].layout,
         },
@@ -206,9 +201,7 @@ const run = () => {
     path.resolve(jsonOutput, "shadow-vars.json"),
     formatJson(
       JSON.stringify({
-        [topLevelThemeNamespace]: {
-          shadow: customPropertiesTheme[topLevelThemeNamespace].shadow,
-        },
+        shadow: customPropertiesTheme.shadow,
         [deprecatedKzVarNamespace]: {
           shadow: customPropertiesTheme[deprecatedKzVarNamespace].shadow,
         },
@@ -219,9 +212,7 @@ const run = () => {
     path.resolve(jsonOutput, "spacing-vars.json"),
     formatJson(
       JSON.stringify({
-        [topLevelThemeNamespace]: {
-          spacing: customPropertiesTheme[topLevelThemeNamespace].spacing,
-        },
+        spacing: customPropertiesTheme.spacing,
         [deprecatedKzVarNamespace]: {
           spacing: customPropertiesTheme[deprecatedKzVarNamespace].spacing,
         },
@@ -232,9 +223,7 @@ const run = () => {
     path.resolve(jsonOutput, "typography-vars.json"),
     formatJson(
       JSON.stringify({
-        [topLevelThemeNamespace]: {
-          typography: customPropertiesTheme[topLevelThemeNamespace].typography,
-        },
+        typography: customPropertiesTheme.typography,
         [deprecatedKzVarNamespace]: {
           typography:
             customPropertiesTheme[deprecatedKzVarNamespace].typography,
@@ -242,7 +231,6 @@ const run = () => {
       })
     )
   )
-
   /* Write CSS variable theme files */
   fs.writeFileSync(
     path.resolve(cssOutput, "zen-theme.css"),
