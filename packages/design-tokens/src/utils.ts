@@ -86,7 +86,7 @@ export const flattenObjectToCSSVariables = (
 
   // Shamelessly using a map function like a forEach
   mapLeafsOfObject(object, (path, value) => {
-    // Key will be `--kz-color-blah`
+    // Key will be `--color-blah`
     const key = objectPathToCssVarIdentifier(path)
     const cssVariablesOfToken = augmentThemeKeyValue(
       path,
@@ -108,21 +108,17 @@ export const flattenObjectToCSSVariables = (
  * Example:
  * ```
  * {
- *  kz: {
- *      color: {
- *          wisteria: "#ff0011"
- *      }
- *  }
+ *    color: {
+ *        wisteria: "#ff0011"
+ *    }
  * }
  * ```
  * Transforms into:
  * ```
  * {
- *  kz: {
- *      color: {
- *          wisteria: "var(--kz-color-wisteria)"
- *      }
- *  }
+ *    color: {
+ *        wisteria: "var(--color-wisteria)"
+ *    }
  * }
  * ```
  */
@@ -168,8 +164,8 @@ export const makeCSSVariableTheme = (
  * ```
  * {
  *    ...
- *    "--kz-var-theme-key": "zen",
- *    "--kz-var-color-wisteria-800": "#3537a4"
+ *    "--theme-key": "zen",
+ *    "--color-wisteria-800": "#3537a4"
  *    ...
  * }
  * ```
@@ -181,11 +177,11 @@ export const makeCSSVariablesOfTheme = (theme: Theme) =>
   })
 
 /**
- * Use this to generate an object containing `${key}: value`, `${key}-rgb: r, g, b`, and/or `${key}-id: --kz-color-blah-XXX`.
+ * Use this to generate an object containing `${key}: value`, `${key}-rgb: r, g, b`, and/or `${key}-id: --color-blah-XXX`.
  * This is for adding extra neighbouring properties to a theme.
  * For example:
  *  Input:
- *    path: [kz, color, purple, 100]
+ *    path: [color, purple, 100]
  *    key: 100
  *    value: #f0f1f4
  *    printValue: (path, v) => `var(--some-key, ${v})`
@@ -194,7 +190,7 @@ export const makeCSSVariablesOfTheme = (theme: Theme) =>
  *  Output: {
  *    "100": "var(--some-key, #f0f1f4)",
  *    "100-rgb": "var(--some-key, 240, 241, 244)",
- *    "100-id": "--kz-color-purple-100"
+ *    "100-id": "--color-purple-100"
  *  }
  */
 export const augmentThemeKeyValue = (

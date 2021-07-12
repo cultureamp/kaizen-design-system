@@ -4,6 +4,6 @@
 
 .myClass {
 -     background-color: $kz-color-purple-800;
-+     background-color: $kz-var-color-purple-800;
++     background-color: $color-purple-800;
 
 }

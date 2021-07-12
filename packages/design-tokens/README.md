@@ -8,7 +8,7 @@ Design tokens are named and stored visual design traits, including colors, typog
 
 The tokens represented here are platform-agnostic (JSON), as this will help us contribute to & facilitate the maintenance of living style guides. This package defines all the option tokens in Kaizen.
 
-- **Option tokens** offer options. For example, `$kz-color-purple-500: #898ba9;` is one color option available.
+- **Option tokens** offer options. For example, `$color-purple-500: #898ba9;` is one color option available.
 - **Decision tokens** communicate decisions about when to apply an option token to a context. For example, the color used for text is a decision.
 
 In its current state this package supports Sass and Less variables, generated from a JSON tokens file.
@@ -16,7 +16,7 @@ In its current state this package supports Sass and Less variables, generated fr
 **Please note** that the helpers in this package are specifically for accessing and using these design tokens. Component-specific helpers are best suited for kaizen-component-library.
 
 As of V3, design tokens are also **themable**; they are intended to be used as if they can be **switched at runtime**. Because of this, we employ [CSS Variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
-to support this feature, so when consuming tokens in SASS/LESS you should assume they will contain values such as `var(--kz-color-...)`, rather than concrete values such as `1.5rem` or `#fff`.
+to support this feature, so when consuming tokens in SASS/LESS you should assume they will contain values such as `var(--color-...)`, rather than concrete values such as `1.5rem` or `#fff`.
 These values are supplied by the ThemeManager.
 
 

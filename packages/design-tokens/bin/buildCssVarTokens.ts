@@ -85,7 +85,7 @@ const run = () => {
     This is used for compiling a json file contianing the identifiers of variables rather than CSS var() functions as values.
     e.g.
     {
-      themeKey: "--kz-var-theme-key"
+      themeKey: "--theme-key"
     }
 
     This is useful for situations when you want to access CSS variables from javascript.

@@ -331,6 +331,6 @@ export type DeepMapObjectLeafs<T, LeafType> = T extends
 /**
  * Apologies for the complex types.
  * This type represents the Theme type but with every leaf value in the tree mapped strictly to a string, rather than a number or a more complex type such as a string union.
- * The reason for this is to have a more accurate type for the generated hierarchy of design tokens which are represented as CSS custom properties, e.g. `var(--kz-color-wisteria-800)`.
+ * The reason for this is to have a more accurate type for the generated hierarchy of design tokens which are represented as CSS custom properties, e.g. `var(--color-purple-800)`.
  */
 export type CSSVariableTheme = DeepMapObjectLeafs<Theme, string>
