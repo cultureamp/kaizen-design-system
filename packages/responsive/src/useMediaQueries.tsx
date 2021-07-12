@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react"
+import React, { FC, useEffect, useState, ReactNode } from "react"
 import { useTheme } from "@kaizen/design-tokens"
 
 type Props = { [key: string]: string }
@@ -139,14 +139,24 @@ export const useMediaQueries = (
   // ---------------------------------------
   // Create Kaizen helper components
   // ---------------------------------------
+  type HelperComponentProps = {
+    children?: ReactNode
+  }
+
   const kaizenComponents = {
-    SmallOnly: (props: any) => <>{kaizenMatches.isSmall && props.children}</>,
-    MediumOnly: (props: any) => <>{kaizenMatches.isMedium && props.children}</>,
-    LargeOnly: (props: any) => <>{kaizenMatches.isLarge && props.children}</>,
-    MediumOrSmaller: (props: any) => (
+    SmallOnly: (props: HelperComponentProps) => (
+      <>{kaizenMatches.isSmall && props.children}</>
+    ),
+    MediumOnly: (props: HelperComponentProps) => (
+      <>{kaizenMatches.isMedium && props.children}</>
+    ),
+    LargeOnly: (props: HelperComponentProps) => (
+      <>{kaizenMatches.isLarge && props.children}</>
+    ),
+    MediumOrSmaller: (props: HelperComponentProps) => (
       <>{kaizenMatches.isMediumOrSmaller && props.children}</>
     ),
-    MediumOrLarger: (props: any) => (
+    MediumOrLarger: (props: HelperComponentProps) => (
       <>{kaizenMatches.isMediumOrLarger && props.children}</>
     ),
   }
@@ -157,7 +167,7 @@ export const useMediaQueries = (
   const customComponents = {}
   Object.keys(propQueries).map(key => {
     const componentName = key.charAt(0).toUpperCase() + key.slice(1)
-    customComponents[componentName] = (props: any) => (
+    customComponents[componentName] = (props: HelperComponentProps) => (
       <>{customMatches[key] && props.children}</>
     )
   })
