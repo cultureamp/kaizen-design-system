@@ -57,7 +57,8 @@ export const objectPathToCssVarIdentifier = (path: string[]) =>
 export const objectPathToCssVarReference = (path: string[], value: unknown) =>
   `var(${objectPathToCssVarIdentifier(path)}, ${value})`
 
-export const deprecatedKzVarNamespace = "kz-var" as const
+/** @deprecated we are transitioning to not using a top level namespace anymore */
+export const cssVariableThemeNamespace = "kz-var" as const
 
 /**
  * This function will convert an object/theme to a list of CSS variable key-value pairs, that can be used by element.style.setProperty.
@@ -88,7 +89,7 @@ export const flattenObjectToCSSVariables = (
   mapLeafsOfObject(object, (path, value) => {
     // Key will be `--color-blah`
     const key = objectPathToCssVarIdentifier(path)
-    const cssVariablesOfToken = augmentThemeKeyValue(
+    const cssVariablesOfToken = augmentCssVariable(
       path,
       key,
       value,
@@ -137,7 +138,7 @@ export const makeCSSVariableTheme = (
         (child[segment] || (child[segment] = {})) as Record<string, unknown>,
       augmentedTheme as Record<string, unknown>
     )
-    const cssVariablesOfToken = augmentThemeKeyValue(
+    const cssVariablesOfToken = augmentCssVariable(
       leafPath,
       leafKey,
       value,
@@ -152,7 +153,7 @@ export const makeCSSVariableTheme = (
 
   // Until we remove the deprecated namespace, we expose and augment both, to delay the breaking change.
   mapLeafsOfObject(theme, mapper)
-  mapLeafsOfObject({ [deprecatedKzVarNamespace]: theme }, mapper)
+  mapLeafsOfObject({ [cssVariableThemeNamespace]: theme }, mapper)
 
   return augmentedTheme as Theme
 }
@@ -173,7 +174,7 @@ export const makeCSSVariableTheme = (
 export const makeCSSVariablesOfTheme = (theme: Theme) =>
   flattenObjectToCSSVariables({
     ...theme,
-    [deprecatedKzVarNamespace]: theme,
+    [cssVariableThemeNamespace]: theme,
   })
 
 /**
@@ -193,7 +194,8 @@ export const makeCSSVariablesOfTheme = (theme: Theme) =>
  *    "100-id": "--color-purple-100"
  *  }
  */
-export const augmentThemeKeyValue = (
+// Rename to augmentThemeKeyValue during breaking change.
+export const augmentCssVariable = (
   path: string[],
   key: string,
   value: unknown,

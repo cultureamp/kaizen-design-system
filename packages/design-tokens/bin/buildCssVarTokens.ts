@@ -4,13 +4,13 @@ import { format } from "prettier"
 import * as yargs from "yargs"
 import { defaultTheme, heartTheme, Theme, zenTheme } from "../"
 import {
-  augmentThemeKeyValue,
+  augmentCssVariable,
   mapLeafsOfObject,
   makeCSSVariableTheme,
   objectPathToCssVarIdentifier,
   makeCSSVariablesOfTheme,
   objectPathToCssVarReference,
-  deprecatedKzVarNamespace,
+  cssVariableThemeNamespace,
 } from "../src/utils"
 
 const { jsonOutput, cssOutput } = yargs
@@ -47,7 +47,7 @@ ${Object.entries(makeCSSVariablesOfTheme(theme))
  *
  * Given a Theme (which is the source of truth and doesn't contain any computed properties), add extra necessary properties to the tree such as `-rgb` suffixed keys, with R, G, B triple values.
  * It is only relevant for generating SASS files of our theme.
- * See {@link augmentThemeKeyValue} to understand what happens to each leaf variable in the theme.
+ * See {@link augmentCssVariable} to understand what happens to each leaf variable in the theme.
  */
 export const augmentThemeForSassVariables = (theme: Theme): Theme => {
   const augmentedTheme: Record<string, unknown> = {}
@@ -59,7 +59,7 @@ export const augmentThemeForSassVariables = (theme: Theme): Theme => {
         (child[segment] || (child[segment] = {})) as Record<string, unknown>,
       augmentedTheme as Record<string, unknown>
     )
-    const cssVariablesOfToken = augmentThemeKeyValue(
+    const cssVariablesOfToken = augmentCssVariable(
       leafPath,
       leafKey,
       value,
@@ -144,8 +144,8 @@ const run = () => {
     path.resolve(jsonOutput, "variable-identifiers.json"),
     formatJson(
       JSON.stringify({
-        [`${deprecatedKzVarNamespace}-id`]: customPropertiesThemeIdentifiers[
-          deprecatedKzVarNamespace
+        [`${cssVariableThemeNamespace}-id`]: customPropertiesThemeIdentifiers[
+          cssVariableThemeNamespace
         ],
       })
     )
@@ -156,10 +156,10 @@ const run = () => {
       JSON.stringify({
         color: customPropertiesTheme.color,
         DEPRECATED: customPropertiesTheme.DEPRECATED,
-        [deprecatedKzVarNamespace]: {
-          color: customPropertiesTheme[deprecatedKzVarNamespace].color,
+        [cssVariableThemeNamespace]: {
+          color: customPropertiesTheme[cssVariableThemeNamespace].color,
           DEPRECATED:
-            customPropertiesTheme[deprecatedKzVarNamespace].DEPRECATED,
+            customPropertiesTheme[cssVariableThemeNamespace].DEPRECATED,
         },
       })
     )
@@ -169,8 +169,8 @@ const run = () => {
     formatJson(
       JSON.stringify({
         border: customPropertiesTheme.border,
-        [deprecatedKzVarNamespace]: {
-          border: customPropertiesTheme[deprecatedKzVarNamespace].border,
+        [cssVariableThemeNamespace]: {
+          border: customPropertiesTheme[cssVariableThemeNamespace].border,
         },
       })
     )
@@ -180,8 +180,8 @@ const run = () => {
     formatJson(
       JSON.stringify({
         animation: customPropertiesTheme.animation,
-        [deprecatedKzVarNamespace]: {
-          animation: customPropertiesTheme[deprecatedKzVarNamespace].animation,
+        [cssVariableThemeNamespace]: {
+          animation: customPropertiesTheme[cssVariableThemeNamespace].animation,
         },
       })
     )
@@ -191,8 +191,8 @@ const run = () => {
     formatJson(
       JSON.stringify({
         layout: customPropertiesTheme.layout,
-        [deprecatedKzVarNamespace]: {
-          layout: customPropertiesTheme[deprecatedKzVarNamespace].layout,
+        [cssVariableThemeNamespace]: {
+          layout: customPropertiesTheme[cssVariableThemeNamespace].layout,
         },
       })
     )
@@ -202,8 +202,8 @@ const run = () => {
     formatJson(
       JSON.stringify({
         shadow: customPropertiesTheme.shadow,
-        [deprecatedKzVarNamespace]: {
-          shadow: customPropertiesTheme[deprecatedKzVarNamespace].shadow,
+        [cssVariableThemeNamespace]: {
+          shadow: customPropertiesTheme[cssVariableThemeNamespace].shadow,
         },
       })
     )
@@ -213,8 +213,8 @@ const run = () => {
     formatJson(
       JSON.stringify({
         spacing: customPropertiesTheme.spacing,
-        [deprecatedKzVarNamespace]: {
-          spacing: customPropertiesTheme[deprecatedKzVarNamespace].spacing,
+        [cssVariableThemeNamespace]: {
+          spacing: customPropertiesTheme[cssVariableThemeNamespace].spacing,
         },
       })
     )
@@ -224,9 +224,9 @@ const run = () => {
     formatJson(
       JSON.stringify({
         typography: customPropertiesTheme.typography,
-        [deprecatedKzVarNamespace]: {
+        [cssVariableThemeNamespace]: {
           typography:
-            customPropertiesTheme[deprecatedKzVarNamespace].typography,
+            customPropertiesTheme[cssVariableThemeNamespace].typography,
         },
       })
     )
