@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, ReactNode } from "react"
+import React, { FC, useEffect, useState, ReactNode, useMemo } from "react"
 import { useTheme } from "@kaizen/design-tokens"
 
 type Props = { [key: string]: string }
@@ -31,16 +31,26 @@ export const useMediaQueries = (
   // ---------------------------------------
   // Create Kaizen breakpoint matches for initial state
   // ---------------------------------------
-  const smallMatchMedia = window.matchMedia(
-    `(max-width: ${subtractOnePixel(theme.layout.breakpoints.medium)})`
+  const smallMatchMedia = useMemo(
+    () =>
+      window.matchMedia(
+        `(max-width: ${subtractOnePixel(theme.layout.breakpoints.medium)})`
+      ),
+    [theme.layout.breakpoints.medium]
   )
-  const mediumMatchMedia = window.matchMedia(
-    `(min-width: ${
-      theme.layout.breakpoints.medium
-    }) and (max-width: ${subtractOnePixel(theme.layout.breakpoints.large)})`
+
+  const mediumMatchMedia = useMemo(
+    () =>
+      window.matchMedia(
+        `(min-width: ${
+          theme.layout.breakpoints.medium
+        }) and (max-width: ${subtractOnePixel(theme.layout.breakpoints.large)})`
+      ),
+    [theme.layout.breakpoints.large]
   )
-  const largeMatchMedia = window.matchMedia(
-    `(min-width: ${theme.layout.breakpoints.large})`
+  const largeMatchMedia = useMemo(
+    () => window.matchMedia(`(min-width: ${theme.layout.breakpoints.large})`),
+    [theme.layout.breakpoints.large]
   )
 
   const isSmall = smallMatchMedia.matches || false
