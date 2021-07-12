@@ -75,7 +75,7 @@ const run = () => {
   fs.mkdirSync(jsonOutput, { recursive: true })
   fs.mkdirSync(cssOutput, { recursive: true })
 
-  const customPropertiesTheme = makeCSSVariableTheme(defaultTheme, true)
+  const customPropertiesTheme = makeCSSVariableTheme(defaultTheme, objectPathToCssVarReference, true)
 
   /*
     WILL BE REMOVED IN THE FUTURE IN FAVOR OF THE ABOVE'S ^^ ABILITY TO ADD IDENTIFIERS
@@ -93,8 +93,8 @@ const run = () => {
    */
   const customPropertiesThemeIdentifiers = makeCSSVariableTheme(
     defaultTheme,
+    objectPathToCssVarIdentifier,
     false,
-    objectPathToCssVarIdentifier
   )
 
   /* Write JSON tokens */

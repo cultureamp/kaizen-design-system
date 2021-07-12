@@ -132,8 +132,8 @@ export const flattenObjectToCSSVariables = (
 
 export const makeCSSVariableTheme = (
   theme: Theme,
-  augmentWithId = false,
-  printValue = objectPathToCssVarReference
+  printValue = objectPathToCssVarReference,
+  augmentWithId = false
 ) => {
   const augmentedTheme: Record<string, unknown> = {}
   const mapper = (leafPath: string[], value: unknown) => {
