@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/responsive",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A collection of helpers for responsive UIs",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -31,12 +31,11 @@
   "author": "",
   "private": false,
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "react": "^16.9.0",
-    "@kaizen/design-tokens": "^2.9.3"
+    "@kaizen/design-tokens": "^2.9.3",
+    "react": "^16.9.0"
   }
 }
