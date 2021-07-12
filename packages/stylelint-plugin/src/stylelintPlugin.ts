@@ -7,7 +7,7 @@ import { noInvalidUseOfVarTokensInEquations } from "./rules/no-invalid-use-of-va
 import { noInvalidUseOfVarTokensInFunctions } from "./rules/no-invalid-use-of-var-tokens-in-functions"
 import { noTokensInVariables } from "./rules/no-tokens-in-variables"
 import { Options } from "./types"
-import { renameColorsRule } from "./rules/rename-colors"
+import { renameColorsRule } from "./rules/rename-tokens"
 
 type StyleLintRuleFunction = (stylesheetNode: Root, options: Options) => void
 
