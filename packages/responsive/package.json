@@ -31,14 +31,12 @@
   "author": "",
   "private": false,
   "license": "MIT",
-  "dependencies": {
-    "@kaizen/design-tokens": "^2.9.0"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@kaizen/draft-button": "^3.3.15",
     "rimraf": "^3.0.2"
   },
   "peerDependencies": {
-    "react": "^16.9.0"
+    "react": "^16.9.0",
+    "@kaizen/design-tokens": "^2.9.3"
   }
 }
