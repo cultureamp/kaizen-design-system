@@ -1,5 +1,4 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/design-tokens/sass/shadow-vars";
 @import "~@kaizen/design-tokens/sass/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
@@ -392,18 +391,12 @@
 .reverseColorWisteria {
   @include title-block-desktop {
     .titleBlock {
-      background-color: var(
-        $color-purple-600-id,
-        $color-purple-700
-      );
+      background-color: var($color-purple-600-id, $color-purple-700);
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: var(
-        $color-purple-600-id,
-        $color-purple-700
-      );
+      background-color: var($color-purple-600-id, $color-purple-700);
     }
   }
 }
@@ -524,18 +517,12 @@
 .stickyColorWisteria {
   @include title-block-desktop {
     .titleBlock {
-      background-color: var(
-        $color-purple-600-id,
-        $color-purple-700
-      );
+      background-color: var($color-purple-600-id, $color-purple-700);
     }
   }
   @include title-block-mobile {
     .navContainer {
-      background-color: var(
-        $color-purple-600-id,
-        $color-purple-700
-      );
+      background-color: var($color-purple-600-id, $color-purple-700);
     }
   }
 }

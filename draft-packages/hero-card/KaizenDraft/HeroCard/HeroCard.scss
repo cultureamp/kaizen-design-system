@@ -24,8 +24,7 @@ $left-content__width: 221px;
 
 .left {
   display: flex;
-  border-radius: $border-solid-border-radius 0 0
-    $border-solid-border-radius;
+  border-radius: $border-solid-border-radius 0 0 $border-solid-border-radius;
   color: $color-neutral-100;
   padding: ($ca-grid / 2) ($ca-grid * 2);
   flex-direction: column;
@@ -61,8 +60,7 @@ $left-content__width: 221px;
 }
 
 .right {
-  border-radius: 0 $border-solid-border-radius
-    $border-solid-border-radius 0;
+  border-radius: 0 $border-solid-border-radius $border-solid-border-radius 0;
   display: flex;
   flex-direction: column;
   padding: 51px;

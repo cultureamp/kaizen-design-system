@@ -29,8 +29,8 @@
 
     // show custom focus ring when :focus-visible
     &:global(.focus-visible) {
-      outline: $border-focus-ring-border-width
-        $border-focus-ring-border-style $dt-color-actionable;
+      outline: $border-focus-ring-border-width $border-focus-ring-border-style
+        $dt-color-actionable;
     }
   }
 }

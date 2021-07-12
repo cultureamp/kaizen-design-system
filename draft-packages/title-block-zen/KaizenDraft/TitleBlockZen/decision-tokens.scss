@@ -12,11 +12,5 @@ $dt-color-background-color-default: var(
 $dt-color-background-gradient: linear-gradient(
   0,
   var(--kz-var-color-wisteria-600, $color-purple-700),
-  rgba(
-    var(
-      --kz-var-color-wisteria-600-rgb-params,
-      $color-purple-700-rgb
-    ),
-    0
-  )
+  rgba(var(--kz-var-color-wisteria-600-rgb-params, $color-purple-700-rgb), 0)
 );

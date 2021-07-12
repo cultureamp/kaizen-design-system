@@ -57,8 +57,7 @@
     .content & span::before {
       background-color: $dt-color-background-color-content-link;
       height: 5px;
-      border-radius: 0 0 $border-solid-border-radius
-        $border-solid-border-radius;
+      border-radius: 0 0 $border-solid-border-radius $border-solid-border-radius;
     }
 
     @include navbar-tablet-up {

@@ -29,8 +29,7 @@
   justify-content: space-between;
   width: 100%;
   height: $input-height;
-  border: $border-solid-border-width $border-solid-border-style
-    $ca-border-color;
+  border: $border-solid-border-width $border-solid-border-style $ca-border-color;
   border-radius: $border-solid-border-radius;
 
   &:hover:not(:disabled),
@@ -90,8 +89,8 @@
     }
 
     &:global(.focus-visible) {
-      outline: $border-focus-ring-border-width
-        $border-focus-ring-border-style $color-blue-500;
+      outline: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-500;
     }
   }
 }

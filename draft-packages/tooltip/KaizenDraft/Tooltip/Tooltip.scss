@@ -1,7 +1,6 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/design-tokens/sass/shadow-vars";
-@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/component-library/styles/layers";
@@ -11,10 +10,7 @@ $arrow-height: 10px;
 $arrow-width: 20px;
 
 // Ash for Heart theme, Wisteria200 for Zen. Switching not needed when Zen is removed.
-$dt-tooltip-content-border: var(
-  $color-neutral-300-id,
-  $color-purple-200
-);
+$dt-tooltip-content-border: var($color-neutral-300-id, $color-purple-200);
 
 .tooltip {
   position: relative; // Make this a positioned element so z-index works. (Note: Popper overrides this to absolute.)
@@ -90,8 +86,7 @@ $dt-tooltip-content-border: var(
 
 // Triangle portion is a little darker to bring out shadow
 .arrowShadow::after {
-  border-top: $arrow-height solid
-    rgba($color-purple-800-rgb, 0.09);
+  border-top: $arrow-height solid rgba($color-purple-800-rgb, 0.09);
   margin-top: 1px;
   filter: blur(4px);
 }

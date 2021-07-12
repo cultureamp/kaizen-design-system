@@ -31,8 +31,7 @@
   height: 240px;
   transition: transform $animation-duration-rapid
       $animation-easing-function-ease-in-out,
-    box-shadow $animation-duration-rapid
-      $animation-easing-function-ease-in-out;
+    box-shadow $animation-duration-rapid $animation-easing-function-ease-in-out;
 
   &:hover {
     transform: scale(1.025);

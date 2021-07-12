@@ -22,9 +22,7 @@ $mobile-actions-split-select-square-width: 64px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
-  transform: translateY(
-    calc(100% - #{$layout-mobile-actions-drawer-height})
-  );
+  transform: translateY(calc(100% - #{$layout-mobile-actions-drawer-height}));
   transition: 0.4s ease;
   animation: slide-up 1s ease;
 
@@ -134,8 +132,6 @@ $mobile-actions-split-select-square-width: 64px;
     transform: translateY(100%);
   }
   100% {
-    transform: translateY(
-      calc(100% - #{$layout-mobile-actions-drawer-height})
-    );
+    transform: translateY(calc(100% - #{$layout-mobile-actions-drawer-height}));
   }
 }

@@ -1,6 +1,5 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/border-vars";
-@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/layers";
@@ -67,10 +66,7 @@ $large-width: 450px;
   @include arrow(white, var($color-neutral-300-id, $color-purple-200));
 }
 
-$informative-box-border-color: var(
-  $color-blue-300-id,
-  $color-blue-200
-);
+$informative-box-border-color: var($color-blue-300-id, $color-blue-200);
 
 .informativeBox {
   @extend %box;
@@ -82,10 +78,7 @@ $informative-box-border-color: var(
   @include arrow($color-blue-100, $informative-box-border-color);
 }
 
-$positive-box-border-color: var(
-  $color-green-300-id,
-  $color-green-200
-);
+$positive-box-border-color: var($color-green-300-id, $color-green-200);
 
 .positiveBox {
   @extend %box;
@@ -97,10 +90,7 @@ $positive-box-border-color: var(
   @include arrow($color-green-100, $positive-box-border-color);
 }
 
-$negative-box-border-color: var(
-  $color-red-300-id,
-  $color-red-200
-);
+$negative-box-border-color: var($color-red-300-id, $color-red-200);
 
 .negativeBox {
   @extend %box;

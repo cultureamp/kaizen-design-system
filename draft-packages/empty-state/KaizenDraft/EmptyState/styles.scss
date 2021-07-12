@@ -1,5 +1,4 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "~@kaizen/design-tokens/sass/typography-vars";
@@ -8,8 +7,7 @@
 @import "./responsive";
 
 .container {
-  --dt-border-zen: #{$border-solid-border-width} #{$border-solid-border-style}
-    #{$color-purple-200};
+  --dt-border-zen: #{$border-solid-border-width} #{$border-solid-border-style} #{$color-purple-200};
   --dt-border-heart: var(#{$border-solid-border-width-id})
     var(#{$border-solid-border-style-id})
     var(#{$border-borderless-border-color-id});

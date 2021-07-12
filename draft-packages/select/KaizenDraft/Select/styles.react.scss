@@ -2,7 +2,6 @@
 @import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/design-tokens/sass/shadow-vars";
 @import "~@kaizen/design-tokens/sass/typography-vars";
-@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/draft-form/KaizenDraft/Form/Primitives/Input/styles.scss";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/component-library/styles/border";
@@ -11,9 +10,7 @@
 $focus-border-color: $color-blue-500;
 
 %focus-border {
-  $focus-ring-offset: calc(
-    (#{$border-focus-ring-border-width} * -2) - 1px
-  );
+  $focus-ring-offset: calc((#{$border-focus-ring-border-width} * -2) - 1px);
   content: "";
   position: absolute;
   background: transparent;
@@ -46,7 +43,6 @@ $focus-border-color: $color-blue-500;
     }
     min-height: $input-height;
     border: $border-solid-border-width $border-solid-border-style
-      
       var($color-neutral-500-id, $color-purple-500);
     border-radius: $border-solid-border-radius;
 
@@ -136,8 +132,7 @@ $focus-border-color: $color-blue-500;
     &.default {
       .control {
         background: transparent;
-        border: $border-borderless-border-width
-          $border-borderless-border-style
+        border: $border-borderless-border-width $border-borderless-border-style
           $border-borderless-border-color;
         border-radius: $border-borderless-border-radius;
 
@@ -171,8 +166,7 @@ $focus-border-color: $color-blue-500;
       .control {
         background: rgba($color-neutral-100-rgb, 0.1);
         color: $color-neutral-100;
-        border: $border-borderless-border-width
-          $border-borderless-border-style
+        border: $border-borderless-border-width $border-borderless-border-style
           $border-borderless-border-color;
         border-radius: $border-borderless-border-radius;
 

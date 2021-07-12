@@ -15,8 +15,7 @@ $delay-before-showing-loading-placeholders: 500ms;
 
 .container {
   -webkit-font-smoothing: antialiased;
-  border: $border-solid-border-width $border-solid-border-style
-    $ca-border-color;
+  border: $border-solid-border-width $border-solid-border-style $ca-border-color;
   border-radius: $border-solid-border-radius;
   display: flex;
   overflow: hidden;
@@ -47,8 +46,7 @@ $delay-before-showing-loading-placeholders: 500ms;
 
 .parent {
   margin: 0 $spacing-sm;
-  border: $border-borderless-border-width
-    $border-borderless-border-style
+  border: $border-borderless-border-width $border-borderless-border-style
     $border-borderless-border-color;
   border-bottom-width: 1px;
   border-bottom-color: $color-purple-500;
@@ -71,8 +69,8 @@ $delay-before-showing-loading-placeholders: 500ms;
     }
 
     &:global(.focus-visible) {
-      outline: $border-focus-ring-border-width
-        $border-focus-ring-border-style $color-blue-300;
+      outline: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-300;
     }
   }
 }
@@ -94,8 +92,7 @@ $delay-before-showing-loading-placeholders: 500ms;
 
 .current {
   margin: 0 $spacing-sm;
-  border: $border-borderless-border-width
-    $border-borderless-border-style
+  border: $border-borderless-border-width $border-borderless-border-style
     $border-borderless-border-color;
   height: $option-height;
   display: flex;
@@ -117,8 +114,8 @@ $delay-before-showing-loading-placeholders: 500ms;
     }
 
     &:global(.focus-visible) {
-      outline: $border-focus-ring-border-width
-        $border-focus-ring-border-style $color-blue-300;
+      outline: $border-focus-ring-border-width $border-focus-ring-border-style
+        $color-blue-300;
     }
   }
 }
@@ -144,8 +141,7 @@ $delay-before-showing-loading-placeholders: 500ms;
   flex: 1 0;
   height: $option-height;
   padding: 0 $spacing-sm;
-  border: $border-focus-ring-border-width
-    $border-focus-ring-border-style
+  border: $border-focus-ring-border-width $border-focus-ring-border-style
     $border-borderless-border-color;
   cursor: default;
 
@@ -179,8 +175,7 @@ $delay-before-showing-loading-placeholders: 500ms;
   padding: 0 $spacing-sm;
   display: flex;
   align-items: center;
-  border: $border-focus-ring-border-width
-    $border-focus-ring-border-style
+  border: $border-focus-ring-border-width $border-focus-ring-border-style
     $border-borderless-border-color;
   cursor: default;
 

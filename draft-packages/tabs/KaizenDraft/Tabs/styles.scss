@@ -48,9 +48,7 @@
         content: "";
         position: absolute;
         background: transparent;
-        $focus-ring-offset: calc(
-          #{$border-focus-ring-border-width} - 1px
-        );
+        $focus-ring-offset: calc(#{$border-focus-ring-border-width} - 1px);
         border-width: $border-focus-ring-border-width;
         border-style: $border-focus-ring-border-style;
         border-color: $color-blue-500;

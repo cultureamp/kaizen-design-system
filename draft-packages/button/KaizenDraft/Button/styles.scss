@@ -12,9 +12,7 @@ $caButton-focus-border-width: $border-focus-ring-border-width;
 $caButton-height: $spacing-xl;
 $caButtonIcon-height: 20px;
 $caButton-formHeight: calc(#{$spacing-md} * 5 / 3);
-$caButton-verticalPadding: calc(
-  #{$spacing-sm} - #{$border-solid-border-width}
-);
+$caButton-verticalPadding: calc(#{$spacing-sm} - #{$border-solid-border-width});
 $caButton-verticalPaddingForm: calc(
   #{$kz-var-spacing-md / 3} - #{$border-solid-border-width}
 );
@@ -383,12 +381,8 @@ $caButton-verticalPaddingForm: calc(
 
   %caButtonSecondary &,
   %caButtonSecondaryDestructive & {
-    padding-left: calc(
-      #{$spacing-sm} - #{$border-solid-border-width}
-    );
-    padding-right: calc(
-      #{$spacing-sm} - #{$border-solid-border-width}
-    );
+    padding-left: calc(#{$spacing-sm} - #{$border-solid-border-width});
+    padding-right: calc(#{$spacing-sm} - #{$border-solid-border-width});
   }
 
   %caButtonForm & {
@@ -397,9 +391,7 @@ $caButton-verticalPaddingForm: calc(
   }
 
   :global(.js-focus-visible) %caButton:global(.focus-visible) & {
-    padding: calc(
-        #{$spacing-sm} - #{$border-focus-ring-border-width}
-      )
+    padding: calc(#{$spacing-sm} - #{$border-focus-ring-border-width})
       calc(#{$spacing-md} - #{$border-focus-ring-border-width});
   }
 
@@ -407,9 +399,7 @@ $caButton-verticalPaddingForm: calc(
   :global(.js-focus-visible)
     %caButtonSecondaryDestructive:global(.focus-visible)
     & {
-    padding: calc(
-        #{$spacing-sm} - #{$border-focus-ring-border-width}
-      )
+    padding: calc(#{$spacing-sm} - #{$border-focus-ring-border-width})
       calc(#{$spacing-sm} - #{$border-focus-ring-border-width});
   }
 

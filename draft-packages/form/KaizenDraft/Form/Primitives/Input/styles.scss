@@ -31,8 +31,7 @@ $input-disabled-border-alpha: 50%;
   @include form-input-reset;
   background-color: transparent;
   background-clip: padding-box;
-  border: $border-solid-border-width $border-solid-border-style
-    transparent;
+  border: $border-solid-border-width $border-solid-border-style transparent;
   border-radius: $border-solid-border-radius;
   display: block;
   font-size: 1rem;

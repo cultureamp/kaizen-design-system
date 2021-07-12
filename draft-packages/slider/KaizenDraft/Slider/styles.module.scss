@@ -1,5 +1,4 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 
@@ -8,10 +7,7 @@ $thumb-color: var($color-blue-500-id, $color-purple-600);
 $thumb-radius: 100%;
 $thumb-height: 26px;
 $thumb-width: 26px;
-$thumb-hover-shadow-color: var(
-  $color-blue-600-id,
-  $color-purple-700
-);
+$thumb-hover-shadow-color: var($color-blue-600-id, $color-purple-700);
 
 // The range
 $track-color: $color-neutral-300;

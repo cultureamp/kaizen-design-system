@@ -1,5 +1,4 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/variable-identifiers";
 
 @mixin avatar-theme-switching-tokens() {
   --avatar--color-icon-color: rgba(var(#{$color-purple-800-rgb-id}), 0.7);

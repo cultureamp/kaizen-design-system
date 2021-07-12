@@ -127,9 +127,7 @@ $fifth: mix($start, $end, 0%);
     }
 
     &:global(.focus-visible)::after {
-      $focus-ring-offset: calc(
-        (#{$border-focus-ring-border-width} * 2) + 1px
-      );
+      $focus-ring-offset: calc((#{$border-focus-ring-border-width} * 2) + 1px);
       content: "";
       position: absolute;
       background: transparent;

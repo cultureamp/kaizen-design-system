@@ -1,15 +1,13 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/design-tokens/sass/shadow-vars";
-@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/component-library/styles/border";
 @import "~@kaizen/component-library/styles/layers";
 @import "~@kaizen/component-library/styles/animation";
 
-$base-border: $border-solid-border-width
-  $border-solid-border-style
+$base-border: $border-solid-border-width $border-solid-border-style
   var($color-neutral-500-id, $color-purple-200);
 $button-width: 124px;
 
@@ -67,8 +65,8 @@ $side-padding: 3/4 * $ca-grid;
 
       // show custom focus ring when :focus-visible
       &:global(.focus-visible) {
-        border: $border-focus-ring-border-width
-          $border-focus-ring-border-style $color-blue-500;
+        border: $border-focus-ring-border-width $border-focus-ring-border-style
+          $color-blue-500;
       }
     }
   }
@@ -87,7 +85,10 @@ $side-padding: 3/4 * $ca-grid;
   height: 40px; // Set a fixed height to avoid expansion when dropdown is displayed
   position: relative;
 
-  --dt-heart-disabled-border-color: rgba(var(#{$color-neutral-500-rgb-id}), 0.3);
+  --dt-heart-disabled-border-color: rgba(
+    var(#{$color-neutral-500-rgb-id}),
+    0.3
+  );
   --dt-heart-disabled-color: rgba(var(#{$color-purple-800-rgb-id}), 0.3);
 }
 
@@ -105,15 +106,13 @@ $side-padding: 3/4 * $ca-grid;
 
 .buttonDefault {
   @include button-mixing(
-    
     $background: $color-neutral-100,
     $border-color: var($color-neutral-500-id, $color-purple-200),
     $color: $color-purple-800,
     $hover-background: $color-neutral-200,
     $hover-border-color: var($color-neutral-600-id, $color-purple-400),
     $active-background: var($color-neutral-200-id, $color-neutral-300),
-    $active-border-color:
-      var($color-neutral-600-id, $color-purple-500),
+    $active-border-color: var($color-neutral-600-id, $color-purple-500),
     $disabled-background: $color-neutral-100,
     $disabled-border-color:
       var(--dt-heart-disabled-border-color, $color-purple-200),
@@ -127,10 +126,8 @@ $side-padding: 3/4 * $ca-grid;
     $background: var($color-green-300-id, #58b59a),
     $border-color: var($color-green-300-id, #58b59a),
     $color: var($color-purple-800-id, $color-neutral-100),
-    $hover-background:
-      var($color-green-400-id, $color-green-500),
-    $hover-border-color:
-      var($color-green-400-id, $color-green-500),
+    $hover-background: var($color-green-400-id, $color-green-500),
+    $hover-border-color: var($color-green-400-id, $color-green-500),
     $active-background: $color-green-500,
     $active-border-color: $color-green-500,
     $disabled-background: $color-neutral-100,
@@ -151,8 +148,7 @@ $side-padding: 3/4 * $ca-grid;
   padding: 0.5rem 1rem;
   border: $base-border;
   border-right: 0;
-  border-radius: $border-solid-border-radius 0 0
-    $border-solid-border-radius;
+  border-radius: $border-solid-border-radius 0 0 $border-solid-border-radius;
   white-space: nowrap;
   min-width: $button-width;
   display: block;
@@ -161,8 +157,7 @@ $side-padding: 3/4 * $ca-grid;
   [dir="rtl"] & {
     border-right: $base-border;
     border-left: 0;
-    border-radius: 0 $border-solid-border-radius
-      $border-solid-border-radius 0;
+    border-radius: 0 $border-solid-border-radius $border-solid-border-radius 0;
     text-align: right;
   }
 
@@ -237,12 +232,10 @@ $side-padding: 3/4 * $ca-grid;
   justify-content: center;
   padding: 0 0.75rem;
   border: $base-border;
-  border-radius: 0 $border-solid-border-radius
-    $border-solid-border-radius 0;
+  border-radius: 0 $border-solid-border-radius $border-solid-border-radius 0;
 
   [dir="rtl"] & {
-    border-radius: $border-solid-border-radius 0 0
-      $border-solid-border-radius;
+    border-radius: $border-solid-border-radius 0 0 $border-solid-border-radius;
   }
 }
 

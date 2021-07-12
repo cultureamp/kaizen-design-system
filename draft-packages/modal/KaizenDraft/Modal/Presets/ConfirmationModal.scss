@@ -1,31 +1,18 @@
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/design-tokens/sass/spacing-vars";
-@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/component-library/styles/responsive";
 
 // Use different tokens for "Heart" theme with fallback values set to "Zen" theme.
-$dt-positive-header-background: var(
-  $color-green-100-id,
-  $color-green-500
-);
+$dt-positive-header-background: var($color-green-100-id, $color-green-500);
 
-$dt-informative-header-background: var(
-  $color-blue-100-id,
-  $color-blue-500
-);
+$dt-informative-header-background: var($color-blue-100-id, $color-blue-500);
 
-$dt-negative-header-background: var(
-  $color-red-100-id,
-  $color-red-500
-);
+$dt-negative-header-background: var($color-red-100-id, $color-red-500);
 
-$dt-cautionary-header-background: var(
-  $color-yellow-100-id,
-  $color-yellow-500
-);
+$dt-cautionary-header-background: var($color-yellow-100-id, $color-yellow-500);
 
 $dt-heading-text-color: var($color-purple-800-id, $color-neutral-100);
 $dt-cautionary-heading-text-color: $color-purple-800;
@@ -40,8 +27,7 @@ $dt-cautionary-heading-text-color: $color-purple-800;
   color: $color-neutral-100;
   padding: $spacing-lg $spacing-md $spacing-lg;
   text-align: center;
-  border-radius: $border-solid-border-radius
-    $border-solid-border-radius 0 0;
+  border-radius: $border-solid-border-radius $border-solid-border-radius 0 0;
 
   // override Murmur global styles :(
   h1 {

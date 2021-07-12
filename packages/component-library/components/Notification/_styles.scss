@@ -3,7 +3,6 @@
 @import "~@kaizen/design-tokens/sass/shadow-vars";
 @import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "~@kaizen/design-tokens/sass/typography-vars";
-@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
@@ -116,10 +115,7 @@ $ca-notification-slide-right: transform $ca-duration-fast ease-out;
     &%ca-notification---global {
       // Coral200 for Heart theme, Coral300 for Zen theme. Switch not needed when Zen is removed.
       // Use Coral 200 for Heart theme, and Coral 300 for zen (the default fallback)
-      background-color: var(
-        $color-red-200-id,
-        $color-red-300
-      );
+      background-color: var($color-red-200-id, $color-red-300);
     }
   }
 

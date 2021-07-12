@@ -2,7 +2,6 @@
 @import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "~@kaizen/design-tokens/sass/typography-vars";
-@import "~@kaizen/design-tokens/sass/variable-identifiers";
 @import "~@kaizen/deprecated-component-library-helpers/styles/layout";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
 
@@ -16,8 +15,7 @@ $small: $spacing-md;
   letter-spacing: $typography-paragraph-small-letter-spacing;
   color: $color-purple-800;
   display: inline-block;
-  border: $border-borderless-border-width
-    $border-borderless-border-style
+  border: $border-borderless-border-width $border-borderless-border-style
     $border-borderless-border-color;
   border-radius: calc(#{$spacing-md} * 0.75);
   padding: 0 calc(#{$spacing-md} * 0.4);
@@ -55,10 +53,7 @@ $small: $spacing-md;
   margin-left: -0.225rem;
 
   --dt-dismiss-icon-color-heart: rgba(var(#{$color-purple-800-rgb-id}), 0.7);
-  $dt-dismiss-icon-color: var(
-    --dt-dismiss-icon-color-heart,
-    $color-purple-600
-  );
+  $dt-dismiss-icon-color: var(--dt-dismiss-icon-color-heart, $color-purple-600);
 
   color: $dt-dismiss-icon-color;
   cursor: pointer;
