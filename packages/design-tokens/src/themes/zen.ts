@@ -169,18 +169,17 @@ export const zenTheme: Theme = {
       700: "#903c00",
     },
     // Should only exist in Heart but we need a consistent type.
-    neutral: {
-      100: "#FFFFFF",
-      200: "#F9F9F9",
-      250: "#F4F4F5",
+    gray: {
+      100: "#F9F9F9",
+      200: "#F4F4F5",
       300: "#EAEAEC",
       400: "#CDCDD0",
       500: "#8C8C97",
       600: "#524E56",
     },
+    white: "#FFFFFF",
     ash: "#ECECEF",
     stone: "#F6F6F6",
-    white: "#FFFFFF",
     // Duplicate from Heart because it's new
     iron: "#8c8c97",
     // Duplicate from Heart because it's new

@@ -45,14 +45,14 @@ We have exposed extra sibling variables for every color, as seen in <LinkToStory
 
 <CodeBlock language="scss" code={`@import '~@kaizen/design-tokens/sass/color-vars.scss';
 .myClass {
-    background-color: rgba($color-neutral-200-rgb, 0.5);
+    background-color: rgba($color-gray-200-rgb, 0.5);
 }`} />
 
-For similar reasons to the previous section, a statement like `rgba($color-neutral-200, 0.5)`, will not work because neither SASS or your browser can understand the expanded value: `rgba(var(--color-neutral-200), 0.5)`.
+For similar reasons to the previous section, a statement like `rgba($color-gray-200, 0.5)`, will not work because neither SASS or your browser can understand the expanded value: `rgba(var(--color-gray-200), 0.5)`.
 
-Every color variable such as `$color-neutral-200` will have a matching sibling variable with the `-rgb` suffix. And `$color-neutral-200-rgb` points to a CSS variable that contains a list of numbers, `246, 246, 246`, which browsers can then use in inside the `rgba()` function. 
+Every color variable such as `$color-gray-200` will have a matching sibling variable with the `-rgb` suffix. And `$color-gray-200-rgb` points to a CSS variable that contains a list of numbers, `246, 246, 246`, which browsers can then use in inside the `rgba()` function. 
 
-For example `rgba($color-neutral-200-rgb, 0.5)`, compiles to `rgba(var(--color-neutral-200-rgb), 0.5)`, which the browser then resolves to `rgba(246, 246, 246, 0.5)`.
+For example `rgba($color-gray-200-rgb, 0.5)`, compiles to `rgba(var(--color-gray-200-rgb), 0.5)`, which the browser then resolves to `rgba(246, 246, 246, 0.5)`.
 
 
 ## Migrating from compile time SASS functions like add-tint, darken, or mix

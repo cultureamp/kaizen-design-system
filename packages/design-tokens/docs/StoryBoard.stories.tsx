@@ -385,17 +385,22 @@ export const Everything: Story = () => {
             <ColorDemo name="700" color={theme.color.yellow[700]} />
           </Stack>
           <Padding size={2} />
-          <Heading variant="heading-3">Neutral</Heading>
+          <Heading variant="heading-3">Gray</Heading>
           <Padding />
           <Stack gapSize={0.5}>
-            <ColorDemo name="100 (White)" color={theme.color.neutral[100]} />
-            <ColorDemo name="200" color={theme.color.neutral[200]} />
-            <ColorDemo name="300" color={theme.color.neutral[300]} />
-            <ColorDemo name="400" color={theme.color.neutral[400]} />
-            <ColorDemo name="500" color={theme.color.neutral[500]} />
-            <ColorDemo name="600" color={theme.color.neutral[600]} />
+            <ColorDemo name="100" color={theme.color.gray[100]} />
+            <ColorDemo name="200" color={theme.color.gray[200]} />
+            <ColorDemo name="300" color={theme.color.gray[300]} />
+            <ColorDemo name="400" color={theme.color.gray[400]} />
+            <ColorDemo name="500" color={theme.color.gray[500]} />
+            <ColorDemo name="600" color={theme.color.gray[600]} />
           </Stack>
           <Padding size={2} />
+          <Heading variant="heading-3">White</Heading>
+          <Padding />
+          <Stack gapSize={0.5}>
+            <ColorDemo name="White" color={theme.color.white} />
+          </Stack>
         </ComponentsSection>
 
         <ComponentsSection title="Typography">
@@ -470,7 +475,7 @@ export const Everything: Story = () => {
     <div
       style={{
         height: "100vh",
-        backgroundColor: theme.color.neutral["200"],
+        backgroundColor: theme.color.gray["100"],
       }}
     >
       <div

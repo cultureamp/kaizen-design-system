@@ -206,38 +206,33 @@ export type Theme = {
       "600": string
       "700": string
     }
-    neutral: {
+    gray: {
       "100": string
       "200": string
-      "250": string
       "300": string
       "400": string
       "500": string
       "600": string
     }
+    white: string
     /**
      * @deprecated
-     * Use neutral-300 instead of ash, it is being renamed
+     * Use gray-300 instead of ash, it is being renamed
      */
     ash: string
     /**
      * @deprecated
-     * Use neutral-200 instead of stone, it is being renamed
+     * Use gray-200 instead of stone, it is being renamed
      */
     stone: string
     /**
      * @deprecated
-     * Use neutral-100 instead of white, it is being renamed
-     */
-    white: string
-    /**
-     * @deprecated
-     * Use neutral-500 instead of iron, it is being renamed
+     * Use gray-500 instead of iron, it is being renamed
      */
     iron: string
     /**
      * @deprecated
-     * Use neutral-600 instead of slate, it is being renamed
+     * Use gray-600 instead of slate, it is being renamed
      */
     slate: string
   }
