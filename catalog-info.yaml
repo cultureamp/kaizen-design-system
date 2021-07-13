@@ -2,10 +2,30 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: kaizen-design-system
+  description: >
+    Kaizen is Culture Amp's public design system. 
+    It accelerates Culture Amp's designers and engineers as they collaborate on creating world-class products.
+  links:
+    - title: Site
+      url: https://cultureamp.design
+    - title: Design Tokens
+      url: https://github.com/cultureamp/kaizen-design-system/blob/master/packages/design-tokens/README.md
+    - title: Component Readme
+      url: https://github.com/cultureamp/kaizen-design-system/blob/master/packages/component-library/README.md
+    - title: Contributing Guidelines
+      url: https://github.com/cultureamp/kaizen-design-system/blob/master/CONTRIBUTING.md
+    - title: Issues
+      url: https://github.com/cultureamp/kaizen-design-system/issues/
+  tags:
+    - tier-2
+    - users-customer-facing
+    - camp-platform
+    - data-classification-public
   annotations:
     github.com/project-slug: cultureamp/kaizen-design-system
-  namespace: default
+    github.com/team-slug: cultureamp/foundations
+    buildkite.com/project-slug: culture-amp/kaizen-design-system
 spec:
-  type: other
-  lifecycle: unknown
+  type: library
+  lifecycle: production
   owner: foundations
