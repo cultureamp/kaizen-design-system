@@ -6,6 +6,7 @@ tags: ["Autosuggest", "Live filter", "Filters", "Search", "Top bar", "Text input
 needToKnow:
 - "Search and autocomplete are separated into distinct components, because search may be used in a way that doesn't show autocompleted results."
 - 'Unlike a Select (single- or multi-) that lets you select options from an options menu, the Autocomplete component has other behavior beyond choosing an option as the value for a setting, such as linking to other content.'
+- There is a [searchable select component](/components/select/) which is not an example of autocomplete. The user enters text to narrow down a large list of options to make a selection and set the value of the field.
 
 ---
 
@@ -42,11 +43,11 @@ Autocomplete is forgiving, letting people make mistakes such as spelling errors 
     - For a limited dataset you might update autocomplete options with new matching results on every key stroke the user types.
     - For large datasets you might delay updating options until there's at least some number of characters (usually 3). If so, ensure results of only 1 or 2 characters long can be shown.
 
+
 ### Matching results
 
 - **Fuzzy search**: a user can write some text and a partial match returns results. Consider whether the text needs to be in order, what effect spaces have, and the effect of capitalization on the match. For example, a forgiving search input that lets you type “design” to match the result “Marketing Design” may be ideal for users that aren't sure what exactly it will be called here.
 - **Smart capitalization matching**: consider appropriate capitalization matching for the data available. For example, when people type a search query using lowercase letters, you might return all, case-insensitive results and when they type a search query containing capital letters, you might return only case-sensitive results matching their capitalization.
-
 
 ### Content
 
