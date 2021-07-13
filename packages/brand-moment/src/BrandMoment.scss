@@ -122,8 +122,19 @@ $breakpoint-xl: 1366px; // TODO: create an xl breakpoint in design-tokens and re
   max-inline-size: 543px;
 }
 
-.actions {
-  display: flex;
+.secondaryAction {
+  margin-block-start: $kz-var-spacing-sm;
+}
+
+@media (min-width: $kz-layout-breakpoints-medium) {
+  .actions {
+    display: flex;
+  }
+
+  .secondaryAction {
+    margin-block-start: 0;
+    margin-inline-start: $kz-var-spacing-sm;
+  }
 }
 
 @media (min-width: $kz-layout-breakpoints-large) {
