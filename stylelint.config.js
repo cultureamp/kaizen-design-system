@@ -1,4 +1,5 @@
 module.exports = {
+  extends: ["@kaizen/stylelint-plugin/dev-config"],
   rules: {
     "string-quotes": "double",
     "no-duplicate-at-import-rules": true,

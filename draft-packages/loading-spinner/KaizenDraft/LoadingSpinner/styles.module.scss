@@ -20,8 +20,8 @@
 }
 
 .spinner {
-  animation: spinner $kz-var-animation-duration-deliberate
-    $kz-var-animation-easing-function-ease-in-out infinite;
+  animation: spinner $animation-duration-deliberate
+    $animation-easing-function-ease-in-out infinite;
 }
 
 @keyframes spinner {

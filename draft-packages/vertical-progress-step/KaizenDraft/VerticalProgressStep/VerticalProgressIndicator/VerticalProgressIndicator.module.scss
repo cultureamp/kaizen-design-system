@@ -1,10 +1,8 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "../decision-tokens";
 
-$top: $kz-var-spacing-md;
-$left: $kz-var-spacing-md;
+$top: $spacing-md;
+$left: $spacing-md;
 $icon-width: 18px;
 $line-width: 2px;
 
@@ -56,7 +54,7 @@ $line-width: 2px;
 .topLine {
   position: absolute;
   top: 0;
-  left: calc(#{$kz-var-spacing-md} + #{$icon-width/2 - $line-width/2});
+  left: calc(#{$spacing-md} + #{$icon-width/2 - $line-width/2});
   width: $line-width;
   height: calc(#{$top} - 1px);
   border-radius: 0 0 $line-width $line-width;
@@ -75,7 +73,7 @@ $line-width: 2px;
 .bottomLine {
   position: absolute;
   bottom: 0;
-  left: calc(#{$kz-var-spacing-md} + #{$icon-width/2 - $line-width/2});
+  left: calc(#{$spacing-md} + #{$icon-width/2 - $line-width/2});
   width: $line-width;
   top: calc(#{$top} + #{$icon-width + 1px});
   border-radius: $line-width $line-width 0 0;

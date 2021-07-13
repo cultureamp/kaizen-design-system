@@ -9,12 +9,12 @@
   list-style-type: none;
 
   &.final {
-    border-top: 1px solid rgba($kz-var-color-wisteria-700-rgb-params, 0.1);
+    border-top: 1px solid rgba($color-purple-700-rgb, 0.1);
     padding-top: 20px;
     margin-top: 20px;
   }
 }
 
 .active {
-  background-color: $kz-var-color-wisteria-700;
+  background-color: $color-purple-700;
 }

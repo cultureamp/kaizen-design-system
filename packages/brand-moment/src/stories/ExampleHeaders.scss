@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: $kz-var-spacing-sm $kz-var-spacing-md;
+  padding: $spacing-sm $spacing-md;
 }
 
 .headerLeft {
@@ -24,7 +24,7 @@
 .logoLink {
   display: flex;
   align-items: center;
-  padding: calc(#{$kz-var-spacing-sm} - #{$kz-var-border-solid-border-width}) 0;
+  padding: calc(#{$spacing-sm} - #{$border-solid-border-width}) 0;
   max-inline-size: 133px;
 
   > img {
@@ -33,13 +33,13 @@
 }
 
 .logoContainer {
-  background: $kz-var-color-white;
+  background: $color-neutral-100;
   box-sizing: border-box;
   inline-size: 48px;
   block-size: 48px;
-  padding: $kz-var-spacing-xs;
-  border-radius: $kz-var-border-solid-border-radius;
-  box-shadow: $kz-var-shadow-small-box-shadow;
+  padding: $spacing-xs;
+  border-radius: $border-solid-border-radius;
+  box-shadow: $shadow-small-box-shadow;
 
   > img {
     inline-size: 100%;
@@ -51,13 +51,13 @@
   display: grid;
   justify-items: center;
   grid-template-columns: auto auto;
-  padding: $kz-var-spacing-lg $kz-var-spacing-md;
+  padding: $spacing-lg $spacing-md;
 }
 
 .headerCustomerFocused .logoContainer {
   inline-size: 48px;
   block-size: 48px;
-  padding: $kz-var-spacing-xs;
+  padding: $spacing-xs;
   margin-inline-end: auto;
 }
 
@@ -75,13 +75,13 @@
     grid-column-start: 2;
     inline-size: 84px;
     block-size: 84px;
-    padding: $kz-var-spacing-sm;
+    padding: $spacing-sm;
   }
 }
 
 .fakeNav {
-  background: $kz-var-color-wisteria-600;
-  padding: $kz-var-spacing-md;
+  background: $color-purple-600;
+  padding: $spacing-md;
   display: flex;
   align-items: center;
 }

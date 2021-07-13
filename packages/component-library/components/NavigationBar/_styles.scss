@@ -1,3 +1,4 @@
+@import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/design-tokens/sass/color-vars";
 @import "~@kaizen/deprecated-component-library-helpers/styles/color";
 @import "~@kaizen/deprecated-component-library-helpers/styles/type";
@@ -35,9 +36,9 @@ $link-margin: $ca-grid / 4;
   align-items: center;
   justify-content: center;
 
-  border-radius: $kz-var-border-solid-border-radius;
+  border-radius: $border-solid-border-radius;
 
-  color: rgba($kz-var-color-white-rgb-params, 0.8);
+  color: rgba($color-neutral-100-rgb, 0.8);
   padding: 0;
   text-decoration: none;
 
@@ -120,7 +121,7 @@ $link-margin: $ca-grid / 4;
 
       &:hover,
       &:focus {
-        background-color: rgba($kz-var-color-white-rgb-params, 0.1);
+        background-color: rgba($color-neutral-100-rgb, 0.1);
 
         .linkIcon {
           opacity: 0.7;
@@ -128,7 +129,7 @@ $link-margin: $ca-grid / 4;
       }
 
       &:active {
-        background-color: rgba($kz-var-color-white-rgb-params, 0.2);
+        background-color: rgba($color-neutral-100-rgb, 0.2);
         transform: translateY(1px);
 
         .linkIcon {
@@ -162,7 +163,7 @@ $link-margin: $ca-grid / 4;
     // show custom focus ring when :focus-visible
     &:global(.focus-visible) {
       color: white;
-      outline: 2px solid $kz-var-color-cluny-500;
+      outline: 2px solid $color-blue-500;
     }
   }
 }

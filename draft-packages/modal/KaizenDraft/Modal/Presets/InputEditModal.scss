@@ -10,14 +10,14 @@
 }
 
 .header {
-  color: $kz-var-color-wisteria-800;
+  color: $color-purple-800;
   padding: $ca-grid $ca-grid $ca-grid * 1.5;
   text-align: center;
   border-bottom: 1px solid $ca-border-color;
 }
 
 .body {
-  background: $kz-var-color-stone;
+  background: $color-neutral-200;
   padding: $ca-grid $ca-grid $ca-grid * 1.5;
   border-bottom: 1px solid $ca-border-color;
   @include kz-typography-paragraph-body;

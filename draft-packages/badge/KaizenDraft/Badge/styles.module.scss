@@ -10,48 +10,48 @@ $small: $ca-grid;
 
 .badge {
   @include ca-inherit-baseline;
-  border-radius: $kz-var-spacing-sm;
-  color: $kz-var-color-wisteria-800;
+  border-radius: $spacing-sm;
+  color: $color-purple-800;
   display: inline-block;
   position: relative;
-  font-family: $kz-var-typography-paragraph-extra-small-font-family;
-  font-size: $kz-var-typography-paragraph-extra-small-font-size;
-  font-weight: $kz-var-typography-paragraph-bold-font-weight;
-  letter-spacing: $kz-var-typography-paragraph-extra-small-letter-spacing;
-  line-height: $kz-var-typography-paragraph-extra-small-line-height;
-  padding: 1px $kz-var-spacing-xs;
+  font-family: $typography-paragraph-extra-small-font-family;
+  font-size: $typography-paragraph-extra-small-font-size;
+  font-weight: $typography-paragraph-bold-font-weight;
+  letter-spacing: $typography-paragraph-extra-small-letter-spacing;
+  line-height: $typography-paragraph-extra-small-line-height;
+  padding: 1px $spacing-xs;
   min-width: 8px;
   text-align: center;
 }
 
 .default {
   background-color: $dt-color-background-default;
-  color: $kz-var-color-wisteria-800;
+  color: $color-purple-800;
 }
 
 .reversed.active,
 .active {
-  background-color: $kz-var-color-cluny-500;
-  color: $kz-var-color-white;
+  background-color: $color-blue-500;
+  color: $color-neutral-100;
 }
 
 .dark {
-  background-color: rgba($kz-var-color-wisteria-700-rgb-params, 0.1);
-  color: $kz-var-color-wisteria-800;
+  background-color: rgba($color-purple-700-rgb, 0.1);
+  color: $color-purple-800;
 }
 
 .reversed.dark {
-  background-color: $kz-var-color-wisteria-700;
-  color: $kz-var-color-white;
+  background-color: $color-purple-700;
+  color: $color-neutral-100;
 }
 
 .reversed {
-  background-color: rgba($kz-var-color-white-rgb-params, 0.1);
-  color: $kz-var-color-white;
+  background-color: rgba($color-neutral-100-rgb, 0.1);
+  color: $color-neutral-100;
 }
 
-$badge-duration-timing: ($kz-var-animation-duration-slow / 2)
-  $kz-var-animation-easing-function-ease-in;
+$badge-duration-timing: ($animation-duration-slow / 2)
+  $animation-easing-function-ease-in;
 
 $badge-transition: transform $badge-duration-timing,
   background-color $badge-duration-timing;
@@ -66,7 +66,7 @@ $badge-transition: transform $badge-duration-timing,
   &.animationOn .badge {
     transform: scale3d(1.35, 1.35, 1.35);
     &.dark {
-      background-color: rgba($kz-var-color-wisteria-700-rgb-params, 0.2);
+      background-color: rgba($color-purple-700-rgb, 0.2);
     }
   }
 }

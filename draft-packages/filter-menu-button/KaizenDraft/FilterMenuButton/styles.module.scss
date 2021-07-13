@@ -1,9 +1,7 @@
-@import "~@kaizen/design-tokens/sass/color-vars";
-@import "~@kaizen/design-tokens/sass/border-vars";
 @import "~@kaizen/design-tokens/sass/spacing-vars";
 @import "@kaizen/deprecated-component-library-helpers/styles/type";
 
-$gap: $kz-var-spacing-sm;
+$gap: $spacing-sm;
 $menuContentHorizontalPadding: 4px; // this comes from the MenuContent component, which should be using tokens
 $menuContentVerticalPadding: 6px; // this comes from the MenuContent component, which should be using tokens
 

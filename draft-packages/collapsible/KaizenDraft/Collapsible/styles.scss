@@ -7,19 +7,19 @@
 
 $heading-active-color: #f2f2f3;
 // ^This is just a temporary hex to get us by for now until we rearrange our neutrals and introduce something that can used here.
-$border-color: rgba($kz-var-color-slate-rgb-params, 0.2);
+$border-color: rgba($color-neutral-600-rgb, 0.2);
 
 // We need a full border radius on this container element, then have classes
 // beneath to toggle nested borders off and on for different use cases.
 .container {
   background-color: white;
-  box-shadow: $kz-var-shadow-small-box-shadow;
-  border-radius: $kz-var-border-borderless-border-radius;
+  box-shadow: $shadow-small-box-shadow;
+  border-radius: $border-borderless-border-radius;
 }
 
 .single {
   .button {
-    border-radius: $kz-var-border-borderless-border-radius;
+    border-radius: $border-borderless-border-radius;
   }
 }
 
@@ -29,7 +29,7 @@ $border-color: rgba($kz-var-color-slate-rgb-params, 0.2);
   }
 
   .button {
-    border-radius: $kz-var-border-borderless-border-radius;
+    border-radius: $border-borderless-border-radius;
   }
 }
 
@@ -42,13 +42,13 @@ $border-color: rgba($kz-var-color-slate-rgb-params, 0.2);
   }
 
   &:first-of-type > .button {
-    border-top-left-radius: $kz-var-border-borderless-border-radius;
-    border-top-right-radius: $kz-var-border-borderless-border-radius;
+    border-top-left-radius: $border-borderless-border-radius;
+    border-top-right-radius: $border-borderless-border-radius;
   }
 
   &:last-of-type > .button:not(.open) {
-    border-bottom-left-radius: $kz-var-border-borderless-border-radius;
-    border-bottom-right-radius: $kz-var-border-borderless-border-radius;
+    border-bottom-left-radius: $border-borderless-border-radius;
+    border-bottom-right-radius: $border-borderless-border-radius;
   }
 }
 

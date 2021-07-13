@@ -17,7 +17,7 @@
   cursor: pointer;
   .icon {
     opacity: 0.7;
-    transition: $kz-var-animation-duration-fast opacity;
+    transition: $animation-duration-fast opacity;
   }
   &:disabled,
   &.disabled {

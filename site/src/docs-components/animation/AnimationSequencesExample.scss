@@ -1,7 +1,10 @@
 @import "~@kaizen/component-library/styles/animation";
 @import "~@kaizen/design-tokens/sass/animation";
 
+/* stylelint-disable-next-line */
 $duration: $kz-animation-duration-deliberate; // 700ms
+
+/* stylelint-disable-next-line */
 $delay: -$kz-animation-duration-slow; // -400ms (stagger effect)
 
 @include ca-series {
