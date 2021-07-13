@@ -20,7 +20,7 @@ export default {
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A39077"
     ),
   },
-  decorators: [withDesign, story => <div>{story()}</div>],
+  decorators: [withDesign],
 }
 
 const guidanceBlockText = {
@@ -30,7 +30,7 @@ const guidanceBlockText = {
     "qui tem lupuliz, matis, aguis e fermentis. Mé faiz elementum girarzis, nisi eros vermeio.",
 }
 
-const Default = () => (
+export const Default = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={guidanceBlockText}
@@ -48,14 +48,14 @@ const Default = () => (
   />
 )
 
-const DefaultWithoutActions = () => (
+export const DefaultWithoutActions = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={guidanceBlockText}
   />
 )
 
-const WithoutActionArrowButton = () => (
+export const WithoutActionArrowButton = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={guidanceBlockText}
@@ -74,7 +74,7 @@ const WithoutActionArrowButton = () => (
   />
 )
 
-const WithoutMaxWidth = () => (
+export const WithoutMaxWidth = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={guidanceBlockText}
@@ -94,7 +94,7 @@ const WithoutMaxWidth = () => (
   />
 )
 
-const Persistent = () => (
+export const Persistent = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={guidanceBlockText}
@@ -110,7 +110,7 @@ const Persistent = () => (
   />
 )
 
-const SecondaryAction = () => (
+export const SecondaryAction = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={guidanceBlockText}
@@ -131,7 +131,7 @@ const SecondaryAction = () => (
   />
 )
 
-const Prominent = () => (
+export const Prominent = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={guidanceBlockText}
@@ -147,7 +147,7 @@ const Prominent = () => (
   />
 )
 
-const WithCustomDescription = () => (
+export const WithCustomDescription = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={{
@@ -175,7 +175,7 @@ const WithCustomDescription = () => (
   />
 )
 
-const WithTooltip = () => (
+export const WithTooltip = () => (
   <GuidanceBlock
     illustration={<Informative alt="" />}
     text={{
@@ -249,16 +249,4 @@ WithCustomDescription.storyName = "With custom description"
 
 WithCustomDescription.paramters = {
   backgrounds: { default: "Stone" },
-}
-
-export {
-  Default,
-  DefaultWithoutActions,
-  WithoutMaxWidth,
-  WithoutActionArrowButton,
-  Persistent,
-  SecondaryAction,
-  Prominent,
-  WithCustomDescription,
-  WithTooltip,
 }
