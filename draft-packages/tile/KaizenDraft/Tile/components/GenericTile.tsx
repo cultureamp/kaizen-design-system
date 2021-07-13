@@ -118,13 +118,12 @@ const GenericTile: GenericTile = ({
       <div className={classNames(styles.face, styles.faceBack)}>
         <div className={styles.informationBtn}>
           <IconButton
-            label="Information"
+            label="Back"
             icon={arrowBackwardIcon}
             onClick={() => setIsFlipped(false)}
             disabled={!isFlipped}
           />
         </div>
-        {renderTitle()}
         <div className={styles.information}>
           {renderInformation(information)}
         </div>
