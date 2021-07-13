@@ -1,0 +1,43 @@
+---
+title: "VisuallyHidden"
+navTitle: "VisuallyHidden"
+summaryParagraph: VisuallyHidden visually hides an element but makes it available to screen reader users.
+tags: ["Hidden Visually"]
+demoStoryId:  VisuallyHidden-react--default-kaizen-site-demo
+---
+
+import WhenToUseAndWhenNotToUse from "docs-components/WhenToUseAndWhenNotToUse"
+import WhenToUse from "docs-components/WhenToUse"
+import WhenNotToUse from "docs-components/WhenNotToUse"
+import DoAndDontContainer from "docs-components/DoAndDontContainer"
+import Do from "docs-components/Do"
+import Dont from "docs-components/Dont"
+
+Use VisuallyHidden when you want to visually hide an element, but still 
+make it available to screen reader users. 
+
+If the hidden element is focusable (e.g. a Link or Button),
+then when this element receives focus it will be visible. This is useful for 
+[Skip to main content](https://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1) links.
+
+<WhenToUseAndWhenNotToUse>
+
+<WhenToUse>
+
+* Use VisuallyHidden when meaning is apparent visually but may not be apparent to screen reader users.
+
+</WhenToUse>
+
+<WhenNotToUse>
+
+* For content that is beneficial for both sighted users and those using assisted technologies.
+* Do not repeat content. Verbose cues or instructions are generally a nuisance for screen reader users.
+
+</WhenNotToUse>
+
+</WhenToUseAndWhenNotToUse>
+
+## External links
+- [WebAIM: CSS In Action](https://webaim.org/techniques/css/invisiblecontent/)
+- [Braid: HiddenVisually](https://seek-oss.github.io/braid-design-system/components/HiddenVisually)
+- [Polaris: VisuallyHidden](https://polaris.shopify.com/components/titles-and-text/visually-hidden)
