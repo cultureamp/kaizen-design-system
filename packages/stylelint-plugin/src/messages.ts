@@ -41,4 +41,4 @@ export const transitiveKaizenTokenUsage = (
   `Variable ${nameOfVariableThatContainsKaizen} contains a Kaizen token, and is not allowed because it prevents other rules from detecting invalid kaizen tokens`
 
 export const usageOfDeprecatedName = (oldName: string, newName: string) =>
-  `Usage of "${oldName}" is deprecated and should be renamed to "${newName}"`
+  `The token "${oldName}" is now called "${newName}" and should be renamed`
