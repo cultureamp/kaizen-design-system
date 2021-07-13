@@ -2,10 +2,6 @@ import { Paragraph } from "@kaizen/component-library"
 import { VerticalProgressStep } from "@kaizen/draft-vertical-progress-step"
 import * as React from "react"
 
-const StoryContainer = ({ children }: { children: React.ReactNode }) => (
-  <div style={{}}>{children}</div>
-)
-
 export default {
   title: "VerticalProgressStep (React)",
   component: VerticalProgressStep.CurrentStep,
