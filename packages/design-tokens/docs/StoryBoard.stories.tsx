@@ -428,7 +428,6 @@ export const Everything: Story = () => {
         <StoriesContainer storyModule={CheckboxGroupStories} />
         <StoriesContainer storyModule={CollapsibleStories} />
         <StoriesContainer storyModule={DividerStories} />
-        <StoriesContainer storyModule={DropdownStories} />
         <StoriesContainer storyModule={EmptyStateStories} />
         <StoriesContainer storyModule={FilterMenuButtonStories} />
         <StoriesContainer storyModule={GlobalNotificationStories} />
