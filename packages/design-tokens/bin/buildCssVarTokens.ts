@@ -106,6 +106,8 @@ const run = () => {
     path.resolve(jsonOutput, "color.json"),
     formatJson(
       JSON.stringify({
+        color: customPropertiesTheme.color,
+        DEPRECATED: customPropertiesTheme.DEPRECATED,
         kz: {
           color: defaultTheme.color,
           DEPRECATED: defaultTheme.DEPRECATED,
@@ -115,28 +117,61 @@ const run = () => {
   )
   fs.writeFileSync(
     path.resolve(jsonOutput, "border.json"),
-    formatJson(JSON.stringify({ kz: { border: defaultTheme.border } }))
+    formatJson(
+      JSON.stringify({
+        kz: { border: defaultTheme.border },
+        border: customPropertiesTheme.border,
+      })
+    )
   )
   fs.writeFileSync(
     path.resolve(jsonOutput, "animation.json"),
-    formatJson(JSON.stringify({ kz: { animation: defaultTheme.animation } }))
+    formatJson(
+      JSON.stringify({
+        kz: { animation: defaultTheme.animation },
+        animation: customPropertiesTheme.animation,
+      })
+    )
   )
   fs.writeFileSync(
     path.resolve(jsonOutput, "layout.json"),
-    formatJson(JSON.stringify({ kz: { layout: defaultTheme.layout } }))
+    formatJson(
+      JSON.stringify({
+        kz: { layout: defaultTheme.layout },
+        // Don't use customPropertiesTheme for layout. We need concrete values exposed for use in @media queries.
+        layout: defaultTheme.layout,
+      })
+    )
   )
   fs.writeFileSync(
     path.resolve(jsonOutput, "shadow.json"),
-    formatJson(JSON.stringify({ kz: { shadow: defaultTheme.shadow } }))
+    formatJson(
+      JSON.stringify({
+        kz: { shadow: defaultTheme.shadow },
+        shadow: customPropertiesTheme.shadow,
+      })
+    )
   )
   fs.writeFileSync(
     path.resolve(jsonOutput, "spacing.json"),
-    formatJson(JSON.stringify({ kz: { spacing: defaultTheme.spacing } }))
+    formatJson(
+      JSON.stringify({
+        kz: { spacing: defaultTheme.spacing },
+        spacing: customPropertiesTheme.spacing,
+      })
+    )
   )
   fs.writeFileSync(
     path.resolve(jsonOutput, "typography.json"),
-    formatJson(JSON.stringify({ kz: { typography: defaultTheme.typography } }))
+    formatJson(
+      JSON.stringify({
+        kz: { typography: defaultTheme.typography },
+        typography: customPropertiesTheme.typography,
+      })
+    )
   )
+
+  // The following generated files should be removed in the next breaking change
 
   /* Write JSON CSS variable tokens */
 
@@ -154,8 +189,6 @@ const run = () => {
     path.resolve(jsonOutput, "color-vars.json"),
     formatJson(
       JSON.stringify({
-        color: customPropertiesTheme.color,
-        DEPRECATED: customPropertiesTheme.DEPRECATED,
         [cssVariableThemeNamespace]: {
           color: customPropertiesTheme[cssVariableThemeNamespace].color,
           DEPRECATED:
@@ -168,7 +201,6 @@ const run = () => {
     path.resolve(jsonOutput, "border-vars.json"),
     formatJson(
       JSON.stringify({
-        border: customPropertiesTheme.border,
         [cssVariableThemeNamespace]: {
           border: customPropertiesTheme[cssVariableThemeNamespace].border,
         },
@@ -179,7 +211,6 @@ const run = () => {
     path.resolve(jsonOutput, "animation-vars.json"),
     formatJson(
       JSON.stringify({
-        animation: customPropertiesTheme.animation,
         [cssVariableThemeNamespace]: {
           animation: customPropertiesTheme[cssVariableThemeNamespace].animation,
         },
@@ -190,7 +221,6 @@ const run = () => {
     path.resolve(jsonOutput, "layout-vars.json"),
     formatJson(
       JSON.stringify({
-        layout: customPropertiesTheme.layout,
         [cssVariableThemeNamespace]: {
           layout: customPropertiesTheme[cssVariableThemeNamespace].layout,
         },
@@ -201,7 +231,6 @@ const run = () => {
     path.resolve(jsonOutput, "shadow-vars.json"),
     formatJson(
       JSON.stringify({
-        shadow: customPropertiesTheme.shadow,
         [cssVariableThemeNamespace]: {
           shadow: customPropertiesTheme[cssVariableThemeNamespace].shadow,
         },
@@ -212,7 +241,6 @@ const run = () => {
     path.resolve(jsonOutput, "spacing-vars.json"),
     formatJson(
       JSON.stringify({
-        spacing: customPropertiesTheme.spacing,
         [cssVariableThemeNamespace]: {
           spacing: customPropertiesTheme[cssVariableThemeNamespace].spacing,
         },
@@ -223,7 +251,6 @@ const run = () => {
     path.resolve(jsonOutput, "typography-vars.json"),
     formatJson(
       JSON.stringify({
-        typography: customPropertiesTheme.typography,
         [cssVariableThemeNamespace]: {
           typography:
             customPropertiesTheme[cssVariableThemeNamespace].typography,
@@ -231,6 +258,7 @@ const run = () => {
       })
     )
   )
+
   /* Write CSS variable theme files */
   fs.writeFileSync(
     path.resolve(cssOutput, "zen-theme.css"),
