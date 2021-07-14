@@ -65,10 +65,10 @@ export default {
   title: "Select (React)",
   component: Select,
   parameters: {
-    info: {
-      text: `
-      import { AsyncSelect, Select } from "@kaizen/draft-select"
-      `,
+    docs: {
+      description: {
+        component: 'import { AsyncSelect, Select } from "@kaizen/draft-select"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14321%3A65630"
