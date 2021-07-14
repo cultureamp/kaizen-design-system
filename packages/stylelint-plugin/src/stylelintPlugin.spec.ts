@@ -6,6 +6,7 @@ import { preferVarTokens } from "./rules/prefer-var-tokens"
 import { noInvalidUseOfVarTokensInEquations } from "./rules/no-invalid-use-of-var-tokens-in-equations"
 import { noInvalidUseOfVarTokensInFunctions } from "./rules/no-invalid-use-of-var-tokens-in-functions"
 import { noTokensInVariables } from "./rules/no-tokens-in-variables"
+import { useDeprecatedComponentLibraryHelpersScssImports } from "./rules/use-deprecated-component-library-helpers-scss-imports"
 import { getParser } from "./util/utils"
 
 /**
@@ -18,6 +19,10 @@ export const codemodOnAst = (stylesheetNode: Root, options: Options) => {
   preferVarTokens.ruleFunction(stylesheetNode, options)
   allUsedTokensMustBeImported.ruleFunction(stylesheetNode, options)
   allTokenImportsMustBeUsed.ruleFunction(stylesheetNode, options)
+  useDeprecatedComponentLibraryHelpersScssImports.ruleFunction(
+    stylesheetNode,
+    options
+  )
 
   return stylesheetNode
 }
@@ -650,6 +655,78 @@ const testExamples: TestExample[] = [
       '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { transform: translateX(calc(-1 * #{$kz-var-spacing-md})); }',
     expectedOutput:
       '@import "~@kaizen/design-tokens/sass/spacing-vars"; .foo { transform: translateX(calc(-1 * #{$kz-var-spacing-md})); }',
+    expectedUnfixables: 0,
+  },
+  {
+    language: "scss",
+    testName:
+      "use=deprecated-component-library-helpers-scss-imports: replaces styles/type",
+
+    input: `
+      @import "~@kaizen/some-other-import";
+      @import "~@kaizen/component-library/styles/type";
+      @import "~@kaizen/some-other-import-2";
+    `,
+
+    expectedOutput: `
+      @import "~@kaizen/some-other-import";
+      @import "~@kaizen/deprecated-component-library-helpers/styles/type";
+      @import "~@kaizen/some-other-import-2";
+    `,
+    expectedUnfixables: 0,
+  },
+  {
+    language: "scss",
+    testName:
+      "use-deprecated-component-library-helpers-scss-imports: replaces styles/color",
+    input: '@import "~@kaizen/component-library/styles/color"',
+    expectedOutput:
+      '@import "~@kaizen/deprecated-component-library-helpers/styles/color"',
+    expectedUnfixables: 0,
+  },
+  {
+    language: "scss",
+    testName:
+      "use-deprecated-component-library-helpers-scss-imports: replaces styles/layout",
+    input: '@import "~@kaizen/component-library/styles/layout"',
+    expectedOutput:
+      '@import "~@kaizen/deprecated-component-library-helpers/styles/layout"',
+    expectedUnfixables: 0,
+  },
+  {
+    language: "scss",
+    testName:
+      "use-deprecated-component-library-helpers-scss-imports: preserves single quotes",
+    input: "@import '~@kaizen/component-library/styles/type'",
+    expectedOutput:
+      "@import '~@kaizen/deprecated-component-library-helpers/styles/type'",
+    expectedUnfixables: 0,
+  },
+  {
+    language: "less",
+    testName:
+      "use-deprecated-component-library-helpers-scss-imports: also works in less",
+    input: '@import "~@kaizen/component-library/styles/color"',
+    expectedOutput:
+      '@import "~@kaizen/deprecated-component-library-helpers/styles/color"',
+    expectedUnfixables: 0,
+  },
+  {
+    language: "scss",
+    testName:
+      "use=deprecated-component-library-helpers-scss-imports: does not leave duplicates, and keeps the last import if there are duplicates",
+
+    input: `
+      @import "some-other-import";
+      @import "~@kaizen/component-library/styles/color";
+      @import "another-import";
+      @import "~@kaizen/deprecated-component-library-helpers/styles/color";
+    `,
+    expectedOutput: `
+      @import "some-other-import";
+      @import "another-import";
+      @import "~@kaizen/deprecated-component-library-helpers/styles/color";
+    `,
     expectedUnfixables: 0,
   },
 ]
