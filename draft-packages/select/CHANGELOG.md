@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.17.4](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.17.3...@kaizen/draft-select@1.17.4) (2021-07-14)
+
+
+### Bug Fixes
+
+* correct spacing between stacked tags within multi select ([#1755](https://github.com/cultureamp/kaizen-design-system/issues/1755)) ([053a663](https://github.com/cultureamp/kaizen-design-system/commit/053a663b894cfecc61d038ecc007fd7a7b34233a))
+
+
+
+
+
 ## [1.17.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.17.2...@kaizen/draft-select@1.17.3) (2021-07-06)
 
 
