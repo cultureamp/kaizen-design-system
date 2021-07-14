@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.4.1...@kaizen/draft-divider@1.4.2) (2021-07-14)
+
+**Note:** Version bump only for package @kaizen/draft-divider
+
+
+
+
+
 ## [1.4.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-divider@1.4.0...@kaizen/draft-divider@1.4.1) (2021-04-07)
 
 **Note:** Version bump only for package @kaizen/draft-divider
