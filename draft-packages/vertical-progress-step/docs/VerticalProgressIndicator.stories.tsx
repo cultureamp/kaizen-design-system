@@ -20,10 +20,11 @@ export default {
   title: "VerticalProgressIndicator (React)",
   component: VerticalProgressIndicator,
   parameters: {
-    info: {
-      text: `
-      import { VerticalProgressIndicator } from "@kaizen/draft-vertical-progress-step"
-      `,
+    docs: {
+      description: {
+        component:
+          'import { VerticalProgressIndicator } from "@kaizen/draft-vertical-progress-step"',
+      },
     },
   },
 }

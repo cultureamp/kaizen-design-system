@@ -19,10 +19,11 @@ export default {
   title: "VerticalProgressStep (React)",
   component: VerticalProgressStep.CurrentStep,
   parameters: {
-    info: {
-      text: `
-      import { VerticalProgressStep } from "@kaizen/draft-vertical-progress-step"
-      `,
+    docs: {
+      description: {
+        component:
+          'import { VerticalProgressStep } from "@kaizen/draft-vertical-progress-step"',
+      },
     },
   },
 }
