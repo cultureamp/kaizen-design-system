@@ -13,6 +13,5 @@ export default create({
 
   // Text colors
   // Doesn't seem to like CSS Variables wah
-  // textColor: colorVars["kz-var"].color.wisteria["800"],
-  textColor: defaultTheme.color.wisteria["800"],
+  textColor: defaultTheme.color.purple["800"],
 })

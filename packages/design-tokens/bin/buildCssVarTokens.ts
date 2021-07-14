@@ -7,9 +7,10 @@ import {
   augmentCssVariable,
   mapLeafsOfObject,
   makeCSSVariableTheme,
-  cssVariableThemeNamespace,
   objectPathToCssVarIdentifier,
   makeCSSVariablesOfTheme,
+  objectPathToCssVarReference,
+  cssVariableThemeNamespace,
 } from "../src/utils"
 
 const { jsonOutput, cssOutput } = yargs
@@ -41,13 +42,13 @@ ${Object.entries(makeCSSVariablesOfTheme(theme))
   )
 
 /**
- * WIP: Need a better name and articulation of this.
+ * REMOVE THIS IN THE NEXT BREAKING CHANGE
+ * @deprecated
+ *
+ * Given a Theme (which is the source of truth and doesn't contain any computed properties), add extra necessary properties to the tree such as `-rgb` suffixed keys, with R, G, B triple values.
+ * It is only relevant for generating SASS files of our theme.
  * See {@link augmentCssVariable} to understand what happens to each leaf variable in the theme.
- * Writing this as a solution to the add-alpha and add-tint/shade problem, and to spit out sass variables with `-default` and `-rgb-params` suffixes (where applicable).
- * We need to have additional tokens that reference variables, which contain a tuple (R, G, B).
- * This tuple can then be used within the CSS [runtime] function as a CSS variable, e.g. `rgba(var(--kz-color-wisteria-800-rgb))`.
  */
-
 export const augmentThemeForSassVariables = (theme: Theme): Theme => {
   const augmentedTheme: Record<string, unknown> = {}
   mapLeafsOfObject(theme, (leafPath, value) => {
@@ -58,9 +59,12 @@ export const augmentThemeForSassVariables = (theme: Theme): Theme => {
         (child[segment] || (child[segment] = {})) as Record<string, unknown>,
       augmentedTheme as Record<string, unknown>
     )
-    const cssVariablesOfToken = augmentCssVariable(leafKey, value, {
-      augmentWithDefault: false,
-    })
+    const cssVariablesOfToken = augmentCssVariable(
+      leafPath,
+      leafKey,
+      value,
+      objectPathToCssVarReference
+    )
     Object.assign(leafObject, cssVariablesOfToken)
   })
   return augmentedTheme as Theme
@@ -70,16 +74,18 @@ const run = () => {
   fs.mkdirSync(jsonOutput, { recursive: true })
   fs.mkdirSync(cssOutput, { recursive: true })
 
-  // Any theme passed into the factory function will be fine, as they all have the same keys
   const customPropertiesTheme = makeCSSVariableTheme(
-    augmentThemeForSassVariables(defaultTheme)
+    defaultTheme,
+    objectPathToCssVarReference,
+    true
   )
 
   /*
+    WILL BE REMOVED IN THE FUTURE IN FAVOR OF THE ABOVE'S ^^ ABILITY TO ADD IDENTIFIERS
     This is used for compiling a json file contianing the identifiers of variables rather than CSS var() functions as values.
     e.g.
     {
-      themeKey: "--kz-var-theme-key"
+      themeKey: "--theme-key"
     }
 
     This is useful for situations when you want to access CSS variables from javascript.
@@ -89,8 +95,9 @@ const run = () => {
     ```
    */
   const customPropertiesThemeIdentifiers = makeCSSVariableTheme(
-    augmentThemeForSassVariables(defaultTheme),
-    objectPathToCssVarIdentifier
+    defaultTheme,
+    objectPathToCssVarIdentifier,
+    false
   )
 
   /* Write JSON tokens */
@@ -99,6 +106,8 @@ const run = () => {
     path.resolve(jsonOutput, "color.json"),
     formatJson(
       JSON.stringify({
+        color: customPropertiesTheme.color,
+        DEPRECATED: customPropertiesTheme.DEPRECATED,
         kz: {
           color: defaultTheme.color,
           DEPRECATED: defaultTheme.DEPRECATED,
@@ -108,28 +117,61 @@ const run = () => {
   )
   fs.writeFileSync(
     path.resolve(jsonOutput, "border.json"),
-    formatJson(JSON.stringify({ kz: { border: defaultTheme.border } }))
+    formatJson(
+      JSON.stringify({
+        kz: { border: defaultTheme.border },
+        border: customPropertiesTheme.border,
+      })
+    )
   )
   fs.writeFileSync(
     path.resolve(jsonOutput, "animation.json"),
-    formatJson(JSON.stringify({ kz: { animation: defaultTheme.animation } }))
+    formatJson(
+      JSON.stringify({
+        kz: { animation: defaultTheme.animation },
+        animation: customPropertiesTheme.animation,
+      })
+    )
   )
   fs.writeFileSync(
     path.resolve(jsonOutput, "layout.json"),
-    formatJson(JSON.stringify({ kz: { layout: defaultTheme.layout } }))
+    formatJson(
+      JSON.stringify({
+        kz: { layout: defaultTheme.layout },
+        // Don't use customPropertiesTheme for layout. We need concrete values exposed for use in @media queries.
+        layout: defaultTheme.layout,
+      })
+    )
   )
   fs.writeFileSync(
     path.resolve(jsonOutput, "shadow.json"),
-    formatJson(JSON.stringify({ kz: { shadow: defaultTheme.shadow } }))
+    formatJson(
+      JSON.stringify({
+        kz: { shadow: defaultTheme.shadow },
+        shadow: customPropertiesTheme.shadow,
+      })
+    )
   )
   fs.writeFileSync(
     path.resolve(jsonOutput, "spacing.json"),
-    formatJson(JSON.stringify({ kz: { spacing: defaultTheme.spacing } }))
+    formatJson(
+      JSON.stringify({
+        kz: { spacing: defaultTheme.spacing },
+        spacing: customPropertiesTheme.spacing,
+      })
+    )
   )
   fs.writeFileSync(
     path.resolve(jsonOutput, "typography.json"),
-    formatJson(JSON.stringify({ kz: { typography: defaultTheme.typography } }))
+    formatJson(
+      JSON.stringify({
+        kz: { typography: defaultTheme.typography },
+        typography: customPropertiesTheme.typography,
+      })
+    )
   )
+
+  // The following generated files should be removed in the next breaking change
 
   /* Write JSON CSS variable tokens */
 

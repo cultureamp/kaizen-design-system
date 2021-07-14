@@ -11,5 +11,25 @@
       "xxxxl": "5.25rem",
       "xxxxxl": "6rem"
     }
+  },
+  "spacing": {
+    "xs": "var(--spacing-xs, 0.375rem)",
+    "xs-id": "--spacing-xs",
+    "sm": "var(--spacing-sm, 0.75rem)",
+    "sm-id": "--spacing-sm",
+    "md": "var(--spacing-md, 1.5rem)",
+    "md-id": "--spacing-md",
+    "lg": "var(--spacing-lg, 2.25rem)",
+    "lg-id": "--spacing-lg",
+    "xl": "var(--spacing-xl, 3rem)",
+    "xl-id": "--spacing-xl",
+    "xxl": "var(--spacing-xxl, 3.75rem)",
+    "xxl-id": "--spacing-xxl",
+    "xxxl": "var(--spacing-xxxl, 4.5rem)",
+    "xxxl-id": "--spacing-xxxl",
+    "xxxxl": "var(--spacing-xxxxl, 5.25rem)",
+    "xxxxl-id": "--spacing-xxxxl",
+    "xxxxxl": "var(--spacing-xxxxxl, 6rem)",
+    "xxxxxl-id": "--spacing-xxxxxl"
   }
 }

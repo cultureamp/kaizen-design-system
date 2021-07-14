@@ -57,6 +57,7 @@ export const objectPathToCssVarIdentifier = (path: string[]) =>
 export const objectPathToCssVarReference = (path: string[], value: unknown) =>
   `var(${objectPathToCssVarIdentifier(path)}, ${value})`
 
+/** @deprecated we are transitioning to not using a top level namespace anymore */
 export const cssVariableThemeNamespace = "kz-var" as const
 
 /**
@@ -65,19 +66,17 @@ export const cssVariableThemeNamespace = "kz-var" as const
  * For example:
  * ```
  * {
- *   kz: {
  *      color: {
  *        whatever: {
  *          100: "#ff0022"
  *        }
  *      }
- *    }
  * }
  * ```
  * transforms into:
  * ```
  * {
- *  "--kz-color-whatever-100": "#ff0022"
+ *  "--color-whatever-100": "#ff0022"
  * }
  * ```
  */
@@ -88,11 +87,14 @@ export const flattenObjectToCSSVariables = (
 
   // Shamelessly using a map function like a forEach
   mapLeafsOfObject(object, (path, value) => {
-    // Key will be `--kz-color-blah`
+    // Key will be `--color-blah`
     const key = objectPathToCssVarIdentifier(path)
-    const cssVariablesOfToken = augmentCssVariable(key, value, {
-      augmentWithDefault: false,
-    })
+    const cssVariablesOfToken = augmentCssVariable(
+      path,
+      key,
+      value,
+      (_, v) => `${v}`
+    )
     cssVariables = {
       ...cssVariables,
       ...cssVariablesOfToken,
@@ -102,37 +104,59 @@ export const flattenObjectToCSSVariables = (
 }
 
 /**
- * This function will convert the leaf values of a theme to a value like `var(--parent1key-parent2key-leafkey)` - a CSS variable with an identifier that represents it's hierarchy within the object you provided.
- * One caveat though: if a key is suffixed with `-default` it will leave the value in place. This was implemented for consumer regression purposes, i.e. so that consumers had a fallback when CSS variables weren't feasible.
+ * Given a Theme (which is the source of truth and doesn't contain any computed properties), add extra necessary properties to the tree such as `-rgb` suffixed keys with R, G, B triple values, and
+ * convert the leaf values of a theme to a value like `var(--parent1key-parent2key-leafkey)` - a CSS variable with an identifier that represents it's hierarchy.
  * Example:
  * ```
  * {
- *  kz: {
- *      color: {
- *          wisteria: "#ff0011"
- *      }
- *  }
+ *    color: {
+ *        wisteria: "#ff0011"
+ *    }
  * }
  * ```
  * Transforms into:
  * ```
  * {
- *  kz: {
- *      color: {
- *          wisteria: "var(--kz-color-wisteria)"
- *      }
- *  }
+ *    color: {
+ *        wisteria: "var(--color-wisteria)"
+ *    }
  * }
  * ```
  */
 
 export const makeCSSVariableTheme = (
   theme: Theme,
-  printValue = objectPathToCssVarReference
-) =>
-  mapLeafsOfObject({ [cssVariableThemeNamespace]: theme }, (path, value) =>
-    path[path.length - 1].endsWith("-default") ? value : printValue(path, value)
-  )
+  printValue = objectPathToCssVarReference,
+  augmentWithId = false
+) => {
+  const augmentedTheme: Record<string, unknown> = {}
+  const mapper = (leafPath: string[], value: unknown) => {
+    const leafKey = leafPath[leafPath.length - 1]
+    const pathWithoutLast = leafPath.slice(0, leafPath.length - 1)
+    const leafObject = pathWithoutLast.reduce(
+      (child, segment) =>
+        (child[segment] || (child[segment] = {})) as Record<string, unknown>,
+      augmentedTheme as Record<string, unknown>
+    )
+    const cssVariablesOfToken = augmentCssVariable(
+      leafPath,
+      leafKey,
+      value,
+      printValue,
+      {
+        augmentWithId,
+        augmentWithRgbParams: true,
+      }
+    )
+    Object.assign(leafObject, cssVariablesOfToken)
+  }
+
+  // Until we remove the deprecated namespace, we expose and augment both, to delay the breaking change.
+  mapLeafsOfObject(theme, mapper)
+  mapLeafsOfObject({ [cssVariableThemeNamespace]: theme }, mapper)
+
+  return augmentedTheme as Theme
+}
 
 /**
  * Make a map of CSS variables -> values in a consistent way.
@@ -141,38 +165,72 @@ export const makeCSSVariableTheme = (
  * ```
  * {
  *    ...
- *    "--kz-var-theme-key": "zen",
- *    "--kz-var-color-wisteria-800": "#3537a4"
+ *    "--theme-key": "zen",
+ *    "--color-wisteria-800": "#3537a4"
  *    ...
  * }
  * ```
  */
 export const makeCSSVariablesOfTheme = (theme: Theme) =>
-  flattenObjectToCSSVariables({ [cssVariableThemeNamespace]: theme })
+  flattenObjectToCSSVariables({
+    ...theme,
+    [cssVariableThemeNamespace]: theme,
+  })
 
 /**
- * Use this to generate an object containing `${key}: value`, `${key}-default: value`, and `${key}-rgb-params: r, g, b` if the value is a color.
- * This is for augmenting a CSS variable to support our solution to regression issues with using CSS variables instead of concrete values.
+ * Use this to generate an object containing `${key}: value`, `${key}-rgb: r, g, b`, and/or `${key}-id: --color-blah-XXX`.
+ * This is for adding extra neighbouring properties to a theme.
+ * For example:
+ *  Input:
+ *    path: [color, purple, 100]
+ *    key: 100
+ *    value: #f0f1f4
+ *    printValue: (path, v) => `var(--some-key, ${v})`
+ *    options: {augmentWithRgbParams: true, augmentWithId: true}
+ *
+ *  Output: {
+ *    "100": "var(--some-key, #f0f1f4)",
+ *    "100-rgb": "var(--some-key, 240, 241, 244)",
+ *    "100-id": "--color-purple-100"
+ *  }
  */
+// Rename to augmentThemeKeyValue during breaking change.
 export const augmentCssVariable = (
+  path: string[],
   key: string,
   value: unknown,
+  printValue: <I>(path: string[], value: I) => string,
   {
-    augmentWithDefault = true,
     augmentWithRgbParams = true,
+    augmentWithId = true,
   }: {
-    augmentWithDefault?: boolean
     augmentWithRgbParams?: boolean
+    augmentWithId?: boolean
   } = {}
 ) => {
   const colorRgb = typeof value === "string" ? colorString.get.rgb(value) : null
-
-  return {
-    [key]: `${value}`,
-    ...(augmentWithDefault && { [`${key}-default`]: `${value}` }),
-    ...(colorRgb &&
-      augmentWithRgbParams && {
-        [`${key}-rgb-params`]: colorRgb.slice(0, 3).join(", "),
-      }),
+  const result = {
+    [key]: printValue(path, value),
   }
+
+  // Add the -rgb key containing the RGB triple of the color (if it is a color)
+  if (colorRgb && augmentWithRgbParams) {
+    const rgbPath = [...path, "rgb"]
+    const rgbTriple = printValue(rgbPath, colorRgb.slice(0, 3).join(", "))
+    result[`${key}-rgb`] = rgbTriple
+
+    // DEPRECATED - REMOVE IN THE NEXT BREAKING CHANGE
+    result[`${key}-rgb-params`] = rgbTriple
+
+    if (augmentWithId) {
+      result[`${key}-rgb-id`] = objectPathToCssVarIdentifier(rgbPath)
+      // We don't need `-rgb-params-id` because it won't be used in future releases, nor is it required for compatibility
+    }
+  }
+
+  if (augmentWithId) {
+    result[`${key}-id`] = objectPathToCssVarIdentifier(path)
+  }
+
+  return result
 }
