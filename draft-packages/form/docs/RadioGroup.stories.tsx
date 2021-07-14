@@ -41,10 +41,10 @@ export default {
   title: "RadioGroup (React)",
   component: RadioGroup,
   parameters: {
-    info: {
-      text: `
-      import { RadioGroup } from "@kaizen/draft-form"
-      `,
+    docs: {
+      description: {
+        component: 'import { RadioGroup } from "@kaizen/draft-form"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=4496%3A481"
