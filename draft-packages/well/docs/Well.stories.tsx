@@ -29,10 +29,10 @@ export default {
   title: "Well (React)",
   component: Well,
   parameters: {
-    info: {
-      text: `
-      import { Well } from "@kaizen/draft-well"
-      `,
+    docs: {
+      description: {
+        component: 'import { Well } from "@kaizen/draft-well"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A14168"
