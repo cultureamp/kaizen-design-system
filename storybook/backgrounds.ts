@@ -1,18 +1,17 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 
-import * as deprecatedColors from "@kaizen/design-tokens/tokens/color.json"
-import * as colors from "@kaizen/design-tokens/tokens/color-vars.json"
+import * as colors from "@kaizen/design-tokens/tokens/color.json"
 
 export const backgrounds = [
-  { name: "White", value: deprecatedColors.kz.color.white },
-  { name: "Gray 100", value: deprecatedColors.kz.color.gray["100"] },
-  { name: "Gray 300", value: deprecatedColors.kz.color.gray["300"] },
-  { name: "Purple 700", value: deprecatedColors.kz.color.purple["700"] },
-  { name: "Blue 500", value: deprecatedColors.kz.color.blue["500"] },
-  { name: "Green 500", value: deprecatedColors.kz.color.green["500"] },
-  { name: "Yellow 500", value: deprecatedColors.kz.color.yellow["500"] },
-  { name: "Orange 500", value: deprecatedColors.kz.color.orange["500"] },
-  { name: "Red 500", value: deprecatedColors.kz.color.red["500"] },
+  { name: "White", value: colors.kz.color.white },
+  { name: "Gray 100", value: colors.kz.color.gray["100"] },
+  { name: "Gray 300", value: colors.kz.color.gray["300"] },
+  { name: "Purple 700", value: colors.kz.color.purple["700"] },
+  { name: "Blue 500", value: colors.kz.color.blue["500"] },
+  { name: "Green 500", value: colors.kz.color.green["500"] },
+  { name: "Yellow 500", value: colors.kz.color.yellow["500"] },
+  { name: "Orange 500", value: colors.kz.color.orange["500"] },
+  { name: "Red 500", value: colors.kz.color.red["500"] },
 ]
 
 // This is a temporary duplication until we find a way for storybook to like the above ^^ tokens with css variables rather than concretes.

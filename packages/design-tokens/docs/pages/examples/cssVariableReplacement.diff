@@ -1,6 +1,5 @@
 
-- @import "~@kaizen/design-tokens/sass/color"
-+ @import "~@kaizen/design-tokens/sass/color-vars"
+@import "~@kaizen/design-tokens/sass/color"
 
 .myClass {
 -     background-color: $kz-color-purple-800;
