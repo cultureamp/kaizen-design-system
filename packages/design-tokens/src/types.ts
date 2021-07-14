@@ -72,20 +72,6 @@ export type Theme = {
     }
   }
   color: {
-    /**
-     * @deprecated
-     * Use purple instead of wisteria, it is being renamed.
-     */
-    wisteria: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
-      "800": string
-    }
     purple: {
       "100": string
       "200": string
@@ -96,33 +82,7 @@ export type Theme = {
       "700": string
       "800": string
     }
-    /**
-     * @deprecated
-     * Use blue instead of cluny (soz @Cluny), it is being renamed.
-     */
-    cluny: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
-    }
     blue: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
-    }
-    /**
-     * @deprecated
-     * Use green instead of seedling, it is being renamed.
-     */
-    seedling: {
       "100": string
       "200": string
       "300": string
@@ -140,19 +100,6 @@ export type Theme = {
       "600": string
       "700": string
     }
-    /**
-     * @deprecated
-     * Use yellow instead of yuzu, it is being renamed.
-     */
-    yuzu: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
-    }
     yellow: {
       "100": string
       "200": string
@@ -162,33 +109,7 @@ export type Theme = {
       "600": string
       "700": string
     }
-    /**
-     * @deprecated
-     * Use red instead of coral, it is being renamed.
-     */
-    coral: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
-    }
     red: {
-      "100": string
-      "200": string
-      "300": string
-      "400": string
-      "500": string
-      "600": string
-      "700": string
-    }
-    /**
-     * @deprecated
-     * Use orange instead of peach, it is being renamed.
-     */
-    peach: {
       "100": string
       "200": string
       "300": string
@@ -215,41 +136,10 @@ export type Theme = {
       "600": string
     }
     white: string
-    /**
-     * @deprecated
-     * Use gray-300 instead of ash, it is being renamed
-     */
-    ash: string
-    /**
-     * @deprecated
-     * Use gray-200 instead of stone, it is being renamed
-     */
-    stone: string
-    /**
-     * @deprecated
-     * Use gray-500 instead of iron, it is being renamed
-     */
-    iron: string
-    /**
-     * @deprecated
-     * Use gray-600 instead of slate, it is being renamed
-     */
-    slate: string
   }
   dataViz: {
     favorable: string
     unfavorable: string
-  }
-  /**
-   * @deprecated
-   */
-  DEPRECATED: {
-    color: {
-      lapis: string
-      ocean: string
-      ink: string
-      paper: string
-    }
   }
   layout: {
     contentMaxWidth: string
@@ -306,8 +196,7 @@ export type Theme = {
   }
 }
 
-// Converts all leafs (values that aren't objects) of an object tree to LeafType.
-export type DeepMapObjectLeafs<T, LeafType> = T extends
+type Primitive =
   | string
   | number
   | bigint
@@ -316,10 +205,23 @@ export type DeepMapObjectLeafs<T, LeafType> = T extends
   | null
   | undefined
   | ((...params: any[]) => any)
+
+// Converts all leafs (values that aren't objects) of an object tree to LeafType.
+export type DeepMapObjectLeafs<T, LeafType> = T extends Primitive
   ? LeafType
   : T extends Record<any, any>
   ? {
       [Key in keyof T]: DeepMapObjectLeafs<T[Key], LeafType>
+    }
+  : T
+
+// WIP
+// If we have a function like this below, we might be able to strongly type the css variable theme (add -id and -rgb suffixes to all leafs)
+export type DeepMapLeafObjects<T, LeafObjectType> = T extends Primitive
+  ? T
+  : T extends Record<any, any>
+  ? {
+      [Key in keyof T]: DeepMapLeafObjects<T[Key], Key>
     }
   : T
 

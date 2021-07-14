@@ -1,6 +1,6 @@
 import colorString from "color-string"
 import camelToKebab from "lodash.kebabcase"
-import { DeepMapObjectLeafs, Theme } from "./types"
+import { CSSVariableTheme, DeepMapObjectLeafs, Theme } from "./types"
 
 /**
  * This allows you to map the leaf nodes of an object, and you're provided the path to that leaf as well as the value as parameters to your mapper function.
@@ -57,9 +57,6 @@ export const objectPathToCssVarIdentifier = (path: string[]) =>
 export const objectPathToCssVarReference = (path: string[], value: unknown) =>
   `var(${objectPathToCssVarIdentifier(path)}, ${value})`
 
-/** @deprecated we are transitioning to not using a top level namespace anymore */
-export const cssVariableThemeNamespace = "kz-var" as const
-
 /**
  * This function will convert an object/theme to a list of CSS variable key-value pairs, that can be used by element.style.setProperty.
  *
@@ -89,7 +86,7 @@ export const flattenObjectToCSSVariables = (
   mapLeafsOfObject(object, (path, value) => {
     // Key will be `--color-blah`
     const key = objectPathToCssVarIdentifier(path)
-    const cssVariablesOfToken = augmentCssVariable(
+    const cssVariablesOfToken = augmentThemeKeyValue(
       path,
       key,
       value,
@@ -110,7 +107,9 @@ export const flattenObjectToCSSVariables = (
  * ```
  * {
  *    color: {
- *        wisteria: "#ff0011"
+ *        wisteria: {
+ *          100: "#ff0011"
+ *        }
  *    }
  * }
  * ```
@@ -118,7 +117,11 @@ export const flattenObjectToCSSVariables = (
  * ```
  * {
  *    color: {
- *        wisteria: "var(--color-wisteria)"
+ *        wisteria: {
+ *          100: "var(--color-wisteria, #ff0001)",
+ *          "100-id": "--color-wisteria",
+ *          "100-rgb": "255, 000, 001"
+ *        }
  *    }
  * }
  * ```
@@ -138,7 +141,7 @@ export const makeCSSVariableTheme = (
         (child[segment] || (child[segment] = {})) as Record<string, unknown>,
       augmentedTheme as Record<string, unknown>
     )
-    const cssVariablesOfToken = augmentCssVariable(
+    const cssVariablesOfToken = augmentThemeKeyValue(
       leafPath,
       leafKey,
       value,
@@ -153,9 +156,10 @@ export const makeCSSVariableTheme = (
 
   // Until we remove the deprecated namespace, we expose and augment both, to delay the breaking change.
   mapLeafsOfObject(theme, mapper)
-  mapLeafsOfObject({ [cssVariableThemeNamespace]: theme }, mapper)
 
-  return augmentedTheme as Theme
+  // With more TypeScript power we should be able to strongly type this.
+  // There are hidden keys here e.g. the -id and -rgb suffixes.
+  return augmentedTheme as CSSVariableTheme
 }
 
 /**
@@ -171,10 +175,9 @@ export const makeCSSVariableTheme = (
  * }
  * ```
  */
-export const makeCSSVariablesOfTheme = (theme: Theme) =>
+export const getCSSVariableMapOfTheme = (theme: Theme) =>
   flattenObjectToCSSVariables({
     ...theme,
-    [cssVariableThemeNamespace]: theme,
   })
 
 /**
@@ -194,8 +197,7 @@ export const makeCSSVariablesOfTheme = (theme: Theme) =>
  *    "100-id": "--color-purple-100"
  *  }
  */
-// Rename to augmentThemeKeyValue during breaking change.
-export const augmentCssVariable = (
+const augmentThemeKeyValue = (
   path: string[],
   key: string,
   value: unknown,

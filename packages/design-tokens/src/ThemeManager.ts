@@ -1,6 +1,6 @@
-import identifiers from "../tokens/variable-identifiers.json"
+import { defaultTheme } from "./themes"
 import { Theme as BaseTheme } from "./types"
-import { makeCSSVariablesOfTheme } from "./utils"
+import { getCSSVariableMapOfTheme, makeCSSVariableTheme } from "./utils"
 /**
  * Use this class to set and apply themes, and to access or subscribe to the currently active one.
  * This class fulfills the idea of theming and runtime theme switching by relying on CSS variables,
@@ -8,6 +8,7 @@ import { makeCSSVariablesOfTheme } from "./utils"
  *
  * It works by converting a Theme interface to a flattened map of CSS variable keys and values, then calling `document.documentElement.style.setProperty(key, value)`.
  */
+
 export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
   private themeChangeListeners = [] as Array<(theme: Theme) => void>
   private theme: Theme
@@ -29,23 +30,13 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
 
   public getRootElement = () => this.rootElement
   public getCurrentTheme = () => this.theme
-  public getCssVariableThemeKeyIdentifier = () =>
-    identifiers["kz-var-id"].themeKey
-  public getCssVariableThemeKeyValue = () =>
-    this.rootElement.style.getPropertyValue(
-      this.getCssVariableThemeKeyIdentifier()
-    )
+
   public setRootElement = (element: HTMLElement) => {
     this.rootElement = element
   }
   public setAndApplyTheme = (theme: Theme, force?: boolean) => {
     if (!force) {
-      if (
-        this.theme === theme ||
-        // This case will happen if you load a theme initially using CSS.
-        theme.themeKey === this.getCssVariableThemeKeyValue()
-      )
-        return
+      if (this.theme === theme) return
     }
     this.theme = theme
     this.applyCurrentTheme()
@@ -61,7 +52,7 @@ export class ThemeManager<Theme extends BaseTheme = BaseTheme> {
     )
   }
   public applyCurrentTheme = () => {
-    const cssVariablesOfTheme = makeCSSVariablesOfTheme(this.theme)
+    const cssVariablesOfTheme = getCSSVariableMapOfTheme(this.theme)
     Object.entries(cssVariablesOfTheme).forEach(([key, value]) => {
       if (this.theme.themeKey === "zen") {
         this.rootElement.style.removeProperty(key)
