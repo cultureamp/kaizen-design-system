@@ -6,10 +6,10 @@ export default {
   title: "Slider (React)",
   component: Slider,
   parameters: {
-    info: {
-      text: `
-        import { Slider } from "@kaizen/draft-Slider";
-      `,
+    docs: {
+      description: {
+        component: 'import { Slider } from "@kaizen/draft-slider"',
+      },
     },
   },
 }

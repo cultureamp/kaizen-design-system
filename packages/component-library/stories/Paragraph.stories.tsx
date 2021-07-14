@@ -6,10 +6,10 @@ export default {
   title: "Paragraph",
   component: Paragraph,
   parameters: {
-    info: {
-      text: `
-        import { Paragraph } from "@kaizen/component-library";
-      `,
+    docs: {
+      description: {
+        component: 'import { Paragraph } from "@kaizen/component-library"',
+      },
     },
   },
 }

@@ -12,10 +12,10 @@ export default {
   component: SplitButton,
   argTypes: { onClick: { action: "clicked" } },
   parameters: {
-    info: {
-      text: `
-      import { SplitButton } from "@kaizen/draft-split-button"
-      `,
+    docs: {
+      description: {
+        component: ' import { SplitButton } from "@kaizen/draft-split-button" ',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14512%3A404"
