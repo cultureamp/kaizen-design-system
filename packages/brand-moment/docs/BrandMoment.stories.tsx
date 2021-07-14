@@ -10,7 +10,7 @@ import securityTipIcon from "@kaizen/component-library/icons/security-tip.icon.s
 import mailIcon from "@kaizen/component-library/icons/email.icon.svg"
 import feedbackClassifyIcon from "@kaizen/component-library/icons/feedback-classify.icon.svg"
 import { Box, Paragraph } from "@kaizen/component-library"
-import { BrandMoment } from "../../"
+import { BrandMoment } from "@kaizen/brand-moment"
 import {
   MinimalBasic,
   MinimalCustomerFocused,

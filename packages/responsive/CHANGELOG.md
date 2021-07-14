@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/responsive@1.1.0...@kaizen/responsive@1.1.1) (2021-07-14)
+
+
+### Bug Fixes
+
+* Add missing tsconfig to responsive package ([#1757](https://github.com/cultureamp/kaizen-design-system/issues/1757)) ([2ec081f](https://github.com/cultureamp/kaizen-design-system/commit/2ec081f5191daec5c4e33ead2fe8ff06232db5d9))
+
+
+
+
+
 # 1.1.0 (2021-07-12)
 
 

@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.12](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.2.11...@kaizen/brand-moment@1.2.12) (2021-07-14)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.2.11](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.2.10...@kaizen/brand-moment@1.2.11) (2021-07-14)
+
+**Note:** Version bump only for package @kaizen/brand-moment
+
+
+
+
+
+## [1.2.10](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.2.9...@kaizen/brand-moment@1.2.10) (2021-07-13)
+
+
+### Bug Fixes
+
+* Make buttons full width at small viewport ([#1752](https://github.com/cultureamp/kaizen-design-system/issues/1752)) ([a81c541](https://github.com/cultureamp/kaizen-design-system/commit/a81c54193e563e68bcc8e5d055a8c89fd618b43e))
+
+
+
+
+
 ## [1.2.9](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/brand-moment@1.2.8...@kaizen/brand-moment@1.2.9) (2021-07-06)
 
 **Note:** Version bump only for package @kaizen/brand-moment
