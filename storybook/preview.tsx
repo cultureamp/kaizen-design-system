@@ -1,28 +1,14 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 import React from "react"
-import {
-  defaultTheme,
-  heartTheme,
-  ThemeProvider,
-  zenTheme,
-} from "@kaizen/design-tokens"
 import { addParameters } from "@storybook/react"
 import { addons } from "@storybook/addons"
+import KaizenContainer, { themeManager } from "@kaizen/container"
 import { backgrounds } from "./backgrounds"
-import { themeManager, themeOfKey } from "./theme-switcher-addon/themeManager"
+import { themeOfKey } from "./theme-switcher-addon/themeManager"
 import {
   THEME_CHANGE_EVENT_TYPE,
   THEME_KEY_STORE_KEY,
 } from "./theme-switcher-addon/constants"
-// Polyfill for :focus-visible pseudo-selector
-// See: https://github.com/WICG/focus-visible
-require("focus-visible")
-
-// Standard base stylesheet used across Culture Amp products
-// See: https://github.com/necolas/normalize.css/
-require("normalize.css")
-
-require("@kaizen/component-library/styles/fonts.scss")
 
 addParameters({
   backgrounds: {
@@ -73,9 +59,9 @@ export const globalTypes = {
 
 export const decorators = [
   (Story: React.ComponentType) => (
-    <ThemeProvider themeManager={themeManager}>
+    <KaizenContainer>
       <Story />
-    </ThemeProvider>
+    </KaizenContainer>
   ),
   (Story, props) => {
     const dir = props.args.textDirection ?? props.globals.textDirection
