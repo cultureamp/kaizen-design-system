@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-tile",
-  "version": "4.2.14",
+  "version": "5.0.0",
   "description": "The draft tile component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
