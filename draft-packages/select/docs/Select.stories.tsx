@@ -54,7 +54,7 @@ const filterNames = (inputValue: string) =>
     i.label.toLowerCase().includes(inputValue.toLowerCase())
   )
 
-const promiseOptions = inputValue =>
+const promiseOptions = (inputValue): Promise<any[]> =>
   new Promise(resolve => {
     setTimeout(() => {
       resolve(filterNames(inputValue))
