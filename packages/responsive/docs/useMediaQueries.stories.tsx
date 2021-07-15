@@ -5,10 +5,10 @@ export default {
   title: "useMediaQueries (React)",
   component: useMediaQueries,
   parameters: {
-    info: {
-      text: `
-        import { useMediaQueries } from "@kaizen/responsive";
-      `,
+    docs: {
+      description: {
+        component: 'import { useMediaQueries } from "@kaizen/responsive"',
+      },
     },
   },
 }

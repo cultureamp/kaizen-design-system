@@ -1,4 +1,4 @@
-import { Icon, Paragraph } from "@kaizen/component-library"
+import { Icon, Paragraph, Box } from "@kaizen/component-library"
 import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible"
 
 import * as React from "react"
@@ -32,17 +32,17 @@ export default {
 }
 
 export const SingleCollapsibleKaizenSiteDemo = () => (
-  <div style={{ margin: "1rem", width: "40rem" }}>
+  <Box m={1}>
     <Collapsible id="collapsible-single" open title="Single collapsible">
       <Paragraph variant="body">{lipsum}</Paragraph>
     </Collapsible>
-  </div>
+  </Box>
 )
 SingleCollapsibleKaizenSiteDemo.storyName =
   "Single collapsible (Kaizen Site Demo)"
 
 export const SingleCollapsibleNoPadding = () => (
-  <div style={{ margin: "1rem", width: "40rem" }}>
+  <Box m={1}>
     <Collapsible
       id="collapsible-single"
       open
@@ -63,13 +63,13 @@ export const SingleCollapsibleNoPadding = () => (
         </Paragraph>
       </ListItem>
     </Collapsible>
-  </div>
+  </Box>
 )
 
 SingleCollapsibleNoPadding.storyName = "Single collapsible (no padding)"
 
 export const SingleCollapsibleCustomHeader = () => (
-  <div style={{ margin: "1rem", width: "40rem" }}>
+  <Box m={1}>
     <Collapsible
       id="collapsible-single"
       open
@@ -90,13 +90,13 @@ export const SingleCollapsibleCustomHeader = () => (
         You can create a custom header using the renderHeader prop.
       </Paragraph>
     </Collapsible>
-  </div>
+  </Box>
 )
 
 SingleCollapsibleCustomHeader.storyName = "Single collapsible (custom header)"
 
 export const SingleCollapsibleLazyLoad = () => (
-  <div style={{ margin: "1rem", width: "40rem" }}>
+  <Box m={1}>
     <Collapsible id="collapsible-single" title="Single collapsible" lazyLoad>
       <Paragraph variant="body">
         This content won't be rendered until the collapsible is opened. This is
@@ -108,14 +108,14 @@ export const SingleCollapsibleLazyLoad = () => (
         open and close.
       </Paragraph>
     </Collapsible>
-  </div>
+  </Box>
 )
 
 SingleCollapsibleLazyLoad.storyName = "Single collapsible (lazy load)"
 
 // eslint-disable-next-line no-underscore-dangle
 export const _CollapsibleGroup = () => (
-  <div style={{ margin: "1rem", width: "40rem" }}>
+  <Box m={1}>
     <CollapsibleGroup>
       <Collapsible id="collapsible-separate-1" open title="First panel">
         <Paragraph variant="body">{lipsum}</Paragraph>
@@ -127,7 +127,7 @@ export const _CollapsibleGroup = () => (
         <Paragraph variant="body">{lipsum}</Paragraph>
       </Collapsible>
     </CollapsibleGroup>
-  </div>
+  </Box>
 )
 
 _CollapsibleGroup.storyName = "Collapsible group"
@@ -135,7 +135,7 @@ SingleCollapsibleLazyLoad.storyName = "Single collapsible (lazy load)"
 
 // eslint-disable-next-line no-underscore-dangle
 export const _CollapsibleClearVariantGroup = () => (
-  <div style={{ margin: "1rem", width: "40rem" }}>
+  <Box m={1}>
     <CollapsibleGroup>
       <Collapsible
         variant="clear"
@@ -160,13 +160,13 @@ export const _CollapsibleClearVariantGroup = () => (
         <Paragraph variant="body">{lipsum}</Paragraph>
       </Collapsible>
     </CollapsibleGroup>
-  </div>
+  </Box>
 )
 
 _CollapsibleClearVariantGroup.storyName = "Collapsible group (clear variant)"
 
 export const CollapsibleGroupSeparated = () => (
-  <div style={{ margin: "1rem", width: "40rem" }}>
+  <Box m={1}>
     <CollapsibleGroup separated>
       <Collapsible id="collapsible-separate-1" open title="First panel">
         <Paragraph variant="body">{lipsum}</Paragraph>
@@ -178,7 +178,7 @@ export const CollapsibleGroupSeparated = () => (
         <Paragraph variant="body">{lipsum}</Paragraph>
       </Collapsible>
     </CollapsibleGroup>
-  </div>
+  </Box>
 )
 
 CollapsibleGroupSeparated.storyName = "Collapsible group (separated)"
@@ -217,7 +217,7 @@ export const CollapsibleGroupStickyHeaders = () => (
 CollapsibleGroupStickyHeaders.storyName = "Collapsible group (sticky headers)"
 
 export const CollapsibleGroupCallbackOnOpenClose = () => (
-  <div style={{ margin: "1rem", width: "40rem" }}>
+  <Box m={1}>
     <CollapsibleGroup onToggle={() => undefined}>
       <Collapsible id="collapsible-separate-1" open title="First panel">
         <Paragraph variant="body">{lipsum}</Paragraph>
@@ -229,7 +229,7 @@ export const CollapsibleGroupCallbackOnOpenClose = () => (
         <Paragraph variant="body">{lipsum}</Paragraph>
       </Collapsible>
     </CollapsibleGroup>
-  </div>
+  </Box>
 )
 
 CollapsibleGroupCallbackOnOpenClose.storyName =

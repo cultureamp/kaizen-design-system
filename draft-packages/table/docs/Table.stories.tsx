@@ -124,10 +124,11 @@ export default {
   title: "Table (React)",
   component: TableCard,
   parameters: {
-    info: {
-      text:
-        "import { TableCard, TableContainer, TableHeader, TableHeaderRow, " +
-        'TableHeaderRowCell, TableRow, TableRowCell } from "@kaizen/draft-table"',
+    docs: {
+      description: {
+        component:
+          'import { TableCard, TableContainer, TableHeader, TableHeaderRow, TableHeaderRowCell, TableRow, TableRowCell } from "@kaizen/draft-table"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A28358"

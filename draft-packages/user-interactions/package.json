@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-user-interactions",
-  "version": "1.2.129",
+  "version": "1.2.130",
   "description": "The draft User interactions component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
@@ -32,7 +32,7 @@
   "private": false,
   "license": "MIT",
   "dependencies": {
-    "@kaizen/component-library": "^10.0.4",
+    "@kaizen/component-library": "^10.0.6",
     "@types/classnames": "^2.2.10",
     "classnames": "^2.2.6"
   },

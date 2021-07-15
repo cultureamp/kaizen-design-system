@@ -17,6 +17,12 @@ import styles from "./TitleBlockZen.stories.scss"
 export default {
   title: "TitleBlockZen (React)",
   parameters: {
+    docs: {
+      description: {
+        component:
+          'import { TitleBlockZen } from "@kaizen/draft-title-block-zen"',
+      },
+    },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=4619%3A17068"
     ),

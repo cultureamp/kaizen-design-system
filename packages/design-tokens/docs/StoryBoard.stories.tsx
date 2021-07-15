@@ -16,9 +16,8 @@ import { Button } from "@kaizen/draft-button"
 import * as ButtonStories from "@kaizen/draft-button/docs/Button.stories"
 import * as IconButtonStories from "@kaizen/draft-button/docs/IconButton.stories"
 import * as CardStories from "@kaizen/draft-card/docs/Card.stories"
-import * as CollapsibleStories from "@kaizen/draft-collapsible/KaizenDraft/Collapsible/Collapsible.stories"
+import * as CollapsibleStories from "@kaizen/draft-collapsible/docs/Collapsible.stories"
 import * as DividerStories from "@kaizen/draft-divider/docs/Divider.stories"
-import * as DropdownStories from "@kaizen/draft-dropdown/docs/Dropdown.stories"
 import * as EmptyStateStories from "@kaizen/draft-empty-state/docs/EmptyState.stories"
 import * as FilterMenuButtonStories from "@kaizen/draft-filter-menu-button/docs/FilterMenuButton.stories"
 import * as CheckboxFieldStories from "@kaizen/draft-form/docs/CheckboxField.stories"
@@ -426,7 +425,6 @@ export const Everything: Story = () => {
         <StoriesContainer storyModule={CheckboxGroupStories} />
         <StoriesContainer storyModule={CollapsibleStories} />
         <StoriesContainer storyModule={DividerStories} />
-        <StoriesContainer storyModule={DropdownStories} />
         <StoriesContainer storyModule={EmptyStateStories} />
         <StoriesContainer storyModule={FilterMenuButtonStories} />
         <StoriesContainer storyModule={GlobalNotificationStories} />

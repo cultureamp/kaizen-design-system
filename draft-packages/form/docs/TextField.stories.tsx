@@ -23,10 +23,10 @@ export default {
   title: "TextField (React)",
   component: TextField,
   parameters: {
-    info: {
-      text: `
-      import { TextField } from "@kaizen/draft-form"
-      `,
+    docs: {
+      description: {
+        component: 'import { TextField } from "@kaizen/draft-form"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14363%3A67837"

@@ -12,10 +12,10 @@ export default {
   title: "Tabs (React)",
   component: Tabs,
   parameters: {
-    info: {
-      text: `
-      import { Tabs } from "@kaizen/draft-tabs"
-      `,
+    docs: {
+      description: {
+        component: 'import { Tabs } from "@kaizen/draft-tabs"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14533%3A72574"

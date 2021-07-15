@@ -53,10 +53,11 @@ export default {
   title: "ToggleSwitchField (React)",
   component: ToggleSwitchField,
   parameters: {
-    info: {
-      text: `
-      import { ToggledStatus, ToggleSwitchField, ToggleTheme } from "@kaizen/draft-form"
-      `,
+    docs: {
+      description: {
+        component:
+          'import { ToggledStatus, ToggleSwitchField, ToggleTheme } from "@kaizen/draft-form"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14361%3A67850"
