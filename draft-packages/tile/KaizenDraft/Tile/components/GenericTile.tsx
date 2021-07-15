@@ -124,7 +124,6 @@ const GenericTile: GenericTile = ({
             disabled={!isFlipped}
           />
         </div>
-        {renderTitle()}
         <div className={styles.information}>
           {renderInformation(information)}
         </div>
