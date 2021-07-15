@@ -1,5 +1,6 @@
 import React from "react"
 import { assetUrl } from "@kaizen/hosted-assets"
+import styles from "./Brand.scss"
 
 export interface BrandProps {
   variant:
@@ -18,6 +19,7 @@ export const Brand = (props: BrandProps) => {
     <img
       src={assetUrl(`brand/${props.variant}${brandTheme}.svg`)}
       alt={props.alt}
+      className={styles.img}
     />
   )
 }
