@@ -127,7 +127,8 @@ export const flattenObjectToCSSVariables = (
 export const makeCSSVariableTheme = (
   theme: Theme,
   printValue = objectPathToCssVarReference,
-  augmentWithId = false
+  /* This will change the way the theme is generated so to support the new token naming requirements, such as changing `-rgb-params` to `-rgb` etc. */
+  version3 = false
 ) => {
   const augmentedTheme: Record<string, unknown> = {}
   const mapper = (leafPath: string[], value: unknown) => {
@@ -143,10 +144,17 @@ export const makeCSSVariableTheme = (
       leafKey,
       value,
       printValue,
-      {
-        augmentWithId,
-        augmentWithRgbParams: true,
-      }
+      version3
+        ? {
+            augmentWithId: true,
+            augmentWithRgbParams: false,
+            augmentWithRgb: true,
+          }
+        : {
+            augmentWithId: false,
+            augmentWithRgb: false,
+            augmentWithRgbParams: true,
+          }
     )
     Object.assign(leafObject, cssVariablesOfToken)
   }
@@ -202,9 +210,11 @@ export const augmentCssVariable = (
   printValue: <I>(path: string[], value: I) => string,
   {
     augmentWithRgbParams = true,
+    augmentWithRgb = true,
     augmentWithId = true,
   }: {
     augmentWithRgbParams?: boolean
+    augmentWithRgb?: boolean
     augmentWithId?: boolean
   } = {}
 ) => {
@@ -214,17 +224,24 @@ export const augmentCssVariable = (
   }
 
   // Add the -rgb key containing the RGB triple of the color (if it is a color)
-  if (colorRgb && augmentWithRgbParams) {
-    const rgbPath = [...path, "rgb"]
-    const rgbTriple = printValue(rgbPath, colorRgb.slice(0, 3).join(", "))
-    result[`${key}-rgb`] = rgbTriple
+  if (colorRgb) {
+    if (augmentWithRgb) {
+      const rgbPath = [...path, "rgb"]
+      const rgbTriple = printValue(rgbPath, colorRgb.slice(0, 3).join(", "))
+      result[`${key}-rgb`] = rgbTriple
+      if (augmentWithId) {
+        result[`${key}-rgb-id`] = objectPathToCssVarIdentifier(rgbPath)
+      }
+    }
 
     // DEPRECATED - REMOVE IN THE NEXT BREAKING CHANGE
-    result[`${key}-rgb-params`] = rgbTriple
-
-    if (augmentWithId) {
-      result[`${key}-rgb-id`] = objectPathToCssVarIdentifier(rgbPath)
-      // We don't need `-rgb-params-id` because it won't be used in future releases, nor is it required for compatibility
+    if (augmentWithRgbParams) {
+      const rgbParamsPath = [...path, "rgb-params"]
+      const rgbTriple = printValue(
+        rgbParamsPath,
+        colorRgb.slice(0, 3).join(", ")
+      )
+      result[`${key}-rgb-params`] = rgbTriple
     }
   }
 

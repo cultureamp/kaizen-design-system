@@ -3,45 +3,27 @@
     "border": {
       "solid": {
         "borderWidth": "var(--kz-var-border-solid-border-width, 2px)",
-        "borderWidth-id": "--kz-var-border-solid-border-width",
         "borderRadius": "var(--kz-var-border-solid-border-radius, 7px)",
-        "borderRadius-id": "--kz-var-border-solid-border-radius",
         "borderStyle": "var(--kz-var-border-solid-border-style, solid)",
-        "borderStyle-id": "--kz-var-border-solid-border-style",
         "borderColor": "var(--kz-var-border-solid-border-color, #e1e2ea)",
-        "borderColor-rgb": "var(--kz-var-border-solid-border-color-rgb, 225, 226, 234)",
-        "borderColor-rgb-params": "var(--kz-var-border-solid-border-color-rgb, 225, 226, 234)",
-        "borderColor-rgb-id": "--kz-var-border-solid-border-color-rgb",
-        "borderColor-id": "--kz-var-border-solid-border-color"
+        "borderColor-rgb-params": "var(--kz-var-border-solid-border-color-rgb-params, 225, 226, 234)"
       },
       "dashed": {
         "borderWidth": "var(--kz-var-border-dashed-border-width, 2px)",
-        "borderWidth-id": "--kz-var-border-dashed-border-width",
         "borderRadius": "var(--kz-var-border-dashed-border-radius, 7px)",
-        "borderRadius-id": "--kz-var-border-dashed-border-radius",
-        "borderStyle": "var(--kz-var-border-dashed-border-style, dashed)",
-        "borderStyle-id": "--kz-var-border-dashed-border-style"
+        "borderStyle": "var(--kz-var-border-dashed-border-style, dashed)"
       },
       "borderless": {
         "borderWidth": "var(--kz-var-border-borderless-border-width, 2px)",
-        "borderWidth-id": "--kz-var-border-borderless-border-width",
         "borderRadius": "var(--kz-var-border-borderless-border-radius, 7px)",
-        "borderRadius-id": "--kz-var-border-borderless-border-radius",
         "borderStyle": "var(--kz-var-border-borderless-border-style, solid)",
-        "borderStyle-id": "--kz-var-border-borderless-border-style",
         "borderColor": "var(--kz-var-border-borderless-border-color, transparent)",
-        "borderColor-rgb": "var(--kz-var-border-borderless-border-color-rgb, 0, 0, 0)",
-        "borderColor-rgb-params": "var(--kz-var-border-borderless-border-color-rgb, 0, 0, 0)",
-        "borderColor-rgb-id": "--kz-var-border-borderless-border-color-rgb",
-        "borderColor-id": "--kz-var-border-borderless-border-color"
+        "borderColor-rgb-params": "var(--kz-var-border-borderless-border-color-rgb-params, 0, 0, 0)"
       },
       "focusRing": {
         "borderWidth": "var(--kz-var-border-focus-ring-border-width, 2px)",
-        "borderWidth-id": "--kz-var-border-focus-ring-border-width",
         "borderRadius": "var(--kz-var-border-focus-ring-border-radius, 10px)",
-        "borderRadius-id": "--kz-var-border-focus-ring-border-radius",
-        "borderStyle": "var(--kz-var-border-focus-ring-border-style, solid)",
-        "borderStyle-id": "--kz-var-border-focus-ring-border-style"
+        "borderStyle": "var(--kz-var-border-focus-ring-border-style, solid)"
       }
     }
   }

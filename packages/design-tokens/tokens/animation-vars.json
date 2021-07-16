@@ -3,33 +3,20 @@
     "animation": {
       "easingFunction": {
         "easeInOut": "var(--kz-var-animation-easing-function-ease-in-out, cubic-bezier(0.455, 0.03, 0.515, 0.955))",
-        "easeInOut-id": "--kz-var-animation-easing-function-ease-in-out",
         "easeIn": "var(--kz-var-animation-easing-function-ease-in, cubic-bezier(0.55, 0.085, 0.68, 0.53))",
-        "easeIn-id": "--kz-var-animation-easing-function-ease-in",
         "easeOut": "var(--kz-var-animation-easing-function-ease-out, cubic-bezier(0.25, 0.46, 0.45, 0.94))",
-        "easeOut-id": "--kz-var-animation-easing-function-ease-out",
         "linear": "var(--kz-var-animation-easing-function-linear, linear)",
-        "linear-id": "--kz-var-animation-easing-function-linear",
         "bounceIn": "var(--kz-var-animation-easing-function-bounce-in, cubic-bezier(0.485, 0.155, 0.24, 1.245))",
-        "bounceIn-id": "--kz-var-animation-easing-function-bounce-in",
         "bounceOut": "var(--kz-var-animation-easing-function-bounce-out, cubic-bezier(0.485, 0.155, 0.515, 0.845))",
-        "bounceOut-id": "--kz-var-animation-easing-function-bounce-out",
-        "bounceInOut": "var(--kz-var-animation-easing-function-bounce-in-out, cubic-bezier(0.76, -0.245, 0.24, 1.245))",
-        "bounceInOut-id": "--kz-var-animation-easing-function-bounce-in-out"
+        "bounceInOut": "var(--kz-var-animation-easing-function-bounce-in-out, cubic-bezier(0.76, -0.245, 0.24, 1.245))"
       },
       "duration": {
         "instant": "var(--kz-var-animation-duration-instant, 0ms)",
-        "instant-id": "--kz-var-animation-duration-instant",
         "immediate": "var(--kz-var-animation-duration-immediate, 100ms)",
-        "immediate-id": "--kz-var-animation-duration-immediate",
         "rapid": "var(--kz-var-animation-duration-rapid, 200ms)",
-        "rapid-id": "--kz-var-animation-duration-rapid",
         "fast": "var(--kz-var-animation-duration-fast, 300ms)",
-        "fast-id": "--kz-var-animation-duration-fast",
         "slow": "var(--kz-var-animation-duration-slow, 400ms)",
-        "slow-id": "--kz-var-animation-duration-slow",
-        "deliberate": "var(--kz-var-animation-duration-deliberate, 700ms)",
-        "deliberate-id": "--kz-var-animation-duration-deliberate"
+        "deliberate": "var(--kz-var-animation-duration-deliberate, 700ms)"
       }
     }
   }

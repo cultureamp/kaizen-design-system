@@ -35,7 +35,6 @@
       "borderStyle-id": "--border-solid-border-style",
       "borderColor": "var(--border-solid-border-color, #e1e2ea)",
       "borderColor-rgb": "var(--border-solid-border-color-rgb, 225, 226, 234)",
-      "borderColor-rgb-params": "var(--border-solid-border-color-rgb, 225, 226, 234)",
       "borderColor-rgb-id": "--border-solid-border-color-rgb",
       "borderColor-id": "--border-solid-border-color"
     },
@@ -56,7 +55,6 @@
       "borderStyle-id": "--border-borderless-border-style",
       "borderColor": "var(--border-borderless-border-color, transparent)",
       "borderColor-rgb": "var(--border-borderless-border-color-rgb, 0, 0, 0)",
-      "borderColor-rgb-params": "var(--border-borderless-border-color-rgb, 0, 0, 0)",
       "borderColor-rgb-id": "--border-borderless-border-color-rgb",
       "borderColor-id": "--border-borderless-border-color"
     },

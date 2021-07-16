@@ -2,18 +2,12 @@
   "kz-var": {
     "layout": {
       "contentMaxWidth": "var(--kz-var-layout-content-max-width, 1392px)",
-      "contentMaxWidth-id": "--kz-var-layout-content-max-width",
       "contentSideMargin": "var(--kz-var-layout-content-side-margin, 72px)",
-      "contentSideMargin-id": "--kz-var-layout-content-side-margin",
       "mobileActionsDrawerHeight": "var(--kz-var-layout-mobile-actions-drawer-height, 60px)",
-      "mobileActionsDrawerHeight-id": "--kz-var-layout-mobile-actions-drawer-height",
       "navigationBarHeight": "var(--kz-var-layout-navigation-bar-height, 72px)",
-      "navigationBarHeight-id": "--kz-var-layout-navigation-bar-height",
       "breakpoints": {
         "medium": "var(--kz-var-layout-breakpoints-medium, 768px)",
-        "medium-id": "--kz-var-layout-breakpoints-medium",
-        "large": "var(--kz-var-layout-breakpoints-large, 1080px)",
-        "large-id": "--kz-var-layout-breakpoints-large"
+        "large": "var(--kz-var-layout-breakpoints-large, 1080px)"
       }
     }
   }

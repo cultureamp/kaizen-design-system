@@ -74,7 +74,13 @@ const run = () => {
   fs.mkdirSync(jsonOutput, { recursive: true })
   fs.mkdirSync(cssOutput, { recursive: true })
 
-  const customPropertiesTheme = makeCSSVariableTheme(
+  const customPropertiesThemeVersion2 = makeCSSVariableTheme(
+    defaultTheme,
+    objectPathToCssVarReference,
+    false
+  )
+
+  const customPropertiesThemeVersion3 = makeCSSVariableTheme(
     defaultTheme,
     objectPathToCssVarReference,
     true
@@ -106,8 +112,8 @@ const run = () => {
     path.resolve(jsonOutput, "color.json"),
     formatJson(
       JSON.stringify({
-        color: customPropertiesTheme.color,
-        DEPRECATED: customPropertiesTheme.DEPRECATED,
+        color: customPropertiesThemeVersion3.color,
+        DEPRECATED: customPropertiesThemeVersion3.DEPRECATED,
         kz: {
           color: defaultTheme.color,
           DEPRECATED: defaultTheme.DEPRECATED,
@@ -120,7 +126,7 @@ const run = () => {
     formatJson(
       JSON.stringify({
         kz: { border: defaultTheme.border },
-        border: customPropertiesTheme.border,
+        border: customPropertiesThemeVersion3.border,
       })
     )
   )
@@ -129,7 +135,7 @@ const run = () => {
     formatJson(
       JSON.stringify({
         kz: { animation: defaultTheme.animation },
-        animation: customPropertiesTheme.animation,
+        animation: customPropertiesThemeVersion3.animation,
       })
     )
   )
@@ -148,7 +154,7 @@ const run = () => {
     formatJson(
       JSON.stringify({
         kz: { shadow: defaultTheme.shadow },
-        shadow: customPropertiesTheme.shadow,
+        shadow: customPropertiesThemeVersion3.shadow,
       })
     )
   )
@@ -157,7 +163,7 @@ const run = () => {
     formatJson(
       JSON.stringify({
         kz: { spacing: defaultTheme.spacing },
-        spacing: customPropertiesTheme.spacing,
+        spacing: customPropertiesThemeVersion3.spacing,
       })
     )
   )
@@ -166,7 +172,7 @@ const run = () => {
     formatJson(
       JSON.stringify({
         kz: { typography: defaultTheme.typography },
-        typography: customPropertiesTheme.typography,
+        typography: customPropertiesThemeVersion3.typography,
       })
     )
   )
@@ -190,9 +196,9 @@ const run = () => {
     formatJson(
       JSON.stringify({
         [cssVariableThemeNamespace]: {
-          color: customPropertiesTheme[cssVariableThemeNamespace].color,
+          color: customPropertiesThemeVersion2[cssVariableThemeNamespace].color,
           DEPRECATED:
-            customPropertiesTheme[cssVariableThemeNamespace].DEPRECATED,
+            customPropertiesThemeVersion2[cssVariableThemeNamespace].DEPRECATED,
         },
       })
     )
@@ -202,7 +208,8 @@ const run = () => {
     formatJson(
       JSON.stringify({
         [cssVariableThemeNamespace]: {
-          border: customPropertiesTheme[cssVariableThemeNamespace].border,
+          border:
+            customPropertiesThemeVersion2[cssVariableThemeNamespace].border,
         },
       })
     )
@@ -212,7 +219,8 @@ const run = () => {
     formatJson(
       JSON.stringify({
         [cssVariableThemeNamespace]: {
-          animation: customPropertiesTheme[cssVariableThemeNamespace].animation,
+          animation:
+            customPropertiesThemeVersion2[cssVariableThemeNamespace].animation,
         },
       })
     )
@@ -222,7 +230,8 @@ const run = () => {
     formatJson(
       JSON.stringify({
         [cssVariableThemeNamespace]: {
-          layout: customPropertiesTheme[cssVariableThemeNamespace].layout,
+          layout:
+            customPropertiesThemeVersion2[cssVariableThemeNamespace].layout,
         },
       })
     )
@@ -232,7 +241,8 @@ const run = () => {
     formatJson(
       JSON.stringify({
         [cssVariableThemeNamespace]: {
-          shadow: customPropertiesTheme[cssVariableThemeNamespace].shadow,
+          shadow:
+            customPropertiesThemeVersion2[cssVariableThemeNamespace].shadow,
         },
       })
     )
@@ -242,7 +252,8 @@ const run = () => {
     formatJson(
       JSON.stringify({
         [cssVariableThemeNamespace]: {
-          spacing: customPropertiesTheme[cssVariableThemeNamespace].spacing,
+          spacing:
+            customPropertiesThemeVersion2[cssVariableThemeNamespace].spacing,
         },
       })
     )
@@ -253,7 +264,7 @@ const run = () => {
       JSON.stringify({
         [cssVariableThemeNamespace]: {
           typography:
-            customPropertiesTheme[cssVariableThemeNamespace].typography,
+            customPropertiesThemeVersion2[cssVariableThemeNamespace].typography,
         },
       })
     )
