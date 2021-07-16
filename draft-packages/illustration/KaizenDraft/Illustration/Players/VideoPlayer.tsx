@@ -115,7 +115,8 @@ export const VideoPlayer = ({
       autoPlay={prefersReducedMotion ? false : autoplay}
       playsInline={true}
     >
-      <source src={assetUrl(ambientAnimation)} type="video/webm" />
+      <source src={assetUrl(`${ambientAnimation}.webm`)} type="video/webm" />
+      <source src={assetUrl(`${ambientAnimation}.mp4`)} type="video/mp4" />
     </video>
   )
 }

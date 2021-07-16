@@ -33,8 +33,8 @@ export const BrandMomentCaptureIntro = ({
       <VideoPlayer
         {...otherProps}
         fallback="illustrations/heart/scene/brand-moments-capture-intro-loop.png"
-        ambientAnimation="illustrations/heart/scene/brand-moments-capture-intro-loop.webm"
-        initialAnimation="illustrations/heart/scene/brand-moments-capture-intro.webm"
+        ambientAnimation="illustrations/heart/scene/brand-moments-capture-intro-loop"
+        initialAnimation="illustrations/heart/scene/brand-moments-capture-intro"
       />
     )
   }
@@ -57,7 +57,7 @@ export const BrandMomentPositiveOutro = ({
       <VideoPlayer
         {...otherProps}
         fallback="illustrations/heart/scene/brand-moments-positive-outro.png"
-        ambientAnimation="illustrations/heart/scene/brand-moments-positive-outro.webm"
+        ambientAnimation="illustrations/heart/scene/brand-moments-positive-outro"
       />
     )
   }
@@ -80,7 +80,7 @@ export const BrandMomentLogin = ({
       <VideoPlayer
         {...otherProps}
         fallback="illustrations/heart/scene/brand-moments-login.png"
-        ambientAnimation="illustrations/heart/scene/brand-moments-login.webm"
+        ambientAnimation="illustrations/heart/scene/brand-moments-login"
       />
     )
   }
@@ -104,7 +104,7 @@ export const BrandMomentError = ({
       <VideoPlayer
         {...otherProps}
         fallback="illustrations/heart/scene/brand-moments-error.png"
-        ambientAnimation="illustrations/heart/scene/brand-moments-error.webm"
+        ambientAnimation="illustrations/heart/scene/brand-moments-error"
       />
     )
   }
@@ -128,7 +128,7 @@ export const EmptyStatesAction = ({
       <VideoPlayer
         {...otherProps}
         fallback="illustrations/heart/scene/empty-states-action.svg"
-        ambientAnimation="illustrations/heart/scene/empty-states-action.webm"
+        ambientAnimation="illustrations/heart/scene/empty-states-action"
       />
     )
   }
@@ -156,7 +156,7 @@ export const EmptyStatesInformative = ({
       <VideoPlayer
         {...otherProps}
         fallback="illustrations/heart/scene/empty-states-informative.svg"
-        ambientAnimation="illustrations/heart/scene/empty-states-informative.webm"
+        ambientAnimation="illustrations/heart/scene/empty-states-informative"
       />
     )
   }
@@ -184,7 +184,7 @@ export const EmptyStatesNegative = ({
       <VideoPlayer
         {...otherProps}
         fallback="illustrations/heart/scene/empty-states-negative.svg"
-        ambientAnimation="illustrations/heart/scene/empty-states-negative.webm"
+        ambientAnimation="illustrations/heart/scene/empty-states-negative"
       />
     )
   }
@@ -212,7 +212,7 @@ export const EmptyStatesPositive = ({
       <VideoPlayer
         {...otherProps}
         fallback="illustrations/heart/scene/empty-states-positive.svg"
-        ambientAnimation="illustrations/heart/scene/empty-states-positive.webm"
+        ambientAnimation="illustrations/heart/scene/empty-states-positive"
       />
     )
   }
@@ -240,7 +240,7 @@ export const EmptyStatesNeutral = ({
       <VideoPlayer
         {...otherProps}
         fallback="illustrations/heart/scene/empty-states-neutral.svg"
-        ambientAnimation="illustrations/heart/scene/empty-states-neutral.webm"
+        ambientAnimation="illustrations/heart/scene/empty-states-neutral"
       />
     )
   }
