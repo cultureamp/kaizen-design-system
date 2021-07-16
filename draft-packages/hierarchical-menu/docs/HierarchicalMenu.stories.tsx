@@ -49,6 +49,15 @@ const StoryContainer = ({ children }: StoryContainerProps) => {
 
 export default {
   title: "HierarchicalMenu (React)",
+  component: HierarchicalMenu,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'import { HierarchicalMenu } from "@kaizen/draft-hierarchical-menu"',
+      },
+    },
+  },
 }
 
 export const DefaultStory = () => (

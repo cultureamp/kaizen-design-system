@@ -64,7 +64,7 @@ export default {
     docs: {
       description: {
         component:
-          'Import { SurveyOverviewClosed } from "@kaizen/draft-illustration"',
+          'import { SurveyOverviewClosed } from "@kaizen/draft-illustration"',
       },
     },
   },

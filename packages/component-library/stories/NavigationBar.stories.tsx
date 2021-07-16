@@ -10,10 +10,11 @@ export default {
   title: "NavigationBar (deprecated) (React)",
   component: NavigationBar,
   parameters: {
-    info: {
-      text: `
-        import { NavigationBar, Menu, Link } from "@kaizen/component-library";
-      `,
+    docs: {
+      description: {
+        text:
+          'import { NavigationBar, Menu, Link } from "@kaizen/component-library";',
+      },
     },
   },
 }

@@ -30,10 +30,10 @@ export default {
   title: "HeroCard (React)",
   component: HeroCard,
   parameters: {
-    info: {
-      text: `
-        import { HeroCard } from "@kaizen/draft-hero-card";
-      `,
+    docs: {
+      description: {
+        docs: 'import { HeroCard } from "@kaizen/draft-hero-card";',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=3568%3A150"

@@ -6,10 +6,10 @@ export default {
   title: "Heading (React)",
   component: Heading,
   parameters: {
-    info: {
-      text: `
-        import { Heading } from "@kaizen/component-library";
-      `,
+    docs: {
+      description: {
+        component: 'import { Heading } from "@kaizen/component-library";',
+      },
     },
   },
 }

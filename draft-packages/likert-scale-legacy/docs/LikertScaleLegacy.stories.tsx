@@ -13,10 +13,11 @@ export default {
   title: "LikertScaleLegacy (React)",
   component: LikertScaleLegacy,
   parameters: {
-    info: {
-      text: `
-        import { LikertScale } from "@kaizen/draft-likert-scale-legacy";
-      `,
+    docs: {
+      description: {
+        component:
+          'import { LikertScale } from "@kaizen/draft-likert-scale-legacy";',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=14473%3A61902"

@@ -7,6 +7,11 @@ import { figmaEmbed } from "../../../storybook/helpers"
 export default {
   title: "Card (React)",
   parameters: {
+    docs: {
+      description: {
+        component: 'import { Card } from "@kaizen/component-library"',
+      },
+    },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A14085"
     ),
