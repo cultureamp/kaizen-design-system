@@ -163,7 +163,9 @@ export const makeCSSVariableTheme = (
   mapLeafsOfObject(theme, mapper)
   mapLeafsOfObject({ [cssVariableThemeNamespace]: theme }, mapper)
 
-  return augmentedTheme as Theme
+  return augmentedTheme as DeepMapObjectLeafs<Theme, string> & {
+    [cssVariableThemeNamespace]: DeepMapObjectLeafs<Theme, string>
+  }
 }
 
 /**
