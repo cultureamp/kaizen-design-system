@@ -111,7 +111,7 @@ export const VideoPlayer = ({
       data-testid="kz-video-player"
       className={styles.wrapper}
       loop={loop}
-      poster={assetUrl(fallback)}
+      poster={assetUrl(`${fallback}.png`)}
       autoPlay={prefersReducedMotion ? false : autoplay}
       playsInline={true}
     >
