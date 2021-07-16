@@ -28,10 +28,11 @@ export default {
   title: "InlineNotification (React)",
   component: InlineNotification,
   parameters: {
-    info: {
-      text: `
-        import { InlineNotification } from "@kaizen/component-library";
-      `,
+    docs: {
+      description: {
+        component:
+          'import { InlineNotification } from "@kaizen/component-library";',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13877%3A66008"

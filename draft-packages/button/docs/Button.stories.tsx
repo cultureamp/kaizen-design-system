@@ -17,10 +17,10 @@ export default {
     actions: {
       argTypesRegex: "^on.*",
     },
-    info: {
-      text: `
-        import { Button } from "@kaizen/draft-button";
-      `,
+    docs: {
+      description: {
+        component: 'import { Button } from "@kaizen/draft-button";',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=13555%3A0"

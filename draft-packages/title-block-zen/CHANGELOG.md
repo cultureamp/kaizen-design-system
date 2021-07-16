@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.64](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.2.63...@kaizen/draft-title-block-zen@3.2.64) (2021-07-16)
+
+**Note:** Version bump only for package @kaizen/draft-title-block-zen
+
+
+
+
+
 ## [3.2.63](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-title-block-zen@3.2.62...@kaizen/draft-title-block-zen@3.2.63) (2021-07-14)
 
 **Note:** Version bump only for package @kaizen/draft-title-block-zen

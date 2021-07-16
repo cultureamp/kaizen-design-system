@@ -14,6 +14,11 @@ const reversedBg = {
 export default {
   title: "Divider (React)",
   parameters: {
+    docs: {
+      description: {
+        component: 'import { Divider } from "@kaizen/draft-divider"',
+      },
+    },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A14040"
     ),

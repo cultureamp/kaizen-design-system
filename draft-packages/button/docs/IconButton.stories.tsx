@@ -1,4 +1,3 @@
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 import * as React from "react"
 import { IconButton } from ".."
@@ -6,6 +5,13 @@ import { IconButton } from ".."
 export default {
   title: "IconButton (React)",
   component: IconButton,
+  parameters: {
+    docs: {
+      description: {
+        component: 'import { IconButton } from "@kaizen/draft-button";',
+      },
+    },
+  },
 }
 
 export const DefaultKaizenSiteDemo = () => (

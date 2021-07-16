@@ -7,6 +7,11 @@ import { figmaEmbed } from "../../../storybook/helpers"
 export default {
   title: "Avatar (React)",
   parameters: {
+    docs: {
+      description: {
+        component: 'import { Avatar } from "@kaizen/draft-avatar"',
+      },
+    },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A14306"
     ),

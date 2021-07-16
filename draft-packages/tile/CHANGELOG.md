@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [5.0.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.2.14...@kaizen/draft-tile@5.0.0) (2021-07-15)
+
+
+### Features
+
+* Remove title from back of Tile component ([#1753](https://github.com/cultureamp/kaizen-design-system/issues/1753)) ([33aa40a](https://github.com/cultureamp/kaizen-design-system/commit/33aa40a539f3f525efbf7437a47dd5f83cbd9f9f))
+
+
+### BREAKING CHANGES
+
+* This will alter the appearance of the back side of the Tile component.
+
+
+
+
+
 ## [4.2.14](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-tile@4.2.13...@kaizen/draft-tile@4.2.14) (2021-07-14)
 
 **Note:** Version bump only for package @kaizen/draft-tile

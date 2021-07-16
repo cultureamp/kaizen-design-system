@@ -1,5 +1,4 @@
 import { Box, Paragraph } from "@kaizen/component-library"
-import * as colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { Button, IconButton } from "@kaizen/draft-button"
 import chevronDown from "@kaizen/component-library/icons/chevron-down.icon.svg"
 import chevronUp from "@kaizen/component-library/icons/chevron-up.icon.svg"
@@ -67,10 +66,11 @@ export default {
   title: "Menu (React)",
   component: Menu,
   parameters: {
-    info: {
-      text: `
-        import { Menu, MenuHeader, MenuItem, MenuContent, MenuSeparator } from "@kaizen/draft-menu";
-      `,
+    docs: {
+      description: {
+        component:
+          'import { Menu, MenuHeader, MenuItem, MenuContent, MenuSeparator } from "@kaizen/draft-menu";',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=6262%3A1233"

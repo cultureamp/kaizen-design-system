@@ -21,10 +21,10 @@ export default {
   title: "Brand Moment (React)",
   component: BrandMoment,
   parameters: {
-    info: {
-      text: `
-        import { BrandMoment } from "@kaizen/brand-moment";
-      `,
+    docs: {
+      description: {
+        component: 'import { BrandMoment } from "@kaizen/brand-moment";',
+      },
     },
   },
   decorators: [

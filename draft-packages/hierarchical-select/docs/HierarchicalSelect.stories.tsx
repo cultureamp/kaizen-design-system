@@ -65,6 +65,13 @@ const SelectionSummary = (props: {
 
 export default {
   title: "HierarchicalSelect (React)",
+  component: HierarchicalSelect,
+  docs: {
+    description: {
+      component:
+        'import { HierarchicalSelect } from "@kaizen/draft-hierarchical-select"',
+    },
+  },
 }
 
 export const DefaultStory = () => (
