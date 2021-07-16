@@ -8,10 +8,11 @@ export default {
   title: "GlobalNotification (React)",
   component: GlobalNotification,
   parameters: {
-    info: {
-      text: `
-        import { GlobalNotification } from "@kaizen/component-library";
-      `,
+    docs: {
+      description: {
+        component:
+          'import { GlobalNotification } from "@kaizen/component-library";',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A21284"

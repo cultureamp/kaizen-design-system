@@ -23,10 +23,11 @@ export default {
   component: Collapsible,
   parameters: {
     backgrounds: { default: "Stone" },
-    info: {
-      text: `
-        import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible";
-      `,
+    docs: {
+      description: {
+        component:
+          'import { Collapsible, CollapsibleGroup } from "@kaizen/draft-collapsible";',
+      },
     },
   },
 }

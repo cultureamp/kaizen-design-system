@@ -32,10 +32,10 @@ export default {
   title: "EmptyState (React)",
   component: EmptyState,
   parameters: {
-    info: {
-      text: `
-        import { EmptyState } from "@kaizen/draft-empty-state";
-      `,
+    docs: {
+      description: {
+        component: 'import { EmptyState } from "@kaizen/draft-empty-state";',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A33123"
