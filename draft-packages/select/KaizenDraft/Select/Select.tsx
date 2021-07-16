@@ -11,7 +11,7 @@ import clearIcon from "@kaizen/component-library/icons/clear.icon.svg"
 import { Tag } from "@kaizen/draft-tag"
 import styles from "./styles.react.scss"
 
-export { ValueType } from "react-select"
+export type { ValueType } from "react-select"
 
 export type SelectProps = {
   /**
@@ -41,39 +41,73 @@ export type SelectProps = {
 
 export type VariantType = "default" | "secondary" | "secondary-small"
 
-export const Select = (props: SelectProps & ReactSelectProps<any, boolean>) => {
-  if (props.fullWidth === false && props.variant !== "secondary") {
-    throw new Error(
-      'the prop fullWidth=false is not yet implemented when variant="default"'
+export const Select = React.forwardRef(
+  (
+    props: SelectProps & ReactSelectProps<any, boolean>,
+    ref: React.Ref<any>
+  ) => {
+    if (props.fullWidth === false && props.variant !== "secondary") {
+      throw new Error(
+        'the prop fullWidth=false is not yet implemented when variant="default"'
+      )
+    }
+    const { variant = "default", reversed = false } = props
+
+    // the default for fullWidth depends on the variant
+    const fullWidth =
+      props.fullWidth != null
+        ? props.fullWidth
+        : variant === "secondary" || variant === "secondary-small"
+        ? false
+        : true
+
+    if (reversed === true && variant === "default") {
+      throw new Error(
+        'the combo variant="default" and reversed=true is not yet implemented for the Select component'
+      )
+    }
+
+    const classes = classNames(props.className, styles.specificityIncreaser, {
+      [styles.default]: !reversed,
+      [styles.reversed]: reversed,
+      [styles.secondary]: variant === "secondary",
+      [styles.secondarySmall]: variant === "secondary-small",
+      [styles.notFullWidth]: !fullWidth,
+      [styles.disabled]: props.isDisabled,
+    })
+    return (
+      <ReactSelect
+        {...props}
+        ref={ref}
+        components={{
+          Control,
+          Placeholder,
+          DropdownIndicator,
+          Menu,
+          Option,
+          NoOptionsMessage,
+          SingleValue,
+          MultiValue,
+          IndicatorsContainer,
+          ClearIndicator,
+          IndicatorSeparator: null,
+        }}
+        className={classes}
+      />
     )
   }
-  const { variant = "default", reversed = false } = props
+)
+Select.displayName = "Select"
 
-  // the default for fullWidth depends on the variant
-  const fullWidth =
-    props.fullWidth != null
-      ? props.fullWidth
-      : variant === "secondary" || variant === "secondary-small"
-      ? false
-      : true
+interface AsyncProps
+  extends ReactAsyncSelectProps<any>,
+    ReactSelectProps<any, boolean> {}
 
-  if (reversed === true && variant === "default") {
-    throw new Error(
-      'the combo variant="default" and reversed=true is not yet implemented for the Select component'
-    )
-  }
-
-  const classes = classNames(props.className, styles.specificityIncreaser, {
-    [styles.default]: !reversed,
-    [styles.reversed]: reversed,
-    [styles.secondary]: variant === "secondary",
-    [styles.secondarySmall]: variant === "secondary-small",
-    [styles.notFullWidth]: !fullWidth,
-    [styles.disabled]: props.isDisabled,
-  })
-  return (
-    <ReactSelect
+export const AsyncSelect = React.forwardRef(
+  (props: AsyncProps, ref: React.Ref<any>) => (
+    <Async
       {...props}
+      ref={ref}
       components={{
         Control,
         Placeholder,
@@ -84,37 +118,14 @@ export const Select = (props: SelectProps & ReactSelectProps<any, boolean>) => {
         SingleValue,
         MultiValue,
         IndicatorsContainer,
-        ClearIndicator,
+        ClearIndicator: null,
         IndicatorSeparator: null,
       }}
-      className={classes}
+      className={classNames(styles.specificityIncreaser, props.className)}
     />
   )
-}
-
-interface AsyncProps
-  extends ReactAsyncSelectProps<any>,
-    ReactSelectProps<any, boolean> {}
-
-export const AsyncSelect = (props: AsyncProps) => (
-  <Async
-    {...props}
-    components={{
-      Control,
-      Placeholder,
-      DropdownIndicator,
-      Menu,
-      Option,
-      NoOptionsMessage,
-      SingleValue,
-      MultiValue,
-      IndicatorsContainer,
-      ClearIndicator: null,
-      IndicatorSeparator: null,
-    }}
-    className={classNames(styles.specificityIncreaser, props.className)}
-  />
 )
+AsyncSelect.displayName = "AsyncSelect"
 
 const Control: typeof components.Control = props => (
   <div data-automation-id="Select__Control">
