@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.18.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.17.6...@kaizen/draft-select@1.18.0) (2021-07-16)
+
+
+### Features
+
+* forward refs through select component ([#1765](https://github.com/cultureamp/kaizen-design-system/issues/1765)) ([b969f92](https://github.com/cultureamp/kaizen-design-system/commit/b969f92b6e99a998baa9be1a93f5cd23dfe4bd40))
+
+
+
+
+
 ## [1.17.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-select@1.17.5...@kaizen/draft-select@1.17.6) (2021-07-14)
 
 **Note:** Version bump only for package @kaizen/draft-select
