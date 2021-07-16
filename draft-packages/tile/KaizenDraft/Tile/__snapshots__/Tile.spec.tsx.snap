@@ -205,24 +205,6 @@ exports[`<InformationTile /> snapshots renders InformationTile with information 
         </span>
       </div>
       <div
-        class="title"
-      >
-        <h3
-          class="heading heading-3 dark small"
-        >
-          Title
-        </h3>
-        <div
-          class="pt-0-point-25 m-0"
-        >
-          <p
-            class="paragraph small dark-reduced-opacity"
-          >
-            Metadata
-          </p>
-        </div>
-      </div>
-      <div
         class="information"
       >
         <p
