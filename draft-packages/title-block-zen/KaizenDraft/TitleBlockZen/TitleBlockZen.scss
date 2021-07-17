@@ -211,8 +211,6 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 .avatar {
   display: none;
   box-sizing: border-box;
-  border: 3px solid $kz-var-color-white;
-  border-radius: 50%;
   overflow: hidden;
   height: $ca-grid * 2;
   width: $ca-grid * 2;
@@ -224,6 +222,11 @@ $tab-container-height-medium-and-small-collapsed: $ca-grid * 0.75;
 
   @media (min-width: $kz-layout-breakpoints-large) {
     display: block;
+  }
+
+  &.withBorder {
+    border: 3px solid $kz-var-color-white;
+    border-radius: 50%;
   }
 
   .hasLongTitle & {

@@ -1,5 +1,6 @@
 import { Heading, Icon } from "@kaizen/component-library"
 import * as layoutTokens from "@kaizen/design-tokens/tokens/layout.json"
+import { Avatar, AvatarProps as DraftAvatarProps } from "@kaizen/draft-avatar"
 import { ButtonProps } from "@kaizen/draft-button"
 import { MenuItemProps } from "@kaizen/draft-menu"
 import { Select } from "@kaizen/draft-select"
@@ -28,6 +29,8 @@ type DistributiveOmit<T, K extends keyof any> = T extends any
 
 export const NON_REVERSED_VARIANTS = ["education", "admin"]
 
+type AvatarProps = Omit<DraftAvatarProps, "size">
+
 /**
  * @param TitleBlockProps ### Accessing internal types of TitleBlockProps
  * If you want access to types like `PrimaryActionProps` (for example, in the scenario
@@ -43,7 +46,7 @@ export interface TitleBlockProps {
   title: string
   variant?: Variant
   breadcrumb?: Breadcrumb
-  avatar?: JSX.Element
+  avatar?: JSX.Element | AvatarProps
   subtitle?: string
   sectionTitle?: string
   sectionTitleDescription?: string
@@ -211,11 +214,23 @@ const renderTag = (surveyStatus: SurveyStatus) => {
   )
 }
 
-const renderAvatar = (image: JSX.Element, avatarAutomationId: string) => (
-  <div data-automation-id={avatarAutomationId} className={styles.avatar}>
-    {image}
-  </div>
-)
+const renderAvatar = (
+  imageElementOrAvatarProps: JSX.Element | AvatarProps,
+  avatarAutomationId: string
+) =>
+  (imageElementOrAvatarProps as AvatarProps).avatarSrc !== undefined ||
+  (imageElementOrAvatarProps as AvatarProps).fullName !== undefined ? (
+    <div data-automation-id={avatarAutomationId} className={styles.avatar}>
+      <Avatar {...imageElementOrAvatarProps} size="medium" />
+    </div>
+  ) : (
+    <div
+      data-automation-id={avatarAutomationId}
+      className={classNames(styles.avatar, styles.withBorder)}
+    >
+      {imageElementOrAvatarProps}
+    </div>
+  )
 
 const renderSubtitle = (subtitle: string, subtitleAutomationId: string) => (
   <div className={styles.subtitle}>

@@ -33,6 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "@kaizen/component-library": "^10.0.6",
+    "@kaizen/draft-avatar": "^1.5.2",
     "@kaizen/draft-badge": "^1.4.0",
     "@kaizen/draft-button": "^3.3.18",
     "@kaizen/draft-menu": "^3.2.33",
