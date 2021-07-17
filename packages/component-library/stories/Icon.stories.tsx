@@ -6,10 +6,10 @@ import configureIcon from "@kaizen/component-library/icons/configure.icon.svg"
 export default {
   title: "Icon (React)",
   parameters: {
-    info: {
-      text: `
-        import { Icon } from "@kaizen/component-library";
-      `,
+    docs: {
+      description: {
+        component: 'import { Icon } from "@kaizen/component-library";',
+      },
     },
   },
 }

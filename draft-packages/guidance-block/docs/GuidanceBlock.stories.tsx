@@ -11,10 +11,11 @@ export default {
   title: "GuidanceBlock (React)",
   component: GuidanceBlock,
   parameters: {
-    info: {
-      text: `
-        import { GuidanceBlock } from "@kaizen/draft-guidance-block";
-      `,
+    docs: {
+      description: {
+        component:
+          'import { GuidanceBlock } from "@kaizen/draft-guidance-block";',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A39077"

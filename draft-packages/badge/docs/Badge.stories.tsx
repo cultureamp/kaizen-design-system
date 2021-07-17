@@ -9,6 +9,11 @@ import { figmaEmbed } from "../../../storybook/helpers"
 export default {
   title: "Badge (React)",
   parameters: {
+    docs: {
+      description: {
+        component: 'import { Badge } from "@kaizen/draft-badge"',
+      },
+    },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=1929%3A14398"
     ),

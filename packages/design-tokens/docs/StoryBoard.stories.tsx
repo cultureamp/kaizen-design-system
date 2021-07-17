@@ -8,7 +8,6 @@ import * as GlobalNotificationStories from "@kaizen/component-library/stories/Gl
 import * as HeadingStories from "@kaizen/component-library/stories/Heading.stories"
 import * as IconStories from "@kaizen/component-library/stories/Icon.stories"
 import * as InlineNotificationStories from "@kaizen/component-library/stories/InlineNotification.stories"
-import * as NavigationBarStories from "@kaizen/component-library/stories/NavigationBar.stories"
 import * as ParagraphStories from "@kaizen/component-library/stories/Paragraph.stories"
 import * as ToastNotificationStories from "@kaizen/component-library/stories/ToastNotification.stories"
 import * as AvatarStories from "@kaizen/draft-avatar/docs/Avatar.stories"
@@ -445,7 +444,6 @@ export const Everything: Story = () => {
         <StoriesContainer storyModule={LoadingSpinnerStories} />
         <StoriesContainer storyModule={MenuStories} />
         <StoriesContainer storyModule={ModalStories} />
-        <StoriesContainer storyModule={NavigationBarStories} />
         <StoriesContainer storyModule={PageLayoutStories} />
         <StoriesContainer storyModule={ParagraphStories} />
         <StoriesContainer storyModule={PopoverStories} />

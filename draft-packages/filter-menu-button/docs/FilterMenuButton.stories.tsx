@@ -11,6 +11,15 @@ const StoryWrapper = ({ children }) => (
 
 export default {
   title: "FilterMenuButton (React)",
+  component: FilterMenuButton,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'import { FilterMenuButton } from "@kaizen/draft-filter-menu-button"',
+      },
+    },
+  },
 }
 
 type DropdownOption = {

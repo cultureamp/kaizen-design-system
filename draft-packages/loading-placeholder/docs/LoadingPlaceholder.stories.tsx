@@ -14,10 +14,11 @@ export default {
   title: "LoadingPlaceholder (React)",
   component: LoadingPlaceholder,
   parameters: {
-    info: {
-      text: `
-      import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"
-      `,
+    docs: {
+      description: {
+        component:
+          'import { LoadingPlaceholder } from "@kaizen/draft-loading-placeholder"',
+      },
     },
     ...figmaEmbed(
       "https://www.figma.com/file/GMxm8rvDCbj0Xw3TQWBZ8b/UI-Kit-Zen?node-id=4496%3A2"
