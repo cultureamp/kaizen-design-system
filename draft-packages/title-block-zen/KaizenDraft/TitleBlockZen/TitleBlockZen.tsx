@@ -218,17 +218,16 @@ const renderAvatar = (
   imageElementOrAvatarProps: JSX.Element | AvatarProps,
   avatarAutomationId: string
 ) =>
-  (imageElementOrAvatarProps as AvatarProps).avatarSrc !== undefined ||
-  (imageElementOrAvatarProps as AvatarProps).fullName !== undefined ? (
-    <div data-automation-id={avatarAutomationId} className={styles.avatar}>
-      <Avatar {...imageElementOrAvatarProps} size="medium" />
-    </div>
-  ) : (
+  (imageElementOrAvatarProps as JSX.Element).props !== undefined ? (
     <div
       data-automation-id={avatarAutomationId}
       className={classNames(styles.avatar, styles.withBorder)}
     >
       {imageElementOrAvatarProps}
+    </div>
+  ) : (
+    <div data-automation-id={avatarAutomationId} className={styles.avatar}>
+      <Avatar {...imageElementOrAvatarProps} size="medium" />
     </div>
   )
 
