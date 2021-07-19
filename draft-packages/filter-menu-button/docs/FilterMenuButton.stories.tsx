@@ -27,9 +27,6 @@ export default {
       },
     },
   },
-  args: {
-    isInitialDropdownVisible: isChromatic(),
-  },
   decorators: [withMinHeight],
 }
 
@@ -43,7 +40,8 @@ export const DefaultStory = props => (
 )
 DefaultStory.storyName = "Simple Filter (Kaizen Site Demo)"
 
-export const DefaultEmpty = ({ isInitialDropdownVisible }) => {
+export const DefaultEmpty = () => {
+  const isInitialDropdownVisible = isChromatic()
   const [isDropdownVisible, setIsDropdownVisible] = useState(
     isInitialDropdownVisible
   )
@@ -91,9 +89,8 @@ const dropdownOptions = [
   { id: 7, label: "Warm-blooded" },
 ]
 
-export const DefaultWithChildrenSimpleFilter = ({
-  isInitialDropdownVisible,
-}) => {
+export const DefaultWithChildrenSimpleFilter = () => {
+  const isInitialDropdownVisible = isChromatic()
   const [isDropdownVisible, setIsDropdownVisible] = useState(
     isInitialDropdownVisible
   )
@@ -165,9 +162,8 @@ export const DefaultWithChildrenSimpleFilter = ({
 DefaultWithChildrenSimpleFilter.storyName =
   "Default with children (Simple filter)"
 
-export const DefaultWithChildrenAdvancedFilter = ({
-  isInitialDropdownVisible,
-}) => {
+export const DefaultWithChildrenAdvancedFilter = () => {
+  const isInitialDropdownVisible = isChromatic()
   const [isDropdownVisible, setIsDropdownVisible] = useState(
     isInitialDropdownVisible
   )
