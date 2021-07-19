@@ -67,13 +67,17 @@ describe("<VideoPlayer />", () => {
           data-testid="kz-video-player"
           muted=""
           playsinline=""
-          poster="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.svg"
+          poster="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.svg.png"
           preload="metadata"
           width="100%"
         >
           <source
-            src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.webm"
+            src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.webm.webm"
             type="video/webm"
+          />
+          <source
+            src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.webm.mp4"
+            type="video/mp4"
           />
         </video>
       `)
@@ -100,13 +104,17 @@ describe("<VideoPlayer />", () => {
           data-testid="kz-video-player"
           muted=""
           playsinline=""
-          poster="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.svg"
+          poster="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.svg.png"
           preload="metadata"
           width="100%"
         >
           <source
-            src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.webm"
+            src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.webm.webm"
             type="video/webm"
+          />
+          <source
+            src="https://d1e7r7b0lb8p4d.cloudfront.net/illustrations/heart/spot/moods-cautionary.webm.mp4"
+            type="video/mp4"
           />
         </video>
       `)
