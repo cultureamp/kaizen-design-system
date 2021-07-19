@@ -3,7 +3,7 @@
 import { Box, Paragraph } from "@kaizen/component-library"
 import { Card } from "@kaizen/draft-card"
 import { Tabs } from "@kaizen/draft-tabs"
-import LinkTo from "@storybook/addon-links/react"
+import { LinkTo } from "@storybook/addon-links/react"
 import { Meta } from "@storybook/react"
 import classNames from "classnames"
 import "highlight.js/styles/monokai.css"
