@@ -1,13 +1,14 @@
 import * as React from "react"
 
 import { LoadingSpinner } from "@kaizen/draft-loading-spinner"
-import { Paragraph } from "@kaizen/component-library"
+import { Box, Paragraph } from "@kaizen/component-library"
 import { withDesign } from "storybook-addon-designs"
 import colorTokens from "@kaizen/design-tokens/tokens/color.json"
 import { figmaEmbed } from "../../../storybook/helpers"
 
 export default {
   title: "LoadingSpinner (React)",
+  component: LoadingSpinner,
   parameters: {
     docs: {
       description: {
@@ -25,19 +26,12 @@ export default {
 export const DefaultStory = () => (
   <div
     style={{
-      alignItems: "center",
-      display: "flex",
-      justifyContent: "center",
-      flexDirection: "column",
       color: colorTokens.kz.color.seedling["400"],
     }}
   >
-    <div style={{ marginBottom: "3rem" }}>
-      <LoadingSpinner
-        accessibilityLabel="Loading comments"
-        size="md"
-      ></LoadingSpinner>
-    </div>
+    <Box mb={2}>
+      <LoadingSpinner accessibilityLabel="Loading comments" size="md" />
+    </Box>
     <Paragraph variant="body">
       LoadingSpinner will inherit its color from the parent's <code>color</code>{" "}
       property.
@@ -56,9 +50,6 @@ DefaultStory.storyName = "Default (Kaizen Site Demo)"
 export const SizeStory = () => (
   <div
     style={{
-      alignItems: "center",
-      display: "flex",
-      justifyContent: "center",
       color: colorTokens.kz.color.wisteria["800"],
     }}
   >

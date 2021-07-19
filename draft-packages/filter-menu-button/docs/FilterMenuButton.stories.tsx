@@ -2,12 +2,19 @@ import { Box, Paragraph } from "@kaizen/component-library"
 import { Button } from "@kaizen/draft-button"
 import { FilterMenuButton } from "@kaizen/draft-filter-menu-button"
 import { CheckboxField, CheckboxGroup } from "@kaizen/draft-form"
+import isChromatic from "chromatic/isChromatic"
 import React, { useState } from "react"
 import styles from "./FilterMenuButton.stories.scss"
 
-const StoryWrapper = ({ children }) => (
-  <div className={styles.siteDemoWrapper}>{children}</div>
-)
+/**
+ * When running visual regressions on this story we need to do two things:
+ * 1) Expand the dropdown
+ * 2) Set a minimum height on the container
+ */
+const withMinHeight = Story => {
+  if (!isChromatic()) return <Story />
+  return <div className={styles.siteDemoWrapper}>{Story}</div>
+}
 
 export default {
   title: "FilterMenuButton (React)",
@@ -20,6 +27,10 @@ export default {
       },
     },
   },
+  args: {
+    isInitialDropdownVisible: isChromatic(),
+  },
+  decorators: [withMinHeight],
 }
 
 type DropdownOption = {
@@ -27,11 +38,15 @@ type DropdownOption = {
   label: string
 }
 
-export const DefaultStory = () => <DefaultWithChildrenSimpleFilter />
+export const DefaultStory = props => (
+  <DefaultWithChildrenSimpleFilter {...props} />
+)
 DefaultStory.storyName = "Simple Filter (Kaizen Site Demo)"
 
-export const DefaultEmpty = () => {
-  const [isDropdownVisible, setIsDropdownVisible] = useState(false)
+export const DefaultEmpty = ({ isInitialDropdownVisible }) => {
+  const [isDropdownVisible, setIsDropdownVisible] = useState(
+    isInitialDropdownVisible
+  )
 
   const toggleDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible)
@@ -42,28 +57,26 @@ export const DefaultEmpty = () => {
   }
 
   return (
-    <StoryWrapper>
-      <FilterMenuButton
-        id="filter-drawer-3"
-        labelText="Filter"
-        metadata=""
-        isDropdownVisible={isDropdownVisible}
-        toggleDropdown={toggleDropdown}
-        hideDropdown={hideDropdown}
-      >
-        <div style={{ width: "300px" }}>
-          <Box p={0.5}>
-            <Paragraph variant="body">
-              You can put anything inside the dropdown.{" "}
-              <a href="https://cultureamp.design/guidelines/filtering/">
-                See Filtering Guidelines
-              </a>{" "}
-              for usage guidelines.
-            </Paragraph>
-          </Box>
-        </div>
-      </FilterMenuButton>
-    </StoryWrapper>
+    <FilterMenuButton
+      id="filter-drawer-3"
+      labelText="Filter"
+      metadata=""
+      isDropdownVisible={isDropdownVisible}
+      toggleDropdown={toggleDropdown}
+      hideDropdown={hideDropdown}
+    >
+      <div style={{ width: "300px" }}>
+        <Box p={0.5}>
+          <Paragraph variant="body">
+            You can put anything inside the dropdown.{" "}
+            <a href="https://cultureamp.design/guidelines/filtering/">
+              See Filtering Guidelines
+            </a>{" "}
+            for usage guidelines.
+          </Paragraph>
+        </Box>
+      </div>
+    </FilterMenuButton>
   )
 }
 DefaultEmpty.storyName = "Default (Empty)"
@@ -78,8 +91,12 @@ const dropdownOptions = [
   { id: 7, label: "Warm-blooded" },
 ]
 
-export const DefaultWithChildrenSimpleFilter = () => {
-  const [isDropdownVisible, setIsDropdownVisible] = useState(false)
+export const DefaultWithChildrenSimpleFilter = ({
+  isInitialDropdownVisible,
+}) => {
+  const [isDropdownVisible, setIsDropdownVisible] = useState(
+    isInitialDropdownVisible
+  )
   const [appliedFilters, setAppliedFilters] = useState<DropdownOption[]>([])
 
   const checkedTraits: string = appliedFilters
@@ -105,53 +122,55 @@ export const DefaultWithChildrenSimpleFilter = () => {
   }
 
   return (
-    <StoryWrapper>
-      <FilterMenuButton
-        id="filter-menu-button"
-        labelText="Animal traits"
-        metadata={checkedTraits}
-        isDropdownVisible={isDropdownVisible}
-        toggleDropdown={toggleDropdown}
-        hideDropdown={hideDropdown}
-      >
-        <>
-          <div className={styles.content}>
-            <CheckboxGroup labelText="Traits">
-              {dropdownOptions.map(trait => (
-                <CheckboxField
-                  onCheck={() => {
-                    onCheckboxChange(trait)
-                  }}
-                  id={`checkbox-${trait.id}`}
-                  checkedStatus={
-                    appliedFilters.filter(filter => filter.id === trait.id)
-                      .length > 0
-                      ? "on"
-                      : "off"
-                  }
-                  labelText={trait.label}
-                />
-              ))}
-            </CheckboxGroup>
-          </div>
-          <div className={styles.buttons}>
-            <Button
-              secondary={true}
-              fullWidth
-              label="Done"
-              onClick={hideDropdown}
-            />
-          </div>
-        </>
-      </FilterMenuButton>
-    </StoryWrapper>
+    <FilterMenuButton
+      id="filter-menu-button"
+      labelText="Animal traits"
+      metadata={checkedTraits}
+      isDropdownVisible={isDropdownVisible}
+      toggleDropdown={toggleDropdown}
+      hideDropdown={hideDropdown}
+    >
+      <>
+        <div className={styles.content}>
+          <CheckboxGroup labelText="Traits">
+            {dropdownOptions.map(trait => (
+              <CheckboxField
+                onCheck={() => {
+                  onCheckboxChange(trait)
+                }}
+                id={`checkbox-${trait.id}`}
+                checkedStatus={
+                  appliedFilters.filter(filter => filter.id === trait.id)
+                    .length > 0
+                    ? "on"
+                    : "off"
+                }
+                labelText={trait.label}
+              />
+            ))}
+          </CheckboxGroup>
+        </div>
+        <div className={styles.buttons}>
+          <Button
+            secondary={true}
+            fullWidth
+            label="Done"
+            onClick={hideDropdown}
+          />
+        </div>
+      </>
+    </FilterMenuButton>
   )
 }
 DefaultWithChildrenSimpleFilter.storyName =
   "Default with children (Simple filter)"
 
-export const DefaultWithChildrenAdvancedFilter = () => {
-  const [isDropdownVisible, setIsDropdownVisible] = useState(false)
+export const DefaultWithChildrenAdvancedFilter = ({
+  isInitialDropdownVisible,
+}) => {
+  const [isDropdownVisible, setIsDropdownVisible] = useState(
+    isInitialDropdownVisible
+  )
   const [appliedFilters, setAppliedFilters] = useState<DropdownOption[]>([])
 
   const checkedTraits: string = appliedFilters
@@ -181,47 +200,45 @@ export const DefaultWithChildrenAdvancedFilter = () => {
   }
 
   return (
-    <StoryWrapper>
-      <FilterMenuButton
-        id="filter-menu-button"
-        labelText="Animal traits"
-        metadata={checkedTraits}
-        isDropdownVisible={isDropdownVisible}
-        toggleDropdown={toggleDropdown}
-        hideDropdown={hideDropdown}
-        onFilterClear={clearFilter}
-      >
-        <>
-          <div className={styles.content}>
-            <CheckboxGroup labelText="Traits">
-              {dropdownOptions.map(trait => (
-                <CheckboxField
-                  onCheck={() => {
-                    onCheckboxChange(trait)
-                  }}
-                  id={`checkbox-${trait.id}`}
-                  checkedStatus={
-                    appliedFilters.filter(filter => filter.id === trait.id)
-                      .length > 0
-                      ? "on"
-                      : "off"
-                  }
-                  labelText={trait.label}
-                />
-              ))}
-            </CheckboxGroup>
-          </div>
-          <div className={styles.buttons}>
-            <Button
-              secondary={true}
-              fullWidth
-              label="Done"
-              onClick={hideDropdown}
-            />
-          </div>
-        </>
-      </FilterMenuButton>
-    </StoryWrapper>
+    <FilterMenuButton
+      id="filter-menu-button"
+      labelText="Animal traits"
+      metadata={checkedTraits}
+      isDropdownVisible={isDropdownVisible}
+      toggleDropdown={toggleDropdown}
+      hideDropdown={hideDropdown}
+      onFilterClear={clearFilter}
+    >
+      <>
+        <div className={styles.content}>
+          <CheckboxGroup labelText="Traits">
+            {dropdownOptions.map(trait => (
+              <CheckboxField
+                onCheck={() => {
+                  onCheckboxChange(trait)
+                }}
+                id={`checkbox-${trait.id}`}
+                checkedStatus={
+                  appliedFilters.filter(filter => filter.id === trait.id)
+                    .length > 0
+                    ? "on"
+                    : "off"
+                }
+                labelText={trait.label}
+              />
+            ))}
+          </CheckboxGroup>
+        </div>
+        <div className={styles.buttons}>
+          <Button
+            secondary={true}
+            fullWidth
+            label="Done"
+            onClick={hideDropdown}
+          />
+        </div>
+      </>
+    </FilterMenuButton>
   )
 }
 DefaultWithChildrenAdvancedFilter.storyName =
