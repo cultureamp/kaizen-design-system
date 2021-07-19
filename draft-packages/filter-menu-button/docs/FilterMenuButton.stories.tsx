@@ -7,9 +7,10 @@ import React, { useState } from "react"
 import styles from "./FilterMenuButton.stories.scss"
 
 /**
- * When running visual regressions on this story we need to do two things:
+ * When running visual regressions on this story we need to do two things to
+ * ensure the stories are snapshotted and tested correctly:
  * 1) Expand the dropdown
- * 2) Set a minimum height on the container
+ * 2) Set a minimum height on the container to capture the dropdown
  */
 const withMinHeight = Story => {
   if (!isChromatic()) return <Story />
