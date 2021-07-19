@@ -2,12 +2,11 @@ import stylelint from "stylelint"
 import { Root } from "postcss"
 import { allUsedTokensMustBeImported } from "./rules/all-used-tokens-must-be-imported"
 import { allTokenImportsMustBeUsed } from "./rules/all-token-imports-must-be-used"
-import { preferVarTokens } from "./rules/prefer-var-tokens"
+import { preferVarTokens } from "./rules/no-deprecated-tokens"
 import { noInvalidUseOfVarTokensInEquations } from "./rules/no-invalid-use-of-var-tokens-in-equations"
 import { noInvalidUseOfVarTokensInFunctions } from "./rules/no-invalid-use-of-var-tokens-in-functions"
 import { noTokensInVariables } from "./rules/no-tokens-in-variables"
 import { Options } from "./types"
-import { renameColorsRule } from "./rules/rename-tokens"
 
 type StyleLintRuleFunction = (stylesheetNode: Root, options: Options) => void
 
@@ -28,7 +27,6 @@ const rules: StyleLintRule[] = [
   noInvalidUseOfVarTokensInEquations,
   noInvalidUseOfVarTokensInFunctions,
   preferVarTokens,
-  renameColorsRule,
 ]
 
 export default rules.map(rule =>

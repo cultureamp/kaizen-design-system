@@ -1,14 +1,17 @@
 import { Declaration, Root } from "postcss"
 import postcssValueParser from "postcss-value-parser"
-import { cssStandardFunctions } from "../util/cssStandardFunctions"
-import { transformDecl } from "../util/functionTransformer"
-import { kaizenTokensByName } from "../util/kaizenTokens"
 import {
   invalidRgbaUsage,
   noMatchingRgbParamsVariableMessage,
   unsupportedFunctionMessage,
 } from "../messages"
-import { Options, RuleDefinition, Variable } from "../types"
+import { CurrentKaizenToken, Options, RuleDefinition, Variable } from "../types"
+import { cssStandardFunctions } from "../util/cssStandardFunctions"
+import { transformDecl } from "../util/functionTransformer"
+import {
+  getReplacementForDeprecatedOrRemovedToken,
+  kaizenTokensByName,
+} from "../util/kaizenTokens"
 import { variablePrefixForLanguage } from "../util/utils"
 import { isVariable, parseVariable } from "../util/variableUtils"
 import { walkDeclsWithKaizenTokens } from "../util/walkers"
@@ -19,10 +22,12 @@ const containsUnmigratableFunction = (declarationValue: string) => {
   let found = false
   postcssValueParser(declarationValue).walk(node => {
     // Most CSS standard functions are allowed to contain CSS variables.
-    const allowedFunctions = new Set(cssStandardFunctions)
+    // A "-" outside brackets is also parsed as a function
+    const allowedFunctions = new Set(cssStandardFunctions).add("-")
     // SASS overloads the "saturate" function and computes it at compile time.
     // We therefore don't allow it to be used with CSS variable tokens.
     allowedFunctions.delete("saturate")
+
     if (
       node.type === "function" &&
       // assert node.value.length because value parser treats anything in brackets as a function
@@ -69,7 +74,7 @@ const parsePercentage = (value: string): number | "NaN" => {
 }
 
 /*
-  Return a replacement rgb-params variable
+  Return a replacement rgb variable
 */
 const getAndReportOnReplacementRgbParamsVariable = (
   variable: Variable,
@@ -77,43 +82,38 @@ const getAndReportOnReplacementRgbParamsVariable = (
   options: Options
 ) => {
   const variablePrefix = variablePrefixForLanguage(options.language)
+
+  // We only care about Kaizen tokens.
   if (!variable.kaizenToken) return undefined
 
-  if (!variable.kaizenToken.cssVariable) {
-    const fixedVariable =
-      kaizenTokensByName[
-        variable.kaizenToken.name.replace("kz", "kz-var") + "-rgb-params"
-      ]
-    if (!fixedVariable) {
-      options.reporter({
-        message: noMatchingRgbParamsVariableMessage(variable.kaizenToken.name),
-        node: decl,
-        autofixAvailable: false,
-      })
-      return undefined
-    }
-    if (options.fix && !isVariable(decl)) {
-      return `${variablePrefix}${fixedVariable.name}`
-    } else {
-      options.reporter({
-        message: invalidRgbaUsage(fixedVariable.name),
-        node: decl,
-        autofixAvailable: !isVariable(decl),
-      })
-    }
+  // We'll decide on what this variable should be using a series of rules, then use it as the subject for making replacements
+  let kaizenTokenSubject: CurrentKaizenToken
+
+  const replacement = getReplacementForDeprecatedOrRemovedToken(variable.name)
+  if (variable.kaizenToken.removed && replacement) {
+    kaizenTokenSubject = replacement
+  } else if (variable.kaizenToken.deprecated && replacement) {
+    kaizenTokenSubject = replacement
+  } else if (
+    !variable.kaizenToken.deprecated &&
+    !variable.kaizenToken.removed
+  ) {
+    kaizenTokenSubject = variable.kaizenToken
+  } else {
+    // Just bail if we reach here, because we couldn't decide on a kaizen token to use.
+    return undefined
   }
 
   // If the value is not like `123, 123, 123`, AND it's a CSS variable, it's not valid
   if (
-    variable.kaizenToken.cssVariable &&
-    variable.kaizenToken.cssVariable.fallback &&
-    !isRgbTriple(variable.kaizenToken.cssVariable.fallback)
+    kaizenTokenSubject.cssVariable &&
+    kaizenTokenSubject.cssVariable.fallback &&
+    !isRgbTriple(kaizenTokenSubject.cssVariable.fallback)
   ) {
-    const fixedVariable =
-      kaizenTokensByName[variable.kaizenToken.name + "-rgb-params"]
+    const fixedVariable = kaizenTokensByName[kaizenTokenSubject.name + "-rgb"]
     if (!fixedVariable) {
       options.reporter({
-        message: noMatchingRgbParamsVariableMessage(variable.kaizenToken.name),
+        message: noMatchingRgbParamsVariableMessage(kaizenTokenSubject.name),
         node: decl,
         autofixAvailable: false,
       })
@@ -242,13 +242,13 @@ export const declContainsInvalidFunctions = (
   postcssNode: Declaration,
   options: Options
 ) => {
-  let reported = 0
-  noInvalidFunctionsOnDeclaration(postcssNode, {
+  let reportedUnfixables = 0
+  noInvalidFunctionsOnDeclaration(postcssNode.clone(), {
     ...options,
-    fix: false,
-    reporter: () => {
-      reported++
+    fix: true,
+    reporter: opts => {
+      if (!opts.autofixAvailable) reportedUnfixables++
     },
   })
-  return reported > 0
+  return reportedUnfixables > 0
 }

@@ -6,7 +6,7 @@ export const unnecessaryKaizenImport = (path: string) =>
 export const deprecatedTokenUsageMessage = (oldName: string, newName: string) =>
   `Deprecated Kaizen token "${oldName}" should be migrated to "${newName}"`
 export const invalidRgbaUsage = (replacementVariable: string) =>
-  `Invalid parameter to rgba or add-alpha function. Expected '-rgb-params' suffixed replacement: ${replacementVariable}`
+  `Invalid parameter to rgba or add-alpha function. Expected '-rgb' suffixed replacement: ${replacementVariable}`
 
 export const negatedKaizenVariableMessage =
   "Negated Kaizen Variable. You must use calc() if you want to perform operations on them."
@@ -18,7 +18,7 @@ export const kaizenVariableUsedNextToOperatorMessage =
   "Kaizen variable used next to math operator"
 
 export const noMatchingRgbParamsVariableMessage = (tokenName: string) =>
-  `No matching -rgb-params variable found for ${tokenName}`
+  `No matching -rgb variable found for ${tokenName}`
 
 export const invalidEquationContainingDeprecatedTokenMessage =
   "Equation contains a deprecated Kaizen token"

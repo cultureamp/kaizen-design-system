@@ -2,7 +2,11 @@ import nanomemoize from "nano-memoize"
 import { ChildNode, Container, Declaration, Root } from "postcss"
 import postcssValueParser, { WordNode } from "postcss-value-parser"
 import { KaizenToken, ParsedKaizenVariable, Variable } from "../types"
-import { kaizenTokensByName } from "./kaizenTokens"
+import {
+  getReplacementForDeprecatedOrRemovedToken,
+  isKaizenTokenDeprecated,
+  kaizenTokensByName,
+} from "./kaizenTokens"
 import { sassInterpolationPattern } from "./patterns"
 import { walkVariablesOnValue } from "./walkers"
 
@@ -37,11 +41,13 @@ export const parseVariable = (node: WordNode): Variable | null => {
   const firstChar = cleanedValue[0]
   if (firstChar === "@" || firstChar === "$") {
     const name = cleanedValue.substr(1)
+
+    const foundKaizenToken = kaizenTokensByName[name]
     return {
       name,
       nameWithPrefix: cleanedValue,
       prefix: firstChar,
-      kaizenToken: kaizenTokensByName[name],
+      kaizenToken: foundKaizenToken,
       interpolated,
       negated,
       node,

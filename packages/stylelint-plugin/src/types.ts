@@ -19,15 +19,36 @@ export type Options = {
   reporter: Reporter
 }
 
-export type KaizenToken = {
+/** Represents a Kaizen token that isn't deprecated or removed; a perfectly valid and guilt free token */
+export type CurrentKaizenToken = {
   name: string
   sassModulePath: string
   lessModulePath: string
   value: string
   moduleName: string
   cssVariable?: CSSVariable
-  deprecated: boolean
+  deprecated: false
+  removed: false
 }
+
+/**  Represents a Kaizen token that is deprecated, but still exists. */
+export type DeprecatedKaizenToken = CurrentKaizenToken & {
+  deprecated: true
+  removed: false
+}
+
+/** Represents a Kaizen token that is both removed/non-existent and deprecated.
+ * We can't do much with these because we don't know anything about them apart from their name and a potential replacement. */
+export type RemovedKaizenToken = {
+  name: string
+  deprecated: true
+  removed: true
+}
+
+export type KaizenToken =
+  | CurrentKaizenToken
+  | DeprecatedKaizenToken
+  | RemovedKaizenToken
 
 export type CSSVariable = {
   identifier: string
