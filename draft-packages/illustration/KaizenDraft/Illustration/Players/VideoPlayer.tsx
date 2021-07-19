@@ -111,11 +111,12 @@ export const VideoPlayer = ({
       data-testid="kz-video-player"
       className={styles.wrapper}
       loop={loop}
-      poster={assetUrl(fallback)}
+      poster={assetUrl(`${fallback}.png`)}
       autoPlay={prefersReducedMotion ? false : autoplay}
       playsInline={true}
     >
-      <source src={assetUrl(ambientAnimation)} type="video/webm" />
+      <source src={assetUrl(`${ambientAnimation}.webm`)} type="video/webm" />
+      <source src={assetUrl(`${ambientAnimation}.mp4`)} type="video/mp4" />
     </video>
   )
 }

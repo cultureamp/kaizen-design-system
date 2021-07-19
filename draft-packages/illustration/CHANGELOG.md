@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.1.6...@kaizen/draft-illustration@2.2.0) (2021-07-19)
+
+
+### Features
+
+* Add mp4 fallbacks to animated illustrations ([#1770](https://github.com/cultureamp/kaizen-design-system/issues/1770)) ([9c819a2](https://github.com/cultureamp/kaizen-design-system/commit/9c819a23445a5fdcd18661b8f688868e9d18b7e3))
+
+
+
+
+
 ## [2.1.6](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-illustration@2.1.5...@kaizen/draft-illustration@2.1.6) (2021-07-16)
 
 **Note:** Version bump only for package @kaizen/draft-illustration
