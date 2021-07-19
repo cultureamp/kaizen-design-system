@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.3](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.5.2...@kaizen/draft-avatar@1.5.3) (2021-07-19)
+
+
+### Bug Fixes
+
+* remove loading state if avatar is already loaded ([#1772](https://github.com/cultureamp/kaizen-design-system/issues/1772)) ([545a958](https://github.com/cultureamp/kaizen-design-system/commit/545a95888bb80b320e54df3ac16b5ad9e8bf7482))
+
+
+
+
+
 ## [1.5.2](https://github.com/cultureamp/kaizen-design-system/compare/@kaizen/draft-avatar@1.5.1...@kaizen/draft-avatar@1.5.2) (2021-07-16)
 
 **Note:** Version bump only for package @kaizen/draft-avatar

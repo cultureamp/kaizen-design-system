@@ -1,6 +1,6 @@
 {
   "name": "@kaizen/draft-avatar",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "The draft avatar component",
   "scripts": {
     "prepublish": "tsc --project tsconfig.dist.json",
