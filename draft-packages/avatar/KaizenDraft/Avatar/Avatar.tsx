@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import cx from "classnames"
 import { Icon } from "@kaizen/component-library"
 import { Textfit } from "react-textfit"
@@ -63,6 +63,7 @@ export const Avatar = ({
   const [avatarState, setAvatarState] = useState<
     "none" | "error" | "loading" | "success"
   >(avatarSrc ? "loading" : "none")
+  const image = useRef<HTMLImageElement>(null)
 
   useEffect(() => {
     setAvatarState(avatarSrc ? "loading" : "none")
@@ -73,6 +74,11 @@ export const Avatar = ({
 
   const onImageFailure = () => setAvatarState("error")
   const onImageSuccess = () => setAvatarState("success")
+
+  // if the image is cached onLoad may not trigger: https://stackoverflow.com/a/59809184
+  useEffect(() => {
+    if (image?.current?.complete) onImageSuccess()
+  }, [image])
 
   const fallbackIcon = (
     <span className={styles.fallbackIcon}>
@@ -91,6 +97,7 @@ export const Avatar = ({
     >
       {avatarState !== "none" && (
         <img
+          ref={image}
           className={styles.avatarImage}
           src={avatarSrc}
           onError={onImageFailure}
