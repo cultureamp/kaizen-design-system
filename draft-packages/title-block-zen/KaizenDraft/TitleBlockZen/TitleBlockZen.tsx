@@ -214,11 +214,16 @@ const renderTag = (surveyStatus: SurveyStatus) => {
   )
 }
 
+const isJSXElement = (
+  imageElementOrAvatarProps: JSX.Element | AvatarProps
+): imageElementOrAvatarProps is JSX.Element =>
+  "props" in imageElementOrAvatarProps
+
 const renderAvatar = (
   imageElementOrAvatarProps: JSX.Element | AvatarProps,
   avatarAutomationId: string
 ) =>
-  (imageElementOrAvatarProps as JSX.Element).props !== undefined ? (
+  isJSXElement(imageElementOrAvatarProps) ? (
     <div
       data-automation-id={avatarAutomationId}
       className={classNames(styles.avatar, styles.withBorder)}
